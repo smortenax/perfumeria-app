@@ -19,7 +19,7 @@ llevan estos archivos a la carpeta `datos/` del proyecto de la app:
 | [`materias-primas/_datos/niveles-de-uso.csv`](../materias-primas/_datos/niveles-de-uso.csv) | Poder olfativo, consenso y dosis recomendada por material |
 | [`materias-primas/_datos/limites-de-uso.csv`](../materias-primas/_datos/limites-de-uso.csv) | Rangos del proveedor, con su base y su naturaleza (*no es IFRA*) |
 | [`vistas/inventario.csv`](../vistas/inventario.csv) | Los materiales y sus frascos, generado desde las fichas |
-| [`conocimiento/fig/glosario-fig.csv`](../conocimiento/fig/glosario-fig.csv) | Descriptores oficiales IFRA FIG por CAS |
+| [`conocimiento/lenguaje/fig/glosario-fig.csv`](../conocimiento/lenguaje/fig/glosario-fig.csv) | Descriptores oficiales IFRA FIG por CAS |
 
 Lo hace el exportador, que copia `app/` entera y esos archivos al destino:
 

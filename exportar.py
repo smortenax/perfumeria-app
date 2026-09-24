@@ -17,7 +17,7 @@ DATOS = [
     "materias-primas/_datos/niveles-de-uso.csv",
     "materias-primas/_datos/limites-de-uso.csv",
     "vistas/inventario.csv",
-    "conocimiento/fig/glosario-fig.csv",
+    "conocimiento/lenguaje/fig/glosario-fig.csv",
 ]
 
 
