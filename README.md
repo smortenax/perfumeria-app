@@ -6,6 +6,7 @@ laboratorio, y viven centralizadas en esta carpeta para llevarlas de una vez.
 | | |
 |---|---|
 | 📐 **[Decisiones](decisiones.md)** | Lo ya decidido sobre cómo debe comportarse la herramienta: las tres reglas que no se negocian, los límites por sustancia, la dilución como estado del material, los IFRA de fuente primaria. **Se lee antes de tocar la app** |
+| 🗂️ [Antecedentes](antecedentes/README.md) | Todo lo escrito sobre la app entre agosto y septiembre, **guardado y no vinculante**: brief, Formulair, dominio, motor, lenguaje visual. Se contradice; de ahí se extrae la intención |
 | 🧪 [Banco de Formulación](../herramientas/README.md) | El prototipo actual, en `herramientas/`: un HTML autónomo que el usuario usa a diario |
 
 ## Qué se exporta y adónde
