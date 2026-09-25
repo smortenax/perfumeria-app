@@ -12,7 +12,7 @@ corrige.
 Cuando las rondas R1 a R4 estén cerradas, lo decidido pasa a [`decisiones.md`](decisiones.md)
 como v3. Los [antecedentes](antecedentes/README.md) no obligan a nada.
 
-Última sesión: 2026-09-25 (rondas 1 a 6)
+Última sesión: 2026-09-25 (rondas 1 a 7)
 
 ---
 
@@ -500,6 +500,102 @@ Respuesta literal, completa:
 
 ---
 
+## Ronda 7 — Formato de guardado, «guardar como», y un ejecutable propio
+
+*Preguntas presentadas: P18 (formato de guardado), P19 (el recipiente al «guardar como»),
+P20 (el historial al «guardar como»). El usuario abrió además la pregunta de hacer la app
+como ejecutable propio: P21.*
+
+Respuesta literal, completa:
+
+> *«p18*
+> *propongo ya que se mire la creacion de app rpopiamente no quiero que se abra con chrome de momento sino que lo que se diseñe sea ejecutable independiente, esto vale la pena y es factible hacerlo? creo que empeora las cosas de exportacion a movil o de uso como app en general. que funcione como formulair para cuandoe ste en el movil*
+> *en cuanto a lo que se almacena, hay que recordar que la formula tiene que contener los valores como cambio hitstorial y todas esas variables cuando se abre como formula, cuando se importa desde el buscador a otra formula para usarse como material (conjunto de materiales) tiene que resolverse toda esa informacion es importante que no de problemas por ejemplo si intento juntar un acorde como formula en otro proyecto, y sobretodo es muy importante que al añadir la formula como material lo unico que se conserva son la vectorizacion de la formula, es decir la concentracion de todos los materiales (diluyentes incluidos) en la formula que se esta importando. de ahi propongo una material ID para todas las formulas que sean lo que manda en la importacion parecido al codigo que hacia antes de los materiales que la componenen y sus porcentajes*
+> *p19 b*
+> *p20 b»*
+
+### P18 — Qué se guarda y qué viaja
+- Opciones presentadas: A) CSV · B) JSON, un archivo por fórmula · C) SQLite
+- Recomendación: B
+- Respuesta: **B, no discutida; y la distinción entre lo que se guarda y lo que viaja**
+- **Lectura:**
+  1. **Abierta como fórmula, lo guarda todo**: historial de cambios y todas sus variables
+     (nombre, recipiente y tara, lotes, notas).
+  2. **Importada como material, solo viaja su vector**: la concentración de cada material,
+     **diluyentes incluidos**. Nada de historial, tara, lotes ni notas.
+  3. **Cada fórmula tiene un ID de material**, y **ese ID es lo que manda al importar**: el
+     vector, con el formato de código de P9.
+  4. **La importación no puede fallar.** Un acorde traído a otro proyecto se resuelve
+     entero.
+- ⚠️ **Consecuencias:**
+  - **Si el ID se calcula a partir del vector**, dos composiciones idénticas dan el mismo ID,
+    y cualquier edición da un ID nuevo. **«Los materiales no cambian» (P1) sale por
+    construcción**: lo que importaste ayer sigue siendo ese vector aunque la fórmula cambie
+    hoy. Hay precedente en [`05-libreria-global-e-intercambio.md`](antecedentes/formulacion/05-libreria-global-e-intercambio.md) §2.
+  - **El vector guarda proporciones exactas, no porcentajes redondeados.** El % es solo cómo
+    se muestra. Es la regla del Banco v2, «las bases no pierden decimales»: un componente
+    de 1,2 µg tiene que seguir siéndolo.
+  - **Para viajar completo, cada componente tiene que poder resolverse en destino.** Los de
+    la base, por CAS. Los propios (una tintura) y los provisionales **llevan dentro su
+    definición**; si no, al llegar serían desconocidos.
+- Fecha: 2026-09-25
+- Estado: cerrada · lectura por confirmar
+- Destino: decisiones.md
+
+### P19 — El recipiente al «guardar como»
+- Opciones presentadas: A) la variación nunca hereda el recipiente · B) pregunta «¿mismo recipiente?» · C) las dos conservan el recipiente
+- Recomendación: B
+- Respuesta: **B**
+- **Lectura:** al «guardar como», la app pregunta si la variación **sigue en el mismo vial**.
+  Si sigue, el recipiente pasa a la variación y la original queda como **receta sin vial**,
+  que ya no se reabre pesando. Si no, pide la tara nueva.
+- Fecha: 2026-09-25
+- Estado: cerrada
+- Destino: decisiones.md
+
+### P20 — El historial al «guardar como»
+- Opciones presentadas: A) empieza vacía · B) se lleva una copia del historial · C) vacía con nota «partió de X»
+- Recomendación: B
+- Respuesta: **B**
+- **Lectura:** la variación **se lleva una copia del historial** hasta ese momento y desde ahí
+  sigue sola. Es una copia, no un vínculo, así que respeta P15.
+- Fecha: 2026-09-25
+- Estado: cerrada
+- Destino: decisiones.md
+
+### P21 — Un ejecutable propio *(pregunta del usuario)*
+- Abierta por: el usuario, en su respuesta a P18
+- **Lo que pide:** que la app **no se abra con el navegador**, sino que sea **un ejecutable
+  independiente**. Y, en el móvil, que funcione **como Formulair**. Pregunta si vale la pena,
+  si es factible, y si complica el paso al móvil.
+- **Evaluación:** sí es factible y vale la pena, **con Tauri 2**:
+  - es un instalador `.exe` propio, de unos 5-10 MB, con ventana e icono propios, sin
+    navegador a la vista;
+  - la interfaz se escribe con tecnología web, así que **se aprovecha el Banco**, y el SVG de
+    las infografías futuras encaja sin esfuerzo;
+  - lee y escribe archivos del disco sin permisos del navegador;
+  - **la misma base de código compila para Android e iOS**. No empeora el paso al móvil: lo
+    prepara.
+- **Límites, dichos claramente:**
+  - en Windows, Tauri dibuja con WebView2, **el mismo motor que Edge**, pero integrado: no
+    se abre ningún navegador;
+  - en el móvil, la interfaz vive dentro de un contenedor nativo. Se acerca mucho a una app
+    nativa, pero no es SwiftUI, que es con lo que está hecho Formulair;
+  - **iOS solo se compila en un Mac con Xcode**. Android se compila desde Windows.
+- **Alternativas descartadas:**
+  - una app web instalable (PWA): por debajo sigue siendo el navegador, y en iPhone guarda
+    peor;
+  - Electron: ocupa unos 120 MB y no llega al móvil;
+  - nativo por plataforma: Swift perdería Windows, y Flutter obliga a rehacer todo en otro
+    lenguaje y es peor para las infografías SVG.
+- Fuentes: [requisitos de Tauri 2](https://v2.tauri.app/start/prerequisites/),
+  [Tauri 2.0 estable](https://v2.tauri.app/blog/tauri-20/),
+  [instalador de Windows](https://v2.tauri.app/distribute/windows-installer/).
+- Estado: abierta · esperando confirmación y el sistema del móvil (P22)
+- Destino: decisiones.md
+
+---
+
 ## Estado
 
 | Ronda | Cerradas | Abiertas | Siguiente |
@@ -510,5 +606,8 @@ Respuesta literal, completa:
 | R4 · Código de material, receta o mezcla, buscador | 3 (P9, P10, P11) | 0 | — |
 | R5 · Reabrir, IFRA sobre producto final, dónde se usa | 3 (P12, P13, P14) | 0 | — |
 | R6 · Organización, guardado, lecturas de IFRA | 3 (P15, P16, P17) | 0 | — |
-| R7 · Formato de guardado, «guardar como» | 0 | 3 (P18, P19, P20) | P18 |
-| R8 · Lo aplazado (incluye el *play* del historial y el glosario visual) | 0 | — | — |
+| R7 · Formato, «guardar como», ejecutable | 3 (P18, P19, P20) | 1 (P21) | P21 |
+| R8 · Móvil | 0 | 1 (P22) | P22 |
+
+**Después:** consolidar en `decisiones.md` v3, con todas las lecturas para revisarlas de una
+vez, y el plan de pasos.
