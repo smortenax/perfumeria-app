@@ -10,13 +10,13 @@ Actualizado: **2026-09-25**
 
 ## Cómo se trabaja
 
-- **El código vive en `app/`, en este repositorio.** Que la app funcione sola no la obliga a
-  tener repositorio propio. Si se publica como producto, se separa con `git subtree split`,
-  que conserva la historia.
+- **La app tiene su propio repositorio, este**, separado del laboratorio desde el
+  2026-09-25, con la historia de sus documentos. Así el contexto de trabajo, la memoria y el
+  historial de Git de la app no se mezclan con los del laboratorio. Del laboratorio solo
+  llegan datos (fase 3) y la bandeja de entradas (ver `CLAUDE.md`).
 - **Código e identificadores, en inglés. La interfaz, en español**, desde un archivo de
   textos, para poder traducirla si llega a producto. La documentación, en español.
-- **Cada fase acaba en algo comprobable**, y cada paso se sube con su commit, como el resto
-  del repositorio.
+- **Cada fase acaba en algo comprobable**, y cada paso se sube con su commit.
 - **Primero el núcleo, con pruebas; después las pantallas.** Si el cálculo falla una vez, la
   app deja de merecer confianza.
 
@@ -39,13 +39,10 @@ Actualizado: **2026-09-25**
 
   **WebView2 ya está instalado** (versión 153).
 - [ ] `tauri info`, sin errores.
-- [ ] **El proyecto Tauri 2 en `app/`**: la interfaz, con TypeScript, React y Vite, que es la
-  plantilla oficial; y `src-tauri/`.
-- [ ] **Higiene del repositorio:**
-  - `.gitignore` para `node_modules/` y `target/`;
-  - que Obsidian ignore el código (`userIgnoreFilters`, con Obsidian cerrado);
-  - que el comprobador de enlaces salte el código;
-  - un `app/CLAUDE.md` con las reglas de desarrollo.
+- [x] **Repositorio propio**, `perfumeria-app`, con `CLAUDE.md`, `.gitignore` y los
+  documentos en `docs/` (2026-09-25).
+- [ ] **El proyecto Tauri 2 en este repositorio**: la interfaz, con TypeScript, React y
+  Vite, que es la plantilla oficial; y `src-tauri/`.
 - **Sale:** `npm run tauri dev` abre la ventana de la app, y `tauri build` genera un
   instalador.
 
@@ -63,7 +60,7 @@ TypeScript puro, con pruebas automáticas:
 - [ ] **Reabrir pesando**, y **guardar y leer JSON**.
 - [ ] **Pruebas de referencia.** Se adaptan las de
   [`03-motor-de-calculo.md`](antecedentes/formulacion/03-motor-de-calculo.md) §8, más estas:
-  - [F-001-v1](../formulas/f-001-lejia/v1.md) reproducida al miligramo;
+  - [F-001-v1](https://github.com/smortenax/perfumeria-lab/blob/master/formulas/f-001-lejia/v1.md) reproducida al miligramo;
   - cumarina del frasco más la tintura sin dato: aviso, nunca verde;
   - una fórmula importada, exacta al µg;
   - escalar ×3 y ×⅓ vuelve al original sin perder nada.
@@ -74,13 +71,14 @@ TypeScript puro, con pruebas automáticas:
 Trabajo de lectura: subagentes Sonnet de uno en uno, y revisión por partes.
 
 - [ ] **D1 · IFRA de los 216 estándares por CAS**, en categoría 4, con el método de
-  [la investigación del 23-09](../fuentes/investigaciones/2026-09-23-niveles-de-uso-y-los-216-estandares.md).
+  [la investigación del 23-09](https://github.com/smortenax/perfumeria-lab/blob/master/fuentes/investigaciones/2026-09-23-niveles-de-uso-y-los-216-estandares.md).
 - [ ] **D2 · Constituyentes regulados y alérgenos, con su %,** de los naturales de la
   paleta: citral en la litsea, cumarina en la tonka, etc. Fuente y confianza por dato; lo que
   no se sepa, hueco.
 - [ ] **D3 · La base:** el glosario FIG (3119) + los 54 materiales del laboratorio + IFRA
-  por CAS. Un generador en `app/`, heredero de [`exportar.py`](exportar.py), produce el
-  **paquete de datos versionado**.
+  por CAS. Un generador en `scripts/`, sobre lo que ya trae
+  [`importar_datos.py`](../scripts/importar_datos.py), produce el **paquete de datos
+  versionado**.
 - **Sale:** la app carga el paquete sin red, y dice su versión y su fecha.
 
 ## Fase 4 · El banco
@@ -133,4 +131,4 @@ Trabajo de lectura: subagentes Sonnet de uno en uno, y revisión por partes.
   que BlueStacks, que está pensado para juegos. **iOS necesita un Mac** para probarse en el
   iPhone y para publicar.
 - **Glosario visual y *play* del historial**: la línea paralela.
-- **Producto:** repositorio propio, licencias de los datos antes de distribuir, publicación.
+- **Producto:** licencias de los datos antes de distribuir, y publicación.

@@ -60,7 +60,7 @@ como v3. Los [antecedentes](antecedentes/README.md) no obligan a nada.
      IFRA, materiales, niveles de uso.
   2. El repositorio es **la fuente de la que se alimenta**. Los datos de referencia se
      importan del repositorio como un **paquete de datos versionado**. Es lo que ya hace
-     [`exportar.py`](exportar.py), convertido en paso de construcción.
+     [`exportar.py`](../scripts/importar_datos.py), convertido en paso de construcción.
   3. **Autonomía de ejecución no es un repositorio aparte.** El código puede seguir en
      `app/`: lo que no puede hacer la app es necesitar el repositorio para funcionar.
   4. **Queda abierto (P5):** una vez autónoma, dónde se dan de alta los frascos y
@@ -147,10 +147,10 @@ Respuesta literal, completa:
      queda abierto en P9; hay precedente en
      [`05-libreria-global-e-intercambio.md`](antecedentes/formulacion/05-libreria-global-e-intercambio.md) §2.
 - ⚠️ **Consecuencia:** hoy IFRA está transcrito solo para los **54 materiales de la paleta**
-  ([`ifra-cat4.csv`](../conocimiento/normativa/ifra-cat4.csv)). Para que la biblioteca sea el
+  ([`ifra-cat4.csv`](https://github.com/smortenax/perfumeria-lab/blob/master/conocimiento/normativa/ifra-cat4.csv)). Para que la biblioteca sea el
   glosario entero (3119 ingredientes por CAS), hace falta **una tabla de los 216
   estándares por CAS**, en categoría 4. Es trabajo de datos, con el método ya escrito en
-  [la investigación de los 216 estándares](../fuentes/investigaciones/2026-09-23-niveles-de-uso-y-los-216-estandares.md).
+  [la investigación de los 216 estándares](https://github.com/smortenax/perfumeria-lab/blob/master/fuentes/investigaciones/2026-09-23-niveles-de-uso-y-los-216-estandares.md).
   Y para los naturales, los constituyentes siguen siendo el hueco de P3.
 - Estado: abierta en parte. Queda qué se trae del repositorio y qué vuelve (ronda 4)
 - Destino: decisiones.md

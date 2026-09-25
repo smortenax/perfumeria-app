@@ -12,12 +12,13 @@ texto de esta carpeta es una decisión**.
 > Ejemplo de por qué: [las entradas de agosto](formulacion/entradas-para-decisiones-app.md)
 > aplazaban IFRA porque no había fuente, y el [motor de cálculo](formulacion/03-motor-de-calculo.md)
 > prohibía cargar datos IFRA. **Hoy la fuente existe y es primaria**
-> ([`ifra-cat4.csv`](../../conocimiento/normativa/ifra-cat4.csv)).
+> ([`ifra-cat4.csv`](https://github.com/smortenax/perfumeria-lab/blob/master/conocimiento/normativa/ifra-cat4.csv)).
 
 ## Formulación — el foco actual
 
 | | |
 |---|---|
+| [Banco de Formulación v2](banco-v2/README.md) | El prototipo HTML que el usuario usa a diario, copiado como referencia de concepto |
 | [Decisiones v2](decisiones-v2-2026-09-23.md) | La versión del 23-09, archivada al pasar a la v3. Lo vigente sigue en la v3 |
 | [Brief de agosto](formulacion/00-brief-agosto-ex-claude-md.md) | Era el `CLAUDE.md` de un proyecto aparte. **Renombrado a propósito**: con su nombre original, Claude Code lo leería como instrucciones |
 | [01 · Formulair](formulacion/01-referente-formulair.md) | El referente: qué hace, su modelo de datos y su motor |

@@ -1,34 +1,30 @@
-# App — lo que se exporta al proyecto de la aplicación
+# perfumeria-app
 
-La app es un **proyecto paralelo**: sus decisiones nacen aquí, al trabajar en el
-laboratorio, y viven centralizadas en esta carpeta para llevarlas de una vez.
+App de **formulación de perfumería**: formular, documentar cada fórmula con su historia y
+comprobar IFRA por sustancia, **sin conexión**. Primero un ejecutable de Windows (Tauri 2);
+el móvil, después.
 
 | | |
 |---|---|
-| 📐 **[Decisiones](decisiones.md)** | **v3, 2026-09-25, en revisión.** Qué es la app y cómo se comporta: materiales como vectores, fórmulas editables, IFRA por sustancia con dos lecturas, ejecutable propio con Tauri 2. **Se lee antes de tocar la app** |
-| 🗺️ **[Plan de desarrollo](plan-desarrollo.md)** | El orden de trabajo, de preparar el ordenador al ejecutable de Windows, y cuándo está lista la formulación |
-| ❓ **[Interrogatorio](interrogatorio.md)** | **La intención de la app, pregunta a pregunta.** Rondas de tres, empezando por la formulación. Lo cerrado aquí pasa a las decisiones |
-| 🗂️ [Antecedentes](antecedentes/README.md) | Todo lo escrito sobre la app entre agosto y septiembre, **guardado y no vinculante**: brief, Formulair, dominio, motor, lenguaje visual. Se contradice; de ahí se extrae la intención |
-| 🧪 [Banco de Formulación](../herramientas/README.md) | El prototipo actual, en `herramientas/`: un HTML autónomo que el usuario usa a diario |
+| 📐 **[Decisiones](docs/decisiones.md)** | **Lo que manda**: qué es la app y cómo se comporta. v3, 2026-09-25 |
+| 🗺️ **[Plan de desarrollo](docs/plan-desarrollo.md)** | El orden de trabajo y cuándo está lista la formulación |
+| ❓ [Interrogatorio](docs/interrogatorio.md) | De dónde sale cada decisión, con la respuesta literal del usuario |
+| 🗂️ [Antecedentes](docs/antecedentes/README.md) | Lo escrito antes, **no vinculante**: Formulair, el primer brief, el lenguaje visual, el Banco v2 |
 
-## Qué se exporta y adónde
+## Los datos
 
-`app/` **no copia datos**: cada dato vive una vez en el repositorio. Al exportar, se
-llevan estos archivos a la carpeta `datos/` del proyecto de la app:
+**Vienen del laboratorio**, [`perfumeria-lab`](https://github.com/smortenax/perfumeria-lab), y
+los trae [`scripts/importar_datos.py`](scripts/importar_datos.py) a `datos/fuente/`, con un
+`procedencia.json` que dice **de qué commit** salen. **No se editan a mano.**
 
-| Archivo del repositorio | Qué es para la app |
+| Archivo | Qué es para la app |
 |---|---|
-| [`conocimiento/normativa/ifra-cat4.csv`](../conocimiento/normativa/ifra-cat4.csv) | IFRA: techo de categoría 4, tipo de estándar, condiciones y constituyentes regulados. **La única fuente de IFRA** |
-| [`materias-primas/_datos/niveles-de-uso.csv`](../materias-primas/_datos/niveles-de-uso.csv) | Poder olfativo, consenso y dosis recomendada por material |
-| [`materias-primas/_datos/limites-de-uso.csv`](../materias-primas/_datos/limites-de-uso.csv) | Rangos del proveedor, con su base y su naturaleza (*no es IFRA*) |
-| [`vistas/inventario.csv`](../vistas/inventario.csv) | Los materiales y sus frascos, generado desde las fichas |
-| [`conocimiento/lenguaje/fig/glosario-fig.csv`](../conocimiento/lenguaje/fig/glosario-fig.csv) | Descriptores oficiales IFRA FIG por CAS |
+| `ifra-cat4.csv` | IFRA: techo de categoría 4, tipo de estándar, condiciones y constituyentes regulados. **La única fuente de IFRA** |
+| `niveles-de-uso.csv` | Poder olfativo, consenso y dosis recomendada por material |
+| `limites-de-uso.csv` | Rangos del proveedor, con su base y su naturaleza: **no es IFRA** |
+| `inventario.csv` | Los materiales del laboratorio, generado desde sus fichas |
+| `glosario-fig.csv` | Descriptores oficiales IFRA FIG por CAS |
 
-Lo hace el exportador, que copia `app/` entera y esos archivos al destino:
+🔴 **La regla 1.1 —todo número con su base— vale igual para los CSV.**
 
-```
-python app/exportar.py RUTA_DEL_PROYECTO_DE_LA_APP
-```
-
-🔴 **Antes de exportar**, regenerar las vistas (el inventario sale de las fichas) y leer
-las decisiones: la regla 1.1 —todo número con su base— vale igual para los CSV.
+**Estado:** fase 1, preparar el ordenador y el esqueleto de Tauri.

@@ -179,10 +179,10 @@ de trabajo:
 
 ## 2.3 · La app lleva los IFRA reales, de fuente primaria
 
-**La fuente es [`conocimiento/normativa/ifra-cat4.csv`](../../conocimiento/normativa/ifra-cat4.csv)**:
+**La fuente es [`conocimiento/normativa/ifra-cat4.csv`](https://github.com/smortenax/perfumeria-lab/blob/master/conocimiento/normativa/ifra-cat4.csv)**:
 una fila por material de la paleta, con su estado, el techo de **categoría 4** en % del
 producto terminado, el estándar, **la URL de su PDF**, la enmienda, las condiciones y los
-constituyentes regulados. Cómo se lee, en su [README](../../conocimiento/normativa/README.md).
+constituyentes regulados. Cómo se lee, en su [README](https://github.com/smortenax/perfumeria-lab/blob/master/conocimiento/normativa/README.md).
 
 | | |
 |---|---|
@@ -195,7 +195,7 @@ constituyentes regulados. Cómo se lee, en su [README](../../conocimiento/normat
 > categoría»*. **Ahora es solo la 4**: el laboratorio hace perfume de piel y las otras
 > diecisiete son ruido en la mesa de trabajo. **No se ha perdido nada:** la transcripción
 > completa de las 18 está archivada en
-> [`fuentes/investigaciones/2026-09-23-ifra-18-categorias.csv`](../../fuentes/investigaciones/2026-09-23-ifra-18-categorias.csv),
+> [`fuentes/investigaciones/2026-09-23-ifra-18-categorias.csv`](https://github.com/smortenax/perfumeria-lab/blob/master/fuentes/investigaciones/2026-09-23-ifra-18-categorias.csv),
 > y cada fila de la fuente enlaza el PDF de su estándar. **Elegir categoría pasa de
 > requisito a posibilidad futura.**
 

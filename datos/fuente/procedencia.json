@@ -1,0 +1,29 @@
+{
+  "laboratorio": "https://github.com/smortenax/perfumeria-lab",
+  "commit": "336de5c5523f1bf7dc14fb840ccf40fb9a45f2c2",
+  "fecha_commit": "2026-09-25T19:38:56+02:00",
+  "cambios_sin_commit": false,
+  "importado": "2026-09-25T17:47:57+00:00",
+  "archivos": {
+    "ifra-cat4.csv": {
+      "origen": "conocimiento/normativa/ifra-cat4.csv",
+      "sha256": "0417746a165ddbdcaa9549e6b5e896dbc17fba661efd8c9e609ff9a14fc5ccd5"
+    },
+    "niveles-de-uso.csv": {
+      "origen": "materias-primas/_datos/niveles-de-uso.csv",
+      "sha256": "000d181dada03c5a8f60235852b240222f8ba3ff3f2b82ba2520c95df6388c8d"
+    },
+    "limites-de-uso.csv": {
+      "origen": "materias-primas/_datos/limites-de-uso.csv",
+      "sha256": "71b7637d8e424785bd14627a1cdcc69aa2fbe69ed1ef8a156d08301e4549aa3e"
+    },
+    "inventario.csv": {
+      "origen": "vistas/inventario.csv",
+      "sha256": "5791426d51be98f5df1a34319134694a59859db7d7584549d25fbd3fa1eb04cf"
+    },
+    "glosario-fig.csv": {
+      "origen": "conocimiento/lenguaje/fig/glosario-fig.csv",
+      "sha256": "5adb1cfa772ae65010f87bab203bacc3bc15eeca2d2c5880b7a6cedce7b177b1"
+    }
+  }
+}

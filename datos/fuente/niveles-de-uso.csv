@@ -1,0 +1,55 @@
+id,nombre,piso,poder_olfativo,consenso_pct_concentrado,recomendacion_pct_concentrado,g_materia_pura_en_lote_10g,frasco_a_usar,pct_del_frasco,g_de_solucion_a_pesar,confianza
+MAT-bergamota-sin-bergaptenos,Bergamota sin bergaptenos,salida,medio-alto,3–10 %,"5,000","0,12500",puro,"100,00","0,125",media
+MAT-dihydromyrcenol,Dihydromyrcenol,salida,alto,1–10 % · proveedor hasta 75 %,"3,000","0,07500",10 % DPG (kit),"10,00","0,750",alta
+MAT-lavanda,Lavanda,salida,alto,1–10 %,"3,000","0,07500",puro,"100,00","0,075",media
+MAT-limon,Limon,salida,medio-alto,2–10 %,"4,000","0,10000",puro,"100,00","0,100",alta
+MAT-linalol,Linalol,salida,medio,1–20 %,"5,000","0,12500",50 % DPG,"50,00","0,250",alta
+MAT-mandarina,Mandarina,salida,medio,1–10 %,"4,000","0,10000",puro,"100,00","0,100",media
+MAT-methyl-pamplemousse,Methyl Pamplemousse,salida,muy alto,"0,1–1 % · proveedor 0,1–10 %","0,300","0,00750",10 % DPG (kit),"10,00","0,075",media
+MAT-naranja-dulce,Naranja dulce,salida,medio-bajo,2–15 %,"5,000","0,12500",puro,"100,00","0,125",media
+MAT-acetato-de-bencilo,Acetato de bencilo,salida-corazon,medio-alto,1–10 %,"3,000","0,07500",puro,"100,00","0,075",media
+MAT-allyl-amyl-glycolate,Allyl Amyl Glycolate,salida-corazon,EXTREMO,"0,01–0,5 % · proveedor hasta 1 %","0,050","0,00125","0,996 % en DPG (2026-09-23)","0,996","0,126",alta
+MAT-cilantro,Cilantro,salida-corazon,medio,"0,5–3 %","1,000","0,02500",puro,"100,00","0,025",baja
+MAT-litsea-cubeba,Litsea Cubeba,salida-corazon,alto,"0,5–5 %","1,500","0,03750",puro,"100,00","0,037",media
+MAT-salvia-officinalis,Salvia Officinalis,salida-corazon,alto,"0,1–1 %","0,300","0,00750","9,96 % en DPG (2026-09-23)","9,96","0,075",baja
+MAT-alcohol-feniletilico,Alcohol Feniletilico,corazon,bajo (material de bloque),1–20 %,"5,000","0,12500",puro,"100,00","0,125",alta
+MAT-aldehido-alfa-amil-cinamico,Aldehido alfa-amil cinamico,corazon,medio,1–10 %,"3,000","0,07500",puro,"100,00","0,075",alta
+MAT-diphenyl-oxide,Diphenyl Oxide,corazon,muy alto,"0,1–1 % · proveedor 0,02–0,80 %","0,500","0,01250","10,00 % en DPG (2026-09-23)","10,000","0,125",media
+MAT-eugenol-98,Eugenol 98%,corazon,alto,"0,1–2 %","0,500","0,01250","10,11 % en DPG (2026-09-23)","10,110","0,124",alta
+MAT-florosa,Florosa,corazon,medio-alto,"1–10 % · proveedor 0,50–6,00 %","3,000","0,07500",puro,"100,00","0,075",media
+MAT-geraniol-98,Geraniol 98%,corazon,medio,1–10 %,"2,000","0,05000",puro,"100,00","0,050",alta
+MAT-hedione,Hedione,corazon,bajo (material de bloque),5–30 % · proveedor hasta 50 %,"10,000","0,25000",puro,"100,00","0,250",alta
+MAT-mayol,Mayol,corazon,medio,1–10 % · proveedor hasta 20 %,"3,000","0,07500",puro,"100,00","0,075",alta
+MAT-safraleine,Safraleine,corazon,muy alto,"0,1–1 % · proveedor 0,20–3,00 %","0,300","0,00750","10,13 % en DPG (2026-09-22)","10,130","0,074",media
+MAT-stemone,Stemone,corazon,muy alto,"0,1–1 % · proveedor 0,1–5 %","0,300","0,00750",10 % DPG (kit),"10,00","0,075",media
+MAT-aldehido-c14-gamma-undecalactona,Aldehido C14 (gamma-undecalactona),corazon-fondo,alto,"0,1–1 %","0,300","0,00750","9,94 % en DPG (2026-09-23)","9,940","0,075",media
+MAT-aldehido-c18-gamma-nonalactona,Aldehido C18 (gamma-nonalactona),corazon-fondo,alto,"0,05–0,5 %","0,200","0,00500","9,98 % en DPG (2026-09-23)","9,980","0,050",media
+MAT-etil-4-fenol,Etil-4-fenol,corazon-fondo,EXTREMO,"0,001–0,05 %","0,010","0,00025","1,09 % en DPG (2026-09-22)","1,090","0,023",media
+MAT-ionona-alpha,Ionona Alpha,corazon-fondo,medio-alto,"0,5–5 % · proveedor hasta 15 %","2,000","0,05000",10 % alcohol (kit),"10,00","0,500",alta
+MAT-metil-ionona-gamma,Metil ionona gamma,corazon-fondo,medio,1–10 %,"3,000","0,07500",puro,"100,00","0,075",alta
+MAT-vertenex-ptbcha,Vertenex (PTBCHA),corazon-fondo,medio,1–10 % · proveedor hasta 20 %,"3,000","0,07500",puro,"100,00","0,075",media
+MAT-absoluto-de-tabaco,Absoluto de Tabaco,fondo,alto,"0,1–1 %","0,200","0,00500",10 % DPG (kit),"10,00","0,050",baja
+MAT-esencia-de-trufa,Absoluto de trufa,fondo,sin medir,sin consenso publicado,"0,200","0,00500","9,95 % en DPG (2026-09-23) — CATA","9,950","0,050",baja
+MAT-aceite-de-cade-enebro,Aceite de cade (enebro),fondo,EXTREMO,"0,01–0,5 % · proveedor 0,001–0,03 %","0,050","0,00125","1,08 % en DPG (2026-09-22)","1,080","0,116",media
+MAT-ambar-gris-tintura,Ambar gris (tintura),fondo,bajo (es una tintura),1–5 % de la tintura,"3,000","0,07500",tintura tal cual,"100,00","0,075",baja
+MAT-ambermor,Ambermor,fondo,alto,"0,5–3 % · proveedor 0,10–2,50 %","1,000","0,02500","5,00 % en alcohol (2026-09-23)","5,000","0,500",media
+MAT-cashmeran,Cashmeran,fondo,alto,"0,1–7 % (hasta 20 % en nicho)","1,000","0,02500","50 % DPG (bloque) · 10,02 % DPG (modificador, 2026-09-23)","50,00","0,050",alta
+MAT-castoreum,Castoreum (producto al 20 %),fondo,muy alto,"0,1–1 % del producto · proveedor trazas–0,50 %","0,100","0,00050","0,976 % de absoluto en alcohol (2026-09-23)","0,976","0,051",baja
+MAT-cedro-atlas,Cedro Atlas,fondo,medio,1–10 %,"3,000","0,07500",puro,"100,00","0,075",media
+MAT-cumarina-natural,Cumarina natural,fondo,medio-alto,"0,5–3 %","1,500","0,03750","9,00 % en alcohol (2026-09-23) · o el polvo","9,000","0,417",alta
+MAT-dartanol,Dartanol,fondo,alto,"0,5–5 % · proveedor 1,00–8,00 %","2,000","0,05000",puro,"100,00","0,050",media
+MAT-ebanol,Ebanol,fondo,muy alto,"0,5–1 %","0,500","0,01250","10,05 % en DPG (2026-09-22)","10,050","0,124",alta
+MAT-ethyl-maltol,Ethyl Maltol,fondo,muy alto,"0,05–1 %","0,200","0,00500","4,99 % en DPG (2026-09-23)","4,990","0,100",alta
+MAT-ethylene-brassylate,Ethylene Brassylate,fondo,medio-bajo (bloque),"0,5–3 % · proveedor hasta 10 %","3,000","0,07500",50 % DPG,"50,00","0,150",alta
+MAT-galaxolide,Galaxolide,fondo,bajo-medio (bloque),2–10 % (hasta 30 %),"5,000","0,12500",50 % DPG,"50,00","0,250",alta
+MAT-haba-tonka-tintura,Haba tonka (tintura),fondo,bajo (es una tintura),1–5 % de la tintura,"3,000","0,07500",tintura tal cual,"100,00","0,075",baja
+MAT-iso-e-super,Iso E Super,fondo,bajo (anosmia parcial frecuente),5–30 %,"10,000","0,25000",puro,"100,00","0,250",alta
+MAT-isobutil-quinoleina-ibq,Isobutil Quinoleina (producto al 40 %),fondo,EXTREMO,"0,1–1 % de IBQ puro · proveedor 0,01–0,30 %","0,300","0,00750",40 % de IBQ — uso normal · 5 % de IBQ — traza,"40,000","0,019",media
+MAT-laudano-de-jara,Laudano de jara,fondo,muy alto,"0,1–1 % (hasta 2 %)","0,500","0,01250","19,60 % en alcohol (2026-09-23)","19,600","0,064",alta
+MAT-patchouli,Patchouli,fondo,alto,1–10 %,"2,000","0,05000",puro,"100,00","0,050",media
+MAT-polysantol,Polysantol,fondo,muy alto,1–4 % · proveedor hasta 2 %,"1,000","0,02500",10 % DPG (kit),"10,00","0,250",alta
+MAT-resinoide-benjui,Resinoide Benjui,fondo,medio,1–5 %,"2,000","0,05000",50 % DPG,"50,00","0,100",alta
+MAT-resinoide-estyrax-estoraque,Resinoide Estyrax (estoraque),fondo,alto,"0,5–3 %","1,000","0,02500",10 % DPG (kit),"10,00","0,250",alta
+MAT-sandalmysore-core,Sandalmysore Core,fondo,alto,1–5 %,"2,000","0,05000",50 % DPG,"50,00","0,100",alta
+MAT-vainillina,Vainillina,fondo,alto,"0,5–3 % (hasta 10 % gourmand)","1,000","0,02500","20,00 % en alcohol (2026-09-23) · o el polvo","20,000","0,125",alta
+MAT-vetiver,Vetiver,fondo,alto,1–5 %,"2,000","0,05000",10 % DPG (kit),"10,00","0,500",alta

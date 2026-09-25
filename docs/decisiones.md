@@ -206,7 +206,7 @@ el banco real, y se gana lo que es el propósito: **documentar**.
 | **Lote final** | Lo esperado, con el alcohol. **IFRA se mide sobre él** |
 
 **El porqué, con un caso del cuaderno.** El export del Banco de
-[F-001-v1](../formulas/f-001-lejia/v1.md) calculaba los porcentajes sobre **70 g**, un
+[F-001-v1](https://github.com/smortenax/perfumeria-lab/blob/master/formulas/f-001-lejia/v1.md) calculaba los porcentajes sobre **70 g**, un
 «final esperado» sin actualizar, en vez de sobre los **8,745 g** reales: **todos los números
 salieron ocho veces por debajo**. Lote de trabajo y lote final tienen que estar a la vista y
 ser inequívocos.
@@ -273,11 +273,11 @@ aviso de cantidad**: los materiales son vectores.
 
 *v2 §2.3.*
 
-- **La fuente es [`ifra-cat4.csv`](../conocimiento/normativa/ifra-cat4.csv)**, sacada de los
+- **La fuente es [`ifra-cat4.csv`](https://github.com/smortenax/perfumeria-lab/blob/master/conocimiento/normativa/ifra-cat4.csv)**, sacada de los
   PDF de los 216 estándares de la **51.ª enmienda** y del índice oficial por CAS.
   **Confianza alta**: es el documento de IFRA.
 - **Solo la categoría 4.** El laboratorio hace perfume de piel. Las 18 categorías están
-  archivadas en [`2026-09-23-ifra-18-categorias.csv`](../fuentes/investigaciones/2026-09-23-ifra-18-categorias.csv);
+  archivadas en [`2026-09-23-ifra-18-categorias.csv`](https://github.com/smortenax/perfumeria-lab/blob/master/fuentes/investigaciones/2026-09-23-ifra-18-categorias.csv);
   elegir otra categoría es una posibilidad futura.
 - **La enmienda va como dato.** Un techo sin versión caduca en silencio.
 
@@ -286,7 +286,7 @@ aviso de cantidad**: los materiales son vectores.
 *P5.* Hoy IFRA está transcrito solo para **los 54 materiales de la paleta**. Para que la
 base sea el glosario entero hace falta **una tabla de los 216 estándares por CAS**, en
 categoría 4. Es trabajo de datos, con el método ya escrito en
-[la investigación de los 216 estándares](../fuentes/investigaciones/2026-09-23-niveles-de-uso-y-los-216-estandares.md).
+[la investigación de los 216 estándares](https://github.com/smortenax/perfumeria-lab/blob/master/fuentes/investigaciones/2026-09-23-niveles-de-uso-y-los-216-estandares.md).
 Mientras tanto, lo que no esté en la tabla es **«sin comprobar»**, no «sin estándar».
 
 ## 5.3 · Se suma por sustancia, desde el diseño
@@ -349,7 +349,7 @@ No hay «modo acorde». Como mucho, cambia cuál de las dos se destaca.
 | **Guardar lo guarda todo** | Historial y todas las variables de la fórmula, aunque nunca se exporte (P16, P18) |
 | **Formato** | **JSON, un archivo por fórmula**: la cabecera, el historial con un cambio por línea, y la composición actual para poder leerla sin la app. Es texto: se lee, y Git ve los cambios línea a línea (P18) |
 | **Dónde** | **Archivos en el disco**, con guardado automático. **Nada depende de la memoria del navegador**, que se borra al limpiar los datos (P16, P21) |
-| **Datos de referencia** | Un **paquete versionado**, generado desde el repositorio e incluido en la app: IFRA, glosario, niveles de uso, constituyentes (P2) |
+| **Datos de referencia** | Un **paquete versionado**, generado desde el repositorio del laboratorio ([`perfumeria-lab`](https://github.com/smortenax/perfumeria-lab)) e incluido en la app: IFRA, glosario, niveles de uso, constituyentes. Dice de qué commit del laboratorio sale (P2) |
 | **Vuelta al cuaderno** | **Exportar es una acción aparte**: las fórmulas a Markdown en `formulas/`, los materiales propios a CSV (P16) |
 | **Convención del cuaderno** | Markdown y CSV, **nunca `.xlsx`** (v2) |
 
@@ -380,7 +380,7 @@ No hay «modo acorde». Como mucho, cambia cuál de las dos se destaca.
 | **Umbrales de alérgenos** de la UE | La maquinaria por sustancia (§5.3); el dato es el vacío 12 |
 | **Otras categorías IFRA** | Las 18 archivadas (§5.1) |
 | **Recuperar un punto del historial** | Por evaluar (§3.4) |
-| **Producto**: publicar, licencias de los datos (IFRA, FIG) antes de distribuir, repositorio propio | El ID-vector ya sirve para compartir (§2.4) |
+| **Producto**: publicar, licencias de los datos (IFRA, FIG) antes de distribuir | El ID-vector ya sirve para compartir (§2.4). El repositorio propio ya existe (2026-09-25) |
 | **Lo que va antes del banco** | Sin diseñar (§0) |
 
 ---
