@@ -626,6 +626,20 @@ v3, un borrador que el usuario revisa de una vez, y el orden de trabajo a
 
 ---
 
+## Revisión de la v3 — §2.5
+
+> *«sobre los materiales solo hay pureza y porcentaje, si compras una dilucion y la diluyes pones el porcentaje final diluido no el de la dilucion»*
+
+- **Lectura:** un material tiene **pureza** (100 % si es puro; castoreum, 20 %). En la línea
+  se escribe **el porcentaje final de materia pura**, no el de la dilución comprada. Se
+  mantiene la regla de la v2; la propuesta de la v3 queda descartada. Un producto diluido de
+  fábrica tiene pureza; no es un material compuesto.
+- Fecha: 2026-09-25
+- Estado: cerrada
+- Destino: decisiones.md §2.3 y §2.5
+
+---
+
 ## Estado
 
 | Ronda | Cerradas | Abiertas |

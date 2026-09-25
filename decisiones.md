@@ -8,8 +8,8 @@ decisión (`P1` a `P22`), y de lo que seguía vigente de la
 
 > 🟡 **Borrador para revisar, 2026-09-25.** Muchas lecturas del interrogatorio quedaron
 > «por confirmar»; se confirman aquí, de una vez. Lo que no sea lo que el usuario quiso
-> decir se corrige en este documento, con fecha. Hay **un punto que cambia una decisión de
-> la v2** y pide confirmación expresa: [§2.5](#25--la-dilución-es-un-dato-de-la-línea-no-un-producto).
+> decir se corrige en este documento, con fecha. El punto de [§2.5](#25--la-dilución-es-un-dato-de-la-línea-no-un-producto)
+> que habría cambiado la v2 **se resolvió el mismo día: se mantiene la v2**.
 
 Actualizado: **2026-09-25**
 
@@ -104,21 +104,11 @@ menor.**
   `mat(DPG 50 % · 15932-80-6 10 % · Angelica seed absolute 20 % · Anisyl alcohol 20 %)`.
 - **IFRA se calcula siempre sobre ese desglose.** De dónde salió («Acorde de higos,
   25-09-2026») es **un dato legible aparte**, que no entra en el cálculo.
-- **Resuelve las dos capas de dilución de la v2.** Un producto que ya viene diluido de
-  fábrica es un compuesto más: el castoreum del proveedor es `mat(castoreum absoluto 20 % ·
-  disolvente 80 %)`. **No hacen falta campos de «pureza del producto».**
+- **Un producto que ya viene diluido de fábrica no es un compuesto: tiene pureza.** El
+  castoreum del proveedor es castoreum con **pureza 20 %**, y el resto es su disolvente
+  ([§2.5](#25--la-dilución-es-un-dato-de-la-línea-no-un-producto)). *Corregido el 2026-09-25: la primera redacción lo
+  trataba como compuesto.*
 
-**Por qué importa, con los casos de la paleta:**
-
-| Material | Producto del proveedor | Frasco de trabajo | **Materia real** |
-|---|---|---|---|
-| **Castoreum** | 20 % de absoluto | 0,100 g en 2,000 g | **1 % de absoluto** |
-| **IBQ** | 40 % en DPG | 0,250 g en 2,000 g | **5 % de IBQ** |
-| **Cashmeran** | 50 % en DPG | — | 50 % |
-
-Si la app guardara una sola concentración, **el castoreum al 5 % se leería como 5 % de
-absoluto, y el error sería de cinco veces**. La v2 corrigió esta misma tabla el día en que
-se escribió, y la escribía quien acababa de enunciar la regla de las tres bases.
 
 ## 2.4 · El ID de material de una fórmula es su vector
 
@@ -156,13 +146,30 @@ material propio, alguien tendría que copiarle el techo IFRA, y una copia se des
 (P6). La dilución se escribe en la línea, con memoria: sale **la última con que se usó ese
 material**, y hay **diluciones favoritas** fijadas por material (P7).
 
-> 🔴 **Por confirmar: qué porcentaje se escribe.** La v2 decidía que *«la app pide los
-> porcentajes en materia pura, y al usuario nunca se le pregunta un % del producto del
-> proveedor»*. Con el material compuesto de §2.3 cabe algo más sencillo: **se escribe lo
-> que se hizo**, el % del material elegido tal como está en su frasco, y **la app muestra
-> al lado la materia pura**, rotulada. En los dos casos nadie hace cuentas de cabeza. La
-> diferencia está en qué número teclea el usuario. **Propuesta: lo que se hizo, con la
-> materia pura siempre a la vista.** Cambia la v2 y necesita un sí expreso.
+**Qué porcentaje se escribe: la concentración final de materia pura.** Confirmado por el
+usuario el 2026-09-25: *«sobre los materiales solo hay pureza y porcentaje, si compras una
+dilucion y la diluyes pones el porcentaje final diluido no el de la dilucion»*.
+
+- **Un material tiene pureza**: cómo viene del proveedor. 100 % si es puro; castoreum,
+  20 %; IBQ, 40 %.
+- **En la línea se escribe el porcentaje final**: la concentración de materia pura en lo
+  que se vierte. Castoreum al 20 %, 0,100 g en 2,000 g: se escribe **1 %**, no 5 %.
+- **Se mantiene la regla de la v2**: al usuario nunca se le pide el % del producto del
+  proveedor. La app **no deja escribir un porcentaje mayor que la pureza**, y sabe qué
+  disolvente lleva cada adición: el del producto, si está declarado, más el diluyente
+  añadido.
+
+**Por qué importa, con los casos de la paleta:**
+
+| Material | Producto del proveedor | Frasco de trabajo | **Materia real** |
+|---|---|---|---|
+| **Castoreum** | 20 % de absoluto | 0,100 g en 2,000 g | **1 % de absoluto** |
+| **IBQ** | 40 % en DPG | 0,250 g en 2,000 g | **5 % de IBQ** |
+| **Cashmeran** | 50 % en DPG | — | 50 % |
+
+Si la app guardara una sola concentración, **el castoreum al 5 % se leería como 5 % de
+absoluto, y el error sería de cinco veces**. La v2 corrigió esta misma tabla el día en que
+se escribió, y la escribía quien acababa de enunciar la regla de las tres bases.
 
 ---
 
@@ -390,7 +397,7 @@ Se tacha, no se borra: el texto original sigue en los antecedentes.
 | ~~Stock por lotes y movimientos; alta y baja en un clic~~ | [02 §3](antecedentes/formulacion/02-dominio-y-datos.md), entradas del 11-08 | P6: sin inventario; solo se pesa al reabrir (§3.5) |
 | ~~Acordes anidados con vínculo vivo, versión fijada, ciclos, profundidad máxima~~ | 02 §1, 03 §4 | P1, P9, P18: vectores fijos (§2.4) |
 | ~~Elegir entre frascos dados de alta~~ | v2 §2.2 | P6, P7: dilución en la línea (§2.5) |
-| ~~Pedir el porcentaje en materia pura~~ *(por confirmar)* | v2 §2.2 | Propuesta de §2.5 |
+| ~~Escribir el % del producto, con la materia pura al lado~~ | Propuesta de la v3, 2026-09-25 | El usuario, el mismo día: pureza y porcentaje final (§2.5) |
 | ~~Fórmulas que solo crecen, con estados fijos~~ | Primera lectura de P1 | Corrección de P1: se editan (§3.1) |
 | ~~Descendencia entre fórmulas, árbol madre → hijas~~ | Primera lectura de P1; opción C de P15 | P15: sin dependencias (§3.2) |
 | ~~React + Postgres + servidor + Capacitor~~ | Brief §3 | P21: Tauri 2, sin servidor |
