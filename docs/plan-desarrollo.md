@@ -85,6 +85,22 @@ Trabajo de lectura: subagentes Sonnet de uno en uno, y revisión por partes.
   versionado**.
 - **Sale:** la app carga el paquete sin red, y dice su versión y su fecha.
 
+## Diseño *(en paralelo, desde el 2026-09-25)*
+
+Bocetos en HTML, fuera del código de la app: **el núcleo sigue primero**. Cada decisión pasa
+por el [interrogatorio](interrogatorio.md), desde la ronda 9, y se enseña con bocetos.
+
+- [ ] **1 · Qué manda en el banco.** P23: boceto del usuario; lectura por confirmar.
+- [ ] **2 · Dónde va cada pieza**, a tamaño real, y cómo se pliega en pantalla estrecha.
+- [ ] **3 · Las piezas con más carga:** la columna de composición, el resumen de IFRA y el
+  historial como dock.
+- [ ] **4 · El lenguaje visual:** tono, color, letra, y las señales de tipo y de estado. Con
+  las referencias del usuario.
+- [ ] **5 · Los flujos:** reabrir pesando, guardar como, material nuevo rápido.
+- [ ] **6 · Biblioteca y alta de materiales.**
+- **Sale:** un boceto del banco a tamaño real, con F-001 dentro, que el usuario da por bueno
+  antes de empezar la fase 4.
+
 ## Fase 4 · El banco
 
 - [ ] **La barra de añadir:** las cuatro zonas; el buscador con sus dos interruptores; la

@@ -12,7 +12,7 @@ corrige.
 Cuando las rondas R1 a R4 estén cerradas, lo decidido pasa a [`decisiones.md`](decisiones.md)
 como v3. Los [antecedentes](antecedentes/README.md) no obligan a nada.
 
-Última sesión: 2026-09-25 (rondas 1 a 8, cerrado)
+Última sesión: 2026-09-25 (rondas 1 a 8, la formulación, cerradas; ronda 9, el diseño, abierta)
 
 ---
 
@@ -640,10 +640,97 @@ v3, un borrador que el usuario revisa de una vez, y el orden de trabajo a
 
 ---
 
+## Ronda 9 — Diseño: qué manda en el banco
+
+*Empieza el diseño de la interfaz. Mismo método, **una decisión cada vez y con bocetos**.
+Lo que las decisiones ya fijan no se vuelve a preguntar: la barra de cuatro zonas (§4), cada
+número con su base (§1.1), lo desconocido nunca en verde y el rango del proveedor distinto de
+IFRA (§1.2, §1.3, §5.5), una señal por tipo de material (§2.1), las dos lecturas de IFRA
+(§5.4), los lotes a la vista (§3.3), un historial que sea más que una tabla (§3.4) y el
+ordenador primero, pensando en la pantalla estrecha (§0).*
+
+*Orden propuesto, en seis bloques: (1) qué manda en el banco; (2) dónde va cada pieza y cómo
+se pliega; (3) las piezas con más carga: tabla, IFRA, historial; (4) el lenguaje visual, con
+las referencias del usuario; (5) los flujos: reabrir pesando, guardar como, material nuevo
+rápido; (6) biblioteca y alta de materiales.*
+
+### P23 — ¿Qué manda en la pantalla del banco?
+- Bloque: diseño 1 · el banco
+- Abierta por: el Banco v2 guardaba el historial en un cajón, y P8 pide que sea más que una tabla
+- Opciones presentadas, en bocetos grises: A) la composición al centro y el historial en un cajón, como el Banco v2 · B) el historial al centro, como un cuaderno, y la composición resumida al lado · C) la composición al centro y el historial en una cinta de fotogramas, siempre visible
+- Recomendación: C
+- Respuesta: **un boceto propio**, cercano a C
+- Respuesta literal: *«algo asi habia pensado en nivel general de idea»*, con este boceto:
+
+![Boceto del banco, del usuario](media/2026-09-25-boceto-banco.png)
+
+*Lo que dice el boceto, anotación por anotación:*
+
+| Dónde | Anotación literal |
+|---|---|
+| Arriba a la izquierda | *«boton atras»* |
+| Arriba | *«nombre composicion recipiente y lotes»* |
+| Arriba a la derecha | *«ifra»* · *«opciones burger desplegable»* |
+| Izquierda: un frasco cuentagotas ámbar | *«icono flasco se rellena conforme lo haces tendra el nombre de la mezcla encima como si fuese una etiqueta»* · debajo, *«peso flasco»* |
+| Izquierda, abajo | *«Visualizador que creare complejo de l perfume (iconografia a diseñar de multiples variables unica y s firma de la app )»* |
+| Centro, de arriba abajo | *«informacion general lugar para poner descripcion de formulacion intencion etc etc»* · *«BArra añadir»* · una fila de casillas, *«añadir rapido, usados reciente»* · *«grafico barras top middle base por ingredientess»* · *«grafico pie ingredientes»* · *«grafico proyeccion fragancia por horas»* |
+| Derecha, una columna alta | *«composicion ( productos%)»* |
+| Abajo, de lado a lado, curvado como un dock | *«historial como barra de tareas me gustariai que losnombres t cantidades salgan conforme se hace hover, parecido a barra de tareas de apple»* |
+
+- **Lectura:**
+  1. **Tres columnas y un dock.** A la izquierda, la mezcla como objeto: el frasco y el
+     visualizador. En el centro, el trabajo: la descripción, la barra, los recientes y los
+     gráficos. A la derecha, **la composición entera, siempre a la vista**, con IFRA encima.
+     Abajo, el historial.
+  2. **El historial es un dock**, como el de macOS: una pieza por cambio, siempre visible;
+     al pasar el ratón se amplía y dice el material y la cantidad. Es la cinta de C.
+  3. **El frasco se llena conforme se formula** y lleva el nombre de la mezcla como
+     etiqueta. Debajo, su peso: la tara y, al reabrir, el peso bruto (§3.3, §3.5).
+  4. **«Añadir rápido», con los usados recientes, sustituye a la biblioteca lateral** del
+     Banco v2. Sin inventario (P6), lo que está a mano es lo que acabas de usar, con su
+     última dilución (P7).
+  5. **Cada fórmula lleva una descripción**: la intención, para qué es. **Es un campo nuevo**
+     de la cabecera (§3.3), y entra en el modelo y en el JSON.
+  6. **Tres gráficos:** barras por piso para cada ingrediente, que es la pirámide del
+     Banco v2; tarta de ingredientes, que es su reparto de la materia; y **proyección de la
+     fragancia por horas, que es nuevo**.
+  7. **El visualizador es la firma de la app**: una iconografía de muchas variables que
+     diseñará el usuario, la línea paralela (§8). **El banco le guarda sitio desde ya.**
+  8. **Botón atrás y menú de opciones.** Al banco se llega desde otro sitio, sin diseñar
+     todavía (§8). Guardar, guardar como y exportar van en el menú.
+- **Añadido en la lectura, por confirmar:**
+  - **las notas son marcas en el dock** (§3.4), como las banderas de C;
+  - **mientras no exista el visualizador**, su hueco lo ocupan los gráficos.
+- ⚠️ **Consecuencias:**
+  - **La composición no cabe entera en una columna.** Es la pega que tenía B. Cada línea
+    lleva señal de tipo, nombre, cantidad, % con su base, dilución y diluyente, avisos de
+    pesada y trazas en ppm, y una fórmula usada como material se despliega. En una columna,
+    cada línea enseña lo esencial y el resto se abre: es la primera pregunta del bloque 3.
+  - **IFRA, en una caja pequeña, sigue dando las dos lecturas** (§5.4) y no puede salir en
+    verde si hay desconocidos (§5.5). Cabe como resumen que se abre en el panel entero.
+  - **En el móvil no hay hover.** El equivalente es deslizar el dedo por el dock, que es
+    también el gesto del *play*.
+  - **El frasco se llena con masa, pero un vial se mide en mL.** Para dibujar el nivel
+    hace falta la capacidad en gramos o una densidad, y una densidad supuesta sería un
+    número sin fuente.
+  - **Datos de los gráficos.** El piso está para **los 54 materiales del laboratorio**
+    (`inventario.csv`, `niveles-de-uso.csv`), con pisos intermedios (salida-corazón,
+    corazón-fondo); los **3119 del glosario FIG no tienen piso**, y salen como «sin piso»,
+    como en el Banco v2. **Para la proyección por horas no hay ninguna cifra**: en el
+    laboratorio solo hay tenacidad cualitativa en algunas monografías («excepcional»,
+    «nula», «sin dato»). Hay que investigarla, con fuente y confianza, antes de dibujarla,
+    y un material sin dato no puede desaparecer de la curva (§1.2).
+- Fecha: 2026-09-25
+- Estado: cerrada · lectura por confirmar
+- Destino: decisiones.md, en una sección nueva de interfaz; el campo de descripción, en §3.3
+
+---
+
 ## Estado
 
 | Ronda | Cerradas | Abiertas |
 |---|---|---|
 | R1 a R8 | 22 (P1 a P22) | 0 |
+| R9 · diseño | 1 (P23, lectura por confirmar) | 0 |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.
