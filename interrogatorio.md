@@ -12,7 +12,7 @@ corrige.
 Cuando las rondas R1 a R4 estén cerradas, lo decidido pasa a [`decisiones.md`](decisiones.md)
 como v3. Los [antecedentes](antecedentes/README.md) no obligan a nada.
 
-Última sesión: 2026-09-25 (rondas 1 y 2)
+Última sesión: 2026-09-25 (rondas 1 a 3)
 
 ---
 
@@ -173,12 +173,98 @@ Respuesta literal, completa:
 
 ---
 
+## Ronda 3 — Dilución, historial y código de material
+
+*Preguntas presentadas: P7 (dónde vive la dilución sin frascos), P8 (qué guarda una
+fórmula de su historia), P9 (código de un material compuesto). El usuario respondió P7
+y P8 con una captura anotada de la barra de añadir del Banco v2. **P9 queda sin
+responder.***
+
+![Barra de añadir del Banco v2, anotada por el usuario](media/2026-09-25-barra-de-anadir-anotada.png)
+
+*La captura: en **blanco**, un «+» sobre el inicio del buscador; en **lila**, el campo
+«Buscar material o base»; en **naranja**, el campo «Seleccionado»; en **rojo**, el campo
+«Cantidad» en mg.*
+
+Respuesta literal, completa:
+
+> *«p7 exacto, seleccionar un material en el buscador te deja lugar a determinar la disolucion a la derecha*
+> *\* en blanco, dar de alta un material fuera del registro, o bien matarial nuevo o añadir formula como material o bien añadir de la lista de materiales del usuario, si el ha dado de alta materiales, como tinturas por ejemplo que puede incluso que haya hecho test de limites de uso y demas estos materiales pueden vivir en la formulacion del usuario pero es añaden a proposito, no forman parte de la paleta base*
+> *\* la parte lila funciona parecido a antes en este caso una diferencia significativa es que el propio buscador deja seleccionado el material , no tiene sentido un apartado de seleccionado porque no es compatible buscar un material nuevos sin deselecionar otro*
+> *bien matarial nuevo (es practicidad si es algo que no se va a definir duramente con poner un nombre basta y pasa a seleccionado )*
+> *añadir formula como material (en este caso la formula se añade como seleccionado, te añadira los porcentajes ponderando los XXXmg en cada uno de los componentes y te lo registrara como nombre formulaXXXmg registrando elnumero en los valores que son de cada material )*
+> *la parte naranja es el porcentaje, el porcentaje que determina la dilucion, en el caso normal sera al 100%, y puedes manualmente ajustarla, al lado te sale el diluyente, tambien seleccionable de entre los normales o añadir un placeholder de diluyente por si es uno no estandar, como con el material fuera de registro. ademas lo ideal seria pinnear una dilucion para materiales de manera que puedes tener materiales que tienen diferentes como "favoritas" donde se registra tanto el % como el diluyente, por ultimo como QOF feature el programa te pre selecciona la ultima manera en la que agregaste el material, aunque no este en favoritos.*
+> *en la cantidad se queda igual numero en mg seria ideal que etnre todos estos pasos el cursor te pase al siguiente de manera que sea rapido pero esto tambien es qof, todo no tiene que ser en mg seria ideal poder escoger entre gramos para gente que haga big batches pero en mi caso mg es go to.*
+> *p8*
+> *me gusta que haya un historial y me gusta que se pueda añadir notas en el de manera opcional al hacer una mezcla por ejemplo evaluar, como un material ha cambiado la formula para tenerlo en cuenta en futuras mezclas, lo que el historial tampoco tiene que ser recuperable necesariamente tengo que evaluar mas sobre el historial tiene que parecer mas que una gimmic. ahora se me ha ocurrido para que se vea mas que una tabla de numeros las notas añaden un punto al historial pero tambien creo que se podria luego hacer, con un boton de play una visualizacion de la parte de formulacion uno a uno de como evoluciona la formula. creo que cuando tenga mis diagramas infograficos de descripcion de olores bien hechos podran quedar una evolucion chula de como cambia y ademas puede ser un ups a nivel visual y algo que simplemente note cariño y una intencion visual tras la app, no sera algo tan necesario pero lo hace memorable el poder ver la evolucion de las infografias durante tu dearrollo.»*
+
+### P7 — La barra de añadir
+- Opciones presentadas: A) dilución escrita en cada línea · B) A + memoria de las diluciones usadas · C) frascos como registro sin peso
+- Recomendación: B
+- Respuesta: **B, ampliada con el diseño de la barra**
+- **Lectura:**
+  1. **Cuatro zonas, de izquierda a derecha**, y el cursor salta de una a la siguiente:
+     - **➕ Fuera de la paleta base**, tres vías:
+       - *material nuevo rápido:* basta un nombre y queda seleccionado, marcado como sin
+         definir;
+       - *fórmula como material;*
+       - *de «mis materiales»:* los que el usuario ha dado de alta, como una tintura propia
+         con sus pruebas de límites. Se añaden a propósito y **no son paleta base**.
+     - **Buscador.** Como antes, pero **el propio buscador se queda con el material
+       elegido**. Desaparece el campo «Seleccionado»: no se puede buscar otro sin soltar
+       el anterior.
+     - **Dilución:** porcentaje, **100 % por defecto** y editable, y al lado el
+       **diluyente**, de los habituales o uno provisional si no es estándar. Se pueden
+       **fijar diluciones favoritas** por material (porcentaje y diluyente), y por defecto
+       sale **la última con que se añadió ese material**, aunque no sea favorita.
+     - **Cantidad:** **mg por defecto**, con la unidad elegible (g para lotes grandes).
+       Enter añade.
+  2. **Fórmula como material.** Al añadir X mg, se reparten entre sus componentes en su
+     proporción. La línea se ve como «Nombre de la fórmula, X mg», y cada componente suma
+     su parte. Es el desglose de P1.
+  3. **Tres niveles de material:**
+     - *base:* el glosario, con IFRA;
+     - *mis materiales:* definidos por el usuario, con rigor o con huecos marcados;
+     - *provisionales:* solo un nombre.
+- Consecuencia: **un provisional, sea material o diluyente, es un desconocido.** Por P3,
+  la fórmula que lo lleve avisa de que no puede comprobar IFRA en esa parte.
+- Detalles de interfaz, sin decisión de fondo: salto de cursor entre campos, unidad
+  elegible, favoritas y última dilución preseleccionada.
+- Fecha: 2026-09-25
+- Estado: cerrada · lectura por confirmar
+- Destino: decisiones.md
+
+### P8 — El historial
+- Opciones presentadas: A) solo la composición actual · B) composición + historial con notas, recuperable · C) el historial es la fórmula
+- Recomendación: B
+- Respuesta: **B, sin exigir que sea recuperable**
+- **Lectura:**
+  1. **Cada fórmula tiene historial**, con **notas opcionales**. Sirven para evaluar al hacer
+     una mezcla: cómo cambió la fórmula un material, para tenerlo en cuenta en las
+     siguientes. **Una nota deja una marca en el historial.**
+  2. **Recuperar un punto del historial no es requisito**; está por evaluar.
+  3. **Tiene que ser más que una tabla de números.**
+  4. **Para más adelante:** un botón de *play* que reproduce la formulación paso a paso. Con
+     las infografías de descripción olfativa de la línea paralela, sería ver cómo evoluciona
+     la fórmula. No es necesario, pero la hace memorable.
+- ⚠️ **Consecuencia que conviene fijar ya:** para que el *play* sea posible algún día,
+  **el historial tiene que guardar cada cambio como un evento** (qué, cuánto, cuándo), no
+  solo las notas. Guardarlo cuesta poco hoy; reconstruirlo después es imposible.
+- Aquí la línea paralela del lenguaje visual **toca** la app, y solo en este punto: la
+  app guarda la historia y las infografías la dibujarán. Va a la ronda 5 (lo aplazado).
+- Fecha: 2026-09-25
+- Estado: cerrada · lectura por confirmar
+- Destino: decisiones.md
+
+---
+
 ## Estado
 
 | Ronda | Cerradas | Abiertas | Siguiente |
 |---|---|---|---|
 | R1 · El núcleo | 3 (P1 corregida; lecturas por confirmar) | 0 | — |
 | R2 · Registro, materiales y frascos | 2 (P4, P6) | 1 en parte (P5) | — |
-| R3 · Dilución, historial y código de material | 0 | 3 | P7 |
-| R4 · Dónde se usa, y qué va y vuelve del repositorio | 0 | — | — |
-| R5 · Lo aplazado | 0 | — | — |
+| R3 · Dilución, historial y código de material | 2 (P7, P8) | 1 (P9) | P9 |
+| R4 · Búsqueda, fórmula frente a mezcla hecha | 0 | 2 (P10, P11) | P10 |
+| R5 · Dónde se usa, y qué va y vuelve del repositorio | 0 | — | — |
+| R6 · Lo aplazado (incluye el *play* del historial) | 0 | — | — |
