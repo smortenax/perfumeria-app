@@ -991,11 +991,80 @@ Respuesta literal, completa:
 
 ---
 
+## Ronda 10 — Datos de los materiales
+
+*Abierta por el usuario al dar paso a la fase 1: el esqueleto tiene que prever dónde vive
+cada información.*
+
+### P29 — La referencia IFRA, intocable, y una capa propia por material
+- Bloque: datos (fase 3), con efecto en los gráficos (§10.2), el historial (§10.1) y el mapa
+  de olores
+- Abierta por: el usuario
+- Respuesta literal, completa:
+
+> *«si, empieza con la fase 1 yo el unico inconveniente que le veo a todo es que se planea que esto sea una parte dentro de la app, la de formulacion pero seguro que se puede ir montando el esqueleto ya ir estableciendo donde estara la informacion etc etc, en este caso la app funciona con el glosario entero de ifra, esto podria llegar a ser un lugar a dudas o errores si no se gestiona, mi idea seria de los materiales usar el glosario ifra raw para lo que es limitaciones y no tocar el archivo que dictamina esas limitaciones, y paralelamente tener yo un archivo con cada material de ifra donde yo empezare a dictaminar cada uno en sus categorias pertinentes (hay variables que seguro que usare otras tengo aun que ver ) pero los materiales deberian tener*
+> *\* seguro: duracion en horas, color code asignado(queda por definir en base a que, probablemente categorias de olores generales, quizas aqui podria tirar de algun estandar tipo fragrantica o de industria, ya que sera lo mas low level comercial y lo mas universal en esta categoria), sigla o abreviatura para icono (el que se presenta en el historial), una ponderacion de categoria que los ponga entre 0 y 1 para tipo de notas (top notes top middle middle middle base base)*
+> *\* casi seguro: las 3 categorias que asigna fig a cada uno, se usara para AOM o agregeted odor map que quiero crear y ademas es gratis, es lo que ya tengo, datos de POM(si tienen suficiente glosario usar principal odor map me pareceria super bueno para mi propio mapa de olores), elpeso  del olor ahora no recuerdo el termino el volumen de particulas  odorificas  o lo que suele decirse "intensidad" tambien lo habia pensado añadir a las variables del AOM que es el nombre que creo que le dare al mapa de olores propio»*
+
+- **Lectura:**
+  1. **La formulación es una parte de la app**, y el esqueleto tiene que prever desde ya dónde
+     vive cada información.
+  2. **Cada material tiene dos capas de datos:**
+     - **la referencia IFRA, en bruto y sin tocar.** De ahí salen las limitaciones, y el
+       archivo que las dicta no se edita nunca;
+     - **una capa propia, en un archivo aparte**, con una fila por material de la base, donde
+       el usuario va asignando sus categorías. Crece poco a poco, y lo que falte es un hueco,
+       nunca un cero (§1.2).
+  3. **Lo que llevará cada material en la capa propia:**
+     - **seguro:** la duración en horas; un color asignado, con la base por decidir (familias
+       olfativas generales, quizá de un estándar comercial o de la industria); la sigla de su
+       pieza en el historial; y su posición entre salida y fondo, de 0 a 1;
+     - **casi seguro:** los tres descriptores del FIG, que ya están en `glosario-fig.csv`; los
+       datos del POM, si cubren bastantes materiales; y la intensidad del olor. Los tres
+       alimentan el **AOM, el mapa agregado de olores** propio del usuario.
+- **Añadido en la lectura, por confirmar:**
+  - **la posición entre salida y fondo es un solo número de 0 a 1**: 0 es salida pura y 1,
+    fondo puro, y los cinco pisos son tramos de esa escala. Es la «pirámide compuesta» de
+    P24. La alternativa serían cinco pesos que suman 1;
+  - **la clave de la capa propia es el CAS**, como en el FIG; los materiales sin CAS, por su
+    identificador;
+  - **la intensidad que buscabas se llama poder olfativo** (*odor strength*). Ya está, en
+    palabras (medio, alto…), en `niveles-de-uso.csv` para los 54 del laboratorio. La medida
+    física que la explica es el valor de olor: la concentración en el aire dividida por el
+    umbral, como en la adenda de F-001.
+- ⚠️ **Consecuencias:**
+  - **El POM no cubre los naturales.** Según la comparativa del laboratorio
+    ([2026-09-24](antecedentes/lenguaje-visual/2026-09-24-comparativa-ifra-fig-vs-pom.md), sobre Lee et al., 2023),
+    solo modela moléculas sueltas, no absolutos, resinoides, tinturas ni mezclas, y no predice
+    la intensidad por encima del umbral. Para esos, el AOM tendrá que tirar del FIG o de
+    otra fuente;
+  - **un color sacado de Fragrantica es de un tercero.** Si la app llega a producto, hay que
+    mirar su licencia antes (§8). El FIG ya se tiene, con la cita obligatoria de IFRA;
+  - esta capa es **la D4 del plan**, y lo que alimenta los gráficos por material (§10.3).
+- **Pregunta abierta, P30:** dónde vive el archivo de la capa propia.
+- Fecha: 2026-09-26
+- Estado: cerrada · lectura por confirmar
+- Destino: decisiones.md §6; plan, fase 3 (D4)
+
+### P30 — ¿Dónde vive la capa propia de los materiales?
+- Bloque: datos (fase 3)
+- Abierta por: P29
+- Opciones presentadas: A) **en el laboratorio**, junto a sus fuentes, y la app la importa
+  como el resto, sin editarla · B) en este repositorio, en una carpeta propia que sí se
+  edita a mano · C) dentro de la app, editable desde su interfaz
+- Recomendación: A
+- Respuesta: pendiente
+- Estado: abierta
+- Destino: decisiones.md §6
+
+---
+
 ## Estado
 
 | Ronda | Cerradas | Abiertas |
 |---|---|---|
 | R1 a R8 | 22 (P1 a P22) | 0 |
 | R9 · diseño | 6 (P23 a P28) | 0 |
+| R10 · datos | 1 (P29) | 1 (P30) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.
