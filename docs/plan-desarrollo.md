@@ -100,8 +100,9 @@ donde el usuario puede comentar sobre cada zona.
   ([decisiones §10.1](decisiones.md)). 2026-09-25.
 - [ ] **2 · Dónde va cada pieza**, a tamaño real, y cómo se pliega en pantalla estrecha.
   *Boceto 1 a 1440 × 900 con F-001-v1 dentro, revisado por el usuario (P24). Boceto 2, con
-  su reordenación, revisado (P25). Boceto 3, publicado el 2026-09-26: la barra se prueba con
-  el teclado; falta su revisión.*
+  su reordenación, revisado (P25). Boceto 3, con la barra por teclado, revisado (P26).
+  Boceto 4, publicado el 2026-09-26: el play rehace el frasco y los gráficos pieza a pieza;
+  falta su revisión. **Abierta P27: dónde vive la pureza.***
 - [ ] **3 · Las piezas con más carga:** la columna de composición, el resumen de IFRA, el
   historial como dock, los gráficos iconográficos (§10.2) y el enlace de cada gráfico con
   sus materiales (§10.3).

@@ -902,6 +902,59 @@ Respuesta literal, completa:
 - Estado: cerrada · lectura por confirmar sobre el boceto 3
 - Destino: decisiones.md §3.4, §4, §8 y §10.1; plan, fase 4
 
+### P26 — Revisión del boceto 3
+- Bloque: diseño 2 · el banco a tamaño real
+- Abierta por: el boceto 3, con la barra que se usa con el teclado
+- Respuesta: **una revisión dictada**
+
+Respuesta literal, completa:
+
+> *«Esta parte tiene menos cambios. Eh, por una parte, el botón de atrás yo te diría que el botón de atrás de arriba a la izquierda yo te diría que tiene que estar eh, a lo mejor en, el marco de lejía donde está encima del producto debería haber un negativo como un bocado para que no esté solapado el botón de atrás sobre el sobre el propio marco de lejía es una pequeña tontería pero bueno eh, sobre el marco del bote me refiero entonces luego lo que sí que no quiero eh, es ahora mismo los materiales están de alguna manera vinculados a mi estado o a cómo yo los tengo y en realidad para estandarizarlo creo que esto complicará las cosas entonces yo creo que eh, estoy de acuerdo que la opción del 100% no es buena porque la mayoría de gente no, ten, no tendrá los eh, ni aplicará ninguno de los componentes al 100% pero Eh, la dilución debería ser entre diez, eh, y, y uno por ciento, por ejemplo, en, en opciones estándar, y lo que sí que no me gusta es que están como vinculados, supongo que haciendo referencia como yo las tengo hechas o a mi stock o alguna cosa así, y como la parte esta del stock y todo esto lo vamos a, o sea, lo queremos retirar, o sea, por algún motivo, y creo que es por un motivo de este de esta relación, o sea, de cómo yo tengo a los materiales diluidos, eh, por algún motivo eh, cuando yo selecciono una dilución en porcentaje eh, uno se me, se, se me selecciona automáticamente DPG o no sé, hay algo que está mal entre los selectores, entonces hay dos selectores mutuamente excluyentes eh, en cada uno de, de las cosas, entonces está el de dilución que puede ser eh, un, uno de los dos porcentajes o entonces haces clic y lo escribes eh, o eh, el diluyente que es TPG o alcohol eh, pero por algún motivo ah, cuando selecciono la, la, la, el botón de abajo a veces se me cambia automáticamente a DPG eh, o a veces tengo el DPG y el alcohol en, en, en grisáceo como si no los pudiera seleccionar y eso en realidad eh, no, no quiero que sea así ¿vale? Eh, y luego sí que hay algunos que se ponen puros como el Edione que lo he puesto alguna vez puro entonces a lo mejor por por convenio eh, pueden estar yo te diría eh, 10% y eh, 1% por ejemplo total eso solo pasaría la primera vez Y luego ya se guardarían los favoritos de la de la manera en la que los sueles usar tú. Que esa es como en cierta manera la única el único registro entre comillas de stock o de estado de los materiales que tendrá eh, la aplicación en, en sí mismo. O sea, lo que, lo que piensa, lo que pienso yo que debería ser. Entonces, lo que sí que no me gusta es que tengas eh, como. la opción como como excluyente y tal y eh, una cosa que sí que añadiría es que eh, cuando estás escribiendo a veces yo también tiendo a darle al ta, al, al tap al de la dere, al de la derecha porque muchas veces se autocompletan así las frases en programación y en cosas así entonces te diría que esta parte también o sea quiero que el, el tap eh, también te lo te lo agregue porque me ha pasado un par de veces que lo he quitado sin querer aunque sea contraintuitivo a veces, en algunos casos, porque a veces el tab es para mover, pero bueno, es igual, yo quiero que sea así, prefiero que sea así. Entonces, el tab te selecciona el, el, el ingrediente también, te lo autocompleta, pienso yo. Eh, que es lo correcto. Esto es como plenamente ya es, ya ni siquiera es eh, la UI en general, es como más bien user experience y demás. Ya estamos en parte bastante ya final de cómo pienso yo que debería funcionar eh, y cómo creo que sería cómodo. Y luego ya. A ver, por último, unas cosillas, pero la parte de abajo está muy bien y funciona bien, pero sí que es verdad que los botones de la izquierda y de la derecha estarían medio descentrados eh, eh, con respecto al, al, al, de, digamos, al historial, al deslizador horizontal, a la barra de materias, no sé cómo llamarlo, pero eh, no están centrados eh, en tanto y en cuanto eh, está, se ve como raro, entonces deberían estar... Eh, o los botones más hacia abajo, con los materiales, yo creo que en este caso deberían estar los materiales más hacia arriba, y creo que el botón de, de play eh, también debería estar un poquito más hacia abajo, no, no me gusta que salga como así, ah no, mira, no creo que lo que quedaría bien aquí sería hacer un negativo de el play, como, como un bocado de otra vez, como en la parte del, del, del hacia atrás, hacer como una especie de bocado, como una redonda, encima de esta especie de barra de abajo del historial y, y esa parte es cuando le das al play ¿vale? luego cuando le das al play lo que creo que no hace falta es que salgan los botones o sea los la descripción de los ingredientes eh, porque creo que te fastidia un poco la experiencia porque debería ser un poco más visual esto no lo tengo 100% claro pero bueno eh, de momento vamos a hacerlo así a ver qué tal queda Eh, o que sea con menos opacidad también sería una opción que cuando le das al play el, la parte de que salga el ingrediente sea con menos opacidad y luego por último no sé si sería capaz de probarse en esta, en esta parte pero ya que sí que funciona el play y que ya, ya que sí que pasa todo esto de, de ir yendo parte por parte como cambia el, eh, o sea cómo evoluciona el historial la pregunta es ¿podrías hacer como la simulación de cómo se iría evol evolucionando las partes como de el gráfico, o sea, los gráficos, la parte gráfica, eh, conforme avanza para ver cómo queda el, el efecto para ver si más o menos convence o no. Entonces, lo que tendría que pasar es que el reparto de la materia se vaya ajustando a, a cuando aplicas en teoría los ingredientes eh, y también en cuanto le das al play, que eso es la, eso creo que es lo que falta. Cuando le das al play, que desde cero te vaya como poniendo cada uno en el gráfico, porque ahora creo que los gráficos están sellados y aunque yo me vaya al principio del historial, eh, no cambia eh, el cómo estaba el estado del, del, del, de la de la fórmula. Eh, y entonces tendría que cambiar reparto de la materia, pirámide por piso, proyección por horas, y el bote de arriba a la izquierda. Eh, vamos a probar con esto a ver qué tal.»*
+
+- **Lectura:**
+  1. **El botón de atrás, en un bocado.** El marco del frasco lleva un negativo redondo donde
+     va el botón, para que no se monte encima.
+  2. **La dilución no sale del stock del usuario.** Las opciones de base son estándar: **10 %
+     y 1 %; DPG y alcohol**, y solo valen la primera vez. Después mandan la última usada y
+     **las favoritas, que son lo único que la app guarda sobre el estado de cada material**.
+     El 100 % no es opción de base, porque casi nadie usa los materiales puros. Quien usa
+     uno puro, como la Hedione, lo escribe y lo guarda como favorita.
+  3. **Dos selectores independientes, excluyentes cada uno por dentro**: el % (uno de los
+     dos, o escrito) y el diluyente (DPG o alcohol, u otro del desplegable). **Ninguno cambia
+     al otro, y ninguno se apaga.** Corrige el boceto 3, donde la regla de la pureza los
+     ataba.
+  4. **El tabulador también elige el material** en el buscador, como Intro, aunque en
+     otros sitios el tabulador mueva el foco.
+  5. **Historial:**
+     - las barras de los lados y las piezas, centradas a la misma altura;
+     - el play, en un bocado redondo en el borde de arriba, como el de atrás;
+     - durante el play, **sin rótulos de las piezas**, o más tenues: está por probar.
+  6. **Simulación**: el frasco, el reparto, la pirámide y la proyección siguen al historial.
+     Con el play empiezan desde cero, y al añadir un material se actualizan al momento.
+- **Sin respuesta:** la pantalla. El orden del teclado (primero el %, después el diluyente)
+  no recibe comentario: se mantiene.
+- ⚠️ **Consecuencia: choca con §2.5.** «La app no deja escribir un porcentaje mayor que la
+  pureza» necesita saber la pureza del producto que tiene el usuario, y eso es estado de su
+  stock. Se lleva a P27; hasta entonces, la barra no usa la pureza.
+- **Boceto 4**, con todo lo anterior. Supuesto de la simulación: cada pasada repetida lleva la
+  misma parte del total de su material.
+- Fecha: 2026-09-26
+- Estado: cerrada · lectura por confirmar sobre el boceto 4
+- Destino: decisiones.md §3.4, §4, §9 y §10.1; P27
+
+### P27 — ¿Dónde vive la pureza?
+- Bloque: diseño 2, con efecto en el modelo (§2.5)
+- Abierta por: P26, que saca de la barra todo lo que dependa del stock del usuario, frente a
+  §2.5, que da pureza a cada material y no deja escribir un porcentaje mayor
+- Opciones presentadas: A) **solo en los productos que el usuario da de alta como suyos**
+  (un castoreum al 20 %, un IBQ al 40 %): la base no tiene pureza, y la barra solo impide
+  pasar de ella en esos · B) en cada material de la base, con un valor estándar · C) en
+  ningún sitio: se escribe el porcentaje final y nada lo comprueba
+- Recomendación: A
+- Respuesta: pendiente
+- Estado: abierta
+- Destino: decisiones.md §2.5
+
 ---
 
 ## Estado
@@ -909,6 +962,6 @@ Respuesta literal, completa:
 | Ronda | Cerradas | Abiertas |
 |---|---|---|
 | R1 a R8 | 22 (P1 a P22) | 0 |
-| R9 · diseño | 3 (P23 a P25) | 0 |
+| R9 · diseño | 4 (P23 a P26) | 1 (P27) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.

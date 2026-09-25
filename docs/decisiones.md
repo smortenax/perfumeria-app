@@ -159,6 +159,11 @@ dilucion y la diluyes pones el porcentaje final diluido no el de la dilucion»*.
   disolvente lleva cada adición: el del producto, si está declarado, más el diluyente
   añadido.
 
+> ⚠️ **En revisión desde el 2026-09-26 ([P27](interrogatorio.md)): dónde vive la pureza.**
+> La barra de añadir ya no la usa para sus opciones (P26), porque la pureza del producto que
+> tiene cada usuario es estado de su stock. El porcentaje final de la línea (lo de arriba)
+> no cambia.
+
 **Por qué importa, con los casos de la paleta:**
 
 | Material | Producto del proveedor | Frasco de trabajo | **Materia real** |
@@ -228,6 +233,8 @@ ser inequívocos.
 - **El *play*** pone todos los gráficos a cero y los reproduce **adición a adición**, como la
   repetición de Procreate trazo a trazo; aquí, traza a traza. Solo anima los gráficos. Su
   botón vive en el historial (§10.1). *Definido el 2026-09-26, P25.*
+- **El frasco y los gráficos siguen al historial**: en el *play* se rehacen desde cero, pieza
+  a pieza, y al añadir un material se actualizan al momento (P26).
 
 ## 3.5 · Reabrir pesando
 
@@ -267,16 +274,16 @@ el teclado**; el ratón solo hace falta para la estrella.
 | Zona | Qué hace |
 |---|---|
 | **➕** | Lo que no está en la paleta base: **material nuevo rápido** (basta un nombre), **fórmula como material** y **de mis materiales** |
-| **Buscador** | **Un solo buscador**, que **se queda con el material elegido**: no hay campo «Seleccionado». **Dos interruptores independientes**, uno para incluir **mis materiales** y otro para **fórmulas como material**, porque la base IFRA ya es enorme. Van **a la izquierda del buscador, como interruptores de encendido** (P24). **Intro elige y pasa a la cantidad** |
+| **Buscador** | **Un solo buscador**, que **se queda con el material elegido**: no hay campo «Seleccionado». **Dos interruptores independientes**, uno para incluir **mis materiales** y otro para **fórmulas como material**, porque la base IFRA ya es enorme. Van **a la izquierda del buscador, como interruptores de encendido** (P24). **Intro o el tabulador eligen y pasan a la cantidad** (P26) |
 | **Cantidad** | **mg por defecto**; la unidad se puede cambiar a g para lotes grandes. **Intro pasa a la dilución. Ctrl+Intro añade directamente**, con la dilución que ya está puesta: para el material que se usa siempre igual |
-| **Dilución** | **Dos opciones de porcentaje y dos de diluyente**, que se cambian con las flechas. Sin usos previos: **100 % y 10 %; DPG y alcohol**. Sale preseleccionada **la última dilución** con que se usó ese material (P7). **Otro porcentaje se escribe**, con doble clic sobre el %; **otro diluyente**, habitual o provisional, sale de **un solo desplegable** a la derecha de los dos. Intro pasa a Añadir |
+| **Dilución** | **Dos opciones de porcentaje y dos de diluyente**, que se cambian con las flechas. **Son dos selectores independientes**: ninguno cambia al otro ni se apaga (P26). Sin usos previos, **las mismas para todos los materiales: 10 % y 1 %; DPG y alcohol** (P26). Sale preseleccionada **la última dilución** con que se usó ese material (P7). **Otro porcentaje se escribe**, con doble clic sobre el %; **otro diluyente**, habitual o provisional, sale de **un solo desplegable** a la derecha de los dos. Intro pasa a Añadir |
 | **Añadir** | Intro añade |
 | **★** | **Guarda la dilución puesta como favorita, dos por material.** Si las hay, **son las opciones que salen**, por delante de las de base (P25) |
 
-- **Si el producto viene diluido, la primera opción es su pureza, no el 100 %**: no se puede
-  pasar de ella (§2.5). Y con el porcentaje igual a la pureza, el diluyente es el del
-  producto.
-- **Las favoritas son un dato del usuario por material**, no de una fórmula (P25).
+- **Nada de la barra sale de cómo tiene el usuario sus materiales** (P26). Las favoritas y
+  la última dilución usada (P7) son **lo único que la app recuerda de cada material**. Son
+  datos del usuario por material, no de una fórmula (P25).
+- **Quien usa un material puro lo escribe** (100 %) y lo guarda como favorita.
 
 ---
 
@@ -420,6 +427,7 @@ Se tacha, no se borra: el texto original sigue en los antecedentes.
 | ~~Las 18 categorías IFRA a elegir~~ | Decisión del 23-09 | Reorganización del 23-09: solo la 4 (§5.1) |
 | ~~La biblioteca lateral del Banco v2~~ | [Banco v2](antecedentes/banco-v2/README.md) | P23: sin inventario, la sustituyen los usados recientes (§10.1) |
 | ~~Las favoritas, en un desplegable junto a la estrella~~ | P24 | P25: salen como las opciones de la dilución (§4) |
+| ~~Opciones de base 100 % y 10 %; la primera, la pureza del producto, con el diluyente atado a ella~~ | P25 y su lectura | P26: 10 % y 1 %, iguales para todos, y dos selectores independientes (§4) |
 
 ---
 
@@ -443,14 +451,14 @@ reparte por categoría**: lo que crece no es lo mismo más grande.*
 
 | Zona | Qué lleva |
 |---|---|
-| **Arriba a la izquierda** | Botón atrás · **el frasco, grande**, que se llena conforme se formula y lleva el nombre como etiqueta. Es el comienzo de la lectura |
+| **Arriba a la izquierda** | **El frasco, grande**, que se llena conforme se formula y lleva el nombre como etiqueta. Es el comienzo de la lectura. **El botón atrás va en un bocado redondo del marco**, sin montarse encima (P26) |
 | **Arriba** | La cabecera, **solo nombre y fecha** · la intención |
 | **A la derecha de la cabecera** | **Los gramos, condensados**: el peso del frasco (tara y bruto), el lote de trabajo, lo que hay en el frasco y el lote final (§3.3) |
 | **En medio** | La barra de añadir (§4), a la derecha del frasco · **los usados recientes**, de lado a lado |
 | **Abajo a la izquierda** | **El visualizador, grande**: la firma de la app, una infografía compleja que pequeña no se entendería (§8) |
 | **Abajo, en medio** | Pirámide por piso y reparto de la materia, pequeños; debajo, la proyección por horas (§10.2) |
 | **Derecha** | **La caja de IFRA** y el menú de opciones: guardar, guardar como, exportar · **la composición: un listado ordenado por %, producto y %**, con su base (§1.1) |
-| **Abajo del todo** | **El historial como un dock**: **cada aplicación, en su orden, aunque se repita el material**; siempre a la vista; al pasar el ratón se amplía y dice material y cantidad. **Las notas son marcas en él** (§3.4). **El *play*, arriba en el centro** (§3.4), y **una barra a cada lado**: un clic lleva al principio o al final, y al acercar el ratón el historial se desplaza poco a poco (P25) |
+| **Abajo del todo** | **El historial como un dock**: **cada aplicación, en su orden, aunque se repita el material**; siempre a la vista; al pasar el ratón se amplía y dice material y cantidad. **Las notas son marcas en él** (§3.4). **El *play*, en un bocado redondo del borde de arriba, en el centro** (§3.4, P26), y **una barra a cada lado**, a la altura de las piezas: un clic lleva al principio o al final, y al acercar el ratón el historial se desplaza poco a poco (P25, P26). **Durante el play, las piezas no llevan rótulo**, o lo llevan tenue: está por probar (P26) |
 
 - **La caja de IFRA son dos líneas**, las dos lecturas de §5.4: *¿pasa los límites en el
   lote final?* y *¿hasta qué % se puede usar en un perfume final?* Nunca en verde si hay
