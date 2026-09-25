@@ -31,7 +31,7 @@ Actualizado: **2026-09-26**
   porcentaje final. Para lo demás, el usuario dio paso a la instalación («por todo el
   resto»). Cualquier corrección posterior se hace en el documento, con fecha.
 
-## Fase 1 · El ordenador y el esqueleto
+## Fase 1 · El ordenador y el esqueleto ✅
 
 - [x] **Instalar las herramientas**, con permiso del usuario, desde fuentes oficiales y por
   `winget` (2026-09-25):
@@ -42,11 +42,23 @@ Actualizado: **2026-09-26**
   - WebView2 153, que ya venía con Windows.
 
   **Comprobado:** un programa de prueba en Rust compila, enlaza con MSVC y se ejecuta.
-- [ ] `tauri info`, sin errores.
+- [x] `tauri info`, sin errores (2026-09-26).
 - [x] **Repositorio propio**, `perfumeria-app`, con `CLAUDE.md`, `.gitignore` y los
   documentos en `docs/` (2026-09-25).
-- [ ] **El proyecto Tauri 2 en este repositorio**: la interfaz, con TypeScript, React y
-  Vite, que es la plantilla oficial; y `src-tauri/`.
+- [x] **El proyecto Tauri 2 en este repositorio** (2026-09-26), con la plantilla oficial
+  (`create-tauri-app` 4.7.4, `react-ts`): React 19, Vite 8, TypeScript 6 y Tauri 2.11.
+  Adaptada en tres cosas:
+  - los textos de la interfaz salen de `src/i18n/es.ts`;
+  - la ventana se llama «Perfumería» y mide 1280 × 800;
+  - fuera el ejemplo de saludo de la plantilla.
+
+  El identificador, `com.smortenax.perfumeria`, es provisional: se puede cambiar antes de
+  publicar, no después.
+- [x] **`npm run tauri dev` abre la ventana** (2026-09-26). La primera compilación tardó
+  1 min 19 s.
+- [x] **`npm run tauri build` genera el instalador** (2026-09-26): `Perfumeria_0.1.0_x64-setup.exe`
+  (NSIS, 1,4 MB) y `Perfumeria_0.1.0_x64_en-US.msi` (2,0 MB). La primera vez, Tauri descargó
+  WiX 3.14 y NSIS 3.11 de sus repositorios oficiales en GitHub.
 - **Sale:** `npm run tauri dev` abre la ventana de la app, y `tauri build` genera un
   instalador.
 

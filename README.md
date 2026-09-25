@@ -28,4 +28,16 @@ los trae [`scripts/importar_datos.py`](scripts/importar_datos.py) a `datos/fuent
 
 🔴 **La regla 1.1 —todo número con su base— vale igual para los CSV.**
 
-**Estado:** fase 1, preparar el ordenador y el esqueleto de Tauri.
+## Para arrancarla
+
+```bash
+npm install
+npm run tauri dev
+```
+
+`npm run tauri build` genera el instalador de Windows en `src-tauri/target/release/bundle/`.
+El código va en inglés y la interfaz en español, desde [`src/i18n/es.ts`](src/i18n/es.ts).
+
+**Estado:** fase 1 terminada, con el esqueleto de Tauri 2. El diseño avanza en paralelo, en
+el [lienzo de bocetos](https://claude.ai/artifact/RXLX4e5WKR6xFNApMeyphj). Lo siguiente es la
+fase 2: el núcleo.

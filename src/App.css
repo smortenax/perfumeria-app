@@ -1,0 +1,30 @@
+:root {
+  font-family: system-ui, sans-serif;
+  color: #1d1d1b;
+  background: #f3f2ee;
+}
+
+body {
+  margin: 0;
+}
+
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.shell h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.shell p {
+  margin: 0;
+  font-size: 14px;
+  color: #57564f;
+}

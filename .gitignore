@@ -3,7 +3,7 @@ node_modules/
 dist/
 target/
 src-tauri/target/
-src-tauri/gen/
+src-tauri/gen/schemas/
 
 # Registros y temporales
 *.log
