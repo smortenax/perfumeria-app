@@ -12,7 +12,7 @@ corrige.
 Cuando las rondas R1 a R4 estén cerradas, lo decidido pasa a [`decisiones.md`](decisiones.md)
 como v3. Los [antecedentes](antecedentes/README.md) no obligan a nada.
 
-Última sesión: 2026-09-25 (rondas 1 a 4)
+Última sesión: 2026-09-25 (rondas 1 a 5)
 
 ---
 
@@ -339,14 +339,95 @@ Respuesta literal, completa:
 
 ---
 
+## Ronda 5 — Reabrir, IFRA sobre el producto final, dónde se usa
+
+*Preguntas presentadas: P12 (cómo sabe la app cuánto queda de una fórmula), P13 (qué es
+una fórmula respecto al perfume final), P14 (dónde se formula primero). El usuario
+precisó también P11.*
+
+Respuesta literal, completa:
+
+> *«p11 las formulas como material en otro toggle diferente quiero que haya la opcion siempre de no tener exceso de referencias ya que ifra sola ya es extremadamente grande, se definira un queue visual asignado a cada uno quizas un icono aun por definir pero queue visual diferenciador entre, formula, material ifra, material dado de alta propio y material sin definir o placeholder*
+> *p12*
+> *las formulas se deciden al reabrir pero aun asi seria un reto, ya habia contado con esta idea y es que dentro de la formula se declare el peso del recipiente tambien con la precision del trabajo, es la unica manera de poder recuperar la informacion tras usos. es decir el peso del recipiente va guardado a la vez con el tamaño, el nombre de la disolucion el tamaño de formulacion y el tamaño final que ya estaban definidos.*
+> *p13*
+> *la app tenia ya en su primera instancia las disoluciones separadas en categorias lote actual o lote de trabajo que es en el que se esta formulando y lote final o lote esperado que aparecia translucido. aqui cabe valorar si establecer reglas especiales. como "tratar como acorde", los acordes no tienen por que obrar bajo estandares ifra, aqui se invertiria la carga de la limitacion si trabajas como acorde, en vez de avisarte que te estas pasando el limite tiene que avisarte de que decirte el porcentaje en el que podrias usar el acorde en una solucion final, a esto no le he dado muchas vueltas hay que iterar*
+> *p14*
+> *por ahora cuesta de definir en cualqioer caso aunque me guste producto final como app el uso y funcionalidad que le quiero dar yo es desde ordenador entonces creo que hay que partir de ahi hasta que no este acabada a nivel funcional no sse adapta a movil, eso si se tiene siempre en cuenta el port»*
+
+### P11 — precisión: dos interruptores y una señal visual por tipo
+- **Lectura:** un solo buscador, con **dos interruptores independientes**, uno para **mis
+  materiales** y otro para **fórmulas como material**. Así se puede reducir siempre el
+  número de resultados: la base IFRA ya es enorme por sí sola. **Cada tipo lleva una señal
+  visual propia**, quizá un icono, por definir:
+  - fórmula;
+  - material de la base IFRA;
+  - material propio dado de alta;
+  - material sin definir o provisional.
+- Estado: cerrada
+
+### P12 — Cuánto queda de una fórmula: se pesa
+- Opciones presentadas: A) todo uso descuenta · B) se pregunta al añadir · C) se decide al reabrir, con los usos anotados
+- Recomendación: C
+- Respuesta: **C, pero resuelto pesando, no contando usos**
+- **Lectura:**
+  1. **La fórmula guarda el recipiente**: su **tara**, pesada con la precisión del trabajo,
+     y su capacidad. Va junto a lo que ya tenía el Banco: nombre, **lote de trabajo** y
+     **lote final**.
+  2. **Al reabrir se pesa el vial.** Peso bruto menos tara es **lo que queda de verdad**.
+     La app escala todos los componentes a esa masa y lo apunta en el historial como un
+     fotograma más.
+  3. **No hace falta contar usos.** La báscula ya incluye los usos en otras fórmulas, las
+     muestras, lo derramado y lo que se evaporó. Es más fiel a la realidad que cualquier
+     registro.
+- ⚠️ **Consecuencia:** escalar en proporción da por hecho que **todo se va por igual**.
+  Es cierto para lo que sale del vial por uso. **No lo es para lo que se evapora**, que se
+  lleva primero el alcohol y las salidas. En un concentrado cerrado y reciente el error es
+  pequeño; en un lote final con alcohol, abierto a menudo, puede no serlo. Basta con que
+  la app lo diga cuando la pérdida sea grande o haya pasado tiempo. No hace falta
+  resolverlo.
+- Fecha: 2026-09-25
+- Estado: cerrada · lectura por confirmar
+- Destino: decisiones.md
+
+### P13 — IFRA sobre el producto final
+- Opciones presentadas: A) la fórmula es el concentrado, con concentración final prevista · B) la fórmula incluye el alcohol · C) las dos, y sin dato, «cumple hasta un X %»
+- Recomendación: C
+- Respuesta: **los campos del Banco ya lo resuelven; y un modo «tratar como acorde» por iterar**
+- **Lectura:**
+  1. **La concentración final ya está en la fórmula.** El Banco tenía **lote de trabajo**,
+     en el que se formula, y **lote final**, el esperado, que se veía translúcido. Lote de
+     trabajo entre lote final da la concentración del concentrado en el producto, e **IFRA
+     se mide sobre el lote final**.
+  2. **«Tratar como acorde» invierte el aviso.** Un acorde no es un producto: no tiene que
+     cumplir IFRA él mismo. En vez de «te pasas del límite», dice **«este acorde se puede
+     usar hasta un X % en un producto final»**.
+  3. **Por iterar.** El usuario no le ha dado todavía muchas vueltas.
+- Fecha: 2026-09-25
+- Estado: abierta en parte (el modo acorde, en P17)
+- Destino: decisiones.md
+
+### P14 — Dónde se formula
+- Opciones presentadas: A) ordenador en el banco · B) móvil primero · C) las dos por igual
+- Recomendación: A, con reservas (dependía de dónde está el móvil al pesar)
+- Respuesta: **A**
+- **Lectura:** **se diseña para el ordenador** hasta que la app funcione entera. **El móvil
+  viene después**, pero cada decisión se toma **pensando en poder llevarla** a pantalla
+  estrecha.
+- Fecha: 2026-09-25
+- Estado: cerrada
+- Destino: decisiones.md
+
+---
+
 ## Estado
 
 | Ronda | Cerradas | Abiertas | Siguiente |
 |---|---|---|---|
 | R1 · El núcleo | 3 (P1 corregida) | 0 | — |
-| R2 · Registro, materiales y frascos | 2 (P4, P6) | 1 en parte (P5) | — |
+| R2 · Registro, materiales y frascos | 2 (P4, P6) | 1 en parte (P5) | P16 |
 | R3 · Dilución, historial | 2 (P7, P8) | 0 | — |
 | R4 · Código de material, receta o mezcla, buscador | 3 (P9, P10, P11) | 0 | — |
-| R5 · Reabrir, IFRA sobre producto final, dónde se usa | 0 | 3 (P12, P13, P14) | P12 |
-| R6 · Navegación, y qué va y vuelve del repositorio | 0 | — | — |
+| R5 · Reabrir, IFRA sobre producto final, dónde se usa | 2 (P12, P14) | 1 en parte (P13) | P17 |
+| R6 · Navegación, vuelta al repositorio, modo acorde | 0 | 3 (P15, P16, P17) | P15 |
 | R7 · Lo aplazado (incluye el *play* del historial) | 0 | — | — |
