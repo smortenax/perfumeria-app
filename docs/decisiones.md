@@ -368,6 +368,7 @@ No hay «modo acorde». Como mucho, cambia cuál de las dos se destaca.
 | **Formato** | **JSON, un archivo por fórmula**: la cabecera, el historial con un cambio por línea, y la composición actual para poder leerla sin la app. Es texto: se lee, y Git ve los cambios línea a línea (P18) |
 | **Dónde** | **Archivos en el disco**, con guardado automático. **Nada depende de la memoria del navegador**, que se borra al limpiar los datos (P16, P21) |
 | **Datos de referencia** | Un **paquete versionado**, generado desde el repositorio del laboratorio ([`perfumeria-lab`](https://github.com/smortenax/perfumeria-lab)) e incluido en la app: IFRA, glosario, niveles de uso, constituyentes. Dice de qué commit del laboratorio sale (P2) |
+| **Capa propia de los materiales** | **La referencia IFRA en bruto no se toca nunca.** Aparte, una capa propia con los atributos de cada material: duración, color, sigla, posición entre salida y fondo, y los datos del mapa de olores (FIG, POM, intensidad). **Se investiga en el laboratorio**, con fuente y confianza por dato, y **la app guarda su copia**, importada como los demás datos; con ella dibuja sus gráficos. Nunca se consulta en remoto al usar la app (P29, P30) |
 | **Vuelta al cuaderno** | **Exportar es una acción aparte**: las fórmulas a Markdown en `formulas/`, los materiales propios a CSV (P16) |
 | **Convención del cuaderno** | Markdown y CSV, **nunca `.xlsx`** (v2) |
 

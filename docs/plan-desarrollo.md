@@ -95,10 +95,11 @@ Trabajo de lectura: subagentes Sonnet de uno en uno, y revisión por partes.
   por CAS. Un generador en `scripts/`, sobre lo que ya trae
   [`importar_datos.py`](../scripts/importar_datos.py), produce el **paquete de datos
   versionado**.
-- [ ] **D4 · Lo que piden los gráficos**, **al acabar de definir la interfaz** (P24): el
-  reparto preciso de cada material entre salida y fondo, su longevidad por horas y una
-  identidad visual más rica que dos letras. Con fuente y confianza por dato; lo que no se
-  sepa, hueco.
+- [ ] **D4 · La capa propia de cada material** (P24, P29, P30), **al acabar de definir la
+  interfaz**: posición entre salida y fondo (0 a 1), duración en horas, color, sigla, y los
+  datos del mapa de olores (FIG, POM, intensidad). **Se investiga en el laboratorio**, con
+  fuente y confianza por dato, y entra en la app con `importar_datos.py`. Lo que no se sepa,
+  hueco. La referencia IFRA en bruto no se toca.
 - **Sale:** la app carga el paquete sin red, y dice su versión y su fecha.
 
 ## Diseño *(en paralelo, desde el 2026-09-25)*

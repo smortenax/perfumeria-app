@@ -1053,9 +1053,20 @@ cada información.*
   como el resto, sin editarla · B) en este repositorio, en una carpeta propia que sí se
   edita a mano · C) dentro de la app, editable desde su interfaz
 - Recomendación: A
-- Respuesta: pendiente
-- Estado: abierta
-- Destino: decisiones.md §6
+- Respuesta: **A, con una precisión: el archivo también vive en la app**
+- Respuesta literal: *«estoy de acuerdo que cada dato de la capa debe vivir en el laboratorio en otro chat, en cuanto a lo que respecta la investigacion pero indudablemente tiene que tener la app ese archivo el archivo con toda esa informacion se usara para los graficos de dentro de la app, teniendo eso en cuenta hay que evaluar solo si la recopilacion de datos es en remoto o no, la capa tendra que estar aqui por definicion puedes proseguir con la siguiente fase»*
+- **Lectura:**
+  1. **La investigación, en el laboratorio**, en sus propias sesiones: cada dato con su
+     fuente y su confianza.
+  2. **El archivo, siempre también en la app**, que lo usa para sus gráficos. Entra como los
+     demás datos: importado a `datos/fuente/` y metido en el paquete de datos de la app.
+  3. **¿En remoto o no?** Al usarse, nunca: la app funciona sin internet (§0). Al
+     importarse, en local, como hoy: `importar_datos.py` lee `../Perfumery` y apunta de qué
+     commit sale. Traerlo de GitHub solo tendría sentido si algún día se compila la app sin
+     el laboratorio al lado.
+- Fecha: 2026-09-26
+- Estado: cerrada
+- Destino: decisiones.md §6; plan, fase 3 (D4)
 
 ---
 
@@ -1065,6 +1076,6 @@ cada información.*
 |---|---|---|
 | R1 a R8 | 22 (P1 a P22) | 0 |
 | R9 · diseño | 6 (P23 a P28) | 0 |
-| R10 · datos | 1 (P29) | 1 (P30) |
+| R10 · datos | 2 (P29, P30) | 0 |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.
