@@ -88,10 +88,15 @@ Trabajo de lectura: subagentes Sonnet de uno en uno, y revisión por partes.
 ## Diseño *(en paralelo, desde el 2026-09-25)*
 
 Bocetos en HTML, fuera del código de la app: **el núcleo sigue primero**. Cada decisión pasa
-por el [interrogatorio](interrogatorio.md), desde la ronda 9, y se enseña con bocetos.
+por el [interrogatorio](interrogatorio.md), desde la ronda 9, y se enseña con bocetos. Los
+bocetos viven en el [lienzo de bocetos](https://claude.ai/artifact/RXLX4e5WKR6xFNApMeyphj),
+donde el usuario puede comentar sobre cada zona.
 
-- [ ] **1 · Qué manda en el banco.** P23: boceto del usuario; lectura por confirmar.
+- [x] **1 · Qué manda en el banco.** P23: tres columnas y un dock, del boceto del usuario
+  ([decisiones §10.1](decisiones.md)). 2026-09-25.
 - [ ] **2 · Dónde va cada pieza**, a tamaño real, y cómo se pliega en pantalla estrecha.
+  *Boceto 1 a 1440 × 900 con F-001-v1 dentro, publicado el 2026-09-25; falta la revisión
+  del usuario.*
 - [ ] **3 · Las piezas con más carga:** la columna de composición, el resumen de IFRA y el
   historial como dock.
 - [ ] **4 · El lenguaje visual:** tono, color, letra, y las señales de tipo y de estado. Con

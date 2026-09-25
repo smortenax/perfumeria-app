@@ -724,6 +724,43 @@ rápido; (6) biblioteca y alta de materiales.*
 - Estado: cerrada · lectura por confirmar
 - Destino: decisiones.md, en una sección nueva de interfaz; el campo de descripción, en §3.3
 
+### P23 — confirmación y precisiones del 2026-09-25
+
+Respuesta literal, completa:
+
+> *«si, pasalo a limpio con F-001*
+> *matizo la composicinon en la columna es un listado ordenado por % de lo que hay dentro, producto+%*
+> *la caja ifra es pequeña ya que en mi idea lo que creo que podrian ser dos lineas (*
+> *-pasa los limites ifra para el final esperado?*
+> *\* hasta que porcentaje se puede usar en un perfume final?)*
+> *el frasco en realidad se llena tambien en masa, es la solucion en la que se trabaja aunque no seaaccurate es solo un visualizador y realmente cuando el flasco tiene 10g de 10g de trabajo esta lleno y cuando hay 5g y se trabaja con 10g esta a la mitad, viene definido por eso el flasco*
+> *la falta de datos si es importante pero no es algo de ahora, es buscar datos, habra que ver que materiales se usan para eso pero todo lo que es visualizacion de graficos queda por resolver en lo que respecta a ingenieria de datos, ahora estamos evaluando sobretodo lo que es ui user experience y features de la app»*
+
+- **Lectura:**
+  1. **La lectura de P23 queda confirmada**, con lo añadido: notas como marcas en el dock y
+     el hueco del visualizador.
+  2. **La columna de composición es un listado ordenado por %: producto y %.** No es la
+     tabla entera; eso resuelve la pega de que no cabía.
+  3. **La caja de IFRA son dos líneas**, las dos lecturas de §5.4: *¿pasa los límites en el
+     lote final?* y *¿hasta qué % se puede usar en un perfume final?*
+  4. **El frasco se llena en masa, sobre el lote de trabajo**: 10 g de 10 g es lleno; 5 g de
+     10 g, la mitad. **Es un visualizador, no una medida**: no hace falta densidad.
+  5. **Los datos de los gráficos no son de ahora.** Son ingeniería de datos, para después.
+     Ahora se evalúan la interfaz, la experiencia de uso y las funciones.
+- **El boceto a limpio**, con F-001-v1 dentro, está en el
+  [lienzo de bocetos](https://claude.ai/artifact/RXLX4e5WKR6xFNApMeyphj). Lo que tuvo que
+  decidirse al pasarlo a limpio, **por confirmar**:
+  - **los disolventes van aparte**, al pie de la columna: en F-001 el alcohol es el 63,68 % y
+    encabezaría la lista;
+  - **el % de la columna es de materia pura sobre el frasco**, la columna que manda en el
+    cuaderno; el vertido, la dilución, el piso e IFRA se abren al pulsar la línea;
+  - **en la lista solo se marca lo que no se puede callar**: sin dato, sin comprobar, avisos
+    de pesada, rango del proveedor y condiciones;
+  - **el detalle de IFRA se abre sobre la columna** al pulsar la caja.
+- Fecha: 2026-09-25
+- Estado: cerrada
+- Destino: decisiones.md §10.1 y §3.3
+
 ---
 
 ## Estado
@@ -731,6 +768,6 @@ rápido; (6) biblioteca y alta de materiales.*
 | Ronda | Cerradas | Abiertas |
 |---|---|---|
 | R1 a R8 | 22 (P1 a P22) | 0 |
-| R9 · diseño | 1 (P23, lectura por confirmar) | 0 |
+| R9 · diseño | 1 (P23) | 0 |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.

@@ -201,6 +201,7 @@ el banco real, y se gana lo que es el propósito: **documentar**.
 | Campo | Qué es |
 |---|---|
 | **Nombre** | Lo que distingue una fórmula de otra |
+| **Intención** | Para qué es la fórmula, en texto libre. *Añadido el 2026-09-25, P23* |
 | **Recipiente** | Capacidad y **tara**, pesada con la precisión del trabajo |
 | **Lote de trabajo** | Lo que se está formulando |
 | **Lote final** | Lo esperado, con el alcohol. **IFRA se mide sobre él** |
@@ -381,7 +382,8 @@ No hay «modo acorde». Como mucho, cambia cuál de las dos se destaca.
 | **Otras categorías IFRA** | Las 18 archivadas (§5.1) |
 | **Recuperar un punto del historial** | Por evaluar (§3.4) |
 | **Producto**: publicar, licencias de los datos (IFRA, FIG) antes de distribuir | El ID-vector ya sirve para compartir (§2.4). El repositorio propio ya existe (2026-09-25) |
-| **Lo que va antes del banco** | Sin diseñar (§0) |
+| **Lo que va antes del banco** | Sin diseñar (§0). El banco ya tiene botón atrás (§10.1) |
+| **Datos de los gráficos**: el piso de toda la base y la duración por horas de cada material | Los gráficos tienen su sitio en el banco (§10.1). Hoy el piso solo está para los 54 materiales del laboratorio, y de duración por horas no hay ninguna cifra |
 
 ---
 
@@ -402,6 +404,40 @@ Se tacha, no se borra: el texto original sigue en los antecedentes.
 | ~~Descendencia entre fórmulas, árbol madre → hijas~~ | Primera lectura de P1; opción C de P15 | P15: sin dependencias (§3.2) |
 | ~~React + Postgres + servidor + Capacitor~~ | Brief §3 | P21: Tauri 2, sin servidor |
 | ~~Las 18 categorías IFRA a elegir~~ | Decisión del 23-09 | Reorganización del 23-09: solo la 4 (§5.1) |
+| ~~La biblioteca lateral del Banco v2~~ | [Banco v2](antecedentes/banco-v2/README.md) | P23: sin inventario, la sustituyen los usados recientes (§10.1) |
+
+---
+
+# 10 · La interfaz
+
+*Desde la ronda 9 del [interrogatorio](interrogatorio.md), 2026-09-25. **Lo visual sigue
+abierto**: tono, color, letra y las señales de tipo y de estado son el bloque 4 del diseño
+([plan](plan-desarrollo.md)). Los bocetos viven en el
+[lienzo de bocetos](https://claude.ai/artifact/RXLX4e5WKR6xFNApMeyphj).*
+
+## 10.1 · El banco: tres columnas y un dock
+
+*P23, con el [boceto del usuario](media/2026-09-25-boceto-banco.png).*
+
+| Zona | Qué lleva |
+|---|---|
+| **Arriba** | Botón atrás · la cabecera: nombre, recipiente y lotes (§3.3) · **la caja de IFRA** · el menú de opciones: guardar, guardar como, exportar |
+| **Izquierda** | **El frasco**, que se llena conforme se formula y lleva el nombre como etiqueta; debajo, su peso · **el visualizador**, la firma de la app, con el sitio guardado (§8) |
+| **Centro** | La intención (§3.3) · la barra de añadir (§4) · **los usados recientes**, para añadir rápido · los gráficos: pirámide por piso, reparto de la materia y proyección por horas |
+| **Derecha** | **La composición: un listado ordenado por %, producto y %**, con su base (§1.1) |
+| **Abajo** | **El historial como un dock**: una pieza por cambio, siempre a la vista; al pasar el ratón se amplía y dice material y cantidad. **Las notas son marcas en él** (§3.4) |
+
+- **La caja de IFRA son dos líneas**, las dos lecturas de §5.4: *¿pasa los límites en el
+  lote final?* y *¿hasta qué % se puede usar en un perfume final?* Nunca en verde si hay
+  desconocidos (§5.5).
+- **El frasco se llena en masa, sobre el lote de trabajo**: con 5 g de 10 g está a la mitad.
+  **Es un visualizador, no una medida**, y por eso no necesita densidad.
+- **Los recientes sustituyen a la biblioteca lateral** del Banco v2: sin inventario (P6), lo
+  que está a mano es lo que acabas de usar, con su última dilución (P7).
+- **Los datos de los gráficos son trabajo aparte**, para después (§8). Ahora se diseñan la
+  interfaz, la experiencia de uso y las funciones.
+- **En el móvil no hay hover**: el dock se recorre deslizando el dedo, que es también el
+  gesto del *play*.
 
 ---
 
