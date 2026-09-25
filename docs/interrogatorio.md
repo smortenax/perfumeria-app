@@ -761,6 +761,73 @@ Respuesta literal, completa:
 - Estado: cerrada
 - Destino: decisiones.md §10.1 y §3.3
 
+### P24 — Revisión del boceto 1: dónde va cada pieza
+- Bloque: diseño 2 · el banco a tamaño real
+- Abierta por: el boceto 1, a 1440 × 900 con F-001-v1 dentro, en el lienzo de bocetos
+- Presentado: el boceto, con cuatro decisiones del paso a limpio por confirmar (disolventes al
+  pie, % de materia pura, solo las marcas imprescindibles, detalle de IFRA encima de la
+  composición) y una pregunta: en qué pantalla se formula
+- Respuesta: **una revisión dictada, y una reordenación del boceto**:
+
+![Boceto 1 reordenado por el usuario](media/2026-09-25-boceto-banco-reordenado.png)
+
+Respuesta literal, completa. *El dictado repetía el primer bloque; va una sola vez:*
+
+> *«Eh, voy a hacer una evaluación eh, en general de cómo es el estado y de las cosas que creo que están bien para que quede mi opinión mejor plasmada lo haré en un eh, texto chat la parte de arriba está bastante bien al menos de momento eh, la parte de elegía cuando se ha creado eh, todo esto y la intención también me parece que está bien la parte del buscador en general la noto bastante apretada y habrá que ver cómo resolverlo también en la parte del buscador el dihidromircenol y toda esta parte lo que habría que que poner en cuanto a los que guardas en favoritos es eh, alguna manera de aparte de la estrellita para guardarlo alguna manera de seleccionar los favoritos porque si no no ganarías tanto Entonces, eh, aparte de utilizar la estrella para guardarlo, a lo mejor en la estrella tendrías que tener un desplegable, o sea, al lado de la estrella tendrías que tener un desplegable que fueran los que tienes guardados como favorito y el botón propio que sería la estrella para guardarlo como favorito. Eh, lo de cantidad está bien, añadir está bien, eh, lo de recientes me parece bien, o sea, era justo... Lo que yo pensaba que te ahorraría un poco de tiempo si quieres reusarlos. En cuanto a la pirámide de eh, por piso, mi idea en realidad era eh, ahora faltan los datos, pero eh, no que se acumulen eh, digamos eh, de manera puramente por adición eh, sino como un poco compuesta La idea sería que todos los componentes eh, tengan su ratio preciso entre salida y fondo con precisión eh, no in, no íntegra, digamos. O sea, uno puede ser entre salida y salida a fondo, por ejemplo, o sea... Puede ser que eh, el mm, ver, la bergamota sea mucho más salida que eh, una nota de corazón eh, pongamos por ejemplo no sé eh, Edione o la que sea eh, pero a la vez el aliol maltol o alguno de estos sea más salida y menos corazón. O sea, la idea es que se eh, se componga este eh, este gráfico por cada una de las eh, de las notas. Entonces te quedaría como mucho más granulado. Eh, esto tengo que ver si es posible en cuanto a información. Ahora Lo vamos a dejar así, pero para que quede clara la intención y en cuanto a es una tontería, pero para ahorrar palabras la salida, salida corazón, corazón corazón fondo y fondo en icono quedarían mejor son muy entendibles, simplemente hacer como una pirámide repartida como en eh, cinco slices verticales y bueno, de hecho Formulate lo tiene así también y esos cinco slices verticales son los que los que hacen entender a la persona ya eso eh, al ser tan, o sea, al ser iconográfico a lo mejor el porcentaje y los miligramos y todo esto puede excluirse o al menos a lo mejor conservar solo los miligramos no, conservarlo en hover, creo que sería a lo mejor Si pones el dedo, por, o sea, si pones el ratón o el cursor o el dedo en el móvil por encima de del cada uno de los gráficos que te lo ponga, los gramos que hay en cada uno, en salida, corazón, salida, corazón, corazón, fondo y fondo, pero que esto sea puramente iconográfico creo que lo, lo mejora porque te ahorras un, mira, la mitad de la parte digamos pirámide por piso eh, está ocupada por salida, salida, corazón, corazón, corazón, fondo, que es lo que queremos cambiar por iconos, y por números que a lo mejor hacen un poco más de ruido. ¿no? Y ya está. Y haría lo mismo con reparto de la materia. Porque el problema que tenemos cuando hay tantos iconos eh, es que si además de iconos dentro de los iconos hay números y letras, eh, tienes como esta sensación de cluttering porque hay demasiadas cosas.»*
+>
+> *«dejo de momento este feedbakc aqui luego sigo*
+> *la proyeccion por horas tambien queria que fuese ajustada a cada uno de los materiales, en este caso los materiales tambien tendrian que tener calificacion por longevidad que es otra tarea en si misma.*
+> *la parte del historial es la que mas me gusta a nivel de resultado y lo unico que hay que corregir, no se si es por diseño o por lo que habia de informacion en el documento de formula es que los materiales aqui estan agrupados por gramos totales, en vez de por orden de aplicacion, habria muchos duplicados de materiales pero parte de la gracia es que veas exactamente que has estado aplicando y en que orden incluso aunque haya repetidos, de aqui surgen mas retos para tratar todos los materiales base ifra (cada material tiene que tener una referencia, seria imposible basarse solo en dos letras hay que añadir tambien otras variables pero aun asi el resultado final lo valdra)  muchas cosas de visualizacion forman parte de afrontar una categorizacion exaustiva de cada uno de los componentes pero eso forma parte del reto. lo abordaremos al acabar de definir la ui.*
+> *la parte que menos me gusta es que visualizador del perfume es pequeño y quiero hacer una infografia compleja, por lo tanto no se entendera y pierde protagonismo, despues de hacer mas pequeña la parte de piramide por piso y reparto de materia mas pequeña se puede ganar espacio)*
+> *aun asi hago propuesta de como reordenar cosas para abordar los cambios que veo propios*
+> *importante las cosas que he resizeado sobretodo la parte del buscador en medio no es con la intencion de que sea lo mismo mas grande sino que estoy repartiendo por espacio reservado para cada categoria, la idea es resolver la impracticidad de ahora para poener las cosas, por ejemplo lo de mis materias y formulas como toggle no me cuadra que este arriba quizas tiene que estar a la izquierda con un deslizador de on and off siguiendo la linea de diseño elegante la parte de reparto de materia aun valoro que quizas hasta sin nos nombres listados es mejor y que aparezcan solo con color, planteo la posibilidad de que los materiales tambien esten linkeados de manera general a sus graficos desde el historial,(no necesariamente ahora evalua) el hover de abajo hace que resalten todos los diagramas en los que el material esta, hover en hedione donde el hostorial oscurece un poco la pantalla y te lo resalta visualmente en la dilucion del flasco a la izquierda en lalinea que representa del grafico de proyeccion por horas en su lugar en reparto de materia en (si es pequeño sale en otros), en la parte de piramide por piso  y en la parte de composicion, esto pensandolo bien no forma parte de las ocmpetencias de ahora pero hace saber que la programacion de los graficos siempre tiene que tener un representatne en real en las materias, de manera que sea todo linkeable»*
+
+- **Lectura:**
+  1. **Se quedan como están** la cabecera, la intención, la caja de IFRA, la cantidad, el
+     botón de añadir y los recientes.
+  2. **La reordenación** reparte el espacio por categoría; no es lo mismo más grande:
+     - el frasco y su peso suben arriba a la izquierda, junto a «Atrás»;
+     - la barra y los recientes ocupan todo el ancho de la izquierda;
+     - **el visualizador crece** y se queda con la parte baja de la izquierda;
+     - la pirámide y el reparto encogen, con la proyección debajo;
+     - la composición sigue a la derecha, y el dock abajo.
+  3. **La barra está apretada.** Los interruptores de «mis materiales» y «fórmulas» pasan a
+     la izquierda del buscador, como interruptores de encendido y apagado.
+  4. **Favoritas: la estrella guarda la dilución puesta, y al lado hay un desplegable** con
+     las guardadas, para elegir una. Sin lo segundo, guardar no sirve de mucho.
+  5. **Los gráficos, iconográficos y sin números a la vista.** Los cinco pisos pasan a ser
+     iconos: una pirámide partida en cinco franjas, como en Formulair. Los mg salen al pasar
+     el ratón o el dedo. **El reparto, sin leyenda**, solo con color, y el nombre al pasar.
+     La razón: iconos con números y letras dentro saturan.
+  6. **La pirámide, compuesta.** Cada material tendrá su reparto preciso entre salida y
+     fondo, no un piso entero: la bergamota, casi toda salida; otro material, más salida que
+     corazón. El gráfico suma esos repartos y sale más granulado. **Es intención; depende de
+     que haya datos.**
+  7. **La proyección por horas, una línea por material**, con una calificación de
+     longevidad por material. **Datos, para después.**
+  8. **El historial es lo que más gusta.** Hay que ver **cada aplicación, en su orden, con
+     los repetidos**. Que el boceto 1 agrupara por material venía de F-001, que no guardó su
+     historial; el diseño ya era un fotograma por cambio (§3.4). **Dos letras no bastan para
+     identificar un material**: hace falta una referencia visual con más variables, que es
+     parte de la categorización exhaustiva de los materiales. Se aborda al acabar la
+     interfaz.
+  9. **El visualizador tiene que ser grande**: será una infografía compleja, y pequeño no se
+     entiende y pierde protagonismo.
+  10. **Todo gráfico, enlazado a sus materiales.** Al pasar por un material del historial,
+      la pantalla se oscurece y ese material se resalta en el frasco, en su línea de la
+      proyección, en el reparto (dentro de «otros» si es pequeño), en la pirámide y en la
+      composición. **No es para ahora, pero fija una regla**: cada marca de un gráfico sabe de
+      qué materiales sale.
+- **Sin respuesta:** la pantalla en que se formula. Las cuatro decisiones del paso a limpio
+  no reciben comentario: **se mantienen mientras no se diga otra cosa**.
+- ⚠️ **Consecuencia:** la regla del punto 10 **cuesta poco si se fija ahora**, antes del
+  núcleo y de los gráficos: basta con que cada gráfico se calcule por material y guarde de
+  qué material sale cada parte. **Meterla después obliga a rehacer los gráficos.**
+- **Boceto 2**, con la reordenación y los puntos 3, 4, 5 y 8, en el lienzo de bocetos.
+- Fecha: 2026-09-25
+- Estado: cerrada · lectura por confirmar sobre el boceto 2
+- Destino: decisiones.md §4, §8, §10.1, §10.2 y §10.3; plan, fase 3 (D4)
+
 ---
 
 ## Estado
@@ -768,6 +835,6 @@ Respuesta literal, completa:
 | Ronda | Cerradas | Abiertas |
 |---|---|---|
 | R1 a R8 | 22 (P1 a P22) | 0 |
-| R9 · diseño | 1 (P23) | 0 |
+| R9 · diseño | 2 (P23, P24) | 0 |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.

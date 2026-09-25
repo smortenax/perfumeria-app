@@ -262,8 +262,8 @@ aviso de cantidad**: los materiales son vectores.
 | Zona | Qué hace |
 |---|---|
 | **➕** | Lo que no está en la paleta base: **material nuevo rápido** (basta un nombre), **fórmula como material** y **de mis materiales** |
-| **Buscador** | **Un solo buscador**, que **se queda con el material elegido**: no hay campo «Seleccionado». **Dos interruptores independientes**, uno para incluir **mis materiales** y otro para **fórmulas como material**, porque la base IFRA ya es enorme |
-| **Dilución** | Porcentaje, **100 % por defecto**, y al lado el **diluyente**, uno habitual o uno provisional. Sale **la última dilución** con que se usó ese material; las **favoritas**, siempre a mano |
+| **Buscador** | **Un solo buscador**, que **se queda con el material elegido**: no hay campo «Seleccionado». **Dos interruptores independientes**, uno para incluir **mis materiales** y otro para **fórmulas como material**, porque la base IFRA ya es enorme. Van **a la izquierda del buscador, como interruptores de encendido** (P24) |
+| **Dilución** | Porcentaje, **100 % por defecto**, y al lado el **diluyente**, uno habitual o uno provisional. Sale **la última dilución** con que se usó ese material; las **favoritas**, siempre a mano: **la estrella guarda la dilución puesta, y al lado un desplegable da las guardadas** (P24) |
 | **Cantidad** | **mg por defecto**; la unidad se puede cambiar a g para lotes grandes. **Enter añade** |
 
 ---
@@ -383,7 +383,8 @@ No hay «modo acorde». Como mucho, cambia cuál de las dos se destaca.
 | **Recuperar un punto del historial** | Por evaluar (§3.4) |
 | **Producto**: publicar, licencias de los datos (IFRA, FIG) antes de distribuir | El ID-vector ya sirve para compartir (§2.4). El repositorio propio ya existe (2026-09-25) |
 | **Lo que va antes del banco** | Sin diseñar (§0). El banco ya tiene botón atrás (§10.1) |
-| **Datos de los gráficos**: el piso de toda la base y la duración por horas de cada material | Los gráficos tienen su sitio en el banco (§10.1). Hoy el piso solo está para los 54 materiales del laboratorio, y de duración por horas no hay ninguna cifra |
+| **Datos de los gráficos**: el reparto preciso de cada material entre salida y fondo, su longevidad por horas y una identidad visual más rica que dos letras. Es la categorización exhaustiva de los materiales, **al acabar la interfaz** (P24) | Los gráficos tienen su sitio y su forma (§10.1, §10.2). Hoy el piso, entero, solo está para los 54 materiales del laboratorio, y de longevidad por horas no hay ninguna cifra |
+| **Resaltado cruzado**: al pasar por un material del historial, se resalta en todos los gráficos | La regla que lo hace posible ya está fijada (§10.3) |
 
 ---
 
@@ -415,17 +416,21 @@ abierto**: tono, color, letra y las señales de tipo y de estado son el bloque 4
 ([plan](plan-desarrollo.md)). Los bocetos viven en el
 [lienzo de bocetos](https://claude.ai/artifact/RXLX4e5WKR6xFNApMeyphj).*
 
-## 10.1 · El banco: tres columnas y un dock
+## 10.1 · El banco: la mezcla arriba, el trabajo en medio, el historial abajo
 
-*P23, con el [boceto del usuario](media/2026-09-25-boceto-banco.png).*
+*P23, con el [boceto del usuario](media/2026-09-25-boceto-banco.png); reordenado por él en
+P24, sobre el boceto 1 ([reordenación](media/2026-09-25-boceto-banco-reordenado.png)). **El
+espacio se reparte por categoría**: lo que crece no es lo mismo más grande.*
 
 | Zona | Qué lleva |
 |---|---|
-| **Arriba** | Botón atrás · la cabecera: nombre, recipiente y lotes (§3.3) · **la caja de IFRA** · el menú de opciones: guardar, guardar como, exportar |
-| **Izquierda** | **El frasco**, que se llena conforme se formula y lleva el nombre como etiqueta; debajo, su peso · **el visualizador**, la firma de la app, con el sitio guardado (§8) |
-| **Centro** | La intención (§3.3) · la barra de añadir (§4) · **los usados recientes**, para añadir rápido · los gráficos: pirámide por piso, reparto de la materia y proyección por horas |
-| **Derecha** | **La composición: un listado ordenado por %, producto y %**, con su base (§1.1) |
-| **Abajo** | **El historial como un dock**: una pieza por cambio, siempre a la vista; al pasar el ratón se amplía y dice material y cantidad. **Las notas son marcas en él** (§3.4) |
+| **Arriba a la izquierda** | Botón atrás · el peso del frasco · **el frasco**, que se llena conforme se formula y lleva el nombre como etiqueta |
+| **Arriba** | La cabecera: nombre, recipiente y lotes (§3.3) · la intención |
+| **De lado a lado** | La barra de añadir (§4) · **los usados recientes**, para añadir rápido |
+| **Abajo a la izquierda** | **El visualizador, grande**: la firma de la app, una infografía compleja que pequeña no se entendería (§8) |
+| **Abajo, en medio** | Pirámide por piso y reparto de la materia, pequeños; debajo, la proyección por horas (§10.2) |
+| **Derecha** | **La caja de IFRA** y el menú de opciones: guardar, guardar como, exportar · **la composición: un listado ordenado por %, producto y %**, con su base (§1.1) |
+| **Abajo del todo** | **El historial como un dock**: **cada aplicación, en su orden, aunque se repita el material**; siempre a la vista; al pasar el ratón se amplía y dice material y cantidad. **Las notas son marcas en él** (§3.4) |
 
 - **La caja de IFRA son dos líneas**, las dos lecturas de §5.4: *¿pasa los límites en el
   lote final?* y *¿hasta qué % se puede usar en un perfume final?* Nunca en verde si hay
@@ -438,6 +443,35 @@ abierto**: tono, color, letra y las señales de tipo y de estado son el bloque 4
   interfaz, la experiencia de uso y las funciones.
 - **En el móvil no hay hover**: el dock se recorre deslizando el dedo, que es también el
   gesto del *play*.
+
+## 10.2 · Los gráficos: iconos, y los números al pasar
+
+*P24.*
+
+- **Nada de números ni de rótulos a la vista** en los gráficos: iconos con números y letras
+  dentro saturan la pantalla. **Los números salen al pasar el ratón o el dedo.**
+- **Pirámide por piso:** los cinco pisos son **iconos**, una pirámide partida en cinco
+  franjas, con la suya marcada, como en Formulair. Al pasar, los mg de ese piso.
+- **Reparto de la materia:** **sin leyenda**, solo color. Al pasar, el nombre y su parte.
+  Los materiales pequeños van juntos en «otros».
+- **Proyección por horas:** **una línea por material**, con su longevidad (§8).
+- **La pirámide será compuesta**: cada material reparte su masa entre los pisos según su
+  perfil, que no tiene por qué ser un piso entero. El dibujo no cambia; cambia cómo se
+  reparte cada material entre las franjas. Depende de los datos (§8).
+
+## 10.3 · Todo gráfico se enlaza con sus materiales
+
+*P24. La regla es de ahora; el resaltado, de después (§8).*
+
+**Cada parte de un gráfico sabe de qué materiales sale.** Los gráficos se calculan por
+material, a partir de la composición, y nunca como totales sueltos que ya no se pueden
+separar.
+
+**Por qué ahora:** cuesta poco si se fija antes de escribir el núcleo y los gráficos, y
+meterla después obliga a rehacerlos. Es lo que hará posible **el resaltado cruzado**: al pasar
+por un material del historial, la pantalla se oscurece y ese material se ilumina en el
+frasco, en su línea de la proyección, en el reparto (o en «otros»), en la pirámide y en la
+composición. En el móvil, lo mismo con un toque.
 
 ---
 

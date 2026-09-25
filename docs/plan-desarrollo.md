@@ -83,6 +83,10 @@ Trabajo de lectura: subagentes Sonnet de uno en uno, y revisión por partes.
   por CAS. Un generador en `scripts/`, sobre lo que ya trae
   [`importar_datos.py`](../scripts/importar_datos.py), produce el **paquete de datos
   versionado**.
+- [ ] **D4 · Lo que piden los gráficos**, **al acabar de definir la interfaz** (P24): el
+  reparto preciso de cada material entre salida y fondo, su longevidad por horas y una
+  identidad visual más rica que dos letras. Con fuente y confianza por dato; lo que no se
+  sepa, hueco.
 - **Sale:** la app carga el paquete sin red, y dice su versión y su fecha.
 
 ## Diseño *(en paralelo, desde el 2026-09-25)*
@@ -92,13 +96,14 @@ por el [interrogatorio](interrogatorio.md), desde la ronda 9, y se enseña con b
 bocetos viven en el [lienzo de bocetos](https://claude.ai/artifact/RXLX4e5WKR6xFNApMeyphj),
 donde el usuario puede comentar sobre cada zona.
 
-- [x] **1 · Qué manda en el banco.** P23: tres columnas y un dock, del boceto del usuario
+- [x] **1 · Qué manda en el banco.** P23: el boceto del usuario, con el historial como dock
   ([decisiones §10.1](decisiones.md)). 2026-09-25.
 - [ ] **2 · Dónde va cada pieza**, a tamaño real, y cómo se pliega en pantalla estrecha.
-  *Boceto 1 a 1440 × 900 con F-001-v1 dentro, publicado el 2026-09-25; falta la revisión
-  del usuario.*
-- [ ] **3 · Las piezas con más carga:** la columna de composición, el resumen de IFRA y el
-  historial como dock.
+  *Boceto 1 a 1440 × 900 con F-001-v1 dentro, revisado por el usuario (P24). Boceto 2, con
+  su reordenación, publicado el 2026-09-25; falta su revisión.*
+- [ ] **3 · Las piezas con más carga:** la columna de composición, el resumen de IFRA, el
+  historial como dock, los gráficos iconográficos (§10.2) y el enlace de cada gráfico con
+  sus materiales (§10.3).
 - [ ] **4 · El lenguaje visual:** tono, color, letra, y las señales de tipo y de estado. Con
   las referencias del usuario.
 - [ ] **5 · Los flujos:** reabrir pesando, guardar como, material nuevo rápido.
@@ -115,7 +120,9 @@ donde el usuario puede comentar sobre cada zona.
 - [ ] **El panel de IFRA**: las dos lecturas y lo desconocido.
 - [ ] **La cabecera**: recipiente, tara, lotes. **El historial**, con notas. **Deshacer.**
 - [ ] **Guardar, guardar como** (con recipiente e historial) **y reabrir pesando.**
-- [ ] **Los gráficos del Banco v2**, trasladados: reparto de la materia y pirámide.
+- [ ] **Los gráficos** (decisiones §10.2): pirámide por piso, reparto de la materia y
+  proyección por horas, **cada uno calculado por material**, para que todo se pueda enlazar
+  (§10.3).
 - **Sale:** F-001 se formula de principio a fin en la app.
 
 ## Fase 5 · Biblioteca de fórmulas y alta de materiales
