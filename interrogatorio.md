@@ -12,7 +12,7 @@ corrige.
 Cuando las rondas R1 a R4 estén cerradas, lo decidido pasa a [`decisiones.md`](decisiones.md)
 como v3. Los [antecedentes](antecedentes/README.md) no obligan a nada.
 
-Última sesión: 2026-09-25 (rondas 1 a 3)
+Última sesión: 2026-09-25 (rondas 1 a 4)
 
 ---
 
@@ -258,13 +258,95 @@ Respuesta literal, completa:
 
 ---
 
+## Ronda 4 — Código de material, receta frente a mezcla, buscador
+
+*Preguntas presentadas: P9 (repetida), P10 (al añadir una fórmula como material: la receta
+o la mezcla hecha), P11 (qué encuentra el buscador). El usuario también precisó P7 y P8.*
+
+Respuesta literal, completa:
+
+> *«p7 aunque no haya favorita sale la ultima que usaste, al selecionar el material (en un mismo desarrollo es probable que varias diluciones sean con las mismas caracteristicas) los favoritos siempre son una opcion aun asi*
+> *p8*
+> *como entiendo el historial yo es asi, el historial ya guarda uno a uno los cambios por gramos y producto, las infografias usan la cantidad en gramos y informaciion de los productos para verse por ejemplo si empiezas con los almizcles y fijadores cada mg añadido es guardado bottom note , solo visualizar el grafico agregando cada intake de material sobre las categorias pertintentes (aun por definir) te "hace una animacion", no va por tiempo cada cambio es un frame, ya se registran en orden por cantidad y por material,*
+> *p9 en este caso c es la clara correcta*
+> *p10*
+> *la informacion de los gramos del producto solo tiene importancia en la formulacion, los materiales como todos son "vectoriales" no escalares, en terminos de que definen como se dividen los porcentages no la cantidad, la cantidad siempre es lo que pongas en el apartado de cantidad y se desglosa en los porcentajes de donde sale la formula. el momento donde importa los pesos de la formulas es en la opcion de reformulacion o editar formulas, ese proceso se hace abriendo una formula de nuevo y queriendo alterarla, lo importante es que cuando has usado una formula y editas la misma se tenga en cuenta que queda menos que cuando la hiciste inicialmente. si tu formula al principio tenia las concetraciones de todo en base a 10g y luego vas a reeditarla y esta en base a 8g ponerle 1g de producto hara parecer que esta al 10% a no ser que los gramos esten ajustados a la cantidad real*
+> *p11*
+> *un solo sitio donde buscar pero con una opcion de toggle donde se pueda seleccionar si se tienen en cuenta los materiales tuyos o no. la idea de separarlos era que tus materiales no creen confusiones por nombre y demas tienen que estar claramente diferenciados»*
+
+### P7 — precisión
+- **Al seleccionar un material sale la última dilución con que lo usaste**, haya favorita o
+  no: en un mismo desarrollo se repiten las mismas diluciones. **Las favoritas siguen
+  siempre a mano** como opción.
+- Estado: cerrada
+
+### P8 — precisión: el historial *es* la secuencia de cambios
+- **Lectura:** el historial guarda **cada cambio, uno a uno, con su material y su
+  cantidad**, en orden. **Cada cambio es un fotograma, no un instante de tiempo.** Las
+  infografías futuras toman esa secuencia y el dato de cada material. Por ejemplo, cada mg
+  de un almizcle o un fijador suma a «fondo», y al pasar los fotogramas el gráfico se
+  anima. Las categorías sobre las que se acumula están por definir: son de la línea
+  paralela.
+- La consecuencia que escribí en P8 (guardar cada cambio como evento) **ya estaba en la
+  idea del usuario**.
+- Estado: cerrada
+
+### P9 — El código de un material compuesto
+- Opciones presentadas: A) plano · B) anidado · C) plano como verdad + procedencia aparte
+- Recomendación: C
+- Respuesta: **C**
+- Razón del autor: *«en este caso c es la clara correcta»*
+- **Lectura:** un material compuesto se guarda **desglosado hasta materias primas**, con
+  CAS o nombre, en % de la mezcla, disolvente incluido. **IFRA se calcula siempre sobre
+  eso.** De dónde salió («Acorde de higos, 25-09-2026») es un dato legible aparte, fuera
+  del cálculo. Un producto que ya viene diluido de fábrica es un compuesto más, y eso
+  resuelve las dos capas de dilución de `decisiones.md` §2.2 sin campos especiales.
+- Fecha: 2026-09-25
+- Estado: cerrada
+- Destino: decisiones.md
+
+### P10 — Receta o mezcla hecha
+- Opciones presentadas: A) solo la receta · B) solo mezclas hechas · C) las dos, se elige al añadir
+- Recomendación: C
+- Respuesta: **A al añadir; las cantidades reales importan al reabrir una fórmula para editarla**
+- **Lectura:**
+  1. **Los materiales son vectores, no escalares.** Un material, también una fórmula usada
+     como material, define **cómo se reparte**, no cuánto hay. La cantidad es siempre la
+     que se escribe en «Cantidad», y se desglosa en sus proporciones. **Al añadir no hay
+     límite ni aviso.**
+  2. **Donde el peso real importa es al reabrir una fórmula para seguir trabajándola.** Si
+     la hiciste de 10 g y usaste 2 g en otra, al reabrirla **la base tiene que ser la que
+     queda, 8 g**, no la receta de 10 g.
+  3. **Por qué:** añadir 1 g sobre la receta de 10 g da 1/11, un 9,1 %. Sobre los 8 g
+     reales da 1/9, un 11,1 %. **Sin ajustar la base, la fórmula miente** sobre la
+     concentración de lo que hay en el vial.
+- Queda abierto **cómo sabe la app cuánto queda** y cuándo un uso descuenta: P12.
+- Fecha: 2026-09-25
+- Estado: cerrada en lo esencial · lectura por confirmar
+- Destino: decisiones.md
+
+### P11 — El buscador
+- Opciones presentadas: A) solo paleta base · B) todo, con etiqueta de origen · C) paleta base y mis materiales
+- Recomendación: B
+- Respuesta: **B con un interruptor**
+- **Lectura:** **un solo buscador**, con un **interruptor para incluir o excluir lo tuyo**.
+  Lo tuyo tiene que estar **claramente diferenciado** para que un nombre propio no se
+  confunda con uno de la paleta base. Entiendo que «lo tuyo» abarca tus materiales y tus
+  fórmulas usadas como material; está por confirmar.
+- Fecha: 2026-09-25
+- Estado: cerrada · lectura por confirmar
+- Destino: decisiones.md
+
+---
+
 ## Estado
 
 | Ronda | Cerradas | Abiertas | Siguiente |
 |---|---|---|---|
-| R1 · El núcleo | 3 (P1 corregida; lecturas por confirmar) | 0 | — |
+| R1 · El núcleo | 3 (P1 corregida) | 0 | — |
 | R2 · Registro, materiales y frascos | 2 (P4, P6) | 1 en parte (P5) | — |
-| R3 · Dilución, historial y código de material | 2 (P7, P8) | 1 (P9) | P9 |
-| R4 · Búsqueda, fórmula frente a mezcla hecha | 0 | 2 (P10, P11) | P10 |
-| R5 · Dónde se usa, y qué va y vuelve del repositorio | 0 | — | — |
-| R6 · Lo aplazado (incluye el *play* del historial) | 0 | — | — |
+| R3 · Dilución, historial | 2 (P7, P8) | 0 | — |
+| R4 · Código de material, receta o mezcla, buscador | 3 (P9, P10, P11) | 0 | — |
+| R5 · Reabrir, IFRA sobre producto final, dónde se usa | 0 | 3 (P12, P13, P14) | P12 |
+| R6 · Navegación, y qué va y vuelve del repositorio | 0 | — | — |
+| R7 · Lo aplazado (incluye el *play* del historial) | 0 | — | — |
