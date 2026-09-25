@@ -4,7 +4,7 @@
 cuándo. Objetivo de esta etapa: **un ejecutable de Windows con el que formular de verdad**.
 Cuándo está listo, al final.
 
-Actualizado: **2026-09-25**
+Actualizado: **2026-09-26**
 
 ---
 
@@ -100,7 +100,8 @@ donde el usuario puede comentar sobre cada zona.
   ([decisiones §10.1](decisiones.md)). 2026-09-25.
 - [ ] **2 · Dónde va cada pieza**, a tamaño real, y cómo se pliega en pantalla estrecha.
   *Boceto 1 a 1440 × 900 con F-001-v1 dentro, revisado por el usuario (P24). Boceto 2, con
-  su reordenación, publicado el 2026-09-25; falta su revisión.*
+  su reordenación, revisado (P25). Boceto 3, publicado el 2026-09-26: la barra se prueba con
+  el teclado; falta su revisión.*
 - [ ] **3 · Las piezas con más carga:** la columna de composición, el resumen de IFRA, el
   historial como dock, los gráficos iconográficos (§10.2) y el enlace de cada gráfico con
   sus materiales (§10.3).
@@ -113,8 +114,9 @@ donde el usuario puede comentar sobre cada zona.
 
 ## Fase 4 · El banco
 
-- [ ] **La barra de añadir:** las cuatro zonas; el buscador con sus dos interruptores; la
-  dilución con memoria y favoritas; la cantidad; el cursor que salta de una a otra.
+- [ ] **La barra de añadir** (decisiones §4): material, cantidad, dilución, añadir y
+  estrella; el buscador con sus dos interruptores; las dos opciones de dilución, con memoria
+  y favoritas; **todo con el teclado**, Ctrl+Intro incluido.
 - [ ] **La tabla de la fórmula**, con el desglose de las fórmulas usadas como material, los
   avisos de pesada y las trazas en ppm.
 - [ ] **El panel de IFRA**: las dos lecturas y lo desconocido.
@@ -123,6 +125,8 @@ donde el usuario puede comentar sobre cada zona.
 - [ ] **Los gráficos** (decisiones §10.2): pirámide por piso, reparto de la materia y
   proyección por horas, **cada uno calculado por material**, para que todo se pueda enlazar
   (§10.3).
+- [ ] **El *play* del historial** (§3.4): los gráficos a cero y, adición a adición, otra
+  vez hasta el final.
 - **Sale:** F-001 se formula de principio a fin en la app.
 
 ## Fase 5 · Biblioteca de fórmulas y alta de materiales

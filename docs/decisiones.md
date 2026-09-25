@@ -11,7 +11,7 @@ decisión (`P1` a `P22`), y de lo que seguía vigente de la
 > decir se corrige en este documento, con fecha. El punto de [§2.5](#25--la-dilución-es-un-dato-de-la-línea-no-un-producto)
 > que habría cambiado la v2 **se resolvió el mismo día: se mantiene la v2**.
 
-Actualizado: **2026-09-25**
+Actualizado: **2026-09-26**
 
 ---
 
@@ -225,6 +225,9 @@ ser inequívocos.
 - **Poder volver a un punto anterior no es requisito**; está por evaluar.
 - **Tiene que ser más que una tabla de números.** Guardar cada cambio es lo que hará posible
   el *play* ([§8](#8--aplazado)).
+- **El *play*** pone todos los gráficos a cero y los reproduce **adición a adición**, como la
+  repetición de Procreate trazo a trazo; aquí, traza a traza. Solo anima los gráficos. Su
+  botón vive en el historial (§10.1). *Definido el 2026-09-26, P25.*
 
 ## 3.5 · Reabrir pesando
 
@@ -255,16 +258,25 @@ aviso de cantidad**: los materiales son vectores.
 
 # 4 · La barra de añadir
 
-*P7, P11. [Captura anotada por el usuario](media/2026-09-25-barra-de-anadir-anotada.png).*
+*P7, P11, P24, P25. [Captura anotada por el usuario](media/2026-09-25-barra-de-anadir-anotada.png).
+**Reordenada el 2026-09-26 (P25): la cantidad va antes que la dilución.***
 
-**Cuatro zonas, de izquierda a derecha**, y el cursor salta de una a la siguiente:
+**De izquierda a derecha**, y el cursor salta de una zona a la siguiente. **Todo se hace con
+el teclado**; el ratón solo hace falta para la estrella.
 
 | Zona | Qué hace |
 |---|---|
 | **➕** | Lo que no está en la paleta base: **material nuevo rápido** (basta un nombre), **fórmula como material** y **de mis materiales** |
-| **Buscador** | **Un solo buscador**, que **se queda con el material elegido**: no hay campo «Seleccionado». **Dos interruptores independientes**, uno para incluir **mis materiales** y otro para **fórmulas como material**, porque la base IFRA ya es enorme. Van **a la izquierda del buscador, como interruptores de encendido** (P24) |
-| **Dilución** | Porcentaje, **100 % por defecto**, y al lado el **diluyente**, uno habitual o uno provisional. Sale **la última dilución** con que se usó ese material; las **favoritas**, siempre a mano: **la estrella guarda la dilución puesta, y al lado un desplegable da las guardadas** (P24) |
-| **Cantidad** | **mg por defecto**; la unidad se puede cambiar a g para lotes grandes. **Enter añade** |
+| **Buscador** | **Un solo buscador**, que **se queda con el material elegido**: no hay campo «Seleccionado». **Dos interruptores independientes**, uno para incluir **mis materiales** y otro para **fórmulas como material**, porque la base IFRA ya es enorme. Van **a la izquierda del buscador, como interruptores de encendido** (P24). **Intro elige y pasa a la cantidad** |
+| **Cantidad** | **mg por defecto**; la unidad se puede cambiar a g para lotes grandes. **Intro pasa a la dilución. Ctrl+Intro añade directamente**, con la dilución que ya está puesta: para el material que se usa siempre igual |
+| **Dilución** | **Dos opciones de porcentaje y dos de diluyente**, que se cambian con las flechas. Sin usos previos: **100 % y 10 %; DPG y alcohol**. Sale preseleccionada **la última dilución** con que se usó ese material (P7). **Otro porcentaje se escribe**, con doble clic sobre el %; **otro diluyente**, habitual o provisional, sale de **un solo desplegable** a la derecha de los dos. Intro pasa a Añadir |
+| **Añadir** | Intro añade |
+| **★** | **Guarda la dilución puesta como favorita, dos por material.** Si las hay, **son las opciones que salen**, por delante de las de base (P25) |
+
+- **Si el producto viene diluido, la primera opción es su pureza, no el 100 %**: no se puede
+  pasar de ella (§2.5). Y con el porcentaje igual a la pureza, el diluyente es el del
+  producto.
+- **Las favoritas son un dato del usuario por material**, no de una fórmula (P25).
 
 ---
 
@@ -376,7 +388,8 @@ No hay «modo acorde». Como mucho, cambia cuál de las dos se destaca.
 | | Lo que ya queda preparado |
 |---|---|
 | **Glosario visual** de materiales y fórmulas: la línea paralela | Se sigue en [`antecedentes/lenguaje-visual/`](antecedentes/README.md) |
-| ***Play* del historial**: la fórmula animada, fotograma a fotograma, con las infografías | El historial guarda cada cambio (§3.4) |
+| ***Play* con las infografías** del visualizador: la fórmula animada, fotograma a fotograma | El historial guarda cada cambio (§3.4). El *play* de los gráficos ya está definido (§3.4) y va en la fase 4 |
+| **Un arreglo de colores que represente la mezcla**, en la cabecera | Idea del usuario, sin decidir (P25) |
 | **Móvil**, Android e iOS | Misma base de código (Tauri 2). Android se prueba en el emulador de Android Studio desde Windows; **iOS necesita un Mac** para probarse en el iPhone y para publicar |
 | **Umbrales de alérgenos** de la UE | La maquinaria por sustancia (§5.3); el dato es el vacío 12 |
 | **Otras categorías IFRA** | Las 18 archivadas (§5.1) |
@@ -406,6 +419,7 @@ Se tacha, no se borra: el texto original sigue en los antecedentes.
 | ~~React + Postgres + servidor + Capacitor~~ | Brief §3 | P21: Tauri 2, sin servidor |
 | ~~Las 18 categorías IFRA a elegir~~ | Decisión del 23-09 | Reorganización del 23-09: solo la 4 (§5.1) |
 | ~~La biblioteca lateral del Banco v2~~ | [Banco v2](antecedentes/banco-v2/README.md) | P23: sin inventario, la sustituyen los usados recientes (§10.1) |
+| ~~Las favoritas, en un desplegable junto a la estrella~~ | P24 | P25: salen como las opciones de la dilución (§4) |
 
 ---
 
@@ -416,21 +430,27 @@ abierto**: tono, color, letra y las señales de tipo y de estado son el bloque 4
 ([plan](plan-desarrollo.md)). Los bocetos viven en el
 [lienzo de bocetos](https://claude.ai/artifact/RXLX4e5WKR6xFNApMeyphj).*
 
-## 10.1 · El banco: la mezcla arriba, el trabajo en medio, el historial abajo
+## 10.1 · El banco: imágenes a la izquierda, datos a la derecha
 
 *P23, con el [boceto del usuario](media/2026-09-25-boceto-banco.png); reordenado por él en
-P24, sobre el boceto 1 ([reordenación](media/2026-09-25-boceto-banco-reordenado.png)). **El
-espacio se reparte por categoría**: lo que crece no es lo mismo más grande.*
+P24 ([reordenación](media/2026-09-25-boceto-banco-reordenado.png)) y en P25
+([segunda reordenación](media/2026-09-26-boceto-banco-2-reordenado.png)). **El espacio se
+reparte por categoría**: lo que crece no es lo mismo más grande.*
+
+> **La regla (P25): la izquierda, limpia y con imágenes; la derecha, con los datos.** Lo que
+> solo sirve al empezar, como los gramos del recipiente, va a la derecha y se ignora el resto
+> del rato.
 
 | Zona | Qué lleva |
 |---|---|
-| **Arriba a la izquierda** | Botón atrás · el peso del frasco · **el frasco**, que se llena conforme se formula y lleva el nombre como etiqueta |
-| **Arriba** | La cabecera: nombre, recipiente y lotes (§3.3) · la intención |
-| **De lado a lado** | La barra de añadir (§4) · **los usados recientes**, para añadir rápido |
+| **Arriba a la izquierda** | Botón atrás · **el frasco, grande**, que se llena conforme se formula y lleva el nombre como etiqueta. Es el comienzo de la lectura |
+| **Arriba** | La cabecera, **solo nombre y fecha** · la intención |
+| **A la derecha de la cabecera** | **Los gramos, condensados**: el peso del frasco (tara y bruto), el lote de trabajo, lo que hay en el frasco y el lote final (§3.3) |
+| **En medio** | La barra de añadir (§4), a la derecha del frasco · **los usados recientes**, de lado a lado |
 | **Abajo a la izquierda** | **El visualizador, grande**: la firma de la app, una infografía compleja que pequeña no se entendería (§8) |
 | **Abajo, en medio** | Pirámide por piso y reparto de la materia, pequeños; debajo, la proyección por horas (§10.2) |
 | **Derecha** | **La caja de IFRA** y el menú de opciones: guardar, guardar como, exportar · **la composición: un listado ordenado por %, producto y %**, con su base (§1.1) |
-| **Abajo del todo** | **El historial como un dock**: **cada aplicación, en su orden, aunque se repita el material**; siempre a la vista; al pasar el ratón se amplía y dice material y cantidad. **Las notas son marcas en él** (§3.4) |
+| **Abajo del todo** | **El historial como un dock**: **cada aplicación, en su orden, aunque se repita el material**; siempre a la vista; al pasar el ratón se amplía y dice material y cantidad. **Las notas son marcas en él** (§3.4). **El *play*, arriba en el centro** (§3.4), y **una barra a cada lado**: un clic lleva al principio o al final, y al acercar el ratón el historial se desplaza poco a poco (P25) |
 
 - **La caja de IFRA son dos líneas**, las dos lecturas de §5.4: *¿pasa los límites en el
   lote final?* y *¿hasta qué % se puede usar en un perfume final?* Nunca en verde si hay

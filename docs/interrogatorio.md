@@ -12,7 +12,7 @@ corrige.
 Cuando las rondas R1 a R4 estén cerradas, lo decidido pasa a [`decisiones.md`](decisiones.md)
 como v3. Los [antecedentes](antecedentes/README.md) no obligan a nada.
 
-Última sesión: 2026-09-25 (rondas 1 a 8, la formulación, cerradas; ronda 9, el diseño, abierta)
+Última sesión: 2026-09-26 (rondas 1 a 8, la formulación, cerradas; ronda 9, el diseño, abierta)
 
 ---
 
@@ -828,6 +828,80 @@ Respuesta literal, completa. *El dictado repetía el primer bloque; va una sola 
 - Estado: cerrada · lectura por confirmar sobre el boceto 2
 - Destino: decisiones.md §4, §8, §10.1, §10.2 y §10.3; plan, fase 3 (D4)
 
+### P25 — Revisión del boceto 2
+- Bloque: diseño 2 · el banco a tamaño real
+- Abierta por: el boceto 2, con la reordenación de P24
+- Respuesta: **una nueva reordenación, anotada, y una barra pensada para el teclado**:
+
+![Boceto 2 reordenado y anotado por el usuario](media/2026-09-26-boceto-banco-2-reordenado.png)
+
+*Las anotaciones de la imagen, literales:* sobre la cabecera, *«quizas pienso algun tipo de
+arreglo visual tipo colores que represen ten la mezclapero limpia la ui el quitar de aqui lo
+que habia»*; junto a los gramos, *«todo lo de los gramos condensado es mejor»*; sobre la
+dilución, *«la parte de dilucion y diluyente doos opciones de toggle si haces click puedes
+concretar»*; en el historial, *«boton demoverse sobre el historial, por si no cabe, tambien se
+mueve solo siguiendo tu raton hace scroll horizontal»* y *«boton play para la animacion»*.
+
+Respuesta literal, completa:
+
+> *«paso nuevos cambios, en general.*
+> *la parte inicial de la imagen de lejia resultaba ser mejor inicio de lectura mas limpia, en general la izquierda de la ui limpia de imagenes, la derecha de datos, siguiendo esta misma regla todo lo de gramos es una cosa para el inicio lo dejas en la derecha y lo ignoras el resto del rato, intencion sigue igual, la barra se ha movido acorde*
+> *la idea de la barra es que ahora la cantidad viene antes, seleccionas producto, al darle enter te pasa a los gramos. nueva adicion, los porcentages de dilucion y los diluyentes hay dos opciones de base, con esta categoria. jamas se uso el material la base es 100% y 10%, diluyente es alcohol y dpg, si se guarda con el asterisco (ahora a la derecha de añadir) el asterisco siempre se prioriza para salir, se pueden guardar dos asteriscos por material y son los que saldran a partir considero que es mas practico hacerlo escribiendo, doble click sobre el % te permite escribir el numero, no hace falta un desplegable para cada opcion de diluyente, te sale uno a la derecha de los dos por si las opciones no son alcoho o dpg. intencion de todo esto, si vas a usar el material siempre con la misma dilucion o diluyente, hacer ctrl intro al poner los gramos te lo añade directamente, los "toggle son para poder navegar sin raton" ejemplo:*
+> *cursor en buscador*
+> *-usuario escribe, usa enter*
+> *cursor salta a cantidad*
+> *-usuaario escribe y usa enter*
+> *highlight del toggle de dpg*
+> *-usuario usa flecha hacia abajo y enter*
+> *highligth alcohol*
+> *-usuario usa enter*
+> *highlicht de añadir.*
+> *el raton solo es necesario si el usuario añade a favoritos*
+> *aparte de esto el boton de play para la animacion que pondria todos los graficos a 0 y iria numero a numero reproduciendolos, es un efecto como el de procreate, por trazos, pero en este caso por trazas y es solo animar los graficos adicion por adicion (lo que pasa al ponerlos uno a uno pero de manera intencional)*
+> *por ultimo las no necesarias pero adecuadas barras a la derecha del historial que si le haces click te mandan al final o el principio, acercarte a las barras desde la barra de historial haria que el historial se desplace poco a poco a modo de scroll horizontal»*
+
+- **Lectura:**
+  1. **Izquierda, imágenes; derecha, datos.** El frasco vuelve grande, arriba a la izquierda:
+     era un comienzo de lectura mejor y más limpio.
+  2. **Los gramos, condensados a la derecha.** El peso del frasco y los lotes sirven al
+     empezar y el resto del rato se ignoran. La cabecera se queda con el nombre y la fecha.
+     **Idea, sin decidir:** quizá, más adelante, un arreglo de colores que represente la
+     mezcla.
+  3. **La intención, igual.**
+  4. **La barra, en otro orden: material, cantidad, dilución, añadir y estrella.** Eliges el
+     producto, Intro, y pasas a los gramos.
+  5. **La dilución: dos opciones de porcentaje y dos de diluyente.** Para un material que no
+     se ha usado nunca, **100 % y 10 %; DPG y alcohol.** Otro porcentaje se escribe: **doble
+     clic sobre el %**. Para otro diluyente, **un solo desplegable**, a la derecha de los dos.
+  6. **Favoritas: la estrella pasa a la derecha de Añadir.** Hay **dos por material** y, si
+     existen, **son las opciones que salen**, por delante de las de base.
+  7. **Todo se hace con el teclado.** El ratón solo hace falta para la estrella:
+     buscador e Intro, cantidad e Intro, dilución con las flechas e Intro, y Añadir con
+     Intro. **Ctrl+Intro en la cantidad añade directamente**, con la dilución que ya está
+     puesta, para el material que se usa siempre igual.
+  8. **Play en el historial**: pone todos los gráficos a cero y los reproduce adición a
+     adición, como la repetición de Procreate trazo a trazo; aquí, traza a traza. **Solo
+     anima los gráficos.**
+  9. **Barras a los lados del historial**, para cuando no cabe: con un clic se va al principio
+     o al final, y al acercar el ratón el historial se desplaza poco a poco.
+- **Añadido en la lectura, por confirmar:**
+  - **Si el producto viene diluido, el 100 % se convierte en su pureza**, porque §2.5 no deja
+    pasar de ella; si la pureza es del 10 % o menos, la segunda opción es el 1 %;
+  - **con el % igual a la pureza no hay diluyente que elegir**: se usa el del producto, y la
+    columna de diluyentes se apaga;
+  - **con dos favoritas, salen esas dos**; la última usada (P7) queda preseleccionada si es
+    una de ellas, y si no, la primera favorita;
+  - **en el teclado, primero el % y después el diluyente**: flechas arriba y abajo para
+    cambiar, derecha o Intro para pasar al diluyente. En el ejemplo del usuario el foco
+    empieza en el diluyente;
+  - **F2 hace lo mismo que el doble clic**, para no soltar el teclado.
+- ⚠️ **Consecuencia:** **las favoritas son un dato del usuario por material**, no de una
+  fórmula. Se guardan en disco como lo demás (§6).
+- **Boceto 3**, con todo esto: la barra se puede probar con el teclado.
+- Fecha: 2026-09-26
+- Estado: cerrada · lectura por confirmar sobre el boceto 3
+- Destino: decisiones.md §3.4, §4, §8 y §10.1; plan, fase 4
+
 ---
 
 ## Estado
@@ -835,6 +909,6 @@ Respuesta literal, completa. *El dictado repetía el primer bloque; va una sola 
 | Ronda | Cerradas | Abiertas |
 |---|---|---|
 | R1 a R8 | 22 (P1 a P22) | 0 |
-| R9 · diseño | 2 (P23, P24) | 0 |
+| R9 · diseño | 3 (P23 a P25) | 0 |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.
