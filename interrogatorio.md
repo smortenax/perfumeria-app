@@ -12,7 +12,7 @@ corrige.
 Cuando las rondas R1 a R4 estén cerradas, lo decidido pasa a [`decisiones.md`](decisiones.md)
 como v3. Los [antecedentes](antecedentes/README.md) no obligan a nada.
 
-Última sesión: 2026-09-25
+Última sesión: 2026-09-25 (rondas 1 y 2)
 
 ---
 
@@ -96,12 +96,89 @@ como v3. Los [antecedentes](antecedentes/README.md) no obligan a nada.
 
 ---
 
+## Ronda 2 — Registro, materiales y frascos
+
+*Preguntas presentadas: P4 (corregir errores en un registro que solo crece), P5 (dónde
+nacen frascos y materiales con la app autónoma), P6 (inventario en la primera versión).
+El usuario respondió en un solo texto que **corrige P1** y responde a las tres.*
+
+Respuesta literal, completa:
+
+> *«en cuanto a la app durante la formulacion pienso que es practico que se pueda editar, en mi caso con ctrl z iba bien pero aun asi creo que he virado de la idea de que las formulas sean cerradas e ineditables, vira de algunos conceptos que si me gustaban, por ejemplo importar una formula de un tercero y querer recrearla pero ajustandola, las formulas seran editables y estan compuestas de agregados de materiales, son los materials los que no cambian, yo puedo coger una formula de acorde de melocoton y editarla, quitando componentes dulces y añadiendo olores fuertes, hacer acorde de melocoton pasado. en este caso pierde capacidades de ser uno a uno de la realidad pero gana ventajas en lo que considero que es el campo necesario, documentar y adjuntar formulaciones. en linea de esto, la app no tiene que tener un stock real, añade muchas complicaciones, no es intuitivo, el proposito de la app es la informacion intangible que trae, mientras que en mi caso yo tenia y estaba valorando los stocks en la app se enturbia,*
+> *en la app hay: materiales conocidos, todos en glosario, capacidad de dar de alta materiales con la misma rigurosidad y parametros que los materiales conocidos, o con agujeros (tinturas limite ifra desconocido) de manera que esten tagged, capacidad de dar de alta acordes o materiales a raiz de las formulas, por ejemplo usar un perfume creado para otro o reducirlo a un eau de perfum pero añadiendole fijadores como remedio al cambio de concentracion... La idea es que las opciones de materiales no dependan de dar de alta manualmente stock eso para mi fue tedioso para gente puede ser hasta mas, aporta valor solo en pequeños casos. Creo que los pesos reales tienen que mandar solo en la formulacion, por ejemplo si un acorde de higos que hiciste de 10g es usado como material y se debe reformular al volverlo a reformular es importante que la importacion tenga en cuenta cuanto queda, se usaron 2g por ejemplo y la formulacion no esta preparada puede dar lugar a problemas. hay que definir como navegar con las formulas y materiales, lo ideal es que los amteriales contengan la importacion de los acordes con codigos de lo que lo componen y concentrado, quizas usanndo cas como terminologia, no se por ejemplo "mat(dpgg%50 - 15932-80-6%10 - Angelica seed absolute20% - Anisyl alcohol20%)". de manera que toda la libreria de materiales que manda es en base a ifra y por lo tanto esta al dia de los limites de ifra.»*
+
+### P1 — corrección del 2026-09-25: las fórmulas se editan; los materiales no cambian
+- **Lectura, que sustituye a los puntos 1 a 3 de la lectura anterior de P1:**
+  1. **Una fórmula se edita libremente**: añadir, quitar, cambiar cantidades, con deshacer
+     (Ctrl+Z). Se abandona «solo añadiendo» y «cada estado queda fijo».
+  2. **Se deriva copiando.** Cualquier fórmula, propia o de un tercero, se copia y se ajusta
+     como fórmula nueva: del acorde de melocotón sale el de melocotón pasado.
+  3. **Lo que no cambia son los materiales.** Una fórmula convertida en material queda
+     **congelada** como composición. **Sigue en pie el punto 4 de la lectura anterior**:
+     importar una fórmula como material es copia desglosada, no vínculo.
+  4. **Se acepta perder el uno a uno con el banco** a cambio de lo que es el propósito:
+     **documentar y adjuntar formulaciones**.
+- Estado: cerrada · lectura por confirmar
+- Destino: decisiones.md
+
+### P4 — ¿Cómo se corrige un error?
+- Opciones presentadas: A) nada se borra, se tacha · B) deshacer la última mientras nada dependa de ella · C) editar cualquier línea
+- Recomendación: B
+- Respuesta: **C, con deshacer**, que la corrección de P1 hace innecesaria como pregunta aparte
+- Estado: cerrada
+- Destino: decisiones.md
+
+### P5 — ¿Dónde nacen los materiales? *(respondida en parte)*
+- Opciones presentadas: A) en la app · B) en el repositorio · C) repartido: referencia en el repositorio, lo personal en la app
+- Recomendación: C
+- **Lectura:**
+  1. **La biblioteca son todos los materiales conocidos**, el glosario, no lo que tengas en
+     casa. Cada uno con su IFRA por CAS. Es lo que el usuario llama que la librería «manda
+     en base a IFRA» y por eso está al día de los límites.
+  2. **En la app se dan de alta materiales nuevos** con los mismos campos y el mismo rigor,
+     **o con huecos marcados**: una tintura sin carga conocida o un IFRA desconocido llevan
+     etiqueta, no un cero.
+  3. **En la app se dan de alta materiales a partir de fórmulas**: un acorde, un perfume
+     usado como ingrediente de otro, o una reformulación. Por ejemplo, pasar un perfume a
+     eau de parfum añadiendo fijadores para compensar el cambio de concentración.
+  4. **Un material compuesto lleva su composición como código**, en términos de CAS donde
+     los haya. Por ejemplo: `mat(DPG 50 % · 15932-80-6 10 % · Angelica seed absolute 20 % ·
+     Anisyl alcohol 20 %)`. Así IFRA se calcula siempre sobre lo que contiene. El formato
+     queda abierto en P9; hay precedente en
+     [`05-libreria-global-e-intercambio.md`](antecedentes/formulacion/05-libreria-global-e-intercambio.md) §2.
+- ⚠️ **Consecuencia:** hoy IFRA está transcrito solo para los **54 materiales de la paleta**
+  ([`ifra-cat4.csv`](../conocimiento/normativa/ifra-cat4.csv)). Para que la biblioteca sea el
+  glosario entero (3119 ingredientes por CAS), hace falta **una tabla de los 216
+  estándares por CAS**, en categoría 4. Es trabajo de datos, con el método ya escrito en
+  [la investigación de los 216 estándares](../fuentes/investigaciones/2026-09-23-niveles-de-uso-y-los-216-estandares.md).
+  Y para los naturales, los constituyentes siguen siendo el hueco de P3.
+- Estado: abierta en parte. Queda qué se trae del repositorio y qué vuelve (ronda 4)
+- Destino: decisiones.md
+
+### P6 — Inventario
+- Opciones presentadas: A) sin cantidades · B) cantidad por frasco que se descuenta · C) B + planificación
+- Recomendación: B
+- Respuesta: **ninguna de las tres: no hay inventario de materias primas**
+- **Lectura:**
+  1. **La app no lleva stock.** La biblioteca no depende de dar nada de alta: se formula
+     con cualquier material conocido.
+  2. **Los pesos reales mandan solo dentro de la formulación.**
+  3. **Una excepción, y es de formulación, no de almacén: las mezclas hechas.** Si hiciste
+     10 g de un acorde de higos y lo usas como material, la app sabe cuánto hiciste y cuánto
+     has usado. Si una fórmula pide más de lo que queda, avisa.
+- Consecuencia: la decisión de agosto de «alta y baja de existencias en un clic» queda
+  **superada**, salvo para las mezclas hechas.
+- Estado: cerrada · lectura por confirmar
+- Destino: decisiones.md
+
+---
+
 ## Estado
 
 | Ronda | Cerradas | Abiertas | Siguiente |
 |---|---|---|---|
-| R1 · El núcleo | 3 (lectura por confirmar) | 0 | — |
-| R2 · Registro, materiales y frascos | 0 | 3 | P4 |
-| R3 · Cálculos concretos | 0 | — | — |
-| R4 · Dónde se usa | 0 | — | — |
+| R1 · El núcleo | 3 (P1 corregida; lecturas por confirmar) | 0 | — |
+| R2 · Registro, materiales y frascos | 2 (P4, P6) | 1 en parte (P5) | — |
+| R3 · Dilución, historial y código de material | 0 | 3 | P7 |
+| R4 · Dónde se usa, y qué va y vuelve del repositorio | 0 | — | — |
 | R5 · Lo aplazado | 0 | — | — |
