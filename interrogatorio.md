@@ -12,7 +12,7 @@ corrige.
 Cuando las rondas R1 a R4 estén cerradas, lo decidido pasa a [`decisiones.md`](decisiones.md)
 como v3. Los [antecedentes](antecedentes/README.md) no obligan a nada.
 
-Última sesión: 2026-09-25 (rondas 1 a 7)
+Última sesión: 2026-09-25 (rondas 1 a 8, cerrado)
 
 ---
 
@@ -596,18 +596,40 @@ Respuesta literal, completa:
 
 ---
 
+## Ronda 8 — Confirmación del ejecutable, y el móvil
+
+Respuesta literal, completa:
+
+> *«p21 si es un desarrollador de apps que luego dara lugar a un producto independiente perfecto,*
+> *para apple android si es compatible desarrollo a la vez y la unica implicacion es el final al publicar yo tengo apple pero puedo usar bluestack o algo parecido para probar la app de diseño como si fuese en movil, sino ya mirare otras maneras*
+> *aun si no es posible la direccion principal ahora es un ejecutable descargable funcional en windows*
+> *como procedemos»*
+
+### P21 — Tauri 2
+- Respuesta: **sí**, también pensando en que llegue a ser un producto independiente
+- Estado: cerrada
+- Destino: decisiones.md
+
+### P22 — El móvil
+- Respuesta: **iPhone.** Android e iOS se desarrollan a la vez; la diferencia aparece al
+  publicar. Para probar la interfaz en formato móvil, un emulador en Windows.
+- **Lectura:** la dirección de ahora es **un ejecutable de Windows descargable y que
+  funcione**. Para probar en formato móvil desde Windows sirve el **emulador de Android
+  Studio**, más fiable que BlueStacks para desarrollar. **Probar en el iPhone y publicar en
+  iOS exigen un Mac**, en ese momento, no antes.
+- Estado: cerrada
+- Destino: decisiones.md
+
+**El interrogatorio para la formulación queda cerrado.** Todo pasa a [`decisiones.md`](decisiones.md)
+v3, un borrador que el usuario revisa de una vez, y el orden de trabajo a
+[`plan-desarrollo.md`](plan-desarrollo.md).
+
+---
+
 ## Estado
 
-| Ronda | Cerradas | Abiertas | Siguiente |
-|---|---|---|---|
-| R1 · El núcleo | 3 (P1 corregida) | 0 | — |
-| R2 · Registro, materiales y frascos | 3 (P4, P5, P6) | 0 | — |
-| R3 · Dilución, historial | 2 (P7, P8) | 0 | — |
-| R4 · Código de material, receta o mezcla, buscador | 3 (P9, P10, P11) | 0 | — |
-| R5 · Reabrir, IFRA sobre producto final, dónde se usa | 3 (P12, P13, P14) | 0 | — |
-| R6 · Organización, guardado, lecturas de IFRA | 3 (P15, P16, P17) | 0 | — |
-| R7 · Formato, «guardar como», ejecutable | 3 (P18, P19, P20) | 1 (P21) | P21 |
-| R8 · Móvil | 0 | 1 (P22) | P22 |
+| Ronda | Cerradas | Abiertas |
+|---|---|---|
+| R1 a R8 | 22 (P1 a P22) | 0 |
 
-**Después:** consolidar en `decisiones.md` v3, con todas las lecturas para revisarlas de una
-vez, y el plan de pasos.
+**Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.

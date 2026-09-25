@@ -18,6 +18,7 @@ texto de esta carpeta es una decisión**.
 
 | | |
 |---|---|
+| [Decisiones v2](decisiones-v2-2026-09-23.md) | La versión del 23-09, archivada al pasar a la v3. Lo vigente sigue en la v3 |
 | [Brief de agosto](formulacion/00-brief-agosto-ex-claude-md.md) | Era el `CLAUDE.md` de un proyecto aparte. **Renombrado a propósito**: con su nombre original, Claude Code lo leería como instrucciones |
 | [01 · Formulair](formulacion/01-referente-formulair.md) | El referente: qué hace, su modelo de datos y su motor |
 | [02 · Dominio y datos](formulacion/02-dominio-y-datos.md) | Jerarquía material → acorde → concentrado → perfume, stock por lotes, género, versiones |
