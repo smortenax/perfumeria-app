@@ -27,17 +27,21 @@ Actualizado: **2026-09-25**
 - [x] [Interrogatorio](interrogatorio.md), P1 a P22.
 - [x] [Decisiones v3](decisiones.md), borrador. La v2 está archivada.
 - [x] Este plan.
-- [ ] **Revisión del usuario de la v3**, con el sí expreso al punto de §2.5.
+- [x] **Revisión del usuario de la v3.** El punto de §2.5 se resolvió el 2026-09-25: pureza y
+  porcentaje final. Para lo demás, el usuario dio paso a la instalación («por todo el
+  resto»). Cualquier corrección posterior se hace en el documento, con fecha.
 
 ## Fase 1 · El ordenador y el esqueleto
 
-- [ ] **Instalar las herramientas**, con permiso del usuario, desde fuentes oficiales y por
-  `winget`:
-  - Rust (`rustup`);
-  - Node.js LTS;
-  - Visual Studio Build Tools 2022, con «Desarrollo para el escritorio con C++».
+- [x] **Instalar las herramientas**, con permiso del usuario, desde fuentes oficiales y por
+  `winget` (2026-09-25):
+  - Rust 1.98.1, con `stable-msvc` como variante por defecto;
+  - Node.js 24.19.0 (LTS), con npm 11.17;
+  - Visual Studio Build Tools 2022, con las herramientas de C++ (MSVC 14.44) y el SDK de
+    Windows 10.0.26100;
+  - WebView2 153, que ya venía con Windows.
 
-  **WebView2 ya está instalado** (versión 153).
+  **Comprobado:** un programa de prueba en Rust compila, enlaza con MSVC y se ejecuta.
 - [ ] `tauri info`, sin errores.
 - [x] **Repositorio propio**, `perfumeria-app`, con `CLAUDE.md`, `.gitignore` y los
   documentos en `docs/` (2026-09-25).
