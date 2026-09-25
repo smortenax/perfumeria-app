@@ -104,10 +104,10 @@ menor.**
   `mat(DPG 50 % · 15932-80-6 10 % · Angelica seed absolute 20 % · Anisyl alcohol 20 %)`.
 - **IFRA se calcula siempre sobre ese desglose.** De dónde salió («Acorde de higos,
   25-09-2026») es **un dato legible aparte**, que no entra en el cálculo.
-- **Un producto que ya viene diluido de fábrica no es un compuesto: tiene pureza.** El
-  castoreum del proveedor es castoreum con **pureza 20 %**, y el resto es su disolvente
+- **Un producto que ya viene diluido de fábrica no es un compuesto**, y la app tampoco le
+  guarda pureza: en la línea se escribe el porcentaje final de materia pura
   ([§2.5](#25--la-dilución-es-un-dato-de-la-línea-no-un-producto)). *Corregido el 2026-09-25: la primera redacción lo
-  trataba como compuesto.*
+  trataba como compuesto. La pureza cae el 2026-09-26 (P27).*
 
 
 ## 2.4 · El ID de material de una fórmula es su vector
@@ -150,19 +150,17 @@ material**, y hay **diluciones favoritas** fijadas por material (P7).
 usuario el 2026-09-25: *«sobre los materiales solo hay pureza y porcentaje, si compras una
 dilucion y la diluyes pones el porcentaje final diluido no el de la dilucion»*.
 
-- **Un material tiene pureza**: cómo viene del proveedor. 100 % si es puro; castoreum,
-  20 %; IBQ, 40 %.
 - **En la línea se escribe el porcentaje final**: la concentración de materia pura en lo
   que se vierte. Castoreum al 20 %, 0,100 g en 2,000 g: se escribe **1 %**, no 5 %.
 - **Se mantiene la regla de la v2**: al usuario nunca se le pide el % del producto del
-  proveedor. La app **no deja escribir un porcentaje mayor que la pureza**, y sabe qué
-  disolvente lleva cada adición: el del producto, si está declarado, más el diluyente
-  añadido.
-
-> ⚠️ **En revisión desde el 2026-09-26 ([P27](interrogatorio.md)): dónde vive la pureza.**
-> La barra de añadir ya no la usa para sus opciones (P26), porque la pureza del producto que
-> tiene cada usuario es estado de su stock. El porcentaje final de la línea (lo de arriba)
-> no cambia.
+  proveedor.
+- **La app no guarda la pureza de los materiales, y nada limita el porcentaje que se
+  escribe** (P27, 2026-09-26). El diseño es general: otro usuario puede tener puro lo que
+  aquí viene diluido. Cada uno sabe lo que tiene, y lo recuerda con sus favoritas (§4).
+- **Lo que no es materia pura se cuenta como el diluyente de la línea.** Si un producto
+  trae de fábrica otro disolvente (un castoreum en alcohol que se diluye en DPG), la app no
+  lo distingue. IFRA no se ve afectado, porque va sobre la materia pura; solo el reparto de
+  disolventes.
 
 **Por qué importa, con los casos de la paleta:**
 
@@ -428,6 +426,7 @@ Se tacha, no se borra: el texto original sigue en los antecedentes.
 | ~~La biblioteca lateral del Banco v2~~ | [Banco v2](antecedentes/banco-v2/README.md) | P23: sin inventario, la sustituyen los usados recientes (§10.1) |
 | ~~Las favoritas, en un desplegable junto a la estrella~~ | P24 | P25: salen como las opciones de la dilución (§4) |
 | ~~Opciones de base 100 % y 10 %; la primera, la pureza del producto, con el diluyente atado a ella~~ | P25 y su lectura | P26: 10 % y 1 %, iguales para todos, y dos selectores independientes (§4) |
+| ~~Cada material tiene pureza, y la app no deja escribir un porcentaje mayor~~ | §2.5, 2026-09-25 | P27: el diseño es general; nada limita el porcentaje, y cada usuario recuerda lo suyo con sus favoritas (§2.5) |
 
 ---
 
@@ -437,6 +436,10 @@ Se tacha, no se borra: el texto original sigue en los antecedentes.
 abierto**: tono, color, letra y las señales de tipo y de estado son el bloque 4 del diseño
 ([plan](plan-desarrollo.md)). Los bocetos viven en el
 [lienzo de bocetos](https://claude.ai/artifact/RXLX4e5WKR6xFNApMeyphj).*
+
+> **Se diseña para cualquier usuario** (P27). Aunque se evalúe con los materiales del
+> laboratorio, nada de la interfaz depende de cómo los tiene uno. De cada material, la app
+> solo recuerda cómo lo usa cada cual: la última dilución y las favoritas (§4).
 
 ## 10.1 · El banco: imágenes a la izquierda, datos a la derecha
 
@@ -451,14 +454,14 @@ reparte por categoría**: lo que crece no es lo mismo más grande.*
 
 | Zona | Qué lleva |
 |---|---|
-| **Arriba a la izquierda** | **El frasco, grande**, que se llena conforme se formula y lleva el nombre como etiqueta. Es el comienzo de la lectura. **El botón atrás va en un bocado redondo del marco**, sin montarse encima (P26) |
+| **Arriba a la izquierda** | **El frasco, grande**, que se llena conforme se formula y lleva el nombre como etiqueta. Es el comienzo de la lectura. **El botón atrás va en un bocado del marco**, sin montarse encima (P26); el bocado es cuadrado con las esquinas redondeadas, como el botón (P28) |
 | **Arriba** | La cabecera, **solo nombre y fecha** · la intención |
 | **A la derecha de la cabecera** | **Los gramos, condensados**: el peso del frasco (tara y bruto), el lote de trabajo, lo que hay en el frasco y el lote final (§3.3) |
 | **En medio** | La barra de añadir (§4), a la derecha del frasco · **los usados recientes**, de lado a lado |
 | **Abajo a la izquierda** | **El visualizador, grande**: la firma de la app, una infografía compleja que pequeña no se entendería (§8) |
 | **Abajo, en medio** | Pirámide por piso y reparto de la materia, pequeños; debajo, la proyección por horas (§10.2) |
 | **Derecha** | **La caja de IFRA** y el menú de opciones: guardar, guardar como, exportar · **la composición: un listado ordenado por %, producto y %**, con su base (§1.1) |
-| **Abajo del todo** | **El historial como un dock**: **cada aplicación, en su orden, aunque se repita el material**; siempre a la vista; al pasar el ratón se amplía y dice material y cantidad. **Las notas son marcas en él** (§3.4). **El *play*, en un bocado redondo del borde de arriba, en el centro** (§3.4, P26), y **una barra a cada lado**, a la altura de las piezas: un clic lleva al principio o al final, y al acercar el ratón el historial se desplaza poco a poco (P25, P26). **Durante el play, las piezas no llevan rótulo**, o lo llevan tenue: está por probar (P26) |
+| **Abajo del todo** | **El historial como un dock**: **cada aplicación, en su orden, aunque se repita el material**; siempre a la vista; al pasar el ratón se amplía y dice material y cantidad. **Las notas son marcas en él** (§3.4). **El *play*, en un bocado del borde de arriba, en el centro** (§3.4, P26), cuadrado con las esquinas redondeadas (P28). **En cada extremo, un sombreado sutil**, solo si hay más historial por ese lado: un clic lleva al principio o al final, y al acercar el ratón el historial se desplaza poco a poco (P25, P28). Las piezas van centradas en la bandeja (P26). **Durante el play, las piezas no llevan rótulo**, o lo llevan tenue: está por probar (P26) |
 
 - **La caja de IFRA son dos líneas**, las dos lecturas de §5.4: *¿pasa los límites en el
   lote final?* y *¿hasta qué % se puede usar en un perfume final?* Nunca en verde si hay
@@ -471,6 +474,8 @@ reparte por categoría**: lo que crece no es lo mismo más grande.*
   interfaz, la experiencia de uso y las funciones.
 - **En el móvil no hay hover**: el dock se recorre deslizando el dedo, que es también el
   gesto del *play*.
+- **Los botones son cuadrados con las esquinas redondeadas**, como el resto del diseño;
+  nada de botones redondos (P28).
 
 ## 10.2 · Los gráficos: iconos, y los números al pasar
 

@@ -951,9 +951,43 @@ Respuesta literal, completa:
   pasar de ella en esos · B) en cada material de la base, con un valor estándar · C) en
   ningún sitio: se escribe el porcentaje final y nada lo comprueba
 - Recomendación: A
-- Respuesta: pendiente
-- Estado: abierta
-- Destino: decisiones.md §2.5
+- Respuesta: **C: nada limita el porcentaje**
+- Respuesta literal: *«priemero explico mi planteamiento, es una base de diseño general, que aplique en todo aunque estemos ahora evaluando con el contexto de mis materiales cabe la posibilidad de que alguien añada cashmeran 100%, si lo tiene, limitar eso es contraproducente en el largo plazo, yo se lo que tengo por ejemplo y una vez ya lo ponga y este en favoritos ya no hay lugar para preocuparse de eso mas alla»*
+- **Lectura:**
+  1. **El diseño es general**: sirve para cualquier usuario, aunque ahora se evalúe con los
+     materiales del laboratorio.
+  2. **Nada limita el porcentaje que se escribe.** Otro usuario puede tener Cashmeran puro, y
+     limitarlo a lo que vende un proveedor es contraproducente a la larga.
+  3. **Lo que tiene cada uno lo sabe él.** Lo escribe una vez y queda en sus favoritas; la app
+     no tiene por qué vigilarlo.
+  4. **Sigue en pie lo esencial de §2.5**: en la línea se escribe el porcentaje final de
+     materia pura. Lo que cae es la pureza como dato del material y como límite.
+- ⚠️ **Consecuencia:** sin pureza, la app no sabe con qué disolvente viene de fábrica un
+  producto diluido. **Todo lo que no es materia pura se cuenta como el diluyente de la
+  línea.** Si el castoreum viene en alcohol y se diluye en DPG, el alcohol de fábrica se
+  cuenta como DPG. No afecta a IFRA, que va sobre la materia pura; solo al reparto de
+  disolventes.
+- **Se concede:** mi recomendación era A; la razón del usuario es mejor para un producto
+  general.
+- Fecha: 2026-09-26
+- Estado: cerrada
+- Destino: decisiones.md §2.3, §2.5 y §9; §10, como principio
+
+### P28 — Revisión del boceto 4
+- Bloque: diseño 2 · el banco a tamaño real
+- Abierta por: el boceto 4
+- Respuesta literal, a continuación de la de P27: *«un ultimo detalle los dos botones los prefiero cuadrados y con bordes redondeados como el resto del diseño que redondos, por lo tanto puedes rehacer esa parte y ajustar el negativo, en este caso creo que el cuadrado gana, para los deslizadores a los lados del historial la barra vertical me sobra un poco creo que confunde visualmente en todo caso haria un sutil sobreado a los extremos de la barra que se desliza»*
+- **Lectura:**
+  1. **Atrás y play, cuadrados con esquinas redondeadas**, como el resto del diseño, y sus
+     bocados también cuadrados.
+  2. **Fuera las barras verticales de los lados del historial**, que confunden. En su lugar,
+     **un sombreado sutil en los extremos de la tira**, que solo sale si hay más historial
+     por ese lado. Pulsarlo sigue llevando al principio o al final, y acercar el ratón sigue
+     desplazando.
+- Aplicado en el boceto 4, en su sitio: son retoques.
+- Fecha: 2026-09-26
+- Estado: cerrada · lectura por confirmar sobre el boceto 4
+- Destino: decisiones.md §10.1
 
 ---
 
@@ -962,6 +996,6 @@ Respuesta literal, completa:
 | Ronda | Cerradas | Abiertas |
 |---|---|---|
 | R1 a R8 | 22 (P1 a P22) | 0 |
-| R9 · diseño | 4 (P23 a P26) | 1 (P27) |
+| R9 · diseño | 6 (P23 a P28) | 0 |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.
