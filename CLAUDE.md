@@ -52,3 +52,41 @@ producto**: nada debe cerrar esa puerta.
   abierta.
 - La parte visual y la de UX/UI están **casi sin definir**: lo que hay es provisional. El
   usuario está explorando referencias.
+
+## Lo que ya se sabe del usuario
+
+*Aprendido en las sesiones del laboratorio hasta el 2026-09-25. Aquí porque la memoria de
+Claude va por carpeta y no viaja sola.*
+
+- **Formula por núcleos y adiciones, evaluando entre cada una**, no desde recetas cerradas.
+  Pesa en gramos con una **báscula de 0,001 g** y trabaja en **mg**. Por eso la app gira en
+  torno a la barra de añadir y al historial.
+- **Revisa los números.** Un número sin fuente se dice en la misma frase en que se da, no
+  solo en un documento. Ha detectado cifras dadas sin respaldo y usadas como regla.
+- **Se puede buscar en la web** para rellenar huecos técnicos. El resultado se guarda con
+  su fuente y su confianza. Las cifras IFRA salen solo de la fuente primaria del
+  laboratorio.
+- **Cuando tiene razón, se le concede rápido.** Ha corregido con acierto propuestas del
+  interrogatorio: fórmulas editables, sin inventario, pesar al reabrir, pureza y porcentaje
+  final.
+- **El coste de uso le importa.** Para leer mucho, subagentes baratos (Sonnet) **de uno en
+  uno**, que escriben cada pieza nada más terminarla; la revisión se hace por partes. Nunca
+  cinco subagentes caros en paralelo.
+- **Para investigar con NotebookLM o Gemini** hace falta un prompt distinto que con
+  Claude: una pregunta cada vez, diciendo qué campos, cuántos elementos y qué cita se
+  quieren. La plantilla está en el laboratorio,
+  [`fuentes/frentes/00-prompt-notebooklm.md`](https://github.com/smortenax/perfumeria-lab/blob/master/fuentes/frentes/00-prompt-notebooklm.md).
+
+## Del laboratorio, para cuando toque
+
+Está en `../Perfumery`; **se consulta allí, no se copia** hasta que haga falta:
+
+- **Para las pruebas de la fase 2:** [F-001-v1](https://github.com/smortenax/perfumeria-lab/blob/master/formulas/f-001-lejia/v1.md),
+  la primera fórmula real, con su composición en gramos.
+- **Para el glosario visual y el identificador olorífico:** el hub
+  [`conocimiento/lenguaje/`](https://github.com/smortenax/perfumeria-lab/tree/master/conocimiento/lenguaje),
+  con `descriptores.csv` (153 términos de 13 sistemas, cruzados con el FIG), y los frentes
+  de investigación 4 (química del eje) y 5 (identificador olorífico) de
+  [`fuentes/frentes/`](https://github.com/smortenax/perfumeria-lab/tree/master/fuentes/frentes).
+- **Para los materiales:** las fichas de `materias-primas/` y los límites de proveedor, con
+  sus investigaciones en `fuentes/investigaciones/`.

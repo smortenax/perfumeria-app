@@ -24,6 +24,7 @@ los trae [`scripts/importar_datos.py`](scripts/importar_datos.py) a `datos/fuent
 | `limites-de-uso.csv` | Rangos del proveedor, con su base y su naturaleza: **no es IFRA** |
 | `inventario.csv` | Los materiales del laboratorio, generado desde sus fichas |
 | `glosario-fig.csv` | Descriptores oficiales IFRA FIG por CAS |
+| `leeme-*.md` · `fig-descriptores.md` | **Qué significa cada columna**, copiado del laboratorio: cómo se lee `ifra-cat4.csv`, los niveles de uso, y el FIG con sus 27 descriptores y **la cita obligatoria de IFRA** |
 
 🔴 **La regla 1.1 —todo número con su base— vale igual para los CSV.**
 
