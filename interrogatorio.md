@@ -12,7 +12,7 @@ corrige.
 Cuando las rondas R1 a R4 estén cerradas, lo decidido pasa a [`decisiones.md`](decisiones.md)
 como v3. Los [antecedentes](antecedentes/README.md) no obligan a nada.
 
-Última sesión: 2026-09-25 (rondas 1 a 5)
+Última sesión: 2026-09-25 (rondas 1 a 6)
 
 ---
 
@@ -420,14 +420,95 @@ Respuesta literal, completa:
 
 ---
 
+## Ronda 6 — Organización, guardado y lecturas de IFRA
+
+*Preguntas presentadas: P15 (cómo se organiza el trabajo con varias fórmulas), P16 (qué
+vuelve al repositorio y dónde se guardan los datos), P17 (si hace falta un modo acorde).*
+
+Respuesta literal, completa:
+
+> *«p15, tengo sentimientos encontrados con conservar relaciones de dependencia entre formulas creo que aun cuando hagas una formula a base de la otra no tienen por que conserver dependencias, lo que las diferencia son nombres si editas una formula que pretende ser una variacion se guarda y entiende con el matiz, si pretendes que la sustituya se sustituye. en cuanto a lo que es previo a la fase de formulacion no esta diseñado aun pero la app no es directamente el banco de formulacion, tiene una biblioteca de formulas habilidad de dar de alta materiales de manera compleja y glosario de visualizacion para materiales ifra y formulas*
+> *p16 hay que diseñar la app  con posibiliadad de autonomia, incluso sin internet, en realidad se basa en datos, para los guardados cuando guardas la forumula se tienen que guardar todos los datos preferiblemente de manera condensada e incluyendo el historial cache interno de la app aunque no exportes y simplemente la guardes como formula, hay que valorar formatos para guardarlo quizas csv  o quizas hay mejores*
+> *p17 la b es la mejor, doble insight sobre ifra si  por si solo podria usarse en tamaño esperado (en acordes lo mas seguro es que esto salga que no) y lo maximo que se podria usar en un perfume en porcentaje(informacion que vale para cualquier perfume independientemente de su tamaño)»*
+
+### P15 — Sin dependencias entre fórmulas; la app es más que el banco
+- Opciones presentadas: A) una pantalla de trabajo, como el Banco · B) archivo de fórmulas y mesa de trabajo en pantallas separadas · C) mesa de trabajo con un panel de archivo en árbol, madre → hijas
+- Recomendación: C
+- Respuesta: **ni el árbol ni ningún vínculo; y la app tiene más partes que el banco**
+- **Lectura:**
+  1. **Las fórmulas no guardan relación de dependencia entre sí**, aunque una salga de otra.
+     Lo que las distingue es **el nombre**.
+  2. Al editar una fórmula hay dos salidas:
+     - **Guardar**: la edición **sustituye** a la fórmula, que sigue siendo la misma.
+     - **Guardar como**: la edición es **una variación** y se guarda como fórmula nueva,
+       con un nombre que lleve el matiz.
+  3. **La app no es solo el banco de formulación.** Tiene, al menos:
+     - una **biblioteca de fórmulas**;
+     - el **alta de materiales**, completa (P5);
+     - un **glosario de visualización** de los materiales IFRA y de las fórmulas, que es la
+       línea paralela, para más adelante;
+     - y el **banco**, donde se formula, que es el foco actual.
+  4. **Lo que va antes de formular** (cómo se llega al banco) **no está diseñado** todavía.
+- Se retira de P1 lo que quedaba de «descendencia». Los materiales hechos a partir de una
+  fórmula conservan su procedencia como dato legible (P9); las fórmulas entre sí, no.
+- Queda por ver qué pasa con el recipiente y el historial al «guardar como»: P19 y P20.
+- Fecha: 2026-09-25
+- Estado: cerrada · lectura por confirmar
+- Destino: decisiones.md
+
+### P16 — Autonomía, y guardar lo guarda todo
+- Opciones presentadas: A) archivo propio, nada al repositorio · B) A + «exportar al cuaderno» · C) sincronización automática
+- Recomendación: B
+- Respuesta: **B implícita; el formato, por valorar**
+- **Lectura:**
+  1. **La app se diseña para poder funcionar sola, sin internet.** Es una app de datos.
+  2. **Guardar una fórmula escribe todos sus datos**, historial incluido, de forma
+     condensada. Guardar no es exportar: lo guardado queda completo en la app aunque nunca
+     se exporte.
+  3. **Exportar al cuaderno es otra acción, aparte.** La deduzco de «aunque no exportes»;
+     está por confirmar.
+  4. **El formato de guardado está por decidir.** El usuario pide valorar si CSV u otro:
+     P18.
+- Con esto se cierra lo que quedaba de P5. Lo de referencia llega a la app desde el
+  repositorio en un paquete de datos; lo que se crea en la app vive en ella, y al cuaderno
+  llega por exportación.
+- Fecha: 2026-09-25
+- Estado: cerrada · lectura por confirmar
+- Destino: decisiones.md
+
+### P17 — Dos lecturas de IFRA, siempre
+- Opciones presentadas: A) dos modos por fórmula · B) sin modos, dos lecturas siempre · C) el modo se deduce del lote final
+- Recomendación: B
+- Respuesta: **B**
+- Razón del autor: *«doble insight sobre ifra si por si solo podria usarse en tamaño esperado (en acordes lo mas seguro es que esto salga que no) y lo maximo que se podria usar en un perfume en porcentaje (informacion que vale para cualquier perfume independientemente de su tamaño)»*
+- **Lectura:** el panel de IFRA da **siempre dos lecturas**, salidas del mismo cálculo por
+  sustancia:
+  1. **¿Se puede usar tal cual, a su lote final?** En un acorde, lo normal es que no.
+  2. **¿Hasta qué % se puede usar en un perfume?** Vale para cualquier perfume, sea cual
+     sea su tamaño.
+
+  «Tratar como acorde» ya no es un modo. Como mucho, cambia cuál de las dos se destaca.
+- ⚠️ **Consecuencias:**
+  - la segunda lectura, **con desconocidos en la fórmula**, se da como «hasta X %, según lo
+    conocido», y dice qué no se ha podido contar (P3);
+  - lo que se rige por **certificado** y no por porcentaje, como el cade o el estoraque,
+    aparece como **condición**, no como cifra.
+- Con esto se cierra P13.
+- Fecha: 2026-09-25
+- Estado: cerrada
+- Destino: decisiones.md
+
+---
+
 ## Estado
 
 | Ronda | Cerradas | Abiertas | Siguiente |
 |---|---|---|---|
 | R1 · El núcleo | 3 (P1 corregida) | 0 | — |
-| R2 · Registro, materiales y frascos | 2 (P4, P6) | 1 en parte (P5) | P16 |
+| R2 · Registro, materiales y frascos | 3 (P4, P5, P6) | 0 | — |
 | R3 · Dilución, historial | 2 (P7, P8) | 0 | — |
 | R4 · Código de material, receta o mezcla, buscador | 3 (P9, P10, P11) | 0 | — |
-| R5 · Reabrir, IFRA sobre producto final, dónde se usa | 2 (P12, P14) | 1 en parte (P13) | P17 |
-| R6 · Navegación, vuelta al repositorio, modo acorde | 0 | 3 (P15, P16, P17) | P15 |
-| R7 · Lo aplazado (incluye el *play* del historial) | 0 | — | — |
+| R5 · Reabrir, IFRA sobre producto final, dónde se usa | 3 (P12, P13, P14) | 0 | — |
+| R6 · Organización, guardado, lecturas de IFRA | 3 (P15, P16, P17) | 0 | — |
+| R7 · Formato de guardado, «guardar como» | 0 | 3 (P18, P19, P20) | P18 |
+| R8 · Lo aplazado (incluye el *play* del historial y el glosario visual) | 0 | — | — |
