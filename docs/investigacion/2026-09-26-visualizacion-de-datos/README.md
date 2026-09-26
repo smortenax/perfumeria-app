@@ -106,6 +106,28 @@ visualizador**:
 - **cómo se agrega una fórmula:** si se suman las clasificaciones de sus materiales, o se
   ponderan por su uso efectivo.
 
+### Lo que ya dice el laboratorio (frentes 6 y 7, parte A, 2026-09-26)
+
+Son **los datos que habrá que dibujar**, con su cobertura. Están resumidos de la
+[parte A del frente 6](https://github.com/smortenax/perfumeria-lab/blob/master/fuentes/investigaciones/2026-09-26-frente-6-base-descriptiva-parte-A.md),
+que se lee en `../Perfumery/fuentes/investigaciones/`.
+
+- **El universo:** 2588 CAS del FIG, en 3119 filas.
+  - 2140 son moléculas sueltas con estructura (82,7 %);
+  - 341 son naturales o mezclas (801 filas): el gran hueco, porque casi ninguna fuente los
+    cubre;
+  - 102 no tienen estructura.
+- **La posición y la duración salen del mismo dato, la presión de vapor.** Son dos lecturas
+  de la volatilidad, no dos medidas. La estimada (OPERA, CompTox) es de uso libre y cubriría
+  las 2140 moléculas.
+- **La intensidad es el dato más flojo:** hay un umbral de detección para 160 CAS, y un valor
+  de olor calculable para 136.
+- **La proyección no la da ninguna fuente:** se calcula con un modelo.
+- **El carácter del olor** será una categorización propia (P35), no la del FIG.
+- **El POM** se puede calcular para las 2140 moléculas con OpenPOM (licencia MIT, modelos
+  incluidos). Los naturales quedan fuera.
+- **El nivel de uso habitual** se ha añadido como campo (P34), sin investigar todavía.
+
 ## Las preguntas
 
 1. **¿Qué categorías de infografía necesita la app?** Se miden de dos maneras:
@@ -126,8 +148,8 @@ en su archivo al terminar y se revisa antes de lanzar la siguiente.
 |---|---|---|---|
 | 1 | [Fundamentos](1-fundamentos.md) | Munzner, Ware, Tufte | ✅ revisada |
 | 2 | [Rigor y estética](2-rigor-y-estetica.md) | Bremer, Stefaner, Lima, Lupi | ✅ revisada |
-| 3 | [Mapas de muchas dimensiones](3-mapas.md) | Distill (t-SNE), UMAP, PCA, las figuras del POM | en curso |
-| 4 | [Arte de datos y cimática](4-arte-de-datos.md) | Anadol, Ikeda, la cimática, arte de datos frente a visualización | pendiente |
+| 3 | [Mapas de muchas dimensiones](3-mapas.md) | Distill (t-SNE), UMAP, PCA, las figuras del POM | ✅ revisada |
+| 4 | [Arte de datos y cimática](4-arte-de-datos.md) | Anadol, Ikeda, la cimática, arte de datos frente a visualización | en curso |
 | 5 | [El olor ya dibujado](5-precedentes-del-olor.md) | Ruedas de aromas, perfiles sensoriales, figuras de neurociencia | pendiente |
 
 Al final, **una síntesis con las categorías propuestas**. Se deciden de una en una, en el
