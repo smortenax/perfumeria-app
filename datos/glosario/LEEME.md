@@ -33,6 +33,26 @@ cosas:
   - `codigo_origen` = `generado` en las 251 nuevas, con el mismo estilo y **provisionales**:
     45 llevan un número para no repetirse.
 
+## Los nombres comerciales, por encima (P38)
+
+**IFRA da la profundidad química; el nombre comercial da el acceso cómodo.** Los dos valen en
+la búsqueda. Donde hay nombre comercial, la app lo enseña primero, con su sigla, y el químico
+al lado. La capa sale de
+[`origen/nombres-comerciales.csv`](origen/nombres-comerciales.csv), una fila por CAS, y se
+aplica a todo material con ese CAS.
+
+| Columna | Qué es |
+|---|---|
+| `nombre_comercial` | el nombre con el que se conoce en el sector: Hedione, Iso E Super, Isobutyl quinoline |
+| `sigla_comercial` | la sigla de uso: IBQ, HCA, HHCB |
+| `otros_nombres_comerciales` | los de otras casas para el mismo CAS, separados por ` \| ` |
+| `casa_comercial` | la casa dueña del nombre, si lo es de una |
+| `fuente_comercial` | de dónde sale cada uno: PubChem (con su CID), IFRA (*commercial name*) o «uso del sector» |
+| `confianza_comercial` | alta, media o baja. Lo que solo es «uso del sector» llega como mucho a media |
+
+Los sinónimos de PubChem se traen con
+[`scripts/buscar_sinonimos.py`](../../scripts/buscar_sinonimos.py) a `.cache/`, fuera de Git.
+
 ## `estado`: qué dice IFRA de cada material
 
 Lo desconocido nunca se da por libre (§1.2).

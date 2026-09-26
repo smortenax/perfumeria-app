@@ -16,7 +16,18 @@ export interface AddBarHandle {
 }
 
 type Result =
-  | { kind: "material"; material: Material; tag: string | null; cas: string; code?: string; state?: IfraState; standardName?: string }
+  | {
+      kind: "material";
+      material: Material;
+      tag: string | null;
+      cas: string;
+      code?: string;
+      state?: IfraState;
+      standardName?: string;
+      /** Beside a trade name, the chemical one (P38). */
+      chemicalName?: string;
+      tradeCode?: string;
+    }
   | { kind: "create"; name: string };
 
 const samePercent = (a: string, b: string) => a.replace(",", ".") === b.replace(",", ".");
@@ -102,6 +113,8 @@ export function AddBar(props: {
       code: e.code,
       ...(e.state ? { state: e.state } : {}),
       ...(e.standardName ? { standardName: e.standardName } : {}),
+      ...(e.tradeName ? { chemicalName: e.chemicalName } : {}),
+      ...(e.tradeCode ? { tradeCode: e.tradeCode } : {}),
     }));
     const all = [...session, ...found];
     const exact = all.some((r) => r.kind === "material" && normalize(r.material.name) === q);
@@ -290,7 +303,11 @@ export function AddBar(props: {
                   <>
                     {r.code && <span className="code-chip">{r.code}</span>}
                     <span className="result-name">
-                      {r.material.name}
+                      <span className="primary">
+                        {r.material.name}
+                        {r.tradeCode && <span className="trade-code">{r.tradeCode}</span>}
+                      </span>
+                      {r.chemicalName && <span className="chemical">{r.chemicalName}</span>}
                       {r.standardName && (
                         <span className="standard">
                           {r.standardName} · {t.standard}

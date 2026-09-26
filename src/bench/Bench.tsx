@@ -87,6 +87,11 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
 
   const byKey = useMemo(() => new Map(catalog.entries.map((e) => [e.material.key, e.material])), []);
   const codes = useMemo(() => new Map(catalog.entries.map((e) => [e.material.key, e.code])), []);
+  // Beside a trade name, the chemical one (P38).
+  const chemical = useMemo(
+    () => new Map(catalog.entries.filter((e) => e.tradeName).map((e) => [e.material.key, e.chemicalName])),
+    [],
+  );
   const recentMaterials = recent
     .map((key) => byKey.get(key) ?? session.find((m) => m.key === key))
     .filter((m): m is Material => m !== undefined);
@@ -376,7 +381,14 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
           )}
           {ifraOpen && view.report && !empty && <IfraDetail report={view.report} onClose={() => setIfraOpen(false)} />}
         </div>
-        <CompositionCard composition={view.composition} lines={view.lines} adds={adds} report={view.report} ifra={catalog.ifra} />
+        <CompositionCard
+          composition={view.composition}
+          lines={view.lines}
+          adds={adds}
+          report={view.report}
+          ifra={catalog.ifra}
+          chemicalOf={(key) => chemical.get(key)}
+        />
       </div>
 
       <HistoryDock

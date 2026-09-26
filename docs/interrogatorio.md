@@ -1372,8 +1372,36 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
   - el banco lee el glosario;
   - `datos/fuente/` ya no trae nada del laboratorio salvo los dos documentos del FIG.
 - Fecha: 2026-09-27
-- Estado: cerrada · lectura por confirmar
+- Estado: cerrada · el usuario sigue con «vale» al pedir P38, y la lectura se toma por
+  confirmada
 - Destino: decisiones.md §5.1, §5.2, §6 y §9; plan, fase 3 (D1, D2, D3) y fase 4; CLAUDE.md
+
+### P38 — Los nombres comerciales, por encima del glosario
+- Bloque: datos (D3) y buscador (§4)
+- Abierta por: el usuario, al ver el glosario
+- Respuesta literal: *«vale entonces ahora haria falta una capa sobre esta que aplique los nombres comerciales, se tiene que buscar y aplicar por encima, los dos nombres son validos. nadie va a buscar 6tert butyquinoleine, buscaran isobutilquinoleina y se conoce como IBQ y deberia ser asi para todas las abraviaturas comerciales tambien, ifra es la profundidad quimica pero hay que acceder comodamente al usuario, en este caso, el ejemplo de ibq hay que aplicarlo a todos los que tengan un nombre comercial predominante, y que ambos sean validos en la busqueda, con esto no quiero decir que se desdeñen los nombres quimicos pero deberian coexistir, con (para los que tengan nombre comercial) prioridad de nombre comercial y abreviatura comercial  y al lado el nombre de compuesto quimico»*
+- **Lectura:**
+  1. **Una capa por encima del glosario** con el **nombre comercial predominante** y su
+     **sigla comercial** (IBQ). Se aplica a todo material que tenga uno, y se busca.
+  2. **Los dos nombres valen en la búsqueda.** El químico no se desdeña: coexisten.
+  3. **Donde hay nombre comercial, manda:** se ve primero, con su sigla, y el químico al lado.
+  4. **IFRA es la profundidad química; el nombre comercial es el acceso cómodo.**
+- **Añadido en la lectura, por confirmar:**
+  - **de dónde salen:**
+    - los sinónimos de PubChem por CAS: traen los nombres de uso («Hedione»,
+      «Galaxolide») y algunas siglas («HHCB»);
+    - los que IFRA marca como *commercial name*.
+
+    El predominante se elige por el uso en el sector, con su confianza. Una sigla que no
+    está en ninguna fuente, como IBQ, se apunta como «uso del sector», con confianza media;
+  - **la búsqueda tolera la grafía en español:** «isobutilquinoleina» encuentra
+    «Isobutyl quinoline»;
+  - **la abreviatura propia del usuario sigue siendo la del dock.** La sigla comercial va
+    junto al nombre;
+  - **una fórmula guarda el nombre comercial** del material que se añade.
+- Fecha: 2026-09-27
+- Estado: en curso
+- Destino: decisiones.md §6; plan, D3; el glosario
 
 ---
 
@@ -1385,6 +1413,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R9 · diseño | 6 (P23 a P28) | 0 |
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
-| R12 · infografías y frentes | 3 (P35, P36, P37) | 2 (P33, P34) |
+| R12 · infografías y frentes | 3 (P35, P36, P37) | 3 (P33, P34, P38) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.

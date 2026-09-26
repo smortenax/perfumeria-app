@@ -24,6 +24,8 @@ export function CompositionCard(props: {
   adds: readonly Add[];
   report: IfraReport | null;
   ifra: IfraData;
+  /** The chemical name of a material named by its trade name (P38). */
+  chemicalOf?: (key: string) => string | undefined;
 }) {
   const [open, setOpen] = useState<ReadonlySet<string>>(new Set());
   const comp = props.composition;
@@ -46,6 +48,10 @@ export function CompositionCard(props: {
     const flags: Flag[] = [];
     const lines: Array<[string, string]> = [];
 
+    const chemicalName = props.chemicalOf?.(m.key);
+    if (chemicalName) {
+      lines.push([t.chemical, chemicalName]);
+    }
     const own = props.lines.filter((l) => l.material.key === m.key);
     lines.push([
       t.poured,

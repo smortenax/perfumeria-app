@@ -28,6 +28,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CODES = ROOT / "datos" / "glosario" / "origen" / "fig-materiales-codigos.csv"
+# The layer of trade names over the glossary (P38): one row per CAS.
+TRADE = ROOT / "datos" / "glosario" / "origen" / "nombres-comerciales.csv"
 OUT = ROOT / "datos" / "glosario"
 CAS_RE = re.compile(r"\b\d{2,7}-\d{2}-\d\b")
 CATEGORIES = ["1", "2", "3", "4", "5a", "5b", "5c", "5d", "6", "7a", "7b", "8", "9",
@@ -188,7 +190,9 @@ def main() -> None:
     taken = {r["Codigo"] for r in codes}
 
     def base(**kw) -> dict:
-        row = {"id": "", "codigo": "", "codigo_origen": "", "nombre": "", "cas": "", "otros_cas": "",
+        row = {"id": "", "codigo": "", "codigo_origen": "", "nombre_comercial": "", "sigla_comercial": "",
+               "nombre": "", "cas": "", "otros_cas": "", "otros_nombres_comerciales": "",
+               "casa_comercial": "", "fuente_comercial": "", "confianza_comercial": "",
                "clase": "", "tipo_natural": "", "isomero": "", "descriptor_1": "", "descriptor_2": "",
                "descriptor_3": "", "actualizado_fig": "", "fuentes": "", "estandares": "",
                "nombre_ifra": "", "estado": "", "condiciones": "", "constituyentes": "",
@@ -411,6 +415,22 @@ def main() -> None:
         m["condiciones"] = " · ".join(dict.fromkeys(conditions))
         m["fuentes"] = " ".join(dict.fromkeys(m["fuentes"].split()))
 
+    # 8. The trade names, over everything with that CAS (P38). The chemical name stays.
+    trade = {r["cas"]: r for r in read(TRADE)} if TRADE.exists() else {}
+    for m in everything:
+        t = trade.get(m["cas"])
+        if not t:
+            continue
+        m["nombre_comercial"] = t["nombre_comercial"]
+        m["sigla_comercial"] = t["sigla"]
+        m["otros_nombres_comerciales"] = t["otros_nombres"]
+        m["casa_comercial"] = t["casa"]
+        m["fuente_comercial"] = t["fuente"]
+        m["confianza_comercial"] = t["confianza"]
+    unknown = sorted(set(trade) - {m["cas"] for m in everything})
+    if unknown:
+        raise SystemExit(f"nombres-comerciales.csv trae CAS que no están en el glosario: {unknown}")
+
     OUT.mkdir(parents=True, exist_ok=True)
     header = list(base().keys())
     ordered = materials + sorted((m for m in everything if not m["id"].startswith("fig:")), key=lambda m: norm(m["nombre"]))
@@ -427,6 +447,8 @@ def main() -> None:
         "codigos_generados": sum(1 for m in ordered if m["codigo_origen"] == "generado"),
         "por_estado": {e: sum(1 for m in ordered if m["estado"] == e) for e in ESTADOS},
         "filas_de_constituyentes": len(constituents),
+        "con_nombre_comercial": sum(1 for m in ordered if m["nombre_comercial"]),
+        "con_sigla_comercial": sum(1 for m in ordered if m["sigla_comercial"]),
     }
     provenance = {
         "enmienda_ifra": n,
@@ -434,6 +456,8 @@ def main() -> None:
         "fig": "Information derived from the IFRA Fragrance Ingredient Glossary, developed by The International Fragrance Association",
         "origenes": {
             CODES.relative_to(ROOT).as_posix(): {"sha256": sha256(CODES), "que_es": "filas del FIG con las abreviaturas del usuario, iteración no final"},
+            **({TRADE.relative_to(ROOT).as_posix(): {"sha256": sha256(TRADE), "que_es": "nombres comerciales por CAS, con su fuente y su confianza (P38)"}}
+               if TRADE.exists() else {}),
             **{f"datos/ifra/{n}/{p}": {"sha256": sha256(ifra / p)} for p in
                ("estandares.csv", "estandar-cas.csv", "naturales.csv", "bases-schiff.csv")},
         },

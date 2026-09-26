@@ -27,7 +27,7 @@
       "sha256": "289097c9d76de4430f967158556ff068faa4589175c44b48dd355a5eb93b6368"
     }
   },
-  "generado": "2026-09-26T22:19:32+00:00",
+  "generado": "2026-09-26T23:07:14+00:00",
   "cuentas": {
     "materiales": 3370,
     "del_fig": 3119,
@@ -42,6 +42,8 @@
       "sin-dato": 302,
       "sin-estandar": 1988
     },
-    "filas_de_constituyentes": 3303
+    "filas_de_constituyentes": 3303,
+    "con_nombre_comercial": 0,
+    "con_sigla_comercial": 0
   }
 }

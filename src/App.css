@@ -658,6 +658,24 @@ button.value:hover {
   color: var(--muted);
 }
 
+.result-name .primary {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.result-name .trade-code {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ink-2);
+}
+
+.result-name .chemical {
+  font-size: 11px;
+  color: var(--ink-2);
+}
+
 .results .code-chip {
   flex: none;
   min-width: 34px;

@@ -17,16 +17,24 @@ export type CatalogGroup = "own" | "diluent" | "base";
 export type IfraState = "prohibido" | "con-techo" | "condicion" | "por-constituyentes" | "sin-dato" | "sin-estandar";
 
 export interface CatalogEntry {
+  /** Named by its trade name when it has one (P38): that is what the user knows it by. */
   readonly material: Material;
   readonly group: CatalogGroup;
   /** The material's short code, the user's or a provisional one. */
   readonly code: string;
+  /** The chemical name, which always stays beside the trade name (P38). */
+  readonly chemicalName: string;
+  readonly tradeName?: string;
+  /** The trade abbreviation: IBQ, HCA. */
+  readonly tradeCode?: string;
   readonly cas: string;
   readonly state?: IfraState;
   /** The name of its IFRA standard, when it has one. */
   readonly standardName?: string;
   /** Code, names, synonyms and CAS, lower case and without accents, for the search. */
   readonly search: string;
+  /** The names folded for a tolerant search: «isobutilquinoleina» finds «Isobutyl quinoline». */
+  readonly folded: readonly string[];
 }
 
 export interface Catalog {
@@ -56,6 +64,48 @@ const short = (key: string) => `STD ${key.split("_").pop()}`;
 /** Conditions of the glossary that are not an obligation but a gap: they go to pending (§1.2). */
 const NO_CONSTITUENT_DATA = "constituyentes: sin dato en el anexo";
 const CONSTITUENT_OUT_OF_INDEX = "un constituyente del anexo no está en el índice";
+
+/**
+ * A name folded for a tolerant search: no accents, spaces or signs, and the
+ * spellings that differ between English and Spanish made the same (y/i, ph/f,
+ * th/t, k/c, ou/u), so that «isobutilquinoleina» and «Isobutyl quinoline» meet.
+ */
+export function fold(text: string): string {
+  return normalize(text)
+    .replace(/[^a-z0-9]/g, "")
+    .replace(/ph/g, "f")
+    .replace(/th/g, "t")
+    .replace(/y/g, "i")
+    .replace(/k/g, "c")
+    .replace(/ou/g, "u")
+    .replace(/(.)\1+/g, "$1");
+}
+
+/** Edits between the query and the closest stretch of the text (approximate substring match). */
+function nearest(query: string, text: string): number {
+  let previous = new Array<number>(text.length + 1).fill(0);
+  for (let i = 1; i <= query.length; i++) {
+    const current = [i];
+    for (let j = 1; j <= text.length; j++) {
+      const change = previous[j - 1] + (query[i - 1] === text[j - 1] ? 0 : 1);
+      current.push(Math.min(previous[j] + 1, current[j - 1] + 1, change));
+    }
+    previous = current;
+  }
+  return Math.min(...previous);
+}
+
+function diluent(material: Material, code: string, cas: string, names: string[]): CatalogEntry {
+  return {
+    material,
+    group: "diluent",
+    code,
+    chemicalName: names[1],
+    cas,
+    search: normalize(`${code} ${material.name} ${names.join(" ")} ${cas}`),
+    folded: [material.name, ...names].map(fold),
+  };
+}
 
 export function buildCatalog(files: CatalogFiles): Catalog {
   const amendment = files.procedencia.enmienda_ifra;
@@ -98,8 +148,8 @@ export function buildCatalog(files: CatalogFiles): Catalog {
   const rows = parseCsvRecords(files.materiales);
   const materials = new Map<string, IfraMaterial>();
   const entries: CatalogEntry[] = [
-    { material: DILUENTS.dpg, group: "diluent", code: "DPG", cas: "25265-71-8", search: "dpg dipropilenglicol dipropylene glycol 25265-71-8" },
-    { material: DILUENTS.alcohol, group: "diluent", code: "EtOH", cas: "64-17-5", search: "alcohol etanol ethanol 64-17-5" },
+    diluent(DILUENTS.dpg, "DPG", "25265-71-8", ["Dipropilenglicol", "Dipropylene glycol"]),
+    diluent(DILUENTS.alcohol, "EtOH", "64-17-5", ["Etanol", "Ethanol"]),
   ];
 
   for (const m of rows) {
@@ -135,14 +185,22 @@ export function buildCatalog(files: CatalogFiles): Catalog {
     materials.set(m.id, { status: "checked", substances: list, conditions, ...(pending.length ? { pending } : {}) });
 
     const standardName = m.nombre_ifra.split(" | ")[0];
+    const trade = m.nombre_comercial;
+    const others = m.otros_nombres_comerciales === "" ? [] : m.otros_nombres_comerciales.split(" | ");
     entries.push({
-      material: { key: m.id, kind: "base", name: m.nombre },
+      material: { key: m.id, kind: "base", name: trade || m.nombre },
       group: "base",
       code: m.codigo,
+      chemicalName: m.nombre,
+      ...(trade ? { tradeName: trade } : {}),
+      ...(m.sigla_comercial ? { tradeCode: m.sigla_comercial } : {}),
       cas: m.cas,
       state,
-      ...(standardName && normalize(standardName) !== normalize(m.nombre) ? { standardName } : {}),
-      search: normalize(`${m.codigo} ${m.nombre} ${m.cas} ${m.otros_cas} ${m.nombre_ifra} ${m.sinonimos}`),
+      ...(standardName && normalize(standardName) !== normalize(trade || m.nombre) ? { standardName } : {}),
+      search: normalize(
+        `${m.codigo} ${trade} ${m.sigla_comercial} ${others.join(" ")} ${m.nombre} ${m.cas} ${m.otros_cas} ${m.nombre_ifra} ${m.sinonimos}`,
+      ),
+      folded: [trade, ...others, m.nombre, standardName].filter((n) => n !== "").map(fold),
     });
   }
 
@@ -160,7 +218,9 @@ const GROUP_ORDER: Record<CatalogGroup, number> = { own: 0, diluent: 1, base: 2 
 /**
  * One search box (§4): every word must appear in the code, a name, a synonym
  * or the CAS. The diluents come first, then the base; within each, the code
- * as typed, then the names that start with the query, then the shortest.
+ * as typed, then the names that start with the query, then the shortest. When
+ * that finds too little, names written close to the query come after it: a
+ * trade name and its chemical name are both valid, in either spelling (P38).
  */
 export function searchCatalog(entries: readonly CatalogEntry[], query: string, limit = 12): CatalogEntry[] {
   const words = normalize(query).split(/\s+/).filter((w) => w !== "");
@@ -169,19 +229,30 @@ export function searchCatalog(entries: readonly CatalogEntry[], query: string, l
   }
   const found = entries.filter((e) => words.every((w) => e.search.includes(w)));
   const head = words.join(" ");
+  const starts = (e: CatalogEntry) =>
+    [e.material.name, e.chemicalName, e.standardName ?? "", e.tradeCode ?? ""].some((n) => normalize(n).startsWith(head)) ||
+    e.cas.startsWith(head);
   // Codes tell capitals apart («OT», «Ot»): the one typed exactly comes first.
   const match = (e: CatalogEntry) =>
-    e.code === query.trim()
-      ? 0
-      : normalize(e.code) === head
-        ? 1
-        : normalize(e.material.name).startsWith(head) || normalize(e.standardName ?? "").startsWith(head) || e.cas.startsWith(head)
-          ? 2
-          : 3;
+    e.code === query.trim() || e.tradeCode === query.trim() ? 0 : normalize(e.code) === head ? 1 : starts(e) ? 2 : 3;
   const score = (e: CatalogEntry) => GROUP_ORDER[e.group] * 4 + match(e);
-  return found
+  const ranked = found
     .map((e, i) => ({ e, i, s: score(e) }))
     .sort((a, b) => a.s - b.s || a.e.material.name.length - b.e.material.name.length || a.i - b.i)
-    .slice(0, limit)
     .map(({ e }) => e);
+
+  const folded = fold(query);
+  if (ranked.length >= limit || folded.length < 5) {
+    return ranked.slice(0, limit);
+  }
+  // About one edit every five letters: enough for «cumarina» and «coumarin».
+  const allowed = Math.round(folded.length / 5);
+  const seen = new Set(ranked);
+  const close = entries
+    .filter((e) => !seen.has(e))
+    .map((e, i) => ({ e, i, d: Math.min(...e.folded.map((n) => nearest(folded, n))) }))
+    .filter((x) => x.d <= allowed)
+    .sort((a, b) => a.d - b.d || a.e.material.name.length - b.e.material.name.length || a.i - b.i)
+    .map(({ e }) => e);
+  return [...ranked, ...close].slice(0, limit);
 }

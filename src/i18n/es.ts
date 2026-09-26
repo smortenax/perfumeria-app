@@ -159,6 +159,7 @@ export const texts = {
     empty: "Todavía no hay nada en el frasco.",
     aromatic: "Materia aromática",
     total: "Total",
+    chemical: "Nombre químico",
     poured: "Vertido",
     pure: "Materia pura",
     pureValue: (mass: string, share: string) => `${mass} · ${share} de la aromática`,
