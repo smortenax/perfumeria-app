@@ -162,3 +162,20 @@ Un campo más, pedido por el usuario después del encargo:
   valoraciones del usuario (P35).
 - **Las mismas preguntas que para el resto:** qué fuentes lo dan, cuántos CAS cubren, con qué
   licencia, y qué se recomienda.
+
+## Añadido el 2026-09-26: el listado entero de IFRA como base (P36)
+
+**El universo de la app no es el FIG, que es la descripción olfativa: es el listado entero
+de IFRA**, la *Transparency List* (3691 ingredientes en 2025, según la pieza 2), o su
+combinación con el FIG por CAS, si así sale más completo.
+
+1. **Conseguir la Transparency List de 2025** desde la web de IFRA. Es una descarga: hace
+   falta el visto bueno del usuario.
+2. **Leer sus condiciones de uso** (en la pieza 2 quedaron NO ENCONTRADO), sobre todo si
+   permiten llevar la lista dentro de una app que se venda.
+3. **Pasarla a CSV** (CAS, nombre y lo que traiga) en `conocimiento/normativa/`, para que
+   `importar_datos.py` la traiga a la app.
+4. **Contarla frente al FIG, por CAS:** cuántos CAS están en las dos, cuántos solo en una y
+   cuántos se repiten. Con eso se decide la combinación.
+
+Los materiales del usuario no entran en la app de ninguna forma (P36).

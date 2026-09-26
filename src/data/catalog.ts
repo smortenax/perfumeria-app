@@ -1,18 +1,19 @@
 import { Ratio } from "../core/arith/ratio";
-import { formatDecimal } from "../core/display";
 import type { IfraData, IfraMaterial, IfraSubstance } from "../core/ifra";
 import { DILUENTS, type Material } from "../core/model/material";
 import { parseCsvRecords } from "./csv";
 
 /**
  * The provisional catalog of the test bench, read from what
- * scripts/importar_datos.py brought from the lab into datos/fuente/. Phase 3
- * replaces it with the versioned data package (plan, D3). Meanwhile:
- * - the lab's materials are the user's own (P35), with their IFRA data;
- * - the FIG glossary is the base, not yet checked against IFRA, so it is
- *   "sin comprobar" (§5.2);
+ * scripts/importar_datos.py brought into datos/fuente/. Phase 3 replaces it
+ * with the versioned data package (plan, D3). Meanwhile (P36):
+ * - the materials are the rows of the FIG glossary, standing in for IFRA's
+ *   full list (the Transparency List) until the lab brings it;
+ * - IFRA is read by CAS from what the lab transcribed of the standards
+ *   (ifra-cat4.csv): only IFRA's own data, never the notes about a bottle or a
+ *   supplier. A CAS that is not there is unchecked (§5.2);
  * - DPG and alcohol are the diluents.
- * No description of the user (floor, family, strength in words) is read (P35).
+ * None of the user's materials or descriptions is read (P35, P36).
  */
 export type CatalogGroup = "own" | "diluent" | "base";
 
@@ -20,25 +21,28 @@ export interface CatalogEntry {
   readonly material: Material;
   readonly group: CatalogGroup;
   readonly cas: string;
-  /** Name and CAS, lower case and without accents, for the search. */
+  /** The name IFRA gives the substance in its standard, when it has one: "Iso E Super (OTNE)". */
+  readonly standardName?: string;
+  /** Names and CAS, lower case and without accents, for the search. */
   readonly search: string;
 }
 
 export interface Catalog {
   readonly entries: readonly CatalogEntry[];
   readonly ifra: IfraData;
+  /** How many CAS of the base have IFRA data. */
+  readonly checkedCas: number;
   readonly source: { readonly commit: string; readonly date: string };
 }
 
 export interface CatalogFiles {
-  readonly inventario: string;
   readonly ifraCat4: string;
   readonly glosarioFig: string;
   readonly procedencia: { readonly commit: string; readonly fecha_commit: string };
 }
 
-/** Substances that more than one material can carry: they are added up wherever they come from (§5.3). */
-const SHARED: Record<string, string> = { cumarina: "Cumarina", eugenol: "Eugenol", geraniol: "Geraniol" };
+/** Substances regulated by a standard of their own that other materials can carry (§5.3). */
+const SHARED_CAS: Record<string, string> = { cumarina: "91-64-5", eugenol: "97-53-0", geraniol: "106-24-1" };
 
 export const normalize = (text: string): string =>
   text
@@ -46,43 +50,54 @@ export const normalize = (text: string): string =>
     .replace(/[̀-ͯ]/g, "")
     .toLowerCase();
 
+interface CasIfra {
+  readonly standardName: string;
+  readonly material: IfraMaterial;
+}
+
 export function buildCatalog(files: CatalogFiles): Catalog {
-  const inventory = parseCsvRecords(files.inventario);
-  const ifraRows = parseCsvRecords(files.ifraCat4);
   const fig = parseCsvRecords(files.glosarioFig);
+  const { byCas, substances } = ifraByCas(parseCsvRecords(files.ifraCat4));
 
-  const casById = new Map<string, string>();
-  for (const row of ifraRows) {
-    if (!casById.has(row.id)) {
-      casById.set(row.id, row.cas);
-    }
-  }
-
-  const entry = (material: Material, group: CatalogGroup, cas: string): CatalogEntry => ({
+  const entry = (material: Material, group: CatalogGroup, cas: string, standardName?: string): CatalogEntry => ({
     material,
     group,
     cas,
-    search: normalize(`${material.name} ${cas}`),
+    ...(standardName ? { standardName } : {}),
+    search: normalize(`${material.name} ${standardName ?? ""} ${cas}`),
   });
 
   const entries: CatalogEntry[] = [
-    ...inventory.map((row) =>
-      entry({ key: `lab:${row.id}`, kind: "own", name: row.nombre }, "own", casById.get(row.id) ?? ""),
-    ),
     entry(DILUENTS.dpg, "diluent", "25265-71-8"),
     entry(DILUENTS.alcohol, "diluent", "64-17-5"),
-    ...fig.map((row, i) => entry({ key: `fig:${i + 1}`, kind: "base", name: row.nombre }, "base", row.cas)),
+    ...fig.map((row, i) =>
+      entry({ key: `fig:${i + 1}`, kind: "base", name: row.nombre }, "base", row.cas, byCas.get(row.cas)?.standardName || undefined),
+    ),
   ];
 
-  const names = new Map(inventory.map((row) => [row.id, row.nombre]));
+  const materials = new Map<string, IfraMaterial>();
+  for (const e of entries) {
+    const info = e.group === "base" ? byCas.get(e.cas) : undefined;
+    if (info) {
+      materials.set(e.material.key, info.material);
+    }
+  }
+
   return {
     entries,
-    ifra: buildIfra(ifraRows, names),
+    ifra: { substances, materials },
+    checkedCas: new Set(entries.filter((e) => materials.has(e.material.key)).map((e) => e.cas)).size,
     source: { commit: files.procedencia.commit.slice(0, 7), date: files.procedencia.fecha_commit.slice(0, 10) },
   };
 }
 
 const pct = (text: string) => Ratio.fromDecimal(text).div(Ratio.of(100));
+
+const splitCas = (text: string): string[] =>
+  text
+    .split(/[/·]/)
+    .map((c) => c.trim())
+    .filter((c) => /^\d{2,7}-\d{2}-\d$/.test(c));
 
 /** Splits «a (x · y) · b» at the dots outside parentheses. */
 function splitConstituents(text: string): string[] {
@@ -104,106 +119,93 @@ function splitConstituents(text: string): string[] {
 
 const firstWord = (text: string): string => normalize(text).split(/[\s(]/)[0];
 
-function buildIfra(rows: ReadonlyArray<Record<string, string>>, names: ReadonlyMap<string, string>): IfraData {
-  const byId = new Map<string, Array<Record<string, string>>>();
-  for (const row of rows) {
-    byId.set(row.id, [...(byId.get(row.id) ?? []), row]);
-  }
-
+function ifraByCas(rows: ReadonlyArray<Record<string, string>>): {
+  byCas: Map<string, CasIfra>;
+  substances: Map<string, IfraSubstance>;
+} {
+  const byCas = new Map<string, CasIfra>();
   const substances = new Map<string, IfraSubstance>();
-  const materials = new Map<string, IfraMaterial>();
-  const sharedUse: Array<{ key: string; material: string; word: string }> = [];
 
-  for (const [id, group] of byId) {
-    const first = group[0];
-    const key = `lab:${id}`;
-    const name = names.get(id) ?? first.material;
-    const tipo = normalize(first.tipo);
-    const constituents = splitConstituents(first.constituyentes_regulados);
-    const words = constituents.map(firstWord);
-
-    // "sin verificar": never looked up. "no evaluable" with nothing known inside: the same.
-    if (tipo.startsWith("sin verificar") || (tipo.startsWith("no evaluable") && !words.some((w) => w in SHARED))) {
-      materials.set(key, { status: "unchecked", substances: [], conditions: [] });
+  for (const row of rows) {
+    const tipo = normalize(row.tipo);
+    // Never looked up, or nothing to look up: the CAS stays unchecked.
+    if (tipo.startsWith("sin verificar") || tipo.startsWith("no evaluable")) {
       continue;
     }
-
-    const own: Array<{ key: string; fraction: Ratio | null }> = [];
-    const conditions: string[] = [];
-    const pending: string[] = [];
-
-    // A ceiling of its own. Two rows for one material are two possible bottles: the strictest rules.
-    const limited = group
-      .filter((row) => row.cat4_pct_producto_terminado !== "" && /restriccion/.test(normalize(row.tipo)))
-      .sort((a, b) => pct(a.cat4_pct_producto_terminado).cmp(pct(b.cat4_pct_producto_terminado)));
-    let regulatedAs: string | null = null;
-    if (limited.length > 0) {
-      const strictest = limited[0];
-      const limit = pct(strictest.cat4_pct_producto_terminado);
-      regulatedAs = words.length === 1 && words[0] in SHARED ? words[0] : null;
-      const substanceKey = regulatedAs ? `sub:${regulatedAs}` : key;
-      substances.set(substanceKey, {
-        key: substanceKey,
-        name: regulatedAs ? SHARED[regulatedAs] : name,
-        limit,
-        amendment: strictest.enmienda,
-      });
-      own.push({ key: substanceKey, fraction: Ratio.ONE });
-      if (limited.length > 1) {
-        const options = limited.map((row) => `${formatDecimal(pct(row.cat4_pct_producto_terminado).mul(Ratio.of(100)), 2)} % (CAS ${row.cas})`);
-        conditions.push(`Hay dos techos, según cuál sea el frasco: ${options.join(" o ")}. Se toma el más estricto hasta confirmarlo.`);
-      }
-    }
-
+    const constituents = splitConstituents(row.constituyentes_regulados);
+    const words = constituents.map(firstWord);
     const specification = /especificacion|prohibicion/.test(tipo);
-    if (specification && first.condicion !== "") {
-      conditions.push(first.condicion);
-    }
 
-    for (const [i, word] of words.entries()) {
-      if (word === regulatedAs) {
-        continue;
-      }
-      if (word in SHARED) {
-        own.push({ key: `sub:${word}`, fraction: null });
-        sharedUse.push({ key, material: name, word });
-      } else if (word === "linalol") {
-        if (!specification) {
-          conditions.push("Lleva linalol: especificación de IFRA (peróxidos), sin tope en %.");
+    for (const cas of splitCas(row.cas)) {
+      const previous = byCas.get(cas)?.material;
+      const own = [...(previous?.substances ?? [])];
+      const conditions = [...(previous?.conditions ?? [])];
+      const pending = [...(previous?.pending ?? [])];
+
+      if (row.cat4_pct_producto_terminado !== "" && /restriccion/.test(tipo)) {
+        const key = `cas:${cas}`;
+        const limit = pct(row.cat4_pct_producto_terminado);
+        const existing = substances.get(key);
+        if (!existing || limit.lt(existing.limit)) {
+          substances.set(key, { key, name: row.nombre_en_estandar || cas, limit, amendment: row.enmienda });
         }
-      } else if (word === "hap") {
-        conditions.push("HAP ≤ 1 ppb, acumulativo: con certificado del proveedor.");
-      } else {
-        // Citral, thujone…: a ceiling exists, but it is not in the data. Never free (§1.2).
-        pending.push(`${constituents[i]}: tiene techo IFRA, pero no está en los datos.`);
+        if (!own.some((s) => s.key === key)) {
+          own.push({ key, fraction: Ratio.ONE });
+        }
       }
-    }
+      if (specification && row.condicion !== "" && !conditions.includes(row.condicion)) {
+        conditions.push(row.condicion);
+      }
+      for (const [i, word] of words.entries()) {
+        const sharedCas = SHARED_CAS[word];
+        if (sharedCas === cas) {
+          continue; // regulated as itself, already counted
+        }
+        if (sharedCas) {
+          own.push({ key: `cas:${sharedCas}`, fraction: null });
+        } else if (word === "linalol") {
+          if (!specification) {
+            conditions.push("Lleva linalol: especificación de IFRA (peróxidos), sin tope en %.");
+          }
+        } else if (word === "hap") {
+          conditions.push("HAP ≤ 1 ppb, acumulativo: con certificado del proveedor.");
+        } else {
+          // Citral, thujone…: a ceiling exists, but it is not in the data. Never free (§1.2).
+          pending.push(`${constituents[i]}: tiene techo IFRA, pero no está en los datos.`);
+        }
+      }
 
-    materials.set(key, { status: "checked", substances: own, conditions, ...(pending.length ? { pending } : {}) });
+      byCas.set(cas, {
+        standardName: row.nombre_en_estandar,
+        material: { status: "checked", substances: own, conditions, ...(pending.length ? { pending } : {}) },
+      });
+    }
   }
 
   // A shared substance nobody gave a ceiling for cannot be checked: pending, not free.
-  for (const use of sharedUse) {
-    const substanceKey = `sub:${use.word}`;
-    if (!substances.has(substanceKey)) {
-      const info = materials.get(use.key) as IfraMaterial;
-      materials.set(use.key, {
+  for (const [cas, info] of byCas) {
+    const missing = info.material.substances.filter((s) => !substances.has(s.key));
+    if (missing.length > 0) {
+      byCas.set(cas, {
         ...info,
-        substances: info.substances.filter((s) => s.key !== substanceKey),
-        pending: [...(info.pending ?? []), `${SHARED[use.word]}: tiene techo IFRA, pero no está en los datos.`],
+        material: {
+          ...info.material,
+          substances: info.material.substances.filter((s) => substances.has(s.key)),
+          pending: [...(info.material.pending ?? []), ...missing.map((s) => `${s.key}: tiene techo IFRA, pero no está en los datos.`)],
+        },
       });
     }
   }
 
-  return { substances, materials };
+  return { byCas, substances };
 }
 
 const GROUP_ORDER: Record<CatalogGroup, number> = { own: 0, diluent: 1, base: 2 };
 
 /**
- * One search box (§4): every word must appear in the name or the CAS. The user's
- * own materials come first, then the diluents, then the base; within each, the
- * names that start with the query.
+ * One search box (§4): every word must appear in a name or the CAS. The
+ * diluents come first, then the base; within each, the names that start with
+ * the query, then the shortest.
  */
 export function searchCatalog(entries: readonly CatalogEntry[], query: string, limit = 12): CatalogEntry[] {
   const words = normalize(query).split(/\s+/).filter((w) => w !== "");
@@ -212,7 +214,9 @@ export function searchCatalog(entries: readonly CatalogEntry[], query: string, l
   }
   const found = entries.filter((e) => words.every((w) => e.search.includes(w)));
   const head = words.join(" ");
-  const score = (e: CatalogEntry) => GROUP_ORDER[e.group] * 2 + (e.search.startsWith(head) ? 0 : 1);
+  const starts = (e: CatalogEntry) =>
+    normalize(e.material.name).startsWith(head) || normalize(e.standardName ?? "").startsWith(head) || e.cas.startsWith(head);
+  const score = (e: CatalogEntry) => GROUP_ORDER[e.group] * 2 + (starts(e) ? 0 : 1);
   return found
     .map((e, i) => ({ e, i, s: score(e) }))
     .sort((a, b) => a.s - b.s || a.e.material.name.length - b.e.material.name.length || a.i - b.i)

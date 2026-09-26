@@ -14,6 +14,18 @@ export function massText(micrograms: Ratio): string {
   return formatMilligrams(micrograms, micrograms.lt(TEN_MG) ? 1 : 0);
 }
 
+/** Pure matter, derived and exact: milligrams with one decimal below 1 g, as in the sketch («619,0 mg»). */
+export function pureText(micrograms: Ratio): string {
+  return micrograms.lt(ONE_G) ? formatMilligrams(micrograms, 1) : formatGrams(micrograms, 4);
+}
+
+/** How a line was poured: «619 mg, puro» or «110 mg al 50 % en DPG». */
+export function pouredText(massUg: Ratio, fraction: Ratio, diluentName: string | undefined): string {
+  return fraction.eq(Ratio.ONE)
+    ? texts.history.linePure(massText(massUg))
+    : texts.history.lineDiluted(massText(massUg), dilutionText(fraction), diluentName ?? "?");
+}
+
 /** A fraction as a percent without trailing zeros: 1/10 is "10 %", 1/200 is "0,5 %". */
 export function dilutionText(fraction: Ratio): string {
   const text = formatDecimal(fraction.mul(Ratio.of(100)), 3).replace(/,?0+$/, "");
@@ -44,19 +56,22 @@ export function weighingWarning(massUg: bigint): { kind: "unweighable" | "error"
   return null;
 }
 
-/** The letters of a material's piece in the dock: initials of up to three words, or the first three letters. */
+/**
+ * The letters of a material's piece in the dock, as in the sketch: the initials
+ * of the first two words («IE»), or the first two letters of one («He»). Locants
+ * and single letters of chemical names («1,2,3…», «alpha-») are skipped.
+ */
 export function initials(name: string): string {
   const words = name
     .normalize("NFD")
     .replace(/[̀-ͯ]/g, "")
-    .split(/[^A-Za-z0-9]+/)
-    .filter((w) => w !== "");
-  if (words.length >= 2) {
-    return words
-      .slice(0, 3)
-      .map((w) => w[0].toUpperCase())
-      .join("");
+    .split(/[^A-Za-z]+/)
+    .filter((w) => w.length >= 2 && !/^(alpha|beta|gamma|delta|cis|trans|tert|sec|iso)$/i.test(w));
+  if (words.length === 0) {
+    return "?";
   }
-  const word = words[0] ?? "?";
-  return word[0].toUpperCase() + word.slice(1, 3);
+  if (words.length >= 2) {
+    return (words[0][0] + words[1][0]).toUpperCase();
+  }
+  return words[0][0].toUpperCase() + words[0][1];
 }

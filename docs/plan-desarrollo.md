@@ -116,12 +116,12 @@ Trabajo de lectura: subagentes Sonnet de uno en uno, y revisión por partes.
 - [ ] **D2 · Constituyentes regulados y alérgenos, con su %,** de los naturales de la
   paleta: citral en la litsea, cumarina en la tonka, etc. Fuente y confianza por dato; lo que
   no se sepa, hueco.
-- [ ] **D3 · La base:** el universo del glosario FIG (2588 CAS en 3119 filas) + IFRA por CAS
-  + la capa propia. **Sin los 54 materiales del laboratorio** (P35, por confirmar): los del
-  usuario que no estén en la base se dan de alta como propios. Un generador en `scripts/`, sobre lo que ya trae
-  [`importar_datos.py`](../scripts/importar_datos.py), produce el **paquete de datos
-  versionado**. **Ojo con la clave:** el CAS no es único en el glosario; 176 CAS se repiten en
-  707 filas (P32).
+- [ ] **D3 · La base:** **el listado entero de IFRA, la *Transparency List*** (3691
+  ingredientes en 2025), combinado por CAS con el FIG si hace falta, + IFRA por CAS + la capa
+  propia (P36). **Sin los materiales del usuario.** Un generador en `scripts/`, sobre lo que ya
+  trae [`importar_datos.py`](../scripts/importar_datos.py), produce el **paquete de datos
+  versionado**. **Ojo con la clave:** el CAS no es único en el FIG; 176 CAS se repiten en 707
+  filas (P32). *Mientras tanto, el banco provisional usa el FIG como listado.*
 - [ ] **D4 · La capa propia de cada material** (P24, P29, P30), **al acabar de definir la
   interfaz**: posición entre salida y fondo (0 a 1), duración en horas, color, sigla, y los
   datos del mapa de olores (FIG, POM, intensidad). **Se investiga en el laboratorio**, con
@@ -179,13 +179,19 @@ que hace el núcleo, y con el reparto de §10.1. **No es la fase 4 terminada**:
   - el *play* y el desplegable de otros diluyentes;
   - las favoritas y la última dilución se guardan en la memoria del navegador, que es
     provisional (§6);
-- **el catálogo es provisional** (`src/data/`), a la espera del paquete de D3:
-  - los 54 materiales del laboratorio van como tuyos (consecuencia de P35, por confirmar),
-    con IFRA leído de `ifra-cat4.csv`;
-  - el glosario FIG va como base, «sin comprobar» hasta tener IFRA por CAS (D1);
+- **el catálogo es provisional** (`src/data/`), a la espera del paquete de D3 (P36):
+  - **ningún material del usuario**;
+  - las filas del FIG hacen de listado de materiales hasta tener la *Transparency List*, y se
+    buscan también por el nombre del estándar IFRA («Iso E Super (OTNE)»);
+  - IFRA por CAS, de lo que el laboratorio transcribió de los estándares: solo techo,
+    especificación y prohibición. Lo demás sale «sin comprobar» (§5.2);
   - un constituyente cuyo techo no está en los datos (el citral del limón, la tuyona de la
     salvia) deja las dos lecturas abiertas, nunca libres (§1.2);
-  - una prueba comprueba que da para F-001 lo mismo que el fixture hecho a mano;
+  - **falta** buscar por nombre comercial (Hedione, Cashmeran…): hace falta una capa de
+    sinónimos por CAS en D3;
+- **el reparto del boceto 4** (P36): frasco, cabecera, gramos, barra, recientes, visualizador,
+  pirámide, reparto, proyección, IFRA con su menú, composición y dock con su *play*. A
+  1440 × 900, y en otras ventanas se ajusta con el zoom para no deformarlo;
 - **cambio en el núcleo:** el repesado guarda la tara con la que se pesó, para que una
   variación en un vial nuevo no rehaga mal los repesados del viejo (§3.2).
 

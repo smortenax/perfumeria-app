@@ -10,13 +10,15 @@ import type { Material } from "../core/model/material";
 import { catalog } from "../data/provisional";
 import { texts } from "../i18n/es";
 import { AddBar, type AddBarHandle } from "./AddBar";
-import { Bottle } from "./Bottle";
-import { CompositionList } from "./CompositionList";
+import { BottleFrame } from "./Bottle";
+import { PyramidCard, ProjectionCard, Recents, RepartoCard, VisualizerPlaceholder } from "./Charts";
+import { CompositionCard } from "./CompositionList";
 import { PromptDialog, SaveAsDialog, type SaveAsChoice } from "./Dialogs";
-import { GramsPanel, Header } from "./Header";
+import { GramsCard, IntentionCard, NameCard } from "./Header";
 import { ChangeDetail, HistoryDock } from "./HistoryDock";
-import { IfraBox } from "./IfraBox";
+import { IfraDetail, IfraSummary } from "./IfraBox";
 import { confirmDialog, download, fileNameFor, inTauri, pickAndRead, pickSavePath, writeFile } from "./io";
+import { pushRecent, recentKeys } from "./prefs";
 import { benchReducer, emptyFormula, initialState, newId } from "./state";
 
 type Add = Extract<Change, { kind: "add" }>;
@@ -36,27 +38,36 @@ export interface Opened {
 interface View {
   readonly composition: Composition | null;
   readonly report: IfraReport | null;
+  readonly lines: readonly Line[];
   readonly current: ReadonlyMap<string, Line>;
   readonly error: string | null;
 }
 
 const message = (e: unknown) => (e instanceof Error ? e.message : String(e));
 const reopensByWeighing = (formula: Formula) => formula.header.container?.tareUg != null && formula.history.length > 0;
+const baseName = (path: string) => path.split(/[\\/]/).pop() ?? path;
 
 /**
  * The formulation bench, provisional (plan, phase 4): everything the core does,
- * with the layout of §10.1, and no charts until their data exists.
+ * with the spaces and proportions of the sketch (boceto 4, P36). The charts
+ * without data keep their place until the data comes.
  */
 export function Bench(props: { initial: Opened; onExit: () => void }) {
   const [state, dispatch] = useReducer(benchReducer, props.initial, (o) => initialState(o.formula, o.path));
   const [session, setSession] = useState<Material[]>([]);
+  const [recent, setRecent] = useState<string[]>(() => recentKeys());
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [dialog, setDialog] = useState<Dialog | null>(() =>
     reopensByWeighing(props.initial.formula) ? { kind: "reweigh", onOpen: true } : null,
   );
-  const [status, setStatus] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [ifraOpen, setIfraOpen] = useState(false);
+  const [playing, setPlaying] = useState(false);
   const addBar = useRef<AddBarHandle>(null);
   const { formula, frame } = state;
+  const frameRef = useRef(frame);
+  frameRef.current = frame;
   const dirty = !state.saved && formula.history.length > 0;
 
   const view: View = useMemo(() => {
@@ -65,40 +76,37 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
       return {
         composition: compose(formula, upTo),
         report: checkIfra(formula, catalog.ifra, upTo),
+        lines: replay(formula, upTo),
         current: new Map(replay(formula).map((line) => [line.id, line])),
         error: null,
       };
     } catch (e) {
-      return { composition: null, report: null, current: new Map(), error: message(e) };
+      return { composition: null, report: null, lines: [], current: new Map(), error: message(e) };
     }
   }, [formula, frame]);
 
-  // What cannot be kept quiet in the composition: materials without IFRA data (§5.5).
-  const unchecked = useMemo(() => {
-    const keys = new Set<string>();
-    for (const part of view.composition?.parts ?? []) {
-      const m = part.material;
-      if (m.solvent && m.kind === "base") {
-        continue;
-      }
-      const info = m.kind === "provisional" ? undefined : catalog.ifra.materials.get(m.key);
-      if (!info || info.status === "unchecked" || (info.pending?.length ?? 0) > 0) {
-        keys.add(m.key);
-      }
-    }
-    return keys;
-  }, [view.composition]);
+  const byKey = useMemo(() => new Map(catalog.entries.map((e) => [e.material.key, e.material])), []);
+  const recentMaterials = recent
+    .map((key) => byKey.get(key) ?? session.find((m) => m.key === key))
+    .filter((m): m is Material => m !== undefined);
 
   const setHeader = (header: FormulaHeader) => dispatch({ type: "header", header });
   const change = (c: Change) => {
+    setPlaying(false);
     dispatch({ type: "change", change: c });
     setSelectedId(null);
+  };
+  const addChange = (c: Change) => {
+    change(c);
+    if (c.kind === "add") {
+      setRecent(pushRecent(c.material.key));
+    }
   };
 
   const save = async () => {
     if (!inTauri()) {
       download(fileNameFor(formula.header.name), formulaToJson(formula));
-      setStatus(texts.menu.downloaded);
+      setError(texts.menu.downloaded);
       return;
     }
     const path = state.path ?? (await pickSavePath(fileNameFor(formula.header.name)));
@@ -108,9 +116,9 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
     try {
       await writeFile(path, formulaToJson(formula));
       dispatch({ type: "saved", path, formula });
-      setStatus("");
+      setError(null);
     } catch (e) {
-      setStatus(`${texts.menu.saveError}: ${message(e)}`);
+      setError(`${texts.menu.saveError}: ${message(e)}`);
     }
   };
 
@@ -124,10 +132,31 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
     const timer = setTimeout(() => {
       writeFile(path, formulaToJson(target))
         .then(() => dispatch({ type: "saved", path, formula: target }))
-        .catch((e) => setStatus(`${texts.menu.saveError}: ${message(e)}`));
+        .catch((e) => setError(`${texts.menu.saveError}: ${message(e)}`));
     }, 800);
     return () => clearTimeout(timer);
   }, [state.formula, state.path, state.saved]);
+
+  // The play (§3.4): from nothing, change by change, to the end.
+  useEffect(() => {
+    if (!playing) {
+      return;
+    }
+    const n = formula.history.length;
+    if (frameRef.current === null || frameRef.current >= n) {
+      dispatch({ type: "frame", frame: 0 });
+    }
+    const timer = setInterval(() => {
+      const next = (frameRef.current ?? 0) + 1;
+      if (next > n) {
+        dispatch({ type: "frame", frame: null });
+        setPlaying(false);
+      } else {
+        dispatch({ type: "frame", frame: next });
+      }
+    }, 450);
+    return () => clearInterval(timer);
+  }, [playing, formula.history.length]);
 
   const saveAs = async (choice: SaveAsChoice) => {
     // The variation takes a copy of the history and goes on alone (§3.2).
@@ -142,7 +171,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
     if (!inTauri()) {
       download(fileNameFor(choice.name), formulaToJson(variation));
       dispatch({ type: "load", formula: variation, path: null });
-      setStatus(texts.menu.downloaded);
+      setError(texts.menu.downloaded);
       return;
     }
     const path = await pickSavePath(fileNameFor(choice.name));
@@ -157,9 +186,9 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
       }
       dispatch({ type: "load", formula: variation, path });
       setSelectedId(null);
-      setStatus("");
+      setError(null);
     } catch (e) {
-      setStatus(`${texts.menu.saveError}: ${message(e)}`);
+      setError(`${texts.menu.saveError}: ${message(e)}`);
     }
   };
 
@@ -177,14 +206,15 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
       }
       try {
         const opened = formulaFromJson(file.text);
+        setPlaying(false);
         dispatch({ type: "load", formula: opened, path: file.path });
         setSelectedId(null);
-        setStatus("");
+        setError(null);
         if (reopensByWeighing(opened)) {
           setDialog({ kind: "reweigh", onOpen: true });
         }
       } catch (e) {
-        setStatus(`${texts.launcher.openError}: ${message(e)}`);
+        setError(`${texts.launcher.openError}: ${message(e)}`);
       }
     });
 
@@ -200,7 +230,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
       setSession((s) => [...s.filter((m) => m.key !== material.key), material]);
       addBar.current?.select(material);
     } catch (e) {
-      setStatus(`${texts.launcher.openError}: ${message(e)}`);
+      setError(`${texts.launcher.openError}: ${message(e)}`);
     }
   };
 
@@ -212,7 +242,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
 
   const startReweigh = () => {
     if (formula.header.container?.tareUg == null) {
-      setStatus(texts.dialogs.needTare);
+      setError(texts.dialogs.needTare);
       return;
     }
     setDialog({ kind: "reweigh", onOpen: false });
@@ -231,113 +261,145 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
       } else if (!typing && e.ctrlKey && (key === "y" || (key === "z" && e.shiftKey))) {
         e.preventDefault();
         dispatch({ type: "redo" });
+      } else if (e.key === "Escape") {
+        setMenuOpen(false);
+        setIfraOpen(false);
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   });
 
+  const menuAction = (action: () => void) => () => {
+    setMenuOpen(false);
+    action();
+  };
+
   const selectedIndex = formula.history.findIndex((c) => c.id === selectedId);
   const selected = selectedIndex >= 0 ? formula.history[selectedIndex] : null;
   const total = view.composition?.totalUg ?? Ratio.ZERO;
   const workBatch = formula.header.workBatchUg;
   const fill = workBatch ? Number(total.div(Ratio.of(workBatch)).toFixed(4)) : null;
-  const statusText =
-    status ||
-    (state.path === null ? texts.menu.unsaved : state.saved ? texts.menu.saved(state.path) : texts.menu.autosave);
+  const status =
+    error ?? (state.path === null ? texts.bench.unsaved : state.saved ? texts.bench.savedAs(baseName(state.path)) : texts.bench.saving);
   const tare = formula.header.container?.tareUg ?? null;
+  const adds = formula.history.slice(0, frame ?? formula.history.length).filter((c): c is Add => c.kind === "add");
+  const empty = !view.composition || view.composition.parts.length === 0;
 
   return (
     <div className="bench">
-      <aside className="bench-left">
-        <button type="button" className="back square" title={texts.bench.back} onClick={() => void leave(props.onExit)}>
-          ←
-        </button>
-        <Bottle name={formula.header.name || texts.bench.untitled} fill={fill} />
-        <div className="placeholder">
-          <h3>{texts.bench.visualizer}</h3>
-          <p className="muted small">{texts.bench.visualizerNote}</p>
-        </div>
-      </aside>
-
-      <main className="bench-center">
+      <div className="main">
         <div className="top">
-          <Header header={formula.header} onChange={setHeader} />
-          <GramsPanel header={formula.header} totalUg={total} onChange={setHeader} />
+          <BottleFrame name={formula.header.name || texts.bench.untitled} fill={fill} onBack={() => void leave(props.onExit)} />
+          <div className="top-right">
+            <div className="head-row">
+              <div className="head-col">
+                <NameCard header={formula.header} status={status} statusIsError={error !== null} onChange={setHeader} />
+                <IntentionCard header={formula.header} onChange={setHeader} />
+              </div>
+              <GramsCard header={formula.header} totalUg={total} onChange={setHeader} />
+            </div>
+            <AddBar
+              ref={addBar}
+              entries={catalog.entries}
+              sessionMaterials={session}
+              onAdd={addChange}
+              onQuickMaterial={() => setDialog({ kind: "quick" })}
+              onFormulaAsMaterial={() => void formulaAsMaterial()}
+              onCreateProvisional={createProvisional}
+            />
+          </div>
         </div>
-        <AddBar
-          ref={addBar}
-          entries={catalog.entries}
-          sessionMaterials={session}
-          onAdd={change}
-          onQuickMaterial={() => setDialog({ kind: "quick" })}
-          onFormulaAsMaterial={() => void formulaAsMaterial()}
-          onCreateProvisional={createProvisional}
-        />
+        <Recents materials={recentMaterials} onPick={(m) => addBar.current?.select(m)} />
         {view.error && (
-          <p className="error">
+          <p className="compute-error">
             {texts.bench.computeError}: {view.error}
           </p>
         )}
-        {selected && (
-          <ChangeDetail
-            change={selected}
-            index={selectedIndex}
-            history={formula.history}
-            current={view.current}
-            onEditMass={(line) => setDialog({ kind: "mass", line })}
-            onRemove={(line) => change({ kind: "remove", id: newId(), target: line.id })}
-            onFrame={(f) => dispatch({ type: "frame", frame: f })}
-            onClose={() => setSelectedId(null)}
-          />
-        )}
-        <div className="placeholder charts">
-          <h3>{texts.bench.charts}</h3>
-          <p className="muted small">{texts.bench.chartsNote}</p>
+        <div className="lower">
+          <VisualizerPlaceholder />
+          <div className="charts">
+            <div className="charts-top">
+              <PyramidCard />
+              <RepartoCard composition={view.composition} />
+            </div>
+            <ProjectionCard />
+          </div>
         </div>
-      </main>
+      </div>
 
-      <aside className="bench-right">
-        <nav className="toolbar">
-          <button type="button" onClick={() => void save()}>
-            {texts.menu.save}
+      <div className="side">
+        <div className="ifra-row">
+          <IfraSummary report={view.report} empty={empty} open={ifraOpen} onToggle={() => setIfraOpen(!ifraOpen)} />
+          <button type="button" className="tool menu-btn" aria-label={texts.menu.options} title={texts.menu.options} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
+              <path d="M3 5h12M3 9h12M3 13h12" />
+            </svg>
           </button>
-          <button type="button" onClick={() => setDialog({ kind: "saveAs" })}>
-            {texts.menu.saveAs}
-          </button>
-          <button type="button" onClick={() => void openFile()}>
-            {texts.menu.open}
-          </button>
-          <button type="button" onClick={() => void leave(() => dispatch({ type: "load", formula: emptyFormula(texts.bench.untitled), path: null }))}>
-            {texts.menu.newBench}
-          </button>
-          <button type="button" onClick={startReweigh}>
-            {texts.menu.reweigh}
-          </button>
-          <button type="button" onClick={() => setDialog({ kind: "note" })}>
-            {texts.menu.note}
-          </button>
-          <button type="button" disabled={formula.history.length === 0} onClick={() => dispatch({ type: "undo" })}>
-            {texts.menu.undo}
-          </button>
-          <button type="button" disabled={state.redo.length === 0} onClick={() => dispatch({ type: "redo" })}>
-            {texts.menu.redo}
-          </button>
-        </nav>
-        <p className="status small" title={statusText}>
-          {statusText}
-        </p>
-        <IfraBox report={view.report} empty={!view.composition || view.composition.parts.length === 0} />
-        <CompositionList composition={view.composition} unchecked={unchecked} />
-      </aside>
+          {menuOpen && (
+            <div className="menu-pop options">
+              <button type="button" className="menuitem" onClick={menuAction(() => void save())}>
+                <span>{texts.menu.save}</span>
+                <span className="num key">Ctrl+S</span>
+              </button>
+              <button type="button" className="menuitem" onClick={menuAction(() => setDialog({ kind: "saveAs" }))}>
+                <span>{texts.menu.saveAs}</span>
+              </button>
+              <button type="button" className="menuitem" onClick={menuAction(() => void openFile())}>
+                <span>{texts.menu.open}</span>
+              </button>
+              <button
+                type="button"
+                className="menuitem"
+                onClick={menuAction(() => void leave(() => dispatch({ type: "load", formula: emptyFormula(texts.bench.untitled), path: null })))}
+              >
+                <span>{texts.menu.newBench}</span>
+              </button>
+              <div className="menu-sep" />
+              <button type="button" className="menuitem" onClick={menuAction(startReweigh)}>
+                <span>{texts.menu.reweigh}</span>
+              </button>
+              <button type="button" className="menuitem" onClick={menuAction(() => setDialog({ kind: "note" }))}>
+                <span>{texts.menu.note}</span>
+              </button>
+              <div className="menu-sep" />
+              <button type="button" className="menuitem" disabled={formula.history.length === 0} onClick={menuAction(() => dispatch({ type: "undo" }))}>
+                <span>{texts.menu.undo}</span>
+                <span className="num key">Ctrl+Z</span>
+              </button>
+              <button type="button" className="menuitem" disabled={state.redo.length === 0} onClick={menuAction(() => dispatch({ type: "redo" }))}>
+                <span>{texts.menu.redo}</span>
+                <span className="num key">Ctrl+Y</span>
+              </button>
+            </div>
+          )}
+          {ifraOpen && view.report && !empty && <IfraDetail report={view.report} onClose={() => setIfraOpen(false)} />}
+        </div>
+        <CompositionCard composition={view.composition} lines={view.lines} adds={adds} report={view.report} ifra={catalog.ifra} />
+      </div>
 
       <HistoryDock
         history={formula.history}
         frame={frame}
         selectedId={selectedId}
+        playing={playing}
         onSelect={setSelectedId}
         onFrame={(f) => dispatch({ type: "frame", frame: f })}
+        onTogglePlay={() => setPlaying(!playing)}
       />
+
+      {selected && (
+        <ChangeDetail
+          change={selected}
+          index={selectedIndex}
+          history={formula.history}
+          current={view.current}
+          onEditMass={(line) => setDialog({ kind: "mass", line })}
+          onRemove={(line) => change({ kind: "remove", id: newId(), target: line.id })}
+          onFrame={(f) => dispatch({ type: "frame", frame: f })}
+          onClose={() => setSelectedId(null)}
+        />
+      )}
 
       {dialog?.kind === "mass" && (
         <PromptDialog

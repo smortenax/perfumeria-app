@@ -1,70 +1,77 @@
 import { describe, expect, it } from "vitest";
 import { Ratio } from "../core/arith/ratio";
 import { formatPercent } from "../core/display";
-import { f001 } from "../core/fixtures/f001";
 import { checkIfra } from "../core/ifra";
+import type { Change, FormulaHeader } from "../core/model/formula";
+import { DILUENTS } from "../core/model/material";
 import { searchCatalog } from "./catalog";
 import { catalog } from "./provisional";
 
-const material = (id: string) => catalog.ifra.materials.get(`lab:${id}`);
+const byCas = (cas: string) => catalog.entries.filter((e) => e.cas === cas);
+const first = (cas: string) => {
+  const found = byCas(cas)[0];
+  if (!found) {
+    throw new Error(`No material with CAS ${cas}`);
+  }
+  return found.material;
+};
+const ifraOf = (cas: string) => catalog.ifra.materials.get(first(cas).key);
+const header: FormulaHeader = { name: "prueba", intention: "", container: null, workBatchUg: null, finalBatchUg: null };
+const MG = 1_000n;
 
 describe("the provisional catalog, from datos/fuente/", () => {
-  it("has the 54 materials of the lab as the user's own, the two diluents and the 3119 rows of the FIG", () => {
+  it("has the rows of the FIG as the base and the two diluents, and none of the user's materials (P36)", () => {
     const count = (group: string) => catalog.entries.filter((e) => e.group === group).length;
-    expect(count("own")).toBe(54);
-    expect(count("diluent")).toBe(2);
     expect(count("base")).toBe(3119);
+    expect(count("diluent")).toBe(2);
+    expect(count("own")).toBe(0);
+    expect(catalog.entries.some((e) => e.material.key.startsWith("lab:"))).toBe(false);
     expect(catalog.source.commit).toBe("9949c5f");
   });
 
-  it("gives F-001 the same IFRA answer as the fixture checked by hand against the notebook", () => {
-    const report = checkIfra(f001(), catalog.ifra);
-    const check = (key: string) => report.checks.find((c) => c.substance.key === key);
-    expect(check("lab:MAT-polysantol")?.verdict).toBe("within");
-    expect(formatPercent(check("lab:MAT-polysantol")?.knownUg.div(report.finalUg) ?? Ratio.ZERO)).toBe("0,271 %");
-    for (const id of ["MAT-iso-e-super", "MAT-cashmeran", "MAT-mayol", "MAT-resinoide-estyrax-estoraque"]) {
-      expect(check(`lab:${id}`)?.verdict, id).toBe("within");
-    }
-    const coumarin = check("sub:cumarina");
-    expect(coumarin?.verdict).toBe("bounded");
-    expect(formatPercent(coumarin?.worstUg.div(report.finalUg) ?? Ratio.ZERO)).toBe("0,188 %");
-    expect(report.unchecked).toEqual(["Ámbar gris (tintura)"]);
-    expect([...new Set(report.conditions.map((c) => c.material))]).toEqual(["Lavanda", "Resinoide Estírax"]);
-    expect(report.pending).toEqual([]);
-    expect(report.asIs).toBe("unknown");
+  it("reads IFRA by CAS: the ceiling, with the name IFRA gives it", () => {
+    expect(ifraOf("54464-57-2")?.substances).toEqual([{ key: "cas:54464-57-2", fraction: Ratio.ONE }]);
+    const otne = catalog.ifra.substances.get("cas:54464-57-2");
+    expect(otne?.name).toBe("Iso E Super (OTNE)");
+    expect(otne?.limit.eq(Ratio.of(20, 100))).toBe(true);
+    expect(catalog.ifra.substances.get("cas:91-64-5")?.limit.eq(Ratio.of(15, 1000))).toBe(true);
+    // Looked up in the index, with no standard of its own: checked, and free.
+    expect(ifraOf("24851-98-7")).toEqual({ status: "checked", substances: [], conditions: [] });
   });
 
-  it("shares coumarin between the bottle and the tonka tincture", () => {
-    expect(material("MAT-cumarina-natural")?.substances).toEqual([{ key: "sub:cumarina", fraction: Ratio.ONE }]);
-    expect(material("MAT-haba-tonka-tintura")?.substances).toEqual([{ key: "sub:cumarina", fraction: null }]);
-    expect(catalog.ifra.substances.get("sub:cumarina")?.limit.eq(Ratio.of(15, 1000))).toBe(true);
+  it("keeps a constituent whose ceiling is not in the data as pending, and the conditions as conditions", () => {
+    expect(ifraOf("8008-56-8")?.pending?.[0]).toMatch(/^citral/);
+    expect(ifraOf("8013-10-3")?.conditions.some((c) => c.startsWith("HAP"))).toBe(true);
   });
 
-  it("keeps a ceiling that is not in the data as pending, never free", () => {
-    expect(material("MAT-limon")?.substances).toEqual([{ key: "lab:MAT-limon", fraction: Ratio.ONE }]);
-    expect(material("MAT-limon")?.pending).toHaveLength(1);
-    expect(material("MAT-limon")?.pending?.[0]).toMatch(/^citral/);
-    expect(material("MAT-salvia-officinalis")?.pending?.[0]).toMatch(/^tuyona/);
-    expect(material("MAT-litsea-cubeba")?.pending?.[0]).toMatch(/^citral/);
+  it("leaves unchecked every CAS the lab never transcribed (§5.2)", () => {
+    expect(catalog.ifra.materials.has(first("4221-98-1").key)).toBe(false);
+    expect(catalog.checkedCas).toBeGreaterThan(40);
   });
 
-  it("takes the strictest of two ceilings, and says why", () => {
-    const aldehyde = material("MAT-aldehido-alfa-amil-cinamico");
-    expect(catalog.ifra.substances.get("lab:MAT-aldehido-alfa-amil-cinamico")?.limit.eq(Ratio.of(7, 100))).toBe(true);
-    expect(aldehyde?.conditions[0]).toMatch(/dos techos/);
+  it("adds each substance up wherever it comes from, and never takes the unchecked as free", () => {
+    const coumarin = first("91-64-5");
+    const otne = first("54464-57-2");
+    const unchecked = first("4221-98-1");
+    const history: Change[] = [
+      { kind: "add", id: "c", material: coumarin, massUg: 150n * MG, fraction: Ratio.of(9, 100), diluent: DILUENTS.alcohol },
+      { kind: "add", id: "o", material: otne, massUg: 372n * MG, fraction: Ratio.ONE, diluent: null },
+      { kind: "add", id: "a", material: DILUENTS.alcohol, massUg: 478n * MG, fraction: Ratio.ONE, diluent: null },
+    ];
+    const report = checkIfra({ header, history }, catalog.ifra);
+    expect(report.checks.find((c) => c.substance.key === "cas:91-64-5")?.verdict).toBe("within");
+    expect(report.checks.find((c) => c.substance.key === "cas:54464-57-2")?.verdict).toBe("exceeds");
+    expect(report.asIs).toBe("no");
+    expect(formatPercent(report.maxUse, 2)).toBe("53,76 %");
+
+    const withUnchecked = checkIfra({ header, history: [...history, { kind: "add", id: "u", material: unchecked, massUg: 10n * MG, fraction: Ratio.ONE, diluent: null }] }, catalog.ifra);
+    expect(withUnchecked.unchecked).toEqual([unchecked.name]);
   });
 
-  it("lists as unchecked what was never looked up, and what has nothing known inside", () => {
-    expect(material("MAT-ambar-gris-tintura")?.status).toBe("unchecked");
-    expect(material("MAT-esencia-de-trufa")?.status).toBe("unchecked");
-    // The FIG base has no IFRA by CAS yet (§5.2): it is not in the data, so it is unchecked.
-    expect(catalog.ifra.materials.has("fig:1")).toBe(false);
-  });
-
-  it("finds the user's own materials first, with or without accents", () => {
-    expect(searchCatalog(catalog.entries, "iso e")[0].material.key).toBe("lab:MAT-iso-e-super");
-    expect(searchCatalog(catalog.entries, "estirax")[0].material.key).toBe("lab:MAT-resinoide-estyrax-estoraque");
-    expect(searchCatalog(catalog.entries, "24851-98-7")[0].material.key).toBe("lab:MAT-hedione");
+  it("finds by CAS, by the name in the glossary and by the name of the IFRA standard", () => {
+    expect(searchCatalog(catalog.entries, "54464-57-2")[0].cas).toBe("54464-57-2");
+    expect(searchCatalog(catalog.entries, "iso e super")[0].cas).toBe("54464-57-2");
+    expect(searchCatalog(catalog.entries, "coumarin")[0].cas).toBe("91-64-5");
     expect(searchCatalog(catalog.entries, "dpg")[0].material.key).toBe("solv:dpg");
   });
 });

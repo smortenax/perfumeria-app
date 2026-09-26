@@ -5,18 +5,7 @@ import type { Change } from "../core/model/formula";
 import { DILUENTS, type Material } from "../core/model/material";
 import { normalize, searchCatalog, type CatalogEntry } from "../data/catalog";
 import { texts } from "../i18n/es";
-import {
-  diluentOptions,
-  percentOptions,
-  prefsOf,
-  pushRecent,
-  recentKeys,
-  rememberLast,
-  sameDilution,
-  toggleFavorite,
-  type DiluentId,
-  type MaterialPrefs,
-} from "./prefs";
+import { diluentOptions, percentOptions, prefsOf, rememberLast, sameDilution, toggleFavorite, type DiluentId, type MaterialPrefs } from "./prefs";
 import { newId } from "./state";
 
 const t = texts.addBar;
@@ -26,29 +15,32 @@ export interface AddBarHandle {
   focus(): void;
 }
 
-type Group = keyof typeof t.groups;
-type Result = { kind: "material"; material: Material; group: Group; cas: string } | { kind: "create"; name: string };
-
-function cycle<T>(options: readonly T[], current: T, step: number, same: (a: T, b: T) => boolean): T {
-  const i = options.findIndex((o) => same(o, current));
-  const from = i < 0 ? (step > 0 ? -1 : 0) : i;
-  return options[(from + step + options.length) % options.length];
-}
+type Result =
+  | { kind: "material"; material: Material; tag: string | null; cas: string; standardName?: string }
+  | { kind: "create"; name: string };
 
 const samePercent = (a: string, b: string) => a.replace(",", ".") === b.replace(",", ".");
 
-function groupOf(material: Material, fallback: Group): Group {
-  if (material.kind === "provisional" || material.kind === "formula") {
-    return material.kind;
-  }
-  return fallback;
+function uniquePercents(items: readonly string[]): string[] {
+  return items.filter((p, i) => items.findIndex((q) => samePercent(p, q)) === i);
+}
+
+function Switch(props: { checked: boolean; label: string; onChange: (checked: boolean) => void }) {
+  return (
+    <button type="button" role="switch" aria-checked={props.checked} tabIndex={-1} className="switch" onClick={() => props.onChange(!props.checked)}>
+      <span className={props.checked ? "track on" : "track"}>
+        <span className="knob" />
+      </span>
+      {props.label}
+    </button>
+  );
 }
 
 /**
- * The add bar (§4), left to right: more, search, quantity, dilution, add, star.
- * Everything by keyboard: Enter moves on, Ctrl+Enter adds at once with the
- * dilution already set, the arrows change the dilution; the mouse is only
- * needed for the star.
+ * The add bar (§4), as in the sketch (boceto 4), left to right: more, include,
+ * material, quantity, dilution, add, star. Everything by keyboard: Intro or Tab
+ * pick the material; Intro moves on; Ctrl+Intro adds with the dilution already
+ * set; the arrows choose among the two options of % and of diluent (P26).
  */
 export function AddBar(props: {
   ref?: Ref<AddBarHandle>;
@@ -67,26 +59,31 @@ export function AddBar(props: {
   const [unit, setUnit] = useState<MassUnit>("mg");
   const [prefs, setPrefs] = useState<MaterialPrefs>({ favorites: [] });
   const [percent, setPercent] = useState("10");
-  const [editingPercent, setEditingPercent] = useState(false);
+  const [editing, setEditing] = useState<string | null>(null);
   const [diluent, setDiluent] = useState<DiluentId>("dpg");
   const [mine, setMine] = useState(true);
   const [formulas, setFormulas] = useState(true);
   const [menu, setMenu] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [recent, setRecent] = useState<string[]>(() => recentKeys());
 
   const searchRef = useRef<HTMLInputElement>(null);
   const quantityRef = useRef<HTMLInputElement>(null);
-  const percentRef = useRef<HTMLButtonElement>(null);
-
-  const percents = useMemo(() => {
-    const options = percentOptions(prefs);
-    // A diluent is not diluted in another: it goes pure unless the user says otherwise.
-    return selected?.solvent ? ["100", ...options.filter((p) => !samePercent(p, "100"))] : options;
-  }, [prefs, selected]);
-  const diluents = useMemo(() => diluentOptions(prefs), [prefs]);
+  const percentRefs = [useRef<HTMLButtonElement>(null), useRef<HTMLButtonElement>(null)];
+  const diluentRefs = [useRef<HTMLButtonElement>(null), useRef<HTMLButtonElement>(null)];
 
   const byKey = useMemo(() => new Map(props.entries.map((e) => [e.material.key, e])), [props.entries]);
+
+  // Two options of each (§4): favourites first, then the last one used, then 10 % and 1 %, DPG and alcohol.
+  const percentPool = uniquePercents(selected?.solvent ? ["100", ...percentOptions(prefs)] : percentOptions(prefs)).slice(0, 2);
+  const cells = percentPool.some((p) => samePercent(p, percent)) ? percentPool : [percent, ...percentPool].slice(0, 2);
+  const checkedCell = Math.max(0, cells.findIndex((p) => samePercent(p, percent)));
+  const diluents = diluentOptions(prefs).slice(0, 2);
+  const checkedDiluent = Math.max(0, diluents.indexOf(diluent));
+  const source = prefs.favorites.some((f) => samePercent(f.percent, percent))
+    ? "favorite"
+    : prefs.last && samePercent(prefs.last.percent, percent)
+      ? "last"
+      : "base";
 
   const results: Result[] = useMemo(() => {
     const q = normalize(query.trim());
@@ -96,8 +93,14 @@ export function AddBar(props: {
     const pool = mine ? props.entries : props.entries.filter((e) => e.group !== "own");
     const session: Result[] = props.sessionMaterials
       .filter((m) => (formulas || m.kind !== "formula") && normalize(m.name).includes(q))
-      .map((m) => ({ kind: "material", material: m, group: groupOf(m, "provisional"), cas: "" }));
-    const found: Result[] = searchCatalog(pool, query, 10).map((e) => ({ kind: "material", material: e.material, group: e.group, cas: e.cas }));
+      .map((m) => ({ kind: "material", material: m, tag: m.kind === "formula" ? "fórmula" : "provisional", cas: "" }));
+    const found: Result[] = searchCatalog(pool, query, 10).map((e) => ({
+      kind: "material",
+      material: e.material,
+      tag: e.group === "diluent" ? "diluyente" : null,
+      cas: e.cas,
+      ...(e.standardName ? { standardName: e.standardName } : {}),
+    }));
     const all = [...session, ...found];
     const exact = all.some((r) => r.kind === "material" && normalize(r.material.name) === q);
     return exact ? all : [...all, { kind: "create", name: query.trim() }];
@@ -110,9 +113,10 @@ export function AddBar(props: {
     setOpen(false);
     setHighlight(0);
     setError(null);
+    setEditing(null);
     setPrefs(p);
-    setPercent(material.solvent ? "100" : percentOptions(p)[0]);
-    setDiluent(diluentOptions(p)[0]);
+    setPercent(material.solvent ? "100" : (p.last?.percent ?? percentOptions(p)[0]));
+    setDiluent(p.last?.diluent ?? diluentOptions(p)[0]);
   };
 
   useImperativeHandle(props.ref, () => ({
@@ -130,7 +134,13 @@ export function AddBar(props: {
     quantityRef.current?.focus();
   };
 
-  const add = () => {
+  const release = () => {
+    setSelected(null);
+    setQuery("");
+    searchRef.current?.focus();
+  };
+
+  const add = (percentText = percent) => {
     if (!selected) {
       setError(t.noMaterial);
       searchRef.current?.focus();
@@ -146,7 +156,7 @@ export function AddBar(props: {
     }
     let fraction: Ratio;
     try {
-      fraction = parsePercent(percent);
+      fraction = parsePercent(percentText);
     } catch {
       setError(t.badPercent);
       return;
@@ -159,58 +169,73 @@ export function AddBar(props: {
       fraction,
       diluent: fraction.eq(Ratio.ONE) ? null : DILUENTS[diluent],
     });
-    rememberLast(selected.key, { percent, diluent });
-    setRecent(pushRecent(selected.key));
+    rememberLast(selected.key, { percent: percentText, diluent });
     setSelected(null);
     setQuery("");
     setQuantity("");
-    setEditingPercent(false);
+    setEditing(null);
     setError(null);
     searchRef.current?.focus();
   };
 
   const current = { percent, diluent };
   const isFavorite = prefs.favorites.some((f) => sameDilution(f, current));
-  const recentMaterials = recent
-    .map((key) => byKey.get(key)?.material ?? props.sessionMaterials.find((m) => m.key === key))
-    .filter((m): m is Material => m !== undefined);
+  const cas = selected ? byKey.get(selected.key)?.cas : undefined;
 
   return (
-    <section className="add-bar">
-      <div className="add-row first">
-        <div className="more">
-          <button type="button" className="square" title={t.more} onClick={() => setMenu(!menu)} tabIndex={-1}>
-            ＋
-          </button>
-          {menu && (
-            <div className="menu-pop" onMouseLeave={() => setMenu(false)}>
-              <button
-                type="button"
-                onClick={() => {
-                  setMenu(false);
-                  props.onQuickMaterial();
-                }}
-              >
-                {t.quickMaterial}
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  setMenu(false);
-                  props.onFormulaAsMaterial();
-                }}
-              >
-                {t.formulaAsMaterial}
-              </button>
-            </div>
-          )}
-        </div>
+    <div className="card add-form">
+      <div className="more">
+        <button type="button" className="tool plus" title={t.more} aria-label={t.more} tabIndex={-1} onClick={() => setMenu(!menu)}>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
+            <path d="M8 3v10M3 8h10" />
+          </svg>
+        </button>
+        {menu && (
+          <div className="menu-pop" onMouseLeave={() => setMenu(false)}>
+            <button
+              type="button"
+              className="menuitem"
+              onClick={() => {
+                setMenu(false);
+                props.onQuickMaterial();
+              }}
+            >
+              {t.quickMaterial}
+            </button>
+            <button
+              type="button"
+              className="menuitem"
+              onClick={() => {
+                setMenu(false);
+                props.onFormulaAsMaterial();
+              }}
+            >
+              {t.formulaAsMaterial}
+            </button>
+          </div>
+        )}
+      </div>
 
-        <div className="search">
+      <div className="include">
+        <span className="field-label">{t.include}</span>
+        <div className="switches">
+          <Switch checked={mine} label={t.mine} onChange={setMine} />
+          <Switch checked={formulas} label={t.formulas} onChange={setFormulas} />
+        </div>
+      </div>
+
+      <div className="material">
+        <div className="field-label">
+          <label htmlFor="add-material">{t.material}</label>
+          <span className="hint">{t.pickHint}</span>
+        </div>
+        <div className={selected ? "field material-field chosen" : "field material-field"}>
           <input
+            id="add-material"
             ref={searchRef}
             value={query}
             placeholder={t.search}
+            autoComplete="off"
             onChange={(e) => {
               setQuery(e.target.value);
               setSelected(null);
@@ -237,187 +262,217 @@ export function AddBar(props: {
               }
             }}
           />
-          {open && results.length > 0 && (
-            <ul className="results">
-              {results.map((r, i) => (
-                <li
-                  key={r.kind === "create" ? "create" : r.material.key}
-                  className={i === highlight ? "active" : undefined}
-                  onMouseDown={(e) => {
-                    e.preventDefault();
-                    choose(r);
-                  }}
-                >
-                  {r.kind === "create" ? (
-                    <span className="create">{t.createProvisional(r.name)}</span>
-                  ) : (
-                    <>
-                      <span className="result-name">{r.material.name}</span>
-                      <span className={`tag tag-${r.group}`}>{t.groups[r.group]}</span>
-                      {r.cas && <span className="cas">{r.cas}</span>}
-                    </>
-                  )}
-                </li>
-              ))}
-            </ul>
+          {cas && <span className="num cas">{cas}</span>}
+          {selected && (
+            <button type="button" className="release" tabIndex={-1} aria-label={t.release} title={t.release} onClick={release}>
+              <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
+                <path d="M3.5 3.5l7 7M10.5 3.5l-7 7" />
+              </svg>
+            </button>
           )}
-          <div className="toggles">
-            <label>
-              <input type="checkbox" checked={mine} onChange={(e) => setMine(e.target.checked)} tabIndex={-1} />
-              {t.mine}
-            </label>
-            <label>
-              <input type="checkbox" checked={formulas} onChange={(e) => setFormulas(e.target.checked)} tabIndex={-1} />
-              {t.formulas}
-            </label>
-          </div>
+        </div>
+        {open && results.length > 0 && (
+          <ul className="results">
+            {results.map((r, i) => (
+              <li
+                key={r.kind === "create" ? "create" : r.material.key}
+                className={i === highlight ? "active" : undefined}
+                onMouseDown={(e) => {
+                  e.preventDefault();
+                  choose(r);
+                }}
+              >
+                {r.kind === "create" ? (
+                  <span className="create">{t.createProvisional(r.name)}</span>
+                ) : (
+                  <>
+                    <span className="result-name">
+                      {r.material.name}
+                      {r.standardName && (
+                        <span className="standard">
+                          {r.standardName} · {t.standard}
+                        </span>
+                      )}
+                    </span>
+                    {r.tag && <span className="pill">{r.tag}</span>}
+                    {r.cas && <span className="num cas">{r.cas}</span>}
+                  </>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      <div className="quantity">
+        <label className="field-label" htmlFor="add-quantity">
+          {t.quantity(unit)}
+        </label>
+        <div className="field quantity-field">
+          <input
+            id="add-quantity"
+            ref={quantityRef}
+            className="num"
+            value={quantity}
+            inputMode="decimal"
+            autoComplete="off"
+            onChange={(e) => setQuantity(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && e.ctrlKey) {
+                e.preventDefault();
+                add();
+              } else if (e.key === "Enter") {
+                e.preventDefault();
+                percentRefs[checkedCell].current?.focus();
+              }
+            }}
+          />
+          <button type="button" className="unit num" tabIndex={-1} title={t.changeUnit} onClick={() => setUnit(unit === "mg" ? "g" : "mg")}>
+            {unit}
+          </button>
         </div>
       </div>
 
-      <div className="add-row second">
-        <label className="quantity">
-          <span>{t.quantity}</span>
-          <div className="with-unit">
-            <input
-              ref={quantityRef}
-              value={quantity}
-              inputMode="decimal"
-              onChange={(e) => setQuantity(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && e.ctrlKey) {
-                  e.preventDefault();
-                  add();
-                } else if (e.key === "Enter") {
-                  e.preventDefault();
-                  percentRef.current?.focus();
-                }
-              }}
-            />
-            <button type="button" className="unit" tabIndex={-1} onClick={() => setUnit(unit === "mg" ? "g" : "mg")}>
-              {unit}
-            </button>
-          </div>
-        </label>
-
-        <div className="dilution">
+      <div className="dilution">
+        <div className="field-label">
           <span>{t.dilution}</span>
-          <div className="selectors">
-            {editingPercent ? (
-              <input
-                className="percent-input"
-                autoFocus
-                value={percent}
-                aria-label={t.customPercent}
-                onChange={(e) => setPercent(e.target.value)}
-                onBlur={() => setEditingPercent(false)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    e.preventDefault();
-                    setEditingPercent(false);
-                    add();
-                  } else if (e.key === "Escape") {
-                    setEditingPercent(false);
-                  }
-                }}
-              />
-            ) : (
-              <div className="selector">
-                <button type="button" tabIndex={-1} onClick={() => setPercent(cycle(percents, percent, -1, samePercent))}>
-                  ‹
-                </button>
-                <button
-                  type="button"
-                  ref={percentRef}
-                  className="value"
-                  title={t.customPercent}
-                  onDoubleClick={() => setEditingPercent(true)}
+          <span className="hint">{t.src[source]}</span>
+        </div>
+        <div className="dilution-group" role="group" aria-label={t.dilution}>
+          <div className="radio-col percent-col" role="radiogroup" aria-label={t.percentGroup}>
+            {cells.map((p, i) =>
+              editing !== null && i === checkedCell ? (
+                <input
+                  key="edit"
+                  className="cell-input num"
+                  autoFocus
+                  value={editing}
+                  aria-label={t.customPercent}
+                  onChange={(e) => setEditing(e.target.value)}
+                  onBlur={() => {
+                    if (editing.trim() !== "") {
+                      setPercent(editing.trim());
+                    }
+                    setEditing(null);
+                  }}
                   onKeyDown={(e) => {
-                    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+                    if (e.key === "Enter") {
                       e.preventDefault();
-                      setPercent(cycle(percents, percent, 1, samePercent));
-                    } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+                      const typed = editing.trim();
+                      setPercent(typed);
+                      setEditing(null);
+                      add(typed);
+                    } else if (e.key === "Escape") {
+                      setEditing(null);
+                    }
+                  }}
+                />
+              ) : (
+                <button
+                  key={p}
+                  type="button"
+                  ref={percentRefs[i]}
+                  role="radio"
+                  aria-checked={i === checkedCell}
+                  tabIndex={i === checkedCell ? 0 : -1}
+                  className={i === checkedCell ? "cell num checked" : "cell num"}
+                  title={t.customPercent}
+                  onClick={() => setPercent(p)}
+                  onDoubleClick={() => setEditing(p)}
+                  onKeyDown={(e) => {
+                    if (e.key === "ArrowDown" || e.key === "ArrowUp") {
                       e.preventDefault();
-                      setPercent(cycle(percents, percent, -1, samePercent));
+                      const other = 1 - i;
+                      if (cells[other] !== undefined) {
+                        setPercent(cells[other]);
+                        percentRefs[other].current?.focus();
+                      }
+                    } else if (e.key === "ArrowRight") {
+                      e.preventDefault();
+                      diluentRefs[checkedDiluent].current?.focus();
                     } else if (e.key === "Enter") {
                       e.preventDefault();
                       add();
+                    } else if (e.key === "F2") {
+                      e.preventDefault();
+                      setEditing(p);
                     } else if (/^[0-9.,]$/.test(e.key)) {
                       e.preventDefault();
-                      setPercent(e.key);
-                      setEditingPercent(true);
+                      setEditing(e.key);
                     }
                   }}
                 >
-                  {percent} %
+                  {p} %
                 </button>
-                <button type="button" tabIndex={-1} onClick={() => setPercent(cycle(percents, percent, 1, samePercent))}>
-                  ›
-                </button>
-              </div>
+              ),
             )}
-            <div className="selector" title={t.diluent}>
-              <button type="button" tabIndex={-1} onClick={() => setDiluent(cycle(diluents, diluent, -1, (a, b) => a === b))}>
-                ‹
-              </button>
+          </div>
+          <div className="radio-col diluent-col" role="radiogroup" aria-label={t.diluentGroup}>
+            {diluents.map((d, i) => (
               <button
+                key={d}
                 type="button"
-                className="value"
+                ref={diluentRefs[i]}
+                role="radio"
+                aria-checked={i === checkedDiluent}
+                tabIndex={i === checkedDiluent ? 0 : -1}
+                className={i === checkedDiluent ? "cell checked" : "cell"}
+                onClick={() => setDiluent(d)}
                 onKeyDown={(e) => {
-                  if (["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp"].includes(e.key)) {
+                  if (e.key === "ArrowDown" || e.key === "ArrowUp") {
                     e.preventDefault();
-                    const step = e.key === "ArrowRight" || e.key === "ArrowDown" ? 1 : -1;
-                    setDiluent(cycle(diluents, diluent, step, (a, b) => a === b));
+                    const other = 1 - i;
+                    if (diluents[other] !== undefined) {
+                      setDiluent(diluents[other]);
+                      diluentRefs[other].current?.focus();
+                    }
+                  } else if (e.key === "ArrowLeft") {
+                    e.preventDefault();
+                    percentRefs[checkedCell].current?.focus();
                   } else if (e.key === "Enter") {
                     e.preventDefault();
                     add();
                   }
                 }}
               >
-                {DILUENTS[diluent].name}
+                {DILUENTS[d].name}
               </button>
-              <button type="button" tabIndex={-1} onClick={() => setDiluent(cycle(diluents, diluent, 1, (a, b) => a === b))}>
-                ›
-              </button>
-            </div>
+            ))}
           </div>
+          <button type="button" className="other" disabled title={t.otherDiluent} aria-label={t.otherDiluent}>
+            <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+              <circle cx="2.5" cy="6" r="1.1" fill="currentColor" />
+              <circle cx="6" cy="6" r="1.1" fill="currentColor" />
+              <circle cx="9.5" cy="6" r="1.1" fill="currentColor" />
+            </svg>
+          </button>
         </div>
-
-        <button type="button" className="primary add" onClick={add}>
-          {t.add}
-        </button>
-        <button
-          type="button"
-          className={isFavorite ? "square star on" : "square star"}
-          title={isFavorite ? t.unfavorite : t.favorite}
-          disabled={!selected}
-          tabIndex={-1}
-          onClick={() => selected && setPrefs(toggleFavorite(selected.key, current))}
-        >
-          {isFavorite ? "★" : "☆"}
-        </button>
       </div>
 
-      {error && <p className="error">{error}</p>}
-      <p className="keys">{t.keys}</p>
-
-      {recentMaterials.length > 0 && (
-        <div className="recent">
-          <span>{t.recent}</span>
-          {recentMaterials.map((m) => (
-            <button
-              type="button"
-              key={m.key}
-              tabIndex={-1}
-              onClick={() => {
-                select(m);
-                quantityRef.current?.focus();
-              }}
-            >
-              {m.name}
-            </button>
-          ))}
-        </div>
-      )}
-    </section>
+      <button type="button" className="add-btn" onClick={() => add()}>
+        {t.add}
+      </button>
+      <button
+        type="button"
+        className={isFavorite ? "tool star on" : "tool star"}
+        title={isFavorite ? t.unfavorite : t.favorite}
+        aria-label={isFavorite ? t.unfavorite : t.favorite}
+        aria-pressed={isFavorite}
+        disabled={!selected}
+        tabIndex={-1}
+        onClick={() => selected && setPrefs(toggleFavorite(selected.key, current))}
+      >
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+          <path
+            d="M8 1.8l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 11.6l-3.8 2 .7-4.3-3.1-3 4.3-.6z"
+            fill={isFavorite ? "currentColor" : "none"}
+            stroke="currentColor"
+            strokeWidth="1.3"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+      {error && <span className="add-error">{error}</span>}
+    </div>
   );
 }

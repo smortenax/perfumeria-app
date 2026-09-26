@@ -1286,6 +1286,32 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 - Estado: cerrada, como decisión del usuario · consecuencias por confirmar
 - Destino: decisiones.md §6 y §9; plan, fase 3 (D3, D4)
 
+### P36 — De qué lista salen los materiales, fuera los del usuario, y el banco como el boceto 4
+- Bloque: datos (D1, D3) y diseño (§10.1)
+- Abierta por: el usuario, al ver el banco provisional
+- Respuesta literal: *«una pregunta rapida, por qu eel glosario de referencia es el fig?? lo pone al lado de losmateriales, el fig es la descripcion olorifica que hace una parte de ifra los materiales tienen que salir del propio listado de ifra entero, o de una combinacion de ambos, si el mas completo es ifra pues ifra sino el otro por otro lado los materiales mios tienen que ir fuera estamos en una app nueva ya no tiene que haber contaminación luego ha habido una serie de cambios considerables con respecto a la otra version en visualizacion, no digo que todo tenga que estar al mismo nivel de diseño el diseño aun falta pulirlo pero si deberia estar con espacios y proporciones similares, las iteraciones de diseño de ux aqui no estan reflejadas»*
+- **Por qué era el FIG:** era la única lista completa de ingredientes importada, y el plan
+  (D3) la tomó como universo de la base; P35 lo repitió. No fue una decisión del usuario.
+- **Lectura:**
+  1. **Los materiales salen del listado entero de IFRA**, la *Transparency List* (3691
+     ingredientes en su edición de 2025, según la pieza 2 del frente 6 del laboratorio, que
+     cita la página de IFRA), **o de su combinación con el FIG por CAS**: manda la más
+     completa. **El FIG es la descripción olfativa**, no el listado de materiales.
+  2. **Los materiales del usuario van fuera de la app**, ni como base ni como suyos: es una
+     app nueva y sin contaminación. Responde a la consecuencia de P35 que quedaba por
+     confirmar, en el sentido más estricto.
+  3. **El banco tiene que recoger las iteraciones de diseño**: los espacios y las proporciones
+     del boceto 4, aunque el diseño esté por pulir.
+- **Añadido en la lectura, por confirmar:**
+  - **mientras no llegue la Transparency List, el FIG hace de listado provisional**, sin
+    etiqueta al lado de cada material;
+  - **los límites de IFRA se leen por CAS**, de lo que el laboratorio transcribió de los
+    estándares (`ifra-cat4.csv`): solo el dato de IFRA (techo, especificación, prohibición),
+    sin sus notas de frasco ni de proveedor. Lo que no esté, «sin comprobar» (§5.2).
+- Fecha: 2026-09-26
+- Estado: cerrada · lectura por confirmar
+- Destino: decisiones.md §6 y §9; plan, fase 3 (D1, D3) y fase 4; encargo al laboratorio
+
 ---
 
 ## Estado
@@ -1296,6 +1322,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R9 · diseño | 6 (P23 a P28) | 0 |
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
-| R12 · infografías y frentes | 1 (P35) | 2 (P33, P34) |
+| R12 · infografías y frentes | 2 (P35, P36) | 2 (P33, P34) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.

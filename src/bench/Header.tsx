@@ -1,106 +1,139 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Ratio } from "../core/arith/ratio";
 import { parseMass } from "../core/arith/units";
 import { formatDecimal, formatGrams } from "../core/display";
 import type { FormulaHeader } from "../core/model/formula";
 import { texts } from "../i18n/es";
 
-const t = texts.grams;
+const g = texts.grams;
 
-/** Name and intention (§3.3). */
-export function Header(props: { header: FormulaHeader; onChange: (header: FormulaHeader) => void }) {
-  const { header, onChange } = props;
+/** The name, big, and the file it lives in (§10.1: «solo nombre y fecha»). */
+export function NameCard(props: { header: FormulaHeader; status: string; statusIsError: boolean; onChange: (header: FormulaHeader) => void }) {
   return (
-    <header className="bench-header">
+    <div className="card name-card">
       <input
         className="formula-name"
-        value={header.name}
+        value={props.header.name}
         placeholder={texts.bench.namePlaceholder}
-        onChange={(e) => onChange({ ...header, name: e.target.value })}
+        onChange={(e) => props.onChange({ ...props.header, name: e.target.value })}
       />
-      <textarea
-        className="formula-intention"
-        rows={2}
-        value={header.intention}
-        placeholder={texts.bench.intentionPlaceholder}
-        onChange={(e) => onChange({ ...header, intention: e.target.value })}
-      />
-    </header>
+      <span className={props.statusIsError ? "num status error" : "num status"}>{props.status}</span>
+    </div>
   );
 }
 
-/** A figure typed in the user's units; it takes effect on Enter or on leaving the field. */
-function Field(props: {
-  label: string;
-  value: string;
-  parse: (text: string) => void;
-}) {
-  const [text, setText] = useState(props.value);
-  const [bad, setBad] = useState(false);
-  useEffect(() => {
-    setText(props.value);
-    setBad(false);
-  }, [props.value]);
-  const commit = () => {
-    try {
-      props.parse(text);
-      setBad(false);
-    } catch {
-      setBad(true);
-    }
-  };
+/** The intention (§3.3). */
+export function IntentionCard(props: { header: FormulaHeader; onChange: (header: FormulaHeader) => void }) {
   return (
-    <label className={bad ? "gram-field bad" : "gram-field"} title={bad ? t.invalid : undefined}>
-      <span>{props.label}</span>
-      <input
-        value={text}
-        inputMode="decimal"
-        onChange={(e) => setText(e.target.value)}
-        onBlur={commit}
-        onKeyDown={(e) => {
-          if (e.key === "Enter") {
-            commit();
-          }
-        }}
+    <label className="card intention-card">
+      <span className="label">{texts.bench.intention}</span>
+      <textarea
+        value={props.header.intention}
+        placeholder={texts.bench.intentionPlaceholder}
+        onChange={(e) => props.onChange({ ...props.header, intention: e.target.value })}
       />
     </label>
   );
 }
 
-const gramsText = (ug: bigint | null): string => (ug === null ? "" : formatDecimal(Ratio.of(ug).div(Ratio.of(1_000_000)), 3));
-const optionalMass = (text: string): bigint | null => (text.trim() === "" ? null : parseMass(text, "g"));
+/** A figure in grams that becomes a field when pressed; Enter or leaving it takes it. */
+function EditableGrams(props: { value: bigint | null; empty: string; emptyClass?: string; onCommit: (value: bigint | null) => void }) {
+  const [editing, setEditing] = useState(false);
+  const [text, setText] = useState("");
+  const [bad, setBad] = useState(false);
+  const input = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (editing) {
+      input.current?.focus();
+      input.current?.select();
+    }
+  }, [editing]);
+
+  if (!editing) {
+    return (
+      <button
+        type="button"
+        className={props.value === null ? `value empty ${props.emptyClass ?? ""}` : "value num"}
+        title={g.edit}
+        onClick={() => {
+          setText(props.value === null ? "" : formatDecimal(Ratio.of(props.value).div(Ratio.of(1_000_000)), 3));
+          setBad(false);
+          setEditing(true);
+        }}
+      >
+        {props.value === null ? props.empty : formatGrams(Ratio.of(props.value), 3)}
+      </button>
+    );
+  }
+  const commit = () => {
+    try {
+      props.onCommit(text.trim() === "" ? null : parseMass(text, "g"));
+      setEditing(false);
+    } catch {
+      setBad(true);
+    }
+  };
+  return (
+    <input
+      ref={input}
+      className={bad ? "value-input num bad" : "value-input num"}
+      value={text}
+      title={bad ? g.invalid : g.edit}
+      inputMode="decimal"
+      onChange={(e) => setText(e.target.value)}
+      onBlur={commit}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          commit();
+        } else if (e.key === "Escape") {
+          setEditing(false);
+        }
+      }}
+    />
+  );
+}
 
 /**
- * The grams, condensed to the right of the header (§10.1): what is only needed
- * at the start. IFRA is measured on the final batch (§3.3).
+ * The grams, condensed to the right of the header (§10.1): the bottle's weight,
+ * the work batch, what is in the bottle and the final batch, on which IFRA is
+ * measured (§3.3).
  */
-export function GramsPanel(props: { header: FormulaHeader; totalUg: Ratio; onChange: (header: FormulaHeader) => void }) {
+export function GramsCard(props: { header: FormulaHeader; totalUg: Ratio; onChange: (header: FormulaHeader) => void }) {
   const { header, onChange } = props;
   const container = header.container ?? { capacityMl: null, tareUg: null };
-  const setContainer = (next: typeof container) =>
-    onChange({ ...header, container: next.capacityMl === null && next.tareUg === null ? null : next });
   const tare = container.tareUg;
+  const setTare = (tareUg: bigint | null) =>
+    onChange({ ...header, container: tareUg === null && container.capacityMl === null ? null : { ...container, tareUg } });
   return (
-    <section className="grams">
-      <h3>{t.title}</h3>
-      <div className="grams-grid">
-        <Field
-          label={t.capacity}
-          value={container.capacityMl === null ? "" : formatDecimal(container.capacityMl, 2).replace(/,?0+$/, "")}
-          parse={(text) => setContainer({ ...container, capacityMl: text.trim() === "" ? null : Ratio.fromDecimal(text) })}
-        />
-        <Field label={t.tare} value={gramsText(tare)} parse={(text) => setContainer({ ...container, tareUg: optionalMass(text) })} />
-        <div className="gram-field readonly">
-          <span>{t.gross}</span>
-          <output>{tare === null ? t.none : formatGrams(Ratio.of(tare).add(props.totalUg), 3)}</output>
-        </div>
-        <Field label={t.workBatch} value={gramsText(header.workBatchUg)} parse={(text) => onChange({ ...header, workBatchUg: optionalMass(text) })} />
-        <div className="gram-field readonly">
-          <span>{t.inBottle}</span>
-          <output>{formatGrams(props.totalUg, 3)}</output>
-        </div>
-        <Field label={t.finalBatch} value={gramsText(header.finalBatchUg)} parse={(text) => onChange({ ...header, finalBatchUg: optionalMass(text) })} />
+    <div className="card grams-card">
+      <div className="grams-block">
+        <span className="label">{g.frameWeight}</span>
+        <span className="grams-line">
+          <span>{g.tare}</span>
+          <EditableGrams value={tare} empty={g.unweighed} emptyClass="amber" onCommit={setTare} />
+        </span>
+        <span className="grams-line">
+          <span>{g.gross}</span>
+          <span className={tare === null ? "value empty" : "value num"}>
+            {tare === null ? g.onReopen : formatGrams(Ratio.of(tare).add(props.totalUg), 3)}
+          </span>
+        </span>
       </div>
-    </section>
+      <div className="grams-block">
+        <span className="label">{g.workBatch}</span>
+        <EditableGrams value={header.workBatchUg} empty={g.none} onCommit={(v) => onChange({ ...header, workBatchUg: v })} />
+      </div>
+      <div className="grams-block">
+        <span className="label">{g.inBottle}</span>
+        <span className="value num strong">{formatGrams(props.totalUg, 3)}</span>
+      </div>
+      <div className="grams-block">
+        <span className="label">{g.finalBatch}</span>
+        <span className="grams-final">
+          <EditableGrams value={header.finalBatchUg} empty={g.none} onCommit={(v) => onChange({ ...header, finalBatchUg: v })} />
+          <span className="pill">{g.ifra}</span>
+        </span>
+      </div>
+    </div>
   );
 }

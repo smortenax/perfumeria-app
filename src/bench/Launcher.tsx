@@ -10,7 +10,7 @@ const t = texts.launcher;
 /** What comes before the bench (§0 leaves it undesigned): for now, a way into it. */
 export function Launcher(props: { onNew: () => void; onOpen: (opened: Opened) => void }) {
   const [error, setError] = useState<string | null>(null);
-  const count = (group: string) => catalog.entries.filter((e) => e.group === group).length;
+  const rows = catalog.entries.filter((e) => e.group === "base").length;
 
   const open = async () => {
     const file = await pickAndRead();
@@ -29,7 +29,7 @@ export function Launcher(props: { onNew: () => void; onOpen: (opened: Opened) =>
       <h1>{texts.appName}</h1>
       <p className="subtitle">{t.subtitle}</p>
       <div className="launcher-actions">
-        <button type="button" className="primary big" autoFocus onClick={props.onNew}>
+        <button type="button" className="add-btn big" autoFocus onClick={props.onNew}>
           {t.newBench}
         </button>
         <button type="button" className="big" onClick={() => void open()}>
@@ -38,8 +38,8 @@ export function Launcher(props: { onNew: () => void; onOpen: (opened: Opened) =>
       </div>
       {error && <p className="error">{error}</p>}
       <div className="launcher-notes">
+        <p>{t.base(rows, catalog.checkedCas)}</p>
         <p>{t.source(catalog.source.commit, catalog.source.date)}</p>
-        <p>{t.counts(count("own"), count("base"))}</p>
         <p>{t.provisional}</p>
       </div>
     </main>

@@ -1,34 +1,55 @@
 import { texts } from "../i18n/es";
 
 /**
- * The bottle fills by mass, over the work batch (§10.1, P23): 5 g of 10 g is
- * half full. It is a picture, not a measure, so it needs no density.
+ * The bottle, big, at the top left (§10.1): it fills by mass over the work
+ * batch (P23), with the name as its label. The back button sits in a bite of
+ * the frame (P26). Drawn as in the sketch (boceto 4).
  */
-export function Bottle(props: { name: string; fill: number | null }) {
+export function BottleFrame(props: { name: string; fill: number | null; onBack: () => void }) {
   const fill = props.fill === null ? 0 : Math.max(0, Math.min(1, props.fill));
-  const bodyTop = 104;
-  const bodyHeight = 176;
-  const level = bodyTop + bodyHeight * (1 - fill);
-  const label = props.name.length > 16 ? `${props.name.slice(0, 15)}…` : props.name;
+  const offset = (1 - fill) * 156;
+  const label = props.name.length > 12 ? `${props.name.slice(0, 11)}…` : props.name;
+  const fontSize = Math.max(13, Math.min(27, 150 / Math.max(label.length, 1) * 1.7));
   return (
-    <figure className="bottle">
-      <svg viewBox="0 0 200 300" role="img" aria-label={props.name}>
-        <defs>
-          <clipPath id="bottle-body">
-            <rect x="36" y={bodyTop} width="128" height={bodyHeight} rx="24" />
-          </clipPath>
-        </defs>
-        <rect className="bottle-bulb" x="82" y="8" width="36" height="46" rx="14" />
-        <rect className="bottle-collar" x="72" y="52" width="56" height="20" rx="5" />
-        <rect className="bottle-glass" x="84" y="70" width="32" height="40" rx="4" />
-        <rect className="bottle-glass" x="36" y={bodyTop} width="128" height={bodyHeight} rx="24" />
-        <rect className="bottle-liquid" clipPath="url(#bottle-body)" x="36" y={level} width="128" height={bodyTop + bodyHeight - level} />
-        <rect className="bottle-label" x="52" y="168" width="96" height="54" rx="6" />
-        <text className="bottle-label-text" x="100" y="200" textAnchor="middle">
-          {label}
-        </text>
+    <div className="bottle-frame">
+      <svg width="208" height="284" viewBox="0 0 208 284" aria-hidden="true" className="frame-shape">
+        <path d="M58.5 0.5 H195.5 A12 12 0 0 1 207.5 12.5 V271.5 A12 12 0 0 1 195.5 283.5 H12.5 A12 12 0 0 1 0.5 271.5 V58.5 A8 8 0 0 1 8.5 50.5 H38.5 A12 12 0 0 0 50.5 38.5 V8.5 A8 8 0 0 1 58.5 0.5 Z" />
       </svg>
-      {props.fill === null && <figcaption>{texts.bench.bottleEmpty}</figcaption>}
-    </figure>
+      <div className="bottle-inner">
+        <svg width="129" height="240" viewBox="0 0 140 260" role="img" aria-label={props.name}>
+          <defs>
+            <clipPath id="glass">
+              <path d="M54 86 L86 86 C86 96 124 98 124 118 L124 240 Q124 256 108 256 L32 256 Q16 256 16 240 L16 118 C16 98 54 96 54 86 Z" />
+            </clipPath>
+          </defs>
+          <path d="M54 86 L86 86 C86 96 124 98 124 118 L124 240 Q124 256 108 256 L32 256 Q16 256 16 240 L16 118 C16 98 54 96 54 86 Z" fill="#ECEAE4" />
+          <g clipPath="url(#glass)">
+            <rect x="0" y="100" width="140" height="170" fill="#C8C3B4" style={{ transform: `translateY(${offset}px)`, transition: "transform 200ms ease" }} />
+            <line x1="0" y1="100" x2="140" y2="100" stroke="#A8A395" strokeWidth="1.6" style={{ transform: `translateY(${offset}px)`, transition: "transform 200ms ease" }} />
+          </g>
+          <rect x="65" y="80" width="10" height="150" rx="5" fill="none" stroke="#A8A395" strokeWidth="1.4" />
+          <line x1="26" y1="124" x2="26" y2="236" stroke="#FFFFFF" strokeWidth="4" strokeLinecap="round" strokeOpacity="0.7" />
+          <path d="M54 86 L86 86 C86 96 124 98 124 118 L124 240 Q124 256 108 256 L32 256 Q16 256 16 240 L16 118 C16 98 54 96 54 86 Z" fill="none" stroke="#8C8A82" strokeWidth="1.6" />
+          <rect x="54" y="72" width="32" height="15" fill="#ECEAE4" stroke="#8C8A82" strokeWidth="1.4" />
+          <rect x="44" y="42" width="52" height="31" rx="5" fill="#6B6A64" />
+          <line x1="48" y1="51" x2="92" y2="51" stroke="#57564F" strokeWidth="1.4" />
+          <line x1="48" y1="57" x2="92" y2="57" stroke="#57564F" strokeWidth="1.4" />
+          <line x1="48" y1="63" x2="92" y2="63" stroke="#57564F" strokeWidth="1.4" />
+          <rect x="50" y="2" width="40" height="44" rx="18" fill="#3F3E39" />
+          <rect x="22" y="148" width="96" height="60" rx="6" fill="#FFFFFF" stroke="#8C8A82" strokeWidth="1.4" />
+          <text x="70" y={178 + fontSize / 3} textAnchor="middle" fontSize={fontSize} fontWeight="600" fill="#1D1D1B">
+            {label}
+          </text>
+        </svg>
+        <span className="num fill-note">
+          {props.fill === null ? texts.bench.noWorkBatch : texts.bench.fillOf(`${Math.round(props.fill * 100)} %`)}
+        </span>
+      </div>
+      <button type="button" className="back" aria-label={texts.bench.back} title={texts.bench.back} onClick={props.onBack}>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M10 3L5 8l5 5" />
+        </svg>
+      </button>
+    </div>
   );
 }
