@@ -37,8 +37,11 @@ export type Change =
   | { readonly kind: "set-mass"; readonly id: string; readonly target: string; readonly massUg: bigint }
   /** Free editing (§3.1): a line goes away. */
   | { readonly kind: "remove"; readonly id: string; readonly target: string }
-  /** Reopening by weighing (§3.5): gross weight minus tare is what really remains. */
-  | { readonly kind: "reweigh"; readonly id: string; readonly grossUg: bigint }
+  /**
+   * Reopening by weighing (§3.5): gross weight minus tare is what really remains.
+   * The tare goes with the weighing, because a variation may move to a new vial.
+   */
+  | { readonly kind: "reweigh"; readonly id: string; readonly grossUg: bigint; readonly tareUg: bigint }
   /** A note marks a point of the history (§3.4). */
   | { readonly kind: "note"; readonly id: string; readonly text: string };
 

@@ -106,6 +106,22 @@ describe("IFRA: the unknown is never green (§1.2)", () => {
     expect(report.maxUseKnown.eq(Ratio.ONE)).toBe(true);
   });
 
+  it("a constituent whose ceiling is not in the data keeps both readings open", () => {
+    // A lemon oil: its own ceiling (2 %, phototoxicity) is known; its citral's is not.
+    const lemon: Material = { key: "lab:MAT-limon", kind: "own", name: "Limón" };
+    const lemonData: IfraData = {
+      substances: new Map([["lab:MAT-limon", { key: "lab:MAT-limon", name: "Limón", limit: pct("2"), amendment: "51" }]]),
+      materials: new Map([
+        [lemon.key, { status: "checked", substances: [{ key: "lab:MAT-limon", fraction: Ratio.ONE }], conditions: [], pending: ["citral"] }],
+      ]),
+    };
+    const report = checkIfra({ header, history: [add("l", lemon, 10n * MG), add("a", DILUENTS.alcohol, 990n * MG)] }, lemonData);
+    expect(report.checks[0].verdict).toBe("within");
+    expect(report.pending).toEqual([{ material: "Limón", text: "citral" }]);
+    expect(report.asIs).toBe("unknown");
+    expect(report.partial).toBe(true);
+  });
+
   it("a provisional material is not checked, and says so", () => {
     const quick: Material = { key: "prov:1", kind: "provisional", name: "Acorde sin definir" };
     const report = checkIfra({ header, history: [add("a", quick, 1n * G)] }, data);

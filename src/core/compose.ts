@@ -69,11 +69,9 @@ export function replay(formula: Formula, upTo = formula.history.length): Line[] 
         break;
       }
       case "reweigh": {
-        const tare = formula.header.container?.tareUg ?? null;
-        if (tare === null) {
-          throw new Error(`Change ${change.id}: reweighing needs the container's tare`);
-        }
-        const remaining = Ratio.of(change.grossUg - tare);
+        // The tare it was weighed with, not today's: a variation in a new vial keeps
+        // the reweighings of the old one right (§3.2).
+        const remaining = Ratio.of(change.grossUg - change.tareUg);
         if (remaining.sign() <= 0) {
           throw new RangeError(`Change ${change.id}: the gross weight is not above the tare`);
         }

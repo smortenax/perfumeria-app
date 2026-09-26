@@ -25,7 +25,7 @@ type ChangeDoc =
   | { kind: "add"; id: string; material: string; massUg: string; fraction: string; diluent: string | null }
   | { kind: "set-mass"; id: string; target: string; massUg: string }
   | { kind: "remove"; id: string; target: string }
-  | { kind: "reweigh"; id: string; grossUg: string }
+  | { kind: "reweigh"; id: string; grossUg: string; tareUg: string }
   | { kind: "note"; id: string; text: string };
 
 export function formulaToJson(formula: Formula): string {
@@ -58,7 +58,7 @@ export function formulaToJson(formula: Formula): string {
       case "set-mass":
         return { kind: "set-mass", id: change.id, target: change.target, massUg: change.massUg.toString() };
       case "reweigh":
-        return { kind: "reweigh", id: change.id, grossUg: change.grossUg.toString() };
+        return { kind: "reweigh", id: change.id, grossUg: change.grossUg.toString(), tareUg: change.tareUg.toString() };
       default:
         return { ...change };
     }
@@ -148,7 +148,7 @@ export function formulaFromJson(text: string): Formula {
       case "set-mass":
         return { kind: "set-mass", id: c.id, target: c.target, massUg: BigInt(c.massUg) };
       case "reweigh":
-        return { kind: "reweigh", id: c.id, grossUg: BigInt(c.grossUg) };
+        return { kind: "reweigh", id: c.id, grossUg: BigInt(c.grossUg), tareUg: BigInt(c.tareUg) };
       case "remove":
         return { kind: "remove", id: c.id, target: c.target };
       case "note":

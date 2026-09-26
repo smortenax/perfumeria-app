@@ -54,8 +54,8 @@ describe("F-001-v1, Lejía", () => {
       header: { ...original.header, container: { capacityMl: null, tareUg: tare } },
       history: [
         ...original.history,
-        { kind: "reweigh" as const, id: "x3", grossUg: tare + 3n * 8_745_000n },
-        { kind: "reweigh" as const, id: "back", grossUg: tare + 8_745_000n },
+        { kind: "reweigh" as const, id: "x3", grossUg: tare + 3n * 8_745_000n, tareUg: tare },
+        { kind: "reweigh" as const, id: "back", grossUg: tare + 8_745_000n, tareUg: tare },
       ],
     };
     const before = compose(original).lines;

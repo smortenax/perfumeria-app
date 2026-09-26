@@ -27,6 +27,11 @@ export interface IfraMaterial {
   readonly substances: ReadonlyArray<{ readonly key: string; readonly fraction: Ratio | null }>;
   /** Obligations that are not a percentage: a certificate, a specification (§5.5). */
   readonly conditions: readonly string[];
+  /**
+   * Regulated constituents whose ceiling is not in the data yet, such as the
+   * citral of a lemon oil: the check of this material is incomplete, never free (§1.2).
+   */
+  readonly pending?: readonly string[];
 }
 
 export interface IfraData {
@@ -68,13 +73,15 @@ export interface IfraReport {
   /** Materials with no IFRA data: not checked, and never taken as free (§5.2, §5.5). */
   readonly unchecked: readonly string[];
   readonly conditions: ReadonlyArray<{ readonly material: string; readonly text: string }>;
+  /** Constituents that could not be checked: like an unchecked material, they keep both readings open. */
+  readonly pending: ReadonlyArray<{ readonly material: string; readonly text: string }>;
   /** Reading 1: can it be used as it is, at its final batch? */
   readonly asIs: "yes" | "no" | "unknown";
   /** Reading 2: up to what fraction of a perfume it can be used; 1 means no ceiling below 100 %. */
   readonly maxUse: Ratio;
   /** Reading 2 counting only what is known: with maxUse, the range shown on hover (P31). */
   readonly maxUseKnown: Ratio;
-  /** Reading 2 holds only for what is known: some material could not be checked. */
+  /** Reading 2 holds only for what is known: some material or constituent could not be checked. */
   readonly partial: boolean;
 }
 
@@ -92,6 +99,7 @@ export function checkIfra(formula: Formula, data: IfraData, upTo?: number): Ifra
   const unknownFrom = new Map<string, string[]>();
   const unchecked: string[] = [];
   const conditions: Array<{ material: string; text: string }> = [];
+  const pending: Array<{ material: string; text: string }> = [];
 
   for (const part of composition.parts) {
     const material = part.material;
@@ -105,6 +113,9 @@ export function checkIfra(formula: Formula, data: IfraData, upTo?: number): Ifra
     }
     for (const text of info.conditions) {
       conditions.push({ material: material.name, text });
+    }
+    for (const text of info.pending ?? []) {
+      pending.push({ material: material.name, text });
     }
     for (const { key, fraction } of info.substances) {
       if (!data.substances.has(key)) {
@@ -130,14 +141,15 @@ export function checkIfra(formula: Formula, data: IfraData, upTo?: number): Ifra
     return { substance, knownUg, worstUg, unknownFrom: unknownFrom.get(key) ?? [], verdict, maxUse, maxUseKnown };
   });
 
+  const partial = unchecked.length > 0 || pending.length > 0;
   const asIs = checks.some((c) => c.verdict === "exceeds")
     ? "no"
-    : checks.some((c) => c.verdict === "unknown") || unchecked.length > 0
+    : checks.some((c) => c.verdict === "unknown") || partial
       ? "unknown"
       : "yes";
   const maxUse = checks.reduce((min, c) => (c.maxUse.lt(min) ? c.maxUse : min), Ratio.ONE);
   const maxUseKnown = checks.reduce((min, c) => (c.maxUseKnown.lt(min) ? c.maxUseKnown : min), Ratio.ONE);
-  return { finalUg, finalAssumed, checks, unchecked, conditions, asIs, maxUse, maxUseKnown, partial: unchecked.length > 0 };
+  return { finalUg, finalAssumed, checks, unchecked, conditions, pending, asIs, maxUse, maxUseKnown, partial };
 }
 
 function judge(knownUg: Ratio, worstUg: Ratio, finalUg: Ratio, limit: Ratio): Verdict {

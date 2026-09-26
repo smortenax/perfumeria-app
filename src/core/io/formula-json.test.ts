@@ -56,7 +56,7 @@ describe("formula JSON", () => {
         { kind: "add", id: "2", material: own, massUg: 1_000_000n, fraction: Ratio.of(1, 10), diluent: a },
         { kind: "note", id: "3", text: "evaluar mañana" },
         { kind: "set-mass", id: "4", target: "1", massUg: 2_000_000n },
-        { kind: "reweigh", id: "5", grossUg: 12_345_678n + 2_500_000n },
+        { kind: "reweigh", id: "5", grossUg: 12_345_678n + 2_500_000n, tareUg: 12_345_678n },
         { kind: "remove", id: "6", target: "2" },
       ],
     };

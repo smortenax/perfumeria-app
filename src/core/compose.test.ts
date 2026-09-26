@@ -92,7 +92,7 @@ describe("compose: the composition comes from the history", () => {
     // A 10 g recipe in a vial of 20 g tare, of which 2 g were used elsewhere.
     const withTare: Formula = {
       header: { ...header, container: { capacityMl: null, tareUg: 20n * G } },
-      history: [add(A, 5n * G), add(B, 5n * G), { kind: "reweigh", id: "r1", grossUg: 28n * G }, add(C, 1n * G)],
+      history: [add(A, 5n * G), add(B, 5n * G), { kind: "reweigh", id: "r1", grossUg: 28n * G, tareUg: 20n * G }, add(C, 1n * G)],
     };
     const c = compose(withTare);
     expect(massOf(withTare, A).eq(Ratio.of(4n * G))).toBe(true);
@@ -100,9 +100,19 @@ describe("compose: the composition comes from the history", () => {
     expect(massOf(withTare, C).div(c.totalUg).toString()).toBe("1/9");
   });
 
-  it("refuses to reweigh without a tare, and a diluted line without its diluent", () => {
-    expect(() => compose(formula(add(A, G), { kind: "reweigh", id: "r", grossUg: 5n * G }))).toThrow(/tare/);
+  it("refuses a gross weight that is not above its tare, and a diluted line without its diluent", () => {
+    expect(() => compose(formula(add(A, G), { kind: "reweigh", id: "r", grossUg: 5n * G, tareUg: 5n * G }))).toThrow(/tare/);
     expect(() => compose(formula(add(A, G, "10")))).toThrow(/diluent/);
+  });
+
+  it("a reweighing keeps the tare it was weighed with, even when the formula moves to a new vial (§3.2)", () => {
+    const weighed: Formula = {
+      header: { ...header, container: { capacityMl: null, tareUg: 20n * G } },
+      history: [add(A, 10n * G), { kind: "reweigh", id: "r1", grossUg: 28n * G, tareUg: 20n * G }],
+    };
+    const moved: Formula = { ...weighed, header: { ...weighed.header, container: { capacityMl: null, tareUg: 35n * G } } };
+    expect(compose(weighed).totalUg.eq(Ratio.of(8n * G))).toBe(true);
+    expect(compose(moved).totalUg.eq(Ratio.of(8n * G))).toBe(true);
   });
 
   it("the vector ID depends on the composition only: same parts, same ID; any edit, a new one", () => {
