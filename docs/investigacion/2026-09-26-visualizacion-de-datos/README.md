@@ -149,8 +149,8 @@ en su archivo al terminar y se revisa antes de lanzar la siguiente.
 | 1 | [Fundamentos](1-fundamentos.md) | Munzner, Ware, Tufte | ✅ revisada |
 | 2 | [Rigor y estética](2-rigor-y-estetica.md) | Bremer, Stefaner, Lima, Lupi | ✅ revisada |
 | 3 | [Mapas de muchas dimensiones](3-mapas.md) | Distill (t-SNE), UMAP, PCA, las figuras del POM | ✅ revisada |
-| 4 | [Arte de datos y cimática](4-arte-de-datos.md) | Anadol, Ikeda, la cimática, arte de datos frente a visualización | en curso |
-| 5 | [El olor ya dibujado](5-precedentes-del-olor.md) | Ruedas de aromas, perfiles sensoriales, figuras de neurociencia | pendiente |
+| 4 | [Arte de datos y cimática](4-arte-de-datos.md) | Anadol, Ikeda, la cimática, arte de datos frente a visualización | ✅ revisada |
+| 5 | [El olor ya dibujado](5-precedentes-del-olor.md) | Ruedas de aromas, perfiles sensoriales, figuras de neurociencia | ✅ revisada |
 
 Al final, **una síntesis con las categorías propuestas**. Se deciden de una en una, en el
 interrogatorio.
