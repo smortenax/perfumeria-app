@@ -13,7 +13,7 @@ Cuando las rondas R1 a R4 estén cerradas, lo decidido pasa a [`decisiones.md`](
 como v3. Los [antecedentes](antecedentes/README.md) no obligan a nada.
 
 Última sesión: 2026-09-26 (rondas 1 a 11 cerradas: la formulación, el diseño del banco, los
-datos de los materiales y lo que vino al terminar el núcleo)
+datos de los materiales y lo que vino al terminar el núcleo; la 12, las infografías, abierta)
 
 ---
 
@@ -1149,6 +1149,43 @@ Respuesta literal: *«de acuerdo con que haga la cuenta en el peor caso para el 
 - Destino: los frentes 6 y 7, en [`encargos/`](encargos/); plan, fase 3 (D3, D4);
   decisiones.md §8
 
+## Ronda 12 — Las infografías
+
+*Abierta por el usuario el 2026-09-26: las categorías de infografía se deciden aquí, después
+de investigar lo que dicen los expertos en visualización de datos.*
+
+### P33 — ¿Qué categorías de infografía, y cómo se dibuja cada una?
+- Bloque: diseño 3 y 4 (§10), con efecto en la capa propia (D4) y en el sello de los
+  antecedentes
+- Abierta por: el usuario
+- Respuesta literal, en dos mensajes:
+
+> *«en cuanto a la infografia aun no hay algo claro he hecho un researrch combinanfo infografias posibles con otras visualizaciones en este caso cimaticas me gustaria que aaqui se decidan categorias para las infografias, en algun momento habia deciddio algunas variables pero esto no es una decision cerrada hay que evaluar la informacion a visualizar y la manera de hacerlo, haria un research en detalle a base de estas referencias para obttener insight de data visualization de expertos y aplicado»*
+>
+> *«las adjunto aqui para contexto, las imagenes son importantes conceptualmente el grosso de lo que se necesita es extraer informacion de los expertos en visualizacion de datos»*
+
+  Venían con un documento de referencias y siete imágenes, descritos en la
+  [investigación](investigacion/2026-09-26-visualizacion-de-datos/README.md).
+- **Lectura:**
+  1. **Las categorías de infografía se deciden aquí**, en la app. Todavía no hay nada claro.
+  2. **Nada de lo visual está cerrado.** Pasan a ser propuestas las variables que se habían
+     apuntado (el sello de los antecedentes, con doce canales) y los gráficos de §10.2 (la
+     pirámide, el reparto y la proyección). Se evalúa primero qué información enseñar, y
+     después cómo.
+  3. **Antes, una investigación a fondo** de lo que dicen los expertos en visualización de
+     datos, a partir de las referencias del usuario y aplicada a esta app. Se hace aquí,
+     porque es diseño de la app y no datos de materiales.
+  4. **Las imágenes marcan el rango conceptual**: de la figura científica exacta (un radar de
+     descriptores, las regiones del cerebro, un mapa con su varianza) al arte de datos (la
+     cimática, un espectrograma circular, una malla en 3D).
+- **Añadido en la lectura, por confirmar:** no se reabren dos reglas que valen para
+  cualquier categoría: **los números, al pasar** (§10.2), y **todo gráfico se calcula por
+  material** (§10.3).
+- Fecha: 2026-09-26
+- Estado: **abierta**; se decide tras la investigación
+- Destino: la [investigación](investigacion/2026-09-26-visualizacion-de-datos/README.md);
+  decisiones.md §10.2; plan, diseño
+
 ---
 
 ## Estado
@@ -1159,5 +1196,6 @@ Respuesta literal: *«de acuerdo con que haga la cuenta en el peor caso para el 
 | R9 · diseño | 6 (P23 a P28) | 0 |
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
+| R12 · infografías | 0 | 1 (P33) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.

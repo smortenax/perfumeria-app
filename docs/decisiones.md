@@ -498,6 +498,11 @@ reparte por categoría**: lo que crece no es lo mismo más grande.*
 
 *P24.*
 
+> 🟡 **Reabierta el 2026-09-26 (P33).** Las categorías de infografía se deciden después de
+> [investigar la visualización de datos](investigacion/2026-09-26-visualizacion-de-datos/README.md).
+> Los gráficos de abajo quedan como propuesta. Siguen en pie los números al pasar y el cálculo
+> por material (§10.3).
+
 - **Nada de números ni de rótulos a la vista** en los gráficos: iconos con números y letras
   dentro saturan la pantalla. **Los números salen al pasar el ratón o el dedo.**
 - **Pirámide por piso:** los cinco pisos son **iconos**, una pirámide partida en cinco

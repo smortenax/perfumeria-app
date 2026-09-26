@@ -147,7 +147,9 @@ donde el usuario puede comentar sobre cada zona.
   su revisión.*
 - [ ] **3 · Las piezas con más carga:** la columna de composición, el resumen de IFRA, el
   historial como dock, los gráficos iconográficos (§10.2) y el enlace de cada gráfico con
-  sus materiales (§10.3).
+  sus materiales (§10.3). *Reabierto con P33: antes se deciden las categorías de infografía,
+  tras una [investigación de visualización de datos](investigacion/2026-09-26-visualizacion-de-datos/README.md)
+  en cinco piezas.*
 - [ ] **4 · El lenguaje visual:** tono, color, letra, y las señales de tipo y de estado. Con
   las referencias del usuario.
 - [ ] **5 · Los flujos:** reabrir pesando, guardar como, material nuevo rápido.
