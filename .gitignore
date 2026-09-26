@@ -22,3 +22,4 @@ Thumbs.db
 
 # Imágenes de terceros para investigar: se guardan en local, nunca en Git
 docs/investigacion/*/imagenes/
+__pycache__/

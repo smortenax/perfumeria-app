@@ -291,21 +291,38 @@ el teclado**; el ratón solo hace falta para la estrella.
 
 *v2 §2.3.*
 
-- **La fuente es [`ifra-cat4.csv`](https://github.com/smortenax/perfumeria-lab/blob/master/conocimiento/normativa/ifra-cat4.csv)**, sacada de los
-  PDF de los 216 estándares de la **51.ª enmienda** y del índice oficial por CAS.
-  **Confianza alta**: es el documento de IFRA.
-- **Solo la categoría 4.** El laboratorio hace perfume de piel. Las 18 categorías están
-  archivadas en [`2026-09-23-ifra-18-categorias.csv`](https://github.com/smortenax/perfumeria-lab/blob/master/fuentes/investigaciones/2026-09-23-ifra-18-categorias.csv);
-  elegir otra categoría es una posibilidad futura.
+- **La fuente son los archivos de IFRA mismos** (P37), en
+  [`datos/ifra/51/`](../datos/ifra/51/LEEME.md):
+  - el overview de los estándares, con 263 estándares, 455 CAS y el límite en cada
+    categoría;
+  - el anexo de naturales;
+  - el índice.
+
+  `scripts/importar_ifra.py` los pasa a CSV. **Por qué:** son la fuente primaria, y si la
+  app llega a producto no puede depender del cuaderno del usuario. Lo que había transcrito
+  el laboratorio coincide con ellos, pero sale de la app: solo servía para probarla.
+- **IFRA avisa de que el Excel es una ayuda: manda el PDF de cada estándar.**
+- **La app cuenta en categoría 4**, porque el laboratorio hace perfume de piel. **Los datos
+  guardan las 18 columnas**: con P37 se recogen ya, porque cuesta lo mismo. Elegir otra
+  categoría queda como posibilidad futura, y ya es barata.
 - **La enmienda va como dato.** Un techo sin versión caduca en silencio.
 
 ## 5.2 · La base entera necesita IFRA por CAS
 
-*P5.* Hoy IFRA está transcrito solo para **los 54 materiales de la paleta**. Para que la
-base sea el glosario entero hace falta **una tabla de los 216 estándares por CAS**, en
-categoría 4. Es trabajo de datos, con el método ya escrito en
-[la investigación de los 216 estándares](https://github.com/smortenax/perfumeria-lab/blob/master/fuentes/investigaciones/2026-09-23-niveles-de-uso-y-los-216-estandares.md).
-Mientras tanto, lo que no esté en la tabla es **«sin comprobar»**, no «sin estándar».
+*P5, P37.* **Cada material del glosario tiene un estado frente a IFRA**
+([`datos/glosario/`](../datos/glosario/LEEME.md)). El glosario lleva todos los CAS de IFRA,
+y el FIG completa lo que IFRA no tiene:
+- **no está en el índice → «sin estándar propio».** El índice es completo, así que no es un
+  hueco;
+- **un natural fuera del anexo → «sin dato»:** no se sabe qué lleva dentro, y nunca se da
+  por libre (§1.2). Sus dos lecturas quedan abiertas;
+- **las tres familias sin CAS** (cítricos, pináceas y ésteres alílicos) **se asignan por el
+  nombre**, y el glosario lo dice;
+- **si un material puede ser varias variantes del anexo, cuenta la peor** (P31).
+
+«Sin comprobar» queda para lo que no está en el glosario: un material provisional o uno
+propio. Lo que está solo en el FIG es lo que falta por documentar, y su regulación se
+busca después (P37).
 
 ## 5.3 · Se suma por sustancia, desde el diseño
 
@@ -382,8 +399,8 @@ No hay «modo acorde». Como mucho, cambia cuál de las dos se destaca.
 | **Guardar lo guarda todo** | Historial y todas las variables de la fórmula, aunque nunca se exporte (P16, P18) |
 | **Formato** | **JSON, un archivo por fórmula**: la cabecera, el historial con un cambio por línea, y la composición actual para poder leerla sin la app. Es texto: se lee, y Git ve los cambios línea a línea (P18) |
 | **Dónde** | **Archivos en el disco**, con guardado automático. **Nada depende de la memoria del navegador**, que se borra al limpiar los datos (P16, P21) |
-| **Datos de referencia** | Un **paquete versionado**, generado desde el repositorio del laboratorio ([`perfumeria-lab`](https://github.com/smortenax/perfumeria-lab)) e incluido en la app: IFRA, glosario, niveles de uso, constituyentes. Dice de qué commit del laboratorio sale (P2) |
-| **Capa propia de los materiales** | **La referencia IFRA en bruto no se toca nunca.** Aparte, una capa propia con los atributos de cada material: posición entre salida y fondo, duración, intensidad, **nivel de uso habitual** (P34), color, sigla, **una categorización propia** en lugar de la del FIG, y el POM como capa opcional, solo para las moléculas sueltas (P35). **Es universal**: el listado entero de IFRA (su *Transparency List*), combinado por CAS con el FIG si hace falta (P36), sin los 54 de la paleta y **sin ninguna descripción del usuario**. Sale de fuentes documentadas: lo de uso libre va directo, y lo restringido se asimila y se reinterpreta (P35). **Se investiga en el laboratorio**, con fuente y confianza por dato, y **la app guarda su copia**, importada como los demás datos; con ella dibuja sus gráficos. Nunca se consulta en remoto al usar la app (P29, P30) |
+| **Datos de referencia** | Un **paquete versionado**, incluido en la app. **IFRA sale de sus propios archivos** (`datos/ifra/`). **El glosario** (`datos/glosario/`) junta el FIG, con las abreviaturas del usuario, y todo lo de IFRA; es el desplegable del buscador. Cada tabla dice de qué archivos sale y con qué huella. **Nada del laboratorio entra en la app** (P37); lo suyo servía para probarla |
+| **Capa propia de los materiales** | **La referencia IFRA en bruto no se toca nunca.** Aparte, una capa propia con los atributos de cada material: posición entre salida y fondo, duración, intensidad, **nivel de uso habitual** (P34), color, sigla (la abreviatura del glosario, P37), **una categorización propia** en lugar de la del FIG, y el POM como capa opcional, solo para las moléculas sueltas (P35). **Es universal**: el listado entero de IFRA (su *Transparency List*), combinado por CAS con el FIG si hace falta (P36), sin los 54 de la paleta y **sin ninguna descripción del usuario**. Sale de fuentes documentadas: lo de uso libre va directo, y lo restringido se asimila y se reinterpreta (P35). **Se investiga en el laboratorio**, con fuente y confianza por dato, y **la app guarda su copia**, importada como los demás datos; con ella dibuja sus gráficos. Nunca se consulta en remoto al usar la app (P29, P30) |
 | **Vuelta al cuaderno** | **Exportar es una acción aparte**: las fórmulas a Markdown en `formulas/`, los materiales propios a CSV (P16) |
 | **Convención del cuaderno** | Markdown y CSV, **nunca `.xlsx`** (v2) |
 
@@ -446,6 +463,10 @@ Se tacha, no se borra: el texto original sigue en los antecedentes.
 | ~~Los tres descriptores del FIG en la capa propia~~ | P29, «casi seguro» | P35: una categorización propia, la del producto (§6) |
 | ~~La base suma los 54 materiales del laboratorio~~ | Plan, D3 | P35 y P36: la base es universal; los materiales del usuario quedan fuera de la app |
 | ~~La base es el universo del FIG~~ | Plan, D3; P35 | P36: el listado entero de IFRA, combinado por CAS con el FIG si hace falta; el FIG es la descripción olfativa |
+| ~~IFRA sale de `ifra-cat4.csv`, lo que transcribió el laboratorio~~ | §5.1, v3 | P37: de los archivos de IFRA mismos; lo del laboratorio sale de la app |
+| ~~Los 216 estándares~~ | §5.1, §5.2; plan, D1 | Son 263: el laboratorio bajó del 001 al 220, y la 51.ª llega al 267 (P37) |
+| ~~Lo que no está en la tabla de IFRA es «sin comprobar»~~ | §5.2 | P37: el índice es completo; lo que no está es «sin estándar propio», y solo un natural fuera del anexo es «sin dato» |
+| ~~Los datos de referencia se generan desde el laboratorio~~ | §6, P2 | P37: IFRA de IFRA, y el glosario del FIG con las abreviaturas del usuario |
 | ~~Cada material tiene pureza, y la app no deja escribir un porcentaje mayor~~ | §2.5, 2026-09-25 | P27: el diseño es general; nada limita el porcentaje, y cada usuario recuerda lo suyo con sus favoritas (§2.5) |
 
 ---

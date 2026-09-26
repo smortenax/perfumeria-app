@@ -33,19 +33,15 @@ ROOT = Path(__file__).resolve().parents[1]
 DEST = ROOT / "datos" / "fuente"
 LAB_URL = "https://github.com/smortenax/perfumeria-lab"
 
-# Data files taken from the lab, by their path inside the lab repository.
-SOURCES = [
-    "conocimiento/normativa/ifra-cat4.csv",
-    "materias-primas/_datos/niveles-de-uso.csv",
-    "materias-primas/_datos/limites-de-uso.csv",
-    "vistas/inventario.csv",
-    "conocimiento/lenguaje/fig/glosario-fig.csv",
-]
+# Data files taken from the lab, by their path inside the lab repository. None today
+# (P37): IFRA comes from IFRA's own files (scripts/importar_ifra.py), the glossary from
+# the FIG with the user's codes (scripts/generar_glosario.py), and the lab's materials
+# stay out of the app (P36). The own layer of the materials (plan, D4) will come here.
+SOURCES: list[str] = []
 
-# Documents that explain those files: lab path -> name in datos/fuente/.
+# Documents that explain what is imported: lab path -> name in datos/fuente/. The FIG's
+# stay, for its terms of use and the definitions of its descriptors.
 DOCS = {
-    "conocimiento/normativa/README.md": "leeme-ifra-cat4.md",
-    "materias-primas/_datos/niveles-de-uso.md": "leeme-niveles-de-uso.md",
     "conocimiento/lenguaje/fig/README.md": "leeme-glosario-fig.md",
     "conocimiento/lenguaje/fig/descriptores.md": "fig-descriptores.md",
 }

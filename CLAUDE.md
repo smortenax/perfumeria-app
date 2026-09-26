@@ -22,8 +22,14 @@ producto**: nada debe cerrar esa puerta.
 
 - **Es el repositorio hermano `../Perfumery`** ([`perfumeria-lab`](https://github.com/smortenax/perfumeria-lab)),
   el cuaderno del usuario. **La app no lo necesita para funcionar.**
-- **Sus datos entran con [`scripts/importar_datos.py`](scripts/importar_datos.py)**, que los
-  copia a `datos/fuente/` y apunta de qué commit salen. **`datos/` no se edita a mano.**
+- **Nada suyo entra hoy en la app (P37).** Su transcripción de IFRA y sus materiales solo
+  servían para probarla. **IFRA sale de los archivos de IFRA** (`datos/ifra/`, con
+  [`scripts/importar_ifra.py`](scripts/importar_ifra.py)), y **el glosario**, del FIG con las
+  abreviaturas del usuario y de IFRA (`datos/glosario/`, con
+  [`scripts/generar_glosario.py`](scripts/generar_glosario.py)).
+  [`scripts/importar_datos.py`](scripts/importar_datos.py) queda para la capa propia (D4),
+  y apunta de qué commit sale lo que trae. **`datos/` no se edita a mano**: lo generan los
+  scripts.
 - **Bandeja de entradas: `../Perfumery/app/entradas.md`.** Ahí el laboratorio apunta lo que
   descubre en el banco y afecta a la app. **Al empezar a trabajar, se mira si hay entradas
   nuevas** y se llevan al interrogatorio.
@@ -64,8 +70,8 @@ Claude va por carpeta y no viaja sola.*
 - **Revisa los números.** Un número sin fuente se dice en la misma frase en que se da, no
   solo en un documento. Ha detectado cifras dadas sin respaldo y usadas como regla.
 - **Se puede buscar en la web** para rellenar huecos técnicos. El resultado se guarda con
-  su fuente y su confianza. Las cifras IFRA salen solo de la fuente primaria del
-  laboratorio.
+  su fuente y su confianza. Las cifras IFRA salen solo de los archivos de IFRA, en
+  `datos/ifra/` (P37).
 - **Cuando tiene razón, se le concede rápido.** Ha corregido con acierto propuestas del
   interrogatorio: fórmulas editables, sin inventario, pesar al reabrir, pureza y porcentaje
   final.

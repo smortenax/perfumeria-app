@@ -1338,8 +1338,42 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
   - el banco sigue con IFRA para unos 50 CAS;
   - el cedro del Atlas, la naranja dulce y el vetiver salen sin nada que comprobar, cuando
     el anexo les da constituyentes con techo.
-- Fecha: 2026-09-26
-- Estado: abierta
+- Respuesta del usuario, 2026-09-27: *«la A, directo de IFRA totalmente explico mi planteamiento, todo lo que hay en ifra de ifra, lo del laboratorio digo que explicitamente no tiene que salir, se habia usado para probar la app. luego en cuanto a vacios si la lista de ifra es mas pequeña que la de fig hay que ampliarla con los  que no haya en ifra pero si en fig para saber que falra por documentar y luego se buscara si hay regulacion de esos. por otro lado la idea es que se trate este documento de ifra, sabiendo que se va a tratar igual propongo que ya se recopile la info de todas las categorias que habiendo de hacer lo que hay que hacer no encarece el desarrollo, por lo tanto hay que usar ifra para crear un documento que tenga todos los CAS de los que se tengan constancia, (sera el glosario del desplegable del buscador y estos todos tendran categorias ifra ) ademas habra que profundizar para los materiales que tengan solapamiento, con track del componente que se regula, adicionalmente en este mismo documento puede haber las abraviaturas de cada componente, y este sera el glosario del desplegable y de las regulaciones, tambien se puede guardar categorias con respecto a la restriccion como si el material esta sin dato o con dato si hay alguna condicion etc etc, como en la app de prueba cuando decia condicion. adicionalmente añado una iteracion no final de las abraviaturas para los materiales pues es algo que he iteraod a parte, este se hizo por encima de indice fig, pero aun asi las correspondencias funciona ponte con esto si lo conseguimos tener en cada material una abreviatura, informacion por la restriccion y todo en un orden que sirva como base de datos, perfecto, seria el primer gran paso»* (con `fig-materiales-codigos.csv` y su `.json`, iguales)
+- **Lectura:**
+  1. **A: todo lo de IFRA sale de IFRA.** Lo del laboratorio sale de la app entero: su
+     transcripción de IFRA y sus materiales solo servían para probarla.
+  2. **Donde IFRA tiene menos que el FIG, el FIG completa**, y lo que solo está en el FIG
+     queda marcado como lo que falta por documentar. Su regulación se busca después.
+  3. **Se recogen ya todas las categorías**, porque cuesta lo mismo. La app sigue contando
+     la 4 (§5.1).
+  4. **Un solo documento, el glosario**, con todos los CAS de los que se tiene constancia.
+     Es el desplegable del buscador y la base de las regulaciones:
+     - cada material, con sus categorías IFRA;
+     - un **estado** (sin dato, con techo, condición…);
+     - sus **constituyentes regulados**, siguiendo la pista del componente y de la variante
+       de donde sale (el solapamiento);
+     - su **abreviatura**.
+  5. **Las abreviaturas del usuario** son una iteración no final, hecha sobre el FIG. Se
+     usan tal cual.
+- **Añadido en la lectura, por confirmar:**
+  - **un material del FIG que no está en el índice** es «sin estándar propio», porque el
+    índice es completo. «Sin dato» queda para los naturales fuera del anexo, que nunca se
+    dan por libres (§1.2);
+  - **las tres familias sin CAS** (cítricos, pináceas y ésteres alílicos) se asignan por el
+    nombre, y así se dice;
+  - **si un material puede ser varias variantes del anexo, cuenta la peor** (P31);
+  - **lo que solo está en IFRA lleva una abreviatura generada**, con el mismo estilo y
+    provisional;
+  - **la *Transparency List* sigue pendiente**: añadiría materiales, no restricciones.
+- **Hecho:**
+  - [`datos/ifra/51/`](../datos/ifra/51/LEEME.md) y
+    [`datos/glosario/`](../datos/glosario/LEEME.md);
+  - dos scripts, `importar_ifra.py` y `generar_glosario.py`;
+  - el banco lee el glosario;
+  - `datos/fuente/` ya no trae nada del laboratorio salvo los dos documentos del FIG.
+- Fecha: 2026-09-27
+- Estado: cerrada · lectura por confirmar
+- Destino: decisiones.md §5.1, §5.2, §6 y §9; plan, fase 3 (D1, D2, D3) y fase 4; CLAUDE.md
 
 ---
 
@@ -1351,6 +1385,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R9 · diseño | 6 (P23 a P28) | 0 |
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
-| R12 · infografías y frentes | 2 (P35, P36) | 3 (P33, P34, P37) |
+| R12 · infografías y frentes | 3 (P35, P36, P37) | 2 (P33, P34) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.

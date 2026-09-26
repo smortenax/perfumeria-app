@@ -55,6 +55,8 @@ export function HistoryDock(props: {
   onSelect: (id: string | null) => void;
   onFrame: (frame: number | null) => void;
   onTogglePlay: () => void;
+  /** The material's code in the glossary, the user's abbreviation (P37). */
+  codeOf?: (key: string) => string | undefined;
 }) {
   const box = useRef<HTMLDivElement>(null);
   const area = useRef<HTMLDivElement>(null);
@@ -121,12 +123,14 @@ export function HistoryDock(props: {
                 const shift = pointer === null ? 0 : (centre(i) - pointer) * (s - 1) * 0.35;
                 const warning = change.kind === "add" ? weighingWarning(change.massUg) : null;
                 const info = describe(change, adds);
+                const code = change.kind === "add" ? (props.codeOf?.(change.material.key) ?? initials(change.material.name)) : "";
                 const classes = [
                   "chip",
                   `chip-${change.kind}`,
                   change.id === props.selectedId ? "selected" : "",
                   i >= end ? "future" : "",
                   warning ? `warn-${warning.kind}` : "",
+                  code.length > 3 ? "chip-long" : "",
                 ];
                 return (
                   <button
@@ -138,7 +142,7 @@ export function HistoryDock(props: {
                     onClick={() => props.onSelect(change.id === props.selectedId ? null : change.id)}
                   >
                     {change.kind === "add" ? (
-                      initials(change.material.name)
+                      code
                     ) : change.kind === "note" ? (
                       <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                         <path d="M3 12.5V2M3 2.5h7l-1.6 2.6L10 7.7H3" />

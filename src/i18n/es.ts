@@ -7,9 +7,11 @@ export const texts = {
     subtitle: "Banco de formulación · versión provisional para pruebas",
     newBench: "Nuevo banco de formulación",
     open: "Abrir fórmula…",
-    source: (commit: string, date: string) => `Datos del laboratorio: commit ${commit}, del ${date}.`,
-    base: (rows: number, checked: number) =>
-      `Base provisional: las ${rows} filas del glosario de ingredientes de IFRA (FIG), hasta tener su listado entero (la Transparency List). IFRA por CAS para ${checked} CAS; el resto sale «sin comprobar».`,
+    base: (fig: number, ifraOnly: number) =>
+      `Glosario: ${fig + ifraOnly} materiales, ${fig} del FIG con tus abreviaturas y ${ifraOnly} que solo están en IFRA. Nada del laboratorio.`,
+    source: (amendment: string, date: string) =>
+      `IFRA, ${amendment}.ª enmienda, de sus propios archivos; se cuenta en categoría 4. Glosario generado el ${date}.`,
+    figCredit: "Information derived from the IFRA Fragrance Ingredient Glossary, developed by The International Fragrance Association.",
     provisional:
       "Sin gráficos con datos todavía: esperan a la capa propia de los materiales (frente 6) y a las categorías de infografía (P33).",
     openError: "No se pudo abrir la fórmula",
@@ -57,6 +59,22 @@ export const texts = {
     release: "Soltar el material",
     createProvisional: (name: string) => `Crear «${name}» como material provisional`,
     standard: "estándar IFRA",
+    state: {
+      prohibido: "prohibido",
+      "con-techo": "con techo",
+      condicion: "condición",
+      "por-constituyentes": "por constituyentes",
+      "sin-dato": "sin dato",
+      "sin-estandar": "sin estándar",
+    },
+    stateHelp: {
+      prohibido: "IFRA lo prohíbe como tal",
+      "con-techo": "Su estándar IFRA le pone un techo en %",
+      condicion: "Una especificación, una variante prohibida o una familia de IFRA: no es un %",
+      "por-constituyentes": "Sin estándar propio; el anexo de IFRA le da constituyentes con techo",
+      "sin-dato": "Natural fuera del anexo de IFRA: no se sabe qué lleva por dentro",
+      "sin-estandar": "No está en el índice de IFRA: sin estándar propio",
+    },
     quantity: (unit: string) => `Cantidad (${unit})`,
     changeUnit: "Cambiar la unidad",
     dilution: "Dilución",
@@ -110,12 +128,13 @@ export const texts = {
     ceilings: (n: number) => `Techos en la fórmula · ${n}`,
     of: (value: string, limit: string) => `${value} de ${limit}`,
     unchecked: (n: number) => `Sin comprobar · ${n}`,
-    uncheckedWhy: "sin dato de IFRA por CAS todavía.",
+    uncheckedWhy: "no está en el glosario.",
     pending: (n: number) => `Constituyentes sin techo en los datos · ${n}`,
     conditions: (n: number) => `Condiciones · ${n}`,
-    source: "Fuente: estándares IFRA, 51.ª enmienda, transcritos por el laboratorio (ifra-cat4.csv), por CAS.",
+    source: "Fuente: IFRA, 51.ª enmienda, de sus propios archivos: el overview de estándares y el anexo de naturales (datos/ifra/51/).",
     nothing: "Nada que comprobar todavía.",
     verdict: { within: "dentro", bounded: "acotada", unknown: "sin comprobar", exceeds: "se pasa" },
+    prohibited: "prohibida",
   },
 
   menu: {
@@ -147,7 +166,8 @@ export const texts = {
     ifra: "IFRA",
     ifraFree: "sin estándar propio",
     ifraCeiling: (limit: string, used: string) => `techo ${limit} · está al ${used}`,
-    ifraUnchecked: "sin comprobar: sin dato de IFRA por CAS todavía",
+    ifraProhibited: (name: string) => `${name}: prohibido`,
+    ifraUnchecked: "sin comprobar: no está en el glosario",
     ifraProvisional: "sin comprobar: material provisional",
     weighing: "Pesada",
     flags: { unchecked: "sin comprobar", pending: "pendiente", noData: "sin dato", condition: "condición", unweighable: "impesable" },

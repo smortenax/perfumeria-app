@@ -50,10 +50,12 @@ export function IfraSummary(props: { report: IfraReport | null; empty: boolean; 
 function CeilingRow(props: { check: SubstanceCheck; finalUg: Ratio }) {
   const { check, finalUg } = props;
   const pct = (ug: Ratio) => formatPercent(ug.div(finalUg), 3).replace(" %", "");
-  const limit = formatPercent(check.substance.limit, 2);
+  // A prohibited substance has a ceiling of zero: any amount is over it.
+  const banned = check.substance.limit.isZero();
+  const limit = banned ? t.prohibited : formatPercent(check.substance.limit, 2);
   const value = check.worstUg.eq(check.knownUg) ? pct(check.knownUg) : `${pct(check.knownUg)}–${pct(check.worstUg)}`;
-  const used = check.worstUg.div(finalUg).div(check.substance.limit);
-  const width = Math.min(100, Number(used.toFixed(4)) * 100);
+  const used = banned ? null : check.worstUg.div(finalUg).div(check.substance.limit);
+  const width = used ? Math.min(100, Number(used.toFixed(4)) * 100) : 100;
   return (
     <div className="ceiling-row" title={check.worstUg.eq(check.knownUg) ? undefined : t.range(`${pct(check.knownUg)} %`, `${pct(check.worstUg)} %`)}>
       <span className="ceiling-name">{check.substance.name}</span>
@@ -61,7 +63,7 @@ function CeilingRow(props: { check: SubstanceCheck; finalUg: Ratio }) {
       <span className="ceiling-bar">
         <span className={`fill ${check.verdict}`} style={{ width: `${width}%` }} />
       </span>
-      <span className={`num ceiling-use ${check.verdict}`}>{formatPercent(used, 0)}</span>
+      <span className={`num ceiling-use ${check.verdict}`}>{used ? formatPercent(used, 0) : "—"}</span>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-> 📥 **Copiado del laboratorio** (`conocimiento/lenguaje/fig/descriptores.md`, commit `9949c5f`) por `scripts/importar_datos.py`. **No se edita aquí**: se corrige en el laboratorio y se vuelve a importar.
+> 📥 **Copiado del laboratorio** (`conocimiento/lenguaje/fig/descriptores.md`, commit `debf755`) por `scripts/importar_datos.py`. **No se edita aquí**: se corrige en el laboratorio y se vuelve a importar.
 
 ---
 tipo: fuente

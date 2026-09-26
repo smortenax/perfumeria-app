@@ -10,7 +10,6 @@ const t = texts.launcher;
 /** What comes before the bench (§0 leaves it undesigned): for now, a way into it. */
 export function Launcher(props: { onNew: () => void; onOpen: (opened: Opened) => void }) {
   const [error, setError] = useState<string | null>(null);
-  const rows = catalog.entries.filter((e) => e.group === "base").length;
 
   const open = async () => {
     const file = await pickAndRead();
@@ -38,9 +37,10 @@ export function Launcher(props: { onNew: () => void; onOpen: (opened: Opened) =>
       </div>
       {error && <p className="error">{error}</p>}
       <div className="launcher-notes">
-        <p>{t.base(rows, catalog.checkedCas)}</p>
-        <p>{t.source(catalog.source.commit, catalog.source.date)}</p>
+        <p>{t.base(catalog.counts.fig, catalog.counts.ifraOnly)}</p>
+        <p>{t.source(catalog.source.amendment, catalog.source.generated)}</p>
         <p>{t.provisional}</p>
+        <p className="tiny">{t.figCredit}</p>
       </div>
     </main>
   );

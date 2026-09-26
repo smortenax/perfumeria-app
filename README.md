@@ -14,18 +14,15 @@ el móvil, después.
 
 ## Los datos
 
-**Vienen del laboratorio**, [`perfumeria-lab`](https://github.com/smortenax/perfumeria-lab), y
-los trae [`scripts/importar_datos.py`](scripts/importar_datos.py) a `datos/fuente/`, con un
-`procedencia.json` que dice **de qué commit** salen. **No se editan a mano.**
+**Todo lo de IFRA sale de IFRA, y nada del laboratorio entra en la app** (P37). Cada carpeta
+tiene su `LEEME.md` y un `procedencia.json` con la huella de sus originales. **No se editan a
+mano**: los generan los scripts.
 
-| Archivo | Qué es para la app |
-|---|---|
-| `ifra-cat4.csv` | IFRA: techo de categoría 4, tipo de estándar, condiciones y constituyentes regulados. **La única fuente de IFRA** |
-| `niveles-de-uso.csv` | Poder olfativo, consenso y dosis recomendada por material |
-| `limites-de-uso.csv` | Rangos del proveedor, con su base y su naturaleza: **no es IFRA** |
-| `inventario.csv` | Los materiales del laboratorio, generado desde sus fichas |
-| `glosario-fig.csv` | Descriptores oficiales IFRA FIG por CAS |
-| `leeme-*.md` · `fig-descriptores.md` | **Qué significa cada columna**, copiado del laboratorio: cómo se lee `ifra-cat4.csv`, los niveles de uso, y el FIG con sus 27 descriptores y **la cita obligatoria de IFRA** |
+| Carpeta | Qué es para la app | La genera |
+|---|---|---|
+| [`datos/ifra/51/`](datos/ifra/51/LEEME.md) | IFRA, 51.ª enmienda. Los originales van en `origen/`, y de ellos salen los estándares con sus 18 categorías, sus CAS, los constituyentes de los naturales y las bases de Schiff | [`importar_ifra.py`](scripts/importar_ifra.py) |
+| [`datos/glosario/`](datos/glosario/LEEME.md) | **El desplegable del buscador:** 3370 materiales, del FIG y de IFRA, cada uno con su abreviatura, su estado frente a IFRA y sus constituyentes | [`generar_glosario.py`](scripts/generar_glosario.py) |
+| `datos/fuente/` | Del laboratorio, solo los dos documentos del FIG: sus términos, con **la cita obligatoria de IFRA**, y sus 27 descriptores. Aquí entrará la capa propia (D4) | [`importar_datos.py`](scripts/importar_datos.py) |
 
 🔴 **La regla 1.1 —todo número con su base— vale igual para los CSV.**
 

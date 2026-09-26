@@ -66,7 +66,9 @@ export function CompositionCard(props: {
     } else {
       const ownChecks = (props.report?.checks ?? []).filter((c) => info.substances.some((s) => s.key === c.substance.key && s.fraction !== null));
       const parts = ownChecks.map((c) =>
-        t.ifraCeiling(formatPercent(c.substance.limit, 2), formatPercent(c.worstUg.div(props.report!.finalUg).div(c.substance.limit), 0)),
+        c.substance.limit.isZero()
+          ? t.ifraProhibited(c.substance.name)
+          : t.ifraCeiling(formatPercent(c.substance.limit, 2), formatPercent(c.worstUg.div(props.report!.finalUg).div(c.substance.limit), 0)),
       );
       if (parts.length === 0) {
         parts.push(t.ifraFree);

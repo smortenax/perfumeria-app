@@ -3,7 +3,7 @@ import { Ratio } from "../core/arith/ratio";
 import { parseMass, parsePercent, type MassUnit } from "../core/arith/units";
 import type { Change } from "../core/model/formula";
 import { DILUENTS, type Material } from "../core/model/material";
-import { normalize, searchCatalog, type CatalogEntry } from "../data/catalog";
+import { normalize, searchCatalog, type CatalogEntry, type IfraState } from "../data/catalog";
 import { texts } from "../i18n/es";
 import { diluentOptions, percentOptions, prefsOf, rememberLast, sameDilution, toggleFavorite, type DiluentId, type MaterialPrefs } from "./prefs";
 import { newId } from "./state";
@@ -16,7 +16,7 @@ export interface AddBarHandle {
 }
 
 type Result =
-  | { kind: "material"; material: Material; tag: string | null; cas: string; standardName?: string }
+  | { kind: "material"; material: Material; tag: string | null; cas: string; code?: string; state?: IfraState; standardName?: string }
   | { kind: "create"; name: string };
 
 const samePercent = (a: string, b: string) => a.replace(",", ".") === b.replace(",", ".");
@@ -99,6 +99,8 @@ export function AddBar(props: {
       material: e.material,
       tag: e.group === "diluent" ? "diluyente" : null,
       cas: e.cas,
+      code: e.code,
+      ...(e.state ? { state: e.state } : {}),
       ...(e.standardName ? { standardName: e.standardName } : {}),
     }));
     const all = [...session, ...found];
@@ -286,6 +288,7 @@ export function AddBar(props: {
                   <span className="create">{t.createProvisional(r.name)}</span>
                 ) : (
                   <>
+                    {r.code && <span className="code-chip">{r.code}</span>}
                     <span className="result-name">
                       {r.material.name}
                       {r.standardName && (
@@ -295,6 +298,11 @@ export function AddBar(props: {
                       )}
                     </span>
                     {r.tag && <span className="pill">{r.tag}</span>}
+                    {r.state && (
+                      <span className={`state state-${r.state}`} title={t.stateHelp[r.state]}>
+                        {t.state[r.state]}
+                      </span>
+                    )}
                     {r.cas && <span className="num cas">{r.cas}</span>}
                   </>
                 )}

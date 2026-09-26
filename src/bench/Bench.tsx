@@ -86,6 +86,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
   }, [formula, frame]);
 
   const byKey = useMemo(() => new Map(catalog.entries.map((e) => [e.material.key, e.material])), []);
+  const codes = useMemo(() => new Map(catalog.entries.map((e) => [e.material.key, e.code])), []);
   const recentMaterials = recent
     .map((key) => byKey.get(key) ?? session.find((m) => m.key === key))
     .filter((m): m is Material => m !== undefined);
@@ -386,6 +387,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
         onSelect={setSelectedId}
         onFrame={(f) => dispatch({ type: "frame", frame: f })}
         onTogglePlay={() => setPlaying(!playing)}
+        codeOf={(key) => codes.get(key)}
       />
 
       {selected && (

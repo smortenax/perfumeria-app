@@ -3,9 +3,10 @@ import type { IfraData, IfraMaterial, IfraSubstance } from "../ifra";
 import { F001_LINES, f001Material } from "./f001";
 
 /**
- * IFRA data for the materials of F-001, taken by hand from datos/fuente/ifra-cat4.csv
- * (51st amendment, category 4, % of the finished product). Phase 3 will build
- * this from the CSV; here it only feeds the tests.
+ * IFRA data for the materials of F-001, taken by hand from the lab's ifra-cat4.csv
+ * (commit 9949c5f; 51st amendment, category 4, % of the finished product). Its
+ * figures match IFRA's overview (docs/investigacion/2026-09-26-archivos-ifra-51/).
+ * It only feeds the tests of the core: the app reads datos/glosario/ (P37).
  */
 const pct = (text: string) => Ratio.fromDecimal(text).div(Ratio.of(100));
 
