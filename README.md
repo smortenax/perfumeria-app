@@ -9,6 +9,7 @@ el móvil, después.
 | 📐 **[Decisiones](docs/decisiones.md)** | **Lo que manda**: qué es la app y cómo se comporta. v3, 2026-09-25 |
 | 🗺️ **[Plan de desarrollo](docs/plan-desarrollo.md)** | El orden de trabajo y cuándo está lista la formulación |
 | ❓ [Interrogatorio](docs/interrogatorio.md) | De dónde sale cada decisión, con la respuesta literal del usuario |
+| 📨 [Encargos al laboratorio](docs/encargos/README.md) | Lo que la app pide investigar al laboratorio, en el formato de sus frentes |
 | 🗂️ [Antecedentes](docs/antecedentes/README.md) | Lo escrito antes, **no vinculante**: Formulair, el primer brief, el lenguaje visual, el Banco v2 |
 
 ## Los datos

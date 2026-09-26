@@ -13,7 +13,7 @@ Cuando las rondas R1 a R4 estén cerradas, lo decidido pasa a [`decisiones.md`](
 como v3. Los [antecedentes](antecedentes/README.md) no obligan a nada.
 
 Última sesión: 2026-09-26 (rondas 1 a 11 cerradas: la formulación, el diseño del banco, los
-datos de los materiales y lo que salió al escribir el núcleo)
+datos de los materiales y lo que vino al terminar el núcleo)
 
 ---
 
@@ -1069,9 +1069,10 @@ cada información.*
 - Estado: cerrada
 - Destino: decisiones.md §6; plan, fase 3 (D4)
 
-## Ronda 11 — Lo que salió al escribir el núcleo
+## Ronda 11 — Al terminar el núcleo
 
-*Abierta al terminar la fase 2: preguntas que no aparecieron hasta hacer el cálculo.*
+*Abierta al terminar la fase 2: lo que salió al hacer el cálculo, y el arranque de la
+investigación de los datos.*
 
 ### P31 — IFRA: un cuarto estado, «acotada»
 - Bloque: IFRA (fase 2), con efecto en el panel de IFRA (fase 4)
@@ -1098,6 +1099,56 @@ cada información.*
 - Estado: cerrada · lectura por confirmar
 - Destino: decisiones.md §5.5; plan, fase 2
 
+### P31 — confirmación y precisión del 2026-09-26
+
+Respuesta literal: *«de acuerdo con que haga la cuenta en el peor caso para el resultado pero creo que aqui matiz si haces hover es valioso, que ponga los rangos.»*
+
+- **Lectura:**
+  1. **Lo añadido en la lectura queda confirmado:** el resultado se da siempre con el peor
+     caso.
+  2. **Al pasar el ratón, el rango**, de lo conocido al peor caso:
+     - en cada sustancia, su % en el lote final. Con el ejemplo de la prueba: «cumarina,
+       entre el 0 % y el 0,75 %; techo, 1,5 %»;
+     - en la segunda lectura, hasta dónde se podría usar según lo que lleve de verdad el
+       material sin dato: «entre el 50 % y el 100 %».
+
+     Sin nada desconocido, el rango se cierra en un solo número.
+  3. Es la regla de §10.2, los números al pasar, aplicada a IFRA.
+- **En el núcleo**, cada sustancia y el informe llevan ya los dos extremos, con pruebas.
+- Fecha: 2026-09-26
+- Estado: cerrada · lectura por confirmar
+- Destino: decisiones.md §5.5
+
+### P32 — La investigación de la base descriptiva, y el POM a fondo
+- Bloque: datos (fase 3, D4) y el mapa de olores, con efecto en los gráficos (§10.2) y en lo
+  aplazado (§8)
+- Abierta por: el usuario
+- Respuesta literal: *«paralelamente, con el contexto de aqui puedes hacerme un prompt para empezar el research de todos los materiales sobre todo lo que necesito para crear la base descriptiva para cada CAS de ifra, tambien incluir las ideas que no tengo claro si poner finalmente para ver si son manejables y lo que he sugerido. por otro lado tambien caso explicito de indagar exactamente que hace el POM, en las infografias habia hasta la imagen de como los olores estimulan algunas partes del cerebro, pienso que tiene que haber informacion super valiosa si se indaga en pom, incluso yo he valorado basarse en la investigacion creo que enseñar la estimulacion de los olores a nivel neuronal es muy potente y poco explorado»*
+- **Lectura:**
+  1. **Se encarga al laboratorio la investigación de la capa propia** (P29, P30) para cada
+     ingrediente del glosario FIG. Entra todo: lo seguro (posición, duración, color y sigla),
+     lo casi seguro (FIG, POM e intensidad) y las ideas sin decidir, para ver si son
+     manejables. Lo que sugirió el usuario va como candidato; por ejemplo, un estándar
+     comercial o de la industria para el color, como Fragrantica.
+  2. **Aparte, el POM a fondo:** qué hace exactamente, qué datos da y qué se puede sacar de él.
+  3. **Una idea del usuario, sin decidir: enseñar cómo estimulan los olores el cerebro, a
+     nivel neuronal.** La ve muy potente y poco explorada. Antes de decidir, la investigación
+     dice qué datos existen, a qué nivel (por molécula, por familia, por agrado) y qué sería
+     honesto enseñar.
+  4. **Van como dos frentes, en el formato del laboratorio:** el 6, la base descriptiva, y el
+     7, el POM y el cerebro. Se escriben en [`encargos/`](encargos/), porque desde aquí no se
+     escribe en el laboratorio; allí se copian a `fuentes/frentes/`.
+- ⚠️ **Un dato que corrige una lectura de P29: la clave de la capa propia no puede ser solo
+  el CAS.** De las 3119 filas del glosario FIG, 176 CAS se repiten y ocupan 707 filas: hay
+  2588 CAS distintos. Por ejemplo, el 8024-01-9 son seis estoraques, del absoluto al
+  pirogenado. Además, 18 filas están repetidas enteras. Contado sobre
+  `datos/fuente/glosario-fig.csv`, que sale del commit 9949c5f del laboratorio. La clave se
+  propone en el frente 6 y se decide en la fase 3.
+- Fecha: 2026-09-26
+- Estado: cerrada · lectura por confirmar
+- Destino: los frentes 6 y 7, en [`encargos/`](encargos/); plan, fase 3 (D3, D4);
+  decisiones.md §8
+
 ---
 
 ## Estado
@@ -1107,6 +1158,6 @@ cada información.*
 | R1 a R8 | 22 (P1 a P22) | 0 |
 | R9 · diseño | 6 (P23 a P28) | 0 |
 | R10 · datos | 2 (P29, P30) | 0 |
-| R11 · núcleo | 1 (P31) | 0 |
+| R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.

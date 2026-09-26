@@ -81,7 +81,8 @@ TypeScript puro, con pruebas automáticas:
   comprobar** o **acotada**. «Acotada» es una carga sin dato que ni en el peor caso (todo el
   material fuese esa sustancia) llega al techo: el razonamiento del cuaderno con la
   cumarina de F-001. **Confirmado por el usuario el 2026-09-26 (P31)**; nunca se pinta como
-  «dentro».
+  «dentro». El resultado se da con el peor caso, y el núcleo da también el otro extremo:
+  al pasar el ratón se verá el rango.
 - [x] **Reabrir pesando**, como un cambio más del historial (2026-09-26).
 - [x] **Guardar y leer JSON**, en `src/core/io/` (2026-09-26): un archivo por fórmula con la
   cabecera, un material y un cambio por línea, y la composición legible sin la app. Los
@@ -118,12 +119,15 @@ Trabajo de lectura: subagentes Sonnet de uno en uno, y revisión por partes.
 - [ ] **D3 · La base:** el glosario FIG (3119) + los 54 materiales del laboratorio + IFRA
   por CAS. Un generador en `scripts/`, sobre lo que ya trae
   [`importar_datos.py`](../scripts/importar_datos.py), produce el **paquete de datos
-  versionado**.
+  versionado**. **Ojo con la clave:** el CAS no es único en el glosario; 176 CAS se repiten en
+  707 filas (P32).
 - [ ] **D4 · La capa propia de cada material** (P24, P29, P30), **al acabar de definir la
   interfaz**: posición entre salida y fondo (0 a 1), duración en horas, color, sigla, y los
   datos del mapa de olores (FIG, POM, intensidad). **Se investiga en el laboratorio**, con
   fuente y confianza por dato, y entra en la app con `importar_datos.py`. Lo que no se sepa,
-  hueco. La referencia IFRA en bruto no se toca.
+  hueco. La referencia IFRA en bruto no se toca. **Encargada al laboratorio el 2026-09-26**
+  (P32), en dos frentes: el 6, la base descriptiva, y el 7, el POM y el cerebro
+  ([`encargos/`](encargos/)).
 - **Sale:** la app carga el paquete sin red, y dice su versión y su fecha.
 
 ## Diseño *(en paralelo, desde el 2026-09-25)*

@@ -359,6 +359,10 @@ No hay «modo acorde». Como mucho, cambia cuál de las dos se destaca.
   - **Nunca se pinta como «dentro»:** tiene su señal y dice de qué material sale la carga sin
     dato. La primera lectura puede decir «sí», con ese aviso; la segunda cuenta la carga en su
     peor caso.
+  - **El resultado, siempre con el peor caso; al pasar el ratón, el rango**, de lo conocido al
+    peor caso: en cada sustancia, su % en el lote final («entre el 0 % y el 0,75 %»); en la
+    segunda lectura, hasta dónde se podría usar («entre el 50 % y el 100 %»). Sin nada
+    desconocido, el rango es un solo número (P31, precisión del usuario).
   - **Por qué:** no es un verde falso, porque la cuenta vale sea cual sea la carga real: lo
     desconocido no vale cero, vale lo máximo que podría valer. Y tratarla como «sin
     comprobar» haría avisar de lo que ya está demostrado. Un aviso que salta sin motivo enseña
@@ -415,6 +419,7 @@ No hay «modo acorde». Como mucho, cambia cuál de las dos se destaca.
 | **Lo que va antes del banco** | Sin diseñar (§0). El banco ya tiene botón atrás (§10.1) |
 | **Datos de los gráficos**: el reparto preciso de cada material entre salida y fondo, su longevidad por horas y una identidad visual más rica que dos letras. Es la categorización exhaustiva de los materiales, **al acabar la interfaz** (P24) | Los gráficos tienen su sitio y su forma (§10.1, §10.2). Hoy el piso, entero, solo está para los 54 materiales del laboratorio, y de longevidad por horas no hay ninguna cifra |
 | **Resaltado cruzado**: al pasar por un material del historial, se resalta en todos los gráficos | La regla que lo hace posible ya está fijada (§10.3) |
+| **Enseñar cómo estimula cada olor el cerebro**, a nivel neuronal. Idea del usuario: la ve muy potente y poco explorada (P32) | Antes de decidir, se investiga qué datos hay y qué sería honesto enseñar: frente 7 del laboratorio, en [`encargos/`](encargos/) |
 
 ---
 
