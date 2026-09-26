@@ -12,7 +12,8 @@ corrige.
 Cuando las rondas R1 a R4 estén cerradas, lo decidido pasa a [`decisiones.md`](decisiones.md)
 como v3. Los [antecedentes](antecedentes/README.md) no obligan a nada.
 
-Última sesión: 2026-09-26 (rondas 1 a 8, la formulación, cerradas; ronda 9, el diseño, abierta)
+Última sesión: 2026-09-26 (rondas 1 a 11 cerradas: la formulación, el diseño del banco, los
+datos de los materiales y lo que salió al escribir el núcleo)
 
 ---
 
@@ -1068,6 +1069,35 @@ cada información.*
 - Estado: cerrada
 - Destino: decisiones.md §6; plan, fase 3 (D4)
 
+## Ronda 11 — Lo que salió al escribir el núcleo
+
+*Abierta al terminar la fase 2: preguntas que no aparecieron hasta hacer el cálculo.*
+
+### P31 — IFRA: un cuarto estado, «acotada»
+- Bloque: IFRA (fase 2), con efecto en el panel de IFRA (fase 4)
+- Abierta por: el núcleo, al pasar la cumarina de F-001
+- Opciones presentadas: A) **mantener «acotada» como estado propio**, que nunca se pinta como
+  «dentro» · B) tratarla siempre como «sin comprobar»: más estricto, y más avisos
+- Recomendación: A
+- Respuesta: **A**
+- Respuesta literal: *«mantener acotada»*
+- **Lectura:**
+  1. **Cada sustancia regulada sale en uno de cuatro estados:** dentro, acotada, sin comprobar
+     o se pasa.
+  2. **«Acotada» es una carga sin dato que ni en el peor caso llega al techo.** El peor caso
+     cuenta toda la materia del material como si fuese esa sustancia. En F-001, aunque todo lo
+     que aporta la tintura de haba tonka fuese cumarina, se quedaría en 0,188 %, lejos del
+     1,5 %: es el razonamiento del propio cuaderno.
+  3. **No es un verde falso:** la cuenta vale sea cual sea la carga real. Lo desconocido no vale
+     cero; vale lo máximo que podría valer (§1.2). Aun así, **nunca se pinta como «dentro»**:
+     tiene su propia señal y dice de qué material sale la carga sin dato.
+- **Añadido en la lectura, por confirmar:** en las dos lecturas de IFRA, **la primera puede
+  decir «sí»**, porque está demostrado, y avisa de la carga acotada; **la segunda la cuenta en
+  su peor caso**. Es lo que ya hace el núcleo, y una prueba lo fija.
+- Fecha: 2026-09-26
+- Estado: cerrada · lectura por confirmar
+- Destino: decisiones.md §5.5; plan, fase 2
+
 ---
 
 ## Estado
@@ -1077,5 +1107,6 @@ cada información.*
 | R1 a R8 | 22 (P1 a P22) | 0 |
 | R9 · diseño | 6 (P23 a P28) | 0 |
 | R10 · datos | 2 (P29, P30) | 0 |
+| R11 · núcleo | 1 (P31) | 0 |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.

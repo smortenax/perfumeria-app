@@ -83,6 +83,24 @@ describe("IFRA: the unknown is never green (§1.2)", () => {
     expect(report.asIs).toBe("unknown");
   });
 
+  it("a bounded load is proven, not guessed: reading 1 can say yes, and reading 2 counts it at its worst (P31)", () => {
+    // 300 mg of tincture at 10 %: up to 30 mg of coumarin in a 1 g concentrate, made into 4 g of perfume.
+    const formula: Formula = {
+      header: { ...header, finalBatchUg: 4n * G },
+      history: [add("t", tonka, 300n * MG, "10", DILUENTS.alcohol), add("a", DILUENTS.alcohol, 700n * MG)],
+    };
+    const report = checkIfra(formula, data);
+    const coumarin = report.checks[0];
+    expect(coumarin.knownUg.isZero()).toBe(true);
+    expect(formatPercent(coumarin.worstUg.div(report.finalUg), 2)).toBe("0,75 %");
+    expect(coumarin.verdict).toBe("bounded");
+    expect(coumarin.unknownFrom).toEqual(["Haba tonka (tintura)"]);
+    expect(report.asIs).toBe("yes");
+    // At its worst the concentrate is 3 % coumarin: it fits into a perfume up to half of it.
+    expect(report.maxUse.toString()).toBe("1/2");
+    expect(report.partial).toBe(false);
+  });
+
   it("a provisional material is not checked, and says so", () => {
     const quick: Material = { key: "prov:1", kind: "provisional", name: "Acorde sin definir" };
     const report = checkIfra({ header, history: [add("a", quick, 1n * G)] }, data);

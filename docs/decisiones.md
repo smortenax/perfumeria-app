@@ -348,10 +348,21 @@ No hay «modo acorde». Como mucho, cambia cuál de las dos se destaca.
 
 ## 5.5 · Lo desconocido siempre se avisa
 
-*P3, P7, §1.2.*
+*P3, P7, P31, §1.2.*
 
 - Un material provisional, un diluyente provisional, una carga `SIN DATO` o un constituyente
   sin cuantificar salen **marcados**, nunca en verde.
+- **Cada sustancia sale en uno de cuatro estados** (P31): **dentro**, **acotada**, **sin
+  comprobar** o **se pasa**. **«Acotada»** es una carga sin dato que ni en el peor caso llega
+  al techo, contando todo el material como si fuese esa sustancia. En F-001, aunque todo lo que
+  aporta la tintura de haba tonka fuese cumarina, sería el 0,188 % frente al 1,5 %.
+  - **Nunca se pinta como «dentro»:** tiene su señal y dice de qué material sale la carga sin
+    dato. La primera lectura puede decir «sí», con ese aviso; la segunda cuenta la carga en su
+    peor caso.
+  - **Por qué:** no es un verde falso, porque la cuenta vale sea cual sea la carga real: lo
+    desconocido no vale cero, vale lo máximo que podría valer. Y tratarla como «sin
+    comprobar» haría avisar de lo que ya está demostrado. Un aviso que salta sin motivo enseña
+    a ignorarlos todos, también los que importan.
 - Con desconocidos, la segunda lectura dice **«hasta X %, según lo conocido»** y qué no se ha
   podido contar.
 - **«Sin estándar propio» no es «sin obligaciones».** El cade y el estoraque se rigen por un

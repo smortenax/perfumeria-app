@@ -80,19 +80,22 @@ TypeScript puro, con pruebas automáticas:
   `src/core/ifra.ts` (2026-09-26). Cada sustancia sale **dentro**, **se pasa**, **sin
   comprobar** o **acotada**. «Acotada» es una carga sin dato que ni en el peor caso (todo el
   material fuese esa sustancia) llega al techo: el razonamiento del cuaderno con la
-  cumarina de F-001. **Es una propuesta, por confirmar**; nunca se pinta como «dentro».
+  cumarina de F-001. **Confirmado por el usuario el 2026-09-26 (P31)**; nunca se pinta como
+  «dentro».
 - [x] **Reabrir pesando**, como un cambio más del historial (2026-09-26).
 - [x] **Guardar y leer JSON**, en `src/core/io/` (2026-09-26): un archivo por fórmula con la
   cabecera, un material y un cambio por línea, y la composición legible sin la app. Los
   materiales viajan con su definición, y al leer se comprueba que cada vector sigue
   cuadrando con su ID.
-- [ ] **Pruebas de referencia.** Se adaptan las de
+- [x] **Pruebas de referencia.** Se adaptan las de
   [`03-motor-de-calculo.md`](antecedentes/formulacion/03-motor-de-calculo.md) §8, más estas:
   - [x] [F-001-v1](https://github.com/smortenax/perfumeria-lab/blob/master/formulas/f-001-lejia/v1.md) reproducida al miligramo (2026-09-26). Una
     cifra no coincide con el cuaderno, y el que falla es el cuaderno: el alcohol sale al
     63,68 %, no al 63,67 %, porque el cuaderno redondeó su masa antes de dividir;
   - [x] cumarina del frasco más la tintura sin dato: aviso, nunca verde. Con 1,35 %
     conocido y hasta 1,85 % posible, sale «sin comprobar»;
+  - [x] una carga acotada deja decir «sí» a la primera lectura, y la segunda la cuenta en su
+    peor caso (P31);
   - [x] una fórmula importada, exacta al µg, y por debajo: sus fracciones no se redondean;
   - [x] escalar ×3 y ×⅓, repesando, vuelve al original µg a µg.
 
@@ -101,7 +104,7 @@ TypeScript puro, con pruebas automáticas:
   IFRA sobre el lote final, también pasa. T2 a T4 (las operaciones de dilución de Formulair) y T8 (los ciclos) no
   aplican a la v3: esas operaciones no están decididas, y un vector es una foto fija, así
   que no puede haber ciclos.
-- **Sale:** todas las pruebas pasan. **Hecho el 2026-09-26: 45 pruebas, todas en verde** (`npm test`).
+- **Sale:** todas las pruebas pasan. **Hecho el 2026-09-26: 46 pruebas, todas en verde** (`npm test`).
 
 ## Fase 3 · Los datos de referencia *(en paralelo desde la fase 1)*
 

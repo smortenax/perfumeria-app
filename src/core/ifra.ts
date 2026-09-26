@@ -36,7 +36,8 @@ export interface IfraData {
 
 /**
  * - within: what is known stays under the ceiling, and nothing is unknown;
- * - bounded: a load is unknown, but not even the worst case reaches the ceiling;
+ * - bounded: a load is unknown, but not even the worst case reaches the ceiling.
+ *   It is proven, so reading 1 can say yes, but it is never shown as within (§5.5, P31);
  * - unknown: an unknown load could take it over the ceiling; it cannot be checked;
  * - exceeds: what is known is already over the ceiling.
  */
