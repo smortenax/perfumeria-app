@@ -83,6 +83,29 @@ después cómo.
 | 6 | `6-cimatica.webp` | Doce patrones cimáticos: mandalas azules sobre negro | Un patrón único que sale de una vibración |
 | 7 | `7-pom-nube-de-osmo.png` | La visualización del POM hecha por Osmo:<br>• una nube de puntos con degradados (afrutado, almizcle, floral, cárnico);<br>• una molécula en cada esquina | El mapa como imagen de marca |
 
+### La concepción inicial del usuario (P34)
+
+Es de antes de la investigación y no está cerrada, pero **es el punto de partida del
+visualizador**:
+
+- **la densidad del olor, con puntos**, como en las imágenes 9 y 10, con algo de variación de
+  tamaño;
+- **un color para una variable de tipo**, por ejemplo el tipo de olor;
+- **la opacidad para la transparencia del olor**;
+- **la silueta, un círculo o un semicírculo**, como en las imágenes 9 a 11.
+
+| # | Archivo | Qué es |
+|---|---|---|
+| 8 | `8-nube-de-puntos-detalle.png` | Un detalle de la nube de Osmo (imagen 7): la textura de puntos de color, en degradado |
+| 9 | `9-semicirculos-de-rayos-punteados.png` | Tres semicírculos de rayos hechos de puntos, de largo variable (imagen de archivo) |
+| 10 | `10-circulos-de-rayos-punteados.png` | Tres círculos de rayos punteados, de largo y grosor variables, con el centro vacío (imagen de archivo) |
+| 11 | `11-arco-de-trazos.png` | Un arco de trazos que adelgazan de un extremo al otro (imagen de archivo) |
+
+**Fuera de esta investigación**, porque el usuario quiere reflexionarlo antes (P34):
+- **lo sinestésico:** si un olor es pegajoso, punzante o eléctrico;
+- **cómo se agrega una fórmula:** si se suman las clasificaciones de sus materiales, o se
+  ponderan por su uso efectivo.
+
 ## Las preguntas
 
 1. **¿Qué categorías de infografía necesita la app?** Se miden de dos maneras:

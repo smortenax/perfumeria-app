@@ -1186,6 +1186,54 @@ de investigar lo que dicen los expertos en visualización de datos.*
 - Destino: la [investigación](investigacion/2026-09-26-visualizacion-de-datos/README.md);
   decisiones.md §10.2; plan, diseño
 
+### P34 — La concepción inicial del visualizador, y lo sinestésico
+- Bloque: diseño 3 y 4 (§10), con efecto en la capa propia (D4, frente 6)
+- Abierta por: el usuario
+- Respuesta literal, completa, con cuatro imágenes (de la 8 a la 11 de la
+  [investigación](investigacion/2026-09-26-visualizacion-de-datos/README.md)):
+
+> *«sobre las variables que habia pensado que formasen parte de la proyeccion bueno hablo un oici  de lo que piensoal respecto, claro esto era antes de terminar la busqueda de las vatiables encontradas pero sirve como concepcion inicial*
+> *por un lado creo que variables como la densidad de el olor deberia ser acotada por puntos similar a la foto, pero con un poco de variacion de tamaño, usar un codigo de color para alguna variable de tipo como tipo de olor, usar opacidada para medir la transparencia del olor, luego tengo que considerar en que forma hacerlo habia pensado un circulo o semicirculo parecido a las imagenes que agrego en cuanto a silhueta o forma, luego admito que no tengo tan claro los caracteres sinestesicos que quiero añadir pero sin duda queria hacer una asi donde se considere si es"pegajoso punzante electrico" encontrar una base de datos sobre estos olores no creo que sea posible per se lo que habria que hacer seria extrapolar una categoria propia en base a fig por ejemplo y valorar si hay que hacer esta parte sinestesica para cada componente de ifra y que el total sea el junte de todas las clasificaciones o quizas hacer una ponderacion de todos los componentes que hay en el perfume de manera que se estime (tendria que ser teniendo en cuenta el uso efectivo de cada componente en porcentaje un 1% de castoreum siempre gana a un 1% de hedione) en ambos casos no te salvas de hacer una ampliacion a la base de datos de los CAS hay que valorar de que forma hacerlo, si es simplememnte una categoria plana por cada components no solo no sera efectivo sino sera ruido y no se quiere. Bueno acabo de darme cuenta que la parte de el research de la potencia del olor no es excluyente solo que la estaba obviandeo en el primer caso, seguroo que hay que buscar un baremo en el que se considere que el uso del CAS es olorificamente significativo, o un uso normal, para cada olor. bueno justo este frente se deja para reflexionar  antes de investigar, hay mucho que se tiene que dejar en claro antes, pero por el resto enseño ideas de visualizavion»*
+
+- **Lectura:**
+  1. **Es la concepción de partida**, de antes de la investigación, no una decisión.
+     Entiendo «la proyección» como el visualizador de la firma: la imagen del perfume, no la
+     gráfica por horas. **Por confirmar.**
+  2. **Lo visual** pasa a la investigación, que lo contrasta con los expertos:
+     - la densidad del olor, con puntos, con algo de variación de tamaño;
+     - un color para el tipo de olor;
+     - la opacidad para su transparencia;
+     - la silueta, un círculo o un semicírculo.
+  3. **Lo sinestésico** (si un olor es pegajoso, punzante o eléctrico): no hay una base de
+     datos que lo diga. Habría que sacar una categoría propia, por ejemplo a partir del FIG.
+  4. **Cómo se agrega en una fórmula**, dos caminos:
+     - sumar las clasificaciones de cada material;
+     - ponderarlas por su uso efectivo: un 1 % de castoreum pesa más que un 1 % de Hedione.
+
+     En los dos hay que ampliar la base de cada CAS. Una categoría plana por material sería
+     ruido.
+  5. **La potencia entra en los dos caminos:** hace falta un baremo, olor a olor, de qué uso
+     es normal o significativo.
+  6. **Lo sinestésico y la ponderación se reflexionan antes de investigarlos**: queda mucho
+     por aclarar. Quedan fuera de la investigación de visualización.
+- **Lo que ya hay, para esa reflexión:**
+  - **El baremo de uso normal existe para los 54 del laboratorio**, en `niveles-de-uso.csv`,
+    en % del concentrado:
+    - la Hedione va del 5 al 30 %, con poder olfativo bajo;
+    - el castoreum (su producto al 20 %), del 0,1 al 1 %, con poder muy alto.
+
+    Así, un 1 % de castoreum está en el techo de su uso, y un 1 % de Hedione, por debajo del
+    suelo.
+  - **El sello de los antecedentes ya ponderaba así** (04 §7): la contribución de cada material
+    era su fracción de masa por su potencia.
+  - **La criba ya trató dos de esos caracteres** (06 §8):
+    - lo punzante, con la angularidad, que es el cruce entre olor y forma con más respaldo;
+    - la textura, con poca evidencia, como convención declarada.
+- Fecha: 2026-09-26
+- Estado: **abierta**. Lo visual, en la investigación; lo sinestésico y la ponderación, en
+  reflexión del usuario
+- Destino: la investigación de visualización (P33); después, la capa propia (D4, frente 6)
+
 ---
 
 ## Estado
@@ -1196,6 +1244,6 @@ de investigar lo que dicen los expertos en visualización de datos.*
 | R9 · diseño | 6 (P23 a P28) | 0 |
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
-| R12 · infografías | 0 | 1 (P33) |
+| R12 · infografías | 0 | 2 (P33, P34) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.
