@@ -1,0 +1,28 @@
+{
+  "enmienda": "51",
+  "fuente": "IFRA, archivos de la enmienda descargados de su web por el usuario (2026-09-26)",
+  "aviso_de_ifra": "This overview has been created with the best intentions to facilitate the application of the IFRA Standards. The information included in the individual IFRA Standards prevail over the information from this Excel file. IFRA cannot guarantee the correctness of the content and therefore recommends to verify the information with the individual Standards in case of doubts. ",
+  "anexo": "Annex on contributions from other sources to the IFRA Standards - NATURAL CONTRIBUTIONS - Notification IFRA 51st AMENDMENT The Annex on contributions from other sources to the IFRA Standards combines information from natural contributions (former Annex I) as well as Schiff bases (former Annex II).",
+  "convertido": "2026-09-26T22:14:36+00:00",
+  "originales": {
+    "ifra-51st-amendment-ifra-standards-overview.xlsx": {
+      "sha256": "0580e1e71cd98335136f46f2c2beea272b72c863183d42fe92b9833ea546ed9e",
+      "bytes": 102609
+    },
+    "ifra-51st-amendment-annex-on-contributions-from-other-sources.xlsx": {
+      "sha256": "28988a6c543db4b7aa3e39229bc543154b0df6b59f773726f2a4f2936f271bef",
+      "bytes": 532071
+    },
+    "ifra-51st-amendment-index-of-ifra-standards.pdf": {
+      "sha256": "e7a48cc7936ddf880f4cb53b82dd7715afc854dcc009acd8a927324d63b12161",
+      "bytes": 451992
+    }
+  },
+  "cuentas": {
+    "estandares": 263,
+    "cas_distintos": 455,
+    "filas_de_naturales": 1031,
+    "naturales_distintos": 302,
+    "bases_schiff": 16
+  }
+}

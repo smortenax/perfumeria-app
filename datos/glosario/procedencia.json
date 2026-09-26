@@ -1,0 +1,47 @@
+{
+  "enmienda_ifra": "51",
+  "estados": {
+    "prohibido": "su estándar lo prohíbe como tal",
+    "con-techo": "su estándar le pone un techo en % en alguna categoría",
+    "condicion": "una especificación, una variante prohibida o una familia: no es un %",
+    "por-constituyentes": "sin estándar propio, pero el anexo le da constituyentes regulados",
+    "sin-dato": "natural sin estándar propio y fuera del anexo: sus constituyentes no se saben",
+    "sin-estandar": "no está en el índice de IFRA, que es completo: sin estándar propio"
+  },
+  "fig": "Information derived from the IFRA Fragrance Ingredient Glossary, developed by The International Fragrance Association",
+  "origenes": {
+    "datos/glosario/origen/fig-materiales-codigos.csv": {
+      "sha256": "282a94867e7ecc6a5aef2593584f480b8722c14ef0f9f74bba475e9b287a7afd",
+      "que_es": "filas del FIG con las abreviaturas del usuario, iteración no final"
+    },
+    "datos/ifra/51/estandares.csv": {
+      "sha256": "c8ba113637bfc3025365e3c6f298ec77355a06870b68c37339fa5e6b98469e6d"
+    },
+    "datos/ifra/51/estandar-cas.csv": {
+      "sha256": "c5e3ac7a2cad33f0f20130da79ab210971154fe2aebf2713b66f2708a5c717a3"
+    },
+    "datos/ifra/51/naturales.csv": {
+      "sha256": "3ba4580b403817a01fd662692a567391d6a3b75ab16bc7320e439d8312f3a06c"
+    },
+    "datos/ifra/51/bases-schiff.csv": {
+      "sha256": "289097c9d76de4430f967158556ff068faa4589175c44b48dd355a5eb93b6368"
+    }
+  },
+  "generado": "2026-09-26T22:18:25+00:00",
+  "cuentas": {
+    "materiales": 3370,
+    "del_fig": 3119,
+    "solo_de_ifra": 251,
+    "codigos_del_usuario": 3119,
+    "codigos_generados": 251,
+    "por_estado": {
+      "prohibido": 121,
+      "con-techo": 391,
+      "condicion": 45,
+      "por-constituyentes": 523,
+      "sin-dato": 302,
+      "sin-estandar": 1988
+    },
+    "filas_de_constituyentes": 3303
+  }
+}
