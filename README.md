@@ -42,6 +42,9 @@ El código va en inglés y la interfaz en español, desde [`src/i18n/es.ts`](src
 `npm test` pasa las pruebas del núcleo (`src/core/`): TypeScript puro, sin pantallas.
 
 **Estado:** fases 1 y 2 terminadas: el esqueleto de Tauri 2 y el núcleo, con F-001-v1
-reproducida al miligramo. El diseño avanza en paralelo, en el
-[lienzo de bocetos](https://claude.ai/artifact/RXLX4e5WKR6xFNApMeyphj). Lo siguiente es la
-fase 3: el paquete de datos de referencia.
+reproducida al miligramo. Hay un **banco provisional para pruebas**: el instalador
+(`Perfumeria_0.1.0_x64-setup.exe`) abre una pantalla de inicio con «Nuevo banco de
+formulación», que lleva a un banco vacío con todo lo que hace el núcleo (ver el
+[plan](docs/plan-desarrollo.md), fase 4). El diseño avanza en paralelo, en el
+[lienzo de bocetos](https://claude.ai/artifact/RXLX4e5WKR6xFNApMeyphj) y en la
+[investigación de visualización](docs/investigacion/2026-09-26-visualizacion-de-datos/README.md).

@@ -18,6 +18,7 @@ Thumbs.db
 
 # Claude Code: ajustes locales de esta máquina
 .claude/settings.local.json
+.claude/launch.json
 
 # Imágenes de terceros para investigar: se guardan en local, nunca en Git
 docs/investigacion/*/imagenes/

@@ -163,6 +163,32 @@ donde el usuario puede comentar sobre cada zona.
 
 ## Fase 4 · El banco
 
+**Banco provisional para pruebas, 2026-09-26.** Lo pidió el usuario para probar las funciones
+antes de cerrar el diseño. Desde la pantalla de inicio se abre un banco vacío con todo lo
+que hace el núcleo, y con el reparto de §10.1. **No es la fase 4 terminada**:
+- **lo que tiene:**
+  - la barra de añadir, con su teclado;
+  - la composición, IFRA con sus dos lecturas y el rango al pasar el ratón (P31);
+  - el historial como dock, con los fotogramas;
+  - cambiar masa, quitar, deshacer y rehacer, repesar y notas;
+  - la fórmula como material y el material provisional;
+  - guardar, guardado automático, guardar como (§3.2) y abrir;
+  - los avisos de pesada y las trazas en ppm;
+- **lo que falta:**
+  - los gráficos y el visualizador, que esperan a sus datos y a P33;
+  - el *play* y el desplegable de otros diluyentes;
+  - las favoritas y la última dilución se guardan en la memoria del navegador, que es
+    provisional (§6);
+- **el catálogo es provisional** (`src/data/`), a la espera del paquete de D3:
+  - los 54 materiales del laboratorio van como tuyos (consecuencia de P35, por confirmar),
+    con IFRA leído de `ifra-cat4.csv`;
+  - el glosario FIG va como base, «sin comprobar» hasta tener IFRA por CAS (D1);
+  - un constituyente cuyo techo no está en los datos (el citral del limón, la tuyona de la
+    salvia) deja las dos lecturas abiertas, nunca libres (§1.2);
+  - una prueba comprueba que da para F-001 lo mismo que el fixture hecho a mano;
+- **cambio en el núcleo:** el repesado guarda la tara con la que se pesó, para que una
+  variación en un vial nuevo no rehaga mal los repesados del viejo (§3.2).
+
 - [ ] **La barra de añadir** (decisiones §4): material, cantidad, dilución, añadir y
   estrella; el buscador con sus dos interruptores; las dos opciones de dilución, con memoria
   y favoritas; **todo con el teclado**, Ctrl+Intro incluido.
