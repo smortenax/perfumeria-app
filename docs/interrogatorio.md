@@ -1431,9 +1431,48 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
   Si nada de eso los separa, un número por orden de CAS. En la búsqueda valen «IBQ» y
   «6IBQ». Pasar a B es cambiar el estilo del icono.
 - Fecha: 2026-09-27
-- Estado: cerrada · opción A por confirmar
+- Confirmación del usuario, 2026-09-27: *«⁶IBQ asi en pequeño sin duda es la manera»*
+- Estado: cerrada · opción A
 - Destino: el glosario (`icono`, `icono_distintivo`); decisiones.md §10 cuando se decida
   el lenguaje visual
+
+### P40 — El tipo de natural, con un carácter propio en el icono
+- Bloque: diseño (señales de tipo), glosario
+- Abierta por: el usuario, al confirmar P39
+- Respuesta literal: *«de la misma forma que alpha gamma usan caracteres especiales para los nombres que la tienen y tambien me gustairia usar una categooria para diferentes categorias que se repitan propongo usar tambien caracteres especiales que sean claramente distinguibles de una letra: por que caracteres especiales (linea de la app funcionalidad-estetica) ver este tipo de caracteres da feedback positivo a los usuarios son atractivos pero ademas son funcionales todos los que tengan el caracter asignado a la letra a por ejemplo la A que es como cursiva a la inversa, hacia la izquierda en vez de hacia la derecha.»* Con esta tabla:
+
+  | Letra | Tipo |
+  |---|---|
+  | A | absoluto |
+  | O | aceite |
+  | E | extracto |
+  | C | concreto |
+  | T | tintura |
+  | R | resinoide |
+  | L | oleorresina |
+  | P | terpenos |
+  | D | destilado |
+- **Lectura:**
+  1. **Cada tipo de natural lleva un carácter especial en el icono**, claramente distinto de
+     una letra. Es la línea de la app: **funcional y estético a la vez**. El usuario lo ve
+     atractivo, y además dice qué es. Así como α y γ ya van con su carácter.
+  2. **El carácter es la letra de la tabla, inclinada hacia la izquierda**: una cursiva al
+     revés.
+- **Hecho, por confirmar:**
+  - **los datos guardan la letra normal** (A, O…), para que la búsqueda y la exportación
+    sigan igual;
+  - **el icono la dibuja inclinada hacia atrás y en trazo fino** (peso 300), junto a letras
+    en negrita. Solo inclinada, la O casi no se distinguía, porque es redonda;
+  - **al pasar el ratón**, dice el tipo: «absoluto»;
+  - **la abreviatura del usuario ya seguía esta tabla**: sus 828 naturales con tipo acaban
+    en su letra, y solo 24 aceites llevan después un número («ASO2»). Con los naturales que
+    solo están en IFRA, 920 iconos llevan el carácter;
+  - **las abreviaturas que se generan para lo que solo está en IFRA siguen la tabla**: P
+    para terpenos y L para oleorresina, en vez de «Te» y «Or». Goma, bálsamo y resina no
+    están en la tabla, y no llevan letra.
+- Fecha: 2026-09-27
+- Estado: cerrada · el dibujo, por confirmar
+- Destino: el glosario (`icono_tipo`); decisiones.md §10 cuando se decida el lenguaje visual
 
 ---
 
@@ -1445,6 +1484,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R9 · diseño | 6 (P23 a P28) | 0 |
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
-| R12 · infografías y frentes | 4 (P35, P36, P37, P39) | 3 (P33, P34, P38) |
+| R12 · infografías y frentes | 5 (P35, P36, P37, P39, P40) | 3 (P33, P34, P38) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.

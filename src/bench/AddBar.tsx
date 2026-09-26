@@ -30,6 +30,7 @@ type Result =
       tradeCode?: string;
       icon?: string;
       iconMark?: string;
+      iconType?: string;
     }
   | { kind: "create"; name: string };
 
@@ -116,6 +117,7 @@ export function AddBar(props: {
       code: e.code,
       icon: e.icon,
       ...(e.iconMark ? { iconMark: e.iconMark } : {}),
+      ...(e.iconType ? { iconType: e.iconType } : {}),
       ...(e.state ? { state: e.state } : {}),
       ...(e.standardName ? { standardName: e.standardName } : {}),
       ...(e.tradeName ? { chemicalName: e.chemicalName } : {}),
@@ -308,7 +310,7 @@ export function AddBar(props: {
                   <>
                     {r.icon && (
                       <span className="code-chip" title={r.code && r.code !== r.icon ? r.code : undefined}>
-                        <IconText text={r.icon} mark={r.iconMark} />
+                        <IconText text={r.icon} mark={r.iconMark} type={r.iconType} />
                       </span>
                     )}
                     <span className="result-name">

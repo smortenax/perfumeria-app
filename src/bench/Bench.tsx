@@ -87,7 +87,13 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
 
   const byKey = useMemo(() => new Map(catalog.entries.map((e) => [e.material.key, e.material])), []);
   const icons = useMemo(
-    () => new Map(catalog.entries.map((e) => [e.material.key, { text: e.icon, ...(e.iconMark ? { mark: e.iconMark } : {}) }])),
+    () =>
+      new Map(
+        catalog.entries.map((e) => [
+          e.material.key,
+          { text: e.icon, ...(e.iconMark ? { mark: e.iconMark } : {}), ...(e.iconType ? { type: e.iconType } : {}) },
+        ]),
+      ),
     [],
   );
   // Beside a trade name, the chemical one (P38).

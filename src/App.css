@@ -1502,6 +1502,14 @@ button.value:hover {
   letter-spacing: -0.04em;
 }
 
+/* The letter of the kind of natural, leaning back: a glyph, not a letter (P40). */
+.type-mark {
+  display: inline-block;
+  transform: skewX(16deg);
+  font-weight: 300;
+  margin-left: 1px;
+}
+
 /* The mark that tells apart the CAS sharing one abbreviation: ⁶IBQ, ²IBQ (P39). */
 .icon-mark {
   font-size: 0.72em;

@@ -46,6 +46,19 @@ export const texts = {
     invalid: "Cifra no válida",
   },
 
+  /** The kinds of natural, by the letter of their icon (P40). */
+  naturalKind: {
+    A: "absoluto",
+    O: "aceite",
+    E: "extracto",
+    C: "concreto",
+    T: "tintura",
+    R: "resinoide",
+    L: "oleorresina",
+    P: "terpenos",
+    D: "destilado",
+  },
+
   addBar: {
     more: "Material nuevo rápido o fórmula como material",
     quickMaterial: "Material nuevo rápido…",

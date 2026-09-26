@@ -57,7 +57,7 @@ export function HistoryDock(props: {
   onFrame: (frame: number | null) => void;
   onTogglePlay: () => void;
   /** The material's icon in the glossary: its trade abbreviation or its code (P37, P39). */
-  iconOf?: (key: string) => { text: string; mark?: string } | undefined;
+  iconOf?: (key: string) => { text: string; mark?: string; type?: string } | undefined;
 }) {
   const box = useRef<HTMLDivElement>(null);
   const area = useRef<HTMLDivElement>(null);
@@ -143,7 +143,7 @@ export function HistoryDock(props: {
                     onClick={() => props.onSelect(change.id === props.selectedId ? null : change.id)}
                   >
                     {change.kind === "add" ? (
-                      <IconText text={icon.text} mark={icon.mark} />
+                      <IconText text={icon.text} mark={icon.mark} type={"type" in icon ? icon.type : undefined} />
                     ) : change.kind === "note" ? (
                       <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                         <path d="M3 12.5V2M3 2.5h7l-1.6 2.6L10 7.7H3" />

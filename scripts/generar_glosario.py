@@ -63,9 +63,9 @@ FAMILIES = [
 TYPE_WORDS = {"oil", "absolute", "extract", "concrete", "resinoid", "tincture", "distillate",
               "terpenes", "oleoresin", "essence", "gum", "balsam", "resin", "co2", "rectified",
               "expressed", "distilled", "folded", "terpeneless", "washed", "fractions", "fraction"}
-TYPE_LETTER = {"oil": "O", "absolute": "A", "extract": "E", "concrete": "C", "resinoid": "R",
-               "tincture": "T", "distillate": "D", "terpenes": "Te", "oleoresin": "Or",
-               "gum": "G", "balsam": "B", "resin": "Rs"}
+# The user's table of kinds (P40): one letter each, which the icon draws as a glyph of its own.
+TYPE_LETTER = {"absolute": "A", "oil": "O", "extract": "E", "concrete": "C", "tincture": "T",
+               "resinoid": "R", "oleoresin": "L", "terpenes": "P", "distillate": "D"}
 GREEK = {"alpha": "α", "beta": "β", "gamma": "γ", "delta": "δ", "epsilon": "ε", "eta": "η"}
 SKIP = {"cis", "trans", "tert", "sec", "dl", "and", "of", "the", "with", "from", "in", "ext",
         "or", "for", "mixed", "isomers", "unspecified", "isomer", *GREEK}
@@ -207,7 +207,7 @@ def main() -> None:
     taken = {r["Codigo"] for r in codes}
 
     def base(**kw) -> dict:
-        row = {"id": "", "codigo": "", "codigo_origen": "", "icono": "", "icono_distintivo": "",
+        row = {"id": "", "codigo": "", "codigo_origen": "", "icono": "", "icono_distintivo": "", "icono_tipo": "",
                "nombre_comercial": "", "sigla_comercial": "",
                "nombre": "", "cas": "", "otros_cas": "", "otros_nombres_comerciales": "",
                "casa_comercial": "", "fuente_comercial": "", "confianza_comercial": "",
@@ -471,6 +471,10 @@ def main() -> None:
     for m in everything:
         m["icono"] = m["sigla_comercial"] or m["codigo"]
         m["icono_distintivo"] = mark.get(m["cas"], "") if m["sigla_comercial"] else ""
+        # The letter of the kind of natural closes the code, before any number («ASO2»).
+        letter = TYPE_LETTER.get(m["tipo_natural"], "")
+        own = not m["sigla_comercial"] and re.search(rf"{letter}\d*$", m["codigo"]) if letter else None
+        m["icono_tipo"] = letter if own else ""
 
     OUT.mkdir(parents=True, exist_ok=True)
     header = list(base().keys())

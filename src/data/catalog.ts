@@ -28,6 +28,8 @@ export interface CatalogEntry {
    */
   readonly icon: string;
   readonly iconMark?: string;
+  /** The letter of its kind of natural in the icon, drawn as a glyph of its own (P40): A, O, E… */
+  readonly iconType?: string;
   /** The chemical name, which always stays beside the trade name (P38). */
   readonly chemicalName: string;
   readonly tradeName?: string;
@@ -201,6 +203,7 @@ export function buildCatalog(files: CatalogFiles): Catalog {
       code: m.codigo,
       icon: m.icono || m.codigo,
       ...(m.icono_distintivo ? { iconMark: m.icono_distintivo } : {}),
+      ...(m.icono_tipo ? { iconType: m.icono_tipo } : {}),
       chemicalName: m.nombre,
       ...(trade ? { tradeName: trade } : {}),
       ...(m.sigla_comercial ? { tradeCode: m.sigla_comercial } : {}),

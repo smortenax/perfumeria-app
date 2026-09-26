@@ -51,6 +51,7 @@ aplica a todo material con ese CAS.
 | `confianza_comercial` | alta, media o baja. Lo que solo es «uso del sector» llega como mucho a media |
 | `icono` | lo que dice el icono del material: la sigla comercial, o si no la abreviatura (P39) |
 | `icono_distintivo` | cuando una sigla nombra a más de un CAS, lo que los separa, sacado del nombre químico: el 6 de ⁶IBQ |
+| `icono_tipo` | la letra del tipo de natural con que acaba la abreviatura, que el icono dibuja como carácter propio: A absoluto, O aceite, E extracto, C concreto, T tintura, R resinoide, L oleorresina, P terpenos, D destilado (P40) |
 
 Los sinónimos de PubChem se traen con
 [`scripts/buscar_sinonimos.py`](../../scripts/buscar_sinonimos.py) a `.cache/`, fuera de Git.
