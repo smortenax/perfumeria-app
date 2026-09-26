@@ -147,3 +147,18 @@ está hecho, se parte de él.
   también las lecturas pendientes de P29: una posición o cinco pesos, la clave y la
   intensidad. Lo que afecte a la app va a la bandeja, `app/entradas.md`.
 - **En el laboratorio:** el archivo de la capa, que se empieza a rellenar.
+
+## Añadido el 2026-09-26: el nivel de uso habitual (P34)
+
+Un campo más, pedido por el usuario después del encargo:
+
+| # | Campo | Para qué | Estado |
+|---|---|---|---|
+| 8 | **Nivel de uso habitual**: qué % es un uso normal, y cuál ya es significativo, para cada CAS | Pesar cada material por su uso efectivo, no por su masa: un 1 % de castoreum pesa más que un 1 % de Hedione | Seguro |
+
+- **Va en el mismo archivo que los demás campos**, para todo el universo de la app, con su
+  base (% del concentrado o del producto acabado), su fuente y su confianza.
+- **No vale el de los 54 de la paleta** (`niveles-de-uso.csv`): la capa es universal y no lleva
+  valoraciones del usuario (P35).
+- **Las mismas preguntas que para el resto:** qué fuentes lo dan, cuántos CAS cubren, con qué
+  licencia, y qué se recomienda.

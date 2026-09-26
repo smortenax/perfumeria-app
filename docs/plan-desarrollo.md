@@ -116,8 +116,9 @@ Trabajo de lectura: subagentes Sonnet de uno en uno, y revisión por partes.
 - [ ] **D2 · Constituyentes regulados y alérgenos, con su %,** de los naturales de la
   paleta: citral en la litsea, cumarina en la tonka, etc. Fuente y confianza por dato; lo que
   no se sepa, hueco.
-- [ ] **D3 · La base:** el glosario FIG (3119) + los 54 materiales del laboratorio + IFRA
-  por CAS. Un generador en `scripts/`, sobre lo que ya trae
+- [ ] **D3 · La base:** el universo del glosario FIG (2588 CAS en 3119 filas) + IFRA por CAS
+  + la capa propia. **Sin los 54 materiales del laboratorio** (P35, por confirmar): los del
+  usuario que no estén en la base se dan de alta como propios. Un generador en `scripts/`, sobre lo que ya trae
   [`importar_datos.py`](../scripts/importar_datos.py), produce el **paquete de datos
   versionado**. **Ojo con la clave:** el CAS no es único en el glosario; 176 CAS se repiten en
   707 filas (P32).
@@ -127,7 +128,10 @@ Trabajo de lectura: subagentes Sonnet de uno en uno, y revisión por partes.
   fuente y confianza por dato, y entra en la app con `importar_datos.py`. Lo que no se sepa,
   hueco. La referencia IFRA en bruto no se toca. **Encargada al laboratorio el 2026-09-26**
   (P32), en dos frentes: el 6, la base descriptiva, y el 7, el POM y el cerebro
-  ([`encargos/`](encargos/)).
+  ([`encargos/`](encargos/)). Con P34 y P35, la capa lleva además el **nivel de uso
+  habitual**, y una **categorización propia** en lugar de la del FIG; es universal y sin
+  descripciones del usuario. **La parte A de los dos frentes está hecha** (2026-09-26): de
+  dónde sale cada campo y qué cubre.
 - **Sale:** la app carga el paquete sin red, y dice su versión y su fecha.
 
 ## Diseño *(en paralelo, desde el 2026-09-25)*

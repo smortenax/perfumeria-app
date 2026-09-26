@@ -1149,10 +1149,11 @@ Respuesta literal: *«de acuerdo con que haga la cuenta en el peor caso para el 
 - Destino: los frentes 6 y 7, en [`encargos/`](encargos/); plan, fase 3 (D3, D4);
   decisiones.md §8
 
-## Ronda 12 — Las infografías
+## Ronda 12 — Las infografías, y lo que llega de los frentes
 
 *Abierta por el usuario el 2026-09-26: las categorías de infografía se deciden aquí, después
-de investigar lo que dicen los expertos en visualización de datos.*
+de investigar lo que dicen los expertos en visualización de datos. En la misma tanda llegan
+las decisiones del laboratorio sobre la capa propia.*
 
 ### P33 — ¿Qué categorías de infografía, y cómo se dibuja cada una?
 - Bloque: diseño 3 y 4 (§10), con efecto en la capa propia (D4) y en el sello de los
@@ -1234,6 +1235,57 @@ de investigar lo que dicen los expertos en visualización de datos.*
   reflexión del usuario
 - Destino: la investigación de visualización (P33); después, la capa propia (D4, frente 6)
 
+### P34 — precisión del 2026-09-26: el baremo de uso, una variable más
+
+Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un documento que tenga glosario de toda la app el resto seria buscarlo y y luego añadirlo a el banco o ficha de todas las CAS  como otra variable mas, de todas formas estan a punto de acabar los frentes de investigacion, faltaban unos matices cuando terminen hacemos la evaluacion de todo»*
+
+- **Lectura:**
+  1. **El nivel de uso habitual es una variable más de la capa propia**, para cada CAS del
+     universo de la app y en el mismo archivo que las demás. Se investiga. El de los 54 del
+     laboratorio no vale para la app, porque la base es universal y no lleva valoraciones del
+     usuario (P35).
+  2. **Lo que se deja para reflexionar es lo sinestésico y la ponderación, no el frente 6.** El
+     frente 6 sigue y está a punto de acabar.
+  3. **Cuando acaben los frentes, se evalúa todo junto.**
+- Fecha: 2026-09-26
+- Estado: cerrada
+- Destino: decisiones.md §6; [encargo del frente 6](encargos/2026-09-26-frente-6-base-descriptiva.md),
+  como añadido; plan, fase 3 (D4)
+
+### P35 — Lo que el laboratorio decidió sobre la capa propia *(llevada desde la bandeja)*
+- Bloque: datos (fase 3, D3 y D4) y producto
+- Abierta por: el usuario, en una sesión del laboratorio
+- Respuesta literal: **el laboratorio no la guardó.** Recogió los matices del usuario como
+  lectura suya, en la bandeja (`app/entradas.md`, 2026-09-26) y en su frente 6 («Matices del
+  usuario»).
+- **Lectura, desde esas dos fuentes:**
+  1. **Ninguna descripción del usuario pasa a la app:** ni catas, ni descripciones, ni sus
+     valoraciones de sus materiales (el piso y la familia de `inventario.csv`, el poder olfativo
+     en palabras de `niveles-de-uso.csv`). El motivo, según el laboratorio: no es un experto
+     formado.
+  2. **La capa propia es universal**, del universo del FIG, sin sumar los 54 de la paleta, y
+     sale de fuentes documentadas.
+  3. **La app no usará las categorías del FIG.** El usuario las estudia, con otras fuentes, y
+     elabora su propia categorización, que será la del producto. No se piden permisos a IFRA ni
+     a TGSC.
+  4. **Todas las fuentes sirven para investigar; el producto lleva lo propio.** Lo de uso
+     libre (PubChem, EPA, OPERA, OpenPOM) puede ir directo; lo restringido se asimila y se
+     reinterpreta, y el resultado se distingue de la fuente.
+  5. **El color, muy presente pero sin abrumar:** cuántos tonos se distinguen antes de
+     repetirse. Lo estudia la parte B del frente 6, y enlaza con la investigación de
+     visualización (pieza 1: de seis a doce colores de categoría, según Ware).
+- ⚠️ **Consecuencias para la app, por confirmar:**
+  - **Los tres descriptores del FIG salen de la capa propia** (P29, «casi seguro»): los
+    sustituye la categorización propia.
+  - **La base (D3) deja de sumar los 54 de la paleta.** Es el universo del FIG más IFRA por CAS
+    más la capa propia. Un material del usuario que no esté en la base se da de alta como
+    propio (§2.1).
+  - **`inventario.csv` y `niveles-de-uso.csv` siguen llegando del laboratorio**, pero no
+    alimentan la base de la app. Sirven, por ejemplo, para la prueba de F-001.
+- Fecha: 2026-09-26 (llevada el mismo día)
+- Estado: cerrada, como decisión del usuario · consecuencias por confirmar
+- Destino: decisiones.md §6 y §9; plan, fase 3 (D3, D4)
+
 ---
 
 ## Estado
@@ -1244,6 +1296,6 @@ de investigar lo que dicen los expertos en visualización de datos.*
 | R9 · diseño | 6 (P23 a P28) | 0 |
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
-| R12 · infografías | 0 | 2 (P33, P34) |
+| R12 · infografías y frentes | 1 (P35) | 2 (P33, P34) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.
