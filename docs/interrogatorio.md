@@ -1400,8 +1400,12 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
     icono es la sigla comercial, y la abreviatura del usuario queda donde no la hay).** La
     sigla comercial va también junto al nombre;
   - **una fórmula guarda el nombre comercial** del material que se añade.
+- **Hecho** ([la investigación](investigacion/2026-09-27-nombres-comerciales/README.md)):
+  - 302 materiales con nombre comercial y 24 con sigla;
+  - cada uno con su fuente (PubChem, IFRA o uso del sector) y su confianza;
+  - ocho casos dudosos, apuntados en la investigación.
 - Fecha: 2026-09-27
-- Estado: en curso
+- Estado: cerrada · lectura por confirmar
 - Destino: decisiones.md §6; plan, D3; el glosario
 
 ### P39 — Una sigla para dos CAS: el icono lleva un distintivo

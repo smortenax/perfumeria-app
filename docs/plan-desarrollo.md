@@ -126,7 +126,8 @@ Trabajo de lectura: subagentes Sonnet de uno en uno, y revisión por partes.
   está en un estándar y `ncs:nombre` para un natural del anexo; es provisional hasta cerrar
   D3. **Falta:**
   - la *Transparency List*, que añadiría materiales, no restricciones;
-  - una capa de sinónimos para los que no están regulados (Hedione…);
+  - ~~una capa de sinónimos~~ **hecha la de nombres comerciales** (P38, 2026-09-27): 302
+    materiales con nombre y 24 con sigla, de PubChem, de IFRA y del uso del sector;
   - la capa propia (D4);
   - revisar las abreviaturas generadas.
 - [ ] **D4 · La capa propia de cada material** (P24, P29, P30), **al acabar de definir la
@@ -199,8 +200,9 @@ que hace el núcleo, y con el reparto de §10.1. **No es la fase 4 terminada**:
   - IFRA en categoría 4, por estándar, con lo que traen los naturales según el anexo. Un
     prohibido tiene techo cero. Un natural sin dato deja las dos lecturas abiertas, nunca
     libres (§1.2);
-  - **falta** buscar por nombre comercial lo que no está regulado (Hedione, Galaxolide…):
-    IFRA no da sus sinónimos;
+  - **los nombres comerciales van primero** (P38), con el químico al lado. La búsqueda
+    tolera la grafía en español. El icono es la sigla comercial, con su distintivo si la
+    comparten dos CAS (⁶IBQ), y el tipo de natural lleva un carácter propio (P39, P40);
 - **el reparto del boceto 4** (P36): frasco, cabecera, gramos, barra, recientes, visualizador,
   pirámide, reparto, proyección, IFRA con su menú, composición y dock con su *play*. A
   1440 × 900, y en otras ventanas se ajusta con el zoom para no deformarlo;

@@ -92,6 +92,19 @@ describe("the catalog, from the glossary and IFRA's own files (P37)", () => {
     expect(after.gt(before)).toBe(true);
   });
 
+  it("names a material by its trade name, keeps the chemical one beside it, and finds both (P38, P39)", () => {
+    const hedione = catalog.entries.find((e) => e.cas === "24851-98-7")!;
+    expect(hedione.material.name).toBe("Hedione");
+    expect(hedione.chemicalName).toBe("Methyl dihydrojasmonate");
+    expect(searchCatalog(catalog.entries, "hedione")[0].cas).toBe("24851-98-7");
+    expect(searchCatalog(catalog.entries, "methyl dihydrojasmonate")[0].cas).toBe("24851-98-7");
+    // «IBQ» names two CAS in the market: the icon tells them apart.
+    const ibq = searchCatalog(catalog.entries, "IBQ").slice(0, 2);
+    expect(ibq.map((e) => `${e.iconMark}${e.icon}`).sort()).toEqual(["2IBQ", "6IBQ"]);
+    expect(searchCatalog(catalog.entries, "6IBQ")[0].cas).toBe("65442-31-1");
+    expect(searchCatalog(catalog.entries, "isobutilquinoleina").slice(0, 3).map((e) => e.cas)).toContain("65442-31-1");
+  });
+
   it("finds by code, CAS, name, IFRA's name and its synonyms", () => {
     expect(searchCatalog(catalog.entries, "54464-57-2")[0].cas).toBe("54464-57-2");
     expect(searchCatalog(catalog.entries, "iso e super")[0].cas).toBe("54464-57-2");
