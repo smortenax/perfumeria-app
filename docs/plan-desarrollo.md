@@ -111,8 +111,13 @@ TypeScript puro, con pruebas automáticas:
 
 Trabajo de lectura: subagentes Sonnet de uno en uno, y revisión por partes.
 
-- [ ] **D1 · IFRA de los 216 estándares por CAS**, en categoría 4, con el método de
+- [ ] **D1 · IFRA de los estándares por CAS**, en categoría 4, con el método de
   [la investigación del 23-09](https://github.com/smortenax/perfumeria-lab/blob/master/fuentes/investigaciones/2026-09-23-niveles-de-uso-y-los-216-estandares.md).
+  *Son 263, no 216: el laboratorio bajó del 001 al 220, y la 51.ª llega al 267. IFRA publica
+  un overview en Excel con los 263, sus CAS y los límites por categoría, y un anexo con los
+  constituyentes de los naturales, que es D2
+  ([los archivos](investigacion/2026-09-26-archivos-ifra-51/README.md)). Por dónde entran:
+  P37.*
 - [ ] **D2 · Constituyentes regulados y alérgenos, con su %,** de los naturales de la
   paleta: citral en la litsea, cumarina en la tonka, etc. Fuente y confianza por dato; lo que
   no se sepa, hueco.

@@ -1312,6 +1312,35 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 - Estado: cerrada · lectura por confirmar
 - Destino: decisiones.md §6 y §9; plan, fase 3 (D1, D3) y fase 4; encargo al laboratorio
 
+### P37 — Por dónde entran los archivos de IFRA en la app
+- Bloque: datos (D1, D2, D3)
+- Abierta por: el usuario, con tres archivos de IFRA de la 51.ª enmienda
+- Respuesta literal: *«he estado buscando creo que este es el unico documento  (xls)donde estan todos marcados con el CAS y el numero de regulacion al lado. el otro los agrupa por porcentajes en los que coinciden materiales, y creo que es mas dificil de tratar. esta el pdf de amdendemnt ifra standards que simplemente pone que hay restriccion pero no especifica. quizas tu puedes encontrar otro glosario donde esten todos los materiales con la restriccion al lado yo creo que en mi version previa de la app no lo tenia y simplemente estaba buscado uno por uno la restriccion de cada material. el xsls de contributions parece estar relacionado a naturales , no estoy seguro  puedes mirar de tratar la info y contrastar la cantidad de materiales que hay»*
+- **Lo que se vio** ([los archivos de IFRA](investigacion/2026-09-26-archivos-ifra-51/README.md)):
+  - **el overview es el índice con los límites al lado:** 263 estándares y 455 CAS, los
+    mismos del índice, con las 12 categorías;
+  - **el anexo es de naturales:** cuánto trae cada natural de cada constituyente regulado.
+    Resuelve los «pendientes»;
+  - **no hace falta otro glosario:** lo que no está en el índice no tiene estándar propio. El
+    listado entero sigue siendo la *Transparency List*, cruzada por CAS.
+- **Lectura:** el usuario propone el overview como tabla de restricciones por CAS, y pide
+  cruzar el anexo y contar.
+- **Pregunta abierta:** la regla de hoy dice que los datos entran del laboratorio con
+  `importar_datos.py`, y que las cifras IFRA salen de la fuente primaria del laboratorio.
+  Pero estos archivos son la fuente primaria misma, y el producto no debería depender del
+  cuaderno. Opciones:
+  - **A · Directo de IFRA** (recomendada): un script de la app convierte el overview y el
+    anexo a CSV, en `datos/ifra/51/`, y apunta el archivo, su huella y la enmienda. Lo que
+    transcribió el laboratorio queda como contraste.
+  - **B · Por el laboratorio:** el laboratorio guarda los archivos, los convierte, y
+    `importar_datos.py` los trae.
+- **Lo que cuesta dejarla abierta:**
+  - el banco sigue con IFRA para unos 50 CAS;
+  - el cedro del Atlas, la naranja dulce y el vetiver salen sin nada que comprobar, cuando
+    el anexo les da constituyentes con techo.
+- Fecha: 2026-09-26
+- Estado: abierta
+
 ---
 
 ## Estado
@@ -1322,6 +1351,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R9 · diseño | 6 (P23 a P28) | 0 |
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
-| R12 · infografías y frentes | 2 (P35, P36) | 2 (P33, P34) |
+| R12 · infografías y frentes | 2 (P35, P36) | 3 (P33, P34, P37) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.
