@@ -81,6 +81,9 @@ describe("IFRA: the unknown is never green (§1.2)", () => {
     expect(formatPercent(coumarin.worstUg.div(report.finalUg))).toBe("1,850 %");
     expect(coumarin.verdict).toBe("unknown");
     expect(report.asIs).toBe("unknown");
+    // Reading 2 is the worst case; hover gives the range up to what the known alone would allow (P31).
+    expect(formatPercent(report.maxUse, 2)).toBe("81,08 %");
+    expect(report.maxUseKnown.eq(Ratio.ONE)).toBe(true);
   });
 
   it("a bounded load is proven, not guessed: reading 1 can say yes, and reading 2 counts it at its worst (P31)", () => {
@@ -99,6 +102,8 @@ describe("IFRA: the unknown is never green (§1.2)", () => {
     // At its worst the concentrate is 3 % coumarin: it fits into a perfume up to half of it.
     expect(report.maxUse.toString()).toBe("1/2");
     expect(report.partial).toBe(false);
+    // Hover: between 50 % and 100 %, depending on how much coumarin the tincture really carries.
+    expect(report.maxUseKnown.eq(Ratio.ONE)).toBe(true);
   });
 
   it("a provisional material is not checked, and says so", () => {
@@ -142,5 +147,7 @@ describe("IFRA on the final batch (T9 of the background docs)", () => {
     expect(report.checks[0].verdict).toBe("exceeds");
     expect(report.asIs).toBe("no");
     expect(formatPercent(report.maxUse, 2)).toBe("66,67 %");
+    // Nothing unknown: the range closes on one number.
+    expect(report.maxUseKnown.eq(report.maxUse)).toBe(true);
   });
 });

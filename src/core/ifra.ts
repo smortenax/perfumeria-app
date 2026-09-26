@@ -55,6 +55,8 @@ export interface SubstanceCheck {
   readonly verdict: Verdict;
   /** Largest fraction of a perfume this formula can make up, for this substance, in the worst case. */
   readonly maxUse: Ratio;
+  /** The same counting only the loads with data: the other end of the range shown on hover, never the result (P31). */
+  readonly maxUseKnown: Ratio;
 }
 
 export interface IfraReport {
@@ -70,6 +72,8 @@ export interface IfraReport {
   readonly asIs: "yes" | "no" | "unknown";
   /** Reading 2: up to what fraction of a perfume it can be used; 1 means no ceiling below 100 %. */
   readonly maxUse: Ratio;
+  /** Reading 2 counting only what is known: with maxUse, the range shown on hover (P31). */
+  readonly maxUseKnown: Ratio;
   /** Reading 2 holds only for what is known: some material could not be checked. */
   readonly partial: boolean;
 }
@@ -122,7 +126,8 @@ export function checkIfra(formula: Formula, data: IfraData, upTo?: number): Ifra
     const worstUg = worst.get(key) ?? Ratio.ZERO;
     const verdict = judge(knownUg, worstUg, finalUg, substance.limit);
     const maxUse = worstUg.isZero() ? Ratio.ONE : substance.limit.mul(composition.totalUg).div(worstUg);
-    return { substance, knownUg, worstUg, unknownFrom: unknownFrom.get(key) ?? [], verdict, maxUse };
+    const maxUseKnown = knownUg.isZero() ? Ratio.ONE : substance.limit.mul(composition.totalUg).div(knownUg);
+    return { substance, knownUg, worstUg, unknownFrom: unknownFrom.get(key) ?? [], verdict, maxUse, maxUseKnown };
   });
 
   const asIs = checks.some((c) => c.verdict === "exceeds")
@@ -131,7 +136,8 @@ export function checkIfra(formula: Formula, data: IfraData, upTo?: number): Ifra
       ? "unknown"
       : "yes";
   const maxUse = checks.reduce((min, c) => (c.maxUse.lt(min) ? c.maxUse : min), Ratio.ONE);
-  return { finalUg, finalAssumed, checks, unchecked, conditions, asIs, maxUse, partial: unchecked.length > 0 };
+  const maxUseKnown = checks.reduce((min, c) => (c.maxUseKnown.lt(min) ? c.maxUseKnown : min), Ratio.ONE);
+  return { finalUg, finalAssumed, checks, unchecked, conditions, asIs, maxUse, maxUseKnown, partial: unchecked.length > 0 };
 }
 
 function judge(knownUg: Ratio, worstUg: Ratio, finalUg: Ratio, limit: Ratio): Verdict {
