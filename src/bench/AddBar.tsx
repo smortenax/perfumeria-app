@@ -6,6 +6,7 @@ import { DILUENTS, type Material } from "../core/model/material";
 import { normalize, searchCatalog, type CatalogEntry, type IfraState } from "../data/catalog";
 import { texts } from "../i18n/es";
 import { diluentOptions, percentOptions, prefsOf, rememberLast, sameDilution, toggleFavorite, type DiluentId, type MaterialPrefs } from "./prefs";
+import { IconText } from "./Icon";
 import { newId } from "./state";
 
 const t = texts.addBar;
@@ -27,6 +28,8 @@ type Result =
       /** Beside a trade name, the chemical one (P38). */
       chemicalName?: string;
       tradeCode?: string;
+      icon?: string;
+      iconMark?: string;
     }
   | { kind: "create"; name: string };
 
@@ -111,6 +114,8 @@ export function AddBar(props: {
       tag: e.group === "diluent" ? "diluyente" : null,
       cas: e.cas,
       code: e.code,
+      icon: e.icon,
+      ...(e.iconMark ? { iconMark: e.iconMark } : {}),
       ...(e.state ? { state: e.state } : {}),
       ...(e.standardName ? { standardName: e.standardName } : {}),
       ...(e.tradeName ? { chemicalName: e.chemicalName } : {}),
@@ -301,11 +306,19 @@ export function AddBar(props: {
                   <span className="create">{t.createProvisional(r.name)}</span>
                 ) : (
                   <>
-                    {r.code && <span className="code-chip">{r.code}</span>}
+                    {r.icon && (
+                      <span className="code-chip" title={r.code && r.code !== r.icon ? r.code : undefined}>
+                        <IconText text={r.icon} mark={r.iconMark} />
+                      </span>
+                    )}
                     <span className="result-name">
                       <span className="primary">
                         {r.material.name}
-                        {r.tradeCode && <span className="trade-code">{r.tradeCode}</span>}
+                        {r.tradeCode && (
+                          <span className="trade-code">
+                            <IconText text={r.tradeCode} mark={r.iconMark} />
+                          </span>
+                        )}
                       </span>
                       {r.chemicalName && <span className="chemical">{r.chemicalName}</span>}
                       {r.standardName && (

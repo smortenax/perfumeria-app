@@ -86,7 +86,10 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
   }, [formula, frame]);
 
   const byKey = useMemo(() => new Map(catalog.entries.map((e) => [e.material.key, e.material])), []);
-  const codes = useMemo(() => new Map(catalog.entries.map((e) => [e.material.key, e.code])), []);
+  const icons = useMemo(
+    () => new Map(catalog.entries.map((e) => [e.material.key, { text: e.icon, ...(e.iconMark ? { mark: e.iconMark } : {}) }])),
+    [],
+  );
   // Beside a trade name, the chemical one (P38).
   const chemical = useMemo(
     () => new Map(catalog.entries.filter((e) => e.tradeName).map((e) => [e.material.key, e.chemicalName])),
@@ -399,7 +402,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
         onSelect={setSelectedId}
         onFrame={(f) => dispatch({ type: "frame", frame: f })}
         onTogglePlay={() => setPlaying(!playing)}
-        codeOf={(key) => codes.get(key)}
+        iconOf={(key) => icons.get(key)}
       />
 
       {selected && (

@@ -1502,6 +1502,15 @@ button.value:hover {
   letter-spacing: -0.04em;
 }
 
+/* The mark that tells apart the CAS sharing one abbreviation: ⁶IBQ, ²IBQ (P39). */
+.icon-mark {
+  font-size: 0.72em;
+  line-height: 0;
+  vertical-align: 0.55em;
+  margin-right: 0.5px;
+  opacity: 0.8;
+}
+
 .chip-note {
   background: var(--fill);
   color: var(--ink-2);

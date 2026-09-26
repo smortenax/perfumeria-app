@@ -140,6 +140,23 @@ def make_code(name: str, kind: str, taken: set[str]) -> str:
     raise ValueError(name)
 
 
+def distinctive(name: str) -> str:
+    """What sets a chemical name apart from its isomers: the leading locant («6-sec-Butyl…»
+    gives 6), a Greek letter, cis or trans, or ortho, meta or para. Empty if none."""
+    m = re.match(r"^\(?(\d+(?:,\d+)*)-", name)
+    if m:
+        return m.group(1).replace(",", "")
+    words = re.findall(r"[A-Za-z]+", name.lower())
+    for w in words:
+        if w in GREEK:
+            return GREEK[w]
+        if w in ("cis", "trans"):
+            return w[0]
+        if w in ("ortho", "meta", "para", "o", "m", "p"):
+            return w[0]
+    return ""
+
+
 def combine(cells: list[str]) -> str:
     """Several standards on one material: per category, the strictest."""
     numbers = [c for c in cells if re.fullmatch(r"[\d.]+", c)]
@@ -190,7 +207,8 @@ def main() -> None:
     taken = {r["Codigo"] for r in codes}
 
     def base(**kw) -> dict:
-        row = {"id": "", "codigo": "", "codigo_origen": "", "nombre_comercial": "", "sigla_comercial": "",
+        row = {"id": "", "codigo": "", "codigo_origen": "", "icono": "", "icono_distintivo": "",
+               "nombre_comercial": "", "sigla_comercial": "",
                "nombre": "", "cas": "", "otros_cas": "", "otros_nombres_comerciales": "",
                "casa_comercial": "", "fuente_comercial": "", "confianza_comercial": "",
                "clase": "", "tipo_natural": "", "isomero": "", "descriptor_1": "", "descriptor_2": "",
@@ -430,6 +448,29 @@ def main() -> None:
     unknown = sorted(set(trade) - {m["cas"] for m in everything})
     if unknown:
         raise SystemExit(f"nombres-comerciales.csv trae CAS que no están en el glosario: {unknown}")
+
+    # 9. The icon: the trade abbreviation when there is one, the user's code otherwise.
+    # When one abbreviation names several CAS (IBQ), what tells their chemical names apart
+    # goes before it, so the icon leaves no doubt: 6IBQ, 2IBQ (P39).
+    chemical = {}
+    for m in everything:
+        chemical.setdefault(m["cas"], m["nombre"])
+    shared: dict[str, list[str]] = {}
+    for cas, t in trade.items():
+        if t["sigla"]:
+            shared.setdefault(t["sigla"].lower(), []).append(cas)
+    mark: dict[str, str] = {}
+    for group in shared.values():
+        if len(group) < 2:
+            continue
+        found = [distinctive(chemical[c]) for c in group]
+        if all(found) and len(set(found)) == len(found):
+            mark.update(zip(group, found))
+        else:
+            mark.update({c: str(i) for i, c in enumerate(sorted(group), 1)})
+    for m in everything:
+        m["icono"] = m["sigla_comercial"] or m["codigo"]
+        m["icono_distintivo"] = mark.get(m["cas"], "") if m["sigla_comercial"] else ""
 
     OUT.mkdir(parents=True, exist_ok=True)
     header = list(base().keys())

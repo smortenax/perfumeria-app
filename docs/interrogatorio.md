@@ -1396,12 +1396,44 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
     está en ninguna fuente, como IBQ, se apunta como «uso del sector», con confianza media;
   - **la búsqueda tolera la grafía en español:** «isobutilquinoleina» encuentra
     «Isobutyl quinoline»;
-  - **la abreviatura propia del usuario sigue siendo la del dock.** La sigla comercial va
-    junto al nombre;
+  - ~~la abreviatura propia del usuario sigue siendo la del dock~~ **(corregido en P39: el
+    icono es la sigla comercial, y la abreviatura del usuario queda donde no la hay).** La
+    sigla comercial va también junto al nombre;
   - **una fórmula guarda el nombre comercial** del material que se añade.
 - Fecha: 2026-09-27
 - Estado: en curso
 - Destino: decisiones.md §6; plan, D3; el glosario
+
+### P39 — Una sigla para dos CAS: el icono lleva un distintivo
+- Bloque: datos (D3) y diseño (señales de tipo)
+- Abierta por: el usuario, al saber que «IBQ» se usa en el mercado para el 65442-31-1 y
+  para el 93-19-6
+- Respuesta literal: *«en casos como este vale la pena que haya un diferenciante en las siglas para que no haya lugar a dudads  6IBQ 2IBQ o quizas hay otra manera que contemplasl hablo de legibilidad de icono, en el buscador da igual que haya duplicados de nombres porque a la derecha siempre pondra el quimico en concreto para verificar»*
+- **Lectura:**
+  1. **Cuando una sigla comercial nombra a más de un CAS, el icono lleva un distintivo**, para
+     que no haya dudas.
+  2. **En el buscador, que se repitan los nombres da igual**: al lado va siempre el químico.
+  3. **Corrige una parte de P38: el icono es la sigla comercial.** Donde no la hay, sigue la
+     abreviatura del usuario.
+- **Opciones que se vieron:**
+  - **A · El distintivo, pequeño delante (⁶IBQ, ²IBQ).** Es la recomendada: la sigla que
+    todo el mundo conoce sigue leyéndose a primera vista.
+  - B · El distintivo a tamaño completo (6IBQ), la propuesta del usuario. Se lee igual de
+    claro, pero ocupa una letra más en un icono de 28 px.
+  - C · Un número al final (IBQ1, IBQ2). No dice nada del material.
+- **Hecho con A, por confirmar.** El distintivo sale del nombre químico, de lo que separa a
+  los CAS que comparten la sigla:
+  - el localizador inicial («6-sec-…» da 6);
+  - una letra griega (α, β);
+  - cis o trans (c, t);
+  - orto, meta o para (o, m, p).
+
+  Si nada de eso los separa, un número por orden de CAS. En la búsqueda valen «IBQ» y
+  «6IBQ». Pasar a B es cambiar el estilo del icono.
+- Fecha: 2026-09-27
+- Estado: cerrada · opción A por confirmar
+- Destino: el glosario (`icono`, `icono_distintivo`); decisiones.md §10 cuando se decida
+  el lenguaje visual
 
 ---
 
@@ -1413,6 +1445,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R9 · diseño | 6 (P23 a P28) | 0 |
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
-| R12 · infografías y frentes | 3 (P35, P36, P37) | 3 (P33, P34, P38) |
+| R12 · infografías y frentes | 4 (P35, P36, P37, P39) | 3 (P33, P34, P38) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.

@@ -49,6 +49,8 @@ aplica a todo material con ese CAS.
 | `casa_comercial` | la casa dueña del nombre, si lo es de una |
 | `fuente_comercial` | de dónde sale cada uno: PubChem (con su CID), IFRA (*commercial name*) o «uso del sector» |
 | `confianza_comercial` | alta, media o baja. Lo que solo es «uso del sector» llega como mucho a media |
+| `icono` | lo que dice el icono del material: la sigla comercial, o si no la abreviatura (P39) |
+| `icono_distintivo` | cuando una sigla nombra a más de un CAS, lo que los separa, sacado del nombre químico: el 6 de ⁶IBQ |
 
 Los sinónimos de PubChem se traen con
 [`scripts/buscar_sinonimos.py`](../../scripts/buscar_sinonimos.py) a `.cache/`, fuera de Git.

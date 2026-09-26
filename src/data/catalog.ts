@@ -22,6 +22,12 @@ export interface CatalogEntry {
   readonly group: CatalogGroup;
   /** The material's short code, the user's or a provisional one. */
   readonly code: string;
+  /**
+   * What its icon says: the trade abbreviation when there is one, the code otherwise
+   * (P39). When an abbreviation names several CAS, a mark goes before it: ⁶IBQ, ²IBQ.
+   */
+  readonly icon: string;
+  readonly iconMark?: string;
   /** The chemical name, which always stays beside the trade name (P38). */
   readonly chemicalName: string;
   readonly tradeName?: string;
@@ -100,6 +106,7 @@ function diluent(material: Material, code: string, cas: string, names: string[])
     material,
     group: "diluent",
     code,
+    icon: code,
     chemicalName: names[1],
     cas,
     search: normalize(`${code} ${material.name} ${names.join(" ")} ${cas}`),
@@ -186,11 +193,14 @@ export function buildCatalog(files: CatalogFiles): Catalog {
 
     const standardName = m.nombre_ifra.split(" | ")[0];
     const trade = m.nombre_comercial;
+    const marked = `${m.icono_distintivo}${m.sigla_comercial}`;
     const others = m.otros_nombres_comerciales === "" ? [] : m.otros_nombres_comerciales.split(" | ");
     entries.push({
       material: { key: m.id, kind: "base", name: trade || m.nombre },
       group: "base",
       code: m.codigo,
+      icon: m.icono || m.codigo,
+      ...(m.icono_distintivo ? { iconMark: m.icono_distintivo } : {}),
       chemicalName: m.nombre,
       ...(trade ? { tradeName: trade } : {}),
       ...(m.sigla_comercial ? { tradeCode: m.sigla_comercial } : {}),
@@ -198,7 +208,7 @@ export function buildCatalog(files: CatalogFiles): Catalog {
       state,
       ...(standardName && normalize(standardName) !== normalize(trade || m.nombre) ? { standardName } : {}),
       search: normalize(
-        `${m.codigo} ${trade} ${m.sigla_comercial} ${others.join(" ")} ${m.nombre} ${m.cas} ${m.otros_cas} ${m.nombre_ifra} ${m.sinonimos}`,
+        `${m.codigo} ${marked} ${trade} ${m.sigla_comercial} ${others.join(" ")} ${m.nombre} ${m.cas} ${m.otros_cas} ${m.nombre_ifra} ${m.sinonimos}`,
       ),
       folded: [trade, ...others, m.nombre, standardName].filter((n) => n !== "").map(fold),
     });
@@ -233,8 +243,16 @@ export function searchCatalog(entries: readonly CatalogEntry[], query: string, l
     [e.material.name, e.chemicalName, e.standardName ?? "", e.tradeCode ?? ""].some((n) => normalize(n).startsWith(head)) ||
     e.cas.startsWith(head);
   // Codes tell capitals apart («OT», «Ot»): the one typed exactly comes first.
+  const typed = query.trim();
+  const marked = (e: CatalogEntry) => `${e.iconMark ?? ""}${e.tradeCode ?? ""}`;
   const match = (e: CatalogEntry) =>
-    e.code === query.trim() || e.tradeCode === query.trim() ? 0 : normalize(e.code) === head ? 1 : starts(e) ? 2 : 3;
+    e.code === typed || e.tradeCode === typed || marked(e) === typed
+      ? 0
+      : normalize(e.code) === head || normalize(marked(e)) === head
+        ? 1
+        : starts(e)
+          ? 2
+          : 3;
   const score = (e: CatalogEntry) => GROUP_ORDER[e.group] * 4 + match(e);
   const ranked = found
     .map((e, i) => ({ e, i, s: score(e) }))
