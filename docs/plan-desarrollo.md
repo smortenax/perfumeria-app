@@ -66,20 +66,33 @@ Actualizado: **2026-09-26**
 
 TypeScript puro, con pruebas automáticas:
 
-- [ ] **Modelo:** los cuatro tipos de material; el vector y su ID; la fórmula (cabecera e
-  historial); el cambio como evento.
-- [ ] **Aritmética exacta:** masas en enteros, proporciones exactas; se redondea solo al
-  mostrar.
-- [ ] **La composición se deriva del historial.** Una fórmula usada como material se
-  desglosa.
+- [x] **Modelo:** los cuatro tipos de material; el vector y su ID; la fórmula (cabecera e
+  historial); el cambio como evento. En `src/core/model/` (2026-09-26). El ID de un vector
+  es el SHA-256 de su forma canónica.
+- [x] **Aritmética exacta:** masas en enteros, proporciones exactas; se redondea solo al
+  mostrar. En `src/core/arith/` (2026-09-26). **Cómo se cumple:** lo pesado entra en
+  microgramos enteros; lo derivado (materia pura, desgloses, repesados) es una fracción
+  exacta. Así no hay restos que repartir, y un componente de 1,2 µg sigue siéndolo.
+- [x] **La composición se deriva del historial.** Una fórmula usada como material se
+  desglosa. En `src/core/compose.ts` (2026-09-26). Se puede leer en cualquier fotograma,
+  que es lo que necesita el *play*.
 - [ ] **IFRA:** suma por sustancia, las dos lecturas, los estados de lo desconocido.
-- [ ] **Reabrir pesando**, y **guardar y leer JSON**.
+- [x] **Reabrir pesando**, como un cambio más del historial (2026-09-26).
+- [ ] **Guardar y leer JSON**.
 - [ ] **Pruebas de referencia.** Se adaptan las de
   [`03-motor-de-calculo.md`](antecedentes/formulacion/03-motor-de-calculo.md) §8, más estas:
-  - [F-001-v1](https://github.com/smortenax/perfumeria-lab/blob/master/formulas/f-001-lejia/v1.md) reproducida al miligramo;
-  - cumarina del frasco más la tintura sin dato: aviso, nunca verde;
-  - una fórmula importada, exacta al µg;
-  - escalar ×3 y ×⅓ vuelve al original sin perder nada.
+  - [x] [F-001-v1](https://github.com/smortenax/perfumeria-lab/blob/master/formulas/f-001-lejia/v1.md) reproducida al miligramo (2026-09-26). Una
+    cifra no coincide con el cuaderno, y el que falla es el cuaderno: el alcohol sale al
+    63,68 %, no al 63,67 %, porque el cuaderno redondeó su masa antes de dividir;
+  - [ ] cumarina del frasco más la tintura sin dato: aviso, nunca verde;
+  - [x] una fórmula importada, exacta al µg, y por debajo: sus fracciones no se redondean;
+  - [x] escalar ×3 y ×⅓, repesando, vuelve al original µg a µg.
+
+  De las pruebas de `03`, T1, T6, T7 y T10 están adaptadas y pasan. T5 sobra: con
+  fracciones exactas no hay restos que repartir, y la prueba de los tercios la sustituye. T9
+  va con IFRA. T2 a T4 (las operaciones de dilución de Formulair) y T8 (los ciclos) no
+  aplican a la v3: esas operaciones no están decididas, y un vector es una foto fija, así
+  que no puede haber ciclos.
 - **Sale:** todas las pruebas pasan.
 
 ## Fase 3 · Los datos de referencia *(en paralelo desde la fase 1)*
