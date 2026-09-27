@@ -26,6 +26,10 @@
       "sha256": "a1f5430865ca47e7c9568bca9933ecfd9788499a686ee18e2be5dd3426bf1601",
       "que_es": "materiales que solo conoce un catálogo de una casa"
     },
+    "datos/glosario/origen/equivalencias.csv": {
+      "sha256": "f9661f5926efaf774525b3a9376e0bdb7a2a6a04b560b84cdf8c140799a11b84",
+      "que_es": "moléculas que son la misma que una de IFRA, por su InChIKey"
+    },
     "datos/ifra/51/estandares.csv": {
       "sha256": "c8ba113637bfc3025365e3c6f298ec77355a06870b68c37339fa5e6b98469e6d"
     },
@@ -39,7 +43,7 @@
       "sha256": "289097c9d76de4430f967158556ff068faa4589175c44b48dd355a5eb93b6368"
     }
   },
-  "generado": "2026-09-27T06:37:12+00:00",
+  "generado": "2026-09-27T19:45:19+00:00",
   "cuentas": {
     "materiales": 4320,
     "del_fig": 3119,
@@ -48,16 +52,17 @@
     "codigos_generados": 1201,
     "por_estado": {
       "prohibido": 121,
-      "con-techo": 410,
+      "con-techo": 417,
       "condicion": 48,
       "por-constituyentes": 523,
       "sin-dato": 537,
-      "sin-estandar": 2681
+      "sin-estandar": 2674
     },
     "filas_de_constituyentes": 3303,
     "de_la_transparency_list": 3628,
-    "solo_de_la_transparency_list": 927,
+    "solo_de_la_transparency_list": 926,
     "del_fig_fuera_de_ifra": 355,
+    "heredan_un_estandar": 7,
     "con_nombre_comercial": 348,
     "con_sigla_comercial": 25
   }

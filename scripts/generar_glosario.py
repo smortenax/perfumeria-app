@@ -34,6 +34,8 @@ TRADE = ROOT / "datos" / "glosario" / "origen" / "nombres-comerciales.csv"
 TRANSPARENCY = ROOT / "datos" / "ifra" / "transparencia-2025" / "transparency-list.csv"
 # Materials that only a house catalogue knows, with the page where it says so.
 CATALOGUE = ROOT / "datos" / "glosario" / "origen" / "materiales-de-catalogos.csv"
+# Molecules that are the same as one IFRA lists (scripts/relacionar_moleculas.py).
+EQUIVALENCES = ROOT / "datos" / "glosario" / "origen" / "equivalencias.csv"
 OUT = ROOT / "datos" / "glosario"
 CAS_RE = re.compile(r"\b\d{2,7}-\d{2}-\d\b")
 CATEGORIES = ["1", "2", "3", "4", "5a", "5b", "5c", "5d", "6", "7a", "7b", "8", "9",
@@ -219,7 +221,7 @@ def main() -> None:
                "descriptor_3": "", "actualizado_fig": "", "fuentes": "", "estandares": "",
                "nombre_ifra": "", "estado": "", "condiciones": "", "constituyentes": "",
                "coincidencia_anexo": "", **{c: "" for c in CAT_COLS}, "limite_nota": "",
-               "sinonimos": "", "nombres_transparencia": ""}
+               "sinonimos": "", "nombres_transparencia": "", "fuera_de_ifra": ""}
         row.update(kw)
         return row
 
@@ -409,13 +411,33 @@ def main() -> None:
         per_material.setdefault(m["id"], []).append(row)
 
     # 7. Standards, state and conditions of every material.
+    # A molecule that is the same as a regulated one, or another stereochemistry of it, is
+    # in the scope of its standard: IFRA covers a substance «with any CAS used to identify
+    # it» (scripts/relacionar_moleculas.py, and its review).
+    equivalences = read(EQUIVALENCES) if EQUIVALENCES.exists() else []
+    inherit: dict[str, list[dict]] = {}
+    related: dict[str, list[dict]] = {}
+    for r in equivalences:
+        related.setdefault(r["cas"], []).append(r)
+        if r["hereda"] == "sí":
+            inherit.setdefault(r["cas"], []).append(r)
+    relation_text = {"mismo-compuesto": "el mismo compuesto, con otro registro, que el",
+                     "otra-estereoquimica": "otra estereoquímica del"}
     as_such = re.compile(r"^(This material should not be used|.{0,120}\bas such should not be used)", re.I)
     for m in everything:
         cas_all = [m["cas"]] + (m["otros_cas"].split() if m["id"].startswith("cas:") else [])
         keys = []
         for c in cas_all:
             keys += [k for k in stds_of_cas.get(c, []) if k not in keys]
-        conditions: list[str] = []
+        inherited = []
+        for r in inherit.get(m["cas"], []) if m["clase"] == "molécula" else []:
+            for k in stds_of_cas.get(r["cas_ifra"], []):
+                if k not in keys:
+                    keys.append(k)
+                    inherited.append(f"en el alcance del {short(k)}: es {relation_text[r['relacion']]} CAS {r['cas_ifra']}")
+        if inherited:
+            m["fuentes"] += " ifra-alcance"
+        conditions: list[str] = list(inherited)
         if m["id"].startswith("ncs:"):
             others = sorted({k for c in m["otros_cas"].split() for k in stds_of_cas.get(c, [])} - set(keys))
             conditions += [f"otro CAS suyo está en «{standards[k]['nombre']}» ({short(k)}): comprobar"
@@ -423,7 +445,7 @@ def main() -> None:
         stds = [standards[k] for k in keys]
         m["estandares"] = " ".join(keys)
         m["nombre_ifra"] = " | ".join(s["nombre"] for s in stds)
-        if "ifra-estandar" not in m["fuentes"] and keys:
+        if "ifra-estandar" not in m["fuentes"] and len(keys) > len(inherited):
             m["fuentes"] += " ifra-estandar"
         for c in CAT_COLS:
             m[c] = combine([s[c] for s in stds])
@@ -498,6 +520,36 @@ def main() -> None:
         m["condiciones"] = " · ".join(dict.fromkeys(conditions))
         m["fuentes"] = " ".join(dict.fromkeys(m["fuentes"].split()))
 
+    # Why a material of the FIG is not in anything of IFRA: the same compound under another
+    # CAS, another stereochemistry, another form of a natural IFRA does list, or none of it.
+    ifra_naturals = [m for m in everything if m["clase"] == "natural"
+                     and any(f in m["fuentes"].split() for f in ("ifra-transparencia", "ifra-anexo", "ifra-estandar"))]
+    naturals_by_cas: dict[str, list[dict]] = {}
+    naturals_by_word: dict[str, list[dict]] = {}
+    for nat in ifra_naturals:
+        naturals_by_cas.setdefault(nat["cas"], []).append(nat)
+        first = (re.findall(r"[a-z]+", nat["nombre"].lower()) or [""])[0]
+        naturals_by_word.setdefault(first, []).append(nat)
+    for m in everything:
+        if set(m["fuentes"].split()) - {"ifra-alcance"} != {"fig"}:
+            continue
+        rel = related.get(m["cas"], [])
+        if rel:
+            r = rel[0]
+            m["fuera_de_ifra"] = f"es {relation_text[r['relacion']]} CAS {r['cas_ifra']} ({r['nombre_ifra']}), que IFRA sí lista"
+            continue
+        if m["clase"] == "natural":
+            same = [nat for nat in naturals_by_cas.get(m["cas"], []) if nat is not m]
+            first = (re.findall(r"[a-z]+", m["nombre"].lower()) or [""])[0]
+            kin = [nat for nat in naturals_by_word.get(first, []) if len(first) > 3]
+            if same:
+                m["fuera_de_ifra"] = f"otra forma de un natural que IFRA lista con el mismo CAS: {same[0]['nombre']}"
+                continue
+            if kin:
+                m["fuera_de_ifra"] = "IFRA lista otras formas: " + " | ".join(nat["nombre"] for nat in kin[:3])
+                continue
+        m["fuera_de_ifra"] = "no está en la lista de IFRA de 2025: nadie declaró usarlo en su encuesta"
+
     # 8. The trade names, over everything with that CAS (P38). The chemical name stays.
     trade = {r["cas"]: r for r in read(TRADE)} if TRADE.exists() else {}
     for m in everything:
@@ -565,7 +617,8 @@ def main() -> None:
         "filas_de_constituyentes": len(constituents),
         "de_la_transparency_list": sum(1 for m in ordered if "ifra-transparencia" in m["fuentes"]),
         "solo_de_la_transparency_list": sum(1 for m in ordered if m["fuentes"] == "ifra-transparencia"),
-        "del_fig_fuera_de_ifra": sum(1 for m in ordered if m["fuentes"] == "fig"),
+        "del_fig_fuera_de_ifra": sum(1 for m in ordered if m["fuera_de_ifra"]),
+        "heredan_un_estandar": sum(1 for m in ordered if "ifra-alcance" in m["fuentes"]),
         "con_nombre_comercial": sum(1 for m in ordered if m["nombre_comercial"]),
         "con_sigla_comercial": sum(1 for m in ordered if m["sigla_comercial"]),
     }
@@ -581,6 +634,8 @@ def main() -> None:
                if TRANSPARENCY.exists() else {}),
             **({CATALOGUE.relative_to(ROOT).as_posix(): {"sha256": sha256(CATALOGUE), "que_es": "materiales que solo conoce un catálogo de una casa"}}
                if CATALOGUE.exists() else {}),
+            **({EQUIVALENCES.relative_to(ROOT).as_posix(): {"sha256": sha256(EQUIVALENCES), "que_es": "moléculas que son la misma que una de IFRA, por su InChIKey"}}
+               if EQUIVALENCES.exists() else {}),
             **{f"datos/ifra/{n}/{p}": {"sha256": sha256(ifra / p)} for p in
                ("estandares.csv", "estandar-cas.csv", "naturales.csv", "bases-schiff.csv")},
         },

@@ -63,6 +63,15 @@ describe("the catalog, from the glossary and IFRA's own files (P37)", () => {
     expect(report.asIs).toBe("unknown");
   });
 
+  it("puts in the scope of a standard the same molecule under another CAS or stereochemistry, but not another compound", () => {
+    // alpha-Amyl trans-cinnamaldehyde is not listed by IFRA, and is the amyl cinnamal of its standard.
+    const trans = byCas("78605-96-6");
+    expect(ifraOf(trans.key)?.substances).toEqual([{ key: "std:IFRA_STD_005", fraction: Ratio.ONE }]);
+    expect(ifraOf(trans.key)?.conditions.some((c) => c.startsWith("en el alcance del STD 005"))).toBe(true);
+    // Nerol is the Z isomer of geraniol, a compound of its own: the geraniol standard does not reach it.
+    expect(ifraOf(byCas("106-25-2").key)?.substances.some((s) => s.key === "std:IFRA_STD_037")).toBe(false);
+  });
+
   it("keeps specifications as conditions, and a prohibited material over any ceiling", () => {
     expect(ifraOf(byName("Cade oil, rectified").key)?.conditions).toContain("especificación (STD 119)");
     const benzene = byCas("71-43-2");

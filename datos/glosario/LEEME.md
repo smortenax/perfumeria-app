@@ -36,11 +36,16 @@ En total son 4320. La Transparency List se une así con lo anterior:
 - su nombre, si es distinto, queda en `nombres_transparencia` y también se busca;
 - de los naturales, `categoria_iso` apunta la categoría ISO 9235 que dan IFRA o el anexo.
 
-- **355 materiales del FIG no están en nada de IFRA** (`fuentes` = `fig`): ni en sus
-  estándares, ni en su anexo, ni en la lista de 2025. Son los que faltan por documentar:
-  - 283 moléculas sin estándar propio;
-  - 69 naturales sin dato;
-  - 3 con una condición por familia.
+- **355 materiales del FIG no están en nada de IFRA**: ni en sus estándares, ni en su
+  anexo, ni en la lista de 2025. **`fuera_de_ifra` dice por qué**: el mismo compuesto u otra
+  estereoquímica de uno que IFRA lista, otra forma de un natural que sí lista, o que no
+  aparece en la lista de 2025. Ver
+  [el ejercicio inverso](../../docs/investigacion/2026-09-27-fig-fuera-de-ifra/README.md).
+- **`ifra-alcance`**, en `fuentes`: una molécula que IFRA no lista, pero que es la misma
+  que una regulada, con otro CAS o con otra estereoquímica. **Hereda su estándar**, porque
+  IFRA cubre su sustancia con cualquier CAS; el motivo va en `condiciones`. Salen de
+  [`origen/equivalencias.csv`](origen/equivalencias.csv), que genera
+  [`scripts/relacionar_moleculas.py`](../../scripts/relacionar_moleculas.py). Son 7.
 - **La abreviatura** (`codigo`) es única en todo el glosario:
   - `codigo_origen` = `usuario` en las 3119 del FIG;
   - `codigo_origen` = `generado` en las 1201 nuevas, con el mismo estilo y **provisionales**.
@@ -78,11 +83,11 @@ Lo desconocido nunca se da por libre (§1.2).
 | `estado` | Quiere decir | Cuántos |
 |---|---|---|
 | `prohibido` | su estándar lo prohíbe como tal | 121 |
-| `con-techo` | su estándar le pone un techo en % en alguna categoría | 410 |
+| `con-techo` | su estándar le pone un techo en % en alguna categoría | 417 |
 | `condicion` | una especificación, una variante prohibida o una familia: no es un % | 48 |
 | `por-constituyentes` | sin estándar propio, pero el anexo le da constituyentes regulados | 523 |
 | `sin-dato` | un natural sin estándar propio y fuera del anexo: no se sabe qué lleva | 537 |
-| `sin-estandar` | no está en el índice de IFRA, que es completo: no tiene estándar propio | 2678 |
+| `sin-estandar` | no está en el índice de IFRA, que es completo: no tiene estándar propio | 2674 |
 
 `condiciones` explica lo que no cabe en un %, con el estándar al lado: especificaciones,
 variantes prohibidas, grupos de un estándar, el tope de la nota o la familia. **Una familia

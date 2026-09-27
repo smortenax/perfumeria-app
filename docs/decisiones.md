@@ -318,7 +318,11 @@ y el FIG completa lo que IFRA no tiene:
   por libre (§1.2). Sus dos lecturas quedan abiertas;
 - **las tres familias sin CAS** (cítricos, pináceas y ésteres alílicos) **se asignan por el
   nombre**, y el glosario lo dice;
-- **si un material puede ser varias variantes del anexo, cuenta la peor** (P31).
+- **si un material puede ser varias variantes del anexo, cuenta la peor** (P31);
+- **una molécula que es la misma que una regulada, con otro CAS o con otra estereoquímica,
+  hereda su estándar** (P41). **Por qué:** IFRA cubre su sustancia «con cualquier CAS con
+  que se la identifique». Se detecta por la InChIKey, y la revisión quita lo que es otro
+  compuesto, como el nerol frente al geraniol.
 
 «Sin comprobar» queda para lo que no está en el glosario: un material provisional o uno
 propio. Lo que está solo en el FIG es lo que falta por documentar, y su regulación se

@@ -1486,6 +1486,33 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 - Estado: cerrada
 - Destino: el glosario (`icono_tipo`); decisiones.md §10 cuando se decida el lenguaje visual
 
+### P41 — Lo que el FIG tiene e IFRA no, y lo que eso descubre
+- Bloque: datos (D3), IFRA (§5.2)
+- Abierta por: el usuario, tras la Transparency List
+- Respuesta literal: *«añade también los tres de Takasago al glosario, haz push y luego haz el ejercicio contrario al de ahora, en vez de buscar todos los glosarios para encontrar referencias de los documentos busca todas las referencias no documentadas para hacer el glosario, que no este en ifra pero si en fig puede ser , o porque es equivalente a otro, o porque no se regula quiero pensar, ifra deberia ser mas completa que fig en tanto y en cuanto es una regla»*
+- **Lectura:**
+  1. Los tres materiales de Takasago entran al glosario.
+  2. **El ejercicio inverso:** tomar lo que no está documentado por IFRA (lo que está en el
+     FIG y no en IFRA) y averiguar por qué: si es equivalente a otro, una variante, o algo
+     que no se regula.
+- **Lo que salió** ([el ejercicio](investigacion/2026-09-27-fig-fuera-de-ifra/README.md)):
+  - **La Transparency List no es la regla**: es la encuesta de uso de 2025. La regla son
+    los estándares, y su índice es completo. El FIG es de 2020, y lo que dejó de declararse
+    no está en la lista. Esto último es una inferencia.
+  - **De los 355**:
+    - 26 moléculas son el mismo compuesto, o la misma molécula con otra estereoquímica,
+      que una que IFRA lista;
+    - 58 naturales son otra forma de uno que IFRA lista;
+    - 271 no aparecen en la lista de 2025.
+  - **Siete moléculas del glosario sin estándar son la misma que una regulada**, como la
+    amilcinamaldehído trans frente a la amilcinámica. El banco las daba por libres.
+- **Añadido en la lectura, por confirmar:** **esas moléculas heredan el estándar**, porque
+  IFRA cubre su sustancia con cualquier CAS. Se detectan por la InChIKey, y la revisión
+  quita lo que es otro compuesto: el nerol no hereda el de geraniol.
+- Fecha: 2026-09-27
+- Estado: cerrada · la herencia, por confirmar
+- Destino: decisiones.md §5.2; el glosario (`fuera_de_ifra`, `ifra-alcance`)
+
 ---
 
 ## Estado
@@ -1496,6 +1523,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R9 · diseño | 6 (P23 a P28) | 0 |
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
-| R12 · infografías y frentes | 6 (P35 a P40) | 2 (P33, P34) |
+| R12 · infografías y frentes | 7 (P35 a P41) | 2 (P33, P34) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.
