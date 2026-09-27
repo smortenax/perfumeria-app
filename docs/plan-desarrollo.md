@@ -143,7 +143,10 @@ Trabajo de lectura: subagentes Sonnet de uno en uno, y revisión por partes.
   ([`encargos/`](encargos/)). Con P34 y P35, la capa lleva además el **nivel de uso
   habitual**, y una **categorización propia** en lugar de la del FIG; es universal y sin
   descripciones del usuario. **La parte A de los dos frentes está hecha** (2026-09-26): de
-  dónde sale cada campo y qué cubre.
+  dónde sale cada campo y qué cubre. **La puesta en común llegó el 2026-09-27** (P42): seis
+  decisiones abiertas, y **entra ya la presión de vapor de OPERA**, de uso libre, en
+  `datos/fuente/`. Cubre 2069 de las 3107 moléculas del glosario; faltan las 850 que solo
+  están en IFRA.
 - **Sale:** la app carga el paquete sin red, y dice su versión y su fecha.
 
 ## Diseño *(en paralelo, desde el 2026-09-25)*

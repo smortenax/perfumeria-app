@@ -33,17 +33,21 @@ ROOT = Path(__file__).resolve().parents[1]
 DEST = ROOT / "datos" / "fuente"
 LAB_URL = "https://github.com/smortenax/perfumeria-lab"
 
-# Data files taken from the lab, by their path inside the lab repository. None today
-# (P37): IFRA comes from IFRA's own files (scripts/importar_ifra.py), the glossary from
-# the FIG with the user's codes (scripts/generar_glosario.py), and the lab's materials
-# stay out of the app (P36). The own layer of the materials (plan, D4) will come here.
-SOURCES: list[str] = []
+# Data files taken from the lab, by their path inside the lab repository. IFRA comes from
+# IFRA's own files (scripts/importar_ifra.py), the glossary from the FIG with the user's
+# codes (scripts/generar_glosario.py), and the lab's materials stay out of the app (P37).
+# What comes from here is the own layer of the materials (plan, D4), from free-use sources
+# only (P35): OPERA's vapour pressure, from the EPA's CompTox, public domain and MIT (P42).
+SOURCES: list[str] = [
+    "fuentes/investigaciones/2026-09-26-frente-6-piezas/pieza-8-presion-de-vapor-opera.csv",
+]
 
 # Documents that explain what is imported: lab path -> name in datos/fuente/. The FIG's
 # stay, for its terms of use and the definitions of its descriptors.
 DOCS = {
     "conocimiento/lenguaje/fig/README.md": "leeme-glosario-fig.md",
     "conocimiento/lenguaje/fig/descriptores.md": "fig-descriptores.md",
+    "fuentes/investigaciones/2026-09-26-frente-6-piezas/pieza-8-presion-de-vapor-estimada.md": "leeme-presion-de-vapor.md",
 }
 
 LINK = re.compile(r"(!?)\[([^\]]*)\]\(([^)\s]+)\)")

@@ -1506,12 +1506,50 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
     - 271 no aparecen en la lista de 2025.
   - **Siete moléculas del glosario sin estándar son la misma que una regulada**, como la
     amilcinamaldehído trans frente a la amilcinámica. El banco las daba por libres.
-- **Añadido en la lectura, por confirmar:** **esas moléculas heredan el estándar**, porque
-  IFRA cubre su sustancia con cualquier CAS. Se detectan por la InChIKey, y la revisión
-  quita lo que es otro compuesto: el nerol no hereda el de geraniol.
+- **Añadido en la lectura:** **esas moléculas heredan el estándar**, porque IFRA cubre su
+  sustancia con cualquier CAS. Se detectan por la InChIKey, y la revisión quita lo que es
+  otro compuesto: el nerol no hereda el de geraniol.
+- Confirmación del usuario, 2026-09-27: *«confirmo P41»*
 - Fecha: 2026-09-27
-- Estado: cerrada · la herencia, por confirmar
+- Estado: cerrada
 - Destino: decisiones.md §5.2; el glosario (`fuera_de_ifra`, `ifra-alcance`)
+
+### P42 — La capa descriptiva, campo a campo *(llevada desde la bandeja)*
+- Bloque: datos (D4)
+- Abierta por: el laboratorio, en la bandeja (`app/entradas.md`, 2026-09-27), con su
+  [puesta en común](https://github.com/smortenax/perfumeria-lab/blob/d2852f4/fuentes/investigaciones/2026-09-27-frente-6-puesta-en-comun-app.md)
+  de las partes A y C del frente 6 y del frente 7
+- Respuesta literal: **no es del usuario**; es el resumen del laboratorio.
+- **Lectura:**
+  1. **Posición y duración son un solo dato, la presión de vapor**, con dos lecturas. Se
+     guarda el dato y se calculan las dos. OPERA la da para 2060 de las 2140 moléculas
+     del FIG, y coincide con la experimental bien leída (un factor 1,2).
+  2. **La duración estimada solo da el orden de magnitud:** un factor 3,7 de error típico.
+     Se queda corta con los materiales potentes; falta una corrección por el umbral.
+  3. **La intensidad tiene definición con cita:** OV′ = OV^0,35 del material puro (Calkin
+     & Jellinek). **El umbral en aire es el cuello de botella:** hay 160 CAS.
+  4. **Los naturales** van por la escala de palabras de Arctander, o por sus
+     constituyentes.
+  5. **El CAS no sirve de clave**, porque un CAS de natural cubre varias entradas. **La app
+     ya tiene una clave por fila**, la del glosario (`fig:N`, `tl:…`), provisional hasta
+     cerrar D3.
+  6. **Quedan seis decisiones para la app**, que se harán de una en una al retomar D4:
+     - los anclajes de la escala de posición;
+     - tira o piel para la duración;
+     - OV′ puro o en fórmula;
+     - cómo enseñar la incertidumbre;
+     - la clave;
+     - el POM dentro o fuera.
+- **Hecho:** **la presión de vapor de OPERA entra en la app** con
+  [`importar_datos.py`](../scripts/importar_datos.py), desde el commit `d2852f4` del
+  laboratorio (`datos/fuente/`). Es de dominio público y MIT, así que va directa (P35).
+  - **Cubre 2069 de las 3107 moléculas del glosario (66,6 %):** 2069 de las 2257 del FIG,
+    y **ninguna de las 850 que solo están en IFRA**, porque el laboratorio buscó solo el
+    FIG. La misma búsqueda del CompTox, con esos CAS, las cubriría.
+  - **No se usa todavía en pantalla:** espera a los anclajes de la escala.
+- Fecha: 2026-09-27 (llevada el mismo día)
+- Estado: abierta · seis decisiones de D4
+- Destino: plan, D4; decisiones.md §6 cuando se decidan
 
 ---
 
@@ -1523,6 +1561,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R9 · diseño | 6 (P23 a P28) | 0 |
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
-| R12 · infografías y frentes | 7 (P35 a P41) | 2 (P33, P34) |
+| R12 · infografías y frentes | 7 (P35 a P41) | 3 (P33, P34, P42) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.
