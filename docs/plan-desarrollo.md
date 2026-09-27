@@ -125,7 +125,10 @@ Trabajo de lectura: subagentes Sonnet de uno en uno, y revisión por partes.
   constituyentes. **La clave** es `fig:N` para una fila del FIG, `cas:CAS` para lo que solo
   está en un estándar y `ncs:nombre` para un natural del anexo; es provisional hasta cerrar
   D3. **Falta:**
-  - la *Transparency List*, que añadiría materiales, no restricciones;
+  - ~~la *Transparency List*~~ **leída el 2026-09-27** de la web de IFRA, página a página
+    ([`datos/ifra/transparencia-2025/`](../datos/ifra/transparencia-2025/LEEME.md)): 3691
+    filas y 3055 CAS. Entran 927 materiales que el glosario no tenía. Falta revisar su
+    licencia antes de distribuir;
   - ~~una capa de sinónimos~~ **hecha la de nombres comerciales** (P38, 2026-09-27): 331
     materiales con nombre y 25 con sigla, de PubChem, de IFRA, de la web y del uso del
     sector;

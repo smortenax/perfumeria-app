@@ -2,14 +2,15 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 100-06-1,Novatone,,Vananote | Epenone,,nombre: PubChem CID 7476,media,
 101-86-0,,HCA,Jasmonal H,,sigla: uso del sector · web: https://www.perfumersworld.com/view.php?pro_id=3JJ00217,media,"La ficha (PerfumersWorld) titula el producto ""Hexyl Cinnamic Aldehyde (HCA)"" con el CAS 101-86-0, y en la misma página lista ""jasmonal H"" entre los sinónimos. HCA es sigla genérica del sector, no de una casa; Jasmonal H podría ser marca de un productor concreto, no identificado con certeza."
 103-05-9,Carbinol Muguet,,,dsm-firmenich (Firmenich),"web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial)",media,"Del Compendium of Perfumery Ingredients 2016 de Firmenich (hoy dsm-firmenich), leído a través de un espejo público (pdfcoffee). CAS y nombre coinciden con el nombre químico del glosario (2-Methyl-4-phenyl-2-butanol)."
+103-37-7,,,Aldehyde C-19,,,alta,
 103-95-7,Cyclamen aldehyde,,Cyclamal | Cyclaviol | Cyclosal | Cymal | Aldehyde B,,nombre: PubChem CID 517827,alta,
 103694-68-4,Majantol,,Linlan alcohol | Muguetol B,,"nombre: IFRA 51.ª, commercial name",alta,Linlan alcohol y Muguetol B son nombres de otras casas para el mismo material.
 104-27-8,Ethone,,,,"nombre: IFRA 51.ª, commercial name",media,
 104-61-0,Aldehyde C-18,,Coconut aldehyde | Prunolide | Apricolin,,nombre: PubChem CID 7710,alta,
 104-67-6,Aldehyde C-14,,Persicol | Peach aldehyde,,nombre: PubChem CID 7714,alta,Conocido como «Aldehyde C-14 (peach)».
 10411-92-4,Vertenex,,,IFF,nombre: PubChem CID 36081,alta,"Comparte el nombre Vertenex con el CAS 32210-23-4 (lote 3, isómero trans)."
-10461-98-0,Peonile,,Rosinile | Sensinile,Firmenich,"nombre: IFRA 51.ª, commercial name",alta,
-104864-90-6,Firsantol,,,dsm-firmenich (Firmenich),"web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial)",media,Compendium Firmenich 2016. Coincide con el nombre químico del glosario.
+10461-98-0,Peonile,,Rosinile | Sensinile,Firmenich,"nombre: IFRA 51.ª, commercial name · catálogo: Givaudan Fragrance Ingredients Sustainability Profile (2024)",alta,
+104864-90-6,Firsantol,,,dsm-firmenich (Firmenich),"web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial) · catálogo: Firmenich Perfumery Ingredients 2020",alta,Compendium Firmenich 2016. Coincide con el nombre químico del glosario.
 105-95-3,Musk T,,Astratone,,nombre: PubChem CID 61014,alta,
 10519-12-7,Santalozone,,,,nombre: PubChem CID 25325,media,
 106-02-5,Exaltolide,,Exaltex | Pentalide | Muskolactone | Thibetolide | Cyclopentadecanolid Supra,Firmenich,"nombre: IFRA 51.ª, commercial name",alta,
@@ -17,7 +18,8 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 106-23-0,Rhodinal,,Citronellal Extra,,"nombre: IFRA 51.ª, commercial name",media,
 106-72-9,Melonal,,Melomor | Bergamal,,nombre: PubChem CID 61016,alta,
 107-74-4,Hydroxyol,,,,nombre: PubChem CID 249494,media,
-107898-54-4,Polysantol,,Mysantol,Firmenich,"nombre: IFRA 51.ª, commercial name",alta,
+107-75-5,,,Laurine | Laurinal | Lilyl aldehyde | Fixol | Cyclosia,,catálogo: Takasago Aroma Ingredients Compendium (2024),alta,
+107898-54-4,Polysantol,,Mysantol,Firmenich,"nombre: IFRA 51.ª, commercial name · catálogo: Firmenich Perfumery Ingredients 2020",alta,
 110-41-8,Aldehyde C-12 MNA,MNA,,,nombre: PubChem CID 61031 · sigla: uso del sector · web: https://www.scentree.co/en/Aldehyde_C-12_MNA.html,media,"ScenTree titula la ficha ""Aldehyde C-12 MNA (CAS N° 110-41-8)"", confirmando la sigla MNA junto al CAS. Es nomenclatura de serie (""Aldehyde C-"") de uso general del sector, no de una única casa."
 110-93-0,Sulcatone,,,,nombre: PubChem CID 9862,alta,
 111-12-6,Folione,,Vert de violette,,"nombre: IFRA 51.ª, commercial name",alta,
@@ -36,11 +38,11 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 120-51-4,,BB,,,sigla: uso del sector · web: https://www.perfumersworld.com/view.php?pro_id=0ZN00054,media,"PerfumersWorld titula la ficha ""Benzyl Benzoate (BB)"" para el CAS 120-51-4; ScenTree lo recoge también. BB es sigla de uso general (disolvente/fijador), no de una casa."
 120-57-0,Heliotropin,,Heliotropine,,nombre: PubChem CID 8438,media,El nombre de uso del piperonal.
 1205-17-0,Helional,,Heliofolal | Heliogan | Tropional | Floramelon | Heliofresh,,"nombre: IFRA 51.ª, commercial name",alta,
-120811-92-9,Centifolether,,,dsm-firmenich (Firmenich),"web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial)",media,Compendium Firmenich 2016. Coincide con el nombre químico del glosario ((3-Methoxy-2-methylpropyl)benzene).
+120811-92-9,Centifolether,,,dsm-firmenich (Firmenich),"web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial) · catálogo: Firmenich Perfumery Ingredients 2020",alta,Compendium Firmenich 2016. Coincide con el nombre químico del glosario ((3-Methoxy-2-methylpropyl)benzene).
 1209-61-6,Tabacarol,,,,nombre: PubChem CID 102579,media,
 121-32-4,Bourbonal,,Ethavan | Vanillal | Vanirome | Rhodiarome | Arovanillon,,nombre: PubChem CID 8467,alta,
-121251-67-0,Spirambrene,,,Givaudan,nombre: uso del sector · web: https://www.givaudan.com/fragrance-beauty/fragrance-ingredients-business/fragrance-molecules/spirambrene,alta,"Confirmado en la página oficial de Givaudan, que da dos CAS de isómeros para el mismo Spirambrene: 121251-67-0 y 121251-68-1."
-121251-68-1,Spirambrene,,,Givaudan,web: https://www.givaudan.com/fragrance-beauty/fragrance-ingredients-business/fragrance-molecules/spirambrene,alta,"La ficha oficial de Givaudan da dos CAS de isómero para Spirambrene: 121251-67-0 (ya en b-uso-del-sector.csv) y este, 121251-68-1."
+121251-67-0,Spirambrene,,,Givaudan,nombre: uso del sector · web: https://www.givaudan.com/fragrance-beauty/fragrance-ingredients-business/fragrance-molecules/spirambrene · catálogo: Givaudan Fragrance Ingredients Sustainability Profile (2024),alta,"Confirmado en la página oficial de Givaudan, que da dos CAS de isómeros para el mismo Spirambrene: 121251-67-0 y 121251-68-1."
+121251-68-1,Spirambrene,,,Givaudan,web: https://www.givaudan.com/fragrance-beauty/fragrance-ingredients-business/fragrance-molecules/spirambrene · catálogo: Givaudan Fragrance Ingredients Sustainability Profile (2024),alta,"La ficha oficial de Givaudan da dos CAS de isómero para Spirambrene: 121251-67-0 (ya en b-uso-del-sector.csv) y este, 121251-68-1."
 122-40-7,,ACA,Flomine | Jasminaldehyde,,sigla: uso del sector · web: https://www.perfumersworld.com/view.php?pro_id=3JJ00005,media,"Flomine es el nombre comercial que da IFRA, pero el de uso es «amyl cinnamic aldehyde». La ficha de PerfumersWorld (""Amyl Cinnamic Aldehyde (ACA)"") da el CAS 122-40-7 en sus especificaciones técnicas. ACA es sigla de uso general del sector, no de una casa."
 1222-05-5,Galaxolide,HHCB,Abbalide | Pearlide,IFF,nombre: PubChem CID 91497 · sigla: PubChem CID 91497,alta,
 123-11-5,Aubepine,,Obepin,,nombre: PubChem CID 31244,alta,
@@ -48,7 +50,7 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 124-13-0,Aldehyde C-8,,,,nombre: PubChem CID 454,media,
 124-19-6,Aldehyde C-9,,,,nombre: PubChem CID 31289,media,
 125109-85-5,Florhydral,,,Givaudan,nombre: PubChem CID 86209,alta,
-127-51-5,Isoraldeine,,Cetone alpha | Isonaline 70,Givaudan,nombre: uso del sector · web: https://www.givaudan.com/fragrance-beauty/fragrance-ingredients-business/fragrance-molecules/isoraldeinetm-95,alta,"El candidato de IFRA es «Isoraldeine 95» (grado); el nombre de uso es Isoraldeine sin más. Confirmado en la ficha oficial de Givaudan (Isoraldeine™ 95). El CAS 127-51-5 aparece junto con otros dos (1335-46-2, 15789-90-9) porque el producto comercial es una mezcla de isómeros del alfa-iso-metilionona."
+127-51-5,Isoraldeine,,Cetone alpha | Isonaline 70,Givaudan,nombre: uso del sector · web: https://www.givaudan.com/fragrance-beauty/fragrance-ingredients-business/fragrance-molecules/isoraldeinetm-95 · catálogo: Givaudan Fragrance Ingredients Sustainability Profile (2024),alta,"El candidato de IFRA es «Isoraldeine 95» (grado); el nombre de uso es Isoraldeine sin más. Confirmado en la ficha oficial de Givaudan (Isoraldeine™ 95). El CAS 127-51-5 aparece junto con otros dos (1335-46-2, 15789-90-9) porque el producto comercial es una mezcla de isómeros del alfa-iso-metilionona."
 130066-44-3,Lyral,,HICC,IFF,web: https://www.hpc-standards.com/shop/ReferenceMaterials/OdorCompounds/Lyral.htm,media,"Es un segundo número CAS para la misma mezcla comercial (isómeros 3- y 4-) que ya tiene el 31906-04-4 con confianza alta; caso análogo a Tonalide/AHTN en este mismo glosario, donde un nombre cubre dos CAS de isómeros. IFF es la casa que comercializa Lyral, pero su ficha oficial (iff.com) devolvió error 403 al leerla; se usa como fuente un distribuidor de materiales de referencia que empareja el nombre con este CAS exacto."
 13019-22-2,Rosalva,,Trepanol,,nombre: PubChem CID 25612,media,
 13049-88-2,Pear acetate,,,,"nombre: IFRA 51.ª, commercial name",media,
@@ -78,7 +80,7 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 14374-92-6,Verdoracine,,,,nombre: PubChem CID 84398,media,
 14595-54-1,Exaltenone,,,Firmenich,nombre: PubChem CID 6365389,alta,
 14765-30-1,Freskomenthe,,Frescomenthe,,nombre: PubChem CID 61771,media,
-149713-23-5,Doremox,,,dsm-firmenich (Firmenich),"web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial)",media,"Compendium Firmenich 2016 da este CAS para Doremox®; es un estereoisómero puro (2R,4S-rel) del mismo tetrahidro-4-metil-2-fenil-2H-pirano cuya mezcla comercial ya tiene asignado el CAS 94201-73-7 (ver b-uso-del-sector.csv). Mismo caso que Tonalide/Okoumal: un nombre para varios CAS de isómeros."
+149713-23-5,Doremox,,,dsm-firmenich (Firmenich),"web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial) · catálogo: Firmenich Perfumery Ingredients 2020",alta,"Compendium Firmenich 2016 da este CAS para Doremox®; es un estereoisómero puro (2R,4S-rel) del mismo tetrahidro-4-metil-2-fenil-2H-pirano cuya mezcla comercial ya tiene asignado el CAS 94201-73-7 (ver b-uso-del-sector.csv). Mismo caso que Tonalide/Okoumal: un nombre para varios CAS de isómeros."
 1506-02-1,Tonalide,AHTN,Tonalid | Tetralide | Fixolide | Musk tonalid,,nombre: PubChem CID 89440 · sigla: PubChem CID 89440,alta,
 151-05-3,,DMBCA,,,sigla: PubChem CID 9024,media,
 15323-35-0,Phantolide,AHMI,,,nombre: PubChem CID 47167 · sigla: PubChem CID 47167,alta,
@@ -94,7 +96,8 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 18127-01-0,Bourgeonal,,Liliphenal,,"nombre: IFRA 51.ª, commercial name",alta,
 18836-52-7,Pellitorine,,Optaflow A,,nombre: PubChem CID 5318516,media,
 18871-14-2,Jasmopyrane,,Jasmal | Jasmophyll,,nombre: PubChem CID 86799,media,
-198404-98-7,Javanol,,,Givaudan,nombre: uso del sector · web: https://www.givaudan.com/fragrance-beauty/fragrance-ingredients-business/fragrance-molecules/javanol,alta,Confirmado en la página oficial de Givaudan.
+194934-66-2,Biomuguet,,,Takasago,catálogo: Takasago Aroma Ingredients Compendium (2024),alta,
+198404-98-7,Javanol,,,Givaudan,nombre: uso del sector · web: https://www.givaudan.com/fragrance-beauty/fragrance-ingredients-business/fragrance-molecules/javanol · catálogo: Givaudan Fragrance Ingredients Sustainability Profile (2024),alta,Confirmado en la página oficial de Givaudan.
 21112-37-8,Vetimoss,,,,nombre: PubChem CID 88792,baja,
 211299-54-6,Ambrocenide,,,,nombre: PubChem CID 66731260,media,
 21145-77-7,Tonalide,AHTN,Tonalid | Tetralide | Fixolide | Musk tonalid,,nombre: PubChem CID 89440 · sigla: PubChem CID 89440,alta,Isómero de AHTN/Tonalide junto con el CAS 1506-02-1 (lote 1); el sector vende el musk como mezcla de ambos isómeros bajo el mismo nombre.
@@ -102,20 +105,22 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 21944-98-9,Tangerinal,,,,nombre: PubChem CID 6430180,baja,
 2226-05-3,Patchenol,,,,nombre: PubChem CID 5354776,baja,
 224031-70-3,Spirogalbanone,,,,nombre: PubChem CID 15405344,media,
-224031-71-4,Spirogalbanone,,,Givaudan,web: https://www.parchem.com/chemical-supplier-distributor/spirogalbanone-givaudan-167344,media,"El CAS 224031-70-3 ya está en con-nombre.txt como ""Spirogalbanone"" (media, PubChem). Este CAS (224031-71-4) es el otro isómero de posición del doble enlace de la misma mezcla comercial Spirogalbanone de Givaudan (56%/40% según The Good Scents Company)."
+224031-71-4,Spirogalbanone,,,Givaudan,web: https://www.parchem.com/chemical-supplier-distributor/spirogalbanone-givaudan-167344 · catálogo: Givaudan Fragrance Ingredients Sustainability Profile (2024),alta,"El CAS 224031-70-3 ya está en con-nombre.txt como ""Spirogalbanone"" (media, PubChem). Este CAS (224031-71-4) es el otro isómero de posición del doble enlace de la misma mezcla comercial Spirogalbanone de Givaudan (56%/40% según The Good Scents Company)."
 22457-23-4,Stemone,,,IFF,nombre: PubChem CID 90787,alta,
 23089-26-1,Levomenol,,Dragosantol | Camilol,,nombre: PubChem CID 442343,alta,Nombre INN del bisabolol levógiro; el sector suele pedirlo simplemente como «Bisabolol».
 23550-40-5,Corps Cassis,,,,nombre: PubChem CID 4682590,media,
-236391-76-7,Romandolide,,,dsm-firmenich (Firmenich),nombre: uso del sector · web: https://www.scentree.co/en/Romandolide%C2%AE.html,alta,"ScenTree confirma el CAS junto al nombre y que la marca ""Romandolide®"" la registró Firmenich SA en 2001 (hoy dsm-firmenich)."
+236391-76-7,Romandolide,,,dsm-firmenich (Firmenich),nombre: uso del sector · web: https://www.scentree.co/en/Romandolide%C2%AE.html · catálogo: Firmenich Perfumery Ingredients 2020,alta,"ScenTree confirma el CAS junto al nombre y que la marca ""Romandolide®"" la registró Firmenich SA en 2001 (hoy dsm-firmenich)."
 23696-85-7,Damascenone,,,dsm-firmenich (Firmenich),"web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial)",media,"Compendium Firmenich 2016 (beta-damascenona). Coincide con el nombre químico del glosario (1-(2,6,6-Trimethylcyclohexa-1,3-dienyl)-2-buten-1-one)."
 23726-91-2,Damascone Beta,,,dsm-firmenich (Firmenich),"web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial)",media,Compendium Firmenich 2016. Coincide con el nombre químico del glosario (beta-damascona).
 23911-56-0,Nerolione,,,,nombre: PubChem CID 2507689,alta,
 23950-98-3,Tarragol,,,,nombre: PubChem CID 91098,media,
 24168-70-5,,SBMP,,,sigla: PubChem CID 520098,media,
 24237-00-1,Gyrane,,,,nombre: PubChem CID 91147,media,
+2442-10-6,Matsutake Acetate,,,Takasago,catálogo: Takasago Aroma Ingredients Compendium (2024),alta,
 24683-00-9,Galbazine,IBMP,,,nombre: PubChem CID 32594 · sigla: PubChem CID 32594,alta,
+246872-25-3,Thesaron,,,Takasago,catálogo: Takasago Aroma Ingredients Compendium (2024),alta,
 24720-09-0,Damascone Alpha,,,dsm-firmenich (Firmenich),"web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial)",media,Compendium Firmenich 2016. Coincide con el nombre químico del glosario (alfa-damascona).
-24851-98-7,Hedione,,Kharismal | Jessamona,Firmenich,nombre: PubChem CID 102861,alta,
+24851-98-7,Hedione,,Kharismal | Jessamona | Jasmodione,Firmenich,nombre: PubChem CID 102861 · catálogo: Takasago Aroma Ingredients Compendium (2024),alta,
 2511-00-4,Poirenate,,,,nombre: PubChem CID 160641,media,
 2550-52-9,Isomuscone,,Homoexaltone,Firmenich,"nombre: IFRA 51.ª, commercial name",media,
 2556-10-7,Efetaal,,Verotyl,,nombre: PubChem CID 102849,media,
@@ -127,13 +132,15 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 27606-09-3,Magnolan,,,,nombre: PubChem CID 119674,baja,
 2785-87-7,Dihydroeugenol,,,dsm-firmenich (Firmenich),"web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial)",media,"Compendium Firmenich 2016. Es nombre trivial derivado de ""eugenol"" más que marca registrada, pero es el nombre corto de uso del sector (el del glosario es el sistemático: 2-Methoxy-4-propylphenol)."
 27939-60-2,Trivertal,,,,nombre: PubChem CID 3034463,media,
-28219-61-6,Bacdanol,,Sandranol | Dartanol,IFF,"nombre: uso del sector · web: https://www.ventos.com/index.php/en/producto/2007/BACDANOL+IFF/BACDANOL%C2%AE++IFF · web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial)",media,"Confirmado como producto de IFF (hoy descatalogado) por el distribuidor Ventós y por The Fragrance Foundry. No se pudo leer una ficha propia de IFF con este nombre. Este CAS ya está en b-uso-del-sector.csv como ""Bacdanol"" (IFF). El Compendium Firmenich 2016 da el mismo CAS para ""Dartanol®"", su propio nombre comercial para la misma molécula."
+28219-60-5,Hindinol,,,Takasago,catálogo: Takasago Aroma Ingredients Compendium (2024),alta,
+28219-61-6,Bacdanol,,Sandranol | Dartanol,IFF,"nombre: uso del sector · web: https://www.ventos.com/index.php/en/producto/2007/BACDANOL+IFF/BACDANOL%C2%AE++IFF · web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial) · catálogo: Firmenich Perfumery Ingredients 2020",media,"Confirmado como producto de IFF (hoy descatalogado) por el distribuidor Ventós y por The Fragrance Foundry. No se pudo leer una ficha propia de IFF con este nombre. Este CAS ya está en b-uso-del-sector.csv como ""Bacdanol"" (IFF). El Compendium Firmenich 2016 da el mismo CAS para ""Dartanol®"", su propio nombre comercial para la misma molécula."
+28462-85-3,Humus Ether,,,Takasago,catálogo: Takasago Aroma Ingredients Compendium (2024),alta,
 28645-51-4,Isoambrettolide,,,,nombre: PubChem CID 5355293,media,
 28664-35-9,Sotolon,,Fenugreek Lactone,,nombre: PubChem CID 62835,alta,
 28940-11-6,Calone,,Watermelon ketone,,nombre: PubChem CID 120101,alta,
 29214-60-6,Gelsone,,,,nombre: PubChem CID 121790,media,
 2983-37-1,Irotyl,,,,nombre: PubChem CID 102916,media,
-30168-23-1,Dupical,,,Givaudan,nombre: uso del sector · web: https://www.chemimpex.com/dupical,media,"Varias fichas de distribuidores (Chem-Impex, Augustus Oils, Clearsynth) dan ""Dupical"" junto a este CAS exacto, pero ninguna atribuye el nombre a una casa concreta; podría ser un material descatalogado."
+30168-23-1,Dupical,,,Givaudan,nombre: uso del sector · web: https://www.chemimpex.com/dupical · catálogo: Givaudan Fragrance Ingredients Sustainability Profile (2024),alta,"Varias fichas de distribuidores (Chem-Impex, Augustus Oils, Clearsynth) dan ""Dupical"" junto a este CAS exacto, pero ninguna atribuye el nombre a una casa concreta; podría ser un material descatalogado."
 3100-36-5,Animusk,,,,nombre: PubChem CID 534634,media,
 3142-72-1,Strawberriff,,,,nombre: PubChem CID 18458,media,
 31906-04-4,Lyral,,Liral,IFF,nombre: PubChem CID 91604,alta,
@@ -145,11 +152,13 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 33704-61-9,Cashmeran,,Casmierone,IFF,"nombre: IFRA 51.ª, commercial name",alta,
 338735-71-0,Trisamber,,,,nombre: PubChem CID 57357974,media,
 33885-52-8,,PIBA,,,"sigla: IFRA 51.ª, commercial name",media,"PIBA abrevia «Pinyl iso butyraldehyde», nombre de uso del sector para este aldehído pínico."
+3391-86-4,Matsutakeol,,,Takasago,catálogo: Takasago Aroma Ingredients Compendium (2024),alta,
 3407-42-9,Sandela,,Sandenol,Givaudan,nombre: PubChem CID 103005,alta,
 34131-98-1,Decatone,,,,nombre: PubChem CID 118134,media,
 34131-99-2,Decatol,,,,nombre: PubChem CID 94453,media,
 34413-35-9,Lucel,,,,nombre: PubChem CID 36822,baja,
-35087-49-1,Damascone Gamma,,,dsm-firmenich (Firmenich),"web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial)",media,"Compendium Firmenich 2016. Coincide con el nombre químico del glosario (gamma-damascona, metileno exocíclico)."
+35087-49-1,Damascone Gamma,,,dsm-firmenich (Firmenich),"web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial) · catálogo: Firmenich Perfumery Ingredients 2020",alta,"Compendium Firmenich 2016. Coincide con el nombre químico del glosario (gamma-damascona, metileno exocíclico)."
+35931-93-2,Levocitrile,,,Takasago,catálogo: Takasago Aroma Ingredients Compendium (2024),alta,
 36306-87-3,Kephalis,,Kephalor,,nombre: PubChem CID 118292,media,
 365411-50-3,Nebulone,,,,nombre: PubChem CID 15552386,media,
 3658-77-3,Furaneol,,,Firmenich,nombre: PubChem CID 19309,media,
@@ -157,7 +166,7 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 3720-16-9,Celery ketone,,Livescone,,nombre: PubChem CID 3782139,media,
 3738-00-9,Cetalox,,Amberlyn | Ambronide | Ambroxane | Ambrotech | Ambroxide | Ambrox DL,dsm-firmenich (Firmenich),"nombre: PubChem CID 107166 · web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial)",alta,"También llamado Ambroxan/Ambroxide; comparte familia con el CAS 6790-58-5. Este CAS ya está en con-nombre.txt como ""Cetalox"" (alta, PubChem). El Compendium Firmenich 2016 lo llama también ""Ambrox® DL"" (la forma racémica); ambos nombres son de la misma casa."
 37514-30-0,Madrox,,,Firmenich,nombre: PubChem CID 161949,alta,
-37609-25-9,Velvione,,,Givaudan,nombre: uso del sector · web: https://shop.perfumersapprentice.com/p-6238-velvione-givaudan.aspx,media,"Confirmado como material de Givaudan por varios distribuidores (Perfumers Apprentice, Bulkaroma); no se pudo leer una ficha propia de Givaudan para este nombre."
+37609-25-9,Velvione,,Ambretone,Givaudan,nombre: uso del sector · web: https://shop.perfumersapprentice.com/p-6238-velvione-givaudan.aspx · catálogo: Givaudan Fragrance Ingredients Sustainability Profile (2024) · catálogo: Takasago Aroma Ingredients Compendium (2024),alta,"Confirmado como material de Givaudan por varios distribuidores (Perfumers Apprentice, Bulkaroma); no se pudo leer una ficha propia de Givaudan para este nombre."
 37677-14-8,Myrac aldehyde,,Emfetal | Mircenal,,nombre: PubChem CID 93199,media,"Comparte el nombre Myrac aldehyde con el CAS 52475-89-5 (lote 3, isómero posicional distinto)."
 3910-35-8,Superfix,,,,nombre: PubChem CID 19793,media,
 39255-32-8,Manzanate,,Melon valerate,,nombre: PubChem CID 62902,media,
@@ -166,10 +175,11 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 39770-05-3,Costenal,,,,nombre: PubChem CID 162392,media,
 39864-15-8,Jasmonyl,,,,nombre: PubChem CID 162000,media,
 39924-52-2,Methyl jasmonate,,Methyl epi-jasmonate,,nombre: PubChem CID 5367719,media,Isómero epi del metil jasmonato (CAS 1211-29-6).
+40596-76-7,Hedirosa,,,Takasago,catálogo: Takasago Aroma Ingredients Compendium (2024),alta,
 40785-62-4,Muscogene,,,,nombre: PubChem CID 5750515,media,
 40910-49-4,Elintaal,,,,nombre: PubChem CID 162027,media,
 40942-73-2,Magnolione,,,,nombre: PubChem CID 162030,media,
-41199-19-3,Ambrinol,,,dsm-firmenich (Firmenich),"nombre: uso del sector · web: https://www.scentree.co/en/Ambrinol.html · web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial)",media,"ScenTree confirma el CAS junto al nombre, pero no atribuye la marca a una casa concreta (lista dsm-firmenich y PCW como proveedores). El origen histórico (investigación de Ružička/Ohloff sobre el ámbar gris) está ligado a Firmenich, pero eso no confirma la titularidad actual de la marca. Confirma y mejora la fuente de b-uso-del-sector.csv para ""Ambrinol"" (CAS 41199-19-3): el Compendium Firmenich 2016 lo lista como propio, resolviendo la duda de casa que quedaba abierta allí."
+41199-19-3,Ambrinol,,,dsm-firmenich (Firmenich),"nombre: uso del sector · web: https://www.scentree.co/en/Ambrinol.html · web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial) · catálogo: Firmenich Perfumery Ingredients 2020",alta,"ScenTree confirma el CAS junto al nombre, pero no atribuye la marca a una casa concreta (lista dsm-firmenich y PCW como proveedores). El origen histórico (investigación de Ružička/Ohloff sobre el ámbar gris) está ligado a Firmenich, pero eso no confirma la titularidad actual de la marca. Confirma y mejora la fuente de b-uso-del-sector.csv para ""Ambrinol"" (CAS 41199-19-3): el Compendium Firmenich 2016 lo lista como propio, resolviendo la duda de casa que quedaba abierta allí."
 4166-20-5,Furaneol acetate,,,,nombre: PubChem CID 61334,media,
 41816-03-9,Rhubofix,,,,nombre: PubChem CID 94522,media,
 41890-92-0,Osirol,,Elesant | Methoxyelgenol,,nombre: PubChem CID 162053,baja,No hay certeza de cuál de los nombres es el predominante en el mercado.
@@ -187,8 +197,9 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 505-10-2,Methionol,,,,nombre: PubChem CID 10448,media,
 50607-64-2,Mevantraal,,,,nombre: PubChem CID 162595,media,
 51154-96-2,Cocolactone,,,,nombre: PubChem CID 642793,media,Comparte el nombre con el CAS 54814-64-1 (isómero de la misma lactona de massoia).
+51411-24-6,Biocyclamol,,,Takasago,catálogo: Takasago Aroma Ingredients Compendium (2024),alta,
 51566-62-2,Agrunitrile,,,,nombre: PubChem CID 3033030,media,
-5182-36-5,Floropal,,Vertacetal | Floralate,,nombre: PubChem CID 107381,media,
+5182-36-5,Floropal,,Vertacetal | Floralate | Lorexan,,nombre: PubChem CID 107381 · catálogo: Takasago Aroma Ingredients Compendium (2024),media,
 52474-60-9,Precyclemone B,,Myrmac aldehyde,IFF,nombre: PubChem CID 103648,alta,
 52475-89-5,Myrac aldehyde,,,,nombre: PubChem CID 103649,media,
 53018-24-9,Verdalia,,,,nombre: PubChem CID 103719,media,
@@ -199,7 +210,7 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 5413-60-5,Verdyl acetate,,Jasmacyclen | Greenyl acetate | Herbaflorat,,nombre: PubChem CID 110655,alta,
 542-46-1,Civetone,,,,nombre: PubChem CID 5315941,alta,
 54440-17-4,Safraleine,,,,nombre: PubChem CID 10149036,baja,
-54464-57-2,Iso E Super,OTNE,Ambergris Ketone | Amberonne | Ambralux | Boisvelone | Iso Ambois Super | Iso Gamma Super | Isocyclemone E | Orbitone | Orbitone T,IFF,"nombre: IFRA 51.ª, commercial name · sigla: uso del sector · web: https://www.ncbi.nlm.nih.gov/books/NBK552907/",media,"OTNE es la sigla que usa el sector para toda la familia de isómeros de esta cetona, incluido el CAS 68155-66-8; no aparece tal cual en los candidatos de esta línea, solo «OHTMNE cpd». Informe técnico NTP (NCBI Bookshelf) confirma que OTNE cubre el CAS 54464-57-2 (isómero beta, mayoritario en la mezcla comercial). Iso E Super lo desarrolló IFF en 1973; Firmenich vende también mezclas equivalentes."
+54464-57-2,Iso E Super,OTNE,Ambergris Ketone | Amberonne | Ambralux | Boisvelone | Iso Ambois Super | Iso Gamma Super | Isocyclemone E | Orbitone | Orbitone T,IFF,"nombre: IFRA 51.ª, commercial name · sigla: uso del sector · web: https://www.ncbi.nlm.nih.gov/books/NBK552907/ · catálogo: Takasago Aroma Ingredients Compendium (2024)",media,"OTNE es la sigla que usa el sector para toda la familia de isómeros de esta cetona, incluido el CAS 68155-66-8; no aparece tal cual en los candidatos de esta línea, solo «OHTMNE cpd». Informe técnico NTP (NCBI Bookshelf) confirma que OTNE cubre el CAS 54464-57-2 (isómero beta, mayoritario en la mezcla comercial). Iso E Super lo desarrolló IFF en 1973; Firmenich vende también mezclas equivalentes."
 54484-73-0,Lilivert,,,,nombre: PubChem CID 108244,media,
 5462-06-6,Canthoxal,,Fennaldehyde | Foliaver,,"nombre: IFRA 51.ª, commercial name",media,
 5471-51-2,Raspberry ketone,,Frambinone | Corps N 112 | Oxanone,,nombre: PubChem CID 21648,alta,
@@ -209,7 +220,7 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 55066-48-3,Phenoxanol,,Mefrosol,,nombre: PubChem CID 108312,media,
 55066-49-4,Mefranal,,Mefanal,,nombre: PubChem CID 108313,media,
 55418-52-5,Dulcinyl,,,,nombre: PubChem CID 62098,media,
-56973-85-4,Galbascone,,Dynascone | Galbanone | Neobutenone | Neogal | Neogalbenum | Neobutenone Alpha | Dynamor | Verdascone | Galbanum ketone,IFF,"nombre: IFRA 51.ª, commercial name · web: https://www.thegoodscentscompany.com/data/rw1003151.html",media,"Varias casas venden esta cetona de galbano con nombres distintos; no hay certeza de cuál predomina. El sector usa varios nombres según la casa: IFF vende ""Galbascone"", dsm-firmenich vende el mismo material (por otra ruta de síntesis) como ""Dynascone"" y ""Neobutenone Alpha"". ""Galbanone"" es más bien descriptivo/genérico. Se mantiene ""Galbascone"" como predominante porque ya estaba así en con-nombre.txt (procedente de IFRA 51.ª) y The Good Scents Company lo confirma como nombre principal."
+56973-85-4,Galbascone,,Dynascone | Galbanone | Neobutenone | Neogal | Neogalbenum | Neobutenone Alpha | Dynamor | Verdascone | Galbanum ketone,IFF,"nombre: IFRA 51.ª, commercial name · web: https://www.thegoodscentscompany.com/data/rw1003151.html · catálogo: Firmenich Perfumery Ingredients 2020",media,"Varias casas venden esta cetona de galbano con nombres distintos; no hay certeza de cuál predomina. El sector usa varios nombres según la casa: IFF vende ""Galbascone"", dsm-firmenich vende el mismo material (por otra ruta de síntesis) como ""Dynascone"" y ""Neobutenone Alpha"". ""Galbanone"" es más bien descriptivo/genérico. Se mantiene ""Galbascone"" como predominante porque ya estaba así en con-nombre.txt (procedente de IFRA 51.ª) y The Good Scents Company lo confirma como nombre principal."
 57094-40-3,Oxaspirane,,,,nombre: PubChem CID 92659,media,
 57345-19-4,Amberketal,,,,nombre: uso del sector · web: https://www.scentree.co/en/Amberketal%C2%AE.html,media,"ScenTree confirma el CAS junto al nombre, pero no atribuye la marca a una única casa (lista BASF, dsm-firmenich, MANE, Givaudan como proveedores). IFF vende el mismo material bajo otro nombre (""Ambermor Ketal Crystal/IPM""), así que ""Amberketal"" parece nombre de sector."
 57378-68-4,Damascone Delta,,,dsm-firmenich (Firmenich),"web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial)",media,"Compendium Firmenich 2016. El nombre químico del glosario ya trae ""delta-"" explícito, coincide (delta-damascona)."
@@ -224,18 +235,18 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 61792-11-8,Lemonile,,,,nombre: PubChem CID 112446,media,
 62406-73-9,Opalal,,,,nombre: PubChem CID 236674,media,
 62439-41-2,Methoxymelonal,,,,nombre: PubChem CID 112491,media,
-6290-17-1,Fraistone,,,,nombre: PubChem CID 95392,media,
+6290-17-1,Fraistone,,Dimethyl Dioxolan,,nombre: PubChem CID 95392 · catálogo: Takasago Aroma Ingredients Compendium (2024),media,
 63187-91-7,Frescolat,,,Symrise,nombre: PubChem CID 9964606,alta,
 63477-41-8,Vanitrope,,Vanibon,,nombre: PubChem CID 5354280,alta,"Comparte el nombre con el CAS 94-86-0 (mismo material, distinto registro)."
 63500-71-0,Florol,,Florosa | Rozanol | Rosanol,IFF,nombre: PubChem CID 3017432,alta,
-6413-10-1,Fructone,,Applinal,,nombre: PubChem CID 80865,alta,
+6413-10-1,Fructone,,Applinal | Methyl Dioxolan,,nombre: PubChem CID 80865 · catálogo: Takasago Aroma Ingredients Compendium (2024),alta,
 65113-99-7,Sandalore,,Sandal Series G | Sandasweet,Givaudan,"nombre: IFRA 51.ª, commercial name",alta,
 65114-03-6,Florenza,,Santafleur,,"nombre: IFRA 51.ª, commercial name",media,
 65405-84-7,Cetonal,,,,nombre: PubChem CID 103381,media,
 65442-31-1,Isobutyl quinoline,IBQ,Isobutylquinoleine | Pyralone,,nombre: uso del sector · sigla: uso del sector · web: https://www.givaudan.com/fragrance-beauty/fragrance-ingredients-business/fragrance-molecules/pyralone,media,"En el mercado, «IBQ» se usa para el 6-sec-butilquinolina (este) y para el 2-isobutilquinolina (93-19-6). La página oficial de Givaudan da el CAS 65442-31-1 para Pyralone®, que es este isómero 6-sec-butilquinolina. IBQ sigue siendo la sigla genérica de sector para la familia isobutil/sec-butil quinolina."
 65443-14-3,Veloutone,,,Firmenich,nombre: PubChem CID 103402,alta,
 66327-54-6,Vernaldehyde,,,,nombre: PubChem CID 106684,media,
-6658-48-6,Silvial,,Rhodial | Suzaral,,"nombre: IFRA 51.ª, commercial name",alta,
+6658-48-6,Silvial,,Rhodial | Suzaral,Givaudan,"nombre: IFRA 51.ª, commercial name · catálogo: Givaudan Fragrance Ingredients Sustainability Profile (2024)",alta,
 676125-00-1,Symroxane,,,Symrise,nombre: PubChem CID 78062915,media,
 67633-96-9,Liffarome,,Leafovert | Vertelione | Leafarome,IFF,"nombre: IFRA 51.ª, commercial name",media,
 67634-03-1,Rodipol C,,,,"nombre: IFRA 51.ª, commercial name",media,
@@ -243,12 +254,13 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 67634-14-4,Floralozone,,,IFF,nombre: uso del sector · web: https://shop.perfumersapprentice.com/p-6084-floralozone-iff.aspx,media,Confirmado como material de IFF por el distribuidor Perfumers Apprentice; la ficha propia de IFF (iff.com) devolvió error 403 al intentar leerla.
 67634-15-5,Floralozone,,Seawind Aldehyde E | Florazone | Florazon,,nombre: PubChem CID 105513,alta,
 67674-46-8,Methyl Pamplemousse,,Amarocite,,nombre: PubChem CID 106766,media,
+67715-80-4,Oxane,,,dsm-firmenich (Firmenich),catálogo: Firmenich Perfumery Ingredients 2020,media,
 67801-20-1,Ebanol,,,Givaudan,nombre: PubChem CID 6437266,alta,
 67801-29-0,Methyl iritone,,,,nombre: PubChem CID 6437269,media,
 67801-38-1,Iritone,,,,nombre: PubChem CID 6285057,media,
 67801-64-3,Floramat,,,,nombre: PubChem CID 105664,media,
 67845-42-5,Citronama,,,,nombre: PubChem CID 106871,media,
-67874-72-0,Coniferan,,,,nombre: PubChem CID 62240,media,
+67874-72-0,Coniferan,,Cypressan,,nombre: PubChem CID 62240 · catálogo: Takasago Aroma Ingredients Compendium (2024),media,
 67874-81-1,Cedramber,,,,nombre: PubChem CID 11085796,alta,
 6790-58-5,Ambroxan,,Ambroxide | Ambermox | Ambrofix | Orcanox | Ambrox Super,dsm-firmenich (Firmenich),"nombre: PubChem CID 10857465 · web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial)",alta,"Nombre genérico usado por varias casas (Ambrofix de Givaudan, Cetalox de Firmenich -CAS 3738-00-9-, Orcanox de otra casa) para materiales de la misma familia amber. Este CAS ya está en con-nombre.txt como ""Ambroxan"" (alta, PubChem). El Compendium Firmenich 2016 lo llama también ""Ambrox® SUPER"" (el estereoisómero puro); ambos nombres son de la misma casa."
 67924-13-4,Jasmea,,,,nombre: PubChem CID 106164,media,
@@ -264,10 +276,11 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 68489-14-5,Winsense,WS-5,,,nombre: PubChem CID 11615984 · sigla: PubChem CID 11615984,media,"Comparte la sigla WS-5 con el CAS 39668-74-1 (lote 5, «Cooler 5»); ambos registros son el mismo agente refrescante."
 68527-78-6,Seringone,,,,nombre: PubChem CID 6435059,media,
 68611-23-4,Grisalva,,,IFF,nombre: uso del sector · web: https://shop.perfumersapprentice.com/p-6096-grisalva-iff.aspx,media,"Confirmado como material de IFF por el distribuidor Perfumers Apprentice y por Bulkaroma (""Grisalva from IFF"")."
+68680-98-8,l-Dihydro Citronellol,,,Takasago,catálogo: Takasago Aroma Ingredients Compendium (2024),alta,
 68737-61-1,Triplal,,Ligustral | Cyclal C | Tricyclal | Tripral | Zestover | Belal | Vertocitral,,nombre: PubChem CID 93375,alta,Comparte el nombre Triplal con el CAS 68039-49-6 (lote 1); esta entrada es la mezcla de isómeros.
 68738-96-5,Ivy carbaldehyde,,,,web: http://www.thegoodscentscompany.com/data/rw1013971.html,baja,"Es más un nombre descriptivo de uso del sector (huele a hiedra) que una marca; The Good Scents Company lo empareja con este CAS exacto, sin atribuir casa."
 68901-15-5,Isoananat,,,,nombre: PubChem CID 111727,baja,
-68901-32-6,Glycolierral,,,Givaudan,web: https://givaudan.com/fragrance-beauty/eindex/glycolierral,alta,"Ficha oficial de Givaudan: dos CAS de isómero para Glycolierral, este y 94087-23-7."
+68901-32-6,Glycolierral,,,Givaudan,web: https://givaudan.com/fragrance-beauty/eindex/glycolierral · catálogo: Givaudan Fragrance Ingredients Sustainability Profile (2024),alta,"Ficha oficial de Givaudan: dos CAS de isómero para Glycolierral, este y 94087-23-7."
 68912-13-0,Verdyl propionate,,Cyclaprop | Florocyclene | Greenyl propionate | Cycloverdol propionate | Herbal Propionate,,nombre: PubChem CID 86579,alta,
 68966-86-9,Mahagonat,,Poivrol,,"nombre: IFRA 51.ª, commercial name",media,
 68991-97-9,Cyclomyral,,Cyclomugual | Melafleur,,nombre: PubChem CID 112226,baja,No hay certeza de cuál de los tres nombres es el predominante en el mercado; revisar con el laboratorio.
@@ -278,39 +291,44 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 7011-83-8,Lactojamon,,,,nombre: PubChem CID 285097,media,
 70214-77-6,Nonadyle,,,,nombre: PubChem CID 172501,media,
 7070-15-7,Arbanol,,,Firmenich,nombre: PubChem CID 13750367,alta,
-70788-30-6,Timberol,,Norlimbanol | Norlimbanol Dextrol | Karmawood | FINOTIMBER,,"nombre: IFRA 51.ª, commercial name",alta,Norlimbanol (y sus variantes) es el nombre que usa otra casa para el mismo material amaderado.
+70788-30-6,Timberol,,Norlimbanol | Norlimbanol Dextrol | Karmawood | FINOTIMBER | Dextramber,,"nombre: IFRA 51.ª, commercial name · catálogo: Takasago Aroma Ingredients Compendium (2024)",alta,Norlimbanol (y sus variantes) es el nombre que usa otra casa para el mismo material amaderado.
 71077-31-1,Aldehyde DMD,,Floral Super,,"nombre: IFRA 51.ª, commercial name",media,
 71078-31-4,Isospirene,,,,nombre: PubChem CID 116740,media,
 71159-90-5,Grapefruit mercaptan,,,,nombre: PubChem CID 6427135,alta,
-71735-79-0,Cedroxyde,,,dsm-firmenich (Firmenich),"web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial)",media,"Compendium Firmenich 2016. Coincide con el nombre químico del glosario (Trimethyl-13-oxabicyclo[10.1.0]trideca-4,8-diene)."
+71735-79-0,Cedroxyde,,,dsm-firmenich (Firmenich),"web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial) · catálogo: Firmenich Perfumery Ingredients 2020",alta,"Compendium Firmenich 2016. Coincide con el nombre químico del glosario (Trimethyl-13-oxabicyclo[10.1.0]trideca-4,8-diene)."
 72089-08-8,Brahmanol,,,Symrise,nombre: PubChem CID 166220,media,
 72402-00-7,Plinol,,,,nombre: PubChem CID 20046,media,
-72903-27-6,Fructalate,,,dsm-firmenich (Firmenich),"web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial)",media,"Compendium Firmenich 2016. Coincide con el nombre químico del glosario (dietil 1,4-ciclohexanodicarboxilato)."
+72903-27-6,Fructalate,,,dsm-firmenich (Firmenich),"web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial) · catálogo: Firmenich Perfumery Ingredients 2020",alta,"Compendium Firmenich 2016. Coincide con el nombre químico del glosario (dietil 1,4-ciclohexanodicarboxilato)."
 7392-19-0,Limetol,,,Givaudan,web: https://www.givaudan.com/fragrance-beauty/fragrance-ingredients-business/fragrance-molecules/limetol,alta,Confirmado por la página oficial de Givaudan (dueño de la marca). Según ScenTree tiene un carbono asimétrico y en perfumería se usa la mezcla de enantiómeros.
 7403-42-1,Vetikon,,,,nombre: PubChem CID 81898,media,
 74499-58-4,Precarone,,,,nombre: PubChem CID 121494096,media,
-7492-66-2,Citrathal,,,,nombre: PubChem CID 5365794,media,
+7492-66-2,Citrathal,,,,nombre: PubChem CID 5365794 · catálogo: Givaudan Fragrance Ingredients Sustainability Profile (2024),media,
 7492-67-3,Mugenal,,Muguet aldehyde,,nombre: PubChem CID 61401,media,
 7493-57-4,Pepital,,,,nombre: PubChem CID 61403,media,
 762-26-5,Geraldehyde,,Geranyl Acetaldehyde,,"nombre: IFRA 51.ª, commercial name",media,
 77-83-8,Aldehyde C-16,EMPG,Strawberry aldehyde | Fraeseol,,nombre: PubChem CID 6501 · sigla: PubChem CID 6501,alta,
-7779-50-2,Ambrettolide,,Ambrettol,,nombre: PubChem CID 3591866 · web: https://www.thegoodscentscompany.com/data/rw1451741.html,media,"El nombre de uso del sector es ""Ambrettolide"", no ""Ambrettol"" (ese solo aparece en PubChem). Es el isómero natural omega-6 del ambrettólido, distinto del 123-69-3 (Z, ya con nombre ""Ambrettolide"" y confianza alta), pero la bibliografía técnica llama ""Ambrettolide"" a ambos CAS (son isómeros de posición del doble enlace), un caso similar al de Tonalide/AHTN con dos CAS en este glosario."
+774-55-0,Florantone T,,,Takasago,catálogo: Takasago Aroma Ingredients Compendium (2024),alta,
+7779-50-2,Ambrettolide,,Ambrettol,Givaudan,nombre: PubChem CID 3591866 · web: https://www.thegoodscentscompany.com/data/rw1451741.html · catálogo: Givaudan Fragrance Ingredients Sustainability Profile (2024),alta,"El nombre de uso del sector es ""Ambrettolide"", no ""Ambrettol"" (ese solo aparece en PubChem). Es el isómero natural omega-6 del ambrettólido, distinto del 123-69-3 (Z, ya con nombre ""Ambrettolide"" y confianza alta), pero la bibliografía técnica llama ""Ambrettolide"" a ambos CAS (son isómeros de posición del doble enlace), un caso similar al de Tonalide/AHTN con dos CAS en este glosario."
 78148-59-1,Anymol,,,,nombre: PubChem CID 1616126,baja,
 79-70-9,beta-Irone,,,,nombre: PubChem CID 5375215,alta,
 79893-63-3,Etaspirene,,,,nombre: PubChem CID 22219099,media,
+79915-74-5,Sakura Salicylate,,,Takasago,catálogo: Takasago Aroma Ingredients Compendium (2024),alta,
 80-54-6,Lilial,,Lilestralis | Lysmeral | Butylphenyl methylpropional | PT-Bucinal,Givaudan,"nombre: IFRA 51.ª, commercial name",alta,
 80-71-7,Cyclotene,,Corylone | Maple lactone,,nombre: PubChem CID 6660,alta,
 80858-47-5,Phenafleur,,,,nombre: PubChem CID 166527,media,
-815580-59-7,Firascone,,,dsm-firmenich (Firmenich),"web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial)",media,"Compendium Firmenich 2016. Coincide con el nombre químico del glosario (éster metílico del ácido 2,6,6-trimetil-3-ciclohexeno-1-carboxílico)."
+815580-59-7,Firascone,,,dsm-firmenich (Firmenich),"web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial) · catálogo: Firmenich Perfumery Ingredients 2020",alta,"Compendium Firmenich 2016. Coincide con el nombre químico del glosario (éster metílico del ácido 2,6,6-trimetil-3-ciclohexeno-1-carboxílico)."
+81782-77-6,Undecavertol,,,Givaudan,catálogo: Givaudan Fragrance Ingredients Sustainability Profile (2024),media,
 81925-81-7,Filbertone,,,,nombre: PubChem CID 5362588,alta,
 82356-51-2,Muscenone,,,dsm-firmenich (Firmenich),nombre: uso del sector · web: https://www.scentree.co/en/Muscenone%C2%AE.html,alta,"ScenTree confirma el CAS junto al nombre y que la marca ""Muscenone®"" la registró Firmenich SA en 2011 (hoy dsm-firmenich)."
 831213-72-0,Freshone,,,,nombre: PubChem CID 11264633,media,
 83926-73-2,Coranol,,,dsm-firmenich (Firmenich),"nombre: PubChem CID 14434313 · web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial)",media,"Este CAS ya está en con-nombre.txt como ""Coranol"" (media, PubChem). El Compendium Firmenich 2016 confirma el mismo nombre y la casa (Firmenich); sirve para subir la confianza de esa fila."
 84434-18-4,Gardamide,,Vertamid,,nombre: PubChem CID 163414,media,
-84560-00-9,Delphol HC,,,dsm-firmenich (Firmenich),"web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial)",media,Compendium Firmenich 2016. Coincide con el nombre químico del glosario (2-Pentylcyclopentan-1-ol).
+84560-00-9,Delphol HC,,,dsm-firmenich (Firmenich),"web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial) · catálogo: Firmenich Perfumery Ingredients 2020",alta,Compendium Firmenich 2016. Coincide con el nombre químico del glosario (2-Pentylcyclopentan-1-ol).
+851768-51-9,Sauvignone,,,Takasago,catálogo: Takasago Aroma Ingredients Compendium (2024),alta,
 86803-90-9,Scentenal,,,,"nombre: IFRA 51.ª, commercial name",media,
 87-05-8,Maraniol,,Madescol,,"nombre: IFRA 51.ª, commercial name",media,
 87-19-4,Orchindone,,,,nombre: PubChem CID 6873,media,
+87731-18-8,Violet T,,,Takasago,catálogo: Takasago Aroma Ingredients Compendium (2024),alta,
 88-29-9,Versalide,,Musk 36A,,"nombre: IFRA 51.ª, commercial name",alta,
 88-41-5,Verdox,,Grumex | Beldox,IFF,nombre: PubChem CID 62334,alta,
 88644-30-8,Terranol,,,,nombre: PubChem CID 534931,media,
@@ -319,20 +337,21 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 89079-92-5,Neocaspirene,,,,nombre: PubChem CID 20268659,media,
 90-17-5,Rosacetol,,Rosephenone | Rosone,,nombre: PubChem CID 7007,media,
 90530-04-4,Isoproxen,,,,nombre: PubChem CID 55250280,baja,
+91-51-0,Verdantiol,,,Givaudan,catálogo: Givaudan Fragrance Ingredients Sustainability Profile (2024),media,
 91-61-2,Civettal,,,,nombre: PubChem CID 66678,media,
 91482-37-0,Tangerinol,,,,nombre: PubChem CID 76722,media,
 916887-53-1,Petalia,,,,"nombre: IFRA 51.ª, commercial name",media,
 92-48-8,Toncarine,,Cocodescol | Pralina,,"nombre: IFRA 51.ª, commercial name",media,
 92585-24-5,Pamplefleur,,,,nombre: PubChem CID 3021997,media,
-929625-08-1,Ambermax,,,Givaudan,web: https://www.givaudan.com/fragrance-beauty/fragrance-ingredients-business/fragrance-molecules/ambermaxtm-50dowanol-tpm,alta,"Ficha oficial de Givaudan (""Ambermax™ 50%/Dowanol TPM""); da varios CAS porque el producto vendido es una disolución al 50% en Dowanol TPM (25498-49-1) con otro isómero (1001252-30-7). El CAS pedido, 929625-08-1, es el de la molécula activa."
+929625-08-1,Ambermax,,,Givaudan,web: https://www.givaudan.com/fragrance-beauty/fragrance-ingredients-business/fragrance-molecules/ambermaxtm-50dowanol-tpm · catálogo: Givaudan Fragrance Ingredients Sustainability Profile (2024),alta,"Ficha oficial de Givaudan (""Ambermax™ 50%/Dowanol TPM""); da varios CAS porque el producto vendido es una disolución al 50% en Dowanol TPM (25498-49-1) con otro isómero (1001252-30-7). El CAS pedido, 929625-08-1, es el de la molécula activa."
 93-04-9,Nerolin,,Yara Yara,,nombre: PubChem CID 7119,alta,
 93-18-5,Neroline,,Bromelia,,nombre: PubChem CID 7129,alta,
 93-19-6,Isobutyl quinoline,IBQ,,,nombre: uso del sector · sigla: uso del sector · web: https://www.thegoodscentscompany.com/data/rw1131051.html,media,"En el mercado, «IBQ» se usa para el 2-isobutilquinolina (este) y para el 6-sec-butilquinolina (65442-31-1). The Good Scents Company empareja el CAS con ""2-isobutyl quinoline""/IBQ. Un hilo técnico (Basenotes) indica que Symrise sigue fabricando este isómero (2-isobutilquinolina) según el método original de la casa De Laire."
 93-51-6,Valspice,,Creosol,,"nombre: IFRA 51.ª, commercial name",media,
 93-92-5,Gardenol,,Gardeniol II,,nombre: PubChem CID 62341,media,
 94-86-0,Vanitrope,,Vanibon,,nombre: PubChem CID 5354280,alta,"Comparte el nombre con el CAS 63477-41-8 (mismo material, distinto registro)."
-94087-23-7,Glycolierral,,,Givaudan,web: https://givaudan.com/fragrance-beauty/eindex/glycolierral,alta,"Ficha oficial de Givaudan: dos CAS de isómero para Glycolierral, este y 68901-32-6."
-94201-73-7,Doremox,,,dsm-firmenich (Firmenich),nombre: uso del sector · web: https://www.thegoodscentscompany.com/data/rw1096561.html,media,"The Good Scents Company empareja el CAS 94201-73-7 con ""Doremox (Firmenich)""; el material lo descubrió Firmenich en 1993 (hoy dsm-firmenich)."
+94087-23-7,Glycolierral,,,Givaudan,web: https://givaudan.com/fragrance-beauty/eindex/glycolierral · catálogo: Givaudan Fragrance Ingredients Sustainability Profile (2024),alta,"Ficha oficial de Givaudan: dos CAS de isómero para Glycolierral, este y 68901-32-6."
+94201-73-7,Doremox,,,dsm-firmenich (Firmenich),nombre: uso del sector · web: https://www.thegoodscentscompany.com/data/rw1096561.html · catálogo: Firmenich Perfumery Ingredients 2020,alta,"The Good Scents Company empareja el CAS 94201-73-7 con ""Doremox (Firmenich)""; el material lo descubrió Firmenich en 1993 (hoy dsm-firmenich)."
 94346-09-5,Plinyl acetate,,,,nombre: PubChem CID 21156163,media,
 94400-98-3,Moxalone,,,,nombre: PubChem CID 44152188,baja,
 95962-14-4,Nectaryl,,,Firmenich,nombre: PubChem CID 175661,alta,

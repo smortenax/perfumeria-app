@@ -22,10 +22,10 @@ const header: FormulaHeader = { name: "prueba", intention: "", container: null, 
 const MG = 1_000n;
 
 describe("the catalog, from the glossary and IFRA's own files (P37)", () => {
-  it("has the FIG with the user's codes, what only IFRA has, the diluents of the app, and nothing of the lab", () => {
+  it("has the FIG with the user's codes, what only IFRA has (its standards, its annex and its Transparency List), the diluents of the app, and nothing of the lab", () => {
     const count = (group: string) => catalog.entries.filter((e) => e.group === group).length;
-    expect(count("base")).toBe(3370);
-    expect(catalog.counts).toEqual({ fig: 3119, ifraOnly: 251 });
+    expect(count("base")).toBe(4320);
+    expect(catalog.counts).toEqual({ fig: 3119, ifraOnly: 1201 });
     // DPG and alcohol, and the other diluents of the menu (§4): IPM, DEP, TEC, triacetin, benzyl benzoate.
     expect(count("diluent")).toBe(7);
     expect(count("own")).toBe(0);

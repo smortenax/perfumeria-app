@@ -8,7 +8,7 @@ export const texts = {
     newBench: "Nuevo banco de formulación",
     open: "Abrir fórmula…",
     base: (fig: number, ifraOnly: number) =>
-      `Glosario: ${fig + ifraOnly} materiales, ${fig} del FIG con tus abreviaturas y ${ifraOnly} que solo están en IFRA. Nada del laboratorio.`,
+      `Glosario: ${fig + ifraOnly} materiales, ${fig} del FIG con tus abreviaturas y ${ifraOnly} que no están en él (de IFRA y de los catálogos de las casas). Nada del laboratorio.`,
     source: (amendment: string, date: string) =>
       `IFRA, ${amendment}.ª enmienda, de sus propios archivos; se cuenta en categoría 4. Glosario generado el ${date}.`,
     figCredit: "Information derived from the IFRA Fragrance Ingredient Glossary, developed by The International Fragrance Association.",

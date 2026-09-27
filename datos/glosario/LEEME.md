@@ -2,12 +2,17 @@
 
 **Es el desplegable del buscador y la base de sus regulaciones (P37).** Tiene todos los CAS
 de los que se tiene constancia, cada uno con su abreviatura y su estado frente a IFRA. Lo
-genera [`scripts/generar_glosario.py`](../../scripts/generar_glosario.py) a partir de dos
-cosas:
+genera [`scripts/generar_glosario.py`](../../scripts/generar_glosario.py) a partir de:
 - **las filas del FIG con las abreviaturas del usuario**,
   [`origen/fig-materiales-codigos.csv`](origen/fig-materiales-codigos.csv). Es una iteración
   no final: al cambiarla, se vuelve a generar;
-- **IFRA, 51.ª enmienda**, de [`../ifra/51/`](../ifra/51/LEEME.md).
+- **IFRA, 51.ª enmienda**, de [`../ifra/51/`](../ifra/51/LEEME.md): los estándares, el anexo
+  de naturales y las bases de Schiff;
+- **la Transparency List de IFRA, 2025**, de
+  [`../ifra/transparencia-2025/`](../ifra/transparencia-2025/LEEME.md): el listado entero
+  de ingredientes;
+- **los nombres comerciales**, de
+  [`origen/nombres-comerciales.csv`](origen/nombres-comerciales.csv).
 
 **Nada del laboratorio entra aquí.** **No se edita a mano.** Las cuentas de abajo son las de
 [`procedencia.json`](procedencia.json) del 2026-09-27.
@@ -20,18 +25,26 @@ cosas:
 | `id` | Qué es | Cuántos |
 |---|---|---|
 | `fig:N` | la fila N del FIG, con la abreviatura del usuario | 3119 |
-| `cas:CAS` | un CAS de un estándar de IFRA, o una base de Schiff, que el FIG no tiene | 194 |
+| `cas:CAS` | un CAS de un estándar de IFRA, o una base de Schiff, que el FIG no tiene | 193 |
 | `ncs:nombre` | un natural del anexo de IFRA que no tiene fila en el FIG con ese nombre | 57 |
+| `tl:CAS` o `tl:nombre` | un ingrediente de la Transparency List que no estaba en nada de lo anterior | 948 |
+| `cat:CAS` | un material que solo conoce el catálogo de una casa: [`origen/materiales-de-catalogos.csv`](origen/materiales-de-catalogos.csv), con la página | 3 |
 
-- **De los 3119 del FIG, 2310 no están en nada de IFRA** (`fuentes` = `fig`). Son los que
-  faltan por documentar:
-  - 1988 moléculas sin estándar propio;
-  - 302 naturales sin dato;
-  - 20 con una condición por familia.
+En total son 4320. La Transparency List se une así con lo anterior:
+- una molécula, por su CAS;
+- un natural, por su nombre, o por ser el único de su CAS y de su tipo;
+- su nombre, si es distinto, queda en `nombres_transparencia` y también se busca;
+- de los naturales, `categoria_iso` apunta la categoría ISO 9235 que dan IFRA o el anexo.
+
+- **355 materiales del FIG no están en nada de IFRA** (`fuentes` = `fig`): ni en sus
+  estándares, ni en su anexo, ni en la lista de 2025. Son los que faltan por documentar:
+  - 283 moléculas sin estándar propio;
+  - 69 naturales sin dato;
+  - 3 con una condición por familia.
 - **La abreviatura** (`codigo`) es única en todo el glosario:
   - `codigo_origen` = `usuario` en las 3119 del FIG;
-  - `codigo_origen` = `generado` en las 251 nuevas, con el mismo estilo y **provisionales**:
-    45 llevan un número para no repetirse.
+  - `codigo_origen` = `generado` en las 1201 nuevas, con el mismo estilo y **provisionales**.
+    331 llevan un número para no repetirse.
 
 ## Los nombres comerciales, por encima (P38)
 
@@ -39,7 +52,7 @@ cosas:
 la búsqueda. Donde hay nombre comercial, la app lo enseña primero, con su sigla, y el químico
 al lado. La capa sale de
 [`origen/nombres-comerciales.csv`](origen/nombres-comerciales.csv), una fila por CAS, y se
-aplica a todo material con ese CAS. **331 materiales llevan nombre comercial y 25, sigla.**
+aplica a todo material con ese CAS. **348 materiales llevan nombre comercial y 25, sigla.**
 Cómo se hizo, y lo que queda por mirar, en
 [la investigación del 2026-09-27](../../docs/investigacion/2026-09-27-nombres-comerciales/README.md).
 
@@ -65,11 +78,11 @@ Lo desconocido nunca se da por libre (§1.2).
 | `estado` | Quiere decir | Cuántos |
 |---|---|---|
 | `prohibido` | su estándar lo prohíbe como tal | 121 |
-| `con-techo` | su estándar le pone un techo en % en alguna categoría | 391 |
-| `condicion` | una especificación, una variante prohibida o una familia: no es un % | 45 |
+| `con-techo` | su estándar le pone un techo en % en alguna categoría | 410 |
+| `condicion` | una especificación, una variante prohibida o una familia: no es un % | 48 |
 | `por-constituyentes` | sin estándar propio, pero el anexo le da constituyentes regulados | 523 |
-| `sin-dato` | un natural sin estándar propio y fuera del anexo: no se sabe qué lleva | 302 |
-| `sin-estandar` | no está en el índice de IFRA, que es completo: no tiene estándar propio | 1988 |
+| `sin-dato` | un natural sin estándar propio y fuera del anexo: no se sabe qué lleva | 537 |
+| `sin-estandar` | no está en el índice de IFRA, que es completo: no tiene estándar propio | 2678 |
 
 `condiciones` explica lo que no cabe en un %, con el estándar al lado: especificaciones,
 variantes prohibidas, grupos de un estándar, el tope de la nota o la familia. **Una familia

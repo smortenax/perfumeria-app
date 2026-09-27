@@ -89,6 +89,53 @@ exacto**, y la página queda apuntada. Sus salidas están en [`web/`](web/).
 **Resultado: 331 materiales con nombre comercial y 25 con sigla, en 338 filas.** 60 filas
 tienen página web. Confianza: 114 alta, 207 media y 17 baja.
 
+## Los catálogos de las casas
+
+El usuario descargó cuatro catálogos oficiales (2026-09-27). **No se guardan en el
+repositorio**, porque son documentos de las casas. Lo que se sacó de ellos está en
+[`catalogos/`](catalogos/), y los scripts, en [`scripts/`](scripts/).
+
+| Catálogo | Qué trae | Qué dio |
+|---|---|---|
+| Takasago, *Aroma Ingredients Compendium* (2024) | una ficha por producto, **con su CAS** | 54 productos |
+| Firmenich, *Perfumery Ingredients* (2020) | código y nombre, sin CAS | 119 moléculas, sin las bases compuestas |
+| Givaudan, *Fragrance Ingredients Sustainability Profile* (2024) | código y nombre, sin CAS | 146 productos |
+| dsm-firmenich, *Sharing Innovation Collection* (2025) | novedades, sobre todo bases, sin CAS | nada |
+
+**Cuando el catálogo no da el CAS, se empareja por el nombre**, primero con los nombres del
+glosario y después con los sinónimos de PubChem. Si no, se pregunta a PubChem por el
+nombre. Así tienen CAS 158 de los 265 productos de Firmenich y Givaudan.
+
+**Se aplicaron estas reglas:**
+- **Un nombre que solo es el químico con un grado** («Citral Extra», «Pinene beta»,
+  «Nopol T») **no es nombre comercial.** Se compara sin mirar el orden de las palabras ni
+  las marcas de isómero.
+- **Un nombre de casa va delante si el material no tenía ninguno.** Si ya tenía uno, pasa a
+  otros nombres, y la casa queda apuntada.
+- **Si la revisión dejó un material sin nombre delante a propósito**, como el
+  hidroxicitronelal, se respeta.
+- **La confianza es alta cuando el catálogo da el CAS**, y media cuando se emparejó por el
+  nombre.
+- **Dos correcciones a mano en Takasago:**
+  - la página 49 es Orbitone T;
+  - la ficha de Polyambrol trae el CAS de la dihidro-beta-ionona, cuando su estructura es
+    un octahidronaftalenol. Es una errata del catálogo, y se deja fuera.
+
+**Resultado:**
+- **14 nombres nuevos**:
+  - de Takasago: Biomuguet, Hindinol, Hedirosa, Matsutakeol, Sakura Salicylate, Florantone
+    T, Violet T…;
+  - de Givaudan: Undecavertol y Verdantiol;
+  - de Firmenich: Oxane.
+- **7 otros nombres**: Dextramber junto a Timberol, Jasmodione junto a Hedione…
+- **Tres materiales de Takasago no estaban en ningún listado de IFRA ni en el FIG**:
+  l-Dihydro Citronellol (68680-98-8), Levocitrile (35931-93-2) y Thesaron (246872-25-3).
+  **El usuario pidió añadirlos**, y entran al glosario como `cat:CAS`, con la página del
+  catálogo como fuente
+  ([`materiales-de-catalogos.csv`](../../../datos/glosario/origen/materiales-de-catalogos.csv)).
+- **Unas 60 moléculas de casa se quedan sin CAS**, porque ni PubChem ni el glosario las
+  conocen por ese nombre: Myroxyde, Plicatone, Lilyflore, Clearwood, Paradisamide…
+
 ## Lo que queda por mirar
 
 | CAS | Qué pasa |

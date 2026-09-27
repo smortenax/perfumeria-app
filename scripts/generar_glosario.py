@@ -30,6 +30,10 @@ ROOT = Path(__file__).resolve().parents[1]
 CODES = ROOT / "datos" / "glosario" / "origen" / "fig-materiales-codigos.csv"
 # The layer of trade names over the glossary (P38): one row per CAS.
 TRADE = ROOT / "datos" / "glosario" / "origen" / "nombres-comerciales.csv"
+# IFRA's whole list of ingredients, read from its web (scripts/leer_transparency_list.py).
+TRANSPARENCY = ROOT / "datos" / "ifra" / "transparencia-2025" / "transparency-list.csv"
+# Materials that only a house catalogue knows, with the page where it says so.
+CATALOGUE = ROOT / "datos" / "glosario" / "origen" / "materiales-de-catalogos.csv"
 OUT = ROOT / "datos" / "glosario"
 CAS_RE = re.compile(r"\b\d{2,7}-\d{2}-\d\b")
 CATEGORIES = ["1", "2", "3", "4", "5a", "5b", "5c", "5d", "6", "7a", "7b", "8", "9",
@@ -211,11 +215,11 @@ def main() -> None:
                "nombre_comercial": "", "sigla_comercial": "",
                "nombre": "", "cas": "", "otros_cas": "", "otros_nombres_comerciales": "",
                "casa_comercial": "", "fuente_comercial": "", "confianza_comercial": "",
-               "clase": "", "tipo_natural": "", "isomero": "", "descriptor_1": "", "descriptor_2": "",
+               "clase": "", "tipo_natural": "", "categoria_iso": "", "isomero": "", "descriptor_1": "", "descriptor_2": "",
                "descriptor_3": "", "actualizado_fig": "", "fuentes": "", "estandares": "",
                "nombre_ifra": "", "estado": "", "condiciones": "", "constituyentes": "",
                "coincidencia_anexo": "", **{c: "" for c in CAT_COLS}, "limite_nota": "",
-               "sinonimos": ""}
+               "sinonimos": "", "nombres_transparencia": ""}
         row.update(kw)
         return row
 
@@ -275,12 +279,13 @@ def main() -> None:
             kind = ISO_TYPE.get(proc, ISO_TYPE.get(".".join(proc.split(".")[:2]), ""))
             target = base(id=mid, nombre=v["nombre"], cas=(v["principal"] or [""])[0],
                           otros_cas=" ".join(v["principal"][1:] + v["otros"]), clase="natural",
-                          tipo_natural=kind, fuentes="ifra-anexo")
+                          tipo_natural=kind, categoria_iso=v["iso"], fuentes="ifra-anexo")
             new.append(target)
         else:
             if "ifra-anexo" not in target["fuentes"]:
                 target["fuentes"] += " ifra-anexo"
             target["clase"] = "natural"
+            target["categoria_iso"] = target["categoria_iso"] or v["iso"]
         links.append((target, v, "nombre"))
         named.add(target["id"])
 
@@ -298,6 +303,66 @@ def main() -> None:
             m["fuentes"] += " ifra-anexo"
         for v in variants_of_cas[m["cas"]]:
             links.append((m, v, "cas"))
+
+    # 3b. IFRA's Transparency List, its whole list of ingredients. A molecule joins the
+    # material with its CAS; a natural, the one with its name, or the only one of its
+    # CAS and kind. What is left is new. Its name also becomes a synonym.
+    if TRANSPARENCY.exists():
+        pool = materials + new
+        by_cas: dict[str, list[dict]] = {}
+        by_name: dict[str, list[dict]] = {}
+        for m in pool:
+            by_cas.setdefault(m["cas"], []).append(m)
+            by_name.setdefault(norm(m["nombre"]), []).append(m)
+
+        def mark(m: dict, name: str, iso: str) -> None:
+            if "ifra-transparencia" not in m["fuentes"]:
+                m["fuentes"] += " ifra-transparencia"
+            if iso and not m["categoria_iso"]:
+                m["categoria_iso"] = iso
+            if norm(name) != norm(m["nombre"]) and name not in m["nombres_transparencia"].split(" | "):
+                m["nombres_transparencia"] = " | ".join(x for x in (m["nombres_transparencia"], name) if x)
+
+        for r in read(TRANSPARENCY):
+            cas = (CAS_RE.findall(r["cas"]) or [""])[0]
+            # IFRA's web writes a line break of a name as «-_»; a «_» alone stands for a lost
+            # Greek letter («(+)-_-Bisabolol») and is left as IFRA wrote it.
+            name = re.sub(r"-_(?=[\w(])", "-", r["nombre_principal"]).rstrip("_ ")
+            iso = r["categoria_natural"]
+            if not iso:
+                found = by_cas.get(cas, []) if cas else by_name.get(norm(name), [])
+            else:
+                proc = re.sub(r"^[A-Z]", "", iso)
+                kind = ISO_TYPE.get(proc, ISO_TYPE.get(".".join(proc.split(".")[:2]), ""))
+                found = by_name.get(norm(name), [])
+                if not found:
+                    same = [m for m in by_cas.get(cas, []) if m["clase"] == "natural" and m["tipo_natural"] == kind]
+                    found = same if len(same) == 1 else []
+            if found:
+                for m in found:
+                    mark(m, name, iso)
+                continue
+            slug = norm(name).replace(" ", "-")[:60] or "sin-nombre"
+            mid = f"tl:{cas}" if cas and not iso else f"tl:{slug}"
+            k = 2
+            while mid in ids:
+                mid, k = f"{mid.rsplit('~', 1)[0]}~{k}", k + 1
+            ids.add(mid)
+            m = base(id=mid, nombre=name, cas=cas, clase="natural" if iso else "molécula",
+                     tipo_natural=kind if iso else "", categoria_iso=iso, fuentes="ifra-transparencia")
+            new.append(m)
+            by_cas.setdefault(cas, []).append(m)
+            by_name.setdefault(norm(name), []).append(m)
+
+    # 3c. Materials that only a house catalogue knows (not in the FIG nor in IFRA): the
+    # catalogue is their source, and it is said.
+    if CATALOGUE.exists():
+        known = {m["cas"] for m in materials + new}
+        for r in read(CATALOGUE):
+            if r["cas"] in known:
+                continue
+            new.append(base(id=f"cat:{r['cas']}", nombre=r["nombre"], cas=r["cas"], clase=r["clase"],
+                            fuentes="catalogo"))
 
     everything = materials + new
     by_id = {m["id"]: m for m in everything}
@@ -498,6 +563,9 @@ def main() -> None:
         "codigos_generados": sum(1 for m in ordered if m["codigo_origen"] == "generado"),
         "por_estado": {e: sum(1 for m in ordered if m["estado"] == e) for e in ESTADOS},
         "filas_de_constituyentes": len(constituents),
+        "de_la_transparency_list": sum(1 for m in ordered if "ifra-transparencia" in m["fuentes"]),
+        "solo_de_la_transparency_list": sum(1 for m in ordered if m["fuentes"] == "ifra-transparencia"),
+        "del_fig_fuera_de_ifra": sum(1 for m in ordered if m["fuentes"] == "fig"),
         "con_nombre_comercial": sum(1 for m in ordered if m["nombre_comercial"]),
         "con_sigla_comercial": sum(1 for m in ordered if m["sigla_comercial"]),
     }
@@ -509,6 +577,10 @@ def main() -> None:
             CODES.relative_to(ROOT).as_posix(): {"sha256": sha256(CODES), "que_es": "filas del FIG con las abreviaturas del usuario, iteración no final"},
             **({TRADE.relative_to(ROOT).as_posix(): {"sha256": sha256(TRADE), "que_es": "nombres comerciales por CAS, con su fuente y su confianza (P38)"}}
                if TRADE.exists() else {}),
+            **({TRANSPARENCY.relative_to(ROOT).as_posix(): {"sha256": sha256(TRANSPARENCY), "que_es": "IFRA Transparency List 2025, leída de su web"}}
+               if TRANSPARENCY.exists() else {}),
+            **({CATALOGUE.relative_to(ROOT).as_posix(): {"sha256": sha256(CATALOGUE), "que_es": "materiales que solo conoce un catálogo de una casa"}}
+               if CATALOGUE.exists() else {}),
             **{f"datos/ifra/{n}/{p}": {"sha256": sha256(ifra / p)} for p in
                ("estandares.csv", "estandar-cas.csv", "naturales.csv", "bases-schiff.csv")},
         },

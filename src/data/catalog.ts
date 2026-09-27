@@ -223,7 +223,7 @@ export function buildCatalog(files: CatalogFiles): Catalog {
       state,
       ...(standardName && normalize(standardName) !== normalize(trade || m.nombre) ? { standardName } : {}),
       search: normalize(
-        `${m.codigo} ${marked} ${trade} ${m.sigla_comercial} ${others.join(" ")} ${m.nombre} ${m.cas} ${m.otros_cas} ${m.nombre_ifra} ${m.sinonimos}`,
+        `${m.codigo} ${marked} ${trade} ${m.sigla_comercial} ${others.join(" ")} ${m.nombre} ${m.cas} ${m.otros_cas} ${m.nombre_ifra} ${m.sinonimos} ${m.nombres_transparencia}`,
       ),
       folded: [trade, ...others, m.nombre, standardName].filter((n) => n !== "").map(fold),
     });
