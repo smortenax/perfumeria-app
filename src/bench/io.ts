@@ -1,6 +1,6 @@
 import { invoke } from "@tauri-apps/api/core";
 import { getCurrentWindow } from "@tauri-apps/api/window";
-import { ask, open, save } from "@tauri-apps/plugin-dialog";
+import { ask, open } from "@tauri-apps/plugin-dialog";
 
 /**
  * Files on disk (§6): the formula is a JSON file the user chooses. Inside the
@@ -17,9 +17,10 @@ export interface OpenedFile {
   readonly text: string;
 }
 
-export async function pickAndRead(): Promise<OpenedFile | null> {
+/** Asks for a formula file, starting in `folder` (the library) when given. */
+export async function pickAndRead(folder?: string): Promise<OpenedFile | null> {
   if (inTauri()) {
-    const path = await open({ multiple: false, directory: false, filters: FILTERS });
+    const path = await open({ multiple: false, directory: false, filters: FILTERS, ...(folder ? { defaultPath: folder } : {}) });
     if (typeof path !== "string") {
       return null;
     }
@@ -37,13 +38,7 @@ export async function pickAndRead(): Promise<OpenedFile | null> {
   });
 }
 
-/** Asks where to save; null when cancelled, or in a browser, where there is no path to choose. */
-export async function pickSavePath(fileName: string): Promise<string | null> {
-  if (!inTauri()) {
-    return null;
-  }
-  return (await save({ defaultPath: fileName, filters: FILTERS })) ?? null;
-}
+export const readFile = (path: string): Promise<string> => invoke<string>("read_text_file", { path });
 
 export async function writeFile(path: string, text: string): Promise<void> {
   await invoke("write_text_file", { path, contents: text });
@@ -66,11 +61,11 @@ export const fileNameFor = (name: string): string =>
   `${name.trim().replace(/[\\/:*?"<>|]+/g, "-") || "formula"}.json`;
 
 /**
- * Asks before the window closes while `dirty()` says there are unsaved changes (§6).
- * Inside the app, Tauri's close request waits for the answer; in a browser, the page
- * asks with its own words. Returns what stops listening.
+ * Keeps the window from closing on unsaved changes (§6, P44). Inside the app, the close
+ * waits for `canClose`, which saves first; in a browser, the page asks with its own
+ * words when `dirty` says so. Returns what stops listening.
  */
-export function guardClose(dirty: () => boolean, text: string): () => void {
+export function guardClose(dirty: () => boolean, canClose: () => Promise<boolean>): () => void {
   if (!inTauri()) {
     const onBeforeUnload = (e: BeforeUnloadEvent) => {
       if (dirty()) {
@@ -84,7 +79,7 @@ export function guardClose(dirty: () => boolean, text: string): () => void {
   let stopped = false;
   void getCurrentWindow()
     .onCloseRequested(async (event) => {
-      if (dirty() && !(await confirmDialog(text))) {
+      if (!(await canClose())) {
         event.preventDefault();
       }
     })

@@ -255,7 +255,10 @@ incluida. **Lo que falla, por orden de importancia:**
   - 40 nombres de la *Transparency List* sin los guiones bajos de corte de línea. Los que
     quedan son letras griegas o primas perdidas, y se dejan.
 - [ ] **B · Guardar con certeza (P44)**, de una en una:
-  - dónde viven las fórmulas. De eso depende que una fórmula sin archivo se guarde sola;
+  - [x] **dónde viven las fórmulas: la biblioteca, en `Documentos\Perfumería\Fórmulas`**
+    (2026-09-28). Cada fórmula se guarda sola desde la primera adición y se renombra con
+    ella; salir o cerrar guarda antes; el inicio lista la biblioteca. **Falta que el usuario
+    lo pruebe en el ejecutable**, porque los archivos solo se tocan desde él;
   - las versiones y las copias;
   - si los provisionales se recuerdan entre fórmulas.
 - [ ] **C · La búsqueda, sin decisión:** los sinónimos de PubChem, filtrados como en la

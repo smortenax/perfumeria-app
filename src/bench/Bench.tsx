@@ -17,7 +17,8 @@ import { PromptDialog, SaveAsDialog, type SaveAsChoice } from "./Dialogs";
 import { GramsCard, IntentionCard, NameCard } from "./Header";
 import { ChangeDetail, HistoryDock } from "./HistoryDock";
 import { IfraDetail, IfraSummary } from "./IfraBox";
-import { confirmDialog, download, fileNameFor, guardClose, inTauri, pickAndRead, pickSavePath, writeFile } from "./io";
+import { confirmDialog, download, fileNameFor, guardClose, inTauri, pickAndRead, writeFile } from "./io";
+import { libraryDir, placeFormula } from "./library";
 import { pushRecent, recentKeys } from "./prefs";
 import { benchReducer, emptyFormula, initialState, newId } from "./state";
 
@@ -71,11 +72,74 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
   const frameRef = useRef(frame);
   frameRef.current = frame;
   const dirty = !state.saved && formula.history.length > 0;
-  const dirtyRef = useRef(dirty);
-  dirtyRef.current = dirty;
+  const latest = useRef(state);
+  latest.current = state;
 
-  // Closing the window never loses a change without asking (§6).
-  useEffect(() => guardClose(() => dirtyRef.current, texts.menu.discardOnClose), []);
+  // Where the formula is written, and which formula it is: loading another one starts a
+  // new generation, so a write still queued for the old one never lands on the new (P44).
+  const pathRef = useRef<string | null>(props.initial.path);
+  const generation = useRef(0);
+  const queue = useRef<Promise<unknown>>(Promise.resolve());
+
+  const load = (next: Formula, path: string | null) => {
+    generation.current += 1;
+    pathRef.current = path;
+    setPlaying(false);
+    dispatch({ type: "load", formula: next, path });
+    setSelectedId(null);
+    setError(null);
+  };
+
+  /** Runs file work one piece after another, so two writes never cross. */
+  const enqueue = <T,>(work: () => Promise<T>): Promise<T> => {
+    const run = queue.current.then(work);
+    queue.current = run.catch(() => undefined);
+    return run;
+  };
+
+  /**
+   * Writes the formula to its file (§6, P44): a new one in the library the first time,
+   * renamed when the formula changes name. False, with the error shown, if it failed.
+   */
+  const persist = (target: Formula): Promise<boolean> => {
+    const gen = generation.current;
+    return enqueue(async () => {
+      if (gen !== generation.current) {
+        return true;
+      }
+      const path = await placeFormula(target.header.name, pathRef.current);
+      pathRef.current = path;
+      await writeFile(path, formulaToJson(target));
+      if (gen === generation.current) {
+        dispatch({ type: "saved", path, formula: target });
+        setError(null);
+      }
+      return true;
+    }).catch((e) => {
+      setError(`${texts.menu.saveError}: ${message(e)}`);
+      return false;
+    });
+  };
+
+  /** Saves now whatever is pending. A formula with nothing added yet has nothing to save. */
+  const flush = (): Promise<boolean> => {
+    const now = latest.current;
+    if (now.saved || (now.path === null && now.formula.history.length === 0)) {
+      return enqueue(async () => true);
+    }
+    return persist(now.formula);
+  };
+
+  // Closing the window saves first, and asks only if that failed (§6, P44). flush reads
+  // everything through refs, so the first one serves for the whole bench.
+  useEffect(
+    () =>
+      guardClose(
+        () => !latest.current.saved && latest.current.formula.history.length > 0,
+        async () => (await flush()) || confirmDialog(texts.menu.discardOnClose),
+      ),
+    [],
+  );
 
   const view: View = useMemo(() => {
     try {
@@ -125,38 +189,25 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
     }
   };
 
+  // Ctrl+S saves at once what would be saved in a moment anyway.
   const save = async () => {
     if (!inTauri()) {
       download(fileNameFor(formula.header.name), formulaToJson(formula));
       setError(texts.menu.downloaded);
       return;
     }
-    const path = state.path ?? (await pickSavePath(fileNameFor(formula.header.name)));
-    if (!path) {
-      return;
-    }
-    try {
-      await writeFile(path, formulaToJson(formula));
-      dispatch({ type: "saved", path, formula });
-      setError(null);
-    } catch (e) {
-      setError(`${texts.menu.saveError}: ${message(e)}`);
-    }
+    await flush();
   };
 
-  // Saving keeps everything, automatically, once the formula has a file (§6).
+  // Saving keeps everything, automatically (§6), in the library from the first change (P44).
   useEffect(() => {
-    if (!inTauri() || state.path === null || state.saved) {
+    if (!inTauri() || state.saved || (state.path === null && state.formula.history.length === 0)) {
       return;
     }
-    const path = state.path;
     const target = state.formula;
-    const timer = setTimeout(() => {
-      writeFile(path, formulaToJson(target))
-        .then(() => dispatch({ type: "saved", path, formula: target }))
-        .catch((e) => setError(`${texts.menu.saveError}: ${message(e)}`));
-    }, 800);
+    const timer = setTimeout(() => void persist(target), 800);
     return () => clearTimeout(timer);
+    // persist is the same work on every render: what matters is what changed.
   }, [state.formula, state.path, state.saved]);
 
   // The play (§3.4): from nothing, change by change, to the end.
@@ -192,46 +243,49 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
     };
     if (!inTauri()) {
       download(fileNameFor(choice.name), formulaToJson(variation));
-      dispatch({ type: "load", formula: variation, path: null });
+      load(variation, null);
       setError(texts.menu.downloaded);
       return;
     }
-    const path = await pickSavePath(fileNameFor(choice.name));
-    if (!path) {
+    // The original is saved first, as it is; then the variation gets its own file (P44).
+    if (!(await flush())) {
       return;
     }
     try {
-      await writeFile(path, formulaToJson(variation));
-      if (choice.sameVial === true && state.path !== null && state.path !== path) {
-        // Same vial: the original stays as a recipe without a vial, no longer reopened by weighing.
-        await writeFile(state.path, formulaToJson({ ...formula, header: { ...formula.header, container: null } }));
-      }
-      dispatch({ type: "load", formula: variation, path });
-      setSelectedId(null);
-      setError(null);
+      const path = await enqueue(async () => {
+        const original = pathRef.current;
+        if (choice.sameVial === true && original !== null) {
+          // Same vial: the original stays as a recipe without a vial, no longer reopened by weighing.
+          const recipe = latest.current.formula;
+          await writeFile(original, formulaToJson({ ...recipe, header: { ...recipe.header, container: null } }));
+        }
+        const target = await placeFormula(choice.name, null);
+        await writeFile(target, formulaToJson(variation));
+        return target;
+      });
+      load(variation, path);
     } catch (e) {
       setError(`${texts.menu.saveError}: ${message(e)}`);
     }
   };
 
+  // Leaving saves first (P44); only if that fails, it asks before losing anything.
   const leave = async (then: () => void) => {
-    if (!dirty || (await confirmDialog(texts.menu.discard))) {
+    const kept = inTauri() ? await flush() : !dirty;
+    if (kept || (await confirmDialog(inTauri() ? texts.menu.discardOnFail : texts.menu.discard))) {
       then();
     }
   };
 
   const openFile = () =>
     leave(async () => {
-      const file = await pickAndRead();
+      const file = await pickAndRead(inTauri() ? await libraryDir() : undefined);
       if (!file) {
         return;
       }
       try {
         const opened = formulaFromJson(file.text);
-        setPlaying(false);
-        dispatch({ type: "load", formula: opened, path: file.path });
-        setSelectedId(null);
-        setError(null);
+        load(opened, file.path);
         if (reopensByWeighing(opened)) {
           setDialog({ kind: "reweigh", onOpen: true });
         }
@@ -241,7 +295,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
     });
 
   const formulaAsMaterial = async () => {
-    const file = await pickAndRead();
+    const file = await pickAndRead(inTauri() ? await libraryDir() : undefined);
     if (!file) {
       return;
     }
@@ -303,7 +357,14 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
   const workBatch = formula.header.workBatchUg;
   const fill = workBatch ? Number(total.div(Ratio.of(workBatch)).toFixed(4)) : null;
   const status =
-    error ?? (state.path === null ? texts.bench.unsaved : state.saved ? texts.bench.savedAs(baseName(state.path)) : texts.bench.saving);
+    error ??
+    (state.path === null
+      ? inTauri()
+        ? texts.bench.savesOnAdd
+        : texts.bench.unsaved
+      : state.saved
+        ? texts.bench.savedAs(baseName(state.path))
+        : texts.bench.saving);
   const tare = formula.header.container?.tareUg ?? null;
   const adds = formula.history.slice(0, frame ?? formula.history.length).filter((c): c is Add => c.kind === "add");
   const empty = !view.composition || view.composition.parts.length === 0;
@@ -373,7 +434,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
               <button
                 type="button"
                 className="menuitem"
-                onClick={menuAction(() => void leave(() => dispatch({ type: "load", formula: emptyFormula(texts.bench.untitled), path: null })))}
+                onClick={menuAction(() => void leave(() => load(emptyFormula(texts.bench.untitled), null)))}
               >
                 <span>{texts.menu.newBench}</span>
               </button>

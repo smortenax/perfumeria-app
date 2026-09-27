@@ -1599,8 +1599,33 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
   1. dónde viven las fórmulas;
   2. las versiones y las copias;
   3. si los provisionales se recuerdan entre fórmulas.
+- **1 · Dónde viven las fórmulas.**
+  - Opciones presentadas: A) una biblioteca en una carpeta visible que lleva la app
+    (`Documentos\Perfumería\`) · B) la misma, en la carpeta interna de la app · C) como
+    ahora, cada archivo donde lo deje el usuario
+  - Recomendación: A
+  - Respuesta literal: *«la A, y redacta el encargo de categorías y abordamos la primara parte de este chat»*
+  - **Lectura:**
+    1. **Opción A.** La app lleva una biblioteca en `Documentos\Perfumería\Fórmulas`, un
+       archivo por fórmula, en el formato de siempre. **Se guarda sola desde la primera
+       adición**, sin elegir carpeta, y el archivo se llama como la fórmula.
+    2. **Se redacta el encargo de las categorías** (P46).
+    3. **«La primera parte de este chat» se lee como lo de guardar**, que era la primera
+       parte de la respuesta: la biblioteca, y después las versiones y los provisionales.
+       *Por confirmar.*
+  - **Hecho, por confirmar:**
+    - **salir, abrir otra fórmula o cerrar la ventana guarda antes**, en vez de preguntar.
+      Solo pregunta si no se ha podido guardar;
+    - **si cambia el nombre, el archivo se renombra con él.** Si ya hay otra fórmula con
+      ese nombre, el archivo lleva un número: «Lejía (2).json»;
+    - **«Guardar como» crea la variación en la biblioteca**, sin elegir carpeta;
+    - **el inicio lista la biblioteca**, de la más reciente a la más antigua;
+    - **un archivo abierto desde fuera se sigue guardando donde está**, y no se copia a la
+      biblioteca.
+  - Fecha: 2026-09-28
+  - Estado: cerrada · opción A
 - Fecha: 2026-09-28
-- Estado: abierta
+- Estado: abierta (quedan 2 y 3)
 - Destino: decisiones.md §3.2 y §6
 
 ### P45 — Acorde o perfume al guardar, y la galería de fórmulas

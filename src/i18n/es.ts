@@ -7,6 +7,11 @@ export const texts = {
     subtitle: "Banco de formulación · versión provisional para pruebas",
     newBench: "Nuevo banco de formulación",
     open: "Abrir fórmula…",
+    openOther: "Abrir otro archivo…",
+    library: "Tus fórmulas",
+    libraryEmpty: "Todavía no hay ninguna. Cada fórmula se guarda aquí sola desde su primera adición.",
+    libraryAt: (folder: string) => `En ${folder}`,
+    libraryError: "No se pudo leer la biblioteca",
     base: (fig: number, ifraOnly: number) =>
       `Glosario: ${fig + ifraOnly} materiales, ${fig} del FIG con tus abreviaturas y ${ifraOnly} que no están en él (de IFRA y de los catálogos de las casas). Nada del laboratorio.`,
     source: (amendment: string, date: string) =>
@@ -24,6 +29,7 @@ export const texts = {
     intention: "Intención",
     intentionPlaceholder: "Para qué es esta fórmula",
     unsaved: "sin guardar",
+    savesOnAdd: "se guarda sola en la biblioteca al añadir",
     saving: "guardando…",
     savedAs: (file: string) => `guardada · ${file}`,
     fillOf: (pct: string) => `${pct} del lote de trabajo`,
@@ -165,7 +171,8 @@ export const texts = {
     redo: "Rehacer",
     downloaded: "descargada (en el navegador no se elige carpeta)",
     discard: "Hay cambios sin guardar. ¿Seguir y perderlos?",
-    discardOnClose: "Hay cambios sin guardar. ¿Cerrar y perderlos?",
+    discardOnClose: "No se pudo guardar. ¿Cerrar y perder los cambios?",
+    discardOnFail: "No se pudo guardar. ¿Seguir y perder los cambios?",
     saveError: "No se pudo guardar",
   },
 

@@ -206,6 +206,54 @@ button.big {
   background: var(--ink);
 }
 
+.library {
+  margin-bottom: 28px;
+}
+
+.library h2 {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+.library-list {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  max-height: 40vh;
+  overflow-y: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+}
+
+.library-list li + li {
+  border-top: 1px solid var(--line-soft);
+}
+
+.library-list button {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  background: none;
+  text-align: left;
+}
+
+.library-list button:hover,
+.library-list button:focus-visible {
+  background: var(--fill-2);
+}
+
+.library-name {
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .launcher-notes p {
   color: var(--muted);
   font-size: 12px;
