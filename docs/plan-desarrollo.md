@@ -126,8 +126,9 @@ Trabajo de lectura: subagentes Sonnet de uno en uno, y revisión por partes.
   está en un estándar y `ncs:nombre` para un natural del anexo; es provisional hasta cerrar
   D3. **Falta:**
   - la *Transparency List*, que añadiría materiales, no restricciones;
-  - ~~una capa de sinónimos~~ **hecha la de nombres comerciales** (P38, 2026-09-27): 303
-    materiales con nombre y 25 con sigla, de PubChem, de IFRA y del uso del sector;
+  - ~~una capa de sinónimos~~ **hecha la de nombres comerciales** (P38, 2026-09-27): 331
+    materiales con nombre y 25 con sigla, de PubChem, de IFRA, de la web y del uso del
+    sector;
   - la capa propia (D4);
   - revisar las abreviaturas generadas.
 - [ ] **D4 · La capa propia de cada material** (P24, P29, P30), **al acabar de definir la

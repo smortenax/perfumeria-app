@@ -39,7 +39,7 @@ cosas:
 la búsqueda. Donde hay nombre comercial, la app lo enseña primero, con su sigla, y el químico
 al lado. La capa sale de
 [`origen/nombres-comerciales.csv`](origen/nombres-comerciales.csv), una fila por CAS, y se
-aplica a todo material con ese CAS. **303 materiales llevan nombre comercial y 25, sigla.**
+aplica a todo material con ese CAS. **331 materiales llevan nombre comercial y 25, sigla.**
 Cómo se hizo, y lo que queda por mirar, en
 [la investigación del 2026-09-27](../../docs/investigacion/2026-09-27-nombres-comerciales/README.md).
 

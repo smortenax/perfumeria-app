@@ -1401,7 +1401,8 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
     sigla comercial va también junto al nombre;
   - **una fórmula guarda el nombre comercial** del material que se añade.
 - **Hecho** ([la investigación](investigacion/2026-09-27-nombres-comerciales/README.md)):
-  - 302 materiales con nombre comercial y 24 con sigla (303 y 25 con el 1333-58-0);
+  - 302 materiales con nombre comercial y 24 con sigla (303 y 25 con el 1333-58-0). Tras
+    la pasada con la web, que pidió el usuario, son 331 y 25, y 60 filas tienen página;
   - cada uno con su fuente (PubChem, IFRA o uso del sector) y su confianza;
   - ocho casos dudosos, apuntados en la investigación.
 - Confirmación del usuario, 2026-09-27: *«confirmo P38 y P40, el 1333-58-0 también como IBQ»*

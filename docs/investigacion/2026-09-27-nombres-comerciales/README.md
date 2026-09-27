@@ -51,20 +51,48 @@ con la fuente y la confianza de cada fila.
   comparte, el icono lleva un distintivo** (P39): ⁶IBQ, ²IBQ y ²′IBQ; ¹OTNE y ¹′OTNE; ¹AHTN
   y ⁶AHTN.
 
-## Lo que queda por mirar
+## La pasada con la web
 
-La pasada de juicio los dejó marcados, y siguen abiertos. **El 1333-58-0 ya no:** el usuario
-lo dio también como IBQ, y es ²′IBQ.
+Tras la primera versión, el usuario pidió completar lo que faltaba. Un segundo subagente
+Sonnet trabajó con [otro encargo](web/encargo.md), con un tope de 150 búsquedas y 60
+lecturas; gastó 73 y 43. **Un nombre solo entra si una página lo pone junto a ese CAS
+exacto**, y la página queda apuntada. Sus salidas están en [`web/`](web/).
+
+- **Los casos dudosos:**
+  - Okoumal es de los CAS 131812-52-7 y 131812-67-4, según la página de Givaudan;
+  - Limetol es solo del 7392-19-0; el 13837-56-4 se queda sin él;
+  - Lyral cubre también el 130066-44-3;
+  - Galbascone (IFF) es el predominante de la cetona de gálbano;
+  - el 7779-50-2 es Ambrettolide, y «Ambrettol» pasa a otro nombre;
+  - «Dragosantol» no es de ninguno de los dos bisabololes, porque su CAS es el 515-69-5;
+  - los dos vetiverol son un registro doble del mismo natural, sin marca.
+- **Los 20 nombres que eran solo «uso del sector» tienen ya una página**, casi siempre la de
+  la casa o ScenTree.
+- **28 nombres nuevos:**
+  - 16 del compendio de Firmenich de 2016: las damasconas, Florex, Fructalate, Delphol
+    HC…;
+  - 12 de búsquedas sueltas: Okoumal, Limetol, Ambermax, Glycolierral, los segundos CAS de
+    Spirambrene y Ysamber K…
+- **Dos decisiones de la revisión:**
+  - **Pyralone** es la marca de Givaudan para el 65442-31-1. Queda como otro nombre, y
+    delante sigue «Isobutyl quinoline», que es lo que el usuario confirmó;
+  - **el compendio de Firmenich se leyó en una copia no oficial** de la web. Se cita el
+    documento y no el enlace, y la confianza se queda en media como mucho. Pasa lo mismo con
+    The Good Scents Company, cuyas condiciones de uso son restrictivas.
+- **Catálogos que no se pudieron leer:**
+  - los PDF de Givaudan y de Takasago, porque son imagen o pasan del tamaño;
+  - IFF, que bloquea la lectura;
+  - Kao, BASF y Zeon, que no se intentaron.
+
+  Si hacen falta, el usuario puede descargar esos catálogos y leerlos aquí.
+
+**Resultado: 331 materiales con nombre comercial y 25 con sigla, en 338 filas.** 60 filas
+tienen página web. Confianza: 114 alta, 207 media y 17 baja.
+
+## Lo que queda por mirar
 
 | CAS | Qué pasa |
 |---|---|
-| 131812-52-7 · 131812-67-4 | Los dos traen «Okoumal» como candidato; no se sabe a cuál corresponde |
-| 13837-56-4 · 7392-19-0 | Los dos traen «Limetol / Linaloyl oxide» (óxido de linalilo, cis y trans) |
-| 130066-44-3 | Trae «Lyral» como candidato, que ya lleva el 31906-04-4 |
-| 23178-88-3 · 72691-24-8 | «Dragosantol» sale en varios bisabololes y no queda claro de cuál es |
-| 89-88-3 · 68129-81-7 | Los dos son vetiverol: puede ser un registro doble |
-| 56973-85-4 | Cetona de gálbano: seis nombres de casa (Dynascone, Galbascone…) y ninguno claramente predominante |
-| 7779-50-2 | PubChem da «Ambrettol»; el nombre de uso puede ser «Ambrettolide» |
-
-**Falta también** lo que no está en el glosario: los disolventes (DEP, IPM, TEC) y algunas
-moléculas conocidas (Georgywood, Silvial, Nectaryl), porque no están en el FIG ni en IFRA.
+| 13837-56-4 | Algunas fichas de proveedor lo llaman «Limetol», pero la página de Givaudan da otro CAS |
+| 23178-88-3 · 72691-24-8 | Bisabololes sin nombre comercial propio |
+| 89-88-3 · 68129-81-7 | Vetiverol: registro doble del mismo natural |
