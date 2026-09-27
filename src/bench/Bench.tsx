@@ -4,7 +4,7 @@ import { parseMass } from "../core/arith/units";
 import { compose, replay, vectorOf, type Composition, type Line } from "../core/compose";
 import { formatDecimal } from "../core/display";
 import { checkIfra, type IfraReport } from "../core/ifra";
-import { formulaFromJson, formulaToJson } from "../core/io/formula-json";
+import { formulaFromJson, formulaToJson as toJsonWith } from "../core/io/formula-json";
 import type { Change, Formula, FormulaHeader } from "../core/model/formula";
 import type { Material } from "../core/model/material";
 import { catalog } from "../data/provisional";
@@ -17,7 +17,7 @@ import { PromptDialog, SaveAsDialog, type SaveAsChoice } from "./Dialogs";
 import { GramsCard, IntentionCard, NameCard } from "./Header";
 import { ChangeDetail, HistoryDock } from "./HistoryDock";
 import { IfraDetail, IfraSummary } from "./IfraBox";
-import { confirmDialog, download, fileNameFor, inTauri, pickAndRead, pickSavePath, writeFile } from "./io";
+import { confirmDialog, download, fileNameFor, guardClose, inTauri, pickAndRead, pickSavePath, writeFile } from "./io";
 import { pushRecent, recentKeys } from "./prefs";
 import { benchReducer, emptyFormula, initialState, newId } from "./state";
 
@@ -46,6 +46,8 @@ interface View {
 const message = (e: unknown) => (e instanceof Error ? e.message : String(e));
 const reopensByWeighing = (formula: Formula) => formula.header.container?.tareUg != null && formula.history.length > 0;
 const baseName = (path: string) => path.split(/[\\/]/).pop() ?? path;
+/** Every file says with which IFRA amendment it was checked (P44). */
+const formulaToJson = (formula: Formula) => toJsonWith(formula, { ifraAmendment: catalog.source.amendment });
 
 /**
  * The formulation bench, provisional (plan, phase 4): everything the core does,
@@ -69,6 +71,11 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
   const frameRef = useRef(frame);
   frameRef.current = frame;
   const dirty = !state.saved && formula.history.length > 0;
+  const dirtyRef = useRef(dirty);
+  dirtyRef.current = dirty;
+
+  // Closing the window never loses a change without asking (§6).
+  useEffect(() => guardClose(() => dirtyRef.current, texts.menu.discardOnClose), []);
 
   const view: View = useMemo(() => {
     try {

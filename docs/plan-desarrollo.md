@@ -246,22 +246,28 @@ incluida. **Lo que falla, por orden de importancia:**
    abrir, repesar y la fórmula como material en el ejecutable. Lo prueba el usuario al
    pesar.
 
-**Plan, en este orden:**
-- [ ] **A · Sin decisión, arreglos:**
-  - un aviso al cerrar con cambios sin guardar;
-  - un borrador automático de la fórmula sin archivo en la carpeta de datos, que se ofrece
-    al volver a abrir la app (§6: guardado automático, nada en la memoria del navegador);
-  - el botón del inicio;
-  - los guiones bajos.
-- [ ] **B · La búsqueda:**
-  - los sinónimos de PubChem, filtrados como en la capa de nombres comerciales (P38);
-  - *allyl amyl glycolate* en esa capa;
-  - **los nombres en español (P43, por decidir).**
-- [ ] **C · Recordar los materiales provisionales** entre fórmulas (P44, por decidir).
+**Plan, en este orden** (revisado el 2026-09-28: **guardar con certeza es lo primero**, P44):
+- [x] **A · Arreglos sin decisión** (2026-09-28):
+  - cerrar la ventana con cambios sin guardar pregunta antes;
+  - el archivo de la fórmula guarda el CAS de cada material y la enmienda de IFRA con que
+    se comprobó, para no perderlos si cambia el glosario;
+  - el botón del inicio se ve;
+  - 40 nombres de la *Transparency List* sin los guiones bajos de corte de línea. Los que
+    quedan son letras griegas o primas perdidas, y se dejan.
+- [ ] **B · Guardar con certeza (P44)**, de una en una:
+  - dónde viven las fórmulas. De eso depende que una fórmula sin archivo se guarde sola;
+  - las versiones y las copias;
+  - si los provisionales se recuerdan entre fórmulas.
+- [ ] **C · La búsqueda, sin decisión:** los sinónimos de PubChem, filtrados como en la
+  capa de nombres comerciales (P38), y *allyl amyl glycolate*. Buscar en otros idiomas queda
+  aplazado (P43).
 - [ ] **D · Instalador nuevo**, y a pesar. Lo que falle se apunta en la bandeja del
   laboratorio, como siempre.
-- **Después, no para mañana:** la biblioteca, que necesita sus criterios; exportar al
-  cuaderno; los gráficos (P33 y P42); el icono del instalador.
+- **Abiertas, sin prisa:**
+  - el tipo de fórmula, acorde o perfume, y la galería con sus filtros (P45);
+  - las categorías generales, que van al laboratorio (P46);
+  - el modo de replicar una fórmula, en exploración (P47);
+  - exportar al cuaderno, los gráficos (P33 y P42) y el icono del instalador.
 
 - [ ] **La barra de añadir** (decisiones §4): material, cantidad, dilución, añadir y
   estrella; el buscador con sus dos interruptores; las dos opciones de dilución, con memoria

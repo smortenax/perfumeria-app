@@ -16,6 +16,8 @@ export const FORMULA_FORMAT = "perfumeria/formula/1";
 interface MaterialDoc {
   kind: MaterialKind;
   name: string;
+  /** Kept so a later glossary can find the material again if its key changes (P44). */
+  cas?: string;
   solvent?: true;
   /** For kind "formula": [component key, exact proportion]. */
   vector?: Array<[string, string]>;
@@ -28,11 +30,19 @@ type ChangeDoc =
   | { kind: "reweigh"; id: string; grossUg: string; tareUg: string }
   | { kind: "note"; id: string; text: string };
 
-export function formulaToJson(formula: Formula): string {
+/** What the file says about how it was checked: the IFRA amendment in use when it was saved (P44). */
+export interface FormulaMeta {
+  readonly ifraAmendment?: string;
+}
+
+export function formulaToJson(formula: Formula, meta: FormulaMeta = {}): string {
   const materials: Record<string, MaterialDoc> = {};
   const register = (material: Material): string => {
     if (!materials[material.key]) {
       const doc: MaterialDoc = { kind: material.kind, name: material.name };
+      if (material.cas) {
+        doc.cas = material.cas;
+      }
       if (material.solvent) {
         doc.solvent = true;
       }
@@ -89,6 +99,7 @@ export function formulaToJson(formula: Formula): string {
   return [
     "{",
     `  "format": ${JSON.stringify(FORMULA_FORMAT)},`,
+    ...(meta.ifraAmendment ? [`  "ifra": ${JSON.stringify({ amendment: meta.ifraAmendment, category: "4" })},`] : []),
     `  "header": ${indent(JSON.stringify(header, null, 2))},`,
     `  "materials": ${oneEntryPerLine(materials)},`,
     `  "history": ${oneItemPerLine(history)},`,
@@ -114,7 +125,13 @@ export function formulaFromJson(text: string): Formula {
     if (!entry) {
       throw new Error(`The file uses a material it does not define: ${key}`);
     }
-    let result: Material = { key, kind: entry.kind, name: entry.name, ...(entry.solvent ? { solvent: true } : {}) };
+    let result: Material = {
+      key,
+      kind: entry.kind,
+      name: entry.name,
+      ...(entry.cas ? { cas: entry.cas } : {}),
+      ...(entry.solvent ? { solvent: true } : {}),
+    };
     if (entry.kind === "formula") {
       const components: VectorComponent[] = (entry.vector ?? []).map(([k, p]) => ({
         material: material(k),

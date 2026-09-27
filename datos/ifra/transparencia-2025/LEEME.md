@@ -21,8 +21,11 @@ la leyó entera el 2026-09-27, página a página y con calma, porque el usuario 
 - **Las tres columnas son las de la tabla de IFRA**: `cas`, `nombre_principal` y
   `categoria_natural`. Esta última solo la llevan los naturales.
 - **Los nombres van tal como los escribe IFRA**, con dos rarezas de su web:
-  - «-_» es un corte de línea dentro del nombre. El glosario lo limpia al mostrarlo;
-  - un «_» suelto ocupa el sitio de una letra griega perdida, como en «(+)-_-Bisabolol».
+  - un «_» detrás de una coma, un paréntesis, un corchete o un guion es un corte de línea
+    dentro del nombre («1,_2-Pentanediol», «3-_[(2-ethylhexyl)_oxy]_-»). El glosario lo
+    limpia al mostrarlo;
+  - un «_» suelto ocupa el sitio de una letra griega o una prima perdidas, como en
+    «(+)-_-Bisabolol» o «_,_-Dimethylbenzenepentanol», y se deja.
     Se deja tal cual.
 - **IFRA no publica condiciones de reutilización de la lista**, y el laboratorio tampoco
   las encontró. **Antes de distribuir la app como producto hay que revisar la licencia**

@@ -210,7 +210,7 @@ export function buildCatalog(files: CatalogFiles): Catalog {
     const marked = `${m.icono_distintivo}${m.sigla_comercial} ${m.icono_distintivo.replace(/′/g, "'")}${m.sigla_comercial}`;
     const others = m.otros_nombres_comerciales === "" ? [] : m.otros_nombres_comerciales.split(" | ");
     entries.push({
-      material: { key: m.id, kind: "base", name: trade || m.nombre },
+      material: { key: m.id, kind: "base", name: trade || m.nombre, ...(m.cas ? { cas: m.cas } : {}) },
       group: "base",
       code: m.codigo,
       icon: m.icono || m.codigo,

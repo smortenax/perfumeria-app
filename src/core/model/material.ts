@@ -19,6 +19,11 @@ export interface Material {
   readonly key: string;
   readonly kind: MaterialKind;
   readonly name: string;
+  /**
+   * The CAS of a base material, when it has one. It travels in the formula file, so a
+   * later glossary can find the material again if its key changes (P44).
+   */
+  readonly cas?: string;
   /** A carrier, not aromatic matter: DPG, alcohol… */
   readonly solvent?: boolean;
   /** Only for kind "formula": what it is made of, flat and exact. */

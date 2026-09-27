@@ -327,9 +327,13 @@ def main() -> None:
 
         for r in read(TRANSPARENCY):
             cas = (CAS_RE.findall(r["cas"]) or [""])[0]
-            # IFRA's web writes a line break of a name as «-_»; a «_» alone stands for a lost
-            # Greek letter («(+)-_-Bisabolol») and is left as IFRA wrote it.
-            name = re.sub(r"-_(?=[\w(])", "-", r["nombre_principal"]).rstrip("_ ")
+            # IFRA's web marks where it broke a name with «_»: after a bracket, after a comma
+            # before a digit or a letter, at the end of a word before a comma or a bracket, and
+            # after a hyphen («1,_2-Pentanediol», «3-_[(2-ethylhexyl)_oxy]_-»). A «_» alone
+            # stands for a lost Greek letter or prime («(+)-_-Bisabolol», «_,_-Dimethyl»,
+            # «1,1_-oxybis») and is left as IFRA wrote it.
+            name = re.sub(r"(?<=[)\]])_|(?<=,)_(?=[\w(\[])|(?<=[A-Za-z])_(?=[,\]])|-_(?=[\w(\[,])",
+                          lambda g: "-" if g.group(0) == "-_" else "", r["nombre_principal"]).rstrip("_ ")
             iso = r["categoria_natural"]
             if not iso:
                 found = by_cas.get(cas, []) if cas else by_name.get(norm(name), [])

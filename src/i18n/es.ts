@@ -165,6 +165,7 @@ export const texts = {
     redo: "Rehacer",
     downloaded: "descargada (en el navegador no se elige carpeta)",
     discard: "Hay cambios sin guardar. ¿Seguir y perderlos?",
+    discardOnClose: "Hay cambios sin guardar. ¿Cerrar y perderlos?",
     saveError: "No se pudo guardar",
   },
 

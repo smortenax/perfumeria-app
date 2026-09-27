@@ -1551,6 +1551,120 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 - Estado: abierta · seis decisiones de D4
 - Destino: plan, D4; decisiones.md §6 cuando se decidan
 
+### P43 — La búsqueda en español
+- Bloque: búsqueda (§4), glosario
+- Abierta por: la revisión del banco (2026-09-27): de los 24 materiales de F-001, 6 no
+  salían al escribirlos en español
+- Opciones presentadas: A) un diccionario de palabras dentro de la búsqueda · B) un nombre
+  en español por material, visible · C) dejarlo como está
+- Recomendación: A
+- Respuesta literal: *«lo de español se puede dejar afecta a poco y ademas nomenclatura heneral esta bien en todo caso si se hace algo asi que sea allocation mas general no solo en español, postpuesto aplazado»*
+- **Lectura:**
+  1. **Se aplaza.** Afecta a poco, y la nomenclatura general (química y comercial) está
+     bien.
+  2. **Si algún día se hace, que sea una capa general de idiomas**, no solo el español.
+- Fecha: 2026-09-28
+- Estado: cerrada · aplazada
+- Destino: decisiones.md §8
+
+### P44 — Guardar con certeza: dónde viven las fórmulas, sus versiones y lo que quedó en el tintero
+- Bloque: guardar (§3.2, §6)
+- Abierta por: el usuario, 2026-09-28
+- Respuesta literal: *«lo principal diria tema guardados y demas […] por otro lado yo diria que lo mas importante es tema de guardados control de versiones un sitio de la app que te guarde las formulas internamente, esos temas donde es importante que haya certeza una vez se desarrolla, tambien considero valorar temas que se pueden haber quedado en el tintero que a la larga pueden dar complicaciones.»*
+- **Lectura:**
+  1. **Lo más importante ahora es guardar, y con certeza:** una vez hecho, que no haya
+     dudas de que nada se pierde.
+  2. **Un sitio de la app que guarde las fórmulas**: una biblioteca propia, en vez de que
+     cada archivo quede donde el usuario lo dejó.
+  3. **Control de versiones.**
+  4. **Revisar lo que se quedó en el tintero** y puede complicar las cosas a la larga.
+- **El tintero, revisado el 2026-09-28:**
+  - **cerrar la ventana perdía lo no guardado, sin avisar.** *Arreglado: ahora pregunta;*
+  - **una fórmula sin archivo no se guarda sola**: el guardado automático empieza con el
+    primer «Guardar». Se resuelve con el punto 2;
+  - **el archivo guardaba cada material solo por su clave del glosario** (`fig:1234`) y su
+    nombre. La clave es provisional hasta cerrar D3, y la de los naturales del anexo sale
+    de su nombre, que IFRA puede cambiar en otra enmienda. Una fórmula vieja no volvería a
+    encontrar su material: quedaría «sin comprobar», nunca libre (§1.2), pero sin IFRA.
+    *Arreglado: el archivo guarda también el CAS;*
+  - **el archivo no decía con qué enmienda de IFRA se comprobó**, y con la 52 la misma
+    fórmula podría cambiar de veredicto sin que se note. *Arreglado: lo apunta.* Avisar al
+    abrir si ha cambiado queda para la biblioteca;
+  - **un material provisional es distinto cada vez que se escribe.** «Sandalmysore Core» en
+    dos fórmulas son dos materiales: si una entra en la otra como material, no se suman.
+    Por decidir;
+  - **guardar sobrescribe, y no queda copia.** El historial conserva cada adición, pero no
+    lo que se deshizo ni los cambios de la cabecera. Por decidir, con el punto 3.
+- **Por decidir, de una en una:**
+  1. dónde viven las fórmulas;
+  2. las versiones y las copias;
+  3. si los provisionales se recuerdan entre fórmulas.
+- Fecha: 2026-09-28
+- Estado: abierta
+- Destino: decisiones.md §3.2 y §6
+
+### P45 — Acorde o perfume al guardar, y la galería de fórmulas
+- Bloque: guardar (§6), biblioteca (fase 5), IFRA (§5.4)
+- Abierta por: el usuario, 2026-09-28
+- Respuesta literal: *«estaba explorando cosas que se pasen a nivel general, por ejemplo vale la pena la posibilidad de distinguir formulas en el guardado, guardarla como acorde o como perfume. ahora no recuerdo de donde salia esta idea pero era con una intencion o con la orientacion de resolver problemas, dicho esto ademas podria ser conveniente que el usuario acabe teniendo glosarios de formulas donde se pueda filtrar  por tipos como acordes o formulas de perfume (me refiero ahora en como la galeria de formulas fuera del banco, tambien puedes filtrar por ejemplo por la predominancia de categorias).»*
+- **Lectura:**
+  1. **Al guardar, la fórmula lleva un tipo: acorde o perfume.**
+  2. **De dónde salía la idea:** de P13. «Tratar como acorde» invertía el aviso de IFRA:
+     un acorde no tiene que cumplir por sí mismo; lo útil es hasta qué % se puede usar en
+     un perfume. P17 lo cerró sin modo: las dos lecturas, siempre, y **como mucho cambia
+     cuál se destaca** (§5.4). **El tipo sería lo que decide cuál.**
+  3. **Una galería de fórmulas fuera del banco**, que es la biblioteca de la fase 5, con
+     filtros por tipo y por predominancia de categorías.
+- **Depende de** P44 (dónde viven las fórmulas) y P46 (las categorías).
+- Fecha: 2026-09-28
+- Estado: abierta
+- Destino: decisiones.md §5.4 y §6; plan, fase 5
+
+### P46 — Las categorías generales, visibles para el usuario
+- Bloque: datos (D4), diseño (color), biblioteca
+- Abierta por: el usuario, 2026-09-28
+- Respuesta literal: *«aun por definir de la app, en lo tematico, tema categorias, se ha arrastrado bastante pero es algo que persiste hay que definir una referencia quizas esto se puede pasar a tarea de lab donde se evaluen mas los datos se le pase glosario de datos si algo falta y ahi se hace un poco cuestionario y investigacion sobre categorias, las categorias que me refiero ahora son las generales, las que seran directamente visibles para el usuario en codigo de color sobre los materiales y las que se serian utiles por ejemplo para filtrar formulas por predominancia de categorias (por ejemplo ordenar por afrutado ascendente o descendente) dicho esto hay que ver que hacer en este sentido y valorarlo. (parentesi de cambios mas alla, se ha de iterar en el como)»*
+- **Lectura:**
+  1. **Las categorías generales siguen sin definir y se arrastran** desde P29, P33 y P35, y
+     la parte B del frente 6.
+  2. **Son las que ve el usuario:** el código de color sobre cada material, y las que
+     sirven para filtrar y ordenar fórmulas por predominancia («la más afrutada primero»).
+  3. **Propuesta del usuario: pasarlo al laboratorio**, con el glosario de la app, para
+     evaluar los datos, investigar y hacerle un cuestionario.
+  4. **Lo que vaya más allá, por iterar.**
+- **Valoración, por confirmar:**
+  - **Hay cuatro sitios esperándolas:** el color de cada material, los filtros de la
+    galería (P45), las infografías (P33) y la pirámide (D4).
+  - **Es investigación y gusto del usuario, así que va al laboratorio**, como encargo
+    propio o ampliando la parte B del frente 6.
+  - **El universo es el glosario de la app** (4320 materiales), no solo el FIG.
+  - **Una pregunta de fondo para el cuestionario:** ¿una categoría por material, o un
+    reparto? Para ordenar fórmulas por predominancia sirve mejor un reparto: un material
+    70 % afrutado y 30 % floral.
+- Fecha: 2026-09-28
+- Estado: abierta
+- Destino: un encargo al laboratorio; decisiones.md §6 y §10
+
+### P47 — Replicar una fórmula *(exploración)*
+- Bloque: banco (fase 4), flujos (diseño, punto 5)
+- Abierta por: el usuario, 2026-09-28
+- Respuesta literal: *«antes se planteaba el tema de quitar y añadir materiales por ejemplo en lo que respecta a eso creo que deberia haber incluso un paso mas alla, para el proceso inverso, el de la replica se deberia poder ampliar la parte de la derecha con todo el breakdown, si abres la formula pero para replicarla los porcentajes no sirven y a momento de ahora no hay nada que te permitiese hacerlo, quizas el banco de formulacion podria tener un toggle y dentro de el un modo de replicar o editar formula donde cambia la ui y se convierte en una herramienta donde puedes hacer ediciones de las cantidades de la formula por si alguien quiere formular a mano y luego recrearlo, una parte donde ponga los gramos para recrear la formula otra donde puedas ir paso por paso y te lleve por la recreacion, esto de momento todo queda en el parentesis de explorar no hay una direccion clara de que hacer»*
+- **Lectura:**
+  1. **Para rehacer una fórmula, los porcentajes no sirven: hacen falta gramos**, y hoy no
+     hay nada que los dé.
+  2. **Una idea: un interruptor en el banco con un modo «replicar o editar».** La parte de
+     la derecha se amplía con todo el desglose, y hay tres piezas:
+     - editar las cantidades, para quien formula a mano y luego lo pasa;
+     - los gramos para rehacerla;
+     - un paso a paso que guía la recreación.
+  3. **Es exploración:** no hay dirección todavía.
+- **Lo que ya existe y sirve:** la composición exacta sale del historial (§3.4); escalarla
+  a otro lote es la misma cuenta que reabrir pesando (§3.5); y el desglose de una fórmula
+  usada como material, de §3.6.
+- Fecha: 2026-09-28
+- Estado: abierta · exploración
+- Destino: diseño, punto 5 (los flujos)
+
 ---
 
 ## Estado
@@ -1562,5 +1676,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
 | R12 · infografías y frentes | 7 (P35 a P41) | 3 (P33, P34, P42) |
+| R13 · a pesar en el banco | 1 (P43) | 4 (P44 a P47) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.

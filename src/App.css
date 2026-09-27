@@ -202,6 +202,8 @@ button.big {
   width: auto;
   height: 48px;
   font-size: 15px;
+  border: none;
+  background: var(--ink);
 }
 
 .launcher-notes p {

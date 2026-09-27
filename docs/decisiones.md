@@ -436,6 +436,7 @@ No hay «modo acorde». Como mucho, cambia cuál de las dos se destaca.
 | **Móvil**, Android e iOS | Misma base de código (Tauri 2). Android se prueba en el emulador de Android Studio desde Windows; **iOS necesita un Mac** para probarse en el iPhone y para publicar |
 | **Umbrales de alérgenos** de la UE | La maquinaria por sustancia (§5.3); el dato es el vacío 12 |
 | **Otras categorías IFRA** | Las 18 archivadas (§5.1) |
+| **Buscar en otros idiomas**. Afecta a poco, y la nomenclatura general, química y comercial, está bien. Si se hace, **una capa general de idiomas, no solo el español** (P43) | La búsqueda ya tolera la grafía española («isobutilquinoleina») y encuentra por nombre comercial, químico, de IFRA y CAS (§6) |
 | **Recuperar un punto del historial** | Por evaluar (§3.4) |
 | **Producto**: publicar, licencias de los datos (IFRA, FIG) antes de distribuir | El ID-vector ya sirve para compartir (§2.4). El repositorio propio ya existe (2026-09-25) |
 | **Lo que va antes del banco** | Sin diseñar (§0). El banco ya tiene botón atrás (§10.1) |

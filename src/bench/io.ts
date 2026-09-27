@@ -1,4 +1,5 @@
 import { invoke } from "@tauri-apps/api/core";
+import { getCurrentWindow } from "@tauri-apps/api/window";
 import { ask, open, save } from "@tauri-apps/plugin-dialog";
 
 /**
@@ -63,3 +64,39 @@ export async function confirmDialog(text: string): Promise<boolean> {
 
 export const fileNameFor = (name: string): string =>
   `${name.trim().replace(/[\\/:*?"<>|]+/g, "-") || "formula"}.json`;
+
+/**
+ * Asks before the window closes while `dirty()` says there are unsaved changes (§6).
+ * Inside the app, Tauri's close request waits for the answer; in a browser, the page
+ * asks with its own words. Returns what stops listening.
+ */
+export function guardClose(dirty: () => boolean, text: string): () => void {
+  if (!inTauri()) {
+    const onBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (dirty()) {
+        e.preventDefault();
+      }
+    };
+    window.addEventListener("beforeunload", onBeforeUnload);
+    return () => window.removeEventListener("beforeunload", onBeforeUnload);
+  }
+  let stop: (() => void) | null = null;
+  let stopped = false;
+  void getCurrentWindow()
+    .onCloseRequested(async (event) => {
+      if (dirty() && !(await confirmDialog(text))) {
+        event.preventDefault();
+      }
+    })
+    .then((unlisten) => {
+      if (stopped) {
+        unlisten();
+      } else {
+        stop = unlisten;
+      }
+    });
+  return () => {
+    stopped = true;
+    stop?.();
+  };
+}

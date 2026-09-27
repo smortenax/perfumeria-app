@@ -23,6 +23,22 @@ describe("formula JSON", () => {
     expect(formulaToJson(read)).toBe(text);
   });
 
+  it("keeps the CAS of each material and the IFRA amendment it was checked with, to find them again if the glossary changes", () => {
+    const hedione: Material = { key: "fig:1234", kind: "base", name: "Hedione", cas: "24851-98-7" };
+    const formula: Formula = {
+      header: { name: "prueba", intention: "", container: null, workBatchUg: null, finalBatchUg: null },
+      history: [{ kind: "add", id: "h", material: hedione, massUg: 1_000n, fraction: Ratio.ONE, diluent: null }],
+    };
+    const text = formulaToJson(formula, { ifraAmendment: "51" });
+    const doc = JSON.parse(text);
+    expect(doc.ifra).toEqual({ amendment: "51", category: "4" });
+    expect(doc.materials["fig:1234"]).toEqual({ kind: "base", name: "Hedione", cas: "24851-98-7" });
+    const read = formulaFromJson(text);
+    expect(read.history[0].kind === "add" && read.history[0].material.cas).toBe("24851-98-7");
+    // Without the amendment, the file is as before.
+    expect(JSON.parse(formulaToJson(formula)).ifra).toBeUndefined();
+  });
+
   it("writes one change per line, so Git sees each change", () => {
     const text = formulaToJson(f001());
     const lines = text.split("\n");
