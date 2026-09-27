@@ -12,3 +12,4 @@ Es el camino de ida; el de vuelta es su bandeja de entradas, `app/entradas.md`.
 |---|---|---|
 | 2026-09-26 | [Frente 6 — La base descriptiva de cada material](2026-09-26-frente-6-base-descriptiva.md) | P29, P30, P32 |
 | 2026-09-26 | [Frente 7 — El POM a fondo, y lo que el olor hace en el cerebro](2026-09-26-frente-7-pom-y-cerebro.md) | P32 |
+| 2026-09-28 | [Frente 8 — Las categorías generales de olor](2026-09-28-frente-8-categorias-generales.md) | P46, con P33, P34, P35 y P45 |

@@ -268,7 +268,8 @@ incluida. **Lo que falla, por orden de importancia:**
   laboratorio, como siempre.
 - **Abiertas, sin prisa:**
   - el tipo de fórmula, acorde o perfume, y la galería con sus filtros (P45);
-  - las categorías generales, que van al laboratorio (P46);
+  - las categorías generales, **encargadas al laboratorio**: el
+    [frente 8](encargos/2026-09-28-frente-8-categorias-generales.md) (P46);
   - el modo de replicar una fórmula, en exploración (P47);
   - exportar al cuaderno, los gráficos (P33 y P42) y el icono del instalador.
 

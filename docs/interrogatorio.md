@@ -1666,8 +1666,11 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
   - **Una pregunta de fondo para el cuestionario:** ¿una categoría por material, o un
     reparto? Para ordenar fórmulas por predominancia sirve mejor un reparto: un material
     70 % afrutado y 30 % floral.
+- **Encargado al laboratorio el 2026-09-28**, a petición del usuario: el
+  [frente 8](encargos/2026-09-28-frente-8-categorias-generales.md). Se queda con el color y
+  el carácter de la parte B del frente 6, y termina en un cuestionario al usuario.
 - Fecha: 2026-09-28
-- Estado: abierta
+- Estado: abierta · encargada al laboratorio
 - Destino: un encargo al laboratorio; decisiones.md §6 y §10
 
 ### P47 — Replicar una fórmula *(exploración)*
