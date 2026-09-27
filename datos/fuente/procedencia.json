@@ -1,13 +1,13 @@
 {
   "laboratorio": "https://github.com/smortenax/perfumeria-lab",
-  "commit": "d2852f4b7d9f0a328426e9924f0c17fc929e9b38",
-  "fecha_commit": "2026-09-27T22:49:25+02:00",
+  "commit": "403a1b15d11749e0a64552eee56d3b6f8b3d3932",
+  "fecha_commit": "2026-09-27T22:54:07+02:00",
   "cambios_sin_commit": false,
-  "importado": "2026-09-27T20:53:04+00:00",
+  "importado": "2026-09-27T20:54:20+00:00",
   "archivos": {
     "pieza-8-presion-de-vapor-opera.csv": {
       "origen": "fuentes/investigaciones/2026-09-26-frente-6-piezas/pieza-8-presion-de-vapor-opera.csv",
-      "sha256": "516d54b6beecb4b2b3292a57f6a47dc052900d4b34756d6b0d2bf7928109fb9c"
+      "sha256": "bde1f7b764230882dc178187297a685ce4a6c59963b7c3f2443e043a8adb51a4"
     }
   },
   "documentos": {

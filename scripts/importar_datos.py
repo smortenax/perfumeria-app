@@ -23,7 +23,6 @@ import hashlib
 import json
 import posixpath
 import re
-import shutil
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -98,7 +97,8 @@ def main() -> None:
     files = {}
     for rel in SOURCES:
         dst = DEST / Path(rel).name
-        shutil.copy2(lab / rel, dst)
+        # LF, as the repository keeps it (.gitattributes), so the hash matches a checkout.
+        dst.write_bytes((lab / rel).read_bytes().replace(b"\r\n", b"\n"))
         files[dst.name] = {"origen": rel, "sha256": sha256(dst)}
         print(f"datos/fuente/{dst.name}")
 
