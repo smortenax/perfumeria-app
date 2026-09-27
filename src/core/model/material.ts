@@ -25,8 +25,18 @@ export interface Material {
   readonly vector?: Vector;
 }
 
-/** The diluents offered by default in the add bar (decisions §4). */
+/**
+ * The diluents of the app (decisions §4): DPG and alcohol are the two offered
+ * by default; the rest come from the menu of other diluents. A diluent is
+ * checked against IFRA like any material when it has a standard (benzyl
+ * benzoate does).
+ */
 export const DILUENTS = {
   dpg: { key: "solv:dpg", kind: "base", name: "DPG", solvent: true },
   alcohol: { key: "solv:alcohol", kind: "base", name: "Alcohol", solvent: true },
+  ipm: { key: "solv:ipm", kind: "base", name: "IPM", solvent: true },
+  dep: { key: "solv:dep", kind: "base", name: "DEP", solvent: true },
+  tec: { key: "solv:tec", kind: "base", name: "TEC", solvent: true },
+  triacetina: { key: "solv:triacetina", kind: "base", name: "Triacetina", solvent: true },
+  bb: { key: "solv:bb", kind: "base", name: "Benzoato de bencilo", solvent: true },
 } as const satisfies Record<string, Material>;

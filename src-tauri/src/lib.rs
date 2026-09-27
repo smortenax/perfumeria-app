@@ -6,10 +6,14 @@ fn read_text_file(path: String) -> Result<String, String> {
     fs::read_to_string(&path).map_err(|e| format!("{path}: {e}"))
 }
 
-/// Writes a formula file: first to a temporary file next to it, then renamed
-/// over the original, so a failed write never leaves half a formula on disk.
+/// Writes a formula file, or the user's preferences: first to a temporary file
+/// next to it, then renamed over the original, so a failed write never leaves
+/// half a file on disk. Its folder is made if missing (the app's data folder).
 #[tauri::command]
 fn write_text_file(path: String, contents: String) -> Result<(), String> {
+    if let Some(parent) = std::path::Path::new(&path).parent() {
+        fs::create_dir_all(parent).map_err(|e| format!("{}: {e}", parent.display()))?;
+    }
     let tmp = format!("{path}.tmp");
     fs::write(&tmp, contents).map_err(|e| format!("{tmp}: {e}"))?;
     fs::rename(&tmp, &path).map_err(|e| format!("{path}: {e}"))

@@ -22,11 +22,12 @@ const header: FormulaHeader = { name: "prueba", intention: "", container: null, 
 const MG = 1_000n;
 
 describe("the catalog, from the glossary and IFRA's own files (P37)", () => {
-  it("has the FIG with the user's codes, what only IFRA has, the two diluents, and nothing of the lab", () => {
+  it("has the FIG with the user's codes, what only IFRA has, the diluents of the app, and nothing of the lab", () => {
     const count = (group: string) => catalog.entries.filter((e) => e.group === group).length;
     expect(count("base")).toBe(3370);
     expect(catalog.counts).toEqual({ fig: 3119, ifraOnly: 251 });
-    expect(count("diluent")).toBe(2);
+    // DPG and alcohol, and the other diluents of the menu (§4): IPM, DEP, TEC, triacetin, benzyl benzoate.
+    expect(count("diluent")).toBe(7);
     expect(count("own")).toBe(0);
     expect(catalog.entries.some((e) => e.material.key.startsWith("lab:"))).toBe(false);
     expect(catalog.source.amendment).toBe("51");
@@ -105,6 +106,22 @@ describe("the catalog, from the glossary and IFRA's own files (P37)", () => {
     expect(searchCatalog(catalog.entries, "6IBQ")[0].cas).toBe("65442-31-1");
     expect(searchCatalog(catalog.entries, "2'IBQ")[0].cas).toBe("1333-58-0");
     expect(searchCatalog(catalog.entries, "isobutilquinoleina").slice(0, 3).map((e) => e.cas)).toContain("65442-31-1");
+  });
+
+  it("checks a diluent against IFRA when it has a standard, and leaves out the ones with nothing to check", () => {
+    const coumarin = byCas("91-64-5");
+    const inBB: Change[] = [{ kind: "add", id: "c", material: coumarin, massUg: 100n * MG, fraction: Ratio.of(1, 10), diluent: DILUENTS.bb }];
+    const report = checkIfra({ header, history: inBB }, catalog.ifra);
+    // 90 mg of benzyl benzoate in 100 mg: 90 % of the bottle, over its 4.8 % of category 4.
+    expect(report.checks.find((c) => c.substance.key === "std:IFRA_STD_009")?.verdict).toBe("exceeds");
+    const inDPG = checkIfra({ header, history: [{ ...inBB[0], diluent: DILUENTS.dpg }] as Change[] }, catalog.ifra);
+    expect(inDPG.unchecked).toEqual([]);
+    expect(inDPG.checks.map((c) => c.substance.key)).toEqual(["std:IFRA_STD_023"]);
+    // A provisional diluent has no data: never free (§1.2).
+    const own = { key: "solv-prov:aceite-de-jojoba", kind: "provisional" as const, name: "Aceite de jojoba", solvent: true };
+    const inOwn = checkIfra({ header, history: [{ ...inBB[0], diluent: own }] as Change[] }, catalog.ifra);
+    expect(inOwn.unchecked).toEqual(["Aceite de jojoba"]);
+    expect(inOwn.partial).toBe(true);
   });
 
   it("finds by code, CAS, name, IFRA's name and its synonyms", () => {

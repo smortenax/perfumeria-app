@@ -103,7 +103,9 @@ export function checkIfra(formula: Formula, data: IfraData, upTo?: number): Ifra
 
   for (const part of composition.parts) {
     const material = part.material;
-    if (material.solvent && material.kind === "base") {
+    // A diluent of the app with nothing to check (DPG, alcohol) is not aromatic matter,
+    // and is left out; one with a standard (benzyl benzoate) counts like any material.
+    if (material.solvent && material.kind === "base" && !data.materials.has(material.key)) {
       continue;
     }
     const info = material.kind === "provisional" ? undefined : data.materials.get(material.key);

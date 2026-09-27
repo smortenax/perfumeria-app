@@ -103,12 +103,26 @@ function nearest(query: string, text: string): number {
   return Math.min(...previous);
 }
 
-function diluent(material: Material, code: string, cas: string, names: string[]): CatalogEntry {
+/**
+ * The diluents of the app: a code unique in the glossary, the icon (the sigla the
+ * trade knows them by), CAS, and the names they are searched by.
+ */
+const DILUENT_DATA: ReadonlyArray<readonly [keyof typeof DILUENTS, string, string, string, string[]]> = [
+  ["dpg", "DPG", "DPG", "25265-71-8", ["Dipropilenglicol", "Dipropylene glycol"]],
+  ["alcohol", "EtOH", "EtOH", "64-17-5", ["Etanol", "Ethanol"]],
+  ["ipm", "IPM", "IPM", "110-27-0", ["Miristato de isopropilo", "Isopropyl myristate"]],
+  ["dep", "DEPd", "DEP", "84-66-2", ["Ftalato de dietilo", "Diethyl phthalate"]],
+  ["tec", "TEC", "TEC", "77-93-0", ["Citrato de trietilo", "Triethyl citrate"]],
+  ["triacetina", "TRI", "TRI", "102-76-1", ["Triacetina", "Triacetin"]],
+  ["bb", "BBd", "BB", "120-51-4", ["Benzoato de bencilo", "Benzyl benzoate"]],
+];
+
+function diluent(material: Material, code: string, icon: string, cas: string, names: string[]): CatalogEntry {
   return {
     material,
     group: "diluent",
     code,
-    icon: code,
+    icon,
     chemicalName: names[1],
     cas,
     search: normalize(`${code} ${material.name} ${names.join(" ")} ${cas}`),
@@ -156,10 +170,7 @@ export function buildCatalog(files: CatalogFiles): Catalog {
 
   const rows = parseCsvRecords(files.materiales);
   const materials = new Map<string, IfraMaterial>();
-  const entries: CatalogEntry[] = [
-    diluent(DILUENTS.dpg, "DPG", "25265-71-8", ["Dipropilenglicol", "Dipropylene glycol"]),
-    diluent(DILUENTS.alcohol, "EtOH", "64-17-5", ["Etanol", "Ethanol"]),
-  ];
+  const entries: CatalogEntry[] = DILUENT_DATA.map(([id, code, icon, cas, names]) => diluent(DILUENTS[id], code, icon, cas, names));
 
   for (const m of rows) {
     const state = m.estado as IfraState;
@@ -216,6 +227,14 @@ export function buildCatalog(files: CatalogFiles): Catalog {
       ),
       folded: [trade, ...others, m.nombre, standardName].filter((n) => n !== "").map(fold),
     });
+  }
+
+  // The diluents take the IFRA of their CAS in the glossary. One that is not there is
+  // not in IFRA's index, which is complete: no standard of its own (P37).
+  for (const [id, , , cas] of DILUENT_DATA) {
+    const row = rows.find((m) => m.cas === cas);
+    const info = row ? materials.get(row.id) : undefined;
+    materials.set(DILUENTS[id].key, info ?? { status: "checked", substances: [], conditions: [] });
   }
 
   const fig = rows.filter((m) => m.id.startsWith("fig:")).length;

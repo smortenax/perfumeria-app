@@ -185,9 +185,16 @@ que hace el núcleo, y con el reparto de §10.1. **No es la fase 4 terminada**:
   - los avisos de pesada y las trazas en ppm;
 - **lo que falta:**
   - los gráficos y el visualizador, que esperan a sus datos y a P33;
-  - el *play* y el desplegable de otros diluyentes;
-  - las favoritas y la última dilución se guardan en la memoria del navegador, que es
-    provisional (§6);
+- **hecho el 2026-09-27, lo que estaba claro:**
+  - **las favoritas, la última dilución y los recientes se guardan en disco** (§6), en
+    `preferencias.json` de la carpeta de datos de la app (`%APPDATA%\com.smortenax.perfumeria`).
+    Nada queda en la memoria del navegador; lo que hubiera allí se pasa al archivo la
+    primera vez;
+  - **el desplegable de otros diluyentes** (§4): IPM, DEP, TEC, triacetina y benzoato de
+    bencilo, y uno provisional que escribe el usuario, que se recuerda. Se abre con la flecha
+    derecha desde el diluyente. **Un diluyente con estándar IFRA cuenta como cualquier
+    material** (el benzoato de bencilo, §5.3). Uno provisional sale «sin comprobar», nunca
+    libre (§1.2);
 - **el catálogo lee el glosario** (`src/data/`, P37), sin nada del laboratorio:
   - **ningún material del usuario**;
   - el buscador enseña de cada material:

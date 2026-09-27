@@ -1,11 +1,24 @@
-import { useImperativeHandle, useMemo, useRef, useState, type Ref } from "react";
+import { useEffect, useImperativeHandle, useMemo, useRef, useState, type Ref } from "react";
 import { Ratio } from "../core/arith/ratio";
 import { parseMass, parsePercent, type MassUnit } from "../core/arith/units";
 import type { Change } from "../core/model/formula";
-import { DILUENTS, type Material } from "../core/model/material";
+import type { Material } from "../core/model/material";
 import { normalize, searchCatalog, type CatalogEntry, type IfraState } from "../data/catalog";
 import { texts } from "../i18n/es";
-import { diluentOptions, percentOptions, prefsOf, rememberLast, sameDilution, toggleFavorite, type DiluentId, type MaterialPrefs } from "./prefs";
+import {
+  addOwnDiluent,
+  APP_DILUENTS,
+  diluentMaterial,
+  diluentOptions,
+  ownDiluents,
+  percentOptions,
+  prefsOf,
+  rememberLast,
+  sameDilution,
+  toggleFavorite,
+  type DiluentId,
+  type MaterialPrefs,
+} from "./prefs";
 import { IconText } from "./Icon";
 import { newId } from "./state";
 
@@ -79,12 +92,15 @@ export function AddBar(props: {
   const [mine, setMine] = useState(true);
   const [formulas, setFormulas] = useState(true);
   const [menu, setMenu] = useState(false);
+  const [otherOpen, setOtherOpen] = useState(false);
+  const [ownName, setOwnName] = useState("");
   const [error, setError] = useState<string | null>(null);
 
   const searchRef = useRef<HTMLInputElement>(null);
   const quantityRef = useRef<HTMLInputElement>(null);
   const percentRefs = [useRef<HTMLButtonElement>(null), useRef<HTMLButtonElement>(null)];
   const diluentRefs = [useRef<HTMLButtonElement>(null), useRef<HTMLButtonElement>(null)];
+  const otherRef = useRef<HTMLDivElement>(null);
 
   const byKey = useMemo(() => new Map(props.entries.map((e) => [e.material.key, e])), [props.entries]);
 
@@ -92,8 +108,39 @@ export function AddBar(props: {
   const percentPool = uniquePercents(selected?.solvent ? ["100", ...percentOptions(prefs)] : percentOptions(prefs)).slice(0, 2);
   const cells = percentPool.some((p) => samePercent(p, percent)) ? percentPool : [percent, ...percentPool].slice(0, 2);
   const checkedCell = Math.max(0, cells.findIndex((p) => samePercent(p, percent)));
-  const diluents = diluentOptions(prefs).slice(0, 2);
+  // Another diluent chosen from the menu takes the second place while it is chosen (§4).
+  const top = diluentOptions(prefs).slice(0, 2);
+  const diluents = top.includes(diluent) ? top : [top[0], diluent];
   const checkedDiluent = Math.max(0, diluents.indexOf(diluent));
+  const others: Array<{ id: DiluentId; name: string; own: boolean }> = [
+    ...APP_DILUENTS.map((id) => ({ id, name: diluentMaterial(id)?.name ?? id, own: false })),
+    ...ownDiluents().map((d) => ({ id: d.id, name: d.name, own: true })),
+  ].filter((d) => !diluents.includes(d.id));
+
+  const [focusDiluent, setFocusDiluent] = useState(false);
+  const pickDiluent = (id: DiluentId) => {
+    setDiluent(id);
+    setOtherOpen(false);
+    setOwnName("");
+    setFocusDiluent(true);
+  };
+
+  // The chosen one sits in its place once drawn: focus it, so the arrows go on from there.
+  useEffect(() => {
+    if (focusDiluent) {
+      diluentRefs[checkedDiluent].current?.focus();
+      setFocusDiluent(false);
+    }
+  }, [focusDiluent, checkedDiluent, diluentRefs]);
+
+  const openOther = () => setOtherOpen(true);
+
+  // The menu takes the focus when it opens, so the arrows go on inside it.
+  useEffect(() => {
+    if (otherOpen) {
+      otherRef.current?.querySelector<HTMLElement>("button, input")?.focus();
+    }
+  }, [otherOpen]);
   const source = prefs.favorites.some((f) => samePercent(f.percent, percent))
     ? "favorite"
     : prefs.last && samePercent(prefs.last.percent, percent)
@@ -183,13 +230,18 @@ export function AddBar(props: {
       setError(t.badPercent);
       return;
     }
+    const diluentUsed = fraction.eq(Ratio.ONE) ? null : diluentMaterial(diluent);
+    if (!fraction.eq(Ratio.ONE) && !diluentUsed) {
+      setError(t.badDiluent);
+      return;
+    }
     props.onAdd({
       kind: "add",
       id: newId(),
       material: selected,
       massUg,
       fraction,
-      diluent: fraction.eq(Ratio.ONE) ? null : DILUENTS[diluent],
+      diluent: diluentUsed,
     });
     rememberLast(selected.key, { percent: percentText, diluent });
     setSelected(null);
@@ -469,23 +521,76 @@ export function AddBar(props: {
                   } else if (e.key === "ArrowLeft") {
                     e.preventDefault();
                     percentRefs[checkedCell].current?.focus();
+                  } else if (e.key === "ArrowRight") {
+                    e.preventDefault();
+                    openOther();
                   } else if (e.key === "Enter") {
                     e.preventDefault();
                     add();
                   }
                 }}
               >
-                {DILUENTS[d].name}
+                {diluentMaterial(d)?.name ?? d}
               </button>
             ))}
           </div>
-          <button type="button" className="other" disabled title={t.otherDiluent} aria-label={t.otherDiluent}>
-            <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
-              <circle cx="2.5" cy="6" r="1.1" fill="currentColor" />
-              <circle cx="6" cy="6" r="1.1" fill="currentColor" />
-              <circle cx="9.5" cy="6" r="1.1" fill="currentColor" />
-            </svg>
-          </button>
+          <div className="other-wrap">
+            <button
+              type="button"
+              className="other"
+              title={t.otherDiluent}
+              aria-label={t.otherDiluent}
+              aria-expanded={otherOpen}
+              tabIndex={-1}
+              onClick={() => (otherOpen ? setOtherOpen(false) : openOther())}
+            >
+              <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                <circle cx="2.5" cy="6" r="1.1" fill="currentColor" />
+                <circle cx="6" cy="6" r="1.1" fill="currentColor" />
+                <circle cx="9.5" cy="6" r="1.1" fill="currentColor" />
+              </svg>
+            </button>
+            {otherOpen && (
+              <div
+                className="menu-pop diluent-menu"
+                ref={otherRef}
+                role="menu"
+                aria-label={t.otherDiluent}
+                onKeyDown={(e) => {
+                  const items = [...(otherRef.current?.querySelectorAll<HTMLElement>("button, input") ?? [])];
+                  const at = items.indexOf(document.activeElement as HTMLElement);
+                  if (e.key === "Escape" || (e.key === "ArrowLeft" && (e.target as HTMLElement).tagName !== "INPUT")) {
+                    e.preventDefault();
+                    setOtherOpen(false);
+                    diluentRefs[checkedDiluent].current?.focus();
+                  } else if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+                    e.preventDefault();
+                    items[(at + (e.key === "ArrowDown" ? 1 : items.length - 1)) % items.length]?.focus();
+                  }
+                }}
+              >
+                {others.map((d) => (
+                  <button key={d.id} type="button" className="menuitem" role="menuitem" onClick={() => pickDiluent(d.id)}>
+                    {d.name}
+                    {d.own && <span className="muted tiny"> · {t.provisionalDiluent}</span>}
+                  </button>
+                ))}
+                <input
+                  className="own-diluent"
+                  value={ownName}
+                  placeholder={t.ownDiluent}
+                  aria-label={t.ownDiluent}
+                  onChange={(e) => setOwnName(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && ownName.trim() !== "") {
+                      e.preventDefault();
+                      pickDiluent(addOwnDiluent(ownName));
+                    }
+                  }}
+                />
+              </div>
+            )}
+          </div>
         </div>
       </div>
 

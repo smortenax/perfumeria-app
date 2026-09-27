@@ -7,6 +7,7 @@ import "@fontsource/ibm-plex-sans/500.css";
 import "@fontsource/ibm-plex-sans/600.css";
 import { Bench, type Opened } from "./bench/Bench";
 import { Launcher } from "./bench/Launcher";
+import { loadUserData } from "./bench/store";
 import { emptyFormula } from "./bench/state";
 import { fitToWindow } from "./bench/zoom";
 import { texts } from "./i18n/es";
@@ -16,6 +17,14 @@ function App() {
   const [opened, setOpened] = useState<Opened | null>(null);
   // A new bench each time it is entered, so nothing leaks from the previous one.
   const [session, setSession] = useState(0);
+  // The user's data (favourites, last dilutions, recent) is read from disk before the first screen (§6).
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    loadUserData()
+      .catch((e) => console.error("preferencias.json", e))
+      .finally(() => setReady(true));
+  }, []);
 
   // The sketch's proportions in any window (boceto 4, P36).
   useEffect(() => {
@@ -41,6 +50,9 @@ function App() {
     setSession((n) => n + 1);
   };
 
+  if (!ready) {
+    return null;
+  }
   if (!opened) {
     return <Launcher onNew={() => enter({ formula: emptyFormula(texts.bench.untitled), path: null })} onOpen={enter} />;
   }

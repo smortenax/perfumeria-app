@@ -819,6 +819,30 @@ button.value:hover {
   outline: none;
 }
 
+.other-wrap {
+  position: relative;
+  display: flex;
+}
+
+/* The menu of other diluents (§4): the app's, the user's provisional ones, and a new one. */
+.diluent-menu {
+  top: 50px;
+  right: 0;
+  width: 220px;
+}
+
+.own-diluent {
+  margin: 4px 6px 2px;
+  height: 28px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0 8px;
+  font: inherit;
+  font-size: 12px;
+  background: var(--panel);
+  color: var(--ink);
+}
+
 .other {
   width: 24px;
   flex: none;

@@ -3,7 +3,7 @@ import type { Composition } from "../core/compose";
 import { formatPercent } from "../core/display";
 import type { Material } from "../core/model/material";
 import { texts } from "../i18n/es";
-import { prefsOf } from "./prefs";
+import { diluentMaterial, prefsOf } from "./prefs";
 
 const c = texts.charts;
 
@@ -178,7 +178,7 @@ export function Recents(props: { materials: readonly Material[]; onPick: (materi
       <span className="label recents-label">{t.recent}</span>
       {props.materials.slice(0, 8).map((m) => {
         const last = prefsOf(m.key).last;
-        const dilution = !last ? "" : last.percent.replace(",", ".") === "100" ? t.pure : t.diluted(last.percent, last.diluent === "dpg" ? "DPG" : "alcohol");
+        const dilution = !last ? "" : last.percent.replace(",", ".") === "100" ? t.pure : t.diluted(last.percent, diluentMaterial(last.diluent)?.name ?? "?");
         return (
           <button type="button" key={m.key} className="recent-chip" tabIndex={-1} title={m.name} onClick={() => props.onPick(m)}>
             <span className="recent-name">{m.name}</span>
