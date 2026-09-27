@@ -98,10 +98,12 @@ describe("the catalog, from the glossary and IFRA's own files (P37)", () => {
     expect(hedione.chemicalName).toBe("Methyl dihydrojasmonate");
     expect(searchCatalog(catalog.entries, "hedione")[0].cas).toBe("24851-98-7");
     expect(searchCatalog(catalog.entries, "methyl dihydrojasmonate")[0].cas).toBe("24851-98-7");
-    // «IBQ» names two CAS in the market: the icon tells them apart.
-    const ibq = searchCatalog(catalog.entries, "IBQ").slice(0, 2);
-    expect(ibq.map((e) => `${e.iconMark}${e.icon}`).sort()).toEqual(["2IBQ", "6IBQ"]);
+    // «IBQ» names three CAS in the market: the icon tells them apart, with a prime
+    // where the chemical names give the same mark.
+    const ibq = searchCatalog(catalog.entries, "IBQ").slice(0, 3);
+    expect(ibq.map((e) => `${e.iconMark}${e.icon}`).sort()).toEqual(["2IBQ", "2′IBQ", "6IBQ"]);
     expect(searchCatalog(catalog.entries, "6IBQ")[0].cas).toBe("65442-31-1");
+    expect(searchCatalog(catalog.entries, "2'IBQ")[0].cas).toBe("1333-58-0");
     expect(searchCatalog(catalog.entries, "isobutilquinoleina").slice(0, 3).map((e) => e.cas)).toContain("65442-31-1");
   });
 

@@ -195,7 +195,8 @@ export function buildCatalog(files: CatalogFiles): Catalog {
 
     const standardName = m.nombre_ifra.split(" | ")[0];
     const trade = m.nombre_comercial;
-    const marked = `${m.icono_distintivo}${m.sigla_comercial}`;
+    // The prime of a mark (²′IBQ) is also found as the keyboard's apostrophe.
+    const marked = `${m.icono_distintivo}${m.sigla_comercial} ${m.icono_distintivo.replace(/′/g, "'")}${m.sigla_comercial}`;
     const others = m.otros_nombres_comerciales === "" ? [] : m.otros_nombres_comerciales.split(" | ");
     entries.push({
       material: { key: m.id, kind: "base", name: trade || m.nombre },
@@ -246,8 +247,8 @@ export function searchCatalog(entries: readonly CatalogEntry[], query: string, l
     [e.material.name, e.chemicalName, e.standardName ?? "", e.tradeCode ?? ""].some((n) => normalize(n).startsWith(head)) ||
     e.cas.startsWith(head);
   // Codes tell capitals apart («OT», «Ot»): the one typed exactly comes first.
-  const typed = query.trim();
-  const marked = (e: CatalogEntry) => `${e.iconMark ?? ""}${e.tradeCode ?? ""}`;
+  const typed = query.trim().replace(/′/g, "'");
+  const marked = (e: CatalogEntry) => `${e.iconMark ?? ""}${e.tradeCode ?? ""}`.replace(/′/g, "'");
   const match = (e: CatalogEntry) =>
     e.code === typed || e.tradeCode === typed || marked(e) === typed
       ? 0

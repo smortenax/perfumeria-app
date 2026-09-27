@@ -463,11 +463,17 @@ def main() -> None:
     for group in shared.values():
         if len(group) < 2:
             continue
+        # In CAS order; two CAS whose names give the same mark tell apart with a prime,
+        # as in chemistry: ²IBQ and ²′IBQ.
+        group = sorted(group, key=lambda c: [int(x) for x in c.split("-")])
         found = [distinctive(chemical[c]) for c in group]
-        if all(found) and len(set(found)) == len(found):
-            mark.update(zip(group, found))
+        if all(found):
+            seen: dict[str, int] = {}
+            for c, f in zip(group, found):
+                mark[c] = f + "′" * seen.get(f, 0)
+                seen[f] = seen.get(f, 0) + 1
         else:
-            mark.update({c: str(i) for i, c in enumerate(sorted(group), 1)})
+            mark.update({c: str(i) for i, c in enumerate(group, 1)})
     for m in everything:
         m["icono"] = m["sigla_comercial"] or m["codigo"]
         m["icono_distintivo"] = mark.get(m["cas"], "") if m["sigla_comercial"] else ""

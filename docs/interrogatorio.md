@@ -1401,11 +1401,12 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
     sigla comercial va también junto al nombre;
   - **una fórmula guarda el nombre comercial** del material que se añade.
 - **Hecho** ([la investigación](investigacion/2026-09-27-nombres-comerciales/README.md)):
-  - 302 materiales con nombre comercial y 24 con sigla;
+  - 302 materiales con nombre comercial y 24 con sigla (303 y 25 con el 1333-58-0);
   - cada uno con su fuente (PubChem, IFRA o uso del sector) y su confianza;
   - ocho casos dudosos, apuntados en la investigación.
+- Confirmación del usuario, 2026-09-27: *«confirmo P38 y P40, el 1333-58-0 también como IBQ»*
 - Fecha: 2026-09-27
-- Estado: cerrada · lectura por confirmar
+- Estado: cerrada
 - Destino: decisiones.md §6; plan, D3; el glosario
 
 ### P39 — Una sigla para dos CAS: el icono lleva un distintivo
@@ -1434,6 +1435,11 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 
   Si nada de eso los separa, un número por orden de CAS. En la búsqueda valen «IBQ» y
   «6IBQ». Pasar a B es cambiar el estilo del icono.
+- **Ampliado el 2026-09-27, al dar el usuario el 1333-58-0 también como IBQ.** Su nombre
+  químico da el mismo distintivo que el 93-19-6 (²), porque es el mismo compuesto con otro
+  registro. **Por orden de CAS, el segundo lleva prima, como en química: ²IBQ y ²′IBQ.**
+  Pasa lo mismo con ¹OTNE y ¹′OTNE. En la búsqueda, la prima se escribe con el apóstrofo
+  del teclado: «2'IBQ».
 - Fecha: 2026-09-27
 - Confirmación del usuario, 2026-09-27: *«⁶IBQ asi en pequeño sin duda es la manera»*
 - Estado: cerrada · opción A
@@ -1474,8 +1480,9 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
   - **las abreviaturas que se generan para lo que solo está en IFRA siguen la tabla**: P
     para terpenos y L para oleorresina, en vez de «Te» y «Or». Goma, bálsamo y resina no
     están en la tabla, y no llevan letra.
+- Confirmación del usuario, 2026-09-27: *«confirmo P38 y P40»*
 - Fecha: 2026-09-27
-- Estado: cerrada · el dibujo, por confirmar
+- Estado: cerrada
 - Destino: el glosario (`icono_tipo`); decisiones.md §10 cuando se decida el lenguaje visual
 
 ---
@@ -1488,6 +1495,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R9 · diseño | 6 (P23 a P28) | 0 |
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
-| R12 · infografías y frentes | 5 (P35, P36, P37, P39, P40) | 3 (P33, P34, P38) |
+| R12 · infografías y frentes | 6 (P35 a P40) | 2 (P33, P34) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.

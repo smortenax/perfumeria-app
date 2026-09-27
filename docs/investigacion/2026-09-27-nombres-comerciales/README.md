@@ -35,28 +35,29 @@ con la fuente y la confianza de cada fila.
 
 ## El resultado
 
-- **302 materiales con nombre comercial y 24 con sigla**, en 309 filas.
+- **303 materiales con nombre comercial y 25 con sigla**, en 310 filas.
 - **Fuente del nombre:**
   - PubChem, 240;
   - IFRA, 43;
-  - uso del sector, 19.
+  - uso del sector, 20.
 - **Confianza:**
   - alta, 100;
-  - media, 192;
+  - media, 193;
   - baja, 17.
 
   Lo que es solo «uso del sector» nunca pasa de media.
 - **13 nombres se comparten entre CAS**, a propósito: son isómeros o el mismo material con
   dos registros. Por ejemplo, Iso E Super, Mayol, Tonalide o Vertenex. **Cuando la sigla se
-  comparte, el icono lleva un distintivo** (P39): ⁶IBQ y ²IBQ, ¹OTNE y ²OTNE.
+  comparte, el icono lleva un distintivo** (P39): ⁶IBQ, ²IBQ y ²′IBQ; ¹OTNE y ¹′OTNE; ¹AHTN
+  y ⁶AHTN.
 
 ## Lo que queda por mirar
 
-La pasada de juicio los dejó marcados, y siguen abiertos:
+La pasada de juicio los dejó marcados, y siguen abiertos. **El 1333-58-0 ya no:** el usuario
+lo dio también como IBQ, y es ²′IBQ.
 
 | CAS | Qué pasa |
 |---|---|
-| 1333-58-0 | «2-(Methylpropyl)quinoline» parece el mismo compuesto que el 93-19-6. En el mercado también se vende como IBQ, y aquí no lleva sigla |
 | 131812-52-7 · 131812-67-4 | Los dos traen «Okoumal» como candidato; no se sabe a cuál corresponde |
 | 13837-56-4 · 7392-19-0 | Los dos traen «Limetol / Linaloyl oxide» (óxido de linalilo, cis y trans) |
 | 130066-44-3 | Trae «Lyral» como candidato, que ya lleva el 31906-04-4 |

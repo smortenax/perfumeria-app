@@ -39,7 +39,7 @@ cosas:
 la búsqueda. Donde hay nombre comercial, la app lo enseña primero, con su sigla, y el químico
 al lado. La capa sale de
 [`origen/nombres-comerciales.csv`](origen/nombres-comerciales.csv), una fila por CAS, y se
-aplica a todo material con ese CAS. **302 materiales llevan nombre comercial y 24, sigla.**
+aplica a todo material con ese CAS. **303 materiales llevan nombre comercial y 25, sigla.**
 Cómo se hizo, y lo que queda por mirar, en
 [la investigación del 2026-09-27](../../docs/investigacion/2026-09-27-nombres-comerciales/README.md).
 
@@ -52,7 +52,7 @@ Cómo se hizo, y lo que queda por mirar, en
 | `fuente_comercial` | de dónde sale cada uno: PubChem (con su CID), IFRA (*commercial name*) o «uso del sector» |
 | `confianza_comercial` | alta, media o baja. Lo que solo es «uso del sector» llega como mucho a media |
 | `icono` | lo que dice el icono del material: la sigla comercial, o si no la abreviatura (P39) |
-| `icono_distintivo` | cuando una sigla nombra a más de un CAS, lo que los separa, sacado del nombre químico: el 6 de ⁶IBQ |
+| `icono_distintivo` | cuando una sigla nombra a más de un CAS, lo que los separa, sacado del nombre químico: el 6 de ⁶IBQ. Si dos dan el mismo, el segundo por orden de CAS lleva prima: ²IBQ y ²′IBQ |
 | `icono_tipo` | la letra del tipo de natural con que acaba la abreviatura, que el icono dibuja como carácter propio: A absoluto, O aceite, E extracto, C concreto, T tintura, R resinoide, L oleorresina, P terpenos, D destilado (P40) |
 
 Los sinónimos de PubChem se traen con
