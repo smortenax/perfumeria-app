@@ -259,7 +259,9 @@ incluida. **Lo que falla, por orden de importancia:**
     (2026-09-28). Cada fórmula se guarda sola desde la primera adición y se renombra con
     ella; salir o cerrar guarda antes; el inicio lista la biblioteca. **Falta que el usuario
     lo pruebe en el ejecutable**, porque los archivos solo se tocan desde él;
-  - las versiones y las copias;
+  - [x] **sin copias de la misma fórmula** (2026-09-28): los estados viejos están en el
+    historial, y una evolución es una fórmula o una versión nueva. Nada de Git en la app;
+  - **versión nueva o fórmula nueva al guardar como**, y cómo las agrupa la galería;
   - si los provisionales se recuerdan entre fórmulas.
 - [ ] **C · La búsqueda, sin decisión:** los sinónimos de PubChem, filtrados como en la
   capa de nombres comerciales (P38), y *allyl amyl glycolate*. Buscar en otros idiomas queda
@@ -267,7 +269,8 @@ incluida. **Lo que falla, por orden de importancia:**
 - [ ] **D · Instalador nuevo**, y a pesar. Lo que falle se apunta en la bandeja del
   laboratorio, como siempre.
 - **Abiertas, sin prisa:**
-  - el tipo de fórmula, acorde o perfume, y la galería con sus filtros (P45);
+  - el tipo de fórmula, acorde o perfume, y la galería con sus filtros, **con un icono y un
+    visualizador para cada fórmula** (P45);
   - las categorías generales, **encargadas al laboratorio**: el
     [frente 8](encargos/2026-09-28-frente-8-categorias-generales.md) (P46);
   - el modo de replicar una fórmula, en exploración (P47);

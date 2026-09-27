@@ -1624,8 +1624,41 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
       biblioteca.
   - Fecha: 2026-09-28
   - Estado: cerrada · opción A
+- **Precisión del usuario sobre la biblioteca, 2026-09-28.**
+  - Respuesta literal: *«en cuanto a guardar, sera compatible con que esten guardadas dentro de archivos de la app? me gustaria que cada formula tenga un icono y un visualizador acorde a lo que son y que todas esten en una biblioteca, quizas no hace falta que sea ahora pero a futuro deberia ser asi.»*
+  - **Lectura:**
+    1. **A futuro, cada fórmula tiene su icono y su visualizador, acordes a lo que es, y
+       todas están en una biblioteca.** No hace falta ahora. Va a la galería (P45).
+    2. **La pregunta es si la opción A lo permite. Sí:**
+       - la biblioteca es de la app, aunque la carpeta se vea desde Windows;
+       - el icono y el visualizador se dibujan a partir de lo que lleva la fórmula, así que
+         no hace falta guardarlos en el archivo;
+       - si un día se prefiere la carpeta dentro de la app, es mover una carpeta, con el
+         mismo formato.
+- **2 · Las copias y las versiones.**
+  - Opciones presentadas: A) una copia al día de cada fórmula que cambie · B) Git automático
+    en la biblioteca · C) sin copias
+  - Recomendación: A
+  - Respuesta literal: *«en cuanto a copias del dia, no estoy seguro, tiene sentido multiplicidad de la misma formula? si es una evolucion o cambio se hace una nueva o version nueva si es la misma se queda, donde queda el valor de que haya estados de la formula viejos sin todos los materiales, oir itro lado git es contraiuntuitivo, no lo veo estando en la app finalmente»*
+  - **Lectura:**
+    1. **Sin copias de la misma fórmula.** Los estados viejos ya están en el historial: cada
+       adición, cada cambio de masa, cada material quitado y cada repesado son fotogramas,
+       y el dock los enseña. Solo deshacer borra, y lo hace a propósito. **El usuario tiene
+       razón, y se le concede.**
+    2. **Si es una evolución o un cambio, se hace una fórmula nueva o una versión nueva.**
+       Si es la misma, se queda en su archivo.
+    3. **Nada de Git dentro de la app:** es contraintuitivo.
+  - **Lo que da la certeza, sin copias:**
+    - la escritura es segura: se escribe en un archivo temporal y se cambia por el bueno de
+      una vez, así que un corte nunca deja media fórmula;
+    - **la cabecera no está en el historial**, así que su valor viejo no se conserva. Con la
+      tara no importa, porque cada repesado guarda la suya (§3.2).
+  - **Queda para la siguiente pregunta:** distinguir al guardar como entre «versión nueva»
+    y «fórmula nueva».
+  - Fecha: 2026-09-28
+  - Estado: cerrada · sin copias
 - Fecha: 2026-09-28
-- Estado: abierta (quedan 2 y 3)
+- Estado: abierta (quedan las versiones y los provisionales)
 - Destino: decisiones.md §3.2 y §6
 
 ### P45 — Acorde o perfume al guardar, y la galería de fórmulas
@@ -1641,6 +1674,8 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
   3. **Una galería de fórmulas fuera del banco**, que es la biblioteca de la fase 5, con
      filtros por tipo y por predominancia de categorías.
 - **Depende de** P44 (dónde viven las fórmulas) y P46 (las categorías).
+- **Añadido por el usuario en P44, 2026-09-28:** en la galería, **cada fórmula con su icono
+  y su visualizador, acordes a lo que es**. A futuro, no ahora.
 - Fecha: 2026-09-28
 - Estado: abierta
 - Destino: decisiones.md §5.4 y §6; plan, fase 5
