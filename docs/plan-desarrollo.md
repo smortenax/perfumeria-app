@@ -223,6 +223,46 @@ que hace el núcleo, y con el reparto de §10.1. **No es la fase 4 terminada**:
 - **cambio en el núcleo:** el repesado guarda la tara con la que se pesó, para que una
   variación en un vial nuevo no rehaga mal los repesados del viejo (§3.2).
 
+**Revisión del 2026-09-27, para empezar a pesar en el banco.** El usuario quiere probarlo
+con fórmulas reales e iterar desde ahí. Se probó en el navegador: añadir por teclado, las
+diluciones, la composición, IFRA y los recientes funcionan. Las 64 pruebas pasan, F-001
+incluida. **Lo que falla, por orden de importancia:**
+1. **Cerrar la ventana pierde lo no guardado, sin avisar.** Además, una fórmula sin archivo
+   no se guarda sola: el guardado automático empieza con el primer «Guardar» (§6).
+2. **La búsqueda no encuentra lo que se escribe en español.** De los 24 materiales de
+   F-001, 12 salen primeros, 3 salen pero no primeros y 9 no salen:
+   - 6 por el idioma: alcohol feniletílico, cedro Atlas, ionona alfa, haba tonka, absoluto
+     de tabaco, benjuí;
+   - 2 por el nombre de uso: *diphenyl oxide* está en los sinónimos de PubChem, que la
+     búsqueda no mira; *allyl amyl glycolate* no está en ninguna capa;
+   - 1 no está en el glosario: Sandalmysore Core, que va como provisional.
+3. **Un material provisional se olvida al cerrar la fórmula:** hay que volver a escribirlo
+   en cada una, y el interruptor «Mis materiales» no tiene nada que incluir.
+4. **Detalles:**
+   - el botón «Nuevo banco» del inicio sale blanco sobre blanco;
+   - 41 nombres de la *Transparency List* conservan guiones bajos de corte de línea
+     («9,_10-Anthracenedione»).
+5. **No se ha podido probar desde aquí**, porque usa los diálogos de Windows: guardar,
+   abrir, repesar y la fórmula como material en el ejecutable. Lo prueba el usuario al
+   pesar.
+
+**Plan, en este orden:**
+- [ ] **A · Sin decisión, arreglos:**
+  - un aviso al cerrar con cambios sin guardar;
+  - un borrador automático de la fórmula sin archivo en la carpeta de datos, que se ofrece
+    al volver a abrir la app (§6: guardado automático, nada en la memoria del navegador);
+  - el botón del inicio;
+  - los guiones bajos.
+- [ ] **B · La búsqueda:**
+  - los sinónimos de PubChem, filtrados como en la capa de nombres comerciales (P38);
+  - *allyl amyl glycolate* en esa capa;
+  - **los nombres en español (P43, por decidir).**
+- [ ] **C · Recordar los materiales provisionales** entre fórmulas (P44, por decidir).
+- [ ] **D · Instalador nuevo**, y a pesar. Lo que falle se apunta en la bandeja del
+  laboratorio, como siempre.
+- **Después, no para mañana:** la biblioteca, que necesita sus criterios; exportar al
+  cuaderno; los gráficos (P33 y P42); el icono del instalador.
+
 - [ ] **La barra de añadir** (decisiones §4): material, cantidad, dilución, añadir y
   estrella; el buscador con sus dos interruptores; las dos opciones de dilución, con memoria
   y favoritas; **todo con el teclado**, Ctrl+Intro incluido.
