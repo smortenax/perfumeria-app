@@ -129,9 +129,9 @@ Trabajo de lectura: subagentes Sonnet de uno en uno, y revisión por partes.
     ([`datos/ifra/transparencia-2025/`](../datos/ifra/transparencia-2025/LEEME.md)): 3691
     filas y 3055 CAS. Entran 927 materiales que el glosario no tenía. Falta revisar su
     licencia antes de distribuir;
-  - ~~una capa de sinónimos~~ **hecha la de nombres comerciales** (P38, 2026-09-27): 331
-    materiales con nombre y 25 con sigla, de PubChem, de IFRA, de la web y del uso del
-    sector;
+  - ~~una capa de sinónimos~~ **hecha la de nombres comerciales** (P38, 2026-09-27): 363
+    materiales con nombre y 26 con sigla, de PubChem, de IFRA, de la web, de los catálogos
+    de las casas y del uso del sector;
   - la capa propia (D4);
   - revisar las abreviaturas generadas.
 - [ ] **D4 · La capa propia de cada material** (P24, P29, P30), **al acabar de definir la

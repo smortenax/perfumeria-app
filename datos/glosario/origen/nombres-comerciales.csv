@@ -87,17 +87,21 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 15373-31-6,Cantryl,,,,nombre: PubChem CID 85833,baja,
 154171-76-3,Ysamber K,,,Symrise,nombre: uso del sector · web: https://www.ventos.com/index.php/en/producto/4672/YSAMBER+K+SYMRISE/223,media,Confirmado como producto de Symrise por el distribuidor Ventós y por Perfumer & Flavorist. El material comercial cubre también el CAS isómero 154171-77-4.
 154171-77-4,Ysamber K,,,Symrise,web: https://www.scentspiracy.com/fragrance-ingredients/p/ysamber-k,media,"Ysamber K de Symrise cubre dos CAS de isómero: 154171-76-3 (ya en b-uso-del-sector.csv) y este, 154171-77-4. Fuente es un distribuidor/ficha técnica, no la propia Symrise."
+156324-78-6,Frescolat MGC,,,Symrise,nombre: PubChem CID 189860,alta,
 15760-18-6,Cyclomethylene Citronellol,,,dsm-firmenich (Firmenich),"web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial)",media,Compendium Firmenich 2016. Coincide con el nombre químico del glosario (3-(4-Methyl-3-cyclohexenyl)butanol).
 16251-77-7,Trifernal,,,,"nombre: IFRA 51.ª, commercial name",media,
 16409-43-1,Rose oxide,,,,nombre: PubChem CID 27866,alta,
+1655500-83-6,Rosyfolia,,,,nombre: PubChem CID 89239667,media,Nombre de un material captive poco documentado fuera de PubChem; conviene confirmar la casa antes de darlo por firme.
 16587-71-6,Orivone,,,,"nombre: IFRA 51.ª, commercial name",media,
 17373-89-6,Jasmalone,,,,"nombre: IFRA 51.ª, commercial name",media,
 17511-60-3,Verdyl propionate,,Cyclaprop | Florocyclene | Greenyl propionate | Cycloverdol propionate | Herbal Propionate,,nombre: PubChem CID 86579,alta,"Comparte el nombre con el CAS 68912-13-0 (lote 2, mismo material)."
 18127-01-0,Bourgeonal,,Liliphenal,,"nombre: IFRA 51.ª, commercial name",alta,
 18836-52-7,Pellitorine,,Optaflow A,,nombre: PubChem CID 5318516,media,
 18871-14-2,Jasmopyrane,,Jasmal | Jasmophyll,,nombre: PubChem CID 86799,media,
+189440-77-5,Anapear,,,,nombre: PubChem CID 10986465,baja,Único candidato que da PubChem para este éster; no hay confirmación independiente de que sea un nombre comercial real y no un artefacto de base de datos. Revisar.
 194934-66-2,Biomuguet,,,Takasago,catálogo: Takasago Aroma Ingredients Compendium (2024),alta,
 198404-98-7,Javanol,,,Givaudan,nombre: uso del sector · web: https://www.givaudan.com/fragrance-beauty/fragrance-ingredients-business/fragrance-molecules/javanol · catálogo: Givaudan Fragrance Ingredients Sustainability Profile (2024),alta,Confirmado en la página oficial de Givaudan.
+20770-40-5,Sinodor,,,,nombre: PubChem CID 89382,baja,Único candidato que da PubChem para este senecioato de citronelilo; sin confirmación independiente. Revisar.
 21112-37-8,Vetimoss,,,,nombre: PubChem CID 88792,baja,
 211299-54-6,Ambrocenide,,,,nombre: PubChem CID 66731260,media,
 21145-77-7,Tonalide,AHTN,Tonalid | Tetralide | Fixolide | Musk tonalid,,nombre: PubChem CID 89440 · sigla: PubChem CID 89440,alta,Isómero de AHTN/Tonalide junto con el CAS 1506-02-1 (lote 1); el sector vende el musk como mezcla de ambos isómeros bajo el mismo nombre.
@@ -126,6 +130,7 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 2556-10-7,Efetaal,,Verotyl,,nombre: PubChem CID 102849,media,
 2563-07-7,Ultravanil,,Supravanil,,"nombre: IFRA 51.ª, commercial name",media,
 25634-93-9,Rosaphen,,,,nombre: PubChem CID 5463791,media,
+260781-16-6,Frescolat MPC,,,Symrise,nombre: PubChem CID 57509244,alta,
 26266-77-3,Abitol,,Arbitol E | Dihydroabietyl alcohol | Abitol E,,nombre: uso del sector · web: https://megawidechem.en.made-in-china.com/product/vEdrkKcukhWZ/China-Hydroabietyl-Alcohol-Dihydro-Abietyl-Alcohol-CAS-26266-77-3.html,media,"Nombre compartido con los CAS 13393-93-6 y 1333-89-7 (mismo alcohol resínico, distintos registros). Esta línea solo trae «Arbitol E» entre los candidatos. ""Abitol"" es marca histórica de Hercules (folleto de catálogo de 1955) para el alcohol hidroabietílico; hoy el negocio de resinas está en Eastman/Pinova. No es una marca de perfumería específica sino del fijador derivado de colofonia. Fuente es una ficha de distribuidor que empareja ""Abitol E"" con este CAS exacto; no se encontró ficha de la casa actual."
 26489-01-0,Citronellol,,Cephrol | Elenol | Rodinol,,nombre: PubChem CID 8842,alta,
 2705-87-5,Ananolide,,,,nombre: PubChem CID 17617,media,
@@ -139,6 +144,7 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 28664-35-9,Sotolon,,Fenugreek Lactone,,nombre: PubChem CID 62835,alta,
 28940-11-6,Calone,,Watermelon ketone,,nombre: PubChem CID 120101,alta,
 29214-60-6,Gelsone,,,,nombre: PubChem CID 121790,media,
+29461-14-1,Isolongifolanone,,,,nombre: PubChem CID 21116680,alta,
 2983-37-1,Irotyl,,,,nombre: PubChem CID 102916,media,
 30168-23-1,Dupical,,,Givaudan,nombre: uso del sector · web: https://www.chemimpex.com/dupical · catálogo: Givaudan Fragrance Ingredients Sustainability Profile (2024),alta,"Varias fichas de distribuidores (Chem-Impex, Augustus Oils, Clearsynth) dan ""Dupical"" junto a este CAS exacto, pero ninguna atribuye el nombre a una casa concreta; podría ser un material descatalogado."
 3100-36-5,Animusk,,,,nombre: PubChem CID 534634,media,
@@ -188,14 +194,17 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 4707-47-5,Veramoss,,Evernyl | Mousse Cristal | Moss Synth,Firmenich,nombre: PubChem CID 78435,alta,
 477218-42-1,Serenolide,,,Givaudan,nombre: uso del sector · web: https://www.scentree.co/en/Serenolide%E2%84%A2.html,alta,"ScenTree confirma el CAS junto al nombre y da 2001 (Givaudan) como año y casa de descubrimiento, no Firmenich como sugerían otras fuentes de distribuidor."
 4819-67-4,Delphone,,,IFF,nombre: PubChem CID 20959,alta,
+489-84-9,Guaiazulene,,,,nombre: PubChem CID 3515,alta,
 4927-39-3,Vetival,,,,nombre: PubChem CID 78640,media,
 494-90-6,Menthofuran,,,,nombre: PubChem CID 329983,alta,
 4940-11-8,Veltol Plus,,,,nombre: PubChem CID 21059,alta,
 502-61-4,Magnolene,,,,nombre: PubChem CID 5281516,media,
 502-69-2,Phytone,,,,nombre: PubChem CID 10408,media,
 502-72-7,Exaltone,,Normuscone,Firmenich,nombre: PubChem CID 10409,alta,
+50373-36-9,Isopulegol,,,,nombre: PubChem CID 170833,alta,"El nombre de uso se aplica a varios isómeros/CAS de isopulegol, incluido el 7786-67-6."
 505-10-2,Methionol,,,,nombre: PubChem CID 10448,media,
 50607-64-2,Mevantraal,,,,nombre: PubChem CID 162595,media,
+51115-67-4,,WS-23,,,sigla: PubChem CID 65300,alta,WS-23 es el código de uso habitual del sector para este agente refrescante sin efecto mentolado (pariente de WS-3 sin nota de menta).
 51154-96-2,Cocolactone,,,,nombre: PubChem CID 642793,media,Comparte el nombre con el CAS 54814-64-1 (isómero de la misma lactona de massoia).
 51411-24-6,Biocyclamol,,,Takasago,catálogo: Takasago Aroma Ingredients Compendium (2024),alta,
 51566-62-2,Agrunitrile,,,,nombre: PubChem CID 3033030,media,
@@ -231,6 +240,7 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 59151-19-8,Calyxol,,,,nombre: PubChem CID 100968,media,
 60-12-8,,PEA,,,sigla: uso del sector · web: https://www.scentree.co/en/Phenyl_ethyl_alcohol.html,media,"PEA es sigla de uso genérico del sector para el alcohol feniletílico (rosa), confirmada junto al CAS 60-12-8 en ScenTree y PerfumersWorld; no es de una casa."
 60241-53-4,Timbranol,,,,nombre: PubChem CID 108425,media,
+61597-98-6,Frescolat ML,,,Symrise,nombre: uso del sector,media,"Frescolat ML (Symrise) no aparece tal cual en los candidatos de esta línea, solo «MENTHYL LACTATE»; es el nombre de uso habitual del sector para este éster L-mentol / ácido L-láctico."
 61699-38-5,Jasmacyclat,,,,nombre: PubChem CID 109116,media,
 61792-11-8,Lemonile,,,,nombre: PubChem CID 112446,media,
 62406-73-9,Opalal,,,,nombre: PubChem CID 236674,media,
@@ -307,9 +317,12 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 7493-57-4,Pepital,,,,nombre: PubChem CID 61403,media,
 762-26-5,Geraldehyde,,Geranyl Acetaldehyde,,"nombre: IFRA 51.ª, commercial name",media,
 77-83-8,Aldehyde C-16,EMPG,Strawberry aldehyde | Fraeseol,,nombre: PubChem CID 6501 · sigla: PubChem CID 6501,alta,
+77341-67-4,Physcool,,,,nombre: PubChem CID 11219061,alta,
 774-55-0,Florantone T,,,Takasago,catálogo: Takasago Aroma Ingredients Compendium (2024),alta,
 7779-50-2,Ambrettolide,,Ambrettol,Givaudan,nombre: PubChem CID 3591866 · web: https://www.thegoodscentscompany.com/data/rw1451741.html · catálogo: Givaudan Fragrance Ingredients Sustainability Profile (2024),alta,"El nombre de uso del sector es ""Ambrettolide"", no ""Ambrettol"" (ese solo aparece en PubChem). Es el isómero natural omega-6 del ambrettólido, distinto del 123-69-3 (Z, ya con nombre ""Ambrettolide"" y confianza alta), pero la bibliografía técnica llama ""Ambrettolide"" a ambos CAS (son isómeros de posición del doble enlace), un caso similar al de Tonalide/AHTN con dos CAS en este glosario."
+7786-67-6,Isopulegol,,,,nombre: PubChem CID 24585,alta,Mismo nombre de uso que el CAS 50373-36-9 (otro isómero de isopulegol).
 78148-59-1,Anymol,,,,nombre: PubChem CID 1616126,baja,
+79-68-5,gamma-Irone,,,,nombre: PubChem CID 6433146,alta,"PubChem también cuelga «Methyl Ionone Gamma» de este CAS, pero es el nombre comercial de las metiliononas (127-51-5); este CAS es la gamma-irona."
 79-70-9,beta-Irone,,,,nombre: PubChem CID 5375215,alta,
 79893-63-3,Etaspirene,,,,nombre: PubChem CID 22219099,media,
 79915-74-5,Sakura Salicylate,,,Takasago,catálogo: Takasago Aroma Ingredients Compendium (2024),alta,
@@ -325,6 +338,8 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 84434-18-4,Gardamide,,Vertamid,,nombre: PubChem CID 163414,media,
 84560-00-9,Delphol HC,,,dsm-firmenich (Firmenich),"web: Firmenich, Compendium of Perfumery Ingredients 2016 (leído en una copia no oficial) · catálogo: Firmenich Perfumery Ingredients 2020",alta,Compendium Firmenich 2016. Coincide con el nombre químico del glosario (2-Pentylcyclopentan-1-ol).
 851768-51-9,Sauvignone,,,Takasago,catálogo: Takasago Aroma Ingredients Compendium (2024),alta,
+852379-28-3,Evercool 180,,,,nombre: PubChem CID 44467796,media,También aparece como «Evercool G-180» en los candidatos; es el mismo material.
+86198-35-8,Alpinal diethyl acetal,,,,nombre: PubChem CID 3021099,media,Es el acetal dietílico de Alpinal (protección del aldehído); nombre menos extendido que el del aldehído libre.
 86803-90-9,Scentenal,,,,"nombre: IFRA 51.ª, commercial name",media,
 87-05-8,Maraniol,,Madescol,,"nombre: IFRA 51.ª, commercial name",media,
 87-19-4,Orchindone,,,,nombre: PubChem CID 6873,media,
@@ -335,6 +350,7 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 89-43-0,Aurantiol,,Aurantium | Aurantine,,nombre: PubChem CID 98118,alta,
 89-88-3,Vetiverol,,Vetyvenol | Vetivol,,nombre: PubChem CID 101549,media,Nombre de uso habitual para la fracción alcohólica del aceite de vetiver.
 89079-92-5,Neocaspirene,,,,nombre: PubChem CID 20268659,media,
+90-00-6,Phlorol,,,,nombre: PubChem CID 6997,media,"Nombre de uso histórico del sector para el o-etilfenol, en notas ahumadas/fenólicas."
 90-17-5,Rosacetol,,Rosephenone | Rosone,,nombre: PubChem CID 7007,media,
 90530-04-4,Isoproxen,,,,nombre: PubChem CID 55250280,baja,
 91-51-0,Verdantiol,,,Givaudan,catálogo: Givaudan Fragrance Ingredients Sustainability Profile (2024),media,

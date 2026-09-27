@@ -15,7 +15,7 @@
       "que_es": "filas del FIG con las abreviaturas del usuario, iteración no final"
     },
     "datos/glosario/origen/nombres-comerciales.csv": {
-      "sha256": "10422249f66cef2ea7a270afb32af8065f4adcfcb7f7080bade8826efb768efd",
+      "sha256": "a227ce6fa3ed1aedd65e8185bae3527aa351578e16437988aa6cc0b096102266",
       "que_es": "nombres comerciales por CAS, con su fuente y su confianza (P38)"
     },
     "datos/ifra/transparencia-2025/transparency-list.csv": {
@@ -43,7 +43,7 @@
       "sha256": "289097c9d76de4430f967158556ff068faa4589175c44b48dd355a5eb93b6368"
     }
   },
-  "generado": "2026-09-27T19:45:19+00:00",
+  "generado": "2026-09-27T19:53:26+00:00",
   "cuentas": {
     "materiales": 4320,
     "del_fig": 3119,
@@ -63,7 +63,7 @@
     "solo_de_la_transparency_list": 926,
     "del_fig_fuera_de_ifra": 355,
     "heredan_un_estandar": 7,
-    "con_nombre_comercial": 348,
-    "con_sigla_comercial": 25
+    "con_nombre_comercial": 363,
+    "con_sigla_comercial": 26
   }
 }

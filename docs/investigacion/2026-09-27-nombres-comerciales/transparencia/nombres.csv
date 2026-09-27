@@ -1,0 +1,17 @@
+cas,nombre_comercial,fuente_nombre,sigla,fuente_sigla,otros_nombres,casa,confianza,nota
+1655500-83-6,Rosyfolia,pubchem,,,,,media,Nombre de un material captive poco documentado fuera de PubChem; conviene confirmar la casa antes de darlo por firme.
+29461-14-1,Isolongifolanone,pubchem,,,,,alta,
+86198-35-8,Alpinal diethyl acetal,pubchem,,,,,media,Es el acetal dietílico de Alpinal (protección del aldehído); nombre menos extendido que el del aldehído libre.
+51115-67-4,,,WS-23,pubchem,,,alta,WS-23 es el código de uso habitual del sector para este agente refrescante sin efecto mentolado (pariente de WS-3 sin nota de menta).
+79-68-5,gamma-Irone,pubchem,,,,,alta,"PubChem también cuelga «Methyl Ionone Gamma» de este CAS, pero es el nombre comercial de las metiliononas (127-51-5); este CAS es la gamma-irona."
+489-84-9,Guaiazulene,pubchem,,,,,alta,
+189440-77-5,Anapear,pubchem,,,,,baja,Único candidato que da PubChem para este éster; no hay confirmación independiente de que sea un nombre comercial real y no un artefacto de base de datos. Revisar.
+20770-40-5,Sinodor,pubchem,,,,,baja,Único candidato que da PubChem para este senecioato de citronelilo; sin confirmación independiente. Revisar.
+50373-36-9,Isopulegol,pubchem,,,,,alta,"El nombre de uso se aplica a varios isómeros/CAS de isopulegol, incluido el 7786-67-6."
+7786-67-6,Isopulegol,pubchem,,,,,alta,Mismo nombre de uso que el CAS 50373-36-9 (otro isómero de isopulegol).
+260781-16-6,Frescolat MPC,pubchem,,,,Symrise,alta,
+90-00-6,Phlorol,pubchem,,,,,media,"Nombre de uso histórico del sector para el o-etilfenol, en notas ahumadas/fenólicas."
+156324-78-6,Frescolat MGC,pubchem,,,,Symrise,alta,
+77341-67-4,Physcool,pubchem,,,,,alta,
+852379-28-3,Evercool 180,pubchem,,,,,media,También aparece como «Evercool G-180» en los candidatos; es el mismo material.
+61597-98-6,Frescolat ML,uso-del-sector,,,,Symrise,media,"Frescolat ML (Symrise) no aparece tal cual en los candidatos de esta línea, solo «MENTHYL LACTATE»; es el nombre de uso habitual del sector para este éster L-mentol / ácido L-láctico."

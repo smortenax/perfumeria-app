@@ -136,6 +136,29 @@ nombre. Así tienen CAS 158 de los 265 productos de Firmenich y Givaudan.
 - **Unas 60 moléculas de casa se quedan sin CAS**, porque ni PubChem ni el glosario las
   conocen por ese nombre: Myroxyde, Plicatone, Lilyflore, Clearwood, Paradisamide…
 
+## Las moléculas nuevas de la Transparency List
+
+Con la *Transparency List* entraron **689 moléculas que el glosario no tenía**. Un
+subagente Sonnet las leyó con el mismo [encargo](encargo.md), en dos lotes. **Casi todas son
+ingredientes funcionales sin nombre de perfumería**: tintes, conservantes, filtros UV,
+disolventes, ácidos grasos, polímeros. La comprobación automática no falló en ninguna.
+
+- **16 filas, en [`transparencia/nombres.csv`](transparencia/nombres.csv):**
+  - los refrescantes: Frescolat MGC, MPC y ML (Symrise), Physcool, Evercool 180, y la
+    sigla WS-23;
+  - Rosyfolia, Isolongifolanone, Alpinal diethyl acetal, Guaiazulene, Isopulegol (dos
+    CAS, isómeros), Phlorol (o-etilfenol) y gamma-Irone.
+- **Confianza:** alta 9, media 5, baja 2.
+- **Una corrección de la revisión:** PubChem cuelga «Methyl Ionone Gamma» del 79-68-5, pero
+  ese es el nombre comercial de las metiliononas (127-51-5). El 79-68-5 es la gamma-irona,
+  y ese nombre va delante.
+- **Dudosos, en baja:** Anapear (189440-77-5) y Sinodor (20770-40-5). Son el único
+  candidato de PubChem y no hay otra fuente que diga que son nombres de mercado.
+- **Frescolat ML** es «uso del sector»: PubChem solo da *menthyl lactate* para ese CAS.
+
+**Resultado: 363 materiales con nombre comercial y 26 con sigla, en 373 filas.** Confianza:
+153 alta, 201 media y 19 baja.
+
 ## Lo que queda por mirar
 
 | CAS | Qué pasa |
