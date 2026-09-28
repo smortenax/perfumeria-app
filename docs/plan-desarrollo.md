@@ -284,7 +284,9 @@ incluida. **Lo que falla, por orden de importancia:**
 - [x] **Las familias y su color, del laboratorio** (P48, 2026-09-28): en los iconos, la
   composición y el reparto. De paso, 19 naturales que pasaban por moléculas, y salían libres,
   salen «sin dato».
-- [ ] **D · Instalador nuevo**, y a pesar. Lo que falle se apunta en la bandeja del
+- [ ] **D · Instalador nuevo, y a pesar:** el usuario empieza la prueba funcional el
+  2026-09-28, formulando en el laboratorio. El centro del banco (P50) queda aplazado, para
+  retomarlo con bocetos. Lo que falle se apunta en la bandeja del
   laboratorio, como siempre.
 - **Abiertas, sin prisa:**
   - el tipo de fórmula, acorde o perfume, y la galería con sus filtros, **con un icono y un

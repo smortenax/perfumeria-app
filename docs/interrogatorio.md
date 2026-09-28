@@ -1882,8 +1882,17 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
   2. **Una regla general: el diseño no se adapta a lo que está a medio hacer.** Se diseña
      como si todo funcionara ya; el visualizador ocupa su sitio aunque esté vacío.
   3. **Queda elegir entre B y C.**
+- **B y C, presentadas después:** B, el visualizador grande y la línea del tiempo a su lado,
+  en la columna de gráficos · C, los dos en el mismo sitio con un conmutador. Recomendación:
+  B.
+- Respuesta literal: *«ninguna opcion me gusta y las descripciones asi se hacen dificiles de evaluar de momento aplazare esto, ahora quiero hacer una prueba funcional ya de la app, partire con una tarea de laboratorio formulando y probando la app. luego vendre con feedback.»*
+- **Lectura:**
+  1. **Ni B ni C.** Se aplaza.
+  2. **Descrito en texto, un reparto se evalúa mal:** cuando se retome, con bocetos.
+  3. **Ahora, una prueba funcional**: el usuario formula en el laboratorio con la app y
+     vuelve con lo que salga.
 - Fecha: 2026-09-28
-- Estado: abierta (B o C)
+- Estado: aplazada · con bocetos cuando se retome
 - Destino: decisiones.md §10.1 y §10.2
 
 ### P51 — Las dos lecturas de IFRA tienen que cuadrar
@@ -1919,6 +1928,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
 | R12 · infografías y frentes | 7 (P35 a P41) | 3 (P33, P34, P42) |
-| R13 · a pesar en el banco | 5 (P43, P44, P48, P49, P51) | 4 (P45 a P47, P50) |
+| R13 · a pesar en el banco | 6 (P43, P44, P48 a P51) | 3 (P45 a P47) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.
