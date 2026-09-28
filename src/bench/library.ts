@@ -1,5 +1,6 @@
 import { invoke } from "@tauri-apps/api/core";
 import { documentDir, join } from "@tauri-apps/api/path";
+import { provisionalKey, type Material } from "../core/model/material";
 import { texts } from "../i18n/es";
 import { inTauri, readFile } from "./io";
 import type { LibraryEntry } from "./library-groups";
@@ -57,6 +58,31 @@ export async function readLibrary(): Promise<LibraryEntry[]> {
       }
     }),
   );
+}
+
+/**
+ * The provisional materials of the library (P44): each formula carries its own inside
+ * its file, and the library remembers them by name. The spelling is the one of the
+ * formula changed last. A file that cannot be read gives none.
+ */
+export async function rememberedProvisionals(): Promise<Material[]> {
+  const found = new Map<string, Material>();
+  for (const f of await listLibrary()) {
+    try {
+      const materials: Record<string, { kind?: string; name?: string }> = JSON.parse(await readFile(f.path)).materials ?? {};
+      for (const doc of Object.values(materials)) {
+        if (doc.kind === "provisional" && typeof doc.name === "string" && doc.name.trim() !== "") {
+          const key = provisionalKey(doc.name);
+          if (!found.has(key)) {
+            found.set(key, { key, kind: "provisional", name: doc.name.trim() });
+          }
+        }
+      }
+    } catch {
+      // A damaged file shows in the library by its name; it just teaches no materials.
+    }
+  }
+  return [...found.values()];
 }
 
 /**

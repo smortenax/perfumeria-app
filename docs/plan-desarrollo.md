@@ -254,7 +254,7 @@ incluida. **Lo que falla, por orden de importancia:**
   - el botón del inicio se ve;
   - 40 nombres de la *Transparency List* sin los guiones bajos de corte de línea. Los que
     quedan son letras griegas o primas perdidas, y se dejan.
-- [ ] **B · Guardar con certeza (P44)**, de una en una:
+- [x] **B · Guardar con certeza (P44)**, cerrada el 2026-09-28:
   - [x] **dónde viven las fórmulas: la biblioteca, en `Documentos\Perfumería\Fórmulas`**
     (2026-09-28). Cada fórmula se guarda sola desde la primera adición y se renombra con
     ella; salir o cerrar guarda antes; el inicio lista la biblioteca. **Falta que el usuario
@@ -263,7 +263,8 @@ incluida. **Lo que falla, por orden de importancia:**
     historial, y una evolución es una fórmula o una versión nueva. Nada de Git en la app;
   - [x] **versión nueva o fórmula nueva al guardar como** (2026-09-28): la versión se nombra
     sola («Lejía v2») y el inicio junta las versiones de cada fórmula;
-  - si los provisionales se recuerdan entre fórmulas.
+  - [x] **los provisionales se recuerdan por su nombre** (2026-09-28): viajan dentro de
+    cada fórmula, y el buscador ofrece los de toda la biblioteca.
 - [ ] **C · La búsqueda, sin decisión:** los sinónimos de PubChem, filtrados como en la
   capa de nombres comerciales (P38), y *allyl amyl glycolate*. Buscar en otros idiomas queda
   aplazado (P43).

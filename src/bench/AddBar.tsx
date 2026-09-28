@@ -148,13 +148,15 @@ export function AddBar(props: {
       : "base";
 
   const results: Result[] = useMemo(() => {
-    const q = normalize(query.trim());
+    // Spaces as the provisional key takes them: «sandalmysore  core» is «Sandalmysore Core» (P44).
+    const q = normalize(query.trim().replace(/\s+/g, " "));
     if (selected || q === "") {
       return [];
     }
     const pool = mine ? props.entries : props.entries.filter((e) => e.group !== "own");
+    // «Mis materiales» takes in the provisional ones too, remembered from the library (P44).
     const session: Result[] = props.sessionMaterials
-      .filter((m) => (formulas || m.kind !== "formula") && normalize(m.name).includes(q))
+      .filter((m) => (m.kind === "formula" ? formulas : mine) && normalize(m.name).includes(q))
       .map((m) => ({ kind: "material", material: m, tag: m.kind === "formula" ? "fórmula" : "provisional", cas: "" }));
     const found: Result[] = searchCatalog(pool, query, 10).map((e) => ({
       kind: "material",

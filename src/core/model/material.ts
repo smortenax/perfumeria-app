@@ -31,6 +31,20 @@ export interface Material {
 }
 
 /**
+ * A provisional material is known by its name (P44): the same name in any formula is
+ * the same material, whatever its capitals, accents or spaces.
+ */
+export function provisionalKey(name: string): string {
+  const folded = name
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+  return `prov:${folded}`;
+}
+
+/**
  * The diluents of the app (decisions §4): DPG and alcohol are the two offered
  * by default; the rest come from the menu of other diluents. A diluent is
  * checked against IFRA like any material when it has a standard (benzyl

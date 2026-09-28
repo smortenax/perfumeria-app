@@ -6,7 +6,7 @@ import { formatDecimal } from "../core/display";
 import { checkIfra, type IfraReport } from "../core/ifra";
 import { formulaFromJson, formulaToJson as toJsonWith } from "../core/io/formula-json";
 import type { Change, Formula, FormulaHeader } from "../core/model/formula";
-import type { Material } from "../core/model/material";
+import { provisionalKey, type Material } from "../core/model/material";
 import { catalog } from "../data/provisional";
 import { texts } from "../i18n/es";
 import { AddBar, type AddBarHandle } from "./AddBar";
@@ -18,7 +18,7 @@ import { GramsCard, IntentionCard, NameCard } from "./Header";
 import { ChangeDetail, HistoryDock } from "./HistoryDock";
 import { IfraDetail, IfraSummary } from "./IfraBox";
 import { confirmDialog, download, fileNameFor, guardClose, inTauri, pickAndRead, writeFile } from "./io";
-import { libraryDir, placeFormula, readLibrary } from "./library";
+import { libraryDir, placeFormula, readLibrary, rememberedProvisionals } from "./library";
 import { nextVersionNumber, versionName } from "./library-groups";
 import { pushRecent, recentKeys } from "./prefs";
 import { benchReducer, emptyFormula, initialState, newId } from "./state";
@@ -345,11 +345,23 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
     }
   };
 
+  // A provisional is known by its name (P44): writing it again is the same material.
   const createProvisional = (name: string): Material => {
-    const material: Material = { key: `prov:${newId()}`, kind: "provisional", name };
-    setSession((s) => [...s, material]);
+    const key = provisionalKey(name);
+    const material = session.find((m) => m.key === key) ?? { key, kind: "provisional", name };
+    setSession((s) => (s.some((m) => m.key === key) ? s : [...s, material]));
     return material;
   };
+
+  // The search offers the provisionals of the whole library, each formula carrying its own (P44).
+  useEffect(() => {
+    if (!inTauri()) {
+      return;
+    }
+    rememberedProvisionals()
+      .then((known) => setSession((s) => [...s, ...known.filter((k) => !s.some((m) => m.key === k.key))]))
+      .catch(() => undefined);
+  }, []);
 
   const startReweigh = () => {
     if (formula.header.container?.tareUg == null) {

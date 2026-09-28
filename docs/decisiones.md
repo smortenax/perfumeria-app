@@ -80,7 +80,7 @@ menor.**
 |---|---|---|
 | **Base** | Los materiales conocidos, el glosario, cada uno con su CAS | Por CAS, de fuente primaria ([§5](#5--ifra)) |
 | **Propio** | Dado de alta por el usuario **con los mismos campos que uno de la base**, o con **huecos marcados**: una tintura sin carga conocida, un IFRA desconocido | El suyo, o «desconocido» donde haya hueco |
-| **Provisional** | **Solo un nombre**, para no parar a definirlo | Desconocido: la fórmula lo avisa |
+| **Provisional** | **Solo un nombre**, para no parar a definirlo. **Se le conoce por el nombre** (P44): el mismo nombre, sin mirar mayúsculas, acentos ni espacios, es el mismo material en todas las fórmulas, y se suma como tal. Viaja dentro de cada fórmula que lo usa, y **el buscador ofrece los de toda la biblioteca** | Desconocido: la fórmula lo avisa |
 | **Fórmula como material** | El vector de una fórmula ([§2.4](#24--el-id-de-material-de-una-fórmula-es-su-vector)) | Por sustancia, sobre su desglose |
 
 - **Cada tipo lleva una señal visual propia**, un icono u otra, por definir. Así un nombre

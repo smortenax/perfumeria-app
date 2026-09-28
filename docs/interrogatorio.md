@@ -1680,8 +1680,29 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
       familia es un dato legible, no un vínculo.
   - Fecha: 2026-09-28
   - Estado: cerrada · opción A
+- **4 · Los materiales provisionales.**
+  - Opciones presentadas: A) la app recuerda cada provisional por su nombre, y el mismo
+    nombre en otra fórmula es el mismo material · B) como ahora, cada uno vive solo en su
+    fórmula
+  - Recomendación: A
+  - Respuesta literal: *«la A, que se recuerden por nombre y se registre adjunto a la formula»*
+  - **Lectura:**
+    1. **Opción A: se recuerdan por su nombre.** «Sandalmysore Core» es el mismo material en
+       todas las fórmulas, y se suma como tal cuando una entra en otra.
+    2. **Se registra adjunto a la fórmula:** el provisional viaja dentro del archivo de cada
+       fórmula que lo usa, como ya decía §2.2. **El registro son las fórmulas de la
+       biblioteca**, sin una lista aparte que mantener. *Por confirmar.*
+  - **Hecho, por confirmar:**
+    - **la clave sale del nombre**, sin mayúsculas, acentos ni espacios de más: «Sandalmysore
+      core» y «sandalmysore  Core» son el mismo;
+    - **al abrir el banco, el buscador ofrece los provisionales de toda la biblioteca**, con
+      su señal y con el nombre escrito como en la fórmula más reciente;
+    - **el interruptor «Mis materiales» los incluye o los quita** del buscador;
+    - **su IFRA sigue «sin comprobar»**, nunca libre (§1.2).
+  - Fecha: 2026-09-28
+  - Estado: cerrada · opción A
 - Fecha: 2026-09-28
-- Estado: abierta (queda recordar los provisionales)
+- Estado: cerrada
 - Destino: decisiones.md §3.2 y §6
 
 ### P45 — Acorde o perfume al guardar, y la galería de fórmulas
@@ -1762,6 +1783,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
 | R12 · infografías y frentes | 7 (P35 a P41) | 3 (P33, P34, P42) |
-| R13 · a pesar en el banco | 1 (P43) | 4 (P44 a P47) |
+| R13 · a pesar en el banco | 2 (P43, P44) | 3 (P45 a P47) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.
