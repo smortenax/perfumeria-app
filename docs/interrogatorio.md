@@ -1866,9 +1866,24 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
   2. **Es una propuesta:** el usuario pide una valoración.
   3. **Pide también qué hacer con el centro**, que ahora queda vacío, y qué no acaba de
      encajar en el diseño.
-- **Valoración, por confirmar:** en la respuesta de la sesión del 2026-09-28.
+- **Valoración, 2026-09-28:**
+  - **la propuesta se sostiene:** la posición en la pirámide y la duración salen del mismo
+    dato, la presión de vapor (P42). Como franjas sobre el eje de horas se lee mejor que en
+    dos gráficos;
+  - **las horas de cada franja son la decisión de los anclajes (P42)**, y conviene dibujar
+    bandas, no líneas que acaban en una hora exacta: la duración es un orden de magnitud.
+- **Opciones presentadas para el centro:** A) la línea del tiempo a todo el ancho y el
+  visualizador reducido hasta diseñarlo · B) el visualizador grande y la línea del tiempo a
+  su lado · C) los dos en el mismo sitio, con un conmutador
+- Recomendación: A
+- Respuesta literal: *«no cambiare diseños en base a estados de desarrollo ppor lo tanto A descartado, se tiene que actuar como si el visualizador estuviera ya funcional»*
+- **Lectura:**
+  1. **A se descarta.**
+  2. **Una regla general: el diseño no se adapta a lo que está a medio hacer.** Se diseña
+     como si todo funcionara ya; el visualizador ocupa su sitio aunque esté vacío.
+  3. **Queda elegir entre B y C.**
 - Fecha: 2026-09-28
-- Estado: abierta
+- Estado: abierta (B o C)
 - Destino: decisiones.md §10.1 y §10.2
 
 ---

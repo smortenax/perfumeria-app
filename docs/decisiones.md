@@ -507,6 +507,10 @@ P24 ([reordenación](media/2026-09-25-boceto-banco-reordenado.png)) y en P25
 ([segunda reordenación](media/2026-09-26-boceto-banco-2-reordenado.png)). **El espacio se
 reparte por categoría**: lo que crece no es lo mismo más grande.*
 
+> **La regla de fondo (P50): el diseño no se adapta a lo que está a medio hacer.** Se
+> diseña como si todo funcionara ya: el visualizador ocupa su sitio aunque aún no esté
+> diseñado, y ningún hueco se rellena solo porque falten datos.
+>
 > **La regla (P25): la izquierda, limpia y con imágenes; la derecha, con los datos.**
 > **Cambiada en P49:** los gramos del recipiente van **junto al frasco**, porque es lo
 > primero que hay que rellenar al empezar, y así se ve.
