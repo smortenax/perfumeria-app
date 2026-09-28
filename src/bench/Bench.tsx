@@ -2,7 +2,7 @@ import { useEffect, useMemo, useReducer, useRef, useState } from "react";
 import { Ratio } from "../core/arith/ratio";
 import { parseMass } from "../core/arith/units";
 import { compose, replay, vectorOf, type Composition, type Line } from "../core/compose";
-import { formatDecimal } from "../core/display";
+import { formatDecimal, formatPercent } from "../core/display";
 import { checkIfra, type IfraReport } from "../core/ifra";
 import { formulaFromJson, formulaToJson as toJsonWith } from "../core/io/formula-json";
 import type { Change, Formula, FormulaHeader } from "../core/model/formula";
@@ -421,19 +421,29 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
   const tare = formula.header.container?.tareUg ?? null;
   const adds = formula.history.slice(0, frame ?? formula.history.length).filter((c): c is Add => c.kind === "add");
   const empty = !view.composition || view.composition.parts.length === 0;
+  // What the bottle holds, as % of it, for under the bottle (P49).
+  const bottleTotal = view.composition && !view.composition.totalUg.isZero() ? view.composition.totalUg : null;
 
   return (
     <div className="bench">
       <div className="main">
         <div className="top">
-          <BottleFrame name={formula.header.name || texts.bench.untitled} fill={fill} onBack={() => void leave(props.onExit)} />
+          <BottleFrame
+            name={formula.header.name || texts.bench.untitled}
+            fill={fill}
+            aromatic={bottleTotal ? { name: texts.composition.aromatic, share: formatPercent(view.composition!.aromaticUg.div(bottleTotal), 2) } : null}
+            solvents={
+              bottleTotal
+                ? view.composition!.parts.filter((p) => p.material.solvent).map((p) => ({ name: p.material.name, share: formatPercent(p.massUg.div(bottleTotal), 2) }))
+                : []
+            }
+            onBack={() => void leave(props.onExit)}
+          />
+          <GramsCard header={formula.header} totalUg={total} onChange={setHeader} />
           <div className="top-right">
             <div className="head-row">
-              <div className="head-col">
-                <NameCard header={formula.header} status={status} statusIsError={error !== null} onChange={setHeader} />
-                <IntentionCard header={formula.header} onChange={setHeader} />
-              </div>
-              <GramsCard header={formula.header} totalUg={total} onChange={setHeader} />
+              <NameCard header={formula.header} status={status} statusIsError={error !== null} onChange={setHeader} />
+              <IntentionCard header={formula.header} onChange={setHeader} />
             </div>
             <AddBar
               ref={addBar}
@@ -444,9 +454,9 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
               onFormulaAsMaterial={() => void formulaAsMaterial()}
               onCreateProvisional={createProvisional}
             />
+            <Recents materials={recentMaterials} onPick={(m) => addBar.current?.select(m)} />
           </div>
         </div>
-        <Recents materials={recentMaterials} onPick={(m) => addBar.current?.select(m)} />
         {view.error && (
           <p className="compute-error">
             {texts.bench.computeError}: {view.error}

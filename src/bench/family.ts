@@ -16,15 +16,13 @@ export function familyLook(family: MaterialFamily | undefined): { className: str
   return { className: "fam", style: { "--fam": family.family.colour } as CSSProperties, title: familyText(family) };
 }
 
-/** «Amaderado · matiz floral · confianza alta». */
+/**
+ * «Amaderado · matiz floral». The lab's confidence stays in the data, not on screen:
+ * the user sees what a material smells of, not how sure the lab was (P49).
+ */
 export function familyText(family: MaterialFamily | undefined): string {
   if (!family) {
     return t.none;
   }
-  const parts = [family.family.name];
-  if (family.hue) {
-    parts.push(t.hue(family.hue.name.toLowerCase()));
-  }
-  parts.push(t.confidence(family.confidence));
-  return parts.join(" · ");
+  return family.hue ? `${family.family.name} · ${t.hue(family.hue.name.toLowerCase())}` : family.family.name;
 }

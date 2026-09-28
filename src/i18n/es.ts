@@ -60,7 +60,6 @@ export const texts = {
   family: {
     none: "Sin familia todavía",
     hue: (name: string) => `matiz ${name}`,
-    confidence: (level: string) => `confianza ${level}`,
   },
 
   naturalKind: {
@@ -148,6 +147,7 @@ export const texts = {
     bounded: "acotada",
     asIsQuestion: "¿Pasa los límites en el lote final?",
     maxUseQuestion: "¿Hasta qué % en un perfume final?",
+    limitedBy: (name: string) => `Lo limita: ${name}`,
     yes: "Sí",
     no: "No",
     unknown: "Sin comprobar",
@@ -188,7 +188,7 @@ export const texts = {
   composition: {
     title: "Composición",
     count: (n: number) => `${n} ${n === 1 ? "material" : "materiales"}`,
-    base: "% del frasco · materia pura",
+    base: "% de la materia aromática",
     empty: "Todavía no hay nada en el frasco.",
     aromatic: "Materia aromática",
     total: "Total",

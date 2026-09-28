@@ -53,7 +53,7 @@ function EditableGrams(props: { value: bigint | null; empty: string; emptyClass?
     return (
       <button
         type="button"
-        className={props.value === null ? `value empty ${props.emptyClass ?? ""}` : "value num"}
+        className={props.value === null ? `gram-box empty ${props.emptyClass ?? ""}` : "gram-box num"}
         title={g.edit}
         onClick={() => {
           setText(props.value === null ? "" : formatDecimal(Ratio.of(props.value).div(Ratio.of(1_000_000)), 3));
@@ -76,7 +76,7 @@ function EditableGrams(props: { value: bigint | null; empty: string; emptyClass?
   return (
     <input
       ref={input}
-      className={bad ? "value-input num bad" : "value-input num"}
+      className={bad ? "gram-box gram-input num bad" : "gram-box gram-input num"}
       value={text}
       title={bad ? g.invalid : g.edit}
       inputMode="decimal"
@@ -94,9 +94,9 @@ function EditableGrams(props: { value: bigint | null; empty: string; emptyClass?
 }
 
 /**
- * The grams, condensed to the right of the header (§10.1): the bottle's weight,
- * the work batch, what is in the bottle and the final batch, on which IFRA is
- * measured (§3.3).
+ * The grams, beside the bottle (P49): the bottle's weight, the work batch, what
+ * is in the bottle and the final batch, on which IFRA is measured (§3.3). What is
+ * to be filled in is a box, like a small search bar, so it asks to be filled.
  */
 export function GramsCard(props: { header: FormulaHeader; totalUg: Ratio; onChange: (header: FormulaHeader) => void }) {
   const { header, onChange } = props;
@@ -108,10 +108,8 @@ export function GramsCard(props: { header: FormulaHeader; totalUg: Ratio; onChan
     <div className="card grams-card">
       <div className="grams-block">
         <span className="label">{g.frameWeight}</span>
-        <span className="grams-line">
-          <span>{g.tare}</span>
-          <EditableGrams value={tare} empty={g.unweighed} emptyClass="amber" onCommit={setTare} />
-        </span>
+        <span className="grams-sub">{g.tare}</span>
+        <EditableGrams value={tare} empty={g.unweighed} emptyClass="amber" onCommit={setTare} />
         <span className="grams-line">
           <span>{g.gross}</span>
           <span className={tare === null ? "value empty" : "value num"}>

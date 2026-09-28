@@ -329,19 +329,17 @@ button.big {
   gap: 12px;
 }
 
+/* Name and intention side by side; under them the bar, and the recent ones (P49). */
 .head-row {
   display: flex;
   gap: 12px;
-  height: 188px;
+  height: 96px;
   flex: none;
 }
 
-.head-col {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.head-row .name-card {
+  width: 42%;
+  height: auto;
 }
 
 /* Bottle */
@@ -379,6 +377,22 @@ button.big {
 .fill-note {
   font-size: 12px;
   color: var(--ink-2);
+}
+
+/* What the bottle holds, under it (P49): the aromatic matter, then the solvents. */
+.bottle-split {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  font-size: 11.5px;
+  color: var(--ink-2);
+  text-align: center;
+}
+
+.bottle-split .aromatic {
+  font-weight: 600;
+  color: var(--ink);
 }
 
 .back {
@@ -453,12 +467,52 @@ button.big {
 }
 
 .grams-card {
-  width: 150px;
+  width: 168px;
   flex: none;
-  padding: 10px 12px;
+  padding: 12px 14px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.grams-sub {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* A figure to fill in: a box, like a small search bar (P49). */
+.gram-box {
+  width: 100%;
+  height: 28px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--panel);
+  padding: 0 8px;
+  text-align: right;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.gram-box.empty {
+  text-align: left;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--faint);
+}
+
+.gram-box.empty.amber {
+  color: var(--amber);
+  border-color: var(--amber);
+}
+
+.gram-input {
+  border: 1.5px solid var(--ink);
+  outline: none;
+}
+
+.gram-input.bad {
+  border-color: var(--red);
 }
 
 .grams-block {
@@ -522,21 +576,6 @@ button.value:hover {
   font-weight: 500;
 }
 
-.value-input {
-  width: 100%;
-  height: 22px;
-  border: 1.5px solid var(--ink);
-  border-radius: 6px;
-  padding: 0 6px;
-  font-size: 12px;
-  background: var(--panel);
-  outline: none;
-}
-
-.value-input.bad {
-  border-color: var(--red);
-}
-
 /* Add bar (§4) */
 
 .add-form {
@@ -574,31 +613,35 @@ button.value:hover {
   position: relative;
 }
 
+.field-label .more {
+  margin-left: 6px;
+}
+
 .plus {
-  width: 40px;
-  height: 44px;
+  width: 18px;
+  height: 16px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
 }
 
 .more .menu-pop {
-  top: 50px;
+  top: 20px;
   left: 0;
   width: 230px;
 }
 
-.include {
-  width: 116px;
-  flex: none;
+.results-switches {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.switches {
-  height: 44px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
+  align-items: center;
+  gap: 14px;
+  padding: 2px 8px 8px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 12px;
+  cursor: default;
 }
 
 .switch {
@@ -781,8 +824,8 @@ button.value:hover {
 
 .fam-mark {
   flex: none;
-  width: 4px;
-  height: 14px;
+  width: 9px;
+  height: 18px;
   margin-right: 8px;
   border: 1px dashed var(--line-strong);
   border-radius: 2px;
@@ -1005,8 +1048,9 @@ button.value:hover {
   display: flex;
   align-items: center;
   gap: 8px;
-  height: 44px;
-  flex: none;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .recents-label {
@@ -1509,28 +1553,6 @@ button.value:hover {
 .detail-value {
   flex: 1;
   min-width: 0;
-}
-
-.composition-foot {
-  border-top: 1px solid var(--line-soft);
-  padding: 8px 14px 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.foot-main {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12.5px;
-  font-weight: 600;
-}
-
-.foot-sub {
-  display: flex;
-  gap: 12px;
-  font-size: 12px;
-  color: var(--ink-2);
 }
 
 /* History dock (§10.1) */

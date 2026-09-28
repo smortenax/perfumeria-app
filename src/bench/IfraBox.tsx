@@ -17,6 +17,8 @@ export function IfraSummary(props: { report: IfraReport | null; empty: boolean; 
   const asIs = !hasData ? "—" : report.asIs === "no" ? t.no : report.asIs === "unknown" ? t.unknown : t.yes;
   const asIsClass = !hasData ? "" : report.asIs === "no" ? "bad" : report.asIs === "unknown" ? "unknown" : bounded ? "bounded" : "";
   const maxUse = !hasData ? "—" : formatPercent(report.maxUse, report.maxUse.eq(Ratio.ONE) ? 0 : 2);
+  // What sets the second reading, so a figure under 100 % says why.
+  const limiting = hasData && report.maxUse.lt(Ratio.ONE) ? report.checks.find((c) => c.maxUse.eq(report.maxUse)) : undefined;
   const range =
     hasData && !report.maxUseKnown.eq(report.maxUse) ? t.range(formatPercent(report.maxUse, 2), formatPercent(report.maxUseKnown, 2)) : undefined;
   return (
@@ -43,6 +45,7 @@ export function IfraSummary(props: { report: IfraReport | null; empty: boolean; 
         <span className="question">{t.maxUseQuestion}</span>
         <span className="answer num">{maxUse}</span>
       </span>
+      {limiting && <span className="ifra-limit muted tiny">{t.limitedBy(limiting.substance.name)}</span>}
     </button>
   );
 }

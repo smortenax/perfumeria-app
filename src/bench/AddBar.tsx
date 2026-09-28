@@ -67,8 +67,9 @@ function Switch(props: { checked: boolean; label: string; onChange: (checked: bo
 }
 
 /**
- * The add bar (§4), as in the sketch (boceto 4), left to right: more, include,
- * material, quantity, dilution, add, star. Everything by keyboard: Intro or Tab
+ * The add bar (§4), as in the sketch (boceto 4), left to right: material,
+ * quantity, dilution, add, star. The «+» sits by the label of the material, and
+ * the switches of what it takes in show under it while searching (P49). Everything by keyboard: Intro or Tab
  * pick the material; Intro moves on; Ctrl+Intro adds with the dilution already
  * set; the arrows choose among the two options of % and of diluent (P26).
  */
@@ -263,49 +264,41 @@ export function AddBar(props: {
 
   return (
     <div className="card add-form">
-      <div className="more">
-        <button type="button" className="tool plus" title={t.more} aria-label={t.more} tabIndex={-1} onClick={() => setMenu(!menu)}>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
-            <path d="M8 3v10M3 8h10" />
-          </svg>
-        </button>
-        {menu && (
-          <div className="menu-pop" onMouseLeave={() => setMenu(false)}>
-            <button
-              type="button"
-              className="menuitem"
-              onClick={() => {
-                setMenu(false);
-                props.onQuickMaterial();
-              }}
-            >
-              {t.quickMaterial}
-            </button>
-            <button
-              type="button"
-              className="menuitem"
-              onClick={() => {
-                setMenu(false);
-                props.onFormulaAsMaterial();
-              }}
-            >
-              {t.formulaAsMaterial}
-            </button>
-          </div>
-        )}
-      </div>
-
-      <div className="include">
-        <span className="field-label">{t.include}</span>
-        <div className="switches">
-          <Switch checked={mine} label={t.mine} onChange={setMine} />
-          <Switch checked={formulas} label={t.formulas} onChange={setFormulas} />
-        </div>
-      </div>
-
       <div className="material">
         <div className="field-label">
           <label htmlFor="add-material">{t.material}</label>
+          {/* A small «+» beside the label: a new material or a formula as one (P49). */}
+          <span className="more">
+            <button type="button" className="tool plus" title={t.more} aria-label={t.more} tabIndex={-1} onClick={() => setMenu(!menu)}>
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+                <path d="M8 3v10M3 8h10" />
+              </svg>
+            </button>
+            {menu && (
+              <span className="menu-pop" onMouseLeave={() => setMenu(false)}>
+                <button
+                  type="button"
+                  className="menuitem"
+                  onClick={() => {
+                    setMenu(false);
+                    props.onQuickMaterial();
+                  }}
+                >
+                  {t.quickMaterial}
+                </button>
+                <button
+                  type="button"
+                  className="menuitem"
+                  onClick={() => {
+                    setMenu(false);
+                    props.onFormulaAsMaterial();
+                  }}
+                >
+                  {t.formulaAsMaterial}
+                </button>
+              </span>
+            )}
+          </span>
           <span className="hint">{t.pickHint}</span>
         </div>
         <div className={selected ? "field material-field chosen" : "field material-field"}>
@@ -352,6 +345,12 @@ export function AddBar(props: {
         </div>
         {open && results.length > 0 && (
           <ul className="results">
+            {/* What the search takes in, while searching (P49). Pressing a switch keeps the focus in the bar. */}
+            <li className="results-switches" onMouseDown={(e) => e.preventDefault()}>
+              <span className="muted">{t.include}</span>
+              <Switch checked={mine} label={t.mine} onChange={setMine} />
+              <Switch checked={formulas} label={t.formulas} onChange={setFormulas} />
+            </li>
             {results.map((r, i) => (
               <li
                 key={r.kind === "create" ? "create" : r.material.key}

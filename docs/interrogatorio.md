@@ -1828,6 +1828,49 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 - Estado: cerrada en el color · la duración, abierta con P42
 - Destino: decisiones.md §6 y §10; plan, D4
 
+### P49 — Lo que sale de usar el banco: IFRA, la composición y el reparto de la parte de arriba
+- Bloque: banco (fase 4), diseño (§10.1)
+- Abierta por: el usuario, tras probar la app, con dos capturas
+- Respuesta literal: *«he estado usando un poco la app, bien de momento, aunque he encontrado algo que debe ser un error puedes checkear que pasa con este apartado, deberia poder usarse al 100%. la manera en la que hice el test primero puse los materiales y luego el tamaño del lote quizas tiene que ver con eso. por otro lado en la concentracion puede ser un poco mas ancho la linea vertical de color para que sea mas facil que aparezca la descripcion, luego sobre la descripcion de olores el hover esta genial pero creo que no es parte de la app que ponga la confianza, por lo tanto esa parte fuera luego una cosa mas general, creo que la tabla de los % de la materia aromaticia tiene que mostrar solo el % sobre la materia aromatica dos porcentajes en la misma tabal lo hace confuso, creo que debajo del bote tiene que estar el porcentaje del bote de disolventes y el de materia aromatica, separado. el plus del material ocupa mucho y es funcion muy concreta, se pone al lado de material encima de la barra de busqued, lo mismo con los toggle de usar materiales y formulas propios, estos los movemos a la propia barra de busquedas justo debajo cuando estes buscando que aparezcan los dos switches donde la barra para activar las opciones, todo lo de la info del bote lo he pasado al lado del bote tambien es mas intuitivo iniciar el programa y que desde ahi lo primero que veas es lo primero a completar, sino no esta tan claro que hay que completarlo, pondria un recuadro vacio para que quede claro que hat que rellenarlo como la barra de busqueda pero en pequeño.»*
+- **Lectura y lo hecho, por confirmar:**
+  1. **El 91,91 % no es un error.** En la fórmula de prueba, el neral pesa 16 mg de 2,451 g,
+     un 0,653 % del frasco, y cuenta como citral, con techo del 0,6 % en categoría 4
+     (STD 021). Usado al 100 %, el perfume llevaría un 0,653 % de citral; el máximo es
+     0,6 / 0,653 = 91,9 %. El orden en que se puso el lote no cambia nada. **Lo que faltaba
+     es decir qué lo limita:** la caja de IFRA dice ahora «Lo limita: Citral».
+  2. **La marca de color de cada línea de la composición es más ancha**, para que salga la
+     descripción al pasar.
+  3. **Fuera la confianza del texto al pasar:** queda «Amaderado · matiz floral». La
+     confianza sigue en los datos.
+  4. **La composición da solo el % de la materia aromática.** Debajo del bote, aparte: la
+     materia aromática y cada disolvente, como % del frasco.
+  5. **El «+» va junto a «Material»**, pequeño, encima de la barra.
+  6. **Los interruptores «Mis materiales» y «Fórmulas» salen dentro del desplegable de
+     búsqueda**, arriba, mientras se busca.
+  7. **Los gramos del frasco van junto al bote**, lo primero que se ve al empezar, y **cada
+     cifra por rellenar es un recuadro**, como una barra de búsqueda pequeña: tara, lote de
+     trabajo y lote final.
+  8. **Añadido en la lectura:** los recientes suben bajo la barra de añadir, en el hueco que
+     dejan los gramos, y el nombre y la intención quedan uno junto al otro.
+- Fecha: 2026-09-28
+- Estado: cerrada · por confirmar en pantalla
+- Destino: decisiones.md §10.1; plan, fase 4
+
+### P50 — La pirámide dentro de la proyección, y qué va en el centro
+- Bloque: diseño (§10.1, §10.2), con P33 y P42
+- Abierta por: el usuario, 2026-09-28
+- Respuesta literal: *«ahora hay mucho espacio libre en el medio, la parte de la piramide he pensado que en realidad es la misma que la de la proyeccion, por eso puede ser como un overlay sobre como quede el grafico de la proyeccion ahi se estipulan tramos por cada franja de horas de evolucion se le estipula una parte de la piramide. dicho esto, solo es una propuesta, me gustaria evaluacion y tambien sugerencia de que hacer con la parte del medio o que no acaba de cuadrar sobre la app por ahora desde el punto de vista de diseño»*
+- **Lectura:**
+  1. **La pirámide y la proyección son la misma información:** la pirámide pasa a ser unas
+     franjas sobre el gráfico de proyección, un tramo de horas por piso.
+  2. **Es una propuesta:** el usuario pide una valoración.
+  3. **Pide también qué hacer con el centro**, que ahora queda vacío, y qué no acaba de
+     encajar en el diseño.
+- **Valoración, por confirmar:** en la respuesta de la sesión del 2026-09-28.
+- Fecha: 2026-09-28
+- Estado: abierta
+- Destino: decisiones.md §10.1 y §10.2
+
 ---
 
 ## Estado
@@ -1839,6 +1882,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
 | R12 · infografías y frentes | 7 (P35 a P41) | 3 (P33, P34, P42) |
-| R13 · a pesar en el banco | 3 (P43, P44, P48) | 3 (P45 a P47) |
+| R13 · a pesar en el banco | 4 (P43, P44, P48, P49) | 4 (P45 a P47, P50) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.

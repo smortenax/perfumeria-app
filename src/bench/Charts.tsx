@@ -193,7 +193,7 @@ export function Recents(props: { materials: readonly Material[]; onPick: (materi
   return (
     <div className="recents">
       <span className="label recents-label">{t.recent}</span>
-      {props.materials.slice(0, 8).map((m) => {
+      {props.materials.slice(0, 5).map((m) => {
         const last = prefsOf(m.key).last;
         const dilution = !last ? "" : last.percent.replace(",", ".") === "100" ? t.pure : t.diluted(last.percent, diluentMaterial(last.diluent)?.name ?? "?");
         return (

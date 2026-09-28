@@ -1,11 +1,18 @@
 import { texts } from "../i18n/es";
 
+/** One part of what the bottle holds: the aromatic matter, or a solvent, with its % of the bottle. */
+export interface BottlePart {
+  readonly name: string;
+  readonly share: string;
+}
+
 /**
  * The bottle, big, at the top left (§10.1): it fills by mass over the work
  * batch (P23), with the name as its label. The back button sits in a bite of
- * the frame (P26). Drawn as in the sketch (boceto 4).
+ * the frame (P26). Under it, what it holds: the aromatic matter and each solvent,
+ * as % of the bottle (P49). Drawn as in the sketch (boceto 4).
  */
-export function BottleFrame(props: { name: string; fill: number | null; onBack: () => void }) {
+export function BottleFrame(props: { name: string; fill: number | null; aromatic: BottlePart | null; solvents: readonly BottlePart[]; onBack: () => void }) {
   const fill = props.fill === null ? 0 : Math.max(0, Math.min(1, props.fill));
   const offset = (1 - fill) * 156;
   const label = props.name.length > 12 ? `${props.name.slice(0, 11)}…` : props.name;
@@ -16,7 +23,7 @@ export function BottleFrame(props: { name: string; fill: number | null; onBack: 
         <path d="M58.5 0.5 H195.5 A12 12 0 0 1 207.5 12.5 V271.5 A12 12 0 0 1 195.5 283.5 H12.5 A12 12 0 0 1 0.5 271.5 V58.5 A8 8 0 0 1 8.5 50.5 H38.5 A12 12 0 0 0 50.5 38.5 V8.5 A8 8 0 0 1 58.5 0.5 Z" />
       </svg>
       <div className="bottle-inner">
-        <svg width="129" height="240" viewBox="0 0 140 260" role="img" aria-label={props.name}>
+        <svg width="108" height="200" viewBox="0 0 140 260" role="img" aria-label={props.name}>
           <defs>
             <clipPath id="glass">
               <path d="M54 86 L86 86 C86 96 124 98 124 118 L124 240 Q124 256 108 256 L32 256 Q16 256 16 240 L16 118 C16 98 54 96 54 86 Z" />
@@ -44,6 +51,23 @@ export function BottleFrame(props: { name: string; fill: number | null; onBack: 
         <span className="num fill-note">
           {props.fill === null ? texts.bench.noWorkBatch : texts.bench.fillOf(`${Math.round(props.fill * 100)} %`)}
         </span>
+        {props.aromatic && (
+          <span className="bottle-split">
+            <span className="aromatic">
+              {props.aromatic.name} <span className="num">{props.aromatic.share}</span>
+            </span>
+            {props.solvents.length > 0 && (
+              <span>
+                {props.solvents.map((s, i) => (
+                  <span key={s.name}>
+                    {i > 0 && " · "}
+                    {s.name} <span className="num">{s.share}</span>
+                  </span>
+                ))}
+              </span>
+            )}
+          </span>
+        )}
       </div>
       <button type="button" className="back" aria-label={texts.bench.back} title={texts.bench.back} onClick={props.onBack}>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

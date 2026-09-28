@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Ratio } from "../core/arith/ratio";
 import type { Composition, Line, Part } from "../core/compose";
-import { formatGrams, formatPercent } from "../core/display";
+import { formatPercent } from "../core/display";
 import type { IfraData, IfraReport } from "../core/ifra";
 import type { Change } from "../core/model/formula";
 import type { MaterialFamily } from "../data/catalog";
@@ -16,7 +15,8 @@ type Flag = { text: string; tone: "amber" | "grey" };
 
 /**
  * The composition column (§10.1): a list ordered by %, product and % (P23),
- * with its base (§1.1). Only what cannot be kept quiet is marked (P23): what is
+ * with its base (§1.1): the aromatic matter, never the bottle, which goes under
+ * the bottle (P49). Only what cannot be kept quiet is marked (P23): what is
  * not checked, what has no data, conditions and weighing. The solvents and the
  * total go at the foot. As in the sketch (boceto 4).
  */
@@ -34,7 +34,6 @@ export function CompositionCard(props: {
   const [open, setOpen] = useState<ReadonlySet<string>>(new Set());
   const comp = props.composition;
   const aromatic = comp ? comp.parts.filter((p) => !p.material.solvent) : [];
-  const solvents = comp ? comp.parts.filter((p) => p.material.solvent) : [];
 
   const toggle = (key: string) => {
     const next = new Set(open);
@@ -122,7 +121,8 @@ export function CompositionCard(props: {
         ) : (
           aromatic.map((part) => {
             const { flags, lines } = describe(part);
-            const share = shareText(part.massUg, comp.totalUg);
+            // Of the aromatic matter only (P49): the bottle's split goes under the bottle.
+            const share = shareText(part.massUg, comp.aromaticUg);
             const isOpen = open.has(part.material.key);
             return (
               <div key={part.material.key}>
@@ -153,24 +153,6 @@ export function CompositionCard(props: {
             );
           })
         )}
-      </div>
-      <div className="composition-foot">
-        <div className="foot-main">
-          <span>{t.aromatic}</span>
-          <span className="num">{comp && !comp.totalUg.isZero() ? formatPercent(comp.aromaticUg.div(comp.totalUg), 2) : "—"}</span>
-        </div>
-        <div className="foot-sub">
-          {comp &&
-            !comp.totalUg.isZero() &&
-            solvents.map((s) => (
-              <span key={s.material.key}>
-                {s.material.name} <span className="num">{formatPercent(s.massUg.div(comp.totalUg), 2)}</span>
-              </span>
-            ))}
-          <span className="right muted">
-            {t.total} <span className="num">{formatGrams(comp?.totalUg ?? Ratio.ZERO, 3)}</span>
-          </span>
-        </div>
       </div>
     </div>
   );

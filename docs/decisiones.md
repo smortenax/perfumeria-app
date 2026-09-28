@@ -462,6 +462,8 @@ Se tacha, no se borra: el texto original sigue en los antecedentes.
 
 | Lo que se dijo | Dónde | Superado por |
 |---|---|---|
+| ~~Los gramos del recipiente, a la derecha de la cabecera, porque solo sirven al empezar~~ | P25, §10.1 | P49: junto al frasco, porque es lo primero que hay que rellenar |
+| ~~La composición en % del frasco, con la materia aromática y los disolventes al pie~~ | P23, §10.1 | P49: solo el % de la materia aromática; lo del frasco, debajo del frasco |
 | ~~IFRA fuera de la primera versión~~ | [Entradas del 11-08](antecedentes/formulacion/entradas-para-decisiones-app.md) | P3, 2026-09-25: la fuente primaria existe; IFRA entra desde el diseño |
 | ~~No cargar datos IFRA en la app~~ | [03 §7](antecedentes/formulacion/03-motor-de-calculo.md), brief §7 | P3, P2: la app lleva IFRA dentro |
 | ~~El sello olfativo como razón de ser~~ | [Brief](antecedentes/formulacion/00-brief-agosto-ex-claude-md.md) §1 | Línea paralela, aplazada (§8) |
@@ -505,24 +507,25 @@ P24 ([reordenación](media/2026-09-25-boceto-banco-reordenado.png)) y en P25
 ([segunda reordenación](media/2026-09-26-boceto-banco-2-reordenado.png)). **El espacio se
 reparte por categoría**: lo que crece no es lo mismo más grande.*
 
-> **La regla (P25): la izquierda, limpia y con imágenes; la derecha, con los datos.** Lo que
-> solo sirve al empezar, como los gramos del recipiente, va a la derecha y se ignora el resto
-> del rato.
+> **La regla (P25): la izquierda, limpia y con imágenes; la derecha, con los datos.**
+> **Cambiada en P49:** los gramos del recipiente van **junto al frasco**, porque es lo
+> primero que hay que rellenar al empezar, y así se ve.
 
 | Zona | Qué lleva |
 |---|---|
-| **Arriba a la izquierda** | **El frasco, grande**, que se llena conforme se formula y lleva el nombre como etiqueta. Es el comienzo de la lectura. **El botón atrás va en un bocado del marco**, sin montarse encima (P26); el bocado es cuadrado con las esquinas redondeadas, como el botón (P28) |
-| **Arriba** | La cabecera, **solo nombre y fecha** · la intención |
-| **A la derecha de la cabecera** | **Los gramos, condensados**: el peso del frasco (tara y bruto), el lote de trabajo, lo que hay en el frasco y el lote final (§3.3) |
-| **En medio** | La barra de añadir (§4), a la derecha del frasco · **los usados recientes**, de lado a lado |
+| **Arriba a la izquierda** | **El frasco, grande**, que se llena conforme se formula y lleva el nombre como etiqueta. Es el comienzo de la lectura. **El botón atrás va en un bocado del marco**, sin montarse encima (P26); el bocado es cuadrado con las esquinas redondeadas, como el botón (P28). **Debajo, lo que lleva el frasco**: la materia aromática y cada disolvente, en % del frasco (P49) |
+| **Junto al frasco** | **Los gramos**: el peso del frasco (tara y bruto), el lote de trabajo, lo que hay en el frasco y el lote final (§3.3). **Cada cifra por rellenar es un recuadro**, como una barra de búsqueda pequeña, para que se vea que hay que rellenarla (P49) |
+| **Arriba** | La cabecera, **solo nombre y fecha**, y a su lado la intención |
+| **Debajo de la cabecera** | La barra de añadir (§4), con el «+» pequeño junto a «Material», y **los usados recientes** debajo (P49). Los interruptores de qué incluye la búsqueda salen **dentro del desplegable**, mientras se busca (P49) |
 | **Abajo a la izquierda** | **El visualizador, grande**: la firma de la app, una infografía compleja que pequeña no se entendería (§8) |
 | **Abajo, en medio** | Pirámide por piso y reparto de la materia, pequeños; debajo, la proyección por horas (§10.2) |
-| **Derecha** | **La caja de IFRA** y el menú de opciones: guardar, guardar como, exportar · **la composición: un listado ordenado por %, producto y %**, con su base (§1.1) |
+| **Derecha** | **La caja de IFRA** y el menú de opciones: guardar, guardar como, exportar · **la composición: un listado ordenado por %, producto y %**, con su base (§1.1): **el % de la materia aromática, solo ese** (P49) |
 | **Abajo del todo** | **El historial como un dock**: **cada aplicación, en su orden, aunque se repita el material**; siempre a la vista; al pasar el ratón se amplía y dice material y cantidad. **Las notas son marcas en él** (§3.4). **El *play*, en un bocado del borde de arriba, en el centro** (§3.4, P26), cuadrado con las esquinas redondeadas (P28). **En cada extremo, un sombreado sutil**, solo si hay más historial por ese lado: un clic lleva al principio o al final, y al acercar el ratón el historial se desplaza poco a poco (P25, P28). Las piezas van centradas en la bandeja (P26). **Durante el play, las piezas no llevan rótulo**, o lo llevan tenue: está por probar (P26) |
 
 - **La caja de IFRA son dos líneas**, las dos lecturas de §5.4: *¿pasa los límites en el
   lote final?* y *¿hasta qué % se puede usar en un perfume final?* Nunca en verde si hay
-  desconocidos (§5.5).
+  desconocidos (§5.5). **Si la segunda no llega al 100 %, dice qué la limita**: «Lo limita:
+  Citral» (P49).
 - **El frasco se llena en masa, sobre el lote de trabajo**: con 5 g de 10 g está a la mitad.
   **Es un visualizador, no una medida**, y por eso no necesita densidad.
 - **Los recientes sustituyen a la biblioteca lateral** del Banco v2: sin inventario (P6), lo
