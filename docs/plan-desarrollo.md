@@ -147,6 +147,9 @@ Trabajo de lectura: subagentes Sonnet de uno en uno, y revisión por partes.
   decisiones abiertas, y **entra ya la presión de vapor de OPERA**, de uso libre, en
   `datos/fuente/`. Cubre 2069 de las 3107 moléculas del glosario; faltan las 850 que solo
   están en IFRA.
+  **El 2026-09-28 llegan las familias con color y la duración** (P48). **El color ya se ve**:
+  en los iconos, la composición y el reparto. La duración está en `datos/fuente/` y espera a
+  los anclajes y a cómo se enseña la incertidumbre (P42).
 - **Sale:** la app carga el paquete sin red, y dice su versión y su fecha.
 
 ## Diseño *(en paralelo, desde el 2026-09-25)*
@@ -268,6 +271,9 @@ incluida. **Lo que falla, por orden de importancia:**
 - [ ] **C · La búsqueda, sin decisión:** los sinónimos de PubChem, filtrados como en la
   capa de nombres comerciales (P38), y *allyl amyl glycolate*. Buscar en otros idiomas queda
   aplazado (P43).
+- [x] **Las familias y su color, del laboratorio** (P48, 2026-09-28): en los iconos, la
+  composición y el reparto. De paso, 19 naturales que pasaban por moléculas, y salían libres,
+  salen «sin dato».
 - [ ] **D · Instalador nuevo**, y a pesar. Lo que falle se apunta en la bandeja del
   laboratorio, como siempre.
 - **Abiertas, sin prisa:**

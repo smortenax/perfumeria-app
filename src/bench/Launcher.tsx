@@ -123,6 +123,7 @@ export function Launcher(props: { onNew: () => void; onOpen: (opened: Opened) =>
       )}
       <div className="launcher-notes">
         <p>{t.base(catalog.counts.fig, catalog.counts.ifraOnly)}</p>
+        <p>{t.families(catalog.counts.withFamily)}</p>
         <p>{t.source(catalog.source.amendment, catalog.source.generated)}</p>
         <p>{t.provisional}</p>
         <p className="tiny">{t.figCredit}</p>

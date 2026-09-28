@@ -22,10 +22,14 @@ const header: FormulaHeader = { name: "prueba", intention: "", container: null, 
 const MG = 1_000n;
 
 describe("the catalog, from the glossary and IFRA's own files (P37)", () => {
-  it("has the FIG with the user's codes, what only IFRA has (its standards, its annex and its Transparency List), the diluents of the app, and nothing of the lab", () => {
+  it("has the FIG with the user's codes, what only IFRA has (its standards, its annex and its Transparency List), the diluents of the app, and none of the lab's materials", () => {
     const count = (group: string) => catalog.entries.filter((e) => e.group === group).length;
-    expect(count("base")).toBe(4320);
-    expect(catalog.counts).toEqual({ fig: 3119, ifraOnly: 1201 });
+    // 4317 since P48: 19 rows of the FIG that the lab counts as naturals were taken for
+    // molecules, and three of them are the only natural of a CAS the Transparency List
+    // also lists, so its entry joins them instead of standing apart.
+    expect(count("base")).toBe(4317);
+    // Since P48 the counts also say how many have a family: all of the FIG.
+    expect(catalog.counts).toEqual({ fig: 3119, ifraOnly: 1198, withFamily: 3119 });
     // DPG and alcohol, and the other diluents of the menu (§4): IPM, DEP, TEC, triacetin, benzyl benzoate.
     expect(count("diluent")).toBe(7);
     expect(count("own")).toBe(0);
@@ -53,6 +57,14 @@ describe("the catalog, from the glossary and IFRA's own files (P37)", () => {
     const atlas = byName("Cedarwood oil, Atlas");
     expect(fractionOf(atlas.key, "std:IFRA_STD_197")?.eq(Ratio.of(15, 1000))).toBe(true);
     expect(fractionOf(atlas.key, "std:IFRA_STD_199")?.eq(Ratio.of(6, 1000))).toBe(true);
+  });
+
+  it("takes as naturals the rows the lab counts as such, so a gum or a balsam is never free (P48, §1.2)", () => {
+    for (const cas of ["9000-45-7", "8024-03-1", "8013-97-6"]) {
+      const entry = catalog.entries.find((e) => e.cas === cas && e.material.key.startsWith("fig:"))!;
+      expect(entry.state).toBe("sin-dato");
+      expect(ifraOf(entry.material.key)?.pending?.length).toBeGreaterThan(0);
+    }
   });
 
   it("never takes a natural with no data on what it carries as free (§1.2)", () => {
@@ -131,6 +143,22 @@ describe("the catalog, from the glossary and IFRA's own files (P37)", () => {
     const inOwn = checkIfra({ header, history: [{ ...inBB[0], diluent: own }] as Change[] }, catalog.ifra);
     expect(inOwn.unchecked).toEqual(["Aceite de jojoba"]);
     expect(inOwn.partial).toBe(true);
+  });
+
+  it("gives each row of the FIG its family and colour, and leaves the rest as a gap, not the grey family (P48)", () => {
+    expect(catalog.families.map((f) => f.name)).toEqual([
+      "Cítrico", "Verde", "Ozónico", "Floral", "Frutal", "Especiado", "Amaderado", "Animal", "Transformado",
+    ]);
+    expect(catalog.families.find((f) => f.name === "Transformado")?.short).toBe("Transf");
+    expect(catalog.counts.withFamily).toBe(3119);
+    const entry = (cas: string) => catalog.entries.find((e) => e.cas === cas && e.group === "base")!;
+    expect(entry("24851-98-7").family?.family.name).toBe("Floral");
+    const isoESuper = entry("54464-57-2").family!;
+    expect([isoESuper.family.name, isoESuper.hue?.name, isoESuper.confidence]).toEqual(["Amaderado", "Floral", "alta"]);
+    expect(entry("541-91-3").family?.family.colour).toBe("#d22c50");
+    // Only in IFRA: no family yet.
+    expect(catalog.entries.filter((e) => e.group === "base" && !e.material.key.startsWith("fig:")).every((e) => !e.family)).toBe(true);
+    expect(catalog.entries.filter((e) => e.group === "diluent").every((e) => !e.family)).toBe(true);
   });
 
   it("finds by code, CAS, name, IFRA's name and its synonyms", () => {

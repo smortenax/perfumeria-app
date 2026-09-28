@@ -1772,6 +1772,62 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 - Estado: abierta · exploración
 - Destino: diseño, punto 5 (los flujos)
 
+### P48 — Familias con color y duración, del laboratorio *(llevada desde la bandeja)*
+- Bloque: datos (D4), diseño (color, §10)
+- Abierta por: el laboratorio, en la bandeja (`app/entradas.md`, cuatro entradas del
+  2026-09-28, la primera como «estado para aplicar») y el usuario
+- Respuesta literal: *«primero revisa entrada entrada en la bandeja y mira la bandeja actual de la app, ya hay categorias y codigos de colores y se pueden aplicar ya al estado actual de la app»*
+- **Lo que trae el laboratorio**
+  ([entrega](https://github.com/smortenax/perfumeria-lab/blob/776e932/fuentes/investigaciones/2026-09-28-frente-6-color-y-duracion-para-app.md)):
+  1. **Ocho familias con color y un gris:** Cítrico (amarillo), Verde (verde menta), Ozónico
+     (azul cielo), Floral (rosa malva), Frutal (violeta), Especiado (naranja), Amaderado
+     (marrón), Animal, con el almizcle (rojo), y Transformado, «Transf» (gris), para los
+     olores de calor, fermentación o corte.
+     - Son una **categorización propia**: interpretan los tres descriptores del FIG y los
+       contrastan con catálogos de las casas. No copian las categorías de nadie.
+     - Están asignadas a las 3119 filas del FIG, con su matiz y su confianza: alta en el
+       63 %, media en el 27 % y baja en el 11 %.
+     - **Decisiones del usuario, allí:** el segundo nivel queda en pausa, no hay familia de
+       cuero, y el gris se queda.
+     - **La paleta clara pasa todos los pares, también con daltonismo.** La oscura es
+       provisional, y pide la sigla como segunda pista.
+  2. **La duración y la posición de 2069 moléculas**, con la presión de vapor de OPERA. Es un
+     orden de magnitud: un factor 3,6, con material puro y en tira. Conviene enseñar bandas.
+  3. **La duración de 399 de las 863 filas de naturales**, con la tabla de Poucher (1955).
+  4. **Una corrección:** 62 filas de naturales estaban como «sin estructura» en la pieza 1.
+- **Lectura:** el usuario pide **aplicar ya las familias y sus colores**. La duración espera a
+  dos decisiones que siguen abiertas de P42: los anclajes de la escala y cómo se enseña la
+  incertidumbre.
+- **Hecho, por confirmar:**
+  - **entran en la app** con `importar_datos.py`, del commit `776e932`: la paleta, las
+    familias, la duración de moléculas y naturales, y sus dos documentos;
+  - **el glosario lleva la familia, el matiz y la confianza** de cada fila del FIG. **Lo demás
+    queda en blanco, un hueco**, nunca el gris, que es una familia;
+  - **dónde se ve:**
+    - **el icono** del buscador y del historial toma el color de su familia, como tinte con
+      un borde lleno, y las letras del icono son la segunda pista;
+    - **cada línea de la composición** lleva una marca de color;
+    - **el reparto de la materia**: cada material, en el color de su familia;
+    - **al pasar el ratón**: «Amaderado · matiz floral · confianza alta».
+
+    Sin familia, el icono queda como estaba y la marca es un trazo discontinuo;
+  - **una corrección de seguridad que salió al cruzar los datos:** 19 filas del FIG que el
+    laboratorio cuenta como naturales eran moléculas para la app, porque el usuario no les
+    dio tipo: gomas, bálsamos, infusiones… Como moléculas salían «sin estándar», libres.
+    Como naturales sin datos de lo que llevan dentro, salen **«sin dato»**, nunca libres
+    (§1.2). Entre ellas, la goma de mirra, el bálsamo de tolú y el de copaiba;
+  - **al revés, 14 filas son naturales para la app y no para el laboratorio:** la lavanda,
+    el jengibre, el ciprés o la nuez moscada. La app los mantiene. **Hay que decírselo al
+    laboratorio**;
+  - **tres entradas de la Transparency List se unen ahora a su fila del FIG**, al ser el
+    único natural de su CAS. El glosario pasa de 4320 a 4317 materiales.
+- **Efecto en P46 y el frente 8:** el laboratorio ya ha hecho el primer nivel de familias. El
+  frente 8 se ajusta a lo que queda: los 1198 materiales sin familia, la predominancia en una
+  fórmula y el segundo nivel.
+- Fecha: 2026-09-28 (llevada el mismo día)
+- Estado: cerrada en el color · la duración, abierta con P42
+- Destino: decisiones.md §6 y §10; plan, D4
+
 ---
 
 ## Estado
@@ -1783,6 +1839,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
 | R12 · infografías y frentes | 7 (P35 a P41) | 3 (P33, P34, P42) |
-| R13 · a pesar en el banco | 2 (P43, P44) | 3 (P45 a P47) |
+| R13 · a pesar en el banco | 3 (P43, P44, P48) | 3 (P45 a P47) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.

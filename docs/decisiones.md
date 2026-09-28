@@ -547,12 +547,30 @@ reparte por categoría**: lo que crece no es lo mismo más grande.*
   dentro saturan la pantalla. **Los números salen al pasar el ratón o el dedo.**
 - **Pirámide por piso:** los cinco pisos son **iconos**, una pirámide partida en cinco
   franjas, con la suya marcada, como en Formulair. Al pasar, los mg de ese piso.
-- **Reparto de la materia:** **sin leyenda**, solo color. Al pasar, el nombre y su parte.
-  Los materiales pequeños van juntos en «otros».
+- **Reparto de la materia:** **sin leyenda**, solo color. Al pasar, el nombre, su parte y
+  su familia. **Cada material es una porción, en el color de su familia** (P48); ya no hay
+  «otros».
 - **Proyección por horas:** **una línea por material**, con su longevidad (§8).
 - **La pirámide será compuesta**: cada material reparte su masa entre los pisos según su
   perfil, que no tiene por qué ser un piso entero. El dibujo no cambia; cambia cómo se
   reparte cada material entre las franjas. Depende de los datos (§8).
+
+## 10.2b · El color de cada material es su familia
+
+*P48, 2026-09-28.*
+
+- **Ocho familias con color y un gris**, la categorización propia del laboratorio (frente 6,
+  parte B): Cítrico, Verde, Ozónico, Floral, Frutal, Especiado, Amaderado, Animal (con el
+  almizcle) y Transformado, en gris, para los olores de calor, fermentación o corte.
+- **El icono del material toma el color de su familia**, como tinte con un borde lleno, en
+  el buscador y en el historial. **Las letras del icono son la segunda pista**, la que pide
+  el daltonismo en modo oscuro. Cada línea de la composición lleva su marca de color.
+- **Sin familia, el icono queda neutro y la marca es un trazo discontinuo:** un hueco, nunca
+  el gris, que es una familia (§1.2).
+- **Al pasar, la familia, su matiz y su confianza.**
+- **Por qué:** es lo que el usuario pidió para el color, «muy presente pero sin abrumar»
+  (P35), y la paleta clara pasa todos los pares, también con daltonismo. La oscura es
+  provisional hasta probarla en pantalla.
 
 ## 10.3 · Todo gráfico se enlaza con sus materiales
 

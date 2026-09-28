@@ -12,10 +12,12 @@ genera [`scripts/generar_glosario.py`](../../scripts/generar_glosario.py) a part
   [`../ifra/transparencia-2025/`](../ifra/transparencia-2025/LEEME.md): el listado entero
   de ingredientes;
 - **los nombres comerciales**, de
-  [`origen/nombres-comerciales.csv`](origen/nombres-comerciales.csv).
+  [`origen/nombres-comerciales.csv`](origen/nombres-comerciales.csv);
+- **del laboratorio, solo su categorización propia** (P48): la familia de cada fila del FIG
+  y qué filas son naturales, de [`../fuente/`](../fuente/procedencia.json).
 
-**Nada del laboratorio entra aquí.** **No se edita a mano.** Las cuentas de abajo son las de
-[`procedencia.json`](procedencia.json) del 2026-09-27.
+**Ningún material del usuario entra aquí.** **No se edita a mano.** Las cuentas de abajo son
+las de [`procedencia.json`](procedencia.json) del 2026-09-28.
 
 > Information derived from the IFRA Fragrance Ingredient Glossary, developed by The
 > International Fragrance Association.
@@ -27,16 +29,20 @@ genera [`scripts/generar_glosario.py`](../../scripts/generar_glosario.py) a part
 | `fig:N` | la fila N del FIG, con la abreviatura del usuario | 3119 |
 | `cas:CAS` | un CAS de un estándar de IFRA, o una base de Schiff, que el FIG no tiene | 193 |
 | `ncs:nombre` | un natural del anexo de IFRA que no tiene fila en el FIG con ese nombre | 57 |
-| `tl:CAS` o `tl:nombre` | un ingrediente de la Transparency List que no estaba en nada de lo anterior | 948 |
+| `tl:CAS` o `tl:nombre` | un ingrediente de la Transparency List que no estaba en nada de lo anterior | 945 |
 | `cat:CAS` | un material que solo conoce el catálogo de una casa: [`origen/materiales-de-catalogos.csv`](origen/materiales-de-catalogos.csv), con la página | 3 |
 
-En total son 4320. La Transparency List se une así con lo anterior:
+En total son 4317. **Una fila del FIG es un natural** si el usuario le dio tipo, si el anexo
+de IFRA tiene su CAS, o si el laboratorio la cuenta como natural (P48). Así, una goma o un
+bálsamo sin tipo no pasa por molécula, que saldría libre (§1.2).
+
+La Transparency List se une así con lo anterior:
 - una molécula, por su CAS;
 - un natural, por su nombre, o por ser el único de su CAS y de su tipo;
 - su nombre, si es distinto, queda en `nombres_transparencia` y también se busca;
 - de los naturales, `categoria_iso` apunta la categoría ISO 9235 que dan IFRA o el anexo.
 
-- **355 materiales del FIG no están en nada de IFRA**: ni en sus estándares, ni en su
+- **354 materiales del FIG no están en nada de IFRA**: ni en sus estándares, ni en su
   anexo, ni en la lista de 2025. **`fuera_de_ifra` dice por qué**: el mismo compuesto u otra
   estereoquímica de uno que IFRA lista, otra forma de un natural que sí lista, o que no
   aparece en la lista de 2025. Ver
@@ -48,8 +54,25 @@ En total son 4320. La Transparency List se une así con lo anterior:
   [`scripts/relacionar_moleculas.py`](../../scripts/relacionar_moleculas.py). Son 7.
 - **La abreviatura** (`codigo`) es única en todo el glosario:
   - `codigo_origen` = `usuario` en las 3119 del FIG;
-  - `codigo_origen` = `generado` en las 1201 nuevas, con el mismo estilo y **provisionales**.
+  - `codigo_origen` = `generado` en las 1198 nuevas, con el mismo estilo y **provisionales**.
     331 llevan un número para no repetirse.
+
+## La familia y su color (P48)
+
+**Es la categorización propia del laboratorio** (frente 6, parte B), no la del FIG: interpreta
+sus tres descriptores y los contrasta con catálogos de las casas. Ocho familias con color y
+un gris, «Transformado», para los olores de calor, fermentación o corte. Llega con
+[`scripts/importar_datos.py`](../../scripts/importar_datos.py): la paleta está en
+[`../fuente/pieza-11-paleta.csv`](../fuente/pieza-11-paleta.csv).
+
+| Columna | Qué es |
+|---|---|
+| `familia` | la familia de la fila: Cítrico, Verde, Ozónico, Floral, Frutal, Especiado, Amaderado, Animal o Transformado |
+| `matiz` | la segunda familia, si la hay |
+| `confianza_familia` | alta, media o baja, según el laboratorio |
+
+**Solo las 3119 filas del FIG tienen familia.** Las demás quedan en blanco: **un hueco, nunca
+el gris**, que es una familia.
 
 ## Los nombres comerciales, por encima (P38)
 

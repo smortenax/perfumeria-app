@@ -176,6 +176,12 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
       ),
     [],
   );
+  // The family of each material, with its colour (P48).
+  const families = useMemo(
+    () => new Map(catalog.entries.filter((e) => e.family).map((e) => [e.material.key, e.family!])),
+    [],
+  );
+  const familyOf = (key: string) => families.get(key);
   // Beside a trade name, the chemical one (P38).
   const chemical = useMemo(
     () => new Map(catalog.entries.filter((e) => e.tradeName).map((e) => [e.material.key, e.chemicalName])),
@@ -451,7 +457,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
           <div className="charts">
             <div className="charts-top">
               <PyramidCard />
-              <RepartoCard composition={view.composition} />
+              <RepartoCard composition={view.composition} familyOf={familyOf} />
             </div>
             <ProjectionCard />
           </div>
@@ -512,6 +518,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
           report={view.report}
           ifra={catalog.ifra}
           chemicalOf={(key) => chemical.get(key)}
+          familyOf={familyOf}
         />
       </div>
 
@@ -524,6 +531,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
         onFrame={(f) => dispatch({ type: "frame", frame: f })}
         onTogglePlay={() => setPlaying(!playing)}
         iconOf={(key) => icons.get(key)}
+        familyOf={familyOf}
       />
 
       {selected && (

@@ -15,12 +15,14 @@ export const texts = {
     versions: (n: number) => `${n} versiones`,
     versionsHelp: "Ver las versiones anteriores",
     base: (fig: number, ifraOnly: number) =>
-      `Glosario: ${fig + ifraOnly} materiales, ${fig} del FIG con tus abreviaturas y ${ifraOnly} que no están en él (de IFRA y de los catálogos de las casas). Nada del laboratorio.`,
+      `Glosario: ${fig + ifraOnly} materiales, ${fig} del FIG con tus abreviaturas y ${ifraOnly} que no están en él (de IFRA y de los catálogos de las casas). Ningún material tuyo.`,
+    families: (withFamily: number) =>
+      `Familias y colores: la categorización propia del laboratorio (frente 6), para ${withFamily} materiales; el resto, sin familia todavía.`,
     source: (amendment: string, date: string) =>
       `IFRA, ${amendment}.ª enmienda, de sus propios archivos; se cuenta en categoría 4. Glosario generado el ${date}.`,
     figCredit: "Information derived from the IFRA Fragrance Ingredient Glossary, developed by The International Fragrance Association.",
     provisional:
-      "Sin gráficos con datos todavía: esperan a la capa propia de los materiales (frente 6) y a las categorías de infografía (P33).",
+      "El reparto ya va por familias. La pirámide y la proyección esperan a decidir cómo se enseña la duración (P42).",
     openError: "No se pudo abrir la fórmula",
   },
 
@@ -55,6 +57,12 @@ export const texts = {
   },
 
   /** The kinds of natural, by the letter of their icon (P40). */
+  family: {
+    none: "Sin familia todavía",
+    hue: (name: string) => `matiz ${name}`,
+    confidence: (level: string) => `confianza ${level}`,
+  },
+
   naturalKind: {
     A: "absoluto",
     O: "aceite",
@@ -128,7 +136,6 @@ export const texts = {
     aromatic: "Aromática",
     ofBottle: "del frasco",
     ofAromatic: "de la aromática",
-    others: "otros",
     empty: "vacío",
     projection: "Proyección por horas",
     intensity: "intensidad",
@@ -186,6 +193,7 @@ export const texts = {
     aromatic: "Materia aromática",
     total: "Total",
     chemical: "Nombre químico",
+    family: "Familia",
     poured: "Vertido",
     pure: "Materia pura",
     pureValue: (mass: string, share: string) => `${mass} · ${share} de la aromática`,

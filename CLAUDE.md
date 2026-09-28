@@ -27,8 +27,9 @@ producto**: nada debe cerrar esa puerta.
   [`scripts/importar_ifra.py`](scripts/importar_ifra.py)), y **el glosario**, del FIG con las
   abreviaturas del usuario y de IFRA (`datos/glosario/`, con
   [`scripts/generar_glosario.py`](scripts/generar_glosario.py)).
-  [`scripts/importar_datos.py`](scripts/importar_datos.py) queda para la capa propia (D4),
-  y apunta de qué commit sale lo que trae. **`datos/` no se edita a mano**: lo generan los
+  [`scripts/importar_datos.py`](scripts/importar_datos.py) trae la capa propia (D4), que es
+  investigación del laboratorio y no material del usuario: la presión de vapor, las familias
+  con su color y la duración (P42, P48). Apunta de qué commit sale lo que trae. **`datos/` no se edita a mano**: lo generan los
   scripts.
 - **Bandeja de entradas: `../Perfumery/app/entradas.md`.** Ahí el laboratorio apunta lo que
   descubre en el banco y afecta a la app. **Al empezar a trabajar, se mira si hay entradas

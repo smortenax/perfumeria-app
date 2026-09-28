@@ -768,6 +768,32 @@ button.value:hover {
   text-align: center;
 }
 
+/* The family of a material (P48): its colour as a tint with a solid edge, and the
+   letters of the icon as the second cue. Without a family, the plain icon. */
+.fam {
+  background: color-mix(in srgb, var(--fam) 22%, var(--panel));
+  box-shadow: inset 3px 0 0 var(--fam);
+}
+
+.results .code-chip.fam {
+  border-color: var(--fam);
+}
+
+.fam-mark {
+  flex: none;
+  width: 4px;
+  height: 14px;
+  margin-right: 8px;
+  border: 1px dashed var(--line-strong);
+  border-radius: 2px;
+}
+
+.fam-mark.fam {
+  border: none;
+  background: var(--fam);
+  box-shadow: none;
+}
+
 .results .state {
   flex: none;
   font-size: 11px;
@@ -1605,6 +1631,13 @@ button.value:hover {
 .chip.chip-long {
   font-size: 9px;
   letter-spacing: -0.04em;
+}
+
+/* Before the states: being selected or a weighing warning still shows over the family. */
+.chip.fam {
+  background: color-mix(in srgb, var(--fam) 22%, var(--panel));
+  border-color: var(--fam);
+  box-shadow: inset 3px 0 0 var(--fam);
 }
 
 /* The letter of the kind of natural, leaning back: a glyph, not a letter (P40). */

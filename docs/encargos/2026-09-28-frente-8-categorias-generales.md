@@ -185,3 +185,40 @@ del commit `1d42701`, con su
   la bandeja, `app/entradas.md`.
 - **En el laboratorio:** el archivo de categorías, que entra en la app con
   `importar_datos.py`, como la presión de vapor.
+
+## Añadido el 2026-09-28: el primer nivel ya está hecho (P48)
+
+**El mismo día, la parte B del frente 6 entregó el primer nivel de familias**: ocho con
+color y un gris, asignadas a las 3119 filas del FIG, con su matiz y su confianza. La app ya
+las enseña (P48). **Este frente se queda con lo que falta:**
+
+- **Los 1198 materiales sin familia**, los que solo están en IFRA o en los catálogos. El
+  glosario de la app cambió en el commit de P48: ahora son 4317 materiales, y 19 filas del
+  FIG pasaron a naturales siguiendo la pieza 13.
+- **La predominancia en una fórmula** (pregunta 8), que necesita el reparto entre familias
+  por material. `familia` y `matiz` son un primer paso.
+- **El segundo nivel**, en pausa hasta que el usuario vea el primero en pantalla.
+- **Los 335 casos de confianza baja.**
+
+Las preguntas A y C (el sistema y el color) quedan respondidas por la parte B del frente 6.
+
+**Una corrección para la pieza 13.** 14 filas del FIG son naturales y la pieza 13 no las
+tiene. La app las cuenta como naturales porque el usuario les dio tipo o porque IFRA tiene
+su CAS en el anexo:
+
+| Fila | Nombre |
+|---|---|
+| 1102 | Apple distillate |
+| 1604 | Cypress |
+| 1635 | Deer tongue pyrogenated |
+| 1638 | Deertongue leaf incolore |
+| 1934 | Ginger |
+| 1941 | Ginger terpeneless |
+| 2179 | Lavender |
+| 2284 | Mentha arvensis |
+| 2290 | Mentha arvensis, 3X |
+| 2467 | Nutmeg |
+| 2470 | Nutmeg distillate |
+| 2797 | Rose |
+| 2800 | Rose centifolia alcoholate |
+| 3047 | Turmeric |

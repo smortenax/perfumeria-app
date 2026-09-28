@@ -4,7 +4,9 @@ import type { Composition, Line, Part } from "../core/compose";
 import { formatGrams, formatPercent } from "../core/display";
 import type { IfraData, IfraReport } from "../core/ifra";
 import type { Change } from "../core/model/formula";
+import type { MaterialFamily } from "../data/catalog";
 import { texts } from "../i18n/es";
+import { familyLook, familyText } from "./family";
 import { pouredText, pureText, shareText, weighingWarning } from "./format";
 
 const t = texts.composition;
@@ -26,6 +28,8 @@ export function CompositionCard(props: {
   ifra: IfraData;
   /** The chemical name of a material named by its trade name (P38). */
   chemicalOf?: (key: string) => string | undefined;
+  /** Each line shows the family of its material (P48). */
+  familyOf?: (key: string) => MaterialFamily | undefined;
 }) {
   const [open, setOpen] = useState<ReadonlySet<string>>(new Set());
   const comp = props.composition;
@@ -52,6 +56,7 @@ export function CompositionCard(props: {
     if (chemicalName) {
       lines.push([t.chemical, chemicalName]);
     }
+    lines.push([t.family, familyText(props.familyOf?.(m.key))]);
     const own = props.lines.filter((l) => l.material.key === m.key);
     lines.push([
       t.poured,
@@ -122,6 +127,10 @@ export function CompositionCard(props: {
             return (
               <div key={part.material.key}>
                 <button type="button" className="row" aria-expanded={isOpen} title={share.exact} onClick={() => toggle(part.material.key)}>
+                  {(() => {
+                    const look = familyLook(props.familyOf?.(part.material.key));
+                    return <span className={`fam-mark ${look.className}`} style={look.style} title={look.title} />;
+                  })()}
                   <span className="row-name">{part.material.name}</span>
                   {flags.map((f) => (
                     <span key={f.text} className={`flag ${f.tone}`}>

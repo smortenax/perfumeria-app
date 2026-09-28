@@ -1,0 +1,10 @@
+orden,familia,nombre_color,claro,oscuro,que_entra
+1,Cítrico,amarillo,#c3b503,#a19500,cítricos
+2,Verde,verde menta,#43cd99,#4aa781,"verde, herbal, aromático, alcanforado, mentolado"
+3,Ozónico,azul cielo,#2db9f3,#237da9,"ozónico, marino, acuoso, aldehídico, limpio, metálico"
+4,Floral,rosa malva,#c475aa,#975482,"floral, miel, atalcado"
+5,Frutal,violeta,#896ffb,#915fd8,"frutal, gourmand"
+6,Especiado,naranja,#d86f0d,#bb704e,"especiado, anisado, balsámico, ámbar"
+7,Amaderado,marrón,#923002,#944e00,"maderas, terroso, ahumado, tabaco"
+8,Animal,rojo,#d22c50,#ca224a,"animal, almizcle, cuero"
+9,Transformado,gris,#8a8a8a,#8a8a8a,"tostados (pirazinas), ácidos, azufrados: olores de calor, fermentación o corte; etiqueta corta Transf"

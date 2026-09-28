@@ -39,6 +39,13 @@ LAB_URL = "https://github.com/smortenax/perfumeria-lab"
 # only (P35): OPERA's vapour pressure, from the EPA's CompTox, public domain and MIT (P42).
 SOURCES: list[str] = [
     "fuentes/investigaciones/2026-09-26-frente-6-piezas/pieza-8-presion-de-vapor-opera.csv",
+    # The families with their colour, a categorisation of its own over the FIG (P48).
+    "fuentes/investigaciones/2026-09-26-frente-6-piezas/pieza-11-paleta.csv",
+    "fuentes/investigaciones/2026-09-26-frente-6-piezas/pieza-11-familias-y-color.csv",
+    # The duration and position: of the molecules from OPERA, of the naturals from Poucher (P48).
+    "fuentes/investigaciones/2026-09-26-frente-6-piezas/pieza-12-duracion-estimada.csv",
+    "fuentes/investigaciones/2026-09-26-frente-6-piezas/pieza-12-curva-duracion.csv",
+    "fuentes/investigaciones/2026-09-26-frente-6-piezas/pieza-13-duracion-naturales.csv",
 ]
 
 # Documents that explain what is imported: lab path -> name in datos/fuente/. The FIG's
@@ -47,6 +54,8 @@ DOCS = {
     "conocimiento/lenguaje/fig/README.md": "leeme-glosario-fig.md",
     "conocimiento/lenguaje/fig/descriptores.md": "fig-descriptores.md",
     "fuentes/investigaciones/2026-09-26-frente-6-piezas/pieza-8-presion-de-vapor-estimada.md": "leeme-presion-de-vapor.md",
+    "fuentes/investigaciones/2026-09-28-frente-6-color-y-duracion-para-app.md": "leeme-color-y-duracion.md",
+    "fuentes/investigaciones/2026-09-28-frente-6-duracion-naturales.md": "leeme-duracion-naturales.md",
 }
 
 LINK = re.compile(r"(!?)\[([^\]]*)\]\(([^)\s]+)\)")

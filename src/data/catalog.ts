@@ -7,14 +7,37 @@ import { parseCsvRecords } from "./csv";
  * The catalog of the bench, read from the glossary that
  * scripts/generar_glosario.py writes into datos/glosario/ (P37): every CAS
  * IFRA knows of, and the rows of the FIG with the user's codes. IFRA comes
- * from IFRA's own files (datos/ifra/), counted in category 4 (§5.1). Nothing
- * comes from the lab, and none of the user's materials is in it (P36, P37).
- * DPG and alcohol are the diluents.
+ * from IFRA's own files (datos/ifra/), counted in category 4 (§5.1). None of
+ * the user's materials is in it (P36, P37). The family of each material and its
+ * colour are the lab's own categorisation (P48), through the glossary. DPG and
+ * alcohol are the diluents.
  */
 export type CatalogGroup = "own" | "diluent" | "base";
 
 /** What IFRA says of a material, as the glossary puts it (datos/glosario/LEEME.md). */
 export type IfraState = "prohibido" | "con-techo" | "condicion" | "por-constituyentes" | "sin-dato" | "sin-estandar";
+
+/**
+ * A family of scent with its colour (P48): eight and a grey, «Transformado», for the
+ * smells of heat, fermentation or cutting. The lab's own categorisation (pieza 11).
+ */
+export interface ScentFamily {
+  readonly name: string;
+  /** What fits in a small place: «Transf» for «Transformado». */
+  readonly short: string;
+  /** For a light background; the dark one waits for its test on screen. */
+  readonly colour: string;
+  readonly order: number;
+  /** What goes into it, in words. */
+  readonly covers: string;
+}
+
+/** A material's family, the second one it leans to, and how sure it is (P48). */
+export interface MaterialFamily {
+  readonly family: ScentFamily;
+  readonly hue?: ScentFamily;
+  readonly confidence: string;
+}
 
 export interface CatalogEntry {
   /** Named by its trade name when it has one (P38): that is what the user knows it by. */
@@ -39,6 +62,8 @@ export interface CatalogEntry {
   readonly state?: IfraState;
   /** The name of its IFRA standard, when it has one. */
   readonly standardName?: string;
+  /** Only the rows of the FIG have one yet; the rest is a gap, never the grey family (§1.2). */
+  readonly family?: MaterialFamily;
   /** Code, names, synonyms and CAS, lower case and without accents, for the search. */
   readonly search: string;
   /** The names folded for a tolerant search: «isobutilquinoleina» finds «Isobutyl quinoline». */
@@ -48,7 +73,8 @@ export interface CatalogEntry {
 export interface Catalog {
   readonly entries: readonly CatalogEntry[];
   readonly ifra: IfraData;
-  readonly counts: { readonly fig: number; readonly ifraOnly: number };
+  readonly families: readonly ScentFamily[];
+  readonly counts: { readonly fig: number; readonly ifraOnly: number; readonly withFamily: number };
   readonly source: { readonly amendment: string; readonly generated: string };
 }
 
@@ -56,6 +82,8 @@ export interface CatalogFiles {
   readonly materiales: string;
   readonly constituyentes: string;
   readonly estandares: string;
+  /** The families and their colours (datos/fuente/pieza-11-paleta.csv). */
+  readonly paleta: string;
   readonly procedencia: { readonly enmienda_ifra: string; readonly generado: string };
 }
 
@@ -168,6 +196,17 @@ export function buildCatalog(files: CatalogFiles): Catalog {
     inside.set(row.material, byStandard);
   }
 
+  const families = parseCsvRecords(files.paleta)
+    .map((f) => ({
+      name: f.familia,
+      short: SHORT_NAMES[f.familia] ?? f.familia,
+      colour: f.claro,
+      order: Number(f.orden),
+      covers: f.que_entra,
+    }))
+    .sort((a, b) => a.order - b.order);
+  const familyNamed = new Map(families.map((f) => [f.name, f]));
+
   const rows = parseCsvRecords(files.materiales);
   const materials = new Map<string, IfraMaterial>();
   const entries: CatalogEntry[] = DILUENT_DATA.map(([id, code, icon, cas, names]) => diluent(DILUENTS[id], code, icon, cas, names));
@@ -222,6 +261,15 @@ export function buildCatalog(files: CatalogFiles): Catalog {
       cas: m.cas,
       state,
       ...(standardName && normalize(standardName) !== normalize(trade || m.nombre) ? { standardName } : {}),
+      ...(familyNamed.has(m.familia)
+        ? {
+            family: {
+              family: familyNamed.get(m.familia)!,
+              ...(familyNamed.has(m.matiz) ? { hue: familyNamed.get(m.matiz)! } : {}),
+              confidence: m.confianza_familia,
+            },
+          }
+        : {}),
       search: normalize(
         `${m.codigo} ${marked} ${trade} ${m.sigla_comercial} ${others.join(" ")} ${m.nombre} ${m.cas} ${m.otros_cas} ${m.nombre_ifra} ${m.sinonimos} ${m.nombres_transparencia}`,
       ),
@@ -241,12 +289,16 @@ export function buildCatalog(files: CatalogFiles): Catalog {
   return {
     entries,
     ifra: { substances, materials },
-    counts: { fig, ifraOnly: rows.length - fig },
+    families,
+    counts: { fig, ifraOnly: rows.length - fig, withFamily: entries.filter((e) => e.family).length },
     source: { amendment, generated: files.procedencia.generado.slice(0, 10) },
   };
 }
 
 const GROUP_ORDER: Record<CatalogGroup, number> = { own: 0, diluent: 1, base: 2 };
+
+/** The short label the lab gives the grey family (pieza 11). */
+const SHORT_NAMES: Record<string, string> = { Transformado: "Transf" };
 
 /**
  * One search box (§4): every word must appear in the code, a name, a synonym

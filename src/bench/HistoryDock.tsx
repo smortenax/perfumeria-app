@@ -3,7 +3,9 @@ import { Ratio } from "../core/arith/ratio";
 import type { Line } from "../core/compose";
 import { formatGrams } from "../core/display";
 import type { Change } from "../core/model/formula";
+import type { MaterialFamily } from "../data/catalog";
 import { texts } from "../i18n/es";
+import { familyLook } from "./family";
 import { initials, massText, pouredText, pureText, weighingWarning } from "./format";
 import { IconText, iconLength } from "./Icon";
 
@@ -58,6 +60,8 @@ export function HistoryDock(props: {
   onTogglePlay: () => void;
   /** The material's icon in the glossary: its trade abbreviation or its code (P37, P39). */
   iconOf?: (key: string) => { text: string; mark?: string; type?: string } | undefined;
+  /** Each addition shows the family of its material (P48). */
+  familyOf?: (key: string) => MaterialFamily | undefined;
 }) {
   const box = useRef<HTMLDivElement>(null);
   const area = useRef<HTMLDivElement>(null);
@@ -125,6 +129,7 @@ export function HistoryDock(props: {
                 const warning = change.kind === "add" ? weighingWarning(change.massUg) : null;
                 const info = describe(change, adds);
                 const icon = change.kind === "add" ? (props.iconOf?.(change.material.key) ?? { text: initials(change.material.name) }) : { text: "" };
+                const look = change.kind === "add" ? familyLook(props.familyOf?.(change.material.key)) : null;
                 const classes = [
                   "chip",
                   `chip-${change.kind}`,
@@ -132,6 +137,7 @@ export function HistoryDock(props: {
                   i >= end ? "future" : "",
                   warning ? `warn-${warning.kind}` : "",
                   iconLength(icon.text, icon.mark) > 3 ? "chip-long" : "",
+                  look?.className ?? "",
                 ];
                 return (
                   <button
@@ -139,7 +145,8 @@ export function HistoryDock(props: {
                     key={change.id}
                     className={classes.join(" ")}
                     aria-label={`${info.title}, ${info.sub}`}
-                    style={{ transform: `translateX(${shift}px) scale(${s})` }}
+                    title={look?.title}
+                    style={{ ...look?.style, transform: `translateX(${shift}px) scale(${s})` }}
                     onClick={() => props.onSelect(change.id === props.selectedId ? null : change.id)}
                   >
                     {change.kind === "add" ? (

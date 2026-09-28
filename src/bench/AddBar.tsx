@@ -3,7 +3,7 @@ import { Ratio } from "../core/arith/ratio";
 import { parseMass, parsePercent, type MassUnit } from "../core/arith/units";
 import type { Change } from "../core/model/formula";
 import type { Material } from "../core/model/material";
-import { normalize, searchCatalog, type CatalogEntry, type IfraState } from "../data/catalog";
+import { normalize, searchCatalog, type CatalogEntry, type IfraState, type MaterialFamily } from "../data/catalog";
 import { texts } from "../i18n/es";
 import {
   addOwnDiluent,
@@ -19,6 +19,7 @@ import {
   type DiluentId,
   type MaterialPrefs,
 } from "./prefs";
+import { familyLook } from "./family";
 import { IconText } from "./Icon";
 import { newId } from "./state";
 
@@ -44,6 +45,7 @@ type Result =
       icon?: string;
       iconMark?: string;
       iconType?: string;
+      family?: MaterialFamily;
     }
   | { kind: "create"; name: string };
 
@@ -171,6 +173,7 @@ export function AddBar(props: {
       ...(e.standardName ? { standardName: e.standardName } : {}),
       ...(e.tradeName ? { chemicalName: e.chemicalName } : {}),
       ...(e.tradeCode ? { tradeCode: e.tradeCode } : {}),
+      ...(e.family ? { family: e.family } : {}),
     }));
     const all = [...session, ...found];
     const exact = all.some((r) => r.kind === "material" && normalize(r.material.name) === q);
@@ -362,11 +365,17 @@ export function AddBar(props: {
                   <span className="create">{t.createProvisional(r.name)}</span>
                 ) : (
                   <>
-                    {r.icon && (
-                      <span className="code-chip" title={r.code && r.code !== r.icon ? r.code : undefined}>
-                        <IconText text={r.icon} mark={r.iconMark} type={r.iconType} />
-                      </span>
-                    )}
+                    {r.icon &&
+                      (() => {
+                        // The icon carries the family's colour, and says it on hover (P48).
+                        const look = familyLook(r.family);
+                        const title = r.code && r.code !== r.icon ? `${r.code} · ${look.title}` : look.title;
+                        return (
+                          <span className={`code-chip ${look.className}`} style={look.style} title={title}>
+                            <IconText text={r.icon} mark={r.iconMark} type={r.iconType} />
+                          </span>
+                        );
+                      })()}
                     <span className="result-name">
                       <span className="primary">
                         {r.material.name}

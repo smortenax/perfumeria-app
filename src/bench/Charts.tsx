@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { Composition } from "../core/compose";
 import { formatPercent } from "../core/display";
 import type { Material } from "../core/model/material";
+import type { MaterialFamily } from "../data/catalog";
 import { texts } from "../i18n/es";
 import { diluentMaterial, prefsOf } from "./prefs";
 
@@ -55,25 +56,38 @@ export function PyramidCard() {
   );
 }
 
-const GREYS = ["#2F2E2B", "#55544E", "#7A7870", "#9E9C93", "#C2BFB5", "#DEDCD5"];
 const RADIUS = 62;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+/** A material without a family: light and plain, never the grey of «Transformado» (P48). */
+const NO_FAMILY = "#D9D7CF";
+/** The white between two slices, so two of one family still read as two materials. */
+const GAP = 1.2;
 
 /**
- * The share of the matter (§10.2): no legend, only colour; the name and its
- * part on hover. The small ones go together in «otros».
+ * The share of the matter (§10.2): no legend, only colour. Each material is a slice,
+ * in the colour of its family (P48); its name, its part and its family on hover.
  */
-export function RepartoCard(props: { composition: Composition | null }) {
+export function RepartoCard(props: { composition: Composition | null; familyOf?: (key: string) => MaterialFamily | undefined }) {
   const [hover, setHover] = useState<number | null>(null);
   const comp = props.composition;
   const aromatic = comp ? comp.parts.filter((p) => !p.material.solvent) : [];
   const total = comp && !comp.aromaticUg.isZero() ? comp.aromaticUg : null;
-  const shares = total ? aromatic.map((p) => ({ name: p.material.name, share: Number(p.massUg.div(total).toFixed(6)) })) : [];
-  const segments = shares.length > GREYS.length ? [...shares.slice(0, GREYS.length - 1), { name: c.others, share: shares.slice(GREYS.length - 1).reduce((s, x) => s + x.share, 0) }] : shares;
+  const segments = total
+    ? aromatic.map((p) => {
+        const family = props.familyOf?.(p.material.key);
+        return {
+          name: p.material.name,
+          share: Number(p.massUg.div(total).toFixed(6)),
+          color: family?.family.colour ?? NO_FAMILY,
+          family: family?.family.name ?? texts.family.none,
+        };
+      })
+    : [];
 
   let start = 0;
-  const arcs = segments.map((s, i) => {
-    const arc = { ...s, color: GREYS[i], dash: s.share * CIRCUMFERENCE, offset: -start * CIRCUMFERENCE };
+  const arcs = segments.map((s) => {
+    const length = s.share * CIRCUMFERENCE;
+    const arc = { ...s, dash: segments.length > 1 ? Math.max(length - GAP, 0.6) : length, offset: -start * CIRCUMFERENCE };
     start += s.share;
     return arc;
   });
@@ -115,6 +129,9 @@ export function RepartoCard(props: { composition: Composition | null }) {
               </text>
               <text x="80" y="105" textAnchor="middle" fontSize="11" fill="#57564F">
                 {c.ofAromatic}
+              </text>
+              <text x="80" y="119" textAnchor="middle" fontSize="10" fill="#57564F">
+                {hovered.family}
               </text>
             </>
           ) : (

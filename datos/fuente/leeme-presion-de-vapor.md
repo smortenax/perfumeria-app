@@ -1,4 +1,4 @@
-> 📥 **Copiado del laboratorio** (`fuentes/investigaciones/2026-09-26-frente-6-piezas/pieza-8-presion-de-vapor-estimada.md`, commit `403a1b1`) por `scripts/importar_datos.py`. **No se edita aquí**: se corrige en el laboratorio y se vuelve a importar.
+> 📥 **Copiado del laboratorio** (`fuentes/investigaciones/2026-09-26-frente-6-piezas/pieza-8-presion-de-vapor-estimada.md`, commit `776e932`) por `scripts/importar_datos.py`. **No se edita aquí**: se corrige en el laboratorio y se vuelve a importar.
 
 ---
 pieza: 8 — Presión de vapor estimada (OPERA) y duración propia
@@ -16,10 +16,10 @@ confianza: media   # OPERA está validado contra lo experimental; la duración e
   del FIG que no son naturales. De ahí se bajaron las predicciones de OPERA: presión de vapor,
   punto de ebullición y log Kow, entre otras.
   - Los datos son de **dominio público**, y OPERA tiene licencia MIT: pueden ir directos al producto
-    ([pieza 2](https://github.com/smortenax/perfumeria-lab/blob/403a1b15d11749e0a64552eee56d3b6f8b3d3932/fuentes/investigaciones/2026-09-26-frente-6-piezas/pieza-2-licencias.md)).
+    ([pieza 2](https://github.com/smortenax/perfumeria-lab/blob/776e9326e5c08419d92636fe30e348f9fb28faed/fuentes/investigaciones/2026-09-26-frente-6-piezas/pieza-2-licencias.md)).
   - El CompTox reconoció 2216 CAS por su número; 10 figuraban como CAS dado de baja; 21 no dieron
     resultado.
-- **La tabla CAS a CAS** es [`pieza-8-presion-de-vapor-opera.csv`](https://github.com/smortenax/perfumeria-lab/blob/403a1b15d11749e0a64552eee56d3b6f8b3d3932/fuentes/investigaciones/2026-09-26-frente-6-piezas/pieza-8-presion-de-vapor-opera.csv):
+- **La tabla CAS a CAS** es [`pieza-8-presion-de-vapor-opera.csv`](https://github.com/smortenax/perfumeria-lab/blob/776e9326e5c08419d92636fe30e348f9fb28faed/fuentes/investigaciones/2026-09-26-frente-6-piezas/pieza-8-presion-de-vapor-opera.csv):
   CAS, DTXSID, nombre, presión de vapor (mmHg), punto de ebullición (°C) y log Kow.
 
 ## Cobertura
@@ -42,7 +42,7 @@ casi todo lo que no tiene estructura.
 
   Para ordenar materiales por volatilidad basta. `alta`.
 - **La correlación no es mayor por los casos extremos, y buena parte son errores del lado
-  experimental.** En el [piloto](https://github.com/smortenax/perfumeria-lab/blob/403a1b15d11749e0a64552eee56d3b6f8b3d3932/fuentes/investigaciones/2026-09-26-frente-6-parte-C-piloto.md), el lector de PubChem
+  experimental.** En el [piloto](https://github.com/smortenax/perfumeria-lab/blob/776e9326e5c08419d92636fe30e348f9fb28faed/fuentes/investigaciones/2026-09-26-frente-6-parte-C-piloto.md), el lector de PubChem
   cogió valores a otra temperatura: heliotropina ×50, guayacol ×25, salicilato de bencilo ×120.
   Con los valores bien leídos, OPERA coincide (limoneno, eucaliptol, indol y p-cresol: factor 1,0).
   `alta`.

@@ -36,6 +36,12 @@ TRANSPARENCY = ROOT / "datos" / "ifra" / "transparencia-2025" / "transparency-li
 CATALOGUE = ROOT / "datos" / "glosario" / "origen" / "materiales-de-catalogos.csv"
 # Molecules that are the same as one IFRA lists (scripts/relacionar_moleculas.py).
 EQUIVALENCES = ROOT / "datos" / "glosario" / "origen" / "equivalencias.csv"
+# The family of each row of the FIG, with its colour: the lab's own categorisation (P48),
+# brought by scripts/importar_datos.py. Its key is the row of the FIG.
+SCENT_FAMILIES = ROOT / "datos" / "fuente" / "pieza-11-familias-y-color.csv"
+# The lab's list of the naturals of the FIG, by row, with its corrections (P48): some of
+# them have no kind in the user's codes and would pass for molecules.
+LAB_NATURALS = ROOT / "datos" / "fuente" / "pieza-13-duracion-naturales.csv"
 OUT = ROOT / "datos" / "glosario"
 CAS_RE = re.compile(r"\b\d{2,7}-\d{2}-\d\b")
 CATEGORIES = ["1", "2", "3", "4", "5a", "5b", "5c", "5d", "6", "7a", "7b", "8", "9",
@@ -221,17 +227,22 @@ def main() -> None:
                "descriptor_3": "", "actualizado_fig": "", "fuentes": "", "estandares": "",
                "nombre_ifra": "", "estado": "", "condiciones": "", "constituyentes": "",
                "coincidencia_anexo": "", **{c: "" for c in CAT_COLS}, "limite_nota": "",
-               "sinonimos": "", "nombres_transparencia": "", "fuera_de_ifra": ""}
+               "sinonimos": "", "nombres_transparencia": "", "fuera_de_ifra": "",
+               "familia": "", "matiz": "", "confianza_familia": ""}
         row.update(kw)
         return row
 
-    # 1. The rows of the FIG, with the user's codes.
+    # 1. The rows of the FIG, with the user's codes. A row is a natural if the user gave it
+    # a kind, if IFRA's annex has its CAS, or if the lab counts it as one (P48). As a
+    # molecule, a natural with nothing known inside would pass for free (§1.2).
+    lab_naturals = ({f"fig:{r['fila']}" for r in read(LAB_NATURALS) if r["clase"].startswith("natural")}
+                    if LAB_NATURALS.exists() else set())
     for i, r in enumerate(codes, 1):
         name = r["Nombre"].strip()
         updated = name.endswith("*")
         name = name.rstrip("* ").strip()
         cas = r["CAS"].strip()
-        natural = bool(r["Tipo"]) or cas in ncs_principal
+        natural = bool(r["Tipo"]) or cas in ncs_principal or f"fig:{i}" in lab_naturals
         materials.append(base(
             id=f"fig:{i}", codigo=r["Codigo"], codigo_origen="usuario", nombre=name, cas=cas,
             clase="natural" if natural else "molécula", tipo_natural=r["Tipo"], isomero=r["Isomero"],
@@ -603,6 +614,15 @@ def main() -> None:
         own = not m["sigla_comercial"] and re.search(rf"{letter}\d*$", m["codigo"]) if letter else None
         m["icono_tipo"] = letter if own else ""
 
+    # 10. The family of each row of the FIG, with its second one and its confidence (P48).
+    # What is not in the FIG has none yet: a gap, never the grey family.
+    if SCENT_FAMILIES.exists():
+        by_row = {f"fig:{r['fila']}": r for r in read(SCENT_FAMILIES)}
+        for m in materials:
+            f = by_row.get(m["id"])
+            if f and f["cas"] == m["cas"]:
+                m["familia"], m["matiz"], m["confianza_familia"] = f["familia"], f["matiz"], f["confianza"]
+
     OUT.mkdir(parents=True, exist_ok=True)
     header = list(base().keys())
     ordered = materials + sorted((m for m in everything if not m["id"].startswith("fig:")), key=lambda m: norm(m["nombre"]))
@@ -625,6 +645,7 @@ def main() -> None:
         "heredan_un_estandar": sum(1 for m in ordered if "ifra-alcance" in m["fuentes"]),
         "con_nombre_comercial": sum(1 for m in ordered if m["nombre_comercial"]),
         "con_sigla_comercial": sum(1 for m in ordered if m["sigla_comercial"]),
+        "con_familia": sum(1 for m in ordered if m["familia"]),
     }
     provenance = {
         "enmienda_ifra": n,
@@ -640,6 +661,10 @@ def main() -> None:
                if CATALOGUE.exists() else {}),
             **({EQUIVALENCES.relative_to(ROOT).as_posix(): {"sha256": sha256(EQUIVALENCES), "que_es": "moléculas que son la misma que una de IFRA, por su InChIKey"}}
                if EQUIVALENCES.exists() else {}),
+            **({LAB_NATURALS.relative_to(ROOT).as_posix(): {"sha256": sha256(LAB_NATURALS), "que_es": "los naturales del FIG según el laboratorio, con sus correcciones (P48)"}}
+               if LAB_NATURALS.exists() else {}),
+            **({SCENT_FAMILIES.relative_to(ROOT).as_posix(): {"sha256": sha256(SCENT_FAMILIES), "que_es": "la familia de cada fila del FIG, categorización propia del laboratorio (P48)"}}
+               if SCENT_FAMILIES.exists() else {}),
             **{f"datos/ifra/{n}/{p}": {"sha256": sha256(ifra / p)} for p in
                ("estandares.csv", "estandar-cas.csv", "naturales.csv", "bases-schiff.csv")},
         },
