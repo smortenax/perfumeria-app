@@ -162,7 +162,9 @@ disolventes, ácidos grasos, polímeros. La comprobación automática no falló 
 **Añadido el 2026-09-28: *allyl amyl glycolate*** (67634-00-8), que no salía al buscar un
 material de F-001. PubChem no lo tiene entre sus sinónimos; los distribuidores lo venden con
 ese nombre y ese CAS (Sigma-Aldrich, Parchem). Confianza media. Va en
-[`web/d-sueltos.csv`](web/d-sueltos.csv). **Quedan 364 con nombre comercial.**
+[`web/d-sueltos.csv`](web/d-sueltos.csv). **Su sigla, AAG**, la da la ficha de Scentspiracy
+junto al CAS, y es su icono; la abreviatura del usuario, ALM, lo sigue encontrando. **Quedan
+364 con nombre comercial y 27 con sigla.**
 
 ## Lo que queda por mirar
 

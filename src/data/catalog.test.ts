@@ -165,6 +165,10 @@ describe("the catalog, from the glossary and IFRA's own files (P37)", () => {
     // Two of F-001 that did not come out (plan, review of 2026-09-27).
     expect(searchCatalog(catalog.entries, "diphenyl oxide")[0].cas).toBe("101-84-8");
     expect(searchCatalog(catalog.entries, "allyl amyl glycolate")[0].cas).toBe("67634-00-8");
+    // Its trade abbreviation is the icon; the user's code still finds it.
+    const aag = searchCatalog(catalog.entries, "AAG")[0];
+    expect([aag.cas, aag.icon]).toEqual(["67634-00-8", "AAG"]);
+    expect(searchCatalog(catalog.entries, "ALM")[0].cas).toBe("67634-00-8");
     expect(searchCatalog(catalog.entries, "phenylethyl alcohol")[0].cas).toBe("60-12-8");
     expect(searchCatalog(catalog.entries, "beta-PEA")[0].cas).toBe("60-12-8");
     // A hyphen is a space when ordering: «alpha ionone» is the alpha-ionone, not the irone.

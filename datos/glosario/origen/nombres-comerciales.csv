@@ -259,7 +259,7 @@ cas,nombre_comercial,sigla,otros_nombres,casa,fuente,confianza,nota
 6658-48-6,Silvial,,Rhodial | Suzaral,Givaudan,"nombre: IFRA 51.ª, commercial name · catálogo: Givaudan Fragrance Ingredients Sustainability Profile (2024)",alta,
 676125-00-1,Symroxane,,,Symrise,nombre: PubChem CID 78062915,media,
 67633-96-9,Liffarome,,Leafovert | Vertelione | Leafarome,IFF,"nombre: IFRA 51.ª, commercial name",media,
-67634-00-8,Allyl amyl glycolate,,,,web: https://www.sigmaaldrich.com/US/en/product/combiblocksinc/com448656354?context=bbe,media,"Así lo venden los distribuidores (Sigma-Aldrich, Parchem), junto a este CAS; el nombre químico es Allyl (3-methylbutoxy)acetate. Faltaba en F-001: no salía al buscarlo por su nombre de uso."
+67634-00-8,Allyl amyl glycolate,AAG,,,web: https://www.sigmaaldrich.com/US/en/product/combiblocksinc/com448656354?context=bbe,media,"Así lo venden los distribuidores (Sigma-Aldrich, Parchem), junto a este CAS; el nombre químico es Allyl (3-methylbutoxy)acetate. Faltaba en F-001: no salía al buscarlo por su nombre de uso. La sigla AAG, de la ficha de Scentspiracy (https://www.scentspiracy.com/fragrance-ingredients/p/allyl-amyl-glycolate), que la da junto al CAS."
 67634-03-1,Rodipol C,,,,"nombre: IFRA 51.ª, commercial name",media,
 67634-12-2,Lyrame C,,,,nombre: PubChem CID 106740,media,
 67634-14-4,Floralozone,,,IFF,nombre: uso del sector · web: https://shop.perfumersapprentice.com/p-6084-floralozone-iff.aspx,media,Confirmado como material de IFF por el distribuidor Perfumers Apprentice; la ficha propia de IFF (iff.com) devolvió error 403 al intentar leerla.
