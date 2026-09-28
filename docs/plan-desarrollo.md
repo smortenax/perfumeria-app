@@ -268,9 +268,19 @@ incluida. **Lo que falla, por orden de importancia:**
     sola («Lejía v2») y el inicio junta las versiones de cada fórmula;
   - [x] **los provisionales se recuerdan por su nombre** (2026-09-28): viajan dentro de
     cada fórmula, y el buscador ofrece los de toda la biblioteca.
-- [ ] **C · La búsqueda, sin decisión:** los sinónimos de PubChem, filtrados como en la
-  capa de nombres comerciales (P38), y *allyl amyl glycolate*. Buscar en otros idiomas queda
-  aplazado (P43).
+- [x] **C · La búsqueda** (2026-09-28):
+  - **los nombres de uso de PubChem**, filtrados como en la capa de nombres comerciales:
+    12 434 nombres para 2026 CAS, en `datos/glosario/origen/sinonimos-pubchem.csv`, con
+    [`scripts/sinonimos_pubchem.py`](../scripts/sinonimos_pubchem.py). Solo cuentan en la
+    búsqueda exacta: en la tolerante harían lenta cada tecla;
+  - ***allyl amyl glycolate*** en la capa de nombres comerciales, con la página de un
+    distribuidor;
+  - **el orden:** la consulta entera como un nombre va antes que sus palabras sueltas por
+    varios, y un guion cuenta como un espacio;
+  - de F-001, *diphenyl oxide* y *allyl amyl glycolate* ya salen los primeros. Lo que no
+    sale es por el idioma, aplazado (P43), o porque no está en el glosario (Sandalmysore
+    Core). **Referencia del laboratorio para el buscador:** ScenTree, donde cualquier nombre
+    lleva al mismo material.
 - [x] **Las familias y su color, del laboratorio** (P48, 2026-09-28): en los iconos, la
   composición y el reparto. De paso, 19 naturales que pasaban por moléculas, y salían libres,
   salen «sin dato».

@@ -270,8 +270,10 @@ export function buildCatalog(files: CatalogFiles): Catalog {
             },
           }
         : {}),
+      // PubChem's usual names are found as typed («Diphenyl oxide»), but not by the
+      // tolerant search: thousands of names more would slow every key.
       search: normalize(
-        `${m.codigo} ${marked} ${trade} ${m.sigla_comercial} ${others.join(" ")} ${m.nombre} ${m.cas} ${m.otros_cas} ${m.nombre_ifra} ${m.sinonimos} ${m.nombres_transparencia}`,
+        `${m.codigo} ${marked} ${trade} ${m.sigla_comercial} ${others.join(" ")} ${m.nombre} ${m.cas} ${m.otros_cas} ${m.nombre_ifra} ${m.sinonimos} ${m.nombres_transparencia} ${m.sinonimos_pubchem}`,
       ),
       folded: [trade, ...others, m.nombre, standardName].filter((n) => n !== "").map(fold),
     });
@@ -314,12 +316,19 @@ export function searchCatalog(entries: readonly CatalogEntry[], query: string, l
   }
   const found = entries.filter((e) => words.every((w) => e.search.includes(w)));
   const head = words.join(" ");
+  // To order, a hyphen is a space: «alpha ionone» starts «alpha-Ionone».
+  const loose = (text: string) => text.replace(/[-_]+/g, " ");
+  const looseHead = loose(head);
   const starts = (e: CatalogEntry) =>
-    [e.material.name, e.chemicalName, e.standardName ?? "", e.tradeCode ?? ""].some((n) => normalize(n).startsWith(head)) ||
+    [e.material.name, e.chemicalName, e.standardName ?? "", e.tradeCode ?? ""].some((n) => loose(normalize(n)).startsWith(looseHead)) ||
     e.cas.startsWith(head);
   // Codes tell capitals apart («OT», «Ot»): the one typed exactly comes first.
   const typed = query.trim().replace(/′/g, "'");
   const marked = (e: CatalogEntry) => `${e.iconMark ?? ""}${e.tradeCode ?? ""}`.replace(/′/g, "'");
+  // The whole query as one name («phenylethyl alcohol») goes before its words scattered
+  // over several (Gardenol has «sec-Phenylethyl acetate» and «…alcohol, acetate»), and
+  // from the start of a word: «p-methylphenylethyl alcohol» is another molecule.
+  const phrase = (e: CatalogEntry) => words.length > 1 && loose(` ${e.search}`).includes(` ${looseHead}`);
   const match = (e: CatalogEntry) =>
     e.code === typed || e.tradeCode === typed || marked(e) === typed
       ? 0
@@ -327,8 +336,10 @@ export function searchCatalog(entries: readonly CatalogEntry[], query: string, l
         ? 1
         : starts(e)
           ? 2
-          : 3;
-  const score = (e: CatalogEntry) => GROUP_ORDER[e.group] * 4 + match(e);
+          : phrase(e)
+            ? 3
+            : 4;
+  const score = (e: CatalogEntry) => GROUP_ORDER[e.group] * 5 + match(e);
   const ranked = found
     .map((e, i) => ({ e, i, s: score(e) }))
     .sort((a, b) => a.s - b.s || a.e.material.name.length - b.e.material.name.length || a.i - b.i)

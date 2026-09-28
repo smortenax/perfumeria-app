@@ -36,6 +36,8 @@ TRANSPARENCY = ROOT / "datos" / "ifra" / "transparencia-2025" / "transparency-li
 CATALOGUE = ROOT / "datos" / "glosario" / "origen" / "materiales-de-catalogos.csv"
 # Molecules that are the same as one IFRA lists (scripts/relacionar_moleculas.py).
 EQUIVALENCES = ROOT / "datos" / "glosario" / "origen" / "equivalencias.csv"
+# PubChem's usual names of each molecule, for the search (scripts/sinonimos_pubchem.py).
+PUBCHEM_SYNONYMS = ROOT / "datos" / "glosario" / "origen" / "sinonimos-pubchem.csv"
 # The family of each row of the FIG, with its colour: the lab's own categorisation (P48),
 # brought by scripts/importar_datos.py. Its key is the row of the FIG.
 SCENT_FAMILIES = ROOT / "datos" / "fuente" / "pieza-11-familias-y-color.csv"
@@ -228,7 +230,7 @@ def main() -> None:
                "nombre_ifra": "", "estado": "", "condiciones": "", "constituyentes": "",
                "coincidencia_anexo": "", **{c: "" for c in CAT_COLS}, "limite_nota": "",
                "sinonimos": "", "nombres_transparencia": "", "fuera_de_ifra": "",
-               "familia": "", "matiz": "", "confianza_familia": ""}
+               "familia": "", "matiz": "", "confianza_familia": "", "sinonimos_pubchem": ""}
         row.update(kw)
         return row
 
@@ -623,6 +625,13 @@ def main() -> None:
             if f and f["cas"] == m["cas"]:
                 m["familia"], m["matiz"], m["confianza_familia"] = f["familia"], f["matiz"], f["confianza"]
 
+    # 11. PubChem's usual names, for the search only: «Diphenyl oxide» finds the diphenyl ether.
+    if PUBCHEM_SYNONYMS.exists():
+        pubchem = {r["cas"]: r["sinonimos"] for r in read(PUBCHEM_SYNONYMS)}
+        for m in everything:
+            if m["clase"] == "molécula":
+                m["sinonimos_pubchem"] = pubchem.get(m["cas"], "")
+
     OUT.mkdir(parents=True, exist_ok=True)
     header = list(base().keys())
     ordered = materials + sorted((m for m in everything if not m["id"].startswith("fig:")), key=lambda m: norm(m["nombre"]))
@@ -646,6 +655,7 @@ def main() -> None:
         "con_nombre_comercial": sum(1 for m in ordered if m["nombre_comercial"]),
         "con_sigla_comercial": sum(1 for m in ordered if m["sigla_comercial"]),
         "con_familia": sum(1 for m in ordered if m["familia"]),
+        "con_sinonimos_de_pubchem": sum(1 for m in ordered if m["sinonimos_pubchem"]),
     }
     provenance = {
         "enmienda_ifra": n,
@@ -661,6 +671,8 @@ def main() -> None:
                if CATALOGUE.exists() else {}),
             **({EQUIVALENCES.relative_to(ROOT).as_posix(): {"sha256": sha256(EQUIVALENCES), "que_es": "moléculas que son la misma que una de IFRA, por su InChIKey"}}
                if EQUIVALENCES.exists() else {}),
+            **({PUBCHEM_SYNONYMS.relative_to(ROOT).as_posix(): {"sha256": sha256(PUBCHEM_SYNONYMS), "que_es": "los nombres de uso de PubChem por CAS, para buscar"}}
+               if PUBCHEM_SYNONYMS.exists() else {}),
             **({LAB_NATURALS.relative_to(ROOT).as_posix(): {"sha256": sha256(LAB_NATURALS), "que_es": "los naturales del FIG según el laboratorio, con sus correcciones (P48)"}}
                if LAB_NATURALS.exists() else {}),
             **({SCENT_FAMILIES.relative_to(ROOT).as_posix(): {"sha256": sha256(SCENT_FAMILIES), "que_es": "la familia de cada fila del FIG, categorización propia del laboratorio (P48)"}}

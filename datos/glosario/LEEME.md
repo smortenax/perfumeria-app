@@ -74,13 +74,22 @@ un gris, «Transformado», para los olores de calor, fermentación o corte. Lleg
 **Solo las 3119 filas del FIG tienen familia.** Las demás quedan en blanco: **un hueco, nunca
 el gris**, que es una familia.
 
+## Los nombres de uso de PubChem, para buscar
+
+`sinonimos_pubchem` lleva hasta 15 nombres de uso por molécula, de PubChem, filtrados como
+los candidatos de los nombres comerciales: sin códigos, números de registro ni nombres
+sistemáticos. **Solo sirven para encontrar**: «Diphenyl oxide» lleva al éter difenílico. Salen
+de [`origen/sinonimos-pubchem.csv`](origen/sinonimos-pubchem.csv), que escribe
+[`scripts/sinonimos_pubchem.py`](../../scripts/sinonimos_pubchem.py) desde su caché. Los datos
+de PubChem son de uso libre.
+
 ## Los nombres comerciales, por encima (P38)
 
 **IFRA da la profundidad química; el nombre comercial da el acceso cómodo.** Los dos valen en
 la búsqueda. Donde hay nombre comercial, la app lo enseña primero, con su sigla, y el químico
 al lado. La capa sale de
 [`origen/nombres-comerciales.csv`](origen/nombres-comerciales.csv), una fila por CAS, y se
-aplica a todo material con ese CAS. **363 materiales llevan nombre comercial y 26, sigla.**
+aplica a todo material con ese CAS. **364 materiales llevan nombre comercial y 26, sigla.**
 Cómo se hizo, y lo que queda por mirar, en
 [la investigación del 2026-09-27](../../docs/investigacion/2026-09-27-nombres-comerciales/README.md).
 

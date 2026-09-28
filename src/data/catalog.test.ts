@@ -161,6 +161,16 @@ describe("the catalog, from the glossary and IFRA's own files (P37)", () => {
     expect(catalog.entries.filter((e) => e.group === "diluent").every((e) => !e.family)).toBe(true);
   });
 
+  it("finds the materials of F-001 by the name the bench uses, through PubChem's usual names and the trade names", () => {
+    // Two of F-001 that did not come out (plan, review of 2026-09-27).
+    expect(searchCatalog(catalog.entries, "diphenyl oxide")[0].cas).toBe("101-84-8");
+    expect(searchCatalog(catalog.entries, "allyl amyl glycolate")[0].cas).toBe("67634-00-8");
+    expect(searchCatalog(catalog.entries, "phenylethyl alcohol")[0].cas).toBe("60-12-8");
+    expect(searchCatalog(catalog.entries, "beta-PEA")[0].cas).toBe("60-12-8");
+    // A hyphen is a space when ordering: «alpha ionone» is the alpha-ionone, not the irone.
+    expect(searchCatalog(catalog.entries, "alpha ionone")[0].cas).toBe("127-41-3");
+  });
+
   it("finds by code, CAS, name, IFRA's name and its synonyms", () => {
     expect(searchCatalog(catalog.entries, "54464-57-2")[0].cas).toBe("54464-57-2");
     expect(searchCatalog(catalog.entries, "iso e super")[0].cas).toBe("54464-57-2");

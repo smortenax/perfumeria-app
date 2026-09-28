@@ -159,6 +159,11 @@ disolventes, ácidos grasos, polímeros. La comprobación automática no falló 
 **Resultado: 363 materiales con nombre comercial y 26 con sigla, en 373 filas.** Confianza:
 153 alta, 201 media y 19 baja.
 
+**Añadido el 2026-09-28: *allyl amyl glycolate*** (67634-00-8), que no salía al buscar un
+material de F-001. PubChem no lo tiene entre sus sinónimos; los distribuidores lo venden con
+ese nombre y ese CAS (Sigma-Aldrich, Parchem). Confianza media. Va en
+[`web/d-sueltos.csv`](web/d-sueltos.csv). **Quedan 364 con nombre comercial.**
+
 ## Lo que queda por mirar
 
 | CAS | Qué pasa |
