@@ -74,7 +74,7 @@ function CeilingRow(props: { check: SubstanceCheck; finalUg: Ratio }) {
 /** The detail, over the composition: ceilings, what is unchecked, pending and conditions. */
 export function IfraDetail(props: { report: IfraReport; onClose: () => void }) {
   const { report } = props;
-  const grams = formatGrams(report.finalUg, 3);
+  const grams = formatGrams(report.finalBatchUg, 3);
   return (
     <div className="ifra-detail">
       <div className="detail-head">

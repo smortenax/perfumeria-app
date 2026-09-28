@@ -375,6 +375,13 @@ El panel de IFRA da **siempre las dos**, salidas del mismo cálculo:
 
 No hay «modo acorde». Como mucho, cambia cuál de las dos se destaca.
 
+**Las dos lecturas cuadran siempre (P51).** La primera mide cada sustancia a la concentración
+que tendrá el concentrado en el producto: lote de trabajo entre lote final (§3.3). Lo que hay
+en el frasco representa el lote de trabajo entero, aunque falte por verter: lo que falta no
+cuenta como vacío. **Así, pasa si, y solo si, la segunda lectura llega a esa
+concentración.** Con el lote de trabajo igual al lote final, pasa solo si se puede usar al
+100 %.
+
 ## 5.5 · Lo desconocido siempre se avisa
 
 *P3, P7, P31, §1.2.*

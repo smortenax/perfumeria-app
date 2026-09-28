@@ -84,6 +84,28 @@ describe("the catalog, from the glossary and IFRA's own files (P37)", () => {
     expect(ifraOf(byCas("106-25-2").key)?.substances.some((s) => s.key === "std:IFRA_STD_037")).toBe(false);
   });
 
+  it("measures the first reading at the concentration the work batch will have in the final batch, so the two readings agree (P51)", () => {
+    // The user's test: 16 mg of neral in 2.451 g, with a work batch and a final batch of 20 g.
+    // Neral is citral, 0.6 % in category 4: at 100 % the bottle carries 0.653 %.
+    const neral = byCas("106-26-3");
+    const history: Change[] = [
+      { kind: "add", id: "n", material: neral, massUg: 16n * MG, fraction: Ratio.ONE, diluent: null },
+      { kind: "add", id: "d", material: DILUENTS.dpg, massUg: 2_435n * MG, fraction: Ratio.ONE, diluent: null },
+    ];
+    const batches = (workG: bigint, finalG: bigint): FormulaHeader => ({ ...header, workBatchUg: workG * 1_000_000n, finalBatchUg: finalG * 1_000_000n });
+    const same = checkIfra({ header: batches(20n, 20n), history }, catalog.ifra);
+    expect(formatPercent(same.maxUse, 2)).toBe("91,91 %");
+    // Before, the 17.5 g still to pour counted as blank, and it said «sí».
+    expect(same.asIs).toBe("no");
+    // Half of the final batch: 50 % is under 91.91 %, so it passes.
+    expect(checkIfra({ header: batches(10n, 20n), history }, catalog.ifra).asIs).toBe("yes");
+    // It passes exactly when the second reading reaches the concentration.
+    for (const [work, final] of [[20n, 20n], [19n, 20n], [18n, 20n], [5n, 20n]] as const) {
+      const report = checkIfra({ header: batches(work, final), history }, catalog.ifra);
+      expect(report.asIs === "yes").toBe(!report.maxUse.lt(Ratio.of(work, final)));
+    }
+  });
+
   it("keeps specifications as conditions, and a prohibited material over any ceiling", () => {
     expect(ifraOf(byName("Cade oil, rectified").key)?.conditions).toContain("especificación (STD 119)");
     const benzene = byCas("71-43-2");

@@ -65,8 +65,14 @@ export interface SubstanceCheck {
 }
 
 export interface IfraReport {
-  /** What IFRA is measured on: the final batch (§3.3, §5.4). */
+  /**
+   * What each substance in the bottle is divided by to be a share of the product: the
+   * bottle's content brought to the final batch as the work batch is (§3.3, P13). A
+   * substance's share of the product is its mass over this.
+   */
   readonly finalUg: Ratio;
+  /** The final batch as the header gives it, or the bottle when it gives none: what the panel names. */
+  readonly finalBatchUg: Ratio;
   /** The header has no final batch, so the bottle as it is was taken as the product. */
   readonly finalAssumed: boolean;
   readonly checks: readonly SubstanceCheck[];
@@ -91,8 +97,15 @@ export interface IfraReport {
  */
 export function checkIfra(formula: Formula, data: IfraData, upTo?: number): IfraReport {
   const composition = compose(formula, upTo);
+  const bottleUg = composition.totalUg;
   const finalAssumed = formula.header.finalBatchUg === null;
-  const finalUg = finalAssumed ? composition.totalUg : Ratio.of(formula.header.finalBatchUg as bigint);
+  const finalBatchUg = finalAssumed ? bottleUg : Ratio.of(formula.header.finalBatchUg as bigint);
+  // The concentrate goes into the product as the work batch goes into the final batch
+  // (§3.3, P13). What is in the bottle stands for the whole work batch, even while part of
+  // it is still to be poured: what is missing is not taken as blank (P51). Without a
+  // work batch, the bottle is the concentrate.
+  const workUg = formula.header.workBatchUg !== null && formula.header.workBatchUg > 0n ? Ratio.of(formula.header.workBatchUg) : bottleUg;
+  const finalUg = finalAssumed || bottleUg.isZero() || workUg.isZero() ? finalBatchUg : bottleUg.mul(finalBatchUg).div(workUg);
 
   const known = new Map<string, Ratio>();
   const worst = new Map<string, Ratio>();
@@ -151,7 +164,7 @@ export function checkIfra(formula: Formula, data: IfraData, upTo?: number): Ifra
       : "yes";
   const maxUse = checks.reduce((min, c) => (c.maxUse.lt(min) ? c.maxUse : min), Ratio.ONE);
   const maxUseKnown = checks.reduce((min, c) => (c.maxUseKnown.lt(min) ? c.maxUseKnown : min), Ratio.ONE);
-  return { finalUg, finalAssumed, checks, unchecked, conditions, pending, asIs, maxUse, maxUseKnown, partial };
+  return { finalUg, finalBatchUg, finalAssumed, checks, unchecked, conditions, pending, asIs, maxUse, maxUseKnown, partial };
 }
 
 function judge(knownUg: Ratio, worstUg: Ratio, finalUg: Ratio, limit: Ratio): Verdict {

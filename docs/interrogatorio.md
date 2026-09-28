@@ -1886,6 +1886,28 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 - Estado: abierta (B o C)
 - Destino: decisiones.md §10.1 y §10.2
 
+### P51 — Las dos lecturas de IFRA tienen que cuadrar
+- Bloque: IFRA (§5.4), cabecera (§3.3)
+- Abierta por: el usuario, 2026-09-28, sobre la prueba de P49
+- Respuesta literal: *«"la repo es en español" conr especto a lo otro el 91% tiene que estar mal, si el perfume pasa los estandares ifra puedes usar un 100% en un perfume si no se puede usar un 100% en un perfume es que no los pasa, de ahi la contradiccion, esto es tema importante»*
+- **Lectura:**
+  1. **Tiene razón, y se le concede.** Con el lote de trabajo igual al lote final, el frasco
+     es el perfume: si no se puede usar al 100 %, no pasa. La caja decía «Sí» y «91,91 %» a
+     la vez.
+  2. **El error estaba en la primera lectura.** Dividía lo que hay en el frasco (2,451 g)
+     entre el lote final (20 g), como si los 17,5 g que faltaban por verter fueran alcohol
+     sin nada dentro. Pero lo que falta es más fórmula.
+  3. **Lo que ya decían las decisiones (§3.3, P13):** el lote de trabajo entre el lote final
+     da la concentración del concentrado en el producto. **Lo que hay en el frasco representa
+     el lote de trabajo entero**, con sus proporciones de ahora.
+  4. **«La repo es en español»:** las respuestas, en español. Dos habían salido en inglés.
+- **Hecho:** la primera lectura mide cada sustancia a esa concentración. **Pasa si, y solo
+  si, la segunda lectura llega a la concentración prevista.** En la prueba, «No», con el
+  citral al 0,653 % sobre un techo del 0,6 %. Una prueba lo comprueba para varios lotes.
+- Fecha: 2026-09-28
+- Estado: cerrada
+- Destino: decisiones.md §5.4
+
 ---
 
 ## Estado
@@ -1897,6 +1919,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
 | R12 · infografías y frentes | 7 (P35 a P41) | 3 (P33, P34, P42) |
-| R13 · a pesar en el banco | 4 (P43, P44, P48, P49) | 4 (P45 a P47, P50) |
+| R13 · a pesar en el banco | 5 (P43, P44, P48, P49, P51) | 4 (P45 a P47, P50) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.
