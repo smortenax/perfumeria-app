@@ -83,6 +83,8 @@ export function PromptDialog(props: {
 }
 
 export interface SaveAsChoice {
+  /** A new version of this formula, or a new formula of its own (P44). */
+  readonly kind: "version" | "new";
   readonly name: string;
   /** null: no vial to ask about. */
   readonly sameVial: boolean | null;
@@ -90,14 +92,22 @@ export interface SaveAsChoice {
   readonly capacityMl: Ratio | null;
 }
 
-/** Guardar como (§3.2): a variation with its own name, and the question of the vial. */
+/**
+ * Guardar como (§3.2): a new version of this formula, named on its own, or a new
+ * formula (P44); and the question of the vial.
+ */
 export function SaveAsDialog(props: {
   initialName: string;
+  /** The name the new version takes: «Lejía v2». */
+  versionName: string;
   hasVial: boolean;
   onDone: (choice: SaveAsChoice) => void;
   onClose: () => void;
 }) {
-  const [name, setName] = useState(props.initialName);
+  const [kind, setKind] = useState<SaveAsChoice["kind"]>("version");
+  const [names, setNames] = useState({ version: props.versionName, new: props.initialName });
+  const name = names[kind];
+  const setName = (value: string) => setNames({ ...names, [kind]: value });
   const [sameVial, setSameVial] = useState(true);
   const [tare, setTare] = useState("");
   const [capacity, setCapacity] = useState("");
@@ -106,7 +116,7 @@ export function SaveAsDialog(props: {
   useEffect(() => {
     input.current?.focus();
     input.current?.select();
-  }, []);
+  }, [kind]);
 
   const accept = () => {
     if (name.trim() === "") {
@@ -114,17 +124,17 @@ export function SaveAsDialog(props: {
       return;
     }
     if (!props.hasVial) {
-      props.onDone({ name: name.trim(), sameVial: null, tareUg: null, capacityMl: null });
+      props.onDone({ kind, name: name.trim(), sameVial: null, tareUg: null, capacityMl: null });
       return;
     }
     if (sameVial) {
-      props.onDone({ name: name.trim(), sameVial: true, tareUg: null, capacityMl: null });
+      props.onDone({ kind, name: name.trim(), sameVial: true, tareUg: null, capacityMl: null });
       return;
     }
     try {
       const tareUg = parseMass(tare, "g");
       const capacityMl = capacity.trim() === "" ? null : Ratio.fromDecimal(capacity);
-      props.onDone({ name: name.trim(), sameVial: false, tareUg, capacityMl });
+      props.onDone({ kind, name: name.trim(), sameVial: false, tareUg, capacityMl });
     } catch {
       setError(texts.grams.invalid);
     }
@@ -132,6 +142,18 @@ export function SaveAsDialog(props: {
 
   return (
     <Modal title={t.saveAsTitle} error={error} onCancel={props.onClose} onAccept={accept}>
+      <fieldset className="field">
+        <legend>{t.saveAsKind}</legend>
+        <label className="radio">
+          <input type="radio" checked={kind === "version"} onChange={() => setKind("version")} />
+          {t.kindVersion}
+        </label>
+        <label className="radio">
+          <input type="radio" checked={kind === "new"} onChange={() => setKind("new")} />
+          {t.kindNew}
+        </label>
+        <p className="help">{kind === "version" ? t.kindVersionHelp : t.kindNewHelp}</p>
+      </fieldset>
       <label className="field">
         <span>{t.saveAsName}</span>
         <input ref={input} value={name} onChange={(e) => setName(e.target.value)} />

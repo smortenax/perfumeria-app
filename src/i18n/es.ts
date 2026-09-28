@@ -12,6 +12,8 @@ export const texts = {
     libraryEmpty: "Todavía no hay ninguna. Cada fórmula se guarda aquí sola desde su primera adición.",
     libraryAt: (folder: string) => `En ${folder}`,
     libraryError: "No se pudo leer la biblioteca",
+    versions: (n: number) => `${n} versiones`,
+    versionsHelp: "Ver las versiones anteriores",
     base: (fig: number, ifraOnly: number) =>
       `Glosario: ${fig + ifraOnly} materiales, ${fig} del FIG con tus abreviaturas y ${ifraOnly} que no están en él (de IFRA y de los catálogos de las casas). Nada del laboratorio.`,
     source: (amendment: string, date: string) =>
@@ -244,7 +246,12 @@ export const texts = {
     quickTitle: "Material nuevo rápido",
     quickLabel: "Nombre (queda como provisional, sin IFRA)",
     saveAsTitle: "Guardar como",
-    saveAsName: "Nombre de la variación",
+    saveAsName: "Nombre",
+    saveAsKind: "¿Qué es?",
+    kindVersion: "Una versión nueva de esta fórmula",
+    kindNew: "Una fórmula nueva",
+    kindVersionHelp: "Toma el número siguiente, y la biblioteca la agrupa con las demás versiones.",
+    kindNewHelp: "Empieza por su cuenta: la biblioteca la pone aparte.",
     saveAsSameVial: "¿Sigue en el mismo vial?",
     sameVialYes: "Sí: el vial pasa a la variación, y la original queda como receta sin vial",
     sameVialNo: "No: vial nuevo, con su tara",

@@ -261,7 +261,8 @@ incluida. **Lo que falla, por orden de importancia:**
     lo pruebe en el ejecutable**, porque los archivos solo se tocan desde él;
   - [x] **sin copias de la misma fórmula** (2026-09-28): los estados viejos están en el
     historial, y una evolución es una fórmula o una versión nueva. Nada de Git en la app;
-  - **versión nueva o fórmula nueva al guardar como**, y cómo las agrupa la galería;
+  - [x] **versión nueva o fórmula nueva al guardar como** (2026-09-28): la versión se nombra
+    sola («Lejía v2») y el inicio junta las versiones de cada fórmula;
   - si los provisionales se recuerdan entre fórmulas.
 - [ ] **C · La búsqueda, sin decisión:** los sinónimos de PubChem, filtrados como en la
   capa de nombres comerciales (P38), y *allyl amyl glycolate*. Buscar en otros idiomas queda

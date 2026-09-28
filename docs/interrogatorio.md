@@ -1657,8 +1657,31 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
     y «fórmula nueva».
   - Fecha: 2026-09-28
   - Estado: cerrada · sin copias
+- **3 · Versión nueva o fórmula nueva.**
+  - Opciones presentadas: A) «Guardar como» pregunta si es una versión nueva de esta o una
+    fórmula nueva; la versión lleva su número y la galería las agrupa · B) como ahora, todo
+    es fórmula nueva · C) todas las versiones en el mismo archivo
+  - Recomendación: A
+  - Respuesta literal: *«la A, versión nueva o fórmula nueva automatiza y agrupa es la mas razonable»*
+  - **Lectura:**
+    1. **Opción A.** Al guardar como, la app pregunta: versión nueva de esta, o fórmula
+       nueva.
+    2. **Se automatiza:** la versión se nombra sola, «Lejía v2», con el número siguiente de
+       su familia, y apunta de qué versión sale.
+    3. **Se agrupa:** la biblioteca junta las versiones de una fórmula en una sola entrada,
+       con la más reciente delante.
+  - **Hecho, por confirmar:**
+    - **la familia se crea con la primera versión**: la original pasa a ser la v1 sin
+      cambiar de nombre, y la nueva es la v2;
+    - **si se saca una versión de una vieja, toma el número siguiente de la familia**, no el
+      de la vieja más uno: de la v1, con una v2 ya hecha, sale la v3, que apunta a la v1;
+    - **una fórmula nueva empieza su propia familia**, sin versión;
+    - **cada versión sigue siendo una fórmula entera**, sin depender de otra (§3.2): la
+      familia es un dato legible, no un vínculo.
+  - Fecha: 2026-09-28
+  - Estado: cerrada · opción A
 - Fecha: 2026-09-28
-- Estado: abierta (quedan las versiones y los provisionales)
+- Estado: abierta (queda recordar los provisionales)
 - Destino: decisiones.md §3.2 y §6
 
 ### P45 — Acorde o perfume al guardar, y la galería de fórmulas

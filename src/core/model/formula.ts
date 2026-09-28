@@ -17,6 +17,22 @@ export interface FormulaHeader {
   readonly workBatchUg: bigint | null;
   /** Final batch: the expected one, with the alcohol. IFRA is measured on it. */
   readonly finalBatchUg: bigint | null;
+  /** Its place among the versions of a formula, once it has more than one (P44). */
+  readonly version?: FormulaVersion;
+}
+
+/**
+ * The versions of a formula (P44): each one is a whole formula of its own (§3.2); the
+ * family only says they belong together, and from which one each came. Readable data,
+ * not a link.
+ */
+export interface FormulaVersion {
+  /** The same for every version of the formula. */
+  readonly family: string;
+  /** 1, 2, 3… in the order they were made. */
+  readonly number: number;
+  /** The number of the version it came from; null for the first. */
+  readonly from: number | null;
 }
 
 /**

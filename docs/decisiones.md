@@ -192,6 +192,13 @@ el banco real, y se gana lo que es el propósito: **documentar**.
 - **Guardar** sustituye la fórmula; con la biblioteca, se hace solo (§6, P44), y Ctrl+S lo
   hace al momento. **Guardar como** crea una variación, una fórmula nueva
   con un nombre que lleve el matiz.
+- **Al guardar como, la app pregunta si es una versión nueva de esta o una fórmula nueva**
+  (P44). **La versión se nombra sola** con el número siguiente de su familia, «Lejía v2», y
+  apunta de qué versión sale; la original pasa a ser la v1. **La biblioteca junta las
+  versiones de una fórmula** en una sola entrada, con la última hecha delante. Una fórmula
+  nueva empieza su propia familia. **La familia es un dato legible, no un vínculo**: cada
+  versión sigue siendo una fórmula entera. **Por qué:** una evolución es una versión nueva,
+  y así se ve de dónde viene sin depender de nada.
 - **Al guardar como, la app pregunta si sigue en el mismo vial.** Si sigue, el recipiente
   pasa a la variación, y la original queda como **receta sin vial** (ya no se reabre
   pesando). Si no, pide la tara nueva.

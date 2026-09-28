@@ -18,7 +18,8 @@ import { GramsCard, IntentionCard, NameCard } from "./Header";
 import { ChangeDetail, HistoryDock } from "./HistoryDock";
 import { IfraDetail, IfraSummary } from "./IfraBox";
 import { confirmDialog, download, fileNameFor, guardClose, inTauri, pickAndRead, writeFile } from "./io";
-import { libraryDir, placeFormula } from "./library";
+import { libraryDir, placeFormula, readLibrary } from "./library";
+import { nextVersionNumber, versionName } from "./library-groups";
 import { pushRecent, recentKeys } from "./prefs";
 import { benchReducer, emptyFormula, initialState, newId } from "./state";
 
@@ -29,7 +30,7 @@ type Dialog =
   | { kind: "reweigh"; onOpen: boolean }
   | { kind: "note" }
   | { kind: "quick" }
-  | { kind: "saveAs" };
+  | { kind: "saveAs"; versionName: string; next: number };
 
 export interface Opened {
   readonly formula: Formula;
@@ -49,6 +50,14 @@ const reopensByWeighing = (formula: Formula) => formula.header.container?.tareUg
 const baseName = (path: string) => path.split(/[\\/]/).pop() ?? path;
 /** Every file says with which IFRA amendment it was checked (P44). */
 const formulaToJson = (formula: Formula) => toJsonWith(formula, { ifraAmendment: catalog.source.amendment });
+/** A new formula starts on its own: without the version of the one it came from (P44). */
+const withoutVersion = (h: FormulaHeader): FormulaHeader => ({
+  name: h.name,
+  intention: h.intention,
+  container: h.container,
+  workBatchUg: h.workBatchUg,
+  finalBatchUg: h.finalBatchUg,
+});
 
 /**
  * The formulation bench, provisional (plan, phase 4): everything the core does,
@@ -231,15 +240,36 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
     return () => clearInterval(timer);
   }, [playing, formula.history.length]);
 
-  const saveAs = async (choice: SaveAsChoice) => {
+  // The name and number a new version would take: the next of its family (P44).
+  const openSaveAs = async () => {
+    const header = latest.current.formula.header;
+    const known = header.version?.number ?? 1;
+    let next = known + 1;
+    if (inTauri() && header.version) {
+      try {
+        next = nextVersionNumber(await readLibrary(), header.version.family, known);
+      } catch {
+        // Without the library, the number after this one; the file name never repeats anyway.
+      }
+    }
+    setDialog({ kind: "saveAs", versionName: versionName(header.name || texts.bench.untitled, next), next });
+  };
+
+  const saveAs = async (choice: SaveAsChoice, next: number) => {
+    const source = latest.current.formula;
+    // A new version joins the family of this one, which becomes its v1 if it had none (P44).
+    const family = source.header.version?.family ?? newId();
+    const from = source.header.version?.number ?? 1;
+    const joins = choice.kind === "version" && !source.header.version;
+    const base = choice.kind === "version" ? { ...source.header, version: { family, number: next, from } } : withoutVersion(source.header);
     // The variation takes a copy of the history and goes on alone (§3.2).
     const variation: Formula = {
       header: {
-        ...formula.header,
+        ...base,
         name: choice.name,
-        container: choice.sameVial === false ? { capacityMl: choice.capacityMl, tareUg: choice.tareUg } : formula.header.container,
+        container: choice.sameVial === false ? { capacityMl: choice.capacityMl, tareUg: choice.tareUg } : source.header.container,
       },
-      history: formula.history,
+      history: source.history,
     };
     if (!inTauri()) {
       download(fileNameFor(choice.name), formulaToJson(variation));
@@ -254,10 +284,15 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
     try {
       const path = await enqueue(async () => {
         const original = pathRef.current;
-        if (choice.sameVial === true && original !== null) {
-          // Same vial: the original stays as a recipe without a vial, no longer reopened by weighing.
+        if (original !== null && (joins || choice.sameVial === true)) {
           const recipe = latest.current.formula;
-          await writeFile(original, formulaToJson({ ...recipe, header: { ...recipe.header, container: null } }));
+          const header: FormulaHeader = {
+            ...recipe.header,
+            ...(joins ? { version: { family, number: 1, from: null } } : {}),
+            // Same vial: the original stays as a recipe without a vial, no longer reopened by weighing.
+            ...(choice.sameVial === true ? { container: null } : {}),
+          };
+          await writeFile(original, formulaToJson({ ...recipe, header }));
         }
         const target = await placeFormula(choice.name, null);
         await writeFile(target, formulaToJson(variation));
@@ -425,7 +460,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
                 <span>{texts.menu.save}</span>
                 <span className="num key">Ctrl+S</span>
               </button>
-              <button type="button" className="menuitem" onClick={menuAction(() => setDialog({ kind: "saveAs" }))}>
+              <button type="button" className="menuitem" onClick={menuAction(() => void openSaveAs())}>
                 <span>{texts.menu.saveAs}</span>
               </button>
               <button type="button" className="menuitem" onClick={menuAction(() => void openFile())}>
@@ -563,10 +598,11 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
       {dialog?.kind === "saveAs" && (
         <SaveAsDialog
           initialName={formula.header.name}
+          versionName={dialog.versionName}
           hasVial={formula.header.container !== null}
           onDone={(choice) => {
             setDialog(null);
-            void saveAs(choice);
+            void saveAs(choice, dialog.next);
           }}
           onClose={() => setDialog(null)}
         />

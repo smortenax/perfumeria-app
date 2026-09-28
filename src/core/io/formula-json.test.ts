@@ -39,6 +39,16 @@ describe("formula JSON", () => {
     expect(JSON.parse(formulaToJson(formula)).ifra).toBeUndefined();
   });
 
+  it("keeps the version of a formula, and a formula without one stays as it was (P44)", () => {
+    const base = f001();
+    const v2: Formula = { ...base, header: { ...base.header, name: "Lejía v2", version: { family: "fam-1", number: 2, from: 1 } } };
+    const text = formulaToJson(v2);
+    expect(JSON.parse(text).header.version).toEqual({ family: "fam-1", number: 2, from: 1 });
+    expect(formulaFromJson(text).header.version).toEqual({ family: "fam-1", number: 2, from: 1 });
+    expect(JSON.parse(formulaToJson(base)).header.version).toBeUndefined();
+    expect(formulaFromJson(formulaToJson(base)).header.version).toBeUndefined();
+  });
+
   it("writes one change per line, so Git sees each change", () => {
     const text = formulaToJson(f001());
     const lines = text.split("\n");

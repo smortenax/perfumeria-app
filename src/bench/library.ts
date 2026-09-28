@@ -1,7 +1,8 @@
 import { invoke } from "@tauri-apps/api/core";
 import { documentDir, join } from "@tauri-apps/api/path";
 import { texts } from "../i18n/es";
-import { inTauri } from "./io";
+import { inTauri, readFile } from "./io";
+import type { LibraryEntry } from "./library-groups";
 import { carriesName, fileNameOf, fileStem, freeFileName, isInside } from "./library-names";
 
 /**
@@ -30,6 +31,32 @@ export async function listLibrary(): Promise<LibraryFile[]> {
   }
   const files = await invoke<Array<{ path: string; name: string; modified_ms: number }>>("list_formulas", { dir: await libraryDir() });
   return files.map((f) => ({ path: f.path, name: f.name, modified: new Date(f.modified_ms) }));
+}
+
+/**
+ * The library as the gallery sees it: each formula's name and version, read from inside
+ * its file. A file that cannot be read still shows, by its file name, so nothing hides.
+ */
+export async function readLibrary(): Promise<LibraryEntry[]> {
+  const files = await listLibrary();
+  return Promise.all(
+    files.map(async (f): Promise<LibraryEntry> => {
+      try {
+        const header = JSON.parse(await readFile(f.path)).header ?? {};
+        const version = header.version;
+        return {
+          path: f.path,
+          title: typeof header.name === "string" && header.name.trim() !== "" ? header.name : f.name,
+          modified: f.modified,
+          ...(version && typeof version.family === "string" && Number.isInteger(version.number)
+            ? { version: { family: version.family, number: version.number, from: version.from ?? null } }
+            : {}),
+        };
+      } catch {
+        return { path: f.path, title: f.name, modified: f.modified };
+      }
+    }),
+  );
 }
 
 /**

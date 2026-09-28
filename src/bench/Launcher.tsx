@@ -4,7 +4,8 @@ import { catalog } from "../data/provisional";
 import { texts } from "../i18n/es";
 import type { Opened } from "./Bench";
 import { inTauri, pickAndRead, readFile } from "./io";
-import { libraryDir, listLibrary, type LibraryFile } from "./library";
+import { libraryDir, readLibrary } from "./library";
+import { groupLibrary, type LibraryEntry, type LibraryGroup } from "./library-groups";
 
 const t = texts.launcher;
 
@@ -13,12 +14,13 @@ const when = (date: Date) =>
 
 /**
  * What comes before the bench (§0 leaves it undesigned): for now, a way into it, and
- * the formulas of the library, the most recent first (P44). The gallery with its
- * filters comes later (P45).
+ * the formulas of the library, the one changed last first, with the versions of each
+ * together (P44). The gallery with its filters comes later (P45).
  */
 export function Launcher(props: { onNew: () => void; onOpen: (opened: Opened) => void }) {
   const [error, setError] = useState<string | null>(null);
-  const [files, setFiles] = useState<LibraryFile[] | null>(null);
+  const [groups, setGroups] = useState<LibraryGroup[] | null>(null);
+  const [expanded, setExpanded] = useState<string | null>(null);
   const [folder, setFolder] = useState<string | null>(null);
 
   useEffect(() => {
@@ -26,8 +28,8 @@ export function Launcher(props: { onNew: () => void; onOpen: (opened: Opened) =>
       return;
     }
     libraryDir().then(setFolder).catch(() => undefined);
-    listLibrary()
-      .then(setFiles)
+    readLibrary()
+      .then((entries) => setGroups(groupLibrary(entries)))
       .catch((e) => setError(`${t.libraryError}: ${e instanceof Error ? e.message : String(e)}`));
   }, []);
 
@@ -46,7 +48,7 @@ export function Launcher(props: { onNew: () => void; onOpen: (opened: Opened) =>
     }
   };
 
-  const openFromLibrary = async (file: LibraryFile) => {
+  const openFromLibrary = async (file: LibraryEntry) => {
     try {
       openText(await readFile(file.path), file.path);
     } catch (e) {
@@ -67,21 +69,53 @@ export function Launcher(props: { onNew: () => void; onOpen: (opened: Opened) =>
         </button>
       </div>
       {error && <p className="error">{error}</p>}
-      {files !== null && (
+      {groups !== null && (
         <section className="library">
           <h2>{t.library}</h2>
-          {files.length === 0 ? (
+          {groups.length === 0 ? (
             <p className="muted">{t.libraryEmpty}</p>
           ) : (
             <ul className="library-list">
-              {files.map((f) => (
-                <li key={f.path}>
-                  <button type="button" onClick={() => void openFromLibrary(f)}>
-                    <span className="library-name">{f.name}</span>
-                    <span className="num muted">{when(f.modified)}</span>
-                  </button>
-                </li>
-              ))}
+              {groups.map((g) => {
+                const [head, ...older] = g.versions;
+                const open = expanded === g.key;
+                return (
+                  <li key={g.key}>
+                    <div className="library-row">
+                      <button type="button" className="library-open" onClick={() => void openFromLibrary(head)}>
+                        <span className="library-name">{head.title}</span>
+                        <span className="num muted">{when(head.modified)}</span>
+                      </button>
+                      {older.length > 0 && (
+                        <button
+                          type="button"
+                          className="library-versions"
+                          aria-expanded={open}
+                          title={t.versionsHelp}
+                          onClick={() => setExpanded(open ? null : g.key)}
+                        >
+                          {t.versions(g.versions.length)}
+                        </button>
+                      )}
+                    </div>
+                    {open && (
+                      <ul className="library-older">
+                        {older.map((v) => (
+                          <li key={v.path}>
+                            <button type="button" className="library-open" onClick={() => void openFromLibrary(v)}>
+                              <span className="library-name">{v.title}</span>
+                              <span className="num muted">
+                                {v.version ? `v${v.version.number} · ` : ""}
+                                {when(v.modified)}
+                              </span>
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           )}
           {folder && <p className="tiny muted">{t.libraryAt(folder)}</p>}

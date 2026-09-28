@@ -94,6 +94,7 @@ export function formulaToJson(formula: Formula, meta: FormulaMeta = {}): string 
       : null,
     workBatchUg: h.workBatchUg?.toString() ?? null,
     finalBatchUg: h.finalBatchUg?.toString() ?? null,
+    ...(h.version ? { version: h.version } : {}),
   };
 
   return [
@@ -187,6 +188,7 @@ export function formulaFromJson(text: string): Formula {
       : null,
     workBatchUg: h.workBatchUg === null ? null : BigInt(h.workBatchUg),
     finalBatchUg: h.finalBatchUg === null ? null : BigInt(h.finalBatchUg),
+    ...(h.version ? { version: { family: String(h.version.family), number: Number(h.version.number), from: h.version.from ?? null } } : {}),
   };
   return { header, history };
 }

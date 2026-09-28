@@ -231,20 +231,51 @@ button.big {
   border-top: 1px solid var(--line-soft);
 }
 
-.library-list button {
+.library-row {
   display: flex;
+  align-items: stretch;
+}
+
+.library-open {
+  display: flex;
+  flex: 1;
+  min-width: 0;
   justify-content: space-between;
   gap: 16px;
-  width: 100%;
   padding: 10px 14px;
   border: none;
   background: none;
   text-align: left;
 }
 
-.library-list button:hover,
-.library-list button:focus-visible {
+.library-versions {
+  flex: none;
+  padding: 0 14px;
+  border: none;
+  border-left: 1px solid var(--line-soft);
+  background: none;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.library-open:hover,
+.library-open:focus-visible,
+.library-versions:hover,
+.library-versions:focus-visible,
+.library-versions[aria-expanded="true"] {
   background: var(--fill-2);
+}
+
+.library-older {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 4px 18px;
+  border-top: 1px solid var(--line-soft);
+  background: var(--fill-2);
+}
+
+.library-older .library-open {
+  padding: 6px 14px;
 }
 
 .library-name {
