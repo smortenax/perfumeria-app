@@ -33,10 +33,13 @@ export function toggleFavorite(materialKey: string, dilution: Dilution): Materia
   return next;
 }
 
-/** The percent options, in order: favourites, the last one used, then the base 10 % and 1 % (P25, P26). */
+/** Pure is a button of its own, under the two cells (P53). */
+export const isPure = (percent: string): boolean => Number(percent.replace(",", ".")) === 100;
+
+/** The options of the two cells, in order: favourites, the last one used, then the base 10 % and 50 % (P26, P53). Pure has its own button. */
 export function percentOptions(prefs: MaterialPrefs): string[] {
-  const all = [...prefs.favorites.map((f) => f.percent), prefs.last?.percent, "10", "1"];
-  return unique(all.filter((p): p is string => p !== undefined));
+  const all = [...prefs.favorites.map((f) => f.percent), prefs.last?.percent, "10", "50"];
+  return unique(all.filter((p): p is string => p !== undefined && !isPure(p)));
 }
 
 /** The diluent options, in order: favourites, the last one used, then DPG and alcohol. */

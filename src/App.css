@@ -904,7 +904,7 @@ button.value:hover {
 
 .dilution {
   position: relative;
-  width: 150px;
+  width: 192px;
   flex: none;
   display: flex;
   flex-direction: column;
@@ -923,9 +923,23 @@ button.value:hover {
   gap: 4px;
 }
 
-.percent-col {
-  width: 54px;
+/* Two cells of % side by side, and «Puro» wide under them (P53). */
+.percent-grid {
+  width: 96px;
   flex: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+
+.percent-grid .cell {
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.percent-grid .cell.pure {
+  grid-column: 1 / -1;
+  justify-content: center;
 }
 
 .diluent-col {
@@ -946,10 +960,6 @@ button.value:hover {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.percent-col .cell {
-  justify-content: flex-end;
 }
 
 .cell.checked {
@@ -1949,4 +1959,22 @@ button.value:hover {
   border-color: var(--ink);
   color: #ffffff;
   font-weight: 500;
+}
+
+/* What limits the formula, on one line: a long IFRA name is cut, and says itself on hover. */
+/* With the line of what limits, the box closes up to keep its height. */
+.ifra-summary.with-limit {
+  padding: 8px 12px;
+  gap: 4px;
+}
+
+.ifra-limit {
+  display: block;
+  flex: none;
+  line-height: 14px;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
 }

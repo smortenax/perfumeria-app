@@ -1952,6 +1952,37 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 - Estado: abierta
 - Destino: decisiones.md §3.5; P44
 
+### P53 — La prueba funcional: retocar sin escribir
+
+- **La cantidad al lado del %.** Respuesta literal: *«se le puede añadir en la parte del
+  listado de ingredientes aparte del porcentaje la cantidad, en la derecha? solo para un
+  extra de claridad de momento esta bien»*
+  - **Lectura:** cada línea de la composición dice también su masa.
+  - **Hecho:** los **mg puros**, a la izquierda del %, porque el % es de la materia pura y los
+    dos números tienen que hablar de lo mismo. Siempre en mg, para que la columna se lea de
+    arriba abajo. La cabecera dice la base: «mg puros · % de la materia aromática».
+- **Añadir otra vez desde la lista.** Respuesta literal: *«a la izquierda de cada material del
+  listado de composicion un boton de añadir de nuevo, te ahorras el paso de escribir y ahi es
+  muy probable que tengas casi todos los usados a la vista sin scrollear, para hacer tweaking
+  es espectacular»*
+  - **Hecho:** un «+» a la izquierda de cada línea, discreto hasta que se pasa el ratón. Lleva
+    el material a la barra, con su última dilución, y deja el cursor en la cantidad.
+- **Un botón de puro.** Respuesta literal: *«un boton de puro para el selector tambien esta
+  bien, escribir 100 a mano es tedioso cada vez, yo haria que abajo haya un boton ancho de
+  puro donde ahora esta el de abajo y luego arriba dos espacios de 10% y 50% como los de
+  ahora dispuestos uno al lado de otro y donde se pueda escribir»*
+  - **Lectura:** el % pasa a tres opciones: **dos casillas lado a lado, 10 % y 50 %**, que se
+    pueden escribir, y **debajo un botón ancho, «Puro»**. Sustituye el 10 % y 1 % de P26.
+  - **Hecho:**
+    - las casillas siguen el orden de P26: favoritas, la última usada y, sin usos, 10 % y
+      50 %. El 100 % ya no ocupa una casilla: es «Puro»;
+    - un % escrito a mano se queda en la casilla donde se escribió;
+    - con el teclado: izquierda y derecha entre las casillas, abajo a «Puro», arriba vuelve;
+      un número, F2 o doble clic escriben en la casilla.
+- Fecha: 2026-09-29
+- Estado: cerrada
+- Destino: decisiones.md §4, §10.1
+
 ---
 
 ## Estado
@@ -1963,6 +1994,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
 | R12 · infografías y frentes | 7 (P35 a P41) | 3 (P33, P34, P42) |
-| R13 · a pesar en el banco | 6 (P43, P44, P48 a P51) | 4 (P45 a P47, P52) |
+| R13 · a pesar en el banco | 7 (P43, P44, P48 a P51, P53) | 4 (P45 a P47, P52) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.

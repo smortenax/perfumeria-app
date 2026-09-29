@@ -1,4 +1,4 @@
-import { useEffect, useImperativeHandle, useMemo, useRef, useState, type Ref } from "react";
+import { useEffect, useImperativeHandle, useMemo, useRef, useState, type KeyboardEvent, type Ref, type RefObject } from "react";
 import { Ratio } from "../core/arith/ratio";
 import { parseMass, parsePercent, type MassUnit } from "../core/arith/units";
 import type { Change } from "../core/model/formula";
@@ -10,6 +10,7 @@ import {
   APP_DILUENTS,
   diluentMaterial,
   diluentOptions,
+  isPure,
   ownDiluents,
   percentOptions,
   prefsOf,
@@ -71,7 +72,8 @@ function Switch(props: { checked: boolean; label: string; onChange: (checked: bo
  * quantity, dilution, add, star. The «+» sits by the label of the material, and
  * the switches of what it takes in show under it while searching (P49). Everything by keyboard: Intro or Tab
  * pick the material; Intro moves on; Ctrl+Intro adds with the dilution already
- * set; the arrows choose among the two options of % and of diluent (P26).
+ * set; the arrows choose among the options of % (two cells and «Puro», P53) and
+ * of diluent (P26).
  */
 export function AddBar(props: {
   ref?: Ref<AddBarHandle>;
@@ -90,8 +92,10 @@ export function AddBar(props: {
   const [unit, setUnit] = useState<MassUnit>("mg");
   const [prefs, setPrefs] = useState<MaterialPrefs>({ favorites: [] });
   const [percent, setPercent] = useState("10");
-  const [editing, setEditing] = useState<string | null>(null);
+  /** The cell being written in, and what it says so far. */
+  const [editing, setEditing] = useState<{ at: number; text: string } | null>(null);
   const [diluent, setDiluent] = useState<DiluentId>("dpg");
+  const [customAt, setCustomAt] = useState(0);
   const [mine, setMine] = useState(true);
   const [formulas, setFormulas] = useState(true);
   const [menu, setMenu] = useState(false);
@@ -102,15 +106,65 @@ export function AddBar(props: {
   const searchRef = useRef<HTMLInputElement>(null);
   const quantityRef = useRef<HTMLInputElement>(null);
   const percentRefs = [useRef<HTMLButtonElement>(null), useRef<HTMLButtonElement>(null)];
+  const pureRef = useRef<HTMLButtonElement>(null);
   const diluentRefs = [useRef<HTMLButtonElement>(null), useRef<HTMLButtonElement>(null)];
   const otherRef = useRef<HTMLDivElement>(null);
 
   const byKey = useMemo(() => new Map(props.entries.map((e) => [e.material.key, e])), [props.entries]);
 
-  // Two options of each (§4): favourites first, then the last one used, then 10 % and 1 %, DPG and alcohol.
-  const percentPool = uniquePercents(selected?.solvent ? ["100", ...percentOptions(prefs)] : percentOptions(prefs)).slice(0, 2);
-  const cells = percentPool.some((p) => samePercent(p, percent)) ? percentPool : [percent, ...percentPool].slice(0, 2);
-  const checkedCell = Math.max(0, cells.findIndex((p) => samePercent(p, percent)));
+  // Two cells of % side by side and a wide «Puro» under them (P53): favourites first, then
+  // the last one used, then 10 % and 50 %; DPG and alcohol (§4).
+  const percentPool = uniquePercents(percentOptions(prefs)).slice(0, 2);
+  const pure = isPure(percent);
+  const cells = [...percentPool];
+  if (!pure && !percentPool.some((p) => samePercent(p, percent))) {
+    // A % written by hand stays in the cell where it was written.
+    cells[Math.min(customAt, cells.length)] = percent;
+  }
+  // -1 is «Puro».
+  const checkedCell = pure ? -1 : Math.max(0, cells.findIndex((p) => samePercent(p, percent)));
+  const focusPercent = () => (checkedCell < 0 ? pureRef : percentRefs[checkedCell]).current?.focus();
+
+  /** What was written in a cell takes that cell's place; 100 is «Puro». */
+  const commitEdit = (): string | null => {
+    const typed = editing?.text.trim() ?? "";
+    if (editing !== null && typed !== "") {
+      setPercent(typed);
+      setCustomAt(editing.at);
+    }
+    setEditing(null);
+    return typed === "" ? null : typed;
+  };
+
+  // The arrows move among the three: the two cells side by side, «Puro» under them (P53).
+  const percentKeys = (e: KeyboardEvent, at: number) => {
+    const go = (percentText: string, ref: RefObject<HTMLButtonElement | null>) => {
+      e.preventDefault();
+      setPercent(percentText);
+      ref.current?.focus();
+    };
+    if (e.key === "ArrowLeft" && at === 1) {
+      go(cells[0], percentRefs[0]);
+    } else if (e.key === "ArrowRight" && at === 0 && cells[1] !== undefined) {
+      go(cells[1], percentRefs[1]);
+    } else if (e.key === "ArrowRight") {
+      e.preventDefault();
+      diluentRefs[checkedDiluent].current?.focus();
+    } else if (e.key === "ArrowDown" && at >= 0) {
+      go("100", pureRef);
+    } else if (e.key === "ArrowUp" && at < 0 && cells[0] !== undefined) {
+      go(cells[0], percentRefs[0]);
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      add();
+    } else if (e.key === "F2") {
+      e.preventDefault();
+      setEditing({ at: Math.max(0, at), text: at < 0 ? "" : cells[at] });
+    } else if (/^[0-9.,]$/.test(e.key)) {
+      e.preventDefault();
+      setEditing({ at: Math.max(0, at), text: e.key });
+    }
+  };
   // Another diluent chosen from the menu takes the second place while it is chosen (§4).
   const top = diluentOptions(prefs).slice(0, 2);
   const diluents = top.includes(diluent) ? top : [top[0], diluent];
@@ -425,7 +479,7 @@ export function AddBar(props: {
                 add();
               } else if (e.key === "Enter") {
                 e.preventDefault();
-                percentRefs[checkedCell].current?.focus();
+                focusPercent();
               }
             }}
           />
@@ -441,29 +495,24 @@ export function AddBar(props: {
           <span className="hint">{t.src[source]}</span>
         </div>
         <div className="dilution-group" role="group" aria-label={t.dilution}>
-          <div className="radio-col percent-col" role="radiogroup" aria-label={t.percentGroup}>
+          <div className="percent-grid" role="radiogroup" aria-label={t.percentGroup}>
             {cells.map((p, i) =>
-              editing !== null && i === checkedCell ? (
+              editing !== null && editing.at === i ? (
                 <input
-                  key="edit"
+                  key={`edit-${i}`}
                   className="cell-input num"
                   autoFocus
-                  value={editing}
+                  value={editing.text}
                   aria-label={t.customPercent}
-                  onChange={(e) => setEditing(e.target.value)}
-                  onBlur={() => {
-                    if (editing.trim() !== "") {
-                      setPercent(editing.trim());
-                    }
-                    setEditing(null);
-                  }}
+                  onChange={(e) => setEditing({ at: i, text: e.target.value })}
+                  onBlur={() => commitEdit()}
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
                       e.preventDefault();
-                      const typed = editing.trim();
-                      setPercent(typed);
-                      setEditing(null);
-                      add(typed);
+                      const typed = commitEdit();
+                      if (typed !== null) {
+                        add(typed);
+                      }
                     } else if (e.key === "Escape") {
                       setEditing(null);
                     }
@@ -471,7 +520,7 @@ export function AddBar(props: {
                 />
               ) : (
                 <button
-                  key={p}
+                  key={`${i}-${p}`}
                   type="button"
                   ref={percentRefs[i]}
                   role="radio"
@@ -480,34 +529,25 @@ export function AddBar(props: {
                   className={i === checkedCell ? "cell num checked" : "cell num"}
                   title={t.customPercent}
                   onClick={() => setPercent(p)}
-                  onDoubleClick={() => setEditing(p)}
-                  onKeyDown={(e) => {
-                    if (e.key === "ArrowDown" || e.key === "ArrowUp") {
-                      e.preventDefault();
-                      const other = 1 - i;
-                      if (cells[other] !== undefined) {
-                        setPercent(cells[other]);
-                        percentRefs[other].current?.focus();
-                      }
-                    } else if (e.key === "ArrowRight") {
-                      e.preventDefault();
-                      diluentRefs[checkedDiluent].current?.focus();
-                    } else if (e.key === "Enter") {
-                      e.preventDefault();
-                      add();
-                    } else if (e.key === "F2") {
-                      e.preventDefault();
-                      setEditing(p);
-                    } else if (/^[0-9.,]$/.test(e.key)) {
-                      e.preventDefault();
-                      setEditing(e.key);
-                    }
-                  }}
+                  onDoubleClick={() => setEditing({ at: i, text: p })}
+                  onKeyDown={(e) => percentKeys(e, i)}
                 >
                   {p} %
                 </button>
               ),
             )}
+            <button
+              type="button"
+              ref={pureRef}
+              role="radio"
+              aria-checked={pure}
+              tabIndex={pure ? 0 : -1}
+              className={pure ? "cell pure checked" : "cell pure"}
+              onClick={() => setPercent("100")}
+              onKeyDown={(e) => percentKeys(e, -1)}
+            >
+              {t.pureButton}
+            </button>
           </div>
           <div className="radio-col diluent-col" role="radiogroup" aria-label={t.diluentGroup}>
             {diluents.map((d, i) => (
@@ -530,7 +570,7 @@ export function AddBar(props: {
                     }
                   } else if (e.key === "ArrowLeft") {
                     e.preventDefault();
-                    percentRefs[checkedCell].current?.focus();
+                    focusPercent();
                   } else if (e.key === "ArrowRight") {
                     e.preventDefault();
                     openOther();

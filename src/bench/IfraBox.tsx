@@ -22,7 +22,7 @@ export function IfraSummary(props: { report: IfraReport | null; empty: boolean; 
   const range =
     hasData && !report.maxUseKnown.eq(report.maxUse) ? t.range(formatPercent(report.maxUse, 2), formatPercent(report.maxUseKnown, 2)) : undefined;
   return (
-    <button type="button" className="card ifra-summary" aria-expanded={props.open} onClick={props.onToggle}>
+    <button type="button" className={limiting ? "card ifra-summary with-limit" : "card ifra-summary"} aria-expanded={props.open} onClick={props.onToggle}>
       <span className="ifra-head">
         <span className="ifra-title">{t.title}</span>
         <span className="muted small">{t.category}</span>
@@ -45,7 +45,11 @@ export function IfraSummary(props: { report: IfraReport | null; empty: boolean; 
         <span className="question">{t.maxUseQuestion}</span>
         <span className="answer num">{maxUse}</span>
       </span>
-      {limiting && <span className="ifra-limit muted tiny">{t.limitedBy(limiting.substance.name)}</span>}
+      {limiting && (
+        <span className="ifra-limit muted tiny" title={limiting.substance.name}>
+          {t.limitedBy(limiting.substance.name)}
+        </span>
+      )}
     </button>
   );
 }

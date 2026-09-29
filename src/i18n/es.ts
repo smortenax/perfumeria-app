@@ -108,6 +108,7 @@ export const texts = {
     dilution: "Dilución",
     src: { base: "base", favorite: "favorita", last: "última" },
     customPercent: "Doble clic, F2 o un número para escribir otro %",
+    pureButton: "Puro",
     percentGroup: "Porcentaje final",
     diluentGroup: "Diluyente",
     otherDiluent: "Otro diluyente (→ desde el diluyente)",
