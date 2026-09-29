@@ -99,11 +99,3 @@ export function addOwnDiluent(name: string): DiluentId {
   updateUserData((d) => ({ ...d, diluents: [...d.diluents, { id, name: clean }] }));
   return id;
 }
-
-export const recentKeys = (): string[] => [...userData().recent];
-
-export function pushRecent(materialKey: string): string[] {
-  const keys = [materialKey, ...userData().recent.filter((k) => k !== materialKey)].slice(0, 12);
-  updateUserData((d) => ({ ...d, recent: keys }));
-  return keys;
-}

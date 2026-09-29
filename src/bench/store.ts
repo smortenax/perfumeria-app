@@ -4,8 +4,8 @@ import { inTauri } from "./io";
 
 /**
  * What the app remembers of its user between sessions (§6): per material, the
- * last dilution and the favourites; the materials used lately; and the user's
- * own provisional diluents. It lives in a file of the app's data folder,
+ * last dilution and the favourites; the materials used lately (no longer shown,
+ * P57, but kept in the file); and the user's own provisional diluents. It lives in a file of the app's data folder,
  * preferencias.json, never in the browser's memory, which is lost when it is
  * cleared (§6). In a plain browser, used only for development, it falls back to
  * that memory.
@@ -32,6 +32,7 @@ export interface OwnDiluent {
 export interface UserData {
   readonly version: 1;
   readonly materials: Readonly<Record<string, MaterialPrefs>>;
+  /** The materials used lately. No longer shown or written (P57), but kept in the file as it was. */
   readonly recent: readonly string[];
   readonly diluents: readonly OwnDiluent[];
 }

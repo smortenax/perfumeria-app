@@ -95,6 +95,11 @@ export function AddBar(props: {
   onCreateProvisional: (name: string) => Material;
   /** A material took the user's name for it (P56): the formula names it so too. */
   onNamed?: () => void;
+  /**
+   * The material chosen in the bar, or null when the user lets it go (P57). Adding does not
+   * call it: the card of the material keeps it, to see what the formula now carries.
+   */
+  onSelect?: (material: Material | null) => void;
 }) {
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<Material | null>(null);
@@ -279,6 +284,7 @@ export function AddBar(props: {
     // A solvent goes pure; so does a formula the first time, since it already carries its diluent (§3.6).
     setPercent(material.solvent ? "100" : (p.last?.percent ?? (material.kind === "formula" ? "100" : percentOptions(p)[0])));
     setDiluent(p.last?.diluent ?? diluentOptions(p)[0]);
+    props.onSelect?.(material);
   };
 
   useImperativeHandle(props.ref, () => ({
@@ -314,6 +320,7 @@ export function AddBar(props: {
     setSelected(null);
     setQuery("");
     searchRef.current?.focus();
+    props.onSelect?.(null);
   };
 
   const add = (percentText = percent) => {

@@ -12,16 +12,17 @@ import { catalog } from "../data/provisional";
 import { texts } from "../i18n/es";
 import { AddBar, type AddBarHandle } from "./AddBar";
 import { BottleFrame } from "./Bottle";
-import { PyramidCard, ProjectionCard, Recents, RepartoCard, VisualizerPlaceholder } from "./Charts";
+import { ProjectionCard, RepartoCard, VisualizerPlaceholder } from "./Charts";
 import { CompositionCard } from "./CompositionList";
 import { PromptDialog, SaveAsDialog, type SaveAsChoice } from "./Dialogs";
 import { GramsCard, IntentionCard, NameCard } from "./Header";
 import { ChangeDetail, HistoryDock } from "./HistoryDock";
-import { IfraDetail, IfraSummary } from "./IfraBox";
+import { IfraPanel, IfraSummary } from "./IfraBox";
 import { confirmDialog, download, fileNameFor, guardClose, inTauri, pickAndRead, writeFile } from "./io";
 import { libraryDir, placeFormula, readLibrary, rememberedProvisionals } from "./library";
 import { nextVersionNumber, versionName } from "./library-groups";
-import { ownName, pushRecent, recentKeys } from "./prefs";
+import { MaterialCard } from "./MaterialCard";
+import { ownName } from "./prefs";
 import { benchReducer, emptyFormula, initialState, newId } from "./state";
 
 type Add = Extract<Change, { kind: "add" }>;
@@ -62,20 +63,20 @@ const withoutVersion = (h: FormulaHeader): FormulaHeader => ({
 
 /**
  * The formulation bench, provisional (plan, phase 4): everything the core does,
- * with the spaces and proportions of the sketch (boceto 4, P36). The charts
- * without data keep their place until the data comes.
+ * with the spaces and proportions of the sketch (boceto 4, P36), reordered around the
+ * composition (P57). The charts without data keep their place until the data comes.
  */
 export function Bench(props: { initial: Opened; onExit: () => void }) {
   const [state, dispatch] = useReducer(benchReducer, props.initial, (o) => initialState(o.formula, o.path));
   const [session, setSession] = useState<Material[]>([]);
-  const [recent, setRecent] = useState<string[]>(() => recentKeys());
+  // The material the card under the add bar shows: the last one chosen, kept after adding it (P57).
+  const [cardMaterial, setCardMaterial] = useState<Material | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [dialog, setDialog] = useState<Dialog | null>(() =>
     reopensByWeighing(props.initial.formula) ? { kind: "reweigh", onOpen: true } : null,
   );
   const [error, setError] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [ifraOpen, setIfraOpen] = useState(false);
   const [playing, setPlaying] = useState(false);
   const addBar = useRef<AddBarHandle>(null);
   const { formula, frame } = state;
@@ -169,6 +170,8 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
   }, [formula, frame]);
 
   const byKey = useMemo(() => new Map(catalog.entries.map((e) => [e.material.key, e.material])), []);
+  // The glossary entry of each material: what the card of the chosen material shows (P57).
+  const entryByKey = useMemo(() => new Map(catalog.entries.map((e) => [e.material.key, e])), []);
   const icons = useMemo(
     () =>
       new Map(
@@ -196,10 +199,6 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
     const inside = formula.history.flatMap((c) => (c.kind === "add" && c.material.kind === "formula" ? [c.material] : []));
     return [...session, ...inside.filter((m, i) => !session.some((s) => s.key === m.key) && inside.findIndex((o) => o.key === m.key) === i)];
   }, [session, formula.history]);
-  const recentMaterials = recent
-    .map((key) => byKey.get(key) ?? known.find((m) => m.key === key))
-    .filter((m): m is Material => m !== undefined)
-    .map((m) => (ownName(m.key) ? { ...m, name: ownName(m.key)! } : m));
 
   // The first formula opens with the user's names too (P56).
   useEffect(() => {
@@ -211,12 +210,6 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
     setPlaying(false);
     dispatch({ type: "change", change: c });
     setSelectedId(null);
-  };
-  const addChange = (c: Change) => {
-    change(c);
-    if (c.kind === "add") {
-      setRecent(pushRecent(c.material.key));
-    }
   };
 
   // Ctrl+S saves at once what would be saved in a moment anyway.
@@ -407,7 +400,6 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
         dispatch({ type: "redo" });
       } else if (e.key === "Escape") {
         setMenuOpen(false);
-        setIfraOpen(false);
       }
     };
     window.addEventListener("keydown", onKey);
@@ -465,12 +457,17 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
               entries={catalog.entries}
               sessionMaterials={known}
               onNamed={() => dispatch({ type: "names", nameOf: ownName })}
-              onAdd={addChange}
+              onAdd={change}
+              onSelect={setCardMaterial}
               onQuickMaterial={() => setDialog({ kind: "quick" })}
               onFormulaAsMaterial={() => void formulaAsMaterial()}
               onCreateProvisional={createProvisional}
             />
-            <Recents materials={recentMaterials} onPick={(m) => addBar.current?.select(m)} />
+            <MaterialCard
+              material={cardMaterial}
+              entry={cardMaterial ? entryByKey.get(cardMaterial.key) : undefined}
+              composition={view.composition}
+            />
           </div>
         </div>
         {view.error && (
@@ -478,21 +475,20 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
             {texts.bench.computeError}: {view.error}
           </p>
         )}
+        {/* Lower area, left to right (P57): the visualizer; the share of the matter over the projection; the IFRA panel. */}
         <div className="lower">
           <VisualizerPlaceholder />
           <div className="charts">
-            <div className="charts-top">
-              <PyramidCard />
-              <RepartoCard composition={view.composition} familyOf={familyOf} />
-            </div>
+            <RepartoCard composition={view.composition} familyOf={familyOf} />
             <ProjectionCard />
           </div>
+          <IfraPanel report={view.report} empty={empty} />
         </div>
       </div>
 
       <div className="side">
         <div className="ifra-row">
-          <IfraSummary report={view.report} empty={empty} open={ifraOpen} onToggle={() => setIfraOpen(!ifraOpen)} />
+          <IfraSummary report={view.report} empty={empty} />
           <button type="button" className="tool menu-btn" aria-label={texts.menu.options} title={texts.menu.options} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
               <path d="M3 5h12M3 9h12M3 13h12" />
@@ -535,7 +531,6 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
               </button>
             </div>
           )}
-          {ifraOpen && view.report && !empty && <IfraDetail report={view.report} onClose={() => setIfraOpen(false)} />}
         </div>
         <CompositionCard
           composition={view.composition}
