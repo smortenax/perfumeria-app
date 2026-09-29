@@ -13,6 +13,7 @@ import { texts } from "../i18n/es";
 import { AddBar, type AddBarHandle } from "./AddBar";
 import { BottleFrame } from "./Bottle";
 import { ProjectionCard, RepartoCard, VisualizerPlaceholder } from "./Charts";
+import { ifraOfLines } from "./composition-ifra";
 import { CompositionCard } from "./CompositionList";
 import { PromptDialog, SaveAsDialog, type SaveAsChoice } from "./Dialogs";
 import { GramsCard, IntentionCard, NameCard } from "./Header";
@@ -168,6 +169,16 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
       return { composition: null, report: null, lines: [], current: new Map(), error: message(e) };
     }
   }, [formula, frame]);
+
+  // What each material of the composition carries of its IFRA ceiling and how much more fits
+  // (P57), worked out once per change of the formula or the frame, not per line or per render.
+  // The base is the report's until the panel chooses one (P58, E4).
+  const lineIfra = useMemo(() => {
+    if (!view.composition || !view.report) {
+      return undefined;
+    }
+    return ifraOfLines(formula, catalog.ifra, view.report, view.composition, view.report.base, frame ?? undefined);
+  }, [formula, frame, view]);
 
   const byKey = useMemo(() => new Map(catalog.entries.map((e) => [e.material.key, e.material])), []);
   // The glossary entry of each material: what the card of the chosen material shows (P57).
@@ -538,6 +549,9 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
           adds={adds}
           report={view.report}
           ifra={catalog.ifra}
+          {...(lineIfra ? { lineIfra } : {})}
+          {...(view.report ? { ifraBase: view.report.base } : {})}
+          iconOf={(key) => icons.get(key)}
           chemicalOf={(key) => chemical.get(key)}
           glossaryNameOf={(key) => byKey.get(key)?.name}
           familyOf={familyOf}
