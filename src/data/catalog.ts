@@ -70,6 +70,11 @@ export interface CatalogEntry {
   readonly folded: readonly string[];
   /** The names the shops sell it by: «Aceite Esencial de Tomillo Mastichina», «Ambroxan KAO». */
   readonly shopNames?: readonly string[];
+  /**
+   * Other names a bottle may carry: the trade names of other houses and the shops'
+   * («Dartanol» for the Bacdanol). Found by one, it takes the user's name (P56).
+   */
+  readonly aliases?: readonly string[];
 }
 
 export interface Catalog {
@@ -281,6 +286,7 @@ export function buildCatalog(files: CatalogFiles): Catalog {
       // The shops' names are few, and typed from memory: they take the tolerant search too.
       folded: [trade, ...others, m.nombre, standardName, ...shops].filter((n) => n !== "").map(fold),
       ...(shops.length ? { shopNames: shops } : {}),
+      ...(others.length || shops.length ? { aliases: [...others, ...shops] } : {}),
     });
   }
 

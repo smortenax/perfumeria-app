@@ -20,6 +20,8 @@ export interface Dilution {
 export interface MaterialPrefs {
   readonly favorites: readonly Dilution[];
   readonly last?: Dilution;
+  /** The user's name for it: the one on the bottle, by which it was found (P56). */
+  readonly name?: string;
 }
 
 export interface OwnDiluent {

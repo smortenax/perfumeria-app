@@ -7,6 +7,7 @@ import { checkIfra, type IfraReport } from "../core/ifra";
 import { formulaFromJson, formulaToJson as toJsonWith } from "../core/io/formula-json";
 import type { Change, Formula, FormulaHeader } from "../core/model/formula";
 import { provisionalKey, type Material } from "../core/model/material";
+import { casForm } from "../data/catalog";
 import { catalog } from "../data/provisional";
 import { texts } from "../i18n/es";
 import { AddBar, type AddBarHandle } from "./AddBar";
@@ -20,7 +21,7 @@ import { IfraDetail, IfraSummary } from "./IfraBox";
 import { confirmDialog, download, fileNameFor, guardClose, inTauri, pickAndRead, writeFile } from "./io";
 import { libraryDir, placeFormula, readLibrary, rememberedProvisionals } from "./library";
 import { nextVersionNumber, versionName } from "./library-groups";
-import { pushRecent, recentKeys } from "./prefs";
+import { ownName, pushRecent, recentKeys } from "./prefs";
 import { benchReducer, emptyFormula, initialState, newId } from "./state";
 
 type Add = Extract<Change, { kind: "add" }>;
@@ -95,6 +96,8 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
     pathRef.current = path;
     setPlaying(false);
     dispatch({ type: "load", formula: next, path });
+    // A formula opens with the user's names for its materials (P56).
+    dispatch({ type: "names", nameOf: ownName });
     setSelectedId(null);
     setError(null);
   };
@@ -195,7 +198,13 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
   }, [session, formula.history]);
   const recentMaterials = recent
     .map((key) => byKey.get(key) ?? known.find((m) => m.key === key))
-    .filter((m): m is Material => m !== undefined);
+    .filter((m): m is Material => m !== undefined)
+    .map((m) => (ownName(m.key) ? { ...m, name: ownName(m.key)! } : m));
+
+  // The first formula opens with the user's names too (P56).
+  useEffect(() => {
+    dispatch({ type: "names", nameOf: ownName });
+  }, []);
 
   const setHeader = (header: FormulaHeader) => dispatch({ type: "header", header });
   const change = (c: Change) => {
@@ -455,6 +464,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
               ref={addBar}
               entries={catalog.entries}
               sessionMaterials={known}
+              onNamed={() => dispatch({ type: "names", nameOf: ownName })}
               onAdd={addChange}
               onQuickMaterial={() => setDialog({ kind: "quick" })}
               onFormulaAsMaterial={() => void formulaAsMaterial()}
@@ -534,6 +544,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
           report={view.report}
           ifra={catalog.ifra}
           chemicalOf={(key) => chemical.get(key)}
+          glossaryNameOf={(key) => byKey.get(key)?.name}
           familyOf={familyOf}
           onAgain={(m) => addBar.current?.select(m)}
         />
@@ -637,6 +648,14 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
           submit={(value) => {
             if (value.trim() === "") {
               return texts.dialogs.quickLabel;
+            }
+            // A CAS is not a name (P56): the search finds it if the glossary has it.
+            if (/^\s*\d{2,7}-\d{2}-\d{1,2}\s*$/.test(value)) {
+              const cas = casForm(value);
+              if (!cas) {
+                return texts.addBar.casInvalid(value.trim());
+              }
+              return catalog.entries.some((e) => e.cas === cas) ? texts.addBar.casKnown(cas) : texts.addBar.casMissing(cas);
             }
             addBar.current?.select(createProvisional(value.trim()));
             return null;

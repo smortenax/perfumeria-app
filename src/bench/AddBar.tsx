@@ -3,7 +3,7 @@ import { Ratio } from "../core/arith/ratio";
 import { parseMass, parsePercent, type MassUnit } from "../core/arith/units";
 import type { Change } from "../core/model/formula";
 import type { Material } from "../core/model/material";
-import { normalize, searchCatalog, type CatalogEntry, type IfraState, type MaterialFamily } from "../data/catalog";
+import { casForm, normalize, searchCatalog, type CatalogEntry, type IfraState, type MaterialFamily } from "../data/catalog";
 import { texts } from "../i18n/es";
 import {
   addOwnDiluent,
@@ -12,9 +12,11 @@ import {
   diluentOptions,
   isPure,
   ownDiluents,
+  ownName as userNameOf,
   percentOptions,
   prefsOf,
   rememberLast,
+  rememberName,
   sameDilution,
   toggleFavorite,
   type DiluentId,
@@ -49,8 +51,14 @@ type Result =
       family?: MaterialFamily;
       /** The shop's name it was found by, when its own names do not say what was typed. */
       shopName?: string;
+      /** The glossary's name, when the user knows it by another (P56). */
+      glossaryName?: string;
+      /** The other name of the bottle that was typed: it becomes the user's name (P56). */
+      bottleName?: string | null;
     }
-  | { kind: "create"; name: string };
+  | { kind: "create"; name: string }
+  /** What was typed cannot be a material: a CAS that is not in the glossary (P56). */
+  | { kind: "note"; text: string };
 
 const samePercent = (a: string, b: string) => a.replace(",", ".") === b.replace(",", ".");
 
@@ -85,6 +93,8 @@ export function AddBar(props: {
   onQuickMaterial: () => void;
   onFormulaAsMaterial: () => void;
   onCreateProvisional: (name: string) => Material;
+  /** A material took the user's name for it (P56): the formula names it so too. */
+  onNamed?: () => void;
 }) {
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<Material | null>(null);
@@ -221,9 +231,19 @@ export function AddBar(props: {
     const says = (name: string) => words.every((w) => normalize(name).includes(w));
     const shopName = (e: CatalogEntry) =>
       e.shopNames && !says(`${e.material.name} ${e.chemicalName} ${e.code} ${e.cas}`) ? e.shopNames.find(says) : undefined;
+    // Found by another name of the bottle («dartanol»), that is the user's name for it;
+    // by the glossary's own name, the user's is dropped; by code or CAS, it stays (P56).
+    const bottleName = (e: CatalogEntry): string | null | undefined => {
+      if (says(e.material.name)) {
+        return null;
+      }
+      return e.aliases?.find(says);
+    };
     const found: Result[] = searchCatalog(pool, query, 10).map((e) => ({
       kind: "material",
-      material: e.material,
+      material: userNameOf(e.material.key) ? { ...e.material, name: userNameOf(e.material.key)! } : e.material,
+      ...(userNameOf(e.material.key) && userNameOf(e.material.key) !== e.material.name ? { glossaryName: e.material.name } : {}),
+      bottleName: bottleName(e),
       tag: e.group === "diluent" ? "diluyente" : null,
       cas: e.cas,
       code: e.code,
@@ -239,6 +259,11 @@ export function AddBar(props: {
     }));
     const all = [...session, ...found];
     const exact = all.some((r) => r.kind === "material" && normalize(r.material.name) === q);
+    // A CAS is not a name: one the glossary does not have is not made a material (P56).
+    if (/^\s*\d{2,7}-\d{2}-\d{1,2}\s*$/.test(query)) {
+      const cas = casForm(query);
+      return all.length > 0 ? all : [{ kind: "note", text: cas ? t.casMissing(cas) : t.casInvalid(query.trim()) }];
+    }
     return exact ? all : [...all, { kind: "create", name: query.trim() }];
   }, [query, selected, mine, formulas, props.entries, props.sessionMaterials]);
 
@@ -267,7 +292,21 @@ export function AddBar(props: {
   }));
 
   const choose = (result: Result) => {
-    select(result.kind === "create" ? props.onCreateProvisional(result.name) : result.material);
+    if (result.kind === "note") {
+      return;
+    }
+    if (result.kind === "create") {
+      select(props.onCreateProvisional(result.name));
+    } else if (result.bottleName !== undefined && result.material.kind === "base") {
+      // The name it was found by is the user's from now on (P56).
+      const key = result.material.key;
+      rememberName(key, result.bottleName);
+      const glossary = byKey.get(key)?.material.name ?? result.material.name;
+      select({ ...result.material, name: result.bottleName ?? glossary });
+      props.onNamed?.();
+    } else {
+      select(result.material);
+    }
     quantityRef.current?.focus();
   };
 
@@ -415,14 +454,16 @@ export function AddBar(props: {
             </li>
             {results.map((r, i) => (
               <li
-                key={r.kind === "create" ? "create" : r.material.key}
+                key={r.kind === "create" ? "create" : r.kind === "note" ? "note" : r.material.key}
                 className={i === highlight ? "active" : undefined}
                 onMouseDown={(e) => {
                   e.preventDefault();
                   choose(r);
                 }}
               >
-                {r.kind === "create" ? (
+                {r.kind === "note" ? (
+                  <span className="muted">{r.text}</span>
+                ) : r.kind === "create" ? (
                   <span className="create">{t.createProvisional(r.name)}</span>
                 ) : (
                   <>
@@ -447,6 +488,7 @@ export function AddBar(props: {
                         )}
                       </span>
                       {r.chemicalName && <span className="chemical">{r.chemicalName}</span>}
+                      {r.glossaryName && <span className="chemical">{t.inGlossary(r.glossaryName)}</span>}
                       {r.shopName && <span className="chemical">{t.inShop(r.shopName)}</span>}
                       {r.standardName && (
                         <span className="standard">

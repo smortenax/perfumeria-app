@@ -2082,9 +2082,23 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
     puede dar la fórmula por buena.
 - **Lo que cuesta dejarla abierta:** la fórmula guardada sigue diciendo nombres que no son
   los de los frascos, y ya ha llevado a pesar un material por otro.
+- **Respuesta literal:** *«la a es una buena opcion, dejalo funcional»*
+- **Lectura:** la A de las dos partes: la app recuerda el nombre por el que se elige cada
+  material, y un texto con forma de CAS no se crea como provisional. *Pendiente de que el
+  usuario confirme que la segunda parte también era la A.*
+- **Hecho:**
+  - el nombre propio se guarda en las preferencias, por material; lo fija elegirlo por otro
+    nombre comercial o de tienda, y lo quita elegirlo por el nombre del glosario. El código o
+    el CAS no lo tocan;
+  - la fórmula abierta, las que se abren y las recientes toman el nombre propio; la clave no
+    cambia, así que IFRA tampoco. La búsqueda lo enseña primero, con «en el glosario: …»
+    debajo, y el detalle de la composición también;
+  - un CAS escrito en el buscador o en «material nuevo rápido» no se crea como provisional:
+    si el glosario no lo tiene, se pide el nombre; si no es válido, se dice; si lo tiene, se
+    manda a buscarlo.
 - Fecha: 2026-09-29
-- Estado: abierta
-- Destino: decisiones.md §4 (buscador), §3.6; P38, P44
+- Estado: cerrada
+- Destino: decisiones.md §4 (buscador), §9; P38, P44
 
 ---
 
@@ -2097,6 +2111,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
 | R12 · infografías y frentes | 7 (P35 a P41) | 3 (P33, P34, P42) |
-| R13 · a pesar en el banco | 8 (P43, P44, P48 a P51, P53, P55) | 6 (P45 a P47, P52, P54, P56) |
+| R13 · a pesar en el banco | 9 (P43, P44, P48 a P51, P53, P55, P56) | 5 (P45 a P47, P52, P54) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.

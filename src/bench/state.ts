@@ -23,6 +23,8 @@ export type BenchAction =
   | { type: "undo" }
   | { type: "redo" }
   | { type: "saved"; path: string; formula: Formula }
+  /** Names the materials of the formula as the user knows them (P56). */
+  | { type: "names"; nameOf: (key: string) => string | undefined }
   | { type: "frame"; frame: number | null };
 
 export const emptyFormula = (name: string): Formula => ({
@@ -84,7 +86,32 @@ export function benchReducer(state: BenchState, action: BenchAction): BenchState
       return { ...state, path: action.path, saved: state.formula === action.formula };
     case "frame":
       return { ...state, frame: action.frame };
+    case "names": {
+      const renamed = renameMaterials(formula, action.nameOf);
+      return renamed === formula ? state : { ...state, formula: renamed, saved: false };
+    }
   }
+}
+
+/**
+ * The formula with each material of the glossary under the user's name for it (P56),
+ * where they have one. The same formula, untouched, if no name changes: the key, and so
+ * IFRA, never change; only what it is called.
+ */
+export function renameMaterials(formula: Formula, nameOf: (key: string) => string | undefined): Formula {
+  let changed = false;
+  const history = formula.history.map((c) => {
+    if (c.kind !== "add" || c.material.kind !== "base") {
+      return c;
+    }
+    const name = nameOf(c.material.key);
+    if (!name || name === c.material.name) {
+      return c;
+    }
+    changed = true;
+    return { ...c, material: { ...c.material, name } };
+  });
+  return changed ? { ...formula, history } : formula;
 }
 
 export const newId = (): string => crypto.randomUUID();

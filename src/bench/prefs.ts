@@ -23,6 +23,21 @@ export function rememberLast(materialKey: string, dilution: Dilution): void {
   }));
 }
 
+/** The user's name for a material, if they have one (P56). */
+export const ownName = (materialKey: string): string | undefined => userData().materials[materialKey]?.name;
+
+/**
+ * Remembers the name the user found a material by (P56): «Dartanol», not the glossary's
+ * «Bacdanol». Null forgets it, and the material goes back to the glossary's name.
+ */
+export function rememberName(materialKey: string, name: string | null): void {
+  updateUserData((d) => {
+    const current = d.materials[materialKey] ?? { favorites: [] };
+    const { name: _old, ...rest } = current;
+    return { ...d, materials: { ...d.materials, [materialKey]: name ? { ...rest, name } : rest } };
+  });
+}
+
 /** Adds the dilution as a favourite, or takes it away if it already is one. Two at most: a third pushes out the oldest. */
 export function toggleFavorite(materialKey: string, dilution: Dilution): MaterialPrefs {
   const current = prefsOf(materialKey);

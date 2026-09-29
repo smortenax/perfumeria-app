@@ -291,6 +291,8 @@ el teclado**; el ratón solo hace falta para la estrella.
 |---|---|
 | **➕** | Lo que no está en la paleta base: **material nuevo rápido** (basta un nombre), **fórmula como material** y **de mis materiales** |
 | **Buscador** | **Un solo buscador**, que **se queda con el material elegido**: no hay campo «Seleccionado». **Dos interruptores independientes**, uno para incluir **mis materiales** y otro para **fórmulas como material**, porque la base IFRA ya es enorme. Van **a la izquierda del buscador, como interruptores de encendido** (P24). **Intro o el tabulador eligen y pasan a la cantidad** (P26) |
+| **El nombre del frasco** | **La app recuerda el nombre por el que eliges cada material** (P56): encontrado por «dartanol», se llama Dartanol en la fórmula, el historial y la búsqueda, aunque el glosario lo llame Bacdanol. Cuenta un nombre comercial de otra casa o uno de tienda; el código o el CAS no lo cambian, y el nombre del glosario lo devuelve. El del glosario queda en el detalle. **La clave no cambia, así que IFRA tampoco.** Es un dato tuyo por material, como la última dilución |
+| **Un CAS no es un nombre** | Un texto con forma de CAS **no se crea como provisional** (P56): si el glosario no lo tiene, el buscador pide el nombre del material; si no es válido, lo dice. Un provisional con nombre sigue valiendo (P44) |
 | **Cantidad** | **mg por defecto**; la unidad se puede cambiar a g para lotes grandes. **Intro pasa a la dilución. Ctrl+Intro añade directamente**, con la dilución que ya está puesta: para el material que se usa siempre igual |
 | **Dilución** | **Dos casillas de porcentaje lado a lado y, debajo, un botón ancho «Puro»** (P53); **dos opciones de diluyente**. Todo se cambia con las flechas. **Son dos selectores independientes**: ninguno cambia al otro ni se apaga (P26). Sin usos previos, **las mismas para todos los materiales: 10 % y 50 %, y «Puro»; DPG y alcohol** (P26, P53). Sale preseleccionada **la última dilución** con que se usó ese material (P7). **Otro porcentaje se escribe**, con doble clic sobre el %; **otro diluyente**, habitual o provisional, sale de **un solo desplegable** a la derecha de los dos. Intro pasa a Añadir |
 | **Añadir** | Intro añade |
@@ -504,6 +506,7 @@ Se tacha, no se borra: el texto original sigue en los antecedentes.
 | ~~Lo que no está en la tabla de IFRA es «sin comprobar»~~ | §5.2 | P37: el índice es completo; lo que no está es «sin estándar propio», y solo un natural fuera del anexo es «sin dato» |
 | ~~Los datos de referencia se generan desde el laboratorio~~ | §6, P2 | P37: IFRA de IFRA, y el glosario del FIG con las abreviaturas del usuario |
 | ~~Cada material tiene pureza, y la app no deja escribir un porcentaje mayor~~ | §2.5, 2026-09-25 | P27: el diseño es general; nada limita el porcentaje, y cada usuario recuerda lo suyo con sus favoritas (§2.5) |
+| ~~Donde hay nombre comercial, la app lo enseña primero~~ (en la fórmula) | P38 | P56: manda el nombre por el que el usuario eligió el material; el comercial sigue primero en la búsqueda mientras no tenga otro |
 
 ---
 

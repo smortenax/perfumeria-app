@@ -30,6 +30,8 @@ export function CompositionCard(props: {
   ifra: IfraData;
   /** The chemical name of a material named by its trade name (P38). */
   chemicalOf?: (key: string) => string | undefined;
+  /** The glossary's name, said when the user knows the material by another (P56). */
+  glossaryNameOf?: (key: string) => string | undefined;
   /** Each line shows the family of its material (P48). */
   familyOf?: (key: string) => MaterialFamily | undefined;
   /** Takes the material to the add bar, to add it again. */
@@ -55,6 +57,10 @@ export function CompositionCard(props: {
     const flags: Flag[] = [];
     const lines: Array<[string, string]> = [];
 
+    const glossaryName = props.glossaryNameOf?.(m.key);
+    if (glossaryName && glossaryName !== m.name) {
+      lines.push([t.glossaryName, glossaryName]);
+    }
     const chemicalName = props.chemicalOf?.(m.key);
     if (chemicalName) {
       lines.push([t.chemical, chemicalName]);
