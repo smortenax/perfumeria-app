@@ -187,8 +187,14 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
     () => new Map(catalog.entries.filter((e) => e.tradeName).map((e) => [e.material.key, e.chemicalName])),
     [],
   );
+  // The formulas used as materials in this one stay at hand after reopening it: an accord
+  // can be added again by its name, without opening its file (§3.6).
+  const known = useMemo(() => {
+    const inside = formula.history.flatMap((c) => (c.kind === "add" && c.material.kind === "formula" ? [c.material] : []));
+    return [...session, ...inside.filter((m, i) => !session.some((s) => s.key === m.key) && inside.findIndex((o) => o.key === m.key) === i)];
+  }, [session, formula.history]);
   const recentMaterials = recent
-    .map((key) => byKey.get(key) ?? session.find((m) => m.key === key))
+    .map((key) => byKey.get(key) ?? known.find((m) => m.key === key))
     .filter((m): m is Material => m !== undefined);
 
   const setHeader = (header: FormulaHeader) => dispatch({ type: "header", header });
@@ -448,7 +454,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
             <AddBar
               ref={addBar}
               entries={catalog.entries}
-              sessionMaterials={session}
+              sessionMaterials={known}
               onAdd={addChange}
               onQuickMaterial={() => setDialog({ kind: "quick" })}
               onFormulaAsMaterial={() => void formulaAsMaterial()}

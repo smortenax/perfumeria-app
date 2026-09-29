@@ -271,6 +271,12 @@ reparten entre sus componentes en su proporción exacta. La línea se ve como «
 fórmula, X mg», y cada componente suma su parte a la fórmula. **Al añadir no hay límite ni
 aviso de cantidad**: los materiales son vectores.
 
+- **La primera vez sale «Puro»**: el acorde ya lleva su diluyente dentro. Después, su última
+  dilución, como cualquier material.
+- **Al reabrir la fórmula, sus acordes siguen a mano**: se encuentran por su nombre en la
+  búsqueda, sin volver a abrir su archivo. Así se retoca un perfume añadiendo más acorde
+  (prueba funcional, 2026-09-29).
+
 ---
 
 # 4 · La barra de añadir

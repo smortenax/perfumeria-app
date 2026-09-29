@@ -251,7 +251,8 @@ export function AddBar(props: {
     setError(null);
     setEditing(null);
     setPrefs(p);
-    setPercent(material.solvent ? "100" : (p.last?.percent ?? percentOptions(p)[0]));
+    // A solvent goes pure; so does a formula the first time, since it already carries its diluent (§3.6).
+    setPercent(material.solvent ? "100" : (p.last?.percent ?? (material.kind === "formula" ? "100" : percentOptions(p)[0])));
     setDiluent(p.last?.diluent ?? diluentOptions(p)[0]);
   };
 
