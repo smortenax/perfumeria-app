@@ -26,12 +26,12 @@ describe("the catalog, from the glossary and IFRA's own files (P37)", () => {
     const count = (group: string) => catalog.entries.filter((e) => e.group === group).length;
     // 4317 since P48: 19 rows of the FIG that the lab counts as naturals were taken for
     // molecules, and three of them are the only natural of a CAS the Transparency List
-    // also lists, so its entry joins them instead of standing apart. 4321 since P55: four
+    // also lists, so its entry joins them instead of standing apart. 4325 since P55: eight
     // molecules that only the shops where the user buys know (Trimofix, Tuberolide…).
     // The count did not err before; the glossary gained a source.
-    expect(count("base")).toBe(4321);
+    expect(count("base")).toBe(4325);
     // Since P48 the counts also say how many have a family: all of the FIG.
-    expect(catalog.counts).toEqual({ fig: 3119, ifraOnly: 1202, withFamily: 3119 });
+    expect(catalog.counts).toEqual({ fig: 3119, ifraOnly: 1206, withFamily: 3119 });
     // DPG and alcohol, and the other diluents of the menu (§4): IPM, DEP, TEC, triacetin, benzyl benzoate.
     expect(count("diluent")).toBe(7);
     expect(count("own")).toBe(0);

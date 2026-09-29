@@ -11,10 +11,13 @@ Las tiendas nombran sus materiales como se compran: «Ambroxan KAO», «Abs. de 
 - **Maese Lab** (maeselab.com, BigCommerce): la página de cada producto de su sitemap.
 - **Perfumiarz** (perfumiarz.com, Shopify): el listado público de productos y la página de
   cada uno, donde está el CAS.
+- **PubChem**, para los CAS de las tiendas que el glosario no tiene: los nombres de uso de su
+  sustancia («84929-41-9» es «Black pepper»). Un natural se une así por su nombre común. Se
+  corre después de `scripts/nombres_proveedores.py`, que dice qué CAS faltan.
 
 Una página por segundo, y lo que ya está en la caché no se vuelve a pedir. La caché está en
 `datos/glosario/.cache/proveedores/`, fuera de Git.
-Uso:  python scripts/traer_proveedores.py [olfatorium|maeselab|perfumiarz ...]
+Uso:  python scripts/traer_proveedores.py [olfatorium|maeselab|perfumiarz|pubchem ...]
 """
 import json
 import re
@@ -97,8 +100,21 @@ def perfumiarz() -> None:
             print(f"  {i + 1}")
 
 
-SHOPS = {"olfatorium": olfatorium, "maeselab": maeselab, "perfumiarz": perfumiarz}
+def pubchem() -> None:
+    import csv
+
+    origin = ROOT / "datos" / "glosario" / "origen" / "nombres-proveedores.csv"
+    known = set()
+    for m in csv.DictReader((ROOT / "datos" / "glosario" / "materiales.csv").open(encoding="utf-8")):
+        known.update([m["cas"], *m["otros_cas"].split()])
+    missing = sorted({r["cas"] for r in csv.DictReader(origin.open(encoding="utf-8"))} - known)
+    print(f"pubchem: {len(missing)} CAS de tiendas que el glosario no tiene")
+    for cas in missing:
+        get(f"https://pubchem.ncbi.nlm.nih.gov/rest/pug/substance/name/{cas}/synonyms/JSON", CACHE / "pubchem" / f"{cas}.json")
+
+
+SHOPS = {"olfatorium": olfatorium, "maeselab": maeselab, "perfumiarz": perfumiarz, "pubchem": pubchem}
 
 if __name__ == "__main__":
-    for name in sys.argv[1:] or SHOPS:
+    for name in sys.argv[1:] or [k for k in SHOPS if k != "pubchem"]:
         SHOPS[name]()

@@ -59,6 +59,23 @@ def species(botanical: str) -> str:
     return " ".join(words[:2]) if len(words) >= 2 else ""
 
 
+# The words that say the form of a natural, not which natural it is.
+FORM_WORDS = {"oil", "oils", "essential", "absolute", "extract", "ext", "co2", "concrete", "resinoid", "tincture",
+              "oleoresin", "the", "of"}
+
+
+# The part of the plant: a second, looser try leaves it out («Roman chamomile» is
+# «Chamomile flower oil, Roman»), and counts only when one natural is left.
+PART_WORDS = {"flower", "flowers", "leaf", "leaves", "herb", "seed", "root", "rhizome", "bark", "wood", "peel",
+              "fruit", "berry", "needle", "needles", "twig", "resin", "gum", "bud"}
+
+
+def core_words(name: str, parts: bool = True) -> frozenset:
+    """Which natural a name says, without its form: «Pepper oil, black» is {pepper, black}."""
+    words = re.sub(r"[^a-z0-9 ]", " ", name.lower()).split()
+    return frozenset(w for w in words if w not in FORM_WORDS and (parts or w not in PART_WORDS))
+
+
 CAS_RE = re.compile(r"\b\d{2,7}-\d{2}-\d\b")
 CATEGORIES = ["1", "2", "3", "4", "5a", "5b", "5c", "5d", "6", "7a", "7b", "8", "9",
               "10a", "10b", "11a", "11b", "12"]
@@ -406,9 +423,10 @@ def main() -> None:
     # is, or as another CAS of a natural of the annex, or by the species of its INCI
     # («Thymus Mastichina Herb Oil» is the annex's Spanish marjoram oil). A natural joins
     # only the rows of its kind: the CAS of a natural is the plant's, and the oil and the
-    # absolute share it. A molecule that nothing knows is new, from the shop; a natural
-    # that does not join is left in a list, not made a double of one the FIG has by
-    # another name.
+    # absolute share it. Last, a natural joins by the usual name PubChem gives its CAS
+    # («84929-41-9» is «Black pepper»: «Pepper oil, black»). A molecule that nothing
+    # knows is new, from the shop; a natural that does not join is left in a list, not
+    # made a double of one the FIG has by another name.
     shop_rows = read(SHOP_NAMES) if SHOP_NAMES.exists() else []
     alt_of: dict[str, set[str]] = {}
     species_of: dict[str, set[str]] = {}
@@ -424,6 +442,13 @@ def main() -> None:
             if c:
                 by_any_cas.setdefault(c, []).append(m)
 
+    by_core: dict[frozenset, list[dict]] = {}
+    by_loose: dict[frozenset, list[dict]] = {}
+    for m in materials + new:
+        if m["clase"] == "natural":
+            by_core.setdefault(core_words(m["nombre"]), []).append(m)
+            by_loose.setdefault(core_words(m["nombre"], parts=False), []).append(m)
+
     def shop_targets(r: dict) -> tuple[list[dict], str]:
         for how, cas_set in (("cas", {r["cas"]}), ("cas del anexo", alt_of.get(r["cas"], set())),
                              ("especie", species_of.get(species(r["inci"]), set()) if r["clase"] != "molécula" else set())):
@@ -431,7 +456,16 @@ def main() -> None:
             if found:
                 break
         else:
-            return [], ""
+            names = [n for n in r.get("nombres_comunes", "").split(" | ") if n] if r["clase"] != "molécula" else []
+            found = list({id(m): m for n in names for m in by_core.get(core_words(n), [])}.values())
+            how = "nombre común"
+            if not found:
+                kind = SHOP_KIND.get(r["tipo"], "")
+                loose = [m for n in names if not core_words(n) & PART_WORDS for m in by_loose.get(core_words(n, parts=False), [])]
+                loose = [m for m in loose if not kind or m["tipo_natural"] == kind]
+                if len({norm(m["nombre"]) for m in loose}) != 1:
+                    return [], ""
+                found = list({id(m): m for m in loose}.values())
         kind = SHOP_KIND.get(r["tipo"], "")
         if kind and len(found) > 1:
             same = [m for m in found if m["tipo_natural"] == kind and (r["tipo"] != "co2" or "co2" in m["nombre"].lower())]

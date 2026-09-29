@@ -2049,6 +2049,43 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 - Estado: cerrada
 - Destino: datos/glosario/LEEME.md
 
+### P56 — El nombre del frasco, y ninguna fila sin identificar
+
+- **Entrada de la bandeja del laboratorio**, 2026-09-28, «Nombres de material que no son los
+  del frasco», a raíz de F-002-v1 (Zara tobaco dark):
+  - la app enseña **Bacdanol** para el **Dartanol** del usuario, y además *Hindinol*,
+    *alpha-Irone* y *Lime oil*, que no son los nombres de sus frascos;
+  - **consecuencia real:** al leer la fórmula, el usuario confundió el Dartanol con el
+    Ebanol, y el Dartanol acabó al 18 % de la materia aromática;
+  - una fila **«0123-07-09»**, sin comprobar, que no es un material identificable;
+  - **pide:** enseñar el nombre del frasco (o los dos) y no aceptar una fila sin material
+    identificado.
+- **Por qué pasa:**
+  - el glosario enseña el nombre comercial de cada CAS (P38). El 28219-61-6 se llama
+    Bacdanol, y «Dartanol» solo es otro nombre suyo, y el nombre de venta de Maese Lab.
+    Buscando «dartanol» sale y se guarda «Bacdanol»;
+  - «0123-07-09» se creó como material provisional desde el buscador, que no lo encontraba.
+    Ya lo encuentra (P52), pero el buscador sigue dejando crear un provisional con cualquier
+    texto.
+- **Opciones para el nombre:**
+  - **A (recomendada):** **la app recuerda el nombre por el que eliges cada material.** Si lo
+    encuentras escribiendo «dartanol», la fórmula lo guarda y lo enseña como «Dartanol», y la
+    próxima vez el buscador lo enseña así primero. El nombre comercial y el químico quedan
+    debajo, en el detalle. Es tu nombre, por material, como la última dilución.
+  - **B:** los dos siempre, «Dartanol · Bacdanol», en la composición y el historial.
+  - **C:** un «renombrar» en la composición, a mano.
+- **Opciones para la fila sin identificar:**
+  - **A (recomendada):** un texto con forma de CAS no se puede crear como provisional. Si el
+    CAS es válido y no está en el glosario, el buscador dice «ese CAS no está: escribe su
+    nombre». Un provisional con nombre sigue valiendo (P44), y sigue «sin comprobar».
+  - **B:** además, avisar al guardar o al exportar si queda algún provisional, porque IFRA no
+    puede dar la fórmula por buena.
+- **Lo que cuesta dejarla abierta:** la fórmula guardada sigue diciendo nombres que no son
+  los de los frascos, y ya ha llevado a pesar un material por otro.
+- Fecha: 2026-09-29
+- Estado: abierta
+- Destino: decisiones.md §4 (buscador), §3.6; P38, P44
+
 ---
 
 ## Estado
@@ -2060,6 +2097,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
 | R12 · infografías y frentes | 7 (P35 a P41) | 3 (P33, P34, P42) |
-| R13 · a pesar en el banco | 8 (P43, P44, P48 a P51, P53, P55) | 5 (P45 a P47, P52, P54) |
+| R13 · a pesar en el banco | 8 (P43, P44, P48 a P51, P53, P55) | 6 (P45 a P47, P52, P54, P56) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.

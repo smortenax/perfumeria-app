@@ -31,9 +31,9 @@ las de [`procedencia.json`](procedencia.json) del 2026-09-29.
 | `ncs:nombre` | un natural del anexo de IFRA que no tiene fila en el FIG con ese nombre | 57 |
 | `tl:CAS` o `tl:nombre` | un ingrediente de la Transparency List que no estaba en nada de lo anterior | 945 |
 | `cat:CAS` | un material que solo conoce el catálogo de una casa: [`origen/materiales-de-catalogos.csv`](origen/materiales-de-catalogos.csv), con la página | 3 |
-| `tienda:CAS` | una molécula que solo conoce una tienda donde compra el usuario (P55) | 4 |
+| `tienda:CAS` | una molécula que solo conoce una tienda donde compra el usuario (P55) | 8 |
 
-En total son 4321. **Una fila del FIG es un natural** si el usuario le dio tipo, si el anexo
+En total son 4325. **Una fila del FIG es un natural** si el usuario le dio tipo, si el anexo
 de IFRA tiene su CAS, o si el laboratorio la cuenta como natural (P48). Así, una goma o un
 bálsamo sin tipo no pasa por molécula, que saldría libre (§1.2).
 
@@ -55,7 +55,7 @@ La Transparency List se une así con lo anterior:
   [`scripts/relacionar_moleculas.py`](../../scripts/relacionar_moleculas.py). Son 7.
 - **La abreviatura** (`codigo`) es única en todo el glosario:
   - `codigo_origen` = `usuario` en las 3119 del FIG;
-  - `codigo_origen` = `generado` en las 1202 nuevas, con el mismo estilo y **provisionales**.
+  - `codigo_origen` = `generado` en las 1206 nuevas, con el mismo estilo y **provisionales**.
     331 llevan un número para no repetirse.
 
 ## La familia y su color (P48)
@@ -101,14 +101,18 @@ del glosario no se parece a lo escrito. Salen de
   viene con 90063-37-9, y el anexo lo da como otro CAS de la de 8000-28-0;
 - si no, **por la especie de su INCI**: «Thymus Mastichina Herb Oil» es la «Marjoram oil,
   Spanish» del anexo;
+- si no, un natural, **por el nombre de uso que PubChem da a su CAS**: el 84929-41-9 de la
+  pimienta negra es «Black pepper», que es la «Pepper, black, oil» del FIG. Primero con la
+  parte de la planta; si no, sin ella, y solo si queda un natural;
 - un natural solo se une a las filas de su forma: el nombre de un absoluto no va al aceite.
 
-**Una molécula que nada conoce entra como material nuevo**, `tienda:CAS`, con la tienda como
+Perfumiarz no dice si algo es natural o molécula: lo dice su INCI, químico o botánico, y sin
+INCI no se da por sabido. **Una molécula que nada conoce entra como material nuevo**, `tienda:CAS`, con la tienda como
 fuente. **Un natural que no se une no entra**: el FIG suele tenerlo con otro CAS, y saldría
 doble. Queda en [`proveedores-sin-unir.csv`](proveedores-sin-unir.csv) para resolverlo.
 
 A 2026-09-29: 1183 filas de 754 CAS, de Olfatorium (160 productos con CAS), Maese Lab (387) y
-Perfumiarz (513). **909 materiales llevan nombre de tienda**; 4 son nuevos y 76 filas de las
+Perfumiarz (513). **923 materiales llevan nombre de tienda**; 8 son nuevos y 45 filas de las
 tiendas quedan sin unir.
 
 ## Los nombres comerciales, por encima (P38)
@@ -147,7 +151,7 @@ Lo desconocido nunca se da por libre (§1.2).
 | `condicion` | una especificación, una variante prohibida o una familia: no es un % | 47 |
 | `por-constituyentes` | sin estándar propio, pero el anexo le da constituyentes regulados | 523 |
 | `sin-dato` | un natural sin estándar propio y fuera del anexo: no se sabe qué lleva | 553 |
-| `sin-estandar` | no está en el índice de IFRA, que es completo: no tiene estándar propio | 2660 |
+| `sin-estandar` | no está en el índice de IFRA, que es completo: no tiene estándar propio | 2664 |
 
 `condiciones` explica lo que no cabe en un %, con el estándar al lado: especificaciones,
 variantes prohibidas, grupos de un estándar, el tope de la nota o la familia. **Una familia

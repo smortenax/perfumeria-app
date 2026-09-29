@@ -15,6 +15,9 @@ regenera sin red. Una fila por producto y CAS:
   el CAS de un natural es el de la planta y lo comparten el aceite y el absoluto;
 - `inci`: el nombre INCI, si la tienda lo da. Su especie botánica une un natural cuyo CAS
   no está en el glosario;
+- `nombres_comunes`: si el glosario no tiene el CAS, los nombres de uso de su sustancia en
+  PubChem («Black pepper», «Patchouli oil»), de la caché de `traer_proveedores.py pubchem`.
+  Un natural se une por ellos a la fila del glosario con ese nombre;
 - `proveedor`, `categoria` y `url`: de dónde sale.
 
 Quedan fuera los productos que no son materias de perfumería (frascos, aceites vegetales,
@@ -22,6 +25,7 @@ cosmética) y, en una dilución, el CAS del disolvente.
 Uso:  python scripts/nombres_proveedores.py
 """
 import csv
+import functools
 import html
 import json
 import re
@@ -138,18 +142,39 @@ def perfumiarz() -> list[dict]:
         name = clean(p["title"])
         inci = re.search(r"INCI\s*:?\s*(.*?)\s+(?:NOTE|Note|Odor|ODOR|CAS|$)", t)
         kind = kind_of(name)
+        inci_text = inci.group(1).strip() if inci else ""
+        # Perfumiarz does not say natural or molecule: a chemical INCI is a molecule, a
+        # botanical one a natural; without INCI it is not said (§1.2).
+        botanical = re.search(r"\b(oil|extract|absolute|resin|balsam|wood|leaf|flower|root|seed|gum)\b", inci_text, re.I)
+        clase = "natural" if kind or botanical else "molécula" if inci_text and inci_text != "-" else ""
         for cas in cas_list(found.group(1)):
-            rows.append({"cas": cas, "nombre": name, "clase": "natural" if kind else "", "tipo": kind,
+            rows.append({"cas": cas, "nombre": name, "clase": clase, "tipo": kind,
                          "inci": inci.group(1).strip()[:120] if inci else "", "proveedor": "Perfumiarz",
                          "categoria": p.get("product_type", ""), "url": f"https://perfumiarz.com/products/{p['handle']}"})
     return rows
 
 
+@functools.cache
+def common_names(cas: str) -> str:
+    """PubChem's usual names of the substance: no codes, registry numbers or long ones."""
+    path = CACHE / "pubchem" / f"{cas}.json"
+    if not path.exists() or not path.read_text(encoding="utf-8"):
+        return ""
+    names: list[str] = []
+    for info in json.loads(path.read_text(encoding="utf-8")).get("InformationList", {}).get("Information", []):
+        for n in info.get("Synonym", []):
+            if len(n) <= 40 and not re.search(r"\d{3}|EINECS|FEMA|CCRIS|DTXSID|RefChem|UNII|HSDB|NSC", n) and n not in names:
+                names.append(n)
+    return " | ".join(names[:12])
+
+
 def main() -> None:
     rows = olfatorium() + maeselab() + perfumiarz()
+    for r in rows:
+        r["nombres_comunes"] = common_names(r["cas"])
     rows.sort(key=lambda r: (r["proveedor"], r["nombre"].lower(), r["cas"]))
     with OUT.open("w", encoding="utf-8", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=["cas", "nombre", "clase", "tipo", "inci", "proveedor", "categoria", "url"], lineterminator="\n")
+        w = csv.DictWriter(f, fieldnames=["cas", "nombre", "clase", "tipo", "inci", "nombres_comunes", "proveedor", "categoria", "url"], lineterminator="\n")
         w.writeheader()
         w.writerows(rows)
     shops = {}
