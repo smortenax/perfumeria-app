@@ -38,6 +38,15 @@ describe("the catalog, from the glossary and IFRA's own files (P37)", () => {
     expect(new Set(catalog.entries.map((e) => e.code)).size).toBe(catalog.entries.length);
   });
 
+  it("keeps a Transparency List name whole where IFRA's web gave it as a JSON list, cut at every comma", () => {
+    expect(catalog.entries.some((e) => e.material.name.startsWith('["'))).toBe(false);
+    const lavender = byName("Lavender oil (Lavandula angustifolia, Lavandula angustifolia angustifolia, Lavandula officinalis)");
+    expect(lavender.key).toBe("tl:lavender-oil-lavandula-angustifolia-lavandula-angustifolia-a");
+    // The myrrh resinoid of the FIG keeps IFRA's whole name to be found by it.
+    const found = searchCatalog(catalog.entries, "Commiphora erthyraea").map((e) => e.material.key);
+    expect(found).toContain(byName("Myrrh resinoid").key);
+  });
+
   it("gives a material with a standard its category 4 ceiling, by standard", () => {
     const otne = byCas("54464-57-2");
     expect(ifraOf(otne.key)?.substances).toEqual([{ key: "std:IFRA_STD_068", fraction: Ratio.ONE }]);

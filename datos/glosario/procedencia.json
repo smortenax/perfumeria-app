@@ -19,7 +19,7 @@
       "que_es": "nombres comerciales por CAS, con su fuente y su confianza (P38)"
     },
     "datos/ifra/transparencia-2025/transparency-list.csv": {
-      "sha256": "91613240fd943a5b117b65f1d8afa0b9c9b86423c555acc87eae00d639cf2268",
+      "sha256": "4faed5aada8a1af1e99cb38f8bfffaf271bbb19cb2ad383d394e179c5cc75658",
       "que_es": "IFRA Transparency List 2025, leída de su web"
     },
     "datos/glosario/origen/materiales-de-catalogos.csv": {
@@ -55,7 +55,7 @@
       "sha256": "289097c9d76de4430f967158556ff068faa4589175c44b48dd355a5eb93b6368"
     }
   },
-  "generado": "2026-09-29T00:34:24+00:00",
+  "generado": "2026-09-29T01:03:57+00:00",
   "cuentas": {
     "materiales": 4317,
     "del_fig": 3119,

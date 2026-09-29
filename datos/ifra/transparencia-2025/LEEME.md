@@ -26,7 +26,11 @@ la leyó entera el 2026-09-27, página a página y con calma, porque el usuario 
     limpia al mostrarlo;
   - un «_» suelto ocupa el sitio de una letra griega o una prima perdidas, como en
     «(+)-_-Bisabolol» o «_,_-Dimethylbenzenepentanol», y se deja.
-    Se deja tal cual.
+    Se deja tal cual;
+  - tres nombres llegan como una lista JSON, porque IFRA los partió por cada «, », también
+    dentro de un paréntesis (`["Myrrh resinoid (Commiphora erthyraea","Commiphora myrrha",…]`).
+    El script los vuelve a unir con «, ». `--desde-csv` repasa así el CSV guardado sin
+    descargar nada; `procedencia.json` apunta entonces cuándo se limpió (`limpiado`).
 - **IFRA no publica condiciones de reutilización de la lista**, y el laboratorio tampoco
   las encontró. **Antes de distribuir la app como producto hay que revisar la licencia**
   (plan, «Después»).

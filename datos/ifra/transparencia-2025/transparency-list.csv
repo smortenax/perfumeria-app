@@ -158,7 +158,7 @@ cas,nombre_principal,categoria_natural
 6920-22-5,"1,2-Hexanediol",
 1117-86-8,"1,2-Octanediol",
 13851-11-1,"1,3,3-Trimethyl-2-norbornanyl acetate",
-,"[""1,3,3-trimethyl-2-oxabicyclo[2.2.2]octane"",""1-methyl-4-(prop-1-en-2-yl)cyclohex-1-ene"",""1-methyl-4-(propan-2-yl)-7-oxabicyclo[2.2.1]heptane"",""1-methyl-4-(propan-2-yl)benzene"",""1-methyl-4-(propan-2-yl)cyclohexa-1,4-diene"",""1-methyl-4-(propan-2-ylidene)cyclohex-1-ene"",""2,6,6-trimethylbicyclo[3.1.1]hept-2-ene"",""6,6-dimethyl-2-methylidenebicyclo[3.1.1]heptane""]",
+,"1,3,3-trimethyl-2-oxabicyclo[2.2.2]octane, 1-methyl-4-(prop-1-en-2-yl)cyclohex-1-ene, 1-methyl-4-(propan-2-yl)-7-oxabicyclo[2.2.1]heptane, 1-methyl-4-(propan-2-yl)benzene, 1-methyl-4-(propan-2-yl)cyclohexa-1,4-diene, 1-methyl-4-(propan-2-ylidene)cyclohex-1-ene, 2,6,6-trimethylbicyclo[3.1.1]hept-2-ene, 6,6-dimethyl-2-methylidenebicyclo[3.1.1]heptane",
 1222-05-5,"1,3,4,6,7,8-Hexahydro-4,6,6,7,8,8-hexamethylcyclopenta-gamma-2-benzopyran",
 40601-76-1,"1,3,5-Triazine-2,4,6(1H,3H,5H)-trione, 1,3,5-tris[[4-(1,1-dimethylethyl)-3-hydroxy-2,6-dimethylphenyl]methyl]-",
 9003-08-1,"1,3,5-Triazine-2,4,6-triamine, polymer with formaldehyde",
@@ -3184,7 +3184,7 @@ cas,nombre_principal,categoria_natural
 8000-28-0,Lavender CO2 extract,F2.27
 8000-28-0,Lavender concrete,F2.7
 8000-28-0,Lavender extract,F2.13
-8000-28-0,"[""Lavender oil (Lavandula angustifolia"",""Lavandula angustifolia angustifolia"",""Lavandula officinalis)""]",F2.12
+8000-28-0,"Lavender oil (Lavandula angustifolia, Lavandula angustifolia angustifolia, Lavandula officinalis)",F2.12
 93165-50-5,Lavender oil (Lavandula dentata),F2.12
 8000-28-0,Lavender oil (low coumarin),F2.33
 8000-28-0,"Lavender oil, rectified",F2.24
@@ -3284,7 +3284,7 @@ cas,nombre_principal,categoria_natural
 8016-37-3,Myrrh oil,K2.12
 1082996-27-7,Myrrh oil,K2.12
 8016-37-3,Myrrh oil washed,K2.23
-8016-37-3,"[""Myrrh resinoid (Commiphora erthyraea"",""Commiphora myrrha"",""Commiphora myrrha (Nees) Engl."",""Commiphora spp.)""]",K2.26
+8016-37-3,"Myrrh resinoid (Commiphora erthyraea, Commiphora myrrha, Commiphora myrrha (Nees) Engl., Commiphora spp.)",K2.26
 1082996-27-7,Myrrh resinoid (Commiphora wildii),K2.26
 8008-46-6,Myrtle oil,E2.12
 8008-46-6,Myrtle oil (low methyleugenol),E2.33
