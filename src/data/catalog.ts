@@ -68,6 +68,8 @@ export interface CatalogEntry {
   readonly search: string;
   /** The names folded for a tolerant search: «isobutilquinoleina» finds «Isobutyl quinoline». */
   readonly folded: readonly string[];
+  /** The names the shops sell it by: «Aceite Esencial de Tomillo Mastichina», «Ambroxan KAO». */
+  readonly shopNames?: readonly string[];
 }
 
 export interface Catalog {
@@ -248,6 +250,7 @@ export function buildCatalog(files: CatalogFiles): Catalog {
     // The prime of a mark (²′IBQ) is also found as the keyboard's apostrophe.
     const marked = `${m.icono_distintivo}${m.sigla_comercial} ${m.icono_distintivo.replace(/′/g, "'")}${m.sigla_comercial}`;
     const others = m.otros_nombres_comerciales === "" ? [] : m.otros_nombres_comerciales.split(" | ");
+    const shops = (m.nombres_proveedores ?? "") === "" ? [] : m.nombres_proveedores.split(" | ");
     entries.push({
       material: { key: m.id, kind: "base", name: trade || m.nombre, ...(m.cas ? { cas: m.cas } : {}) },
       group: "base",
@@ -273,9 +276,11 @@ export function buildCatalog(files: CatalogFiles): Catalog {
       // PubChem's usual names are found as typed («Diphenyl oxide»), but not by the
       // tolerant search: thousands of names more would slow every key.
       search: normalize(
-        `${m.codigo} ${marked} ${trade} ${m.sigla_comercial} ${others.join(" ")} ${m.nombre} ${m.cas} ${m.otros_cas} ${m.nombre_ifra} ${m.sinonimos} ${m.nombres_transparencia} ${m.sinonimos_pubchem}`,
+        `${m.codigo} ${marked} ${trade} ${m.sigla_comercial} ${others.join(" ")} ${m.nombre} ${m.cas} ${m.otros_cas} ${m.nombre_ifra} ${m.sinonimos} ${m.nombres_transparencia} ${m.sinonimos_pubchem} ${shops.join(" ")}`,
       ),
-      folded: [trade, ...others, m.nombre, standardName].filter((n) => n !== "").map(fold),
+      // The shops' names are few, and typed from memory: they take the tolerant search too.
+      folded: [trade, ...others, m.nombre, standardName, ...shops].filter((n) => n !== "").map(fold),
+      ...(shops.length ? { shopNames: shops } : {}),
     });
   }
 

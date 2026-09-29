@@ -38,6 +38,8 @@ CATALOGUE = ROOT / "datos" / "glosario" / "origen" / "materiales-de-catalogos.cs
 EQUIVALENCES = ROOT / "datos" / "glosario" / "origen" / "equivalencias.csv"
 # PubChem's usual names of each molecule, for the search (scripts/sinonimos_pubchem.py).
 PUBCHEM_SYNONYMS = ROOT / "datos" / "glosario" / "origen" / "sinonimos-pubchem.csv"
+# The names the shops where the user buys sell each material by (scripts/nombres_proveedores.py).
+SHOP_NAMES = ROOT / "datos" / "glosario" / "origen" / "nombres-proveedores.csv"
 # The family of each row of the FIG, with its colour: the lab's own categorisation (P48),
 # brought by scripts/importar_datos.py. Its key is the row of the FIG.
 SCENT_FAMILIES = ROOT / "datos" / "fuente" / "pieza-11-familias-y-color.csv"
@@ -45,6 +47,18 @@ SCENT_FAMILIES = ROOT / "datos" / "fuente" / "pieza-11-familias-y-color.csv"
 # them have no kind in the user's codes and would pass for molecules.
 LAB_NATURALS = ROOT / "datos" / "fuente" / "pieza-13-duracion-naturales.csv"
 OUT = ROOT / "datos" / "glosario"
+# A shop's kind of natural, as the glossary calls it.
+SHOP_KIND = {"oil": "oil", "absolute": "absolute", "co2": "extract", "concrete": "concrete", "resinoid": "resinoid",
+             "tincture": "tincture", "oleoresin": "oleoresin"}
+
+
+def species(botanical: str) -> str:
+    """Genus and species, from a botanical or INCI name: «Lavandula angustifolia»."""
+    parts = [p for p in re.split(r",|\(and\)", botanical) if p.strip() and not re.match(r"\s*(alcohol|aqua|water|dipropylene|glycerin)", p, re.I)]
+    words = re.sub(r"[^a-z ]", " ", parts[0].lower()).split() if parts else []
+    return " ".join(words[:2]) if len(words) >= 2 else ""
+
+
 CAS_RE = re.compile(r"\b\d{2,7}-\d{2}-\d\b")
 CATEGORIES = ["1", "2", "3", "4", "5a", "5b", "5c", "5d", "6", "7a", "7b", "8", "9",
               "10a", "10b", "11a", "11b", "12"]
@@ -230,7 +244,8 @@ def main() -> None:
                "nombre_ifra": "", "estado": "", "condiciones": "", "constituyentes": "",
                "coincidencia_anexo": "", **{c: "" for c in CAT_COLS}, "limite_nota": "",
                "sinonimos": "", "nombres_transparencia": "", "fuera_de_ifra": "",
-               "familia": "", "matiz": "", "confianza_familia": "", "sinonimos_pubchem": ""}
+               "familia": "", "matiz": "", "confianza_familia": "", "sinonimos_pubchem": "",
+               "nombres_proveedores": ""}
         row.update(kw)
         return row
 
@@ -386,6 +401,58 @@ def main() -> None:
                 continue
             new.append(base(id=f"cat:{r['cas']}", nombre=r["nombre"], cas=r["cas"], clase=r["clase"],
                             fuentes="catalogo"))
+
+    # 3d. The names the shops sell each material by. A shop's CAS joins the glossary as it
+    # is, or as another CAS of a natural of the annex, or by the species of its INCI
+    # («Thymus Mastichina Herb Oil» is the annex's Spanish marjoram oil). A natural joins
+    # only the rows of its kind: the CAS of a natural is the plant's, and the oil and the
+    # absolute share it. A molecule that nothing knows is new, from the shop; a natural
+    # that does not join is left in a list, not made a double of one the FIG has by
+    # another name.
+    shop_rows = read(SHOP_NAMES) if SHOP_NAMES.exists() else []
+    alt_of: dict[str, set[str]] = {}
+    species_of: dict[str, set[str]] = {}
+    for v in variants.values():
+        for c in v["otros"]:
+            alt_of.setdefault(c, set()).update(v["principal"])
+        sp = species(v["botanico"])
+        if sp:
+            species_of.setdefault(sp, set()).update(v["principal"])
+    by_any_cas: dict[str, list[dict]] = {}
+    for m in materials + new:
+        for c in [m["cas"], *m["otros_cas"].split()]:
+            if c:
+                by_any_cas.setdefault(c, []).append(m)
+
+    def shop_targets(r: dict) -> tuple[list[dict], str]:
+        for how, cas_set in (("cas", {r["cas"]}), ("cas del anexo", alt_of.get(r["cas"], set())),
+                             ("especie", species_of.get(species(r["inci"]), set()) if r["clase"] != "molécula" else set())):
+            found = list({id(m): m for c in sorted(cas_set) for m in by_any_cas.get(c, [])}.values())
+            if found:
+                break
+        else:
+            return [], ""
+        kind = SHOP_KIND.get(r["tipo"], "")
+        if kind and len(found) > 1:
+            same = [m for m in found if m["tipo_natural"] == kind and (r["tipo"] != "co2" or "co2" in m["nombre"].lower())]
+            found = same or found
+        return found, how
+
+    shop_links: list[tuple[dict, dict]] = []
+    unjoined: list[dict] = []
+    for r in shop_rows:
+        targets, how = shop_targets(r)
+        if not targets and r["clase"] == "molécula":
+            mid = f"tienda:{r['cas']}"
+            t = next((m for m in new if m["id"] == mid), None)
+            if t is None:
+                t = base(id=mid, nombre=r["nombre"], cas=r["cas"], clase="molécula", fuentes="tienda")
+                new.append(t)
+                by_any_cas.setdefault(r["cas"], []).append(t)
+            targets = [t]
+        if not targets:
+            unjoined.append(r)
+        shop_links += [(m, r) for m in targets]
 
     everything = materials + new
     by_id = {m["id"]: m for m in everything}
@@ -629,6 +696,15 @@ def main() -> None:
             if f and f["cas"] == m["cas"]:
                 m["familia"], m["matiz"], m["confianza_familia"] = f["familia"], f["matiz"], f["confianza"]
 
+    # 12. The shops' names, for the search only: «Ambroxan KAO», «Abs. de Gálbano».
+    for m, r in shop_links:
+        names = [x for x in m["nombres_proveedores"].split(" | ") if x]
+        if r["nombre"] not in names and norm(r["nombre"]) != norm(m["nombre"]):
+            m["nombres_proveedores"] = " | ".join([*names, r["nombre"]])
+    if SHOP_NAMES.exists():
+        write(OUT / "proveedores-sin-unir.csv", ["cas", "nombre", "clase", "tipo", "inci", "proveedor", "url"],
+              [{k: r[k] for k in ("cas", "nombre", "clase", "tipo", "inci", "proveedor", "url")} for r in unjoined])
+
     # 11. PubChem's usual names, for the search only: «Diphenyl oxide» finds the diphenyl ether.
     if PUBCHEM_SYNONYMS.exists():
         pubchem = {r["cas"]: r["sinonimos"] for r in read(PUBCHEM_SYNONYMS)}
@@ -660,6 +736,9 @@ def main() -> None:
         "con_sigla_comercial": sum(1 for m in ordered if m["sigla_comercial"]),
         "con_familia": sum(1 for m in ordered if m["familia"]),
         "con_sinonimos_de_pubchem": sum(1 for m in ordered if m["sinonimos_pubchem"]),
+        "con_nombres_de_tiendas": sum(1 for m in ordered if m["nombres_proveedores"]),
+        "solo_de_tiendas": sum(1 for m in ordered if m["fuentes"] == "tienda"),
+        "de_tiendas_sin_unir": len(unjoined),
     }
     provenance = {
         "enmienda_ifra": n,
@@ -677,6 +756,8 @@ def main() -> None:
                if EQUIVALENCES.exists() else {}),
             **({PUBCHEM_SYNONYMS.relative_to(ROOT).as_posix(): {"sha256": sha256(PUBCHEM_SYNONYMS), "que_es": "los nombres de uso de PubChem por CAS, para buscar"}}
                if PUBCHEM_SYNONYMS.exists() else {}),
+            **({SHOP_NAMES.relative_to(ROOT).as_posix(): {"sha256": sha256(SHOP_NAMES), "que_es": "los nombres de venta de Olfatorium, Maese Lab y Perfumiarz, con su CAS"}}
+               if SHOP_NAMES.exists() else {}),
             **({LAB_NATURALS.relative_to(ROOT).as_posix(): {"sha256": sha256(LAB_NATURALS), "que_es": "los naturales del FIG según el laboratorio, con sus correcciones (P48)"}}
                if LAB_NATURALS.exists() else {}),
             **({SCENT_FAMILIES.relative_to(ROOT).as_posix(): {"sha256": sha256(SCENT_FAMILIES), "que_es": "la familia de cada fila del FIG, categorización propia del laboratorio (P48)"}}

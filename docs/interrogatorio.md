@@ -1983,6 +1983,72 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 - Estado: cerrada
 - Destino: decisiones.md §4, §10.1
 
+### P54 — Mismo CAS, varias filas: ¿un solo material?
+
+- **Pregunta del usuario.** Respuesta literal: *«si el cas es el mismo y el material es
+  esencialmente el mismo, vale la pena que haya multiples? por ejemplo en el caso de aceites
+  esenciales oleos esenciales y extractos muchas veces me salia que el cas era exactamente el
+  mismo y el nombre es el mismo quitando el matiz aceite o oleo, aqui la pregunta es, hay
+  alguna caracteristica que los diferencie como duracion o algo asi? sino todo lo podemos
+  meter en el mismo globo y ya esta, lo que yo creo es que sera asi con matices y en algunos
+  casos sera igual y en otros no, se puede haer criba de eso?»*
+- **Por qué pasa:** el CAS de un natural es el de la planta, no el del producto. El aceite, el
+  absoluto, el concreto y el extracto de CO2 de la lavanda comparten el 8000-28-0.
+- **La criba** (glosario del 2026-09-29):
+  - **211 CAS tienen más de una fila**, 945 filas en total; 206 de esos CAS son naturales.
+  - **19 filas son repeticiones exactas del FIG:** mismo nombre y mismo CAS, con dos
+    abreviaturas del usuario («Cistus oil», CtO y CuO). **12 daban IFRA distinto** que su
+    gemela; ya está corregido (commit dd08039).
+  - **En 98 de los 206 CAS de naturales, las filas dan respuestas de IFRA distintas**, porque
+    el anexo da constituyentes distintos a cada forma. En la lavanda, según el anexo de IFRA
+    (51.ª enmienda):
+    - 7-metoxicumarina: 3,8 % en el absoluto, 8 % en el concreto; el aceite no la lista;
+    - acetato de 1-octen-3-ilo: 1,04 % en el aceite, 0,31 % en el absoluto.
+  - **La duración no las separa hoy:** la del laboratorio (Poucher, pieza 13) da un valor por
+    planta, el mismo al aceite y al absoluto. El propio Poucher dice que los aceites y
+    extractos «no respondieron satisfactoriamente».
+- **Lectura:** con matices, como decía el usuario. Las repeticiones exactas sí son un solo
+  material. Las formas distintas (aceite, absoluto, CO2…) no, porque su IFRA es distinto y
+  juntarlas obligaría a contar siempre la peor.
+- **Opciones:**
+  - **A (recomendada):** las 19 repeticiones, una sola fila, con la otra abreviatura como
+    sinónimo que también la encuentra. Las formas, separadas. En la búsqueda, **las formas de
+    la misma planta se pliegan bajo la que mejor casa**, con una línea «+ absoluto · concreto
+    · CO2» que las despliega.
+  - **B:** solo juntar las 19 repeticiones; la búsqueda, como ahora.
+  - **C:** un globo por CAS. Se pierde lo de IFRA: el absoluto de lavanda contaría como la peor
+    de sus formas.
+- **Lo que cuesta dejarla abierta:** la búsqueda de un natural sigue dando listas largas de
+  formas casi iguales, y las 19 repeticiones, dos abreviaturas para lo mismo. IFRA ya es
+  coherente.
+- Fecha: 2026-09-29
+- Estado: abierta
+- Destino: decisiones.md §4 (buscador), glosario
+
+### P55 — Los nombres de las tiendas donde compra el usuario
+
+- Respuesta literal: *«sabiendo los sitios de los que saco los materiales puedes hacer busqueda
+  por cas de los materiales de olfatorium y maese lab, puedes usar tambien base de dato de
+  perfumairz... pero basicamente que todos los nombres al menos de los proveedores que estoy
+  usando ahora esten como sinonimo, no te centres en los materiales que tengo sino todos los
+  catalogos de ambas marcas registras los nombres comunes con el cas a la base de datos, y con
+  perfumairz tambien, sera la de compra online de confianza y ademas tiene mucha popoularidad»*
+- **Lectura:** los catálogos enteros de Olfatorium, Maese Lab y Perfumiarz (perfumiarz.com),
+  cada nombre de venta como sinónimo de su CAS en el glosario.
+- **Hecho:**
+  - `scripts/traer_proveedores.py` trae las tres tiendas a la caché, a una página por segundo;
+  - `scripts/nombres_proveedores.py` saca nombre, CAS, tipo e INCI;
+  - el glosario los une por CAS, por el CAS alternativo del anexo, o por la especie del INCI,
+    y un natural solo a las filas de su forma;
+  - la búsqueda los encuentra, y el desplegable dice «en tienda: …» cuando el nombre del
+    glosario no se parece a lo escrito;
+  - una molécula que nada conoce entra como material nuevo, de la tienda; un natural que no
+    se une queda en `datos/glosario/proveedores-sin-unir.csv`, para no duplicar uno que el FIG
+    tiene con otro CAS.
+- Fecha: 2026-09-29
+- Estado: cerrada
+- Destino: datos/glosario/LEEME.md
+
 ---
 
 ## Estado
@@ -1994,6 +2060,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
 | R12 · infografías y frentes | 7 (P35 a P41) | 3 (P33, P34, P42) |
-| R13 · a pesar en el banco | 7 (P43, P44, P48 a P51, P53) | 4 (P45 a P47, P52) |
+| R13 · a pesar en el banco | 8 (P43, P44, P48 a P51, P53, P55) | 5 (P45 a P47, P52, P54) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.

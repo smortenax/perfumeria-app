@@ -47,6 +47,8 @@ type Result =
       iconMark?: string;
       iconType?: string;
       family?: MaterialFamily;
+      /** The shop's name it was found by, when its own names do not say what was typed. */
+      shopName?: string;
     }
   | { kind: "create"; name: string };
 
@@ -215,6 +217,10 @@ export function AddBar(props: {
     const session: Result[] = props.sessionMaterials
       .filter((m) => (m.kind === "formula" ? formulas : mine) && normalize(m.name).includes(q))
       .map((m) => ({ kind: "material", material: m, tag: m.kind === "formula" ? "fórmula" : "provisional", cas: "" }));
+    const words = q.split(" ");
+    const says = (name: string) => words.every((w) => normalize(name).includes(w));
+    const shopName = (e: CatalogEntry) =>
+      e.shopNames && !says(`${e.material.name} ${e.chemicalName} ${e.code} ${e.cas}`) ? e.shopNames.find(says) : undefined;
     const found: Result[] = searchCatalog(pool, query, 10).map((e) => ({
       kind: "material",
       material: e.material,
@@ -229,6 +235,7 @@ export function AddBar(props: {
       ...(e.tradeName ? { chemicalName: e.chemicalName } : {}),
       ...(e.tradeCode ? { tradeCode: e.tradeCode } : {}),
       ...(e.family ? { family: e.family } : {}),
+      ...(shopName(e) ? { shopName: shopName(e) } : {}),
     }));
     const all = [...session, ...found];
     const exact = all.some((r) => r.kind === "material" && normalize(r.material.name) === q);
@@ -439,6 +446,7 @@ export function AddBar(props: {
                         )}
                       </span>
                       {r.chemicalName && <span className="chemical">{r.chemicalName}</span>}
+                      {r.shopName && <span className="chemical">{t.inShop(r.shopName)}</span>}
                       {r.standardName && (
                         <span className="standard">
                           {r.standardName} · {t.standard}
