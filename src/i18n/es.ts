@@ -126,9 +126,26 @@ export const texts = {
     noMaterial: "Elige un material",
     badQuantity: "Cantidad no válida: mayor que cero, y como mucho al microgramo",
     badPercent: "Porcentaje no válido: mayor que 0 y hasta 100",
-    recent: "Recientes",
-    pure: "puro",
-    diluted: (percent: string, diluent: string) => `${percent} % en ${diluent}`,
+  },
+
+  /** The card of the material chosen in the add bar, under it (P57). */
+  materialCard: {
+    choose: "Elige un material para ver su margen y su uso habitual",
+    kind: { formula: "fórmula", provisional: "provisional", diluent: "diluyente" },
+    inFormula: "En la fórmula",
+    ofAromatic: (share: string) => `${share} de la aromática`,
+    ofBottle: (share: string) => `${share} del frasco`,
+    margin: "Margen IFRA",
+    marginHelp: "Cuántos mg más de este material caben aún antes de pasar un techo de IFRA",
+    usage: "Uso habitual",
+    usageHelp: "En qué franja del % de la materia aromática se suele usar el material, en escala logarítmica",
+    /** The ends of the strip, and between them the base its percentages are counted on (§1.1). */
+    usageFrom: "0,001",
+    usageTo: "100",
+    usageBase: "% de la aromática",
+    holds: (share: string) => `La fórmula lleva ${share} de la materia aromática`,
+    noValue: "—",
+    noData: "sin dato",
   },
 
   charts: {
@@ -161,7 +178,7 @@ export const texts = {
     detailTitle: "IFRA, en detalle",
     detailBase: (grams: string) => `% del lote final, ${grams}`,
     detailBaseAssumed: (grams: string) => `% del frasco, ${grams}: sin lote final`,
-    close: "Cerrar el detalle",
+    panelEmpty: "Todavía no hay nada que comprobar.",
     ceilings: (n: number) => `Techos en la fórmula · ${n}`,
     of: (value: string, limit: string) => `${value} de ${limit}`,
     unchecked: (n: number) => `Sin comprobar · ${n}`,

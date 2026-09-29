@@ -6,11 +6,12 @@ import { texts } from "../i18n/es";
 const t = texts.ifra;
 
 /**
- * The IFRA box: two lines, the two readings (§5.4, P23). Never green with
- * something unknown (§5.5); a bounded load is its own state (P31). On hover of
- * the second reading, the range from what is known to the worst case (P31).
+ * The IFRA box: two lines, the two readings (§5.4, P23), and nothing to open: the detail
+ * is the fixed panel of the lower area (P57). Never green with something unknown (§5.5); a
+ * bounded load is its own state (P31). On hover of the second reading, the range from what
+ * is known to the worst case (P31).
  */
-export function IfraSummary(props: { report: IfraReport | null; empty: boolean; open: boolean; onToggle: () => void }) {
+export function IfraSummary(props: { report: IfraReport | null; empty: boolean }) {
   const { report } = props;
   const hasData = report !== null && !props.empty;
   const bounded = hasData && report.checks.some((c) => c.verdict === "bounded");
@@ -22,7 +23,7 @@ export function IfraSummary(props: { report: IfraReport | null; empty: boolean; 
   const range =
     hasData && !report.maxUseKnown.eq(report.maxUse) ? t.range(formatPercent(report.maxUse, 2), formatPercent(report.maxUseKnown, 2)) : undefined;
   return (
-    <button type="button" className={limiting ? "card ifra-summary with-limit" : "card ifra-summary"} aria-expanded={props.open} onClick={props.onToggle}>
+    <div className={limiting ? "card ifra-summary with-limit" : "card ifra-summary"}>
       <span className="ifra-head">
         <span className="ifra-title">{t.title}</span>
         <span className="muted small">{t.category}</span>
@@ -50,7 +51,7 @@ export function IfraSummary(props: { report: IfraReport | null; empty: boolean; 
           {t.limitedBy(limiting.substance.name)}
         </span>
       )}
-    </button>
+    </div>
   );
 }
 
@@ -75,63 +76,73 @@ function CeilingRow(props: { check: SubstanceCheck; finalUg: Ratio }) {
   );
 }
 
-/** The detail, over the composition: ceilings, what is unchecked, pending and conditions. */
-export function IfraDetail(props: { report: IfraReport; onClose: () => void }) {
+/**
+ * The IFRA panel (P57): the detail that used to drop over the composition, now fixed in the
+ * lower area, because the composition and IFRA are read one against the other all the time.
+ * Ceilings, what is unchecked, pending and conditions; it scrolls inside when it is long. With
+ * nothing in the bottle it has an empty state of its own.
+ */
+export function IfraPanel(props: { report: IfraReport | null; empty: boolean }) {
   const { report } = props;
-  const grams = formatGrams(report.finalBatchUg, 3);
+  const hasData = report !== null && !props.empty;
   return (
-    <div className="ifra-detail">
+    <section className="card ifra-panel" aria-label={t.detailTitle}>
       <div className="detail-head">
         <span className="detail-title">{t.detailTitle}</span>
-        <span className="muted small">{report.finalAssumed ? t.detailBaseAssumed(grams) : t.detailBase(grams)}</span>
-        <button type="button" className="close" aria-label={t.close} title={t.close} onClick={props.onClose}>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
-            <path d="M3.5 3.5l7 7M10.5 3.5l-7 7" />
-          </svg>
-        </button>
+        {hasData && (
+          <span className="muted small">
+            {report.finalAssumed ? t.detailBaseAssumed(formatGrams(report.finalBatchUg, 3)) : t.detailBase(formatGrams(report.finalBatchUg, 3))}
+          </span>
+        )}
       </div>
-      {report.checks.length === 0 && report.unchecked.length === 0 && report.pending.length === 0 && report.conditions.length === 0 && (
-        <p className="muted small">{t.nothing}</p>
-      )}
-      {report.checks.length > 0 && (
-        <div className="detail-section">
-          <div className="section-title">{t.ceilings(report.checks.length)}</div>
-          {report.checks.map((check) => (
-            <CeilingRow key={check.substance.key} check={check} finalUg={report.finalUg} />
-          ))}
-        </div>
-      )}
-      {report.unchecked.length > 0 && (
-        <div className="detail-section">
-          <div className="section-title amber">{t.unchecked(report.unchecked.length)}</div>
-          {report.unchecked.map((name) => (
-            <div key={name} className="detail-item">
-              <strong>{name}.</strong> {t.uncheckedWhy}
+      {!hasData ? (
+        <p className="muted small panel-empty">{t.panelEmpty}</p>
+      ) : (
+        <div className="panel-body">
+          {report.checks.length === 0 && report.unchecked.length === 0 && report.pending.length === 0 && report.conditions.length === 0 && (
+            <p className="muted small">{t.nothing}</p>
+          )}
+          {report.checks.length > 0 && (
+            <div className="detail-section">
+              <div className="section-title">{t.ceilings(report.checks.length)}</div>
+              {report.checks.map((check) => (
+                <CeilingRow key={check.substance.key} check={check} finalUg={report.finalUg} />
+              ))}
             </div>
-          ))}
-        </div>
-      )}
-      {report.pending.length > 0 && (
-        <div className="detail-section">
-          <div className="section-title amber">{t.pending(report.pending.length)}</div>
-          {report.pending.map((p, i) => (
-            <div key={i} className="detail-item">
-              <strong>{p.material}.</strong> {p.text}
+          )}
+          {report.unchecked.length > 0 && (
+            <div className="detail-section">
+              <div className="section-title amber">{t.unchecked(report.unchecked.length)}</div>
+              {report.unchecked.map((name) => (
+                <div key={name} className="detail-item">
+                  <strong>{name}.</strong> {t.uncheckedWhy}
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      )}
-      {report.conditions.length > 0 && (
-        <div className="detail-section">
-          <div className="section-title">{t.conditions(report.conditions.length)}</div>
-          {report.conditions.map((cond, i) => (
-            <div key={i} className="detail-item">
-              <strong>{cond.material}.</strong> {cond.text}
+          )}
+          {report.pending.length > 0 && (
+            <div className="detail-section">
+              <div className="section-title amber">{t.pending(report.pending.length)}</div>
+              {report.pending.map((p, i) => (
+                <div key={i} className="detail-item">
+                  <strong>{p.material}.</strong> {p.text}
+                </div>
+              ))}
             </div>
-          ))}
+          )}
+          {report.conditions.length > 0 && (
+            <div className="detail-section">
+              <div className="section-title">{t.conditions(report.conditions.length)}</div>
+              {report.conditions.map((cond, i) => (
+                <div key={i} className="detail-item">
+                  <strong>{cond.material}.</strong> {cond.text}
+                </div>
+              ))}
+            </div>
+          )}
+          <div className="detail-source">{t.source}</div>
         </div>
       )}
-      <div className="detail-source">{t.source}</div>
-    </div>
+    </section>
   );
 }

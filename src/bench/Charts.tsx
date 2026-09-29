@@ -1,10 +1,8 @@
 import { useState } from "react";
 import type { Composition } from "../core/compose";
 import { formatPercent } from "../core/display";
-import type { Material } from "../core/model/material";
 import type { MaterialFamily } from "../data/catalog";
 import { texts } from "../i18n/es";
-import { diluentMaterial, prefsOf } from "./prefs";
 
 const c = texts.charts;
 
@@ -32,7 +30,11 @@ const FLOOR_PATHS = [
   "M3.20 15.40 L20.80 15.40 L23.00 19.00 L1.00 19.00 Z",
 ];
 
-/** The pyramid by floor (§10.2): its five icons, with no bars until each material has its position (frente 6). */
+/**
+ * The pyramid by floor (§10.2): its five icons, with no bars until each material has its position
+ * (frente 6). Off the bench for now: it comes back inside the projection, overlapped or with a
+ * toggle, to be decided with sketches when its data arrives (P50, P57).
+ */
 export function PyramidCard() {
   return (
     <div className="card chart-card pyramid">
@@ -153,17 +155,26 @@ export function RepartoCard(props: { composition: Composition | null; familyOf?:
   );
 }
 
+/**
+ * Where each hour of the axis falls, out of its length of 524. The scale is not linear: the first
+ * hours, where the top notes go, get more room than the last of the day.
+ */
+const AXIS = 524;
 const HOURS: Array<[number, string]> = [
-  [40, "0 h"],
-  [100, "1 h"],
-  [150, "2 h"],
-  [225, "4 h"],
-  [320, "8 h"],
-  [400, "12 h"],
-  [564, "24 h"],
+  [0, "0 h"],
+  [60, "1 h"],
+  [110, "2 h"],
+  [185, "4 h"],
+  [280, "8 h"],
+  [360, "12 h"],
+  [524, "24 h"],
 ];
 
-/** The projection by hours (§10.2): one line per material, once each has its duration (frente 6). */
+/**
+ * The projection by hours (§10.2): one line per material, once each has its duration (frente 6).
+ * Its axes are drawn in the page, not as a scaled picture, so the card can be as narrow as the
+ * bench asks (P57) and its labels keep their size.
+ */
 export function ProjectionCard() {
   return (
     <div className="card chart-card projection">
@@ -171,38 +182,16 @@ export function ProjectionCard() {
         <span className="chart-title">{c.projection}</span>
         <span className="pill">{c.noData}</span>
       </div>
-      <svg className="projection-axes" viewBox="0 0 576 156" preserveAspectRatio="xMinYMid meet" aria-hidden="true">
-        <line x1="40" y1="128" x2="564" y2="128" stroke="#D9D7CF" strokeWidth="1" />
-        <line x1="40" y1="10" x2="40" y2="128" stroke="#D9D7CF" strokeWidth="1" />
-        <text x="48" y="16" fontSize="11" fill="#57564F">
-          {c.intensity}
-        </text>
+      <div className="projection-plot" aria-hidden="true">
+        <span className="plot-axis-y" />
+        <span className="plot-axis-x" />
+        <span className="plot-title">{c.intensity}</span>
         {HOURS.map(([x, label]) => (
-          <text key={label} x={x} y="146" fontSize="11" fill="#57564F" textAnchor={x === 564 ? "end" : "middle"}>
+          <span key={label} className="plot-hour" style={{ left: `${(x / AXIS) * 100}%` }}>
             {label}
-          </text>
+          </span>
         ))}
-      </svg>
-    </div>
-  );
-}
-
-/** What was used last, side to side, with its last dilution (§10.1, P7). */
-export function Recents(props: { materials: readonly Material[]; onPick: (material: Material) => void }) {
-  const t = texts.addBar;
-  return (
-    <div className="recents">
-      <span className="label recents-label">{t.recent}</span>
-      {props.materials.slice(0, 5).map((m) => {
-        const last = prefsOf(m.key).last;
-        const dilution = !last ? "" : last.percent.replace(",", ".") === "100" ? t.pure : t.diluted(last.percent, diluentMaterial(last.diluent)?.name ?? "?");
-        return (
-          <button type="button" key={m.key} className="recent-chip" tabIndex={-1} title={m.name} onClick={() => props.onPick(m)}>
-            <span className="recent-name">{m.name}</span>
-            <span className="num recent-dil">{dilution}</span>
-          </button>
-        );
-      })}
+      </div>
     </div>
   );
 }
