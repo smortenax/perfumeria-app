@@ -2134,33 +2134,201 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
   realidad sería que tú puedas cambiar entre porcentaje y gramos en total en la parte de arriba,
   para saber más o menos cuánto margen tienes para echar, aunque luego te saliese en la otra,
   que siempre tuvieras la opción de mirarlo.»*
-- **Lectura** (a confirmar), punto por punto:
-  1. **Fuera «Recientes»**: el «+» de la composición ya hace su papel.
-  2. **La composición gana sitio**: más ancha; puede empezar más abajo.
-  3. **La barra de añadir se va encima de la composición**, en la columna de la derecha.
-  4. **El reparto de la materia, al lado del visualizador.**
-  5. **La pirámide, dentro de la proyección por horas**, encima o con un conmutador (P50).
-  6. **Una ficha del material elegido**, que aparece cuando el buscador ya lo tiene y el
-     desplegable se ha ido:
-     - **margen IFRA**: cuánto más se puede echar de ese material antes de pasar un límite;
-     - **uso habitual**: una barra del 1 al 100 % con la franja de consenso de ese material y
-       dónde está la fórmula. **La franja hay que buscarla material a material, con fuente.**
-  7. **Cada línea de la composición dice cuánto lleva de su límite IFRA**, también en gramos.
-  8. **El cuadro de color, más grande y con la abreviatura dentro**, porque el nombre no
-     siempre cabe.
-  9. **Un conmutador % ↔ g arriba**, para ver el margen en gramos cuando se quiera.
-- **Por aclarar:**
-  - **dónde va la ficha** (bocetos A y B del 2026-09-29): debajo de la barra, en la columna
-    de la derecha, o en el centro, donde estaban las recientes;
-  - **qué cambia el conmutador del punto 9**: toda la columna de la composición, o las
-    respuestas de la caja de IFRA («¿hasta qué % en un perfume final?» en gramos);
-  - **de dónde sale el uso habitual**: una investigación con fuente por material (un frente
-    del laboratorio, o aquí, desde fichas como TGSC).
-- **Se puede repartir en paralelo** una vez confirmado: la disposición; las líneas de la
-  composición (puntos 7 a 9); el margen IFRA de un material en el núcleo; los datos de uso.
+- **Segunda respuesta literal**, con un dibujo sobre la captura del banco
+  ([dibujo](media/2026-09-29-boceto-banco-p57.png): en verde, fuera las recientes; en rojo,
+  fuera la pirámide; en naranja, la proyección; en azul, la zona nueva de la composición). Se
+  quitan solo las muletillas:
+  *«En vez de la parte de los márgenes, o sea, los márgenes de IFRA, y no solo los márgenes,
+  sino recomendación de uso y demás. ¿Por qué? Porque, por ejemplo, si se solapa con algún otro
+  y cosas así. Esa parte es contextual, ¿no? Entonces, esa parte saldrá cuando selecciones el
+  material, no importa que te la tape, por ejemplo, el desplegable de buscar o alguna cosa así.
+  Pero yo creo que está bien debajo de la barra de añadir porque es contextual de ella. Luego
+  también puede que otra información se pueda poner allá, pero yo creo que es una información
+  crucial que no está y que yo he notado que me faltaba durante el uso, porque cuando estoy
+  poniendo material digo, hostia, cuánto le pongo, o si es muy aromáticamente potente o alguna
+  cosa así y se suele utilizar en trazas, por ejemplo, y le pongo mucho, la lío. Entonces, para
+  cada material, pero no estoy hablando de subconjuntos del mismo material porque hay un montón
+  de subconjuntos, habría que tener claro cuántos duplicados hay de material, cuántas veces hay
+  el mismo material con diferentes nombres, antes de nada de esto. Se tendría que ver cuál es
+  el uso recomendado para cada material. Se podrían a lo mejor hacer búsquedas en batch, o por
+  ejemplo IFRA: en uno de los documentos de IFRA, lo que yo sé es que ahí los agrupaban por
+  limitaciones, eso sí que me acuerdo porque lo vi, lo puedo adjuntar para que lo trates; ahí
+  lo agrupaban no por materiales como tal, sino por limitaciones, todos los que están limitados
+  al 2 % los ponían, y a lo mejor de esa manera se puede hacer mejor una especie de infograma
+  donde cuántas de las cosas se tratan por trazas y demás. Eso también era muy útil, que estaba
+  en la otra versión de la app, cuando te describía el material con algunas cosas; claro, la
+  otra versión era mucho más fácil porque había menos materiales. Pero se puede ir haciendo por
+  partes, no hace falta que estén todos. Lo importante es que todos los que se hagan sean
+  precisos, porque si no luego habrá errores que no nos daremos cuenta. En cuanto a los
+  materiales, estaba muy bien cuando te ponían los que se usaban en traza, los que se usaban
+  como en bulk, cosas como que da aire a la composición, otras categorías de para qué se usan
+  estos materiales; es un plan un poco más a futuro: la cantidad de uso es lo más importante. Lo
+  que va en trazas, lo que va en bulk y todas estas cosas es lo más importante; si es
+  disolvente. Otras categorías las podríamos dilucidar más adelante. Luego, has visto que dejo
+  un espacio grande ahora para la parte de composición. Ahora mismo exactamente no sabría cómo
+  utilizarlo, pero con todas las ideas y los problemas que te he dicho, a lo mejor a ti se te
+  ocurre. Puede ser que la solución sea poner justo ahí al lado, dentro de la composición, por
+  separado, la parte de IFRA en porcentajes: el desplegable de IFRA que se abre cuando le dices
+  lo del perfume final, toda la parte de IFRA, la pasas ahí abajo, justo al lado de la parte de
+  composición, porque yo he estado utilizando todo el rato para adelante y para atrás la parte
+  de composición y la parte de IFRA para ir viendo cuánto margen me quedaba para poder poner de
+  cumarina, de no sé qué, si se solapaban los de uno y los de otro, viendo cómo se regulaba,
+  etcétera. Luego un apunte: actualmente no funciona bien la parte de que haya una versión del
+  IFRA con lo que decíamos del fantasma, o sea, a futuro. Te lo calcula en tiempo real, lo cual
+  está bien en general, pero me plantea un par de dudas. Si reescalas el peso, por ejemplo, si
+  quito una parte y luego lo vuelvo a pesar y lo rescalo, ¿se adecuará correctamente o no? Y aun
+  así, si es así, el programa lo indica mal, porque había una intención de que tú pudieras
+  trabajar con algo y poner, por ejemplo, si estoy planteando una especie de concentrado de una
+  solución, y digo el lote final es 10 gramos y estoy trabajando con 5 gramos, o aunque no esté
+  trabajando con 5 gramos, te calcula el IFRA en tiempo real con el producto que hay, y también
+  te lo pone en base a la materia aromática. Entonces yo creo que aquí hay mucha información y
+  todo debería estar categorizado. Yo creo que la parte que te calcula por materia aromática
+  versus por volumen debería estar separada claramente, a lo mejor con un toque o algo así, que
+  tú puedas ver si estás mirando sobre materia aromática o sobre componente. Y luego, por otro
+  lado, la parte de IFRA: si tú pones un lote final, te tienen que salir las dos otras opciones.
+  Yo creo que podemos utilizar ese espacio para que la parte de IFRA, con el desplegable y todo,
+  en vez de ser un desplegable, sea un espacio complejo aquí, en la parte del reparto de
+  materia; y la predicción por horas cabe un poquito más achatada, no digo de quitarla: la
+  predicción por horas es esa parte naranja, un poco más achatada, y todo este espacio azul
+  nuevo que hay debajo de la barra de búsqueda servirá para clarificar los diferentes
+  porcentajes de IFRA en los que puede estar el producto. Por ejemplo, si en la cantidad que hay
+  ahora no es correcto, te lo dice, que es lo que hace ahora: ahora mismo lo que hace es
+  calcularte entre todo lo que hay si cumple o no en porcentaje. ¿Qué pasa? Que no te lo calcula
+  en base al lote final que tú le pones. Eso no lo hace, al menos en tiempo real; lo hace cuando
+  ya lo completas, porque lo que tienes en el momento es lo mismo que lo que tienes en tiempo
+  real. Y si añades cálculos de la materia aromática, también está bien; tienen sentido, pero
+  tienen que quedar bien plasmados, porque si no parece que una cosa se mezcle con la otra. Así
+  que yo pienso que la parte de composición, que es la más orientada a olores, aroma y todo
+  esto, sea donde se enseña claramente la materia aromática, y luego tengas la parte de IFRA,
+  donde ya claramente te habla de los materiales y los límites de cada material, que puedas
+  cambiar sobre qué material y qué compuesto de cada material es lo que tienes peor cuadrado.
+  Claro, aquí habría un problema de claridad, porque en la parte de IFRA muchas veces te ponía
+  el compuesto directamente, el CAS. Yo creo que está bien que te ponga el CAS, porque muchas
+  veces es el CAS lo que te limita. Entonces, a lo mejor al poner el ratón encima te dice ese
+  CAS de qué materiales viene. No hace falta que sigas el feedback al 100 %, pero analízalo y
+  saca una conclusión de todas las cosas que he sacado en claro aquí para elaborar un plan. A
+  nivel visual tengo bastante claro que esta es la mejor manera, porque lo he estado usando, y
+  en cuanto a la repartición de espacios es lo más seguro que tengo. En cuanto a si unas cosas
+  tienen que estar en un sitio o en otro, el proyecto ha seguido un relativamente buen
+  criterio; si crees que algo se tiene que hacer un poco diferente, está bien.»*
+- **Y adjunta** `ifra-51st-amendment-annex-on-contributions-from-other-sources.xlsx`: **es el
+  mismo archivo que la app ya usa** (`datos/ifra/51/origen/`, el mismo sha256). Va por natural
+  y por los constituyentes regulados de cada uno, no por techo, y no dice cuánto se usa de
+  nada. La agrupación por techo sale de los estándares que ya están en la app: de los 263 de la
+  51.ª enmienda, 172 dan un número en la categoría 4, y de ellos 7 están por debajo del 0,01 %,
+  14 entre el 0,01 y el 0,1 %, 81 entre el 0,1 y el 1 %, 67 entre el 1 y el 10 % y 3 en el 10 %
+  o más. Los otros 91 son prohibiciones, especificaciones o remiten a una nota.
+- **Lo comprobado antes de leer** (2026-09-29):
+  - **Repesar reescala bien.** Todo sale del frasco en proporción, así que el % de cada
+    material no cambia, y la segunda lectura de IFRA tampoco.
+  - **La primera lectura cambia de significado sin decirlo:**
+    - con lote de trabajo, es la fórmula **al completar** ese lote, llevado al lote final (P51):
+      después de un derrame da lo mismo;
+    - sin lote de trabajo, es **lo que hay ahora** en el frasco, llevado al lote final: después
+      del derrame baja a la mitad.
+
+    Lo demuestran dos pruebas nuevas de `ifra.test.ts`. Es lo que el usuario notaba: «lo hace
+    cuando ya lo completas».
+  - **Hay tres bases a la vez y ninguna se nombra junto a las otras:** la composición da el %
+    de la materia aromática; IFRA, el % del lote final; y la segunda lectura, el % de la mezcla
+    tal como está en el frasco, con sus disolventes.
+  - **El laboratorio ya tiene los niveles de uso de su paleta**
+    ([`materias-primas/_datos/niveles-de-uso.md`](https://github.com/smortenax/perfumeria-lab/blob/master/materias-primas/_datos/niveles-de-uso.md),
+    confianza media): de 54 materiales, el poder olfativo, el consenso de uso en % del
+    concentrado y una dosis de partida. Y la idea que pide la ficha: **margen = techo IFRA
+    entre dosis de uso**. Allí el Dartanol tiene un consenso del 0,5 al 5 %, y en F-002 quedó al
+    18 % de la materia aromática: es justo el error que la ficha tiene que enseñar.
+  - **Los duplicados** (P54): de 4325 materiales, 211 CAS tienen más de una fila (945 filas).
+    206 de esos CAS son naturales, formas de la misma planta con IFRA distinto; 19 filas son
+    repeticiones exactas del FIG.
+- **Lectura del dibujo** (sustituye a la primera), a confirmar con el boceto del 2026-09-29:
+  1. **Fuera las recientes.** En su sitio, **debajo de la barra de añadir, la ficha del
+     material elegido**: es contextual de la barra, y no importa que el desplegable la tape.
+  2. **La barra de añadir se queda donde está.**
+  3. **Fuera la pirámide como tarjeta**: irá dentro de la proyección (P50).
+  4. **El reparto pasa al sitio de la pirámide**, junto al visualizador.
+  5. **La proyección, debajo, más estrecha.**
+  6. **El sitio del reparto se une a la composición**: la zona de la derecha es composición e
+     IFRA. **IFRA deja de ser un desplegable y pasa a ser un panel fijo**, junto a la
+     composición. La caja de arriba se queda con el veredicto.
+  7. **La composición es la vista del olor**, sobre la materia aromática, con un conmutador
+     para verla sobre el frasco.
+  8. **Cada línea de la composición**: el cuadro de color, más grande y con la abreviatura
+     dentro; y lo que lleva de su límite IFRA, en % y en gramos.
+  9. **IFRA es la vista de las sustancias**: cada CAS con su techo, y al pasar el ratón, de
+     qué materiales viene. Se puede ver por sustancia o por material.
+- **Lo que queda por decidir va en P58** (las lecturas de IFRA en el panel) **y P59** (los
+  datos de uso). P54 va antes que P59: los datos de uso se buscan por material, no por
+  variante.
+- **Respuesta literal**, al plan y al boceto: *«a aadelante con la primera parte puede poner
+  dos trabajos en paralelo»*
+- **Lectura:** la lectura del dibujo vale; se empieza por E1 (la disposición) y E2 (el núcleo
+  de IFRA), en paralelo.
+- Fecha: 2026-09-29
+- Estado: cerrada
+- Destino: decisiones.md §10.1; plan, bloque E
+
+### P58 — Las lecturas de IFRA, con nombre y base
+
+- **Viene de P57:** la primera lectura cambia de significado según haya o no lote de trabajo,
+  y hay tres bases a la vez sin nombrar. El usuario pide que, con lote final, «salgan las dos
+  otras opciones», y que no se mezcle una cosa con otra.
+- **Opciones:**
+  - **A (recomendada): dos bases con nombre, que se cambian arriba del panel**, cuando hay
+    lote final:
+    - **«Ahora»**: lo que hay en el frasco, llevado al lote final;
+    - **«Al completar»**: el lote de trabajo entero, llevado al lote final (la de P51, la del
+      «fantasma»).
+
+    Sin lote de trabajo solo hay «Ahora»; sin lote final, **«El frasco tal cual»**. La caja de
+    arriba dice en qué base está. Cada sustancia, con su CAS, su % frente al techo, una barra y
+    **los gramos que quedan**; al pasar el ratón, los materiales que la aportan y cuánto cada
+    uno; y un conmutador para verlo **por material**. La segunda lectura se nombra con su base:
+    «esta mezcla, tal como está en el frasco, se puede usar hasta el X % en un perfume». **Las
+    lecturas siguen cuadrando** (P51): «al completar» pasa si, y solo si, la segunda llega al
+    lote de trabajo entre el lote final; «ahora», si llega a lo que hay entre el lote final.
+  - **B:** una sola primera lectura, la de P51, siempre con su nombre, «al completar»; la de
+    «ahora», solo al pasar el ratón.
+  - **C:** solo «ahora». A media fórmula, un concentrado a medio verter parecería pasar sin
+    pasar: vuelve la contradicción de P51.
+- **Lo que cuesta dejarla abierta:** el panel no se puede hacer, y la primera lectura sigue
+  cambiando de significado sin avisar.
+- **Respuesta literal:** *«a aadelante con la primera parte puede poner dos trabajos en
+  paralelo»*
+- **Lectura:** la A. Dos bases con nombre, «Ahora» y «Al completar», con «El frasco tal cual»
+  cuando no hay lote final.
+- Fecha: 2026-09-29
+- Estado: cerrada
+- Destino: decisiones.md §5.4, §9; P51
+
+### P59 — El uso habitual de cada material: qué, en qué base y de dónde
+
+- **Viene de P57:** la ficha del material tiene que decir cuánto se suele poner: lo que va en
+  trazas, lo que va en *bulk* y si es disolvente. «Lo importante es que todos los que se hagan
+  sean precisos.» Las demás categorías («da aire»), más adelante.
+- **Lo que se propone de entrada:**
+  - **una franja de consenso por material**, no por variante (P54 antes), **en % del
+    concentrado**: la misma base que la composición, que es la materia aromática. Con su
+    fuente y su confianza, siempre;
+  - **la barra, en escala logarítmica**, del 0,001 al 100 %: entre una traza y un material de
+    *bulk* hay cuatro órdenes de magnitud, y del 1 al 100 % lineal las trazas no se verían;
+  - **el techo IFRA, pasado a la misma base, como un muro** en la barra, para el lote final que
+    se ha puesto; **y una marca de lo que lleva la fórmula**;
+  - **la clase de uso**, traza, modificador, cuerpo o disolvente, sale de la franja con unos
+    umbrales que se deciden con los datos delante.
+- **Opciones para la fuente:**
+  - **A (recomendada): dos capas, cada una con su nombre.** El **consenso**, del laboratorio: un
+    frente nuevo que pase los 54 de `niveles-de-uso.md` a una tabla por CAS, con sus fuentes, y
+    la amplíe por partes; entra con `importar_datos.py`, como la duración. Y **el máximo que
+    recomienda un proveedor**, buscado aquí en lote desde TGSC para los materiales de las tres
+    tiendas, como una marca en la barra y con ese nombre, porque es una sola fuente.
+  - **B:** solo el laboratorio: más lento, y de entrada solo sus 54.
+  - **C:** solo TGSC: rápido, pero es la recomendación de un proveedor, no un consenso.
+- **Lo que cuesta dejarla abierta:** la ficha solo puede dar el margen IFRA, y el Dartanol al
+  18 % no se habría visto.
 - Fecha: 2026-09-29
 - Estado: abierta
-- Destino: decisiones.md §10.1, §10.2, §4; P50
+- Destino: decisiones.md §4, §8; P42, P54
 
 ---
 
@@ -2173,6 +2341,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
 | R12 · infografías y frentes | 7 (P35 a P41) | 3 (P33, P34, P42) |
-| R13 · a pesar en el banco | 9 (P43, P44, P48 a P51, P53, P55, P56) | 6 (P45 a P47, P52, P54, P57) |
+| R13 · a pesar en el banco | 11 (P43, P44, P48 a P51, P53, P55 a P58) | 6 (P45 a P47, P52, P54, P59) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.

@@ -167,3 +167,34 @@ describe("IFRA on the final batch (T9 of the background docs)", () => {
     expect(report.maxUseKnown.eq(report.maxUse)).toBe(true);
   });
 });
+
+describe("IFRA after reweighing (P57): what is lost goes out in proportion", () => {
+  const coumarin: Material = { key: "t:cumarina", kind: "base", name: "Cumarina" };
+  const neutral: Material = { key: "t:neutro", kind: "base", name: "Neutro" };
+  const data: IfraData = {
+    substances: new Map([[COUMARIN.key, COUMARIN]]),
+    materials: new Map([
+      [coumarin.key, { status: "checked", substances: [{ key: COUMARIN.key, fraction: Ratio.ONE }], conditions: [] }],
+      [neutral.key, { status: "checked", substances: [], conditions: [] }],
+    ]),
+  };
+  const poured: Change[] = [add("c", coumarin, 100n * MG), add("n", neutral, 900n * MG)];
+  // Half of the gram is spilled: the scale finds 0,5 g over a 20 g tare.
+  const spilled: Change[] = [...poured, { kind: "reweigh", id: "r", grossUg: 20n * G + 500n * MG, tareUg: 20n * G }];
+  const share = (f: Formula) => {
+    const r = checkIfra(f, data);
+    return [formatPercent(r.checks[0].worstUg.div(r.finalUg)), formatPercent(r.maxUse)];
+  };
+
+  it("with a work batch, both readings stay: the first one is the batch once completed", () => {
+    const planned = { ...header, workBatchUg: 1n * G, finalBatchUg: 10n * G };
+    expect(share({ header: planned, history: poured })).toEqual(["1,000 %", "15,000 %"]);
+    expect(share({ header: planned, history: spilled })).toEqual(["1,000 %", "15,000 %"]);
+  });
+
+  it("without a work batch, the first reading is what is in the bottle now, taken to the final batch", () => {
+    const onlyFinal = { ...header, finalBatchUg: 10n * G };
+    expect(share({ header: onlyFinal, history: poured })).toEqual(["1,000 %", "15,000 %"]);
+    expect(share({ header: onlyFinal, history: spilled })).toEqual(["0,500 %", "15,000 %"]);
+  });
+});

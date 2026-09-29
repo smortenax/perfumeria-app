@@ -394,6 +394,19 @@ cuenta como vacío. **Así, pasa si, y solo si, la segunda lectura llega a esa
 concentración.** Con el lote de trabajo igual al lote final, pasa solo si se puede usar al
 100 %.
 
+**La primera lectura se da con su base, y con lote final hay dos (P58).** Antes cambiaba de
+significado según hubiera o no lote de trabajo, sin decirlo:
+- **«Ahora»**: lo que hay en el frasco, llevado al lote final. Pasa si, y solo si, la segunda
+  lectura llega a lo que hay entre el lote final;
+- **«Al completar»**: el lote de trabajo entero, llevado al lote final; es la de arriba (P51).
+  Solo existe si hay lote de trabajo;
+- **«El frasco tal cual»**, cuando no hay lote final: el frasco es el producto.
+
+La caja de arriba dice en qué base está. **La segunda lectura también dice su base**: «esta
+mezcla, tal como está en el frasco, se puede usar hasta el X % en un perfume». En el panel,
+cada sustancia va con su CAS, su techo y los gramos que quedan, y al pasar el ratón, de qué
+materiales viene y cuánto aporta cada uno (§10.3). Se puede ver también por material.
+
 ## 5.5 · Lo desconocido siempre se avisa
 
 *P3, P7, P31, §1.2.*
@@ -507,6 +520,10 @@ Se tacha, no se borra: el texto original sigue en los antecedentes.
 | ~~Los datos de referencia se generan desde el laboratorio~~ | §6, P2 | P37: IFRA de IFRA, y el glosario del FIG con las abreviaturas del usuario |
 | ~~Cada material tiene pureza, y la app no deja escribir un porcentaje mayor~~ | §2.5, 2026-09-25 | P27: el diseño es general; nada limita el porcentaje, y cada usuario recuerda lo suyo con sus favoritas (§2.5) |
 | ~~Donde hay nombre comercial, la app lo enseña primero~~ (en la fórmula) | P38 | P56: manda el nombre por el que el usuario eligió el material; el comercial sigue primero en la búsqueda mientras no tenga otro |
+| ~~Los usados recientes, debajo de la barra de añadir~~ | P49 | P57: el «+» de la composición hace su papel; en su sitio, la ficha del material |
+| ~~El detalle de IFRA, un desplegable sobre la composición~~ | P23 | P57: un panel fijo junto a la composición |
+| ~~La pirámide por piso, una tarjeta propia~~ | P24 | P57: dentro de la proyección por horas (P50) |
+| ~~Una sola primera lectura de IFRA, sin nombre de base~~ | P51 | P58: «Ahora» y «Al completar», y «El frasco tal cual» sin lote final |
 
 ---
 
@@ -541,10 +558,10 @@ reparte por categoría**: lo que crece no es lo mismo más grande.*
 | **Arriba a la izquierda** | **El frasco, grande**, que se llena conforme se formula y lleva el nombre como etiqueta. Es el comienzo de la lectura. **El botón atrás va en un bocado del marco**, sin montarse encima (P26); el bocado es cuadrado con las esquinas redondeadas, como el botón (P28). **Debajo, lo que lleva el frasco**: la materia aromática y cada disolvente, en % del frasco (P49) |
 | **Junto al frasco** | **Los gramos**: el peso del frasco (tara y bruto), el lote de trabajo, lo que hay en el frasco y el lote final (§3.3). **Cada cifra por rellenar es un recuadro**, como una barra de búsqueda pequeña, para que se vea que hay que rellenarla (P49) |
 | **Arriba** | La cabecera, **solo nombre y fecha**, y a su lado la intención |
-| **Debajo de la cabecera** | La barra de añadir (§4), con el «+» pequeño junto a «Material», y **los usados recientes** debajo (P49). Los interruptores de qué incluye la búsqueda salen **dentro del desplegable**, mientras se busca (P49) |
+| **Debajo de la cabecera** | La barra de añadir (§4), con el «+» pequeño junto a «Material» (P49). Los interruptores de qué incluye la búsqueda salen **dentro del desplegable**, mientras se busca (P49). **Debajo, la ficha del material elegido** (P57): su margen IFRA y su uso habitual. Es contextual de la barra, y el desplegable puede taparla |
 | **Abajo a la izquierda** | **El visualizador, grande**: la firma de la app, una infografía compleja que pequeña no se entendería (§8) |
-| **Abajo, en medio** | Pirámide por piso y reparto de la materia, pequeños; debajo, la proyección por horas (§10.2) |
-| **Derecha** | **La caja de IFRA** y el menú de opciones: guardar, guardar como, exportar · **la composición: un listado ordenado por %, producto y %**, con su base (§1.1): **el % de la materia aromática, solo ese** (P49). Al lado del %, **los mg puros** que representa, y a la izquierda **un «+» que lleva el material a la barra de añadir**, con su última dilución: para retocar sin volver a escribirlo (P53) |
+| **Abajo, en medio** | **El reparto de la materia, junto al visualizador**; debajo, la proyección por horas, más estrecha. **La pirámide por piso va dentro de la proyección**, encima o con un conmutador, a decidir con bocetos (P50, P57) (§10.2) |
+| **Derecha** | **La caja de IFRA**, con el veredicto, y el menú de opciones: guardar, guardar como, exportar · **junto a la composición, el panel de IFRA, fijo** (P57): ya no es un desplegable, porque la composición e IFRA se consultan una contra otra todo el rato. **La composición es la vista del olor; IFRA, la de las sustancias** · **la composición: un listado ordenado por %, producto y %**, con su base (§1.1): **el % de la materia aromática, solo ese** (P49). Al lado del %, **los mg puros** que representa, y a la izquierda **un «+» que lleva el material a la barra de añadir**, con su última dilución: para retocar sin volver a escribirlo (P53) |
 | **Abajo del todo** | **El historial como un dock**: **cada aplicación, en su orden, aunque se repita el material**; siempre a la vista; al pasar el ratón se amplía y dice material y cantidad. **Las notas son marcas en él** (§3.4). **El *play*, en un bocado del borde de arriba, en el centro** (§3.4, P26), cuadrado con las esquinas redondeadas (P28). **En cada extremo, un sombreado sutil**, solo si hay más historial por ese lado: un clic lleva al principio o al final, y al acercar el ratón el historial se desplaza poco a poco (P25, P28). Las piezas van centradas en la bandeja (P26). **Durante el play, las piezas no llevan rótulo**, o lo llevan tenue: está por probar (P26) |
 
 - **La caja de IFRA son dos líneas**, las dos lecturas de §5.4: *¿pasa los límites en el
@@ -553,8 +570,9 @@ reparte por categoría**: lo que crece no es lo mismo más grande.*
   Citral» (P49).
 - **El frasco se llena en masa, sobre el lote de trabajo**: con 5 g de 10 g está a la mitad.
   **Es un visualizador, no una medida**, y por eso no necesita densidad.
-- **Los recientes sustituyen a la biblioteca lateral** del Banco v2: sin inventario (P6), lo
-  que está a mano es lo que acabas de usar, con su última dilución (P7).
+- **Lo que está a mano es lo que ya lleva la fórmula** (P57): el «+» de cada línea de la
+  composición (P53) hace el papel de los recientes, que salen. Sin inventario (P6), con su
+  última dilución (P7).
 - **Los datos de los gráficos son trabajo aparte**, para después (§8). Ahora se diseñan la
   interfaz, la experiencia de uso y las funciones.
 - **En el móvil no hay hover**: el dock se recorre deslizando el dedo, que es también el

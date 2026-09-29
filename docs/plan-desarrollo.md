@@ -4,7 +4,7 @@
 cuándo. Objetivo de esta etapa: **un ejecutable de Windows con el que formular de verdad**.
 Cuándo está listo, al final.
 
-Actualizado: **2026-09-26**
+Actualizado: **2026-09-29**
 
 ---
 
@@ -288,6 +288,44 @@ incluida. **Lo que falla, por orden de importancia:**
   2026-09-28, formulando en el laboratorio. El centro del banco (P50) queda aplazado, para
   retomarlo con bocetos. Lo que falle se apunta en la bandeja del
   laboratorio, como siempre.
+- [ ] **E · El banco reordenado, e IFRA a la vista** (P57 a P59, 2026-09-29). De la prueba
+  funcional: la composición e IFRA se consultaban todo el rato, una contra otra, y faltaba
+  saber cuánto se suele poner de cada material. Seis paquetes. **Los que no esperan una
+  decisión pueden ir en paralelo**, cada uno en su rama:
+  - [ ] **E1 · La disposición** (P57, el [dibujo del usuario](media/2026-09-29-boceto-banco-p57.png)):
+    - fuera las recientes y la tarjeta de la pirámide;
+    - el reparto, junto al visualizador; la proyección, debajo y más estrecha;
+    - la ficha del material, bajo la barra de añadir;
+    - a la derecha, la composición y, a su lado, un panel fijo de IFRA, que de entrada lleva el
+      detalle de hoy.
+
+    *Sale:* a 1440 × 900 se ve como el dibujo, y no se pierde nada de lo que había. **No
+    espera ninguna decisión, salvo confirmar el boceto.**
+  - [ ] **E2 · El núcleo de IFRA** (`src/core/ifra.ts`, con pruebas):
+    - de qué material viene cada sustancia, y cuánto (§10.3);
+    - **el margen de un material**: cuántos mg más caben antes de pasar un techo, con los
+      solapes. Un material que aporta a una sustancia ya cargada por otro tiene menos margen;
+    - las dos bases, «ahora» y «al completar», calculadas siempre las dos; P58 decide cómo se
+      enseñan.
+
+    *Sale:* pruebas del repesado (hechas el 2026-09-29), de los solapes (la cumarina de dos
+    materiales) y del margen. **Puede empezar ya.**
+  - [ ] **E3 · Las líneas de la composición**: el cuadro de color con la abreviatura dentro; lo
+    que lleva de su techo, en % y en gramos; el conmutador materia aromática / frasco.
+    *Depende de E2.*
+  - [ ] **E4 · El panel de IFRA**: las bases; por sustancia y por material; el CAS, y al pasar
+    el ratón, sus materiales; los gramos que quedan; la segunda lectura, con su base.
+    *Depende de P58, E1 y E2.*
+  - [ ] **E5 · La ficha del material**: primero, el margen IFRA (E2); la franja de uso y su
+    clase, cuando haya datos (E6). Mientras no los haya, el hueco se ve como hueco, nunca en
+    verde (§1.2). *Depende de E1 y E2; la franja, de E6.*
+  - [ ] **E6 · Los datos de uso** (P59): **antes, P54**, para buscarlos por material y no por
+    variante. Después, lo que decida P59: el encargo al laboratorio y la pasada en lote desde
+    aquí, con fuente y confianza en cada fila. *Es investigación: corre aparte.*
+  - **En paralelo:** ya, E1 y E2; después, E3 y E5 a la vez; E4 cuando se decida P58. E6, desde
+    que se decidan P54 y P59.
+  - **Las decisiones, en este orden:** P58, P54 y P59. La pirámide dentro de la proyección se
+    decide con bocetos cuando llegue su dato (P50).
 - **Abiertas, sin prisa:**
   - el tipo de fórmula, acorde o perfume, y la galería con sus filtros, **con un icono y un
     visualizador para cada fórmula** (P45);
