@@ -1501,10 +1501,56 @@ button.value:hover {
   min-width: 0;
 }
 
-.row-share {
+.row-line {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.row-line .row {
+  flex: 1;
+  min-width: 0;
+}
+
+/* The «+» that takes a material to the add bar again: quiet until the row is under the pointer. */
+.again {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.row-line:hover .again {
+  border-color: var(--line);
+  background: var(--fill-2);
+  color: var(--ink-2);
+}
+
+.again:hover {
+  color: var(--ink);
+}
+
+.row-amount {
   margin-left: auto;
+  font-size: 12px;
+  color: var(--muted);
+  flex: none;
+  min-width: 56px;
+  text-align: right;
+}
+
+.row-share {
   font-size: 12.5px;
   flex: none;
+  min-width: 52px;
+  text-align: right;
 }
 
 .flag {

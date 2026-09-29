@@ -19,6 +19,11 @@ export function pureText(micrograms: Ratio): string {
   return micrograms.lt(ONE_G) ? formatMilligrams(micrograms, 1) : formatGrams(micrograms, 4);
 }
 
+/** The pure mass of a line of the composition, always in mg so the column reads down: «619 mg», «0,5 mg». */
+export function amountText(micrograms: Ratio): string {
+  return formatMilligrams(micrograms, micrograms.lt(TEN_MG) ? 1 : 0);
+}
+
 /** How a line was poured: «619 mg, puro» or «110 mg al 50 % en DPG». */
 export function pouredText(massUg: Ratio, fraction: Ratio, diluentName: string | undefined): string {
   return fraction.eq(Ratio.ONE)

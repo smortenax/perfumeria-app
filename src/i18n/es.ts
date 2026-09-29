@@ -188,7 +188,9 @@ export const texts = {
   composition: {
     title: "Composición",
     count: (n: number) => `${n} ${n === 1 ? "material" : "materiales"}`,
-    base: "% de la materia aromática",
+    base: "mg puros · % de la materia aromática",
+    amountHelp: "Materia pura en el frasco, sin el diluyente",
+    again: (name: string) => `Añadir otra vez ${name}`,
     empty: "Todavía no hay nada en el frasco.",
     aromatic: "Materia aromática",
     total: "Total",

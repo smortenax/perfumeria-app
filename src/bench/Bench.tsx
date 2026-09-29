@@ -529,6 +529,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
           ifra={catalog.ifra}
           chemicalOf={(key) => chemical.get(key)}
           familyOf={familyOf}
+          onAgain={(m) => addBar.current?.select(m)}
         />
       </div>
 

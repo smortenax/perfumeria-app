@@ -3,10 +3,11 @@ import type { Composition, Line, Part } from "../core/compose";
 import { formatPercent } from "../core/display";
 import type { IfraData, IfraReport } from "../core/ifra";
 import type { Change } from "../core/model/formula";
+import type { Material } from "../core/model/material";
 import type { MaterialFamily } from "../data/catalog";
 import { texts } from "../i18n/es";
 import { familyLook, familyText } from "./family";
-import { pouredText, pureText, shareText, weighingWarning } from "./format";
+import { amountText, pouredText, pureText, shareText, weighingWarning } from "./format";
 
 const t = texts.composition;
 
@@ -17,8 +18,9 @@ type Flag = { text: string; tone: "amber" | "grey" };
  * The composition column (§10.1): a list ordered by %, product and % (P23),
  * with its base (§1.1): the aromatic matter, never the bottle, which goes under
  * the bottle (P49). Only what cannot be kept quiet is marked (P23): what is
- * not checked, what has no data, conditions and weighing. The solvents and the
- * total go at the foot. As in the sketch (boceto 4).
+ * not checked, what has no data, conditions and weighing. Beside the %, the pure
+ * mass it stands for; on the left, a «+» that takes the material to the add bar,
+ * for tweaking without typing it again. As in the sketch (boceto 4).
  */
 export function CompositionCard(props: {
   composition: Composition | null;
@@ -30,6 +32,8 @@ export function CompositionCard(props: {
   chemicalOf?: (key: string) => string | undefined;
   /** Each line shows the family of its material (P48). */
   familyOf?: (key: string) => MaterialFamily | undefined;
+  /** Takes the material to the add bar, to add it again. */
+  onAgain?: (material: Material) => void;
 }) {
   const [open, setOpen] = useState<ReadonlySet<string>>(new Set());
   const comp = props.composition;
@@ -126,19 +130,37 @@ export function CompositionCard(props: {
             const isOpen = open.has(part.material.key);
             return (
               <div key={part.material.key}>
-                <button type="button" className="row" aria-expanded={isOpen} title={share.exact} onClick={() => toggle(part.material.key)}>
-                  {(() => {
-                    const look = familyLook(props.familyOf?.(part.material.key));
-                    return <span className={`fam-mark ${look.className}`} style={look.style} title={look.title} />;
-                  })()}
-                  <span className="row-name">{part.material.name}</span>
-                  {flags.map((f) => (
-                    <span key={f.text} className={`flag ${f.tone}`}>
-                      {f.text}
+                <div className="row-line">
+                  {props.onAgain && (
+                    <button
+                      type="button"
+                      className="again"
+                      title={t.again(part.material.name)}
+                      aria-label={t.again(part.material.name)}
+                      onClick={() => props.onAgain?.(part.material)}
+                    >
+                      <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                        <path d="M8 3v10M3 8h10" />
+                      </svg>
+                    </button>
+                  )}
+                  <button type="button" className="row" aria-expanded={isOpen} title={share.exact} onClick={() => toggle(part.material.key)}>
+                    {(() => {
+                      const look = familyLook(props.familyOf?.(part.material.key));
+                      return <span className={`fam-mark ${look.className}`} style={look.style} title={look.title} />;
+                    })()}
+                    <span className="row-name">{part.material.name}</span>
+                    {flags.map((f) => (
+                      <span key={f.text} className={`flag ${f.tone}`}>
+                        {f.text}
+                      </span>
+                    ))}
+                    <span className="num row-amount" title={t.amountHelp}>
+                      {amountText(part.massUg)}
                     </span>
-                  ))}
-                  <span className="num row-share">{share.text}</span>
-                </button>
+                    <span className="num row-share">{share.text}</span>
+                  </button>
+                </div>
                 {isOpen && (
                   <div className="row-detail">
                     {lines.map(([k, v]) => (
