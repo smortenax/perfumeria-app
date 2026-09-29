@@ -109,6 +109,7 @@ export const texts = {
     src: { base: "base", favorite: "favorita", last: "última" },
     customPercent: "Doble clic, F2 o un número para escribir otro %",
     pureButton: "Puro",
+    inShop: (name: string) => `en tienda: ${name}`,
     percentGroup: "Porcentaje final",
     diluentGroup: "Diluyente",
     otherDiluent: "Otro diluyente (→ desde el diluyente)",
