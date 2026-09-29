@@ -17,7 +17,7 @@ genera [`scripts/generar_glosario.py`](../../scripts/generar_glosario.py) a part
   y qué filas son naturales, de [`../fuente/`](../fuente/procedencia.json).
 
 **Ningún material del usuario entra aquí.** **No se edita a mano.** Las cuentas de abajo son
-las de [`procedencia.json`](procedencia.json) del 2026-09-28.
+las de [`procedencia.json`](procedencia.json) del 2026-09-29.
 
 > Information derived from the IFRA Fragrance Ingredient Glossary, developed by The
 > International Fragrance Association.
@@ -118,10 +118,10 @@ Lo desconocido nunca se da por libre (§1.2).
 |---|---|---|
 | `prohibido` | su estándar lo prohíbe como tal | 121 |
 | `con-techo` | su estándar le pone un techo en % en alguna categoría | 417 |
-| `condicion` | una especificación, una variante prohibida o una familia: no es un % | 48 |
+| `condicion` | una especificación, una variante prohibida o una familia: no es un % | 47 |
 | `por-constituyentes` | sin estándar propio, pero el anexo le da constituyentes regulados | 523 |
-| `sin-dato` | un natural sin estándar propio y fuera del anexo: no se sabe qué lleva | 537 |
-| `sin-estandar` | no está en el índice de IFRA, que es completo: no tiene estándar propio | 2674 |
+| `sin-dato` | un natural sin estándar propio y fuera del anexo: no se sabe qué lleva | 553 |
+| `sin-estandar` | no está en el índice de IFRA, que es completo: no tiene estándar propio | 2656 |
 
 `condiciones` explica lo que no cabe en un %, con el estándar al lado: especificaciones,
 variantes prohibidas, grupos de un estándar, el tope de la nota o la familia. **Una familia
@@ -141,16 +141,17 @@ constituyentes, y la app lo calcula exacto; así nunca se desfasa de los datos.
 
 ## Los constituyentes: [`material-constituyentes.csv`](material-constituyentes.csv)
 
-3303 filas. Una fila es algo regulado que un material lleva por dentro:
+3270 filas. Una fila es algo regulado que un material lleva por dentro:
 - `variante`: el natural del anexo, o la base de Schiff, de donde sale;
 - `estandar`: el estándar del constituyente;
 - `concentracion_pct`: el % dentro del material;
 - `fuente`: `anexo` o `bases-schiff`.
 
 **`coincidencia`** dice cómo se unió el material con el anexo:
-- **`nombre`**: el anexo tiene ese mismo natural. Lo cumplen 301 materiales;
+- **`nombre`**: el anexo tiene ese mismo natural. Lo cumplen 313 materiales. Si el FIG
+  repite la fila, con el mismo nombre y CAS («Cistus oil», CtO y CuO), las dos se unen así;
 - **`cas`**: solo coincide el CAS principal. Cuando ese CAS reúne varias variantes, se
-  apuntan todas y **cuenta la peor**. Hay 293 materiales así.
+  apuntan todas y **cuenta la peor**. Hay 281 materiales así.
   - Ejemplo: el «Lemon oil» del FIG puede ser el exprimido, la esencia o el destilado del
     anexo.
 

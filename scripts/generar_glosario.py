@@ -282,8 +282,11 @@ def main() -> None:
         cas_set = set(v["principal"]) | set(v["otros"])
         candidates = [m for m in by_norm_name.get(norm(v["nombre"]), [])]
         same_cas = [m for m in candidates if m["cas"] in cas_set]
-        target = (same_cas or candidates or [None])[0]
-        if target is None:
+        # The FIG repeats some rows, name and CAS alike («Cistus oil» CtO and CuO): all of
+        # them are this natural, not only the first, or the second would count the worst
+        # variant of its CAS and two equal rows would answer differently.
+        targets = same_cas or candidates
+        if not targets:
             slug = norm(v["nombre"]).replace(" ", "-")
             mid = f"ncs:{slug}"
             k = 2
@@ -296,13 +299,14 @@ def main() -> None:
                           otros_cas=" ".join(v["principal"][1:] + v["otros"]), clase="natural",
                           tipo_natural=kind, categoria_iso=v["iso"], fuentes="ifra-anexo")
             new.append(target)
-        else:
+            targets = [target]
+        for target in targets:
             if "ifra-anexo" not in target["fuentes"]:
                 target["fuentes"] += " ifra-anexo"
             target["clase"] = "natural"
             target["categoria_iso"] = target["categoria_iso"] or v["iso"]
-        links.append((target, v, "nombre"))
-        named.add(target["id"])
+            links.append((target, v, "nombre"))
+            named.add(target["id"])
 
     # A row of the FIG that is a natural of the annex by its CAS, but not by name, may be
     # any of the variants under that CAS: all of them, and the worst one counts.

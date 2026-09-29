@@ -55,7 +55,7 @@
       "sha256": "289097c9d76de4430f967158556ff068faa4589175c44b48dd355a5eb93b6368"
     }
   },
-  "generado": "2026-09-29T00:15:29+00:00",
+  "generado": "2026-09-29T00:34:24+00:00",
   "cuentas": {
     "materiales": 4317,
     "del_fig": 3119,
@@ -70,7 +70,7 @@
       "sin-dato": 553,
       "sin-estandar": 2656
     },
-    "filas_de_constituyentes": 3303,
+    "filas_de_constituyentes": 3270,
     "de_la_transparency_list": 3626,
     "solo_de_la_transparency_list": 923,
     "del_fig_fuera_de_ifra": 354,
