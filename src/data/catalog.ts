@@ -299,6 +299,21 @@ export function buildCatalog(files: CatalogFiles): Catalog {
 
 const GROUP_ORDER: Record<CatalogGroup, number> = { own: 0, diluent: 1, base: 2 };
 
+/**
+ * A CAS typed with zeros of more, as some sheets write it: «0123-07-09» is 123-07-9 (P52).
+ * The last part of a CAS is one check digit; it is taken only when the check holds.
+ */
+export function casForm(text: string): string | null {
+  const match = /^\s*0*(\d{2,7})-(\d{2})-0?(\d)\s*$/.exec(text);
+  if (!match) {
+    return null;
+  }
+  const [, head, middle, check] = match;
+  const digits = `${head}${middle}`.split("").reverse();
+  const sum = digits.reduce((s, d, i) => s + Number(d) * (i + 1), 0);
+  return sum % 10 === Number(check) ? `${head}-${middle}-${check}` : null;
+}
+
 /** The short label the lab gives the grey family (pieza 11). */
 const SHORT_NAMES: Record<string, string> = { Transformado: "Transf" };
 
@@ -309,7 +324,8 @@ const SHORT_NAMES: Record<string, string> = { Transformado: "Transf" };
  * that finds too little, names written close to the query come after it: a
  * trade name and its chemical name are both valid, in either spelling (P38).
  */
-export function searchCatalog(entries: readonly CatalogEntry[], query: string, limit = 12): CatalogEntry[] {
+export function searchCatalog(entries: readonly CatalogEntry[], typedQuery: string, limit = 12): CatalogEntry[] {
+  const query = casForm(typedQuery) ?? typedQuery;
   const words = normalize(query).split(/\s+/).filter((w) => w !== "");
   if (words.length === 0) {
     return [];

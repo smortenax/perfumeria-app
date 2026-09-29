@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { fold, normalize, searchCatalog, type CatalogEntry } from "./catalog";
+import { casForm, fold, normalize, searchCatalog, type CatalogEntry } from "./catalog";
 
 /** A base entry as the glossary gives it, with its trade name over the chemical one (P38). */
 function entry(code: string, chemicalName: string, cas: string, tradeName?: string, tradeCode?: string, iconMark?: string): CatalogEntry {
@@ -48,6 +48,14 @@ describe("the search, with trade names over chemical ones (P38)", () => {
     expect(searchCatalog(entries, "cumarina")[0].cas).toBe("91-64-5");
     // Both match as typed: the name that starts so comes first.
     expect(searchCatalog(entries, "quinoline")[0].cas).toBe("91-22-5");
+  });
+
+  it("finds a CAS typed with zeros of more, when its check digit holds (P52)", () => {
+    expect(casForm("0123-07-09")).toBe("123-07-9");
+    expect(casForm("24851-98-7")).toBe("24851-98-7");
+    expect(casForm("0123-07-08")).toBeNull();
+    expect(casForm("hedione")).toBeNull();
+    expect(searchCatalog(entries, "024851-98-07")[0].cas).toBe("24851-98-7");
   });
 
   it("does not stretch a short query into anything", () => {

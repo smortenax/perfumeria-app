@@ -4,8 +4,9 @@
 
 PubChem da cientos de sinónimos por molécula: nombres de uso («Diphenyl oxide»), nombres
 sistemáticos y códigos de catálogo. Para el buscador sirven los primeros. Este script aplica
-el mismo filtro que eligió los candidatos de los nombres comerciales (P38): quita códigos,
-números de registro y nombres sistemáticos, y deja hasta 15 nombres cortos por CAS.
+el filtro que eligió los candidatos de los nombres comerciales (P38): quita códigos,
+números de registro y nombres sistemáticos largos, y deja hasta 20 nombres por CAS. Los
+nombres químicos cortos se quedan, porque es como se teclean: «4-Ethylphenol» (P52).
 
 Lee la caché de `scripts/buscar_sinonimos.py` (`datos/glosario/.cache/pubchem.json`, fuera de
 Git) y escribe `datos/glosario/origen/sinonimos-pubchem.csv`, que sí va en Git: así el
@@ -45,7 +46,10 @@ def usable(synonyms: list[str], known: set[str]) -> list[str]:
         s = re.split(r"\s+solution\b", s.strip(), flags=re.I)[0].strip()
         if not s or len(s) > 40 or ID.match(s) and not NUMBERED.match(s):
             continue
-        if SYSTEMATIC.search(s) and not NUMBERED.match(s) or NOISE.search(s):
+        # A short chemical name with its numbers is how one types it («4-Ethylphenol»,
+        # «2-Phenylethanol»), and stays; a long one, with brackets or commas, does not (P52).
+        short = len(s) <= 24 and len(s.split()) <= 2 and not re.search(r"[\[\](),;]", s)
+        if SYSTEMATIC.search(s) and not NUMBERED.match(s) and not short or NOISE.search(s):
             continue
         if len(s.split()) > 5:
             continue
@@ -54,7 +58,7 @@ def usable(synonyms: list[str], known: set[str]) -> list[str]:
             continue
         seen.add(n)
         out.append(s)
-    return out[:15]
+    return out[:20]
 
 
 def main() -> None:

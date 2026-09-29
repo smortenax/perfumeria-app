@@ -1936,6 +1936,18 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
   si se escribió en mg, y enseña entre qué pesos tiene que estar.
 - **Por aclarar con el usuario:** cómo se pasó de una fórmula a la otra. La biblioteca lista
   cuatro «Sin nombre» que solo se distinguen por la fecha.
+- **El material «0123-07-09».** Respuesta literal: *«es un cas era para que se registrase en la lista de materiales ya que no esta registrado, si puedes hacerlo»*
+  - **Lectura:** el usuario escribió un CAS para dar de alta un material que creía que
+    faltaba.
+  - **Ya estaba:** 0123-07-09 es el **123-07-9**, el p-etilfenol, con la abreviatura del
+    usuario Et5. La cifra de control cuadra: 1·5 + 2·4 + 3·3 + 0·2 + 7·1 = 29.
+  - **El fallo era de la búsqueda:** no lo encontraba con ceros de más, ni por «4-ethylphenol»,
+    que el filtro de PubChem quitaba por llevar número. En «Sin nombre (4)» acabó dos veces,
+    como p-Ethylphenol y como un provisional «4-ETHYLPHENOL».
+  - **Hecho:**
+    - la búsqueda lee un CAS con ceros de más, si su cifra de control cuadra;
+    - los nombres químicos cortos con número de PubChem se quedan para buscar: 16 201
+      nombres para 2174 CAS.
 - Fecha: 2026-09-29
 - Estado: abierta
 - Destino: decisiones.md §3.5; P44

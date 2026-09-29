@@ -193,6 +193,10 @@ describe("the catalog, from the glossary and IFRA's own files (P37)", () => {
     expect(searchCatalog(catalog.entries, "ALM")[0].cas).toBe("67634-00-8");
     expect(searchCatalog(catalog.entries, "phenylethyl alcohol")[0].cas).toBe("60-12-8");
     expect(searchCatalog(catalog.entries, "beta-PEA")[0].cas).toBe("60-12-8");
+    // The functional test (P52): p-ethylphenol by the CAS with zeros of more, and by its
+    // short chemical name. Neither came out, and both became provisional materials.
+    expect(searchCatalog(catalog.entries, "0123-07-09")[0].cas).toBe("123-07-9");
+    expect(searchCatalog(catalog.entries, "4-ethylphenol")[0].cas).toBe("123-07-9");
     // A hyphen is a space when ordering: «alpha ionone» is the alpha-ionone, not the irone.
     expect(searchCatalog(catalog.entries, "alpha ionone")[0].cas).toBe("127-41-3");
   });

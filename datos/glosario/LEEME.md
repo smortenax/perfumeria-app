@@ -76,9 +76,11 @@ el gris**, que es una familia.
 
 ## Los nombres de uso de PubChem, para buscar
 
-`sinonimos_pubchem` lleva hasta 15 nombres de uso por molécula, de PubChem, filtrados como
-los candidatos de los nombres comerciales: sin códigos, números de registro ni nombres
-sistemáticos. **Solo sirven para encontrar**: «Diphenyl oxide» lleva al éter difenílico. Salen
+`sinonimos_pubchem` lleva hasta 20 nombres por molécula, de PubChem, filtrados como los
+candidatos de los nombres comerciales: sin códigos, números de registro ni nombres
+sistemáticos largos. Los nombres químicos cortos se quedan, porque es como se teclean:
+«4-Ethylphenol» (P52). Un CAS escrito con ceros de más, «0123-07-09», también se encuentra si
+su cifra de control cuadra. **Solo sirven para encontrar**: «Diphenyl oxide» lleva al éter difenílico. Salen
 de [`origen/sinonimos-pubchem.csv`](origen/sinonimos-pubchem.csv), que escribe
 [`scripts/sinonimos_pubchem.py`](../../scripts/sinonimos_pubchem.py) desde su caché. Los datos
 de PubChem son de uso libre.

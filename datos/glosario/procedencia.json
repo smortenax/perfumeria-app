@@ -31,7 +31,7 @@
       "que_es": "moléculas que son la misma que una de IFRA, por su InChIKey"
     },
     "datos/glosario/origen/sinonimos-pubchem.csv": {
-      "sha256": "bdd44cb75c46c14e11acbd37d256800304330742112a24c7e498887a797d86c1",
+      "sha256": "bce4057aeb25c3a854e9a8d124665e07d9c89a4a54570545d37dcc432e866bab",
       "que_es": "los nombres de uso de PubChem por CAS, para buscar"
     },
     "datos/fuente/pieza-13-duracion-naturales.csv": {
@@ -55,7 +55,7 @@
       "sha256": "289097c9d76de4430f967158556ff068faa4589175c44b48dd355a5eb93b6368"
     }
   },
-  "generado": "2026-09-28T15:47:58+00:00",
+  "generado": "2026-09-29T00:15:29+00:00",
   "cuentas": {
     "materiales": 4317,
     "del_fig": 3119,
@@ -78,6 +78,6 @@
     "con_nombre_comercial": 364,
     "con_sigla_comercial": 27,
     "con_familia": 3119,
-    "con_sinonimos_de_pubchem": 2028
+    "con_sinonimos_de_pubchem": 2176
   }
 }
