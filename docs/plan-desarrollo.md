@@ -315,7 +315,11 @@ incluida. **Lo que falla, por orden de importancia:**
 
     *Sale:* pruebas del repesado (hechas el 2026-09-29), de los solapes (la cumarina de dos
     materiales) y del margen. **Puede empezar ya.**
-  - [ ] **E3 · Las líneas de la composición**: el cuadro de color con la abreviatura dentro; lo
+  - [x] **E3**, **hecha el 2026-09-29** y vista a 1440 × 900. Cada línea lleva, en una
+    segunda línea, el % del techo de la sustancia que tiene más cerca y lo que cabe aún de ese
+    material, «IFRA 52 % · quedan 29 mg»: gris hasta el 80 %, ámbar desde ahí o si puede ser
+    optimista, rojo desde el 100 % o sin margen. El umbral del 80 % es provisional.
+    **Las líneas de la composición**: el cuadro de color con la abreviatura dentro; lo
     que lleva de su techo, en % y en gramos; el conmutador materia aromática / frasco.
     *Depende de E2.*
   - [ ] **E4 · El panel de IFRA**: las bases; por sustancia y por material; el CAS, y al pasar
