@@ -247,6 +247,9 @@ export const texts = {
     grossLabel: "Peso bruto (g)",
     needTare: "Para repesar hace falta la tara del recipiente: escríbela en «Peso del frasco».",
     tooLight: "El bruto tiene que ser mayor que la tara.",
+    tooHeavy: (max: string) =>
+      `El frasco no puede pesar más que la tara más lo que lleva: ${max}. ¿Lo escribiste en mg? El bruto va en gramos.`,
+    grossRange: (min: string, max: string) => `Tiene que estar entre ${min} y ${max}.`,
     nothingToReweigh: "No hay nada en el frasco que repesar.",
     emptyNote: "Escribe la nota.",
     noteTitle: "Nota en el historial",

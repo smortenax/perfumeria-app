@@ -2,7 +2,7 @@ import { useEffect, useMemo, useReducer, useRef, useState } from "react";
 import { Ratio } from "../core/arith/ratio";
 import { parseMass } from "../core/arith/units";
 import { compose, replay, vectorOf, type Composition, type Line } from "../core/compose";
-import { formatDecimal, formatPercent } from "../core/display";
+import { formatDecimal, formatGrams, formatPercent } from "../core/display";
 import { checkIfra, type IfraReport } from "../core/ifra";
 import { formulaFromJson, formulaToJson as toJsonWith } from "../core/io/formula-json";
 import type { Change, Formula, FormulaHeader } from "../core/model/formula";
@@ -577,7 +577,13 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
         <PromptDialog
           title={texts.dialogs.reweighTitle}
           label={texts.dialogs.grossLabel}
-          help={(dialog.onOpen ? `${texts.dialogs.reweighOnOpen} ` : "") + texts.dialogs.reweighHelp}
+          help={
+            (dialog.onOpen ? `${texts.dialogs.reweighOnOpen} ` : "") +
+            texts.dialogs.reweighHelp +
+            (view.composition && !view.composition.totalUg.isZero()
+              ? ` ${texts.dialogs.grossRange(formatGrams(Ratio.of(tare), 3), formatGrams(Ratio.of(tare).add(view.composition.totalUg), 3))}`
+              : "")
+          }
           submit={(value) => {
             let grossUg: bigint;
             try {
@@ -590,6 +596,12 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
             }
             if (!view.composition || view.composition.totalUg.isZero()) {
               return texts.dialogs.nothingToReweigh;
+            }
+            // Reweighing only finds what is left: the bottle cannot weigh more than it held (§3.5).
+            // A gross typed in mg, the way the bench weighs, would make it thousands of times heavier.
+            const most = Ratio.of(tare).add(view.composition.totalUg);
+            if (Ratio.of(grossUg).gt(most)) {
+              return texts.dialogs.tooHeavy(formatGrams(most, 3));
             }
             change({ kind: "reweigh", id: newId(), grossUg, tareUg: tare });
             return null;

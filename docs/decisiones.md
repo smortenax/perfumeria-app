@@ -254,6 +254,10 @@ fórmulas, las muestras, lo derramado y lo evaporado.
 Por qué importa: añadir 1 g sobre la receta de 10 g da un 9,1 %; sobre los 8 g que quedan
 de verdad, un 11,1 % (P10).
 
+**El bruto no puede pasar de la tara más lo que hay en el frasco** (P52): repesar solo
+encuentra lo que queda. La app lo rechaza, dice si parece escrito en mg, y enseña entre qué
+pesos tiene que estar.
+
 ⚠️ **Escalar en proporción supone que todo se va por igual.** Es cierto para lo que sale del
 vial por uso, **no para lo que se evapora**, que se lleva antes el alcohol y las salidas. La
 app lo avisa cuando la pérdida es grande o ha pasado tiempo.

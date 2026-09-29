@@ -1917,6 +1917,29 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 - Estado: cerrada
 - Destino: decisiones.md §5.4
 
+### P52 — La prueba funcional: un repesado en mg, y dos fórmulas que parecían una
+- Bloque: banco (§3.5), biblioteca (P44)
+- Abierta por: el usuario, 2026-09-29, tras formular con la app en el laboratorio
+- Respuesta literal: *«dentro de la app, despues de usarla un rato surgio un problema, se me vertio el contenido del fkasco al abrirlo y repesarlo me he dado cuenta de que no se ajusta bien los % a el nuevo tamaño, todos los materiales se tendrian que haber reescalado en caso de perder tamaño el envase no? es el proposito de repesar al abri de nuevo una formula, de todas formas he ido a por el historial para apuntar manualmente lo que use, aun asi ha habido algun problema, no se a que se debe pero no estaban todos los materiales  registrados, estoy seguro al 100% ya que hay algunas referencias como eucalypto thyme spearmint oil, estos no me aparecen en el historial quizas si estan en la lista de ingredientes pero como esta no esta corregida y los agrega todos simplemente no sirven ninguna de las dos opciones, esto no es muy dramatico volvere a hacer el intento pero lo importante es sacar en claro que es lo que va mal, puedes investigarlo?»*
+- **Lo que dicen los archivos de la biblioteca:**
+  1. **El repesado.** «Zara tabaco» tiene tres. El primero es correcto: 18,103 g de bruto
+     menos 13,368 g de tara dan 4,735 g, de los 5,422 g vertidos, y todo se escaló. Los
+     otros dos apuntan un bruto de **16 774 g y 18 299 g**: se escribieron en mg en un campo
+     que pide gramos. El frasco pasó a «tener» 16 kg, y lo que se añadió después quedó en
+     porcentajes ínfimos. **La app no debía aceptarlo:** repesar solo encuentra lo que
+     queda, y el frasco no puede pesar más que la tara más lo que lleva.
+  2. **El eucalipto, el tomillo, la hierbabuena y el árbol del té no se perdieron.** Están en
+     otra fórmula, «Sin nombre (4)»: 102 adiciones, tara de 13,555 g, guardada por última vez
+     a las 01:03. «Zara tabaco» empieza de cero, con otra tara y sin ningún cambio en común.
+     Se trabajó en dos fórmulas creyendo que era una.
+- **Hecho:** el repesado rechaza un bruto mayor que la tara más lo que hay en el frasco, dice
+  si se escribió en mg, y enseña entre qué pesos tiene que estar.
+- **Por aclarar con el usuario:** cómo se pasó de una fórmula a la otra. La biblioteca lista
+  cuatro «Sin nombre» que solo se distinguen por la fecha.
+- Fecha: 2026-09-29
+- Estado: abierta
+- Destino: decisiones.md §3.5; P44
+
 ---
 
 ## Estado
@@ -1928,6 +1951,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
 | R12 · infografías y frentes | 7 (P35 a P41) | 3 (P33, P34, P42) |
-| R13 · a pesar en el banco | 6 (P43, P44, P48 a P51) | 3 (P45 a P47) |
+| R13 · a pesar en el banco | 6 (P43, P44, P48 a P51) | 4 (P45 a P47, P52) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.
