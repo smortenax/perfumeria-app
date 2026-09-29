@@ -107,9 +107,9 @@ del glosario no se parece a lo escrito. Salen de
 fuente. **Un natural que no se une no entra**: el FIG suele tenerlo con otro CAS, y saldría
 doble. Queda en [`proveedores-sin-unir.csv`](proveedores-sin-unir.csv) para resolverlo.
 
-A 2026-09-29: 1166 filas de 741 CAS, de Olfatorium (160 productos), Maese Lab (387) y
-Perfumiarz (497). **898 materiales llevan nombre de tienda**; 4 son nuevos y 73 filas de las
-tiendas quedan sin unir. A Perfumiarz le faltan aún 20 páginas, las de nombre con ® o ™.
+A 2026-09-29: 1183 filas de 754 CAS, de Olfatorium (160 productos con CAS), Maese Lab (387) y
+Perfumiarz (513). **909 materiales llevan nombre de tienda**; 4 son nuevos y 76 filas de las
+tiendas quedan sin unir.
 
 ## Los nombres comerciales, por encima (P38)
 

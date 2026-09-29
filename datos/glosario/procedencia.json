@@ -35,7 +35,7 @@
       "que_es": "los nombres de uso de PubChem por CAS, para buscar"
     },
     "datos/glosario/origen/nombres-proveedores.csv": {
-      "sha256": "29dfa20ccece49c5a10a3f214dcfd2788d9095c1a08421a15ad3def09e94c893",
+      "sha256": "2bf6d7a2b821bd84e277b655f10b2b0ba83d5d34bbfb473d6c186538216ccef6",
       "que_es": "los nombres de venta de Olfatorium, Maese Lab y Perfumiarz, con su CAS"
     },
     "datos/fuente/pieza-13-duracion-naturales.csv": {
@@ -59,7 +59,7 @@
       "sha256": "289097c9d76de4430f967158556ff068faa4589175c44b48dd355a5eb93b6368"
     }
   },
-  "generado": "2026-09-29T01:26:16+00:00",
+  "generado": "2026-09-29T01:40:35+00:00",
   "cuentas": {
     "materiales": 4321,
     "del_fig": 3119,
@@ -83,8 +83,8 @@
     "con_sigla_comercial": 27,
     "con_familia": 3119,
     "con_sinonimos_de_pubchem": 2176,
-    "con_nombres_de_tiendas": 898,
+    "con_nombres_de_tiendas": 909,
     "solo_de_tiendas": 4,
-    "de_tiendas_sin_unir": 73
+    "de_tiendas_sin_unir": 76
   }
 }
