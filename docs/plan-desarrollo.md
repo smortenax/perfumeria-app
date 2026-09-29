@@ -292,7 +292,9 @@ incluida. **Lo que falla, por orden de importancia:**
   funcional: la composición e IFRA se consultaban todo el rato, una contra otra, y faltaba
   saber cuánto se suele poner de cada material. Seis paquetes. **Los que no esperan una
   decisión pueden ir en paralelo**, cada uno en su rama:
-  - [ ] **E1 · La disposición** (P57, el [dibujo del usuario](media/2026-09-29-boceto-banco-p57.png)):
+  - [x] **E1 · La disposición**, **hecha el 2026-09-29** y vista a 1440 × 900. La ficha mide
+    80 px de alto; el panel de IFRA, unos 272 px de ancho, que es con lo que cuenta E4. Lo que
+    se pedía (P57, el [dibujo del usuario](media/2026-09-29-boceto-banco-p57.png)):
     - fuera las recientes y la tarjeta de la pirámide;
     - el reparto, junto al visualizador; la proyección, debajo y más estrecha;
     - la ficha del material, bajo la barra de añadir;
@@ -301,7 +303,10 @@ incluida. **Lo que falla, por orden de importancia:**
 
     *Sale:* a 1440 × 900 se ve como el dibujo, y no se pierde nada de lo que había. **No
     espera ninguna decisión, salvo confirmar el boceto.**
-  - [ ] **E2 · El núcleo de IFRA** (`src/core/ifra.ts`, con pruebas):
+  - [x] **E2 · El núcleo de IFRA** (`src/core/ifra.ts`, con pruebas), **hecho el 2026-09-29**:
+    `sources` en cada sustancia, `readings` con las bases de la cabecera, `roomUg` exacto por
+    base y `marginOf`. 84 pruebas nuevas, con los márgenes calculados a mano; los campos de
+    siempre no cambian. Lo que se pedía:
     - de qué material viene cada sustancia, y cuánto (§10.3);
     - **el margen de un material**: cuántos mg más caben antes de pasar un techo, con los
       solapes. Un material que aporta a una sustancia ya cargada por otro tiene menos margen;
