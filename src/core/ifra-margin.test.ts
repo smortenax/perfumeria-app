@@ -431,3 +431,24 @@ describe("The margin agrees with the report: what it says fits, fits; one microg
     }
   }
 });
+
+describe("what still fits of a substance is the margin of that substance poured pure (P58)", () => {
+  // 10 mg of coumarin in a 1 g bottle. Bottle alone: (L·B − S)/(1 − L) = (15 000 − 10 000)/0,985
+  // = 1 000 000/197. With F = 10 g: now (L·F − S) = 140 000; completed with W = 2 g:
+  // (L·F·B − S·W)/(W − L·F) = (1,5·10¹¹ − 2·10¹⁰)/1 850 000 = 2 600 000/37.
+  const history: Change[] = [add("c", coumarin, 10_000n), add("n", neutral, 990_000n)];
+  const cases: Array<[Partial<FormulaHeader>, IfraBase, string]> = [
+    [{}, "bottle", "1000000/197"],
+    [{ finalBatchUg: 10n * G, workBatchUg: 2n * G }, "now", "140000"],
+    [{ finalBatchUg: 10n * G, workBatchUg: 2n * G }, "completed", "2600000/37"],
+  ];
+
+  it.each(cases)("%o in the %s base", (batches, base, room) => {
+    const formula: Formula = { header: { ...header, ...batches }, history };
+    const reading = checkIfra(formula, data).readings.find((r) => r.base === base);
+    const fits = reading?.checks.find((c) => c.key === COUMARIN.key)?.roomUg;
+    expect(fits?.toString()).toBe(room);
+    const margin = marginOf(formula, data, { material: coumarin, fraction: Ratio.ONE, diluent: null }, base);
+    expect(margin.kind === "bounded" && margin.pouredUg.eq(fits as Ratio)).toBe(true);
+  });
+});

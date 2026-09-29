@@ -246,14 +246,18 @@ describe("IFRA: the bases of reading 1 (P58)", () => {
     const r = report({ finalBatchUg: 10n * G, workBatchUg: 2n * G }, history);
     const keys = r.checks.map((c) => c.substance.key);
     expect(new Set(keys)).toEqual(new Set([COUMARIN.key, OTHER.key]));
-    const room = (base: IfraBase) => Object.fromEntries((r.readings.find((x) => x.base === base)?.checks ?? []).map((c) => [c.key, c.roomUg.toString()]));
+    const room = (base: IfraBase) => Object.fromEntries((r.readings.find((x) => x.base === base)?.checks ?? []).map((c) => [c.key, c.roomUg?.toString()]));
     for (const reading of r.readings) {
       expect(reading.checks.map((c) => c.key)).toEqual(keys);
     }
     // Now, over 10 g: coumarin 0,015 × 10 000 000 − 10 000; the other 0,02 × 10 000 000 − 50 000.
     expect(room("now")).toEqual({ [COUMARIN.key]: "140000", [OTHER.key]: "150000" });
-    // Completed, over 5 g: coumarin 0,015 × 5 000 000 − 10 000; the other 0,02 × 5 000 000 − 50 000.
-    expect(room("completed")).toEqual({ [COUMARIN.key]: "65000", [OTHER.key]: "50000" });
+    // Completed: pouring the substance pure also grows the 1 g bottle that stands for the 2 g
+    // work batch, so y·(W − L·F) ≤ L·F·B − S·W. Coumarin: (0,015·10⁷·10⁶ − 10⁴·2·10⁶) /
+    // (2·10⁶ − 0,015·10⁷) = 2 600 000/37, about 70 270. The other: (0,02·10⁷·10⁶ − 5·10⁴·2·10⁶) /
+    // (2·10⁶ − 0,02·10⁷) = 500 000/9, about 55 556. Until 2026-09-29 it said 65 000 and 50 000,
+    // holding the product at 5 g while the pour grows it: it fell 8 % and 11 % short.
+    expect(room("completed")).toEqual({ [COUMARIN.key]: "2600000/37", [OTHER.key]: "500000/9" });
   });
 
   it("with an empty bottle nothing fails: no substances, no checks, in any base", () => {

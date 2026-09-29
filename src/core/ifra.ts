@@ -89,9 +89,12 @@ export interface BaseReading {
   readonly asIs: "yes" | "no" | "unknown";
   /**
    * One per substance, in the order of `IfraReport.checks`. `roomUg` is what still fits of the
-   * substance, in micrograms and in the worst case: `max(0, limit × finalUg − worstUg)`.
+   * substance, in micrograms and in the worst case: the most of it that could be poured pure
+   * before it reaches its ceiling. It is exact: in the bottle and completed bases the product
+   * grows with what is poured, so it is not `limit × finalUg − worstUg` there (P58). Zero when
+   * it is already at or over; null when not even the pure substance could reach its ceiling.
    */
-  readonly checks: ReadonlyArray<{ readonly key: string; readonly verdict: Verdict; readonly roomUg: Ratio }>;
+  readonly checks: ReadonlyArray<{ readonly key: string; readonly verdict: Verdict; readonly roomUg: Ratio | null }>;
 }
 
 export interface IfraReport {
@@ -268,11 +271,7 @@ export function marginOf(
   const { tallies, partial: reportPartial } = accumulate(composition, data);
   const partial = reportPartial || pouredPending;
   // Only the bases the header has use the batches; the check above keeps the others out.
-  const batches = {
-    bottleUg: composition.totalUg,
-    finalUg: header.finalBatchUg === null ? Ratio.ZERO : Ratio.of(header.finalBatchUg),
-    workUg: header.workBatchUg === null ? Ratio.ZERO : Ratio.of(header.workBatchUg),
-  };
+  const batches = batchesOf(header, composition.totalUg);
 
   let least: { readonly ug: Ratio; readonly key: string } | null = null;
   for (const [key, a] of per) {
@@ -345,20 +344,27 @@ function finalUgOf(base: IfraBase, header: FormulaHeader, bottleUg: Ratio): Rati
   return bottleUg.isZero() ? final : bottleUg.mul(final).div(Ratio.of(header.workBatchUg as bigint));
 }
 
+/** The batches the room of a pour is worked out with; a base the header does not have never reads them. */
+function batchesOf(header: FormulaHeader, bottleUg: Ratio): { readonly bottleUg: Ratio; readonly finalUg: Ratio; readonly workUg: Ratio } {
+  return {
+    bottleUg,
+    finalUg: header.finalBatchUg === null ? Ratio.ZERO : Ratio.of(header.finalBatchUg),
+    workUg: header.workBatchUg === null ? Ratio.ZERO : Ratio.of(header.workBatchUg),
+  };
+}
+
 function readingOf(base: IfraBase, header: FormulaHeader, bottleUg: Ratio, tallies: readonly Tally[], partial: boolean): BaseReading {
   const finalUg = finalUgOf(base, header, bottleUg);
+  const batches = batchesOf(header, bottleUg);
   const checks = tallies.map(({ substance, knownUg, worstUg }) => ({
     key: substance.key,
     verdict: judge(knownUg, worstUg, finalUg, substance.limit),
-    roomUg: atLeastZero(substance.limit.mul(finalUg).sub(worstUg)),
+    // The substance itself, poured pure: the room of a pour whose every unit is that substance.
+    roomUg: roomFor(base, Ratio.ONE, worstUg, substance.limit, batches),
   }));
   const verdicts = checks.map((c) => c.verdict);
   const asIs = verdicts.includes("exceeds") ? "no" : verdicts.includes("unknown") || partial ? "unknown" : "yes";
   return { base, finalUg, asIs, checks };
-}
-
-function atLeastZero(value: Ratio): Ratio {
-  return value.sign() < 0 ? Ratio.ZERO : value;
 }
 
 function judge(knownUg: Ratio, worstUg: Ratio, finalUg: Ratio, limit: Ratio): Verdict {
