@@ -177,7 +177,12 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
     if (!view.composition || !view.report) {
       return undefined;
     }
-    return ifraOfLines(formula, catalog.ifra, view.report, view.composition, view.report.base, frame ?? undefined);
+    // A failure here never takes the bench down: the lines just go without their IFRA figure.
+    try {
+      return ifraOfLines(formula, catalog.ifra, view.report, view.composition, view.report.base, frame ?? undefined);
+    } catch {
+      return undefined;
+    }
   }, [formula, frame, view]);
 
   const byKey = useMemo(() => new Map(catalog.entries.map((e) => [e.material.key, e.material])), []);
