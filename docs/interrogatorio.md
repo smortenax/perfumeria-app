@@ -2100,6 +2100,68 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 - Estado: cerrada
 - Destino: decisiones.md §4 (buscador), §9; P38, P44
 
+### P57 — La prueba funcional (2): el banco reordenado alrededor de la composición
+
+- **Respuesta literal** (dictada; se quitan solo las muletillas):
+  *«por un lado en la parte de materiales rápidos realmente ya queda bastante cubierta con lo
+  nuevo que se ha puesto en cuanto a composición a la derecha para añadir materiales. Por lo
+  tanto, esto ha sido un buen descubrimiento pero lo que significa es que la parte de
+  recientes ya no hace falta porque la mayoría de los recientes ya los tienes a la derecha, y
+  entonces algo que me gustaría es que la parte de composición ahora que ya yo diría que ya
+  tiene más importancia, yo haría que fuese un poco más ancha y bueno, necesita más espacio la
+  parte de composición y necesita más cosas. Yo lo que haría a lo mejor sería que la parte de
+  composición fuese un poquito más baja y puede ser también, aunque sea más baja, puede ser más
+  ancha. Entonces, la parte de materiales, añadir y todo esto, pasa por encima de la parte de
+  la composición y la parte de reparto de la materia la pasamos justo al lado de la de
+  visualizador de perfume, ya que la pirámide por piso hemos dicho que acabará teniendo lugar
+  dentro de la proyección por horas ya sea solapado o con una opción de toggle o algo así.
+  Entonces lo que quedaría es un espacio donde la zona de recientes y reparto de materia y
+  todo esto, entonces yo lo que haría sería que haya información conforme tienes seleccionado
+  un material, porque una vez ya lo seleccionas se te quita el desplegable de buscar,
+  entonces puede estar debajo del buscador donde ahora está la parte de recientes. Yo pondría
+  una serie de parámetros del material que tienes seleccionado. Esos parámetros tienen que ser
+  como el espacio que te queda en la fórmula para que se salte los límites, también uno que
+  sea como la cantidad recomendada por uso y lo que llevas. Esta por ejemplo yo la pondría del
+  1 al 100 % y que haya como una especie de franja que sea la recomendada, barra consenso que
+  se tendrá que buscar para cada material. Esto es importante pero va muy bien porque en
+  algunos casos tú no sabes lo que se suele utilizar de material, sobre todo por una versión
+  iniciada como yo, pero puede ser para personas nuevas o para un material nuevo con el que no
+  tienes mucha familiaridad. Y yo te diría que en la parte de composición falta información:
+  yo pondría que se vea también cuánto llevas del límite IFRA, en gramos también, a la
+  derecha. Luego muchas veces no se acaba de ver el material entero por el nombre, entonces
+  haría que el cuadrado del color sea un poco más grande y que ponga directamente la
+  abreviatura del material. Luego lo que decía de los gramos al final, yo lo que pondría en
+  realidad sería que tú puedas cambiar entre porcentaje y gramos en total en la parte de arriba,
+  para saber más o menos cuánto margen tienes para echar, aunque luego te saliese en la otra,
+  que siempre tuvieras la opción de mirarlo.»*
+- **Lectura** (a confirmar), punto por punto:
+  1. **Fuera «Recientes»**: el «+» de la composición ya hace su papel.
+  2. **La composición gana sitio**: más ancha; puede empezar más abajo.
+  3. **La barra de añadir se va encima de la composición**, en la columna de la derecha.
+  4. **El reparto de la materia, al lado del visualizador.**
+  5. **La pirámide, dentro de la proyección por horas**, encima o con un conmutador (P50).
+  6. **Una ficha del material elegido**, que aparece cuando el buscador ya lo tiene y el
+     desplegable se ha ido:
+     - **margen IFRA**: cuánto más se puede echar de ese material antes de pasar un límite;
+     - **uso habitual**: una barra del 1 al 100 % con la franja de consenso de ese material y
+       dónde está la fórmula. **La franja hay que buscarla material a material, con fuente.**
+  7. **Cada línea de la composición dice cuánto lleva de su límite IFRA**, también en gramos.
+  8. **El cuadro de color, más grande y con la abreviatura dentro**, porque el nombre no
+     siempre cabe.
+  9. **Un conmutador % ↔ g arriba**, para ver el margen en gramos cuando se quiera.
+- **Por aclarar:**
+  - **dónde va la ficha** (bocetos A y B del 2026-09-29): debajo de la barra, en la columna
+    de la derecha, o en el centro, donde estaban las recientes;
+  - **qué cambia el conmutador del punto 9**: toda la columna de la composición, o las
+    respuestas de la caja de IFRA («¿hasta qué % en un perfume final?» en gramos);
+  - **de dónde sale el uso habitual**: una investigación con fuente por material (un frente
+    del laboratorio, o aquí, desde fichas como TGSC).
+- **Se puede repartir en paralelo** una vez confirmado: la disposición; las líneas de la
+  composición (puntos 7 a 9); el margen IFRA de un material en el núcleo; los datos de uso.
+- Fecha: 2026-09-29
+- Estado: abierta
+- Destino: decisiones.md §10.1, §10.2, §4; P50
+
 ---
 
 ## Estado
@@ -2111,6 +2173,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
 | R12 · infografías y frentes | 7 (P35 a P41) | 3 (P33, P34, P42) |
-| R13 · a pesar en el banco | 9 (P43, P44, P48 a P51, P53, P55, P56) | 5 (P45 a P47, P52, P54) |
+| R13 · a pesar en el banco | 9 (P43, P44, P48 a P51, P53, P55, P56) | 6 (P45 a P47, P52, P54, P57) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.
