@@ -113,8 +113,35 @@ def pubchem() -> None:
         get(f"https://pubchem.ncbi.nlm.nih.gov/rest/pug/substance/name/{cas}/synonyms/JSON", CACHE / "pubchem" / f"{cas}.json")
 
 
-SHOPS = {"olfatorium": olfatorium, "maeselab": maeselab, "perfumiarz": perfumiarz, "pubchem": pubchem}
+def documentos() -> None:
+    """The PDFs Perfumiarz links from its product pages: SDS, IFRA 51 certificates and data sheets.
+
+    The SDS carry the constituents in their section 3 (the C front of 2026-09-30); the IFRA
+    certificates are a cross-check only: IFRA figures come from IFRA's own files (P37).
+    """
+    pages = CACHE / "perfumiarz" / "paginas"
+    urls = sorted({m for p in pages.glob("*.html")
+                   for m in re.findall(r"//perfumiarz\.com/cdn/shop/files/[^\"'<> ?]+\.pdf", p.read_text(encoding="utf-8"))})
+    out = CACHE / "perfumiarz" / "documentos"
+    out.mkdir(parents=True, exist_ok=True)
+    print(f"documentos: {len(urls)} PDF de Perfumiarz")
+    for i, url in enumerate(urls):
+        path = out / url.rsplit("/", 1)[-1]
+        if path.exists():
+            continue
+        time.sleep(1)
+        req = urllib.request.Request(urllib.parse.quote("https:" + url, safe=":/?&=%"), headers={"User-Agent": AGENT})
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                path.write_bytes(r.read())
+        except Exception as e:  # a document that fails is left out, and said
+            print(f"  falla {url}: {e}")
+        if i % 100 == 99:
+            print(f"  {i + 1}")
+
+
+SHOPS = {"olfatorium": olfatorium, "maeselab": maeselab, "perfumiarz": perfumiarz, "pubchem": pubchem, "documentos": documentos}
 
 if __name__ == "__main__":
-    for name in sys.argv[1:] or [k for k in SHOPS if k != "pubchem"]:
+    for name in sys.argv[1:] or [k for k in SHOPS if k not in ("pubchem", "documentos")]:
         SHOPS[name]()
