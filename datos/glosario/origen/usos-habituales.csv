@@ -1,0 +1,54 @@
+material_id,nombre,uso_min_pct,uso_max_pct,consenso,n_fuentes,fuentes,techo_pct,techo_fuente,n_otras_bases,lote
+fig:92,Iso E Super,3,20,consenso,2,Laboratorio | PerfumersWorld,80,PerfumersWorld,0,U-001
+fig:142,Galaxolide,1.5,10,consenso,3,Laboratorio | PerfumersWorld | Scentspiracy,60,PerfumersWorld,0,U-001
+fig:295,Safraleine,0.1,1,consenso,3,Laboratorio | PerfumersWorld | Scentspiracy,3,TGSC,3,U-001
+fig:412,Dartanol,0.315,3.15,consenso,2,Laboratorio | PerfumersWorld,10,TGSC,3,U-001
+fig:464,Florosa,0.55,5.5,consenso,2,Laboratorio | PerfumersWorld,10,PerfumersWorld,2,U-001
+fig:487,Sandalmysore Core,0.525,2.75,consenso,2,Laboratorio | PerfumersWorld,5,TGSC,0,U-001
+fig:607,Polysantol,0.5,3,consenso,3,Laboratorio | PerfumersWorld | Scentspiracy,4,PerfumersWorld,1,U-001
+fig:722,Ebanol,0.5,1.3,consenso,3,Laboratorio | PerfumersWorld | Scentspiracy,5,TGSC,1,U-001
+fig:867,Vertenex (PTBCHA),0.55,5.5,consenso,2,Laboratorio | PerfumersWorld,20,TGSC,2,U-001
+fig:910,Stemone,0.1,1,consenso,3,Laboratorio | PerfumersWorld | Scentspiracy,5,TGSC,2,U-001
+fig:922,Methyl Pamplemousse,0.1,1,consenso,2,Laboratorio | PerfumersWorld,10,TGSC,2,U-001
+fig:924,Cashmeran,0.1,3.85,consenso,2,Laboratorio | PerfumersWorld,2,PerfumersWorld,1,U-001
+fig:938,Isobutil Quinoleina (producto al 40 %),0.075,0.55,consenso,2,Laboratorio | PerfumersWorld,2,TGSC,1,U-001
+fig:1012,Allyl Amyl Glycolate,0.035,0.55,consenso,2,Laboratorio | PerfumersWorld,4,PerfumersWorld,2,U-001
+fig:1039,Aldehido alfa-amil cinamico,1,7.5,consenso,2,Laboratorio | PerfumersWorld,30,PerfumersWorld,1,U-001
+fig:1051,Ionona Alpha,0.3,3,consenso,2,Laboratorio | PerfumersWorld,15,TGSC,1,U-001
+fig:1054,Metil ionona gamma,1,10,consenso,3,Laboratorio | PerfumersWorld | Scentspiracy,11.9,PerfumersWorld,0,U-001
+fig:1069,Ambar gris (tintura),1,5,recomendacion,1,Laboratorio,30,TGSC,1,U-001
+fig:1168,Resinoide Benjui,0.585,3.35,consenso,2,Laboratorio | PerfumersWorld,13.3,PerfumersWorld,1,U-001
+fig:1176,Acetato de bencilo,0.55,6.5,consenso,2,Laboratorio | PerfumersWorld,30,TGSC,0,U-001
+fig:1200,Bergamota sin bergaptenos,1.65,6.5,consenso,2,Laboratorio | PerfumersWorld,30,TGSC,0,U-001
+fig:1285,Aceite de cade (enebro),0.006,0.26,consenso,2,Laboratorio | PerfumersWorld,0.5,TGSC,2,U-001
+fig:1343,Castoreum (producto al 20 %),0.1,1,recomendacion,1,Laboratorio,5,TGSC,1,U-001
+fig:1357,Cedro Atlas,0.75,7.5,consenso,2,Laboratorio | PerfumersWorld,20,PerfumersWorld,0,U-001
+fig:1447,Mayol,0.6,6,consenso,2,Laboratorio | PerfumersWorld,20,PerfumersWorld,1,U-001
+fig:1529,Cilantro,0.295,1.95,consenso,2,Laboratorio | PerfumersWorld,10,TGSC,1,U-001
+fig:1534,Cumarina natural,0.29,1.9,consenso,2,Laboratorio | PerfumersWorld,6.7,PerfumersWorld,0,U-001
+fig:1672,Dihydromyrcenol,0.55,5.5,consenso,2,Laboratorio | PerfumersWorld,75,TGSC,2,U-001
+fig:1689,Diphenyl Oxide,0.1,0.75,consenso,2,Laboratorio | PerfumersWorld,5,PerfumersWorld,1,U-001
+fig:1787,Ethyl Maltol,0.0255,0.505,consenso,2,Laboratorio | PerfumersWorld,4,TGSC,0,U-001
+fig:1818,Ethylene Brassylate,0.2,3,consenso,3,Laboratorio | PerfumersWorld | Scentspiracy,12,PerfumersWorld,1,U-001
+fig:1834,Eugenol 98 %,0.075,1.4,consenso,2,Laboratorio | PerfumersWorld,7,PerfumersWorld,0,U-001
+fig:1894,Aldehido C18 (gamma-nonalactona),0.075,0.75,consenso,2,Laboratorio | PerfumersWorld,10,TGSC,1,U-001
+fig:1896,Aldehido C14 (gamma-undecalactona),0.05,0.5,consenso,3,Laboratorio | PerfumersWorld | Scentspiracy,10,TGSC,1,U-001
+fig:1906,Geraniol 98 %,0.555,6,consenso,2,Laboratorio | PerfumersWorld,15,PerfumersWorld,0,U-001
+fig:2143,Laudano de jara,0.1,1,consenso,3,Laboratorio | PerfumersWorld | Scentspiracy,4,TGSC,0,U-001
+fig:2183,Lavanda,0.55,5.5,consenso,2,Laboratorio | PerfumersWorld,16,TGSC,0,U-001
+fig:2193,Limon,1.05,5.5,consenso,2,Laboratorio | PerfumersWorld,15,TGSC,0,U-001
+fig:2220,Linalol,0.55,13.5,consenso,2,Laboratorio | PerfumersWorld,40,PerfumersWorld,1,U-001
+fig:2240,Litsea Cubeba,0.285,2.85,consenso,2,Laboratorio | PerfumersWorld,9,TGSC,0,U-001
+fig:2261,Mandarina,0.555,5.55,consenso,2,Laboratorio | PerfumersWorld,8.9,PerfumersWorld,0,U-001
+fig:2351,Hedione,3,20,consenso,2,Laboratorio | PerfumersWorld,50,PerfumersWorld,2,U-001
+fig:2427,Ambermor,0.265,1.65,consenso,2,Laboratorio | PerfumersWorld,2,PerfumersWorld,3,U-001
+fig:2551,Naranja dulce,2,15,recomendacion,1,Laboratorio,10,TGSC,0,U-001
+fig:2599,Patchouli,0.54,5.4,consenso,2,Laboratorio | PerfumersWorld,10,TGSC,0,U-001
+fig:2642,Etil-4-fenol,0.001,0.05,recomendacion,1,Laboratorio,0.05,TGSC,0,U-001
+fig:2657,Alcohol Feniletilico,0.75,12.5,consenso,2,Laboratorio | PerfumersWorld,40,TGSC,0,U-001
+fig:2838,Salvia Officinalis,0.1,1,consenso,3,Laboratorio | PerfumersWorld | Scentspiracy,6.2,PerfumersWorld,0,U-001
+fig:2914,Resinoide Estyrax (estoraque),0.3,1.75,consenso,2,Laboratorio | PerfumersWorld,5,PerfumersWorld,0,U-001
+fig:2982,Absoluto de Tabaco,0.3,3,consenso,2,Laboratorio | PerfumersWorld,10,PerfumersWorld,1,U-001
+fig:2992,Haba tonka (tintura),0.52,2.7,consenso,2,Laboratorio | PerfumersWorld,8,TGSC,0,U-001
+fig:3074,Vainillina,0.335,2.25,consenso,2,Laboratorio | PerfumersWorld,8,TGSC,0,U-001
+fig:3083,Vetiver,0.545,2.95,consenso,2,Laboratorio | PerfumersWorld,12,TGSC,0,U-001

@@ -46,6 +46,8 @@ SCENT_FAMILIES = ROOT / "datos" / "fuente" / "pieza-11-familias-y-color.csv"
 # The lab's list of the naturals of the FIG, by row, with its corrections (P48): some of
 # them have no kind in the user's codes and would pass for molecules.
 LAB_NATURALS = ROOT / "datos" / "fuente" / "pieza-13-duracion-naturales.csv"
+# The audited usual use of a material, one row each (scripts/usos_habituales.py, plan E6).
+USAGES = ROOT / "datos" / "glosario" / "origen" / "usos-habituales.csv"
 OUT = ROOT / "datos" / "glosario"
 # A shop's kind of natural, as the glossary calls it.
 SHOP_KIND = {"oil": "oil", "absolute": "absolute", "co2": "extract", "concrete": "concrete", "resinoid": "resinoid",
@@ -262,7 +264,9 @@ def main() -> None:
                "coincidencia_anexo": "", **{c: "" for c in CAT_COLS}, "limite_nota": "",
                "sinonimos": "", "nombres_transparencia": "", "fuera_de_ifra": "",
                "familia": "", "matiz": "", "confianza_familia": "", "sinonimos_pubchem": "",
-               "nombres_proveedores": ""}
+               "nombres_proveedores": "",
+               "uso_min": "", "uso_max": "", "uso_techo": "", "uso_consenso": "", "uso_fuentes": "",
+               "uso_techo_fuente": ""}
         row.update(kw)
         return row
 
@@ -739,6 +743,16 @@ def main() -> None:
         write(OUT / "proveedores-sin-unir.csv", ["cas", "nombre", "clase", "tipo", "inci", "proveedor", "url"],
               [{k: r[k] for k in ("cas", "nombre", "clase", "tipo", "inci", "proveedor", "url")} for r in unjoined])
 
+    # 13. The usual use, in % of the concentrate, with its sources (scripts/usos_habituales.py).
+    # A material the lot does not cover has none: a gap, never zero (§1.2).
+    if USAGES.exists():
+        usage_of = {r["material_id"]: r for r in read(USAGES)}
+        for m in everything:
+            u = usage_of.get(m["id"])
+            if u:
+                m["uso_min"], m["uso_max"], m["uso_techo"] = u["uso_min_pct"], u["uso_max_pct"], u["techo_pct"]
+                m["uso_consenso"], m["uso_fuentes"], m["uso_techo_fuente"] = u["consenso"], u["fuentes"], u["techo_fuente"]
+
     # 11. PubChem's usual names, for the search only: «Diphenyl oxide» finds the diphenyl ether.
     if PUBCHEM_SYNONYMS.exists():
         pubchem = {r["cas"]: r["sinonimos"] for r in read(PUBCHEM_SYNONYMS)}
@@ -773,6 +787,10 @@ def main() -> None:
         "con_nombres_de_tiendas": sum(1 for m in ordered if m["nombres_proveedores"]),
         "solo_de_tiendas": sum(1 for m in ordered if m["fuentes"] == "tienda"),
         "de_tiendas_sin_unir": len(unjoined),
+        "con_franja_de_uso": sum(1 for m in ordered if m["uso_max"]),
+        "con_franja_de_consenso": sum(1 for m in ordered if m["uso_consenso"] == "consenso"),
+        "con_franja_de_recomendacion": sum(1 for m in ordered if m["uso_consenso"] == "recomendacion"),
+        "con_techo_de_uso": sum(1 for m in ordered if m["uso_techo"]),
     }
     provenance = {
         "enmienda_ifra": n,
@@ -796,6 +814,8 @@ def main() -> None:
                if LAB_NATURALS.exists() else {}),
             **({SCENT_FAMILIES.relative_to(ROOT).as_posix(): {"sha256": sha256(SCENT_FAMILIES), "que_es": "la familia de cada fila del FIG, categorización propia del laboratorio (P48)"}}
                if SCENT_FAMILIES.exists() else {}),
+            **({USAGES.relative_to(ROOT).as_posix(): {"sha256": sha256(USAGES), "que_es": "los usos habituales auditados (lote U-001): franja, consenso y techo de uso"}}
+               if USAGES.exists() else {}),
             **{f"datos/ifra/{n}/{p}": {"sha256": sha256(ifra / p)} for p in
                ("estandares.csv", "estandar-cas.csv", "naturales.csv", "bases-schiff.csv")},
         },
