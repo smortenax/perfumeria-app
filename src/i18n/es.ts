@@ -136,9 +136,34 @@ export const texts = {
     ofAromatic: (share: string) => `${share} de la aromática`,
     ofBottle: (share: string) => `${share} del frasco`,
     margin: "Margen IFRA",
-    marginHelp: "Cuántos mg más de este material caben aún antes de pasar un techo de IFRA",
+    marginHelp: (base: string) =>
+      `Cuántos mg más de este material, puro, caben aún antes de pasar un techo de IFRA, contando lo que ya llevan los demás materiales (base: ${base})`,
+    marginRoom: (mass: string) => `caben ${mass}`,
+    marginNone: "sin margen",
+    marginNoCeiling: "sin techo",
+    unchecked: "sin comprobar",
+    uncheckedHelp: "Este material no se puede comprobar contra IFRA: no se sabe si tiene techo. Nunca cuenta como libre",
     usage: "Uso habitual",
     usageHelp: "En qué franja del % de la materia aromática se suele usar el material, en escala logarítmica",
+    /** The four marks of the strip, in its legend (P59). */
+    legendSolo: "tope solo",
+    legendAll: "tope con la fórmula",
+    legendHolds: "llevas",
+    legendDraft: "vas a añadir",
+    band: (low: string | null, high: string) => (low === null ? `hasta ${high}` : `${low} a ${high}`),
+    bandTitle: (low: string | null, high: string, source: string) =>
+      `Uso recomendado: ${low === null ? `hasta ${high}` : `de ${low} a ${high}`} de la materia aromática. Fuente: ${source}`,
+    /** What each mark says on hover: a share of the aromatic matter, the mass of the material at it, and the substance that sets it (§1.1). */
+    soloTitle: (share: string, mass: string, substance: string, base: string) =>
+      `Tope solo: hasta ${share} de la aromática (${mass} de este material) antes de que ${substance} pase su techo por sí sola, sin contar los demás materiales. Base: ${base}`,
+    allTitle: (share: string, mass: string, substance: string, base: string) =>
+      `Tope con la fórmula: hasta ${share} de la aromática (${mass} de este material) contando lo que ya aportan los demás a ${substance}. Base: ${base}`,
+    zeroCap: "ninguna cantidad",
+    partialCap: "Puede ser optimista: algo no se ha podido comprobar",
+    draftTitle: (share: string) => `Con lo que vas a añadir, ${share} de la aromática`,
+    draftBreaks: (names: string) => `Pasaría el techo de ${names}`,
+    draftWorsens: (names: string) => `${names}: ya pasa su techo y lo aumentaría`,
+    draftUnchecked: "Lo que vas a añadir no se puede comprobar contra IFRA",
     /** The ends of the strip, and between them the base its percentages are counted on (§1.1). */
     usageFrom: "0,001",
     usageTo: "100",
