@@ -1,0 +1,2515 @@
+{
+ "docs": {
+  "0010593_MEFRANAL_Allergen_Extended_List_Ingredient_20240503.pdf": {
+   "familia": "givaudan",
+   "entradas": 2,
+   "vistos": 85,
+   "como": {
+    "cas-en-la-fila": 2
+   }
+  },
+  "0010703_SPIROGALBANONE_PURE_Allergen_Extended_List_Ingredient_20231019.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "0012543_SILVIAL_Allergen_Extended_List_Ingredient_20240704.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "0014203_TOSCANOL_Allergen_Extended_List_Ingredient_20240426.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "0015893_SAFRALEINE_Allergen_Extended_List_Ingredient_20250416.pdf": {
+   "familia": "givaudan",
+   "entradas": 1,
+   "vistos": 88,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "0025633_PARADISAMIDE_Allergen_Extended_List_Ingredient_20250721.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 92,
+   "como": {}
+  },
+  "0025743_HERBANATE_Allergen_Extended_List_Ingredient_20250610.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 92,
+   "como": {}
+  },
+  "0027553_ULTRAVANIL_80DPG_Allergen_Extended_List_Compound_Total_20250520.pdf": {
+   "familia": "givaudan-compuesto",
+   "entradas": 0,
+   "vistos": 87,
+   "como": {}
+  },
+  "1028001_ADOXAL_Allergen_Extended_List_Ingredient_20231019.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "1382293_VELVIONE_Allergen_Extended_List_Ingredient_20240621.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "1390623_GARDAMIDE_Allergen_Extended_List_Ingredient_20231019.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "1465543_ISOBUTAVAN_Allergen_Extended_List_Ingredient_20231019.pdf": {
+   "familia": "givaudan",
+   "entradas": 1,
+   "vistos": 85,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "1489703_NYMPHEAL_Allergen_Extended_List_Ingredient_20240111.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "1493163_JAVANOL_SUPER_Allergen_Extended_List_Ingredient_20231019.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "1534001_CYCLAMEN_ALDEHYDE_EXTRA_Allergen_Extended_List_Ingredient_20240830.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "21000663_ORRIS_GIVCO_204220_Allergen_Extended_List_Compound_Total_20250603.pdf": {
+   "familia": "givaudan-compuesto",
+   "entradas": 14,
+   "vistos": 91,
+   "como": {
+    "cas-en-la-fila": 10,
+    "nombre-en-la-fila": 4
+   }
+  },
+  "21007193_YUZU_ZEST_ABJ7091N_Allergen_Extended_List_Compound_Total_20231019.pdf": {
+   "familia": "givaudan-compuesto",
+   "entradas": 21,
+   "vistos": 84,
+   "como": {
+    "cas-en-la-fila": 15,
+    "nombre-en-la-fila": 6
+   }
+  },
+  "21008613_DEWFRUIT_TEC_AB_2927R2_Allergen_Extended_List_Compound_Total_20240920.pdf": {
+   "familia": "givaudan-compuesto",
+   "entradas": 27,
+   "vistos": 84,
+   "como": {
+    "cas-en-la-fila": 19,
+    "nombre-en-la-fila": 8
+   }
+  },
+  "21008947_BLACK_AGAR_GIVCO_2152_Allergen_Extended_List_Compound_Total_20231019.pdf": {
+   "familia": "givaudan-compuesto",
+   "entradas": 26,
+   "vistos": 84,
+   "como": {
+    "cas-en-la-fila": 18,
+    "nombre-en-la-fila": 8
+   }
+  },
+  "21008999_ROSE_GIVCO_217_WO_LYRAL_Allergen_Extended_List_Compound_Total_20231019.pdf": {
+   "familia": "givaudan-compuesto",
+   "entradas": 19,
+   "vistos": 84,
+   "como": {
+    "cas-en-la-fila": 14,
+    "nombre-en-la-fila": 5
+   }
+  },
+  "21009690_VETIVER_OIL_HAITI_SIGNATURE_Allergen_Extended_List_Ingredient_20240702.pdf": {
+   "familia": "givaudan",
+   "entradas": 4,
+   "vistos": 85,
+   "como": {
+    "cas-en-la-fila": 4
+   }
+  },
+  "21221123_SANDALWOOD_GIVCO_20320_Allergen_Extended_List_Compound_Total_20231019.pdf": {
+   "familia": "givaudan-compuesto",
+   "entradas": 17,
+   "vistos": 84,
+   "como": {
+    "cas-en-la-fila": 10,
+    "nombre-en-la-fila": 7
+   }
+  },
+  "2365901_AURANTIOL_PURE_Allergen_Extended_List_Ingredient_20240301.pdf": {
+   "familia": "givaudan",
+   "entradas": 1,
+   "vistos": 85,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "2786903_BOISIRIS_Allergen_Extended_List_Ingredient_20250506.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 88,
+   "como": {}
+  },
+  "2MP1C_COSM2.pdf": {
+   "familia": "pcw",
+   "entradas": 0,
+   "vistos": 29,
+   "como": {}
+  },
+  "4356101_DECATONE_Allergen_Extended_List_Ingredient_20231019.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "4508403_DIHYDRO_IONONE_BETA_Allergen_Extended_List_Ingredient_20231019.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "4523001_LIMETOL_Allergen_Extended_List_Ingredient_20240805.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "4591003_DIMETHYL_OCTENONE_Allergen_Extended_List_Ingredient_20231019.pdf": {
+   "familia": "givaudan",
+   "entradas": 1,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 1
+   }
+  },
+  "4685003_DUPICAL_Allergen_Extended_List_Ingredient_20240805.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "4697403_EBANOL_Allergen_Extended_List_Ingredient_20231019.pdf": {
+   "familia": "givaudan",
+   "entradas": 1,
+   "vistos": 85,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "5000394_NEROLIDOL_Fragrance_Allergen_Statement.pdf": {
+   "familia": "otro",
+   "entradas": 0,
+   "vistos": 1,
+   "como": {}
+  },
+  "5011728_ETHYL_LINALOOL_Fragrance_Allergen_Statement.pdf": {
+   "familia": "otro",
+   "entradas": 1,
+   "vistos": 0,
+   "como": {
+    "nombre-en-la-fila": 1
+   }
+  },
+  "5052003_FARNESOL_SYNTHETIC_Allergen_Extended_List_Ingredient_20231019.pdf": {
+   "familia": "givaudan",
+   "entradas": 2,
+   "vistos": 85,
+   "como": {
+    "cas-en-la-fila": 2
+   }
+  },
+  "5166003_OXYOCTALINE_FORMATE_Allergen_Extended_List_Ingredient_20240612.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "5202703_FRESKOMENTHE_Allergen_Extended_List_Ingredient_20240625.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "5464203_GERANODYLE_Allergen_Extended_List_Ingredient_20240827.pdf": {
+   "familia": "givaudan",
+   "entradas": 14,
+   "vistos": 85,
+   "como": {
+    "cas-en-la-fila": 10,
+    "nombre-en-la-fila": 4
+   }
+  },
+  "5631203_GLYCOLIERRAL_Allergen_Extended_List_Ingredient_20240909.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "5698353_HERBOXANE_Allergen_Extended_List_Ingredient_20240627.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "5846393_ANTHER_Allergen_Extended_List_Ingredient_20240206.pdf": {
+   "familia": "givaudan",
+   "entradas": 1,
+   "vistos": 85,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "5992503_IONONE_BETA_Allergen_Extended_List_Ingredient_20231019.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "6378003_KEPHALIS_Allergen_Extended_List_Ingredient_20240830.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "6702803_MANZANATE_Allergen_Extended_List_Ingredient_20240830.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "6906203_METHYL_DIANTILIS_Allergen_Extended_List_Ingredient_20240930.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "6937003_METHYL_HEPTENONE_PURE_Allergen_Extended_List_Ingredient_20231019.pdf": {
+   "familia": "givaudan",
+   "entradas": 1,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 1
+   }
+  },
+  "6978468_METHYL_LAITONE_10DPG_Allergen_Extended_List_Compound_Total_20250723.pdf": {
+   "familia": "givaudan-compuesto",
+   "entradas": 0,
+   "vistos": 91,
+   "como": {}
+  },
+  "7043003_AZARBRE_Allergen_Extended_List_Ingredient_20241118.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "7225001_CERVOLIDE_Allergen_Extended_List_Ingredient_20250317.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "7622363_OKOUMAL_Allergen_Extended_List_Ingredient_20231019.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "7989003_METHYL_QUINOLINE_PARA_Allergen_Extended_List_Ingredient_20231019.pdf": {
+   "familia": "givaudan",
+   "entradas": 1,
+   "vistos": 85,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "81ALL_20250227_E1570.pdf": {
+   "familia": "robertet",
+   "entradas": 14,
+   "vistos": 82,
+   "como": {
+    "cas-en-la-fila": 9,
+    "nombre-en-la-fila": 5
+   }
+  },
+  "81ALL_20250227_E1915.pdf": {
+   "familia": "robertet",
+   "entradas": 10,
+   "vistos": 82,
+   "como": {
+    "cas-en-la-fila": 5,
+    "nombre-en-la-fila": 5
+   }
+  },
+  "81ALL_20250227_E2230.pdf": {
+   "familia": "robertet",
+   "entradas": 12,
+   "vistos": 82,
+   "como": {
+    "cas-en-la-fila": 8,
+    "nombre-en-la-fila": 4
+   }
+  },
+  "81ALL_20250227_E8994.pdf": {
+   "familia": "robertet",
+   "entradas": 4,
+   "vistos": 82,
+   "como": {
+    "nombre-en-la-fila": 2,
+    "cas-en-la-fila": 2
+   }
+  },
+  "81ALL_20250227_F7009.pdf": {
+   "familia": "robertet",
+   "entradas": 5,
+   "vistos": 82,
+   "como": {
+    "cas-en-la-fila": 3,
+    "nombre-en-la-fila": 2
+   }
+  },
+  "8753253_PEONILE_Allergen_Extended_List_Ingredient_20240805.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "8754013_JAVANOL_Allergen_Extended_List_Ingredient_20240516.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "8802603_ETHYL_SAFRANATE_Allergen_Extended_List_Ingredient_20250123.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "8810001_AMYL_SALICYLATE_Allergen_Extended_List_Ingredient_20241008.pdf": {
+   "familia": "givaudan",
+   "entradas": 1,
+   "vistos": 85,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "8850203_SANDELA_85IPM_GIV_Allergen_Extended_List_Compound_Total_20241209.pdf": {
+   "familia": "givaudan-compuesto",
+   "entradas": 0,
+   "vistos": 84,
+   "como": {}
+  },
+  "8892308_SCLARENE_80DPG_Allergen_Extended_List_Compound_Total_20240522.pdf": {
+   "familia": "givaudan-compuesto",
+   "entradas": 0,
+   "vistos": 84,
+   "como": {}
+  },
+  "9023501_STEMONE_Allergen_Extended_List_Ingredient_20231019.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "9366993_TRASEOLIDE_Allergen_Extended_List_Ingredient_20240729.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "9411003_METHYL_TUBERATE_PURE_Allergen_Extended_List_Compound_Total_20231019.pdf": {
+   "familia": "givaudan-compuesto",
+   "entradas": 0,
+   "vistos": 84,
+   "como": {}
+  },
+  "9449903_UNDECAVERTOL_Allergen_Extended_List_Ingredient_20231019.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "9644601_VERNALDEHYDE_Allergen_Extended_List_Ingredient_20240516.pdf": {
+   "familia": "givaudan",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "AA2I_COSM2.pdf": {
+   "familia": "pcw",
+   "entradas": 5,
+   "vistos": 5,
+   "como": {
+    "cas-en-la-fila": 5
+   }
+  },
+  "ABS1R_COSM2.pdf": {
+   "familia": "pcw",
+   "entradas": 18,
+   "vistos": 24,
+   "como": {
+    "nombre-en-la-fila": 4,
+    "cas-en-la-fila": 14
+   }
+  },
+  "ALDB1S_COSM2.pdf": {
+   "familia": "pcw",
+   "entradas": 8,
+   "vistos": 8,
+   "como": {
+    "cas-en-la-fila": 8
+   }
+  },
+  "ANETNAT1J_COSM2.pdf": {
+   "familia": "pcw",
+   "entradas": 9,
+   "vistos": 9,
+   "como": {
+    "cas-en-la-fila": 7,
+    "nombre-en-la-fila": 2
+   }
+  },
+  "APE1Y_-_COSM2_-_2023-04.pdf": {
+   "familia": "pcw",
+   "entradas": 0,
+   "vistos": 28,
+   "como": {}
+  },
+  "Acetate_Cedryl_alergeny_zapachowe_original.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 2,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 2
+   }
+  },
+  "B05525_ALG_11-23.pdf": {
+   "familia": "biolandes",
+   "entradas": 7,
+   "vistos": 83,
+   "como": {
+    "cas-en-la-fila": 7
+   }
+  },
+  "B20220_ALG_03-24.pdf": {
+   "familia": "biolandes",
+   "entradas": 5,
+   "vistos": 83,
+   "como": {
+    "cas-en-la-fila": 5
+   }
+  },
+  "BDB2L_COSM2.pdf": {
+   "familia": "pcw",
+   "entradas": 5,
+   "vistos": 5,
+   "como": {
+    "cas-en-la-fila": 5
+   }
+  },
+  "BENZA1V_COSM2.pdf": {
+   "familia": "pcw",
+   "entradas": 9,
+   "vistos": 10,
+   "como": {
+    "cas-en-la-fila": 9
+   }
+  },
+  "BENZYL_SALICYLATE_SBE1E_CO.pdf": {
+   "familia": "pcw",
+   "entradas": 5,
+   "vistos": 5,
+   "como": {
+    "cas-en-la-fila": 5
+   }
+  },
+  "BOUR1L_COSM2.pdf": {
+   "familia": "pcw",
+   "entradas": 7,
+   "vistos": 13,
+   "como": {
+    "cas-en-la-fila": 7
+   }
+  },
+  "CABREUVA_ESSENCE_-_CABREUVA_WOOD_EO_-_CABESS1Q_-_COSM2_-_2022-03.pdf": {
+   "familia": "pcw",
+   "entradas": 15,
+   "vistos": 16,
+   "como": {
+    "cas-en-la-fila": 15
+   }
+  },
+  "CARVI_ESSENCE_-_CARAWAY_EO_-_CARVI1M_-_COSM2_-_2021-11.pdf": {
+   "familia": "pcw",
+   "entradas": 9,
+   "vistos": 11,
+   "como": {
+    "cas-en-la-fila": 9
+   }
+  },
+  "CIS3H1N_COSM2.pdf": {
+   "familia": "pcw",
+   "entradas": 0,
+   "vistos": 29,
+   "como": {}
+  },
+  "CISFEEEHEP_CISTUS_OIL_SPAIN_Allergen_Extended_List_Ingredient_20240425.pdf": {
+   "familia": "givaudan",
+   "entradas": 15,
+   "vistos": 85,
+   "como": {
+    "cas-en-la-fila": 11,
+    "nombre-en-la-fila": 4
+   }
+  },
+  "CO2E_-_COSM2_-_2023-04.pdf": {
+   "familia": "pcw",
+   "entradas": 1,
+   "vistos": 1,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "Cypriol_Oil_alergeny.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 3,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 3
+   }
+  },
+  "DIO1L_COSM2.pdf": {
+   "familia": "pcw",
+   "entradas": 0,
+   "vistos": 29,
+   "como": {}
+  },
+  "DMBC2B_COSM2.pdf": {
+   "familia": "pcw",
+   "entradas": 1,
+   "vistos": 1,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "DMBCB2B_COSM2.pdf": {
+   "familia": "pcw",
+   "entradas": 0,
+   "vistos": 29,
+   "como": {}
+  },
+  "E01350_ALG_03-21.pdf": {
+   "familia": "symrise-clichy",
+   "entradas": 0,
+   "vistos": 30,
+   "como": {}
+  },
+  "ETHYL_MALTOL_EMAL1L_COSM2.pdf": {
+   "familia": "pcw",
+   "entradas": 0,
+   "vistos": 29,
+   "como": {}
+  },
+  "EU_Fragrance_Allergens_ACETATO_DE_OTBCH_HC_VERDOX_HC.pdf": {
+   "familia": "ventos",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "EU_Fragrance_Allergens_ALDEHIDO_ALFA-N-AMILCINAMICO_KALPSUTRA.pdf": {
+   "familia": "ventos",
+   "entradas": 5,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 5
+   }
+  },
+  "EU_Fragrance_Allergens_ALDEHIDO_C-12_LAURICO_KAO.pdf": {
+   "familia": "ventos",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "EU_Fragrance_Allergens_CITRATO_DE_TRIETILO.pdf": {
+   "familia": "ventos",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "EU_Fragrance_Allergens_DIPROPILENGLICOL_DPG.pdf": {
+   "familia": "ventos",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "EU_Fragrance_Allergens_ETHYLENE_BRASSYLATE.pdf": {
+   "familia": "ventos",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "EU_Fragrance_Allergens_GLICOLATO_DE_ALIL_AMILO.pdf": {
+   "familia": "ventos",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "EU_Fragrance_Allergens_HELIONAL_IFF.pdf": {
+   "familia": "ventos",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "EU_Fragrance_Allergens_HERCOLYN_DW_HERCOLYN_D-E.pdf": {
+   "familia": "ventos",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "EU_Fragrance_Allergens_HYDROXYAMBRAN.pdf": {
+   "familia": "ventos",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "EU_Fragrance_Allergens_ISOPROPYL_MYRISTATE.pdf": {
+   "familia": "ventos",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "EU_Fragrance_Allergens_LINALYL_ACETATE_BASF.pdf": {
+   "familia": "ventos",
+   "entradas": 4,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 4
+   }
+  },
+  "EU_Fragrance_Allergens_MAGNOL_KAO.pdf": {
+   "familia": "ventos",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "EU_Fragrance_Allergens_METHYL_ANTHRANILATE.pdf": {
+   "familia": "ventos",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "EU_Fragrance_Allergens_OCEANOL_IFF.pdf": {
+   "familia": "ventos",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "EU_Fragrance_Allergens_OXIDO_DE_LIMA_II.pdf": {
+   "familia": "ventos",
+   "entradas": 7,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 7
+   }
+  },
+  "EU_Fragrance_Allergens_PHENYL_ETHYL_ACETATE.pdf": {
+   "familia": "ventos",
+   "entradas": 2,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 2
+   }
+  },
+  "EU_Fragrance_Allergens_ROMERO_MARRUECOS.pdf": {
+   "familia": "ventos",
+   "entradas": 8,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 8
+   }
+  },
+  "EU_Fragrance_Allergens_STYRALLYL_ALCOHOL.pdf": {
+   "familia": "ventos",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "EU_Fragrance_Allergens_TRIMOFIX_IFF.pdf": {
+   "familia": "ventos",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "EU_Fragrance_Allergens_TROPICALIA_IFF.pdf": {
+   "familia": "ventos",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "F10100_ALG_05-25.pdf": {
+   "familia": "biolandes",
+   "entradas": 5,
+   "vistos": 87,
+   "como": {
+    "cas-en-la-fila": 5
+   }
+  },
+  "F22500_ALG_05-25.pdf": {
+   "familia": "biolandes",
+   "entradas": 2,
+   "vistos": 87,
+   "como": {
+    "cas-en-la-fila": 2
+   }
+  },
+  "G16700_ALG_04-24.pdf": {
+   "familia": "biolandes",
+   "entradas": 5,
+   "vistos": 87,
+   "como": {
+    "cas-en-la-fila": 5
+   }
+  },
+  "H01052_ALG_10-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 4,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 4
+   }
+  },
+  "H01120_ALG_04-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 1,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "H01203_ALG_09-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 3,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 3
+   }
+  },
+  "H01209_ALG_08-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 1,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "H01300_ALG_01-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "H01332_ALG_08-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "H01365_ALG_05-22.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 86,
+   "como": {}
+  },
+  "H01388_ALG_07-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "H01420_ALG_08-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 1,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "H01450_ALG_09-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "H02011_ALG_04-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "H02020_ALG_12-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 26,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 25,
+    "nombre-en-la-fila": 1
+   }
+  },
+  "H02045_ALG_02-25.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 2,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 2
+   }
+  },
+  "H02070_ALG_08-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "H02110_ALG_11-21.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "H03039_ALG_01-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 1,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "H03053_ALG_12-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 18,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 18
+   }
+  },
+  "H03100_ALG_04-22.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 1,
+   "vistos": 86,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "H03123_ALG_12-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 1,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "H03180_ALG_07-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 2,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 2
+   }
+  },
+  "H03240_ALG_03-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 1,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "H03262_ALG_02-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 1,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "H03289_ALG_02-25.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 6,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 6
+   }
+  },
+  "H06059_ALG_02-25.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 23,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 23
+   }
+  },
+  "H06120_ALG_08-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "H06130_ALG_05-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 7,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 7
+   }
+  },
+  "H06212_ALG_05-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "H07098_ALG_01-25.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "H07112_ALG_03-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 6,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 6
+   }
+  },
+  "H07120_ALG_08-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 2,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 2
+   }
+  },
+  "H09057_ALG_09-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 16,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 16
+   }
+  },
+  "H09080_ALG_01-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "H09128_ALG_09-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 5,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 5
+   }
+  },
+  "H09172_ALG_07-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 1,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "H10012_ALG_01-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "H11090_ALG_06-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "H12006_ALG_09-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 23,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 22,
+    "nombre-en-la-fila": 1
+   }
+  },
+  "H12009_ALG_09-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 25,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 24,
+    "nombre-en-la-fila": 1
+   }
+  },
+  "H12032_ALG_01-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 20,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 20
+   }
+  },
+  "H12065_ALG_10-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 3,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 3
+   }
+  },
+  "H12092_ALG_01-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "H13007_ALG_05-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 19,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 19
+   }
+  },
+  "H13021_ALG_01-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "H13197_ALG_06-22.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 1,
+   "vistos": 86,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "H14083_ALG_08-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 20,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 20
+   }
+  },
+  "H14107_ALG_04-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 3,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 3
+   }
+  },
+  "H15025_ALG_04-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 5,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 5
+   }
+  },
+  "H15055_ALG_11-20.pdf": {
+   "familia": "iff-presencia",
+   "entradas": 4,
+   "vistos": 27,
+   "como": {
+    "cas-en-la-fila": 4
+   }
+  },
+  "H15060_ALG_08-25.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 3,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 3
+   }
+  },
+  "H15080_ALG_08-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "H15096_ALG_09-22.pdf": {
+   "familia": "iff-presencia",
+   "entradas": 7,
+   "vistos": 27,
+   "como": {
+    "cas-en-la-fila": 7
+   }
+  },
+  "H16020_ALG_11-22.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "H16035_ALG_05-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 11,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 11
+   }
+  },
+  "H16050_ALG_01-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "H16110_ALG_03-22.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 1,
+   "vistos": 86,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "H16151_ALG_06-22.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 86,
+   "como": {}
+  },
+  "H16192_ALG_08-22.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 86,
+   "como": {}
+  },
+  "H16195_ALG_01-23_dd8261e7-7fe8-4635-9a1c-558812500e07.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 3,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 3
+   }
+  },
+  "H16240_ALG_04-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "H18118_ALG_05-21.pdf": {
+   "familia": "iff-presencia",
+   "entradas": 6,
+   "vistos": 27,
+   "como": {
+    "cas-en-la-fila": 6
+   }
+  },
+  "H19070_ALG_04-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "H19078_ALG_04-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 8,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 8
+   }
+  },
+  "H19102_ALG_02-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 2,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 2
+   }
+  },
+  "H19108_ALG_08-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 17,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 17
+   }
+  },
+  "H19132_ALG_02-25.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 3,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 3
+   }
+  },
+  "H19146_ALG_04-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 4,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 4
+   }
+  },
+  "H19146_ALG_04-24_1cae2c2a-d29a-4060-8ec4-42c7f9d559ef.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 4,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 4
+   }
+  },
+  "H20102_ALG_04-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "H20162_ALG_07-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 1,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "H20190_ALG_01-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "H20220_ALG_02-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 19,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 19
+   }
+  },
+  "H22143_ALG_01-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 11,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 11
+   }
+  },
+  "H22148_ALG_08-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 2,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 2
+   }
+  },
+  "H22162_ALG_08-23.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "H26100_ALG_07-24.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "I01325_ALG_01-24.pdf": {
+   "familia": "iff-declaracion",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "I01330_ALG_11-23.pdf": {
+   "familia": "iff-declaracion",
+   "entradas": 2,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 2
+   }
+  },
+  "I01410_ALG_10-23.pdf": {
+   "familia": "iff-declaracion",
+   "entradas": 8,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 4,
+    "nombre-en-la-fila": 4
+   }
+  },
+  "I01600_ALG_02-24.pdf": {
+   "familia": "iff-declaracion",
+   "entradas": 27,
+   "vistos": 79,
+   "como": {
+    "cas-en-la-fila": 16,
+    "nombre-en-la-fila": 11
+   }
+  },
+  "I03400_ALG_01-24.pdf": {
+   "familia": "iff-declaracion",
+   "entradas": 0,
+   "vistos": 80,
+   "como": {}
+  },
+  "I03900_ALG_02-24.pdf": {
+   "familia": "iff-declaracion",
+   "entradas": 36,
+   "vistos": 78,
+   "como": {
+    "cas-en-la-fila": 21,
+    "nombre-en-la-fila": 15
+   }
+  },
+  "I09140_ALG_03-24.pdf": {
+   "familia": "iff-declaracion",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "I15050_ALG_01-24.pdf": {
+   "familia": "iff-declaracion",
+   "entradas": 5,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 2,
+    "nombre-en-la-fila": 3
+   }
+  },
+  "IROTIL_-_IROT1T_-_COSM2_-_2022-10.pdf": {
+   "familia": "pcw",
+   "entradas": 0,
+   "vistos": 29,
+   "como": {}
+  },
+  "ISOE1F_COSM2.pdf": {
+   "familia": "pcw",
+   "entradas": 2,
+   "vistos": 2,
+   "como": {
+    "cas-en-la-fila": 2
+   }
+  },
+  "Lista_alergenow_Black_Pepper_Absolute.pdf": {
+   "familia": "firmenich",
+   "entradas": 9,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 9
+   }
+  },
+  "Lista_alergenow_Citronellyl_Tiglate.pdf": {
+   "familia": "symrise-clichy",
+   "entradas": 1,
+   "vistos": 83,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "Lista_alergenow_Cyclamen_Base.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 82,
+   "como": {}
+  },
+  "Lista_alergenow_Damascone_Beta_23_08_2026.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 1,
+   "vistos": 81,
+   "como": {
+    "nombre-en-la-fila": 1
+   }
+  },
+  "Lista_alergenow_Ethyl_Vanillin_dystrybutor_ECSA.pdf": {
+   "familia": "otro",
+   "entradas": 0,
+   "vistos": 0,
+   "como": {}
+  },
+  "Lista_alergenow_Florol.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "Lista_alergenow_Frangipani_Bold_Base.pdf": {
+   "familia": "moellhausen",
+   "entradas": 13,
+   "vistos": 17,
+   "como": {
+    "cas-en-la-fila": 13
+   }
+  },
+  "Lista_alergenow_Healingwood.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "Lista_alergenow_Iso_E_Super_BLH_14_04_2023.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 1,
+   "vistos": 81,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "Lista_alergenow_Liffarome.pdf": {
+   "familia": "iff-extendida",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "Lista_alergenow_Magnolan.pdf": {
+   "familia": "symrise-clichy",
+   "entradas": 0,
+   "vistos": 83,
+   "como": {}
+  },
+  "Lista_alergenow_Magnolys.pdf": {
+   "familia": "firmenich",
+   "entradas": 15,
+   "vistos": 27,
+   "como": {
+    "nombre-en-la-fila": 15
+   }
+  },
+  "Lista_alergenow_Methyl_Linolenate.pdf": {
+   "familia": "otro",
+   "entradas": 0,
+   "vistos": 1,
+   "como": {}
+  },
+  "Lista_alergenow_Orbitone_T.pdf": {
+   "familia": "takasago",
+   "entradas": 1,
+   "vistos": 87,
+   "como": {
+    "cas-mas-cercano": 1
+   }
+  },
+  "Lista_alergenow_Sweet_Orange_Oil_Distilled.pdf": {
+   "familia": "oleolio",
+   "entradas": 9,
+   "vistos": 9,
+   "como": {
+    "cas-en-la-fila": 9
+   }
+  },
+  "Lista_alergenow_Vanilla_Tahitensis_SFE.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "MC1H_COSM2.pdf": {
+   "familia": "pcw",
+   "entradas": 7,
+   "vistos": 7,
+   "como": {
+    "cas-en-la-fila": 7
+   }
+  },
+  "MEL1B_COSM2.pdf": {
+   "familia": "pcw",
+   "entradas": 0,
+   "vistos": 1,
+   "como": {}
+  },
+  "MYRCENE_MYRC1M_COSM2.pdf": {
+   "familia": "pcw",
+   "entradas": 3,
+   "vistos": 8,
+   "como": {
+    "cas-en-la-fila": 3
+   }
+  },
+  "PATCH1E_-_COSM2_-_2025-08.pdf": {
+   "familia": "pcw",
+   "entradas": 3,
+   "vistos": 3,
+   "como": {
+    "cas-en-la-fila": 3
+   }
+  },
+  "Paracresyl_phenylacetate_-_PPA1G_-_COSM2_-_2020--10.pdf": {
+   "familia": "pcw",
+   "entradas": 4,
+   "vistos": 4,
+   "como": {
+    "cas-en-la-fila": 4
+   }
+  },
+  "RASK1N_COSM2.pdf": {
+   "familia": "pcw",
+   "entradas": 0,
+   "vistos": 29,
+   "como": {}
+  },
+  "ROS1T_COSM2.pdf": {
+   "familia": "pcw",
+   "entradas": 1,
+   "vistos": 1,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "SAFRANAL_SAFR1A_COSM2.pdf": {
+   "familia": "pcw",
+   "entradas": 0,
+   "vistos": 29,
+   "como": {}
+  },
+  "T01180_ALG_11-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "T01220_ALG_11-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 5,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 5
+   }
+  },
+  "T02150_ALG_02-24.pdf": {
+   "familia": "firmenich",
+   "entradas": 4,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 4
+   }
+  },
+  "T04200_ALG_04-25.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "T04300_ALG_02-24.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "T15900_ALG_02-24.pdf": {
+   "familia": "firmenich",
+   "entradas": 1,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 1
+   }
+  },
+  "T19950_ALG_11-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 1,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 1
+   }
+  },
+  "TOD2P_COSM2.pdf": {
+   "familia": "pcw",
+   "entradas": 3,
+   "vistos": 5,
+   "como": {
+    "cas-en-la-fila": 3
+   }
+  },
+  "Tamarine_Base_alergeny_original_eng.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 78,
+   "como": {}
+  },
+  "Ultrazur_listaalergenow_EU.pdf": {
+   "familia": "givaudan-compuesto",
+   "entradas": 0,
+   "vistos": 84,
+   "como": {}
+  },
+  "V00050_ALG_07-23.pdf": {
+   "familia": "bedoukian",
+   "entradas": 0,
+   "vistos": 59,
+   "como": {}
+  },
+  "V00050_ALG_07-23_7877deef-98b1-4774-b5db-97806cd66288.pdf": {
+   "familia": "bedoukian",
+   "entradas": 0,
+   "vistos": 59,
+   "como": {}
+  },
+  "V00133_ALG_07-23.pdf": {
+   "familia": "bedoukian",
+   "entradas": 0,
+   "vistos": 59,
+   "como": {}
+  },
+  "V01060_ALG_08-23.pdf": {
+   "familia": "bedoukian",
+   "entradas": 3,
+   "vistos": 60,
+   "como": {
+    "cas-en-la-fila": 3
+   }
+  },
+  "V01064_ALG_07-23.pdf": {
+   "familia": "bedoukian",
+   "entradas": 0,
+   "vistos": 59,
+   "como": {}
+  },
+  "V03026_ALG_05-24.pdf": {
+   "familia": "bedoukian",
+   "entradas": 0,
+   "vistos": 66,
+   "como": {}
+  },
+  "V03080_ALG_07-23.pdf": {
+   "familia": "bedoukian",
+   "entradas": 0,
+   "vistos": 59,
+   "como": {}
+  },
+  "V04020_ALG_05-24.pdf": {
+   "familia": "bedoukian",
+   "entradas": 0,
+   "vistos": 66,
+   "como": {}
+  },
+  "V05025_ALG_06-21.pdf": {
+   "familia": "otro",
+   "entradas": 0,
+   "vistos": 2,
+   "como": {}
+  },
+  "V06010_ALG_07-23.pdf": {
+   "familia": "bedoukian",
+   "entradas": 0,
+   "vistos": 59,
+   "como": {}
+  },
+  "V07010_ALG_05-24.pdf": {
+   "familia": "bedoukian",
+   "entradas": 0,
+   "vistos": 66,
+   "como": {}
+  },
+  "V07030_ALG_01-08.pdf": {
+   "familia": "v0",
+   "entradas": 0,
+   "vistos": 27,
+   "como": {}
+  },
+  "V12010_ALG_12-23.pdf": {
+   "familia": "bedoukian",
+   "entradas": 0,
+   "vistos": 59,
+   "como": {}
+  },
+  "V13029_ALG_11-23.pdf": {
+   "familia": "otro",
+   "entradas": 0,
+   "vistos": 2,
+   "como": {}
+  },
+  "V13078_ALG_10-24.pdf": {
+   "familia": "otro",
+   "entradas": 1,
+   "vistos": 0,
+   "como": {
+    "cas-en-la-fila": 1
+   }
+  },
+  "V14850_ALG_08-23.pdf": {
+   "familia": "bedoukian",
+   "entradas": 0,
+   "vistos": 59,
+   "como": {}
+  },
+  "V22100_ALG_01-23.pdf": {
+   "familia": "bedoukian",
+   "entradas": 0,
+   "vistos": 59,
+   "como": {}
+  },
+  "V22100_ALG_01-23_14e98c1b-5b11-40ff-b1b0-1478755610a0.pdf": {
+   "familia": "bedoukian",
+   "entradas": 0,
+   "vistos": 59,
+   "como": {}
+  },
+  "W01032_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W01035_ALG_08-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W01070_ALG_06-22.pdf": {
+   "familia": "firmenich",
+   "entradas": 10,
+   "vistos": 27,
+   "como": {
+    "nombre-en-la-fila": 10
+   }
+  },
+  "W01080_ALG_06-22.pdf": {
+   "familia": "firmenich",
+   "entradas": 11,
+   "vistos": 27,
+   "como": {
+    "nombre-en-la-fila": 11
+   }
+  },
+  "W02033_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 21,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 21
+   }
+  },
+  "W02040_ALG_08-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 15,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 15
+   }
+  },
+  "W02550_ALG_08-23-1.pdf": {
+   "familia": "firmenich",
+   "entradas": 6,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 6
+   }
+  },
+  "W03003_ALG_08-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W03005_ALG_08-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W03021_ALG_08-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W03023_ALG_07-24.pdf": {
+   "familia": "firmenich",
+   "entradas": 11,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 11
+   }
+  },
+  "W03040_ALG_08-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 8,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 8
+   }
+  },
+  "W03050_ALG_08-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 13,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 13
+   }
+  },
+  "W03063_ALG_08-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 19,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 19
+   }
+  },
+  "W03077_ALG_01-25.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 76,
+   "como": {}
+  },
+  "W03083_ALG_02-25.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 81,
+   "como": {}
+  },
+  "W03207_ALG_10-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 2,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 2
+   }
+  },
+  "W03208_ALG_07-24.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W03218_ALG_08-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W03263_ALG_08-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 25,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 25
+   }
+  },
+  "W03267_ALG_01-24.pdf": {
+   "familia": "firmenich",
+   "entradas": 8,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 8
+   }
+  },
+  "W03280_ALG_03-24.pdf": {
+   "familia": "firmenich",
+   "entradas": 1,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 1
+   }
+  },
+  "W03300_ALG_01-24.pdf": {
+   "familia": "firmenich",
+   "entradas": 1,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 1
+   }
+  },
+  "W03980_ALG_05-21.pdf": {
+   "familia": "firmenich",
+   "entradas": 3,
+   "vistos": 27,
+   "como": {
+    "nombre-en-la-fila": 3
+   }
+  },
+  "W04040_ALG_04-21.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 27,
+   "como": {}
+  },
+  "W04060_ALG_08-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 1,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 1
+   }
+  },
+  "W04098_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W04111_ALG_07-24.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W04150_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 11,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 11
+   }
+  },
+  "W04160_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 16,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 16
+   }
+  },
+  "W05100_ALG_02-25.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W05200_ALG_10-24.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W06051_ALG_01-25.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 80,
+   "como": {}
+  },
+  "W06053_ALG_06-21.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 27,
+   "como": {}
+  },
+  "W06070_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 5,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 5
+   }
+  },
+  "W06127_ALG_01-25.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 69,
+   "como": {}
+  },
+  "W06187_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W07015_ALG_10-24.pdf": {
+   "familia": "firmenich",
+   "entradas": 11,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 11
+   }
+  },
+  "W08400_ALG_02-25.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W09010_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 16,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 16
+   }
+  },
+  "W09020_ALG_05-22.pdf": {
+   "familia": "firmenich",
+   "entradas": 1,
+   "vistos": 27,
+   "como": {
+    "nombre-en-la-fila": 1
+   }
+  },
+  "W09650_ALG_05-25.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 74,
+   "como": {}
+  },
+  "W10040_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 8,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 8
+   }
+  },
+  "W11150_ALG_01-25.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W12005_ALG_05-22.pdf": {
+   "familia": "firmenich",
+   "entradas": 7,
+   "vistos": 27,
+   "como": {
+    "nombre-en-la-fila": 7
+   }
+  },
+  "W12018_ALG_10-20.pdf": {
+   "familia": "firmenich",
+   "entradas": 9,
+   "vistos": 27,
+   "como": {
+    "nombre-en-la-fila": 9
+   }
+  },
+  "W12020_ALG_01-24.pdf": {
+   "familia": "firmenich",
+   "entradas": 22,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 22
+   }
+  },
+  "W12043_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 3,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 3
+   }
+  },
+  "W13040_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W13044_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 21,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 21
+   }
+  },
+  "W13063_ALG_11-24.pdf": {
+   "familia": "firmenich",
+   "entradas": 21,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 21
+   }
+  },
+  "W13082_ALG_01-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 15,
+   "vistos": 27,
+   "como": {
+    "nombre-en-la-fila": 15
+   }
+  },
+  "W13088_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W13092_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 5,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 5
+   }
+  },
+  "W13094_ALG_06-25.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 65,
+   "como": {}
+  },
+  "W13105_ALG_02-25.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W13110_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W13120_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W13140_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W13900_ALG_01-24.pdf": {
+   "familia": "firmenich",
+   "entradas": 9,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 9
+   }
+  },
+  "W13905_ALG_10-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 6,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 6
+   }
+  },
+  "W14013_ALG_11-22.pdf": {
+   "familia": "firmenich",
+   "entradas": 11,
+   "vistos": 27,
+   "como": {
+    "nombre-en-la-fila": 11
+   }
+  },
+  "W14038_ALG_01-22.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 27,
+   "como": {}
+  },
+  "W14045_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 13,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 13
+   }
+  },
+  "W15028_ALG_10-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 14,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 14
+   }
+  },
+  "W15040_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 22,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 22
+   }
+  },
+  "W15056_ALG_04-21.pdf": {
+   "familia": "firmenich",
+   "entradas": 12,
+   "vistos": 27,
+   "como": {
+    "nombre-en-la-fila": 12
+   }
+  },
+  "W15070_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 20,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 20
+   }
+  },
+  "W16029_ALG_03-25.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 59,
+   "como": {}
+  },
+  "W16062_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W16070_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 1,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 1
+   }
+  },
+  "W16070_ALG_09-23_dedaef5f-2556-41d2-9b49-9f30bc068adb.pdf": {
+   "familia": "firmenich",
+   "entradas": 1,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 1
+   }
+  },
+  "W16076_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 16,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 16
+   }
+  },
+  "W16092_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 18,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 18
+   }
+  },
+  "W16095_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 16,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 16
+   }
+  },
+  "W16295_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 17,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 17
+   }
+  },
+  "W16295_ALG_09-23_678c1293-3c90-4735-9bbf-eeca4b943ab0.pdf": {
+   "familia": "firmenich",
+   "entradas": 17,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 17
+   }
+  },
+  "W18070_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W18090_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W19016_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W19037_ALG_05-22.pdf": {
+   "familia": "firmenich",
+   "entradas": 5,
+   "vistos": 27,
+   "como": {
+    "nombre-en-la-fila": 5
+   }
+  },
+  "W19045_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W19050_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 7,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 7
+   }
+  },
+  "W19600_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 16,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 16
+   }
+  },
+  "W19840_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 18,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 18
+   }
+  },
+  "W20037_ALG_07-24.pdf": {
+   "familia": "firmenich",
+   "entradas": 9,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 9
+   }
+  },
+  "W20042_ALG_01-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 6,
+   "vistos": 27,
+   "como": {
+    "nombre-en-la-fila": 6
+   }
+  },
+  "W20160_ALG_05-22.pdf": {
+   "familia": "firmenich",
+   "entradas": 9,
+   "vistos": 27,
+   "como": {
+    "nombre-en-la-fila": 9
+   }
+  },
+  "W20160_ALG_05-22_20bbfb70-5309-4dfc-b20a-d8d086aac3f2.pdf": {
+   "familia": "firmenich",
+   "entradas": 9,
+   "vistos": 27,
+   "como": {
+    "nombre-en-la-fila": 9
+   }
+  },
+  "W20726_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 17,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 17
+   }
+  },
+  "W22020_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 0,
+   "vistos": 85,
+   "como": {}
+  },
+  "W23009_ALG_09-23.pdf": {
+   "familia": "firmenich",
+   "entradas": 29,
+   "vistos": 85,
+   "como": {
+    "nombre-en-la-fila": 29
+   }
+  },
+  "W26050_ALG_03-20.pdf": {
+   "familia": "firmenich",
+   "entradas": 1,
+   "vistos": 27,
+   "como": {
+    "nombre-en-la-fila": 1
+   }
+  },
+  "allerg.pdf": {
+   "familia": "pcw",
+   "entradas": 0,
+   "vistos": 1,
+   "como": {}
+  }
+ },
+ "sin_pagina": [],
+ "no_parseada": [],
+ "sin_texto": [],
+ "sin_grupo": {
+  "V01060_ALG_08-23.pdf": [
+   "500ppm p1 y443 «known to be present at maximum content of up to or» []"
+  ]
+ },
+ "familias": {
+  "givaudan": 48,
+  "givaudan-compuesto": 12,
+  "pcw": 30,
+  "otro": 7,
+  "robertet": 5,
+  "iff-extendida": 78,
+  "biolandes": 5,
+  "symrise-clichy": 3,
+  "ventos": 21,
+  "iff-presencia": 3,
+  "iff-declaracion": 8,
+  "firmenich": 106,
+  "moellhausen": 1,
+  "takasago": 1,
+  "oleolio": 1,
+  "bedoukian": 14,
+  "v0": 1
+ },
+ "fuera_de_ifra": {
+  "Vanillin": 31,
+  "Acetyl Cedrene": 11,
+  "Alpha-Terpinene": 47,
+  "Beta-Caryophyllene": 64,
+  "Geranyl Acetate": 29,
+  "Juniperus Virginiana Oil": 8,
+  "Pinene": 70,
+  "Terpineol": 65,
+  "Terpinolene": 59,
+  "Amyl Salicylate": 1,
+  "Pelargonium Graveolens Flower Oil": 4,
+  "Anethole": 12,
+  "Camphor": 31,
+  "Laurus Nobilis Leaf Oil": 2,
+  "Linalyl Acetate": 26,
+  "Pogostemon Cablin Oil": 6,
+  "Trimethylcyclopentenyl Methylisopentenol": 4,
+  "Dimethyl Phenethyl Acetate": 2,
+  "Cedrus Atlantica Oil/Extract": 4,
+  "Menthol": 6,
+  "Methyl Salicylate": 17,
+  "Eugenyl Acetate": 5,
+  "Santalol": 7,
+  "Salicylaldehyde": 5,
+  "Hexamethylindanopyran": 1,
+  "Lavandula Oil/Extract": 1,
+  "Mentha Viridis Leaf Oil": 1,
+  "Hexadecanolactone": 1,
+  "Eugenia Caryophyllus Oil": 1
+ },
+ "propio_omitido": 34,
+ "_filas": {
+  "C-003": 460,
+  "C-003-sin-glosario": 641
+ }
+}
