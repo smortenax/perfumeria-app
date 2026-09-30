@@ -2021,8 +2021,13 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 - **Lo que cuesta dejarla abierta:** la búsqueda de un natural sigue dando listas largas de
   formas casi iguales, y las 19 repeticiones, dos abreviaturas para lo mismo. IFRA ya es
   coherente.
+- **Respuesta literal** (2026-09-30), junto con P59: *«todo lo nuevo agragaod funciona bien, la parte de los duplicados sigo pensando que habra matices con respecto a la pureza de la intensidad y los elementos, el aceite esencial de lavanda puede que tenga mas componentes restrictivos que el aceite de lavanda, y menos que el absoluto que es tratado en el laboratorio, no estoy seguro pero para todos los naturales que cuentan con todas sus referencias hay que mirar cuantos de ellos se repiten o quizas que sigan apareciendo pero dentro de la misma opcion Lavander te salga para determinar que categoria es, pero en realidad para eso lo que falta es infromacion segura que es una decision que se autodefine, no por mi criterio sino por caracteristicas, por lo tanto el approach es primero inverstigar margen de uso consenso en todos los materiales, y contrastarlos, encontrar la parte que tienen todos los materiales de cada ccomponente regulado, incluso trabajando con mi corta seleccion de materiales muchos "sin informacion" no por ser una tintura o porque lo de de alta. metodologia para una tarea grande, a proponer, en otros chats con temas parecidos el modelo envio agentes baratos a leer y recopilar y luego se valora contrasta y audita desde opus. es mucho volumen de materiales. tambien vale la pena el documento que adjunte que los recopilaba por cantidad de uso, se tiene que buscar tambien la parte de consenso. y tambien es la manera de recopilar definitivamente por componentes aislados y asegurarse que todos los que suman un componente de ifra realmente estan tenidos en cuenta, escucho tu propuesta y adelante. en cuanto a visual de la barra tengo un par de ideas pero para luego»*
+- **Lectura:** ni A, ni B, ni C todavía: **la decisión se toma sola, por características**. Las
+  formas de una planta con el mismo perfil de constituyentes y de uso se pliegan; las que
+  difieren se quedan separadas. Hace falta antes el dato: los frentes U y C de
+  [la investigación del 2026-09-30](investigacion/2026-09-30-usos-y-constituyentes/README.md).
 - Fecha: 2026-09-29
-- Estado: abierta
+- Estado: cerrada en el método; se aplica cuando haya perfiles
 - Destino: decisiones.md §4 (buscador), glosario
 
 ### P55 — Los nombres de las tiendas donde compra el usuario
@@ -2326,8 +2331,14 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
   - **C:** solo TGSC: rápido, pero es la recomendación de un proveedor, no un consenso.
 - **Lo que cuesta dejarla abierta:** la ficha solo puede dar el margen IFRA, y el Dartanol al
   18 % no se habría visto.
+- **Respuesta literal** (2026-09-30): la de P54, más arriba.
+- **Lectura:** consenso de uso **para todos los materiales, contrastando fuentes**, y además
+  los constituyentes regulados de cada natural, para que todo lo que suma a un componente IFRA
+  esté contado. Método: agentes baratos recopilan por lotes y Opus valora, contrasta y audita
+  ([método](investigacion/2026-09-30-usos-y-constituyentes/README.md)). La barra tiene ideas
+  del usuario, para después.
 - Fecha: 2026-09-29
-- Estado: abierta
+- Estado: cerrada; se ejecuta por fases, empezando por un piloto con la paleta del laboratorio
 - Destino: decisiones.md §4, §8; P42, P54
 
 ---
@@ -2341,6 +2352,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
 | R12 · infografías y frentes | 7 (P35 a P41) | 3 (P33, P34, P42) |
-| R13 · a pesar en el banco | 11 (P43, P44, P48 a P51, P53, P55 a P58) | 6 (P45 a P47, P52, P54, P59) |
+| R13 · a pesar en el banco | 13 (P43, P44, P48 a P51, P53 a P59) | 4 (P45 a P47, P52) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.
