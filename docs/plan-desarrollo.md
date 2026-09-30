@@ -325,7 +325,13 @@ incluida. **Lo que falla, por orden de importancia:**
   - [ ] **E4 · El panel de IFRA**: las bases; por sustancia y por material; el CAS, y al pasar
     el ratón, sus materiales; los gramos que quedan; la segunda lectura, con su base.
     *Depende de P58, E1 y E2.*
-  - [ ] **E5 · La ficha del material**: primero, el margen IFRA (E2); la franja de uso y su
+  - [ ] **E5 · La ficha del material** (con la barra que pidió el usuario el 2026-09-30,
+    [boceto](media/2026-09-30-boceto-barra-uso.png)): cuatro variables en una barra
+    logarítmica sobre la materia aromática. La franja de uso recomendada, tintada con poca
+    opacidad; el tope IFRA del material solo, un triángulo arriba; el tope IFRA agregado, con
+    lo que aportan los demás materiales, abajo; y lo que lleva la fórmula. **IFRA en vivo
+    mientras se teclea la cantidad:** la barra y la ficha dicen, antes de añadir, si ese
+    vertido rompe un techo. Antes decía: primero, el margen IFRA (E2); la franja de uso y su
     clase, cuando haya datos (E6). Mientras no los haya, el hueco se ve como hueco, nunca en
     verde (§1.2). *Depende de E1 y E2; la franja, de E6.*
   - [ ] **E6 · Los datos de uso** (P59): **antes, P54**, para buscarlos por material y no por
