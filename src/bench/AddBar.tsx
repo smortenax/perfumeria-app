@@ -25,6 +25,7 @@ import {
 import { familyLook } from "./family";
 import { IconText } from "./Icon";
 import { newId } from "./state";
+import { pourKey, type Pour } from "./usage-bar";
 
 const t = texts.addBar;
 
@@ -100,6 +101,14 @@ export function AddBar(props: {
    * call it: the card of the material keeps it, to see what the formula now carries.
    */
   onSelect?: (material: Material | null) => void;
+  /**
+   * What is being written, read (P57): the material, the mass in micrograms, the fraction of pure
+   * matter and the diluent, or null while it cannot be read. Called only when the pour changes,
+   * and nothing is added until «Añadir».
+   */
+  onDraft?: (pour: Pour | null) => void;
+  /** What adding the draft would break in IFRA, to say beside the bar; null when nothing. */
+  warning?: string | null;
 }) {
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<Material | null>(null);
@@ -365,6 +374,27 @@ export function AddBar(props: {
     setError(null);
     searchRef.current?.focus();
   };
+
+  // The pour as written so far, read as `add` would read it: null while anything is unreadable.
+  const draft: Pour | null = useMemo(() => {
+    if (!selected) {
+      return null;
+    }
+    try {
+      const massUg = parseMass(quantity, unit);
+      const fraction = parsePercent(percent);
+      const used = fraction.eq(Ratio.ONE) ? null : diluentMaterial(diluent);
+      return !fraction.eq(Ratio.ONE) && !used ? null : { material: selected, massUg, fraction, diluent: used };
+    } catch {
+      return null;
+    }
+  }, [selected, quantity, unit, percent, diluent]);
+  const draftKey = pourKey(draft);
+  const onDraft = props.onDraft;
+  useEffect(() => {
+    onDraft?.(draft);
+    // Only when the pour changes: the key stands for all of it.
+  }, [draftKey]);
 
   const current = { percent, diluent };
   const isFavorite = prefs.favorites.some((f) => sameDilution(f, current));
@@ -725,7 +755,7 @@ export function AddBar(props: {
           />
         </svg>
       </button>
-      {error && <span className="add-error">{error}</span>}
+      {error ? <span className="add-error">{error}</span> : props.warning && <span className="add-error add-warning" role="status">{props.warning}</span>}
     </div>
   );
 }

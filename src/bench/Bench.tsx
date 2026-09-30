@@ -22,9 +22,10 @@ import { IfraPanel, IfraSummary } from "./IfraBox";
 import { confirmDialog, download, fileNameFor, guardClose, inTauri, pickAndRead, writeFile } from "./io";
 import { libraryDir, placeFormula, readLibrary, rememberedProvisionals } from "./library";
 import { nextVersionNumber, versionName } from "./library-groups";
-import { MaterialCard } from "./MaterialCard";
+import { draftWarnings, MaterialCard } from "./MaterialCard";
 import { ownName } from "./prefs";
 import { benchReducer, emptyFormula, initialState, newId } from "./state";
+import { ifraOfMaterial, pourKey, previewPour, type Pour } from "./usage-bar";
 
 type Add = Extract<Change, { kind: "add" }>;
 
@@ -72,6 +73,8 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
   const [session, setSession] = useState<Material[]>([]);
   // The material the card under the add bar shows: the last one chosen, kept after adding it (P57).
   const [cardMaterial, setCardMaterial] = useState<Material | null>(null);
+  // What the add bar is writing, read (P57): IFRA is checked on it while it is typed; nothing is added.
+  const [draft, setDraft] = useState<Pour | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [dialog, setDialog] = useState<Dialog | null>(() =>
     reopensByWeighing(props.initial.formula) ? { kind: "reweigh", onOpen: true } : null,
@@ -184,6 +187,36 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
       return undefined;
     }
   }, [formula, frame, view]);
+
+  // The IFRA of the chosen material: its margin and its two ceilings on the strip (P57, P59), in the
+  // base of the report until the panel chooses one (P58, E4). Once per change of the formula, the
+  // frame or the material, not per keystroke.
+  const cardIfra = useMemo(() => {
+    if (!cardMaterial || !view.composition || !view.report) {
+      return null;
+    }
+    try {
+      return ifraOfMaterial(formula, catalog.ifra, view.composition, view.report, cardMaterial, frame ?? undefined);
+    } catch {
+      return null;
+    }
+  }, [formula, frame, view, cardMaterial]);
+
+  // IFRA while typing (P57): the formula plus the draft against the formula as it stands, worked out
+  // only when the draft changes, and not while looking at an earlier frame of the history.
+  const draftKey = pourKey(draft);
+  const preview = useMemo(() => {
+    if (!draft || !view.report || frame !== null) {
+      return null;
+    }
+    try {
+      return previewPour(formula, catalog.ifra, view.report, draft);
+    } catch {
+      return null;
+    }
+    // The key stands for the draft; the formula and the report for the rest.
+  }, [draftKey, formula, view, frame]);
+  const warning = preview ? draftWarnings(preview).join(". ") || null : null;
 
   const byKey = useMemo(() => new Map(catalog.entries.map((e) => [e.material.key, e.material])), []);
   // The glossary entry of each material: what the card of the chosen material shows (P57).
@@ -475,6 +508,8 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
               onNamed={() => dispatch({ type: "names", nameOf: ownName })}
               onAdd={change}
               onSelect={setCardMaterial}
+              onDraft={setDraft}
+              warning={warning}
               onQuickMaterial={() => setDialog({ kind: "quick" })}
               onFormulaAsMaterial={() => void formulaAsMaterial()}
               onCreateProvisional={createProvisional}
@@ -483,6 +518,9 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
               material={cardMaterial}
               entry={cardMaterial ? entryByKey.get(cardMaterial.key) : undefined}
               composition={view.composition}
+              ifra={cardIfra}
+              draft={preview}
+              data={catalog.ifra}
             />
           </div>
         </div>

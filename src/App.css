@@ -1050,7 +1050,8 @@ button.value:hover {
 
 .material-card {
   flex: 1;
-  min-height: 0;
+  /* A little taller than the 80 px of the first card: the strip now has four marks and a legend (E5). */
+  min-height: 92px;
   padding: 8px 12px;
   display: flex;
   align-items: center;
@@ -1177,11 +1178,38 @@ button.value:hover {
 }
 
 .mc-box:not(.usage) {
-  width: 88px;
+  width: 96px;
 }
 
 .mc-box.usage {
-  width: 164px;
+  width: 212px;
+}
+
+/* A box with data: solid edge. Amber when the figure could be optimistic, red with nothing left;
+   never green (§1.2). */
+.mc-box.filled {
+  border-style: solid;
+  border-color: var(--line);
+  color: var(--ink-2);
+}
+
+.mc-box.filled.tone-amber {
+  color: var(--amber);
+  background: var(--amber-bg);
+  border-color: #e3cda0;
+}
+
+.mc-box.filled.tone-red {
+  color: var(--red);
+  background: var(--red-bg);
+  border-color: #f0c9c4;
+}
+
+.mc-box-value.small {
+  font-size: 12.5px;
+  line-height: 16px;
+  color: inherit;
+  white-space: nowrap;
 }
 
 .mc-box-head {
@@ -1208,29 +1236,99 @@ button.value:hover {
    dark mark where the formula stands. The band of the usual use will fill it once there is data. */
 .usage-strip {
   position: relative;
-  height: 8px;
-  margin: 3px 0 0;
+  height: 10px;
+  margin: 8px 0 7px;
   border: 1px dashed var(--line-strong);
   border-radius: 4px;
 }
 
+.usage-strip.with-band {
+  border-style: solid;
+}
+
+/* The band of the recommended use: a soft yellow tint over the strip, from its lower end to its upper. */
+.usage-band {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 3px;
+  background: #f2c200;
+  opacity: 0.35;
+}
+
 .usage-tick {
   position: absolute;
-  top: 7px;
+  bottom: 0;
   width: 1px;
   height: 4px;
   margin-left: -0.5px;
   background: var(--line-strong);
 }
 
+/* What the formula carries: a dark bar across the strip. While typing, the same in outline is where
+   the pour would leave it. */
 .usage-mark {
   position: absolute;
-  top: -5px;
+  top: -3px;
   width: 3px;
-  height: 16px;
+  height: 14px;
   margin-left: -1.5px;
   border-radius: 1.5px;
   background: var(--ink);
+}
+
+.usage-mark.draft {
+  width: 5px;
+  margin-left: -2.5px;
+  background: var(--panel);
+  border: 1.5px solid var(--ink-2);
+  border-radius: 2px;
+}
+
+.usage-mark.draft.tone-amber {
+  border-color: var(--amber);
+}
+
+.usage-mark.draft.tone-red {
+  border-color: var(--red);
+  background: var(--red-bg);
+}
+
+/* The two IFRA ceilings as triangles: the material alone points down from above, the one with the
+   rest of the formula points up from below. Never green. */
+.usage-cap {
+  position: absolute;
+  width: 0;
+  height: 0;
+  margin-left: -5px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+.usage-cap.solo {
+  top: -9px;
+  border-top: 7px solid var(--blue);
+}
+
+.usage-cap.all {
+  bottom: -9px;
+  border-bottom: 7px solid var(--ink-2);
+}
+
+.usage-cap.solo.tone-amber {
+  border-top-color: var(--amber);
+}
+
+.usage-cap.all.tone-amber {
+  border-bottom-color: var(--amber);
+}
+
+.usage-cap.solo.tone-red {
+  border-top-color: var(--red);
+}
+
+.usage-cap.all.tone-red {
+  border-bottom-color: var(--red);
 }
 
 /* The ends of the strip, and the base of its percentages between them (§1.1). */
@@ -1250,6 +1348,73 @@ button.value:hover {
 .usage-scale .usage-base {
   font-family: inherit;
   font-size: 10px;
+}
+
+/* The legend of the strip: only the marks that are drawn. */
+.usage-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 8px;
+  margin-top: 1px;
+  font-size: 9.5px;
+  line-height: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.usage-legend > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.usage-legend .legend-unchecked {
+  color: var(--amber);
+  font-weight: 600;
+}
+
+.usage-legend .sw {
+  display: inline-block;
+  flex: none;
+}
+
+.usage-legend .sw.solo {
+  border-left: 3.5px solid transparent;
+  border-right: 3.5px solid transparent;
+  border-top: 5px solid var(--blue);
+}
+
+.usage-legend .sw.all {
+  border-left: 3.5px solid transparent;
+  border-right: 3.5px solid transparent;
+  border-bottom: 5px solid var(--ink-2);
+}
+
+.usage-legend .sw.holds {
+  width: 2px;
+  height: 9px;
+  background: var(--ink);
+}
+
+.usage-legend .sw.draft {
+  width: 4px;
+  height: 9px;
+  border: 1.2px solid var(--ink-2);
+  border-radius: 1.5px;
+}
+
+.usage-legend .sw.draft.tone-amber {
+  border-color: var(--amber);
+}
+
+.usage-legend .sw.draft.tone-red {
+  border-color: var(--red);
+}
+
+.add-error.add-warning {
+  border-color: #f0c9c4;
+  background: var(--red-bg);
+  font-weight: 600;
 }
 
 .compute-error {
