@@ -3,6 +3,7 @@ import { compose, type Composition } from "../core/compose";
 import { checkIfra, marginOf, type IfraBase, type IfraData, type IfraReport, type IfraSubstance } from "../core/ifra";
 import type { Change, Formula } from "../core/model/formula";
 import type { Material } from "../core/model/material";
+import type { UsageData } from "../data/catalog";
 import { carriedOf, type Carried } from "./material-card";
 
 /**
@@ -19,11 +20,30 @@ import { carriedOf, type Carried } from "./material-card";
  * `Ca` the aromatic matter of the material in it, `F` the final batch and `W` the work batch.
  */
 
-/** The band of the usual use that the data will bring (E6, P59): % of the aromatic matter, with its source. */
+/**
+ * The band of the usual use (E6, P59): a share of the aromatic matter, with its sources. `recommendation`
+ * is true when a single source gives it, not a consensus of several. `ceiling` is the use ceiling:
+ * the most anyone reports, which is not an IFRA ceiling, with the source it comes from.
+ */
 export interface UsageBand {
   readonly min?: Ratio;
   readonly max: Ratio;
   readonly fuente: string;
+  readonly recommendation?: boolean;
+  readonly ceiling?: { readonly value: Ratio; readonly fuente: string | undefined };
+}
+
+/** The band of a catalog entry, or undefined when its usual use is a gap (§1.2). */
+export function bandOf(usage: UsageData | undefined): UsageBand | undefined {
+  return usage
+    ? {
+        ...(usage.min ? { min: usage.min } : {}),
+        max: usage.max,
+        fuente: usage.sources,
+        recommendation: usage.consensus === "recomendacion",
+        ...(usage.ceiling ? { ceiling: { value: usage.ceiling, fuente: usage.ceilingSource } } : {}),
+      }
+    : undefined;
 }
 
 /** What one unit of mass of a material is made of, in IFRA terms. `unknown` is never a number (§1.2). */

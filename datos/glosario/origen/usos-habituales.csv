@@ -1,0 +1,54 @@
+material_id,nombre,uso_min_pct,uso_max_pct,consenso,n_fuentes,fuentes,techo_pct,techo_fuente,n_otras_bases,lote
+fig:92,Iso E Super,5,30,recomendacion,1,Laboratorio,80,PerfumersWorld,0,U-001
+fig:142,Galaxolide,2,10,consenso,2,Laboratorio | Scentspiracy,60,PerfumersWorld,0,U-001
+fig:295,Safraleine,0.3,2,consenso,2,Laboratorio | Scentspiracy,3,TGSC,3,U-001
+fig:412,Dartanol,0.5,5,recomendacion,1,Laboratorio,10,TGSC,3,U-001
+fig:464,Florosa,1,10,recomendacion,1,Laboratorio,10,PerfumersWorld,2,U-001
+fig:487,Sandalmysore Core,1,5,recomendacion,1,Laboratorio,5,TGSC,0,U-001
+fig:607,Polysantol,0.75,3.5,consenso,2,Laboratorio | Scentspiracy,4,PerfumersWorld,1,U-001
+fig:722,Ebanol,0.5,3,consenso,2,Laboratorio | Scentspiracy,5,TGSC,1,U-001
+fig:867,Vertenex (PTBCHA),1,10,recomendacion,1,Laboratorio,20,TGSC,2,U-001
+fig:910,Stemone,0.1,1,consenso,2,Laboratorio | Scentspiracy,5,TGSC,2,U-001
+fig:922,Methyl Pamplemousse,0.1,1,recomendacion,1,Laboratorio,10,TGSC,2,U-001
+fig:924,Cashmeran,0.1,7,recomendacion,1,Laboratorio,2,PerfumersWorld,1,U-001
+fig:938,Isobutil Quinoleina (producto al 40 %),0.1,1,recomendacion,1,Laboratorio,2,TGSC,1,U-001
+fig:1012,Allyl Amyl Glycolate,0.01,0.5,recomendacion,1,Laboratorio,4,PerfumersWorld,2,U-001
+fig:1039,Aldehido alfa-amil cinamico,1,10,recomendacion,1,Laboratorio,30,PerfumersWorld,1,U-001
+fig:1051,Ionona Alpha,0.5,5,recomendacion,1,Laboratorio,15,TGSC,1,U-001
+fig:1054,Metil ionona gamma,1,10,consenso,2,Laboratorio | Scentspiracy,11.9,PerfumersWorld,0,U-001
+fig:1069,Ambar gris (tintura),1,5,recomendacion,1,Laboratorio,30,TGSC,1,U-001
+fig:1168,Resinoide Benjui,1,5,recomendacion,1,Laboratorio,13.3,PerfumersWorld,1,U-001
+fig:1176,Acetato de bencilo,1,10,recomendacion,1,Laboratorio,30,TGSC,0,U-001
+fig:1200,Bergamota sin bergaptenos,3,10,recomendacion,1,Laboratorio,30,TGSC,0,U-001
+fig:1285,Aceite de cade (enebro),0.01,0.5,recomendacion,1,Laboratorio,0.5,TGSC,2,U-001
+fig:1343,Castoreum (producto al 20 %),0.1,1,recomendacion,1,Laboratorio,5,TGSC,1,U-001
+fig:1357,Cedro Atlas,1,10,recomendacion,1,Laboratorio,20,PerfumersWorld,0,U-001
+fig:1447,Mayol,1,10,recomendacion,1,Laboratorio,20,PerfumersWorld,1,U-001
+fig:1529,Cilantro,0.5,3,recomendacion,1,Laboratorio,10,TGSC,1,U-001
+fig:1534,Cumarina natural,0.5,3,recomendacion,1,Laboratorio,6.7,PerfumersWorld,0,U-001
+fig:1672,Dihydromyrcenol,1,10,recomendacion,1,Laboratorio,75,TGSC,2,U-001
+fig:1689,Diphenyl Oxide,0.1,1,recomendacion,1,Laboratorio,5,PerfumersWorld,1,U-001
+fig:1787,Ethyl Maltol,0.05,1,recomendacion,1,Laboratorio,4,TGSC,0,U-001
+fig:1818,Ethylene Brassylate,0.35,6.5,consenso,2,Laboratorio | Scentspiracy,12,PerfumersWorld,1,U-001
+fig:1834,Eugenol 98 %,0.1,2,recomendacion,1,Laboratorio,7,PerfumersWorld,0,U-001
+fig:1894,Aldehido C18 (gamma-nonalactona),0.05,0.5,recomendacion,1,Laboratorio,10,TGSC,1,U-001
+fig:1896,Aldehido C14 (gamma-undecalactona),0.075,0.75,consenso,2,Laboratorio | Scentspiracy,10,TGSC,1,U-001
+fig:1906,Geraniol 98 %,1,10,recomendacion,1,Laboratorio,15,PerfumersWorld,0,U-001
+fig:2143,Laudano de jara,0.1,2,consenso,2,Laboratorio | Scentspiracy,4,TGSC,0,U-001
+fig:2183,Lavanda,1,10,recomendacion,1,Laboratorio,16,TGSC,0,U-001
+fig:2193,Limon,2,10,recomendacion,1,Laboratorio,15,TGSC,0,U-001
+fig:2220,Linalol,1,20,recomendacion,1,Laboratorio,40,PerfumersWorld,1,U-001
+fig:2240,Litsea Cubeba,0.5,5,recomendacion,1,Laboratorio,9,TGSC,0,U-001
+fig:2261,Mandarina,1,10,recomendacion,1,Laboratorio,8.9,PerfumersWorld,0,U-001
+fig:2351,Hedione,5,30,recomendacion,1,Laboratorio,50,PerfumersWorld,2,U-001
+fig:2427,Ambermor,0.5,3,recomendacion,1,Laboratorio,2,PerfumersWorld,3,U-001
+fig:2551,Naranja dulce,2,15,recomendacion,1,Laboratorio,10,TGSC,0,U-001
+fig:2599,Patchouli,1,10,recomendacion,1,Laboratorio,10,TGSC,0,U-001
+fig:2642,Etil-4-fenol,0.001,0.05,recomendacion,1,Laboratorio,0.05,TGSC,0,U-001
+fig:2657,Alcohol Feniletilico,1,20,recomendacion,1,Laboratorio,40,TGSC,0,U-001
+fig:2838,Salvia Officinalis,0.1,2,consenso,2,Laboratorio | Scentspiracy,6.2,PerfumersWorld,0,U-001
+fig:2914,Resinoide Estyrax (estoraque),0.5,3,recomendacion,1,Laboratorio,5,PerfumersWorld,0,U-001
+fig:2982,Absoluto de Tabaco,0.1,1,recomendacion,1,Laboratorio,10,PerfumersWorld,1,U-001
+fig:2992,Haba tonka (tintura),1,5,recomendacion,1,Laboratorio,8,TGSC,0,U-001
+fig:3074,Vainillina,0.5,3,recomendacion,1,Laboratorio,8,TGSC,0,U-001
+fig:3083,Vetiver,1,5,recomendacion,1,Laboratorio,12,TGSC,0,U-001

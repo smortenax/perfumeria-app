@@ -337,6 +337,8 @@ incluida. **Lo que falla, por orden de importancia:**
   - [ ] **E6 · Los datos de uso** (P59): **antes, P54**, para buscarlos por material y no por
     variante. Después, lo que decida P59: el encargo al laboratorio y la pasada en lote desde
     aquí, con fuente y confianza en cada fila. *Es investigación: corre aparte.*
+    **Avance (2026-10-01):** el lote U-001, auditado, ya llega a la ficha (53 materiales con
+    franja, techo de uso y fuentes: `scripts/usos_habituales.py`). Falta el resto del glosario.
   - **En paralelo:** ya, E1 y E2; después, E3 y E5 a la vez; E4 cuando se decida P58. E6, desde
     que se decidan P54 y P59.
   - **Las decisiones, en este orden:** P58, P54 y P59. La pirámide dentro de la proyección se

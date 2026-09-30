@@ -1256,6 +1256,24 @@ button.value:hover {
   opacity: 0.35;
 }
 
+/* A band that one source alone recommends is fainter than a consensus: the tint says how sure it is. */
+.usage-band.recommendation {
+  opacity: 0.18;
+}
+
+/* The use ceiling, the most anyone reports: a small diamond in the middle of the strip, apart from
+   IFRA's triangles, and never a limit. */
+.usage-ceiling {
+  position: absolute;
+  top: 1px;
+  width: 6px;
+  height: 6px;
+  margin-left: -4.5px;
+  transform: rotate(45deg);
+  border: 1.5px solid #8a6d00;
+  background: #f2c200;
+}
+
 .usage-tick {
   position: absolute;
   bottom: 0;
@@ -1388,6 +1406,15 @@ button.value:hover {
   border-left: 3.5px solid transparent;
   border-right: 3.5px solid transparent;
   border-bottom: 5px solid var(--ink-2);
+}
+
+.usage-legend .sw.ceiling {
+  width: 6px;
+  height: 6px;
+  margin: 0 1px;
+  transform: rotate(45deg);
+  border: 1.5px solid #8a6d00;
+  background: #f2c200;
 }
 
 .usage-legend .sw.holds {

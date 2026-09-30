@@ -39,6 +39,22 @@ export interface MaterialFamily {
   readonly confidence: string;
 }
 
+/**
+ * The audited usual use of a material (E6, P59), in shares of the concentrate, each from a
+ * decimal text of the glossary. `min` is missing when the sources give only «up to»; `ceiling` is
+ * the highest use anyone reports (a use ceiling, not IFRA's); `consensus` says whether two or
+ * more sources agree on the band or it is one source's recommendation; `sources` names them.
+ */
+export interface UsageData {
+  readonly min?: Ratio;
+  readonly max: Ratio;
+  readonly ceiling?: Ratio;
+  readonly consensus: "consenso" | "recomendacion";
+  readonly sources: string;
+  /** Where the ceiling comes from, when there is one. */
+  readonly ceilingSource?: string;
+}
+
 export interface CatalogEntry {
   /** Named by its trade name when it has one (P38): that is what the user knows it by. */
   readonly material: Material;
@@ -75,6 +91,8 @@ export interface CatalogEntry {
    * («Dartanol» for the Bacdanol). Found by one, it takes the user's name (P56).
    */
   readonly aliases?: readonly string[];
+  /** The usual use, when the audited data has it; a gap otherwise, never zero (§1.2). */
+  readonly usage?: UsageData;
 }
 
 export interface Catalog {
@@ -162,6 +180,26 @@ function diluent(material: Material, code: string, icon: string, cas: string, na
     cas,
     search: normalize(`${code} ${material.name} ${names.join(" ")} ${cas}`),
     folded: [material.name, ...names].map(fold),
+  };
+}
+
+/** The usual use of a glossary row, as the entry's `usage` field; nothing when the row has no band. */
+function usageOf(m: Record<string, string>): { usage?: UsageData } {
+  const max = m.uso_max ?? "";
+  const consensus = m.uso_consenso;
+  if (!isNumber(max) || (consensus !== "consenso" && consensus !== "recomendacion")) {
+    return {};
+  }
+  const ceiling = m.uso_techo ?? "";
+  return {
+    usage: {
+      ...(isNumber(m.uso_min ?? "") ? { min: pct(m.uso_min) } : {}),
+      max: pct(max),
+      ...(isNumber(ceiling) ? { ceiling: pct(ceiling) } : {}),
+      consensus,
+      sources: m.uso_fuentes,
+      ...(isNumber(ceiling) && m.uso_techo_fuente ? { ceilingSource: m.uso_techo_fuente } : {}),
+    },
   };
 }
 
@@ -287,6 +325,7 @@ export function buildCatalog(files: CatalogFiles): Catalog {
       folded: [trade, ...others, m.nombre, standardName, ...shops].filter((n) => n !== "").map(fold),
       ...(shops.length ? { shopNames: shops } : {}),
       ...(others.length || shops.length ? { aliases: [...others, ...shops] } : {}),
+      ...usageOf(m),
     });
   }
 

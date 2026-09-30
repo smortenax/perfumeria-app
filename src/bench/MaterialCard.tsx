@@ -155,8 +155,12 @@ function UsageBox(props: {
   const high = band ? placeOf(band.max) : null;
   const lowText = band?.min ? formatPercent(band.min, 3) : null;
   const bandText = band ? t.band(lowText, formatPercent(band.max, 3)) : null;
-  const bandTitle = band ? t.bandTitle(lowText, formatPercent(band.max, 3), band.fuente) : null;
-  const label = [t.usage, bandTitle ?? t.noData, solo?.title, all?.title, holds?.title, draft?.title].filter(Boolean).join(". ");
+  const recommendation = band?.recommendation === true;
+  const bandTitle = band ? t.bandTitle(lowText, formatPercent(band.max, 3), band.fuente, recommendation) : null;
+  // The use ceiling is a small diamond of its own, apart from IFRA's triangles.
+  const ceilingAt = band?.ceiling ? placeOf(band.ceiling.value) : null;
+  const ceilingTitle = band?.ceiling ? t.ceilingTitle(formatPercent(band.ceiling.value, 3), band.ceiling.fuente) : null;
+  const label = [t.usage, bandTitle ?? t.noData, ceilingTitle, solo?.title, all?.title, holds?.title, draft?.title].filter(Boolean).join(". ");
   return (
     <div className="mc-box usage" title={t.usageHelp}>
       <span className="mc-box-head">
@@ -171,8 +175,13 @@ function UsageBox(props: {
           <span key={i} className="usage-tick" style={{ left: `${(i / USAGE_DECADES) * 100}%` }} />
         ))}
         {band && high !== null && (
-          <span className="usage-band" style={{ left: `${(low ?? 0) * 100}%`, width: `${(high - (low ?? 0)) * 100}%` }} title={bandTitle ?? undefined} />
+          <span
+            className={recommendation ? "usage-band recommendation" : "usage-band"}
+            style={{ left: `${(low ?? 0) * 100}%`, width: `${(high - (low ?? 0)) * 100}%` }}
+            title={bandTitle ?? undefined}
+          />
         )}
+        {ceilingAt !== null && <span className="usage-ceiling" style={{ left: `${ceilingAt * 100}%` }} title={ceilingTitle ?? undefined} />}
         {holds && <span className="usage-mark" style={{ left: `${holds.at * 100}%` }} title={holds.title} />}
         {draft && <span className={`usage-mark draft tone-${draft.tone}`} style={{ left: `${draft.at * 100}%` }} title={draft.title} />}
         {solo && <span className={`usage-cap solo tone-${solo.tone}`} style={{ left: `${solo.at * 100}%` }} title={solo.title} />}
@@ -200,6 +209,12 @@ function UsageBox(props: {
               <span>
                 <i className="sw all" />
                 {t.legendAll}
+              </span>
+            )}
+            {ceilingAt !== null && (
+              <span title={ceilingTitle ?? undefined}>
+                <i className="sw ceiling" />
+                {t.legendCeiling}
               </span>
             )}
             {holds && (

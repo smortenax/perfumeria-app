@@ -151,8 +151,12 @@ export const texts = {
     legendHolds: "llevas",
     legendDraft: "vas a añadir",
     band: (low: string | null, high: string) => (low === null ? `hasta ${high}` : `${low} a ${high}`),
-    bandTitle: (low: string | null, high: string, source: string) =>
-      `Uso recomendado: ${low === null ? `hasta ${high}` : `de ${low} a ${high}`} de la materia aromática. Fuente: ${source}`,
+    bandTitle: (low: string | null, high: string, source: string, recommendation: boolean) =>
+      `${recommendation ? "Recomendación de una sola fuente" : "Consenso de varias fuentes"}: ${low === null ? `hasta ${high}` : `de ${low} a ${high}`} del concentrado. ${recommendation ? "Fuente" : "Fuentes"}: ${source}`,
+    legendCeiling: "techo de uso",
+    /** The use ceiling: the most anyone reports, never IFRA's. */
+    ceilingTitle: (value: string, source: string | undefined) =>
+      `Techo de uso: hasta ${value} del concentrado${source ? ` (${source})` : ""}. Es lo más que se cita, no un límite de IFRA`,
     /** What each mark says on hover: a share of the aromatic matter, the mass of the material at it, and the substance that sets it (§1.1). */
     soloTitle: (share: string, mass: string, substance: string, base: string) =>
       `Tope solo: hasta ${share} de la aromática (${mass} de este material) antes de que ${substance} pase su techo por sí sola, sin contar los demás materiales. Base: ${base}`,

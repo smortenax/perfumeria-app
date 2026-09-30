@@ -25,7 +25,7 @@ import { nextVersionNumber, versionName } from "./library-groups";
 import { draftWarnings, MaterialCard } from "./MaterialCard";
 import { ownName } from "./prefs";
 import { benchReducer, emptyFormula, initialState, newId } from "./state";
-import { ifraOfMaterial, pourKey, previewPour, type Pour } from "./usage-bar";
+import { bandOf, ifraOfMaterial, pourKey, previewPour, type Pour } from "./usage-bar";
 
 type Add = Extract<Change, { kind: "add" }>;
 
@@ -519,6 +519,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
               entry={cardMaterial ? entryByKey.get(cardMaterial.key) : undefined}
               composition={view.composition}
               ifra={cardIfra}
+              band={bandOf(cardMaterial ? entryByKey.get(cardMaterial.key)?.usage : undefined)}
               draft={preview}
               data={catalog.ifra}
             />
