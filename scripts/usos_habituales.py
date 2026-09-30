@@ -13,13 +13,16 @@ La regla, para que una franja que viene de una mediana pueda rehacerse a mano:
    es la base de la franja en la ficha). Las de base `producto` o `desconocida` **no se
    convierten ni se descartan en silencio**: se cuentan en `n_otras_bases`. Lo desconocido no
    vale cero ni se toma por concentrado (§1.2).
-3. **Franja habitual.** De las filas de papel `habitual`:
+3. **Franja habitual.** De las filas de papel `habitual`, y de las de papel `habitual y techo`
+   (PerfumersWorld) que tengan su medio:
    - `uso_min_pct` = mediana de sus `min_pct` (las filas sin mínimo no cuentan para el mínimo);
-   - `uso_max_pct` = mediana de sus `max_pct`.
+   - `uso_max_pct` = mediana de sus máximos habituales: el `max_pct` de una fila `habitual`;
+     en una `habitual y techo`, **su medio**, que se saca de la `cita` con una expresión
+     regular («0.100% From 7.000% Average 40.000% Maximum» da 7). Su «Maximum» (`max_pct`) no
+     es habitual: cuenta solo para el techo. Si la cita no trae el medio, esa fila no entra en
+     la franja y cuenta solo para el techo.
    La mediana de una cantidad par de valores es la media de los dos del medio (exacta, con
-   fracciones: nunca coma flotante). Las filas de papel `habitual y techo` (PerfumersWorld)
-   **no entran en la franja**: su máximo es un techo y su medio no está en las columnas
-   numéricas, solo en la cita.
+   fracciones: nunca coma flotante).
 4. **Consenso.** Se cuentan las fuentes distintas de la franja (`n_fuentes`). Con una sola,
    `consenso` = `recomendacion`; con dos o más, `consenso`. Sin ninguna, la franja queda vacía
    y no hay consenso.
@@ -33,6 +36,7 @@ Hay una fila por material de los que tienen alguna fila aceptada. Solo usa la bi
 estándar. Uso:  python scripts/usos_habituales.py
 """
 import csv
+import re
 import sys
 from fractions import Fraction
 from pathlib import Path
@@ -53,6 +57,10 @@ SHORT_SOURCES = {
     "Givaudan (ficha de molecula)": "Givaudan",
     "Perfumer's Apprentice": "Perfumer's Apprentice",
 }
+
+
+# The middle figure of a PerfumersWorld quote: «0.100% From 7.000% Average 40.000% Maximum».
+AVERAGE = re.compile(r"(\d+(?:\.\d+)?)\s*%?\s*Average", re.I)
 
 
 def short_source(name: str) -> str:
@@ -99,9 +107,21 @@ def build(rows: list[dict]) -> list[dict]:
             by_material.setdefault(r["material_id"], []).append(r)
     out = []
     for material, group in by_material.items():
-        usual = [r for r in group if r["papel"] == "habitual" and r["base"] == "concentrado"]
+        # Each usual row as (row, usual maximum): the maximum of a «habitual» row, the average of
+        # a «habitual y techo» one, which only the quote has.
+        usual_pairs = []
+        for r in group:
+            if r["base"] != "concentrado":
+                continue
+            if r["papel"] == "habitual":
+                usual_pairs.append((r, number(r["max_pct"])))
+            elif r["papel"] == "habitual y techo":
+                found = AVERAGE.search(r["cita"])
+                if found:
+                    usual_pairs.append((r, Fraction(found.group(1))))
+        usual = [r for r, _ in usual_pairs]
         mins = [x for x in (number(r["min_pct"]) for r in usual) if x is not None]
-        maxs = [x for x in (number(r["max_pct"]) for r in usual) if x is not None]
+        maxs = [x for _, x in usual_pairs if x is not None]
         sources = sorted({short_source(r["fuente"]) for r in usual})
         ceilings = [(number(r["max_pct"]), short_source(r["fuente"])) for r in group
                     if r["papel"] in ("techo", "habitual y techo") and r["base"] == "concentrado" and number(r["max_pct"]) is not None]

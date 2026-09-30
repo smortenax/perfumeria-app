@@ -128,15 +128,15 @@ La regla, con sus pasos, está en el docstring del script.
 
 | Columna | Qué es |
 |---|---|
-| `uso_min` | mediana de los mínimos de las filas aceptadas de papel `habitual` y base `concentrado` |
-| `uso_max` | mediana de sus máximos |
+| `uso_min` | mediana de los mínimos de las filas aceptadas de papel `habitual` o `habitual y techo` (PerfumersWorld) y base `concentrado` |
+| `uso_max` | mediana de sus máximos habituales: el máximo de una fila `habitual`, y el medio («Average») de la cita en una de PerfumersWorld |
 | `uso_consenso` | `consenso` con dos o más fuentes en la franja; `recomendacion` con una sola |
 | `uso_fuentes` | los nombres cortos de esas fuentes, separados por « \| » |
 | `uso_techo` | el máximo más alto de las filas de papel `techo` o `habitual y techo` (lo que alguien llega a usar: no es un límite de seguridad ni de IFRA) |
 | `uso_techo_fuente` | de qué fuente sale ese techo |
 
 Las filas de base `producto` o `desconocida` no entran en la franja ni se convierten. **A
-2026-09-30 son 53 materiales** (la trufa no tiene cifra): **10 con `consenso` y 43 con
+2026-09-30 son 53 materiales** (la trufa no tiene cifra): **49 con `consenso` y 4 con
 `recomendacion`**, y los 53 con techo de uso.
 
 ## Los nombres comerciales, por encima (P38)
