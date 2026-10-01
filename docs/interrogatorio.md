@@ -2412,9 +2412,23 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
   - *Essential Oil Safety* entra en la capa 3, como referencia y no como norma;
   - las normas ISO quedan como posible compra, para cuando haya producto;
   - «ajustar a mi proveedor», para después de P54.
+- **Segunda respuesta literal** (2026-10-01): *«dicho esto lo que si estara estandarizado es lo
+  de uso sensible o consenso de materias, fuera de lo que es prohibido o regulado, eso es yo
+  creo propuesta de valor para todo el glosario»*
+- **Lectura de la segunda:**
+  - la A queda aceptada;
+  - **lo que la app estandariza por sí misma es el uso habitual por consenso** (P59), fuera de
+    lo prohibido o regulado, que manda IFRA. Es propuesta de valor **para todo el glosario**, no
+    solo para los materiales de las tiendas;
+  - **«estandarizado» quiere decir un método fijo, público y repetible**, con sus fuentes y su
+    auditoría. No es una norma oficial, y la app no lo presenta como tal: en la ficha sigue
+    saliendo como «consenso», con sus fuentes, en la capa 4.
+  - El 2026-10-01 tienen uso 53 de los 4325 materiales; U-002 lo lleva a los de las tiendas.
+    **Lo que sigue:** un lote para el resto del glosario, por orden de uso real (primero lo que
+    más se compra y se formula), con el mismo método.
 - Fecha: 2026-10-01
-- Estado: leída, falta que el usuario confirme la lectura
-- Destino: decisiones.md §5 (autoridad de cada cifra), §4; P37, P54, P55, P59
+- Estado: cerrada
+- Destino: decisiones.md §5 (autoridad de cada cifra), §4, §8; P37, P54, P55, P59
 
 ---
 
@@ -2427,6 +2441,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
 | R12 · infografías y frentes | 7 (P35 a P41) | 3 (P33, P34, P42) |
-| R13 · a pesar en el banco | 13 (P43, P44, P48 a P51, P53 a P59) | 5 (P45 a P47, P52, P60) |
+| R13 · a pesar en el banco | 14 (P43, P44, P48 a P51, P53 a P60) | 4 (P45 a P47, P52) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.
