@@ -122,8 +122,10 @@ tiendas quedan sin unir.
 Seis columnas, **todas en % del concentrado** (la base de la franja de la ficha) y **en blanco
 donde el lote no cubre el material: un hueco, nunca cero** (§1.2). Salen de
 [`origen/usos-habituales.csv`](origen/usos-habituales.csv), que escribe
-[`scripts/usos_habituales.py`](../../scripts/usos_habituales.py) desde el lote auditado U-001
-([auditoría](../../docs/investigacion/2026-09-30-usos-y-constituyentes/auditorias/U-001.md)).
+[`scripts/usos_habituales.py`](../../scripts/usos_habituales.py) desde dos lotes: el U-001, auditado a mano
+([auditoría](../../docs/investigacion/2026-09-30-usos-y-constituyentes/auditorias/U-001.md)), y el U-002,
+que trae [`scripts/traer_usos.py`](../../scripts/traer_usos.py) de TGSC y PerfumersWorld por CAS (su
+`auditoria` sale por regla, no a ojo: [resumen](../../docs/investigacion/2026-09-30-usos-y-constituyentes/lotes/U-002-resumen.md)).
 La regla, con sus pasos, está en el docstring del script.
 
 | Columna | Qué es |
@@ -136,8 +138,9 @@ La regla, con sus pasos, está en el docstring del script.
 | `uso_techo_fuente` | de qué fuente sale ese techo |
 
 Las filas de base `producto` o `desconocida` no entran en la franja ni se convierten. **A
-2026-09-30 son 53 materiales** (la trufa no tiene cifra): **49 con `consenso` y 4 con
-`recomendacion`**, y los 53 con techo de uso.
+2026-10-01 son 303 materiales con franja**: **49 con `consenso` y 254 con
+`recomendacion`** (los 250 nuevos de U-002 tienen una sola fuente para la franja: PerfumersWorld). Hay
+**1.672 con techo de uso**, pero un techo solo, sin franja (TGSC), no sale en la ficha: queda en el CSV.
 
 ## Los nombres comerciales, por encima (P38)
 

@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """Junta los usos habituales ya auditados en una fila por material (plan E6, P59).
 
-Lee el lote auditado `docs/investigacion/2026-09-30-usos-y-constituyentes/lotes/U-001.csv`
+Lee los lotes `U-001.csv` (auditado a mano) y `U-002.csv` (de `traer_usos.py`) de
+`docs/investigacion/2026-09-30-usos-y-constituyentes/lotes/`
 y escribe `datos/glosario/origen/usos-habituales.csv`, que lee `generar_glosario.py`.
 
 La regla, para que una franja que viene de una mediana pueda rehacerse a mano:
@@ -42,9 +43,10 @@ from fractions import Fraction
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-BATCH = ROOT / "docs" / "investigacion" / "2026-09-30-usos-y-constituyentes" / "lotes" / "U-001.csv"
+LOTS_DIR = ROOT / "docs" / "investigacion" / "2026-09-30-usos-y-constituyentes" / "lotes"
+# U-001 was audited by hand; U-002 comes from scripts/traer_usos.py, whose `auditoria` is set by rule.
+LOTS = ["U-001", "U-002"]
 OUT = ROOT / "datos" / "glosario" / "origen" / "usos-habituales.csv"
-LOT = "U-001"
 
 HEADER = ["material_id", "nombre", "uso_min_pct", "uso_max_pct", "consenso", "n_fuentes", "fuentes",
           "techo_pct", "techo_fuente", "n_otras_bases", "lote"]
@@ -100,7 +102,7 @@ def number(cell: str) -> Fraction | None:
     return Fraction(cell) if cell.strip() else None
 
 
-def build(rows: list[dict]) -> list[dict]:
+def build(rows: list[dict], lot: str) -> list[dict]:
     by_material: dict[str, list[dict]] = {}
     for r in rows:
         if r["auditoria"] == "aceptada":
@@ -137,15 +139,17 @@ def build(rows: list[dict]) -> list[dict]:
             "techo_pct": decimal(ceiling[0]),
             "techo_fuente": ceiling[1],
             "n_otras_bases": sum(1 for r in group if r["base"] != "concentrado" and r["papel"] == "habitual"),
-            "lote": LOT,
+            "lote": lot,
         })
     return sorted(out, key=lambda r: (r["material_id"].split(":")[0], int(r["material_id"].split(":")[1]) if r["material_id"].split(":")[1].isdigit() else 0, r["material_id"]))
 
 
 def main() -> None:
-    with BATCH.open(encoding="utf-8", newline="") as f:
-        rows = list(csv.DictReader(f))
-    result = build(rows)
+    result = []
+    for lot in LOTS:
+        with (LOTS_DIR / f"{lot}.csv").open(encoding="utf-8", newline="") as f:
+            result += build(list(csv.DictReader(f)), lot)
+    result.sort(key=lambda r: (r["material_id"].split(":")[0], int(r["material_id"].split(":")[1]) if r["material_id"].split(":")[1].isdigit() else 0, r["material_id"]))
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with OUT.open("w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=HEADER, lineterminator="\n")
