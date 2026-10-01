@@ -1,0 +1,58 @@
+material_id,cas,nombre,franja,min_pct,max_pct,base,url,cita,fuente,notas
+fig:1834,97-53-0,Eugenol,trazas,,1,concentrado,,"effective from the smallest traces, through to 1%",proveedor (perfumeextract?),techo 2.5 segun la misma fuente; solo resumen
+fig:1834,97-53-0,Eugenol,estandar,0.05,0.8,concentrado,,0.050% (minimum) to 0.800% (average),TGSC (thegoodscentscompany),IFRA citado: 0.14%-18% segun categoria; solo resumen
+fig:1834,97-53-0,Eugenol,techo,2.5,2.5,concentrado,,maximum of 2.5% of the fragrance concentrate,proveedor,solo resumen
+fig:1834,97-53-0,Eugenol,techo,5,5,concentrado,,up to 5% in the fragrance concentrate,proveedor/TGSC,solo resumen
+fig:1834,97-53-0,Eugenol,techo,7,7,concentrado,,7.000% (maximum),TGSC,solo resumen
+fig:1285,8013-10-3,Cade oil,trazas,0.1,1,sin base,,"trace dosages, typically 0.1-1% of the formula",glosario web (premierepeau?),base no dicha; solo resumen
+fig:1285,8013-10-3,Cade oil,estandar,0.002,0.02,concentrado,,"0.002% minimum, 0.020% average",TGSC,otra fuente: 0.02-0.2 (max 2.0) pero para dilucion al 10%; solo resumen
+fig:1285,8013-10-3,Cade oil,techo,0.2,0.2,concentrado,,0.200% maximum,TGSC,solo resumen
+fig:1285,8013-10-3,Cade oil,techo,0.5,0.5,concentrado,,up to 0.5% in the fragrance concentrate,scentspiracy/IFRA CoP,"cat.4 ~0.3-0.5%; el crudo esta prohibido (IFRA 119), solo rectificado; solo resumen"
+fig:2183,8000-28-0,Lavender oil,estandar,,1,producto,,lavender absolute often used at less than 1% in finished perfumes,scentspiracy,"absoluto, no aceite; solo resumen"
+fig:2183,8000-28-0,Lavender oil,techo,16,16,concentrado,,up to 16.0% in fragrance concentrate,TGSC,"aceite generico; Grecia/angustifolia 8.0, absoluto Francia 10.0; solo resumen"
+fig:2184,8000-28-0,Lavender oil (low coumarin),estandar,,1,producto,,lavender absolute often used at less than 1% in finished perfumes,scentspiracy,"absoluto, no aceite; misma busqueda que fig:2183 (CAS 8000-28-0); solo resumen"
+fig:2184,8000-28-0,Lavender oil (low coumarin),techo,16,16,concentrado,,up to 16.0% in fragrance concentrate,TGSC,"aceite generico; Grecia/angustifolia 8.0, absoluto Francia 10.0; misma busqueda que fig:2183 (CAS 8000-28-0); solo resumen"
+fig:3074,121-33-5,Vanillin,trazas,,,concentrado,,effective from the smallest traces up to 10%,proveedor,sin cifra de trazas; dato solo cualitativo; solo resumen
+fig:3074,121-33-5,Vanillin,estandar,1,3,concentrado,,fine fragrance typically runs 1-3% of the concentrate,scentspiracy/premierepeau,solo resumen
+fig:3074,121-33-5,Vanillin,techo,8,8,concentrado,,above 8% of the perfume concentrate rarely used,proveedor,tambien 'up to 8%'; sin limite IFRA de toxicidad; solo resumen
+fig:3074,121-33-5,Vanillin,techo,10,10,concentrado,,effective ... up to 10%,proveedor,solo resumen
+fig:1051,127-41-3,alpha-Ionone,estandar,0.1,1,concentrado,,0.100% minimum to 1.000% average,TGSC,otra: 0.1-3% en concentrado de fine fragrance; solo resumen
+fig:1051,127-41-3,alpha-Ionone,estandar,0.1,3,concentrado,,typical use is 0.1-3% in fine fragrance concentrates,proveedor,solo resumen
+fig:1051,127-41-3,alpha-Ionone,techo,8,8,concentrado,,maximum of 8.000%,TGSC,solo resumen
+fig:1051,127-41-3,alpha-Ionone,techo,15,15,concentrado,,IFRA recommendation up to 15.0000% in the fragrance,TGSC (recomendacion IFRA CoP),limite IFRA anotado; no es franja; solo resumen
+fig:1054,127-51-5,alpha-iso-Methylionone,estandar,0.5,15,concentrado,,common use is between 0.5 and 15% in the concentrate,proveedor,solo resumen
+fig:1054,127-51-5,alpha-iso-Methylionone,techo,31,31,concentrado,,can be used up to 31% of total concentrate,TGSC,"TGSC tambien da min 0.11, avg 11.9, max 1.1: incoherente (avg>max); solo resumen"
+fig:2642,123-07-9,p-Ethylphenol,techo,0.05,0.05,concentrado,,up to 0.0500% in the fragrance concentrate,TGSC (recomendacion IFRA CoP),sin otras cifras; olor fenolico-ahumado; solo resumen
+fig:1168,9000-72-0,"Benzoin resinoid, Siam",estandar,1,5,sin base,,fine fragrance typically range from 1-5%,scentspiracy,base no dicha; solo resumen
+fig:1168,9000-72-0,"Benzoin resinoid, Siam",estandar,0.17,1.7,concentrado,,0.170% minimum ... average 1.700%,TGSC,solo resumen
+fig:1168,9000-72-0,"Benzoin resinoid, Siam",techo,13.3,13.3,concentrado,,0.170% minimum to 13.300% maximum,TGSC,solo resumen
+fig:1168,9000-72-0,"Benzoin resinoid, Siam",techo,8,8,concentrado,,up to 8.0% in the fragrance concentrate,TGSC (resina),absoluto 10.0; solo resumen
+fig:1906,106-24-1,Geraniol,trazas,,15,concentrado,,effective from the smallest traces through to 15%,proveedor,trazas no cuantificadas; el 15 es mas techo que traza; solo resumen
+fig:1906,106-24-1,Geraniol,techo,15,15,concentrado,,through to 15%,proveedor,solo resumen
+fig:1906,106-24-1,Geraniol,techo,30,30,concentrado,,can be used up to 30% of total concentrate,TGSC,IFRA 0.16%-5.3% producto segun categoria; solo resumen
+fig:2914,8046-19-3,Styrax resinoid,estandar,0.1,0.5,concentrado,,0.1% to 0.5% on average,TGSC,solo resumen
+fig:2914,8046-19-3,Styrax resinoid,estandar,0.5,2.5,sin base,,typically used at concentrations of 0.5-2.5%,proveedor/glosario,en compuesto de perfume; solo resumen
+fig:2914,8046-19-3,Styrax resinoid,estandar,1,5,sin base,,generally used at 1-5% in fragrances,proveedor/glosario,solo resumen
+fig:2914,8046-19-3,Styrax resinoid,techo,5,5,concentrado,,with a maximum of 5%,TGSC,IFRA cat.4: 0.64% (producto) por alergenicidad; solo resumen
+fig:397,2109-22-0,Pollenal II,techo,3,3,concentrado,,up to 3.0% in the fragrance concentrate,TGSC (recomendacion IFRA CoP),sin franja estandar; percentil 95 en hidroalcoholicos 0.00006% (producto); solo resumen
+fig:2473,8008-45-5,Nutmeg oil,estandar,0.2,1,producto,,fine fragrance products ... typically 0.2-1%,caperfume/scentspiracy,"producto, no concentrado; solo resumen"
+fig:2473,8008-45-5,Nutmeg oil,techo,2,2,concentrado,,up to 2.0% in fragrance concentrate,TGSC,por safrol; CO2 y oleoresina hasta 6.0; solo resumen
+fig:1178,100-51-6,Benzyl alcohol,estandar,2.5,9.5,sin base,,"mean dose 5.0%, lower limit 2.5%, higher limit 9.5%",unguentarius (55 formulas),media 5.0; base no dicha; solo resumen
+fig:1178,100-51-6,Benzyl alcohol,techo,10,10,concentrado,,up to 10% of total fragrance concentrate,TGSC,IFRA cat.4 2.5% del producto final (no es franja); solo resumen
+fig:260,92015-65-1,Koumalactone,techo,1,1,concentrado,,up to 1.0000% in the fragrance concentrate,TGSC (recomendacion IFRA CoP),solo resumen
+fig:260,92015-65-1,Koumalactone,estandar,0.02,0.5,producto,,Fine Fragrance: 0.02-0.50%,proveedor (Firmenich/DSM),"por categoria de producto, base producto; 10x menos que cumarina; solo resumen"
+fig:597,67634-14-4,Floralozone,trazas,0.05,0.05,concentrado,,suggested starting range is 0.05% to 3%,proveedor,0.05 es el inicio de la gama sugerida; solo resumen
+fig:597,67634-14-4,Floralozone,estandar,0.5,1,concentrado,,Typical use sits around 0.5-1% of a concentrate,proveedor,"TGSC: 0.1 min, 1 avg; solo resumen"
+fig:597,67634-14-4,Floralozone,estandar,0.05,3,concentrado,,suggested range 0.05% to 3% of the fragrance concentrate,proveedor,solo resumen
+fig:597,67634-14-4,Floralozone,techo,3,5,concentrado,,"Above 3-5%, the effect turns synthetic, soapy",proveedor,efecto de sobredosis; solo resumen
+fig:597,67634-14-4,Floralozone,techo,10,10,concentrado,,IFRA ... up to 10.0% in the fragrance concentrate,TGSC,max regulatorio/TGSC; solo resumen
+fig:2106,79915-74-5,Sakura Salicylate,trazas,,,concentrado,,Typical use level ranges from traces to over 5%,proveedor/TGSC,sin cifra de trazas; solo resumen
+fig:2106,79915-74-5,Sakura Salicylate,techo,5,5,concentrado,,up to 5.0% in the fragrance concentrate,TGSC (recomendacion IFRA CoP),solo resumen
+fig:490,3155-71-3,Boronal,estandar,0.1,3,concentrado,,use level of 0.1-3%,proveedor/fabricante,solo resumen
+fig:490,3155-71-3,Boronal,techo,6,6,concentrado,,up to 6.0% in the fragrance concentrate,TGSC (recomendacion IFRA CoP),solo resumen
+fig:1298,8008-51-3,"Camphor oil, white",estandar,0.2,3,concentrado,,0.200% (minimum) to 3.000% (average),TGSC,'hardly used as such in perfumes' (literatura); solo resumen
+fig:1298,8008-51-3,"Camphor oil, white",techo,5,5,concentrado,,up to 5.0% in the fragrance concentrate,TGSC,solo resumen
+fig:1298,8008-51-3,"Camphor oil, white",techo,10,10,concentrado,,10.000% (maximum),TGSC,solo resumen
+fig:612,87118-95-4,Kohinool,estandar,0.5,5,concentrado,,usual dosage range is 0.5 to 5%,creatingperfume/proveedor,Herrera for Men ~5%; solo resumen
+fig:612,87118-95-4,Kohinool,estandar,1,10,sin base,,flexibly at 1% to 10% in fine fragrance,scent.vn,base no dicha; solo resumen
+fig:612,87118-95-4,Kohinool,techo,35,35,concentrado,,up to 35% in the fragrance concentrate,TGSC (recomendacion IFRA CoP),solo resumen
