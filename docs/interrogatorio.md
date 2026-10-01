@@ -2341,6 +2341,81 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 - Estado: cerrada; se ejecuta por fases, empezando por un piloto con la paleta del laboratorio
 - Destino: decisiones.md §4, §8; P42, P54
 
+
+### P60 — Qué autoridad tiene cada dato, y la capa del proveedor del usuario
+
+- **Viene de una pregunta del usuario** (2026-10-01): ¿no hay ningún glosario que desglose los
+  constituyentes regulados de cada material? Lo comprobado en la web ese día:
+  - **IFRA no da un certificado por materia prima.** Su página de certificación: «There is
+    typically no "IFRA Certificate" for raw materials». El certificado de conformidad lo emite
+    quien hace la **mezcla** para su cliente. Quien vende una materia prima comunica su
+    conformidad con el estándar y **los constituyentes restringidos que lleva**. Lo de un
+    certificado IFRA por lote de materia prima, dicho antes en la conversación, **era
+    incorrecto**.
+    ([IFRA, certificación](https://ifrafragrance.org/initiatives-positions/safe-use-fragrance-science/ifra-standards/certification-of-ifra-standards))
+  - **El anexo de contribuciones de otras fuentes** (51.ª enmienda; une los antiguos anexos I y
+    II) es una lista **indicativa y no exhaustiva**: es la que ya usa la app.
+    ([UL, 51.ª enmienda](https://www.ul.com/news/ifra-notifies-51st-amendment-ifra-standards),
+    [guía de uso de IFRA, 2023](https://d3t14p1xronwr0.cloudfront.net/docs/Standards-Documentation/ifra-51st-amendment-guidance-for-the-use-of-ifra-standards.pdf))
+  - **El manual de etiquetado IFRA-IOFI** es de **clasificación GHS** de peligros (más de 3000
+    sustancias), no de composición. Gratis a petición, por la asociación nacional; él mismo dice
+    que no crea un estándar.
+    ([IFRA, manual GHS](https://ifrafragrance.org/initiatives-positions/environment-health/chemicals-regulation/globally-harmonized-system-of-classification-and-labelling-of-chemicals-ghs/ifra-iofi-ghs-labelling-manual))
+  - **Tisserand y Young, *Essential Oil Safety*** (2.ª ed., Elsevier, 2013): 400 perfiles de
+    aceites y 206 de constituyentes, cruzados (cuánto de cada constituyente hay en cada aceite).
+    **Es una obra de referencia, no un estándar**: nadie obliga a cumplirla.
+    ([Tisserand](https://roberttisserand.com/essential-oil-safety-2nd-edition/))
+  - **Las normas ISO de aceites esenciales** (comité ISO/TC 54), una por aceite: el perfil
+    cromatográfico con rangos de los constituyentes principales, por origen. **Son estándares**,
+    de pago. Ejemplo: ISO 3515, lavanda.
+    ([ISO 3515, muestra](https://cdn.standards.iteh.ai/samples/36253/087850230adc4c10821a0266611e237c/ISO-3515-2002.pdf))
+  - **Conclusión:** no existe un glosario público y completo. Las casas grandes lo tienen en sus
+    bases internas, y el perfumista independiente depende de lo que declare su proveedor.
+- **Lo que se propone: cada cifra dice qué autoridad tiene**, en este orden, y la de arriba
+  manda:
+  1. **Norma:** los estándares de IFRA y su anexo (P37). Más adelante, el reglamento europeo
+     de cosméticos y las normas ISO, si se compran.
+  2. **Lo que declara el proveedor del usuario de su producto:** la declaración de conformidad,
+     la lista de alérgenos y la ficha de seguridad, con su fecha y su documento.
+  3. **Referencia reconocida:** *Essential Oil Safety* y obras parecidas, citadas por página.
+  4. **Investigación propia por consenso:** los lotes auditados (P59).
+- **Opciones:**
+  - **A (recomendada): de serie, la información general; la del proveedor, como capa con su
+    nombre.**
+    - Ya van en la base los materiales de las tres tiendas, con lo que declaran sus proveedores
+      (C-001 y C-003; P55, P59): sirve al usuario y a quien compre en esas tiendas.
+    - **Más adelante, «ajustar a mi proveedor»:** el perfumista avanzado sube o escribe lo que
+      declara su proveedor (constituyentes, límites) para su material. Queda guardado con su
+      documento y su fecha, y la app lo usa en vez de la capa general. **Nunca por encima de
+      IFRA**, y siempre se ve de dónde sale.
+    - Es la propuesta *high-end*: general para quien empieza; exacta para quien tiene sus
+      documentos.
+  - **B:** solo la información general. Más simple, pero el perfumista con sus documentos no
+    puede hacer valer su lote.
+  - **C:** la edición por proveedor, ya. Antes hace falta cerrar P54 (qué es un mismo
+    material), porque si no, no se sabe a qué fila se pega lo editado.
+- **Lo que cuesta dejarla abierta:** las cifras de distinta autoridad se ven igual. Además,
+  *Essential Oil Safety* no puede entrar como fuente sin saber su rango.
+- **Respuesta literal** (2026-10-01, antes de formular la pregunta): *«si un perfumista empieza
+  de cero la app puede ser de gran ayuda si uno cuenta con todas las conformidades podriamos
+  evaluar a futuro manera de que el perfumista avanzado pueda acceder a los materiales y
+  ajustar informacion sensible como limites y demas de acorde a su proveedor. yo diria que una
+  informacion general es buena de estandar como propuesta, una ampliacion concreta y precisa a
+  tus productos lo convierte en un producto high end de alto standing, sigo pensando que puede
+  haber valor en proveer algunos materiales ya en la base de datos, sobretodo de entrada para
+  mi uso y para uso de gente conocida que pueda comprar en estos proveedores tambien.
+  essengtial oil safety es un estandar? todo lo que si este estandarizaado cobra magnitud sobre
+  propuesta de valor»*
+- **Lectura, a confirmar:**
+  - la A;
+  - **lo estandarizado pesa más en la propuesta**, de ahí el orden de autoridades;
+  - *Essential Oil Safety* entra en la capa 3, como referencia y no como norma;
+  - las normas ISO quedan como posible compra, para cuando haya producto;
+  - «ajustar a mi proveedor», para después de P54.
+- Fecha: 2026-10-01
+- Estado: leída, falta que el usuario confirme la lectura
+- Destino: decisiones.md §5 (autoridad de cada cifra), §4; P37, P54, P55, P59
+
 ---
 
 ## Estado
@@ -2352,6 +2427,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
 | R12 · infografías y frentes | 7 (P35 a P41) | 3 (P33, P34, P42) |
-| R13 · a pesar en el banco | 13 (P43, P44, P48 a P51, P53 a P59) | 4 (P45 a P47, P52) |
+| R13 · a pesar en el banco | 13 (P43, P44, P48 a P51, P53 a P59) | 5 (P45 a P47, P52, P60) |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.
