@@ -107,6 +107,8 @@ export interface CatalogFiles {
   readonly materiales: string;
   readonly constituyentes: string;
   readonly estandares: string;
+  /** The CAS of every standard (datos/ifra/51/estandar-cas.csv): what the IFRA panel shows of each substance. */
+  readonly estandarCas?: string;
   /** The families and their colours (datos/fuente/pieza-11-paleta.csv). */
   readonly paleta: string;
   readonly procedencia: { readonly enmienda_ifra: string; readonly generado: string };
@@ -207,6 +209,13 @@ export function buildCatalog(files: CatalogFiles): Catalog {
   const amendment = files.procedencia.enmienda_ifra;
   const standards = new Map(parseCsvRecords(files.estandares).map((s) => [s.estandar, s]));
   const substances = new Map<string, IfraSubstance>();
+  const casOf = new Map<string, string[]>();
+  for (const row of files.estandarCas ? parseCsvRecords(files.estandarCas) : []) {
+    if (row.cas) {
+      casOf.set(row.estandar, [...(casOf.get(row.estandar) ?? []), row.cas]);
+    }
+  }
+  const casField = (key: string) => (casOf.has(key) ? { cas: casOf.get(key) as string[] } : {});
 
   // Category 4 of every standard: a ceiling, a prohibition in the category, or the
   // ceiling of its note for what comes from naturals. «No Restriction» adds nothing.
@@ -214,13 +223,13 @@ export function buildCatalog(files: CatalogFiles): Catalog {
     const cell = s.cat_4;
     const limit = isNumber(cell) ? pct(cell) : cell === "prohibido" ? Ratio.ZERO : cell === "ver-nota" ? pct(s.limite_nota) : null;
     if (limit) {
-      substances.set(`std:${key}`, { key: `std:${key}`, name: s.nombre, limit, amendment });
+      substances.set(`std:${key}`, { key: `std:${key}`, name: s.nombre, limit, amendment, ...casField(key) });
     }
   }
   const prohibited = (key: string): string => {
     const id = `prohibido:${key}`;
     if (!substances.has(id)) {
-      substances.set(id, { key: id, name: `${standards.get(key)?.nombre ?? key}, como tal`, limit: Ratio.ZERO, amendment });
+      substances.set(id, { key: id, name: `${standards.get(key)?.nombre ?? key}, como tal`, limit: Ratio.ZERO, amendment, ...casField(key) });
     }
     return id;
   };

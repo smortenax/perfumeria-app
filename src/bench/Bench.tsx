@@ -3,7 +3,7 @@ import { Ratio } from "../core/arith/ratio";
 import { parseMass } from "../core/arith/units";
 import { compose, replay, vectorOf, type Composition, type Line } from "../core/compose";
 import { formatDecimal, formatGrams, formatPercent } from "../core/display";
-import { checkIfra, type IfraReport } from "../core/ifra";
+import { checkIfra, type IfraBase, type IfraReport } from "../core/ifra";
 import { formulaFromJson, formulaToJson as toJsonWith } from "../core/io/formula-json";
 import type { Change, Formula, FormulaHeader } from "../core/model/formula";
 import { provisionalKey, type Material } from "../core/model/material";
@@ -173,34 +173,39 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
     }
   }, [formula, frame]);
 
+  // The base of IFRA that the panel's switch chooses (P58, E4): the box, the composition, the card
+  // and the preview read in it. The report's, the fullest, until the switch is touched, and the
+  // report's again while the header lacks the one chosen.
+  const [chosenBase, setChosenBase] = useState<IfraBase | null>(null);
+  const ifraBase = view.report ? (view.report.readings.some((r) => r.base === chosenBase) ? (chosenBase as IfraBase) : view.report.base) : undefined;
+
   // What each material of the composition carries of its IFRA ceiling and how much more fits
-  // (P57), worked out once per change of the formula or the frame, not per line or per render.
-  // The base is the report's until the panel chooses one (P58, E4).
+  // (P57), worked out once per change of the formula, the frame or the base, not per line or per render.
   const lineIfra = useMemo(() => {
     if (!view.composition || !view.report) {
       return undefined;
     }
     // A failure here never takes the bench down: the lines just go without their IFRA figure.
     try {
-      return ifraOfLines(formula, catalog.ifra, view.report, view.composition, view.report.base, frame ?? undefined);
+      return ifraOfLines(formula, catalog.ifra, view.report, view.composition, ifraBase, frame ?? undefined);
     } catch {
       return undefined;
     }
-  }, [formula, frame, view]);
+  }, [formula, frame, view, ifraBase]);
 
   // The IFRA of the chosen material: its margin and its two ceilings on the strip (P57, P59), in the
-  // base of the report until the panel chooses one (P58, E4). Once per change of the formula, the
-  // frame or the material, not per keystroke.
+  // base of the panel (P58, E4). Once per change of the formula, the frame, the base or the
+  // material, not per keystroke.
   const cardIfra = useMemo(() => {
     if (!cardMaterial || !view.composition || !view.report) {
       return null;
     }
     try {
-      return ifraOfMaterial(formula, catalog.ifra, view.composition, view.report, cardMaterial, frame ?? undefined);
+      return ifraOfMaterial(formula, catalog.ifra, view.composition, view.report, cardMaterial, frame ?? undefined, ifraBase);
     } catch {
       return null;
     }
-  }, [formula, frame, view, cardMaterial]);
+  }, [formula, frame, view, cardMaterial, ifraBase]);
 
   // IFRA while typing (P57): the formula plus the draft against the formula as it stands, worked out
   // only when the draft changes, and not while looking at an earlier frame of the history.
@@ -210,12 +215,12 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
       return null;
     }
     try {
-      return previewPour(formula, catalog.ifra, view.report, draft);
+      return previewPour(formula, catalog.ifra, view.report, draft, ifraBase);
     } catch {
       return null;
     }
     // The key stands for the draft; the formula and the report for the rest.
-  }, [draftKey, formula, view, frame]);
+  }, [draftKey, formula, view, frame, ifraBase]);
   const warning = preview ? draftWarnings(preview).join(". ") || null : null;
 
   const byKey = useMemo(() => new Map(catalog.entries.map((e) => [e.material.key, e.material])), []);
@@ -537,13 +542,13 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
             <RepartoCard composition={view.composition} familyOf={familyOf} />
             <ProjectionCard />
           </div>
-          <IfraPanel report={view.report} empty={empty} />
+          <IfraPanel report={view.report} empty={empty} {...(ifraBase ? { base: ifraBase } : {})} onBase={setChosenBase} />
         </div>
       </div>
 
       <div className="side">
         <div className="ifra-row">
-          <IfraSummary report={view.report} empty={empty} />
+          <IfraSummary report={view.report} empty={empty} {...(ifraBase ? { base: ifraBase } : {})} />
           <button type="button" className="tool menu-btn" aria-label={texts.menu.options} title={texts.menu.options} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
               <path d="M3 5h12M3 9h12M3 13h12" />
@@ -594,7 +599,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
           report={view.report}
           ifra={catalog.ifra}
           {...(lineIfra ? { lineIfra } : {})}
-          {...(view.report ? { ifraBase: view.report.base } : {})}
+          {...(ifraBase ? { ifraBase } : {})}
           iconOf={(key) => icons.get(key)}
           chemicalOf={(key) => chemical.get(key)}
           glossaryNameOf={(key) => byKey.get(key)?.name}

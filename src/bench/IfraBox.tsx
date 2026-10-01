@@ -1,22 +1,26 @@
+import { useState } from "react";
 import { Ratio } from "../core/arith/ratio";
 import { formatGrams, formatPercent } from "../core/display";
-import type { IfraReport, SubstanceCheck } from "../core/ifra";
+import type { IfraBase, IfraReport } from "../core/ifra";
 import { texts } from "../i18n/es";
+import { roomText, usedText } from "./composition-ifra";
+import { materialRows, readingIn, substanceRows, type MaterialRow, type SubstanceRow } from "./ifra-panel";
 
 const t = texts.ifra;
 
 /**
  * The IFRA box: two lines, the two readings (§5.4, P23), and nothing to open: the detail
- * is the fixed panel of the lower area (P57). Never green with something unknown (§5.5); a
- * bounded load is its own state (P31). On hover of the second reading, the range from what
- * is known to the worst case (P31).
+ * is the fixed panel of the lower area (P57). Reading 1 goes in the base of the panel's switch,
+ * named in the head (P58). Never green with something unknown (§5.5); a bounded load is its own
+ * state (P31). On hover of the second reading, the range from what is known to the worst case (P31).
  */
-export function IfraSummary(props: { report: IfraReport | null; empty: boolean }) {
+export function IfraSummary(props: { report: IfraReport | null; empty: boolean; base?: IfraBase }) {
   const { report } = props;
   const hasData = report !== null && !props.empty;
-  const bounded = hasData && report.checks.some((c) => c.verdict === "bounded");
-  const asIs = !hasData ? "—" : report.asIs === "no" ? t.no : report.asIs === "unknown" ? t.unknown : t.yes;
-  const asIsClass = !hasData ? "" : report.asIs === "no" ? "bad" : report.asIs === "unknown" ? "unknown" : bounded ? "bounded" : "";
+  const reading = hasData ? readingIn(report, props.base) : null;
+  const bounded = reading !== null && reading.checks.some((c) => c.verdict === "bounded");
+  const asIs = !reading ? "—" : reading.asIs === "no" ? t.no : reading.asIs === "unknown" ? t.unknown : t.yes;
+  const asIsClass = !reading ? "" : reading.asIs === "no" ? "bad" : reading.asIs === "unknown" ? "unknown" : bounded ? "bounded" : "";
   const maxUse = !hasData ? "—" : formatPercent(report.maxUse, report.maxUse.eq(Ratio.ONE) ? 0 : 2);
   // What sets the second reading, so a figure under 100 % says why.
   const limiting = hasData && report.maxUse.lt(Ratio.ONE) ? report.checks.find((c) => c.maxUse.eq(report.maxUse)) : undefined;
@@ -26,7 +30,9 @@ export function IfraSummary(props: { report: IfraReport | null; empty: boolean }
     <div className={limiting ? "card ifra-summary with-limit" : "card ifra-summary"}>
       <span className="ifra-head">
         <span className="ifra-title">{t.title}</span>
-        <span className="muted small">{t.category}</span>
+        <span className="muted small" title={reading ? t.baseHelp[reading.base] : undefined}>
+          {reading ? `${t.category} · ${t.baseShort[reading.base]}` : t.category}
+        </span>
         {hasData && report.partial && (
           <span className="status-pill amber">
             <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
@@ -55,58 +61,151 @@ export function IfraSummary(props: { report: IfraReport | null; empty: boolean }
   );
 }
 
-function CeilingRow(props: { check: SubstanceCheck; finalUg: Ratio }) {
-  const { check, finalUg } = props;
-  const pct = (ug: Ratio) => formatPercent(ug.div(finalUg), 3).replace(" %", "");
-  // A prohibited substance has a ceiling of zero: any amount is over it.
-  const banned = check.substance.limit.isZero();
-  const limit = banned ? t.prohibited : formatPercent(check.substance.limit, 2);
-  const value = check.worstUg.eq(check.knownUg) ? pct(check.knownUg) : `${pct(check.knownUg)}–${pct(check.worstUg)}`;
-  const used = banned ? null : check.worstUg.div(finalUg).div(check.substance.limit);
-  const width = used ? Math.min(100, Number(used.toFixed(4)) * 100) : 100;
+const pctOf = (share: Ratio) => formatPercent(share, 3).replace(" %", "");
+
+/** A ceiling as a figure to read: its %, or «prohibida». */
+const limitText = (limit: Ratio) => (limit.isZero() ? t.prohibited : formatPercent(limit, 2));
+
+/** The fill of a bar: the share of the ceiling, up to the end; full for a prohibited substance that is there. */
+const widthOf = (used: Ratio | null) => (used === null ? 100 : Math.min(100, Number(used.toFixed(4)) * 100));
+
+/**
+ * One substance (§5.4, §10.3): its name and CAS, its share of the product against its ceiling, the
+ * bar, and what still fits of it. On hover, where it comes from, material by material. With
+ * something unchecked in the bottle what still fits is a bound, «≤», never a value (§1.2).
+ */
+function SubstanceItem(props: { row: SubstanceRow; partial: boolean }) {
+  const { row, partial } = props;
+  const value = row.worstShare.eq(row.knownShare) ? pctOf(row.knownShare) : `${pctOf(row.knownShare)}–${pctOf(row.worstShare)}`;
+  const exhausted = row.roomUg !== null && row.roomUg.isZero();
+  const mass = row.roomUg === null || exhausted ? "" : `${partial ? "≤ " : ""}${roomText(row.roomUg)}`;
+  const room = row.roomUg === null ? t.noCeiling : exhausted ? t.noRoom : t.room(mass);
+  const help = [
+    t.sourcesHelp,
+    ...row.sources.map((s) => t.sourceLine(s.name, formatPercent(s.worstShare, 3), formatPercent(s.part, 0))),
+    row.roomUg === null ? t.noCeilingHelp(row.name) : exhausted ? t.noRoomHelp(row.name) : t.roomHelp(mass, row.name),
+  ];
+  if (!row.worstShare.eq(row.knownShare)) {
+    help.push(t.range(`${pctOf(row.knownShare)} %`, `${pctOf(row.worstShare)} %`));
+  }
   return (
-    <div className="ceiling-row" title={check.worstUg.eq(check.knownUg) ? undefined : t.range(`${pct(check.knownUg)} %`, `${pct(check.worstUg)} %`)}>
-      <span className="ceiling-name">{check.substance.name}</span>
-      <span className="num ceiling-value">{t.of(value, limit)}</span>
+    <div className="ceiling-row" title={help.join("\n")}>
+      <span className="ceiling-name">{row.name}</span>
+      <span className="num ceiling-value">{t.of(value, limitText(row.limit))}</span>
       <span className="ceiling-bar">
-        <span className={`fill ${check.verdict}`} style={{ width: `${width}%` }} />
+        <span className={`fill ${row.verdict}`} style={{ width: `${widthOf(row.used)}%` }} />
       </span>
-      <span className={`num ceiling-use ${check.verdict}`}>{used ? formatPercent(used, 0) : "—"}</span>
+      <span className={`num ceiling-use ${row.verdict}`}>{row.used ? usedText(row.used) : "—"}</span>
+      <span className="ceiling-cas muted tiny num">{row.cas.length > 0 ? t.casLine(row.cas.join(", ")) : ""}</span>
+      <span className={`num ceiling-room tiny ${exhausted ? "exceeds" : "muted"}`}>{room}</span>
     </div>
   );
 }
 
+/** One material seen by material (§5.4): what it alone uses of each ceiling it loads. */
+function MaterialItem(props: { row: MaterialRow }) {
+  const { row } = props;
+  return (
+    <div className="material-ceilings">
+      <div className="ceiling-material">{row.name}</div>
+      {row.items.map((item) => (
+        <div
+          key={item.key}
+          className="ceiling-row sub"
+          title={t.itemHelp(row.name, item.used ? usedText(item.used) : t.prohibited, item.name, t.verdict[item.verdict])}
+        >
+          <span className="ceiling-name">{item.name}</span>
+          <span className="num ceiling-value">{t.of(pctOf(item.worstShare), limitText(item.limit))}</span>
+          <span className="ceiling-bar">
+            <span className={`fill ${item.verdict}`} style={{ width: `${widthOf(item.used)}%` }} />
+          </span>
+          <span className={`num ceiling-use ${item.verdict}`}>{item.used ? usedText(item.used) : "—"}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+type PanelView = "substance" | "material";
+// The view of the panel lasts the session, as the composition's does; it is not written to disk.
+let rememberedView: PanelView = "substance";
+
 /**
- * The IFRA panel (P57): the detail that used to drop over the composition, now fixed in the
- * lower area, because the composition and IFRA are read one against the other all the time.
- * Ceilings, what is unchecked, pending and conditions; it scrolls inside when it is long. With
- * nothing in the bottle it has an empty state of its own.
+ * The IFRA panel (P57, E4): fixed in the lower area, because the composition and IFRA are read one
+ * against the other all the time. The switch of bases, «Ahora» and «Al completar» (P58), when the
+ * header has both: what it chooses goes to the box, the composition and the card as well. Then the
+ * second reading with its base, and the ceilings by substance (CAS, what still fits, and on hover
+ * where it comes from) or by material; what is unchecked, pending and conditions. It scrolls
+ * inside when it is long. With nothing in the bottle it has an empty state of its own.
  */
-export function IfraPanel(props: { report: IfraReport | null; empty: boolean }) {
+export function IfraPanel(props: { report: IfraReport | null; empty: boolean; base?: IfraBase; onBase: (base: IfraBase) => void }) {
   const { report } = props;
+  const [view, setView] = useState<PanelView>(rememberedView);
   const hasData = report !== null && !props.empty;
+  const reading = report ? readingIn(report, props.base) : null;
+  const pick = (v: PanelView) => {
+    rememberedView = v;
+    setView(v);
+  };
+  const maxUse = hasData ? formatPercent(report.maxUse, report.maxUse.eq(Ratio.ONE) ? 0 : 2) : "";
+  const substances = hasData && view === "substance" ? substanceRows(report, reading?.base) : [];
+  const materials = hasData && view === "material" ? materialRows(report, reading?.base) : [];
   return (
     <section className="card ifra-panel" aria-label={t.detailTitle}>
       <div className="detail-head">
         <span className="detail-title">{t.detailTitle}</span>
-        {hasData && (
-          <span className="muted small">
-            {report.finalAssumed ? t.detailBaseAssumed(formatGrams(report.finalBatchUg, 3)) : t.detailBase(formatGrams(report.finalBatchUg, 3))}
+        {report && reading && report.readings.length > 1 ? (
+          <span className="view-switch right" role="radiogroup" aria-label={t.baseSwitch}>
+            {report.readings.map((r) => (
+              <button
+                key={r.base}
+                type="button"
+                role="radio"
+                aria-checked={r.base === reading.base}
+                className={r.base === reading.base ? "on" : ""}
+                title={t.baseHelp[r.base]}
+                onClick={() => props.onBase(r.base)}
+              >
+                {t.bases[r.base]}
+              </button>
+            ))}
           </span>
+        ) : (
+          reading && (
+            <span className="muted small right" title={t.baseHelp[reading.base]}>
+              {t.bases[reading.base]}
+            </span>
+          )
         )}
       </div>
+      {hasData && reading && <div className="panel-base muted tiny">{t.baseLine[reading.base](formatGrams(report.finalBatchUg, 3))}</div>}
       {!hasData ? (
         <p className="muted small panel-empty">{t.panelEmpty}</p>
       ) : (
         <div className="panel-body">
+          <p className="second-reading small" title={t.maxUseQuestion}>
+            {report.partial ? t.secondReadingPartial(maxUse) : t.secondReading(maxUse)}
+          </p>
           {report.checks.length === 0 && report.unchecked.length === 0 && report.pending.length === 0 && report.conditions.length === 0 && (
             <p className="muted small">{t.nothing}</p>
           )}
           {report.checks.length > 0 && (
             <div className="detail-section">
-              <div className="section-title">{t.ceilings(report.checks.length)}</div>
-              {report.checks.map((check) => (
-                <CeilingRow key={check.substance.key} check={check} finalUg={report.finalUg} />
+              <div className="section-title with-switch">
+                <span>{view === "substance" ? t.ceilings(report.checks.length) : t.materialsTitle(materials.length)}</span>
+                <span className="view-switch right" role="radiogroup" aria-label={t.viewSwitch}>
+                  {(["substance", "material"] as const).map((v) => (
+                    <button key={v} type="button" role="radio" aria-checked={v === view} className={v === view ? "on" : ""} onClick={() => pick(v)}>
+                      {t.views[v]}
+                    </button>
+                  ))}
+                </span>
+              </div>
+              {substances.map((row) => (
+                <SubstanceItem key={row.key} row={row} partial={report.partial} />
+              ))}
+              {materials.map((row) => (
+                <MaterialItem key={row.key} row={row} />
               ))}
             </div>
           )}

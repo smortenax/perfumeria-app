@@ -322,9 +322,18 @@ incluida. **Lo que falla, por orden de importancia:**
     **Las líneas de la composición**: el cuadro de color con la abreviatura dentro; lo
     que lleva de su techo, en % y en gramos; el conmutador materia aromática / frasco.
     *Depende de E2.*
-  - [ ] **E4 · El panel de IFRA**: las bases; por sustancia y por material; el CAS, y al pasar
-    el ratón, sus materiales; los gramos que quedan; la segunda lectura, con su base.
-    *Depende de P58, E1 y E2.*
+  - [x] **E4 · El panel de IFRA**, **hecha el 2026-10-01** y vista a 1440 × 900: las bases; por
+    sustancia y por material; el CAS, y al pasar el ratón, sus materiales; los gramos que
+    quedan; la segunda lectura, con su base. *Depende de P58, E1 y E2.*
+    - **El selector «Ahora / Al completar»** sale cuando la cabecera tiene las dos bases; sin
+      lote final, el panel dice «El frasco tal cual». Lo que elige va también a la caja de
+      arriba (que nombra la base), a las líneas de la composición, a la ficha y al aviso de la
+      barra de añadir. De entrada, la base del informe, la más completa (P58).
+    - **Por sustancia:** de la más cercana a su techo a la más lejana, con su CAS (los del
+      estándar, de `datos/ifra/51/estandar-cas.csv`) y lo que aún cabe de ella pura, en el peor
+      caso; «≤» si algo del frasco no se puede comprobar (§1.2). Al pasar el ratón, de qué
+      materiales viene y cuánto aporta cada uno.
+    - **Por material:** qué parte de cada techo usa cada material él solo.
   - [x] **E5**, **hecha el 2026-09-30** y vista a 1440 × 900 (la franja de uso espera sus datos, E6). **La ficha del material** (con la barra que pidió el usuario el 2026-09-30,
     [boceto](media/2026-09-30-boceto-barra-uso.png)): cuatro variables en una barra
     logarítmica sobre la materia aromática. La franja de uso recomendada, tintada con poca

@@ -5,6 +5,7 @@ import type { Change, Formula } from "../core/model/formula";
 import type { Material } from "../core/model/material";
 import type { UsageData } from "../data/catalog";
 import { carriedOf, type Carried } from "./material-card";
+import { readingIn } from "./ifra-panel";
 
 /**
  * The numbers behind the bar of the usual use (P57, P58, P59) and behind the IFRA of what is being
@@ -184,8 +185,10 @@ export function ifraOfMaterial(
   report: IfraReport,
   material: Material,
   upTo?: number,
+  chosen?: IfraBase,
 ): MaterialIfra {
-  const base = report.base;
+  // The base of the panel's switch (E4), or the report's when the header lacks it.
+  const base = readingIn(report, chosen).base;
   const margin = marginOf(formula, data, { material, fraction: Ratio.ONE, diluent: null }, base, upTo);
   const unit = unitOf(material, data);
   if (margin.kind === "unknown" || unit.kind === "unknown") {
@@ -253,16 +256,17 @@ export interface Preview {
 
 /**
  * IFRA while typing (P57): checks the formula plus the pour, as `checkIfra` does, and compares it
- * with the formula as it stands, in the base of the report (P58). Nothing is added to the formula:
+ * with the formula as it stands, in the base of the panel's switch or else of the report (P58, E4). Nothing is added to the formula:
  * the pour is a hypothetical last change. A substance breaks the ceiling when it is «exceeds» after
  * and was not before; it worsens when it was already «exceeds» and the worst case of it grows.
  * `before` is the report of the formula as it stands, which the bench already has.
  */
-export function previewPour(formula: Formula, data: IfraData, before: IfraReport, pour: Pour): Preview {
+export function previewPour(formula: Formula, data: IfraData, before: IfraReport, pour: Pour, chosen?: IfraBase): Preview {
+  const base = readingIn(before, chosen).base;
   const change: Change = { kind: "add", id: "preview", material: pour.material, massUg: pour.massUg, fraction: pour.fraction, diluent: pour.diluent };
   const after: Formula = { header: formula.header, history: [...formula.history, change] };
   const report = checkIfra(after, data);
-  const verdictOf = (r: IfraReport, key: string) => r.readings.find((x) => x.base === before.base)?.checks.find((c) => c.key === key)?.verdict;
+  const verdictOf = (r: IfraReport, key: string) => r.readings.find((x) => x.base === base)?.checks.find((c) => c.key === key)?.verdict;
   const breaks: Array<{ key: string; name: string }> = [];
   const worsens: Array<{ key: string; name: string }> = [];
   for (const check of report.checks) {

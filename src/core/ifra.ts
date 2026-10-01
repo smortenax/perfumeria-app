@@ -11,6 +11,8 @@ export interface IfraSubstance {
   readonly limit: Ratio;
   /** The amendment goes with the number: a ceiling without its version expires silently. */
   readonly amendment: string;
+  /** The CAS numbers the standard covers, as IFRA lists them; several for isomers or mixtures. */
+  readonly cas?: readonly string[];
 }
 
 /** What the reference data knows about one material, in IFRA terms. */

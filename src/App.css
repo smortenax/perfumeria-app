@@ -1818,6 +1818,65 @@ button.value:hover {
   color: var(--red);
 }
 
+/* E4: a third line, the CAS and what still fits of the substance (§10.3). */
+.ceiling-row:has(.ceiling-room) {
+  grid-template-areas:
+    "name use"
+    "bar value"
+    "cas room";
+}
+
+.ceiling-cas {
+  grid-area: cas;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ceiling-room {
+  grid-area: room;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.ceiling-room.exceeds {
+  color: var(--red);
+}
+
+/* By material: the name of the material, and under it one indented row per ceiling it loads. */
+.material-ceilings {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ceiling-material {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.ceiling-row.sub {
+  padding-left: 10px;
+}
+
+.section-title.with-switch {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+}
+
+.panel-base {
+  flex: none;
+  padding: 6px 14px 0;
+}
+
+.second-reading {
+  margin: 0;
+  line-height: 1.4;
+}
+
 .detail-item {
   font-size: 12px;
   line-height: 1.45;
