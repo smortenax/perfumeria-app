@@ -218,7 +218,7 @@ def main() -> int:
         "",
         *[f"- {p['name']} ({p['sku']}, CAS {', '.join(p['cas'])})" for p in unassigned],
     ]
-    SUMMARY.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    SUMMARY.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
     print("\n".join(lines[4:8]))
     return 0
 
