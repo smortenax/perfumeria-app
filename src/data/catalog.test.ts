@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { Ratio } from "../core/arith/ratio";
 import { formatPercent } from "../core/display";
 import { checkIfra } from "../core/ifra";
-import type { Change, FormulaHeader } from "../core/model/formula";
+import type { Change, Formula, FormulaHeader } from "../core/model/formula";
 import { DILUENTS } from "../core/model/material";
 import { searchCatalog } from "./catalog";
 import { catalog } from "./provisional";
@@ -38,10 +38,12 @@ describe("the catalog, from the glossary and IFRA's own files (P37)", () => {
     // molecules, and three of them are the only natural of a CAS the Transparency List
     // also lists, so its entry joins them instead of standing apart. 4325 since P55: eight
     // molecules that only the shops where the user buys know (Trimofix, Tuberolide…).
-    // The count did not err before; the glossary gained a source.
-    expect(count("base")).toBe(4325);
+    // The count did not err before; the glossary gained a source. 4327 since 2026-10-02: the two
+    // products whose IFRA certificate the user keeps (Castoreum Synth 184004, Black Agar), another source.
+    expect(count("base")).toBe(4327);
     // Since P48 the counts also say how many have a family: all of the FIG.
-    expect(catalog.counts).toEqual({ fig: 3119, ifraOnly: 1206, withFamily: 3119 });
+    // `ifraOnly` counts every row that is not of the FIG: the two products with a certificate too.
+    expect(catalog.counts).toEqual({ fig: 3119, ifraOnly: 1208, withFamily: 3119 });
     // DPG and alcohol, and the other diluents of the menu (§4): IPM, DEP, TEC, triacetin, benzyl benzoate.
     expect(count("diluent")).toBe(7);
     expect(count("own")).toBe(0);
@@ -237,5 +239,40 @@ describe("the catalog, from the glossary and IFRA's own files (P37)", () => {
     expect(searchCatalog(catalog.entries, "OT")[0].cas).toBe("54464-57-2");
     expect(searchCatalog(catalog.entries, "coumarin")[0].cas).toBe("91-64-5");
     expect(searchCatalog(catalog.entries, "dpg")[0].material.key).toBe("solv:dpg");
+  });
+});
+
+describe("a supplier's product with its IFRA certificate (2026-10-02): Castoreum Synth 184004, Firmenich", () => {
+  const key = "cert:firmenich-184004";
+  const G = 1_000_000n;
+  const synth = () => catalog.entries.find((e) => e.material.key === key)!.material;
+
+  it("is in the glossary, found by its name, with every substance of section 2.2 as a constituent and nothing pending", () => {
+    expect(searchCatalog(catalog.entries, "castoreum synth").map((e) => e.material.key)).toContain(key);
+    const info = catalog.ifra.materials.get(key);
+    // Methyl eugenol 0,0004 % and creosol 0,035 % of the product, as the certificate says.
+    expect(info?.substances.find((s) => s.key === "std:IFRA_STD_100")?.fraction?.toString()).toBe("1/250000");
+    expect(info?.substances.find((s) => s.key === "std:IFRA_STD_058")?.fraction?.toString()).toBe("7/20000");
+    // The certificate lists every restricted substance: nothing is left unchecked.
+    expect(info?.pending).toBeUndefined();
+  });
+
+  it("adds each substance in its amount when it is poured, and no substance reaches its ceiling alone", () => {
+    // 1 g of it alone, the bottle as the product: creosol 0,035 % against its 0,047 % is 35/47 of
+    // its ceiling; methyl eugenol 0,0004 % against 0,011 %, 4/110 = 2/55. None reaches its ceiling,
+    // so reading 2 is 100 %, as the certificate's «No Restriction» for category 4.
+    const formula: Formula = {
+      header: { name: "prueba", intention: "", container: null, workBatchUg: null, finalBatchUg: null },
+      history: [{ kind: "add", id: "c", material: synth(), massUg: G, fraction: Ratio.ONE, diluent: null }],
+    };
+    const report = checkIfra(formula, catalog.ifra);
+    const used = (std: string) => {
+      const c = report.checks.find((x) => x.substance.key === std)!;
+      return c.worstUg.div(report.finalUg).div(c.substance.limit).toString();
+    };
+    expect(used("std:IFRA_STD_058")).toBe("35/47");
+    expect(used("std:IFRA_STD_100")).toBe("2/55");
+    expect(report.partial).toBe(false);
+    expect(report.maxUse.eq(Ratio.ONE)).toBe(true);
   });
 });

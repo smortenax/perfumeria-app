@@ -74,10 +74,19 @@ function maxUseText(report: IfraReport): string {
   return formatPercent(report.maxUse, whole ? 0 : 2);
 }
 
-const pctOf = (share: Ratio) => formatPercent(share, 3).replace(" %", "");
+/**
+ * Decimals enough to read a small share: two significant figures below 1 %, never fewer than
+ * `least`. A trace of 0,0004 % reads «0,0004», not «0,000» (the number is only for the screen).
+ */
+function digitsFor(share: Ratio, least: number): number {
+  const pct = Number(share.toFixed(12)) * 100;
+  return pct <= 0 || pct >= 1 ? least : Math.min(8, Math.max(least, 1 - Math.floor(Math.log10(pct))));
+}
+
+const pctOf = (share: Ratio) => formatPercent(share, digitsFor(share, 3)).replace(" %", "");
 
 /** A ceiling as a figure to read: its %, or «prohibida». */
-const limitText = (limit: Ratio) => (limit.isZero() ? t.prohibited : formatPercent(limit, 2));
+const limitText = (limit: Ratio) => (limit.isZero() ? t.prohibited : formatPercent(limit, digitsFor(limit, 2)));
 
 /** The fill of a bar: the share of the ceiling, up to the end; full for a prohibited substance that is there. */
 const widthOf = (used: Ratio | null) => (used === null ? 100 : Math.min(100, Number(used.toFixed(4)) * 100));

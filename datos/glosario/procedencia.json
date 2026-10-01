@@ -38,6 +38,10 @@
       "sha256": "d05cd92be29d27deb4ef6e4c74816dec840ce574bce9231c36b08e14cfca3205",
       "que_es": "constituyentes regulados que declaran los proveedores, auditados (frente C)"
     },
+    "docs/proveedores/certificados/certificados.csv": {
+      "sha256": "f79947963d37bbf1a530949554fa6918f5412a7129d7b5985aaa8132e2cb62f8",
+      "que_es": "los certificados de conformidad IFRA que el usuario guarda de sus proveedores"
+    },
     "datos/glosario/origen/nombres-proveedores.csv": {
       "sha256": "b788a7ca13ff8e0a2ee8336cf0f9573e235d25df1a4a8f28c9edeca1939e8ae6",
       "que_es": "los nombres de venta de Olfatorium, Maese Lab y Perfumiarz, con su CAS"
@@ -67,27 +71,27 @@
       "sha256": "289097c9d76de4430f967158556ff068faa4589175c44b48dd355a5eb93b6368"
     }
   },
-  "generado": "2026-10-01T21:01:18+00:00",
+  "generado": "2026-10-01T22:13:07+00:00",
   "cuentas": {
-    "materiales": 4325,
+    "materiales": 4327,
     "del_fig": 3119,
-    "solo_de_ifra": 1206,
+    "solo_de_ifra": 1208,
     "codigos_del_usuario": 3119,
-    "codigos_generados": 1206,
+    "codigos_generados": 1208,
     "por_estado": {
       "prohibido": 121,
       "con-techo": 417,
       "condicion": 47,
-      "por-constituyentes": 523,
+      "por-constituyentes": 525,
       "sin-dato": 553,
       "sin-estandar": 2664
     },
-    "filas_de_constituyentes": 3540,
+    "filas_de_constituyentes": 3575,
     "de_la_transparency_list": 3626,
     "solo_de_la_transparency_list": 923,
     "del_fig_fuera_de_ifra": 354,
     "heredan_un_estandar": 7,
-    "con_nombre_comercial": 364,
+    "con_nombre_comercial": 366,
     "con_sigla_comercial": 27,
     "con_familia": 3119,
     "con_sinonimos_de_pubchem": 2176,
@@ -95,6 +99,8 @@
     "solo_de_tiendas": 8,
     "de_tiendas_sin_unir": 48,
     "constituyentes_de_proveedores": 270,
+    "productos_con_certificado": 2,
+    "constituyentes_de_certificados": 35,
     "con_franja_de_uso": 691,
     "con_franja_de_consenso": 101,
     "con_franja_de_recomendacion": 590,

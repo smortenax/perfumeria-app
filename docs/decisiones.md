@@ -461,6 +461,10 @@ prima). Por eso cada cifra va con su autoridad, y la de arriba manda:
   siempre se ve de dónde sale. Va después de P54.
 - **Bandera roja:** si el uso habitual pasa del tope IFRA del material solo, con los lotes de la
   fórmula, la ficha lo dice en rojo. Manda IFRA; la franja es una guía.
+- **El certificado de un producto concreto entra como material** (2026-10-02): su sección 2.2,
+  cada sustancia restringida con su cantidad, son sus constituyentes, y se suman por sustancia con
+  los demás materiales (§5.3). Su tope por categoría no se usa como techo: vale para el producto
+  solo. Ejemplo: Castoreum Synth 184004 de Firmenich ([certificados](proveedores/certificados/LEEME.md)).
 - **El uso habitual es una guía, no un peligro:** basta con un método barato (una búsqueda por
   material, con su fuente y su confianza) y un muestreo de la auditoría (P60, piloto U-003). El
   rigor completo queda para IFRA.

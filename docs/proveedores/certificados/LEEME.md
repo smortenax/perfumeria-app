@@ -11,6 +11,9 @@ PDF son los originales; [`certificados.csv`](certificados.csv) los transcribe
 | `firmenich-castoreum-synth-184004-ifra51.pdf` | Castoreum Synth 184004 | Firmenich (lo vende Perfumiarz) | 2023-08-25 | El castóreo sintético que el usuario piensa comprar; el suyo de hoy es el absoluto natural, sin constituyentes conocidos. Sus 11 alérgenos coinciden con la lista de Perfumiarz (C-003, sin fila en el glosario); el certificado da 20 sustancias |
 | `firmenich-black-agar-296985-ifra51.pdf` | Black Agar 296985 | Firmenich | 2023-08-25 | El ejemplo del formato (P61) |
 
-**Cuándo entran en la app:** con el alta de materiales propios (P61, [a-futuro](../../a-futuro.md)).
-Entonces la sección 2.2 son los constituyentes del material, y la app los suma por sustancia (§5.3).
+**Entran en la app ya** (2026-10-02): `scripts/generar_glosario.py` (paso 3e) da a cada producto
+una fila del glosario, de clase «base» (`cert:firmenich-184004`), y su sección 2.2 son sus
+constituyentes (paso 6c), que la app suma por sustancia con lo que traen los demás materiales
+(§5.3). Para añadir otro: se deja su PDF aquí y se ejecutan `leer_certificados.py` y
+`generar_glosario.py`. Cuando exista el alta de materiales propios (P61), se hará desde la app.
 **El certificado no manda sobre IFRA:** cada sustancia se juzga con los estándares de `datos/ifra/`.

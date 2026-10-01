@@ -254,7 +254,7 @@ export function buildCatalog(files: CatalogFiles): Catalog {
   // What each material carries inside, per standard: the sum within one variant of
   // the annex, and the worst variant when the material could be several.
   const inside = new Map<string, Map<string, Map<string, Ratio>>>();
-  const outside = new Map<string, string[]>();
+  const outside = new Map<string, Array<{ name: string; certificate: boolean }>>();
   // Materials with constituents declared by a supplier, audited (P59): what is known counts, but
   // a list of allergens does not cover every regulated substance.
   const supplied = new Set<string>();
@@ -263,7 +263,7 @@ export function buildCatalog(files: CatalogFiles): Catalog {
       supplied.add(row.material);
     }
     if (row.estandar === "") {
-      outside.set(row.material, [...(outside.get(row.material) ?? []), row.constituyente]);
+      outside.set(row.material, [...(outside.get(row.material) ?? []), { name: row.constituyente, certificate: row.fuente === "certificado" }]);
       continue;
     }
     const byStandard = inside.get(row.material) ?? new Map<string, Map<string, Ratio>>();
@@ -314,8 +314,12 @@ export function buildCatalog(files: CatalogFiles): Catalog {
         pending.push(`${s.nombre}: prohibido como tal; lo que trae este natural no tiene techo en los datos (${short(key)}).`);
       }
     }
-    for (const name of outside.get(m.id) ?? []) {
-      pending.push(`${name}: el anexo lo da como regulado, pero no está en el índice de IFRA.`);
+    for (const { name, certificate } of outside.get(m.id) ?? []) {
+      pending.push(
+        certificate
+          ? `${name}: su certificado la declara regulada, pero no tiene estándar en los datos de IFRA.`
+          : `${name}: el anexo lo da como regulado, pero no está en el índice de IFRA.`,
+      );
     }
     if (state === "sin-dato" || all.includes(NO_CONSTITUENT_DATA)) {
       pending.push(
