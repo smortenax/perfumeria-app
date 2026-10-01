@@ -434,6 +434,35 @@ materiales viene y cuánto aporta cada uno (§10.3). Se puede ver también por m
   **certificado del proveedor**, no por un porcentaje: aparecen como **condición** que
   cumplir, no como cifra.
 
+## 5.6 · Cada cifra dice qué autoridad tiene
+
+*P60, 2026-10-01, con las fuentes comprobadas en la web ese día.*
+
+No existe un glosario público y completo de los constituyentes regulados de cada material: las
+casas grandes lo tienen en bases internas, y quien vende una materia prima declara su
+conformidad y los constituyentes restringidos que lleva (IFRA no da certificado por materia
+prima). Por eso cada cifra va con su autoridad, y la de arriba manda:
+
+1. **Norma:** los estándares de IFRA y su anexo (P37). Más adelante, si se compran, las normas
+   ISO de cada aceite esencial.
+2. **Lo que declara el proveedor de su producto:** la declaración de conformidad, la lista de
+   alérgenos y la ficha de seguridad, con su documento y su fecha (C-001, C-003).
+3. **Referencia reconocida:** *Essential Oil Safety* (Tisserand y Young) y obras parecidas,
+   citadas. **Es referencia, no norma.**
+4. **Consenso propio:** el uso habitual de cada material (P59), **lo que la app estandariza por
+   sí misma**, para todo el glosario. «Estandarizado» quiere decir un método fijo, público y
+   repetible, con sus fuentes; no una norma oficial, y la ficha lo dice «consenso».
+
+- **De serie, la información general**, con los materiales de las tiendas del usuario ya
+  cargados. **Más adelante, «ajustar a mi proveedor»**: el perfumista avanzado pone lo que
+  declara su proveedor para su material, guardado con su documento; nunca por encima de IFRA, y
+  siempre se ve de dónde sale. Va después de P54.
+- **Bandera roja:** si el uso habitual pasa del tope IFRA del material solo, con los lotes de la
+  fórmula, la ficha lo dice en rojo. Manda IFRA; la franja es una guía.
+- **El uso habitual es una guía, no un peligro:** basta con un método barato (una búsqueda por
+  material, con su fuente y su confianza) y un muestreo de la auditoría (P60, piloto U-003). El
+  rigor completo queda para IFRA.
+
 ---
 
 # 6 · Guardar, datos y cuaderno

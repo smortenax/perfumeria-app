@@ -5,7 +5,7 @@ import { COUMARIN } from "../core/fixtures/ifra-f001";
 import { checkIfra, type IfraBase, type IfraData, type IfraMaterial, type IfraSubstance } from "../core/ifra";
 import type { Change, Formula, FormulaHeader } from "../core/model/formula";
 import { DILUENTS, type Material } from "../core/model/material";
-import { ifraOfMaterial, pourKey, previewPour, unitOf } from "./usage-bar";
+import { bandOverIfra, ifraOfMaterial, pourKey, previewPour, unitOf, type MaterialIfra } from "./usage-bar";
 
 // The bar of the usual use and IFRA while typing (P57, P58, P59). Every number is worked out by
 // hand in its comment. Coumarin's ceiling is L = 0,015. The final batch is F = 10 g (10⁷ µg) and
@@ -225,5 +225,31 @@ describe("IFRA while typing (P57): what adding the pour would do", () => {
     expect(pourKey(a)).not.toBe(pourKey(pour(coumarin, 10_001n)));
     expect(pourKey(a)).not.toBe(pourKey({ ...a, fraction: Ratio.of(1, 2), diluent: DILUENTS.alcohol }));
     expect(pourKey(null)).toBe("");
+  });
+});
+
+describe("the red flag of P60: the usual use past the IFRA ceiling of the material alone", () => {
+  const pct = (n: number) => Ratio.of(n, 100);
+  const ok = (share: Ratio | null): MaterialIfra => ({
+    status: "ok",
+    base: "bottle",
+    partial: false,
+    marginUg: null,
+    marginLimitedBy: null,
+    solo: { totalUg: Ratio.ONE, share, limitedBy: COUMARIN.key },
+    aggregate: null,
+  });
+
+  it("flags a band whose top goes past the ceiling, and not one that stays under or on it", () => {
+    // Coumarin alone at 1,5 % of the aromatic matter: a usual use up to 5 % goes past it; up to 1,5 %, not.
+    expect(bandOverIfra({ max: pct(5), fuente: "prueba" }, ok(Ratio.of(3, 200)))).toBe(true);
+    expect(bandOverIfra({ max: Ratio.of(3, 200), fuente: "prueba" }, ok(Ratio.of(3, 200)))).toBe(false);
+  });
+
+  it("never flags with something unknown (§1.2): no band, no IFRA data, or no ceiling", () => {
+    expect(bandOverIfra(undefined, ok(Ratio.of(3, 200)))).toBe(false);
+    expect(bandOverIfra({ max: pct(5), fuente: "prueba" }, { status: "unknown" })).toBe(false);
+    expect(bandOverIfra({ max: pct(5), fuente: "prueba" }, ok(null))).toBe(false);
+    expect(bandOverIfra({ max: pct(5), fuente: "prueba" }, null)).toBe(false);
   });
 });

@@ -145,6 +145,7 @@ export const texts = {
     uncheckedHelp: "Este material no se puede comprobar contra IFRA: no se sabe si tiene techo. Nunca cuenta como libre",
     usage: "Uso habitual",
     usageHelp: "En qué franja del % de la materia aromática se suele usar el material, en escala logarítmica",
+    overIfra: "El uso habitual pasa del tope IFRA de este material solo, con los lotes de esta fórmula: manda IFRA, y la franja es solo una guía.",
     /** The four marks of the strip, in its legend (P59). */
     legendSolo: "tope solo",
     legendAll: "tope con la fórmula",

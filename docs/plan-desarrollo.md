@@ -348,6 +348,12 @@ incluida. **Lo que falla, por orden de importancia:**
     aquí, con fuente y confianza en cada fila. *Es investigación: corre aparte.*
     **Avance (2026-10-01):** el lote U-001, auditado, ya llega a la ficha (53 materiales con
     franja, techo de uso y fuentes: `scripts/usos_habituales.py`). Falta el resto del glosario.
+    **P60 (2026-10-01):** el uso por consenso es lo que la app estandariza, para todo el
+    glosario, con un método barato: U-002 baja TGSC y PerfumersWorld por script, sin agentes; el
+    piloto U-003 (una búsqueda por material) acierta el orden de magnitud en los 10 auditados.
+    El lote 1 de U-004 mostró que la búsqueda repite PerfumersWorld: **la búsqueda se gasta solo
+    donde U-002 deje un material sin segunda fuente**, excluyendo también PerfumersWorld. La
+    bandera roja (uso por encima del tope IFRA del material solo) ya sale en la ficha (§5.6).
   - **En paralelo:** ya, E1 y E2; después, E3 y E5 a la vez; E4 cuando se decida P58. E6, desde
     que se decidan P54 y P59.
   - **Las decisiones, en este orden:** P58, P54 y P59. La pirámide dentro de la proyección se

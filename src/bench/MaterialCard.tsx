@@ -11,6 +11,7 @@ import { amountText, initials, massText, shareText } from "./format";
 import { IconText, iconLength } from "./Icon";
 import { carriedOf, USAGE_DECADES, usagePosition } from "./material-card";
 import type { Cap, MaterialIfra, Preview, UsageBand } from "./usage-bar";
+import { bandOverIfra } from "./usage-bar";
 
 const t = texts.materialCard;
 const search = texts.addBar;
@@ -160,12 +161,14 @@ function UsageBox(props: {
   // The use ceiling is a small diamond of its own, apart from IFRA's triangles.
   const ceilingAt = band?.ceiling ? placeOf(band.ceiling.value) : null;
   const ceilingTitle = band?.ceiling ? t.ceilingTitle(formatPercent(band.ceiling.value, 3), band.ceiling.fuente) : null;
-  const label = [t.usage, bandTitle ?? t.noData, ceilingTitle, solo?.title, all?.title, holds?.title, draft?.title].filter(Boolean).join(". ");
+  const overIfra = bandOverIfra(band, ifra);
+  const label = [t.usage, bandTitle ?? t.noData, overIfra ? t.overIfra : null, ceilingTitle, solo?.title, all?.title, holds?.title, draft?.title].filter(Boolean).join(". ");
   return (
     <div className="mc-box usage" title={t.usageHelp}>
       <span className="mc-box-head">
         <span className="mc-box-label">{t.usage}</span>
-        <span className="mc-box-note" title={bandTitle ?? undefined}>
+        <span className={overIfra ? "mc-box-note over-ifra" : "mc-box-note"} title={overIfra ? `${t.overIfra} ${bandTitle ?? ""}` : (bandTitle ?? undefined)}>
+          {overIfra ? "⚑ " : ""}
           {bandText ?? t.noData}
         </span>
       </span>

@@ -1226,6 +1226,11 @@ button.value:hover {
   white-space: nowrap;
 }
 
+/* P60: the usual use goes past IFRA's ceiling of the material alone. IFRA rules: red. */
+.mc-box-note.over-ifra {
+  color: var(--red);
+}
+
 .mc-box-value {
   font-size: 15px;
   line-height: 20px;

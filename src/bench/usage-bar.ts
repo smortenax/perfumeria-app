@@ -47,6 +47,16 @@ export function bandOf(usage: UsageData | undefined): UsageBand | undefined {
     : undefined;
 }
 
+/**
+ * The red flag of P60: the usual use reaches past the IFRA ceiling of the material alone, in the
+ * base and the batches of this formula. IFRA rules (P37); the band is a guide, so the card says
+ * it in red and the figure is looked at closely. False when either side is unknown (§1.2).
+ */
+export function bandOverIfra(band: UsageBand | undefined, ifra: MaterialIfra | null): boolean {
+  const share = ifra?.status === "ok" ? ifra.solo?.share : null;
+  return band !== undefined && share !== null && share !== undefined && band.max.gt(share);
+}
+
 /** What one unit of mass of a material is made of, in IFRA terms. `unknown` is never a number (§1.2). */
 type Unit =
   | { readonly kind: "unknown" }
