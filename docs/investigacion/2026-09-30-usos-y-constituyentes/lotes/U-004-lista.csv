@@ -1,0 +1,860 @@
+orden,material_id,cas,clase,nombre,nombres_tienda
+1,fig:2262,8008-31-9,natural,Mandarin oil,Aceite Esencial de Mandarina | Aceite Esencial de Mandarina Verde | Aceite Esencial de Petitgrain Mandarina | Mandarina | Mandarina Verde | Petitgrain Mandarina | Green Mandarine Oil Cold Pressed | Red Mandarin Oil Cold Pressed
+2,fig:2263,8008-31-9,natural,Mandarin oil folded,Aceite Esencial de Mandarina | Aceite Esencial de Mandarina Verde | Aceite Esencial de Petitgrain Mandarina | Mandarina | Mandarina Verde | Petitgrain Mandarina | Green Mandarine Oil Cold Pressed | Red Mandarin Oil Cold Pressed
+3,fig:2265,8008-31-9,natural,"Mandarin oil, rectified",Aceite Esencial de Mandarina | Aceite Esencial de Mandarina Verde | Aceite Esencial de Petitgrain Mandarina | Mandarina | Mandarina Verde | Petitgrain Mandarina | Green Mandarine Oil Cold Pressed | Red Mandarin Oil Cold Pressed
+4,fig:2644,8014-17-3,natural,Petitgrain bigarade oil,Aceite Esencial de Mandarina | Aceite Esencial de Mandarina Verde | Aceite Esencial de Petitgrain Mandarina | Mandarina | Mandarina Verde | Petitgrain Mandarina | Petitgrain Bigarade | Petitgrain Mandarin Oil
+5,fig:2649,8014-17-3,natural,"Petitgrain oil, Paraguay",Aceite Esencial de Mandarina | Aceite Esencial de Mandarina Verde | Aceite Esencial de Petitgrain Mandarina | Mandarina | Mandarina Verde | Petitgrain Mandarina | Petitgrain Bigarade | Petitgrain Mandarin Oil
+6,fig:2650,8014-17-3,natural,"Petitgrain oil, rectified, Paraguay",Aceite Esencial de Mandarina | Aceite Esencial de Mandarina Verde | Aceite Esencial de Petitgrain Mandarina | Mandarina | Mandarina Verde | Petitgrain Mandarina | Petitgrain Bigarade | Petitgrain Mandarin Oil
+7,fig:2652,8014-17-3,natural,"Petitgrain orange leaf oil, bitter, rectified",Aceite Esencial de Mandarina | Aceite Esencial de Mandarina Verde | Aceite Esencial de Petitgrain Mandarina | Mandarina | Mandarina Verde | Petitgrain Mandarina | Petitgrain Bigarade | Petitgrain Mandarin Oil
+8,fig:3107,8006-81-3,natural,Ylang ylang oil,Aceite esencial de Ylang Ylang - Primera destilación | Aceite Esencial de Ylang Ylang - segunda destilación | Aceite Esencial de Ylang Ylang - tercera destilación | Aceite esencial de Ylang Ylang Completo | Aceite esencial de Ylang Ylang Extra | Ylang Ylang Extra | Lisylang | Ylang Ylang Oil Extra
+9,fig:3108,8006-81-3,natural,Ylang ylang oil (low para cresol methylether),Aceite esencial de Ylang Ylang - Primera destilación | Aceite Esencial de Ylang Ylang - segunda destilación | Aceite Esencial de Ylang Ylang - tercera destilación | Aceite esencial de Ylang Ylang Completo | Aceite esencial de Ylang Ylang Extra | Ylang Ylang Extra | Lisylang | Ylang Ylang Oil Extra
+10,fig:3110,8006-81-3,natural,Ylang ylang oil I,Aceite esencial de Ylang Ylang - Primera destilación | Aceite Esencial de Ylang Ylang - segunda destilación | Aceite Esencial de Ylang Ylang - tercera destilación | Aceite esencial de Ylang Ylang Completo | Aceite esencial de Ylang Ylang Extra | Ylang Ylang Extra | Lisylang | Ylang Ylang Oil Extra
+11,fig:3111,8006-81-3,natural,Ylang ylang oil II,Aceite esencial de Ylang Ylang - Primera destilación | Aceite Esencial de Ylang Ylang - segunda destilación | Aceite Esencial de Ylang Ylang - tercera destilación | Aceite esencial de Ylang Ylang Completo | Aceite esencial de Ylang Ylang Extra | Ylang Ylang Extra | Lisylang | Ylang Ylang Oil Extra
+12,fig:3112,8006-81-3,natural,Ylang ylang oil III,Aceite esencial de Ylang Ylang - Primera destilación | Aceite Esencial de Ylang Ylang - segunda destilación | Aceite Esencial de Ylang Ylang - tercera destilación | Aceite esencial de Ylang Ylang Completo | Aceite esencial de Ylang Ylang Extra | Ylang Ylang Extra | Lisylang | Ylang Ylang Oil Extra
+13,fig:3113,8006-81-3,natural,"Ylang ylang oil, rectified",Aceite esencial de Ylang Ylang - Primera destilación | Aceite Esencial de Ylang Ylang - segunda destilación | Aceite Esencial de Ylang Ylang - tercera destilación | Aceite esencial de Ylang Ylang Completo | Aceite esencial de Ylang Ylang Extra | Ylang Ylang Extra | Lisylang | Ylang Ylang Oil Extra
+14,ncs:ylang-ylang-oil-complete,8006-81-3,natural,"Ylang, Ylang oil complete",Aceite esencial de Ylang Ylang - Primera destilación | Aceite Esencial de Ylang Ylang - segunda destilación | Aceite Esencial de Ylang Ylang - tercera destilación | Aceite esencial de Ylang Ylang Completo | Aceite esencial de Ylang Ylang Extra | Ylang Ylang Extra | Lisylang | Ylang Ylang Oil Extra
+15,tl:mandarin-oil-furocoumarin-reduced,8008-31-9,natural,"Mandarin oil, furocoumarin reduced",Aceite Esencial de Mandarina | Aceite Esencial de Mandarina Verde | Aceite Esencial de Petitgrain Mandarina | Mandarina | Mandarina Verde | Petitgrain Mandarina | Green Mandarine Oil Cold Pressed | Red Mandarin Oil Cold Pressed
+16,fig:2646,8014-17-3,natural,Petitgrain mandarin oil,Aceite Esencial de Mandarina | Aceite Esencial de Mandarina Verde | Aceite Esencial de Petitgrain Mandarina | Mandarina | Mandarina Verde | Petitgrain Mandarina | Petitgrain Bigarade
+17,fig:3109,8006-81-3,natural,Ylang ylang oil extra,Aceite esencial de Ylang Ylang - Primera destilación | Aceite Esencial de Ylang Ylang - segunda destilación | Aceite Esencial de Ylang Ylang - tercera destilación | Aceite esencial de Ylang Ylang Completo | Aceite esencial de Ylang Ylang Extra | Ylang Ylang Extra | Lisylang
+18,fig:1462,8016-26-0,natural,Cistus absolute,ABS. Cistus Jara al 10% en alcohol - DILUCION | ABS. Cistus Jara al 50% en alcohol - DILUCION | Absoluto de Cistus Jara - Labdanum | Absoluto de Labdanum PURO | Labdanum Absolute 50% (DPG) | Labdanum Absolute MD SIGNature 22% (TEC)
+19,fig:2144,8016-26-0,natural,"Labdanum absolute, pyrogenated",ABS. Cistus Jara al 10% en alcohol - DILUCION | ABS. Cistus Jara al 50% en alcohol - DILUCION | Absoluto de Cistus Jara - Labdanum | Absoluto de Labdanum PURO | Labdanum Absolute 50% (DPG) | Labdanum Absolute MD SIGNature 22% (TEC)
+20,tl:cistus-absolute-pyrogenated,8016-26-0,natural,"Cistus absolute, pyrogenated",ABS. Cistus Jara al 10% en alcohol - DILUCION | ABS. Cistus Jara al 50% en alcohol - DILUCION | Absoluto de Cistus Jara - Labdanum | Absoluto de Labdanum PURO | Labdanum Absolute 50% (DPG) | Labdanum Absolute MD SIGNature 22% (TEC)
+21,tl:labdanum-exudate-absolute,8016-26-0,natural,"Labdanum exudate, absolute",ABS. Cistus Jara al 10% en alcohol - DILUCION | ABS. Cistus Jara al 50% en alcohol - DILUCION | Absoluto de Cistus Jara - Labdanum | Absoluto de Labdanum PURO | Labdanum Absolute 50% (DPG) | Labdanum Absolute MD SIGNature 22% (TEC)
+22,fig:1299,68606-83-7,natural,Cananga oil,Aceite esencial de Ylang Ylang - Primera destilación | Aceite Esencial de Ylang Ylang - segunda destilación | Aceite Esencial de Ylang Ylang - tercera destilación | Aceite esencial de Ylang Ylang Completo | Aceite esencial de Ylang Ylang Extra
+23,fig:1367,8000-27-9,natural,"Cedarwood oil, Virginian",Aceite Esencial de Cedro de Virginia | Cedro Virginia | Incense Wood (Robertet) | Cedarwood Virginia Oil | Cedarwood Virginia Super Rectified
+24,fig:1368,8000-27-9,natural,"Cedarwood oil, Virginian, rectified",Aceite Esencial de Cedro de Virginia | Cedro Virginia | Incense Wood (Robertet) | Cedarwood Virginia Oil | Cedarwood Virginia Super Rectified
+25,fig:1910,8000-46-2,natural,Geranium oil,Aceite Esencial de Geranio Bourbon | Aceite Esencial de Geranio Chino | Aceite Esencial de Geranio Egipcio | Geranio Bourbon | Geranium Bourbon Oil (Madagascar)
+26,fig:1912,8000-46-2,natural,"Geranium oil, African",Aceite Esencial de Geranio Bourbon | Aceite Esencial de Geranio Chino | Aceite Esencial de Geranio Egipcio | Geranio Bourbon | Geranium Bourbon Oil (Madagascar)
+27,fig:1915,8000-46-2,natural,"Geranium oil, rectified",Aceite Esencial de Geranio Bourbon | Aceite Esencial de Geranio Chino | Aceite Esencial de Geranio Egipcio | Geranio Bourbon | Geranium Bourbon Oil (Madagascar)
+28,fig:2185,8000-28-0,natural,"Lavender oil, rectified",Aceite Esencial de Lavanda Angustifolia | Aceite Esencial de Lavanda Oficinalis | Lavanda | Lavender Oil (Bulgaria) | Lavender Oil France Orpur
+29,fig:2192,8008-56-8,natural,Lemon essence oil,Aceite Esencial de Limón | Aceite Esencial de Petitgrain Limonero | Limón | Lemon Oil Cold Pressed | Lemon Tetrarome
+30,fig:2194,8008-56-8,natural,Lemon oil folded (10x),Aceite Esencial de Limón | Aceite Esencial de Petitgrain Limonero | Limón | Lemon Oil Cold Pressed | Lemon Tetrarome
+31,fig:2195,8008-56-8,natural,Lemon oil folded (5X),Aceite Esencial de Limón | Aceite Esencial de Petitgrain Limonero | Limón | Lemon Oil Cold Pressed | Lemon Tetrarome
+32,fig:2197,8008-56-8,natural,"Lemon oil, distilled",Aceite Esencial de Limón | Aceite Esencial de Petitgrain Limonero | Limón | Lemon Oil Cold Pressed | Lemon Tetrarome
+33,fig:2198,8008-56-8,natural,"Lemon oil, expressed",Aceite Esencial de Limón | Aceite Esencial de Petitgrain Limonero | Limón | Lemon Oil Cold Pressed | Lemon Tetrarome
+34,fig:2201,8008-56-8,natural,"Lemon oil, washed",Aceite Esencial de Limón | Aceite Esencial de Petitgrain Limonero | Limón | Lemon Oil Cold Pressed | Lemon Tetrarome
+35,fig:2515,8016-36-2,natural,Olibanum carterii oil,"Aceite Esencial de Incienso (olíbano) Serrata | Incienso, Somalia | Olibanum Coeur | Olibanum Oil | Olibanum Oil (Oman)"
+36,fig:2516,8016-36-2,natural,Olibanum carterii oil,"Aceite Esencial de Incienso (olíbano) Serrata | Incienso, Somalia | Olibanum Coeur | Olibanum Oil | Olibanum Oil (Oman)"
+37,fig:2517,8016-36-2,natural,"Olibanum carterii oil, rectified","Aceite Esencial de Incienso (olíbano) Serrata | Incienso, Somalia | Olibanum Coeur | Olibanum Oil | Olibanum Oil (Oman)"
+38,fig:2518,8016-36-2,natural,Olibanum carterii pyrogenated oil,"Aceite Esencial de Incienso (olíbano) Serrata | Incienso, Somalia | Olibanum Coeur | Olibanum Oil | Olibanum Oil (Oman)"
+39,fig:2522,8016-36-2,natural,"Olibanum oil, rectified","Aceite Esencial de Incienso (olíbano) Serrata | Incienso, Somalia | Olibanum Coeur | Olibanum Oil | Olibanum Oil (Oman)"
+40,fig:2524,8016-36-2,natural,"Olibanum serrata oil, Indian","Aceite Esencial de Incienso (olíbano) Serrata | Incienso, Somalia | Olibanum Coeur | Olibanum Oil | Olibanum Oil (Oman)"
+41,fig:2600,8014-09-3,natural,Patchouli oil,Aceite Esencial de Pachuli Dark JAVA | Patchouli Coeur N.3 (Indonesia) | Patchouli Crude Organic (Madagascar) | Patchouli Light (Burundi) | Patchouli Oil MD (Indonesia)
+42,fig:2601,8014-09-3,natural,Patchouli oil (low Fe),Aceite Esencial de Pachuli Dark JAVA | Patchouli Coeur N.3 (Indonesia) | Patchouli Crude Organic (Madagascar) | Patchouli Light (Burundi) | Patchouli Oil MD (Indonesia)
+43,fig:2602,8014-09-3,natural,"Patchouli oil, rectified",Aceite Esencial de Pachuli Dark JAVA | Patchouli Coeur N.3 (Indonesia) | Patchouli Crude Organic (Madagascar) | Patchouli Light (Burundi) | Patchouli Oil MD (Indonesia)
+44,fig:2624,8006-82-4,natural,"Pepper, black, oil",Aceite Esencial de Pimienta Blanca | Aceite Esencial de Pimienta Negra | Aceite Esencial de Pimienta Verde | Pimienta Negra | Black Pepper Oil (Sri Lanka)
+45,fig:2798,90106-38-0,natural,Rose absolute,Absoluto de Rosa Damascena - Bulgaria | Absoluto de Rosa Damascena de India | Aceite esencial de Rosa Damascena Extra | Aceite Esencial de Rosa Damascena Otto Bulgaria | CONCRETO - Rosa Damascena
+46,ncs:lemon-oil-steam-distilled,8008-56-8,natural,Lemon oil steam distilled,Aceite Esencial de Limón | Aceite Esencial de Petitgrain Limonero | Limón | Lemon Oil Cold Pressed | Lemon Tetrarome
+47,ncs:vetiver-oil-all-origins,8016-96-4,natural,Vetiver oil (all origins),Aceite Esencial de Vetiver Extra | Vetiver Haití | Vetiver Java MD | Vetiver Oil Haiti SIGNature | Vetiverol
+48,tl:geranium-oil-low-rose-oxide,8000-46-2,natural,Geranium oil (low rose oxide),Aceite Esencial de Geranio Bourbon | Aceite Esencial de Geranio Chino | Aceite Esencial de Geranio Egipcio | Geranio Bourbon | Geranium Bourbon Oil (Madagascar)
+49,tl:lavender-oil-lavandula-angustifolia-lavandula-angustifolia-a,8000-28-0,natural,"Lavender oil (Lavandula angustifolia, Lavandula angustifolia angustifolia, Lavandula officinalis)",Aceite Esencial de Lavanda Angustifolia | Aceite Esencial de Lavanda Oficinalis | Lavanda | Lavender Oil (Bulgaria) | Lavender Oil France Orpur
+50,tl:lavender-oil-terpeneless,8000-28-0,natural,"Lavender oil, terpeneless",Aceite Esencial de Lavanda Angustifolia | Aceite Esencial de Lavanda Oficinalis | Lavanda | Lavender Oil (Bulgaria) | Lavender Oil France Orpur
+51,tl:lemon-steam-distilled-oil,8008-56-8,natural,Lemon (steam distilled) oil,Aceite Esencial de Limón | Aceite Esencial de Petitgrain Limonero | Limón | Lemon Oil Cold Pressed | Lemon Tetrarome
+52,fig:1498,233683-84-6,natural,Citrus junos oil,Aceite Esencial de Yuzu EXTRA | Yuzu Cold Pressed | Yuzu Distilled | Yuzu Phase Oil
+53,fig:1530,8008-52-4,natural,Coriander herb oil terpenless,Aceite Esencial de Cilantro | Cilantro (semillas) | Coriander Leaf Oil Extra | Coriander Seeds Oil
+54,fig:1531,8008-52-4,natural,"Coriander herb oil, rectified",Aceite Esencial de Cilantro | Cilantro (semillas) | Coriander Leaf Oil Extra | Coriander Seeds Oil
+55,fig:1533,8008-52-4,natural,Coriander seed oil,Aceite Esencial de Cilantro | Cilantro (semillas) | Coriander Leaf Oil Extra | Coriander Seeds Oil
+56,fig:1678,8006-75-5,natural,Dill seed oil,Aceite Esencial de Eneldo | Aceite esencial de Eneldo Extra | Eneldo (hojas) | Eneldo (semillas)
+57,fig:1681,8006-75-5,natural,Dill weed oil,Aceite Esencial de Eneldo | Aceite esencial de Eneldo Extra | Eneldo (hojas) | Eneldo (semillas)
+58,fig:1826,8000-48-4,natural,Eucalyptus dives oil,Aceite Esencial de Eucalipto Citriodora | Aceite Esencial de Eucalipto Dives | Aceite Esencial de Eucalipto Glóbulo | Eucalipto crudo
+59,fig:1827,8000-48-4,natural,"Eucalyptus dives oil, rectified",Aceite Esencial de Eucalipto Citriodora | Aceite Esencial de Eucalipto Dives | Aceite Esencial de Eucalipto Glóbulo | Eucalipto crudo
+60,fig:1831,8000-48-4,natural,Eucalyptus oil,Aceite Esencial de Eucalipto Citriodora | Aceite Esencial de Eucalipto Dives | Aceite Esencial de Eucalipto Glóbulo | Eucalipto crudo
+61,fig:1832,8000-48-4,natural,"Eucalyptus oil, rectified",Aceite Esencial de Eucalipto Citriodora | Aceite Esencial de Eucalipto Dives | Aceite Esencial de Eucalipto Glóbulo | Eucalipto crudo
+62,fig:1846,8006-84-6,natural,"Fennel oil, bitter",Aceite Esencial de Hinojo Amargo (Hojas) | Aceite Esencial de Hinojo Dulce | Hinojo (amargo) | Hinojo (dulce)
+63,fig:1847,8006-84-6,natural,"Fennel oil, sweet",Aceite Esencial de Hinojo Amargo (Hojas) | Aceite Esencial de Hinojo Dulce | Hinojo (amargo) | Hinojo (dulce)
+64,fig:1938,8007-08-7,natural,Ginger oil,Aceite Esencial de Jengibre | Aceite Esencial de Jengibre Fresco | Jengibre | Ginger Oil Fresh (Madagascar)
+65,fig:1939,8007-08-7,natural,"Ginger oil, rectified",Aceite Esencial de Jengibre | Aceite Esencial de Jengibre Fresco | Jengibre | Ginger Oil Fresh (Madagascar)
+66,fig:1947,8016-20-4,natural,Grapefruit essence oil,Aceite Esencial de Pomelo Blanco | Aceite Esencial de Pomelo Rosado | Pomelo Blanco | Pink Grapefruit Cold Pressed
+67,fig:1949,8016-20-4,natural,Grapefruit flower oil,Aceite Esencial de Pomelo Blanco | Aceite Esencial de Pomelo Rosado | Pomelo Blanco | Pink Grapefruit Cold Pressed
+68,fig:1950,8016-20-4,natural,Grapefruit oil,Aceite Esencial de Pomelo Blanco | Aceite Esencial de Pomelo Rosado | Pomelo Blanco | Pink Grapefruit Cold Pressed
+69,fig:1951,8016-20-4,natural,Grapefruit oil,Aceite Esencial de Pomelo Blanco | Aceite Esencial de Pomelo Rosado | Pomelo Blanco | Pink Grapefruit Cold Pressed
+70,fig:1953,8016-20-4,natural,"Grapefruit oil, (low furocoumarins)",Aceite Esencial de Pomelo Blanco | Aceite Esencial de Pomelo Rosado | Pomelo Blanco | Pink Grapefruit Cold Pressed
+71,fig:1955,8016-20-4,natural,"Grapefruit oil, rectified",Aceite Esencial de Pomelo Blanco | Aceite Esencial de Pomelo Rosado | Pomelo Blanco | Pink Grapefruit Cold Pressed
+72,fig:2164,8022-15-9,natural,Lavandin abrailis oil (low coumarin),Aceite esencial de Lavandín Abrialis | Aceite Esencial de Lavandín Extra | Aceite esencial de Lavandín Grosso | Lavandin Grosso Oil (France)
+73,fig:2166,8022-15-9,natural,Lavandin abrialis oil,Aceite esencial de Lavandín Abrialis | Aceite Esencial de Lavandín Extra | Aceite esencial de Lavandín Grosso | Lavandin Grosso Oil (France)
+74,fig:2173,8022-15-9,natural,Lavandin grosso oil,Aceite esencial de Lavandín Abrialis | Aceite Esencial de Lavandín Extra | Aceite esencial de Lavandín Grosso | Lavandin Grosso Oil (France)
+75,fig:2174,8022-15-9,natural,Lavandin oil,Aceite esencial de Lavandín Abrialis | Aceite Esencial de Lavandín Extra | Aceite esencial de Lavandín Grosso | Lavandin Grosso Oil (France)
+76,fig:2175,8022-15-9,natural,Lavandin oil (super low coumarins),Aceite esencial de Lavandín Abrialis | Aceite Esencial de Lavandín Extra | Aceite esencial de Lavandín Grosso | Lavandin Grosso Oil (France)
+77,fig:2338,4707-47-5,molécula,Methyl atrarate,EVERNYL (Veramoss) | Musgolide Aroma Chemicals | Evernyl – Veramoss | Veramoss (powder)
+78,fig:2521,8016-36-2,natural,Olibanum oil,"Aceite Esencial de Incienso (olíbano) Serrata | Incienso, Somalia | Olibanum Coeur | Olibanum Oil (Oman)"
+79,fig:2547,68916-04-1,natural,"Orange oil, bitter",Aceite Esencial de Naranja Amarga | Aceite Esencial de Petitgrain Bigarade | Aceite Esencial de Petitgrain Paraguay | Bitter Orange Cold Pressed
+80,fig:2548,68916-04-1,natural,"Orange oil, bitter",Aceite Esencial de Naranja Amarga | Aceite Esencial de Petitgrain Bigarade | Aceite Esencial de Petitgrain Paraguay | Bitter Orange Cold Pressed
+81,fig:2549,68916-04-1,natural,"Orange oil, bitter washed, rectified",Aceite Esencial de Naranja Amarga | Aceite Esencial de Petitgrain Bigarade | Aceite Esencial de Petitgrain Paraguay | Bitter Orange Cold Pressed
+82,fig:2554,8008-57-9,natural,"Orange oil, sweet, rectified",Aceite Esencial de Naranja Dulce | Aceite Esencial de Naranja Sanguinea | Naranja (dulce) | Sweet Orange Oil Cold Pressed
+83,fig:2557,8008-57-9,natural,"Orange peel, sweet oil",Aceite Esencial de Naranja Dulce | Aceite Esencial de Naranja Sanguinea | Naranja (dulce) | Sweet Orange Oil Cold Pressed
+84,fig:2559,8008-57-9,natural,Orange sweet oil folded,Aceite Esencial de Naranja Dulce | Aceite Esencial de Naranja Sanguinea | Naranja (dulce) | Sweet Orange Oil Cold Pressed
+85,fig:2560,8008-57-9,natural,"Orange sweet, Valencia oil",Aceite Esencial de Naranja Dulce | Aceite Esencial de Naranja Sanguinea | Naranja (dulce) | Sweet Orange Oil Cold Pressed
+86,fig:2562,8008-57-9,natural,"Orange, sweet, oil",Aceite Esencial de Naranja Dulce | Aceite Esencial de Naranja Sanguinea | Naranja (dulce) | Sweet Orange Oil Cold Pressed
+87,fig:2563,8008-57-9,natural,"Orange, sweet, oil fixed",Aceite Esencial de Naranja Dulce | Aceite Esencial de Naranja Sanguinea | Naranja (dulce) | Sweet Orange Oil Cold Pressed
+88,fig:2802,8007-01-0,natural,Rose centifolia oil expressed (low methyleugenol),Aceite esencial de Rosa Damascena Extra | Aceite Esencial de Rosa Damascena Otto Bulgaria | Rose Oil (Bulgaria) | Rose Ultimate Extract
+89,fig:2807,8007-01-0,natural,Rose oil,Aceite esencial de Rosa Damascena Extra | Aceite Esencial de Rosa Damascena Otto Bulgaria | Rose Oil (Bulgaria) | Rose Ultimate Extract
+90,fig:2808,8007-01-0,natural,Rose oil,Aceite esencial de Rosa Damascena Extra | Aceite Esencial de Rosa Damascena Otto Bulgaria | Rose Oil (Bulgaria) | Rose Ultimate Extract
+91,fig:2809,8007-01-0,natural,Rose oil (low methyleugenol),Aceite esencial de Rosa Damascena Extra | Aceite Esencial de Rosa Damascena Otto Bulgaria | Rose Oil (Bulgaria) | Rose Ultimate Extract
+92,fig:2810,8007-01-0,natural,"Rose oil, folded",Aceite esencial de Rosa Damascena Extra | Aceite Esencial de Rosa Damascena Otto Bulgaria | Rose Oil (Bulgaria) | Rose Ultimate Extract
+93,fig:2814,8007-01-0,natural,Rose water oil,Aceite esencial de Rosa Damascena Extra | Aceite Esencial de Rosa Damascena Otto Bulgaria | Rose Oil (Bulgaria) | Rose Ultimate Extract
+94,fig:3086,8016-96-4,natural,"Vetiver oil, JAVA (low Furfural)",Aceite Esencial de Vetiver Extra | Vetiver Haití | Vetiver Java MD | Vetiver Oil Haiti SIGNature
+95,fig:3087,8016-96-4,natural,"Vetiver oil, rectified",Aceite Esencial de Vetiver Extra | Vetiver Haití | Vetiver Java MD | Vetiver Oil Haiti SIGNature
+96,fig:3093,8024-08-6,natural,Violet leaf absolute,Absoluto de Violeta (Hojas) | DILUCION ABS. Violeta hojas 10% | Absoluto de Hojas de Violeta | Violet Leaf Absolute 50% (TEC)
+97,cas:89957-91-5,89957-91-5,natural,Bergamot oil expressed,Aceite Esencial de Bergamota - FFC (FREE FURANOCUMARINA) | Aceite Esencial de Bergamota CALABRIA - EXTRA | Bergamot Oil Cold Pressed | Petitgrain Bergamot Oil
+98,ncs:fennel-oil-bitter-anethole-type,8006-84-6,natural,"Fennel oil, bitter,anethole type",Aceite Esencial de Hinojo Amargo (Hojas) | Aceite Esencial de Hinojo Dulce | Hinojo (amargo) | Hinojo (dulce)
+99,ncs:lime-oil-distilled,8008-26-2,natural,Lime oil distilled,Aceite Esencial de Lima - FFC (FREE FURANOCUMARINA) | Aceite Esencial de Lima Destilada | Aceite Esencial de Lima Verde | Lime Oil Cold Pressed
+100,ncs:olibanum-sacra-oil,89957-98-2,natural,Olibanum sacra oil,Aceite Esencial de Incienso (olíbano) Carterii | Aceite Esencial de Incienso - Olíbano | Incienso CO2 (Carterii) | Olibanum Resinoide Vulcain 50% (IPM)
+101,tl:504-63-2,504-63-2,molécula,"1,3-Propanediol",Aceite Esencial de GUAYACO PALO /GAÏAC - 50% en DPG | Resinoide de Benjuí Sumatra (50% PROP.) | Resinoide de Mirra (PROP. 50%) | Resinoide de Vainilla
+102,tl:coriander-seed-oil-rectified,8008-52-4,natural,"Coriander seed oil, rectified",Aceite Esencial de Cilantro | Cilantro (semillas) | Coriander Leaf Oil Extra | Coriander Seeds Oil
+103,tl:coriander-seed-oil-terpeneless,8008-52-4,natural,"Coriander seed oil, terpeneless",Aceite Esencial de Cilantro | Cilantro (semillas) | Coriander Leaf Oil Extra | Coriander Seeds Oil
+104,tl:lavandin-abrialis-oil-low-coumarin,8022-15-9,natural,Lavandin abrialis oil (low coumarin),Aceite esencial de Lavandín Abrialis | Aceite Esencial de Lavandín Extra | Aceite esencial de Lavandín Grosso | Lavandin Grosso Oil (France)
+105,tl:lavandin-abrialis-oil-rectified,8022-15-9,natural,"Lavandin abrialis oil, rectified",Aceite esencial de Lavandín Abrialis | Aceite Esencial de Lavandín Extra | Aceite esencial de Lavandín Grosso | Lavandin Grosso Oil (France)
+106,tl:lavandin-grosso-oil-rectified,8022-15-9,natural,"Lavandin grosso oil, rectified",Aceite esencial de Lavandín Abrialis | Aceite Esencial de Lavandín Extra | Aceite esencial de Lavandín Grosso | Lavandin Grosso Oil (France)
+107,tl:orange-oil-bitter-defurocoumarinized,68916-04-1,natural,"Orange oil bitter, defurocoumarinized",Aceite Esencial de Naranja Amarga | Aceite Esencial de Petitgrain Bigarade | Aceite Esencial de Petitgrain Paraguay | Bitter Orange Cold Pressed
+108,tl:orange-oil-sweet-folded,8008-57-9,natural,"Orange oil, sweet, folded",Aceite Esencial de Naranja Dulce | Aceite Esencial de Naranja Sanguinea | Naranja (dulce) | Sweet Orange Oil Cold Pressed
+109,tl:rose-oil-rosa-x-centifolia-l,8007-01-0,natural,Rose oil (Rosa x centifolia L.),Aceite esencial de Rosa Damascena Extra | Aceite Esencial de Rosa Damascena Otto Bulgaria | Rose Oil (Bulgaria) | Rose Ultimate Extract
+110,tl:rose-oil-rosa-x-damascena-mill,8007-01-0,natural,Rose oil (Rosa x damascena Mill.),Aceite esencial de Rosa Damascena Extra | Aceite Esencial de Rosa Damascena Otto Bulgaria | Rose Oil (Bulgaria) | Rose Ultimate Extract
+111,tl:vetiver-oil-terpeneless,8016-96-4,natural,"Vetiver oil, terpeneless",Aceite Esencial de Vetiver Extra | Vetiver Haití | Vetiver Java MD | Vetiver Oil Haiti SIGNature
+112,fig:96,70788-30-6,molécula,"1-(2,2,6-Trimethylcyclohexyl)-3-hexanol",NORLIMBANOL | Norlimbanol | Norlimbanol Dextro
+113,fig:604,36306-87-3,molécula,"3,3,5,5-Tetramethyl-4-ethoxyvinylcyclohexanone",Woodarom | Woodarom (Kephalis) | Kephalis
+114,fig:726,55066-48-3,molécula,3-Methyl-5-phenylpentanol,PHENOXANOL IFF | Phenoxanol | Phenylhexanol
+115,fig:774,5471-51-2,molécula,4-(p-Hydroxyphenyl)-2-butanone,RASPBERRY KETONE | Raspberry Ketone | Raspberry Ketone (powder)
+116,fig:818,211299-54-6,molécula,"4H-4a,9-Methanoazuleno[5,6-d]-1,3-dioxole, octahydro-2,2,5,8,8,9a-hexamethyl-,",Ambrocenide 10% DPG | Ambrocenide 10% (TEC) | Ambrocenide Crystals
+117,fig:830,39212-23-2,molécula,4-Hydroxy-3-methyloctanoic acid lactone,Whisky Lactona - (METIL OCTALACTONA) | Whisky Lactone | Whiskey Lactone
+118,fig:944,28940-11-6,molécula,"7-Methyl-2H-benzo-1,5-dioxepin-3(4H)-one",Calone Aroma Chemicals | Calone (Watermelon Ketone) | Calone (powder)
+119,fig:991,32388-55-9,molécula,Acetyl cedrene,MCK COUER (VERTOFIX COEUR) IFF | MCK Coeur (Vertofix Coeur) | Vertofix Coeur
+120,fig:1169,9000-05-9,natural,"Benzoin resinoid, Sumatra",Resinoide de Benjuí Sumatra (50% PROP.) | Res. Benjui de Sumatra puro | Benzoin Sumatra Resinoide Extra
+121,fig:1281,8002-31-1,natural,Cacao absolute,Absoluto de Cacao (Ghana) - Dilución al 10 % | Absoluto de Cacao de Ghana | Absoluto de Cacao de Rep. Dominicana
+122,fig:1309,8000-66-6,natural,Cardamom seed oil,Aceite Esencial de Cardamomo | Cardamomo NHS (NATURAL HEAD SPACE) | Cardamom Oil (Guatemala)
+123,fig:1316,8015-88-1,natural,Carrot seed oil,Aceite Esencial de Zanahoria | Zanahoria (semillas) | Carrot Terpeneless Oil
+124,fig:1317,8015-88-1,natural,Carrot seed oil terpenless,Aceite Esencial de Zanahoria | Zanahoria (semillas) | Carrot Terpeneless Oil
+125,fig:1318,8015-88-1,natural,"Carrot seed oil, rectified",Aceite Esencial de Zanahoria | Zanahoria (semillas) | Carrot Terpeneless Oil
+126,fig:1358,8023-85-6,natural,"Cedarwood oil, Atlas, rectified",Aceite Esencial de Cedro de Atlas | Cedro Atlas | Cedar Atlas Redist
+127,fig:1378,19870-74-7,molécula,Cedrol methyl ether,Cedrol Methyl Ether - Simil Cedramber | Cedramber (Methyl Cedryl ether) | Cedramber
+128,fig:1506,8016-63-5,natural,Clary sage oil,Salvia Esclarea | Clary Sage Oil (France) | Clary Sage Pays Organic Oil
+129,fig:1601,198404-98-7,molécula,"Cyclopropanemethanol, 1-methyl-2-[(1,2,2-trimethylbicyclo[3.1.0]hex-3-yl)methyl]-",Javanol (Givaudan) | Javanol | Javanol Super
+130,fig:1605,8013-86-3,natural,Cypress oil,Aceite Esencial de Ciprés | Ciprés | Cypress Oil (France)
+131,fig:1627,112-31-2,molécula,Decanal,Aldehyde C10 | Aldehyde C-10 (decanal) | Aldehyde C10 (decanal)
+132,fig:1957,8016-23-7,natural,Guaiac wood oil,Aceite Esencial de Guayaco Palo | Aceite Esencial de GUAYACO PALO /GAÏAC - 50% en DPG | Guaiacwood Oil Crude 50% (ethanol)
+133,fig:1975,8023-95-8,natural,Helichrysum oil,Aceite Esencial de Helicriso | Aceite Esencial de Helicriso España - Rabujera | Immortelle Oil
+134,fig:1976,8023-95-8,natural,"Helichrysum oil, pyrogenated",Aceite Esencial de Helicriso | Aceite Esencial de Helicriso España - Rabujera | Immortelle Oil
+135,fig:2161,112-54-9,molécula,Lauric aldehyde,Aldehyde C12 | Aldehyde C-12 Lauric | Aldehyde C12 Lauric
+136,fig:2205,8007-02-1,natural,"Lemongrass oil, East Indian",Aceite Esencial de Citral | Aceite Esencial de Lemongrass Cochin | Lemongrass Oil India
+137,fig:2206,8007-02-1,natural,"Lemongrass oil, rectified",Aceite Esencial de Citral | Aceite Esencial de Lemongrass Cochin | Lemongrass Oil India
+138,fig:2207,8007-02-1,natural,"Lemongrass oil, West Indian",Aceite Esencial de Citral | Aceite Esencial de Lemongrass Cochin | Lemongrass Oil India
+139,fig:2241,68855-99-2,natural,"Litsea cubeba oil, rectified",Aceite Esencial de Verbena China - Verbena Exótica | Litsea Cubeba | Litsea Cubeba Oil
+140,fig:2414,8016-37-3,natural,Myrrh oil,Aceite Esencial de Mirra - EXTRA | Aceite Esencial de Opoponax | Mirra
+141,fig:2419,8008-46-6,natural,Myrtle oil,Aceite Esencial de Mirto Rojo | Aceite Esencial de Mirto Verde | Myrtle Oil Rectified (Tunisia)
+142,fig:2420,8008-46-6,natural,Myrtle oil (low methyleugenol),Aceite Esencial de Mirto Rojo | Aceite Esencial de Mirto Verde | Myrtle Oil Rectified (Tunisia)
+143,fig:2421,8008-46-6,natural,Myrtle oil terpeneless,Aceite Esencial de Mirto Rojo | Aceite Esencial de Mirto Verde | Myrtle Oil Rectified (Tunisia)
+144,fig:2422,8008-46-6,natural,"Myrtle oil, rectified",Aceite Esencial de Mirto Rojo | Aceite Esencial de Mirto Verde | Myrtle Oil Rectified (Tunisia)
+145,fig:2526,106-02-5,molécula,omega-Pentadecalactone,EXALTOLIDE TOTAL | Exaltolide Total | Exaltolide 50% (DPG)
+146,fig:2558,8028-48-6,natural,"Orange peel, sweet, extract",Aceite Esencial de Naranja Dulce | Aceite Esencial de Naranja Sanguinea | Naranja (dulce)
+147,fig:2567,68917-05-5,natural,Osmanthus absolute,Absoluto de Osmanthus | DILUCION ABS. Osmanthus 10% | Osmanthus
+148,fig:2579,34902-57-3,molécula,Oxacyclohexadecen-2-one,Globalid - Simil Habanolide | Habanolide | Globalide
+149,fig:2593,8014-09-3,molécula,Patchouli,Patchouli Coeur N.3 (Indonesia) | Patchouli Crude Organic (Madagascar) | Patchouli Light (Burundi)
+150,fig:2594,8014-09-3,molécula,Patchouli,Patchouli Coeur N.3 (Indonesia) | Patchouli Crude Organic (Madagascar) | Patchouli Light (Burundi)
+151,fig:2595,8014-09-3,natural,Patchouli absolute,Patchouli Coeur N.3 (Indonesia) | Patchouli Crude Organic (Madagascar) | Patchouli Light (Burundi)
+152,fig:2597,8014-09-3,natural,Patchouli CO2 extract,Patchouli Coeur N.3 (Indonesia) | Patchouli Crude Organic (Madagascar) | Patchouli Light (Burundi)
+153,fig:2598,8014-09-3,natural,Patchouli extract,Patchouli Coeur N.3 (Indonesia) | Patchouli Crude Organic (Madagascar) | Patchouli Light (Burundi)
+154,fig:2817,8000-25-7,natural,Rosemary oil,Aceite Esencial de Romero Alcanfor | Aceite Esencial de Romero Cineol | Rosemary Oil (Morocco)
+155,fig:2818,8000-25-7,natural,"Rosemary oil, rectified",Aceite Esencial de Romero Alcanfor | Aceite Esencial de Romero Cineol | Rosemary Oil (Morocco)
+156,fig:2839,8022-56-8,natural,"Sage oil, Spanish",Aceite Esencial de Salvia de España | Salvia Officinalis | Tomillo
+157,fig:3065,8024-06-4,natural,Vanilla absolute,Resinoide de Vainilla | Vainilla Bourbon - EXTRA (Red. Tintura) | Absoluto de Vainilla Bourbon 35% Ethanol
+158,cas:72968-50-4,72968-50-4,natural,Bitter orange peel oil expressed,Aceite Esencial de Azahar (Neroli)- Reducción de tintura | Aceite Esencial de Petitgrain Bigarade | Aceite Esencial de Petitgrain Paraguay
+159,cas:90028-68-5,90028-68-5,molécula,Oakmoss extracts,Absoluto de Musgo de Roble | DILUCION de ABS. Musgo de Roble | Oakmoss Absolute 50% (IPM)
+160,cas:90063-52-8,90063-52-8,natural,Lime oil expressed,Aceite Esencial de Lima - FFC (FREE FURANOCUMARINA) | Aceite Esencial de Lima Destilada | Aceite Esencial de Lima Verde
+161,ncs:jasmine-grandiflorum-absolute,8022-96-6,natural,Jasmine grandiflorum absolute,Absoluto de Jazmín Egipcio - Grandiflorum | Jasmin Grandiflorum Absolute (Egypt) | Jasmin Grandiflorum Absolute (Indie)
+162,tl:carrot-seed-oil-terpeneless,8015-88-1,natural,"Carrot seed oil, terpeneless",Aceite Esencial de Zanahoria | Zanahoria (semillas) | Carrot Terpeneless Oil
+163,tl:lemongrass-oil-rectified-cymbopogon-citratus-dc-stapf,8007-02-1,natural,"Lemongrass oil, rectified (Cymbopogon citratus (DC.) Stapf)",Aceite Esencial de Citral | Aceite Esencial de Lemongrass Cochin | Lemongrass Oil India
+164,tl:lemongrass-oil-rectified-cymbopogon-flexuosus-nees-ex-steude,8007-02-1,natural,"Lemongrass oil, rectified (Cymbopogon flexuosus (Nees ex Steudel) Will. Watson)",Aceite Esencial de Citral | Aceite Esencial de Lemongrass Cochin | Lemongrass Oil India
+165,tl:orange-peel-sweet-alcoholate,8028-48-6,natural,"Orange peel, sweet, alcoholate",Aceite Esencial de Naranja Dulce | Aceite Esencial de Naranja Sanguinea | Naranja (dulce)
+166,tl:orange-peel-sweet-tincture,8028-48-6,natural,"Orange peel, sweet, tincture",Aceite Esencial de Naranja Dulce | Aceite Esencial de Naranja Sanguinea | Naranja (dulce)
+167,tl:patchouli-oil-low-fe-post-treated,8014-09-3,natural,Patchouli oil (low Fe) (post treated),Patchouli Coeur N.3 (Indonesia) | Patchouli Crude Organic (Madagascar) | Patchouli Light (Burundi)
+168,tl:rose-aromatic-water,90106-38-0,natural,Rose aromatic water,Aceite esencial de Rosa Damascena Extra | Aceite Esencial de Rosa Damascena Otto Bulgaria | CONCRETO - Rosa Damascena
+169,tl:rose-tincture-rosa-x-damascena-mill,90106-38-0,natural,Rose tincture (Rosa x damascena Mill.),Aceite esencial de Rosa Damascena Extra | Aceite Esencial de Rosa Damascena Otto Bulgaria | CONCRETO - Rosa Damascena
+170,tl:sage-dalmatian-oil-terpeneless,8022-56-8,natural,"Sage Dalmatian oil, terpeneless",Aceite Esencial de Salvia de España | Salvia Officinalis | Tomillo
+171,fig:93,68155-67-9,molécula,"1-(1,2,3,4,6,7,8,8a-Octahydro-2,3,8,8-tetramethyl-2-naphthyl)ethan-1-one",Iso E Super | Timbersilk
+172,fig:94,68155-66-8,molécula,"1-(1,2,3,5,6,7,8,8a-Octahydro-2,3,8,8-tetramethyl-2-naphthyl)ethan-1-one",Iso E Super | Timbersilk
+173,fig:114,1506-02-1,molécula,"1-(5,6,7,8-Tetrahydro-3,5,5,6,8,8-hexamethyl-2-naphthyl)ethan-1-one (Fixolid)",Tonalid | Tonalid (powder)
+174,fig:176,112-45-8,molécula,10-Undecenal,Aldehyde C-11 Undecylenic | Aldehyde Intreleven Special
+175,fig:320,68039-49-6,molécula,"2,4-Dimethyl-3-cyclohexen-1-carboxaldehyde",Ligustral | Triplal
+176,fig:359,106-72-9,molécula,"2,6-Dimethyl-5-heptenal",Melonal 85% Natural | Melonal
+177,fig:483,103-95-7,molécula,2-Methyl-3-(p-isopropylphenyl)propionaldehyde,Aldehide Ciclamen | Cyclamen Aldehyde Extra
+178,fig:507,19009-56-4,molécula,2-Methyldecanal,Aldehyde C-11 MOA | Aldehyde C11 MOA
+179,fig:524,110-41-8,molécula,2-Methylundecanal,Aldehyde C12 MNA | Aldehyde C-12 MNA
+180,fig:587,3407-42-9,molécula,"3-(5,5,6-Trimethylbicyclo[2.2.1]hept-2-yl)cyclohexan-1-ol",Sandela | Sandela 85% IPM
+181,fig:736,82356-51-2,molécula,3-Methylcyclopentadecenone,Muscenone Delta (muscenone) | Muscenone
+182,fig:750,122-97-4,molécula,3-Phenyl-1-propanol,Alcohol Fenilpropilico | Phenyl Propyl Alcohol
+183,fig:807,13171-00-1,molécula,"4-Acetyl-6-t-butyl-1,1-dimethylindan",CELESTOLIDE IFF | Celestolide (Crysolide)
+184,fig:848,81782-77-6,molécula,4-Methyl-3-decen-5-ol,Undecavertol 98% | Undecavertol
+185,fig:911,4927-36-0,molécula,5-Methyl-5-phenyl-3-hexanone,Damascol | Romascone
+186,fig:981,144020-22-4,molécula,"Acetic acid, anhydride, reaction products with 1,5,10-trimethyl-1,5,9-cyclododecatriene",TRIMOFIX IFF | Trimofix
+187,fig:994,22047-25-2,molécula,Acetylpyrazine,2-ACETILPIRAZINA | 2-Acetylpyrazine
+188,fig:1055,1205-17-0,molécula,"alpha-Methyl-1,3-benzodioxole-5-propionaldehyde",Helional (Heliofresh) | Helional
+189,fig:1057,98-85-1,molécula,alpha-Methylbenzyl alcohol,Alcohol Estiralilico - Styralyl Alcohol | Styrallyl Alcohol
+190,fig:1067,98-55-5,molécula,alpha-Terpineol,Alfa Terpineol Aroma Chemicals | Lindenol (alpha-terpineol)
+191,fig:1070,8015-62-1,natural,Ambrette seed absolute,Ambreta CO2 | Semillas de Ambrette CO2
+192,fig:1071,8015-62-1,natural,Ambrette seed extract,Ambreta CO2 | Semillas de Ambrette CO2
+193,fig:1072,8015-62-1,natural,Ambrette seed oil,Ambreta CO2 | Semillas de Ambrette CO2
+194,fig:1073,8015-62-1,natural,Ambrette seed oil,Ambreta CO2 | Semillas de Ambrette CO2
+195,fig:1074,8015-62-1,natural,Ambrette tincture,Ambreta CO2 | Semillas de Ambrette CO2
+196,fig:1093,8007-70-3,natural,Anise seed oil,Aceite Esencial de Anís Estrellado | Aceite Esencial de Anís Verde
+197,fig:1117,8007-00-9,natural,"Balsam oil, Peru",Aceite esencial de Bálsamo de Tolu | Aceite Esencial de Bálsamo del Perú
+198,fig:1118,8007-00-9,natural,"Balsam oil, Peru",Aceite esencial de Bálsamo de Tolu | Aceite Esencial de Bálsamo del Perú
+199,fig:1123,8015-73-4,natural,"Basil oil, chemotype estragole",Aceite Esencial de Albahaca | Basil Grand Vert Oil (Egypt)
+200,fig:1124,8015-73-4,natural,"Basil oil, chemotype estragole, rectified",Aceite Esencial de Albahaca | Basil Grand Vert Oil (Egypt)
+201,fig:1125,8015-73-4,natural,"Basil oil, chemotype linalool",Aceite Esencial de Albahaca | Basil Grand Vert Oil (Egypt)
+202,fig:1197,8007-75-8,natural,Bergamot oil,Bergamota Extra | Bergamot Oil Distilled
+203,fig:1199,8007-75-8,natural,"Bergamot oil, expressed",Bergamota Extra | Bergamot Oil Distilled
+204,fig:1201,8007-75-8,natural,"Bergamot oil, rectified",Bergamota Extra | Bergamot Oil Distilled
+205,fig:1202,8007-75-8,natural,"Bergamot oil, terpeneless",Bergamota Extra | Bergamot Oil Distilled
+206,fig:1208,14901-07-6,molécula,beta-Ionone,Ionona Beta Aroma Chemicals | Ionona Beta
+207,fig:1231,8001-88-5,natural,"Birch tar oil, rectified",Abedul rectificado dil. 5% alcohol | Birch tar rectified
+208,fig:1245,94333-88-7,molécula,"Bulnesia sarmienti, ext., acetate",Palo Santo Acetilado / Acetato de Guayilo Técnico | Guaiyl Acetate
+209,fig:1280,68188-03-4,natural,Cabreuva oil,Aceite Esencial de Cabreuva | Cabreuva Oil Extra
+210,fig:1302,8000-42-8,natural,Caraway seed oil,Aceite Esencial de Alcaravea | Caraway Oil
+211,fig:1303,8000-42-8,natural,"Caraway seed oil, rectified",Aceite Esencial de Alcaravea | Caraway Oil
+212,fig:1335,8023-82-3,natural,Cassie absolute,Absoluto de Acacia (Cassie Flower) - EXTRA | Cassie Absolute Egypt 50% (DPG)
+213,fig:1348,8007-20-3,natural,Cedar leaf oil,Aceite esencial de Tuya de Canadá | Cedar Leaf Oil Extra
+214,fig:1351,8007-20-3,natural,"Cedar leaf oil, rectified",Aceite esencial de Tuya de Canadá | Cedar Leaf Oil Extra
+215,fig:1393,8006-76-6,natural,Champaca absolute,ABS. Champaca Roja | Champaca Absolute (red)
+216,fig:1402,8015-91-6,natural,Cinnamon bark oil,Aceite Esencial de Canela | Aceite esencial de Canela Hojas
+217,fig:1404,8015-91-6,natural,Cinnamon leaf oil,Aceite Esencial de Canela | Aceite esencial de Canela Hojas
+218,fig:1405,8015-91-6,natural,"Cinnamon leaf oil, rectified",Aceite Esencial de Canela | Aceite esencial de Canela Hojas
+219,fig:1409,104-54-1,molécula,Cinnamyl alcohol,Cinnamyl Alcohol 75% | Cinnamyl Alcohol 50% (IPM/ethanol)
+220,fig:1466,8016-26-0,natural,Cistus oil,Aceite esencial de Cistus Jara | Cistus Oil (Spain)
+221,fig:1467,8016-26-0,natural,Cistus oil,Aceite esencial de Cistus Jara | Cistus Oil (Spain)
+222,fig:1468,8016-26-0,natural,"Cistus oil, pyrogenated",Aceite esencial de Cistus Jara | Cistus Oil (Spain)
+223,fig:1497,91771-50-5,natural,Citrus hystrix extract,Aceite Esencial de Lima Kaffir / Lima Combawa | Kaffir Lime Leaves Oil
+224,fig:1501,68916-26-7,natural,Civet absolute,Absoluto de Civet - EXTRA | DILUCION de ABS. Civeta EXTRA al 10%
+225,fig:1510,8000-34-8,natural,Clove bud oil,Aceite Esencial de Clavo BROTE | Aceite Esencial de Clavo HOJAS
+226,fig:1511,8000-34-8,natural,Clove leaf oil,Aceite Esencial de Clavo BROTE | Aceite Esencial de Clavo HOJAS
+227,fig:1513,8000-34-8,natural,"Clove leaf oil, rectified",Aceite Esencial de Clavo BROTE | Aceite Esencial de Clavo HOJAS
+228,fig:1514,8000-34-8,natural,Clove stem oil,Aceite Esencial de Clavo BROTE | Aceite Esencial de Clavo HOJAS
+229,fig:1540,8014-13-9,natural,Cumin seed oil,Aceite Esencial de Comino | Cumin Oil
+230,fig:1607,68916-60-9,natural,Cypriol oil,Cypriol Coeur (Firmenich) | Cypriol Coeur (Robertet)
+231,fig:1608,68916-60-9,natural,"Cypriol oil, rectified",Cypriol Coeur (Firmenich) | Cypriol Coeur (Robertet)
+232,fig:1659,33673-62-0,molécula,Dihydro-4-methyl-5-pentylfuran-2(3H)-one,Tuberolide (Methyl Tuberate PURE) | Methyl Tuberate Pure
+233,fig:1664,17283-81-7,molécula,Dihydro-beta-ionone,Dihydro ionone Beta | Dihydro Ionone Beta
+234,fig:1693,106-22-9,molécula,dl-Citronellol,Citronellol 96% | Citronellol 950
+235,fig:1696,138-86-3,molécula,dl-Limonene (racemic),Limonene 98% | Dipentene 38 perf
+236,fig:1701,57345-19-4,molécula,"Dodecahydro-3,8,8,11a-tetramethyl-5H-3,5a-epoxynaphth[2,1-c]oxepin","Z11 10 MIP | Z11 HD 8,5% MIP"
+237,fig:1745,6413-10-1,molécula,"Ethyl 2-methyl-1,3-dioxolane-2-acetate",Fructone 99% Natural | Fructone
+238,fig:1788,77-83-8,molécula,Ethyl methylphenylglycidate,Aldehyde C16 | Aldehyde C-16
+239,fig:1814,121-32-4,molécula,Ethyl vanillin,Ethyl Vainillin | Ethyl Vanillin (powder)
+240,fig:1820,470-82-6,molécula,Eucalyptol,Eucalyptol 98% | Eucalyptol Natural
+241,fig:1829,97926-40-4,natural,Eucalyptus globulus oil,Aceite Esencial de Eucalipto Glóbulo | Eucalipto crudo
+242,fig:1860,8021-29-2,natural,"Fir needle oil, Siberian",Aceite Esencial de Abeto Siberiano | Aceite Esencial de Pino Silvestre
+243,fig:1861,8021-29-2,natural,"Fir needle oil, Siberian, rectified",Aceite Esencial de Abeto Siberiano | Aceite Esencial de Pino Silvestre
+244,fig:1867,58567-11-6,molécula,Formaldehyde cyclododecyl ethyl acetal,Boisambrene Forte - Aroma Chemicals | Amberwood Forte
+245,fig:1917,105-87-3,molécula,Geranyl acetate,Acetato de geranilo 96% | Geranyl Acetate Pure
+246,fig:1966,8030-55-5,natural,Gurjun balsam oil,Aceite Esencial de Bálsamo de Gurjum | Gurjun Balsam (Malaysia)
+247,fig:1968,8030-55-5,natural,Gurjun oil,Aceite Esencial de Bálsamo de Gurjum | Gurjun Balsam (Malaysia)
+248,fig:1969,8030-55-5,natural,"Gurjun oil, rectified",Aceite Esencial de Bálsamo de Gurjum | Gurjun Balsam (Malaysia)
+249,fig:1987,66-25-1,molécula,Hexanal,ALDEHYDE C-6 HEXANAL | Aldehyde C6 (n-hexanal)
+250,fig:2011,8022-91-1,natural,Ho bark oil,Aceite Esencial de Alcanfor | Aceite Esencial de Madera de Ho
+251,fig:2012,8022-91-1,natural,Ho leaf oil,Aceite Esencial de Alcanfor | Aceite Esencial de Madera de Ho
+252,fig:2014,8022-91-1,natural,Ho wood oil,Aceite Esencial de Alcanfor | Aceite Esencial de Madera de Ho
+253,fig:2026,89-43-0,molécula,Hydroxycitronellal-methyl anthranilate (Schiff base),Aurantiol | Aurantiol Pure 50% (ethanol)
+254,fig:2029,8006-83-5,natural,Hyssop oil,Aceite Esencial de Hisopo Cineol - Natural- 100% | Aceite esencial de Hisopo Decumbens
+255,fig:2097,23787-90-8,molécula,Isolongifolene ketone,PICONIA (ISOLONGIFOLANONE) | Piconia
+256,fig:2123,8022-96-6,natural,Jasmine absolute,Jasmin Grandiflorum Absolute (Egypt) | Jasmin Grandiflorum Absolute (Indie)
+257,fig:2136,8002-68-4,natural,Juniper berry oil,Aceite Esencial de Enebro | Bayas de Enebro 2R rectificado 100% SOL
+258,fig:2137,8002-68-4,natural,"Juniper berry oil, rectified",Aceite Esencial de Enebro | Bayas de Enebro 2R rectificado 100% SOL
+259,fig:2150,8016-26-0,natural,Labdanum oil,Aceite esencial de Cistus Jara | Cistus Oil (Spain)
+260,fig:2160,8007-48-5,natural,Laurel leaf oil,Aceite Esencial de Laurel | Laurel
+261,fig:2180,8000-28-0,natural,Lavender absolute,Absoluto de Lavanda | Lavender Absolute (IFF)
+262,fig:2213,8008-26-2,natural,Lime oil,Lime Oil Cold Pressed | Lime Oil Distilled
+263,fig:2214,8008-26-2,natural,Lime oil folded,Lime Oil Cold Pressed | Lime Oil Distilled
+264,fig:2217,8008-26-2,natural,"Lime oil, expressed",Lime Oil Cold Pressed | Lime Oil Distilled
+265,fig:2218,8008-26-2,natural,"Lime oil, expressed, rectified",Lime Oil Cold Pressed | Lime Oil Distilled
+266,fig:2223,115-95-7,molécula,Linalyl acetate,Acetato de linalilo 96% | Acetato Linalilo Natural
+267,fig:2274,68991-39-9,natural,Mastic oil,Aceite Esencial de Lentisco | Mastic Oil (Morocco)
+268,fig:2276,68916-96-1,natural,Mate absolute,ABS. Yerba Mate | Mate Absolute CTX
+269,fig:2293,89-78-1,molécula,Menthol,Mentol Natural Cristalizado - fracción | Menthol Rac. (crystals)
+270,fig:2337,134-20-3,molécula,Methyl anthranilate,Antranilato Metilo | Antranilato Metilo (Methyl Anthranilate)
+271,fig:2357,1335-46-2,molécula,Methyl ionone (mixture of isomers),Isoraldine | Iralia
+272,fig:2396,8031-03-6,natural,Mimosa absolute,Aceite Esencial de Mimosa Australiana | Mimosa 10% DPG
+273,fig:2397,8031-03-6,natural,Mimosa concrete,Aceite Esencial de Mimosa Australiana | Mimosa 10% DPG
+274,fig:2415,8016-37-3,natural,Myrrh oil rectified,Mirra | Myrrh Oil
+275,fig:2426,3738-00-9,molécula,"Naphtho[2,1-b]furan, dodecahydro-3a,6,6,9a-tetramethyl-",AMBERMOR IFF | Ambrox DL
+276,fig:2430,68917-12-4,natural,Narcissus poeticus absolute,Absoluto de Narciso (Narcissus) | Narcisse Absolute
+277,fig:2433,106-25-2,molécula,Nerol,Nerol 98% Natural | Nerol 900
+278,fig:2472,8008-45-5,natural,Nutmeg oil,Aceite Esencial de Nuez Moscada | Nutmeg Oil SLC
+279,fig:2474,8008-45-5,natural,"Nutmeg oil terpeneless, JAVA",Aceite Esencial de Nuez Moscada | Nutmeg Oil SLC
+280,fig:2475,8008-45-5,natural,"Nutmeg oil, rectified",Aceite Esencial de Nuez Moscada | Nutmeg Oil SLC
+281,fig:2490,23333-91-7,molécula,"Octahydro-4,8a-dimethyl-4a(2H)-naphthol",Geosmina 1% DPG | Geosmin
+282,fig:2497,124-13-0,molécula,Octanal,Aldehyde C8 | Aldehyde C-8 (octanal)
+283,fig:2510,1450625-49-6,natural,"Oils, Patchouli, patchoulol synthase-modified Saccharomyces cerevisiae-fermented,",CLEARWOOD | Clearwood
+284,fig:2511,8016-36-2,natural,Olibanum absolute,Incienso Absoluto | Olibanum Coeur
+285,fig:2512,8016-36-2,natural,Olibanum carterii absolute,Incienso Absoluto | Olibanum Coeur
+286,fig:2513,8016-36-2,natural,Olibanum carterii CO2 extract,Incienso CO2 (Serrata) | Olibanum Coeur
+287,fig:2519,8016-36-2,natural,Olibanum carterii resinoid,Olibanum Coeur | Olibanum Resinoid Extra 50% (DPG)
+288,fig:2523,8016-36-2,natural,Olibanum resinoid,Olibanum Coeur | Olibanum Resinoid Extra 50% (DPG)
+289,fig:2539,8016-38-4,natural,"Orange flower oil, bitter (Neroli and Neroli bigarade)",Neroli Bigarade | Neroli Oil (Egypt)
+290,fig:2550,8016-38-4,natural,"Orange oil, peel, bitter",Neroli Bigarade | Neroli Oil (Egypt)
+291,fig:2573,28645-51-4,molécula,Oxacycloheptadec-10-ene-2-one,Ambrettolide | Scentolide
+292,fig:2596,5986-55-0,molécula,Patchouli alcohol,Clearwood Prisma | Healingwood (Indonesia)
+293,fig:2634,8006-90-4,natural,Peppermint oil,Aceite esencial de Menta Piperita Extra | Mint Piperita Oil
+294,fig:2635,8006-90-4,natural,"Peppermint oil, rectified",Aceite esencial de Menta Piperita Extra | Mint Piperita Oil
+295,fig:2639,8008-26-2,natural,"Persian lime oil, expressed",Lime Oil Cold Pressed | Lime Oil Distilled
+296,fig:2643,8007-75-8,natural,Petitgrain bergamot oil,Bergamota Extra | Bergamot Oil Distilled
+297,fig:2645,8048-51-9,natural,Petitgrain lemon oil,Aceite Esencial de Petitgrain Limonero | Petitgrain Limonero
+298,fig:2688,56011-02-0,molécula,Phenylethyl isoamyl ether,Feniletil Isoamileter 97% | Anther
+299,fig:2694,8021-29-2,natural,Pine needle oil,Aceite Esencial de Abeto Siberiano | Aceite Esencial de Pino Silvestre
+300,fig:2843,8006-87-9,natural,Sandalwood oil,Aceite Esencial de SANDALO Indio | Sandalwood Oil India
+301,fig:2847,1070895-66-7,natural,"Sandalwood oil, rectified",Sándalo Nueva Caledonia | Sandalwood Oil New Caledonia
+302,fig:2855,68917-52-2,natural,Schinus molle oil,Aceite Esencial de Aguaribay o Pimienta Rosa | Pimienta rosa
+303,fig:2857,68917-52-2,natural,Schinus molle oil terpenless,Aceite Esencial de Aguaribay o Pimienta Rosa | Pimienta rosa
+304,fig:2858,68917-52-2,natural,"Schinus molle oil, rectified",Aceite Esencial de Aguaribay o Pimienta Rosa | Pimienta rosa
+305,fig:2893,8008-80-8,natural,"Spruce oil, Black",Aceite esencial de Picea Negra - Abeto Negro | Black Spruce Oil (Canada)
+306,fig:2934,8016-88-4,natural,Tarragon oil (low methyleugenol),Aceite Esencial de Estragón | Tarragon Oil
+307,fig:2979,89-83-8,molécula,Thymol,Thymol 98% - Cristal | Thymol (crystals)
+308,fig:2989,8024-04-2,natural,Tonka bean absolute,Haba Tonka 30% Etanol | Tonka Absolute
+309,fig:3043,8024-05-3,natural,Tuberose absolute,Absoluto de Tuberosa | DILUCION ABS. Tuberosa 10%
+310,fig:3052,112-44-7,molécula,Undecanal,Aldehyde C11 ENIC | Aldehyde C-11 Undecylic
+311,fig:3066,8024-06-4,natural,Vanilla CO2 extract,Resinoide de Vainilla | Vainilla Bourbon - EXTRA (Red. Tintura)
+312,fig:3067,8024-06-4,natural,Vanilla extract,Resinoide de Vainilla | Vainilla Bourbon - EXTRA (Red. Tintura)
+313,fig:3068,8024-06-4,natural,Vanilla oleoresin,Resinoide de Vainilla | Vainilla Bourbon - EXTRA (Red. Tintura)
+314,cas:84650-60-2,84650-60-2,natural,Tea leaf absolute,Absoluto de Te Verde (Green Tea) - 50% | Te Negro (Black Tea) CO2
+315,cas:84929-31-7,84929-31-7,natural,Lemon oil cold pressed,Aceite Esencial de Limón | Aceite Esencial de Petitgrain Limonero
+316,cas:90046-02-9,90046-02-9,natural,Cade oil,Aceite Esencial de Enebro Cade | Cade rectificado
+317,cas:91770-14-8,91770-14-8,natural,Jasmine absolute (sambac),Absoluto de Jazmín Sambac - India | Jasmin Sambac Absolute (Biolandes)
+318,ncs:camphor-oil-brown,8008-51-3,natural,"Camphor oil, brown",Aceite Esencial de Alcanfor | Aceite Esencial de Ravintsara
+319,ncs:camphor-oil-yellow,8008-51-3,natural,"Camphor oil, yellow",Aceite Esencial de Alcanfor | Aceite Esencial de Ravintsara
+320,ncs:fennel-oil-bitter-phellandrene-type,84625-39-8,natural,"Fennel oil, bitter, phellandrene type",Aceite Esencial de Hinojo Amargo (Hojas) | Aceite Esencial de Hinojo Dulce
+321,ncs:rose-water-stronger,8007-01-0,natural,Rose water stronger,Absoluto de Rosa Centifolia | Rose Ultimate Extract
+322,ncs:turmeric-oil,8024-37-1,natural,Turmeric oil,Aceite Esencial de Cúrcuma | Cúrcuma
+323,ncs:zdravetz-oil,68991-32-2,natural,Zdravetz oil,ABS. Geranio Búlgaro | DILUCION de ABS. Geranio Búlgaro
+324,tl:64-17-5,64-17-5,molécula,Ethyl alcohol,Absoluto de Cacao (REP. DOMINICANA) - Dilución al 10 % | DILUCION de ABS. Tabaco Natural
+325,tl:ambrette-seed-oil-rectified,8015-62-1,natural,"Ambrette seed oil, rectified",Ambreta CO2 | Semillas de Ambrette CO2
+326,tl:basil-oil-chemotype-linalool-rectified,8015-73-4,natural,"Basil oil, chemotype linalool, rectified",Aceite Esencial de Albahaca | Basil Grand Vert Oil (Egypt)
+327,tl:champaca-leaf-oil-low-methyeugenol,92457-18-6,natural,"Champaca leaf oil, low methyeugenol",Magnolia Flower Oil MD | Magnolia Leaf Oil
+328,tl:cinnamon-leaf-oil-safrol-reduced,8015-91-6,natural,"Cinnamon leaf oil, safrol reduced",Aceite Esencial de Canela | Aceite esencial de Canela Hojas
+329,tl:citrus-junos-extract,233683-84-6,natural,Citrus junos extract,Yuzu Cold Pressed | Yuzu Distilled
+330,tl:grape-essence-oil,84929-27-1,natural,Grape essence oil,Aceite Esencial de Cava / Champagne | Aceite Esencial de Vino Blanco
+331,tl:gurjun-balsam-oil-dipterocarpus-spp,8030-55-5,natural,Gurjun balsam oil (Dipterocarpus spp.),Aceite Esencial de Bálsamo de Gurjum | Gurjun Balsam (Malaysia)
+332,tl:gurjun-balsam-oil-rectified,8030-55-5,natural,"Gurjun balsam oil, rectified",Aceite Esencial de Bálsamo de Gurjum | Gurjun Balsam (Malaysia)
+333,tl:ho-wood-oil-rectified,8022-91-1,natural,"Ho wood oil, rectified",Aceite Esencial de Alcanfor | Aceite Esencial de Madera de Ho
+334,tl:juniper-berry-oil-terpeneless,8002-68-4,natural,"Juniper berry oil, terpeneless",Aceite Esencial de Enebro | Bayas de Enebro 2R rectificado 100% SOL
+335,tl:juniper-oil,8002-68-4,natural,Juniper oil,Aceite Esencial de Enebro | Bayas de Enebro 2R rectificado 100% SOL
+336,tl:lime-oil-expressed-folded,8008-26-2,natural,"Lime oil, expressed, folded",Lime Oil Cold Pressed | Lime Oil Distilled
+337,tl:nutmeg-oil-folded,8008-45-5,natural,"Nutmeg oil, folded",Aceite Esencial de Nuez Moscada | Nutmeg Oil SLC
+338,tl:nutmeg-oil-java-terpeneless,8008-45-5,natural,"Nutmeg oil, Java, terpeneless",Aceite Esencial de Nuez Moscada | Nutmeg Oil SLC
+339,tl:orange-bitter-tincture,68916-04-1,natural,"Orange bitter, tincture",Aceite Esencial de Azahar (Neroli)- Reducción de tintura | Bitter Orange Cold Pressed
+340,tl:raisin-extract,68915-86-6,natural,Raisin extract,Aceite Esencial de Cava / Champagne | Aceite Esencial de Vino Blanco
+341,tl:schinus-molle-oil-terpeneless,68917-52-2,natural,"Schinus molle oil, terpeneless",Aceite Esencial de Aguaribay o Pimienta Rosa | Pimienta rosa
+342,tl:vanilla-microwave-extraction,8024-06-4,natural,"Vanilla, microwave extraction",Resinoide de Vainilla | Vainilla Bourbon - EXTRA (Red. Tintura)
+343,fig:18,10138-32-6,molécula,"(±)-Bicyclo[2.2.1]hept-5-ene-2-carboxylic acid, ethyl ester",Tropicalia
+344,fig:43,24720-09-0,molécula,"(E)-1-(2,6,6-Trimethyl-2-cyclohexen-1-yl)-2-buten-1-one",Damascone Alpha
+345,fig:49,81786-74-5,molécula,"(E)-3,4,5,6,6-Pentamethylhept-3-en-2-one",Koavone
+346,fig:54,79-77-6,molécula,(E)-beta-Ionone,Ionone beta
+347,fig:63,81786-73-4,molécula,"(Z)-3,4,5,6,6-Pentamethylhept-3-en-2-one",Koavone
+348,fig:84,68039-73-6,molécula,"[1,1'-Bicyclopentyl]-2-yl 2-butenoate",Pyroprunat
+349,fig:101,69929-17-5,molécula,"1-(2,4-Dimethyl-3-cyclohexenyl)-2,2-dimethylpropan-1-one",Chrysantheme
+350,fig:103,23696-85-7,molécula,"1-(2,6,6-Trimethylcyclohexa-1,3-dienyl)-2-buten-1-one",Damascenone
+351,fig:104,1646-26-0,molécula,1-(2-Benzofuranyl)ethanone,Coumarone (powder)
+352,fig:105,139504-68-0,molécula,1-(2-tert.-Butyl cyclohexyloxy)-2-butanol,Amber Core - Ambercore
+353,fig:111,23911-56-0,molécula,1-(3-Methyl-2-benzofuranyl)ethanone,Nerolione 50% (TEC)
+354,fig:112,56973-85-4,molécula,"1-(5,5-Dimethyl-1-cyclohexen-1-yl)pent-4-en-1-one",Dynascone 10%
+355,fig:132,151-05-3,molécula,"1,1-Dimethyl-2-phenylethyl acetate",Dimethyl Benzyl Carbinyl Acetate 50% (DPG)
+356,fig:135,41199-19-3,molécula,"1,2,3,4,4a,5,6,7-Octahydro-2,5,5-trimethyl-2-naphthalenol",Ambrinol S
+357,fig:136,65405-72-3,molécula,"1,2,3,4,4a,7,8,8a-Octahydro-2,4a,5,8a-tetramethyl-1-naphthyl formate",Oxyoctaline Formate
+358,fig:149,68083-58-9,molécula,"1,3-Dimethyl-3-phenylbutyl acetate",Acetato Vetikol
+359,fig:150,80118-06-5,molécula,"1,3-Dimethylbut-3-enyl isobutyrate",Isopentyrate
+360,fig:154,131812-52-7,molécula,"1,3-Dioxolane, 2,4-dimethyl-2-(5,6,7,8-tetrahydro-5,5,8,8-tetramethyl-2-naphthalenyl)-,",Okoumal
+361,fig:163,75147-23-8,molécula,"1,5-Dimethylbicyclo[3.2.1]octan-8-one-oxime",Buccoxime (powder)
+362,fig:168,73018-51-6,molécula,"1,6-Octadien-3-ol, 3,7-dimethyl-, acid-isomerized",Lime Oxide
+363,fig:170,76-22-2,molécula,"1,7,7-Trimethylbicyclo[2.2.1]heptan-2-one",Camphor
+364,fig:181,6707-60-4,molécula,12-Oxahexadecanolide,Cervolide
+365,fig:187,68039-69-0,molécula,1-Cyclohexylethyl 2-butenoate,Datilat
+366,fig:189,16510-27-3,molécula,1-Cyclopropylmethyl-4-methoxybenzene,Toscanol
+367,fig:196,66327-54-6,molécula,1-Formyl-1-methyl-4-(4-methyl-pentyl)-3-cyclohexene,Vernaldehyde
+368,fig:202,351343-77-6,molécula,"1H-Indene, 2,3,3a,4,5,7a-hexahydro-1,1,2,3,3-pentamethyl-6-(2-propenyl)-",Trisamber
+369,fig:211,52474-60-9,molécula,1-Methyl-3-(4-methyl-3-pentenyl)cyclohex-3-ene-1-carbaldehyde,Precyclemone B
+370,fig:214,139539-67-6,molécula,"1-Methyl-4-(2,2,3-trimethyl-3-cyclopenten-1-yl)-2-oxabicyclo[2.2.2]octane",Cassifix
+371,fig:215,52475-86-2,molécula,1-Methyl-4-(4-methyl-3-pentenyl)cyclohex-3-ene-1-carbaldehyde,Precyclemone B
+372,fig:230,94201-19-1,molécula,"1-Oxaspiro[4.5]decan-2-one, 8-methyl-",Methyl Laitone 10% DPG
+373,fig:251,141773-73-1,molécula,"2-(1-(3',3'-Dimethyl-1'-cyclohexyl)ethoxy)-2-methyl propyl propanoate",Helvetolide
+374,fig:257,929625-08-1,molécula,"2-(2,2,7,7-Tetramethyltricyclo[6.2.1.01,6]undec-5-en-5-yl)propan-1-ol",Ambermax 10% TEC
+375,fig:259,68133-79-9,molécula,"2-(3,7-Dimethyl-2,6-octadienyl)cyclopentanone",Apritone
+376,fig:262,2110-18-1,molécula,2-(3-Phenylpropyl)pyridine,Corps Racine 10% (DPG)
+377,fig:273,60047-17-8,molécula,2-(Tetrahydro-5-methyl-5-vinyl-2-furyl)propan-2-ol,Linalyl Oxide
+378,fig:286,15373-31-6,molécula,"2,2,3-Trimethylcyclopent-3-enylacetonitrile",Cantryl
+379,fig:288,65443-14-3,molécula,"2,2,5-Trimethyl-5-pentylcyclopentanone",Veloutone
+380,fig:289,7392-19-0,molécula,"2,2,6-Trimethyl-6-vinyltetrahydropyran",Limetol
+381,fig:291,69103-20-4,molécula,"2,2-Dimethyl-3-(3-methyl-2,4-pentadienyl)oxirane",Myroxyde
+382,fig:292,104468-21-5,molécula,"2,2-Dimethyl-3-methyl-3-butenyl propanoate",Romilat
+383,fig:304,300371-33-9,molécula,"2,3-Dihydro-1,1-dimethyl-1H-indene-ar-propanal",Hivernal Neo
+384,fig:319,131812-67-4,molécula,"2,4-Dimethyl-2-(5,6,7,8-tetrahydro-5,5,8,8-tetramethyl-2-naphthalenyl)-1,3-dioxolane",Okoumal
+385,fig:321,27606-09-3,molécula,"2,4-Dimethyl-4,4a,5,9b-tetrahydroindeno[1,2-d]-1,3-dioxin",Magnolan
+386,fig:322,82461-14-1,molécula,"2,4-Dimethyl-4-phenyltetrahydrofuran",Rhubafuran al 5% DPG
+387,fig:342,141-13-9,molécula,"2,6,10-Trimethyl-9-undecenal",Adoxal
+388,fig:349,1125-21-9,molécula,"2,6,6-Trimethylcyclohex-2-ene-1,4-dione",Oxophorone
+389,fig:350,116-26-7,molécula,"2,6,6-Trimethylcyclohexa-1,3-dienyl methanal",Safranal 20% TEC
+390,fig:367,67019-89-0,molécula,"2,6-Nonadienenitrile",Vionil 10% (DPG)
+391,fig:375,68901-32-6,molécula,"2-[8-Isopropyl-6-methylbicyclo[2.2.2]oct-5-en-2-yl]-1,3-dioxolane",Glycolierral
+392,fig:384,97384-48-0,molécula,2-Benzyl-2-methylbut-3-enenitrile,Citrowanil B
+393,fig:392,54546-26-8,molécula,"2-Butyl-4,4,6-trimethyl-1,3-dioxane",Herboxane
+394,fig:404,68845-00-1,molécula,"2-Ethoxy-2,6,6-trimethyl-9-methylenebicyclo[3.3.1]nonane",Boisiris
+395,fig:405,5595-79-9,molécula,2-Ethoxy-4-(methoxymethyl)phenol,Methyl Diantilis
+396,fig:407,2563-07-7,molécula,2-Ethoxy-4-methylphenol,Ultravanil 80% (DPG)
+397,fig:408,18368-91-7,molécula,"2-Ethyl-1,3,3-trimethyl-2-norbornanol",Terrasol
+398,fig:430,676125-00-1,molécula,"2H-​2,​4a-​Methanonaphthalene, 1,​3,​4,​5,​6,​7-​hexahydro-​7-​methoxy-​1,​1,​5,​5-​tetramethyl-",Symroxane
+399,fig:437,950919-28-5,molécula,"2H-1,5-Benzodioxepin-3(4H)-one, 7-(1-methylethyl)-",Cascalone
+400,fig:450,165184-98-5,molécula,2-Hexyl-(E)-cinnamaldehyde,Aldehido alfa hexil cinamico
+401,fig:455,476332-65-7,molécula,"2H-Indeno[4,5b] furan, decahydro-2,2,6,6,7,8,8-heptamethyl",Amber Xtreme
+402,fig:459,42822-86-6,molécula,"2-Hydroxy-alpha,alpha,4-trimethylcyclohexanemethanol",Geranodyle
+403,fig:488,104864-90-6,molécula,"2-Methyl-4-(2,2,3-trimethyl-3-cyclopenten-1-yl)-4-penten-1-ol",Firsantol
+404,fig:491,68901-22-4,molécula,2-Methyl-4-(camphenyl-8)-cyclohexanone,Aldron
+405,fig:492,33941-99-0,molécula,"2-Methyl-4-phenyl-1,3-dioxolane",Jacinthaflor
+406,fig:493,103-05-9,molécula,2-Methyl-4-phenyl-2-butanol,Dimethyl Phenyl Ethyl Carbinol
+407,fig:497,92585-24-5,molécula,2-Methyl-4-phenylpentanol,Pamplefleur
+408,fig:521,109-08-0,molécula,2-Methylpyrazine,2-Methyl Pyrazine 5% (DPG)
+409,fig:543,84560-00-9,molécula,2-Pentylcyclopentan-1-ol,Delphol HC
+410,fig:547,122-99-6,molécula,2-Phenoxyethanol,Phenoxyethyl Alcohol
+411,fig:554,3508-98-3,molécula,2-Phenylhexanenitrile,Salicynalva
+412,fig:559,56138-10-4,molécula,"2-Propen-1-ol, 2-methyl-3-(4-methylphenyl)-, (2E)-",Josenol
+413,fig:563,14765-30-1,molécula,2-sec-Butylcyclohexanone,Freskomenthe
+414,fig:566,88-41-5,molécula,2-tert-Butylcyclohexyl acetate,Verdox HC
+415,fig:576,31906-04-4,molécula,3 and 4-(4-Hydroxy-4-methylpentyl)-3-cyclohexene-1-carboxaldehyde,Lyral
+416,fig:583,15760-18-6,molécula,3-(4-Methyl-3-cyclohexenyl)butanol,Cyclomethylene Citronellol
+417,fig:610,41816-03-9,molécula,"3,4,4a,5,8,8a-Hexahydro-3',7-dimethylspiro[1,4-methanonaphthalene-2(1H),2'-oxirane]",Rhubofix
+418,fig:611,86115-11-9,molécula,"3,4,5,6,6-Pentamethylhept-3-en-2-one",Koavone
+419,fig:616,95-65-8,molécula,"3,4-Xylenol","3,4-Xylenol 10% (IPM)"
+420,fig:622,81786-75-6,molécula,"3,5,6,6-Tetramethyl-4-methyleneheptan-2-one",Koavone
+421,fig:636,76649-25-7,molécula,"3,6-Nonadien-1-ol",Orrisol 10% (TEC)
+422,fig:638,13877-91-3,molécula,"3,7-Dimethyl-1,3,6-octatriene",Ocimene
+423,fig:639,10339-55-6,molécula,"3,7-Dimethyl-1,6-nonadien-3-ol (Ethyllinalool)",Ethyl Linalool
+424,fig:643,61792-11-8,molécula,"3,7-Dimethyl-2,6-nonadienenitrile",Lemonile
+425,fig:662,67634-20-2,molécula,"3a,4,5,6,7,7a-Hexahydro-4,7-methano-1H-inden-5-yl isobutyrate",Gardociclene Aroma Chemicals
+426,fig:680,426218-78-2,molécula,"3-Cyclohexene-1-methanol, 3(or 4)-methyl-1-(2,2,3-trimethyl-3-cyclopenten-1-yl)-,",Cassifix
+427,fig:708,541-91-3,molécula,3-Methyl-1-cyclopentadecanone,Muscone
+428,fig:711,113486-29-6,molécula,"3-Methyl-2,4-nonedione",Matcha Ketone 5% (TEC)
+429,fig:714,1191-16-8,molécula,3-Methyl-2-butenyl acetate,Prenyl Acetate
+430,fig:716,68555-58-8,molécula,3-Methyl-2-butenyl salicylate,Prenyl Salicylate
+431,fig:723,63314-79-4,molécula,3-Methyl-5-cyclopentadecen-1-one,Muscenone Delta (muscenone)
+432,fig:737,765-70-8,molécula,"3-Methylcyclopentane-1,2-dione",Maple Lactone (powder)
+433,fig:752,16251-77-7,molécula,3-Phenylbutanal,Trifernal
+434,fig:763,14576-08-0,molécula,4-(1-Methoxy-1-methylethyl)-1-methylcyclohexene,Orange Flower Ether
+435,fig:766,60241-53-4,molécula,"4-(2,6,6-Trimethylcyclohexyl)-3-methylbutan-2-ol",Madranol
+436,fig:767,13215-88-8,molécula,"4-(2-Butenylidene)-3,5,5-trimethylcyclohex-2-en-1-one",Tabanon
+437,fig:770,38462-23-6,molécula,"4-(4,8-Dimethylnona-3,7-dienyl)pyridine",Maritima
+438,fig:773,23550-40-5,molécula,4-(Methylthio)-4-methyl-2-pentanone,Cassis Pentanone 1% (IPM)
+439,fig:775,104-20-1,molécula,4-(p-Methoxyphenyl)-2-butanone,Frambinon Methyl Ether
+440,fig:791,675-09-2,molécula,"4,6-Dimethyl-2H-pyran-2-one",Levistamel 25% (TEC)
+441,fig:796,2550-11-0,molécula,"4,7-Dimethyloct-6-en-3-one",Dimethyl Octenone
+442,fig:799,1339119-15-1,molécula,"4,7-Methano-1H-indene-5-acetaldehyde, octahydro-",Aquaflora
+443,fig:806,18871-14-2,molécula,4-Acetoxy-3-pentyltetrahydropyran,Jasmal
+444,fig:811,83926-73-2,molécula,4-Cyclohexyl-2-methyl-2-butanol,Coranol
+445,fig:827,823178-41-2,molécula,"4H-Indeno[4,5-D]-1,3-dioxole, 3a,5,6,7,8,8b-hexahydro-2,2,6,6,7,8,8-heptamethyl-",Operanide
+446,fig:838,4621-04-9,molécula,4-Isopropylcyclohexanol,Apo Patchone Coeur
+447,fig:840,5462-06-6,molécula,4-Methoxy-alpha-methylbenzenepropanal,Canthoxal
+448,fig:860,224031-70-3,molécula,"4-Penten-1-one, 1-spiro[4.5]dec-7-en-7-yl-",Spirogalbanone
+449,fig:864,16587-71-6,molécula,4-t-Amylcyclohexanone,Orivone
+450,fig:866,98-52-2,molécula,4-tert-Butylcyclohexanol,Patchouli Hexanol (powder)
+451,fig:869,30168-23-1,molécula,4-Tricyclodecylidene butanal,Dupical
+452,fig:871,65113-99-7,molécula,"5-(2,2,3-Trimethyl-3-cyclopentenyl)-3-methylpentan-2-ol",Sandaltoch - Simil Sandalore
+453,fig:872,70851-61-5,molécula,5-(cis-3-Hexenyl)dihydro-5-methyl-2(3H)furanone,Lactone of Cis Jasmone
+454,fig:883,69486-14-2,molécula,"5,8-Methano-2H-1-benzopyran-2-one, 6- ethylideneoctahydro-",Florex
+455,fig:887,68140-48-7,molécula,"5-Acetyl-3-isopropyl-1,1,2,6-tetramethylindane",Traseolide
+456,fig:890,37609-25-9,molécula,5-Cyclohexadecen-1-one,Velvione
+457,fig:903,139539-66-5,molécula,"5-Methyl-1-(2,2,3-trimethyl-3-cyclopenten-1-yl)-6-oxabicyclo[3.2.1]octane",Cassifix
+458,fig:905,81925-81-7,molécula,5-Methyl-2-hepten-4-one,Filbertone 1% (TEC)
+459,fig:906,21834-92-4,molécula,5-Methyl-2-phenyl-2-hexenal,Cocoa Hexenal
+460,fig:913,620-02-0,molécula,5-Methylfurfural,5-Methyl Furfural
+461,fig:923,33885-51-7,molécula,"6,6-Dimethylbicyclo[3.1.1]hept-2-ene-2-propionaldehyde",Pino Acetaldehyde
+462,fig:926,21145-77-7,molécula,"6-Acetyl-1,1,2,4,4,7-hexamethyltetraline",Tonalide Aroma Chemicals
+463,fig:929,93939-86-7,molécula,"6-Ethylideneoctahydro-5,8-methano-2H-benzo-1-pyran",Rhuboflor
+464,fig:930,34131-98-1,molécula,6-Isopropyl-2(1H)-octahydronaphthalenone,Decatone
+465,fig:932,62439-41-2,molécula,"6-Methoxy-2,6-dimethylheptan-1-al",Aquaflor
+466,fig:935,110-93-0,molécula,6-Methyl-5-hepten-2-one,Methyl Heptenone
+467,fig:936,91-62-3,molécula,6-Methylquinoline,6-methyl Quinoline
+468,fig:950,88644-30-8,molécula,"8aH-2,4a-Methanonaphthalen-8a-ol, octahydro-1,1,5,5-tetramethyl-",Terranol (crystals)
+469,fig:952,338735-71-0,molécula,"8H-Indeno(4,5-B)furan,2,3,3a,4,5,5a,6,7,8a,9-decahydro-2,6,6,7,8,8-hexamethyl Mixture",Trisamber
+470,fig:957,13019-22-2,molécula,9-Decen-1-ol,Trepanol - Simil Rosalva
+471,fig:968,105-57-7,molécula,Acetal,Acetaldehyde Diethyl Acetal
+472,fig:975,2556-10-7,molécula,Acetaldehyde ethyl phenylethyl acetal,Corps Jacinthe
+473,fig:989,98-86-2,molécula,Acetophenone,Acetophenone 96%
+474,fig:998,94350-09-1,natural,Agarwood oil,Boya Oud Oil
+475,fig:1001,8001-99-8,natural,Ajowan oil,Aceite Esencial de Ajowan
+476,fig:1010,8006-77-7,natural,Allspice oil,Aceite esencial de Pimienta de Jamaica Hojas
+477,fig:1014,79-78-7,molécula,Allyl alpha-ionone,Hexalon
+478,fig:1018,2705-87-5,molécula,Allyl cyclohexanepropionate,Allyl Cyclohexyl Propionate
+479,fig:1022,123-68-2,molécula,Allyl hexanoate,Caproato de alilo
+480,fig:1029,8013-76-1,natural,"Almond oil, bitter",Almendra Amarga - CO2
+481,fig:1031,67634-15-5,molécula,"alpha,alpha-Dimethyl-p-ethylphenylpropanal",Floralozone
+482,fig:1033,10094-34-5,molécula,"alpha,alpha-Dimethylphenethyl butyrate",Dimethyl Benzyl Carbinyl Butyrate
+483,fig:1043,17627-44-0,molécula,alpha-Bisabolene,Bisaboleno
+484,fig:1046,10461-98-0,molécula,alpha-Cyclohexylidene benzeneacetonitrile,Peonile
+485,fig:1047,502-61-4,molécula,alpha-Farnesene,Farnesene
+486,fig:1049,101-86-0,molécula,alpha-Hexylcinnamaldehyde,Alpha Hexyl Cinnamic Aldehyde
+487,fig:1052,79-69-6,molécula,alpha-Irone,Irone Alpha
+488,fig:1056,93-92-5,molécula,alpha-Methylbenzyl acetate,Styrallyl Acetate
+489,fig:1063,10528-67-3,molécula,alpha-Methyl-cyclohexanepropanol,Magnolila
+490,fig:1064,99-83-2,molécula,alpha-Phellandrene,Alpha-phellandrene 98%
+491,fig:1082,2050-08-0,molécula,Amyl salicylate,Salicilato de amilo 98%
+492,fig:1085,8015-65-4,natural,Amyris oil,Aceite Esencial de Amyris
+493,fig:1087,8015-65-4,natural,"Amyris oil, rectified",Aceite Esencial de Amyris
+494,fig:1089,8015-64-3,natural,Angelica root oil,Aceite Esencial de Angélica
+495,fig:1092,8015-64-3,natural,Angelica seed oil,Aceite Esencial de Angélica
+496,fig:1101,883111-87-3,molécula,Apple alcoholate,Apple Firad 974723
+497,fig:1102,883111-87-3,natural,Apple distillate,Apple Firad 974723
+498,fig:1103,883111-87-3,natural,Apple essence oil,Apple Firad 974723
+499,fig:1104,883111-87-3,natural,Apple extract,Apple Firad 974723
+500,fig:1105,883111-87-3,natural,"Apple oil, rectified",Apple Firad 974723
+501,fig:1106,883111-87-3,natural,Apple tincture,Apple Firad 974723
+502,fig:1108,68991-20-8,natural,Armoise vulgaris oil,Aceite Esencial de Artemisa
+503,fig:1119,8007-00-9,natural,"Balsam resinoid, Peru",Peru Balsam Resinoide
+504,fig:1121,8007-47-4,molécula,"Balsams, Canada",Fir Balsam Absolute Resin 25% (ethanol)
+505,fig:1134,8012-89-3,natural,Beeswax absolute,Absoluto de Cera de Abeja
+506,fig:1138,100-52-7,molécula,Benzaldehyde,Aldehído Benzoico
+507,fig:1145,130786-09-3,molécula,"Benzeneacetonitrile, a-butylidene-, (Z)",Salicynile
+508,fig:1148,56836-93-2,molécula,"Benzenepropanol, a,ß-dimethyl-",Starfleur 40
+509,fig:1159,89-71-4,molécula,"Benzoic acid, 2-methyl-, methyl ester",Ylanganate
+510,fig:1162,9000-72-0,natural,"Benzoin CO2 extract, Siam",Benjui 50% DPG
+511,fig:1163,9000-72-0,natural,"Benzoin extract, Siam",Benjui 50% DPG
+512,fig:1164,9000-05-9,natural,"Benzoin extract, Sumatra",Res. Benjui de Sumatra puro
+513,fig:1165,9000-72-0,natural,"Benzoin gum, Siam",Benjui 50% DPG
+514,fig:1166,9000-05-9,natural,"Benzoin gum, Sumatra",Res. Benjui de Sumatra puro
+515,fig:1167,9000-05-9,natural,Benzoin infusion,Res. Benjui de Sumatra puro
+516,fig:1172,95-16-9,molécula,Benzothiazole,Benzothiazole 10% (DPG)
+517,fig:1179,120-51-4,molécula,Benzyl benzoate,Benzyl Benzoate 75%
+518,fig:1193,118-58-1,molécula,Benzyl salicylate,Salicilato de Bencilo
+519,fig:1203,35044-68-9,molécula,"beta-1-(2,6,6-Trimethyl-1-cyclohexen-1-yl)-2-buten-1-one",Damascone Beta
+520,fig:1210,55066-49-4,molécula,beta-Methyl-benzenepentanal,Mefranal
+521,fig:1221,116126-82-0,molécula,"Bicyclo[2.2.1]hept-5-ene-2-carboxylic acid, 3-(1-methylethyl)-, ethyl ester, (2-exo,3-",Herbanate
+522,fig:1241,68650-46-4,natural,"Bucchu oil, betulina",Buchu Oil
+523,fig:1243,68650-46-4,natural,"Bucchu oil, rectified, betulina",Buchu Oil
+524,fig:1247,406488-30-0,molécula,"Butanamide, 2-ethyl-N-methyl-N-(3-methylphenyl)-",Paradisamide
+525,fig:1270,138-22-7,molécula,Butyl lactate,Lactato de Butilo
+526,fig:1276,544-40-1,molécula,Butyl sulfide,Dibutyl Sulfide 10% (IPM)
+527,fig:1286,8013-10-3,natural,Cade oil,Aceite Esencial de Enebro Cade
+528,fig:1287,8013-10-3,natural,"Cade oil, rectified",Aceite Esencial de Enebro Cade
+529,fig:1289,8008-98-8,natural,Cajuput oil,Aceite Esencial de Cayeput
+530,fig:1290,8015-79-0,natural,Calamus oil,Aceite Esencial de Cálamo Aromático
+531,fig:1291,1069136-34-0,natural,Callitropsis nootkatensis oil,Cedarwood Alaska
+532,fig:1292,1069136-34-0,natural,"Callitropsis nootkatensis oil, rectified",Cedarwood Alaska
+533,fig:1297,8008-51-3,natural,"Camphor oil, white",Aceite Esencial de Alcanfor
+534,fig:1306,8000-66-6,natural,Cardamom seed CO2 extract,Cardamomo CO2
+535,fig:1311,8021-43-0,natural,Carnation absolute,Absoluto de Clavel - EXTRA
+536,fig:1336,97676-19-2,natural,Cassis bud absolute,Cassis Bud Absolute 50% (DPG)
+537,fig:1353,8023-85-6,natural,"Cedarwood extract, Atlas",Cedar Atlas Redist
+538,fig:1354,68990-83-0,natural,"Cedarwood oil (low cedrol), Texas",Aceite Esencial de CEDRO DE TEXAS
+539,fig:1359,1159574-01-2,natural,"Cedarwood oil, Chinese",Aceite Esencial de Cedro Chino
+540,fig:1360,1159574-01-2,natural,"Cedarwood oil, Chinese, rectified",Aceite Esencial de Cedro Chino
+541,fig:1362,68991-36-6,natural,"Cedarwood oil, Himalaya",Aceite Esencial de Cedro del Himalaya
+542,fig:1365,68990-83-0,natural,"Cedarwood oil, Texas",Aceite Esencial de CEDRO DE TEXAS
+543,fig:1366,68990-83-0,natural,"Cedarwood oil, Texas, rectified",Aceite Esencial de CEDRO DE TEXAS
+544,fig:1370,8000-27-9,natural,"Cedarwood terpenes, Virginia",Cedarwood Virginia Super Rectified
+545,fig:1377,77-53-2,molécula,Cedrol,Cedrol Natural Cristalizado
+546,fig:1379,77-54-3,molécula,Cedryl acetate,Cedryl Acetate Cristalizado
+547,fig:1385,8015-90-5,natural,Celery seed oil,Aceite Esencial de semillas de Apio
+548,fig:1388,8002-66-2,natural,"Chamomile flower oil, blue",Aceite Esencial de Manzanilla Alemana
+549,fig:1389,8002-66-2,natural,"Chamomile flower oil, blue",Aceite Esencial de Manzanilla Alemana
+550,fig:1390,8015-92-7,natural,"Chamomile flower oil, Roman",Aceite Esencial de Manzanilla Romana
+551,fig:1391,8015-92-7,natural,"Chamomile flower, English, oil",Aceite Esencial de Manzanilla Romana
+552,fig:1416,1885-38-7,molécula,Cinnamyl nitrile,Cinnamalva 50% (DPG)
+553,fig:1420,59323-76-1,molécula,"cis-2-Methyl-4-propyl-1,3-oxathiane",Oxane 50% (DPG)
+554,fig:1422,20298-69-5,molécula,cis-2-tert-Butylcyclohexyl acetate,Verdox HC
+555,fig:1425,3681-71-8,molécula,cis-3-Hexen-1-yl acetate,Cis-3-hexenyl Acetate
+556,fig:1438,67633-96-9,molécula,cis-3-Hexenyl methyl carbonate,Liffarome
+557,fig:1448,21662-09-9,molécula,cis-4-Decen-1-al,Cardamom Aldehyde 10% (DPG)
+558,fig:1478,8000-29-1,natural,"Citronella oil, Ceylon type",Aceite Esencial de Citronela
+559,fig:1479,8000-29-1,natural,"Citronella oil, Java type",Aceite Esencial de Citronela
+560,fig:1483,7492-67-3,molécula,Citronelloxyacetaldehyde,Citronellyl Oxyacetaldehyde
+561,fig:1494,141-14-0,molécula,Citronellyl propionate,Propionato Citronelilo
+562,fig:1519,8001-67-0,natural,"Coffee bean, roasted, absolute",Café Absoluto
+563,fig:1523,84650-00-0,natural,"Coffee, Coffea arabica, extract",Café (Coffee) CO2
+564,fig:1525,8013-97-6,natural,Copaiba balsam oil,Aceite Esencial de Bálsamo de Copaíba
+565,fig:1527,8013-97-6,natural,Copaiba oil,Aceite Esencial de Bálsamo de Copaíba
+566,fig:1536,8007-87-2,natural,Cubeb oil,Aceite Esencial de Pimienta de Java
+567,fig:1537,8007-87-2,natural,"Cubeb oil, rectified",Aceite Esencial de Pimienta de Java
+568,fig:1538,89998-01-6,natural,Cucumber distillate,Pepino CO2 (purificado) - 1%
+569,fig:1539,89998-01-6,natural,Cucumber extract,Pepino CO2 (purificado) - 1%
+570,fig:1546,118562-73-5,molécula,"Cyclododecaneethanol, .beta.-methyl-",Hydroxyambran 50% (IPM)
+571,fig:1587,4927-39-3,molécula,Cyclohexyl methyl pentanone,Vetival
+572,fig:1590,87731-18-8,molécula,Cyclooct-4-en-1-yl methyl carbonate,Violiff
+573,fig:1591,502-72-7,molécula,Cyclopentadecanone,Exaltone (powder)
+574,fig:1619,8016-03-3,natural,Davana oil,Davana Oil Extra
+575,fig:1622,25225-10-9,molécula,d-Cyclocitronellene acetate,Rosamusk
+576,fig:1650,72903-27-6,molécula,"Diethyl 1,4-cyclohexane dicarboxylate",Fructalate
+577,fig:1653,123-25-1,molécula,Diethyl succinate,Succinato Dietilo Aroma Chemicals
+578,fig:1654,68845-36-3,molécula,Diethyldimethylcyclohex-2-en-1-one,Azarbre
+579,fig:1669,1209-61-6,molécula,Dihydroisocaryophyllene epoxide,Tobacarol
+580,fig:1687,27939-60-2,molécula,Dimethylcyclohex-3-ene-1-carbaldehyde (isomer unspecified),Trivertal aka Triplal
+581,fig:1703,2437-25-4,molécula,Dodecanenitrile,Clonal
+582,fig:1707,89-82-7,molécula,d-Pulegone,Pulegone 98%
+583,fig:1709,8023-89-0,natural,Elemi CO2 extract,Elemi SFE
+584,fig:1711,8023-89-0,natural,Elemi oil,Elemi Resinoide 50% DPG
+585,fig:1712,8023-89-0,natural,ELEMI oil (low methyleugenol),Elemi Resinoide 50% DPG
+586,fig:1713,8023-89-0,natural,"Elemi oil, rectified",Elemi Resinoide 50% DPG
+587,fig:1732,93981-50-1,molécula,"Ethyl 2,3,6-trimethylcyclohexyl carbonate",Rholiate
+588,fig:1735,35044-59-8,molécula,"Ethyl 2,6,6-trimethylcyclohexa-1,3-ene-1-carboxylate",Ethyl Safranate
+589,fig:1740,2983-37-1,molécula,Ethyl 2-ethylhexanoate,Irotyl
+590,fig:1752,39255-32-8,molécula,Ethyl 2-methylpentanoate,Manzanate
+591,fig:1760,2305-25-1,molécula,Ethyl 3-hydroxyhexanoate,Ethyl 3-Hydroxy Hexanoate
+592,fig:1766,141-78-6,molécula,Ethyl acetate,Acetato Etilo Nat
+593,fig:1775,110-38-3,molécula,Ethyl decanoate,Ethyl Caprate
+594,fig:1783,97-64-3,molécula,Ethyl lactate,Lactato de Etilo natural
+595,fig:1789,124-06-1,molécula,Ethyl myristate,Miristato Etilo
+596,fig:1790,123-29-5,molécula,Ethyl nonanoate,Ethyl Pelargonate
+597,fig:1833,92201-64-4,natural,Eucalyptus radiata oil,Aceite Esencial de Eucalipto Radiata
+598,fig:1849,68990-15-8,natural,Fenugreek absolute,Absoluto de Fenogreco
+599,fig:1870,68917-51-1,natural,Fucus vesiculosus absolute,ABS. Alga Fucus
+600,fig:1873,98-01-1,molécula,Furfural,Furfural Aroma Chemicals
+601,fig:1875,98-02-2,molécula,Furfuryl mercaptan,Furfuryl Mercaptan 1% (DPG)
+602,fig:1881,8023-91-4,natural,Galbanum absolute,Abs. de Gálbano
+603,fig:1884,8023-91-4,natural,Galbanum oil,Aceite Esencial de Gálbano
+604,fig:1885,8023-91-4,natural,"Galbanum oil, rectified",Aceite Esencial de Gálbano
+605,fig:1887,8023-91-4,natural,Galbanum resinoid,Galbanum Resinoide Super 50% (ethanol)
+606,fig:1900,8000-78-0,natural,Garlic oil,Aceite Esencial de Ajo
+607,fig:1936,8007-08-7,natural,Ginger CO2 extract,Jengibre fresco CO2
+608,fig:1946,8016-20-4,natural,"Grapefruit absolute, white",Pink Grapefruit Cold Pressed
+609,fig:1948,8016-20-4,natural,Grapefruit extract,Pink Grapefruit Cold Pressed
+610,fig:1959,8016-23-7,natural,"Guaiac wood oil, rectified",Guaiacwood Oil Crude 50% (ethanol)
+611,fig:1960,90-05-1,molécula,Guaiacol,GUAIACOL - GUAYACOL
+612,fig:1962,61789-17-1,molécula,Guaiacwood acetate,Palo Santo Acetilado / Acetato de Guayilo Técnico
+613,fig:1965,8030-55-5,natural,Gurjun balsam,Gurjun Balsam (Malaysia)
+614,fig:1967,8030-55-5,natural,Gurjun extract,Gurjun Balsam (Malaysia)
+615,fig:1970,8031-00-3,natural,Hay absolute,Hay Absolute (lolium perenne)
+616,fig:1972,8023-95-8,natural,Helichrysum absolute,Immortele Absolute
+617,fig:1977,111-71-7,molécula,Heptanal,Aldehyde C-07 (heptanal)
+618,fig:1985,109-29-5,molécula,Hexadecanolide,Silvanone Supra
+619,fig:1995,142-92-7,molécula,Hexyl acetate,Acetato de exilo
+620,fig:1997,6789-88-4,molécula,Hexyl benzoate,Hexyl Benzoate - Benzoato Hexilo
+621,fig:2008,68917-43-1,natural,Hibawood oil,Aceite Esencial de Madera de Hiba
+622,fig:2016,8023-93-6,natural,Honeysuckle absolute,DILUCION ABS. Madreselva 10%
+623,fig:2021,107-75-5,molécula,Hydroxycitronellal,Cyclosia (Hydroxycitronellal)
+624,fig:2027,107-74-4,molécula,Hydroxycitronellol,Hydroxycitronellol - Cyclosia
+625,fig:2030,647828-16-8,molécula,"Indeno[4,3a-b]furan,decahydro-2,2,7,7,8,9,9-heptamethyl-",Amber Xtreme
+626,fig:2032,120-72-9,molécula,Indole,Indol
+627,fig:2043,8002-73-1,natural,Iris pallida resinoid,Orris Resinoid 50% (ethanol)
+628,fig:2093,37677-14-8,molécula,Isohexenyl cyclohexenyl carboxaldehyde,Myrac Aldehyde
+629,fig:2114,125109-85-5,molécula,Isopropylphenylbutanal,Florhydral
+630,fig:2141,7785-26-4,molécula,l-.alpha.-Pinene,Alfa Pineno
+631,fig:2190,25225-08-5,molécula,l-Cyclocitronellene formate,Aphermate
+632,fig:2191,8008-56-8,natural,Lemon absolute folded (5X),Lemon Tetrarome
+633,fig:2200,68648-39-5,natural,"Lemon oil, terpeneless",Aceite Esencial de Petitgrain Limonero
+634,fig:2230,78-35-3,molécula,Linalyl isobutyrate,Isobutirato de linalilo
+635,fig:2234,90063-53-9,molécula,Linden flowers,Absoluto de Tilo Flor
+636,fig:2251,8016-31-7,natural,Lovage leaf oil,Aceite Esencial de Levístico
+637,fig:2252,8016-31-7,natural,Lovage root oil,Aceite Esencial de Levístico
+638,fig:2255,8007-12-3,natural,Mace oil,Aceite Esencial de Nuez Moscada
+639,fig:2268,8016-33-9,natural,"Marjoram oil, Spanish",Aceite Esencial de Tomillo Mastichina
+640,fig:2270,84012-24-8,molécula,"Marjoram, pot",Aceite Esencial de Orégano
+641,fig:2272,68991-39-9,natural,Mastic absolute,Mastic Absolute MD 50% TEC (Morocco)
+642,fig:2279,108-39-4,molécula,m-Cresol,Meta Cresol 10 % (DPG)
+643,fig:2285,68917-18-0,natural,Mentha arvensis oil,Aceite Esencial de Menta Arvensis
+644,fig:2286,68917-18-0,natural,Mentha arvensis oil (low menthol),Aceite Esencial de Menta Arvensis
+645,fig:2288,68917-18-0,natural,"Mentha arvensis oil, distilled",Aceite Esencial de Menta Arvensis
+646,fig:2291,68917-15-7,natural,Mentha citrata oil,Aceite Esencial de Menta Citrata
+647,fig:2307,33662-58-7,molécula,"Methyl 2,4-dihydroxy-m-toluate",Oceanol (powder)
+648,fig:2313,68738-99-8,molécula,"Methyl 2-[[[2,4(or 3,5)-dimethyl-3-cyclohexen-1-yl]methylene]amino]benzoate",Agrumea
+649,fig:2320,111-80-8,molécula,Methyl 2-nonynoate,Methyl Octine Carbonate
+650,fig:2331,68966-86-9,molécula,Methyl 4(or 1)-isopropyl-1(or 4)-methylbicyclo[2.2.2]oct-5-ene-2-carboxylate,Mahagonate
+651,fig:2340,93-08-3,molécula,Methyl beta-naphthyl ketone,Beta Methyl Naphthyl Ketone (powder)
+652,fig:2343,103-26-4,molécula,Methyl cinnamate,Methyl Cinnamate 50%
+653,fig:2352,8050-15-5,molécula,Methyl ester of rosin (partially hydrogenated),Hercolyn DW
+654,fig:2364,301-00-8,molécula,Methyl linoleate (48%) methyl linolenate (52%) mixture,Methyl Linolenate
+655,fig:2373,101-41-7,molécula,Methyl phenylacetate,Methyl phenyl acetate
+656,fig:2400,84649-97-8,natural,Mushroom absolute,Absoluto de Hongo Porchino (Porcini)
+657,fig:2402,81-14-1,molécula,Musk ketone,Musk Ketone (powder)
+658,fig:2404,123-35-3,molécula,Myrcene,Myrcene 98%
+659,fig:2410,8016-37-3,natural,Myrrh absolute,Myrrh Resinoide Absolute Super 50% (ethanol)
+660,fig:2416,8016-37-3,natural,Myrrh resinoid,Resinoide de Mirra (PROP. 50%)
+661,fig:2423,84434-18-4,molécula,"N,2-Dimethyl-N-phenylbutyramide",Gardamide 50% (TEC)
+662,fig:2436,7212-44-4,molécula,Nerolidol (isomer unspecified),Nerolidol
+663,fig:2449,8014-68-4,natural,Niaouli oil,Aceite Esencial de Niaoulí
+664,fig:2453,557-48-2,molécula,Nona-2-trans-6-cis-dienal,Cucumber Aldehyde (Trans-2-cis-6-Nonadienal) 1 % (DPG)
+665,fig:2454,124-19-6,molécula,Nonanal,Aldehyde C9 (Nonanal)
+666,fig:2460,29127-83-1,molécula,Nonen acid nitrile,Irisnitrile 5% (TEC)
+667,fig:2464,4674-50-4,molécula,Nootkatone,Nootkatone 85-87%
+668,fig:2480,9000-50-4,natural,Oakmoss absolute,Musgo de Roble (low atranol) 50% DPG
+669,fig:2481,9000-50-4,natural,Oakmoss absolute (low atranol & chloratranol),Musgo de Roble (low atranol) 50% DPG
+670,fig:2489,30772-69-1,molécula,"Octahydro-4,7-methano-1H-indenemethyl acetate",Mysore Acetate
+671,fig:2496,4430-31-3,molécula,Octahydrocoumarin,Bicyclononalactone
+672,fig:2502,124-12-9,molécula,Octanenitrile,Octane Nitrile
+673,fig:2514,8016-36-2,natural,Olibanum carterii extract,Olibanum Coeur
+674,fig:2520,8016-36-2,natural,Olibanum extract,Olibanum Coeur
+675,fig:2537,68514-75-0,natural,Orange essence oil,Sweet Orange Phase Oil
+676,fig:2568,68917-05-5,natural,Osmanthus concrete,Osmanthus
+677,fig:2569,68917-05-5,natural,Osmanthus tincture,Osmanthus
+678,fig:2572,19819-98-8,molécula,o-Tolylethanol,Peomosa
+679,fig:2574,111879-80-2,molécula,"Oxacyclohexadec-12-en-2-one, (12E)-",Habanolide
+680,fig:2583,1195-32-0,molécula,"p,alpha-Dimethylstyrene",Habanene
+681,fig:2584,8014-19-5,natural,Palmarosa oil,Aceite Esencial de Palmarosa
+682,fig:2589,8000-68-8,natural,Parsley herb oil,Aceite Esencial de Perejil Semillas
+683,fig:2591,8000-68-8,natural,Parsley seed oil,Aceite Esencial de Perejil Semillas
+684,fig:2604,106-44-5,molécula,p-Cresol,Para Cresol 10% (IPM)
+685,fig:2607,99-87-6,molécula,p-Cymene,Para Cymene
+686,fig:2608,150-78-7,molécula,p-Dimethoxybenzene,Dimethyl Hydroquinone (crystals)
+687,fig:2615,26516-27-8,molécula,"Pentanoic acid, 3-methyl-2-oxo-, ethyl ester",Nuezate
+688,fig:2616,628-63-7,molécula,Pentyl acetate,Acetato Amilo
+689,fig:2622,8006-82-4,natural,"Pepper, black, absolute",Black Pepper Absolute
+690,fig:2625,8006-82-4,natural,"Pepper, black, oil, rectified",Black Pepper Oil (Sri Lanka)
+691,fig:2629,8006-82-4,natural,"Pepper, white, oil",Black Pepper Oil (Sri Lanka)
+692,fig:2653,8014-17-3,natural,"Petitgrain water absolute, Paraguay",Petitgrain Bigarade
+693,fig:2656,103-45-7,molécula,Phenethyl acetate,Phenyl Ethyl Acetate
+694,fig:2667,102-20-5,molécula,Phenethyl phenylacetate,Phenyl Ethyl Phenyl Acetate
+695,fig:2679,67633-94-7,molécula,"Phenylacetaldehyde 2,4-dihydroxy-2-methylpentane acetal",Reseda Body
+696,fig:2681,101-48-4,molécula,Phenylacetaldehyde dimethyl acetal,Phenyl acetaldehyde dimethyl acetal (PADMA)
+697,fig:2683,29895-73-6,molécula,Phenylacetaldehyde glyceryl acetal,Phenyl Acetaldehyde Glycerine Acetal
+698,fig:2692,8006-77-7,natural,Pimenta leaf oil,Aceite esencial de Pimienta de Jamaica Hojas
+699,fig:2693,8006-77-7,natural,Pimenta leaf oil (low methyleugenol),Aceite esencial de Pimienta de Jamaica Hojas
+700,fig:2695,8000-26-8,natural,"Pine needle, dwarf, oil",Pino Marítimo
+701,fig:2698,8023-99-2,natural,Pine Scotch absolute,Pine Absolute 50% (ethanol)
+702,fig:2699,8023-99-2,natural,Pine Scotch oil,Aceite Esencial de Pino Silvestre
+703,fig:2703,8023-99-2,natural,"Pine Scotch, pyrogenated oil",Aceite Esencial de Pino Silvestre
+704,fig:2707,8000-26-8,natural,"Pine, Pinus maritima, sawdust oil",Pino Marítimo
+705,fig:2714,8000-26-8,natural,Pinus nigra oil,Pino Marítimo
+706,fig:2721,120-57-0,molécula,Piperonal,Heliotropine 25% DPG
+707,fig:2723,6658-48-6,molécula,p-Isobutyl-alpha-methyl hydrocinnamaldehyde,Silvial
+708,fig:2726,536-60-7,molécula,p-Isopropylbenzyl alcohol,Cuminyl Alcohol
+709,fig:2732,99-85-4,molécula,"p-Mentha-1,4-diene",Gamma Terpinene
+710,fig:2736,38462-22-5,molécula,p-Mentha-8-thiol-3-one,Buchu Mercaptan 1% (IPM)
+711,fig:2738,68921-26-6,molécula,p-Menthylene sulfide 1% in limonene,Corps Pamplemousse 1% (TEC)
+712,fig:2739,123-11-5,molécula,p-Methoxybenzaldehyde,Anis Aldehyde
+713,fig:2742,84697-09-6,molécula,p-Methyl-alpha-amyl cinnamic aldehyde,Acalea
+714,fig:2745,104-45-0,molécula,p-Propylanisole,Dihydroestragole RC
+715,fig:2749,478695-70-4,molécula,"Propanedioic acid, 1-(3,3-dimethylcyclohexyl) ethyl, ethyl ester",Edenolide
+716,fig:2756,319002-92-1,molécula,"Propyl (2S)-2-(1,1-dimethylpropoxy)-propanoate",Sclareolate
+717,fig:2767,80-54-6,molécula,p-t-Butyl-alpha-methylhydrocinnamic aldehyde,Lilial
+718,fig:2771,104-87-0,molécula,p-Tolualdehyde,Para Tolyl Aldehyde
+719,fig:2777,101-94-0,molécula,p-Tolyl phenylacetate,"Para-cresyl phenyl acetate 2,5 % (DPG)"
+720,fig:2779,89-82-7,molécula,Pulegone,Pulegone 98%
+721,fig:2797,8007-01-0,natural,Rose,Rose Ultimate Extract
+722,fig:2799,8007-01-0,natural,Rose absolute,Rose Ultimate Extract
+723,fig:2800,8007-01-0,natural,Rose centifolia alcoholate,Rose Ultimate Extract
+724,fig:2801,8007-01-0,natural,Rose centifolia CO2 extract,Rose Ultimate Extract
+725,fig:2803,8007-01-0,natural,Rose CO2 extract,Rose Ultimate Extract
+726,fig:2804,8007-01-0,natural,Rose concrete,Rose Ultimate Extract
+727,fig:2805,8007-01-0,natural,Rose extract,Rose Ultimate Extract
+728,fig:2806,8007-01-0,natural,Rose extract,Rose Ultimate Extract
+729,fig:2811,3033-23-6,molécula,Rose oxide levo,Rose Oxide Laevo
+730,fig:2812,8007-01-0,natural,Rose tincture,Rose Ultimate Extract
+731,fig:2813,8007-01-0,natural,Rose tincture,Rose Ultimate Extract
+732,fig:2820,8015-77-8,natural,Rosewood oil,Aceite Esencial de Palo de Rosa
+733,fig:2840,90-02-8,molécula,Salicylaldehyde,2-hydroxybenzaldehyde 10% (IPM)
+734,fig:2853,8016-68-0,natural,Savory summer oil,Aceite Esencial de Ajedrea
+735,fig:2854,90106-57-3,natural,Savory winter oil,Aceite Esencial de Ajedrea
+736,fig:2859,949495-68-5,natural,Schinus terebenthifolius CO2 extract,Pink Pepper SFE
+737,fig:2867,8008-74-0,natural,Sesame seed CO2 extract,Sesame SFE ABS
+738,fig:2884,8016-78-2,natural,Spike lavender oil,Aceite Esencial de Lavanda Latifolia
+739,fig:2887,154171-77-4,molécula,"Spiro[1,3-dioxolane-2,8'(5'H)-[2H-2,4a]methanonaphthalene],hexahydro-1',1',5',5'-",Ysamber K
+740,fig:2896,68952-43-2,natural,Star anise oil,Aceite Esencial de Anís Estrellado
+741,fig:2909,8024-01-9,natural,"Styrax oil, Oriental",Styrax Oil
+742,fig:2910,8024-01-9,natural,"Styrax oil, Oriental",Styrax Oil
+743,fig:2911,8024-01-9,natural,"Styrax oil, pyrogenated",Styrax Oil
+744,fig:2912,8024-01-9,natural,"Styrax oil, pyrogenated, distilled",Styrax Oil
+745,fig:2915,100-42-5,molécula,Styrene,Styrene Aroma Chemicals
+746,fig:2919,8016-84-0,natural,Tagetes erecta oil,Aceite esencial de Tagete o Clavel Chino
+747,fig:2921,8016-84-0,natural,Tagetes minuta oil,Aceite esencial de Tagete o Clavel Chino
+748,fig:2922,8016-84-0,natural,"Tagetes minuta oil, rectified",Aceite esencial de Tagete o Clavel Chino
+749,fig:2931,8016-87-3,natural,Tansy oil,Aceite esencial de Tanaceto
+750,fig:2933,8016-88-4,natural,Tarragon oil,Aceite Esencial de Estragón
+751,fig:2937,68647-73-4,natural,Tea tree oil,Aceite Esencial de Árbol del Té
+752,fig:2946,8000-41-7,molécula,Terpineol,Terpineol Extra
+753,fig:2950,8007-35-0,molécula,Terpinyl acetate (Isomer mixture),Terpinyl Acetate
+754,fig:2959,16409-43-1,molécula,Tetrahydro-4-methyl-2-(2-methylpropen-1-yl)pyran,Rose Oxide
+755,fig:2961,131766-73-9,molécula,Tetrahydro-4-methyl-2-propyl-2H-pyran-4-yl acetate,Sagecete
+756,fig:2962,34686-71-0,molécula,Tetrahydro-6-(2-pentenyl)-2H-pyran-2-one,Jasmine Lactona o Jasmolactona
+757,fig:2963,32764-98-0,molécula,Tetrahydro-6-(3-pentenyl)-2H-pyran-2-one,Jasmolactone
+758,fig:2975,8007-46-3,natural,"Thyme oil, red",Aceite Esencial de Tomillo Blanco
+759,fig:2976,8007-46-3,natural,"Thyme oil, white",Aceite Esencial de Tomillo Blanco
+760,fig:2978,85085-75-2,natural,"Thyme, Thymus zygis, oil",Aceite Esencial de Tomillo Rojo
+761,fig:2980,8037-19-2,natural,Tobacco extract,Absoluto de Tabaco Natural
+762,fig:2984,8037-19-2,natural,Tobacco oleoresin,Absoluto de Tabaco Natural
+763,fig:2985,8024-03-1,natural,"Tolu, balsam, extract",Bálsamo de Tolu
+764,fig:2986,8024-03-1,natural,"Tolu, balsam, gum",Bálsamo de Tolu
+765,fig:2987,8024-03-1,natural,"Tolu, balsam, resinoid",Bálsamo de Tolu
+766,fig:2990,8024-04-2,natural,Tonka bean extract,Haba Tonka 30% Etanol
+767,fig:2991,8024-04-2,natural,Tonka bean resinoid,Haba Tonka 30% Etanol
+768,fig:3017,4180-23-8,molécula,trans-Anethole,Anethole (natural)
+769,fig:3028,90-17-5,molécula,Trichloromethyl phenyl carbinyl acetate,Rose Crystals (powder)
+770,fig:3029,122760-84-3,molécula,"Tricyclo[3.3.1.1.(3.7)]decan-2-ol, 4-methyl-8-methylene-",Prismantol 50% (DPG)
+771,fig:3039,71735-79-0,molécula,"Trimethyl-13-oxabicyclo[10.1.0]trideca-4,8-diene",Cedroxyde
+772,fig:3050,8006-64-2,natural,Turpentine oil,Aceite Esencial de Trementina
+773,fig:3051,8006-64-2,natural,"Turpentine oil, rectified",Aceite Esencial de Trementina
+774,fig:3063,8008-88-6,natural,Valerian root oil,Aceite esencial de Valeriana Raíz
+775,fig:3070,953789-39-4,natural,Vanilla tahitensis CO2 extract,Vanilla Tahitensis SFE
+776,fig:3072,8047-24-3,natural,Vanilla tincture,Resinoide de Vainilla
+777,fig:3075,20665-85-4,molécula,Vanillin isobutyrate,Isobutavan
+778,fig:3081,8016-96-4,natural,Vetiver CO2 extract,Vetiver Java MD
+779,fig:3082,8016-96-4,natural,Vetiver extract,Vetiver Java MD
+780,fig:3091,62563-80-8,molécula,"Vetiverol, acetate",Vetiveryl Acetate
+781,fig:3101,8008-93-3,natural,Wormwood oil,Wormwood Oil (artemisia absinthium)
+782,fig:3105,8022-07-9,natural,Yarrow oil,Aceite esencial de Milenrama
+783,fig:3106,8006-81-3,natural,Ylang ylang absolute,Lisylang
+784,fig:3115,8006-81-3,natural,Ylang-ylang extract,Lisylang
+785,cas:5502-75-0,5502-75-0,molécula,"cis,trans-4-(Isopropyl)cyclohexanemethanol",Mayol
+786,cas:8014-71-9,8014-71-9,natural,Melissa oil (genuine Melissa officinalis L.),Aceite Esencial de Melisa Oficinalis
+787,cas:84775-41-7,84775-41-7,natural,Angelica root oil,Aceite Esencial de Angélica
+788,cas:84776-64-7,84776-64-7,natural,Jasmine absolute (grandiflorum),Absoluto de Jazmín Egipcio - Grandiflorum
+789,cas:84929-47-5,84929-47-5,natural,Rue oil,Aceite Esencial de Ruda
+790,cas:85251-66-7,85251-66-7,molécula,Birch wood pyrolysate,Aceite Esencial de Abedul Dulce
+791,cas:85940-29-0,85940-29-0,molécula,Birch wood pyrolysate,Aceite Esencial de Abedul Cade
+792,cas:9000-78-6,9000-78-6,molécula,Opoponax,Opoponax Absolute 50% (TEC)
+793,cas:90045-94-6,90045-94-6,natural,Jasmine absolute (grandiflorum),Absoluto de Jazmín - Oriental
+794,cas:91770-75-1,91770-75-1,natural,Tagetes oil and absolute,Aceite esencial de Tagete o Clavel Chino
+795,ncs:allspice-oleoresin,8006-77-7,natural,Allspice oleoresin,Aceite esencial de Pimienta de Jamaica Hojas
+796,ncs:balm-oil,8014-71-9,natural,Balm oil,Aceite Esencial de Melisa Oficinalis
+797,ncs:cassia-bark-oleoresin,8007-80-5,natural,Cassia bark oleoresin,Aceite Esencial de Casia
+798,ncs:clary-sage-concrete,8016-63-5,natural,Clary sage concrete,Aceite Esencial de Salvia Romana o Esclarea
+799,ncs:clementine-oil,93686-22-7,natural,Clementine oil,Aceite Esencial de Mandarina Tangor
+800,ncs:hyacinth-absolute,8023-94-7,natural,Hyacinth absolute,Absoluto de Jacinto
+801,ncs:jasmine-officinale-absolute,8024-43-9,natural,Jasmine officinale absolute,Absoluto de Jazmín - Oriental
+802,ncs:magnolia-flower-oil,68917-19-1,natural,Magnolia flower oil,Aceite Esencial de Magnolia Grandiflora (Flor)
+803,ncs:marjoram-oleoresin,84082-58-6,natural,Marjoram oleoresin,Aceite Esencial de Mejorana Natural - 100%
+804,ncs:murcote-oil-expressed,93686-22-7,natural,"Murcote oil, expressed",Aceite Esencial de Mandarina Tangor
+805,ncs:petitgrain-bigarade-absolute,8030-28-2,natural,Petitgrain bigarade absolute,Aceite Esencial de Azahar (Neroli)- Reducción de tintura
+806,ncs:pine-pinus-pinaster-oil,8000-26-8,natural,"Pine, Pinus pinaster, oil",Pino Marítimo
+807,ncs:ravensara-aromatica-oil,91770-56-8,natural,Ravensara aromatica oil,Aceite Esencial de Ravensara
+808,ncs:spearmint-oil,8008-79-5,natural,Spearmint oil,Aceite Esencial de Menta Verde - Hierba Buena
+809,ncs:tangor-oil-expressed,93686-22-7,natural,"Tangor oil, expressed",Aceite Esencial de Mandarina Tangor
+810,ncs:thyme-oil-wild,8007-46-3,natural,"Thyme oil, wild",Aceite Esencial de Tomillo Blanco
+811,tienda:1391529-52-4,1391529-52-4,molécula,TRIMOFIX IFF,Trimofix
+812,tl:110-27-0,110-27-0,molécula,Isopropyl myristate,Isopropyl Myristate (IPM)
+813,tl:1226911-69-8,1226911-69-8,molécula,"4-Pentenal, 4-methyl-5-(4-methylphenyl)-, (4E)-",Mimosal
+814,tl:1357064-95-9,1357064-95-9,molécula,"4H-4a,9-Methanoazuleno[5,6-d]-1,3-dioxole, octahydro-2,5,8,8,9a-pentamethyl-2-propyl-, (3aS,4aR,5R,7aS,9R,9aR)-",Ambrostar
+815,tl:1378867-81-2,1378867-81-2,molécula,"1-Cyclohexene-1-propanal, 4-(1-methylethyl)-, (4R)",Lilybelle
+816,tl:1449104-34-0,1449104-34-0,molécula,"4-Pentenal, 5-cyclohexyl-2,4-dimethyl-, (4E)-",Muguissimo
+817,tl:1637294-12-2,1637294-12-2,molécula,3-(4-isobutyl-2-methylphenyl)propanal,Nympheal
+818,tl:189440-77-5,189440-77-5,molécula,"4,7-Octadienoic acid, methyl ester, (4E)-",Methyl Anjoulate
+819,tl:224790-80-1,224790-80-1,molécula,"Phenol, 2-methoxy-, reaction products",Magnol
+820,tl:25265-71-8,25265-71-8,molécula,Dipropylene glycol (isomer unspecified),Dipropylene Glycol
+821,tl:38303-23-0,38303-23-0,molécula,"4,5,6,7,8,9,10,11,12,13-Decahydrocyclododecaoxazole",Sclarene 80% DPG
+822,tl:50373-36-9,50373-36-9,molécula,"Cyclohexanol, 5-methyl-2-(1-methylethenyl)-, (1.alpha.,2.beta.,5.alpha.)-(.+-.)-",Geranodyle
+823,tl:51411-24-6,51411-24-6,molécula,(+/-)-Dihydrofarnesol,Biocyclamol
+824,tl:56539-66-3,56539-66-3,molécula,3-Methoxy-3-methyl-1-butanol,MMB (3-methoxy-3-methyl-1-butanol)
+825,tl:77-93-0,77-93-0,molécula,Triethyl citrate,Triethyl Citrate (TEC)
+826,tl:7786-67-6,7786-67-6,molécula,"Cyclohexanol, 5-methyl-2-(1-methylethenyl)-",Isopulegol
+827,tl:84-66-2,84-66-2,molécula,Diethyl phthalate,Diethyl phthalate - Dietil Ftalato
+828,tl:allspice-oil-low-methyleugenol,8006-77-7,natural,"Allspice oil, low methyleugenol",Aceite esencial de Pimienta de Jamaica Hojas
+829,tl:balm-leaf-oil,8014-71-9,natural,Balm leaf oil,Aceite Esencial de Melisa Oficinalis
+830,tl:balsams-canada-oleoresin,8007-47-4,natural,"Balsams, Canada, oleoresin",Fir Balsam Absolute Resin 25% (ethanol)
+831,tl:benzoin-absolute-siam,9000-72-0,natural,"Benzoin absolute, Siam",Benjui 50% DPG
+832,tl:benzoin-infusion-siam,9000-72-0,natural,"Benzoin infusion, Siam",Benjui 50% DPG
+833,tl:bigarade-oil-washed,68916-04-1,natural,"Bigarade oil, washed",Bitter Orange Cold Pressed
+834,tl:bucchu-oil-terpeneless,68650-46-4,natural,"Bucchu oil, terpeneless",Buchu Oil
+835,tl:camphor-leaf-oil-white-rectified,8008-51-3,natural,"Camphor leaf oil, white, rectified",Aceite Esencial de Alcanfor
+836,tl:chamomile-flower-oil-roman-rectified,8015-92-7,natural,"Chamomile flower oil, Roman rectified",Aceite Esencial de Manzanilla Romana
+837,tl:extract-of-oakmoss-absolute,9000-50-4,natural,Extract of oakmoss absolute,Musgo de Roble (low atranol) 50% DPG
+838,tl:frangipani-absolute,94350-02-4,natural,Frangipani absolute,Aceite Esencial de Frangipani
+839,tl:grapefruit-oil-chemically-modified,8016-20-4,natural,Grapefruit oil (chemically-modified),Pink Grapefruit Cold Pressed
+840,tl:gurjun-balsam-oil-dipterocarpus-turbinatus,93165-18-5,natural,Gurjun balsam oil (Dipterocarpus turbinatus),Aceite Esencial de Bálsamo de Gurjum
+841,tl:gurjun-balsam-oleoresin,8030-55-5,natural,Gurjun balsam oleoresin,Gurjun Balsam (Malaysia)
+842,tl:hierochloe-alpina-absolute,92128-62-6,natural,Hierochloe alpina absolute,Hay Absolute (hierochloe alpina)
+843,tl:mentha-arvensis-oil-rectified,68917-18-0,natural,"Mentha arvensis oil, rectified",Aceite Esencial de Menta Arvensis
+844,tl:natural-hickory-smoke-flavor,74113-74-9,natural,Natural Hickory Smoke Flavor,Cuir MD
+845,tl:parsley-leaf-oil,8000-68-8,natural,Parsley leaf oil,Aceite Esencial de Perejil Semillas
+846,tl:petitgrain-water-absolute,8014-17-3,natural,Petitgrain water absolute,Petitgrain Bigarade
+847,tl:ravintsara-oil,8008-51-3,natural,Ravintsara oil,Aceite Esencial de Alcanfor
+848,tl:rose-extract-rosa-x-centifolia-l,8007-01-0,natural,Rose extract (Rosa x centifolia L.),Rose Ultimate Extract
+849,tl:rose-microwave-extraction,8007-01-0,natural,"Rose, microwave extraction",Rose Ultimate Extract
+850,tl:rose-tincture-rosa-x-centifolia-l,8007-01-0,natural,Rose tincture (Rosa x centifolia L.),Rose Ultimate Extract
+851,tl:sichuan-pepper-co2-extract-schinifolium,97927-05-4,natural,Sichuan pepper CO2 extract (schinifolium),Sichuan Pepper SFE
+852,tl:tagetes-oil-low-tertiophene,8016-84-0,natural,"Tagetes oil, low tertiophene",Aceite esencial de Tagete o Clavel Chino
+853,tl:tetrapleura-resinoid,2131091-72-8,natural,Tetrapleura resinoid,Vaina de Ron (Rum) - Reducción de tintura
+854,tl:tolu-balsam-absolute,8024-03-1,natural,"Tolu, balsam, absolute",Bálsamo de Tolu
+855,tl:tonka,8024-04-2,natural,Tonka,Haba Tonka 30% Etanol
+856,tl:turpentine-oil-terpeneless,8006-64-2,natural,"Turpentine oil, terpeneless",Aceite Esencial de Trementina
+857,tl:vetiver-absolute,8016-96-4,natural,Vetiver absolute,Vetiver Java MD
+858,tl:witch-hazel-distillate,84696-19-5,natural,Witch hazel distillate,Aceite Esencial de Hamamelis
+859,tl:ylang-ylang-infusion,8006-81-3,natural,Ylang-ylang infusion,Lisylang
