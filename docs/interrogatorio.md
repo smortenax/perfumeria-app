@@ -2485,6 +2485,42 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 - Estado: para tener en cuenta; no se hace ahora
 - Destino: [a-futuro.md](a-futuro.md) §1; decisiones.md §0, §8; plan, fase 5
 
+
+### P62 — El producto de cada fabricante, con sus documentos
+
+- **Viene de** la revisión de los ~33 productos que el usuario compró en Perfumiarz (2026-10-02).
+  Sus certificados son de Firmenich, IFF, Symrise, Givaudan, PCW y BASF, cada uno con su formato,
+  y muchos dan **un tope por categoría sin listar ninguna sustancia**: es la evaluación del propio
+  fabricante, no un estándar IFRA (Ambrinol S de Symrise: 0,0082 % en la categoría 4; el glosario
+  lo tenía «sin estándar»).
+- **Respuesta literal:** *«si al tope del proveedor, el tick es revisado con su documento o bueno mas
+  bien material documentado en la base de datos, ahora me estoy dando cuenta que tendra que haber
+  duplicados de lo smateriales segun fabricante, simplemente no hay vuelta de hoja a eso, por lo
+  menos son 4 fabricantes en terminos generales, quizas lo suyo para hacer el glosrio es
+  directamente acceder a la documentacion de cada unos y asi firmenich tiene su castoreum y
+  supoongo que otras marcas tendran otros y puede que cada uno tenga restricciones diferentes»*
+- **Lectura:**
+  1. **El tope del proveedor**, sí: la ficha lo enseña como «tope de su proveedor», con su
+     documento y nunca como IFRA, y la fórmula avisa si lo pasa. Cierra la pregunta de X-001.
+  2. **El tick es «material documentado»**: el material tiene en la base los documentos de su
+     fabricante (certificado, ficha de seguridad, alérgenos).
+  3. **Un material por fabricante:** el Castoreum Synth de Firmenich no es el de otra casa, y cada
+     uno tiene sus restricciones. No hay vuelta de hoja.
+- **Propuesta (a confirmar):** dos niveles.
+  - **El material general** (la fila del FIG o de IFRA: Hydroxycitronellal, su CAS, su estándar):
+    sirve cuando no se sabe el fabricante, sin tick.
+  - **El producto de un fabricante** (Cyclosia 937250 de Firmenich), unido al general por su CAS:
+    sus documentos, las sustancias de su certificado, su tope por categoría y el tick. Una base sin
+    CAS (Cassis Base 345 B) es solo producto.
+  - **En el buscador**, bajo el material general, **una pastilla por fabricante**, como las formas
+    de un natural (P54). Elegir el producto usa sus datos; el general, los generales.
+  - **De dónde:** los certificados que publican las tiendas (305 de Perfumiarz ya en la caché;
+    Olfatorium y Maese Lab no los publican) y lo que publique cada fabricante, más lo que el usuario
+    consiga por contacto, en `docs/proveedores/certificados/`.
+- Fecha: 2026-10-02
+- Estado: el tope y el tick, decididos; los dos niveles, a confirmar
+- Destino: decisiones.md §5.6, §4; a-futuro (P61)
+
 ---
 
 ## Estado
@@ -2496,6 +2532,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
 | R12 · infografías y frentes | 7 (P35 a P41) | 3 (P33, P34, P42) |
-| R13 · a pesar en el banco | 14 (P43, P44, P48 a P51, P53 a P60) | 4 (P45 a P47, P52) · P61, para tener en cuenta |
+| R13 · a pesar en el banco | 14 (P43, P44, P48 a P51, P53 a P60) | 5 (P45 a P47, P52, P62) · P61, para tener en cuenta |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.
