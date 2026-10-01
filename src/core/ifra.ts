@@ -203,7 +203,8 @@ export type Margin =
  *
  * - `unknown`, never a number (§1.2), when the material, or the diluent of a dilution, has no
  *   IFRA data (provisional, not in the data, or unchecked), or when a component of a formula
- *   used as a material has none. A diluent of the app with nothing to check adds no substances
+ *   used as a material has none; and when nothing known bounds it but the pour has constituents
+ *   that could not be checked: that is not «no ceiling» (2026-10-01, castoreum). A diluent of the app with nothing to check adds no substances
  *   but it does add mass.
  * - A formula used as a material is expanded into its vector (§2.4, §3.6).
  * - `partial` is true when the number could be optimistic: the report is partial, or the
@@ -287,7 +288,13 @@ export function marginOf(
       least = { ug: room, key };
     }
   }
-  return least === null ? { kind: "unbounded", partial } : { kind: "bounded", pouredUg: least.ug, limitedBy: least.key, partial };
+  if (least === null) {
+    // Nothing known puts a ceiling on it. That is «no ceiling» only when the pour itself is known
+    // whole: a material whose constituents could not be checked (a natural outside the annex, like
+    // castoreum) may carry substances with a ceiling, so its margin is unknown, never free (§1.2).
+    return pouredPending ? { kind: "unknown" } : { kind: "unbounded", partial };
+  }
+  return { kind: "bounded", pouredUg: least.ug, limitedBy: least.key, partial };
 }
 
 /**

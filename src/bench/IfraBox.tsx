@@ -21,7 +21,7 @@ export function IfraSummary(props: { report: IfraReport | null; empty: boolean; 
   const bounded = reading !== null && reading.checks.some((c) => c.verdict === "bounded");
   const asIs = !reading ? "—" : reading.asIs === "no" ? t.no : reading.asIs === "unknown" ? t.unknown : t.yes;
   const asIsClass = !reading ? "" : reading.asIs === "no" ? "bad" : reading.asIs === "unknown" ? "unknown" : bounded ? "bounded" : "";
-  const maxUse = !hasData ? "—" : formatPercent(report.maxUse, report.maxUse.eq(Ratio.ONE) ? 0 : 2);
+  const maxUse = !hasData ? "—" : maxUseText(report);
   // What sets the second reading, so a figure under 100 % says why.
   const limiting = hasData && report.maxUse.lt(Ratio.ONE) ? report.checks.find((c) => c.maxUse.eq(report.maxUse)) : undefined;
   const range =
@@ -59,6 +59,19 @@ export function IfraSummary(props: { report: IfraReport | null; empty: boolean; 
       )}
     </div>
   );
+}
+
+/**
+ * Reading 2 to read (§5.4, §1.2). With something unchecked it is a bound, never a value: what is
+ * unknown can only lower it, so «≤ X %»; and when nothing known bounds it, it cannot be said at all
+ * («Sin comprobar»), never «100 %», which reads as free (2026-10-01, castoreum).
+ */
+function maxUseText(report: IfraReport): string {
+  const whole = report.maxUse.eq(Ratio.ONE);
+  if (report.partial) {
+    return whole ? t.unknown : `≤ ${formatPercent(report.maxUse, 2)}`;
+  }
+  return formatPercent(report.maxUse, whole ? 0 : 2);
 }
 
 const pctOf = (share: Ratio) => formatPercent(share, 3).replace(" %", "");
@@ -148,6 +161,7 @@ export function IfraPanel(props: { report: IfraReport | null; empty: boolean; ba
     setView(v);
   };
   const maxUse = hasData ? formatPercent(report.maxUse, report.maxUse.eq(Ratio.ONE) ? 0 : 2) : "";
+  const cannotSay = hasData && report.partial && report.maxUse.eq(Ratio.ONE);
   const substances = hasData && view === "substance" ? substanceRows(report, reading?.base) : [];
   const materials = hasData && view === "material" ? materialRows(report, reading?.base) : [];
   return (
@@ -184,7 +198,7 @@ export function IfraPanel(props: { report: IfraReport | null; empty: boolean; ba
       ) : (
         <div className="panel-body">
           <p className="second-reading small" title={t.maxUseQuestion}>
-            {report.partial ? t.secondReadingPartial(maxUse) : t.secondReading(maxUse)}
+            {cannotSay ? t.secondReadingUnknown : report.partial ? t.secondReadingPartial(maxUse) : t.secondReading(maxUse)}
           </p>
           {report.checks.length === 0 && report.unchecked.length === 0 && report.pending.length === 0 && report.conditions.length === 0 && (
             <p className="muted small">{t.nothing}</p>

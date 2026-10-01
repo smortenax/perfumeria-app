@@ -348,7 +348,10 @@ describe("The margin: partial when the number could be optimistic (§5.5)", () =
       { material: withPending, amount: Ratio.of(4) },
     ]);
     expect(margins(clean, pure({ key: vector.id, kind: "formula", name: "Acorde", vector })).now).toBe(`750000 ${C} partial`);
-    expect(margins(clean, pure(withPending)).now).toBe("unbounded partial");
+    // With nothing known that bounds it and constituents that could not be checked, the margin is
+    // unknown. Until 2026-10-01 this said «unbounded partial», and the card read «sin techo» for
+    // castoreum, a natural outside the annex: an unknown taken as free, against §1.2.
+    expect(margins(clean, pure(withPending)).now).toBe("unknown");
   });
 });
 

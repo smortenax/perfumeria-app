@@ -235,6 +235,8 @@ export const texts = {
     },
     baseSwitch: "Base de la lectura",
     secondReading: (pct: string) => `Esta mezcla, tal como está en el frasco, se puede usar hasta el ${pct} en un perfume.`,
+    secondReadingUnknown:
+      "No se puede decir hasta qué % se puede usar esta mezcla en un perfume: lo conocido no le pone techo, pero hay materiales o constituyentes sin comprobar.",
     secondReadingPartial: (pct: string) => `Esta mezcla, tal como está en el frasco, se puede usar como mucho hasta el ${pct} en un perfume, según lo conocido.`,
     views: { substance: "Sustancia", material: "Material" },
     viewSwitch: "Ver el detalle por sustancia o por material",
