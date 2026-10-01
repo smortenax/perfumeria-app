@@ -51,7 +51,7 @@
       "que_es": "la familia de cada fila del FIG, categorización propia del laboratorio (P48)"
     },
     "datos/glosario/origen/usos-habituales.csv": {
-      "sha256": "af7eaff98107ae38ad1f900eea2b503cffd5737d26c8648f8612d933bd617d5e",
+      "sha256": "01c653b1aba8f503a645273f1a07943e891dc0ca1405d059f43f2fcfe93092ce",
       "que_es": "los usos habituales auditados (lote U-001): franja, consenso y techo de uso"
     },
     "datos/ifra/51/estandares.csv": {
@@ -67,7 +67,7 @@
       "sha256": "289097c9d76de4430f967158556ff068faa4589175c44b48dd355a5eb93b6368"
     }
   },
-  "generado": "2026-10-01T12:55:31+00:00",
+  "generado": "2026-10-01T13:03:46+00:00",
   "cuentas": {
     "materiales": 4325,
     "del_fig": 3119,
@@ -95,9 +95,9 @@
     "solo_de_tiendas": 8,
     "de_tiendas_sin_unir": 48,
     "constituyentes_de_proveedores": 270,
-    "con_franja_de_uso": 333,
-    "con_franja_de_consenso": 64,
-    "con_franja_de_recomendacion": 269,
-    "con_techo_de_uso": 1687
+    "con_franja_de_uso": 346,
+    "con_franja_de_consenso": 71,
+    "con_franja_de_recomendacion": 275,
+    "con_techo_de_uso": 1694
   }
 }

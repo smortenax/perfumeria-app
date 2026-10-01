@@ -35,7 +35,7 @@ La regla, para que una franja que viene de una mediana pueda rehacerse a mano:
 
 7. **Lotes de búsqueda** (`U-004`, `U-005`: una búsqueda web por material, P60). Sus filas no traen
    `auditoria`; entran las de base `concentrado`, con cifra, cuya nota no las marque como dudosas
-   («dudos», «reserva», «copia») y que no vengan de TGSC ni de PerfumersWorld (esas ya llegan
+   («dudos», «reserva», «copia», «atención») y que no vengan de TGSC ni de PerfumersWorld (esas ya llegan
    leídas de su página en U-002). La franja `estandar` es uso habitual y la `techo`, techo; las
    `trazas` no entran todavía. **Todo lo de la búsqueda de un material cuenta como una sola
    fuente**, «Búsqueda web (dominios)», porque el resumen del buscador ya mezcla varias.
@@ -56,7 +56,7 @@ LOTS_DIR = ROOT / "docs" / "investigacion" / "2026-09-30-usos-y-constituyentes" 
 LOTS = ["U-001", "U-002"]
 # Search lots (P60): one web search per material, read from the search engine's summary.
 SEARCH_LOTS = ["U-004", "U-005"]
-DOUBTFUL = re.compile(r"dudos|reserva|copia", re.I)
+DOUBTFUL = re.compile(r"dudos|reserva|copia|atenci", re.I)
 OLD_SOURCES = re.compile(r"good ?scents|tgsc|perfumersworld|perflavory", re.I)
 DOMAIN = re.compile(r"([a-z0-9-]+(?:\.[a-z0-9-]+)*\.(?:com|net|org|co\.uk|de|fr|es|nl|io|eu|jp))", re.I)
 OUT = ROOT / "datos" / "glosario" / "origen" / "usos-habituales.csv"

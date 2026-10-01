@@ -24,19 +24,20 @@ function median(values: Ratio[]): Ratio | undefined {
 describe("the usual use, from the lots U-001 (audited by hand) and U-002 (scripts/traer_usos.py) (E6, P59)", () => {
   it("has a band for every material the lot gives a figure, and reads it exactly from the glossary", () => {
     const withBand = catalog.entries.filter((e) => e.usage?.max);
-    // 53 from U-001 plus 250 from U-002. U-002 is mostly TGSC, which gives only a ceiling, and a ceiling
-    // alone is not a band: so most of its 1,672 materials with a ceiling have no band here. They do
-    // have a usage, «techo», with the ceiling alone (P59 A).
-    // Since 2026-10-01 the search lots U-004 and U-005 (P60) add a second source: 333 bands, 64 of
-    // them a consensus. Of the 1,697 materials with some usual use, the other 1,364 have only a ceiling. Of the
-    // 250 new bands, 0 add to the consensus count (49 stays) and 250 are a single-source recommendation:
-    // a PerfumersWorld minimum/average, or the only source of the band.
-    expect(withBand).toHaveLength(333);
-    expect(withBand.filter((e) => e.usage?.consensus === "consenso")).toHaveLength(64);
-    expect(withBand.filter((e) => e.usage?.consensus === "recomendacion")).toHaveLength(269);
+    // The counts grow with every lot (U-001 by hand, U-002 by script, the search lots of P60), so they
+    // are read from what the script wrote, and the catalog must give back exactly the same: every
+    // band, with its kind, and every ceiling alone (P59 A). On 2026-10-01, after the second search
+    // lot, they were 346 bands (71 consensus, 275 recommendation) and 1,361 ceilings alone.
+    const rows = parseCsvRecords(written);
+    const banded = rows.filter((r) => r.uso_max_pct !== "");
+    expect(withBand).toHaveLength(banded.length);
+    expect(withBand.filter((e) => e.usage?.consensus === "consenso")).toHaveLength(banded.filter((r) => r.consenso === "consenso").length);
+    expect(withBand.filter((e) => e.usage?.consensus === "recomendacion")).toHaveLength(banded.filter((r) => r.consenso === "recomendacion").length);
     const ceilingOnly = catalog.entries.filter((e) => e.usage?.consensus === "techo");
-    expect(ceilingOnly).toHaveLength(1364);
-    expect(parseCsvRecords(written)).toHaveLength(333 + 1364);
+    expect(ceilingOnly).toHaveLength(rows.filter((r) => r.uso_max_pct === "" && r.techo_pct !== "").length);
+    // Never fewer than the audited lots alone gave: 303 bands and 49 consensus.
+    expect(withBand.length).toBeGreaterThanOrEqual(303);
+    expect(withBand.filter((e) => e.usage?.consensus === "consenso").length).toBeGreaterThanOrEqual(49);
     expect(ceilingOnly.every((e) => e.usage?.max === undefined && e.usage?.ceiling !== undefined)).toBe(true);
     // A material the lot does not cover has no band: a gap, never a zero (§1.2).
     expect(catalog.entries.filter((e) => e.group === "diluent").every((e) => e.usage === undefined)).toBe(true);

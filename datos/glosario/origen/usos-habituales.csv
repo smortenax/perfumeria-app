@@ -43,7 +43,7 @@ fig:78,.alpha.-Methyl-4-(1-methylethyl)-cyclohexanemethanol,,,,0,,10,TGSC,0,U-00
 fig:81,".beta.,4-Dimethylcyclohex-3-ene-1-propan-1-al",,,,0,,4,TGSC,0,U-002
 fig:82,.beta.-Caryophyllene alcohol,,,,0,,5,TGSC,0,U-002
 fig:83,".Eta.-1H-Indol-1-yl-.alpha.,.alpha.,.epsilon.-trimethyl-1H-indole-1-heptanol",,,,0,,5,TGSC,0,U-002
-fig:84,"[1,1'-Bicyclopentyl]-2-yl 2-butenoate",,,,0,,5,TGSC,0,U-002
+fig:84,"[1,1'-Bicyclopentyl]-2-yl 2-butenoate",,,,0,,5,TGSC,0,U-002 | U-005
 fig:86,[2-(Cyclohexyloxy)ethyl]benzene,,,,0,,20,TGSC,0,U-002
 fig:88,"[2,2-Bis[(3,7-dimethyl-2,6-octadienyl)oxy]ethyl]benzene",,,,0,,10,TGSC,0,U-002
 fig:90,[2-Isopropoxyethyl]benzene,,,,0,,5,TGSC,0,U-002
@@ -53,8 +53,9 @@ fig:94,"1-(1,2,3,5,6,7,8,8a-Octahydro-2,3,8,8-tetramethyl-2-naphthyl)ethan-1-one
 fig:95,1-(1-Naphthyl)ethanone,,,,0,,3,TGSC,0,U-002
 fig:96,"1-(2,2,6-Trimethylcyclohexyl)-3-hexanol",0.2,1.5,recomendacion,1,PerfumersWorld,10,PerfumersWorld,0,U-002 | U-005
 fig:101,"1-(2,4-Dimethyl-3-cyclohexenyl)-2,2-dimethylpropan-1-one",,,,0,,3,TGSC,0,U-002
-fig:104,1-(2-Benzofuranyl)ethanone,,,,0,,2,TGSC,0,U-002
-fig:105,1-(2-tert.-Butyl cyclohexyloxy)-2-butanol,0.4,4,recomendacion,1,PerfumersWorld,40,TGSC,0,U-002
+fig:103,"1-(2,6,6-Trimethylcyclohexa-1,3-dienyl)-2-buten-1-one",0.01,0.2,recomendacion,1,Búsqueda web (premierepeau.com),,,0,U-005
+fig:104,1-(2-Benzofuranyl)ethanone,0.1,5,recomendacion,1,Búsqueda web (symrise.com),2,TGSC,0,U-002 | U-005
+fig:105,1-(2-tert.-Butyl cyclohexyloxy)-2-butanol,0.7,9.5,consenso,2,Búsqueda web (kao.com) | PerfumersWorld,40,TGSC,0,U-002 | U-005
 fig:106,"1-(3,3-Dimethylbicyclo[2.2.1]hept-2-yl)ethane-1-one",,,,0,,8,TGSC,0,U-002
 fig:107,"1-(3,3-Dimethylcyclohexyl)ethan-1-one",,,,0,,10,TGSC,0,U-002
 fig:110,"1-(3,5,6-Trimethyl-3-cyclohexen-1-yl)ethan-1-one",,,,0,,2,TGSC,0,U-002
@@ -71,7 +72,8 @@ fig:131,"1,1-Dimethoxyethane",,,,0,,3,TGSC,0,U-002
 fig:132,"1,1-Dimethyl-2-phenylethyl acetate",0.07,0.7,recomendacion,1,PerfumersWorld,8,TGSC,0,U-002
 fig:133,"1,1-Dimethyl-2-phenylethyl isobutyrate",,,,0,,5,TGSC,0,U-002
 fig:134,"1,2,3,3a,4,5,6,8a-Octahydro-4,8-dimethyl-2-(1-methylethylidene)-6-azulenol",,,,0,,10,TGSC,0,U-002
-fig:136,"1,2,3,4,4a,7,8,8a-Octahydro-2,4a,5,8a-tetramethyl-1-naphthyl formate",,,,0,,10,TGSC,0,U-002
+fig:135,"1,2,3,4,4a,5,6,7-Octahydro-2,5,5-trimethyl-2-naphthalenol",0.25,2,recomendacion,1,Búsqueda web (scentspiracy.com),,,0,U-005
+fig:136,"1,2,3,4,4a,7,8,8a-Octahydro-2,4a,5,8a-tetramethyl-1-naphthyl formate",2,8,recomendacion,1,"Búsqueda web (fraterworks.com, scentspiracy.com)",10,TGSC,0,U-002 | U-005
 fig:138,"1,2,3,4,5,6,7,8-Octahydro-8,8-dimethyl-2-naphthaldehyde",,,,0,,15,TGSC,0,U-002
 fig:140,"1,2-Dimethoxybenzene",,,,0,,0.2,TGSC,0,U-002
 fig:141,"1,3,3-Trimethyl-2-norbornanyl acetate",,,,0,,5,TGSC,0,U-002
@@ -79,17 +81,17 @@ fig:142,Galaxolide,1.5,10,consenso,3,Laboratorio | PerfumersWorld | Scentspiracy
 fig:143,"1,3,5-Undecatriene",,,,0,,0.5,TGSC,0,U-002
 fig:144,"1,3-Benzodioxole, 5-(diethoxymethyl)-",,,,0,,5,TGSC,0,U-002
 fig:145,"1,3-Benzodioxole-5-methanol",,,,0,,5,TGSC,0,U-002
-fig:149,"1,3-Dimethyl-3-phenylbutyl acetate",,,,0,,5,TGSC,0,U-002
-fig:150,"1,3-Dimethylbut-3-enyl isobutyrate",,,,0,,2,TGSC,0,U-002
+fig:149,"1,3-Dimethyl-3-phenylbutyl acetate",,,,0,,5,TGSC,0,U-002 | U-005
+fig:150,"1,3-Dimethylbut-3-enyl isobutyrate",0.5,2,recomendacion,1,Búsqueda web (pellwall.com),2,TGSC,0,U-002 | U-005
 fig:151,"1,3-Dimethylbutyl 2-butenoate",,,,0,,8,TGSC,0,U-002
 fig:152,"1,3-Dioxane, 2-(2,4-dimethyl-3-cyclohexene-1-yl)-5-methyl-5-(1-methylpropyl)-",0.02,0.2,recomendacion,1,PerfumersWorld,2,TGSC,0,U-002
-fig:154,"1,3-Dioxolane, 2,4-dimethyl-2-(5,6,7,8-tetrahydro-5,5,8,8-tetramethyl-2-naphthalenyl)-,",,,,0,,4,TGSC,0,U-002
+fig:154,"1,3-Dioxolane, 2,4-dimethyl-2-(5,6,7,8-tetrahydro-5,5,8,8-tetramethyl-2-naphthalenyl)-,",0.5,1,recomendacion,1,Búsqueda web (givaudan.com),4,TGSC,0,U-002 | U-005
 fig:155,"1,3-Dioxolane-4-methanol, 2-hexyl-",,,,0,,2,TGSC,0,U-002
 fig:156,"1,3-Nonanediol acetate (mixed esters)",,,,0,,8,TGSC,0,U-002
 fig:158,"1,3-Undecadien-5-yne",,,,0,,1,TGSC,0,U-002
 fig:159,"1,4-Cineole",,,,0,,40,TGSC,0,U-002
 fig:161,"1,4-Dodec-6-enolactone",,,,0,,1,TGSC,0,U-002
-fig:163,"1,5-Dimethylbicyclo[3.2.1]octan-8-one-oxime",,,,0,,3,TGSC,0,U-002
+fig:163,"1,5-Dimethylbicyclo[3.2.1]octan-8-one-oxime",0.1,3,recomendacion,1,Búsqueda web (symrise.com),3,TGSC,0,U-002 | U-005
 fig:167,"1,6-Heptadien-3-one, 2-cyclohexyl-",,,,0,,2.5,TGSC,0,U-002
 fig:168,"1,6-Octadien-3-ol, 3,7-dimethyl-, acid-isomerized",,,,0,,5,TGSC,0,U-002
 fig:170,"1,7,7-Trimethylbicyclo[2.2.1]heptan-2-one",,,,0,,4,TGSC,0,U-002
@@ -100,8 +102,8 @@ fig:177,10-Undecenoic acid,,,,0,,0.2,TGSC,0,U-002
 fig:179,11-Oxahexadecanolide,,,,0,,10,TGSC,0,U-002
 fig:181,12-Oxahexadecanolide,,,,0,,10,TGSC,0,U-002
 fig:183,16-Hydroxy-7-hexadecenoic acid lactone,0.2,1,recomendacion,1,PerfumersWorld,10,PerfumersWorld,0,U-002
-fig:187,1-Cyclohexylethyl 2-butenoate,,,,0,,5,TGSC,0,U-002
-fig:189,1-Cyclopropylmethyl-4-methoxybenzene,0.05,0.5,recomendacion,1,PerfumersWorld,5,TGSC,0,U-002
+fig:187,1-Cyclohexylethyl 2-butenoate,,,,0,,5,TGSC,0,U-002 | U-005
+fig:189,1-Cyclopropylmethyl-4-methoxybenzene,0.05,0.5,recomendacion,1,PerfumersWorld,5,TGSC,0,U-002 | U-005
 fig:190,1-Decanol,0.5,5,recomendacion,1,PerfumersWorld,25,PerfumersWorld,0,U-002
 fig:191,1-Decen-3-ol,,,,0,,2,TGSC,0,U-002
 fig:195,1-Ethynylcyclohexyl acetate,,,,0,,10,TGSC,0,U-002
@@ -114,7 +116,7 @@ fig:209,"1-Methyl-2,3-cyclohexadione",,,,0,,0.2,TGSC,0,U-002
 fig:210,1-methyl-3-(2-methylpropyl)cyclohexan-1-ol,,,,0,,0.5,TGSC,0,U-002
 fig:211,1-Methyl-3-(4-methyl-3-pentenyl)cyclohex-3-ene-1-carbaldehyde,0.06,0.6,recomendacion,1,PerfumersWorld,10,TGSC,0,U-002
 fig:212,1-Methyl-3-methoxy-4-isopropylbenzene,,,,0,,0.5,TGSC,0,U-002
-fig:214,"1-Methyl-4-(2,2,3-trimethyl-3-cyclopenten-1-yl)-2-oxabicyclo[2.2.2]octane",,,,0,,5,TGSC,0,U-002
+fig:214,"1-Methyl-4-(2,2,3-trimethyl-3-cyclopenten-1-yl)-2-oxabicyclo[2.2.2]octane",,,,0,,5,TGSC,0,U-002 | U-005
 fig:216,1-Methyl-4-(isopropyl)cyclohexan-1-ol,,,,0,,20,TGSC,0,U-002
 fig:217,1-Methylcyclododecyl methyl ether,,,,0,,10,TGSC,0,U-002
 fig:220,1-Nonen-3-ol,,,,0,,2,TGSC,0,U-002
@@ -131,13 +133,13 @@ fig:240,1-Phenyl-4-penten-1-one,,,,0,,7,TGSC,0,U-002
 fig:241,1-p-Menthene-8-thiol,,,,0,,0.1,TGSC,0,U-002
 fig:242,"1-Propanol, 2-methyl-3-[(1,7,7-trimethylbicyclo-[2.2.1]hept-2-yl)oxy]-",,,,0,,20,TGSC,0,U-002
 fig:248,"2-​Pentenoic acid, 2-​methyl-​, (3Z)​-​3-​hexen-​1-​yl ester",,,,0,,2,TGSC,0,U-002
-fig:251,"2-(1-(3',3'-Dimethyl-1'-cyclohexyl)ethoxy)-2-methyl propyl propanoate",0.05,0.5,recomendacion,1,PerfumersWorld,5,TGSC,0,U-002
+fig:251,"2-(1-(3',3'-Dimethyl-1'-cyclohexyl)ethoxy)-2-methyl propyl propanoate",0.275,2.75,consenso,2,"Búsqueda web (dsm-firmenich.com, scentspiracy.com) | PerfumersWorld",5,TGSC,0,U-002 | U-005
 fig:253,"2-(1,1-Dimethylethyl)-4-methylcyclohexan-1-ol",,,,0,,2,TGSC,0,U-002
 fig:254,2(10)-Pinen-3-ol,,,,0,,5,TGSC,0,U-002
 fig:256,2-(1-Methylpropyl)-1-vinylcyclohexyl acetate,,,,0,,5,TGSC,0,U-002
 fig:257,"2-(2,2,7,7-Tetramethyltricyclo[6.2.1.01,6]undec-5-en-5-yl)propan-1-ol",0.1,1,recomendacion,1,PerfumersWorld,10,PerfumersWorld,0,U-002
 fig:258,"2-(3,3-Dimethylbicyclo[2.2.1]hept-2-ylidene)ethanol",,,,0,,5,TGSC,0,U-002
-fig:259,"2-(3,7-Dimethyl-2,6-octadienyl)cyclopentanone",0.05,0.5,recomendacion,1,PerfumersWorld,5,TGSC,0,U-002
+fig:259,"2-(3,7-Dimethyl-2,6-octadienyl)cyclopentanone",0.525,2.75,consenso,2,Búsqueda web (shop.perfumersapprentice.com) | PerfumersWorld,5,TGSC,0,U-002 | U-005
 fig:260,"2(3H)-Benzofuranone, hexahydro-3,6-dimethyl-",,,,0,,1,TGSC,0,U-002
 fig:261,"2-(3-Heptyl)-1,3-dioxolane",,,,0,,10,TGSC,0,U-002
 fig:262,2-(3-Phenylpropyl)pyridine,,,,0,,0.07,TGSC,0,U-002
@@ -157,7 +159,7 @@ fig:288,"2,2,5-Trimethyl-5-pentylcyclopentanone",0.05,0.5,recomendacion,1,Perfum
 fig:289,"2,2,6-Trimethyl-6-vinyltetrahydropyran",0.03,0.3,recomendacion,1,PerfumersWorld,3,TGSC,0,U-002
 fig:290,"2,2,6-Trimethylcyclohexanone",,,,0,,0.1,TGSC,0,U-002
 fig:291,"2,2-Dimethyl-3-(3-methyl-2,4-pentadienyl)oxirane",,,,0,,2,TGSC,0,U-002
-fig:292,"2,2-Dimethyl-3-methyl-3-butenyl propanoate",,,,0,,5,TGSC,0,U-002
+fig:292,"2,2-Dimethyl-3-methyl-3-butenyl propanoate",0.5,2,recomendacion,1,"Búsqueda web (glooshi.com, kao.com)",5,TGSC,0,U-002 | U-005
 fig:293,"2,2-Dimethyl-3-phenylpropanol",,,,0,,3,TGSC,0,U-002
 fig:294,"2,2-Dimethyl-5-(1-methylpropen-1-yl)tetrahydrofuran",,,,0,,0.5,TGSC,0,U-002
 fig:295,Safraleine,0.1,1,consenso,3,Laboratorio | PerfumersWorld | Scentspiracy,3,TGSC,3,U-001
@@ -175,8 +177,8 @@ fig:312,"2,4,4,7-Tetramethylnona-6,8-diene-3-one-oxime",,,,0,,0.5,TGSC,0,U-002
 fig:313,"2,4,5-Trimethylthiazole",,,,0,,0.5,TGSC,0,U-002
 fig:315,"2,4,6-Trimethyl-4-phenyl-1,3-dioxane",,,,0,,6,TGSC,0,U-002
 fig:318,"2,4-Decadien-1-ol",,,,0,,0.5,TGSC,0,U-002
-fig:319,"2,4-Dimethyl-2-(5,6,7,8-tetrahydro-5,5,8,8-tetramethyl-2-naphthalenyl)-1,3-dioxolane",,,,0,,4,TGSC,0,U-002
-fig:321,"2,4-Dimethyl-4,4a,5,9b-tetrahydroindeno[1,2-d]-1,3-dioxin",0.08,0.8,recomendacion,1,PerfumersWorld,8,TGSC,0,U-002
+fig:319,"2,4-Dimethyl-2-(5,6,7,8-tetrahydro-5,5,8,8-tetramethyl-2-naphthalenyl)-1,3-dioxolane",0.5,1,recomendacion,1,Búsqueda web (givaudan.com),4,TGSC,0,U-002 | U-005
+fig:321,"2,4-Dimethyl-4,4a,5,9b-tetrahydroindeno[1,2-d]-1,3-dioxin",0.54,2.9,consenso,2,"Búsqueda web (scentspiracy.com, shop.perfumersapprentice.com) | PerfumersWorld",8,TGSC,0,U-002 | U-005
 fig:322,"2,4-Dimethyl-4-phenyltetrahydrofuran",,,,0,,2,TGSC,0,U-002
 fig:324,"2,4-Dimethylcyclohex-3-ene-1-methanol",,,,0,,10,TGSC,0,U-002
 fig:326,"2,4-Dimethylcyclohexylmethyl acetate",,,,0,,20,TGSC,0,U-002
@@ -193,6 +195,7 @@ fig:343,"2,6,10-Trimethylundeca-5,9-dienal",,,,0,,1,TGSC,0,U-002
 fig:346,"2,6,6-Trimethyl-1&2-cyclohexen-1-carboxaldehyde",,,,0,,2,TGSC,0,U-002
 fig:347,"2,6,6-Trimethyl-1-cyclohexen-1-acetaldehyde",0.01,0.1,recomendacion,1,PerfumersWorld,1,TGSC,0,U-002
 fig:349,"2,6,6-Trimethylcyclohex-2-ene-1,4-dione",,,,0,,2,TGSC,0,U-002
+fig:350,"2,6,6-Trimethylcyclohexa-1,3-dienyl methanal",,,,0,,1,Búsqueda web (premierepeau.com),0,U-005
 fig:352,"2,6-Dimethoxyphenol",,,,0,,0.1,TGSC,0,U-002
 fig:353,"2,6-Dimethyl-10-methylene-2,6,11-dodecatrienal",,,,0,,5,TGSC,0,U-002
 fig:354,"2,6-Dimethyl-2,4,6-octatriene",,,,0,,5,TGSC,0,U-002
@@ -211,7 +214,7 @@ fig:369,"2,6-Octadienal, 3,7-dimethyl-, reaction products with Et alc.",,,,0,,3,
 fig:371,"2,6-Xylenol",,,,0,,0.05,TGSC,0,U-002
 fig:372,"2,7-Dimethyloct-5-en-4-one",,,,0,,5,TGSC,0,U-002
 fig:374,"2-[7-Isopropyl-5-methylbicyclo[2.2.2]oct-5-en-2-yl]-1,3-dioxolane",,,,0,,8,TGSC,0,U-002
-fig:375,"2-[8-Isopropyl-6-methylbicyclo[2.2.2]oct-5-en-2-yl]-1,3-dioxolane",0.08,0.8,recomendacion,1,PerfumersWorld,8,PerfumersWorld,0,U-002
+fig:375,"2-[8-Isopropyl-6-methylbicyclo[2.2.2]oct-5-en-2-yl]-1,3-dioxolane",0.54,4.4,consenso,2,"Búsqueda web (givaudan.com, shop.perfumersapprentice.com) | PerfumersWorld",8,PerfumersWorld,0,U-002 | U-005
 fig:376,2-Acetyl-3-ethylpyrazine,,,,0,,0.2,TGSC,0,U-002
 fig:377,2-Acetyl-3-methylpyrazine,,,,0,,0.1,TGSC,0,U-002
 fig:378,2-Acetyl-5-methylfuran,,,,0,,0.1,TGSC,0,U-002
@@ -220,7 +223,7 @@ fig:380,2-Acetylthiazole,0.001,0.01,recomendacion,1,PerfumersWorld,0.1,TGSC,0,U-
 fig:384,2-Benzyl-2-methylbut-3-enenitrile,,,,0,,5,TGSC,0,U-002
 fig:386,2-Bornyl propionate,,,,0,,8,TGSC,0,U-002
 fig:388,2-Butanone,,,,0,,0.5,TGSC,0,U-002
-fig:392,"2-Butyl-4,4,6-trimethyl-1,3-dioxane",,,,0,,30,TGSC,0,U-002
+fig:392,"2-Butyl-4,4,6-trimethyl-1,3-dioxane",1,10,recomendacion,1,"Búsqueda web (givaudan.com, pellwall.com)",30,TGSC,0,U-002 | U-005
 fig:394,2-Cyclohexylcyclohexanone,,,,0,,8,TGSC,0,U-002
 fig:395,2-Cyclohexylethyl alcohol,,,,0,,50,TGSC,0,U-002
 fig:397,2-Cyclohexylpropanal,,,,0,,3,TGSC,0,U-002
@@ -229,8 +232,9 @@ fig:400,2-Decanone,,,,0,,2,TGSC,0,U-002
 fig:401,2-Decenal,,,,0,,0.1,TGSC,0,U-002
 fig:402,2-Dodecanone,,,,0,,4,TGSC,0,U-002
 fig:403,2-Dodecenal,,,,0,,1,TGSC,0,U-002
-fig:404,"2-Ethoxy-2,6,6-trimethyl-9-methylenebicyclo[3.3.1]nonane",0.1,1,recomendacion,1,PerfumersWorld,10,TGSC,0,U-002
+fig:404,"2-Ethoxy-2,6,6-trimethyl-9-methylenebicyclo[3.3.1]nonane",0.55,5.5,consenso,2,Búsqueda web (givaudan.com) | PerfumersWorld,10,TGSC,0,U-002 | U-005
 fig:405,2-Ethoxy-4-(methoxymethyl)phenol,0.03,0.3,recomendacion,1,PerfumersWorld,3,TGSC,0,U-002
+fig:407,2-Ethoxy-4-methylphenol,0.1,0.5,recomendacion,1,"Búsqueda web (glooshi.com, premierepeau.com)",,,0,U-005
 fig:408,"2-Ethyl-1,3,3-trimethyl-2-norbornanol",,,,0,,1,TGSC,0,U-002
 fig:410,2-Ethyl-1-hexanol,,,,0,,4,TGSC,0,U-002
 fig:411,2-Ethyl-3-methylpyrazine,,,,0,,0.05,TGSC,0,U-002
@@ -245,6 +249,7 @@ fig:425,2-Ethylpyrazine,,,,0,,0.1,TGSC,0,U-002
 fig:426,"2-Formyl-6,6-dimethylbicyclo(3.1.1)hept-2-ene",,,,0,,2,TGSC,0,U-002
 fig:427,2-Furanmethanethiol formate,,,,0,,0.02,TGSC,0,U-002
 fig:428,2-Furyl methyl ketone,,,,0,,0.1,TGSC,0,U-002
+fig:437,"2H-1,5-Benzodioxepin-3(4H)-one, 7-(1-methylethyl)-",,,,0,,2,"Búsqueda web (basenotes.com, premierepeau.com)",0,U-005
 fig:438,2-Heptanol,,,,0,,5,TGSC,0,U-002
 fig:439,2-Heptanone,0.03,0.3,recomendacion,1,PerfumersWorld,2,TGSC,0,U-002
 fig:441,"2-Heptyl-1,3-dioxolane",,,,0,,10,TGSC,0,U-002
@@ -253,10 +258,12 @@ fig:444,2-Heptyltetrahydrofuran,,,,0,,0.5,TGSC,0,U-002
 fig:445,"2-Hexadecen-1-ol, 3,7,11,15-tetramethyl-",,,,0,,10,TGSC,0,U-002
 fig:446,2-Hexanol,,,,0,,0.8,TGSC,0,U-002
 fig:447,2-Hexen-1-ol,,,,0,,4,TGSC,0,U-002
+fig:450,2-Hexyl-(E)-cinnamaldehyde,,,,0,,10,Búsqueda web (shop.perfumersapprentice.com),0,U-005
 fig:451,"2-Hexyl-1,3-dioxolane",,,,0,,20,TGSC,0,U-002
 fig:452,2-Hexylcyclopentanone,,,,0,,4,TGSC,0,U-002
+fig:455,"2H-Indeno[4,5b] furan, decahydro-2,2,6,6,7,8,8-heptamethyl",,,,0,,0.5,"Búsqueda web (iff.com, scentspiracy.com)",0,U-005
 fig:458,2-Hydroxyacetophenone,,,,0,,3,TGSC,0,U-002
-fig:459,"2-Hydroxy-alpha,alpha,4-trimethylcyclohexanemethanol",,,,0,,5,TGSC,0,U-002
+fig:459,"2-Hydroxy-alpha,alpha,4-trimethylcyclohexanemethanol",1,5,recomendacion,1,"Búsqueda web (givaudan.com, shop.perfumersapprentice.com)",5,TGSC,0,U-002 | U-005
 fig:461,2-Hydroxymethylbenzoic acid gamma lactone,,,,0,,1,TGSC,0,U-002
 fig:462,2-Isobutyl-3-methoxypyrazine,,,,0,,0.1,TGSC,0,U-002
 fig:463,2-Isobutyl-3-methylpyrazine,,,,0,,0.5,TGSC,0,U-002
@@ -314,6 +321,7 @@ fig:536,2-Octen-4-one,0.002,0.02,recomendacion,1,PerfumersWorld,0.2,TGSC,0,U-002
 fig:537,2-Octenal,,,,0,,0.6,TGSC,0,U-002
 fig:539,2-Pentadecanone,,,,0,,0.3,TGSC,0,U-002
 fig:541,2-Pentanone,,,,0,,0.5,TGSC,0,U-002
+fig:543,2-Pentylcyclopentan-1-ol,1,3,recomendacion,1,Búsqueda web (glooshi.com),5,Búsqueda web (glooshi.com),0,U-005
 fig:544,2-Pentylcyclopentan-1-one,,,,0,,1,TGSC,0,U-002
 fig:545,2-Pentylfuran,,,,0,,1,TGSC,0,U-002
 fig:546,2-Phenethyl crotonate,,,,0,,3,TGSC,0,U-002
@@ -333,7 +341,7 @@ fig:562,2-p-Tolylethanol,,,,0,,0.05,TGSC,0,U-002
 fig:563,2-sec-Butylcyclohexanone,,,,0,,6,TGSC,0,U-002
 fig:564,2-tert-Butylcyclohexanol,,,,0,,5,TGSC,0,U-002
 fig:565,2-tert-Butylcyclohexanone,,,,0,,2,TGSC,0,U-002
-fig:566,2-tert-Butylcyclohexyl acetate,0.06,0.6,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
+fig:566,2-tert-Butylcyclohexyl acetate,0.53,5.3,consenso,2,"Búsqueda web (fraterworks.com, scentspiracy.com) | PerfumersWorld",15,TGSC,0,U-002 | U-005
 fig:567,2-trans-6-cis-Dodecadienal,,,,0,,0.5,TGSC,0,U-002
 fig:569,2-trans-Dodecenal,,,,0,,1,TGSC,0,U-002
 fig:570,2-Tridecanone,,,,0,,0.5,TGSC,0,U-002
@@ -362,7 +370,8 @@ fig:604,"3,3,5,5-Tetramethyl-4-ethoxyvinylcyclohexanone",1.15,4,consenso,2,Búsq
 fig:605,"3,3,5-Trimethylcyclohexyl acetate",,,,0,,6,TGSC,0,U-002
 fig:607,Polysantol,0.5,3,consenso,3,Laboratorio | PerfumersWorld | Scentspiracy,4,PerfumersWorld,1,U-001
 fig:608,"3,4,4a,5,8,8a(Or 3,4,4a,7,8,8a)-Hexahydro-3,3,6,7-tetramethyl-1H-2-benzopyran",,,,0,,6,TGSC,0,U-002
-fig:610,"3,4,4a,5,8,8a-Hexahydro-3',7-dimethylspiro[1,4-methanonaphthalene-2(1H),2'-oxirane]",0.01,0.1,recomendacion,1,PerfumersWorld,1,PerfumersWorld,0,U-002
+fig:610,"3,4,4a,5,8,8a-Hexahydro-3',7-dimethylspiro[1,4-methanonaphthalene-2(1H),2'-oxirane]",0.01,0.1,recomendacion,1,PerfumersWorld,1,PerfumersWorld,0,U-002 | U-005
+fig:611,"3,4,5,6,6-Pentamethylhept-3-en-2-one",,,,0,,30,"Búsqueda web (iff.com, shop.perfumersapprentice.com)",0,U-005
 fig:612,"3,4,5,6,6-Pentamethylheptan-2-ol",,,,0,,35,TGSC,0,U-002
 fig:613,"3,4-Dimethyl-1,2-cyclopentadione",,,,0,,1,TGSC,0,U-002
 fig:615,"3,4-Hexanedione",,,,0,,1,TGSC,0,U-002
@@ -370,6 +379,7 @@ fig:617,"3,5,5-Trimethyl-1-hexanol",,,,0,,1,TGSC,0,U-002
 fig:618,"3,5,5-Trimethylcyclohexanol",,,,0,,4,TGSC,0,U-002
 fig:619,"3,5,5-Trimethylhexanal",,,,0,,1,TGSC,0,U-002
 fig:620,"3,5,5-Trimethylhexyl acetate",0.1,1,recomendacion,1,PerfumersWorld,10,TGSC,0,U-002
+fig:622,"3,5,6,6-Tetramethyl-4-methyleneheptan-2-one",,,,0,,30,"Búsqueda web (iff.com, shop.perfumersapprentice.com)",0,U-005
 fig:627,"3,5-Dimethylcyclohex-3-ene-1-methyl acetate",,,,0,,5,TGSC,0,U-002
 fig:628,"3,5-Dimethylcyclohexene-1-methanol",,,,0,,10,TGSC,0,U-002
 fig:633,"3,6-Dihydro-4-methyl-2-phenyl-2H-pyran",,,,0,,2,TGSC,0,U-002
