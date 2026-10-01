@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import lot from "../../docs/investigacion/2026-09-30-usos-y-constituyentes/lotes/U-001.csv?raw";
+import lot1 from "../../docs/investigacion/2026-09-30-usos-y-constituyentes/lotes/U-001.csv?raw";
+import lot2 from "../../docs/investigacion/2026-09-30-usos-y-constituyentes/lotes/U-002.csv?raw";
 import written from "../../datos/glosario/origen/usos-habituales.csv?raw";
 import { Ratio } from "../core/arith/ratio";
 import { bandOf } from "../bench/usage-bar";
@@ -18,12 +19,16 @@ function median(values: Ratio[]): Ratio | undefined {
   return v.length % 2 ? v[(v.length - 1) / 2] : v[v.length / 2 - 1].add(v[v.length / 2]).div(Ratio.of(2));
 }
 
-describe("the usual use, from the audited lot U-001 (E6, P59)", () => {
+describe("the usual use, from the lots U-001 (audited by hand) and U-002 (scripts/traer_usos.py) (E6, P59)", () => {
   it("has a band for every material the lot gives a figure, and reads it exactly from the glossary", () => {
     const withBand = catalog.entries.filter((e) => e.usage);
-    expect(withBand).toHaveLength(53);
+    // 53 from U-001 plus 250 from U-002. U-002 is mostly TGSC, which gives only a ceiling, and a ceiling
+    // alone is not a band: so most of its 1,672 materials with a ceiling have no band here. Of the
+    // 250 new bands, 0 add to the consensus count (49 stays) and 250 are a single-source recommendation:
+    // a PerfumersWorld minimum/average, or the only source of the band.
+    expect(withBand).toHaveLength(303);
     expect(withBand.filter((e) => e.usage?.consensus === "consenso")).toHaveLength(49);
-    expect(withBand.filter((e) => e.usage?.consensus === "recomendacion")).toHaveLength(4);
+    expect(withBand.filter((e) => e.usage?.consensus === "recomendacion")).toHaveLength(254);
     // A material the lot does not cover has no band: a gap, never a zero (§1.2).
     expect(catalog.entries.filter((e) => e.group === "diluent").every((e) => e.usage === undefined)).toBe(true);
     expect(withBand.length).toBeLessThan(catalog.entries.length);
@@ -61,7 +66,7 @@ describe("the usual use, from the audited lot U-001 (E6, P59)", () => {
   });
 
   it("can be redone from the audited lot with the rule of the script, for every material", () => {
-    const rows = parseCsvRecords(lot).filter((r) => r.auditoria === "aceptada");
+    const rows = [...parseCsvRecords(lot1), ...parseCsvRecords(lot2)].filter((r) => r.auditoria === "aceptada");
     const ids = [...new Set(rows.map((r) => r.material_id))];
     expect(parseCsvRecords(written)).toHaveLength(ids.length);
     for (const id of ids) {
@@ -82,7 +87,12 @@ describe("the usual use, from the audited lot U-001 (E6, P59)", () => {
         .filter((r) => (r.papel === "techo" || r.papel === "habitual y techo") && r.base === "concentrado" && r.max_pct !== "")
         .map((r) => pct(r.max_pct));
       const usage = entryOf(id)?.usage;
-      expect(usage?.max.eq(max!), id).toBe(true);
+      if (max === undefined) {
+        // Only a ceiling (TGSC): no band, a gap and never a zero (§1.2).
+        expect(usage, id).toBeUndefined();
+        continue;
+      }
+      expect(usage?.max.eq(max), id).toBe(true);
       expect(usage?.min?.eq(min!) ?? min === undefined, id).toBe(true);
       const top = ceilings.reduce<Ratio | undefined>((a, b) => (a === undefined || b.gt(a) ? b : a), undefined);
       expect(usage?.ceiling?.eq(top!) ?? top === undefined, id).toBe(true);
