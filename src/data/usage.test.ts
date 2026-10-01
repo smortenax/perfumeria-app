@@ -21,14 +21,18 @@ function median(values: Ratio[]): Ratio | undefined {
 
 describe("the usual use, from the lots U-001 (audited by hand) and U-002 (scripts/traer_usos.py) (E6, P59)", () => {
   it("has a band for every material the lot gives a figure, and reads it exactly from the glossary", () => {
-    const withBand = catalog.entries.filter((e) => e.usage);
+    const withBand = catalog.entries.filter((e) => e.usage?.max);
     // 53 from U-001 plus 250 from U-002. U-002 is mostly TGSC, which gives only a ceiling, and a ceiling
-    // alone is not a band: so most of its 1,672 materials with a ceiling have no band here. Of the
+    // alone is not a band: so most of its 1,672 materials with a ceiling have no band here. They do
+    // have a usage, «techo», with the ceiling alone (P59 A): 1,672 − 303 = 1,369 of them. Of the
     // 250 new bands, 0 add to the consensus count (49 stays) and 250 are a single-source recommendation:
     // a PerfumersWorld minimum/average, or the only source of the band.
     expect(withBand).toHaveLength(303);
     expect(withBand.filter((e) => e.usage?.consensus === "consenso")).toHaveLength(49);
     expect(withBand.filter((e) => e.usage?.consensus === "recomendacion")).toHaveLength(254);
+    const ceilingOnly = catalog.entries.filter((e) => e.usage?.consensus === "techo");
+    expect(ceilingOnly).toHaveLength(1369);
+    expect(ceilingOnly.every((e) => e.usage?.max === undefined && e.usage?.ceiling !== undefined)).toBe(true);
     // A material the lot does not cover has no band: a gap, never a zero (§1.2).
     expect(catalog.entries.filter((e) => e.group === "diluent").every((e) => e.usage === undefined)).toBe(true);
     expect(withBand.length).toBeLessThan(catalog.entries.length);
@@ -40,7 +44,7 @@ describe("the usual use, from the lots U-001 (audited by hand) and U-002 (script
     expect(usage?.sources).toBe("Laboratorio | PerfumersWorld | Scentspiracy");
     // The figures are shares of the concentrate, exact: 0.1 % is 1/1000.
     expect(usage?.min?.eq(Ratio.of(1, 1000))).toBe(true);
-    expect(usage?.max.eq(Ratio.of(1, 100))).toBe(true);
+    expect(usage?.max?.eq(Ratio.of(1, 100))).toBe(true);
     expect(usage?.ceiling?.eq(Ratio.of(3, 100))).toBe(true);
     expect(usage?.ceilingSource).toBe("TGSC");
   });
@@ -58,7 +62,7 @@ describe("the usual use, from the lots U-001 (audited by hand) and U-002 (script
     expect(usage?.sources).toBe("Laboratorio | PerfumersWorld");
     // Minimums 5 % (lab) and 1 % (PW): median 3 %. Usual maximums 30 % (lab) and PW's average, 10 %: median 20 %.
     expect(usage?.min?.eq(Ratio.of(3, 100))).toBe(true);
-    expect(usage?.max.eq(Ratio.of(20, 100))).toBe(true);
+    expect(usage?.max?.eq(Ratio.of(20, 100))).toBe(true);
     // TGSC says «up to 30 %», but PerfumersWorld's maximum is 50 %: the highest wins, with its name.
     // The 50 % of the supplier range in the lab's note has no base, so it cannot be a ceiling.
     expect(usage?.ceiling?.eq(Ratio.of(50, 100))).toBe(true);
@@ -87,14 +91,17 @@ describe("the usual use, from the lots U-001 (audited by hand) and U-002 (script
         .filter((r) => (r.papel === "techo" || r.papel === "habitual y techo") && r.base === "concentrado" && r.max_pct !== "")
         .map((r) => pct(r.max_pct));
       const usage = entryOf(id)?.usage;
+      const top = ceilings.reduce<Ratio | undefined>((a, b) => (a === undefined || b.gt(a) ? b : a), undefined);
       if (max === undefined) {
-        // Only a ceiling (TGSC): no band, a gap and never a zero (§1.2).
-        expect(usage, id).toBeUndefined();
+        // Only a ceiling (TGSC): no band, a gap and never a zero (§1.2), but the ceiling reaches the
+        // card with its source, as P59 A asked. Until 2026-10-01 it did not reach it at all.
+        expect(usage?.max, id).toBeUndefined();
+        expect(usage?.consensus, id).toBe("techo");
+        expect(usage?.ceiling?.eq(top!), id).toBe(true);
         continue;
       }
-      expect(usage?.max.eq(max), id).toBe(true);
+      expect(usage?.max?.eq(max), id).toBe(true);
       expect(usage?.min?.eq(min!) ?? min === undefined, id).toBe(true);
-      const top = ceilings.reduce<Ratio | undefined>((a, b) => (a === undefined || b.gt(a) ? b : a), undefined);
       expect(usage?.ceiling?.eq(top!) ?? top === undefined, id).toBe(true);
       const sources = new Set(usual.map((u) => u.row.fuente));
       expect(usage?.consensus, id).toBe(sources.size === 1 ? "recomendacion" : "consenso");

@@ -45,11 +45,15 @@ export interface MaterialFamily {
  * the highest use anyone reports (a use ceiling, not IFRA's); `consensus` says whether two or
  * more sources agree on the band or it is one source's recommendation; `sources` names them.
  */
+/**
+ * The usual use of a material (P59). «techo» is a row with no band, only the most one source
+ * reports (TGSC): it reaches the card as the ceiling mark with its source, never as a band (P59 A).
+ */
 export interface UsageData {
   readonly min?: Ratio;
-  readonly max: Ratio;
+  readonly max?: Ratio;
   readonly ceiling?: Ratio;
-  readonly consensus: "consenso" | "recomendacion";
+  readonly consensus: "consenso" | "recomendacion" | "techo";
   readonly sources: string;
   /** Where the ceiling comes from, when there is one. */
   readonly ceilingSource?: string;
@@ -185,14 +189,19 @@ function diluent(material: Material, code: string, icon: string, cas: string, na
   };
 }
 
-/** The usual use of a glossary row, as the entry's `usage` field; nothing when the row has no band. */
+/**
+ * The usual use of a glossary row, as the entry's `usage` field: the band, or the ceiling alone when
+ * only that is known; nothing when the row has neither.
+ */
 function usageOf(m: Record<string, string>): { usage?: UsageData } {
   const max = m.uso_max ?? "";
   const consensus = m.uso_consenso;
-  if (!isNumber(max) || (consensus !== "consenso" && consensus !== "recomendacion")) {
-    return {};
-  }
   const ceiling = m.uso_techo ?? "";
+  if (!isNumber(max) || (consensus !== "consenso" && consensus !== "recomendacion")) {
+    return isNumber(ceiling)
+      ? { usage: { ceiling: pct(ceiling), consensus: "techo", sources: "", ...(m.uso_techo_fuente ? { ceilingSource: m.uso_techo_fuente } : {}) } }
+      : {};
+  }
   return {
     usage: {
       ...(isNumber(m.uso_min ?? "") ? { min: pct(m.uso_min) } : {}),

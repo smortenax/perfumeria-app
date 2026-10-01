@@ -153,11 +153,20 @@ function UsageBox(props: {
   const solo = ok ? capMark(ok.solo, t.soloTitle, ok, props.substanceName) : null;
   const all = ok ? capMark(ok.aggregate, t.allTitle, ok, props.substanceName) : null;
   const low = band?.min ? placeOf(band.min) : null;
-  const high = band ? placeOf(band.max) : null;
+  const high = band?.max ? placeOf(band.max) : null;
   const lowText = band?.min ? formatPercent(band.min, 3) : null;
-  const bandText = band ? t.band(lowText, formatPercent(band.max, 3)) : null;
   const recommendation = band?.recommendation === true;
-  const bandTitle = band ? t.bandTitle(lowText, formatPercent(band.max, 3), band.fuente, recommendation) : null;
+  // With the ceiling alone (one source, P59 A), the head says so: a ceiling, never a band.
+  const bandText = band?.max
+    ? t.band(lowText, formatPercent(band.max, 3))
+    : band?.ceiling
+      ? t.ceilingOnly(formatPercent(band.ceiling.value, 3))
+      : null;
+  const bandTitle = band?.max
+    ? t.bandTitle(lowText, formatPercent(band.max, 3), band.fuente, recommendation)
+    : band?.ceiling
+      ? t.ceilingTitle(formatPercent(band.ceiling.value, 3), band.ceiling.fuente)
+      : null;
   // The use ceiling is a small diamond of its own, apart from IFRA's triangles.
   const ceilingAt = band?.ceiling ? placeOf(band.ceiling.value) : null;
   const ceilingTitle = band?.ceiling ? t.ceilingTitle(formatPercent(band.ceiling.value, 3), band.ceiling.fuente) : null;
@@ -172,7 +181,7 @@ function UsageBox(props: {
           {bandText ?? t.noData}
         </span>
       </span>
-      <span className={band ? "usage-strip with-band" : "usage-strip"} role="img" aria-label={label}>
+      <span className={high !== null ? "usage-strip with-band" : "usage-strip"} role="img" aria-label={label}>
         {/* A tick each decade: six of them from 0,001 % to 100 %. */}
         {Array.from({ length: USAGE_DECADES + 1 }, (_, i) => (
           <span key={i} className="usage-tick" style={{ left: `${(i / USAGE_DECADES) * 100}%` }} />

@@ -28,7 +28,8 @@ import { readingIn } from "./ifra-panel";
  */
 export interface UsageBand {
   readonly min?: Ratio;
-  readonly max: Ratio;
+  /** Undefined when only the use ceiling is known: no band is drawn, only its mark. */
+  readonly max?: Ratio;
   readonly fuente: string;
   readonly recommendation?: boolean;
   readonly ceiling?: { readonly value: Ratio; readonly fuente: string | undefined };
@@ -39,7 +40,7 @@ export function bandOf(usage: UsageData | undefined): UsageBand | undefined {
   return usage
     ? {
         ...(usage.min ? { min: usage.min } : {}),
-        max: usage.max,
+        ...(usage.max ? { max: usage.max } : {}),
         fuente: usage.sources,
         recommendation: usage.consensus === "recomendacion",
         ...(usage.ceiling ? { ceiling: { value: usage.ceiling, fuente: usage.ceilingSource } } : {}),
@@ -54,7 +55,7 @@ export function bandOf(usage: UsageData | undefined): UsageBand | undefined {
  */
 export function bandOverIfra(band: UsageBand | undefined, ifra: MaterialIfra | null): boolean {
   const share = ifra?.status === "ok" ? ifra.solo?.share : null;
-  return band !== undefined && share !== null && share !== undefined && band.max.gt(share);
+  return band?.max !== undefined && share !== null && share !== undefined && band.max.gt(share);
 }
 
 /** What one unit of mass of a material is made of, in IFRA terms. `unknown` is never a number (§1.2). */

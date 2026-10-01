@@ -155,6 +155,7 @@ export const texts = {
     bandTitle: (low: string | null, high: string, source: string, recommendation: boolean) =>
       `${recommendation ? "Recomendación de una sola fuente" : "Consenso de varias fuentes"}: ${low === null ? `hasta ${high}` : `de ${low} a ${high}`} del concentrado. ${recommendation ? "Fuente" : "Fuentes"}: ${source}`,
     legendCeiling: "techo de uso",
+    ceilingOnly: (value: string) => `solo techo: hasta ${value}`,
     /** The use ceiling: the most anyone reports, never IFRA's. */
     ceilingTitle: (value: string, source: string | undefined) =>
       `Techo de uso: hasta ${value} del concentrado${source ? ` (${source})` : ""}. Es lo más que se cita, no un límite de IFRA`,
