@@ -14,6 +14,9 @@ producto**: nada debe cerrar esa puerta.
 - **[`docs/antecedentes/`](docs/antecedentes/README.md) no obliga a nada.** Son documentos
   anteriores que se contradicen entre sí. Si algo de ahí choca con las decisiones, ganan las
   decisiones.
+- **Lo que el usuario deja para más adelante entra el mismo día en
+  [`docs/a-futuro.md`](docs/a-futuro.md)**, con de dónde sale y qué no hay que cerrar hoy. Antes
+  de diseñar algo, se mira ahí qué puerta tiene que quedar abierta.
 - **Una decisión nueva pasa por [`docs/interrogatorio.md`](docs/interrogatorio.md)**:
   pregunta con código, respuesta literal del usuario y lectura. Después entra en las
   decisiones, **con su porqué**.

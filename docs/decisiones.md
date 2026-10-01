@@ -499,6 +499,9 @@ prima). Por eso cada cifra va con su autoridad, y la de arriba manda:
 
 # 8 · Aplazado
 
+*El índice completo de lo que se deja para más adelante, con lo que no hay que cerrar hoy, está
+en [a-futuro.md](a-futuro.md).*
+
 | | Lo que ya queda preparado |
 |---|---|
 | **Glosario visual** de materiales y fórmulas: la línea paralela | Se sigue en [`antecedentes/lenguaje-visual/`](antecedentes/README.md) |

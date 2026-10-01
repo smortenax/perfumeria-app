@@ -2430,6 +2430,49 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 - Estado: cerrada
 - Destino: decisiones.md §5 (autoridad de cada cifra), §4, §8; P37, P54, P55, P59
 
+
+### P61 — Un glosario aparte para recorrerlo todo, y el alta completa de materiales
+
+- **Viene del usuario** (2026-10-01), con dos documentos sobre de dónde sacar los
+  constituyentes de los naturales y el certificado IFRA de Firmenich de *Black Agar 296985*.
+- **Respuesta literal:** *«no se como esta ahora internamente el programa pero creo una parte de
+  la app deberia ser dedicada a un glosario de los materiales, donde se le pueda dar de alta
+  materiales nuevos, no de manera rapida sino con las complejidades para que este a la altura de
+  otros materiales, por que digo esto es por tener la idea de la app clara, no se si es
+  compatible la organizacion actual con esto, por eso el replanteamiento, de que surge esta
+  necesidad? las fichas de materiales son complejas actualmente para que el usuario pueda crear
+  un material a la misma altura no vale con material temporal, hay que tener un sitio aparte, en
+  este glosario apareceran todos los materiales que proveemos con la info que se tenga de ellos
+  y tambien apareceran formulas con un filtro para escoger, que diferencie en tre materiales
+  generales materiales propios formulas y si al final establecemos una categoria de perfume
+  final o algo tambien parte del filtro, este glosario no es el mismo donde aparecen todas las
+  formulas del usuario, sino que es para poder nadar sobre todas y si el usuario quiere puede dar
+  de alta la informacion del producto concreto, a su medida, con la ficha del proveedor [...]
+  esto no hace falta hacerlo ahora pero tenerlo en cuenta»*
+- **Lectura:**
+  - **Una sección «Glosario»**, distinta del banco y de la biblioteca de fórmulas del usuario,
+    para recorrer todo: materiales de serie, materiales propios, fórmulas y, si se establece, el
+    perfume final (P45), con filtros por esos tipos.
+  - **Dentro, el alta completa de un material**, a la altura de los de serie: no es el material
+    provisional del banco, que sigue siendo la vía rápida.
+  - **Y la ficha del producto concreto**, a medida, con lo que da su proveedor: es «ajustar a mi
+    proveedor» (P60). El certificado de Firmenich enseña el formato: el tope por categoría y la
+    sección 2.2, cada sustancia restringida con su cantidad, que es lo que la app suma (§5.3).
+  - **Es compatible con lo que hay.** P15 ya separaba la app en banco, biblioteca, alta de
+    materiales y glosario; el plan tiene el alta en la fase 5. En el código, el material ya tiene
+    sus tipos (de serie, provisional, fórmula como material) y la ficha lee su glosario por
+    material. Lo que falta: dónde se guardan los materiales propios con todos sus campos, y la
+    pantalla.
+  - **Lo que no hay que cerrar ahora:** que un material propio, una fórmula y uno de serie se
+    describan con la misma ficha y los mismos campos, y que nada de la ficha dependa de que el
+    material venga del catálogo.
+- **Corrección de P60:** IFRA dice que normalmente no hay certificado para una materia prima,
+  pero las casas sí lo emiten para sus ingredientes y bases, como este de Firmenich («IFRA
+  Certificate of Conformity for Ingredients/Bases»).
+- Fecha: 2026-10-01
+- Estado: para tener en cuenta; no se hace ahora
+- Destino: [a-futuro.md](a-futuro.md) §1; decisiones.md §0, §8; plan, fase 5
+
 ---
 
 ## Estado
@@ -2441,6 +2484,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
 | R12 · infografías y frentes | 7 (P35 a P41) | 3 (P33, P34, P42) |
-| R13 · a pesar en el banco | 14 (P43, P44, P48 a P51, P53 a P60) | 4 (P45 a P47, P52) |
+| R13 · a pesar en el banco | 14 (P43, P44, P48 a P51, P53 a P60) | 4 (P45 a P47, P52) · P61, para tener en cuenta |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.
