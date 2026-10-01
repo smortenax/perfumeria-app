@@ -400,3 +400,91 @@ Filas por dominio probable (estimacion, el buscador no enlazo cada cifra): domin
 3. Orden 229 (lactato de butilo): la unica pagina con cifras es un espejo de TGSC (thegoodscents.company), descartada.
 4. Falsas atribuciones a IFRA: «up to 10% in fragrance concentrates» (alfa-pineno) se presenta como recomendacion IFRA sin serlo; solo va a notas.
 5. Orden 235 (Verdox HC): la cifra viene de la pagina del Verdox normal (88-41-5), no del isomero cis; orden 265 (guayacol): el limite IFRA de 0.5% es menor que el techo de la franja de 2%.
+
+## Parte 5: ordenes 301 a 367
+
+Franjas en % del concentrado (sin alcohol). Fuentes distintas de TGSC, PerfumersWorld y perflavory. Cada material: 1 busqueda, 0 fetches. Sin URL por cifra (solo resumen del buscador). Se descartaron como formato TGSC las frases «up to X% in the fragrance concentrate», «average use X%», «typical use level... up to X%», aunque salgan de Perfumers Apprentice u otras tiendas.
+
+| orden | material | CAS | franjas (% concentrado) | fuentes | avisos |
+|---|---|---|---|---|---|
+| 301 | Octahydrocoumarin | 4430-31-3 | sin segunda fuente |  |  |
+| 302 | Octanenitrile | 124-12-9 | sin segunda fuente |  |  |
+| 303 | o-Tolylethanol | 19819-98-8 | estandar 1-3 | dominio no identificado | dudosa |
+| 304 | Oxacyclohexadec-12-en-2-one, (12E)- | 111879-80-2 | estandar 1-3; techo <=10 | dominio no identificado, scentspiracy.com | dudosa |
+| 305 | p,alpha-Dimethylstyrene | 1195-32-0 | sin segunda fuente |  |  |
+| 306 | p-Cresol | 106-44-5 | sin segunda fuente |  |  |
+| 307 | p-Cymene | 99-87-6 | sin segunda fuente |  |  |
+| 308 | p-Dimethoxybenzene | 150-78-7 | sin segunda fuente |  |  |
+| 309 | Pentanoic acid, 3-methyl-2-oxo-, ethyl e | 26516-27-8 | sin segunda fuente |  |  |
+| 310 | Pentyl acetate | 628-63-7 | estandar 0.1-0.2; techo <=0.5 | dominio no identificado, glooshi.com |  |
+| 311 | Phenethyl acetate | 103-45-7 | estandar 3-10 | dominio no identificado | dudosa |
+| 312 | Phenethyl phenylacetate | 102-20-5 | sin segunda fuente |  | atencion |
+| 313 | Phenylacetaldehyde 2,4-dihydroxy-2-methy | 67633-94-7 | estandar 1-2 | scentree.co | dudosa |
+| 314 | Phenylacetaldehyde dimethyl acetal | 101-48-4 | estandar 0.5-3 | scentspiracy.com |  |
+| 315 | Phenylacetaldehyde glyceryl acetal | 29895-73-6 | sin segunda fuente |  |  |
+| 316 | Piperonal | 120-57-0 | sin segunda fuente |  |  |
+| 317 | p-Isobutyl-alpha-methyl hydrocinnamaldeh | 6658-48-6 | estandar 1-15 | dominio no identificado | dudosa |
+| 318 | p-Isopropylbenzyl alcohol | 536-60-7 | sin segunda fuente |  |  |
+| 319 | p-Mentha-1,4-diene | 99-85-4 | sin segunda fuente |  |  |
+| 320 | p-Mentha-8-thiol-3-one | 38462-22-5 | trazas >=0.005; techo <=5 | uspto.gov, patente US 4032478 | dudosa |
+| 321 | p-Menthylene sulfide 1% in limonene | 68921-26-6 | trazas >=0.00001; estandar 0.0002-0.025; techo <=0.25 | uspto.gov, patente US 10570351 | dudosa |
+| 322 | p-Methoxybenzaldehyde | 123-11-5 | estandar 0.1-1.5 | dominio no identificado | dudosa |
+| 323 | p-Methyl-alpha-amyl cinnamic aldehyde | 84697-09-6 | sin segunda fuente |  | atencion |
+| 324 | p-Propylanisole | 104-45-0 | sin segunda fuente |  |  |
+| 325 | Propanedioic acid, 1-(3,3-dimethylcycloh | 478695-70-4 | estandar 1-15 | dominio no identificado | dudosa |
+| 326 | Propyl (2S)-2-(1,1-dimethylpropoxy)-prop | 319002-92-1 | estandar 2-7 | firmenich.com o dsm-firmenich.com |  |
+| 327 | p-t-Butyl-alpha-methylhydrocinnamic alde | 80-54-6 | estandar 0.5-3; techo <=10 | dominio no identificado, scentspiracy.com | dudosa |
+| 328 | p-Tolualdehyde | 104-87-0 | sin segunda fuente |  |  |
+| 329 | p-Tolyl phenylacetate | 101-94-0 | estandar 0.1-1 | scentree.co |  |
+| 330 | Pulegone | 89-82-7 | sin segunda fuente |  |  |
+| 331 | Rose oxide levo | 3033-23-6 | techo <=1 | scentspiracy.com |  |
+| 332 | Salicylaldehyde | 90-02-8 | sin segunda fuente |  |  |
+| 333 | Spiro[1,3-dioxolane-2,8'(5'H)-[2H-2,4a]m | 154171-77-4 | estandar 1-2; techo <=10 | scentspiracy.com |  |
+| 334 | Styrene | 100-42-5 | sin segunda fuente |  |  |
+| 335 | Terpineol | 8000-41-7 | estandar 0.5-5 | scentspiracy.com | dudosa, atencion |
+| 336 | Terpinyl acetate (Isomer mixture) | 8007-35-0 | sin segunda fuente |  |  |
+| 337 | Tetrahydro-4-methyl-2-(2-methylpropen-1- | 16409-43-1 | estandar 0.01-0.15 | scentspiracy.com | atencion |
+| 338 | Tetrahydro-4-methyl-2-propyl-2H-pyran-4- | 131766-73-9 | sin segunda fuente |  |  |
+| 339 | Tetrahydro-6-(2-pentenyl)-2H-pyran-2-one | 34686-71-0 | sin segunda fuente |  | atencion |
+| 340 | Tetrahydro-6-(3-pentenyl)-2H-pyran-2-one | 32764-98-0 | estandar 0.1-1; techo <=1.5 | scentspiracy.com |  |
+| 341 | trans-Anethole | 4180-23-8 | sin segunda fuente |  |  |
+| 342 | Trichloromethyl phenyl carbinyl acetate | 90-17-5 | techo <=4 | scent.vn | dudosa |
+| 343 | Tricyclo[3.3.1.1.(3.7)]decan-2-ol, 4-met | 122760-84-3 | sin segunda fuente |  |  |
+| 344 | Trimethyl-13-oxabicyclo[10.1.0]trideca-4 | 71735-79-0 | sin segunda fuente |  |  |
+| 345 | Vanillin isobutyrate | 20665-85-4 | sin segunda fuente |  |  |
+| 346 | Vetiverol, acetate | 62563-80-8 | sin segunda fuente |  |  |
+| 347 | cis,trans-4-(Isopropyl)cyclohexanemethan | 5502-75-0 | estandar 0.79-3 | firmenich.com o dsm-firmenich.com |  |
+| 348 | Birch wood pyrolysate | 85251-66-7 | sin segunda fuente |  | atencion |
+| 349 | Birch wood pyrolysate | 85940-29-0 | trazas 0.01-0.2; techo <=2 | scentspiracy.com | dudosa, atencion |
+| 350 | Opoponax | 9000-78-6 | estandar 0.3-1; techo <=5 | dominio no identificado |  |
+| 351 | TRIMOFIX IFF | 1391529-52-4 | sin segunda fuente |  |  |
+| 352 | Isopropyl myristate | 110-27-0 | techo <=25 | dominio no identificado | dudosa |
+| 353 | 4-Pentenal, 4-methyl-5-(4-methylphenyl)- | 1226911-69-8 | sin segunda fuente |  |  |
+| 354 | 4H-4a,9-Methanoazuleno[5,6-d]-1,3-dioxol | 1357064-95-9 | sin segunda fuente |  |  |
+| 355 | 1-Cyclohexene-1-propanal, 4-(1-methyleth | 1378867-81-2 | estandar 0.1-5 | dominio no identificado | dudosa |
+| 356 | 4-Pentenal, 5-cyclohexyl-2,4-dimethyl-,  | 1449104-34-0 | sin segunda fuente |  |  |
+| 357 | 3-(4-isobutyl-2-methylphenyl)propanal | 1637294-12-2 | estandar 0.1-1; techo <=2 | basenotes.com, foro, dominio no identificado | dudosa |
+| 358 | 4,7-Octadienoic acid, methyl ester, (4E) | 189440-77-5 | sin segunda fuente |  |  |
+| 359 | Phenol, 2-methoxy-, reaction products | 224790-80-1 | estandar 0.05-5 | kao.com | atencion |
+| 360 | Dipropylene glycol (isomer unspecified) | 25265-71-8 | estandar 1-10 | premierepeau.com | dudosa |
+| 361 | 4,5,6,7,8,9,10,11,12,13-Decahydrocyclodo | 38303-23-0 | estandar 0.05-1; techo <=3 | glooshi.com |  |
+| 362 | Cyclohexanol, 5-methyl-2-(1-methyletheny | 50373-36-9 | estandar 1-5 | dominio no identificado | dudosa |
+| 363 | (+/-)-Dihydrofarnesol | 51411-24-6 | techo <=5 | takasago.com o perfumersupplyhouse.com | dudosa |
+| 364 | 3-Methoxy-3-methyl-1-butanol | 56539-66-3 | sin segunda fuente |  |  |
+| 365 | Triethyl citrate | 77-93-0 | estandar 1-5 | dominio no identificado | dudosa |
+| 366 | Cyclohexanol, 5-methyl-2-(1-methyletheny | 7786-67-6 | trazas >=0.2; estandar 1-5; techo <=10 | uspto.gov, patente | dudosa |
+| 367 | Diethyl phthalate | 84-66-2 | sin segunda fuente |  |  |
+
+Totales: 67 materiales, 67 busquedas, 0 fetches. 34 sin segunda fuente, 33 con al menos una franja (47 filas con cifra).
+
+## Dominios que aportaron mas (parte 5)
+
+Estimacion por filas (el buscador no enlazo cada cifra): scentspiracy.com (12), uspto.gov patentes (8, materiales raros como los tioles y el isopulegol), dominio no identificado (unas 16), glooshi.com (3), firmenich.com/dsm-firmenich (2), scentree.co (2), y una cada uno kao.com (Magnol), premierepeau.com, takasago.com, basenotes.com.
+
+## Lo raro (parte 5)
+
+1. Mitad de los materiales sin segunda fuente: casi todo lo que sale en fichas de tienda (Perfumers Apprentice, perfumiarz, etc.) copia el formato TGSC («up to X%», «average X%»), asi que se descarto. Los materiales nuevos de casas (Mimosal, Ambrostar, Muguissimo, Methyl Anjoulate) no dan dosis en los resumenes.
+2. Mapeos dudosos: orden 348 (CAS de pirolisado de abedul con nombre de tienda aceite de abedul dulce), orden 349 (ficha del alquitran 8001-88-5), orden 335 (ficha de alfa-terpineol 98-55-5), orden 323 (resultados de amil cinamaldehido 122-40-7), orden 339 (resultados del isomero 3-pentenil, van al 340).
+3. Patentes como fuente: p-mentha-8-thiol-3-one (orden 320), p-menthene-8-thiol (321) e isopulegol (366); son rangos de patente en peso de composicion, marcados dudosa.
+4. Disolventes (IPM, DPG, TEC, DEP, MMB): las cifras son de uso como vehiculo; DEP y MMB solo dan formulas de producto final o ejemplo, sin franja.
+5. Falsas atribuciones a IFRA en los resumenes: «IFRA recommends 0.8% of the fragrance concentrate» (Rose Crystals), «IFRA up to 8% in concentrates» (heliotropina) y «IFRA EDP up to 10%» (Habanolide) no son limites IFRA reales; se descartaron o van a notas. Ninguna pagina pidio acciones al agente.
