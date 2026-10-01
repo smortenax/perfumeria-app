@@ -3269,3 +3269,273 @@ fig:1545,CAM,Methyl 2-{[3-(4-isopropylphenyl)-2-methylpropylidene]amino}benzoate
 fig:1482,CIM,"Citronellal methylanthranilate; Methyl 2-[(3,7-dimethyl-6-octenylidene)amino]benzoate (or Citronama)",cas,106-23-0,Citronellal,IFRA_STD_206,53.7,bases-schiff,
 fig:1737,EDP,"Ethyl 2-[[[4-(1,1-dimethylethyl)phenyl]methylene]amino]benzoate",cas,122-03-2,Cuminaldehyde,IFRA_STD_024,50.2,bases-schiff,
 fig:1152,BAM,Methyl 2-[(4-methoxybenzylidene)amino]benzoate (or Anisimea),cas,123-11-5,p-Methoxybenzaldehyde,IFRA_STD_054,50.6,bases-schiff,
+fig:1039,αAm,proveedor,proveedor,,Amylcinnamyl Alcohol (101-85-9),IFRA_STD_004,0.5,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos EU_Fragrance_Allergens_ALDEHIDO_ALFA-N-AMILCINAMICO_KALPSUTRA.pdf
+fig:1039,αAm,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.05,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos EU_Fragrance_Allergens_ALDEHIDO_ALFA-N-AMILCINAMICO_KALPSUTRA.pdf
+fig:1039,αAm,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.2,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos EU_Fragrance_Allergens_ALDEHIDO_ALFA-N-AMILCINAMICO_KALPSUTRA.pdf
+fig:1039,αAm,proveedor,proveedor,,Hexyl Cinnamal (101-86-0),IFRA_STD_040,0.5,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos EU_Fragrance_Allergens_ALDEHIDO_ALFA-N-AMILCINAMICO_KALPSUTRA.pdf
+fig:1067,αTe,proveedor,proveedor,,Geraniol (106-24-1),IFRA_STD_037,0.03,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H12065_ALG_10-24.pdf
+fig:1067,αTe,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.025,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H12065_ALG_10-24.pdf
+fig:1119,BPR,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.036,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf
+fig:1119,BPR,proveedor,proveedor,,Benzyl Salicylate (118-58-1),IFRA_STD_011,0.0132,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf
+fig:1119,BPR,proveedor,proveedor,,Cinnamyl Alcohol (104-54-1),IFRA_STD_017,0.0024,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf
+fig:1119,BPR,proveedor,proveedor,,Cinnamal (104-55-2),IFRA_STD_018,0.0048,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf
+fig:1119,BPR,proveedor,proveedor,,Coumarin (91-64-5),IFRA_STD_023,0.0348,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf
+fig:1119,BPR,proveedor,proveedor,,Eugenol (97-53-0),IFRA_STD_035,0.0372,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf
+fig:1119,BPR,proveedor,proveedor,,Farnesol (4602-84-0),IFRA_STD_036,0.0406,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf
+fig:1119,BPR,proveedor,proveedor,,Isoeugenol (5932-68-3),IFRA_STD_048,0.0995,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf
+fig:1119,BPR,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.003,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf
+fig:1138,Bz,proveedor,proveedor,,Benzene (71-43-2),IFRA_STD_111,0.0005,proveedor,típico; C-003: Perfumiarz: lista de alérgenos ALDB1S_COSM2.pdf
+fig:1138,Bz,proveedor,proveedor,,Toluene (108-88-3),IFRA_STD_182,0.0003,proveedor,típico; C-003: Perfumiarz: lista de alérgenos ALDB1S_COSM2.pdf
+fig:114,THN,proveedor,proveedor,,"5-Acetyl-1,1,2,3,3,6-hexamethylindan (15323-35-0)",IFRA_STD_085,1,proveedor,típico; C-003: Perfumiarz: lista de alérgenos TOD2P_COSM2.pdf
+fig:1177,BA9,proveedor,proveedor,,Anise Alcohol (105-13-5),IFRA_STD_006,0.1,proveedor,típico; C-003: Perfumiarz: lista de alérgenos BENZA1V_COSM2.pdf
+fig:1177,BA9,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.1,proveedor,típico; C-003: Perfumiarz: lista de alérgenos BENZA1V_COSM2.pdf
+fig:1177,BA9,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.05,proveedor,típico; C-003: Perfumiarz: lista de alérgenos BENZA1V_COSM2.pdf
+fig:1177,BA9,proveedor,proveedor,,Benzylidene acetone (122-57-6),IFRA_STD_113,0.02,proveedor,típico; C-003: Perfumiarz: lista de alérgenos BENZA1V_COSM2.pdf
+fig:1177,BA9,proveedor,proveedor,,Limonene (5989-27-5),IFRA_STD_186,0.01,proveedor,típico; C-003: Perfumiarz: lista de alérgenos BENZA1V_COSM2.pdf
+fig:1179,BBE,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.05,proveedor,típico; C-003: Perfumiarz: lista de alérgenos BDB2L_COSM2.pdf
+fig:1179,BBE,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.1,proveedor,típico; C-003: Perfumiarz: lista de alérgenos BDB2L_COSM2.pdf
+fig:1193,BES,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.1,proveedor,típico; C-003: Perfumiarz: lista de alérgenos BENZYL_SALICYLATE_SBE1E_CO.pdf
+fig:1193,BES,proveedor,proveedor,,Benzyl Benzoate (120-51-4),IFRA_STD_009,0.1,proveedor,típico; C-003: Perfumiarz: lista de alérgenos BENZYL_SALICYLATE_SBE1E_CO.pdf
+fig:1200,BFO,proveedor,proveedor,,Carvone (99-49-0),IFRA_STD_016,0.0013,proveedor,"típico; C-001: SoapQueen Europe: declaración de alérgenos EO003, 2024-10-18"
+fig:1200,BFO,proveedor,proveedor,,Citral (5392-40-5),IFRA_STD_021,0.7,proveedor,"máximo; C-001: Opella AB: MSDS Bergamot (FCF) essential oil, organic, E1004"
+fig:1200,BFO,proveedor,proveedor,,Limonene (5989-27-5),IFRA_STD_186,47,proveedor,"máximo; C-001: Opella AB: MSDS Bergamot (FCF) essential oil, organic, E1004"
+fig:1200,BFO,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,17.49,proveedor,"típico; C-001: SoapQueen Europe: declaración de alérgenos EO003, 2024-10-18"
+fig:1203,βTY,proveedor,proveedor,,Rose Ketones (23696-85-7),IFRA_STD_077,100,proveedor,típico; C-003: Perfumiarz: lista de alérgenos Lista_alergenow_Damascone_Beta_23_08_2026.pdf
+fig:1210,βMB,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.005,proveedor,típico; C-003: Perfumiarz: lista de alérgenos 0010593_MEFRANAL_Allergen_Extended_List_Ingredient_20240503.pdf
+fig:1210,βMB,proveedor,proveedor,,Hydroxycitronellal (107-75-5),IFRA_STD_043,0.012,proveedor,típico; C-003: Perfumiarz: lista de alérgenos 0010593_MEFRANAL_Allergen_Extended_List_Ingredient_20240503.pdf
+fig:1218,βPi,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.1,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos T02150_ALG_02-24.pdf
+fig:1231,BTO,proveedor,proveedor,,Eugenol (97-53-0),IFRA_STD_035,1.5,proveedor,típico; C-003: Perfumiarz: lista de alérgenos BOUR1L_COSM2.pdf
+fig:1231,BTO,proveedor,proveedor,,Isoeugenol (5932-68-3) · Isoeugenol (97-54-1),IFRA_STD_048,6.5,proveedor,típico; C-003: Perfumiarz: lista de alérgenos BOUR1L_COSM2.pdf
+fig:1231,BTO,proveedor,proveedor,,Limonene (5989-27-5),IFRA_STD_186,4.5,proveedor,típico; C-003: Perfumiarz: lista de alérgenos BOUR1L_COSM2.pdf
+fig:1239,BrA,proveedor,proveedor,,Benzyl Benzoate (120-51-4),IFRA_STD_009,0.002,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H19146_ALG_04-24.pdf
+fig:1239,BrA,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.006,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H19146_ALG_04-24.pdf
+fig:1239,BrA,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,0.015,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H19146_ALG_04-24.pdf
+fig:1245,BUS,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.002,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H01120_ALG_04-24.pdf
+fig:1280,CaO,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.1,proveedor,típico; C-003: Perfumiarz: lista de alérgenos CABREUVA_ESSENCE_-_CABREUVA_WOOD_EO_-_CABESS1Q_-_COSM2_-_2022-03.pdf
+fig:1280,CaO,proveedor,proveedor,,Benzyl Benzoate (120-51-4),IFRA_STD_009,70.1,proveedor,típico; C-003: Perfumiarz: lista de alérgenos CABREUVA_ESSENCE_-_CABREUVA_WOOD_EO_-_CABESS1Q_-_COSM2_-_2022-03.pdf
+fig:1280,CaO,proveedor,proveedor,,Benzyl Cinnamate (103-41-3),IFRA_STD_010,33,proveedor,típico; C-003: Perfumiarz: lista de alérgenos CABREUVA_ESSENCE_-_CABREUVA_WOOD_EO_-_CABESS1Q_-_COSM2_-_2022-03.pdf
+fig:1280,CaO,proveedor,proveedor,,Citronellol (106-22-9),IFRA_STD_022,0.2,proveedor,típico; C-003: Perfumiarz: lista de alérgenos CABREUVA_ESSENCE_-_CABREUVA_WOOD_EO_-_CABESS1Q_-_COSM2_-_2022-03.pdf
+fig:1280,CaO,proveedor,proveedor,,Eugenol (97-53-0),IFRA_STD_035,0.01,proveedor,típico; C-003: Perfumiarz: lista de alérgenos CABREUVA_ESSENCE_-_CABREUVA_WOOD_EO_-_CABESS1Q_-_COSM2_-_2022-03.pdf
+fig:1280,CaO,proveedor,proveedor,,Geraniol (106-24-1),IFRA_STD_037,0.01,proveedor,típico; C-003: Perfumiarz: lista de alérgenos CABREUVA_ESSENCE_-_CABREUVA_WOOD_EO_-_CABESS1Q_-_COSM2_-_2022-03.pdf
+fig:1280,CaO,proveedor,proveedor,,Limonene (5989-27-5),IFRA_STD_186,0.01,proveedor,típico; C-003: Perfumiarz: lista de alérgenos CABREUVA_ESSENCE_-_CABREUVA_WOOD_EO_-_CABESS1Q_-_COSM2_-_2022-03.pdf
+fig:1335,CsA,proveedor,proveedor,,Benzyl Cinnamate (103-41-3),IFRA_STD_010,0.009,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H03053_ALG_12-23.pdf
+fig:1335,CsA,proveedor,proveedor,,Cinnamal (104-55-2),IFRA_STD_018,0.003,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H03053_ALG_12-23.pdf
+fig:1335,CsA,proveedor,proveedor,,Citronellol (106-22-9),IFRA_STD_022,0.019,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H03053_ALG_12-23.pdf
+fig:1335,CsA,proveedor,proveedor,,Farnesol (4602-84-0),IFRA_STD_036,0.012,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H03053_ALG_12-23.pdf
+fig:1335,CsA,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.005,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H03053_ALG_12-23.pdf
+fig:1335,CsA,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,0.095,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H03053_ALG_12-23.pdf
+fig:1416,CN,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.078,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H03180_ALG_07-24.pdf
+fig:1416,CN,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.014,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H03180_ALG_07-24.pdf
+fig:1484,CA7,proveedor,proveedor,,Citral (5392-40-5),IFRA_STD_021,0.028,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H01052_ALG_10-24.pdf
+fig:1484,CA7,proveedor,proveedor,,Citronellol (106-22-9),IFRA_STD_022,1.225,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H01052_ALG_10-24.pdf
+fig:1484,CA7,proveedor,proveedor,,Geraniol (106-24-1),IFRA_STD_037,0.381,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H01052_ALG_10-24.pdf
+fig:1484,CA7,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.019,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H01052_ALG_10-24.pdf
+fig:1619,DaO,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.02,proveedor,típico; C-003: Perfumiarz: lista de alérgenos 81ALL_20250227_E2230.pdf
+fig:1619,DaO,proveedor,proveedor,,Carvone (2244-16-8),IFRA_STD_016,0.001,proveedor,típico; C-003: Perfumiarz: lista de alérgenos 81ALL_20250227_E2230.pdf
+fig:1619,DaO,proveedor,proveedor,,Citral (106-26-3),IFRA_STD_021,0.07,proveedor,típico; C-003: Perfumiarz: lista de alérgenos 81ALL_20250227_E2230.pdf
+fig:1619,DaO,proveedor,proveedor,,Citronellol (106-22-9),IFRA_STD_022,0.07,proveedor,típico; C-003: Perfumiarz: lista de alérgenos 81ALL_20250227_E2230.pdf
+fig:1619,DaO,proveedor,proveedor,,Eugenol (97-53-0),IFRA_STD_035,0.08,proveedor,típico; C-003: Perfumiarz: lista de alérgenos 81ALL_20250227_E2230.pdf
+fig:1619,DaO,proveedor,proveedor,,Geraniol (106-24-1),IFRA_STD_037,0.04,proveedor,típico; C-003: Perfumiarz: lista de alérgenos 81ALL_20250227_E2230.pdf
+fig:1619,DaO,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.02,proveedor,típico; C-003: Perfumiarz: lista de alérgenos 81ALL_20250227_E2230.pdf
+fig:1619,DaO,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,0.7,proveedor,típico; C-003: Perfumiarz: lista de alérgenos 81ALL_20250227_E2230.pdf
+fig:168,OA,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.001,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos EU_Fragrance_Allergens_OXIDO_DE_LIMA_II.pdf
+fig:168,OA,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,20,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos EU_Fragrance_Allergens_OXIDO_DE_LIMA_II.pdf
+fig:168,OA,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,0.05,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos EU_Fragrance_Allergens_OXIDO_DE_LIMA_II.pdf
+fig:1701,DOT,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.0009,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W26050_ALG_03-20.pdf
+fig:1703,Do8,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.001,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H03240_ALG_03-24.pdf
+fig:1841,Fr,proveedor,proveedor,,Citral (5392-40-5),IFRA_STD_021,0.005,proveedor,típico; C-003: Perfumiarz: lista de alérgenos 5052003_FARNESOL_SYNTHETIC_Allergen_Extended_List_Ingredient_20231019.pdf
+fig:1906,Ga,proveedor,proveedor,,Citral (5392-40-5),IFRA_STD_021,0.09,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H07112_ALG_03-24.pdf
+fig:1906,Ga,proveedor,proveedor,,Citronellol (106-22-9),IFRA_STD_022,0.5,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H07112_ALG_03-24.pdf
+fig:1906,Ga,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,0.001,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H07112_ALG_03-24.pdf
+fig:1970,HaA,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.018,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H06130_ALG_05-23.pdf
+fig:1970,HaA,proveedor,proveedor,,Benzyl Benzoate (120-51-4),IFRA_STD_009,0.027,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H06130_ALG_05-23.pdf
+fig:1970,HaA,proveedor,proveedor,,Citronellol (106-22-9),IFRA_STD_022,0.007,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H06130_ALG_05-23.pdf
+fig:1970,HaA,proveedor,proveedor,,Eugenol (97-53-0),IFRA_STD_035,0.009,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H06130_ALG_05-23.pdf
+fig:1970,HaA,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.007,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H06130_ALG_05-23.pdf
+fig:1970,HaA,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,0.043,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H06130_ALG_05-23.pdf
+fig:2043,IPR,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.003,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H09128_ALG_09-23.pdf
+fig:2043,IPR,proveedor,proveedor,,Citral (5392-40-5),IFRA_STD_021,0.002,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H09128_ALG_09-23.pdf
+fig:2043,IPR,proveedor,proveedor,,Coumarin (91-64-5),IFRA_STD_023,0.003,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H09128_ALG_09-23.pdf
+fig:2043,IPR,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.008,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H09128_ALG_09-23.pdf
+fig:2043,IPR,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,0.006,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H09128_ALG_09-23.pdf
+fig:2078,IP4,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.023,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H16110_ALG_03-22.pdf
+fig:2180,LeA,proveedor,proveedor,,Anise Alcohol (105-13-5),IFRA_STD_006,0.004,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H12009_ALG_09-23.pdf
+fig:2180,LeA,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.008,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H12009_ALG_09-23.pdf
+fig:2180,LeA,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.024,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H12009_ALG_09-23.pdf
+fig:2180,LeA,proveedor,proveedor,,Benzyl Benzoate (120-51-4),IFRA_STD_009,0.039,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H12009_ALG_09-23.pdf
+fig:2180,LeA,proveedor,proveedor,,Benzyl Salicylate (118-58-1),IFRA_STD_011,0.008,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H12009_ALG_09-23.pdf
+fig:2180,LeA,proveedor,proveedor,,Carvone (99-49-0),IFRA_STD_016,0.014,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H12009_ALG_09-23.pdf
+fig:2180,LeA,proveedor,proveedor,,Citral (5392-40-5),IFRA_STD_021,0.011,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H12009_ALG_09-23.pdf
+fig:2180,LeA,proveedor,proveedor,,Eugenol (97-53-0),IFRA_STD_035,0.018,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H12009_ALG_09-23.pdf
+fig:2180,LeA,proveedor,proveedor,,Farnesol (4602-84-0),IFRA_STD_036,0.037,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H12009_ALG_09-23.pdf
+fig:2180,LeA,proveedor,proveedor,,Geraniol (106-24-1),IFRA_STD_037,0.263,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H12009_ALG_09-23.pdf
+fig:2180,LeA,proveedor,proveedor,,Sclareol (515-03-7),IFRA_STD_183,0.353,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H12009_ALG_09-23.pdf
+fig:2180,LeA,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.109,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H12009_ALG_09-23.pdf
+fig:2180,LeA,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,30.537,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H12009_ALG_09-23.pdf
+fig:2190,lCF,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.005,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H01420_ALG_08-23.pdf
+fig:2223,LIA,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.01,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos EU_Fragrance_Allergens_LINALYL_ACETATE_BASF.pdf
+fig:2223,LIA,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,0.07,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos EU_Fragrance_Allergens_LINALYL_ACETATE_BASF.pdf
+fig:2276,MtA,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.0036,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W13044_ALG_09-23.pdf
+fig:2276,MtA,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.008,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W13044_ALG_09-23.pdf
+fig:2276,MtA,proveedor,proveedor,,Benzyl Benzoate (120-51-4),IFRA_STD_009,0.0036,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W13044_ALG_09-23.pdf
+fig:2276,MtA,proveedor,proveedor,,Benzyl Salicylate (118-58-1),IFRA_STD_011,0.0047,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W13044_ALG_09-23.pdf
+fig:2276,MtA,proveedor,proveedor,,Carvone (2244-16-8),IFRA_STD_016,0.0032,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W13044_ALG_09-23.pdf
+fig:2276,MtA,proveedor,proveedor,,Citral (106-26-3),IFRA_STD_021,0.0084,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W13044_ALG_09-23.pdf
+fig:2276,MtA,proveedor,proveedor,,Coumarin (91-64-5),IFRA_STD_023,0.008,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W13044_ALG_09-23.pdf
+fig:2276,MtA,proveedor,proveedor,,Eugenol (97-53-0),IFRA_STD_035,0.0117,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W13044_ALG_09-23.pdf
+fig:2276,MtA,proveedor,proveedor,,Geraniol (106-24-1),IFRA_STD_037,0.006,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W13044_ALG_09-23.pdf
+fig:2276,MtA,proveedor,proveedor,,Isoeugenol (5932-68-3),IFRA_STD_048,0.0129,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W13044_ALG_09-23.pdf
+fig:2276,MtA,proveedor,proveedor,,Rose Ketones (23696-85-7),IFRA_STD_077,0.0048,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W13044_ALG_09-23.pdf
+fig:2276,MtA,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.0036,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W13044_ALG_09-23.pdf
+fig:2276,MtA,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,0.012,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W13044_ALG_09-23.pdf
+fig:2313,MOD,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.006,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H01209_ALG_08-23.pdf
+fig:2320,MN2,proveedor,proveedor,,Methyl 2-octynoate (111-12-6),IFRA_STD_062,0.25,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos V13078_ALG_10-24.pdf
+fig:2357,MIM,proveedor,proveedor,,Alpha-Isomethyl Ionone (127-51-5),IFRA_STD_063,52,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W09020_ALG_05-22.pdf
+fig:2402,MUK,proveedor,proveedor,,Musk xylene (81-15-2),IFRA_STD_170,0.099,proveedor,típico; C-003: Perfumiarz: lista de alérgenos MC1H_COSM2.pdf
+fig:2404,Mc,proveedor,proveedor,,Limonene (5989-27-5),IFRA_STD_186,1.5,proveedor,típico; C-003: Perfumiarz: lista de alérgenos MYRCENE_MYRC1M_COSM2.pdf
+fig:2410,MyA,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.018,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W13905_ALG_10-23.pdf
+fig:2415,MrO,proveedor,proveedor,,Benzyl Benzoate (120-51-4),IFRA_STD_009,0.0029,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W13900_ALG_01-24.pdf
+fig:2415,MrO,proveedor,proveedor,,Eugenol (97-53-0),IFRA_STD_035,0.0029,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W13900_ALG_01-24.pdf
+fig:2415,MrO,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.0276,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W13900_ALG_01-24.pdf
+fig:2430,NPA,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.007,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H14083_ALG_08-23.pdf
+fig:2430,NPA,proveedor,proveedor,,Benzyl Cinnamate (103-41-3),IFRA_STD_010,0.008,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H14083_ALG_08-23.pdf
+fig:2430,NPA,proveedor,proveedor,,Benzyl Salicylate (118-58-1),IFRA_STD_011,0.206,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H14083_ALG_08-23.pdf
+fig:2430,NPA,proveedor,proveedor,,Cinnamyl Alcohol (104-54-1),IFRA_STD_017,0.147,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H14083_ALG_08-23.pdf
+fig:2430,NPA,proveedor,proveedor,,Citronellol (106-22-9),IFRA_STD_022,0.014,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H14083_ALG_08-23.pdf
+fig:2430,NPA,proveedor,proveedor,,Eugenol (97-53-0),IFRA_STD_035,0.053,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H14083_ALG_08-23.pdf
+fig:2430,NPA,proveedor,proveedor,,Geraniol (106-24-1),IFRA_STD_037,0.032,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H14083_ALG_08-23.pdf
+fig:2430,NPA,proveedor,proveedor,,Isoeugenol (97-54-1),IFRA_STD_048,0.227,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H14083_ALG_08-23.pdf
+fig:2430,NPA,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.118,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H14083_ALG_08-23.pdf
+fig:2430,NPA,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,0.169,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H14083_ALG_08-23.pdf
+fig:2433,Nl,proveedor,proveedor,,Citral (5392-40-5),IFRA_STD_021,0.3,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H14107_ALG_04-23.pdf
+fig:2433,Nl,proveedor,proveedor,,Citronellol (106-22-9),IFRA_STD_022,2.5,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H14107_ALG_04-23.pdf
+fig:2433,Nl,proveedor,proveedor,,Geraniol (106-24-1),IFRA_STD_037,3.8,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H14107_ALG_04-23.pdf
+fig:2510,OS,proveedor,proveedor,,Farnesol (4602-84-0),IFRA_STD_036,0.2,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W03207_ALG_10-23.pdf
+fig:2567,OsA,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.038,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H15096_ALG_09-22.pdf
+fig:2567,OsA,proveedor,proveedor,,Citronellol (106-22-9),IFRA_STD_022,0.032,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H15096_ALG_09-22.pdf
+fig:2567,OsA,proveedor,proveedor,,Farnesol (4602-84-0),IFRA_STD_036,0.006,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H15096_ALG_09-22.pdf
+fig:2567,OsA,proveedor,proveedor,,Limonene (5989-27-5),IFRA_STD_186,0.006,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H15096_ALG_09-22.pdf
+fig:2567,OsA,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,1.124,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H15096_ALG_09-22.pdf
+fig:259,DOC,proveedor,proveedor,,Geraniol (106-24-1),IFRA_STD_037,0.006,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos V01060_ALG_08-23.pdf
+fig:259,DOC,proveedor,proveedor,,Rose Ketones (23726-91-2),IFRA_STD_077,0.0282,proveedor,típico; C-003: Perfumiarz: lista de alérgenos V01060_ALG_08-23.pdf
+fig:259,DOC,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,0.005,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos V01060_ALG_08-23.pdf
+fig:2622,PBA,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.0001,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos Lista_alergenow_Black_Pepper_Absolute.pdf
+fig:2622,PBA,proveedor,proveedor,,Eugenol (97-53-0),IFRA_STD_035,0.0045,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos Lista_alergenow_Black_Pepper_Absolute.pdf
+fig:2622,PBA,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.3206,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos Lista_alergenow_Black_Pepper_Absolute.pdf
+fig:2622,PBA,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,0.0492,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos Lista_alergenow_Black_Pepper_Absolute.pdf
+fig:2656,PA4,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.02,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos EU_Fragrance_Allergens_PHENYL_ETHYL_ACETATE.pdf
+fig:2679,PDM,proveedor,proveedor,,Citronellol (106-22-9),IFRA_STD_022,0.1,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H16195_ALG_01-23_dd8261e7-7fe8-4635-9a1c-558812500e07.pdf
+fig:2679,PDM,proveedor,proveedor,,Geraniol (106-24-1),IFRA_STD_037,0.1,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H16195_ALG_01-23_dd8261e7-7fe8-4635-9a1c-558812500e07.pdf
+fig:2679,PDM,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.1,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H16195_ALG_01-23_dd8261e7-7fe8-4635-9a1c-558812500e07.pdf
+fig:2683,PGA,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.01,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H07120_ALG_08-24.pdf
+fig:2683,PGA,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.006,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H07120_ALG_08-24.pdf
+fig:2688,PIE,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.01,proveedor,típico; C-003: Perfumiarz: lista de alérgenos 5846393_ANTHER_Allergen_Extended_List_Ingredient_20240206.pdf
+fig:273,TM,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,0.044,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos T15900_ALG_02-24.pdf
+fig:2739,Me23,proveedor,proveedor,,Anise Alcohol (105-13-5),IFRA_STD_006,0.1,proveedor,típico; C-003: Perfumiarz: lista de alérgenos AA2I_COSM2.pdf
+fig:2739,Me23,proveedor,proveedor,,Toluene (108-88-3),IFRA_STD_182,0.01,proveedor,típico; C-003: Perfumiarz: lista de alérgenos AA2I_COSM2.pdf
+fig:2777,TP4,proveedor,proveedor,,Toluene (108-88-3),IFRA_STD_182,0.064,proveedor,típico; C-003: Perfumiarz: lista de alérgenos Paracresyl_phenylacetate_-_PPA1G_-_COSM2_-_2020--10.pdf
+fig:2847,SnO,proveedor,proveedor,,Citronellol (106-22-9),IFRA_STD_022,0.003,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H19078_ALG_04-24.pdf
+fig:2847,SnO,proveedor,proveedor,,Eugenol (97-53-0),IFRA_STD_035,0.006,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H19078_ALG_04-24.pdf
+fig:2847,SnO,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.007,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H19078_ALG_04-24.pdf
+fig:2847,SnO,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,0.004,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H19078_ALG_04-24.pdf
+fig:2859,STE,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.0024,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16092_ALG_09-23.pdf
+fig:2859,STE,proveedor,proveedor,,Carvone (2244-16-8),IFRA_STD_016,0.0084,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16092_ALG_09-23.pdf
+fig:2859,STE,proveedor,proveedor,,Citronellol (106-22-9),IFRA_STD_022,0.05,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16092_ALG_09-23.pdf
+fig:2859,STE,proveedor,proveedor,,Eugenol (97-53-0),IFRA_STD_035,0.0048,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16092_ALG_09-23.pdf
+fig:2859,STE,proveedor,proveedor,,Geraniol (106-24-1),IFRA_STD_037,0.006,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16092_ALG_09-23.pdf
+fig:2859,STE,proveedor,proveedor,,Isoeugenol (5932-68-3),IFRA_STD_048,0.0096,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16092_ALG_09-23.pdf
+fig:2859,STE,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,12.5,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16092_ALG_09-23.pdf
+fig:2859,STE,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,0.02,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16092_ALG_09-23.pdf
+fig:2867,SSE,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.0108,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W19050_ALG_09-23.pdf
+fig:2867,SSE,proveedor,proveedor,,Eugenol (97-53-0),IFRA_STD_035,0.0036,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W19050_ALG_09-23.pdf
+fig:2867,SSE,proveedor,proveedor,,Isoeugenol (5932-68-3),IFRA_STD_048,0.0012,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W19050_ALG_09-23.pdf
+fig:2867,SSE,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.0012,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W19050_ALG_09-23.pdf
+fig:2867,SSE,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,0.0012,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W19050_ALG_09-23.pdf
+fig:2914,StR,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.22,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W19840_ALG_09-23.pdf
+fig:2914,StR,proveedor,proveedor,,Benzyl Benzoate (120-51-4),IFRA_STD_009,0.052,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W19840_ALG_09-23.pdf
+fig:2914,StR,proveedor,proveedor,,Benzyl Cinnamate (103-41-3),IFRA_STD_010,6,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W19840_ALG_09-23.pdf
+fig:2914,StR,proveedor,proveedor,,Benzyl Salicylate (118-58-1),IFRA_STD_011,0.002,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W19840_ALG_09-23.pdf
+fig:2914,StR,proveedor,proveedor,,Coumarin (91-64-5),IFRA_STD_023,0.004,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W19840_ALG_09-23.pdf
+fig:2914,StR,proveedor,proveedor,,Eugenol (97-53-0),IFRA_STD_035,0.007,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W19840_ALG_09-23.pdf
+fig:2914,StR,proveedor,proveedor,,Isoeugenol (5932-68-3),IFRA_STD_048,0.008,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W19840_ALG_09-23.pdf
+fig:2914,StR,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.006,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W19840_ALG_09-23.pdf
+fig:2914,StR,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,0.008,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W19840_ALG_09-23.pdf
+fig:295,Te,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.007,proveedor,típico; C-003: Perfumiarz: lista de alérgenos 0015893_SAFRALEINE_Allergen_Extended_List_Ingredient_20250416.pdf
+fig:2950,TAI,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.8782,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos T01220_ALG_11-23.pdf
+fig:3017,Ah,proveedor,proveedor,,Geraniol (106-24-1),IFRA_STD_037,0.001,proveedor,típico; C-003: Perfumiarz: lista de alérgenos ANETNAT1J_COSM2.pdf
+fig:3017,Ah,proveedor,proveedor,,Estragole (140-67-0),IFRA_STD_099,0.19,proveedor,típico; C-003: Perfumiarz: lista de alérgenos ANETNAT1J_COSM2.pdf
+fig:3017,Ah,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,0.0012,proveedor,típico; C-003: Perfumiarz: lista de alérgenos ANETNAT1J_COSM2.pdf
+fig:3028,TPC,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.005,proveedor,típico; C-003: Perfumiarz: lista de alérgenos ROS1T_COSM2.pdf
+fig:3091,VAC,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.007,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H01203_ALG_09-23.pdf
+fig:3091,VAC,proveedor,proveedor,,Isoeugenol (97-54-1),IFRA_STD_048,0.005,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H01203_ALG_09-23.pdf
+fig:3091,VAC,proveedor,proveedor,,Isoeugenyl Acetate (93-29-8),IFRA_STD_255,0.093,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H01203_ALG_09-23.pdf
+fig:3093,VLA,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,0.35,proveedor,típico; C-003: Perfumiarz: lista de alérgenos F22500_ALG_05-25.pdf
+fig:3101,WoO,proveedor,proveedor,,Citral (106-26-3),IFRA_STD_021,0.6,proveedor,típico; C-003: Perfumiarz: lista de alérgenos ABS1R_COSM2.pdf
+fig:3101,WoO,proveedor,proveedor,,Citronellol (106-22-9),IFRA_STD_022,0.4,proveedor,típico; C-003: Perfumiarz: lista de alérgenos ABS1R_COSM2.pdf
+fig:3101,WoO,proveedor,proveedor,,Eugenol (97-53-0),IFRA_STD_035,0.1,proveedor,típico; C-003: Perfumiarz: lista de alérgenos ABS1R_COSM2.pdf
+fig:3101,WoO,proveedor,proveedor,,Estragole (140-67-0),IFRA_STD_099,0.3,proveedor,típico; C-003: Perfumiarz: lista de alérgenos ABS1R_COSM2.pdf
+fig:3101,WoO,proveedor,proveedor,,Limonene (5989-27-5),IFRA_STD_186,2,proveedor,típico; C-003: Perfumiarz: lista de alérgenos ABS1R_COSM2.pdf
+fig:3101,WoO,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,4,proveedor,típico; C-003: Perfumiarz: lista de alérgenos ABS1R_COSM2.pdf
+fig:320,DCC,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.002,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H20162_ALG_07-24.pdf
+fig:487,MTC,proveedor,proveedor,,Tetramethyl Acetyloctahydronaphthalenes (54464-57-2),IFRA_STD_068,0.018,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H19102_ALG_02-24.pdf
+fig:583,MCB,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.01,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W03280_ALG_03-24.pdf
+fig:607,DTR,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.005,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16070_ALG_09-23_dedaef5f-2556-41d2-9b49-9f30bc068adb.pdf
+fig:638,DO4,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,3,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H15025_ALG_04-24.pdf
+fig:638,DO4,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,0.022,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H15025_ALG_04-24.pdf
+fig:639,DNO,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,0.01,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos 5011728_ETHYL_LINALOOL_Fragrance_Allergen_Statement.pdf
+fig:726,MP17,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.005,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16070_ALG_09-23.pdf
+fig:796,DE8,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.003,proveedor,típico; C-003: Perfumiarz: lista de alérgenos 4591003_DIMETHYL_OCTENONE_Allergen_Extended_List_Ingredient_20231019.pdf
+fig:84,BY,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.036,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23_678c1293-3c90-4735-9bbf-eeca4b943ab0.pdf
+fig:84,BY,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.544,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23_678c1293-3c90-4735-9bbf-eeca4b943ab0.pdf
+fig:84,BY,proveedor,proveedor,,Benzyl Benzoate (120-51-4),IFRA_STD_009,34.1637,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23_678c1293-3c90-4735-9bbf-eeca4b943ab0.pdf
+fig:84,BY,proveedor,proveedor,,Benzyl Cinnamate (103-41-3),IFRA_STD_010,17.028,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23_678c1293-3c90-4735-9bbf-eeca4b943ab0.pdf
+fig:84,BY,proveedor,proveedor,,Benzyl Salicylate (118-58-1),IFRA_STD_011,0.0132,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23_678c1293-3c90-4735-9bbf-eeca4b943ab0.pdf
+fig:84,BY,proveedor,proveedor,,Cinnamyl Alcohol (104-54-1),IFRA_STD_017,0.0024,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23_678c1293-3c90-4735-9bbf-eeca4b943ab0.pdf
+fig:84,BY,proveedor,proveedor,,Cinnamal (104-55-2),IFRA_STD_018,0.0048,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23_678c1293-3c90-4735-9bbf-eeca4b943ab0.pdf
+fig:84,BY,proveedor,proveedor,,Coumarin (91-64-5),IFRA_STD_023,0.0348,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23_678c1293-3c90-4735-9bbf-eeca4b943ab0.pdf
+fig:84,BY,proveedor,proveedor,,Eugenol (97-53-0),IFRA_STD_035,0.0372,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23_678c1293-3c90-4735-9bbf-eeca4b943ab0.pdf
+fig:84,BY,proveedor,proveedor,,Farnesol (4602-84-0),IFRA_STD_036,0.0406,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23_678c1293-3c90-4735-9bbf-eeca4b943ab0.pdf
+fig:84,BY,proveedor,proveedor,,Isoeugenol (5932-68-3),IFRA_STD_048,0.0995,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23_678c1293-3c90-4735-9bbf-eeca4b943ab0.pdf
+fig:84,BY,proveedor,proveedor,,Myroxylon Pereirae Oil/Extract (8007-00-9),IFRA_STD_071,100,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23_678c1293-3c90-4735-9bbf-eeca4b943ab0.pdf
+fig:84,BY,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.003,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23_678c1293-3c90-4735-9bbf-eeca4b943ab0.pdf
+fig:840,αMEM,proveedor,proveedor,,Anise Alcohol (105-13-5),IFRA_STD_006,0.048,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H03039_ALG_01-24.pdf
+fig:866,Bu3,proveedor,proveedor,,p-tert-Butylphenol (98-54-4),IFRA_STD_118,0.01,proveedor,típico; C-003: Perfumiarz: lista de alérgenos PATCH1E_-_COSM2_-_2025-08.pdf
+fig:935,MH6,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.045,proveedor,típico; C-003: Perfumiarz: lista de alérgenos 6937003_METHYL_HEPTENONE_PURE_Allergen_Extended_List_Ingredient_20231019.pdf
+fig:936,Me14,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.007,proveedor,típico; C-003: Perfumiarz: lista de alérgenos 7989003_METHYL_QUINOLINE_PARA_Allergen_Extended_List_Ingredient_20231019.pdf
+fig:975,AEP,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.002,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H03262_ALG_02-24.pdf
+ncs:olibanum-sacra-oil,OlSO,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.005,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W15028_ALG_10-23.pdf
+ncs:olibanum-sacra-oil,OlSO,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.0045,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W15028_ALG_10-23.pdf
+ncs:olibanum-sacra-oil,OlSO,proveedor,proveedor,,Benzyl Benzoate (120-51-4),IFRA_STD_009,0.06,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W15028_ALG_10-23.pdf
+ncs:olibanum-sacra-oil,OlSO,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,1.516,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W15028_ALG_10-23.pdf
+ncs:olibanum-sacra-oil,OlSO,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,0.0777,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W15028_ALG_10-23.pdf
+ncs:vetiver-oil-all-origins,VeAO,proveedor,proveedor,,Isoeugenol (97-54-1),IFRA_STD_048,0.021,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H22148_ALG_08-23.pdf
+tl:50373-36-9,αCM,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.008,proveedor,típico; C-003: Perfumiarz: lista de alérgenos 5464203_GERANODYLE_Allergen_Extended_List_Ingredient_20240827.pdf
+tl:50373-36-9,αCM,proveedor,proveedor,,Citral (5392-40-5),IFRA_STD_021,0.068,proveedor,típico; C-003: Perfumiarz: lista de alérgenos 5464203_GERANODYLE_Allergen_Extended_List_Ingredient_20240827.pdf
+tl:50373-36-9,αCM,proveedor,proveedor,,Citronellol (106-22-9),IFRA_STD_022,9.855,proveedor,típico; C-003: Perfumiarz: lista de alérgenos 5464203_GERANODYLE_Allergen_Extended_List_Ingredient_20240827.pdf
+tl:50373-36-9,αCM,proveedor,proveedor,,Eugenol (97-53-0),IFRA_STD_035,0.071,proveedor,típico; C-003: Perfumiarz: lista de alérgenos 5464203_GERANODYLE_Allergen_Extended_List_Ingredient_20240827.pdf
+tl:50373-36-9,αCM,proveedor,proveedor,,Geraniol (106-24-1),IFRA_STD_037,0.143,proveedor,típico; C-003: Perfumiarz: lista de alérgenos 5464203_GERANODYLE_Allergen_Extended_List_Ingredient_20240827.pdf
+tl:50373-36-9,αCM,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.506,proveedor,típico; C-003: Perfumiarz: lista de alérgenos 5464203_GERANODYLE_Allergen_Extended_List_Ingredient_20240827.pdf
+tl:50373-36-9,αCM,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,0.37,proveedor,típico; C-003: Perfumiarz: lista de alérgenos 5464203_GERANODYLE_Allergen_Extended_List_Ingredient_20240827.pdf
+tl:champaca-leaf-oil-low-methyeugenol,ChLO,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.013,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H13007_ALG_05-23.pdf
+tl:champaca-leaf-oil-low-methyeugenol,ChLO,proveedor,proveedor,,Benzyl Benzoate (120-51-4),IFRA_STD_009,0.009,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H13007_ALG_05-23.pdf
+tl:champaca-leaf-oil-low-methyeugenol,ChLO,proveedor,proveedor,,Benzyl Salicylate (118-58-1),IFRA_STD_011,0.006,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H13007_ALG_05-23.pdf
+tl:champaca-leaf-oil-low-methyeugenol,ChLO,proveedor,proveedor,,Citral (5392-40-5),IFRA_STD_021,0.02,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H13007_ALG_05-23.pdf
+tl:champaca-leaf-oil-low-methyeugenol,ChLO,proveedor,proveedor,,Citronellol (106-22-9),IFRA_STD_022,0.007,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H13007_ALG_05-23.pdf
+tl:champaca-leaf-oil-low-methyeugenol,ChLO,proveedor,proveedor,,Eugenol (97-53-0),IFRA_STD_035,0.008,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H13007_ALG_05-23.pdf
+tl:champaca-leaf-oil-low-methyeugenol,ChLO,proveedor,proveedor,,Farnesol (4602-84-0),IFRA_STD_036,0.042,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H13007_ALG_05-23.pdf
+tl:champaca-leaf-oil-low-methyeugenol,ChLO,proveedor,proveedor,,Geraniol (106-24-1),IFRA_STD_037,0.502,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H13007_ALG_05-23.pdf
+tl:champaca-leaf-oil-low-methyeugenol,ChLO,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,0.045,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H13007_ALG_05-23.pdf
+tl:champaca-leaf-oil-low-methyeugenol,ChLO,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,82.883,proveedor,típico; C-003: Perfumiarz: lista de alérgenos H13007_ALG_05-23.pdf
+tl:natural-hickory-smoke-flavor,NaH,proveedor,proveedor,,Benzaldehyde (100-52-7),IFRA_STD_007,0.0014,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W03267_ALG_01-24.pdf
+tl:natural-hickory-smoke-flavor,NaH,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.0012,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W03267_ALG_01-24.pdf
+tl:natural-hickory-smoke-flavor,NaH,proveedor,proveedor,,Cinnamal (104-55-2),IFRA_STD_018,0.0179,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W03267_ALG_01-24.pdf
+tl:natural-hickory-smoke-flavor,NaH,proveedor,proveedor,,Coumarin (91-64-5),IFRA_STD_023,0.003,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W03267_ALG_01-24.pdf
+tl:natural-hickory-smoke-flavor,NaH,proveedor,proveedor,,Eugenol (97-53-0),IFRA_STD_035,0.1377,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W03267_ALG_01-24.pdf
+tl:natural-hickory-smoke-flavor,NaH,proveedor,proveedor,,Isoeugenol (5932-68-3),IFRA_STD_048,0.3327,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W03267_ALG_01-24.pdf
+tl:sichuan-pepper-co2-extract-schinifolium,SiPE,proveedor,proveedor,,Benzyl Alcohol (100-51-6),IFRA_STD_008,0.0072,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16095_ALG_09-23.pdf
+tl:sichuan-pepper-co2-extract-schinifolium,SiPE,proveedor,proveedor,,Carvone (2244-16-8),IFRA_STD_016,0.1164,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16095_ALG_09-23.pdf
+tl:sichuan-pepper-co2-extract-schinifolium,SiPE,proveedor,proveedor,,Citronellol (106-22-9),IFRA_STD_022,0.0264,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16095_ALG_09-23.pdf
+tl:sichuan-pepper-co2-extract-schinifolium,SiPE,proveedor,proveedor,,Farnesol (4602-84-0),IFRA_STD_036,0.0168,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16095_ALG_09-23.pdf
+tl:sichuan-pepper-co2-extract-schinifolium,SiPE,proveedor,proveedor,,Geraniol (106-24-1),IFRA_STD_037,0.0096,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16095_ALG_09-23.pdf
+tl:sichuan-pepper-co2-extract-schinifolium,SiPE,proveedor,proveedor,,Limonene (138-86-3),IFRA_STD_186,20,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16095_ALG_09-23.pdf
+tl:sichuan-pepper-co2-extract-schinifolium,SiPE,proveedor,proveedor,,Linalool (78-70-6),IFRA_STD_187,55,proveedor,máximo; C-003: Perfumiarz: lista de alérgenos W16095_ALG_09-23.pdf

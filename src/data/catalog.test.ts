@@ -21,6 +21,16 @@ const fractionOf = (key: string, substance: string) => ifraOf(key)?.substances.f
 const header: FormulaHeader = { name: "prueba", intention: "", container: null, workBatchUg: null, finalBatchUg: null };
 const MG = 1_000n;
 
+describe("constituents declared by suppliers, audited (P59)", () => {
+  it("count where the annex says nothing, and the natural still warns it is incomplete", () => {
+    // Bergamot oil FCF is outside the annex. Three suppliers declare citral; the highest, Opella's
+    // SDS, gives ≤ 0,7 % (audit C-001), and that is what counts.
+    const bergamot = ifraOf("fig:1200");
+    expect(fractionOf("fig:1200", "std:IFRA_STD_021")?.eq(Ratio.parse("7/1000"))).toBe(true);
+    expect(bergamot?.pending?.some((p) => p.includes("proveedor"))).toBe(true);
+  });
+});
+
 describe("the catalog, from the glossary and IFRA's own files (P37)", () => {
   it("has the FIG with the user's codes, what only IFRA has (its standards, its annex and its Transparency List), the diluents of the app, and none of the lab's materials", () => {
     const count = (group: string) => catalog.entries.filter((e) => e.group === group).length;
@@ -92,7 +102,12 @@ describe("the catalog, from the glossary and IFRA's own files (P37)", () => {
     expect(ifraOf(trans.key)?.substances).toEqual([{ key: "std:IFRA_STD_005", fraction: Ratio.ONE }]);
     expect(ifraOf(trans.key)?.conditions.some((c) => c.startsWith("en el alcance del STD 005"))).toBe(true);
     // Nerol is the Z isomer of geraniol, a compound of its own: the geraniol standard does not reach it.
-    expect(ifraOf(byCas("106-25-2").key)?.substances.some((s) => s.key === "std:IFRA_STD_037")).toBe(false);
+    // Since P59 (2026-10-01) it does carry geraniol, but as an impurity: the supplier's allergen
+    // list of commercial nerol declares 3,8 %. Until then the test expected no geraniol at all,
+    // which was incomplete, not wrong about the scope: the standard still does not take nerol as
+    // geraniol (that would be a fraction of 1).
+    const geraniolInNerol = ifraOf(byCas("106-25-2").key)?.substances.find((s) => s.key === "std:IFRA_STD_037");
+    expect(geraniolInNerol?.fraction?.eq(Ratio.parse("38/1000"))).toBe(true);
   });
 
   it("measures the first reading at the concentration the work batch will have in the final batch, so the two readings agree (P51)", () => {

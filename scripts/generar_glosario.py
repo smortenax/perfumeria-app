@@ -38,6 +38,8 @@ CATALOGUE = ROOT / "datos" / "glosario" / "origen" / "materiales-de-catalogos.cs
 EQUIVALENCES = ROOT / "datos" / "glosario" / "origen" / "equivalencias.csv"
 # PubChem's usual names of each molecule, for the search (scripts/sinonimos_pubchem.py).
 PUBCHEM_SYNONYMS = ROOT / "datos" / "glosario" / "origen" / "sinonimos-pubchem.csv"
+# The regulated constituents the suppliers declare, audited (scripts/constituyentes_proveedores.py).
+SUPPLIER_CONSTITUENTS = ROOT / "datos" / "glosario" / "origen" / "constituyentes-proveedores.csv"
 # The names the shops where the user buys sell each material by (scripts/nombres_proveedores.py).
 SHOP_NAMES = ROOT / "datos" / "glosario" / "origen" / "nombres-proveedores.csv"
 # The family of each row of the FIG, with its colour: the lab's own categorisation (P48),
@@ -536,6 +538,25 @@ def main() -> None:
         constituents.append(row)
         per_material.setdefault(m["id"], []).append(row)
 
+    # 6b. What the suppliers declare, audited (scripts/constituyentes_proveedores.py, P59):
+    # only where the annex does not give that standard for that material, because IFRA's
+    # own files rule (P37). They go to the constituents the app reads, not to `per_material`:
+    # they do not change a material's state, and a natural «sin dato» keeps its warning,
+    # since a list of allergens does not cover every regulated substance (§1.2).
+    supplier_rows = 0
+    if SUPPLIER_CONSTITUENTS.exists():
+        annexed = {(r["material"], r["estandar"]) for r in constituents}
+        for r in read(SUPPLIER_CONSTITUENTS):
+            m = by_id.get(r["material_id"])
+            if m is None or (m["id"], r["estandar"]) in annexed:
+                continue
+            constituents.append({"material": m["id"], "codigo": m["codigo"], "variante": "proveedor",
+                                 "coincidencia": "proveedor", "cas_constituyente": "",
+                                 "constituyente": r["constituyente"], "estandar": r["estandar"],
+                                 "concentracion_pct": r["concentracion_pct"], "fuente": "proveedor",
+                                 "aviso": f"{r['tipo_valor']}; {r['fuente']}"})
+            supplier_rows += 1
+
     # 7. Standards, state and conditions of every material.
     # A molecule that is the same as a regulated one, or another stereochemistry of it, is
     # in the scope of its standard: IFRA covers a substance «with any CAS used to identify
@@ -787,6 +808,7 @@ def main() -> None:
         "con_nombres_de_tiendas": sum(1 for m in ordered if m["nombres_proveedores"]),
         "solo_de_tiendas": sum(1 for m in ordered if m["fuentes"] == "tienda"),
         "de_tiendas_sin_unir": len(unjoined),
+        "constituyentes_de_proveedores": supplier_rows,
         "con_franja_de_uso": sum(1 for m in ordered if m["uso_max"]),
         "con_franja_de_consenso": sum(1 for m in ordered if m["uso_consenso"] == "consenso"),
         "con_franja_de_recomendacion": sum(1 for m in ordered if m["uso_consenso"] == "recomendacion"),
@@ -808,6 +830,8 @@ def main() -> None:
                if EQUIVALENCES.exists() else {}),
             **({PUBCHEM_SYNONYMS.relative_to(ROOT).as_posix(): {"sha256": sha256(PUBCHEM_SYNONYMS), "que_es": "los nombres de uso de PubChem por CAS, para buscar"}}
                if PUBCHEM_SYNONYMS.exists() else {}),
+            **({SUPPLIER_CONSTITUENTS.relative_to(ROOT).as_posix(): {"sha256": sha256(SUPPLIER_CONSTITUENTS), "que_es": "constituyentes regulados que declaran los proveedores, auditados (frente C)"}}
+               if SUPPLIER_CONSTITUENTS.exists() else {}),
             **({SHOP_NAMES.relative_to(ROOT).as_posix(): {"sha256": sha256(SHOP_NAMES), "que_es": "los nombres de venta de Olfatorium, Maese Lab y Perfumiarz, con su CAS"}}
                if SHOP_NAMES.exists() else {}),
             **({LAB_NATURALS.relative_to(ROOT).as_posix(): {"sha256": sha256(LAB_NATURALS), "que_es": "los naturales del FIG según el laboratorio, con sus correcciones (P48)"}}

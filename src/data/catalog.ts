@@ -229,7 +229,13 @@ export function buildCatalog(files: CatalogFiles): Catalog {
   // the annex, and the worst variant when the material could be several.
   const inside = new Map<string, Map<string, Map<string, Ratio>>>();
   const outside = new Map<string, string[]>();
+  // Materials with constituents declared by a supplier, audited (P59): what is known counts, but
+  // a list of allergens does not cover every regulated substance.
+  const supplied = new Set<string>();
   for (const row of parseCsvRecords(files.constituyentes)) {
+    if (row.fuente === "proveedor") {
+      supplied.add(row.material);
+    }
     if (row.estandar === "") {
       outside.set(row.material, [...(outside.get(row.material) ?? []), row.constituyente]);
       continue;
@@ -284,7 +290,14 @@ export function buildCatalog(files: CatalogFiles): Catalog {
       pending.push(`${name}: el anexo lo da como regulado, pero no está en el índice de IFRA.`);
     }
     if (state === "sin-dato" || all.includes(NO_CONSTITUENT_DATA)) {
-      pending.push("Sin datos de sus constituyentes en el anexo de IFRA: puede llevar sustancias con techo.");
+      pending.push(
+        supplied.has(m.id)
+          ? "Fuera del anexo de IFRA: solo constan las sustancias que declara su proveedor, y puede llevar otras con techo."
+          : "Sin datos de sus constituyentes en el anexo de IFRA: puede llevar sustancias con techo.",
+      );
+    }
+    if (supplied.has(m.id)) {
+      conditions.push("Incluye constituyentes declarados por proveedores (auditados), donde el anexo de IFRA no los da.");
     }
     materials.set(m.id, { status: "checked", substances: list, conditions, ...(pending.length ? { pending } : {}) });
 

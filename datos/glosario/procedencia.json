@@ -34,6 +34,10 @@
       "sha256": "bce4057aeb25c3a854e9a8d124665e07d9c89a4a54570545d37dcc432e866bab",
       "que_es": "los nombres de uso de PubChem por CAS, para buscar"
     },
+    "datos/glosario/origen/constituyentes-proveedores.csv": {
+      "sha256": "d05cd92be29d27deb4ef6e4c74816dec840ce574bce9231c36b08e14cfca3205",
+      "que_es": "constituyentes regulados que declaran los proveedores, auditados (frente C)"
+    },
     "datos/glosario/origen/nombres-proveedores.csv": {
       "sha256": "b788a7ca13ff8e0a2ee8336cf0f9573e235d25df1a4a8f28c9edeca1939e8ae6",
       "que_es": "los nombres de venta de Olfatorium, Maese Lab y Perfumiarz, con su CAS"
@@ -63,7 +67,7 @@
       "sha256": "289097c9d76de4430f967158556ff068faa4589175c44b48dd355a5eb93b6368"
     }
   },
-  "generado": "2026-09-30T23:34:39+00:00",
+  "generado": "2026-10-01T00:02:24+00:00",
   "cuentas": {
     "materiales": 4325,
     "del_fig": 3119,
@@ -78,7 +82,7 @@
       "sin-dato": 553,
       "sin-estandar": 2664
     },
-    "filas_de_constituyentes": 3270,
+    "filas_de_constituyentes": 3540,
     "de_la_transparency_list": 3626,
     "solo_de_la_transparency_list": 923,
     "del_fig_fuera_de_ifra": 354,
@@ -90,6 +94,7 @@
     "con_nombres_de_tiendas": 923,
     "solo_de_tiendas": 8,
     "de_tiendas_sin_unir": 45,
+    "constituyentes_de_proveedores": 270,
     "con_franja_de_uso": 53,
     "con_franja_de_consenso": 49,
     "con_franja_de_recomendacion": 4,

@@ -195,7 +195,7 @@ constituyentes, y la app lo calcula exacto; así nunca se desfasa de los datos.
 
 ## Los constituyentes: [`material-constituyentes.csv`](material-constituyentes.csv)
 
-3270 filas. Una fila es algo regulado que un material lleva por dentro:
+3540 filas. Una fila es algo regulado que un material lleva por dentro:
 - `variante`: el natural del anexo, o la base de Schiff, de donde sale;
 - `estandar`: el estándar del constituyente;
 - `concentracion_pct`: el % dentro del material;
@@ -208,6 +208,14 @@ constituyentes, y la app lo calcula exacto; así nunca se desfasa de los datos.
   apuntan todas y **cuenta la peor**. Hay 281 materiales así.
   - Ejemplo: el «Lemon oil» del FIG puede ser el exprimido, la esencia o el destilado del
     anexo.
+
+- **`proveedor`** (P59, 2026-10-01): lo que declaran los proveedores en sus listas de alérgenos y
+  fichas de seguridad, ya auditado ([el frente C](../../docs/investigacion/2026-09-30-usos-y-constituyentes/README.md)).
+  Sale de [`origen/constituyentes-proveedores.csv`](origen/constituyentes-proveedores.csv), que
+  escribe [`scripts/constituyentes_proveedores.py`](../../scripts/constituyentes_proveedores.py):
+  entre fuentes cuenta la cifra más alta. **Solo entra donde el anexo no da ese estándar para ese
+  material**, y no cambia su `estado`: un natural «sin dato» sigue avisando de que puede llevar
+  otras sustancias con techo. Son 270 filas de 84 materiales.
 
 Los otros CAS de un natural del anexo solo cuentan si además coincide el nombre. Algunos de
 esos CAS, como el de *Citrus limon*, sirven para varias variantes, y unirlos por CAS
