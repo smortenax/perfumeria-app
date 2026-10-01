@@ -197,3 +197,105 @@ Igual que en la parte 1, el buscador devolvio resumenes sin atribuir cada cifra 
 3. Los formatos de TGSC ("average use is X% in a perfume compound", "recommended usage up to X%") reaparecen en casi todos los resultados: los "average use" se descartaron siempre; los "up to X% in the fragrance concentrate" se anotaron como dudosa cuando el texto es de formato afin (ordenes 91, 100, 108, 115, 132, 134, 144, 150).
 4. Errores o desajustes de mapeo: orden 105 (linalyl oxide 60047-17-8, los resultados son de linalool oxide mezcla 1365-19-1), orden 128 (CAS 165184-98-5 devuelve fichas de 101-86-0), orden 96 (Trisamber, resultados citan tambien 338735-71-0). Los materiales con solucion o dilucion en la lista (Ambermax 10% TEC, Corps Racine, Safranal 20%, Vionil 10%) traen cifras del material puro o de una solucion, sin convertir.
 5. Lyral (orden 143, material prohibido en la UE y restringido por IFRA) solo dio cifras de formato TGSC: queda sin segunda fuente.
+
+## Parte 3: ordenes 151 a 225
+
+Mismo metodo que las partes 1 y 2: 1 busqueda por material con dominios bloqueados (TGSC, PerfumersWorld, perflavory), franjas solo en % del concentrado, cifras de resumen sin URL.
+
+| orden | material | CAS | franjas (% concentrado) | fuentes | busq/fetch | avisos |
+|---|---|---|---|---|---|---|
+| 151 | 3,7-Dimethyl-1,6-nonadien-3-ol (Ethyllin | 10339-55-6 | techo <=40 | givaudan.com | 1/0 | dudosa |
+| 152 | 3,7-Dimethyl-2,6-nonadienenitrile | 61792-11-8 | techo <=5 | scentree.co | 1/0 |  |
+| 153 | 3a,4,5,6,7,7a-Hexahydro-4,7-methano-1H-i | 67634-20-2 | techo <=2 | givaudan.com | 1/0 |  |
+| 154 | 3-Cyclohexene-1-methanol, 3(or 4)-methyl | 426218-78-2 | techo <=5 | iff.com | 1/0 |  |
+| 155 | 3-Methyl-1-cyclopentadecanone | 541-91-3 | estandar 0.1-2 | fraterworks.com | 1/0 |  |
+| 156 | 3-Methyl-2,4-nonedione | 113486-29-6 | sin segunda fuente | - | 1/0 | sin segunda fuente: busqueda sin cifras de dosis para Matcha Ketone |
+| 157 | 3-Methyl-2-butenyl acetate | 1191-16-8 | estandar 0.1-6; techo <=10 | shop.perfumersapprentice.com | 1/0 | dudosa |
+| 158 | 3-Methyl-2-butenyl salicylate | 68555-58-8 | sin segunda fuente | - | 1/0 | sin segunda fuente: solo limites IFRA de producto final (5.2% fine fragrance), no entran |
+| 159 | 3-Methyl-5-cyclopentadecen-1-one | 63314-79-4 | trazas 0.05-0.5 | dsm-firmenich.com | 1/0 |  |
+| 160 | 3-Methylcyclopentane-1,2-dione | 765-70-8 | sin segunda fuente | - | 1/0 | sin segunda fuente: cifras de «fine fragrance» (tipico 0.10, rango 0.01-0.50) sin base clara y «average use 2.5%» formato TGSC; no entran |
+| 161 | 3-Phenylbutanal | 16251-77-7 | sin segunda fuente | - | 1/0 | sin segunda fuente: recomendado fine fragrance 0.01-0.10% sin base clara (probable producto final); «10% solution or less» dudosa |
+| 162 | 4-(1-Methoxy-1-methylethyl)-1-methylcycl | 14576-08-0 | estandar 2-5; techo <=5; techo <=10 | caperfume.com, iff.com, shop.perfumersapprentice.com | 1/0 |  |
+| 163 | 4-(2,6,6-Trimethylcyclohexyl)-3-methylbu | 60241-53-4 | estandar 0.5-2; techo <=20 | fraterworks.com, scentree.co | 1/0 | dudosa |
+| 164 | 4-(2-Butenylidene)-3,5,5-trimethylcycloh | 13215-88-8 | estandar 0.1-1; techo <=1 | scentspiracy.com, symrise.com | 1/0 |  |
+| 165 | 4-(4,8-Dimethylnona-3,7-dienyl)pyridine | 38462-23-6 | estandar 0.1-1; techo <=5 | iff.com, scentspiracy.com | 1/0 |  |
+| 166 | 4-(Methylthio)-4-methyl-2-pentanone | 23550-40-5 | sin segunda fuente | - | 1/0 | sin segunda fuente: la busqueda no devolvio ficha del material; el CAS 23550-40-5 (tioeter) no coincide con el mercaptano CAS 19872-52-7 que salio, sin cifras utiles |
+| 167 | 4-(p-Methoxyphenyl)-2-butanone | 104-20-1 | estandar 0.5-8 | symrise.com | 1/0 |  |
+| 168 | 4,6-Dimethyl-2H-pyran-2-one | 675-09-2 | techo <=1 | givaudan.com | 1/0 |  |
+| 169 | 4,7-Dimethyloct-6-en-3-one | 2550-11-0 | techo <=10 | shop.perfumersapprentice.com | 1/0 | dudosa |
+| 170 | 4,7-Methano-1H-indene-5-acetaldehyde, oc | 1339119-15-1 | techo <=5 | iff.com | 1/0 |  |
+| 171 | 4-Acetoxy-3-pentyltetrahydropyran | 18871-14-2 | techo <=5 | iff.com | 1/0 | dudosa |
+| 172 | 4-Cyclohexyl-2-methyl-2-butanol | 83926-73-2 | estandar 2-6; techo <=5 | premierepeau.com, shop.perfumersapprentice.com | 1/0 |  |
+| 173 | 4H-Indeno[4,5-D]-1,3-dioxole, 3a,5,6,7,8 | 823178-41-2 | estandar 0.5-5; techo <=5 | fraterworks.com, iff.com | 1/0 | dudosa |
+| 174 | 4-Isopropylcyclohexanol | 4621-04-9 | estandar 0.5-3; techo <=10 | fraterworks.com, iff.com | 1/0 | dudosa |
+| 175 | 4-Methoxy-alpha-methylbenzenepropanal | 5462-06-6 | estandar 0.1-5; techo <=5 | iff.com, scentree.co | 1/0 |  |
+| 176 | 4-Penten-1-one, 1-spiro[4.5]dec-7-en-7-y | 224031-70-3 | techo <=0.1 | givaudan.com | 1/0 |  |
+| 177 | 4-t-Amylcyclohexanone | 16587-71-6 | estandar 0.1-2; techo <=5 | iff.com, scentspiracy.com | 1/0 |  |
+| 178 | 4-tert-Butylcyclohexanol | 98-52-2 | sin segunda fuente | - | 1/0 | sin segunda fuente: solo limites IFRA de producto final y sin dosis de concentrado |
+| 179 | 4-Tricyclodecylidene butanal | 30168-23-1 | estandar 0.1-0.5; techo <=3 | givaudan.com, pellwall-perfumes.blogspot.com | 1/0 |  |
+| 180 | 5-(2,2,3-Trimethyl-3-cyclopentenyl)-3-me | 65113-99-7 | estandar 0.5-10; techo <=10 | iff.com, shop.perfumersapprentice.com | 1/0 |  |
+| 181 | 5-(cis-3-Hexenyl)dihydro-5-methyl-2(3H)f | 70851-61-5 | techo <=1 | fraterworks.com | 1/0 |  |
+| 182 | 5,8-Methano-2H-1-benzopyran-2-one, 6- et | 69486-14-2 | sin segunda fuente | - | 1/0 | sin segunda fuente: solo «average use 0.9%» con formato TGSC, no se anota |
+| 183 | 5-Acetyl-3-isopropyl-1,1,2,6-tetramethyl | 68140-48-7 | estandar 10-10; techo <=25 | pellwall.com, perfumiarz.com | 1/0 |  |
+| 184 | 5-Cyclohexadecen-1-one | 37609-25-9 | estandar 0.2-4 | givaudan.com | 1/0 |  |
+| 185 | 5-Methyl-1-(2,2,3-trimethyl-3-cyclopente | 139539-66-5 | techo <=5 | iff.com | 1/0 |  |
+| 186 | 5-Methyl-2-hepten-4-one | 81925-81-7 | trazas 0.002-0.05; estandar 0.1-0.5; techo <=2 | premierepeau.com | 1/0 |  |
+| 187 | 5-Methyl-2-phenyl-2-hexenal | 21834-92-4 | trazas <=1; estandar 2-8 | fraterworks.com | 1/0 |  |
+| 188 | 5-Methylfurfural | 620-02-0 | techo <=0.2 | perfumersupplyhouse.com | 1/0 |  |
+| 189 | 6,6-Dimethylbicyclo[3.1.1]hept-2-ene-2-p | 33885-51-7 | techo <=3 | iff.com | 1/0 | atencion |
+| 190 | 6-Acetyl-1,1,2,4,4,7-hexamethyltetraline | 21145-77-7 | estandar 1-5; techo <=10 | premierepeau.com, scentspiracy.com | 1/0 |  |
+| 191 | 6-Ethylideneoctahydro-5,8-methano-2H-ben | 93939-86-7 | techo <=0.5 | scentree.co | 1/0 |  |
+| 192 | 6-Isopropyl-2(1H)-octahydronaphthalenone | 34131-98-1 | estandar 0.2-0.7; techo <=5 | givaudan.com, glooshi.com | 1/0 |  |
+| 193 | 6-Methoxy-2,6-dimethylheptan-1-al | 62439-41-2 | sin segunda fuente | - | 1/0 | sin segunda fuente: la busqueda no encontro dosis para Aquaflor (Bedoukian, CAS 62439-41-2); la cifra de Aquaflora es de otro material y no se usa |
+| 194 | 6-Methyl-5-hepten-2-one | 110-93-0 | estandar 0.1-2 | givaudan.com | 1/0 |  |
+| 195 | 6-Methylquinoline | 91-62-3 | techo <=1 | fraterworks.com | 1/0 | dudosa |
+| 196 | 8aH-2,4a-Methanonaphthalen-8a-ol, octahy | 88644-30-8 | estandar 0.1-3; techo <=10 | fraterworks.com, symrise.com | 1/0 |  |
+| 197 | 8H-Indeno(4,5-B)furan,2,3,3a,4,5,5a,6,7, | 338735-71-0 | sin segunda fuente | - | 1/0 | sin segunda fuente: solo limites IFRA y percentil 95 RIFM, ninguna dosis de concentrado |
+| 198 | 9-Decen-1-ol | 13019-22-2 | techo <=2 | iff.com | 1/0 |  |
+| 199 | Acetal | 105-57-7 | estandar 0.1-0.1 | shop.perfumersapprentice.com | 1/0 | dudosa |
+| 200 | Acetaldehyde ethyl phenylethyl acetal | 2556-10-7 | techo <=5 | iff.com | 1/0 | atencion |
+| 201 | Acetophenone | 98-86-2 | sin segunda fuente | - | 1/0 | sin segunda fuente: el unico tope (2%) es de concentrado de aroma alimentario (flavor), no entra |
+| 202 | Allyl alpha-ionone | 79-78-7 | sin segunda fuente | - | 1/0 | sin segunda fuente: solo «average use» y «10% solution or less», formatos TGSC, no se anotan |
+| 203 | Allyl cyclohexanepropionate | 2705-87-5 | trazas >=0.02; estandar 0.5-5; techo <=10 | fraterworks.com, perfumeextract.co.uk, symrise.com | 1/0 |  |
+| 204 | Allyl hexanoate | 123-68-2 | sin segunda fuente | - | 1/0 | sin segunda fuente: solo guia cualitativa (trazas), cifras de flavor y de «10% solution»; no entran |
+| 205 | alpha,alpha-Dimethyl-p-ethylphenylpropan | 67634-15-5 | trazas 0.05-0.1; estandar 0.5-1; techo <=5; techo <=10 | premierepeau.com, shop.perfumersapprentice.com | 1/0 | dudosa |
+| 206 | alpha,alpha-Dimethylphenethyl butyrate | 10094-34-5 | sin segunda fuente | - | 1/0 | sin segunda fuente: las cifras halladas son de flavor (5% del concentrado de aroma alimentario) o rangos de patente; no entran |
+| 207 | alpha-Bisabolene | 17627-44-0 | trazas 0.1-0.5; estandar 1-5 | givaudan.com, premierepeau.com | 1/0 |  |
+| 208 | alpha-Cyclohexylidene benzeneacetonitril | 10461-98-0 | estandar 1-10 | givaudan.com | 1/0 |  |
+| 209 | alpha-Farnesene | 502-61-4 | techo <=8 | shop.perfumersapprentice.com | 1/0 | dudosa |
+| 210 | alpha-Hexylcinnamaldehyde | 101-86-0 | techo <=10 | shop.perfumersapprentice.com | 1/0 | dudosa |
+| 211 | alpha-Irone | 79-69-6 | trazas 0.01-0.5; techo <=2 | givaudan.com, shop.perfumersapprentice.com | 1/0 | dudosa |
+| 212 | alpha-Methylbenzyl acetate | 93-92-5 | estandar 0.1-4; techo <=5 | shop.perfumersapprentice.com, symrise.com | 1/0 |  |
+| 213 | alpha-Methyl-cyclohexanepropanol | 10528-67-3 | sin segunda fuente | - | 1/0 | sin segunda fuente: error de mapeo; el CAS 10528-67-3 (alfa-metilciclohexanopropanol) no coincide con lo hallado (Magnolan, CAS 27606-09-3, otro material); las cifras de Magnolan no se usan |
+| 214 | alpha-Phellandrene | 99-83-2 | estandar 1-5; techo <=8 | foreverest.net, shop.perfumersapprentice.com | 1/0 | dudosa |
+| 215 | Amyl salicylate | 2050-08-0 | estandar 2-8; techo <=10 | premierepeau.com | 1/0 |  |
+| 216 | Apple alcoholate | 883111-87-3 | sin segunda fuente | - | 1/0 | sin segunda fuente: ni dsm-firmenich ni ScenTree dan dosis en la busqueda |
+| 217 | Balsams, Canada | 8007-47-4 | trazas <=1; techo <=10 | fraterworks.com, shop.perfumersapprentice.com | 1/0 | dudosa |
+| 218 | Benzaldehyde | 100-52-7 | trazas 0.01-0.05 | premierepeau.com | 1/0 |  |
+| 219 | Benzeneacetonitrile, a-butylidene-, (Z) | 130786-09-3 | trazas >=0.1; techo <=5; techo <=2 | dsm-firmenich.com, glooshi.com | 1/0 |  |
+| 220 | Benzenepropanol, a,ß-dimethyl- | 56836-93-2 | techo <=5 | iff.com | 1/0 |  |
+| 221 | Benzoic acid, 2-methyl-, methyl ester | 89-71-4 | techo <=0.5 | iff.com | 1/0 |  |
+| 222 | Benzothiazole | 95-16-9 | estandar 0.001-0.1 | scentspiracy.com | 1/0 |  |
+| 223 | Benzyl benzoate | 120-51-4 | estandar 5-10; techo <=15 | premierepeau.com | 1/0 |  |
+| 224 | Benzyl salicylate | 118-58-1 | estandar 5-15; techo <=40 | premierepeau.com, shop.perfumersapprentice.com | 1/0 | dudosa |
+| 225 | beta-1-(2,6,6-Trimethyl-1-cyclohexen-1-y | 35044-68-9 | estandar 0.01-0.2; techo <=0.02 | premierepeau.com, shop.perfumersapprentice.com | 1/0 | dudosa |
+
+## Totales (parte 3)
+
+- Busquedas: 75 (1 por material, sin segundas busquedas). Fetches: 0.
+- Filas de cifras: 96 (trazas 10, estandar 34, techo 52). Materiales con al menos una franja: 60.
+- Sin segunda fuente: 15 de 75 (ordenes 156, 158, 160, 161, 166, 178, 182, 193, 197, 201, 202, 204, 206, 213, 216).
+- Contradicciones marcadas (mas de 5x en la misma franja): ninguna. Aviso aparte: orden 225 (techo 0.02 dudoso frente a estandar hasta 0.2, franjas distintas).
+
+## Dominios que aportaron mas (parte 3)
+
+Filas por dominio probable (estimacion, el buscador no enlazo cada cifra): iff.com (16), shop.perfumersapprentice.com (16), premierepeau.com (16), givaudan.com (11), fraterworks.com (11), scentspiracy.com (5), symrise.com (5), scentree.co (4).
+
+## Lo raro (parte 3)
+
+1. Igual que antes: ninguna cifra lleva URL ni se hizo WebFetch; las fuentes son dominios probables a partir del resumen.
+2. Mapeos dudosos: orden 213 (CAS 10528-67-3 devolvio Magnolan, CAS 27606-09-3, otro material) y orden 166 (CAS 23550-40-5, tioeter, sin ficha; salio el mercaptano 19872-52-7). Ambos quedan sin segunda fuente. Orden 163 (Madranol): ScenTree da CAS 60241-52-3 en vez de 60241-53-4. Ordenes 154 y 185 son el mismo Cassiffix (mismo resultado).
+3. Muchas cifras con formato TGSC («average use X%», «up to X% in the fragrance concentrate», «10% solution or less», «use level ranges from») se descartaron o se marcaron «dudosa»; los techos «up to 5/8/10%» de Perfumer's Apprentice conviene revisarlos en la fusion.
+4. Cifras de «fine fragrance», de jabon o champu, EdT, limites IFRA, percentiles 95 de RIFM y concentrados de aroma alimentario (acetofenona, orden 201) quedaron fuera de franja; 15 materiales sin segunda fuente.
+5. Webs de perfumistas citadas (premierepeau.com, glooshi.com, pellwall.com) aportan guias de uso sin ficha de casa; el buscador tambien devolvio una web que cita datos de TGSC para el amil salicilato (no usada).
+
