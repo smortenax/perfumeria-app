@@ -85,11 +85,37 @@ describe("the usual use, from the lots U-001 (audited by hand) and U-002 (script
     expect(usage?.max?.eq(pct("6.5"))).toBe(true);
   });
 
+  it("gives a natural the pages of its own form, and a page that does not tell the form only while the form has none (rule 8)", () => {
+    // Lavender, 8000-28-0: TGSC's pages say their form by their address (es oil, ab absolute, co
+    // concrete). The concrete gets only its concrete page (3 %), the absolute its absolute ones (up to
+    // 10 %); the plant with no form, «Lavender», takes every page, marked as not telling the form,
+    // so its band is a recommendation, never a consensus.
+    expect(entryOf("fig:2181")?.usage).toMatchObject({ consensus: "techo", ceilingSource: "TGSC" });
+    expect(entryOf("fig:2181")?.usage?.ceiling?.eq(pct("3"))).toBe(true);
+    expect(entryOf("fig:2180")?.usage?.ceiling?.eq(pct("10"))).toBe(true);
+    const plant = entryOf("fig:2179")?.usage;
+    expect(plant?.consensus).toBe("recomendacion");
+    expect(plant?.sources).toBe("PerfumersWorld (sin distinguir forma)");
+    // No page speaks of the extract: it stays without a usual use, a gap and never a zero (§1.2).
+    expect(entryOf("fig:2182")?.usage).toBeUndefined();
+    // The oil, audited by hand in U-001, keeps its audit: 0,55–5,5 %.
+    expect(entryOf("fig:2183")?.usage?.max?.eq(pct("5.5"))).toBe(true);
+  });
+
   it("can be redone from the audited lot with the rule of the script, for every material", () => {
     const rows = [...parseCsvRecords(lot1), ...parseCsvRecords(lot2)].filter((r) => r.auditoria === "aceptada");
     // The materials a search lot also touches are left to the test above: their rule is the script's rule 7.
     const searched = new Set([...parseCsvRecords(lot4), ...parseCsvRecords(lot5)].map((r) => r.material_id));
-    const ids = [...new Set(rows.map((r) => r.material_id))].filter((id) => !searched.has(id));
+    // And so are the naturals that rule 8 gives the pages of their CAS (the forms of a plant), but
+    // the ones audited by hand in U-001, which keep their audit: they have the test below.
+    const audited = new Set(parseCsvRecords(lot1).map((r) => r.material_id));
+    const ambiguous = new Set(
+      parseCsvRecords(lot2)
+        .filter((r) => r.auditoria === "forma ambigua" && r.notas.startsWith("Natural:"))
+        .map((r) => r.cas),
+    );
+    const byForm = (id: string) => !audited.has(id) && ambiguous.has(entryOf(id)?.cas ?? "");
+    const ids = [...new Set(rows.map((r) => r.material_id))].filter((id) => !searched.has(id) && !byForm(id));
     for (const id of ids) {
       const mine = rows.filter((r) => r.material_id === id);
       // A usual row with its usual maximum: the maximum of a «habitual» row, the quote's average of a PerfumersWorld one.
@@ -102,8 +128,16 @@ describe("the usual use, from the lots U-001 (audited by hand) and U-002 (script
           const average = r.papel === "habitual y techo" ? /(\d+(?:\.\d+)?)\s*%?\s*Average/i.exec(r.cita)?.[1] : undefined;
           return average === undefined ? [] : [{ row: r, max: average }];
         });
-      const min = median(usual.filter((u) => u.row.min_pct !== "").map((u) => pct(u.row.min_pct)));
-      const max = median(usual.filter((u) => u.max !== "").map((u) => pct(u.max)));
+      // Each source counts once: the median of its own figures, then the median across sources.
+      const perSource = (pick: (u: (typeof usual)[number]) => string) => {
+        const by = new Map<string, Ratio[]>();
+        for (const u of usual.filter((u) => pick(u) !== "")) {
+          by.set(u.row.fuente, [...(by.get(u.row.fuente) ?? []), pct(pick(u))]);
+        }
+        return median([...by.values()].map((v) => median(v) as Ratio));
+      };
+      const min = perSource((u) => u.row.min_pct);
+      const max = perSource((u) => u.max);
       const ceilings = mine
         .filter((r) => (r.papel === "techo" || r.papel === "habitual y techo") && r.base === "concentrado" && r.max_pct !== "")
         .map((r) => pct(r.max_pct));

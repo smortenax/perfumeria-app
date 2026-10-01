@@ -140,10 +140,14 @@ docstring del script.
 | `uso_techo` | el máximo más alto de las filas de papel `techo` o `habitual y techo` (lo que alguien llega a usar: no es un límite de seguridad ni de IFRA) |
 | `uso_techo_fuente` | de qué fuente sale ese techo |
 
-Las filas de base `producto` o `desconocida` no entran en la franja ni se convierten. **A
-2026-10-01, con U-005 entero, son 386 materiales con franja**: **87 con `consenso` y 299
-con `recomendacion`**. Hay **1.703 con techo de uso**; los 1.333 que solo tienen techo salen en
-la ficha como «solo techo», con su fuente, sin franja (P59 A).
+Las filas de base `producto` o `desconocida` no entran en la franja ni se convierten. **Cada
+fuente cuenta una vez** en la mediana. **Los naturales** (regla 8, 2026-10-01): la ficha de TGSC o
+de PerfumersWorld dice su forma (`U-002-formas.csv`, de `scripts/formas_fuentes.py`) y va a esa
+forma; la que no la dice vale para todas las formas de la planta, marcada «(sin distinguir forma)»,
+solo mientras la forma no tenga cifra propia, y nunca hace consenso. Los auditados a mano en U-001
+no cambian. **A 2026-10-01 son 691 materiales con franja**: **101 con `consenso` y 590 con
+`recomendacion`**. Hay **2.149 con techo de uso**; los que solo tienen techo salen en la ficha como
+«solo techo», con su fuente, sin franja (P59 A).
 
 Un natural que una tienda vende diluido puede traer el CAS del disolvente (el absoluto de cacao
 al 10 % de Maese Lab, con el del etanol): no se une al disolvente, sino por su especie, o queda

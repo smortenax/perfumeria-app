@@ -3,7 +3,10 @@ cas:5502-75-0,"cis,trans-4-(Isopropyl)cyclohexanemethanol",0.495,2.5,consenso,2,
 cas:68917-50-0,Birch wood pyrolysate,,,,0,,15,TGSC,0,U-002
 cas:84929-31-7,Lemon oil cold pressed,0.1,1,recomendacion,1,PerfumersWorld,8,PerfumersWorld,0,U-002
 cas:85940-29-0,Birch wood pyrolysate,,,,0,,2,Búsqueda web (scentspiracy.com),0,U-005
+cas:89957-91-5,Bergamot oil expressed,,,,0,,8,TGSC,0,U-002
 cas:9000-78-6,Opoponax,0.3,1,recomendacion,1,Búsqueda web,5,Búsqueda web,0,U-005
+cas:90046-02-9,Cade oil,,,,0,,8,TGSC,0,U-002
+cas:91770-14-8,Jasmine absolute (sambac),0.385,3.85,recomendacion,1,PerfumersWorld,55,PerfumersWorld,0,U-002
 cas:99-49-0,Carvone,0.02,0.2,recomendacion,1,PerfumersWorld,1.8,PerfumersWorld,0,U-002
 fig:1,(-)-(R)-.alpha.-Phellandrene,,,,0,,4,TGSC,0,U-002
 fig:2,(-)-.alpha.-Fenchol,,,,0,,8,TGSC,0,U-002
@@ -624,6 +627,9 @@ fig:991,Acetyl cedrene,1.1,5.5,consenso,2,Búsqueda web (iff.com) | PerfumersWor
 fig:992,Acetyl propionyl,,,,0,,0.08,TGSC,0,U-002
 fig:993,Acetylcarene,,,,0,,25,TGSC,0,U-002
 fig:994,Acetylpyrazine,,,,0,,0.05,TGSC,0,U-002
+fig:998,Agarwood oil,0.1,3,recomendacion,1,PerfumersWorld,15,PerfumersWorld,0,U-002
+fig:1001,Ajowan oil,,,,0,,2,TGSC,0,U-002
+fig:1010,Allspice oil,,,,0,,6,TGSC,0,U-002
 fig:1012,Allyl Amyl Glycolate,0.035,0.55,consenso,2,Laboratorio | PerfumersWorld,4,PerfumersWorld,2,U-001
 fig:1013,Allyl (cyclohexyloxy)acetate,,,,0,,2,TGSC,0,U-002
 fig:1014,Allyl alpha-ionone,0.1,1,recomendacion,1,PerfumersWorld,10,TGSC,0,U-002
@@ -669,6 +675,8 @@ fig:1066,alpha-Propylphenethyl alcohol,,,,0,,8,TGSC,0,U-002
 fig:1067,alpha-Terpineol,0.1,3,recomendacion,1,PerfumersWorld,30,TGSC,0,U-002
 fig:1068,alpha-Terpineol acetate,0.1,1,recomendacion,1,PerfumersWorld,30,TGSC,0,U-002
 fig:1069,Ambar gris (tintura),1,5,recomendacion,1,Laboratorio,30,TGSC,1,U-001
+fig:1072,Ambrette seed oil,,,,0,,0.5,TGSC,0,U-002
+fig:1073,Ambrette seed oil,,,,0,,0.5,TGSC,0,U-002
 fig:1075,Amyl alcohol,,,,0,,0.05,TGSC,0,U-002
 fig:1076,Amyl butyrate,,,,0,,8,TGSC,0,U-002
 fig:1077,Amyl cinnamate,,,,0,,5,TGSC,0,U-002
@@ -679,15 +687,27 @@ fig:1081,Amyl octanoate,,,,0,,6,TGSC,0,U-002
 fig:1082,Amyl salicylate,1.05,4.5,consenso,2,Búsqueda web (premierepeau.com) | PerfumersWorld,10,TGSC,0,U-002 | U-005
 fig:1083,Amyl valerate,0.23,1.7,recomendacion,1,PerfumersWorld,11,PerfumersWorld,0,U-002
 fig:1084,Amylcyclohexyl acetate (mixed isomers),0.1,1,recomendacion,1,PerfumersWorld,10,TGSC,0,U-002
+fig:1085,Amyris oil,,,,0,,10,TGSC,0,U-002
+fig:1087,"Amyris oil, rectified",,,,0,,10,TGSC,0,U-002
+fig:1089,Angelica root oil,,,,0,,3,TGSC,0,U-002
+fig:1092,Angelica seed oil,,,,0,,3,TGSC,0,U-002
 fig:1093,Anise seed oil,0.1,1,recomendacion,1,PerfumersWorld,8,PerfumersWorld,0,U-002
 fig:1094,Anisole,,,,0,,0.6,TGSC,0,U-002
 fig:1096,Anisyl alcohol,0.13,1.3,recomendacion,1,PerfumersWorld,10,PerfumersWorld,0,U-002
 fig:1098,Anisyl formate,,,,0,,4,TGSC,0,U-002
 fig:1099,Anisyl phenylacetate,,,,0,,7,TGSC,0,U-002
 fig:1100,Anisyl propionate,,,,0,,6,TGSC,0,U-002
+fig:1108,Armoise vulgaris oil,,,,0,,0.5,TGSC,0,U-002
 fig:1111,Baccartol,,,,0,,4,TGSC,0,U-002
+fig:1119,"Balsam resinoid, Peru",0.4,4,recomendacion,1,PerfumersWorld,17.6,PerfumersWorld,0,U-002
+fig:1120,"Balsam, Peru",0.4,4,recomendacion,1,PerfumersWorld (sin distinguir forma),17.6,PerfumersWorld (sin distinguir forma),0,U-002
 fig:1121,"Balsams, Canada",,,,0,,10,TGSC,0,U-002
+fig:1122,"Basil absolute, chemotype linalool",,,,0,,2,TGSC,0,U-002
+fig:1123,"Basil oil, chemotype estragole",0.09,0.65,recomendacion,1,PerfumersWorld,6.2,PerfumersWorld,0,U-002
+fig:1124,"Basil oil, chemotype estragole, rectified",0.09,0.65,recomendacion,1,PerfumersWorld,6.2,PerfumersWorld,0,U-002
+fig:1125,"Basil oil, chemotype linalool",0.09,0.65,recomendacion,1,PerfumersWorld,6.2,PerfumersWorld,0,U-002
 fig:1133,Beechwood creosote,,,,0,,0.05,TGSC,0,U-002
+fig:1134,Beeswax absolute,,,,0,,8,TGSC,0,U-002
 fig:1139,Benzaldehyde dimethyl acetal,,,,0,,5,TGSC,0,U-002
 fig:1140,Benzaldehyde methyl anthranilate (Schiff base),,,,0,,8,TGSC,0,U-002
 fig:1141,Benzaldehyde propylene glycol acetal,,,,0,,8,TGSC,0,U-002
@@ -703,7 +723,13 @@ fig:1155,"Benzoic acid, 2-[[3-(4-methoxyphenyl)-2-methylpropylidene]amino]-, met
 fig:1157,"Benzoic acid, 2-hydroxy-, 2-methylbutyl ester",,,,0,,10,TGSC,0,U-002
 fig:1159,"Benzoic acid, 2-methyl-, methyl ester",,,,0,,0.5,Búsqueda web (iff.com),0,U-005
 fig:1161,Benzoin,,,,0,,2,TGSC,0,U-002
+fig:1162,"Benzoin CO2 extract, Siam",0.08,0.8,recomendacion,1,PerfumersWorld (sin distinguir forma),8,PerfumersWorld (sin distinguir forma),0,U-002
+fig:1163,"Benzoin extract, Siam",0.08,0.8,recomendacion,1,PerfumersWorld (sin distinguir forma),8,PerfumersWorld (sin distinguir forma),0,U-002
+fig:1165,"Benzoin gum, Siam",0.17,1.7,recomendacion,1,PerfumersWorld (sin distinguir forma),26.6,PerfumersWorld (sin distinguir forma),0,U-002
+fig:1166,"Benzoin gum, Sumatra",0.42,4.2,recomendacion,1,PerfumersWorld (sin distinguir forma),12,TGSC (sin distinguir forma),0,U-002
+fig:1167,Benzoin infusion,0.42,4.2,recomendacion,1,PerfumersWorld (sin distinguir forma),12,TGSC (sin distinguir forma),0,U-002
 fig:1168,Resinoide Benjui,0.585,3.35,consenso,2,Laboratorio | PerfumersWorld,13.3,PerfumersWorld,1,U-001
+fig:1169,"Benzoin resinoid, Sumatra",0.42,4.2,recomendacion,1,PerfumersWorld,12,TGSC,0,U-002
 fig:1171,Benzophenone,,,,0,,6,TGSC,0,U-002
 fig:1172,Benzothiazole,0.001,0.1,recomendacion,1,Búsqueda web (scentspiracy.com),,,0,U-005
 fig:1174,Benzyl 2-hydroxypropionate,,,,0,,2,TGSC,0,U-002
@@ -725,7 +751,11 @@ fig:1192,Benzyl propionate,0.08,0.8,recomendacion,1,PerfumersWorld,10,TGSC,0,U-0
 fig:1193,Benzyl salicylate,2.7,9.5,consenso,2,Búsqueda web (premierepeau.com) | PerfumersWorld,32,PerfumersWorld,0,U-002 | U-005
 fig:1194,Benzyl trans-2-methyl-2-butenoate,,,,0,,5,TGSC,0,U-002
 fig:1195,Benzyl valerate,,,,0,,4,TGSC,0,U-002
+fig:1197,Bergamot oil,0.2,5,recomendacion,1,PerfumersWorld,25,PerfumersWorld,0,U-002
+fig:1199,"Bergamot oil, expressed",0.2,5,recomendacion,1,PerfumersWorld,25,PerfumersWorld,0,U-002
 fig:1200,Bergamota sin bergaptenos,1.65,6.5,consenso,2,Laboratorio | PerfumersWorld,30,TGSC,0,U-001
+fig:1201,"Bergamot oil, rectified",0.2,5,recomendacion,1,PerfumersWorld,25,PerfumersWorld,0,U-002
+fig:1202,"Bergamot oil, terpeneless",0.2,5,recomendacion,1,PerfumersWorld,25,PerfumersWorld,0,U-002
 fig:1203,"beta-1-(2,6,6-Trimethyl-1-cyclohexen-1-yl)-2-buten-1-one",0.01,0.2,recomendacion,1,Búsqueda web (premierepeau.com),,,0,U-005
 fig:1204,beta-Caryophyllene,0.2,2,recomendacion,1,PerfumersWorld,12,TGSC,0,U-002
 fig:1205,beta-Farnesene,,,,0,,3,TGSC,0,U-002
@@ -746,10 +776,13 @@ fig:1220,"Bicyclo(2.2.1)heptan-2-one, 1,7,7-trimethyl-, (1S)-",,,,0,,5,TGSC,0,U-
 fig:1221,"Bicyclo[2.2.1]hept-5-ene-2-carboxylic acid, 3-(1-methylethyl)-, ethyl ester, (2-exo,3-",,,,0,,2,TGSC,0,U-002
 fig:1227,"Bicyclo[3.1.1]hept-2-ene-2-acetaldehyde, 6,6-dimethyl-",,,,0,,1,TGSC,0,U-002
 fig:1228,"Bicyclo[3.1.1]hept-3-en-2-one, 4,6,6-trimethyl-, (1S,5S)-",,,,0,,1,TGSC,0,U-002
+fig:1231,"Birch tar oil, rectified",3,15,recomendacion,1,PerfumersWorld,90,PerfumersWorld,0,U-002
 fig:1234,Bisabolene,,,,0,,10,TGSC,0,U-002
 fig:1235,Borneol,,,,0,,3,TGSC,0,U-002
 fig:1236,Bornyl acetate,,,,0,,9,TGSC,0,U-002
 fig:1237,Bornyl isovalerate,,,,0,,20,TGSC,0,U-002
+fig:1241,"Bucchu oil, betulina",,,,0,,0.8,TGSC,0,U-002
+fig:1243,"Bucchu oil, rectified, betulina",,,,0,,0.8,TGSC,0,U-002
 fig:1245,"Bulnesia sarmienti, ext., acetate",,,,0,,10,Búsqueda web (shop.perfumersapprentice.com),0,U-005
 fig:1247,"Butanamide, 2-ethyl-N-methyl-N-(3-methylphenyl)-",0.1,1,recomendacion,1,PerfumersWorld,20,Búsqueda web (fragrance-engine.com),0,U-002 | U-005
 fig:1250,"Butanoic acid, 2-methyl-, pentyl ester",,,,0,,5,TGSC,0,U-002
@@ -778,11 +811,29 @@ fig:1275,Butyl salicylate,,,,0,,0.1,TGSC,0,U-002
 fig:1276,Butyl sulfide,,,,0,,0.1,TGSC,0,U-002
 fig:1278,Butyric acid,,,,0,,0.05,TGSC,0,U-002
 fig:1280,Cabreuva oil,0.1,0.5,recomendacion,1,PerfumersWorld,5,PerfumersWorld,0,U-002
+fig:1281,Cacao absolute,0.02,0.2,recomendacion,1,PerfumersWorld,20,PerfumersWorld,0,U-002
 fig:1285,Aceite de cade (enebro),0.006,0.26,consenso,2,Laboratorio | PerfumersWorld,0.5,TGSC,2,U-001
+fig:1286,Cade oil,0.02,0.2,recomendacion,1,PerfumersWorld,20,PerfumersWorld,0,U-002
+fig:1287,"Cade oil, rectified",0.02,0.2,recomendacion,1,PerfumersWorld,20,PerfumersWorld,0,U-002
 fig:1288,Cadinene,,,,0,,10,TGSC,0,U-002
-fig:1289,Cajuput oil,0.04,0.3,recomendacion,1,PerfumersWorld,2,PerfumersWorld,0,U-002
+fig:1289,Cajuput oil,0.04,0.3,recomendacion,1,PerfumersWorld,8,TGSC,0,U-002
+fig:1290,Calamus oil,,,,0,,4,TGSC,0,U-002
+fig:1291,Callitropsis nootkatensis oil,,,,0,,8,TGSC,0,U-002
+fig:1292,"Callitropsis nootkatensis oil, rectified",,,,0,,8,TGSC,0,U-002
 fig:1296,Camphene,,,,0,,9,TGSC,0,U-002
+fig:1297,"Camphor oil, white",0.2,3,recomendacion,1,PerfumersWorld,10,PerfumersWorld,0,U-002
+fig:1298,"Camphor oil, white, rectified",0.2,3,recomendacion,1,PerfumersWorld,10,PerfumersWorld,0,U-002
 fig:1299,Cananga oil,0.06,0.6,recomendacion,1,PerfumersWorld,5,PerfumersWorld,0,U-002
+fig:1302,Caraway seed oil,0.05,0.5,recomendacion,1,PerfumersWorld,10,TGSC,0,U-002
+fig:1303,"Caraway seed oil, rectified",0.05,0.5,recomendacion,1,PerfumersWorld,10,TGSC,0,U-002
+fig:1305,Cardamom seed absolute,,,,0,,0.05,TGSC,0,U-002
+fig:1309,Cardamom seed oil,0.03,0.3,recomendacion,1,PerfumersWorld,12,TGSC,0,U-002
+fig:1310,Cardamon seed,0.03,0.3,recomendacion,1,PerfumersWorld (sin distinguir forma),12,TGSC (sin distinguir forma),0,U-002
+fig:1311,Carnation absolute,,,,0,,0.5,TGSC,0,U-002
+fig:1314,Carrot seed,0.05,0.5,recomendacion,1,PerfumersWorld (sin distinguir forma),4,TGSC (sin distinguir forma),0,U-002
+fig:1316,Carrot seed oil,0.05,0.5,recomendacion,1,PerfumersWorld,4,TGSC,0,U-002
+fig:1317,Carrot seed oil terpenless,0.05,0.5,recomendacion,1,PerfumersWorld,4,TGSC,0,U-002
+fig:1318,"Carrot seed oil, rectified",0.05,0.5,recomendacion,1,PerfumersWorld,4,TGSC,0,U-002
 fig:1319,Carvacrol,,,,0,,4,TGSC,0,U-002
 fig:1320,Carveol,,,,0,,4,TGSC,0,U-002
 fig:1321,Carvyl acetate,,,,0,,4,TGSC,0,U-002
@@ -790,8 +841,23 @@ fig:1322,Carvyl propionate,,,,0,,4,TGSC,0,U-002
 fig:1323,Caryophyllene acetate,,,,0,,8,TGSC,0,U-002
 fig:1325,Caryophyllene alcohol acetate,0.44,3.3,recomendacion,1,PerfumersWorld,22,PerfumersWorld,0,U-002
 fig:1326,Caryophyllene oxide,,,,0,,6,TGSC,0,U-002
+fig:1331,Cassia bark oil,0.22,2.2,recomendacion,1,PerfumersWorld,35,PerfumersWorld,0,U-002
+fig:1332,Cassia oil,0.22,2.2,recomendacion,1,PerfumersWorld,35,PerfumersWorld,0,U-002
+fig:1333,"Cassia oil, (low coumarin)",0.22,2.2,recomendacion,1,PerfumersWorld,35,PerfumersWorld,0,U-002
+fig:1334,"Cassia oil, rectified",0.22,2.2,recomendacion,1,PerfumersWorld,35,PerfumersWorld,0,U-002
+fig:1335,Cassie absolute,,,,0,,2,TGSC,0,U-002
+fig:1336,Cassis bud absolute,0.55,2.75,recomendacion,1,PerfumersWorld,10,PerfumersWorld,0,U-002
 fig:1343,Castoreum (producto al 20 %),0.1,1,recomendacion,1,Laboratorio,5,TGSC,1,U-001
+fig:1348,Cedar leaf oil,,,,0,,0.8,TGSC,0,U-002
+fig:1351,"Cedar leaf oil, rectified",,,,0,,0.8,TGSC,0,U-002
+fig:1354,"Cedarwood oil (low cedrol), Texas",,,,0,,20,TGSC,0,U-002
 fig:1357,Cedro Atlas,0.75,7.5,consenso,2,Laboratorio | PerfumersWorld,20,PerfumersWorld,0,U-001
+fig:1358,"Cedarwood oil, Atlas, rectified",,,,0,,8,TGSC,0,U-002
+fig:1362,"Cedarwood oil, Himalaya",,,,0,,5,TGSC,0,U-002
+fig:1365,"Cedarwood oil, Texas",,,,0,,20,TGSC,0,U-002
+fig:1366,"Cedarwood oil, Texas, rectified",,,,0,,20,TGSC,0,U-002
+fig:1367,"Cedarwood oil, Virginian",0.13,1.3,recomendacion,1,PerfumersWorld,20,TGSC,0,U-002
+fig:1368,"Cedarwood oil, Virginian, rectified",0.13,1.3,recomendacion,1,PerfumersWorld,20,TGSC,0,U-002
 fig:1371,Cedr-8-ene epoxide,,,,0,,10,TGSC,0,U-002
 fig:1373,Cedrenol,,,,0,,8,TGSC,0,U-002
 fig:1374,Cedrenone,,,,0,,20,TGSC,0,U-002
@@ -802,7 +868,16 @@ fig:1378,Cedrol methyl ether,0.07,1.35,consenso,2,Búsqueda web | PerfumersWorld
 fig:1379,Cedryl acetate,0.17,1.7,recomendacion,1,PerfumersWorld,20,TGSC,0,U-002
 fig:1380,Cedryl formate,,,,0,,10,TGSC,0,U-002
 fig:1381,Cedryl methyl ether,,,,0,,4,TGSC,0,U-002
+fig:1385,Celery seed oil,0.04,0.3,recomendacion,1,PerfumersWorld,4,TGSC,0,U-002
+fig:1388,"Chamomile flower oil, blue",0.04,0.4,recomendacion,1,PerfumersWorld,3.5,PerfumersWorld,0,U-002
+fig:1389,"Chamomile flower oil, blue",0.04,0.4,recomendacion,1,PerfumersWorld,3.5,PerfumersWorld,0,U-002
+fig:1390,"Chamomile flower oil, Roman",0.22,2.2,recomendacion,1,PerfumersWorld,35,PerfumersWorld,0,U-002
+fig:1391,"Chamomile flower, English, oil",0.22,2.2,recomendacion,1,PerfumersWorld,35,PerfumersWorld,0,U-002
 fig:1398,Cinnamic acid,,,,0,,2,TGSC,0,U-002
+fig:1402,Cinnamon bark oil,0.06,0.6,recomendacion,1,PerfumersWorld,8,TGSC,0,U-002
+fig:1404,Cinnamon leaf oil,0.06,0.6,recomendacion,1,PerfumersWorld,8,TGSC,0,U-002
+fig:1405,"Cinnamon leaf oil, rectified",0.06,0.6,recomendacion,1,PerfumersWorld,8,TGSC,0,U-002
+fig:1406,Cinnamon leaf oleoresin,,,,0,,2,TGSC,0,U-002
 fig:1407,Cinnamonitrile (isomer unspecified),0.1,0.5,recomendacion,1,PerfumersWorld,5,PerfumersWorld,0,U-002
 fig:1408,Cinnamyl acetate,0.08,0.8,recomendacion,1,PerfumersWorld,8,TGSC,0,U-002
 fig:1409,Cinnamyl alcohol,0.13,1.3,recomendacion,1,PerfumersWorld,7,PerfumersWorld,0,U-002 | U-005
@@ -849,11 +924,17 @@ fig:1457,cis-beta Santalol,,,,0,,3,TGSC,0,U-002
 fig:1458,cis-beta-Ocimene,,,,0,,20,TGSC,0,U-002
 fig:1459,cis-Jasmone,,,,0,,3,TGSC,0,U-002
 fig:1460,"cis-Linalool oxide 3,6-oxide",0.08,0.8,recomendacion,1,PerfumersWorld,6.2,PerfumersWorld,0,U-002
-fig:1462,Cistus absolute,,,,0,,4,Búsqueda web (evocativeperfumes.com),0,U-004
+fig:1462,Cistus absolute,0.09,0.9,recomendacion,1,PerfumersWorld,9,TGSC,0,U-002 | U-004
+fig:1464,Cistus concrete,,,,0,,6,TGSC,0,U-002
+fig:1466,Cistus oil,,,,0,,8,TGSC,0,U-002
+fig:1467,Cistus oil,,,,0,,8,TGSC,0,U-002
+fig:1468,"Cistus oil, pyrogenated",,,,0,,8,TGSC,0,U-002
 fig:1470,Citral diethyl acetal,0.04,0.4,recomendacion,1,PerfumersWorld,5,TGSC,0,U-002
 fig:1471,Citral dimethyl acetal,,,,0,,15,TGSC,0,U-002
 fig:1472,Citral propylene glycol acetal,,,,0,,5,TGSC,0,U-002
 fig:1473,Citral-methylanthranilate (Schiff base),,,,0,,4,TGSC,0,U-002
+fig:1478,"Citronella oil, Ceylon type",0.02,0.2,recomendacion,1,PerfumersWorld,5,TGSC,0,U-002
+fig:1479,"Citronella oil, Java type",0.02,0.2,recomendacion,1,PerfumersWorld,5,TGSC,0,U-002
 fig:1482,Citronellal methylanthranilate Schiff base,,,,0,,2,TGSC,0,U-002
 fig:1483,Citronelloxyacetaldehyde,0.1,1,recomendacion,1,Búsqueda web (fraterworks.com),1,TGSC,0,U-002 | U-005
 fig:1484,Citronellyl acetate,0.1,1,recomendacion,1,PerfumersWorld,50,TGSC,0,U-002
@@ -869,9 +950,32 @@ fig:1493,Citronellyl phenylacetate,,,,0,,5,TGSC,0,U-002
 fig:1494,Citronellyl propionate,,,,0,,6,TGSC,0,U-002
 fig:1495,Citronellyl tiglate,,,,0,,9,TGSC,0,U-002
 fig:1496,Citronellyl valerate,,,,0,,5,TGSC,0,U-002
+fig:1498,Citrus junos oil,,,,0,,4,TGSC,0,U-002
+fig:1501,Civet absolute,,,,0,,4,TGSC,0,U-002
+fig:1503,Clary sage absolute,,,,0,,2,TGSC,0,U-002
+fig:1504,Clary sage absolute,,,,0,,2,TGSC,0,U-002
+fig:1506,Clary sage oil,0.1,1,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
+fig:1508,Clove bud absolute,,,,0,,3,TGSC,0,U-002
+fig:1510,Clove bud oil,0.05,0.4,recomendacion,1,PerfumersWorld,8,TGSC,0,U-002
+fig:1511,Clove leaf oil,0.05,0.4,recomendacion,1,PerfumersWorld,8,TGSC,0,U-002
+fig:1513,"Clove leaf oil, rectified",0.05,0.4,recomendacion,1,PerfumersWorld,8,TGSC,0,U-002
+fig:1514,Clove stem oil,0.05,0.4,recomendacion,1,PerfumersWorld,8,TGSC,0,U-002
+fig:1519,"Coffee bean, roasted, absolute",0.1,0.5,recomendacion,1,PerfumersWorld,5,PerfumersWorld,0,U-002
+fig:1523,"Coffee, Coffea arabica, extract",0.1,0.5,recomendacion,1,PerfumersWorld,5,PerfumersWorld,0,U-002
+fig:1524,Copaiba balsam,,,,0,,8,TGSC (sin distinguir forma),0,U-002
+fig:1525,Copaiba balsam oil,,,,0,,8,TGSC,0,U-002
+fig:1527,Copaiba oil,,,,0,,8,TGSC,0,U-002
+fig:1528,"Copaiba oil, rectified",,,,0,,8,TGSC,0,U-002
 fig:1529,Cilantro,0.295,1.95,consenso,2,Laboratorio | PerfumersWorld,10,TGSC,1,U-001
+fig:1530,Coriander herb oil terpenless,0.495,4.95,recomendacion,1,PerfumersWorld,73,PerfumersWorld,0,U-002
+fig:1531,"Coriander herb oil, rectified",0.495,4.95,recomendacion,1,PerfumersWorld,73,PerfumersWorld,0,U-002
+fig:1532,Coriander oleoresin,,,,0,,8,TGSC,0,U-002
+fig:1533,Coriander seed oil,0.495,4.95,recomendacion,1,PerfumersWorld,73,PerfumersWorld,0,U-002
 fig:1534,Cumarina natural,0.29,1.9,consenso,2,Laboratorio | PerfumersWorld,6.7,PerfumersWorld,0,U-001
 fig:1535,Cresol (mixed isomers),,,,0,,0.01,TGSC,0,U-002
+fig:1536,Cubeb oil,,,,0,,1,TGSC,0,U-002
+fig:1537,"Cubeb oil, rectified",,,,0,,1,TGSC,0,U-002
+fig:1540,Cumin seed oil,0.055,0.55,recomendacion,1,PerfumersWorld,3,PerfumersWorld,0,U-002
 fig:1541,Cuminacetaldehyde,,,,0,,2,TGSC,0,U-002
 fig:1543,Cuminyl nitrile,,,,0,,1,TGSC,0,U-002
 fig:1545,Cyclamen aldehyde-methyl anthranilate (Schiff base),,,,0,,6,TGSC,0,U-002
@@ -901,6 +1005,10 @@ fig:1597,Cyclopentanone,,,,0,,0.1,TGSC,0,U-002
 fig:1598,"Cyclopropanecarboxylic acid, (3Z)-3-hexenyl ester",,,,0,,1,TGSC,0,U-002
 fig:1601,"Cyclopropanemethanol, 1-methyl-2-[(1,2,2-trimethylbicyclo[3.1.0]hex-3-yl)methyl]-",0.5,2,recomendacion,1,Búsqueda web (scentspiracy.com),20,Búsqueda web (scentspiracy.com),0,U-002 | U-005
 fig:1603,"Cymbopogon, ext., oxidized",0.07,0.7,recomendacion,1,PerfumersWorld,5.3,PerfumersWorld,0,U-002
+fig:1604,Cypress,0.51,3.8,recomendacion,1,PerfumersWorld (sin distinguir forma),25,PerfumersWorld (sin distinguir forma),0,U-002
+fig:1605,Cypress oil,0.4,3,recomendacion,1,PerfumersWorld,20,PerfumersWorld,0,U-002
+fig:1607,Cypriol oil,0.1,3,recomendacion,1,PerfumersWorld,50,PerfumersWorld,0,U-002
+fig:1608,"Cypriol oil, rectified",0.1,3,recomendacion,1,PerfumersWorld,50,PerfumersWorld,0,U-002
 fig:1610,"d,l-Isomenthone",,,,0,,8,TGSC,0,U-002
 fig:1612,"d,l-Menthol (isomer unspecified)",,,,0,,8,TGSC,0,U-002
 fig:1615,d-.alpha.-Pinene,,,,0,,10,TGSC,0,U-002
@@ -949,6 +1057,9 @@ fig:1671,Dihydromyrcene,,,,0,,4,TGSC,0,U-002
 fig:1672,Dihydromyrcenol,0.55,5.5,consenso,2,Laboratorio | PerfumersWorld,75,TGSC,2,U-001
 fig:1673,Dihydromyrcenyl acetate,,,,0,,20,TGSC,0,U-002
 fig:1677,Dihydroterpinyl acetate,,,,0,,10,TGSC,0,U-002
+fig:1678,Dill seed oil,0.06,0.6,recomendacion,1,PerfumersWorld,4.4,PerfumersWorld,0,U-002
+fig:1680,Dill weed,0.06,0.6,recomendacion,1,PerfumersWorld (sin distinguir forma),4.4,PerfumersWorld (sin distinguir forma),0,U-002
+fig:1681,Dill weed oil,0.06,0.6,recomendacion,1,PerfumersWorld,4.4,PerfumersWorld,0,U-002
 fig:1683,Dimethyl succinate,,,,0,,9,TGSC,0,U-002
 fig:1684,Dimethyl sulfide,0.01,0.1,recomendacion,1,PerfumersWorld,1,PerfumersWorld,0,U-002
 fig:1689,Diphenyl Oxide,0.1,0.75,consenso,2,Laboratorio | PerfumersWorld,5,PerfumersWorld,1,U-001
@@ -962,6 +1073,13 @@ fig:1703,Dodecanenitrile,,,,0,,5,TGSC,0,U-002
 fig:1704,"Dodecene, hydroformylation products",,,,0,,2,TGSC,0,U-002
 fig:1706,d-Piperitone,,,,0,,10,TGSC,0,U-002
 fig:1707,d-Pulegone,,,,0,,5,TGSC,0,U-002
+fig:1708,Elemi absolute,0.008,0.08,recomendacion,1,PerfumersWorld (sin distinguir forma),0.8,PerfumersWorld (sin distinguir forma),0,U-002
+fig:1709,Elemi CO2 extract,0.008,0.08,recomendacion,1,PerfumersWorld (sin distinguir forma),0.8,PerfumersWorld (sin distinguir forma),0,U-002
+fig:1710,Elemi gum,0.279,2.09,recomendacion,1,PerfumersWorld (sin distinguir forma),27,PerfumersWorld (sin distinguir forma),0,U-002
+fig:1711,Elemi oil,0.55,4.1,recomendacion,1,PerfumersWorld,27,PerfumersWorld,0,U-002
+fig:1712,ELEMI oil (low methyleugenol),0.55,4.1,recomendacion,1,PerfumersWorld,27,PerfumersWorld,0,U-002
+fig:1713,"Elemi oil, rectified",0.55,4.1,recomendacion,1,PerfumersWorld,27,PerfumersWorld,0,U-002
+fig:1714,Elemi resinoid,0.008,0.08,recomendacion,1,PerfumersWorld (sin distinguir forma),2,TGSC,0,U-002
 fig:1715,Elemol,,,,0,,4,TGSC,0,U-002
 fig:1716,"endo-1,2,3,3-Tetramethylbicyclo[2.2.1]heptan-2-ol",,,,0,,0.1,TGSC,0,U-002
 fig:1719,"Ethaneperoxoic acid, reaction products with aluminum isopropoxide and 1,5,10-",,,,0,,8,TGSC,0,U-002
@@ -1051,6 +1169,11 @@ fig:1817,"Ethyl-1,3,3-trimethylbicyclo[2.2.1]heptan-2-ol",,,,0,,6,TGSC,0,U-002
 fig:1818,Ethylene Brassylate,0.2,3,consenso,3,Laboratorio | PerfumersWorld | Scentspiracy,12,PerfumersWorld,1,U-001
 fig:1819,Ethylene dodecanedioate,0.04,0.4,recomendacion,1,PerfumersWorld,40,TGSC,0,U-002
 fig:1820,Eucalyptol,0.1,3,recomendacion,1,PerfumersWorld,20,TGSC,0,U-002 | U-005
+fig:1826,Eucalyptus dives oil,0.2,4,recomendacion,1,PerfumersWorld,25,PerfumersWorld,0,U-002
+fig:1827,"Eucalyptus dives oil, rectified",0.2,4,recomendacion,1,PerfumersWorld,25,PerfumersWorld,0,U-002
+fig:1831,Eucalyptus oil,0.2,4,recomendacion,1,PerfumersWorld,25,PerfumersWorld,0,U-002
+fig:1832,"Eucalyptus oil, rectified",0.2,4,recomendacion,1,PerfumersWorld,25,PerfumersWorld,0,U-002
+fig:1833,Eucalyptus radiata oil,,,,0,,12,TGSC,0,U-002
 fig:1834,Eugenol 98 %,0.075,1.4,consenso,2,Laboratorio | PerfumersWorld,7,PerfumersWorld,0,U-001
 fig:1835,Eugenyl acetate,,,,0,,8,TGSC,0,U-002
 fig:1836,Eugenyl methyl ether,0.13,1.3,recomendacion,1,PerfumersWorld,10,PerfumersWorld,0,U-002
@@ -1059,9 +1182,23 @@ fig:1839,"exo-2-[(1,7,7-Trimethylbicyclo[2.2.1]hept-2-yl)oxy]ethanol",,,,0,,5,TG
 fig:1841,Farnesol,0.5,5,recomendacion,1,PerfumersWorld,30,PerfumersWorld,0,U-002
 fig:1842,Farnesyl acetate,,,,0,,8,TGSC,0,U-002
 fig:1844,Fenchyl alcohol,,,,0,,4,TGSC,0,U-002
+fig:1846,"Fennel oil, bitter",0.06,0.6,recomendacion,1,PerfumersWorld,5,TGSC,0,U-002
+fig:1847,"Fennel oil, sweet",0.06,0.6,recomendacion,1,PerfumersWorld,5,TGSC,0,U-002
+fig:1849,Fenugreek absolute,,,,0,,2,TGSC,0,U-002
+fig:1850,Fenugreek extract,,,,0,,2,TGSC (sin distinguir forma),0,U-002
+fig:1851,Fenugreek oleoresin,,,,0,,2,TGSC (sin distinguir forma),0,U-002
+fig:1852,Fenugreek tincture,,,,0,,2,TGSC (sin distinguir forma),0,U-002
+fig:1860,"Fir needle oil, Siberian",0.08,0.8,recomendacion,1,PerfumersWorld,12,TGSC,0,U-002
+fig:1861,"Fir needle oil, Siberian, rectified",0.08,0.8,recomendacion,1,PerfumersWorld,12,TGSC,0,U-002
 fig:1867,Formaldehyde cyclododecyl ethyl acetal,1,10,recomendacion,1,PerfumersWorld,30,PerfumersWorld,0,U-002 | U-005
+fig:1870,Fucus vesiculosus absolute,,,,0,,1,TGSC,0,U-002
 fig:1874,Furfuryl acetate,,,,0,,0.5,TGSC,0,U-002
 fig:1875,Furfuryl mercaptan,,,,0,,0.05,TGSC,0,U-002
+fig:1881,Galbanum absolute,,,,0,,3,TGSC,0,U-002
+fig:1883,Galbanum gum,0.02,0.3,recomendacion,1,PerfumersWorld (sin distinguir forma),23,PerfumersWorld (sin distinguir forma),0,U-002
+fig:1884,Galbanum oil,0.02,0.3,recomendacion,1,PerfumersWorld,23,PerfumersWorld,0,U-002
+fig:1885,"Galbanum oil, rectified",0.02,0.3,recomendacion,1,PerfumersWorld,23,PerfumersWorld,0,U-002
+fig:1886,Galbanum resin,0.02,0.3,recomendacion,1,PerfumersWorld (sin distinguir forma),23,PerfumersWorld (sin distinguir forma),0,U-002
 fig:1888,gamma-Decalactone,0.24,1.8,recomendacion,1,PerfumersWorld,12,TGSC,0,U-002
 fig:1889,gamma-Dodecalactone,0.03,0.3,recomendacion,1,PerfumersWorld,12,TGSC,0,U-002
 fig:1890,gamma-Heptalactone,,,,0,,8,TGSC,0,U-002
@@ -1074,6 +1211,11 @@ fig:1896,Aldehido C14 (gamma-undecalactona),0.05,0.5,consenso,3,Laboratorio | Pe
 fig:1897,gamma-Valerolactone,,,,0,,10,TGSC,0,U-002
 fig:1905,Geranic acid,,,,0,,1,TGSC,0,U-002
 fig:1906,Geraniol 98 %,0.555,6,consenso,2,Laboratorio | PerfumersWorld,15,PerfumersWorld,0,U-001
+fig:1907,Geranium absolute,,,,0,,8,TGSC,0,U-002
+fig:1909,Geranium concrete,,,,0,,10,TGSC,0,U-002
+fig:1910,Geranium oil,0.1,1,recomendacion,1,PerfumersWorld,15,PerfumersWorld,0,U-002
+fig:1912,"Geranium oil, African",0.1,1,recomendacion,1,PerfumersWorld,15,PerfumersWorld,0,U-002
+fig:1915,"Geranium oil, rectified",0.1,1,recomendacion,1,PerfumersWorld,15,PerfumersWorld,0,U-002
 fig:1917,Geranyl acetate,0.09,2.9,consenso,2,Búsqueda web (scentspiracy.com) | PerfumersWorld,12,TGSC,0,U-002 | U-005
 fig:1918,Geranyl benzoate,,,,0,,4,TGSC,0,U-002
 fig:1919,Geranyl butyrate,0.08,0.8,recomendacion,1,PerfumersWorld,6.2,PerfumersWorld,0,U-002
@@ -1091,10 +1233,31 @@ fig:1930,Geranyl pentanoate,,,,0,,5,TGSC,0,U-002
 fig:1931,Geranyl phenylacetate,0.24,1.8,recomendacion,1,PerfumersWorld,12,PerfumersWorld,0,U-002
 fig:1932,Geranyl propionate,,,,0,,6,TGSC,0,U-002
 fig:1933,Geranyl tiglate,,,,0,,6,TGSC,0,U-002
+fig:1934,Ginger,,,,0,,10,TGSC (sin distinguir forma),0,U-002
+fig:1935,Ginger absolute,,,,0,,8,TGSC,0,U-002
+fig:1938,Ginger oil,,,,0,,10,TGSC,0,U-002
+fig:1939,"Ginger oil, rectified",,,,0,,10,TGSC,0,U-002
+fig:1941,Ginger terpeneless,,,,0,,10,TGSC (sin distinguir forma),0,U-002
+fig:1947,Grapefruit essence oil,0.09,0.9,recomendacion,1,PerfumersWorld,14,PerfumersWorld,0,U-002
+fig:1949,Grapefruit flower oil,0.09,0.9,recomendacion,1,PerfumersWorld,14,PerfumersWorld,0,U-002
+fig:1950,Grapefruit oil,0.09,0.9,recomendacion,1,PerfumersWorld,14,PerfumersWorld,0,U-002
+fig:1951,Grapefruit oil,0.09,0.9,recomendacion,1,PerfumersWorld,14,PerfumersWorld,0,U-002
+fig:1953,"Grapefruit oil, (low furocoumarins)",0.09,0.9,recomendacion,1,PerfumersWorld,14,PerfumersWorld,0,U-002
+fig:1955,"Grapefruit oil, rectified",0.09,0.9,recomendacion,1,PerfumersWorld,14,PerfumersWorld,0,U-002
+fig:1957,Guaiac wood oil,0.165,1.65,recomendacion,1,PerfumersWorld,20,TGSC,0,U-002
+fig:1959,"Guaiac wood oil, rectified",0.165,1.65,recomendacion,1,PerfumersWorld,20,TGSC,0,U-002
 fig:1960,Guaiacol,,,,0,,5,Búsqueda web (glooshi.com),0,U-002 | U-005
 fig:1962,Guaiacwood acetate,,,,0,,5,TGSC,0,U-002
 fig:1963,Guaiacyl acetate,,,,0,,2,TGSC,0,U-002
 fig:1964,Guaiyl acetate,0.1,1,recomendacion,1,PerfumersWorld,10,TGSC,0,U-002
+fig:1965,Gurjun balsam,,,,0,,20,TGSC (sin distinguir forma),0,U-002
+fig:1966,Gurjun balsam oil,,,,0,,20,TGSC,0,U-002
+fig:1968,Gurjun oil,,,,0,,20,TGSC,0,U-002
+fig:1969,"Gurjun oil, rectified",,,,0,,20,TGSC,0,U-002
+fig:1970,Hay absolute,1.72,9.15,recomendacion,1,PerfumersWorld,90,PerfumersWorld,0,U-002
+fig:1972,Helichrysum absolute,0.05,0.5,recomendacion,1,PerfumersWorld,3,PerfumersWorld,0,U-002
+fig:1975,Helichrysum oil,,,,0,,0.8,TGSC,0,U-002
+fig:1976,"Helichrysum oil, pyrogenated",,,,0,,0.8,TGSC,0,U-002
 fig:1977,Heptanal,0.01,0.1,recomendacion,1,PerfumersWorld,2,TGSC,0,U-002
 fig:1978,Heptanal dimethyl acetal,,,,0,,5,TGSC,0,U-002
 fig:1980,Heptyl acetate,,,,0,,8,TGSC,0,U-002
@@ -1121,6 +1284,11 @@ fig:2004,Hexyl phenylacetate,,,,0,,5,TGSC,0,U-002
 fig:2005,Hexyl propionate,,,,0,,4,TGSC,0,U-002
 fig:2006,Hexyl salicylate,0.1,1,recomendacion,1,PerfumersWorld,20,PerfumersWorld,0,U-002
 fig:2007,Hexyl tiglate,,,,0,,8,TGSC,0,U-002
+fig:2008,Hibawood oil,,,,0,,7,TGSC,0,U-002
+fig:2011,Ho bark oil,0.55,4.1,recomendacion,1,PerfumersWorld,27,PerfumersWorld,0,U-002
+fig:2012,Ho leaf oil,0.55,4.1,recomendacion,1,PerfumersWorld,27,PerfumersWorld,0,U-002
+fig:2013,Ho wood,0.55,4.1,recomendacion,1,PerfumersWorld (sin distinguir forma),27,PerfumersWorld (sin distinguir forma),0,U-002
+fig:2014,Ho wood oil,0.55,4.1,recomendacion,1,PerfumersWorld,27,PerfumersWorld,0,U-002
 fig:2016,Honeysuckle absolute,,,,0,,1,TGSC,0,U-002
 fig:2020,"Hydrocarbons, terpene processing by-products",,,,0,,90,TGSC,0,U-002
 fig:2021,Hydroxycitronellal,0.7,5,consenso,2,Búsqueda web (scentspiracy.com) | PerfumersWorld,32,PerfumersWorld,0,U-002 | U-005
@@ -1133,6 +1301,12 @@ fig:2028,"Hydroxynonanoic acid, delta-lactone",,,,0,,5,TGSC,0,U-002
 fig:2029,Hyssop oil,0.4,3,recomendacion,1,PerfumersWorld,20,PerfumersWorld,0,U-002
 fig:2032,Indole,,,,0,,2,TGSC,0,U-002
 fig:2033,Ionone (mixed isomers),,,,0,,10,TGSC,0,U-002
+fig:2039,Iris pallida absolute,0.08,0.8,recomendacion,1,PerfumersWorld (sin distinguir forma),8,TGSC,0,U-002
+fig:2040,Iris pallida concrete,1.375,8.75,recomendacion,1,PerfumersWorld,90,PerfumersWorld,0,U-002
+fig:2041,Iris pallida oil,0.08,0.8,recomendacion,1,PerfumersWorld (sin distinguir forma),8,PerfumersWorld (sin distinguir forma),0,U-002
+fig:2042,"Iris pallida oil, rectified",0.08,0.8,recomendacion,1,PerfumersWorld (sin distinguir forma),8,PerfumersWorld (sin distinguir forma),0,U-002
+fig:2043,Iris pallida resinoid,0.08,0.8,recomendacion,1,PerfumersWorld (sin distinguir forma),8,PerfumersWorld (sin distinguir forma),0,U-002
+fig:2044,Iris pallida tincture,0.08,0.8,recomendacion,1,PerfumersWorld (sin distinguir forma),8,PerfumersWorld (sin distinguir forma),0,U-002
 fig:2047,Isoamyl acetate,0.05,0.5,recomendacion,1,PerfumersWorld,25,TGSC,0,U-002
 fig:2048,Isoamyl alcohol,,,,0,,0.8,TGSC,0,U-002
 fig:2049,Isoamyl benzoate,,,,0,,6,TGSC,0,U-002
@@ -1198,24 +1372,62 @@ fig:2115,Isopropylquinoline,,,,0,,0.2,TGSC,0,U-002
 fig:2116,Isopulegol,,,,0,,6,TGSC,0,U-002
 fig:2117,Isopulegyl acetate,,,,0,,8,TGSC,0,U-002
 fig:2120,Isotridecyl acetate,,,,0,,8,TGSC,0,U-002
+fig:2123,Jasmine absolute,0.44,3.3,recomendacion,1,PerfumersWorld,57,PerfumersWorld,0,U-002
+fig:2125,Jasmine concrete,,,,0,,4,TGSC,0,U-002
+fig:2126,Jasmine concrete (waxes twice extracted),,,,0,,4,TGSC,0,U-002
+fig:2132,Jasmine spiritus,0.44,3.3,recomendacion,1,PerfumersWorld (sin distinguir forma),57,PerfumersWorld (sin distinguir forma),0,U-002
+fig:2133,Juniper berry absolute,,,,0,,2,TGSC,0,U-002
 fig:2141,l-.alpha.-Pinene,,,,0,,10,TGSC,0,U-002
 fig:2142,l-.beta.-Pinene,,,,0,,12,TGSC,0,U-002
 fig:2143,Laudano de jara,0.1,1,consenso,3,Laboratorio | PerfumersWorld | Scentspiracy,4,TGSC,0,U-001
-fig:2144,"Labdanum absolute, pyrogenated",,,,0,,4,Búsqueda web (evocativeperfumes.com),0,U-004
+fig:2144,"Labdanum absolute, pyrogenated",0.09,0.9,recomendacion,1,PerfumersWorld,9,TGSC,0,U-002 | U-004
+fig:2145,Labdanum concrete,,,,0,,6,TGSC,0,U-002
+fig:2149,Labdanum gum,0.095,0.95,recomendacion,1,PerfumersWorld (sin distinguir forma),18,PerfumersWorld (sin distinguir forma),0,U-002
+fig:2150,Labdanum oil,,,,0,,8,TGSC,0,U-002
+fig:2152,Labdanum resinoid,0.2,2,recomendacion,1,PerfumersWorld,18,PerfumersWorld,0,U-002
 fig:2154,Lactoscatone,,,,0,,1,TGSC,0,U-002
 fig:2155,laevo-Bornyl acetate,,,,0,,12,TGSC,0,U-002
+fig:2160,Laurel leaf oil,,,,0,,2,TGSC,0,U-002
 fig:2161,Lauric aldehyde,0.01,0.15,consenso,2,Búsqueda web | PerfumersWorld,2,TGSC,0,U-002 | U-005
 fig:2162,Lauryl acetate,,,,0,,8,TGSC,0,U-002
 fig:2163,Lauryl alcohol,,,,0,,4,TGSC,0,U-002
+fig:2164,Lavandin abrailis oil (low coumarin),0.09,0.9,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
+fig:2165,Lavandin abrialis,0.09,0.9,recomendacion,1,PerfumersWorld (sin distinguir forma),25,PerfumersWorld (sin distinguir forma),0,U-002
+fig:2166,Lavandin abrialis oil,0.09,0.9,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
+fig:2167,Lavandin absolute,0.51,3.8,recomendacion,1,PerfumersWorld,25,PerfumersWorld,0,U-002
+fig:2168,Lavandin concrete,,,,0,,8,TGSC,0,U-002
+fig:2170,Lavandin grosso,0.09,0.9,recomendacion,1,PerfumersWorld (sin distinguir forma),25,PerfumersWorld (sin distinguir forma),0,U-002
+fig:2171,Lavandin grosso absolute,0.51,3.8,recomendacion,1,PerfumersWorld,25,PerfumersWorld,0,U-002
+fig:2172,Lavandin grosso concrete,,,,0,,8,TGSC,0,U-002
+fig:2173,Lavandin grosso oil,0.09,0.9,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
+fig:2174,Lavandin oil,0.09,0.9,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
+fig:2175,Lavandin oil (super low coumarins),0.09,0.9,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
 fig:2177,Lavandulyl acetate,,,,0,,10,TGSC,0,U-002
+fig:2179,Lavender,0.1,1,recomendacion,1,PerfumersWorld (sin distinguir forma),16,TGSC (sin distinguir forma),0,U-002
+fig:2180,Lavender absolute,,,,0,,10,TGSC,0,U-002
+fig:2181,Lavender concrete,,,,0,,3,TGSC,0,U-002
 fig:2183,Lavanda,0.55,5.5,consenso,2,Laboratorio | PerfumersWorld,16,TGSC,0,U-001
+fig:2184,Lavender oil (low coumarin),0.1,1,recomendacion,1,PerfumersWorld,16,TGSC,0,U-002
+fig:2185,"Lavender oil, rectified",0.1,1,recomendacion,1,PerfumersWorld,16,TGSC,0,U-002
 fig:2186,l-Borneol,,,,0,,8,TGSC,0,U-002
 fig:2190,l-Cyclocitronellene formate,0.2,2,recomendacion,1,PerfumersWorld,20,TGSC,0,U-002 | U-005
+fig:2192,Lemon essence oil,0.125,1.25,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
 fig:2193,Limon,1.05,5.5,consenso,2,Laboratorio | PerfumersWorld,15,TGSC,0,U-001
-fig:2198,"Lemon oil, expressed",1.5,1.5,recomendacion,1,Búsqueda web (fraterworks.com),,,0,U-004
+fig:2194,Lemon oil folded (10x),0.125,1.25,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
+fig:2195,Lemon oil folded (5X),0.125,1.25,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
+fig:2197,"Lemon oil, distilled",0.125,1.25,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
+fig:2198,"Lemon oil, expressed",0.8125,1.375,consenso,2,Búsqueda web (fraterworks.com) | PerfumersWorld,15,TGSC,0,U-002 | U-004
 fig:2200,"Lemon oil, terpeneless",0.08,0.8,recomendacion,1,PerfumersWorld,8,TGSC,0,U-002
+fig:2201,"Lemon oil, washed",0.125,1.25,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
+fig:2205,"Lemongrass oil, East Indian",,,,0,,10,TGSC,0,U-002
+fig:2206,"Lemongrass oil, rectified",,,,0,,10,TGSC,0,U-002
+fig:2207,"Lemongrass oil, West Indian",,,,0,,10,TGSC,0,U-002
 fig:2209,l-Fenchone,,,,0,,5,TGSC,0,U-002
 fig:2212,Lilial-methyl anthranilate (Schiff base),0.27,2,recomendacion,1,PerfumersWorld,13,PerfumersWorld,0,U-002
+fig:2213,Lime oil,0.115,1.15,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
+fig:2214,Lime oil folded,0.115,1.15,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
+fig:2217,"Lime oil, expressed",0.115,1.15,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
+fig:2218,"Lime oil, expressed, rectified",0.115,1.15,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
 fig:2220,Linalol,0.55,13.5,consenso,2,Laboratorio | PerfumersWorld,40,PerfumersWorld,1,U-001
 fig:2221,Linalool oxide,,,,0,,5,TGSC,0,U-002
 fig:2223,Linalyl acetate,0.1,4,recomendacion,1,PerfumersWorld,25,PerfumersWorld,0,U-002
@@ -1230,22 +1442,34 @@ fig:2231,Linalyl isovalerate,,,,0,,4,TGSC,0,U-002
 fig:2232,Linalyl phenylacetate,,,,0,,3,TGSC,0,U-002
 fig:2233,Linalyl propionate,0.5,5,recomendacion,1,PerfumersWorld,10,TGSC,0,U-002
 fig:2240,Litsea Cubeba,0.285,2.85,consenso,2,Laboratorio | PerfumersWorld,9,TGSC,0,U-001
+fig:2241,"Litsea cubeba oil, rectified",0.07,0.7,recomendacion,1,PerfumersWorld,9,TGSC,0,U-002
 fig:2243,l-Limonene,,,,0,,8,TGSC,0,U-002
 fig:2244,l-Linalool,,,,0,,10,TGSC,0,U-002
 fig:2246,l-Menthol,,,,0,,8,TGSC,0,U-002
 fig:2247,l-Menthone,,,,0,,3,TGSC,0,U-002
 fig:2249,"l-Menthyl acetate (1alpha,2beta,5alpha)",,,,0,,8,TGSC,0,U-002
+fig:2251,Lovage leaf oil,0.02,0.2,recomendacion,1,PerfumersWorld,2,TGSC,0,U-002
+fig:2252,Lovage root oil,0.02,0.2,recomendacion,1,PerfumersWorld,2,TGSC,0,U-002
 fig:2253,l-Piperitone,,,,0,,0.2,TGSC,0,U-002
+fig:2255,Mace oil,,,,0,,8,TGSC,0,U-002
+fig:2256,Mace oleoresin,,,,0,,4,TGSC,0,U-002
 fig:2259,Maltol,,,,0,,8,TGSC,0,U-002
 fig:2260,Maltyl isobutyrate,,,,0,,8,TGSC,0,U-002
 fig:2261,Mandarina,0.555,5.55,consenso,2,Laboratorio | PerfumersWorld,8.9,PerfumersWorld,0,U-001
-fig:2262,Mandarin oil,1.1,1.1,recomendacion,1,Búsqueda web,8.9,Búsqueda web,0,U-004
-fig:2263,Mandarin oil folded,1.1,1.1,recomendacion,1,Búsqueda web,8.9,Búsqueda web,0,U-004
-fig:2265,"Mandarin oil, rectified",1.1,1.1,recomendacion,1,Búsqueda web,8.9,Búsqueda web,0,U-004
+fig:2262,Mandarin oil,0.7975,2.475,consenso,2,Búsqueda web | PerfumersWorld,44,PerfumersWorld,0,U-002 | U-004
+fig:2263,Mandarin oil folded,0.7975,2.475,consenso,2,Búsqueda web | PerfumersWorld,44,PerfumersWorld,0,U-002 | U-004
+fig:2265,"Mandarin oil, rectified",0.7975,2.475,consenso,2,Búsqueda web | PerfumersWorld,44,PerfumersWorld,0,U-002 | U-004
 fig:2268,"Marjoram oil, Spanish",,,,0,,6,TGSC,0,U-002
 fig:2270,"Marjoram, pot",0.07,0.7,recomendacion,1,PerfumersWorld,6,TGSC,0,U-002
+fig:2274,Mastic oil,,,,0,,8,TGSC,0,U-002
+fig:2276,Mate absolute,0.1,2.5,recomendacion,1,PerfumersWorld,5,PerfumersWorld,0,U-002
 fig:2279,m-Cresol,,0.1,recomendacion,1,Búsqueda web (pellwall.com),0.01,TGSC,0,U-002 | U-005
 fig:2280,m-Dimethoxybenzene,,,,0,,1,TGSC,0,U-002
+fig:2284,Mentha arvensis,0.37,2.7,recomendacion,1,PerfumersWorld (sin distinguir forma),18,PerfumersWorld (sin distinguir forma),0,U-002
+fig:2285,Mentha arvensis oil,0.37,2.7,recomendacion,1,PerfumersWorld,18,PerfumersWorld,0,U-002
+fig:2286,Mentha arvensis oil (low menthol),0.37,2.7,recomendacion,1,PerfumersWorld,18,PerfumersWorld,0,U-002
+fig:2288,"Mentha arvensis oil, distilled",0.37,2.7,recomendacion,1,PerfumersWorld,18,PerfumersWorld,0,U-002
+fig:2290,"Mentha arvensis, 3X",0.37,2.7,recomendacion,1,PerfumersWorld (sin distinguir forma),18,PerfumersWorld (sin distinguir forma),0,U-002
 fig:2291,Mentha citrata oil,,,,0,,3,TGSC,0,U-002
 fig:2293,Menthol,0.5,2.5,recomendacion,1,Búsqueda web (scentspiracy.com),8,TGSC,0,U-002 | U-005
 fig:2295,Menthone,0.3,3,recomendacion,1,PerfumersWorld,23,PerfumersWorld,0,U-002
@@ -1324,6 +1548,8 @@ fig:2383,"Methyl-2,2-dimethyl-6-methylene-1-cyclohexanecarboxylate",,,,0,,0.5,TG
 fig:2384,"Methyl-2-[[(2,4-dimethyl-3-cyclohexen-1-yl)methylene]amino]benzoate",,,,0,,4,TGSC,0,U-002
 fig:2387,Methylcyclooctyl carbonate,,,,0,,0.8,TGSC,0,U-002
 fig:2388,Methylcyclopentenolone,,,,0,,0.05,TGSC,0,U-002
+fig:2396,Mimosa absolute,0.03,0.3,recomendacion,1,PerfumersWorld,8,TGSC,0,U-002
+fig:2397,Mimosa concrete,,,,0,,8,TGSC,0,U-002
 fig:2398,Mintlactone,,,,0,,1,TGSC,0,U-002
 fig:2402,Musk ketone,0.5,2,recomendacion,1,Búsqueda web (scentspiracy.com),10,Búsqueda web (scentspiracy.com),0,U-005
 fig:2403,Myraldyl acetate,,,,0,,20,TGSC,0,U-002
@@ -1333,12 +1559,17 @@ fig:2406,Myrcenyl acetate,,,,0,,20,TGSC,0,U-002
 fig:2407,Myristaldehyde,,,,0,,1,TGSC,0,U-002
 fig:2408,Myristo nitrile,,,,0,,2,TGSC,0,U-002
 fig:2409,Myrrh,0.1,1,recomendacion,1,PerfumersWorld,7,PerfumersWorld,0,U-002
+fig:2410,Myrrh absolute,,,,0,,5,TGSC,0,U-002
+fig:2414,Myrrh oil,0.1,1,recomendacion,1,PerfumersWorld,8,TGSC,0,U-002
+fig:2415,Myrrh oil rectified,0.1,1,recomendacion,1,PerfumersWorld,8,TGSC,0,U-002
+fig:2416,Myrrh resinoid,,,,0,,3,TGSC,0,U-002
 fig:2417,Myrtenol,,,,0,,5,TGSC,0,U-002
 fig:2418,Myrtenyl acetate,,,,0,,5,TGSC,0,U-002
 fig:2423,"N,2-Dimethyl-N-phenylbutyramide",,,,0,,5,TGSC,0,U-002
 fig:2424,"N,N-Diethyloctamide",,,,0,,1,TGSC,0,U-002
 fig:2426,"Naphtho[2,1-b]furan, dodecahydro-3a,6,6,9a-tetramethyl-",0.5,3,recomendacion,1,Búsqueda web (myuchem.com),5,TGSC,0,U-002 | U-005
 fig:2427,Ambermor,0.265,1.65,consenso,2,Laboratorio | PerfumersWorld,2,PerfumersWorld,3,U-001
+fig:2430,Narcissus poeticus absolute,,,,0,,2,TGSC,0,U-002
 fig:2431,n-Butyl 2-methylbutyrate,,,,0,,2,TGSC,0,U-002
 fig:2433,Nerol,0.1,1,recomendacion,1,PerfumersWorld,20,TGSC,0,U-002 | U-005
 fig:2434,Nerol oxide,,,,0,,2,TGSC,0,U-002
@@ -1366,6 +1597,14 @@ fig:2463,Nonyl alcohol,0.5,3,recomendacion,1,PerfumersWorld,10,PerfumersWorld,0,
 fig:2464,Nootkatone,,2,recomendacion,1,Búsqueda web (glooshi.com),4,Búsqueda web (glooshi.com),0,U-002 | U-005
 fig:2465,Nopol,,,,0,,8,TGSC,0,U-002
 fig:2466,Nopyl acetate,0.1,1,recomendacion,1,PerfumersWorld,25,TGSC,0,U-002
+fig:2467,Nutmeg,0.11,1.1,recomendacion,1,PerfumersWorld (sin distinguir forma),6.9,PerfumersWorld (sin distinguir forma),0,U-002
+fig:2472,Nutmeg oil,0.11,1.1,recomendacion,1,PerfumersWorld,6.9,PerfumersWorld,0,U-002
+fig:2473,Nutmeg oil (low safrol),0.11,1.1,recomendacion,1,PerfumersWorld,6.9,PerfumersWorld,0,U-002
+fig:2474,"Nutmeg oil terpeneless, JAVA",0.11,1.1,recomendacion,1,PerfumersWorld,6.9,PerfumersWorld,0,U-002
+fig:2475,"Nutmeg oil, rectified",0.11,1.1,recomendacion,1,PerfumersWorld,6.9,PerfumersWorld,0,U-002
+fig:2476,Nutmeg oleoresin,,,,0,,6,TGSC,0,U-002
+fig:2480,Oakmoss absolute,0.15,2.5,recomendacion,1,PerfumersWorld,30,PerfumersWorld,0,U-002
+fig:2481,Oakmoss absolute (low atranol & chloratranol),0.15,2.5,recomendacion,1,PerfumersWorld,30,PerfumersWorld,0,U-002
 fig:2483,Ocimenol,,,,0,,25,TGSC,0,U-002
 fig:2484,Ocimenyl acetate,,,,0,,5,TGSC,0,U-002
 fig:2485,o-Cresol,,,,0,,0.01,TGSC,0,U-002
@@ -1389,10 +1628,43 @@ fig:2506,Octyl formate,,,,0,,2,TGSC,0,U-002
 fig:2507,Octyl isobutyrate,,,,0,,2,TGSC,0,U-002
 fig:2508,Octyl isovalerate,,,,0,,5,TGSC,0,U-002
 fig:2510,"Oils, Patchouli, patchoulol synthase-modified Saccharomyces cerevisiae-fermented,",0.1,0.5,recomendacion,1,PerfumersWorld,5,PerfumersWorld,0,U-002
+fig:2511,Olibanum absolute,0.5,5,recomendacion,1,PerfumersWorld (sin distinguir forma),8,TGSC,0,U-002
+fig:2512,Olibanum carterii absolute,0.5,5,recomendacion,1,PerfumersWorld (sin distinguir forma),8,TGSC,0,U-002
+fig:2513,Olibanum carterii CO2 extract,0.5,5,recomendacion,1,PerfumersWorld (sin distinguir forma),40,PerfumersWorld (sin distinguir forma),0,U-002
+fig:2514,Olibanum carterii extract,0.5,5,recomendacion,1,PerfumersWorld (sin distinguir forma),40,PerfumersWorld (sin distinguir forma),0,U-002
+fig:2515,Olibanum carterii oil,0.55,5.5,recomendacion,1,PerfumersWorld,62,PerfumersWorld,0,U-002
+fig:2516,Olibanum carterii oil,0.55,5.5,recomendacion,1,PerfumersWorld,62,PerfumersWorld,0,U-002
+fig:2517,"Olibanum carterii oil, rectified",0.55,5.5,recomendacion,1,PerfumersWorld,62,PerfumersWorld,0,U-002
+fig:2518,Olibanum carterii pyrogenated oil,0.55,5.5,recomendacion,1,PerfumersWorld,62,PerfumersWorld,0,U-002
+fig:2519,Olibanum carterii resinoid,1,10,recomendacion,1,PerfumersWorld,90,PerfumersWorld,0,U-002
+fig:2520,Olibanum extract,0.5,5,recomendacion,1,PerfumersWorld (sin distinguir forma),40,PerfumersWorld (sin distinguir forma),0,U-002
+fig:2521,Olibanum oil,0.55,5.5,recomendacion,1,PerfumersWorld,62,PerfumersWorld,0,U-002
+fig:2522,"Olibanum oil, rectified",0.55,5.5,recomendacion,1,PerfumersWorld,62,PerfumersWorld,0,U-002
+fig:2523,Olibanum resinoid,1,10,recomendacion,1,PerfumersWorld,90,PerfumersWorld,0,U-002
+fig:2524,"Olibanum serrata oil, Indian",0.55,5.5,recomendacion,1,PerfumersWorld,62,PerfumersWorld,0,U-002
 fig:2525,omega-6-Hexadecenlactone,,,,0,,5,TGSC,0,U-002
 fig:2526,omega-Pentadecalactone,0.5,5,recomendacion,1,Búsqueda web (scentspiracy.com),8,Búsqueda web (scentspiracy.com),0,U-005
 fig:2527,o-Methoxybenzaldehyde,,,,0,,2,TGSC,0,U-002
+fig:2536,Orange blossoms absolute,0.44,4.4,recomendacion,1,PerfumersWorld,47,PerfumersWorld,0,U-002
+fig:2538,"Orange flower absolute, bitter (Neroli and Neroli Bigarade)",0.08,0.8,recomendacion,1,PerfumersWorld,8,TGSC,0,U-002
+fig:2539,"Orange flower oil, bitter (Neroli and Neroli bigarade)",0.55,5.5,recomendacion,1,PerfumersWorld,80,PerfumersWorld,0,U-002
+fig:2540,Orange flower water absolute,0.44,4.4,recomendacion,1,PerfumersWorld,47,PerfumersWorld,0,U-002
+fig:2541,"Orange flower, bitter, absolute",0.08,0.8,recomendacion,1,PerfumersWorld,8,TGSC,0,U-002
+fig:2543,"Orange flower, bitter, concrete",,,,0,,5,TGSC,0,U-002
+fig:2545,Orange flowers,0.44,4.4,recomendacion,1,PerfumersWorld (sin distinguir forma),47,PerfumersWorld (sin distinguir forma),0,U-002
+fig:2546,Orange leaf absolute,0.44,4.4,recomendacion,1,PerfumersWorld,47,PerfumersWorld,0,U-002
+fig:2547,"Orange oil, bitter",0.1,1,recomendacion,1,PerfumersWorld,10,PerfumersWorld,0,U-002
+fig:2548,"Orange oil, bitter",0.1,1,recomendacion,1,PerfumersWorld,10,PerfumersWorld,0,U-002
+fig:2549,"Orange oil, bitter washed, rectified",0.1,1,recomendacion,1,PerfumersWorld,10,PerfumersWorld,0,U-002
+fig:2550,"Orange oil, peel, bitter",0.55,5.5,recomendacion,1,PerfumersWorld,80,PerfumersWorld,0,U-002
 fig:2551,Naranja dulce,2,15,recomendacion,1,Laboratorio,10,TGSC,0,U-001
+fig:2554,"Orange oil, sweet, rectified",,,,0,,10,TGSC,0,U-002
+fig:2557,"Orange peel, sweet oil",,,,0,,10,TGSC,0,U-002
+fig:2559,Orange sweet oil folded,,,,0,,10,TGSC,0,U-002
+fig:2560,"Orange sweet, Valencia oil",,,,0,,10,TGSC,0,U-002
+fig:2562,"Orange, sweet, oil",,,,0,,10,TGSC,0,U-002
+fig:2563,"Orange, sweet, oil fixed",,,,0,,10,TGSC,0,U-002
+fig:2567,Osmanthus absolute,0.44,4.4,recomendacion,1,PerfumersWorld,50,PerfumersWorld,0,U-002
 fig:2571,o-Tolyl acetate,,,,0,,0.02,TGSC,0,U-002
 fig:2572,o-Tolylethanol,,,,0,,5,TGSC,0,U-002
 fig:2573,Oxacycloheptadec-10-ene-2-one,,,,0,,2,TGSC,0,U-002 | U-005
@@ -1404,10 +1676,16 @@ fig:2583,"p,alpha-Dimethylstyrene",,,,0,,0.1,TGSC,0,U-002
 fig:2584,Palmarosa oil,0.08,0.8,recomendacion,1,PerfumersWorld,8,TGSC,0,U-002
 fig:2585,"p-alpha,alpha-Trimethylbenzyl alcohol",,,,0,,1,TGSC,0,U-002
 fig:2586,p-Anisyl acetate,0.1,1,recomendacion,1,PerfumersWorld,20,PerfumersWorld,0,U-002
+fig:2589,Parsley herb oil,1.525,7.75,recomendacion,1,PerfumersWorld,80,PerfumersWorld,0,U-002
+fig:2591,Parsley seed oil,1.525,7.75,recomendacion,1,PerfumersWorld,80,PerfumersWorld,0,U-002
 fig:2593,Patchouli,1.54,4.4,consenso,2,Búsqueda web | PerfumersWorld,8,PerfumersWorld,0,U-002 | U-005
 fig:2594,Patchouli,1.54,4.4,consenso,2,Búsqueda web | PerfumersWorld,8,PerfumersWorld,0,U-002 | U-005
+fig:2595,Patchouli absolute,,,,0,,8,TGSC,0,U-002
 fig:2596,Patchouli alcohol,,,,0,,40,TGSC,0,U-002 | U-005
 fig:2599,Patchouli,0.54,5.4,consenso,2,Laboratorio | PerfumersWorld,10,TGSC,0,U-001
+fig:2600,Patchouli oil,0.08,0.8,recomendacion,1,PerfumersWorld,10,TGSC,0,U-002
+fig:2601,Patchouli oil (low Fe),0.08,0.8,recomendacion,1,PerfumersWorld,10,TGSC,0,U-002
+fig:2602,"Patchouli oil, rectified",0.08,0.8,recomendacion,1,PerfumersWorld,10,TGSC,0,U-002
 fig:2604,p-Cresol,,,,0,,0.05,TGSC,0,U-002
 fig:2605,p-Cresyl benzoate,,,,0,,4,TGSC,0,U-002
 fig:2606,p-Cresyl salicylate,,,,0,,4,TGSC,0,U-002
@@ -1418,7 +1696,23 @@ fig:2617,Pentyl benzoate,,,,0,,6,TGSC,0,U-002
 fig:2618,Pentyl isovalerate,,,,0,,8,TGSC,0,U-002
 fig:2619,Pentyl phenylacetate,,,,0,,5,TGSC,0,U-002
 fig:2620,Pentyl propionate,,,,0,,4,TGSC,0,U-002
+fig:2622,"Pepper, black, absolute",,,,0,,0.5,TGSC,0,U-002
+fig:2624,"Pepper, black, oil",,,,0,,5,TGSC,0,U-002
+fig:2625,"Pepper, black, oil, rectified",,,,0,,5,TGSC,0,U-002
+fig:2629,"Pepper, white, oil",,,,0,,5,TGSC,0,U-002
+fig:2633,Peppermint leaves,0.02,0.2,recomendacion,1,PerfumersWorld (sin distinguir forma),6,TGSC (sin distinguir forma),0,U-002
+fig:2634,Peppermint oil,0.02,0.2,recomendacion,1,PerfumersWorld,6,TGSC,0,U-002
+fig:2635,"Peppermint oil, rectified",0.02,0.2,recomendacion,1,PerfumersWorld,6,TGSC,0,U-002
+fig:2639,"Persian lime oil, expressed",0.115,1.15,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
 fig:2642,Etil-4-fenol,0.001,0.05,recomendacion,1,Laboratorio,0.05,TGSC,0,U-001
+fig:2643,Petitgrain bergamot oil,0.2,5,recomendacion,1,PerfumersWorld,25,PerfumersWorld,0,U-002
+fig:2644,Petitgrain bigarade oil,0.09,0.9,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
+fig:2645,Petitgrain lemon oil,,,,0,,8,TGSC,0,U-002
+fig:2646,Petitgrain mandarin oil,0.09,0.9,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
+fig:2649,"Petitgrain oil, Paraguay",0.09,0.9,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
+fig:2650,"Petitgrain oil, rectified, Paraguay",0.09,0.9,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
+fig:2652,"Petitgrain orange leaf oil, bitter, rectified",0.09,0.9,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
+fig:2653,"Petitgrain water absolute, Paraguay",0.15,1.5,recomendacion,1,PerfumersWorld (sin distinguir forma),10,TGSC,0,U-002
 fig:2656,Phenethyl acetate,0.11,1.1,recomendacion,1,PerfumersWorld,50,TGSC,0,U-002
 fig:2657,Alcohol Feniletilico,0.75,12.5,consenso,2,Laboratorio | PerfumersWorld,40,TGSC,0,U-001
 fig:2658,Phenethyl benzoate,,,,0,,10,TGSC,0,U-002
@@ -1448,6 +1742,15 @@ fig:2687,Phenylethyl anthranilate,,,,0,,6,TGSC,0,U-002
 fig:2688,Phenylethyl isoamyl ether,0.1,0.1,recomendacion,1,Búsqueda web (shop.perfumersapprentice.com),5,TGSC,0,U-002 | U-005
 fig:2690,Phytol,,,,0,,10,TGSC,0,U-002
 fig:2691,Phytyl acetate,,,,0,,12,TGSC,0,U-002
+fig:2692,Pimenta leaf oil,,,,0,,6,TGSC,0,U-002
+fig:2693,Pimenta leaf oil (low methyleugenol),,,,0,,6,TGSC,0,U-002
+fig:2694,Pine needle oil,0.08,0.8,recomendacion,1,PerfumersWorld,12,TGSC,0,U-002
+fig:2695,"Pine needle, dwarf, oil",,,,0,,8,TGSC,0,U-002
+fig:2699,Pine Scotch oil,,,,0,,10,TGSC,0,U-002
+fig:2703,"Pine Scotch, pyrogenated oil",,,,0,,10,TGSC,0,U-002
+fig:2707,"Pine, Pinus maritima, sawdust oil",,,,0,,8,TGSC,0,U-002
+fig:2708,"Pine, Pinus pinaster, absolute",0.08,0.8,recomendacion,1,PerfumersWorld,8,TGSC,0,U-002
+fig:2714,Pinus nigra oil,,,,0,,8,TGSC,0,U-002
 fig:2719,Piperine,,,,0,,0.01,TGSC,0,U-002
 fig:2720,Piperitone,,,,0,,3,TGSC,0,U-002
 fig:2721,Piperonal,0.1,1,recomendacion,1,PerfumersWorld,12,PerfumersWorld,0,U-002
@@ -1503,26 +1806,59 @@ fig:2792,Rhodinyl butyrate,,,,0,,5,TGSC,0,U-002
 fig:2793,Rhodinyl formate,,,,0,,4,TGSC,0,U-002
 fig:2794,Rhodinyl phenylacetate,,,,0,,5,TGSC,0,U-002
 fig:2795,Rhodinyl propionate,,,,0,,4,TGSC,0,U-002
+fig:2797,Rose,0.4,3.75,recomendacion,1,PerfumersWorld (sin distinguir forma),67,PerfumersWorld (sin distinguir forma),0,U-002
+fig:2799,Rose absolute,0.44,4.4,recomendacion,1,PerfumersWorld,67,PerfumersWorld,0,U-002
+fig:2800,Rose centifolia alcoholate,0.4,3.75,recomendacion,1,PerfumersWorld (sin distinguir forma),67,PerfumersWorld (sin distinguir forma),0,U-002
+fig:2801,Rose centifolia CO2 extract,0.4,3.75,recomendacion,1,PerfumersWorld (sin distinguir forma),50,PerfumersWorld (sin distinguir forma),0,U-002
+fig:2802,Rose centifolia oil expressed (low methyleugenol),0.4,3.75,recomendacion,1,PerfumersWorld (sin distinguir forma),4,TGSC,0,U-002
+fig:2803,Rose CO2 extract,0.4,3.75,recomendacion,1,PerfumersWorld (sin distinguir forma),50,PerfumersWorld (sin distinguir forma),0,U-002
+fig:2804,Rose concrete,0.4,3.75,recomendacion,1,PerfumersWorld (sin distinguir forma),3,TGSC,0,U-002
+fig:2805,Rose extract,0.4,3.75,recomendacion,1,PerfumersWorld (sin distinguir forma),50,PerfumersWorld (sin distinguir forma),0,U-002
+fig:2806,Rose extract,0.4,3.75,recomendacion,1,PerfumersWorld (sin distinguir forma),50,PerfumersWorld (sin distinguir forma),0,U-002
+fig:2807,Rose oil,0.4,3.75,recomendacion,1,PerfumersWorld (sin distinguir forma),4,TGSC,0,U-002
+fig:2808,Rose oil,0.4,3.75,recomendacion,1,PerfumersWorld (sin distinguir forma),4,TGSC,0,U-002
+fig:2809,Rose oil (low methyleugenol),0.4,3.75,recomendacion,1,PerfumersWorld (sin distinguir forma),4,TGSC,0,U-002
+fig:2810,"Rose oil, folded",0.4,3.75,recomendacion,1,PerfumersWorld (sin distinguir forma),4,TGSC,0,U-002
 fig:2811,Rose oxide levo,,,,0,,2,TGSC,0,U-002 | U-005
+fig:2812,Rose tincture,0.4,3.75,recomendacion,1,PerfumersWorld (sin distinguir forma),50,PerfumersWorld (sin distinguir forma),0,U-002
+fig:2813,Rose tincture,0.4,3.75,recomendacion,1,PerfumersWorld (sin distinguir forma),50,PerfumersWorld (sin distinguir forma),0,U-002
+fig:2814,Rose water oil,0.4,3.75,recomendacion,1,PerfumersWorld (sin distinguir forma),4,TGSC,0,U-002
+fig:2815,Rosemary absolute,,,,0,,2,TGSC,0,U-002
+fig:2817,Rosemary oil,0.07,0.7,recomendacion,1,PerfumersWorld,10,TGSC,0,U-002
+fig:2818,"Rosemary oil, rectified",0.07,0.7,recomendacion,1,PerfumersWorld,10,TGSC,0,U-002
+fig:2820,Rosewood oil,0.15,1.5,recomendacion,1,PerfumersWorld,20,TGSC,0,U-002
 fig:2831,S-(1-Methylpropyl) 3-methylbut-2-enethioate,,,,0,,1,TGSC,0,U-002
 fig:2832,S-1-Methylethyl 3-methylbut-2-enethioate,,,,0,,0.2,TGSC,0,U-002
 fig:2833,S-2-Butyl 3-methylbutanethioate,,,,0,,0.2,TGSC,0,U-002
 fig:2834,Sabinene,,,,0,,3,TGSC,0,U-002
 fig:2838,Salvia Officinalis,0.1,1,consenso,3,Laboratorio | PerfumersWorld | Scentspiracy,6.2,PerfumersWorld,0,U-001
+fig:2839,"Sage oil, Spanish",0.08,0.8,recomendacion,1,PerfumersWorld,6.2,PerfumersWorld,0,U-002
 fig:2840,Salicylaldehyde,,,,0,,1,TGSC,0,U-002
+fig:2843,Sandalwood oil,0.1,1,recomendacion,1,PerfumersWorld,10,TGSC,0,U-002
 fig:2848,Santalol,,,,0,,8,TGSC,0,U-002
 fig:2849,Santalyl acetate,,,,0,,10,TGSC,0,U-002
+fig:2855,Schinus molle oil,0.04,0.4,recomendacion,1,PerfumersWorld,4,TGSC,0,U-002
+fig:2857,Schinus molle oil terpenless,0.04,0.4,recomendacion,1,PerfumersWorld,4,TGSC,0,U-002
+fig:2858,"Schinus molle oil, rectified",0.04,0.4,recomendacion,1,PerfumersWorld,4,TGSC,0,U-002
 fig:2861,Sclareol,,,,0,,4,TGSC,0,U-002
 fig:2862,Sclareolide,,,,0,,0.5,TGSC,0,U-002
 fig:2872,S-Isopropyl 3-methylthiobutyrate,,,,0,,0.03,TGSC,0,U-002
 fig:2873,Skatole,,,,0,,0.1,TGSC,0,U-002
+fig:2880,Spearminty oil,0.275,2.75,recomendacion,1,PerfumersWorld,40,PerfumersWorld,0,U-002
+fig:2882,"Spearminty oil, rectified",0.275,2.75,recomendacion,1,PerfumersWorld,40,PerfumersWorld,0,U-002
 fig:2884,Spike lavender oil,0.08,0.8,recomendacion,1,PerfumersWorld,6.2,PerfumersWorld,0,U-002
 fig:2887,"Spiro[1,3-dioxolane-2,8'(5'H)-[2H-2,4a]methanonaphthalene],hexahydro-1',1',5',5'-",1,2,recomendacion,1,Búsqueda web (scentspiracy.com),10,TGSC,0,U-002 | U-005
 fig:2890,"Spiro[bicyclo[4.1.0]heptane-2,5'-[1,3]dioxane], 2',2',3,7,7-pentamethyl-,",,,,0,,3,TGSC,0,U-002
 fig:2891,"Spiro[bicyclo[4.1.0]heptane-2,5'-[1,3]dioxane], 2',2',3,7,7-pentamethyl-,",,,,0,,3,TGSC,0,U-002
 fig:2893,"Spruce oil, Black",0.34,2.5,recomendacion,1,PerfumersWorld,17,PerfumersWorld,0,U-002
+fig:2896,Star anise oil,,,,0,,8,TGSC,0,U-002
 fig:2914,Resinoide Estyrax (estoraque),0.3,1.75,consenso,2,Laboratorio | PerfumersWorld,5,PerfumersWorld,0,U-001
+fig:2919,Tagetes erecta oil,0.11,1.1,recomendacion,1,PerfumersWorld,13,PerfumersWorld,0,U-002
+fig:2921,Tagetes minuta oil,0.11,1.1,recomendacion,1,PerfumersWorld,13,PerfumersWorld,0,U-002
+fig:2922,"Tagetes minuta oil, rectified",0.11,1.1,recomendacion,1,PerfumersWorld,13,PerfumersWorld,0,U-002
 fig:2931,Tansy oil,,,,0,,0.1,TGSC,0,U-002
+fig:2933,Tarragon oil,0.03,0.3,recomendacion,1,PerfumersWorld,2.4,PerfumersWorld,0,U-002
+fig:2934,Tarragon oil (low methyleugenol),0.03,0.3,recomendacion,1,PerfumersWorld,2.4,PerfumersWorld,0,U-002
 fig:2937,Tea tree oil,,,,0,,3,TGSC,0,U-002
 fig:2938,Tealactone,,,,0,,1,TGSC,0,U-002
 fig:2946,Terpineol,0.5,3,recomendacion,1,PerfumersWorld,20,PerfumersWorld,0,U-002
@@ -1547,8 +1883,13 @@ fig:2970,Tetrahydro-pseudo-ionone,,,,0,,10,TGSC,0,U-002
 fig:2971,Tetramethyl isopropyl dioxane,,,,0,,2,TGSC,0,U-002
 fig:2972,Theaspirane,,,,0,,0.5,TGSC,0,U-002
 fig:2973,Thiogeraniol,,,,0,,0.01,TGSC,0,U-002
+fig:2974,Thyme absolute,,,,0,,0.1,TGSC,0,U-002
+fig:2975,"Thyme oil, red",0.11,1.1,recomendacion,1,PerfumersWorld,16,PerfumersWorld,0,U-002
+fig:2976,"Thyme oil, white",0.11,1.1,recomendacion,1,PerfumersWorld,16,PerfumersWorld,0,U-002
+fig:2978,"Thyme, Thymus zygis, oil",,,,0,,2,TGSC,0,U-002
 fig:2979,Thymol,,,,0,,2,Búsqueda web (scentspiracy.com),0,U-002 | U-005
 fig:2982,Absoluto de Tabaco,0.3,3,consenso,2,Laboratorio | PerfumersWorld,10,PerfumersWorld,1,U-001
+fig:2986,"Tolu, balsam, gum",,,,0,,4,TGSC (sin distinguir forma),0,U-002
 fig:2992,Haba tonka (tintura),0.52,2.7,consenso,2,Laboratorio | PerfumersWorld,8,TGSC,0,U-001
 fig:2994,trans-2-Decenal,,,,0,,0.5,TGSC,0,U-002
 fig:2996,trans-2-Hexenol,,,,0,,4,TGSC,0,U-002
@@ -1585,6 +1926,12 @@ fig:3038,Tridecene-2-nitrile,,,,0,,0.5,TGSC,0,U-002
 fig:3039,"Trimethyl-13-oxabicyclo[10.1.0]trideca-4,8-diene",1,10,recomendacion,1,PerfumersWorld,30,PerfumersWorld,0,U-002
 fig:3041,Trimethyloxazole,,,,0,,0.3,TGSC,0,U-002
 fig:3042,Trithioacetone,,,,0,,0.1,TGSC,0,U-002
+fig:3043,Tuberose absolute,0.4,4,recomendacion,1,PerfumersWorld,32,PerfumersWorld,0,U-002
+fig:3044,Tuberose concrete,,,,0,,6,TGSC,0,U-002
+fig:3045,Tuberose oil,,,,0,,2,TGSC,0,U-002
+fig:3047,Turmeric,0.1,0.5,recomendacion,1,PerfumersWorld (sin distinguir forma),5,PerfumersWorld (sin distinguir forma),0,U-002
+fig:3050,Turpentine oil,0.2,1,recomendacion,1,PerfumersWorld,5,PerfumersWorld,0,U-002
+fig:3051,"Turpentine oil, rectified",0.2,1,recomendacion,1,PerfumersWorld,5,PerfumersWorld,0,U-002
 fig:3052,Undecanal,0.1,1,recomendacion,1,Búsqueda web (scentspiracy.com),1,TGSC,0,U-002 | U-005
 fig:3054,Undecanoic acid,,,,0,,0.5,TGSC,0,U-002
 fig:3055,Undecanol,,,,0,,4,TGSC,0,U-002
@@ -1594,6 +1941,10 @@ fig:3058,"Undecenoic acid, 3-methylbutyl ester",,,,0,,5,TGSC,0,U-002
 fig:3059,Undecyl alcohol,,,,0,,4,TGSC,0,U-002
 fig:3060,Valencene,,,,0,,1,TGSC,0,U-002
 fig:3061,Valeraldehyde,,,,0,,2,TGSC,0,U-002
+fig:3063,Valerian root oil,,,,0,,5,TGSC,0,U-002
+fig:3065,Vanilla absolute,0.05,0.5,recomendacion,1,PerfumersWorld,10,PerfumersWorld,0,U-002
+fig:3066,Vanilla CO2 extract,,,,0,,8,TGSC,0,U-002
+fig:3067,Vanilla extract,,,,0,,8,TGSC,0,U-002
 fig:3073,Vanillic acid,,,,0,,0.5,TGSC,0,U-002
 fig:3074,Vainillina,0.335,2.25,consenso,2,Laboratorio | PerfumersWorld,8,TGSC,0,U-001
 fig:3075,Vanillin isobutyrate,0.02,0.2,recomendacion,1,PerfumersWorld,2,TGSC,0,U-002
@@ -1603,20 +1954,38 @@ fig:3078,Vanillyl ethyl ether,,,,0,,0.6,TGSC,0,U-002
 fig:3079,Veratraldehyde,,,,0,,15,TGSC,0,U-002
 fig:3080,Verbenol,,,,0,,3,TGSC,0,U-002
 fig:3083,Vetiver,0.545,2.95,consenso,2,Laboratorio | PerfumersWorld,12,TGSC,0,U-001
+fig:3086,"Vetiver oil, JAVA (low Furfural)",0.09,0.9,recomendacion,1,PerfumersWorld,12,TGSC,0,U-002
+fig:3087,"Vetiver oil, rectified",0.09,0.9,recomendacion,1,PerfumersWorld,12,TGSC,0,U-002
 fig:3089,Vetiverol,,,,0,,10,TGSC,0,U-002
 fig:3091,"Vetiverol, acetate",0.13,2.3,recomendacion,1,PerfumersWorld,20,PerfumersWorld,0,U-002
+fig:3093,Violet leaf absolute,0.3,3,recomendacion,1,PerfumersWorld,20,PerfumersWorld,0,U-002
 fig:3101,Wormwood oil,0.37,2.7,recomendacion,1,PerfumersWorld,18,PerfumersWorld,0,U-002
-fig:3107,Ylang ylang oil,0.5,5,recomendacion,1,Búsqueda web,,,0,U-004
-fig:3108,Ylang ylang oil (low para cresol methylether),0.5,5,recomendacion,1,Búsqueda web,,,0,U-004
-fig:3109,Ylang ylang oil extra,0.5,5,recomendacion,1,Búsqueda web,,,0,U-004
-fig:3110,Ylang ylang oil I,0.5,5,recomendacion,1,Búsqueda web,,,0,U-004
-fig:3111,Ylang ylang oil II,0.5,5,recomendacion,1,Búsqueda web,,,0,U-004
-fig:3112,Ylang ylang oil III,0.5,5,recomendacion,1,Búsqueda web,,,0,U-004
-fig:3113,"Ylang ylang oil, rectified",0.5,5,recomendacion,1,Búsqueda web,,,0,U-004
+fig:3105,Yarrow oil,,,,0,,3,TGSC,0,U-002
+fig:3107,Ylang ylang oil,0.3,2.75,consenso,2,Búsqueda web | PerfumersWorld,10,TGSC,0,U-002 | U-004
+fig:3108,Ylang ylang oil (low para cresol methylether),0.3,2.75,consenso,2,Búsqueda web | PerfumersWorld,10,TGSC,0,U-002 | U-004
+fig:3109,Ylang ylang oil extra,0.3,2.75,consenso,2,Búsqueda web | PerfumersWorld,10,TGSC,0,U-002 | U-004
+fig:3110,Ylang ylang oil I,0.3,2.75,consenso,2,Búsqueda web | PerfumersWorld,10,TGSC,0,U-002 | U-004
+fig:3111,Ylang ylang oil II,0.3,2.75,consenso,2,Búsqueda web | PerfumersWorld,10,TGSC,0,U-002 | U-004
+fig:3112,Ylang ylang oil III,0.3,2.75,consenso,2,Búsqueda web | PerfumersWorld,10,TGSC,0,U-002 | U-004
+fig:3113,"Ylang ylang oil, rectified",0.3,2.75,consenso,2,Búsqueda web | PerfumersWorld,10,TGSC,0,U-002 | U-004
 fig:3118,Zingerone,,,,0,,2,TGSC,0,U-002
+ncs:allspice-oleoresin,Allspice oleoresin,,,,0,,2,TGSC,0,U-002
+ncs:camphor-oil-brown,"Camphor oil, brown",0.2,3,recomendacion,1,PerfumersWorld,10,PerfumersWorld,0,U-002
+ncs:camphor-oil-yellow,"Camphor oil, yellow",0.2,3,recomendacion,1,PerfumersWorld,10,PerfumersWorld,0,U-002
+ncs:fennel-oil-bitter-anethole-type,"Fennel oil, bitter,anethole type",0.06,0.6,recomendacion,1,PerfumersWorld,5,TGSC,0,U-002
+ncs:hyacinth-absolute,Hyacinth absolute,,,,0,,8,TGSC,0,U-002
+ncs:jasmine-grandiflorum-absolute,Jasmine grandiflorum absolute,0.44,3.3,recomendacion,1,PerfumersWorld,57,PerfumersWorld,0,U-002
+ncs:lemon-oil-steam-distilled,Lemon oil steam distilled,0.125,1.25,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
+ncs:lime-oil-distilled,Lime oil distilled,0.115,1.15,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
 ncs:marjoram-oleoresin,Marjoram oleoresin,0.07,0.7,recomendacion,1,PerfumersWorld,5.7,PerfumersWorld,0,U-002
-ncs:vetiver-oil-all-origins,Vetiver oil (all origins),1,10,recomendacion,1,Búsqueda web,,,0,U-004
-ncs:ylang-ylang-oil-complete,"Ylang, Ylang oil complete",0.5,5,recomendacion,1,Búsqueda web,,,0,U-004
+ncs:petitgrain-bigarade-absolute,Petitgrain bigarade absolute,0.44,4.4,recomendacion,1,PerfumersWorld,47,PerfumersWorld,0,U-002
+ncs:pine-pinus-pinaster-oil,"Pine, Pinus pinaster, oil",,,,0,,8,TGSC,0,U-002
+ncs:rose-water-stronger,Rose water stronger,0.4,3.75,recomendacion,1,PerfumersWorld (sin distinguir forma),67,PerfumersWorld (sin distinguir forma),0,U-002
+ncs:spearmint-oil,Spearmint oil,0.275,2.75,recomendacion,1,PerfumersWorld,40,PerfumersWorld,0,U-002
+ncs:thyme-oil-wild,"Thyme oil, wild",0.11,1.1,recomendacion,1,PerfumersWorld,16,PerfumersWorld,0,U-002
+ncs:turmeric-oil,Turmeric oil,0.1,0.5,recomendacion,1,PerfumersWorld,5,PerfumersWorld,0,U-002
+ncs:vetiver-oil-all-origins,Vetiver oil (all origins),0.545,5.45,consenso,2,Búsqueda web | PerfumersWorld,12,TGSC,0,U-002 | U-004
+ncs:ylang-ylang-oil-complete,"Ylang, Ylang oil complete",0.3,2.75,consenso,2,Búsqueda web | PerfumersWorld,10,TGSC,0,U-002 | U-004
 ncs:zdravetz-oil,Zdravetz oil,,,,0,,10,TGSC,0,U-002
 tienda:131812-51-6,Okoumal,,,,0,,4,TGSC,0,U-002
 tl:110-27-0,Isopropyl myristate,2,20,recomendacion,1,PerfumersWorld,90,PerfumersWorld,0,U-002
@@ -1714,7 +2083,74 @@ tl:93894-30-5,"Benzoic acid, 2-[[[4-(4-methyl-3-penten-1-yl)-3-cyclohexen-1-yl]m
 tl:95-21-6,2-Methylbenzoxazole,,,,0,,0.1,TGSC,0,U-002
 tl:98-51-1,4-tert-Butyltoluene,,,,0,,0.01,TGSC,0,U-002
 tl:98-89-5,Cyclohexanecarboxylic acid,,,,0,,0.05,TGSC,0,U-002
-tl:cistus-absolute-pyrogenated,"Cistus absolute, pyrogenated",,,,0,,4,Búsqueda web (evocativeperfumes.com),0,U-004
+tl:allspice-oil-low-methyleugenol,"Allspice oil, low methyleugenol",,,,0,,6,TGSC,0,U-002
+tl:ambrette-seed-oil-rectified,"Ambrette seed oil, rectified",,,,0,,0.5,TGSC,0,U-002
+tl:basil-oil-chemotype-linalool-rectified,"Basil oil, chemotype linalool, rectified",0.09,0.65,recomendacion,1,PerfumersWorld,6.2,PerfumersWorld,0,U-002
+tl:benzoin-absolute-siam,"Benzoin absolute, Siam",0.08,0.8,recomendacion,1,PerfumersWorld (sin distinguir forma),10,TGSC,0,U-002
+tl:benzoin-infusion-siam,"Benzoin infusion, Siam",0.08,0.8,recomendacion,1,PerfumersWorld (sin distinguir forma),8,PerfumersWorld (sin distinguir forma),0,U-002
+tl:bigarade-oil-washed,"Bigarade oil, washed",0.1,1,recomendacion,1,PerfumersWorld (sin distinguir forma),10,PerfumersWorld (sin distinguir forma),0,U-002
+tl:bucchu-oil-terpeneless,"Bucchu oil, terpeneless",,,,0,,0.8,TGSC,0,U-002
+tl:cacao-oil-fixed,"Cacao oil, fixed",0.02,0.2,recomendacion,1,PerfumersWorld (sin distinguir forma),20,PerfumersWorld (sin distinguir forma),0,U-002
+tl:camphor-leaf-oil-white-rectified,"Camphor leaf oil, white, rectified",0.2,3,recomendacion,1,PerfumersWorld,10,PerfumersWorld,0,U-002
+tl:carrot-seed-oil-terpeneless,"Carrot seed oil, terpeneless",0.05,0.5,recomendacion,1,PerfumersWorld,4,TGSC,0,U-002
+tl:chamomile-flower-oil-roman-rectified,"Chamomile flower oil, Roman rectified",0.22,2.2,recomendacion,1,PerfumersWorld,35,PerfumersWorld,0,U-002
+tl:cinnamon-leaf-oil-safrol-reduced,"Cinnamon leaf oil, safrol reduced",0.06,0.6,recomendacion,1,PerfumersWorld,8,TGSC,0,U-002
+tl:cistus-absolute-pyrogenated,"Cistus absolute, pyrogenated",0.09,0.9,recomendacion,1,PerfumersWorld,9,TGSC,0,U-002 | U-004
+tl:clove-leaf-oil-post-treated,Clove leaf oil (post treated),0.05,0.4,recomendacion,1,PerfumersWorld (sin distinguir forma),8,TGSC (sin distinguir forma),0,U-002
+tl:coriander-seed,Coriander seed,0.495,4.95,recomendacion,1,PerfumersWorld (sin distinguir forma),73,PerfumersWorld (sin distinguir forma),0,U-002
+tl:coriander-seed-oil-rectified,"Coriander seed oil, rectified",0.495,4.95,recomendacion,1,PerfumersWorld,73,PerfumersWorld,0,U-002
+tl:coriander-seed-oil-terpeneless,"Coriander seed oil, terpeneless",0.495,4.95,recomendacion,1,PerfumersWorld,73,PerfumersWorld,0,U-002
+tl:cypress-absolute,Cypress absolute,0.51,3.8,recomendacion,1,PerfumersWorld,25,PerfumersWorld,0,U-002
+tl:extract-of-oakmoss-absolute,Extract of oakmoss absolute,0.15,2.5,recomendacion,1,PerfumersWorld,30,PerfumersWorld,0,U-002
+tl:fennel-oil-sweet-generic,"Fennel oil, sweet (generic)",0.06,0.6,recomendacion,1,PerfumersWorld (sin distinguir forma),5,TGSC (sin distinguir forma),0,U-002
 tl:frangipani-absolute,Frangipani absolute,0.2,1.3,recomendacion,1,PerfumersWorld,5,PerfumersWorld,0,U-002
-tl:labdanum-exudate-absolute,"Labdanum exudate, absolute",,,,0,,4,Búsqueda web (evocativeperfumes.com),0,U-004
-tl:mandarin-oil-furocoumarin-reduced,"Mandarin oil, furocoumarin reduced",1.1,1.1,recomendacion,1,Búsqueda web,8.9,Búsqueda web,0,U-004
+tl:geranium-oil-fractions-rich-in-citronellol,"Geranium oil, fractions rich in citronellol",0.1,1,recomendacion,1,PerfumersWorld (sin distinguir forma),15,PerfumersWorld (sin distinguir forma),0,U-002
+tl:geranium-oil-low-rose-oxide,Geranium oil (low rose oxide),0.1,1,recomendacion,1,PerfumersWorld,15,PerfumersWorld,0,U-002
+tl:ginger-microwave-extraction,"Ginger, microwave extraction",,,,0,,10,TGSC (sin distinguir forma),0,U-002
+tl:grapefruit-oil-chemically-modified,Grapefruit oil (chemically-modified),0.09,0.9,recomendacion,1,PerfumersWorld (sin distinguir forma),14,PerfumersWorld (sin distinguir forma),0,U-002
+tl:guaiac-wood-oil-dehydrated-post-treated,"Guaiac wood oil, dehydrated (post treated)",0.165,1.65,recomendacion,1,PerfumersWorld (sin distinguir forma),20,TGSC (sin distinguir forma),0,U-002
+tl:gurjun-balsam-oil-dipterocarpus-spp,Gurjun balsam oil (Dipterocarpus spp.),,,,0,,20,TGSC,0,U-002
+tl:gurjun-balsam-oil-rectified,"Gurjun balsam oil, rectified",,,,0,,20,TGSC,0,U-002
+tl:hay-concrete,Hay concrete,,,,0,,3,TGSC,0,U-002
+tl:ho-wood-oil-rectified,"Ho wood oil, rectified",0.55,4.1,recomendacion,1,PerfumersWorld,27,PerfumersWorld,0,U-002
+tl:iris-pallida-butter,Iris pallida butter,0.25,2.5,recomendacion,1,PerfumersWorld (sin distinguir forma),90,PerfumersWorld (sin distinguir forma),0,U-002
+tl:juniper-berry-alcoholate,Juniper berry alcoholate,,,,0,,3,TGSC (sin distinguir forma),0,U-002
+tl:labdanum-exudate-absolute,"Labdanum exudate, absolute",0.09,0.9,recomendacion,1,PerfumersWorld,9,TGSC,0,U-002 | U-004
+tl:lavandin-abrialis-absolute,Lavandin abrialis absolute,0.51,3.8,recomendacion,1,PerfumersWorld,25,PerfumersWorld,0,U-002
+tl:lavandin-abrialis-oil-low-coumarin,Lavandin abrialis oil (low coumarin),0.09,0.9,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
+tl:lavandin-abrialis-oil-rectified,"Lavandin abrialis oil, rectified",0.09,0.9,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
+tl:lavandin-grosso-oil-rectified,"Lavandin grosso oil, rectified",0.09,0.9,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
+tl:lavender-oil-lavandula-angustifolia-lavandula-angustifolia-a,"Lavender oil (Lavandula angustifolia, Lavandula angustifolia angustifolia, Lavandula officinalis)",0.1,1,recomendacion,1,PerfumersWorld,16,TGSC,0,U-002
+tl:lavender-oil-terpeneless,"Lavender oil, terpeneless",0.1,1,recomendacion,1,PerfumersWorld,16,TGSC,0,U-002
+tl:lemon-steam-distilled-oil,Lemon (steam distilled) oil,0.125,1.25,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
+tl:lemongrass-oil-rectified-cymbopogon-citratus-dc-stapf,"Lemongrass oil, rectified (Cymbopogon citratus (DC.) Stapf)",,,,0,,10,TGSC,0,U-002
+tl:lemongrass-oil-rectified-cymbopogon-flexuosus-nees-ex-steude,"Lemongrass oil, rectified (Cymbopogon flexuosus (Nees ex Steudel) Will. Watson)",,,,0,,10,TGSC,0,U-002
+tl:lime-oil-expressed-folded,"Lime oil, expressed, folded",0.115,1.15,recomendacion,1,PerfumersWorld,15,TGSC,0,U-002
+tl:mandarin-oil-extraction-of-distillation-water,Mandarin oil (extraction of distillation water),0.495,3.85,recomendacion,1,PerfumersWorld (sin distinguir forma),44,PerfumersWorld (sin distinguir forma),0,U-002
+tl:mandarin-oil-furocoumarin-reduced,"Mandarin oil, furocoumarin reduced",0.7975,2.475,consenso,2,Búsqueda web | PerfumersWorld,44,PerfumersWorld,0,U-002 | U-004
+tl:mentha-arvensis-oil-rectified,"Mentha arvensis oil, rectified",0.37,2.7,recomendacion,1,PerfumersWorld,18,PerfumersWorld,0,U-002
+tl:myrrh-oil-washed,Myrrh oil washed,0.1,1,recomendacion,1,PerfumersWorld (sin distinguir forma),8,TGSC (sin distinguir forma),0,U-002
+tl:nutmeg-oil-folded,"Nutmeg oil, folded",0.11,1.1,recomendacion,1,PerfumersWorld,6.9,PerfumersWorld,0,U-002
+tl:nutmeg-oil-java-terpeneless,"Nutmeg oil, Java, terpeneless",0.11,1.1,recomendacion,1,PerfumersWorld,6.9,PerfumersWorld,0,U-002
+tl:orange-oil-bitter-defurocoumarinized,"Orange oil bitter, defurocoumarinized",0.1,1,recomendacion,1,PerfumersWorld,10,PerfumersWorld,0,U-002
+tl:orange-oil-sweet-folded,"Orange oil, sweet, folded",,,,0,,10,TGSC,0,U-002
+tl:orange-peel-sweet-alcoholate,"Orange peel, sweet, alcoholate",0.085,0.85,recomendacion,1,PerfumersWorld (sin distinguir forma),8,TGSC (sin distinguir forma),0,U-002
+tl:orange-peel-sweet-non-concentrated-extract,"Orange peel, sweet, (non-concentrated) extract",,,,0,,10,TGSC (sin distinguir forma),0,U-002
+tl:parsley-leaf-oil,Parsley leaf oil,1.525,7.75,recomendacion,1,PerfumersWorld,80,PerfumersWorld,0,U-002
+tl:patchouli-oil-low-fe-post-treated,Patchouli oil (low Fe) (post treated),0.08,0.8,recomendacion,1,PerfumersWorld (sin distinguir forma),10,TGSC (sin distinguir forma),0,U-002
+tl:petitgrain-water-absolute,Petitgrain water absolute,0.12,1.2,recomendacion,1,PerfumersWorld (sin distinguir forma),15,TGSC (sin distinguir forma),0,U-002
+tl:ravintsara-oil,Ravintsara oil,0.2,3,recomendacion,1,PerfumersWorld,10,PerfumersWorld,0,U-002
+tl:rose-extract-rosa-x-centifolia-l,Rose extract (Rosa x centifolia L.),0.4,3.75,recomendacion,1,PerfumersWorld (sin distinguir forma),50,PerfumersWorld (sin distinguir forma),0,U-002
+tl:rose-microwave-extraction,"Rose, microwave extraction",0.4,3.75,recomendacion,1,PerfumersWorld (sin distinguir forma),67,PerfumersWorld (sin distinguir forma),0,U-002
+tl:rose-oil-rosa-x-centifolia-l,Rose oil (Rosa x centifolia L.),0.4,3.75,recomendacion,1,PerfumersWorld (sin distinguir forma),4,TGSC,0,U-002
+tl:rose-oil-rosa-x-damascena-mill,Rose oil (Rosa x damascena Mill.),0.4,3.75,recomendacion,1,PerfumersWorld (sin distinguir forma),4,TGSC,0,U-002
+tl:rose-tincture-rosa-x-centifolia-l,Rose tincture (Rosa x centifolia L.),0.4,3.75,recomendacion,1,PerfumersWorld (sin distinguir forma),50,PerfumersWorld (sin distinguir forma),0,U-002
+tl:sage-dalmatian-absolute,Sage Dalmatian absolute,,,,0,,2,TGSC,0,U-002
+tl:sage-dalmatian-oil-terpeneless,"Sage Dalmatian oil, terpeneless",0.08,0.8,recomendacion,1,PerfumersWorld,6.2,PerfumersWorld,0,U-002
+tl:schinus-molle-absolute,Schinus molle absolute,,,,0,,4,TGSC,0,U-002
+tl:schinus-molle-oil-terpeneless,"Schinus molle oil, terpeneless",0.04,0.4,recomendacion,1,PerfumersWorld,4,TGSC,0,U-002
+tl:spearmint-oil-rectified,"Spearmint oil, rectified",0.275,2.75,recomendacion,1,PerfumersWorld,40,PerfumersWorld,0,U-002
+tl:tagetes-oil-low-tertiophene,"Tagetes oil, low tertiophene",0.11,1.1,recomendacion,1,PerfumersWorld,13,PerfumersWorld,0,U-002
+tl:turpentine-oil-terpeneless,"Turpentine oil, terpeneless",0.2,1,recomendacion,1,PerfumersWorld,5,PerfumersWorld,0,U-002
+tl:vanilla-microwave-extraction,"Vanilla, microwave extraction",0.05,0.5,recomendacion,1,PerfumersWorld (sin distinguir forma),10,PerfumersWorld (sin distinguir forma),0,U-002
+tl:vetiver-oil-terpeneless,"Vetiver oil, terpeneless",0.09,0.9,recomendacion,1,PerfumersWorld,12,TGSC,0,U-002
