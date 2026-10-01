@@ -231,7 +231,8 @@ constituyentes, y la app lo calcula exacto; así nunca se desfasa de los datos.
   material**, y no cambia su `estado`: un natural «sin dato» sigue avisando de que puede llevar
   otras sustancias con techo. Desde el 2026-10-02 incluye los certificados de conformidad de
   PerfumersWorld (lote C-004, [`scripts/traer_certificados_pw.py`](../../scripts/traer_certificados_pw.py)),
-  asignados a la forma y la variedad que dice el nombre del producto. Son 541 filas.
+  asignados a la forma y la variedad que dice el nombre del producto, con su declaración de
+  alérgenos y sin productos disueltos en un diluyente. Son 508 filas.
 - **`certificado`** (2026-10-02): la sección 2.2 de un certificado de conformidad IFRA que el
   usuario guarda de su proveedor ([`docs/proveedores/certificados/`](../../docs/proveedores/certificados/LEEME.md)).
   El producto entra como material de clase `base` (`cert:…`), y esas sustancias son todas sus

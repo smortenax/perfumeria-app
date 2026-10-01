@@ -1,19 +1,18 @@
 material_id,estandar,constituyente,concentracion_pct,tipo_valor,fuente,n_fuentes
-cas:5502-75-0,IFRA_STD_208,Mayol (13828-37-0),100,declarado,C-004: PerfumersWorld: certificado de conformidad de «mayol» (3MG11691),1
-cas:9000-78-6,IFRA_STD_070,Opoponax (93384-32-8),100,declarado,C-004: PerfumersWorld: certificado de conformidad de «opoponax resinoid» (2QC00337),1
+cas:84929-31-7,IFRA_STD_016,L-Carvone (99-49-0),0.0053,declarado,C-004: PerfumersWorld: certificado de conformidad de «lemon essential oil» (7CC00271),1
+cas:84929-31-7,IFRA_STD_021,Citral (5392-40-5),2.6841,declarado,C-004: PerfumersWorld: certificado de conformidad de «lemon essential oil» (7CC00271),1
+cas:84929-31-7,IFRA_STD_186,D-Limonene (5989-27-5),56.1353,declarado,C-004: PerfumersWorld: certificado de conformidad de «lemon essential oil» (7CC00271),1
 cas:91770-14-8,IFRA_STD_007,Benzaldehyde (100-52-7),0.0047,declarado,C-004: PerfumersWorld: certificado de conformidad de «jasmine sambac absolute» (8JN00256),1
-cas:91770-14-8,IFRA_STD_008,Benzyl Alcohol (100-51-6),10.0788,declarado,C-004: PerfumersWorld: certificado de conformidad de «jasmine sambac blossoms» (6JN07707),2
-cas:91770-14-8,IFRA_STD_009,Benzyl Benzoate (120-51-4),1.0958,declarado,C-004: PerfumersWorld: certificado de conformidad de «jasmine sambac absolute» (8JN00256),2
+cas:91770-14-8,IFRA_STD_008,Benzyl Alcohol (100-51-6),6.1505,declarado,C-004: PerfumersWorld: certificado de conformidad de «jasmine sambac absolute» (8JN00256),1
+cas:91770-14-8,IFRA_STD_009,Benzyl Benzoate (120-51-4),1.0958,declarado,C-004: PerfumersWorld: certificado de conformidad de «jasmine sambac absolute» (8JN00256),1
 cas:91770-14-8,IFRA_STD_011,Benzyl Salicylate (118-58-1),0.0635,declarado,C-004: PerfumersWorld: certificado de conformidad de «jasmine sambac absolute» (8JN00256),1
 cas:91770-14-8,IFRA_STD_023,Coumarin (91-64-5),0.0028,declarado,C-004: PerfumersWorld: certificado de conformidad de «jasmine sambac absolute» (8JN00256),1
 cas:91770-14-8,IFRA_STD_035,Eugenol (97-53-0),0.101,declarado,C-004: PerfumersWorld: certificado de conformidad de «jasmine sambac absolute» (8JN00256),1
 cas:91770-14-8,IFRA_STD_037,Geraniol (106-24-1),0.0736,declarado,C-004: PerfumersWorld: certificado de conformidad de «jasmine sambac absolute» (8JN00256),1
-cas:91770-14-8,IFRA_STD_040,Alpha-Hexyl Cinnamic Aldehyde (101-86-0),0.8097,declarado,C-004: PerfumersWorld: certificado de conformidad de «jasmine sambac blossoms» (6JN07707),1
-cas:91770-14-8,IFRA_STD_042,Hexyl Salicylate (6259-76-3),20.318,declarado,C-004: PerfumersWorld: certificado de conformidad de «jasmine sambac blossoms» (6JN07707),1
-cas:91770-14-8,IFRA_STD_094,Methyl N-Methylanthranilate (85-91-6),0.15,declarado,C-004: PerfumersWorld: certificado de conformidad de «jasmine sambac absolute» (8JN00256),2
-cas:91770-14-8,IFRA_STD_101,Methyl N-Formylanthranilate (41270-80-8),0.0971,declarado,C-004: PerfumersWorld: certificado de conformidad de «jasmine sambac blossoms» (6JN07707),2
+cas:91770-14-8,IFRA_STD_094,Methyl N-Methylanthranilate (85-91-6),0.15,declarado,C-004: PerfumersWorld: certificado de conformidad de «jasmine sambac absolute» (8JN00256),1
+cas:91770-14-8,IFRA_STD_101,Methyl N-Formylanthranilate (41270-80-8),0.0577,declarado,C-004: PerfumersWorld: certificado de conformidad de «jasmine sambac absolute» (8JN00256),1
 cas:91770-14-8,IFRA_STD_112,Benzyl Cyanide (140-29-4),0.0012,declarado,C-004: PerfumersWorld: certificado de conformidad de «jasmine sambac absolute» (8JN00256),1
-cas:91770-14-8,IFRA_STD_187,Linalool (78-70-6),32.9921,declarado,C-004: PerfumersWorld: certificado de conformidad de «jasmine sambac blossoms» (6JN07707),2
+cas:91770-14-8,IFRA_STD_187,Linalool (78-70-6),10.5395,declarado,C-004: PerfumersWorld: certificado de conformidad de «jasmine sambac absolute» (8JN00256),1
 fig:1039,IFRA_STD_004,Amylcinnamyl Alcohol (101-85-9),0.5,máximo,C-003: Perfumiarz: lista de alérgenos EU_Fragrance_Allergens_ALDEHIDO_ALFA-N-AMILCINAMICO_KALPSUTRA.pdf,1
 fig:1039,IFRA_STD_007,Benzaldehyde (100-52-7),0.05,máximo,C-003: Perfumiarz: lista de alérgenos EU_Fragrance_Allergens_ALDEHIDO_ALFA-N-AMILCINAMICO_KALPSUTRA.pdf,1
 fig:1039,IFRA_STD_008,Benzyl Alcohol (100-51-6),0.2,máximo,C-003: Perfumiarz: lista de alérgenos EU_Fragrance_Allergens_ALDEHIDO_ALFA-N-AMILCINAMICO_KALPSUTRA.pdf,1
@@ -24,15 +23,15 @@ fig:1093,IFRA_STD_054,Anis Aldehyde (123-11-5),3.1053,declarado,C-004: Perfumers
 fig:1093,IFRA_STD_099,Estragole (140-67-0),15.3291,declarado,C-004: PerfumersWorld: certificado de conformidad de «anise essential oil china» (7SB00041),1
 fig:1093,IFRA_STD_186,D-Limonene (5989-27-5),0.2512,declarado,C-004: PerfumersWorld: certificado de conformidad de «anise essential oil china» (7SB00041),1
 fig:1093,IFRA_STD_187,Linalool (78-70-6),1.114,declarado,C-004: PerfumersWorld: certificado de conformidad de «anise essential oil china» (7SB00041),1
-fig:1119,IFRA_STD_007,Benzaldehyde (100-52-7),0.036,máximo,C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf,2
+fig:1119,IFRA_STD_007,Benzaldehyde (100-52-7),0.036,máximo,C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf,1
 fig:1119,IFRA_STD_008,Benzyl Alcohol (100-51-6),0.544,máximo,C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf,1
-fig:1119,IFRA_STD_009,Benzyl Benzoate (120-51-4),34.1637,máximo,C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf,2
-fig:1119,IFRA_STD_010,Benzyl Cinnamate (103-41-3),17.028,máximo,C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf,2
+fig:1119,IFRA_STD_009,Benzyl Benzoate (120-51-4),34.1637,máximo,C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf,1
+fig:1119,IFRA_STD_010,Benzyl Cinnamate (103-41-3),17.028,máximo,C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf,1
 fig:1119,IFRA_STD_011,Benzyl Salicylate (118-58-1),0.0132,máximo,C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf,1
 fig:1119,IFRA_STD_017,Cinnamyl Alcohol (104-54-1),0.0024,máximo,C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf,1
 fig:1119,IFRA_STD_018,Cinnamal (104-55-2),0.0048,máximo,C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf,1
-fig:1119,IFRA_STD_023,Coumarin (91-64-5),0.0348,máximo,C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf,2
-fig:1119,IFRA_STD_035,Eugenol (97-53-0),0.0372,máximo,C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf,2
+fig:1119,IFRA_STD_023,Coumarin (91-64-5),0.0348,máximo,C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf,1
+fig:1119,IFRA_STD_035,Eugenol (97-53-0),0.0372,máximo,C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf,1
 fig:1119,IFRA_STD_036,Farnesol (4602-84-0),0.0406,máximo,C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf,1
 fig:1119,IFRA_STD_048,Isoeugenol (5932-68-3),0.0995,máximo,C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf,1
 fig:1119,IFRA_STD_186,Limonene (138-86-3),0.003,máximo,C-003: Perfumiarz: lista de alérgenos W16295_ALG_09-23.pdf,1
@@ -51,10 +50,6 @@ fig:1168,IFRA_STD_009,Benzyl Benzoate (120-51-4),2.1895,declarado,C-004: Perfume
 fig:1168,IFRA_STD_048,Isoeugenol (97-54-1),0.1835,declarado,C-004: PerfumersWorld: certificado de conformidad de «benzoin siam resinoid» (2QV00050),1
 fig:1168,IFRA_STD_190,Propenylguaethol (94-86-0),1.7952,declarado,C-004: PerfumersWorld: certificado de conformidad de «benzoin siam resinoid» (2QV00050),1
 fig:1168,IFRA_STD_191,2-Methoxy-4-Propylphenol (2785-87-7),0.1212,declarado,C-004: PerfumersWorld: certificado de conformidad de «benzoin siam resinoid» (2QV00050),1
-fig:1169,IFRA_STD_007,Benzaldehyde (100-52-7),0.0211,declarado,C-004: PerfumersWorld: certificado de conformidad de «benzoin sumatra resinoid» (2QV08253),1
-fig:1169,IFRA_STD_008,Benzyl Alcohol (100-51-6),0.0892,declarado,C-004: PerfumersWorld: certificado de conformidad de «benzoin sumatra resinoid» (2QV08253),1
-fig:1169,IFRA_STD_009,Benzyl Benzoate (120-51-4),89.2386,declarado,C-004: PerfumersWorld: certificado de conformidad de «benzoin sumatra resinoid» (2QV08253),1
-fig:1169,IFRA_STD_010,Benzyl Cinnamate (103-41-3),0.3227,declarado,C-004: PerfumersWorld: certificado de conformidad de «benzoin sumatra resinoid» (2QV08253),1
 fig:1177,IFRA_STD_006,Anise Alcohol (105-13-5),0.1,típico,C-003: Perfumiarz: lista de alérgenos BENZA1V_COSM2.pdf,1
 fig:1177,IFRA_STD_007,Benzaldehyde (100-52-7),0.1,típico,C-003: Perfumiarz: lista de alérgenos BENZA1V_COSM2.pdf,1
 fig:1177,IFRA_STD_008,Benzyl Alcohol (100-51-6),0.05,típico,C-003: Perfumiarz: lista de alérgenos BENZA1V_COSM2.pdf,1
@@ -148,9 +143,6 @@ fig:1335,IFRA_STD_036,Farnesol (4602-84-0),0.012,típico,C-003: Perfumiarz: list
 fig:1335,IFRA_STD_037,Geraniol (106-24-1),0.242,típico,C-003: Perfumiarz: lista de alérgenos H03053_ALG_12-23.pdf,1
 fig:1335,IFRA_STD_186,Limonene (138-86-3),0.005,típico,C-003: Perfumiarz: lista de alérgenos H03053_ALG_12-23.pdf,1
 fig:1335,IFRA_STD_187,Linalool (78-70-6),0.095,típico,C-003: Perfumiarz: lista de alérgenos H03053_ALG_12-23.pdf,1
-fig:1336,IFRA_STD_021,Citral (5392-40-5),0.3364,declarado,C-004: PerfumersWorld: certificado de conformidad de «blackcurrant absolute» (8FB00063),1
-fig:1336,IFRA_STD_073,Phenyl Acetaldehyde (122-78-1),0.1039,declarado,C-004: PerfumersWorld: certificado de conformidad de «blackcurrant absolute» (8FB00063),1
-fig:1336,IFRA_STD_186,D-Limonene (5989-27-5),0.4905,declarado,C-004: PerfumersWorld: certificado de conformidad de «blackcurrant absolute» (8FB00063),1
 fig:1367,IFRA_STD_192,Alpha-Bisabolol (515-69-5),0.5385,declarado,C-004: PerfumersWorld: certificado de conformidad de «cedarwood virginian essential oil» (7WW00095),1
 fig:1367,IFRA_STD_197,Cedrene (546-28-1),26.6631,declarado,C-004: PerfumersWorld: certificado de conformidad de «cedarwood virginian essential oil» (7WW00095),1
 fig:1385,IFRA_STD_016,D-Carvone (2244-16-8) · L-Carvone (99-49-0),0.1998,declarado,C-004: PerfumersWorld: certificado de conformidad de «celery seed essential oil» (7SH00100),1
@@ -196,7 +188,7 @@ fig:1497,IFRA_STD_186,D-Limonene (5989-27-5),21.7608,declarado,C-004: PerfumersW
 fig:1497,IFRA_STD_187,Linalool (78-70-6),2.9272,declarado,C-004: PerfumersWorld: certificado de conformidad de «citrus hystrix lime leaf essential oil» (7CK01077),2
 fig:1497,IFRA_STD_206,Citronellal (106-23-0),70.2603,declarado,C-004: PerfumersWorld: certificado de conformidad de «citrus hystrix lime leaf essential oil» (7CK01077),1
 fig:1506,IFRA_STD_021,Citral (5392-40-5),0.2525,declarado,C-004: PerfumersWorld: certificado de conformidad de «clary sage essential oil» (7HH00121),1
-fig:1506,IFRA_STD_023,Beta-Caryophyllene (91-64-5) · Coumarin (91-64-5),0.0354,declarado,C-004: PerfumersWorld: certificado de conformidad de «clary sage essential oil» (7HH00121),1
+fig:1506,IFRA_STD_023,Beta-Caryophyllene (91-64-5),0.0177,declarado,C-004: PerfumersWorld: certificado de conformidad de «clary sage essential oil» (7HH00121),1
 fig:1506,IFRA_STD_037,Geraniol (106-24-1),0.8027,declarado,C-004: PerfumersWorld: certificado de conformidad de «clary sage essential oil» (7HH00121),1
 fig:1506,IFRA_STD_183,Sclareol (515-03-7),0.5147,declarado,C-004: PerfumersWorld: certificado de conformidad de «clary sage essential oil» (7HH00121),1
 fig:1506,IFRA_STD_186,Limonene (5989-27-5),0.1372,declarado,C-004: PerfumersWorld: certificado de conformidad de «clary sage essential oil» (7HH00121),1
@@ -217,7 +209,6 @@ fig:1603,IFRA_STD_186,Limonene (5989-27-5),4.91,declarado,C-004: PerfumersWorld:
 fig:1603,IFRA_STD_187,Linalool (78-70-6),3.0387,declarado,C-004: PerfumersWorld: certificado de conformidad de «lemongrass essential oil» (7CC00272),1
 fig:1603,IFRA_STD_205,"3,7-Dimethyl-3,6-Octadienal (55722-59-3)",0.5433,declarado,C-004: PerfumersWorld: certificado de conformidad de «lemongrass essential oil» (7CC00272),1
 fig:1603,IFRA_STD_206,Citronellal (106-23-0),0.1936,declarado,C-004: PerfumersWorld: certificado de conformidad de «lemongrass essential oil» (7CC00272),1
-fig:1607,IFRA_STD_186,D-Limonene (5989-27-5),0.0551,declarado,C-004: PerfumersWorld: certificado de conformidad de «nagarmotha oil » (7WU09815),1
 fig:1619,IFRA_STD_007,Benzaldehyde (100-52-7),0.03,típico,C-003: Perfumiarz: lista de alérgenos 81ALL_20250227_E2230.pdf,1
 fig:1619,IFRA_STD_008,Benzyl Alcohol (100-51-6),0.02,típico,C-003: Perfumiarz: lista de alérgenos 81ALL_20250227_E2230.pdf,1
 fig:1619,IFRA_STD_016,Carvone (2244-16-8),0.001,típico,C-003: Perfumiarz: lista de alérgenos 81ALL_20250227_E2230.pdf,1
@@ -261,13 +252,6 @@ fig:1910,IFRA_STD_037,Geraniol (106-24-1),13.6149,declarado,C-004: PerfumersWorl
 fig:1910,IFRA_STD_186,D-Limonene (5989-27-5),0.0955,declarado,C-004: PerfumersWorld: certificado de conformidad de «geranium bourbon essential oil» (7RB00930),2
 fig:1910,IFRA_STD_187,Linalool (78-70-6),4.5194,declarado,C-004: PerfumersWorld: certificado de conformidad de «geranium essential oil» (7RB00205),2
 fig:1910,IFRA_STD_206,Citronellal (106-23-0),0.0618,declarado,C-004: PerfumersWorld: certificado de conformidad de «geranium bourbon essential oil» (7RB00930),2
-fig:1916,IFRA_STD_021,Citral (5392-40-5),0.0101,declarado,C-004: PerfumersWorld: certificado de conformidad de «rhodinol ex citronella» (3RB07724),1
-fig:1916,IFRA_STD_022,Citronellol (106-22-9),47.0646,declarado,C-004: PerfumersWorld: certificado de conformidad de «rhodinol ex citronella» (3RB07724),1
-fig:1916,IFRA_STD_037,Geraniol (106-24-1),47.1666,declarado,C-004: PerfumersWorld: certificado de conformidad de «rhodinol ex citronella» (3RB07724),1
-fig:1916,IFRA_STD_043,Hydroxycitronellal (107-75-5),0.2673,declarado,C-004: PerfumersWorld: certificado de conformidad de «rhodinol ex citronella» (3RB07724),1
-fig:1916,IFRA_STD_186,D-Limonene (5989-27-5),0.0008,declarado,C-004: PerfumersWorld: certificado de conformidad de «rhodinol ex citronella» (3RB07724),1
-fig:1916,IFRA_STD_187,Linalool (78-70-6),0.0452,declarado,C-004: PerfumersWorld: certificado de conformidad de «rhodinol ex citronella» (3RB07724),1
-fig:1916,IFRA_STD_206,Citronellal (106-23-0),0.0303,declarado,C-004: PerfumersWorld: certificado de conformidad de «rhodinol ex citronella» (3RB07724),1
 fig:1950,IFRA_STD_016,Carvone (99-49-0) · L-Carvone (99-49-0),0.5263,declarado,C-004: PerfumersWorld: certificado de conformidad de «grapefruit white essential oil» (7CA00868),2
 fig:1950,IFRA_STD_021,Citral (5392-40-5),0.1428,declarado,C-004: PerfumersWorld: certificado de conformidad de «grapefruit white essential oil» (7CA00868),2
 fig:1950,IFRA_STD_052,Perilla Aldehyde (2111-75-3),0.0234,declarado,C-004: PerfumersWorld: certificado de conformidad de «grapefruit pink essential oil» (7CN00210),1
@@ -362,22 +346,16 @@ fig:2240,IFRA_STD_186,D-Limonene (5989-27-5),13.3938,declarado,C-004: PerfumersW
 fig:2240,IFRA_STD_187,Linalool (78-70-6),1.2836,declarado,C-004: PerfumersWorld: certificado de conformidad de «litsea cubeba essential oil» (7CC00280),1
 fig:2240,IFRA_STD_205,Iso-Neral (72203-97-5) · Isocitral (55722-59-3),0.512,declarado,C-004: PerfumersWorld: certificado de conformidad de «litsea cubeba essential oil» (7CC00280),1
 fig:2240,IFRA_STD_206,Citronellal (106-23-0),0.5125,declarado,C-004: PerfumersWorld: certificado de conformidad de «litsea cubeba essential oil» (7CC00280),1
-fig:2261,IFRA_STD_016,Carvone (99-49-0) · L-Carvone (99-49-0),0.0177,declarado,C-004: PerfumersWorld: certificado de conformidad de «tangerine essential oil» (7CA00857),2
-fig:2261,IFRA_STD_021,Citral (141-27-5) · Citral (5392-40-5),0.1144,declarado,C-004: PerfumersWorld: certificado de conformidad de «mandarin essential oil» (7CA00285),2
-fig:2261,IFRA_STD_052,Perilla Aldehyde (2111-75-3),0.0355,declarado,C-004: PerfumersWorld: certificado de conformidad de «tangerine essential oil» (7CA00857),1
-fig:2261,IFRA_STD_094,Methyl N-Methylanthranilate (85-91-6),2.5814,declarado,C-004: PerfumersWorld: certificado de conformidad de «tangerine essential oil» (7CA00857),2
+fig:2261,IFRA_STD_016,Carvone (99-49-0),0.0074,declarado,C-004: PerfumersWorld: certificado de conformidad de «mandarin essential oil» (7CA00285),1
+fig:2261,IFRA_STD_021,Citral (141-27-5),0.1144,declarado,C-004: PerfumersWorld: certificado de conformidad de «mandarin essential oil» (7CA00285),1
+fig:2261,IFRA_STD_094,Methyl N-Methylanthranilate (85-91-6),0.1171,declarado,C-004: PerfumersWorld: certificado de conformidad de «mandarin essential oil» (7CA00285),1
 fig:2261,IFRA_STD_101,Methyl N-Formylanthranilate (41270-80-8),0.0036,declarado,C-004: PerfumersWorld: certificado de conformidad de «mandarin essential oil» (7CA00285),1
-fig:2261,IFRA_STD_186,D-Limonene (5989-27-5) · Limonene (5989-27-5),84.5798,declarado,C-004: PerfumersWorld: certificado de conformidad de «tangerine essential oil» (7CA00857),2
-fig:2261,IFRA_STD_187,Linalool (78-70-6),1.1293,declarado,C-004: PerfumersWorld: certificado de conformidad de «tangerine essential oil» (7CA00857),1
-fig:2261,IFRA_STD_206,Citronellal (106-23-0),0.122,declarado,C-004: PerfumersWorld: certificado de conformidad de «tangerine essential oil» (7CA00857),1
-fig:2262,IFRA_STD_016,Carvone (99-49-0) · L-Carvone (99-49-0),0.0177,declarado,C-004: PerfumersWorld: certificado de conformidad de «tangerine essential oil» (7CA00857),2
-fig:2262,IFRA_STD_021,Citral (141-27-5) · Citral (5392-40-5),0.1144,declarado,C-004: PerfumersWorld: certificado de conformidad de «mandarin essential oil» (7CA00285),2
-fig:2262,IFRA_STD_052,Perilla Aldehyde (2111-75-3),0.0355,declarado,C-004: PerfumersWorld: certificado de conformidad de «tangerine essential oil» (7CA00857),1
-fig:2262,IFRA_STD_094,Methyl N-Methylanthranilate (85-91-6),2.5814,declarado,C-004: PerfumersWorld: certificado de conformidad de «tangerine essential oil» (7CA00857),2
+fig:2261,IFRA_STD_186,Limonene (5989-27-5),74.8701,declarado,C-004: PerfumersWorld: certificado de conformidad de «mandarin essential oil» (7CA00285),1
+fig:2262,IFRA_STD_016,Carvone (99-49-0),0.0074,declarado,C-004: PerfumersWorld: certificado de conformidad de «mandarin essential oil» (7CA00285),1
+fig:2262,IFRA_STD_021,Citral (141-27-5),0.1144,declarado,C-004: PerfumersWorld: certificado de conformidad de «mandarin essential oil» (7CA00285),1
+fig:2262,IFRA_STD_094,Methyl N-Methylanthranilate (85-91-6),0.1171,declarado,C-004: PerfumersWorld: certificado de conformidad de «mandarin essential oil» (7CA00285),1
 fig:2262,IFRA_STD_101,Methyl N-Formylanthranilate (41270-80-8),0.0036,declarado,C-004: PerfumersWorld: certificado de conformidad de «mandarin essential oil» (7CA00285),1
-fig:2262,IFRA_STD_186,D-Limonene (5989-27-5) · Limonene (5989-27-5),84.5798,declarado,C-004: PerfumersWorld: certificado de conformidad de «tangerine essential oil» (7CA00857),2
-fig:2262,IFRA_STD_187,Linalool (78-70-6),1.1293,declarado,C-004: PerfumersWorld: certificado de conformidad de «tangerine essential oil» (7CA00857),1
-fig:2262,IFRA_STD_206,Citronellal (106-23-0),0.122,declarado,C-004: PerfumersWorld: certificado de conformidad de «tangerine essential oil» (7CA00857),1
+fig:2262,IFRA_STD_186,Limonene (5989-27-5),74.8701,declarado,C-004: PerfumersWorld: certificado de conformidad de «mandarin essential oil» (7CA00285),1
 fig:2270,IFRA_STD_016,L-Carvone (99-49-0),0.0233,declarado,C-004: PerfumersWorld: certificado de conformidad de «oregano essential oil» (7PS00342),1
 fig:2270,IFRA_STD_082,Safranal (116-26-7),7.4679,declarado,C-004: PerfumersWorld: certificado de conformidad de «oregano essential oil» (7PS00342),1
 fig:2270,IFRA_STD_187,Linalool (78-70-6),5.0836,declarado,C-004: PerfumersWorld: certificado de conformidad de «oregano essential oil» (7PS00342),1
@@ -395,9 +373,6 @@ fig:2276,IFRA_STD_061,Methyl Heptadienone (1604-28-0),0.2256,declarado,C-004: Pe
 fig:2276,IFRA_STD_077,Rose Ketones (23696-85-7),0.0048,máximo,C-003: Perfumiarz: lista de alérgenos W13044_ALG_09-23.pdf,1
 fig:2276,IFRA_STD_186,Limonene (138-86-3),0.0036,máximo,C-003: Perfumiarz: lista de alérgenos W13044_ALG_09-23.pdf,1
 fig:2276,IFRA_STD_187,Linalool (78-70-6),0.012,máximo,C-003: Perfumiarz: lista de alérgenos W13044_ALG_09-23.pdf,1
-fig:2285,IFRA_STD_016,L-Carvone (99-49-0),0.0985,declarado,C-004: PerfumersWorld: certificado de conformidad de «cornmint essential oil china» (7BB00832),1
-fig:2285,IFRA_STD_186,D-Limonene (5989-27-5),2.6475,declarado,C-004: PerfumersWorld: certificado de conformidad de «cornmint essential oil china» (7BB00832),1
-fig:2285,IFRA_STD_187,Linalool (78-70-6),0.1942,declarado,C-004: PerfumersWorld: certificado de conformidad de «cornmint essential oil china» (7BB00832),1
 fig:2313,IFRA_STD_008,Benzyl Alcohol (100-51-6),0.006,típico,C-003: Perfumiarz: lista de alérgenos H01209_ALG_08-23.pdf,1
 fig:2320,IFRA_STD_062,Methyl 2-octynoate (111-12-6),0.25,máximo,C-003: Perfumiarz: lista de alérgenos V13078_ALG_10-24.pdf,1
 fig:2357,IFRA_STD_016,L-Carvone (99-49-0),0.0002,declarado,C-004: PerfumersWorld: certificado de conformidad de «ultralia» (6II13551),1
@@ -435,12 +410,10 @@ fig:2472,IFRA_STD_048,Isoeugenol (97-54-1),0.5068,declarado,C-004: PerfumersWorl
 fig:2472,IFRA_STD_100,Methyl Eugenol (93-15-2),0.1812,declarado,C-004: PerfumersWorld: certificado de conformidad de «nutmeg essential oil» (7SC00327),1
 fig:2472,IFRA_STD_179,Safrole (94-59-7),2.5935,declarado,C-004: PerfumersWorld: certificado de conformidad de «nutmeg essential oil» (7SC00327),1
 fig:2472,IFRA_STD_186,D-Limonene (5989-27-5),2.9033,declarado,C-004: PerfumersWorld: certificado de conformidad de «nutmeg essential oil» (7SC00327),1
-fig:2480,IFRA_STD_080,Treemoss Extracts (90028-67-4),100,declarado,C-004: PerfumersWorld: certificado de conformidad de «treemoss absolute» (8YT00576),1
 fig:2510,IFRA_STD_036,Farnesol (4602-84-0),0.2,máximo,C-003: Perfumiarz: lista de alérgenos W03207_ALG_10-23.pdf,1
 fig:2521,IFRA_STD_009,Benzyl Benzoate (120-51-4),0.0073,declarado,C-004: PerfumersWorld: certificado de conformidad de «olibanum essential oil» (7QK00333),1
 fig:2521,IFRA_STD_016,Carvone (99-49-0),0.1853,declarado,C-004: PerfumersWorld: certificado de conformidad de «olibanum essential oil» (7QK00333),1
 fig:2521,IFRA_STD_187,Linalool (78-70-6),0.1814,declarado,C-004: PerfumersWorld: certificado de conformidad de «olibanum essential oil» (7QK00333),1
-fig:2533,IFRA_STD_070,Opoponax (93384-32-8),100,declarado,C-004: PerfumersWorld: certificado de conformidad de «opoponax essential oil» (7QC00336),1
 fig:2538,IFRA_STD_007,Benzaldehyde (100-52-7),0.0061,declarado,C-004: PerfumersWorld: certificado de conformidad de «orange flower absolute» (8NC00338),1
 fig:2538,IFRA_STD_037,Geraniol (106-24-1),0.7383,declarado,C-004: PerfumersWorld: certificado de conformidad de «orange flower absolute» (8NC00338),1
 fig:2538,IFRA_STD_094,Methyl N-Methylanthranilate (85-91-6),0.0026,declarado,C-004: PerfumersWorld: certificado de conformidad de «orange flower absolute» (8NC00338),1
@@ -505,7 +478,6 @@ fig:2656,IFRA_STD_007,Benzaldehyde (100-52-7),0.02,máximo,C-003: Perfumiarz: li
 fig:2679,IFRA_STD_022,Citronellol (106-22-9),0.1,típico,C-003: Perfumiarz: lista de alérgenos H16195_ALG_01-23_dd8261e7-7fe8-4635-9a1c-558812500e07.pdf,1
 fig:2679,IFRA_STD_037,Geraniol (106-24-1),0.1,típico,C-003: Perfumiarz: lista de alérgenos H16195_ALG_01-23_dd8261e7-7fe8-4635-9a1c-558812500e07.pdf,1
 fig:2679,IFRA_STD_186,Limonene (138-86-3),0.1,típico,C-003: Perfumiarz: lista de alérgenos H16195_ALG_01-23_dd8261e7-7fe8-4635-9a1c-558812500e07.pdf,1
-fig:2681,IFRA_STD_073,Phenyl Acetaldehyde (122-78-1),100,declarado,C-004: PerfumersWorld: certificado de conformidad de «phenyl acetaldehyde dimethyl acetal (padma)» (4GN00382),1
 fig:2683,IFRA_STD_007,Benzaldehyde (100-52-7),0.01,típico,C-003: Perfumiarz: lista de alérgenos H07120_ALG_08-24.pdf,1
 fig:2683,IFRA_STD_008,Benzyl Alcohol (100-51-6),0.006,típico,C-003: Perfumiarz: lista de alérgenos H07120_ALG_08-24.pdf,1
 fig:2688,IFRA_STD_007,Benzaldehyde (100-52-7),0.01,típico,C-003: Perfumiarz: lista de alérgenos 5846393_ANTHER_Allergen_Extended_List_Ingredient_20240206.pdf,1
@@ -535,7 +507,6 @@ fig:2847,IFRA_STD_022,Citronellol (106-22-9),0.003,típico,C-003: Perfumiarz: li
 fig:2847,IFRA_STD_035,Eugenol (97-53-0),0.006,típico,C-003: Perfumiarz: lista de alérgenos H19078_ALG_04-24.pdf,1
 fig:2847,IFRA_STD_186,Limonene (138-86-3),0.007,típico,C-003: Perfumiarz: lista de alérgenos H19078_ALG_04-24.pdf,1
 fig:2847,IFRA_STD_187,Linalool (78-70-6),0.004,típico,C-003: Perfumiarz: lista de alérgenos H19078_ALG_04-24.pdf,1
-fig:2855,IFRA_STD_186,D-Limonene (5989-27-5),8.3302,declarado,C-004: PerfumersWorld: certificado de conformidad de «pink pepper essential oil» (7SC00941),1
 fig:2859,IFRA_STD_007,Benzaldehyde (100-52-7),0.0024,máximo,C-003: Perfumiarz: lista de alérgenos W16092_ALG_09-23.pdf,1
 fig:2859,IFRA_STD_016,Carvone (2244-16-8),0.0084,máximo,C-003: Perfumiarz: lista de alérgenos W16092_ALG_09-23.pdf,1
 fig:2859,IFRA_STD_022,Citronellol (106-22-9),0.05,máximo,C-003: Perfumiarz: lista de alérgenos W16092_ALG_09-23.pdf,1
@@ -566,14 +537,6 @@ fig:2914,IFRA_STD_035,Eugenol (97-53-0),0.007,máximo,C-003: Perfumiarz: lista d
 fig:2914,IFRA_STD_048,Isoeugenol (5932-68-3),0.008,máximo,C-003: Perfumiarz: lista de alérgenos W19840_ALG_09-23.pdf,1
 fig:2914,IFRA_STD_186,Limonene (138-86-3),0.006,máximo,C-003: Perfumiarz: lista de alérgenos W19840_ALG_09-23.pdf,1
 fig:2914,IFRA_STD_187,Linalool (78-70-6),0.008,máximo,C-003: Perfumiarz: lista de alérgenos W19840_ALG_09-23.pdf,1
-fig:2933,IFRA_STD_016,L-Carvone (99-49-0),0.0405,declarado,C-004: PerfumersWorld: certificado de conformidad de «estragon oil» (7PH00170),1
-fig:2933,IFRA_STD_035,Eugenol (97-53-0),0.0259,declarado,C-004: PerfumersWorld: certificado de conformidad de «estragon oil» (7PH00170),1
-fig:2933,IFRA_STD_054,Anis Aldehyde (123-11-5),0.6558,declarado,C-004: PerfumersWorld: certificado de conformidad de «estragon oil» (7PH00170),1
-fig:2933,IFRA_STD_099,Estragole (140-67-0),82.8221,declarado,C-004: PerfumersWorld: certificado de conformidad de «estragon oil» (7PH00170),1
-fig:2933,IFRA_STD_100,Methyl Eugenol (93-15-2),1.3272,declarado,C-004: PerfumersWorld: certificado de conformidad de «estragon oil» (7PH00170),1
-fig:2933,IFRA_STD_158,7-Methoxycoumarin (531-59-9),0.0504,declarado,C-004: PerfumersWorld: certificado de conformidad de «estragon oil» (7PH00170),1
-fig:2933,IFRA_STD_186,D-Limonene (5989-27-5),0.0418,declarado,C-004: PerfumersWorld: certificado de conformidad de «estragon oil» (7PH00170),1
-fig:2933,IFRA_STD_187,Linalool (78-70-6),0.0213,declarado,C-004: PerfumersWorld: certificado de conformidad de «estragon oil» (7PH00170),1
 fig:295,IFRA_STD_008,Benzyl Alcohol (100-51-6),0.007,típico,C-003: Perfumiarz: lista de alérgenos 0015893_SAFRALEINE_Allergen_Extended_List_Ingredient_20250416.pdf,1
 fig:2950,IFRA_STD_186,Limonene (138-86-3),0.8782,máximo,C-003: Perfumiarz: lista de alérgenos T01220_ALG_11-23.pdf,1
 fig:2976,IFRA_STD_016,L-Carvone (99-49-0),0.0116,declarado,C-004: PerfumersWorld: certificado de conformidad de «white thyme essential oil» (7PS00441),1
@@ -639,13 +602,6 @@ fig:935,IFRA_STD_186,Limonene (138-86-3),0.045,típico,C-003: Perfumiarz: lista 
 fig:936,IFRA_STD_007,Benzaldehyde (100-52-7),0.007,típico,C-003: Perfumiarz: lista de alérgenos 7989003_METHYL_QUINOLINE_PARA_Allergen_Extended_List_Ingredient_20231019.pdf,1
 fig:975,IFRA_STD_007,Benzaldehyde (100-52-7),0.002,típico,C-003: Perfumiarz: lista de alérgenos H03262_ALG_02-24.pdf,1
 fig:998,IFRA_STD_007,Benzaldehyde (100-52-7),0.0557,declarado,C-004: PerfumersWorld: certificado de conformidad de «agarwood oil siam» (7WU09890),1
-ncs:bay-leaf-west-indian-oil,IFRA_STD_021,Citral (5392-40-5),0.0985,declarado,C-004: PerfumersWorld: certificado de conformidad de «bay west indies essential oil» (7SP00048),1
-ncs:bay-leaf-west-indian-oil,IFRA_STD_035,Eugenol (97-53-0),61.0035,declarado,C-004: PerfumersWorld: certificado de conformidad de «bay west indies essential oil» (7SP00048),1
-ncs:bay-leaf-west-indian-oil,IFRA_STD_037,Geraniol (106-24-1),0.0283,declarado,C-004: PerfumersWorld: certificado de conformidad de «bay west indies essential oil» (7SP00048),1
-ncs:bay-leaf-west-indian-oil,IFRA_STD_099,Estragole (140-67-0),0.1544,declarado,C-004: PerfumersWorld: certificado de conformidad de «bay west indies essential oil» (7SP00048),1
-ncs:bay-leaf-west-indian-oil,IFRA_STD_100,Methyl Eugenol (93-15-2),1.9006,declarado,C-004: PerfumersWorld: certificado de conformidad de «bay west indies essential oil» (7SP00048),1
-ncs:bay-leaf-west-indian-oil,IFRA_STD_186,D-Limonene (5989-27-5),2.1054,declarado,C-004: PerfumersWorld: certificado de conformidad de «bay west indies essential oil» (7SP00048),1
-ncs:bay-leaf-west-indian-oil,IFRA_STD_187,Linalool (78-70-6),3.4236,declarado,C-004: PerfumersWorld: certificado de conformidad de «bay west indies essential oil» (7SP00048),1
 ncs:lime-oil-distilled,IFRA_STD_016,L-Carvone (99-49-0),0.0094,declarado,C-004: PerfumersWorld: certificado de conformidad de «lime distilled essential oil» (7CK00274),1
 ncs:lime-oil-distilled,IFRA_STD_021,Citral (5392-40-5),0.7556,declarado,C-004: PerfumersWorld: certificado de conformidad de «lime distilled essential oil» (7CK00274),1
 ncs:lime-oil-distilled,IFRA_STD_186,D-Limonene (5989-27-5),47.9454,declarado,C-004: PerfumersWorld: certificado de conformidad de «lime distilled essential oil» (7CK00274),1

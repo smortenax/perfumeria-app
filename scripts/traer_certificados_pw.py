@@ -19,6 +19,15 @@ cifras serían del producto diluido, no del material.
   ninguna; si el nombre no dice forma, solo si el CAS tiene un único natural. Si no, queda sin asignar,
   nunca a otra forma: los constituyentes cambian con la forma (P54).
 
+**Las tablas.** La de restringidas, la de prohibidas y la declaración de alérgenos, que también
+lista sustancias reguladas: de cada sustancia cuenta la cifra más alta. **El «No restricted materials
+found» no se toma como dato**: en 45 páginas la propia declaración de alérgenos lo contradice.
+
+**Fuera:** un producto que declara un diluyente de la app al 20 % o más (es una disolución); un
+natural que no es un aceite esencial de PerfumersWorld (una base suya, un aislado), o cuyo nombre no
+comparte ninguna palabra con los del material; y una sustancia declarada al 95 % o más, que es el
+propio producto con otro nombre.
+
 **Las filas.** Una por sustancia declarada, con su estándar IFRA (de `datos/ifra/51/estandar-cas.csv`).
 La sustancia que es el propio material no se repite. `auditoria` sale por regla: `aceptada` si el
 producto se asignó, la cifra se leyó y la sustancia tiene estándar; si no, dice por qué. **El
@@ -138,6 +147,35 @@ def table(text: str, title: str) -> list[tuple[str, str, str]]:
     return rows
 
 
+# The CAS of the app's diluents: a product that declares one of them at 20 % or more is a solution
+# (PerfumersWorld's benzoin Sumatra resinoid, 89 % benzyl benzoate), and its figures are not the material's.
+SOLVENT_CAS = {"64-17-5", "25265-71-8", "110-27-0", "84-66-2", "77-93-0", "102-76-1", "120-51-4"}
+SOLUTION_PCT = 20
+# A substance declared at 95 % or more is the product itself under another name or CAS (Mayol, an
+# acetal declared as its aldehyde): not a constituent.
+ITSELF_PCT = 95
+
+
+def allergen_table(text: str) -> list[tuple[str, str, str]]:
+    """The rows (name, CAS, %) of the certificate's allergen declaration, which also lists regulated
+    substances: a page can say «No restricted materials found» and declare linalool there."""
+    at = text.find("Allergen Declaration")
+    if at < 0:
+        return []
+    rows = []
+    for tr in re.findall(r"<tr[^>]*>(.*?)</tr>", text[at:], re.S):
+        cells = [" ".join(html.unescape(re.sub(r"<[^>]+>", " ", c)).split()) for c in re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", tr, re.S)]
+        if len(cells) >= 3 and CAS_RE.match(cells[1]):
+            rows.append((cells[0], cells[1], cells[2]))
+    return rows
+
+
+def names_of(m: dict) -> set[str]:
+    """Every word of every name of a material: the glossary's, IFRA's, the synonyms and the shops'."""
+    text = " ".join(m.get(k, "") for k in ("nombre", "nombre_ifra", "sinonimos", "nombres_transparencia", "nombres_proveedores", "nombre_comercial"))
+    return set(re.findall(r"[a-z0-9]+", text.lower())) - FORM_WORDS
+
+
 def main() -> int:
     with MATERIALS.open(encoding="utf-8", newline="") as f:
         materials = list(csv.DictReader(f))
@@ -163,28 +201,43 @@ def main() -> int:
             continue
         restricted = table(text, "IFRA Restricted materials")
         prohibited = table(text, "IFRA Prohibited materials")
-        if not restricted and not prohibited:
+        allergens = allergen_table(text)
+        if not restricted and not prohibited and not allergens:
             empty += 1
+            continue
+        number = lambda pct: float(pct.replace(",", ".")) if re.fullmatch(r"\d+(?:[.,]\d+)?", pct) else 0.0
+        if any(cas in SOLVENT_CAS and number(pct) >= SOLUTION_PCT for _, cas, pct in restricted + allergens):
+            unassigned.append({**p, "por": "disuelto en un diluyente"})
             continue
         targets: list[dict] = []
         for c in p["cas"]:
             group = by_cas.get(c, [])
             mols = [m for m in group if m["clase"] == "molécula"]
-            nats = [m for m in group if m["clase"] == "natural"]
+            # A natural, only by its own CAS and only from an essential oil of PerfumersWorld: a base of
+            # theirs («jasmine sambac blossoms») or an isolate («rhodinol ex citronella») is not the natural.
+            nats = [m for m in group if m["clase"] == "natural" and m["cas"] == c and p["category"] == "essential oils"]
             if mols:
                 targets += mols
             elif nats:
                 form = form_of(p["name"])
                 same = [m for m in nats if m["tipo_natural"] == form] if form else []
                 targets += by_variety(p["name"], same) if same else (nats if len(nats) == 1 else [])
+        # The product's name has to share a word with some name of the material («treemoss» is not oakmoss).
+        said = set(re.findall(r"[a-z0-9]+", p["name"].lower())) - FORM_WORDS
+        targets = [m for m in targets if m["clase"] != "natural" or said & names_of(m)]
         url = f"{BASE}document-list.php?pro_id={p['sku']}"
         if not targets:
-            unassigned.append(p)
+            unassigned.append({**p, "por": "forma o nombre no casan"})
             continue
+        # Every substance once, with the highest figure of the tables that declare it.
+        declared: dict[str, tuple[str, str, str]] = {}
+        for kind, rows in (("prohibida", prohibited), ("restringida", restricted), ("alérgeno", allergens)):
+            for name, cas, pct in rows:
+                if cas not in declared or number(pct) > number(declared[cas][1]):
+                    declared[cas] = (name, pct, kind)
         for m in {m["id"]: m for m in targets}.values():
-            for kind, rows in (("restringida", restricted), ("prohibida", prohibited)):
-                for name, cas, pct in rows:
-                    if cas == m["cas"]:
+            for cas, (name, pct, kind) in declared.items():
+                    if cas == m["cas"] or number(pct) >= ITSELF_PCT:
                         continue
                     value = pct.replace(",", ".")
                     ok_value = re.fullmatch(r"\d+(?:\.\d+)?", value) is not None
@@ -196,7 +249,8 @@ def main() -> int:
                         "max_pct": value if ok_value else "", "tipo_valor": "declarado",
                         "fuente": f"PerfumersWorld: certificado de conformidad de «{p['name']}» ({p['sku']})",
                         "tipo_fuente": "proveedor", "url": url, "consultado": today,
-                        "cita": f"{name} {cas} {pct}", "notas": f"tabla «IFRA {kind.capitalize()} materials» del certificado",
+                        "cita": f"{name} {cas} {pct}",
+                        "notas": "declaración de alérgenos del certificado" if kind == "alérgeno" else f"tabla «IFRA {kind.capitalize()} materials» del certificado",
                         "auditoria": audit,
                     })
     with OUT.open("w", encoding="utf-8", newline="") as f:
@@ -211,12 +265,12 @@ def main() -> int:
         "",
         f"- Productos con CAS del glosario, sin diluir: {len(chosen)}.",
         f"- Sin certificado con tablas: {empty}. Sin página (error o bloqueo): {failed}.",
-        f"- Sin asignar a un material (forma del natural no clara): {len(unassigned)}.",
+        f"- Sin asignar a un material (con su motivo, abajo): {len(unassigned)}.",
         f"- Filas: {len(out)}; aceptadas: {len(accepted)}, en {len({r['material_id'] for r in accepted})} materiales.",
         "",
         "## Sin asignar",
         "",
-        *[f"- {p['name']} ({p['sku']}, CAS {', '.join(p['cas'])})" for p in unassigned],
+        *[f"- {p['name']} ({p['sku']}, CAS {', '.join(p['cas'])}): {p['por']}" for p in unassigned],
     ]
     SUMMARY.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
     print("\n".join(lines[4:8]))
