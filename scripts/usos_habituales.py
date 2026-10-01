@@ -33,7 +33,15 @@ La regla, para que una franja que viene de una mediana pueda rehacerse a mano:
 6. `fuentes` son los nombres cortos de las fuentes de la franja, sin repetir, en orden
    alfabético y separados por « | ». `lote` es el lote del que sale.
 
-Hay una fila por material de los que tienen alguna fila aceptada. Solo usa la biblioteca
+7. **Lotes de búsqueda** (`U-004`, `U-005`: una búsqueda web por material, P60). Sus filas no traen
+   `auditoria`; entran las de base `concentrado`, con cifra, cuya nota no las marque como dudosas
+   («dudos», «reserva», «copia») y que no vengan de TGSC ni de PerfumersWorld (esas ya llegan
+   leídas de su página en U-002). La franja `estandar` es uso habitual y la `techo`, techo; las
+   `trazas` no entran todavía. **Todo lo de la búsqueda de un material cuenta como una sola
+   fuente**, «Búsqueda web (dominios)», porque el resumen del buscador ya mezcla varias.
+
+Todos los lotes se juntan **por material**: una fila por material de los que tienen alguna fila
+que cuente, con `lote` = los lotes de los que sale. Solo usa la biblioteca
 estándar. Uso:  python scripts/usos_habituales.py
 """
 import csv
@@ -46,6 +54,11 @@ ROOT = Path(__file__).resolve().parents[1]
 LOTS_DIR = ROOT / "docs" / "investigacion" / "2026-09-30-usos-y-constituyentes" / "lotes"
 # U-001 was audited by hand; U-002 comes from scripts/traer_usos.py, whose `auditoria` is set by rule.
 LOTS = ["U-001", "U-002"]
+# Search lots (P60): one web search per material, read from the search engine's summary.
+SEARCH_LOTS = ["U-004", "U-005"]
+DOUBTFUL = re.compile(r"dudos|reserva|copia", re.I)
+OLD_SOURCES = re.compile(r"good ?scents|tgsc|perfumersworld|perflavory", re.I)
+DOMAIN = re.compile(r"([a-z0-9-]+(?:\.[a-z0-9-]+)*\.(?:com|net|org|co\.uk|de|fr|es|nl|io|eu|jp))", re.I)
 OUT = ROOT / "datos" / "glosario" / "origen" / "usos-habituales.csv"
 
 HEADER = ["material_id", "nombre", "uso_min_pct", "uso_max_pct", "consenso", "n_fuentes", "fuentes",
@@ -102,7 +115,24 @@ def number(cell: str) -> Fraction | None:
     return Fraction(cell) if cell.strip() else None
 
 
-def build(rows: list[dict], lot: str) -> list[dict]:
+def search_rows(rows: list[dict], lot: str) -> list[dict]:
+    """The rows of a search lot that count, in the shape of an audited lot (rule 7)."""
+    by_material: dict[str, list[dict]] = {}
+    for r in rows:
+        if (r["base"] == "concentrado" and r["franja"] in ("estandar", "techo") and number(r["max_pct"]) is not None
+                and not DOUBTFUL.search(r["notas"]) and not OLD_SOURCES.search(r["fuente"])):
+            by_material.setdefault(r["material_id"], []).append(r)
+    out = []
+    for material, group in by_material.items():
+        domains = sorted({d.lower() for r in group for d in DOMAIN.findall(r["fuente"])})
+        source = f"Búsqueda web ({', '.join(domains)})" if domains else "Búsqueda web"
+        for r in group:
+            out.append({**r, "fuente": source, "auditoria": "aceptada", "lote": lot,
+                        "papel": "habitual" if r["franja"] == "estandar" else "techo"})
+    return out
+
+
+def build(rows: list[dict]) -> list[dict]:
     by_material: dict[str, list[dict]] = {}
     for r in rows:
         if r["auditoria"] == "aceptada":
@@ -139,16 +169,20 @@ def build(rows: list[dict], lot: str) -> list[dict]:
             "techo_pct": decimal(ceiling[0]),
             "techo_fuente": ceiling[1],
             "n_otras_bases": sum(1 for r in group if r["base"] != "concentrado" and r["papel"] == "habitual"),
-            "lote": lot,
+            "lote": " | ".join(sorted({r["lote"] for r in group})),
         })
     return sorted(out, key=lambda r: (r["material_id"].split(":")[0], int(r["material_id"].split(":")[1]) if r["material_id"].split(":")[1].isdigit() else 0, r["material_id"]))
 
 
 def main() -> None:
-    result = []
+    rows = []
     for lot in LOTS:
         with (LOTS_DIR / f"{lot}.csv").open(encoding="utf-8", newline="") as f:
-            result += build(list(csv.DictReader(f)), lot)
+            rows += [{**r, "lote": lot} for r in csv.DictReader(f)]
+    for lot in SEARCH_LOTS:
+        with (LOTS_DIR / f"{lot}.csv").open(encoding="utf-8", newline="") as f:
+            rows += search_rows(list(csv.DictReader(f)), lot)
+    result = build(rows)
     result.sort(key=lambda r: (r["material_id"].split(":")[0], int(r["material_id"].split(":")[1]) if r["material_id"].split(":")[1].isdigit() else 0, r["material_id"]))
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with OUT.open("w", encoding="utf-8", newline="") as f:

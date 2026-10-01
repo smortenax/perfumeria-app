@@ -52,6 +52,10 @@ LAB_NATURALS = ROOT / "datos" / "fuente" / "pieza-13-duracion-naturales.csv"
 USAGES = ROOT / "datos" / "glosario" / "origen" / "usos-habituales.csv"
 OUT = ROOT / "datos" / "glosario"
 # A shop's kind of natural, as the glossary calls it.
+# The CAS of the app's diluents. A natural that a shop sells diluted can carry the solvent's CAS
+# (Maese Lab's cocoa absolute at 10 %: «alcohol (and) Theobroma Cacao Extract», 64-17-5): it is
+# joined by its species, never to the solvent.
+SOLVENT_CAS = {"64-17-5", "25265-71-8", "110-27-0", "84-66-2", "77-93-0", "102-76-1", "120-51-4"}
 SHOP_KIND = {"oil": "oil", "absolute": "absolute", "co2": "extract", "concrete": "concrete", "resinoid": "resinoid",
              "tincture": "tincture", "oleoresin": "oleoresin"}
 
@@ -456,7 +460,9 @@ def main() -> None:
             by_loose.setdefault(core_words(m["nombre"], parts=False), []).append(m)
 
     def shop_targets(r: dict) -> tuple[list[dict], str]:
-        for how, cas_set in (("cas", {r["cas"]}), ("cas del anexo", alt_of.get(r["cas"], set())),
+        diluted = r["clase"] != "molécula" and r["cas"] in SOLVENT_CAS
+        own = set() if diluted else {r["cas"]}
+        for how, cas_set in (("cas", own), ("cas del anexo", set() if diluted else alt_of.get(r["cas"], set())),
                              ("especie", species_of.get(species(r["inci"]), set()) if r["clase"] != "molécula" else set())):
             found = list({id(m): m for c in sorted(cas_set) for m in by_any_cas.get(c, [])}.values())
             if found:

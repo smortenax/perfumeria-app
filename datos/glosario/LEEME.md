@@ -126,7 +126,10 @@ donde el lote no cubre el material: un hueco, nunca cero** (§1.2). Salen de
 ([auditoría](../../docs/investigacion/2026-09-30-usos-y-constituyentes/auditorias/U-001.md)), y el U-002,
 que trae [`scripts/traer_usos.py`](../../scripts/traer_usos.py) de TGSC y PerfumersWorld por CAS (su
 `auditoria` sale por regla, no a ojo: [resumen](../../docs/investigacion/2026-09-30-usos-y-constituyentes/lotes/U-002-resumen.md)).
-La regla, con sus pasos, está en el docstring del script.
+Además, los **lotes de búsqueda** U-004 y U-005 (P60: una búsqueda web por material, leída del
+resumen del buscador): todo lo de la búsqueda de un material cuenta como **una sola fuente**,
+«Búsqueda web (dominios)». Los lotes se juntan por material. La regla, con sus pasos, está en el
+docstring del script.
 
 | Columna | Qué es |
 |---|---|
@@ -138,9 +141,13 @@ La regla, con sus pasos, está en el docstring del script.
 | `uso_techo_fuente` | de qué fuente sale ese techo |
 
 Las filas de base `producto` o `desconocida` no entran en la franja ni se convierten. **A
-2026-10-01 son 303 materiales con franja**: **49 con `consenso` y 254 con
-`recomendacion`** (los 250 nuevos de U-002 tienen una sola fuente para la franja: PerfumersWorld). Hay
-**1.672 con techo de uso**, pero un techo solo, sin franja (TGSC), no sale en la ficha: queda en el CSV.
+2026-10-01, con el lote 1 de U-005, son 333 materiales con franja**: **64 con `consenso` y 269
+con `recomendacion`**. Hay **1.687 con techo de uso**; los 1.364 que solo tienen techo salen en
+la ficha como «solo techo», con su fuente, sin franja (P59 A).
+
+Un natural que una tienda vende diluido puede traer el CAS del disolvente (el absoluto de cacao
+al 10 % de Maese Lab, con el del etanol): no se une al disolvente, sino por su especie, o queda
+en `proveedores-sin-unir.csv`.
 
 ## Los nombres comerciales, por encima (P38)
 

@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 import lot1 from "../../docs/investigacion/2026-09-30-usos-y-constituyentes/lotes/U-001.csv?raw";
 import lot2 from "../../docs/investigacion/2026-09-30-usos-y-constituyentes/lotes/U-002.csv?raw";
+import lot4 from "../../docs/investigacion/2026-09-30-usos-y-constituyentes/lotes/U-004.csv?raw";
+import lot5 from "../../docs/investigacion/2026-09-30-usos-y-constituyentes/lotes/U-005.csv?raw";
 import written from "../../datos/glosario/origen/usos-habituales.csv?raw";
 import { Ratio } from "../core/arith/ratio";
 import { bandOf } from "../bench/usage-bar";
@@ -24,14 +26,17 @@ describe("the usual use, from the lots U-001 (audited by hand) and U-002 (script
     const withBand = catalog.entries.filter((e) => e.usage?.max);
     // 53 from U-001 plus 250 from U-002. U-002 is mostly TGSC, which gives only a ceiling, and a ceiling
     // alone is not a band: so most of its 1,672 materials with a ceiling have no band here. They do
-    // have a usage, «techo», with the ceiling alone (P59 A): 1,672 − 303 = 1,369 of them. Of the
+    // have a usage, «techo», with the ceiling alone (P59 A).
+    // Since 2026-10-01 the search lots U-004 and U-005 (P60) add a second source: 333 bands, 64 of
+    // them a consensus. Of the 1,697 materials with some usual use, the other 1,364 have only a ceiling. Of the
     // 250 new bands, 0 add to the consensus count (49 stays) and 250 are a single-source recommendation:
     // a PerfumersWorld minimum/average, or the only source of the band.
-    expect(withBand).toHaveLength(303);
-    expect(withBand.filter((e) => e.usage?.consensus === "consenso")).toHaveLength(49);
-    expect(withBand.filter((e) => e.usage?.consensus === "recomendacion")).toHaveLength(254);
+    expect(withBand).toHaveLength(333);
+    expect(withBand.filter((e) => e.usage?.consensus === "consenso")).toHaveLength(64);
+    expect(withBand.filter((e) => e.usage?.consensus === "recomendacion")).toHaveLength(269);
     const ceilingOnly = catalog.entries.filter((e) => e.usage?.consensus === "techo");
-    expect(ceilingOnly).toHaveLength(1369);
+    expect(ceilingOnly).toHaveLength(1364);
+    expect(parseCsvRecords(written)).toHaveLength(333 + 1364);
     expect(ceilingOnly.every((e) => e.usage?.max === undefined && e.usage?.ceiling !== undefined)).toBe(true);
     // A material the lot does not cover has no band: a gap, never a zero (§1.2).
     expect(catalog.entries.filter((e) => e.group === "diluent").every((e) => e.usage === undefined)).toBe(true);
@@ -69,10 +74,21 @@ describe("the usual use, from the lots U-001 (audited by hand) and U-002 (script
     expect(usage?.ceilingSource).toBe("PerfumersWorld");
   });
 
+  it("counts a web search as one more source, so it can turn a recommendation into a consensus (P60)", () => {
+    // fig:63: PerfumersWorld (U-002) gives 0.3 % From, 3 % Average; the search (U-005, IFF in its
+    // summary) gives 1–10 %. Medians: (0.3 + 1) / 2 = 0.65 %, (3 + 10) / 2 = 6.5 %. Two sources: consensus.
+    const usage = entryOf("fig:63")?.usage;
+    expect(usage?.consensus).toBe("consenso");
+    expect(usage?.sources).toBe("Búsqueda web (iff.com) | PerfumersWorld");
+    expect(usage?.min?.eq(pct("0.65"))).toBe(true);
+    expect(usage?.max?.eq(pct("6.5"))).toBe(true);
+  });
+
   it("can be redone from the audited lot with the rule of the script, for every material", () => {
     const rows = [...parseCsvRecords(lot1), ...parseCsvRecords(lot2)].filter((r) => r.auditoria === "aceptada");
-    const ids = [...new Set(rows.map((r) => r.material_id))];
-    expect(parseCsvRecords(written)).toHaveLength(ids.length);
+    // The materials a search lot also touches are left to the test above: their rule is the script's rule 7.
+    const searched = new Set([...parseCsvRecords(lot4), ...parseCsvRecords(lot5)].map((r) => r.material_id));
+    const ids = [...new Set(rows.map((r) => r.material_id))].filter((id) => !searched.has(id));
     for (const id of ids) {
       const mine = rows.filter((r) => r.material_id === id);
       // A usual row with its usual maximum: the maximum of a «habitual» row, the quote's average of a PerfumersWorld one.
