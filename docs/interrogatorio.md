@@ -2026,9 +2026,21 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
   formas de una planta con el mismo perfil de constituyentes y de uso se pliegan; las que
   difieren se quedan separadas. Hace falta antes el dato: los frentes U y C de
   [la investigación del 2026-09-30](investigacion/2026-09-30-usos-y-constituyentes/README.md).
-- Fecha: 2026-09-29
-- Estado: cerrada en el método; se aplica cuando haya perfiles
-- Destino: decisiones.md §4 (buscador), glosario
+- **Aplicación, 2026-10-01.** Con los usos ya reunidos, el usuario vio que «lav» daba seis
+  sugerencias casi iguales y propuso, en la misma fila, una separación por cada versión.
+  Respuesta literal: *«para los naturales lo dicho se tiene que seleccionar una de las versiones
+  de cada natural pero en el estado actual si buscas lav hay 6 sugerencias que son basicamente lo
+  mismo, para solventar eso yo diria que lo que hay que hacer es que la opcion de lavanda tenga en
+  la misma barra de sugerencias separaciones verticales para cada una de sus versiones [...] aqui
+  puede ser que querer solucionar el problema acabe complicando mas la seleccion, no lo tengo
+  claro, valora»*. Valorado con un boceto: una fila por planta, una pastilla por forma, y las
+  variantes en una segunda línea (el lavandín tiene 16 versiones). Para el uso sin forma, la
+  opción A. Respuesta: *«si, adelante con eso»*.
+- **Lectura de la aplicación:** las formas siguen separadas en el glosario (su IFRA difiere), y
+  se pliegan en el buscador; el uso que no dice su forma vale para todas mientras no tengan el suyo.
+- Fecha: 2026-09-29; aplicada el 2026-10-01
+- Estado: cerrada y aplicada
+- Destino: decisiones.md §4 (buscador: las formas de un natural; el uso por forma), glosario
 
 ### P55 — Los nombres de las tiendas donde compra el usuario
 

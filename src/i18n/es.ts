@@ -75,6 +75,8 @@ export const texts = {
   },
 
   addBar: {
+    /** The plain variant of a form, among its variants (P54). */
+    plainVariant: "normal",
     more: "Material nuevo rápido o fórmula como material",
     quickMaterial: "Material nuevo rápido…",
     formulaAsMaterial: "Fórmula como material…",

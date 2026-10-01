@@ -4,6 +4,7 @@ import { parseMass, parsePercent, type MassUnit } from "../core/arith/units";
 import type { Change } from "../core/model/formula";
 import type { Material } from "../core/model/material";
 import { casForm, normalize, searchCatalog, type CatalogEntry, type IfraState, type MaterialFamily } from "../data/catalog";
+import { defaultOption, formLabel, plantIndex } from "../data/plants";
 import { texts } from "../i18n/es";
 import {
   addOwnDiluent,
@@ -56,10 +57,20 @@ type Result =
       glossaryName?: string;
       /** The other name of the bottle that was typed: it becomes the user's name (P56). */
       bottleName?: string | null;
+      /** A natural's form and variant, as its chip says them (P54). */
+      form?: string;
+      variant?: string;
+      /**
+       * The row of a plant (P54): its forms, one chip each, and the one it starts on. The fields above
+       * are those of that option; the chip the user moves to is in the bar's state.
+       */
+      plant?: { readonly key: string; readonly name: string; readonly options: readonly MaterialResult[]; readonly at: number };
     }
   | { kind: "create"; name: string }
   /** What was typed cannot be a material: a CAS that is not in the glossary (P56). */
   | { kind: "note"; text: string };
+
+type MaterialResult = Extract<Result, { kind: "material" }>;
 
 const samePercent = (a: string, b: string) => a.replace(",", ".") === b.replace(",", ".");
 
@@ -75,6 +86,72 @@ function Switch(props: { checked: boolean; label: string; onChange: (checked: bo
       </span>
       {props.label}
     </button>
+  );
+}
+
+/**
+ * The chips of a plant's row (P54): one per form, in order, and under the row, while it is the active
+ * one, the variants of the form it is on. A form with one option is chosen with a click; one with
+ * variants is marked first, and its variant (or the form again) is chosen. A form with no IFRA data
+ * has a dashed border (§1.2).
+ */
+function PlantChips(props: {
+  plant: NonNullable<MaterialResult["plant"]>;
+  on: Result;
+  active: boolean;
+  onMark: (at: number) => void;
+  onChoose: (r: Result) => void;
+}) {
+  const { plant, on } = props;
+  const form = on.kind === "material" ? on.form : undefined;
+  const forms = [...new Set(plant.options.map((o) => o.form ?? ""))];
+  const variants = plant.options.map((o, at) => ({ o, at })).filter(({ o }) => o.form === form);
+  const press = (e: { preventDefault(): void; stopPropagation(): void }, act: () => void) => {
+    e.preventDefault();
+    e.stopPropagation();
+    act();
+  };
+  return (
+    <>
+      {forms.length > 1 && (
+      <span className="plant-forms">
+        {forms.map((f) => {
+          const at = plant.options.findIndex((o) => (o.form ?? "") === f);
+          const first = plant.options[at];
+          const several = plant.options.filter((o) => (o.form ?? "") === f).length > 1;
+          return (
+            <button
+              key={f}
+              type="button"
+              tabIndex={-1}
+              className={["form-chip", f === form ? "on" : "", first.state === "sin-dato" ? "nodata" : ""].join(" ").trim()}
+              title={`${first.code ?? ""} · ${first.material.name}`}
+              onMouseDown={(e) => press(e, () => (several && f !== form ? props.onMark(at) : props.onChoose(f === form ? on : first)))}
+            >
+              {formLabel(f)}
+            </button>
+          );
+        })}
+      </span>
+      )}
+      {props.active && variants.length > 1 && (
+        <span className="plant-variants">
+          {variants.map(({ o, at }) => (
+            <button
+              key={o.material.key}
+              type="button"
+              tabIndex={-1}
+              className={["form-chip", on.kind === "material" && o.material.key === on.material.key ? "on" : "", o.state === "sin-dato" ? "nodata" : ""].join(" ").trim()}
+              title={`${o.code ?? ""} · ${o.material.name}`}
+              onMouseEnter={() => props.onMark(at)}
+              onMouseDown={(e) => press(e, () => props.onChoose(o))}
+            >
+              {o.variant || t.plainVariant}
+            </button>
+          ))}
+        </span>
+      )}
+    </>
   );
 }
 
@@ -114,6 +191,8 @@ export function AddBar(props: {
   const [selected, setSelected] = useState<Material | null>(null);
   const [open, setOpen] = useState(false);
   const [highlight, setHighlight] = useState(0);
+  /** The chip each plant's row is on, when the user moved it (P54): the index into its options. */
+  const [chips, setChips] = useState<Record<string, number>>({});
   const [quantity, setQuantity] = useState("");
   const [unit, setUnit] = useState<MassUnit>("mg");
   const [prefs, setPrefs] = useState<MaterialPrefs>({ favorites: [] });
@@ -137,6 +216,8 @@ export function AddBar(props: {
   const otherRef = useRef<HTMLDivElement>(null);
 
   const byKey = useMemo(() => new Map(props.entries.map((e) => [e.material.key, e])), [props.entries]);
+  // The forms of every plant, in chip order (P54).
+  const plants = useMemo(() => plantIndex(props.entries), [props.entries]);
 
   // Two cells of % side by side and a wide «Puro» under them (P53): favourites first, then
   // the last one used, then 10 % and 50 %; DPG and alcohol (§4).
@@ -253,7 +334,7 @@ export function AddBar(props: {
       }
       return e.aliases?.find(says);
     };
-    const found: Result[] = searchCatalog(pool, query, 10).map((e) => ({
+    const toResult = (e: CatalogEntry): MaterialResult => ({
       kind: "material",
       material: userNameOf(e.material.key) ? { ...e.material, name: userNameOf(e.material.key)! } : e.material,
       ...(userNameOf(e.material.key) && userNameOf(e.material.key) !== e.material.name ? { glossaryName: e.material.name } : {}),
@@ -270,7 +351,29 @@ export function AddBar(props: {
       ...(e.tradeCode ? { tradeCode: e.tradeCode } : {}),
       ...(e.family ? { family: e.family } : {}),
       ...(shopName(e) ? { shopName: shopName(e) } : {}),
-    }));
+      ...(e.plant ? { form: e.plant.form, variant: e.plant.variant } : {}),
+    });
+    // The naturals of one plant are one row, with a chip per form (P54); the rest, one row each.
+    const used = (key: string) => props.sessionMaterials.some((m) => m.key === key) || prefsOf(key).last !== undefined;
+    const found: Result[] = [];
+    const folded = new Set<string>();
+    for (const e of searchCatalog(pool, query, 30)) {
+      const forms = e.plant ? plants.get(e.plant.key) : undefined;
+      if (forms && e.plant) {
+        if (folded.has(e.plant.key)) {
+          continue;
+        }
+        folded.add(e.plant.key);
+        const options = forms.map(toResult);
+        const at = defaultOption(forms, e, words, shopName(e) !== undefined, used);
+        found.push({ ...options[at], plant: { key: e.plant.key, name: e.plant.name, options, at } });
+      } else {
+        found.push(toResult(e));
+      }
+      if (found.length >= 10) {
+        break;
+      }
+    }
     const all = [...session, ...found];
     const exact = all.some((r) => r.kind === "material" && normalize(r.material.name) === q);
     // A CAS is not a name: one the glossary does not have is not made a material (P56).
@@ -279,7 +382,10 @@ export function AddBar(props: {
       return all.length > 0 ? all : [{ kind: "note", text: cas ? t.casMissing(cas) : t.casInvalid(query.trim()) }];
     }
     return exact ? all : [...all, { kind: "create", name: query.trim() }];
-  }, [query, selected, mine, formulas, props.entries, props.sessionMaterials]);
+  }, [query, selected, mine, formulas, props.entries, props.sessionMaterials, plants]);
+
+  /** What a row stands for now: a plant's row, the option its chip is on. */
+  const onChip = (r: Result): Result => (r.kind === "material" && r.plant ? r.plant.options[chips[r.plant.key] ?? r.plant.at] : r);
 
   const select = (material: Material) => {
     const p = prefsOf(material.key);
@@ -305,6 +411,12 @@ export function AddBar(props: {
       searchRef.current?.focus();
     },
   }));
+
+  /** The plant of the highlighted row, or null. */
+  const rowPlant = () => {
+    const r = results[Math.min(highlight, results.length - 1)];
+    return r?.kind === "material" && r.plant ? r.plant : null;
+  };
 
   const choose = (result: Result) => {
     if (result.kind === "note") {
@@ -451,6 +563,7 @@ export function AddBar(props: {
               setSelected(null);
               setOpen(true);
               setHighlight(0);
+              setChips({});
             }}
             onFocus={() => setOpen(true)}
             onBlur={() => setTimeout(() => setOpen(false), 150)}
@@ -461,9 +574,22 @@ export function AddBar(props: {
               } else if (e.key === "ArrowUp" && results.length > 0) {
                 e.preventDefault();
                 setHighlight((highlight - 1 + results.length) % results.length);
+              } else if (
+                (e.key === "ArrowLeft" || e.key === "ArrowRight") &&
+                open &&
+                rowPlant() !== null &&
+                e.currentTarget.selectionStart === query.length &&
+                e.currentTarget.selectionEnd === query.length
+              ) {
+                // On a plant's row, with the caret at the end, the side arrows move along its forms (P54).
+                e.preventDefault();
+                const plant = rowPlant()!;
+                const n = plant.options.length;
+                const now = chips[plant.key] ?? plant.at;
+                setChips({ ...chips, [plant.key]: (now + (e.key === "ArrowRight" ? 1 : n - 1)) % n });
               } else if ((e.key === "Enter" || (e.key === "Tab" && !e.shiftKey)) && results.length > 0) {
                 e.preventDefault();
-                choose(results[Math.min(highlight, results.length - 1)]);
+                choose(onChip(results[Math.min(highlight, results.length - 1)]));
               } else if (e.key === "Enter" && selected) {
                 e.preventDefault();
                 quantityRef.current?.focus();
@@ -489,10 +615,14 @@ export function AddBar(props: {
               <Switch checked={mine} label={t.mine} onChange={setMine} />
               <Switch checked={formulas} label={t.formulas} onChange={setFormulas} />
             </li>
-            {results.map((r, i) => (
+            {results.map((row, i) => {
+              const r = onChip(row);
+              const plant = row.kind === "material" ? row.plant : undefined;
+              return (
               <li
-                key={r.kind === "create" ? "create" : r.kind === "note" ? "note" : r.material.key}
-                className={i === highlight ? "active" : undefined}
+                key={row.kind === "create" ? "create" : row.kind === "note" ? "note" : (plant?.key ?? row.material.key)}
+                className={[i === highlight ? "active" : "", plant ? "plant-row" : ""].join(" ").trim() || undefined}
+                onMouseEnter={() => setHighlight(i)}
                 onMouseDown={(e) => {
                   e.preventDefault();
                   choose(r);
@@ -517,7 +647,7 @@ export function AddBar(props: {
                       })()}
                     <span className="result-name">
                       <span className="primary">
-                        {r.material.name}
+                        {plant ? plant.name : r.material.name}
                         {r.tradeCode && (
                           <span className="trade-code">
                             <IconText text={r.tradeCode} mark={r.iconMark} />
@@ -540,10 +670,12 @@ export function AddBar(props: {
                       </span>
                     )}
                     {r.cas && <span className="num cas">{r.cas}</span>}
+                    {plant && <PlantChips plant={plant} on={r} active={i === highlight} onMark={(at) => setChips({ ...chips, [plant.key]: at })} onChoose={choose} />}
                   </>
                 )}
               </li>
-            ))}
+              );
+            })}
           </ul>
         )}
       </div>

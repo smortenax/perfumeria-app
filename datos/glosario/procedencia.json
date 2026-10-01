@@ -67,7 +67,7 @@
       "sha256": "289097c9d76de4430f967158556ff068faa4589175c44b48dd355a5eb93b6368"
     }
   },
-  "generado": "2026-10-01T20:55:33+00:00",
+  "generado": "2026-10-01T21:01:18+00:00",
   "cuentas": {
     "materiales": 4325,
     "del_fig": 3119,
@@ -91,7 +91,7 @@
     "con_sigla_comercial": 27,
     "con_familia": 3119,
     "con_sinonimos_de_pubchem": 2176,
-    "con_nombres_de_tiendas": 921,
+    "con_nombres_de_tiendas": 771,
     "solo_de_tiendas": 8,
     "de_tiendas_sin_unir": 48,
     "constituyentes_de_proveedores": 270,

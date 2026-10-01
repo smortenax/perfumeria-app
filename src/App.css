@@ -2512,3 +2512,44 @@ button.value:hover {
   text-overflow: ellipsis;
   text-align: left;
 }
+
+/* The row of a plant (P54): under its name, its forms as chips, and under them, while it is the
+   active row, the variants of the form it is on. A form with no IFRA data has a dashed border. */
+.results li.plant-row {
+  flex-wrap: wrap;
+}
+
+.plant-forms,
+.plant-variants {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+/* Always on lines of their own, under the name, so the list keeps one shape at any width. */
+.plant-forms,
+.plant-variants {
+  flex-basis: 100%;
+  padding: 2px 0 2px 40px;
+}
+
+.form-chip {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  border-radius: 999px;
+  font-size: 11px;
+  line-height: 16px;
+  padding: 0 7px;
+  white-space: nowrap;
+}
+
+.form-chip.on {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--panel);
+}
+
+.form-chip.nodata {
+  border-style: dashed;
+}

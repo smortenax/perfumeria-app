@@ -131,6 +131,33 @@ ISO_TYPE = {"2.1": "absolute", "2.4": "balsam", "2.5": "oil", "2.6": "oil", "2.7
             "2.31": "tincture", "2.32": "oil", "2.33": "oil", "2.24": "oil"}
 
 
+def by_variety(shop_name: str, found: list[dict]) -> list[dict]:
+    """Of the forms of one natural a shop row reached, the ones its name says (2026-10-01).
+
+    A variant is what a glossary name says beyond what all of them share: «abrialis», «grosso»,
+    «rectified», «low coumarin». A botanical parenthesis says nothing here. If the shop's name says
+    some variant, only the forms with the most of its words stay, and of those the ones that add least:
+    «Lavandín Abrialis» is the abrialis oil, not the grosso nor the abrialis rectified. If it says none, the plain forms stay, with no variant: «Aceite Esencial de
+    Lavanda» is the lavender oil, not the rectified one. With no plain form, all stay.
+    """
+    def words(name: str) -> set[str]:
+        name = re.sub(r"\(([^)]*)\)", lambda g: "" if re.match(r"[A-Z][a-z]+ [a-z]+", g.group(1).strip()) else g.group(0), name)
+        return set(norm(name).split()) - FORM_WORDS
+    shared = set.intersection(*(words(m["nombre"]) for m in found))
+    variant = {id(m): words(m["nombre"]) - shared for m in found}
+    said = set(norm(shop_name).split())
+    score = {id(m): len(variant[id(m)] & said) for m in found}
+    best = max(score.values())
+    if best > 0:
+        top = [m for m in found if score[id(m)] == best]
+        # And of those, the ones that add least the shop does not say: «Abrialis» is the abrialis oil,
+        # not the abrialis oil rectified.
+        extra = {id(m): len(variant[id(m)] - said) for m in top}
+        return [m for m in top if extra[id(m)] == min(extra.values())]
+    plain = [m for m in found if not variant[id(m)]]
+    return plain or found
+
+
 def norm(text: str) -> str:
     text = unicodedata.normalize("NFD", text).encode("ascii", "ignore").decode()
     return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9]+", " ", text.lower().replace("*", ""))).strip()
@@ -482,6 +509,8 @@ def main() -> None:
         if kind and len(found) > 1:
             same = [m for m in found if m["tipo_natural"] == kind and (r["tipo"] != "co2" or "co2" in m["nombre"].lower())]
             found = same or found
+        if r["clase"] != "molécula" and len(found) > 1:
+            found = by_variety(r["nombre"], found)
         return found, how
 
     shop_links: list[tuple[dict, dict]] = []

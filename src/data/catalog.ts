@@ -2,6 +2,7 @@ import { Ratio } from "../core/arith/ratio";
 import type { IfraData, IfraMaterial, IfraSubstance } from "../core/ifra";
 import { DILUENTS, type Material } from "../core/model/material";
 import { parseCsvRecords } from "./csv";
+import { plantName, variantsOf } from "./plants";
 
 /**
  * The catalog of the bench, read from the glossary that
@@ -97,6 +98,13 @@ export interface CatalogEntry {
   readonly aliases?: readonly string[];
   /** The usual use, when the audited data has it; a gap otherwise, never zero (§1.2). */
   readonly usage?: UsageData;
+  /**
+   * The plant of a natural and its form (P54, 2026-10-01): the naturals of one CAS are the forms
+   * of one plant, folded into one row of the search with a chip per form. `form` is the glossary's
+   * kind («oil», «absolute»; empty for the plant with no form); `variant` what else the name says
+   * («rectificado», «abrialis»; empty for the plain form). Only naturals with a CAS of their own.
+   */
+  readonly plant?: { readonly key: string; readonly name: string; readonly form: string; readonly variant: string };
 }
 
 export interface Catalog {
@@ -279,6 +287,8 @@ export function buildCatalog(files: CatalogFiles): Catalog {
   const rows = parseCsvRecords(files.materiales);
   const materials = new Map<string, IfraMaterial>();
   const entries: CatalogEntry[] = DILUENT_DATA.map(([id, code, icon, cas, names]) => diluent(DILUENTS[id], code, icon, cas, names));
+  // The index in `entries` of every natural with a CAS, and its kind: the forms of a plant (P54).
+  const naturalForm = new Map<number, string>();
 
   for (const m of rows) {
     const state = m.estado as IfraState;
@@ -357,6 +367,28 @@ export function buildCatalog(files: CatalogFiles): Catalog {
       ...(shops.length ? { shopNames: shops } : {}),
       ...(others.length || shops.length ? { aliases: [...others, ...shops] } : {}),
       ...usageOf(m),
+    });
+    if (m.clase === "natural" && m.cas) {
+      naturalForm.set(entries.length - 1, m.tipo_natural);
+    }
+  }
+
+  // The forms of each plant: the naturals that share a CAS (P54). Their variants are read from all
+  // their names together, so a plant with only one natural is not folded.
+  const byCas = new Map<string, number[]>();
+  for (const at of naturalForm.keys()) {
+    byCas.set(entries[at].cas, [...(byCas.get(entries[at].cas) ?? []), at]);
+  }
+  for (const [cas, group] of byCas) {
+    if (group.length < 2) {
+      continue;
+    }
+    const names = group.map((at) => entries[at].chemicalName);
+    const forms = group.map((at) => naturalForm.get(at) as string);
+    const variants = variantsOf(names);
+    const name = plantName(names, forms, variants);
+    group.forEach((at, i) => {
+      entries[at] = { ...entries[at], plant: { key: `plant:${cas}`, name, form: forms[i], variant: variants[i] } };
     });
   }
 
