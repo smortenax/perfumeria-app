@@ -1,0 +1,368 @@
+orden,material_id,cas,nombre,nombres_tienda,tiene
+1,fig:2338,4707-47-5,Methyl atrarate,EVERNYL (Veramoss) | Musgolide Aroma Chemicals | Evernyl – Veramoss | Veramoss (powder),techo TGSC
+2,tl:504-63-2,504-63-2,"1,3-Propanediol",Aceite Esencial de GUAYACO PALO /GAÏAC - 50% en DPG | Resinoide de Benjuí Sumatra (50% PROP.) | Resinoide de Mirra (PROP. 50%) | Resinoide de Vainilla,nada
+3,fig:96,70788-30-6,"1-(2,2,6-Trimethylcyclohexyl)-3-hexanol",NORLIMBANOL | Norlimbanol | Norlimbanol Dextro,franja PW
+4,fig:604,36306-87-3,"3,3,5,5-Tetramethyl-4-ethoxyvinylcyclohexanone",Woodarom | Woodarom (Kephalis) | Kephalis,franja PW
+5,fig:726,55066-48-3,3-Methyl-5-phenylpentanol,PHENOXANOL IFF | Phenoxanol | Phenylhexanol,franja PW
+6,fig:774,5471-51-2,4-(p-Hydroxyphenyl)-2-butanone,RASPBERRY KETONE | Raspberry Ketone | Raspberry Ketone (powder),nada
+7,fig:818,211299-54-6,"4H-4a,9-Methanoazuleno[5,6-d]-1,3-dioxole, octahydro-2,2,5,8,8,9a-hexamethyl-,",Ambrocenide 10% DPG | Ambrocenide 10% (TEC) | Ambrocenide Crystals,franja PW
+8,fig:830,39212-23-2,4-Hydroxy-3-methyloctanoic acid lactone,Whisky Lactona - (METIL OCTALACTONA) | Whisky Lactone | Whiskey Lactone,techo TGSC
+9,fig:944,28940-11-6,"7-Methyl-2H-benzo-1,5-dioxepin-3(4H)-one",Calone Aroma Chemicals | Calone (Watermelon Ketone) | Calone (powder),techo TGSC
+10,fig:991,32388-55-9,Acetyl cedrene,MCK COUER (VERTOFIX COEUR) IFF | MCK Coeur (Vertofix Coeur) | Vertofix Coeur,franja PW
+11,fig:1378,19870-74-7,Cedrol methyl ether,Cedrol Methyl Ether - Simil Cedramber | Cedramber (Methyl Cedryl ether) | Cedramber,franja PW
+12,fig:1601,198404-98-7,"Cyclopropanemethanol, 1-methyl-2-[(1,2,2-trimethylbicyclo[3.1.0]hex-3-yl)methyl]-",Javanol (Givaudan) | Javanol | Javanol Super,techo TGSC
+13,fig:1627,112-31-2,Decanal,Aldehyde C10 | Aldehyde C-10 (decanal) | Aldehyde C10 (decanal),franja PW
+14,fig:2161,112-54-9,Lauric aldehyde,Aldehyde C12 | Aldehyde C-12 Lauric | Aldehyde C12 Lauric,franja PW
+15,fig:2526,106-02-5,omega-Pentadecalactone,EXALTOLIDE TOTAL | Exaltolide Total | Exaltolide 50% (DPG),nada
+16,fig:2579,34902-57-3,Oxacyclohexadecen-2-one,Globalid - Simil Habanolide | Habanolide | Globalide,techo TGSC
+17,fig:2593,8014-09-3,Patchouli,Patchouli Coeur N.3 (Indonesia) | Patchouli Crude Organic (Madagascar) | Patchouli Light (Burundi),franja PW
+18,fig:2594,8014-09-3,Patchouli,Patchouli Coeur N.3 (Indonesia) | Patchouli Crude Organic (Madagascar) | Patchouli Light (Burundi),franja PW
+19,cas:90028-68-5,90028-68-5,Oakmoss extracts,Absoluto de Musgo de Roble | DILUCION de ABS. Musgo de Roble | Oakmoss Absolute 50% (IPM),nada
+20,fig:93,68155-67-9,"1-(1,2,3,4,6,7,8,8a-Octahydro-2,3,8,8-tetramethyl-2-naphthyl)ethan-1-one",Iso E Super | Timbersilk,nada
+21,fig:94,68155-66-8,"1-(1,2,3,5,6,7,8,8a-Octahydro-2,3,8,8-tetramethyl-2-naphthyl)ethan-1-one",Iso E Super | Timbersilk,nada
+22,fig:114,1506-02-1,"1-(5,6,7,8-Tetrahydro-3,5,5,6,8,8-hexamethyl-2-naphthyl)ethan-1-one (Fixolid)",Tonalid | Tonalid (powder),techo TGSC
+23,fig:176,112-45-8,10-Undecenal,Aldehyde C-11 Undecylenic | Aldehyde Intreleven Special,nada
+24,fig:320,68039-49-6,"2,4-Dimethyl-3-cyclohexen-1-carboxaldehyde",Ligustral | Triplal,nada
+25,fig:359,106-72-9,"2,6-Dimethyl-5-heptenal",Melonal 85% Natural | Melonal,techo TGSC
+26,fig:483,103-95-7,2-Methyl-3-(p-isopropylphenyl)propionaldehyde,Aldehide Ciclamen | Cyclamen Aldehyde Extra,franja PW
+27,fig:507,19009-56-4,2-Methyldecanal,Aldehyde C-11 MOA | Aldehyde C11 MOA,techo TGSC
+28,fig:524,110-41-8,2-Methylundecanal,Aldehyde C12 MNA | Aldehyde C-12 MNA,franja PW
+29,fig:587,3407-42-9,"3-(5,5,6-Trimethylbicyclo[2.2.1]hept-2-yl)cyclohexan-1-ol",Sandela | Sandela 85% IPM,techo TGSC
+30,fig:736,82356-51-2,3-Methylcyclopentadecenone,Muscenone Delta (muscenone) | Muscenone,techo TGSC
+31,fig:750,122-97-4,3-Phenyl-1-propanol,Alcohol Fenilpropilico | Phenyl Propyl Alcohol,franja PW
+32,fig:807,13171-00-1,"4-Acetyl-6-t-butyl-1,1-dimethylindan",CELESTOLIDE IFF | Celestolide (Crysolide),techo TGSC
+33,fig:848,81782-77-6,4-Methyl-3-decen-5-ol,Undecavertol 98% | Undecavertol,franja PW
+34,fig:911,4927-36-0,5-Methyl-5-phenyl-3-hexanone,Damascol | Romascone,franja PW
+35,fig:981,144020-22-4,"Acetic acid, anhydride, reaction products with 1,5,10-trimethyl-1,5,9-cyclododecatriene",TRIMOFIX IFF | Trimofix,franja PW
+36,fig:994,22047-25-2,Acetylpyrazine,2-ACETILPIRAZINA | 2-Acetylpyrazine,techo TGSC
+37,fig:1055,1205-17-0,"alpha-Methyl-1,3-benzodioxole-5-propionaldehyde",Helional (Heliofresh) | Helional,franja PW
+38,fig:1057,98-85-1,alpha-Methylbenzyl alcohol,Alcohol Estiralilico - Styralyl Alcohol | Styrallyl Alcohol,franja PW
+39,fig:1067,98-55-5,alpha-Terpineol,Alfa Terpineol Aroma Chemicals | Lindenol (alpha-terpineol),franja PW
+40,fig:1208,14901-07-6,beta-Ionone,Ionona Beta Aroma Chemicals | Ionona Beta,techo TGSC
+41,fig:1245,94333-88-7,"Bulnesia sarmienti, ext., acetate",Palo Santo Acetilado / Acetato de Guayilo Técnico | Guaiyl Acetate,nada
+42,fig:1409,104-54-1,Cinnamyl alcohol,Cinnamyl Alcohol 75% | Cinnamyl Alcohol 50% (IPM/ethanol),franja PW
+43,fig:1659,33673-62-0,Dihydro-4-methyl-5-pentylfuran-2(3H)-one,Tuberolide (Methyl Tuberate PURE) | Methyl Tuberate Pure,techo TGSC
+44,fig:1664,17283-81-7,Dihydro-beta-ionone,Dihydro ionone Beta | Dihydro Ionone Beta,franja PW
+45,fig:1693,106-22-9,dl-Citronellol,Citronellol 96% | Citronellol 950,franja PW
+46,fig:1696,138-86-3,dl-Limonene (racemic),Limonene 98% | Dipentene 38 perf,nada
+47,fig:1701,57345-19-4,"Dodecahydro-3,8,8,11a-tetramethyl-5H-3,5a-epoxynaphth[2,1-c]oxepin","Z11 10 MIP | Z11 HD 8,5% MIP",franja PW
+48,fig:1745,6413-10-1,"Ethyl 2-methyl-1,3-dioxolane-2-acetate",Fructone 99% Natural | Fructone,techo TGSC
+49,fig:1788,77-83-8,Ethyl methylphenylglycidate,Aldehyde C16 | Aldehyde C-16,techo TGSC
+50,fig:1814,121-32-4,Ethyl vanillin,Ethyl Vainillin | Ethyl Vanillin (powder),techo TGSC
+51,fig:1820,470-82-6,Eucalyptol,Eucalyptol 98% | Eucalyptol Natural,franja PW
+52,fig:1867,58567-11-6,Formaldehyde cyclododecyl ethyl acetal,Boisambrene Forte - Aroma Chemicals | Amberwood Forte,franja PW
+53,fig:1917,105-87-3,Geranyl acetate,Acetato de geranilo 96% | Geranyl Acetate Pure,franja PW
+54,fig:1987,66-25-1,Hexanal,ALDEHYDE C-6 HEXANAL | Aldehyde C6 (n-hexanal),techo TGSC
+55,fig:2026,89-43-0,Hydroxycitronellal-methyl anthranilate (Schiff base),Aurantiol | Aurantiol Pure 50% (ethanol),techo TGSC
+56,fig:2097,23787-90-8,Isolongifolene ketone,PICONIA (ISOLONGIFOLANONE) | Piconia,techo TGSC
+57,fig:2223,115-95-7,Linalyl acetate,Acetato de linalilo 96% | Acetato Linalilo Natural,franja PW
+58,fig:2293,89-78-1,Menthol,Mentol Natural Cristalizado - fracción | Menthol Rac. (crystals),techo TGSC
+59,fig:2337,134-20-3,Methyl anthranilate,Antranilato Metilo | Antranilato Metilo (Methyl Anthranilate),techo TGSC
+60,fig:2357,1335-46-2,Methyl ionone (mixture of isomers),Isoraldine | Iralia,franja PW
+61,fig:2426,3738-00-9,"Naphtho[2,1-b]furan, dodecahydro-3a,6,6,9a-tetramethyl-",AMBERMOR IFF | Ambrox DL,techo TGSC
+62,fig:2433,106-25-2,Nerol,Nerol 98% Natural | Nerol 900,franja PW
+63,fig:2490,23333-91-7,"Octahydro-4,8a-dimethyl-4a(2H)-naphthol",Geosmina 1% DPG | Geosmin,franja PW
+64,fig:2497,124-13-0,Octanal,Aldehyde C8 | Aldehyde C-8 (octanal),techo TGSC
+65,fig:2573,28645-51-4,Oxacycloheptadec-10-ene-2-one,Ambrettolide | Scentolide,techo TGSC
+66,fig:2596,5986-55-0,Patchouli alcohol,Clearwood Prisma | Healingwood (Indonesia),techo TGSC
+67,fig:2688,56011-02-0,Phenylethyl isoamyl ether,Feniletil Isoamileter 97% | Anther,techo TGSC
+68,fig:2979,89-83-8,Thymol,Thymol 98% - Cristal | Thymol (crystals),techo TGSC
+69,fig:3052,112-44-7,Undecanal,Aldehyde C11 ENIC | Aldehyde C-11 Undecylic,techo TGSC
+70,tl:64-17-5,64-17-5,Ethyl alcohol,Absoluto de Cacao (REP. DOMINICANA) - Dilución al 10 % | DILUCION de ABS. Tabaco Natural,nada
+71,fig:18,10138-32-6,"(±)-Bicyclo[2.2.1]hept-5-ene-2-carboxylic acid, ethyl ester",Tropicalia,nada
+72,fig:43,24720-09-0,"(E)-1-(2,6,6-Trimethyl-2-cyclohexen-1-yl)-2-buten-1-one",Damascone Alpha,nada
+73,fig:49,81786-74-5,"(E)-3,4,5,6,6-Pentamethylhept-3-en-2-one",Koavone,nada
+74,fig:54,79-77-6,(E)-beta-Ionone,Ionone beta,franja PW
+75,fig:63,81786-73-4,"(Z)-3,4,5,6,6-Pentamethylhept-3-en-2-one",Koavone,franja PW
+76,fig:84,68039-73-6,"[1,1'-Bicyclopentyl]-2-yl 2-butenoate",Pyroprunat,techo TGSC
+77,fig:101,69929-17-5,"1-(2,4-Dimethyl-3-cyclohexenyl)-2,2-dimethylpropan-1-one",Chrysantheme,techo TGSC
+78,fig:103,23696-85-7,"1-(2,6,6-Trimethylcyclohexa-1,3-dienyl)-2-buten-1-one",Damascenone,nada
+79,fig:104,1646-26-0,1-(2-Benzofuranyl)ethanone,Coumarone (powder),techo TGSC
+80,fig:105,139504-68-0,1-(2-tert.-Butyl cyclohexyloxy)-2-butanol,Amber Core - Ambercore,franja PW
+81,fig:111,23911-56-0,1-(3-Methyl-2-benzofuranyl)ethanone,Nerolione 50% (TEC),nada
+82,fig:112,56973-85-4,"1-(5,5-Dimethyl-1-cyclohexen-1-yl)pent-4-en-1-one",Dynascone 10%,franja PW
+83,fig:132,151-05-3,"1,1-Dimethyl-2-phenylethyl acetate",Dimethyl Benzyl Carbinyl Acetate 50% (DPG),franja PW
+84,fig:135,41199-19-3,"1,2,3,4,4a,5,6,7-Octahydro-2,5,5-trimethyl-2-naphthalenol",Ambrinol S,nada
+85,fig:136,65405-72-3,"1,2,3,4,4a,7,8,8a-Octahydro-2,4a,5,8a-tetramethyl-1-naphthyl formate",Oxyoctaline Formate,techo TGSC
+86,fig:149,68083-58-9,"1,3-Dimethyl-3-phenylbutyl acetate",Acetato Vetikol,techo TGSC
+87,fig:150,80118-06-5,"1,3-Dimethylbut-3-enyl isobutyrate",Isopentyrate,techo TGSC
+88,fig:154,131812-52-7,"1,3-Dioxolane, 2,4-dimethyl-2-(5,6,7,8-tetrahydro-5,5,8,8-tetramethyl-2-naphthalenyl)-,",Okoumal,techo TGSC
+89,fig:163,75147-23-8,"1,5-Dimethylbicyclo[3.2.1]octan-8-one-oxime",Buccoxime (powder),techo TGSC
+90,fig:168,73018-51-6,"1,6-Octadien-3-ol, 3,7-dimethyl-, acid-isomerized",Lime Oxide,techo TGSC
+91,fig:170,76-22-2,"1,7,7-Trimethylbicyclo[2.2.1]heptan-2-one",Camphor,techo TGSC
+92,fig:181,6707-60-4,12-Oxahexadecanolide,Cervolide,techo TGSC
+93,fig:187,68039-69-0,1-Cyclohexylethyl 2-butenoate,Datilat,techo TGSC
+94,fig:189,16510-27-3,1-Cyclopropylmethyl-4-methoxybenzene,Toscanol,franja PW
+95,fig:196,66327-54-6,1-Formyl-1-methyl-4-(4-methyl-pentyl)-3-cyclohexene,Vernaldehyde,techo TGSC
+96,fig:202,351343-77-6,"1H-Indene, 2,3,3a,4,5,7a-hexahydro-1,1,2,3,3-pentamethyl-6-(2-propenyl)-",Trisamber,techo TGSC
+97,fig:211,52474-60-9,1-Methyl-3-(4-methyl-3-pentenyl)cyclohex-3-ene-1-carbaldehyde,Precyclemone B,franja PW
+98,fig:214,139539-67-6,"1-Methyl-4-(2,2,3-trimethyl-3-cyclopenten-1-yl)-2-oxabicyclo[2.2.2]octane",Cassifix,techo TGSC
+99,fig:215,52475-86-2,1-Methyl-4-(4-methyl-3-pentenyl)cyclohex-3-ene-1-carbaldehyde,Precyclemone B,nada
+100,fig:230,94201-19-1,"1-Oxaspiro[4.5]decan-2-one, 8-methyl-",Methyl Laitone 10% DPG,franja PW
+101,fig:251,141773-73-1,"2-(1-(3',3'-Dimethyl-1'-cyclohexyl)ethoxy)-2-methyl propyl propanoate",Helvetolide,franja PW
+102,fig:257,929625-08-1,"2-(2,2,7,7-Tetramethyltricyclo[6.2.1.01,6]undec-5-en-5-yl)propan-1-ol",Ambermax 10% TEC,franja PW
+103,fig:259,68133-79-9,"2-(3,7-Dimethyl-2,6-octadienyl)cyclopentanone",Apritone,franja PW
+104,fig:262,2110-18-1,2-(3-Phenylpropyl)pyridine,Corps Racine 10% (DPG),techo TGSC
+105,fig:273,60047-17-8,2-(Tetrahydro-5-methyl-5-vinyl-2-furyl)propan-2-ol,Linalyl Oxide,techo TGSC
+106,fig:286,15373-31-6,"2,2,3-Trimethylcyclopent-3-enylacetonitrile",Cantryl,nada
+107,fig:288,65443-14-3,"2,2,5-Trimethyl-5-pentylcyclopentanone",Veloutone,franja PW
+108,fig:289,7392-19-0,"2,2,6-Trimethyl-6-vinyltetrahydropyran",Limetol,franja PW
+109,fig:291,69103-20-4,"2,2-Dimethyl-3-(3-methyl-2,4-pentadienyl)oxirane",Myroxyde,techo TGSC
+110,fig:292,104468-21-5,"2,2-Dimethyl-3-methyl-3-butenyl propanoate",Romilat,techo TGSC
+111,fig:304,300371-33-9,"2,3-Dihydro-1,1-dimethyl-1H-indene-ar-propanal",Hivernal Neo,nada
+112,fig:319,131812-67-4,"2,4-Dimethyl-2-(5,6,7,8-tetrahydro-5,5,8,8-tetramethyl-2-naphthalenyl)-1,3-dioxolane",Okoumal,techo TGSC
+113,fig:321,27606-09-3,"2,4-Dimethyl-4,4a,5,9b-tetrahydroindeno[1,2-d]-1,3-dioxin",Magnolan,franja PW
+114,fig:322,82461-14-1,"2,4-Dimethyl-4-phenyltetrahydrofuran",Rhubafuran al 5% DPG,techo TGSC
+115,fig:342,141-13-9,"2,6,10-Trimethyl-9-undecenal",Adoxal,techo TGSC
+116,fig:349,1125-21-9,"2,6,6-Trimethylcyclohex-2-ene-1,4-dione",Oxophorone,techo TGSC
+117,fig:350,116-26-7,"2,6,6-Trimethylcyclohexa-1,3-dienyl methanal",Safranal 20% TEC,nada
+118,fig:367,67019-89-0,"2,6-Nonadienenitrile",Vionil 10% (DPG),techo TGSC
+119,fig:375,68901-32-6,"2-[8-Isopropyl-6-methylbicyclo[2.2.2]oct-5-en-2-yl]-1,3-dioxolane",Glycolierral,franja PW
+120,fig:384,97384-48-0,2-Benzyl-2-methylbut-3-enenitrile,Citrowanil B,techo TGSC
+121,fig:392,54546-26-8,"2-Butyl-4,4,6-trimethyl-1,3-dioxane",Herboxane,techo TGSC
+122,fig:404,68845-00-1,"2-Ethoxy-2,6,6-trimethyl-9-methylenebicyclo[3.3.1]nonane",Boisiris,franja PW
+123,fig:405,5595-79-9,2-Ethoxy-4-(methoxymethyl)phenol,Methyl Diantilis,franja PW
+124,fig:407,2563-07-7,2-Ethoxy-4-methylphenol,Ultravanil 80% (DPG),nada
+125,fig:408,18368-91-7,"2-Ethyl-1,3,3-trimethyl-2-norbornanol",Terrasol,techo TGSC
+126,fig:430,676125-00-1,"2H-​2,​4a-​Methanonaphthalene, 1,​3,​4,​5,​6,​7-​hexahydro-​7-​methoxy-​1,​1,​5,​5-​tetramethyl-",Symroxane,nada
+127,fig:437,950919-28-5,"2H-1,5-Benzodioxepin-3(4H)-one, 7-(1-methylethyl)-",Cascalone,nada
+128,fig:450,165184-98-5,2-Hexyl-(E)-cinnamaldehyde,Aldehido alfa hexil cinamico,nada
+129,fig:455,476332-65-7,"2H-Indeno[4,5b] furan, decahydro-2,2,6,6,7,8,8-heptamethyl",Amber Xtreme,nada
+130,fig:459,42822-86-6,"2-Hydroxy-alpha,alpha,4-trimethylcyclohexanemethanol",Geranodyle,techo TGSC
+131,fig:488,104864-90-6,"2-Methyl-4-(2,2,3-trimethyl-3-cyclopenten-1-yl)-4-penten-1-ol",Firsantol,nada
+132,fig:491,68901-22-4,2-Methyl-4-(camphenyl-8)-cyclohexanone,Aldron,nada
+133,fig:492,33941-99-0,"2-Methyl-4-phenyl-1,3-dioxolane",Jacinthaflor,nada
+134,fig:493,103-05-9,2-Methyl-4-phenyl-2-butanol,Dimethyl Phenyl Ethyl Carbinol,franja PW
+135,fig:497,92585-24-5,2-Methyl-4-phenylpentanol,Pamplefleur,techo TGSC
+136,fig:521,109-08-0,2-Methylpyrazine,2-Methyl Pyrazine 5% (DPG),techo TGSC
+137,fig:543,84560-00-9,2-Pentylcyclopentan-1-ol,Delphol HC,nada
+138,fig:547,122-99-6,2-Phenoxyethanol,Phenoxyethyl Alcohol,techo TGSC
+139,fig:554,3508-98-3,2-Phenylhexanenitrile,Salicynalva,techo TGSC
+140,fig:559,56138-10-4,"2-Propen-1-ol, 2-methyl-3-(4-methylphenyl)-, (2E)-",Josenol,nada
+141,fig:563,14765-30-1,2-sec-Butylcyclohexanone,Freskomenthe,techo TGSC
+142,fig:566,88-41-5,2-tert-Butylcyclohexyl acetate,Verdox HC,franja PW
+143,fig:576,31906-04-4,3 and 4-(4-Hydroxy-4-methylpentyl)-3-cyclohexene-1-carboxaldehyde,Lyral,franja PW
+144,fig:583,15760-18-6,3-(4-Methyl-3-cyclohexenyl)butanol,Cyclomethylene Citronellol,techo TGSC
+145,fig:610,41816-03-9,"3,4,4a,5,8,8a-Hexahydro-3',7-dimethylspiro[1,4-methanonaphthalene-2(1H),2'-oxirane]",Rhubofix,franja PW
+146,fig:611,86115-11-9,"3,4,5,6,6-Pentamethylhept-3-en-2-one",Koavone,nada
+147,fig:616,95-65-8,"3,4-Xylenol","3,4-Xylenol 10% (IPM)",nada
+148,fig:622,81786-75-6,"3,5,6,6-Tetramethyl-4-methyleneheptan-2-one",Koavone,nada
+149,fig:636,76649-25-7,"3,6-Nonadien-1-ol",Orrisol 10% (TEC),techo TGSC
+150,fig:638,13877-91-3,"3,7-Dimethyl-1,3,6-octatriene",Ocimene,techo TGSC
+151,fig:639,10339-55-6,"3,7-Dimethyl-1,6-nonadien-3-ol (Ethyllinalool)",Ethyl Linalool,franja PW
+152,fig:643,61792-11-8,"3,7-Dimethyl-2,6-nonadienenitrile",Lemonile,franja PW
+153,fig:662,67634-20-2,"3a,4,5,6,7,7a-Hexahydro-4,7-methano-1H-inden-5-yl isobutyrate",Gardociclene Aroma Chemicals,techo TGSC
+154,fig:680,426218-78-2,"3-Cyclohexene-1-methanol, 3(or 4)-methyl-1-(2,2,3-trimethyl-3-cyclopenten-1-yl)-,",Cassifix,techo TGSC
+155,fig:708,541-91-3,3-Methyl-1-cyclopentadecanone,Muscone,franja PW
+156,fig:711,113486-29-6,"3-Methyl-2,4-nonedione",Matcha Ketone 5% (TEC),techo TGSC
+157,fig:714,1191-16-8,3-Methyl-2-butenyl acetate,Prenyl Acetate,franja PW
+158,fig:716,68555-58-8,3-Methyl-2-butenyl salicylate,Prenyl Salicylate,techo TGSC
+159,fig:723,63314-79-4,3-Methyl-5-cyclopentadecen-1-one,Muscenone Delta (muscenone),techo TGSC
+160,fig:737,765-70-8,"3-Methylcyclopentane-1,2-dione",Maple Lactone (powder),techo TGSC
+161,fig:752,16251-77-7,3-Phenylbutanal,Trifernal,nada
+162,fig:763,14576-08-0,4-(1-Methoxy-1-methylethyl)-1-methylcyclohexene,Orange Flower Ether,techo TGSC
+163,fig:766,60241-53-4,"4-(2,6,6-Trimethylcyclohexyl)-3-methylbutan-2-ol",Madranol,techo TGSC
+164,fig:767,13215-88-8,"4-(2-Butenylidene)-3,5,5-trimethylcyclohex-2-en-1-one",Tabanon,techo TGSC
+165,fig:770,38462-23-6,"4-(4,8-Dimethylnona-3,7-dienyl)pyridine",Maritima,techo TGSC
+166,fig:773,23550-40-5,4-(Methylthio)-4-methyl-2-pentanone,Cassis Pentanone 1% (IPM),techo TGSC
+167,fig:775,104-20-1,4-(p-Methoxyphenyl)-2-butanone,Frambinon Methyl Ether,techo TGSC
+168,fig:791,675-09-2,"4,6-Dimethyl-2H-pyran-2-one",Levistamel 25% (TEC),techo TGSC
+169,fig:796,2550-11-0,"4,7-Dimethyloct-6-en-3-one",Dimethyl Octenone,techo TGSC
+170,fig:799,1339119-15-1,"4,7-Methano-1H-indene-5-acetaldehyde, octahydro-",Aquaflora,nada
+171,fig:806,18871-14-2,4-Acetoxy-3-pentyltetrahydropyran,Jasmal,franja PW
+172,fig:811,83926-73-2,4-Cyclohexyl-2-methyl-2-butanol,Coranol,techo TGSC
+173,fig:827,823178-41-2,"4H-Indeno[4,5-D]-1,3-dioxole, 3a,5,6,7,8,8b-hexahydro-2,2,6,6,7,8,8-heptamethyl-",Operanide,nada
+174,fig:838,4621-04-9,4-Isopropylcyclohexanol,Apo Patchone Coeur,techo TGSC
+175,fig:840,5462-06-6,4-Methoxy-alpha-methylbenzenepropanal,Canthoxal,nada
+176,fig:860,224031-70-3,"4-Penten-1-one, 1-spiro[4.5]dec-7-en-7-yl-",Spirogalbanone,techo TGSC
+177,fig:864,16587-71-6,4-t-Amylcyclohexanone,Orivone,franja PW
+178,fig:866,98-52-2,4-tert-Butylcyclohexanol,Patchouli Hexanol (powder),techo TGSC
+179,fig:869,30168-23-1,4-Tricyclodecylidene butanal,Dupical,techo TGSC
+180,fig:871,65113-99-7,"5-(2,2,3-Trimethyl-3-cyclopentenyl)-3-methylpentan-2-ol",Sandaltoch - Simil Sandalore,franja PW
+181,fig:872,70851-61-5,5-(cis-3-Hexenyl)dihydro-5-methyl-2(3H)furanone,Lactone of Cis Jasmone,techo TGSC
+182,fig:883,69486-14-2,"5,8-Methano-2H-1-benzopyran-2-one, 6- ethylideneoctahydro-",Florex,techo TGSC
+183,fig:887,68140-48-7,"5-Acetyl-3-isopropyl-1,1,2,6-tetramethylindane",Traseolide,techo TGSC
+184,fig:890,37609-25-9,5-Cyclohexadecen-1-one,Velvione,franja PW
+185,fig:903,139539-66-5,"5-Methyl-1-(2,2,3-trimethyl-3-cyclopenten-1-yl)-6-oxabicyclo[3.2.1]octane",Cassifix,techo TGSC
+186,fig:905,81925-81-7,5-Methyl-2-hepten-4-one,Filbertone 1% (TEC),techo TGSC
+187,fig:906,21834-92-4,5-Methyl-2-phenyl-2-hexenal,Cocoa Hexenal,techo TGSC
+188,fig:913,620-02-0,5-Methylfurfural,5-Methyl Furfural,techo TGSC
+189,fig:923,33885-51-7,"6,6-Dimethylbicyclo[3.1.1]hept-2-ene-2-propionaldehyde",Pino Acetaldehyde,techo TGSC
+190,fig:926,21145-77-7,"6-Acetyl-1,1,2,4,4,7-hexamethyltetraline",Tonalide Aroma Chemicals,techo TGSC
+191,fig:929,93939-86-7,"6-Ethylideneoctahydro-5,8-methano-2H-benzo-1-pyran",Rhuboflor,techo TGSC
+192,fig:930,34131-98-1,6-Isopropyl-2(1H)-octahydronaphthalenone,Decatone,franja PW
+193,fig:932,62439-41-2,"6-Methoxy-2,6-dimethylheptan-1-al",Aquaflor,techo TGSC
+194,fig:935,110-93-0,6-Methyl-5-hepten-2-one,Methyl Heptenone,techo TGSC
+195,fig:936,91-62-3,6-Methylquinoline,6-methyl Quinoline,techo TGSC
+196,fig:950,88644-30-8,"8aH-2,4a-Methanonaphthalen-8a-ol, octahydro-1,1,5,5-tetramethyl-",Terranol (crystals),nada
+197,fig:952,338735-71-0,"8H-Indeno(4,5-B)furan,2,3,3a,4,5,5a,6,7,8a,9-decahydro-2,6,6,7,8,8-hexamethyl Mixture",Trisamber,techo TGSC
+198,fig:957,13019-22-2,9-Decen-1-ol,Trepanol - Simil Rosalva,techo TGSC
+199,fig:968,105-57-7,Acetal,Acetaldehyde Diethyl Acetal,techo TGSC
+200,fig:975,2556-10-7,Acetaldehyde ethyl phenylethyl acetal,Corps Jacinthe,franja PW
+201,fig:989,98-86-2,Acetophenone,Acetophenone 96%,franja PW
+202,fig:1014,79-78-7,Allyl alpha-ionone,Hexalon,franja PW
+203,fig:1018,2705-87-5,Allyl cyclohexanepropionate,Allyl Cyclohexyl Propionate,techo TGSC
+204,fig:1022,123-68-2,Allyl hexanoate,Caproato de alilo,franja PW
+205,fig:1031,67634-15-5,"alpha,alpha-Dimethyl-p-ethylphenylpropanal",Floralozone,franja PW
+206,fig:1033,10094-34-5,"alpha,alpha-Dimethylphenethyl butyrate",Dimethyl Benzyl Carbinyl Butyrate,franja PW
+207,fig:1043,17627-44-0,alpha-Bisabolene,Bisaboleno,techo TGSC
+208,fig:1046,10461-98-0,alpha-Cyclohexylidene benzeneacetonitrile,Peonile,franja PW
+209,fig:1047,502-61-4,alpha-Farnesene,Farnesene,techo TGSC
+210,fig:1049,101-86-0,alpha-Hexylcinnamaldehyde,Alpha Hexyl Cinnamic Aldehyde,franja PW
+211,fig:1052,79-69-6,alpha-Irone,Irone Alpha,techo TGSC
+212,fig:1056,93-92-5,alpha-Methylbenzyl acetate,Styrallyl Acetate,techo TGSC
+213,fig:1063,10528-67-3,alpha-Methyl-cyclohexanepropanol,Magnolila,nada
+214,fig:1064,99-83-2,alpha-Phellandrene,Alpha-phellandrene 98%,techo TGSC
+215,fig:1082,2050-08-0,Amyl salicylate,Salicilato de amilo 98%,franja PW
+216,fig:1101,883111-87-3,Apple alcoholate,Apple Firad 974723,nada
+217,fig:1121,8007-47-4,"Balsams, Canada",Fir Balsam Absolute Resin 25% (ethanol),techo TGSC
+218,fig:1138,100-52-7,Benzaldehyde,Aldehído Benzoico,nada
+219,fig:1145,130786-09-3,"Benzeneacetonitrile, a-butylidene-, (Z)",Salicynile,nada
+220,fig:1148,56836-93-2,"Benzenepropanol, a,ß-dimethyl-",Starfleur 40,techo TGSC
+221,fig:1159,89-71-4,"Benzoic acid, 2-methyl-, methyl ester",Ylanganate,nada
+222,fig:1172,95-16-9,Benzothiazole,Benzothiazole 10% (DPG),nada
+223,fig:1179,120-51-4,Benzyl benzoate,Benzyl Benzoate 75%,franja PW
+224,fig:1193,118-58-1,Benzyl salicylate,Salicilato de Bencilo,franja PW
+225,fig:1203,35044-68-9,"beta-1-(2,6,6-Trimethyl-1-cyclohexen-1-yl)-2-buten-1-one",Damascone Beta,nada
+226,fig:1210,55066-49-4,beta-Methyl-benzenepentanal,Mefranal,techo TGSC
+227,fig:1221,116126-82-0,"Bicyclo[2.2.1]hept-5-ene-2-carboxylic acid, 3-(1-methylethyl)-, ethyl ester, (2-exo,3-",Herbanate,techo TGSC
+228,fig:1247,406488-30-0,"Butanamide, 2-ethyl-N-methyl-N-(3-methylphenyl)-",Paradisamide,franja PW
+229,fig:1270,138-22-7,Butyl lactate,Lactato de Butilo,techo TGSC
+230,fig:1276,544-40-1,Butyl sulfide,Dibutyl Sulfide 10% (IPM),techo TGSC
+231,fig:1377,77-53-2,Cedrol,Cedrol Natural Cristalizado,techo TGSC
+232,fig:1379,77-54-3,Cedryl acetate,Cedryl Acetate Cristalizado,franja PW
+233,fig:1416,1885-38-7,Cinnamyl nitrile,Cinnamalva 50% (DPG),nada
+234,fig:1420,59323-76-1,"cis-2-Methyl-4-propyl-1,3-oxathiane",Oxane 50% (DPG),techo TGSC
+235,fig:1422,20298-69-5,cis-2-tert-Butylcyclohexyl acetate,Verdox HC,nada
+236,fig:1425,3681-71-8,cis-3-Hexen-1-yl acetate,Cis-3-hexenyl Acetate,techo TGSC
+237,fig:1438,67633-96-9,cis-3-Hexenyl methyl carbonate,Liffarome,franja PW
+238,fig:1448,21662-09-9,cis-4-Decen-1-al,Cardamom Aldehyde 10% (DPG),techo TGSC
+239,fig:1483,7492-67-3,Citronelloxyacetaldehyde,Citronellyl Oxyacetaldehyde,techo TGSC
+240,fig:1494,141-14-0,Citronellyl propionate,Propionato Citronelilo,techo TGSC
+241,fig:1546,118562-73-5,"Cyclododecaneethanol, .beta.-methyl-",Hydroxyambran 50% (IPM),techo TGSC
+242,fig:1587,4927-39-3,Cyclohexyl methyl pentanone,Vetival,franja PW
+243,fig:1590,87731-18-8,Cyclooct-4-en-1-yl methyl carbonate,Violiff,techo TGSC
+244,fig:1591,502-72-7,Cyclopentadecanone,Exaltone (powder),techo TGSC
+245,fig:1622,25225-10-9,d-Cyclocitronellene acetate,Rosamusk,techo TGSC
+246,fig:1650,72903-27-6,"Diethyl 1,4-cyclohexane dicarboxylate",Fructalate,techo TGSC
+247,fig:1653,123-25-1,Diethyl succinate,Succinato Dietilo Aroma Chemicals,techo TGSC
+248,fig:1654,68845-36-3,Diethyldimethylcyclohex-2-en-1-one,Azarbre,franja PW
+249,fig:1669,1209-61-6,Dihydroisocaryophyllene epoxide,Tobacarol,techo TGSC
+250,fig:1687,27939-60-2,Dimethylcyclohex-3-ene-1-carbaldehyde (isomer unspecified),Trivertal aka Triplal,nada
+251,fig:1703,2437-25-4,Dodecanenitrile,Clonal,techo TGSC
+252,fig:1707,89-82-7,d-Pulegone,Pulegone 98%,techo TGSC
+253,fig:1732,93981-50-1,"Ethyl 2,3,6-trimethylcyclohexyl carbonate",Rholiate,techo TGSC
+254,fig:1735,35044-59-8,"Ethyl 2,6,6-trimethylcyclohexa-1,3-ene-1-carboxylate",Ethyl Safranate,techo TGSC
+255,fig:1740,2983-37-1,Ethyl 2-ethylhexanoate,Irotyl,franja PW
+256,fig:1752,39255-32-8,Ethyl 2-methylpentanoate,Manzanate,franja PW
+257,fig:1760,2305-25-1,Ethyl 3-hydroxyhexanoate,Ethyl 3-Hydroxy Hexanoate,techo TGSC
+258,fig:1766,141-78-6,Ethyl acetate,Acetato Etilo Nat,techo TGSC
+259,fig:1775,110-38-3,Ethyl decanoate,Ethyl Caprate,techo TGSC
+260,fig:1783,97-64-3,Ethyl lactate,Lactato de Etilo natural,franja PW
+261,fig:1789,124-06-1,Ethyl myristate,Miristato Etilo,techo TGSC
+262,fig:1790,123-29-5,Ethyl nonanoate,Ethyl Pelargonate,techo TGSC
+263,fig:1873,98-01-1,Furfural,Furfural Aroma Chemicals,nada
+264,fig:1875,98-02-2,Furfuryl mercaptan,Furfuryl Mercaptan 1% (DPG),techo TGSC
+265,fig:1960,90-05-1,Guaiacol,GUAIACOL - GUAYACOL,techo TGSC
+266,fig:1962,61789-17-1,Guaiacwood acetate,Palo Santo Acetilado / Acetato de Guayilo Técnico,techo TGSC
+267,fig:1977,111-71-7,Heptanal,Aldehyde C-07 (heptanal),franja PW
+268,fig:1985,109-29-5,Hexadecanolide,Silvanone Supra,techo TGSC
+269,fig:1995,142-92-7,Hexyl acetate,Acetato de exilo,franja PW
+270,fig:1997,6789-88-4,Hexyl benzoate,Hexyl Benzoate - Benzoato Hexilo,techo TGSC
+271,fig:2021,107-75-5,Hydroxycitronellal,Cyclosia (Hydroxycitronellal),franja PW
+272,fig:2027,107-74-4,Hydroxycitronellol,Hydroxycitronellol - Cyclosia,techo TGSC
+273,fig:2030,647828-16-8,"Indeno[4,3a-b]furan,decahydro-2,2,7,7,8,9,9-heptamethyl-",Amber Xtreme,nada
+274,fig:2032,120-72-9,Indole,Indol,techo TGSC
+275,fig:2093,37677-14-8,Isohexenyl cyclohexenyl carboxaldehyde,Myrac Aldehyde,techo TGSC
+276,fig:2114,125109-85-5,Isopropylphenylbutanal,Florhydral,techo TGSC
+277,fig:2141,7785-26-4,l-.alpha.-Pinene,Alfa Pineno,techo TGSC
+278,fig:2190,25225-08-5,l-Cyclocitronellene formate,Aphermate,franja PW
+279,fig:2230,78-35-3,Linalyl isobutyrate,Isobutirato de linalilo,techo TGSC
+280,fig:2234,90063-53-9,Linden flowers,Absoluto de Tilo Flor,nada
+281,fig:2270,84012-24-8,"Marjoram, pot",Aceite Esencial de Orégano,franja PW
+282,fig:2279,108-39-4,m-Cresol,Meta Cresol 10 % (DPG),techo TGSC
+283,fig:2307,33662-58-7,"Methyl 2,4-dihydroxy-m-toluate",Oceanol (powder),techo TGSC
+284,fig:2313,68738-99-8,"Methyl 2-[[[2,4(or 3,5)-dimethyl-3-cyclohexen-1-yl]methylene]amino]benzoate",Agrumea,techo TGSC
+285,fig:2320,111-80-8,Methyl 2-nonynoate,Methyl Octine Carbonate,nada
+286,fig:2331,68966-86-9,Methyl 4(or 1)-isopropyl-1(or 4)-methylbicyclo[2.2.2]oct-5-ene-2-carboxylate,Mahagonate,techo TGSC
+287,fig:2340,93-08-3,Methyl beta-naphthyl ketone,Beta Methyl Naphthyl Ketone (powder),franja PW
+288,fig:2343,103-26-4,Methyl cinnamate,Methyl Cinnamate 50%,techo TGSC
+289,fig:2352,8050-15-5,Methyl ester of rosin (partially hydrogenated),Hercolyn DW,franja PW
+290,fig:2364,301-00-8,Methyl linoleate (48%) methyl linolenate (52%) mixture,Methyl Linolenate,nada
+291,fig:2373,101-41-7,Methyl phenylacetate,Methyl phenyl acetate,techo TGSC
+292,fig:2402,81-14-1,Musk ketone,Musk Ketone (powder),nada
+293,fig:2404,123-35-3,Myrcene,Myrcene 98%,techo TGSC
+294,fig:2423,84434-18-4,"N,2-Dimethyl-N-phenylbutyramide",Gardamide 50% (TEC),techo TGSC
+295,fig:2436,7212-44-4,Nerolidol (isomer unspecified),Nerolidol,franja PW
+296,fig:2453,557-48-2,Nona-2-trans-6-cis-dienal,Cucumber Aldehyde (Trans-2-cis-6-Nonadienal) 1 % (DPG),franja PW
+297,fig:2454,124-19-6,Nonanal,Aldehyde C9 (Nonanal),techo TGSC
+298,fig:2460,29127-83-1,Nonen acid nitrile,Irisnitrile 5% (TEC),nada
+299,fig:2464,4674-50-4,Nootkatone,Nootkatone 85-87%,techo TGSC
+300,fig:2489,30772-69-1,"Octahydro-4,7-methano-1H-indenemethyl acetate",Mysore Acetate,techo TGSC
+301,fig:2496,4430-31-3,Octahydrocoumarin,Bicyclononalactone,techo TGSC
+302,fig:2502,124-12-9,Octanenitrile,Octane Nitrile,techo TGSC
+303,fig:2572,19819-98-8,o-Tolylethanol,Peomosa,techo TGSC
+304,fig:2574,111879-80-2,"Oxacyclohexadec-12-en-2-one, (12E)-",Habanolide,franja PW
+305,fig:2583,1195-32-0,"p,alpha-Dimethylstyrene",Habanene,techo TGSC
+306,fig:2604,106-44-5,p-Cresol,Para Cresol 10% (IPM),techo TGSC
+307,fig:2607,99-87-6,p-Cymene,Para Cymene,franja PW
+308,fig:2608,150-78-7,p-Dimethoxybenzene,Dimethyl Hydroquinone (crystals),techo TGSC
+309,fig:2615,26516-27-8,"Pentanoic acid, 3-methyl-2-oxo-, ethyl ester",Nuezate,nada
+310,fig:2616,628-63-7,Pentyl acetate,Acetato Amilo,techo TGSC
+311,fig:2656,103-45-7,Phenethyl acetate,Phenyl Ethyl Acetate,franja PW
+312,fig:2667,102-20-5,Phenethyl phenylacetate,Phenyl Ethyl Phenyl Acetate,franja PW
+313,fig:2679,67633-94-7,"Phenylacetaldehyde 2,4-dihydroxy-2-methylpentane acetal",Reseda Body,techo TGSC
+314,fig:2681,101-48-4,Phenylacetaldehyde dimethyl acetal,Phenyl acetaldehyde dimethyl acetal (PADMA),techo TGSC
+315,fig:2683,29895-73-6,Phenylacetaldehyde glyceryl acetal,Phenyl Acetaldehyde Glycerine Acetal,techo TGSC
+316,fig:2721,120-57-0,Piperonal,Heliotropine 25% DPG,franja PW
+317,fig:2723,6658-48-6,p-Isobutyl-alpha-methyl hydrocinnamaldehyde,Silvial,nada
+318,fig:2726,536-60-7,p-Isopropylbenzyl alcohol,Cuminyl Alcohol,nada
+319,fig:2732,99-85-4,"p-Mentha-1,4-diene",Gamma Terpinene,techo TGSC
+320,fig:2736,38462-22-5,p-Mentha-8-thiol-3-one,Buchu Mercaptan 1% (IPM),techo TGSC
+321,fig:2738,68921-26-6,p-Menthylene sulfide 1% in limonene,Corps Pamplemousse 1% (TEC),nada
+322,fig:2739,123-11-5,p-Methoxybenzaldehyde,Anis Aldehyde,franja PW
+323,fig:2742,84697-09-6,p-Methyl-alpha-amyl cinnamic aldehyde,Acalea,techo TGSC
+324,fig:2745,104-45-0,p-Propylanisole,Dihydroestragole RC,techo TGSC
+325,fig:2749,478695-70-4,"Propanedioic acid, 1-(3,3-dimethylcyclohexyl) ethyl, ethyl ester",Edenolide,techo TGSC
+326,fig:2756,319002-92-1,"Propyl (2S)-2-(1,1-dimethylpropoxy)-propanoate",Sclareolate,techo TGSC
+327,fig:2767,80-54-6,p-t-Butyl-alpha-methylhydrocinnamic aldehyde,Lilial,franja PW
+328,fig:2771,104-87-0,p-Tolualdehyde,Para Tolyl Aldehyde,techo TGSC
+329,fig:2777,101-94-0,p-Tolyl phenylacetate,"Para-cresyl phenyl acetate 2,5 % (DPG)",techo TGSC
+330,fig:2779,89-82-7,Pulegone,Pulegone 98%,techo TGSC
+331,fig:2811,3033-23-6,Rose oxide levo,Rose Oxide Laevo,techo TGSC
+332,fig:2840,90-02-8,Salicylaldehyde,2-hydroxybenzaldehyde 10% (IPM),techo TGSC
+333,fig:2887,154171-77-4,"Spiro[1,3-dioxolane-2,8'(5'H)-[2H-2,4a]methanonaphthalene],hexahydro-1',1',5',5'-",Ysamber K,techo TGSC
+334,fig:2915,100-42-5,Styrene,Styrene Aroma Chemicals,nada
+335,fig:2946,8000-41-7,Terpineol,Terpineol Extra,franja PW
+336,fig:2950,8007-35-0,Terpinyl acetate (Isomer mixture),Terpinyl Acetate,techo TGSC
+337,fig:2959,16409-43-1,Tetrahydro-4-methyl-2-(2-methylpropen-1-yl)pyran,Rose Oxide,techo TGSC
+338,fig:2961,131766-73-9,Tetrahydro-4-methyl-2-propyl-2H-pyran-4-yl acetate,Sagecete,techo TGSC
+339,fig:2962,34686-71-0,Tetrahydro-6-(2-pentenyl)-2H-pyran-2-one,Jasmine Lactona o Jasmolactona,franja PW
+340,fig:2963,32764-98-0,Tetrahydro-6-(3-pentenyl)-2H-pyran-2-one,Jasmolactone,techo TGSC
+341,fig:3017,4180-23-8,trans-Anethole,Anethole (natural),techo TGSC
+342,fig:3028,90-17-5,Trichloromethyl phenyl carbinyl acetate,Rose Crystals (powder),techo TGSC
+343,fig:3029,122760-84-3,"Tricyclo[3.3.1.1.(3.7)]decan-2-ol, 4-methyl-8-methylene-",Prismantol 50% (DPG),techo TGSC
+344,fig:3039,71735-79-0,"Trimethyl-13-oxabicyclo[10.1.0]trideca-4,8-diene",Cedroxyde,franja PW
+345,fig:3075,20665-85-4,Vanillin isobutyrate,Isobutavan,franja PW
+346,fig:3091,62563-80-8,"Vetiverol, acetate",Vetiveryl Acetate,franja PW
+347,cas:5502-75-0,5502-75-0,"cis,trans-4-(Isopropyl)cyclohexanemethanol",Mayol,franja PW
+348,cas:85251-66-7,85251-66-7,Birch wood pyrolysate,Aceite Esencial de Abedul Dulce,nada
+349,cas:85940-29-0,85940-29-0,Birch wood pyrolysate,Aceite Esencial de Abedul Cade,nada
+350,cas:9000-78-6,9000-78-6,Opoponax,Opoponax Absolute 50% (TEC),nada
+351,tienda:1391529-52-4,1391529-52-4,TRIMOFIX IFF,Trimofix,nada
+352,tl:110-27-0,110-27-0,Isopropyl myristate,Isopropyl Myristate (IPM),franja PW
+353,tl:1226911-69-8,1226911-69-8,"4-Pentenal, 4-methyl-5-(4-methylphenyl)-, (4E)-",Mimosal,nada
+354,tl:1357064-95-9,1357064-95-9,"4H-4a,9-Methanoazuleno[5,6-d]-1,3-dioxole, octahydro-2,5,8,8,9a-pentamethyl-2-propyl-, (3aS,4aR,5R,7aS,9R,9aR)-",Ambrostar,nada
+355,tl:1378867-81-2,1378867-81-2,"1-Cyclohexene-1-propanal, 4-(1-methylethyl)-, (4R)",Lilybelle,nada
+356,tl:1449104-34-0,1449104-34-0,"4-Pentenal, 5-cyclohexyl-2,4-dimethyl-, (4E)-",Muguissimo,nada
+357,tl:1637294-12-2,1637294-12-2,3-(4-isobutyl-2-methylphenyl)propanal,Nympheal,franja PW
+358,tl:189440-77-5,189440-77-5,"4,7-Octadienoic acid, methyl ester, (4E)-",Methyl Anjoulate,nada
+359,tl:224790-80-1,224790-80-1,"Phenol, 2-methoxy-, reaction products",Magnol,nada
+360,tl:25265-71-8,25265-71-8,Dipropylene glycol (isomer unspecified),Dipropylene Glycol,franja PW
+361,tl:38303-23-0,38303-23-0,"4,5,6,7,8,9,10,11,12,13-Decahydrocyclododecaoxazole",Sclarene 80% DPG,nada
+362,tl:50373-36-9,50373-36-9,"Cyclohexanol, 5-methyl-2-(1-methylethenyl)-, (1.alpha.,2.beta.,5.alpha.)-(.+-.)-",Geranodyle,techo TGSC
+363,tl:51411-24-6,51411-24-6,(+/-)-Dihydrofarnesol,Biocyclamol,techo TGSC
+364,tl:56539-66-3,56539-66-3,3-Methoxy-3-methyl-1-butanol,MMB (3-methoxy-3-methyl-1-butanol),franja PW
+365,tl:77-93-0,77-93-0,Triethyl citrate,Triethyl Citrate (TEC),franja PW
+366,tl:7786-67-6,7786-67-6,"Cyclohexanol, 5-methyl-2-(1-methylethenyl)-",Isopulegol,techo TGSC
+367,tl:84-66-2,84-66-2,Diethyl phthalate,Diethyl phthalate - Dietil Ftalato,franja PW
