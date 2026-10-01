@@ -14,8 +14,9 @@ cifras serían del producto diluido, no del material.
 
 **A qué material va cada producto:**
 * una molécula, a los materiales del glosario con ese CAS que son moléculas;
-* un natural, a la forma de su nombre («Lavender Oil» al aceite) entre los naturales con ese CAS;
-  si el nombre no dice forma, solo si el CAS tiene un único natural. Si no, queda sin asignar,
+* un natural, a la forma de su nombre («Lavender Oil» al aceite) entre los naturales con ese CAS,
+  y de esa forma, a la variedad que dice el nombre («Extra»), o a la forma sin variante si no dice
+  ninguna; si el nombre no dice forma, solo si el CAS tiene un único natural. Si no, queda sin asignar,
   nunca a otra forma: los constituyentes cambian con la forma (P54).
 
 **Las filas.** Una por sustancia declarada, con su estándar IFRA (de `datos/ifra/51/estandar-cas.csv`).
@@ -58,6 +59,33 @@ DILUTED = re.compile(r"\d+\s*%|\bdilut|\bsolution\b|\bin (?:dpg|ipm|tec|ethanol|
 PW_FORMS = [("absolute", r"\babs(?:olute)?\b"), ("concrete", r"\bconcrete\b"), ("resinoid", r"\bresinoid\b"),
             ("oleoresin", r"\boleo-?resin\b"), ("tincture", r"\btincture\b"), ("extract", r"\b(?:co2|extract)\b"),
             ("oil", r"\boil\b")]
+
+
+FORM_WORDS = {"oil", "oils", "essential", "absolute", "extract", "co2", "concrete", "resinoid", "tincture", "oleoresin"}
+
+
+def words_of(name: str) -> set[str]:
+    """The words of a name, lower case, without a botanical parenthesis and without form words."""
+    name = re.sub(r"\(([^)]*)\)", lambda g: "" if re.match(r"[A-Z][a-z]+ [a-z]+", g.group(1).strip()) else g.group(0), name)
+    return set(re.findall(r"[a-z0-9]+", name.lower())) - FORM_WORDS
+
+
+def by_variety(product: str, found: list[dict]) -> list[dict]:
+    """Of the forms a product reached, the ones its name says, as `generar_glosario.by_variety` does
+    for the shops: «Ylang Ylang Essential Oil Extra» is the extra, not the I, II or III; a name that
+    says no variant goes to the forms with none («Lavender Essential Oil» is not the terpeneless)."""
+    if len(found) < 2:
+        return found
+    shared = set.intersection(*(words_of(m["nombre"]) for m in found))
+    variant = {m["id"]: words_of(m["nombre"]) - shared for m in found}
+    said = set(re.findall(r"[a-z0-9]+", product.lower()))
+    score = {m["id"]: len(variant[m["id"]] & said) for m in found}
+    best = max(score.values())
+    if best > 0:
+        top = [m for m in found if score[m["id"]] == best]
+        extra = {m["id"]: len(variant[m["id"]] - said) for m in top}
+        return [m for m in top if extra[m["id"]] == min(extra.values())]
+    return [m for m in found if not variant[m["id"]]]
 
 
 def form_of(name: str) -> str:
@@ -148,7 +176,7 @@ def main() -> int:
             elif nats:
                 form = form_of(p["name"])
                 same = [m for m in nats if m["tipo_natural"] == form] if form else []
-                targets += same or (nats if len(nats) == 1 else [])
+                targets += by_variety(p["name"], same) if same else (nats if len(nats) == 1 else [])
         url = f"{BASE}document-list.php?pro_id={p['sku']}"
         if not targets:
             unassigned.append(p)

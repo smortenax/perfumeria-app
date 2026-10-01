@@ -23,10 +23,12 @@ const MG = 1_000n;
 
 describe("constituents declared by suppliers, audited (P59)", () => {
   it("count where the annex says nothing, and the natural still warns it is incomplete", () => {
-    // Bergamot oil FCF is outside the annex. Three suppliers declare citral; the highest, Opella's
-    // SDS, gives ≤ 0,7 % (audit C-001), and that is what counts.
+    // Bergamot oil FCF is outside the annex. Until 2026-10-02 three suppliers declared citral, and the
+    // highest, Opella's SDS, gave ≤ 0,7 % (audit C-001). PerfumersWorld's certificate of «bergamot fcf
+    // oil sicilian» (C-004) declares 0,8698 %: a fourth source, higher, and the highest counts, which
+    // is the prudent figure for IFRA. The 0,7 % was right for the sources there were.
     const bergamot = ifraOf("fig:1200");
-    expect(fractionOf("fig:1200", "std:IFRA_STD_021")?.eq(Ratio.parse("7/1000"))).toBe(true);
+    expect(fractionOf("fig:1200", "std:IFRA_STD_021")?.eq(Ratio.parse("8698/1000000"))).toBe(true);
     expect(bergamot?.pending?.some((p) => p.includes("proveedor"))).toBe(true);
   });
 });

@@ -229,7 +229,13 @@ constituyentes, y la app lo calcula exacto; así nunca se desfasa de los datos.
   escribe [`scripts/constituyentes_proveedores.py`](../../scripts/constituyentes_proveedores.py):
   entre fuentes cuenta la cifra más alta. **Solo entra donde el anexo no da ese estándar para ese
   material**, y no cambia su `estado`: un natural «sin dato» sigue avisando de que puede llevar
-  otras sustancias con techo. Son 270 filas de 84 materiales.
+  otras sustancias con techo. Desde el 2026-10-02 incluye los certificados de conformidad de
+  PerfumersWorld (lote C-004, [`scripts/traer_certificados_pw.py`](../../scripts/traer_certificados_pw.py)),
+  asignados a la forma y la variedad que dice el nombre del producto. Son 541 filas.
+- **`certificado`** (2026-10-02): la sección 2.2 de un certificado de conformidad IFRA que el
+  usuario guarda de su proveedor ([`docs/proveedores/certificados/`](../../docs/proveedores/certificados/LEEME.md)).
+  El producto entra como material de clase `base` (`cert:…`), y esas sustancias son todas sus
+  constituyentes.
 
 Los otros CAS de un natural del anexo solo cuentan si además coincide el nombre. Algunos de
 esos CAS, como el de *Citrus limon*, sirven para varias variantes, y unirlos por CAS

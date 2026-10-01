@@ -24,7 +24,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 LOTS = ROOT / "docs" / "investigacion" / "2026-09-30-usos-y-constituyentes" / "lotes"
 OUT = ROOT / "datos" / "glosario" / "origen" / "constituyentes-proveedores.csv"
-BATCHES = ["C-001.csv", "C-003.csv"]
+BATCHES = ["C-001.csv", "C-003.csv", "C-004.csv"]
 
 
 def counts(row: dict) -> bool:
