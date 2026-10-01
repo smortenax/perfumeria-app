@@ -299,3 +299,104 @@ Filas por dominio probable (estimacion, el buscador no enlazo cada cifra): iff.c
 4. Cifras de «fine fragrance», de jabon o champu, EdT, limites IFRA, percentiles 95 de RIFM y concentrados de aroma alimentario (acetofenona, orden 201) quedaron fuera de franja; 15 materiales sin segunda fuente.
 5. Webs de perfumistas citadas (premierepeau.com, glooshi.com, pellwall.com) aportan guias de uso sin ficha de casa; el buscador tambien devolvio una web que cita datos de TGSC para el amil salicilato (no usada).
 
+
+## Parte 4: ordenes 226 a 300
+
+Franjas en % del concentrado (sin alcohol). Fuentes distintas de TGSC, PerfumersWorld y perflavory. Cada material: 1 busqueda, 0 fetches. Sin URL por cifra (solo resumen del buscador), salvo la patente del orden 230.
+
+| orden | material | CAS | franjas (% concentrado) | fuentes | avisos |
+|---|---|---|---|---|---|
+| 226 | beta-Methyl-benzenepentanal | 55066-49-4 | techo <=3 | fraterworks.com |  |
+| 227 | Bicyclo[2.2.1]hept-5-ene-2-carboxylic ac | 116126-82-0 | techo <=2 | scentspiracy.com | dudosa |
+| 228 | Butanamide, 2-ethyl-N-methyl-N-(3-methyl | 406488-30-0 | techo <=15; techo <=20 | fragrance-engine.com, fraterworks.com | dudosa |
+| 229 | Butyl lactate | 138-22-7 | sin segunda fuente | - | |
+| 230 | Butyl sulfide | 544-40-1 | trazas 2e-05-0.001 | uspto.gov |  |
+| 231 | Cedrol | 77-53-2 | sin segunda fuente | - | |
+| 232 | Cedryl acetate | 77-54-3 | estandar 0.8-2.5 | dominio no identificado |  |
+| 233 | Cinnamyl nitrile | 1885-38-7 | sin segunda fuente | - | |
+| 234 | cis-2-Methyl-4-propyl-1,3-oxathiane | 59323-76-1 | sin segunda fuente | - | |
+| 235 | cis-2-tert-Butylcyclohexyl acetate | 20298-69-5 | estandar 1-10 | scentspiracy.com | atencion |
+| 236 | cis-3-Hexen-1-yl acetate | 3681-71-8 | sin segunda fuente | - | |
+| 237 | cis-3-Hexenyl methyl carbonate | 67633-96-9 | sin segunda fuente | - | |
+| 238 | cis-4-Decen-1-al | 21662-09-9 | sin segunda fuente | - | |
+| 239 | Citronelloxyacetaldehyde | 7492-67-3 | estandar 0.1-1; techo <=2 | dominio no identificado, fraterworks.com | dudosa |
+| 240 | Citronellyl propionate | 141-14-0 | sin segunda fuente | - | |
+| 241 | Cyclododecaneethanol, .beta.-methyl- | 118562-73-5 | estandar 0.1-5 | eng.hekserij.nl |  |
+| 242 | Cyclohexyl methyl pentanone | 4927-39-3 | estandar 0.5-4 | symrise.com |  |
+| 243 | Cyclooct-4-en-1-yl methyl carbonate | 87731-18-8 | sin segunda fuente | - | |
+| 244 | Cyclopentadecanone | 502-72-7 | sin segunda fuente | - | |
+| 245 | d-Cyclocitronellene acetate | 25225-10-9 | estandar <=5 | glooshi.com |  |
+| 246 | Diethyl 1,4-cyclohexane dicarboxylate | 72903-27-6 | sin segunda fuente | - | |
+| 247 | Diethyl succinate | 123-25-1 | sin segunda fuente | - | |
+| 248 | Diethyldimethylcyclohex-2-en-1-one | 68845-36-3 | estandar 2-3; techo <=10 | givaudan.com |  |
+| 249 | Dihydroisocaryophyllene epoxide | 1209-61-6 | trazas 0.1-0.5; estandar 0.5-2 | dominio no identificado | dudosa |
+| 250 | Dimethylcyclohex-3-ene-1-carbaldehyde (i | 27939-60-2 | sin segunda fuente | - | |
+| 251 | Dodecanenitrile | 2437-25-4 | sin segunda fuente | - | |
+| 252 | d-Pulegone | 89-82-7 | sin segunda fuente | - | |
+| 253 | Ethyl 2,3,6-trimethylcyclohexyl carbonat | 93981-50-1 | estandar 0.1-1; techo <=2 | glooshi.com |  |
+| 254 | Ethyl 2,6,6-trimethylcyclohexa-1,3-ene-1 | 35044-59-8 | sin segunda fuente | - | |
+| 255 | Ethyl 2-ethylhexanoate | 2983-37-1 | sin segunda fuente | - | |
+| 256 | Ethyl 2-methylpentanoate | 39255-32-8 | techo <=2 | dominio no identificado | dudosa |
+| 257 | Ethyl 3-hydroxyhexanoate | 2305-25-1 | sin segunda fuente | - | |
+| 258 | Ethyl acetate | 141-78-6 | sin segunda fuente | - | |
+| 259 | Ethyl decanoate | 110-38-3 | sin segunda fuente | - | |
+| 260 | Ethyl lactate | 97-64-3 | sin segunda fuente | - | |
+| 261 | Ethyl myristate | 124-06-1 | sin segunda fuente | - | |
+| 262 | Ethyl nonanoate | 123-29-5 | sin segunda fuente | - | |
+| 263 | Furfural | 98-01-1 | sin segunda fuente | - | |
+| 264 | Furfuryl mercaptan | 98-02-2 | trazas <=0.001 | dominio no identificado |  |
+| 265 | Guaiacol | 90-05-1 | estandar 0.1-2; techo <=5 | glooshi.com | atencion |
+| 266 | Guaiacwood acetate | 61789-17-1 | techo <=8 | dominio no identificado | dudosa |
+| 267 | Heptanal | 111-71-7 | sin segunda fuente | - | |
+| 268 | Hexadecanolide | 109-29-5 | techo <=20 | fraterworks.com | dudosa, atencion |
+| 269 | Hexyl acetate | 142-92-7 | sin segunda fuente | - | |
+| 270 | Hexyl benzoate | 6789-88-4 | sin segunda fuente | - | |
+| 271 | Hydroxycitronellal | 107-75-5 | estandar 1-5; techo <=10 | dominio no identificado, scentspiracy.com | dudosa |
+| 272 | Hydroxycitronellol | 107-74-4 | sin segunda fuente | - | |
+| 273 | Indeno[4,3a-b]furan,decahydro-2,2,7,7,8, | 647828-16-8 | sin segunda fuente | - | |
+| 274 | Indole | 120-72-9 | estandar 0.05-0.5 | premierepeau.com | dudosa |
+| 275 | Isohexenyl cyclohexenyl carboxaldehyde | 37677-14-8 | techo <=10 | glooshi.com |  |
+| 276 | Isopropylphenylbutanal | 125109-85-5 | estandar 0.2-2; techo <=7 | scentspiracy.com |  |
+| 277 | l-.alpha.-Pinene | 7785-26-4 | sin segunda fuente | - | |
+| 278 | l-Cyclocitronellene formate | 25225-08-5 | estandar <=2; techo <=20 | dominio no identificado | dudosa |
+| 279 | Linalyl isobutyrate | 78-35-3 | estandar 0.2-2 | givaudan.com | dudosa |
+| 280 | Linden flowers | 90063-53-9 | sin segunda fuente | - | |
+| 281 | Marjoram, pot | 84012-24-8 | sin segunda fuente | - | |
+| 282 | m-Cresol | 108-39-4 | estandar <=0.1 | pellwall.com |  |
+| 283 | Methyl 2,4-dihydroxy-m-toluate | 33662-58-7 | sin segunda fuente | - | |
+| 284 | Methyl 2-[[[2,4(or 3,5)-dimethyl-3-cyclo | 68738-99-8 | sin segunda fuente | - | |
+| 285 | Methyl 2-nonynoate | 111-80-8 | sin segunda fuente | - | |
+| 286 | Methyl 4(or 1)-isopropyl-1(or 4)-methylb | 68966-86-9 | sin segunda fuente | - | |
+| 287 | Methyl beta-naphthyl ketone | 93-08-3 | estandar 0.1-4 | symrise.com |  |
+| 288 | Methyl cinnamate | 103-26-4 | estandar 0.1-1; techo <=5 | dominio no identificado | dudosa |
+| 289 | Methyl ester of rosin (partially hydroge | 8050-15-5 | sin segunda fuente | - | |
+| 290 | Methyl linoleate (48%) methyl linolenate | 301-00-8 | sin segunda fuente | - | |
+| 291 | Methyl phenylacetate | 101-41-7 | sin segunda fuente | - | |
+| 292 | Musk ketone | 81-14-1 | estandar 0.5-2; techo <=10 | scentspiracy.com |  |
+| 293 | Myrcene | 123-35-3 | estandar 0.5-5 | scentspiracy.com |  |
+| 294 | N,2-Dimethyl-N-phenylbutyramide | 84434-18-4 | sin segunda fuente | - | |
+| 295 | Nerolidol (isomer unspecified) | 7212-44-4 | sin segunda fuente | - | |
+| 296 | Nona-2-trans-6-cis-dienal | 557-48-2 | sin segunda fuente | - | |
+| 297 | Nonanal | 124-19-6 | trazas <=0.1; estandar 0.05-0.5 | dominio no identificado | dudosa |
+| 298 | Nonen acid nitrile | 29127-83-1 | sin segunda fuente | - | |
+| 299 | Nootkatone | 4674-50-4 | estandar <=2; estandar 0.01-0.2; techo <=4 | dominio no identificado, glooshi.com | dudosa, contradiccion |
+| 300 | Octahydro-4,7-methano-1H-indenemethyl ac | 30772-69-1 | estandar 1-15 | symrise.com | dudosa |
+
+## Totales (parte 4)
+
+- Busquedas: 75 (1 por material, sin segundas busquedas). Fetches: 0.
+- Filas de cifras: 46 (trazas 4, estandar 24, techo 18). Materiales con al menos una franja: 32.
+- Sin segunda fuente: 43 de 75. Casi todos por lo mismo: la unica cifra era de formato TGSC/PerfumersWorld («up to X% in the fragrance concentrate», «average use X%», «traces to X%»), limites IFRA/RIFM, o producto final sin base clara.
+- Contradicciones marcadas (mas de 5x en la misma franja): orden 299 (nootkatona, estandar max 2% frente a 0.01-0.2%).
+
+## Dominios que aportaron mas (parte 4)
+
+Filas por dominio probable (estimacion, el buscador no enlazo cada cifra): dominio no identificado (15), scentspiracy.com (8), glooshi.com (8), fraterworks.com (4), symrise.com (3), givaudan.com (3), y una cada uno fragrance-engine.com, uspto.gov (patente), eng.hekserij.nl, premierepeau.com, pellwall.com.
+
+## Lo raro (parte 4)
+
+1. Ninguna cifra lleva URL (salvo la patente US 10570351 del orden 230); las fuentes son dominios probables a partir del resumen, y 15 filas no tienen dominio identificable (marcadas «dominio no identificado», varias dudosa).
+2. Mapeos dudosos: orden 281 (nombre de tienda aceite esencial de oregano, CAS Marjoram pot), orden 280 (CAS de Tilia sin confirmar en fichas), orden 273 (scentspiracy da otro CAS para Amber Xtreme), orden 268 (Silvanone Supra es mezcla; el CAS es solo hexadecanolide), orden 289 (resultados de Hercolyn D, no DW), orden 276 (Florhydral con otro CAS en scentspiracy).
+3. Orden 229 (lactato de butilo): la unica pagina con cifras es un espejo de TGSC (thegoodscents.company), descartada.
+4. Falsas atribuciones a IFRA: «up to 10% in fragrance concentrates» (alfa-pineno) se presenta como recomendacion IFRA sin serlo; solo va a notas.
+5. Orden 235 (Verdox HC): la cifra viene de la pagina del Verdox normal (88-41-5), no del isomero cis; orden 265 (guayacol): el limite IFRA de 0.5% es menor que el techo de la franja de 2%.
