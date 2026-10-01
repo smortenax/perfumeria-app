@@ -141,8 +141,8 @@ docstring del script.
 | `uso_techo_fuente` | de qué fuente sale ese techo |
 
 Las filas de base `producto` o `desconocida` no entran en la franja ni se convierten. **A
-2026-10-01, con los lotes 1 a 4 de U-005, son 377 materiales con franja**: **85 con `consenso` y 292
-con `recomendacion`**. Hay **1.700 con techo de uso**; los 1.339 que solo tienen techo salen en
+2026-10-01, con U-005 entero, son 386 materiales con franja**: **87 con `consenso` y 299
+con `recomendacion`**. Hay **1.703 con techo de uso**; los 1.333 que solo tienen techo salen en
 la ficha como «solo techo», con su fuente, sin franja (P59 A).
 
 Un natural que una tienda vende diluido puede traer el CAS del disolvente (el absoluto de cacao
