@@ -27,17 +27,39 @@ Lo genera `scripts/registro_productos.py` desde [`mis-productos.csv`](mis-produc
 | ✓ | Styrallyl Acetate | molécula | fig:1056 alpha-Methylbenzyl acetate [sin-estandar] | Symrise | ninguna, lo dice | 9,70% |  |
 | ✓ | Terpinyl Acetate | molécula | fig:2950 Terpinyl acetate (Isomer mixture) [sin-estandar] | Firmenich | 1 | NoRestriction |  |
 | ✓ | Black Pepper Absolute | natural | fig:2622 Pepper, black, absolute [sin-dato] | Firmenich | 2 | NoRestriction |  |
+| — | Aldehído alfa-amil cinámico | base o especialidad | — | ¿? | — | — | pedir el certificado IFRA: sin él no se sabe qué lleva |
 | — | Auranone | base o especialidad | — | ¿? | — | — | pedir el certificado IFRA: sin él no se sabe qué lleva |
+| — | Esencia de trufa | base o especialidad | — | ¿? | — | — | pedir el certificado IFRA: sin él no se sabe qué lleva |
+| — | Haba tonka (semillas), tintura comercial | base o especialidad | — | ¿? | — | — | pedir el certificado IFRA: sin él no se sabe qué lleva |
+| — | Ámbar gris, tintura comercial (purificado) | base o especialidad | — | ¿? | — | — | pedir el certificado IFRA: sin él no se sabe qué lleva |
 | ◐ | 2-hydroxybenzaldehyde 10% (IPM) (10 % en IPM) | molécula | fig:2840 Salicylaldehyde [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | 3,4-Xylenol 10% (IPM) (10 % en IPM) | molécula | fig:616 3,4-Xylenol [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
+| — | Acetato de bencilo | molécula | fig:1176 Benzyl acetate [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | Aldambre (25–50 % en DPG) | molécula | tl:947-05-7 Oxacyclotridecan-2-one [sin-estandar] | Ventós | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
+| — | Aldehído C14 (gamma-undecalactona) | molécula | fig:1896 gamma-Undecalactone [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
+| — | Aldehído C18 (gamma-nonalactona) | molécula | fig:1894 gamma-Nonalactone [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | — | Ambermor IFF | molécula | fig:2426 Naphtho[2,1-b]furan, dodecahydro-3a,6,6,9a-tetramethyl- [sin-estandar] | IFF | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | Calone (powder) | molécula | fig:944 7-Methyl-2H-benzo-1,5-dioxepin-3(4H)-one [sin-estandar] | IFF | — | — | el certificado que enlaza la tienda es de otro producto («BRAN ABS LMR»); pedir el certificado IFRA: para impurezas y el tope del fabricante |
+| — | Cashmeran (50 % en DPG) | molécula | fig:924 6,7-Dihydro-1,1,2,3,3-pentamethyl-4(5H)-indanone [con-techo] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
+| — | Cumarina natural | molécula | fig:1534 Coumarin [con-techo] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
+| — | Dartanol | molécula | fig:412 2-Ethyl-4-(2,2,3-trimethyl-3-cyclopenten-1-yl)-2-buten-1-ol [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
+| — | Diphenyl Oxide | molécula | fig:1689 Diphenyl ether [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
+| — | Ebanol | molécula | fig:722 3-Methyl-5-(2,2,3-trimethyl-3-cyclopenten-1-yl)pent-4-en-2-ol [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
+| — | Etil-4-fenol | molécula | fig:2642 p-Ethylphenol [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
+| — | Eugenol 98% | molécula | fig:1834 Eugenol [con-techo] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
+| — | Florosa | molécula | fig:464 2-Isobutyl-4-methyltetrahydro-2H-pyran-4-ol (Pyranol) [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
+| — | Geraniol 98% | molécula | fig:1906 Geraniol [con-techo] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | Helional | molécula | fig:1055 alpha-Methyl-1,3-benzodioxole-5-propionaldehyde [con-techo] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | Heliotropine 25% DPG (25 % en DPG) | molécula | fig:2721 Piperonal [sin-estandar] | PCW | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
+| — | Isobutilquinoleína (IBQ) (40 % en DPG) | molécula | fig:938 6-sec-Butylquinoline [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | Linalyl Acetate | molécula | fig:2223 Linalyl acetate [sin-estandar] | ¿? | — | — | el certificado (IFRA_LINALYL_ACETATE_BASF.pdf) está cifrado o no se lee; pedir el certificado IFRA: para impurezas y el tope del fabricante |
+| — | Metil ionona gamma | molécula | fig:1054 alpha-iso-Methylionone [con-techo] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | — | Prismantol 50% (DPG) (50 % en DPG) | molécula | fig:3029 Tricyclo[3.3.1.1.(3.7)]decan-2-ol, 4-methyl-8-methylene- [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
+| — | Safraleine | molécula | fig:295 2,3,3-Trimethylindanone [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
+| — | Vainillina | molécula | fig:3074 Vanillin [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | — | Absoluto de Castoreum 20% (20 % en alcohol) | natural | fig:1343 Castoreum absolute [sin-dato] | ¿? | — | — | pedir el certificado IFRA: sin él no se sabe qué lleva |
+| — | Aceite de cade (enebro) | natural | fig:1285 Cade oil [condicion] | ¿? | — | — | pedir el certificado IFRA: sin él no se sabe qué lleva |
 | ◐ | Benzoin Siam Resinoid (IFF) | natural | fig:1162 Benzoin CO2 extract, Siam [sin-dato] | ¿? | — | — | pedir el certificado IFRA: sin él no se sabe qué lleva |
+| — | Láudano de jara | sin fila en el glosario | — | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 
-**22 documentados, 8 parciales, 4 sin documentos**, de 34.
+**22 documentados, 8 parciales, 26 sin documentos**, de 56.
