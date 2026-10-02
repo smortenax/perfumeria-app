@@ -22,7 +22,7 @@ Lo genera `scripts/registro_productos.py` desde [`mis-productos.csv`](mis-produc
 | ✓ | Ionone beta | molécula | fig:54 (E)-beta-Ionone [sin-estandar] | Givaudan | ninguna, lo dice | — |  |
 | ✓ | Kephalis | molécula | fig:604 3,3,5,5-Tetramethyl-4-ethoxyvinylcyclohexanone [sin-estandar] | Givaudan | ninguna, lo dice | — |  |
 | ✓ | Maritima | molécula | fig:770 4-(4,8-Dimethylnona-3,7-dienyl)pyridine [sin-estandar] | IFF | ninguna, lo dice | — |  |
-| ✓ | Methyl Cinnamate 50% (50 % en ¿?) | molécula | fig:2343 Methyl cinnamate [sin-estandar] | Symrise | ninguna, lo dice | — |  |
+| ✓ | Methyl Cinnamate 50% (50 % en ¿?) | molécula | fig:2343 Methyl cinnamate [sin-estandar] | Symrise | ninguna, lo dice | 1,20% |  |
 | ✓ | Oakmoss Absolute 50% (IPM) (50 % en IPM) | molécula | cas:90028-68-5 Oakmoss extracts [con-techo] | IFF | 3 | — |  |
 | ✓ | Styrallyl Acetate | molécula | fig:1056 alpha-Methylbenzyl acetate [sin-estandar] | Symrise | ninguna, lo dice | 9,70% |  |
 | ✓ | Terpinyl Acetate | molécula | fig:2950 Terpinyl acetate (Isomer mixture) [sin-estandar] | Firmenich | 1 | NoRestriction |  |

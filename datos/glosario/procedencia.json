@@ -39,7 +39,7 @@
       "que_es": "constituyentes regulados que declaran los proveedores, auditados (frente C)"
     },
     "docs/proveedores/productos.csv": {
-      "sha256": "b9d9ae6b56145fc037ae505b0ae6390ea262d2a91941fbccdfdd7a352b6b7a9e",
+      "sha256": "5789145d436efa508f384300f69b76401a91e07531c9119e94e48320d14b38b4",
       "que_es": "los productos del usuario con el certificado IFRA de su fabricante (P62)"
     },
     "docs/proveedores/productos-sustancias.csv": {
@@ -75,7 +75,7 @@
       "sha256": "289097c9d76de4430f967158556ff068faa4589175c44b48dd355a5eb93b6368"
     }
   },
-  "generado": "2026-10-02T00:28:19+00:00",
+  "generado": "2026-10-02T00:28:55+00:00",
   "cuentas": {
     "materiales": 4347,
     "del_fig": 3119,
@@ -104,7 +104,7 @@
     "de_tiendas_sin_unir": 48,
     "constituyentes_de_proveedores": 508,
     "productos_de_fabricante": 22,
-    "topes_de_fabricante": 9,
+    "topes_de_fabricante": 10,
     "constituyentes_de_certificados": 64,
     "con_franja_de_uso": 691,
     "con_franja_de_consenso": 101,

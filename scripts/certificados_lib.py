@@ -65,6 +65,10 @@ def category_4(lines: list[str], text: str) -> str:
         m = re.match(r"^(?:Category\s+)?4\s+(?:Products related to fine fragrance)?\s*((?:\d+[.,]?\d*)\s*%|No Restriction|Not Permitted)\s*$", line)
         if m:
             return m.group(1).replace(" ", "")
+        # Symrise, per application and without «%»: «4 1,20».
+        m = re.match(r"^4\s+(\d+[.,]\d+)\s*%?$", line)
+        if m:
+            return m.group(1) + "%"
         if re.match(r"^4\s+Hydroalcoholic", line):
             for nxt in lines[i:i + 4]:
                 found = re.search(r"(\d+(?:[.,]\d+)?)\s*$", nxt)
