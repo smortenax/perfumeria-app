@@ -2,7 +2,7 @@
 
 Se lee al empezar cada sesión y se actualiza al terminar (30 líneas como máximo).
 Autoridad: [`decisiones-v2.md`](decisiones-v2.md). La v1 queda congelada en la etiqueta `glosario-v1`.
-Rama local `v2-materiales`; se sube a `claude/gracious-bell-day7am`.
+Rama `v2-materiales` (en el remoto). La etiqueta `glosario-v1` también está subida.
 
 ## Fases
 
@@ -26,4 +26,3 @@ Rama local `v2-materiales`; se sube a `claude/gracious-bell-day7am`.
 ## Siguiente
 
 - Definir el contenido de las fases 2 a 6, que hoy solo están numeradas.
-- La etiqueta `glosario-v1` sigue solo en local.
