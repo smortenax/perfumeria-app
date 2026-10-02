@@ -1,7 +1,8 @@
 # Datos de la v2: el modelo de materiales
 
 La autoridad es [`docs/v2/decisiones-v2.md`](../../docs/v2/decisiones-v2.md). Esta carpeta
-la escriben scripts deterministas, nunca a mano fila a fila, y **`npm run validar:v2` tiene
+la escribe [`scripts/v2/alta.py`](../../scripts/v2/alta.py) desde las entradas de
+[`docs/v2/altas/`](../../docs/v2/altas/), nunca a mano fila a fila, y **`npm run validar:v2` tiene
 que pasar antes de cada commit de datos**. La salida completa va a `validacion.txt`, que no
 se guarda en Git.
 
@@ -57,8 +58,9 @@ Más detalle:
 - **Un natural** se identifica por especie + parte + proceso + quimiotipo (D1). El CAS y el
   INCI son atributos.
 - **IFRA limita por grupo**, no por CAS. Los límites se leen de `datos/ifra/51/` tal cual y
-  aquí no se copian. Un miembro es una sustancia o, en los estándares por familia (089, 184),
-  un material. `subgrupo` separa los grupos del 097 y del 181.
+  aquí no se copian. Un miembro es una sustancia o un material que IFRA limita como tal: los
+  estándares por familia (089, 184) y un natural cuyo CAS está en el índice (el musgo de roble,
+  067). `subgrupo` separa los grupos del 097 y del 181.
 - **Un material `sustancia` sin composición** es su propia sustancia al 100 % y no necesita
   cobertura. Si tiene filas, por ejemplo las impurezas de un producto, sí la necesita.
 - **Un `natural` o una `base` sin filas propias** de composición llevan una cobertura
