@@ -206,14 +206,16 @@ def main() -> int:
     known_products = {p["clave"] for _, e in entries for m in e["materiales"] for p in m.get("productos", [])}
     known_cas = {m["cas"]: m["clave"] for _, e in entries for m in e["materiales"] if m["tipo"] == "sustancia" and m.get("cas")}
     summaries: dict[str, tuple[list[dict[str, str]], list[dict[str, str]]]] = {}
+    known_names = {p["nombre"] for _, e in entries for m in e["materiales"] for p in m.get("productos", [])}
     for name, spec in lot_specs.items():
-        entry, proposals, lot_conflicts = lots.plan(name, spec, ROOT, index, known_products, known_cas)
+        entry, proposals, lot_conflicts = lots.plan(name, spec, ROOT, index, known_products, known_cas, known_names)
         summaries[name] = (proposals, lot_conflicts)
         conflicts.setdefault(name, []).extend(lot_conflicts)
         entries.append((name, entry))
         for m in entry["materiales"]:
             known_cas.setdefault(m["cas"], m["clave"])
             known_products.update(p["clave"] for p in m["productos"])
+            known_names.update(p["nombre"] for p in m["productos"])
 
     seen_materials: dict[str, str] = {}
     for lot, entry in entries:
@@ -273,7 +275,7 @@ def main() -> int:
             if "anexo" in m:
                 a = m["anexo"]
                 did = documents[a["documento"]]
-                rows = [r for r in annex if r["nombre"] == a["nombre"] and r["cas_principal"] == a["cas"]]
+                rows = [r for r in annex if r["nombre"] == a["nombre"] and (r["cas_principal"] == a["cas"] or a["cas"] in r["otros_cas"].split())]
                 if not rows:
                     print(f"{m['clave']}: el anexo no tiene «{a['nombre']}» ({a['cas']}).")
                     return 1
@@ -391,7 +393,18 @@ def print_summary(lot: str, proposals: list[dict[str, str]], conflicts: list[dic
     for c in conflicts:
         by_product.setdefault(c["producto"], []).append(c)
     for product, rows in by_product.items():
-        parts = [f"{c['tipo']} [{c['detalle']}] → {c['respuesta'] or 'recomiendo ' + c['recomendacion']}" for c in rows]
+        shape = next((c for c in rows if c["tipo"] == "forma"), None)
+        if shape:
+            # A natural: the evidence of its shop page and the proposal, then the rest in a line.
+            evidence, _, proposal = shape["detalle"].partition(" || ")
+            answer = shape["respuesta"] or "propongo " + shape["recomendacion"].replace("|", " / ")
+            print(f"  {product}: forma → {answer}")
+            print(f"      evidencia: {evidence[:230]}")
+            rest = [c for c in rows if c is not shape]
+            if rest:
+                print("      " + " ; ".join(f"{c['tipo']} → {c['respuesta'] or 'recomiendo ' + c['recomendacion']}" for c in rest))
+            continue
+        parts = [f"{c['tipo']} [{c['detalle'][:140]}] → {c['respuesta'] or 'recomiendo ' + c['recomendacion']}" for c in rows]
         print(f"  {product}: " + " ; ".join(parts))
 
 

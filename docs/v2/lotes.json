@@ -12,6 +12,16 @@
       "situacion": "en-uso",
       "tienda": "Olfatorium",
       "clase": "molécula"
+    },
+    "3c": {
+      "fecha": "2026-10-03",
+      "situacion": "en-uso",
+      "tienda": "Olfatorium",
+      "clase": "natural",
+      "ademas": [
+        "Patchouli",
+        "Cilantro"
+      ]
     }
   }
 }

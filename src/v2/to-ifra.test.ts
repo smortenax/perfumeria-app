@@ -256,3 +256,20 @@ describe("Sandalmysore Core, a base with unknown coverage (the user's notebook)"
     expect(ifra.materials.get(v2Key(product.id))?.pending).toEqual([NO_DATA]);
   });
 });
+
+describe("a standard of a family whose limit is expressed as a constituent (STD 089, citrus oils)", () => {
+  it("a citrus oil in the group leaves the 5-MOP pending, and is not counted whole against the limit", () => {
+    const d = dataset({
+      "materiales.csv": ["M00001,natural,Lemon oil,,Citrus limon,cáscara,expresión,,,,,,,"],
+      "coberturas.csv": ["M00001,,desconocida,"],
+      "grupos.csv": ["G00001,estandar-ifra,IFRA_STD_089,Citrus oils,"],
+      "grupo-miembros.csv": ["G00001,M00001,,"],
+    });
+    const m = toIfra(d, IFRA_FILES).materials.get(v2Key("M00001"))!;
+    expect(m.substances).toEqual([]);
+    expect([...(m.pending ?? [])].sort()).toEqual([
+      "Citrus oils and other furocoumarins containing essential oils: el límite es de 5-MOP en el producto y no se sabe cuánto lleva este material (STD 089).",
+      "Sin datos de sus constituyentes: puede llevar sustancias con techo.",
+    ].sort());
+  });
+});

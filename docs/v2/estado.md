@@ -15,16 +15,16 @@ Autoridad: [`decisiones-v2.md`](decisiones-v2.md) (D1–D8). El plan de las fase
 - [ ] **Fase 3 — La F-001 entera en la v2**, por lotes (`docs/v2/lotes.json`, `alta.py --lote`).
   - **Cierre:** la F-001 se calcula entera con la v2, y la comparación con la v1 queda explicada,
     con la correspondencia de cada material elegida por el usuario.
-  - [x] **Lote 3a** (2026-10-03): Maese Lab, en uso, moléculas. 18 altas, 2 excluidos (láudano y
-    cacao, naturales) y el geraniol, que ya estaba. Prueba de banco: `src/v2/lote3a.test.ts`.
-  - [x] **Lote 3b** (2026-10-03): Olfatorium, en uso, moléculas. 15 altas, 1 excluida (cilantro,
-    natural) y el linalol, que ya estaba. Prueba de banco: `src/v2/lote3b.test.ts`.
-  - D8 aplicada: `productos.csv` ya no lleva dilución. Origen de cada molécula confirmado por el
-    usuario (propuestas en `docs/v2/origenes-propuestos.csv`); 4 `desconocido`, con aviso.
-- [ ] Fases 4 y 5: ver [`plan.md`](plan.md). Fase 6: buscar en la v1 errores como los de `errores-v1.md`.
+  - [x] **Lotes 3a y 3b** (2026-10-03): moléculas de Maese Lab (18) y de Olfatorium (15), con
+    pruebas de banco. D8 aplicada; origen confirmado (2 avisos `desconocido`: linalol y alcohol
+    feniletílico). AAG, miembro de la familia STD 188; Sandalmysore Core, una base.
+  - [ ] **Lote 3c** (en curso): naturales de Olfatorium en uso, más pachulí y cilantro: 13 por
+    entrar. `alta.py --lote 3c`: 37 conflictos sin respuesta (13 `forma`, con la evidencia de la
+    tienda y `docs/v2/formas-propuestas.csv`; 11 `v1-correspondencia`; 7 `documento-ajeno`; 5
+    `ifra-distinto`; 1 `sin-fila-v1`). Respuestas en `datos/v2/respuestas/3c.csv`.
+- [ ] Fases 4 y 5: [`plan.md`](plan.md), que guarda el usuario (no estaba en el repositorio el
+  2026-10-03). Fase 6: buscar en la v1 errores como los de `errores-v1.md`.
 
 ## Siguiente
 
-- El lote 3c, que define el usuario (tienda y clase): quedan los naturales de las dos tiendas y de
-  Perfumiarz. Las 4 moléculas con origen `desconocido` (linalol, C11 MOA, alcohol feniletílico,
-  Sandalmysore Core) esperan que se averigüe.
+- Las respuestas del 3c; después el 3d (naturales de Maese Lab) y el cierre de la fase 3.

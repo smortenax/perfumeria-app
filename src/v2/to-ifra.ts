@@ -263,6 +263,12 @@ export function toIfra(data: Dataset, files: IfraFiles): IfraData {
         continue;
       }
       const limit = limitOf(s);
+      if (asItself && limit && s.limite_expresado_como) {
+        // A limit expressed as a constituent (STD 089, citrus oils: 5-MOP) is not a limit of the whole
+        // material: how much of it the material carries is unknown, so it is pending, never free (§1.2).
+        into.pending.push(`${s.nombre}: el límite es de ${s.limite_expresado_como} en el producto y no se sabe cuánto lleva este material (${short(standard)}).`);
+        continue;
+      }
       if (limit) {
         const key = ifraSubstance(`std:${standard}`, s.nombre, limit, standard);
         // D2: a load that is not proven goes with its bound, which the engine counts in the worst case.
