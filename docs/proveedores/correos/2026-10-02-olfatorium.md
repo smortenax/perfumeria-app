@@ -16,7 +16,7 @@ sustancias restringidas que contiene y su concentración** (no solo los límites
 **ficha de seguridad**. De los naturales, también la **declaración de alérgenos de la UE**. Si sabéis
 el **fabricante** de cada uno, me ayuda mucho.
 
-**Naturales y resinoides** (lo más importante):
+**Imprescindibles** (naturales y resinoides: sin el certificado no sé qué llevan):
 
 1. Absoluto de tabaco.
 2. Bergamota sin bergaptenos (FCF).
@@ -33,24 +33,18 @@ el **fabricante** de cada uno, me ayuda mucho.
 13. Salvia officinalis.
 14. Vetiver.
 
-**Moléculas:**
+**Convenientes** (moléculas con estándar IFRA, por su pureza e impurezas):
 
-15. Alcohol feniletílico.
-16. Allyl Amyl Glycolate.
-17. Dihydromyrcenol.
-18. Ethyl Maltol.
-19. Ethylene Brassylate.
-20. Galaxolide: en la web lo encuentro como «Astrolide»; ¿es el mismo producto y de qué fabricante?
-21. Hedione.
-22. Ionona alfa.
-23. Iso E Super.
-24. Linalol.
-25. Mayol.
-26. Methyl Pamplemousse.
-27. Polysantol.
-28. Sandalmysore Core.
-29. Stemone.
-30. Vertenex (PTBCHA).
+15. Allyl Amyl Glycolate (alcohol alílico libre).
+16. Iso E Super.
+17. Linalol (índice de peróxidos).
+18. Mayol.
+19. Polysantol.
+
+**Si los tenéis a mano** (moléculas sin estándar IFRA; no es urgente):
+alcohol feniletílico, Dihydromyrcenol, Ethyl Maltol, Ethylene Brassylate, Galaxolide (en la web lo
+encuentro como «Astrolide»: ¿es el mismo producto y de qué fabricante?), Hedione, ionona alfa,
+Methyl Pamplemousse, Sandalmysore Core, Stemone y Vertenex (PTBCHA).
 
 Muchas gracias.
 

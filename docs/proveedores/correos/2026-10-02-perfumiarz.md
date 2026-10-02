@@ -15,18 +15,23 @@ need, for each of them, the **IFRA 51st Amendment certificate of conformity** th
 certificates you already publish), and the maximum level of use for each category. For the natural
 materials, the **EU allergen declaration** too, please.
 
-1. **Calone® (powder)**: the IFRA certificate linked on the product page is for a different product
-   (“BRAN ABS LMR”, IFF H19146). Could you send the one for Calone?
-2. **Helional®**: only the SDS and the allergen list are available.
-3. **Heliotropine**: only an SDS is available.
-4. **2-hydroxybenzaldehyde 10% (IPM)**: only an SDS is available.
-5. **3,4-Xylenol 10% (IPM)**: only an SDS of the neat material (Sigma-Aldrich) is available.
-6. **Aldambre**: only the SDS is available. Also, could you confirm its CAS number? The Ventós SDS
-   gives 947-05-7 (oxacyclotridecan-2-one), while your product page gives 1725-03-7.
-7. **Benzoin Siam Resinoid (IFF)**: only the SDS is available. As a natural material, the IFRA
+**Essential** (a natural material and a product with no documents at all):
+
+1. **Benzoin Siam Resinoid (IFF)**: only the SDS is available. As a natural material, the IFRA
    certificate and the allergen declaration are especially important.
-8. **Auranone®**: no documents are available.
-9. **Prismantol 50% (DPG)**: no documents are available.
+2. **Auranone®**: no documents are available.
+
+**Useful** (a molecule with an IFRA standard, for its purity and impurities):
+
+3. **Helional®**: only the SDS and the allergen list are available.
+
+**If you have them at hand** (single molecules with no IFRA standard; not urgent):
+
+4. **Calone®**: the IFRA certificate linked on the product page is for a different product
+   (“BRAN ABS LMR”, IFF H19146), while the SDS is Firmenich’s Calone 918 (W03003).
+5. **Aldambre**: could you also confirm its CAS number? The Ventós SDS gives 947-05-7
+   (oxacyclotridecan-2-one), while your product page gives 1725-03-7.
+6. Heliotropine, 2-hydroxybenzaldehyde, 3,4-Xylenol and Prismantol: only SDS, or no documents.
 
 Thank you very much for your help.
 

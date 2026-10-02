@@ -105,7 +105,8 @@ def main() -> int:
         html = html_path.read_text(encoding="utf-8", errors="ignore") if page and html_path.exists() else ""
         url = f"{SHOP_URLS.get(shop, '')}{page}" if page else ""
         row = next((r for r in shop_rows if r["proveedor"] == shop and page and r["url"].rstrip("/").split("/")[-1] == page), None)
-        cas = row["cas"] if row else ""
+        # The CAS the user gives rules; else the shop's (corrected by the maker's document, below).
+        cas = p.get("cas") or (row["cas"] if row else "")
         fix = fixes.get(url.rstrip("/"))
         if fix and cas == fix["cas_tienda"]:
             cas = fix["cas_correcto"]
@@ -143,12 +144,19 @@ def main() -> int:
             state = "parcial"
         else:
             state = "sin documentos"
+        # What to ask for, by how much it matters (2026-10-02): a natural or a base, without it nothing
+        # is known; a molecule with an IFRA standard, for its purity and impurities (methyl eugenol in
+        # eugenol); a lone molecule with none is covered by its general material by CAS.
+        regulated = general is not None and general["estado"] in ("con-techo", "condicion", "prohibido")
         if state == "documentado":
             ask = ""
-        elif cls in ("natural", "base o especialidad"):
-            ask = "pedir el certificado IFRA: sin él no se sabe qué lleva"
+        elif cls in ("natural", "base o especialidad", "sin fila en el glosario"):
+            ask = "imprescindible: el certificado IFRA, sin él no se sabe qué lleva"
+        elif regulated:
+            ask = "conviene: el certificado IFRA, por su pureza e impurezas (tiene estándar IFRA)"
         else:
-            ask = "pedir el certificado IFRA: para impurezas y el tope del fabricante"
+            state = "molécula sola" if state == "sin documentos" else state
+            ask = "opcional: molécula sola sin estándar IFRA, la cubre el material general por su CAS"
         if cert and parsed is None:
             ask = f"el certificado ({cert}) está cifrado o no se lee; " + ask
         elif parsed and not own:
@@ -192,10 +200,10 @@ def main() -> int:
     write("productos.csv", made, ["id", "producto", "fabricante", "codigo", "nombre_certificado", "tienda", "url", "documento", "cas",
                                   "general", "clase", "tope_cat4_pct", "tope_texto", "sin_restringidas", "dilucion_certificado_pct"])
     write("productos-sustancias.csv", made_subs, ["producto", "sustancia", "cas", "cas_todos", "pct", "cota"])
-    mark = {"documentado": "✓", "parcial": "◐", "sin documentos": "—"}
+    mark = {"documentado": "✓", "molécula sola": "○", "parcial": "◐", "sin documentos": "—"}
     lines = ["# Registro de mis productos", "",
              "Lo genera `scripts/registro_productos.py` desde [`mis-productos.csv`](mis-productos.csv). **No se edita a mano.**",
-             "✓ documentado (certificado IFRA legible y del producto) · ◐ parcial · — sin documentos.", "",
+             "✓ documentado (certificado IFRA legible y del producto) · ○ molécula sola sin estándar IFRA, cubierta por su CAS · ◐ parcial · — sin documentos.", "",
              "| | Producto | Qué es | Glosario | Fabricante | Sustancias del certificado | Tope cat. 4 | Pedir |",
              "|---|---|---|---|---|---|---|---|"]
     for r in sorted(out, key=lambda r: (r["estado"] != "documentado", r["clase"], r["producto"])):
@@ -203,7 +211,8 @@ def main() -> int:
                      f"{r['glosario'].split(' | ')[0] if r['glosario'] else '—'} | {r['fabricante'] or '¿?'} | {r['sustancias_declaradas'] or '—'} | "
                      f"{r['tope_cat4'] or '—'} | {r['pedir']} |")
     counts = {s: sum(1 for r in out if r["estado"] == s) for s in mark}
-    lines += ["", f"**{counts['documentado']} documentados, {counts['parcial']} parciales, {counts['sin documentos']} sin documentos**, de {len(out)}."]
+    lines += ["", f"**{counts['documentado']} documentados, {counts['molécula sola']} moléculas solas, {counts['parcial']} parciales, "
+                  f"{counts['sin documentos']} sin documentos**, de {len(out)}."]
     (FOLDER / "registro.md").write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
     print(lines[-1], f"· {len(made)} productos, {len(made_subs)} sustancias")
     return 0
