@@ -27,11 +27,11 @@ Lo genera `scripts/registro_productos.py` desde [`mis-productos.csv`](mis-produc
 | ✓ | Styrallyl Acetate | molécula | fig:1056 alpha-Methylbenzyl acetate [sin-estandar] | Symrise | ninguna, lo dice | 9,70% |  |
 | ✓ | Terpinyl Acetate | molécula | fig:2950 Terpinyl acetate (Isomer mixture) [sin-estandar] | Firmenich | 1 | NoRestriction |  |
 | ✓ | Black Pepper Absolute | natural | fig:2622 Pepper, black, absolute [sin-dato] | Firmenich | 2 | NoRestriction |  |
-| — | Ambermore | base o especialidad | — | ¿? | — | — | pedir el certificado IFRA: sin él no se sabe qué lleva |
 | — | Auranone | base o especialidad | — | ¿? | — | — | pedir el certificado IFRA: sin él no se sabe qué lleva |
 | ◐ | 2-hydroxybenzaldehyde 10% (IPM) (10 % en IPM) | molécula | fig:2840 Salicylaldehyde [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | 3,4-Xylenol 10% (IPM) (10 % en IPM) | molécula | fig:616 3,4-Xylenol [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | Aldambre (25–50 % en DPG) | molécula | tl:947-05-7 Oxacyclotridecan-2-one [sin-estandar] | Ventós | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
+| — | Ambermor IFF | molécula | fig:2426 Naphtho[2,1-b]furan, dodecahydro-3a,6,6,9a-tetramethyl- [sin-estandar] | IFF | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | Calone (powder) | molécula | fig:944 7-Methyl-2H-benzo-1,5-dioxepin-3(4H)-one [sin-estandar] | IFF | — | — | el certificado que enlaza la tienda es de otro producto («BRAN ABS LMR»); pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | Helional | molécula | fig:1055 alpha-Methyl-1,3-benzodioxole-5-propionaldehyde [con-techo] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | Heliotropine 25% DPG (25 % en DPG) | molécula | fig:2721 Piperonal [sin-estandar] | PCW | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |

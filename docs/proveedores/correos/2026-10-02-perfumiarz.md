@@ -40,4 +40,4 @@ Kind regards,
 **Aparte, en otras tiendas:**
 - **Maese Lab**: el certificado IFRA y la declaración de alérgenos del *Absoluto de Castoreum 20%*
   (el castóreo natural). Ver [el correo a Maese Lab](2026-10-02-maese-lab.md).
-- **Ambermore (IFF)**: falta saber en qué tienda se compró.
+- **Ambermor IFF**: es de Maese Lab; va en el mismo correo.
