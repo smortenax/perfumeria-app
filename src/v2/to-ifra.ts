@@ -1,0 +1,317 @@
+import { Ratio } from "../core/arith/ratio.ts";
+import type { IfraData, IfraMaterial, IfraSubstance } from "../core/ifra.ts";
+import { parseCsvRecords } from "../data/csv.ts";
+import type { CompositionRow, Dataset, Material } from "./model.ts";
+
+/**
+ * The v2 data as the engine reads it (CLAUDE.md, «Trabajo en la v2»): the composition of every
+ * product and material flattened to what IFRA limits, and the `IfraData` of src/core/ifra.ts built
+ * from it. The limits are read from IFRA's files (datos/ifra/51/), never from the v2 data.
+ *
+ * - A product is its certificate where it has one, and its material's data where it does not: per
+ *   substance, the most authoritative source wins (lote > producto > anexo IFRA > literatura >
+ *   consenso), and a source that covers every regulated substance closes the list.
+ * - Without such a source the check is incomplete, never free (§1.2): the material goes with a
+ *   pending note, as the castoreum of v1 does.
+ * - A placeholder (literatura, consenso) is never known: its load is unknown, bounded by the
+ *   maximum of its source (D2).
+ * - A manufacturer's ceiling is a substance of its product alone (D4), never of a CAS.
+ */
+
+export interface IfraFiles {
+  /** datos/ifra/51/estandares.csv */
+  readonly estandares: string;
+  /** datos/ifra/51/estandar-cas.csv */
+  readonly estandarCas: string;
+  /** The amendment the limits come from: «51». */
+  readonly amendment: string;
+}
+
+/** The key of a v2 product, material or lot in a formula: «v2:P00001». */
+export const v2Key = (id: string): string => `v2:${id}`;
+
+/** The key of a manufacturer's ceiling: one per product (D4). */
+export const ceilingKey = (productId: string): string => `tope:${productId}`;
+
+/**
+ * What a material brings of one member of a group (a substance, or a material IFRA limits as
+ * itself), as a fraction of its pure matter. `known` is null for a load that is not proven (a
+ * placeholder, D2); `upper` is then the most it can be. A proven load has `upper` equal to it.
+ */
+export interface Load {
+  readonly known: Ratio | null;
+  readonly upper: Ratio;
+}
+
+export interface Flattened {
+  /** By v2 id of the member: S00001, or M00006 for a material limited as itself. */
+  readonly loads: ReadonlyMap<string, Load>;
+  /** The members the material is, not carries: its own substance, or itself. */
+  readonly itself: ReadonlySet<string>;
+  /** Why the list may be incomplete, in the user's words. */
+  readonly pending: readonly string[];
+}
+
+const RANK: Readonly<Record<string, number>> = { lote: 0, producto: 1, "anexo-ifra": 2, literatura: 3, consenso: 4 };
+const PLACEHOLDERS = new Set(["literatura", "consenso"]);
+const pct = (text: string) => Ratio.fromDecimal(text).div(Ratio.of(100));
+const isNumber = (text: string) => /^\d+(\.\d+)?$/.test(text);
+const short = (standard: string) => `STD ${standard.split("_").pop()}`;
+
+const NO_DATA = "Sin datos de sus constituyentes: puede llevar sustancias con techo.";
+const COVERAGE_TEXT: Readonly<Record<string, string>> = {
+  "solo-alergenos": "Su composición solo cubre los alérgenos: puede llevar otras sustancias con techo.",
+  parcial: "Su composición es parcial: puede llevar otras sustancias con techo.",
+  desconocida: NO_DATA,
+};
+
+/** The value of one row of composition, as a fraction of the container's pure matter. */
+function loadOf(row: CompositionRow): Load {
+  const typical = row.typical === "" ? null : pct(row.typical);
+  const max = row.max === "" ? null : pct(row.max);
+  // A «maximo» or a «rango» counts its top: the worst the source allows.
+  const value = (row.valueType === "tipico" ? typical : max) ?? typical ?? max ?? Ratio.ZERO;
+  if (PLACEHOLDERS.has(row.authority)) {
+    // D2: a placeholder is never known; the most it can be is the maximum of its source.
+    return { known: null, upper: max ?? value };
+  }
+  return { known: value, upper: value };
+}
+
+const scale = (load: Load, by: Load): Load => ({
+  known: load.known && by.known ? load.known.mul(by.known) : null,
+  upper: load.upper.mul(by.upper),
+});
+
+/** Two loads of the same member, from two paths: proven only if both are. */
+const plus = (a: Load, b: Load): Load => ({
+  known: a.known && b.known ? a.known.add(b.known) : null,
+  upper: a.upper.add(b.upper),
+});
+
+/**
+ * Flattens the composition of a product, a lot or a material to the members of IFRA's groups.
+ * Only the v2 data is read; which members have a limit is the business of `toIfra`.
+ */
+export function flatten(data: Dataset, containerId: string): Flattened {
+  const materials = new Map(data.materials.map((m) => [m.id, m]));
+  const products = new Map(data.products.map((p) => [p.id, p]));
+  const lots = new Map(data.lots.map((l) => [l.id, l]));
+  const members = new Set(data.groupMembers.map((gm) => gm.memberId));
+  const coverage = new Map(data.coverages.map((c) => [`${c.containerId}|${c.documentId}`, c.coverage]));
+
+  const walk = (id: string, seen: readonly string[]): Flattened => {
+    if (seen.includes(id)) {
+      throw new Error(`Ciclo entre materiales: ${[...seen, id].join(" → ")}`);
+    }
+    // The chain of containers that speak for this one, most specific first: lot, product, material.
+    const lot = lots.get(id);
+    const productId = lot ? lot.productId : products.has(id) ? id : undefined;
+    const product = productId ? products.get(productId) : undefined;
+    const materialId = product ? product.materialId : id;
+    const material = materials.get(materialId) as Material;
+    const chain = [lot?.id, product?.id, materialId].filter((c): c is string => c !== undefined);
+
+    const loads = new Map<string, Load>();
+    const itself = new Set<string>();
+    const pending: string[] = [];
+    const add = (member: string, load: Load) => {
+      const before = loads.get(member);
+      loads.set(member, before ? plus(before, load) : load);
+    };
+    if (material.type === "sustancia" && material.substanceId) {
+      add(material.substanceId, { known: Ratio.ONE, upper: Ratio.ONE });
+      itself.add(material.substanceId);
+    }
+    if (members.has(materialId)) {
+      add(materialId, { known: Ratio.ONE, upper: Ratio.ONE });
+      itself.add(materialId);
+    }
+
+    // Every source of the chain, most authoritative first; within a rank, the most specific
+    // container, then the document id, so the order never depends on the files.
+    const sources = new Map<string, CompositionRow[]>();
+    for (const row of data.composition) {
+      if (chain.includes(row.containerId)) {
+        const key = `${row.containerId}|${row.documentId}`;
+        sources.set(key, [...(sources.get(key) ?? []), row]);
+      }
+    }
+    const ordered = [...sources.entries()].sort(([ka, [a]], [kb, [b]]) => {
+      const byRank = (RANK[a.authority] ?? 9) - (RANK[b.authority] ?? 9);
+      return byRank || chain.indexOf(a.containerId) - chain.indexOf(b.containerId) || ka.localeCompare(kb);
+    });
+
+    const decided = new Set<string>();
+    let complete = false;
+    let weakest = "desconocida";
+    for (const [key, rows] of ordered) {
+      for (const row of rows) {
+        if (decided.has(row.componentId)) {
+          continue;
+        }
+        decided.add(row.componentId);
+        const load = loadOf(row);
+        if (materials.has(row.componentId)) {
+          const inner = walk(row.componentId, [...seen, id]);
+          for (const [member, innerLoad] of inner.loads) {
+            add(member, scale(innerLoad, load));
+          }
+          pending.push(...inner.pending);
+        } else {
+          add(row.componentId, load);
+        }
+      }
+      const covers = coverage.get(key) ?? "desconocida";
+      if (covers === "reguladas-completa") {
+        complete = true;
+        break;
+      }
+      weakest = covers;
+    }
+    // A substance is itself whole: it needs no source to be complete.
+    if (!complete && !(material.type === "sustancia" && ordered.length === 0)) {
+      pending.push(COVERAGE_TEXT[weakest] ?? NO_DATA);
+    }
+    return { loads, itself, pending: [...new Set(pending)] };
+  };
+
+  return walk(containerId, []);
+}
+
+/** The IFRA substance a standard limits in category 4, or null when it has no limit there. */
+function limitOf(row: Record<string, string>): Ratio | null {
+  const cell = row.cat_4;
+  if (isNumber(cell)) {
+    return pct(cell);
+  }
+  if (cell === "prohibido") {
+    return Ratio.ZERO;
+  }
+  // «ver-nota»: the ceiling of its note, for what comes from naturals.
+  return cell === "ver-nota" && isNumber(row.limite_nota) ? pct(row.limite_nota) : null;
+}
+
+/** The app's diluents and their CAS (catalog.ts): their IFRA is that of their CAS in IFRA's index. */
+const DILUENT_CAS: ReadonlyArray<readonly [string, string]> = [
+  ["solv:dpg", "25265-71-8"],
+  ["solv:alcohol", "64-17-5"],
+  ["solv:ipm", "110-27-0"],
+  ["solv:dep", "84-66-2"],
+  ["solv:tec", "77-93-0"],
+  ["solv:triacetina", "102-76-1"],
+  ["solv:bb", "120-51-4"],
+];
+
+/**
+ * The `IfraData` of the engine for every product, lot and material of the v2 data, keyed by
+ * `v2Key`, plus the app's diluents. Every one of them is «checked»: what is not known goes as a
+ * pending note or an unknown load, never as free (§1.2, §5.5).
+ */
+export function toIfra(data: Dataset, files: IfraFiles): IfraData {
+  const standards = new Map(parseCsvRecords(files.estandares).map((s) => [s.estandar, s]));
+  const casOf = new Map<string, string[]>();
+  const byCas = new Map<string, string[]>();
+  for (const row of parseCsvRecords(files.estandarCas)) {
+    casOf.set(row.estandar, [...(casOf.get(row.estandar) ?? []), row.cas]);
+    byCas.set(row.cas, [...(byCas.get(row.cas) ?? []), row.estandar]);
+  }
+  const groupStandard = new Map(data.groups.filter((g) => g.type === "estandar-ifra").map((g) => [g.id, g.reference]));
+  const standardsOf = new Map<string, string[]>();
+  for (const gm of data.groupMembers) {
+    const standard = groupStandard.get(gm.groupId);
+    if (standard) {
+      standardsOf.set(gm.memberId, [...(standardsOf.get(gm.memberId) ?? []), standard]);
+    }
+  }
+
+  const substances = new Map<string, IfraSubstance>();
+  const ifraSubstance = (key: string, name: string, limit: Ratio, standard: string): string => {
+    if (!substances.has(key)) {
+      substances.set(key, { key, name, limit, amendment: files.amendment, ...(casOf.has(standard) ? { cas: casOf.get(standard) } : {}) });
+    }
+    return key;
+  };
+
+  /** One member's standards, as what the engine sums, and the notes they leave. */
+  const judge = (memberStandards: readonly string[], asItself: boolean, load: Load, into: IfraEntry) => {
+    for (const standard of memberStandards) {
+      const s = standards.get(standard);
+      if (!s) {
+        continue;
+      }
+      if (asItself && s.especificacion === "sí") {
+        into.conditions.push(`especificación (${short(standard)})`);
+      }
+      if (asItself && s.prohibicion === "sí") {
+        into.substances.push({ key: ifraSubstance(`prohibido:${standard}`, `${s.nombre}, como tal`, Ratio.ZERO, standard), fraction: Ratio.ONE });
+        continue;
+      }
+      const limit = limitOf(s);
+      if (limit) {
+        into.substances.push({ key: ifraSubstance(`std:${standard}`, s.nombre, limit, standard), fraction: load.known });
+      } else if (s.prohibicion === "sí") {
+        into.pending.push(`${s.nombre}: prohibido como tal; lo que trae este material no tiene techo en los datos (${short(standard)}).`);
+      }
+    }
+  };
+
+  const materials = new Map<string, IfraMaterial>();
+  const containers = [...data.products.map((p) => p.id), ...data.lots.map((l) => l.id), ...data.materials.map((m) => m.id)];
+  for (const id of containers) {
+    const flat = flatten(data, id);
+    const entry: IfraEntry = { substances: [], conditions: [], pending: [...flat.pending] };
+    for (const [member, load] of flat.loads) {
+      judge(standardsOf.get(member) ?? [], flat.itself.has(member), load, entry);
+    }
+    // D4: the manufacturer's ceiling of this product (or of this lot's product), whole in it.
+    const productId = data.lots.find((l) => l.id === id)?.productId ?? id;
+    const product = data.products.find((p) => p.id === productId);
+    for (const ceiling of data.ceilings.filter((c) => c.productId === productId && c.category === "4")) {
+      const key = ceilingKey(productId);
+      substances.set(key, {
+        key,
+        name: `${product?.name ?? productId} (tope de ${product?.maker || "su fabricante"})`,
+        limit: pct(ceiling.maxPct),
+        amendment: "",
+        supplier: product?.maker || "fabricante",
+      });
+      entry.substances.push({ key, fraction: Ratio.ONE });
+    }
+    materials.set(v2Key(id), {
+      status: "checked",
+      substances: merge(entry.substances),
+      conditions: [...new Set(entry.conditions)],
+      ...(entry.pending.length ? { pending: [...new Set(entry.pending)] } : {}),
+    });
+  }
+
+  // The diluents of the app: their CAS in IFRA's index, or nothing to check (the index is complete).
+  for (const [key, cas] of DILUENT_CAS) {
+    const entry: IfraEntry = { substances: [], conditions: [], pending: [] };
+    judge(byCas.get(cas) ?? [], true, { known: Ratio.ONE, upper: Ratio.ONE }, entry);
+    materials.set(key, { status: "checked", substances: entry.substances, conditions: entry.conditions });
+  }
+
+  return { substances, materials };
+}
+
+interface IfraEntry {
+  substances: Array<{ key: string; fraction: Ratio | null }>;
+  conditions: string[];
+  pending: string[];
+}
+
+/** Two members under one standard (two isomers of one group) add up; an unknown one leaves it unknown. */
+function merge(list: ReadonlyArray<{ key: string; fraction: Ratio | null }>): Array<{ key: string; fraction: Ratio | null }> {
+  const byKey = new Map<string, Ratio | null>();
+  for (const { key, fraction } of list) {
+    if (!byKey.has(key)) {
+      byKey.set(key, fraction);
+      continue;
+    }
+    const before = byKey.get(key) as Ratio | null;
+    byKey.set(key, before && fraction ? before.add(fraction) : null);
+  }
+  return [...byKey].map(([key, fraction]) => ({ key, fraction }));
+}
