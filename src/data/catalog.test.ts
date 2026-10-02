@@ -45,13 +45,15 @@ describe("the catalog, from the glossary and IFRA's own files (P37)", () => {
     // Since P62 those two are two of the manufacturer's products of the user's register, which grows
     // with every document the user brings: the glossary stays 4325, and the products come on top.
     const products = catalog.entries.filter((e) => e.material.key.startsWith("prod:")).length;
-    expect(count("base") - products).toBe(4325);
+    // 4324 since 2026-10-02: the row «tienda:1725-03-7» was only there for the CAS Perfumiarz gave
+    // Aldambre; Synarome's safety data sheet says 947-05-7, which the glossary already had.
+    expect(count("base") - products).toBe(4324);
     expect(products).toBeGreaterThanOrEqual(21);
     // Since P48 the counts also say how many have a family: all of the FIG.
     // `ifraOnly` counts every row that is not of the FIG: the manufacturer's products too. Products of a
     // FIG molecule take its family, so `withFamily` counts them as well.
     expect(catalog.counts.fig).toBe(3119);
-    expect(catalog.counts.ifraOnly).toBe(4325 + products - 3119);
+    expect(catalog.counts.ifraOnly).toBe(4324 + products - 3119);
     // DPG and alcohol, and the other diluents of the menu (§4): IPM, DEP, TEC, triacetin, benzyl benzoate.
     expect(count("diluent")).toBe(7);
     expect(count("own")).toBe(0);
