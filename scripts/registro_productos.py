@@ -87,6 +87,8 @@ def main() -> int:
         materials = [m for m in csv.DictReader(f) if not m["id"].startswith("prod:")]
     with (ROOT / "datos" / "glosario" / "origen" / "nombres-proveedores.csv").open(encoding="utf-8", newline="") as f:
         shop_rows = list(csv.DictReader(f))
+    with (FOLDER / "correcciones-cas.csv").open(encoding="utf-8", newline="") as f:
+        fixes = {r["url"].rstrip("/"): r for r in csv.DictReader(f)}
     out, made, made_subs = [], [], []
     for p in products:
         shop, page = p["tienda"], p["pagina"]
@@ -95,6 +97,9 @@ def main() -> int:
         url = f"{SHOP_URLS.get(shop, '')}{page}" if page else ""
         row = next((r for r in shop_rows if r["proveedor"] == shop and page and r["url"].rstrip("/").split("/")[-1] == page), None)
         cas = row["cas"] if row else ""
+        fix = fixes.get(url.rstrip("/"))
+        if fix and cas == fix["cas_tienda"]:
+            cas = fix["cas_correcto"]
         mats = [m for m in materials if cas and (m["cas"] == cas or cas in m["otros_cas"].split())]
         general = next((m for m in mats if m["cas"] == cas), mats[0] if mats else None)
         cls = "base o especialidad" if not cas else ("natural" if general and general["clase"] == "natural" else "molécula" if general else "sin fila en el glosario")
@@ -114,7 +119,9 @@ def main() -> int:
         own = parsed is not None and (cert == (Path(p["documento"]).name if p.get("documento") else None) or
                                       bool(words(parsed["product"]) & words(p["producto"])) or
                                       any(cas in s["cas"] for s in parsed["substances"]))
-        maker = (parsed or {}).get("maker", "") or next((n for n, pat in certs.MAKERS if any(re.search(pat, t or "", re.I) for t in texts.values())), "")
+        # The maker: the certificate's, else any document's text, else a document's name («SDS_ALDAMBRE_SYNAROME»).
+        maker = (parsed or {}).get("maker", "") or next(
+            (n for n, pat in certs.MAKERS if any(re.search(pat, t or "", re.I) for t in [*texts.values(), *texts.keys()])), "")
         if parsed and own:
             state = "documentado"
         elif docs:

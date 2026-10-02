@@ -38,6 +38,10 @@
       "sha256": "d5768b464ca25af78ae5d413bf0541a7b9363b3fe4ba410b15972b129086f886",
       "que_es": "constituyentes regulados que declaran los proveedores, auditados (frente C)"
     },
+    "docs/proveedores/correcciones-cas.csv": {
+      "sha256": "f05901158e70ac2377426d3211319fd684352d2a53694cc7a63abda98d057b28",
+      "que_es": "CAS de una tienda que el documento del fabricante corrige"
+    },
     "docs/proveedores/productos.csv": {
       "sha256": "5789145d436efa508f384300f69b76401a91e07531c9119e94e48320d14b38b4",
       "que_es": "los productos del usuario con el certificado IFRA de su fabricante (P62)"
@@ -75,20 +79,20 @@
       "sha256": "289097c9d76de4430f967158556ff068faa4589175c44b48dd355a5eb93b6368"
     }
   },
-  "generado": "2026-10-02T00:28:55+00:00",
+  "generado": "2026-10-02T00:30:31+00:00",
   "cuentas": {
-    "materiales": 4347,
+    "materiales": 4346,
     "del_fig": 3119,
-    "solo_de_ifra": 1228,
+    "solo_de_ifra": 1227,
     "codigos_del_usuario": 3119,
-    "codigos_generados": 1228,
+    "codigos_generados": 1227,
     "por_estado": {
       "prohibido": 121,
       "con-techo": 419,
       "condicion": 48,
       "por-constituyentes": 531,
       "sin-dato": 553,
-      "sin-estandar": 2675
+      "sin-estandar": 2674
     },
     "filas_de_constituyentes": 3842,
     "de_la_transparency_list": 3626,
@@ -99,8 +103,8 @@
     "con_sigla_comercial": 27,
     "con_familia": 3119,
     "con_sinonimos_de_pubchem": 2187,
-    "con_nombres_de_tiendas": 771,
-    "solo_de_tiendas": 8,
+    "con_nombres_de_tiendas": 772,
+    "solo_de_tiendas": 7,
     "de_tiendas_sin_unir": 48,
     "constituyentes_de_proveedores": 508,
     "productos_de_fabricante": 22,

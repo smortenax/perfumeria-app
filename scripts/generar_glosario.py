@@ -43,6 +43,8 @@ SUPPLIER_CONSTITUENTS = ROOT / "datos" / "glosario" / "origen" / "constituyentes
 # The IFRA certificates of conformity the user keeps from their suppliers (scripts/leer_certificados.py).
 # The user's products with their manufacturer's documents (scripts/registro_productos.py, P62).
 PRODUCTS = ROOT / "docs" / "proveedores" / "productos.csv"
+# A shop's CAS that its manufacturer's own document contradicts, with the document (2026-10-02).
+CAS_FIXES = ROOT / "docs" / "proveedores" / "correcciones-cas.csv"
 PRODUCT_SUBSTANCES = ROOT / "docs" / "proveedores" / "productos-sustancias.csv"
 # The names the shops where the user buys sell each material by (scripts/nombres_proveedores.py).
 SHOP_NAMES = ROOT / "datos" / "glosario" / "origen" / "nombres-proveedores.csv"
@@ -469,6 +471,13 @@ def main() -> None:
     # knows is new, from the shop; a natural that does not join is left in a list, not
     # made a double of one the FIG has by another name.
     shop_rows = read(SHOP_NAMES) if SHOP_NAMES.exists() else []
+    # The manufacturer's document rules over the shop's page: Perfumiarz gives Aldambre 1725-03-7,
+    # and Synarome's safety data sheet says oxacyclotridecan-2-one, 947-05-7.
+    fixes = {r["url"].rstrip("/"): r for r in read(CAS_FIXES)} if CAS_FIXES.exists() else {}
+    for r in shop_rows:
+        fix = fixes.get(r["url"].rstrip("/"))
+        if fix and r["cas"] == fix["cas_tienda"]:
+            r["cas"] = fix["cas_correcto"]
     alt_of: dict[str, set[str]] = {}
     species_of: dict[str, set[str]] = {}
     for v in variants.values():
@@ -961,6 +970,8 @@ def main() -> None:
                if PUBCHEM_SYNONYMS.exists() else {}),
             **({SUPPLIER_CONSTITUENTS.relative_to(ROOT).as_posix(): {"sha256": sha256(SUPPLIER_CONSTITUENTS), "que_es": "constituyentes regulados que declaran los proveedores, auditados (frente C)"}}
                if SUPPLIER_CONSTITUENTS.exists() else {}),
+            **({CAS_FIXES.relative_to(ROOT).as_posix(): {"sha256": sha256(CAS_FIXES), "que_es": "CAS de una tienda que el documento del fabricante corrige"}}
+               if CAS_FIXES.exists() else {}),
             **({PRODUCTS.relative_to(ROOT).as_posix(): {"sha256": sha256(PRODUCTS), "que_es": "los productos del usuario con el certificado IFRA de su fabricante (P62)"}}
                if PRODUCTS.exists() else {}),
             **({PRODUCT_SUBSTANCES.relative_to(ROOT).as_posix(): {"sha256": sha256(PRODUCT_SUBSTANCES), "que_es": "las sustancias restringidas que declara el certificado de cada producto"}}
