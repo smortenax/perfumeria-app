@@ -2,7 +2,7 @@
 
 Se lee al empezar cada sesión y se actualiza al terminar (30 líneas como máximo).
 Autoridad: [`decisiones-v2.md`](decisiones-v2.md). La v1 queda congelada en la etiqueta `glosario-v1`.
-Rama `v2-materiales` (en el remoto). La etiqueta `glosario-v1` también está subida.
+Rama `v2-materiales` (en el remoto). La etiqueta `glosario-v1` no se pudo subir desde la nube: se crea en local sobre `a18c440`.
 
 ## Fases
 
