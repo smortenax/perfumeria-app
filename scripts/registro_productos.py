@@ -186,7 +186,7 @@ def main() -> int:
              "| | Producto | Qué es | Glosario | Fabricante | Sustancias del certificado | Tope cat. 4 | Pedir |",
              "|---|---|---|---|---|---|---|---|"]
     for r in sorted(out, key=lambda r: (r["estado"] != "documentado", r["clase"], r["producto"])):
-        lines.append(f"| {mark[r['estado']]} | {r['producto']}{' (' + r['dilucion'] + ')' if r['dilucion'] else ''} | {r['clase']} | "
+        lines.append(f"| {mark[r['estado']]} | {r['producto']} | {r['clase']} | "
                      f"{r['glosario'].split(' | ')[0] if r['glosario'] else '—'} | {r['fabricante'] or '¿?'} | {r['sustancias_declaradas'] or '—'} | "
                      f"{r['tope_cat4'] or '—'} | {r['pedir']} |")
     counts = {s: sum(1 for r in out if r["estado"] == s) for s in mark}

@@ -20,8 +20,7 @@ materials, the **EU allergen declaration** too, please.
 2. **Linalyl Acetate (BASF)**: the linked IFRA certificate is password-protected and cannot be
    opened. Could you send an unprotected copy?
 3. **Helional®**: only the SDS and the allergen list are available.
-4. **Heliotropine 25% DPG**: the linked SDS is for *Heliotropin 50% DPG* (PCW). Could you send the
-   IFRA certificate and the SDS of the 25% product, or of the neat heliotropine and the dilution used?
+4. **Heliotropine**: only an SDS is available.
 5. **2-hydroxybenzaldehyde 10% (IPM)**: only an SDS is available.
 6. **3,4-Xylenol 10% (IPM)**: only an SDS of the neat material (Sigma-Aldrich) is available.
 7. **Aldambre**: only the SDS is available. Also, could you confirm its CAS number? The Ventós SDS
