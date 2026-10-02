@@ -2532,6 +2532,37 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 - Estado: cerrada; aplicada el 2026-10-02 (registro, productos, topes, tick, pastillas de fabricante)
 - Destino: decisiones.md §5.6, §4; a-futuro (P61)
 
+
+### P63 — Un natural es su lote: el análisis GC-MS de cada lote
+
+- **Viene del usuario** (2026-10-02), al no encontrar una hoja general para el castóreo ni para los
+  aceites esenciales.
+- **Respuesta literal:** *«he dado con el problema central del enfoque actual, cada uno de los
+  productos de origen natural como el castoreo y supongo que los aceites esenciales debe tener origen
+  y lote contrastado con su hoja GC-MS, de ahi la ofuscacion y los problemas de no encontrar una hoja
+  conjunta, esto no lo tengo yo lo tiene el proveedor y por eso cada ifra sera diferente»*
+- **Lectura:** en un natural, la composición cambia con el origen, la cosecha y el lote. Lo que dice
+  qué lleva un frasco es el **análisis GC-MS de su lote** (el certificado de análisis, CoA), que tiene
+  el proveedor. El certificado IFRA de un natural se calcula de esa composición (típica o del lote):
+  por eso dos proveedores, o dos lotes, dan IFRA distintos, y no hay una hoja general.
+- **Propuesta (a confirmar):** que la autoridad de una cifra de un natural siga este orden, la de
+  arriba manda (encaja con §5.6 y P62):
+  1. **el análisis GC-MS del lote** que tiene el usuario (su CoA), con el número de lote;
+  2. **el certificado IFRA del producto** de su fabricante (P62), que suele ser de una composición
+     típica;
+  3. **el anexo de IFRA**, que es indicativo y por forma de la planta (P54);
+  4. **nada**: «sin comprobar», nunca libre (§1.2).
+  - **El lote, en el producto:** un producto de fabricante (P62) puede tener lotes, cada uno con su
+    número, su fecha y sus constituyentes del CoA; el que el usuario tiene en el banco es el que
+    cuenta. Una fórmula guarda qué lote se pesó.
+  - **Ahora, sin código:** pedir a las tiendas, de cada natural, **el número de lote del frasco
+    vendido y su CoA con el GC-MS**, además del certificado IFRA.
+- **Lo que cuesta dejarla abierta:** los naturales seguirán «sin comprobar», o con cifras de un
+  certificado típico que puede no ser el del frasco.
+- Fecha: 2026-10-02
+- Estado: abierta; la petición del lote y su CoA ya va en los correos
+- Destino: decisiones.md §5.6; P54, P60, P62; a-futuro
+
 ---
 
 ## Estado
@@ -2543,6 +2574,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
 | R12 · infografías y frentes | 7 (P35 a P41) | 3 (P33, P34, P42) |
-| R13 · a pesar en el banco | 14 (P43, P44, P48 a P51, P53 a P60) | 5 (P45 a P47, P52, P62) · P61, para tener en cuenta |
+| R13 · a pesar en el banco | 15 (P43, P44, P48 a P51, P53 a P60, P62) | 5 (P45 a P47, P52, P63) · P61, para tener en cuenta |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.

@@ -15,7 +15,9 @@ need, for each of them, the **IFRA 51st Amendment certificate of conformity** th
 certificates you already publish), and the maximum level of use for each category. For the natural
 materials, the **EU allergen declaration** too, please.
 
-**Essential** (a natural material and a product with no documents at all):
+**Essential** (a natural material and a product with no documents at all). For the natural one,
+also the **batch number** of what you sent me and its **certificate of analysis (CoA) with the GC-MS
+of that batch**, since the composition of a natural changes from batch to batch:
 
 1. **Benzoin Siam Resinoid (IFF)**: only the SDS is available. As a natural material, the IFRA
    certificate and the allergen declaration are especially important.

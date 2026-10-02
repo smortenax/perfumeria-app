@@ -16,7 +16,9 @@ sustancias restringidas que contiene y su concentración** (no solo los límites
 **ficha de seguridad**. De los naturales, también la **declaración de alérgenos de la UE**. Si sabéis
 el **fabricante** de cada uno, me ayuda mucho.
 
-**Imprescindibles** (naturales y resinoides: sin el certificado no sé qué llevan):
+**Imprescindibles** (naturales y resinoides: sin el certificado no sé qué llevan). De estos, además,
+el **número de lote** del frasco que me enviasteis y su **certificado de análisis (CoA) con el GC-MS
+de ese lote**, porque la composición de un natural cambia de lote a lote:
 
 1. Absoluto de tabaco.
 2. Bergamota sin bergaptenos (FCF).
