@@ -2547,9 +2547,8 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
   por eso dos proveedores, o dos lotes, dan IFRA distintos, y no hay una hoja general.
 - **Propuesta (a confirmar):** que la autoridad de una cifra de un natural siga este orden, la de
   arriba manda (encaja con §5.6 y P62):
-  1. **el análisis GC-MS del lote** que tiene el usuario (su CoA), con el número de lote;
-  2. **el certificado IFRA del producto** de su fabricante (P62), que suele ser de una composición
-     típica;
+  1. ~~el análisis GC-MS del lote~~ y 2. el certificado IFRA del producto: **son uno solo**, ver la
+     respuesta;
   3. **el anexo de IFRA**, que es indicativo y por forma de la planta (P54);
   4. **nada**: «sin comprobar», nunca libre (§1.2).
   - **El lote, en el producto:** un producto de fabricante (P62) puede tener lotes, cada uno con su
@@ -2559,8 +2558,18 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
     vendido y su CoA con el GC-MS**, además del certificado IFRA.
 - **Lo que cuesta dejarla abierta:** los naturales seguirán «sin comprobar», o con cifras de un
   certificado típico que puede no ser el del frasco.
+- **Respuesta (2026-10-02):** *«en cierta manera si pero creo que se solapa, el certificado ifra es lo
+  que proporcionan con el analisis gcms, siempre que haya el certificado es mejor porque es la
+  informacion tratada, habra que hacer un planteamiento del uso de la app y la manera en la que
+  funciona»*
+- **Lectura corregida:** el análisis GC-MS y el certificado IFRA **no son dos niveles**: el certificado
+  es el análisis del lote ya tratado por el proveedor (las sustancias reguladas y su cantidad).
+  Cuando hay certificado, manda; el análisis en bruto solo sirve si no lo hay. El orden queda: el
+  **certificado del producto**, idealmente **de su lote** (P62); después el **anexo de IFRA**
+  (indicativo); y si no hay nada, «sin comprobar». **Hace falta un planteamiento de cómo se usa la
+  app de punta a punta** (glosario, productos, lotes, banco): pendiente.
 - Fecha: 2026-10-02
-- Estado: abierta; la petición del lote y su CoA ya va en los correos
+- Estado: cerrada en el orden; el planteamiento del uso de la app, pendiente
 - Destino: decisiones.md §5.6; P54, P60, P62; a-futuro
 
 ---
@@ -2574,6 +2583,6 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
 | R10 · datos | 2 (P29, P30) | 0 |
 | R11 · al terminar el núcleo | 2 (P31, P32) | 0 |
 | R12 · infografías y frentes | 7 (P35 a P41) | 3 (P33, P34, P42) |
-| R13 · a pesar en el banco | 15 (P43, P44, P48 a P51, P53 a P60, P62) | 5 (P45 a P47, P52, P63) · P61, para tener en cuenta |
+| R13 · a pesar en el banco | 16 (P43, P44, P48 a P51, P53 a P60, P62, P63) | 4 (P45 a P47, P52) · P61, para tener en cuenta |
 
 **Consolidado el 2026-09-25** en [`decisiones.md`](decisiones.md) v3, pendiente de revisión.
