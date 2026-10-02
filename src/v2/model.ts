@@ -127,8 +127,6 @@ export interface Product extends Located {
   readonly code: string;
   readonly shop: string;
   readonly url: string;
-  readonly dilutionPct: string;
-  readonly diluentId: string;
 }
 
 /** A maker's ceiling belongs to the product, not to the substance (D4). */

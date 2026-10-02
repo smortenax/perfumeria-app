@@ -1,0 +1,18 @@
+producto,clave,estado,tipo,material,cas,origen,v1,notas
+Alcohol Feniletílico,olfatorium-alcohol-feniletilico,alta,sustancia,Phenethyl alcohol,60-12-8,desconocido,fig:2657,Origen: «aislado natural o sintético sin confirmar»: el cuaderno documenta las dos rutas y pide mirar la etiqueta [cuaderno: materias-primas/alcohol-feniletilico.md].
+Allyl Amyl Glycolate,olfatorium-allyl-amyl-glycolate,alta,sustancia,Allyl (3-methylbutoxy)acetate,67634-00-8,sintetico,fig:1012,Origen: «molécula de síntesis (IFF)» [cuaderno: materias-primas/allyl-amyl-glycolate.md].
+Cilantro,olfatorium-cilantro-semillas,excluido,sustancia,Cilantro,84775-50-8,,,Origen: .
+Dihydromyrcenol,olfatorium-dihydromircenol,alta,sustancia,Dihydromyrcenol,18479-58-8,sintetico,fig:1672,Origen: «molécula de síntesis» [cuaderno: materias-primas/dihydromyrcenol.md].
+Ethyl Maltol,olfatorium-ethyl-maltol,alta,sustancia,Ethyl maltol,4940-11-8,sintetico,fig:1787,Origen: «molécula de síntesis» [cuaderno: materias-primas/ethyl-maltol.md].
+Ethylene Brassylate,olfatorium-ethylene-brassylate,alta,sustancia,Ethylene brassylate,105-95-3,sintetico,fig:1818,Origen: «almizcle macrocíclico de síntesis» [cuaderno: materias-primas/ethylene-brassylate.md].
+Galaxolide,olfatorium-astrolide,alta,sustancia,"1,3,4,6,7,8-Hexahydro-4,6,6,7,8,8-hexamethylcyclopenta-gamma-2-benzopyran",1222-05-5,sintetico,fig:142,Origen: «almizcle policíclico de síntesis» [cuaderno: materias-primas/galaxolide.md].
+Hedione,olfatorium-hedione,alta,sustancia,Methyl dihydrojasmonate,24851-98-7,sintetico,fig:2351,Origen: «molécula de síntesis de Firmenich» [cuaderno: materias-primas/hedione.md].
+Ionona Alpha,olfatorium-ionone-alpha,alta,sustancia,alpha-Ionone,127-41-3,sintetico,fig:1051,Origen: «molécula de síntesis de IFF» [cuaderno: materias-primas/ionona-alpha.md].
+Iso E Super,olfatorium-iso-e-super,alta,sustancia,"1-(1,2,3,4,5,6,7,8-Octahydro-2,3,8,8-tetramethyl-2-naphthalenyl)ethanone",54464-57-2,sintetico,fig:92,Origen: «molécula de síntesis de IFF» [cuaderno: materias-primas/iso-e-super.md].
+Linalol,olfatorium-linalol,ya-dado-de-alta,,,,,,
+Mayol,olfatorium-mayol,alta,sustancia,cis-4-(Isopropyl)cyclohexanemethanol,13828-37-0,sintetico,fig:1447,Origen: «molécula de síntesis de Firmenich» [cuaderno: materias-primas/mayol.md].
+Methyl Pamplemousse,olfatorium-methyl-pamplemousse,alta,sustancia,"6,6-Dimethoxy-2,5,5-trimethylhex-2-ene",67674-46-8,sintetico,fig:922,Origen: «molécula de síntesis de Givaudan» [cuaderno: materias-primas/methyl-pamplemousse.md].
+Polysantol,olfatorium-polysantol,alta,sustancia,"3,3-Dimethyl-5-(2,2,3-trimethyl-3-cyclopenten-1-yl)-4-penten-2-ol",107898-54-4,sintetico,fig:607,Origen: «sándalo sintético de Firmenich» [cuaderno: materias-primas/polysantol.md].
+Sandalmysore Core,olfatorium-sandalmysore-core,alta,sustancia,"2-Methyl-4-(2,2,3-trimethyl-3-cyclopenten-1-yl)-2-buten-1-ol",28219-60-5,desconocido,fig:487,"Origen: el cuaderno lo trata como base: «a menudo enriquecida con fracciones naturales de sándalo», composición no publicada [cuaderno: materias-primas/sandalmysore-core.md]."
+Stemone,olfatorium-stemone,alta,sustancia,5-Methyl-3-heptanone oxime,22457-23-4,sintetico,fig:910,Origen: «molécula de síntesis (Givaudan)» [cuaderno: materias-primas/stemone.md].
+Vertenex (PTBCHA),olfatorium-ptbcha-aka-vertenex,alta,sustancia,4-tert-Butylcyclohexyl acetate,32210-23-4,sintetico,fig:867,Origen: «molécula de síntesis» [cuaderno: materias-primas/vertenex-ptbcha.md].

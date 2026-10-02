@@ -17,6 +17,10 @@ Tipos de conflicto y sus respuestas (`excluir` vale en todos: el producto no ent
 * `suma`: los constituyentes de la fila de la v1 suman más del 100,5 %. Respuesta: `no-traer`.
 * `sin-fila-v1`: el producto no tiene fila en la v1 (o no está en el registro). Respuesta:
   `alta-sin-v1:<CAS>` (molécula dada de alta por su CAS) o `excluir`.
+* `origen` (D7): el origen de cada molécula que entra. La propuesta sale de
+  `docs/v2/origenes-propuestos.csv` (por CAS, con su motivo y su fuente), y si no está ahí, de que
+  el nombre o la página digan «natural»; si no, `desconocido`. Respuesta: `sintetico`,
+  `aislado-natural` o `desconocido` (este último da un aviso en `validar:v2`).
 """
 import csv
 import re
@@ -62,6 +66,7 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
     constituents: dict[str, list[dict[str, str]]] = {}
     for r in read_csv(root / "datos" / "glosario" / "material-constituyentes.csv"):
         constituents.setdefault(r["material"], []).append(r)
+    proposed = {r["cas"]: r for r in read_csv(root / "docs" / "v2" / "origenes-propuestos.csv")}
     answers = {(r["producto"], r["tipo"]): r["respuesta"].strip()
                for r in read_csv(root / "datos" / "v2" / "respuestas" / f"{lot}.csv")}
 
@@ -139,12 +144,20 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
             if over:
                 conflict("suma", "; ".join(f"{v} {float(s):.2f} %" for v, s in over.items()), "no-traer")
 
+        excluded = any(c["respuesta"] == "excluir" for c in found)
+        # D7: the origin of a molecule that enters. Not asked of what is out, or has no row yet.
+        if not excluded and not any(c["tipo"] == "sin-fila-v1" and not c["respuesta"] for c in found):
+            if cas in proposed:
+                guess, why = proposed[cas]["origen"], f"{proposed[cas]['motivo']} [{proposed[cas]['fuente']}]"
+            elif NATURAL_WORDS.search(f"{name} {p['pagina']}"):
+                guess, why = "aislado-natural", f"el nombre o la página dicen «natural» ({p['pagina'] or name})"
+            else:
+                guess, why = "desconocido", "sin indicio de si es natural o de síntesis"
+            conflict("origen", why, guess)
         conflicts.extend(found)
         pending = [c for c in found if not c["respuesta"]]
-        excluded = any(c["respuesta"] == "excluir" for c in found)
-        origin = "aislado-natural" if NATURAL_WORDS.search(f"{name} {p['pagina']}") else "desconocido"
-        why = (f"el nombre o la página dicen «natural» ({p['pagina'] or name})" if origin == "aislado-natural"
-               else f"{p['tienda']} no dice si es natural o de síntesis")
+        origin = next((c["respuesta"] for c in found if c["tipo"] == "origen"), "")
+        why = next((c["detalle"] for c in found if c["tipo"] == "origen"), "")
         chosen = next((c["respuesta"][3:] for c in found if c["respuesta"].startswith("v1:")), None)
         if chosen:
             row = v1_by_id.get(chosen, row)
@@ -165,7 +178,7 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
                    "notas": p["notas"]}
         materials.append({
             "clave": material_key, "tipo": "sustancia", "nombre": row["nombre"] if row else name, "cas": cas,
-            "origen": origin, "origen_fuente": f"{why[0].upper()}{why[1:]} (lote {lot}).",
+            "origen": origin, "origen_fuente": f"{why} (lote {lot}, confirmado por el usuario).",
             "v1": [row["id"]] if row else [], "productos": [product],
         })
 

@@ -9,6 +9,8 @@ import { repositoryFor } from "../data/repositories";
 
 // A bench formula with five molecules of lot 3a (Maese Lab), as the bench builds it from the v2
 // repository: an accord of 0,8 g taken to a perfume at 20 % (work batch 0,8 g, final 4 g).
+// The dilutions are the ones the user puts in the bar when weighing (D8): the Cashmeran at 50 % in DPG
+// and the IBQ at 40 % in DPG; the model itself is always at 100 %.
 const repository = repositoryFor("v2");
 const entry = (name: string) => {
   const e = repository.entries.find((x) => x.material.name === name);
@@ -20,7 +22,7 @@ const LINES: ReadonlyArray<readonly [string, string, string, keyof typeof DILUEN
   ["Eugenol 98%", "0,040", "100", null],
   ["Metil ionona gamma", "0,300", "100", null],
   ["Cashmeran", "0,380", "50", "dpg"],
-  ["Vainillina", "0,050", "10", "alcohol"],
+  ["Isobutilquinoleína (IBQ)", "0,050", "40", "dpg"],
 ];
 const formula: Formula = {
   header: { name: "Lote 3a", intention: "", container: null, workBatchUg: 800_000n, finalBatchUg: 4_000_000n },
@@ -59,9 +61,11 @@ describe("a bench formula with five molecules of lot 3a, checked with the v2", (
     expect(formatPercent(report.maxUse)).toBe("16,000 %");
   });
 
-  it("the natural coumarin leaves its impurities pending (D7), so reading 1 cannot say yes", () => {
-    expect(report.pending).toEqual([
-      { material: "Cumarina natural", text: "Impurezas sin declarar: es un aislado natural y su producto no tiene documentos." },
+  it("the two natural isolates, coumarin and eugenol (of clove), leave their impurities pending (D7)", () => {
+    const text = "Impurezas sin declarar: es un aislado natural y su producto no tiene documentos.";
+    expect([...report.pending].sort((x, y) => x.material.localeCompare(y.material))).toEqual([
+      { material: "Cumarina natural", text },
+      { material: "Eugenol 98%", text },
     ]);
     expect(report.partial).toBe(true);
   });

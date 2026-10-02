@@ -1,7 +1,7 @@
 # Estado de la v2 del modelo de materiales
 
 Se lee al empezar cada sesión y se actualiza al terminar (30 líneas como máximo).
-Autoridad: [`decisiones-v2.md`](decisiones-v2.md) (D1–D7). La v1 está congelada en la etiqueta
+Autoridad: [`decisiones-v2.md`](decisiones-v2.md) (D1–D8). El plan de las fases, en [`plan.md`](plan.md). La v1 está congelada en la etiqueta
 `glosario-v1` (sobre `a18c440`, en el remoto); sus errores, en [`errores-v1.md`](errores-v1.md).
 
 ## Fases
@@ -15,12 +15,16 @@ Autoridad: [`decisiones-v2.md`](decisiones-v2.md) (D1–D7). La v1 está congela
 - [ ] **Fase 3 — La F-001 entera en la v2**, por lotes (`docs/v2/lotes.json`, `alta.py --lote`).
   - **Cierre:** la F-001 se calcula entera con la v2, y la comparación con la v1 queda explicada,
     con la correspondencia de cada material elegida por el usuario.
-  - [x] **Lote 3a** (2026-10-03): Maese Lab, en uso, moléculas. 21 productos: 18 altas, 2
-    excluidos (láudano y cacao, naturales) y el geraniol, que ya estaba. 4 conflictos contestados
-    (2 documento-ajeno → no-traer; 2 sin-fila-v1 → excluir). Prueba de banco: `src/v2/lote3a.test.ts`.
-- [ ] Fases 4 y 5: sin definir. Fase 6: buscar en la v1 errores como los de `errores-v1.md`.
+  - [x] **Lote 3a** (2026-10-03): Maese Lab, en uso, moléculas. 18 altas, 2 excluidos (láudano y
+    cacao, naturales) y el geraniol, que ya estaba. Prueba de banco: `src/v2/lote3a.test.ts`.
+  - [x] **Lote 3b** (2026-10-03): Olfatorium, en uso, moléculas. 15 altas, 1 excluida (cilantro,
+    natural) y el linalol, que ya estaba. Prueba de banco: `src/v2/lote3b.test.ts`.
+  - D8 aplicada: `productos.csv` ya no lleva dilución. Origen de cada molécula confirmado por el
+    usuario (propuestas en `docs/v2/origenes-propuestos.csv`); 4 `desconocido`, con aviso.
+- [ ] Fases 4 y 5: ver [`plan.md`](plan.md). Fase 6: buscar en la v1 errores como los de `errores-v1.md`.
 
 ## Siguiente
 
-- El lote 3b, que define el usuario (tienda y clase). Quedan para los naturales el láudano de jara, el
-  Theobroma cacao y el olíbano de Maese Lab, y todo lo de Olfatorium.
+- El lote 3c, que define el usuario (tienda y clase): quedan los naturales de las dos tiendas y de
+  Perfumiarz. Las 4 moléculas con origen `desconocido` (linalol, C11 MOA, alcohol feniletílico,
+  Sandalmysore Core) esperan que se averigüe.

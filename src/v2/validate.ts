@@ -171,7 +171,6 @@ export function validate(data: Dataset, refs: References): Issue[] {
   }
   for (const p of data.products) {
     ref(FILE.products, p.line, "id_material", p.materialId, ["material"]);
-    ref(FILE.products, p.line, "id_diluyente", p.diluentId, ["material"], true);
   }
   for (const c of data.ceilings) {
     ref(FILE.ceilings, c.line, "id_producto", c.productId, ["producto"]);
@@ -347,11 +346,6 @@ export function validate(data: Dataset, refs: References): Issue[] {
     }
     provenance(FILE.usages, u.line, u.documentId, u.authority);
   }
-  for (const p of data.products) {
-    if (number(FILE.products, p.line, "dilucion_pct", p.dilutionPct, HUNDRED)?.isZero()) {
-      error("valores", FILE.products, p.line, "Una dilución del 0 % no es un producto.");
-    }
-  }
 
   // A molecule known to carry regulated impurities says where that is known from (D6, D7).
   for (const k of data.knownImpurities) {
@@ -410,6 +404,8 @@ export function validate(data: Dataset, refs: References): Issue[] {
     // D7: a molecule says where it comes from; the rest of the materials do not use the field.
     if (m.type === "sustancia" && !(ORIGINS as readonly string[]).includes(m.origin)) {
       error("origen", FILE.materials, m.line, `Una sustancia necesita origen (${ORIGINS.join(", ")}); tiene «${m.origin}».`);
+    } else if (m.type === "sustancia" && m.origin === "desconocido") {
+      report("aviso", "origen-desconocido", FILE.materials, m.line, `El origen de ${m.id} (${m.name}) es desconocido: se cuenta pura por convención (D7). ¿Se puede saber?`);
     } else if (m.type !== "sustancia" && m.origin !== "") {
       error("origen", FILE.materials, m.line, `El origen es solo de las sustancias; ${m.id} es ${m.type}.`);
     }

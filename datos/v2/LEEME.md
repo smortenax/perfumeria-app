@@ -35,7 +35,9 @@ un número de fila. Un id retirado no se reutiliza.
 - **Porcentajes en texto decimal** con punto (`12.5`). El validador los lee como fracciones
   exactas.
 - **La composición va en % de la materia pura del contenedor.** La de un producto también: su
-  **dilución es solo un dato del producto** (`dilucion_pct`) y nunca entra en su composición.
+  **dilución no es un dato del producto ni del material (D8)**: se pone en la barra de la app al
+  pesar, y todo material y todas sus reglas van al 100 %. Las cifras de un certificado de un
+  producto diluido se pasan a materia pura antes de entrar.
 - Cada cifra de composición lleva **tipo** (`tipico`, `maximo`, `rango`), **autoridad** y
   **documento**. La autoridad va con el contenedor: `lote` en un `L`, `producto` en un `P`, y
   `anexo-ifra`, `literatura` o `consenso` en un `M`. De mayor a menor autoridad: lote > producto
@@ -56,7 +58,7 @@ un número de fila. Un id retirado no se reutiliza.
 | `materiales.csv` | un material | `id, tipo` (`sustancia`/`natural`/`base`/`formula`), `nombre, id_sustancia, especie, parte, proceso, quimiotipo, cas, inci, origen` (`sintetico`/`aislado-natural`/`desconocido`, solo en las sustancias, D7), `excepciones, motivo_excepcion, notas` |
 | `composicion.csv` | un componente de un material, producto o lote | `id_contenedor, id_componente, min, tipico, max, tipo_valor, autoridad, id_documento, notas` |
 | `coberturas.csv` | qué cubre la composición de una fuente | `id_contenedor, id_documento, cobertura` (`reguladas-completa`/`solo-alergenos`/`parcial`/`desconocida`), `notas` |
-| `productos.csv` | un producto de un proveedor (D3) | `id, id_material, nombre, fabricante, codigo, tienda, url, dilucion_pct, id_diluyente, notas` |
+| `productos.csv` | un producto de un proveedor (D3) | `id, id_material, nombre, fabricante, codigo, tienda, url, notas` |
 | `topes.csv` | el tope de un fabricante para su producto (D4) | `id_producto, categoria` (`4`, `5a`…), `max_pct, id_documento, notas` |
 | `lotes.csv` | un lote de un producto (opcional, D3) | `id, id_producto, codigo_lote, fecha, notas` |
 | `documentos.csv` | una fuente | `id, tipo` (`coa`/`sds`/`certificado-ifra`/`ficha`/`anexo-ifra`/`articulo`/`consenso`/`otro`), `titulo, emisor, fecha, ruta, estado_revision` (`pendiente`/`revisado`), `notas` |
@@ -103,6 +105,7 @@ número de línea cuenta la cabecera como línea 1.
 | `coherencia` | valores de los campos cerrados, autoridad ↔ contenedor, un solo CAS principal por sustancia y en una sola sustancia, el estándar existe en IFRA 51 |
 | `cobertura` | cada (contenedor, documento) con composición declara su cobertura; naturales y bases sin composición, `desconocida` |
 | `origen` | una sustancia tiene `origen` válido; los demás materiales lo dejan vacío (D7) |
+| `origen-desconocido` *(aviso)* | una sustancia con origen `desconocido`: cuenta pura por convención y conviene averiguarlo (D7) |
 | `v1` | cada `id_v1` existe en `datos/glosario/materiales.csv` y no apunta a dos `id_v2` |
 | `duplicado` *(aviso)* | el mismo componente y contenedor, con la misma autoridad, en dos documentos con cifras distintas |
 

@@ -6,6 +6,12 @@
       "situacion": "en-uso",
       "tienda": "Maese Lab",
       "clase": "molécula"
+    },
+    "3b": {
+      "fecha": "2026-10-03",
+      "situacion": "en-uso",
+      "tienda": "Olfatorium",
+      "clase": "molécula"
     }
   }
 }

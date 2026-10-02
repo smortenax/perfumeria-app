@@ -96,8 +96,7 @@ export const SCHEMA: { readonly [K in keyof Dataset]: TableSpec<K> } = {
   products: {
     file: "productos.csv",
     columns: [
-      "id", "id_material", "nombre", "fabricante", "codigo", "tienda", "url", "dilucion_pct",
-      "id_diluyente", "notas",
+      "id", "id_material", "nombre", "fabricante", "codigo", "tienda", "url", "notas",
     ],
     map: (r, line) => ({
       line,
@@ -108,8 +107,6 @@ export const SCHEMA: { readonly [K in keyof Dataset]: TableSpec<K> } = {
       code: r.codigo,
       shop: r.tienda,
       url: r.url,
-      dilutionPct: r.dilucion_pct,
-      diluentId: r.id_diluyente,
     }),
   },
   ceilings: {

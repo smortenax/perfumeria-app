@@ -53,6 +53,21 @@ convención se dice en la ficha y no se aplica a lo que se sabe que no la cumple
 Cada material `sustancia` lleva `origen` (`sintetico`, `aislado-natural` o `desconocido`), con su
 fuente en las notas. `desconocido` sigue la convención.
 
+## D8 — La dilución no es un dato del modelo
+
+Decidida por el usuario el 2026-10-03.
+
+La dilución no es un dato del material ni del producto. Se pone en la barra de la app al pesar
+(porcentaje y diluyente), y **todo material y todas sus reglas van al 100 %**. `productos.csv` no
+lleva `dilucion_pct` ni `id_diluyente`.
+
+**Se mantiene** la regla de pasar a materia pura las cifras de un certificado de un producto
+diluido (decisiones v1, P62): el certificado habla de lo que hay en el frasco, y el modelo guarda
+materia pura.
+
+**Por qué:** la dilución con que se compra un producto no cambia lo que es, y el usuario ya la
+elige en la app cada vez que pesa. Guardarla en el modelo la duplicaba y la dejaba caducar.
+
 ## Jerarquía de autoridad
 
 De mayor a menor; cuando dos fuentes chocan, manda la de más arriba:

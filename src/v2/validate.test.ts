@@ -29,6 +29,7 @@ const RULES: Array<[string, Issue["severity"]]> = [
   ["cobertura", "error"],
   ["v1", "error"],
   ["origen", "error"],
+  ["origen-desconocido", "aviso"],
   ["duplicado", "aviso"],
 ];
 

@@ -99,7 +99,7 @@ describe("the seven materials of phase 2, through the adapter", () => {
 const HEAD = {
   "registro-ids.csv": "id,entidad,clave,alta,estado,notas",
   "materiales.csv": "id,tipo,nombre,id_sustancia,especie,parte,proceso,quimiotipo,cas,inci,origen,excepciones,motivo_excepcion,notas",
-  "productos.csv": "id,id_material,nombre,fabricante,codigo,tienda,url,dilucion_pct,id_diluyente,notas",
+  "productos.csv": "id,id_material,nombre,fabricante,codigo,tienda,url,notas",
   "composicion.csv": "id_contenedor,id_componente,min,tipico,max,tipo_valor,autoridad,id_documento,notas",
   "coberturas.csv": "id_contenedor,id_documento,cobertura,notas",
   "grupos.csv": "id,tipo,referencia,nombre,notas",
@@ -118,7 +118,7 @@ describe("flatten", () => {
   it("a complete certificate of the product closes the list: the annex of its material is not read", () => {
     const d = dataset({
       "materiales.csv": [LAVENDER],
-      "productos.csv": ["P00001,M00001,Lavanda X,,,,,,,"],
+      "productos.csv": ["P00001,M00001,Lavanda X,,,,,"],
       "composicion.csv": ["P00001,S00001,,0.2,,tipico,producto,D00002,", "M00001,S00001,,0.48,,tipico,anexo-ifra,D00001,", "M00001,S00002,,1.04,,tipico,anexo-ifra,D00001,"],
       "coberturas.csv": ["P00001,D00002,reguladas-completa,", "M00001,D00001,reguladas-completa,"],
     });
@@ -131,7 +131,7 @@ describe("flatten", () => {
   it("a partial certificate wins where it speaks, and the annex fills the rest", () => {
     const d = dataset({
       "materiales.csv": [LAVENDER],
-      "productos.csv": ["P00001,M00001,Lavanda X,,,,,,,"],
+      "productos.csv": ["P00001,M00001,Lavanda X,,,,,"],
       "composicion.csv": ["P00001,S00001,,0.2,,tipico,producto,D00002,", "M00001,S00001,,0.48,,tipico,anexo-ifra,D00001,", "M00001,S00002,,1.04,,tipico,anexo-ifra,D00001,"],
       "coberturas.csv": ["P00001,D00002,solo-alergenos,", "M00001,D00001,reguladas-completa,"],
     });

@@ -59,8 +59,7 @@ COLUMNS = {
     ],
     "coberturas.csv": ["id_contenedor", "id_documento", "cobertura", "notas"],
     "productos.csv": [
-        "id", "id_material", "nombre", "fabricante", "codigo", "tienda", "url", "dilucion_pct",
-        "id_diluyente", "notas",
+        "id", "id_material", "nombre", "fabricante", "codigo", "tienda", "url", "notas",
     ],
     "topes.csv": ["id_producto", "categoria", "max_pct", "id_documento", "notas"],
     "lotes.csv": ["id", "id_producto", "codigo_lote", "fecha", "notas"],
@@ -102,6 +101,10 @@ class Registry:
 
     def id(self, entity: str, key: str, date: str, note: str = "") -> str:
         row = self.by_key.get((entity, key))
+        if row is not None and row["estado"] == "retirado":
+            # The same key coming back (a lot that was waiting for answers) takes its own id again;
+            # a retired id is never given to another key.
+            row["estado"] = "activo"
         if row is None:
             prefix = PREFIX[entity]
             taken = [int(r["id"][1:]) for r in self.rows if r["id"].startswith(prefix)]
