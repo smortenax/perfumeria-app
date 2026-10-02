@@ -3,7 +3,7 @@ import { Ratio } from "./arith/ratio";
 import { formatPercent } from "./display";
 import { f001 } from "./fixtures/f001";
 import { COUMARIN, f001Ifra } from "./fixtures/ifra-f001";
-import { checkIfra, type IfraData } from "./ifra";
+import { checkIfra, marginOf, type IfraData } from "./ifra";
 import type { Change, Formula, FormulaHeader } from "./model/formula";
 import { DILUENTS, type Material } from "./model/material";
 
@@ -196,5 +196,56 @@ describe("IFRA after reweighing (P57): what is lost goes out in proportion", () 
     const onlyFinal = { ...header, finalBatchUg: 10n * G };
     expect(share({ header: onlyFinal, history: poured })).toEqual(["1,000 %", "15,000 %"]);
     expect(share({ header: onlyFinal, history: spilled })).toEqual(["0,500 %", "15,000 %"]);
+  });
+});
+
+describe("IFRA: a placeholder is bounded by its maximum, never within (D2 of the v2)", () => {
+  // A natural whose coumarin comes only from the literature: not proven, at most `upper` of it.
+  const natural = (upper: string): IfraData => ({
+    substances: new Map([[COUMARIN.key, COUMARIN]]),
+    materials: new Map([
+      ["t:natural", { status: "checked", substances: [{ key: COUMARIN.key, fraction: null, upper: pct(upper) }], conditions: [] }],
+    ]),
+  });
+  const material: Material = { key: "t:natural", kind: "base", name: "Natural" };
+  const formula: Formula = { header, history: [add("n", material, 1n * G)] };
+
+  it("a maximum under the ceiling is bounded: proven, reading 1 says yes, but it is not within", () => {
+    const report = checkIfra(formula, natural("1"));
+    expect(report.checks[0].verdict).toBe("bounded");
+    expect(report.checks[0].knownUg.isZero()).toBe(true);
+    expect(report.checks[0].worstUg.eq(Ratio.of(10_000n))).toBe(true);
+    expect(report.checks[0].unknownFrom).toEqual(["Natural"]);
+    expect(report.asIs).toBe("yes");
+  });
+
+  it("a maximum over the ceiling cannot be checked", () => {
+    const report = checkIfra(formula, natural("2"));
+    expect(report.checks[0].verdict).toBe("unknown");
+    expect(report.asIs).toBe("unknown");
+    // Reading 2 takes the maximum, not the whole material: 1,5 % / 2 % of the perfume.
+    expect(report.maxUse.eq(pct("75"))).toBe(true);
+  });
+
+  it("a maximum of 0 % is still bounded, never within", () => {
+    expect(checkIfra(formula, natural("0")).checks[0].verdict).toBe("bounded");
+  });
+
+  it("without a maximum the worst case is the whole material, as before", () => {
+    const data: IfraData = {
+      substances: new Map([[COUMARIN.key, COUMARIN]]),
+      materials: new Map([["t:natural", { status: "checked", substances: [{ key: COUMARIN.key, fraction: null }], conditions: [] }]]),
+    };
+    expect(checkIfra(formula, data).checks[0].worstUg.eq(Ratio.of(G))).toBe(true);
+  });
+
+  it("the margin of a pour counts the maximum too", () => {
+    const empty: Formula = { header, history: [] };
+    // In the bottle base the bottle grows with the pour: at 2 % of coumarin, over the 1,5 % ceiling,
+    // the empty bottle has no room for it; at 1 % the pour can only dilute, so it sets no ceiling.
+    const margin = marginOf(empty, natural("2"), { material, fraction: Ratio.ONE, diluent: null }, "bottle");
+    expect(margin.kind).toBe("bounded");
+    const free = marginOf(empty, natural("1"), { material, fraction: Ratio.ONE, diluent: null }, "bottle");
+    expect(free.kind).toBe("unbounded");
   });
 });

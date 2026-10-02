@@ -249,7 +249,9 @@ export function toIfra(data: Dataset, files: IfraFiles): IfraData {
       }
       const limit = limitOf(s);
       if (limit) {
-        into.substances.push({ key: ifraSubstance(`std:${standard}`, s.nombre, limit, standard), fraction: load.known });
+        const key = ifraSubstance(`std:${standard}`, s.nombre, limit, standard);
+        // D2: a load that is not proven goes with its bound, which the engine counts in the worst case.
+        into.substances.push(load.known ? { key, fraction: load.known } : { key, fraction: null, upper: load.upper });
       } else if (s.prohibicion === "sí") {
         into.pending.push(`${s.nombre}: prohibido como tal; lo que trae este material no tiene techo en los datos (${short(standard)}).`);
       }
@@ -296,22 +298,32 @@ export function toIfra(data: Dataset, files: IfraFiles): IfraData {
   return { substances, materials };
 }
 
+type Entry = { key: string; fraction: Ratio | null; upper?: Ratio };
+
 interface IfraEntry {
-  substances: Array<{ key: string; fraction: Ratio | null }>;
+  substances: Entry[];
   conditions: string[];
   pending: string[];
 }
 
-/** Two members under one standard (two isomers of one group) add up; an unknown one leaves it unknown. */
-function merge(list: ReadonlyArray<{ key: string; fraction: Ratio | null }>): Array<{ key: string; fraction: Ratio | null }> {
-  const byKey = new Map<string, Ratio | null>();
-  for (const { key, fraction } of list) {
-    if (!byKey.has(key)) {
-      byKey.set(key, fraction);
-      continue;
+/**
+ * Two members under one standard (two isomers of one group) add up. An unknown one leaves the sum
+ * unknown: bounded by both bounds when both have one, by the whole material when either has none.
+ */
+function merge(list: readonly Entry[]): Entry[] {
+  const byKey = new Map<string, Entry>();
+  for (const entry of list) {
+    const before = byKey.get(entry.key);
+    if (!before) {
+      byKey.set(entry.key, entry);
+    } else if (before.fraction && entry.fraction) {
+      byKey.set(entry.key, { key: entry.key, fraction: before.fraction.add(entry.fraction) });
+    } else {
+      const bound = (e: Entry) => e.fraction ?? e.upper;
+      const a = bound(before);
+      const b = bound(entry);
+      byKey.set(entry.key, a && b ? { key: entry.key, fraction: null, upper: a.add(b) } : { key: entry.key, fraction: null });
     }
-    const before = byKey.get(key) as Ratio | null;
-    byKey.set(key, before && fraction ? before.add(fraction) : null);
   }
-  return [...byKey].map(([key, fraction]) => ({ key, fraction }));
+  return [...byKey.values()];
 }

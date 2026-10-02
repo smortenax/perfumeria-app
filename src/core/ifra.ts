@@ -33,8 +33,11 @@ export interface IfraMaterial {
    * The regulated substances inside, as a fraction of the material's pure
    * matter. A material regulated as itself lists its own substance with 1.
    * A null fraction is a load without data (§1.2): it never counts as zero.
+   * `upper`, only with a null fraction, bounds a load that is not proven: a placeholder of the
+   * literature or of consensus counts its maximum in the worst case, and is never within (D2 of
+   * the v2). Without it, the worst case is the whole material.
    */
-  readonly substances: ReadonlyArray<{ readonly key: string; readonly fraction: Ratio | null }>;
+  readonly substances: ReadonlyArray<{ readonly key: string; readonly fraction: Ratio | null; readonly upper?: Ratio }>;
   /** Obligations that are not a percentage: a certificate, a specification (§5.5). */
   readonly conditions: readonly string[];
   /**
@@ -284,9 +287,9 @@ export function marginOf(
       return { kind: "unknown" };
     }
     pouredPending = pouredPending || (info.pending ?? []).length > 0;
-    for (const { key, fraction: inside } of info.substances) {
+    for (const { key, fraction: inside, upper } of info.substances) {
       if (data.substances.has(key)) {
-        per.set(key, (per.get(key) ?? Ratio.ZERO).add(weight.mul(inside ?? Ratio.ONE)));
+        per.set(key, (per.get(key) ?? Ratio.ZERO).add(weight.mul(inside ?? upper ?? Ratio.ONE)));
       }
     }
   }
@@ -386,9 +389,9 @@ function batchesOf(header: FormulaHeader, bottleUg: Ratio): { readonly bottleUg:
 function readingOf(base: IfraBase, header: FormulaHeader, bottleUg: Ratio, tallies: readonly Tally[], partial: boolean): BaseReading {
   const finalUg = finalUgOf(base, header, bottleUg);
   const batches = batchesOf(header, bottleUg);
-  const checks = tallies.map(({ substance, knownUg, worstUg }) => ({
+  const checks = tallies.map(({ substance, knownUg, worstUg, unknownFrom }) => ({
     key: substance.key,
-    verdict: judge(knownUg, worstUg, finalUg, substance.limit),
+    verdict: judge(knownUg, worstUg, finalUg, substance.limit, unknownFrom.length > 0),
     // The substance itself, poured pure: the room of a pour whose every unit is that substance.
     roomUg: roomFor(base, Ratio.ONE, worstUg, substance.limit, batches),
   }));
@@ -397,11 +400,12 @@ function readingOf(base: IfraBase, header: FormulaHeader, bottleUg: Ratio, talli
   return { base, finalUg, asIs, checks };
 }
 
-function judge(knownUg: Ratio, worstUg: Ratio, finalUg: Ratio, limit: Ratio): Verdict {
+/** `unknown`: some load of the substance is not proven, so it is never within, even bounded at 0 (D2). */
+function judge(knownUg: Ratio, worstUg: Ratio, finalUg: Ratio, limit: Ratio, unknown: boolean): Verdict {
   if (knownUg.div(finalUg).gt(limit)) {
     return "exceeds";
   }
-  if (worstUg.eq(knownUg)) {
+  if (worstUg.eq(knownUg) && !unknown) {
     return "within";
   }
   return worstUg.div(finalUg).gt(limit) ? "unknown" : "bounded";
@@ -458,12 +462,12 @@ function accumulate(composition: Composition, data: IfraData) {
     for (const text of info.pending ?? []) {
       pending.push({ material: material.name, text });
     }
-    for (const { key, fraction } of info.substances) {
+    for (const { key, fraction, upper } of info.substances) {
       if (!data.substances.has(key)) {
         continue;
       }
       const certain = fraction ? part.massUg.mul(fraction) : Ratio.ZERO;
-      const possible = fraction ? certain : part.massUg;
+      const possible = fraction ? certain : part.massUg.mul(upper ?? Ratio.ONE);
       const found = bySubstance.get(key) ?? { sources: new Map<string, SubstanceCheck["sources"][number]>(), unknownFrom: [] };
       bySubstance.set(key, found);
       // A material shows once per substance, even if it lists it twice.

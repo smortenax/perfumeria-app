@@ -98,6 +98,8 @@ const HEAD = {
   "productos.csv": "id,id_material,nombre,fabricante,codigo,tienda,url,dilucion_pct,id_diluyente,notas",
   "composicion.csv": "id_contenedor,id_componente,min,tipico,max,tipo_valor,autoridad,id_documento,notas",
   "coberturas.csv": "id_contenedor,id_documento,cobertura,notas",
+  "grupos.csv": "id,tipo,referencia,nombre,notas",
+  "grupo-miembros.csv": "id_grupo,id_miembro,subgrupo,notas",
 } as const;
 
 function dataset(rows: { [K in keyof typeof HEAD]?: string[] }) {
@@ -167,5 +169,22 @@ describe("flatten", () => {
     // A proven 0,48 % inside a placeholder 10 %: the product is not proven, and at most 0,048 %.
     expect(load?.known).toBeNull();
     expect(load?.upper.eq(pct("0.048"))).toBe(true);
+  });
+});
+
+describe("toIfra with a placeholder (D2)", () => {
+  it("passes its maximum to the engine as the bound of an unknown load", () => {
+    const d = dataset({
+      "materiales.csv": [LAVENDER],
+      "composicion.csv": ["M00001,S00001,,0.3,0.9,tipico,literatura,D00001,"],
+      "coberturas.csv": ["M00001,D00001,reguladas-completa,"],
+      "grupos.csv": ["G00001,estandar-ifra,IFRA_STD_023,Coumarin,"],
+      "grupo-miembros.csv": ["G00001,S00001,,"],
+    });
+    const m = toIfra(d, IFRA_FILES).materials.get(v2Key("M00001"));
+    expect(m?.substances).toHaveLength(1);
+    expect(m?.substances[0].key).toBe("std:IFRA_STD_023");
+    expect(m?.substances[0].fraction).toBeNull();
+    expect(m?.substances[0].upper?.eq(pct("0.9"))).toBe(true);
   });
 });
