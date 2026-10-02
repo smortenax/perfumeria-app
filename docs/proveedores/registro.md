@@ -31,7 +31,7 @@ Lo genera `scripts/registro_productos.py` desde [`mis-productos.csv`](mis-produc
 | — | Auranone | base o especialidad | — | ¿? | — | — | pedir el certificado IFRA: sin él no se sabe qué lleva |
 | ◐ | 2-hydroxybenzaldehyde 10% (IPM) (10 % en IPM) | molécula | fig:2840 Salicylaldehyde [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | 3,4-Xylenol 10% (IPM) (10 % en IPM) | molécula | fig:616 3,4-Xylenol [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
-| ◐ | Aldambre (25–50 % en DPG) | molécula | tl:947-05-7 Oxacyclotridecan-2-one [sin-estandar] | Synarome | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
+| ◐ | Aldambre (25–50 % en DPG) | molécula | tl:947-05-7 Oxacyclotridecan-2-one [sin-estandar] | Ventós | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | Calone (powder) | molécula | fig:944 7-Methyl-2H-benzo-1,5-dioxepin-3(4H)-one [sin-estandar] | IFF | — | — | el certificado que enlaza la tienda es de otro producto («BRAN ABS LMR»); pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | Helional | molécula | fig:1055 alpha-Methyl-1,3-benzodioxole-5-propionaldehyde [con-techo] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | Heliotropine 25% DPG (25 % en DPG) | molécula | fig:2721 Piperonal [sin-estandar] | PCW | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |

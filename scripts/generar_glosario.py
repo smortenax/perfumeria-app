@@ -472,7 +472,7 @@ def main() -> None:
     # made a double of one the FIG has by another name.
     shop_rows = read(SHOP_NAMES) if SHOP_NAMES.exists() else []
     # The manufacturer's document rules over the shop's page: Perfumiarz gives Aldambre 1725-03-7,
-    # and Synarome's safety data sheet says oxacyclotridecan-2-one, 947-05-7.
+    # and the safety data sheet of Ventós, its maker, says oxacyclotridecan-2-one, 947-05-7.
     fixes = {r["url"].rstrip("/"): r for r in read(CAS_FIXES)} if CAS_FIXES.exists() else {}
     for r in shop_rows:
         fix = fixes.get(r["url"].rstrip("/"))

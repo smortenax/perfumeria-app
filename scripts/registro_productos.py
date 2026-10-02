@@ -122,6 +122,8 @@ def main() -> int:
         # The maker: the certificate's, else any document's text, else a document's name («SDS_ALDAMBRE_SYNAROME»).
         maker = (parsed or {}).get("maker", "") or next(
             (n for n, pat in certs.MAKERS if any(re.search(pat, t or "", re.I) for t in [*texts.values(), *texts.keys()])), "")
+        # What the user says of the maker rules over what is guessed from the documents.
+        maker = p.get("fabricante") or maker
         if parsed and own:
             state = "documentado"
         elif docs:
