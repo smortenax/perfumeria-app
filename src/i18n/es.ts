@@ -77,6 +77,7 @@ export const texts = {
   addBar: {
     /** The plain variant of a form, among its variants (P54). */
     plainVariant: "normal",
+    documented: (maker: string) => `Documentado: el certificado IFRA de su fabricante${maker ? ` (${maker})` : ""} está en la base`,
     more: "Material nuevo rápido o fórmula como material",
     quickMaterial: "Material nuevo rápido…",
     formulaAsMaterial: "Fórmula como material…",
@@ -239,6 +240,10 @@ export const texts = {
       "No se puede decir hasta qué % se puede usar esta mezcla en un perfume: lo conocido no le pone techo, pero hay materiales o constituyentes sin comprobar.",
     secondReadingPartial: (pct: string) => `Esta mezcla, tal como está en el frasco, se puede usar como mucho hasta el ${pct} en un perfume, según lo conocido.`,
     views: { substance: "Sustancia", material: "Material" },
+    suppliers: (n: number) => `Topes de los fabricantes · ${n}`,
+    supplierOver: (names: string) => `Pasa: ${names}`,
+    suppliersHelp:
+      "Lo que el certificado de un fabricante da para la categoría 4 a su producto, como techo de la sustancia, sumada de todo lo que la lleva. No es de IFRA, y no decide las dos lecturas.",
     viewSwitch: "Ver el detalle por sustancia o por material",
     room: (mass: string) => `quedan ${mass}`,
     noRoom: "sin margen",

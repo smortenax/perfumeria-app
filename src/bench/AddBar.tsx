@@ -4,7 +4,7 @@ import { parseMass, parsePercent, type MassUnit } from "../core/arith/units";
 import type { Change } from "../core/model/formula";
 import type { Material } from "../core/model/material";
 import { casForm, normalize, searchCatalog, type CatalogEntry, type IfraState, type MaterialFamily } from "../data/catalog";
-import { defaultOption, formLabel, plantIndex } from "../data/plants";
+import { defaultOption, formLabel, makerIndex, plantIndex } from "../data/plants";
 import { texts } from "../i18n/es";
 import {
   addOwnDiluent,
@@ -57,6 +57,8 @@ type Result =
       glossaryName?: string;
       /** The other name of the bottle that was typed: it becomes the user's name (P56). */
       bottleName?: string | null;
+      /** The tick of P62: the material is documented by its manufacturer's certificate; the maker's name. */
+      documented?: string;
       /** A natural's form and variant, as its chip says them (P54). */
       form?: string;
       variant?: string;
@@ -218,6 +220,8 @@ export function AddBar(props: {
   const byKey = useMemo(() => new Map(props.entries.map((e) => [e.material.key, e])), [props.entries]);
   // The forms of every plant, in chip order (P54).
   const plants = useMemo(() => plantIndex(props.entries), [props.entries]);
+  // The manufacturers' products of each general material (P62).
+  const makers = useMemo(() => makerIndex(props.entries), [props.entries]);
 
   // Two cells of % side by side and a wide «Puro» under them (P53): favourites first, then
   // the last one used, then 10 % and 50 %; DPG and alcohol (§4).
@@ -352,12 +356,32 @@ export function AddBar(props: {
       ...(e.family ? { family: e.family } : {}),
       ...(shopName(e) ? { shopName: shopName(e) } : {}),
       ...(e.plant ? { form: e.plant.form, variant: e.plant.variant } : {}),
+      ...(e.documented ? { documented: e.maker?.name ?? "" } : {}),
     });
     // The naturals of one plant are one row, with a chip per form (P54); the rest, one row each.
     const used = (key: string) => props.sessionMaterials.some((m) => m.key === key) || prefsOf(key).last !== undefined;
     const found: Result[] = [];
     const folded = new Set<string>();
     for (const e of searchCatalog(pool, query, 30)) {
+      // A general material and its manufacturers' products are one row, a chip per maker (P62); the
+      // user's product goes first, since it is the one documented.
+      const generalKey = e.maker?.general ?? (makers.has(e.material.key) ? e.material.key : undefined);
+      const made = generalKey && !e.plant ? makers.get(generalKey) : undefined;
+      if (made && generalKey) {
+        const key = `maker:${generalKey}`;
+        if (folded.has(key)) {
+          continue;
+        }
+        folded.add(key);
+        const options = made.map((o) => ({ ...toResult(o), form: o.maker ? o.maker.name : "general", variant: "" }));
+        const at = e.maker ? made.indexOf(e) : 1;
+        const general = made[0];
+        found.push({ ...options[at], plant: { key, name: userNameOf(general.material.key) ?? general.material.name, options, at } });
+        if (found.length >= 10) {
+          break;
+        }
+        continue;
+      }
       const forms = e.plant ? plants.get(e.plant.key) : undefined;
       if (forms && e.plant) {
         if (folded.has(e.plant.key)) {
@@ -648,6 +672,11 @@ export function AddBar(props: {
                     <span className="result-name">
                       <span className="primary">
                         {plant ? plant.name : r.material.name}
+                        {r.kind === "material" && r.documented !== undefined && (
+                          <span className="documented" title={t.documented(r.documented)}>
+                            ✓
+                          </span>
+                        )}
                         {r.tradeCode && (
                           <span className="trade-code">
                             <IconText text={r.tradeCode} mark={r.iconMark} />

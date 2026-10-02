@@ -167,3 +167,22 @@ export function defaultOption(
   const oil = options.findIndex((e) => e.plant!.form === "oil" && e.plant!.variant === "");
   return oil >= 0 ? oil : 0;
 }
+
+/**
+ * The manufacturers' products of each general material (P62), by the general's key: the general first,
+ * then its products by maker. Only generals with at least one product.
+ */
+export function makerIndex(entries: readonly CatalogEntry[]): Map<string, CatalogEntry[]> {
+  const byKey = new Map(entries.map((e) => [e.material.key, e]));
+  const out = new Map<string, CatalogEntry[]>();
+  for (const e of entries) {
+    const general = e.maker?.general;
+    if (general && byKey.has(general)) {
+      out.set(general, [...(out.get(general) ?? [byKey.get(general)!]), e]);
+    }
+  }
+  for (const [key, group] of out) {
+    out.set(key, [group[0], ...group.slice(1).sort((a, b) => a.maker!.name.localeCompare(b.maker!.name))]);
+  }
+  return out;
+}

@@ -38,9 +38,13 @@
       "sha256": "d5768b464ca25af78ae5d413bf0541a7b9363b3fe4ba410b15972b129086f886",
       "que_es": "constituyentes regulados que declaran los proveedores, auditados (frente C)"
     },
-    "docs/proveedores/certificados/certificados.csv": {
-      "sha256": "f79947963d37bbf1a530949554fa6918f5412a7129d7b5985aaa8132e2cb62f8",
-      "que_es": "los certificados de conformidad IFRA que el usuario guarda de sus proveedores"
+    "docs/proveedores/productos.csv": {
+      "sha256": "a34fbdfa14df9ecf5fdda9d377c5d83005170a903f2548eb65f0311fb88a2b72",
+      "que_es": "los productos del usuario con el certificado IFRA de su fabricante (P62)"
+    },
+    "docs/proveedores/productos-sustancias.csv": {
+      "sha256": "cb54496db856f2656bf0d25957e5f549374f3f7690118ce3cc07b67eb3a7bc58",
+      "que_es": "las sustancias restringidas que declara el certificado de cada producto"
     },
     "datos/glosario/origen/nombres-proveedores.csv": {
       "sha256": "b788a7ca13ff8e0a2ee8336cf0f9573e235d25df1a4a8f28c9edeca1939e8ae6",
@@ -71,36 +75,37 @@
       "sha256": "289097c9d76de4430f967158556ff068faa4589175c44b48dd355a5eb93b6368"
     }
   },
-  "generado": "2026-10-01T22:56:07+00:00",
+  "generado": "2026-10-02T00:16:56+00:00",
   "cuentas": {
-    "materiales": 4327,
+    "materiales": 4345,
     "del_fig": 3119,
-    "solo_de_ifra": 1208,
+    "solo_de_ifra": 1226,
     "codigos_del_usuario": 3119,
-    "codigos_generados": 1208,
+    "codigos_generados": 1226,
     "por_estado": {
       "prohibido": 121,
-      "con-techo": 417,
-      "condicion": 47,
-      "por-constituyentes": 525,
+      "con-techo": 419,
+      "condicion": 48,
+      "por-constituyentes": 529,
       "sin-dato": 553,
-      "sin-estandar": 2664
+      "sin-estandar": 2675
     },
-    "filas_de_constituyentes": 3813,
+    "filas_de_constituyentes": 3840,
     "de_la_transparency_list": 3626,
     "solo_de_la_transparency_list": 923,
     "del_fig_fuera_de_ifra": 354,
     "heredan_un_estandar": 7,
-    "con_nombre_comercial": 366,
+    "con_nombre_comercial": 384,
     "con_sigla_comercial": 27,
     "con_familia": 3119,
-    "con_sinonimos_de_pubchem": 2176,
+    "con_sinonimos_de_pubchem": 2185,
     "con_nombres_de_tiendas": 771,
     "solo_de_tiendas": 8,
     "de_tiendas_sin_unir": 48,
     "constituyentes_de_proveedores": 508,
-    "productos_con_certificado": 2,
-    "constituyentes_de_certificados": 35,
+    "productos_de_fabricante": 20,
+    "topes_de_fabricante": 7,
+    "constituyentes_de_certificados": 62,
     "con_franja_de_uso": 691,
     "con_franja_de_consenso": 101,
     "con_franja_de_recomendacion": 590,

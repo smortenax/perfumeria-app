@@ -465,6 +465,17 @@ prima). Por eso cada cifra va con su autoridad, y la de arriba manda:
   cada sustancia restringida con su cantidad, son sus constituyentes, y se suman por sustancia con
   los demás materiales (§5.3). Su tope por categoría no se usa como techo: vale para el producto
   solo. Ejemplo: Castoreum Synth 184004 de Firmenich ([certificados](proveedores/certificados/LEEME.md)).
+- **El producto de cada fabricante** (P62): el material general (su CAS y su estándar) y, unido a
+  él, el producto de cada fabricante con su certificado: sus sustancias restringidas (la 2.2 de
+  Firmenich o la tabla de cada formato), en materia pura, son sus constituyentes, y se suman por CAS
+  con todo lo demás (el eugenol del Castoreum Synthetic es el mismo que el puro). Una cota «<0,1»
+  cuenta 0,1. En el buscador, una fila por material general con una pastilla por fabricante; el
+  tick ✓ es «documentado».
+- **El tope del fabricante** (P62): lo que su certificado da para la categoría 4 es un techo de su
+  sustancia (por CAS), sumada de todo lo que la lleva, nunca del frasco solo. Sale aparte de IFRA
+  («Topes de los fabricantes»), no decide las dos lecturas, y la caja avisa en rojo si se pasa. Solo
+  en moléculas sin estándar IFRA propio: en una base sale de sus sustancias. Ambrinol S (Symrise):
+  0,0082 %.
 - **El uso habitual es una guía, no un peligro:** basta con un método barato (una búsqueda por
   material, con su fuente y su confianza) y un muestreo de la auditoría (P60, piloto U-003). El
   rigor completo queda para IFRA.

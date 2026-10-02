@@ -41,7 +41,9 @@ PUBCHEM_SYNONYMS = ROOT / "datos" / "glosario" / "origen" / "sinonimos-pubchem.c
 # The regulated constituents the suppliers declare, audited (scripts/constituyentes_proveedores.py).
 SUPPLIER_CONSTITUENTS = ROOT / "datos" / "glosario" / "origen" / "constituyentes-proveedores.csv"
 # The IFRA certificates of conformity the user keeps from their suppliers (scripts/leer_certificados.py).
-CERTIFICATES = ROOT / "docs" / "proveedores" / "certificados" / "certificados.csv"
+# The user's products with their manufacturer's documents (scripts/registro_productos.py, P62).
+PRODUCTS = ROOT / "docs" / "proveedores" / "productos.csv"
+PRODUCT_SUBSTANCES = ROOT / "docs" / "proveedores" / "productos-sustancias.csv"
 # The names the shops where the user buys sell each material by (scripts/nombres_proveedores.py).
 SHOP_NAMES = ROOT / "datos" / "glosario" / "origen" / "nombres-proveedores.csv"
 # The family of each row of the FIG, with its colour: the lab's own categorisation (P48),
@@ -301,7 +303,7 @@ def main() -> None:
                "familia": "", "matiz": "", "confianza_familia": "", "sinonimos_pubchem": "",
                "nombres_proveedores": "",
                "uso_min": "", "uso_max": "", "uso_techo": "", "uso_consenso": "", "uso_fuentes": "",
-               "uso_techo_fuente": ""}
+               "uso_techo_fuente": "", "producto_de": "", "codigo_fabricante": "", "documentado": ""}
         row.update(kw)
         return row
 
@@ -534,24 +536,24 @@ def main() -> None:
     everything = materials + new
     by_id = {m["id"]: m for m in everything}
 
-    # 3e. The products of the user's suppliers that come with an IFRA certificate of conformity
-    # (2026-10-02): a base such as Firmenich's Castoreum Synth 184004 has no CAS and is in nothing
-    # of IFRA, but its certificate lists every restricted substance with its amount (section 2.2).
-    # It enters as a material of class «base», and those substances are its constituents (6c).
-    certificates: dict[str, list[dict]] = {}
-    for r in read(CERTIFICATES) if CERTIFICATES.exists() else []:
-        certificates.setdefault(r["archivo"], []).append(r)
-    cert_of: dict[str, list[dict]] = {}
-    for rows_ in certificates.values():
-        head = rows_[0]
-        number = re.search(r"\d{6}", head["producto"])
-        mid = f"cert:{norm(head['proveedor']).replace(' ', '-')}-{number.group(0) if number else norm(head['producto']).replace(' ', '-')}"
-        name = " ".join(w.capitalize() if not w.isdigit() else w for w in head["producto"].split())
-        t = base(id=mid, nombre=name, clase="base", fuentes="certificado", casa_comercial=head["proveedor"],
-                 nombre_comercial=name, fuente_comercial=f"certificado IFRA de {head['proveedor']}")
+    # 3e. The user's products with their manufacturer's certificate (P62, 2026-10-02): one material
+    # per manufacturer's product, joined to its general material by its CAS. A base with no CAS
+    # (Castoreum Synth 184004) is only a product. It takes the general's CAS, so its IFRA standards
+    # come by CAS as the general's do (7); its constituents are its certificate's (6c).
+    products = read(PRODUCTS) if PRODUCTS.exists() else []
+    product_of: dict[str, dict] = {}
+    for r in products:
+        general = by_id.get(r["general"])
+        name = r["producto"]
+        t = base(id=r["id"], nombre=name, nombre_comercial=name, cas=r["cas"],
+                 clase=general["clase"] if general else "base", tipo_natural=general["tipo_natural"] if general else "",
+                 fuentes="certificado", casa_comercial=r["fabricante"], fuente_comercial=f"certificado IFRA de {r['fabricante']}",
+                 producto_de=r["general"], codigo_fabricante=r["codigo"], documentado="sí",
+                 familia=general["familia"] if general else "", matiz=general["matiz"] if general else "",
+                 confianza_familia=general["confianza_familia"] if general else "")
         everything.append(t)
-        by_id[mid] = t
-        cert_of[mid] = rows_
+        by_id[r["id"]] = t
+        product_of[r["id"]] = r
 
     # 4. Schiff bases: they carry their aldehyde.
     schiff_links: list[tuple[dict, dict]] = []
@@ -613,20 +615,34 @@ def main() -> None:
                                  "aviso": f"{r['tipo_valor']}; {r['fuente']}"})
             supplier_rows += 1
 
-    # 6c. The constituents of a supplier's certificate (3e): every substance of sections 2.1 and 2.2
-    # with its amount in the product. One the IFRA data has no standard for keeps an empty standard:
-    # the app says it is declared but cannot be checked, never free (§1.2).
+    # 6c. The constituents of a product (3e): every substance its certificate lists, with its amount
+    # in the pure product (scripts/registro_productos.py), by its standard. One the IFRA data has no
+    # standard for keeps an empty standard: declared, but it cannot be checked (§1.2). A natural also
+    # keeps what IFRA's annex gives its general material for the standards the certificate does not
+    # list: IFRA's own files rule (P37).
+    standard_of_cas = {r["cas"]: r["estandar"] for r in read(ifra / "estandar-cas.csv")}
     cert_rows = 0
-    for mid, rows_ in cert_of.items():
-        m = by_id[mid]
+    by_product: dict[str, list[dict]] = {}
+    for r in read(PRODUCT_SUBSTANCES) if PRODUCT_SUBSTANCES.exists() else []:
+        by_product.setdefault(r["producto"], []).append(r)
+    for pid, rows_ in by_product.items():
+        m, prod = by_id[pid], product_of[pid]
+        listed = set()
         for r in rows_:
-            if r["sustancia"]:
-                constituents.append({"material": mid, "codigo": m["codigo"], "variante": "certificado",
-                                     "coincidencia": "certificado", "cas_constituyente": r["cas"],
-                                     "constituyente": r["sustancia"], "estandar": r["estandar_ifra"],
-                                     "concentracion_pct": r["valor"], "fuente": "certificado",
-                                     "aviso": f"sección {r['seccion']}; {r['proveedor']}, certificado {r['referencia']}, revisado {r['revisado']}"})
-                cert_rows += 1
+            std = next((standard_of_cas[c] for c in r["cas_todos"].split() if c in standard_of_cas), "")
+            listed.add(std)
+            constituents.append({"material": pid, "codigo": m["codigo"], "variante": "certificado",
+                                 "coincidencia": "certificado", "cas_constituyente": r["cas"],
+                                 "constituyente": r["sustancia"], "estandar": std,
+                                 "concentracion_pct": r["pct"], "fuente": "certificado",
+                                 "aviso": f"{prod['fabricante']} {prod['codigo']}, {prod['documento']}" + ("; cota «<», peor caso" if r["cota"] else "")})
+            cert_rows += 1
+    for pid, prod in product_of.items():
+        m = by_id[pid]
+        if m["clase"] == "natural" and prod["general"]:
+            listed = {c["estandar"] for c in constituents if c["material"] == pid}
+            for c in [c for c in constituents if c["material"] == prod["general"] and c["fuente"] == "anexo" and c["estandar"] not in listed]:
+                constituents.append({**c, "material": pid, "codigo": m["codigo"]})
 
     # 7. Standards, state and conditions of every material.
     # A molecule that is the same as a regulated one, or another stereochemistry of it, is
@@ -738,20 +754,19 @@ def main() -> None:
         m["condiciones"] = " · ".join(dict.fromkeys(conditions))
         m["fuentes"] = " ".join(dict.fromkeys(m["fuentes"].split()))
 
-    # The state of a supplier's product (3e): by its constituents, all of them declared, with what its
-    # certificate says on its own for category 4, which the app does not take as a ceiling: it sums
-    # every substance with what the other materials bring (§5.3).
-    for mid, rows_ in cert_of.items():
-        m = by_id[mid]
-        listed = [r for r in rows_ if r["sustancia"]]
-        cat4 = next((r["valor"] for r in rows_ if r["categoria"] == "4"), "")
-        head = rows_[0]
-        m["estado"] = "por-constituyentes" if listed else "sin-estandar"
-        m["constituyentes"] = str(len(listed)) if listed else ""
-        m["condiciones"] = " · ".join(filter(None, [
-            f"constituyentes del certificado de conformidad IFRA de {head['proveedor']} ({head['referencia']}, revisado {head['revisado']})",
-            f"el certificado da para la cat. 4, con el producto solo: {cat4}" if cat4 else "",
-        ]))
+    # The state of a product (3e): what its general material's IFRA says by CAS; a natural or a base
+    # with a certificate is known by its constituents, all of them declared, so it is no longer
+    # «sin dato». What its certificate says for category 4 is a ceiling of its substance, never of
+    # the product alone (P62): it goes to `topes-proveedor.csv`.
+    for pid, prod in product_of.items():
+        m = by_id[pid]
+        mine = [c for c in constituents if c["material"] == pid]
+        if m["estado"] in ("sin-dato", "sin-estandar", ""):
+            m["estado"] = "por-constituyentes" if mine else "sin-estandar"
+        m["constituyentes"] = str(len({c["estandar"] or c["constituyente"] for c in mine})) if mine else ""
+        kept = [c for c in m["condiciones"].split(" · ") if c and c != "constituyentes: sin dato en el anexo"]
+        said = "declara que no lleva sustancias restringidas" if prod["sin_restringidas"] else f"declara {sum(1 for c in mine if c['fuente'] == 'certificado')} sustancias restringidas"
+        m["condiciones"] = " · ".join([*kept, f"certificado IFRA de {prod['fabricante']} ({prod['codigo'] or 'sin código'}, {prod['documento']}): {said}"])
 
     # Why a material of the FIG is not in anything of IFRA: the same compound under another
     # CAS, another stereochemistry, another form of a natural IFRA does list, or none of it.
@@ -867,10 +882,35 @@ def main() -> None:
             if m["clase"] == "molécula":
                 m["sinonimos_pubchem"] = pubchem.get(m["cas"], "")
 
+    # 14. The manufacturers' ceilings (P62): what a product's certificate gives for category 4 is a
+    # ceiling of its substance, the product's CAS, and the app sums that substance wherever it comes
+    # from. Only for a molecule with no IFRA standard of its own (one with a standard has IFRA's
+    # ceiling, and a base's comes from its constituents). Several products of one CAS: the lowest.
+    # A product is called as its shop and its certificate call it: the layers of trade names by CAS
+    # (3) do not rename it nor change its maker («Styrallyl Acetate» of Symrise is not «Gardenol»,
+    # and the Ambrinol S of Symrise is not dsm-firmenich's).
+    for pid, prod in product_of.items():
+        by_id[pid]["nombre"] = by_id[pid]["nombre_comercial"] = prod["producto"]
+        by_id[pid]["otros_nombres_comerciales"] = prod["nombre_certificado"]
+        by_id[pid]["casa_comercial"] = prod["fabricante"]
+        by_id[pid]["fuente_comercial"] = f"certificado IFRA de {prod['fabricante']}"
+    supplier_caps: dict[str, dict] = {}
+    for pid, prod in product_of.items():
+        general = by_id.get(prod["general"])
+        if not prod["cas"] or not prod["tope_cat4_pct"] or (general and general["estandares"]):
+            continue
+        row = {"cas": prod["cas"], "sustancia": (general["nombre_comercial"] or general["nombre"]) if general else prod["producto"],
+               "limite_pct": prod["tope_cat4_pct"], "fabricante": prod["fabricante"], "producto": pid,
+               "documento": prod["documento"], "codigo": prod["codigo"]}
+        if prod["cas"] not in supplier_caps or float(row["limite_pct"]) < float(supplier_caps[prod["cas"]]["limite_pct"]):
+            supplier_caps[prod["cas"]] = row
+
     OUT.mkdir(parents=True, exist_ok=True)
     header = list(base().keys())
     ordered = materials + sorted((m for m in everything if not m["id"].startswith("fig:")), key=lambda m: norm(m["nombre"]))
     write(OUT / "materiales.csv", header, ordered)
+    write(OUT / "topes-proveedor.csv", ["cas", "sustancia", "limite_pct", "fabricante", "producto", "documento", "codigo"],
+          sorted(supplier_caps.values(), key=lambda r: r["cas"]))
     write(OUT / "material-constituyentes.csv",
           ["material", "codigo", "variante", "coincidencia", "cas_constituyente", "constituyente",
            "estandar", "concentracion_pct", "fuente", "aviso"], constituents)
@@ -895,7 +935,8 @@ def main() -> None:
         "solo_de_tiendas": sum(1 for m in ordered if m["fuentes"] == "tienda"),
         "de_tiendas_sin_unir": len(unjoined),
         "constituyentes_de_proveedores": supplier_rows,
-        "productos_con_certificado": len(cert_of),
+        "productos_de_fabricante": len(product_of),
+        "topes_de_fabricante": len(supplier_caps),
         "constituyentes_de_certificados": cert_rows,
         "con_franja_de_uso": sum(1 for m in ordered if m["uso_max"]),
         "con_franja_de_consenso": sum(1 for m in ordered if m["uso_consenso"] == "consenso"),
@@ -920,8 +961,10 @@ def main() -> None:
                if PUBCHEM_SYNONYMS.exists() else {}),
             **({SUPPLIER_CONSTITUENTS.relative_to(ROOT).as_posix(): {"sha256": sha256(SUPPLIER_CONSTITUENTS), "que_es": "constituyentes regulados que declaran los proveedores, auditados (frente C)"}}
                if SUPPLIER_CONSTITUENTS.exists() else {}),
-            **({CERTIFICATES.relative_to(ROOT).as_posix(): {"sha256": sha256(CERTIFICATES), "que_es": "los certificados de conformidad IFRA que el usuario guarda de sus proveedores"}}
-               if CERTIFICATES.exists() else {}),
+            **({PRODUCTS.relative_to(ROOT).as_posix(): {"sha256": sha256(PRODUCTS), "que_es": "los productos del usuario con el certificado IFRA de su fabricante (P62)"}}
+               if PRODUCTS.exists() else {}),
+            **({PRODUCT_SUBSTANCES.relative_to(ROOT).as_posix(): {"sha256": sha256(PRODUCT_SUBSTANCES), "que_es": "las sustancias restringidas que declara el certificado de cada producto"}}
+               if PRODUCT_SUBSTANCES.exists() else {}),
             **({SHOP_NAMES.relative_to(ROOT).as_posix(): {"sha256": sha256(SHOP_NAMES), "que_es": "los nombres de venta de Olfatorium, Maese Lab y Perfumiarz, con su CAS"}}
                if SHOP_NAMES.exists() else {}),
             **({LAB_NATURALS.relative_to(ROOT).as_posix(): {"sha256": sha256(LAB_NATURALS), "que_es": "los naturales del FIG según el laboratorio, con sus correcciones (P48)"}}

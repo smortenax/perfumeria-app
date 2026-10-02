@@ -4,7 +4,7 @@ import { formatGrams, formatPercent } from "../core/display";
 import type { IfraBase, IfraReport } from "../core/ifra";
 import { texts } from "../i18n/es";
 import { roomText, usedText } from "./composition-ifra";
-import { materialRows, readingIn, substanceRows, type MaterialRow, type SubstanceRow } from "./ifra-panel";
+import { materialRows, readingIn, substanceRows, supplierRows, type MaterialRow, type SubstanceRow } from "./ifra-panel";
 
 const t = texts.ifra;
 
@@ -24,6 +24,11 @@ export function IfraSummary(props: { report: IfraReport | null; empty: boolean; 
   const maxUse = !hasData ? "—" : maxUseText(report);
   // What sets the second reading, so a figure under 100 % says why.
   const limiting = hasData && report.maxUse.lt(Ratio.ONE) ? report.checks.find((c) => c.maxUse.eq(report.maxUse)) : undefined;
+  // A manufacturer's ceiling passed (P62), in the base of the switch: said apart from IFRA's readings.
+  const supplierReading = reading ? report?.supplierReadings.find((r) => r.base === reading.base) : undefined;
+  const overSupplier = hasData && supplierReading
+    ? report.supplierChecks.filter((_, i) => supplierReading.checks[i]?.verdict === "exceeds").map((c) => c.substance.name)
+    : [];
   const range =
     hasData && !report.maxUseKnown.eq(report.maxUse) ? t.range(formatPercent(report.maxUse, 2), formatPercent(report.maxUseKnown, 2)) : undefined;
   return (
@@ -55,6 +60,11 @@ export function IfraSummary(props: { report: IfraReport | null; empty: boolean; 
       {limiting && (
         <span className="ifra-limit muted tiny" title={limiting.substance.name}>
           {t.limitedBy(limiting.substance.name)}
+        </span>
+      )}
+      {overSupplier.length > 0 && (
+        <span className="ifra-limit supplier-over tiny" title={t.suppliersHelp}>
+          {t.supplierOver(overSupplier.join(", "))}
         </span>
       )}
     </div>
@@ -229,6 +239,16 @@ export function IfraPanel(props: { report: IfraReport | null; empty: boolean; ba
               ))}
               {materials.map((row) => (
                 <MaterialItem key={row.key} row={row} />
+              ))}
+            </div>
+          )}
+          {report.supplierChecks.length > 0 && (
+            <div className="detail-section">
+              <div className="section-title" title={t.suppliersHelp}>
+                {t.suppliers(report.supplierChecks.length)}
+              </div>
+              {supplierRows(report, reading?.base).map((row) => (
+                <SubstanceItem key={row.key} row={row} partial={report.partial} />
               ))}
             </div>
           )}

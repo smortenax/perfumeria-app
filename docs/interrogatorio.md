@@ -2517,8 +2517,19 @@ Respuesta literal: *«si entonces el baremo de uso normal hay que hacerlo en un 
   - **De dónde:** los certificados que publican las tiendas (305 de Perfumiarz ya en la caché;
     Olfatorium y Maese Lab no los publican) y lo que publique cada fabricante, más lo que el usuario
     consiga por contacto, en `docs/proveedores/certificados/`.
+- **Respuesta (2026-10-02):** *«si, confirmo los dos niveles»*; y al hacerlo: *«el tope solo no es
+  suficiente tiene que ser el desglose de productos que la contienen tambien»*, *«cada uno de los
+  productos tiene que tener su propio 2.2 […] aunque sea en formato diferente a firmenich y entonces
+  el tope no se calcula nunca del producto solo sino del agregado de cada uno de los ingredientes
+  conjunto con el resto de limitantes de la formula […] si agregas eugenol en castoreum synthetic
+  tiene que tener referencia cruzada con eugenol puro […] siempre se calcula con los materiales puros
+  por lo tanto en el caso en el que la ficha este hecha acorde con el diluido hay que convertirla a
+  material puro»*. Sobre el atranol «<0,1»: *«lo dejo a criterio»*.
+- **Lectura final:** los dos niveles; cada producto con su lista de sustancias, de cualquier formato;
+  todo por CAS y en materia pura; el tope del fabricante es un techo de su **sustancia**, sumada de
+  todo lo que la lleva, nunca del frasco solo, y aparte de IFRA; una cota «<0,1» cuenta 0,1.
 - Fecha: 2026-10-02
-- Estado: el tope y el tick, decididos; los dos niveles, a confirmar
+- Estado: cerrada; aplicada el 2026-10-02 (registro, productos, topes, tick, pastillas de fabricante)
 - Destino: decisiones.md §5.6, §4; a-futuro (P61)
 
 ---

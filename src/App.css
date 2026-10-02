@@ -2553,3 +2553,16 @@ button.value:hover {
 .form-chip.nodata {
   border-style: dashed;
 }
+
+/* The tick of P62: a material documented by its manufacturer's certificate. */
+.documented {
+  margin-left: 5px;
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* A manufacturer's ceiling passed (P62): red, under IFRA's two readings and apart from them. */
+.supplier-over {
+  color: var(--red);
+}

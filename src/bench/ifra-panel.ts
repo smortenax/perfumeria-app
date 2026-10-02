@@ -52,9 +52,22 @@ function closerFirst(a: Ratio | null, b: Ratio | null): number {
  * over what that base divides by (`BaseReading.finalUg`); the verdict and the room are the base's.
  */
 export function substanceRows(report: IfraReport, base?: IfraBase): SubstanceRow[] {
-  const reading = readingIn(report, base);
+  return rowsOf(report.checks, readingIn(report, base));
+}
+
+/**
+ * The manufacturers' ceilings of the report (P62), as `substanceRows` gives IFRA's: in the base of the
+ * switch, the closest to its ceiling first, with what each material brings.
+ */
+export function supplierRows(report: IfraReport, base?: IfraBase): SubstanceRow[] {
+  const at = readingIn(report, base);
+  const reading = report.supplierReadings.find((r) => r.base === at.base) ?? report.supplierReadings[report.supplierReadings.length - 1];
+  return reading ? rowsOf(report.supplierChecks, reading) : [];
+}
+
+function rowsOf(checks: IfraReport["checks"], reading: BaseReading): SubstanceRow[] {
   const over = (ug: Ratio) => (reading.finalUg.isZero() ? Ratio.ZERO : ug.div(reading.finalUg));
-  const rows = report.checks.map((check, i): SubstanceRow => {
+  const rows = checks.map((check, i): SubstanceRow => {
     const { substance } = check;
     const worstShare = over(check.worstUg);
     const own = reading.checks[i];

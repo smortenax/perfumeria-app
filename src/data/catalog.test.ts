@@ -42,10 +42,13 @@ describe("the catalog, from the glossary and IFRA's own files (P37)", () => {
     // molecules that only the shops where the user buys know (Trimofix, Tuberolide…).
     // The count did not err before; the glossary gained a source. 4327 since 2026-10-02: the two
     // products whose IFRA certificate the user keeps (Castoreum Synth 184004, Black Agar), another source.
-    expect(count("base")).toBe(4327);
+    // 4345 since P62: those two become two of the 20 manufacturer's products of the user's register.
+    expect(count("base")).toBe(4345);
     // Since P48 the counts also say how many have a family: all of the FIG.
-    // `ifraOnly` counts every row that is not of the FIG: the two products with a certificate too.
-    expect(catalog.counts).toEqual({ fig: 3119, ifraOnly: 1208, withFamily: 3119 });
+    // `ifraOnly` counts every row that is not of the FIG: the manufacturer's products too. Products of a
+    // FIG molecule take its family, so `withFamily` counts them as well.
+    expect(catalog.counts.fig).toBe(3119);
+    expect(catalog.counts.ifraOnly).toBe(4345 - 3119);
     // DPG and alcohol, and the other diluents of the menu (§4): IPM, DEP, TEC, triacetin, benzyl benzoate.
     expect(count("diluent")).toBe(7);
     expect(count("own")).toBe(0);
@@ -245,12 +248,14 @@ describe("the catalog, from the glossary and IFRA's own files (P37)", () => {
 });
 
 describe("a supplier's product with its IFRA certificate (2026-10-02): Castoreum Synth 184004, Firmenich", () => {
-  const key = "cert:firmenich-184004";
+  // Since P62 it is one of the manufacturer's products of the user's register, from Perfumiarz's copy
+  // of the same certificate.
+  const key = "prod:firmenich-184004";
   const G = 1_000_000n;
   const synth = () => catalog.entries.find((e) => e.material.key === key)!.material;
 
   it("is in the glossary, found by its name, with every substance of section 2.2 as a constituent and nothing pending", () => {
-    expect(searchCatalog(catalog.entries, "castoreum synth").map((e) => e.material.key)).toContain(key);
+    expect(searchCatalog(catalog.entries, "castoreum synthetic").map((e) => e.material.key)).toContain(key);
     const info = catalog.ifra.materials.get(key);
     // Methyl eugenol 0,0004 % and creosol 0,035 % of the product, as the certificate says.
     expect(info?.substances.find((s) => s.key === "std:IFRA_STD_100")?.fraction?.toString()).toBe("1/250000");
@@ -276,5 +281,37 @@ describe("a supplier's product with its IFRA certificate (2026-10-02): Castoreum
     expect(used("std:IFRA_STD_100")).toBe("2/55");
     expect(report.partial).toBe(false);
     expect(report.maxUse.eq(Ratio.ONE)).toBe(true);
+  });
+});
+
+describe("the manufacturers' ceilings and the cross reference by CAS (P62)", () => {
+  const G = 1_000_000n;
+  const entry = (key: string) => catalog.entries.find((e) => e.material.key === key)!.material;
+  const header: FormulaHeader = { name: "prueba", intention: "", container: null, workBatchUg: null, finalBatchUg: 10n * G };
+  const pour = (id: string, key: string, massUg: bigint): Change => ({ kind: "add", id, material: entry(key), massUg, fraction: Ratio.ONE, diluent: null });
+
+  it("puts Symrise's ceiling for Ambrinol S on the substance, summed wherever it comes from, and apart from IFRA", () => {
+    // Ambrinol S (Symrise 690993) and the general ambrinol (fig:135) share CAS 41199-19-3. Final batch
+    // 10 g, base «now»: 0,5 mg of each is 1 mg, 0,01 % of the product, over the 0,0082 % of Symrise.
+    const both: Formula = { header, history: [pour("a", "prod:symrise-690993", 500n), pour("b", "fig:135", 500n), pour("n", "solv:dpg", G)] };
+    const report = checkIfra(both, catalog.ifra);
+    const cap = report.supplierChecks.find((c) => c.substance.key === "prov:41199-19-3")!;
+    expect(cap.substance.supplier).toBe("Symrise");
+    expect(cap.worstUg.toString()).toBe("1000");
+    expect(cap.sources.map((s) => s.material.key).sort()).toEqual(["fig:135", "prod:symrise-690993"]);
+    expect(cap.verdict).toBe("exceeds");
+    // Never one of IFRA's: it is not among the checks, and reading 1 is not «no» because of it.
+    expect(report.checks.some((c) => c.substance.key === "prov:41199-19-3")).toBe(false);
+    // 0,5 mg alone, 0,005 %: within.
+    const one: Formula = { header, history: [pour("a", "prod:symrise-690993", 500n), pour("n", "solv:dpg", G)] };
+    expect(checkIfra(one, catalog.ifra).supplierChecks[0].verdict).toBe("within");
+  });
+
+  it("sums the eugenol of Castoreum Synthetic with pure eugenol: the same substance by its CAS", () => {
+    // Castoreum Synthetic declares 0,0017 % eugenol: 1 g of it brings 17 µg; 1 mg of pure eugenol, 1000 µg.
+    const formula: Formula = { header, history: [pour("c", "prod:firmenich-184004", G), pour("e", "fig:1834", 1000n)] };
+    const eugenol = checkIfra(formula, catalog.ifra).checks.find((c) => c.substance.key === "std:IFRA_STD_035")!;
+    expect(eugenol.worstUg.toString()).toBe("1017");
+    expect(eugenol.sources.map((s) => s.material.key)).toEqual(["fig:1834", "prod:firmenich-184004"]);
   });
 });

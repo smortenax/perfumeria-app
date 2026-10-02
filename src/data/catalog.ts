@@ -105,6 +105,13 @@ export interface CatalogEntry {
    * («rectificado», «abrialis»; empty for the plain form). Only naturals with a CAS of their own.
    */
   readonly plant?: { readonly key: string; readonly name: string; readonly form: string; readonly variant: string };
+  /**
+   * A manufacturer's product (P62): the maker, its code, and the general material it belongs to by
+   * CAS. It carries its certificate's substances; `documented` is the tick: the base has its
+   * manufacturer's documents.
+   */
+  readonly maker?: { readonly name: string; readonly code: string; readonly general?: string };
+  readonly documented?: boolean;
 }
 
 export interface Catalog {
@@ -121,6 +128,8 @@ export interface CatalogFiles {
   readonly estandares: string;
   /** The CAS of every standard (datos/ifra/51/estandar-cas.csv): what the IFRA panel shows of each substance. */
   readonly estandarCas?: string;
+  /** The manufacturers' ceilings by CAS (datos/glosario/topes-proveedor.csv, P62). */
+  readonly topesProveedor?: string;
   /** The families and their colours (datos/fuente/pieza-11-paleta.csv). */
   readonly paleta: string;
   readonly procedencia: { readonly enmienda_ifra: string; readonly generado: string };
@@ -251,6 +260,16 @@ export function buildCatalog(files: CatalogFiles): Catalog {
     return id;
   };
 
+  // The manufacturers' ceilings (P62), as substances of their own, by CAS: every material of that CAS
+  // carries it whole, and a certificate that declares it, in its amount. Summed like IFRA's, judged apart.
+  const capByCas = new Map<string, string>();
+  for (const c of files.topesProveedor ? parseCsvRecords(files.topesProveedor) : []) {
+    const key = `prov:${c.cas}`;
+    substances.set(key, { key, name: `${c.sustancia} (tope de ${c.fabricante})`, limit: pct(c.limite_pct), amendment: "", cas: [c.cas], supplier: c.fabricante });
+    capByCas.set(c.cas, key);
+  }
+  const capsInside = new Map<string, Map<string, Ratio>>();
+
   // What each material carries inside, per standard: the sum within one variant of
   // the annex, and the worst variant when the material could be several.
   const inside = new Map<string, Map<string, Map<string, Ratio>>>();
@@ -259,6 +278,13 @@ export function buildCatalog(files: CatalogFiles): Catalog {
   // a list of allergens does not cover every regulated substance.
   const supplied = new Set<string>();
   for (const row of parseCsvRecords(files.constituyentes)) {
+    const cap = capByCas.get(row.cas_constituyente);
+    if (cap) {
+      const mine = capsInside.get(row.material) ?? new Map<string, Ratio>();
+      const value = pct(row.concentracion_pct);
+      mine.set(cap, (mine.get(cap) ?? Ratio.ZERO).gt(value) ? (mine.get(cap) as Ratio) : value);
+      capsInside.set(row.material, mine);
+    }
     if (row.fuente === "proveedor") {
       supplied.add(row.material);
     }
@@ -331,6 +357,16 @@ export function buildCatalog(files: CatalogFiles): Catalog {
     if (supplied.has(m.id)) {
       conditions.push("Incluye constituyentes declarados por proveedores (auditados), donde el anexo de IFRA no los da.");
     }
+    // A manufacturer's ceiling (P62): whole in a material of that CAS, else as its certificate declares it.
+    const ownCap = capByCas.get(m.cas);
+    if (ownCap && !list.some((x) => x.key === ownCap)) {
+      list.push({ key: ownCap, fraction: Ratio.ONE });
+    }
+    for (const [key, fraction] of capsInside.get(m.id) ?? []) {
+      if (!list.some((x) => x.key === key)) {
+        list.push({ key, fraction });
+      }
+    }
     materials.set(m.id, { status: "checked", substances: list, conditions, ...(pending.length ? { pending } : {}) });
 
     const standardName = m.nombre_ifra.split(" | ")[0];
@@ -371,8 +407,12 @@ export function buildCatalog(files: CatalogFiles): Catalog {
       ...(shops.length ? { shopNames: shops } : {}),
       ...(others.length || shops.length ? { aliases: [...others, ...shops] } : {}),
       ...usageOf(m),
+      ...(m.casa_comercial && m.id.startsWith("prod:")
+        ? { maker: { name: m.casa_comercial, code: m.codigo_fabricante ?? "", ...(m.producto_de ? { general: m.producto_de } : {}) } }
+        : {}),
+      ...(m.documentado === "sí" ? { documented: true } : {}),
     });
-    if (m.clase === "natural" && m.cas) {
+    if (m.clase === "natural" && m.cas && !m.id.startsWith("prod:")) {
       naturalForm.set(entries.length - 1, m.tipo_natural);
     }
   }

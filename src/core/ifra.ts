@@ -13,6 +13,13 @@ export interface IfraSubstance {
   readonly amendment: string;
   /** The CAS numbers the standard covers, as IFRA lists them; several for isomers or mixtures. */
   readonly cas?: readonly string[];
+  /**
+   * A manufacturer's ceiling, not IFRA's (P62): what the certificate of one maker's product gives
+   * for category 4 (Ambrinol S, Symrise, 0,0082 %), as a ceiling of its substance. It is summed
+   * wherever the substance comes from, like any other, but it is reported apart and never decides
+   * IFRA's two readings. The maker's name.
+   */
+  readonly supplier?: string;
 }
 
 /** What the reference data knows about one material, in IFRA terms. */
@@ -136,6 +143,12 @@ export interface IfraReport {
   readonly maxUseKnown: Ratio;
   /** Reading 2 holds only for what is known: some material or constituent could not be checked. */
   readonly partial: boolean;
+  /**
+   * The manufacturers' ceilings the formula carries (P62), as `checks` are IFRA's: the verdict in
+   * the base of the report; `supplierReadings`, every base. They never decide `asIs` nor `maxUse`.
+   */
+  readonly supplierChecks: readonly SubstanceCheck[];
+  readonly supplierReadings: readonly BaseReading[];
 }
 
 /**
@@ -151,16 +164,22 @@ export function checkIfra(formula: Formula, data: IfraData, upTo?: number): Ifra
 
   // Every base the header allows is worked out, always (P58). The fields of always are those
   // of the last one, the fullest reading the header gives: that is what they always meant.
-  const substances = [...tallies.values()];
-  const readings = basesOf(formula.header).map((base) => readingOf(base, formula.header, bottleUg, substances, partial));
+  // IFRA's substances and the manufacturers' ceilings (P62) are summed alike, and judged apart.
+  const all = [...tallies.values()];
+  const substances = all.filter((t) => !t.substance.supplier);
+  const suppliers = all.filter((t) => t.substance.supplier);
+  const bases = basesOf(formula.header);
+  const readings = bases.map((base) => readingOf(base, formula.header, bottleUg, substances, partial));
+  const supplierReadings = bases.map((base) => readingOf(base, formula.header, bottleUg, suppliers, partial));
   const main = readings[readings.length - 1];
-
-  const checks: SubstanceCheck[] = substances.map((tally, i) => {
+  const toCheck = (reading: BaseReading) => (tally: Tally, i: number): SubstanceCheck => {
     const { substance, knownUg, worstUg } = tally;
     const maxUse = worstUg.isZero() ? Ratio.ONE : substance.limit.mul(composition.totalUg).div(worstUg);
     const maxUseKnown = knownUg.isZero() ? Ratio.ONE : substance.limit.mul(composition.totalUg).div(knownUg);
-    return { ...tally, verdict: main.checks[i].verdict, maxUse, maxUseKnown };
-  });
+    return { ...tally, verdict: reading.checks[i].verdict, maxUse, maxUseKnown };
+  };
+  const checks: SubstanceCheck[] = substances.map(toCheck(main));
+  const supplierChecks: SubstanceCheck[] = suppliers.map(toCheck(supplierReadings[supplierReadings.length - 1]));
 
   const maxUse = checks.reduce((min, c) => (c.maxUse.lt(min) ? c.maxUse : min), Ratio.ONE);
   const maxUseKnown = checks.reduce((min, c) => (c.maxUseKnown.lt(min) ? c.maxUseKnown : min), Ratio.ONE);
@@ -178,6 +197,8 @@ export function checkIfra(formula: Formula, data: IfraData, upTo?: number): Ifra
     maxUse,
     maxUseKnown,
     partial,
+    supplierChecks,
+    supplierReadings,
   };
 }
 
