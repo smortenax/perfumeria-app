@@ -24,3 +24,6 @@ Thumbs.db
 docs/investigacion/*/imagenes/
 __pycache__/
 datos/glosario/.cache/
+
+# Salida de npm run validar:v2: se genera, no se guarda
+datos/v2/validacion.txt

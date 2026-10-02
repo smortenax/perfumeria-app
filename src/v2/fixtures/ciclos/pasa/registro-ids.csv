@@ -1,0 +1,4 @@
+id,entidad,clave,alta,estado,notas
+M00003,material,m00003,2026-10-02,activo,
+M00004,material,m00004,2026-10-02,activo,
+D00001,documento,d00001,2026-10-02,activo,

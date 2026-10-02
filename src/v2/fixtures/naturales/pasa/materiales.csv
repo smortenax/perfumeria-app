@@ -1,0 +1,3 @@
+id,tipo,nombre,id_sustancia,especie,parte,proceso,quimiotipo,cas,inci,excepciones,motivo_excepcion,notas
+M00002,natural,Lavanda,,Lavandula angustifolia,flor,destilación,,8000-28-0,,,,
+M00003,base,Base A,,,,,,,,,,

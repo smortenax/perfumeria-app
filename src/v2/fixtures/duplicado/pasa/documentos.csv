@@ -1,0 +1,3 @@
+id,tipo,titulo,emisor,fecha,ruta,estado_revision,notas
+D00001,coa,Certificado,Fabricante,2026-01-01,datos/fuentes/d00001.pdf,revisado,
+D00002,articulo,Artículo,Revista,2020-01-01,datos/fuentes/d00002.pdf,revisado,
