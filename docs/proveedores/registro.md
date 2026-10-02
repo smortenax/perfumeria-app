@@ -9,6 +9,7 @@ Lo genera `scripts/registro_productos.py` desde [`mis-productos.csv`](mis-produc
 | ✓ | Cassis Base 345 B | base o especialidad | — | Firmenich | 6 | NoRestriction |  |
 | ✓ | Castoreum Synthetic | base o especialidad | — | Firmenich | 20 | NoRestriction |  |
 | ✓ | Tolu Balsam Resinoide | base o especialidad | — | Firmenich | 14 | 4.1000% |  |
+| ✓ | Aldehyde C11 MOA | molécula | fig:507 2-Methyldecanal [sin-estandar] | Symrise | 1 | 2,50% |  |
 | ✓ | Ambrettolide | molécula | tienda:63286-42-0 Ambrettolide [sin-estandar] | IFF | ninguna, lo dice | 3.2% |  |
 | ✓ | Ambrinol S | molécula | fig:135 1,2,3,4,4a,5,6,7-Octahydro-2,5,5-trimethyl-2-naphthalenol [sin-estandar] | Symrise | ninguna, lo dice | 0.0082% |  |
 | ✓ | Cedramber | molécula | fig:1378 Cedrol methyl ether [sin-estandar] | IFF | 0 | 30.0% |  |
@@ -30,7 +31,6 @@ Lo genera `scripts/registro_productos.py` desde [`mis-productos.csv`](mis-produc
 | ◐ | 2-hydroxybenzaldehyde 10% (IPM) (10 % en IPM) | molécula | fig:2840 Salicylaldehyde [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | 3,4-Xylenol 10% (IPM) (10 % en IPM) | molécula | fig:616 3,4-Xylenol [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | Aldambre | molécula | tienda:1725-03-7 Aldambre [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
-| ◐ | Aldehyde C11 MOA | molécula | fig:507 2-Methyldecanal [sin-estandar] | Symrise | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | Calone (powder) | molécula | fig:944 7-Methyl-2H-benzo-1,5-dioxepin-3(4H)-one [sin-estandar] | IFF | — | — | el certificado que enlaza la tienda es de otro producto («BRAN ABS LMR»); pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | Habanolide | molécula | fig:2574 Oxacyclohexadec-12-en-2-one, (12E)- [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | Helional | molécula | fig:1055 alpha-Methyl-1,3-benzodioxole-5-propionaldehyde [con-techo] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
@@ -40,4 +40,4 @@ Lo genera `scripts/registro_productos.py` desde [`mis-productos.csv`](mis-produc
 | — | Absoluto de Castoreum 20% (20 % en alcohol) | natural | fig:1343 Castoreum absolute [sin-dato] | ¿? | — | — | pedir el certificado IFRA: sin él no se sabe qué lleva |
 | ◐ | Benzoin Siam Resinoid (IFF) | natural | fig:1162 Benzoin CO2 extract, Siam [sin-dato] | ¿? | — | — | pedir el certificado IFRA: sin él no se sabe qué lleva |
 
-**20 documentados, 10 parciales, 4 sin documentos**, de 34.
+**21 documentados, 9 parciales, 4 sin documentos**, de 34.

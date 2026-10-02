@@ -32,9 +32,13 @@ NONE_SAID = re.compile(r"No substances to declare|does not contain any substance
                        r"none components|No restricted materials", re.I)
 # Where the list of substances starts, and what ends it.
 START = re.compile(r"2\.2\.\s*Ingredients|2\.1\.\s*Ingredients|contains the following materials|Ingredient Name\s+CAS|"
+                   r"IFRA restricted materials are contained|"
                    r"Name\s+C\.?A\.?S\.?\s+%|IFRA Restricted materials", re.I)
-END = re.compile(r"^\s*3\.\s+Substances|\*Concentrations shown|Should you have any further|We certify that|APPENDIX FOR IFRA", re.I)
+END = re.compile(r"^\s*3\.\s+Substances|\*Concentrations shown|Should you have any further|We certify that|APPENDIX FOR IFRA|"
+                 r"According to the IFRA Code", re.I)
 LINE = re.compile(rf"^(?P<name>.+?)\s+(?P<cas>{CAS}(?:\s*,\s*{CAS})*),?\s+(?P<bound><)?\s*(?P<value>\d+(?:[.,]\d+)?)\s*%?\s*$")
+# Symrise writes the CAS first: «101-86-0 alpha-Hexyl cinnamic aldehyde 0,0046».
+LINE_CAS_FIRST = re.compile(rf"^(?P<cas>{CAS})\s+(?P<name>.+?)\s+(?P<bound><)?\s*(?P<value>\d+(?:[.,]\d+)?)\s*%?\s*$")
 
 
 def text_of(pdf: Path) -> str | None:
@@ -95,7 +99,7 @@ def parse(text: str) -> dict:
             inside = True
         if inside and END.search(line):
             inside = False
-        m = LINE.match(line) if inside else None
+        m = (LINE.match(line) or LINE_CAS_FIRST.match(line)) if inside else None
         if m and not re.match(r"^(Ingredient Name|Name)\b", m.group("name")):
             substances.append({
                 "name": m.group("name").strip(" ,"),

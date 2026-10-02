@@ -3425,6 +3425,7 @@ tl:68439-45-2,AEE,generado,AEE,,,,,"Alcohols, C6-12, ethoxylated (5 > EO < 20)",
 tl:68526-84-1,AI2,generado,AI2,,,,,"Alcohols, C8-10-iso-, C9-rich",68526-84-1,,,,,,molécula,,,,,,,,ifra-transparencia,,,sin-estandar,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 tl:68439-46-3,Alco,generado,Alco,,,,,"Alcohols, C9-11, ethoxylated",68439-46-3,,,,,,molécula,,,,,,,,ifra-transparencia,,,sin-estandar,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 tienda:1725-03-7,Ald,generado,Ald,,,,,Aldambre,1725-03-7,,,,,,molécula,,,,,,,,tienda,,,sin-estandar,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+prod:symrise-656012,AlM,generado,AlM,,,Aldehyde C11 MOA,,Aldehyde C11 MOA,19009-56-4,,,Symrise,certificado IFRA de Symrise,,molécula,,,,,,,,certificado,,,por-constituyentes,"certificado IFRA de Symrise (656012, symrise-aldehyde-c11-moa-656012-ifra51.pdf): declara 1 sustancias restringidas",1,,,,,,,,,,,,,,,,,,,,,,,,,,,Methyloctylacetaldehyde | 2-Methyldecan-1-al | 2-Methyl-1-decanal | a-Methyldecanal,,,,,,,,fig:507,656012,sí
 tl:68551-17-7,Alk,generado,Alk,,,,,"Alkanes, C10-13-iso-",68551-17-7,,,,,,molécula,,,,,,,,ifra-transparencia,,,sin-estandar,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 tl:68551-19-9,Alka,generado,Alka,,,,,"Alkanes, C12-14-iso-",68551-19-9,,,,,,molécula,,,,,,,,ifra-transparencia,,,sin-estandar,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 tl:68551-20-2,AI4,generado,AI4,,,,,"Alkanes, C13-16-iso-",68551-20-2,,,,,,molécula,,,,,,,,ifra-transparencia,,,sin-estandar,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

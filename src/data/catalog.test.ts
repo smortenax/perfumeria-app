@@ -42,13 +42,16 @@ describe("the catalog, from the glossary and IFRA's own files (P37)", () => {
     // molecules that only the shops where the user buys know (Trimofix, Tuberolide…).
     // The count did not err before; the glossary gained a source. 4327 since 2026-10-02: the two
     // products whose IFRA certificate the user keeps (Castoreum Synth 184004, Black Agar), another source.
-    // 4345 since P62: those two become two of the 20 manufacturer's products of the user's register.
-    expect(count("base")).toBe(4345);
+    // Since P62 those two are two of the manufacturer's products of the user's register, which grows
+    // with every document the user brings: the glossary stays 4325, and the products come on top.
+    const products = catalog.entries.filter((e) => e.material.key.startsWith("prod:")).length;
+    expect(count("base") - products).toBe(4325);
+    expect(products).toBeGreaterThanOrEqual(21);
     // Since P48 the counts also say how many have a family: all of the FIG.
     // `ifraOnly` counts every row that is not of the FIG: the manufacturer's products too. Products of a
     // FIG molecule take its family, so `withFamily` counts them as well.
     expect(catalog.counts.fig).toBe(3119);
-    expect(catalog.counts.ifraOnly).toBe(4345 - 3119);
+    expect(catalog.counts.ifraOnly).toBe(4325 + products - 3119);
     // DPG and alcohol, and the other diluents of the menu (§4): IPM, DEP, TEC, triacetin, benzyl benzoate.
     expect(count("diluent")).toBe(7);
     expect(count("own")).toBe(0);

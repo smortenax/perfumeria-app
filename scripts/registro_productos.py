@@ -110,7 +110,9 @@ def main() -> int:
         cert = next(iter(kinds.get("certificado", [])), None)
         parsed = certs.parse(texts[cert]) if cert and texts.get(cert) else None
         # The certificate has to be this product's: a word of its name, or the product's own CAS.
-        own = parsed is not None and (bool(words(parsed["product"]) & words(p["producto"])) or
+        # A document the user brought for this product is its own.
+        own = parsed is not None and (cert == (Path(p["documento"]).name if p.get("documento") else None) or
+                                      bool(words(parsed["product"]) & words(p["producto"])) or
                                       any(cas in s["cas"] for s in parsed["substances"]))
         maker = (parsed or {}).get("maker", "") or next((n for n, pat in certs.MAKERS if any(re.search(pat, t or "", re.I) for t in texts.values())), "")
         if parsed and own:
