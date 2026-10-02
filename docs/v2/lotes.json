@@ -1,0 +1,11 @@
+{
+  "notas": "Lotes de alta de la v2. Cada uno filtra docs/proveedores/mis-productos.csv; la clase sale de docs/proveedores/registro.csv. Las respuestas del usuario, en datos/v2/respuestas/<lote>.csv.",
+  "lotes": {
+    "3a": {
+      "fecha": "2026-10-03",
+      "situacion": "en-uso",
+      "tienda": "Maese Lab",
+      "clase": "molécula"
+    }
+  }
+}

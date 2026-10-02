@@ -6,6 +6,15 @@ la escribe [`scripts/v2/alta.py`](../../scripts/v2/alta.py) desde las entradas d
 que pasar antes de cada commit de datos**. La salida completa va a `validacion.txt`, que no
 se guarda en Git.
 
+## Lotes
+
+Un lote (`docs/v2/lotes.json`) toma productos de `docs/proveedores/mis-productos.csv`.
+`python scripts/v2/alta.py --lote <lote>` escribe `propuestas/<lote>.csv` (lo que se daría de alta)
+y `conflictos/<lote>.csv` (lo que decide el usuario), e imprime el resumen. Las respuestas del
+usuario van a `respuestas/<lote>.csv`, que el script lee: el lote entra entero cuando todas están
+contestadas, y volver a ejecutar da siempre lo mismo. Los tipos de conflicto y sus respuestas
+están en `scripts/v2/lote.py`.
+
 ## Ids
 
 Cada sustancia, material, producto, lote, documento y grupo tiene un id de

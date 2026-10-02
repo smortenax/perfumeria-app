@@ -12,18 +12,15 @@ Autoridad: [`decisiones-v2.md`](decisiones-v2.md) (D1–D7). La v1 está congela
   `scripts/v2/alta.py`, `src/v2/to-ifra.ts`, D2 en el motor, `MaterialRepository` con un ajuste
   v1/v2 y [`comparacion-fase2.md`](comparacion-fase2.md). Después, la D7 (molécula sin documentos)
   con el campo `origen` y `impurezas-conocidas.csv` (vacía).
-- [ ] **Fase 3 — La F-001 entera en la v2**, por lotes de alta (`docs/v2/altas/`).
+- [ ] **Fase 3 — La F-001 entera en la v2**, por lotes (`docs/v2/lotes.json`, `alta.py --lote`).
   - **Cierre:** la F-001 se calcula entera con la v2, y la comparación con la v1 queda explicada,
     con la correspondencia de cada material elegida por el usuario.
-  - Sus 24 materiales están todos en `mis-productos.csv` (`en-uso`): no hubo que añadir ninguno.
-- [ ] Fases 4 y 5: sin definir.
-- [ ] Fase 6: buscar en la v1 errores como los de `errores-v1.md`.
+  - [x] **Lote 3a** (2026-10-03): Maese Lab, en uso, moléculas. 21 productos: 18 altas, 2
+    excluidos (láudano y cacao, naturales) y el geraniol, que ya estaba. 4 conflictos contestados
+    (2 documento-ajeno → no-traer; 2 sin-fila-v1 → excluir). Prueba de banco: `src/v2/lote3a.test.ts`.
+- [ ] Fases 4 y 5: sin definir. Fase 6: buscar en la v1 errores como los de `errores-v1.md`.
 
-## Siguiente: el lote 3a
+## Siguiente
 
-- Propuesta, pendiente de confirmar: **3a**, las 16 moléculas (Hedione, Dartanol, Iso E Super,
-  Diphenyl Oxide, Florosa, alcohol feniletílico, Cashmeran, Ebanol, ionona alfa, Polysantol,
-  Sandalmysore Core, Mayol, IBQ, Ethylene Brassylate, AAG y dihidromircenol), cada una con su
-  `origen`. **3b**, los 8 naturales (cedro Atlas, pachulí, tintura de tonka, tintura de ámbar gris,
-  absoluto de tabaco, resinoides de estírax y benjuí), con la forma que diga el usuario.
-- Antes de cada lote: el usuario elige la correspondencia v1 de cada material.
+- El lote 3b, que define el usuario (tienda y clase). Quedan para los naturales el láudano de jara, el
+  Theobroma cacao y el olíbano de Maese Lab, y todo lo de Olfatorium.

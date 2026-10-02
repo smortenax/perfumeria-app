@@ -17,12 +17,22 @@ de `datos/v2/`. Es determinista: con las mismas entradas y el mismo registro, lo
 * **Nada se fusiona en silencio**: un choque (la fuente da un estándar y el índice otro) va a
   `datos/v2/conflictos/<entrada>.csv`, y manda el índice de IFRA hasta que el usuario decida.
 
-Uso:  python scripts/v2/alta.py      (después, `npm run validar:v2`)
+Los **lotes** (`docs/v2/lotes.json`, módulo `lote.py`) toman los productos de
+`docs/proveedores/mis-productos.csv` y proponen su material desde la v1. Cada ejecución escribe
+`datos/v2/propuestas/<lote>.csv` y `datos/v2/conflictos/<lote>.csv`; un lote entra en los datos
+solo cuando `datos/v2/respuestas/<lote>.csv` contesta todos sus conflictos.
+
+Uso:  python scripts/v2/alta.py [--lote 3a]      (después, `npm run validar:v2`)
+      Con --lote, imprime el resumen de ese lote: recuento por tipo y tabla de conflictos.
 """
+import argparse
 import csv
 import json
 import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import lote as lots  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 V2 = ROOT / "datos" / "v2"
@@ -120,9 +130,16 @@ def pct_text(text: str) -> str:
 
 
 def main() -> int:
-    entries = sorted(ALTAS.glob("*.json"))
+    parser = argparse.ArgumentParser(description="Alta de materiales de la v2.")
+    parser.add_argument("--lote", help="lote de docs/v2/lotes.json cuyo resumen se imprime")
+    args = parser.parse_args()
+    entries = [(path.stem, json.loads(path.read_text(encoding="utf-8"))) for path in sorted(ALTAS.glob("*.json"))]
     if not entries:
         print("No hay entradas en docs/v2/altas/.")
+        return 1
+    lot_specs = json.loads((ROOT / "docs" / "v2" / "lotes.json").read_text(encoding="utf-8"))["lotes"]
+    if args.lote and args.lote not in lot_specs:
+        print(f"No hay lote «{args.lote}» en docs/v2/lotes.json.")
         return 1
 
     # --- what is read, never written ------------------------------------------------------
@@ -172,19 +189,32 @@ def main() -> int:
         in_index = [s for s, _ in index.get(cas, [])]
         if source_standard and source_standard not in in_index:
             conflicts.setdefault(lot, []).append({
-                "tipo": "estandar", "id": sid, "cas": cas,
-                "fuente": source_standard, "indice": " ".join(in_index) or "(ninguno)",
-                "decision": "manda el índice de IFRA hasta que lo decida el usuario",
+                "producto": sid, "tipo": "estandar",
+                "detalle": f"CAS {cas}: la fuente da {source_standard}; el índice, {' '.join(in_index) or '(ninguno)'}",
+                "recomendacion": "manda el índice de IFRA hasta que lo decida el usuario",
             })
         return sid
 
     documents: dict[str, str] = {}
     v1_links: list[dict[str, str]] = []
 
-    for path in entries:
-        entry = json.loads(path.read_text(encoding="utf-8"))
+    # The lots go after the entries, each one seeing what is already given: a product is never
+    # given twice, and a molecule already in the data takes its new products.
+    known_products = {p["clave"] for _, e in entries for m in e["materiales"] for p in m.get("productos", [])}
+    known_cas = {m["cas"]: m["clave"] for _, e in entries for m in e["materiales"] if m["tipo"] == "sustancia" and m.get("cas")}
+    summaries: dict[str, tuple[list[dict[str, str]], list[dict[str, str]]]] = {}
+    for name, spec in lot_specs.items():
+        entry, proposals, lot_conflicts = lots.plan(name, spec, ROOT, index, known_products, known_cas)
+        summaries[name] = (proposals, lot_conflicts)
+        conflicts.setdefault(name, []).extend(lot_conflicts)
+        entries.append((name, entry))
+        for m in entry["materiales"]:
+            known_cas.setdefault(m["cas"], m["clave"])
+            known_products.update(p["clave"] for p in m["productos"])
+
+    seen_materials: dict[str, str] = {}
+    for lot, entry in entries:
         date = entry["fecha"]
-        lot = path.stem
 
         for d in entry.get("documentos", []):
             did = registry.id("documento", d["clave"], date)
@@ -195,7 +225,19 @@ def main() -> int:
             })
 
         for m in entry["materiales"]:
+            if m["clave"] in seen_materials:
+                # A molecule already given takes only its new products (a later lot).
+                mid = seen_materials[m["clave"]]
+                for p in m.get("productos", []):
+                    pid = registry.id("producto", p["clave"], date)
+                    tables["productos.csv"].append({
+                        "id": pid, "id_material": mid, "nombre": p["nombre"], "fabricante": p.get("fabricante", ""),
+                        "codigo": p.get("codigo", ""), "tienda": p.get("tienda", ""), "url": p.get("url", ""),
+                        "notas": p.get("notas", ""),
+                    })
+                continue
             mid = registry.id("material", m["clave"], date)
+            seen_materials[m["clave"]] = mid
             cas = m.get("cas", "")
             sid = ""
             origin = m.get("origen", "")
@@ -309,21 +351,41 @@ def main() -> int:
         write_csv(name, rows)
     write_csv("registro-ids.csv", sorted(registry.rows, key=lambda r: r["id"]))
 
-    conflict_dir = V2 / "conflictos"
     for lot, rows in conflicts.items():
-        conflict_dir.mkdir(exist_ok=True)
-        with (conflict_dir / f"{lot}.csv").open("w", encoding="utf-8", newline="") as f:
-            writer = csv.DictWriter(f, fieldnames=["tipo", "id", "cas", "fuente", "indice", "decision"], lineterminator="\n")
-            writer.writeheader()
-            writer.writerows(rows)
+        if rows or lot in summaries:
+            lots.write(V2 / "conflictos" / f"{lot}.csv", lots.CONFLICT_COLUMNS, rows)
+    for lot, (proposals, _) in summaries.items():
+        lots.write(V2 / "propuestas" / f"{lot}.csv", lots.PROPOSAL_COLUMNS, proposals)
 
     counts = ", ".join(f"{len(tables[n])} {n.removesuffix('.csv')}" for n in ("materiales.csv", "productos.csv", "sustancias.csv", "grupos.csv", "composicion.csv"))
     print(f"datos/v2: {counts}.")
     if retired:
         print(f"Retirados: {', '.join(retired)}.")
     for lot, rows in conflicts.items():
-        print(f"{len(rows)} conflictos en datos/v2/conflictos/{lot}.csv: los decide el usuario.")
+        if lot not in summaries and rows:
+            print(f"{len(rows)} conflictos en datos/v2/conflictos/{lot}.csv: los decide el usuario.")
+    if args.lote:
+        print_summary(args.lote, *summaries[args.lote])
     return 0
+
+
+def print_summary(lot: str, proposals: list[dict[str, str]], conflicts: list[dict[str, str]]) -> None:
+    """What the user reads of a lot: products by state, conflicts by type, one line per product."""
+    states: dict[str, int] = {}
+    for p in proposals:
+        states[p["estado"]] = states.get(p["estado"], 0) + 1
+    kinds: dict[str, int] = {}
+    for c in conflicts:
+        kinds[c["tipo"]] = kinds.get(c["tipo"], 0) + 1
+    open_ = [c for c in conflicts if not c["respuesta"]]
+    print(f"\nLote {lot}: {len(proposals)} productos ({', '.join(f'{n} {k}' for k, n in sorted(states.items()))}).")
+    print(f"Conflictos: {len(conflicts)} ({', '.join(f'{n} {k}' for k, n in sorted(kinds.items())) or 'ninguno'}); sin respuesta: {len(open_)}.")
+    by_product: dict[str, list[dict[str, str]]] = {}
+    for c in conflicts:
+        by_product.setdefault(c["producto"], []).append(c)
+    for product, rows in by_product.items():
+        parts = [f"{c['tipo']} [{c['detalle']}] → {c['respuesta'] or 'recomiendo ' + c['recomendacion']}" for c in rows]
+        print(f"  {product}: " + " ; ".join(parts))
 
 
 if __name__ == "__main__":

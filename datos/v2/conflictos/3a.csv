@@ -1,0 +1,5 @@
+producto,tipo,detalle,recomendacion,respuesta
+Aldehído alfa-amil cinámico,documento-ajeno,fig:1039: lista de alérgenos EU_Fragrance_Allergens_ALDEHIDO_ALFA-N-AMILCINAMICO_KALPSUTRA.pdf,no-traer,no-traer
+Láudano de jara,sin-fila-v1,en el registro y sin fila en la v1; CAS 89997-74-0; la clase no se sabe,alta-sin-v1:89997-74-0 si es molécula; excluir si no,excluir
+Safraleine,documento-ajeno,fig:295: lista de alérgenos 0015893_SAFRALEINE_Allergen_Extended_List_Ingredient_20250416.pdf,no-traer,no-traer
+Theobroma cacao extract,sin-fila-v1,sin fila en el registro ni en la v1; CAS 84649-99-0; la clase no se sabe,alta-sin-v1:84649-99-0 si es molécula; excluir si no,excluir
