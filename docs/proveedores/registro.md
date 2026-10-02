@@ -18,6 +18,7 @@ Lo genera `scripts/registro_productos.py` desde [`mis-productos.csv`](mis-produc
 | ✓ | Eucalyptol Natural | molécula | fig:1820 Eucalyptol [sin-estandar] | Symrise | ninguna, lo dice | 1,60% |  |
 | ✓ | Geosmin 1% in DPG (1 % en DPG) | molécula | fig:2490 Octahydro-4,8a-dimethyl-4a(2H)-naphthol [sin-estandar] | IFF | ninguna, lo dice | 40.0% |  |
 | ✓ | Geranyl Acetate Pure | molécula | fig:1917 Geranyl acetate [sin-estandar] | IFF | 0 | 30.0% |  |
+| ✓ | Habanolide | molécula | fig:2574 Oxacyclohexadec-12-en-2-one, (12E)- [sin-estandar] | Firmenich | 1 | 48.0000% |  |
 | ✓ | Ionone beta | molécula | fig:54 (E)-beta-Ionone [sin-estandar] | Givaudan | ninguna, lo dice | — |  |
 | ✓ | Kephalis | molécula | fig:604 3,3,5,5-Tetramethyl-4-ethoxyvinylcyclohexanone [sin-estandar] | Givaudan | ninguna, lo dice | — |  |
 | ✓ | Maritima | molécula | fig:770 4-(4,8-Dimethylnona-3,7-dienyl)pyridine [sin-estandar] | IFF | ninguna, lo dice | — |  |
@@ -32,7 +33,6 @@ Lo genera `scripts/registro_productos.py` desde [`mis-productos.csv`](mis-produc
 | ◐ | 3,4-Xylenol 10% (IPM) (10 % en IPM) | molécula | fig:616 3,4-Xylenol [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | Aldambre | molécula | tienda:1725-03-7 Aldambre [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | Calone (powder) | molécula | fig:944 7-Methyl-2H-benzo-1,5-dioxepin-3(4H)-one [sin-estandar] | IFF | — | — | el certificado que enlaza la tienda es de otro producto («BRAN ABS LMR»); pedir el certificado IFRA: para impurezas y el tope del fabricante |
-| ◐ | Habanolide | molécula | fig:2574 Oxacyclohexadec-12-en-2-one, (12E)- [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | Helional | molécula | fig:1055 alpha-Methyl-1,3-benzodioxole-5-propionaldehyde [con-techo] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | Heliotropine 25% DPG (25 % en DPG) | molécula | fig:2721 Piperonal [sin-estandar] | PCW | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | ◐ | Linalyl Acetate | molécula | fig:2223 Linalyl acetate [sin-estandar] | ¿? | — | — | el certificado (IFRA_LINALYL_ACETATE_BASF.pdf) está cifrado o no se lee; pedir el certificado IFRA: para impurezas y el tope del fabricante |
@@ -40,4 +40,4 @@ Lo genera `scripts/registro_productos.py` desde [`mis-productos.csv`](mis-produc
 | — | Absoluto de Castoreum 20% (20 % en alcohol) | natural | fig:1343 Castoreum absolute [sin-dato] | ¿? | — | — | pedir el certificado IFRA: sin él no se sabe qué lleva |
 | ◐ | Benzoin Siam Resinoid (IFF) | natural | fig:1162 Benzoin CO2 extract, Siam [sin-dato] | ¿? | — | — | pedir el certificado IFRA: sin él no se sabe qué lleva |
 
-**21 documentados, 9 parciales, 4 sin documentos**, de 34.
+**22 documentados, 8 parciales, 4 sin documentos**, de 34.

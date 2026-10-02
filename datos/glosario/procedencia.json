@@ -39,11 +39,11 @@
       "que_es": "constituyentes regulados que declaran los proveedores, auditados (frente C)"
     },
     "docs/proveedores/productos.csv": {
-      "sha256": "785847c23b50908a95b1d2d8a140aec1296234b6b41aeb8ec6ed379eeea512aa",
+      "sha256": "b9d9ae6b56145fc037ae505b0ae6390ea262d2a91941fbccdfdd7a352b6b7a9e",
       "que_es": "los productos del usuario con el certificado IFRA de su fabricante (P62)"
     },
     "docs/proveedores/productos-sustancias.csv": {
-      "sha256": "15e7474ce31d8edb0c42cfd9bfa4beecd5e5893d67b030a0a677034074e04579",
+      "sha256": "b24ee4c774aae2ec40b780f8cbd4626452eb3969e4041b0dd62f1b2dad1e279d",
       "que_es": "las sustancias restringidas que declara el certificado de cada producto"
     },
     "datos/glosario/origen/nombres-proveedores.csv": {
@@ -75,37 +75,37 @@
       "sha256": "289097c9d76de4430f967158556ff068faa4589175c44b48dd355a5eb93b6368"
     }
   },
-  "generado": "2026-10-02T00:25:44+00:00",
+  "generado": "2026-10-02T00:28:19+00:00",
   "cuentas": {
-    "materiales": 4346,
+    "materiales": 4347,
     "del_fig": 3119,
-    "solo_de_ifra": 1227,
+    "solo_de_ifra": 1228,
     "codigos_del_usuario": 3119,
-    "codigos_generados": 1227,
+    "codigos_generados": 1228,
     "por_estado": {
       "prohibido": 121,
       "con-techo": 419,
       "condicion": 48,
-      "por-constituyentes": 530,
+      "por-constituyentes": 531,
       "sin-dato": 553,
       "sin-estandar": 2675
     },
-    "filas_de_constituyentes": 3841,
+    "filas_de_constituyentes": 3842,
     "de_la_transparency_list": 3626,
     "solo_de_la_transparency_list": 923,
     "del_fig_fuera_de_ifra": 354,
     "heredan_un_estandar": 7,
-    "con_nombre_comercial": 385,
+    "con_nombre_comercial": 386,
     "con_sigla_comercial": 27,
     "con_familia": 3119,
-    "con_sinonimos_de_pubchem": 2186,
+    "con_sinonimos_de_pubchem": 2187,
     "con_nombres_de_tiendas": 771,
     "solo_de_tiendas": 8,
     "de_tiendas_sin_unir": 48,
     "constituyentes_de_proveedores": 508,
-    "productos_de_fabricante": 21,
-    "topes_de_fabricante": 8,
-    "constituyentes_de_certificados": 63,
+    "productos_de_fabricante": 22,
+    "topes_de_fabricante": 9,
+    "constituyentes_de_certificados": 64,
     "con_franja_de_uso": 691,
     "con_franja_de_consenso": 101,
     "con_franja_de_recomendacion": 590,

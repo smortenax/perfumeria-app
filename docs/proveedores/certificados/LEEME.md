@@ -10,6 +10,7 @@ PDF son los originales; [`certificados.csv`](certificados.csv) los transcribe
 |---|---|---|---|---|
 | `firmenich-castoreum-synth-184004-ifra51.pdf` | Castoreum Synth 184004 | Firmenich (lo vende Perfumiarz) | 2023-08-25 | El castóreo sintético que el usuario piensa comprar; el suyo de hoy es el absoluto natural, sin constituyentes conocidos. Sus 11 alérgenos coinciden con la lista de Perfumiarz (C-003, sin fila en el glosario); el certificado da 20 sustancias |
 | `firmenich-black-agar-296985-ifra51.pdf` | Black Agar 296985 | Firmenich | 2023-08-25 | El ejemplo del formato (P61) |
+| `firmenich-habanolide-947303-ifra51.pdf` | Habanolide 947303 | Firmenich | | Aportado por el usuario el 2026-10-02. Declara 5 % de ciclopentadecanolida (Exaltolide), y un tope de Firmenich del 48 % en la cat. 4 |
 | `symrise-aldehyde-c11-moa-656012-ifra51.pdf` | Aldehyde C11 MOA 656012 | Symrise | | Aportado por el usuario el 2026-10-02 (la tienda solo enlaza la ficha de seguridad). Declara 0,0046 % de hexilcinamaldehído, y un tope de Symrise del 2,50 % en la cat. 4 |
 
 **Entran en la app ya** (2026-10-02): `scripts/generar_glosario.py` (paso 3e) da a cada producto
