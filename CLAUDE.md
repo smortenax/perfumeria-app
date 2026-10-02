@@ -1,5 +1,41 @@
 # perfumeria-app — instrucciones de trabajo
 
+## Trabajo en la v2 (desde 2026-10)
+
+**Para cualquier tarea de la v2, la autoridad es `docs/v2/`**: `decisiones-v2.md` y
+`estado.md`. No se lee `docs/interrogatorio.md` ni `docs/decisiones.md` enteros: si hace
+falta una sección, se busca con grep y se lee solo esa.
+
+**Al empezar cada sesión:** leer `docs/v2/estado.md` (qué está hecho y qué sigue). Al
+terminar: actualizarlo, en 30 líneas como máximo, y hacer commit.
+
+### Lo que no se toca
+- La v1 está congelada: `datos/glosario/`, `scripts/generar_glosario.py` y los scripts
+  que la alimentan. Se leen, nunca se editan ni se regeneran.
+- `src/core/` solo cambia si una prueba demuestra que hace falta, y se explica en el commit.
+  La v2 llega al motor por un adaptador que construye el `IfraData` actual.
+
+### El modelo
+- Un material se identifica por un id estable de `datos/v2/registro-ids.csv`, asignado una
+  vez. Nunca sale de un número de fila ni se recalcula.
+- Un natural se identifica por especie + parte + proceso + quimiotipo. El CAS y el INCI son
+  atributos, no la clave.
+- IFRA limita por grupo regulador (estándar), no por CAS. Las sustancias tienen alias de CAS.
+- Cada cifra de composición lleva: valor, tipo (`tipico`, `maximo`, `rango`), autoridad
+  (`lote`, `producto`, `anexo-ifra`, `literatura`, `consenso`) y documento de origen.
+- Un placeholder (autoridad `literatura` o `consenso`) nunca da «dentro» en IFRA: como mucho
+  «acotado». Para IFRA se usa el máximo de su fuente.
+- El tope de un fabricante es del producto, no de la sustancia. Si se conoce su causa, se
+  modela como constituyente.
+- El uso habitual y la duración son otra capa, con su base, y nunca se mezclan con IFRA.
+
+### Cómo se migra
+- Los datos los escribe un script determinista, nunca Claude fila a fila.
+- Nada se fusiona en silencio: cada conflicto va a `datos/v2/conflictos/<lote>.csv` y lo
+  decide el usuario.
+- `npm run validar:v2` tiene que pasar antes de cada commit de datos.
+- Si una tarea choca con `decisiones-v2.md`, se para y se pregunta.
+
 App de **formulación de perfumería**: formular, documentar las fórmulas y comprobar IFRA,
 sin conexión. **Ejecutable de Windows con Tauri 2** primero; móvil (Android e iOS) después,
 con la misma base. Es la herramienta propia del usuario y **puede acabar siendo un

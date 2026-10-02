@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./docs/interrogatorio.md)",
+      "Read(./docs/investigacion/**)",
+      "Read(./docs/antecedentes/**)",
+      "Read(./datos/glosario/origen/**)",
+      "Read(./datos/ifra/51/origen/**)",
+      "Read(./package-lock.json)",
+      "Read(./src-tauri/target/**)"
+    ]
+  }
+}
