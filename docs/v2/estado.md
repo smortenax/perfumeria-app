@@ -1,30 +1,29 @@
 # Estado de la v2 del modelo de materiales
 
 Se lee al empezar cada sesión y se actualiza al terminar (30 líneas como máximo).
-Autoridad: [`decisiones-v2.md`](decisiones-v2.md). La v1 queda congelada en la etiqueta `glosario-v1`.
-Rama `v2-materiales` (en el remoto). La etiqueta `glosario-v1` no se pudo subir desde la nube: se crea en local sobre `a18c440`.
+Autoridad: [`decisiones-v2.md`](decisiones-v2.md) (D1–D7). La v1 está congelada en la etiqueta
+`glosario-v1` (sobre `a18c440`, en el remoto); sus errores, en [`errores-v1.md`](errores-v1.md).
 
 ## Fases
 
-- [x] **Fase 0 — Arranque**: decisiones, estado, reglas de trabajo y `situacion` en `mis-productos.csv`.
-- [x] **Fase 1 — Esquema y validador** (2026-10-02): 14 tablas, 14 reglas, `npm run validar:v2`.
-- [ ] **Fase 2 — IFRA con la v2 de punta a punta, con siete materiales** (2026-10-03): hecha y
-  **a la espera de que el usuario revise** [`comparacion-fase2.md`](comparacion-fase2.md).
-- [ ] Fases 3 a 6: sin definir.
+- [x] **Fase 0 — Arranque**.
+- [x] **Fase 1 — Esquema y validador** (2026-10-02).
+- [x] **Fase 2 — IFRA con la v2 de punta a punta, con siete materiales** (aprobada el 2026-10-03):
+  `scripts/v2/alta.py`, `src/v2/to-ifra.ts`, D2 en el motor, `MaterialRepository` con un ajuste
+  v1/v2 y [`comparacion-fase2.md`](comparacion-fase2.md). Después, la D7 (molécula sin documentos)
+  con el campo `origen` y `impurezas-conocidas.csv` (vacía).
+- [ ] **Fase 3 — La F-001 entera en la v2**, por lotes de alta (`docs/v2/altas/`).
+  - **Cierre:** la F-001 se calcula entera con la v2, y la comparación con la v1 queda explicada,
+    con la correspondencia de cada material elegida por el usuario.
+  - Sus 24 materiales están todos en `mis-productos.csv` (`en-uso`): no hubo que añadir ninguno.
+- [ ] Fases 4 y 5: sin definir.
+- [ ] Fase 6: buscar en la v1 errores como los de `errores-v1.md`.
 
-## Fase 2: qué hay hecho
+## Siguiente: el lote 3a
 
-- `scripts/v2/alta.py` escribe `datos/v2/` desde `docs/v2/altas/*.json`. Es determinista, saca los
-  ids del registro y lee la v1 e IFRA sin tocarlos. Entrada: `2026-10-03-fase2.json`, con 7
-  materiales, 7 productos y 4 documentos cotejados con su PDF. La lavanda es aceite esencial
-  (decisión del usuario).
-- `src/v2/to-ifra.ts` aplana a sustancias por autoridad y cobertura, y construye el `IfraData`.
-  El tope del fabricante es una sustancia de su producto (D4).
-- Motor (`src/core/ifra.ts`, aprobado): `upper` en una carga desconocida (D2), y «dentro» nunca
-  con una carga desconocida.
-- `MaterialRepository` (`src/data/repository.ts`): Bench la recibe; el lanzador elige v1 o v2 (`model`).
-- Pruebas: `src/v2/to-ifra.test.ts` y `src/v2/comparacion.test.ts`, con F-001 y «Siete» en las dos versiones.
-
-## Siguiente
-
-- Que el usuario revise la comparación y responda a sus preguntas A (molécula sin documentos) y B (los 23 de la F-001).
+- Propuesta, pendiente de confirmar: **3a**, las 16 moléculas (Hedione, Dartanol, Iso E Super,
+  Diphenyl Oxide, Florosa, alcohol feniletílico, Cashmeran, Ebanol, ionona alfa, Polysantol,
+  Sandalmysore Core, Mayol, IBQ, Ethylene Brassylate, AAG y dihidromircenol), cada una con su
+  `origen`. **3b**, los 8 naturales (cedro Atlas, pachulí, tintura de tonka, tintura de ámbar gris,
+  absoluto de tabaco, resinoides de estírax y benjuí), con la forma que diga el usuario.
+- Antes de cada lote: el usuario elige la correspondencia v1 de cada material.

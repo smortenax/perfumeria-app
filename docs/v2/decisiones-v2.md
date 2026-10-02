@@ -34,6 +34,25 @@ momento, **solo la categoría 4**.
 Las investigaciones pasan a `datos/fuentes/`, cada una con su **estado de revisión**. **Solo
 entra en los datos lo revisado.**
 
+## D7 — Molécula sin documentos de su producto
+
+Decidida por el usuario el 2026-10-03, al revisar la comparación de la fase 2 (su pregunta A).
+
+Una molécula sin documentos de su producto cuenta como **su sustancia pura, por convención**. La
+ficha lo enseña como «pura por convención, sin documentos», y no deja pendiente.
+
+**Excepción:** si su `origen` es `aislado-natural`, o si está en la lista de moléculas con
+impurezas reguladas conocidas (`datos/v2/impurezas-conocidas.csv`, cada una con su documento),
+deja un pendiente de «impurezas sin declarar».
+
+**Por qué:** exigir documentos a cada molécula dejaría casi todo pendiente, y una síntesis pura es
+el caso normal. Pero la comparación de la fase 2 enseñó que un aislado natural puede traer
+impurezas reguladas, como el metileugenol que la v1 atribuía, por error, al linalol. Por eso la
+convención se dice en la ficha y no se aplica a lo que se sabe que no la cumple.
+
+Cada material `sustancia` lleva `origen` (`sintetico`, `aislado-natural` o `desconocido`), con su
+fuente en las notas. `desconocido` sigue la convención.
+
 ## Jerarquía de autoridad
 
 De mayor a menor; cuando dos fuentes chocan, manda la de más arriba:

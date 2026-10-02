@@ -63,9 +63,13 @@ describe("the seven materials, with v1 and with v2", () => {
     }
   });
 
-  it("5. what stays open: v1, the castoreum and the oakmoss's atranols; v2, the castoreum alone", () => {
+  it("5. what stays open: v1, the castoreum and the oakmoss's atranols; v2, the castoreum and the geraniol's impurities", () => {
     expect(a.pending.map((p) => p.material)).toEqual(["Absoluto de Castoreum 20%", "Oakmoss Absolute 50% (IPM)", "Oakmoss Absolute 50% (IPM)"]);
-    expect(b.pending).toEqual([{ material: "Absoluto de Castoreum 20%", text: "Sin datos de sus constituyentes: puede llevar sustancias con techo." }]);
+    // Since D7 (2026-10-03), a natural isolate without documents leaves its impurities pending.
+    expect(b.pending).toEqual([
+      { material: "Geraniol 98%", text: "Impurezas sin declarar: es un aislado natural y su producto no tiene documentos." },
+      { material: "Absoluto de Castoreum 20%", text: "Sin datos de sus constituyentes: puede llevar sustancias con techo." },
+    ]);
     expect(b.conditions).toEqual([
       { material: "Linalol", text: "especificación (STD 187)" },
       { material: "Oakmoss Absolute 50% (IPM)", text: "especificación (STD 067)" },

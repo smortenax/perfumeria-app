@@ -2,7 +2,7 @@ import { DILUENTS } from "../core/model/material";
 import { fold, normalize, type CatalogEntry } from "../data/catalog";
 import { repositoryOf, type MaterialRepository } from "../data/repository";
 import type { Dataset } from "./model";
-import { toIfra, v2Key, type IfraFiles } from "./to-ifra";
+import { flatten, toIfra, v2Key, type IfraFiles } from "./to-ifra";
 
 /** The diluents as the v1 catalog shows them; their IFRA comes from their CAS (to-ifra.ts). */
 const DILUENT_ENTRIES: ReadonlyArray<readonly [keyof typeof DILUENTS, string, string]> = [
@@ -50,6 +50,7 @@ export function v2Entries(data: Dataset): CatalogEntry[] {
       folded: [p.name, chemical].map(fold),
       ...(p.maker ? { maker: { name: p.maker, code: p.code } } : {}),
       ...(documented.has(p.id) ? { documented: true } : {}),
+      ...(flatten(data, p.id).pureByConvention ? { pureByConvention: true } : {}),
     });
   }
   for (const m of data.materials.filter((x) => !withProduct.has(x.id))) {
@@ -62,6 +63,7 @@ export function v2Entries(data: Dataset): CatalogEntry[] {
       cas: m.cas,
       search: normalize(`${m.id} ${m.name} ${m.cas} ${m.species}`),
       folded: [fold(m.name)],
+      ...(flatten(data, m.id).pureByConvention ? { pureByConvention: true } : {}),
     });
   }
   return entries;

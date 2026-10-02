@@ -51,7 +51,7 @@ export const SCHEMA: { readonly [K in keyof Dataset]: TableSpec<K> } = {
     file: "materiales.csv",
     columns: [
       "id", "tipo", "nombre", "id_sustancia", "especie", "parte", "proceso", "quimiotipo",
-      "cas", "inci", "excepciones", "motivo_excepcion", "notas",
+      "cas", "inci", "origen", "excepciones", "motivo_excepcion", "notas",
     ],
     map: (r, line) => ({
       line,
@@ -65,6 +65,7 @@ export const SCHEMA: { readonly [K in keyof Dataset]: TableSpec<K> } = {
       chemotype: r.quimiotipo,
       cas: r.cas,
       inci: r.inci,
+      origin: r.origen,
       exceptions: list(r.excepciones),
       exceptionReason: r.motivo_excepcion,
     }),
@@ -159,6 +160,11 @@ export const SCHEMA: { readonly [K in keyof Dataset]: TableSpec<K> } = {
       authority: r.autoridad,
       documentId: r.id_documento,
     }),
+  },
+  knownImpurities: {
+    file: "impurezas-conocidas.csv",
+    columns: ["id_sustancia", "id_documento", "notas"],
+    map: (r, line) => ({ line, substanceId: r.id_sustancia, documentId: r.id_documento }),
   },
   v1Links: {
     file: "v1-a-v2.csv",

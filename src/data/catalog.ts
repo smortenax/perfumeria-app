@@ -112,6 +112,8 @@ export interface CatalogEntry {
    */
   readonly maker?: { readonly name: string; readonly code: string; readonly general?: string };
   readonly documented?: boolean;
+  /** A molecule whose product has no documents, counted as its substance pure by convention (D7 of the v2). */
+  readonly pureByConvention?: boolean;
 }
 
 export interface Catalog {

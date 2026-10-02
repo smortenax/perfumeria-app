@@ -138,6 +138,9 @@ export const texts = {
   materialCard: {
     choose: "Elige un material para ver su margen y su uso habitual",
     kind: { formula: "fórmula", provisional: "provisional", diluent: "diluyente" },
+    pureByConvention: "pura por convención, sin documentos",
+    pureByConventionHelp:
+      "Su producto no tiene documentos: cuenta como su sustancia pura, por convención (D7). No es un dato del fabricante.",
     inFormula: "En la fórmula",
     ofAromatic: (share: string) => `${share} de la aromática`,
     ofBottle: (share: string) => `${share} del frasco`,

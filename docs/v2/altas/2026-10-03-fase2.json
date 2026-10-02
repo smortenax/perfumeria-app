@@ -48,7 +48,11 @@
       "clave": "geraniol",
       "tipo": "sustancia",
       "cas": "106-24-1",
-      "v1": ["fig:1906"],
+      "origen": "aislado-natural",
+      "origen_fuente": "Maese Lab lo vende como «Geraniol 98 % Nat» (página geraniol-98-nat).",
+      "v1": [
+        "fig:1906"
+      ],
       "productos": [
         {
           "clave": "maeselab-geraniol-98-nat",
@@ -63,7 +67,11 @@
       "clave": "linalol",
       "tipo": "sustancia",
       "cas": "78-70-6",
-      "v1": ["fig:2220"],
+      "origen": "desconocido",
+      "origen_fuente": "Olfatorium no dice si es natural o de síntesis.",
+      "v1": [
+        "fig:2220"
+      ],
       "productos": [
         {
           "clave": "olfatorium-linalol",
@@ -82,8 +90,14 @@
       "parte": "sumidad florida",
       "proceso": "destilación",
       "cas": "8000-28-0",
-      "anexo": { "documento": "ifra51-anexo-naturales", "nombre": "Lavender oil", "cas": "8000-28-0" },
-      "v1": ["fig:2183"],
+      "anexo": {
+        "documento": "ifra51-anexo-naturales",
+        "nombre": "Lavender oil",
+        "cas": "8000-28-0"
+      },
+      "v1": [
+        "fig:2183"
+      ],
       "notas": "El usuario decidió la forma el 2026-10-03: aceite esencial, como dice el cuaderno (materias-primas/lavanda.md).",
       "productos": [
         {
@@ -103,7 +117,9 @@
       "parte": "castóreo",
       "proceso": "absoluto",
       "cas": "8023-83-4",
-      "v1": ["fig:1343"],
+      "v1": [
+        "fig:1343"
+      ],
       "notas": "Maese Lab no declara la especie (Castor canadensis o Castor fiber). Sin datos de constituyentes: ni el anexo de IFRA ni el proveedor los dan.",
       "productos": [
         {
@@ -120,7 +136,12 @@
       "tipo": "sustancia",
       "nombre": "2-Methyldecanal",
       "cas": "19009-56-4",
-      "v1": ["fig:507", "prod:symrise-656012"],
+      "origen": "desconocido",
+      "origen_fuente": "El certificado de Symrise no dice su origen.",
+      "v1": [
+        "fig:507",
+        "prod:symrise-656012"
+      ],
       "productos": [
         {
           "clave": "symrise-656012",
@@ -129,7 +150,10 @@
           "codigo": "656012",
           "tienda": "Perfumiarz",
           "url": "https://perfumiarz.com/products/aldehyde-c11-moa",
-          "certificado": { "documento": "cert-symrise-656012", "registro": "prod:symrise-656012" },
+          "certificado": {
+            "documento": "cert-symrise-656012",
+            "registro": "prod:symrise-656012"
+          },
           "notas": "Certificado aportado por el usuario (2026-10-02)."
         }
       ]
@@ -142,7 +166,10 @@
       "parte": "talo",
       "proceso": "absoluto",
       "cas": "90028-68-5",
-      "v1": ["fig:2480", "prod:iff-00133097"],
+      "v1": [
+        "fig:2480",
+        "prod:iff-00133097"
+      ],
       "notas": "IFRA lo limita como tal (STD 067, por familia): es miembro del grupo como material.",
       "productos": [
         {
@@ -152,7 +179,10 @@
           "codigo": "00133097",
           "tienda": "Perfumiarz",
           "url": "https://perfumiarz.com/products/oakmoss-absolute",
-          "certificado": { "documento": "cert-iff-00133097", "registro": "prod:iff-00133097" },
+          "certificado": {
+            "documento": "cert-iff-00133097",
+            "registro": "prod:iff-00133097"
+          },
           "notas": "Perfumiarz lo vende al 50 % en IPM; el certificado es del absoluto puro, así que sus cifras ya son de materia pura. La dilución se elige al pesar."
         }
       ]
@@ -161,7 +191,9 @@
       "clave": "castoreum-sintetico",
       "tipo": "base",
       "nombre": "Castoreum Synthetic",
-      "v1": ["prod:firmenich-184004"],
+      "v1": [
+        "prod:firmenich-184004"
+      ],
       "notas": "Base sin CAS: lo que se sabe de ella es lo que declara su certificado.",
       "productos": [
         {
@@ -171,7 +203,10 @@
           "codigo": "184004",
           "tienda": "Perfumiarz",
           "url": "https://perfumiarz.com/products/castoreum-synthetic",
-          "certificado": { "documento": "cert-firmenich-184004", "registro": "prod:firmenich-184004" },
+          "certificado": {
+            "documento": "cert-firmenich-184004",
+            "registro": "prod:firmenich-184004"
+          },
           "notas": "Categoría 4: «No Restriction» de Firmenich, que no es un tope."
         }
       ]

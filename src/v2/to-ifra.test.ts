@@ -19,20 +19,24 @@ function product(name: string): IfraMaterial {
 const fractionOf = (m: IfraMaterial, key: string) => m.substances.find((s) => s.key === key)?.fraction;
 
 describe("the seven materials of phase 2, through the adapter", () => {
-  it("Geraniol 98 %: its own standard, whole", () => {
+  it("Geraniol 98 %: its own standard, whole; a natural isolate without documents, so its impurities are pending (D7)", () => {
     const m = product("Geraniol 98%");
     expect(m.substances).toHaveLength(1);
     expect(fractionOf(m, "std:IFRA_STD_037")?.eq(Ratio.ONE)).toBe(true);
     expect(m.conditions).toEqual([]);
-    expect(m.pending).toBeUndefined();
+    expect(m.pending).toEqual(["Impurezas sin declarar: es un aislado natural y su producto no tiene documentos."]);
     expect(ifra.substances.get("std:IFRA_STD_037")?.limit.eq(pct("4.7"))).toBe(true);
   });
 
-  it("Linalol: no ceiling, the peroxide specification as a condition", () => {
+  it("Linalol: no ceiling, the peroxide specification as a condition; pure by convention (D7)", () => {
     const m = product("Linalol");
     expect(m.substances).toEqual([]);
     expect(m.conditions).toEqual(["especificación (STD 187)"]);
     expect(m.pending).toBeUndefined();
+    const p = data.products.find((x) => x.name === "Linalol")!;
+    expect(flatten(data, p.id).pureByConvention).toBe(true);
+    // A molecule with a certificate is documented, not pure by convention.
+    expect(flatten(data, data.products.find((x) => x.name === "Aldehyde C11 MOA")!.id).pureByConvention).toBe(false);
   });
 
   it("Lavanda: the essential oil of the annex, and nothing of the absolute", () => {
@@ -94,12 +98,13 @@ describe("the seven materials of phase 2, through the adapter", () => {
 // Small datasets for what the seven do not exercise: authority, coverage and placeholders.
 const HEAD = {
   "registro-ids.csv": "id,entidad,clave,alta,estado,notas",
-  "materiales.csv": "id,tipo,nombre,id_sustancia,especie,parte,proceso,quimiotipo,cas,inci,excepciones,motivo_excepcion,notas",
+  "materiales.csv": "id,tipo,nombre,id_sustancia,especie,parte,proceso,quimiotipo,cas,inci,origen,excepciones,motivo_excepcion,notas",
   "productos.csv": "id,id_material,nombre,fabricante,codigo,tienda,url,dilucion_pct,id_diluyente,notas",
   "composicion.csv": "id_contenedor,id_componente,min,tipico,max,tipo_valor,autoridad,id_documento,notas",
   "coberturas.csv": "id_contenedor,id_documento,cobertura,notas",
   "grupos.csv": "id,tipo,referencia,nombre,notas",
   "grupo-miembros.csv": "id_grupo,id_miembro,subgrupo,notas",
+  "impurezas-conocidas.csv": "id_sustancia,id_documento,notas",
 } as const;
 
 function dataset(rows: { [K in keyof typeof HEAD]?: string[] }) {
@@ -107,7 +112,7 @@ function dataset(rows: { [K in keyof typeof HEAD]?: string[] }) {
   return loadDataset(text, { missingIsEmpty: true }).dataset;
 }
 
-const LAVENDER = "M00001,natural,Lavanda,,Lavandula angustifolia,flor,destilación,,,,,,";
+const LAVENDER = "M00001,natural,Lavanda,,Lavandula angustifolia,flor,destilación,,,,,,,";
 
 describe("flatten", () => {
   it("a complete certificate of the product closes the list: the annex of its material is not read", () => {
@@ -161,7 +166,7 @@ describe("flatten", () => {
 
   it("a material inside another is flattened, its loads scaled", () => {
     const d = dataset({
-      "materiales.csv": [LAVENDER, "M00002,base,Base,,,,,,,,,,"],
+      "materiales.csv": [LAVENDER, "M00002,base,Base,,,,,,,,,,,"],
       "composicion.csv": ["M00002,M00001,,10,,tipico,literatura,D00001,", "M00001,S00001,,0.48,,tipico,anexo-ifra,D00001,"],
       "coberturas.csv": ["M00002,D00001,reguladas-completa,", "M00001,D00001,reguladas-completa,"],
     });
@@ -186,5 +191,30 @@ describe("toIfra with a placeholder (D2)", () => {
     expect(m?.substances[0].key).toBe("std:IFRA_STD_023");
     expect(m?.substances[0].fraction).toBeNull();
     expect(m?.substances[0].upper?.eq(pct("0.9"))).toBe(true);
+  });
+});
+
+describe("D7: a molecule without documents", () => {
+  const MOLECULE = (origin: string) => `M00001,sustancia,Geraniol,S00001,,,,,106-24-1,,${origin},,,`;
+
+  it("synthetic or of unknown origin, it is its substance pure by convention, and leaves nothing pending", () => {
+    for (const origin of ["sintetico", "desconocido"]) {
+      const f = flatten(dataset({ "materiales.csv": [MOLECULE(origin)] }), "M00001");
+      expect(f.pureByConvention, origin).toBe(true);
+      expect(f.pending, origin).toEqual([]);
+      expect(f.loads.get("S00001")?.known?.eq(Ratio.ONE), origin).toBe(true);
+    }
+  });
+
+  it("a natural isolate leaves its impurities pending", () => {
+    const f = flatten(dataset({ "materiales.csv": [MOLECULE("aislado-natural")] }), "M00001");
+    expect(f.pureByConvention).toBe(false);
+    expect(f.pending).toEqual(["Impurezas sin declarar: es un aislado natural y su producto no tiene documentos."]);
+  });
+
+  it("one on the list of known regulated impurities leaves them pending, whatever its origin", () => {
+    const f = flatten(dataset({ "materiales.csv": [MOLECULE("sintetico")], "impurezas-conocidas.csv": ["S00001,D00001,"] }), "M00001");
+    expect(f.pureByConvention).toBe(false);
+    expect(f.pending).toEqual(["Impurezas sin declarar: se le conocen impurezas reguladas y su producto no tiene documentos."]);
   });
 });

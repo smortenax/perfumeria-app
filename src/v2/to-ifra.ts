@@ -50,6 +50,8 @@ export interface Flattened {
   readonly itself: ReadonlySet<string>;
   /** Why the list may be incomplete, in the user's words. */
   readonly pending: readonly string[];
+  /** A molecule with no documents, counted as its substance pure by convention (D7). */
+  readonly pureByConvention: boolean;
 }
 
 const RANK: Readonly<Record<string, number>> = { lote: 0, producto: 1, "anexo-ifra": 2, literatura: 3, consenso: 4 };
@@ -59,6 +61,8 @@ const isNumber = (text: string) => /^\d+(\.\d+)?$/.test(text);
 const short = (standard: string) => `STD ${standard.split("_").pop()}`;
 
 const NO_DATA = "Sin datos de sus constituyentes: puede llevar sustancias con techo.";
+const IMPURITIES_ISOLATE = "Impurezas sin declarar: es un aislado natural y su producto no tiene documentos.";
+const IMPURITIES_KNOWN = "Impurezas sin declarar: se le conocen impurezas reguladas y su producto no tiene documentos.";
 const COVERAGE_TEXT: Readonly<Record<string, string>> = {
   "solo-alergenos": "Su composición solo cubre los alérgenos: puede llevar otras sustancias con techo.",
   parcial: "Su composición es parcial: puede llevar otras sustancias con techo.",
@@ -99,6 +103,7 @@ export function flatten(data: Dataset, containerId: string): Flattened {
   const lots = new Map(data.lots.map((l) => [l.id, l]));
   const members = new Set(data.groupMembers.map((gm) => gm.memberId));
   const coverage = new Map(data.coverages.map((c) => [`${c.containerId}|${c.documentId}`, c.coverage]));
+  const impure = new Set(data.knownImpurities.map((k) => k.substanceId));
 
   const walk = (id: string, seen: readonly string[]): Flattened => {
     if (seen.includes(id)) {
@@ -169,11 +174,21 @@ export function flatten(data: Dataset, containerId: string): Flattened {
       }
       weakest = covers;
     }
-    // A substance is itself whole: it needs no source to be complete.
-    if (!complete && !(material.type === "sustancia" && ordered.length === 0)) {
+    // D7: a molecule without documents is its substance pure by convention, unless it is a natural
+    // isolate or one known to carry regulated impurities: then those are pending.
+    let pureByConvention = false;
+    if (material.type === "sustancia" && ordered.length === 0) {
+      if (material.origin === "aislado-natural") {
+        pending.push(IMPURITIES_ISOLATE);
+      } else if (impure.has(material.substanceId)) {
+        pending.push(IMPURITIES_KNOWN);
+      } else {
+        pureByConvention = true;
+      }
+    } else if (!complete) {
       pending.push(COVERAGE_TEXT[weakest] ?? NO_DATA);
     }
-    return { loads, itself, pending: [...new Set(pending)] };
+    return { loads, itself, pending: [...new Set(pending)], pureByConvention };
   };
 
   return walk(containerId, []);

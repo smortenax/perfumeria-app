@@ -1,3 +1,3 @@
-id,tipo,nombre,id_sustancia,especie,parte,proceso,quimiotipo,cas,inci,excepciones,motivo_excepcion,notas
-M00003,base,Base A,,,,,,,,,,
-M00004,base,Base B,,,,,,,,,,
+id,tipo,nombre,id_sustancia,especie,parte,proceso,quimiotipo,cas,inci,origen,excepciones,motivo_excepcion,notas
+M00003,base,Base A,,,,,,,,,,,
+M00004,base,Base B,,,,,,,,,,,

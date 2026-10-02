@@ -41,7 +41,7 @@ COLUMNS = {
     "grupo-miembros.csv": ["id_grupo", "id_miembro", "subgrupo", "notas"],
     "materiales.csv": [
         "id", "tipo", "nombre", "id_sustancia", "especie", "parte", "proceso", "quimiotipo",
-        "cas", "inci", "excepciones", "motivo_excepcion", "notas",
+        "cas", "inci", "origen", "excepciones", "motivo_excepcion", "notas",
     ],
     "composicion.csv": [
         "id_contenedor", "id_componente", "min", "tipico", "max", "tipo_valor", "autoridad",
@@ -59,8 +59,11 @@ COLUMNS = {
         "id_material", "magnitud", "min", "tipico", "max", "unidad", "base", "autoridad",
         "id_documento", "notas",
     ],
+    "impurezas-conocidas.csv": ["id_sustancia", "id_documento", "notas"],
     "v1-a-v2.csv": ["id_v2", "id_v1"],
 }
+
+ORIGINS = ("sintetico", "aislado-natural", "desconocido")
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
@@ -195,6 +198,10 @@ def main() -> int:
             mid = registry.id("material", m["clave"], date)
             cas = m.get("cas", "")
             sid = ""
+            origin = m.get("origen", "")
+            if m["tipo"] == "sustancia" and origin not in ORIGINS:
+                print(f"{m['clave']}: una sustancia necesita «origen» ({', '.join(ORIGINS)}) (D7).")
+                return 1
             if m["tipo"] == "sustancia":
                 sid = substance(cas, m.get("nombre", cas), date, lot=lot)
             name = m.get("nombre") or substance_rows[sid]["nombre"]
@@ -202,7 +209,8 @@ def main() -> int:
                 "id": mid, "tipo": m["tipo"], "nombre": name, "id_sustancia": sid,
                 "especie": m.get("especie", ""), "parte": m.get("parte", ""), "proceso": m.get("proceso", ""),
                 "quimiotipo": m.get("quimiotipo", ""), "cas": cas, "inci": m.get("inci", ""),
-                "notas": m.get("notas", ""),
+                "origen": origin,
+                "notas": " ".join(n for n in (m.get("notas", ""), f"Origen: {m['origen_fuente']}" if m.get("origen_fuente") else "") if n),
             })
             # A natural or a base IFRA limits as itself (089, 184, the oakmoss of 067) is a member.
             if m["tipo"] in ("natural", "base") and cas:
@@ -274,6 +282,13 @@ def main() -> int:
                         "notas": f"tope de {p.get('fabricante', '')} para su producto (D4)",
                     })
 
+        # D7: the molecules known to carry regulated impurities, each with its source.
+        for k in entry.get("impurezas_conocidas", []):
+            sid = substance(k["cas"], k.get("nombre", k["cas"]), date, lot=lot)
+            tables["impurezas-conocidas.csv"].append({
+                "id_sustancia": sid, "id_documento": documents[k["documento"]], "notas": k.get("notas", ""),
+            })
+
     retired = registry.retire_unused()
 
     # --- write, in a stable order ----------------------------------------------------------
@@ -286,6 +301,7 @@ def main() -> int:
         "grupo-miembros.csv": lambda r: (r["id_grupo"], r["id_miembro"]),
         "sustancia-cas.csv": lambda r: (r["id_sustancia"], r["cas"]),
         "topes.csv": lambda r: (r["id_producto"], r["categoria"]),
+        "impurezas-conocidas.csv": lambda r: (r["id_sustancia"], r["id_documento"]),
         "v1-a-v2.csv": lambda r: (r["id_v1"], r["id_v2"]),
     }
     for name, rows in tables.items():

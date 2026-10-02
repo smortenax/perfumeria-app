@@ -131,6 +131,13 @@ y la lectura 1 es «no se sabe»: nunca se toman por libres. No es una diferenci
 lo que está dado de alta. Lo que la v2 sí sabe de la lavanda coincide con la v1 en el octenil
 acetato, el geraniol y el 2-hexenal.
 
+## Después de la revisión: la D7 (2026-10-03)
+
+Con la D7, el Geraniol 98% de Maese Lab, que es un aislado natural («Nat») sin documentos, deja
+pendientes sus «impurezas sin declarar». En «Siete», la v2 queda con dos pendientes, el geraniol y
+el castóreo, y la prueba 5 lo recoge. El resto de las cifras no cambia. El linalol, de origen
+desconocido, sigue como puro por convención, y su ficha lo dice.
+
 ## Lo que esta comparación no prueba
 
 - **Los placeholders (D2)**: ninguno de los siete tiene cifras de literatura o de consenso. Lo

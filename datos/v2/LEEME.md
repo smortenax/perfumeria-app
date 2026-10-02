@@ -44,7 +44,7 @@ un número de fila. Un id retirado no se reutiliza.
 | `sustancia-cas.csv` | un CAS de una sustancia | `id_sustancia, cas, relacion` (`principal`/`isomero`/`mezcla`/`obsoleto`), `notas` |
 | `grupos.csv` | un estándar IFRA o un alérgeno UE | `id, tipo` (`estandar-ifra`/`alergeno-ue`), `referencia` (`IFRA_STD_005`…), `nombre, notas` |
 | `grupo-miembros.csv` | un miembro de un grupo | `id_grupo, id_miembro, subgrupo, notas` |
-| `materiales.csv` | un material | `id, tipo` (`sustancia`/`natural`/`base`/`formula`), `nombre, id_sustancia, especie, parte, proceso, quimiotipo, cas, inci, excepciones, motivo_excepcion, notas` |
+| `materiales.csv` | un material | `id, tipo` (`sustancia`/`natural`/`base`/`formula`), `nombre, id_sustancia, especie, parte, proceso, quimiotipo, cas, inci, origen` (`sintetico`/`aislado-natural`/`desconocido`, solo en las sustancias, D7), `excepciones, motivo_excepcion, notas` |
 | `composicion.csv` | un componente de un material, producto o lote | `id_contenedor, id_componente, min, tipico, max, tipo_valor, autoridad, id_documento, notas` |
 | `coberturas.csv` | qué cubre la composición de una fuente | `id_contenedor, id_documento, cobertura` (`reguladas-completa`/`solo-alergenos`/`parcial`/`desconocida`), `notas` |
 | `productos.csv` | un producto de un proveedor (D3) | `id, id_material, nombre, fabricante, codigo, tienda, url, dilucion_pct, id_diluyente, notas` |
@@ -52,6 +52,7 @@ un número de fila. Un id retirado no se reutiliza.
 | `lotes.csv` | un lote de un producto (opcional, D3) | `id, id_producto, codigo_lote, fecha, notas` |
 | `documentos.csv` | una fuente | `id, tipo` (`coa`/`sds`/`certificado-ifra`/`ficha`/`anexo-ifra`/`articulo`/`consenso`/`otro`), `titulo, emisor, fecha, ruta, estado_revision` (`pendiente`/`revisado`), `notas` |
 | `usos.csv` | un uso habitual o una duración, con su base | `id_material, magnitud` (`uso-habitual`/`duracion`), `min, tipico, max, unidad, base, autoridad, id_documento, notas` |
+| `impurezas-conocidas.csv` | una molécula con impurezas reguladas conocidas (D7) | `id_sustancia, id_documento, notas` |
 | `v1-a-v2.csv` | un id del glosario v1 y su id v2 | `id_v2, id_v1` |
 
 Más detalle:
@@ -61,8 +62,10 @@ Más detalle:
   aquí no se copian. Un miembro es una sustancia o un material que IFRA limita como tal: los
   estándares por familia (089, 184) y un natural cuyo CAS está en el índice (el musgo de roble,
   067). `subgrupo` separa los grupos del 097 y del 181.
-- **Un material `sustancia` sin composición** es su propia sustancia al 100 % y no necesita
-  cobertura. Si tiene filas, por ejemplo las impurezas de un producto, sí la necesita.
+- **Un material `sustancia` sin composición** es su propia sustancia al 100 %, **pura por
+  convención** (D7), y no necesita cobertura. Si su `origen` es `aislado-natural`, o su sustancia
+  está en `impurezas-conocidas.csv`, deja pendientes las «impurezas sin declarar». Si tiene filas,
+  por ejemplo las impurezas de un producto, necesita su cobertura.
 - **Un `natural` o una `base` sin filas propias** de composición llevan una cobertura
   `desconocida` explícita, con `id_documento` vacío.
 - **`excepciones`** salta a sabiendas las reglas `suma` o `naturales` (lista separada por `;`)
@@ -90,6 +93,7 @@ número de línea cuenta la cabecera como línea 1.
 | `natural` | todo natural tiene especie |
 | `coherencia` | valores de los campos cerrados, autoridad ↔ contenedor, un solo CAS principal por sustancia y en una sola sustancia, el estándar existe en IFRA 51 |
 | `cobertura` | cada (contenedor, documento) con composición declara su cobertura; naturales y bases sin composición, `desconocida` |
+| `origen` | una sustancia tiene `origen` válido; los demás materiales lo dejan vacío (D7) |
 | `v1` | cada `id_v1` existe en `datos/glosario/materiales.csv` y no apunta a dos `id_v2` |
 | `duplicado` *(aviso)* | el mismo componente y contenedor, con la misma autoridad, en dos documentos con cifras distintas |
 

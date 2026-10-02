@@ -1,8 +1,8 @@
-id,tipo,nombre,id_sustancia,especie,parte,proceso,quimiotipo,cas,inci,excepciones,motivo_excepcion,notas
-M00001,sustancia,Geraniol,S00001,,,,,106-24-1,,,,
-M00002,sustancia,Linalool,S00002,,,,,78-70-6,,,,
-M00003,natural,Lavender oil,,Lavandula angustifolia,sumidad florida,destilación,,8000-28-0,,,,"El usuario decidió la forma el 2026-10-03: aceite esencial, como dice el cuaderno (materias-primas/lavanda.md)."
-M00004,natural,Castoreum absolute,,Castor spp.,castóreo,absoluto,,8023-83-4,,,,Maese Lab no declara la especie (Castor canadensis o Castor fiber). Sin datos de constituyentes: ni el anexo de IFRA ni el proveedor los dan.
-M00005,sustancia,2-Methyldecanal,S00005,,,,,19009-56-4,,,,
-M00006,natural,Oakmoss absolute,,Evernia prunastri,talo,absoluto,,90028-68-5,,,,"IFRA lo limita como tal (STD 067, por familia): es miembro del grupo como material."
-M00007,base,Castoreum Synthetic,,,,,,,,,,Base sin CAS: lo que se sabe de ella es lo que declara su certificado.
+id,tipo,nombre,id_sustancia,especie,parte,proceso,quimiotipo,cas,inci,origen,excepciones,motivo_excepcion,notas
+M00001,sustancia,Geraniol,S00001,,,,,106-24-1,,aislado-natural,,,Origen: Maese Lab lo vende como «Geraniol 98 % Nat» (página geraniol-98-nat).
+M00002,sustancia,Linalool,S00002,,,,,78-70-6,,desconocido,,,Origen: Olfatorium no dice si es natural o de síntesis.
+M00003,natural,Lavender oil,,Lavandula angustifolia,sumidad florida,destilación,,8000-28-0,,,,,"El usuario decidió la forma el 2026-10-03: aceite esencial, como dice el cuaderno (materias-primas/lavanda.md)."
+M00004,natural,Castoreum absolute,,Castor spp.,castóreo,absoluto,,8023-83-4,,,,,Maese Lab no declara la especie (Castor canadensis o Castor fiber). Sin datos de constituyentes: ni el anexo de IFRA ni el proveedor los dan.
+M00005,sustancia,2-Methyldecanal,S00005,,,,,19009-56-4,,desconocido,,,Origen: El certificado de Symrise no dice su origen.
+M00006,natural,Oakmoss absolute,,Evernia prunastri,talo,absoluto,,90028-68-5,,,,,"IFRA lo limita como tal (STD 067, por familia): es miembro del grupo como material."
+M00007,base,Castoreum Synthetic,,,,,,,,,,,Base sin CAS: lo que se sabe de ella es lo que declara su certificado.

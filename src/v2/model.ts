@@ -82,6 +82,8 @@ export interface Material extends Located {
   readonly chemotype: string;
   readonly cas: string;
   readonly inci: string;
+  /** Only for a «sustancia»: sintetico, aislado-natural or desconocido (D7). */
+  readonly origin: string;
   readonly exceptions: readonly string[];
   readonly exceptionReason: string;
 }
@@ -170,6 +172,18 @@ export interface Usage extends Located {
   readonly documentId: string;
 }
 
+/** The origin of a molecule (D7): an «aislado-natural» without documents leaves its impurities pending. */
+export const ORIGINS = ["sintetico", "aislado-natural", "desconocido"] as const;
+
+/**
+ * A molecule known to carry regulated impurities (D7): without documents of its product, it is not
+ * pure by convention, and leaves «impurezas sin declarar» pending. Each one with its source.
+ */
+export interface KnownImpurity extends Located {
+  readonly substanceId: string;
+  readonly documentId: string;
+}
+
 /** Link from a v1 glossary id (datos/glosario/materiales.csv) to its v2 id. */
 export interface V1Link extends Located {
   readonly v2Id: string;
@@ -190,6 +204,7 @@ export interface Dataset {
   readonly lots: readonly Lot[];
   readonly documents: readonly SourceDocument[];
   readonly usages: readonly Usage[];
+  readonly knownImpurities: readonly KnownImpurity[];
   readonly v1Links: readonly V1Link[];
 }
 

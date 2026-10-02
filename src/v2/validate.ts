@@ -1,5 +1,5 @@
 import { Ratio } from "../core/arith/ratio.ts";
-import { AUTHORITIES, ID_PREFIX } from "./model.ts";
+import { AUTHORITIES, ID_PREFIX, ORIGINS } from "./model.ts";
 import type { Dataset, Entity, Issue, Material, Severity } from "./model.ts";
 
 /**
@@ -28,6 +28,7 @@ const FILE = {
   lots: "lotes.csv",
   documents: "documentos.csv",
   usages: "usos.csv",
+  knownImpurities: "impurezas-conocidas.csv",
   v1Links: "v1-a-v2.csv",
 } as const;
 
@@ -182,6 +183,10 @@ export function validate(data: Dataset, refs: References): Issue[] {
   for (const u of data.usages) {
     ref(FILE.usages, u.line, "id_material", u.materialId, ["material"]);
     ref(FILE.usages, u.line, "id_documento", u.documentId, ["documento"], true);
+  }
+  for (const k of data.knownImpurities) {
+    ref(FILE.knownImpurities, k.line, "id_sustancia", k.substanceId, ["sustancia"]);
+    ref(FILE.knownImpurities, k.line, "id_documento", k.documentId, ["documento"], true);
   }
 
   // --- cas ------------------------------------------------------------------------------
@@ -348,6 +353,11 @@ export function validate(data: Dataset, refs: References): Issue[] {
     }
   }
 
+  // A molecule known to carry regulated impurities says where that is known from (D6, D7).
+  for (const k of data.knownImpurities) {
+    provenance(FILE.knownImpurities, k.line, k.documentId, null);
+  }
+
   // --- coverage -------------------------------------------------------------------------
   const coverageKeys = new Set<string>();
   for (const c of data.coverages) {
@@ -396,6 +406,12 @@ export function validate(data: Dataset, refs: References): Issue[] {
     }
     if (m.type === "sustancia" && m.substanceId === "") {
       error("coherencia", FILE.materials, m.line, "Un material de tipo sustancia necesita id_sustancia.");
+    }
+    // D7: a molecule says where it comes from; the rest of the materials do not use the field.
+    if (m.type === "sustancia" && !(ORIGINS as readonly string[]).includes(m.origin)) {
+      error("origen", FILE.materials, m.line, `Una sustancia necesita origen (${ORIGINS.join(", ")}); tiene «${m.origin}».`);
+    } else if (m.type !== "sustancia" && m.origin !== "") {
+      error("origen", FILE.materials, m.line, `El origen es solo de las sustancias; ${m.id} es ${m.type}.`);
     }
     if (m.type === "natural" && m.species === "") {
       error("natural", FILE.materials, m.line, `El natural ${m.id} no tiene especie (D1).`);

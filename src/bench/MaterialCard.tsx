@@ -52,6 +52,11 @@ function Identity(props: { material: Material; entry: CatalogEntry | undefined }
         <span className="mc-ids">
           {cas && <span className="num cas">{cas}</span>}
           {tag && <span className="pill">{tag}</span>}
+          {entry?.pureByConvention && (
+            <span className="pill" title={t.pureByConventionHelp}>
+              {t.pureByConvention}
+            </span>
+          )}
           {entry?.state && (
             <span className={`state state-${entry.state}`} title={search.stateHelp[entry.state]}>
               {search.state[entry.state]}
