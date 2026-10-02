@@ -1,1 +1,27 @@
 id_contenedor,id_componente,min,tipico,max,tipo_valor,autoridad,id_documento,notas
+M00003,S00001,,0.48,,tipico,anexo-ifra,D00001,Lavender oil (Lavandula angustifolia angustifolia)
+M00003,S00003,,1.04,,tipico,anexo-ifra,D00001,Lavender oil (Lavandula angustifolia angustifolia)
+M00003,S00004,,0.01,,tipico,anexo-ifra,D00001,Lavender oil (Lavandula angustifolia angustifolia)
+P00005,S00006,,0.0046,,tipico,producto,D00002,
+P00006,S00007,,,0.1,maximo,producto,D00004,cota «<» del certificado
+P00006,S00008,,,0.1,maximo,producto,D00004,cota «<» del certificado
+P00007,S00009,,0.0005,,tipico,producto,D00003,
+P00007,S00010,,0.0013,,tipico,producto,D00003,
+P00007,S00011,,0.0003,,tipico,producto,D00003,
+P00007,S00012,,0.0008,,tipico,producto,D00003,
+P00007,S00013,,0.014,,tipico,producto,D00003,
+P00007,S00014,,0.0036,,tipico,producto,D00003,
+P00007,S00015,,0.0007,,tipico,producto,D00003,
+P00007,S00016,,0.1635,,tipico,producto,D00003,
+P00007,S00017,,0.0003,,tipico,producto,D00003,
+P00007,S00018,,0.0351,,tipico,producto,D00003,
+P00007,S00019,,0.035,,tipico,producto,D00003,
+P00007,S00020,,0.0017,,tipico,producto,D00003,
+P00007,S00021,,0.0004,,tipico,producto,D00003,
+P00007,S00022,,0.1,,tipico,producto,D00003,
+P00007,S00023,,0.0004,,tipico,producto,D00003,
+P00007,S00024,,0.0042,,tipico,producto,D00003,
+P00007,S00025,,0.0004,,tipico,producto,D00003,
+P00007,S00026,,0.0015,,tipico,producto,D00003,
+P00007,S00027,,0.02,,tipico,producto,D00003,
+P00007,S00028,,0.0025,,tipico,producto,D00003,

@@ -1,0 +1,180 @@
+{
+  "fecha": "2026-10-03",
+  "notas": "Fase 2 de la v2: siete materiales que cubren los casos difíciles. La forma de la lavanda la decidió el usuario el 2026-10-03: aceite esencial.",
+  "documentos": [
+    {
+      "clave": "ifra51-anexo-naturales",
+      "tipo": "anexo-ifra",
+      "titulo": "IFRA 51, anexo de contribuciones de otras fuentes: naturales",
+      "emisor": "IFRA",
+      "fecha": "2023-06",
+      "ruta": "datos/ifra/51/naturales.csv",
+      "estado_revision": "revisado",
+      "notas": "Archivo oficial de IFRA convertido por scripts/importar_ifra.py; sus cifras se toman tal cual."
+    },
+    {
+      "clave": "cert-symrise-656012",
+      "tipo": "certificado-ifra",
+      "titulo": "IFRA-Conformity Certificate, ALDEHYDE C11 MOA 656012",
+      "emisor": "Symrise",
+      "fecha": "2023-09-22",
+      "ruta": "docs/proveedores/certificados/symrise-aldehyde-c11-moa-656012-ifra51.pdf",
+      "estado_revision": "revisado",
+      "notas": "Cotejado con el PDF el 2026-10-03: hexilcinamaldehído 0,0046 % y tope de Symrise del 2,50 % en la categoría 4."
+    },
+    {
+      "clave": "cert-firmenich-184004",
+      "tipo": "certificado-ifra",
+      "titulo": "IFRA Certificate of Conformity, CASTOREUM SYNTH 184004",
+      "emisor": "Firmenich",
+      "fecha": "2023-08-25",
+      "ruta": "docs/proveedores/certificados/firmenich-castoreum-synth-184004-ifra51.pdf",
+      "estado_revision": "revisado",
+      "notas": "Cotejado con el PDF el 2026-10-03: las 20 sustancias de la sección 2.2; categoría 4 «No Restriction»."
+    },
+    {
+      "clave": "cert-iff-00133097",
+      "tipo": "certificado-ifra",
+      "titulo": "IFRA 51 Ingredients, MOUSSE CHENE ABS. IFRA 43 (00133097)",
+      "emisor": "IFF",
+      "fecha": "2023-09-07",
+      "ruta": "datos/glosario/.cache/proveedores/perfumiarz/documentos/H13197_IFRA_10-23.pdf",
+      "estado_revision": "revisado",
+      "notas": "Cotejado con el PDF el 2026-10-03: es del absoluto puro (oakmoss extracts 100 %), con atranol y cloroatranol «<0,1» y un corte de 10 ppm; sin tope propio."
+    }
+  ],
+  "materiales": [
+    {
+      "clave": "geraniol",
+      "tipo": "sustancia",
+      "cas": "106-24-1",
+      "v1": ["fig:1906"],
+      "productos": [
+        {
+          "clave": "maeselab-geraniol-98-nat",
+          "nombre": "Geraniol 98%",
+          "tienda": "Maese Lab",
+          "url": "https://maeselab.com/geraniol-98-nat",
+          "notas": "Sin documentos del fabricante: cuenta como geraniol al 100 %."
+        }
+      ]
+    },
+    {
+      "clave": "linalol",
+      "tipo": "sustancia",
+      "cas": "78-70-6",
+      "v1": ["fig:2220"],
+      "productos": [
+        {
+          "clave": "olfatorium-linalol",
+          "nombre": "Linalol",
+          "tienda": "Olfatorium",
+          "url": "https://olfatorium.com/linalol",
+          "notas": "Kit de iniciación. Sin documentos del fabricante."
+        }
+      ]
+    },
+    {
+      "clave": "lavanda-aceite",
+      "tipo": "natural",
+      "nombre": "Lavender oil",
+      "especie": "Lavandula angustifolia",
+      "parte": "sumidad florida",
+      "proceso": "destilación",
+      "cas": "8000-28-0",
+      "anexo": { "documento": "ifra51-anexo-naturales", "nombre": "Lavender oil", "cas": "8000-28-0" },
+      "v1": ["fig:2183"],
+      "notas": "El usuario decidió la forma el 2026-10-03: aceite esencial, como dice el cuaderno (materias-primas/lavanda.md).",
+      "productos": [
+        {
+          "clave": "olfatorium-lavanda",
+          "nombre": "Lavanda",
+          "tienda": "Olfatorium",
+          "url": "https://olfatorium.com/absoluto-de-lavanda",
+          "notas": "Kit de iniciación. La página de la tienda se llama «absoluto-de-lavanda», pero es aceite esencial (decisión del usuario, 2026-10-03). Olfatorium da los CAS 8000-28-0 y 90063-37-9."
+        }
+      ]
+    },
+    {
+      "clave": "castoreum-absoluto",
+      "tipo": "natural",
+      "nombre": "Castoreum absolute",
+      "especie": "Castor spp.",
+      "parte": "castóreo",
+      "proceso": "absoluto",
+      "cas": "8023-83-4",
+      "v1": ["fig:1343"],
+      "notas": "Maese Lab no declara la especie (Castor canadensis o Castor fiber). Sin datos de constituyentes: ni el anexo de IFRA ni el proveedor los dan.",
+      "productos": [
+        {
+          "clave": "maeselab-castoreum-20",
+          "nombre": "Absoluto de Castoreum 20%",
+          "tienda": "Maese Lab",
+          "url": "https://maeselab.com/absoluto-de-castoreum-20",
+          "notas": "El castóreo natural que usa hoy. La dilución se elige al pesar."
+        }
+      ]
+    },
+    {
+      "clave": "metildecanal",
+      "tipo": "sustancia",
+      "nombre": "2-Methyldecanal",
+      "cas": "19009-56-4",
+      "v1": ["fig:507", "prod:symrise-656012"],
+      "productos": [
+        {
+          "clave": "symrise-656012",
+          "nombre": "Aldehyde C11 MOA",
+          "fabricante": "Symrise",
+          "codigo": "656012",
+          "tienda": "Perfumiarz",
+          "url": "https://perfumiarz.com/products/aldehyde-c11-moa",
+          "certificado": { "documento": "cert-symrise-656012", "registro": "prod:symrise-656012" },
+          "notas": "Certificado aportado por el usuario (2026-10-02)."
+        }
+      ]
+    },
+    {
+      "clave": "musgo-roble-absoluto",
+      "tipo": "natural",
+      "nombre": "Oakmoss absolute",
+      "especie": "Evernia prunastri",
+      "parte": "talo",
+      "proceso": "absoluto",
+      "cas": "90028-68-5",
+      "v1": ["fig:2480", "prod:iff-00133097"],
+      "notas": "IFRA lo limita como tal (STD 067, por familia): es miembro del grupo como material.",
+      "productos": [
+        {
+          "clave": "iff-00133097",
+          "nombre": "Oakmoss Absolute 50% (IPM)",
+          "fabricante": "IFF",
+          "codigo": "00133097",
+          "tienda": "Perfumiarz",
+          "url": "https://perfumiarz.com/products/oakmoss-absolute",
+          "certificado": { "documento": "cert-iff-00133097", "registro": "prod:iff-00133097" },
+          "notas": "Perfumiarz lo vende al 50 % en IPM; el certificado es del absoluto puro, así que sus cifras ya son de materia pura. La dilución se elige al pesar."
+        }
+      ]
+    },
+    {
+      "clave": "castoreum-sintetico",
+      "tipo": "base",
+      "nombre": "Castoreum Synthetic",
+      "v1": ["prod:firmenich-184004"],
+      "notas": "Base sin CAS: lo que se sabe de ella es lo que declara su certificado.",
+      "productos": [
+        {
+          "clave": "firmenich-184004",
+          "nombre": "Castoreum Synthetic",
+          "fabricante": "Firmenich",
+          "codigo": "184004",
+          "tienda": "Perfumiarz",
+          "url": "https://perfumiarz.com/products/castoreum-synthetic",
+          "certificado": { "documento": "cert-firmenich-184004", "registro": "prod:firmenich-184004" },
+          "notas": "Categoría 4: «No Restriction» de Firmenich, que no es un tope."
+        }
+      ]
+    }
+  ]
+}

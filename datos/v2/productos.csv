@@ -1,1 +1,8 @@
 id,id_material,nombre,fabricante,codigo,tienda,url,dilucion_pct,id_diluyente,notas
+P00001,M00001,Geraniol 98%,,,Maese Lab,https://maeselab.com/geraniol-98-nat,,,Sin documentos del fabricante: cuenta como geraniol al 100 %.
+P00002,M00002,Linalol,,,Olfatorium,https://olfatorium.com/linalol,,,Kit de iniciación. Sin documentos del fabricante.
+P00003,M00003,Lavanda,,,Olfatorium,https://olfatorium.com/absoluto-de-lavanda,,,"Kit de iniciación. La página de la tienda se llama «absoluto-de-lavanda», pero es aceite esencial (decisión del usuario, 2026-10-03). Olfatorium da los CAS 8000-28-0 y 90063-37-9."
+P00004,M00004,Absoluto de Castoreum 20%,,,Maese Lab,https://maeselab.com/absoluto-de-castoreum-20,,,El castóreo natural que usa hoy. La dilución se elige al pesar.
+P00005,M00005,Aldehyde C11 MOA,Symrise,656012,Perfumiarz,https://perfumiarz.com/products/aldehyde-c11-moa,,,Certificado aportado por el usuario (2026-10-02).
+P00006,M00006,Oakmoss Absolute 50% (IPM),IFF,00133097,Perfumiarz,https://perfumiarz.com/products/oakmoss-absolute,,,"Perfumiarz lo vende al 50 % en IPM; el certificado es del absoluto puro, así que sus cifras ya son de materia pura. La dilución se elige al pesar."
+P00007,M00007,Castoreum Synthetic,Firmenich,184004,Perfumiarz,https://perfumiarz.com/products/castoreum-synthetic,,,"Categoría 4: «No Restriction» de Firmenich, que no es un tope."
