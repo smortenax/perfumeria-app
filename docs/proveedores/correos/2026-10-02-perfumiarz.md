@@ -17,18 +17,16 @@ materials, the **EU allergen declaration** too, please.
 
 1. **Calone® (powder)**: the IFRA certificate linked on the product page is for a different product
    (“BRAN ABS LMR”, IFF H19146). Could you send the one for Calone?
-2. **Linalyl Acetate (BASF)**: the linked IFRA certificate is password-protected and cannot be
-   opened. Could you send an unprotected copy?
-3. **Helional®**: only the SDS and the allergen list are available.
-4. **Heliotropine**: only an SDS is available.
-5. **2-hydroxybenzaldehyde 10% (IPM)**: only an SDS is available.
-6. **3,4-Xylenol 10% (IPM)**: only an SDS of the neat material (Sigma-Aldrich) is available.
-7. **Aldambre**: only the SDS is available. Also, could you confirm its CAS number? The Ventós SDS
+2. **Helional®**: only the SDS and the allergen list are available.
+3. **Heliotropine**: only an SDS is available.
+4. **2-hydroxybenzaldehyde 10% (IPM)**: only an SDS is available.
+5. **3,4-Xylenol 10% (IPM)**: only an SDS of the neat material (Sigma-Aldrich) is available.
+6. **Aldambre**: only the SDS is available. Also, could you confirm its CAS number? The Ventós SDS
    gives 947-05-7 (oxacyclotridecan-2-one), while your product page gives 1725-03-7.
-8. **Benzoin Siam Resinoid (IFF)**: only the SDS is available. As a natural material, the IFRA
+7. **Benzoin Siam Resinoid (IFF)**: only the SDS is available. As a natural material, the IFRA
    certificate and the allergen declaration are especially important.
-9. **Auranone®**: no documents are available.
-10. **Prismantol 50% (DPG)**: no documents are available.
+8. **Auranone®**: no documents are available.
+9. **Prismantol 50% (DPG)**: no documents are available.
 
 Thank you very much for your help.
 

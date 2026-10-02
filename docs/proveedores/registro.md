@@ -21,6 +21,7 @@ Lo genera `scripts/registro_productos.py` desde [`mis-productos.csv`](mis-produc
 | ✓ | Habanolide | molécula | fig:2574 Oxacyclohexadec-12-en-2-one, (12E)- [sin-estandar] | Firmenich | 1 | 48.0000% |  |
 | ✓ | Ionone beta | molécula | fig:54 (E)-beta-Ionone [sin-estandar] | Givaudan | ninguna, lo dice | — |  |
 | ✓ | Kephalis | molécula | fig:604 3,3,5,5-Tetramethyl-4-ethoxyvinylcyclohexanone [sin-estandar] | Givaudan | ninguna, lo dice | — |  |
+| ✓ | Linalyl Acetate | molécula | fig:2223 Linalyl acetate [sin-estandar] | BASF | ninguna, lo dice | Not restricted |  |
 | ✓ | Maritima | molécula | fig:770 4-(4,8-Dimethylnona-3,7-dienyl)pyridine [sin-estandar] | IFF | ninguna, lo dice | — |  |
 | ✓ | Methyl Cinnamate 50% | molécula | fig:2343 Methyl cinnamate [sin-estandar] | Symrise | ninguna, lo dice | 1,20% |  |
 | ✓ | Oakmoss Absolute 50% (IPM) | molécula | cas:90028-68-5 Oakmoss extracts [con-techo] | IFF | 3 | — |  |
@@ -63,7 +64,6 @@ Lo genera `scripts/registro_productos.py` desde [`mis-productos.csv`](mis-produc
 | — | Iso E Super | molécula | fig:92 1-(1,2,3,4,5,6,7,8-Octahydro-2,3,8,8-tetramethyl-2-naphthalenyl)ethanone [con-techo] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | — | Isobutilquinoleína (IBQ) | molécula | fig:938 6-sec-Butylquinoline [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | — | Linalol | molécula | fig:2220 Linalool [condicion] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
-| ◐ | Linalyl Acetate | molécula | fig:2223 Linalyl acetate [sin-estandar] | ¿? | — | — | el certificado (IFRA_LINALYL_ACETATE_BASF.pdf) está cifrado o no se lee; pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | — | Mayol | molécula | fig:1447 cis-4-(Isopropyl)cyclohexanemethanol [con-techo] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | — | Methyl Pamplemousse | molécula | fig:922 6,6-Dimethoxy-2,5,5-trimethylhex-2-ene [sin-estandar] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | — | Metil ionona gamma | molécula | fig:1054 alpha-iso-Methylionone [con-techo] | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
@@ -92,4 +92,4 @@ Lo genera `scripts/registro_productos.py` desde [`mis-productos.csv`](mis-produc
 | — | Cilantro | sin fila en el glosario | — | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 | — | Láudano de jara | sin fila en el glosario | — | ¿? | — | — | pedir el certificado IFRA: para impurezas y el tope del fabricante |
 
-**22 documentados, 8 parciales, 56 sin documentos**, de 86.
+**23 documentados, 7 parciales, 56 sin documentos**, de 86.

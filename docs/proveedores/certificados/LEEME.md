@@ -19,3 +19,7 @@ constituyentes (paso 6c), que la app suma por sustancia con lo que traen los dem
 (§5.3). Para añadir otro: se deja su PDF aquí y se ejecutan `leer_certificados.py` y
 `generar_glosario.py`. Cuando exista el alta de materiales propios (P61), se hará desde la app.
 **El certificado no manda sobre IFRA:** cada sustancia se juzga con los estándares de `datos/ifra/`.
+
+**Transcripciones a mano** ([`transcripciones.csv`](transcripciones.csv)): un certificado que el
+script no puede leer (un PDF con cifrado de permisos, como el del acetato de linalilo de BASF) se
+transcribe aquí con su fuente, y el registro lo usa como si lo hubiera leído.

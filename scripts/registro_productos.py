@@ -87,6 +87,15 @@ def main() -> int:
         materials = [m for m in csv.DictReader(f) if not m["id"].startswith("prod:")]
     with (ROOT / "datos" / "glosario" / "origen" / "nombres-proveedores.csv").open(encoding="utf-8", newline="") as f:
         shop_rows = list(csv.DictReader(f))
+    transcribed: dict[str, dict] = {}
+    with (FOLDER / "certificados" / "transcripciones.csv").open(encoding="utf-8", newline="") as f:
+        for r in csv.DictReader(f):
+            transcribed[r["documento"]] = {
+                "product": r["producto"], "maker": r["fabricante"], "code": r["codigo"], "cat4": r["tope_cat4"],
+                "none_declared": r["sin_restringidas"] == "sí", "dilution": "",
+                "substances": [{"name": n, "cas": [c], "value": v, "bound": False}
+                               for n, c, v in (x.split(":") for x in r["sustancias"].split(";") if x)],
+            }
     with (FOLDER / "correcciones-cas.csv").open(encoding="utf-8", newline="") as f:
         fixes = {r["url"].rstrip("/"): r for r in csv.DictReader(f)}
     out, made, made_subs = [], [], []
@@ -114,6 +123,10 @@ def main() -> int:
             kinds.setdefault(kind_of(name, texts[name]), []).append(name)
         cert = next(iter(kinds.get("certificado", [])), None)
         parsed = certs.parse(texts[cert]) if cert and texts.get(cert) else None
+        # A certificate the script cannot read (an encrypted PDF) can be transcribed by hand, with
+        # its source, in certificados/transcripciones.csv.
+        if cert and parsed is None and cert in transcribed:
+            parsed = transcribed[cert]
         # The certificate has to be this product's: a word of its name, or the product's own CAS.
         # A document the user brought for this product is its own.
         own = parsed is not None and (cert == (Path(p["documento"]).name if p.get("documento") else None) or
