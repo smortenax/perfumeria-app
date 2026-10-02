@@ -1,4 +1,5 @@
 import { DILUENTS, type Material } from "../core/model/material";
+import type { ModelVersion } from "../data/repository";
 import { updateUserData, userData, type Dilution, type MaterialPrefs, type OwnDiluent } from "./store";
 
 /**
@@ -21,6 +22,13 @@ export function rememberLast(materialKey: string, dilution: Dilution): void {
     ...d,
     materials: { ...d.materials, [materialKey]: { ...(d.materials[materialKey] ?? { favorites: [] }), last: dilution } },
   }));
+}
+
+/** The model of materials the bench reads: the glossary (v1) unless the user chose the v2. */
+export const modelVersion = (): ModelVersion => userData().model ?? "v1";
+
+export function setModelVersion(model: ModelVersion): void {
+  updateUserData((d) => ({ ...d, model }));
 }
 
 /** The user's name for a material, if they have one (P56). */

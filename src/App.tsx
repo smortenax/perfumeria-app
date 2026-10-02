@@ -7,9 +7,11 @@ import "@fontsource/ibm-plex-sans/500.css";
 import "@fontsource/ibm-plex-sans/600.css";
 import { Bench, type Opened } from "./bench/Bench";
 import { Launcher } from "./bench/Launcher";
+import { modelVersion } from "./bench/prefs";
 import { loadUserData } from "./bench/store";
 import { emptyFormula } from "./bench/state";
 import { fitToWindow } from "./bench/zoom";
+import { repositoryFor } from "./data/repositories";
 import { texts } from "./i18n/es";
 import "./App.css";
 
@@ -56,7 +58,7 @@ function App() {
   if (!opened) {
     return <Launcher onNew={() => enter({ formula: emptyFormula(texts.bench.untitled), path: null })} onOpen={enter} />;
   }
-  return <Bench key={session} initial={opened} onExit={() => setOpened(null)} />;
+  return <Bench key={session} initial={opened} onExit={() => setOpened(null)} repository={repositoryFor(modelVersion())} />;
 }
 
 export default App;

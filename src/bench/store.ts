@@ -1,5 +1,6 @@
 import { invoke } from "@tauri-apps/api/core";
 import { appDataDir, join } from "@tauri-apps/api/path";
+import type { ModelVersion } from "../data/repository";
 import { inTauri } from "./io";
 
 /**
@@ -35,6 +36,8 @@ export interface UserData {
   /** The materials used lately. No longer shown or written (P57), but kept in the file as it was. */
   readonly recent: readonly string[];
   readonly diluents: readonly OwnDiluent[];
+  /** The model of materials the bench reads (v2 de los materiales, docs/v2/): v1 when absent. */
+  readonly model?: ModelVersion;
 }
 
 const FILE = "preferencias.json";
@@ -64,7 +67,13 @@ function valid(value: unknown): UserData | null {
   if (!v || v.version !== 1 || typeof v.materials !== "object" || !Array.isArray(v.recent)) {
     return null;
   }
-  return { version: 1, materials: v.materials ?? {}, recent: v.recent, diluents: Array.isArray(v.diluents) ? v.diluents : [] };
+  return {
+    version: 1,
+    materials: v.materials ?? {},
+    recent: v.recent,
+    diluents: Array.isArray(v.diluents) ? v.diluents : [],
+    ...(v.model === "v2" ? { model: "v2" as const } : {}),
+  };
 }
 
 /** Reads the user's data once, before the first screen. A missing file starts empty, or from what the browser kept before. */

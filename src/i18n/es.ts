@@ -24,6 +24,9 @@ export const texts = {
     provisional:
       "El reparto ya va por familias. La pirámide y la proyección esperan a decidir cómo se enseña la duración (P42).",
     openError: "No se pudo abrir la fórmula",
+    model: "Materiales:",
+    modelV1: "glosario (v1)",
+    modelV2: "v2 de prueba (datos/v2)",
   },
 
   bench: {

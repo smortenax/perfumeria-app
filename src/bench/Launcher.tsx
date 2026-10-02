@@ -4,6 +4,7 @@ import { catalog } from "../data/provisional";
 import { texts } from "../i18n/es";
 import type { Opened } from "./Bench";
 import { inTauri, pickAndRead, readFile } from "./io";
+import { modelVersion, setModelVersion } from "./prefs";
 import { libraryDir, readLibrary } from "./library";
 import { groupLibrary, type LibraryEntry, type LibraryGroup } from "./library-groups";
 
@@ -22,6 +23,11 @@ export function Launcher(props: { onNew: () => void; onOpen: (opened: Opened) =>
   const [groups, setGroups] = useState<LibraryGroup[] | null>(null);
   const [expanded, setExpanded] = useState<string | null>(null);
   const [folder, setFolder] = useState<string | null>(null);
+  const [model, setModel] = useState(modelVersion());
+  const choose = (next: "v1" | "v2") => {
+    setModelVersion(next);
+    setModel(next);
+  };
 
   useEffect(() => {
     if (!inTauri()) {
@@ -122,6 +128,16 @@ export function Launcher(props: { onNew: () => void; onOpen: (opened: Opened) =>
         </section>
       )}
       <div className="launcher-notes">
+        <p>
+          {t.model}{" "}
+          <button type="button" className="link" aria-pressed={model === "v1"} onClick={() => choose("v1")}>
+            {model === "v1" ? <strong>{t.modelV1}</strong> : t.modelV1}
+          </button>
+          {" · "}
+          <button type="button" className="link" aria-pressed={model === "v2"} onClick={() => choose("v2")}>
+            {model === "v2" ? <strong>{t.modelV2}</strong> : t.modelV2}
+          </button>
+        </p>
         <p>{t.base(catalog.counts.fig, catalog.counts.ifraOnly)}</p>
         <p>{t.families(catalog.counts.withFamily)}</p>
         <p>{t.source(catalog.source.amendment, catalog.source.generated)}</p>

@@ -8,7 +8,7 @@ import { formulaFromJson, formulaToJson as toJsonWith } from "../core/io/formula
 import type { Change, Formula, FormulaHeader } from "../core/model/formula";
 import { provisionalKey, type Material } from "../core/model/material";
 import { casForm } from "../data/catalog";
-import { catalog } from "../data/provisional";
+import type { MaterialRepository } from "../data/repository";
 import { texts } from "../i18n/es";
 import { AddBar, type AddBarHandle } from "./AddBar";
 import { BottleFrame } from "./Bottle";
@@ -52,8 +52,6 @@ interface View {
 const message = (e: unknown) => (e instanceof Error ? e.message : String(e));
 const reopensByWeighing = (formula: Formula) => formula.header.container?.tareUg != null && formula.history.length > 0;
 const baseName = (path: string) => path.split(/[\\/]/).pop() ?? path;
-/** Every file says with which IFRA amendment it was checked (P44). */
-const formulaToJson = (formula: Formula) => toJsonWith(formula, { ifraAmendment: catalog.source.amendment });
 /** A new formula starts on its own: without the version of the one it came from (P44). */
 const withoutVersion = (h: FormulaHeader): FormulaHeader => ({
   name: h.name,
@@ -68,7 +66,12 @@ const withoutVersion = (h: FormulaHeader): FormulaHeader => ({
  * with the spaces and proportions of the sketch (boceto 4, P36), reordered around the
  * composition (P57). The charts without data keep their place until the data comes.
  */
-export function Bench(props: { initial: Opened; onExit: () => void }) {
+export function Bench(props: { initial: Opened; onExit: () => void; repository: MaterialRepository }) {
+  // The materials and their IFRA data come from the model the user chose (v1 or v2), never from a global catalog.
+  const repository = props.repository;
+  const ifra = useMemo(() => repository.ifraData(), [repository]);
+  /** Every file says with which IFRA amendment it was checked (P44). */
+  const formulaToJson = (f: Formula) => toJsonWith(f, { ifraAmendment: repository.source.amendment });
   const [state, dispatch] = useReducer(benchReducer, props.initial, (o) => initialState(o.formula, o.path));
   const [session, setSession] = useState<Material[]>([]);
   // The material the card under the add bar shows: the last one chosen, kept after adding it (P57).
@@ -163,7 +166,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
       const upTo = frame ?? undefined;
       return {
         composition: compose(formula, upTo),
-        report: checkIfra(formula, catalog.ifra, upTo),
+        report: checkIfra(formula, ifra, upTo),
         lines: replay(formula, upTo),
         current: new Map(replay(formula).map((line) => [line.id, line])),
         error: null,
@@ -187,7 +190,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
     }
     // A failure here never takes the bench down: the lines just go without their IFRA figure.
     try {
-      return ifraOfLines(formula, catalog.ifra, view.report, view.composition, ifraBase, frame ?? undefined);
+      return ifraOfLines(formula, ifra, view.report, view.composition, ifraBase, frame ?? undefined);
     } catch {
       return undefined;
     }
@@ -201,7 +204,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
       return null;
     }
     try {
-      return ifraOfMaterial(formula, catalog.ifra, view.composition, view.report, cardMaterial, frame ?? undefined, ifraBase);
+      return ifraOfMaterial(formula, ifra, view.composition, view.report, cardMaterial, frame ?? undefined, ifraBase);
     } catch {
       return null;
     }
@@ -215,7 +218,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
       return null;
     }
     try {
-      return previewPour(formula, catalog.ifra, view.report, draft, ifraBase);
+      return previewPour(formula, ifra, view.report, draft, ifraBase);
     } catch {
       return null;
     }
@@ -223,13 +226,13 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
   }, [draftKey, formula, view, frame, ifraBase]);
   const warning = preview ? draftWarnings(preview).join(". ") || null : null;
 
-  const byKey = useMemo(() => new Map(catalog.entries.map((e) => [e.material.key, e.material])), []);
+  const byKey = useMemo(() => new Map(repository.entries.map((e) => [e.material.key, e.material])), []);
   // The glossary entry of each material: what the card of the chosen material shows (P57).
-  const entryByKey = useMemo(() => new Map(catalog.entries.map((e) => [e.material.key, e])), []);
+  const entryByKey = useMemo(() => new Map(repository.entries.map((e) => [e.material.key, e])), []);
   const icons = useMemo(
     () =>
       new Map(
-        catalog.entries.map((e) => [
+        repository.entries.map((e) => [
           e.material.key,
           { text: e.icon, ...(e.iconMark ? { mark: e.iconMark } : {}), ...(e.iconType ? { type: e.iconType } : {}) },
         ]),
@@ -238,13 +241,13 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
   );
   // The family of each material, with its colour (P48).
   const families = useMemo(
-    () => new Map(catalog.entries.filter((e) => e.family).map((e) => [e.material.key, e.family!])),
+    () => new Map(repository.entries.filter((e) => e.family).map((e) => [e.material.key, e.family!])),
     [],
   );
   const familyOf = (key: string) => families.get(key);
   // Beside a trade name, the chemical one (P38).
   const chemical = useMemo(
-    () => new Map(catalog.entries.filter((e) => e.tradeName).map((e) => [e.material.key, e.chemicalName])),
+    () => new Map(repository.entries.filter((e) => e.tradeName).map((e) => [e.material.key, e.chemicalName])),
     [],
   );
   // The formulas used as materials in this one stay at hand after reopening it: an accord
@@ -508,7 +511,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
             </div>
             <AddBar
               ref={addBar}
-              entries={catalog.entries}
+              entries={repository.entries}
               sessionMaterials={known}
               onNamed={() => dispatch({ type: "names", nameOf: ownName })}
               onAdd={change}
@@ -526,7 +529,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
               ifra={cardIfra}
               band={bandOf(cardMaterial ? entryByKey.get(cardMaterial.key)?.usage : undefined)}
               draft={preview}
-              data={catalog.ifra}
+              data={ifra}
             />
           </div>
         </div>
@@ -597,7 +600,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
           lines={view.lines}
           adds={adds}
           report={view.report}
-          ifra={catalog.ifra}
+          ifra={ifra}
           {...(lineIfra ? { lineIfra } : {})}
           {...(ifraBase ? { ifraBase } : {})}
           iconOf={(key) => icons.get(key)}
@@ -713,7 +716,7 @@ export function Bench(props: { initial: Opened; onExit: () => void }) {
               if (!cas) {
                 return texts.addBar.casInvalid(value.trim());
               }
-              return catalog.entries.some((e) => e.cas === cas) ? texts.addBar.casKnown(cas) : texts.addBar.casMissing(cas);
+              return repository.entries.some((e) => e.cas === cas) ? texts.addBar.casKnown(cas) : texts.addBar.casMissing(cas);
             }
             addBar.current?.select(createProvisional(value.trim()));
             return null;
