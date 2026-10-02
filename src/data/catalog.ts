@@ -114,6 +114,8 @@ export interface CatalogEntry {
   readonly documented?: boolean;
   /** A molecule whose product has no documents, counted as its substance pure by convention (D7 of the v2). */
   readonly pureByConvention?: boolean;
+  /** The IFRA specification of its standard, in IFRA's words: what the pill of its state says on hover (v2). */
+  readonly ifraNote?: string;
 }
 
 export interface Catalog {

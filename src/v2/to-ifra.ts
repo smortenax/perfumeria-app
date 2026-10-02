@@ -342,3 +342,58 @@ function merge(list: readonly Entry[]): Entry[] {
   }
   return [...byKey.values()];
 }
+
+/** What the card of a v2 material says of IFRA: the state, the standard it is limited by as itself, and its note. */
+export interface IfraCard {
+  readonly state: "prohibido" | "con-techo" | "condicion" | "por-constituyentes" | "sin-dato" | "sin-estandar";
+  readonly standardName?: string;
+  /** The specification in IFRA's words, with its standard, for the card to show. */
+  readonly note?: string;
+}
+
+/**
+ * The IFRA card of every product, lot and material, in the glossary's own states (v1 LEEME):
+ * what the material is as itself (its standards), then what it carries inside. A standard that
+ * goes by family (188, 184, 089) reaches a material only as a member of its group.
+ */
+export function ifraCards(data: Dataset, files: IfraFiles): Map<string, IfraCard> {
+  const standards = new Map(parseCsvRecords(files.estandares).map((s) => [s.estandar, s]));
+  const groupStandard = new Map(data.groups.filter((g) => g.type === "estandar-ifra").map((g) => [g.id, g.reference]));
+  const standardsOf = new Map<string, string[]>();
+  for (const gm of data.groupMembers) {
+    const standard = groupStandard.get(gm.groupId);
+    if (standard) {
+      standardsOf.set(gm.memberId, [...(standardsOf.get(gm.memberId) ?? []), standard]);
+    }
+  }
+  const cards = new Map<string, IfraCard>();
+  const ids = [...data.products.map((p) => p.id), ...data.lots.map((l) => l.id), ...data.materials.map((m) => m.id)];
+  for (const id of ids) {
+    const flat = flatten(data, id);
+    const own = [...flat.itself].flatMap((member) => standardsOf.get(member) ?? []).map((id2) => standards.get(id2)).filter((s) => s !== undefined);
+    const prohibited = own.find((s) => s.prohibicion === "sí" && limitOf(s) === null);
+    const limited = own.find((s) => limitOf(s) !== null);
+    const specified = own.find((s) => s.especificacion === "sí");
+    const inside = [...flat.loads.keys()].some((member) => !flat.itself.has(member) && (standardsOf.get(member) ?? []).length > 0);
+    const state: IfraCard["state"] = prohibited
+      ? "prohibido"
+      : limited
+        ? "con-techo"
+        : specified
+          ? "condicion"
+          : inside
+            ? "por-constituyentes"
+            : flat.pending.includes(NO_DATA)
+              ? "sin-dato"
+              : "sin-estandar";
+    const first = prohibited ?? limited ?? specified;
+    cards.set(v2Key(id), {
+      state,
+      ...(first ? { standardName: first.nombre } : {}),
+      ...(specified?.nota_especificacion
+        ? { note: `Especificación (${short(specified.estandar)}, ${specified.nombre}): ${specified.nota_especificacion}` }
+        : {}),
+    });
+  }
+  return cards;
+}

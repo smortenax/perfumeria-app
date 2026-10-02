@@ -58,7 +58,7 @@ function Identity(props: { material: Material; entry: CatalogEntry | undefined }
             </span>
           )}
           {entry?.state && (
-            <span className={`state state-${entry.state}`} title={search.stateHelp[entry.state]}>
+            <span className={`state state-${entry.state}`} title={entry.ifraNote ?? search.stateHelp[entry.state]}>
               {search.state[entry.state]}
             </span>
           )}

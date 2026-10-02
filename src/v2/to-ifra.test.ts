@@ -3,7 +3,7 @@ import { Ratio } from "../core/arith/ratio";
 import type { IfraMaterial } from "../core/ifra";
 import { IFRA_FILES, v2Dataset } from "./data";
 import { loadDataset } from "./load";
-import { ceilingKey, flatten, toIfra, v2Key } from "./to-ifra";
+import { ceilingKey, flatten, ifraCards, toIfra, v2Key } from "./to-ifra";
 
 const pct = (text: string) => Ratio.fromDecimal(text).div(Ratio.of(100));
 const data = v2Dataset();
@@ -216,5 +216,43 @@ describe("D7: a molecule without documents", () => {
     const f = flatten(dataset({ "materiales.csv": [MOLECULE("sintetico")], "impurezas-conocidas.csv": ["S00001,D00001,"] }), "M00001");
     expect(f.pureByConvention).toBe(false);
     expect(f.pending).toEqual(["Impurezas sin declarar: se le conocen impurezas reguladas y su producto no tiene documentos."]);
+  });
+});
+
+describe("the standards that go by family (STD 188, allyl esters)", () => {
+  const aag = data.products.find((x) => x.name === "Allyl Amyl Glycolate")!;
+
+  it("the Allyl Amyl Glycolate is a member of the group as a material, though the index does not list its CAS", () => {
+    const group = data.groups.find((g) => g.reference === "IFRA_STD_188")!;
+    const members = data.groupMembers.filter((gm) => gm.groupId === group.id).map((gm) => gm.memberId);
+    // The only allyl ester of the v2 (the other 39 materials were reviewed by name): nothing else is in the group.
+    expect(members).toEqual([aag.materialId]);
+    expect(IFRA_FILES.estandarCas.includes("IFRA_STD_188,")).toBe(false);
+  });
+
+  it("its IFRA data carries the specification, and no percentage", () => {
+    const m = ifra.materials.get(v2Key(aag.id))!;
+    expect(m.substances).toEqual([]);
+    expect(m.conditions).toEqual(["especificación (STD 188)"]);
+    expect(m.pending).toBeUndefined();
+  });
+
+  it("its card says «condición» and shows IFRA's specification: free allyl alcohol under 0,1 %", () => {
+    const card = ifraCards(data, IFRA_FILES).get(v2Key(aag.id))!;
+    expect(card.state).toBe("condicion");
+    expect(card.standardName).toBe("Allyl esters");
+    expect(card.note).toContain("STD 188");
+    expect(card.note).toContain("free Allylalcohol");
+  });
+});
+
+describe("Sandalmysore Core, a base with unknown coverage (the user's notebook)", () => {
+  it("is a base, with a «desconocida» coverage, and leaves its constituents pending", () => {
+    const m = data.materials.find((x) => x.name.startsWith("2-Methyl-4-(2,2,3-trimethyl-3-cyclopenten-1-yl)-2-buten-1-ol"))!;
+    expect(m.type).toBe("base");
+    expect(m.origin).toBe("");
+    expect(data.coverages.find((c) => c.containerId === m.id)?.coverage).toBe("desconocida");
+    const product = data.products.find((p) => p.materialId === m.id)!;
+    expect(ifra.materials.get(v2Key(product.id))?.pending).toEqual([NO_DATA]);
   });
 });

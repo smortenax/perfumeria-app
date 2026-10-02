@@ -1,6 +1,6 @@
 producto,tipo,respuesta,notas
 Alcohol Feniletílico,origen,desconocido,"usuario, 2026-10-03: acepta la recomendación"
-Allyl Amyl Glycolate,ifra-distinto,indice,"usuario, 2026-10-03: acepta la recomendación"
+Allyl Amyl Glycolate,ifra-distinto,familia,"usuario, 2026-10-03: es un éster alílico y le aplica el IFRA_STD_188 (alcohol alílico libre < 0,1 %), aunque el índice no liste su CAS"
 Allyl Amyl Glycolate,origen,sintetico,"usuario, 2026-10-03: acepta la recomendación"
 Cilantro,sin-fila-v1,excluir,"usuario, 2026-10-03: acepta la recomendación"
 Dihydromyrcenol,origen,sintetico,"usuario, 2026-10-03: acepta la recomendación"
@@ -15,6 +15,6 @@ Methyl Pamplemousse,origen,sintetico,"usuario, 2026-10-03: acepta la recomendaci
 Polysantol,documento-ajeno,no-traer,"usuario, 2026-10-03: acepta la recomendación"
 Polysantol,origen,sintetico,"usuario, 2026-10-03: acepta la recomendación"
 Sandalmysore Core,documento-ajeno,no-traer,"usuario, 2026-10-03: acepta la recomendación"
-Sandalmysore Core,origen,desconocido,"usuario, 2026-10-03: acepta la recomendación"
+Sandalmysore Core,tipo,base,"usuario, 2026-10-03: según su cuaderno (materias-primas/sandalmysore-core.md) es una base, con fracciones naturales de sándalo"
 Stemone,origen,sintetico,"usuario, 2026-10-03: acepta la recomendación"
 Vertenex (PTBCHA),origen,sintetico,"usuario, 2026-10-03: acepta la recomendación"

@@ -3,7 +3,7 @@ M00001,sustancia,Geraniol,S00001,,,,,106-24-1,,aislado-natural,,,Origen: Maese L
 M00002,sustancia,Linalool,S00002,,,,,78-70-6,,desconocido,,,Origen: Olfatorium no dice si es natural o de síntesis.
 M00003,natural,Lavender oil,,Lavandula angustifolia,sumidad florida,destilación,,8000-28-0,,,,,"El usuario decidió la forma el 2026-10-03: aceite esencial, como dice el cuaderno (materias-primas/lavanda.md)."
 M00004,natural,Castoreum absolute,,Castor spp.,castóreo,absoluto,,8023-83-4,,,,,Maese Lab no declara la especie (Castor canadensis o Castor fiber). Sin datos de constituyentes: ni el anexo de IFRA ni el proveedor los dan.
-M00005,sustancia,2-Methyldecanal,S00005,,,,,19009-56-4,,desconocido,,,Origen: El certificado de Symrise no dice su origen.
+M00005,sustancia,2-Methyldecanal,S00005,,,,,19009-56-4,,sintetico,,,Origen: Lo dice el usuario (2026-10-03); el certificado de Symrise no lo dice.
 M00006,natural,Oakmoss absolute,,Evernia prunastri,talo,absoluto,,90028-68-5,,,,,"IFRA lo limita como tal (STD 067, por familia): es miembro del grupo como material."
 M00007,base,Castoreum Synthetic,,,,,,,,,,,Base sin CAS: lo que se sabe de ella es lo que declara su certificado.
 M00008,sustancia,"Naphtho[2,1-b]furan, dodecahydro-3a,6,6,9a-tetramethyl-",S00029,,,,,3738-00-9,,sintetico,,,"Origen: ambroxano: el cuaderno lo da como «primer ambarado de síntesis declarado como tal»; industrialmente sale por semisíntesis del esclareol [cuaderno: materias-primas/ambermor.md] (lote 3a, confirmado por el usuario)."
@@ -36,6 +36,6 @@ M00034,sustancia,"1-(1,2,3,4,5,6,7,8-Octahydro-2,3,8,8-tetramethyl-2-naphthaleny
 M00035,sustancia,cis-4-(Isopropyl)cyclohexanemethanol,S00055,,,,,13828-37-0,,sintetico,,,"Origen: «molécula de síntesis de Firmenich» [cuaderno: materias-primas/mayol.md] (lote 3b, confirmado por el usuario)."
 M00036,sustancia,"6,6-Dimethoxy-2,5,5-trimethylhex-2-ene",S00056,,,,,67674-46-8,,sintetico,,,"Origen: «molécula de síntesis de Givaudan» [cuaderno: materias-primas/methyl-pamplemousse.md] (lote 3b, confirmado por el usuario)."
 M00037,sustancia,"3,3-Dimethyl-5-(2,2,3-trimethyl-3-cyclopenten-1-yl)-4-penten-2-ol",S00057,,,,,107898-54-4,,sintetico,,,"Origen: «sándalo sintético de Firmenich» [cuaderno: materias-primas/polysantol.md] (lote 3b, confirmado por el usuario)."
-M00038,sustancia,"2-Methyl-4-(2,2,3-trimethyl-3-cyclopenten-1-yl)-2-buten-1-ol",S00058,,,,,28219-60-5,,desconocido,,,"Origen: el cuaderno lo trata como base: «a menudo enriquecida con fracciones naturales de sándalo», composición no publicada [cuaderno: materias-primas/sandalmysore-core.md] (lote 3b, confirmado por el usuario)."
+M00038,base,"2-Methyl-4-(2,2,3-trimethyl-3-cyclopenten-1-yl)-2-buten-1-ol",,,,,,28219-60-5,,,,,
 M00039,sustancia,5-Methyl-3-heptanone oxime,S00059,,,,,22457-23-4,,sintetico,,,"Origen: «molécula de síntesis (Givaudan)» [cuaderno: materias-primas/stemone.md] (lote 3b, confirmado por el usuario)."
 M00040,sustancia,4-tert-Butylcyclohexyl acetate,S00060,,,,,32210-23-4,,sintetico,,,"Origen: «molécula de síntesis» [cuaderno: materias-primas/vertenex-ptbcha.md] (lote 3b, confirmado por el usuario)."

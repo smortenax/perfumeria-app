@@ -136,8 +136,8 @@
       "tipo": "sustancia",
       "nombre": "2-Methyldecanal",
       "cas": "19009-56-4",
-      "origen": "desconocido",
-      "origen_fuente": "El certificado de Symrise no dice su origen.",
+      "origen": "sintetico",
+      "origen_fuente": "Lo dice el usuario (2026-10-03); el certificado de Symrise no lo dice.",
       "v1": [
         "fig:507",
         "prod:symrise-656012"

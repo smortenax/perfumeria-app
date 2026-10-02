@@ -13,10 +13,15 @@ Tipos de conflicto y sus respuestas (`excluir` vale en todos: el producto no ent
 * `estados-ifra`: el mismo CAS tiene estados de IFRA distintos en la v1. Respuesta: `v1:<id>`,
   la fila que le corresponde.
 * `ifra-distinto`: los estándares de la fila de la v1 no son los del índice de IFRA para su CAS.
-  Respuesta: `indice` (manda el índice).
+  Respuesta: `familia` (la v1 lo encontró por un estándar de familia, 089, 184 o 188, que no lista
+  su CAS pero le aplica; el material entra como miembro del grupo) o `indice` (manda el índice).
+  La tabla explica el estándar. Con familia, se recomienda `familia`.
 * `suma`: los constituyentes de la fila de la v1 suman más del 100,5 %. Respuesta: `no-traer`.
 * `sin-fila-v1`: el producto no tiene fila en la v1 (o no está en el registro). Respuesta:
   `alta-sin-v1:<CAS>` (molécula dada de alta por su CAS) o `excluir`.
+* `tipo`: no es un conflicto que el script detecte, sino una decisión del usuario sobre el tipo de
+  material (por ejemplo, que una «molécula» es en realidad una base). Respuesta: `base`; el
+  material entra como base, con cobertura «desconocida» y sin origen.
 * `origen` (D7): el origen de cada molécula que entra. La propuesta sale de
   `docs/v2/origenes-propuestos.csv` (por CAS, con su motivo y su fuente), y si no está ahí, de que
   el nombre o la página digan «natural»; si no, `desconocido`. Respuesta: `sintetico`,
@@ -56,6 +61,7 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
     """The lot as an entry of alta.py, its proposal rows and its conflicts (with any answers)."""
     mine = read_csv(root / "docs" / "proveedores" / "mis-productos.csv")
     registry = {(r["producto"], r["tienda"]): r for r in read_csv(root / "docs" / "proveedores" / "registro.csv")}
+    ifra_standards = {r["estandar"]: r for r in read_csv(root / "datos" / "ifra" / "51" / "estandares.csv")}
     v1 = read_csv(root / "datos" / "glosario" / "materiales.csv")
     v1_by_id = {r["id"]: r for r in v1}
     v1_by_cas: dict[str, list[dict[str, str]]] = {}
@@ -124,7 +130,20 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
             family = [c for c in row["condiciones"].split(" · ") if c.startswith("familia")]
             if in_v1 != in_index or family:
                 detail = f"v1 {' '.join(in_v1) or '(ninguno)'}; índice {' '.join(in_index) or '(ninguno)'}"
-                conflict("ifra-distinto", detail + (f"; v1: {family[0]}" if family else ""), "indice")
+                families = []
+                for c in family:
+                    m = re.search(r"\(STD (\d+)\)", c)
+                    std = f"IFRA_STD_{m.group(1)}" if m else ""
+                    if std in ifra_standards:
+                        s = ifra_standards[std]
+                        note = s["nota_especificacion"] or s["nota_restriccion"] or s["limite_expresado_como"]
+                        families.append(std)
+                        detail += f"; {c} → {std} «{s['nombre']}»: {note[:150]}"
+                    else:
+                        detail += f"; v1: {c}"
+                if families and not ({*families} <= set(in_index)):
+                    detail += " (el índice no lista su CAS: la familia le aplica por el nombre)"
+                conflict("ifra-distinto", detail, "familia" if families else "indice")
 
             own_docs = {d for d in ((reg or {}).get(c, "") for c in ("certificado", "ficha", "alergenos")) if d}
             foreign = sorted({(c["aviso"].split(": ")[-1] if c["aviso"] else c["fuente"])
@@ -146,7 +165,11 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
 
         excluded = any(c["respuesta"] == "excluir" for c in found)
         # D7: the origin of a molecule that enters. Not asked of what is out, or has no row yet.
-        if not excluded and not any(c["tipo"] == "sin-fila-v1" and not c["respuesta"] for c in found):
+        as_base = answers.get((name, "tipo")) == "base"
+        if as_base:
+            found.append({"producto": name, "tipo": "tipo", "detalle": "el usuario lo trata como base, no como molécula",
+                          "recomendacion": "base", "respuesta": "base"})
+        elif not excluded and not any(c["tipo"] == "sin-fila-v1" and not c["respuesta"] for c in found):
             if cas in proposed:
                 guess, why = proposed[cas]["origen"], f"{proposed[cas]['motivo']} [{proposed[cas]['fuente']}]"
             elif NATURAL_WORDS.search(f"{name} {p['pagina']}"):
@@ -158,6 +181,8 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
         pending = [c for c in found if not c["respuesta"]]
         origin = next((c["respuesta"] for c in found if c["tipo"] == "origen"), "")
         why = next((c["detalle"] for c in found if c["tipo"] == "origen"), "")
+        families_of = ([f for f in re.findall(r"IFRA_STD_\d+", next((c["detalle"] for c in found if c["tipo"] == "ifra-distinto"), ""))]
+                       if any(c["tipo"] == "ifra-distinto" and c["respuesta"] == "familia" for c in found) else [])
         chosen = next((c["respuesta"][3:] for c in found if c["respuesta"].startswith("v1:")), None)
         if chosen:
             row = v1_by_id.get(chosen, row)
@@ -177,9 +202,10 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
                    "fabricante": (reg or {}).get("fabricante", ""), "codigo": (reg or {}).get("codigo", ""),
                    "notas": p["notas"]}
         materials.append({
-            "clave": material_key, "tipo": "sustancia", "nombre": row["nombre"] if row else name, "cas": cas,
-            "origen": origin, "origen_fuente": f"{why} (lote {lot}, confirmado por el usuario).",
+            "clave": material_key, "tipo": "base" if as_base else "sustancia", "nombre": row["nombre"] if row else name, "cas": cas,
+            **({} if as_base else {"origen": origin, "origen_fuente": f"{why} (lote {lot}, confirmado por el usuario)."}),
             "v1": [row["id"]] if row else [], "productos": [product],
+            **({"familias": sorted(set(families_of))} if families_of else {}),
         })
 
     # A lot enters whole, once every conflict has its answer: never half of it.

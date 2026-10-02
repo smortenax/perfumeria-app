@@ -261,6 +261,10 @@ def main() -> int:
             if m["tipo"] in ("natural", "base") and cas:
                 for standard, subgroup in index.get(cas, []):
                     member(standard, subgroup, mid, date, "índice de IFRA 51: limitado como tal")
+            # A standard that goes by family (089, 184, 188) applies by what the material is, not by
+            # its CAS: it is a member of the group as a material.
+            for standard in m.get("familias", []):
+                member(standard, "", mid, date, "familia: el estándar le aplica por lo que es, aunque el índice no liste su CAS")
             for v1 in m.get("v1", []):
                 v1_links.append({"id_v2": mid, "id_v1": v1})
 

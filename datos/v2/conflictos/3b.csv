@@ -1,6 +1,6 @@
 producto,tipo,detalle,recomendacion,respuesta
 Alcohol Feniletílico,origen,«aislado natural o sintético sin confirmar»: el cuaderno documenta las dos rutas y pide mirar la etiqueta [cuaderno: materias-primas/alcohol-feniletilico.md],desconocido,desconocido
-Allyl Amyl Glycolate,ifra-distinto,"v1 (ninguno); índice (ninguno); v1: familia, por el nombre: ésteres alílicos: alcohol alílico libre (STD 188)",indice,indice
+Allyl Amyl Glycolate,ifra-distinto,"v1 (ninguno); índice (ninguno); familia, por el nombre: ésteres alílicos: alcohol alílico libre (STD 188) → IFRA_STD_188 «Allyl esters»: Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%. This recommendation is based on the delayed irrit (el índice no lista su CAS: la familia le aplica por el nombre)",familia,familia
 Allyl Amyl Glycolate,origen,«molécula de síntesis (IFF)» [cuaderno: materias-primas/allyl-amyl-glycolate.md],sintetico,sintetico
 Cilantro,sin-fila-v1,en el registro y sin fila en la v1; CAS 84775-50-8; la clase no se sabe,alta-sin-v1:84775-50-8 si es molécula; excluir si no,excluir
 Dihydromyrcenol,origen,«molécula de síntesis» [cuaderno: materias-primas/dihydromyrcenol.md],sintetico,sintetico
@@ -15,6 +15,6 @@ Methyl Pamplemousse,origen,«molécula de síntesis de Givaudan» [cuaderno: mat
 Polysantol,documento-ajeno,fig:607: lista de alérgenos W16070_ALG_09-23_dedaef5f-2556-41d2-9b49-9f30bc068adb.pdf,no-traer,no-traer
 Polysantol,origen,«sándalo sintético de Firmenich» [cuaderno: materias-primas/polysantol.md],sintetico,sintetico
 Sandalmysore Core,documento-ajeno,fig:487: lista de alérgenos H19102_ALG_02-24.pdf,no-traer,no-traer
-Sandalmysore Core,origen,"el cuaderno lo trata como base: «a menudo enriquecida con fracciones naturales de sándalo», composición no publicada [cuaderno: materias-primas/sandalmysore-core.md]",desconocido,desconocido
+Sandalmysore Core,tipo,"el usuario lo trata como base, no como molécula",base,base
 Stemone,origen,«molécula de síntesis (Givaudan)» [cuaderno: materias-primas/stemone.md],sintetico,sintetico
 Vertenex (PTBCHA),origen,«molécula de síntesis» [cuaderno: materias-primas/vertenex-ptbcha.md],sintetico,sintetico

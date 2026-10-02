@@ -13,6 +13,6 @@ Linalol,olfatorium-linalol,ya-dado-de-alta,,,,,,
 Mayol,olfatorium-mayol,alta,sustancia,cis-4-(Isopropyl)cyclohexanemethanol,13828-37-0,sintetico,fig:1447,Origen: «molécula de síntesis de Firmenich» [cuaderno: materias-primas/mayol.md].
 Methyl Pamplemousse,olfatorium-methyl-pamplemousse,alta,sustancia,"6,6-Dimethoxy-2,5,5-trimethylhex-2-ene",67674-46-8,sintetico,fig:922,Origen: «molécula de síntesis de Givaudan» [cuaderno: materias-primas/methyl-pamplemousse.md].
 Polysantol,olfatorium-polysantol,alta,sustancia,"3,3-Dimethyl-5-(2,2,3-trimethyl-3-cyclopenten-1-yl)-4-penten-2-ol",107898-54-4,sintetico,fig:607,Origen: «sándalo sintético de Firmenich» [cuaderno: materias-primas/polysantol.md].
-Sandalmysore Core,olfatorium-sandalmysore-core,alta,sustancia,"2-Methyl-4-(2,2,3-trimethyl-3-cyclopenten-1-yl)-2-buten-1-ol",28219-60-5,desconocido,fig:487,"Origen: el cuaderno lo trata como base: «a menudo enriquecida con fracciones naturales de sándalo», composición no publicada [cuaderno: materias-primas/sandalmysore-core.md]."
+Sandalmysore Core,olfatorium-sandalmysore-core,alta,sustancia,"2-Methyl-4-(2,2,3-trimethyl-3-cyclopenten-1-yl)-2-buten-1-ol",28219-60-5,,fig:487,Origen: .
 Stemone,olfatorium-stemone,alta,sustancia,5-Methyl-3-heptanone oxime,22457-23-4,sintetico,fig:910,Origen: «molécula de síntesis (Givaudan)» [cuaderno: materias-primas/stemone.md].
 Vertenex (PTBCHA),olfatorium-ptbcha-aka-vertenex,alta,sustancia,4-tert-Butylcyclohexyl acetate,32210-23-4,sintetico,fig:867,Origen: «molécula de síntesis» [cuaderno: materias-primas/vertenex-ptbcha.md].
