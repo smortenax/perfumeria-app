@@ -1,0 +1,28 @@
+id_v1,id_v2,id_producto,confirmado,motivo
+cert:firmenich-184004,M00007,,2026-10-03,"D13: la clave del certificado del producto es el producto (Castoreum Synthetic, Perfumiarz)"
+fig:1165,M00050,P00050,2026-10-03,D13: la fórmula migra al producto que tengo; la discrepancia de forma o de CAS con la fila de la v1 es un error de la v1 (errores-v1.md); el material tiene dos productos y solo el de Olfatorium está en uso
+fig:1168,M00050,P00050,2026-10-03,D13: el material tiene dos productos y solo el resinoide de Olfatorium está en uso
+fig:1287,M00054,,2026-10-03,D13: la fórmula migra al producto que tengo; la discrepancia de forma o de CAS con la fila de la v1 es un error de la v1 (errores-v1.md)
+fig:1345,M00004,,2026-10-03,D13: la fórmula migra al producto que tengo; la discrepancia de forma o de CAS con la fila de la v1 es un error de la v1 (errores-v1.md)
+fig:1533,M00044,,2026-10-03,D13: la fórmula migra al producto que tengo; la discrepancia de forma o de CAS con la fila de la v1 es un error de la v1 (errores-v1.md)
+fig:1529,M00044,,2026-10-03,D13: la fórmula migra al producto que tengo; la discrepancia de forma o de CAS con la fila de la v1 es un error de la v1 (errores-v1.md)
+fig:2557,M00048,,2026-10-03,D13: la fórmula migra al producto que tengo; la discrepancia de forma o de CAS con la fila de la v1 es un error de la v1 (errores-v1.md)
+fig:2600,M00049,,2026-10-03,D13: la fórmula migra al producto que tengo; la discrepancia de forma o de CAS con la fila de la v1 es un error de la v1 (errores-v1.md)
+fig:2839,M00052,,2026-10-03,D13: la fórmula migra al producto que tengo; la discrepancia de forma o de CAS con la fila de la v1 es un error de la v1 (errores-v1.md)
+fig:2913,M00051,,2026-10-03,D13: la fórmula migra al producto que tengo; la discrepancia de forma o de CAS con la fila de la v1 es un error de la v1 (errores-v1.md)
+fig:3087,M00053,,2026-10-03,D13: la fórmula migra al producto que tengo; la discrepancia de forma o de CAS con la fila de la v1 es un error de la v1 (errores-v1.md)
+fig:2143,M00058,,2026-10-03,D13: la fórmula migra al producto que tengo; la discrepancia de forma o de CAS con la fila de la v1 es un error de la v1 (errores-v1.md)
+fig:2150,M00058,,2026-10-03,D13: la fórmula migra al producto que tengo; la discrepancia de forma o de CAS con la fila de la v1 es un error de la v1 (errores-v1.md)
+fig:2521,M00059,,2026-10-03,D13: la fórmula migra al producto que tengo; la discrepancia de forma o de CAS con la fila de la v1 es un error de la v1 (errores-v1.md)
+fig:2990,M00057,,2026-10-03,D13: la fórmula migra al producto que tengo; la discrepancia de forma o de CAS con la fila de la v1 es un error de la v1 (errores-v1.md)
+fig:183,M00072,,2026-10-03,D13: la fórmula migra al producto que tengo; la discrepancia de forma o de CAS con la fila de la v1 es un error de la v1 (errores-v1.md)
+fig:2427,M00008,,2026-10-03,D13: la fórmula migra al producto que tengo; la discrepancia de forma o de CAS con la fila de la v1 es un error de la v1 (errores-v1.md)
+fig:946,M00028,,2026-10-03,D13: la fórmula migra al producto que tengo; la discrepancia de forma o de CAS con la fila de la v1 es un error de la v1 (errores-v1.md); el Dihydromyrcenol del usuario es el de Olfatorium
+fig:94,M00034,,2026-10-03,D13: la fórmula migra al producto que tengo; la discrepancia de forma o de CAS con la fila de la v1 es un error de la v1 (errores-v1.md)
+prov:ambergris tintura,M00055,,2026-10-03,D13: confirmado por el usuario; el provisional no trae CAS que comprobar
+prov:bergamota sin bergaptenos,M00042,,2026-10-03,D13: confirmado por el usuario; el provisional no trae CAS que comprobar
+prov:trufa abs,M00056,,2026-10-03,D13: confirmado por el usuario; el provisional no trae CAS que comprobar
+prov:4-ethylphenol,M00018,,2026-10-03,D13: confirmado por el usuario (el etil-4-fenol de Maese Lab); el provisional no trae CAS que comprobar
+prov:0123-07-09,M00018,,2026-10-03,"D13: confirmado por el usuario (el 123-07-9 mal tecleado, el etil-4-fenol de Maese Lab); el provisional no trae CAS que comprobar"
+fig:1069,M00055,,2026-10-03,"D1: el CAS es atributo; la identidad de la tintura de ámbar gris la decidió el usuario en el lote 3d (el CAS de la v1, 8038-65-1, es el de otra forma)"
+fig:2992,M00057,,2026-10-03,"D1: el CAS es atributo; la identidad de la tintura de haba tonka la decidió el usuario en el lote 3d (el CAS de la v1, 8024-04-2, es el del extracto)"

@@ -38,6 +38,29 @@ viene.
   de «Benzoin Siam Resin» y el certificado de «BRAN ABS LMR» del Calone solo los enlaza la tienda: la v1 no los usó
   para el benjuí ni para el Calone.)
 
+### Filas de la v1 que la biblioteca usa para un producto de la v2 de otra forma o de otro CAS (D13, 2026-10-03)
+
+- `fig:1165` (Benzoin gum, Siam, 9000-72-0): la biblioteca la usa para «Resinoide de benjuí» (Benzoin resinoid, 9000-72-0). La fila es de otra forma o de otro CAS: goma de benjuí; el producto es un resinoide. La fórmula migra al producto (D13).
+- `fig:1287` (Cade oil, rectified, 8013-10-3): la biblioteca la usa para «Aceite de cade (enebro)» (Cade oil, 8013-10-3). La fila es de otra forma o de otro CAS: el cade rectificado de la v1 (tres filas: 1285, 1286 y 1287); el de la v2 es rectificado por una condición supuesta (D11). La fórmula migra al producto (D13).
+- `fig:1345` (Castoreum extract, 8023-83-4): la biblioteca la usa para «Absoluto de Castoreum 20%» (Castoreum absolute, 8023-83-4). La fila es de otra forma o de otro CAS: extracto de castóreo; el producto es el absoluto. La fórmula migra al producto (D13).
+- `fig:1533` (Coriander seed oil, 8008-52-4): la biblioteca la usa para «Cilantro» (Coriander seed oil, 84775-50-8). La fila es de otra forma o de otro CAS: otro CAS que el del material de la v2. La fórmula migra al producto (D13).
+- `fig:1529` (Coriander herb oil, 8008-52-4): la biblioteca la usa para «Cilantro» (Coriander seed oil, 84775-50-8). La fila es de otra forma o de otro CAS: aceite de la hierba del cilantro; el producto es el aceite de semilla. La fórmula migra al producto (D13).
+- `fig:2557` (Orange peel, sweet oil, 8008-57-9): la biblioteca la usa para «Naranja dulce» (Orange, sweet, Valencia oil, 8008-57-9). La fila es de otra forma o de otro CAS: otro CAS que el del material de la v2. La fórmula migra al producto (D13).
+- `fig:2600` (Patchouli oil, 8014-09-3): la biblioteca la usa para «Patchouli» (Patchouli oil, sin CAS). La fila es de otra forma o de otro CAS: otro CAS que el del material de la v2. La fórmula migra al producto (D13).
+- `fig:2839` (Sage oil, Spanish, 8022-56-8): la biblioteca la usa para «Salvia Officinalis» (Sage Dalmatian oil, 8022-56-8). La fila es de otra forma o de otro CAS: salvia española (*S. lavandulifolia*); el producto es la salvia dálmata (*S. officinalis*). La fórmula migra al producto (D13).
+- `fig:2913` (Styrax resin, 8046-19-3): la biblioteca la usa para «Resinoide de estírax (estoraque)» (Styrax resinoid, 8046-19-3). La fila es de otra forma o de otro CAS: «resina» de estírax; el producto es un resinoide (otro proceso, otra composición). La fórmula migra al producto (D13).
+- `fig:3087` (Vetiver oil, rectified, 8016-96-4): la biblioteca la usa para «Vetiver» (Vetiver oil, 8016-96-4). La fila es de otra forma o de otro CAS: vetiver rectificado; el producto es el aceite sin rectificar. La fórmula migra al producto (D13).
+- `fig:2143` (Labdanum absolute, 8016-26-0): la biblioteca la usa para «Láudano de jara» (Cistus absolute, 89997-74-0). La fila es de otra forma o de otro CAS: otro CAS que el del material de la v2. La fórmula migra al producto (D13).
+- `fig:2150` (Labdanum oil, 8016-26-0): la biblioteca la usa para «Láudano de jara» (Cistus absolute, 89997-74-0). La fila es de otra forma o de otro CAS: aceite de láudano (destilación); el producto es el absoluto de jara. La fórmula migra al producto (D13).
+- `fig:2521` (Olibanum oil, 8016-36-2): la biblioteca la usa para «Olíbano» (Olibanum sacra oil, 89957-98-2). La fila es de otra forma o de otro CAS: otro CAS que el del material de la v2. La fórmula migra al producto (D13).
+- `fig:2990` (Tonka bean extract, 8024-04-2): la biblioteca la usa para «Haba tonka (semillas), tintura comercial» (Tonka bean tincture, 90028-06-1). La fila es de otra forma o de otro CAS: extracto de haba tonka; el producto es la tintura en alcohol. La fórmula migra al producto (D13).
+- `fig:183` (16-Hydroxy-7-hexadecenoic acid lactone, 123-69-3): la biblioteca la usa para «Ambrettolide» (Ambrettolide, 63286-42-0). La fila es de otra forma o de otro CAS: otro CAS que el del material de la v2. La fórmula migra al producto (D13).
+- `fig:2427` (Naphtho[2,1-b]furan, dodecahydro-3a,6,6,9a-tetramethyl-, (3a, 6790-58-5): la biblioteca la usa para «Ambermor IFF» (Naphtho[2,1-b]furan, dodecahydro-3a,6,6,, 3738-00-9). La fila es de otra forma o de otro CAS: otro CAS que el del material de la v2. La fórmula migra al producto (D13).
+- `fig:946` (7-Octen-2-ol, 2-methyl-6-methylene-, dihydro deriv., 53219-21-9): la biblioteca la usa para «Dihydromyrcenol» (Dihydromyrcenol, 18479-58-8). La fila es de otra forma o de otro CAS: una fila cuyo nombre IUPAC es 7-octen-2-ol, 2-metil-6-metileno (otra molécula); el producto es el dihidromircenol de Olfatorium. La fórmula migra al producto (D13).
+- `fig:94` (1-(1,2,3,5,6,7,8,8a-Octahydro-2,3,8,8-tetramethyl-2-naphthyl, 68155-66-8): la biblioteca la usa para «Iso E Super» (1-(1,2,3,4,5,6,7,8-Octahydro-2,3,8,8-tet, 54464-57-2). La fila es de otra forma o de otro CAS: otro CAS que el del material de la v2. La fórmula migra al producto (D13).
+- `fig:1069`: la fila de la v1 lleva el CAS 8038-65-1 y el material de la v2 (tintura), 84836-94-2. La identidad la decidió el usuario en el lote 3d (D1: el CAS es atributo); la confirmación de D13 deja migrar las fórmulas.
+- `fig:2992`: la fila de la v1 lleva el CAS 8024-04-2 (extracto) y el material de la v2 (tintura), 90028-06-1. La identidad la decidió el usuario en el lote 3d (D1: el CAS es atributo); la confirmación de D13 deja migrar las fórmulas.
+
 ## Patrones que buscar
 
 - Declaraciones de un proveedor colgadas de la molécula general en vez de su producto, sobre

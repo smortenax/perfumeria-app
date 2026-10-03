@@ -35,6 +35,19 @@ export const F001_PRODUCT: Readonly<Record<string, string>> = {
   "MAT-dihydromyrcenol": "Dihydromyrcenol",
 };
 
+/**
+ * The row of the v1 that the user chose for these materials in the lots. Since D13 other rows of the v1 also link to them
+ * (the ones his library formulas use), and F-001 was compared with the chosen ones.
+ */
+const LOT_ROW: Readonly<Record<string, string>> = {
+  M00007: "prod:firmenich-184004",
+  M00050: "fig:1168",
+  M00051: "fig:2914",
+  M00057: "fig:2992",
+  M00059: "ncs:olibanum-sacra-oil",
+  M00072: "tienda:63286-42-0",
+};
+
 export interface Keys {
   readonly v1: Readonly<Record<string, string>>;
   readonly v2: Readonly<Record<string, string>>;
@@ -49,7 +62,7 @@ export function f001Keys(data: Dataset): Keys {
     if (!product) {
       throw new Error(`F-001: «${name}» no está en la v2`);
     }
-    const link = data.v1Links.find((l) => l.v2Id === product.materialId);
+    const link = data.v1Links.find((l) => l.v2Id === product.materialId && (LOT_ROW[l.v2Id] ?? l.v1Id) === l.v1Id);
     if (!link) {
       throw new Error(`F-001: «${name}» no tiene fila de la v1 elegida`);
     }

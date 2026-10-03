@@ -13,7 +13,7 @@ Autoridad: [`decisiones-v2.md`](decisiones-v2.md) (D1–D12). La v1 está congel
 - [x] **Fase 4 — Los 32 productos de Perfumiarz**: 4a (23 documentados) y 4b (9 sin certificado o con otro). La
   pimienta entra con su certificado `pct:100` (D12). Los rangos de SDS no son composición. Evidencia en
   `datos/v2/evidencia/`; pedidos a Perfumiarz en `pendientes-perfumiarz.md`. D12 y la regla de los rangos de SDS: **aprobadas**.
-- [ ] **Fase 5 — La v2 por defecto en la app** (plan escrito, a la espera del visto bueno). Lo que solo está en la v1 aparece como «v1, sin
+- [ ] **Fase 5 — La v2 por defecto en la app** (plan aprobado; orden: migración, ficha, explicaciones, barra D12, biblioteca, v2 por defecto). **Hecho:** D13 y `migrate.ts` (sin enganchar). Lo que solo está en la v1 aparece como «v1, sin
   revisar». Las fórmulas se migran al abrirlas, con registro-ids y comprobación de CAS. La ficha
   enseña la autoridad y el documento de cada cifra. **Requisito:** la interfaz explica cada «no», incluido
   el grupo combinado de fototóxicos (D10) con sus miembros y su suma (`combinedChecks`), marca las

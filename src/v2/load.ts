@@ -182,8 +182,8 @@ export const SCHEMA: { readonly [K in keyof Dataset]: TableSpec<K> } = {
   },
   v1Links: {
     file: "v1-a-v2.csv",
-    columns: ["id_v2", "id_v1"],
-    map: (r, line) => ({ line, v2Id: r.id_v2, v1Id: r.id_v1 }),
+    columns: ["id_v2", "id_v1", "id_producto", "confirmado", "motivo"],
+    map: (r, line) => ({ line, v2Id: r.id_v2, v1Id: r.id_v1, productId: r.id_producto, confirmedOn: r.confirmado, reason: r.motivo }),
   },
 };
 

@@ -60,6 +60,17 @@ describe("origen-desconocido with a certificate (D7)", () => {
   });
 });
 
+describe("the user's confirmation of a v1 link (D13)", () => {
+  it("a provisional key is linked by his confirmation, with date and reason, to a product of that material", () => {
+    expect(run("v1-confirmacion", "pasa")).toEqual([]);
+  });
+  it("without confirmation, or with a product of another material, it is an error", () => {
+    const issues = run("v1-confirmacion", "falla");
+    expect(issues.map((i) => [i.rule, i.severity]).every(([r, s]) => r === "v1" && s === "error")).toBe(true);
+    expect(issues.length).toBe(2);
+  });
+});
+
 describe("isValidCas", () => {
   it("checks the format and the check digit", () => {
     expect(isValidCas("78-70-6")).toBe(true);

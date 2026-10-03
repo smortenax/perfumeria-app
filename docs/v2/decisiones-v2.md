@@ -145,6 +145,25 @@ convierte cuando se sabe que es de otra concentración que la que se pesa.
   solo lo clasificado).
 - En el lote 4b no entra ningún rango.
 
+## D13 — Una fórmula de la v1 migra al producto que tengo (aprobada por el usuario)
+
+Decidida por el usuario el 2026-10-03, al preparar la Fase 5 con su biblioteca de fórmulas.
+
+> La fórmula se migra al producto que tengo, no a la fila de la v1. Si en mi inventario (`mis-productos.csv`) hay un solo
+> producto que corresponde al material de la v2, se migra a él; la discrepancia de forma o de CAS con la fila vieja es un
+> error de la v1 (`errores-v1.md`, una línea por fila) y mi confirmación queda en la columna nueva, con esta regla como
+> motivo y la fecha de hoy. Si tengo dos productos posibles, se pregunta.
+
+Cómo se aplica (`datos/v2/v1-a-v2.csv`, columnas `id_producto`, `confirmado`, `motivo`):
+
+- Una fila de la v1 enlazada con un material tiene **producto**: el único del material; si el material tiene dos, el que
+  esté **en uso** (así lo dijo el usuario para el benjuí: solo el resinoide de Olfatorium); si hay más de uno en uso, no
+  migra y se pregunta. La columna `id_producto` lo fija.
+- Con **CAS igual** migra sin más. Con **CAS distinto o ausente** (una fila que el usuario confirmó, un material provisional,
+  la clave de un certificado) migra solo si la fila lleva `confirmado` y `motivo`; si no, aviso y no se adivina.
+- Las filas confirmadas salen de `docs/v2/enlaces-biblioteca.csv`, que `alta.py` vuelca. Lo que no está enlazado se queda en
+  la v1 «sin revisar» y nunca migra a otro material.
+
 ## Jerarquía de autoridad
 
 De mayor a menor; cuando dos fuentes chocan, manda la de más arriba:

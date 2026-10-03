@@ -588,8 +588,23 @@ export function validate(data: Dataset, refs: References): Issue[] {
   const v1Owner = new Map<string, string>();
   for (const link of data.v1Links) {
     ref(FILE.v1Links, link.line, "id_v2", link.v2Id, ["material", "sustancia"]);
-    if (!refs.v1Ids.has(link.v1Id)) {
+    // A key of the user's own formulas (a provisional material, a certificate) is not a row of the glossary: it has no CAS to
+    // check, so only the user's confirmation links it.
+    const own = /^(prov|cert):/.test(link.v1Id);
+    if (!own && !refs.v1Ids.has(link.v1Id)) {
       error("v1", FILE.v1Links, link.line, `${link.v1Id} no está en datos/glosario/materiales.csv.`);
+    }
+    if (own && link.confirmedOn === "") {
+      error("v1", FILE.v1Links, link.line, `${link.v1Id} no es una fila del glosario: solo la confirmación del usuario lo enlaza.`);
+    }
+    if (link.confirmedOn !== "" && (!/^\d{4}-\d{2}-\d{2}$/.test(link.confirmedOn) || link.reason === "")) {
+      error("v1", FILE.v1Links, link.line, `La confirmación de ${link.v1Id} lleva fecha AAAA-MM-DD y motivo.`);
+    }
+    if (link.productId !== "") {
+      ref(FILE.v1Links, link.line, "id_producto", link.productId, ["producto"]);
+      if (productMaterial.get(link.productId) !== link.v2Id) {
+        error("v1", FILE.v1Links, link.line, `${link.productId} no es un producto de ${link.v2Id}.`);
+      }
     }
     const owner = v1Owner.get(link.v1Id);
     if (owner !== undefined && owner !== link.v2Id) {

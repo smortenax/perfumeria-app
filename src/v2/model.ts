@@ -210,9 +210,17 @@ export interface Exclusion extends Located {
 }
 
 /** Link from a v1 glossary id (datos/glosario/materiales.csv) to its v2 id. */
+/**
+ * A row of the glossary of the v1 that is a material of the v2. The user's confirmation (D13) lets a formula migrate to it even
+ * when the CAS differs from the v1 row's: «confirmedOn» is the date, «reason» says why. «productId» names the product the
+ * formula migrates to when the material has more than one.
+ */
 export interface V1Link extends Located {
   readonly v2Id: string;
   readonly v1Id: string;
+  readonly productId: string;
+  readonly confirmedOn: string;
+  readonly reason: string;
 }
 
 export interface Dataset {

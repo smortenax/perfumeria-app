@@ -71,7 +71,7 @@ COLUMNS = {
     "impurezas-conocidas.csv": ["id_sustancia", "id_documento", "notas"],
     "condiciones.csv": ["id_contenedor", "estandar", "condicion", "autoridad", "id_documento", "notas"],
     "exclusiones.csv": ["estandar", "procesos", "notas"],
-    "v1-a-v2.csv": ["id_v2", "id_v1"],
+    "v1-a-v2.csv": ["id_v2", "id_v1", "id_producto", "confirmado", "motivo"],
 }
 
 ORIGINS = ("sintetico", "aislado-natural", "desconocido")
@@ -321,7 +321,7 @@ def main() -> int:
             for standard in m.get("familias", []):
                 member(standard, "", mid, date, "familia: el estándar le aplica por lo que es, aunque el índice no liste su CAS")
             for v1 in m.get("v1", []):
-                v1_links.append({"id_v2": mid, "id_v1": v1})
+                v1_links.append({"id_v2": mid, "id_v1": v1, "id_producto": "", "confirmado": "", "motivo": ""})
 
             # The typical levels of furocoumarins that STD 089 gives for three oils, as composition with the
             # authority of the annex (not used yet by any material: it is declared by key).
@@ -457,6 +457,18 @@ def main() -> int:
     tables["exclusiones.csv"] = exclusions
     tables["sustancias.csv"] = list(substance_rows.values())
     tables["grupo-miembros.csv"] = list(members.values())
+    # The links the user confirmed for the formulas of his library (D13): they add the product, the date and the reason
+    # to a link of a lot, or make a new one (a row that no lot brought, a provisional material, a certificate key).
+    by_v1 = {l["id_v1"]: l for l in v1_links}
+    for r in read_csv(ROOT / "docs" / "v2" / "enlaces-biblioteca.csv"):
+        link = by_v1.get(r["id_v1"])
+        if link is None:
+            link = {"id_v2": r["id_v2"], "id_v1": r["id_v1"]}
+            by_v1[r["id_v1"]] = link
+            v1_links.append(link)
+        elif link["id_v2"] != r["id_v2"]:
+            raise SystemExit(f"{r['id_v1']}: el lote lo enlaza con {link['id_v2']} y enlaces-biblioteca.csv con {r['id_v2']}")
+        link.update({"id_producto": r["id_producto"], "confirmado": r["confirmado"], "motivo": r["motivo"]})
     tables["v1-a-v2.csv"] = v1_links
     order = {
         "composicion.csv": lambda r: (r["id_contenedor"], r["id_documento"], r["id_componente"]),
