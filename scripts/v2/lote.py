@@ -89,7 +89,10 @@ def pages_of(spec: dict, root: Path) -> list[tuple[str, str]]:
             continue
         clase = (registry.get((p["producto"], p["tienda"])) or {}).get("clase", "")
         if clase == spec["clase"] or p["producto"] in spec.get("ademas", []):
-            pages.append((p["tienda"], p["pagina"] or slug(p["producto"])))
+            page = p["pagina"] or slug(p["producto"])
+            cached = root / "datos" / "glosario" / ".cache" / "proveedores" / SHOP_SLUG.get(p["tienda"], "") / "paginas" / f"{page}.html"
+            if p["pagina"] or cached.exists():
+                pages.append((p["tienda"], page))
     return pages
 
 
@@ -145,6 +148,10 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
         if natural_lot and lookup_cas:
             # The registry lists only some forms; the user chooses among all the rows of the CAS.
             candidates = candidates + [r for r in v1_by_cas.get(lookup_cas, []) if r not in candidates]
+        # The row of the glossary that the proposal names, even if its CAS is not the one of the product's notes
+        # (the tinctures of the ambergris and of the tonka bean have rows of their own in the glossary).
+        if shape and shape["v1_id"] in v1_by_id and v1_by_id[shape["v1_id"]] not in candidates:
+            candidates = [v1_by_id[shape["v1_id"]]] + candidates
         extra = name_in(p["producto"], spec)
         if clase and clase != spec["clase"] and clase != "sin fila en el glosario" and not extra:
             continue
@@ -164,15 +171,23 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
             found.append({"producto": name, "tipo": kind, "detalle": detail, "recomendacion": recommendation,
                           "respuesta": answer})
 
-        if not candidates:
+        # A base or specialty has no CAS and no row in the glossary by nature: it is not a missing row.
+        base_class = clase == "base o especialidad" and not shape
+        if not candidates and not base_class:
             where = "en el registro y sin fila en la v1" if reg else "sin fila en el registro ni en la v1"
             conflict("sin-fila-v1", f"{where}{f'; CAS {cas}' if cas else ''}; la clase no se sabe",
                      (f"alta-sin-v1:{cas}" if cas else "excluir") if natural_lot else f"alta-sin-v1:{cas} si es molécula; excluir si no")
         # For a natural, its v1 row is the one of the form proposed; the user confirms it when there are several.
         best = next((r for r in candidates if shape and shape["v1_id"] and r["id"] == shape["v1_id"]), None) or next(
             (r for r in candidates if shape and r["tipo_natural"] == shape["v1_tipo"]), None)
-        row = best or (candidates[0] if candidates else None)
-        if natural_lot and len(candidates) > 1:
+        # A natural whose form the glossary does not have (an extract, when it has the oil) is not matched to another.
+        no_match = natural_lot and shape and not shape["v1_id"] and not shape["v1_tipo"]
+        row = best or (None if no_match else candidates[0] if candidates else None)
+        if natural_lot and shape and no_match and candidates:
+            conflict("v1-correspondencia",
+                     "ninguna fila tiene su forma: " + " | ".join(f"{r['id']} {r['nombre']} [{r['tipo_natural'] or 'sin forma'}]" for r in candidates[:4]),
+                     "ninguna")
+        elif natural_lot and len(candidates) > 1:
             ordered = ([best] if best else []) + [r for r in candidates if r is not best]
             conflict("v1-correspondencia",
                      " | ".join(f"{r['id']} {r['nombre']} [{r['tipo_natural'] or 'sin forma'}, {r['estado']}]" for r in ordered[:6])
@@ -242,6 +257,9 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
         excluded = any(c["respuesta"] == "excluir" for c in found)
         # D7: the origin of a molecule that enters. Not asked of what is out, or has no row yet.
         as_base = answers.get((name, "tipo")) == "base"
+        if natural_lot and not shape and not excluded and not any(c["tipo"] == "sin-fila-v1" and not c["respuesta"] for c in found):
+            conflict("tipo", f"«{clase or 'sin clase'}» en el registro y sin forma botánica propuesta: ¿es una base?", "base")
+            as_base = any(c["tipo"] == "tipo" and c["respuesta"] == "base" for c in found)
         if natural_lot and shape and not excluded:
             page = pages.get((p["tienda"], p["pagina"] or slug(name)), {})
             if page:
@@ -252,7 +270,7 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
             proposal = "|".join([shape["especie"], shape["parte"], shape["proceso"], shape["quimiotipo"]])
             annex = f"; anexo IFRA: «{shape['anexo']}»" if shape["anexo"] else "; sin anexo IFRA (constituyentes desconocidos)"
             conflict("forma", f"{evidence} || propongo {proposal.replace('|', ' / ')}: {shape['motivo']} [{shape['fuente']}]{annex}", proposal)
-        if as_base:
+        if as_base and not natural_lot:
             found.append({"producto": name, "tipo": "tipo", "detalle": "el usuario lo trata como base, no como molécula",
                           "recomendacion": "base", "respuesta": "base"})
         elif not natural_lot and not excluded and not any(c["tipo"] == "sin-fila-v1" and not c["respuesta"] for c in found):
@@ -279,7 +297,7 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
             cas = next((c["respuesta"].split(":", 1)[1] for c in found if c["respuesta"].startswith("alta-sin-v1:")), "")
         state = "pendiente" if pending else "excluido" if excluded else "alta"
         proposals.append({
-            "producto": name, "clave": key, "estado": state, "tipo": "natural" if natural_lot else "sustancia",
+            "producto": name, "clave": key, "estado": state, "tipo": "base" if as_base else "natural" if natural_lot else "sustancia",
             "material": (shape["nombre"] if natural_lot and shape else row["nombre"] if row else name), "cas": cas,
             "origen": origin, "v1": row["id"] if row else "",
             "notas": (f"Forma: {' / '.join(form)}." if form else "Forma: por confirmar.") if natural_lot else f"Origen: {why}.",
@@ -298,12 +316,14 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
         brought = []
         if any(c["tipo"] == "documento-otro-proveedor" and c["respuesta"] == "traer" for c in found):
             brought = [d for d in foreign_docs.get(name, []) if d["clasificacion"] == "otro-proveedor" and d["revisado"] == "si"]
-        if natural_lot and shape and form:
+        if as_base:
+            extras = {}
+        elif natural_lot and shape and form:
             extras = {"especie": form[0], "parte": form[1], "proceso": form[2], "quimiotipo": form[3],
                       "notas": f"Forma confirmada por el usuario (lote {lot}); {shape['motivo']}."}
             if shape["anexo"]:
                 extras["anexo"] = {"documento": "ifra51-anexo-naturales", "nombre": shape["anexo"], "cas": cas or lookup_cas}
-        elif as_base or natural_lot:
+        elif natural_lot:
             extras = {}
         else:
             extras = {"origen": origin, "origen_fuente": f"{why} (lote {lot}, confirmado por el usuario)."}
@@ -320,7 +340,7 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
                                       "estado_revision": "revisado", "notas": d["motivo"]})
             extras = {**extras, "literatura": literature}
         materials.append({
-            "clave": material_key, "tipo": "natural" if natural_lot else "base" if as_base else "sustancia",
+            "clave": material_key, "tipo": "base" if as_base else "natural" if natural_lot else "sustancia",
             "nombre": (shape["nombre"] if natural_lot and shape else row["nombre"] if row else name), "cas": cas,
             **extras,
             "v1": [row["id"]] if row else [], "productos": [product],

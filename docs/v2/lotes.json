@@ -22,6 +22,20 @@
         "Patchouli",
         "Cilantro"
       ]
+    },
+    "3d": {
+      "fecha": "2026-10-03",
+      "situacion": "en-uso",
+      "tienda": "Maese Lab",
+      "clase": "natural",
+      "ademas": [
+        "Láudano de jara",
+        "Theobroma cacao extract",
+        "Olíbano",
+        "Ámbar gris, tintura comercial (purificado)",
+        "Haba tonka (semillas), tintura comercial",
+        "Esencia de trufa"
+      ]
     }
   }
 }

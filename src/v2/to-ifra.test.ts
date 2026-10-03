@@ -343,3 +343,38 @@ describe("the 5-MOP of the phototoxic oils (STD 089): one way in, never two", ()
     expect([...flatten(d, "M00001").loads.keys()]).toEqual(["S00002"]);
   });
 });
+
+describe("a standard that prohibits a variant: the styrax (STD 078) and the cade (STD 119)", () => {
+  it("the styrax resinoid counts its ceiling of 0,64 %: only the crude gum is prohibited", () => {
+    const p = data.products.find((x) => x.name === "Resinoide de estírax (estoraque)")!;
+    const m = ifra.materials.get(v2Key(p.id))!;
+    expect(m.substances.find((s) => s.key === "std:IFRA_STD_078")?.fraction?.eq(Ratio.ONE)).toBe(true);
+    expect(m.substances.some((s) => s.key.startsWith("prohibido:"))).toBe(false);
+    expect(m.conditions).toContain("una variante está prohibida (STD 078)");
+  });
+
+  const CADE = (process: string) => `M00001,natural,Cade oil,,Juniperus oxycedrus,madera,"${process}",,8013-10-3,,,,,`;
+  const wood = (process: string) =>
+    toIfra(
+      dataset({
+        "materiales.csv": [CADE(process)],
+        "coberturas.csv": ["M00001,,desconocida,"],
+        "grupos.csv": ["G00001,estandar-ifra,IFRA_STD_119,Cade oil,"],
+        "grupo-miembros.csv": ["G00001,M00001,,"],
+      }),
+      IFRA_FILES,
+    ).materials.get(v2Key("M00001"))!;
+
+  it("a cade not proven to be rectified is pending: IFRA allows only the rectified one, never green", () => {
+    const m = wood("arrastre de vapor");
+    expect(m.substances).toEqual([]);
+    expect(m.conditions).toEqual([]);
+    expect(m.pending?.some((t) => t.includes("solo permite el rectificado") && t.includes("STD 119"))).toBe(true);
+  });
+
+  it("a rectified cade carries the specification of the PAH as a condition", () => {
+    const m = wood("arrastre de vapor, rectificado");
+    expect(m.conditions).toEqual(["una variante está prohibida (STD 119); la rectificada cumple la especificación (STD 119)"]);
+    expect(m.pending?.some((t) => t.includes("solo permite el rectificado")) ?? false).toBe(false);
+  });
+});

@@ -278,7 +278,14 @@ export function toIfra(data: Dataset, files: IfraFiles): IfraData {
   };
 
   /** One member's standards, as what the engine sums, and the notes they leave. */
-  const judge = (memberStandards: readonly string[], asItself: boolean, load: Load, into: IfraEntry, fiveMopKnown = false) => {
+  const judge = (
+    memberStandards: readonly string[],
+    asItself: boolean,
+    load: Load,
+    into: IfraEntry,
+    fiveMopKnown = false,
+    rectified = false,
+  ) => {
     for (const standard of memberStandards) {
       const s = standards.get(standard);
       if (!s) {
@@ -289,14 +296,29 @@ export function toIfra(data: Dataset, files: IfraFiles): IfraData {
       if (asItself && fiveMopKnown && FUROCOUMARIN_OILS.has(standard)) {
         continue;
       }
+      const limit = limitOf(s);
+      if (asItself && s.prohibicion === "sí") {
+        if (limit === null && s.especificacion !== "sí") {
+          // A prohibition with nothing else: the material is prohibited as such.
+          into.substances.push({ key: ifraSubstance(`prohibido:${standard}`, `${s.nombre}, como tal`, Ratio.ZERO, standard), fraction: Ratio.ONE });
+          continue;
+        }
+        if (limit === null) {
+          // A variant is prohibited and the permitted one carries a specification (STD 119, the cade: crude
+          // is prohibited, only the rectified is allowed). Which one this material is has to be proven.
+          if (rectified) {
+            into.conditions.push(`una variante está prohibida (${short(standard)}); la rectificada cumple la especificación (${short(standard)})`);
+          } else {
+            into.pending.push(`${s.nombre}: IFRA prohíbe el crudo y solo permite el rectificado, y no está acreditado que este material lo sea (${short(standard)}).`);
+          }
+          continue;
+        }
+        // A variant is prohibited, and the permitted ones have a ceiling (STD 078, the styrax): the ceiling counts.
+        into.conditions.push(`una variante está prohibida (${short(standard)})`);
+      }
       if (asItself && s.especificacion === "sí") {
         into.conditions.push(`especificación (${short(standard)})`);
       }
-      if (asItself && s.prohibicion === "sí") {
-        into.substances.push({ key: ifraSubstance(`prohibido:${standard}`, `${s.nombre}, como tal`, Ratio.ZERO, standard), fraction: Ratio.ONE });
-        continue;
-      }
-      const limit = limitOf(s);
       if (asItself && limit && s.limite_expresado_como) {
         // A limit expressed as a constituent (STD 089, citrus oils: 5-MOP) is not a limit of the whole
         // material. A phototoxic oil with a standard of its own (087 bergamot, 088 bitter orange, 092
@@ -331,8 +353,12 @@ export function toIfra(data: Dataset, files: IfraFiles): IfraData {
     const fiveMopKnown = [...flat.loads.keys()].some(
       (member) => !flat.itself.has(member) && (standardsOf.get(member) ?? []).includes(FIVE_MOP_STANDARD),
     );
+    // The process of the material says whether it is rectified (cade, birch tar, opoponax, pyrolysis styrax).
+    const ownerId = data.lots.find((l) => l.id === id)?.productId ?? id;
+    const materialId = data.products.find((p) => p.id === ownerId)?.materialId ?? id;
+    const rectified = /rectific/i.test(data.materials.find((m) => m.id === materialId)?.process ?? "");
     for (const [member, load] of flat.loads) {
-      judge(standardsOf.get(member) ?? [], flat.itself.has(member), load, entry, fiveMopKnown);
+      judge(standardsOf.get(member) ?? [], flat.itself.has(member), load, entry, fiveMopKnown, rectified);
     }
     // D4: the manufacturer's ceiling of this product (or of this lot's product), whole in it.
     const productId = data.lots.find((l) => l.id === id)?.productId ?? id;

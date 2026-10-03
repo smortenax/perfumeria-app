@@ -9,7 +9,7 @@ Autoridad: [`decisiones-v2.md`](decisiones-v2.md) (D1–D10). La v1 está congel
 - [x] **Fases 0 a 2** (hasta el 2026-10-03): esquema, validador, IFRA de punta a punta, D2, D7 y D8.
 - [ ] **Fase 3 — La F-001 entera en la v2**, por lotes (`docs/v2/lotes.json`, `alta.py --lote`).
   Cierre: la F-001 se calcula entera con la v2 y su comparación con la v1 queda explicada, con la
-  correspondencia de cada material elegida por el usuario. Hechos 3a, 3b y 3c; falta el **3d** (abajo).
+  correspondencia de cada material elegida por el usuario. Hechos 3a, 3b y 3c; **3d preparado** (abajo).
 - [ ] **Fase 4 — Los 32 productos de Perfumiarz**, en dos lotes: 23 documentados y 9 parciales o sin
   documentos. Las sustancias de los certificados salen de `docs/proveedores/productos-sustancias.csv`.
   Los topes van por producto (D4).
@@ -20,14 +20,11 @@ Autoridad: [`decisiones-v2.md`](decisiones-v2.md) (D1–D10). La v1 está congel
 - [ ] **Fase 6 — El resto del glosario**, por clase, en lotes de 300 como máximo, con los conflictos
   agrupados por tipo. Nada entra con más autoridad que su fuente. Buscar los errores de `errores-v1.md`.
 
-## Hecho el 2026-10-03
+## Siguiente: lote 3d (Maese Lab)
 
-- Reabiertos con la D9 los 4 documentos de 3a y 3b: alfa-amil cinámico y Safraleine, de otro
-  proveedor (placeholders); Polysantol y Sandalmysore Core, de otro material (errores de la v1).
-- Los estándares de naturales 086–096 se reconocen también por especie + parte + proceso
-  (`docs/v2/estandares-naturales.csv`): solo afecta a la bergamota FCF, que es el STD 087.
-
-## Siguiente
-
-- **Lote 3d**: cade, láudano, cacao y olíbano de Maese Lab; tinturas y bases (ámbar gris, haba tonka,
-  trufa). Al entrar el cade, modelar el STD 078 (PAH del estírax de pirólisis y del cade rectificado).
+- Cade, láudano, cacao y olíbano; tintura de ámbar gris, tintura de haba tonka y esencia de trufa (base).
+  `alta.py --lote 3d`: 11 conflictos sin respuesta (6 forma, 2 sin-fila-v1, 1 tipo, 2 v1-correspondencia).
+  Falta la tintura de ámbar y la de tonka para cerrar la F-001. El lote no entra hasta contestar.
+- **Cade:** nada acredita que sea rectificado (la tienda dice «100% natural»; el cuaderno, que lo acredita
+  un certificado). Sin él, el STD 119 deja un pendiente: el crudo está prohibido. Con él, la especificación
+  de PAH es una condición. El grupo de PAH (STD 078 y 119, 1 ppb) sigue como condición, sin cifras.
