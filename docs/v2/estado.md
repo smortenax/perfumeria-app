@@ -4,6 +4,8 @@ Se lee al empezar cada sesión y se actualiza al terminar (30 líneas como máxi
 Autoridad: [`decisiones-v2.md`](decisiones-v2.md) (D1–D12). La v1 está congelada en la etiqueta
 `glosario-v1`; sus errores, en [`errores-v1.md`](errores-v1.md).
 
+**Se trabaja en `main`** desde la fusión de `v2-materiales` (avance rápido a `df6c28a`, 2026-10-03 05:17, tras pedirlo el usuario); la rama se borró.
+
 ## Fases
 
 - [x] **Fases 0 a 2** (hasta el 2026-10-03): esquema, validador, IFRA de punta a punta, D2, D7 y D8.
