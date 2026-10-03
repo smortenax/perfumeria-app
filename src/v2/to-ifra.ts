@@ -192,12 +192,20 @@ export function flatten(data: Dataset, containerId: string): Flattened {
       }
       weakest = covers;
     }
+    // A certificate of the product or lot that declares no restricted substance leaves no rows, but it closes the list
+    // all the same: what it does not list is not there.
+    const declaredNone = data.coverages.some(
+      (c) => c.coverage === "reguladas-completa" && c.containerId !== materialId && chain.includes(c.containerId) && !sources.has(`${c.containerId}|${c.documentId}`),
+    );
+    if (declaredNone) {
+      complete = true;
+    }
     // D7: a molecule without documents is its substance pure by convention, unless it is a natural
     // isolate or one known to carry regulated impurities: then those are pending.
     let pureByConvention = false;
     // Only placeholders of another supplier (literatura, consenso) are not documents of its product: the
     // convention stands, and what they say only adds their maxima (D2, D9).
-    const onlyPlaceholders = ordered.every(([, rows]) => PLACEHOLDERS.has(rows[0].authority));
+    const onlyPlaceholders = !declaredNone && ordered.every(([, rows]) => PLACEHOLDERS.has(rows[0].authority));
     if (material.type === "sustancia" && onlyPlaceholders) {
       if (material.origin === "aislado-natural") {
         pending.push(IMPURITIES_ISOLATE);

@@ -435,6 +435,13 @@ export function validate(data: Dataset, refs: References): Issue[] {
   }
 
   // --- materials ------------------------------------------------------------------------
+  const certifiedMaterials = new Set<string>();
+  for (const c of data.coverages) {
+    if (c.coverage !== "reguladas-completa") continue;
+    const productId = productMaterial.has(c.containerId) ? c.containerId : lotProduct.get(c.containerId);
+    const materialId = productId ? productMaterial.get(productId) : undefined;
+    if (materialId) certifiedMaterials.add(materialId);
+  }
   for (const m of data.materials) {
     if (!MATERIAL_TYPES.includes(m.type)) {
       error("coherencia", FILE.materials, m.line, `tipo «${m.type}»; vale ${MATERIAL_TYPES.join(", ")}.`);
@@ -446,7 +453,11 @@ export function validate(data: Dataset, refs: References): Issue[] {
     if (m.type === "sustancia" && !(ORIGINS as readonly string[]).includes(m.origin)) {
       error("origen", FILE.materials, m.line, `Una sustancia necesita origen (${ORIGINS.join(", ")}); tiene «${m.origin}».`);
     } else if (m.type === "sustancia" && m.origin === "desconocido") {
-      report("aviso", "origen-desconocido", FILE.materials, m.line, `El origen de ${m.id} (${m.name}) es desconocido: se cuenta pura por convención (D7). ¿Se puede saber?`);
+      // A product of the material with a certificate that lists every restricted substance already says what the
+      // impurities are, so its unknown origin is no longer a doubt worth a warning.
+      if (!certifiedMaterials.has(m.id)) {
+        report("aviso", "origen-desconocido", FILE.materials, m.line, `El origen de ${m.id} (${m.name}) es desconocido: se cuenta pura por convención (D7). ¿Se puede saber?`);
+      }
     } else if (m.type !== "sustancia" && m.origin !== "") {
       error("origen", FILE.materials, m.line, `El origen es solo de las sustancias; ${m.id} es ${m.type}.`);
     }

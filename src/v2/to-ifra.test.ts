@@ -216,6 +216,32 @@ describe("D7: a molecule without documents", () => {
     expect(f.pending).toEqual(["Impurezas sin declarar: es un aislado natural y su producto no tiene documentos."]);
   });
 
+  it("a certificate of the product that declares no restricted substance closes the list, even for a natural isolate", () => {
+    const f = flatten(
+      dataset({
+        "materiales.csv": [MOLECULE("aislado-natural")],
+        "productos.csv": ["P00001,M00001,Eucalyptol,,,,,"],
+        "coberturas.csv": ["P00001,D00002,reguladas-completa,"],
+      }),
+      "P00001",
+    );
+    expect(f.pending).toEqual([]);
+    expect(f.pureByConvention).toBe(false);
+    expect(f.loads.get("S00001")?.known?.eq(Ratio.ONE)).toBe(true);
+  });
+
+  it("a certificate that covers only part does not close it", () => {
+    const f = flatten(
+      dataset({
+        "materiales.csv": [MOLECULE("aislado-natural")],
+        "productos.csv": ["P00001,M00001,Eucalyptol,,,,,"],
+        "coberturas.csv": ["P00001,D00002,parcial,"],
+      }),
+      "P00001",
+    );
+    expect(f.pending).toEqual(["Impurezas sin declarar: es un aislado natural y su producto no tiene documentos."]);
+  });
+
   it("one on the list of known regulated impurities leaves them pending, whatever its origin", () => {
     const f = flatten(dataset({ "materiales.csv": [MOLECULE("sintetico")], "impurezas-conocidas.csv": ["S00001,D00001,"] }), "M00001");
     expect(f.pureByConvention).toBe(false);

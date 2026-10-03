@@ -1,0 +1,5 @@
+id,entidad,clave,alta,estado,notas
+S00001,sustancia,cas:106-24-1,2026-10-03,activo,
+M00001,material,a,2026-10-03,activo,
+P00001,producto,p,2026-10-03,activo,
+D00001,documento,d,2026-10-03,activo,

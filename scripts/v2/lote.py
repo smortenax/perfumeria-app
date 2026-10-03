@@ -140,6 +140,8 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
     made = {r["producto"]: r for r in read_csv(root / "docs" / "proveedores" / "productos.csv")}
     answers = {(r["producto"], r["tipo"]): r["respuesta"].strip()
                for r in read_csv(root / "datos" / "v2" / "respuestas" / f"{lot}.csv")}
+    answer_notes = {(r["producto"], r["tipo"]): re.sub(r"^usuario, [\d-]+: ", "", r["notas"].strip())
+                    for r in read_csv(root / "datos" / "v2" / "respuestas" / f"{lot}.csv")}
 
     materials: list[dict] = []
     lot_documents: list[dict[str, str]] = []
@@ -329,7 +331,8 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
         conflicts.extend(found)
         pending = [c for c in found if not c["respuesta"]]
         origin = next((c["respuesta"] for c in found if c["tipo"] == "origen"), "")
-        why = next((c["detalle"] for c in found if c["tipo"] == "origen"), "")
+        # What the user wrote with the answer is the source of the origin (with the phrase and the page, if a document says it).
+        why = (answer_notes.get((name, "origen")) if name in made else "") or next((c["detalle"] for c in found if c["tipo"] == "origen"), "")
         families_of = list(fam_standards) if any(c["tipo"] == "ifra-distinto" and c["respuesta"] == "familia" for c in found) else []
         form_answer = next((c["respuesta"] for c in found if c["tipo"] == "forma"), "")
         if form_answer == "confirmar":

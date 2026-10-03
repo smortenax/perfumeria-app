@@ -5,7 +5,7 @@ El nombre de un producto o de un documento no es evidencia. Lo que un documento 
 origen, forma) se responde con su texto, extraído por script, y cada recomendación cita la frase y la página. Si el
 documento no lo dice, se escribe «no lo dice»: no se supone.
 
-Para cada conflicto abierto de tipo `tipo`, `origen`, `documento-diluido` y `forma`, se busca en el certificado IFRA y en
+Para cada conflicto (abierto o ya respondido, para que quede el registro) de tipo `tipo`, `origen`, `documento-diluido` y `forma`, se busca en el certificado IFRA y en
 la SDS del producto (las dos de la página de la tienda):
 
 * SDS, sección 3: la composición (cada ingrediente con su %), si es sustancia o mezcla y si lleva un disolvente.
@@ -75,7 +75,7 @@ def read_pages(path: Path) -> list[str] | None:
 
 
 def squash(text: str) -> str:
-    return re.sub(r"\s+", " ", text.replace("|>", " ")).strip()
+    return re.sub(r"\s+", " ", text.replace("|>", " ").replace("", "≥")).strip()
 
 
 def locate(name: str) -> Path | None:
@@ -185,7 +185,7 @@ def unlisted(text: str, comps: list[dict[str, str]]) -> str:
 def section3_kind(text: str) -> str:
     """«sustancia» if the section 3 gives the product as a substance (3.1) and the mixtures part (3.2) is empty, «mezcla» if it lists a mixture."""
     mixtures = re.search(r"3\.2\.?\s*(Mixtures|Mieszaniny)(.{0,40})", text, re.I)
-    if mixtures and not re.search(r"not concerned|not applicable|none|n/a|brak", mixtures.group(2), re.I):
+    if mixtures and not re.search(r"not\s*concerned|not\s*applicable|none|n/a|brak", mixtures.group(2), re.I):
         return "mezcla"
     return "sustancia" if re.search(r"3\.1\.?\s*(Substances|Substancje)", text, re.I) else ""
 
@@ -330,7 +330,7 @@ def run_lote(lot: str) -> int:
     products = {r["producto"]: r for r in rows(ROOT / "docs" / "proveedores" / "productos.csv")}
     out = []
     for c in rows(ROOT / "datos" / "v2" / "conflictos" / f"{lot}.csv"):
-        if c["tipo"] not in TYPES or c.get("respuesta"):
+        if c["tipo"] not in TYPES:
             continue
         product = products.get(c["producto"])
         if not product:

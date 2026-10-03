@@ -59,3 +59,23 @@ M00057,natural,Tonka bean tincture,,Dipteryx odorata,semilla (haba),tintura en a
 M00058,natural,Cistus absolute,,Cistus ladanifer,hoja y ramita,absoluto (extracción con disolvente),,89997-74-0,,,,,"Forma confirmada por el usuario (lote 3d); el cuaderno y la tienda lo llaman absoluto de cistus («Absoluto de Cistus Jara»), sólido y 100 %, y el CAS registrado, 89997-74-0, es el del extracto de Cistus ladaniferus; por eso, de hojas y ramitas y no de la goma (el absoluto de láudano de la goma llevaría otro CAS). La etiqueta no la veo."
 M00059,natural,Olibanum sacra oil,,Boswellia sacra,resina,destilación al vapor,"α-pineno, α-tujeno, β-felandreno y sabineno",89957-98-2,,,,,"Forma confirmada por el usuario (lote 3d); la etiqueta del usuario (2026-10-03): «Aceite Esencial de Incienso Sacra, obtenido por arrastre de vapor de resina de Boswellia sacra de Yemen», con quimiotipo de α-pineno, α-tujeno, β-felandreno y sabineno. Es un aceite, no un extracto: el CAS 89957-98-2 es el del aceite de Boswellia sacra de la v1 y del anexo. El origen (Yemen) no es parte del quimiotipo."
 M00060,natural,Theobroma cacao extract,,Theobroma cacao,semilla (haba),absoluto (extracción con disolvente),,84649-99-0,,,,,"Forma confirmada por el usuario (lote 3d); el usuario, según su etiqueta (2026-10-03): absoluto. Sin fila en la v1 ni en el anexo de IFRA."
+M00061,base,Black Agar 296985,,,,,,,,,,,
+M00062,natural,Black pepper absolute,,Piper nigrum,fruto,absoluto,,8006-82-4,,,,,"Forma confirmada por el usuario (lote 4a); el nombre del producto es «Black Pepper Absolute» (Firmenich) y su certificado, «PEPPER BLACK ABS PG 974644»: un absoluto de pimienta negra en PG. Sin anexo de IFRA para este CAS. El certificado es del producto diluido en PG, sin decir cuánto."
+M00063,sustancia,"4-(4,8-Dimethylnona-3,7-dienyl)pyridine",S00086,,,,,38462-23-6,,desconocido,,,"Origen: desconocido: ni la SDS ni el certificado lo dicen (lote 4a, confirmado por el usuario)."
+M00064,sustancia,alpha-Methylbenzyl acetate,S00087,,,,,93-92-5,,desconocido,,,"Origen: desconocido: ni la SDS ni el certificado lo dicen (lote 4a, confirmado por el usuario)."
+M00065,sustancia,Geranyl acetate,S00088,,,,,105-87-3,,desconocido,,,"Origen: desconocido: ni la SDS ni el certificado lo dicen (lote 4a, confirmado por el usuario)."
+M00066,sustancia,Cedrol methyl ether,S00089,,,,,19870-74-7,,desconocido,,,"Origen: desconocido: ni la SDS ni el certificado lo dicen (lote 4a, confirmado por el usuario)."
+M00067,base,Cassis Base 345 B,,,,,,,,,,,
+M00068,sustancia,"1,2,3,4,4a,5,6,7-Octahydro-2,5,5-trimethyl-2-naphthalenol",S00092,,,,,41199-19-3,,desconocido,,,"Origen: desconocido: ni la SDS ni el certificado lo dicen (lote 4a, confirmado por el usuario)."
+M00069,sustancia,Methyl cinnamate,S00093,,,,,103-26-4,,desconocido,,,"Origen: desconocido: ni la SDS ni el certificado lo dicen (lote 4a, confirmado por el usuario)."
+M00070,sustancia,Hydroxycitronellal,S00094,,,,,107-75-5,,desconocido,,,"Origen: desconocido: ni la SDS ni el certificado lo dicen (lote 4a, confirmado por el usuario)."
+M00071,sustancia,(E)-beta-Ionone,S00095,,,,,79-77-6,,desconocido,,,"Origen: desconocido: ni la SDS ni el certificado lo dicen (lote 4a, confirmado por el usuario)."
+M00072,sustancia,Ambrettolide,S00096,,,,,63286-42-0,,desconocido,,,"Origen: desconocido: ni la SDS ni el certificado lo dicen (lote 4a, confirmado por el usuario)."
+M00073,sustancia,Eucalyptol,S00097,,,,,470-82-6,,aislado-natural,,,"Origen: aislado natural; evidencia: «EUCALYPTOL NAT.», nombre que da Symrise a su producto en su certificado (p. 1) (lote 4a, confirmado por el usuario)."
+M00074,sustancia,cis-3-Hexenol,S00098,,,,,928-96-1,,desconocido,,,"Origen: desconocido: ni la SDS ni el certificado lo dicen (lote 4a, confirmado por el usuario)."
+M00075,sustancia,"Octahydro-4,8a-dimethyl-4a(2H)-naphthol",S00099,,,,,23333-91-7,,desconocido,,,"Origen: desconocido: ni la SDS ni el certificado lo dicen (lote 4a, confirmado por el usuario)."
+M00076,sustancia,Linalyl acetate,S00100,,,,,115-95-7,,desconocido,,,"Origen: desconocido: ni la SDS ni el certificado lo dicen (lote 4a, confirmado por el usuario)."
+M00077,sustancia,"Oxacyclohexadec-12-en-2-one, (12E)-",S00101,,,,,111879-80-2,,desconocido,,,"Origen: desconocido: ni la SDS ni el certificado lo dicen (lote 4a, confirmado por el usuario)."
+M00078,sustancia,"3,3,5,5-Tetramethyl-4-ethoxyvinylcyclohexanone",S00103,,,,,36306-87-3,,desconocido,,,"Origen: desconocido: ni la SDS ni el certificado lo dicen (lote 4a, confirmado por el usuario)."
+M00079,base,Tolu Balsam Resinoide,,,,,,,,,,,
+M00080,sustancia,Terpinyl acetate (Isomer mixture),S00105,,,,,8007-35-0,,desconocido,,,"Origen: desconocido: ni la SDS ni el certificado lo dicen (lote 4a, confirmado por el usuario)."

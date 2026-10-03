@@ -48,6 +48,18 @@ describe("v2 validator, one fixture per rule", () => {
   }
 });
 
+describe("origen-desconocido with a certificate (D7)", () => {
+  // The warning is for a molecule of unknown origin that no product of its own certifies in full: a certificate with
+  // coverage «reguladas-completa» already says what the impurities are, a partial one does not.
+  it("does not warn when a product of the material has a reguladas-completa certificate", () => {
+    expect(run("origen-desconocido-certificado", "pasa")).toEqual([]);
+  });
+  it("warns when its certificate covers only part", () => {
+    const issues = run("origen-desconocido-certificado", "falla");
+    expect(issues.map((i) => [i.rule, i.severity])).toEqual([["origen-desconocido", "aviso"]]);
+  });
+});
+
 describe("isValidCas", () => {
   it("checks the format and the check digit", () => {
     expect(isValidCas("78-70-6")).toBe(true);
