@@ -1,6 +1,6 @@
 id_producto,min_pct,max_pct,diluyente,fuente,notas
 P00004,20,20,alcohol,tienda: https://maeselab.com/absoluto-de-castoreum-20,el castóreo natural que usa hoy
-P00006,50,50,ipm,tienda: https://perfumiarz.com/products/oakmoss-absolute,"La SDS de IFF (sección 3.1) da la sustancia al 90 % o más (extracto 90-100 %, etanol 1-10 %) y no cita IPM; la página de la tienda dice 50 % en IPM y es la fuente (D12). A confirmar con la tienda."
+P00006,50,50,ipm,tienda: https://perfumiarz.com/products/oakmoss-absolute,"La dilución la hace Perfumiarz y su página es la fuente (D12). La SDS de IFF (sección 3.1) es del absoluto puro: extracto 90-100 %, etanol 1-10 %."
 P00062,100,100,,certificado D00033: cifras del producto tal como se compra,D12: el certificado es del producto tal como se compra (pct:100); se pesa al 100 % del producto
 P00069,50,50,,tienda: https://perfumiarz.com/products/methyl-cinnamate,"diluyente sin decir en la tienda La tienda no dice el diluyente; sus documentos son de la sustancia pura (SDS 98-100 %, sección 3.1)."
 P00075,1,1,dpg,tienda: https://perfumiarz.com/products/geosmin-1-dpg,

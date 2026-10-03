@@ -1,4 +1,5 @@
-import type { IfraData } from "../core/ifra";
+import type { IfraData, IfraMaterial, IfraSubstance } from "../core/ifra";
+import { FIVE_MOP_STANDARD, FUROCOUMARIN_OILS, FUROCOUMARINS } from "../v2/to-ifra";
 import type { Dataset } from "../v2/model";
 import type { CatalogEntry } from "./catalog";
 import { repositoryOf, type MaterialRepository } from "./repository";
@@ -9,10 +10,26 @@ import { repositoryOf, type MaterialRepository } from "./repository";
  * a material only of the v1 keeps its IFRA as it was, against the same standards.
  */
 export function mergeIfra(v1: IfraData, v2: IfraData): IfraData {
-  return {
-    substances: new Map([...v1.substances, ...v2.substances]),
-    materials: new Map([...v1.materials, ...v2.materials]),
-  };
+  const own = (key: string) => FUROCOUMARIN_OILS.has(key.replace(/^std:/, ""));
+  const fiveMop = `std:${FIVE_MOP_STANDARD}`;
+  // The phototoxic oils of the v1 sum in the group of STD 089 as those of the v2 do (D10), whichever model first built the substance.
+  const substances = new Map<string, IfraSubstance>();
+  for (const [key, s] of v1.substances) {
+    substances.set(key, own(key) || key === fiveMop ? { ...s, combined: FUROCOUMARINS } : s);
+  }
+  for (const [key, s] of v2.substances) {
+    substances.set(key, s);
+  }
+  // One way into the group, never two (D10): a material of the v1 whose 5-MOP is listed counts by it, and not also by its own standard.
+  const materials = new Map<string, IfraMaterial>();
+  for (const [key, m] of v1.materials) {
+    const byFiveMop = m.substances.some((s) => s.key === fiveMop);
+    materials.set(key, byFiveMop ? { ...m, substances: m.substances.filter((s) => !own(s.key)) } : m);
+  }
+  for (const [key, m] of v2.materials) {
+    materials.set(key, m);
+  }
+  return { substances, materials };
 }
 
 /**

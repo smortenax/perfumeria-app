@@ -26,3 +26,5 @@ prov:4-ethylphenol,M00018,,2026-10-03,D13: confirmado por el usuario (el etil-4-
 prov:0123-07-09,M00018,,2026-10-03,"D13: confirmado por el usuario (el 123-07-9 mal tecleado, el etil-4-fenol de Maese Lab); el provisional no trae CAS que comprobar"
 fig:1069,M00055,,2026-10-03,"D1: el CAS es atributo; la identidad de la tintura de ámbar gris la decidió el usuario en el lote 3d (el CAS de la v1, 8038-65-1, es el de otra forma)"
 fig:2992,M00057,,2026-10-03,"D1: el CAS es atributo; la identidad de la tintura de haba tonka la decidió el usuario en el lote 3d (el CAS de la v1, 8024-04-2, es el del extracto)"
+fig:2599,M00049,,2026-10-03,"D13: un solo producto en el inventario del usuario; la discrepancia de CAS con la fila de la v1 es un error de la v1 (errores-v1.md); el pachulí de Olfatorium sigue sin CAS en la v2"
+fig:2480,M00006,,2026-10-03,"D13: un solo producto en el inventario del usuario; la discrepancia de CAS con la fila de la v1 es un error de la v1 (errores-v1.md)"

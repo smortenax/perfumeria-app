@@ -65,9 +65,9 @@ const short = (standard: string) => `STD ${standard.split("_").pop()}`;
  * 092 lemon…), and 089 itself, whose 5-MOP is the same hazard measured in the furocoumarin. IFRA
  * says in each: the sum of them, each in % of its ceiling, shall not exceed 100 (STD 089).
  */
-const FUROCOUMARIN_OILS = new Set(["IFRA_STD_086", "IFRA_STD_087", "IFRA_STD_088", "IFRA_STD_090", "IFRA_STD_091", "IFRA_STD_092", "IFRA_STD_093", "IFRA_STD_096"]);
-const FUROCOUMARINS = "furocumarinas";
-const FIVE_MOP_STANDARD = "IFRA_STD_089";
+export const FUROCOUMARIN_OILS = new Set(["IFRA_STD_086", "IFRA_STD_087", "IFRA_STD_088", "IFRA_STD_090", "IFRA_STD_091", "IFRA_STD_092", "IFRA_STD_093", "IFRA_STD_096"]);
+export const FUROCOUMARINS = "furocumarinas";
+export const FIVE_MOP_STANDARD = "IFRA_STD_089";
 
 const NO_DATA = "Sin datos de sus constituyentes: puede llevar sustancias con techo.";
 const IMPURITIES_ISOLATE = "Impurezas sin declarar: es un aislado natural y su producto no tiene documentos.";

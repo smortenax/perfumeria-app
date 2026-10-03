@@ -45,3 +45,37 @@ describe("the v1 and the v2 in one repository", () => {
     expect(mergeIfra(v1.ifraData(), v2.ifraData()).substances.size).toBeGreaterThanOrEqual(Math.max(a.size, b.size));
   });
 });
+
+describe("a phototoxic oil of the v1 enters the group of STD 089 by one route (D10)", () => {
+  const ifra = merged.ifraData();
+  const ownStandards = (keys: readonly string[]) => keys.filter((k) => /^std:IFRA_STD_(086|087|088|090|091|092|093|096)$/.test(k));
+
+  it("every oil standard sums in the group, whichever model built it, and so does the 5-MOP", () => {
+    for (const [key, s] of ifra.substances) {
+      if (/^std:IFRA_STD_(086|087|088|090|091|092|093|096|089)$/.test(key)) {
+        expect(s.combined, key).toBe("furocumarinas");
+      }
+    }
+  });
+
+  it("no material carries both its own standard and a listed 5-MOP: never two ways in", () => {
+    for (const [key, m] of ifra.materials) {
+      const keys = m.substances.map((s) => s.key);
+      expect(ownStandards(keys).length > 0 && keys.includes("std:IFRA_STD_089"), key).toBe(false);
+    }
+  });
+
+  it("the v1 bergamot is in the group once, by its identity", () => {
+    const keys = ifra.materials.get("fig:1197")!.substances.map((s) => s.key);
+    expect(keys.filter((k) => k === "std:IFRA_STD_087")).toHaveLength(1);
+    expect(keys).not.toContain("std:IFRA_STD_089");
+  });
+
+  it("a material of the v1 that did list its 5-MOP would count by it alone", () => {
+    const v1Data = v1.ifraData();
+    const sample = { ...v1Data.materials.get("fig:1197")!, substances: [...v1Data.materials.get("fig:1197")!.substances, { key: "std:IFRA_STD_089", fraction: null }] };
+    const both = mergeIfra({ substances: v1Data.substances, materials: new Map([["fig:1197", sample]]) }, { substances: new Map(), materials: new Map() });
+    expect(both.materials.get("fig:1197")!.substances.map((s) => s.key)).not.toContain("std:IFRA_STD_087");
+    expect(both.materials.get("fig:1197")!.substances.map((s) => s.key)).toContain("std:IFRA_STD_089");
+  });
+});

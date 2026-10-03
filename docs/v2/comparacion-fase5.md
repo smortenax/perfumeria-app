@@ -2,15 +2,29 @@
 
 Generado con `BIBLIOTECA_DIR=… BIBLIOTECA_ESCRIBIR=1 npx vitest run src/bench/biblioteca.tool.test.ts`: 16 fórmulas de la biblioteca del usuario, cada una comprobada con la v1 (como hasta ahora) y con la v2 (migrada al abrirla, D13; lo que la v2 no tiene se queda como «v1, sin revisar»). Cambian de veredicto **14**.
 
+## Los cambios de veredicto, por dirección
+
+| Dirección | Fórmulas |
+|---|---|
+| **Más prudente:** sí → sin comprobar o no | **1** (sí → sin comprobar: 1; sí → no: 0) |
+| **Menos prudente:** no o sin comprobar → sí | **1** (no → sí: 0; sin comprobar → sí: 1) |
+| Otros: sin comprobar → no | 0 |
+| Otros: no → sin comprobar | 1 |
+| La lectura 1 no cambia (cambian otras cifras, o nada) | 13 |
+
+### Los que van a menos prudente, uno por uno
+
+- **Sin nombre** (sin comprobar → sí): la v1 no tenía IFRA de Castoreum Synth 184004 (sin comprobar) y la v2 lo tiene.
+
 Primero las que cambian por un material cuya fila de la v1 era de otra forma (cade, estírax, salvia, cilantro, láudano): ahí es donde la v1 se equivocaba más.
 
 ## church accord olibanum heavy · CAMBIA, por una fila de otra forma
 
 - **Hasta ahora (v1):** ¿pasa? no; hasta 31,46 % (según lo conocido); 10 pendientes, 1 sin comprobar; se pasa: Isophorone.
-- **Con la v2:** ¿pasa? sin comprobar; hasta 100,00 % (según lo conocido); 10 pendientes, 0 sin comprobar.
-- Migración: 24 materiales a la v2, 1 se quedan en la v1 «sin revisar», 1 avisos.
-  - Aviso: Patchouli oil (fig:2599) tiene CAS 8014-09-3 y el material de la v2, ninguno: no migra, sin confirmación.
+- **Con la v2:** ¿pasa? sin comprobar; hasta 100,00 % (según lo conocido); 9 pendientes, 0 sin comprobar.
+- Migración: 25 materiales a la v2, 1 se quedan en la v1 «sin revisar», 0 avisos.
   - Láudano de jara (fig:2143 → v2:P00058, fila de otra forma: láudano): ya no lleva: Carvyl acetate, Isophorone, Carvone, Methyl eugenol.
+  - Patchouli (fig:2599 → v2:P00049): antes pendiente, ya no: Sin datos de sus constituyentes en el anexo de IFRA: puede llevar sustancias con techo.; ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo..
   - Cedro Atlas (fig:1357 → v2:P00043): ahora pendiente: Pinacea derivatives: su especificación no está acreditada (STD 184)..
   - Sandalmysore Core (fig:487 → v2:P00038): ya no lleva: 1-(1,2,3,4,5,6,7,8 Octahydro-2,3,8,8-tetramethyl-2-naphthalenyl) ethanone (OTNE); ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo..
   - Polysantol (fig:607 → v2:P00037): ya no lleva: Benzaldehyde.
@@ -29,8 +43,7 @@ Primero las que cambian por un material cuya fila de la v1 era de otra forma (ca
 
 - **Hasta ahora (v1):** ¿pasa? sin comprobar; hasta 100,00 % (según lo conocido); 7 pendientes, 1 sin comprobar.
 - **Con la v2:** ¿pasa? sin comprobar; hasta 100,00 % (según lo conocido); 9 pendientes, 0 sin comprobar.
-- Migración: 34 materiales a la v2, 2 se quedan en la v1 «sin revisar», 1 avisos.
-  - Aviso: Patchouli oil (fig:2599) tiene CAS 8014-09-3 y el material de la v2, ninguno: no migra, sin confirmación.
+- Migración: 35 materiales a la v2, 2 se quedan en la v1 «sin revisar», 0 avisos.
   - Resinoide de benjuí (fig:1165 → v2:P00050): ahora lleva: Benzyl alcohol, Isoeugenol, Benzyl benzoate, 2-Methoxy-4-propylphenol, Propenylguaethol; antes pendiente, ya no: Sin datos de sus constituyentes en el anexo de IFRA: puede llevar sustancias con techo.; ahora pendiente: Su composición es parcial: puede llevar otras sustancias con techo..
   - Aceite de cade (enebro) (fig:1285 → v2:P00054): antes pendiente, ya no: Sin datos de sus constituyentes en el anexo de IFRA: puede llevar sustancias con techo.; ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo.; condiciones nuevas: una variante está prohibida (STD 119); la rectificada cumple la especificación (STD 119): supuesta, no acreditada (consenso).
   - Absoluto de Castoreum 20% (fig:1343 → v2:P00004): antes pendiente, ya no: Sin datos de sus constituyentes en el anexo de IFRA: puede llevar sustancias con techo.; ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo..
@@ -39,6 +52,7 @@ Primero las que cambian por un material cuya fila de la v1 era de otra forma (ca
   - Cumarina natural (fig:1534 → v2:P00014): ahora pendiente: Impurezas sin declarar: es un aislado natural y su producto no tiene documentos..
   - Geraniol 98% (fig:1906 → v2:P00001): ya no lleva: Citral, Citronellol; ahora pendiente: Impurezas sin declarar: es un aislado natural y su producto no tiene documentos..
   - Láudano de jara (fig:2150 → v2:P00058, fila de otra forma: láudano): ya no lleva: Carvone, Methyl eugenol; ahora lleva: Cinnamic alcohol.
+  - Patchouli (fig:2599 → v2:P00049): antes pendiente, ya no: Sin datos de sus constituyentes en el anexo de IFRA: puede llevar sustancias con techo.; ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo..
   - Salvia Officinalis (fig:2839 → v2:P00052, fila de otra forma: salvia): ya no lleva: Geraniol.
   - Resinoide de estírax (estoraque) (fig:2913 → v2:P00051, fila de otra forma: estírax): ya no lleva: p-Cresol, Benzyl alcohol, Benzyl benzoate, Benzyl cinnamate, Isoeugenol; antes pendiente, ya no: Benzyl trans-cinnamate: el anexo lo da como regulado, pero no está en el índice de IFRA..
   - Vetiver (fig:3083 → v2:P00053): ya no lleva: Longifolene.
@@ -51,8 +65,7 @@ Primero las que cambian por un material cuya fila de la v1 era de otra forma (ca
 
 - **Hasta ahora (v1):** ¿pasa? sin comprobar; hasta 100,00 % (según lo conocido); 7 pendientes, 1 sin comprobar.
 - **Con la v2:** ¿pasa? sin comprobar; hasta 100,00 % (según lo conocido); 9 pendientes, 0 sin comprobar.
-- Migración: 30 materiales a la v2, 0 se quedan en la v1 «sin revisar», 1 avisos.
-  - Aviso: Patchouli oil (fig:2599) tiene CAS 8014-09-3 y el material de la v2, ninguno: no migra, sin confirmación.
+- Migración: 31 materiales a la v2, 0 se quedan en la v1 «sin revisar», 0 avisos.
   - Cedro Atlas (fig:1357 → v2:P00043): ahora pendiente: Pinacea derivatives: su especificación no está acreditada (STD 184)..
   - Láudano de jara (fig:2150 → v2:P00058, fila de otra forma: láudano): ya no lleva: Carvone, Methyl eugenol; ahora lleva: Cinnamic alcohol.
   - Aceite de cade (enebro) (fig:1285 → v2:P00054): antes pendiente, ya no: Sin datos de sus constituyentes en el anexo de IFRA: puede llevar sustancias con techo.; ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo.; condiciones nuevas: una variante está prohibida (STD 119); la rectificada cumple la especificación (STD 119): supuesta, no acreditada (consenso).
@@ -60,6 +73,7 @@ Primero las que cambian por un material cuya fila de la v1 era de otra forma (ca
   - Resinoide de estírax (estoraque) (fig:2914 → v2:P00051): ya no lleva: Benzyl alcohol, Benzyl benzoate, Benzyl cinnamate, Benzyl salicylate, Coumarin, Eugenol, Isoeugenol; antes pendiente, ya no: Benzyl trans-cinnamate: el anexo lo da como regulado, pero no está en el índice de IFRA..
   - Vetiver (fig:3083 → v2:P00053): ya no lleva: Longifolene.
   - Cumarina natural (fig:1534 → v2:P00014): ahora pendiente: Impurezas sin declarar: es un aislado natural y su producto no tiene documentos..
+  - Patchouli (fig:2599 → v2:P00049): antes pendiente, ya no: Sin datos de sus constituyentes en el anexo de IFRA: puede llevar sustancias con techo.; ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo..
   - Resinoide de benjuí (fig:1165 → v2:P00050): ahora lleva: Benzyl alcohol, Isoeugenol, Benzyl benzoate, 2-Methoxy-4-propylphenol, Propenylguaethol; antes pendiente, ya no: Sin datos de sus constituyentes en el anexo de IFRA: puede llevar sustancias con techo.; ahora pendiente: Su composición es parcial: puede llevar otras sustancias con techo..
   - Resinoide de estírax (estoraque) (fig:2913 → v2:P00051, fila de otra forma: estírax): ya no lleva: p-Cresol, Benzyl alcohol, Benzyl benzoate, Benzyl cinnamate, Isoeugenol; antes pendiente, ya no: Benzyl trans-cinnamate: el anexo lo da como regulado, pero no está en el índice de IFRA..
   - Olíbano (ncs:olibanum-sacra-oil → v2:P00059): ya no lleva: Benzaldehyde, Benzyl alcohol, Benzyl benzoate.
@@ -86,8 +100,7 @@ Primero las que cambian por un material cuya fila de la v1 era de otra forma (ca
 
 - **Hasta ahora (v1):** ¿pasa? sin comprobar; hasta 100,00 % (según lo conocido); 1 pendientes, 3 sin comprobar.
 - **Con la v2:** ¿pasa? sin comprobar; hasta 100,00 % (según lo conocido); 12 pendientes, 0 sin comprobar.
-- Migración: 44 materiales a la v2, 9 se quedan en la v1 «sin revisar», 1 avisos.
-  - Aviso: Patchouli oil (fig:2599) tiene CAS 8014-09-3 y el material de la v2, ninguno: no migra, sin confirmación.
+- Migración: 45 materiales a la v2, 9 se quedan en la v1 «sin revisar», 0 avisos.
   - Haba tonka (semillas), tintura comercial (fig:2990 → v2:P00057): ya no lleva: Coumarin, Dihydrocoumarin; ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo..
   - Láudano de jara (fig:2150 → v2:P00058, fila de otra forma: láudano): ya no lleva: Carvone, Methyl eugenol; ahora lleva: Cinnamic alcohol.
   - Cumarina natural (fig:1534 → v2:P00014): ahora pendiente: Impurezas sin declarar: es un aislado natural y su producto no tiene documentos..
@@ -95,6 +108,7 @@ Primero las que cambian por un material cuya fila de la v1 era de otra forma (ca
   - Salvia Officinalis (fig:2839 → v2:P00052, fila de otra forma: salvia): ya no lleva: Geraniol.
   - Metil ionona gamma (fig:1054 → v2:P00022): ahora pendiente: Methyl ionone, mixed isomers: su especificación no está acreditada (STD 063)..
   - Sandalmysore Core (fig:487 → v2:P00038): ya no lleva: 1-(1,2,3,4,5,6,7,8 Octahydro-2,3,8,8-tetramethyl-2-naphthalenyl) ethanone (OTNE); ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo..
+  - Patchouli (fig:2599 → v2:P00049): antes pendiente, ya no: Sin datos de sus constituyentes en el anexo de IFRA: puede llevar sustancias con techo.; ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo..
   - Linalol (fig:2220 → v2:P00002): ya no lleva: Citral, Geraniol, Rose ketones, Methyl eugenol, Safrole, Isosafrole and Dihydrosafrole; ahora pendiente: Linalool: su especificación no está acreditada (STD 187)..
   - Geraniol 98% (fig:1906 → v2:P00001): ya no lleva: Citral, Citronellol; ahora pendiente: Impurezas sin declarar: es un aislado natural y su producto no tiene documentos..
   - Mandarina (fig:2261 → v2:P00047): ya no lleva: Carvone, Citral, Methyl N-formylanthranilate.
@@ -109,8 +123,7 @@ Primero las que cambian por un material cuya fila de la v1 era de otra forma (ca
 
 - **Hasta ahora (v1):** ¿pasa? sin comprobar; hasta 100,00 % (según lo conocido); 4 pendientes, 0 sin comprobar.
 - **Con la v2:** ¿pasa? sin comprobar; hasta 100,00 % (según lo conocido); 13 pendientes, 0 sin comprobar.
-- Migración: 45 materiales a la v2, 5 se quedan en la v1 «sin revisar», 1 avisos.
-  - Aviso: Patchouli oil (fig:2599) tiene CAS 8014-09-3 y el material de la v2, ninguno: no migra, sin confirmación.
+- Migración: 46 materiales a la v2, 5 se quedan en la v1 «sin revisar», 0 avisos.
   - Allyl Amyl Glycolate (fig:1012 → v2:P00027): ahora pendiente: Allyl esters: su especificación no está acreditada (STD 188)..
   - Metil ionona gamma (fig:1054 → v2:P00022): ahora pendiente: Methyl ionone, mixed isomers: su especificación no está acreditada (STD 063)..
   - Ámbar gris, tintura comercial (purificado) (fig:1069 → v2:P00055): antes pendiente, ya no: Sin datos de sus constituyentes en el anexo de IFRA: puede llevar sustancias con techo.; ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo..
@@ -125,6 +138,7 @@ Primero las que cambian por un material cuya fila de la v1 era de otra forma (ca
   - Linalol (fig:2220 → v2:P00002): ya no lleva: Citral, Geraniol, Rose ketones, Methyl eugenol, Safrole, Isosafrole and Dihydrosafrole; ahora pendiente: Linalool: su especificación no está acreditada (STD 187)..
   - Litsea Cubeba (fig:2240 → v2:P00046): ya no lleva: Carvone.
   - Mandarina (fig:2261 → v2:P00047): ya no lleva: Carvone, Citral, Methyl N-formylanthranilate.
+  - Patchouli (fig:2599 → v2:P00049): antes pendiente, ya no: Sin datos de sus constituyentes en el anexo de IFRA: puede llevar sustancias con techo.; ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo..
   - Salvia Officinalis (fig:2839 → v2:P00052, fila de otra forma: salvia): ya no lleva: Geraniol.
   - Haba tonka (semillas), tintura comercial (fig:2990 → v2:P00057): ya no lleva: Coumarin, Dihydrocoumarin; ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo..
   - Sandalmysore Core (fig:487 → v2:P00038): ya no lleva: 1-(1,2,3,4,5,6,7,8 Octahydro-2,3,8,8-tetramethyl-2-naphthalenyl) ethanone (OTNE); ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo..
@@ -135,12 +149,12 @@ Primero las que cambian por un material cuya fila de la v1 era de otra forma (ca
 
 - **Hasta ahora (v1):** ¿pasa? sin comprobar; hasta 100,00 % (según lo conocido); 2 pendientes, 1 sin comprobar.
 - **Con la v2:** ¿pasa? sin comprobar; hasta 100,00 % (según lo conocido); 7 pendientes, 0 sin comprobar.
-- Migración: 27 materiales a la v2, 3 se quedan en la v1 «sin revisar», 1 avisos.
-  - Aviso: Patchouli oil (fig:2599) tiene CAS 8014-09-3 y el material de la v2, ninguno: no migra, sin confirmación.
+- Migración: 28 materiales a la v2, 3 se quedan en la v1 «sin revisar», 0 avisos.
   - Cumarina natural (fig:1534 → v2:P00014): ahora pendiente: Impurezas sin declarar: es un aislado natural y su producto no tiene documentos..
   - Haba tonka (semillas), tintura comercial (fig:2990 → v2:P00057): ya no lleva: Coumarin, Dihydrocoumarin; ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo..
   - Ámbar gris, tintura comercial (purificado) (fig:1069 → v2:P00055): antes pendiente, ya no: Sin datos de sus constituyentes en el anexo de IFRA: puede llevar sustancias con techo.; ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo..
   - Polysantol (fig:607 → v2:P00037): ya no lleva: Benzaldehyde.
+  - Patchouli (fig:2599 → v2:P00049): antes pendiente, ya no: Sin datos de sus constituyentes en el anexo de IFRA: puede llevar sustancias con techo.; ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo..
   - Láudano de jara (fig:2150 → v2:P00058, fila de otra forma: láudano): ya no lleva: Carvone, Methyl eugenol; ahora lleva: Cinnamic alcohol.
   - Linalol (fig:2220 → v2:P00002): ya no lleva: Citral, Geraniol, Rose ketones, Methyl eugenol, Safrole, Isosafrole and Dihydrosafrole; ahora pendiente: Linalool: su especificación no está acreditada (STD 187)..
   - Lavanda (fig:2183 → v2:P00003): ya no lleva: Coumarin, alpha-Bisabolol.
@@ -153,12 +167,12 @@ Primero las que cambian por un material cuya fila de la v1 era de otra forma (ca
 
 - **Hasta ahora (v1):** ¿pasa? sin comprobar; hasta 100,00 % (según lo conocido); 2 pendientes, 1 sin comprobar.
 - **Con la v2:** ¿pasa? sin comprobar; hasta 100,00 % (según lo conocido); 6 pendientes, 0 sin comprobar.
-- Migración: 27 materiales a la v2, 3 se quedan en la v1 «sin revisar», 1 avisos.
-  - Aviso: Patchouli oil (fig:2599) tiene CAS 8014-09-3 y el material de la v2, ninguno: no migra, sin confirmación.
+- Migración: 28 materiales a la v2, 3 se quedan en la v1 «sin revisar», 0 avisos.
   - Cumarina natural (fig:1534 → v2:P00014): ahora pendiente: Impurezas sin declarar: es un aislado natural y su producto no tiene documentos..
   - Haba tonka (semillas), tintura comercial (fig:2990 → v2:P00057): ya no lleva: Coumarin, Dihydrocoumarin; ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo..
   - Ámbar gris, tintura comercial (purificado) (fig:1069 → v2:P00055): antes pendiente, ya no: Sin datos de sus constituyentes en el anexo de IFRA: puede llevar sustancias con techo.; ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo..
   - Polysantol (fig:607 → v2:P00037): ya no lleva: Benzaldehyde.
+  - Patchouli (fig:2599 → v2:P00049): antes pendiente, ya no: Sin datos de sus constituyentes en el anexo de IFRA: puede llevar sustancias con techo.; ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo..
   - Láudano de jara (fig:2150 → v2:P00058, fila de otra forma: láudano): ya no lleva: Carvone, Methyl eugenol; ahora lleva: Cinnamic alcohol.
   - Linalol (fig:2220 → v2:P00002): ya no lleva: Citral, Geraniol, Rose ketones, Methyl eugenol, Safrole, Isosafrole and Dihydrosafrole; ahora pendiente: Linalool: su especificación no está acreditada (STD 187)..
   - Lavanda (fig:2183 → v2:P00003): ya no lleva: Coumarin, alpha-Bisabolol.
@@ -171,12 +185,12 @@ Primero las que cambian por un material cuya fila de la v1 era de otra forma (ca
 
 - **Hasta ahora (v1):** ¿pasa? sin comprobar; hasta 100,00 % (según lo conocido); 2 pendientes, 1 sin comprobar.
 - **Con la v2:** ¿pasa? sin comprobar; hasta 100,00 % (según lo conocido); 7 pendientes, 0 sin comprobar.
-- Migración: 27 materiales a la v2, 3 se quedan en la v1 «sin revisar», 1 avisos.
-  - Aviso: Patchouli oil (fig:2599) tiene CAS 8014-09-3 y el material de la v2, ninguno: no migra, sin confirmación.
+- Migración: 28 materiales a la v2, 3 se quedan en la v1 «sin revisar», 0 avisos.
   - Cumarina natural (fig:1534 → v2:P00014): ahora pendiente: Impurezas sin declarar: es un aislado natural y su producto no tiene documentos..
   - Haba tonka (semillas), tintura comercial (fig:2990 → v2:P00057): ya no lleva: Coumarin, Dihydrocoumarin; ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo..
   - Ámbar gris, tintura comercial (purificado) (fig:1069 → v2:P00055): antes pendiente, ya no: Sin datos de sus constituyentes en el anexo de IFRA: puede llevar sustancias con techo.; ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo..
   - Polysantol (fig:607 → v2:P00037): ya no lleva: Benzaldehyde.
+  - Patchouli (fig:2599 → v2:P00049): antes pendiente, ya no: Sin datos de sus constituyentes en el anexo de IFRA: puede llevar sustancias con techo.; ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo..
   - Láudano de jara (fig:2150 → v2:P00058, fila de otra forma: láudano): ya no lleva: Carvone, Methyl eugenol; ahora lleva: Cinnamic alcohol.
   - Linalol (fig:2220 → v2:P00002): ya no lleva: Citral, Geraniol, Rose ketones, Methyl eugenol, Safrole, Isosafrole and Dihydrosafrole; ahora pendiente: Linalool: su especificación no está acreditada (STD 187)..
   - Lavanda (fig:2183 → v2:P00003): ya no lleva: Coumarin, alpha-Bisabolol.
@@ -189,8 +203,7 @@ Primero las que cambian por un material cuya fila de la v1 era de otra forma (ca
 
 - **Hasta ahora (v1):** ¿pasa? sin comprobar; hasta 100,00 % (según lo conocido); 3 pendientes, 0 sin comprobar.
 - **Con la v2:** ¿pasa? sin comprobar; hasta 100,00 % (según lo conocido); 12 pendientes, 0 sin comprobar.
-- Migración: 42 materiales a la v2, 5 se quedan en la v1 «sin revisar», 1 avisos.
-  - Aviso: Patchouli oil (fig:2599) tiene CAS 8014-09-3 y el material de la v2, ninguno: no migra, sin confirmación.
+- Migración: 43 materiales a la v2, 5 se quedan en la v1 «sin revisar», 0 avisos.
   - Cumarina natural (fig:1534 → v2:P00014): ahora pendiente: Impurezas sin declarar: es un aislado natural y su producto no tiene documentos..
   - Allyl Amyl Glycolate (fig:1012 → v2:P00027): ahora pendiente: Allyl esters: su especificación no está acreditada (STD 188)..
   - Metil ionona gamma (fig:1054 → v2:P00022): ahora pendiente: Methyl ionone, mixed isomers: su especificación no está acreditada (STD 063)..
@@ -204,6 +217,7 @@ Primero las que cambian por un material cuya fila de la v1 era de otra forma (ca
   - Sandalmysore Core (fig:487 → v2:P00038): ya no lleva: 1-(1,2,3,4,5,6,7,8 Octahydro-2,3,8,8-tetramethyl-2-naphthalenyl) ethanone (OTNE); ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo..
   - Bergamota sin bergaptenos (fig:1200 → v2:P00042): ya no lleva: Carvone; antes pendiente, ya no: Fuera del anexo de IFRA: solo constan las sustancias que declara su proveedor, y puede llevar otras con techo.; ahora pendiente: Su composición es parcial: puede llevar otras sustancias con techo. / Citrus oils and other furocoumarins containing essential oils: el límite es de 5-MOP en el producto y no se sabe cuánto lleva este material (STD 089)..
   - Ambrettolide (fig:183 → v2:P00072): ahora lleva: Ambrettolide (tope de IFF).
+  - Patchouli (fig:2599 → v2:P00049): antes pendiente, ya no: Sin datos de sus constituyentes en el anexo de IFRA: puede llevar sustancias con techo.; ahora pendiente: Sin datos de sus constituyentes: puede llevar sustancias con techo..
   - Eugenol 98% (fig:1834 → v2:P00019): ahora pendiente: Impurezas sin declarar: es un aislado natural y su producto no tiene documentos..
   - Láudano de jara (fig:2150 → v2:P00058, fila de otra forma: láudano): ya no lleva: Carvone, Methyl eugenol; ahora lleva: Cinnamic alcohol.
   - Polysantol (fig:607 → v2:P00037): ya no lleva: Benzaldehyde.

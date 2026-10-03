@@ -137,6 +137,41 @@ function materialDiff(note: Extract<MigrationNote, { kind: "migrated" }>, before
       `Generado con \`BIBLIOTECA_DIR=… BIBLIOTECA_ESCRIBIR=1 npx vitest run src/bench/biblioteca.tool.test.ts\`: ${rows.length} fórmulas de la biblioteca del usuario, cada una comprobada con la v1 (como hasta ahora) y con la v2 (migrada al abrirla, D13; lo que la v2 no tiene se queda como «v1, sin revisar»). Cambian de veredicto **${changed.length}**.`,
       "",
     );
+    // The verdicts by direction: more prudent (a yes becomes unknown or a no) or less (a no or an unknown becomes a yes).
+    const level = (r: Summary) => r.asIs;
+    const moves = new Map<string, typeof rows>();
+    for (const r of rows) {
+      const from = level(summary(r.before));
+      const to = level(summary(r.after));
+      if (from !== to) moves.set(`${from} → ${to}`, [...(moves.get(`${from} → ${to}`) ?? []), r]);
+    }
+    const count = (key: string) => moves.get(key)?.length ?? 0;
+    const prudent = count("sí → sin comprobar") + count("sí → no");
+    const lessPrudent = count("no → sí") + count("sin comprobar → sí");
+    lines.push("## Los cambios de veredicto, por dirección", "");
+    lines.push("| Dirección | Fórmulas |", "|---|---|");
+    lines.push(`| **Más prudente:** sí → sin comprobar o no | **${prudent}** (sí → sin comprobar: ${count("sí → sin comprobar")}; sí → no: ${count("sí → no")}) |`);
+    lines.push(`| **Menos prudente:** no o sin comprobar → sí | **${lessPrudent}** (no → sí: ${count("no → sí")}; sin comprobar → sí: ${count("sin comprobar → sí")}) |`);
+    lines.push(`| Otros: sin comprobar → no | ${count("sin comprobar → no")} |`);
+    lines.push(`| Otros: no → sin comprobar | ${count("no → sin comprobar")} |`);
+    lines.push(`| La lectura 1 no cambia (cambian otras cifras, o nada) | ${rows.length - [...moves.values()].reduce((n, v) => n + v.length, 0)} |`, "");
+    const toYes = [...(moves.get("no → sí") ?? []), ...(moves.get("sin comprobar → sí") ?? [])];
+    if (toYes.length > 0) {
+      lines.push("### Los que van a menos prudente, uno por uno", "");
+      for (const r of toYes) {
+        const a = summary(r.before);
+        const reasons: string[] = [];
+        const nowUnchecked = new Set(r.after.unchecked);
+        const resolved = r.before.unchecked.filter((m) => !nowUnchecked.has(m));
+        if (resolved.length > 0) reasons.push(`la v1 no tenía IFRA de ${resolved.join(", ")} (sin comprobar) y la v2 lo tiene`);
+        const exceedsNow = new Set(summary(r.after).exceeds);
+        const gone = a.exceeds.filter((x) => !exceedsNow.has(x));
+        if (gone.length > 0) reasons.push(`ya no se pasa: ${gone.join(", ")}`);
+        const swapped = r.migration.notes.filter((n): n is Extract<MigrationNote, { kind: "migrated" }> => n.kind === "migrated" && resolved.includes(n.name));
+        lines.push(`- **${r.name}** (${a.asIs} → sí): ${reasons.join("; ") || "sin motivo en lo comprobado: revisar"}${swapped.length ? ` (${swapped.map((n) => `${n.from} → ${n.to}`).join(", ")})` : ""}.`);
+      }
+      lines.push("");
+    }
     lines.push("Primero las que cambian por un material cuya fila de la v1 era de otra forma (cade, estírax, salvia, cilantro, láudano): ahí es donde la v1 se equivocaba más.", "");
     for (const r of ordered) {
       const a = summary(r.before);

@@ -16,7 +16,7 @@ Autoridad: [`decisiones-v2.md`](decisiones-v2.md) (D1–D12). La v1 está congel
 - [x] **Fase 5 — La v2 por defecto en la app** (2026-10-03). Migración al abrir (D13, `migrate.ts`, copia en `copias-v1`),
   ficha «De dónde sale», explicaciones del «no» y del «no se sabe» (cantidades / especificaciones, grupo 089), barra con
   D12 (`concentraciones.csv`), repositorio fusionado con la v1 «sin revisar», informe con tu biblioteca
-  ([`comparacion-fase5.md`](comparacion-fase5.md)). **Falta tu confirmación** del pachulí `fig:2599` y del musgo `fig:2480`.
+  ([`comparacion-fase5.md`](comparacion-fase5.md)). Confirmados `fig:2599` y `fig:2480` (D13); los citrinos solo-v1 suman en el 089 por una vía (D10).
 - [ ] **Fase 6 — El resto del glosario**, por clase, en lotes de 300 como máximo, con los conflictos
   agrupados por tipo. Nada entra con más autoridad que su fuente. Buscar los errores de `errores-v1.md`.
 

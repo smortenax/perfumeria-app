@@ -60,6 +60,8 @@ viene.
 - `fig:94` (1-(1,2,3,5,6,7,8,8a-Octahydro-2,3,8,8-tetramethyl-2-naphthyl, 68155-66-8): la biblioteca la usa para «Iso E Super» (1-(1,2,3,4,5,6,7,8-Octahydro-2,3,8,8-tet, 54464-57-2). La fila es de otra forma o de otro CAS: otro CAS que el del material de la v2. La fórmula migra al producto (D13).
 - `fig:1069`: la fila de la v1 lleva el CAS 8038-65-1 y el material de la v2 (tintura), 84836-94-2. La identidad la decidió el usuario en el lote 3d (D1: el CAS es atributo); la confirmación de D13 deja migrar las fórmulas.
 - `fig:2992`: la fila de la v1 lleva el CAS 8024-04-2 (extracto) y el material de la v2 (tintura), 90028-06-1. La identidad la decidió el usuario en el lote 3d (D1: el CAS es atributo); la confirmación de D13 deja migrar las fórmulas.
+- `fig:2599` (Patchouli oil, 8014-09-3): la biblioteca la usa para «Patchouli» (Olfatorium), que en la v2 no tiene CAS. La fila lleva un CAS que el producto no declara. La fórmula migra al producto (D13).
+- `fig:2480` (Oakmoss absolute, 9000-50-4): la biblioteca la usa para el musgo de roble de IFF (Perfumiarz), cuyo CAS es 90028-68-5. La fórmula migra al producto (D13).
 
 ## Patrones que buscar
 
