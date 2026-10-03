@@ -11,9 +11,9 @@ Autoridad: [`decisiones-v2.md`](decisiones-v2.md) (D1–D11). La v1 está congel
   v1 en [`comparacion-fase3.md`](comparacion-fase3.md); lo que falta para cerrar sus pendientes, por tienda,
   en [`pendientes-F001.md`](pendientes-F001.md).
 - [ ] **Fase 4 — Los 32 productos de Perfumiarz**, en dos lotes: 23 documentados (**4a**) y 9 parciales o
-  sin documentos (4b). Las sustancias de los certificados salen de `docs/proveedores/productos-sustancias.csv`.
-  Los topes van por producto (D4). **4a preparado:** 20 por entrar (3 ya estaban), 25 conflictos sin
-  respuesta; los 23 certificados, cotejados contra su PDF (`certificados-productos.csv`).
+  sin documentos (4b). Cifras de `docs/proveedores/productos-sustancias.csv`; topes por producto (D4).
+  **4a preparado:** 20 por entrar, 27 conflictos sin respuesta, con su evidencia (`datos/v2/evidencia/4a.csv`,
+  de `evidencia.py`: origen y dilución salen del texto, no del nombre). Faltan 3 PDF cifrados (`cryptography`).
 - [ ] **Fase 5 — La v2 por defecto en la app.** Lo que solo está en la v1 aparece como «v1, sin
   revisar». Las fórmulas se migran al abrirlas, con registro-ids y comprobación de CAS. La ficha
   enseña la autoridad y el documento de cada cifra. **Requisito:** la interfaz explica cada «no», incluido

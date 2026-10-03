@@ -33,6 +33,11 @@ terminar: actualizarlo, en 30 líneas como máximo, y hacer commit.
 - Los datos los escribe un script determinista, nunca Claude fila a fila.
 - Nada se fusiona en silencio: cada conflicto va a `datos/v2/conflictos/<lote>.csv` y lo
   decide el usuario.
+- El nombre de un producto o de un documento no es evidencia. Lo que un documento puede
+  responder (tipo, dilución, origen, forma) se responde con su texto, extraído por script, y
+  cada recomendación cita la frase y la página. Si el documento no lo dice, se dice "no lo
+  dice", no se supone. (`scripts/v2/evidencia.py` → `datos/v2/evidencia/<lote>.csv`. La regla
+  de no abrir los PDF vale para las cifras, no para clasificar.)
 - `npm run validar:v2` tiene que pasar antes de cada commit de datos.
 - Si una tarea choca con `decisiones-v2.md`, se para y se pregunta.
 

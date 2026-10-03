@@ -29,8 +29,9 @@ Tipos de conflicto y sus respuestas (`excluir` vale en todos: el producto no ent
 * `certificado-no-revisado`: el certificado del producto no se pudo cotejar contra su PDF
   (`docs/v2/certificados-productos.csv`, de `cotejar_certificados.py`): sin revisar no entra (D6). Respuesta:
   `sin-certificado` (el producto entra sin sus cifras) o `excluir`.
-* `documento-diluido`: el nombre del certificado dice que es un producto diluido (` PG `, ` DPG `…) y sus cifras
-  son del producto diluido, no de la materia pura. Respuesta: `pct:<N>` (el % de materia pura del producto
+* `documento-diluido`: la SDS del producto (sección 3, `evidencia.py`) no prueba que sea materia pura: lista un disolvente
+  de más del 10 %, o ni es una sustancia (3.1) ni suma el 90 % con sus mínimos (el nombre no cuenta). Sus cifras serían
+  del producto diluido, no de la materia pura. No se pregunta en las bases. Respuesta: `pct:<N>` (el % de materia pura del producto
   del certificado: sus cifras se pasan a materia pura y su tope se multiplica) o `sin-certificado`.
 * `forma` (solo naturales, D1): la especie, parte, proceso y quimiotipo de cada natural. La
   propuesta sale de `docs/v2/formas-propuestas.csv`, y la evidencia, del título y la descripción
@@ -60,11 +61,12 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import documentos  # noqa: E402
+import evidencia  # noqa: E402
 
 SHOP_SLUG = {"Maese Lab": "maeselab", "Olfatorium": "olfatorium", "Perfumiarz": "perfumiarz"}
 SHOP_URL = {"Maese Lab": "https://maeselab.com/", "Olfatorium": "https://olfatorium.com/",
             "Perfumiarz": "https://perfumiarz.com/products/"}
-CONFLICT_COLUMNS = ["producto", "tipo", "detalle", "recomendacion", "respuesta"]
+CONFLICT_COLUMNS = ["producto", "tipo", "detalle", "evidencia", "recomendacion", "respuesta"]
 PROPOSAL_COLUMNS = ["producto", "clave", "estado", "tipo", "material", "cas", "origen", "v1", "notas"]
 NATURAL_WORDS = re.compile(r"\b(nat|natural)\b", re.IGNORECASE)
 CAS_IN_TEXT = re.compile(r"\b(\d{2,7}-\d{2}-\d)\b")
@@ -186,12 +188,19 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
         found: list[dict[str, str]] = []
         fam_standards: list[str] = []
 
+        def proof(kind: str) -> str:
+            # What the documents of the product say (evidencia.py): the phrase, the document and the page, or «no lo dice».
+            if kind not in evidencia.TYPES or name not in made:
+                return ""
+            return " || ".join(f"{phrase[:420]} [{Path(doc).name}{', p.' + page if page else ''}]"
+                               for phrase, doc, page in evidencia.evidence_for(made[name], kind))
+
         def conflict(kind: str, detail: str, recommendation: str) -> None:
             # The old «documento-ajeno» answers of the lots already closed still count for the two new kinds.
             answer = answers.get((name, kind), "") or (
                 answers.get((name, "documento-ajeno"), "") if kind.startswith("documento-otro") else "")
-            found.append({"producto": name, "tipo": kind, "detalle": detail, "recomendacion": recommendation,
-                          "respuesta": answer})
+            found.append({"producto": name, "tipo": kind, "detalle": detail, "evidencia": proof(kind),
+                          "recomendacion": recommendation, "respuesta": answer})
 
         # A base or specialty has no CAS and no row in the glossary by nature: it is not a missing row.
         base_class = clase == "base o especialidad" and not shape
@@ -281,10 +290,11 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
         if cert and made.get(name) and not any(c["tipo"] == "sin-fila-v1" and not c["respuesta"] for c in found):
             if cert["revisado"] != "si":
                 conflict("certificado-no-revisado", f"{cert['titulo']}: {cert['motivo'][:200]}", "sin-certificado")
-            elif re.search(r"\b(PG|DPG|IPM|TEC|DEP)\b", made[name]["nombre_certificado"]):
-                conflict("documento-diluido",
-                         f"el certificado es de «{made[name]['nombre_certificado']}», diluido en un diluyente de la app y sin decir en qué %: "
-                         "sus cifras son del producto diluido, no de la materia pura", "sin-certificado")
+            elif not clase.startswith("base"):
+                # The dilution is decided by the SDS (section 3), never by the name of the product or the certificate.
+                verdict, phrase, page = evidencia.dilution_verdict(evidencia.Doc(evidencia.product_documents(made[name])["sds"]))
+                if verdict != "pura":
+                    conflict("documento-diluido", f"{phrase} (página {page or '—'}); la SDS no prueba que sea materia pura", "sin-certificado")
         excluded = any(c["respuesta"] == "excluir" for c in found)
         # D7: the origin of a molecule that enters. Not asked of what is out, or has no row yet.
         as_base = answers.get((name, "tipo")) == "base"
@@ -305,12 +315,16 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
             found.append({"producto": name, "tipo": "tipo", "detalle": "el usuario lo trata como base, no como molécula",
                           "recomendacion": "base", "respuesta": "base"})
         elif not natural_lot and not excluded and not any(c["tipo"] == "sin-fila-v1" and not c["respuesta"] for c in found):
+            said = not proof("origen").startswith("no lo dice")
             if cas in proposed:
                 guess, why = proposed[cas]["origen"], f"{proposed[cas]['motivo']} [{proposed[cas]['fuente']}]"
             elif NATURAL_WORDS.search(f"{name} {p['pagina']}"):
                 guess, why = "aislado-natural", f"el nombre o la página dicen «natural» ({p['pagina'] or name})"
             else:
                 guess, why = "desconocido", "sin indicio de si es natural o de síntesis"
+            if not said and name in made:
+                # The name of a product is not evidence: if its documents do not say it, the origin is not known.
+                why, guess = f"lo que sé de la molécula, sin documento: {guess} ({why})", "desconocido"
             conflict("origen", why, guess)
         conflicts.extend(found)
         pending = [c for c in found if not c["respuesta"]]

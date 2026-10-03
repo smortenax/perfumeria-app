@@ -1,20 +1,20 @@
-producto,tipo,detalle,recomendacion,respuesta
-Alcohol Feniletílico,origen,«aislado natural o sintético sin confirmar»: el cuaderno documenta las dos rutas y pide mirar la etiqueta [cuaderno: materias-primas/alcohol-feniletilico.md],desconocido,desconocido
-Allyl Amyl Glycolate,ifra-distinto,"v1 (ninguno); índice (ninguno); familia, por el nombre: ésteres alílicos: alcohol alílico libre (STD 188) → IFRA_STD_188 «Allyl esters»: Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%. This recommendation is based on the delayed irrit (el índice no lista su CAS: la familia le aplica por el nombre)",familia,familia
-Allyl Amyl Glycolate,origen,«molécula de síntesis (IFF)» [cuaderno: materias-primas/allyl-amyl-glycolate.md],sintetico,sintetico
-Cilantro,sin-fila-v1,en el registro y sin fila en la v1; CAS 84775-50-8; la clase no se sabe,alta-sin-v1:84775-50-8 si es molécula; excluir si no,excluir
-Dihydromyrcenol,origen,«molécula de síntesis» [cuaderno: materias-primas/dihydromyrcenol.md],sintetico,sintetico
-Ethyl Maltol,origen,«molécula de síntesis» [cuaderno: materias-primas/ethyl-maltol.md],sintetico,sintetico
-Ethylene Brassylate,origen,«almizcle macrocíclico de síntesis» [cuaderno: materias-primas/ethylene-brassylate.md],sintetico,sintetico
-Galaxolide,origen,«almizcle policíclico de síntesis» [cuaderno: materias-primas/galaxolide.md],sintetico,sintetico
-Hedione,origen,«molécula de síntesis de Firmenich» [cuaderno: materias-primas/hedione.md],sintetico,sintetico
-Ionona Alpha,origen,«molécula de síntesis de IFF» [cuaderno: materias-primas/ionona-alpha.md],sintetico,sintetico
-Iso E Super,origen,«molécula de síntesis de IFF» [cuaderno: materias-primas/iso-e-super.md],sintetico,sintetico
-Mayol,origen,«molécula de síntesis de Firmenich» [cuaderno: materias-primas/mayol.md],sintetico,sintetico
-Methyl Pamplemousse,origen,«molécula de síntesis de Givaudan» [cuaderno: materias-primas/methyl-pamplemousse.md],sintetico,sintetico
-Polysantol,documento-otro-material,W16070 Firmenich: Presence of EU Fragrance Allergens — PHENYLHEXANOL 973080 (22389271) [revisado] → se apunta en errores-v1.md,descartar,descartar
-Polysantol,origen,«sándalo sintético de Firmenich» [cuaderno: materias-primas/polysantol.md],sintetico,sintetico
-Sandalmysore Core,documento-otro-material,H19102 IFF: EU Extended Fragrance allergens — SANTALIFF TOCO (00190237) [revisado] → se apunta en errores-v1.md,descartar,descartar
-Sandalmysore Core,tipo,"el usuario lo trata como base, no como molécula",base,base
-Stemone,origen,«molécula de síntesis (Givaudan)» [cuaderno: materias-primas/stemone.md],sintetico,sintetico
-Vertenex (PTBCHA),origen,«molécula de síntesis» [cuaderno: materias-primas/vertenex-ptbcha.md],sintetico,sintetico
+producto,tipo,detalle,evidencia,recomendacion,respuesta
+Alcohol Feniletílico,origen,«aislado natural o sintético sin confirmar»: el cuaderno documenta las dos rutas y pide mirar la etiqueta [cuaderno: materias-primas/alcohol-feniletilico.md],,desconocido,desconocido
+Allyl Amyl Glycolate,ifra-distinto,"v1 (ninguno); índice (ninguno); familia, por el nombre: ésteres alílicos: alcohol alílico libre (STD 188) → IFRA_STD_188 «Allyl esters»: Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%. This recommendation is based on the delayed irrit (el índice no lista su CAS: la familia le aplica por el nombre)",,familia,familia
+Allyl Amyl Glycolate,origen,«molécula de síntesis (IFF)» [cuaderno: materias-primas/allyl-amyl-glycolate.md],,sintetico,sintetico
+Cilantro,sin-fila-v1,en el registro y sin fila en la v1; CAS 84775-50-8; la clase no se sabe,,alta-sin-v1:84775-50-8 si es molécula; excluir si no,excluir
+Dihydromyrcenol,origen,«molécula de síntesis» [cuaderno: materias-primas/dihydromyrcenol.md],,sintetico,sintetico
+Ethyl Maltol,origen,«molécula de síntesis» [cuaderno: materias-primas/ethyl-maltol.md],,sintetico,sintetico
+Ethylene Brassylate,origen,«almizcle macrocíclico de síntesis» [cuaderno: materias-primas/ethylene-brassylate.md],,sintetico,sintetico
+Galaxolide,origen,«almizcle policíclico de síntesis» [cuaderno: materias-primas/galaxolide.md],,sintetico,sintetico
+Hedione,origen,«molécula de síntesis de Firmenich» [cuaderno: materias-primas/hedione.md],,sintetico,sintetico
+Ionona Alpha,origen,«molécula de síntesis de IFF» [cuaderno: materias-primas/ionona-alpha.md],,sintetico,sintetico
+Iso E Super,origen,«molécula de síntesis de IFF» [cuaderno: materias-primas/iso-e-super.md],,sintetico,sintetico
+Mayol,origen,«molécula de síntesis de Firmenich» [cuaderno: materias-primas/mayol.md],,sintetico,sintetico
+Methyl Pamplemousse,origen,«molécula de síntesis de Givaudan» [cuaderno: materias-primas/methyl-pamplemousse.md],,sintetico,sintetico
+Polysantol,documento-otro-material,W16070 Firmenich: Presence of EU Fragrance Allergens — PHENYLHEXANOL 973080 (22389271) [revisado] → se apunta en errores-v1.md,,descartar,descartar
+Polysantol,origen,«sándalo sintético de Firmenich» [cuaderno: materias-primas/polysantol.md],,sintetico,sintetico
+Sandalmysore Core,documento-otro-material,H19102 IFF: EU Extended Fragrance allergens — SANTALIFF TOCO (00190237) [revisado] → se apunta en errores-v1.md,,descartar,descartar
+Sandalmysore Core,tipo,"el usuario lo trata como base, no como molécula",,base,base
+Stemone,origen,«molécula de síntesis (Givaudan)» [cuaderno: materias-primas/stemone.md],,sintetico,sintetico
+Vertenex (PTBCHA),origen,«molécula de síntesis» [cuaderno: materias-primas/vertenex-ptbcha.md],,sintetico,sintetico

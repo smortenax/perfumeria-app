@@ -1,23 +1,23 @@
-producto,tipo,detalle,recomendacion,respuesta
-Ambermor IFF,origen,ambroxano: el cuaderno lo da como «primer ambarado de síntesis declarado como tal»; industrialmente sale por semisíntesis del esclareol [cuaderno: materias-primas/ambermor.md],sintetico,sintetico
-Acetato de bencilo,origen,"el acetato de bencilo del mercado es de síntesis; existe en el jazmín, pero no se vende como aislado salvo que la tienda lo diga (no lo dice) [conocimiento general, sin verificar]",sintetico,sintetico
-Aldehído alfa-amil cinámico,documento-otro-proveedor,EU_Fragrance_Allergens_ALDEHIDO_ALFA-N-AMILCINAMICO_KALPSUTRA Ventós: Lista de alérgenos de la UE — ALDEHIDO ALFA-N-AMILCINAMICO KALPSUTRA (13 de agosto de 2025) [revisado],traer,traer
-Aldehído alfa-amil cinámico,origen,"se obtiene por condensación de benzaldehído y heptanal; no se aísla de plantas [conocimiento general, sin verificar]",sintetico,sintetico
-Aldehído C14 (gamma-undecalactona),origen,«molécula de síntesis: la γ-undecalactona» [cuaderno: materias-primas/aldehido-c14-gamma-undecalactona.md],sintetico,sintetico
-Aldehído C18 (gamma-nonalactona),origen,«molécula de síntesis: la γ-nonalactona» [cuaderno: materias-primas/aldehido-c18-gamma-nonalactona.md],sintetico,sintetico
-Cashmeran,origen,"molécula de síntesis de IFF, sin fuente natural [conocimiento general, sin verificar]",sintetico,sintetico
-Cumarina natural,origen,"«cumarina cristalizada de origen vegetal (haba tonka), 100 % pura»; el producto se llama «cumarina natural» [cuaderno: materias-primas/cumarina-natural.md]",aislado-natural,aislado-natural
-Dartanol,origen,"«sándalo sintético de Givaudan, forma levógira del Bacdanol» [cuaderno: materias-primas/dartanol.md]",sintetico,sintetico
-Diphenyl Oxide,origen,"se obtiene como subproducto de la fabricación de fenol; no se aísla de plantas [conocimiento general, sin verificar]",sintetico,sintetico
-Ebanol,origen,«sándalo sintético de Givaudan» [cuaderno: materias-primas/ebanol.md],sintetico,sintetico
-Etil-4-fenol,origen,«molécula de síntesis: un fenol animálico» [cuaderno: materias-primas/etil-4-fenol.md],sintetico,sintetico
-Eugenol 98%,origen,"el eugenol comercial se aísla casi todo del aceite de hoja de clavo; el anexo de IFRA da a esos aceites 0,1 % de metileugenol (STD 100) [conocimiento general, sin verificar; IFRA 51, anexo de naturales (clove leaf oil, clove bud oil)]",aislado-natural,aislado-natural
-Florosa,origen,«molécula de síntesis (Firmenich)» [cuaderno: materias-primas/florosa.md],sintetico,sintetico
-Isobutilquinoleína (IBQ),origen,"molécula de síntesis (quinoleína alquilada); no se aísla de plantas [conocimiento general, sin verificar]",sintetico,sintetico
-Láudano de jara,sin-fila-v1,en el registro y sin fila en la v1; CAS 89997-74-0; la clase no se sabe,alta-sin-v1:89997-74-0 si es molécula; excluir si no,excluir
-Metil ionona gamma,origen,"la metil ionona se obtiene por condensación de citral con metiletilcetona; no se aísla [conocimiento general, sin verificar]",sintetico,sintetico
-Safraleine,documento-otro-proveedor,0015893 Givaudan: Allergen Extended List — SAFRALEINE 0015893 (16 de abril de 2025) [revisado],traer,traer
-Safraleine,origen,"molécula de síntesis de Firmenich (indanona) [conocimiento general, sin verificar]",sintetico,sintetico
-Vainillina,origen,"la vainillina del mercado es casi toda de síntesis (guayacol); Maese Lab no dice si la suya es natural. Es la propuesta más dudosa del lote [conocimiento general, sin verificar]",sintetico,sintetico
-2-Acetilpirazina,origen,"pirazina de aroma, de síntesis; existe en la naturaleza, pero no se vende aislada de ella [conocimiento general, sin verificar]",sintetico,sintetico
-Theobroma cacao extract,sin-fila-v1,sin fila en el registro ni en la v1; CAS 84649-99-0; la clase no se sabe,alta-sin-v1:84649-99-0 si es molécula; excluir si no,excluir
+producto,tipo,detalle,evidencia,recomendacion,respuesta
+Ambermor IFF,origen,ambroxano: el cuaderno lo da como «primer ambarado de síntesis declarado como tal»; industrialmente sale por semisíntesis del esclareol [cuaderno: materias-primas/ambermor.md],,sintetico,sintetico
+Acetato de bencilo,origen,"el acetato de bencilo del mercado es de síntesis; existe en el jazmín, pero no se vende como aislado salvo que la tienda lo diga (no lo dice) [conocimiento general, sin verificar]",,sintetico,sintetico
+Aldehído alfa-amil cinámico,documento-otro-proveedor,EU_Fragrance_Allergens_ALDEHIDO_ALFA-N-AMILCINAMICO_KALPSUTRA Ventós: Lista de alérgenos de la UE — ALDEHIDO ALFA-N-AMILCINAMICO KALPSUTRA (13 de agosto de 2025) [revisado],,traer,traer
+Aldehído alfa-amil cinámico,origen,"se obtiene por condensación de benzaldehído y heptanal; no se aísla de plantas [conocimiento general, sin verificar]",,sintetico,sintetico
+Aldehído C14 (gamma-undecalactona),origen,«molécula de síntesis: la γ-undecalactona» [cuaderno: materias-primas/aldehido-c14-gamma-undecalactona.md],,sintetico,sintetico
+Aldehído C18 (gamma-nonalactona),origen,«molécula de síntesis: la γ-nonalactona» [cuaderno: materias-primas/aldehido-c18-gamma-nonalactona.md],,sintetico,sintetico
+Cashmeran,origen,"molécula de síntesis de IFF, sin fuente natural [conocimiento general, sin verificar]",,sintetico,sintetico
+Cumarina natural,origen,"«cumarina cristalizada de origen vegetal (haba tonka), 100 % pura»; el producto se llama «cumarina natural» [cuaderno: materias-primas/cumarina-natural.md]",,aislado-natural,aislado-natural
+Dartanol,origen,"«sándalo sintético de Givaudan, forma levógira del Bacdanol» [cuaderno: materias-primas/dartanol.md]",,sintetico,sintetico
+Diphenyl Oxide,origen,"se obtiene como subproducto de la fabricación de fenol; no se aísla de plantas [conocimiento general, sin verificar]",,sintetico,sintetico
+Ebanol,origen,«sándalo sintético de Givaudan» [cuaderno: materias-primas/ebanol.md],,sintetico,sintetico
+Etil-4-fenol,origen,«molécula de síntesis: un fenol animálico» [cuaderno: materias-primas/etil-4-fenol.md],,sintetico,sintetico
+Eugenol 98%,origen,"el eugenol comercial se aísla casi todo del aceite de hoja de clavo; el anexo de IFRA da a esos aceites 0,1 % de metileugenol (STD 100) [conocimiento general, sin verificar; IFRA 51, anexo de naturales (clove leaf oil, clove bud oil)]",,aislado-natural,aislado-natural
+Florosa,origen,«molécula de síntesis (Firmenich)» [cuaderno: materias-primas/florosa.md],,sintetico,sintetico
+Isobutilquinoleína (IBQ),origen,"molécula de síntesis (quinoleína alquilada); no se aísla de plantas [conocimiento general, sin verificar]",,sintetico,sintetico
+Láudano de jara,sin-fila-v1,en el registro y sin fila en la v1; CAS 89997-74-0; la clase no se sabe,,alta-sin-v1:89997-74-0 si es molécula; excluir si no,excluir
+Metil ionona gamma,origen,"la metil ionona se obtiene por condensación de citral con metiletilcetona; no se aísla [conocimiento general, sin verificar]",,sintetico,sintetico
+Safraleine,documento-otro-proveedor,0015893 Givaudan: Allergen Extended List — SAFRALEINE 0015893 (16 de abril de 2025) [revisado],,traer,traer
+Safraleine,origen,"molécula de síntesis de Firmenich (indanona) [conocimiento general, sin verificar]",,sintetico,sintetico
+Vainillina,origen,"la vainillina del mercado es casi toda de síntesis (guayacol); Maese Lab no dice si la suya es natural. Es la propuesta más dudosa del lote [conocimiento general, sin verificar]",,sintetico,sintetico
+2-Acetilpirazina,origen,"pirazina de aroma, de síntesis; existe en la naturaleza, pero no se vende aislada de ella [conocimiento general, sin verificar]",,sintetico,sintetico
+Theobroma cacao extract,sin-fila-v1,sin fila en el registro ni en la v1; CAS 84649-99-0; la clase no se sabe,,alta-sin-v1:84649-99-0 si es molécula; excluir si no,excluir
