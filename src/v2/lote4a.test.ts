@@ -47,30 +47,34 @@ describe("a bench formula with five materials of lot 4a, checked with the v2", (
     expect(report.checks.some((c) => c.verdict === "exceeds")).toBe(false);
   });
 
-  it("only the pepper, which has no certificate, leaves something pending: its constituents", () => {
+  it("nothing is pending: every certificate lists its restricted substances, the pepper's too", () => {
     // The certificates of Firmenich, Symrise and the rest list every restricted substance (reguladas-completa): what
-    // they do not list is not there. That closes even the impurities of the natural isolate (eucalyptol).
-    expect(report.pending).toEqual([
-      { material: "Black Pepper Absolute", text: "Sin datos de sus constituyentes: puede llevar sustancias con techo." },
-    ]);
+    // they do not list is not there. That closes even the impurities of the natural isolate (eucalyptol). The pepper's
+    // certificate is of the product in PG as it is bought: its figures stand as they are and the bar weighs 100 % of that
+    // product (D12, answer pct:100), so it no longer leaves its constituents pending (before the answer it entered
+    // without a certificate and did).
+    expect(report.pending).toEqual([]);
     expect(report.conditions).toEqual([]);
-    expect(report.partial).toBe(true);
-    expect(report.asIs).toBe("unknown");
   });
 
-  it("the certificates are linked: four of the five, each with its coverage and its category 4 cap in pure matter (D4)", () => {
+  it("the certificates are linked: the five, each with its coverage, and the category 4 cap in the product as bought (D4)", () => {
     const covered = (name: string) => data.coverages.some((c) => c.containerId === productOf(name).id && c.coverage === "reguladas-completa");
     const cap4 = (name: string) => data.ceilings.find((c) => c.productId === productOf(name).id && c.category === "4")?.maxPct;
-    for (const name of ["Black Agar 296985", "Tolu Balsam Resinoide", "Habanolide", "Eucalyptol Natural"]) {
+    for (const name of ["Black Agar 296985", "Tolu Balsam Resinoide", "Habanolide", "Eucalyptol Natural", "Black Pepper Absolute"]) {
       expect(covered(name), name).toBe(true);
     }
-    expect(covered("Black Pepper Absolute")).toBe(false);
     expect([cap4("Black Agar 296985"), cap4("Tolu Balsam Resinoide"), cap4("Habanolide"), cap4("Eucalyptol Natural")]).toEqual([
       "9.6296",
       "4.1",
       "48",
       "1.6",
     ]);
+    // «NoRestriction» in the pepper's certificate: no cap row. Its two restricted substances are of the product (authority
+    // producto), as the certificate gives them, not converted (pct:100, D12).
+    expect(cap4("Black Pepper Absolute")).toBeUndefined();
+    const rows = data.composition.filter((c) => c.containerId === productOf("Black Pepper Absolute").id);
+    expect(rows).toHaveLength(2);
+    expect(rows.every((r) => r.authority === "producto")).toBe(true);
   });
 
   it("the cards: two bases, the pepper as a natural with the form the user gave, the isolate and the unknown-origin molecule", () => {

@@ -3,7 +3,7 @@ Black Agar 296985,tipo,base,"usuario, 2026-10-03: base; su SDS (§3, p. 2-4) la 
 Cassis Base 345 B,tipo,base,"usuario, 2026-10-03: base; su SDS (§3, p. 2-3) la da como mezcla de 8 ingredientes"
 Tolu Balsam Resinoide,tipo,base,"usuario, 2026-10-03: base; su SDS (§3, p. 2) la da como mezcla y su certificado (§2.2, p. 2) declara otro natural, «PERU BALSAM OIL 8007-00-9 10 %»"
 Black Pepper Absolute,forma,Piper nigrum|fruto|absoluto|,"usuario, 2026-10-03: Piper nigrum / fruto / absoluto; evidencia: el título del certificado de Firmenich, «PEPPER BLACK ABS PG 974644» (p. 1)"
-Black Pepper Absolute,documento-diluido,sin-certificado,"usuario, 2026-10-03: sin certificado hasta saber el % de PG (974644), que se pide a Perfumiarz"
+Black Pepper Absolute,documento-diluido,pct:100,"usuario, 2026-10-03: pct:100; el certificado es del producto en PG que se compra: cifras del producto tal como se compra; se pesa al 100 % del producto (D12)"
 Black Pepper Absolute,v1-correspondencia,v1:fig:2622,"usuario, 2026-10-03: fig:2622"
 Styrallyl Acetate,estados-ifra,v1:fig:1056,"usuario, 2026-10-03: la fila general de la v1"
 Habanolide,estados-ifra,v1:fig:2574,"usuario, 2026-10-03: la fila general de la v1"

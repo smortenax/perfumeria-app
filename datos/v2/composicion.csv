@@ -113,6 +113,8 @@ P00061,S00066,,0.0002,,tipico,producto,D00014,
 P00061,S00083,,0.0001,,tipico,producto,D00014,
 P00061,S00084,,0.0025,,tipico,producto,D00014,
 P00061,S00085,,13.5,,tipico,producto,D00014,
+P00062,S00011,,0.0001,,tipico,producto,D00033,cifras del producto tal como se compra; se pesa al 100 % del producto
+P00062,S00020,,0.0045,,tipico,producto,D00033,cifras del producto tal como se compra; se pesa al 100 % del producto
 P00067,S00001,,0.021,,tipico,producto,D00019,
 P00067,S00061,,0.0006,,tipico,producto,D00019,
 P00067,S00066,,3,,tipico,producto,D00019,

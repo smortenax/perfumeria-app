@@ -1,10 +1,10 @@
 producto,clave,estado,tipo,material,cas,origen,v1,notas
-Auranone,perfumiarz-auranone_,pendiente,natural,Auranone,,,,Forma: por confirmar.
-"3,4-Xylenol 10% (IPM)",perfumiarz-3-4-xylenol-10-ipm,pendiente,sustancia,"3,4-Xylenol",95-65-8,,fig:616,"Origen: lo que sé de la molécula, sin documento: desconocido (sin indicio de si es natural o de síntesis)."
-Aldambre,perfumiarz-aldambre,pendiente,sustancia,Oxacyclotridecan-2-one,947-05-7,,tl:947-05-7,"Origen: lo que sé de la molécula, sin documento: desconocido (sin indicio de si es natural o de síntesis)."
-Heliotropine 25% DPG,perfumiarz-heliotropine-25-dpg,pendiente,sustancia,Piperonal,120-57-0,,fig:2721,"Origen: lo que sé de la molécula, sin documento: desconocido (sin indicio de si es natural o de síntesis)."
-Prismantol 50% (DPG),perfumiarz-prismantol-50-dpg,pendiente,sustancia,"Tricyclo[3.3.1.1.(3.7)]decan-2-ol, 4-methyl-8-methylene-",122760-84-3,,fig:3029,"Origen: lo que sé de la molécula, sin documento: desconocido (sin indicio de si es natural o de síntesis)."
-Calone (powder),perfumiarz-calone,pendiente,sustancia,"7-Methyl-2H-benzo-1,5-dioxepin-3(4H)-one",28940-11-6,,fig:944,"Origen: lo que sé de la molécula, sin documento: desconocido (sin indicio de si es natural o de síntesis)."
-Helional,perfumiarz-helional,pendiente,sustancia,"alpha-Methyl-1,3-benzodioxole-5-propionaldehyde",1205-17-0,,fig:1055,"Origen: lo que sé de la molécula, sin documento: desconocido (sin indicio de si es natural o de síntesis)."
-Benzoin Siam Resinoid (IFF),perfumiarz-benzoin-siam-resinoid-iff,pendiente,natural,Benzoin resinoid,9000-72-0,,fig:1168,Forma: por confirmar.
-2-hydroxybenzaldehyde 10% (IPM),perfumiarz-2-hydroxybenzaldehyde,pendiente,sustancia,Salicylaldehyde,90-02-8,,fig:2840,"Origen: lo que sé de la molécula, sin documento: desconocido (sin indicio de si es natural o de síntesis)."
+Auranone,perfumiarz-auranone_,alta,base,Auranone,,,,Forma: por confirmar.
+"3,4-Xylenol 10% (IPM)",perfumiarz-3-4-xylenol-10-ipm,alta,sustancia,"3,4-Xylenol",95-65-8,desconocido,fig:616,Origen: desconocido: la hoja que enlaza la tienda es de Merck y no es del producto; no lo dice.
+Aldambre,perfumiarz-aldambre,alta,sustancia,Oxacyclotridecan-2-one,947-05-7,desconocido,tl:947-05-7,"Origen: desconocido: su SDS (Ventós, Synarome) no lo dice."
+Heliotropine 25% DPG,perfumiarz-heliotropine-25-dpg,alta,sustancia,Piperonal,120-57-0,desconocido,fig:2721,Origen: desconocido: la SDS que enlaza la tienda es de otro producto.
+Prismantol 50% (DPG),perfumiarz-prismantol-50-dpg,alta,sustancia,"Tricyclo[3.3.1.1.(3.7)]decan-2-ol, 4-methyl-8-methylene-",122760-84-3,desconocido,fig:3029,Origen: desconocido: sin documentos.
+Calone (powder),perfumiarz-calone,alta,sustancia,"7-Methyl-2H-benzo-1,5-dioxepin-3(4H)-one",28940-11-6,desconocido,fig:944,Origen: desconocido: su SDS (W03003) no lo dice.
+Helional,perfumiarz-helional,alta,sustancia,"alpha-Methyl-1,3-benzodioxole-5-propionaldehyde",1205-17-0,desconocido,fig:1055,Origen: desconocido: su SDS (IFF) no lo dice.
+Benzoin Siam Resinoid (IFF),perfumiarz-benzoin-siam-resinoid-iff,alta,natural,Benzoin resinoid,9000-72-0,,fig:1168,Forma: Styrax tonkinensis (Siam) / resina / resinoide (extracción con disolvente) / .
+2-hydroxybenzaldehyde 10% (IPM),perfumiarz-2-hydroxybenzaldehyde,alta,sustancia,Salicylaldehyde,90-02-8,desconocido,fig:2840,Origen: desconocido: la hoja que enlaza la tienda es de Merck y no es del producto; no lo dice.

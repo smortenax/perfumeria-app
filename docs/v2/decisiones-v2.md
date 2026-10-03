@@ -120,26 +120,30 @@ El texto de un proceso («rectificado») describe el material, pero no prueba na
 **Por qué:** el cade rectificado se infirió de la página de la tienda, sin documento: no es lo mismo que un
 certificado, y el modelo tiene que poder decirlo sin dar la condición por probada ni bloquear al usuario.
 
-## D12 — Prudencia en la barra con una concentración incierta (PROPUESTA, a falta del visto bueno del usuario)
+## D12 — Qué concentración se usa: la del producto que se compra, y el máximo si es incierta (PROPUESTA, a falta del visto bueno del usuario)
 
-Propuesta del 2026-10-03, al ver que el certificado de la pimienta (974644) es de un producto en PG sin decir cuánto
-(la SDS no lo dice: solo lista lo clasificado) y que el diluyente del Methyl Cinnamate «al 50 %» no consta en ningún
-documento. **No está decidida: no se aplica a ningún dato ni código hasta que el usuario la apruebe.**
+Propuesta del 2026-10-03, corregida con el usuario el mismo día. **No está aprobada**, aunque se aplicó a un caso (la pimienta del 4a).
 
-Un producto cuya concentración de materia pura **no se conoce con certeza** se pesa en la barra con su **máximo** de
-materia pura (el peor caso para IFRA):
+1. **El certificado es del producto tal como se compra** (diluido o no): sus cifras y su tope valen tal cual
+   (`pct:100`) y la barra va al 100 % **de ese producto**. No hace falta saber su % de materia pura. La pimienta
+   (Firmenich 974644, «PEPPER BLACK ABS PG» en su certificado) entra así, con la nota «cifras del producto tal como se
+   compra; se pesa al 100 % del producto».
+2. **El certificado es de otra concentración que la que se pesa**: se pasa a materia pura con el **mínimo** de materia
+   pura que puede tener (la cifra en materia pura sale lo mayor posible) y su tope, multiplicado por ese mínimo
+   (lo menor posible).
+3. **Lo incierto es la concentración al pesar** (un «25-50 %»): la barra usa el **máximo** (50 %), el peor caso para IFRA.
 
-- La pimienta, con un % de PG sin decir: al **100 %** (se supone que es toda materia pura).
-- Un producto «de 25 a 50 %» (el aldambre, 25-50 % en DPG): al **50 %**.
-- Si se conoce un rango, se usa el extremo alto; si no se conoce nada, el 100 %.
+**Por qué:** lo desconocido no vale cero ni se pinta en verde (§1.2, §5.5), y una cifra de certificado solo se
+convierte cuando se sabe que es de otra concentración que la que se pesa.
 
-Al revés, para **pasar a materia pura las cifras de un certificado de un producto diluido** (D8) se usa el **mínimo** de
-materia pura que puede tener: así la cifra en materia pura sale lo mayor posible, y el cálculo sigue del lado seguro.
-Su tope de la categoría 4, multiplicado por ese mismo mínimo, sale lo menor posible. Con el 100 % en la barra y el mínimo en el certificado, ningún error de la concentración infravalora la carga.
+### Rangos de una SDS, junto a D12 (propuesta)
 
-**Por qué:** lo desconocido no vale cero ni se pinta en verde (§1.2, §5.5): un % incierto no puede acabar en el valor
-que menos suma. **Qué cuesta no decidirla:** hoy esos casos entran sin certificado (`sin-certificado`) o con la
-dilución que el usuario ponga a mano; la regla sería la misma pero escrita, y la barra avisaría de que usa el máximo.
+- La sustancia que **es el propio material** (Helional «≥50», Calone «99-100») o **su dilución** (Aldambre, 25-50 % en DPG)
+  **no son composición** (D8): no entran como cifras. La dilución del Aldambre va a la barra con su máximo, el 50 % (punto 3).
+- **Solo entra el rango de otra sustancia regulada** que la SDS liste: tipo `rango`, autoridad `producto` si la SDS es
+  del producto, o `literatura` si es de otro proveedor (D9); cuenta su máximo y la cobertura queda `parcial` (una SDS lista
+  solo lo clasificado).
+- En el lote 4b no entra ningún rango.
 
 ## Jerarquía de autoridad
 

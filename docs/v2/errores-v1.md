@@ -32,6 +32,11 @@ viene.
 - Constituyentes de un certificado recortados: en el lote 3c, el de litsea (PerfumersWorld 7CC00280) trae 9
   restringidas, con el citral al 66,7 %, y la v1 recogió 3; el de mandarina (7CA00285) trae el
   N-metilantranilato de metilo, de un estándar de fototoxicidad (STD 094), y la v1 no lo recogió.
+- `fig:2721` (Piperonal): tiene alcohol bencílico 1,80 %, benzoato de bencilo 9,01 %, cumarina 4,32 %, aldehído anísico
+  3,60 % y otros, del certificado de PerfumersWorld de «heliotrope base - heliotropin replacement» (6VN21659): una base que
+  sustituye a la heliotropina, no la molécula. Viene del lote C-004. Se vio al preparar el lote 4b. (La SDS de Robertet
+  de «Benzoin Siam Resin» y el certificado de «BRAN ABS LMR» del Calone solo los enlaza la tienda: la v1 no los usó
+  para el benjuí ni para el Calone.)
 
 ## Patrones que buscar
 

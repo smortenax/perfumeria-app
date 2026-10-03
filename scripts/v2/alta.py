@@ -261,6 +261,9 @@ def main() -> int:
         for d in entry.get("documentos", []):
             did = registry.id("documento", d["clave"], date)
             documents[d["clave"]] = did
+            # The same document brought by two lots (a certificate of another supplier for the same material) is one row.
+            if any(r["id"] == did for r in tables["documentos.csv"]):
+                continue
             tables["documentos.csv"].append({
                 "id": did, "tipo": d["tipo"], "titulo": d["titulo"], "emisor": d["emisor"], "fecha": d["fecha"],
                 "ruta": d["ruta"], "estado_revision": d["estado_revision"], "notas": d.get("notas", ""),
@@ -426,7 +429,7 @@ def main() -> int:
                         "id_contenedor": pid, "id_componente": component,
                         **({"max": pure(r["pct"], True), "tipo_valor": "maximo"} if bound else {"tipico": pure(r["pct"], True), "tipo_valor": "tipico"}),
                         "autoridad": "producto", "id_documento": did,
-                        "notas": ("cota «<» del certificado" if bound else "") + (f"; pasada a materia pura (el certificado es de un producto al {cert['escala']} %)" if cert.get("escala") else ""),
+                        "notas": "; ".join(n for n in ("cota «<» del certificado" if bound else "", ("cifras del producto tal como se compra; se pesa al 100 % del producto" if cert["escala"] == "100" else f"pasada a materia pura (el certificado es de un producto al {cert['escala']} %)") if cert.get("escala") else "") if n),
                     })
                 tables["coberturas.csv"].append({
                     "id_contenedor": pid, "id_documento": did, "cobertura": cert.get("cobertura", "reguladas-completa"),

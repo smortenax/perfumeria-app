@@ -79,3 +79,11 @@ M00077,sustancia,"Oxacyclohexadec-12-en-2-one, (12E)-",S00101,,,,,111879-80-2,,d
 M00078,sustancia,"3,3,5,5-Tetramethyl-4-ethoxyvinylcyclohexanone",S00103,,,,,36306-87-3,,desconocido,,,"Origen: desconocido: ni la SDS ni el certificado lo dicen (lote 4a, confirmado por el usuario)."
 M00079,base,Tolu Balsam Resinoide,,,,,,,,,,,
 M00080,sustancia,Terpinyl acetate (Isomer mixture),S00105,,,,,8007-35-0,,desconocido,,,"Origen: desconocido: ni la SDS ni el certificado lo dicen (lote 4a, confirmado por el usuario)."
+M00081,base,Auranone,,,,,,,,,,,
+M00082,sustancia,"3,4-Xylenol",S00106,,,,,95-65-8,,desconocido,,,"Origen: desconocido: la hoja que enlaza la tienda es de Merck y no es del producto; no lo dice (lote 4b, confirmado por el usuario)."
+M00083,sustancia,Oxacyclotridecan-2-one,S00107,,,,,947-05-7,,desconocido,,,"Origen: desconocido: su SDS (Ventós, Synarome) no lo dice (lote 4b, confirmado por el usuario)."
+M00084,sustancia,Piperonal,S00108,,,,,120-57-0,,desconocido,,,"Origen: desconocido: la SDS que enlaza la tienda es de otro producto (lote 4b, confirmado por el usuario)."
+M00085,sustancia,"Tricyclo[3.3.1.1.(3.7)]decan-2-ol, 4-methyl-8-methylene-",S00109,,,,,122760-84-3,,desconocido,,,"Origen: desconocido: sin documentos (lote 4b, confirmado por el usuario)."
+M00086,sustancia,"7-Methyl-2H-benzo-1,5-dioxepin-3(4H)-one",S00110,,,,,28940-11-6,,desconocido,,,"Origen: desconocido: su SDS (W03003) no lo dice (lote 4b, confirmado por el usuario)."
+M00087,sustancia,"alpha-Methyl-1,3-benzodioxole-5-propionaldehyde",S00111,,,,,1205-17-0,,desconocido,,,"Origen: desconocido: su SDS (IFF) no lo dice (lote 4b, confirmado por el usuario)."
+M00088,sustancia,Salicylaldehyde,S00112,,,,,90-02-8,,desconocido,,,"Origen: desconocido: la hoja que enlaza la tienda es de Merck y no es del producto; no lo dice (lote 4b, confirmado por el usuario)."

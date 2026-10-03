@@ -34,10 +34,12 @@ M00061,,desconocida,sin datos de sus constituyentes
 M00062,,desconocida,sin datos de sus constituyentes
 M00067,,desconocida,sin datos de sus constituyentes
 M00079,,desconocida,sin datos de sus constituyentes
+M00081,,desconocida,sin datos de sus constituyentes
 P00005,D00002,reguladas-completa,el certificado IFRA declara todas las sustancias restringidas que lleva
 P00006,D00004,reguladas-completa,el certificado IFRA declara todas las sustancias restringidas que lleva
 P00007,D00003,reguladas-completa,el certificado IFRA declara todas las sustancias restringidas que lleva
 P00061,D00014,reguladas-completa,el certificado IFRA declara todas las sustancias restringidas que lleva
+P00062,D00033,reguladas-completa,el certificado IFRA declara todas las sustancias restringidas que lleva
 P00063,D00015,reguladas-completa,el certificado IFRA declara todas las sustancias restringidas que lleva; sin sustancias: «No substances to declare» (p. 1)
 P00064,D00016,reguladas-completa,el certificado IFRA declara todas las sustancias restringidas que lleva; sin sustancias: «does not contain any substances restricted» (p. 2)
 P00065,D00017,parcial,el certificado no lista sustancias ni dice que no lleve ninguna restringida: la cobertura es parcial
