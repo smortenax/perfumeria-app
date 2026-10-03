@@ -1,9 +1,9 @@
-estandar,nombre_ifra,especies,partes,procesos,fuente
-IFRA_STD_086,Angelica root oil,Angelica archangelica,raíz,destilación,"IFRA 51: «Angelica root oil»; especie, parte y proceso del nombre del estándar"
-IFRA_STD_087,Bergamot oil expressed,Citrus bergamia,cáscara,expresión,"IFRA 51: «Bergamot oil expressed»; la bergamota sin furocumarinas (FCF) es esta misma, tratada"
-IFRA_STD_088,Bitter orange peel oil expressed,Citrus aurantium;Citrus aurantium var. amara,cáscara,expresión,"IFRA 51: «Bitter orange peel oil expressed»; la naranja dulce (Citrus sinensis) no"
-IFRA_STD_090,Cumin oil,Cuminum cyminum,semilla;fruto,destilación,"IFRA 51: «Cumin oil»"
-IFRA_STD_091,Grapefruit oil expressed,Citrus paradisi,cáscara,expresión,"IFRA 51: «Grapefruit oil expressed»"
-IFRA_STD_092,Lemon oil cold pressed,Citrus limon,cáscara,expresión,"IFRA 51: «Lemon oil cold pressed»"
-IFRA_STD_093,Lime oil expressed,Citrus aurantiifolia;Citrus latifolia,cáscara,expresión,"IFRA 51: «Lime oil expressed»"
-IFRA_STD_096,Rue oil,Ruta graveolens,hoja;sumidad;parte aérea,destilación,"IFRA 51: «Rue oil»"
+estandar,nombre_ifra,especies,partes,procesos,excluye,fuente
+IFRA_STD_086,Angelica root oil,Angelica archangelica,raíz,destilación,fcf;sin furocumarinas,"IFRA 51: «Angelica root oil»; especie, parte y proceso del nombre del estándar"
+IFRA_STD_087,Bergamot oil expressed,Citrus bergamia,cáscara,expresión,fcf;sin furocumarinas,"IFRA 51: «Bergamot oil expressed»; la bergamota sin furocumarinas (FCF) tiene otro proceso (expresión y eliminación de furocumarinas) y no le corresponde (el usuario, 2026-10-03)"
+IFRA_STD_088,Bitter orange peel oil expressed,Citrus aurantium;Citrus aurantium var. amara,cáscara,expresión,fcf;sin furocumarinas,IFRA 51: «Bitter orange peel oil expressed»; la naranja dulce (Citrus sinensis) no
+IFRA_STD_090,Cumin oil,Cuminum cyminum,semilla;fruto,destilación,fcf;sin furocumarinas,IFRA 51: «Cumin oil»
+IFRA_STD_091,Grapefruit oil expressed,Citrus paradisi,cáscara,expresión,fcf;sin furocumarinas,IFRA 51: «Grapefruit oil expressed»
+IFRA_STD_092,Lemon oil cold pressed,Citrus limon,cáscara,expresión,fcf;sin furocumarinas,IFRA 51: «Lemon oil cold pressed»
+IFRA_STD_093,Lime oil expressed,Citrus aurantiifolia;Citrus latifolia,cáscara,expresión,fcf;sin furocumarinas,IFRA 51: «Lime oil expressed»
+IFRA_STD_096,Rue oil,Ruta graveolens,hoja;sumidad;parte aérea,destilación,fcf;sin furocumarinas,IFRA 51: «Rue oil»

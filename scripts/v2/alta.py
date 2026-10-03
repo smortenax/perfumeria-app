@@ -174,7 +174,8 @@ def main() -> int:
         {"estandar": r["estandar"], "nombre_ifra": r["nombre_ifra"],
          "especies": {norm(x) for x in r["especies"].split(";")},
          "partes": [norm(x) for x in r["partes"].split(";")],
-         "procesos": [norm(x) for x in r["procesos"].split(";")]}
+         "procesos": [norm(x) for x in r["procesos"].split(";")],
+         "excluye": [norm(x) for x in r["excluye"].split(";") if x.strip()]}
         for r in read_csv(ROOT / "docs" / "v2" / "estandares-naturales.csv")
     ]
 
@@ -289,7 +290,9 @@ def main() -> int:
                 for rule in natural_standards:
                     if (norm(m.get("especie", "")) in rule["especies"]
                             and any(x in norm(m.get("parte", "")) for x in rule["partes"])
-                            and any(x in norm(m.get("proceso", "")) for x in rule["procesos"])):
+                            and any(x in norm(m.get("proceso", "")) for x in rule["procesos"])
+                            # A different process is not the standard's oil: the FCF bergamot is not the 087.
+                            and not any(x in norm(m.get("proceso", "")) for x in rule["excluye"])):
                         member(rule["estandar"], "", mid, date,
                                f"por especie, parte y proceso (D1): «{rule['nombre_ifra']}»")
             # A standard that goes by family (089, 184, 188) applies by what the material is, not by
