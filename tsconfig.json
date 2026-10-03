@@ -21,5 +21,7 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src"],
+  /* The library tool reads the user's folder with node: vitest runs it, the app's typecheck does not need node's types. */
+  "exclude": ["src/**/*.tool.test.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

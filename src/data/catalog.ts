@@ -79,6 +79,8 @@ export interface Weighing {
 }
 
 export interface CatalogEntry {
+  /** Only in the v2 app: a material that exists only in the v1, shown as «v1, sin revisar» (Phase 5). */
+  readonly unreviewed?: true;
   readonly weighing?: Weighing;
   /** Only the v2 has it: where each figure of the material comes from (Phase 5). */
   readonly provenance?: Provenance;
