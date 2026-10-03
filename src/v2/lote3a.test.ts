@@ -63,7 +63,8 @@ describe("a bench formula with five molecules of lot 3a, checked with the v2", (
 
   it("the two natural isolates, coumarin and eugenol (of clove), leave their impurities pending (D7)", () => {
     const text = "Impurezas sin declarar: es un aislado natural y su producto no tiene documentos.";
-    expect([...report.pending].sort((x, y) => x.material.localeCompare(y.material))).toEqual([
+    const impurities = report.pending.filter((p) => p.text.startsWith("Impurezas"));
+    expect([...impurities].sort((x, y) => x.material.localeCompare(y.material))).toEqual([
       { material: "Cumarina natural", text },
       { material: "Eugenol 98%", text },
     ]);

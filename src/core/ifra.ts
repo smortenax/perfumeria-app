@@ -47,6 +47,11 @@ export interface IfraMaterial {
   /** Obligations that are not a percentage: a certificate, a specification (§5.5). */
   readonly conditions: readonly string[];
   /**
+   * The conditions above that are assumed, not proven: nothing but a consensus or the literature says the
+   * material meets them. They do not block and do not leave the report partial; the report says so.
+   */
+  readonly assumed?: readonly string[];
+  /**
    * Regulated constituents whose ceiling is not in the data yet, such as the
    * citral of a lemon oil: the check of this material is incomplete, never free (§1.2).
    */
@@ -163,7 +168,7 @@ export interface IfraReport {
   readonly combinedChecks: readonly CombinedCheck[];
   /** Materials with no IFRA data: not checked, and never taken as free (§5.2, §5.5). */
   readonly unchecked: readonly string[];
-  readonly conditions: ReadonlyArray<{ readonly material: string; readonly text: string }>;
+  readonly conditions: ReadonlyArray<{ readonly material: string; readonly text: string; readonly assumed?: true }>;
   /** Constituents that could not be checked: like an unchecked material, they keep both readings open. */
   readonly pending: ReadonlyArray<{ readonly material: string; readonly text: string }>;
   /** Reading 1: can it be used as it is, at its final batch? In the base of the report. */
@@ -577,7 +582,7 @@ function lookup(material: Material, data: IfraData): "skip" | "unchecked" | Ifra
 function accumulate(composition: Composition, data: IfraData) {
   const bySubstance = new Map<string, { sources: Map<string, SubstanceCheck["sources"][number]>; unknownFrom: string[] }>();
   const unchecked: string[] = [];
-  const conditions: Array<{ material: string; text: string }> = [];
+  const conditions: Array<{ material: string; text: string; assumed?: true }> = [];
   const pending: Array<{ material: string; text: string }> = [];
 
   for (const part of composition.parts) {
@@ -591,7 +596,7 @@ function accumulate(composition: Composition, data: IfraData) {
       continue;
     }
     for (const text of info.conditions) {
-      conditions.push({ material: material.name, text });
+      conditions.push({ material: material.name, text, ...(info.assumed?.includes(text) ? { assumed: true as const } : {}) });
     }
     for (const text of info.pending ?? []) {
       pending.push({ material: material.name, text });

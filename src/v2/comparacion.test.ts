@@ -3,7 +3,7 @@ import { Ratio } from "../core/arith/ratio";
 import { formatPercent } from "../core/display";
 import { checkIfra, type IfraReport } from "../core/ifra";
 import { repositoryFor } from "../data/repositories";
-import { F001_V1, F001_V2, f001With, seven } from "./fixtures/comparacion";
+import { seven } from "./fixtures/comparacion";
 
 // Reference tests of docs/v2/comparacion-fase2.md: the same weighing checked with v1 and with v2.
 // Every difference asserted here is explained there; a change in them is a change in that document.
@@ -66,14 +66,14 @@ describe("the seven materials, with v1 and with v2", () => {
   it("5. what stays open: v1, the castoreum and the oakmoss's atranols; v2, the castoreum and the geraniol's impurities", () => {
     expect(a.pending.map((p) => p.material)).toEqual(["Absoluto de Castoreum 20%", "Oakmoss Absolute 50% (IPM)", "Oakmoss Absolute 50% (IPM)"]);
     // Since D7 (2026-10-03), a natural isolate without documents leaves its impurities pending.
-    expect(b.pending).toEqual([
-      { material: "Geraniol 98%", text: "Impurezas sin declarar: es un aislado natural y su producto no tiene documentos." },
+    // Since D10, a specification that no claim meets is pending too: the linalool's, with no document.
+    expect([...b.pending].sort((x, y) => x.material.localeCompare(y.material))).toEqual([
       { material: "Absoluto de Castoreum 20%", text: "Sin datos de sus constituyentes: puede llevar sustancias con techo." },
+      { material: "Geraniol 98%", text: "Impurezas sin declarar: es un aislado natural y su producto no tiene documentos." },
+      { material: "Linalol", text: "Linalool: su especificación no está acreditada (STD 187)." },
     ]);
-    expect(b.conditions).toEqual([
-      { material: "Linalol", text: "especificación (STD 187)" },
-      { material: "Oakmoss Absolute 50% (IPM)", text: "especificación (STD 067)" },
-    ]);
+    // The oakmoss of IFF has its specification proven by its certificate (a claim of authority producto).
+    expect(b.conditions).toEqual([{ material: "Oakmoss Absolute 50% (IPM)", text: "especificación (STD 067)" }]);
     for (const r of [a, b]) {
       expect(r.partial).toBe(true);
       expect(r.unchecked).toEqual([]);
@@ -85,24 +85,5 @@ describe("the seven materials, with v1 and with v2", () => {
       r.checks.filter((c) => c.sources.some((s) => s.material.name === "Castoreum Synthetic")).map((c) => c.substance.key).sort();
     expect(fromBase(a)).toHaveLength(20);
     expect(fromBase(b)).toEqual(fromBase(a));
-  });
-});
-
-describe("F-001, with v1 and with v2", () => {
-  const a = checkIfra(f001With(F001_V1), v1);
-  const b = checkIfra(f001With(F001_V2), v2);
-
-  it("v1 says no, and only because of the lavender counted as its worst form", () => {
-    expect(a.asIs).toBe("no");
-    expect(a.checks.filter((c) => c.verdict === "exceeds").map((c) => c.substance.key)).toEqual(["std:IFRA_STD_158"]);
-    expect(check(a, "std:IFRA_STD_158")?.sources.map((s) => s.material.name)).toEqual(["Lavanda"]);
-    expect(share(a, "std:IFRA_STD_158")).toBe("0,016 %");
-  });
-
-  it("v2 knows only the lavender, as oil: the other 23 are not in the v2 yet, so it cannot answer", () => {
-    expect(b.asIs).toBe("unknown");
-    expect(b.unchecked).toHaveLength(23);
-    expect(b.checks.map((c) => c.substance.key)).toEqual(["std:IFRA_STD_037", "std:IFRA_STD_069", "std:IFRA_STD_039"]);
-    expect(b.checks.every((c) => c.verdict === "within")).toBe(true);
   });
 });

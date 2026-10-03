@@ -101,6 +101,25 @@ estándar propio de un aceite vale cuando sus furocumarinas no se conocen.
 - El motor suma el grupo (`IfraSubstance.combined`, `IfraReport.combinedChecks`) en el informe y en el
   margen. Los niveles típicos entran como composición con autoridad «anexo-ifra».
 
+## D11 — Condiciones probadas, supuestas o pendientes
+
+Decidida por el usuario el 2026-10-03, al preparar el cade (STD 119).
+
+Una **condición** de IFRA (la especificación de un estándar: que el cade es rectificado, que los peróxidos son
+bajos, que el atranol y el cloroatranol están bajo su límite, que una bergamota es FCF) tiene tres estados, según
+`datos/v2/condiciones.csv` (`id_contenedor, estandar, condicion, autoridad, id_documento, notas`):
+
+- **probada:** hay una fila con autoridad producto o lote y su documento revisado;
+- **supuesta, no acreditada:** hay una fila con autoridad consenso o literatura, sin documento. **No bloquea y no
+  deja el informe parcial**, pero la ficha y el informe lo dicen (`IfraMaterial.assumed`,
+  `IfraReport.conditions[].assumed`);
+- **pendiente:** no hay fila. Deja el informe parcial, como cualquier dato que falta.
+
+El texto de un proceso («rectificado») describe el material, pero no prueba nada por sí solo (D1).
+
+**Por qué:** el cade rectificado se infirió de la página de la tienda, sin documento: no es lo mismo que un
+certificado, y el modelo tiene que poder decirlo sin dar la condición por probada ni bloquear al usuario.
+
 ## Jerarquía de autoridad
 
 De mayor a menor; cuando dos fuentes chocan, manda la de más arriba:

@@ -20,6 +20,12 @@ viene.
   **fenilhexanol 973080**, no la del Polysantol. Viene del lote C-003. Se vio al reabrir el lote 3b con la D9.
 - `fig:487` (Sandalmysore Core / Hindinol): tiene la lista de alérgenos de IFF H19102, que es la del
   **Santaliff Toco**. Viene del lote C-003. Se vio al reabrir el lote 3b con la D9.
+- `ncs:olibanum-sacra-oil` (aceite de olíbano de Boswellia sacra): tiene la lista de alérgenos de Firmenich
+  W15028 (Perfumiarz), que es la del **resinoide** de olíbano 939912: otra forma, con otra composición.
+  Viene del lote C-003. Se vio al preparar el lote 3d.
+- `fig:2992` (Tonka bean tincture): tiene la composición del anexo de IFRA para el **absoluto** de haba tonka
+  (cumarina 56,77 %, dihidrocumarina 1,85 %), como si la tintura fuera el absoluto puro. Viene de cruzar el
+  anexo por CAS sin mirar la forma (P54). Se vio al cerrar la fase 3.
 - Familia STD 089 por el nombre (`scripts/generar_glosario.py`, la regex de cítricos): da la condición «aceites
   cítricos: furocumarinas» a 99 filas, entre ellas la naranja dulce y la mandarina, que IFRA no lista en el
   089 (solo ocho aceites, y tres con nivel típico). Se vio en el lote 3c.
@@ -32,6 +38,6 @@ viene.
 - Declaraciones de un proveedor colgadas de la molécula general en vez de su producto, sobre
   todo en los lotes C-003 y C-004.
 - Una lista de alérgenos o un certificado cuyo producto no coincide con el material.
-- Filas del glosario que el anexo cruza por CAS con varias variantes («cuenta la peor»).
+- Filas del glosario que el anexo cruza por CAS con varias variantes («cuenta la peor»), o con la composición de otra forma (una tintura con la del absoluto).
 - Familias por el nombre (089, 184, 188) con una regex más ancha que la lista del estándar.
 - Documentos de otro material: ninguno de los 7 del lote 3c lo era, pero dos de los cuatro que se descartaron en los lotes 3a y 3b sí (arriba). Se mira el nombre del producto en el propio documento, no su nombre de archivo.

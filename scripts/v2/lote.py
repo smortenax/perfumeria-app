@@ -33,6 +33,11 @@ Tipos de conflicto y sus respuestas (`excluir` vale en todos: el producto no ent
   `confirmar`, que acepta la propuesta tal cual.
 * `v1-correspondencia` (solo naturales con varias filas de forma en la v1): cuál es la suya.
   Respuesta: `v1:<id>`.
+Las **condiciones** que cumplen una especificación de IFRA (que el cade es rectificado, que los peróxidos son
+bajos…) van en `docs/v2/condiciones-propuestas.csv` y salen en `datos/v2/condiciones.csv`: probada con la
+autoridad de un producto o un lote y su documento revisado, supuesta con un consenso o la literatura, y pendiente
+sin fila. El texto de un proceso no prueba nada.
+
 * `tipo`: no es un conflicto que el script detecte, sino una decisión del usuario sobre el tipo de
   material (por ejemplo, que una «molécula» es en realidad una base). Respuesta: `base`; el
   material entra como base, con cobertura «desconocida» y sin origen.
@@ -114,6 +119,9 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
         constituents.setdefault(r["material"], []).append(r)
     proposed = {r["cas"]: r for r in read_csv(root / "docs" / "v2" / "origenes-propuestos.csv")}
     shapes = {r["producto"]: r for r in read_csv(root / "docs" / "v2" / "formas-propuestas.csv")}
+    claims: dict[str, list[dict[str, str]]] = {}
+    for r in read_csv(root / "docs" / "v2" / "condiciones-propuestas.csv"):
+        claims.setdefault(r["producto"], []).append(r)
     foreign_docs: dict[str, list[dict[str, str]]] = {}
     for r in read_csv(root / "docs" / "v2" / "documentos-ajenos.csv"):
         foreign_docs.setdefault(r["producto"], []).append(r)
@@ -327,6 +335,12 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
             extras = {}
         else:
             extras = {"origen": origin, "origen_fuente": f"{why} (lote {lot}, confirmado por el usuario)."}
+        # The claims that meet an IFRA specification, of this material (condiciones.csv): a consensus or the
+        # literature, never a document of the product (that is entered with the product's own documents).
+        if natural_lot and not as_base:
+            extras = {**extras, "condiciones": [
+                {"estandar": c["estandar"], "condicion": c["condicion"], "autoridad": c["autoridad"], "notas": c["notas"]}
+                for c in claims.get(name, [])]} if claims.get(name) else extras
         if brought:
             literature = []
             for d in brought:

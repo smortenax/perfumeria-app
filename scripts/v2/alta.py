@@ -69,6 +69,7 @@ COLUMNS = {
         "id_documento", "notas",
     ],
     "impurezas-conocidas.csv": ["id_sustancia", "id_documento", "notas"],
+    "condiciones.csv": ["id_contenedor", "estandar", "condicion", "autoridad", "id_documento", "notas"],
     "v1-a-v2.csv": ["id_v2", "id_v1"],
 }
 
@@ -220,6 +221,16 @@ def main() -> int:
         return sid
 
     documents: dict[str, str] = {}
+
+    def add_conditions(container: str, items: list[dict]) -> None:
+        """The claims that meet an IFRA specification (condiciones.csv), of a material or of a product."""
+        for c in items:
+            tables["condiciones.csv"].append({
+                "id_contenedor": container, "estandar": c["estandar"], "condicion": c["condicion"],
+                "autoridad": c["autoridad"], "id_documento": documents[c["documento"]] if c.get("documento") else "",
+                "notas": c.get("notas", ""),
+            })
+
     v1_links: list[dict[str, str]] = []
 
     # The lots go after the entries, each one seeing what is already given: a product is never
@@ -261,9 +272,11 @@ def main() -> int:
                         "codigo": p.get("codigo", ""), "tienda": p.get("tienda", ""), "url": p.get("url", ""),
                         "notas": p.get("notas", ""),
                     })
+                    add_conditions(pid, p.get("condiciones", []))
                 continue
             mid = registry.id("material", m["clave"], date)
             seen_materials[m["clave"]] = mid
+            add_conditions(mid, m.get("condiciones", []))
             cas = m.get("cas", "")
             sid = ""
             origin = m.get("origen", "")
@@ -381,6 +394,7 @@ def main() -> int:
                     "codigo": p.get("codigo", ""), "tienda": p.get("tienda", ""), "url": p.get("url", ""),
                     "notas": p.get("notas", ""),
                 })
+                add_conditions(pid, p.get("condiciones", []))
                 cert = p.get("certificado")
                 if not cert:
                     continue
@@ -430,6 +444,7 @@ def main() -> int:
         "sustancia-cas.csv": lambda r: (r["id_sustancia"], r["cas"]),
         "topes.csv": lambda r: (r["id_producto"], r["categoria"]),
         "impurezas-conocidas.csv": lambda r: (r["id_sustancia"], r["id_documento"]),
+        "condiciones.csv": lambda r: (r["id_contenedor"], r["estandar"]),
         "v1-a-v2.csv": lambda r: (r["id_v1"], r["id_v2"]),
     }
     for name, rows in tables.items():

@@ -68,6 +68,13 @@ M00052,S00080,,8,,tipico,anexo-ifra,D00001,Sage Dalmatian oil (Salvia officinali
 M00053,S00063,,0.2,,tipico,anexo-ifra,D00001,Vetiver oil (all origins) (Chrysopogon zizanioides (L.) Roberty)
 M00053,S00081,,0.1,,tipico,anexo-ifra,D00001,Vetiver oil (all origins) (Chrysopogon zizanioides (L.) Roberty)
 M00053,S00024,,2.4991,,tipico,literatura,D00011,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00058,S00001,,0.01,,tipico,anexo-ifra,D00001,Cistus absolute (Cistus ladaniferus L.)
+M00058,S00011,,0.6,,tipico,anexo-ifra,D00001,Cistus absolute (Cistus ladaniferus L.)
+M00058,S00018,,0.03,,tipico,anexo-ifra,D00001,Cistus absolute (Cistus ladaniferus L.)
+M00058,S00020,,0.06,,tipico,anexo-ifra,D00001,Cistus absolute (Cistus ladaniferus L.)
+M00059,S00015,,0.3,,tipico,anexo-ifra,D00001,Olibanum sacra oil (Boswellia sacra)
+M00059,S00028,,0.1,,tipico,anexo-ifra,D00001,Olibanum sacra oil (Boswellia sacra)
+M00059,S00080,,0.2,,tipico,anexo-ifra,D00001,Olibanum sacra oil (Boswellia sacra)
 P00005,S00006,,0.0046,,tipico,producto,D00002,
 P00006,S00007,,,0.1,maximo,producto,D00004,cota «<» del certificado
 P00006,S00008,,,0.1,maximo,producto,D00004,cota «<» del certificado

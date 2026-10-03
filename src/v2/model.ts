@@ -182,6 +182,22 @@ export interface KnownImpurity extends Located {
   readonly documentId: string;
 }
 
+/**
+ * A claim that makes a material meet an IFRA condition: that it is rectified, that its peroxides are low,
+ * that its atranol and chloratranol are under the limit, that it is furocoumarin-free. The condition is
+ * proven when the claim has the authority of a product or a lot with a reviewed document, assumed when
+ * it only has a consensus or the literature, and pending when there is no row. The text of a process
+ * describes the material; it proves nothing by itself.
+ */
+export interface Condition extends Located {
+  readonly containerId: string;
+  /** The IFRA standard whose specification the claim meets (IFRA_STD_119…). */
+  readonly standard: string;
+  readonly claim: string;
+  readonly authority: string;
+  readonly documentId: string;
+}
+
 /** Link from a v1 glossary id (datos/glosario/materiales.csv) to its v2 id. */
 export interface V1Link extends Located {
   readonly v2Id: string;
@@ -203,6 +219,7 @@ export interface Dataset {
   readonly documents: readonly SourceDocument[];
   readonly usages: readonly Usage[];
   readonly knownImpurities: readonly KnownImpurity[];
+  readonly conditions: readonly Condition[];
   readonly v1Links: readonly V1Link[];
 }
 

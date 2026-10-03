@@ -163,6 +163,18 @@ export const SCHEMA: { readonly [K in keyof Dataset]: TableSpec<K> } = {
     columns: ["id_sustancia", "id_documento", "notas"],
     map: (r, line) => ({ line, substanceId: r.id_sustancia, documentId: r.id_documento }),
   },
+  conditions: {
+    file: "condiciones.csv",
+    columns: ["id_contenedor", "estandar", "condicion", "autoridad", "id_documento", "notas"],
+    map: (r, line) => ({
+      line,
+      containerId: r.id_contenedor,
+      standard: r.estandar,
+      claim: r.condicion,
+      authority: r.autoridad,
+      documentId: r.id_documento,
+    }),
+  },
   v1Links: {
     file: "v1-a-v2.csv",
     columns: ["id_v2", "id_v1"],

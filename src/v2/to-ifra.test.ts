@@ -31,8 +31,9 @@ describe("the seven materials of phase 2, through the adapter", () => {
   it("Linalol: no ceiling, the peroxide specification as a condition; pure by convention (D7)", () => {
     const m = product("Linalol");
     expect(m.substances).toEqual([]);
-    expect(m.conditions).toEqual(["especificación (STD 187)"]);
-    expect(m.pending).toBeUndefined();
+    // No claim meets its specification (no row in condiciones.csv): it is pending, not a condition (D10).
+    expect(m.conditions).toEqual([]);
+    expect(m.pending).toEqual(["Linalool: su especificación no está acreditada (STD 187)."]);
     const p = data.products.find((x) => x.name === "Linalol")!;
     expect(flatten(data, p.id).pureByConvention).toBe(true);
     // A molecule with a certificate is documented, not pure by convention.
@@ -75,7 +76,9 @@ describe("the seven materials of phase 2, through the adapter", () => {
     expect(m.conditions).toEqual(["especificación (STD 067)"]);
     expect(m.pending).toBeUndefined();
     // The material alone has no certificate: limited as itself, and its constituents unknown.
-    expect(ifra.materials.get(v2Key(p.materialId))?.pending).toEqual([NO_DATA]);
+    expect([...(ifra.materials.get(v2Key(p.materialId))?.pending ?? [])].sort()).toEqual(
+      [NO_DATA, "Oakmoss extracts: su especificación no está acreditada (STD 067)."].sort(),
+    );
   });
 
   it("Castoreum Synthetic: a base with no CAS, its section 2.2 as its composition", () => {
@@ -104,6 +107,7 @@ const HEAD = {
   "coberturas.csv": "id_contenedor,id_documento,cobertura,notas",
   "grupos.csv": "id,tipo,referencia,nombre,notas",
   "grupo-miembros.csv": "id_grupo,id_miembro,subgrupo,notas",
+  "condiciones.csv": "id_contenedor,estandar,condicion,autoridad,id_documento,notas",
   "impurezas-conocidas.csv": "id_sustancia,id_documento,notas",
 } as const;
 
@@ -233,8 +237,8 @@ describe("the standards that go by family (STD 188, allyl esters)", () => {
   it("its IFRA data carries the specification, and no percentage", () => {
     const m = ifra.materials.get(v2Key(aag.id))!;
     expect(m.substances).toEqual([]);
-    expect(m.conditions).toEqual(["especificación (STD 188)"]);
-    expect(m.pending).toBeUndefined();
+    expect(m.conditions).toEqual([]);
+    expect(m.pending).toEqual(["Allyl esters: su especificación no está acreditada (STD 188)."]);
   });
 
   it("its card says «condición» and shows IFRA's specification: free allyl alcohol under 0,1 %", () => {
@@ -372,9 +376,41 @@ describe("a standard that prohibits a variant: the styrax (STD 078) and the cade
     expect(m.pending?.some((t) => t.includes("solo permite el rectificado") && t.includes("STD 119"))).toBe(true);
   });
 
-  it("a rectified cade carries the specification of the PAH as a condition", () => {
-    const m = wood("arrastre de vapor, rectificado");
-    expect(m.conditions).toEqual(["una variante está prohibida (STD 119); la rectificada cumple la especificación (STD 119)"]);
+  // The text of a process describes the material; only a row of condiciones.csv says what proves it.
+  const claims = (rows: string[]) =>
+    toIfra(
+      dataset({
+        "materiales.csv": [CADE("pirólisis, rectificado")],
+        "productos.csv": ["P00001,M00001,Cade,,,,,"],
+        "coberturas.csv": ["M00001,,desconocida,"],
+        "grupos.csv": ["G00001,estandar-ifra,IFRA_STD_119,Cade oil,"],
+        "grupo-miembros.csv": ["G00001,M00001,,"],
+        "condiciones.csv": rows,
+      }),
+      IFRA_FILES,
+    );
+
+  it("(b) «rectificado» in the process, with no claim: pending, not proven", () => {
+    const m = wood("pirólisis, rectificado");
+    expect(m.conditions).toEqual([]);
+    expect(m.assumed).toBeUndefined();
+    expect(m.pending?.some((t) => t.includes("solo permite el rectificado") && t.includes("STD 119"))).toBe(true);
+  });
+
+  it("(a) a claim of consensus gives an assumed condition: it says so, and nothing is pending", () => {
+    const m = claims(["M00001,IFRA_STD_119,rectificado,consenso,,inferido de la página de la tienda"]).materials.get(v2Key("M00001"))!;
+    const text = "una variante está prohibida (STD 119); la rectificada cumple la especificación (STD 119): supuesta, no acreditada (consenso)";
+    expect(m.conditions).toEqual([text]);
+    expect(m.assumed).toEqual([text]);
     expect(m.pending?.some((t) => t.includes("solo permite el rectificado")) ?? false).toBe(false);
+  });
+
+  it("(f) a claim with the authority of a product and a reviewed document is proven", () => {
+    const out = claims(["P00001,IFRA_STD_119,rectificado,producto,D00001,certificado del proveedor"]);
+    const m = out.materials.get(v2Key("P00001"))!;
+    expect(m.conditions).toEqual(["una variante está prohibida (STD 119); la rectificada cumple la especificación (STD 119)"]);
+    expect(m.assumed).toBeUndefined();
+    // The claim is of the product: the material alone has no claim.
+    expect(out.materials.get(v2Key("M00001"))?.pending?.some((t) => t.includes("solo permite el rectificado"))).toBe(true);
   });
 });

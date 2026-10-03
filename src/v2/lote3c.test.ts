@@ -77,8 +77,11 @@ describe("a bench formula with five naturals of lot 3c, checked with the v2", ()
     expect(report.partial).toBe(true);
   });
 
-  it("the Atlas cedar carries the peroxide specification of the family 184", () => {
-    expect(report.conditions).toEqual([{ material: "Cedro Atlas", text: "especificación (STD 184)" }]);
+  it("the Atlas cedar, of the family 184, has its peroxide specification pending: no claim meets it", () => {
+    expect(report.conditions).toEqual([]);
+    expect(report.pending.filter((p) => p.material === "Cedro Atlas").map((p) => p.text)).toEqual([
+      "Pinacea derivatives: su especificación no está acreditada (STD 184).",
+    ]);
   });
 
   it("the cards say what IFRA says: ceiling, condition, or constituents", () => {

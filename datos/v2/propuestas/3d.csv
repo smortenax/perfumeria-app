@@ -1,9 +1,9 @@
 producto,clave,estado,tipo,material,cas,origen,v1,notas
 Absoluto de Castoreum 20%,maeselab-absoluto-de-castoreum-20,ya-dado-de-alta,,,,,,
-Aceite de cade (enebro),maeselab-aceite-esencial-de-enebro-cade-100-natural,pendiente,natural,Cade oil,8013-10-3,,fig:1285,Forma: por confirmar.
-"Ámbar gris, tintura comercial (purificado)",maeselab-mbar-gris-tintura-comercial-purificado,pendiente,natural,Ambergris tincture,84836-94-2,,fig:1069,Forma: por confirmar.
-Esencia de trufa,maeselab-esencia-de-trufa,pendiente,natural,Esencia de trufa,,,,Forma: por confirmar.
-"Haba tonka (semillas), tintura comercial",maeselab-haba-tonka-semillas-tintura-comercial,pendiente,natural,Tonka bean tincture,90028-06-1,,fig:2992,Forma: por confirmar.
-Láudano de jara,maeselab-abs-cistus-jara-al-10-en-alcohol-labdanum-en-dilucion,pendiente,natural,Cistus absolute,89997-74-0,,,Forma: por confirmar.
-Olíbano,maeselab-ol-bano,pendiente,natural,Olibanum extract,89957-98-2,,,Forma: por confirmar.
-Theobroma cacao extract,maeselab-theobroma-cacao-extract,pendiente,natural,Theobroma cacao extract,84649-99-0,,,Forma: por confirmar.
+Aceite de cade (enebro),maeselab-aceite-esencial-de-enebro-cade-100-natural,alta,natural,Cade oil,8013-10-3,,fig:1285,"Forma: Juniperus oxycedrus / madera / destilación seca (pirólisis), rectificado / ."
+"Ámbar gris, tintura comercial (purificado)",maeselab-mbar-gris-tintura-comercial-purificado,alta,natural,Ambergris tincture,84836-94-2,,fig:1069,"Forma: Physeter macrocephalus / concreción intestinal (ámbar gris) / tintura en etanol y agua, purificada / ."
+Esencia de trufa,maeselab-esencia-de-trufa,alta,base,Esencia de trufa,,,,Forma: por confirmar.
+"Haba tonka (semillas), tintura comercial",maeselab-haba-tonka-semillas-tintura-comercial,alta,natural,Tonka bean tincture,90028-06-1,,fig:2992,Forma: Dipteryx odorata / semilla (haba) / tintura en alcohol de 96º / .
+Láudano de jara,maeselab-abs-cistus-jara-al-10-en-alcohol-labdanum-en-dilucion,alta,natural,Cistus absolute,89997-74-0,,,Forma: Cistus ladanifer / hoja y ramita / absoluto (extracción con disolvente) / .
+Olíbano,maeselab-ol-bano,alta,natural,Olibanum sacra oil,89957-98-2,,ncs:olibanum-sacra-oil,"Forma: Boswellia sacra / resina / destilación al vapor / α-pineno, α-tujeno, β-felandreno y sabineno."
+Theobroma cacao extract,maeselab-theobroma-cacao-extract,alta,natural,Theobroma cacao extract,84649-99-0,,,Forma: Theobroma cacao / semilla (haba) / absoluto (extracción con disolvente) / .

@@ -1,6 +1,5 @@
 import { Ratio } from "../../core/arith/ratio";
 import { parseMass } from "../../core/arith/units";
-import { F001_LINES, f001 } from "../../core/fixtures/f001";
 import type { Change, Formula } from "../../core/model/formula";
 import { DILUENTS, type Material } from "../../core/model/material";
 
@@ -8,58 +7,6 @@ import { DILUENTS, type Material } from "../../core/model/material";
  * The two formulas of docs/v2/comparacion-fase2.md, each with the keys of v1 and of v2, so the
  * same weighing is checked with both models of materials.
  */
-
-/**
- * The v1 glossary row of each material of F-001, by the CAS of the lab's notebook
- * (materias-primas/<id>.md) and, for a natural, its form there. Tonka and ambergris are found by
- * name: their CAS is not in the glossary. Lavender points where the v1 points today (fig:2179,
- * every form mixed); the other naturals whose form has several rows take the first one.
- */
-export const F001_V1: Readonly<Record<string, string>> = {
-  "MAT-hedione": "fig:2351",
-  "MAT-dartanol": "fig:412",
-  "MAT-iso-e-super": "fig:92",
-  "MAT-diphenyl-oxide": "fig:1689",
-  "MAT-florosa": "fig:464",
-  "MAT-alcohol-feniletilico": "fig:2657",
-  "MAT-cedro-atlas": "fig:1357",
-  "MAT-cashmeran": "fig:924",
-  "MAT-ebanol": "fig:722",
-  "MAT-ionona-alpha": "fig:1051",
-  "MAT-polysantol": "fig:607",
-  "MAT-sandalmysore-core": "fig:487",
-  "MAT-lavanda": "fig:2179",
-  "MAT-patchouli": "fig:2599",
-  "MAT-haba-tonka-tintura": "fig:2992",
-  "MAT-mayol": "fig:1447",
-  "MAT-isobutil-quinoleina-ibq": "fig:938",
-  "MAT-ambar-gris-tintura": "fig:1069",
-  "MAT-ethylene-brassylate": "fig:1818",
-  "MAT-absoluto-de-tabaco": "fig:2982",
-  "MAT-resinoide-estyrax-estoraque": "fig:2914",
-  "MAT-resinoide-benjui": "fig:1168",
-  "MAT-allyl-amyl-glycolate": "fig:1012",
-  "MAT-dihydromyrcenol": "fig:1672",
-};
-
-/** The materials of F-001 in the v2 today: only the lavender, of the seven of phase 2. */
-export const F001_V2: Readonly<Record<string, string>> = { "MAT-lavanda": "v2:P00003" };
-
-/** F-001 with its materials renamed to the keys of a model; the rest keep the notebook's key. */
-export function f001With(keys: Readonly<Record<string, string>>): Formula {
-  const formula = f001();
-  const byName = new Map(F001_LINES.map(([name, labId]) => [name as string, labId as string]));
-  return {
-    ...formula,
-    history: formula.history.map((c) => {
-      if (c.kind !== "add" || c.material.kind !== "base" || c.material.solvent) {
-        return c;
-      }
-      const key = keys[byName.get(c.material.name) ?? ""];
-      return key ? { ...c, material: { ...c.material, key } } : c;
-    }),
-  };
-}
 
 /** One line of the seven: name, v1 key, v2 key, grams poured, % of pure matter, diluent. */
 export const SEVEN_LINES: ReadonlyArray<readonly [string, string, string, string, string, keyof typeof DILUENTS | null]> = [

@@ -69,6 +69,7 @@ un número de fila. Un id retirado no se reutiliza.
 | `documentos.csv` | una fuente | `id, tipo` (`coa`/`sds`/`certificado-ifra`/`ficha`/`anexo-ifra`/`articulo`/`consenso`/`otro`), `titulo, emisor, fecha, ruta, estado_revision` (`pendiente`/`revisado`), `notas` |
 | `usos.csv` | un uso habitual o una duración, con su base | `id_material, magnitud` (`uso-habitual`/`duracion`), `min, tipico, max, unidad, base, autoridad, id_documento, notas` |
 | `impurezas-conocidas.csv` | una molécula con impurezas reguladas conocidas (D7) | `id_sustancia, id_documento, notas` |
+| `condiciones.csv` | una afirmación que cumple una especificación de IFRA (D11) | `id_contenedor, estandar, condicion, autoridad, id_documento, notas` |
 | `v1-a-v2.csv` | un id del glosario v1 y su id v2 | `id_v2, id_v1` |
 
 Más detalle:
@@ -111,6 +112,7 @@ número de línea cuenta la cabecera como línea 1.
 | `cobertura` | cada (contenedor, documento) con composición declara su cobertura; naturales y bases sin composición, `desconocida` |
 | `origen` | una sustancia tiene `origen` válido; los demás materiales lo dejan vacío (D7) |
 | `origen-desconocido` *(aviso)* | una sustancia con origen `desconocido`: cuenta pura por convención y conviene averiguarlo (D7) |
+| `condiciones` | contenedor, estándar y autoridad válidos; producto o lote exigen su documento, y todo documento está revisado (D11) |
 | `v1` | cada `id_v1` existe en `datos/glosario/materiales.csv` y no apunta a dos `id_v2` |
 | `duplicado` *(aviso)* | el mismo componente y contenedor, con la misma autoridad, en dos documentos con cifras distintas |
 

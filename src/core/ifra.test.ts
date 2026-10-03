@@ -358,3 +358,28 @@ describe("IFRA: substances summed against their ceilings (STD 089 and the photot
     });
   });
 });
+
+describe("IFRA: a condition that is assumed, not proven", () => {
+  const cade: Material = { key: "t:cade", kind: "base", name: "Cade" };
+  const text = "una variante está prohibida (STD 119); la rectificada cumple la especificación (STD 119): supuesta, no acreditada (consenso)";
+  const data = (assumed: boolean): IfraData => ({
+    substances: new Map(),
+    materials: new Map([[cade.key, { status: "checked", substances: [], conditions: [text, "especificación (STD 1)"], ...(assumed ? { assumed: [text] } : {}) }]]),
+  });
+  const formula: Formula = { header, history: [add("c", cade, 1n * G)] };
+
+  it("(d) the report says which conditions are assumed, and does not block nor leave the report partial", () => {
+    const report = checkIfra(formula, data(true));
+    expect(report.conditions).toEqual([
+      { material: "Cade", text, assumed: true },
+      { material: "Cade", text: "especificación (STD 1)" },
+    ]);
+    expect(report.partial).toBe(false);
+    expect(report.asIs).toBe("yes");
+    // Marked or not, the verdicts are the same.
+    const plain = checkIfra(formula, data(false));
+    expect(plain.asIs).toBe(report.asIs);
+    expect(plain.partial).toBe(report.partial);
+    expect(plain.conditions.every((c) => c.assumed === undefined)).toBe(true);
+  });
+});

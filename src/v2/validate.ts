@@ -29,6 +29,7 @@ const FILE = {
   documents: "documentos.csv",
   usages: "usos.csv",
   knownImpurities: "impurezas-conocidas.csv",
+  conditions: "condiciones.csv",
   v1Links: "v1-a-v2.csv",
 } as const;
 
@@ -345,6 +346,35 @@ export function validate(data: Dataset, refs: References): Issue[] {
       error("valores", FILE.usages, u.line, "Un uso lleva su unidad y su base.");
     }
     provenance(FILE.usages, u.line, u.documentId, u.authority);
+  }
+
+  // --- conditions: a claim that meets an IFRA specification ------------------------------------
+  for (const c of data.conditions) {
+    ref(FILE.conditions, c.line, "id_contenedor", c.containerId, ["material", "producto", "lote"]);
+    ref(FILE.conditions, c.line, "id_documento", c.documentId, ["documento"], true);
+    if (!refs.ifraStandards.has(c.standard)) {
+      error("condiciones", FILE.conditions, c.line, `El estándar «${c.standard}» no está en datos/ifra/51/estandares.csv.`);
+    }
+    if (c.claim === "") {
+      error("condiciones", FILE.conditions, c.line, "La condición no dice qué se afirma.");
+    }
+    if (!(AUTHORITIES as readonly string[]).includes(c.authority)) {
+      error("condiciones", FILE.conditions, c.line, `autoridad «${c.authority}»; vale ${AUTHORITIES.join(", ")}.`);
+      continue;
+    }
+    const proves = c.authority === "lote" || c.authority === "producto";
+    const expected = c.authority === "lote" ? "L" : c.authority === "producto" ? "P" : "M";
+    if (prefixOf(c.containerId) !== expected) {
+      error("condiciones", FILE.conditions, c.line, `La autoridad ${c.authority} va en un contenedor ${expected}, no en ${c.containerId}.`);
+    }
+    // What proves a condition has its reviewed document; a consensus or the literature may go without (D6).
+    if (proves && c.documentId === "") {
+      error("condiciones", FILE.conditions, c.line, `Una condición de autoridad ${c.authority} necesita su documento.`);
+    }
+    const doc = documents.get(c.documentId);
+    if (doc && doc.reviewStatus !== "revisado") {
+      error("condiciones", FILE.conditions, c.line, `El documento ${c.documentId} no está revisado (D6).`);
+    }
   }
 
   // A molecule known to carry regulated impurities says where that is known from (D6, D7).

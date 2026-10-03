@@ -183,7 +183,16 @@
             "documento": "cert-iff-00133097",
             "registro": "prod:iff-00133097"
           },
-          "notas": "Perfumiarz lo vende al 50 % en IPM; el certificado es del absoluto puro, así que sus cifras ya son de materia pura. La dilución se elige al pesar."
+          "notas": "Perfumiarz lo vende al 50 % en IPM; el certificado es del absoluto puro, así que sus cifras ya son de materia pura. La dilución se elige al pesar.",
+          "condiciones": [
+            {
+              "estandar": "IFRA_STD_067",
+              "condicion": "cumple las especificaciones de IFRA: «Any ingredient present which has an IFRA specification standard is used only if its quality meets the criteria established»",
+              "autoridad": "producto",
+              "documento": "cert-iff-00133097",
+              "notas": "Frase general del certificado de IFF (2023-09-07). Su tabla da el atranol y el cloroatranol como «<0,1 %» (menos de 1000 ppm), que por sí solo no prueba los 100 ppm del STD 067: se toma la frase del certificado."
+            }
+          ]
         }
       ]
     },

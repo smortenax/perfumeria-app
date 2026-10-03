@@ -284,8 +284,21 @@ export function toIfra(data: Dataset, files: IfraFiles): IfraData {
     load: Load,
     into: IfraEntry,
     fiveMopKnown = false,
-    rectified = false,
+    stateOf: (standard: string) => ConditionState = () => ({ kind: "pendiente" }),
   ) => {
+    /** A condition of the standard, said by its state: proven as it is, assumed with its authority, pending apart. */
+    const condition = (text: string, standard: string, pendingText: string) => {
+      const state = stateOf(standard);
+      if (state.kind === "probada") {
+        into.conditions.push(text);
+      } else if (state.kind === "supuesta") {
+        const assumed = `${text}: supuesta, no acreditada (${state.authority})`;
+        into.conditions.push(assumed);
+        into.assumed.push(assumed);
+      } else {
+        into.pending.push(pendingText);
+      }
+    };
     for (const standard of memberStandards) {
       const s = standards.get(standard);
       if (!s) {
@@ -305,19 +318,19 @@ export function toIfra(data: Dataset, files: IfraFiles): IfraData {
         }
         if (limit === null) {
           // A variant is prohibited and the permitted one carries a specification (STD 119, the cade: crude
-          // is prohibited, only the rectified is allowed). Which one this material is has to be proven.
-          if (rectified) {
-            into.conditions.push(`una variante está prohibida (${short(standard)}); la rectificada cumple la especificación (${short(standard)})`);
-          } else {
-            into.pending.push(`${s.nombre}: IFRA prohíbe el crudo y solo permite el rectificado, y no está acreditado que este material lo sea (${short(standard)}).`);
-          }
+          // is prohibited, only the rectified is allowed). Which one this material is has to be claimed.
+          condition(
+            `una variante está prohibida (${short(standard)}); la rectificada cumple la especificación (${short(standard)})`,
+            standard,
+            `${s.nombre}: IFRA prohíbe el crudo y solo permite el rectificado, y no está acreditado que este material lo sea (${short(standard)}).`,
+          );
           continue;
         }
         // A variant is prohibited, and the permitted ones have a ceiling (STD 078, the styrax): the ceiling counts.
         into.conditions.push(`una variante está prohibida (${short(standard)})`);
       }
       if (asItself && s.especificacion === "sí") {
-        into.conditions.push(`especificación (${short(standard)})`);
+        condition(`especificación (${short(standard)})`, standard, `${s.nombre}: su especificación no está acreditada (${short(standard)}).`);
       }
       if (asItself && limit && s.limite_expresado_como) {
         // A limit expressed as a constituent (STD 089, citrus oils: 5-MOP) is not a limit of the whole
@@ -349,16 +362,23 @@ export function toIfra(data: Dataset, files: IfraFiles): IfraData {
   const containers = [...data.products.map((p) => p.id), ...data.lots.map((l) => l.id), ...data.materials.map((m) => m.id)];
   for (const id of containers) {
     const flat = flatten(data, id);
-    const entry: IfraEntry = { substances: [], conditions: [], pending: [...flat.pending] };
+    const entry: IfraEntry = { substances: [], conditions: [], assumed: [], pending: [...flat.pending] };
     const fiveMopKnown = [...flat.loads.keys()].some(
       (member) => !flat.itself.has(member) && (standardsOf.get(member) ?? []).includes(FIVE_MOP_STANDARD),
     );
-    // The process of the material says whether it is rectified (cade, birch tar, opoponax, pyrolysis styrax).
+    // The claims that meet the specifications, from the lot, the product and the material of this container.
     const ownerId = data.lots.find((l) => l.id === id)?.productId ?? id;
     const materialId = data.products.find((p) => p.id === ownerId)?.materialId ?? id;
-    const rectified = /rectific/i.test(data.materials.find((m) => m.id === materialId)?.process ?? "");
+    const chain = [id, ownerId, materialId];
+    const stateOf = (standard: string): ConditionState => {
+      const rows = data.conditions.filter((c) => c.standard === standard && chain.includes(c.containerId));
+      if (rows.some((c) => c.authority === "producto" || c.authority === "lote")) {
+        return { kind: "probada" };
+      }
+      return rows.length > 0 ? { kind: "supuesta", authority: rows[0].authority } : { kind: "pendiente" };
+    };
     for (const [member, load] of flat.loads) {
-      judge(standardsOf.get(member) ?? [], flat.itself.has(member), load, entry, fiveMopKnown, rectified);
+      judge(standardsOf.get(member) ?? [], flat.itself.has(member), load, entry, fiveMopKnown, stateOf);
     }
     // D4: the manufacturer's ceiling of this product (or of this lot's product), whole in it.
     const productId = data.lots.find((l) => l.id === id)?.productId ?? id;
@@ -378,13 +398,14 @@ export function toIfra(data: Dataset, files: IfraFiles): IfraData {
       status: "checked",
       substances: merge(entry.substances),
       conditions: [...new Set(entry.conditions)],
+      ...(entry.assumed.length ? { assumed: [...new Set(entry.assumed)] } : {}),
       ...(entry.pending.length ? { pending: [...new Set(entry.pending)] } : {}),
     });
   }
 
   // The diluents of the app: their CAS in IFRA's index, or nothing to check (the index is complete).
   for (const [key, cas] of DILUENT_CAS) {
-    const entry: IfraEntry = { substances: [], conditions: [], pending: [] };
+    const entry: IfraEntry = { substances: [], conditions: [], assumed: [], pending: [] };
     judge(byCas.get(cas) ?? [], true, { known: Ratio.ONE, upper: Ratio.ONE }, entry);
     materials.set(key, { status: "checked", substances: entry.substances, conditions: entry.conditions });
   }
@@ -397,8 +418,17 @@ type Entry = { key: string; fraction: Ratio | null; upper?: Ratio };
 interface IfraEntry {
   substances: Entry[];
   conditions: string[];
+  /** The conditions that are assumed, not proven. */
+  assumed: string[];
   pending: string[];
 }
+
+/**
+ * The state of a condition of an IFRA standard for a container (a lot, its product or its material): proven
+ * when a row has the authority of a product or a lot, assumed when it only has a consensus or the literature,
+ * pending when there is no row. The text of a process proves nothing.
+ */
+type ConditionState = { readonly kind: "probada" } | { readonly kind: "supuesta"; readonly authority: string } | { readonly kind: "pendiente" };
 
 /**
  * Two members under one standard (two isomers of one group) add up. An unknown one leaves the sum
