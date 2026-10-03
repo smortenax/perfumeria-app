@@ -120,9 +120,9 @@ El texto de un proceso («rectificado») describe el material, pero no prueba na
 **Por qué:** el cade rectificado se infirió de la página de la tienda, sin documento: no es lo mismo que un
 certificado, y el modelo tiene que poder decirlo sin dar la condición por probada ni bloquear al usuario.
 
-## D12 — Qué concentración se usa: la del producto que se compra, y el máximo si es incierta (PROPUESTA, a falta del visto bueno del usuario)
+## D12 — Qué concentración se usa: la del producto que se compra, y el máximo si es incierta (aprobada por el usuario)
 
-Propuesta del 2026-10-03, corregida con el usuario el mismo día. **No está aprobada**, aunque se aplicó a un caso (la pimienta del 4a).
+Propuesta del 2026-10-03, corregida con el usuario el mismo día y **aprobada por él al empezar la Fase 5**. Se aplicó antes a la pimienta del 4a.
 
 1. **El certificado es del producto tal como se compra** (diluido o no): sus cifras y su tope valen tal cual
    (`pct:100`) y la barra va al 100 % **de ese producto**. No hace falta saber su % de materia pura. La pimienta
@@ -136,7 +136,7 @@ Propuesta del 2026-10-03, corregida con el usuario el mismo día. **No está apr
 **Por qué:** lo desconocido no vale cero ni se pinta en verde (§1.2, §5.5), y una cifra de certificado solo se
 convierte cuando se sabe que es de otra concentración que la que se pesa.
 
-### Rangos de una SDS, junto a D12 (propuesta)
+### Rangos de una SDS, junto a D12 (aprobada por el usuario)
 
 - La sustancia que **es el propio material** (Helional «≥50», Calone «99-100») o **su dilución** (Aldambre, 25-50 % en DPG)
   **no son composición** (D8): no entran como cifras. La dilución del Aldambre va a la barra con su máximo, el 50 % (punto 3).
