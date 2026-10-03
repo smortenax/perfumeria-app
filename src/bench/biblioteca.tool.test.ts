@@ -155,6 +155,14 @@ function materialDiff(note: Extract<MigrationNote, { kind: "migrated" }>, before
     lines.push(`| Otros: sin comprobar → no | ${count("sin comprobar → no")} |`);
     lines.push(`| Otros: no → sin comprobar | ${count("no → sin comprobar")} |`);
     lines.push(`| La lectura 1 no cambia (cambian otras cifras, o nada) | ${rows.length - [...moves.values()].reduce((n, v) => n + v.length, 0)} |`, "");
+    const level1 = [...moves.values()].reduce((n, v) => n + v.length, 0);
+    lines.push(
+      `*Qué cuenta cada cifra.* El «cambian ${changed.length} de ${rows.length}» de arriba cuenta una fórmula si cambia **cualquiera** de seis campos: la lectura 1 (¿pasa?), la lectura 2 (hasta qué %), «según lo conocido», el número de pendientes, el de sin comprobar o las sustancias que se pasan. ` +
+        `Esta tabla cuenta solo la **lectura 1**: ${level1} fórmulas la cambian (${prudent} más prudente${prudent === 1 ? "" : "s"}, ${lessPrudent} menos, ${count("no → sin comprobar") + count("sin comprobar → no")} de «no» a «sin comprobar» o al revés); ` +
+        `las otras ${changed.length - level1} que cambian lo hacen en pendientes, sin comprobar, el % máximo o las sustancias que se pasan, sin tocar el «¿pasa?». ` +
+        "El arreglo del grupo 089 (los citrinos solo-v1 suman por una vía, 2026-10-03) no cambió el veredicto de ninguna fórmula: se comprobó comparando el informe anterior con el posterior.",
+      "",
+    );
     const toYes = [...(moves.get("no → sí") ?? []), ...(moves.get("sin comprobar → sí") ?? [])];
     if (toYes.length > 0) {
       lines.push("### Los que van a menos prudente, uno por uno", "");

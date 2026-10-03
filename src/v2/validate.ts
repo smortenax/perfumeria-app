@@ -464,6 +464,7 @@ export function validate(data: Dataset, refs: References): Issue[] {
 
   // --- materials ------------------------------------------------------------------------
   const certifiedMaterials = new Set<string>();
+  const withProduct = new Set(data.products.map((p) => p.materialId));
   for (const c of data.coverages) {
     if (c.coverage !== "reguladas-completa") continue;
     const productId = productMaterial.has(c.containerId) ? c.containerId : lotProduct.get(c.containerId);
@@ -483,7 +484,8 @@ export function validate(data: Dataset, refs: References): Issue[] {
     } else if (m.type === "sustancia" && m.origin === "desconocido") {
       // A product of the material with a certificate that lists every restricted substance already says what the
       // impurities are, so its unknown origin is no longer a doubt worth a warning.
-      if (!certifiedMaterials.has(m.id)) {
+      // Only for a material the user has a product of: for the thousands of the glossary with no bottle it would be noise (Phase 6).
+      if (withProduct.has(m.id) && !certifiedMaterials.has(m.id)) {
         report("aviso", "origen-desconocido", FILE.materials, m.line, `El origen de ${m.id} (${m.name}) es desconocido: se cuenta pura por convención (D7). ¿Se puede saber?`);
       }
     } else if (m.type !== "sustancia" && m.origin !== "") {

@@ -72,6 +72,15 @@ describe("the user's confirmation of a v1 link (D13)", () => {
   });
 });
 
+describe("origen-desconocido only for what the user has a product of (Phase 6)", () => {
+  it("a molecule of unknown origin without a product of the user's is no warning: the glossary has thousands", () => {
+    expect(run("origen-desconocido-sin-producto", "pasa")).toEqual([]);
+  });
+  it("with a product of his it still is (the rule's own failing case has one)", () => {
+    expect(run("origen-desconocido", "falla").map((i) => i.rule)).toEqual(["origen-desconocido"]);
+  });
+});
+
 describe("isValidCas", () => {
   it("checks the format and the check digit", () => {
     expect(isValidCas("78-70-6")).toBe(true);

@@ -161,6 +161,10 @@ def main() -> int:
     for r in read_csv(IFRA / "estandar-cas.csv"):
         index.setdefault(r["cas"], []).append((r["estandar"], r["grupo"]))
     annex = read_csv(IFRA / "naturales.csv")
+    schiff_rows: dict[str, list[dict[str, str]]] = {}
+    for r in read_csv(IFRA / "bases-schiff.csv"):
+        for cas_s in r["cas_base_schiff"].split():
+            schiff_rows.setdefault(cas_s, []).append(r)
     v1_name: dict[str, str] = {}
     for r in read_csv(GLOSARIO / "materiales.csv"):
         if r["cas"] and r["clase"] == "molécula" and r["cas"] not in v1_name:
@@ -283,6 +287,10 @@ def main() -> int:
                         "notas": p.get("notas", ""),
                     })
                     add_conditions(pid, p.get("condiciones", []))
+                # The rows of the glossary that a later lot brings for the same material link to it too.
+                for v1 in m.get("v1", []):
+                    if not any(l["id_v1"] == v1 for l in v1_links):
+                        v1_links.append({"id_v2": mid, "id_v1": v1, "id_producto": "", "confirmado": "", "motivo": ""})
                 continue
             mid = registry.id("material", m["clave"], date)
             seen_materials[m["clave"]] = mid
@@ -371,6 +379,22 @@ def main() -> int:
 
             # The annex: what IFRA gives for this natural, as typical values of its pure matter.
             has_rows = False
+            # A Schiff base: IFRA gives the aldehyde it carries, with its level (the file of IFRA's own), as the annex gives a natural's.
+            if "schiff" in m:
+                sc = m["schiff"]
+                did = documents[sc["documento"]]
+                for r in schiff_rows.get(sc["cas"], []):
+                    component = substance(r["cas_aldehido"], r["aldehido"], date, r["estandar_aldehido"], lot)
+                    tables["composicion.csv"].append({
+                        "id_contenedor": mid, "id_componente": component, "tipico": pct_text(r["nivel_aldehido_pct"]),
+                        "tipo_valor": "tipico", "autoridad": "anexo-ifra", "id_documento": did,
+                        "notas": f"{r['base_schiff']}: el aldehído que lleva, según IFRA",
+                    })
+                tables["coberturas.csv"].append({
+                    "id_contenedor": mid, "id_documento": did, "cobertura": "reguladas-completa",
+                    "notas": "IFRA da el aldehído que aporta la base de Schiff, para el cálculo de su estándar",
+                })
+                has_rows = True
             if "anexo" in m:
                 a = m["anexo"]
                 did = documents[a["documento"]]
@@ -493,7 +517,7 @@ def main() -> int:
     # The links the user confirmed for the formulas of his library (D13): they add the product, the date and the reason
     # to a link of a lot, or make a new one (a row that no lot brought, a provisional material, a certificate key).
     by_v1 = {l["id_v1"]: l for l in v1_links}
-    for r in read_csv(ROOT / "docs" / "v2" / "enlaces-biblioteca.csv"):
+    for r in read_csv(ROOT / "docs" / "v2" / "enlaces-biblioteca.csv") + read_csv(ROOT / "docs" / "v2" / "enlaces-glosario.csv"):
         link = by_v1.get(r["id_v1"])
         if link is None:
             link = {"id_v2": r["id_v2"], "id_v1": r["id_v1"]}

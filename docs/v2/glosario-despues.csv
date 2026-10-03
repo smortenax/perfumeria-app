@@ -1,0 +1,25 @@
+id_v1,nombre,clase,motivo
+fig:1049,alpha-Hexylcinnamaldehyde,molécula,(c) molécula con estándar
+fig:105,1-(2-tert.-Butyl cyclohexyloxy)-2-butanol,molécula,(c) molécula con estándar
+fig:1052,alpha-Irone,molécula,(a) minilote: molécula sin estándar
+fig:1094,Anisole,molécula,(a) minilote: molécula sin estándar
+fig:1193,Benzyl salicylate,molécula,(c) molécula con estándar
+fig:1197,Bergamot oil,natural,(c) natural de la biblioteca
+fig:1202,"Bergamot oil, terpeneless",natural,(c) natural de la biblioteca
+fig:1286,Cade oil,natural,(c) natural de la biblioteca
+fig:134,"1,2,3,3a,4,5,6,8a-Octahydro-4,8-dimethyl-2-(1-methylethylidene)-6-azulenol",molécula,(a) minilote: molécula sin estándar
+fig:1740,Ethyl 2-ethylhexanoate,molécula,(a) minilote: molécula sin estándar
+fig:1831,Eucalyptus oil,natural,(c) natural de la biblioteca
+fig:2046,Irone,molécula,"(c) molécula con estándar (Irone: especificación pendiente, D11)"
+fig:2080,Isobutyl salicylate,molécula,(a) minilote: molécula sin estándar
+fig:2213,Lime oil,natural,(c) natural de la biblioteca
+fig:2432,Neral,molécula,(c) molécula con estándar
+fig:2755,Propionic acid,molécula,(a) minilote: molécula sin estándar
+fig:2880,Spearminty oil,natural,(c) natural de la biblioteca
+fig:2937,Tea tree oil,natural,(c) natural de la biblioteca
+fig:2974,Thyme absolute,natural,(c) natural de la biblioteca
+fig:450,2-Hexyl-(E)-cinnamaldehyde,molécula,(c) molécula con estándar
+fig:918,"6,10,14-Trimethyl-2-pentadecanone",molécula,(a) minilote: molécula sin estándar
+fig:930,6-Isopropyl-2(1H)-octahydronaphthalenone,molécula,(a) minilote: molécula sin estándar
+fig:955,8-Undecenal,molécula,(a) minilote: molécula sin estándar
+ncs:thyme-oil-wild,"Thyme oil, wild",natural,(c) natural de la biblioteca
