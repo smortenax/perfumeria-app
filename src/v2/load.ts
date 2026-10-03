@@ -175,6 +175,11 @@ export const SCHEMA: { readonly [K in keyof Dataset]: TableSpec<K> } = {
       documentId: r.id_documento,
     }),
   },
+  exclusions: {
+    file: "exclusiones.csv",
+    columns: ["estandar", "procesos", "notas"],
+    map: (r, line) => ({ line, standard: r.estandar, processes: list(r.procesos).map((x) => x.toLowerCase()) }),
+  },
   v1Links: {
     file: "v1-a-v2.csv",
     columns: ["id_v2", "id_v1"],

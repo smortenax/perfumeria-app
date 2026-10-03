@@ -285,6 +285,7 @@ export function toIfra(data: Dataset, files: IfraFiles): IfraData {
     into: IfraEntry,
     fiveMopKnown = false,
     stateOf: (standard: string) => ConditionState = () => ({ kind: "pendiente" }),
+    appliesSpec: (standard: string) => boolean = () => true,
   ) => {
     /** A condition of the standard, said by its state: proven as it is, assumed with its authority, pending apart. */
     const condition = (text: string, standard: string, pendingText: string) => {
@@ -316,6 +317,9 @@ export function toIfra(data: Dataset, files: IfraFiles): IfraData {
           into.substances.push({ key: ifraSubstance(`prohibido:${standard}`, `${s.nombre}, como tal`, Ratio.ZERO, standard), fraction: Ratio.ONE });
           continue;
         }
+        if (limit === null && !appliesSpec(standard)) {
+          continue;
+        }
         if (limit === null) {
           // A variant is prohibited and the permitted one carries a specification (STD 119, the cade: crude
           // is prohibited, only the rectified is allowed). Which one this material is has to be claimed.
@@ -329,7 +333,7 @@ export function toIfra(data: Dataset, files: IfraFiles): IfraData {
         // A variant is prohibited, and the permitted ones have a ceiling (STD 078, the styrax): the ceiling counts.
         into.conditions.push(`una variante está prohibida (${short(standard)})`);
       }
-      if (asItself && s.especificacion === "sí") {
+      if (asItself && s.especificacion === "sí" && appliesSpec(standard)) {
         condition(`especificación (${short(standard)})`, standard, `${s.nombre}: su especificación no está acreditada (${short(standard)}).`);
       }
       if (asItself && limit && s.limite_expresado_como) {
@@ -377,8 +381,12 @@ export function toIfra(data: Dataset, files: IfraFiles): IfraData {
       }
       return rows.length > 0 ? { kind: "supuesta", authority: rows[0].authority } : { kind: "pendiente" };
     };
+    // A specification that is about other processes than this material's does not apply (exclusiones.csv).
+    const process = (data.materials.find((m) => m.id === materialId)?.process ?? "").toLowerCase();
+    const appliesSpec = (standard: string) =>
+      !data.exclusions.some((x) => x.standard === standard && x.processes.some((p) => process.includes(p)));
     for (const [member, load] of flat.loads) {
-      judge(standardsOf.get(member) ?? [], flat.itself.has(member), load, entry, fiveMopKnown, stateOf);
+      judge(standardsOf.get(member) ?? [], flat.itself.has(member), load, entry, fiveMopKnown, stateOf, appliesSpec);
     }
     // D4: the manufacturer's ceiling of this product (or of this lot's product), whole in it.
     const productId = data.lots.find((l) => l.id === id)?.productId ?? id;

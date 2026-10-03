@@ -70,6 +70,7 @@ COLUMNS = {
     ],
     "impurezas-conocidas.csv": ["id_sustancia", "id_documento", "notas"],
     "condiciones.csv": ["id_contenedor", "estandar", "condicion", "autoridad", "id_documento", "notas"],
+    "exclusiones.csv": ["estandar", "procesos", "notas"],
     "v1-a-v2.csv": ["id_v2", "id_v1"],
 }
 
@@ -181,6 +182,10 @@ def main() -> int:
     ]
 
     registry = Registry(read_csv(V2 / "registro-ids.csv"))
+    # The specifications that do not apply to some processes (a styrax resinoid is outside the PAH specification
+    # of the pyrolysis oil): written as they are, for the adapter.
+    exclusions = [{"estandar": r["estandar"], "procesos": r["procesos"], "notas": r["fuente"]}
+                  for r in read_csv(ROOT / "docs" / "v2" / "especificaciones-excluidas.csv")]
     tables: dict[str, list[dict[str, str]]] = {name: [] for name in COLUMNS if name != "registro-ids.csv"}
     substance_rows: dict[str, dict[str, str]] = {}
     groups: dict[str, str] = {}
@@ -434,6 +439,7 @@ def main() -> int:
     retired = registry.retire_unused()
 
     # --- write, in a stable order ----------------------------------------------------------
+    tables["exclusiones.csv"] = exclusions
     tables["sustancias.csv"] = list(substance_rows.values())
     tables["grupo-miembros.csv"] = list(members.values())
     tables["v1-a-v2.csv"] = v1_links
@@ -445,6 +451,7 @@ def main() -> int:
         "topes.csv": lambda r: (r["id_producto"], r["categoria"]),
         "impurezas-conocidas.csv": lambda r: (r["id_sustancia"], r["id_documento"]),
         "condiciones.csv": lambda r: (r["id_contenedor"], r["estandar"]),
+        "exclusiones.csv": lambda r: (r["estandar"],),
         "v1-a-v2.csv": lambda r: (r["id_v1"], r["id_v2"]),
     }
     for name, rows in tables.items():

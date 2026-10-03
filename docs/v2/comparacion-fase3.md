@@ -44,7 +44,7 @@ lote** (`datos/v2/v1-a-v2.csv`). El alcohol es un diluyente de la app en los dos
 | ¿Algo se pasa de su techo? | No | No |
 | Uso máximo en un perfume | 100 % (nada se acerca) | 100 % |
 | Sin comprobar | 0 | 0 |
-| Pendiente | tabaco, pachulí, estírax, ámbar gris | tabaco, pachulí, estírax, ámbar gris, tonka, Sandalmysore Core, benjuí, cedro, AAG |
+| Pendiente | tabaco, pachulí, estírax, ámbar gris | tabaco, pachulí, ámbar gris, tonka, Sandalmysore Core, benjuí, cedro, AAG |
 
 **Las dos dan lo mismo en lo que importa:** ningún estándar se pasa y la lectura 1 queda abierta, porque hay
 materiales con datos pendientes. Cambia **por qué** y **con qué cifras**.
@@ -98,18 +98,18 @@ Core la del **Santaliff Toco** (de ahí su aporte de OTNE): son de otro material
 (`errores-v1.md`). El Sandalmysore Core, además, entra como **base** con composición desconocida, como decía tu
 cuaderno, y queda pendiente.
 
-### 6. Tres especificaciones pendientes
+### 6. Dos especificaciones pendientes
 
-El cedro (STD 184, peróxidos), el AAG (STD 188, alcohol alílico libre) y el estírax (STD 078) llevan su
-especificación como información en la v1. En la v2, **ninguna afirmación la cumple todavía** (no hay fila en
-`condiciones.csv`), así que queda pendiente. Es la regla nueva de condiciones: probada, supuesta o pendiente.
-La del estírax merece mirarse: la especificación de PAH del 078 es del aceite de pirólisis, y el material es un
-resinoide.
+El cedro (STD 184, peróxidos) y el AAG (STD 188, alcohol alílico libre) llevan su especificación como
+información en la v1. En la v2, **ninguna afirmación la cumple todavía** (no hay fila en `condiciones.csv`), así
+que queda pendiente. Es la regla de condiciones (D11): probada, supuesta o pendiente. La especificación de PAH del
+STD 078 no es una de ellas: es del aceite de estírax de pirólisis, y el material es un resinoide, así que queda
+fuera por su proceso (`exclusiones.csv`), sin suponer nada.
 
 ### 7. Las condiciones
 
 La v1 enseña como condiciones frases informativas («incluye constituyentes declarados por proveedores»,
-«variante sin concretar»). La v2 solo enseña lo que IFRA obliga: del estírax, que una variante está prohibida.
+«variante sin concretar»). La v2 solo enseña lo que IFRA obliga: del estírax, que una variante (la goma cruda) está prohibida.
 Nada está supuesto en esta fórmula.
 
 ## Lo que esta comparación no prueba

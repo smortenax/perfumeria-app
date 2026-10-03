@@ -30,6 +30,7 @@ const FILE = {
   usages: "usos.csv",
   knownImpurities: "impurezas-conocidas.csv",
   conditions: "condiciones.csv",
+  exclusions: "exclusiones.csv",
   v1Links: "v1-a-v2.csv",
 } as const;
 
@@ -374,6 +375,16 @@ export function validate(data: Dataset, refs: References): Issue[] {
     const doc = documents.get(c.documentId);
     if (doc && doc.reviewStatus !== "revisado") {
       error("condiciones", FILE.conditions, c.line, `El documento ${c.documentId} no está revisado (D6).`);
+    }
+  }
+
+  // --- exclusions: a specification that does not apply to some processes ---------------------------
+  for (const x of data.exclusions) {
+    if (!refs.ifraStandards.has(x.standard)) {
+      error("exclusiones", FILE.exclusions, x.line, `El estándar «${x.standard}» no está en datos/ifra/51/estandares.csv.`);
+    }
+    if (x.processes.length === 0) {
+      error("exclusiones", FILE.exclusions, x.line, "Una exclusión dice a qué procesos no aplica.");
     }
   }
 

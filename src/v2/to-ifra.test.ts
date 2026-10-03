@@ -355,6 +355,9 @@ describe("a standard that prohibits a variant: the styrax (STD 078) and the cade
     expect(m.substances.find((s) => s.key === "std:IFRA_STD_078")?.fraction?.eq(Ratio.ONE)).toBe(true);
     expect(m.substances.some((s) => s.key.startsWith("prohibido:"))).toBe(false);
     expect(m.conditions).toContain("una variante está prohibida (STD 078)");
+    // The PAH specification is of the pyrolysis oil: a resinoid is outside it, and nothing is pending for it.
+    expect(m.pending?.some((t) => t.includes("STD 078")) ?? false).toBe(false);
+    expect(m.conditions.some((c) => c.startsWith("especificación (STD 078)"))).toBe(false);
   });
 
   const CADE = (process: string) => `M00001,natural,Cade oil,,Juniperus oxycedrus,madera,"${process}",,8013-10-3,,,,,`;

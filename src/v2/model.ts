@@ -198,6 +198,17 @@ export interface Condition extends Located {
   readonly documentId: string;
 }
 
+/**
+ * A specification of an IFRA standard that does not apply to the materials of some processes: the PAH
+ * specification of STD 078 is of the styrax oil obtained by pyrolysis, so a styrax resinoid is outside it. It is
+ * not an assumption: the standard itself says what it is about (decisiones-v2, D11).
+ */
+export interface Exclusion extends Located {
+  readonly standard: string;
+  /** Substrings of the process of a material that put it outside the specification. */
+  readonly processes: readonly string[];
+}
+
 /** Link from a v1 glossary id (datos/glosario/materiales.csv) to its v2 id. */
 export interface V1Link extends Located {
   readonly v2Id: string;
@@ -220,6 +231,7 @@ export interface Dataset {
   readonly usages: readonly Usage[];
   readonly knownImpurities: readonly KnownImpurity[];
   readonly conditions: readonly Condition[];
+  readonly exclusions: readonly Exclusion[];
   readonly v1Links: readonly V1Link[];
 }
 

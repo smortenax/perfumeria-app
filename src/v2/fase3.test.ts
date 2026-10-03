@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { formatPercent } from "../core/display";
 import { checkIfra, type IfraReport } from "../core/ifra";
+import pendientes from "../../docs/v2/pendientes-F001.md?raw";
 import { repositoryFor } from "../data/repositories";
 import { v2Dataset } from "./data";
 import { f001Keys, f001With } from "./fixtures/fase3";
@@ -71,7 +72,7 @@ describe("F-001 whole, with the v1 rows the user chose and with the v2", () => {
     expect(b.pending.some((p) => p.material === "Haba tonka (tintura)")).toBe(true);
   });
 
-  it("5. what stays open: the v1, four constituents; the v2, naturals without data, partial ones and unproven specifications", () => {
+  it("5. what stays open: the v1, four constituents; the v2, naturals without data, partial ones and two unproven specifications", () => {
     expect(a.pending.map((p) => p.material).sort()).toEqual(["Absoluto de Tabaco", "Patchouli", "Resinoide Estírax", "Ámbar gris (tintura)"].sort());
     expect(b.pending.map((p) => p.material).sort()).toEqual(
       [
@@ -81,17 +82,17 @@ describe("F-001 whole, with the v1 rows the user chose and with the v2", () => {
         "Haba tonka (tintura)",
         "Patchouli",
         "Resinoide Benjuí",
-        "Resinoide Estírax",
         "Sandalmysore Core",
         "Ámbar gris (tintura)",
       ].sort(),
     );
-    // The three specifications (STD 184, 188, 078) are information in the v1 and pending in the v2.
+    // The two specifications (STD 184 and 188) are information in the v1 and pending in the v2. The PAH
+    // specification of STD 078 is of the pyrolysis oil: a styrax resinoid is outside it, and nothing is pending.
     expect(b.pending.filter((p) => p.text.includes("su especificación no está acreditada")).map((p) => p.material).sort()).toEqual([
       "Allyl Amyl Glycolate",
       "Cedro Atlas",
-      "Resinoide Estírax",
     ]);
+    expect(b.pending.some((p) => p.material === "Resinoide Estírax")).toBe(false);
   });
 
   it("6. the lists of other materials of the v1 are gone: the phenylhexanol's from the Polysantol, Santaliff Toco's from the Sandalmysore Core", () => {
@@ -116,5 +117,23 @@ describe("F-001 whole, with the v1 rows the user chose and with the v2", () => {
     expect(check(old, "std:IFRA_STD_158")?.verdict).toBe("exceeds");
     expect(check(a, "std:IFRA_STD_158")).toBeUndefined();
     expect(check(b, "std:IFRA_STD_158")).toBeUndefined();
+  });
+
+  it("9. every pending of F-001 in the v2 is in docs/v2/pendientes-F001.md, with the shop to ask", () => {
+    const materials = [...new Set(b.pending.map((p) => p.material))];
+    expect(materials.length).toBeGreaterThan(0);
+    for (const material of materials) {
+      expect(pendientes, material).toContain(`**${material}**`);
+    }
+    const [olfatorium, maese] = [pendientes.indexOf("## Olfatorium"), pendientes.indexOf("## Maese Lab")];
+    expect(olfatorium).toBeGreaterThan(0);
+    expect(maese).toBeGreaterThan(olfatorium);
+    for (const material of ["Cedro Atlas", "Allyl Amyl Glycolate", "Patchouli", "Absoluto de Tabaco", "Resinoide Benjuí", "Sandalmysore Core"]) {
+      const at = pendientes.indexOf(`**${material}**`);
+      expect(at > olfatorium && at < maese, material).toBe(true);
+    }
+    for (const material of ["Haba tonka (tintura)", "Ámbar gris (tintura)"]) {
+      expect(pendientes.indexOf(`**${material}**`) > maese, material).toBe(true);
+    }
   });
 });

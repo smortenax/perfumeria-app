@@ -190,7 +190,7 @@
               "condicion": "cumple las especificaciones de IFRA: «Any ingredient present which has an IFRA specification standard is used only if its quality meets the criteria established»",
               "autoridad": "producto",
               "documento": "cert-iff-00133097",
-              "notas": "Frase general del certificado de IFF (2023-09-07). Su tabla da el atranol y el cloroatranol como «<0,1 %» (menos de 1000 ppm), que por sí solo no prueba los 100 ppm del STD 067: se toma la frase del certificado."
+              "notas": "El usuario da por acreditada la especificación con el certificado IFRA de IFF (2023-09-07), 2026-10-03: «Any ingredient present which has an IFRA specification standard is used only if its quality meets the criteria established». Su tabla da el atranol y el cloroatranol como «<0,1 %»."
             }
           ]
         }
