@@ -4,6 +4,7 @@ import { formatGrams, formatPercent } from "../core/display";
 import type { IfraBase, IfraReport } from "../core/ifra";
 import { texts } from "../i18n/es";
 import { roomText, usedText } from "./composition-ifra";
+import { groupRows, splitPending, whyOf, type GroupRow } from "./ifra-explain";
 import { materialRows, readingIn, substanceRows, supplierRows, type MaterialRow, type SubstanceRow } from "./ifra-panel";
 
 const t = texts.ifra;
@@ -134,6 +135,75 @@ function SubstanceItem(props: { row: SubstanceRow; partial: boolean }) {
   );
 }
 
+const quotientText = (q: Ratio) => q.toFixed(2).replace(".", ",");
+
+/**
+ * Why a «no» or a «no se sabe» (Phase 5): the substances over their ceiling with the materials that bring them, the group of
+ * phototoxics over 1, and, for the unknown, how many things are unchecked, unknown by quantity or unproven by specification.
+ */
+function Why(props: { report: IfraReport; specifications: ReadonlySet<string>; base?: IfraBase }) {
+  const { report } = props;
+  const reading = readingIn(report, props.base);
+  if (reading.asIs === "yes") {
+    return null;
+  }
+  const why = whyOf(report, props.specifications, reading.base);
+  const unknown = reading.asIs === "unknown";
+  const lines: string[] = [];
+  if (!unknown) {
+    for (const row of why.exceeds) {
+      lines.push(t.whyExceeds(row.name, row.used ? usedText(row.used) : t.prohibited, `${pctOf(row.worstShare)} %`, limitText(row.limit)));
+      lines.push(t.whyBrings(row.sources.slice(0, 3).map((s) => `${s.name} ${formatPercent(s.part, 0)}`).join(", ")));
+    }
+    for (const g of why.groupsOver) {
+      lines.push(t.whyGroup(t.groupNames[g.group] ?? g.group, quotientText(g.worstSum)));
+    }
+  } else {
+    if (why.unchecked.length > 0) {
+      lines.push(t.whyUnchecked(why.unchecked.length));
+    }
+    if (why.pending.quantities.length > 0) {
+      lines.push(t.whyQuantities(why.pending.quantities.length));
+    }
+    if (why.pending.specifications.length > 0) {
+      lines.push(t.whySpecifications(why.pending.specifications.length));
+    }
+  }
+  if (lines.length === 0) {
+    return null;
+  }
+  return (
+    <div className="detail-section why">
+      <div className={unknown ? "section-title amber" : "section-title"}>{unknown ? t.whyUnknown : t.whyNo}</div>
+      {lines.map((line, i) => (
+        <div key={i} className="detail-item">
+          {line}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/** A group summed against its ceilings: its members, each over its own ceiling, and the sum (STD 089). */
+function GroupItem(props: { row: GroupRow }) {
+  const { row } = props;
+  return (
+    <div className="material-ceilings" title={t.groupHelp}>
+      <div className="ceiling-material">
+        {t.groupNames[row.group] ?? row.group} <span className={`num ceiling-use ${row.verdict}`}>{t.verdict[row.verdict]}</span>
+      </div>
+      {row.members.map((m) => (
+        <div key={m.key} className="ceiling-row sub">
+          <span className="ceiling-name">{t.memberLine(m.name, quotientText(m.knownQuotient), quotientText(m.worstQuotient))}</span>
+        </div>
+      ))}
+      <div className="detail-item">
+        <strong>{t.groupSum(quotientText(row.knownSum), quotientText(row.worstSum))}</strong>
+      </div>
+    </div>
+  );
+}
+
 /** One material seen by material (§5.4): what it alone uses of each ceiling it loads. */
 function MaterialItem(props: { row: MaterialRow }) {
   const { row } = props;
@@ -170,7 +240,14 @@ let rememberedView: PanelView = "substance";
  * where it comes from) or by material; what is unchecked, pending and conditions. It scrolls
  * inside when it is long. With nothing in the bottle it has an empty state of its own.
  */
-export function IfraPanel(props: { report: IfraReport | null; empty: boolean; base?: IfraBase; onBase: (base: IfraBase) => void }) {
+export function IfraPanel(props: {
+  report: IfraReport | null;
+  empty: boolean;
+  base?: IfraBase;
+  onBase: (base: IfraBase) => void;
+  /** The pending entries that are specifications to prove, by `pendingKey`: the adapter knows them (v2); none in the v1. */
+  specifications?: ReadonlySet<string>;
+}) {
   const { report } = props;
   const [view, setView] = useState<PanelView>(rememberedView);
   const hasData = report !== null && !props.empty;
@@ -181,6 +258,9 @@ export function IfraPanel(props: { report: IfraReport | null; empty: boolean; ba
   };
   const maxUse = hasData ? formatPercent(report.maxUse, report.maxUse.eq(Ratio.ONE) ? 0 : 2) : "";
   const cannotSay = hasData && report.partial && report.maxUse.eq(Ratio.ONE);
+  const specifications = props.specifications ?? new Set<string>();
+  const pending = hasData ? splitPending(report, specifications) : { quantities: [], specifications: [] };
+  const groups = hasData ? groupRows(report, reading?.base) : [];
   const substances = hasData && view === "substance" ? substanceRows(report, reading?.base) : [];
   const materials = hasData && view === "material" ? materialRows(report, reading?.base) : [];
   return (
@@ -219,6 +299,7 @@ export function IfraPanel(props: { report: IfraReport | null; empty: boolean; ba
           <p className="second-reading small" title={t.maxUseQuestion}>
             {cannotSay ? t.secondReadingUnknown : report.partial ? t.secondReadingPartial(maxUse) : t.secondReading(maxUse)}
           </p>
+          <Why report={report} specifications={specifications} {...(reading ? { base: reading.base } : {})} />
           {report.checks.length === 0 && report.unchecked.length === 0 && report.pending.length === 0 && report.conditions.length === 0 && (
             <p className="muted small">{t.nothing}</p>
           )}
@@ -242,6 +323,14 @@ export function IfraPanel(props: { report: IfraReport | null; empty: boolean; ba
               ))}
             </div>
           )}
+          {groups.length > 0 && (
+            <div className="detail-section">
+              <div className="section-title">{t.groups(groups.length)}</div>
+              {groups.map((g) => (
+                <GroupItem key={g.group} row={g} />
+              ))}
+            </div>
+          )}
           {report.supplierChecks.length > 0 && (
             <div className="detail-section">
               <div className="section-title" title={t.suppliersHelp}>
@@ -262,10 +351,24 @@ export function IfraPanel(props: { report: IfraReport | null; empty: boolean; ba
               ))}
             </div>
           )}
-          {report.pending.length > 0 && (
+          {pending.quantities.length > 0 && (
             <div className="detail-section">
-              <div className="section-title amber">{t.pending(report.pending.length)}</div>
-              {report.pending.map((p, i) => (
+              <div className="section-title amber" title={t.pendingQuantitiesHelp}>
+                {t.pendingQuantities(pending.quantities.length)}
+              </div>
+              {pending.quantities.map((p, i) => (
+                <div key={i} className="detail-item">
+                  <strong>{p.material}.</strong> {p.text}
+                </div>
+              ))}
+            </div>
+          )}
+          {pending.specifications.length > 0 && (
+            <div className="detail-section">
+              <div className="section-title amber" title={t.pendingSpecificationsHelp}>
+                {t.pendingSpecifications(pending.specifications.length)}
+              </div>
+              {pending.specifications.map((p, i) => (
                 <div key={i} className="detail-item">
                   <strong>{p.material}.</strong> {p.text}
                 </div>
@@ -277,7 +380,16 @@ export function IfraPanel(props: { report: IfraReport | null; empty: boolean; ba
               <div className="section-title">{t.conditions(report.conditions.length)}</div>
               {report.conditions.map((cond, i) => (
                 <div key={i} className="detail-item">
-                  <strong>{cond.material}.</strong> {cond.text}
+                  <strong>{cond.material}.</strong> {cond.text}{" "}
+                  {cond.assumed ? (
+                    <span className="pill amber" title={t.conditionAssumedHelp}>
+                      {t.conditionAssumed}
+                    </span>
+                  ) : (
+                    <span className="pill" title={t.conditionProvenHelp}>
+                      {t.conditionProven}
+                    </span>
+                  )}
                 </div>
               ))}
             </div>
