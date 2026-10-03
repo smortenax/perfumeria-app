@@ -167,6 +167,17 @@ def main() -> int:
     for r in read_csv(PROVEEDORES / "productos-sustancias.csv"):
         made_subs.setdefault(r["producto"], []).append(r)
 
+    def norm(text: str) -> str:
+        return text.strip().lower()
+
+    natural_standards = [
+        {"estandar": r["estandar"], "nombre_ifra": r["nombre_ifra"],
+         "especies": {norm(x) for x in r["especies"].split(";")},
+         "partes": [norm(x) for x in r["partes"].split(";")],
+         "procesos": [norm(x) for x in r["procesos"].split(";")]}
+        for r in read_csv(ROOT / "docs" / "v2" / "estandares-naturales.csv")
+    ]
+
     registry = Registry(read_csv(V2 / "registro-ids.csv"))
     tables: dict[str, list[dict[str, str]]] = {name: [] for name in COLUMNS if name != "registro-ids.csv"}
     substance_rows: dict[str, dict[str, str]] = {}
@@ -272,6 +283,15 @@ def main() -> int:
             if m["tipo"] in ("natural", "base") and cas:
                 for standard, subgroup in index.get(cas, []):
                     member(standard, subgroup, mid, date, "índice de IFRA 51: limitado como tal")
+            # The standards of naturals (086-096) are also recognised by species + part + process (D1), not only by
+            # the CAS of the index: the FCF bergamot is a bergamot oil expressed whose CAS the index does not list.
+            if m["tipo"] == "natural":
+                for rule in natural_standards:
+                    if (norm(m.get("especie", "")) in rule["especies"]
+                            and any(x in norm(m.get("parte", "")) for x in rule["partes"])
+                            and any(x in norm(m.get("proceso", "")) for x in rule["procesos"])):
+                        member(rule["estandar"], "", mid, date,
+                               f"por especie, parte y proceso (D1): «{rule['nombre_ifra']}»")
             # A standard that goes by family (089, 184, 188) applies by what the material is, not by
             # its CAS: it is a member of the group as a material.
             for standard in m.get("familias", []):

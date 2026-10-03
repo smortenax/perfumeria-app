@@ -195,7 +195,10 @@ export function flatten(data: Dataset, containerId: string): Flattened {
     // D7: a molecule without documents is its substance pure by convention, unless it is a natural
     // isolate or one known to carry regulated impurities: then those are pending.
     let pureByConvention = false;
-    if (material.type === "sustancia" && ordered.length === 0) {
+    // Only placeholders of another supplier (literatura, consenso) are not documents of its product: the
+    // convention stands, and what they say only adds their maxima (D2, D9).
+    const onlyPlaceholders = ordered.every(([, rows]) => PLACEHOLDERS.has(rows[0].authority));
+    if (material.type === "sustancia" && onlyPlaceholders) {
       if (material.origin === "aislado-natural") {
         pending.push(IMPURITIES_ISOLATE);
       } else if (impure.has(material.substanceId)) {

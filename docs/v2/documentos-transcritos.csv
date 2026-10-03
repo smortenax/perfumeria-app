@@ -1,0 +1,5 @@
+documento,sustancia,cas,valor,tipo,fuente
+EU_Fragrance_Allergens_ALDEHIDO_ALFA-N-AMILCINAMICO_KALPSUTRA,Amylcinnamyl Alcohol,101-85-9,0.5,maximo,"Transcrito a mano el 2026-10-03 del PDF de Ventós (versión de 22 de enero de 2024, emitido el 13 de agosto de 2025): dice «< 0,500%». El PDF tiene cifrado AES y el script no lo lee; se vio con la herramienta de lectura de PDF. Límite de detección: 10 ppm; el resto de alérgenos, «Not detected»"
+EU_Fragrance_Allergens_ALDEHIDO_ALFA-N-AMILCINAMICO_KALPSUTRA,Benzaldehyde,100-52-7,0.05,maximo,"Transcrito a mano el 2026-10-03 (mismo PDF): «< 0,050%»"
+EU_Fragrance_Allergens_ALDEHIDO_ALFA-N-AMILCINAMICO_KALPSUTRA,Benzyl Alcohol,100-51-6,0.2,maximo,"Transcrito a mano el 2026-10-03 (mismo PDF): «< 0,200%»"
+EU_Fragrance_Allergens_ALDEHIDO_ALFA-N-AMILCINAMICO_KALPSUTRA,Hexyl Cinnamal,101-86-0,0.5,maximo,"Transcrito a mano el 2026-10-03 (mismo PDF): «< 0,500%»"

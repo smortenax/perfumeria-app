@@ -16,6 +16,10 @@ viene.
 - `fig:2179` (Lavender): una fila sin forma que mezcla las tres variantes del anexo (aceite,
   absoluto y concreto) y cuenta la peor. Así trae la 7-metoxicumarina del concreto a un aceite.
   Viene de cruzar el anexo por CAS (8000-28-0) y no por nombre.
+- `fig:607` (Polysantol): tiene la lista de alérgenos de Firmenich W16070 (Perfumiarz), que es la del
+  **fenilhexanol 973080**, no la del Polysantol. Viene del lote C-003. Se vio al reabrir el lote 3b con la D9.
+- `fig:487` (Sandalmysore Core / Hindinol): tiene la lista de alérgenos de IFF H19102, que es la del
+  **Santaliff Toco**. Viene del lote C-003. Se vio al reabrir el lote 3b con la D9.
 - Familia STD 089 por el nombre (`scripts/generar_glosario.py`, la regex de cítricos): da la condición «aceites
   cítricos: furocumarinas» a 99 filas, entre ellas la naranja dulce y la mandarina, que IFRA no lista en el
   089 (solo ocho aceites, y tres con nivel típico). Se vio en el lote 3c.
@@ -30,4 +34,4 @@ viene.
 - Una lista de alérgenos o un certificado cuyo producto no coincide con el material.
 - Filas del glosario que el anexo cruza por CAS con varias variantes («cuenta la peor»).
 - Familias por el nombre (089, 184, 188) con una regex más ancha que la lista del estándar.
-- Documentos de otro material (ninguno de los 7 del lote 3c lo era: todos eran del mismo material, de otro proveedor).
+- Documentos de otro material: ninguno de los 7 del lote 3c lo era, pero dos de los cuatro que se descartaron en los lotes 3a y 3b sí (arriba). Se mira el nombre del producto en el propio documento, no su nombre de archivo.

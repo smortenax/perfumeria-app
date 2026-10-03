@@ -12,9 +12,9 @@ Ionona Alpha,origen,«molécula de síntesis de IFF» [cuaderno: materias-primas
 Iso E Super,origen,«molécula de síntesis de IFF» [cuaderno: materias-primas/iso-e-super.md],sintetico,sintetico
 Mayol,origen,«molécula de síntesis de Firmenich» [cuaderno: materias-primas/mayol.md],sintetico,sintetico
 Methyl Pamplemousse,origen,«molécula de síntesis de Givaudan» [cuaderno: materias-primas/methyl-pamplemousse.md],sintetico,sintetico
-Polysantol,documento-ajeno,fig:607: lista de alérgenos W16070_ALG_09-23_dedaef5f-2556-41d2-9b49-9f30bc068adb.pdf,no-traer,no-traer
+Polysantol,documento-otro-material,W16070 Firmenich: Presence of EU Fragrance Allergens — PHENYLHEXANOL 973080 (22389271) [revisado] → se apunta en errores-v1.md,descartar,descartar
 Polysantol,origen,«sándalo sintético de Firmenich» [cuaderno: materias-primas/polysantol.md],sintetico,sintetico
-Sandalmysore Core,documento-ajeno,fig:487: lista de alérgenos H19102_ALG_02-24.pdf,no-traer,no-traer
+Sandalmysore Core,documento-otro-material,H19102 IFF: EU Extended Fragrance allergens — SANTALIFF TOCO (00190237) [revisado] → se apunta en errores-v1.md,descartar,descartar
 Sandalmysore Core,tipo,"el usuario lo trata como base, no como molécula",base,base
 Stemone,origen,«molécula de síntesis (Givaudan)» [cuaderno: materias-primas/stemone.md],sintetico,sintetico
 Vertenex (PTBCHA),origen,«molécula de síntesis» [cuaderno: materias-primas/vertenex-ptbcha.md],sintetico,sintetico

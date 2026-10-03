@@ -39,9 +39,35 @@ def firmenich_alergenos(path: Path) -> list[tuple[str, str, str, str]]:
     return rows
 
 
+def givaudan_alergenos(path: Path) -> list[tuple[str, str, str, str]]:
+    """The «Maximum % in the substance» of a Givaudan extended allergen list: maxima by GC-MS."""
+    from pypdf import PdfReader
+
+    text = "\n".join((page.extract_text() or "") for page in PdfReader(str(path)).pages)
+    rows = []
+    for line in (l.strip() for l in text.splitlines()):
+        match = re.match(r"^(\d{2,7}-\d{2}-\d)(?:/[\d\s/-]*)?\s+(.+?)\s+(\d+(?:\.\d+)?)$", line)
+        if match:
+            rows.append((match.group(1), match.group(2).title(), match.group(3), "maximo"))
+    return rows
+
+
+def transcrito(ref: str, root: Path) -> list[tuple[str, str, str, str]]:
+    """A document the script cannot read (an encrypted PDF), transcribed by hand with its source
+    in docs/v2/documentos-transcritos.csv, the way docs/proveedores/certificados/transcripciones.csv does."""
+    import csv
+
+    with (root / "docs" / "v2" / "documentos-transcritos.csv").open(encoding="utf-8", newline="") as f:
+        return [(r["cas"], r["sustancia"], r["valor"], r["tipo"]) for r in csv.DictReader(f) if r["documento"] == ref]
+
+
 def filas(reader: str, ref: str, path: str, root: Path) -> list[tuple[str, str, str, str]]:
     if reader == "pw-html":
         return pw_html(ref, root)
     if reader == "firmenich-alergenos":
         return firmenich_alergenos(root / path)
+    if reader == "givaudan-alergenos":
+        return givaudan_alergenos(root / path)
+    if reader == "transcrito":
+        return transcrito(ref, root)
     return []

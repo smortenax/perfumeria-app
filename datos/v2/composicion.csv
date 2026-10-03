@@ -2,6 +2,11 @@ id_contenedor,id_componente,min,tipico,max,tipo_valor,autoridad,id_documento,not
 M00003,S00001,,0.48,,tipico,anexo-ifra,D00001,Lavender oil (Lavandula angustifolia angustifolia)
 M00003,S00003,,1.04,,tipico,anexo-ifra,D00001,Lavender oil (Lavandula angustifolia angustifolia)
 M00003,S00004,,0.01,,tipico,anexo-ifra,D00001,Lavender oil (Lavandula angustifolia angustifolia)
+M00010,S00006,,,0.5,maximo,literatura,D00012,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00010,S00011,,,0.05,maximo,literatura,D00012,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00010,S00012,,,0.2,maximo,literatura,D00012,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00010,S00082,,,0.5,maximo,literatura,D00012,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00023,S00012,,,0.007,maximo,literatura,D00013,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
 M00041,S00035,,0.1561,,tipico,literatura,D00005,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
 M00042,S00002,,13.0450,,tipico,literatura,D00006,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
 M00042,S00061,,0.8698,,tipico,literatura,D00006,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"

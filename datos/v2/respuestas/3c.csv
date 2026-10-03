@@ -2,7 +2,7 @@ producto,tipo,respuesta,notas
 Absoluto de Tabaco,v1-correspondencia,v1:fig:2982,"usuario, 2026-10-03: confirma la propuesta"
 Absoluto de Tabaco,documento-otro-proveedor,traer,"usuario, 2026-10-03: otro proveedor, mismo material: placeholder de literatura (D2), documento revisado"
 Absoluto de Tabaco,forma,confirmar,"usuario, 2026-10-03: confirma la propuesta"
-Bergamota sin bergaptenos,ifra-distinto,indice,"usuario, 2026-10-03: no es miembro del 089: no tiene estándar propio por CAS ni nivel típico, y el documento de otro proveedor no nombra su 5-MOP (lo comprobé: ni en el certificado, ni en la SDS ni en la CoA)"
+Bergamota sin bergaptenos,ifra-distinto,familia,"usuario, 2026-10-03: miembro del 089 como material (su 5-MOP no está documentado; «sin bergaptenos» sin número no es un dato)"
 Bergamota sin bergaptenos,documento-otro-proveedor,traer,"usuario, 2026-10-03: otro proveedor, mismo material: placeholder de literatura (D2), documento revisado"
 Bergamota sin bergaptenos,forma,confirmar,"usuario, 2026-10-03: confirma la propuesta"
 Cedro Atlas,v1-correspondencia,v1:fig:1357,"usuario, 2026-10-03: confirma la propuesta"

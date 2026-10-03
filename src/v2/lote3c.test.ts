@@ -46,7 +46,13 @@ describe("a bench formula with five naturals of lot 3c, checked with the v2", ()
     expect(report.base).toBe("completed");
     expect(share("std:IFRA_STD_092")).toBe("exceeds 6,316 %"); // 0,6 g of 9,5 g
     expect(report.asIs).toBe("no");
-    expect(formatPercent(report.maxUse)).toBe("6,333 %"); // 2 % × 1,9 g / 0,6 g
+    // Reading 2 is set by the group of furocoumarins (D10): the lemon, 0,6 g of the 1,9 g over its 2 %, and
+    // the bergamot, 0,3 g over its 0,4 %, add up to 55,26 times the ceiling of the group: 1 / 55,26.
+    expect(formatPercent(report.maxUse)).toBe("1,810 %");
+    const group = report.combinedChecks[0];
+    expect(group.group).toBe("furocumarinas");
+    expect([...group.keys].sort()).toEqual(["std:IFRA_STD_087", "std:IFRA_STD_092"]);
+    expect(group.verdict).toBe("exceeds");
     // The lemon has a standard of its own, so its 5-MOP is not pending.
     expect(report.pending.filter((p) => p.material === "Limón")).toEqual([]);
   });
@@ -63,8 +69,9 @@ describe("a bench formula with five naturals of lot 3c, checked with the v2", ()
     expect(share("std:IFRA_STD_023")).toBe("bounded 0,001 %");
   });
 
-  it("the FCF bergamot is not a member of the 089 (no standard of its own, no typical level, no documented 5-MOP): no 5-MOP is pending", () => {
-    // The certificate of another supplier names no 5-MOP: it only brings the citral, limonene and linalool.
+  it("the FCF bergamot is a bergamot oil expressed by D1 (STD 087, which its CAS does not list): its own standard rules while its 5-MOP is undocumented", () => {
+    expect(share("std:IFRA_STD_087")).toBe("exceeds 3,158 %"); // 0,3 g of 9,5 g, over its 0,4 %
+    // The certificate of another supplier names no 5-MOP, and the own standard rules: no 5-MOP is pending.
     const text = report.pending.filter((p) => p.material === "Bergamota sin bergaptenos").map((p) => p.text);
     expect(text).toEqual(["Su composición es parcial: puede llevar otras sustancias con techo."]);
     expect(report.partial).toBe(true);
@@ -78,7 +85,7 @@ describe("a bench formula with five naturals of lot 3c, checked with the v2", ()
     expect(entry("Limón").state).toBe("con-techo");
     expect(entry("Cedro Atlas").state).toBe("condicion");
     expect(entry("Cedro Atlas").ifraNote).toContain("peroxides");
-    expect(entry("Bergamota sin bergaptenos").state).toBe("por-constituyentes");
+    expect(entry("Bergamota sin bergaptenos").state).toBe("con-techo");
     // Its only regulated constituent comes from a placeholder, but it is a constituent: «por constituyentes».
     expect(entry("Absoluto de Tabaco").state).toBe("por-constituyentes");
   });
