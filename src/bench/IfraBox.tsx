@@ -247,6 +247,8 @@ export function IfraPanel(props: {
   onBase: (base: IfraBase) => void;
   /** The pending entries that are specifications to prove, by `pendingKey`: the adapter knows them (v2); none in the v1. */
   specifications?: ReadonlySet<string>;
+  /** What the bar assumed for the lines of the formula (D12). */
+  assumptions?: ReadonlyArray<{ readonly material: string; readonly text: string }>;
 }) {
   const { report } = props;
   const [view, setView] = useState<PanelView>(rememberedView);
@@ -390,6 +392,18 @@ export function IfraPanel(props: {
                       {t.conditionProven}
                     </span>
                   )}
+                </div>
+              ))}
+            </div>
+          )}
+          {(props.assumptions ?? []).length > 0 && (
+            <div className="detail-section">
+              <div className="section-title" title={t.assumptionsHelp}>
+                {t.assumptions((props.assumptions ?? []).length)}
+              </div>
+              {(props.assumptions ?? []).map((a, i) => (
+                <div key={i} className="detail-item">
+                  <strong>{a.material}.</strong> {a.text}
                 </div>
               ))}
             </div>

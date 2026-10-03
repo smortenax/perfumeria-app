@@ -175,6 +175,11 @@ export const SCHEMA: { readonly [K in keyof Dataset]: TableSpec<K> } = {
       documentId: r.id_documento,
     }),
   },
+  concentrations: {
+    file: "concentraciones.csv",
+    columns: ["id_producto", "min_pct", "max_pct", "diluyente", "fuente", "notas"],
+    map: (r, line) => ({ line, productId: r.id_producto, minPct: r.min_pct, maxPct: r.max_pct, diluent: r.diluyente, source: r.fuente, notes: r.notas }),
+  },
   exclusions: {
     file: "exclusiones.csv",
     columns: ["estandar", "procesos", "notas"],

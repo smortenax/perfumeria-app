@@ -223,6 +223,22 @@ export interface V1Link extends Located {
   readonly reason: string;
 }
 
+/**
+ * What the user weighs a product at when he has not chosen (D12), one row per product and never per material. A certificate of the
+ * product as it is bought is 100 % of that product; a product the shop dilutes is the shop's figure, with its page as the source; a
+ * range counts its maximum, the worst case. It is a default of the bar, not a figure of the composition (D8).
+ */
+export interface Concentration extends Located {
+  readonly productId: string;
+  readonly minPct: string;
+  readonly maxPct: string;
+  /** The key of an app diluent («dpg», «ipm», «alcohol»…), or empty when nobody says which. */
+  readonly diluent: string;
+  /** Where it comes from: the shop page, a document, the certificate. */
+  readonly source: string;
+  readonly notes: string;
+}
+
 export interface Dataset {
   readonly ids: readonly IdEntry[];
   readonly substances: readonly Substance[];
@@ -234,6 +250,7 @@ export interface Dataset {
   readonly coverages: readonly CoverageRow[];
   readonly products: readonly Product[];
   readonly ceilings: readonly Ceiling[];
+  readonly concentrations: readonly Concentration[];
   readonly lots: readonly Lot[];
   readonly documents: readonly SourceDocument[];
   readonly usages: readonly Usage[];

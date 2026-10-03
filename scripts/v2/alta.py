@@ -62,6 +62,7 @@ COLUMNS = {
         "id", "id_material", "nombre", "fabricante", "codigo", "tienda", "url", "notas",
     ],
     "topes.csv": ["id_producto", "categoria", "max_pct", "id_documento", "notas"],
+    "concentraciones.csv": ["id_producto", "min_pct", "max_pct", "diluyente", "fuente", "notas"],
     "lotes.csv": ["id", "id_producto", "codigo_lote", "fecha", "notas"],
     "documentos.csv": ["id", "tipo", "titulo", "emisor", "fecha", "ruta", "estado_revision", "notas"],
     "usos.csv": [
@@ -237,6 +238,7 @@ def main() -> int:
             })
 
     v1_links: list[dict[str, str]] = []
+    concentrations_of_certificates: list[dict[str, str]] = []
 
     # The lots go after the entries, each one seeing what is already given: a product is never
     # given twice, and a molecule already in the data takes its new products.
@@ -418,6 +420,12 @@ def main() -> int:
                     with localcontext() as ctx:
                         ctx.prec = 12
                         return pct_text(format(Decimal(value.numerator) / Decimal(value.denominator), "f"))
+                if cert.get("escala") == "100":
+                    concentrations_of_certificates.append({
+                        "id_producto": pid, "min_pct": "100", "max_pct": "100", "diluyente": "",
+                        "fuente": f"certificado {did}: cifras del producto tal como se compra",
+                        "notas": "D12: el certificado es del producto tal como se compra (pct:100); se pesa al 100 % del producto",
+                    })
                 for r in made_subs.get(cert["registro"], []):
                     all_cas = set(r["cas_todos"].split()) | {r["cas"]}
                     if own & all_cas:
@@ -451,6 +459,31 @@ def main() -> int:
                 "id_sustancia": sid, "id_documento": documents[k["documento"]], "notas": k.get("notas", ""),
             })
 
+    # D12: what a product is weighed at when the user has not chosen, one row per product (never per material), with its source.
+    # A certificate of the product as it is bought (pct:100) is 100 % of that product; a product the shop dilutes is the shop's figure
+    # with its page as the source, and a range counts its maximum (the bar takes it).
+    concentrations: dict[str, dict[str, str]] = {r["id_producto"]: r for r in concentrations_of_certificates}
+    notes_of = {r["producto"]: r["nota"] for r in read_csv(ROOT / "docs" / "v2" / "concentraciones-notas.csv")}
+    diluents = {"dpg": "dpg", "ipm": "ipm", "alcohol": "alcohol", "etanol": "alcohol", "dep": "dep", "tec": "tec"}
+    inventory = {r["producto"]: r for r in read_csv(PROVEEDORES / "mis-productos.csv")}
+    for product in tables["productos.csv"]:
+        row = inventory.get(product["nombre"])
+        if not row or not row["dilucion_pct"] or product["id"] in concentrations:
+            continue
+        # The shop makes the dilution of the products it names so («… 50 % …») or that the user asked for (pedido); the
+        # dilutions the user makes himself (en-uso) are his, in the bar, and not data (D8).
+        if row["situacion"] != "pedido" and "%" not in product["nombre"]:
+            continue
+        low, _, high = row["dilucion_pct"].replace("–", "-").partition("-")
+        shop = " ".join(n for n in (row["notas"], notes_of.get(product["nombre"], "")) if n)
+        concentrations[product["id"]] = {
+            "id_producto": product["id"], "min_pct": low.strip(), "max_pct": (high or low).strip(),
+            "diluyente": diluents.get(row["diluyente"].strip().lower(), ""),
+            "fuente": f"tienda: {product['url']}" if product["url"] else "tienda (la página de su producto)",
+            "notas": shop,
+        }
+    tables["concentraciones.csv"] = list(concentrations.values())
+
     retired = registry.retire_unused()
 
     # --- write, in a stable order ----------------------------------------------------------
@@ -480,6 +513,7 @@ def main() -> int:
         "condiciones.csv": lambda r: (r["id_contenedor"], r["estandar"]),
         "exclusiones.csv": lambda r: (r["estandar"],),
         "v1-a-v2.csv": lambda r: (r["id_v1"], r["id_v2"]),
+        "concentraciones.csv": lambda r: (r["id_producto"],),
     }
     for name, rows in tables.items():
         rows.sort(key=order.get(name, lambda r: r["id"]))

@@ -1,0 +1,11 @@
+id_producto,min_pct,max_pct,diluyente,fuente,notas
+P00004,20,20,alcohol,tienda: https://maeselab.com/absoluto-de-castoreum-20,el castóreo natural que usa hoy
+P00006,50,50,ipm,tienda: https://perfumiarz.com/products/oakmoss-absolute,"La SDS de IFF (sección 3.1) da la sustancia al 90 % o más (extracto 90-100 %, etanol 1-10 %) y no cita IPM; la página de la tienda dice 50 % en IPM y es la fuente (D12). A confirmar con la tienda."
+P00062,100,100,,certificado D00033: cifras del producto tal como se compra,D12: el certificado es del producto tal como se compra (pct:100); se pesa al 100 % del producto
+P00069,50,50,,tienda: https://perfumiarz.com/products/methyl-cinnamate,"diluyente sin decir en la tienda La tienda no dice el diluyente; sus documentos son de la sustancia pura (SDS 98-100 %, sección 3.1)."
+P00075,1,1,dpg,tienda: https://perfumiarz.com/products/geosmin-1-dpg,
+P00082,10,10,ipm,tienda: https://perfumiarz.com/products/3-4-xylenol-10-ipm,
+P00083,25,50,dpg,tienda: https://perfumiarz.com/products/aldambre,"según la ficha de seguridad oficial de Ventós, el fabricante (aportada por el usuario el 2026-10-02): oxaciclotridecan-2-ona (947-05-7) al 25–50 % en DPG; la tienda la enlaza como SDS_ALDAMBRE_SYNAROME; dos tamaños (5 g y 10 g) La SDS de Ventós da el 25-50 % en DPG (sección 3): por defecto va el máximo, el 50 % (D12)."
+P00084,25,25,dpg,tienda: https://perfumiarz.com/products/heliotropine-25-dpg,"la ficha de seguridad que enlaza la tienda es de HELIOTROPIN 50% DPG (PCW), no del 25 %"
+P00085,50,50,dpg,tienda: https://perfumiarz.com/products/prismantol-50-dpg,
+P00089,10,10,ipm,tienda: https://perfumiarz.com/products/2-hydroxybenzaldehyde,

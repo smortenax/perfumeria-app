@@ -19,6 +19,7 @@ import { PromptDialog, SaveAsDialog, type SaveAsChoice } from "./Dialogs";
 import { GramsCard, IntentionCard, NameCard } from "./Header";
 import { ChangeDetail, HistoryDock } from "./HistoryDock";
 import { IfraPanel, IfraSummary } from "./IfraBox";
+import { assumptionsOf } from "./assumptions";
 import { specificationKeys } from "./ifra-explain";
 import { confirmDialog, download, fileNameFor, guardClose, inTauri, pickAndRead, writeFile } from "./io";
 import { libraryDir, placeFormula, readLibrary, rememberedProvisionals } from "./library";
@@ -231,6 +232,7 @@ export function Bench(props: { initial: Opened; onExit: () => void; repository: 
   // The glossary entry of each material: what the card of the chosen material shows (P57).
   // The pending entries that are specifications to prove (v2): the adapter says which, when it makes them (pendingKey).
   const specifications = useMemo(() => specificationKeys(repository.details, (key) => repository.get(key)?.material.name), [repository]);
+  const assumptions = useMemo(() => assumptionsOf(state.formula, (key) => repository.get(key)), [state.formula, repository]);
   const entryByKey = useMemo(() => new Map(repository.entries.map((e) => [e.material.key, e])), []);
   const icons = useMemo(
     () =>
@@ -548,7 +550,7 @@ export function Bench(props: { initial: Opened; onExit: () => void; repository: 
             <RepartoCard composition={view.composition} familyOf={familyOf} />
             <ProjectionCard />
           </div>
-          <IfraPanel report={view.report} empty={empty} {...(ifraBase ? { base: ifraBase } : {})} onBase={setChosenBase} specifications={specifications} />
+          <IfraPanel report={view.report} empty={empty} {...(ifraBase ? { base: ifraBase } : {})} onBase={setChosenBase} specifications={specifications} assumptions={assumptions} />
         </div>
       </div>
 

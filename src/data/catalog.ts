@@ -61,7 +61,25 @@ export interface UsageData {
   readonly ceilingSource?: string;
 }
 
+/**
+ * What the bar proposes for a product when the user has not chosen yet (D12): the concentration the product is bought at (100 %
+ * for a certificate of the product as it is bought, the shop's figure for a diluted one) or, for a range, its maximum. The bar
+ * says what it assumed.
+ */
+export interface Weighing {
+  /** The percentage the bar proposes, with a decimal point: the maximum of the range. */
+  readonly percent: string;
+  /** The key of an app diluent («dpg»), or empty when nobody says which. */
+  readonly diluent: string;
+  /** A range, when the concentration is not one figure: the bar took its maximum. */
+  readonly range?: readonly [string, string];
+  /** What the bar says it assumed, in words, and where it comes from. */
+  readonly why: string;
+  readonly source: string;
+}
+
 export interface CatalogEntry {
+  readonly weighing?: Weighing;
   /** Only the v2 has it: where each figure of the material comes from (Phase 5). */
   readonly provenance?: Provenance;
   /** Named by its trade name when it has one (P38): that is what the user knows it by. */

@@ -1,0 +1,2 @@
+id_producto,min_pct,max_pct,diluyente,fuente,notas
+P00001,25,50,dpg,tienda: https://tienda.example/geraniol,rango: por defecto el máximo

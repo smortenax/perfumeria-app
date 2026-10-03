@@ -26,6 +26,19 @@ export function v2Entries(
   cards: ReadonlyMap<string, IfraCard> = new Map(),
   details: ReadonlyMap<string, MaterialDetail> = new Map(),
 ): CatalogEntry[] {
+  const weighing = (id: string) => {
+    const c = data.concentrations.find((x) => x.productId === id);
+    if (!c) {
+      return {};
+    }
+    const range = c.minPct !== c.maxPct;
+    const why = c.source.startsWith("certificado")
+      ? "el certificado es del producto tal como se compra: se pesa al 100 % del producto"
+      : range
+        ? `la tienda da ${c.minPct}–${c.maxPct} %: va el máximo, el peor caso`
+        : `su tienda lo da al ${c.maxPct} %`;
+    return { weighing: { percent: c.maxPct, diluent: c.diluent, ...(range ? { range: [c.minPct, c.maxPct] as const } : {}), why, source: c.source } };
+  };
   const provenance = (id: string) => ({ provenance: provenanceOf(data, id, details.get(v2Key(id))) });
   const card = (id: string) => {
     const c = cards.get(v2Key(id));
@@ -63,6 +76,7 @@ export function v2Entries(
       ...(flatten(data, p.id).pureByConvention ? { pureByConvention: true } : {}),
       ...card(p.id),
       ...provenance(p.id),
+      ...weighing(p.id),
     });
   }
   for (const m of data.materials.filter((x) => !withProduct.has(x.id))) {

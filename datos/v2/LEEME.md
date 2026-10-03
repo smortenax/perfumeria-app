@@ -65,12 +65,13 @@ un número de fila. Un id retirado no se reutiliza.
 | `coberturas.csv` | qué cubre la composición de una fuente | `id_contenedor, id_documento, cobertura` (`reguladas-completa`/`solo-alergenos`/`parcial`/`desconocida`), `notas` |
 | `productos.csv` | un producto de un proveedor (D3) | `id, id_material, nombre, fabricante, codigo, tienda, url, notas` |
 | `topes.csv` | el tope de un fabricante para su producto (D4) | `id_producto, categoria` (`4`, `5a`…), `max_pct, id_documento, notas` |
+| `concentraciones.csv` | a qué concentración se pesa un producto si el usuario no ha elegido (D12): una fila por producto, nunca por material, con su fuente; un rango va con su máximo | `id_producto`, `min_pct, max_pct`, `diluyente` (una clave de la app o vacío), `fuente` (la página de la tienda, un documento o el certificado), `notas` |
 | `lotes.csv` | un lote de un producto (opcional, D3) | `id, id_producto, codigo_lote, fecha, notas` |
 | `documentos.csv` | una fuente | `id, tipo` (`coa`/`sds`/`certificado-ifra`/`ficha`/`anexo-ifra`/`articulo`/`consenso`/`otro`), `titulo, emisor, fecha, ruta, estado_revision` (`pendiente`/`revisado`), `notas` |
 | `usos.csv` | un uso habitual o una duración, con su base | `id_material, magnitud` (`uso-habitual`/`duracion`), `min, tipico, max, unidad, base, autoridad, id_documento, notas` |
 | `impurezas-conocidas.csv` | una molécula con impurezas reguladas conocidas (D7) | `id_sustancia, id_documento, notas` |
 | `condiciones.csv` | una afirmación que cumple una especificación de IFRA (D11) | `id_contenedor, estandar, condicion, autoridad, id_documento, notas` |
-| `v1-a-v2.csv` | un id del glosario v1 y su id v2 | `id_v2, id_v1` |
+| `v1-a-v2.csv` | qué fila de la v1 es un material de la v2, y la confirmación del usuario (D13) | `id_v2`, `id_v1`, `id_producto` (el producto al que migra una fórmula si el material tiene dos), `confirmado` (fecha), `motivo` |
 
 Más detalle:
 - **Un natural** se identifica por especie + parte + proceso + quimiotipo (D1). El CAS y el

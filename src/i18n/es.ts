@@ -112,6 +112,9 @@ export const texts = {
     quantity: (unit: string) => `Cantidad (${unit})`,
     changeUnit: "Cambiar la unidad",
     dilution: "Dilución",
+    /** What the bar assumed when it proposed the dilution of a product with no choice of the user yet (D12). */
+    assumed: (percent: string, why: string, diluent: string) => `Supuesto: ${percent} %${diluent ? ` en ${diluent}` : ""}, ${why}.`,
+    assumedHelp: "La dilución la propone la barra, no la has elegido tú. Si la concentración del producto es incierta, va el máximo (D12).",
     src: { base: "base", favorite: "favorita", last: "última" },
     customPercent: "Doble clic, F2 o un número para escribir otro %",
     pureButton: "Puro",
@@ -307,6 +310,8 @@ export const texts = {
     pendingQuantitiesHelp: "IFRA limita una sustancia que este material puede llevar, y no se sabe cuánto lleva. Se cierra con el certificado del producto o el GC-MS de su lote.",
     pendingSpecifications: (n: number) => `Especificaciones por acreditar · ${n}`,
     pendingSpecificationsHelp: "IFRA exige una propiedad que no es un porcentaje (peróxidos, alcohol alílico libre, el proceso…) y nadie la acredita. Se cierra con una frase firmada del proveedor.",
+    assumptions: (n: number) => `Lo que se ha supuesto · ${n}`,
+    assumptionsHelp: "La barra propuso esa dilución porque el producto no dice una sola concentración o es del producto tal como se compra (D12). Si pesas otra, ya no se supone.",
     groups: (n: number) => `Grupos sumados · ${n}`,
     groupNames: { furocumarinas: "Fototóxicos con furocumarinas (STD 089)" } as Record<string, string>,
     groupHelp: "Los miembros de un grupo se suman: cada uno, dividido por su techo; el grupo pasa cuando la suma pasa de 1.",

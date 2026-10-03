@@ -30,6 +30,7 @@ const FILE = {
   usages: "usos.csv",
   knownImpurities: "impurezas-conocidas.csv",
   conditions: "condiciones.csv",
+  concentrations: "concentraciones.csv",
   exclusions: "exclusiones.csv",
   v1Links: "v1-a-v2.csv",
 } as const;
@@ -375,6 +376,33 @@ export function validate(data: Dataset, refs: References): Issue[] {
     const doc = documents.get(c.documentId);
     if (doc && doc.reviewStatus !== "revisado") {
       error("condiciones", FILE.conditions, c.line, `El documento ${c.documentId} no está revisado (D6).`);
+    }
+  }
+
+  // --- concentrations: what the product is weighed at when the user has not chosen (D12) ------
+  const DILUENT_IDS = ["", "dpg", "alcohol", "ipm", "dep", "tec", "triacetina", "bb"];
+  const concentrated = new Set<string>();
+  for (const c of data.concentrations) {
+    ref(FILE.concentrations, c.line, "id_producto", c.productId, ["producto"]);
+    if (concentrated.has(c.productId)) {
+      error("concentraciones", FILE.concentrations, c.line, `${c.productId} tiene más de una fila: una por producto, nunca por material.`);
+    }
+    concentrated.add(c.productId);
+    const bounds = [c.minPct, c.maxPct].map((text) => {
+      try {
+        return Ratio.fromDecimal(text);
+      } catch {
+        return null;
+      }
+    });
+    if (bounds[0] === null || bounds[1] === null || bounds[0].sign() <= 0 || bounds[1].gt(HUNDRED) || bounds[0].gt(bounds[1])) {
+      error("concentraciones", FILE.concentrations, c.line, `La concentración «${c.minPct}»–«${c.maxPct}» no es un rango de 0 a 100 con el mínimo bajo el máximo.`);
+    }
+    if (!DILUENT_IDS.includes(c.diluent)) {
+      error("concentraciones", FILE.concentrations, c.line, `El diluyente «${c.diluent}» no es de la app (${DILUENT_IDS.filter((d) => d).join(", ")}) ni está vacío.`);
+    }
+    if (c.source.trim() === "") {
+      error("concentraciones", FILE.concentrations, c.line, "Una concentración dice de dónde sale: la página de la tienda, un documento o el certificado.");
     }
   }
 

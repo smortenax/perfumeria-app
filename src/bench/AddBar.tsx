@@ -3,7 +3,7 @@ import { Ratio } from "../core/arith/ratio";
 import { parseMass, parsePercent, type MassUnit } from "../core/arith/units";
 import type { Change } from "../core/model/formula";
 import type { Material } from "../core/model/material";
-import { casForm, normalize, searchCatalog, type CatalogEntry, type IfraState, type MaterialFamily } from "../data/catalog";
+import { casForm, normalize, searchCatalog, type CatalogEntry, type IfraState, type MaterialFamily, type Weighing } from "../data/catalog";
 import { defaultOption, formLabel, makerIndex, plantIndex } from "../data/plants";
 import { texts } from "../i18n/es";
 import {
@@ -23,6 +23,7 @@ import {
   type DiluentId,
   type MaterialPrefs,
 } from "./prefs";
+import { proposedWeighing } from "./assumptions";
 import { familyLook } from "./family";
 import { IconText } from "./Icon";
 import { newId } from "./state";
@@ -198,6 +199,8 @@ export function AddBar(props: {
   const [quantity, setQuantity] = useState("");
   const [unit, setUnit] = useState<MassUnit>("mg");
   const [prefs, setPrefs] = useState<MaterialPrefs>({ favorites: [] });
+  const [assumed, setAssumed] = useState<Weighing | null>(null);
+  const entryOf = useMemo(() => new Map(props.entries.map((e) => [e.material.key, e])), [props.entries]);
   const [percent, setPercent] = useState("10");
   /** The cell being written in, and what it says so far. */
   const [editing, setEditing] = useState<{ at: number; text: string } | null>(null);
@@ -420,9 +423,12 @@ export function AddBar(props: {
     setError(null);
     setEditing(null);
     setPrefs(p);
+    // What the user chose last wins; without it, the product says what it is weighed at (D12), and the bar says it assumed it.
+    const weighing = proposedWeighing(entryOf.get(material.key), material.solvent, p.last !== undefined);
+    setAssumed(weighing ?? null);
     // A solvent goes pure; so does a formula the first time, since it already carries its diluent (§3.6).
-    setPercent(material.solvent ? "100" : (p.last?.percent ?? (material.kind === "formula" ? "100" : percentOptions(p)[0])));
-    setDiluent(p.last?.diluent ?? diluentOptions(p)[0]);
+    setPercent(material.solvent ? "100" : (weighing?.percent ?? p.last?.percent ?? (material.kind === "formula" ? "100" : percentOptions(p)[0])));
+    setDiluent(weighing?.diluent || (p.last?.diluent ?? diluentOptions(p)[0]));
     props.onSelect?.(material);
   };
 
@@ -743,6 +749,11 @@ export function AddBar(props: {
           <span>{t.dilution}</span>
           <span className="hint">{t.src[source]}</span>
         </div>
+        {assumed && samePercent(assumed.percent, percent) && (
+          <div className="dilution-note muted tiny" title={`${t.assumedHelp} ${assumed.source}`}>
+            {t.assumed(assumed.percent.replace(".", ","), assumed.why, assumed.diluent.toUpperCase())}
+          </div>
+        )}
         <div className="dilution-group" role="group" aria-label={t.dilution}>
           <div className="percent-grid" role="radiogroup" aria-label={t.percentGroup}>
             {cells.map((p, i) =>
