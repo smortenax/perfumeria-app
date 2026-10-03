@@ -22,7 +22,8 @@ import { IfraPanel, IfraSummary } from "./IfraBox";
 import { assumptionsOf } from "./assumptions";
 import { specificationKeys } from "./ifra-explain";
 import { confirmDialog, download, fileNameFor, guardClose, inTauri, pickAndRead, writeFile } from "./io";
-import { backupOriginal, libraryDir, placeFormula, readLibrary, rememberedProvisionals } from "./library";
+import { backupFolder, diskIo, libraryDir, placeFormula, readLibrary, rememberedProvisionals } from "./library";
+import { saveFormula } from "./save-with-backup";
 import { MigrationNotice } from "./MigrationNotice";
 import { openFormula } from "./open";
 import type { Migration } from "../v2/migrate";
@@ -144,14 +145,15 @@ export function Bench(props: { initial: Opened; onExit: () => void; repository: 
         return true;
       }
       // The first write over a file that was migrated copies the original to «copias-v1», once and never over another copy (D13).
-      const original = originalRef.current;
-      if (original !== null && original.path === pathRef.current) {
-        await backupOriginal(original.path, original.text);
-      }
+      const path = await saveFormula(diskIo, {
+        backupFolder: await backupFolder(),
+        original: originalRef.current,
+        currentPath: pathRef.current,
+        edited: formulaToJson(target),
+        place: (current) => placeFormula(target.header.name, current),
+      });
       originalRef.current = null;
-      const path = await placeFormula(target.header.name, pathRef.current);
       pathRef.current = path;
-      await writeFile(path, formulaToJson(target));
       if (gen === generation.current) {
         dispatch({ type: "saved", path, formula: target });
         setError(null);
