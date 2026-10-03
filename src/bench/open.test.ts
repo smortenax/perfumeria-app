@@ -35,6 +35,15 @@ describe("opening a formula of the library (Phase 5)", () => {
     expect(opened.migration?.notes.map((n) => n.kind)).toEqual(["migrated", "v1-only"]);
   });
 
+  it("the migration never touches the name of the formula, so it is saved under the name it always had", () => {
+    const named = formula(pepper, bergamot);
+    const withName: Formula = { ...named, header: { ...named.header, name: " Zara tabaco v2 " } };
+    const opened = openFormula(formulaToJson(withName), "C:/Fórmulas/Zara tabaco v2.json", "v2");
+    expect(opened.migration?.changed).toBe(true);
+    expect(opened.formula.header).toEqual(withName.header);
+    expect(opened.path).toBe("C:/Fórmulas/Zara tabaco v2.json");
+  });
+
   it("a formula with nothing to migrate keeps its text out of the way: nothing is copied", () => {
     const opened = openFormula(formulaToJson(formula(bergamot)), "C:/Fórmulas/x.json", "v2");
     expect(opened.original).toBeUndefined();
