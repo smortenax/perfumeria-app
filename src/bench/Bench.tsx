@@ -4,7 +4,7 @@ import { parseMass } from "../core/arith/units";
 import { compose, replay, vectorOf, type Composition, type Line } from "../core/compose";
 import { formatDecimal, formatGrams, formatPercent } from "../core/display";
 import { checkIfra, type IfraBase, type IfraReport } from "../core/ifra";
-import { formulaFromJson, formulaToJson as toJsonWith } from "../core/io/formula-json";
+import { formulaToJson as toJsonWith } from "../core/io/formula-json";
 import type { Change, Formula, FormulaHeader } from "../core/model/formula";
 import { provisionalKey, type Material } from "../core/model/material";
 import { casForm } from "../data/catalog";
@@ -22,7 +22,10 @@ import { IfraPanel, IfraSummary } from "./IfraBox";
 import { assumptionsOf } from "./assumptions";
 import { specificationKeys } from "./ifra-explain";
 import { confirmDialog, download, fileNameFor, guardClose, inTauri, pickAndRead, writeFile } from "./io";
-import { libraryDir, placeFormula, readLibrary, rememberedProvisionals } from "./library";
+import { backupOriginal, libraryDir, placeFormula, readLibrary, rememberedProvisionals } from "./library";
+import { MigrationNotice } from "./MigrationNotice";
+import { openFormula } from "./open";
+import type { Migration } from "../v2/migrate";
 import { nextVersionNumber, versionName } from "./library-groups";
 import { draftWarnings, MaterialCard } from "./MaterialCard";
 import { ownName } from "./prefs";
@@ -41,6 +44,10 @@ type Dialog =
 export interface Opened {
   readonly formula: Formula;
   readonly path: string | null;
+  /** The file's text as it was, if the migration to the v2 changed the formula: copied before the first write over it (D13). */
+  readonly original?: string;
+  /** What the migration did, to say it. */
+  readonly migration?: Migration;
 }
 
 interface View {
@@ -98,12 +105,19 @@ export function Bench(props: { initial: Opened; onExit: () => void; repository: 
   // Where the formula is written, and which formula it is: loading another one starts a
   // new generation, so a write still queued for the old one never lands on the new (P44).
   const pathRef = useRef<string | null>(props.initial.path);
+  // The original of a migrated formula, until it is copied to «copias-v1» (once, before the first write over it).
+  const originalRef = useRef<{ path: string; text: string } | null>(
+    props.initial.original !== undefined && props.initial.path !== null ? { path: props.initial.path, text: props.initial.original } : null,
+  );
+  const [migration, setMigration] = useState<Migration | null>(props.initial.migration ?? null);
   const generation = useRef(0);
   const queue = useRef<Promise<unknown>>(Promise.resolve());
 
-  const load = (next: Formula, path: string | null) => {
+  const load = (next: Formula, path: string | null, opened?: Opened) => {
     generation.current += 1;
     pathRef.current = path;
+    originalRef.current = opened?.original !== undefined && path !== null ? { path, text: opened.original } : null;
+    setMigration(opened?.migration ?? null);
     setPlaying(false);
     dispatch({ type: "load", formula: next, path });
     // A formula opens with the user's names for its materials (P56).
@@ -129,6 +143,12 @@ export function Bench(props: { initial: Opened; onExit: () => void; repository: 
       if (gen !== generation.current) {
         return true;
       }
+      // The first write over a file that was migrated copies the original to «copias-v1», once and never over another copy (D13).
+      const original = originalRef.current;
+      if (original !== null && original.path === pathRef.current) {
+        await backupOriginal(original.path, original.text);
+      }
+      originalRef.current = null;
       const path = await placeFormula(target.header.name, pathRef.current);
       pathRef.current = path;
       await writeFile(path, formulaToJson(target));
@@ -395,9 +415,9 @@ export function Bench(props: { initial: Opened; onExit: () => void; repository: 
         return;
       }
       try {
-        const opened = formulaFromJson(file.text);
-        load(opened, file.path);
-        if (reopensByWeighing(opened)) {
+        const opened = openFormula(file.text, file.path, repository.version);
+        load(opened.formula, file.path, opened);
+        if (reopensByWeighing(opened.formula)) {
           setDialog({ kind: "reweigh", onOpen: true });
         }
       } catch (e) {
@@ -411,7 +431,7 @@ export function Bench(props: { initial: Opened; onExit: () => void; repository: 
       return;
     }
     try {
-      const inner = formulaFromJson(file.text);
+      const inner = openFormula(file.text, file.path, repository.version).formula;
       const vector = vectorOf(inner);
       const material: Material = { key: vector.id, kind: "formula", name: inner.header.name || texts.bench.untitled, vector };
       setSession((s) => [...s.filter((m) => m.key !== material.key), material]);
@@ -538,6 +558,7 @@ export function Bench(props: { initial: Opened; onExit: () => void; repository: 
             />
           </div>
         </div>
+        {migration && <MigrationNotice migration={migration} onClose={() => setMigration(null)} />}
         {view.error && (
           <p className="compute-error">
             {texts.bench.computeError}: {view.error}

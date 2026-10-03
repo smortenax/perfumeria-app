@@ -26,6 +26,28 @@ export function libraryDir(): Promise<string> {
 }
 
 /** The formulas of the library, the most recent first; none outside the app. */
+/** The folder of the copies of the formulas that were migrated to the v2, inside the library (not listed as a formula). */
+export const BACKUP_FOLDER = "copias-v1";
+
+/** Whether a copy of the original is due: only once, and never over a copy that is already there (D13). */
+export const needsBackup = (existing: readonly string[], fileName: string): boolean =>
+  !existing.some((name) => name.toLowerCase() === fileName.toLowerCase());
+
+/**
+ * Copies the file a formula was opened from, as it was, to `Fórmulas\copias-v1\`, before the first write over it. Returns whether it
+ * copied: false if a copy of that file is already there, which is never overwritten.
+ */
+export async function backupOriginal(path: string, text: string): Promise<boolean> {
+  const folder = await join(await libraryDir(), BACKUP_FOLDER);
+  const name = fileNameOf(path);
+  const existing = await invoke<Array<{ path: string; name: string; modified_ms: number }>>("list_formulas", { dir: folder });
+  if (!needsBackup(existing.map((f) => fileNameOf(f.path)), name)) {
+    return false;
+  }
+  await invoke("write_text_file", { path: await join(folder, name), contents: text });
+  return true;
+}
+
 export async function listLibrary(): Promise<LibraryFile[]> {
   if (!inTauri()) {
     return [];

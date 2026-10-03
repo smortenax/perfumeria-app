@@ -5,7 +5,6 @@ import { formatPercent } from "../core/display";
 import type { Material } from "../core/model/material";
 import { checkIfra, type IfraData, type IfraReport } from "../core/ifra";
 import { formulaFromJson } from "../core/io/formula-json";
-import { mergedRepository } from "../data/merged";
 import { repositoryFor } from "../data/repositories";
 import { v2Dataset } from "../v2/data";
 import { migrateFormula, type MigrationNote } from "../v2/migrate";
@@ -84,14 +83,19 @@ function materialDiff(note: Extract<MigrationNote, { kind: "migrated" }>, before
   return out;
 }
 
-describe.skipIf(!dir)("la biblioteca de fórmulas, con la v1 y con la v2", () => {
+// Without the folder the suite is skipped before it reads anything (describe.skipIf would still run its body).
+(dir ? describe : describe.skip)("la biblioteca de fórmulas, con la v1 y con la v2", () => {
+  if (!dir) {
+    it("necesita BIBLIOTECA_DIR", () => undefined);
+    return;
+  }
   const data = v2Dataset();
   const v1 = repositoryFor("v1");
-  const merged = mergedRepository(v1, repositoryFor("v2"), data);
-  const files = readdirSync(dir ?? ".").filter((f: string) => f.endsWith(".json")).sort();
+  const merged = repositoryFor("v2");
+  const files = readdirSync(dir).filter((f: string) => f.endsWith(".json")).sort();
 
   const rows = files.map((file) => {
-    const formula = formulaFromJson(readFileSync(join(dir ?? ".", file), "utf-8"));
+    const formula = formulaFromJson(readFileSync(join(dir, file), "utf-8"));
     const before = checkIfra(formula, v1.ifraData());
     const migration = migrateFormula(formula, data);
     const after = checkIfra(migration.formula, merged.ifraData());

@@ -36,7 +36,7 @@ export interface UserData {
   /** The materials used lately. No longer shown or written (P57), but kept in the file as it was. */
   readonly recent: readonly string[];
   readonly diluents: readonly OwnDiluent[];
-  /** The model of materials the bench reads (v2 de los materiales, docs/v2/): v1 when absent. */
+  /** The model of materials the bench reads (docs/v2/): the v2 when absent (Phase 5), the v1 only if the user chose it. */
   readonly model?: ModelVersion;
 }
 
@@ -72,7 +72,7 @@ function valid(value: unknown): UserData | null {
     materials: v.materials ?? {},
     recent: v.recent,
     diluents: Array.isArray(v.diluents) ? v.diluents : [],
-    ...(v.model === "v2" ? { model: "v2" as const } : {}),
+    ...(v.model === "v1" || v.model === "v2" ? { model: v.model } : {}),
   };
 }
 

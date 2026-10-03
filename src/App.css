@@ -2636,3 +2636,34 @@ button.value:hover {
   color: var(--amber);
   background: var(--amber-bg);
 }
+
+/* What the migration did when a formula was opened (Phase 5). */
+.migration-notice {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  align-items: baseline;
+  margin: 0 0 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 12px;
+  background: var(--paper, #fff);
+}
+.migration-notice.warn {
+  border-color: #e3cda0;
+  background: var(--amber-bg);
+}
+.migration-head {
+  flex: 1 1 360px;
+}
+.migration-list {
+  flex-basis: 100%;
+  margin: 4px 0 0;
+  padding-left: 18px;
+  max-height: 160px;
+  overflow: auto;
+}
+.migration-list .amber {
+  color: var(--amber);
+}

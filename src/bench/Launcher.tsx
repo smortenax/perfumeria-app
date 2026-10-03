@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { formulaFromJson } from "../core/io/formula-json";
 import { catalog } from "../data/provisional";
 import { texts } from "../i18n/es";
 import type { Opened } from "./Bench";
+import { openFormula } from "./open";
 import { inTauri, pickAndRead, readFile } from "./io";
 import { modelVersion, setModelVersion } from "./prefs";
 import { libraryDir, readLibrary } from "./library";
@@ -41,7 +41,7 @@ export function Launcher(props: { onNew: () => void; onOpen: (opened: Opened) =>
 
   const openText = (text: string, path: string | null) => {
     try {
-      props.onOpen({ formula: formulaFromJson(text), path });
+      props.onOpen(openFormula(text, path, modelVersion()));
     } catch (e) {
       setError(`${t.openError}: ${e instanceof Error ? e.message : String(e)}`);
     }

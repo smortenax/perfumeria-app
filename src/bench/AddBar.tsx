@@ -346,7 +346,7 @@ export function AddBar(props: {
       material: userNameOf(e.material.key) ? { ...e.material, name: userNameOf(e.material.key)! } : e.material,
       ...(userNameOf(e.material.key) && userNameOf(e.material.key) !== e.material.name ? { glossaryName: e.material.name } : {}),
       bottleName: bottleName(e),
-      tag: e.group === "diluent" ? "diluyente" : null,
+      tag: e.group === "diluent" ? "diluyente" : e.unreviewed ? t.unreviewed : null,
       cas: e.cas,
       code: e.code,
       icon: e.icon,

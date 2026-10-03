@@ -13,11 +13,10 @@ Autoridad: [`decisiones-v2.md`](decisiones-v2.md) (D1–D12). La v1 está congel
 - [x] **Fase 4 — Los 32 productos de Perfumiarz**: 4a (23 documentados) y 4b (9 sin certificado o con otro). La
   pimienta entra con su certificado `pct:100` (D12). Los rangos de SDS no son composición. Evidencia en
   `datos/v2/evidencia/`; pedidos a Perfumiarz en `pendientes-perfumiarz.md`. D12 y la regla de los rangos de SDS: **aprobadas**.
-- [ ] **Fase 5 — La v2 por defecto en la app** (plan aprobado; orden: migración, ficha, explicaciones, barra D12, biblioteca, v2 por defecto). **Hecho:** D13 y `migrate.ts` (sin enganchar); ficha «De dónde sale» (`provenance.ts`); explicaciones del «no» y del «no se sabe», por cantidades o por especificaciones, y el grupo 089 con su suma (`ifra-explain.ts`); la barra con D12 (`concentraciones.csv`); repositorio fusionado (`merged.ts`); herramienta de la biblioteca y su informe ([`comparacion-fase5.md`](comparacion-fase5.md)). Lo que solo está en la v1 aparece como «v1, sin
-  revisar». Las fórmulas se migran al abrirlas, con registro-ids y comprobación de CAS. La ficha
-  enseña la autoridad y el documento de cada cifra. **Requisito:** la interfaz explica cada «no», incluido
-  el grupo combinado de fototóxicos (D10) con sus miembros y su suma (`combinedChecks`), marca las
-  condiciones supuestas (D11) y **separa «no se sabe por cantidades» de «especificaciones por acreditar»**.
+- [x] **Fase 5 — La v2 por defecto en la app** (2026-10-03). Migración al abrir (D13, `migrate.ts`, copia en `copias-v1`),
+  ficha «De dónde sale», explicaciones del «no» y del «no se sabe» (cantidades / especificaciones, grupo 089), barra con
+  D12 (`concentraciones.csv`), repositorio fusionado con la v1 «sin revisar», informe con tu biblioteca
+  ([`comparacion-fase5.md`](comparacion-fase5.md)). **Falta tu confirmación** del pachulí `fig:2599` y del musgo `fig:2480`.
 - [ ] **Fase 6 — El resto del glosario**, por clase, en lotes de 300 como máximo, con los conflictos
   agrupados por tipo. Nada entra con más autoridad que su fuente. Buscar los errores de `errores-v1.md`.
 

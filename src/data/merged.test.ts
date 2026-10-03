@@ -1,11 +1,11 @@
 import { describe, expect, it } from "vitest";
 import { v2Dataset } from "../v2/data";
 import { mergedRepository, mergeIfra } from "./merged";
-import { repositoryFor } from "./repositories";
+import { repositoryFor, reviewedV2 } from "./repositories";
 
 const data = v2Dataset();
 const v1 = repositoryFor("v1");
-const v2 = repositoryFor("v2");
+const v2 = reviewedV2();
 const merged = mergedRepository(v1, v2, data);
 
 describe("the v1 and the v2 in one repository", () => {

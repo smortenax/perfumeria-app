@@ -25,8 +25,8 @@ export const texts = {
       "El reparto ya va por familias. La pirámide y la proyección esperan a decidir cómo se enseña la duración (P42).",
     openError: "No se pudo abrir la fórmula",
     model: "Materiales:",
-    modelV1: "glosario (v1)",
-    modelV2: "v2 de prueba (datos/v2)",
+    modelV1: "glosario (v1, tal como era)",
+    modelV2: "v2 revisada, con el glosario «sin revisar» para lo que le falta",
   },
 
   bench: {
@@ -111,6 +111,8 @@ export const texts = {
     },
     quantity: (unit: string) => `Cantidad (${unit})`,
     changeUnit: "Cambiar la unidad",
+    unreviewed: "v1, sin revisar",
+    unreviewedHelp: "Este material solo está en el glosario de la v1: su IFRA se calcula como hasta ahora, y nadie ha revisado sus cifras ni sus documentos.",
     dilution: "Dilución",
     /** What the bar assumed when it proposed the dilution of a product with no choice of the user yet (D12). */
     assumed: (percent: string, why: string, diluent: string) => `Supuesto: ${percent} %${diluent ? ` en ${diluent}` : ""}, ${why}.`,
@@ -224,6 +226,22 @@ export const texts = {
       nota: "Un hecho del estándar, que el material ni acredita ni supone.",
     },
     notV2: "Material de la v1, sin revisar: sin procedencia.",
+  },
+  migration: {
+    title: "Abierta con la v2",
+    summary: (moved: number, stays: number, warnings: number) =>
+      `${moved} material${moved === 1 ? "" : "es"} pasa${moved === 1 ? "" : "n"} a la v2, ${stays} se queda${stays === 1 ? "" : "n"} como «v1, sin revisar»${warnings > 0 ? ` y ${warnings} aviso${warnings === 1 ? "" : "s"}` : ""}.`,
+    unchanged: "El archivo no se ha tocado: solo se guarda si cambias algo, y entonces el original se copia a «copias-v1».",
+    show: "Ver el detalle",
+    hide: "Ocultar",
+    close: "Cerrar",
+    migrated: (from: string, to: string) => `${from} → ${to}`,
+    confirmed: (date: string) => `confirmado el ${date}`,
+    provisionalNote: "material provisional, sin CAS que comprobar",
+    cas: (name: string, formulaCas: string, v2Cas: string) =>
+      `Aviso: ${name} lleva el CAS ${formulaCas || "ninguno"} y el material de la v2, ${v2Cas || "ninguno"}: no se ha cambiado, a la espera de tu confirmación.`,
+    ambiguous: (name: string, products: string) => `Aviso: ${name} tiene más de un producto (${products}): no se ha cambiado; hay que elegir.`,
+    v1Only: (name: string) => `${name}: solo está en la v1, sin revisar; su IFRA se calcula como hasta ahora.`,
   },
   charts: {
     visualizer: "Visualizador del perfume",

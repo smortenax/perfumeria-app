@@ -63,6 +63,11 @@ function Identity(props: { material: Material; entry: CatalogEntry | undefined }
               {search.state[entry.state]}
             </span>
           )}
+          {entry?.unreviewed && (
+            <span className="pill amber" title={search.unreviewedHelp}>
+              {search.unreviewed}
+            </span>
+          )}
           <ProvenanceButton provenance={entry?.provenance} />
         </span>
       </span>

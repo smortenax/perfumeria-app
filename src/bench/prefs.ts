@@ -24,8 +24,8 @@ export function rememberLast(materialKey: string, dilution: Dilution): void {
   }));
 }
 
-/** The model of materials the bench reads: the glossary (v1) unless the user chose the v2. */
-export const modelVersion = (): ModelVersion => userData().model ?? "v1";
+/** The model of materials the bench reads: the v2 (with the v1 «sin revisar» for what it lacks) unless the user chose the v1 (Phase 5). */
+export const modelVersion = (): ModelVersion => userData().model ?? "v2";
 
 export function setModelVersion(model: ModelVersion): void {
   updateUserData((d) => ({ ...d, model }));
