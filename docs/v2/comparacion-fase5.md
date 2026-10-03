@@ -12,6 +12,8 @@ Generado con `BIBLIOTECA_DIR=… BIBLIOTECA_ESCRIBIR=1 npx vitest run src/bench/
 | Otros: no → sin comprobar | 1 |
 | La lectura 1 no cambia (cambian otras cifras, o nada) | 13 |
 
+*Qué cuenta cada cifra.* El «cambian 14 de 16» de arriba cuenta una fórmula si cambia **cualquiera** de seis campos: la lectura 1 (¿pasa?), la lectura 2 (hasta qué %), «según lo conocido», el número de pendientes, el de sin comprobar o las sustancias que se pasan. Esta tabla cuenta solo la **lectura 1**: 3 fórmulas la cambian (1 más prudente, 1 menos, 1 de «no» a «sin comprobar»); las otras 11 que cambian lo hacen en pendientes, sin comprobar, el % máximo o las sustancias que se pasan, sin tocar el «¿pasa?». El arreglo del grupo 089 (los citrinos solo-v1 suman por una vía) **no cambió el veredicto de ninguna fórmula**: comparado el informe anterior con este, ninguno de los seis campos cambia por él; la única diferencia (church accord: 10 → 9 pendientes) viene de confirmar el pachulí `fig:2599`. (Esta nota está escrita a mano: si se regenera el informe con la herramienta, hay que volver a ponerla.)
+
 ### Los que van a menos prudente, uno por uno
 
 - **Sin nombre** (sin comprobar → sí): la v1 no tenía IFRA de Castoreum Synth 184004 (sin comprobar) y la v2 lo tiene.
