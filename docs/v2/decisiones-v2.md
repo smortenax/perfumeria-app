@@ -120,6 +120,27 @@ El texto de un proceso («rectificado») describe el material, pero no prueba na
 **Por qué:** el cade rectificado se infirió de la página de la tienda, sin documento: no es lo mismo que un
 certificado, y el modelo tiene que poder decirlo sin dar la condición por probada ni bloquear al usuario.
 
+## D12 — Prudencia en la barra con una concentración incierta (PROPUESTA, a falta del visto bueno del usuario)
+
+Propuesta del 2026-10-03, al ver que el certificado de la pimienta (974644) es de un producto en PG sin decir cuánto
+(la SDS no lo dice: solo lista lo clasificado) y que el diluyente del Methyl Cinnamate «al 50 %» no consta en ningún
+documento. **No está decidida: no se aplica a ningún dato ni código hasta que el usuario la apruebe.**
+
+Un producto cuya concentración de materia pura **no se conoce con certeza** se pesa en la barra con su **máximo** de
+materia pura (el peor caso para IFRA):
+
+- La pimienta, con un % de PG sin decir: al **100 %** (se supone que es toda materia pura).
+- Un producto «de 25 a 50 %» (el aldambre, 25-50 % en DPG): al **50 %**.
+- Si se conoce un rango, se usa el extremo alto; si no se conoce nada, el 100 %.
+
+Al revés, para **pasar a materia pura las cifras de un certificado de un producto diluido** (D8) se usa el **mínimo** de
+materia pura que puede tener: así la cifra en materia pura sale lo mayor posible, y el cálculo sigue del lado seguro.
+Su tope de la categoría 4, multiplicado por ese mismo mínimo, sale lo menor posible. Con el 100 % en la barra y el mínimo en el certificado, ningún error de la concentración infravalora la carga.
+
+**Por qué:** lo desconocido no vale cero ni se pinta en verde (§1.2, §5.5): un % incierto no puede acabar en el valor
+que menos suma. **Qué cuesta no decidirla:** hoy esos casos entran sin certificado (`sin-certificado`) o con la
+dilución que el usuario ponga a mano; la regla sería la misma pero escrita, y la barra avisaría de que usa el máximo.
+
 ## Jerarquía de autoridad
 
 De mayor a menor; cuando dos fuentes chocan, manda la de más arriba:

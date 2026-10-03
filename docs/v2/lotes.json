@@ -41,7 +41,15 @@
       "fecha": "2026-10-03",
       "situacion": "pedido",
       "tienda": "Perfumiarz",
-      "estado": "documentado"
+      "estado": "documentado",
+      "evidencia": true
+    },
+    "4b": {
+      "fecha": "2026-10-03",
+      "situacion": "pedido",
+      "tienda": "Perfumiarz",
+      "estado": ["parcial", "sin documentos", "molécula sola"],
+      "evidencia": true
     }
   }
 }

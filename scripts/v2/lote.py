@@ -153,7 +153,7 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
             continue
         reg = registry.get((p["producto"], p["tienda"]))
         clase = reg["clase"] if reg else ""
-        if spec.get("estado") and (reg or {}).get("estado") != spec["estado"]:
+        if spec.get("estado") and (reg or {}).get("estado") not in ([spec["estado"]] if isinstance(spec["estado"], str) else spec["estado"]):
             continue
         # A lot of one class is natural or not as a whole; a lot of every class decides by the class of each product:
         # a natural or a base goes the way of the naturals (its form, or «base»), a molecule the way of the molecules.
@@ -192,10 +192,10 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
 
         def proof(kind: str) -> str:
             # What the documents of the product say (evidencia.py): the phrase, the document and the page, or «no lo dice».
-            if kind not in evidencia.TYPES or name not in made:
+            if not spec.get("evidencia") or kind not in evidencia.TYPES or evidencia.product_row(name) is None:
                 return ""
             return " || ".join(f"{phrase[:420]} [{Path(doc).name}{', p.' + page if page else ''}]"
-                               for phrase, doc, page in evidencia.evidence_for(made[name], kind))
+                               for phrase, doc, page in evidencia.evidence_for(evidencia.product_row(name), kind))
 
         def conflict(kind: str, detail: str, recommendation: str) -> None:
             # The old «documento-ajeno» answers of the lots already closed still count for the two new kinds.
@@ -324,7 +324,7 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
                 guess, why = "aislado-natural", f"el nombre o la página dicen «natural» ({p['pagina'] or name})"
             else:
                 guess, why = "desconocido", "sin indicio de si es natural o de síntesis"
-            if not said and name in made:
+            if not said and spec.get("evidencia") and evidencia.product_row(name) is not None:
                 # The name of a product is not evidence: if its documents do not say it, the origin is not known.
                 why, guess = f"lo que sé de la molécula, sin documento: {guess} ({why})", "desconocido"
             conflict("origen", why, guess)
@@ -332,7 +332,7 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
         pending = [c for c in found if not c["respuesta"]]
         origin = next((c["respuesta"] for c in found if c["tipo"] == "origen"), "")
         # What the user wrote with the answer is the source of the origin (with the phrase and the page, if a document says it).
-        why = (answer_notes.get((name, "origen")) if name in made else "") or next((c["detalle"] for c in found if c["tipo"] == "origen"), "")
+        why = (answer_notes.get((name, "origen")) if spec.get("evidencia") else "") or next((c["detalle"] for c in found if c["tipo"] == "origen"), "")
         families_of = list(fam_standards) if any(c["tipo"] == "ifra-distinto" and c["respuesta"] == "familia" for c in found) else []
         form_answer = next((c["respuesta"] for c in found if c["tipo"] == "forma"), "")
         if form_answer == "confirmar":
@@ -365,7 +365,8 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
             answer = next((c["respuesta"] for c in found if c["tipo"] in ("certificado-no-revisado", "documento-diluido")), "")
             if cert["revisado"] == "si" and answer != "sin-certificado":
                 ref = slug(cert["ref"].removeprefix("prod:"))
-                product["certificado"] = {"documento": f"cert-{ref}", "registro": cert["ref"]}
+                product["certificado"] = {"documento": f"cert-{ref}", "registro": cert["ref"], "cobertura": cert.get("cobertura") or "reguladas-completa",
+                                          "prueba": cert.get("prueba", "")}
                 if answer.startswith("pct:"):
                     product["certificado"]["escala"] = answer[4:]
                 lot_documents.append({"clave": f"cert-{ref}", "tipo": cert["tipo"], "titulo": cert["titulo"], "emisor": cert["emisor"],

@@ -51,7 +51,7 @@ ORIGIN_NOISE = re.compile(r"natural (?:person|gas|rubber|resource|environment|wa
                           r"local exhaust|extinguish|plant (?:personnel|safety)|water treatment plant|waste|ventilation|"
                           r"distillation (?:range|residues)|chemical safety|SECTION|contact the plant|manufacturing plant|"
                           r"environmental|ecotox|biodegrad|inventory|notified|REACH|ironing water|container of origin|treatment plant|sewage|"
-                          r"natural components and synthetic impurities|literature data|odorized|country of origin|origin of the|sludge|EUSES", re.I)
+                          r"natural components and synthetic impurities|literature data|LD50|LC50|toxic|odorized|country of origin|origin of the|sludge|EUSES", re.I)
 FORM = re.compile(r"\b(piper|nigrum|fruit|berr(?:y|ies)|seed|leaf|leaves|flower|bark|wood|root|resin|balsam|absolute|concrete|"
                   r"resinoid|CO2|supercritical|extract|essential oil|tincture|INCI|botanical|species|hexane|solvent extraction)\b", re.I)
 NATURAL_NAME = re.compile(r"\b(OIL|ABSOLUTE|EXTRACT|BALSAM|RESIN\w*|CONCRETE|TINCTURE|LEAF|WOOD|ROOT|FLOWER|BARK|SEED|CO2)\b", re.I)
@@ -101,10 +101,24 @@ def shop_links(url: str) -> list[str]:
     return found
 
 
+def product_row(name: str) -> dict[str, str] | None:
+    """The product with the documents it has: from `productos.csv` (the 23 with a certificate) or, for the rest, from the
+    registry (`registro.csv`: the sheet that the shop links and, if it is of this product, the certificate)."""
+    for r in rows(ROOT / "docs" / "proveedores" / "productos.csv"):
+        if r["producto"] == name:
+            return r
+    for r in rows(ROOT / "docs" / "proveedores" / "registro.csv"):
+        if r["producto"] == name:
+            # A certificate that the shop links but is of another product proves nothing about this one (D9).
+            other = "enlaza la tienda es de" in r["notas"] or "es de otro producto" in r["pedir"]
+            return {"producto": name, "url": r["url"], "documento": "" if other else r["certificado"], "ficha": r["ficha"]}
+    return None
+
+
 def product_documents(product: dict[str, str]) -> dict[str, str | None]:
     links = shop_links(product["url"])
     sds = next((l for l in links if re.search(r"FDS|SDS|Karta_char", l, re.I) and not re.search(r"ALG|Allergen|IFRA", l, re.I)), None)
-    return {"cert": product["documento"], "sds": sds}
+    return {"cert": product["documento"] or None, "sds": sds or product.get("ficha") or None}
 
 
 class Doc:
@@ -327,12 +341,11 @@ def evidence_for(product: dict[str, str], kind: str) -> list[tuple[str, str, str
 
 
 def run_lote(lot: str) -> int:
-    products = {r["producto"]: r for r in rows(ROOT / "docs" / "proveedores" / "productos.csv")}
     out = []
     for c in rows(ROOT / "datos" / "v2" / "conflictos" / f"{lot}.csv"):
         if c["tipo"] not in TYPES:
             continue
-        product = products.get(c["producto"])
+        product = product_row(c["producto"])
         if not product:
             continue
         for phrase, doc, page in evidence_for(product, c["tipo"]):

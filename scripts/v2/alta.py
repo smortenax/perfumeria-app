@@ -429,8 +429,10 @@ def main() -> int:
                         "notas": ("cota «<» del certificado" if bound else "") + (f"; pasada a materia pura (el certificado es de un producto al {cert['escala']} %)" if cert.get("escala") else ""),
                     })
                 tables["coberturas.csv"].append({
-                    "id_contenedor": pid, "id_documento": did, "cobertura": "reguladas-completa",
-                    "notas": "el certificado IFRA declara todas las sustancias restringidas que lleva",
+                    "id_contenedor": pid, "id_documento": did, "cobertura": cert.get("cobertura", "reguladas-completa"),
+                    "notas": ("el certificado IFRA declara todas las sustancias restringidas que lleva" + (f"; sin sustancias: {cert['prueba']}" if cert.get("prueba", "") not in ("", "su lista de sustancias") else "")
+                              if cert.get("cobertura", "reguladas-completa") == "reguladas-completa"
+                              else "el certificado no lista sustancias ni dice que no lleve ninguna restringida: la cobertura es parcial"),
                 })
                 ceiling = made.get(cert["registro"], {}).get("tope_cat4_pct", "")
                 if ceiling:

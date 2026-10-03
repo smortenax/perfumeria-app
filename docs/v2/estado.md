@@ -12,8 +12,8 @@ Autoridad: [`decisiones-v2.md`](decisiones-v2.md) (D1–D11). La v1 está congel
   en [`pendientes-F001.md`](pendientes-F001.md).
 - [ ] **Fase 4 — Los 32 productos de Perfumiarz**, en dos lotes: 23 documentados (**4a**) y 9 parciales o
   sin documentos (4b). Cifras de `docs/proveedores/productos-sustancias.csv`; topes por producto (D4).
-  **4a hecho** (2026-10-03): 20 entran (16 sustancias, 3 bases, 1 natural), 19 con su certificado; evidencia de
-  cada conflicto en `datos/v2/evidencia/4a.csv`. Falta el % de PG de la pimienta (`pendientes-perfumiarz.md`).
+  **4a hecho** (20 entran, 19 con certificado; evidencia en `datos/v2/evidencia/`). **4b preparado:** 9 productos, 12 conflictos sin respuesta.
+  Pendiente de Perfumiarz: `pendientes-perfumiarz.md`. D12 (prudencia de la barra), propuesta sin aprobar.
 - [ ] **Fase 5 — La v2 por defecto en la app.** Lo que solo está en la v1 aparece como «v1, sin
   revisar». Las fórmulas se migran al abrirlas, con registro-ids y comprobación de CAS. La ficha
   enseña la autoridad y el documento de cada cifra. **Requisito:** la interfaz explica cada «no», incluido
