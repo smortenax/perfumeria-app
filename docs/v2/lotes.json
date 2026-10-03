@@ -36,6 +36,12 @@
         "Haba tonka (semillas), tintura comercial",
         "Esencia de trufa"
       ]
+    },
+    "4a": {
+      "fecha": "2026-10-03",
+      "situacion": "pedido",
+      "tienda": "Perfumiarz",
+      "estado": "documentado"
     }
   }
 }

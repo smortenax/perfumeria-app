@@ -26,6 +26,12 @@ Tipos de conflicto y sus respuestas (`excluir` vale en todos: el producto no ent
   la revisión salen de `docs/v2/documentos-ajenos.csv`, y las cifras las lee `documentos.py`.
   Respuesta: `traer` o `no-traer` (`descartar` en el de otro material). Los lotes anteriores, cuyas
   respuestas están en `documento-ajeno`, no se reabren: ese tipo sigue valiendo para ellos.
+* `certificado-no-revisado`: el certificado del producto no se pudo cotejar contra su PDF
+  (`docs/v2/certificados-productos.csv`, de `cotejar_certificados.py`): sin revisar no entra (D6). Respuesta:
+  `sin-certificado` (el producto entra sin sus cifras) o `excluir`.
+* `documento-diluido`: el nombre del certificado dice que es un producto diluido (` PG `, ` DPG `…) y sus cifras
+  son del producto diluido, no de la materia pura. Respuesta: `pct:<N>` (el % de materia pura del producto
+  del certificado: sus cifras se pasan a materia pura y su tope se multiplica) o `sin-certificado`.
 * `forma` (solo naturales, D1): la especie, parte, proceso y quimiotipo de cada natural. La
   propuesta sale de `docs/v2/formas-propuestas.csv`, y la evidencia, del título y la descripción
   de su página de la tienda (`datos/v2/paginas-tienda.csv`, de `pagina_tienda.py`) y de lo que ya
@@ -126,7 +132,10 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
     for r in read_csv(root / "docs" / "v2" / "documentos-ajenos.csv"):
         foreign_docs.setdefault(r["producto"], []).append(r)
     pages = {(r["tienda"], r["pagina"]): r for r in read_csv(root / "datos" / "v2" / "paginas-tienda.csv")}
-    natural_lot = spec["clase"] == "natural"
+    lot_natural = spec.get("clase") == "natural"
+    natural_lot = lot_natural
+    certs = {r["producto"]: r for r in read_csv(root / "docs" / "v2" / "certificados-productos.csv")}
+    made = {r["producto"]: r for r in read_csv(root / "docs" / "proveedores" / "productos.csv")}
     answers = {(r["producto"], r["tipo"]): r["respuesta"].strip()
                for r in read_csv(root / "datos" / "v2" / "respuestas" / f"{lot}.csv")}
 
@@ -140,6 +149,11 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
             continue
         reg = registry.get((p["producto"], p["tienda"]))
         clase = reg["clase"] if reg else ""
+        if spec.get("estado") and (reg or {}).get("estado") != spec["estado"]:
+            continue
+        # A lot of one class is natural or not as a whole; a lot of every class decides by the class of each product:
+        # a natural or a base goes the way of the naturals (its form, or «base»), a molecule the way of the molecules.
+        natural_lot = lot_natural or (spec.get("clase") is None and (clase in ("natural", "base o especialidad") or p["producto"] in shapes))
         cas = (reg or {}).get("cas", "") or p["cas"]
         if not cas:
             m = CAS_IN_TEXT.search(p["notas"])
@@ -161,11 +175,11 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
         if shape and shape["v1_id"] in v1_by_id and v1_by_id[shape["v1_id"]] not in candidates:
             candidates = [v1_by_id[shape["v1_id"]]] + candidates
         extra = name_in(p["producto"], spec)
-        if clase and clase != spec["clase"] and clase != "sin fila en el glosario" and not extra:
+        if spec.get("clase") and clase and clase != spec["clase"] and clase != "sin fila en el glosario" and not extra:
             continue
         name = p["producto"]
         key = f"{SHOP_SLUG.get(p['tienda'], slug(p['tienda']))}-{p['pagina'] or slug(name)}"
-        if key in known_products or (natural_lot and name in known_names):
+        if key in known_products or name in known_names:
             proposals.append({"producto": name, "clave": key, "estado": "ya-dado-de-alta"})
             continue
 
@@ -262,6 +276,15 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
             if over:
                 conflict("suma", "; ".join(f"{v} {float(s):.2f} %" for v, s in over.items()), "no-traer")
 
+        # The certificate of the product, when it has one (D6, D8): reviewed against its PDF, and neat.
+        cert = certs.get(name)
+        if cert and made.get(name) and not any(c["tipo"] == "sin-fila-v1" and not c["respuesta"] for c in found):
+            if cert["revisado"] != "si":
+                conflict("certificado-no-revisado", f"{cert['titulo']}: {cert['motivo'][:200]}", "sin-certificado")
+            elif re.search(r"\b(PG|DPG|IPM|TEC|DEP)\b", made[name]["nombre_certificado"]):
+                conflict("documento-diluido",
+                         f"el certificado es de «{made[name]['nombre_certificado']}», diluido en un diluyente de la app y sin decir en qué %: "
+                         "sus cifras son del producto diluido, no de la materia pura", "sin-certificado")
         excluded = any(c["respuesta"] == "excluir" for c in found)
         # D7: the origin of a molecule that enters. Not asked of what is out, or has no row yet.
         as_base = answers.get((name, "tipo")) == "base"
@@ -321,6 +344,15 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
                    "url": (reg or {}).get("url") or (SHOP_URL.get(p["tienda"], "") + p["pagina"] if p["pagina"] else ""),
                    "fabricante": (reg or {}).get("fabricante", ""), "codigo": (reg or {}).get("codigo", ""),
                    "notas": p["notas"]}
+        if cert and made.get(name):
+            answer = next((c["respuesta"] for c in found if c["tipo"] in ("certificado-no-revisado", "documento-diluido")), "")
+            if cert["revisado"] == "si" and answer != "sin-certificado":
+                ref = slug(cert["ref"].removeprefix("prod:"))
+                product["certificado"] = {"documento": f"cert-{ref}", "registro": cert["ref"]}
+                if answer.startswith("pct:"):
+                    product["certificado"]["escala"] = answer[4:]
+                lot_documents.append({"clave": f"cert-{ref}", "tipo": cert["tipo"], "titulo": cert["titulo"], "emisor": cert["emisor"],
+                                      "fecha": cert["fecha"], "ruta": cert["ruta"], "estado_revision": "revisado", "notas": cert["motivo"]})
         brought = []
         if any(c["tipo"] == "documento-otro-proveedor" and c["respuesta"] == "traer" for c in found):
             brought = [d for d in foreign_docs.get(name, []) if d["clasificacion"] == "otro-proveedor" and d["revisado"] == "si"]

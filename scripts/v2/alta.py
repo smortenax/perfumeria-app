@@ -405,6 +405,16 @@ def main() -> int:
                     continue
                 did = documents[cert["documento"]]
                 own = {cas} if cas else set()
+                # A certificate of a diluted product (D8): the figures go to pure matter, and the cap is the pure one.
+                from decimal import Decimal, localcontext
+                from fractions import Fraction as _Fr
+                fraction = _Fr(cert["escala"]) / 100 if cert.get("escala") else _Fr(1)
+
+                def pure(text: str, divide: bool) -> str:
+                    value = _Fr(text) / fraction if divide else _Fr(text) * fraction
+                    with localcontext() as ctx:
+                        ctx.prec = 12
+                        return pct_text(format(Decimal(value.numerator) / Decimal(value.denominator), "f"))
                 for r in made_subs.get(cert["registro"], []):
                     all_cas = set(r["cas_todos"].split()) | {r["cas"]}
                     if own & all_cas:
@@ -414,9 +424,9 @@ def main() -> int:
                     bound = r["cota"] == "sí"
                     tables["composicion.csv"].append({
                         "id_contenedor": pid, "id_componente": component,
-                        **({"max": pct_text(r["pct"]), "tipo_valor": "maximo"} if bound else {"tipico": pct_text(r["pct"]), "tipo_valor": "tipico"}),
+                        **({"max": pure(r["pct"], True), "tipo_valor": "maximo"} if bound else {"tipico": pure(r["pct"], True), "tipo_valor": "tipico"}),
                         "autoridad": "producto", "id_documento": did,
-                        "notas": "cota «<» del certificado" if bound else "",
+                        "notas": ("cota «<» del certificado" if bound else "") + (f"; pasada a materia pura (el certificado es de un producto al {cert['escala']} %)" if cert.get("escala") else ""),
                     })
                 tables["coberturas.csv"].append({
                     "id_contenedor": pid, "id_documento": did, "cobertura": "reguladas-completa",
@@ -425,7 +435,7 @@ def main() -> int:
                 ceiling = made.get(cert["registro"], {}).get("tope_cat4_pct", "")
                 if ceiling:
                     tables["topes.csv"].append({
-                        "id_producto": pid, "categoria": "4", "max_pct": pct_text(ceiling), "id_documento": did,
+                        "id_producto": pid, "categoria": "4", "max_pct": pure(ceiling, False), "id_documento": did,
                         "notas": f"tope de {p.get('fabricante', '')} para su producto (D4)",
                     })
 
