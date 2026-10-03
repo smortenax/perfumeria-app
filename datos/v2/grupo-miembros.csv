@@ -13,6 +13,8 @@ G00011,S00013,,índice de IFRA 51
 G00012,S00014,,índice de IFRA 51
 G00013,S00015,,índice de IFRA 51
 G00014,S00016,,índice de IFRA 51
+G00014,S00063,,índice de IFRA 51
+G00014,S00081,,índice de IFRA 51
 G00015,S00017,,índice de IFRA 51
 G00016,S00018,,índice de IFRA 51
 G00017,S00019,,índice de IFRA 51
@@ -25,6 +27,7 @@ G00023,S00025,,índice de IFRA 51
 G00024,S00026,,índice de IFRA 51
 G00025,S00027,,índice de IFRA 51
 G00026,S00028,,índice de IFRA 51
+G00026,S00080,,índice de IFRA 51
 G00027,S00031,,índice de IFRA 51
 G00028,S00034,,índice de IFRA 51
 G00029,S00035,,índice de IFRA 51
@@ -33,3 +36,23 @@ G00031,S00054,,índice de IFRA 51
 G00032,S00055,,índice de IFRA 51
 G00033,S00057,,índice de IFRA 51
 G00034,M00027,,"familia: el estándar le aplica por lo que es, aunque el índice no liste su CAS"
+G00035,S00061,,índice de IFRA 51
+G00035,S00071,,índice de IFRA 51
+G00036,S00062,,índice de IFRA 51
+G00036,S00078,,índice de IFRA 51
+G00037,M00043,,"familia: el estándar le aplica por lo que es, aunque el índice no liste su CAS"
+G00038,M00045,,índice de IFRA 51: limitado como tal
+G00039,S00064,,índice de IFRA 51
+G00040,S00065,,índice de IFRA 51
+G00041,S00066,,índice de IFRA 51
+G00042,S00067,,índice de IFRA 51
+G00042,S00068,,índice de IFRA 51
+G00042,S00069,,índice de IFRA 51
+G00043,S00070,,índice de IFRA 51
+G00044,S00072,,índice de IFRA 51
+G00045,S00073,,índice de IFRA 51
+G00046,S00074,,índice de IFRA 51
+G00047,S00075,,índice de IFRA 51
+G00048,S00076,,índice de IFRA 51
+G00049,M00051,,índice de IFRA 51: limitado como tal
+G00050,S00077,,índice de IFRA 51

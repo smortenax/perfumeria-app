@@ -273,3 +273,73 @@ describe("a standard of a family whose limit is expressed as a constituent (STD 
     ].sort());
   });
 });
+
+describe("a phototoxic oil with a standard of its own (STD 092, lemon cold pressed) inside the family 089", () => {
+  it("is ruled by its own standard when its furocoumarins are unknown, and the 5-MOP is not pending", () => {
+    const d = dataset({
+      "materiales.csv": ["M00001,natural,Lemon oil,,Citrus limon,cáscara,expresión,,8008-56-8,,,,,"],
+      "coberturas.csv": ["M00001,,desconocida,"],
+      "grupos.csv": ["G00001,estandar-ifra,IFRA_STD_089,Citrus oils,", "G00002,estandar-ifra,IFRA_STD_092,Lemon oil cold pressed,"],
+      "grupo-miembros.csv": ["G00001,M00001,,", "G00002,M00001,,"],
+    });
+    const m = toIfra(d, IFRA_FILES).materials.get(v2Key("M00001"))!;
+    expect(m.substances).toEqual([{ key: "std:IFRA_STD_092", fraction: Ratio.ONE }]);
+    expect((m.pending ?? []).some((text) => text.includes("5-MOP"))).toBe(false);
+  });
+});
+
+describe("the 5-MOP of the phototoxic oils (STD 089): one way in, never two", () => {
+  const OIL = "M00001,natural,Lemon oil,,Citrus limon,cáscara,expresión,,8008-56-8,,,,,";
+  const groups = ["G00001,estandar-ifra,IFRA_STD_089,Citrus oils,", "G00002,estandar-ifra,IFRA_STD_092,Lemon oil cold pressed,"];
+  const members = ["G00002,M00001,,", "G00001,S00001,,"];
+
+  it("an oil with its 5-MOP documented counts by the 15 ppm of the STD 089, and not by its own standard", () => {
+    const d = dataset({
+      "materiales.csv": [OIL],
+      "composicion.csv": ["M00001,S00001,,0.0003,,tipico,anexo-ifra,D00001,"],
+      "coberturas.csv": ["M00001,D00001,reguladas-completa,"],
+      "grupos.csv": groups,
+      "grupo-miembros.csv": members,
+    });
+    const out = toIfra(d, IFRA_FILES);
+    const m = out.materials.get(v2Key("M00001"))!;
+    expect(m.substances.map((s) => s.key)).toEqual(["std:IFRA_STD_089"]);
+    expect(m.substances[0].fraction?.eq(pct("0.0003"))).toBe(true);
+    // Both are summed against their ceilings, in the same group.
+    expect(out.substances.get("std:IFRA_STD_089")?.combined).toBe("furocumarinas");
+    expect(out.substances.get("std:IFRA_STD_089")?.limit.eq(pct("0.0015"))).toBe(true);
+  });
+
+  it("an oil whose 5-MOP is not known counts by its own standard, in the same group", () => {
+    const d = dataset({
+      "materiales.csv": [OIL],
+      "coberturas.csv": ["M00001,,desconocida,"],
+      "grupos.csv": groups,
+      "grupo-miembros.csv": ["G00002,M00001,,"],
+    });
+    const out = toIfra(d, IFRA_FILES);
+    expect(out.materials.get(v2Key("M00001"))?.substances.map((s) => s.key)).toEqual(["std:IFRA_STD_092"]);
+    expect(out.substances.get("std:IFRA_STD_092")?.combined).toBe("furocumarinas");
+  });
+
+  it("a source of the same authority adds the 5-MOP even when the annex already closed the list", () => {
+    const d = dataset({
+      "materiales.csv": [OIL],
+      "composicion.csv": ["M00001,S00002,,0.2,,tipico,anexo-ifra,D00001,", "M00001,S00001,,0.005,,tipico,anexo-ifra,D00002,"],
+      "coberturas.csv": ["M00001,D00001,reguladas-completa,", "M00001,D00002,parcial,"],
+    });
+    const f = flatten(d, "M00001");
+    expect(f.loads.get("S00002")?.known?.eq(pct("0.2"))).toBe(true);
+    expect(f.loads.get("S00001")?.known?.eq(pct("0.005"))).toBe(true);
+    expect(f.pending).toEqual([]);
+  });
+
+  it("a source of less authority does not: the annex closes the list for the literature", () => {
+    const d = dataset({
+      "materiales.csv": [OIL],
+      "composicion.csv": ["M00001,S00002,,0.2,,tipico,anexo-ifra,D00001,", "M00001,S00001,,0.005,,tipico,literatura,D00002,"],
+      "coberturas.csv": ["M00001,D00001,reguladas-completa,", "M00001,D00002,parcial,"],
+    });
+    expect([...flatten(d, "M00001").loads.keys()]).toEqual(["S00002"]);
+  });
+});

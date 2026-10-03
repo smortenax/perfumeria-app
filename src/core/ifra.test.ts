@@ -3,7 +3,7 @@ import { Ratio } from "./arith/ratio";
 import { formatPercent } from "./display";
 import { f001 } from "./fixtures/f001";
 import { COUMARIN, f001Ifra } from "./fixtures/ifra-f001";
-import { checkIfra, marginOf, type IfraData } from "./ifra";
+import { checkIfra, marginOf, type IfraData, type IfraSubstance } from "./ifra";
 import type { Change, Formula, FormulaHeader } from "./model/formula";
 import { DILUENTS, type Material } from "./model/material";
 
@@ -247,5 +247,114 @@ describe("IFRA: a placeholder is bounded by its maximum, never within (D2 of the
     expect(margin.kind).toBe("bounded");
     const free = marginOf(empty, natural("1"), { material, fraction: Ratio.ONE, diluent: null }, "bottle");
     expect(free.kind).toBe("unbounded");
+  });
+});
+
+describe("IFRA: substances summed against their ceilings (STD 089 and the phototoxic oils)", () => {
+  // Two oils whose standards add up: each one's share of the product over its own ceiling.
+  const oilA: Material = { key: "t:oil-a", kind: "base", name: "Aceite A" };
+  const oilB: Material = { key: "t:oil-b", kind: "base", name: "Aceite B" };
+  const neutral: Material = { key: "t:neutro", kind: "base", name: "Neutro" };
+  const ceilings = (combined: boolean): IfraData["substances"] =>
+    new Map<string, IfraSubstance>([
+      ["s:a", { key: "s:a", name: "A", limit: pct("2"), amendment: "51", ...(combined ? { combined: "foto" } : {}) }],
+      ["s:b", { key: "s:b", name: "B", limit: pct("0,4"), amendment: "51", ...(combined ? { combined: "foto" } : {}) }],
+    ]);
+  const data = (combined = true, upperB?: string): IfraData => ({
+    substances: ceilings(combined),
+    materials: new Map([
+      [oilA.key, { status: "checked", substances: [{ key: "s:a", fraction: Ratio.ONE }], conditions: [] }],
+      [
+        oilB.key,
+        {
+          status: "checked",
+          substances: [upperB ? { key: "s:b", fraction: null, upper: pct(upperB) } : { key: "s:b", fraction: Ratio.ONE }],
+          conditions: [],
+        },
+      ],
+      [neutral.key, { status: "checked", substances: [], conditions: [] }],
+    ]),
+  });
+  /** A bottle of exactly 1 g, with the mass of each oil in micrograms. */
+  const bottle = (a: bigint, b: bigint): Formula => ({
+    header,
+    history: [add("a", oilA, a), ...(b > 0n ? [add("b", oilB, b)] : []), add("n", neutral, 1_000_000n - a - b)],
+  });
+
+  it("(a) two oils at 60 % of their ceilings are each within, but together at 120 %: it exceeds, and reading 1 says no", () => {
+    const report = checkIfra(bottle(12_000n, 2_400n), data());
+    expect(report.checks.map((c) => c.verdict)).toEqual(["within", "within"]);
+    const group = report.combinedChecks[0];
+    expect(group.group).toBe("foto");
+    expect([...group.keys].sort()).toEqual(["s:a", "s:b"]);
+    expect(group.worstShare.eq(pct("120"))).toBe(true);
+    expect(group.verdict).toBe("exceeds");
+    expect(report.asIs).toBe("no");
+    // Reading 2: 1 / 1,2 of what is poured.
+    expect(formatPercent(group.maxUse)).toBe("83,333 %");
+    expect(formatPercent(report.maxUse)).toBe("83,333 %");
+  });
+
+  it("(b) at 40 % + 40 % the group is within at 80 %, and could take 125 % of this", () => {
+    const report = checkIfra(bottle(8_000n, 1_600n), data());
+    const group = report.combinedChecks[0];
+    expect(group.verdict).toBe("within");
+    expect(group.worstShare.eq(pct("80"))).toBe(true);
+    expect(formatPercent(group.maxUse)).toBe("125,000 %");
+    expect(report.asIs).toBe("yes");
+  });
+
+  it("(c) a load bounded by its maximum (D2) leaves the group bounded; one that could pass 1 leaves it unknown", () => {
+    const bounded = checkIfra(bottle(12_000n, 2_400n), data(true, "20"));
+    // 60 % known of A, and at most 20 % of 2 400 µg of B: 0,048 % of the product, 12 % of its ceiling.
+    expect(bounded.combinedChecks[0].knownShare.eq(pct("60"))).toBe(true);
+    expect(bounded.combinedChecks[0].worstShare.eq(pct("72"))).toBe(true);
+    expect(bounded.combinedChecks[0].verdict).toBe("bounded");
+    expect(bounded.asIs).toBe("yes");
+    const unknown = checkIfra(bottle(12_000n, 24_000n), data(true, "50"));
+    expect(unknown.combinedChecks[0].verdict).toBe("unknown");
+    expect(unknown.asIs).toBe("unknown");
+  });
+
+  it("(d) one oil alone: the group says what its ceiling says", () => {
+    const report = checkIfra(bottle(12_000n, 0n), data());
+    const group = report.combinedChecks[0];
+    expect(group.worstShare.eq(pct("60"))).toBe(true);
+    expect(group.verdict).toBe(report.checks[0].verdict);
+    expect(group.maxUse.eq(report.checks[0].maxUse)).toBe(true);
+  });
+
+  it("(e) with no group, no report changes: the substances are judged alone, as always", () => {
+    const report = checkIfra(bottle(12_000n, 2_400n), data(false));
+    expect(report.combinedChecks).toEqual([]);
+    expect(report.readings[0].combined).toEqual([]);
+    expect(report.asIs).toBe("yes");
+  });
+
+  describe("(f) the margin of a pour counts the group", () => {
+    const pourB = { material: oilB, fraction: Ratio.ONE, diluent: null };
+    const room = (formula: Formula, ifra: IfraData, base: "now" | "bottle" | "completed") => {
+      const margin = marginOf(formula, ifra, pourB, base);
+      expect(margin.kind).toBe("bounded");
+      return margin.kind === "bounded" ? margin.pouredUg : Ratio.ZERO;
+    };
+    // Oil A is already in the bottle at 60 % of its ceiling.
+    it("now: the final batch of 10 g leaves 16 mg of B with A in the bottle, against 40 mg alone", () => {
+      const header2 = { ...header, finalBatchUg: 10_000_000n };
+      const formula: Formula = { header: header2, history: [add("a", oilA, 120_000n)] };
+      expect(room(formula, data(), "now").eq(Ratio.of(16_000))).toBe(true);
+      expect(room(formula, data(false), "now").eq(Ratio.of(40_000))).toBe(true);
+    });
+    it("bottle: 400 000 / 249 µg with A in the bottle, against 1 000 000 / 249 alone", () => {
+      const formula: Formula = { header, history: [add("a", oilA, 12_000n), add("n", neutral, 988_000n)] };
+      expect(room(formula, data(), "bottle").eq(Ratio.of(400_000n, 249n))).toBe(true);
+      expect(room(formula, data(false), "bottle").eq(Ratio.of(1_000_000n, 249n))).toBe(true);
+    });
+    it("completed: 117 500 / 3 µg with A in the bottle, against 125 000 / 3 alone", () => {
+      const header3 = { ...header, workBatchUg: 1_000_000n, finalBatchUg: 10_000_000n };
+      const formula: Formula = { header: header3, history: [add("a", oilA, 12_000n), add("n", neutral, 988_000n)] };
+      expect(room(formula, data(), "completed").eq(Ratio.of(117_500n, 3n))).toBe(true);
+      expect(room(formula, data(false), "completed").eq(Ratio.of(125_000n, 3n))).toBe(true);
+    });
   });
 });

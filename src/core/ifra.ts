@@ -20,6 +20,12 @@ export interface IfraSubstance {
    * IFRA's two readings. The maker's name.
    */
   readonly supplier?: string;
+  /**
+   * The key of a group whose substances are summed against their ceilings (IFRA, STD 089 and the
+   * standards of the phototoxic oils): the sum of each one's share of the product over its own
+   * ceiling must not pass 1. A substance with no group is judged alone, as always.
+   */
+  readonly combined?: string;
 }
 
 /** What the reference data knows about one material, in IFRA terms. */
@@ -107,6 +113,26 @@ export interface BaseReading {
    * it is already at or over; null when not even the pure substance could reach its ceiling.
    */
   readonly checks: ReadonlyArray<{ readonly key: string; readonly verdict: Verdict; readonly roomUg: Ratio | null }>;
+  /** The groups summed against their ceilings, in this base (`IfraReport.combinedChecks` has the figures). */
+  readonly combined: ReadonlyArray<{ readonly group: string; readonly verdict: Verdict }>;
+}
+
+/**
+ * A group of substances summed against their ceilings (`IfraSubstance.combined`). A share is a
+ * substance's mass over the product, over its ceiling: 1 is the ceiling of the whole group. The
+ * verdicts are those of a substance: «exceeds» when what is known is already over 1; «within»
+ * when nothing is unknown; «bounded» when a load is unknown but not even its worst case reaches 1.
+ */
+export interface CombinedCheck {
+  readonly group: string;
+  /** The substances of the group the bottle carries. */
+  readonly keys: readonly string[];
+  readonly knownShare: Ratio;
+  readonly worstShare: Ratio;
+  readonly verdict: Verdict;
+  /** Largest fraction of a perfume this formula can make up, for the group, in the worst case. */
+  readonly maxUse: Ratio;
+  readonly maxUseKnown: Ratio;
 }
 
 export interface IfraReport {
@@ -133,6 +159,8 @@ export interface IfraReport {
    */
   readonly readings: readonly BaseReading[];
   readonly checks: readonly SubstanceCheck[];
+  /** The groups of substances that are summed against their ceilings, one per group the bottle carries. */
+  readonly combinedChecks: readonly CombinedCheck[];
   /** Materials with no IFRA data: not checked, and never taken as free (§5.2, §5.5). */
   readonly unchecked: readonly string[];
   readonly conditions: ReadonlyArray<{ readonly material: string; readonly text: string }>;
@@ -182,10 +210,11 @@ export function checkIfra(formula: Formula, data: IfraData, upTo?: number): Ifra
     return { ...tally, verdict: reading.checks[i].verdict, maxUse, maxUseKnown };
   };
   const checks: SubstanceCheck[] = substances.map(toCheck(main));
+  const combinedChecks = combinedOf(substances, main.finalUg, bottleUg, main);
   const supplierChecks: SubstanceCheck[] = suppliers.map(toCheck(supplierReadings[supplierReadings.length - 1]));
 
-  const maxUse = checks.reduce((min, c) => (c.maxUse.lt(min) ? c.maxUse : min), Ratio.ONE);
-  const maxUseKnown = checks.reduce((min, c) => (c.maxUseKnown.lt(min) ? c.maxUseKnown : min), Ratio.ONE);
+  const maxUse = [...checks, ...combinedChecks].reduce((min, c) => (c.maxUse.lt(min) ? c.maxUse : min), Ratio.ONE);
+  const maxUseKnown = [...checks, ...combinedChecks].reduce((min, c) => (c.maxUseKnown.lt(min) ? c.maxUseKnown : min), Ratio.ONE);
   return {
     finalUg: main.finalUg,
     finalBatchUg,
@@ -193,6 +222,7 @@ export function checkIfra(formula: Formula, data: IfraData, upTo?: number): Ifra
     base: main.base,
     readings,
     checks,
+    combinedChecks,
     unchecked,
     conditions,
     pending,
@@ -312,6 +342,21 @@ export function marginOf(
       least = { ug: room, key };
     }
   }
+  // The groups summed against their ceilings: what the pour adds to a member counts against all of them.
+  for (const group of combinedGroups(data.substances)) {
+    const pours = group.members.filter((key) => (per.get(key) ?? Ratio.ZERO).sign() > 0);
+    if (pours.length === 0) {
+      continue;
+    }
+    const held = Ratio.sum(group.members.map((key) => (tallies.get(key)?.worstUg ?? Ratio.ZERO).div(limitOf(data, key))));
+    const added = Ratio.sum(pours.map((key) => (per.get(key) as Ratio).div(limitOf(data, key))));
+    const room = roomForSum(base, added, held, batches);
+    // The member of the group that the pour loads most is the one named (its ceiling per unit poured).
+    const named = pours.reduce((a, b) => ((per.get(b) as Ratio).div(limitOf(data, b)).gt((per.get(a) as Ratio).div(limitOf(data, a))) ? b : a));
+    if (room !== null && (least === null || room.lt(least.ug))) {
+      least = { ug: room, key: named };
+    }
+  }
   if (least === null) {
     // Nothing known puts a ceiling on it. That is «no ceiling» only when the pour itself is known
     // whole: a material whose constituents could not be checked (a natural outside the annex, like
@@ -338,18 +383,91 @@ function roomFor(
   limit: Ratio,
   batches: { readonly bottleUg: Ratio; readonly finalUg: Ratio; readonly workUg: Ratio },
 ): Ratio | null {
+  // A prohibition (a ceiling of zero) leaves nothing, as it always did; it cannot be divided by.
+  if (limit.sign() === 0) {
+    return Ratio.ZERO;
+  }
+  // One substance is a group of one: its mass over its ceiling.
+  return roomForSum(base, a.div(limit), held.div(limit), batches);
+}
+
+/**
+ * The same room for a group summed against its ceilings: `added` is the sum over the group of what
+ * one unit of mass poured carries of each member, over its ceiling; `held`, the sum of what the
+ * bottle holds of each over its ceiling (worst case). The equations of `roomFor`, with both divided
+ * by the ceiling: a group of one is the substance alone.
+ * - now:       (held + added·y) ≤ F
+ * - bottle:    (held + added·y) ≤ B + y
+ * - completed: (held + added·y)·W ≤ F·(B + y)
+ */
+function roomForSum(
+  base: IfraBase,
+  added: Ratio,
+  held: Ratio,
+  batches: { readonly bottleUg: Ratio; readonly finalUg: Ratio; readonly workUg: Ratio },
+): Ratio | null {
   const { bottleUg: B, finalUg: F, workUg: W } = batches;
   if (base === "now") {
-    const room = limit.mul(F).sub(held);
-    return room.sign() <= 0 ? Ratio.ZERO : room.div(a);
+    const room = F.sub(held);
+    return room.sign() <= 0 ? Ratio.ZERO : room.div(added);
   }
-  const room = base === "bottle" ? limit.mul(B).sub(held) : limit.mul(F).mul(B).sub(held.mul(W));
+  const room = base === "bottle" ? B.sub(held) : F.mul(B).sub(held.mul(W));
   if (room.sign() < 0) {
     return Ratio.ZERO;
   }
-  const slope = base === "bottle" ? a.sub(limit) : a.mul(W).sub(limit.mul(F));
+  const slope = base === "bottle" ? added.sub(Ratio.ONE) : added.mul(W).sub(F);
   // A pour no stronger than the ceiling can only dilute: it never sets one.
   return slope.sign() <= 0 ? null : room.div(slope);
+}
+
+const limitOf = (data: IfraData, key: string): Ratio => (data.substances.get(key) as IfraSubstance).limit;
+
+/** The groups of substances summed against their ceilings that the data has, with their members. */
+function combinedGroups(substances: ReadonlyMap<string, IfraSubstance>): Array<{ group: string; members: string[] }> {
+  const groups = new Map<string, string[]>();
+  for (const s of substances.values()) {
+    // A prohibition (a ceiling of zero) cannot be a share of anything; a manufacturer's ceiling is judged apart.
+    if (s.combined && !s.supplier && s.limit.sign() > 0) {
+      groups.set(s.combined, [...(groups.get(s.combined) ?? []), s.key]);
+    }
+  }
+  return [...groups].map(([group, members]) => ({ group, members }));
+}
+
+/**
+ * The groups the bottle carries, in the base of the report: each substance's share of the product
+ * over its ceiling, added up. The reading `main` has the verdicts of the same sums; here the figures.
+ */
+function combinedOf(tallies: readonly Tally[], finalUg: Ratio, bottleUg: Ratio, main: BaseReading): CombinedCheck[] {
+  return groupsOf(tallies).map(({ group, members }) => {
+    const known = Ratio.sum(members.map((t) => t.knownUg.div(finalUg).div(t.substance.limit)));
+    const worst = Ratio.sum(members.map((t) => t.worstUg.div(finalUg).div(t.substance.limit)));
+    // The largest share of a perfume this formula can make up: the sum of the shares in the bottle itself.
+    const inBottle = (pick: (t: Tally) => Ratio) => Ratio.sum(members.map((t) => pick(t).div(bottleUg).div(t.substance.limit)));
+    const worstInBottle = inBottle((t) => t.worstUg);
+    const knownInBottle = inBottle((t) => t.knownUg);
+    return {
+      group,
+      keys: members.map((t) => t.substance.key),
+      knownShare: known,
+      worstShare: worst,
+      verdict: main.combined.find((c) => c.group === group)?.verdict ?? "within",
+      maxUse: worstInBottle.isZero() ? Ratio.ONE : Ratio.ONE.div(worstInBottle),
+      maxUseKnown: knownInBottle.isZero() ? Ratio.ONE : Ratio.ONE.div(knownInBottle),
+    };
+  });
+}
+
+/** The tallies of the bottle, by group of the substances that are summed against their ceilings. */
+function groupsOf(tallies: readonly Tally[]): Array<{ group: string; members: Tally[] }> {
+  const groups = new Map<string, Tally[]>();
+  for (const t of tallies) {
+    const group = t.substance.combined;
+    if (group && !t.substance.supplier && t.substance.limit.sign() > 0) {
+      groups.set(group, [...(groups.get(group) ?? []), t]);
+    }
+  }
+  return [...groups].map(([group, members]) => ({ group, members }));
 }
 
 /**
@@ -395,9 +513,25 @@ function readingOf(base: IfraBase, header: FormulaHeader, bottleUg: Ratio, talli
     // The substance itself, poured pure: the room of a pour whose every unit is that substance.
     roomUg: roomFor(base, Ratio.ONE, worstUg, substance.limit, batches),
   }));
-  const verdicts = checks.map((c) => c.verdict);
+  const combined = groupsOf(tallies).map(({ group, members }) => {
+    const known = Ratio.sum(members.map((t) => t.knownUg.div(finalUg).div(t.substance.limit)));
+    const worst = Ratio.sum(members.map((t) => t.worstUg.div(finalUg).div(t.substance.limit)));
+    return { group, verdict: judgeCombined(known, worst, members.some((t) => t.unknownFrom.length > 0)) };
+  });
+  const verdicts = [...checks.map((c) => c.verdict), ...combined.map((c) => c.verdict)];
   const asIs = verdicts.includes("exceeds") ? "no" : verdicts.includes("unknown") || partial ? "unknown" : "yes";
-  return { base, finalUg, asIs, checks };
+  return { base, finalUg, asIs, checks, combined };
+}
+
+/** The verdict of a group: the shares are over the ceilings, so the ceiling of the group is 1. */
+function judgeCombined(knownShare: Ratio, worstShare: Ratio, unknown: boolean): Verdict {
+  if (knownShare.gt(Ratio.ONE)) {
+    return "exceeds";
+  }
+  if (!unknown && worstShare.eq(knownShare)) {
+    return "within";
+  }
+  return worstShare.gt(Ratio.ONE) ? "unknown" : "bounded";
 }
 
 /** `unknown`: some load of the substance is not proven, so it is never within, even bounded at 0 (D2). */

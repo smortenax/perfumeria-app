@@ -1,15 +1,15 @@
 producto,clave,estado,tipo,material,cas,origen,v1,notas
-Absoluto de Tabaco,olfatorium-absoluto-de-tabaco,pendiente,natural,Tobacco absolute,8037-19-2,,fig:2982,Forma: por confirmar.
-Bergamota sin bergaptenos,olfatorium-bergamota-sin-bergaptenos,pendiente,natural,"Bergamot oil, furocoumarin free",68648-33-9,,fig:1200,Forma: por confirmar.
-Cedro Atlas,olfatorium-cedro-atlas,pendiente,natural,"Cedarwood oil, Atlas",8023-85-6,,fig:1357,Forma: por confirmar.
-Cilantro,olfatorium-cilantro-semillas,pendiente,natural,Coriander seed oil,84775-50-8,,,Forma: por confirmar.
+Absoluto de Tabaco,olfatorium-absoluto-de-tabaco,alta,natural,Tobacco absolute,8037-19-2,,fig:2982,Forma: Nicotiana tabacum / hoja / absoluto (extracción con disolvente) / .
+Bergamota sin bergaptenos,olfatorium-bergamota-sin-bergaptenos,alta,natural,"Bergamot oil, furocoumarin free",68648-33-9,,fig:1200,"Forma: Citrus bergamia / cáscara del fruto / expresión en frío, sin furocumarinas (FCF) / ."
+Cedro Atlas,olfatorium-cedro-atlas,alta,natural,"Cedarwood oil, Atlas",8023-85-6,,fig:1357,"Forma: Cedrus atlantica / madera, tocones o aserrín / destilación al vapor / ."
+Cilantro,olfatorium-cilantro-semillas,alta,natural,Coriander seed oil,84775-50-8,,,Forma: Coriandrum sativum / semilla / destilación al vapor / .
 Lavanda,olfatorium-absoluto-de-lavanda,ya-dado-de-alta,,,,,,
-Limón,olfatorium-limon,pendiente,natural,"Lemon oil, expressed",8008-56-8,,fig:2193,Forma: por confirmar.
-Litsea Cubeba,olfatorium-litsea-cubeba,pendiente,natural,Litsea cubeba oil,68855-99-2,,fig:2240,Forma: por confirmar.
-Mandarina,olfatorium-mandarina,pendiente,natural,Mandarin oil,8008-31-9,,fig:2261,Forma: por confirmar.
-Naranja dulce,olfatorium-naranja-dulce,pendiente,natural,"Orange, sweet, Valencia oil",8008-57-9,,fig:2551,Forma: por confirmar.
-Patchouli,olfatorium-patchouli,pendiente,natural,Patchouli oil,,,fig:2599,Forma: por confirmar.
-Resinoide de benjuí,olfatorium-benjui-50-dpg,pendiente,natural,Benzoin resinoid,9000-72-0,,fig:1168,Forma: por confirmar.
-Resinoide de estírax (estoraque),olfatorium-resinoide-de-estirax,pendiente,natural,Styrax resinoid,8046-19-3,,fig:2914,Forma: por confirmar.
-Salvia Officinalis,olfatorium-salvia,pendiente,natural,Sage Dalmatian oil,8022-56-8,,fig:2838,Forma: por confirmar.
-Vetiver,olfatorium-vetiver-haiti,pendiente,natural,Vetiver oil,8016-96-4,,fig:3083,Forma: por confirmar.
+Limón,olfatorium-limon,alta,natural,"Lemon oil, expressed",8008-56-8,,fig:2193,Forma: Citrus limon / cáscara del fruto / expresión en frío / .
+Litsea Cubeba,olfatorium-litsea-cubeba,alta,natural,Litsea cubeba oil,68855-99-2,,fig:2240,Forma: Litsea cubeba / fruto / destilación al vapor / .
+Mandarina,olfatorium-mandarina,alta,natural,Mandarin oil,8008-31-9,,fig:2261,Forma: Citrus reticulata / cáscara del fruto / expresión en frío / .
+Naranja dulce,olfatorium-naranja-dulce,alta,natural,"Orange, sweet, Valencia oil",8008-57-9,,fig:2551,Forma: Citrus sinensis / cáscara del fruto / expresión en frío / .
+Patchouli,olfatorium-patchouli,alta,natural,Patchouli oil,,,fig:2599,"Forma: Pogostemon cablin / hoja / destilación al vapor (hojas secas, con curado previo) / ."
+Resinoide de benjuí,olfatorium-benjui-50-dpg,alta,natural,Benzoin resinoid,9000-72-0,,fig:1168,Forma: Styrax tonkinensis (Siam) / resina / resinoide (extracción con disolvente) / .
+Resinoide de estírax (estoraque),olfatorium-resinoide-de-estirax,alta,natural,Styrax resinoid,8046-19-3,,fig:2914,Forma: Liquidambar sp. / resina (bálsamo) / resinoide (extracción con disolvente) / .
+Salvia Officinalis,olfatorium-salvia,alta,natural,Sage Dalmatian oil,8022-56-8,,fig:2838,Forma: Salvia officinalis / hoja / destilación al vapor / .
+Vetiver,olfatorium-vetiver-haiti,alta,natural,Vetiver oil,8016-96-4,,fig:3083,Forma: Chrysopogon zizanioides / raíz / destilación al vapor / .

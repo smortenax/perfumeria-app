@@ -74,6 +74,13 @@ COLUMNS = {
 
 ORIGINS = ("sintetico", "aislado-natural", "desconocido")
 
+# STD 089 limits the 5-MOP (bergapten) of the citrus oils, not the oil: the standard has no CAS in the
+# index, so its constituent is named here. A substance that is a member of it is added up with the
+# phototoxic oils (src/v2/to-ifra.ts).
+FIVE_MOP_CAS = "484-20-8"
+FIVE_MOP_NAME = "5-MOP (bergapteno)"
+FIVE_MOP_STANDARD = "IFRA_STD_089"
+
 
 def read_csv(path: Path) -> list[dict[str, str]]:
     if not path.exists():
@@ -189,6 +196,8 @@ def main() -> int:
             tables["sustancia-cas.csv"].append({"id_sustancia": sid, "cas": cas, "relacion": "principal"})
             for standard, subgroup in index.get(cas, []):
                 member(standard, subgroup, sid, date, "índice de IFRA 51")
+            if cas == FIVE_MOP_CAS:
+                member(FIVE_MOP_STANDARD, "", sid, date, "el STD 089 limita el 5-MOP, que su índice no lista por CAS")
         in_index = [s for s, _ in index.get(cas, [])]
         if source_standard and source_standard not in in_index:
             conflicts.setdefault(lot, []).append({
@@ -270,6 +279,50 @@ def main() -> int:
             for v1 in m.get("v1", []):
                 v1_links.append({"id_v2": mid, "id_v1": v1})
 
+            # The typical levels of furocoumarins that STD 089 gives for three oils, as composition with the
+            # authority of the annex (not used yet by any material: it is declared by key).
+            typical = False
+            if m.get("niveles_089"):
+                level = next(r for r in read_csv(ROOT / "docs" / "v2" / "niveles-tipicos-089.csv") if r["clave"] == m["niveles_089"])
+                if "ifra51-estandares" not in documents:
+                    ddid = registry.id("documento", "ifra51-estandares", date)
+                    documents["ifra51-estandares"] = ddid
+                    tables["documentos.csv"].append({
+                        "id": ddid, "tipo": "anexo-ifra", "titulo": "IFRA 51, estándares: nota de fototoxicidad del STD 089",
+                        "emisor": "IFRA", "fecha": "2023-06", "ruta": "datos/ifra/51/estandares.csv", "estado_revision": "revisado",
+                        "notas": "Archivo oficial de IFRA convertido por scripts/importar_ifra.py.",
+                    })
+                from fractions import Fraction as _F
+                percent = _F(level["ppm"]) / 10000
+                tables["composicion.csv"].append({
+                    "id_contenedor": mid, "id_componente": substance(FIVE_MOP_CAS, FIVE_MOP_NAME, date, lot=lot),
+                    "tipico": format(float(percent), "f").rstrip("0").rstrip("."), "tipo_valor": "tipico", "autoridad": "anexo-ifra",
+                    "id_documento": documents["ifra51-estandares"], "notas": level["fuente"],
+                })
+                tables["coberturas.csv"].append({
+                    "id_contenedor": mid, "id_documento": documents["ifra51-estandares"], "cobertura": "parcial",
+                    "notas": "solo el nivel típico de furocumarinas que da el STD 089",
+                })
+                typical = True
+
+            # Placeholders of the literature (D2): the figures of a reviewed document of another supplier
+            # for this same material, each with the coverage the document declares.
+            literature_rows = False
+            for lit in m.get("literatura", []):
+                did = documents[lit["documento"]]
+                for cas_l, name_l, value, kind_l in lit["filas"]:
+                    component = substance(cas_l, name_l, date, lot=lot)
+                    tables["composicion.csv"].append({
+                        "id_contenedor": mid, "id_componente": component,
+                        **({"max": value} if kind_l == "maximo" else {"tipico": value}),
+                        "tipo_valor": kind_l, "autoridad": "literatura", "id_documento": did, "notas": lit["notas"],
+                    })
+                    literature_rows = True
+                tables["coberturas.csv"].append({
+                    "id_contenedor": mid, "id_documento": did, "cobertura": lit["cobertura"],
+                    "notas": "lo que declara el documento, de otro proveedor",
+                })
+
             # The annex: what IFRA gives for this natural, as typical values of its pure matter.
             has_rows = False
             if "anexo" in m:
@@ -291,6 +344,7 @@ def main() -> int:
                     "notas": "el anexo da las contribuciones a los estándares con límite; IFRA las da para el cálculo",
                 })
                 has_rows = True
+            has_rows = has_rows or literature_rows or typical
             if m["tipo"] in ("natural", "base") and not has_rows:
                 tables["coberturas.csv"].append({
                     "id_contenedor": mid, "cobertura": "desconocida",

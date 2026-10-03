@@ -68,6 +68,39 @@ materia pura.
 **Por qué:** la dilución con que se compra un producto no cambia lo que es, y el usuario ya la
 elige en la app cada vez que pesa. Guardarla en el modelo la duplicaba y la dejaba caducar.
 
+## D9 — Documentos de otro proveedor
+
+Decidida por el usuario el 2026-10-03, al cerrar el lote 3c. Sustituye el «no traer» de D3 para
+estos casos. Un documento que la v1 colgaba de un material y que no es del producto del usuario es:
+
+- **de otro material:** se descarta y se apunta en `errores-v1.md`;
+- **de otro proveedor (el mismo material):** se trae como **placeholder**, con autoridad
+  «literatura», contando su máximo (D2), si el documento está **revisado** (D6). La clasificación y
+  la revisión van en `docs/v2/documentos-ajenos.csv`. Su cobertura es la que declara el documento
+  (`parcial` el certificado, `solo-alergenos` la lista de alérgenos): no prueba que el lote del
+  usuario no lleve más, así que no cierra la lista.
+
+**Por qué:** una cifra de otro lote del mismo material es mejor cota que ninguna, pero no es un dato
+del usuario. Los cuatro documentos de los lotes 3a y 3b que se descartaron con la regla vieja
+(alfa-amil cinámico, Safraleine, Polysantol y Sandalmysore Core) serían de otro proveedor con este
+criterio: no se han reabierto.
+
+## D10 — Fototóxicos con furocumarinas (STD 089)
+
+Decidida por el usuario el 2026-10-03. IFRA dice en el 089 y en el estándar de cada aceite que la
+suma de los fototóxicos con furocumarinas, cada uno en % de su techo, no pasa del 100 %, y que el
+estándar propio de un aceite vale cuando sus furocumarinas no se conocen.
+
+- Son miembros del 089: los **ocho aceites con estándar propio** (086, 087, 088, 090, 091, 092, 093
+  y 096), los **tres con nivel típico** (petitgrain de mandarina 50 ppm, tangerine oil cold pressed
+  50 ppm y hoja de perejil 20 ppm; `docs/v2/niveles-tipicos-089.csv`) y **cualquier material con 5-MOP
+  documentado**. Los demás cítricos, la naranja dulce y «Mandarin oil» incluidos, no.
+- El **5-MOP** (techo de 0,0015 %, 15 ppm) es otro miembro del mismo grupo combinado. Cada aceite
+  entra **por una vía, nunca por las dos**: por su estándar propio si su 5-MOP no se conoce, o por su
+  5-MOP si está documentado.
+- El motor suma el grupo (`IfraSubstance.combined`, `IfraReport.combinedChecks`) en el informe y en el
+  margen. Los niveles típicos entran como composición con autoridad «anexo-ifra».
+
 ## Jerarquía de autoridad
 
 De mayor a menor; cuando dos fuentes chocan, manda la de más arriba:

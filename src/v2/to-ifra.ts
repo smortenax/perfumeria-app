@@ -60,6 +60,15 @@ const pct = (text: string) => Ratio.fromDecimal(text).div(Ratio.of(100));
 const isNumber = (text: string) => /^\d+(\.\d+)?$/.test(text);
 const short = (standard: string) => `STD ${standard.split("_").pop()}`;
 
+/**
+ * The standards of the furocoumarin-containing phototoxic oils that STD 089 names (087 bergamot,
+ * 092 lemon…), and 089 itself, whose 5-MOP is the same hazard measured in the furocoumarin. IFRA
+ * says in each: the sum of them, each in % of its ceiling, shall not exceed 100 (STD 089).
+ */
+const FUROCOUMARIN_OILS = new Set(["IFRA_STD_086", "IFRA_STD_087", "IFRA_STD_088", "IFRA_STD_090", "IFRA_STD_091", "IFRA_STD_092", "IFRA_STD_093", "IFRA_STD_096"]);
+const FUROCOUMARINS = "furocumarinas";
+const FIVE_MOP_STANDARD = "IFRA_STD_089";
+
 const NO_DATA = "Sin datos de sus constituyentes: puede llevar sustancias con techo.";
 const IMPURITIES_ISOLATE = "Impurezas sin declarar: es un aislado natural y su producto no tiene documentos.";
 const IMPURITIES_KNOWN = "Impurezas sin declarar: se le conocen impurezas reguladas y su producto no tiene documentos.";
@@ -150,7 +159,15 @@ export function flatten(data: Dataset, containerId: string): Flattened {
     const decided = new Set<string>();
     let complete = false;
     let weakest = "desconocida";
+    // A source that covers every regulated substance closes the list for what is less authoritative;
+    // a source of the same authority (the typical levels of the STD 089, beside the annex) still adds
+    // what nobody has said yet.
+    let closedRank: number | null = null;
     for (const [key, rows] of ordered) {
+      const rank = RANK[rows[0].authority] ?? 9;
+      if (closedRank !== null && rank !== closedRank) {
+        break;
+      }
       for (const row of rows) {
         if (decided.has(row.componentId)) {
           continue;
@@ -170,7 +187,8 @@ export function flatten(data: Dataset, containerId: string): Flattened {
       const covers = coverage.get(key) ?? "desconocida";
       if (covers === "reguladas-completa") {
         complete = true;
-        break;
+        closedRank = rank;
+        continue;
       }
       weakest = covers;
     }
@@ -243,16 +261,29 @@ export function toIfra(data: Dataset, files: IfraFiles): IfraData {
   const substances = new Map<string, IfraSubstance>();
   const ifraSubstance = (key: string, name: string, limit: Ratio, standard: string): string => {
     if (!substances.has(key)) {
-      substances.set(key, { key, name, limit, amendment: files.amendment, ...(casOf.has(standard) ? { cas: casOf.get(standard) } : {}) });
+      const sums = FUROCOUMARIN_OILS.has(standard) || standard === FIVE_MOP_STANDARD;
+      substances.set(key, {
+        key,
+        name,
+        limit,
+        amendment: files.amendment,
+        ...(casOf.has(standard) ? { cas: casOf.get(standard) } : {}),
+        ...(sums ? { combined: FUROCOUMARINS } : {}),
+      });
     }
     return key;
   };
 
   /** One member's standards, as what the engine sums, and the notes they leave. */
-  const judge = (memberStandards: readonly string[], asItself: boolean, load: Load, into: IfraEntry) => {
+  const judge = (memberStandards: readonly string[], asItself: boolean, load: Load, into: IfraEntry, fiveMopKnown = false) => {
     for (const standard of memberStandards) {
       const s = standards.get(standard);
       if (!s) {
+        continue;
+      }
+      // One way in, never two: an oil whose 5-MOP is documented counts by it (the 15 ppm of STD 089),
+      // and no longer by its own standard, which IFRA gives for when the furocoumarins are unknown.
+      if (asItself && fiveMopKnown && FUROCOUMARIN_OILS.has(standard)) {
         continue;
       }
       if (asItself && s.especificacion === "sí") {
@@ -265,7 +296,17 @@ export function toIfra(data: Dataset, files: IfraFiles): IfraData {
       const limit = limitOf(s);
       if (asItself && limit && s.limite_expresado_como) {
         // A limit expressed as a constituent (STD 089, citrus oils: 5-MOP) is not a limit of the whole
-        // material: how much of it the material carries is unknown, so it is pending, never free (§1.2).
+        // material. A phototoxic oil with a standard of its own (087 bergamot, 088 bitter orange, 092
+        // lemon…) is ruled by it when its furocoumarins are not known: IFRA says so in each of them,
+        // and nothing is pending. Without one, how much 5-MOP it carries is unknown, so it is pending,
+        // never free (§1.2).
+        const ruledByItsOwn = memberStandards.some((other) => {
+          const o = standards.get(other);
+          return other !== standard && o !== undefined && o.propiedad.includes("PHOTOTOXICITY") && limitOf(o) !== null && !o.limite_expresado_como;
+        });
+        if (ruledByItsOwn) {
+          continue;
+        }
         into.pending.push(`${s.nombre}: el límite es de ${s.limite_expresado_como} en el producto y no se sabe cuánto lleva este material (${short(standard)}).`);
         continue;
       }
@@ -284,8 +325,11 @@ export function toIfra(data: Dataset, files: IfraFiles): IfraData {
   for (const id of containers) {
     const flat = flatten(data, id);
     const entry: IfraEntry = { substances: [], conditions: [], pending: [...flat.pending] };
+    const fiveMopKnown = [...flat.loads.keys()].some(
+      (member) => !flat.itself.has(member) && (standardsOf.get(member) ?? []).includes(FIVE_MOP_STANDARD),
+    );
     for (const [member, load] of flat.loads) {
-      judge(standardsOf.get(member) ?? [], flat.itself.has(member), load, entry);
+      judge(standardsOf.get(member) ?? [], flat.itself.has(member), load, entry, fiveMopKnown);
     }
     // D4: the manufacturer's ceiling of this product (or of this lot's product), whole in it.
     const productId = data.lots.find((l) => l.id === id)?.productId ?? id;
@@ -378,8 +422,10 @@ export function ifraCards(data: Dataset, files: IfraFiles): Map<string, IfraCard
     const flat = flatten(data, id);
     const own = [...flat.itself].flatMap((member) => standardsOf.get(member) ?? []).map((id2) => standards.get(id2)).filter((s) => s !== undefined);
     const prohibited = own.find((s) => s.prohibicion === "sí" && limitOf(s) === null);
-    const limited = own.find((s) => limitOf(s) !== null);
-    const specified = own.find((s) => s.especificacion === "sí");
+    // A limit expressed as a constituent (089, 5-MOP) is a condition of the family, not a ceiling of the material.
+    const limited = own.find((s) => limitOf(s) !== null && !s.limite_expresado_como);
+    const byConstituent = own.find((s) => s.limite_expresado_como);
+    const specified = own.find((s) => s.especificacion === "sí") ?? byConstituent;
     const inside = [...flat.loads.keys()].some((member) => !flat.itself.has(member) && (standardsOf.get(member) ?? []).length > 0);
     const state: IfraCard["state"] = prohibited
       ? "prohibido"
@@ -398,7 +444,9 @@ export function ifraCards(data: Dataset, files: IfraFiles): Map<string, IfraCard
       ...(first ? { standardName: first.nombre } : {}),
       ...(specified?.nota_especificacion
         ? { note: `Especificación (${short(specified.estandar)}, ${specified.nombre}): ${specified.nota_especificacion}` }
-        : {}),
+        : specified?.limite_expresado_como
+          ? { note: `Familia (${short(specified.estandar)}, ${specified.nombre}): el límite es de ${specified.limite_expresado_como} en el producto, no del aceite entero.` }
+          : {}),
     });
   }
   return cards;

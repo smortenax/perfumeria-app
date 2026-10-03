@@ -16,6 +16,12 @@ viene.
 - `fig:2179` (Lavender): una fila sin forma que mezcla las tres variantes del anexo (aceite,
   absoluto y concreto) y cuenta la peor. Así trae la 7-metoxicumarina del concreto a un aceite.
   Viene de cruzar el anexo por CAS (8000-28-0) y no por nombre.
+- Familia STD 089 por el nombre (`scripts/generar_glosario.py`, la regex de cítricos): da la condición «aceites
+  cítricos: furocumarinas» a 99 filas, entre ellas la naranja dulce y la mandarina, que IFRA no lista en el
+  089 (solo ocho aceites, y tres con nivel típico). Se vio en el lote 3c.
+- Constituyentes de un certificado recortados: en el lote 3c, el de litsea (PerfumersWorld 7CC00280) trae 9
+  restringidas, con el citral al 66,7 %, y la v1 recogió 3; el de mandarina (7CA00285) trae el
+  N-metilantranilato de metilo, de un estándar de fototoxicidad (STD 094), y la v1 no lo recogió.
 
 ## Patrones que buscar
 
@@ -23,3 +29,5 @@ viene.
   todo en los lotes C-003 y C-004.
 - Una lista de alérgenos o un certificado cuyo producto no coincide con el material.
 - Filas del glosario que el anexo cruza por CAS con varias variantes («cuenta la peor»).
+- Familias por el nombre (089, 184, 188) con una regex más ancha que la lista del estándar.
+- Documentos de otro material (ninguno de los 7 del lote 3c lo era: todos eran del mismo material, de otro proveedor).

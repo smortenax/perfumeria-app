@@ -19,6 +19,13 @@ Tipos de conflicto y sus respuestas (`excluir` vale en todos: el producto no ent
 * `suma`: los constituyentes de la fila de la v1 suman más del 100,5 %. Respuesta: `no-traer`.
 * `sin-fila-v1`: el producto no tiene fila en la v1 (o no está en el registro). Respuesta:
   `alta-sin-v1:<CAS>` (molécula dada de alta por su CAS) o `excluir`.
+* `documento-otro-material` y `documento-otro-proveedor`: lo que antes era `documento-ajeno`, separado
+  por el criterio del usuario (2026-10-03). Un documento de otro material se descarta y se apunta en
+  `docs/v2/errores-v1.md`. Uno de otro proveedor (el mismo material) se trae como placeholder con
+  autoridad «literatura», contando su máximo (D2), si el documento está revisado: la clasificación y
+  la revisión salen de `docs/v2/documentos-ajenos.csv`, y las cifras las lee `documentos.py`.
+  Respuesta: `traer` o `no-traer` (`descartar` en el de otro material). Los lotes anteriores, cuyas
+  respuestas están en `documento-ajeno`, no se reabren: ese tipo sigue valiendo para ellos.
 * `forma` (solo naturales, D1): la especie, parte, proceso y quimiotipo de cada natural. La
   propuesta sale de `docs/v2/formas-propuestas.csv`, y la evidencia, del título y la descripción
   de su página de la tienda (`datos/v2/paginas-tienda.csv`, de `pagina_tienda.py`) y de lo que ya
@@ -36,8 +43,12 @@ Tipos de conflicto y sus respuestas (`excluir` vale en todos: el producto no ent
 """
 import csv
 import re
+import sys
 from fractions import Fraction
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import documentos  # noqa: E402
 
 SHOP_SLUG = {"Maese Lab": "maeselab", "Olfatorium": "olfatorium", "Perfumiarz": "perfumiarz"}
 SHOP_URL = {"Maese Lab": "https://maeselab.com/", "Olfatorium": "https://olfatorium.com/",
@@ -100,12 +111,16 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
         constituents.setdefault(r["material"], []).append(r)
     proposed = {r["cas"]: r for r in read_csv(root / "docs" / "v2" / "origenes-propuestos.csv")}
     shapes = {r["producto"]: r for r in read_csv(root / "docs" / "v2" / "formas-propuestas.csv")}
+    foreign_docs: dict[str, list[dict[str, str]]] = {}
+    for r in read_csv(root / "docs" / "v2" / "documentos-ajenos.csv"):
+        foreign_docs.setdefault(r["producto"], []).append(r)
     pages = {(r["tienda"], r["pagina"]): r for r in read_csv(root / "datos" / "v2" / "paginas-tienda.csv")}
     natural_lot = spec["clase"] == "natural"
     answers = {(r["producto"], r["tipo"]): r["respuesta"].strip()
                for r in read_csv(root / "datos" / "v2" / "respuestas" / f"{lot}.csv")}
 
     materials: list[dict] = []
+    lot_documents: list[dict[str, str]] = []
     proposals: list[dict[str, str]] = []
     conflicts: list[dict[str, str]] = []
 
@@ -143,8 +158,11 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
         fam_standards: list[str] = []
 
         def conflict(kind: str, detail: str, recommendation: str) -> None:
+            # The old «documento-ajeno» answers of the lots already closed still count for the two new kinds.
+            answer = answers.get((name, kind), "") or (
+                answers.get((name, "documento-ajeno"), "") if kind.startswith("documento-otro") else "")
             found.append({"producto": name, "tipo": kind, "detalle": detail, "recomendacion": recommendation,
-                          "respuesta": answers.get((name, kind), "")})
+                          "respuesta": answer})
 
         if not candidates:
             where = "en el registro y sin fila en la v1" if reg else "sin fila en el registro ni en la v1"
@@ -195,7 +213,20 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
                               for c in constituents.get(row["id"], [])
                               if c["fuente"] in ("proveedor", "certificado")
                               and not any(d and d in c["aviso"] for d in own_docs)})
-            if foreign:
+            classified = foreign_docs.get(name, [])
+            if classified:
+                for kind, wanted in (("documento-otro-proveedor", "otro-proveedor"), ("documento-otro-material", "otro-material")):
+                    docs = [d for d in classified if d["clasificacion"] == wanted]
+                    if not docs:
+                        continue
+                    detail = " | ".join(
+                        f"{d['ref']} {d['emisor']}: {d['titulo']} [{'revisado' if d['revisado'] == 'si' else 'sin revisar'}]"
+                        for d in docs)
+                    if wanted == "otro-proveedor":
+                        conflict(kind, detail, "traer" if any(d["revisado"] == "si" for d in docs) else "no-traer")
+                    else:
+                        conflict(kind, detail + " → se apunta en errores-v1.md", "descartar")
+            elif foreign:
                 conflict("documento-ajeno", f"{row['id']}: " + " | ".join(foreign)[:160], "no-traer")
 
             sums: dict[str, Fraction] = {}
@@ -264,6 +295,9 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
                    "url": (reg or {}).get("url") or (SHOP_URL.get(p["tienda"], "") + p["pagina"] if p["pagina"] else ""),
                    "fabricante": (reg or {}).get("fabricante", ""), "codigo": (reg or {}).get("codigo", ""),
                    "notas": p["notas"]}
+        brought = []
+        if any(c["tipo"] == "documento-otro-proveedor" and c["respuesta"] == "traer" for c in found):
+            brought = [d for d in foreign_docs.get(name, []) if d["clasificacion"] == "otro-proveedor" and d["revisado"] == "si"]
         if natural_lot and shape and form:
             extras = {"especie": form[0], "parte": form[1], "proceso": form[2], "quimiotipo": form[3],
                       "notas": f"Forma confirmada por el usuario (lote {lot}); {shape['motivo']}."}
@@ -273,6 +307,18 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
             extras = {}
         else:
             extras = {"origen": origin, "origen_fuente": f"{why} (lote {lot}, confirmado por el usuario)."}
+        if brought:
+            literature = []
+            for d in brought:
+                table = [(cas, nm, val, kind) for cas, nm, val, kind in documentos.filas(d["lector"], d["ref"], d["ruta"], root)
+                         if cas in index]
+                literature.append({"documento": f"doc-{d['ref'].lower()}", "cobertura": d["cobertura"], "filas": table,
+                                   "notas": "cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); "
+                                            "no prueba que este lote no lleve más"})
+                lot_documents.append({"clave": f"doc-{d['ref'].lower()}", "tipo": d["tipo"], "titulo": d["titulo"],
+                                      "emisor": d["emisor"], "fecha": d["fecha"], "ruta": d["ruta"],
+                                      "estado_revision": "revisado", "notas": d["motivo"]})
+            extras = {**extras, "literatura": literature}
         materials.append({
             "clave": material_key, "tipo": "natural" if natural_lot else "base" if as_base else "sustancia",
             "nombre": (shape["nombre"] if natural_lot and shape else row["nombre"] if row else name), "cas": cas,
@@ -287,7 +333,9 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
         for proposal in proposals:
             if proposal["estado"] == "alta":
                 proposal["estado"] = "propuesta"
-    entry = {"fecha": spec["fecha"], "documentos": [], "materiales": materials}
+    if not materials:
+        lot_documents = []
+    entry = {"fecha": spec["fecha"], "documentos": lot_documents, "materiales": materials}
     return entry, proposals, conflicts
 
 

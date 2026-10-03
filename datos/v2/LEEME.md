@@ -15,6 +15,11 @@ usuario van a `respuestas/<lote>.csv`, que el script lee: el lote entra entero c
 contestadas, y volver a ejecutar da siempre lo mismo. Los tipos de conflicto y sus respuestas
 están en `scripts/v2/lote.py`.
 
+Un documento de otro proveedor (el mismo material) entra como **placeholder** con autoridad
+`literatura` si `docs/v2/documentos-ajenos.csv` lo da por revisado (D9); sus cifras las lee
+`scripts/v2/documentos.py`. La evidencia de la forma de un natural, el título y la descripción de su
+página de la tienda, está en `paginas-tienda.csv` (`scripts/v2/pagina_tienda.py`).
+
 ## Ids
 
 Cada sustancia, material, producto, lote, documento y grupo tiene un id de

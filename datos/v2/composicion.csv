@@ -2,6 +2,67 @@ id_contenedor,id_componente,min,tipico,max,tipo_valor,autoridad,id_documento,not
 M00003,S00001,,0.48,,tipico,anexo-ifra,D00001,Lavender oil (Lavandula angustifolia angustifolia)
 M00003,S00003,,1.04,,tipico,anexo-ifra,D00001,Lavender oil (Lavandula angustifolia angustifolia)
 M00003,S00004,,0.01,,tipico,anexo-ifra,D00001,Lavender oil (Lavandula angustifolia angustifolia)
+M00041,S00035,,0.1561,,tipico,literatura,D00005,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00042,S00002,,13.0450,,tipico,literatura,D00006,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00042,S00061,,0.8698,,tipico,literatura,D00006,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00042,S00062,,22.9646,,tipico,literatura,D00006,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00043,S00024,,0.6,,tipico,anexo-ifra,D00001,"Cedarwood oil, Atlas (Cedrus atlantica (Endl.) Manetti ex Carriere)"
+M00043,S00063,,1.5,,tipico,anexo-ifra,D00001,"Cedarwood oil, Atlas (Cedrus atlantica (Endl.) Manetti ex Carriere)"
+M00044,S00001,,1.6,,tipico,anexo-ifra,D00001,Coriander seed oil (Coriandrum sativum L.)
+M00045,S00001,,0.1,,tipico,anexo-ifra,D00001,"Lemon oil, expressed (Citrus limon (L.) Burm. f.)"
+M00045,S00061,,3.5,,tipico,anexo-ifra,D00001,"Lemon oil, expressed (Citrus limon (L.) Burm. f.)"
+M00045,S00064,,0.05,,tipico,anexo-ifra,D00001,"Lemon oil, expressed (Citrus limon (L.) Burm. f.)"
+M00045,S00065,,0.1,,tipico,anexo-ifra,D00001,"Lemon oil, expressed (Citrus limon (L.) Burm. f.)"
+M00046,S00001,,1.1,,tipico,anexo-ifra,D00001,Litsea cubeba oil (Litsea Cubeba(Lour.) Pers.)
+M00046,S00024,,0.2,,tipico,anexo-ifra,D00001,Litsea cubeba oil (Litsea Cubeba(Lour.) Pers.)
+M00046,S00061,,69,,tipico,anexo-ifra,D00001,Litsea cubeba oil (Litsea Cubeba(Lour.) Pers.)
+M00046,S00065,,1.1,,tipico,anexo-ifra,D00001,Litsea cubeba oil (Litsea Cubeba(Lour.) Pers.)
+M00046,S00066,,0.15,,tipico,anexo-ifra,D00001,Litsea cubeba oil (Litsea Cubeba(Lour.) Pers.)
+M00046,S00068,,0.4,,tipico,anexo-ifra,D00001,Litsea cubeba oil (Litsea Cubeba(Lour.) Pers.)
+M00046,S00069,,1,,tipico,anexo-ifra,D00001,Litsea cubeba oil (Litsea Cubeba(Lour.) Pers.)
+M00046,S00070,,0.05,,tipico,anexo-ifra,D00001,Litsea cubeba oil (Litsea Cubeba(Lour.) Pers.)
+M00046,S00001,,0.2920,,tipico,literatura,D00007,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00046,S00002,,1.2836,,tipico,literatura,D00007,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00046,S00015,,0.0381,,tipico,literatura,D00007,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00046,S00061,,66.6993,,tipico,literatura,D00007,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00046,S00062,,13.3938,,tipico,literatura,D00007,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00046,S00065,,0.5125,,tipico,literatura,D00007,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00046,S00066,,0.0524,,tipico,literatura,D00007,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00046,S00067,,0.3412,,tipico,literatura,D00007,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00046,S00068,,0.1708,,tipico,literatura,D00007,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00047,S00073,,0.4,,tipico,anexo-ifra,D00001,Mandarin oil (Citrus reticulata Blanco)
+M00047,S00015,,0.0074,,tipico,literatura,D00008,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00047,S00062,,74.8701,,tipico,literatura,D00008,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00047,S00071,,0.1144,,tipico,literatura,D00008,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00047,S00072,,0.0036,,tipico,literatura,D00008,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00047,S00073,,0.1171,,tipico,literatura,D00008,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00048,S00061,,0.15,,tipico,anexo-ifra,D00001,"Orange, sweet, Valencia oil (Citrus sinensis (L.) Osbeck)"
+M00050,S00012,,0.0293,,tipico,literatura,D00009,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00050,S00023,,0.1835,,tipico,literatura,D00009,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00050,S00074,,2.1895,,tipico,literatura,D00009,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00050,S00075,,0.1212,,tipico,literatura,D00009,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00050,S00076,,1.7952,,tipico,literatura,D00009,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00051,S00011,,0.04,,tipico,anexo-ifra,D00001,Styrax resinoid (Liquidambar styraciflua L.)
+M00051,S00017,,0.04,,tipico,anexo-ifra,D00001,Styrax resinoid (Liquidambar styraciflua L.)
+M00051,S00018,,1.4,,tipico,anexo-ifra,D00001,Styrax resinoid (Liquidambar styraciflua L.)
+M00051,S00079,,0.93,,tipico,anexo-ifra,D00001,Styrax resinoid (Liquidambar styraciflua L.)
+M00051,S00002,,,0.0080,maximo,literatura,D00010,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00051,S00011,,,0.0465,maximo,literatura,D00010,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00051,S00012,,,0.2200,maximo,literatura,D00010,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00051,S00013,,,6.0000,maximo,literatura,D00010,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00051,S00017,,,0.3500,maximo,literatura,D00010,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00051,S00018,,,7.0000,maximo,literatura,D00010,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00051,S00020,,,0.0070,maximo,literatura,D00010,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00051,S00023,,,0.0080,maximo,literatura,D00010,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00051,S00035,,,0.0040,maximo,literatura,D00010,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00051,S00074,,,0.0520,maximo,literatura,D00010,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00051,S00077,,,0.0020,maximo,literatura,D00010,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00051,S00078,,,0.0060,maximo,literatura,D00010,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
+M00052,S00028,,25,,tipico,anexo-ifra,D00001,Sage Dalmatian oil (Salvia officinalis L.)
+M00052,S00080,,8,,tipico,anexo-ifra,D00001,Sage Dalmatian oil (Salvia officinalis L.)
+M00053,S00063,,0.2,,tipico,anexo-ifra,D00001,Vetiver oil (all origins) (Chrysopogon zizanioides (L.) Roberty)
+M00053,S00081,,0.1,,tipico,anexo-ifra,D00001,Vetiver oil (all origins) (Chrysopogon zizanioides (L.) Roberty)
+M00053,S00024,,2.4991,,tipico,literatura,D00011,"cifras de un documento de otro proveedor: placeholder de literatura, cuenta su máximo (D2); no prueba que este lote no lleve más"
 P00005,S00006,,0.0046,,tipico,producto,D00002,
 P00006,S00007,,,0.1,maximo,producto,D00004,cota «<» del certificado
 P00006,S00008,,,0.1,maximo,producto,D00004,cota «<» del certificado
