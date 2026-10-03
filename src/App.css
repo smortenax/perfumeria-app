@@ -1049,6 +1049,7 @@ button.value:hover {
    their data comes: dashed edge and muted text, never a figure that looks like one (§1.2). */
 
 .material-card {
+  position: relative;
   flex: 1;
   /* A little taller than the 80 px of the first card: the strip now has four marks and a legend (E5). */
   min-height: 92px;
@@ -2565,4 +2566,73 @@ button.value:hover {
 /* A manufacturer's ceiling passed (P62): red, under IFRA's two readings and apart from them. */
 .supplier-over {
   color: var(--red);
+}
+
+/* «De dónde sale»: a popover of the material card (Phase 5). */
+/* In the corner of the card, so the narrow identity line never hides it. */
+.prov-button {
+  position: absolute;
+  top: 3px;
+  right: 8px;
+  font-size: 11px;
+}
+.prov-pop {
+  position: absolute;
+  z-index: 20;
+  left: 12px;
+  top: calc(100% + 4px);
+  width: min(720px, calc(100vw - 48px));
+  max-height: 60vh;
+  overflow: auto;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  box-shadow: 0 6px 24px rgb(0 0 0 / 0.16);
+}
+.prov-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.prov-section {
+  margin-top: 6px;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.prov-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+  align-items: baseline;
+  padding: 2px 0;
+  border-top: 1px solid var(--line);
+}
+.prov-what {
+  flex: 1 1 220px;
+  min-width: 0;
+}
+.prov-value {
+  flex: none;
+  min-width: 70px;
+  text-align: right;
+}
+.prov-auth,
+.prov-doc {
+  color: var(--ink-2);
+}
+.pill.amber {
+  color: var(--amber);
+  background: var(--amber-bg);
+}
+.state-pill.probada {
+  color: #2f6b3a;
+}
+.state-pill.supuesta,
+.state-pill.pendiente {
+  color: var(--amber);
+  background: var(--amber-bg);
 }

@@ -9,6 +9,7 @@ import { familyLook } from "./family";
 import { roomText } from "./composition-ifra";
 import { amountText, initials, massText, shareText } from "./format";
 import { IconText, iconLength } from "./Icon";
+import { ProvenanceButton } from "./Provenance";
 import { carriedOf, USAGE_DECADES, usagePosition } from "./material-card";
 import type { Cap, MaterialIfra, Preview, UsageBand } from "./usage-bar";
 import { bandOverIfra } from "./usage-bar";
@@ -62,6 +63,7 @@ function Identity(props: { material: Material; entry: CatalogEntry | undefined }
               {search.state[entry.state]}
             </span>
           )}
+          <ProvenanceButton provenance={entry?.provenance} />
         </span>
       </span>
     </div>

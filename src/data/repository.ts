@@ -1,4 +1,5 @@
 import type { IfraData } from "../core/ifra";
+import type { MaterialDetail } from "../v2/to-ifra";
 import { searchCatalog, type CatalogEntry, type ScentFamily } from "./catalog";
 
 /** Which model of materials the bench reads: the glossary (v1) or datos/v2/ (docs/v2/). */
@@ -16,6 +17,11 @@ export interface MaterialRepository {
   get(key: string): CatalogEntry | undefined;
   ifraData(): IfraData;
   readonly families: readonly ScentFamily[];
+  /**
+   * Only the v2: what the interface needs to explain the IFRA data, parallel to it: the condition states (D11) and which pending
+   * entries are specifications to prove. Keyed by the key of the material.
+   */
+  readonly details?: ReadonlyMap<string, MaterialDetail>;
   /** The IFRA amendment its limits come from, and the date its data was generated. */
   readonly source: { readonly amendment: string; readonly generated: string };
 }
@@ -26,6 +32,7 @@ export function repositoryOf(
   catalog: {
     readonly entries: readonly CatalogEntry[];
     readonly ifra: IfraData;
+    readonly details?: ReadonlyMap<string, MaterialDetail>;
     readonly families: readonly ScentFamily[];
     readonly source: { readonly amendment: string; readonly generated: string };
   },
@@ -37,6 +44,7 @@ export function repositoryOf(
     search: (query, limit) => searchCatalog(catalog.entries, query, limit),
     get: (key) => byKey.get(key),
     ifraData: () => catalog.ifra,
+    ...(catalog.details ? { details: catalog.details } : {}),
     families: catalog.families,
     source: catalog.source,
   };

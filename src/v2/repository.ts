@@ -2,7 +2,8 @@ import { DILUENTS } from "../core/model/material";
 import { fold, normalize, type CatalogEntry } from "../data/catalog";
 import { repositoryOf, type MaterialRepository } from "../data/repository";
 import type { Dataset } from "./model";
-import { flatten, ifraCards, toIfra, v2Key, type IfraCard, type IfraFiles } from "./to-ifra";
+import { provenanceOf } from "./provenance";
+import { buildIfra, flatten, ifraCards, v2Key, type IfraCard, type IfraFiles, type MaterialDetail } from "./to-ifra";
 
 /** The diluents as the v1 catalog shows them; their IFRA comes from their CAS (to-ifra.ts). */
 const DILUENT_ENTRIES: ReadonlyArray<readonly [keyof typeof DILUENTS, string, string]> = [
@@ -20,7 +21,12 @@ const DILUENT_ENTRIES: ReadonlyArray<readonly [keyof typeof DILUENTS, string, st
  * material that has none yet. Provisional, like the rest of the interface: no families or usual use
  * yet, and the id as the code, since the v2 has no codes of its own.
  */
-export function v2Entries(data: Dataset, cards: ReadonlyMap<string, IfraCard> = new Map()): CatalogEntry[] {
+export function v2Entries(
+  data: Dataset,
+  cards: ReadonlyMap<string, IfraCard> = new Map(),
+  details: ReadonlyMap<string, MaterialDetail> = new Map(),
+): CatalogEntry[] {
+  const provenance = (id: string) => ({ provenance: provenanceOf(data, id, details.get(v2Key(id))) });
   const card = (id: string) => {
     const c = cards.get(v2Key(id));
     return c ? { state: c.state, ...(c.standardName ? { standardName: c.standardName } : {}), ...(c.note ? { ifraNote: c.note } : {}) } : {};
@@ -56,6 +62,7 @@ export function v2Entries(data: Dataset, cards: ReadonlyMap<string, IfraCard> = 
       ...(documented.has(p.id) ? { documented: true } : {}),
       ...(flatten(data, p.id).pureByConvention ? { pureByConvention: true } : {}),
       ...card(p.id),
+      ...provenance(p.id),
     });
   }
   for (const m of data.materials.filter((x) => !withProduct.has(x.id))) {
@@ -70,15 +77,18 @@ export function v2Entries(data: Dataset, cards: ReadonlyMap<string, IfraCard> = 
       folded: [fold(m.name)],
       ...(flatten(data, m.id).pureByConvention ? { pureByConvention: true } : {}),
       ...card(m.id),
+      ...provenance(m.id),
     });
   }
   return entries;
 }
 
 export function v2RepositoryOf(data: Dataset, ifra: IfraFiles, generated: string): MaterialRepository {
+  const built = buildIfra(data, ifra);
   return repositoryOf("v2", {
-    entries: v2Entries(data, ifraCards(data, ifra)),
-    ifra: toIfra(data, ifra),
+    entries: v2Entries(data, ifraCards(data, ifra), built.details),
+    ifra: built.ifra,
+    details: built.details,
     families: [],
     source: { amendment: ifra.amendment, generated },
   });

@@ -2,6 +2,7 @@ import { Ratio } from "../core/arith/ratio";
 import type { IfraData, IfraMaterial, IfraSubstance } from "../core/ifra";
 import { DILUENTS, type Material } from "../core/model/material";
 import { parseCsvRecords } from "./csv";
+import type { Provenance } from "../v2/provenance";
 import { plantName, variantsOf } from "./plants";
 
 /**
@@ -61,6 +62,8 @@ export interface UsageData {
 }
 
 export interface CatalogEntry {
+  /** Only the v2 has it: where each figure of the material comes from (Phase 5). */
+  readonly provenance?: Provenance;
   /** Named by its trade name when it has one (P38): that is what the user knows it by. */
   readonly material: Material;
   readonly group: CatalogGroup;

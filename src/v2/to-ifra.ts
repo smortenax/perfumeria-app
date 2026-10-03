@@ -252,7 +252,9 @@ const DILUENT_CAS: ReadonlyArray<readonly [string, string]> = [
  * `v2Key`, plus the app's diluents. Every one of them is «checked»: what is not known goes as a
  * pending note or an unknown load, never as free (§1.2, §5.5).
  */
-export function toIfra(data: Dataset, files: IfraFiles): IfraData {
+export const toIfra = (data: Dataset, files: IfraFiles): IfraData => buildIfra(data, files).ifra;
+
+export function buildIfra(data: Dataset, files: IfraFiles): IfraBuild {
   const standards = new Map(parseCsvRecords(files.estandares).map((s) => [s.estandar, s]));
   const casOf = new Map<string, string[]>();
   const byCas = new Map<string, string[]>();
@@ -300,12 +302,16 @@ export function toIfra(data: Dataset, files: IfraFiles): IfraData {
       const state = stateOf(standard);
       if (state.kind === "probada") {
         into.conditions.push(text);
+        into.conditionDetails.push({ standard, text, state: "probada", authority: state.authority, documentId: state.documentId, claim: state.claim });
       } else if (state.kind === "supuesta") {
         const assumed = `${text}: supuesta, no acreditada (${state.authority})`;
         into.conditions.push(assumed);
         into.assumed.push(assumed);
+        into.conditionDetails.push({ standard, text, state: "supuesta", authority: state.authority, documentId: state.documentId, claim: state.claim });
       } else {
         into.pending.push(pendingText);
+        into.specPending.push(pendingText);
+        into.conditionDetails.push({ standard, text, state: "pendiente" });
       }
     };
     for (const standard of memberStandards) {
@@ -339,7 +345,9 @@ export function toIfra(data: Dataset, files: IfraFiles): IfraData {
           continue;
         }
         // A variant is prohibited, and the permitted ones have a ceiling (STD 078, the styrax): the ceiling counts.
-        into.conditions.push(`una variante está prohibida (${short(standard)})`);
+        const variant = `una variante está prohibida (${short(standard)})`;
+        into.conditions.push(variant);
+        into.conditionDetails.push({ standard, text: variant, state: "nota" });
       }
       if (asItself && s.especificacion === "sí" && appliesSpec(standard)) {
         condition(`especificación (${short(standard)})`, standard, `${s.nombre}: su especificación no está acreditada (${short(standard)}).`);
@@ -371,10 +379,11 @@ export function toIfra(data: Dataset, files: IfraFiles): IfraData {
   };
 
   const materials = new Map<string, IfraMaterial>();
+  const details = new Map<string, MaterialDetail>();
   const containers = [...data.products.map((p) => p.id), ...data.lots.map((l) => l.id), ...data.materials.map((m) => m.id)];
   for (const id of containers) {
     const flat = flatten(data, id);
-    const entry: IfraEntry = { substances: [], conditions: [], assumed: [], pending: [...flat.pending] };
+    const entry: IfraEntry = { conditionDetails: [], specPending: [], substances: [], conditions: [], assumed: [], pending: [...flat.pending] };
     const fiveMopKnown = [...flat.loads.keys()].some(
       (member) => !flat.itself.has(member) && (standardsOf.get(member) ?? []).includes(FIVE_MOP_STANDARD),
     );
@@ -384,10 +393,13 @@ export function toIfra(data: Dataset, files: IfraFiles): IfraData {
     const chain = [id, ownerId, materialId];
     const stateOf = (standard: string): ConditionState => {
       const rows = data.conditions.filter((c) => c.standard === standard && chain.includes(c.containerId));
-      if (rows.some((c) => c.authority === "producto" || c.authority === "lote")) {
-        return { kind: "probada" };
+      const proof = rows.find((c) => c.authority === "producto" || c.authority === "lote");
+      if (proof) {
+        return { kind: "probada", authority: proof.authority, documentId: proof.documentId, claim: proof.claim };
       }
-      return rows.length > 0 ? { kind: "supuesta", authority: rows[0].authority } : { kind: "pendiente" };
+      return rows.length > 0
+        ? { kind: "supuesta", authority: rows[0].authority, documentId: rows[0].documentId, claim: rows[0].claim }
+        : { kind: "pendiente" };
     };
     // A specification that is about other processes than this material's does not apply (exclusiones.csv).
     const process = (data.materials.find((m) => m.id === materialId)?.process ?? "").toLowerCase();
@@ -410,6 +422,7 @@ export function toIfra(data: Dataset, files: IfraFiles): IfraData {
       });
       entry.substances.push({ key, fraction: Ratio.ONE });
     }
+    details.set(v2Key(id), { conditions: entry.conditionDetails, specPending: [...new Set(entry.specPending)] });
     materials.set(v2Key(id), {
       status: "checked",
       substances: merge(entry.substances),
@@ -421,17 +434,19 @@ export function toIfra(data: Dataset, files: IfraFiles): IfraData {
 
   // The diluents of the app: their CAS in IFRA's index, or nothing to check (the index is complete).
   for (const [key, cas] of DILUENT_CAS) {
-    const entry: IfraEntry = { substances: [], conditions: [], assumed: [], pending: [] };
+    const entry: IfraEntry = { conditionDetails: [], specPending: [], substances: [], conditions: [], assumed: [], pending: [] };
     judge(byCas.get(cas) ?? [], true, { known: Ratio.ONE, upper: Ratio.ONE }, entry);
     materials.set(key, { status: "checked", substances: entry.substances, conditions: entry.conditions });
   }
 
-  return { substances, materials };
+  return { ifra: { substances, materials }, details };
 }
 
 type Entry = { key: string; fraction: Ratio | null; upper?: Ratio };
 
 interface IfraEntry {
+  conditionDetails: ConditionDetail[];
+  specPending: string[];
   substances: Entry[];
   conditions: string[];
   /** The conditions that are assumed, not proven. */
@@ -440,11 +455,40 @@ interface IfraEntry {
 }
 
 /**
+ * What the card says of one condition of a material (D11), and the specifications left pending, as the adapter creates
+ * them: the adapter knows which kind each pending is when it makes it, so nothing is read back from the texts.
+ */
+export interface ConditionDetail {
+  readonly standard: string;
+  readonly text: string;
+  /** «nota» is a fact of the standard (a variant is prohibited) that the material neither proves nor assumes. */
+  readonly state: "probada" | "supuesta" | "pendiente" | "nota";
+  readonly authority?: string;
+  readonly documentId?: string;
+  readonly claim?: string;
+}
+
+export interface MaterialDetail {
+  readonly conditions: readonly ConditionDetail[];
+  /** The pending entries (the texts of `IfraMaterial.pending`) that are specifications to prove, not quantities unknown. */
+  readonly specPending: readonly string[];
+}
+
+/** The IFRA data of the v2, and, parallel to it and never in the engine, what the interface needs to explain it. */
+export interface IfraBuild {
+  readonly ifra: IfraData;
+  readonly details: ReadonlyMap<string, MaterialDetail>;
+}
+
+/**
  * The state of a condition of an IFRA standard for a container (a lot, its product or its material): proven
  * when a row has the authority of a product or a lot, assumed when it only has a consensus or the literature,
  * pending when there is no row. The text of a process proves nothing.
  */
-type ConditionState = { readonly kind: "probada" } | { readonly kind: "supuesta"; readonly authority: string } | { readonly kind: "pendiente" };
+type ConditionState =
+  | { readonly kind: "probada"; readonly authority: string; readonly documentId: string; readonly claim: string }
+  | { readonly kind: "supuesta"; readonly authority: string; readonly documentId: string; readonly claim: string }
+  | { readonly kind: "pendiente" };
 
 /**
  * Two members under one standard (two isomers of one group) add up. An unknown one leaves the sum
