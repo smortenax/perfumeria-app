@@ -169,6 +169,11 @@ def prepare(name: str, lot: dict, data: Data) -> tuple[Counter, dict, list[dict[
             entry["schiff"] = {"documento": "ifra51-bases-schiff", "cas": cas}
             counts["entra con el aldehído de IFRA (base de Schiff)"] += 1
         counts["entra"] += 1
+        standards = data.index.get(cas, [])
+        if standards:
+            counts["con estándar de IFRA (por el CAS del índice)"] += 1
+        if any(data.standards[x]["especificacion"] == "sí" for x in standards if x in data.standards):
+            counts["con especificación (pendiente por D11)"] += 1
         if len(rows) > 1:
             counts["varias filas del glosario con el mismo CAS (una sustancia)"] += len(rows) - 1
         materials.append(entry)
@@ -189,6 +194,7 @@ def prepare(name: str, lot: dict, data: Data) -> tuple[Counter, dict, list[dict[
 
 
 def main() -> int:
+    sys.stdout.reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser()
     parser.add_argument("--nuevo", help="clase de la que se congela el siguiente lote (molécula, natural, base)")
     args = parser.parse_args()
@@ -212,6 +218,10 @@ def main() -> int:
         all_links.extend(links)
         results[name] = (counts, conflicts)
     write_csv(DOCS / "enlaces-glosario.csv", ["id_v1", "id_v2", "id_producto", "confirmado", "motivo"], all_links)
+    print("Resumen por lote (entradas | con estándar | con especificación | conflictos):")
+    for key, (c, cf) in results.items():
+        print(f"  {key}: {c['entra']:4} | {c['con estándar de IFRA (por el CAS del índice)']:4} | {c['con especificación (pendiente por D11)']:3} | {len(cf)}")
+    print()
     name = newest or list(lots)[-1]
     lot = lots[name]
     counts, conflicts = results[name]
