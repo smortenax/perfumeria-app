@@ -77,8 +77,9 @@ describe("migrating a formula of the v1 to the v2 (D13)", () => {
   });
 
   it("what the v2 does not have stays in the v1, as it was: never another material", () => {
-    const m = migrateFormula(formulaOf(base("fig:1197", "Bergamot oil", "8007-75-8"), base("fig:1286", "Cade oil", "8013-10-3")), data);
-    expect(keysOf(m.formula)).toEqual(["fig:1197", "fig:1286"]);
+    // Rows the v1 keeps «sin revisar» by decision (a shop's and a catalog's, left out of the glossary phase); the bergamot and the cade oil used here before entered with Phase 6.
+    const m = migrateFormula(formulaOf(base("tienda:1335-12-2", "Alcohol Fenilpropilico", "1335-12-2"), base("cat:246872-25-3", "Ethyl trimethylcyclohexanecarboxylate", "246872-25-3")), data);
+    expect(keysOf(m.formula)).toEqual(["tienda:1335-12-2", "cat:246872-25-3"]);
     expect(m.notes.map((n) => n.kind)).toEqual(["v1-only", "v1-only"]);
     expect(m.changed).toBe(false);
   });

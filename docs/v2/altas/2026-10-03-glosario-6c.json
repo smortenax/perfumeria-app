@@ -329,7 +329,7 @@
    "estandares_decididos": [
     {
      "estandar": "IFRA_STD_037",
-     "motivo": "D15, estandar-por-evidencia: el nombre «3,7-Dimethyl-2,6-octadien-1-ol», sin estereoquímica, es el de «trans-3,7-Dimethyl-2,6-octadien-1-ol» en los datos de IFRA del IFRA_STD_037: la misma sustancia con la estereoquímica sin especificar"
+     "motivo": "D15, estandar-por-evidencia: propuesta de la sesión: el glosario trae sinónimos que IFRA lista para el IFRA_STD_037 (Geraniol; 3,7-Dimethylocta-2,6-dien-1-ol; 2,6-Octadien-1-ol, 3,7-dimethyl-, (e)-) y dice «en el alcance del STD 037: es el mismo compuesto, con otro registro, que el CAS 106-24-1»"
     }
    ]
   },

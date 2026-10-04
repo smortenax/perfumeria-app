@@ -20,7 +20,8 @@ const formula = (...materials: Material[]): Formula => ({
   history: materials.map(line),
 });
 const pepper: Material = { key: "fig:2622", kind: "base", name: "Pepper, black, absolute", cas: "8006-82-4" };
-const bergamot: Material = { key: "fig:1197", kind: "base", name: "Bergamot oil", cas: "8007-75-8" };
+// A row the v2 does not have and the v1 keeps «sin revisar» by decision (a shop-only row, left out of the glossary phase): the bergamot oil it used to be entered with Phase 6.
+const bergamot: Material = { key: "tienda:1335-12-2", kind: "base", name: "Alcohol Fenilpropilico", cas: "1335-12-2" };
 
 describe("opening a formula of the library (Phase 5)", () => {
   it("the v2 is the model by default", () => {
@@ -31,7 +32,7 @@ describe("opening a formula of the library (Phase 5)", () => {
     const text = formulaToJson(formula(pepper, bergamot));
     const opened = openFormula(text, "C:/Fórmulas/una fórmula.json", "v2");
     expect(opened.original).toBe(text);
-    expect(opened.formula.history.map((c) => (c.kind === "add" ? c.material.key : ""))).toEqual([expect.stringMatching(/^v2:P/), "fig:1197"]);
+    expect(opened.formula.history.map((c) => (c.kind === "add" ? c.material.key : ""))).toEqual([expect.stringMatching(/^v2:P/), "tienda:1335-12-2"]);
     expect(opened.migration?.notes.map((n) => n.kind)).toEqual(["migrated", "v1-only"]);
   });
 

@@ -3050,6 +3050,33 @@ M04251,S01009,,,0.03,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del a
 M04251,S01016,,,0.05,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8006-81-3 (D14): Ylang ylang oil I
 M04251,S01017,,,2.35,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8006-81-3 (D14): Ylang ylang oil II
 M04251,S01729,,,0.12,maximo,anexo-ifra,D00001,"el máximo de las 5 entradas del anexo para 8006-81-3 (D14): Ylang, Ylang oil complete"
+M04267,S00001,,0.04,,tipico,anexo-ifra,D00001,Bergamot oil expressed (Citrus bergamia Risso & Poit.)
+M04267,S00071,,0.28,,tipico,anexo-ifra,D00001,Bergamot oil expressed (Citrus bergamia Risso & Poit.)
+M04267,S01007,,0.2,,tipico,anexo-ifra,D00001,Bergamot oil expressed (Citrus bergamia Risso & Poit.)
+M04268,S00001,,0.04,,tipico,anexo-ifra,D00001,Bergamot oil expressed (Citrus bergamia Risso & Poit.)
+M04268,S00071,,0.28,,tipico,anexo-ifra,D00001,Bergamot oil expressed (Citrus bergamia Risso & Poit.)
+M04268,S01007,,0.2,,tipico,anexo-ifra,D00001,Bergamot oil expressed (Citrus bergamia Risso & Poit.)
+M04270,S00001,,0.13,,tipico,anexo-ifra,D00001,Eucalyptus dives oil (Eucalyptus dives Shauer)
+M04271,S00001,,,0.15,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-26-2 (D14): Lime oil, expressed"
+M04271,S00064,,,0.28,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-26-2 (D14): Persian lime oil, expressed"
+M04271,S00065,,,1.39,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-26-2 (D14): Persian lime oil, expressed"
+M04271,S00066,,,0.01,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8008-26-2 (D14): Lime oil distilled
+M04271,S00071,,,2.6,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-26-2 (D14): Lime oil, expressed"
+M04271,S01007,,,1.7,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-26-2 (D14): Lime oil, expressed"
+M04271,S01017,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8008-26-2 (D14): Lime oil distilled
+M04271,S02258,,,0.2,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-26-2 (D14): Lime oil, expressed"
+M04272,S00003,,0.06,,tipico,anexo-ifra,D00001,Spearmint oil (Mentha spicata L.)
+M04272,S01008,,66.07,,tipico,anexo-ifra,D00001,Spearmint oil (Mentha spicata L.)
+M04272,S01662,,0.02,,tipico,anexo-ifra,D00001,Spearmint oil (Mentha spicata L.)
+M04273,S00025,,0.05,,tipico,anexo-ifra,D00001,Tea tree oil (Melaleuca alternifolia (Maiden & Betche) Cheel)
+M04273,S00081,,0.03,,tipico,anexo-ifra,D00001,Tea tree oil (Melaleuca alternifolia (Maiden & Betche) Cheel)
+M04274,S00001,,0.03,,tipico,anexo-ifra,D00001,Thyme absolute (Thymus vulgaris L.)
+M04274,S00012,,0.3,,tipico,anexo-ifra,D00001,Thyme absolute (Thymus vulgaris L.)
+M04274,S00020,,0.12,,tipico,anexo-ifra,D00001,Thyme absolute (Thymus vulgaris L.)
+M04274,S00025,,0.01,,tipico,anexo-ifra,D00001,Thyme absolute (Thymus vulgaris L.)
+M04274,S00084,,0.02,,tipico,anexo-ifra,D00001,Thyme absolute (Thymus vulgaris L.)
+M04274,S01008,,0.05,,tipico,anexo-ifra,D00001,Thyme absolute (Thymus vulgaris L.)
+M04275,S00080,,0.2,,tipico,anexo-ifra,D00001,"Thyme oil, wild (Thymus serpyllum L.)"
 P00005,S00006,,0.0046,,tipico,producto,D00002,
 P00006,S00007,,,0.1,maximo,producto,D00004,cota «<» del certificado
 P00006,S00008,,,0.1,maximo,producto,D00004,cota «<» del certificado

@@ -1,6 +1,6 @@
 {
  "fecha": "2026-10-03",
- "notas": "Fase 6, lote 6o: 300 naturales del glosario v1 (término del FIG y datos de IFRA).",
+ "notas": "Fase 6, lote 6o: 301 naturales del glosario v1 (término del FIG y datos de IFRA).",
  "documentos": [
   {
    "clave": "ifra51-anexo-naturales",
@@ -4508,14 +4508,18 @@
    "clave": "glosario-natural-cas-90046-02-9",
    "tipo": "natural",
    "nombre": "Cade oil",
-   "cas": "90046-02-9",
+   "cas": "8013-10-3",
    "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
-    "cas:90046-02-9"
+    "cas:90046-02-9",
+    "fig:1286"
    ],
-   "notas": "Fase 6, lote 6o (D14): la identidad es el término del FIG «Cade oil»; el CAS 90046-02-9 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+   "otros_cas": [
+    "90046-02-9"
+   ],
+   "notas": "Fase 6, lote 6o (D14): la identidad es el término del FIG «Cade oil»; sus CAS (8013-10-3 90046-02-9) son atributos. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
   },
   {
    "clave": "glosario-natural-cas-90131-43-4",

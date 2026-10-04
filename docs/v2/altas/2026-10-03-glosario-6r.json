@@ -1,0 +1,182 @@
+{
+ "fecha": "2026-10-03",
+ "notas": "Fase 6, lote 6r: 8 naturales del glosario v1 (término del FIG y datos de IFRA).",
+ "documentos": [
+  {
+   "clave": "ifra51-anexo-naturales",
+   "tipo": "anexo-ifra",
+   "titulo": "IFRA 51, anexo de contribuciones de otras fuentes: naturales",
+   "emisor": "IFRA",
+   "fecha": "2023-06",
+   "ruta": "datos/ifra/51/naturales.csv",
+   "estado_revision": "revisado",
+   "notas": "Archivo oficial de IFRA convertido por scripts/importar_ifra.py; sus cifras se toman tal cual."
+  }
+ ],
+ "materiales": [
+  {
+   "clave": "glosario-natural-fig-1197",
+   "tipo": "natural",
+   "nombre": "Bergamot oil",
+   "cas": "8007-75-8",
+   "especie": "Citrus bergamia Risso & Poit.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1197"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Bergamot oil expressed",
+    "cas_todos": [
+     "8007-75-8"
+    ]
+   },
+   "notas": "Fase 6, lote 6r (D14): la identidad es el término del FIG «Bergamot oil»; el CAS 8007-75-8 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Citrus bergamia Risso & Poit., la del anexo de IFRA 51, única para el CAS 8007-75-8; el término no nombra ninguna. Anexo de IFRA 51: la entrada «Bergamot oil expressed»."
+  },
+  {
+   "clave": "glosario-natural-fig-1202",
+   "tipo": "natural",
+   "nombre": "Bergamot oil, terpeneless",
+   "cas": "8007-75-8",
+   "especie": "Citrus bergamia Risso & Poit.",
+   "parte": "",
+   "proceso": "aceite esencial; sin terpenos",
+   "v1": [
+    "fig:1202"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Bergamot oil expressed",
+    "cas_todos": [
+     "8007-75-8"
+    ]
+   },
+   "notas": "Fase 6, lote 6r (D14): la identidad es el término del FIG «Bergamot oil, terpeneless»; el CAS 8007-75-8 es un atributo. Proceso: aceite esencial; sin terpenos. Parte: no lo dice. Especie: Citrus bergamia Risso & Poit., la del anexo de IFRA 51, única para el CAS 8007-75-8; el término no nombra ninguna. Anexo de IFRA 51: la entrada «Bergamot oil expressed»."
+  },
+  {
+   "clave": "glosario-natural-fig-1831",
+   "tipo": "natural",
+   "nombre": "Eucalyptus oil",
+   "cas": "8000-48-4",
+   "especie": "Eucalyptus dives Shauer",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1831"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Eucalyptus dives oil",
+    "cas_todos": [
+     "8000-48-4"
+    ]
+   },
+   "notas": "Fase 6, lote 6r (D14): la identidad es el término del FIG «Eucalyptus oil»; el CAS 8000-48-4 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Eucalyptus dives Shauer, la del anexo de IFRA 51, única para el CAS 8000-48-4; el término no nombra ninguna. Anexo de IFRA 51: la entrada «Eucalyptus dives oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-2213",
+   "tipo": "natural",
+   "nombre": "Lime oil",
+   "cas": "8008-26-2",
+   "especie": "no lo dice",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:2213"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas_todos": [
+     "8008-26-2"
+    ],
+    "nombres": [
+     "Lime oil distilled",
+     "Lime oil, expressed",
+     "Persian lime oil, expressed"
+    ]
+   },
+   "notas": "Fase 6, lote 6r (D14): la identidad es el término del FIG «Lime oil»; el CAS 8008-26-2 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice. Anexo de IFRA 51: hay 3 entradas para este CAS y el término no coincide con una sola; cuenta la peor de ellas: Lime oil distilled; Lime oil, expressed; Persian lime oil, expressed."
+  },
+  {
+   "clave": "glosario-natural-fig-2880",
+   "tipo": "natural",
+   "nombre": "Spearminty oil",
+   "cas": "8008-79-5",
+   "especie": "Mentha spicata L.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:2880"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Spearmint oil",
+    "cas_todos": [
+     "8008-79-5"
+    ]
+   },
+   "notas": "Fase 6, lote 6r (D14): la identidad es el término del FIG «Spearminty oil»; el CAS 8008-79-5 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Mentha spicata L., la del anexo de IFRA 51, única para el CAS 8008-79-5; el término no nombra ninguna. Anexo de IFRA 51: la entrada «Spearmint oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-2937",
+   "tipo": "natural",
+   "nombre": "Tea tree oil",
+   "cas": "68647-73-4",
+   "especie": "Melaleuca alternifolia (Maiden & Betche) Cheel",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:2937"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Tea tree oil",
+    "cas_todos": [
+     "68647-73-4"
+    ]
+   },
+   "notas": "Fase 6, lote 6r (D14): la identidad es el término del FIG «Tea tree oil»; el CAS 68647-73-4 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Melaleuca alternifolia (Maiden & Betche) Cheel, la del anexo de IFRA 51, única para el CAS 68647-73-4; el término no nombra ninguna. Anexo de IFRA 51: la entrada «Tea tree oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-2974",
+   "tipo": "natural",
+   "nombre": "Thyme absolute",
+   "cas": "8007-46-3",
+   "especie": "Thymus vulgaris L.",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:2974"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Thyme absolute",
+    "cas_todos": [
+     "8007-46-3"
+    ]
+   },
+   "notas": "Fase 6, lote 6r (D14): la identidad es el término del FIG «Thyme absolute»; el CAS 8007-46-3 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: Thymus vulgaris L., la del anexo de IFRA 51, única para el CAS 8007-46-3; el término no nombra ninguna. Anexo de IFRA 51: la entrada «Thyme absolute»."
+  },
+  {
+   "clave": "glosario-natural-ncs-thyme-oil-wild",
+   "tipo": "natural",
+   "nombre": "Thyme oil, wild",
+   "cas": "8007-46-3",
+   "especie": "Thymus serpyllum L.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "ncs:thyme-oil-wild"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Thyme oil, wild",
+    "cas_todos": [
+     "8007-46-3"
+    ]
+   },
+   "notas": "Fase 6, lote 6r (D14): la identidad es el término del FIG «Thyme oil, wild»; el CAS 8007-46-3 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Thymus serpyllum L., la del anexo de IFRA 51, única para el CAS 8007-46-3; el término no nombra ninguna. Anexo de IFRA 51: la entrada «Thyme oil, wild»."
+  }
+ ]
+}

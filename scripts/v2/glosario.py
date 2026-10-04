@@ -128,6 +128,14 @@ def strip_stereo(name: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", n).strip()
 
 
+def shared_ifra_synonyms(g: dict[str, str], std: str, data: Data) -> list[str]:
+    """The synonyms (not the commercial names) that IFRA lists for the standard and the row of the glossary also has."""
+    listed = {x.strip().lower(): x.strip() for x in data.standards[std]["sinonimos"].split(" | ") if x.strip() and "(commercial name)" not in x
+              and x.strip().lower() != "not applicable."}
+    mine = {x.strip().lower() for x in g["sinonimos"].split(" | ")}
+    return [listed[k] for k in listed if k in mine]
+
+
 def same_without_stereo(g: dict[str, str], std: str, data: Data) -> str:
     """D15: the name of this row, without its stereochemistry, is the name (or an IFRA synonym) of the standard's substance: that synonym, or «»."""
     mine = strip_stereo(g["nombre"])
@@ -203,6 +211,12 @@ def classify(g: dict[str, str], data: Data) -> tuple[str, str, str]:
         if decision and decision["estandar"] == std:
             return "estandar-decidido", std, f"decisión del usuario: {decision['motivo']} (evidencia: {decision['evidencia']})"
         # D15: the glossary itself says it is the same substance as one the standard lists (another stereochemistry).
+        # D15, proposed by the session (2026-10-05): the row carries synonyms that IFRA lists for this standard and the glossary itself says it is
+        # the same compound under another registry: IFRA's own scope note («any other CAS number used to identify this ingredient») covers it.
+        shared = shared_ifra_synonyms(g, std, data)
+        if shared and "es el mismo compuesto, con otro registro" in note:
+            return ("estandar-por-evidencia", std,
+                    f"propuesta de la sesión: el glosario trae sinónimos que IFRA lista para el {std} ({'; '.join(shared[:3])}) y dice «{note[:140]}»")
         synonym = same_without_stereo(g, std, data)
         if synonym:
             return ("estandar-por-evidencia", std,
@@ -239,7 +253,7 @@ def freeze_next(clase: str, lots: dict, data: Data, date: str, only: list[str] |
     taken = {i for lot in lots.values() for i in lot["ids"]}
     pending = sorted(
         (i for i, g in data.glossary.items()
-         if effective_class(g, data) == clase and not out_of_phase(i, data) and i not in data.linked and i not in data.later and i not in taken),
+         if effective_class(g, data) == clase and not out_of_phase(i, data) and i not in data.linked and (i not in data.later or only is not None) and i not in taken),
         key=sort_key,
     )
     if only is not None:
@@ -332,7 +346,8 @@ def natural_case(cas_list: list[str], term: str, data: Data) -> tuple[str, list[
 def natural_groups(ids: list[str], data: Data) -> list[list[str]]:
     """D14, D1: a name is one material and its CAS are attributes: the rows with the same name are one group."""
     groups: dict[str, list[str]] = {}
-    for ident in sorted(ids, key=sort_key):
+    # In the order given: the first of a name is the one whose key the material has had since its lot, whatever joins it later.
+    for ident in ids:
         groups.setdefault(norm_name(data.glossary[ident]["nombre"]), []).append(ident)
     return list(groups.values())
 
@@ -495,6 +510,7 @@ def prepare(name: str, lot: dict, data: Data) -> tuple[Counter, dict, list[dict[
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser()
+    parser.add_argument("--despues", action="store_true", help="con --nuevo: los ids de esa clase de docs/v2/glosario-despues.csv (los que usa la biblioteca)")
     parser.add_argument("--ids", help="con --nuevo: solo estos ids del glosario (separados por comas), por ejemplo los que cambian de vía")
     parser.add_argument("--aprobar", help="aprueba un lote preparado: pasa a altas/ para que alta.py lo escriba")
     parser.add_argument("--sin-aprobar", action="store_true", help="con --nuevo: el lote queda preparado, sin aprobar")
@@ -505,7 +521,10 @@ def main() -> int:
     lots = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
     newest = None
     if args.nuevo:
-        newest = freeze_next(args.nuevo, lots, data, "2026-10-03", args.ids.split(",") if args.ids else None)
+        only = args.ids.split(",") if args.ids else None
+        if args.despues:
+            only = [i for i in data.later if effective_class(data.glossary[i], data) == args.nuevo]
+        newest = freeze_next(args.nuevo, lots, data, "2026-10-03", only)
         if newest is None:
             print(f"No quedan filas de la clase «{args.nuevo}».")
             return 1

@@ -3991,7 +3991,8 @@
    "ncs:fennel-oil-bitter-phellandrene-type",
    "ncs:horseradish-oil",
    "ncs:hyacinth-absolute",
-   "ncs:jasmine-grandiflorum-absolute"
+   "ncs:jasmine-grandiflorum-absolute",
+   "fig:1286"
   ]
  },
  "6p": {
@@ -4284,6 +4285,41 @@
    "tl:wisteria-sinensis-microwave-extraction",
    "tl:witch-hazel-distillate",
    "tl:ylang-ylang-infusion"
+  ]
+ },
+ "6q": {
+  "clase": "molécula",
+  "fecha": "2026-10-03",
+  "ids": [
+   "fig:105",
+   "fig:134",
+   "fig:450",
+   "fig:918",
+   "fig:930",
+   "fig:955",
+   "fig:1049",
+   "fig:1052",
+   "fig:1094",
+   "fig:1193",
+   "fig:1740",
+   "fig:2046",
+   "fig:2080",
+   "fig:2432",
+   "fig:2755"
+  ]
+ },
+ "6r": {
+  "clase": "natural",
+  "fecha": "2026-10-03",
+  "ids": [
+   "fig:1197",
+   "fig:1202",
+   "fig:1831",
+   "fig:2213",
+   "fig:2880",
+   "fig:2937",
+   "fig:2974",
+   "ncs:thyme-oil-wild"
   ]
  }
 }

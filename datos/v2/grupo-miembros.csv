@@ -1,6 +1,6 @@
 id_grupo,id_miembro,subgrupo,notas
 G00001,S00001,,índice de IFRA 51
-G00001,S00732,,"D15, estandar-por-evidencia: el nombre «3,7-Dimethyl-2,6-octadien-1-ol», sin estereoquímica, es el de «trans-3,7-Dimethyl-2,6-octadien-1-ol» en los datos de IFRA del IFRA_STD_037: la misma sustancia con la estereoquímica sin especificar"
+G00001,S00732,,"D15, estandar-por-evidencia: propuesta de la sesión: el glosario trae sinónimos que IFRA lista para el IFRA_STD_037 (Geraniol; 3,7-Dimethylocta-2,6-dien-1-ol; 2,6-Octadien-1-ol, 3,7-dimethyl-, (e)-) y dice «en el alcance del STD 037: es el mismo compuesto, con otro registro, que el CAS 106-24-1»"
 G00002,S00002,,índice de IFRA 51
 G00002,S01488,,índice de IFRA 51
 G00002,S01798,,índice de IFRA 51
@@ -9,6 +9,7 @@ G00004,S00004,,índice de IFRA 51
 G00004,S01662,,índice de IFRA 51
 G00004,S02278,,índice de IFRA 51
 G00005,S00006,,índice de IFRA 51
+G00005,S03080,,"D15, estandar-por-evidencia: propuesta de la sesión: el glosario trae sinónimos que IFRA lista para el IFRA_STD_040 (2-Benzylideneoctanal; Hexyl cinnamal; α-Hexyl cinnamaldehyde) y dice «en el alcance del STD 040: es el mismo compuesto, con otro registro, que el CAS 101-86-0»"
 G00006,M00006,,índice de IFRA 51: limitado como tal
 G00006,M03621,,índice de IFRA 51: limitado como tal
 G00006,M03622,,índice de IFRA 51: limitado como tal
@@ -61,6 +62,7 @@ G00030,S01740,,índice de IFRA 51
 G00030,S01873,,índice de IFRA 51
 G00030,S01900,,índice de IFRA 51
 G00030,S01901,,índice de IFRA 51
+G00030,S03087,,índice de IFRA 51
 G00031,S00054,,índice de IFRA 51
 G00031,S00202,,índice de IFRA 51
 G00031,S02323,,índice de IFRA 51
@@ -161,6 +163,8 @@ G00052,M01055,,índice de IFRA 51: limitado como tal
 G00052,M01056,,índice de IFRA 51: limitado como tal
 G00052,M03708,,índice de IFRA 51: limitado como tal
 G00052,M04176,,índice de IFRA 51: limitado como tal
+G00052,M04267,,índice de IFRA 51: limitado como tal
+G00052,M04268,,índice de IFRA 51: limitado como tal
 G00053,M00042,,"familia: el estándar le aplica por lo que es, aunque el índice no liste su CAS"
 G00054,M00054,,índice de IFRA 51: limitado como tal
 G00054,M03941,,índice de IFRA 51: limitado como tal
@@ -533,6 +537,7 @@ G00249,M03541,,índice de IFRA 51: limitado como tal
 G00249,M03705,,índice de IFRA 51: limitado como tal
 G00249,M03972,,índice de IFRA 51: limitado como tal
 G00249,M04127,,índice de IFRA 51: limitado como tal
+G00249,M04271,,índice de IFRA 51: limitado como tal
 G00250,M03653,,índice de IFRA 51: limitado como tal
 G00250,M03654,,índice de IFRA 51: limitado como tal
 G00250,M03714,,"por especie, parte y proceso (D1): «Bitter orange peel oil expressed»"
@@ -561,3 +566,4 @@ G00259,M03996,,índice de IFRA 51: limitado como tal
 G00260,M03934,,índice de IFRA 51: limitado como tal
 G00261,M03937,,índice de IFRA 51: limitado como tal
 G00262,M03938,,índice de IFRA 51: limitado como tal
+G00263,S03078,,índice de IFRA 51
