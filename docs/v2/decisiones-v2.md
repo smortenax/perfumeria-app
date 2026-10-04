@@ -220,7 +220,10 @@ descriptores de olor. No se usa la categoría ISO 9235 (`categoria_iso`): su ley
 - **Proceso y parte: los que dice el propio término**; si no los dice, «no lo dice». El proceso sale del tipo de la fila (`oil`, `absolute`,
   `resinoid`…) y de lo que su nombre añade (rectificado, FCF, expresión, sin terpenos…); una fila sin tipo entra con el proceso «no lo dice».
   La parte, solo si el nombre la nombra (raíz, hoja, semilla…).
-- **Especie: solo cuando el anexo de IFRA 51 da una única especie para el CAS**, con su cita en la nota; si no, «no lo dice».
+- **Especie** (corregida por el usuario el 2026-10-04, tras ver el Helichrysum arenarium): **si el término del FIG nombra una especie, esa es la
+  del material** (un binomio entre paréntesis, o un género del anexo seguido de su epíteto: «Mentha arvensis oil»; no «Cistus absolute» ni «Angelica
+  root»). **La del anexo de IFRA 51 solo cuando el término no nombra ninguna** y el anexo da una única para el CAS, con su cita en la nota; si no,
+  «no lo dice». **Si chocan, gana el término** y la discrepancia va en la nota. Los constituyentes no cambian (la entrada del anexo, o la peor).
 - **CAS compartido por varias entradas del anexo** (`naturales.csv`): si el término coincide con una sola entrada, esa; si no, **la peor
   de las entradas de ese CAS** (para cada constituyente, el máximo, con autoridad `anexo-ifra`, tipo `maximo`), con una nota que lo diga.
   **No es un conflicto.** Sin entrada en el anexo: cobertura «desconocida» (nunca cero).

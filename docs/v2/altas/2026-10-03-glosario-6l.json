@@ -32,7 +32,7 @@
    "tipo": "natural",
    "nombre": "Helichrysum arenarium, ext.",
    "cas": "85665-35-6",
-   "especie": "Helichrysum angustifolium DC.",
+   "especie": "Helichrysum arenarium",
    "parte": "",
    "proceso": "",
    "v1": [
@@ -48,7 +48,7 @@
      "Helichrysum oil"
     ]
    },
-   "notas": "Fase 6, lote 6l (D14): la identidad es el término del FIG «Helichrysum arenarium, ext.»; el CAS 85665-35-6 es un atributo. Proceso: no lo dice. Parte: no lo dice. Especie: Helichrysum angustifolium DC., la del anexo de IFRA 51, única para el CAS 85665-35-6. Anexo de IFRA 51: hay 2 entradas para este CAS y el término no coincide con una sola; cuenta la peor de ellas: Helichrysum absolute; Helichrysum oil."
+   "notas": "Fase 6, lote 6l (D14): la identidad es el término del FIG «Helichrysum arenarium, ext.»; el CAS 85665-35-6 es un atributo. Proceso: no lo dice. Parte: no lo dice. Especie: Helichrysum arenarium, la que nombra el término. El anexo de IFRA 51 da «Helichrysum angustifolium DC.» para el CAS 85665-35-6; gana el término. Anexo de IFRA 51: hay 2 entradas para este CAS y el término no coincide con una sola; cuenta la peor de ellas: Helichrysum absolute; Helichrysum oil."
   },
   {
    "clave": "glosario-natural-fig-2399",

@@ -94,6 +94,15 @@ class Data:
         for a in read_csv(IFRA / "naturales.csv"):
             for c in [a["cas_principal"], *a["otros_cas"].split()]:
                 self.annex_by_cas[c][a["nombre"]].append(a)
+        # The genera the annex names (to see that a term names a species), the identity rules of D10 and the specifications left out by process.
+        self.genera = {a["nombre_botanico"].split()[0] for rows in self.annex_by_cas.values() for lst in rows.values() for a in lst if a["nombre_botanico"].split()}
+        self.identity_rules = [
+            {"estandar": r["estandar"], "especies": {x.strip().lower() for x in r["especies"].split(";")},
+             "partes": [x.strip().lower() for x in r["partes"].split(";")], "procesos": [x.strip().lower() for x in r["procesos"].split(";")],
+             "excluye": [x.strip().lower() for x in r["excluye"].split(";") if x.strip()]}
+            for r in read_csv(DOCS / "estandares-naturales.csv")]
+        self.spec_exclusions = [(r["estandar"], [x.strip().lower() for x in r["procesos"].split(";") if x.strip()])
+                                for r in read_csv(DOCS / "especificaciones-excluidas.csv")]
         self.later = {r["id_v1"] for r in read_csv(DOCS / "glosario-despues.csv")}
         # What the v2 had before the glossary lots: the materials these lots made (key «glosario-…») are not «what was there».
         made_here = {r["id"] for r in read_csv(V2 / "registro-ids.csv") if r["entidad"] == "material" and r["clave"].startswith("glosario-")}
@@ -276,6 +285,32 @@ def natural_process(g: dict[str, str]) -> str:
     return "; ".join([base, *found])
 
 
+# D14, species: if the term of the FIG names a species, that is the material's; the annex's only when the term names none.
+SPECIES_STOP = {
+    "oil", "oils", "absolute", "absolutes", "concrete", "extract", "extracts", "resinoid", "resin", "tincture", "terpenes", "terpeneless", "distillate",
+    "wood", "leaf", "leaves", "flower", "flowers", "root", "roots", "seed", "seeds", "peel", "peels", "fruit", "fruits", "bark", "herb", "needle",
+    "needles", "balsam", "gum", "oleoresin", "infusion", "water", "distilled", "rectified", "essential", "and", "fraction", "rose", "spp", "essence",
+}
+
+
+def term_species(name: str, data: Data) -> str:
+    """The species a term names: a binomial in parentheses (Rosa x centifolia L.), or a genus of the annex followed by an epithet. «» if none."""
+    paren = re.search(r"\(([A-Z][a-z]+) (x )?([a-z]{3,}(?:-[a-z]+)?)\b", name)
+    if paren and paren.group(3) not in SPECIES_STOP:
+        return f"{paren.group(1)} {'x ' if paren.group(2) else ''}{paren.group(3)}"
+    for genus in sorted(data.genera):
+        m = re.search(r"\b" + genus + r" ([a-z]{4,}(?:-[a-z]+)?)\b", name)
+        if m and m.group(1) not in SPECIES_STOP:
+            return f"{genus} {m.group(1)}"
+    return ""
+
+
+def species_key(species: str) -> str:
+    """Genus and epithet, lower case, without the hybrid sign or the author: «Rosa x centifolia L.» and «Rosa centifolia» are one."""
+    words = [w for w in re.split(r"[\s,]+", species.lower()) if w and w not in ("x",)]
+    return " ".join(words[:2])
+
+
 def natural_part(g: dict[str, str]) -> str:
     return " y ".join(word for pattern, word in PART_WORDS if re.search(pattern, g["nombre"].lower()))
 
@@ -323,18 +358,45 @@ def prepare_naturals(name: str, lot: dict, data: Data):
         if not cas_list:
             counts["sin CAS (entra: el CAS es un atributo, D1)"] += 1
         species = {a["nombre_botanico"] for n in names for c in cas_list for a in data.annex_by_cas.get(c, {}).get(n, [])}
-        specie = next(iter(species)) if len(species) == 1 and "" not in species else ""
-        if specie:
-            counts["con especie del anexo (única)"] += 1
+        annex_species = next(iter(species)) if len(species) == 1 and "" not in species else ""
+        named = term_species(g["nombre"], data)
+        discrepancy = ""
+        if named:
+            specie = named
+            counts["con especie nombrada por el término"] += 1
+            if annex_species and species_key(annex_species) != species_key(named):
+                discrepancy = f" El anexo de IFRA 51 da «{annex_species}» para {'los CAS' if len(cas_list) > 1 else 'el CAS'} {' '.join(cas_list)}; gana el término."
+                counts["especie del término distinta de la del anexo (gana el término)"] += 1
+        else:
+            specie = annex_species
+            if specie:
+                counts["con especie del anexo (el término no nombra ninguna)"] += 1
         if part:
             counts["con parte (la dice el término)"] += 1
+        # For the summary of the lot: standards by CAS, members by identity (D10) and specifications left out by process.
+        standards_here = sorted({std for c in cas_list for std in data.index.get(c, [])})
+        if standards_here:
+            counts["con estándar de IFRA"] += 1
+        proc = process.lower()
+        said = all(x not in ("", "no lo dice") for x in (specie, part, process))
+        for rule in data.identity_rules:
+            if said and specie.lower() in rule["especies"] and any(x in part.lower() for x in rule["partes"]) and any(x in proc for x in rule["procesos"]):
+                if any(x in proc for x in rule["excluye"]):
+                    counts["con exclusión por proceso aplicada"] += 1
+                else:
+                    counts["miembro por identidad (D10)"] += 1
+                break
+        if any(std in standards_here and any(w in proc for w in words) for std, words in data.spec_exclusions):
+            counts["con exclusión por proceso aplicada"] += 1
         if any(c in natural_cas_in_v2 for c in cas_list):
             counts["algún CAS ya está en un natural de la v2 (entra aparte, sin fusionar)"] += 1
         cas_text = " ".join(cas_list) or "(ninguno)"
         notes = [f"Fase 6, lote {name} (D14): la identidad es el término del FIG «{g['nombre']}»; "
                  + (f"sus CAS ({cas_text}) son atributos." if len(cas_list) > 1 else f"el CAS {cas_text} es un atributo."),
                  f"Proceso: {process or 'no lo dice'}. Parte: {part or 'no lo dice'}. Especie: "
-                 + (f"{specie}, la del anexo de IFRA 51, única para {'los CAS' if len(cas_list) > 1 else 'el CAS'} {cas_text}." if specie else "no lo dice.")]
+                 + (f"{specie}, la que nombra el término.{discrepancy}" if named
+                    else f"{specie}, la del anexo de IFRA 51, única para {'los CAS' if len(cas_list) > 1 else 'el CAS'} {cas_text}; el término no nombra ninguna." if specie
+                    else "no lo dice.")]
         entry: dict = {"clave": "glosario-natural-" + group[0].replace(":", "-"), "tipo": "natural", "nombre": g["nombre"],
                        "cas": cas_list[0] if cas_list else "", "especie": specie or "no lo dice", "parte": part, "proceso": process, "v1": group}
         if len(cas_list) > 1:
@@ -474,9 +536,20 @@ def main() -> int:
     write_csv(DOCS / "enlaces-glosario.csv", ["id_v1", "id_v2", "id_producto", "confirmado", "motivo"], all_links)
     print("Resumen por lote (entradas | con estándar | con especificación | conflictos):")
     for key, (c, cf) in results.items():
+        if lots[key]["clase"] != "molécula":
+            continue
         entered = len(lots[key]["ids"]) - len(cf)
         held = "" if lots[key].get("aprobado", True) else "  (preparado, sin aprobar)"
         print(f"  {key}: {entered:4} | {c['con estándar de IFRA']:4} | {c['con especificación (pendiente por D11)']:3} | {len(cf)}{held}")
+    print()
+    print("Resumen de los lotes de naturales (entradas | coincidencia única | peor caso | sin anexo | con estándar | miembros D10 | exclusión por proceso):")
+    for key, (c, cf) in results.items():
+        if lots[key]["clase"] != "natural":
+            continue
+        unique = c["coincidencia única: el CAS tiene una sola entrada"] + c["coincidencia única: el término coincide con una de varias"]
+        held = "" if lots[key].get("aprobado", True) else "  (preparado, sin aprobar)"
+        print(f"  {key}: {c['entra']:4} | {unique:4} | {c['peor caso: varias entradas y ninguna coincide con el término']:4} | {c['sin entrada en el anexo']:4} | "
+              f"{c['con estándar de IFRA']:4} | {c['miembro por identidad (D10)']:3} | {c['con exclusión por proceso aplicada']:3}{held}")
     print()
     name = newest or list(lots)[-1]
     lot = lots[name]
