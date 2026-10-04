@@ -21,6 +21,7 @@ interface Natural {
   cas: string;
   otros_cas?: string[];
   especie: string;
+  notas: string;
   anexo?: { nombre: string; cas_todos: string[] };
   anexo_peor?: { nombres: string[]; cas_todos: string[] };
 }
@@ -28,7 +29,15 @@ const naturals = Object.values(altas).flatMap((text) => (JSON.parse(text) as { m
 
 const data = v2Dataset();
 const annex = table(annexText);
-const idOf = (clave: string) => data.ids.find((e) => e.entity === "material" && e.key === clave)!.id;
+// Indexed once: with hundreds of naturals, a search through every row for each of them is what takes the time.
+const materialIdOfKey = new Map(data.ids.filter((e) => e.entity === "material").map((e) => [e.key, e.id]));
+const idOf = (clave: string) => materialIdOfKey.get(clave)!;
+const materialById = new Map(data.materials.map((m) => [m.id, m]));
+const compositionOf = new Map<string, typeof data.composition[number][]>();
+for (const r of data.composition) compositionOf.set(r.containerId, [...(compositionOf.get(r.containerId) ?? []), r]);
+const coverageOf = new Map(data.coverages.map((c) => [c.containerId, c.coverage]));
+const membersOf = new Map<string, string[]>();
+for (const g of data.groupMembers) membersOf.set(g.memberId, [...(membersOf.get(g.memberId) ?? []), g.groupId]);
 const casOfSubstance = new Map(data.casAliases.filter((a) => a.relation === "principal").map((a) => [a.substanceId, a.cas]));
 const entriesOf = (casList: string[], names: string[]) =>
   annex.filter((r) => names.includes(r["nombre"]) && casList.some((c) => c === r["cas_principal"] || r["otros_cas"].split(" ").includes(c)));
@@ -53,7 +62,7 @@ describe("naturals of the glossary (D14)", () => {
         const best = worst.get(e["cas_constituyente"]);
         if (!best || v.gt(best)) worst.set(e["cas_constituyente"], v);
       }
-      const rows = data.composition.filter((r) => r.containerId === mid);
+      const rows = (compositionOf.get(mid) ?? []);
       expect(rows.length, m.nombre).toBe(worst.size);
       for (const r of rows) {
         expect(r.valueType, m.nombre).toBe("maximo");
@@ -69,7 +78,7 @@ describe("naturals of the glossary (D14)", () => {
     for (const m of naturals.filter((x) => x.anexo)) {
       const mid = idOf(m.clave);
       const entries = entriesOf(m.anexo!.cas_todos, [m.anexo!.nombre]);
-      const rows = data.composition.filter((r) => r.containerId === mid);
+      const rows = (compositionOf.get(mid) ?? []);
       expect(rows.length, m.nombre).toBe(entries.length);
       for (const r of rows) {
         expect(r.valueType, m.nombre).toBe("tipico");
@@ -84,21 +93,33 @@ describe("naturals of the glossary (D14)", () => {
   it("a natural without an entry in the annex has an unknown coverage and no figures, never zero", () => {
     for (const m of naturals.filter((x) => !x.anexo && !x.anexo_peor)) {
       const mid = idOf(m.clave);
-      expect(data.composition.filter((r) => r.containerId === mid), m.nombre).toEqual([]);
-      expect(data.coverages.find((c) => c.containerId === mid)?.coverage, m.nombre).toBe("desconocida");
+      expect((compositionOf.get(mid) ?? []), m.nombre).toEqual([]);
+      expect(coverageOf.get(mid), m.nombre).toBe("desconocida");
     }
   });
 
-  it("the species is the annex's single one or «no lo dice»; the standards of every CAS of the name apply", () => {
+  it("the species is the one the alta says: the term's, else the annex's single one, else «no lo dice», and the note says which (D14)", () => {
     const standardsOfCas = new Map<string, string[]>();
     for (const r of table(IFRA_FILES.estandarCas)) standardsOfCas.set(r["cas"], [...(standardsOfCas.get(r["cas"]) ?? []), r["estandar"]]);
     const groupRef = new Map(data.groups.map((g) => [g.id, g.reference]));
     for (const m of naturals) {
-      const material = data.materials.find((x) => x.id === idOf(m.clave))!;
-      expect(material.species === "no lo dice" || material.species.length > 3, m.nombre).toBe(true);
+      const material = materialById.get(idOf(m.clave))!;
+      expect(material.species, m.nombre).toBe(m.especie);
+      if (m.especie === "no lo dice") {
+        expect(m.notas, m.nombre).toContain("Especie: no lo dice.");
+      } else {
+        expect(/la que nombra el término|la del anexo de IFRA 51, única/.test(m.notas), m.nombre).toBe(true);
+      }
       const casList = [m.cas, ...(m.otros_cas ?? [])].filter(Boolean);
-      const mine = new Set(data.groupMembers.filter((g) => g.memberId === material.id).map((g) => groupRef.get(g.groupId)));
+      const mine = new Set((membersOf.get(material.id) ?? []).map((id) => groupRef.get(id)));
       for (const cas of casList) for (const std of standardsOfCas.get(cas) ?? []) expect(mine.has(std), `${m.nombre} ${cas} ${std}`).toBe(true);
     }
+  });
+
+  it("when the term names a species and the annex gives another for the CAS, the term wins and the note says so (fig:1973)", () => {
+    const helichrysum = naturals.find((m) => m.nombre.startsWith("Helichrysum arenarium"))!;
+    expect(helichrysum.especie).toBe("Helichrysum arenarium");
+    expect(helichrysum.notas).toContain("gana el término");
+    expect(helichrysum.notas).toContain("Helichrysum angustifolium");
   });
 });
