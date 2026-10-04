@@ -1,0 +1,4966 @@
+{
+ "fecha": "2026-10-03",
+ "notas": "Fase 6, lote 6d: 300 naturales del glosario v1 (término del FIG y datos de IFRA).",
+ "documentos": [
+  {
+   "clave": "ifra51-anexo-naturales",
+   "tipo": "anexo-ifra",
+   "titulo": "IFRA 51, anexo de contribuciones de otras fuentes: naturales",
+   "emisor": "IFRA",
+   "fecha": "2023-06",
+   "ruta": "datos/ifra/51/naturales.csv",
+   "estado_revision": "revisado",
+   "notas": "Archivo oficial de IFRA convertido por scripts/importar_ifra.py; sus cifras se toman tal cual."
+  }
+ ],
+ "materiales": [
+  {
+   "clave": "glosario-natural-fig-966",
+   "tipo": "natural",
+   "nombre": "Abies alba needle oil",
+   "cas": "8021-27-0",
+   "especie": "Abies alba Mill.",
+   "parte": "aguja",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:966"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Abies alba needle oil",
+    "cas": "8021-27-0"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Abies alba needle oil»; el CAS 8021-27-0 es un atributo. Proceso: aceite esencial. Parte: aguja. Especie: Abies alba Mill., la del anexo de IFRA 51, única para el CAS 8021-27-0. Anexo de IFRA 51: la entrada «Abies alba needle oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-967",
+   "tipo": "natural",
+   "nombre": "Abies sachalinensis oil",
+   "cas": "8021-28-1",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:967"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Abies sachalinensis oil»; el CAS 8021-28-1 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-986",
+   "tipo": "natural",
+   "nombre": "Acetic acid, esters with turpentine-oil myrcene fraction terpene alcs.",
+   "cas": "69103-01-1",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:986"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Acetic acid, esters with turpentine-oil myrcene fraction terpene alcs.»; el CAS 69103-01-1 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-996",
+   "tipo": "natural",
+   "nombre": "Agarwood extract",
+   "cas": "94350-09-1",
+   "especie": "",
+   "parte": "",
+   "proceso": "extracto",
+   "v1": [
+    "fig:996"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Agarwood extract»; el CAS 94350-09-1 es un atributo. Proceso: extracto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-997",
+   "tipo": "natural",
+   "nombre": "Agarwood extract, Vietnamese",
+   "cas": "958663-49-5",
+   "especie": "",
+   "parte": "",
+   "proceso": "extracto",
+   "v1": [
+    "fig:997"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Agarwood extract, Vietnamese»; el CAS 958663-49-5 es un atributo. Proceso: extracto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-998",
+   "tipo": "natural",
+   "nombre": "Agarwood oil",
+   "cas": "94350-09-1",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:998"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Agarwood oil»; el CAS 94350-09-1 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-999",
+   "tipo": "natural",
+   "nombre": "Agarwood oil, Indonesia",
+   "cas": "1333524-00-7",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:999"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Agarwood oil, Indonesia»; el CAS 1333524-00-7 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1000",
+   "tipo": "natural",
+   "nombre": "Agarwood oil, Vietnamese",
+   "cas": "958663-49-5",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1000"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Agarwood oil, Vietnamese»; el CAS 958663-49-5 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1001",
+   "tipo": "natural",
+   "nombre": "Ajowan oil",
+   "cas": "8001-99-8",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1001"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Ajowan oil»; el CAS 8001-99-8 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1002",
+   "tipo": "natural",
+   "nombre": "Alcoholic beverages, rum, CO2 extract, nonalc.",
+   "cas": "943609-24-3",
+   "especie": "",
+   "parte": "",
+   "proceso": "extracto; CO2",
+   "v1": [
+    "fig:1002"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Alcoholic beverages, rum, CO2 extract, nonalc.»; el CAS 943609-24-3 es un atributo. Proceso: extracto; CO2. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1003",
+   "tipo": "natural",
+   "nombre": "Alcoholic beverages, rum, extract, nonalc.",
+   "cas": "943609-24-3",
+   "especie": "",
+   "parte": "",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1003"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Alcoholic beverages, rum, extract, nonalc.»; el CAS 943609-24-3 es un atributo. Proceso: extracto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1004",
+   "tipo": "natural",
+   "nombre": "Alcoholic beverages, rum, nonalc., distillate",
+   "cas": "943609-24-3",
+   "especie": "",
+   "parte": "",
+   "proceso": "destilado",
+   "v1": [
+    "fig:1004"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Alcoholic beverages, rum, nonalc., distillate»; el CAS 943609-24-3 es un atributo. Proceso: destilado. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1007",
+   "tipo": "natural",
+   "nombre": "Alcohols, sesquiterpenoidal, citronella-oil",
+   "cas": "73049-35-1",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1007"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Alcohols, sesquiterpenoidal, citronella-oil»; el CAS 73049-35-1 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1009",
+   "tipo": "natural",
+   "nombre": "Alfalfa extract",
+   "cas": "84082-36-0",
+   "especie": "",
+   "parte": "",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1009"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Alfalfa extract»; el CAS 84082-36-0 es un atributo. Proceso: extracto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1010",
+   "tipo": "natural",
+   "nombre": "Allspice oil",
+   "cas": "8006-77-7",
+   "especie": "Pimenta dioica (L.) Merr.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1010"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Allspice oil",
+    "cas": "8006-77-7"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Allspice oil»; el CAS 8006-77-7 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Pimenta dioica (L.) Merr., la del anexo de IFRA 51, única para el CAS 8006-77-7. Anexo de IFRA 51: la entrada «Allspice oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1029",
+   "tipo": "natural",
+   "nombre": "Almond oil, bitter",
+   "cas": "8013-76-1",
+   "especie": "Prunus amygdalus amara (Bitter Almond) kernel oil",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1029"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Almond oil, bitter",
+    "cas": "8013-76-1"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Almond oil, bitter»; el CAS 8013-76-1 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Prunus amygdalus amara (Bitter Almond) kernel oil, la del anexo de IFRA 51, única para el CAS 8013-76-1. Anexo de IFRA 51: la entrada «Almond oil, bitter»."
+  },
+  {
+   "clave": "glosario-natural-fig-1070",
+   "tipo": "natural",
+   "nombre": "Ambrette seed absolute",
+   "cas": "8015-62-1",
+   "especie": "Hibiscus abelmoschus L.",
+   "parte": "semilla",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1070"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Ambrette seed absolute",
+    "cas": "8015-62-1"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Ambrette seed absolute»; el CAS 8015-62-1 es un atributo. Proceso: absoluto. Parte: semilla. Especie: Hibiscus abelmoschus L., la del anexo de IFRA 51, única para el CAS 8015-62-1. Anexo de IFRA 51: la entrada «Ambrette seed absolute»."
+  },
+  {
+   "clave": "glosario-natural-fig-1071",
+   "tipo": "natural",
+   "nombre": "Ambrette seed extract",
+   "cas": "8015-62-1",
+   "especie": "Hibiscus abelmoschus L.",
+   "parte": "semilla",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1071"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8015-62-1",
+    "nombres": [
+     "Ambrette seed absolute",
+     "Ambrette seed oil",
+     "Ambrette tincture"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Ambrette seed extract»; el CAS 8015-62-1 es un atributo. Proceso: extracto. Parte: semilla. Especie: Hibiscus abelmoschus L., la del anexo de IFRA 51, única para el CAS 8015-62-1. Anexo de IFRA 51: el CAS tiene 3 entradas y el término no coincide con una sola; cuenta la peor de ellas: Ambrette seed absolute; Ambrette seed oil; Ambrette tincture."
+  },
+  {
+   "clave": "glosario-natural-fig-1072",
+   "tipo": "natural",
+   "nombre": "Ambrette seed oil",
+   "cas": "8015-62-1",
+   "especie": "Hibiscus abelmoschus L.",
+   "parte": "semilla",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1072"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Ambrette seed oil",
+    "cas": "8015-62-1"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Ambrette seed oil»; el CAS 8015-62-1 es un atributo. Proceso: aceite esencial. Parte: semilla. Especie: Hibiscus abelmoschus L., la del anexo de IFRA 51, única para el CAS 8015-62-1. Anexo de IFRA 51: la entrada «Ambrette seed oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1073",
+   "tipo": "natural",
+   "nombre": "Ambrette seed oil",
+   "cas": "8015-62-1",
+   "especie": "Hibiscus abelmoschus L.",
+   "parte": "semilla",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1073"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Ambrette seed oil",
+    "cas": "8015-62-1"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Ambrette seed oil»; el CAS 8015-62-1 es un atributo. Proceso: aceite esencial. Parte: semilla. Especie: Hibiscus abelmoschus L., la del anexo de IFRA 51, única para el CAS 8015-62-1. Anexo de IFRA 51: la entrada «Ambrette seed oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1074",
+   "tipo": "natural",
+   "nombre": "Ambrette tincture",
+   "cas": "8015-62-1",
+   "especie": "Hibiscus abelmoschus L.",
+   "parte": "",
+   "proceso": "tintura",
+   "v1": [
+    "fig:1074"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Ambrette tincture",
+    "cas": "8015-62-1"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Ambrette tincture»; el CAS 8015-62-1 es un atributo. Proceso: tintura. Parte: no lo dice. Especie: Hibiscus abelmoschus L., la del anexo de IFRA 51, única para el CAS 8015-62-1. Anexo de IFRA 51: la entrada «Ambrette tincture»."
+  },
+  {
+   "clave": "glosario-natural-fig-1085",
+   "tipo": "natural",
+   "nombre": "Amyris oil",
+   "cas": "8015-65-4",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1085"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Amyris oil»; el CAS 8015-65-4 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1086",
+   "tipo": "natural",
+   "nombre": "Amyris oil, acetylated",
+   "cas": "68916-14-3",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1086"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Amyris oil, acetylated»; el CAS 68916-14-3 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1087",
+   "tipo": "natural",
+   "nombre": "Amyris oil, rectified",
+   "cas": "8015-65-4",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1087"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Amyris oil, rectified»; el CAS 8015-65-4 es un atributo. Proceso: aceite esencial; rectificado. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1090",
+   "tipo": "natural",
+   "nombre": "Angelica seed absolute",
+   "cas": "8015-64-3",
+   "especie": "Angelica archangelica L.",
+   "parte": "semilla",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1090"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8015-64-3",
+    "nombres": [
+     "Angelica root oil",
+     "Angelica seed oil"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Angelica seed absolute»; el CAS 8015-64-3 es un atributo. Proceso: absoluto. Parte: semilla. Especie: Angelica archangelica L., la del anexo de IFRA 51, única para el CAS 8015-64-3. Anexo de IFRA 51: el CAS tiene 2 entradas y el término no coincide con una sola; cuenta la peor de ellas: Angelica root oil; Angelica seed oil."
+  },
+  {
+   "clave": "glosario-natural-fig-1091",
+   "tipo": "natural",
+   "nombre": "Angelica seed extract",
+   "cas": "8015-64-3",
+   "especie": "Angelica archangelica L.",
+   "parte": "semilla",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1091"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8015-64-3",
+    "nombres": [
+     "Angelica root oil",
+     "Angelica seed oil"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Angelica seed extract»; el CAS 8015-64-3 es un atributo. Proceso: extracto. Parte: semilla. Especie: Angelica archangelica L., la del anexo de IFRA 51, única para el CAS 8015-64-3. Anexo de IFRA 51: el CAS tiene 2 entradas y el término no coincide con una sola; cuenta la peor de ellas: Angelica root oil; Angelica seed oil."
+  },
+  {
+   "clave": "glosario-natural-fig-1092",
+   "tipo": "natural",
+   "nombre": "Angelica seed oil",
+   "cas": "8015-64-3",
+   "especie": "Angelica archangelica L.",
+   "parte": "semilla",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1092"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Angelica seed oil",
+    "cas": "8015-64-3"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Angelica seed oil»; el CAS 8015-64-3 es un atributo. Proceso: aceite esencial. Parte: semilla. Especie: Angelica archangelica L., la del anexo de IFRA 51, única para el CAS 8015-64-3. Anexo de IFRA 51: la entrada «Angelica seed oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1093",
+   "tipo": "natural",
+   "nombre": "Anise seed oil",
+   "cas": "8007-70-3",
+   "especie": "Pimpinella anisum L.",
+   "parte": "semilla",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1093"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Anise seed oil",
+    "cas": "8007-70-3"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Anise seed oil»; el CAS 8007-70-3 es un atributo. Proceso: aceite esencial. Parte: semilla. Especie: Pimpinella anisum L., la del anexo de IFRA 51, única para el CAS 8007-70-3. Anexo de IFRA 51: la entrada «Anise seed oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1102",
+   "tipo": "natural",
+   "nombre": "Apple distillate",
+   "cas": "883111-87-3",
+   "especie": "",
+   "parte": "",
+   "proceso": "destilado",
+   "v1": [
+    "fig:1102"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Apple distillate»; el CAS 883111-87-3 es un atributo. Proceso: destilado. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1103",
+   "tipo": "natural",
+   "nombre": "Apple essence oil",
+   "cas": "883111-87-3",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1103"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Apple essence oil»; el CAS 883111-87-3 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1104",
+   "tipo": "natural",
+   "nombre": "Apple extract",
+   "cas": "883111-87-3",
+   "especie": "",
+   "parte": "",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1104"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Apple extract»; el CAS 883111-87-3 es un atributo. Proceso: extracto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1105",
+   "tipo": "natural",
+   "nombre": "Apple oil, rectified",
+   "cas": "883111-87-3",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1105"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Apple oil, rectified»; el CAS 883111-87-3 es un atributo. Proceso: aceite esencial; rectificado. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1106",
+   "tipo": "natural",
+   "nombre": "Apple tincture",
+   "cas": "883111-87-3",
+   "especie": "",
+   "parte": "",
+   "proceso": "tintura",
+   "v1": [
+    "fig:1106"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Apple tincture»; el CAS 883111-87-3 es un atributo. Proceso: tintura. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1107",
+   "tipo": "natural",
+   "nombre": "Apricot absolute",
+   "cas": "72869-69-3",
+   "especie": "",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1107"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Apricot absolute»; el CAS 72869-69-3 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1108",
+   "tipo": "natural",
+   "nombre": "Armoise vulgaris oil",
+   "cas": "68991-20-8",
+   "especie": "Artemisia vulgaris L.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1108"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Armoise vulgaris oil",
+    "cas": "68991-20-8"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Armoise vulgaris oil»; el CAS 68991-20-8 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Artemisia vulgaris L., la del anexo de IFRA 51, única para el CAS 68991-20-8. Anexo de IFRA 51: la entrada «Armoise vulgaris oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1109",
+   "tipo": "natural",
+   "nombre": "Artemisia herba-alba oil",
+   "cas": "84775-75-7",
+   "especie": "Artemesia herba alba Asso",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1109"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Artemisia herba-alba oil",
+    "cas": "84775-75-7"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Artemisia herba-alba oil»; el CAS 84775-75-7 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Artemesia herba alba Asso, la del anexo de IFRA 51, única para el CAS 84775-75-7. Anexo de IFRA 51: la entrada «Artemisia herba-alba oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1110",
+   "tipo": "natural",
+   "nombre": "Asafetida oil",
+   "cas": "9000-04-8",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1110"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Asafetida oil»; el CAS 9000-04-8 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1112",
+   "tipo": "natural",
+   "nombre": "Balm leaves extract",
+   "cas": "84082-61-1",
+   "especie": "",
+   "parte": "hoja",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1112"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Balm oil",
+    "cas": "84082-61-1"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Balm leaves extract»; el CAS 84082-61-1 es un atributo. Proceso: extracto. Parte: hoja. Especie: no lo dice. Anexo de IFRA 51: la entrada «Balm oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1113",
+   "tipo": "natural",
+   "nombre": "Balsam absolute, Peru",
+   "cas": "8007-00-9",
+   "especie": "Myroxylon balsamum (L.) Harms var. pereirae (Royle) Harms",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1113"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Balsam absolute, Peru",
+    "cas": "8007-00-9"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Balsam absolute, Peru»; el CAS 8007-00-9 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: Myroxylon balsamum (L.) Harms var. pereirae (Royle) Harms, la del anexo de IFRA 51, única para el CAS 8007-00-9. Anexo de IFRA 51: la entrada «Balsam absolute, Peru»."
+  },
+  {
+   "clave": "glosario-natural-fig-1114",
+   "tipo": "natural",
+   "nombre": "Balsam absolute, Peru, pyrogenated",
+   "cas": "8007-00-9",
+   "especie": "Myroxylon balsamum (L.) Harms var. pereirae (Royle) Harms",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1114"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8007-00-9",
+    "nombres": [
+     "Balsam absolute, Peru",
+     "Balsam oil, Peru",
+     "Balsam resinoid, Peru"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Balsam absolute, Peru, pyrogenated»; el CAS 8007-00-9 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: Myroxylon balsamum (L.) Harms var. pereirae (Royle) Harms, la del anexo de IFRA 51, única para el CAS 8007-00-9. Anexo de IFRA 51: el CAS tiene 3 entradas y el término no coincide con una sola; cuenta la peor de ellas: Balsam absolute, Peru; Balsam oil, Peru; Balsam resinoid, Peru."
+  },
+  {
+   "clave": "glosario-natural-fig-1115",
+   "tipo": "natural",
+   "nombre": "Balsam extract, Peru",
+   "cas": "8007-00-9",
+   "especie": "Myroxylon balsamum (L.) Harms var. pereirae (Royle) Harms",
+   "parte": "",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1115"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8007-00-9",
+    "nombres": [
+     "Balsam absolute, Peru",
+     "Balsam oil, Peru",
+     "Balsam resinoid, Peru"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Balsam extract, Peru»; el CAS 8007-00-9 es un atributo. Proceso: extracto. Parte: no lo dice. Especie: Myroxylon balsamum (L.) Harms var. pereirae (Royle) Harms, la del anexo de IFRA 51, única para el CAS 8007-00-9. Anexo de IFRA 51: el CAS tiene 3 entradas y el término no coincide con una sola; cuenta la peor de ellas: Balsam absolute, Peru; Balsam oil, Peru; Balsam resinoid, Peru."
+  },
+  {
+   "clave": "glosario-natural-fig-1116",
+   "tipo": "natural",
+   "nombre": "Balsam fir oleoresin",
+   "cas": "85085-34-3",
+   "especie": "Abies balsamea (L.) Mill.",
+   "parte": "",
+   "proceso": "oleorresina",
+   "v1": [
+    "fig:1116"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Fir needle oil, Canadian",
+    "cas": "85085-34-3"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Balsam fir oleoresin»; el CAS 85085-34-3 es un atributo. Proceso: oleorresina. Parte: no lo dice. Especie: Abies balsamea (L.) Mill., la del anexo de IFRA 51, única para el CAS 85085-34-3. Anexo de IFRA 51: la entrada «Fir needle oil, Canadian»."
+  },
+  {
+   "clave": "glosario-natural-fig-1117",
+   "tipo": "natural",
+   "nombre": "Balsam oil, Peru",
+   "cas": "8007-00-9",
+   "especie": "Myroxylon balsamum (L.) Harms var. pereirae (Royle) Harms",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1117"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Balsam oil, Peru",
+    "cas": "8007-00-9"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Balsam oil, Peru»; el CAS 8007-00-9 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Myroxylon balsamum (L.) Harms var. pereirae (Royle) Harms, la del anexo de IFRA 51, única para el CAS 8007-00-9. Anexo de IFRA 51: la entrada «Balsam oil, Peru»."
+  },
+  {
+   "clave": "glosario-natural-fig-1118",
+   "tipo": "natural",
+   "nombre": "Balsam oil, Peru",
+   "cas": "8007-00-9",
+   "especie": "Myroxylon balsamum (L.) Harms var. pereirae (Royle) Harms",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1118"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Balsam oil, Peru",
+    "cas": "8007-00-9"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Balsam oil, Peru»; el CAS 8007-00-9 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Myroxylon balsamum (L.) Harms var. pereirae (Royle) Harms, la del anexo de IFRA 51, única para el CAS 8007-00-9. Anexo de IFRA 51: la entrada «Balsam oil, Peru»."
+  },
+  {
+   "clave": "glosario-natural-fig-1119",
+   "tipo": "natural",
+   "nombre": "Balsam resinoid, Peru",
+   "cas": "8007-00-9",
+   "especie": "Myroxylon balsamum (L.) Harms var. pereirae (Royle) Harms",
+   "parte": "",
+   "proceso": "resinoide",
+   "v1": [
+    "fig:1119"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Balsam resinoid, Peru",
+    "cas": "8007-00-9"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Balsam resinoid, Peru»; el CAS 8007-00-9 es un atributo. Proceso: resinoide. Parte: no lo dice. Especie: Myroxylon balsamum (L.) Harms var. pereirae (Royle) Harms, la del anexo de IFRA 51, única para el CAS 8007-00-9. Anexo de IFRA 51: la entrada «Balsam resinoid, Peru»."
+  },
+  {
+   "clave": "glosario-natural-fig-1120",
+   "tipo": "natural",
+   "nombre": "Balsam, Peru",
+   "cas": "8007-00-9",
+   "especie": "Myroxylon balsamum (L.) Harms var. pereirae (Royle) Harms",
+   "parte": "",
+   "proceso": "",
+   "v1": [
+    "fig:1120"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8007-00-9",
+    "nombres": [
+     "Balsam absolute, Peru",
+     "Balsam oil, Peru",
+     "Balsam resinoid, Peru"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Balsam, Peru»; el CAS 8007-00-9 es un atributo. Proceso: no lo dice. Parte: no lo dice. Especie: Myroxylon balsamum (L.) Harms var. pereirae (Royle) Harms, la del anexo de IFRA 51, única para el CAS 8007-00-9. Anexo de IFRA 51: el CAS tiene 3 entradas y el término no coincide con una sola; cuenta la peor de ellas: Balsam absolute, Peru; Balsam oil, Peru; Balsam resinoid, Peru."
+  },
+  {
+   "clave": "glosario-natural-fig-1122",
+   "tipo": "natural",
+   "nombre": "Basil absolute, chemotype linalool",
+   "cas": "8015-73-4",
+   "especie": "Ocimum basilicum L.",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1122"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8015-73-4",
+    "nombres": [
+     "Basil oil, chemotype estragole",
+     "Basil oil, chemotype linalool",
+     "Basil oleoresin, chemotype estragole"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Basil absolute, chemotype linalool»; el CAS 8015-73-4 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: Ocimum basilicum L., la del anexo de IFRA 51, única para el CAS 8015-73-4. Anexo de IFRA 51: el CAS tiene 3 entradas y el término no coincide con una sola; cuenta la peor de ellas: Basil oil, chemotype estragole; Basil oil, chemotype linalool; Basil oleoresin, chemotype estragole."
+  },
+  {
+   "clave": "glosario-natural-fig-1123",
+   "tipo": "natural",
+   "nombre": "Basil oil, chemotype estragole",
+   "cas": "8015-73-4",
+   "especie": "Ocimum basilicum L.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1123"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Basil oil, chemotype estragole",
+    "cas": "8015-73-4"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Basil oil, chemotype estragole»; el CAS 8015-73-4 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Ocimum basilicum L., la del anexo de IFRA 51, única para el CAS 8015-73-4. Anexo de IFRA 51: la entrada «Basil oil, chemotype estragole»."
+  },
+  {
+   "clave": "glosario-natural-fig-1124",
+   "tipo": "natural",
+   "nombre": "Basil oil, chemotype estragole, rectified",
+   "cas": "8015-73-4",
+   "especie": "Ocimum basilicum L.",
+   "parte": "",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1124"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8015-73-4",
+    "nombres": [
+     "Basil oil, chemotype estragole",
+     "Basil oil, chemotype linalool",
+     "Basil oleoresin, chemotype estragole"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Basil oil, chemotype estragole, rectified»; el CAS 8015-73-4 es un atributo. Proceso: aceite esencial; rectificado. Parte: no lo dice. Especie: Ocimum basilicum L., la del anexo de IFRA 51, única para el CAS 8015-73-4. Anexo de IFRA 51: el CAS tiene 3 entradas y el término no coincide con una sola; cuenta la peor de ellas: Basil oil, chemotype estragole; Basil oil, chemotype linalool; Basil oleoresin, chemotype estragole."
+  },
+  {
+   "clave": "glosario-natural-fig-1125",
+   "tipo": "natural",
+   "nombre": "Basil oil, chemotype linalool",
+   "cas": "8015-73-4",
+   "especie": "Ocimum basilicum L.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1125"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Basil oil, chemotype linalool",
+    "cas": "8015-73-4"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Basil oil, chemotype linalool»; el CAS 8015-73-4 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Ocimum basilicum L., la del anexo de IFRA 51, única para el CAS 8015-73-4. Anexo de IFRA 51: la entrada «Basil oil, chemotype linalool»."
+  },
+  {
+   "clave": "glosario-natural-fig-1126",
+   "tipo": "natural",
+   "nombre": "Basil oleoresin, chemotype estragole",
+   "cas": "8015-73-4",
+   "especie": "Ocimum basilicum L.",
+   "parte": "",
+   "proceso": "oleorresina",
+   "v1": [
+    "fig:1126"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Basil oleoresin, chemotype estragole",
+    "cas": "8015-73-4"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Basil oleoresin, chemotype estragole»; el CAS 8015-73-4 es un atributo. Proceso: oleorresina. Parte: no lo dice. Especie: Ocimum basilicum L., la del anexo de IFRA 51, única para el CAS 8015-73-4. Anexo de IFRA 51: la entrada «Basil oleoresin, chemotype estragole»."
+  },
+  {
+   "clave": "glosario-natural-fig-1127",
+   "tipo": "natural",
+   "nombre": "Bay leaves oil, West Indian, rectified",
+   "cas": "8006-78-8",
+   "especie": "Pimenta racemosa (Mill.) J.W. Moore",
+   "parte": "hoja",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1127"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Bay leaf, West Indian, oil",
+    "cas": "8006-78-8"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Bay leaves oil, West Indian, rectified»; el CAS 8006-78-8 es un atributo. Proceso: aceite esencial; rectificado. Parte: hoja. Especie: Pimenta racemosa (Mill.) J.W. Moore, la del anexo de IFRA 51, única para el CAS 8006-78-8. Anexo de IFRA 51: la entrada «Bay leaf, West Indian, oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1128",
+   "tipo": "natural",
+   "nombre": "Bay leaves, West Indian, CO2 extract",
+   "cas": "8006-78-8",
+   "especie": "Pimenta racemosa (Mill.) J.W. Moore",
+   "parte": "hoja",
+   "proceso": "extracto; CO2",
+   "v1": [
+    "fig:1128"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Bay leaf, West Indian, oil",
+    "cas": "8006-78-8"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Bay leaves, West Indian, CO2 extract»; el CAS 8006-78-8 es un atributo. Proceso: extracto; CO2. Parte: hoja. Especie: Pimenta racemosa (Mill.) J.W. Moore, la del anexo de IFRA 51, única para el CAS 8006-78-8. Anexo de IFRA 51: la entrada «Bay leaf, West Indian, oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1129",
+   "tipo": "natural",
+   "nombre": "Bay leaves, West Indian, extract",
+   "cas": "8006-78-8",
+   "especie": "Pimenta racemosa (Mill.) J.W. Moore",
+   "parte": "hoja",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1129"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Bay leaf, West Indian, oil",
+    "cas": "8006-78-8"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Bay leaves, West Indian, extract»; el CAS 8006-78-8 es un atributo. Proceso: extracto. Parte: hoja. Especie: Pimenta racemosa (Mill.) J.W. Moore, la del anexo de IFRA 51, única para el CAS 8006-78-8. Anexo de IFRA 51: la entrada «Bay leaf, West Indian, oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1132",
+   "tipo": "natural",
+   "nombre": "Bay oil, terpeneless",
+   "cas": "68916-05-2",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial; sin terpenos",
+   "v1": [
+    "fig:1132"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Bay oil, terpeneless»; el CAS 68916-05-2 es un atributo. Proceso: aceite esencial; sin terpenos. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1134",
+   "tipo": "natural",
+   "nombre": "Beeswax absolute",
+   "cas": "8012-89-3",
+   "especie": "",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1134"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Beeswax absolute»; el CAS 8012-89-3 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1135",
+   "tipo": "natural",
+   "nombre": "Beeswax CO2 extract",
+   "cas": "8012-89-3",
+   "especie": "",
+   "parte": "",
+   "proceso": "extracto; CO2",
+   "v1": [
+    "fig:1135"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Beeswax CO2 extract»; el CAS 8012-89-3 es un atributo. Proceso: extracto; CO2. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1136",
+   "tipo": "natural",
+   "nombre": "Beeswax concrete",
+   "cas": "8012-89-3",
+   "especie": "",
+   "parte": "",
+   "proceso": "concreto",
+   "v1": [
+    "fig:1136"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Beeswax concrete»; el CAS 8012-89-3 es un atributo. Proceso: concreto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1137",
+   "tipo": "natural",
+   "nombre": "Beeswax resinoid",
+   "cas": "8012-89-3",
+   "especie": "",
+   "parte": "",
+   "proceso": "resinoide",
+   "v1": [
+    "fig:1137"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Beeswax resinoid»; el CAS 8012-89-3 es un atributo. Proceso: resinoide. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1162",
+   "tipo": "natural",
+   "nombre": "Benzoin CO2 extract, Siam",
+   "cas": "9000-72-0",
+   "especie": "",
+   "parte": "",
+   "proceso": "extracto; CO2",
+   "v1": [
+    "fig:1162"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Benzoin CO2 extract, Siam»; el CAS 9000-72-0 es un atributo. Proceso: extracto; CO2. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1163",
+   "tipo": "natural",
+   "nombre": "Benzoin extract, Siam",
+   "cas": "9000-72-0",
+   "especie": "",
+   "parte": "",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1163"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Benzoin extract, Siam»; el CAS 9000-72-0 es un atributo. Proceso: extracto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1164",
+   "tipo": "natural",
+   "nombre": "Benzoin extract, Sumatra",
+   "cas": "9000-05-9",
+   "especie": "Styrax paralleloneurum Perkins",
+   "parte": "",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1164"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Benzoin infusion, Sumatra",
+    "cas": "9000-05-9"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Benzoin extract, Sumatra»; el CAS 9000-05-9 es un atributo. Proceso: extracto. Parte: no lo dice. Especie: Styrax paralleloneurum Perkins, la del anexo de IFRA 51, única para el CAS 9000-05-9. Anexo de IFRA 51: la entrada «Benzoin infusion, Sumatra»."
+  },
+  {
+   "clave": "glosario-natural-fig-1166",
+   "tipo": "natural",
+   "nombre": "Benzoin gum, Sumatra",
+   "cas": "9000-05-9",
+   "especie": "Styrax paralleloneurum Perkins",
+   "parte": "",
+   "proceso": "",
+   "v1": [
+    "fig:1166"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Benzoin infusion, Sumatra",
+    "cas": "9000-05-9"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Benzoin gum, Sumatra»; el CAS 9000-05-9 es un atributo. Proceso: no lo dice. Parte: no lo dice. Especie: Styrax paralleloneurum Perkins, la del anexo de IFRA 51, única para el CAS 9000-05-9. Anexo de IFRA 51: la entrada «Benzoin infusion, Sumatra»."
+  },
+  {
+   "clave": "glosario-natural-fig-1167",
+   "tipo": "natural",
+   "nombre": "Benzoin infusion",
+   "cas": "9000-05-9",
+   "especie": "Styrax paralleloneurum Perkins",
+   "parte": "",
+   "proceso": "",
+   "v1": [
+    "fig:1167"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Benzoin infusion, Sumatra",
+    "cas": "9000-05-9"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Benzoin infusion»; el CAS 9000-05-9 es un atributo. Proceso: no lo dice. Parte: no lo dice. Especie: Styrax paralleloneurum Perkins, la del anexo de IFRA 51, única para el CAS 9000-05-9. Anexo de IFRA 51: la entrada «Benzoin infusion, Sumatra»."
+  },
+  {
+   "clave": "glosario-natural-fig-1169",
+   "tipo": "natural",
+   "nombre": "Benzoin resinoid, Sumatra",
+   "cas": "9000-05-9",
+   "especie": "Styrax paralleloneurum Perkins",
+   "parte": "",
+   "proceso": "resinoide",
+   "v1": [
+    "fig:1169"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Benzoin infusion, Sumatra",
+    "cas": "9000-05-9"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Benzoin resinoid, Sumatra»; el CAS 9000-05-9 es un atributo. Proceso: resinoide. Parte: no lo dice. Especie: Styrax paralleloneurum Perkins, la del anexo de IFRA 51, única para el CAS 9000-05-9. Anexo de IFRA 51: la entrada «Benzoin infusion, Sumatra»."
+  },
+  {
+   "clave": "glosario-natural-fig-1198",
+   "tipo": "natural",
+   "nombre": "Bergamot oil terpenes",
+   "cas": "68917-80-6",
+   "especie": "",
+   "parte": "",
+   "proceso": "terpenos",
+   "v1": [
+    "fig:1198"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Bergamot oil terpenes»; el CAS 68917-80-6 es un atributo. Proceso: terpenos. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1201",
+   "tipo": "natural",
+   "nombre": "Bergamot oil, rectified",
+   "cas": "8007-75-8",
+   "especie": "Citrus bergamia Risso & Poit.",
+   "parte": "",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1201"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Bergamot oil expressed",
+    "cas": "8007-75-8"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Bergamot oil, rectified»; el CAS 8007-75-8 es un atributo. Proceso: aceite esencial; rectificado. Parte: no lo dice. Especie: Citrus bergamia Risso & Poit., la del anexo de IFRA 51, única para el CAS 8007-75-8. Anexo de IFRA 51: la entrada «Bergamot oil expressed»."
+  },
+  {
+   "clave": "glosario-natural-fig-1231",
+   "tipo": "natural",
+   "nombre": "Birch tar oil, rectified",
+   "cas": "8001-88-5",
+   "especie": "Betula pendula Roth",
+   "parte": "",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1231"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Birch tar oil, rectified",
+    "cas": "8001-88-5"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Birch tar oil, rectified»; el CAS 8001-88-5 es un atributo. Proceso: aceite esencial; rectificado. Parte: no lo dice. Especie: Betula pendula Roth, la del anexo de IFRA 51, única para el CAS 8001-88-5. Anexo de IFRA 51: la entrada «Birch tar oil, rectified»."
+  },
+  {
+   "clave": "glosario-natural-fig-1238",
+   "tipo": "natural",
+   "nombre": "Boronia absolute",
+   "cas": "8053-33-6",
+   "especie": "",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1238"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Boronia absolute»; el CAS 8053-33-6 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1239",
+   "tipo": "natural",
+   "nombre": "Bran absolute",
+   "cas": "68916-76-7",
+   "especie": "",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1239"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Bran absolute»; el CAS 68916-76-7 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1240",
+   "tipo": "natural",
+   "nombre": "Bucchu absolute, betulina",
+   "cas": "68650-46-4",
+   "especie": "Agathosma betulina (P.J.Bergius) Pillans",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1240"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Bucchu absolute, betulina",
+    "cas": "68650-46-4"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Bucchu absolute, betulina»; el CAS 68650-46-4 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: Agathosma betulina (P.J.Bergius) Pillans, la del anexo de IFRA 51, única para el CAS 68650-46-4. Anexo de IFRA 51: la entrada «Bucchu absolute, betulina»."
+  },
+  {
+   "clave": "glosario-natural-fig-1241",
+   "tipo": "natural",
+   "nombre": "Bucchu oil, betulina",
+   "cas": "68650-46-4",
+   "especie": "Agathosma betulina (P.J.Bergius) Pillans",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1241"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Bucchu absolute, betulina",
+    "cas": "68650-46-4"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Bucchu oil, betulina»; el CAS 68650-46-4 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Agathosma betulina (P.J.Bergius) Pillans, la del anexo de IFRA 51, única para el CAS 68650-46-4. Anexo de IFRA 51: la entrada «Bucchu absolute, betulina»."
+  },
+  {
+   "clave": "glosario-natural-fig-1242",
+   "tipo": "natural",
+   "nombre": "Bucchu oil, crenulata",
+   "cas": "92346-85-5",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1242"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Bucchu oil, crenulata»; el CAS 92346-85-5 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1243",
+   "tipo": "natural",
+   "nombre": "Bucchu oil, rectified, betulina",
+   "cas": "68650-46-4",
+   "especie": "Agathosma betulina (P.J.Bergius) Pillans",
+   "parte": "",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1243"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Bucchu absolute, betulina",
+    "cas": "68650-46-4"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Bucchu oil, rectified, betulina»; el CAS 68650-46-4 es un atributo. Proceso: aceite esencial; rectificado. Parte: no lo dice. Especie: Agathosma betulina (P.J.Bergius) Pillans, la del anexo de IFRA 51, única para el CAS 68650-46-4. Anexo de IFRA 51: la entrada «Bucchu absolute, betulina»."
+  },
+  {
+   "clave": "glosario-natural-fig-1244",
+   "tipo": "natural",
+   "nombre": "Bucchu resinoid, betulina",
+   "cas": "68650-46-4",
+   "especie": "Agathosma betulina (P.J.Bergius) Pillans",
+   "parte": "",
+   "proceso": "resinoide",
+   "v1": [
+    "fig:1244"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Bucchu absolute, betulina",
+    "cas": "68650-46-4"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Bucchu resinoid, betulina»; el CAS 68650-46-4 es un atributo. Proceso: resinoide. Parte: no lo dice. Especie: Agathosma betulina (P.J.Bergius) Pillans, la del anexo de IFRA 51, única para el CAS 68650-46-4. Anexo de IFRA 51: la entrada «Bucchu absolute, betulina»."
+  },
+  {
+   "clave": "glosario-natural-fig-1246",
+   "tipo": "natural",
+   "nombre": "Bursera graveolens wood oil",
+   "cas": "959130-05-3",
+   "especie": "",
+   "parte": "madera",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1246"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Bursera graveolens wood oil»; el CAS 959130-05-3 es un atributo. Proceso: aceite esencial. Parte: madera. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1279",
+   "tipo": "natural",
+   "nombre": "Buxus sempervirens absolute",
+   "cas": "84012-17-9",
+   "especie": "",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1279"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Buxus sempervirens absolute»; el CAS 84012-17-9 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1280",
+   "tipo": "natural",
+   "nombre": "Cabreuva oil",
+   "cas": "68188-03-4",
+   "especie": "Myrocarpus frondosus Fr. Allem",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1280"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cabreuva oil",
+    "cas": "68188-03-4"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cabreuva oil»; el CAS 68188-03-4 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Myrocarpus frondosus Fr. Allem, la del anexo de IFRA 51, única para el CAS 68188-03-4. Anexo de IFRA 51: la entrada «Cabreuva oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1281",
+   "tipo": "natural",
+   "nombre": "Cacao absolute",
+   "cas": "8002-31-1",
+   "especie": "",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1281"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cacao absolute»; el CAS 8002-31-1 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1282",
+   "tipo": "natural",
+   "nombre": "Cacao extract",
+   "cas": "8002-31-1",
+   "especie": "",
+   "parte": "",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1282"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cacao extract»; el CAS 8002-31-1 es un atributo. Proceso: extracto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1283",
+   "tipo": "natural",
+   "nombre": "Cacao infusion and tincture",
+   "cas": "8002-31-1",
+   "especie": "",
+   "parte": "",
+   "proceso": "tintura",
+   "v1": [
+    "fig:1283"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cacao infusion and tincture»; el CAS 8002-31-1 es un atributo. Proceso: tintura. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1284",
+   "tipo": "natural",
+   "nombre": "Cacao oil",
+   "cas": "8002-31-1",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1284"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cacao oil»; el CAS 8002-31-1 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1289",
+   "tipo": "natural",
+   "nombre": "Cajuput oil",
+   "cas": "8008-98-8",
+   "especie": "Melaleuca leucadendron L.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1289"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cajuput oil",
+    "cas": "8008-98-8"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cajuput oil»; el CAS 8008-98-8 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Melaleuca leucadendron L., la del anexo de IFRA 51, única para el CAS 8008-98-8. Anexo de IFRA 51: la entrada «Cajuput oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1290",
+   "tipo": "natural",
+   "nombre": "Calamus oil",
+   "cas": "8015-79-0",
+   "especie": "Acorus calamus L.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1290"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Calamus oil",
+    "cas": "8015-79-0"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Calamus oil»; el CAS 8015-79-0 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Acorus calamus L., la del anexo de IFRA 51, única para el CAS 8015-79-0. Anexo de IFRA 51: la entrada «Calamus oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1291",
+   "tipo": "natural",
+   "nombre": "Callitropsis nootkatensis oil",
+   "cas": "1069136-34-0",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1291"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Callitropsis nootkatensis oil»; el CAS 1069136-34-0 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1292",
+   "tipo": "natural",
+   "nombre": "Callitropsis nootkatensis oil, rectified",
+   "cas": "1069136-34-0",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1292"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Callitropsis nootkatensis oil, rectified»; el CAS 1069136-34-0 es un atributo. Proceso: aceite esencial; rectificado. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1293",
+   "tipo": "natural",
+   "nombre": "Camellia leaf extract",
+   "cas": "68916-73-4",
+   "especie": "",
+   "parte": "hoja",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1293"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Camellia leaf extract»; el CAS 68916-73-4 es un atributo. Proceso: extracto. Parte: hoja. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1294",
+   "tipo": "natural",
+   "nombre": "Camillia leaf concentrate",
+   "cas": "68916-73-4",
+   "especie": "",
+   "parte": "hoja",
+   "proceso": "",
+   "v1": [
+    "fig:1294"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Camillia leaf concentrate»; el CAS 68916-73-4 es un atributo. Proceso: no lo dice. Parte: hoja. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1295",
+   "tipo": "natural",
+   "nombre": "Camillia leaf distillate",
+   "cas": "68916-73-4",
+   "especie": "",
+   "parte": "hoja",
+   "proceso": "destilado",
+   "v1": [
+    "fig:1295"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Camillia leaf distillate»; el CAS 68916-73-4 es un atributo. Proceso: destilado. Parte: hoja. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1297",
+   "tipo": "natural",
+   "nombre": "Camphor oil, white",
+   "cas": "8008-51-3",
+   "especie": "Cinnamomum camphora (L.) J.Presl",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1297"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8008-51-3",
+    "nombres": [
+     "Camphor oil, brown",
+     "Camphor oil, yellow"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Camphor oil, white»; el CAS 8008-51-3 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Cinnamomum camphora (L.) J.Presl, la del anexo de IFRA 51, única para el CAS 8008-51-3. Anexo de IFRA 51: el CAS tiene 2 entradas y el término no coincide con una sola; cuenta la peor de ellas: Camphor oil, brown; Camphor oil, yellow."
+  },
+  {
+   "clave": "glosario-natural-fig-1298",
+   "tipo": "natural",
+   "nombre": "Camphor oil, white, rectified",
+   "cas": "8008-51-3",
+   "especie": "Cinnamomum camphora (L.) J.Presl",
+   "parte": "",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1298"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8008-51-3",
+    "nombres": [
+     "Camphor oil, brown",
+     "Camphor oil, yellow"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Camphor oil, white, rectified»; el CAS 8008-51-3 es un atributo. Proceso: aceite esencial; rectificado. Parte: no lo dice. Especie: Cinnamomum camphora (L.) J.Presl, la del anexo de IFRA 51, única para el CAS 8008-51-3. Anexo de IFRA 51: el CAS tiene 2 entradas y el término no coincide con una sola; cuenta la peor de ellas: Camphor oil, brown; Camphor oil, yellow."
+  },
+  {
+   "clave": "glosario-natural-fig-1299",
+   "tipo": "natural",
+   "nombre": "Cananga oil",
+   "cas": "68606-83-7",
+   "especie": "Cananga odorata (Lam.) Hook. f. & Thomson (forma macrophylla Steenis)",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1299"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cananga oil",
+    "cas": "68606-83-7"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cananga oil»; el CAS 68606-83-7 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Cananga odorata (Lam.) Hook. f. & Thomson (forma macrophylla Steenis), la del anexo de IFRA 51, única para el CAS 68606-83-7. Anexo de IFRA 51: la entrada «Cananga oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1300",
+   "tipo": "natural",
+   "nombre": "Capsicum oleoresin",
+   "cas": "8023-77-6",
+   "especie": "",
+   "parte": "",
+   "proceso": "oleorresina",
+   "v1": [
+    "fig:1300"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Capsicum oleoresin»; el CAS 8023-77-6 es un atributo. Proceso: oleorresina. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1302",
+   "tipo": "natural",
+   "nombre": "Caraway seed oil",
+   "cas": "8000-42-8",
+   "especie": "Carum carvi L.",
+   "parte": "semilla",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1302"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Caraway seed oil",
+    "cas": "8000-42-8"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Caraway seed oil»; el CAS 8000-42-8 es un atributo. Proceso: aceite esencial. Parte: semilla. Especie: Carum carvi L., la del anexo de IFRA 51, única para el CAS 8000-42-8. Anexo de IFRA 51: la entrada «Caraway seed oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1303",
+   "tipo": "natural",
+   "nombre": "Caraway seed oil, rectified",
+   "cas": "8000-42-8",
+   "especie": "Carum carvi L.",
+   "parte": "semilla",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1303"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Caraway seed oil",
+    "cas": "8000-42-8"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Caraway seed oil, rectified»; el CAS 8000-42-8 es un atributo. Proceso: aceite esencial; rectificado. Parte: semilla. Especie: Carum carvi L., la del anexo de IFRA 51, única para el CAS 8000-42-8. Anexo de IFRA 51: la entrada «Caraway seed oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1305",
+   "tipo": "natural",
+   "nombre": "Cardamom seed absolute",
+   "cas": "8000-66-6",
+   "especie": "Elettaria cardamomum (L.) Maton",
+   "parte": "semilla",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1305"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cardamom seed oil",
+    "cas": "8000-66-6"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cardamom seed absolute»; el CAS 8000-66-6 es un atributo. Proceso: absoluto. Parte: semilla. Especie: Elettaria cardamomum (L.) Maton, la del anexo de IFRA 51, única para el CAS 8000-66-6. Anexo de IFRA 51: la entrada «Cardamom seed oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1306",
+   "tipo": "natural",
+   "nombre": "Cardamom seed CO2 extract",
+   "cas": "8000-66-6",
+   "especie": "Elettaria cardamomum (L.) Maton",
+   "parte": "semilla",
+   "proceso": "extracto; CO2",
+   "v1": [
+    "fig:1306"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cardamom seed oil",
+    "cas": "8000-66-6"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cardamom seed CO2 extract»; el CAS 8000-66-6 es un atributo. Proceso: extracto; CO2. Parte: semilla. Especie: Elettaria cardamomum (L.) Maton, la del anexo de IFRA 51, única para el CAS 8000-66-6. Anexo de IFRA 51: la entrada «Cardamom seed oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1307",
+   "tipo": "natural",
+   "nombre": "Cardamom seed distillate",
+   "cas": "8000-66-6",
+   "especie": "Elettaria cardamomum (L.) Maton",
+   "parte": "semilla",
+   "proceso": "destilado",
+   "v1": [
+    "fig:1307"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cardamom seed oil",
+    "cas": "8000-66-6"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cardamom seed distillate»; el CAS 8000-66-6 es un atributo. Proceso: destilado. Parte: semilla. Especie: Elettaria cardamomum (L.) Maton, la del anexo de IFRA 51, única para el CAS 8000-66-6. Anexo de IFRA 51: la entrada «Cardamom seed oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1308",
+   "tipo": "natural",
+   "nombre": "Cardamom seed extract",
+   "cas": "8000-66-6",
+   "especie": "Elettaria cardamomum (L.) Maton",
+   "parte": "semilla",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1308"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cardamom seed oil",
+    "cas": "8000-66-6"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cardamom seed extract»; el CAS 8000-66-6 es un atributo. Proceso: extracto. Parte: semilla. Especie: Elettaria cardamomum (L.) Maton, la del anexo de IFRA 51, única para el CAS 8000-66-6. Anexo de IFRA 51: la entrada «Cardamom seed oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1309",
+   "tipo": "natural",
+   "nombre": "Cardamom seed oil",
+   "cas": "8000-66-6",
+   "especie": "Elettaria cardamomum (L.) Maton",
+   "parte": "semilla",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1309"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cardamom seed oil",
+    "cas": "8000-66-6"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cardamom seed oil»; el CAS 8000-66-6 es un atributo. Proceso: aceite esencial. Parte: semilla. Especie: Elettaria cardamomum (L.) Maton, la del anexo de IFRA 51, única para el CAS 8000-66-6. Anexo de IFRA 51: la entrada «Cardamom seed oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1310",
+   "tipo": "natural",
+   "nombre": "Cardamon seed",
+   "cas": "8000-66-6",
+   "especie": "Elettaria cardamomum (L.) Maton",
+   "parte": "semilla",
+   "proceso": "",
+   "v1": [
+    "fig:1310"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cardamom seed oil",
+    "cas": "8000-66-6"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cardamon seed»; el CAS 8000-66-6 es un atributo. Proceso: no lo dice. Parte: semilla. Especie: Elettaria cardamomum (L.) Maton, la del anexo de IFRA 51, única para el CAS 8000-66-6. Anexo de IFRA 51: la entrada «Cardamom seed oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1311",
+   "tipo": "natural",
+   "nombre": "Carnation absolute",
+   "cas": "8021-43-0",
+   "especie": "Dianthus caryophyllus L.",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1311"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Carnation absolute",
+    "cas": "8021-43-0"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Carnation absolute»; el CAS 8021-43-0 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: Dianthus caryophyllus L., la del anexo de IFRA 51, única para el CAS 8021-43-0. Anexo de IFRA 51: la entrada «Carnation absolute»."
+  },
+  {
+   "clave": "glosario-natural-fig-1312",
+   "tipo": "natural",
+   "nombre": "Carob absolute",
+   "cas": "79070-15-8",
+   "especie": "",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1312"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Carob absolute»; el CAS 79070-15-8 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1313",
+   "tipo": "natural",
+   "nombre": "Carob bean extract",
+   "cas": "79070-15-8",
+   "especie": "",
+   "parte": "",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1313"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Carob bean extract»; el CAS 79070-15-8 es un atributo. Proceso: extracto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1314",
+   "tipo": "natural",
+   "nombre": "Carrot seed",
+   "cas": "8015-88-1",
+   "especie": "Daucus carota L.",
+   "parte": "semilla",
+   "proceso": "",
+   "v1": [
+    "fig:1314"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Carrot seed oil",
+    "cas": "8015-88-1"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Carrot seed»; el CAS 8015-88-1 es un atributo. Proceso: no lo dice. Parte: semilla. Especie: Daucus carota L., la del anexo de IFRA 51, única para el CAS 8015-88-1. Anexo de IFRA 51: la entrada «Carrot seed oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1315",
+   "tipo": "natural",
+   "nombre": "Carrot seed absolute",
+   "cas": "8015-88-1",
+   "especie": "Daucus carota L.",
+   "parte": "semilla",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1315"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Carrot seed oil",
+    "cas": "8015-88-1"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Carrot seed absolute»; el CAS 8015-88-1 es un atributo. Proceso: absoluto. Parte: semilla. Especie: Daucus carota L., la del anexo de IFRA 51, única para el CAS 8015-88-1. Anexo de IFRA 51: la entrada «Carrot seed oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1316",
+   "tipo": "natural",
+   "nombre": "Carrot seed oil",
+   "cas": "8015-88-1",
+   "especie": "Daucus carota L.",
+   "parte": "semilla",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1316"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Carrot seed oil",
+    "cas": "8015-88-1"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Carrot seed oil»; el CAS 8015-88-1 es un atributo. Proceso: aceite esencial. Parte: semilla. Especie: Daucus carota L., la del anexo de IFRA 51, única para el CAS 8015-88-1. Anexo de IFRA 51: la entrada «Carrot seed oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1317",
+   "tipo": "natural",
+   "nombre": "Carrot seed oil terpenless",
+   "cas": "8015-88-1",
+   "especie": "Daucus carota L.",
+   "parte": "semilla",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1317"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Carrot seed oil",
+    "cas": "8015-88-1"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Carrot seed oil terpenless»; el CAS 8015-88-1 es un atributo. Proceso: aceite esencial. Parte: semilla. Especie: Daucus carota L., la del anexo de IFRA 51, única para el CAS 8015-88-1. Anexo de IFRA 51: la entrada «Carrot seed oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1318",
+   "tipo": "natural",
+   "nombre": "Carrot seed oil, rectified",
+   "cas": "8015-88-1",
+   "especie": "Daucus carota L.",
+   "parte": "semilla",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1318"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Carrot seed oil",
+    "cas": "8015-88-1"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Carrot seed oil, rectified»; el CAS 8015-88-1 es un atributo. Proceso: aceite esencial; rectificado. Parte: semilla. Especie: Daucus carota L., la del anexo de IFRA 51, única para el CAS 8015-88-1. Anexo de IFRA 51: la entrada «Carrot seed oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1327",
+   "tipo": "natural",
+   "nombre": "Cascarilla bark extract",
+   "cas": "8007-06-5",
+   "especie": "Croton eleuteria (L.) W.Wright",
+   "parte": "corteza",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1327"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cascarilla bark oil",
+    "cas": "8007-06-5"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cascarilla bark extract»; el CAS 8007-06-5 es un atributo. Proceso: extracto. Parte: corteza. Especie: Croton eleuteria (L.) W.Wright, la del anexo de IFRA 51, única para el CAS 8007-06-5. Anexo de IFRA 51: la entrada «Cascarilla bark oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1328",
+   "tipo": "natural",
+   "nombre": "Cascarilla bark oil",
+   "cas": "8007-06-5",
+   "especie": "Croton eleuteria (L.) W.Wright",
+   "parte": "corteza",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1328"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cascarilla bark oil",
+    "cas": "8007-06-5"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cascarilla bark oil»; el CAS 8007-06-5 es un atributo. Proceso: aceite esencial. Parte: corteza. Especie: Croton eleuteria (L.) W.Wright, la del anexo de IFRA 51, única para el CAS 8007-06-5. Anexo de IFRA 51: la entrada «Cascarilla bark oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1329",
+   "tipo": "natural",
+   "nombre": "Cassia backs terpenes",
+   "cas": "8007-80-5",
+   "especie": "Cinnamomum cassia [L.] J. Presl syn. C. aromaticum Nees",
+   "parte": "",
+   "proceso": "terpenos",
+   "v1": [
+    "fig:1329"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8007-80-5",
+    "nombres": [
+     "Cassia  bark oil",
+     "Cassia bark oleoresin",
+     "Cassia oil"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cassia backs terpenes»; el CAS 8007-80-5 es un atributo. Proceso: terpenos. Parte: no lo dice. Especie: Cinnamomum cassia [L.] J. Presl syn. C. aromaticum Nees, la del anexo de IFRA 51, única para el CAS 8007-80-5. Anexo de IFRA 51: el CAS tiene 3 entradas y el término no coincide con una sola; cuenta la peor de ellas: Cassia  bark oil; Cassia bark oleoresin; Cassia oil."
+  },
+  {
+   "clave": "glosario-natural-fig-1330",
+   "tipo": "natural",
+   "nombre": "Cassia bark extract",
+   "cas": "8007-80-5",
+   "especie": "Cinnamomum cassia [L.] J. Presl syn. C. aromaticum Nees",
+   "parte": "corteza",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1330"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8007-80-5",
+    "nombres": [
+     "Cassia  bark oil",
+     "Cassia bark oleoresin",
+     "Cassia oil"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cassia bark extract»; el CAS 8007-80-5 es un atributo. Proceso: extracto. Parte: corteza. Especie: Cinnamomum cassia [L.] J. Presl syn. C. aromaticum Nees, la del anexo de IFRA 51, única para el CAS 8007-80-5. Anexo de IFRA 51: el CAS tiene 3 entradas y el término no coincide con una sola; cuenta la peor de ellas: Cassia  bark oil; Cassia bark oleoresin; Cassia oil."
+  },
+  {
+   "clave": "glosario-natural-fig-1331",
+   "tipo": "natural",
+   "nombre": "Cassia bark oil",
+   "cas": "8007-80-5",
+   "especie": "Cinnamomum cassia [L.] J. Presl syn. C. aromaticum Nees",
+   "parte": "corteza",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1331"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cassia  bark oil",
+    "cas": "8007-80-5"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cassia bark oil»; el CAS 8007-80-5 es un atributo. Proceso: aceite esencial. Parte: corteza. Especie: Cinnamomum cassia [L.] J. Presl syn. C. aromaticum Nees, la del anexo de IFRA 51, única para el CAS 8007-80-5. Anexo de IFRA 51: la entrada «Cassia  bark oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1332",
+   "tipo": "natural",
+   "nombre": "Cassia oil",
+   "cas": "8007-80-5",
+   "especie": "Cinnamomum cassia [L.] J. Presl syn. C. aromaticum Nees",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1332"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cassia oil",
+    "cas": "8007-80-5"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cassia oil»; el CAS 8007-80-5 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Cinnamomum cassia [L.] J. Presl syn. C. aromaticum Nees, la del anexo de IFRA 51, única para el CAS 8007-80-5. Anexo de IFRA 51: la entrada «Cassia oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1333",
+   "tipo": "natural",
+   "nombre": "Cassia oil, (low coumarin)",
+   "cas": "8007-80-5",
+   "especie": "Cinnamomum cassia [L.] J. Presl syn. C. aromaticum Nees",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1333"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8007-80-5",
+    "nombres": [
+     "Cassia  bark oil",
+     "Cassia bark oleoresin",
+     "Cassia oil"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cassia oil, (low coumarin)»; el CAS 8007-80-5 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Cinnamomum cassia [L.] J. Presl syn. C. aromaticum Nees, la del anexo de IFRA 51, única para el CAS 8007-80-5. Anexo de IFRA 51: el CAS tiene 3 entradas y el término no coincide con una sola; cuenta la peor de ellas: Cassia  bark oil; Cassia bark oleoresin; Cassia oil."
+  },
+  {
+   "clave": "glosario-natural-fig-1334",
+   "tipo": "natural",
+   "nombre": "Cassia oil, rectified",
+   "cas": "8007-80-5",
+   "especie": "Cinnamomum cassia [L.] J. Presl syn. C. aromaticum Nees",
+   "parte": "",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1334"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8007-80-5",
+    "nombres": [
+     "Cassia  bark oil",
+     "Cassia bark oleoresin",
+     "Cassia oil"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cassia oil, rectified»; el CAS 8007-80-5 es un atributo. Proceso: aceite esencial; rectificado. Parte: no lo dice. Especie: Cinnamomum cassia [L.] J. Presl syn. C. aromaticum Nees, la del anexo de IFRA 51, única para el CAS 8007-80-5. Anexo de IFRA 51: el CAS tiene 3 entradas y el término no coincide con una sola; cuenta la peor de ellas: Cassia  bark oil; Cassia bark oleoresin; Cassia oil."
+  },
+  {
+   "clave": "glosario-natural-fig-1335",
+   "tipo": "natural",
+   "nombre": "Cassie absolute",
+   "cas": "8023-82-3",
+   "especie": "Vachellia farnesiana (L.) Willd.",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1335"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cassie absolute",
+    "cas": "8023-82-3"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cassie absolute»; el CAS 8023-82-3 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: Vachellia farnesiana (L.) Willd., la del anexo de IFRA 51, única para el CAS 8023-82-3. Anexo de IFRA 51: la entrada «Cassie absolute»."
+  },
+  {
+   "clave": "glosario-natural-fig-1336",
+   "tipo": "natural",
+   "nombre": "Cassis bud absolute",
+   "cas": "97676-19-2",
+   "especie": "Ribes nigrum L.",
+   "parte": "botón",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1336"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cassis bud absolute",
+    "cas": "97676-19-2"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cassis bud absolute»; el CAS 97676-19-2 es un atributo. Proceso: absoluto. Parte: botón. Especie: Ribes nigrum L., la del anexo de IFRA 51, única para el CAS 97676-19-2. Anexo de IFRA 51: la entrada «Cassis bud absolute»."
+  },
+  {
+   "clave": "glosario-natural-fig-1337",
+   "tipo": "natural",
+   "nombre": "Cassis bud CO2 extract",
+   "cas": "97676-19-2",
+   "especie": "Ribes nigrum L.",
+   "parte": "botón",
+   "proceso": "extracto; CO2",
+   "v1": [
+    "fig:1337"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cassis bud absolute",
+    "cas": "97676-19-2"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cassis bud CO2 extract»; el CAS 97676-19-2 es un atributo. Proceso: extracto; CO2. Parte: botón. Especie: Ribes nigrum L., la del anexo de IFRA 51, única para el CAS 97676-19-2. Anexo de IFRA 51: la entrada «Cassis bud absolute»."
+  },
+  {
+   "clave": "glosario-natural-fig-1338",
+   "tipo": "natural",
+   "nombre": "Cassis bud oil",
+   "cas": "97676-19-2",
+   "especie": "Ribes nigrum L.",
+   "parte": "botón",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1338"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cassis bud absolute",
+    "cas": "97676-19-2"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cassis bud oil»; el CAS 97676-19-2 es un atributo. Proceso: aceite esencial. Parte: botón. Especie: Ribes nigrum L., la del anexo de IFRA 51, única para el CAS 97676-19-2. Anexo de IFRA 51: la entrada «Cassis bud absolute»."
+  },
+  {
+   "clave": "glosario-natural-fig-1339",
+   "tipo": "natural",
+   "nombre": "Cassis bud oil, terpeneless",
+   "cas": "97676-19-2",
+   "especie": "Ribes nigrum L.",
+   "parte": "botón",
+   "proceso": "aceite esencial; sin terpenos",
+   "v1": [
+    "fig:1339"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cassis bud absolute",
+    "cas": "97676-19-2"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cassis bud oil, terpeneless»; el CAS 97676-19-2 es un atributo. Proceso: aceite esencial; sin terpenos. Parte: botón. Especie: Ribes nigrum L., la del anexo de IFRA 51, única para el CAS 97676-19-2. Anexo de IFRA 51: la entrada «Cassis bud absolute»."
+  },
+  {
+   "clave": "glosario-natural-fig-1340",
+   "tipo": "natural",
+   "nombre": "Cassis essence oil",
+   "cas": "97676-19-2",
+   "especie": "Ribes nigrum L.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1340"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cassis bud absolute",
+    "cas": "97676-19-2"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cassis essence oil»; el CAS 97676-19-2 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Ribes nigrum L., la del anexo de IFRA 51, única para el CAS 97676-19-2. Anexo de IFRA 51: la entrada «Cassis bud absolute»."
+  },
+  {
+   "clave": "glosario-natural-fig-1341",
+   "tipo": "natural",
+   "nombre": "Cassis tincture",
+   "cas": "97676-19-2",
+   "especie": "Ribes nigrum L.",
+   "parte": "",
+   "proceso": "tintura",
+   "v1": [
+    "fig:1341"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cassis bud absolute",
+    "cas": "97676-19-2"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cassis tincture»; el CAS 97676-19-2 es un atributo. Proceso: tintura. Parte: no lo dice. Especie: Ribes nigrum L., la del anexo de IFRA 51, única para el CAS 97676-19-2. Anexo de IFRA 51: la entrada «Cassis bud absolute»."
+  },
+  {
+   "clave": "glosario-natural-fig-1344",
+   "tipo": "natural",
+   "nombre": "Castoreum concrete",
+   "cas": "8023-83-4",
+   "especie": "",
+   "parte": "",
+   "proceso": "concreto",
+   "v1": [
+    "fig:1344"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Castoreum concrete»; el CAS 8023-83-4 es un atributo. Proceso: concreto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1346",
+   "tipo": "natural",
+   "nombre": "Castoreum resinoid",
+   "cas": "8023-83-4",
+   "especie": "",
+   "parte": "",
+   "proceso": "resinoide",
+   "v1": [
+    "fig:1346"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Castoreum resinoid»; el CAS 8023-83-4 es un atributo. Proceso: resinoide. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1347",
+   "tipo": "natural",
+   "nombre": "Castoreum tincture",
+   "cas": "8023-83-4",
+   "especie": "",
+   "parte": "",
+   "proceso": "tintura",
+   "v1": [
+    "fig:1347"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Castoreum tincture»; el CAS 8023-83-4 es un atributo. Proceso: tintura. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1348",
+   "tipo": "natural",
+   "nombre": "Cedar leaf oil",
+   "cas": "8007-20-3",
+   "especie": "Thuja occidentalis L.",
+   "parte": "hoja",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1348"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cedar leaf oil",
+    "cas": "8007-20-3"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cedar leaf oil»; el CAS 8007-20-3 es un atributo. Proceso: aceite esencial. Parte: hoja. Especie: Thuja occidentalis L., la del anexo de IFRA 51, única para el CAS 8007-20-3. Anexo de IFRA 51: la entrada «Cedar leaf oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1349",
+   "tipo": "natural",
+   "nombre": "Cedar leaf oil, China",
+   "cas": "91770-83-1",
+   "especie": "Platycladus orientalis (L.) Franco",
+   "parte": "hoja",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1349"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cedar leaf oil, China",
+    "cas": "91770-83-1"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cedar leaf oil, China»; el CAS 91770-83-1 es un atributo. Proceso: aceite esencial. Parte: hoja. Especie: Platycladus orientalis (L.) Franco, la del anexo de IFRA 51, única para el CAS 91770-83-1. Anexo de IFRA 51: la entrada «Cedar leaf oil, China»."
+  },
+  {
+   "clave": "glosario-natural-fig-1350",
+   "tipo": "natural",
+   "nombre": "Cedar leaf oil, East Canada",
+   "cas": "68917-35-1",
+   "especie": "",
+   "parte": "hoja",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1350"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cedar leaf oil, East Canada»; el CAS 68917-35-1 es un atributo. Proceso: aceite esencial. Parte: hoja. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1351",
+   "tipo": "natural",
+   "nombre": "Cedar leaf oil, rectified",
+   "cas": "8007-20-3",
+   "especie": "Thuja occidentalis L.",
+   "parte": "hoja",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1351"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cedar leaf oil",
+    "cas": "8007-20-3"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cedar leaf oil, rectified»; el CAS 8007-20-3 es un atributo. Proceso: aceite esencial; rectificado. Parte: hoja. Especie: Thuja occidentalis L., la del anexo de IFRA 51, única para el CAS 8007-20-3. Anexo de IFRA 51: la entrada «Cedar leaf oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1352",
+   "tipo": "natural",
+   "nombre": "Cedarwood extract, Texas",
+   "cas": "68990-83-0",
+   "especie": "Juniperus mexicana Schiede",
+   "parte": "",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1352"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cedarwood oil, Texas",
+    "cas": "68990-83-0"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cedarwood extract, Texas»; el CAS 68990-83-0 es un atributo. Proceso: extracto. Parte: no lo dice. Especie: Juniperus mexicana Schiede, la del anexo de IFRA 51, única para el CAS 68990-83-0. Anexo de IFRA 51: la entrada «Cedarwood oil, Texas»."
+  },
+  {
+   "clave": "glosario-natural-fig-1353",
+   "tipo": "natural",
+   "nombre": "Cedarwood extract, Atlas",
+   "cas": "8023-85-6",
+   "especie": "Cedrus atlantica (Endl.) Manetti ex Carriere",
+   "parte": "",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1353"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cedarwood oil, Atlas",
+    "cas": "8023-85-6"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cedarwood extract, Atlas»; el CAS 8023-85-6 es un atributo. Proceso: extracto. Parte: no lo dice. Especie: Cedrus atlantica (Endl.) Manetti ex Carriere, la del anexo de IFRA 51, única para el CAS 8023-85-6. Anexo de IFRA 51: la entrada «Cedarwood oil, Atlas»."
+  },
+  {
+   "clave": "glosario-natural-fig-1354",
+   "tipo": "natural",
+   "nombre": "Cedarwood oil (low cedrol), Texas",
+   "cas": "68990-83-0",
+   "especie": "Juniperus mexicana Schiede",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1354"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cedarwood oil, Texas",
+    "cas": "68990-83-0"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cedarwood oil (low cedrol), Texas»; el CAS 68990-83-0 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Juniperus mexicana Schiede, la del anexo de IFRA 51, única para el CAS 68990-83-0. Anexo de IFRA 51: la entrada «Cedarwood oil, Texas»."
+  },
+  {
+   "clave": "glosario-natural-fig-1355",
+   "tipo": "natural",
+   "nombre": "Cedarwood oil acetylated",
+   "cas": "61789-42-2",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1355"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cedarwood oil acetylated»; el CAS 61789-42-2 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1356",
+   "tipo": "natural",
+   "nombre": "Cedarwood oil terpenes",
+   "cas": "68608-32-2",
+   "especie": "",
+   "parte": "",
+   "proceso": "terpenos",
+   "v1": [
+    "fig:1356"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cedarwood oil terpenes»; el CAS 68608-32-2 es un atributo. Proceso: terpenos. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1358",
+   "tipo": "natural",
+   "nombre": "Cedarwood oil, Atlas, rectified",
+   "cas": "8023-85-6",
+   "especie": "Cedrus atlantica (Endl.) Manetti ex Carriere",
+   "parte": "",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1358"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cedarwood oil, Atlas",
+    "cas": "8023-85-6"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cedarwood oil, Atlas, rectified»; el CAS 8023-85-6 es un atributo. Proceso: aceite esencial; rectificado. Parte: no lo dice. Especie: Cedrus atlantica (Endl.) Manetti ex Carriere, la del anexo de IFRA 51, única para el CAS 8023-85-6. Anexo de IFRA 51: la entrada «Cedarwood oil, Atlas»."
+  },
+  {
+   "clave": "glosario-natural-fig-1359",
+   "tipo": "natural",
+   "nombre": "Cedarwood oil, Chinese",
+   "cas": "1159574-01-2",
+   "especie": "Cupressus funebris Endl.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1359"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cedarwood oil, Chinese",
+    "cas": "1159574-01-2"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cedarwood oil, Chinese»; el CAS 1159574-01-2 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Cupressus funebris Endl., la del anexo de IFRA 51, única para el CAS 1159574-01-2. Anexo de IFRA 51: la entrada «Cedarwood oil, Chinese»."
+  },
+  {
+   "clave": "glosario-natural-fig-1360",
+   "tipo": "natural",
+   "nombre": "Cedarwood oil, Chinese, rectified",
+   "cas": "1159574-01-2",
+   "especie": "Cupressus funebris Endl.",
+   "parte": "",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1360"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cedarwood oil, Chinese",
+    "cas": "1159574-01-2"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cedarwood oil, Chinese, rectified»; el CAS 1159574-01-2 es un atributo. Proceso: aceite esencial; rectificado. Parte: no lo dice. Especie: Cupressus funebris Endl., la del anexo de IFRA 51, única para el CAS 1159574-01-2. Anexo de IFRA 51: la entrada «Cedarwood oil, Chinese»."
+  },
+  {
+   "clave": "glosario-natural-fig-1361",
+   "tipo": "natural",
+   "nombre": "Cedarwood oil, epoxidized",
+   "cas": "68648-34-0",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1361"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cedarwood oil, epoxidized»; el CAS 68648-34-0 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1362",
+   "tipo": "natural",
+   "nombre": "Cedarwood oil, Himalaya",
+   "cas": "68991-36-6",
+   "especie": "Cedrus deodora (Roxb ex D.Don) G.Don",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1362"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cedarwood oil, Himalaya",
+    "cas": "68991-36-6"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cedarwood oil, Himalaya»; el CAS 68991-36-6 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Cedrus deodora (Roxb ex D.Don) G.Don, la del anexo de IFRA 51, única para el CAS 68991-36-6. Anexo de IFRA 51: la entrada «Cedarwood oil, Himalaya»."
+  },
+  {
+   "clave": "glosario-natural-fig-1363",
+   "tipo": "natural",
+   "nombre": "Cedarwood oil, oxidized",
+   "cas": "68916-71-2",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1363"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cedarwood oil, oxidized»; el CAS 68916-71-2 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1364",
+   "tipo": "natural",
+   "nombre": "Cedarwood oil, terpeneless",
+   "cas": "68603-22-5",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial; sin terpenos",
+   "v1": [
+    "fig:1364"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cedarwood oil, terpeneless»; el CAS 68603-22-5 es un atributo. Proceso: aceite esencial; sin terpenos. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1365",
+   "tipo": "natural",
+   "nombre": "Cedarwood oil, Texas",
+   "cas": "68990-83-0",
+   "especie": "Juniperus mexicana Schiede",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1365"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cedarwood oil, Texas",
+    "cas": "68990-83-0"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cedarwood oil, Texas»; el CAS 68990-83-0 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Juniperus mexicana Schiede, la del anexo de IFRA 51, única para el CAS 68990-83-0. Anexo de IFRA 51: la entrada «Cedarwood oil, Texas»."
+  },
+  {
+   "clave": "glosario-natural-fig-1366",
+   "tipo": "natural",
+   "nombre": "Cedarwood oil, Texas, rectified",
+   "cas": "68990-83-0",
+   "especie": "Juniperus mexicana Schiede",
+   "parte": "",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1366"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cedarwood oil, Texas",
+    "cas": "68990-83-0"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cedarwood oil, Texas, rectified»; el CAS 68990-83-0 es un atributo. Proceso: aceite esencial; rectificado. Parte: no lo dice. Especie: Juniperus mexicana Schiede, la del anexo de IFRA 51, única para el CAS 68990-83-0. Anexo de IFRA 51: la entrada «Cedarwood oil, Texas»."
+  },
+  {
+   "clave": "glosario-natural-fig-1367",
+   "tipo": "natural",
+   "nombre": "Cedarwood oil, Virginian",
+   "cas": "8000-27-9",
+   "especie": "Juniperus virginiana L.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1367"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cedarwood oil, Virginian",
+    "cas": "8000-27-9"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cedarwood oil, Virginian»; el CAS 8000-27-9 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Juniperus virginiana L., la del anexo de IFRA 51, única para el CAS 8000-27-9. Anexo de IFRA 51: la entrada «Cedarwood oil, Virginian»."
+  },
+  {
+   "clave": "glosario-natural-fig-1368",
+   "tipo": "natural",
+   "nombre": "Cedarwood oil, Virginian, rectified",
+   "cas": "8000-27-9",
+   "especie": "Juniperus virginiana L.",
+   "parte": "",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1368"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cedarwood oil, Virginian",
+    "cas": "8000-27-9"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cedarwood oil, Virginian, rectified»; el CAS 8000-27-9 es un atributo. Proceso: aceite esencial; rectificado. Parte: no lo dice. Especie: Juniperus virginiana L., la del anexo de IFRA 51, única para el CAS 8000-27-9. Anexo de IFRA 51: la entrada «Cedarwood oil, Virginian»."
+  },
+  {
+   "clave": "glosario-natural-fig-1369",
+   "tipo": "natural",
+   "nombre": "Cedarwood terpenes, Chinese",
+   "cas": "1159574-01-2",
+   "especie": "Cupressus funebris Endl.",
+   "parte": "",
+   "proceso": "terpenos",
+   "v1": [
+    "fig:1369"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cedarwood oil, Chinese",
+    "cas": "1159574-01-2"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cedarwood terpenes, Chinese»; el CAS 1159574-01-2 es un atributo. Proceso: terpenos. Parte: no lo dice. Especie: Cupressus funebris Endl., la del anexo de IFRA 51, única para el CAS 1159574-01-2. Anexo de IFRA 51: la entrada «Cedarwood oil, Chinese»."
+  },
+  {
+   "clave": "glosario-natural-fig-1370",
+   "tipo": "natural",
+   "nombre": "Cedarwood terpenes, Virginia",
+   "cas": "8000-27-9",
+   "especie": "Juniperus virginiana L.",
+   "parte": "",
+   "proceso": "terpenos",
+   "v1": [
+    "fig:1370"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cedarwood oil, Virginian",
+    "cas": "8000-27-9"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cedarwood terpenes, Virginia»; el CAS 8000-27-9 es un atributo. Proceso: terpenos. Parte: no lo dice. Especie: Juniperus virginiana L., la del anexo de IFRA 51, única para el CAS 8000-27-9. Anexo de IFRA 51: la entrada «Cedarwood oil, Virginian»."
+  },
+  {
+   "clave": "glosario-natural-fig-1382",
+   "tipo": "natural",
+   "nombre": "Celery seed absolute",
+   "cas": "8015-90-5",
+   "especie": "Apium graveolens L.",
+   "parte": "semilla",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1382"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8015-90-5",
+    "nombres": [
+     "Celery seed oil",
+     "Celery seed oleoresin"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Celery seed absolute»; el CAS 8015-90-5 es un atributo. Proceso: absoluto. Parte: semilla. Especie: Apium graveolens L., la del anexo de IFRA 51, única para el CAS 8015-90-5. Anexo de IFRA 51: el CAS tiene 2 entradas y el término no coincide con una sola; cuenta la peor de ellas: Celery seed oil; Celery seed oleoresin."
+  },
+  {
+   "clave": "glosario-natural-fig-1383",
+   "tipo": "natural",
+   "nombre": "Celery seed CO2 extract",
+   "cas": "8015-90-5",
+   "especie": "Apium graveolens L.",
+   "parte": "semilla",
+   "proceso": "extracto; CO2",
+   "v1": [
+    "fig:1383"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8015-90-5",
+    "nombres": [
+     "Celery seed oil",
+     "Celery seed oleoresin"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Celery seed CO2 extract»; el CAS 8015-90-5 es un atributo. Proceso: extracto; CO2. Parte: semilla. Especie: Apium graveolens L., la del anexo de IFRA 51, única para el CAS 8015-90-5. Anexo de IFRA 51: el CAS tiene 2 entradas y el término no coincide con una sola; cuenta la peor de ellas: Celery seed oil; Celery seed oleoresin."
+  },
+  {
+   "clave": "glosario-natural-fig-1384",
+   "tipo": "natural",
+   "nombre": "Celery seed extract",
+   "cas": "8015-90-5",
+   "especie": "Apium graveolens L.",
+   "parte": "semilla",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1384"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8015-90-5",
+    "nombres": [
+     "Celery seed oil",
+     "Celery seed oleoresin"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Celery seed extract»; el CAS 8015-90-5 es un atributo. Proceso: extracto. Parte: semilla. Especie: Apium graveolens L., la del anexo de IFRA 51, única para el CAS 8015-90-5. Anexo de IFRA 51: el CAS tiene 2 entradas y el término no coincide con una sola; cuenta la peor de ellas: Celery seed oil; Celery seed oleoresin."
+  },
+  {
+   "clave": "glosario-natural-fig-1385",
+   "tipo": "natural",
+   "nombre": "Celery seed oil",
+   "cas": "8015-90-5",
+   "especie": "Apium graveolens L.",
+   "parte": "semilla",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1385"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Celery seed oil",
+    "cas": "8015-90-5"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Celery seed oil»; el CAS 8015-90-5 es un atributo. Proceso: aceite esencial. Parte: semilla. Especie: Apium graveolens L., la del anexo de IFRA 51, única para el CAS 8015-90-5. Anexo de IFRA 51: la entrada «Celery seed oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1386",
+   "tipo": "natural",
+   "nombre": "Celery seed oleoresin",
+   "cas": "8015-90-5",
+   "especie": "Apium graveolens L.",
+   "parte": "semilla",
+   "proceso": "oleorresina",
+   "v1": [
+    "fig:1386"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Celery seed oleoresin",
+    "cas": "8015-90-5"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Celery seed oleoresin»; el CAS 8015-90-5 es un atributo. Proceso: oleorresina. Parte: semilla. Especie: Apium graveolens L., la del anexo de IFRA 51, única para el CAS 8015-90-5. Anexo de IFRA 51: la entrada «Celery seed oleoresin»."
+  },
+  {
+   "clave": "glosario-natural-fig-1387",
+   "tipo": "natural",
+   "nombre": "Chamomile flower absolute",
+   "cas": "8002-66-2",
+   "especie": "Matricaria chamomilla L.",
+   "parte": "flor",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1387"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Chamomile flower oil, blue",
+    "cas": "8002-66-2"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Chamomile flower absolute»; el CAS 8002-66-2 es un atributo. Proceso: absoluto. Parte: flor. Especie: Matricaria chamomilla L., la del anexo de IFRA 51, única para el CAS 8002-66-2. Anexo de IFRA 51: la entrada «Chamomile flower oil, blue»."
+  },
+  {
+   "clave": "glosario-natural-fig-1388",
+   "tipo": "natural",
+   "nombre": "Chamomile flower oil, blue",
+   "cas": "8002-66-2",
+   "especie": "Matricaria chamomilla L.",
+   "parte": "flor",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1388"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Chamomile flower oil, blue",
+    "cas": "8002-66-2"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Chamomile flower oil, blue»; el CAS 8002-66-2 es un atributo. Proceso: aceite esencial. Parte: flor. Especie: Matricaria chamomilla L., la del anexo de IFRA 51, única para el CAS 8002-66-2. Anexo de IFRA 51: la entrada «Chamomile flower oil, blue»."
+  },
+  {
+   "clave": "glosario-natural-fig-1389",
+   "tipo": "natural",
+   "nombre": "Chamomile flower oil, blue",
+   "cas": "8002-66-2",
+   "especie": "Matricaria chamomilla L.",
+   "parte": "flor",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1389"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Chamomile flower oil, blue",
+    "cas": "8002-66-2"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Chamomile flower oil, blue»; el CAS 8002-66-2 es un atributo. Proceso: aceite esencial. Parte: flor. Especie: Matricaria chamomilla L., la del anexo de IFRA 51, única para el CAS 8002-66-2. Anexo de IFRA 51: la entrada «Chamomile flower oil, blue»."
+  },
+  {
+   "clave": "glosario-natural-fig-1390",
+   "tipo": "natural",
+   "nombre": "Chamomile flower oil, Roman",
+   "cas": "8015-92-7",
+   "especie": "",
+   "parte": "flor",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1390"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Chamomile flower oil, Roman»; el CAS 8015-92-7 es un atributo. Proceso: aceite esencial. Parte: flor. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1391",
+   "tipo": "natural",
+   "nombre": "Chamomile flower, English, oil",
+   "cas": "8015-92-7",
+   "especie": "",
+   "parte": "flor",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1391"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Chamomile flower, English, oil»; el CAS 8015-92-7 es un atributo. Proceso: aceite esencial. Parte: flor. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1392",
+   "tipo": "natural",
+   "nombre": "Chamomile oil, Moroccan",
+   "cas": "68916-68-7",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1392"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Chamomile oil, Moroccan»; el CAS 68916-68-7 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1393",
+   "tipo": "natural",
+   "nombre": "Champaca absolute",
+   "cas": "8006-76-6",
+   "especie": "Michelia champaca L.",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1393"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Champaca absolute",
+    "cas": "8006-76-6"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Champaca absolute»; el CAS 8006-76-6 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: Michelia champaca L., la del anexo de IFRA 51, única para el CAS 8006-76-6. Anexo de IFRA 51: la entrada «Champaca absolute»."
+  },
+  {
+   "clave": "glosario-natural-fig-1394",
+   "tipo": "natural",
+   "nombre": "Champaca leaf oil",
+   "cas": "8006-76-6",
+   "especie": "Michelia champaca L.",
+   "parte": "hoja",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1394"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Champaca absolute",
+    "cas": "8006-76-6"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Champaca leaf oil»; el CAS 8006-76-6 es un atributo. Proceso: aceite esencial. Parte: hoja. Especie: Michelia champaca L., la del anexo de IFRA 51, única para el CAS 8006-76-6. Anexo de IFRA 51: la entrada «Champaca absolute»."
+  },
+  {
+   "clave": "glosario-natural-fig-1395",
+   "tipo": "natural",
+   "nombre": "Champaca oil",
+   "cas": "8006-76-6",
+   "especie": "Michelia champaca L.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1395"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Champaca absolute",
+    "cas": "8006-76-6"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Champaca oil»; el CAS 8006-76-6 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Michelia champaca L., la del anexo de IFRA 51, única para el CAS 8006-76-6. Anexo de IFRA 51: la entrada «Champaca absolute»."
+  },
+  {
+   "clave": "glosario-natural-fig-1396",
+   "tipo": "natural",
+   "nombre": "Cinchona bark red extract",
+   "cas": "68990-12-5",
+   "especie": "",
+   "parte": "corteza",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1396"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cinchona bark red extract»; el CAS 68990-12-5 es un atributo. Proceso: extracto. Parte: corteza. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1400",
+   "tipo": "natural",
+   "nombre": "Cinnamon bark CO2 extract",
+   "cas": "8015-91-6",
+   "especie": "Cinnamomum verum J. Presl syn. C. zeylanicum Blume",
+   "parte": "corteza",
+   "proceso": "extracto; CO2",
+   "v1": [
+    "fig:1400"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cinnamon bark CO2 extract",
+    "cas": "8015-91-6"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cinnamon bark CO2 extract»; el CAS 8015-91-6 es un atributo. Proceso: extracto; CO2. Parte: corteza. Especie: Cinnamomum verum J. Presl syn. C. zeylanicum Blume, la del anexo de IFRA 51, única para el CAS 8015-91-6. Anexo de IFRA 51: la entrada «Cinnamon bark CO2 extract»."
+  },
+  {
+   "clave": "glosario-natural-fig-1401",
+   "tipo": "natural",
+   "nombre": "Cinnamon bark extract",
+   "cas": "8015-91-6",
+   "especie": "",
+   "parte": "corteza",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1401"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8015-91-6",
+    "nombres": [
+     "Cinnamon bark CO2 extract",
+     "Cinnamon bark oil",
+     "Cinnamon leaf oil"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cinnamon bark extract»; el CAS 8015-91-6 es un atributo. Proceso: extracto. Parte: corteza. Especie: no lo dice. Anexo de IFRA 51: el CAS tiene 3 entradas y el término no coincide con una sola; cuenta la peor de ellas: Cinnamon bark CO2 extract; Cinnamon bark oil; Cinnamon leaf oil."
+  },
+  {
+   "clave": "glosario-natural-fig-1402",
+   "tipo": "natural",
+   "nombre": "Cinnamon bark oil",
+   "cas": "8015-91-6",
+   "especie": "Cinnamomum zeylanicum Blume",
+   "parte": "corteza",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1402"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cinnamon bark oil",
+    "cas": "8015-91-6"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cinnamon bark oil»; el CAS 8015-91-6 es un atributo. Proceso: aceite esencial. Parte: corteza. Especie: Cinnamomum zeylanicum Blume, la del anexo de IFRA 51, única para el CAS 8015-91-6. Anexo de IFRA 51: la entrada «Cinnamon bark oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1403",
+   "tipo": "natural",
+   "nombre": "Cinnamon bark oil, Laos",
+   "cas": "97659-68-2",
+   "especie": "Cinnamomum loureiroi Nees",
+   "parte": "corteza",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1403"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cinnamon bark oil, Laos",
+    "cas": "97659-68-2"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cinnamon bark oil, Laos»; el CAS 97659-68-2 es un atributo. Proceso: aceite esencial. Parte: corteza. Especie: Cinnamomum loureiroi Nees, la del anexo de IFRA 51, única para el CAS 97659-68-2. Anexo de IFRA 51: la entrada «Cinnamon bark oil, Laos»."
+  },
+  {
+   "clave": "glosario-natural-fig-1404",
+   "tipo": "natural",
+   "nombre": "Cinnamon leaf oil",
+   "cas": "8015-91-6",
+   "especie": "Cinnamomum zeylanicum Blume",
+   "parte": "hoja",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1404"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cinnamon leaf oil",
+    "cas": "8015-91-6"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cinnamon leaf oil»; el CAS 8015-91-6 es un atributo. Proceso: aceite esencial. Parte: hoja. Especie: Cinnamomum zeylanicum Blume, la del anexo de IFRA 51, única para el CAS 8015-91-6. Anexo de IFRA 51: la entrada «Cinnamon leaf oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1405",
+   "tipo": "natural",
+   "nombre": "Cinnamon leaf oil, rectified",
+   "cas": "8015-91-6",
+   "especie": "",
+   "parte": "hoja",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1405"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8015-91-6",
+    "nombres": [
+     "Cinnamon bark CO2 extract",
+     "Cinnamon bark oil",
+     "Cinnamon leaf oil"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cinnamon leaf oil, rectified»; el CAS 8015-91-6 es un atributo. Proceso: aceite esencial; rectificado. Parte: hoja. Especie: no lo dice. Anexo de IFRA 51: el CAS tiene 3 entradas y el término no coincide con una sola; cuenta la peor de ellas: Cinnamon bark CO2 extract; Cinnamon bark oil; Cinnamon leaf oil."
+  },
+  {
+   "clave": "glosario-natural-fig-1406",
+   "tipo": "natural",
+   "nombre": "Cinnamon leaf oleoresin",
+   "cas": "8015-91-6",
+   "especie": "",
+   "parte": "hoja",
+   "proceso": "oleorresina",
+   "v1": [
+    "fig:1406"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8015-91-6",
+    "nombres": [
+     "Cinnamon bark CO2 extract",
+     "Cinnamon bark oil",
+     "Cinnamon leaf oil"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cinnamon leaf oleoresin»; el CAS 8015-91-6 es un atributo. Proceso: oleorresina. Parte: hoja. Especie: no lo dice. Anexo de IFRA 51: el CAS tiene 3 entradas y el término no coincide con una sola; cuenta la peor de ellas: Cinnamon bark CO2 extract; Cinnamon bark oil; Cinnamon leaf oil."
+  },
+  {
+   "clave": "glosario-natural-fig-1462",
+   "tipo": "natural",
+   "nombre": "Cistus absolute",
+   "cas": "8016-26-0",
+   "especie": "Cistus ladaniferus L.",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1462"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cistus absolute",
+    "cas": "8016-26-0"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cistus absolute»; el CAS 8016-26-0 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: Cistus ladaniferus L., la del anexo de IFRA 51, única para el CAS 8016-26-0. Anexo de IFRA 51: la entrada «Cistus absolute»."
+  },
+  {
+   "clave": "glosario-natural-fig-1463",
+   "tipo": "natural",
+   "nombre": "Cistus CO2 extract",
+   "cas": "8016-26-0",
+   "especie": "Cistus ladaniferus L.",
+   "parte": "",
+   "proceso": "extracto; CO2",
+   "v1": [
+    "fig:1463"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8016-26-0",
+    "nombres": [
+     "Cistus absolute",
+     "Cistus concrete",
+     "Cistus oil",
+     "Labdanum oil",
+     "Labdanum oleoresin"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cistus CO2 extract»; el CAS 8016-26-0 es un atributo. Proceso: extracto; CO2. Parte: no lo dice. Especie: Cistus ladaniferus L., la del anexo de IFRA 51, única para el CAS 8016-26-0. Anexo de IFRA 51: el CAS tiene 5 entradas y el término no coincide con una sola; cuenta la peor de ellas: Cistus absolute; Cistus concrete; Cistus oil; Labdanum oil; Labdanum oleoresin."
+  },
+  {
+   "clave": "glosario-natural-fig-1464",
+   "tipo": "natural",
+   "nombre": "Cistus concrete",
+   "cas": "8016-26-0",
+   "especie": "Cistus ladaniferus L.",
+   "parte": "",
+   "proceso": "concreto",
+   "v1": [
+    "fig:1464"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cistus concrete",
+    "cas": "8016-26-0"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cistus concrete»; el CAS 8016-26-0 es un atributo. Proceso: concreto. Parte: no lo dice. Especie: Cistus ladaniferus L., la del anexo de IFRA 51, única para el CAS 8016-26-0. Anexo de IFRA 51: la entrada «Cistus concrete»."
+  },
+  {
+   "clave": "glosario-natural-fig-1465",
+   "tipo": "natural",
+   "nombre": "Cistus extract",
+   "cas": "8016-26-0",
+   "especie": "Cistus ladaniferus L.",
+   "parte": "",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1465"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8016-26-0",
+    "nombres": [
+     "Cistus absolute",
+     "Cistus concrete",
+     "Cistus oil",
+     "Labdanum oil",
+     "Labdanum oleoresin"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cistus extract»; el CAS 8016-26-0 es un atributo. Proceso: extracto. Parte: no lo dice. Especie: Cistus ladaniferus L., la del anexo de IFRA 51, única para el CAS 8016-26-0. Anexo de IFRA 51: el CAS tiene 5 entradas y el término no coincide con una sola; cuenta la peor de ellas: Cistus absolute; Cistus concrete; Cistus oil; Labdanum oil; Labdanum oleoresin."
+  },
+  {
+   "clave": "glosario-natural-fig-1466",
+   "tipo": "natural",
+   "nombre": "Cistus oil",
+   "cas": "8016-26-0",
+   "especie": "Cistus ladaniferus L.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1466"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cistus oil",
+    "cas": "8016-26-0"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cistus oil»; el CAS 8016-26-0 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Cistus ladaniferus L., la del anexo de IFRA 51, única para el CAS 8016-26-0. Anexo de IFRA 51: la entrada «Cistus oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1467",
+   "tipo": "natural",
+   "nombre": "Cistus oil",
+   "cas": "8016-26-0",
+   "especie": "Cistus ladaniferus L.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1467"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cistus oil",
+    "cas": "8016-26-0"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cistus oil»; el CAS 8016-26-0 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Cistus ladaniferus L., la del anexo de IFRA 51, única para el CAS 8016-26-0. Anexo de IFRA 51: la entrada «Cistus oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1468",
+   "tipo": "natural",
+   "nombre": "Cistus oil, pyrogenated",
+   "cas": "8016-26-0",
+   "especie": "Cistus ladaniferus L.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1468"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8016-26-0",
+    "nombres": [
+     "Cistus absolute",
+     "Cistus concrete",
+     "Cistus oil",
+     "Labdanum oil",
+     "Labdanum oleoresin"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cistus oil, pyrogenated»; el CAS 8016-26-0 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Cistus ladaniferus L., la del anexo de IFRA 51, única para el CAS 8016-26-0. Anexo de IFRA 51: el CAS tiene 5 entradas y el término no coincide con una sola; cuenta la peor de ellas: Cistus absolute; Cistus concrete; Cistus oil; Labdanum oil; Labdanum oleoresin."
+  },
+  {
+   "clave": "glosario-natural-fig-1474",
+   "tipo": "natural",
+   "nombre": "Citron oil",
+   "cas": "68991-25-3",
+   "especie": "Citrus medica L.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1474"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Citron oil",
+    "cas": "68991-25-3"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Citron oil»; el CAS 68991-25-3 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Citrus medica L., la del anexo de IFRA 51, única para el CAS 68991-25-3. Anexo de IFRA 51: la entrada «Citron oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1475",
+   "tipo": "natural",
+   "nombre": "Citron oil",
+   "cas": "68991-25-3",
+   "especie": "Citrus medica L.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1475"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Citron oil",
+    "cas": "68991-25-3"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Citron oil»; el CAS 68991-25-3 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Citrus medica L., la del anexo de IFRA 51, única para el CAS 68991-25-3. Anexo de IFRA 51: la entrada «Citron oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1476",
+   "tipo": "natural",
+   "nombre": "Citron oil, rectified",
+   "cas": "68991-25-3",
+   "especie": "Citrus medica L.",
+   "parte": "",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1476"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Citron oil",
+    "cas": "68991-25-3"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Citron oil, rectified»; el CAS 68991-25-3 es un atributo. Proceso: aceite esencial; rectificado. Parte: no lo dice. Especie: Citrus medica L., la del anexo de IFRA 51, única para el CAS 68991-25-3. Anexo de IFRA 51: la entrada «Citron oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1477",
+   "tipo": "natural",
+   "nombre": "Citronella oil terpenes",
+   "cas": "8000-29-1",
+   "especie": "",
+   "parte": "",
+   "proceso": "terpenos",
+   "v1": [
+    "fig:1477"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8000-29-1",
+    "nombres": [
+     "Citronella oil, Ceylon type",
+     "Citronella oil, Java type"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Citronella oil terpenes»; el CAS 8000-29-1 es un atributo. Proceso: terpenos. Parte: no lo dice. Especie: no lo dice. Anexo de IFRA 51: el CAS tiene 2 entradas y el término no coincide con una sola; cuenta la peor de ellas: Citronella oil, Ceylon type; Citronella oil, Java type."
+  },
+  {
+   "clave": "glosario-natural-fig-1478",
+   "tipo": "natural",
+   "nombre": "Citronella oil, Ceylon type",
+   "cas": "8000-29-1",
+   "especie": "Cymbopogon nardus (L.) Rendle",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1478"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Citronella oil, Ceylon type",
+    "cas": "8000-29-1"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Citronella oil, Ceylon type»; el CAS 8000-29-1 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Cymbopogon nardus (L.) Rendle, la del anexo de IFRA 51, única para el CAS 8000-29-1. Anexo de IFRA 51: la entrada «Citronella oil, Ceylon type»."
+  },
+  {
+   "clave": "glosario-natural-fig-1479",
+   "tipo": "natural",
+   "nombre": "Citronella oil, Java type",
+   "cas": "8000-29-1",
+   "especie": "Cymbopogon winterianus Jowitt",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1479"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Citronella oil, Java type",
+    "cas": "8000-29-1"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Citronella oil, Java type»; el CAS 8000-29-1 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Cymbopogon winterianus Jowitt, la del anexo de IFRA 51, única para el CAS 8000-29-1. Anexo de IFRA 51: la entrada «Citronella oil, Java type»."
+  },
+  {
+   "clave": "glosario-natural-fig-1480",
+   "tipo": "natural",
+   "nombre": "Citronella oil, reduced",
+   "cas": "68916-56-3",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1480"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Citronella oil, reduced»; el CAS 68916-56-3 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1497",
+   "tipo": "natural",
+   "nombre": "Citrus hystrix extract",
+   "cas": "91771-50-5",
+   "especie": "Citrus hystrix DC",
+   "parte": "",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1497"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Citrus hystrix extract",
+    "cas": "91771-50-5"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Citrus hystrix extract»; el CAS 91771-50-5 es un atributo. Proceso: extracto. Parte: no lo dice. Especie: Citrus hystrix DC, la del anexo de IFRA 51, única para el CAS 91771-50-5. Anexo de IFRA 51: la entrada «Citrus hystrix extract»."
+  },
+  {
+   "clave": "glosario-natural-fig-1498",
+   "tipo": "natural",
+   "nombre": "Citrus junos oil",
+   "cas": "233683-84-6",
+   "especie": "Citrus junos Siebold ex. Tanaka ichangensis × reticulata var. austera (reticulata var. austera) (Rutaceae)",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1498"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Citrus junos oil",
+    "cas": "233683-84-6"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Citrus junos oil»; el CAS 233683-84-6 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Citrus junos Siebold ex. Tanaka ichangensis × reticulata var. austera (reticulata var. austera) (Rutaceae), la del anexo de IFRA 51, única para el CAS 233683-84-6. Anexo de IFRA 51: la entrada «Citrus junos oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1499",
+   "tipo": "natural",
+   "nombre": "Citrus peels extract",
+   "cas": "94266-47-4",
+   "especie": "",
+   "parte": "",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1499"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Citrus peels extract»; el CAS 94266-47-4 es un atributo. Proceso: extracto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1500",
+   "tipo": "natural",
+   "nombre": "Citrus terpenes",
+   "cas": "68608-34-4",
+   "especie": "",
+   "parte": "",
+   "proceso": "terpenos",
+   "v1": [
+    "fig:1500"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Citrus terpenes»; el CAS 68608-34-4 es un atributo. Proceso: terpenos. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1501",
+   "tipo": "natural",
+   "nombre": "Civet absolute",
+   "cas": "68916-26-7",
+   "especie": "",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1501"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Civet absolute»; el CAS 68916-26-7 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1502",
+   "tipo": "natural",
+   "nombre": "Civet tincture",
+   "cas": "68916-26-7",
+   "especie": "",
+   "parte": "",
+   "proceso": "tintura",
+   "v1": [
+    "fig:1502"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Civet tincture»; el CAS 68916-26-7 es un atributo. Proceso: tintura. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1503",
+   "tipo": "natural",
+   "nombre": "Clary sage absolute",
+   "cas": "8016-63-5",
+   "especie": "Salvia sclarea L.",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1503"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Clary sage absolute",
+    "cas": "8016-63-5"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Clary sage absolute»; el CAS 8016-63-5 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: Salvia sclarea L., la del anexo de IFRA 51, única para el CAS 8016-63-5. Anexo de IFRA 51: la entrada «Clary sage absolute»."
+  },
+  {
+   "clave": "glosario-natural-fig-1504",
+   "tipo": "natural",
+   "nombre": "Clary sage absolute",
+   "cas": "8016-63-5",
+   "especie": "Salvia sclarea L.",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1504"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Clary sage absolute",
+    "cas": "8016-63-5"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Clary sage absolute»; el CAS 8016-63-5 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: Salvia sclarea L., la del anexo de IFRA 51, única para el CAS 8016-63-5. Anexo de IFRA 51: la entrada «Clary sage absolute»."
+  },
+  {
+   "clave": "glosario-natural-fig-1505",
+   "tipo": "natural",
+   "nombre": "Clary sage extract",
+   "cas": "8016-63-5",
+   "especie": "Salvia sclarea L.",
+   "parte": "",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1505"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8016-63-5",
+    "nombres": [
+     "Clary sage absolute",
+     "Clary sage concrete",
+     "Clary sage oil"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Clary sage extract»; el CAS 8016-63-5 es un atributo. Proceso: extracto. Parte: no lo dice. Especie: Salvia sclarea L., la del anexo de IFRA 51, única para el CAS 8016-63-5. Anexo de IFRA 51: el CAS tiene 3 entradas y el término no coincide con una sola; cuenta la peor de ellas: Clary sage absolute; Clary sage concrete; Clary sage oil."
+  },
+  {
+   "clave": "glosario-natural-fig-1506",
+   "tipo": "natural",
+   "nombre": "Clary sage oil",
+   "cas": "8016-63-5",
+   "especie": "Salvia sclarea L.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1506"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Clary sage oil",
+    "cas": "8016-63-5"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Clary sage oil»; el CAS 8016-63-5 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Salvia sclarea L., la del anexo de IFRA 51, única para el CAS 8016-63-5. Anexo de IFRA 51: la entrada «Clary sage oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1507",
+   "tipo": "natural",
+   "nombre": "Clove bud oil terpenes",
+   "cas": "68917-29-3",
+   "especie": "Syzygium aromaticum (L.) Merr. & L.M.Perry",
+   "parte": "botón",
+   "proceso": "terpenos",
+   "v1": [
+    "fig:1507"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Clove leaf oil terpenes",
+    "cas": "68917-29-3"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Clove bud oil terpenes»; el CAS 68917-29-3 es un atributo. Proceso: terpenos. Parte: botón. Especie: Syzygium aromaticum (L.) Merr. & L.M.Perry, la del anexo de IFRA 51, única para el CAS 68917-29-3. Anexo de IFRA 51: la entrada «Clove leaf oil terpenes»."
+  },
+  {
+   "clave": "glosario-natural-fig-1508",
+   "tipo": "natural",
+   "nombre": "Clove bud absolute",
+   "cas": "8000-34-8",
+   "especie": "",
+   "parte": "botón",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1508"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8000-34-8",
+    "nombres": [
+     "Clove bud oil",
+     "Clove bud oil terpenes",
+     "Clove leaf oil",
+     "Clove stem oil"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Clove bud absolute»; el CAS 8000-34-8 es un atributo. Proceso: absoluto. Parte: botón. Especie: no lo dice. Anexo de IFRA 51: el CAS tiene 4 entradas y el término no coincide con una sola; cuenta la peor de ellas: Clove bud oil; Clove bud oil terpenes; Clove leaf oil; Clove stem oil."
+  },
+  {
+   "clave": "glosario-natural-fig-1509",
+   "tipo": "natural",
+   "nombre": "Clove bud extract",
+   "cas": "8000-34-8",
+   "especie": "",
+   "parte": "botón",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1509"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8000-34-8",
+    "nombres": [
+     "Clove bud oil",
+     "Clove bud oil terpenes",
+     "Clove leaf oil",
+     "Clove stem oil"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Clove bud extract»; el CAS 8000-34-8 es un atributo. Proceso: extracto. Parte: botón. Especie: no lo dice. Anexo de IFRA 51: el CAS tiene 4 entradas y el término no coincide con una sola; cuenta la peor de ellas: Clove bud oil; Clove bud oil terpenes; Clove leaf oil; Clove stem oil."
+  },
+  {
+   "clave": "glosario-natural-fig-1510",
+   "tipo": "natural",
+   "nombre": "Clove bud oil",
+   "cas": "8000-34-8",
+   "especie": "Syzygium aromaticum L.",
+   "parte": "botón",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1510"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Clove bud oil",
+    "cas": "8000-34-8"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Clove bud oil»; el CAS 8000-34-8 es un atributo. Proceso: aceite esencial. Parte: botón. Especie: Syzygium aromaticum L., la del anexo de IFRA 51, única para el CAS 8000-34-8. Anexo de IFRA 51: la entrada «Clove bud oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1511",
+   "tipo": "natural",
+   "nombre": "Clove leaf oil",
+   "cas": "8000-34-8",
+   "especie": "Syzygium aromaticum L.",
+   "parte": "hoja",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1511"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Clove leaf oil",
+    "cas": "8000-34-8"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Clove leaf oil»; el CAS 8000-34-8 es un atributo. Proceso: aceite esencial. Parte: hoja. Especie: Syzygium aromaticum L., la del anexo de IFRA 51, única para el CAS 8000-34-8. Anexo de IFRA 51: la entrada «Clove leaf oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1512",
+   "tipo": "natural",
+   "nombre": "Clove leaf oil terpenes",
+   "cas": "68917-29-3",
+   "especie": "Syzygium aromaticum (L.) Merr. & L.M.Perry",
+   "parte": "hoja",
+   "proceso": "terpenos",
+   "v1": [
+    "fig:1512"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Clove leaf oil terpenes",
+    "cas": "68917-29-3"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Clove leaf oil terpenes»; el CAS 68917-29-3 es un atributo. Proceso: terpenos. Parte: hoja. Especie: Syzygium aromaticum (L.) Merr. & L.M.Perry, la del anexo de IFRA 51, única para el CAS 68917-29-3. Anexo de IFRA 51: la entrada «Clove leaf oil terpenes»."
+  },
+  {
+   "clave": "glosario-natural-fig-1513",
+   "tipo": "natural",
+   "nombre": "Clove leaf oil, rectified",
+   "cas": "8000-34-8",
+   "especie": "",
+   "parte": "hoja",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1513"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8000-34-8",
+    "nombres": [
+     "Clove bud oil",
+     "Clove bud oil terpenes",
+     "Clove leaf oil",
+     "Clove stem oil"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Clove leaf oil, rectified»; el CAS 8000-34-8 es un atributo. Proceso: aceite esencial; rectificado. Parte: hoja. Especie: no lo dice. Anexo de IFRA 51: el CAS tiene 4 entradas y el término no coincide con una sola; cuenta la peor de ellas: Clove bud oil; Clove bud oil terpenes; Clove leaf oil; Clove stem oil."
+  },
+  {
+   "clave": "glosario-natural-fig-1514",
+   "tipo": "natural",
+   "nombre": "Clove stem oil",
+   "cas": "8000-34-8",
+   "especie": "Syzygium aromaticum L.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1514"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Clove stem oil",
+    "cas": "8000-34-8"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Clove stem oil»; el CAS 8000-34-8 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Syzygium aromaticum L., la del anexo de IFRA 51, única para el CAS 8000-34-8. Anexo de IFRA 51: la entrada «Clove stem oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1515",
+   "tipo": "natural",
+   "nombre": "Clove, extract, acetylated",
+   "cas": "91771-52-7",
+   "especie": "",
+   "parte": "",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1515"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Clove, extract, acetylated»; el CAS 91771-52-7 es un atributo. Proceso: extracto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1516",
+   "tipo": "natural",
+   "nombre": "Coconut absolute",
+   "cas": "8001-31-8",
+   "especie": "",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1516"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Coconut absolute»; el CAS 8001-31-8 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1517",
+   "tipo": "natural",
+   "nombre": "Coconut extract",
+   "cas": "8001-31-8",
+   "especie": "",
+   "parte": "",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1517"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Coconut extract»; el CAS 8001-31-8 es un atributo. Proceso: extracto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1518",
+   "tipo": "natural",
+   "nombre": "Coconut infusion",
+   "cas": "8001-31-8",
+   "especie": "",
+   "parte": "",
+   "proceso": "",
+   "v1": [
+    "fig:1518"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Coconut infusion»; el CAS 8001-31-8 es un atributo. Proceso: no lo dice. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1519",
+   "tipo": "natural",
+   "nombre": "Coffee bean, roasted, absolute",
+   "cas": "8001-67-0",
+   "especie": "",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1519"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Coffee bean, roasted, absolute»; el CAS 8001-67-0 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1520",
+   "tipo": "natural",
+   "nombre": "Coffee bean, roasted, CO2 extract",
+   "cas": "8001-67-0",
+   "especie": "",
+   "parte": "",
+   "proceso": "extracto; CO2",
+   "v1": [
+    "fig:1520"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Coffee bean, roasted, CO2 extract»; el CAS 8001-67-0 es un atributo. Proceso: extracto; CO2. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1521",
+   "tipo": "natural",
+   "nombre": "Coffee bean, roasted, extract",
+   "cas": "68916-18-7",
+   "especie": "",
+   "parte": "",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1521"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Coffee bean, roasted, extract»; el CAS 68916-18-7 es un atributo. Proceso: extracto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1522",
+   "tipo": "natural",
+   "nombre": "Coffee oil",
+   "cas": "8001-67-0",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1522"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Coffee oil»; el CAS 8001-67-0 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1523",
+   "tipo": "natural",
+   "nombre": "Coffee, Coffea arabica, extract",
+   "cas": "84650-00-0",
+   "especie": "",
+   "parte": "",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1523"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Coffee, Coffea arabica, extract»; el CAS 84650-00-0 es un atributo. Proceso: extracto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1524",
+   "tipo": "natural",
+   "nombre": "Copaiba balsam",
+   "cas": "8013-97-6",
+   "especie": "",
+   "parte": "",
+   "proceso": "",
+   "v1": [
+    "fig:1524"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Copaiba balsam»; el CAS 8013-97-6 es un atributo. Proceso: no lo dice. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1525",
+   "tipo": "natural",
+   "nombre": "Copaiba balsam oil",
+   "cas": "8013-97-6",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1525"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Copaiba balsam oil»; el CAS 8013-97-6 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1526",
+   "tipo": "natural",
+   "nombre": "Copaiba balsam oleoresin",
+   "cas": "8013-97-6",
+   "especie": "",
+   "parte": "",
+   "proceso": "oleorresina",
+   "v1": [
+    "fig:1526"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Copaiba balsam oleoresin»; el CAS 8013-97-6 es un atributo. Proceso: oleorresina. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1527",
+   "tipo": "natural",
+   "nombre": "Copaiba oil",
+   "cas": "8013-97-6",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1527"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Copaiba oil»; el CAS 8013-97-6 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1528",
+   "tipo": "natural",
+   "nombre": "Copaiba oil, rectified",
+   "cas": "8013-97-6",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1528"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Copaiba oil, rectified»; el CAS 8013-97-6 es un atributo. Proceso: aceite esencial; rectificado. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1530",
+   "tipo": "natural",
+   "nombre": "Coriander herb oil terpenless",
+   "cas": "8008-52-4",
+   "especie": "",
+   "parte": "hierba",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1530"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8008-52-4",
+    "nombres": [
+     "Coriander herb oil",
+     "Coriander seed oil"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Coriander herb oil terpenless»; el CAS 8008-52-4 es un atributo. Proceso: aceite esencial. Parte: hierba. Especie: no lo dice. Anexo de IFRA 51: el CAS tiene 2 entradas y el término no coincide con una sola; cuenta la peor de ellas: Coriander herb oil; Coriander seed oil."
+  },
+  {
+   "clave": "glosario-natural-fig-1531",
+   "tipo": "natural",
+   "nombre": "Coriander herb oil, rectified",
+   "cas": "8008-52-4",
+   "especie": "",
+   "parte": "hierba",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1531"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8008-52-4",
+    "nombres": [
+     "Coriander herb oil",
+     "Coriander seed oil"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Coriander herb oil, rectified»; el CAS 8008-52-4 es un atributo. Proceso: aceite esencial; rectificado. Parte: hierba. Especie: no lo dice. Anexo de IFRA 51: el CAS tiene 2 entradas y el término no coincide con una sola; cuenta la peor de ellas: Coriander herb oil; Coriander seed oil."
+  },
+  {
+   "clave": "glosario-natural-fig-1532",
+   "tipo": "natural",
+   "nombre": "Coriander oleoresin",
+   "cas": "8008-52-4",
+   "especie": "",
+   "parte": "",
+   "proceso": "oleorresina",
+   "v1": [
+    "fig:1532"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8008-52-4",
+    "nombres": [
+     "Coriander herb oil",
+     "Coriander seed oil"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Coriander oleoresin»; el CAS 8008-52-4 es un atributo. Proceso: oleorresina. Parte: no lo dice. Especie: no lo dice. Anexo de IFRA 51: el CAS tiene 2 entradas y el término no coincide con una sola; cuenta la peor de ellas: Coriander herb oil; Coriander seed oil."
+  },
+  {
+   "clave": "glosario-natural-fig-1536",
+   "tipo": "natural",
+   "nombre": "Cubeb oil",
+   "cas": "8007-87-2",
+   "especie": "Piper cubeba L. f.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1536"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cubeb oil",
+    "cas": "8007-87-2"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cubeb oil»; el CAS 8007-87-2 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Piper cubeba L. f., la del anexo de IFRA 51, única para el CAS 8007-87-2. Anexo de IFRA 51: la entrada «Cubeb oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1537",
+   "tipo": "natural",
+   "nombre": "Cubeb oil, rectified",
+   "cas": "8007-87-2",
+   "especie": "Piper cubeba L. f.",
+   "parte": "",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1537"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cubeb oil",
+    "cas": "8007-87-2"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cubeb oil, rectified»; el CAS 8007-87-2 es un atributo. Proceso: aceite esencial; rectificado. Parte: no lo dice. Especie: Piper cubeba L. f., la del anexo de IFRA 51, única para el CAS 8007-87-2. Anexo de IFRA 51: la entrada «Cubeb oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1538",
+   "tipo": "natural",
+   "nombre": "Cucumber distillate",
+   "cas": "89998-01-6",
+   "especie": "",
+   "parte": "",
+   "proceso": "destilado",
+   "v1": [
+    "fig:1538"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cucumber distillate»; el CAS 89998-01-6 es un atributo. Proceso: destilado. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1539",
+   "tipo": "natural",
+   "nombre": "Cucumber extract",
+   "cas": "89998-01-6",
+   "especie": "",
+   "parte": "",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1539"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cucumber extract»; el CAS 89998-01-6 es un atributo. Proceso: extracto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1540",
+   "tipo": "natural",
+   "nombre": "Cumin seed oil",
+   "cas": "8014-13-9",
+   "especie": "Cuminum cyminum L.",
+   "parte": "semilla",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1540"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cumin seed oil",
+    "cas": "8014-13-9"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cumin seed oil»; el CAS 8014-13-9 es un atributo. Proceso: aceite esencial. Parte: semilla. Especie: Cuminum cyminum L., la del anexo de IFRA 51, única para el CAS 8014-13-9. Anexo de IFRA 51: la entrada «Cumin seed oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1544",
+   "tipo": "natural",
+   "nombre": "Curry leaf absolute",
+   "cas": "876068-15-4",
+   "especie": "",
+   "parte": "hoja",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1544"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Curry leaf absolute»; el CAS 876068-15-4 es un atributo. Proceso: absoluto. Parte: hoja. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1604",
+   "tipo": "natural",
+   "nombre": "Cypress",
+   "cas": "8013-86-3",
+   "especie": "Cupresssus sempervirens L.",
+   "parte": "",
+   "proceso": "",
+   "v1": [
+    "fig:1604"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cypress oil",
+    "cas": "8013-86-3"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cypress»; el CAS 8013-86-3 es un atributo. Proceso: no lo dice. Parte: no lo dice. Especie: Cupresssus sempervirens L., la del anexo de IFRA 51, única para el CAS 8013-86-3. Anexo de IFRA 51: la entrada «Cypress oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1605",
+   "tipo": "natural",
+   "nombre": "Cypress oil",
+   "cas": "8013-86-3",
+   "especie": "Cupresssus sempervirens L.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1605"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Cypress oil",
+    "cas": "8013-86-3"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cypress oil»; el CAS 8013-86-3 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Cupresssus sempervirens L., la del anexo de IFRA 51, única para el CAS 8013-86-3. Anexo de IFRA 51: la entrada «Cypress oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1606",
+   "tipo": "natural",
+   "nombre": "Cypress oil, terpene-free",
+   "cas": "68916-59-6",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial; sin terpenos",
+   "v1": [
+    "fig:1606"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cypress oil, terpene-free»; el CAS 68916-59-6 es un atributo. Proceso: aceite esencial; sin terpenos. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1607",
+   "tipo": "natural",
+   "nombre": "Cypriol oil",
+   "cas": "68916-60-9",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1607"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cypriol oil»; el CAS 68916-60-9 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1608",
+   "tipo": "natural",
+   "nombre": "Cypriol oil, rectified",
+   "cas": "68916-60-9",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1608"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Cypriol oil, rectified»; el CAS 68916-60-9 es un atributo. Proceso: aceite esencial; rectificado. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1619",
+   "tipo": "natural",
+   "nombre": "Davana oil",
+   "cas": "8016-03-3",
+   "especie": "Artemisia pallens Wall.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1619"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Davana oil",
+    "cas": "8016-03-3"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Davana oil»; el CAS 8016-03-3 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Artemisia pallens Wall., la del anexo de IFRA 51, única para el CAS 8016-03-3. Anexo de IFRA 51: la entrada «Davana oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1635",
+   "tipo": "natural",
+   "nombre": "Deer tongue pyrogenated",
+   "cas": "68606-82-6",
+   "especie": "Liatris odoratissima (Walt.) Willd.",
+   "parte": "",
+   "proceso": "",
+   "v1": [
+    "fig:1635"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Deertongue leaf absolute",
+    "cas": "68606-82-6"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Deer tongue pyrogenated»; el CAS 68606-82-6 es un atributo. Proceso: no lo dice. Parte: no lo dice. Especie: Liatris odoratissima (Walt.) Willd., la del anexo de IFRA 51, única para el CAS 68606-82-6. Anexo de IFRA 51: la entrada «Deertongue leaf absolute»."
+  },
+  {
+   "clave": "glosario-natural-fig-1636",
+   "tipo": "natural",
+   "nombre": "Deertongue leaf absolute",
+   "cas": "68606-82-6",
+   "especie": "Liatris odoratissima (Walt.) Willd.",
+   "parte": "hoja",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1636"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Deertongue leaf absolute",
+    "cas": "68606-82-6"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Deertongue leaf absolute»; el CAS 68606-82-6 es un atributo. Proceso: absoluto. Parte: hoja. Especie: Liatris odoratissima (Walt.) Willd., la del anexo de IFRA 51, única para el CAS 68606-82-6. Anexo de IFRA 51: la entrada «Deertongue leaf absolute»."
+  },
+  {
+   "clave": "glosario-natural-fig-1637",
+   "tipo": "natural",
+   "nombre": "Deertongue leaf extract",
+   "cas": "68606-82-6",
+   "especie": "Liatris odoratissima (Walt.) Willd.",
+   "parte": "hoja",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1637"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Deertongue leaf absolute",
+    "cas": "68606-82-6"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Deertongue leaf extract»; el CAS 68606-82-6 es un atributo. Proceso: extracto. Parte: hoja. Especie: Liatris odoratissima (Walt.) Willd., la del anexo de IFRA 51, única para el CAS 68606-82-6. Anexo de IFRA 51: la entrada «Deertongue leaf absolute»."
+  },
+  {
+   "clave": "glosario-natural-fig-1638",
+   "tipo": "natural",
+   "nombre": "Deertongue leaf incolore",
+   "cas": "68606-82-6",
+   "especie": "Liatris odoratissima (Walt.) Willd.",
+   "parte": "hoja",
+   "proceso": "",
+   "v1": [
+    "fig:1638"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Deertongue leaf absolute",
+    "cas": "68606-82-6"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Deertongue leaf incolore»; el CAS 68606-82-6 es un atributo. Proceso: no lo dice. Parte: hoja. Especie: Liatris odoratissima (Walt.) Willd., la del anexo de IFRA 51, única para el CAS 68606-82-6. Anexo de IFRA 51: la entrada «Deertongue leaf absolute»."
+  },
+  {
+   "clave": "glosario-natural-fig-1678",
+   "tipo": "natural",
+   "nombre": "Dill seed oil",
+   "cas": "8006-75-5",
+   "especie": "Anethum graveolens L.",
+   "parte": "semilla",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1678"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Dill seed oil",
+    "cas": "8006-75-5"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Dill seed oil»; el CAS 8006-75-5 es un atributo. Proceso: aceite esencial. Parte: semilla. Especie: Anethum graveolens L., la del anexo de IFRA 51, única para el CAS 8006-75-5. Anexo de IFRA 51: la entrada «Dill seed oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1679",
+   "tipo": "natural",
+   "nombre": "Dill seed oleoresin",
+   "cas": "8006-75-5",
+   "especie": "Anethum graveolens L.",
+   "parte": "semilla",
+   "proceso": "oleorresina",
+   "v1": [
+    "fig:1679"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8006-75-5",
+    "nombres": [
+     "Dill seed oil",
+     "Dill weed oil"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Dill seed oleoresin»; el CAS 8006-75-5 es un atributo. Proceso: oleorresina. Parte: semilla. Especie: Anethum graveolens L., la del anexo de IFRA 51, única para el CAS 8006-75-5. Anexo de IFRA 51: el CAS tiene 2 entradas y el término no coincide con una sola; cuenta la peor de ellas: Dill seed oil; Dill weed oil."
+  },
+  {
+   "clave": "glosario-natural-fig-1680",
+   "tipo": "natural",
+   "nombre": "Dill weed",
+   "cas": "8006-75-5",
+   "especie": "Anethum graveolens L.",
+   "parte": "",
+   "proceso": "",
+   "v1": [
+    "fig:1680"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8006-75-5",
+    "nombres": [
+     "Dill seed oil",
+     "Dill weed oil"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Dill weed»; el CAS 8006-75-5 es un atributo. Proceso: no lo dice. Parte: no lo dice. Especie: Anethum graveolens L., la del anexo de IFRA 51, única para el CAS 8006-75-5. Anexo de IFRA 51: el CAS tiene 2 entradas y el término no coincide con una sola; cuenta la peor de ellas: Dill seed oil; Dill weed oil."
+  },
+  {
+   "clave": "glosario-natural-fig-1681",
+   "tipo": "natural",
+   "nombre": "Dill weed oil",
+   "cas": "8006-75-5",
+   "especie": "Anethum graveolens L.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1681"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Dill weed oil",
+    "cas": "8006-75-5"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Dill weed oil»; el CAS 8006-75-5 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Anethum graveolens L., la del anexo de IFRA 51, única para el CAS 8006-75-5. Anexo de IFRA 51: la entrada «Dill weed oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1708",
+   "tipo": "natural",
+   "nombre": "Elemi absolute",
+   "cas": "8023-89-0",
+   "especie": "Canarium luzonicum (Blume) A. Gray",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1708"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8023-89-0",
+    "nombres": [
+     "Elemi oil",
+     "Elemi resinoid"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Elemi absolute»; el CAS 8023-89-0 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: Canarium luzonicum (Blume) A. Gray, la del anexo de IFRA 51, única para el CAS 8023-89-0. Anexo de IFRA 51: el CAS tiene 2 entradas y el término no coincide con una sola; cuenta la peor de ellas: Elemi oil; Elemi resinoid."
+  },
+  {
+   "clave": "glosario-natural-fig-1709",
+   "tipo": "natural",
+   "nombre": "Elemi CO2 extract",
+   "cas": "8023-89-0",
+   "especie": "Canarium luzonicum (Blume) A. Gray",
+   "parte": "",
+   "proceso": "extracto; CO2",
+   "v1": [
+    "fig:1709"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8023-89-0",
+    "nombres": [
+     "Elemi oil",
+     "Elemi resinoid"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Elemi CO2 extract»; el CAS 8023-89-0 es un atributo. Proceso: extracto; CO2. Parte: no lo dice. Especie: Canarium luzonicum (Blume) A. Gray, la del anexo de IFRA 51, única para el CAS 8023-89-0. Anexo de IFRA 51: el CAS tiene 2 entradas y el término no coincide con una sola; cuenta la peor de ellas: Elemi oil; Elemi resinoid."
+  },
+  {
+   "clave": "glosario-natural-fig-1710",
+   "tipo": "natural",
+   "nombre": "Elemi gum",
+   "cas": "8023-89-0",
+   "especie": "Canarium luzonicum (Blume) A. Gray",
+   "parte": "",
+   "proceso": "",
+   "v1": [
+    "fig:1710"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8023-89-0",
+    "nombres": [
+     "Elemi oil",
+     "Elemi resinoid"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Elemi gum»; el CAS 8023-89-0 es un atributo. Proceso: no lo dice. Parte: no lo dice. Especie: Canarium luzonicum (Blume) A. Gray, la del anexo de IFRA 51, única para el CAS 8023-89-0. Anexo de IFRA 51: el CAS tiene 2 entradas y el término no coincide con una sola; cuenta la peor de ellas: Elemi oil; Elemi resinoid."
+  },
+  {
+   "clave": "glosario-natural-fig-1711",
+   "tipo": "natural",
+   "nombre": "Elemi oil",
+   "cas": "8023-89-0",
+   "especie": "Canarium luzonicum (Blume) A. Gray",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1711"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Elemi oil",
+    "cas": "8023-89-0"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Elemi oil»; el CAS 8023-89-0 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Canarium luzonicum (Blume) A. Gray, la del anexo de IFRA 51, única para el CAS 8023-89-0. Anexo de IFRA 51: la entrada «Elemi oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1712",
+   "tipo": "natural",
+   "nombre": "ELEMI oil (low methyleugenol)",
+   "cas": "8023-89-0",
+   "especie": "Canarium luzonicum (Blume) A. Gray",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1712"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8023-89-0",
+    "nombres": [
+     "Elemi oil",
+     "Elemi resinoid"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «ELEMI oil (low methyleugenol)»; el CAS 8023-89-0 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Canarium luzonicum (Blume) A. Gray, la del anexo de IFRA 51, única para el CAS 8023-89-0. Anexo de IFRA 51: el CAS tiene 2 entradas y el término no coincide con una sola; cuenta la peor de ellas: Elemi oil; Elemi resinoid."
+  },
+  {
+   "clave": "glosario-natural-fig-1713",
+   "tipo": "natural",
+   "nombre": "Elemi oil, rectified",
+   "cas": "8023-89-0",
+   "especie": "Canarium luzonicum (Blume) A. Gray",
+   "parte": "",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1713"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8023-89-0",
+    "nombres": [
+     "Elemi oil",
+     "Elemi resinoid"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Elemi oil, rectified»; el CAS 8023-89-0 es un atributo. Proceso: aceite esencial; rectificado. Parte: no lo dice. Especie: Canarium luzonicum (Blume) A. Gray, la del anexo de IFRA 51, única para el CAS 8023-89-0. Anexo de IFRA 51: el CAS tiene 2 entradas y el término no coincide con una sola; cuenta la peor de ellas: Elemi oil; Elemi resinoid."
+  },
+  {
+   "clave": "glosario-natural-fig-1714",
+   "tipo": "natural",
+   "nombre": "Elemi resinoid",
+   "cas": "8023-89-0",
+   "especie": "Canarium luzonicum (Blume) A. Gray",
+   "parte": "",
+   "proceso": "resinoide",
+   "v1": [
+    "fig:1714"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Elemi resinoid",
+    "cas": "8023-89-0"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Elemi resinoid»; el CAS 8023-89-0 es un atributo. Proceso: resinoide. Parte: no lo dice. Especie: Canarium luzonicum (Blume) A. Gray, la del anexo de IFRA 51, única para el CAS 8023-89-0. Anexo de IFRA 51: la entrada «Elemi resinoid»."
+  },
+  {
+   "clave": "glosario-natural-fig-1821",
+   "tipo": "natural",
+   "nombre": "Eucalyptus absolute",
+   "cas": "8000-48-4",
+   "especie": "Eucalyptus dives Shauer",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1821"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Eucalyptus dives oil",
+    "cas": "8000-48-4"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Eucalyptus absolute»; el CAS 8000-48-4 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: Eucalyptus dives Shauer, la del anexo de IFRA 51, única para el CAS 8000-48-4. Anexo de IFRA 51: la entrada «Eucalyptus dives oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1822",
+   "tipo": "natural",
+   "nombre": "Eucalyptus citriodora oil",
+   "cas": "85203-56-1",
+   "especie": "Corymbia citriodora (Hook.) K.D. Hill & L.A. Johnson",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1822"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Eucalyptus citriodora oil",
+    "cas": "85203-56-1"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Eucalyptus citriodora oil»; el CAS 85203-56-1 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Corymbia citriodora (Hook.) K.D. Hill & L.A. Johnson, la del anexo de IFRA 51, única para el CAS 85203-56-1. Anexo de IFRA 51: la entrada «Eucalyptus citriodora oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1823",
+   "tipo": "natural",
+   "nombre": "Eucalyptus citriodora oil, acetylated",
+   "cas": "68991-29-7",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1823"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Eucalyptus citriodora oil, acetylated»; el CAS 68991-29-7 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1824",
+   "tipo": "natural",
+   "nombre": "Eucalyptus citriodora terpenes",
+   "cas": "85203-56-1",
+   "especie": "Corymbia citriodora (Hook.) K.D. Hill & L.A. Johnson",
+   "parte": "",
+   "proceso": "terpenos",
+   "v1": [
+    "fig:1824"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Eucalyptus citriodora oil",
+    "cas": "85203-56-1"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Eucalyptus citriodora terpenes»; el CAS 85203-56-1 es un atributo. Proceso: terpenos. Parte: no lo dice. Especie: Corymbia citriodora (Hook.) K.D. Hill & L.A. Johnson, la del anexo de IFRA 51, única para el CAS 85203-56-1. Anexo de IFRA 51: la entrada «Eucalyptus citriodora oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1825",
+   "tipo": "natural",
+   "nombre": "Eucalyptus dives extract",
+   "cas": "8000-48-4",
+   "especie": "Eucalyptus dives Shauer",
+   "parte": "",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1825"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Eucalyptus dives oil",
+    "cas": "8000-48-4"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Eucalyptus dives extract»; el CAS 8000-48-4 es un atributo. Proceso: extracto. Parte: no lo dice. Especie: Eucalyptus dives Shauer, la del anexo de IFRA 51, única para el CAS 8000-48-4. Anexo de IFRA 51: la entrada «Eucalyptus dives oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1826",
+   "tipo": "natural",
+   "nombre": "Eucalyptus dives oil",
+   "cas": "8000-48-4",
+   "especie": "Eucalyptus dives Shauer",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1826"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Eucalyptus dives oil",
+    "cas": "8000-48-4"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Eucalyptus dives oil»; el CAS 8000-48-4 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Eucalyptus dives Shauer, la del anexo de IFRA 51, única para el CAS 8000-48-4. Anexo de IFRA 51: la entrada «Eucalyptus dives oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1827",
+   "tipo": "natural",
+   "nombre": "Eucalyptus dives oil, rectified",
+   "cas": "8000-48-4",
+   "especie": "Eucalyptus dives Shauer",
+   "parte": "",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1827"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Eucalyptus dives oil",
+    "cas": "8000-48-4"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Eucalyptus dives oil, rectified»; el CAS 8000-48-4 es un atributo. Proceso: aceite esencial; rectificado. Parte: no lo dice. Especie: Eucalyptus dives Shauer, la del anexo de IFRA 51, única para el CAS 8000-48-4. Anexo de IFRA 51: la entrada «Eucalyptus dives oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1828",
+   "tipo": "natural",
+   "nombre": "Eucalyptus globulus absolute",
+   "cas": "97926-40-4",
+   "especie": "",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1828"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Eucalyptus globulus absolute»; el CAS 97926-40-4 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1829",
+   "tipo": "natural",
+   "nombre": "Eucalyptus globulus oil",
+   "cas": "97926-40-4",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1829"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Eucalyptus globulus oil»; el CAS 97926-40-4 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1830",
+   "tipo": "natural",
+   "nombre": "Eucalyptus globulus oil, rectified",
+   "cas": "97926-40-4",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1830"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Eucalyptus globulus oil, rectified»; el CAS 97926-40-4 es un atributo. Proceso: aceite esencial; rectificado. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1832",
+   "tipo": "natural",
+   "nombre": "Eucalyptus oil, rectified",
+   "cas": "8000-48-4",
+   "especie": "Eucalyptus dives Shauer",
+   "parte": "",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1832"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Eucalyptus dives oil",
+    "cas": "8000-48-4"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Eucalyptus oil, rectified»; el CAS 8000-48-4 es un atributo. Proceso: aceite esencial; rectificado. Parte: no lo dice. Especie: Eucalyptus dives Shauer, la del anexo de IFRA 51, única para el CAS 8000-48-4. Anexo de IFRA 51: la entrada «Eucalyptus dives oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1833",
+   "tipo": "natural",
+   "nombre": "Eucalyptus radiata oil",
+   "cas": "92201-64-4",
+   "especie": "Eucalyptus radiata Sieber ex DC oil",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1833"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Eucalyptus radiata oil",
+    "cas": "92201-64-4"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Eucalyptus radiata oil»; el CAS 92201-64-4 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Eucalyptus radiata Sieber ex DC oil, la del anexo de IFRA 51, única para el CAS 92201-64-4. Anexo de IFRA 51: la entrada «Eucalyptus radiata oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1838",
+   "tipo": "natural",
+   "nombre": "Evodia rutaecarpa oil",
+   "cas": "1137739-11-7",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1838"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Evodia rutaecarpa oil»; el CAS 1137739-11-7 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1845",
+   "tipo": "natural",
+   "nombre": "Fennel bitter oleoresin",
+   "cas": "8006-84-6",
+   "especie": "",
+   "parte": "",
+   "proceso": "oleorresina",
+   "v1": [
+    "fig:1845"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8006-84-6",
+    "nombres": [
+     "Fennel oil, bitter,anethole type",
+     "Fennel oil, sweet"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Fennel bitter oleoresin»; el CAS 8006-84-6 es un atributo. Proceso: oleorresina. Parte: no lo dice. Especie: no lo dice. Anexo de IFRA 51: el CAS tiene 2 entradas y el término no coincide con una sola; cuenta la peor de ellas: Fennel oil, bitter,anethole type; Fennel oil, sweet."
+  },
+  {
+   "clave": "glosario-natural-fig-1846",
+   "tipo": "natural",
+   "nombre": "Fennel oil, bitter",
+   "cas": "8006-84-6",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1846"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8006-84-6",
+    "nombres": [
+     "Fennel oil, bitter,anethole type",
+     "Fennel oil, sweet"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Fennel oil, bitter»; el CAS 8006-84-6 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice. Anexo de IFRA 51: el CAS tiene 2 entradas y el término no coincide con una sola; cuenta la peor de ellas: Fennel oil, bitter,anethole type; Fennel oil, sweet."
+  },
+  {
+   "clave": "glosario-natural-fig-1847",
+   "tipo": "natural",
+   "nombre": "Fennel oil, sweet",
+   "cas": "8006-84-6",
+   "especie": "Foeniculum vulgare subsp. vulgare var. Dulce (Mill) Batt.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1847"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Fennel oil, sweet",
+    "cas": "8006-84-6"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Fennel oil, sweet»; el CAS 8006-84-6 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Foeniculum vulgare subsp. vulgare var. Dulce (Mill) Batt., la del anexo de IFRA 51, única para el CAS 8006-84-6. Anexo de IFRA 51: la entrada «Fennel oil, sweet»."
+  },
+  {
+   "clave": "glosario-natural-fig-1848",
+   "tipo": "natural",
+   "nombre": "Fennel sweet oleoresin",
+   "cas": "8006-84-6",
+   "especie": "",
+   "parte": "",
+   "proceso": "oleorresina",
+   "v1": [
+    "fig:1848"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8006-84-6",
+    "nombres": [
+     "Fennel oil, bitter,anethole type",
+     "Fennel oil, sweet"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Fennel sweet oleoresin»; el CAS 8006-84-6 es un atributo. Proceso: oleorresina. Parte: no lo dice. Especie: no lo dice. Anexo de IFRA 51: el CAS tiene 2 entradas y el término no coincide con una sola; cuenta la peor de ellas: Fennel oil, bitter,anethole type; Fennel oil, sweet."
+  },
+  {
+   "clave": "glosario-natural-fig-1849",
+   "tipo": "natural",
+   "nombre": "Fenugreek absolute",
+   "cas": "68990-15-8",
+   "especie": "",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1849"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Fenugreek absolute»; el CAS 68990-15-8 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1850",
+   "tipo": "natural",
+   "nombre": "Fenugreek extract",
+   "cas": "68990-15-8",
+   "especie": "",
+   "parte": "",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1850"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Fenugreek extract»; el CAS 68990-15-8 es un atributo. Proceso: extracto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1851",
+   "tipo": "natural",
+   "nombre": "Fenugreek oleoresin",
+   "cas": "68990-15-8",
+   "especie": "",
+   "parte": "",
+   "proceso": "oleorresina",
+   "v1": [
+    "fig:1851"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Fenugreek oleoresin»; el CAS 68990-15-8 es un atributo. Proceso: oleorresina. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1852",
+   "tipo": "natural",
+   "nombre": "Fenugreek tincture",
+   "cas": "68990-15-8",
+   "especie": "",
+   "parte": "",
+   "proceso": "tintura",
+   "v1": [
+    "fig:1852"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Fenugreek tincture»; el CAS 68990-15-8 es un atributo. Proceso: tintura. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1853",
+   "tipo": "natural",
+   "nombre": "Fir absolute",
+   "cas": "8021-28-1",
+   "especie": "",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1853"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Fir absolute»; el CAS 8021-28-1 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1854",
+   "tipo": "natural",
+   "nombre": "Fir balsam",
+   "cas": "8024-15-5",
+   "especie": "Abies balsamea (L.) Mill.",
+   "parte": "",
+   "proceso": "",
+   "v1": [
+    "fig:1854"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Fir needle oil, Canadian",
+    "cas": "8024-15-5"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Fir balsam»; el CAS 8024-15-5 es un atributo. Proceso: no lo dice. Parte: no lo dice. Especie: Abies balsamea (L.) Mill., la del anexo de IFRA 51, única para el CAS 8024-15-5. Anexo de IFRA 51: la entrada «Fir needle oil, Canadian»."
+  },
+  {
+   "clave": "glosario-natural-fig-1855",
+   "tipo": "natural",
+   "nombre": "Fir balsam absolute",
+   "cas": "8024-15-5",
+   "especie": "Abies balsamea (L.) Mill.",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1855"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Fir needle oil, Canadian",
+    "cas": "8024-15-5"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Fir balsam absolute»; el CAS 8024-15-5 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: Abies balsamea (L.) Mill., la del anexo de IFRA 51, única para el CAS 8024-15-5. Anexo de IFRA 51: la entrada «Fir needle oil, Canadian»."
+  },
+  {
+   "clave": "glosario-natural-fig-1856",
+   "tipo": "natural",
+   "nombre": "Fir balsam resinoid",
+   "cas": "8024-15-5",
+   "especie": "Abies balsamea (L.) Mill.",
+   "parte": "",
+   "proceso": "resinoide",
+   "v1": [
+    "fig:1856"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Fir needle oil, Canadian",
+    "cas": "8024-15-5"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Fir balsam resinoid»; el CAS 8024-15-5 es un atributo. Proceso: resinoide. Parte: no lo dice. Especie: Abies balsamea (L.) Mill., la del anexo de IFRA 51, única para el CAS 8024-15-5. Anexo de IFRA 51: la entrada «Fir needle oil, Canadian»."
+  },
+  {
+   "clave": "glosario-natural-fig-1857",
+   "tipo": "natural",
+   "nombre": "Fir balsam resinoid from needles",
+   "cas": "8021-28-1",
+   "especie": "",
+   "parte": "aguja",
+   "proceso": "resinoide",
+   "v1": [
+    "fig:1857"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Fir balsam resinoid from needles»; el CAS 8021-28-1 es un atributo. Proceso: resinoide. Parte: aguja. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1858",
+   "tipo": "natural",
+   "nombre": "Fir needle oil, Canadian",
+   "cas": "8024-15-5",
+   "especie": "Abies balsamea (L.) Mill.",
+   "parte": "aguja",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1858"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Fir needle oil, Canadian",
+    "cas": "8024-15-5"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Fir needle oil, Canadian»; el CAS 8024-15-5 es un atributo. Proceso: aceite esencial. Parte: aguja. Especie: Abies balsamea (L.) Mill., la del anexo de IFRA 51, única para el CAS 8024-15-5. Anexo de IFRA 51: la entrada «Fir needle oil, Canadian»."
+  },
+  {
+   "clave": "glosario-natural-fig-1859",
+   "tipo": "natural",
+   "nombre": "Fir needle oil, Chinese",
+   "cas": "8021-28-1",
+   "especie": "",
+   "parte": "aguja",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1859"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Fir needle oil, Chinese»; el CAS 8021-28-1 es un atributo. Proceso: aceite esencial. Parte: aguja. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1860",
+   "tipo": "natural",
+   "nombre": "Fir needle oil, Siberian",
+   "cas": "8021-29-2",
+   "especie": "Abies siberica Ledeb (Pinaceae)",
+   "parte": "aguja",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1860"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Fir needle oil, Siberian",
+    "cas": "8021-29-2"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Fir needle oil, Siberian»; el CAS 8021-29-2 es un atributo. Proceso: aceite esencial. Parte: aguja. Especie: Abies siberica Ledeb (Pinaceae), la del anexo de IFRA 51, única para el CAS 8021-29-2. Anexo de IFRA 51: la entrada «Fir needle oil, Siberian»."
+  },
+  {
+   "clave": "glosario-natural-fig-1861",
+   "tipo": "natural",
+   "nombre": "Fir needle oil, Siberian, rectified",
+   "cas": "8021-29-2",
+   "especie": "",
+   "parte": "aguja",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1861"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas": "8021-29-2",
+    "nombres": [
+     "Fir needle oil, Siberian",
+     "Pine needle oil"
+    ]
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Fir needle oil, Siberian, rectified»; el CAS 8021-29-2 es un atributo. Proceso: aceite esencial; rectificado. Parte: aguja. Especie: no lo dice. Anexo de IFRA 51: el CAS tiene 2 entradas y el término no coincide con una sola; cuenta la peor de ellas: Fir needle oil, Siberian; Pine needle oil."
+  },
+  {
+   "clave": "glosario-natural-fig-1862",
+   "tipo": "natural",
+   "nombre": "Fir, Abies balsamea extract",
+   "cas": "85085-34-3",
+   "especie": "Abies balsamea (L.) Mill.",
+   "parte": "",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1862"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Fir needle oil, Canadian",
+    "cas": "85085-34-3"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Fir, Abies balsamea extract»; el CAS 85085-34-3 es un atributo. Proceso: extracto. Parte: no lo dice. Especie: Abies balsamea (L.) Mill., la del anexo de IFRA 51, única para el CAS 85085-34-3. Anexo de IFRA 51: la entrada «Fir needle oil, Canadian»."
+  },
+  {
+   "clave": "glosario-natural-fig-1863",
+   "tipo": "natural",
+   "nombre": "Fir, Abies balsamea, absolute",
+   "cas": "8021-28-1",
+   "especie": "",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1863"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Fir, Abies balsamea, absolute»; el CAS 8021-28-1 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1864",
+   "tipo": "natural",
+   "nombre": "Fir, Abies pectinata, concrete",
+   "cas": "92128-34-2",
+   "especie": "",
+   "parte": "",
+   "proceso": "concreto",
+   "v1": [
+    "fig:1864"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Fir, Abies pectinata, concrete»; el CAS 92128-34-2 es un atributo. Proceso: concreto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1865",
+   "tipo": "natural",
+   "nombre": "Flouve absolute",
+   "cas": "68916-09-6",
+   "especie": "Anthoxanthum odorantum L.",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1865"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Flouve absolute",
+    "cas": "68916-09-6"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Flouve absolute»; el CAS 68916-09-6 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: Anthoxanthum odorantum L., la del anexo de IFRA 51, única para el CAS 68916-09-6. Anexo de IFRA 51: la entrada «Flouve absolute»."
+  },
+  {
+   "clave": "glosario-natural-fig-1866",
+   "tipo": "natural",
+   "nombre": "Flouve oil",
+   "cas": "68916-09-6",
+   "especie": "Anthoxanthum odorantum L.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1866"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Flouve absolute",
+    "cas": "68916-09-6"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Flouve oil»; el CAS 68916-09-6 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Anthoxanthum odorantum L., la del anexo de IFRA 51, única para el CAS 68916-09-6. Anexo de IFRA 51: la entrada «Flouve absolute»."
+  },
+  {
+   "clave": "glosario-natural-fig-1870",
+   "tipo": "natural",
+   "nombre": "Fucus vesiculosus absolute",
+   "cas": "68917-51-1",
+   "especie": "",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1870"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Fucus vesiculosus absolute»; el CAS 68917-51-1 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1871",
+   "tipo": "natural",
+   "nombre": "Fucus vesiculosus resinoid",
+   "cas": "68917-51-1",
+   "especie": "",
+   "parte": "",
+   "proceso": "resinoide",
+   "v1": [
+    "fig:1871"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Fucus vesiculosus resinoid»; el CAS 68917-51-1 es un atributo. Proceso: resinoide. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1878",
+   "tipo": "natural",
+   "nombre": "Fusel oil, refined",
+   "cas": "8013-75-0",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1878"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Fusel oil, refined»; el CAS 8013-75-0 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1879",
+   "tipo": "natural",
+   "nombre": "Galangal root extract",
+   "cas": "8024-40-6",
+   "especie": "",
+   "parte": "raíz",
+   "proceso": "extracto",
+   "v1": [
+    "fig:1879"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Galangal root extract»; el CAS 8024-40-6 es un atributo. Proceso: extracto. Parte: raíz. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1880",
+   "tipo": "natural",
+   "nombre": "Galangal root oleoresin",
+   "cas": "8024-40-6",
+   "especie": "",
+   "parte": "raíz",
+   "proceso": "oleorresina",
+   "v1": [
+    "fig:1880"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Galangal root oleoresin»; el CAS 8024-40-6 es un atributo. Proceso: oleorresina. Parte: raíz. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1881",
+   "tipo": "natural",
+   "nombre": "Galbanum absolute",
+   "cas": "8023-91-4",
+   "especie": "Ferula spp.",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1881"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Galbanum oil",
+    "cas": "8023-91-4"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Galbanum absolute»; el CAS 8023-91-4 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: Ferula spp., la del anexo de IFRA 51, única para el CAS 8023-91-4. Anexo de IFRA 51: la entrada «Galbanum oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1882",
+   "tipo": "natural",
+   "nombre": "Galbanum CO2 extract",
+   "cas": "8023-91-4",
+   "especie": "Ferula spp.",
+   "parte": "",
+   "proceso": "extracto; CO2",
+   "v1": [
+    "fig:1882"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Galbanum oil",
+    "cas": "8023-91-4"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Galbanum CO2 extract»; el CAS 8023-91-4 es un atributo. Proceso: extracto; CO2. Parte: no lo dice. Especie: Ferula spp., la del anexo de IFRA 51, única para el CAS 8023-91-4. Anexo de IFRA 51: la entrada «Galbanum oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1883",
+   "tipo": "natural",
+   "nombre": "Galbanum gum",
+   "cas": "8023-91-4",
+   "especie": "Ferula spp.",
+   "parte": "",
+   "proceso": "",
+   "v1": [
+    "fig:1883"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Galbanum oil",
+    "cas": "8023-91-4"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Galbanum gum»; el CAS 8023-91-4 es un atributo. Proceso: no lo dice. Parte: no lo dice. Especie: Ferula spp., la del anexo de IFRA 51, única para el CAS 8023-91-4. Anexo de IFRA 51: la entrada «Galbanum oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1884",
+   "tipo": "natural",
+   "nombre": "Galbanum oil",
+   "cas": "8023-91-4",
+   "especie": "Ferula spp.",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1884"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Galbanum oil",
+    "cas": "8023-91-4"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Galbanum oil»; el CAS 8023-91-4 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: Ferula spp., la del anexo de IFRA 51, única para el CAS 8023-91-4. Anexo de IFRA 51: la entrada «Galbanum oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1885",
+   "tipo": "natural",
+   "nombre": "Galbanum oil, rectified",
+   "cas": "8023-91-4",
+   "especie": "Ferula spp.",
+   "parte": "",
+   "proceso": "aceite esencial; rectificado",
+   "v1": [
+    "fig:1885"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Galbanum oil",
+    "cas": "8023-91-4"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Galbanum oil, rectified»; el CAS 8023-91-4 es un atributo. Proceso: aceite esencial; rectificado. Parte: no lo dice. Especie: Ferula spp., la del anexo de IFRA 51, única para el CAS 8023-91-4. Anexo de IFRA 51: la entrada «Galbanum oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1886",
+   "tipo": "natural",
+   "nombre": "Galbanum resin",
+   "cas": "8023-91-4",
+   "especie": "Ferula spp.",
+   "parte": "",
+   "proceso": "",
+   "v1": [
+    "fig:1886"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Galbanum oil",
+    "cas": "8023-91-4"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Galbanum resin»; el CAS 8023-91-4 es un atributo. Proceso: no lo dice. Parte: no lo dice. Especie: Ferula spp., la del anexo de IFRA 51, única para el CAS 8023-91-4. Anexo de IFRA 51: la entrada «Galbanum oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1887",
+   "tipo": "natural",
+   "nombre": "Galbanum resinoid",
+   "cas": "8023-91-4",
+   "especie": "Ferula spp.",
+   "parte": "",
+   "proceso": "resinoide",
+   "v1": [
+    "fig:1887"
+   ],
+   "anexo": {
+    "documento": "ifra51-anexo-naturales",
+    "nombre": "Galbanum oil",
+    "cas": "8023-91-4"
+   },
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Galbanum resinoid»; el CAS 8023-91-4 es un atributo. Proceso: resinoide. Parte: no lo dice. Especie: Ferula spp., la del anexo de IFRA 51, única para el CAS 8023-91-4. Anexo de IFRA 51: la entrada «Galbanum oil»."
+  },
+  {
+   "clave": "glosario-natural-fig-1898",
+   "tipo": "natural",
+   "nombre": "Gardenia tahitensis absolute",
+   "cas": "683748-01-8",
+   "especie": "",
+   "parte": "",
+   "proceso": "absoluto",
+   "v1": [
+    "fig:1898"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Gardenia tahitensis absolute»; el CAS 683748-01-8 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1899",
+   "tipo": "natural",
+   "nombre": "Gardenia tahitensis oil",
+   "cas": "683748-01-8",
+   "especie": "",
+   "parte": "",
+   "proceso": "aceite esencial",
+   "v1": [
+    "fig:1899"
+   ],
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Gardenia tahitensis oil»; el CAS 683748-01-8 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
+  }
+ ]
+}

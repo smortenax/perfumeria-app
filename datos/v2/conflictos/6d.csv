@@ -1,0 +1,5 @@
+producto,tipo,detalle,evidencia,recomendacion,respuesta
+fig:1089 «Angelica root oil»,mismo-nombre-distinto-cas,CAS 8015-64-3; el mismo nombre con 84775-41-7,el glosario tiene «Angelica root oil» con más de un CAS y no dice cuál es cuál,no entra hasta que el usuario decida,
+"fig:1130 «Bay leaves, West Indian, oil»",mismo-nombre-distinto-cas,CAS 8006-78-8; el mismo nombre con 68916-05-2,"el glosario tiene «Bay leaves, West Indian, oil» con más de un CAS y no dice cuál es cuál",no entra hasta que el usuario decida,
+"fig:1131 «Bay leaves, West Indian, oil»",mismo-nombre-distinto-cas,CAS 68916-05-2; el mismo nombre con 8006-78-8,"el glosario tiene «Bay leaves, West Indian, oil» con más de un CAS y no dice cuál es cuál",no entra hasta que el usuario decida,
+"fig:1199 «Bergamot oil, expressed»",mismo-nombre-distinto-cas,CAS 8007-75-8; el mismo nombre con 89957-91-5,"el glosario tiene «Bergamot oil, expressed» con más de un CAS y no dice cuál es cuál",no entra hasta que el usuario decida,

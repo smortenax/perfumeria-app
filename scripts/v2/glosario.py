@@ -38,6 +38,7 @@ CONFLICT_COLUMNS = ["producto", "tipo", "detalle", "evidencia", "recomendacion",
 DECIDED = {"estandar-decidido": "decidido por el usuario", "estandar-por-evidencia": "la evidencia dice que es la misma sustancia"}
 
 CATEGORIES = {
+    "mismo-nombre-distinto-cas": "Dos filas de naturales del FIG con el mismo nombre y distinto CAS: no se sabe cuál es (D14).",
     "sin-cas": "El glosario no da CAS: sin CAS no hay identidad (D1).",
     "cas-de-otro-material": "El CAS es de un natural o una base que la v2 ya tiene: no es la misma cosa.",
     "estandar-por-nombre": "La v1 le da un estándar de IFRA que el índice no liga a su CAS (lo encontró por el nombre).",
@@ -89,6 +90,10 @@ class Data:
         for r in read_csv(IFRA / "bases-schiff.csv"):
             for cas in r["cas_base_schiff"].split():
                 self.schiff[cas].append(r)
+        self.annex_by_cas: dict[str, dict[str, list[dict[str, str]]]] = defaultdict(lambda: defaultdict(list))
+        for a in read_csv(IFRA / "naturales.csv"):
+            for c in [a["cas_principal"], *a["otros_cas"].split()]:
+                self.annex_by_cas[c][a["nombre"]].append(a)
         self.later = {r["id_v1"] for r in read_csv(DOCS / "glosario-despues.csv")}
         # What the v2 had before the glossary lots: the materials these lots made (key «glosario-…») are not «what was there».
         made_here = {r["id"] for r in read_csv(V2 / "registro-ids.csv") if r["entidad"] == "material" and r["clave"].startswith("glosario-")}
@@ -143,8 +148,111 @@ def freeze_next(clase: str, lots: dict, data: Data, date: str) -> str | None:
     return name
 
 
+# --- naturals (D14): the identity is the term of the FIG; process and part are what the term says; the species is the annex's ---
+PROCESS_OF_TYPE = {"oil": "aceite esencial", "extract": "extracto", "absolute": "absoluto", "resinoid": "resinoide", "oleoresin": "oleorresina",
+                   "terpenes": "terpenos", "tincture": "tintura", "concrete": "concreto", "distillate": "destilado", "gum": "goma", "resin": "resina"}
+PROCESS_WORDS = [(r"\brectified\b", "rectificado"), (r"\bterpene[- ]?less\b|\bterpene[- ]free\b|\bdeterpenated\b", "sin terpenos"),
+                 (r"\bfcf\b", "FCF"), (r"\bfurocoumarin[- ]free\b", "sin furocumarinas"), (r"\bwashed\b", "lavado"),
+                 (r"\bdecolou?rized\b", "decolorado"), (r"\bdewaxed\b", "sin ceras"), (r"\bco2\b", "CO2"), (r"\bexpressed\b", "expresión"),
+                 (r"\bdistilled\b|\bredistilled\b", "destilación")]
+PART_WORDS = [(r"\broots?\b", "raíz"), (r"\brhizomes?\b", "rizoma"), (r"\bleaf\b|\bleaves\b", "hoja"), (r"\bflowers?\b|\bblossoms?\b", "flor"),
+              (r"\bseeds?\b", "semilla"), (r"\bbark\b", "corteza"), (r"\bwood\b", "madera"), (r"\bpeel\b|\brind\b|\bzest\b", "cáscara"),
+              (r"\bfruits?\b|\bberr(?:y|ies)\b", "fruto"), (r"\bherb\b", "hierba"), (r"\bbuds?\b", "botón"), (r"\bneedles?\b", "aguja"),
+              (r"\btwigs?\b", "ramita"), (r"\bbulbs?\b", "bulbo")]
+
+
+def norm_name(text: str) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", text.lower()).strip()
+
+
+def natural_process(g: dict[str, str]) -> str:
+    """What the term says about the process; «» (no lo dice) when the row has no type. Never taken from ISO 9235 (D14)."""
+    base = PROCESS_OF_TYPE.get(g["tipo_natural"], "")
+    if not base:
+        return ""
+    found = [word for pattern, word in PROCESS_WORDS if re.search(pattern, g["nombre"].lower())]
+    return "; ".join([base, *found])
+
+
+def natural_part(g: dict[str, str]) -> str:
+    return " y ".join(word for pattern, word in PART_WORDS if re.search(pattern, g["nombre"].lower()))
+
+
+def natural_case(g: dict[str, str], data: Data) -> tuple[str, list[str]]:
+    """How the annex answers for this term: (case, the annex names that count)."""
+    entries = data.annex_by_cas.get(g["cas"], {}) if g["cas"] else {}
+    if not entries:
+        return "sin entrada en el anexo", []
+    names = sorted(entries)
+    if len(names) == 1:
+        return "coincidencia única: el CAS tiene una sola entrada", names
+    same = [n for n in names if norm_name(n) == norm_name(g["nombre"])]
+    if len(same) == 1:
+        return "coincidencia única: el término coincide con una de varias", same
+    return "peor caso: varias entradas y ninguna coincide con el término", names
+
+
+def prepare_naturals(name: str, lot: dict, data: Data):
+    counts: Counter = Counter()
+    conflicts: list[dict[str, str]] = []
+    materials = []
+    cas_by_name: dict[str, set[str]] = defaultdict(set)
+    for r in data.glossary.values():
+        if r["clase"] == "natural":
+            cas_by_name[norm_name(r["nombre"])].add(r["cas"])
+    natural_cas_in_v2 = {m["cas"]: m for m in data.materials if m["tipo"] == "natural" and m["cas"]}
+    for ident in lot["ids"]:
+        g = data.glossary[ident]
+        if len(cas_by_name[norm_name(g["nombre"])]) > 1:
+            others = sorted(cas_by_name[norm_name(g["nombre"])] - {g["cas"]})
+            conflicts.append({"producto": f"{ident} «{g['nombre']}»", "tipo": "mismo-nombre-distinto-cas",
+                              "detalle": f"CAS {g['cas'] or '(ninguno)'}; el mismo nombre con {' '.join(others)}",
+                              "evidencia": f"el glosario tiene «{g['nombre']}» con más de un CAS y no dice cuál es cuál",
+                              "recomendacion": "no entra hasta que el usuario decida", "respuesta": ""})
+            counts["mismo-nombre-distinto-cas"] += 1
+            continue
+        case, names = natural_case(g, data)
+        process = natural_process(g)
+        part = natural_part(g)
+        counts[case] += 1
+        counts["con término" if process else "sin término: proceso «no lo dice»"] += 1
+        if not g["cas"]:
+            counts["sin CAS (entra: el CAS es un atributo, D1)"] += 1
+        species = {a["nombre_botanico"] for n in names for a in data.annex_by_cas[g["cas"]][n]} if names and g["cas"] else set()
+        specie = next(iter(species)) if len(species) == 1 and "" not in species else ""
+        if specie:
+            counts["con especie del anexo (única para el CAS)"] += 1
+        if part:
+            counts["con parte (la dice el término)"] += 1
+        if g["cas"] in natural_cas_in_v2:
+            counts["el CAS ya está en un natural de la v2 (entra aparte, sin fusionar)"] += 1
+        notes = [f"Fase 6, lote {name} (D14): la identidad es el término del FIG «{g['nombre']}»; el CAS {g['cas'] or '(ninguno)'} es un atributo.",
+                 f"Proceso: {process or 'no lo dice'}. Parte: {part or 'no lo dice'}. Especie: "
+                 + (f"{specie}, la del anexo de IFRA 51, única para el CAS {g['cas']}." if specie else "no lo dice.")]
+        entry: dict = {"clave": "glosario-natural-" + ident.replace(":", "-"), "tipo": "natural", "nombre": g["nombre"], "cas": g["cas"],
+                       "especie": specie, "parte": part, "proceso": process, "v1": [ident]}
+        if case.startswith("coincidencia"):
+            entry["anexo"] = {"documento": "ifra51-anexo-naturales", "nombre": names[0], "cas": g["cas"]}
+            notes.append(f"Anexo de IFRA 51: la entrada «{names[0]}».")
+        elif case.startswith("peor caso"):
+            entry["anexo_peor"] = {"documento": "ifra51-anexo-naturales", "cas": g["cas"], "nombres": names}
+            notes.append(f"Anexo de IFRA 51: el CAS tiene {len(names)} entradas y el término no coincide con una sola; cuenta la peor de ellas: {'; '.join(names)}.")
+        entry["notas"] = " ".join(notes)
+        materials.append(entry)
+    documents = []
+    if any("anexo" in m or "anexo_peor" in m for m in materials):
+        documents.append({"clave": "ifra51-anexo-naturales", "tipo": "anexo-ifra", "titulo": "IFRA 51, anexo de contribuciones de otras fuentes: naturales",
+                          "emisor": "IFRA", "fecha": "2023-06", "ruta": "datos/ifra/51/naturales.csv", "estado_revision": "revisado",
+                          "notas": "Archivo oficial de IFRA convertido por scripts/importar_ifra.py; sus cifras se toman tal cual."})
+    entry_file = {"fecha": lot["fecha"], "notas": f"Fase 6, lote {name}: {len(lot['ids'])} naturales del glosario v1 (término del FIG y datos de IFRA).",
+                  "documentos": documents, "materiales": materials}
+    return counts, entry_file, conflicts, []
+
+
 def prepare(name: str, lot: dict, data: Data) -> tuple[Counter, dict, list[dict[str, str]], list[dict[str, str]]]:
     """The entry of a lot, its conflicts and its links to substances the v2 already had."""
+    if lot["clase"] == "natural":
+        return prepare_naturals(name, lot, data)
     if lot["clase"] != "molécula":
         raise SystemExit(f"{name}: la clase «{lot['clase']}» aún no tiene lote preparado.")
     counts: Counter = Counter()
@@ -216,6 +324,8 @@ def prepare(name: str, lot: dict, data: Data) -> tuple[Counter, dict, list[dict[
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser()
+    parser.add_argument("--aprobar", help="aprueba un lote preparado: pasa a altas/ para que alta.py lo escriba")
+    parser.add_argument("--sin-aprobar", action="store_true", help="con --nuevo: el lote queda preparado, sin aprobar")
     parser.add_argument("--nuevo", help="clase de la que se congela el siguiente lote (molécula, natural, base)")
     args = parser.parse_args()
     data = Data()
@@ -227,20 +337,33 @@ def main() -> int:
         if newest is None:
             print(f"No quedan filas de la clase «{args.nuevo}».")
             return 1
+        if args.sin_aprobar:
+            lots[newest]["aprobado"] = False
+        path.write_text(json.dumps(lots, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    if args.aprobar:
+        lots[args.aprobar].pop("aprobado", None)
         path.write_text(json.dumps(lots, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     all_links: list[dict[str, str]] = []
     results = {}
     for name, lot in lots.items():
         counts, built, conflicts, links = prepare(name, lot, data)
-        (DOCS / "altas" / f"{lot['fecha']}-glosario-{name}.json").write_text(
+        # A lot with «aprobado: false» (conflicts to decide, or a class waiting for the user's go-ahead) is prepared, not given as an alta.
+        approved = lot.get("aprobado", True)
+        where, other = ("altas", "altas-preparadas") if approved else ("altas-preparadas", "altas")
+        (DOCS / where).mkdir(exist_ok=True)
+        (DOCS / where / f"{lot['fecha']}-glosario-{name}.json").write_text(
             json.dumps(built, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+        (DOCS / other / f"{lot['fecha']}-glosario-{name}.json").unlink(missing_ok=True)
         write_csv(V2 / "conflictos" / f"{name}.csv", CONFLICT_COLUMNS, conflicts)
-        all_links.extend(links)
+        if approved:
+            all_links.extend(links)
         results[name] = (counts, conflicts)
     write_csv(DOCS / "enlaces-glosario.csv", ["id_v1", "id_v2", "id_producto", "confirmado", "motivo"], all_links)
     print("Resumen por lote (entradas | con estándar | con especificación | conflictos):")
     for key, (c, cf) in results.items():
-        print(f"  {key}: {c['entra']:4} | {c['con estándar de IFRA']:4} | {c['con especificación (pendiente por D11)']:3} | {len(cf)}")
+        entered = len(lots[key]["ids"]) - len(cf)
+        held = "" if lots[key].get("aprobado", True) else "  (preparado, sin aprobar)"
+        print(f"  {key}: {entered:4} | {c['con estándar de IFRA']:4} | {c['con especificación (pendiente por D11)']:3} | {len(cf)}{held}")
     print()
     name = newest or list(lots)[-1]
     lot = lots[name]

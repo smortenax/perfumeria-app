@@ -203,3 +203,23 @@ da un estándar que el índice no liga a su CAS («estándar por el nombre»), e
 
 **Por qué:** un estándar de más limita de menos (se pierde un límite) o de más (se bloquea una fórmula): sin evidencia de que sea la
 misma sustancia no se decide en silencio.
+
+## D14 — Los naturales del glosario sin producto (decidida por el usuario el 2026-10-04, antes del lote 6d)
+
+Los naturales del glosario v1 (1223 filas) no traen especie ni parte; los documentos del FIG de `datos/fuente/` solo definen los 27
+descriptores de olor. No se usa la categoría ISO 9235 (`categoria_iso`): su leyenda no está en el repositorio. Entran así:
+
+- **Identidad: el término del FIG** (su nombre). El CAS es un atributo (D1); cada fila del FIG es un material, aunque comparta CAS.
+- **Proceso y parte: los que dice el propio término**; si no los dice, «no lo dice». El proceso sale del tipo de la fila (`oil`, `absolute`,
+  `resinoid`…) y de lo que su nombre añade (rectificado, FCF, expresión, sin terpenos…); una fila sin tipo entra con el proceso «no lo dice».
+  La parte, solo si el nombre la nombra (raíz, hoja, semilla…).
+- **Especie: solo cuando el anexo de IFRA 51 da una única especie para el CAS**, con su cita en la nota; si no, «no lo dice».
+- **CAS compartido por varias entradas del anexo** (`naturales.csv`): si el término coincide con una sola entrada, esa; si no, **la peor
+  de las entradas de ese CAS** (para cada constituyente, el máximo, con autoridad `anexo-ifra`, tipo `maximo`), con una nota que lo diga.
+  **No es un conflicto.** Sin entrada en el anexo: cobertura «desconocida» (nunca cero).
+- **Sin proceso («no lo dice») no se aplica ninguna exclusión por proceso** (`estandares-naturales.csv`, `especificaciones-excluidas.csv`):
+  cuenta como el peor caso. Un «Lemon oil» sin más es miembro del 089.
+- **Origen y autoridad:** nada mejor que su fuente; no hay documento ni producto de la v1 (D6, D9).
+- **Único conflicto:** el mismo nombre con distinto CAS (`mismo-nombre-distinto-cas`), que decide el usuario.
+
+**Por qué:** inventar una especie, una parte o un proceso daría un límite de menos; «no lo dice» y el peor caso nunca dan un «dentro» falso (§1.2).

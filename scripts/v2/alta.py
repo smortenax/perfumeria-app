@@ -417,6 +417,32 @@ def main() -> int:
                     "notas": "el anexo da las contribuciones a los estándares con límite; IFRA las da para el cálculo",
                 })
                 has_rows = True
+            # D14: a CAS shared by several entries of the annex, none the one of this term: the worst of them, for each constituent.
+            if "anexo_peor" in m:
+                a = m["anexo_peor"]
+                did = documents[a["documento"]]
+                from decimal import Decimal as _D
+                rows = [r for r in annex if r["nombre"] in a["nombres"] and (r["cas_principal"] == a["cas"] or a["cas"] in r["otros_cas"].split())]
+                if not rows:
+                    print(f"{m['clave']}: el anexo no tiene entradas para {a['cas']}.")
+                    return 1
+                worst: dict[str, dict[str, str]] = {}
+                for r in rows:
+                    best = worst.get(r["cas_constituyente"])
+                    if best is None or _D(r["concentracion_pct"]) > _D(best["concentracion_pct"]):
+                        worst[r["cas_constituyente"]] = r
+                for r in worst.values():
+                    component = substance(r["cas_constituyente"], r["constituyente"], date, r["estandar_constituyente"], lot)
+                    tables["composicion.csv"].append({
+                        "id_contenedor": mid, "id_componente": component, "max": pct_text(r["concentracion_pct"]),
+                        "tipo_valor": "maximo", "autoridad": "anexo-ifra", "id_documento": did,
+                        "notas": f"el máximo de las {len(a['nombres'])} entradas del anexo para el CAS {a['cas']} (D14): {r['nombre']}",
+                    })
+                tables["coberturas.csv"].append({
+                    "id_contenedor": mid, "id_documento": did, "cobertura": "reguladas-completa",
+                    "notas": f"el anexo da las contribuciones por entrada; este término no coincide con una sola, y cuenta la peor de {len(a['nombres'])} (D14)",
+                })
+                has_rows = True
             has_rows = has_rows or literature_rows or typical
             if m["tipo"] in ("natural", "base") and not has_rows:
                 tables["coberturas.csv"].append({
