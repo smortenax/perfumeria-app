@@ -34,6 +34,9 @@ GLOSARIO = ROOT / "datos" / "glosario"
 LOT_SIZE = 300
 CONFLICT_COLUMNS = ["producto", "tipo", "detalle", "evidencia", "recomendacion", "respuesta"]
 
+# What is decided by name is not a conflict: it enters with the standard and the decision noted (D15).
+DECIDED = {"estandar-decidido": "decidido por el usuario", "estandar-por-evidencia": "la evidencia dice que es la misma sustancia"}
+
 CATEGORIES = {
     "sin-cas": "El glosario no da CAS: sin CAS no hay identidad (D1).",
     "cas-de-otro-material": "El CAS es de un natural o una base que la v2 ya tiene: no es la misma cosa.",
@@ -91,6 +94,8 @@ class Data:
         made_here = {r["id"] for r in read_csv(V2 / "registro-ids.csv") if r["entidad"] == "material" and r["clave"].startswith("glosario-")}
         self.materials = [m for m in read_csv(V2 / "materiales.csv") if m["id"] not in made_here]
         self.linked = {r["id_v1"] for r in read_csv(V2 / "v1-a-v2.csv") if r["id_v2"] not in made_here}
+        # D15: the standards the user decided by name (id_v1 → standard, with the reason and the evidence).
+        self.decided = {r["id_v1"]: r for r in read_csv(DOCS / "glosario-decisiones.csv")}
         self.cas_of_material = {m["cas"]: m for m in self.materials if m["cas"]}
 
 
@@ -110,6 +115,13 @@ def classify(g: dict[str, str], data: Data) -> tuple[str, str, str]:
     indexed = set(data.index.get(cas, []))
     if own and own != indexed:
         std = sorted(own - indexed)[0]
+        decision = data.decided.get(g["id"])
+        if decision and decision["estandar"] == std:
+            return "estandar-decidido", std, f"decisión del usuario: {decision['motivo']} (evidencia: {decision['evidencia']})"
+        # D15: the glossary itself says it is the same substance as one the standard lists (another stereochemistry).
+        same = re.search(r"es otra estereoquímica del CAS (\d{2,7}-\d{2}-\d)", g["fuera_de_ifra"])
+        if same and std in data.index.get(same.group(1), []):
+            return "estandar-por-evidencia", std, f"el glosario dice: «{g['fuera_de_ifra'][:160]}» y {std} lista el CAS {same.group(1)}"
         name = data.standards[std]["nombre"] if std in data.standards else std
         listed = " ".join(data.standard_cas.get(std, [])[:4]) or "(ninguno)"
         said = f"; el glosario dice: «{g['fuera_de_ifra'][:120]}»" if g["fuera_de_ifra"] else ""
@@ -138,15 +150,19 @@ def prepare(name: str, lot: dict, data: Data) -> tuple[Counter, dict, list[dict[
     counts: Counter = Counter()
     conflicts: list[dict[str, str]] = []
     by_cas: dict[str, list[dict[str, str]]] = {}
+    decisions_of: dict[str, list[dict[str, str]]] = {}
     links: list[dict[str, str]] = []
     for ident in lot["ids"]:
         g = data.glossary[ident]
         category, detail, evidence = classify(g, data)
-        if category != "entra":
+        if category != "entra" and category not in DECIDED:
             counts[category] += 1
             conflicts.append({"producto": f"{ident} «{g['nombre']}»", "tipo": category, "detalle": detail, "evidencia": evidence,
                               "recomendacion": "no entra hasta que el usuario decida la categoría", "respuesta": ""})
             continue
+        decided = {"estandar": detail, "motivo": f"D15, {category}: {evidence}"} if category in DECIDED else None
+        if decided:
+            counts[f"entra con estándar por el nombre ({DECIDED[category]})"] += 1
         existing = data.cas_of_material.get(g["cas"])
         if existing is not None:
             counts["enlazada a una sustancia de la v2"] += 1
@@ -154,6 +170,8 @@ def prepare(name: str, lot: dict, data: Data) -> tuple[Counter, dict, list[dict[
                           "motivo": f"Fase 6, lote {name}: el mismo CAS ({g['cas']}) que la sustancia de la v2"})
             continue
         by_cas.setdefault(g["cas"], []).append(g)
+        if decided:
+            decisions_of.setdefault(g["cas"], []).append(decided)
     materials = []
     for cas, rows in by_cas.items():
         first = rows[0]
@@ -164,14 +182,16 @@ def prepare(name: str, lot: dict, data: Data) -> tuple[Counter, dict, list[dict[
             "notas": f"Fase 6, lote {name}: la identidad es la del FIG y los estándares son los del índice de IFRA 51; "
                      "ningún documento ni lista de producto de la v1 (D6, D9).",
         }
+        if cas in decisions_of:
+            entry["estandares_decididos"] = decisions_of[cas]
         schiff = data.schiff.get(cas)
         if schiff:
             entry["schiff"] = {"documento": "ifra51-bases-schiff", "cas": cas}
             counts["entra con el aldehído de IFRA (base de Schiff)"] += 1
         counts["entra"] += 1
-        standards = data.index.get(cas, [])
+        standards = list(data.index.get(cas, [])) + [d["estandar"] for d in decisions_of.get(cas, [])]
         if standards:
-            counts["con estándar de IFRA (por el CAS del índice)"] += 1
+            counts["con estándar de IFRA"] += 1
         if any(data.standards[x]["especificacion"] == "sí" for x in standards if x in data.standards):
             counts["con especificación (pendiente por D11)"] += 1
         if len(rows) > 1:
@@ -220,7 +240,7 @@ def main() -> int:
     write_csv(DOCS / "enlaces-glosario.csv", ["id_v1", "id_v2", "id_producto", "confirmado", "motivo"], all_links)
     print("Resumen por lote (entradas | con estándar | con especificación | conflictos):")
     for key, (c, cf) in results.items():
-        print(f"  {key}: {c['entra']:4} | {c['con estándar de IFRA (por el CAS del índice)']:4} | {c['con especificación (pendiente por D11)']:3} | {len(cf)}")
+        print(f"  {key}: {c['entra']:4} | {c['con estándar de IFRA']:4} | {c['con especificación (pendiente por D11)']:3} | {len(cf)}")
     print()
     name = newest or list(lots)[-1]
     lot = lots[name]

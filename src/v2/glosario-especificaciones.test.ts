@@ -35,3 +35,15 @@ describe("glossary materials whose standard has a specification (D11)", () => {
     }
   });
 });
+
+describe("a standard applied by name is a noted decision (D15)", () => {
+  it("fig:390 and fig:598 are members of their standards, with the decision in the note", () => {
+    const members = import.meta.glob<string>("../../datos/v2/grupo-miembros.csv", { query: "?raw", import: "default", eager: true });
+    const rows = table(Object.values(members)[0]);
+    const decided = rows.filter((r) => r["notas"].startsWith("D15, "));
+    expect(decided.length).toBeGreaterThanOrEqual(2);
+    for (const r of decided) {
+      expect(r["notas"], r["id_miembro"]).toMatch(/evidencia|el glosario dice/);
+    }
+  });
+});

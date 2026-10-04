@@ -68,6 +68,7 @@ G00057,S00085,,índice de IFRA 51
 G00058,S00090,,índice de IFRA 51
 G00059,S00091,,índice de IFRA 51
 G00059,S00132,,índice de IFRA 51
+G00059,S00419,,índice de IFRA 51
 G00060,S00094,,índice de IFRA 51
 G00061,S00102,,índice de IFRA 51
 G00062,S00104,,índice de IFRA 51
@@ -83,10 +84,13 @@ G00064,S00204,,índice de IFRA 51
 G00064,S00206,,índice de IFRA 51
 G00064,S00207,,índice de IFRA 51
 G00064,S00210,,índice de IFRA 51
+G00064,S00704,,"D15, estandar-por-evidencia: el glosario dice: «es otra estereoquímica del CAS 57378-68-4 (delta-1-(2,6,6-Trimethyl-3-cyclohexen-1-yl)-2-buten-1-one), que IFRA sí lista» y IFRA_STD_077 lista el CAS 57378-68-4"
 G00065,S00144,,índice de IFRA 51
 G00066,S00158,,índice de IFRA 51
+G00066,S00444,,índice de IFRA 51
 G00067,S00161,,índice de IFRA 51
 G00067,S00174,,índice de IFRA 51
+G00067,S00698,,índice de IFRA 51
 G00068,S00163,,índice de IFRA 51
 G00068,S00176,,índice de IFRA 51
 G00069,S00186,,índice de IFRA 51
@@ -95,3 +99,26 @@ G00071,S00240,,índice de IFRA 51
 G00071,S00241,,índice de IFRA 51
 G00072,S00303,,índice de IFRA 51
 G00073,S00377,,índice de IFRA 51
+G00074,S00410,,índice de IFRA 51
+G00075,S00413,,índice de IFRA 51
+G00076,S00415,,índice de IFRA 51
+G00077,S00438,,índice de IFRA 51
+G00077,S00439,,índice de IFRA 51
+G00078,S00449,,índice de IFRA 51
+G00079,S00494,,índice de IFRA 51
+G00080,S00505,,índice de IFRA 51
+G00081,S00510,,índice de IFRA 51
+G00081,S00511,,índice de IFRA 51
+G00082,S00540,,índice de IFRA 51
+G00083,S00548,,índice de IFRA 51
+G00084,S00549,,índice de IFRA 51
+G00085,S00571,,índice de IFRA 51
+G00086,S00575,,índice de IFRA 51
+G00087,S00623,,índice de IFRA 51
+G00088,S00626,,índice de IFRA 51
+G00089,S00645,,índice de IFRA 51
+G00090,S00666,,índice de IFRA 51
+G00090,S00672,,índice de IFRA 51
+G00090,S00705,,"D15, estandar-decidido: decisión del usuario: el usuario decide (2026-10-04) que es la sustancia del STD 044 con otro CAS (evidencia: el nombre del FIG es el del estándar (HMPCC, 3 y 4-(4-hidroxi-4-metilpentil)-3-ciclohexeno-1-carboxaldehído); el glosario no lo dice)"
+G00091,S00681,,índice de IFRA 51
+G00092,S00686,,índice de IFRA 51

@@ -303,6 +303,9 @@ def main() -> int:
                 return 1
             if m["tipo"] == "sustancia":
                 sid = substance(cas, m.get("nombre", cas), date, lot=lot)
+                # A standard applied by name because the evidence says it is the same substance (D15): a decision, noted as such.
+                for dec in m.get("estandares_decididos", []):
+                    member(dec["estandar"], "", sid, date, dec["motivo"])
             name = m.get("nombre") or substance_rows[sid]["nombre"]
             tables["materiales.csv"].append({
                 "id": mid, "tipo": m["tipo"], "nombre": name, "id_sustancia": sid,

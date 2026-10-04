@@ -187,3 +187,19 @@ vale cero ni se pinta en verde** (decisiones v1, §1.2 y §5.5).
 - Los datos los escribe un script determinista. Cada conflicto va a
   `datos/v2/conflictos/<lote>.csv` y lo decide el usuario. `npm run validar:v2` pasa antes de
   cada commit de datos.
+
+## D15 — Un estándar ligado por el nombre y no por el CAS (decidida por el usuario el 2026-10-04, en el lote 6b)
+
+La única vía **automática** de una molécula del glosario a un estándar de IFRA es el CAS del índice (`estandar-cas.csv`). Si la v1 le
+da un estándar que el índice no liga a su CAS («estándar por el nombre»), es un conflicto, que se resuelve así:
+
+- **Misma sustancia** (la evidencia lo dice: un isómero o una estereoquímica de un CAS que el estándar sí lista, u otro CAS del mismo
+  nombre): **se aplica el estándar** y queda anotado como decisión, en la nota de su fila de `grupo-miembros.csv` («D15, …») con la
+  evidencia. Lo hace `glosario.py` solo cuando el glosario dice «es otra estereoquímica del CAS X» y el estándar lista X; los demás
+  casos los decide el usuario en `docs/v2/glosario-decisiones.csv` (id, estándar, motivo, evidencia).
+- **Solo se parece por el nombre** (un vetiveril acetato con el aceite de vetiver acetilado; geraniol sin isómero con el STD 037):
+  **no se aplica** y sigue siendo conflicto para revisar.
+- Lo de la familia por el nombre (188, 184, 089) nunca es automático.
+
+**Por qué:** un estándar de más limita de menos (se pierde un límite) o de más (se bloquea una fórmula): sin evidencia de que sea la
+misma sustancia no se decide en silencio.
