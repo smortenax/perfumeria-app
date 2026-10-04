@@ -10,6 +10,8 @@ G00004,S01662,,índice de IFRA 51
 G00004,S02278,,índice de IFRA 51
 G00005,S00006,,índice de IFRA 51
 G00006,M00006,,índice de IFRA 51: limitado como tal
+G00006,M03621,,índice de IFRA 51: limitado como tal
+G00006,M03622,,índice de IFRA 51: limitado como tal
 G00007,S00009,,índice de IFRA 51
 G00008,S00010,,índice de IFRA 51
 G00008,S01144,,índice de IFRA 51
@@ -98,6 +100,13 @@ G00037,S01443,,"D16, estandar-de-clase: «Los pinenos y el delta-3-careno se tra
 G00037,S01764,,"D16, estandar-de-clase: «Los pinenos y el delta-3-careno se tratan como de origen pináceas mientras no conste otro origen (el usuario, 2026-10-04): aplicar el 184 solo añade una especificación pendiente.» (el usuario, 2026-10-04; lista cerrada de D16: pinenos y delta-3-careno); el STD 184 dice «derived from the Pinacea family», y «l-.alpha.-Pinene» está en la lista"
 G00037,S01765,,"D16, estandar-de-clase: «Los pinenos y el delta-3-careno se tratan como de origen pináceas mientras no conste otro origen (el usuario, 2026-10-04): aplicar el 184 solo añade una especificación pendiente.» (el usuario, 2026-10-04; lista cerrada de D16: pinenos y delta-3-careno); el STD 184 dice «derived from the Pinacea family», y «l-.beta.-Pinene» está en la lista"
 G00038,M00045,,índice de IFRA 51: limitado como tal
+G00038,M03519,,índice de IFRA 51: limitado como tal
+G00038,M03520,,índice de IFRA 51: limitado como tal
+G00038,M03521,,índice de IFRA 51: limitado como tal
+G00038,M03522,,índice de IFRA 51: limitado como tal
+G00038,M03524,,índice de IFRA 51: limitado como tal
+G00038,M03525,,índice de IFRA 51: limitado como tal
+G00038,M03528,,índice de IFRA 51: limitado como tal
 G00039,S00064,,índice de IFRA 51
 G00040,S00065,,índice de IFRA 51
 G00040,S01032,,índice de IFRA 51
@@ -427,6 +436,11 @@ G00234,S02361,,índice de IFRA 51
 G00235,S02362,,índice de IFRA 51
 G00236,S02367,,índice de IFRA 51
 G00237,S02369,,índice de IFRA 51
+G00238,M03637,,índice de IFRA 51: limitado como tal
+G00238,M03638,,índice de IFRA 51: limitado como tal
+G00238,M03639,,índice de IFRA 51: limitado como tal
+G00238,M03640,,índice de IFRA 51: limitado como tal
+G00238,M03641,,índice de IFRA 51: limitado como tal
 G00238,S02370,,índice de IFRA 51
 G00238,S02375,,índice de IFRA 51
 G00239,S02372,,índice de IFRA 51
@@ -436,3 +450,25 @@ G00242,S02376,,índice de IFRA 51
 G00243,S02377,,índice de IFRA 51
 G00244,S02378,,índice de IFRA 51
 G00245,S02379,,índice de IFRA 51
+G00246,M03422,,índice de IFRA 51: limitado como tal
+G00246,M03423,,índice de IFRA 51: limitado como tal
+G00246,M03424,,índice de IFRA 51: limitado como tal
+G00246,M03425,,índice de IFRA 51: limitado como tal
+G00246,M03426,,índice de IFRA 51: limitado como tal
+G00246,M03428,,índice de IFRA 51: limitado como tal
+G00246,M03430,,índice de IFRA 51: limitado como tal
+G00247,M03472,,índice de IFRA 51: limitado como tal
+G00247,M03473,,índice de IFRA 51: limitado como tal
+G00247,M03474,,índice de IFRA 51: limitado como tal
+G00247,M03475,,índice de IFRA 51: limitado como tal
+G00247,M03476,,índice de IFRA 51: limitado como tal
+G00247,M03481,,índice de IFRA 51: limitado como tal
+G00248,M03477,,índice de IFRA 51: limitado como tal
+G00248,M03478,,índice de IFRA 51: limitado como tal
+G00248,M03479,,índice de IFRA 51: limitado como tal
+G00248,M03480,,índice de IFRA 51: limitado como tal
+G00249,M03537,,índice de IFRA 51: limitado como tal
+G00249,M03540,,índice de IFRA 51: limitado como tal
+G00249,M03541,,índice de IFRA 51: limitado como tal
+G00250,M03653,,índice de IFRA 51: limitado como tal
+G00250,M03654,,índice de IFRA 51: limitado como tal

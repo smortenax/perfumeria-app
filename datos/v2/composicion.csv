@@ -748,6 +748,834 @@ M02123,S00006,,61.8,,tipico,anexo-ifra,D00034,"α-Hexylcinnamic aldehyde methyl 
 M03375,S00017,,49.8,,tipico,anexo-ifra,D00034,"Cinnamic aldehyde methyl anthranilate: el aldehído que lleva, según IFRA"
 M03378,S00001,,,0.05,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 85665-35-6 (D14): Helichrysum oil
 M03378,S00063,,,0.08,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 85665-35-6 (D14): Helichrysum absolute
+M03399,S00001,,0.13,,tipico,anexo-ifra,D00001,Genet absolute (Spartium junceum L.)
+M03399,S00020,,0.02,,tipico,anexo-ifra,D00001,Genet absolute (Spartium junceum L.)
+M03399,S00073,,0.34,,tipico,anexo-ifra,D00001,Genet absolute (Spartium junceum L.)
+M03399,S01016,,0.1,,tipico,anexo-ifra,D00001,Genet absolute (Spartium junceum L.)
+M03402,S00001,,9,,tipico,anexo-ifra,D00001,Geranium absolute (Pelargonium graveolens l'Hertier ex Aiton)
+M03402,S01006,,0.41,,tipico,anexo-ifra,D00001,Geranium absolute (Pelargonium graveolens l'Hertier ex Aiton)
+M03402,S01777,,10.6,,tipico,anexo-ifra,D00001,Geranium absolute (Pelargonium graveolens l'Hertier ex Aiton)
+M03403,S00001,,9,,tipico,anexo-ifra,D00001,Geranium absolute (Pelargonium graveolens l'Hertier ex Aiton)
+M03403,S01006,,0.41,,tipico,anexo-ifra,D00001,Geranium absolute (Pelargonium graveolens l'Hertier ex Aiton)
+M03403,S01777,,10.6,,tipico,anexo-ifra,D00001,Geranium absolute (Pelargonium graveolens l'Hertier ex Aiton)
+M03404,S00001,,,17.7,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-46-2 (D14): Geranium oil
+M03404,S00061,,,0.5,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-46-2 (D14): Geranium oil
+M03404,S00065,,,0.15,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-46-2 (D14): Geranium oil
+M03404,S01006,,,0.8,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-46-2 (D14): Geranium oil African
+M03404,S01314,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-46-2 (D14): Geranium oil
+M03404,S01777,,,33,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-46-2 (D14): Geranium oil African
+M03405,S00001,,17.7,,tipico,anexo-ifra,D00001,Geranium oil (Pelargonium graveolens l'Hertier ex Aiton)
+M03405,S00061,,0.5,,tipico,anexo-ifra,D00001,Geranium oil (Pelargonium graveolens l'Hertier ex Aiton)
+M03405,S00065,,0.15,,tipico,anexo-ifra,D00001,Geranium oil (Pelargonium graveolens l'Hertier ex Aiton)
+M03405,S01006,,0.5,,tipico,anexo-ifra,D00001,Geranium oil (Pelargonium graveolens l'Hertier ex Aiton)
+M03405,S01314,,0.1,,tipico,anexo-ifra,D00001,Geranium oil (Pelargonium graveolens l'Hertier ex Aiton)
+M03405,S01777,,21.1,,tipico,anexo-ifra,D00001,Geranium oil (Pelargonium graveolens l'Hertier ex Aiton)
+M03407,S00001,,17,,tipico,anexo-ifra,D00001,Geranium oil African (Pelargonium odoratissimum L'Heritier)
+M03407,S00061,,0.5,,tipico,anexo-ifra,D00001,Geranium oil African (Pelargonium odoratissimum L'Heritier)
+M03407,S01006,,0.8,,tipico,anexo-ifra,D00001,Geranium oil African (Pelargonium odoratissimum L'Heritier)
+M03407,S01777,,33,,tipico,anexo-ifra,D00001,Geranium oil African (Pelargonium odoratissimum L'Heritier)
+M03408,S00001,,9,,tipico,anexo-ifra,D00001,Geranium absolute (Pelargonium graveolens l'Hertier ex Aiton)
+M03408,S01006,,0.41,,tipico,anexo-ifra,D00001,Geranium absolute (Pelargonium graveolens l'Hertier ex Aiton)
+M03408,S01777,,10.6,,tipico,anexo-ifra,D00001,Geranium absolute (Pelargonium graveolens l'Hertier ex Aiton)
+M03409,S00001,,,17.7,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 68916-44-9 8000-46-2 (D14): Geranium oil
+M03409,S00061,,,0.5,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 68916-44-9 8000-46-2 (D14): Geranium oil
+M03409,S00065,,,0.15,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 68916-44-9 8000-46-2 (D14): Geranium oil
+M03409,S01006,,,0.8,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 68916-44-9 8000-46-2 (D14): Geranium oil African
+M03409,S01314,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 68916-44-9 8000-46-2 (D14): Geranium oil
+M03409,S01777,,,33,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 68916-44-9 8000-46-2 (D14): Geranium oil African
+M03411,S00001,,,0.5,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger oil
+M03411,S00061,,,2.8,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger oil
+M03411,S00065,,,0.4,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger oil
+M03411,S00071,,,0.9,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger CO2 extract
+M03411,S01004,,,0.2,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger oil
+M03411,S01006,,,0.17,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger CO2 extract
+M03411,S01007,,,0.57,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger CO2 extract
+M03412,S00001,,,0.5,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger oil
+M03412,S00061,,,2.8,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger oil
+M03412,S00065,,,0.4,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger oil
+M03412,S00071,,,0.9,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger CO2 extract
+M03412,S01004,,,0.2,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger oil
+M03412,S01006,,,0.17,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger CO2 extract
+M03412,S01007,,,0.57,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger CO2 extract
+M03413,S00001,,0.27,,tipico,anexo-ifra,D00001,Ginger CO2 extract (Zingiber officinalle Roscoe)
+M03413,S00071,,0.9,,tipico,anexo-ifra,D00001,Ginger CO2 extract (Zingiber officinalle Roscoe)
+M03413,S01006,,0.17,,tipico,anexo-ifra,D00001,Ginger CO2 extract (Zingiber officinalle Roscoe)
+M03413,S01007,,0.57,,tipico,anexo-ifra,D00001,Ginger CO2 extract (Zingiber officinalle Roscoe)
+M03414,S00001,,,0.5,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger oil
+M03414,S00061,,,2.8,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger oil
+M03414,S00065,,,0.4,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger oil
+M03414,S00071,,,0.9,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger CO2 extract
+M03414,S01004,,,0.2,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger oil
+M03414,S01006,,,0.17,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger CO2 extract
+M03414,S01007,,,0.57,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger CO2 extract
+M03415,S00001,,0.5,,tipico,anexo-ifra,D00001,Ginger oil (Zingiber officinale Rosc.)
+M03415,S00061,,2.8,,tipico,anexo-ifra,D00001,Ginger oil (Zingiber officinale Rosc.)
+M03415,S00065,,0.4,,tipico,anexo-ifra,D00001,Ginger oil (Zingiber officinale Rosc.)
+M03415,S01004,,0.2,,tipico,anexo-ifra,D00001,Ginger oil (Zingiber officinale Rosc.)
+M03416,S00001,,,0.5,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger oil
+M03416,S00061,,,2.8,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger oil
+M03416,S00065,,,0.4,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger oil
+M03416,S00071,,,0.9,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger CO2 extract
+M03416,S01004,,,0.2,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger oil
+M03416,S01006,,,0.17,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger CO2 extract
+M03416,S01007,,,0.57,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger CO2 extract
+M03417,S00001,,0.1,,tipico,anexo-ifra,D00001,Ginger oleoresin (Zingiber officinale Rosc.)
+M03417,S00061,,0.8,,tipico,anexo-ifra,D00001,Ginger oleoresin (Zingiber officinale Rosc.)
+M03418,S00001,,,0.5,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger oil
+M03418,S00061,,,2.8,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger oil
+M03418,S00065,,,0.4,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger oil
+M03418,S00071,,,0.9,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger CO2 extract
+M03418,S01004,,,0.2,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger oil
+M03418,S01006,,,0.17,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger CO2 extract
+M03418,S01007,,,0.57,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8007-08-7 (D14): Ginger CO2 extract
+M03419,S00001,,0.04,,tipico,anexo-ifra,D00001,Gingergrass oil (Cymbopogon martinii (Roxb.) W.Watson var.sofia)
+M03419,S00015,,4,,tipico,anexo-ifra,D00001,Gingergrass oil (Cymbopogon martinii (Roxb.) W.Watson var.sofia)
+M03419,S01013,,0.2,,tipico,anexo-ifra,D00001,Gingergrass oil (Cymbopogon martinii (Roxb.) W.Watson var.sofia)
+M03422,S00004,,,0.03,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit oil
+M03422,S00061,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit oil
+M03422,S00065,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit oil
+M03422,S00071,,,0.06,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit essence oil
+M03422,S01007,,,0.04,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit essence oil
+M03423,S00065,,0.07,,tipico,anexo-ifra,D00001,Grapefruit essence oil (Citrus x paradisi Macfad.)
+M03423,S00071,,0.06,,tipico,anexo-ifra,D00001,Grapefruit essence oil (Citrus x paradisi Macfad.)
+M03423,S01007,,0.04,,tipico,anexo-ifra,D00001,Grapefruit essence oil (Citrus x paradisi Macfad.)
+M03424,S00004,,,0.03,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit oil
+M03424,S00061,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit oil
+M03424,S00065,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit oil
+M03424,S00071,,,0.06,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit essence oil
+M03424,S01007,,,0.04,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit essence oil
+M03425,S00004,,,0.03,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit oil
+M03425,S00061,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit oil
+M03425,S00065,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit oil
+M03425,S00071,,,0.06,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit essence oil
+M03425,S01007,,,0.04,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit essence oil
+M03426,S00004,,0.03,,tipico,anexo-ifra,D00001,Grapefruit oil (Citrus paradisi Macf.)
+M03426,S00061,,0.1,,tipico,anexo-ifra,D00001,Grapefruit oil (Citrus paradisi Macf.)
+M03426,S00065,,0.1,,tipico,anexo-ifra,D00001,Grapefruit oil (Citrus paradisi Macf.)
+M03426,S00065,,0.1,,tipico,anexo-ifra,D00001,Grapefruit oil (Citrus x paradisi Macfad.)
+M03426,S00071,,0.06,,tipico,anexo-ifra,D00001,Grapefruit oil (Citrus x paradisi Macfad.)
+M03426,S01007,,0.04,,tipico,anexo-ifra,D00001,Grapefruit oil (Citrus x paradisi Macfad.)
+M03427,S00015,,0.09,,tipico,anexo-ifra,D00001,Grapefruit oil terpenes (Citrus x paradisi Macfad.)
+M03427,S00061,,0.01,,tipico,anexo-ifra,D00001,Grapefruit oil terpenes (Citrus x paradisi Macfad.)
+M03427,S00065,,0.01,,tipico,anexo-ifra,D00001,Grapefruit oil terpenes (Citrus x paradisi Macfad.)
+M03428,S00004,,,0.03,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit oil
+M03428,S00061,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit oil
+M03428,S00065,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit oil
+M03428,S00071,,,0.06,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit essence oil
+M03428,S01007,,,0.04,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit essence oil
+M03429,S00001,,0.1,,tipico,anexo-ifra,D00001,"Grapefruit oil, terpeneless (Citrus x paradisi Macfad.)"
+M03429,S00061,,10,,tipico,anexo-ifra,D00001,"Grapefruit oil, terpeneless (Citrus x paradisi Macfad.)"
+M03429,S00065,,3.2,,tipico,anexo-ifra,D00001,"Grapefruit oil, terpeneless (Citrus x paradisi Macfad.)"
+M03429,S01006,,0.31,,tipico,anexo-ifra,D00001,"Grapefruit oil, terpeneless (Citrus x paradisi Macfad.)"
+M03429,S01013,,1,,tipico,anexo-ifra,D00001,"Grapefruit oil, terpeneless (Citrus x paradisi Macfad.)"
+M03430,S00004,,,0.03,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit oil
+M03430,S00061,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit oil
+M03430,S00065,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit oil
+M03430,S00071,,,0.06,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit essence oil
+M03430,S01007,,,0.04,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8016-20-4 (D14): Grapefruit essence oil
+M03431,S00001,,0.1,,tipico,anexo-ifra,D00001,"Grapefruit oil, terpeneless (Citrus x paradisi Macfad.)"
+M03431,S00061,,10,,tipico,anexo-ifra,D00001,"Grapefruit oil, terpeneless (Citrus x paradisi Macfad.)"
+M03431,S00065,,3.2,,tipico,anexo-ifra,D00001,"Grapefruit oil, terpeneless (Citrus x paradisi Macfad.)"
+M03431,S01006,,0.31,,tipico,anexo-ifra,D00001,"Grapefruit oil, terpeneless (Citrus x paradisi Macfad.)"
+M03431,S01013,,1,,tipico,anexo-ifra,D00001,"Grapefruit oil, terpeneless (Citrus x paradisi Macfad.)"
+M03432,S01729,,0.12,,tipico,anexo-ifra,D00001,Guaiac wood oil (Bulnesia sarmienti Lorentz ex Griseb.)
+M03434,S01729,,0.12,,tipico,anexo-ifra,D00001,Guaiac wood oil (Bulnesia sarmienti Lorentz ex Griseb.)
+M03440,S00035,,8,,tipico,anexo-ifra,D00001,Hay absolute (Lolium perenne. L)
+M03441,S00035,,8,,tipico,anexo-ifra,D00001,Hay absolute (Lolium perenne. L)
+M03442,S00001,,0.03,,tipico,anexo-ifra,D00001,Helichrysum absolute (Helichrysum angustifolium DC.)
+M03442,S00063,,0.08,,tipico,anexo-ifra,D00001,Helichrysum absolute (Helichrysum angustifolium DC.)
+M03443,S00001,,,0.05,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8023-95-8 (D14): Helichrysum oil
+M03443,S00063,,,0.08,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8023-95-8 (D14): Helichrysum absolute
+M03444,S00001,,0.05,,tipico,anexo-ifra,D00001,Helichrysum oil (Helichrysum angustifolium DC.)
+M03445,S00001,,,0.05,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8023-95-8 (D14): Helichrysum oil
+M03445,S00063,,,0.08,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8023-95-8 (D14): Helichrysum absolute
+M03446,S00066,,0.38,,tipico,anexo-ifra,D00001,Hibawood oil (Thujopsis dolabrata (Thunb. Ex L.f.) Sieb.& Zucc.)
+M03447,S00024,,0.7,,tipico,anexo-ifra,D00001,Hinoki wood oil (Chamaecyparis obtusa (Siebold & Zucc.) Endl.)
+M03448,S00024,,32,,tipico,anexo-ifra,D00001,Hinoki leaf oil (Chamaecyparis obtusa (Siebold & Zucc.) Endl.)
+M03449,S00001,,0.03,,tipico,anexo-ifra,D00001,Ho bark oil (Cinnamomum camphora (L.) J.Presl)
+M03450,S00001,,0.4,,tipico,anexo-ifra,D00001,Ho Leaf oil (Cinnamomum camphora (L.) J.Presl)
+M03451,S00001,,,0.4,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8022-91-1 (D14): Ho Leaf oil
+M03452,S00001,,,0.4,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8022-91-1 (D14): Ho Leaf oil
+M03455,S00001,,0.2,,tipico,anexo-ifra,D00001,Hop oil (Humulus lupus L.)
+M03456,S00001,,0.2,,tipico,anexo-ifra,D00001,Hop oil (Humulus lupus L.)
+M03457,S00001,,0.2,,tipico,anexo-ifra,D00001,Hop oil (Humulus lupus L.)
+M03458,S00025,,0.2,,tipico,anexo-ifra,D00001,Hyssop oil (Hyssopus officinalis L.)
+M03458,S00028,,0.2,,tipico,anexo-ifra,D00001,Hyssop oil (Hyssopus officinalis L.)
+M03458,S00080,,0.2,,tipico,anexo-ifra,D00001,Hyssop oil (Hyssopus officinalis L.)
+M03458,S00083,,0.17,,tipico,anexo-ifra,D00001,Hyssop oil (Hyssopus officinalis L.)
+M03458,S01662,,0.2,,tipico,anexo-ifra,D00001,Hyssop oil (Hyssopus officinalis L.)
+M03472,S00012,,1.08,,tipico,anexo-ifra,D00001,Jasmine absolute (Jasmium grandifloum L.)
+M03472,S00020,,1.53,,tipico,anexo-ifra,D00001,Jasmine absolute (Jasmium grandifloum L.)
+M03472,S00074,,10.07,,tipico,anexo-ifra,D00001,Jasmine absolute (Jasmium grandifloum L.)
+M03472,S00077,,0.17,,tipico,anexo-ifra,D00001,Jasmine absolute (Jasmium grandifloum L.)
+M03472,S01016,,0.02,,tipico,anexo-ifra,D00001,Jasmine absolute (Jasmium grandifloum L.)
+M03473,S00020,,1,,tipico,anexo-ifra,D00001,Jasmine CO2 extract (Jasmium grandifloum L.)
+M03473,S00074,,5,,tipico,anexo-ifra,D00001,Jasmine CO2 extract (Jasmium grandifloum L.)
+M03473,S01009,,0.016,,tipico,anexo-ifra,D00001,Jasmine CO2 extract (Jasmium grandifloum L.)
+M03474,S00012,,1.08,,tipico,anexo-ifra,D00001,Jasmine concrete (Jasminum grandiflorum L.)
+M03474,S00020,,1.53,,tipico,anexo-ifra,D00001,Jasmine concrete (Jasminum grandiflorum L.)
+M03474,S00074,,10.07,,tipico,anexo-ifra,D00001,Jasmine concrete (Jasminum grandiflorum L.)
+M03474,S00077,,0.17,,tipico,anexo-ifra,D00001,Jasmine concrete (Jasminum grandiflorum L.)
+M03475,S00001,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine grandiflorum absolute
+M03475,S00011,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine grandiflorum absolute
+M03475,S00012,,,1.08,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine absolute
+M03475,S00020,,,1.53,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine absolute
+M03475,S00023,,,0.12,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine grandiflorum absolute
+M03475,S00074,,,10.07,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine absolute
+M03475,S00077,,,0.17,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine absolute
+M03475,S01009,,,0.7,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine grandiflorum absolute
+M03475,S01016,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine absolute
+M03476,S00001,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine grandiflorum absolute
+M03476,S00011,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine grandiflorum absolute
+M03476,S00012,,,1.08,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine absolute
+M03476,S00020,,,1.53,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine absolute
+M03476,S00023,,,0.12,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine grandiflorum absolute
+M03476,S00074,,,10.07,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine absolute
+M03476,S00077,,,0.17,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine absolute
+M03476,S01009,,,0.7,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine grandiflorum absolute
+M03476,S01016,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine absolute
+M03481,S00001,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine grandiflorum absolute
+M03481,S00011,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine grandiflorum absolute
+M03481,S00012,,,1.08,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine absolute
+M03481,S00020,,,1.53,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine absolute
+M03481,S00023,,,0.12,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine grandiflorum absolute
+M03481,S00074,,,10.07,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine absolute
+M03481,S00077,,,0.17,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine absolute
+M03481,S01009,,,0.7,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine grandiflorum absolute
+M03481,S01016,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 4 entradas del anexo para 8022-96-6 (D14): Jasmine absolute
+M03482,S00001,,0.1,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03482,S00024,,0.1,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03482,S00063,,0.4,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03482,S00080,,0.05,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03482,S01006,,0.19,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03483,S00001,,0.1,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03483,S00024,,0.1,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03483,S00063,,0.4,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03483,S00080,,0.05,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03483,S01006,,0.19,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03484,S00001,,0.1,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03484,S00024,,0.1,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03484,S00063,,0.4,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03484,S00080,,0.05,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03484,S01006,,0.19,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03485,S00001,,0.1,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03485,S00024,,0.1,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03485,S00063,,0.4,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03485,S00080,,0.05,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03485,S01006,,0.19,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03486,S00001,,0.1,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03486,S00024,,0.1,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03486,S00063,,0.4,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03486,S00080,,0.05,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03486,S01006,,0.19,,tipico,anexo-ifra,D00001,Juniper berry oil (Juniperus communis L.)
+M03488,S00001,,,0.12,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Labdanum oil
+M03488,S00011,,,0.9,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus oil
+M03488,S00015,,,0.25,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Labdanum oil
+M03488,S00018,,,0.03,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus absolute
+M03488,S00020,,,0.5,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Labdanum oil
+M03488,S00025,,,0.05,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Labdanum oil
+M03488,S01008,,,0.6,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus oil
+M03488,S01018,,,0.18,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus oil
+M03488,S01019,,,0.2,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus oil
+M03489,S00001,,,0.12,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Labdanum oil
+M03489,S00011,,,0.9,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus oil
+M03489,S00015,,,0.25,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Labdanum oil
+M03489,S00018,,,0.03,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus absolute
+M03489,S00020,,,0.5,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Labdanum oil
+M03489,S00025,,,0.05,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Labdanum oil
+M03489,S01008,,,0.6,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus oil
+M03489,S01018,,,0.18,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus oil
+M03489,S01019,,,0.2,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus oil
+M03490,S00001,,,0.12,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Labdanum oil
+M03490,S00011,,,0.9,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus oil
+M03490,S00015,,,0.25,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Labdanum oil
+M03490,S00018,,,0.03,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus absolute
+M03490,S00020,,,0.5,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Labdanum oil
+M03490,S00025,,,0.05,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Labdanum oil
+M03490,S01008,,,0.6,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus oil
+M03490,S01018,,,0.18,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus oil
+M03490,S01019,,,0.2,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus oil
+M03491,S00001,,,0.12,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Labdanum oil
+M03491,S00011,,,0.9,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus oil
+M03491,S00015,,,0.25,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Labdanum oil
+M03491,S00018,,,0.03,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus absolute
+M03491,S00020,,,0.5,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Labdanum oil
+M03491,S00025,,,0.05,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Labdanum oil
+M03491,S01008,,,0.6,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus oil
+M03491,S01018,,,0.18,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus oil
+M03491,S01019,,,0.2,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus oil
+M03492,S00011,,0.8,,tipico,anexo-ifra,D00001,Labdanum extract ambreine (Cistus ladaniferus L.)
+M03493,S00001,,,0.12,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Labdanum oil
+M03493,S00011,,,0.9,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus oil
+M03493,S00015,,,0.25,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Labdanum oil
+M03493,S00018,,,0.03,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus absolute
+M03493,S00020,,,0.5,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Labdanum oil
+M03493,S00025,,,0.05,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Labdanum oil
+M03493,S01008,,,0.6,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus oil
+M03493,S01018,,,0.18,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus oil
+M03493,S01019,,,0.2,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus oil
+M03494,S00011,,0.2,,tipico,anexo-ifra,D00001,Labdanum oleoresin (Cistus ladaniferus L.)
+M03495,S00001,,,0.12,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Labdanum oil
+M03495,S00011,,,0.9,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus oil
+M03495,S00015,,,0.25,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Labdanum oil
+M03495,S00018,,,0.03,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus absolute
+M03495,S00020,,,0.5,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Labdanum oil
+M03495,S00025,,,0.05,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Labdanum oil
+M03495,S01008,,,0.6,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus oil
+M03495,S01018,,,0.18,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus oil
+M03495,S01019,,,0.2,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8016-26-0 (D14): Cistus oil
+M03497,S00001,,0.05,,tipico,anexo-ifra,D00001,Laurel leaf oil (Laurus nobilis L)
+M03497,S00004,,0.03,,tipico,anexo-ifra,D00001,Laurel leaf oil (Laurus nobilis L)
+M03497,S00020,,1.33,,tipico,anexo-ifra,D00001,Laurel leaf oil (Laurus nobilis L)
+M03497,S00025,,3.22,,tipico,anexo-ifra,D00001,Laurel leaf oil (Laurus nobilis L)
+M03497,S00083,,0.16,,tipico,anexo-ifra,D00001,Laurel leaf oil (Laurus nobilis L)
+M03498,S00001,,0.05,,tipico,anexo-ifra,D00001,Laurel leaf oil (Laurus nobilis L)
+M03498,S00004,,0.03,,tipico,anexo-ifra,D00001,Laurel leaf oil (Laurus nobilis L)
+M03498,S00020,,1.33,,tipico,anexo-ifra,D00001,Laurel leaf oil (Laurus nobilis L)
+M03498,S00025,,3.22,,tipico,anexo-ifra,D00001,Laurel leaf oil (Laurus nobilis L)
+M03498,S00083,,0.16,,tipico,anexo-ifra,D00001,Laurel leaf oil (Laurus nobilis L)
+M03499,S00001,,,0.3,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin abrialis oil
+M03499,S00003,,,1.09,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin absolute
+M03499,S00004,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin abrialis oil
+M03499,S00014,,,1.91,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin concrete
+M03499,S00035,,,1.77,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin absolute
+M03499,S00064,,,0.62,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin absolute
+M03500,S00001,,,0.3,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin abrialis oil
+M03500,S00003,,,1.09,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin absolute
+M03500,S00004,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin abrialis oil
+M03500,S00014,,,1.91,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin concrete
+M03500,S00035,,,1.77,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin absolute
+M03500,S00064,,,0.62,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin absolute
+M03501,S00001,,0.3,,tipico,anexo-ifra,D00001,Lavandin abrialis oil (Lavandula x intermedia abrialis)
+M03501,S00003,,0.2,,tipico,anexo-ifra,D00001,Lavandin abrialis oil (Lavandula x intermedia abrialis)
+M03501,S00004,,0.02,,tipico,anexo-ifra,D00001,Lavandin abrialis oil (Lavandula x intermedia abrialis)
+M03501,S00035,,0.2,,tipico,anexo-ifra,D00001,Lavandin abrialis oil (Lavandula x intermedia abrialis)
+M03501,S00064,,0.01,,tipico,anexo-ifra,D00001,Lavandin abrialis oil (Lavandula x intermedia abrialis)
+M03502,S00001,,0.08,,tipico,anexo-ifra,D00001,Lavandin absolute (Lavandula officinalis x Lavandula latifolia)
+M03502,S00003,,1.09,,tipico,anexo-ifra,D00001,Lavandin absolute (Lavandula officinalis x Lavandula latifolia)
+M03502,S00014,,0.64,,tipico,anexo-ifra,D00001,Lavandin absolute (Lavandula officinalis x Lavandula latifolia)
+M03502,S00035,,1.77,,tipico,anexo-ifra,D00001,Lavandin absolute (Lavandula officinalis x Lavandula latifolia)
+M03502,S00064,,0.62,,tipico,anexo-ifra,D00001,Lavandin absolute (Lavandula officinalis x Lavandula latifolia)
+M03503,S00014,,1.91,,tipico,anexo-ifra,D00001,Lavandin concrete (Lavandula officinalis x Lavandula latifolia)
+M03503,S00014,,1.91,,tipico,anexo-ifra,D00001,Lavandin concrete (Lavandula officinalis x Lavandula latifolia)
+M03503,S00035,,1.21,,tipico,anexo-ifra,D00001,Lavandin concrete (Lavandula officinalis x Lavandula latifolia)
+M03503,S00064,,0.37,,tipico,anexo-ifra,D00001,Lavandin concrete (Lavandula officinalis x Lavandula latifolia)
+M03504,S00001,,,0.3,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin abrialis oil
+M03504,S00003,,,1.09,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin absolute
+M03504,S00004,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin abrialis oil
+M03504,S00014,,,1.91,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin concrete
+M03504,S00035,,,1.77,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin absolute
+M03504,S00064,,,0.62,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin absolute
+M03505,S00001,,,0.3,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin abrialis oil
+M03505,S00003,,,1.09,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin absolute
+M03505,S00004,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin abrialis oil
+M03505,S00014,,,1.91,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin concrete
+M03505,S00035,,,1.77,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin absolute
+M03505,S00064,,,0.62,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin absolute
+M03506,S00001,,,0.3,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin abrialis oil
+M03506,S00003,,,1.09,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin absolute
+M03506,S00004,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin abrialis oil
+M03506,S00014,,,1.91,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin concrete
+M03506,S00035,,,1.77,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin absolute
+M03506,S00064,,,0.62,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin absolute
+M03507,S00001,,,0.3,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin abrialis oil
+M03507,S00003,,,1.09,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin absolute
+M03507,S00004,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin abrialis oil
+M03507,S00014,,,1.91,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin concrete
+M03507,S00035,,,1.77,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin absolute
+M03507,S00064,,,0.62,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin absolute
+M03508,S00003,,0.3,,tipico,anexo-ifra,D00001,Lavandin grosso oil (Lavandula officinalis x Lavandula latifolia)
+M03508,S00014,,0.35,,tipico,anexo-ifra,D00001,Lavandin grosso oil (Lavandula officinalis x Lavandula latifolia)
+M03509,S00001,,0.2,,tipico,anexo-ifra,D00001,Lavandin oil (Lavandula officinalis x Lavandula latifolia)
+M03509,S00003,,0.3,,tipico,anexo-ifra,D00001,Lavandin oil (Lavandula officinalis x Lavandula latifolia)
+M03509,S00014,,0.03,,tipico,anexo-ifra,D00001,Lavandin oil (Lavandula officinalis x Lavandula latifolia)
+M03509,S00064,,0.01,,tipico,anexo-ifra,D00001,Lavandin oil (Lavandula officinalis x Lavandula latifolia)
+M03510,S00001,,,0.3,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin abrialis oil
+M03510,S00003,,,1.09,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin absolute
+M03510,S00004,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin abrialis oil
+M03510,S00014,,,1.91,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin concrete
+M03510,S00035,,,1.77,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin absolute
+M03510,S00064,,,0.62,maximo,anexo-ifra,D00001,el máximo de las 5 entradas del anexo para 8022-15-9 (D14): Lavandin absolute
+M03512,S00001,,0,,tipico,anexo-ifra,D00001,Lavender oil dentata (Lavandula dentata)
+M03512,S00003,,0,,tipico,anexo-ifra,D00001,Lavender oil dentata (Lavandula dentata)
+M03512,S00035,,0.35,,tipico,anexo-ifra,D00001,Lavender oil dentata (Lavandula dentata)
+M03512,S01008,,0.3,,tipico,anexo-ifra,D00001,Lavender oil dentata (Lavandula dentata)
+M03512,S01014,,0.2,,tipico,anexo-ifra,D00001,Lavender oil dentata (Lavandula dentata)
+M03512,S01020,,0.2,,tipico,anexo-ifra,D00001,Lavender oil dentata (Lavandula dentata)
+M03513,S00001,,,0.48,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-28-0 (D14): Lavender oil
+M03513,S00003,,,1.04,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-28-0 (D14): Lavender oil
+M03513,S00004,,,0.01,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-28-0 (D14): Lavender oil
+M03513,S00035,,,5.98,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-28-0 (D14): Lavender absolute
+M03513,S00064,,,8,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-28-0 (D14): Lavender concrete
+M03513,S01020,,,0.06,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-28-0 (D14): Lavender absolute
+M03514,S00003,,0.31,,tipico,anexo-ifra,D00001,Lavender absolute (Lavandula angustifolia angustifolia)
+M03514,S00035,,5.98,,tipico,anexo-ifra,D00001,Lavender absolute (Lavandula angustifolia angustifolia)
+M03514,S00064,,3.8,,tipico,anexo-ifra,D00001,Lavender absolute (Lavandula angustifolia angustifolia)
+M03514,S01020,,0.06,,tipico,anexo-ifra,D00001,Lavender absolute (Lavandula angustifolia angustifolia)
+M03515,S00001,,0.1,,tipico,anexo-ifra,D00001,Lavender concrete (Lavandula angustifolia angustifolia)
+M03515,S00003,,0.5,,tipico,anexo-ifra,D00001,Lavender concrete (Lavandula angustifolia angustifolia)
+M03515,S00064,,8,,tipico,anexo-ifra,D00001,Lavender concrete (Lavandula angustifolia angustifolia)
+M03516,S00001,,,0.48,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-28-0 (D14): Lavender oil
+M03516,S00003,,,1.04,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-28-0 (D14): Lavender oil
+M03516,S00004,,,0.01,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-28-0 (D14): Lavender oil
+M03516,S00035,,,5.98,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-28-0 (D14): Lavender absolute
+M03516,S00064,,,8,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-28-0 (D14): Lavender concrete
+M03516,S01020,,,0.06,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-28-0 (D14): Lavender absolute
+M03517,S00001,,,0.48,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-28-0 (D14): Lavender oil
+M03517,S00003,,,1.04,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-28-0 (D14): Lavender oil
+M03517,S00004,,,0.01,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-28-0 (D14): Lavender oil
+M03517,S00035,,,5.98,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-28-0 (D14): Lavender absolute
+M03517,S00064,,,8,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-28-0 (D14): Lavender concrete
+M03517,S01020,,,0.06,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-28-0 (D14): Lavender absolute
+M03518,S00001,,,0.48,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-28-0 (D14): Lavender oil
+M03518,S00003,,,1.04,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-28-0 (D14): Lavender oil
+M03518,S00004,,,0.01,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-28-0 (D14): Lavender oil
+M03518,S00035,,,5.98,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-28-0 (D14): Lavender absolute
+M03518,S00064,,,8,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-28-0 (D14): Lavender concrete
+M03518,S01020,,,0.06,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8000-28-0 (D14): Lavender absolute
+M03519,S00001,,,0.1,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil, expressed"
+M03519,S00061,,,3.5,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil, expressed"
+M03519,S00064,,,0.05,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil, expressed"
+M03519,S00065,,,0.1,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil, expressed"
+M03519,S00071,,,1.36,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil steam distilled
+M03519,S01007,,,0.81,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil steam distilled
+M03520,S00001,,0.09,,tipico,anexo-ifra,D00001,Lemon essence oil (Citrus limon (L.) Osbeck)
+M03520,S00061,,2.03,,tipico,anexo-ifra,D00001,Lemon essence oil (Citrus limon (L.) Osbeck)
+M03520,S00065,,0.06,,tipico,anexo-ifra,D00001,Lemon essence oil (Citrus limon (L.) Osbeck)
+M03521,S00001,,,0.1,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil, expressed"
+M03521,S00061,,,3.5,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil, expressed"
+M03521,S00064,,,0.05,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil, expressed"
+M03521,S00065,,,0.1,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil, expressed"
+M03521,S00071,,,1.36,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil steam distilled
+M03521,S01007,,,0.81,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil steam distilled
+M03522,S00001,,,0.1,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil, expressed"
+M03522,S00061,,,3.5,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil, expressed"
+M03522,S00064,,,0.05,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil, expressed"
+M03522,S00065,,,0.1,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil, expressed"
+M03522,S00071,,,1.36,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil steam distilled
+M03522,S01007,,,0.81,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil steam distilled
+M03524,S00001,,,0.1,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil, expressed"
+M03524,S00061,,,3.5,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil, expressed"
+M03524,S00064,,,0.05,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil, expressed"
+M03524,S00065,,,0.1,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil, expressed"
+M03524,S00071,,,1.36,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil steam distilled
+M03524,S01007,,,0.81,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil steam distilled
+M03525,S00001,,0.1,,tipico,anexo-ifra,D00001,"Lemon oil, expressed (Citrus limon (L.) Burm. f.)"
+M03525,S00061,,3.5,,tipico,anexo-ifra,D00001,"Lemon oil, expressed (Citrus limon (L.) Burm. f.)"
+M03525,S00064,,0.05,,tipico,anexo-ifra,D00001,"Lemon oil, expressed (Citrus limon (L.) Burm. f.)"
+M03525,S00065,,0.1,,tipico,anexo-ifra,D00001,"Lemon oil, expressed (Citrus limon (L.) Burm. f.)"
+M03527,S00001,,2,,tipico,anexo-ifra,D00001,"Lemon oil, terpeneless (Citrus limon (L.) Osbeck)"
+M03527,S00061,,40,,tipico,anexo-ifra,D00001,"Lemon oil, terpeneless (Citrus limon (L.) Osbeck)"
+M03527,S00065,,3,,tipico,anexo-ifra,D00001,"Lemon oil, terpeneless (Citrus limon (L.) Osbeck)"
+M03527,S01006,,1.72,,tipico,anexo-ifra,D00001,"Lemon oil, terpeneless (Citrus limon (L.) Osbeck)"
+M03528,S00001,,,0.1,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil, expressed"
+M03528,S00061,,,3.5,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil, expressed"
+M03528,S00064,,,0.05,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil, expressed"
+M03528,S00065,,,0.1,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil, expressed"
+M03528,S00071,,,1.36,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil steam distilled
+M03528,S01007,,,0.81,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8008-56-8 (D14): Lemon oil steam distilled
+M03532,S00001,,5.25,,tipico,anexo-ifra,D00001,"Lemongrass oil, East Indian (Cymbopogon flexuosus (Nees ex Steudel) Will. Watson)"
+M03532,S00020,,0.08,,tipico,anexo-ifra,D00001,"Lemongrass oil, East Indian (Cymbopogon flexuosus (Nees ex Steudel) Will. Watson)"
+M03532,S00023,,0.47,,tipico,anexo-ifra,D00001,"Lemongrass oil, East Indian (Cymbopogon flexuosus (Nees ex Steudel) Will. Watson)"
+M03532,S00025,,0.05,,tipico,anexo-ifra,D00001,"Lemongrass oil, East Indian (Cymbopogon flexuosus (Nees ex Steudel) Will. Watson)"
+M03532,S00065,,0.51,,tipico,anexo-ifra,D00001,"Lemongrass oil, East Indian (Cymbopogon flexuosus (Nees ex Steudel) Will. Watson)"
+M03532,S00066,,0.25,,tipico,anexo-ifra,D00001,"Lemongrass oil, East Indian (Cymbopogon flexuosus (Nees ex Steudel) Will. Watson)"
+M03532,S00068,,0.78,,tipico,anexo-ifra,D00001,"Lemongrass oil, East Indian (Cymbopogon flexuosus (Nees ex Steudel) Will. Watson)"
+M03532,S00069,,1.3,,tipico,anexo-ifra,D00001,"Lemongrass oil, East Indian (Cymbopogon flexuosus (Nees ex Steudel) Will. Watson)"
+M03532,S00071,,41.42,,tipico,anexo-ifra,D00001,"Lemongrass oil, East Indian (Cymbopogon flexuosus (Nees ex Steudel) Will. Watson)"
+M03532,S01006,,0.23,,tipico,anexo-ifra,D00001,"Lemongrass oil, East Indian (Cymbopogon flexuosus (Nees ex Steudel) Will. Watson)"
+M03532,S01007,,30.54,,tipico,anexo-ifra,D00001,"Lemongrass oil, East Indian (Cymbopogon flexuosus (Nees ex Steudel) Will. Watson)"
+M03533,S00001,,,5.25,maximo,anexo-ifra,D00001,"el máximo de las 2 entradas del anexo para 8007-02-1 (D14): Lemongrass oil, East Indian"
+M03533,S00020,,,0.2,maximo,anexo-ifra,D00001,"el máximo de las 2 entradas del anexo para 8007-02-1 (D14): Lemongrass oil, West Indian"
+M03533,S00023,,,0.5,maximo,anexo-ifra,D00001,"el máximo de las 2 entradas del anexo para 8007-02-1 (D14): Lemongrass oil, West Indian"
+M03533,S00025,,,0.05,maximo,anexo-ifra,D00001,"el máximo de las 2 entradas del anexo para 8007-02-1 (D14): Lemongrass oil, East Indian"
+M03533,S00061,,,73,maximo,anexo-ifra,D00001,"el máximo de las 2 entradas del anexo para 8007-02-1 (D14): Lemongrass oil, West Indian"
+M03533,S00065,,,0.51,maximo,anexo-ifra,D00001,"el máximo de las 2 entradas del anexo para 8007-02-1 (D14): Lemongrass oil, East Indian"
+M03533,S00066,,,0.25,maximo,anexo-ifra,D00001,"el máximo de las 2 entradas del anexo para 8007-02-1 (D14): Lemongrass oil, East Indian"
+M03533,S00068,,,1,maximo,anexo-ifra,D00001,"el máximo de las 2 entradas del anexo para 8007-02-1 (D14): Lemongrass oil, West Indian"
+M03533,S00069,,,1.3,maximo,anexo-ifra,D00001,"el máximo de las 2 entradas del anexo para 8007-02-1 (D14): Lemongrass oil, East Indian"
+M03533,S00071,,,41.42,maximo,anexo-ifra,D00001,"el máximo de las 2 entradas del anexo para 8007-02-1 (D14): Lemongrass oil, East Indian"
+M03533,S01006,,,0.23,maximo,anexo-ifra,D00001,"el máximo de las 2 entradas del anexo para 8007-02-1 (D14): Lemongrass oil, East Indian"
+M03533,S01007,,,30.54,maximo,anexo-ifra,D00001,"el máximo de las 2 entradas del anexo para 8007-02-1 (D14): Lemongrass oil, East Indian"
+M03534,S00001,,2.3,,tipico,anexo-ifra,D00001,"Lemongrass oil, West Indian (Cymbopogon citratus (DC) Stapf.)"
+M03534,S00020,,0.2,,tipico,anexo-ifra,D00001,"Lemongrass oil, West Indian (Cymbopogon citratus (DC) Stapf.)"
+M03534,S00023,,0.5,,tipico,anexo-ifra,D00001,"Lemongrass oil, West Indian (Cymbopogon citratus (DC) Stapf.)"
+M03534,S00061,,73,,tipico,anexo-ifra,D00001,"Lemongrass oil, West Indian (Cymbopogon citratus (DC) Stapf.)"
+M03534,S00065,,0.3,,tipico,anexo-ifra,D00001,"Lemongrass oil, West Indian (Cymbopogon citratus (DC) Stapf.)"
+M03534,S00068,,1,,tipico,anexo-ifra,D00001,"Lemongrass oil, West Indian (Cymbopogon citratus (DC) Stapf.)"
+M03534,S00069,,1.2,,tipico,anexo-ifra,D00001,"Lemongrass oil, West Indian (Cymbopogon citratus (DC) Stapf.)"
+M03537,S00001,,,0.15,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-26-2 (D14): Lime oil, expressed"
+M03537,S00064,,,0.28,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-26-2 (D14): Persian lime oil, expressed"
+M03537,S00065,,,1.39,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-26-2 (D14): Persian lime oil, expressed"
+M03537,S00066,,,0.01,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8008-26-2 (D14): Lime oil distilled
+M03537,S00071,,,2.6,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-26-2 (D14): Lime oil, expressed"
+M03537,S01007,,,1.7,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-26-2 (D14): Lime oil, expressed"
+M03537,S01017,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8008-26-2 (D14): Lime oil distilled
+M03537,S02258,,,0.2,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-26-2 (D14): Lime oil, expressed"
+M03540,S00001,,0.15,,tipico,anexo-ifra,D00001,"Lime oil, expressed (Citrus aurantifolia (Christm.) Swingle)"
+M03540,S00064,,0.21,,tipico,anexo-ifra,D00001,"Lime oil, expressed (Citrus aurantifolia (Christman) Swingle)"
+M03540,S00065,,0.5,,tipico,anexo-ifra,D00001,"Lime oil, expressed (Citrus aurantifolia (Christman) Swingle)"
+M03540,S00071,,2.6,,tipico,anexo-ifra,D00001,"Lime oil, expressed (Citrus aurantifolia (Christm.) Swingle)"
+M03540,S01007,,1.7,,tipico,anexo-ifra,D00001,"Lime oil, expressed (Citrus aurantifolia (Christm.) Swingle)"
+M03540,S02258,,0.2,,tipico,anexo-ifra,D00001,"Lime oil, expressed (Citrus aurantifolia (Christm.) Swingle)"
+M03541,S00001,,,0.15,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-26-2 (D14): Lime oil, expressed"
+M03541,S00064,,,0.28,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-26-2 (D14): Persian lime oil, expressed"
+M03541,S00065,,,1.39,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-26-2 (D14): Persian lime oil, expressed"
+M03541,S00066,,,0.01,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8008-26-2 (D14): Lime oil distilled
+M03541,S00071,,,2.6,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-26-2 (D14): Lime oil, expressed"
+M03541,S01007,,,1.7,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-26-2 (D14): Lime oil, expressed"
+M03541,S01017,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8008-26-2 (D14): Lime oil distilled
+M03541,S02258,,,0.2,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8008-26-2 (D14): Lime oil, expressed"
+M03547,S00001,,1.1,,tipico,anexo-ifra,D00001,Litsea cubeba oil (Litsea Cubeba(Lour.) Pers.)
+M03547,S00024,,0.2,,tipico,anexo-ifra,D00001,Litsea cubeba oil (Litsea Cubeba(Lour.) Pers.)
+M03547,S00061,,69,,tipico,anexo-ifra,D00001,Litsea cubeba oil (Litsea Cubeba(Lour.) Pers.)
+M03547,S00065,,1.1,,tipico,anexo-ifra,D00001,Litsea cubeba oil (Litsea Cubeba(Lour.) Pers.)
+M03547,S00066,,0.15,,tipico,anexo-ifra,D00001,Litsea cubeba oil (Litsea Cubeba(Lour.) Pers.)
+M03547,S00068,,0.4,,tipico,anexo-ifra,D00001,Litsea cubeba oil (Litsea Cubeba(Lour.) Pers.)
+M03547,S00069,,1,,tipico,anexo-ifra,D00001,Litsea cubeba oil (Litsea Cubeba(Lour.) Pers.)
+M03547,S00070,,0.05,,tipico,anexo-ifra,D00001,Litsea cubeba oil (Litsea Cubeba(Lour.) Pers.)
+M03548,S00001,,1.1,,tipico,anexo-ifra,D00001,Litsea cubeba oil (Litsea Cubeba(Lour.) Pers.)
+M03548,S00024,,0.2,,tipico,anexo-ifra,D00001,Litsea cubeba oil (Litsea Cubeba(Lour.) Pers.)
+M03548,S00061,,69,,tipico,anexo-ifra,D00001,Litsea cubeba oil (Litsea Cubeba(Lour.) Pers.)
+M03548,S00065,,1.1,,tipico,anexo-ifra,D00001,Litsea cubeba oil (Litsea Cubeba(Lour.) Pers.)
+M03548,S00066,,0.15,,tipico,anexo-ifra,D00001,Litsea cubeba oil (Litsea Cubeba(Lour.) Pers.)
+M03548,S00068,,0.4,,tipico,anexo-ifra,D00001,Litsea cubeba oil (Litsea Cubeba(Lour.) Pers.)
+M03548,S00069,,1,,tipico,anexo-ifra,D00001,Litsea cubeba oil (Litsea Cubeba(Lour.) Pers.)
+M03548,S00070,,0.05,,tipico,anexo-ifra,D00001,Litsea cubeba oil (Litsea Cubeba(Lour.) Pers.)
+M03549,S00001,,0.92,,tipico,anexo-ifra,D00001,Lovage root oil (Levisticum officinale Koch)
+M03549,S00023,,0.06,,tipico,anexo-ifra,D00001,Lovage root oil (Levisticum officinale Koch)
+M03549,S00025,,0.13,,tipico,anexo-ifra,D00001,Lovage root oil (Levisticum officinale Koch)
+M03549,S01008,,0.02,,tipico,anexo-ifra,D00001,Lovage root oil (Levisticum officinale Koch)
+M03550,S00001,,0.92,,tipico,anexo-ifra,D00001,Lovage root oil (Levisticum officinale Koch)
+M03550,S00023,,0.06,,tipico,anexo-ifra,D00001,Lovage root oil (Levisticum officinale Koch)
+M03550,S00025,,0.13,,tipico,anexo-ifra,D00001,Lovage root oil (Levisticum officinale Koch)
+M03550,S01008,,0.02,,tipico,anexo-ifra,D00001,Lovage root oil (Levisticum officinale Koch)
+M03551,S00020,,,0.7,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8007-12-3 (D14): Mace oil
+M03551,S00025,,,1.2,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8007-12-3 (D14): Mace oil
+M03551,S00070,,,1.7,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8007-12-3 (D14): Mace oil
+M03552,S00020,,0.7,,tipico,anexo-ifra,D00001,Mace oil (Myristica fragrans Houtt.)
+M03552,S00025,,1.2,,tipico,anexo-ifra,D00001,Mace oil (Myristica fragrans Houtt.)
+M03552,S00070,,1.7,,tipico,anexo-ifra,D00001,Mace oil (Myristica fragrans Houtt.)
+M03553,S00020,,0.4,,tipico,anexo-ifra,D00001,Mace oleoresin (Myristica fragrans Houtt.)
+M03553,S00025,,0.6,,tipico,anexo-ifra,D00001,Mace oleoresin (Myristica fragrans Houtt.)
+M03553,S00070,,1.6,,tipico,anexo-ifra,D00001,Mace oleoresin (Myristica fragrans Houtt.)
+M03556,S00073,,0.4,,tipico,anexo-ifra,D00001,Mandarin oil (Citrus reticulata Blanco)
+M03557,S00061,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-31-9 (D14): Tangerine oil
+M03557,S00065,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-31-9 (D14): Tangerine oil
+M03557,S00073,,,0.4,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-31-9 (D14): Mandarin oil
+M03559,S00061,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-31-9 (D14): Tangerine oil
+M03559,S00065,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-31-9 (D14): Tangerine oil
+M03559,S00073,,,0.4,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-31-9 (D14): Mandarin oil
+M03561,S00001,,0.13,,tipico,anexo-ifra,D00001,"Marjoram oil, Spanish (Thymus mastichina L.)"
+M03561,S00066,,0.09,,tipico,anexo-ifra,D00001,"Marjoram oil, Spanish (Thymus mastichina L.)"
+M03561,S00071,,0.1,,tipico,anexo-ifra,D00001,"Marjoram oil, Spanish (Thymus mastichina L.)"
+M03561,S01007,,0.07,,tipico,anexo-ifra,D00001,"Marjoram oil, Spanish (Thymus mastichina L.)"
+M03562,S00001,,0.3,,tipico,anexo-ifra,D00001,"Marjoram oil, sweet (Origanum majorana L.)"
+M03562,S00015,,0.4,,tipico,anexo-ifra,D00001,"Marjoram oil, sweet (Origanum majorana L.)"
+M03564,S00025,,0.01,,tipico,anexo-ifra,D00001,Mastic absolute (Pistacia lentiscus L.)
+M03565,S00001,,,0.05,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 68991-39-9 (D14): Mastic oil
+M03565,S00014,,,0.08,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 68991-39-9 (D14): Mastic oil
+M03565,S00025,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 68991-39-9 (D14): Mastic oil
+M03566,S00001,,0.05,,tipico,anexo-ifra,D00001,Mastic oil (Pistacia lentiscus L.)
+M03566,S00014,,0.08,,tipico,anexo-ifra,D00001,Mastic oil (Pistacia lentiscus L.)
+M03566,S00025,,0.02,,tipico,anexo-ifra,D00001,Mastic oil (Pistacia lentiscus L.)
+M03567,S00001,,,0.05,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 68991-39-9 (D14): Mastic oil
+M03567,S00014,,,0.08,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 68991-39-9 (D14): Mastic oil
+M03567,S00025,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 68991-39-9 (D14): Mastic oil
+M03574,S01008,,0.25,,tipico,anexo-ifra,D00001,Mentha arvensis oil (Mentha arvenis L.)
+M03574,S01314,,0.98,,tipico,anexo-ifra,D00001,Mentha arvensis oil (Mentha arvenis L.)
+M03575,S01008,,0.25,,tipico,anexo-ifra,D00001,Mentha arvensis oil (Mentha arvenis L.)
+M03575,S01314,,0.98,,tipico,anexo-ifra,D00001,Mentha arvensis oil (Mentha arvenis L.)
+M03576,S01008,,0.25,,tipico,anexo-ifra,D00001,Mentha arvensis oil (Mentha arvenis L.)
+M03576,S01314,,0.98,,tipico,anexo-ifra,D00001,Mentha arvensis oil (Mentha arvenis L.)
+M03578,S01008,,0.25,,tipico,anexo-ifra,D00001,Mentha arvensis oil (Mentha arvenis L.)
+M03578,S01314,,0.98,,tipico,anexo-ifra,D00001,Mentha arvensis oil (Mentha arvenis L.)
+M03580,S01008,,0.25,,tipico,anexo-ifra,D00001,Mentha arvensis oil (Mentha arvenis L.)
+M03580,S01314,,0.98,,tipico,anexo-ifra,D00001,Mentha arvensis oil (Mentha arvenis L.)
+M03581,S00001,,1.17,,tipico,anexo-ifra,D00001,Mentha citrata oil (Mentha citrata Ehrhart)
+M03581,S00003,,0.25,,tipico,anexo-ifra,D00001,Mentha citrata oil (Mentha citrata Ehrhart)
+M03581,S00020,,0.01,,tipico,anexo-ifra,D00001,Mentha citrata oil (Mentha citrata Ehrhart)
+M03581,S00061,,0.03,,tipico,anexo-ifra,D00001,Mentha citrata oil (Mentha citrata Ehrhart)
+M03581,S00083,,0.3,,tipico,anexo-ifra,D00001,Mentha citrata oil (Mentha citrata Ehrhart)
+M03582,S00001,,,0.32,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 92457-18-6 (D14): Michelia alba flower oil
+M03582,S00012,,,0.64,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 92457-18-6 (D14): Champaca absolute
+M03582,S00018,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 92457-18-6 (D14): Champaca absolute
+M03582,S00020,,,0.55,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 92457-18-6 (D14): Champaca absolute
+M03582,S00023,,,0.03,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 92457-18-6 (D14): Champaca absolute
+M03582,S00025,,,2.06,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 92457-18-6 (D14): Michelia alba flower oil
+M03582,S00074,,,0.53,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 92457-18-6 (D14): Champaca absolute
+M03582,S01016,,,1,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 92457-18-6 (D14): Champaca absolute
+M03582,S01017,,,0.01,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 92457-18-6 (D14): Champaca absolute
+M03583,S00012,,0.64,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03583,S00018,,0.02,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03583,S00020,,0.55,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03583,S00023,,0.03,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03583,S00025,,0.01,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03583,S00074,,0.53,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03583,S01016,,1,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03583,S01017,,0.01,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03584,S00012,,0.64,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03584,S00018,,0.02,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03584,S00020,,0.55,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03584,S00023,,0.03,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03584,S00025,,0.01,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03584,S00074,,0.53,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03584,S01016,,1,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03584,S01017,,0.01,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03585,S00012,,0.64,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03585,S00018,,0.02,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03585,S00020,,0.55,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03585,S00023,,0.03,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03585,S00025,,0.01,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03585,S00074,,0.53,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03585,S01016,,1,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03585,S01017,,0.01,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03586,S00012,,0.64,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03586,S00018,,0.02,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03586,S00020,,0.55,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03586,S00023,,0.03,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03586,S00025,,0.01,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03586,S00074,,0.53,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03586,S01016,,1,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03586,S01017,,0.01,,tipico,anexo-ifra,D00001,Champaca absolute (Michelia champaca L.)
+M03587,S00010,,0.12,,tipico,anexo-ifra,D00001,Mimosa absolute (Acacia decurrens (Wendl.f.) Willd.)
+M03587,S00011,,0.08,,tipico,anexo-ifra,D00001,Mimosa absolute (Acacia decurrens (Wendl.f.) Willd.)
+M03587,S00012,,0.19,,tipico,anexo-ifra,D00001,Mimosa absolute (Acacia decurrens (Wendl.f.) Willd.)
+M03587,S00020,,0.02,,tipico,anexo-ifra,D00001,Mimosa absolute (Acacia decurrens (Wendl.f.) Willd.)
+M03587,S00074,,0.12,,tipico,anexo-ifra,D00001,Mimosa absolute (Acacia decurrens (Wendl.f.) Willd.)
+M03587,S00077,,0.02,,tipico,anexo-ifra,D00001,Mimosa absolute (Acacia decurrens (Wendl.f.) Willd.)
+M03587,S01005,,0.1,,tipico,anexo-ifra,D00001,Mimosa absolute (Acacia decurrens (Wendl.f.) Willd.)
+M03588,S00010,,0.12,,tipico,anexo-ifra,D00001,Mimosa absolute (Acacia decurrens (Wendl.f.) Willd.)
+M03588,S00011,,0.08,,tipico,anexo-ifra,D00001,Mimosa absolute (Acacia decurrens (Wendl.f.) Willd.)
+M03588,S00012,,0.19,,tipico,anexo-ifra,D00001,Mimosa absolute (Acacia decurrens (Wendl.f.) Willd.)
+M03588,S00020,,0.02,,tipico,anexo-ifra,D00001,Mimosa absolute (Acacia decurrens (Wendl.f.) Willd.)
+M03588,S00074,,0.12,,tipico,anexo-ifra,D00001,Mimosa absolute (Acacia decurrens (Wendl.f.) Willd.)
+M03588,S00077,,0.02,,tipico,anexo-ifra,D00001,Mimosa absolute (Acacia decurrens (Wendl.f.) Willd.)
+M03588,S01005,,0.1,,tipico,anexo-ifra,D00001,Mimosa absolute (Acacia decurrens (Wendl.f.) Willd.)
+M03598,S00001,,0.4,,tipico,anexo-ifra,D00001,Myrtle oil (Myrtus communis L.)
+M03598,S00025,,1,,tipico,anexo-ifra,D00001,Myrtle oil (Myrtus communis L.)
+M03598,S00083,,0.1,,tipico,anexo-ifra,D00001,Myrtle oil (Myrtus communis L.)
+M03598,S01008,,0.2,,tipico,anexo-ifra,D00001,Myrtle oil (Myrtus communis L.)
+M03599,S00001,,0.4,,tipico,anexo-ifra,D00001,Myrtle oil (Myrtus communis L.)
+M03599,S00025,,1,,tipico,anexo-ifra,D00001,Myrtle oil (Myrtus communis L.)
+M03599,S00083,,0.1,,tipico,anexo-ifra,D00001,Myrtle oil (Myrtus communis L.)
+M03599,S01008,,0.2,,tipico,anexo-ifra,D00001,Myrtle oil (Myrtus communis L.)
+M03600,S00001,,0.4,,tipico,anexo-ifra,D00001,Myrtle oil (Myrtus communis L.)
+M03600,S00025,,1,,tipico,anexo-ifra,D00001,Myrtle oil (Myrtus communis L.)
+M03600,S00083,,0.1,,tipico,anexo-ifra,D00001,Myrtle oil (Myrtus communis L.)
+M03600,S01008,,0.2,,tipico,anexo-ifra,D00001,Myrtle oil (Myrtus communis L.)
+M03601,S00001,,0.4,,tipico,anexo-ifra,D00001,Myrtle oil (Myrtus communis L.)
+M03601,S00025,,1,,tipico,anexo-ifra,D00001,Myrtle oil (Myrtus communis L.)
+M03601,S00083,,0.1,,tipico,anexo-ifra,D00001,Myrtle oil (Myrtus communis L.)
+M03601,S01008,,0.2,,tipico,anexo-ifra,D00001,Myrtle oil (Myrtus communis L.)
+M03604,S00012,,2.8,,tipico,anexo-ifra,D00001,Narcissus poeticus absolute (Narcissus poeticus L.)
+M03604,S00035,,1.2,,tipico,anexo-ifra,D00001,Narcissus poeticus absolute (Narcissus poeticus L.)
+M03604,S00074,,8.9,,tipico,anexo-ifra,D00001,Narcissus poeticus absolute (Narcissus poeticus L.)
+M03605,S00011,,0.2,,tipico,anexo-ifra,D00001,Niaouli oil (Melaleuca viridiflora Sol. ex Gaertn.)
+M03605,S00066,,0.1,,tipico,anexo-ifra,D00001,Niaouli oil (Melaleuca viridiflora Sol. ex Gaertn.)
+M03608,S00020,,,0.2,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03608,S00023,,,0.5,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03608,S00025,,,1.2,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03608,S00070,,,1.5,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03608,S01006,,,0.13,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03608,S01009,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03609,S00020,,,0.2,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03609,S00023,,,0.5,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03609,S00025,,,1.2,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03609,S00070,,,1.5,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03609,S01006,,,0.13,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03609,S01009,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03610,S00020,,,0.2,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03610,S00023,,,0.5,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03610,S00025,,,1.2,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03610,S00070,,,1.5,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03610,S01006,,,0.13,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03610,S01009,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03611,S00020,,,0.2,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03611,S00023,,,0.5,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03611,S00025,,,1.2,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03611,S00070,,,1.5,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03611,S01006,,,0.13,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03611,S01009,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03612,S00020,,,0.2,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03612,S00023,,,0.5,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03612,S00025,,,1.2,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03612,S00070,,,1.5,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03612,S01006,,,0.13,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03612,S01009,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03613,S00020,,0.2,,tipico,anexo-ifra,D00001,Nutmeg oil (Myristica fragrans Houtt.)
+M03613,S00023,,0.5,,tipico,anexo-ifra,D00001,Nutmeg oil (Myristica fragrans Houtt.)
+M03613,S00025,,1.2,,tipico,anexo-ifra,D00001,Nutmeg oil (Myristica fragrans Houtt.)
+M03613,S00070,,1.5,,tipico,anexo-ifra,D00001,Nutmeg oil (Myristica fragrans Houtt.)
+M03613,S01006,,0.13,,tipico,anexo-ifra,D00001,Nutmeg oil (Myristica fragrans Houtt.)
+M03613,S01009,,0.1,,tipico,anexo-ifra,D00001,Nutmeg oil (Myristica fragrans Houtt.)
+M03614,S00020,,,0.2,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03614,S00023,,,0.5,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03614,S00025,,,1.2,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03614,S00070,,,1.5,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03614,S01006,,,0.13,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03614,S01009,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03615,S00020,,,0.2,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03615,S00023,,,0.5,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03615,S00025,,,1.2,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03615,S00070,,,1.5,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03615,S01006,,,0.13,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03615,S01009,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03616,S00020,,,0.2,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03616,S00023,,,0.5,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03616,S00025,,,1.2,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03616,S00070,,,1.5,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03616,S01006,,,0.13,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03616,S01009,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8008-45-5 (D14): Nutmeg oil
+M03617,S00020,,0.1,,tipico,anexo-ifra,D00001,Nutmeg oleoresin (Myristica fragrans Houtt.)
+M03617,S00025,,0.6,,tipico,anexo-ifra,D00001,Nutmeg oleoresin (Myristica fragrans Houtt.)
+M03617,S00070,,1,,tipico,anexo-ifra,D00001,Nutmeg oleoresin (Myristica fragrans Houtt.)
+M03625,S00080,,0.2,,tipico,anexo-ifra,D00001,Olibanum absolute (Boswellia spp.)
+M03626,S00028,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-36-2 (D14): Olibanum oil
+M03626,S00080,,,0.4,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-36-2 (D14): Olibanum carterii oil
+M03627,S00028,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-36-2 (D14): Olibanum oil
+M03627,S00080,,,0.4,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-36-2 (D14): Olibanum carterii oil
+M03628,S00028,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-36-2 (D14): Olibanum oil
+M03628,S00080,,,0.4,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-36-2 (D14): Olibanum carterii oil
+M03629,S00080,,0.4,,tipico,anexo-ifra,D00001,Olibanum carterii oil (Boswellia carterii)
+M03630,S00028,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-36-2 (D14): Olibanum oil
+M03630,S00080,,,0.4,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-36-2 (D14): Olibanum carterii oil
+M03631,S00028,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-36-2 (D14): Olibanum oil
+M03631,S00080,,,0.4,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-36-2 (D14): Olibanum carterii oil
+M03632,S00028,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-36-2 (D14): Olibanum oil
+M03632,S00080,,,0.4,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-36-2 (D14): Olibanum carterii oil
+M03633,S00028,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-36-2 (D14): Olibanum oil
+M03633,S00080,,,0.4,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-36-2 (D14): Olibanum carterii oil
+M03634,S00028,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-36-2 (D14): Olibanum oil
+M03634,S00080,,,0.4,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-36-2 (D14): Olibanum carterii oil
+M03635,S00028,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-36-2 (D14): Olibanum oil
+M03635,S00080,,,0.4,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-36-2 (D14): Olibanum carterii oil
+M03636,S00028,,,0.1,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-36-2 (D14): Olibanum oil
+M03636,S00080,,,0.4,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-36-2 (D14): Olibanum carterii oil
+M03642,S00001,,,8.84,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8030-28-2 (D14): Orange flower water absolute
+M03642,S00061,,,0.2,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8030-28-2 (D14): Petitgrain bigarade absolute
+M03642,S00066,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8030-28-2 (D14): Orange flower water absolute
+M03642,S00071,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8030-28-2 (D14): Orange flower water absolute
+M03642,S00084,,,6.5,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8030-28-2 (D14): Orange flower, bitter, CO2 extract"
+M03642,S01007,,,0.01,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8030-28-2 (D14): Orange flower water absolute
+M03642,S01016,,,0.83,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8030-28-2 (D14): Orange flower water absolute
+M03643,S00061,,0.15,,tipico,anexo-ifra,D00001,Orange essence oil (Citrus sinensis (L.) Osbeck)
+M03644,S00001,,,2.66,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03644,S00066,,,0.04,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03644,S00071,,,0.1,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03644,S00072,,,0.03,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (Neroli and Neroli bigarade)"
+M03644,S00084,,,3.72,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange blossoms absolute
+M03644,S01007,,,0.04,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03644,S01016,,,0.52,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange blossoms absolute
+M03644,S01017,,,2.18,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03645,S00001,,,2.66,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03645,S00066,,,0.04,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03645,S00071,,,0.1,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03645,S00072,,,0.03,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (Neroli and Neroli bigarade)"
+M03645,S00084,,,3.72,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange blossoms absolute
+M03645,S01007,,,0.04,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03645,S01016,,,0.52,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange blossoms absolute
+M03645,S01017,,,2.18,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03646,S00001,,8.84,,tipico,anexo-ifra,D00001,Orange flower water absolute (Citrus aurantium L. spp. Amara Link)
+M03646,S00066,,0.02,,tipico,anexo-ifra,D00001,Orange flower water absolute (Citrus aurantium L. spp. Amara Link)
+M03646,S00071,,0.02,,tipico,anexo-ifra,D00001,Orange flower water absolute (Citrus aurantium L. spp. Amara Link)
+M03646,S00084,,1.08,,tipico,anexo-ifra,D00001,Orange flower water absolute (Citrus aurantium L. spp. Amara Link)
+M03646,S01007,,0.01,,tipico,anexo-ifra,D00001,Orange flower water absolute (Citrus aurantium L. spp. Amara Link)
+M03646,S01016,,0.83,,tipico,anexo-ifra,D00001,Orange flower water absolute (Citrus aurantium L. spp. Amara Link)
+M03647,S00001,,,2.66,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03647,S00066,,,0.04,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03647,S00071,,,0.1,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03647,S00072,,,0.03,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (Neroli and Neroli bigarade)"
+M03647,S00084,,,3.72,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange blossoms absolute
+M03647,S01007,,,0.04,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03647,S01016,,,0.52,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange blossoms absolute
+M03647,S01017,,,2.18,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03648,S00001,,,2.66,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03648,S00066,,,0.04,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03648,S00071,,,0.1,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03648,S00072,,,0.03,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (Neroli and Neroli bigarade)"
+M03648,S00084,,,3.72,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange blossoms absolute
+M03648,S01007,,,0.04,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03648,S01016,,,0.52,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange blossoms absolute
+M03648,S01017,,,2.18,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03649,S00001,,,2.66,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03649,S00066,,,0.04,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03649,S00071,,,0.1,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03649,S00072,,,0.03,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (Neroli and Neroli bigarade)"
+M03649,S00084,,,3.72,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange blossoms absolute
+M03649,S01007,,,0.04,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03649,S01016,,,0.52,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange blossoms absolute
+M03649,S01017,,,2.18,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03650,S00001,,,2.66,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03650,S00066,,,0.04,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03650,S00071,,,0.1,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03650,S00072,,,0.03,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (Neroli and Neroli bigarade)"
+M03650,S00084,,,3.72,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange blossoms absolute
+M03650,S01007,,,0.04,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03650,S01016,,,0.52,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange blossoms absolute
+M03650,S01017,,,2.18,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03651,S00001,,,8.84,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8030-28-2 (D14): Orange flower water absolute
+M03651,S00061,,,0.2,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8030-28-2 (D14): Petitgrain bigarade absolute
+M03651,S00066,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8030-28-2 (D14): Orange flower water absolute
+M03651,S00071,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8030-28-2 (D14): Orange flower water absolute
+M03651,S00084,,,6.5,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8030-28-2 (D14): Orange flower, bitter, CO2 extract"
+M03651,S01007,,,0.01,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8030-28-2 (D14): Orange flower water absolute
+M03651,S01016,,,0.83,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8030-28-2 (D14): Orange flower water absolute
+M03652,S00001,,,8.84,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8030-28-2 (D14): Orange flower water absolute
+M03652,S00061,,,0.2,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8030-28-2 (D14): Petitgrain bigarade absolute
+M03652,S00066,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8030-28-2 (D14): Orange flower water absolute
+M03652,S00071,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8030-28-2 (D14): Orange flower water absolute
+M03652,S00084,,,6.5,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8030-28-2 (D14): Orange flower, bitter, CO2 extract"
+M03652,S01007,,,0.01,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8030-28-2 (D14): Orange flower water absolute
+M03652,S01016,,,0.83,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8030-28-2 (D14): Orange flower water absolute
+M03653,S00001,,0.02,,tipico,anexo-ifra,D00001,"Orange oil, bitter (Citrus aurantium L. spp. Amara Link)"
+M03653,S00015,,0.05,,tipico,anexo-ifra,D00001,"Orange oil, bitter (Citrus aurantium L. spp. Amara Link)"
+M03653,S00071,,0.05,,tipico,anexo-ifra,D00001,"Orange oil, bitter (Citrus aurantium L. spp. Amara Link)"
+M03653,S01007,,0.03,,tipico,anexo-ifra,D00001,"Orange oil, bitter (Citrus aurantium L. spp. Amara Link)"
+M03653,S01013,,0.02,,tipico,anexo-ifra,D00001,"Orange oil, bitter (Citrus aurantium L. spp. Amara Link)"
+M03654,S00001,,0.02,,tipico,anexo-ifra,D00001,"Orange oil, bitter (Citrus aurantium L. spp. Amara Link)"
+M03654,S00015,,0.05,,tipico,anexo-ifra,D00001,"Orange oil, bitter (Citrus aurantium L. spp. Amara Link)"
+M03654,S00071,,0.05,,tipico,anexo-ifra,D00001,"Orange oil, bitter (Citrus aurantium L. spp. Amara Link)"
+M03654,S01007,,0.03,,tipico,anexo-ifra,D00001,"Orange oil, bitter (Citrus aurantium L. spp. Amara Link)"
+M03654,S01013,,0.02,,tipico,anexo-ifra,D00001,"Orange oil, bitter (Citrus aurantium L. spp. Amara Link)"
+M03655,S00001,,,2.66,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03655,S00066,,,0.04,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03655,S00071,,,0.1,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03655,S00072,,,0.03,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (Neroli and Neroli bigarade)"
+M03655,S00084,,,3.72,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange blossoms absolute
+M03655,S01007,,,0.04,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03655,S01016,,,0.52,maximo,anexo-ifra,D00001,el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange blossoms absolute
+M03655,S01017,,,2.18,maximo,anexo-ifra,D00001,"el máximo de las 3 entradas del anexo para 8016-38-4 (D14): Orange flower oil, bitter (neroli and neroli bigarade)"
+M03658,S00061,,0.15,,tipico,anexo-ifra,D00001,"Orange, sweet, Valencia oil (Citrus sinensis (L.) Osbeck)"
+M03659,S00015,,0.08,,tipico,anexo-ifra,D00001,"Orange oil, sweet, terpenes (Citrus sinensis (L.) Osbeck)"
+M03659,S00061,,0.01,,tipico,anexo-ifra,D00001,"Orange oil, sweet, terpenes (Citrus sinensis (L.) Osbeck)"
+M03659,S01013,,0.01,,tipico,anexo-ifra,D00001,"Orange oil, sweet, terpenes (Citrus sinensis (L.) Osbeck)"
+M03661,S00015,,,0.08,maximo,anexo-ifra,D00001,"el máximo de las 2 entradas del anexo para 8028-48-6 (D14): Orange oil, sweet, terpenes"
+M03661,S00061,,,0.15,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 8028-48-6 (D14): Orange essence oil
+M03661,S01013,,,0.01,maximo,anexo-ifra,D00001,"el máximo de las 2 entradas del anexo para 8028-48-6 (D14): Orange oil, sweet, terpenes"
+M03662,S00061,,0.15,,tipico,anexo-ifra,D00001,"Orange, sweet, Valencia oil (Citrus sinensis (L.) Osbeck)"
+M03663,S00061,,0.15,,tipico,anexo-ifra,D00001,"Orange, sweet, Valencia oil (Citrus sinensis (L.) Osbeck)"
+M03664,S00061,,0.15,,tipico,anexo-ifra,D00001,"Orange, sweet, Valencia oil (Citrus sinensis (L.) Osbeck)"
+M03665,S00061,,0.15,,tipico,anexo-ifra,D00001,"Orange, sweet, Valencia oil (Citrus sinensis (L.) Osbeck)"
+M03666,S00061,,0.15,,tipico,anexo-ifra,D00001,"Orange, sweet, Valencia oil (Citrus sinensis (L.) Osbeck)"
+M03667,S00015,,0.1,,tipico,anexo-ifra,D00001,Origanum oil (Thymus capitata (L.) Cav.)
+M03667,S00020,,0.08,,tipico,anexo-ifra,D00001,Origanum oil (Thymus capitata (L.) Cav.)
+M03668,S00015,,0.1,,tipico,anexo-ifra,D00001,Origanum oil (Thymus capitata (L.) Cav.)
+M03668,S00020,,0.08,,tipico,anexo-ifra,D00001,Origanum oil (Thymus capitata (L.) Cav.)
+M03669,S00001,,1.2,,tipico,anexo-ifra,D00001,Osmanthus absolute (Osmanthus fragrans Lour.)
+M03669,S00020,,0.07,,tipico,anexo-ifra,D00001,Osmanthus absolute (Osmanthus fragrans Lour.)
+M03669,S00035,,0.02,,tipico,anexo-ifra,D00001,Osmanthus absolute (Osmanthus fragrans Lour.)
+M03670,S00001,,1.2,,tipico,anexo-ifra,D00001,Osmanthus concrete (Osmanthus fragrans Lour.)
+M03670,S00020,,0.06,,tipico,anexo-ifra,D00001,Osmanthus concrete (Osmanthus fragrans Lour.)
+M03670,S00035,,0.02,,tipico,anexo-ifra,D00001,Osmanthus concrete (Osmanthus fragrans Lour.)
+M03671,S00001,,,1.2,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 68917-05-5 (D14): Osmanthus absolute
+M03671,S00020,,,0.07,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 68917-05-5 (D14): Osmanthus absolute
+M03671,S00035,,,0.02,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 68917-05-5 (D14): Osmanthus absolute
+M03672,S00001,,82.4,,tipico,anexo-ifra,D00001,Palmarosa oil (Cymbopogon martinii (Roxb.) Wats)
+M03672,S00061,,0.6,,tipico,anexo-ifra,D00001,Palmarosa oil (Cymbopogon martinii (Roxb.) Wats)
+M03672,S00084,,1,,tipico,anexo-ifra,D00001,Palmarosa oil (Cymbopogon martinii (Roxb.) Wats)
+M03674,S01008,,0.2,,tipico,anexo-ifra,D00001,Parsley herb oil (Petroselinum crispum (Mill.) Nyman ex A.W.Hill)
+M03676,S01008,,0.2,,tipico,anexo-ifra,D00001,Parsley herb oil (Petroselinum crispum (Mill.) Nyman ex A.W.Hill)
 P00005,S00006,,0.0046,,tipico,producto,D00002,
 P00006,S00007,,,0.1,maximo,producto,D00004,cota «<» del certificado
 P00006,S00008,,,0.1,maximo,producto,D00004,cota «<» del certificado
