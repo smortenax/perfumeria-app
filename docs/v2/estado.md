@@ -17,9 +17,10 @@ Autoridad: [`decisiones-v2.md`](decisiones-v2.md) (D1–D12). La v1 está congel
   y del «no se sabe», barra con D12, repositorio fusionado con la v1 «sin revisar», informe con tu biblioteca ([`comparacion-fase5.md`](comparacion-fase5.md)).
 - [ ] **Fase 6 — El resto del glosario**, por clase, en lotes de 300 como máximo (`scripts/v2/glosario.py`, lotes congelados en
   `glosario-lotes.json`). Solo identidad y datos de IFRA; los conflictos se clasifican solos. Lo que usa tu biblioteca queda para el
-  final (`glosario-despues.csv`). **Lotes 6a y 6b** (moléculas, 600) subidos; regla D15 (estándar por el nombre). **6c** (299 de 300,
-  1 conflicto: fig:644) y **6d** (naturales, D14, 296 de 300, 4 conflictos) preparados en `altas-preparadas/`, sin dar de alta. Quedan
-  unas 2150 moléculas; `scripts/v2/cadena.sh` encadena lotes limpios y para en el primero con conflictos. `glosario.py --aprobar <lote>`.
+  final (`glosario-despues.csv`). **Subidos:** moléculas 6a–6c (900; D15), naturales 6d (291 materiales; D14: un nombre es un material, anexo o su peor entrada).
+  **6e** (molécula, 284 de 300) preparado y sin aprobar: 16 conflictos de «familia por el nombre» (STD 188 ésteres alílicos, 184 pináceas).
+  Quedan unas 1550 moléculas y 850 naturales. `scripts/v2/cadena.sh` encadena lotes limpios y para en el primero con conflictos;
+  `glosario.py --aprobar <lote>`.
 
 ## Condiciones de IFRA (D11), a 2026-10-03
 
