@@ -17,9 +17,9 @@ Autoridad: [`decisiones-v2.md`](decisiones-v2.md) (D1–D12). La v1 está congel
   y del «no se sabe», barra con D12, repositorio fusionado con la v1 «sin revisar», informe con tu biblioteca ([`comparacion-fase5.md`](comparacion-fase5.md)).
 - [ ] **Fase 6 — El resto del glosario**, por clase, en lotes de 300 como máximo (`scripts/v2/glosario.py`, lotes congelados en
   `glosario-lotes.json`). Solo identidad y datos de IFRA; los conflictos se clasifican solos. Lo que usa tu biblioteca queda para el
-  final (`glosario-despues.csv`). **Subidos:** todas las moléculas (6a–6m; D15, D16), naturales 6d y 6l (D14). Fuera de la fase: `prod:`, `cert:`, `tienda:`, `cat:` y
-  `glosario-fuera.csv`; lo que el anexo o el FIG dan como natural va por naturales. Quedan unos 880 naturales (`glosario.py --nuevo natural`).
-  El arranque de la v2 calcula bajo demanda el IFRA y la procedencia (`src/v2/lazy.ts`): ~0,1 s con 3400 materiales.
+  final (`glosario-despues.csv`). **Subidos:** todas las moléculas (6a–6m; D15, D16) y todos los naturales (6d, 6l, 6n–6p; D14: 1152 materiales). Fuera de la fase:
+  `prod:`, `cert:`, `tienda:`, `cat:` y `glosario-fuera.csv`. **Quedan solo los 24 de `glosario-despues.csv`** (los que usa tu biblioteca),
+  que se piden tras la semana de prueba de la Fase 5. El arranque calcula bajo demanda el IFRA y la procedencia (`src/v2/lazy.ts`).
 - [ ] **Fase 7:** preparar la app para una enmienda nueva de IFRA (planteado en el chat de revisión; se detalla al terminar la Fase 6).
 
 ## Condiciones de IFRA (D11), a 2026-10-03
