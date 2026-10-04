@@ -17,9 +17,10 @@ Autoridad: [`decisiones-v2.md`](decisiones-v2.md) (D1–D12). La v1 está congel
   y del «no se sabe», barra con D12, repositorio fusionado con la v1 «sin revisar», informe con tu biblioteca ([`comparacion-fase5.md`](comparacion-fase5.md)).
 - [ ] **Fase 6 — El resto del glosario**, por clase, en lotes de 300 como máximo (`scripts/v2/glosario.py`, lotes congelados en
   `glosario-lotes.json`). Solo identidad y datos de IFRA; los conflictos se clasifican solos. Lo que usa tu biblioteca queda para el
-  final (`glosario-despues.csv`). **Subidos:** moléculas 6a–6h (2400; D15, D16), naturales 6d (291 materiales; D14). **6i** preparado y sin aprobar: 4 conflictos
-  (vetiveril acetato, oakmoss extracts, styrallyl acetate, una fila sin CAS). Quedan unas 350 moléculas y 850 naturales.
+  final (`glosario-despues.csv`). **Subidos:** moléculas 6a–6h (2400; D15, D16) y naturales 6d (291; D14). Fuera de la fase: `prod:`/`cert:` y `glosario-fuera.csv`;
+  lo que el anexo o el FIG dan como natural va por la vía de naturales. Quedan unas 300 moléculas y 850 naturales.
   `scripts/v2/cadena.sh` encadena lotes limpios y para en el primero con conflictos; `glosario.py --aprobar <lote>`.
+- [ ] **Fase 7:** preparar la app para una enmienda nueva de IFRA (planteado en el chat de revisión; se detalla al terminar la Fase 6).
 
 ## Condiciones de IFRA (D11), a 2026-10-03
 

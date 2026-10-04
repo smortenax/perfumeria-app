@@ -7,6 +7,7 @@ G00002,S01798,,índice de IFRA 51
 G00003,S00003,,índice de IFRA 51
 G00004,S00004,,índice de IFRA 51
 G00004,S01662,,índice de IFRA 51
+G00004,S02278,,índice de IFRA 51
 G00005,S00006,,índice de IFRA 51
 G00006,M00006,,índice de IFRA 51: limitado como tal
 G00007,S00009,,índice de IFRA 51
@@ -16,6 +17,11 @@ G00009,S00011,,índice de IFRA 51
 G00010,S00012,,índice de IFRA 51
 G00011,S00013,,índice de IFRA 51
 G00012,S00014,,índice de IFRA 51
+G00012,S02291,,índice de IFRA 51
+G00012,S02292,,índice de IFRA 51
+G00012,S02349,,índice de IFRA 51
+G00012,S02355,,índice de IFRA 51
+G00012,S02357,,índice de IFRA 51
 G00013,S00015,,índice de IFRA 51
 G00013,S01008,,índice de IFRA 51
 G00013,S01012,,índice de IFRA 51
@@ -29,13 +35,18 @@ G00018,S00020,,índice de IFRA 51
 G00019,S00021,,índice de IFRA 51
 G00020,S00022,,índice de IFRA 51
 G00021,S00023,,índice de IFRA 51
+G00021,S02198,,índice de IFRA 51
 G00022,S00024,,índice de IFRA 51
+G00022,S02279,,índice de IFRA 51
+G00022,S02287,,índice de IFRA 51
 G00023,S00025,,índice de IFRA 51
 G00024,S00026,,índice de IFRA 51
 G00024,S01009,,índice de IFRA 51
 G00025,S00027,,índice de IFRA 51
 G00026,S00028,,índice de IFRA 51
 G00026,S00080,,índice de IFRA 51
+G00026,S02257,,índice de IFRA 51
+G00026,S02353,,índice de IFRA 51
 G00027,S00031,,índice de IFRA 51
 G00027,S01111,,"D15, estandar-por-evidencia: el glosario dice: «es otra estereoquímica del CAS 122-40-7 (alpha-Amylcinnamaldehyde), que IFRA sí lista» y IFRA_STD_005 lista el CAS 122-40-7"
 G00028,S00034,,índice de IFRA 51
@@ -48,7 +59,10 @@ G00030,S01900,,índice de IFRA 51
 G00030,S01901,,índice de IFRA 51
 G00031,S00054,,índice de IFRA 51
 G00031,S00202,,índice de IFRA 51
+G00031,S02323,,índice de IFRA 51
 G00032,S00055,,índice de IFRA 51
+G00032,S02267,,índice de IFRA 51
+G00032,S02325,,índice de IFRA 51
 G00033,S00057,,índice de IFRA 51
 G00034,M00027,,"familia: el estándar le aplica por lo que es, aunque el índice no liste su CAS"
 G00034,S01086,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl (2-methylbutoxy)acetate» es el éster del alcohol alílico con el carboxilato «(2-methylbutoxy)acetate»"
@@ -65,6 +79,8 @@ G00034,S01098,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should o
 G00034,S01099,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl phenylacetate» es el éster del alcohol alílico con el carboxilato «phenylacetate»"
 G00034,S01100,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl propionate» es el éster del alcohol alílico con el carboxilato «propionate»"
 G00034,S01102,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl trimethylhexanoate» es el éster del alcohol alílico con el carboxilato «trimethylhexanoate»"
+G00034,S02351,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl heptine carbonate» es el éster del alcohol alílico con el carboxilato «heptine carbonate»"
+G00034,S02366,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl phenoxyacetate» es el éster del alcohol alílico con el carboxilato «phenoxyacetate»"
 G00035,S00061,,índice de IFRA 51
 G00035,S00071,,índice de IFRA 51
 G00035,S01007,,índice de IFRA 51
@@ -88,9 +104,11 @@ G00041,S00119,,índice de IFRA 51
 G00041,S00740,,índice de IFRA 51
 G00041,S01777,,índice de IFRA 51
 G00041,S02112,,índice de IFRA 51
+G00041,S02299,,índice de IFRA 51
 G00042,S00067,,índice de IFRA 51
 G00042,S00068,,índice de IFRA 51
 G00042,S00069,,índice de IFRA 51
+G00042,S02281,,índice de IFRA 51
 G00043,S00070,,índice de IFRA 51
 G00043,S01477,,índice de IFRA 51
 G00043,S01758,,índice de IFRA 51
@@ -99,7 +117,9 @@ G00045,S00073,,índice de IFRA 51
 G00046,S00074,,índice de IFRA 51
 G00047,S00075,,índice de IFRA 51
 G00048,S00076,,índice de IFRA 51
+G00048,S02340,,índice de IFRA 51
 G00049,M00051,,índice de IFRA 51: limitado como tal
+G00049,S02243,,índice de IFRA 51
 G00050,S00077,,índice de IFRA 51
 G00051,S00082,,índice de IFRA 51
 G00052,M01055,,índice de IFRA 51: limitado como tal
@@ -107,8 +127,13 @@ G00052,M01056,,índice de IFRA 51: limitado como tal
 G00053,M00042,,"familia: el estándar le aplica por lo que es, aunque el índice no liste su CAS"
 G00054,M00054,,índice de IFRA 51: limitado como tal
 G00055,S00083,,índice de IFRA 51
+G00055,S02271,,índice de IFRA 51
+G00055,S02356,,índice de IFRA 51
 G00056,S00084,,índice de IFRA 51
 G00056,S01017,,índice de IFRA 51
+G00056,S02277,,índice de IFRA 51
+G00056,S02308,,índice de IFRA 51
+G00056,S02310,,índice de IFRA 51
 G00057,S00085,,índice de IFRA 51
 G00058,S00090,,índice de IFRA 51
 G00059,S00091,,índice de IFRA 51
@@ -145,10 +170,15 @@ G00064,S01109,,índice de IFRA 51
 G00064,S01197,,índice de IFRA 51
 G00064,S01296,,índice de IFRA 51
 G00064,S01442,,índice de IFRA 51
+G00064,S02368,,índice de IFRA 51
 G00065,S00144,,índice de IFRA 51
 G00065,S01214,,índice de IFRA 51
 G00066,S00158,,índice de IFRA 51
 G00066,S00444,,índice de IFRA 51
+G00066,S02244,,índice de IFRA 51
+G00066,S02269,,índice de IFRA 51
+G00066,S02285,,índice de IFRA 51
+G00066,S02329,,índice de IFRA 51
 G00067,S00161,,índice de IFRA 51
 G00067,S00174,,índice de IFRA 51
 G00067,S00698,,índice de IFRA 51
@@ -169,6 +199,7 @@ G00074,S00410,,índice de IFRA 51
 G00075,S00413,,índice de IFRA 51
 G00076,S00415,,índice de IFRA 51
 G00076,S01726,,índice de IFRA 51
+G00076,S02343,,índice de IFRA 51
 G00077,S00438,,índice de IFRA 51
 G00077,S00439,,índice de IFRA 51
 G00077,S00960,,índice de IFRA 51
@@ -185,6 +216,8 @@ G00086,S00575,,índice de IFRA 51
 G00087,S00623,,índice de IFRA 51
 G00088,S00626,,índice de IFRA 51
 G00089,S00645,,índice de IFRA 51
+G00089,S02266,,índice de IFRA 51
+G00089,S02306,,índice de IFRA 51
 G00090,S00666,,índice de IFRA 51
 G00090,S00672,,índice de IFRA 51
 G00090,S00705,,"D15, estandar-decidido: decisión del usuario: el usuario decide (2026-10-04) que es la sustancia del STD 044 con otro CAS (evidencia: el nombre del FIG es el del estándar (HMPCC, 3 y 4-(4-hidroxi-4-metilpentil)-3-ciclohexeno-1-carboxaldehído); el glosario no lo dice)"
@@ -220,8 +253,11 @@ G00112,M01015,,índice de IFRA 51: limitado como tal
 G00113,S01005,,índice de IFRA 51
 G00114,M01026,,índice de IFRA 51: limitado como tal
 G00115,M01057,,índice de IFRA 51: limitado como tal
+G00115,S02346,,índice de IFRA 51
+G00115,S02363,,índice de IFRA 51
 G00116,S01010,,índice de IFRA 51
 G00116,S01011,,índice de IFRA 51
+G00116,S02317,,índice de IFRA 51
 G00117,M01081,,índice de IFRA 51: limitado como tal
 G00118,S01013,,índice de IFRA 51
 G00119,S01014,,índice de IFRA 51
@@ -229,6 +265,7 @@ G00120,S01015,,índice de IFRA 51
 G00121,S01016,,índice de IFRA 51
 G00122,S01018,,índice de IFRA 51
 G00122,S01770,,índice de IFRA 51
+G00122,S02258,,índice de IFRA 51
 G00123,S01019,,índice de IFRA 51
 G00124,S01020,,índice de IFRA 51
 G00125,M01210,,índice de IFRA 51: limitado como tal
@@ -238,11 +275,14 @@ G00127,S01362,,índice de IFRA 51
 G00127,S01363,,índice de IFRA 51
 G00127,S01364,,índice de IFRA 51
 G00127,S01366,,índice de IFRA 51
+G00127,S02364,,índice de IFRA 51
+G00127,S02365,,índice de IFRA 51
 G00128,S01037,,índice de IFRA 51
 G00129,S01070,,índice de IFRA 51
 G00129,S01826,,índice de IFRA 51
 G00130,S01092,,índice de IFRA 51
 G00131,S01098,,índice de IFRA 51
+G00131,S02366,,índice de IFRA 51
 G00132,S01103,,índice de IFRA 51
 G00133,S01110,,índice de IFRA 51
 G00134,S01112,,índice de IFRA 51
@@ -276,6 +316,7 @@ G00159,S01849,,índice de IFRA 51
 G00160,S01858,,índice de IFRA 51
 G00161,S01897,,índice de IFRA 51
 G00162,S01906,,índice de IFRA 51
+G00162,S02309,,índice de IFRA 51
 G00163,S01908,,índice de IFRA 51
 G00164,S01909,,índice de IFRA 51
 G00165,S01950,,índice de IFRA 51
@@ -287,5 +328,109 @@ G00170,S02093,,índice de IFRA 51
 G00171,S02094,,índice de IFRA 51
 G00172,S02095,,índice de IFRA 51
 G00172,S02170,,índice de IFRA 51
+G00172,S02320,,índice de IFRA 51
+G00172,S02333,,índice de IFRA 51
 G00173,S02098,,índice de IFRA 51
 G00174,S02126,,índice de IFRA 51
+G00175,S02235,,índice de IFRA 51
+G00175,S02237,,índice de IFRA 51
+G00175,S02238,,índice de IFRA 51
+G00175,S02239,,"D15, estandar-decidido: decisión del usuario: El vetiveryl acetate comercial es el aceite de vetiver acetilado; se le aplica el 002 (el usuario, 2026-10-04). (evidencia: el nombre del FIG, «Vetiveryl acetate», y el del STD 002, «Acetylated Vetiver oil»; el índice de IFRA no liga su CAS 117-98-6 a ese estándar)"
+G00176,S02242,e.g.,índice de IFRA 51
+G00177,S02245,,índice de IFRA 51
+G00178,S02246,,índice de IFRA 51
+G00179,S02247,,índice de IFRA 51
+G00180,S02248,e.g.,índice de IFRA 51
+G00180,S02249,e.g.,índice de IFRA 51
+G00181,S02250,,índice de IFRA 51
+G00182,S02251,,índice de IFRA 51
+G00182,S02252,,índice de IFRA 51
+G00183,S02253,,índice de IFRA 51
+G00183,S02254,,índice de IFRA 51
+G00184,S02255,,índice de IFRA 51
+G00184,S02280,,índice de IFRA 51
+G00185,S02256,,índice de IFRA 51
+G00185,S02300,,índice de IFRA 51
+G00185,S02350,,índice de IFRA 51
+G00186,S02259,,índice de IFRA 51
+G00187,S02260,,índice de IFRA 51
+G00188,S02261,,índice de IFRA 51
+G00189,S02262,,índice de IFRA 51
+G00190,S02263,,índice de IFRA 51
+G00190,S02274,,índice de IFRA 51
+G00190,S02289,,índice de IFRA 51
+G00190,S02290,,índice de IFRA 51
+G00190,S02293,,índice de IFRA 51
+G00190,S02295,,índice de IFRA 51
+G00190,S02301,,índice de IFRA 51
+G00190,S02302,,índice de IFRA 51
+G00190,S02314,,índice de IFRA 51
+G00190,S02315,,índice de IFRA 51
+G00190,S02326,,índice de IFRA 51
+G00190,S02330,,índice de IFRA 51
+G00190,S02331,,índice de IFRA 51
+G00190,S02342,,índice de IFRA 51
+G00190,S02354,,índice de IFRA 51
+G00190,S02359,,índice de IFRA 51
+G00191,S02264,,índice de IFRA 51
+G00191,S02265,,índice de IFRA 51
+G00191,S02298,,índice de IFRA 51
+G00192,S02268,,índice de IFRA 51
+G00193,S02270,,índice de IFRA 51
+G00194,S02272,,índice de IFRA 51
+G00195,S02273,,índice de IFRA 51
+G00196,S02275,,índice de IFRA 51
+G00197,S02276,,índice de IFRA 51
+G00198,S02282,,índice de IFRA 51
+G00199,S02283,,índice de IFRA 51
+G00200,S02284,,índice de IFRA 51
+G00201,S02286,,índice de IFRA 51
+G00202,S02288,,índice de IFRA 51
+G00203,S02294,,índice de IFRA 51
+G00204,S02296,,índice de IFRA 51
+G00205,S02297,,índice de IFRA 51
+G00206,S02303,,índice de IFRA 51
+G00206,S02319,,índice de IFRA 51
+G00206,S02327,,índice de IFRA 51
+G00207,S02304,,índice de IFRA 51
+G00208,S02305,,índice de IFRA 51
+G00209,S02307,,índice de IFRA 51
+G00210,S02311,,índice de IFRA 51
+G00211,S02312,,índice de IFRA 51
+G00212,S02313,,índice de IFRA 51
+G00213,S02316,,índice de IFRA 51
+G00214,S02318,,índice de IFRA 51
+G00214,S02324,,índice de IFRA 51
+G00215,S02321,,índice de IFRA 51
+G00216,S02322,,índice de IFRA 51
+G00217,S02328,,índice de IFRA 51
+G00218,S02332,,índice de IFRA 51
+G00219,S02334,,índice de IFRA 51
+G00220,S02335,,índice de IFRA 51
+G00221,S02336,,índice de IFRA 51
+G00222,S02337,,índice de IFRA 51
+G00223,S02338,,índice de IFRA 51
+G00224,S02339,,índice de IFRA 51
+G00225,S02341,,índice de IFRA 51
+G00226,S02344,,índice de IFRA 51
+G00227,S02345,,índice de IFRA 51
+G00227,S02371,,índice de IFRA 51
+G00228,S02347,,índice de IFRA 51
+G00229,S02348,,índice de IFRA 51
+G00230,S02351,,índice de IFRA 51
+G00231,S02352,,índice de IFRA 51
+G00232,S02358,,índice de IFRA 51
+G00233,S02360,,índice de IFRA 51
+G00234,S02361,,índice de IFRA 51
+G00235,S02362,,índice de IFRA 51
+G00236,S02367,,índice de IFRA 51
+G00237,S02369,,índice de IFRA 51
+G00238,S02370,,índice de IFRA 51
+G00238,S02375,,índice de IFRA 51
+G00239,S02372,,índice de IFRA 51
+G00240,S02373,,índice de IFRA 51
+G00241,S02374,,índice de IFRA 51
+G00242,S02376,,índice de IFRA 51
+G00243,S02377,,índice de IFRA 51
+G00244,S02378,,índice de IFRA 51
+G00245,S02379,,índice de IFRA 51

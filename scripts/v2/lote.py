@@ -335,7 +335,9 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
         why = (answer_notes.get((name, "origen")) if spec.get("evidencia") else "") or next((c["detalle"] for c in found if c["tipo"] == "origen"), "")
         families_of = list(fam_standards) if any(c["tipo"] == "ifra-distinto" and c["respuesta"] == "familia" for c in found) else []
         form_answer = next((c["respuesta"] for c in found if c["tipo"] == "forma"), "")
-        if form_answer == "confirmar":
+        # `propuesta-sesion`: the form is the session's proposal (what the notebook and the shop say), not one the user chose: its note says so.
+        session_form = form_answer == "propuesta-sesion"
+        if form_answer in ("confirmar", "propuesta-sesion"):
             form_answer = next((c["recomendacion"] for c in found if c["tipo"] == "forma"), "")
         form = (form_answer.split("|") + ["", "", "", ""])[:4] if form_answer else None
         chosen = next((c["respuesta"][3:] for c in found if c["respuesta"].startswith("v1:")), None)
@@ -378,7 +380,8 @@ def plan(lot: str, spec: dict, root: Path, index: dict, known_products: set[str]
             extras = {}
         elif natural_lot and shape and form:
             extras = {"especie": form[0], "parte": form[1], "proceso": form[2], "quimiotipo": form[3],
-                      "notas": f"Forma confirmada por el usuario (lote {lot}); {shape['motivo']}."}
+                      "notas": (f"Propuesta de la sesión con el cuaderno y la tienda; pendiente de la etiqueta (correo a Maese Lab); {shape['motivo']}." if session_form
+                                else f"Forma confirmada por el usuario (lote {lot}); {shape['motivo']}.")}
             if shape["anexo"]:
                 extras["anexo"] = {"documento": "ifra51-anexo-naturales", "nombre": shape["anexo"], "cas": cas or lookup_cas}
         elif natural_lot:

@@ -1,6 +1,6 @@
 # Decisiones de la v2 del modelo de materiales
 
-Aprobadas por el usuario el 2026-10-02, al abrir la v2. Esta es la autoridad de la v2
+Confirmadas por el usuario el 2026-10-04 (chat de revisión). Esta es la autoridad de la v2
 (`CLAUDE.md`, «Trabajo en la v2»). Si una tarea choca con algo de aquí, se para y se pregunta.
 Una decisión nueva entra con su porqué y de dónde sale.
 

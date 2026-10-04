@@ -1,9 +1,9 @@
 producto,tipo,respuesta,notas
 Absoluto de Tabaco,v1-correspondencia,v1:fig:2982,"usuario, 2026-10-03: confirma la propuesta"
-Absoluto de Tabaco,documento-otro-proveedor,traer,"usuario, 2026-10-03: otro proveedor, mismo material: placeholder de literatura (D2), documento revisado"
+Absoluto de Tabaco,documento-otro-proveedor,traer,Criterio del usuario (D9); aplicación de la sesión.
 Absoluto de Tabaco,forma,confirmar,"usuario, 2026-10-03: confirma la propuesta"
 Bergamota sin bergaptenos,ifra-distinto,familia,"usuario, 2026-10-03: miembro del 089 como material (su 5-MOP no está documentado; «sin bergaptenos» sin número no es un dato)"
-Bergamota sin bergaptenos,documento-otro-proveedor,traer,"usuario, 2026-10-03: otro proveedor, mismo material: placeholder de literatura (D2), documento revisado"
+Bergamota sin bergaptenos,documento-otro-proveedor,traer,Criterio del usuario (D9); aplicación de la sesión.
 Bergamota sin bergaptenos,forma,confirmar,"usuario, 2026-10-03: confirma la propuesta"
 Cedro Atlas,v1-correspondencia,v1:fig:1357,"usuario, 2026-10-03: confirma la propuesta"
 Cedro Atlas,ifra-distinto,familia,"usuario, 2026-10-03: pináceas: especificación de peróxidos (STD 184)"
@@ -14,11 +14,11 @@ Limón,v1-correspondencia,v1:fig:2193,"usuario, 2026-10-03: confirma la propuest
 Limón,ifra-distinto,indice,"usuario, 2026-10-03: tiene estándar propio, el 092 (limón en frío) por CAS: manda él por su aceite entero mientras no se documente su 5-MOP"
 Limón,forma,confirmar,"usuario, 2026-10-03: confirma la propuesta"
 Litsea Cubeba,v1-correspondencia,v1:fig:2240,"usuario, 2026-10-03: confirma la propuesta"
-Litsea Cubeba,documento-otro-proveedor,traer,"usuario, 2026-10-03: otro proveedor, mismo material: placeholder de literatura (D2), documento revisado"
+Litsea Cubeba,documento-otro-proveedor,traer,Criterio del usuario (D9); aplicación de la sesión.
 Litsea Cubeba,forma,confirmar,"usuario, 2026-10-03: confirma la propuesta"
 Mandarina,v1-correspondencia,v1:fig:2261,"usuario, 2026-10-03: confirma la propuesta"
 Mandarina,ifra-distinto,indice,"usuario, 2026-10-03: no es miembro del 089 (Mandarin oil no es el petitgrain ni el tangerine cold pressed)"
-Mandarina,documento-otro-proveedor,traer,"usuario, 2026-10-03: otro proveedor, mismo material: placeholder de literatura (D2), documento revisado"
+Mandarina,documento-otro-proveedor,traer,Criterio del usuario (D9); aplicación de la sesión.
 Mandarina,forma,confirmar,"usuario, 2026-10-03: confirma la propuesta"
 Naranja dulce,v1-correspondencia,v1:fig:2551,"usuario, 2026-10-03: confirma la propuesta"
 Naranja dulce,ifra-distinto,indice,"usuario, 2026-10-03: no es miembro del 089 (la naranja dulce no está en sus listas; el 088 es la naranja amarga)"
@@ -26,13 +26,13 @@ Naranja dulce,forma,confirmar,"usuario, 2026-10-03: confirma la propuesta"
 Patchouli,v1-correspondencia,v1:fig:2599,"usuario, 2026-10-03: confirma la propuesta"
 Patchouli,forma,confirmar,"usuario, 2026-10-03: confirma la propuesta"
 Resinoide de benjuí,v1-correspondencia,v1:fig:1168,"usuario, 2026-10-03: confirma la propuesta"
-Resinoide de benjuí,documento-otro-proveedor,traer,"usuario, 2026-10-03: otro proveedor, mismo material: placeholder de literatura (D2), documento revisado"
+Resinoide de benjuí,documento-otro-proveedor,traer,Criterio del usuario (D9); aplicación de la sesión.
 Resinoide de benjuí,forma,Styrax tonkinensis (Siam)|resina|resinoide (extracción con disolvente)|,"usuario, 2026-10-03: Styrax tonkinensis (Siam); especie por confirmar con la tienda. La tienda lo vende al 50 % en DPG: eso va en la barra (D8)"
 Resinoide de estírax (estoraque),v1-correspondencia,v1:fig:2914,"usuario, 2026-10-03: confirma la propuesta"
-Resinoide de estírax (estoraque),documento-otro-proveedor,traer,"usuario, 2026-10-03: otro proveedor, mismo material: placeholder de literatura (D2), documento revisado"
+Resinoide de estírax (estoraque),documento-otro-proveedor,traer,Criterio del usuario (D9); aplicación de la sesión.
 Resinoide de estírax (estoraque),forma,Liquidambar sp.|resina (bálsamo)|resinoide (extracción con disolvente)|,"usuario, 2026-10-03: Liquidambar sp., resinoide"
 Salvia Officinalis,v1-correspondencia,v1:fig:2838,"usuario, 2026-10-03: confirma la propuesta"
 Salvia Officinalis,forma,confirmar,"usuario, 2026-10-03: confirma la propuesta"
 Vetiver,v1-correspondencia,v1:fig:3083,"usuario, 2026-10-03: confirma la propuesta"
-Vetiver,documento-otro-proveedor,traer,"usuario, 2026-10-03: otro proveedor, mismo material: placeholder de literatura (D2), documento revisado"
+Vetiver,documento-otro-proveedor,traer,Criterio del usuario (D9); aplicación de la sesión.
 Vetiver,forma,confirmar,"usuario, 2026-10-03: confirma la propuesta"

@@ -748,6 +748,24 @@
    "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
   },
   {
+   "clave": "glosario-117-98-6",
+   "tipo": "sustancia",
+   "nombre": "Vetiveryl acetate",
+   "cas": "117-98-6",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "fig:3092"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9).",
+   "estandares_decididos": [
+    {
+     "estandar": "IFRA_STD_002",
+     "motivo": "D15, estandar-decidido: decisión del usuario: El vetiveryl acetate comercial es el aceite de vetiver acetilado; se le aplica el 002 (el usuario, 2026-10-04). (evidencia: el nombre del FIG, «Vetiveryl acetate», y el del STD 002, «Acetylated Vetiver oil»; el índice de IFRA no liga su CAS 117-98-6 a ese estándar)"
+    }
+   ]
+  },
+  {
    "clave": "glosario-1009814-14-5",
    "tipo": "sustancia",
    "nombre": "Yuzunone",
@@ -2362,30 +2380,6 @@
    "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
   },
   {
-   "clave": "glosario-83863-30-3",
-   "tipo": "sustancia",
-   "nombre": "Ylang ylang extracts",
-   "cas": "83863-30-3",
-   "origen": "desconocido",
-   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
-   "v1": [
-    "cas:83863-30-3"
-   ],
-   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
-  },
-  {
-   "clave": "glosario-84012-15-7",
-   "tipo": "sustancia",
-   "nombre": "Birch wood pyrolysate",
-   "cas": "84012-15-7",
-   "origen": "desconocido",
-   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
-   "v1": [
-    "cas:84012-15-7"
-   ],
-   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
-  },
-  {
    "clave": "glosario-85251-66-7",
    "tipo": "sustancia",
    "nombre": "Birch wood pyrolysate",
@@ -2418,18 +2412,6 @@
    "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
    "v1": [
     "cas:854373-71-0"
-   ],
-   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
-  },
-  {
-   "clave": "glosario-85940-29-0",
-   "tipo": "sustancia",
-   "nombre": "Birch wood pyrolysate",
-   "cas": "85940-29-0",
-   "origen": "desconocido",
-   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
-   "v1": [
-    "cas:85940-29-0"
    ],
    "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
   },
@@ -2524,18 +2506,6 @@
    "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
   },
   {
-   "clave": "glosario-91745-85-6",
-   "tipo": "sustancia",
-   "nombre": "Birch wood pyrolysate",
-   "cas": "91745-85-6",
-   "origen": "desconocido",
-   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
-   "v1": [
-    "cas:91745-85-6"
-   ],
-   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
-  },
-  {
    "clave": "glosario-92-48-8",
    "tipo": "sustancia",
    "nombre": "6-Methylcoumarin",
@@ -2592,30 +2562,6 @@
    "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
    "v1": [
     "cas:943-88-4"
-   ],
-   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
-  },
-  {
-   "clave": "glosario-94891-27-7",
-   "tipo": "sustancia",
-   "nombre": "Styrax",
-   "cas": "94891-27-7",
-   "origen": "desconocido",
-   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
-   "v1": [
-    "cas:94891-27-7"
-   ],
-   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
-  },
-  {
-   "clave": "glosario-94891-28-8",
-   "tipo": "sustancia",
-   "nombre": "Styrax",
-   "cas": "94891-28-8",
-   "origen": "desconocido",
-   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
-   "v1": [
-    "cas:94891-28-8"
    ],
    "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
   },
@@ -3384,6 +3330,294 @@
    "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
    "v1": [
     "tl:1117-86-8"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-1119-40-0",
+   "tipo": "sustancia",
+   "nombre": "Pentanedioic acid, 1,5-dimethyl ester",
+   "cas": "1119-40-0",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:1119-40-0"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-112-27-6",
+   "tipo": "sustancia",
+   "nombre": "Triethyleneglycol",
+   "cas": "112-27-6",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:112-27-6"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-112-34-5",
+   "tipo": "sustancia",
+   "nombre": "Diethylene glycol monobutyl ether",
+   "cas": "112-34-5",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:112-34-5"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-112-40-3",
+   "tipo": "sustancia",
+   "nombre": "Dodecane",
+   "cas": "112-40-3",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:112-40-3"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-112-61-8",
+   "tipo": "sustancia",
+   "nombre": "Methyl octadecanoate",
+   "cas": "112-61-8",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:112-61-8"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-112-62-9",
+   "tipo": "sustancia",
+   "nombre": "Methyl 9-octadecenoate",
+   "cas": "112-62-9",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:112-62-9"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-112-63-0",
+   "tipo": "sustancia",
+   "nombre": "Methyl linoleate",
+   "cas": "112-63-0",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:112-63-0"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-112-72-1",
+   "tipo": "sustancia",
+   "nombre": "1-Tetradecanol",
+   "cas": "112-72-1",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:112-72-1"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-112-80-1",
+   "tipo": "sustancia",
+   "nombre": "Oleic acid",
+   "cas": "112-80-1",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:112-80-1"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-112-95-8",
+   "tipo": "sustancia",
+   "nombre": "Eicosane",
+   "cas": "112-95-8",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:112-95-8"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-1120-21-4",
+   "tipo": "sustancia",
+   "nombre": "Undecane",
+   "cas": "1120-21-4",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:1120-21-4"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-1129-47-1",
+   "tipo": "sustancia",
+   "nombre": "Propanoic acid, 2-methyl-, cyclohexyl ester",
+   "cas": "1129-47-1",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:1129-47-1"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-112926-00-8",
+   "tipo": "sustancia",
+   "nombre": "Silica gel, pptd., cryst.-free",
+   "cas": "112926-00-8",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:112926-00-8"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-113894-85-2",
+   "tipo": "sustancia",
+   "nombre": "Amylopectin, acid-hydrolyzed, 1-octenylbutanedioate",
+   "cas": "113894-85-2",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:113894-85-2"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-116-53-0",
+   "tipo": "sustancia",
+   "nombre": "2-Methylbutyric acid",
+   "cas": "116-53-0",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:116-53-0"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-116-75-6",
+   "tipo": "sustancia",
+   "nombre": "9,10-Anthracenedione, 1,4-bis[(2,4,6-trimethylphenyl)amino]-",
+   "cas": "116-75-6",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:116-75-6"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-118-56-9",
+   "tipo": "sustancia",
+   "nombre": "Homomenthyl salicylate",
+   "cas": "118-56-9",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:118-56-9"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-1181244-95-0",
+   "tipo": "sustancia",
+   "nombre": "Cyclopropanemethanol, 1-methyl-2-[[(1R,3R)-2,2,3-trimethylcyclopentyl]methyl]-, (1R,2R)-",
+   "cas": "1181244-95-0",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:1181244-95-0"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-119-47-1",
+   "tipo": "sustancia",
+   "nombre": "Phenol, 2,2'-methylenebis[6-(1,1-dimethylethyl)-4-methyl-",
+   "cas": "119-47-1",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:119-47-1"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-1191-41-9",
+   "tipo": "sustancia",
+   "nombre": "Ethyl linolenate",
+   "cas": "1191-41-9",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:1191-41-9"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-1191-43-1",
+   "tipo": "sustancia",
+   "nombre": "1,6-Hexanedithiol",
+   "cas": "1191-43-1",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:1191-43-1"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-119345-04-9",
+   "tipo": "sustancia",
+   "nombre": "Benzene, 1,1'-oxybis-, tetrapropylene derivs., sulfonated, sodium salts",
+   "cas": "119345-04-9",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:119345-04-9"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-120-93-4",
+   "tipo": "sustancia",
+   "nombre": "2-Imidazolidinone",
+   "cas": "120-93-4",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:120-93-4"
+   ],
+   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-121-00-6",
+   "tipo": "sustancia",
+   "nombre": "2-tert-Butyl-4-methoxyphenol",
+   "cas": "121-00-6",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:121-00-6"
    ],
    "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
   }

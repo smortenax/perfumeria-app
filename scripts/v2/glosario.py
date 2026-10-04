@@ -101,6 +101,8 @@ class Data:
         self.linked = {r["id_v1"] for r in read_csv(V2 / "v1-a-v2.csv") if r["id_v2"] not in made_here}
         # D15: the standards the user decided by name (id_v1 → standard, with the reason and the evidence).
         self.decided = {r["id_v1"]: r for r in read_csv(DOCS / "glosario-decisiones.csv")}
+        # Rows the user left out of the phase, in the v1 «sin revisar» (id_v1, motivo).
+        self.left_out = {r["id_v1"] for r in read_csv(DOCS / "glosario-fuera.csv")}
         self.cas_of_material = {m["cas"]: m for m in self.materials if m["cas"]}
 
 
@@ -201,10 +203,28 @@ def classify(g: dict[str, str], data: Data) -> tuple[str, str, str]:
     return "entra", "", ""
 
 
+# The rows of the v1 that are products, not glossary (prod:, cert:), and those the user left out by decision, are not of this phase (2026-10-04).
+PRODUCT_PREFIXES = ("prod:", "cert:")
+
+
+def out_of_phase(ident: str, data: Data) -> bool:
+    return ident.startswith(PRODUCT_PREFIXES) or ident in data.left_out
+
+
+def effective_class(g: dict[str, str], data: Data) -> str:
+    """A row the v1 had as a molecule but the annex of IFRA (by a CAS it has), a natural the v2 already has by that CAS, or the FIG (a type or an ISO 9235 category) gives as a natural goes by the way of naturals."""
+    other = data.cas_of_material.get(g["cas"]) if g["cas"] else None
+    if g["clase"] == "molécula" and ((g["cas"] and g["cas"] in data.annex_by_cas) or g["tipo_natural"] or g["categoria_iso"]
+                                     or (other is not None and other["tipo"] == "natural")):
+        return "natural"
+    return g["clase"]
+
+
 def freeze_next(clase: str, lots: dict, data: Data, date: str) -> str | None:
     taken = {i for lot in lots.values() for i in lot["ids"]}
     pending = sorted(
-        (i for i, g in data.glossary.items() if g["clase"] == clase and i not in data.linked and i not in data.later and i not in taken),
+        (i for i, g in data.glossary.items()
+         if effective_class(g, data) == clase and not out_of_phase(i, data) and i not in data.linked and i not in data.later and i not in taken),
         key=sort_key,
     )
     if not pending:
