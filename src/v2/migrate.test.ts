@@ -37,8 +37,9 @@ describe("migrating a formula of the v1 to the v2 (D13)", () => {
     expect(m.changed).toBe(true);
   });
 
+  // The repository is built once, outside the test: with thousands of materials its IFRA takes seconds and would eat the test's 5 s.
+  const repository = repositoryFor("v2");
   it("the material the bench builds for a product is the one the v2 repository lists", () => {
-    const repository = repositoryFor("v2");
     for (const p of data.products) {
       expect(v2MaterialOf(data, p.id)).toEqual(repository.get(`v2:${p.id}`)!.material);
     }

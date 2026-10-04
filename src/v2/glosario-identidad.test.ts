@@ -65,16 +65,16 @@ describe("with no process said, no specification is excluded by process", () => 
   const group078 = data.groups.find((g) => g.reference === "IFRA_STD_078")!;
   const styrax = data.materials.find((m) => m.type === "natural" && m.process.toLowerCase().includes("resinoide") && data.groupMembers.some((g) => g.memberId === m.id && groupRef.get(g.groupId) === "IFRA_STD_078"))!;
 
-  // The adapter on the same data plus copies of a member of the STD 078 that say a different process.
-  const pendingFor = (process: string) => {
-    const copy = { ...styrax, id: "M99999", name: `copia ${process || "sin proceso"}`, process, line: 0 };
-    const extended = {
-      ...data,
-      materials: [...data.materials, copy],
-      groupMembers: [...data.groupMembers, { groupId: group078.id, memberId: copy.id, subgroup: "", line: 0 }],
-    };
-    return buildIfra(extended, IFRA_FILES).details.get(v2Key(copy.id))?.specPending ?? [];
+  // The adapter on the same data plus copies of a member of the STD 078 that say a different process, all in one build (it takes seconds).
+  const PROCESSES = ["", "absoluto", "extracto", "resinoide"];
+  const copies = PROCESSES.map((process, i) => ({ ...styrax, id: `M9999${i}`, name: `copia ${process || "sin proceso"}`, process, line: 0 }));
+  const extended = {
+    ...data,
+    materials: [...data.materials, ...copies],
+    groupMembers: [...data.groupMembers, ...copies.map((c) => ({ groupId: group078.id, memberId: c.id, subgroup: "", line: 0 }))],
   };
+  const { details } = buildIfra(extended, IFRA_FILES);
+  const pendingFor = (process: string) => details.get(v2Key(copies[PROCESSES.indexOf(process)]!.id))?.specPending ?? [];
 
   it("a member of the STD 078 that says no process keeps the specification pending; so do an absolute and an extract; only the resinoid is excluded", () => {
     expect(styrax).toBeDefined();
