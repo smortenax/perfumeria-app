@@ -16,7 +16,8 @@ describe("the v1 and the v2 in one repository", () => {
     const linked = new Set(data.v1Links.map((l) => l.v1Id));
     expect(merged.entries.some((e) => linked.has(e.material.key))).toBe(false);
     const onlyV1 = merged.entries.filter((e) => e.unreviewed);
-    expect(onlyV1.length).toBeGreaterThan(3000);
+    // The v1 «sin revisar» shrinks as the glossary lots (Phase 6) enter the v2: it was over 3000 before them.
+    expect(onlyV1.length).toBeGreaterThan(0);
     expect(onlyV1.every((e) => e.material.key.includes(":") && !e.material.key.startsWith("v2:") && e.group !== "diluent")).toBe(true);
   });
 

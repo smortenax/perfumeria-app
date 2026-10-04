@@ -47,3 +47,26 @@ describe("a standard applied by name is a noted decision (D15)", () => {
     }
   });
 });
+
+describe("a standard applied by the definition of its class is a noted decision, and its specification is pending (D16)", () => {
+  it("the allyl esters are members of the STD 188 with the phrase and the structure in the note, and their specification pending", () => {
+    const members = import.meta.glob<string>("../../datos/v2/grupo-miembros.csv", { query: "?raw", import: "default", eager: true });
+    const rows = table(Object.values(members)[0]).filter((r) => r["notas"].startsWith("D16, "));
+    expect(rows.length).toBeGreaterThanOrEqual(14);
+    for (const r of rows) {
+      expect(r["notas"], r["id_miembro"]).toContain("Allyl esters should only be used when the level of free Allylalcohol");
+      expect(r["notas"], r["id_miembro"]).toContain("es el éster del alcohol alílico");
+      const material = data.materials.find((m) => m.substanceId === r["id_miembro"])!;
+      expect(details.get(v2Key(material.id))?.specPending.some((t) => t.includes("188")), material.name).toBe(true);
+      expect(data.conditions.filter((c) => c.containerId === material.id), material.name).toEqual([]);
+    }
+  });
+
+  it("no pinene is a member of the STD 184 by the glossary: its class is by origin, and the text names only delta-3-carene", () => {
+    const ref = new Map(data.groups.map((g) => [g.id, g.reference]));
+    for (const m of data.materials.filter((x) => made.has(x.id) && /pinene/i.test(x.name))) {
+      const own = data.groupMembers.filter((g) => (g.memberId === m.id || g.memberId === m.substanceId) && ref.get(g.groupId) === "IFRA_STD_184");
+      expect(own, m.name).toEqual([]);
+    }
+  });
+});

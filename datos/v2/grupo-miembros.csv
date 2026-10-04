@@ -8,6 +8,7 @@ G00005,S00006,,índice de IFRA 51
 G00006,M00006,,índice de IFRA 51: limitado como tal
 G00007,S00009,,índice de IFRA 51
 G00008,S00010,,índice de IFRA 51
+G00008,S01144,,índice de IFRA 51
 G00009,S00011,,índice de IFRA 51
 G00010,S00012,,índice de IFRA 51
 G00011,S00013,,índice de IFRA 51
@@ -33,6 +34,7 @@ G00025,S00027,,índice de IFRA 51
 G00026,S00028,,índice de IFRA 51
 G00026,S00080,,índice de IFRA 51
 G00027,S00031,,índice de IFRA 51
+G00027,S01111,,"D15, estandar-por-evidencia: el glosario dice: «es otra estereoquímica del CAS 122-40-7 (alpha-Amylcinnamaldehyde), que IFRA sí lista» y IFRA_STD_005 lista el CAS 122-40-7"
 G00028,S00034,,índice de IFRA 51
 G00029,S00035,,índice de IFRA 51
 G00030,S00042,,índice de IFRA 51
@@ -42,6 +44,20 @@ G00031,S00202,,índice de IFRA 51
 G00032,S00055,,índice de IFRA 51
 G00033,S00057,,índice de IFRA 51
 G00034,M00027,,"familia: el estándar le aplica por lo que es, aunque el índice no liste su CAS"
+G00034,S01086,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl (2-methylbutoxy)acetate» es el éster del alcohol alílico con el carboxilato «(2-methylbutoxy)acetate»"
+G00034,S01087,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl (cyclohexyloxy)acetate» es el éster del alcohol alílico con el carboxilato «(cyclohexyloxy)acetate»"
+G00034,S01089,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl butyrate» es el éster del alcohol alílico con el carboxilato «butyrate»"
+G00034,S01090,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl cinnamate» es el éster del alcohol alílico con el carboxilato «cinnamate»"
+G00034,S01091,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl cyclohexaneacetate» es el éster del alcohol alílico con el carboxilato «cyclohexaneacetate»"
+G00034,S01092,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl cyclohexanepropionate» es el éster del alcohol alílico con el carboxilato «cyclohexanepropionate»"
+G00034,S01093,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl decanoate» es el éster del alcohol alílico con el carboxilato «decanoate»"
+G00034,S01095,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl heptanoate» es el éster del alcohol alílico con el carboxilato «heptanoate»"
+G00034,S01096,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl hexanoate» es el éster del alcohol alílico con el carboxilato «hexanoate»"
+G00034,S01097,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl octanoate» es el éster del alcohol alílico con el carboxilato «octanoate»"
+G00034,S01098,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl phenoxyacetate» es el éster del alcohol alílico con el carboxilato «phenoxyacetate»"
+G00034,S01099,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl phenylacetate» es el éster del alcohol alílico con el carboxilato «phenylacetate»"
+G00034,S01100,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl propionate» es el éster del alcohol alílico con el carboxilato «propionate»"
+G00034,S01102,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl trimethylhexanoate» es el éster del alcohol alílico con el carboxilato «trimethylhexanoate»"
 G00035,S00061,,índice de IFRA 51
 G00035,S00071,,índice de IFRA 51
 G00035,S01007,,índice de IFRA 51
@@ -51,6 +67,7 @@ G00037,M00043,,"familia: el estándar le aplica por lo que es, aunque el índice
 G00038,M00045,,índice de IFRA 51: limitado como tal
 G00039,S00064,,índice de IFRA 51
 G00040,S00065,,índice de IFRA 51
+G00040,S01032,,índice de IFRA 51
 G00041,S00066,,índice de IFRA 51
 G00041,S00119,,índice de IFRA 51
 G00041,S00740,,índice de IFRA 51
@@ -103,7 +120,11 @@ G00064,S00206,,índice de IFRA 51
 G00064,S00207,,índice de IFRA 51
 G00064,S00210,,índice de IFRA 51
 G00064,S00704,,"D15, estandar-por-evidencia: el glosario dice: «es otra estereoquímica del CAS 57378-68-4 (delta-1-(2,6,6-Trimethyl-3-cyclohexen-1-yl)-2-buten-1-one), que IFRA sí lista» y IFRA_STD_077 lista el CAS 57378-68-4"
+G00064,S01109,,índice de IFRA 51
+G00064,S01197,,índice de IFRA 51
+G00064,S01296,,índice de IFRA 51
 G00065,S00144,,índice de IFRA 51
+G00065,S01214,,índice de IFRA 51
 G00066,S00158,,índice de IFRA 51
 G00066,S00444,,índice de IFRA 51
 G00067,S00161,,índice de IFRA 51
@@ -118,6 +139,7 @@ G00070,S00190,,índice de IFRA 51
 G00071,S00240,,índice de IFRA 51
 G00071,S00241,,índice de IFRA 51
 G00072,S00303,,índice de IFRA 51
+G00072,S01044,,índice de IFRA 51
 G00073,S00377,,índice de IFRA 51
 G00074,S00410,,índice de IFRA 51
 G00075,S00413,,índice de IFRA 51
@@ -182,3 +204,19 @@ G00123,S01019,,índice de IFRA 51
 G00124,S01020,,índice de IFRA 51
 G00125,M01210,,índice de IFRA 51: limitado como tal
 G00126,S01021,,índice de IFRA 51
+G00127,S01035,,índice de IFRA 51
+G00128,S01037,,índice de IFRA 51
+G00129,S01070,,índice de IFRA 51
+G00130,S01092,,índice de IFRA 51
+G00131,S01098,,índice de IFRA 51
+G00132,S01103,,índice de IFRA 51
+G00133,S01110,,índice de IFRA 51
+G00134,S01112,,índice de IFRA 51
+G00135,S01115,,índice de IFRA 51
+G00136,S01116,,índice de IFRA 51
+G00137,S01125,,índice de IFRA 51
+G00138,S01232,,índice de IFRA 51
+G00139,S01284,,índice de IFRA 51
+G00140,S01285,,índice de IFRA 51
+G00140,S01293,,índice de IFRA 51
+G00141,S01301,,índice de IFRA 51

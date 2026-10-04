@@ -204,7 +204,9 @@ da un estándar que el índice no liga a su CAS («estándar por el nombre»), e
   descriptores `(E)`, `(2R,3S)`, `cis-`, `trans-`, `rel-` y se compara con el nombre del estándar y con los sinónimos de IFRA (no los
   comerciales). Caso: el 3,7-dimetil-2,6-octadien-1-ol (CAS 624-15-7), que es el `trans-3,7-Dimethyl-2,6-octadien-1-ol` de IFRA sin E/Z, entra
   con el STD 037 del geraniol (106-24-1).
-- Lo de la familia por el nombre (188, 184, 089) nunca es automático.
+- **Un estereoisómero de una sustancia de un estándar recibe ese estándar** (el usuario, 2026-10-04, `tl:59056-93-8`: el OTNE con `rel-` y
+  el STD 068). Es la misma regla: sin la estereoquímica, el nombre es el de la sustancia del estándar o un sinónimo de IFRA.
+- Lo de la familia por el nombre (188, 184, 089) no es automático por la regex de la v1; lo regula D16.
 
 **Por qué:** un estándar de más limita de menos (se pierde un límite) o de más (se bloquea una fórmula): sin evidencia de que sea la
 misma sustancia no se decide en silencio.
@@ -231,3 +233,20 @@ descriptores de olor. No se usa la categoría ISO 9235 (`categoria_iso`): su ley
 - No hay conflictos propios de los naturales del glosario.
 
 **Por qué:** inventar una especie, una parte o un proceso daría un límite de menos; «no lo dice» y el peor caso nunca dan un «dentro» falso (§1.2).
+
+## D16 — Estándares de clase (decidida por el usuario el 2026-10-04, en el lote 6e)
+
+Un estándar que IFRA define **por clase** (el 188, ésteres alílicos; el 184, derivados de las pináceas; cualquier otro) se aplica a una
+molécula si **el texto del estándar** (`datos/ifra/51/estandares.csv`, que sale de `origen/…standards-overview.xlsx`) **define la clase y la
+molécula la cumple por estructura**, o si el texto la nombra. La evidencia es la frase del estándar más la estructura; **nunca la regex de la v1**.
+
+- **188 (ésteres alílicos):** «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.» La clase es
+  estructural: entra lo que es un éster del alcohol alílico por su nombre (`Allyl …ate`; no el isotiocianato de alilo ni el alcohol).
+- **184 (pináceas):** «derived from the Pinacea family», con *delta-3-carene* de ejemplo. La clase es **por origen, no por estructura**: entra lo que
+  el texto nombra (delta-3-carene) y no el pineno, cuyo origen no consta; esos quedan como conflicto.
+- **Las especificaciones quedan pendientes (D11)**: el estándar de clase añade su especificación sin fila en `condiciones.csv`.
+- Es **automática** en `glosario.py` (categoría `estandar-de-clase`, con su evidencia en la nota del grupo: «D16, …»). **Solo es conflicto lo que
+  la definición no resuelva.**
+
+**Por qué:** una regex sobre el nombre no es evidencia (D6); el texto del estándar y la estructura sí.
+

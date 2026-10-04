@@ -729,6 +729,11 @@ M01276,S00102,,0.1,,tipico,anexo-ifra,D00001,Galbanum oil (Ferula spp.)
 M01277,S00102,,0.1,,tipico,anexo-ifra,D00001,Galbanum oil (Ferula spp.)
 M01278,S00102,,0.1,,tipico,anexo-ifra,D00001,Galbanum oil (Ferula spp.)
 M01279,S00102,,0.1,,tipico,anexo-ifra,D00001,Galbanum oil (Ferula spp.)
+M01372,S00031,,60.3,,tipico,anexo-ifra,D00034,"α-Amylcinnamaldehyde-methyl anthranilate (or Jasmea, Seringone): el aldehído que lleva, según IFRA"
+M01416,S00011,,44.4,,tipico,anexo-ifra,D00034,"Benzaldehyde methyl anthranilate ; Methyl 2-[(phenylmethylene)amino]benzoate; Methyl 2-(benzylideneamino)benzoate (or Amandolene): el aldehído que lleva, según IFRA"
+M01427,S00111,,59.1,,tipico,anexo-ifra,D00034,"Helional-methyl anthranilate (or Helioforte): el aldehído que lleva, según IFRA"
+M01428,S01005,,50.6,,tipico,anexo-ifra,D00034,"Methyl 2-[(4-methoxybenzylidene)amino]benzoate (or Anisimea): el aldehído que lleva, según IFRA"
+M01431,S00924,,57.3,,tipico,anexo-ifra,D00034,"Canthoxal-methyl anthranilate (or Canthalide, Anthranolene): el aldehído que lleva, según IFRA"
 P00005,S00006,,0.0046,,tipico,producto,D00002,
 P00006,S00007,,,0.1,maximo,producto,D00004,cota «<» del certificado
 P00006,S00008,,,0.1,maximo,producto,D00004,cota «<» del certificado

@@ -35,7 +35,8 @@ LOT_SIZE = 300
 CONFLICT_COLUMNS = ["producto", "tipo", "detalle", "evidencia", "recomendacion", "respuesta"]
 
 # What is decided by name is not a conflict: it enters with the standard and the decision noted (D15).
-DECIDED = {"estandar-decidido": "decidido por el usuario", "estandar-por-evidencia": "la evidencia dice que es la misma sustancia"}
+DECIDED = {"estandar-decidido": "decidido por el usuario", "estandar-por-evidencia": "la evidencia dice que es la misma sustancia",
+           "estandar-de-clase": "D16: la definición de su clase"}
 
 CATEGORIES = {
     "sin-cas": "El glosario no da CAS: sin CAS no hay identidad (D1).",
@@ -123,6 +124,35 @@ def same_without_stereo(g: dict[str, str], std: str, data: Data) -> str:
     return ""
 
 
+# D16: a standard IFRA defines by class applies when the text of the standard defines the class and the molecule is of it by structure
+# (or the text names it). The evidence is the phrase of the standard plus the structure, never the regex of the v1.
+ALLYL_ESTER = re.compile(r"^allyl (?!alcohol\b)(?!\S*cyanate$)(?P<acid>[a-z0-9 ,'()\-.]*ate)$", re.I)
+FAMILY_STANDARD = re.compile(r"familia, por el nombre:[^()]*\(STD (\d+)\)")
+
+
+def first_sentence(text: str) -> str:
+    return re.split(r"(?<=[a-z%)])\.\s", text.strip(), maxsplit=1)[0].rstrip(".") + "."
+
+
+def class_member(std: str, g: dict[str, str], data: Data) -> tuple[bool, str]:
+    """(applies, evidence): does the definition of the class in the standard's text resolve this molecule?"""
+    s = data.standards[std]
+    text = s["nota_especificacion"] or s["nota_restriccion"] or s["nota_prohibicion"] or ""
+    if std == "IFRA_STD_188":
+        m = ALLYL_ESTER.match(g["nombre"].strip())
+        if m:
+            return True, (f"el STD 188 dice: «{first_sentence(text)}»; la estructura: «{g['nombre']}» es el éster del alcohol alílico "
+                          f"con el carboxilato «{m.group('acid')}»")
+        return False, f"el STD 188 define la clase por estructura («Allyl esters»), y «{g['nombre']}» no es un éster del alcohol alílico por su nombre"
+    named = strip_stereo(g["nombre"])
+    if named and len(named) > 6 and named in strip_stereo(text):
+        return True, f"el texto del {std} nombra la molécula: «{g['nombre']}»"
+    if std == "IFRA_STD_184":
+        return False, ("el STD 184 define la clase por origen («derived from the Pinacea family», con delta-3-carene como ejemplo), no por estructura, "
+                       f"no nombra «{g['nombre']}», y su origen no consta")
+    return False, f"el texto del {std} no define una clase que resuelva «{g['nombre']}»"
+
+
 def classify(g: dict[str, str], data: Data) -> tuple[str, str, str]:
     """(category or «entra», detail, evidence) of one molecule of the glossary."""
     cas = g["cas"]
@@ -134,6 +164,13 @@ def classify(g: dict[str, str], data: Data) -> tuple[str, str, str]:
                 f"la v2 tiene el CAS {cas} en el material {other['id']} «{other['nombre']}», que es un {other['tipo']}")
     note = g["condiciones"]
     if "familia, por el nombre" in note:
+        fam = FAMILY_STANDARD.search(note)
+        if fam:
+            std = f"IFRA_STD_{int(fam.group(1)):03d}"
+            applies, why = class_member(std, g, data)
+            if applies:
+                return "estandar-de-clase", std, why
+            return "familia-por-nombre", note[:160], f"«{note[:200]}»; {why}"
         return "familia-por-nombre", note[:160], f"«{note[:200]}»"
     own = set(filter(None, re.split(r"[;,\s]+", g["estandares"])))
     indexed = set(data.index.get(cas, []))
@@ -307,7 +344,7 @@ def prepare(name: str, lot: dict, data: Data) -> tuple[Counter, dict, list[dict[
             conflicts.append({"producto": f"{ident} «{g['nombre']}»", "tipo": category, "detalle": detail, "evidencia": evidence,
                               "recomendacion": "no entra hasta que el usuario decida la categoría", "respuesta": ""})
             continue
-        decided = {"estandar": detail, "motivo": f"D15, {category}: {evidence}"} if category in DECIDED else None
+        decided = {"estandar": detail, "motivo": f"{'D16' if category == 'estandar-de-clase' else 'D15'}, {category}: {evidence}"} if category in DECIDED else None
         if decided:
             counts[f"entra con estándar por el nombre ({DECIDED[category]})"] += 1
         existing = data.cas_of_material.get(g["cas"])

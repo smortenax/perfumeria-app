@@ -324,7 +324,9 @@ def main() -> int:
                         member(standard, subgroup, mid, date, f"índice de IFRA 51: limitado como tal (CAS {other}, otro CAS del mismo nombre)")
             # The standards of naturals (086-096) are also recognised by species + part + process (D1), not only by
             # the CAS of the index: the FCF bergamot is a bergamot oil expressed whose CAS the index does not list.
-            if m["tipo"] == "natural":
+            # D14: «no lo dice» (or nothing) is not an identity: it is never paired with a species, a part or a process of a rule.
+            says_all = all(norm(m.get(k, "")) not in ("", "no lo dice") for k in ("especie", "parte", "proceso"))
+            if m["tipo"] == "natural" and says_all:
                 for rule in natural_standards:
                     if (norm(m.get("especie", "")) in rule["especies"]
                             and any(x in norm(m.get("parte", "")) for x in rule["partes"])

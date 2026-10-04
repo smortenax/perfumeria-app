@@ -795,6 +795,42 @@
    "notas": "Fase 6, lote 6e: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
   },
   {
+   "clave": "glosario-67634-01-9",
+   "tipo": "sustancia",
+   "nombre": "Allyl (2-methylbutoxy)acetate",
+   "cas": "67634-01-9",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "fig:1011"
+   ],
+   "notas": "Fase 6, lote 6e: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9).",
+   "estandares_decididos": [
+    {
+     "estandar": "IFRA_STD_188",
+     "motivo": "D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl (2-methylbutoxy)acetate» es el éster del alcohol alílico con el carboxilato «(2-methylbutoxy)acetate»"
+    }
+   ]
+  },
+  {
+   "clave": "glosario-68901-15-5",
+   "tipo": "sustancia",
+   "nombre": "Allyl (cyclohexyloxy)acetate",
+   "cas": "68901-15-5",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "fig:1013"
+   ],
+   "notas": "Fase 6, lote 6e: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9).",
+   "estandares_decididos": [
+    {
+     "estandar": "IFRA_STD_188",
+     "motivo": "D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl (cyclohexyloxy)acetate» es el éster del alcohol alílico con el carboxilato «(cyclohexyloxy)acetate»"
+    }
+   ]
+  },
+  {
    "clave": "glosario-79-78-7",
    "tipo": "sustancia",
    "nombre": "Allyl alpha-ionone",
@@ -805,6 +841,96 @@
     "fig:1014"
    ],
    "notas": "Fase 6, lote 6e: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-2051-78-7",
+   "tipo": "sustancia",
+   "nombre": "Allyl butyrate",
+   "cas": "2051-78-7",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "fig:1015"
+   ],
+   "notas": "Fase 6, lote 6e: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9).",
+   "estandares_decididos": [
+    {
+     "estandar": "IFRA_STD_188",
+     "motivo": "D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl butyrate» es el éster del alcohol alílico con el carboxilato «butyrate»"
+    }
+   ]
+  },
+  {
+   "clave": "glosario-1866-31-5",
+   "tipo": "sustancia",
+   "nombre": "Allyl cinnamate",
+   "cas": "1866-31-5",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "fig:1016"
+   ],
+   "notas": "Fase 6, lote 6e: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9).",
+   "estandares_decididos": [
+    {
+     "estandar": "IFRA_STD_188",
+     "motivo": "D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl cinnamate» es el éster del alcohol alílico con el carboxilato «cinnamate»"
+    }
+   ]
+  },
+  {
+   "clave": "glosario-4728-82-9",
+   "tipo": "sustancia",
+   "nombre": "Allyl cyclohexaneacetate",
+   "cas": "4728-82-9",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "fig:1017"
+   ],
+   "notas": "Fase 6, lote 6e: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9).",
+   "estandares_decididos": [
+    {
+     "estandar": "IFRA_STD_188",
+     "motivo": "D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl cyclohexaneacetate» es el éster del alcohol alílico con el carboxilato «cyclohexaneacetate»"
+    }
+   ]
+  },
+  {
+   "clave": "glosario-2705-87-5",
+   "tipo": "sustancia",
+   "nombre": "Allyl cyclohexanepropionate",
+   "cas": "2705-87-5",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "fig:1018"
+   ],
+   "notas": "Fase 6, lote 6e: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9).",
+   "estandares_decididos": [
+    {
+     "estandar": "IFRA_STD_188",
+     "motivo": "D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl cyclohexanepropionate» es el éster del alcohol alílico con el carboxilato «cyclohexanepropionate»"
+    }
+   ]
+  },
+  {
+   "clave": "glosario-57856-81-2",
+   "tipo": "sustancia",
+   "nombre": "Allyl decanoate",
+   "cas": "57856-81-2",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "fig:1019"
+   ],
+   "notas": "Fase 6, lote 6e: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9).",
+   "estandares_decididos": [
+    {
+     "estandar": "IFRA_STD_188",
+     "motivo": "D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl decanoate» es el éster del alcohol alílico con el carboxilato «decanoate»"
+    }
+   ]
   },
   {
    "clave": "glosario-2179-57-9",
@@ -819,6 +945,114 @@
    "notas": "Fase 6, lote 6e: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
   },
   {
+   "clave": "glosario-142-19-8",
+   "tipo": "sustancia",
+   "nombre": "Allyl heptanoate",
+   "cas": "142-19-8",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "fig:1021"
+   ],
+   "notas": "Fase 6, lote 6e: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9).",
+   "estandares_decididos": [
+    {
+     "estandar": "IFRA_STD_188",
+     "motivo": "D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl heptanoate» es el éster del alcohol alílico con el carboxilato «heptanoate»"
+    }
+   ]
+  },
+  {
+   "clave": "glosario-123-68-2",
+   "tipo": "sustancia",
+   "nombre": "Allyl hexanoate",
+   "cas": "123-68-2",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "fig:1022"
+   ],
+   "notas": "Fase 6, lote 6e: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9).",
+   "estandares_decididos": [
+    {
+     "estandar": "IFRA_STD_188",
+     "motivo": "D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl hexanoate» es el éster del alcohol alílico con el carboxilato «hexanoate»"
+    }
+   ]
+  },
+  {
+   "clave": "glosario-4230-97-1",
+   "tipo": "sustancia",
+   "nombre": "Allyl octanoate",
+   "cas": "4230-97-1",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "fig:1023"
+   ],
+   "notas": "Fase 6, lote 6e: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9).",
+   "estandares_decididos": [
+    {
+     "estandar": "IFRA_STD_188",
+     "motivo": "D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl octanoate» es el éster del alcohol alílico con el carboxilato «octanoate»"
+    }
+   ]
+  },
+  {
+   "clave": "glosario-7493-74-5",
+   "tipo": "sustancia",
+   "nombre": "Allyl phenoxyacetate",
+   "cas": "7493-74-5",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "fig:1024"
+   ],
+   "notas": "Fase 6, lote 6e: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9).",
+   "estandares_decididos": [
+    {
+     "estandar": "IFRA_STD_188",
+     "motivo": "D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl phenoxyacetate» es el éster del alcohol alílico con el carboxilato «phenoxyacetate»"
+    }
+   ]
+  },
+  {
+   "clave": "glosario-1797-74-6",
+   "tipo": "sustancia",
+   "nombre": "Allyl phenylacetate",
+   "cas": "1797-74-6",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "fig:1025"
+   ],
+   "notas": "Fase 6, lote 6e: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9).",
+   "estandares_decididos": [
+    {
+     "estandar": "IFRA_STD_188",
+     "motivo": "D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl phenylacetate» es el éster del alcohol alílico con el carboxilato «phenylacetate»"
+    }
+   ]
+  },
+  {
+   "clave": "glosario-2408-20-0",
+   "tipo": "sustancia",
+   "nombre": "Allyl propionate",
+   "cas": "2408-20-0",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "fig:1026"
+   ],
+   "notas": "Fase 6, lote 6e: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9).",
+   "estandares_decididos": [
+    {
+     "estandar": "IFRA_STD_188",
+     "motivo": "D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl propionate» es el éster del alcohol alílico con el carboxilato «propionate»"
+    }
+   ]
+  },
+  {
    "clave": "glosario-592-88-1",
    "tipo": "sustancia",
    "nombre": "Allyl sulfide",
@@ -829,6 +1063,24 @@
     "fig:1027"
    ],
    "notas": "Fase 6, lote 6e: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-68132-80-9",
+   "tipo": "sustancia",
+   "nombre": "Allyl trimethylhexanoate",
+   "cas": "68132-80-9",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "fig:1028"
+   ],
+   "notas": "Fase 6, lote 6e: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9).",
+   "estandares_decididos": [
+    {
+     "estandar": "IFRA_STD_188",
+     "motivo": "D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl trimethylhexanoate» es el éster del alcohol alílico con el carboxilato «trimethylhexanoate»"
+    }
+   ]
   },
   {
    "clave": "glosario-65114-03-6",

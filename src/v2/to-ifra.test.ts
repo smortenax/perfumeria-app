@@ -255,8 +255,9 @@ describe("the standards that go by family (STD 188, allyl esters)", () => {
   it("the Allyl Amyl Glycolate is a member of the group as a material, though the index does not list its CAS", () => {
     const group = data.groups.find((g) => g.reference === "IFRA_STD_188")!;
     const members = data.groupMembers.filter((gm) => gm.groupId === group.id).map((gm) => gm.memberId);
-    // The only allyl ester of the v2 (the other 39 materials were reviewed by name): nothing else is in the group.
-    expect(members).toEqual([aag.materialId]);
+    // It was the only member until the glossary (Phase 6, D16): the allyl esters it brings are members as substances, by their structure.
+    expect(members).toContain(aag.materialId);
+    expect(members.filter((id) => id.startsWith("M"))).toEqual([aag.materialId]);
     expect(IFRA_FILES.estandarCas.includes("IFRA_STD_188,")).toBe(false);
   });
 
