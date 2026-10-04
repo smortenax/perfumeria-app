@@ -318,6 +318,10 @@ def main() -> int:
             if m["tipo"] in ("natural", "base") and cas:
                 for standard, subgroup in index.get(cas, []):
                     member(standard, subgroup, mid, date, "índice de IFRA 51: limitado como tal")
+                # D14: a name is one material and its other CAS are attributes: the standards of every CAS apply to it.
+                for other in m.get("otros_cas", []):
+                    for standard, subgroup in index.get(other, []):
+                        member(standard, subgroup, mid, date, f"índice de IFRA 51: limitado como tal (CAS {other}, otro CAS del mismo nombre)")
             # The standards of naturals (086-096) are also recognised by species + part + process (D1), not only by
             # the CAS of the index: the FCF bergamot is a bergamot oil expressed whose CAS the index does not list.
             if m["tipo"] == "natural":
@@ -401,9 +405,10 @@ def main() -> int:
             if "anexo" in m:
                 a = m["anexo"]
                 did = documents[a["documento"]]
-                rows = [r for r in annex if r["nombre"] == a["nombre"] and (r["cas_principal"] == a["cas"] or a["cas"] in r["otros_cas"].split())]
+                cas_all = a.get("cas_todos") or [a["cas"]]
+                rows = [r for r in annex if r["nombre"] == a["nombre"] and any(c == r["cas_principal"] or c in r["otros_cas"].split() for c in cas_all)]
                 if not rows:
-                    print(f"{m['clave']}: el anexo no tiene «{a['nombre']}» ({a['cas']}).")
+                    print(f"{m['clave']}: el anexo no tiene «{a['nombre']}» ({' '.join(cas_all)}).")
                     return 1
                 for r in rows:
                     component = substance(r["cas_constituyente"], r["constituyente"], date, r["estandar_constituyente"], lot)
@@ -422,9 +427,10 @@ def main() -> int:
                 a = m["anexo_peor"]
                 did = documents[a["documento"]]
                 from decimal import Decimal as _D
-                rows = [r for r in annex if r["nombre"] in a["nombres"] and (r["cas_principal"] == a["cas"] or a["cas"] in r["otros_cas"].split())]
+                cas_all = a.get("cas_todos") or [a["cas"]]
+                rows = [r for r in annex if r["nombre"] in a["nombres"] and any(c == r["cas_principal"] or c in r["otros_cas"].split() for c in cas_all)]
                 if not rows:
-                    print(f"{m['clave']}: el anexo no tiene entradas para {a['cas']}.")
+                    print(f"{m['clave']}: el anexo no tiene entradas para {' '.join(cas_all)}.")
                     return 1
                 worst: dict[str, dict[str, str]] = {}
                 for r in rows:
@@ -436,7 +442,7 @@ def main() -> int:
                     tables["composicion.csv"].append({
                         "id_contenedor": mid, "id_componente": component, "max": pct_text(r["concentracion_pct"]),
                         "tipo_valor": "maximo", "autoridad": "anexo-ifra", "id_documento": did,
-                        "notas": f"el máximo de las {len(a['nombres'])} entradas del anexo para el CAS {a['cas']} (D14): {r['nombre']}",
+                        "notas": f"el máximo de las {len(a['nombres'])} entradas del anexo para {' '.join(cas_all)} (D14): {r['nombre']}",
                     })
                 tables["coberturas.csv"].append({
                     "id_contenedor": mid, "id_documento": did, "cobertura": "reguladas-completa",

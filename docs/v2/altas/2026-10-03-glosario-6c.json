@@ -316,6 +316,24 @@
    "notas": "Fase 6, lote 6c: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
   },
   {
+   "clave": "glosario-624-15-7",
+   "tipo": "sustancia",
+   "nombre": "3,7-Dimethyl-2,6-octadien-1-ol",
+   "cas": "624-15-7",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "fig:644"
+   ],
+   "notas": "Fase 6, lote 6c: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9).",
+   "estandares_decididos": [
+    {
+     "estandar": "IFRA_STD_037",
+     "motivo": "D15, estandar-por-evidencia: el nombre «3,7-Dimethyl-2,6-octadien-1-ol», sin estereoquímica, es el de «trans-3,7-Dimethyl-2,6-octadien-1-ol» en los datos de IFRA del IFRA_STD_037: la misma sustancia con la estereoquímica sin especificar"
+    }
+   ]
+  },
+  {
    "clave": "glosario-22418-66-2",
    "tipo": "sustancia",
    "nombre": "3,7-Dimethyl-2-methylenocta-6-enal",

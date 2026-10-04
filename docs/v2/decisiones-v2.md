@@ -199,6 +199,11 @@ da un estándar que el índice no liga a su CAS («estándar por el nombre»), e
   casos los decide el usuario en `docs/v2/glosario-decisiones.csv` (id, estándar, motivo, evidencia).
 - **Solo se parece por el nombre** (un vetiveril acetato con el aceite de vetiver acetilado; geraniol sin isómero con el STD 037):
   **no se aplica** y sigue siendo conflicto para revisar.
+- **Ampliación (2026-10-04, lote 6c):** un CAS con la **estereoquímica sin especificar** (o con otra) cuyo **nombre, sin la estereoquímica, es el
+  de una sustancia del estándar** recibe ese estándar, con la evidencia anotada. Es automático en `glosario.py`: se quitan del nombre los
+  descriptores `(E)`, `(2R,3S)`, `cis-`, `trans-`, `rel-` y se compara con el nombre del estándar y con los sinónimos de IFRA (no los
+  comerciales). Caso: el 3,7-dimetil-2,6-octadien-1-ol (CAS 624-15-7), que es el `trans-3,7-Dimethyl-2,6-octadien-1-ol` de IFRA sin E/Z, entra
+  con el STD 037 del geraniol (106-24-1).
 - Lo de la familia por el nombre (188, 184, 089) nunca es automático.
 
 **Por qué:** un estándar de más limita de menos (se pierde un límite) o de más (se bloquea una fórmula): sin evidencia de que sea la
@@ -220,6 +225,9 @@ descriptores de olor. No se usa la categoría ISO 9235 (`categoria_iso`): su ley
 - **Sin proceso («no lo dice») no se aplica ninguna exclusión por proceso** (`estandares-naturales.csv`, `especificaciones-excluidas.csv`):
   cuenta como el peor caso. Un «Lemon oil» sin más es miembro del 089.
 - **Origen y autoridad:** nada mejor que su fuente; no hay documento ni producto de la v1 (D6, D9).
-- **Único conflicto:** el mismo nombre con distinto CAS (`mismo-nombre-distinto-cas`), que decide el usuario.
+- **El mismo nombre con distinto CAS no es un conflicto** (el usuario, 2026-10-04): un nombre es un material y sus CAS son atributos. Es
+  **un solo material**, con el primer CAS como `cas` y los demás en las notas; los estándares del índice de **todos** sus CAS le aplican, y del
+  anexo cuenta la peor entrada entre todos ellos (o la única que coincide con el término). Sus filas del FIG van juntas al mismo lote.
+- No hay conflictos propios de los naturales del glosario.
 
 **Por qué:** inventar una especie, una parte o un proceso daría un límite de menos; «no lo dice» y el peor caso nunca dan un «dentro» falso (§1.2).

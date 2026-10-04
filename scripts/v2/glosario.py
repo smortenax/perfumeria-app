@@ -38,7 +38,6 @@ CONFLICT_COLUMNS = ["producto", "tipo", "detalle", "evidencia", "recomendacion",
 DECIDED = {"estandar-decidido": "decidido por el usuario", "estandar-por-evidencia": "la evidencia dice que es la misma sustancia"}
 
 CATEGORIES = {
-    "mismo-nombre-distinto-cas": "Dos filas de naturales del FIG con el mismo nombre y distinto CAS: no se sabe cuál es (D14).",
     "sin-cas": "El glosario no da CAS: sin CAS no hay identidad (D1).",
     "cas-de-otro-material": "El CAS es de un natural o una base que la v2 ya tiene: no es la misma cosa.",
     "estandar-por-nombre": "La v1 le da un estándar de IFRA que el índice no liga a su CAS (lo encontró por el nombre).",
@@ -104,6 +103,26 @@ class Data:
         self.cas_of_material = {m["cas"]: m for m in self.materials if m["cas"]}
 
 
+STEREO_GROUP = re.compile(r"\(\s*(?:rel-|[+\-±]|\d*[ezrs]\*?)(?:\s*[,/]\s*(?:\d*[ezrs]\*?|[+\-±]))*\s*\)", re.I)
+
+
+def strip_stereo(name: str) -> str:
+    """A name without its stereochemistry ((E), (2R,3S), cis-, trans-, rel-): what is left is the compound's name, whichever isomer."""
+    n = STEREO_GROUP.sub(" ", name.lower())
+    n = re.sub(r"(?<![a-z])(?:cis|trans|rel|dl|racemic)-", " ", n)
+    return re.sub(r"[^a-z0-9]+", " ", n).strip()
+
+
+def same_without_stereo(g: dict[str, str], std: str, data: Data) -> str:
+    """D15: the name of this row, without its stereochemistry, is the name (or an IFRA synonym) of the standard's substance: that synonym, or «»."""
+    mine = strip_stereo(g["nombre"])
+    names = [data.standards[std]["nombre"], *(x for x in data.standards[std]["sinonimos"].split(" | ") if "(commercial name)" not in x)]
+    for other in names:
+        if mine and strip_stereo(other) == mine and other.strip():
+            return other.strip()
+    return ""
+
+
 def classify(g: dict[str, str], data: Data) -> tuple[str, str, str]:
     """(category or «entra», detail, evidence) of one molecule of the glossary."""
     cas = g["cas"]
@@ -124,6 +143,10 @@ def classify(g: dict[str, str], data: Data) -> tuple[str, str, str]:
         if decision and decision["estandar"] == std:
             return "estandar-decidido", std, f"decisión del usuario: {decision['motivo']} (evidencia: {decision['evidencia']})"
         # D15: the glossary itself says it is the same substance as one the standard lists (another stereochemistry).
+        synonym = same_without_stereo(g, std, data)
+        if synonym:
+            return ("estandar-por-evidencia", std,
+                    f"el nombre «{g['nombre']}», sin estereoquímica, es el de «{synonym}» en los datos de IFRA del {std}: la misma sustancia con la estereoquímica sin especificar")
         same = re.search(r"es otra estereoquímica del CAS (\d{2,7}-\d{2}-\d)", g["fuera_de_ifra"])
         if same and std in data.index.get(same.group(1), []):
             return "estandar-por-evidencia", std, f"el glosario dice: «{g['fuera_de_ifra'][:160]}» y {std} lista el CAS {same.group(1)}"
@@ -144,7 +167,15 @@ def freeze_next(clase: str, lots: dict, data: Data, date: str) -> str | None:
     if not pending:
         return None
     name = "6" + "abcdefghijklmnopqrstuvwxyz"[len(lots)]
-    lots[name] = {"clase": clase, "fecha": date, "ids": pending[:LOT_SIZE]}
+    chosen = pending[:LOT_SIZE]
+    if clase == "natural":
+        # A name is one material (D14): its rows go together, in the lot of the first of them.
+        chosen = []
+        for group in natural_groups(pending, data):
+            if len(chosen) + len(group) > LOT_SIZE:
+                break
+            chosen.extend(group)
+    lots[name] = {"clase": clase, "fecha": date, "ids": chosen}
     return name
 
 
@@ -178,65 +209,72 @@ def natural_part(g: dict[str, str]) -> str:
     return " y ".join(word for pattern, word in PART_WORDS if re.search(pattern, g["nombre"].lower()))
 
 
-def natural_case(g: dict[str, str], data: Data) -> tuple[str, list[str]]:
-    """How the annex answers for this term: (case, the annex names that count)."""
-    entries = data.annex_by_cas.get(g["cas"], {}) if g["cas"] else {}
+def natural_case(cas_list: list[str], term: str, data: Data) -> tuple[str, list[str]]:
+    """How the annex answers for this term, over all the CAS of its name: (case, the annex names that count)."""
+    entries: dict[str, list[dict[str, str]]] = {}
+    for cas in cas_list:
+        for annex_name, rows in data.annex_by_cas.get(cas, {}).items():
+            entries.setdefault(annex_name, []).extend(rows)
     if not entries:
         return "sin entrada en el anexo", []
     names = sorted(entries)
     if len(names) == 1:
         return "coincidencia única: el CAS tiene una sola entrada", names
-    same = [n for n in names if norm_name(n) == norm_name(g["nombre"])]
+    same = [n for n in names if norm_name(n) == norm_name(term)]
     if len(same) == 1:
         return "coincidencia única: el término coincide con una de varias", same
     return "peor caso: varias entradas y ninguna coincide con el término", names
 
 
+def natural_groups(ids: list[str], data: Data) -> list[list[str]]:
+    """D14, D1: a name is one material and its CAS are attributes: the rows with the same name are one group."""
+    groups: dict[str, list[str]] = {}
+    for ident in sorted(ids, key=sort_key):
+        groups.setdefault(norm_name(data.glossary[ident]["nombre"]), []).append(ident)
+    return list(groups.values())
+
+
 def prepare_naturals(name: str, lot: dict, data: Data):
     counts: Counter = Counter()
-    conflicts: list[dict[str, str]] = []
     materials = []
-    cas_by_name: dict[str, set[str]] = defaultdict(set)
-    for r in data.glossary.values():
-        if r["clase"] == "natural":
-            cas_by_name[norm_name(r["nombre"])].add(r["cas"])
     natural_cas_in_v2 = {m["cas"]: m for m in data.materials if m["tipo"] == "natural" and m["cas"]}
-    for ident in lot["ids"]:
-        g = data.glossary[ident]
-        if len(cas_by_name[norm_name(g["nombre"])]) > 1:
-            others = sorted(cas_by_name[norm_name(g["nombre"])] - {g["cas"]})
-            conflicts.append({"producto": f"{ident} «{g['nombre']}»", "tipo": "mismo-nombre-distinto-cas",
-                              "detalle": f"CAS {g['cas'] or '(ninguno)'}; el mismo nombre con {' '.join(others)}",
-                              "evidencia": f"el glosario tiene «{g['nombre']}» con más de un CAS y no dice cuál es cuál",
-                              "recomendacion": "no entra hasta que el usuario decida", "respuesta": ""})
-            counts["mismo-nombre-distinto-cas"] += 1
-            continue
-        case, names = natural_case(g, data)
+    for group in natural_groups(lot["ids"], data):
+        rows = [data.glossary[i] for i in group]
+        g = rows[0]
+        cas_list = sorted({r["cas"] for r in rows if r["cas"]})
+        case, names = natural_case(cas_list, g["nombre"], data)
         process = natural_process(g)
         part = natural_part(g)
         counts[case] += 1
         counts["con término" if process else "sin término: proceso «no lo dice»"] += 1
-        if not g["cas"]:
+        if len(cas_list) > 1:
+            counts["varios CAS en un solo material (el mismo nombre; D14)"] += 1
+        if not cas_list:
             counts["sin CAS (entra: el CAS es un atributo, D1)"] += 1
-        species = {a["nombre_botanico"] for n in names for a in data.annex_by_cas[g["cas"]][n]} if names and g["cas"] else set()
+        species = {a["nombre_botanico"] for n in names for c in cas_list for a in data.annex_by_cas.get(c, {}).get(n, [])}
         specie = next(iter(species)) if len(species) == 1 and "" not in species else ""
         if specie:
-            counts["con especie del anexo (única para el CAS)"] += 1
+            counts["con especie del anexo (única)"] += 1
         if part:
             counts["con parte (la dice el término)"] += 1
-        if g["cas"] in natural_cas_in_v2:
-            counts["el CAS ya está en un natural de la v2 (entra aparte, sin fusionar)"] += 1
-        notes = [f"Fase 6, lote {name} (D14): la identidad es el término del FIG «{g['nombre']}»; el CAS {g['cas'] or '(ninguno)'} es un atributo.",
+        if any(c in natural_cas_in_v2 for c in cas_list):
+            counts["algún CAS ya está en un natural de la v2 (entra aparte, sin fusionar)"] += 1
+        cas_text = " ".join(cas_list) or "(ninguno)"
+        notes = [f"Fase 6, lote {name} (D14): la identidad es el término del FIG «{g['nombre']}»; "
+                 + (f"sus CAS ({cas_text}) son atributos." if len(cas_list) > 1 else f"el CAS {cas_text} es un atributo."),
                  f"Proceso: {process or 'no lo dice'}. Parte: {part or 'no lo dice'}. Especie: "
-                 + (f"{specie}, la del anexo de IFRA 51, única para el CAS {g['cas']}." if specie else "no lo dice.")]
-        entry: dict = {"clave": "glosario-natural-" + ident.replace(":", "-"), "tipo": "natural", "nombre": g["nombre"], "cas": g["cas"],
-                       "especie": specie, "parte": part, "proceso": process, "v1": [ident]}
+                 + (f"{specie}, la del anexo de IFRA 51, única para {'los CAS' if len(cas_list) > 1 else 'el CAS'} {cas_text}." if specie else "no lo dice.")]
+        entry: dict = {"clave": "glosario-natural-" + group[0].replace(":", "-"), "tipo": "natural", "nombre": g["nombre"],
+                       "cas": cas_list[0] if cas_list else "", "especie": specie, "parte": part, "proceso": process, "v1": group}
+        if len(cas_list) > 1:
+            entry["otros_cas"] = cas_list[1:]
         if case.startswith("coincidencia"):
-            entry["anexo"] = {"documento": "ifra51-anexo-naturales", "nombre": names[0], "cas": g["cas"]}
+            entry["anexo"] = {"documento": "ifra51-anexo-naturales", "nombre": names[0], "cas_todos": cas_list}
             notes.append(f"Anexo de IFRA 51: la entrada «{names[0]}».")
         elif case.startswith("peor caso"):
-            entry["anexo_peor"] = {"documento": "ifra51-anexo-naturales", "cas": g["cas"], "nombres": names}
-            notes.append(f"Anexo de IFRA 51: el CAS tiene {len(names)} entradas y el término no coincide con una sola; cuenta la peor de ellas: {'; '.join(names)}.")
+            entry["anexo_peor"] = {"documento": "ifra51-anexo-naturales", "cas_todos": cas_list, "nombres": names}
+            notes.append(f"Anexo de IFRA 51: hay {len(names)} entradas para {'estos CAS' if len(cas_list) > 1 else 'este CAS'} y el término no coincide con una sola; "
+                         f"cuenta la peor de ellas: {'; '.join(names)}.")
         entry["notas"] = " ".join(notes)
         materials.append(entry)
     documents = []
@@ -246,7 +284,8 @@ def prepare_naturals(name: str, lot: dict, data: Data):
                           "notas": "Archivo oficial de IFRA convertido por scripts/importar_ifra.py; sus cifras se toman tal cual."})
     entry_file = {"fecha": lot["fecha"], "notas": f"Fase 6, lote {name}: {len(lot['ids'])} naturales del glosario v1 (término del FIG y datos de IFRA).",
                   "documentos": documents, "materiales": materials}
-    return counts, entry_file, conflicts, []
+    counts["entra"] = len(materials)
+    return counts, entry_file, [], []
 
 
 def prepare(name: str, lot: dict, data: Data) -> tuple[Counter, dict, list[dict[str, str]], list[dict[str, str]]]:

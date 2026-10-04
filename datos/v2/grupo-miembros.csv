@@ -1,5 +1,6 @@
 id_grupo,id_miembro,subgrupo,notas
 G00001,S00001,,índice de IFRA 51
+G00001,S00732,,"D15, estandar-por-evidencia: el nombre «3,7-Dimethyl-2,6-octadien-1-ol», sin estereoquímica, es el de «trans-3,7-Dimethyl-2,6-octadien-1-ol» en los datos de IFRA del IFRA_STD_037: la misma sustancia con la estereoquímica sin especificar"
 G00002,S00002,,índice de IFRA 51
 G00003,S00003,,índice de IFRA 51
 G00004,S00004,,índice de IFRA 51
@@ -48,6 +49,7 @@ G00039,S00064,,índice de IFRA 51
 G00040,S00065,,índice de IFRA 51
 G00041,S00066,,índice de IFRA 51
 G00041,S00119,,índice de IFRA 51
+G00041,S00740,,índice de IFRA 51
 G00042,S00067,,índice de IFRA 51
 G00042,S00068,,índice de IFRA 51
 G00042,S00069,,índice de IFRA 51
@@ -69,6 +71,9 @@ G00058,S00090,,índice de IFRA 51
 G00059,S00091,,índice de IFRA 51
 G00059,S00132,,índice de IFRA 51
 G00059,S00419,,índice de IFRA 51
+G00059,S00714,,índice de IFRA 51
+G00059,S00722,,índice de IFRA 51
+G00059,S00876,,índice de IFRA 51
 G00060,S00094,,índice de IFRA 51
 G00061,S00102,,índice de IFRA 51
 G00062,S00104,,índice de IFRA 51
@@ -91,8 +96,10 @@ G00066,S00444,,índice de IFRA 51
 G00067,S00161,,índice de IFRA 51
 G00067,S00174,,índice de IFRA 51
 G00067,S00698,,índice de IFRA 51
+G00067,S00710,,índice de IFRA 51
 G00068,S00163,,índice de IFRA 51
 G00068,S00176,,índice de IFRA 51
+G00068,S00810,,índice de IFRA 51
 G00069,S00186,,índice de IFRA 51
 G00070,S00190,,índice de IFRA 51
 G00071,S00240,,índice de IFRA 51
@@ -104,6 +111,7 @@ G00075,S00413,,índice de IFRA 51
 G00076,S00415,,índice de IFRA 51
 G00077,S00438,,índice de IFRA 51
 G00077,S00439,,índice de IFRA 51
+G00077,S00960,,índice de IFRA 51
 G00078,S00449,,índice de IFRA 51
 G00079,S00494,,índice de IFRA 51
 G00080,S00505,,índice de IFRA 51
@@ -122,3 +130,21 @@ G00090,S00672,,índice de IFRA 51
 G00090,S00705,,"D15, estandar-decidido: decisión del usuario: el usuario decide (2026-10-04) que es la sustancia del STD 044 con otro CAS (evidencia: el nombre del FIG es el del estándar (HMPCC, 3 y 4-(4-hidroxi-4-metilpentil)-3-ciclohexeno-1-carboxaldehído); el glosario no lo dice)"
 G00091,S00681,,índice de IFRA 51
 G00092,S00686,,índice de IFRA 51
+G00093,S00739,,índice de IFRA 51
+G00094,S00757,,índice de IFRA 51
+G00095,S00797,,índice de IFRA 51
+G00096,S00832,,índice de IFRA 51
+G00097,S00838,,índice de IFRA 51
+G00098,S00845,,índice de IFRA 51
+G00099,S00852,,índice de IFRA 51
+G00100,S00856,,índice de IFRA 51
+G00101,S00880,,índice de IFRA 51
+G00102,S00886,,índice de IFRA 51
+G00103,S00899,,índice de IFRA 51
+G00104,S00912,,índice de IFRA 51
+G00105,S00924,,índice de IFRA 51
+G00106,S00947,,índice de IFRA 51
+G00107,S00948,,índice de IFRA 51
+G00108,S00954,,índice de IFRA 51
+G00109,S00967,,índice de IFRA 51
+G00110,S00969,,índice de IFRA 51
