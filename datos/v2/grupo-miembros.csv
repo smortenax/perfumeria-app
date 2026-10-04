@@ -3,8 +3,10 @@ G00001,S00001,,índice de IFRA 51
 G00001,S00732,,"D15, estandar-por-evidencia: el nombre «3,7-Dimethyl-2,6-octadien-1-ol», sin estereoquímica, es el de «trans-3,7-Dimethyl-2,6-octadien-1-ol» en los datos de IFRA del IFRA_STD_037: la misma sustancia con la estereoquímica sin especificar"
 G00002,S00002,,índice de IFRA 51
 G00002,S01488,,índice de IFRA 51
+G00002,S01798,,índice de IFRA 51
 G00003,S00003,,índice de IFRA 51
 G00004,S00004,,índice de IFRA 51
+G00004,S01662,,índice de IFRA 51
 G00005,S00006,,índice de IFRA 51
 G00006,M00006,,índice de IFRA 51: limitado como tal
 G00007,S00009,,índice de IFRA 51
@@ -40,6 +42,8 @@ G00028,S00034,,índice de IFRA 51
 G00029,S00035,,índice de IFRA 51
 G00030,S00042,,índice de IFRA 51
 G00030,S00209,,índice de IFRA 51
+G00030,S01740,,índice de IFRA 51
+G00030,S01873,,índice de IFRA 51
 G00031,S00054,,índice de IFRA 51
 G00031,S00202,,índice de IFRA 51
 G00032,S00055,,índice de IFRA 51
@@ -65,11 +69,14 @@ G00035,S01007,,índice de IFRA 51
 G00036,S00062,,índice de IFRA 51
 G00036,S00078,,índice de IFRA 51
 G00036,S01420,,índice de IFRA 51
+G00036,S01797,,índice de IFRA 51
 G00037,M00043,,"familia: el estándar le aplica por lo que es, aunque el índice no liste su CAS"
 G00037,S01307,,"D16, estandar-de-clase: «Los pinenos y el delta-3-careno se tratan como de origen pináceas mientras no conste otro origen (el usuario, 2026-10-04): aplicar el 184 solo añade una especificación pendiente.» (el usuario, 2026-10-04; lista cerrada de D16: pinenos y delta-3-careno); el STD 184 dice «derived from the Pinacea family», y «alpha-Pinene» está en la lista"
 G00037,S01308,,"D16, estandar-de-clase: «Los pinenos y el delta-3-careno se tratan como de origen pináceas mientras no conste otro origen (el usuario, 2026-10-04): aplicar el 184 solo añade una especificación pendiente.» (el usuario, 2026-10-04; lista cerrada de D16: pinenos y delta-3-careno); el STD 184 dice «derived from the Pinacea family», y «beta-Pinene» está en la lista"
 G00037,S01424,,"D16, estandar-de-clase: «Los pinenos y el delta-3-careno se tratan como de origen pináceas mientras no conste otro origen (el usuario, 2026-10-04): aplicar el 184 solo añade una especificación pendiente.» (el usuario, 2026-10-04; lista cerrada de D16: pinenos y delta-3-careno); el STD 184 dice «derived from the Pinacea family», y «d-.alpha.-Pinene» está en la lista"
 G00037,S01443,,"D16, estandar-de-clase: «Los pinenos y el delta-3-careno se tratan como de origen pináceas mientras no conste otro origen (el usuario, 2026-10-04): aplicar el 184 solo añade una especificación pendiente.» (el usuario, 2026-10-04; lista cerrada de D16: pinenos y delta-3-careno); el STD 184 dice «derived from the Pinacea family», y «delta-3-Carene» está en la lista"
+G00037,S01764,,"D16, estandar-de-clase: «Los pinenos y el delta-3-careno se tratan como de origen pináceas mientras no conste otro origen (el usuario, 2026-10-04): aplicar el 184 solo añade una especificación pendiente.» (el usuario, 2026-10-04; lista cerrada de D16: pinenos y delta-3-careno); el STD 184 dice «derived from the Pinacea family», y «l-.alpha.-Pinene» está en la lista"
+G00037,S01765,,"D16, estandar-de-clase: «Los pinenos y el delta-3-careno se tratan como de origen pináceas mientras no conste otro origen (el usuario, 2026-10-04): aplicar el 184 solo añade una especificación pendiente.» (el usuario, 2026-10-04; lista cerrada de D16: pinenos y delta-3-careno); el STD 184 dice «derived from the Pinacea family», y «l-.beta.-Pinene» está en la lista"
 G00038,M00045,,índice de IFRA 51: limitado como tal
 G00039,S00064,,índice de IFRA 51
 G00040,S00065,,índice de IFRA 51
@@ -77,11 +84,13 @@ G00040,S01032,,índice de IFRA 51
 G00041,S00066,,índice de IFRA 51
 G00041,S00119,,índice de IFRA 51
 G00041,S00740,,índice de IFRA 51
+G00041,S01777,,índice de IFRA 51
 G00042,S00067,,índice de IFRA 51
 G00042,S00068,,índice de IFRA 51
 G00042,S00069,,índice de IFRA 51
 G00043,S00070,,índice de IFRA 51
 G00043,S01477,,índice de IFRA 51
+G00043,S01758,,índice de IFRA 51
 G00044,S00072,,índice de IFRA 51
 G00045,S00073,,índice de IFRA 51
 G00046,S00074,,índice de IFRA 51
@@ -154,6 +163,7 @@ G00073,S00377,,índice de IFRA 51
 G00074,S00410,,índice de IFRA 51
 G00075,S00413,,índice de IFRA 51
 G00076,S00415,,índice de IFRA 51
+G00076,S01726,,índice de IFRA 51
 G00077,S00438,,índice de IFRA 51
 G00077,S00439,,índice de IFRA 51
 G00077,S00960,,índice de IFRA 51
@@ -174,6 +184,7 @@ G00090,S00666,,índice de IFRA 51
 G00090,S00672,,índice de IFRA 51
 G00090,S00705,,"D15, estandar-decidido: decisión del usuario: el usuario decide (2026-10-04) que es la sustancia del STD 044 con otro CAS (evidencia: el nombre del FIG es el del estándar (HMPCC, 3 y 4-(4-hidroxi-4-metilpentil)-3-ciclohexeno-1-carboxaldehído); el glosario no lo dice)"
 G00091,S00681,,índice de IFRA 51
+G00091,S01879,,índice de IFRA 51
 G00092,S00686,,índice de IFRA 51
 G00093,S00739,,índice de IFRA 51
 G00093,S01006,,índice de IFRA 51
@@ -211,6 +222,7 @@ G00119,S01014,,índice de IFRA 51
 G00120,S01015,,índice de IFRA 51
 G00121,S01016,,índice de IFRA 51
 G00122,S01018,,índice de IFRA 51
+G00122,S01770,,índice de IFRA 51
 G00123,S01019,,índice de IFRA 51
 G00124,S01020,,índice de IFRA 51
 G00125,M01210,,índice de IFRA 51: limitado como tal
@@ -222,6 +234,7 @@ G00127,S01364,,índice de IFRA 51
 G00127,S01366,,índice de IFRA 51
 G00128,S01037,,índice de IFRA 51
 G00129,S01070,,índice de IFRA 51
+G00129,S01826,,índice de IFRA 51
 G00130,S01092,,índice de IFRA 51
 G00131,S01098,,índice de IFRA 51
 G00132,S01103,,índice de IFRA 51
@@ -242,3 +255,15 @@ G00145,S01365,,índice de IFRA 51
 G00146,S01380,,índice de IFRA 51
 G00147,S01393,,índice de IFRA 51
 G00148,S01452,,índice de IFRA 51
+G00149,S01607,,índice de IFRA 51
+G00150,S01716,,índice de IFRA 51
+G00151,S01719,,índice de IFRA 51
+G00152,S01729,,índice de IFRA 51
+G00153,S01782,,índice de IFRA 51
+G00154,S01811,,índice de IFRA 51
+G00155,S01818,,índice de IFRA 51
+G00156,S01820,,índice de IFRA 51
+G00157,S01838,,índice de IFRA 51
+G00158,S01839,,índice de IFRA 51
+G00159,S01849,,índice de IFRA 51
+G00160,S01858,,índice de IFRA 51

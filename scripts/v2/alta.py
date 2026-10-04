@@ -211,14 +211,21 @@ def main() -> int:
 
     def substance(cas: str, name: str, date: str, source_standard: str = "", lot: str = "") -> str:
         """The substance of a CAS, made once, with the groups IFRA's index gives that CAS."""
+        # IFRA gives some aldehydes of the Schiff bases with two CAS (the 3- and 4-isomers of the HMPCC): the first is the principal, the others are its aliases.
+        cas, *aliases = cas.split()
         sid = registry.id("sustancia", f"cas:{cas}", date)
         if sid not in substance_rows:
             known = v1_name.get(cas)
             substance_rows[sid] = {"id": sid, "nombre": known or name,
                                    "notas": "" if known else "nombre de la fuente: no está en el glosario v1"}
             tables["sustancia-cas.csv"].append({"id_sustancia": sid, "cas": cas, "relacion": "principal"})
+            for alias in aliases:
+                tables["sustancia-cas.csv"].append({"id_sustancia": sid, "cas": alias, "relacion": "isomero"})
             for standard, subgroup in index.get(cas, []):
                 member(standard, subgroup, sid, date, "índice de IFRA 51")
+            for alias in aliases:
+                for standard, subgroup in index.get(alias, []):
+                    member(standard, subgroup, sid, date, f"índice de IFRA 51 (CAS {alias}, otro CAS de la misma sustancia)")
             if cas == FIVE_MOP_CAS:
                 member(FIVE_MOP_STANDARD, "", sid, date, "el STD 089 limita el 5-MOP, que su índice no lista por CAS")
         in_index = [s for s, _ in index.get(cas, [])]
