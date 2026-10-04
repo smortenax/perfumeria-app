@@ -13,8 +13,12 @@ import { readingIn } from "./ifra-panel";
 /**
  * A tool, not a unit test: it runs with the user's library of formulas (`BIBLIOTECA_DIR=…\Fórmulas`) and says, for each one, which
  * verdicts change when it is opened with the v2 (migrated, with the v1 «sin revisar» for what the v2 does not have) and why. With
- * `BIBLIOTECA_ESCRIBIR=1` it writes `docs/v2/comparacion-fase5.md`. It also checks that no material migrates to another one:
- * its CAS is the same or the user confirmed the link (D13).
+ * `BIBLIOTECA_ESCRIBIR=fase5` it writes `docs/v2/comparacion-fase5.md` (only meaningful with the library and the data of that phase). It also
+ * checks that no material migrates to another one: its CAS is the same or the user confirmed the link (D13).
+ *
+ * Phase 6: `BIBLIOTECA_VOLCADO=<file.json>` writes what the v2 says of each formula (the verdicts and, line by line, what each material carries);
+ * run on the commit of a phase, it is that phase's baseline. With `BIBLIOTECA_FASE5=<that file>` and `BIBLIOTECA_ESCRIBIR=fase6` it writes
+ * `docs/v2/comparacion-fase6.md`: the verdicts of the v2 of today against that baseline, by direction and, one by one, those that go to less prudent.
  */
 const dir = process.env.BIBLIOTECA_DIR;
 
@@ -206,10 +210,127 @@ function materialDiff(note: Extract<MigrationNote, { kind: "migrated" }>, before
       }
       lines.push("");
     }
-    if (process.env.BIBLIOTECA_ESCRIBIR) {
+    if (process.env.BIBLIOTECA_ESCRIBIR === "fase5") {
       writeFileSync("docs/v2/comparacion-fase5.md", lines.join("\n"), "utf-8");
     }
     // The tool only has to run; what it found is in the report.
     expect(rows.length).toBe(files.length);
+  });
+
+  /** What the v2 says of one formula: its verdicts, and what each line carries (its key after migrating, and its IFRA). */
+  const dump = () =>
+    rows.map((r) => {
+      const ifra = merged.ifraData();
+      const lines = r.migration.formula.history.flatMap((c) => {
+        if (c.kind !== "add") return [];
+        const info = ifra.materials.get(c.material.key);
+        const known = info;
+        return [
+          {
+            key: c.material.key,
+            name: c.material.name,
+            substances: known ? known.substances.map((x) => ifra.substances.get(x.key)?.name ?? x.key).sort() : [],
+            pending: known ? [...(known.pending ?? [])].sort() : [],
+            conditions: known ? [...known.conditions].sort() : [],
+            status: info === undefined ? "sin dato" : "comprobado",
+          },
+        ];
+      });
+      return { file: r.file, name: r.name, v1: summary(r.before), v2: summary(r.after), lines };
+    });
+
+  it("dumps what the v2 says of each formula (the baseline of a phase)", () => {
+    if (process.env.BIBLIOTECA_VOLCADO) {
+      writeFileSync(process.env.BIBLIOTECA_VOLCADO, JSON.stringify(dump(), null, 1), "utf-8");
+    }
+    expect(rows.length).toBe(files.length);
+  });
+
+  it("writes the verdicts of the v2 of today against the baseline of Phase 5 (Phase 6)", () => {
+    if (!process.env.BIBLIOTECA_FASE5) return;
+    type Dumped = ReturnType<typeof dump>[number];
+    type Pair = { now: Dumped; then: Dumped };
+    const before = new Map((JSON.parse(readFileSync(process.env.BIBLIOTECA_FASE5, "utf-8")) as Dumped[]).map((d) => [d.file, d]));
+    const now = dump();
+    const pairs = now.map((n) => ({ now: n, then: before.get(n.file) })).filter((p): p is Pair => p.then !== undefined);
+    const changed = pairs.filter((p) => !sameSummary(p.then.v2, p.now.v2));
+    const move = (p: Pair) => `${p.then.v2.asIs} → ${p.now.v2.asIs}`;
+    const moves = new Map<string, Pair[]>();
+    for (const p of pairs) if (p.then.v2.asIs !== p.now.v2.asIs) moves.set(move(p), [...(moves.get(move(p)) ?? []), p]);
+    const count = (k: string) => moves.get(k)?.length ?? 0;
+    const prudent = count("sí → sin comprobar") + count("sí → no");
+    const lessPrudent = count("no → sí") + count("sin comprobar → sí");
+    const level1 = [...moves.values()].reduce((n, v) => n + v.length, 0);
+    const out: string[] = [];
+    out.push("# La biblioteca de fórmulas con la v2 de la Fase 6, frente a la de la Fase 5", "");
+    out.push(
+      `Generado con \`BIBLIOTECA_DIR=… BIBLIOTECA_FASE5=… BIBLIOTECA_ESCRIBIR=fase6 npx vitest run src/bench/biblioteca.tool.test.ts\`. Las mismas ${pairs.length} fórmulas, ` +
+        "la copia de la biblioteca tal como estaba al cerrar la Fase 5 (la de hoy tiene una más y una ya migrada), comprobadas con la v2 de hoy y con la v2 de la Fase 5 (commit `b791d5c`, medida con esta misma herramienta). " +
+        `Cambian de veredicto en algún campo **${changed.length}**; la lectura 1 (¿pasa?) la cambian **${level1}**.`,
+      "",
+    );
+    out.push("## Los cambios de la lectura 1, por dirección", "", "| Dirección | Fórmulas |", "|---|---|");
+    out.push(`| **Más prudente:** sí → sin comprobar o no | **${prudent}** (sí → sin comprobar: ${count("sí → sin comprobar")}; sí → no: ${count("sí → no")}) |`);
+    out.push(`| **Menos prudente:** no o sin comprobar → sí | **${lessPrudent}** (no → sí: ${count("no → sí")}; sin comprobar → sí: ${count("sin comprobar → sí")}) |`);
+    out.push(`| Otros: sin comprobar → no | ${count("sin comprobar → no")} |`, `| Otros: no → sin comprobar | ${count("no → sin comprobar")} |`);
+    out.push(`| La lectura 1 no cambia | ${pairs.length - level1} |`, "");
+    const diffLines = (p: Pair): string[] => {
+      const notes: string[] = [];
+      p.now.lines.forEach((l, i) => {
+        const t = p.then.lines[i];
+        if (!t) return;
+        const parts: string[] = [];
+        if (t.key !== l.key && !(t.key.startsWith("vec:") && l.key.startsWith("vec:"))) parts.push(`antes ${t.key} (${t.status}), ahora ${l.key} (${l.status})`);
+        const gone = t.substances.filter((x) => !l.substances.includes(x));
+        const gained = l.substances.filter((x) => !t.substances.includes(x));
+        if (gone.length) parts.push(`ya no lleva: ${gone.join(", ")}`);
+        if (gained.length) parts.push(`ahora lleva: ${gained.join(", ")}`);
+        const pendingGone = t.pending.filter((x) => !l.pending.includes(x));
+        const pendingNow = l.pending.filter((x) => !t.pending.includes(x));
+        if (pendingGone.length) parts.push(`antes pendiente, ya no: ${pendingGone.join(" / ")}`);
+        if (pendingNow.length) parts.push(`ahora pendiente: ${pendingNow.join(" / ")}`);
+        const condNow = l.conditions.filter((x) => !t.conditions.includes(x));
+        if (condNow.length) parts.push(`condiciones nuevas: ${condNow.join(" / ")}`);
+        if (parts.length) notes.push(`${l.name}: ${parts.join("; ")}`);
+      });
+      return [...new Set(notes)];
+    };
+    const toYes = [...(moves.get("no → sí") ?? []), ...(moves.get("sin comprobar → sí") ?? [])];
+    out.push("### Los que van a menos prudente, uno por uno", "");
+    if (toYes.length === 0) {
+      out.push("Ninguna fórmula pasa a menos prudente en la lectura 1.", "");
+    }
+    for (const p of toYes) {
+      out.push(`- **${p.now.name}** (${p.then.v2.asIs} → sí; hasta ${p.then.v2.maxUse} → ${p.now.v2.maxUse}; pendientes ${p.then.v2.pending} → ${p.now.v2.pending}; sin comprobar ${p.then.v2.unchecked} → ${p.now.v2.unchecked}):`);
+      for (const n of diffLines(p)) out.push(`  - ${n}`);
+    }
+    out.push("");
+    // Without changing the reading 1, a figure can also go the less prudent way: a higher maximum use, fewer pending, fewer unchecked, a ceiling no longer exceeded.
+    const maxOf = (t: string) => Number(t.replace(/\s*\(.*\)/, "").replace("%", "").replace(",", ".").trim());
+    const quiet = pairs.filter(
+      (p) =>
+        p.then.v2.asIs === p.now.v2.asIs &&
+        (maxOf(p.now.v2.maxUse) > maxOf(p.then.v2.maxUse) || p.now.v2.pending < p.then.v2.pending || p.now.v2.unchecked < p.then.v2.unchecked || p.then.v2.exceeds.some((x) => !p.now.v2.exceeds.includes(x))),
+    );
+    out.push("### También van a menos prudente sin cambiar la lectura 1 (más % máximo, menos pendientes o sin comprobar, o ya no se pasa de algo), uno por uno", "");
+    if (quiet.length === 0) out.push("Ninguna.", "");
+    for (const p of quiet) {
+      out.push(`- **${p.now.name}**: hasta ${p.then.v2.maxUse} → ${p.now.v2.maxUse}; pendientes ${p.then.v2.pending} → ${p.now.v2.pending}; sin comprobar ${p.then.v2.unchecked} → ${p.now.v2.unchecked}${p.then.v2.exceeds.length || p.now.v2.exceeds.length ? `; se pasa: ${p.then.v2.exceeds.join(", ") || "nada"} → ${p.now.v2.exceeds.join(", ") || "nada"}` : ""}.`);
+      for (const n of diffLines(p)) out.push(`  - ${n}`);
+    }
+    out.push("");
+    out.push("## Todas las fórmulas", "");
+    for (const p of [...pairs].sort((a, b) => Number(!changed.includes(a)) - Number(!changed.includes(b)) || a.now.name.localeCompare(b.now.name))) {
+      const flag = changed.includes(p) ? "CAMBIA" : "igual";
+      out.push(`## ${p.now.name} · ${flag}`, "");
+      out.push(`- **Fase 5:** ¿pasa? ${p.then.v2.asIs}; hasta ${p.then.v2.maxUse}; ${p.then.v2.pending} pendientes, ${p.then.v2.unchecked} sin comprobar${p.then.v2.exceeds.length ? `; se pasa: ${p.then.v2.exceeds.join(", ")}` : ""}.`);
+      out.push(`- **Fase 6:** ¿pasa? ${p.now.v2.asIs}; hasta ${p.now.v2.maxUse}; ${p.now.v2.pending} pendientes, ${p.now.v2.unchecked} sin comprobar${p.now.v2.exceeds.length ? `; se pasa: ${p.now.v2.exceeds.join(", ")}` : ""}${p.now.v2.groups.length ? `; el grupo ${p.now.v2.groups.join(", ")} pasa de 1` : ""}.`);
+      if (changed.includes(p)) for (const n of diffLines(p)) out.push(`  - ${n}`);
+      out.push("");
+    }
+    if (process.env.BIBLIOTECA_ESCRIBIR === "fase6") {
+      writeFileSync("docs/v2/comparacion-fase6.md", out.join("\n"), "utf-8");
+    }
+    expect(pairs.length).toBe(files.length);
   });
 });

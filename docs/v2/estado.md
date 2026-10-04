@@ -15,12 +15,11 @@ Autoridad: [`decisiones-v2.md`](decisiones-v2.md) (D1–D12). La v1 está congel
   `datos/v2/evidencia/`; pedidos a Perfumiarz en `pendientes-perfumiarz.md`. D12 y la regla de los rangos de SDS: **aprobadas**.
 - [x] **Fase 5 — La v2 por defecto en la app**: migración al abrir (D13, copia en `copias-v1`), ficha «De dónde sale», explicaciones del «no»
   y del «no se sabe», barra con D12, repositorio fusionado con la v1 «sin revisar», informe con tu biblioteca ([`comparacion-fase5.md`](comparacion-fase5.md)).
-- [ ] **Fase 6 — El resto del glosario**, por clase, en lotes de 300 como máximo (`scripts/v2/glosario.py`, lotes congelados en
-  `glosario-lotes.json`). Solo identidad y datos de IFRA; los conflictos se clasifican solos. Lo que usa tu biblioteca queda para el
-  final (`glosario-despues.csv`). **Subidos:** todas las moléculas (6a–6m; D15, D16) y todos los naturales (6d, 6l, 6n–6p; D14: 1152 materiales). Fuera de la fase:
-  `prod:`, `cert:`, `tienda:`, `cat:` y `glosario-fuera.csv`. **Quedan solo los 24 de `glosario-despues.csv`** (los que usa tu biblioteca),
-  que se piden tras la semana de prueba de la Fase 5. El arranque calcula bajo demanda el IFRA y la procedencia (`src/v2/lazy.ts`).
-- [ ] **Fase 7:** preparar la app para una enmienda nueva de IFRA (planteado en el chat de revisión; se detalla al terminar la Fase 6).
+- [x] **Fase 6 — El resto del glosario** (2026-10-05): 3012 moléculas (sustancias) y 1160 naturales, por lotes de 300 (`scripts/v2/glosario.py`, `docs/v2/glosario-lotes.json`; D14, D15, D16;
+  reconocimiento por identidad en `scripts/v2/identidad.py`). Fuera de la fase: `prod:`, `cert:`, `tienda:`, `cat:` y `glosario-fuera.csv`. Los 24 de la biblioteca,
+  dados de alta (6q, 6r). La biblioteca con la v2 de la Fase 6: [`comparacion-fase6.md`](comparacion-fase6.md). El arranque calcula bajo demanda el IFRA y la procedencia (`src/v2/lazy.ts`).
+- [ ] **Fase 7 — siguiente:** preparar la app para una enmienda nueva de IFRA (planteado en el chat de revisión; se detalla ahora que la Fase 6 está hecha).
+- **Pendiente de ti:** recompilar la app al cerrar la semana de prueba (no se ha recompilado desde la 0.2.1).
 
 ## Condiciones de IFRA (D11), a 2026-10-03
 
