@@ -127,6 +127,9 @@ def same_without_stereo(g: dict[str, str], std: str, data: Data) -> str:
 # D16: a standard IFRA defines by class applies when the text of the standard defines the class and the molecule is of it by structure
 # (or the text names it). The evidence is the phrase of the standard plus the structure, never the regex of the v1.
 ALLYL_ESTER = re.compile(r"^allyl (?!alcohol\b)(?!\S*cyanate$)(?P<acid>[a-z0-9 ,'()\-.]*ate)$", re.I)
+PINACEAE_PHRASE = ("Los pinenos y el delta-3-careno se tratan como de origen pináceas mientras no conste otro origen (el usuario, 2026-10-04): "
+                   "aplicar el 184 solo añade una especificación pendiente.")
+PINENE_OR_CARENE = re.compile(r"^(?:(?:d|l|dl) )?(?:(?:alpha|beta|gamma) )?(?:(?:d|l|dl) )?pinene$|^(?:(?:d|l|dl) )?(?:delta )?3 carene$")
 FAMILY_STANDARD = re.compile(r"familia, por el nombre:[^()]*\(STD (\d+)\)")
 
 
@@ -144,12 +147,15 @@ def class_member(std: str, g: dict[str, str], data: Data) -> tuple[bool, str]:
             return True, (f"el STD 188 dice: «{first_sentence(text)}»; la estructura: «{g['nombre']}» es el éster del alcohol alílico "
                           f"con el carboxilato «{m.group('acid')}»")
         return False, f"el STD 188 define la clase por estructura («Allyl esters»), y «{g['nombre']}» no es un éster del alcohol alílico por su nombre"
+    if std == "IFRA_STD_184":
+        # D16, closed list (the user, 2026-10-04): the pinenes and delta-3-carene. Not a rule by constituents: no other terpene.
+        if PINENE_OR_CARENE.match(strip_stereo(g["nombre"])):
+            return True, (f"«{PINACEAE_PHRASE}» (el usuario, 2026-10-04; lista cerrada de D16: pinenos y delta-3-careno); "
+                          f"el STD 184 dice «derived from the Pinacea family», y «{g['nombre']}» está en la lista")
+        return False, f"«{g['nombre']}» no está en la lista cerrada del STD 184 (pinenos y delta-3-careno, D16)"
     named = strip_stereo(g["nombre"])
     if named and len(named) > 6 and named in strip_stereo(text):
         return True, f"el texto del {std} nombra la molécula: «{g['nombre']}»"
-    if std == "IFRA_STD_184":
-        return False, ("el STD 184 define la clase por origen («derived from the Pinacea family», con delta-3-carene como ejemplo), no por estructura, "
-                       f"no nombra «{g['nombre']}», y su origen no consta")
     return False, f"el texto del {std} no define una clase que resuelva «{g['nombre']}»"
 
 

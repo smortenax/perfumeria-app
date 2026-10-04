@@ -1467,6 +1467,24 @@
    "notas": "Fase 6, lote 6f: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
   },
   {
+   "clave": "glosario-7785-70-8",
+   "tipo": "sustancia",
+   "nombre": "d-.alpha.-Pinene",
+   "cas": "7785-70-8",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "fig:1615"
+   ],
+   "notas": "Fase 6, lote 6f: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9).",
+   "estandares_decididos": [
+    {
+     "estandar": "IFRA_STD_184",
+     "motivo": "D16, estandar-de-clase: «Los pinenos y el delta-3-careno se tratan como de origen pináceas mientras no conste otro origen (el usuario, 2026-10-04): aplicar el 184 solo añade una especificación pendiente.» (el usuario, 2026-10-04; lista cerrada de D16: pinenos y delta-3-careno); el STD 184 dice «derived from the Pinacea family», y «d-.alpha.-Pinene» está en la lista"
+    }
+   ]
+  },
+  {
    "clave": "glosario-7785-53-7",
    "tipo": "sustancia",
    "nombre": "d-.alpha.-Terpineol",
@@ -1708,7 +1726,7 @@
    "estandares_decididos": [
     {
      "estandar": "IFRA_STD_184",
-     "motivo": "D16, estandar-de-clase: el texto del IFRA_STD_184 nombra la molécula: «delta-3-Carene»"
+     "motivo": "D16, estandar-de-clase: «Los pinenos y el delta-3-careno se tratan como de origen pináceas mientras no conste otro origen (el usuario, 2026-10-04): aplicar el 184 solo añade una especificación pendiente.» (el usuario, 2026-10-04; lista cerrada de D16: pinenos y delta-3-careno); el STD 184 dice «derived from the Pinacea family», y «delta-3-Carene» está en la lista"
     }
    ]
   },

@@ -1429,6 +1429,24 @@
    "notas": "Fase 6, lote 6e: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
   },
   {
+   "clave": "glosario-80-56-8",
+   "tipo": "sustancia",
+   "nombre": "alpha-Pinene",
+   "cas": "80-56-8",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "fig:1065"
+   ],
+   "notas": "Fase 6, lote 6e: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9).",
+   "estandares_decididos": [
+    {
+     "estandar": "IFRA_STD_184",
+     "motivo": "D16, estandar-de-clase: «Los pinenos y el delta-3-careno se tratan como de origen pináceas mientras no conste otro origen (el usuario, 2026-10-04): aplicar el 184 solo añade una especificación pendiente.» (el usuario, 2026-10-04; lista cerrada de D16: pinenos y delta-3-careno); el STD 184 dice «derived from the Pinacea family», y «alpha-Pinene» está en la lista"
+    }
+   ]
+  },
+  {
    "clave": "glosario-705-73-7",
    "tipo": "sustancia",
    "nombre": "alpha-Propylphenethyl alcohol",
@@ -2499,6 +2517,24 @@
     "fig:1217"
    ],
    "notas": "Fase 6, lote 6e: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
+   "clave": "glosario-127-91-3",
+   "tipo": "sustancia",
+   "nombre": "beta-Pinene",
+   "cas": "127-91-3",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "fig:1218"
+   ],
+   "notas": "Fase 6, lote 6e: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9).",
+   "estandares_decididos": [
+    {
+     "estandar": "IFRA_STD_184",
+     "motivo": "D16, estandar-de-clase: «Los pinenos y el delta-3-careno se tratan como de origen pináceas mientras no conste otro origen (el usuario, 2026-10-04): aplicar el 184 solo añade una especificación pendiente.» (el usuario, 2026-10-04; lista cerrada de D16: pinenos y delta-3-careno); el STD 184 dice «derived from the Pinacea family», y «beta-Pinene» está en la lista"
+    }
+   ]
   },
   {
    "clave": "glosario-60066-88-8",

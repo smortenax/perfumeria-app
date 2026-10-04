@@ -234,7 +234,7 @@ descriptores de olor. No se usa la categoría ISO 9235 (`categoria_iso`): su ley
 
 **Por qué:** inventar una especie, una parte o un proceso daría un límite de menos; «no lo dice» y el peor caso nunca dan un «dentro» falso (§1.2).
 
-## D16 — Estándares de clase (decidida por el usuario el 2026-10-04, en el lote 6e)
+## D16 — Estándares de clase (decidida por el usuario el 2026-10-04, en los lotes 6e y 6f)
 
 Un estándar que IFRA define **por clase** (el 188, ésteres alílicos; el 184, derivados de las pináceas; cualquier otro) se aplica a una
 molécula si **el texto del estándar** (`datos/ifra/51/estandares.csv`, que sale de `origen/…standards-overview.xlsx`) **define la clase y la
@@ -242,8 +242,11 @@ molécula la cumple por estructura**, o si el texto la nombra. La evidencia es l
 
 - **188 (ésteres alílicos):** «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.» La clase es
   estructural: entra lo que es un éster del alcohol alílico por su nombre (`Allyl …ate`; no el isotiocianato de alilo ni el alcohol).
-- **184 (pináceas):** «derived from the Pinacea family», con *delta-3-carene* de ejemplo. La clase es **por origen, no por estructura**: entra lo que
-  el texto nombra (delta-3-carene) y no el pineno, cuyo origen no consta; esos quedan como conflicto.
+- **184 (pináceas):** «derived from the Pinacea family», con *delta-3-carene* de ejemplo. La clase es **por origen, no por estructura**, así que el
+  texto no la resuelve por sí solo. **Lista cerrada** (el usuario, 2026-10-04, lote 6f): el alfa, el beta, el d-alfa, el l-alfa y el l-beta pineno
+  y el delta-3-careno. Su frase, que va en la nota: «Los pinenos y el delta-3-careno se tratan como de origen pináceas mientras no conste otro
+  origen (el usuario, 2026-10-04): aplicar el 184 solo añade una especificación pendiente.» **No se extiende a otros terpenos** (ni al
+  dihidropineno ni al acetilcareno): no es una regla por constituyentes.
 - **Las especificaciones quedan pendientes (D11)**: el estándar de clase añade su especificación sin fila en `condiciones.csv`.
 - Es **automática** en `glosario.py` (categoría `estandar-de-clase`, con su evidencia en la nota del grupo: «D16, …»). **Solo es conflicto lo que
   la definición no resuelva.**

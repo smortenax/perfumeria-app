@@ -43,6 +43,7 @@ terminar: actualizarlo, en 30 líneas como máximo, y hacer commit.
 - `npm run validar:v2` tiene que pasar antes de cada commit de datos.
 - Si una tarea choca con `decisiones-v2.md`, se para y se pregunta.
 - Nunca se fusiona ni se cambia de rama sin que el usuario lo pida.
+- Una nota solo atribuye una decisión al usuario si cita su mensaje; lo que decide la sesión se anota como propuesta de la sesión.
 
 App de **formulación de perfumería**: formular, documentar las fórmulas y comprobar IFRA,
 sin conexión. **Ejecutable de Windows con Tauri 2** primero; móvil (Android e iOS) después,

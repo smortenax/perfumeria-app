@@ -51,7 +51,7 @@ describe("a standard applied by name is a noted decision (D15)", () => {
 describe("a standard applied by the definition of its class is a noted decision, and its specification is pending (D16)", () => {
   it("the allyl esters are members of the STD 188 with the phrase and the structure in the note, and their specification pending", () => {
     const members = import.meta.glob<string>("../../datos/v2/grupo-miembros.csv", { query: "?raw", import: "default", eager: true });
-    const rows = table(Object.values(members)[0]).filter((r) => r["notas"].startsWith("D16, "));
+    const rows = table(Object.values(members)[0]).filter((r) => r["notas"].startsWith("D16, ") && !r["notas"].includes("pinenos"));
     expect(rows.length).toBeGreaterThanOrEqual(14);
     for (const r of rows) {
       expect(r["notas"], r["id_miembro"]).toContain("Allyl esters should only be used when the level of free Allylalcohol");
@@ -62,11 +62,19 @@ describe("a standard applied by the definition of its class is a noted decision,
     }
   });
 
-  it("no pinene is a member of the STD 184 by the glossary: its class is by origin, and the text names only delta-3-carene", () => {
+  it("the pinenes and delta-3-carene (closed list, D16) are members of the STD 184 with the user's phrase, and their specification is pending; no other terpene is", () => {
+    const members = import.meta.glob<string>("../../datos/v2/grupo-miembros.csv", { query: "?raw", import: "default", eager: true });
+    const rows = table(Object.values(members)[0]).filter((r) => r["notas"].includes("Los pinenos y el delta-3-careno se tratan como de origen pináceas"));
+    expect(rows.length).toBeGreaterThanOrEqual(4);
     const ref = new Map(data.groups.map((g) => [g.id, g.reference]));
-    for (const m of data.materials.filter((x) => made.has(x.id) && /pinene/i.test(x.name))) {
-      const own = data.groupMembers.filter((g) => (g.memberId === m.id || g.memberId === m.substanceId) && ref.get(g.groupId) === "IFRA_STD_184");
-      expect(own, m.name).toEqual([]);
+    for (const r of rows) {
+      expect(r["notas"], r["id_miembro"]).toContain("el usuario, 2026-10-04");
+      const material = data.materials.find((m) => m.substanceId === r["id_miembro"])!;
+      expect(/pinene|carene/i.test(material.name), material.name).toBe(true);
+      expect(details.get(v2Key(material.id))?.specPending.some((t) => t.includes("184")), material.name).toBe(true);
     }
+    // Not extended: nothing else of the STD 184 comes from the glossary.
+    const of184 = data.groupMembers.filter((g) => ref.get(g.groupId) === "IFRA_STD_184").map((g) => data.materials.find((m) => m.substanceId === g.memberId || m.id === g.memberId)?.name ?? "");
+    for (const name of of184.filter((n) => /dihydropinene|acetylcarene/i.test(n))) expect(name).toBe("");
   });
 });

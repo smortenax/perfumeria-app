@@ -734,6 +734,10 @@ M01416,S00011,,44.4,,tipico,anexo-ifra,D00034,"Benzaldehyde methyl anthranilate 
 M01427,S00111,,59.1,,tipico,anexo-ifra,D00034,"Helional-methyl anthranilate (or Helioforte): el aldehído que lleva, según IFRA"
 M01428,S01005,,50.6,,tipico,anexo-ifra,D00034,"Methyl 2-[(4-methoxybenzylidene)amino]benzoate (or Anisimea): el aldehído que lleva, según IFRA"
 M01431,S00924,,57.3,,tipico,anexo-ifra,D00034,"Canthoxal-methyl anthranilate (or Canthalide, Anthranolene): el aldehído que lleva, según IFRA"
+M01613,S00061,,53.3,,tipico,anexo-ifra,D00034,"Citral-methyl anthranilate: el aldehído que lleva, según IFRA"
+M01615,S00065,,53.7,,tipico,anexo-ifra,D00034,"Citronellal methylanthranilate; Methyl 2-[(3,7-dimethyl-6-octenylidene)amino]benzoate (or Citronama): el aldehído que lleva, según IFRA"
+M01634,S00575,,58.8,,tipico,anexo-ifra,D00034,"Methyl 2-{[3-(4-isopropylphenyl)-2-methylpropylidene]amino}benzoate; Cyclamen aldehyde-methyl anthranilate: el aldehído que lleva, según IFRA"
+M01803,S01020,,50.2,,tipico,anexo-ifra,D00034,"Ethyl 2-[[[4-(1,1-dimethylethyl)phenyl]methylene]amino]benzoate: el aldehído que lleva, según IFRA"
 P00005,S00006,,0.0046,,tipico,producto,D00002,
 P00006,S00007,,,0.1,maximo,producto,D00004,cota «<» del certificado
 P00006,S00008,,,0.1,maximo,producto,D00004,cota «<» del certificado

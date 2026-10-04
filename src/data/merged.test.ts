@@ -16,8 +16,15 @@ describe("the v1 and the v2 in one repository", () => {
     const linked = new Set(data.v1Links.map((l) => l.v1Id));
     expect(merged.entries.some((e) => linked.has(e.material.key))).toBe(false);
     const onlyV1 = merged.entries.filter((e) => e.unreviewed);
-    // The v1 «sin revisar» shrinks as the glossary lots (Phase 6) enter the v2: it was over 3000 before them.
-    expect(onlyV1.length).toBeGreaterThan(0);
+    // What the v1 «sin revisar» offers is a relation, not a figure that every lot of the glossary would change: the v1 materials
+    // (without the diluents) minus those a row of v1-a-v2.csv links (offered as their v2 product) minus those the v2 already has by key.
+    const v1Materials = v1.entries.filter((e) => e.group !== "diluent");
+    const own = new Set(v2.entries.map((e) => e.material.key));
+    const linkedHere = v1Materials.filter((e) => linked.has(e.material.key));
+    const ownHere = v1Materials.filter((e) => !linked.has(e.material.key) && own.has(e.material.key));
+    expect(linkedHere.length + ownHere.length).toBeGreaterThan(0);
+    expect(onlyV1.length).toBe(v1Materials.length - linkedHere.length - ownHere.length);
+    expect(new Set(onlyV1.map((e) => e.material.key)).size).toBe(onlyV1.length);
     expect(onlyV1.every((e) => e.material.key.includes(":") && !e.material.key.startsWith("v2:") && e.group !== "diluent")).toBe(true);
   });
 
