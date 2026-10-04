@@ -1,4 +1,5 @@
 import type { IfraData, IfraMaterial, IfraSubstance } from "../core/ifra";
+import { viewMap } from "../v2/lazy";
 import { FIVE_MOP_STANDARD, FUROCOUMARIN_OILS, FUROCOUMARINS } from "../v2/to-ifra";
 import type { Dataset } from "../v2/model";
 import type { CatalogEntry } from "./catalog";
@@ -12,23 +13,45 @@ import { repositoryOf, type MaterialRepository } from "./repository";
 export function mergeIfra(v1: IfraData, v2: IfraData): IfraData {
   const own = (key: string) => FUROCOUMARIN_OILS.has(key.replace(/^std:/, ""));
   const fiveMop = `std:${FIVE_MOP_STANDARD}`;
+  // The two are looked at when asked, not copied: the IFRA of the v2 is worked out material by material (Phase 6), and merging by copying
+  // would work all of it out at start-up. What a lookup gives is kept, so that the same key answers with the same object.
   // The phototoxic oils of the v1 sum in the group of STD 089 as those of the v2 do (D10), whichever model first built the substance.
-  const substances = new Map<string, IfraSubstance>();
-  for (const [key, s] of v1.substances) {
-    substances.set(key, own(key) || key === fiveMop ? { ...s, combined: FUROCOUMARINS } : s);
-  }
-  for (const [key, s] of v2.substances) {
-    substances.set(key, s);
-  }
+  const fromV1 = new Map<string, IfraSubstance>();
+  const v1Substance = (key: string): IfraSubstance | undefined => {
+    let s = fromV1.get(key);
+    if (!s) {
+      const own1 = v1.substances.get(key);
+      s = own1 && (own(key) || key === fiveMop ? { ...own1, combined: FUROCOUMARINS } : own1);
+      if (s) {
+        fromV1.set(key, s);
+      }
+    }
+    return s;
+  };
+  const substances = viewMap<IfraSubstance>({
+    get: (key) => v2.substances.get(key) ?? v1Substance(key),
+    has: (key) => v2.substances.has(key) || v1.substances.has(key),
+    keys: () => [...v1.substances.keys(), ...v2.substances.keys()],
+  });
   // One way into the group, never two (D10): a material of the v1 whose 5-MOP is listed counts by it, and not also by its own standard.
-  const materials = new Map<string, IfraMaterial>();
-  for (const [key, m] of v1.materials) {
-    const byFiveMop = m.substances.some((s) => s.key === fiveMop);
-    materials.set(key, byFiveMop ? { ...m, substances: m.substances.filter((s) => !own(s.key)) } : m);
-  }
-  for (const [key, m] of v2.materials) {
-    materials.set(key, m);
-  }
+  const materialsOfV1 = new Map<string, IfraMaterial>();
+  const v1Material = (key: string): IfraMaterial | undefined => {
+    let m = materialsOfV1.get(key);
+    if (!m) {
+      const original = v1.materials.get(key);
+      if (original) {
+        const byFiveMop = original.substances.some((s) => s.key === fiveMop);
+        m = byFiveMop ? { ...original, substances: original.substances.filter((s) => !own(s.key)) } : original;
+        materialsOfV1.set(key, m);
+      }
+    }
+    return m;
+  };
+  const materials = viewMap<IfraMaterial>({
+    get: (key) => v2.materials.get(key) ?? v1Material(key),
+    has: (key) => v2.materials.has(key) || v1.materials.has(key),
+    keys: () => [...v1.materials.keys(), ...v2.materials.keys()],
+  });
   return { substances, materials };
 }
 

@@ -39,10 +39,27 @@ export function v2Entries(
         : `su tienda lo da al ${c.maxPct} %`;
     return { weighing: { percent: c.maxPct, diluent: c.diluent, ...(range ? { range: [c.minPct, c.maxPct] as const } : {}), why, source: c.source } };
   };
-  const provenance = (id: string) => ({ provenance: provenanceOf(data, id, details.get(v2Key(id))) });
-  const card = (id: string) => {
-    const c = cards.get(v2Key(id));
-    return c ? { state: c.state, ...(c.standardName ? { standardName: c.standardName } : {}), ...(c.note ? { ifraNote: c.note } : {}) } : {};
+  /**
+   * What the IFRA of the material says (its card, whether it is pure by convention) and where its figures come from (its provenance)
+   * is worked out the first time the interface reads it, and kept: the start-up only reads the data and what the search needs.
+   */
+  const lazily = (entry: object, id: string) => {
+    const define = (name: string, compute: () => unknown) =>
+      Object.defineProperty(entry, name, {
+        enumerable: true,
+        configurable: true,
+        get() {
+          const value = compute();
+          Object.defineProperty(entry, name, { value, enumerable: true, writable: true, configurable: true });
+          return value;
+        },
+      });
+    const cardOf = () => cards.get(v2Key(id));
+    define("pureByConvention", () => (flatten(data, id).pureByConvention ? true : undefined));
+    define("state", () => cardOf()?.state);
+    define("standardName", () => cardOf()?.standardName || undefined);
+    define("ifraNote", () => cardOf()?.note || undefined);
+    define("provenance", () => provenanceOf(data, id, details.get(v2Key(id))));
   };
   const materials = new Map(data.materials.map((m) => [m.id, m]));
   const documented = new Set(data.coverages.filter((c) => c.documentId !== "").map((c) => c.containerId));
@@ -61,7 +78,7 @@ export function v2Entries(
     const m = materials.get(p.materialId);
     const chemical = m?.name ?? p.name;
     const cas = m?.cas ?? "";
-    entries.push({
+    const entry: CatalogEntry = {
       material: { key: v2Key(p.id), kind: "base", name: p.name, ...(cas ? { cas } : {}) },
       group: "base",
       code: p.id,
@@ -73,14 +90,13 @@ export function v2Entries(
       folded: [p.name, chemical].map(fold),
       ...(p.maker ? { maker: { name: p.maker, code: p.code } } : {}),
       ...(documented.has(p.id) ? { documented: true } : {}),
-      ...(flatten(data, p.id).pureByConvention ? { pureByConvention: true } : {}),
-      ...card(p.id),
-      ...provenance(p.id),
       ...weighing(p.id),
-    });
+    };
+    lazily(entry, p.id);
+    entries.push(entry);
   }
   for (const m of data.materials.filter((x) => !withProduct.has(x.id))) {
-    entries.push({
+    const entry: CatalogEntry = {
       material: { key: v2Key(m.id), kind: "base", name: m.name, ...(m.cas ? { cas: m.cas } : {}) },
       group: "base",
       code: m.id,
@@ -89,10 +105,9 @@ export function v2Entries(
       cas: m.cas,
       search: normalize(`${m.id} ${m.name} ${m.cas} ${m.species}`),
       folded: [fold(m.name)],
-      ...(flatten(data, m.id).pureByConvention ? { pureByConvention: true } : {}),
-      ...card(m.id),
-      ...provenance(m.id),
-    });
+    };
+    lazily(entry, m.id);
+    entries.push(entry);
   }
   return entries;
 }

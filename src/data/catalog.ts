@@ -519,9 +519,12 @@ export function searchCatalog(entries: readonly CatalogEntry[], typedQuery: stri
   // To order, a hyphen is a space: «alpha ionone» starts «alpha-Ionone».
   const loose = (text: string) => text.replace(/[-_]+/g, " ");
   const looseHead = loose(head);
-  const starts = (e: CatalogEntry) =>
-    [e.material.name, e.chemicalName, e.standardName ?? "", e.tradeCode ?? ""].some((n) => loose(normalize(n)).startsWith(looseHead)) ||
-    e.cas.startsWith(head);
+  // The names are read one at a time, in this order, and only while none has matched: the standard's name of a v2 entry is worked out the
+  // first time it is read (Phase 6), and a one-letter query would otherwise read it for every entry that contains the letter.
+  const starts = (e: CatalogEntry) => {
+    const named = (read: () => string | undefined) => loose(normalize(read() ?? "")).startsWith(looseHead);
+    return named(() => e.material.name) || named(() => e.chemicalName) || named(() => e.standardName) || named(() => e.tradeCode) || e.cas.startsWith(head);
+  };
   // Codes tell capitals apart («OT», «Ot»): the one typed exactly comes first.
   const typed = query.trim().replace(/′/g, "'");
   const marked = (e: CatalogEntry) => `${e.iconMark ?? ""}${e.tradeCode ?? ""}`.replace(/′/g, "'");

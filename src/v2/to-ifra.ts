@@ -1,7 +1,8 @@
 import { Ratio } from "../core/arith/ratio.ts";
 import type { IfraData, IfraMaterial, IfraSubstance } from "../core/ifra.ts";
 import { parseCsvRecords } from "../data/csv.ts";
-import type { CompositionRow, Dataset, Material } from "./model.ts";
+import { LazyMap, viewMap } from "./lazy.ts";
+import type { CoverageRow, CompositionRow, Dataset, Material } from "./model.ts";
 
 /**
  * The v2 data as the engine reads it (CLAUDE.md, «Trabajo en la v2»): the composition of every
@@ -103,16 +104,61 @@ const plus = (a: Load, b: Load): Load => ({
 });
 
 /**
+ * What `flatten` looks up for every container, indexed once per dataset: a search through every row for each of thousands
+ * of materials grew the time much faster than the data did (Phase 6). Memoised by the dataset object, which is never changed.
+ */
+interface Index {
+  readonly materials: ReadonlyMap<string, Material>;
+  readonly products: ReadonlyMap<string, Dataset["products"][number]>;
+  readonly lots: ReadonlyMap<string, Dataset["lots"][number]>;
+  readonly members: ReadonlySet<string>;
+  readonly coverage: ReadonlyMap<string, string>;
+  readonly impure: ReadonlySet<string>;
+  readonly compositionBy: ReadonlyMap<string, readonly CompositionRow[]>;
+  readonly coveragesBy: ReadonlyMap<string, readonly CoverageRow[]>;
+  readonly ceilingsBy: ReadonlyMap<string, readonly Dataset["ceilings"][number][]>;
+}
+const INDEXES = new WeakMap<Dataset, Index>();
+
+function groupBy<T>(rows: readonly T[], keyOf: (row: T) => string): Map<string, T[]> {
+  const by = new Map<string, T[]>();
+  for (const row of rows) {
+    const key = keyOf(row);
+    const list = by.get(key);
+    if (list) {
+      list.push(row);
+    } else {
+      by.set(key, [row]);
+    }
+  }
+  return by;
+}
+
+function indexOf(data: Dataset): Index {
+  let index = INDEXES.get(data);
+  if (!index) {
+    index = {
+      materials: new Map(data.materials.map((m) => [m.id, m])),
+      products: new Map(data.products.map((p) => [p.id, p])),
+      lots: new Map(data.lots.map((l) => [l.id, l])),
+      members: new Set(data.groupMembers.map((gm) => gm.memberId)),
+      coverage: new Map(data.coverages.map((c) => [`${c.containerId}|${c.documentId}`, c.coverage])),
+      impure: new Set(data.knownImpurities.map((k) => k.substanceId)),
+      compositionBy: groupBy(data.composition, (r) => r.containerId),
+      coveragesBy: groupBy(data.coverages, (c) => c.containerId),
+      ceilingsBy: groupBy(data.ceilings, (c) => c.productId),
+    };
+    INDEXES.set(data, index);
+  }
+  return index;
+}
+
+/**
  * Flattens the composition of a product, a lot or a material to the members of IFRA's groups.
  * Only the v2 data is read; which members have a limit is the business of `toIfra`.
  */
 export function flatten(data: Dataset, containerId: string): Flattened {
-  const materials = new Map(data.materials.map((m) => [m.id, m]));
-  const products = new Map(data.products.map((p) => [p.id, p]));
-  const lots = new Map(data.lots.map((l) => [l.id, l]));
-  const members = new Set(data.groupMembers.map((gm) => gm.memberId));
-  const coverage = new Map(data.coverages.map((c) => [`${c.containerId}|${c.documentId}`, c.coverage]));
-  const impure = new Set(data.knownImpurities.map((k) => k.substanceId));
+  const { materials, products, lots, members, coverage, impure, compositionBy, coveragesBy } = indexOf(data);
 
   const walk = (id: string, seen: readonly string[]): Flattened => {
     if (seen.includes(id)) {
@@ -145,8 +191,8 @@ export function flatten(data: Dataset, containerId: string): Flattened {
     // Every source of the chain, most authoritative first; within a rank, the most specific
     // container, then the document id, so the order never depends on the files.
     const sources = new Map<string, CompositionRow[]>();
-    for (const row of data.composition) {
-      if (chain.includes(row.containerId)) {
+    for (const container of chain) {
+      for (const row of compositionBy.get(container) ?? []) {
         const key = `${row.containerId}|${row.documentId}`;
         sources.set(key, [...(sources.get(key) ?? []), row]);
       }
@@ -194,8 +240,10 @@ export function flatten(data: Dataset, containerId: string): Flattened {
     }
     // A certificate of the product or lot that declares no restricted substance leaves no rows, but it closes the list
     // all the same: what it does not list is not there.
-    const declaredNone = data.coverages.some(
-      (c) => c.coverage === "reguladas-completa" && c.containerId !== materialId && chain.includes(c.containerId) && !sources.has(`${c.containerId}|${c.documentId}`),
+    const declaredNone = chain.some((container) =>
+      (coveragesBy.get(container) ?? []).some(
+        (c) => c.coverage === "reguladas-completa" && c.containerId !== materialId && !sources.has(`${c.containerId}|${c.documentId}`),
+      ),
     );
     if (declaredNone) {
       complete = true;
@@ -272,20 +320,64 @@ export function buildIfra(data: Dataset, files: IfraFiles): IfraBuild {
   }
 
   const substances = new Map<string, IfraSubstance>();
+  const sumsInGroup = (standard: string) => FUROCOUMARIN_OILS.has(standard) || standard === FIVE_MOP_STANDARD;
+  const substanceOf = (key: string, name: string, limit: Ratio, standard: string): IfraSubstance => ({
+    key,
+    name,
+    limit,
+    amendment: files.amendment,
+    ...(casOf.has(standard) ? { cas: casOf.get(standard) } : {}),
+    ...(sumsInGroup(standard) ? { combined: FUROCOUMARINS } : {}),
+  });
   const ifraSubstance = (key: string, name: string, limit: Ratio, standard: string): string => {
     if (!substances.has(key)) {
-      const sums = FUROCOUMARIN_OILS.has(standard) || standard === FIVE_MOP_STANDARD;
-      substances.set(key, {
-        key,
-        name,
-        limit,
-        amendment: files.amendment,
-        ...(casOf.has(standard) ? { cas: casOf.get(standard) } : {}),
-        ...(sums ? { combined: FUROCOUMARINS } : {}),
-      });
+      substances.set(key, substanceOf(key, name, limit, standard));
     }
     return key;
   };
+  const index = indexOf(data);
+  /** A manufacturer's ceiling is a substance of its product alone (D4). */
+  const ceilingSubstance = (productId: string): IfraSubstance | undefined => {
+    const ofCategory4 = (index.ceilingsBy.get(productId) ?? []).filter((c) => c.category === "4");
+    const ceiling = ofCategory4[ofCategory4.length - 1];
+    if (!ceiling) {
+      return undefined;
+    }
+    const product = index.products.get(productId);
+    return {
+      key: ceilingKey(productId),
+      name: `${product?.name ?? productId} (tope de ${product?.maker || "su fabricante"})`,
+      limit: pct(ceiling.maxPct),
+      amendment: "",
+      supplier: product?.maker || "fabricante",
+    };
+  };
+  /**
+   * What a key of a substance is, whichever materials have been built: a substance is its standard (or its prohibition, or a product's
+   * ceiling), so asking for one the engine has not met yet gives the same as if its material had been built first.
+   */
+  const derive = (key: string): IfraSubstance | undefined => {
+    const [kind, ...rest] = key.split(":");
+    const id = rest.join(":");
+    if (kind === "tope") {
+      return ceilingSubstance(id);
+    }
+    const s = standards.get(id);
+    if (!s || (kind !== "std" && kind !== "prohibido")) {
+      return undefined;
+    }
+    if (kind === "prohibido") {
+      return substanceOf(key, `${s.nombre}, como tal`, Ratio.ZERO, id);
+    }
+    const limit = limitOf(s);
+    return limit ? substanceOf(key, s.nombre, limit, id) : undefined;
+  };
+  /** The substances the materials built so far have registered, and any other that is asked for by its key. */
+  const substanceMap: ReadonlyMap<string, IfraSubstance> = viewMap({
+    get: (key) => substances.get(key) ?? derive(key),
+    has: (key) => substances.has(key) || derive(key) !== undefined,
+    keys: () => substances.keys(),
+  });
 
   /** One member's standards, as what the engine sums, and the notes they leave. */
   const judge = (
@@ -378,18 +470,18 @@ export function buildIfra(data: Dataset, files: IfraFiles): IfraBuild {
     }
   };
 
-  const materials = new Map<string, IfraMaterial>();
-  const details = new Map<string, MaterialDetail>();
+  // Every container and diluent has its IFRA; it is worked out the first time it is asked for and kept (Phase 6).
   const containers = [...data.products.map((p) => p.id), ...data.lots.map((l) => l.id), ...data.materials.map((m) => m.id)];
-  for (const id of containers) {
+  const built = new Map<string, { material: IfraMaterial; detail: MaterialDetail }>();
+  const buildContainer = (id: string): { material: IfraMaterial; detail: MaterialDetail } => {
     const flat = flatten(data, id);
     const entry: IfraEntry = { conditionDetails: [], specPending: [], substances: [], conditions: [], assumed: [], pending: [...flat.pending] };
     const fiveMopKnown = [...flat.loads.keys()].some(
       (member) => !flat.itself.has(member) && (standardsOf.get(member) ?? []).includes(FIVE_MOP_STANDARD),
     );
     // The claims that meet the specifications, from the lot, the product and the material of this container.
-    const ownerId = data.lots.find((l) => l.id === id)?.productId ?? id;
-    const materialId = data.products.find((p) => p.id === ownerId)?.materialId ?? id;
+    const ownerId = index.lots.get(id)?.productId ?? id;
+    const materialId = index.products.get(ownerId)?.materialId ?? id;
     const chain = [id, ownerId, materialId];
     const stateOf = (standard: string): ConditionState => {
       const rows = data.conditions.filter((c) => c.standard === standard && chain.includes(c.containerId));
@@ -402,44 +494,58 @@ export function buildIfra(data: Dataset, files: IfraFiles): IfraBuild {
         : { kind: "pendiente" };
     };
     // A specification that is about other processes than this material's does not apply (exclusiones.csv).
-    const process = (data.materials.find((m) => m.id === materialId)?.process ?? "").toLowerCase();
+    const process = (index.materials.get(materialId)?.process ?? "").toLowerCase();
     const appliesSpec = (standard: string) =>
       !data.exclusions.some((x) => x.standard === standard && x.processes.some((p) => process.includes(p)));
     for (const [member, load] of flat.loads) {
       judge(standardsOf.get(member) ?? [], flat.itself.has(member), load, entry, fiveMopKnown, stateOf, appliesSpec);
     }
     // D4: the manufacturer's ceiling of this product (or of this lot's product), whole in it.
-    const productId = data.lots.find((l) => l.id === id)?.productId ?? id;
-    const product = data.products.find((p) => p.id === productId);
-    for (const ceiling of data.ceilings.filter((c) => c.productId === productId && c.category === "4")) {
-      const key = ceilingKey(productId);
-      substances.set(key, {
-        key,
-        name: `${product?.name ?? productId} (tope de ${product?.maker || "su fabricante"})`,
-        limit: pct(ceiling.maxPct),
-        amendment: "",
-        supplier: product?.maker || "fabricante",
-      });
-      entry.substances.push({ key, fraction: Ratio.ONE });
+    const productId = index.lots.get(id)?.productId ?? id;
+    const ceiling = ceilingSubstance(productId);
+    if (ceiling) {
+      substances.set(ceiling.key, ceiling);
+      // One entry per ceiling of category 4, as before: two of them under one key add up in `merge`.
+      for (const c of index.ceilingsBy.get(productId) ?? []) {
+        if (c.category === "4") {
+          entry.substances.push({ key: ceiling.key, fraction: Ratio.ONE });
+        }
+      }
     }
-    details.set(v2Key(id), { conditions: entry.conditionDetails, specPending: [...new Set(entry.specPending)] });
-    materials.set(v2Key(id), {
-      status: "checked",
-      substances: merge(entry.substances),
-      conditions: [...new Set(entry.conditions)],
-      ...(entry.assumed.length ? { assumed: [...new Set(entry.assumed)] } : {}),
-      ...(entry.pending.length ? { pending: [...new Set(entry.pending)] } : {}),
-    });
-  }
-
+    return {
+      detail: { conditions: entry.conditionDetails, specPending: [...new Set(entry.specPending)] },
+      material: {
+        status: "checked",
+        substances: merge(entry.substances),
+        conditions: [...new Set(entry.conditions)],
+        ...(entry.assumed.length ? { assumed: [...new Set(entry.assumed)] } : {}),
+        ...(entry.pending.length ? { pending: [...new Set(entry.pending)] } : {}),
+      },
+    };
+  };
+  const containerKeys = containers.map(v2Key);
+  const ofContainer = (key: string) => {
+    let one = built.get(key);
+    if (!one) {
+      one = buildContainer(key.slice(v2Key("").length));
+      built.set(key, one);
+    }
+    return one;
+  };
   // The diluents of the app: their CAS in IFRA's index, or nothing to check (the index is complete).
-  for (const [key, cas] of DILUENT_CAS) {
+  const diluents = new Map(DILUENT_CAS);
+  const materials = new LazyMap<IfraMaterial>([...containerKeys, ...diluents.keys()], (key) => {
+    const cas = diluents.get(key);
+    if (cas === undefined) {
+      return ofContainer(key).material;
+    }
     const entry: IfraEntry = { conditionDetails: [], specPending: [], substances: [], conditions: [], assumed: [], pending: [] };
     judge(byCas.get(cas) ?? [], true, { known: Ratio.ONE, upper: Ratio.ONE }, entry);
-    materials.set(key, { status: "checked", substances: entry.substances, conditions: entry.conditions });
-  }
+    return { status: "checked", substances: entry.substances, conditions: entry.conditions };
+  });
+  const details = new LazyMap<MaterialDetail>(containerKeys, (key) => ofContainer(key).detail);
 
-  return { ifra: { substances, materials }, details };
+  return { ifra: { substances: substanceMap, materials }, details };
 }
 
 type Entry = { key: string; fraction: Ratio | null; upper?: Ratio };
@@ -525,7 +631,7 @@ export interface IfraCard {
  * what the material is as itself (its standards), then what it carries inside. A standard that
  * goes by family (188, 184, 089) reaches a material only as a member of its group.
  */
-export function ifraCards(data: Dataset, files: IfraFiles): Map<string, IfraCard> {
+export function ifraCards(data: Dataset, files: IfraFiles): ReadonlyMap<string, IfraCard> {
   const standards = new Map(parseCsvRecords(files.estandares).map((s) => [s.estandar, s]));
   const groupStandard = new Map(data.groups.filter((g) => g.type === "estandar-ifra").map((g) => [g.id, g.reference]));
   const standardsOf = new Map<string, string[]>();
@@ -535,9 +641,8 @@ export function ifraCards(data: Dataset, files: IfraFiles): Map<string, IfraCard
       standardsOf.set(gm.memberId, [...(standardsOf.get(gm.memberId) ?? []), standard]);
     }
   }
-  const cards = new Map<string, IfraCard>();
   const ids = [...data.products.map((p) => p.id), ...data.lots.map((l) => l.id), ...data.materials.map((m) => m.id)];
-  for (const id of ids) {
+  const cardOf = (id: string): IfraCard => {
     const flat = flatten(data, id);
     const own = [...flat.itself].flatMap((member) => standardsOf.get(member) ?? []).map((id2) => standards.get(id2)).filter((s) => s !== undefined);
     const prohibited = own.find((s) => s.prohibicion === "sí" && limitOf(s) === null);
@@ -558,7 +663,7 @@ export function ifraCards(data: Dataset, files: IfraFiles): Map<string, IfraCard
               ? "sin-dato"
               : "sin-estandar";
     const first = prohibited ?? limited ?? specified;
-    cards.set(v2Key(id), {
+    return {
       state,
       ...(first ? { standardName: first.nombre } : {}),
       ...(specified?.nota_especificacion
@@ -566,7 +671,8 @@ export function ifraCards(data: Dataset, files: IfraFiles): Map<string, IfraCard
         : specified?.limite_expresado_como
           ? { note: `Familia (${short(specified.estandar)}, ${specified.nombre}): el límite es de ${specified.limite_expresado_como} en el producto, no del aceite entero.` }
           : {}),
-    });
-  }
-  return cards;
+    };
+  };
+  // Worked out the first time a card is asked for, and kept.
+  return new LazyMap(ids.map(v2Key), (key) => cardOf(key.slice(v2Key("").length)));
 }

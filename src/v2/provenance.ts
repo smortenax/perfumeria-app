@@ -63,17 +63,69 @@ export interface Provenance {
 
 const PLACEHOLDERS: ReadonlySet<string> = new Set(["literatura", "consenso"]);
 
+/** What `provenanceOf` looks up for every material, indexed once per dataset (it never changes), not rebuilt for each of thousands of calls. */
+interface Lookups {
+  readonly documents: ReadonlyMap<string, SourceDocument>;
+  readonly names: ReadonlyMap<string, string>;
+  readonly casOfMaterial: ReadonlyMap<string, string>;
+  readonly casOfSubstance: ReadonlyMap<string, string>;
+  readonly lots: ReadonlyMap<string, Dataset["lots"][number]>;
+  readonly products: ReadonlyMap<string, Dataset["products"][number]>;
+  readonly compositionBy: ReadonlyMap<string, readonly Dataset["composition"][number][]>;
+  readonly coveragesBy: ReadonlyMap<string, readonly Dataset["coverages"][number][]>;
+  readonly ceilingsBy: ReadonlyMap<string, readonly Dataset["ceilings"][number][]>;
+}
+const LOOKUPS = new WeakMap<Dataset, Lookups>();
+
+function group<T>(rows: readonly T[], keyOf: (row: T) => string): Map<string, T[]> {
+  const by = new Map<string, T[]>();
+  for (const row of rows) {
+    by.set(keyOf(row), [...(by.get(keyOf(row)) ?? []), row]);
+  }
+  return by;
+}
+
+function lookupsOf(data: Dataset): Lookups {
+  let l = LOOKUPS.get(data);
+  if (!l) {
+    const casOfSubstance = new Map<string, string>();
+    for (const c of data.casAliases) {
+      if (c.relation === "principal" && !casOfSubstance.has(c.substanceId)) {
+        casOfSubstance.set(c.substanceId, c.cas);
+      }
+    }
+    l = {
+      documents: new Map(data.documents.map((d) => [d.id, d])),
+      names: new Map<string, string>([...data.substances.map((s) => [s.id, s.name] as const), ...data.materials.map((m) => [m.id, m.name] as const)]),
+      casOfMaterial: new Map(data.materials.map((m) => [m.id, m.cas])),
+      casOfSubstance,
+      lots: new Map(data.lots.map((x) => [x.id, x])),
+      products: new Map(data.products.map((x) => [x.id, x])),
+      compositionBy: group(data.composition, (r) => r.containerId),
+      coveragesBy: group(data.coverages, (c) => c.containerId),
+      ceilingsBy: group(data.ceilings, (c) => c.productId),
+    };
+    LOOKUPS.set(data, l);
+  }
+  return l;
+}
+
+/** The rows of some containers, in the order of the file (their lines), as a filter over all the rows gave them. */
+function inFileOrder<T extends { readonly line: number }>(by: ReadonlyMap<string, readonly T[]>, containers: Iterable<string>): T[] {
+  return [...containers].flatMap((c) => by.get(c) ?? []).sort((a, b) => a.line - b.line);
+}
+
 export function provenanceOf(data: Dataset, id: string, detail?: MaterialDetail): Provenance {
-  const documents = new Map<string, SourceDocument>(data.documents.map((d) => [d.id, d]));
+  const { documents, names, casOfMaterial, casOfSubstance, lots, products, compositionBy, coveragesBy, ceilingsBy } = lookupsOf(data);
   const docRef = (docId: string): DocRef | null => {
     const d = documents.get(docId);
     return d
       ? { id: d.id, type: d.type, title: d.title, issuer: d.issuer, date: d.date, path: d.path, reviewed: d.reviewStatus === "revisado" }
       : null;
   };
-  const lot = data.lots.find((l) => l.id === id);
-  const productId = lot ? lot.productId : data.products.some((p) => p.id === id) ? id : undefined;
-  const product = productId ? data.products.find((p) => p.id === productId) : undefined;
+  const lot = lots.get(id);
+  const productId = lot ? lot.productId : products.has(id) ? id : undefined;
+  const product = productId ? products.get(productId) : undefined;
   const materialId = product ? product.materialId : id;
   const containers: ReadonlyArray<readonly [string, FigureRow["from"]]> = [
     ...(lot ? ([[lot.id, "lote"]] as const) : []),
@@ -82,19 +134,11 @@ export function provenanceOf(data: Dataset, id: string, detail?: MaterialDetail)
   ];
   const fromOf = new Map(containers);
 
-  const names = new Map<string, string>([...data.substances.map((s) => [s.id, s.name] as const), ...data.materials.map((m) => [m.id, m.name] as const)]);
-  const casOf = (component: string): string => {
-    const direct = data.materials.find((m) => m.id === component)?.cas;
-    if (direct) {
-      return direct;
-    }
-    return data.casAliases.find((c) => c.substanceId === component && c.relation === "principal")?.cas ?? "";
-  };
+  const casOf = (component: string): string => casOfMaterial.get(component) || casOfSubstance.get(component) || "";
   const value = (r: { min: string; typical: string; max: string; valueType: string }): string =>
     r.valueType === "rango" ? `${r.min}–${r.max} %` : r.valueType === "maximo" ? `≤ ${r.max} %` : `${r.typical} %`;
 
-  const figures = data.composition
-    .filter((r) => fromOf.has(r.containerId))
+  const figures = inFileOrder(compositionBy, fromOf.keys())
     .map(
       (r): FigureRow => ({
         from: fromOf.get(r.containerId)!,
@@ -108,11 +152,9 @@ export function provenanceOf(data: Dataset, id: string, detail?: MaterialDetail)
         document: docRef(r.documentId),
       }),
     );
-  const coverages = data.coverages
-    .filter((c) => fromOf.has(c.containerId))
+  const coverages = inFileOrder(coveragesBy, fromOf.keys())
     .map((c): CoverageInfo => ({ from: fromOf.get(c.containerId)!, coverage: c.coverage, document: docRef(c.documentId) }));
-  const ceilings = data.ceilings
-    .filter((c) => c.productId === productId)
+  const ceilings = (productId ? (ceilingsBy.get(productId) ?? []) : [])
     .map((c): CeilingInfo => ({ category: c.category, maxPct: c.maxPct, maker: product?.maker ?? "", document: docRef(c.documentId) }));
   const conditions = (detail?.conditions ?? []).map(
     (c): ConditionInfo => ({
