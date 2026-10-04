@@ -28,9 +28,17 @@ describe("glossary materials whose standard has a specification (D11)", () => {
   });
 
   it("each one carries its specification as pending, not proven and not assumed", () => {
+    const standardsOfCas = new Map<string, string[]>();
+    for (const r of table(IFRA_FILES.estandarCas)) standardsOfCas.set(r["cas"], [...(standardsOfCas.get(r["cas"]) ?? []), r["estandar"]]);
     for (const m of withSpec) {
       const d = details.get(v2Key(m.id));
-      expect(d?.specPending.length, `${m.id} ${m.name}`).toBeGreaterThan(0);
+      // A specification the process leaves out (exclusiones.csv: the PAH of the STD 078 is of the pyrolysis oil, not of a resinoid) is not pending.
+      const applies = (standardsOfCas.get(m.cas) ?? []).filter(
+        (std) => specStandards.has(std) && !data.exclusions.some((x) => x.standard === std && x.processes.some((p) => m.process.toLowerCase().includes(p))),
+      );
+      if (applies.length > 0) {
+        expect(d?.specPending.length, `${m.id} ${m.name}`).toBeGreaterThan(0);
+      }
       expect(d?.conditions.filter((c) => c.state !== "pendiente" && c.state !== "nota"), m.id).toEqual([]);
     }
   });
