@@ -227,6 +227,12 @@ descriptores de olor. No se usa la categoría ISO 9235 (`categoria_iso`): su ley
 - **CAS compartido por varias entradas del anexo** (`naturales.csv`): si el término coincide con una sola entrada, esa; si no, **la peor
   de las entradas de ese CAS** (para cada constituyente, el máximo, con autoridad `anexo-ifra`, tipo `maximo`), con una nota que lo diga.
   **No es un conflicto.** Sin entrada en el anexo: cobertura «desconocida» (nunca cero).
+- **Reconocimiento por identidad (D10) con D14, reconciliados por el usuario el 2026-10-04** (eran dos instrucciones suyas que se contradecían): un
+  estándar de un aceite (086–096) se reconoce también por especie + parte + proceso. **La especie tiene que estar dicha y coincidir** (con su
+  variedad si la tiene: *Citrus aurantium var. amara* no es *Citrus aurantium*); una especie «no lo dice» **nunca empareja**. **La parte y el
+  proceso**, si son «no lo dice» o, el proceso, solo «aceite esencial», **cuentan como coincidentes** (el peor caso); si dicen algo, tiene que ser lo
+  de la regla. **Una palabra de exclusión en el término** (FCF, sin furocumarinas…) lo deja fuera. Lo hace `scripts/v2/identidad.py`.
+  Por ejemplo, el «Lemon oil, expressed» del glosario es miembro del 092 (y por él del grupo 089), y el «Lemon oil, furocoumarin free» no lo es.
 - **Sin proceso («no lo dice») no se aplica ninguna exclusión por proceso** (`estandares-naturales.csv`, `especificaciones-excluidas.csv`):
   cuenta como el peor caso. Un «Lemon oil» sin más es miembro del 089.
 - **Origen y autoridad:** nada mejor que su fuente; no hay documento ni producto de la v1 (D6, D9).

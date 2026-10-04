@@ -108,7 +108,9 @@ G00038,M03521,,índice de IFRA 51: limitado como tal
 G00038,M03522,,índice de IFRA 51: limitado como tal
 G00038,M03524,,índice de IFRA 51: limitado como tal
 G00038,M03525,,índice de IFRA 51: limitado como tal
+G00038,M03527,,"por especie, parte y proceso (D1): «Lemon oil cold pressed»"
 G00038,M03528,,índice de IFRA 51: limitado como tal
+G00038,M03710,,"por especie, parte y proceso (D1): «Lemon oil cold pressed»"
 G00038,M03936,,índice de IFRA 51: limitado como tal
 G00038,M03971,,índice de IFRA 51: limitado como tal
 G00038,M04123,,índice de IFRA 51: limitado como tal
@@ -505,7 +507,9 @@ G00246,M03424,,índice de IFRA 51: limitado como tal
 G00246,M03425,,índice de IFRA 51: limitado como tal
 G00246,M03426,,índice de IFRA 51: limitado como tal
 G00246,M03428,,índice de IFRA 51: limitado como tal
+G00246,M03429,,"por especie, parte y proceso (D1): «Grapefruit oil expressed»"
 G00246,M03430,,índice de IFRA 51: limitado como tal
+G00246,M03431,,"por especie, parte y proceso (D1): «Grapefruit oil expressed»"
 G00246,M03940,,índice de IFRA 51: limitado como tal
 G00246,M04082,,índice de IFRA 51: limitado como tal
 G00247,M03472,,índice de IFRA 51: limitado como tal
@@ -531,6 +535,7 @@ G00249,M03972,,índice de IFRA 51: limitado como tal
 G00249,M04127,,índice de IFRA 51: limitado como tal
 G00250,M03653,,índice de IFRA 51: limitado como tal
 G00250,M03654,,índice de IFRA 51: limitado como tal
+G00250,M03714,,"por especie, parte y proceso (D1): «Bitter orange peel oil expressed»"
 G00250,M03925,,índice de IFRA 51: limitado como tal
 G00250,M04027,,índice de IFRA 51: limitado como tal
 G00250,M04153,,índice de IFRA 51: limitado como tal

@@ -33,6 +33,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import lote as lots  # noqa: E402
+from identidad import identity_match  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 V2 = ROOT / "datos" / "v2"
@@ -331,15 +332,11 @@ def main() -> int:
                         member(standard, subgroup, mid, date, f"índice de IFRA 51: limitado como tal (CAS {other}, otro CAS del mismo nombre)")
             # The standards of naturals (086-096) are also recognised by species + part + process (D1), not only by
             # the CAS of the index: the FCF bergamot is a bergamot oil expressed whose CAS the index does not list.
-            # D14: «no lo dice» (or nothing) is not an identity: it is never paired with a species, a part or a process of a rule.
-            says_all = all(norm(m.get(k, "")) not in ("", "no lo dice") for k in ("especie", "parte", "proceso"))
-            if m["tipo"] == "natural" and says_all:
+            # D10 with D14: recognised by identity (scripts/v2/identidad.py): the species said and equal; the part and the process,
+            # «no lo dice» or only «aceite esencial», count as equal (the worst case) unless the term carries an exclusion word.
+            if m["tipo"] == "natural":
                 for rule in natural_standards:
-                    if (norm(m.get("especie", "")) in rule["especies"]
-                            and any(x in norm(m.get("parte", "")) for x in rule["partes"])
-                            and any(x in norm(m.get("proceso", "")) for x in rule["procesos"])
-                            # A different process is not the standard's oil: the FCF bergamot is not the 087.
-                            and not any(x in norm(m.get("proceso", "")) for x in rule["excluye"])):
+                    if identity_match(rule, m.get("especie", ""), m.get("parte", ""), m.get("proceso", "")) == "miembro":
                         member(rule["estandar"], "", mid, date,
                                f"por especie, parte y proceso (D1): «{rule['nombre_ifra']}»")
             # A standard that goes by family (089, 184, 188) applies by what the material is, not by

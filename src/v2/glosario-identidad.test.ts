@@ -49,14 +49,18 @@ describe("«no lo dice» is not an identity (D14)", () => {
     }
   });
 
-  it("no natural that does not say its species, part or process is a member of a standard by identity", () => {
+  it("no natural that does not say its species is a member of a standard by identity; the part and the process may be «no lo dice» or «aceite esencial» (D10 with D14)", () => {
     const rows = table(Object.values(members)[0]!);
     const byIdentity = new Set(rows.filter((r) => r["notas"]!.startsWith("por especie, parte y proceso")).map((r) => r["id_miembro"]));
+    expect(byIdentity.size).toBeGreaterThan(0);
     for (const m of naturals) {
-      if (silent(m.species) || silent(m.part) || silent(m.process)) {
+      if (silent(m.species)) {
         expect(byIdentity.has(m.id), m.name).toBe(false);
       }
     }
+    // Some of those that are members by identity say neither a part nor a specific process: the worst case, as D14 says.
+    const worst = naturals.filter((m) => byIdentity.has(m.id) && silent(m.part));
+    expect(worst.length).toBeGreaterThan(0);
   });
 });
 
@@ -82,5 +86,33 @@ describe("with no process said, no specification is excluded by process", () => 
     expect(pendingFor("absoluto").some((t) => t.includes("078"))).toBe(true);
     expect(pendingFor("extracto").some((t) => t.includes("078"))).toBe(true);
     expect(pendingFor("resinoide").some((t) => t.includes("078"))).toBe(false);
+  });
+});
+
+describe("the lemons of the glossary and the phototoxic group (STD 089)", () => {
+  const { ifra } = buildIfra(data, IFRA_FILES);
+  const ref = new Map(data.groups.map((g) => [g.id, g.reference]));
+  const byName = (name: string) => data.materials.find((m) => m.type === "natural" && m.name === name)!;
+  const inGroup = (name: string) => ifra.materials.get(v2Key(byName(name).id))!.substances.some((s) => ifra.substances.get(s.key)?.combined === "furocumarinas");
+  const standardsOf = (name: string) => data.groupMembers.filter((g) => g.memberId === byName(name).id).map((g) => ref.get(g.groupId));
+
+  it("«Lemon oil, expressed» is a member of the STD 092, so of the group of the 089; «Lemon oil, furocoumarin free» is not", () => {
+    expect(standardsOf("Lemon oil, expressed")).toContain("IFRA_STD_092");
+    expect(inGroup("Lemon oil, expressed")).toBe(true);
+    expect(standardsOf("Lemon oil, furocoumarin free")).toEqual([]);
+    expect(inGroup("Lemon oil, furocoumarin free")).toBe(false);
+    expect(standardsOf("Lime oil, cold pressed, furocoumarin free")).toEqual([]);
+  });
+
+  it("recognised by identity, with the part and the process unsaid, when the species is: and not when it is the FCF or the species is unsaid", () => {
+    // A lemon oil of the glossary that says its species and not its part: member of the 092 by identity (the worst case).
+    expect(standardsOf("Lemon oil, terpeneless")).toContain("IFRA_STD_092");
+    expect(standardsOf("Grapefruit oil, folded")).toContain("IFRA_STD_091");
+    // An absolute or an extract is another process: it is not the standard's oil, so identity does not recognise it
+    // (the CAS of the index may: that is another way in, and not this test's).
+    const identity = new Set(table(Object.values(members)[0]!).filter((r) => r["notas"]!.startsWith("por especie, parte y proceso")).map((r) => r["id_miembro"]));
+    for (const m of data.materials.filter((x) => x.type === "natural" && /^(Lemon|Grapefruit|Lime) .*(absolute|extract|concrete)/i.test(x.name))) {
+      expect(identity.has(m.id), m.name).toBe(false);
+    }
   });
 });

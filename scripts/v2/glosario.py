@@ -26,6 +26,9 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from identidad import identity_match, species_key  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[2]
 V2 = ROOT / "datos" / "v2"
 DOCS = ROOT / "docs" / "v2"
@@ -305,12 +308,6 @@ def term_species(name: str, data: Data) -> str:
     return ""
 
 
-def species_key(species: str) -> str:
-    """Genus and epithet, lower case, without the hybrid sign or the author: «Rosa x centifolia L.» and «Rosa centifolia» are one."""
-    words = [w for w in re.split(r"[\s,]+", species.lower()) if w and w not in ("x",)]
-    return " ".join(words[:2])
-
-
 def natural_part(g: dict[str, str]) -> str:
     return " y ".join(word for pattern, word in PART_WORDS if re.search(pattern, g["nombre"].lower()))
 
@@ -378,13 +375,13 @@ def prepare_naturals(name: str, lot: dict, data: Data):
         if standards_here:
             counts["con estándar de IFRA"] += 1
         proc = process.lower()
-        said = all(x not in ("", "no lo dice") for x in (specie, part, process))
         for rule in data.identity_rules:
-            if said and specie.lower() in rule["especies"] and any(x in part.lower() for x in rule["partes"]) and any(x in proc for x in rule["procesos"]):
-                if any(x in proc for x in rule["excluye"]):
-                    counts["con exclusión por proceso aplicada"] += 1
-                else:
-                    counts["miembro por identidad (D10)"] += 1
+            verdict = identity_match(rule, specie, part, process)
+            if verdict == "excluido":
+                counts["con exclusión por proceso aplicada"] += 1
+                break
+            if verdict == "miembro":
+                counts["miembro por identidad (D10)"] += 1
                 break
         if any(std in standards_here and any(w in proc for w in words) for std, words in data.spec_exclusions):
             counts["con exclusión por proceso aplicada"] += 1
