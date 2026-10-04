@@ -2715,6 +2715,18 @@
    "notas": "Fase 6, lote 6k: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
   },
   {
+   "clave": "glosario-816-73-9",
+   "tipo": "sustancia",
+   "nombre": "Methylallyl isobutyrate",
+   "cas": "816-73-9",
+   "origen": "desconocido",
+   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
+   "v1": [
+    "tl:816-73-9"
+   ],
+   "notas": "Fase 6, lote 6k: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
+  },
+  {
    "clave": "glosario-81782-89-0",
    "tipo": "sustancia",
    "nombre": "2,4,4,7-Tetramethylnona-6,8-dien-3-one",

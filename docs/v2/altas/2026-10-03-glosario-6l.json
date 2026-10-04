@@ -1,0 +1,94 @@
+{
+ "fecha": "2026-10-03",
+ "notas": "Fase 6, lote 6l: 6 naturales del glosario v1 (término del FIG y datos de IFRA).",
+ "documentos": [
+  {
+   "clave": "ifra51-anexo-naturales",
+   "tipo": "anexo-ifra",
+   "titulo": "IFRA 51, anexo de contribuciones de otras fuentes: naturales",
+   "emisor": "IFRA",
+   "fecha": "2023-06",
+   "ruta": "datos/ifra/51/naturales.csv",
+   "estado_revision": "revisado",
+   "notas": "Archivo oficial de IFRA convertido por scripts/importar_ifra.py; sus cifras se toman tal cual."
+  }
+ ],
+ "materiales": [
+  {
+   "clave": "glosario-natural-fig-1101",
+   "tipo": "natural",
+   "nombre": "Apple alcoholate",
+   "cas": "883111-87-3",
+   "especie": "no lo dice",
+   "parte": "",
+   "proceso": "",
+   "v1": [
+    "fig:1101"
+   ],
+   "notas": "Fase 6, lote 6l (D14): la identidad es el término del FIG «Apple alcoholate»; el CAS 883111-87-3 es un atributo. Proceso: no lo dice. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-1973",
+   "tipo": "natural",
+   "nombre": "Helichrysum arenarium, ext.",
+   "cas": "85665-35-6",
+   "especie": "Helichrysum angustifolium DC.",
+   "parte": "",
+   "proceso": "",
+   "v1": [
+    "fig:1973"
+   ],
+   "anexo_peor": {
+    "documento": "ifra51-anexo-naturales",
+    "cas_todos": [
+     "85665-35-6"
+    ],
+    "nombres": [
+     "Helichrysum absolute",
+     "Helichrysum oil"
+    ]
+   },
+   "notas": "Fase 6, lote 6l (D14): la identidad es el término del FIG «Helichrysum arenarium, ext.»; el CAS 85665-35-6 es un atributo. Proceso: no lo dice. Parte: no lo dice. Especie: Helichrysum angustifolium DC., la del anexo de IFRA 51, única para el CAS 85665-35-6. Anexo de IFRA 51: hay 2 entradas para este CAS y el término no coincide con una sola; cuenta la peor de ellas: Helichrysum absolute; Helichrysum oil."
+  },
+  {
+   "clave": "glosario-natural-fig-2399",
+   "tipo": "natural",
+   "nombre": "Molasses, blackstrap",
+   "cas": "8052-35-5",
+   "especie": "no lo dice",
+   "parte": "",
+   "proceso": "",
+   "v1": [
+    "fig:2399"
+   ],
+   "notas": "Fase 6, lote 6l (D14): la identidad es el término del FIG «Molasses, blackstrap»; el CAS 8052-35-5 es un atributo. Proceso: no lo dice. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-2409",
+   "tipo": "natural",
+   "nombre": "Myrrh",
+   "cas": "8016-37-3",
+   "especie": "no lo dice",
+   "parte": "",
+   "proceso": "",
+   "v1": [
+    "fig:2409"
+   ],
+   "notas": "Fase 6, lote 6l (D14): la identidad es el término del FIG «Myrrh»; el CAS 8016-37-3 es un atributo. Proceso: no lo dice. Parte: no lo dice. Especie: no lo dice."
+  },
+  {
+   "clave": "glosario-natural-fig-2593",
+   "tipo": "natural",
+   "nombre": "Patchouli",
+   "cas": "8014-09-3",
+   "especie": "no lo dice",
+   "parte": "",
+   "proceso": "",
+   "v1": [
+    "fig:2593",
+    "fig:2594"
+   ],
+   "notas": "Fase 6, lote 6l (D14): la identidad es el término del FIG «Patchouli»; el CAS 8014-09-3 es un atributo. Proceso: no lo dice. Parte: no lo dice. Especie: no lo dice."
+  }
+ ]
+}

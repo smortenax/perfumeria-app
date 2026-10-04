@@ -60,6 +60,7 @@ G00030,S01901,,índice de IFRA 51
 G00031,S00054,,índice de IFRA 51
 G00031,S00202,,índice de IFRA 51
 G00031,S02323,,índice de IFRA 51
+G00031,S02789,,"D15, estandar-por-evidencia: el nombre «Ethanone, 1-[(2R,3S)-1,2,3,4,5,6,7,8-octahydro-2,3,8,8-tetramethyl-2-naphthalenyl]-, rel-», sin estereoquímica, es el de «Ethanone, 1-(1,2,3,4,5,6,7,8-octahydro-2,3,8,8-tetramethyl-2-naphthalenyl)-» en los datos de IFRA del IFRA_STD_068: la misma sustancia con la estereoquímica sin especificar"
 G00032,S00055,,índice de IFRA 51
 G00032,S02267,,índice de IFRA 51
 G00032,S02325,,índice de IFRA 51
@@ -81,6 +82,7 @@ G00034,S01100,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should o
 G00034,S01102,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl trimethylhexanoate» es el éster del alcohol alílico con el carboxilato «trimethylhexanoate»"
 G00034,S02351,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl heptine carbonate» es el éster del alcohol alílico con el carboxilato «heptine carbonate»"
 G00034,S02366,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl phenoxyacetate» es el éster del alcohol alílico con el carboxilato «phenoxyacetate»"
+G00034,S02947,,"D16, estandar-de-clase: el STD 188 dice: «Allyl esters should only be used when the level of free Allylalcohol in the ester is less than 0.1%.»; la estructura: «Allyl nonanoate» es el éster del alcohol alílico con el carboxilato «nonanoate»"
 G00035,S00061,,índice de IFRA 51
 G00035,S00071,,índice de IFRA 51
 G00035,S01007,,índice de IFRA 51

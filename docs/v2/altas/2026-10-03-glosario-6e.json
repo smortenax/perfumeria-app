@@ -1,6 +1,6 @@
 {
  "fecha": "2026-10-03",
- "notas": "Fase 6, lote 6e: 300 moléculas del glosario v1 (identidad del FIG y datos de IFRA).",
+ "notas": "Fase 6, lote 6e: 299 moléculas del glosario v1 (identidad del FIG y datos de IFRA).",
  "documentos": [
   {
    "clave": "ifra51-bases-schiff",
@@ -1683,18 +1683,6 @@
    "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
    "v1": [
     "fig:1100"
-   ],
-   "notas": "Fase 6, lote 6e: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
-  },
-  {
-   "clave": "glosario-883111-87-3",
-   "tipo": "sustancia",
-   "nombre": "Apple alcoholate",
-   "cas": "883111-87-3",
-   "origen": "desconocido",
-   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
-   "v1": [
-    "fig:1101"
    ],
    "notas": "Fase 6, lote 6e: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
   },

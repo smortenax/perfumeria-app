@@ -1,6 +1,6 @@
 {
  "fecha": "2026-10-03",
- "notas": "Fase 6, lote 6i: 300 moléculas del glosario v1 (identidad del FIG y datos de IFRA).",
+ "notas": "Fase 6, lote 6i: 291 moléculas del glosario v1 (identidad del FIG y datos de IFRA).",
  "documentos": [],
  "materiales": [
   {
@@ -2610,114 +2610,6 @@
    "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
    "v1": [
     "cas:99-49-0"
-   ],
-   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
-  },
-  {
-   "clave": "glosario-246872-25-3",
-   "tipo": "sustancia",
-   "nombre": "(1R,6S)-Ethyl 2,2,6-trimethylcyclohexanecarboxylate",
-   "cas": "246872-25-3",
-   "origen": "desconocido",
-   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
-   "v1": [
-    "cat:246872-25-3"
-   ],
-   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
-  },
-  {
-   "clave": "glosario-35931-93-2",
-   "tipo": "sustancia",
-   "nombre": "(R)-3,7-Dimethyloct-6-enenitrile",
-   "cas": "35931-93-2",
-   "origen": "desconocido",
-   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
-   "v1": [
-    "cat:35931-93-2"
-   ],
-   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
-  },
-  {
-   "clave": "glosario-68680-98-8",
-   "tipo": "sustancia",
-   "nombre": "(S)-3,7-Dimethyloctan-1-ol",
-   "cas": "68680-98-8",
-   "origen": "desconocido",
-   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
-   "v1": [
-    "cat:68680-98-8"
-   ],
-   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
-  },
-  {
-   "clave": "glosario-106185-75-5",
-   "tipo": "sustancia",
-   "nombre": "Sandal Fleur - Bacdanol (simil Firsantol)",
-   "cas": "106185-75-5",
-   "origen": "desconocido",
-   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
-   "v1": [
-    "tienda:106185-75-5"
-   ],
-   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
-  },
-  {
-   "clave": "glosario-131812-51-6",
-   "tipo": "sustancia",
-   "nombre": "Okoumal",
-   "cas": "131812-51-6",
-   "origen": "desconocido",
-   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
-   "v1": [
-    "tienda:131812-51-6"
-   ],
-   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
-  },
-  {
-   "clave": "glosario-1335-12-2",
-   "tipo": "sustancia",
-   "nombre": "Alcohol Fenilpropilico",
-   "cas": "1335-12-2",
-   "origen": "desconocido",
-   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
-   "v1": [
-    "tienda:1335-12-2"
-   ],
-   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
-  },
-  {
-   "clave": "glosario-1391529-52-4",
-   "tipo": "sustancia",
-   "nombre": "TRIMOFIX IFF",
-   "cas": "1391529-52-4",
-   "origen": "desconocido",
-   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
-   "v1": [
-    "tienda:1391529-52-4"
-   ],
-   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
-  },
-  {
-   "clave": "glosario-35205-76-6",
-   "tipo": "sustancia",
-   "nombre": "Tuberolide (Methyl Tuberate PURE)",
-   "cas": "35205-76-6",
-   "origen": "desconocido",
-   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
-   "v1": [
-    "tienda:35205-76-6"
-   ],
-   "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
-  },
-  {
-   "clave": "glosario-470-40-6",
-   "tipo": "sustancia",
-   "nombre": "Thujopsene natural",
-   "cas": "470-40-6",
-   "origen": "desconocido",
-   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
-   "v1": [
-    "tienda:470-40-6"
    ],
    "notas": "Fase 6, lote 6i: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
   },

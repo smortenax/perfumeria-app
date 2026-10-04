@@ -1,6 +1,6 @@
 {
  "fecha": "2026-10-03",
- "notas": "Fase 6, lote 6g: 300 moléculas del glosario v1 (identidad del FIG y datos de IFRA).",
+ "notas": "Fase 6, lote 6g: 299 moléculas del glosario v1 (identidad del FIG y datos de IFRA).",
  "documentos": [
   {
    "clave": "ifra51-bases-schiff",
@@ -659,18 +659,6 @@
    "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
    "v1": [
     "fig:1964"
-   ],
-   "notas": "Fase 6, lote 6g: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
-  },
-  {
-   "clave": "glosario-85665-35-6",
-   "tipo": "sustancia",
-   "nombre": "Helichrysum arenarium, ext.",
-   "cas": "85665-35-6",
-   "origen": "desconocido",
-   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
-   "v1": [
-    "fig:1973"
    ],
    "notas": "Fase 6, lote 6g: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
   },

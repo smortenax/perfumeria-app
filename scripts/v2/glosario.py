@@ -172,6 +172,9 @@ def classify(g: dict[str, str], data: Data) -> tuple[str, str, str]:
                 f"la v2 tiene el CAS {cas} en el material {other['id']} «{other['nombre']}», que es un {other['tipo']}")
     note = g["condiciones"]
     if "familia, por el nombre" in note:
+        dropped = data.decided.get(g["id"])
+        if dropped and dropped["estandar"] == "ninguno":
+            return "estandar-descartado", "", f"decisión del usuario: {dropped['motivo']}"
         fam = FAMILY_STANDARD.search(note)
         if fam:
             std = f"IFRA_STD_{int(fam.group(1)):03d}"
@@ -203,8 +206,8 @@ def classify(g: dict[str, str], data: Data) -> tuple[str, str, str]:
     return "entra", "", ""
 
 
-# The rows of the v1 that are products, not glossary (prod:, cert:), and those the user left out by decision, are not of this phase (2026-10-04).
-PRODUCT_PREFIXES = ("prod:", "cert:")
+# The rows of the v1 that are products, not glossary (prod:, cert:, and the tienda: and cat: that only a shop or a catalog knows), and those the user left out by decision, are not of this phase (2026-10-04).
+PRODUCT_PREFIXES = ("prod:", "cert:", "tienda:", "cat:")
 
 
 def out_of_phase(ident: str, data: Data) -> bool:
@@ -220,13 +223,18 @@ def effective_class(g: dict[str, str], data: Data) -> str:
     return g["clase"]
 
 
-def freeze_next(clase: str, lots: dict, data: Data, date: str) -> str | None:
+def freeze_next(clase: str, lots: dict, data: Data, date: str, only: list[str] | None = None) -> str | None:
     taken = {i for lot in lots.values() for i in lot["ids"]}
     pending = sorted(
         (i for i, g in data.glossary.items()
          if effective_class(g, data) == clase and not out_of_phase(i, data) and i not in data.linked and i not in data.later and i not in taken),
         key=sort_key,
     )
+    if only is not None:
+        pending = [i for i in pending if i in only]
+        missing = [i for i in only if i not in pending]
+        if missing:
+            raise SystemExit(f"No están pendientes de la clase «{clase}»: {', '.join(missing)}")
     if not pending:
         return None
     name = "6" + "abcdefghijklmnopqrstuvwxyz"[len(lots)]
@@ -365,11 +373,13 @@ def prepare(name: str, lot: dict, data: Data) -> tuple[Counter, dict, list[dict[
     for ident in lot["ids"]:
         g = data.glossary[ident]
         category, detail, evidence = classify(g, data)
-        if category != "entra" and category not in DECIDED:
+        if category != "entra" and category not in DECIDED and category != "estandar-descartado":
             counts[category] += 1
             conflicts.append({"producto": f"{ident} «{g['nombre']}»", "tipo": category, "detalle": detail, "evidencia": evidence,
                               "recomendacion": "no entra hasta que el usuario decida la categoría", "respuesta": ""})
             continue
+        if category == "estandar-descartado":
+            counts["entra sin el estándar que la v1 le daba por el nombre (decidido por el usuario)"] += 1
         decided = {"estandar": detail, "motivo": f"{'D16' if category == 'estandar-de-clase' else 'D15'}, {category}: {evidence}"} if category in DECIDED else None
         if decided:
             counts[f"entra con estándar por el nombre ({DECIDED[category]})"] += 1
@@ -426,6 +436,7 @@ def prepare(name: str, lot: dict, data: Data) -> tuple[Counter, dict, list[dict[
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser()
+    parser.add_argument("--ids", help="con --nuevo: solo estos ids del glosario (separados por comas), por ejemplo los que cambian de vía")
     parser.add_argument("--aprobar", help="aprueba un lote preparado: pasa a altas/ para que alta.py lo escriba")
     parser.add_argument("--sin-aprobar", action="store_true", help="con --nuevo: el lote queda preparado, sin aprobar")
     parser.add_argument("--nuevo", help="clase de la que se congela el siguiente lote (molécula, natural, base)")
@@ -435,7 +446,7 @@ def main() -> int:
     lots = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
     newest = None
     if args.nuevo:
-        newest = freeze_next(args.nuevo, lots, data, "2026-10-03")
+        newest = freeze_next(args.nuevo, lots, data, "2026-10-03", args.ids.split(",") if args.ids else None)
         if newest is None:
             print(f"No quedan filas de la clase «{args.nuevo}».")
             return 1

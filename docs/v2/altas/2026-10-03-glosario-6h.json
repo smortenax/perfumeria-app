@@ -1,6 +1,6 @@
 {
  "fecha": "2026-10-03",
- "notas": "Fase 6, lote 6h: 300 moléculas del glosario v1 (identidad del FIG y datos de IFRA).",
+ "notas": "Fase 6, lote 6h: 296 moléculas del glosario v1 (identidad del FIG y datos de IFRA).",
  "documentos": [],
  "materiales": [
   {
@@ -244,18 +244,6 @@
    "notas": "Fase 6, lote 6h: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
   },
   {
-   "clave": "glosario-8052-35-5",
-   "tipo": "sustancia",
-   "nombre": "Molasses, blackstrap",
-   "cas": "8052-35-5",
-   "origen": "desconocido",
-   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
-   "v1": [
-    "fig:2399"
-   ],
-   "notas": "Fase 6, lote 6h: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
-  },
-  {
    "clave": "glosario-81-14-1",
    "tipo": "sustancia",
    "nombre": "Musk ketone",
@@ -336,18 +324,6 @@
    "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
    "v1": [
     "fig:2408"
-   ],
-   "notas": "Fase 6, lote 6h: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
-  },
-  {
-   "clave": "glosario-8016-37-3",
-   "tipo": "sustancia",
-   "nombre": "Myrrh",
-   "cas": "8016-37-3",
-   "origen": "desconocido",
-   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
-   "v1": [
-    "fig:2409"
    ],
    "notas": "Fase 6, lote 6h: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
   },
@@ -1368,19 +1344,6 @@
    "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
    "v1": [
     "fig:2588"
-   ],
-   "notas": "Fase 6, lote 6h: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
-  },
-  {
-   "clave": "glosario-8014-09-3",
-   "tipo": "sustancia",
-   "nombre": "Patchouli",
-   "cas": "8014-09-3",
-   "origen": "desconocido",
-   "origen_fuente": "el FIG no dice si es natural o de síntesis, y no hay documento (D6, D7)",
-   "v1": [
-    "fig:2593",
-    "fig:2594"
    ],
    "notas": "Fase 6, lote 6h: la identidad es la del FIG y los estándares son los del índice de IFRA 51; ningún documento ni lista de producto de la v1 (D6, D9)."
   },

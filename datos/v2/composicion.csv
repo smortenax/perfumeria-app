@@ -745,6 +745,9 @@ M02113,S00666,,61.3,,tipico,anexo-ifra,D00034,"Lyral-methyl anthranilate (or Lyr
 M02121,S00011,,44.4,,tipico,anexo-ifra,D00034,"Benzaldehyde methyl anthranilate ; Methyl 2-[(phenylmethylene)amino]benzoate; Methyl 2-(benzylideneamino)benzoate (or Amandolene): el aldehído que lleva, según IFRA"
 M02122,S00419,,50.9,,tipico,anexo-ifra,D00034,"Triplal-methyl anthranilate (or Vertosine, Ligantraal, Agrumea): el aldehído que lleva, según IFRA"
 M02123,S00006,,61.8,,tipico,anexo-ifra,D00034,"α-Hexylcinnamic aldehyde methyl anthranilate (or Jasmea H): el aldehído que lleva, según IFRA"
+M03375,S00017,,49.8,,tipico,anexo-ifra,D00034,"Cinnamic aldehyde methyl anthranilate: el aldehído que lleva, según IFRA"
+M03378,S00001,,,0.05,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 85665-35-6 (D14): Helichrysum oil
+M03378,S00063,,,0.08,maximo,anexo-ifra,D00001,el máximo de las 2 entradas del anexo para 85665-35-6 (D14): Helichrysum absolute
 P00005,S00006,,0.0046,,tipico,producto,D00002,
 P00006,S00007,,,0.1,maximo,producto,D00004,cota «<» del certificado
 P00006,S00008,,,0.1,maximo,producto,D00004,cota «<» del certificado
