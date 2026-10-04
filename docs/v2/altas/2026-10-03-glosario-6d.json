@@ -39,7 +39,7 @@
    "tipo": "natural",
    "nombre": "Abies sachalinensis oil",
    "cas": "8021-28-1",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -52,7 +52,7 @@
    "tipo": "natural",
    "nombre": "Acetic acid, esters with turpentine-oil myrcene fraction terpene alcs.",
    "cas": "69103-01-1",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -65,7 +65,7 @@
    "tipo": "natural",
    "nombre": "Agarwood extract",
    "cas": "94350-09-1",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "extracto",
    "v1": [
@@ -78,7 +78,7 @@
    "tipo": "natural",
    "nombre": "Agarwood extract, Vietnamese",
    "cas": "958663-49-5",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "extracto",
    "v1": [
@@ -91,7 +91,7 @@
    "tipo": "natural",
    "nombre": "Agarwood oil",
    "cas": "94350-09-1",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -104,7 +104,7 @@
    "tipo": "natural",
    "nombre": "Agarwood oil, Indonesia",
    "cas": "1333524-00-7",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -117,7 +117,7 @@
    "tipo": "natural",
    "nombre": "Agarwood oil, Vietnamese",
    "cas": "958663-49-5",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -130,7 +130,7 @@
    "tipo": "natural",
    "nombre": "Ajowan oil",
    "cas": "8001-99-8",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -143,7 +143,7 @@
    "tipo": "natural",
    "nombre": "Alcoholic beverages, rum, CO2 extract, nonalc.",
    "cas": "943609-24-3",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "extracto; CO2",
    "v1": [
@@ -156,7 +156,7 @@
    "tipo": "natural",
    "nombre": "Alcoholic beverages, rum, extract, nonalc.",
    "cas": "943609-24-3",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "extracto",
    "v1": [
@@ -169,7 +169,7 @@
    "tipo": "natural",
    "nombre": "Alcoholic beverages, rum, nonalc., distillate",
    "cas": "943609-24-3",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "destilado",
    "v1": [
@@ -182,7 +182,7 @@
    "tipo": "natural",
    "nombre": "Alcohols, sesquiterpenoidal, citronella-oil",
    "cas": "73049-35-1",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -195,7 +195,7 @@
    "tipo": "natural",
    "nombre": "Alfalfa extract",
    "cas": "84082-36-0",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "extracto",
    "v1": [
@@ -333,7 +333,7 @@
    "tipo": "natural",
    "nombre": "Amyris oil",
    "cas": "8015-65-4",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -346,7 +346,7 @@
    "tipo": "natural",
    "nombre": "Amyris oil, acetylated",
    "cas": "68916-14-3",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -359,7 +359,7 @@
    "tipo": "natural",
    "nombre": "Amyris oil, rectified",
    "cas": "8015-65-4",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial; rectificado",
    "v1": [
@@ -376,16 +376,21 @@
    "parte": "raíz",
    "proceso": "aceite esencial",
    "v1": [
-    "fig:1089"
+    "fig:1089",
+    "cas:84775-41-7"
+   ],
+   "otros_cas": [
+    "84775-41-7"
    ],
    "anexo": {
     "documento": "ifra51-anexo-naturales",
     "nombre": "Angelica root oil",
     "cas_todos": [
-     "8015-64-3"
+     "8015-64-3",
+     "84775-41-7"
     ]
    },
-   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Angelica root oil»; el CAS 8015-64-3 es un atributo. Proceso: aceite esencial. Parte: raíz. Especie: Angelica archangelica L., la del anexo de IFRA 51, única para el CAS 8015-64-3. Anexo de IFRA 51: la entrada «Angelica root oil»."
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Angelica root oil»; sus CAS (8015-64-3 84775-41-7) son atributos. Proceso: aceite esencial. Parte: raíz. Especie: Angelica archangelica L., la del anexo de IFRA 51, única para los CAS 8015-64-3 84775-41-7. Anexo de IFRA 51: la entrada «Angelica root oil»."
   },
   {
    "clave": "glosario-natural-fig-1090",
@@ -478,7 +483,7 @@
    "tipo": "natural",
    "nombre": "Apple distillate",
    "cas": "883111-87-3",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "destilado",
    "v1": [
@@ -491,7 +496,7 @@
    "tipo": "natural",
    "nombre": "Apple essence oil",
    "cas": "883111-87-3",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -504,7 +509,7 @@
    "tipo": "natural",
    "nombre": "Apple extract",
    "cas": "883111-87-3",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "extracto",
    "v1": [
@@ -517,7 +522,7 @@
    "tipo": "natural",
    "nombre": "Apple oil, rectified",
    "cas": "883111-87-3",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial; rectificado",
    "v1": [
@@ -530,7 +535,7 @@
    "tipo": "natural",
    "nombre": "Apple tincture",
    "cas": "883111-87-3",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "tintura",
    "v1": [
@@ -543,7 +548,7 @@
    "tipo": "natural",
    "nombre": "Apricot absolute",
    "cas": "72869-69-3",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "absoluto",
    "v1": [
@@ -596,7 +601,7 @@
    "tipo": "natural",
    "nombre": "Asafetida oil",
    "cas": "9000-04-8",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -609,7 +614,7 @@
    "tipo": "natural",
    "nombre": "Balm leaves extract",
    "cas": "84082-61-1",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "hoja",
    "proceso": "extracto",
    "v1": [
@@ -975,7 +980,7 @@
    "tipo": "natural",
    "nombre": "Bay oil, terpeneless",
    "cas": "68916-05-2",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial; sin terpenos",
    "v1": [
@@ -988,7 +993,7 @@
    "tipo": "natural",
    "nombre": "Beeswax absolute",
    "cas": "8012-89-3",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "absoluto",
    "v1": [
@@ -1001,7 +1006,7 @@
    "tipo": "natural",
    "nombre": "Beeswax CO2 extract",
    "cas": "8012-89-3",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "extracto; CO2",
    "v1": [
@@ -1014,7 +1019,7 @@
    "tipo": "natural",
    "nombre": "Beeswax concrete",
    "cas": "8012-89-3",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "concreto",
    "v1": [
@@ -1027,7 +1032,7 @@
    "tipo": "natural",
    "nombre": "Beeswax resinoid",
    "cas": "8012-89-3",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "resinoide",
    "v1": [
@@ -1040,7 +1045,7 @@
    "tipo": "natural",
    "nombre": "Benzoin CO2 extract, Siam",
    "cas": "9000-72-0",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "extracto; CO2",
    "v1": [
@@ -1053,7 +1058,7 @@
    "tipo": "natural",
    "nombre": "Benzoin extract, Siam",
    "cas": "9000-72-0",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "extracto",
    "v1": [
@@ -1146,7 +1151,7 @@
    "tipo": "natural",
    "nombre": "Bergamot oil terpenes",
    "cas": "68917-80-6",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "terpenos",
    "v1": [
@@ -1163,16 +1168,21 @@
    "parte": "",
    "proceso": "aceite esencial; expresión",
    "v1": [
-    "fig:1199"
+    "fig:1199",
+    "cas:89957-91-5"
+   ],
+   "otros_cas": [
+    "89957-91-5"
    ],
    "anexo": {
     "documento": "ifra51-anexo-naturales",
     "nombre": "Bergamot oil expressed",
     "cas_todos": [
-     "8007-75-8"
+     "8007-75-8",
+     "89957-91-5"
     ]
    },
-   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Bergamot oil, expressed»; el CAS 8007-75-8 es un atributo. Proceso: aceite esencial; expresión. Parte: no lo dice. Especie: Citrus bergamia Risso & Poit., la del anexo de IFRA 51, única para el CAS 8007-75-8. Anexo de IFRA 51: la entrada «Bergamot oil expressed»."
+   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Bergamot oil, expressed»; sus CAS (8007-75-8 89957-91-5) son atributos. Proceso: aceite esencial; expresión. Parte: no lo dice. Especie: Citrus bergamia Risso & Poit., la del anexo de IFRA 51, única para los CAS 8007-75-8 89957-91-5. Anexo de IFRA 51: la entrada «Bergamot oil expressed»."
   },
   {
    "clave": "glosario-natural-fig-1201",
@@ -1219,7 +1229,7 @@
    "tipo": "natural",
    "nombre": "Boronia absolute",
    "cas": "8053-33-6",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "absoluto",
    "v1": [
@@ -1232,7 +1242,7 @@
    "tipo": "natural",
    "nombre": "Bran absolute",
    "cas": "68916-76-7",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "absoluto",
    "v1": [
@@ -1285,7 +1295,7 @@
    "tipo": "natural",
    "nombre": "Bucchu oil, crenulata",
    "cas": "92346-85-5",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -1338,7 +1348,7 @@
    "tipo": "natural",
    "nombre": "Bursera graveolens wood oil",
    "cas": "959130-05-3",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "madera",
    "proceso": "aceite esencial",
    "v1": [
@@ -1351,7 +1361,7 @@
    "tipo": "natural",
    "nombre": "Buxus sempervirens absolute",
    "cas": "84012-17-9",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "absoluto",
    "v1": [
@@ -1384,7 +1394,7 @@
    "tipo": "natural",
    "nombre": "Cacao absolute",
    "cas": "8002-31-1",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "absoluto",
    "v1": [
@@ -1397,7 +1407,7 @@
    "tipo": "natural",
    "nombre": "Cacao extract",
    "cas": "8002-31-1",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "extracto",
    "v1": [
@@ -1410,7 +1420,7 @@
    "tipo": "natural",
    "nombre": "Cacao infusion and tincture",
    "cas": "8002-31-1",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "tintura",
    "v1": [
@@ -1423,7 +1433,7 @@
    "tipo": "natural",
    "nombre": "Cacao oil",
    "cas": "8002-31-1",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -1476,7 +1486,7 @@
    "tipo": "natural",
    "nombre": "Callitropsis nootkatensis oil",
    "cas": "1069136-34-0",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -1489,7 +1499,7 @@
    "tipo": "natural",
    "nombre": "Callitropsis nootkatensis oil, rectified",
    "cas": "1069136-34-0",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial; rectificado",
    "v1": [
@@ -1502,7 +1512,7 @@
    "tipo": "natural",
    "nombre": "Camellia leaf extract",
    "cas": "68916-73-4",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "hoja",
    "proceso": "extracto",
    "v1": [
@@ -1515,7 +1525,7 @@
    "tipo": "natural",
    "nombre": "Camillia leaf concentrate",
    "cas": "68916-73-4",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "hoja",
    "proceso": "",
    "v1": [
@@ -1528,7 +1538,7 @@
    "tipo": "natural",
    "nombre": "Camillia leaf distillate",
    "cas": "68916-73-4",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "hoja",
    "proceso": "destilado",
    "v1": [
@@ -1607,7 +1617,7 @@
    "tipo": "natural",
    "nombre": "Capsicum oleoresin",
    "cas": "8023-77-6",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "oleorresina",
    "v1": [
@@ -1800,7 +1810,7 @@
    "tipo": "natural",
    "nombre": "Carob absolute",
    "cas": "79070-15-8",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "absoluto",
    "v1": [
@@ -1813,7 +1823,7 @@
    "tipo": "natural",
    "nombre": "Carob bean extract",
    "cas": "79070-15-8",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "extracto",
    "v1": [
@@ -2242,7 +2252,7 @@
    "tipo": "natural",
    "nombre": "Castoreum concrete",
    "cas": "8023-83-4",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "concreto",
    "v1": [
@@ -2255,7 +2265,7 @@
    "tipo": "natural",
    "nombre": "Castoreum resinoid",
    "cas": "8023-83-4",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "resinoide",
    "v1": [
@@ -2268,7 +2278,7 @@
    "tipo": "natural",
    "nombre": "Castoreum tincture",
    "cas": "8023-83-4",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "tintura",
    "v1": [
@@ -2321,7 +2331,7 @@
    "tipo": "natural",
    "nombre": "Cedar leaf oil, East Canada",
    "cas": "68917-35-1",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "hoja",
    "proceso": "aceite esencial",
    "v1": [
@@ -2414,7 +2424,7 @@
    "tipo": "natural",
    "nombre": "Cedarwood oil acetylated",
    "cas": "61789-42-2",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -2427,7 +2437,7 @@
    "tipo": "natural",
    "nombre": "Cedarwood oil terpenes",
    "cas": "68608-32-2",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "terpenos",
    "v1": [
@@ -2500,7 +2510,7 @@
    "tipo": "natural",
    "nombre": "Cedarwood oil, epoxidized",
    "cas": "68648-34-0",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -2533,7 +2543,7 @@
    "tipo": "natural",
    "nombre": "Cedarwood oil, oxidized",
    "cas": "68916-71-2",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -2546,7 +2556,7 @@
    "tipo": "natural",
    "nombre": "Cedarwood oil, terpeneless",
    "cas": "68603-22-5",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial; sin terpenos",
    "v1": [
@@ -2829,7 +2839,7 @@
    "tipo": "natural",
    "nombre": "Chamomile flower oil, Roman",
    "cas": "8015-92-7",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "flor",
    "proceso": "aceite esencial",
    "v1": [
@@ -2842,7 +2852,7 @@
    "tipo": "natural",
    "nombre": "Chamomile flower, English, oil",
    "cas": "8015-92-7",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "flor",
    "proceso": "aceite esencial",
    "v1": [
@@ -2855,7 +2865,7 @@
    "tipo": "natural",
    "nombre": "Chamomile oil, Moroccan",
    "cas": "68916-68-7",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -2928,7 +2938,7 @@
    "tipo": "natural",
    "nombre": "Cinchona bark red extract",
    "cas": "68990-12-5",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "corteza",
    "proceso": "extracto",
    "v1": [
@@ -2961,7 +2971,7 @@
    "tipo": "natural",
    "nombre": "Cinnamon bark extract",
    "cas": "8015-91-6",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "corteza",
    "proceso": "extracto",
    "v1": [
@@ -3045,7 +3055,7 @@
    "tipo": "natural",
    "nombre": "Cinnamon leaf oil, rectified",
    "cas": "8015-91-6",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "hoja",
    "proceso": "aceite esencial; rectificado",
    "v1": [
@@ -3069,7 +3079,7 @@
    "tipo": "natural",
    "nombre": "Cinnamon leaf oleoresin",
    "cas": "8015-91-6",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "hoja",
    "proceso": "oleorresina",
    "v1": [
@@ -3273,7 +3283,7 @@
    "tipo": "natural",
    "nombre": "Citronella oil terpenes",
    "cas": "8000-29-1",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "terpenos",
    "v1": [
@@ -3336,7 +3346,7 @@
    "tipo": "natural",
    "nombre": "Citronella oil, reduced",
    "cas": "68916-56-3",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -3389,7 +3399,7 @@
    "tipo": "natural",
    "nombre": "Citrus peels extract",
    "cas": "94266-47-4",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "extracto",
    "v1": [
@@ -3402,7 +3412,7 @@
    "tipo": "natural",
    "nombre": "Citrus terpenes",
    "cas": "68608-34-4",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "terpenos",
    "v1": [
@@ -3415,7 +3425,7 @@
    "tipo": "natural",
    "nombre": "Civet absolute",
    "cas": "68916-26-7",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "absoluto",
    "v1": [
@@ -3428,7 +3438,7 @@
    "tipo": "natural",
    "nombre": "Civet tincture",
    "cas": "68916-26-7",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "tintura",
    "v1": [
@@ -3526,7 +3536,7 @@
    "tipo": "natural",
    "nombre": "Clove bud absolute",
    "cas": "8000-34-8",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "botón",
    "proceso": "absoluto",
    "v1": [
@@ -3551,7 +3561,7 @@
    "tipo": "natural",
    "nombre": "Clove bud extract",
    "cas": "8000-34-8",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "botón",
    "proceso": "extracto",
    "v1": [
@@ -3636,7 +3646,7 @@
    "tipo": "natural",
    "nombre": "Clove leaf oil, rectified",
    "cas": "8000-34-8",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "hoja",
    "proceso": "aceite esencial; rectificado",
    "v1": [
@@ -3681,7 +3691,7 @@
    "tipo": "natural",
    "nombre": "Clove, extract, acetylated",
    "cas": "91771-52-7",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "extracto",
    "v1": [
@@ -3694,7 +3704,7 @@
    "tipo": "natural",
    "nombre": "Coconut absolute",
    "cas": "8001-31-8",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "absoluto",
    "v1": [
@@ -3707,7 +3717,7 @@
    "tipo": "natural",
    "nombre": "Coconut extract",
    "cas": "8001-31-8",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "extracto",
    "v1": [
@@ -3720,7 +3730,7 @@
    "tipo": "natural",
    "nombre": "Coconut infusion",
    "cas": "8001-31-8",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "",
    "v1": [
@@ -3733,7 +3743,7 @@
    "tipo": "natural",
    "nombre": "Coffee bean, roasted, absolute",
    "cas": "8001-67-0",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "absoluto",
    "v1": [
@@ -3746,7 +3756,7 @@
    "tipo": "natural",
    "nombre": "Coffee bean, roasted, CO2 extract",
    "cas": "8001-67-0",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "extracto; CO2",
    "v1": [
@@ -3759,7 +3769,7 @@
    "tipo": "natural",
    "nombre": "Coffee bean, roasted, extract",
    "cas": "68916-18-7",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "extracto",
    "v1": [
@@ -3772,7 +3782,7 @@
    "tipo": "natural",
    "nombre": "Coffee oil",
    "cas": "8001-67-0",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -3785,7 +3795,7 @@
    "tipo": "natural",
    "nombre": "Coffee, Coffea arabica, extract",
    "cas": "84650-00-0",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "extracto",
    "v1": [
@@ -3798,7 +3808,7 @@
    "tipo": "natural",
    "nombre": "Copaiba balsam",
    "cas": "8013-97-6",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "",
    "v1": [
@@ -3811,7 +3821,7 @@
    "tipo": "natural",
    "nombre": "Copaiba balsam oil",
    "cas": "8013-97-6",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -3824,7 +3834,7 @@
    "tipo": "natural",
    "nombre": "Copaiba balsam oleoresin",
    "cas": "8013-97-6",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "oleorresina",
    "v1": [
@@ -3837,7 +3847,7 @@
    "tipo": "natural",
    "nombre": "Copaiba oil",
    "cas": "8013-97-6",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -3850,7 +3860,7 @@
    "tipo": "natural",
    "nombre": "Copaiba oil, rectified",
    "cas": "8013-97-6",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial; rectificado",
    "v1": [
@@ -3863,7 +3873,7 @@
    "tipo": "natural",
    "nombre": "Coriander herb oil terpenless",
    "cas": "8008-52-4",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "hierba",
    "proceso": "aceite esencial",
    "v1": [
@@ -3886,7 +3896,7 @@
    "tipo": "natural",
    "nombre": "Coriander herb oil, rectified",
    "cas": "8008-52-4",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "hierba",
    "proceso": "aceite esencial; rectificado",
    "v1": [
@@ -3909,7 +3919,7 @@
    "tipo": "natural",
    "nombre": "Coriander oleoresin",
    "cas": "8008-52-4",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "oleorresina",
    "v1": [
@@ -3972,7 +3982,7 @@
    "tipo": "natural",
    "nombre": "Cucumber distillate",
    "cas": "89998-01-6",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "destilado",
    "v1": [
@@ -3985,7 +3995,7 @@
    "tipo": "natural",
    "nombre": "Cucumber extract",
    "cas": "89998-01-6",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "extracto",
    "v1": [
@@ -4018,7 +4028,7 @@
    "tipo": "natural",
    "nombre": "Curry leaf absolute",
    "cas": "876068-15-4",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "hoja",
    "proceso": "absoluto",
    "v1": [
@@ -4071,7 +4081,7 @@
    "tipo": "natural",
    "nombre": "Cypress oil, terpene-free",
    "cas": "68916-59-6",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial; sin terpenos",
    "v1": [
@@ -4084,7 +4094,7 @@
    "tipo": "natural",
    "nombre": "Cypriol oil",
    "cas": "68916-60-9",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -4097,7 +4107,7 @@
    "tipo": "natural",
    "nombre": "Cypriol oil, rectified",
    "cas": "68916-60-9",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial; rectificado",
    "v1": [
@@ -4491,7 +4501,7 @@
    "tipo": "natural",
    "nombre": "Eucalyptus citriodora oil, acetylated",
    "cas": "68991-29-7",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -4584,7 +4594,7 @@
    "tipo": "natural",
    "nombre": "Eucalyptus globulus absolute",
    "cas": "97926-40-4",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "absoluto",
    "v1": [
@@ -4597,7 +4607,7 @@
    "tipo": "natural",
    "nombre": "Eucalyptus globulus oil",
    "cas": "97926-40-4",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -4610,7 +4620,7 @@
    "tipo": "natural",
    "nombre": "Eucalyptus globulus oil, rectified",
    "cas": "97926-40-4",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial; rectificado",
    "v1": [
@@ -4663,7 +4673,7 @@
    "tipo": "natural",
    "nombre": "Evodia rutaecarpa oil",
    "cas": "1137739-11-7",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -4676,7 +4686,7 @@
    "tipo": "natural",
    "nombre": "Fennel bitter oleoresin",
    "cas": "8006-84-6",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "oleorresina",
    "v1": [
@@ -4699,7 +4709,7 @@
    "tipo": "natural",
    "nombre": "Fennel oil, bitter",
    "cas": "8006-84-6",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -4742,7 +4752,7 @@
    "tipo": "natural",
    "nombre": "Fennel sweet oleoresin",
    "cas": "8006-84-6",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "oleorresina",
    "v1": [
@@ -4765,7 +4775,7 @@
    "tipo": "natural",
    "nombre": "Fenugreek absolute",
    "cas": "68990-15-8",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "absoluto",
    "v1": [
@@ -4778,7 +4788,7 @@
    "tipo": "natural",
    "nombre": "Fenugreek extract",
    "cas": "68990-15-8",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "extracto",
    "v1": [
@@ -4791,7 +4801,7 @@
    "tipo": "natural",
    "nombre": "Fenugreek oleoresin",
    "cas": "68990-15-8",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "oleorresina",
    "v1": [
@@ -4804,7 +4814,7 @@
    "tipo": "natural",
    "nombre": "Fenugreek tincture",
    "cas": "68990-15-8",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "tintura",
    "v1": [
@@ -4817,7 +4827,7 @@
    "tipo": "natural",
    "nombre": "Fir absolute",
    "cas": "8021-28-1",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "absoluto",
    "v1": [
@@ -4890,7 +4900,7 @@
    "tipo": "natural",
    "nombre": "Fir balsam resinoid from needles",
    "cas": "8021-28-1",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "aguja",
    "proceso": "resinoide",
    "v1": [
@@ -4923,7 +4933,7 @@
    "tipo": "natural",
    "nombre": "Fir needle oil, Chinese",
    "cas": "8021-28-1",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "aguja",
    "proceso": "aceite esencial",
    "v1": [
@@ -4956,7 +4966,7 @@
    "tipo": "natural",
    "nombre": "Fir needle oil, Siberian, rectified",
    "cas": "8021-29-2",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "aguja",
    "proceso": "aceite esencial; rectificado",
    "v1": [
@@ -4999,7 +5009,7 @@
    "tipo": "natural",
    "nombre": "Fir, Abies balsamea, absolute",
    "cas": "8021-28-1",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "absoluto",
    "v1": [
@@ -5012,7 +5022,7 @@
    "tipo": "natural",
    "nombre": "Fir, Abies pectinata, concrete",
    "cas": "92128-34-2",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "concreto",
    "v1": [
@@ -5065,7 +5075,7 @@
    "tipo": "natural",
    "nombre": "Fucus vesiculosus absolute",
    "cas": "68917-51-1",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "absoluto",
    "v1": [
@@ -5078,7 +5088,7 @@
    "tipo": "natural",
    "nombre": "Fucus vesiculosus resinoid",
    "cas": "68917-51-1",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "resinoide",
    "v1": [
@@ -5091,7 +5101,7 @@
    "tipo": "natural",
    "nombre": "Fusel oil, refined",
    "cas": "8013-75-0",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "",
    "proceso": "aceite esencial",
    "v1": [
@@ -5104,7 +5114,7 @@
    "tipo": "natural",
    "nombre": "Galangal root extract",
    "cas": "8024-40-6",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "raíz",
    "proceso": "extracto",
    "v1": [
@@ -5117,7 +5127,7 @@
    "tipo": "natural",
    "nombre": "Galangal root oleoresin",
    "cas": "8024-40-6",
-   "especie": "",
+   "especie": "no lo dice",
    "parte": "raíz",
    "proceso": "oleorresina",
    "v1": [
@@ -5264,32 +5274,6 @@
     ]
    },
    "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Galbanum resinoid»; el CAS 8023-91-4 es un atributo. Proceso: resinoide. Parte: no lo dice. Especie: Ferula spp., la del anexo de IFRA 51, única para el CAS 8023-91-4. Anexo de IFRA 51: la entrada «Galbanum oil»."
-  },
-  {
-   "clave": "glosario-natural-fig-1898",
-   "tipo": "natural",
-   "nombre": "Gardenia tahitensis absolute",
-   "cas": "683748-01-8",
-   "especie": "",
-   "parte": "",
-   "proceso": "absoluto",
-   "v1": [
-    "fig:1898"
-   ],
-   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Gardenia tahitensis absolute»; el CAS 683748-01-8 es un atributo. Proceso: absoluto. Parte: no lo dice. Especie: no lo dice."
-  },
-  {
-   "clave": "glosario-natural-fig-1899",
-   "tipo": "natural",
-   "nombre": "Gardenia tahitensis oil",
-   "cas": "683748-01-8",
-   "especie": "",
-   "parte": "",
-   "proceso": "aceite esencial",
-   "v1": [
-    "fig:1899"
-   ],
-   "notas": "Fase 6, lote 6d (D14): la identidad es el término del FIG «Gardenia tahitensis oil»; el CAS 683748-01-8 es un atributo. Proceso: aceite esencial. Parte: no lo dice. Especie: no lo dice."
   }
  ]
 }

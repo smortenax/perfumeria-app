@@ -265,7 +265,7 @@ def prepare_naturals(name: str, lot: dict, data: Data):
                  f"Proceso: {process or 'no lo dice'}. Parte: {part or 'no lo dice'}. Especie: "
                  + (f"{specie}, la del anexo de IFRA 51, única para {'los CAS' if len(cas_list) > 1 else 'el CAS'} {cas_text}." if specie else "no lo dice.")]
         entry: dict = {"clave": "glosario-natural-" + group[0].replace(":", "-"), "tipo": "natural", "nombre": g["nombre"],
-                       "cas": cas_list[0] if cas_list else "", "especie": specie, "parte": part, "proceso": process, "v1": group}
+                       "cas": cas_list[0] if cas_list else "", "especie": specie or "no lo dice", "parte": part, "proceso": process, "v1": group}
         if len(cas_list) > 1:
             entry["otros_cas"] = cas_list[1:]
         if case.startswith("coincidencia"):

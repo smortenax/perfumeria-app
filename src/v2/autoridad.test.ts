@@ -52,8 +52,10 @@ describe("what enters from the glossary of the v1 (Phase 6)", () => {
     const made = new Set(data.ids.filter((e) => e.entity === "material" && e.key.startsWith("glosario-")).map((e) => e.id));
     expect(made.size).toBeGreaterThan(0);
     for (const m of data.materials.filter((x) => made.has(x.id))) {
-      expect(m.type, m.id).toBe("sustancia");
-      expect(m.origin, m.id).toBe("desconocido");
+      // The molecules are substances of unknown origin (D7); the naturals (D14) have no origin, and «no lo dice» is their species when the annex gives none.
+      expect(["sustancia", "natural"], m.id).toContain(m.type);
+      if (m.type === "sustancia") expect(m.origin, m.id).toBe("desconocido");
+      if (m.type === "natural") expect(m.origin, m.id).toBe("");
     }
     for (const row of data.composition.filter((r) => made.has(r.containerId))) {
       expect(row.authority, `${row.containerId}`).toBe("anexo-ifra");

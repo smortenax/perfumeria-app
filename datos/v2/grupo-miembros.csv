@@ -13,6 +13,8 @@ G00010,S00012,,índice de IFRA 51
 G00011,S00013,,índice de IFRA 51
 G00012,S00014,,índice de IFRA 51
 G00013,S00015,,índice de IFRA 51
+G00013,S01008,,índice de IFRA 51
+G00013,S01012,,índice de IFRA 51
 G00014,S00016,,índice de IFRA 51
 G00014,S00063,,índice de IFRA 51
 G00014,S00081,,índice de IFRA 51
@@ -26,6 +28,7 @@ G00021,S00023,,índice de IFRA 51
 G00022,S00024,,índice de IFRA 51
 G00023,S00025,,índice de IFRA 51
 G00024,S00026,,índice de IFRA 51
+G00024,S01009,,índice de IFRA 51
 G00025,S00027,,índice de IFRA 51
 G00026,S00028,,índice de IFRA 51
 G00026,S00080,,índice de IFRA 51
@@ -41,6 +44,7 @@ G00033,S00057,,índice de IFRA 51
 G00034,M00027,,"familia: el estándar le aplica por lo que es, aunque el índice no liste su CAS"
 G00035,S00061,,índice de IFRA 51
 G00035,S00071,,índice de IFRA 51
+G00035,S01007,,índice de IFRA 51
 G00036,S00062,,índice de IFRA 51
 G00036,S00078,,índice de IFRA 51
 G00037,M00043,,"familia: el estándar le aplica por lo que es, aunque el índice no liste su CAS"
@@ -62,10 +66,13 @@ G00048,S00076,,índice de IFRA 51
 G00049,M00051,,índice de IFRA 51: limitado como tal
 G00050,S00077,,índice de IFRA 51
 G00051,S00082,,índice de IFRA 51
+G00052,M01055,,índice de IFRA 51: limitado como tal
+G00052,M01056,,índice de IFRA 51: limitado como tal
 G00053,M00042,,"familia: el estándar le aplica por lo que es, aunque el índice no liste su CAS"
 G00054,M00054,,índice de IFRA 51: limitado como tal
 G00055,S00083,,índice de IFRA 51
 G00056,S00084,,índice de IFRA 51
+G00056,S01017,,índice de IFRA 51
 G00057,S00085,,índice de IFRA 51
 G00058,S00090,,índice de IFRA 51
 G00059,S00091,,índice de IFRA 51
@@ -76,6 +83,12 @@ G00059,S00722,,índice de IFRA 51
 G00059,S00876,,índice de IFRA 51
 G00060,S00094,,índice de IFRA 51
 G00061,S00102,,índice de IFRA 51
+G00062,M01027,,índice de IFRA 51: limitado como tal
+G00062,M01028,,índice de IFRA 51: limitado como tal
+G00062,M01029,,índice de IFRA 51: limitado como tal
+G00062,M01031,,índice de IFRA 51: limitado como tal
+G00062,M01032,,índice de IFRA 51: limitado como tal
+G00062,M01033,,índice de IFRA 51: limitado como tal
 G00062,S00104,,índice de IFRA 51
 G00063,S00111,,índice de IFRA 51
 G00064,S00140,,índice de IFRA 51
@@ -131,6 +144,7 @@ G00090,S00705,,"D15, estandar-decidido: decisión del usuario: el usuario decide
 G00091,S00681,,índice de IFRA 51
 G00092,S00686,,índice de IFRA 51
 G00093,S00739,,índice de IFRA 51
+G00093,S01006,,índice de IFRA 51
 G00094,S00757,,índice de IFRA 51
 G00095,S00797,,índice de IFRA 51
 G00096,S00832,,índice de IFRA 51
@@ -148,3 +162,23 @@ G00107,S00948,,índice de IFRA 51
 G00108,S00954,,índice de IFRA 51
 G00109,S00967,,índice de IFRA 51
 G00110,S00969,,índice de IFRA 51
+G00111,S01004,,índice de IFRA 51
+G00112,M01012,,índice de IFRA 51: limitado como tal
+G00112,M01013,,índice de IFRA 51: limitado como tal
+G00112,M01014,,índice de IFRA 51: limitado como tal
+G00112,M01015,,índice de IFRA 51: limitado como tal
+G00113,S01005,,índice de IFRA 51
+G00114,M01026,,índice de IFRA 51: limitado como tal
+G00115,M01057,,índice de IFRA 51: limitado como tal
+G00116,S01010,,índice de IFRA 51
+G00116,S01011,,índice de IFRA 51
+G00117,M01081,,índice de IFRA 51: limitado como tal
+G00118,S01013,,índice de IFRA 51
+G00119,S01014,,índice de IFRA 51
+G00120,S01015,,índice de IFRA 51
+G00121,S01016,,índice de IFRA 51
+G00122,S01018,,índice de IFRA 51
+G00123,S01019,,índice de IFRA 51
+G00124,S01020,,índice de IFRA 51
+G00125,M01210,,índice de IFRA 51: limitado como tal
+G00126,S01021,,índice de IFRA 51
