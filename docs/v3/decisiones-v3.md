@@ -81,8 +81,31 @@
 
 **Por qué** (de la tarjeta): conserva los certificados ya revisados sin añadir tablas, y pasar a una tabla de productos más adelante es mecánico.
 
-## Pendientes, de una en una
+## V3-3 · El glosario de materiales, y va antes que la formulación (decidida por el usuario el 2026-10-07)
 
-### V3-3 · La capa de nombres y la visual
+**Respuestas literales** (orko kill, 2026-10-07):
 
-El buscador, los iconos, las familias y el uso habitual salen hoy del glosario de la v1 (congelado). El plan solo tiene `name`. Lo planteo cuando llegue la importación. **Default:** una tabla de nombres para que el buscador encuentre por nombre comercial, sigla y sinónimos desde el primer día; familias, uso y duración, cuando se rehagan los gráficos y la barra de uso.
+> 19:52: «tiene que haber un glosario de materiales, ese glosario sera para cada usuario el computo global no solo de todo el listado de materiales compartidos y que la app registra sino que tambien sera donde ellos pueden agregar las especificaciones de ifra por cada uno de sus materiales, pueden agregar ellos materiales propios y dotarlos de los mismo parametros que los que la app plantea... [...] una opcion para que si el usuario lo prefiere seleccione el los materiales que tiene con un buscador [...] con esta opcion activada el buscador solo da como resultados los materiales que el usuario tiene durante la formulación [...] el usuario puede ajustar el glopsario que viene con la app a su medida(sin modificar el glosario comun) todos los cambios o adecuaciones de los materiales no sustituyen el estandar de la app pero amplian como materiales del usuario»
+
+> 20:54: «el glosario es un paso previo a la formulacion en si, en cuanto al plan lo que supone es que hay que establecer el tratado de datos y todo el glosario de materiales conforme antes de hacer nada de la formulacion, y para la app el glosario en si es solo una visualizacion y la capacidad de que el usuario se personalice los materiales [...] la creacion del banco de datos y de como se haran sigue siendo la prioridad al empezar con la app»
+
+**Lectura:**
+
+- La app tiene un **glosario**: lo común más lo tuyo, con la misma ficha para todo.
+- Puedes **crear materiales con los mismos parámetros**, IFRA incluido, y **hacer tu versión de uno común** sin cambiarlo.
+- Tienes la lista de **«lo que tengo»**, con el interruptor que limita el buscador del banco a ella.
+- **Orden:** primero la base de datos y los datos del glosario, después el glosario en la web, y solo después la formulación (`plan-ejecutivo-v3.md`, bloques A y B).
+- El detalle del modelo, **en revisión contigo**, está en [`modelo-materiales-v3.md`](modelo-materiales-v3.md).
+
+**Consecuencias en el esquema** (propuesta de la sesión):
+
+- `materials.based_on_id` para las versiones (las tuyas y los productos de V3-2).
+- `material_names` y `material_profiles` (la ficha completa, que antes iba a esperar a los gráficos).
+- `lab_materials` para «lo que tengo». El plan dice «no habrá `user_materials`»; esto es otra cosa, tu selección, y tu mensaje es posterior.
+- El interruptor, en tus datos de usuario.
+- Sustituye el «sin inventario» de la v2 (P6) sin hacerlo inventario: no hay cantidades.
+
+## Pendientes
+
+- Las preguntas del §10 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md).
+- Confirmar la lectura de «uso offline pero mediante hosting» (V3-1): que la v3 necesita conexión.

@@ -2,6 +2,8 @@
 
 *2026-10-07. Sale de `PLAN_V3.md` con las decisiones de [`decisiones-v3.md`](decisiones-v3.md) (V3-1: donde chocan, manda el plan). Cada paso dice cuándo está hecho, para que se pueda comprobar sin opinar. Va por fases y en orden; cada paso, un commit.*
 
+**El orden manda** (el usuario, 2026-10-07): primero **los datos y el glosario de materiales** (fases 2 a 6), y solo después **la formulación** (fases 7 a 9). En sus palabras: «hay que establecer el tratado de datos y todo el glosario de materiales conforme antes de hacer nada de la formulacion».
+
 **Cómo se lee:** «Hecho cuando» es la comprobación que cierra el paso. Si falla, el paso no está hecho. Entre paréntesis, el paso del §44 del plan al que corresponde.
 
 **Lo que no cambia:** `src/core/` (el motor) solo se toca si una prueba demuestra que hace falta, como hasta ahora. La v2 llega al motor por un adaptador. Los datos los escribe un script, nunca a mano.
@@ -32,23 +34,27 @@
 
 ---
 
-## Fase 2 · El esquema (pasos 5, 6, 8, 9 y 11)
+## Bloque A · Los materiales y el glosario
 
-Las cinco tablas del plan, con las columnas que añade `decisiones-v3.md` para cumplir lo que el propio plan pide.
+## Fase 2 · El esquema de los materiales (pasos 5, 6 y 11)
+
+Las tablas de materiales del plan, con lo que añaden `decisiones-v3.md` y [`modelo-materiales-v3.md`](modelo-materiales-v3.md). Las de fórmulas esperan a la fase 7.
 
 | Paso | Tabla | Además de lo del plan |
 |---|---|---|
-| 2.1 | `materials` | `ref` (id de la v2, único), `kind` (`substance`, `natural`, `base`, `solvent`, `provisional`, `frozen`), `origin`, `coverage` (`complete_regulated`, `allergens_only`, `partial`, `unknown`; por defecto `unknown`) |
+| 2.1 | `materials` | `ref` (id de la v2, único), `kind` (`substance`, `natural`, `base`, `solvent`, `provisional`, `frozen`), `origin`, `coverage` (`complete_regulated`, `allergens_only`, `partial`, `unknown`; por defecto `unknown`), **`based_on_id`** (la versión de otro material: productos y versiones tuyas) |
 | 2.2 | `material_components` | `amount_kind` (`exact`, `max`, `range`, `unknown`) con su comprobación: `range` exige mínimo ≤ máximo, `exact` y `max` exigen valor, `unknown` ninguno. Un material no se contiene a sí mismo |
-| 2.3 | `formulas` | Las del plan. `parent_id` a `NULL` si se borra la madre |
-| 2.4 | `formula_events` | Comprobación por tipo: `add` exige material, masa > 0, fracción en (0, 1] y diluyente si es < 1; `set_mass` y `remove`, un `target`; `reweigh`, bruto > tara; `note`, texto. `UNIQUE(formula_id, seq)` |
-| 2.5 | `regulations` | `amendment` (`51`). `kind`: `max`, `prohibited`, `requirement`, `requirement_met`. `max_value` es fracción del producto terminado (§1.1: con su base) |
+| 2.3 | `regulations` | `amendment` (`51`). `kind`: `max`, `prohibited`, `requirement`, `requirement_met`. `max_value` es fracción del producto terminado (§1.1: con su base) |
+| 2.4 | `material_names` | Nombre, tipo (`trade`, `abbreviation`, `synonym`, `shop`, `other_house`) y fuente. Es lo que busca el buscador |
+| 2.5 | `material_profiles` | Uno por material: icono, familia, matiz, descriptores, uso habitual (mín., máx., techo, en % del concentrado, consenso o recomendación, fuentes), duración (horas, banda). Cada cifra con su base |
+| 2.6 | `lab_materials` | Usuario + material: «lo que tengo». Sin cantidades |
+| 2.7 | Perfil del usuario | El interruptor «solo lo que tengo», en los datos del usuario de Supabase Auth (sin tabla) |
 
 | Paso | Qué | Hecho cuando |
 |---|---|---|
-| 2.6 | **RLS.** Materiales: lees los globales y los tuyos; escribes solo los tuyos. Componentes y regulaciones: según su material. Fórmulas: solo las tuyas. Eventos: según su fórmula, **solo se añaden** (sin políticas de editar ni borrar). Lo global solo lo escribe el script, con la clave de servicio | — |
-| 2.7 | **Disparadores:** un material global solo contiene globales; un evento solo usa materiales globales o tuyos; la composición de un material `frozen` no se cambia; sin ciclos de composición; `updated_at` al día | — |
-| 2.8 | **Pruebas de la base** (`npm run test:db`, contra Supabase local, con dos usuarios) | A no ve nada de B; A no puede añadir un evento con un material de B, ni editar ni borrar un evento, ni escribir un material global; un `add` inválido se rechaza |
+| 2.8 | **RLS.** Materiales, componentes, regulaciones, nombres y perfiles: lees los comunes y los tuyos; escribes solo los tuyos. `lab_materials`: solo los tuyos. Lo común solo lo escribe el script, con la clave de servicio | — |
+| 2.9 | **Disparadores:** un material común solo contiene y se basa en comunes; la composición de un `frozen` no se cambia; sin ciclos de composición ni de «basado en»; `updated_at` al día | — |
+| 2.10 | **Pruebas de la base** (`npm run test:db`, contra Supabase local, con dos usuarios) | A no ve nada de B; A no escribe en lo común; la versión de A de un material común no cambia el común |
 
 ---
 
@@ -57,8 +63,8 @@ Las cinco tablas del plan, con las columnas que añade `decisiones-v3.md` para c
 | Paso | Qué | Hecho cuando |
 |---|---|---|
 | 3.1 | **Exactitud por la API:** `numeric` y `bigint` se leen con `::text` y se escriben como texto; el dominio los convierte a `Ratio` y `bigint`. Nunca pasan por un `number` de JavaScript | Prueba de ida y vuelta: `9007199254740993` µg y `0.000000000000000000000000000001` vuelven idénticos |
-| 3.2 | **Repositorios** en `src/db/`: cargar el catálogo (globales, tuyos, componentes y regulaciones), cargar una fórmula, añadir un evento | Pruebas contra Supabase local |
-| 3.3 | **Adaptador** `src/db/to-ifra.ts`: del catálogo al `IfraData` que ya usa el motor, como hace hoy `src/v2/to-ifra.ts` desde los CSV. Incluye `expand()` recursivo (§24) y la regla de `group_key` (la parte de cada miembro sobre su techo, sumada, no pasa de 1) | Con un catálogo de prueba, sin base de datos, sale el mismo `IfraData` que de los CSV equivalentes |
+| 3.2 | **Repositorios** en `src/db/`: cargar el catálogo (comunes y tuyos, con componentes, regulaciones, nombres y perfiles), crear y editar tus materiales, marcar «lo tengo» | Pruebas contra Supabase local |
+| 3.3 | **Adaptador** `src/db/to-ifra.ts`: del catálogo al `IfraData` que ya usa el motor, como hace hoy `src/v2/to-ifra.ts` desde los CSV. Incluye `expand()` recursivo (§24), la herencia de «basado en» (lo heredado más lo propio, por autoridad; los límites se suman y manda el más estricto) y la regla de `group_key` (la parte de cada miembro sobre su techo, sumada, no pasa de 1) | Con un catálogo de prueba, sin base de datos, sale el mismo `IfraData` que de los CSV equivalentes |
 
 ---
 
@@ -71,53 +77,75 @@ Un script, `scripts/v3/importar.ts`, de los CSV a Postgres. **Reutiliza `src/v2/
 | 4.1 | **Disolventes** | Los siete de la app, `kind = 'solvent'` |
 | 4.2 | **Materiales** (4260) | `sustancia` → `substance`, `natural` → `natural`, `base` → `base`, `formula` → `frozen`. `ref`, especie, parte, proceso, quimiotipo, CAS, INCI, origen. `coverage` calculada con la regla de hoy |
 | 4.3 | **Composición** (3140 cifras) | Solo de documentos `revisado` (D6). `source` = id y título del documento. Tipos: `tipico` → `exact`, `maximo` → `max`, `rango` → `range` |
-| 4.4 | **Productos** (89), según V3-2 (decidida: material propio) | Cada producto, un material global con `ref` = `P…`. Su composición: la de su material general, con su autoridad, más la de su certificado. Sus **topes** (13), regulaciones `manufacturer`. Las **concentraciones por defecto** (10) no tienen sitio en el plan: se quedan en el CSV |
+| 4.4 | **Productos** (89), según V3-2 | Cada producto, un material común **basado en** su material general, con `ref` = `P…` y las cifras de su certificado. Sus **topes** (13), regulaciones `manufacturer`. Las **concentraciones por defecto** (10) no tienen sitio en el plan: se quedan en el CSV |
 | 4.5 | **IFRA 51** | De `datos/ifra/51/` y `grupo-miembros.csv`: una regulación por miembro y categoría, `group_key` = la referencia del estándar (con su subgrupo en el 097 y el 181), `amendment = '51'`. El 089 y sus miembros comparten `group_key` |
 | 4.6 | **Condiciones** (D11) | `requirement` por estándar; `requirement_met` con la autoridad y la fuente de `condiciones.csv` |
-| 4.7 | **Nombres** (V3-3) | Cuando se decida |
+| 4.7 | **Nombres y perfiles** | Del glosario de la v1 (que sigue congelado: se lee, no se toca) y de `datos/fuente/` (familias, color, duración), unidos a la v2 por `v1-a-v2.csv` |
 
 **Hecho cuando:** los recuentos coinciden con los CSV, una segunda ejecución no cambia ninguna fila, y el registro dice de qué commit salen los datos.
 
 ---
 
-## Fase 5 · La equivalencia: la prueba que manda
+## Fase 5 · La equivalencia de los materiales
 
 | Paso | Qué | Hecho cuando |
 |---|---|---|
-| 5.1 | Para **cada material** de la v2, el `IfraMaterial` que sale de la base de datos y el que sale de los CSV | Iguales, material a material |
-| 5.2 | Las **pruebas de referencia** (la F-001) y el **informe de tu biblioteca** (`biblioteca.tool.test.ts`, el de `comparacion-fase6.md`), con los datos de la base | El mismo informe IFRA, línea a línea. Cada diferencia se lista y se explica; **nunca se arregla tocando la prueba** |
+| 5.1 | Para **cada material** de la v2, el `IfraMaterial` que sale de la base de datos y el que sale de los CSV | Iguales, material a material. Cada diferencia se lista y se explica; **nunca se arregla tocando la prueba** |
+| 5.2 | Para **cada material** del glosario de la v1, los nombres, la familia y el uso que da la base y los que da hoy el catálogo | Iguales |
 
 ---
 
-## Fase 6 · Tus fórmulas (paso 13)
+## Fase 6 · El glosario en la web
 
 | Paso | Qué | Hecho cuando |
 |---|---|---|
-| 6.1 | Leer tu biblioteca (`Documentos\Perfumería\Fórmulas`) desde tu equipo, con tu permiso | Copia de los archivos en la carpeta del proyecto |
-| 6.2 | `scripts/v3/importar-formulas.ts`: cabecera → `formulas`, historial → `formula_events` en orden. Las claves: las de la v2, por `ref`; `cas:`, por CAS; `prov:` y `own:`, un material provisional tuyo por nombre (el mismo nombre es el mismo material, P44); `vec:`, un material `frozen` tuyo con su composición; `solv:`, los disolventes; tus diluyentes propios, provisionales tuyos. Las versiones de una familia, unidas por `parent_id` | Para cada fórmula, `compose()` desde la base da la composición que guarda el archivo, y el informe IFRA es el de la v2 |
+| 6.1 | **Recorrer** todo lo común y lo tuyo, con filtros (tipo, común o tuyo, lo que tengo, estado IFRA) y el buscador | Encuentras un material por su nombre comercial, su sigla, su CAS o la grafía española |
+| 6.2 | **La ficha**, la misma para todos: identidad, composición con su autoridad y fuente, regulación, nombres y perfil | La ficha de un material común dice lo mismo que la de la v2 |
+| 6.3 | **Crear tus materiales**, de cualquier tipo, con la misma ficha, sus regulaciones incluidas | Un material tuyo con su certificado da su IFRA como uno común |
+| 6.4 | **Tu versión de un común** | Hereda todo, añade lo tuyo, el común no cambia y salen los dos |
+| 6.5 | **Lo que tengo**: marcar de golpe o poco a poco | La lista se guarda y se ve en los filtros |
+| 6.6 | Pantalla estrecha y sin *hover* | El glosario se usa en el móvil |
 
 ---
 
-## Fase 7 · El banco en la web
+## Bloque B · La formulación
+
+## Fase 7 · Las fórmulas: esquema y tus fórmulas (pasos 8, 9 y 13)
 
 | Paso | Qué | Hecho cuando |
 |---|---|---|
-| 7.1 | Lanzador y biblioteca desde la base; las versiones, agrupadas por la cadena de `parent_id` | Ves tus fórmulas agrupadas |
-| 7.2 | El banco escribe un evento por acción: `add` con el `seq` siguiente, `set_mass`, `remove`, `reweigh` (la tara se propone desde el último repesado), `note`. Deshacer añade el evento contrario. La búsqueda va sobre el catálogo en memoria | Recreas la **F-001** desde cero y sus números coinciden con los del cuaderno (el criterio de `plan-desarrollo.md`) |
-| 7.3 | El panel de IFRA, los gráficos y la ficha, sobre el nuevo `IfraData` | Las dos lecturas coinciden con el cálculo a mano en tres casos |
-| 7.4 | Guardar una fórmula como material (`frozen`, §27) | Cambiar la fórmula después no cambia el material |
-| 7.5 | Pantalla estrecha y sin *hover* | El banco se usa en el móvil |
+| 7.1 | `formulas`: las del plan; `parent_id` a `NULL` si se borra la madre | — |
+| 7.2 | `formula_events`: comprobación por tipo (`add` exige material, masa > 0, fracción en (0, 1] y diluyente si es < 1; `set_mass` y `remove`, un `target`; `reweigh`, bruto > tara; `note`, texto) y `UNIQUE(formula_id, seq)` | — |
+| 7.3 | RLS: fórmulas, solo las tuyas; eventos, según su fórmula y **solo se añaden**. Disparador: un evento solo usa materiales comunes o tuyos | Pruebas con dos usuarios: A no ve las fórmulas de B, no añade un evento con un material de B, ni edita ni borra un evento |
+| 7.4 | Leer tu biblioteca (`Documentos\Perfumería\Fórmulas`) desde tu equipo, con tu permiso | Copia de los archivos en la carpeta del proyecto |
+| 7.5 | `scripts/v3/importar-formulas.ts`: cabecera → `formulas`, historial → `formula_events` en orden. Las claves: las de la v2, por `ref`; `cas:`, por CAS; `prov:` y `own:`, un material provisional tuyo por nombre (P44); `vec:`, un material `frozen` tuyo con su composición; `solv:`, los disolventes; tus diluyentes propios, provisionales tuyos. Las versiones, unidas por `parent_id` | Para cada fórmula, `compose()` desde la base da la composición que guarda el archivo |
+| 7.6 | Las **pruebas de referencia** (la F-001) y el **informe de tu biblioteca** (`biblioteca.tool.test.ts`, el de `comparacion-fase6.md`), con los datos de la base | El mismo informe IFRA, línea a línea; cada diferencia, explicada |
 
 ---
 
-## Fase 8 · Publicar y limpiar (pasos 14 y 15)
+## Fase 8 · El banco en la web
 
 | Paso | Qué | Hecho cuando |
 |---|---|---|
-| 8.1 | Proyecto de Supabase en la nube; `supabase db push` y el script de importación contra él | Los recuentos de la Fase 4, en la nube |
-| 8.2 | Alojar la web (un alojamiento estático para Vite; se elige en ese momento) | Entras desde el PC y desde el móvil |
-| 8.3 | **Copias:** volcado nocturno de la base a un repositorio privado con una acción de GitHub. El plan gratuito de Supabase no da copias descargables | Aparece una copia cada noche |
-| 8.4 | Quitar los cargadores de CSV y JSON del tiempo de ejecución y el código de la v1 y la v2 que ya no se use. **Se quedan** `datos/`, `scripts/` y lo que usa el importador (`src/v2/load.ts`, `validate.ts`) | `npm test` pasa y la app no lee ningún CSV al arrancar |
+| 8.1 | Lanzador y biblioteca desde la base; las versiones, agrupadas por la cadena de `parent_id` | Ves tus fórmulas agrupadas |
+| 8.2 | El banco escribe un evento por acción: `add` con el `seq` siguiente, `set_mass`, `remove`, `reweigh` (la tara se propone desde el último repesado), `note`. Deshacer añade el evento contrario. El buscador, sobre el catálogo en memoria, **con el interruptor «solo lo que tengo»** | Recreas la **F-001** desde cero y sus números coinciden con los del cuaderno (el criterio de `plan-desarrollo.md`) |
+| 8.3 | Un **provisional** se crea desde el buscador con solo su nombre, y se completa luego en el glosario | — |
+| 8.4 | El panel de IFRA, los gráficos y la ficha, sobre el nuevo `IfraData` | Las dos lecturas coinciden con el cálculo a mano en tres casos |
+| 8.5 | Guardar una fórmula como material (`frozen`, §27) | Cambiar la fórmula después no cambia el material |
+| 8.6 | Pantalla estrecha y sin *hover* | El banco se usa en el móvil |
+
+---
+
+## Fase 9 · Publicar y limpiar (pasos 14 y 15)
+
+| Paso | Qué | Hecho cuando |
+|---|---|---|
+| 9.1 | Proyecto de Supabase en la nube; `supabase db push` y el script de importación contra él | Los recuentos de la fase 4, en la nube |
+| 9.2 | Alojar la web (un alojamiento estático para Vite; se elige en ese momento) | Entras desde el PC y desde el móvil |
+| 9.3 | **Copias:** volcado nocturno de la base a un repositorio privado con una acción de GitHub. El plan gratuito de Supabase no da copias descargables | Aparece una copia cada noche |
+| 9.4 | Quitar los cargadores de CSV y JSON del tiempo de ejecución y el código de la v1 y la v2 que ya no se use. **Se quedan** `datos/`, `scripts/` y lo que usa el importador (`src/v2/load.ts`, `validate.ts`) | `npm test` pasa y la app no lee ningún CSV al arrancar |
+
+**Nota:** el glosario en la web (fase 6) puede publicarse antes que el banco, si quieres usarlo ya: 9.1 a 9.3 no dependen de las fórmulas.
 
 ---
 
@@ -128,7 +156,7 @@ Del §46 del plan, más lo que la revisión encontró y V3-1 deja fuera:
 - **Productos y lotes** como tablas, documentos con archivos.
 - **Favoritas, última dilución y nombre del frasco** (`material_preferences`).
 - **Concentración por defecto de un producto** (D12, 10 filas en `concentraciones.csv`).
-- **Familias, uso habitual y duración** en la ficha y en los gráficos (V3-3).
+- **Familias, uso habitual y duración en los gráficos del banco** (en la ficha del glosario entran ya).
 - **Sin conexión.**
 - **Exportar al cuaderno** (Markdown y CSV).
 - **Abrir la app a otros usuarios**, después de revisar las licencias de IFRA, el FIG y TGSC.
