@@ -71,7 +71,7 @@ Un script, `scripts/v3/importar.ts`, de los CSV a Postgres. **Reutiliza `src/v2/
 | 4.1 | **Disolventes** | Los siete de la app, `kind = 'solvent'` |
 | 4.2 | **Materiales** (4260) | `sustancia` → `substance`, `natural` → `natural`, `base` → `base`, `formula` → `frozen`. `ref`, especie, parte, proceso, quimiotipo, CAS, INCI, origen. `coverage` calculada con la regla de hoy |
 | 4.3 | **Composición** (3140 cifras) | Solo de documentos `revisado` (D6). `source` = id y título del documento. Tipos: `tipico` → `exact`, `maximo` → `max`, `rango` → `range` |
-| 4.4 | **Productos** (89), según V3-2 (A, mientras no digas otra cosa) | Cada producto, un material global con `ref` = `P…`. Su composición: la de su material general, con su autoridad, más la de su certificado. Sus **topes** (13), regulaciones `manufacturer`. Las **concentraciones por defecto** (10) no tienen sitio en el plan: se quedan en el CSV |
+| 4.4 | **Productos** (89), según V3-2 (decidida: material propio) | Cada producto, un material global con `ref` = `P…`. Su composición: la de su material general, con su autoridad, más la de su certificado. Sus **topes** (13), regulaciones `manufacturer`. Las **concentraciones por defecto** (10) no tienen sitio en el plan: se quedan en el CSV |
 | 4.5 | **IFRA 51** | De `datos/ifra/51/` y `grupo-miembros.csv`: una regulación por miembro y categoría, `group_key` = la referencia del estándar (con su subgrupo en el 097 y el 181), `amendment = '51'`. El 089 y sus miembros comparten `group_key` |
 | 4.6 | **Condiciones** (D11) | `requirement` por estándar; `requirement_met` con la autoridad y la fuente de `condiciones.csv` |
 | 4.7 | **Nombres** (V3-3) | Cuando se decida |

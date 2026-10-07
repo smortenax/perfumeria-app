@@ -39,7 +39,7 @@
 | Punto | Cómo queda |
 |---|---|
 | M2 · IFRA por grupo | `regulations` por material, como dice el plan. El script escribe una fila por miembro del estándar desde los archivos de IFRA, así que **nadie copia un techo a mano**. Los miembros de un mismo estándar comparten `group_key` (ver M3) |
-| M6 · Productos, lotes, topes, concentración por producto | Sin tabla `products` (§45). **Qué pasa con los 89 productos que ya hay es la decisión V3-2** |
+| M6 · Productos, lotes, topes, concentración por producto | Sin tabla `products` (§45). Los 89 productos que ya hay entran como **material global propio** (V3-2) |
 | M7 · Documentos | Sin tabla: `source` en texto. **D6 se cumple al importar**: el script solo trae cifras de documentos `revisado` |
 | M9 · Tipos de cifra | Los del plan. `tipico` → `exact`, `maximo` → `max`, `rango` → `range`. D2 sigue en el motor por la autoridad |
 | F2 · Versiones | Solo `parent_id`. La biblioteca agrupa siguiendo la cadena hasta la fórmula raíz; el número de versión sale del orden |
@@ -71,19 +71,17 @@
 
 ---
 
+## V3-2 · Cada producto de la v2 entra como un material global propio (decidida por el usuario el 2026-10-07)
+
+**Pregunta** (tarjeta del hilo): ¿Cómo entran en la v3 los 89 productos de la v2, con sus certificados y topes?
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Material propio» (2026-10-07 19:22): «Cada producto es un material global aparte, con su certificado y su tope; no se pierde nada.»
+
+**Cómo se aplica:** cada producto es un material global con `ref` = su id de la v2 (`P…`). Su composición es la de su material general, con su autoridad, más la de su certificado. Su tope de fabricante es una regulación `manufacturer` de ese material. Las 10 concentraciones por defecto (D12) no tienen sitio en el plan y se quedan en el CSV.
+
+**Por qué** (de la tarjeta): conserva los certificados ya revisados sin añadir tablas, y pasar a una tabla de productos más adelante es mecánico.
+
 ## Pendientes, de una en una
-
-### V3-2 · ¿Qué pasa con los productos de la v2? *(siguiente)*
-
-Hoy hay 89 productos (con sus certificados), 13 topes de fabricante y 10 concentraciones por defecto. El plan no tiene productos.
-
-| Opción | Qué pasa |
-|---|---|
-| **A · Cada producto entra como un material global propio** *(recomendada)* | Su certificado es su composición y su tope, una regulación `manufacturer` de ese material. No se pierde nada, y cuando haya `products` (§46) el paso es mecánico. Ej.: «PEPPER BLACK ABS PG (Firmenich 974644)» es un material aparte de «Pepper black absolute» |
-| B · Sus cifras se pliegan en su material general | Más simple en el buscador, pero dos productos de un material chocan, y el tope de un fabricante pasaría a valer para todo el material (lo que la v2 corrigió) |
-| C · Se quedan en los CSV hasta que exista `products` | No se pierden, pero la v3 empieza sin los certificados que ya revisaste |
-
-Bloquea la importación de los productos, no el esqueleto. **Mientras tanto, sigo con A.**
 
 ### V3-3 · La capa de nombres y la visual
 
