@@ -51,23 +51,10 @@
 | H1 · Sin conexión | Hace falta conexión |
 | H7 · Retirar Tauri primero | Como dice el plan (paso 1). **La app 0.2.1 que tienes instalada sigue funcionando** con sus archivos: quitar Tauri del repo no la desinstala |
 
-**Huecos que el plan no contradice y que resuelvo dentro de sus tablas** (defaults de la sesión, sin tablas nuevas):
-
-| Punto | Default |
-|---|---|
-| M1 · Sustancias y alias de CAS | **No hace falta tabla:** en la v2 las 3074 sustancias tienen un solo CAS cada una, todas `principal`. Una sustancia es un material de tipo `substance` |
-| M3 · Grupos combinados (089) e isómeros de un estándar | `group_key` con una sola regla: **se suma la parte de cada miembro sobre su propio techo, y el grupo no pasa de 1**. Con techos iguales es lo mismo que sumar masas, así que vale para los dos casos |
-| M4 · Condiciones (D11) | Dos valores más de `kind` en `regulations`: `requirement` (lo que pide el estándar) y `requirement_met` (quién dice que se cumple, con su autoridad y fuente). Producto o lote = probada; literatura o consenso = supuesta; sin fila = pendiente |
-| M5 · Cobertura | **Una columna `coverage` en `materials`**, que calcula el script con la misma regla que hoy (`src/v2/to-ifra.ts`). Sin ella, el §31 del plan no se puede cumplir. Un material privado nace `unknown` |
-| M8 · Enmienda | Una columna `amendment` en `regulations`. La Fase 7 de la v2 (la enmienda siguiente) la necesita |
-| M10 · Origen (D7) | Columna `origin` en `materials` |
-| M11 · Ids estables | `uuid` + columna `ref` con el id de la v2 (`M00001`). El script actualiza por `ref` |
-| F8 · Disolventes | `kind = 'solvent'` para DPG, alcohol, IPM, DEP, TEC, triacetina y BB |
-| H2 · Exactitud por la API | `numeric` y `bigint` viajan como texto; el dominio los convierte a `Ratio` y `bigint` |
-| Fórmula congelada | Sus proporciones son fracciones exactas (1/3). En `numeric` se guardan con 30 decimales: el error es menor que 10⁻³⁰ de la mezcla. *Es la única concesión a «proporciones exactas», y la marco para que la veas* |
-| Los demás de la revisión (H3–H6, H8, H9, H11–H13) | Como estaban en el §5.2 de la revisión |
-
-**Tipos de material** (`materials.kind`, propuesta de la sesión): `substance`, `natural`, `base`, `solvent`, `provisional`, `frozen` (fórmula guardada como material).
+**Huecos que el plan no contradice:** *sustituido el 2026-10-07.* La primera versión los resolvía con columnas sacadas de la v2 (`ref`, `coverage`, `amendment`, `requirement_met`). El usuario pidió partir del plan v3 en su plenitud, y la segunda versión de [`modelo-materiales-v3.md`](modelo-materiales-v3.md) los resuelve con las tablas del plan. Se quedan de aquella tabla:
+- `numeric` y `bigint` viajan como texto por la API;
+- la fórmula congelada se guarda con 30 decimales;
+- los defaults H3–H6, H8, H9 y H11–H13 de la revisión.
 
 ---
 
@@ -77,7 +64,7 @@
 
 **Respuesta:** el usuario eligió en la tarjeta la opción «Material propio» (2026-10-07 19:22): «Cada producto es un material global aparte, con su certificado y su tope; no se pierde nada.»
 
-**Cómo se aplica:** cada producto es un material global con `ref` = su id de la v2 (`P…`). Su composición es la de su material general, con su autoridad, más la de su certificado. Su tope de fabricante es una regulación `manufacturer` de ese material. Las 10 concentraciones por defecto (D12) no tienen sitio en el plan y se quedan en el CSV.
+**Cómo se aplica:** cada producto es un material global, con el id calculado a partir del suyo de la v2 (`P…`). Su composición es la de su material general, con su autoridad, más la de su certificado. Su tope de fabricante es una regulación `manufacturer` de ese material. Las 10 concentraciones por defecto (D12) no tienen sitio en el plan y se quedan en el CSV.
 
 **Por qué** (de la tarjeta): conserva los certificados ya revisados sin añadir tablas, y pasar a una tabla de productos más adelante es mecánico.
 
@@ -99,13 +86,12 @@
 
 **Consecuencias en el esquema** (propuesta de la sesión):
 
-- `materials.based_on_id` para las versiones (las tuyas y los productos de V3-2).
-- `material_names` y `material_profiles` (la ficha completa, que antes iba a esperar a los gráficos).
+- Tu versión de un común y los nombres por los que se busca: preguntas 7.2 y 7.3 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md). Las tablas de nombres y de perfil de la primera versión **se retiran**: el plan no las tiene.
 - `lab_materials` para «lo que tengo». El plan dice «no habrá `user_materials`»; esto es otra cosa, tu selección, y tu mensaje es posterior.
 - El interruptor, en tus datos de usuario.
 - Sustituye el «sin inventario» de la v2 (P6) sin hacerlo inventario: no hay cantidades.
 
 ## Pendientes
 
-- Las preguntas del §10 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md).
+- Las preguntas del §7 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md), de una en una. La primera: los tipos de material.
 - Confirmar la lectura de «uso offline pero mediante hosting» (V3-1): que la v3 necesita conexión.

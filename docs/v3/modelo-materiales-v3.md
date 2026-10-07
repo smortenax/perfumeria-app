@@ -1,170 +1,157 @@
-# Los materiales en la v3: lo que he entendido
+# Los materiales en la v3
 
-*2026-10-07. Para que lo corrijas punto por punto: cada afirmación lleva un número («el 3.4 no», «el 6.2 sí, pero…»). Sale del plan v3, de tus mensajes de hoy y de la v2 donde no choca (V3-1). Lo que es propuesta mía va marcado **(propuesta)**; lo que no sé, en el §10.*
+*Segunda versión, 2026-10-07. La primera seguía el modelo de la v2 del repositorio. Esta parte de `PLAN_V3.md` y solo añade lo que tú has decidido después (V3-2, V3-3) o lo que el plan deja sin definir. Cada punto dice de dónde sale:*
 
----
+- ***[Plan §n]***: lo dice el plan.
+- ***[Tú]***: tus decisiones de hoy.
+- ***[Propuesta]***: el plan no lo define y propongo algo; lo decides tú.
 
-## 0 · En tres frases
-
-1. **Un material es algo que se puede verter en una fórmula o que forma parte de otro material.** Una sustancia, un aceite, una base, un disolvente, tu acorde guardado.
-2. **Hay un glosario común**, que trae la app y nadie cambia, y **lo tuyo**, que lo amplía sin tocarlo: tus materiales, tus versiones de los comunes y la lista de lo que tienes.
-3. **Cada material dice de qué está hecho y qué le limita**, y cada cifra dice de dónde sale. De ahí la app calcula IFRA, y lo que no se sabe nunca cuenta como cero.
+*Va numerado para que corrijas punto por punto.*
 
 ---
 
-## 1 · Qué es un material y qué no
+## 0 · Qué cambia respecto a la primera versión
 
-- **1.1** Un material es **una cosa con identidad propia**: Linalol, Bergamot oil expressed, DPG, Castoreum Synthetic, «Base rosa de ayer».
-- **1.2** **La dilución no es un material** (plan §8). «Geosmina al 1 % en DPG» es Geosmina, pesada así en una adición. En la mezcla salen Geosmina y DPG por separado.
-- **1.3** **Un natural se identifica por especie + parte + proceso + quimiotipo.** El CAS y el INCI son datos del material, no lo que lo identifica: dos formas de la misma planta (aceite y absoluto) comparten CAS y son dos materiales, porque su IFRA difiere.
-- **1.4** Cada material común tiene un **id estable que no cambia nunca** (`M00001`…), además del interno de la base de datos.
-
----
-
-## 2 · Los tipos
-
-| # | Tipo | Qué es | Ejemplo | Cuántos trae la v2 |
-|---|---|---|---|---|
-| 2.1 | **Sustancia** | Una molécula, con su CAS | Linalol, Hedione | 3070 |
-| 2.2 | **Natural** | Un producto de una planta o un animal, por especie, parte y proceso | Bergamot oil expressed, Lavender absolute | 1183 |
-| 2.3 | **Base** | Una mezcla comercial cuya fórmula no se conoce entera | Castoreum Synthetic, Black Agar 296985 | 7 |
-| 2.4 | **Disolvente** | Lo que diluye y no es materia aromática | DPG, alcohol, IPM, DEP, TEC, triacetina, benzoato de bencilo | 7 |
-| 2.5 | **Provisional** | Solo un nombre, para no parar a definirlo. Todo lo demás es desconocido | «Musk de Juan» | — |
-| 2.6 | **Fórmula guardada como material** | Una foto fija de una fórmula, para usarla en otras (plan §27) | «Acorde de higos, 25-09» | — |
-
-- **2.7** Además del tipo, un material tiene **dos ejes**, que valen para cualquier tipo:
-  - **Común o tuyo** (§6): de quién es.
-  - **Original o basado en otro** (§7): si es una versión de otro material. Así entran **los 89 productos de la v2** (V3-2): «Geraniol 98 % de Maese Lab» es un material común basado en Geraniol.
-- **2.8** Una sustancia de un material **sin documentos de su producto cuenta como pura, por convención**, y la ficha lo dice. Si es un aislado natural o se le conocen impurezas reguladas, queda pendiente (D7 de la v2).
-
----
-
-## 3 · Los atributos (la ficha)
-
-Todos los materiales tienen la **misma ficha**, sean comunes o tuyos. Un campo vacío es «no se sabe», nunca cero.
-
-**3.1 · Identidad**
-
-| Campo | Para quién |
-|---|---|
-| Nombre, tipo | Todos |
-| CAS, INCI | Si los tiene; son datos, no la clave |
-| Especie, parte, proceso, quimiotipo | Naturales |
-| Origen: sintético, aislado natural o desconocido | Sustancias |
-
-**3.2 · Composición:** de qué está hecho (§4).
-
-**3.3 · Regulación:** qué le limita (§5).
-
-**3.4 · Nombres** (cómo se encuentra): nombre comercial, sigla (IBQ, HCA), sinónimos (del FIG, de IFRA, de PubChem), nombres de tienda y nombres de otras casas. El buscador encuentra por cualquiera de ellos, por el CAS y con la grafía española.
-
-**3.5 · Perfil** (cómo se describe y se dibuja). Hoy sale del glosario de la v1:
-
-| Campo | Qué es |
-|---|---|
-| Icono | La sigla o la abreviatura, con su distintivo (⁶IBQ) y la letra del tipo de natural |
-| Familia y matiz | Una de las 8 familias con su color, más «Transformado» |
-| Descriptores | Los tres del FIG |
-| Uso habitual | Mínimo, máximo y techo, **en % del concentrado**; si es consenso de varias fuentes o recomendación de una; las fuentes |
-| Duración | Horas estimadas y banda; en las moléculas, de la presión de vapor |
-
-- **3.6** **Todo número lleva su base pegada** (% del concentrado, % del producto terminado, % de la dilución). Un número sin base no se guarda.
-- **3.7** **El uso habitual y la duración son otra capa**: nunca se mezclan con IFRA. Un uso habitual que pase del límite IFRA sale en rojo, y manda IFRA.
-
----
-
-## 4 · La composición
-
-- **4.1** Un material puede **contener otros materiales**, cada uno con una cantidad. Un aceite contiene sus sustancias; una base, las que declara su certificado; tu acorde guardado, lo que pesaste.
-- **4.2** Cada cantidad es de uno de cuatro tipos: **exacta** (una cifra típica), **máximo** («< 0,1 %»), **rango** (de 2 a 5 %) o **desconocida**.
-- **4.3** Cada cantidad dice **su autoridad y su fuente**. De más a menos: **lote** > **producto** (su ficha o certificado) > **anexo de IFRA** > **literatura** > **consenso**. Si dos fuentes chocan, manda la de arriba.
-- **4.4** **Una cifra de literatura o de consenso nunca da «dentro» en IFRA**: como mucho «acotado», con el máximo de su fuente.
-- **4.5** **Cada lista de componentes dice qué cubre**:
-  - **completa en las reguladas**: lo que no sale, no está;
-  - **solo alérgenos**;
-  - **parcial**;
-  - **desconocida**: lo que no sale, no se sabe.
-
-  Es lo que permite distinguir «no lleva cumarina» de «no sé si lleva cumarina».
-- **4.6** La composición está **en % de la materia pura** del material. La dilución con que se compra no entra (es de la adición), salvo que el certificado sea del producto tal como se compra: entonces vale tal cual y se pesa al 100 % de ese producto (D12).
-- **4.7** Al calcular, **un material se abre en sus componentes, y estos en los suyos**, hasta llegar a sustancias (plan §24). En la fórmula sigue saliendo el material que usaste; abrirlo solo sirve para IFRA.
-- **4.8** **Ningún material se contiene a sí mismo**, ni a través de otros.
-
----
-
-## 5 · La regulación
-
-- **5.1** Una regulación es **de un material** (plan §28) y es de uno de dos regímenes:
-  - **IFRA**: los estándares, con su enmienda (hoy la 51);
-  - **fabricante**: el tope que un fabricante da para su producto.
-- **5.2** Hay cuatro clases:
-  - **máximo por categoría**: hoy se usa la 4, y se guardan las 18;
-  - **prohibido**;
-  - **requisito**: una especificación que cumplir, como «el cade, rectificado»;
-  - **requisito cumplido**: quién dice que se cumple. Con documento del producto, **probado**; con literatura o consenso, **supuesto**; sin nada, **pendiente**.
-- **5.3** **IFRA limita una sustancia venga de donde venga.** Se suma lo que aporta cada material de la fórmula, abierto hasta sus sustancias.
-- **5.4** Los miembros de un mismo estándar **comparten grupo**: los isómeros de una sustancia, o los aceites fototóxicos del 089. En un grupo se suma la parte de cada miembro sobre su techo, y el total no pasa de 1.
-- **5.5** **El tope del fabricante es de su producto**, no de la sustancia: sale aparte de IFRA y no decide las dos lecturas.
-- **5.6** **Cada sustancia sale en uno de cuatro estados:**
-  - **dentro**;
-  - **acotada**: hay algo desconocido, pero ni en el peor caso llega al techo;
-  - **sin comprobar**;
-  - **se pasa**.
-
----
-
-## 6 · Lo común y lo tuyo
-
-- **6.1** **El glosario común** lo trae la app. Lo escribe solo un script desde los datos revisados del repositorio, y **ningún usuario lo cambia**. Todos lo leen.
-- **6.2** **Tus materiales** solo los ves tú. Los creas en el glosario, de cualquier tipo, con la misma ficha que los comunes (§3), sus propias regulaciones IFRA incluidas.
-- **6.3** **Un provisional** se crea desde el banco con solo su nombre, para no parar. Más tarde se completa en el glosario.
-- **6.4** **Lo que haces en el glosario nunca sustituye lo común: lo amplía.**
-
----
-
-## 7 · Tu versión de un material común
-
-- **7.1** **Ajustar un material común crea tu versión, basada en él.** Por ejemplo, la bergamota de tu proveedor con su certificado.
-- **7.2** **Hereda todo lo del común**: composición, regulaciones y ficha. **Añade lo tuyo**: cifras con su autoridad (tu certificado manda sobre el anexo, §4.3), límites y nombres.
-- **7.3** **Nunca quita un límite de IFRA, solo añade.** Si añades un límite, cuentan los dos y manda el más estricto.
-- **7.4** **El común y tu versión salen los dos** en el buscador, la tuya marcada como tuya.
-- **7.5** Es el mismo mecanismo que los productos de la v2 (V3-2), solo que lo tuyo es privado.
-
----
-
-## 8 · Lo que tienes
-
-- **8.1** En el glosario **marcas los materiales que tienes en el laboratorio**, de golpe o poco a poco, con el buscador.
-- **8.2** **Es una lista, sin cantidades**: no es un inventario.
-- **8.3** **Con el interruptor encendido**, el buscador del banco solo enseña lo que tienes. **Apagado**, enseña todo.
-- **8.4** **(propuesta)** Tus materiales y tus versiones cuentan como «los tengo» al crearlos, y lo puedes quitar.
-
----
-
-## 9 · Lo que entra de la v2
-
-Los 3070 materiales `sustancia` de la v2 envuelven cada uno una sustancia de su propia tabla (3074 en total, con un solo CAS cada una). En la v3 son la misma cosa: el material tipo sustancia es la sustancia.
-
-| Qué | Cuántos |
-|---|---|
-| Sustancias, naturales, bases | 4260 |
-| Productos, como versiones comunes | 89 |
-| Disolventes | 7 |
-| Cifras de composición | 3140 |
-| Estándares de IFRA 51 | 263 |
-| Topes de fabricante | 13 |
-| Condiciones probadas o supuestas | 2 |
-| Nombres y perfil, del glosario de la v1 | 4347 filas, unidas por `v1-a-v2.csv` |
-
----
-
-## 10 · Lo que no sé y necesito que me digas
-
-| # | Pregunta | Mi propuesta |
+| Primera versión (v2) | Ahora (plan v3) | De dónde |
 |---|---|---|
-| 10.1 | **¿El provisional es un tipo o un estado?** ¿Un «Musk de Juan» que luego completas pasa a ser una base? | Un estado: al completarlo eliges su tipo |
-| 10.2 | **¿Se puede hacer tu versión de un producto** (una versión de una versión)? | Sí: hereda en cadena |
-| 10.3 | **«Lo que tengo», ¿se marca sobre el material general o sobre el producto concreto?** | Sobre lo que elijas; marcar el general no marca sus productos |
-| 10.4 | **¿Tus límites solo pueden ser más estrictos que IFRA?** | Sí (§7.3) |
-| 10.5 | **El perfil (familia, uso, duración) de tus materiales**, ¿lo rellenas tú a mano? | Sí, con su base y su fuente, como cualquier cifra |
-| 10.6 | **¿Una fórmula guardada como material** también se puede ajustar y marcar como «la tengo»? | Sí: es un material tuyo como los demás |
+| Seis tipos de la v2: sustancia, natural, base, disolvente, provisional, fórmula | El plan no enumera los tipos. Propongo los que cambian el cálculo, nada más (§2.3) | Plan §15 |
+| Un natural se identifica por especie + parte + proceso + quimiotipo (D1) | Son **atributos opcionales**. La identidad es el id | Plan §15 |
+| Id estable de la v2 en una columna `ref` | **Sin columna**: el script deriva el id de la v3 del de la v2, siempre el mismo | Plan §35 |
+| Cobertura de cada lista (columna con 4 valores) | **Sin columna**: la da el tipo, más un componente «Sin identificar» para las listas parciales (§3.5) | Plan §22, §31 |
+| «Requisito cumplido» como clase aparte | Un solo `requirement`, cuya **autoridad** dice si está acreditado (§4.4) | Plan §29, §32 |
+| Columna de enmienda de IFRA | La enmienda va en `source` | Plan §28 |
+| Dos tablas: nombres comerciales y perfil (familia, uso, duración) | **Fuera al principio**: el material tiene `name` (§2.5) | Plan §34 |
+| Productos «basados en» su material general | Cada producto es **un material común con su composición entera**, que escribe el script | Tú (V3-2) + plan §17 |
+| D7, pura por convención; D8 y D12, la dilución y el certificado tal como se compra | **No hacen falta como reglas**: salen del propio modelo (§3.4 y §3.6) | Plan §8, §24 |
+| Uso habitual, duración, la base de cada número | Fuera al principio: el plan no los tiene | Plan §34 |
+| Los cuatro estados, la jerarquía de autoridad, lo desconocido nunca cero | **Se quedan**: el plan los mantiene | Plan §31, §32 |
+| Glosario, tu versión de un común, «lo que tengo» | Se quedan | Tú (V3-3) |
+
+---
+
+## 1 · Las categorías del plan
+
+- **1.1 · Fórmula y material son cosas distintas** *[Plan §27]*. Una fórmula es lo que estás formulando; un material es algo que se puede añadir. Para usar una fórmula como ingrediente se **congela**: se crea un material tuyo con su composición fija, y cambiar la fórmula después no lo cambia.
+- **1.2 · Común o tuyo** *[Plan §16–18]*. Un material es común (`owner_id` vacío) o tuyo (`owner_id` = tú). Hay **una sola tabla** para los dos.
+
+  | Comunes (ejemplos del plan, §36) | Tuyos |
+  |---|---|
+  | Geosmina, Linalool, Bergamot oil, DPG, Alcohol | Tu base almizclada, un material provisional, una fórmula congelada |
+
+- **1.3 · Simple o compuesto** *[Plan §20]*. Un material puede contener otros materiales. Ninguno se contiene a sí mismo.
+- **1.4 · Provisional** *[Plan §19]*. Un material tuyo del que solo sabes el nombre (`kind = provisional`). Se añade a una fórmula al momento, y lo que no se sabe de él sigue siendo desconocido, nunca cero ni libre.
+- **1.5 · La dilución no crea materiales** *[Plan §8]*. «Geosmina al 1 % en DPG» es Geosmina, pesada así en una adición.
+
+---
+
+## 2 · El material
+
+- **2.1 · Campos** *[Plan §15]*:
+  - `name` y `kind`;
+  - si se saben: `cas`, `species`, `part`, `process`, `chemotype`, `inci`, `origin`;
+  - quién es su dueño: `owner_id`.
+- **2.2** El CAS, la especie y el resto son **datos del material, no su identidad** *[Plan §15]*. Dos materiales pueden compartir CAS (el aceite y el absoluto de una planta).
+- **2.3 · Los tipos (`kind`)** *[Propuesta: el plan no los enumera]*. Solo los que cambian lo que hace la app:
+
+  | Tipo | Qué hace la app con él |
+  |---|---|
+  | `substance` | Una molécula. **Sin componentes, es ella misma**: pura |
+  | `mixture` | Un natural o una base. **Sin componentes, su contenido es desconocido** |
+  | `solvent` | DPG, alcohol, IPM, DEP, TEC, triacetina, BB. **No cuenta como materia aromática** |
+  | `provisional` | Solo un nombre. Todo desconocido |
+  | `frozen` | Una fórmula congelada. Su composición no se puede editar |
+
+  Natural y base no se separan porque la app los trata igual. Un natural se reconoce porque tiene especie.
+
+- **2.4 · Los ids** *[Propuesta]*. Cada material tiene un id único. Para los que vienen de la v2, el script lo calcula a partir del suyo (`M00001`), así que **volver a importar da siempre los mismos ids** sin guardar una columna más.
+- **2.5 · Nombres** *[Plan §15]*. Un solo `name`. Hoy el buscador también encuentra por nombre comercial y sigla («Hedione», «IBQ»), que salen del glosario de la v1. **Pregunta 7.3.**
+
+---
+
+## 3 · La composición
+
+- **3.1 · Una fila por componente** *[Plan §21]*: el material, el componente, la cantidad, la autoridad y la fuente.
+- **3.2 · La cantidad es de uno de cuatro tipos** *[Plan §22]*:
+  - `exact`, una cifra;
+  - `max`, «como mucho»;
+  - `range`, entre dos;
+  - `unknown`, lo lleva pero no se sabe cuánto.
+- **3.3 · La mezcla no se abre; IFRA, sí** *[Plan §23, §24]*. En la fórmula ves los materiales que usaste. Para IFRA, la app los abre en sus componentes, y estos en los suyos, hasta el final.
+- **3.4 · Dónde se para al abrir** *[Propuesta, por el tipo de §2.3]*:
+  - **una sustancia sin componentes** es ella misma (lo que la v2 llamaba «pura por convención»);
+  - **una mezcla o un provisional sin componentes** son desconocidos, y cuentan en el peor caso.
+- **3.5 · Una lista que no está completa** *[Propuesta]*. Cuando la fuente solo da parte de lo que hay (una ficha de seguridad lista solo lo clasificado), se añade un componente común, **«Sin identificar»**, con cantidad `unknown`. Así la app sabe que puede haber más y nunca da «dentro» por lo que falta.
+  - Sin esto, una lista parcial se leería como completa. En la v2 son **9 materiales y 2 productos**.
+  - Es lo que en la primera versión hacía la columna de cobertura, pero con las tablas del plan.
+- **3.6 · En % del material tal como es** *[Plan §8]*. Si un producto se compra diluido y su certificado habla del producto tal cual, sus cifras son de ese producto y se pesa al 100 %. Es el material que es; la dilución con que tú lo pesas va en la adición.
+
+---
+
+## 4 · La regulación
+
+- **4.1 · Una fila por regulación de un material** *[Plan §28]*: régimen, categoría, clase, máximo, grupo, requisito, autoridad y fuente.
+- **4.2 · Dos regímenes** *[Plan §29]*:
+  - `ifra`, los estándares;
+  - `manufacturer`, el tope que un fabricante da para su producto. Los productos son materiales (V3-2), así que el tope es de ese material.
+- **4.3 · Tres clases** *[Plan §29]*:
+  - `max`, el máximo en el producto terminado, por categoría;
+  - `prohibited`;
+  - `requirement`, una especificación que cumplir (el cade, rectificado).
+- **4.4 · Si un requisito se cumple** *[Propuesta, con la autoridad del plan §32]*:
+  - con autoridad `ifra`, **pendiente** de acreditar;
+  - con `product` o `lot` y su fuente, **acreditado**;
+  - con `literature` o `consensus`, **supuesto**.
+- **4.5 · El grupo (`group_key`)** *[Plan §28; la regla, propuesta]*. Los miembros de un mismo estándar comparten grupo: los isómeros de una sustancia, o los aceites fototóxicos del 089. En un grupo se suma la parte de cada miembro sobre su máximo, y el total no pasa de 1.
+- **4.6 · De dónde salen las de IFRA** *[Plan §40]*. El script las escribe desde los archivos de IFRA: una por miembro y categoría. La app usa la 4, y la enmienda va en `source`.
+
+---
+
+## 5 · Autoridad y lo desconocido
+
+- **5.1 · La autoridad de cada cifra, de más a menos** *[Plan §32]*:
+  1. `lot`
+  2. `product`
+  3. `ifra`
+  4. `literature`
+  5. `consensus`
+
+  Si dos chocan, manda la de arriba.
+- **5.2 · Sin tabla de documentos** *[Plan §33]*. La fuente es un texto. El script solo trae cifras de documentos revisados.
+- **5.3 · Lo desconocido nunca vale cero** *[Plan §31]*. Cada sustancia sale **dentro**, **acotada**, **sin comprobar** o **se pasa**, y el cálculo puede salir parcial.
+- **5.4 · Una cifra de literatura o consenso nunca da «dentro», como mucho «acotada»**. Es la regla D2 de la v2. El plan no la menciona ni la contradice, y el motor ya la hace. **Pregunta 7.4.**
+
+---
+
+## 6 · El glosario: común y tuyo
+
+- **6.1 · Lo común lo escribe solo el script**, desde los datos del repositorio. Todos lo leen y nadie lo cambia *[Plan §17, §40]*.
+- **6.2 · Tus materiales** solo los ves tú. Llevan los mismos campos, componentes y regulaciones que los comunes *[Plan §18; Tú, V3-3]*.
+- **6.3 · Tu versión de un material común** no cambia el común y sale junto a él *[Tú, V3-3]*. Cómo se hace es la **pregunta 7.2**.
+- **6.4 · «Lo que tengo»**: marcas los materiales que tienes, sin cantidades. Con el interruptor encendido, el buscador del banco solo te enseña esos *[Tú, V3-3]*.
+  - Una tabla pequeña de usuario y material.
+  - El plan solo excluye el «inventario avanzado» (§45).
+
+---
+
+## 7 · Preguntas, de una en una
+
+| # | Pregunta | Opciones | Recomiendo |
+|---|---|---|---|
+| **7.1** | **¿Valen los cinco tipos de §2.3?** | **A** · Esos cinco · **B** · Separar natural y base (seis) · **C** · Otros que tengas en mente | **A**: son los que cambian el cálculo |
+| 7.2 | ¿Cómo se hace tu versión de un común? | **A** · Al ajustar, se **copia** lo del común en un material tuyo, como al congelar una fórmula. Sin columnas nuevas, pero si IFRA cambia, tu copia no se entera · **B** · Tu material **apunta** al común y hereda lo suyo. Una columna más, y los cambios de IFRA te llegan | **B**: un límite de IFRA nuevo no puede perderse en una copia |
+| 7.3 | ¿Por qué nombres busca el buscador? | **A** · Solo `name` (el plan tal cual) · **B** · `name` + una lista de otros nombres (comercial, sigla, sinónimos) en el mismo material | **B**: nadie busca «6-sec-Butylquinoline» |
+| 7.4 | ¿Se queda la regla D2 (§5.4)? | Sí / No | Sí: sin ella una cifra de consenso daría un verde que no está probado |
+
+---
+
+## 8 · Qué entra de la v2
+
+| De la v2 | En la v3 |
+|---|---|
+| 3070 sustancias | `substance` |
+| 1183 naturales y 7 bases | `mixture` |
+| 89 productos | Materiales comunes: su composición es la de su material general más la de su certificado, escrita por el script (V3-2). Sus 13 topes, `manufacturer` |
+| 3140 cifras de composición | `material_components`, con su autoridad y su documento como fuente |
+| 263 estándares de IFRA 51 y 2 condiciones | `regulations` |
+| Los 7 disolventes de la app | `solvent` |
+| **No entra al principio** | Nombres comerciales y perfil (según 7.3), uso, duración, las 10 concentraciones por defecto, los lotes, los documentos como tabla |
