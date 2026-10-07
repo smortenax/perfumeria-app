@@ -18,7 +18,7 @@
 
 **Nada de esto obliga a abandonar el plan:** se resuelve añadiendo unas pocas tablas que ya existen como CSV en la v2. Mi propuesta es que **la v3 cambie el almacenamiento y la plataforma, no el dominio**: las decisiones de la v2 siguen vigentes y el esquema se traduce desde la v2.
 
-**Sobre «no diseñar la base de datos desde cero»** (la idea de tu amigo): la tiene razón, y la estructura ya hecha que mejor encaja **es la v2 misma**, con patrones conocidos para lo que la v2 no tenía (multiusuario, RLS). Lo detallo en el §4.
+**Sobre «no diseñar la base de datos desde cero»** (la idea de tu amigo): tiene razón, y la estructura ya hecha que mejor encaja **es la v2 misma**, con patrones conocidos para lo que la v2 no tenía (multiusuario, RLS). Lo detallo en el §4.
 
 **Te pido cinco decisiones** (§5.1); el resto lo resuelvo con un default que te digo (§5.2).
 
