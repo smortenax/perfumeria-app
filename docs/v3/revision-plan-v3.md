@@ -2,6 +2,8 @@
 
 *2026-10-07. Revisa `PLAN_V3.md` (el que subiste al hilo; igual que `docs/v3/PLAN_V3.md` del repo) contra la v2 tal como está en `main`. Lo que digo de la v2 sale del código y de los documentos que cito; lo que es opinión mía va marcado como propuesta.*
 
+> **Actualizado el 2026-10-07, 15:44:** decidiste que donde chocan **manda el plan** (V3-1). Cómo queda cada punto de esta revisión está en [`decisiones-v3.md`](decisiones-v3.md), y los pasos, en [`plan-ejecutivo-v3.md`](plan-ejecutivo-v3.md). Las recomendaciones del §5 que chocaban con el plan ya no valen.
+
 ---
 
 ## 0 · En una pantalla
