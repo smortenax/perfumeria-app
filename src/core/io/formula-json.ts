@@ -12,6 +12,12 @@ import { vectorId, type VectorComponent } from "../model/vector";
  * is only a courtesy copy, and reading rebuilds it from the history.
  */
 export const FORMULA_FORMAT = "perfumeria/formula/1";
+/**
+ * A file with a mixture of two diluents (2026-10-08). An app that only knows the first format
+ * refuses it instead of counting the second diluent as the first (§1.2); a file without one stays
+ * in the first format, readable by every version.
+ */
+export const FORMULA_FORMAT_MIX = "perfumeria/formula/2";
 
 interface MaterialDoc {
   kind: MaterialKind;
@@ -24,7 +30,15 @@ interface MaterialDoc {
 }
 
 type ChangeDoc =
-  | { kind: "add"; id: string; material: string; massUg: string; fraction: string; diluent: string | null }
+  | {
+      kind: "add";
+      id: string;
+      material: string;
+      massUg: string;
+      fraction: string;
+      diluent: string | null;
+      secondDiluent?: { material: string; fraction: string };
+    }
   | { kind: "set-mass"; id: string; target: string; massUg: string }
   | { kind: "remove"; id: string; target: string }
   | { kind: "reweigh"; id: string; grossUg: string; tareUg: string }
@@ -64,6 +78,9 @@ export function formulaToJson(formula: Formula, meta: FormulaMeta = {}): string 
           massUg: change.massUg.toString(),
           fraction: change.fraction.toString(),
           diluent: change.diluent ? register(change.diluent) : null,
+          ...(change.secondDiluent
+            ? { secondDiluent: { material: register(change.secondDiluent.material), fraction: change.secondDiluent.fraction.toString() } }
+            : {}),
         };
       case "set-mass":
         return { kind: "set-mass", id: change.id, target: change.target, massUg: change.massUg.toString() };
@@ -97,9 +114,10 @@ export function formulaToJson(formula: Formula, meta: FormulaMeta = {}): string 
     ...(h.version ? { version: h.version } : {}),
   };
 
+  const mixed = formula.history.some((change) => change.kind === "add" && change.secondDiluent);
   return [
     "{",
-    `  "format": ${JSON.stringify(FORMULA_FORMAT)},`,
+    `  "format": ${JSON.stringify(mixed ? FORMULA_FORMAT_MIX : FORMULA_FORMAT)},`,
     ...(meta.ifraAmendment ? [`  "ifra": ${JSON.stringify({ amendment: meta.ifraAmendment, category: "4" })},`] : []),
     `  "header": ${indent(JSON.stringify(header, null, 2))},`,
     `  "materials": ${oneEntryPerLine(materials)},`,
@@ -112,7 +130,7 @@ export function formulaToJson(formula: Formula, meta: FormulaMeta = {}): string 
 
 export function formulaFromJson(text: string): Formula {
   const doc = JSON.parse(text);
-  if (doc.format !== FORMULA_FORMAT) {
+  if (doc.format !== FORMULA_FORMAT && doc.format !== FORMULA_FORMAT_MIX) {
     throw new Error(`Unknown formula format: ${String(doc.format)}`);
   }
   const docs: Record<string, MaterialDoc> = doc.materials ?? {};
@@ -162,6 +180,7 @@ export function formulaFromJson(text: string): Formula {
           massUg: BigInt(c.massUg),
           fraction: Ratio.parse(c.fraction),
           diluent: c.diluent === null ? null : material(c.diluent),
+          ...(c.secondDiluent ? { secondDiluent: { material: material(c.secondDiluent.material), fraction: Ratio.parse(c.secondDiluent.fraction) } } : {}),
         };
       case "set-mass":
         return { kind: "set-mass", id: c.id, target: c.target, massUg: BigInt(c.massUg) };

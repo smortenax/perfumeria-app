@@ -21,7 +21,7 @@ function describe(change: Change, adds: ReadonlyMap<string, Add>): { title: stri
     case "add":
       return {
         title: change.material.name,
-        sub: pouredText(Ratio.of(change.massUg), change.fraction, change.diluent?.name),
+        sub: pouredText(Ratio.of(change.massUg), change.fraction, change.diluent?.name, change.secondDiluent),
       };
     case "set-mass":
       return { title: adds.get(change.target)?.material.name ?? "?", sub: t.setMass("", massText(Ratio.of(change.massUg))).replace(/^: /, "") };

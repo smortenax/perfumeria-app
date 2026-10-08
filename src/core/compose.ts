@@ -1,5 +1,5 @@
 import { Ratio } from "./arith/ratio";
-import type { Formula } from "./model/formula";
+import type { Formula, SecondDiluent } from "./model/formula";
 import type { Material } from "./model/material";
 import { makeVector, type Vector } from "./model/vector";
 
@@ -13,6 +13,8 @@ export interface Line {
   /** Final fraction of pure matter in what was poured. */
   readonly fraction: Ratio;
   readonly diluent: Material | null;
+  /** With a mixture of two diluents, the second one and its share of what was poured. */
+  readonly secondDiluent?: SecondDiluent;
 }
 
 /** How much of one substance is in the bottle. */
@@ -41,13 +43,14 @@ export function replay(formula: Formula, upTo = formula.history.length): Line[] 
   for (const change of formula.history.slice(0, upTo)) {
     switch (change.kind) {
       case "add": {
-        checkAdd(change.material, change.fraction, change.diluent, change.massUg);
+        checkAdd(change.material, change.fraction, change.diluent, change.massUg, change.secondDiluent);
         lines.set(change.id, {
           id: change.id,
           material: change.material,
           massUg: Ratio.of(change.massUg),
           fraction: change.fraction,
           diluent: change.diluent,
+          ...(change.secondDiluent ? { secondDiluent: change.secondDiluent } : {}),
         });
         break;
       }
@@ -94,7 +97,7 @@ export function replay(formula: Formula, upTo = formula.history.length): Line[] 
   return [...lines.values()];
 }
 
-/** Splits one line into the substances it brings: pure matter and diluent. */
+/** Splits one line into the substances it brings: pure matter and diluent (or the two of a mixture). */
 export function breakdown(line: Line): Part[] {
   const pure = line.massUg.mul(line.fraction);
   const parts: Part[] = [];
@@ -111,8 +114,12 @@ export function breakdown(line: Line): Part[] {
   }
   const diluted = line.massUg.sub(pure);
   if (!diluted.isZero()) {
-    // checkAdd guarantees a diluent whenever the fraction is below 1.
-    parts.push({ material: line.diluent as Material, massUg: diluted });
+    // checkAdd guarantees a diluent whenever the fraction is below 1, and a share of it beside a second one.
+    const second = line.secondDiluent ? line.massUg.mul(line.secondDiluent.fraction) : Ratio.ZERO;
+    parts.push({ material: line.diluent as Material, massUg: diluted.sub(second) });
+    if (line.secondDiluent) {
+      parts.push({ material: line.secondDiluent.material, massUg: second });
+    }
   }
   return parts;
 }
@@ -137,7 +144,7 @@ export function vectorOf(formula: Formula): Vector {
   return makeVector(parts.map((part) => ({ material: part.material, amount: part.massUg })));
 }
 
-function checkAdd(material: Material, fraction: Ratio, diluent: Material | null, massUg: bigint): void {
+function checkAdd(material: Material, fraction: Ratio, diluent: Material | null, massUg: bigint, second?: SecondDiluent): void {
   if (massUg <= 0n) {
     throw new RangeError(`"${material.name}": a mass must be greater than zero`);
   }
@@ -147,5 +154,17 @@ function checkAdd(material: Material, fraction: Ratio, diluent: Material | null,
   if (fraction.lt(Ratio.ONE) && !diluent) {
     // An unknown diluent cannot silently vanish (§1.2): the add bar always carries one.
     throw new Error(`"${material.name}" is diluted but has no diluent`);
+  }
+  if (second) {
+    if (!diluent || !fraction.lt(Ratio.ONE)) {
+      throw new Error(`"${material.name}": a second diluent needs a first one`);
+    }
+    if (second.material.key === diluent.key) {
+      throw new Error(`"${material.name}": the two diluents of a mixture are the same`);
+    }
+    if (second.fraction.sign() <= 0 || !fraction.add(second.fraction).lt(Ratio.ONE)) {
+      // Each of the two must be there: a mixture where one gets nothing is a pour with one diluent.
+      throw new RangeError(`"${material.name}": the second diluent must take above 0 and leave some to the first`);
+    }
   }
 }

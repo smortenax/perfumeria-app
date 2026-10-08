@@ -939,6 +939,53 @@ button.value:hover {
   min-width: 0;
 }
 
+/* The switch of two diluents, in the label of the dilution (2026-10-08). */
+.field-label .mix-switch {
+  height: 16px;
+  margin-left: 8px;
+  color: var(--muted);
+}
+
+/* With two diluents, the two cells are written in: the material's % and the upper diluent's. */
+.mix-cell {
+  justify-content: flex-end;
+  gap: 1px;
+  padding: 0 4px;
+  cursor: text;
+  color: var(--muted);
+}
+
+.mix-cell:focus-within {
+  border-color: var(--ink);
+  box-shadow: 0 0 0 0.5px var(--ink);
+}
+
+.mix-cell input {
+  width: 100%;
+  min-width: 0;
+  border: none;
+  outline: none;
+  padding: 0;
+  background: transparent;
+  font: inherit;
+  color: var(--ink);
+  text-align: right;
+}
+
+/* What the lower diluent takes, where «Puro» was: read, not written. */
+.percent-grid .cell.mix-rest {
+  background: var(--fill);
+  border-style: dashed;
+  color: var(--ink-2);
+  cursor: default;
+}
+
+.percent-grid .cell.mix-rest.over {
+  background: var(--red-bg);
+  border-color: var(--red);
+  color: var(--red);
+}
+
 .cell {
   height: 20px;
   border: 1px solid var(--line);

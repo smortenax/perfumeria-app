@@ -14,8 +14,13 @@ import { inTauri } from "./io";
 export interface Dilution {
   /** As typed, with a decimal comma or point: "10", "0,5". */
   readonly percent: string;
-  /** A diluent of the app ("dpg", "ipm"…) or one of the user's ("prov:…"). */
+  /** A diluent of the app ("dpg", "ipm"…) or one of the user's ("prov:…"). The first one, in a mixture. */
   readonly diluent: string;
+  /**
+   * A mixture of two diluents (2026-10-08): the % of the first one, as typed, and the second
+   * one, which takes the rest. Absent with one diluent.
+   */
+  readonly mix?: { readonly percent: string; readonly diluent: string };
 }
 
 export interface MaterialPrefs {

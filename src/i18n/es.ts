@@ -137,6 +137,19 @@ export const texts = {
     noMaterial: "Elige un material",
     badQuantity: "Cantidad no válida: mayor que cero, y como mucho al microgramo",
     badPercent: "Porcentaje no válido: mayor que 0 y hasta 100",
+    /** The mixture of two diluents (2026-10-08). */
+    mix: "2 diluyentes",
+    mixHelp:
+      "Mezcla de dos diluyentes. A la izquierda, el % del material; a su lado, el del diluyente de arriba; el de abajo se lleva el resto. Clic en un diluyente para cambiarlo.",
+    mixMaterialPercent: "% del material",
+    mixFirstPercent: (diluent: string) => `% de ${diluent}`,
+    mixRest: (percent: string) => `resto ${percent}`,
+    mixRestUnknown: "resto —",
+    mixRestHelp: (diluent: string) => `Lo que queda, en ${diluent}`,
+    changeDiluent: "Cambiar este diluyente",
+    mixPure: "Con dos diluyentes, el material no va puro: escribe su %",
+    badMixPercent: (diluent: string) => `% de ${diluent} no válido: mayor que 0 y hasta 100`,
+    noRest: (diluent: string) => `Los dos % llegan a 100: no queda nada para ${diluent}`,
   },
 
   /** The card of the material chosen in the add bar, under it (P57). */
@@ -440,6 +453,9 @@ export const texts = {
     removeOf: (name: string) => `${name}: quitada`,
     linePure: (mass: string) => `${mass}, puro`,
     lineDiluted: (mass: string, percent: string, diluent: string) => `${mass} al ${percent} en ${diluent}`,
+    /** A pour in a mixture of two diluents: each with its share of what was poured. */
+    lineMixed: (mass: string, percent: string, first: string, firstPercent: string, second: string, secondPercent: string) =>
+      `${mass} al ${percent} en ${first} ${firstPercent} + ${second} ${secondPercent}`,
     pure: (mass: string) => `Materia pura: ${mass}`,
     unweighable: "Impesable: menos de 5 mg",
     weighError: (error: string) => `Error de pesada: ±${error} (báscula de 1 mg)`,

@@ -1,7 +1,7 @@
 import { useEffect, useImperativeHandle, useMemo, useRef, useState, type KeyboardEvent, type Ref, type RefObject } from "react";
 import { Ratio } from "../core/arith/ratio";
 import { parseMass, parsePercent, type MassUnit } from "../core/arith/units";
-import type { Change } from "../core/model/formula";
+import type { Change, SecondDiluent } from "../core/model/formula";
 import type { Material } from "../core/model/material";
 import { casForm, normalize, searchCatalog, type CatalogEntry, type IfraState, type MaterialFamily, type Weighing } from "../data/catalog";
 import { defaultOption, formLabel, makerIndex, plantIndex } from "../data/plants";
@@ -12,6 +12,8 @@ import {
   diluentMaterial,
   diluentOptions,
   isPure,
+  knownMix,
+  mixOf,
   ownDiluents,
   ownName as userNameOf,
   percentOptions,
@@ -19,12 +21,15 @@ import {
   rememberLast,
   rememberName,
   sameDilution,
+  singleFavorites,
   toggleFavorite,
   type DiluentId,
+  type Dilution,
   type MaterialPrefs,
 } from "./prefs";
 import { proposedWeighing } from "./assumptions";
 import { familyLook } from "./family";
+import { dilutionText } from "./format";
 import { IconText } from "./Icon";
 import { newId } from "./state";
 import { pourKey, type Pour } from "./usage-bar";
@@ -81,9 +86,72 @@ function uniquePercents(items: readonly string[]): string[] {
   return items.filter((p, i) => items.findIndex((q) => samePercent(p, q)) === i);
 }
 
-function Switch(props: { checked: boolean; label: string; onChange: (checked: boolean) => void }) {
+/**
+ * A mixture of two diluents in the bar, while its switch is on (2026-10-08), as its cells say it:
+ * the material's %, beside it the % of the first diluent (the upper one), and the second diluent,
+ * which takes the rest.
+ */
+interface Mix {
+  readonly percent: string;
+  readonly firstPercent: string;
+  readonly first: DiluentId;
+  readonly second: DiluentId;
+}
+
+const mixFrom = (d: Dilution): Mix | null =>
+  d.mix ? { percent: d.percent, firstPercent: d.mix.percent, first: d.diluent, second: d.mix.diluent } : null;
+
+const mixDilution = (m: Mix): Dilution => ({ percent: m.percent, diluent: m.first, mix: { percent: m.firstPercent, diluent: m.second } });
+
+/** The mixture read as `add` reads it: the fraction of pure matter and the two diluents; or what is wrong, and in which cell. */
+function readMix(m: Mix): { fraction: Ratio; diluent: Material; secondDiluent: SecondDiluent } | { error: string; at?: 0 | 1 } {
+  const first = diluentMaterial(m.first);
+  const second = diluentMaterial(m.second);
+  if (!first || !second || first.key === second.key) {
+    return { error: t.badDiluent };
+  }
+  let fraction: Ratio;
+  try {
+    fraction = parsePercent(m.percent);
+  } catch {
+    return { error: t.badPercent, at: 0 };
+  }
+  if (fraction.eq(Ratio.ONE)) {
+    return { error: t.mixPure, at: 0 };
+  }
+  let share: Ratio;
+  try {
+    share = parsePercent(m.firstPercent);
+  } catch {
+    return { error: t.badMixPercent(first.name), at: 1 };
+  }
+  const rest = Ratio.ONE.sub(fraction).sub(share);
+  if (rest.sign() <= 0) {
+    return { error: t.noRest(second.name), at: 1 };
+  }
+  return { fraction, diluent: first, secondDiluent: { material: second, fraction: rest } };
+}
+
+/** What is left for the second diluent, while both % can be read; null while not. */
+function restOf(m: Mix): Ratio | null {
+  try {
+    return Ratio.ONE.sub(parsePercent(m.percent)).sub(parsePercent(m.firstPercent));
+  } catch {
+    return null;
+  }
+}
+
+function Switch(props: { checked: boolean; label: string; title?: string; className?: string; onChange: (checked: boolean) => void }) {
   return (
-    <button type="button" role="switch" aria-checked={props.checked} tabIndex={-1} className="switch" onClick={() => props.onChange(!props.checked)}>
+    <button
+      type="button"
+      role="switch"
+      aria-checked={props.checked}
+      tabIndex={-1}
+      className={props.className ? `switch ${props.className}` : "switch"}
+      title={props.title}
+      onClick={() => props.onChange(!props.checked)}
+    >
       <span className={props.checked ? "track on" : "track"}>
         <span className="knob" />
       </span>
@@ -164,7 +232,8 @@ function PlantChips(props: {
  * the switches of what it takes in show under it while searching (P49). Everything by keyboard: Intro or Tab
  * pick the material; Intro moves on; Ctrl+Intro adds with the dilution already
  * set; the arrows choose among the options of % (two cells and «Puro», P53) and
- * of diluent (P26).
+ * of diluent (P26). With the switch of two diluents on, the two cells are written in: the
+ * material's % and the upper diluent's; the lower diluent takes the rest, shown where «Puro» was.
  */
 export function AddBar(props: {
   ref?: Ref<AddBarHandle>;
@@ -205,6 +274,10 @@ export function AddBar(props: {
   /** The cell being written in, and what it says so far. */
   const [editing, setEditing] = useState<{ at: number; text: string } | null>(null);
   const [diluent, setDiluent] = useState<DiluentId>("dpg");
+  const [mix, setMix] = useState<Mix | null>(null);
+  /** In a mixture, the diluent the menu of other diluents replaces: 0 the upper one, 1 the lower. */
+  const [mixSlot, setMixSlot] = useState<0 | 1>(1);
+  const [focusMix, setFocusMix] = useState<0 | 1 | null>(null);
   const [customAt, setCustomAt] = useState(0);
   const [mine, setMine] = useState(true);
   const [formulas, setFormulas] = useState(true);
@@ -218,6 +291,7 @@ export function AddBar(props: {
   const percentRefs = [useRef<HTMLButtonElement>(null), useRef<HTMLButtonElement>(null)];
   const pureRef = useRef<HTMLButtonElement>(null);
   const diluentRefs = [useRef<HTMLButtonElement>(null), useRef<HTMLButtonElement>(null)];
+  const mixRefs = [useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null)];
   const otherRef = useRef<HTMLDivElement>(null);
 
   const byKey = useMemo(() => new Map(props.entries.map((e) => [e.material.key, e])), [props.entries]);
@@ -237,7 +311,7 @@ export function AddBar(props: {
   }
   // -1 is «Puro».
   const checkedCell = pure ? -1 : Math.max(0, cells.findIndex((p) => samePercent(p, percent)));
-  const focusPercent = () => (checkedCell < 0 ? pureRef : percentRefs[checkedCell]).current?.focus();
+  const focusPercent = () => (mix ? mixRefs[0] : checkedCell < 0 ? pureRef : percentRefs[checkedCell]).current?.focus();
 
   /** What was written in a cell takes that cell's place; 100 is «Puro». */
   const commitEdit = (): string | null => {
@@ -283,14 +357,21 @@ export function AddBar(props: {
   const top = diluentOptions(prefs).slice(0, 2);
   const diluents = top.includes(diluent) ? top : [top[0], diluent];
   const checkedDiluent = Math.max(0, diluents.indexOf(diluent));
+  // In a mixture both are taken, the upper one first; the arrows and the menu go to the one in hand.
+  const shown = mix ? [mix.first, mix.second] : diluents;
+  const diluentAt = mix ? mixSlot : checkedDiluent;
   const others: Array<{ id: DiluentId; name: string; own: boolean }> = [
     ...APP_DILUENTS.map((id) => ({ id, name: diluentMaterial(id)?.name ?? id, own: false })),
     ...ownDiluents().map((d) => ({ id: d.id, name: d.name, own: true })),
-  ].filter((d) => !diluents.includes(d.id));
+  ].filter((d) => !shown.includes(d.id));
 
   const [focusDiluent, setFocusDiluent] = useState(false);
   const pickDiluent = (id: DiluentId) => {
-    setDiluent(id);
+    if (mix) {
+      setMix(mixSlot === 0 ? { ...mix, first: id } : { ...mix, second: id });
+    } else {
+      setDiluent(id);
+    }
     setOtherOpen(false);
     setOwnName("");
     setFocusDiluent(true);
@@ -299,12 +380,48 @@ export function AddBar(props: {
   // The chosen one sits in its place once drawn: focus it, so the arrows go on from there.
   useEffect(() => {
     if (focusDiluent) {
-      diluentRefs[checkedDiluent].current?.focus();
+      diluentRefs[diluentAt].current?.focus();
       setFocusDiluent(false);
     }
-  }, [focusDiluent, checkedDiluent, diluentRefs]);
+  }, [focusDiluent, diluentAt, diluentRefs]);
 
-  const openOther = () => setOtherOpen(true);
+  /** Opens the menu of other diluents; in a mixture, for the diluent of that place (the lower one by default). */
+  const openOther = (slot: 0 | 1 = 1) => {
+    setMixSlot(slot);
+    setOtherOpen(true);
+  };
+
+  /**
+   * The switch of two diluents (2026-10-08). On, it starts from the material's last mixture or its
+   * newest favourite one; else from the % in the bar, if it is not «Puro», and the two diluents as
+   * they stand, the upper one first. The % of the upper diluent is left to be written.
+   */
+  const turnMix = (on: boolean) => {
+    setError(null);
+    setEditing(null);
+    setOtherOpen(false);
+    if (!on) {
+      setMix(null);
+      return;
+    }
+    const from = mixOf(prefs);
+    const next = (from && mixFrom(from)) ?? {
+      percent: pure ? "" : percent,
+      firstPercent: "",
+      first: diluents[0],
+      second: diluents[1] ?? APP_DILUENTS.find((d) => d !== diluents[0]) ?? "alcohol",
+    };
+    setMix(next);
+    setFocusMix(next.percent === "" ? 0 : 1);
+  };
+
+  // The cell to write in, once the mixture is drawn.
+  useEffect(() => {
+    if (focusMix !== null) {
+      mixRefs[focusMix].current?.focus();
+      setFocusMix(null);
+    }
+  }, [focusMix, mixRefs]);
 
   // The menu takes the focus when it opens, so the arrows go on inside it.
   useEffect(() => {
@@ -312,11 +429,19 @@ export function AddBar(props: {
       otherRef.current?.querySelector<HTMLElement>("button, input")?.focus();
     }
   }, [otherOpen]);
-  const source = prefs.favorites.some((f) => samePercent(f.percent, percent))
-    ? "favorite"
-    : prefs.last && samePercent(prefs.last.percent, percent)
-      ? "last"
-      : "base";
+  const current: Dilution = mix ? mixDilution(mix) : { percent, diluent };
+  // A mixture says where it comes from only when it is the whole of a favourite or of the last one.
+  const source = mix
+    ? prefs.favorites.some((f) => sameDilution(f, current))
+      ? "favorite"
+      : prefs.last && sameDilution(prefs.last, current)
+        ? "last"
+        : null
+    : singleFavorites(prefs).some((f) => samePercent(f.percent, percent))
+      ? "favorite"
+      : prefs.last && samePercent(prefs.last.percent, percent)
+        ? "last"
+        : "base";
 
   const results: Result[] = useMemo(() => {
     // Spaces as the provisional key takes them: «sandalmysore  core» is «Sandalmysore Core» (P44).
@@ -429,6 +554,10 @@ export function AddBar(props: {
     // A solvent goes pure; so does a formula the first time, since it already carries its diluent (§3.6).
     setPercent(material.solvent ? "100" : (weighing?.percent ?? p.last?.percent ?? (material.kind === "formula" ? "100" : percentOptions(p)[0])));
     setDiluent(weighing?.diluent || (p.last?.diluent ?? diluentOptions(p)[0]));
+    // Last used in a mixture, it opens in the mixture (2026-10-08).
+    const lastMix = knownMix(p.last);
+    setMix(lastMix && mixFrom(lastMix));
+    setOtherOpen(false);
     props.onSelect?.(material);
   };
 
@@ -489,16 +618,30 @@ export function AddBar(props: {
       return;
     }
     let fraction: Ratio;
-    try {
-      fraction = parsePercent(percentText);
-    } catch {
-      setError(t.badPercent);
-      return;
-    }
-    const diluentUsed = fraction.eq(Ratio.ONE) ? null : diluentMaterial(diluent);
-    if (!fraction.eq(Ratio.ONE) && !diluentUsed) {
-      setError(t.badDiluent);
-      return;
+    let diluentUsed: Material | null;
+    let secondDiluent: SecondDiluent | undefined;
+    if (mix) {
+      const read = readMix(mix);
+      if ("error" in read) {
+        setError(read.error);
+        if (read.at !== undefined) {
+          mixRefs[read.at].current?.focus();
+        }
+        return;
+      }
+      ({ fraction, diluent: diluentUsed, secondDiluent } = read);
+    } else {
+      try {
+        fraction = parsePercent(percentText);
+      } catch {
+        setError(t.badPercent);
+        return;
+      }
+      diluentUsed = fraction.eq(Ratio.ONE) ? null : diluentMaterial(diluent);
+      if (!fraction.eq(Ratio.ONE) && !diluentUsed) {
+        setError(t.badDiluent);
+        return;
+      }
     }
     props.onAdd({
       kind: "add",
@@ -507,8 +650,9 @@ export function AddBar(props: {
       massUg,
       fraction,
       diluent: diluentUsed,
+      ...(secondDiluent ? { secondDiluent } : {}),
     });
-    rememberLast(selected.key, { percent: percentText, diluent });
+    rememberLast(selected.key, mix ? mixDilution(mix) : { percent: percentText, diluent });
     setSelected(null);
     setQuery("");
     setQuantity("");
@@ -524,13 +668,17 @@ export function AddBar(props: {
     }
     try {
       const massUg = parseMass(quantity, unit);
+      if (mix) {
+        const read = readMix(mix);
+        return "error" in read ? null : { material: selected, massUg, ...read };
+      }
       const fraction = parsePercent(percent);
       const used = fraction.eq(Ratio.ONE) ? null : diluentMaterial(diluent);
       return !fraction.eq(Ratio.ONE) && !used ? null : { material: selected, massUg, fraction, diluent: used };
     } catch {
       return null;
     }
-  }, [selected, quantity, unit, percent, diluent]);
+  }, [selected, quantity, unit, percent, diluent, mix]);
   const draftKey = pourKey(draft);
   const onDraft = props.onDraft;
   useEffect(() => {
@@ -538,8 +686,29 @@ export function AddBar(props: {
     // Only when the pour changes: the key stands for all of it.
   }, [draftKey]);
 
-  const current = { percent, diluent };
   const isFavorite = prefs.favorites.some((f) => sameDilution(f, current));
+  const rest = mix ? restOf(mix) : null;
+  const firstName = mix ? (diluentMaterial(mix.first)?.name ?? mix.first) : "";
+  const secondName = mix ? (diluentMaterial(mix.second)?.name ?? mix.second) : "";
+  /** The keys of a cell of the mixture: Intro goes on to the next cell, and from the last one adds; Ctrl+Intro adds. */
+  const mixKeys = (e: KeyboardEvent<HTMLInputElement>, at: 0 | 1) => {
+    const input = e.currentTarget;
+    const atEnd = input.selectionStart === input.value.length && input.selectionEnd === input.value.length;
+    if (e.key === "Enter") {
+      e.preventDefault();
+      if (at === 0 && !e.ctrlKey) {
+        mixRefs[1].current?.focus();
+      } else {
+        add();
+      }
+    } else if (e.key === "ArrowRight" && atEnd) {
+      e.preventDefault();
+      (at === 0 ? mixRefs[1] : diluentRefs[0]).current?.focus();
+    } else if (e.key === "ArrowLeft" && at === 1 && input.selectionStart === 0 && input.selectionEnd === 0) {
+      e.preventDefault();
+      mixRefs[0].current?.focus();
+    }
+  };
   const cas = selected ? byKey.get(selected.key)?.cas : undefined;
 
   return (
@@ -747,14 +916,36 @@ export function AddBar(props: {
       <div className="dilution">
         <div className="field-label">
           <span>{t.dilution}</span>
-          <span className="hint">{t.src[source]}</span>
+          <Switch checked={mix !== null} label={t.mix} title={t.mixHelp} className="mix-switch" onChange={turnMix} />
+          {source && <span className="hint">{t.src[source]}</span>}
         </div>
-        {assumed && samePercent(assumed.percent, percent) && (
+        {!mix && assumed && samePercent(assumed.percent, percent) && (
           <div className="dilution-note muted tiny" title={`${t.assumedHelp} ${assumed.source}`}>
             {t.assumed(assumed.percent.replace(".", ","), assumed.why, assumed.diluent.toUpperCase())}
           </div>
         )}
         <div className="dilution-group" role="group" aria-label={t.dilution}>
+          {mix ? (
+            <div className="percent-grid mix-grid" role="group" aria-label={t.percentGroup}>
+              {([0, 1] as const).map((at) => (
+                <label key={at} className="cell mix-cell num" title={at === 0 ? t.mixMaterialPercent : t.mixFirstPercent(firstName)}>
+                  <input
+                    ref={mixRefs[at]}
+                    value={at === 0 ? mix.percent : mix.firstPercent}
+                    inputMode="decimal"
+                    autoComplete="off"
+                    aria-label={at === 0 ? t.mixMaterialPercent : t.mixFirstPercent(firstName)}
+                    onChange={(e) => setMix(at === 0 ? { ...mix, percent: e.target.value } : { ...mix, firstPercent: e.target.value })}
+                    onKeyDown={(e) => mixKeys(e, at)}
+                  />
+                  %
+                </label>
+              ))}
+              <span className={rest !== null && rest.sign() <= 0 ? "cell pure mix-rest over" : "cell pure mix-rest"} title={t.mixRestHelp(secondName)}>
+                {rest === null ? t.mixRestUnknown : t.mixRest(rest.sign() > 0 ? dilutionText(rest) : "0 %")}
+              </span>
+            </div>
+          ) : (
           <div className="percent-grid" role="radiogroup" aria-label={t.percentGroup}>
             {cells.map((p, i) =>
               editing !== null && editing.at === i ? (
@@ -809,6 +1000,40 @@ export function AddBar(props: {
               {t.pureButton}
             </button>
           </div>
+          )}
+          {mix ? (
+            // In a mixture both diluents are taken: a click, or →, changes the one pressed (2026-10-08).
+            <div className="radio-col diluent-col" role="group" aria-label={t.diluentGroup}>
+              {shown.map((d, i) => (
+                <button
+                  key={d}
+                  type="button"
+                  ref={diluentRefs[i]}
+                  tabIndex={i === 0 ? 0 : -1}
+                  className="cell checked"
+                  title={t.changeDiluent}
+                  onClick={() => (otherOpen && mixSlot === i ? setOtherOpen(false) : openOther(i as 0 | 1))}
+                  onKeyDown={(e) => {
+                    if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+                      e.preventDefault();
+                      diluentRefs[1 - i].current?.focus();
+                    } else if (e.key === "ArrowLeft") {
+                      e.preventDefault();
+                      mixRefs[1].current?.focus();
+                    } else if (e.key === "ArrowRight") {
+                      e.preventDefault();
+                      openOther(i as 0 | 1);
+                    } else if (e.key === "Enter") {
+                      e.preventDefault();
+                      add();
+                    }
+                  }}
+                >
+                  {diluentMaterial(d)?.name ?? d}
+                </button>
+              ))}
+            </div>
+          ) : (
           <div className="radio-col diluent-col" role="radiogroup" aria-label={t.diluentGroup}>
             {diluents.map((d, i) => (
               <button
@@ -844,6 +1069,7 @@ export function AddBar(props: {
               </button>
             ))}
           </div>
+          )}
           <div className="other-wrap">
             <button
               type="button"
@@ -872,7 +1098,7 @@ export function AddBar(props: {
                   if (e.key === "Escape" || (e.key === "ArrowLeft" && (e.target as HTMLElement).tagName !== "INPUT")) {
                     e.preventDefault();
                     setOtherOpen(false);
-                    diluentRefs[checkedDiluent].current?.focus();
+                    diluentRefs[diluentAt].current?.focus();
                   } else if (e.key === "ArrowDown" || e.key === "ArrowUp") {
                     e.preventDefault();
                     items[(at + (e.key === "ArrowDown" ? 1 : items.length - 1)) % items.length]?.focus();

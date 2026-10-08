@@ -1,5 +1,6 @@
 import { Ratio } from "../core/arith/ratio";
 import { formatDecimal, formatGrams, formatMilligrams, formatPercent } from "../core/display";
+import type { SecondDiluent } from "../core/model/formula";
 import { texts } from "../i18n/es";
 
 const ONE_MG = Ratio.of(1_000);
@@ -24,11 +25,16 @@ export function amountText(micrograms: Ratio): string {
   return formatMilligrams(micrograms, micrograms.lt(TEN_MG) ? 1 : 0);
 }
 
-/** How a line was poured: «619 mg, puro» or «110 mg al 50 % en DPG». */
-export function pouredText(massUg: Ratio, fraction: Ratio, diluentName: string | undefined): string {
-  return fraction.eq(Ratio.ONE)
-    ? texts.history.linePure(massText(massUg))
-    : texts.history.lineDiluted(massText(massUg), dilutionText(fraction), diluentName ?? "?");
+/** How a line was poured: «619 mg, puro», «110 mg al 50 % en DPG» or, in a mixture, «110 mg al 10 % en DPG 30 % + Alcohol 60 %». */
+export function pouredText(massUg: Ratio, fraction: Ratio, diluentName: string | undefined, second?: SecondDiluent): string {
+  if (fraction.eq(Ratio.ONE)) {
+    return texts.history.linePure(massText(massUg));
+  }
+  if (second) {
+    const first = Ratio.ONE.sub(fraction).sub(second.fraction);
+    return texts.history.lineMixed(massText(massUg), dilutionText(fraction), diluentName ?? "?", dilutionText(first), second.material.name, dilutionText(second.fraction));
+  }
+  return texts.history.lineDiluted(massText(massUg), dilutionText(fraction), diluentName ?? "?");
 }
 
 /** A fraction as a percent without trailing zeros: 1/10 is "10 %", 1/200 is "0,5 %". */

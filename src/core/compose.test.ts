@@ -134,3 +134,61 @@ describe("compose: the composition comes from the history", () => {
     expect(one.id).toMatch(/^vec:[0-9a-f]{64}$/);
   });
 });
+
+describe("compose: a pour in a mixture of two diluents (2026-10-08)", () => {
+  const DPG = DILUENTS.dpg;
+  type Add = Extract<Change, { kind: "add" }>;
+  const pour = (...args: Parameters<typeof add>): Add => add(...args) as Add;
+  // A at 10 % in DPG 30 % + alcohol 60 %: the second diluent carries its share of what was poured.
+  const mixed = (material: Material, massUg: bigint, percent: string, second: Material, secondPercent: string): Change => ({
+    ...pour(material, massUg, percent, DPG),
+    secondDiluent: { material: second, fraction: Ratio.fromDecimal(secondPercent).div(Ratio.of(100)) },
+  });
+
+  it("splits what is not pure matter between the two diluents, exactly", () => {
+    const f = formula(mixed(A, 1n * G, "10", ALCOHOL, "60"));
+    const c = compose(f);
+    expect(massOf(f, A).eq(Ratio.of(100n * MG))).toBe(true);
+    expect(massOf(f, DPG).eq(Ratio.of(300n * MG))).toBe(true);
+    expect(massOf(f, ALCOHOL).eq(Ratio.of(600n * MG))).toBe(true);
+    expect(c.totalUg.eq(Ratio.of(1n * G))).toBe(true);
+    // Only A is aromatic matter: both diluents are solvents.
+    expect(c.aromaticUg.eq(Ratio.of(100n * MG))).toBe(true);
+    expect(c.lines[0].secondDiluent?.material.key).toBe(ALCOHOL.key);
+  });
+
+  it("adds each diluent to the same diluent poured by other lines, and keeps the split through a reweighing", () => {
+    const f = formula(mixed(A, 1n * G, "10", ALCOHOL, "60"), add(B, 1n * G, "50", ALCOHOL), { kind: "reweigh", id: "r", grossUg: G, tareUg: 0n });
+    // Before: alcohol 600 mg + 500 mg; then everything at half.
+    expect(massOf(f, ALCOHOL).eq(Ratio.of(550n * MG))).toBe(true);
+    expect(massOf(f, DPG).eq(Ratio.of(150n * MG))).toBe(true);
+    expect(massOf(f, A).eq(Ratio.of(50n * MG))).toBe(true);
+    expect(compose(f).parts.filter((p) => p.material.key === ALCOHOL.key)).toHaveLength(1);
+  });
+
+  it("a third of a mixture stays exact: no rounding in the split", () => {
+    // 1 % of A, 33 % DPG, 66 % alcohol in 3 mg.
+    const f = formula(mixed(A, 3n * MG, "1", ALCOHOL, "66"));
+    expect(massOf(f, A).toString()).toBe("30");
+    expect(massOf(f, DPG).toString()).toBe("990");
+    expect(massOf(f, ALCOHOL).toString()).toBe("1980");
+  });
+
+  it("a formula used as a material can be poured in a mixture too", () => {
+    const y = formula(add(B, 250n * MG), add(C, 750n * MG));
+    const f = formula(mixed(asMaterial("Y", y), 1n * G, "20", ALCOHOL, "50"));
+    expect(massOf(f, B).eq(Ratio.of(50n * MG))).toBe(true);
+    expect(massOf(f, C).eq(Ratio.of(150n * MG))).toBe(true);
+    expect(massOf(f, DPG).eq(Ratio.of(300n * MG))).toBe(true);
+    expect(massOf(f, ALCOHOL).eq(Ratio.of(500n * MG))).toBe(true);
+  });
+
+  it("refuses a mixture that is not one: pure matter, no first diluent, the same diluent twice, or nothing left for one", () => {
+    const second = { material: ALCOHOL, fraction: Ratio.of(1, 2) };
+    expect(() => compose(formula({ ...pour(A, G), secondDiluent: second }))).toThrow(/first one/);
+    expect(() => compose(formula({ ...pour(A, G, "10", DPG), secondDiluent: { material: DPG, fraction: Ratio.of(1, 2) } }))).toThrow(/same/);
+    // 10 % of A and 90 % of alcohol leave nothing to the DPG.
+    expect(() => compose(formula(mixed(A, G, "10", ALCOHOL, "90")))).toThrow(/leave some/);
+    expect(() => compose(formula({ ...pour(A, G, "10", DPG), secondDiluent: { material: ALCOHOL, fraction: Ratio.ZERO } }))).toThrow(/above 0/);
+  });
+});

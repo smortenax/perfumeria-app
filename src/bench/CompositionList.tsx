@@ -100,7 +100,7 @@ export function CompositionCard(props: {
       t.poured,
       own.length === 0
         ? t.insideFormula
-        : own.map((l) => pouredText(l.massUg, l.fraction, l.diluent?.name)).join(" · "),
+        : own.map((l) => pouredText(l.massUg, l.fraction, l.diluent?.name, l.secondDiluent)).join(" · "),
     ]);
     // A diluent is no aromatic matter: its share is the bottle's, the only one it has (P49, P57).
     lines.push([

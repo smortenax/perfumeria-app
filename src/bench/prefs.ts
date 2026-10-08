@@ -14,8 +14,12 @@ export type DiluentId = string;
 
 export const prefsOf = (materialKey: string): MaterialPrefs => userData().materials[materialKey] ?? { favorites: [] };
 
+const samePercentText = (a: string, b: string): boolean => a.replace(",", ".") === b.replace(",", ".");
+
 export const sameDilution = (a: Dilution, b: Dilution): boolean =>
-  a.percent.replace(",", ".") === b.percent.replace(",", ".") && a.diluent === b.diluent;
+  samePercentText(a.percent, b.percent) &&
+  a.diluent === b.diluent &&
+  (a.mix && b.mix ? samePercentText(a.mix.percent, b.mix.percent) && a.mix.diluent === b.mix.diluent : !a.mix && !b.mix);
 
 export function rememberLast(materialKey: string, dilution: Dilution): void {
   updateUserData((d) => ({
@@ -61,15 +65,29 @@ export const isPure = (percent: string): boolean => Number(percent.replace(",", 
 
 /** The options of the two cells, in order: favourites, the last one used, then the base 10 % and 50 % (P26, P53). Pure has its own button. */
 export function percentOptions(prefs: MaterialPrefs): string[] {
-  const all = [...prefs.favorites.map((f) => f.percent), prefs.last?.percent, "10", "50"];
+  const all = [...singleFavorites(prefs).map((f) => f.percent), prefs.last?.percent, "10", "50"];
   return unique(all.filter((p): p is string => p !== undefined && !isPure(p)));
 }
 
 /** The diluent options, in order: favourites, the last one used, then DPG and alcohol. */
 export function diluentOptions(prefs: MaterialPrefs): DiluentId[] {
-  const all = [...prefs.favorites.map((f) => f.diluent), prefs.last?.diluent, "dpg", "alcohol"];
+  const all = [...singleFavorites(prefs).map((f) => f.diluent), prefs.last?.diluent, "dpg", "alcohol"];
   return unique(all.filter((d): d is DiluentId => d !== undefined && diluentMaterial(d) !== null));
 }
+
+/** The favourites with one diluent: those of a mixture are not options of the cells, but what the mixture starts from. */
+export const singleFavorites = (prefs: MaterialPrefs): readonly Dilution[] => prefs.favorites.filter((f) => !f.mix);
+
+/** The dilution, if it is a mixture of two diluents that are both still known; else null. */
+export const knownMix = (d: Dilution | undefined): Dilution | null =>
+  d?.mix !== undefined && diluentMaterial(d.diluent) !== null && diluentMaterial(d.mix.diluent) !== null ? d : null;
+
+/**
+ * The mixture of two diluents a material starts from when the switch is turned on: the last one it was
+ * used with, or else its newest favourite mixture; or none.
+ */
+export const mixOf = (prefs: MaterialPrefs): Dilution | null =>
+  knownMix(prefs.last) ?? [...prefs.favorites].reverse().find((f) => knownMix(f) !== null) ?? null;
 
 function unique<T>(items: readonly T[]): T[] {
   return items.filter((item, i) => items.findIndex((other) => String(other).replace(",", ".") === String(item).replace(",", ".")) === i);

@@ -3,8 +3,8 @@ import { Ratio } from "../arith/ratio";
 import { compose, vectorOf } from "../compose";
 import { f001 } from "../fixtures/f001";
 import type { Formula } from "../model/formula";
-import type { Material } from "../model/material";
-import { formulaFromJson, formulaToJson } from "./formula-json";
+import { DILUENTS, type Material } from "../model/material";
+import { FORMULA_FORMAT, FORMULA_FORMAT_MIX, formulaFromJson, formulaToJson } from "./formula-json";
 
 const sameComposition = (a: Formula, b: Formula) => {
   const ca = compose(a);
@@ -121,5 +121,38 @@ describe("formula JSON", () => {
 
   it("refuses a file of another format", () => {
     expect(() => formulaFromJson('{"format":"otra-cosa/1"}')).toThrow(/format/);
+  });
+
+  it("keeps a mixture of two diluents, in a format an older app refuses instead of misreading (2026-10-08)", () => {
+    const a: Material = { key: "cas:A", kind: "base", name: "A" };
+    const mixed: Formula = {
+      header: { name: "mezcla", intention: "", container: null, workBatchUg: null, finalBatchUg: null },
+      history: [
+        {
+          kind: "add",
+          id: "m",
+          material: a,
+          massUg: 1_000_000n,
+          fraction: Ratio.of(1, 10),
+          diluent: DILUENTS.dpg,
+          secondDiluent: { material: DILUENTS.alcohol, fraction: Ratio.of(3, 5) },
+        },
+      ],
+    };
+    const text = formulaToJson(mixed);
+    const doc = JSON.parse(text);
+    expect(doc.format).toBe(FORMULA_FORMAT_MIX);
+    expect(doc.history[0].secondDiluent).toEqual({ material: "solv:alcohol", fraction: "3/5" });
+    expect(doc.materials["solv:alcohol"]).toEqual({ kind: "base", name: "Alcohol", solvent: true });
+    const read = formulaFromJson(text);
+    sameComposition(mixed, read);
+    const line = read.history[0];
+    expect(line.kind === "add" && line.secondDiluent?.fraction.toString()).toBe("3/5");
+    expect(formulaToJson(read)).toBe(text);
+    // Without a mixture, the file stays in the first format, and its lines carry no second diluent.
+    const plain = formulaToJson(f001());
+    expect(JSON.parse(plain).format).toBe(FORMULA_FORMAT);
+    expect(plain).not.toContain("secondDiluent");
+    expect(formulaFromJson(plain).history.some((c) => c.kind === "add" && c.secondDiluent)).toBe(false);
   });
 });

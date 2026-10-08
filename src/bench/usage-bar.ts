@@ -1,7 +1,7 @@
 import { Ratio } from "../core/arith/ratio";
 import { compose, type Composition } from "../core/compose";
 import { checkIfra, marginOf, type IfraBase, type IfraData, type IfraReport, type IfraSubstance } from "../core/ifra";
-import type { Change, Formula } from "../core/model/formula";
+import type { Change, Formula, SecondDiluent } from "../core/model/formula";
 import type { Material } from "../core/model/material";
 import type { UsageData } from "../data/catalog";
 import { carriedOf, type Carried } from "./material-card";
@@ -253,6 +253,7 @@ export interface Pour {
   readonly massUg: bigint;
   readonly fraction: Ratio;
   readonly diluent: Material | null;
+  readonly secondDiluent?: SecondDiluent;
 }
 
 /** What adding the pour would do: where it leaves the material on the strip, and which ceilings it breaks. */
@@ -274,7 +275,15 @@ export interface Preview {
  */
 export function previewPour(formula: Formula, data: IfraData, before: IfraReport, pour: Pour, chosen?: IfraBase): Preview {
   const base = readingIn(before, chosen).base;
-  const change: Change = { kind: "add", id: "preview", material: pour.material, massUg: pour.massUg, fraction: pour.fraction, diluent: pour.diluent };
+  const change: Change = {
+    kind: "add",
+    id: "preview",
+    material: pour.material,
+    massUg: pour.massUg,
+    fraction: pour.fraction,
+    diluent: pour.diluent,
+    ...(pour.secondDiluent ? { secondDiluent: pour.secondDiluent } : {}),
+  };
   const after: Formula = { header: formula.header, history: [...formula.history, change] };
   const report = checkIfra(after, data);
   const verdictOf = (r: IfraReport, key: string) => r.readings.find((x) => x.base === base)?.checks.find((c) => c.key === key)?.verdict;
@@ -304,5 +313,6 @@ export function previewPour(formula: Formula, data: IfraData, before: IfraReport
  * recomputed is only what this text changes.
  */
 export function pourKey(pour: Pour | null): string {
-  return pour ? `${pour.material.key}|${pour.massUg}|${pour.fraction.toString()}|${pour.diluent?.key ?? ""}` : "";
+  const second = pour?.secondDiluent ? `|${pour.secondDiluent.material.key}|${pour.secondDiluent.fraction.toString()}` : "";
+  return pour ? `${pour.material.key}|${pour.massUg}|${pour.fraction.toString()}|${pour.diluent?.key ?? ""}${second}` : "";
 }
