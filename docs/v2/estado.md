@@ -19,7 +19,7 @@ Autoridad: [`decisiones-v2.md`](decisiones-v2.md) (D1–D12). La v1 está congel
   reconocimiento por identidad en `scripts/v2/identidad.py`). Fuera de la fase: `prod:`, `cert:`, `tienda:`, `cat:` y `glosario-fuera.csv`. Los 24 de la biblioteca,
   dados de alta (6q, 6r). La biblioteca con la v2 de la Fase 6: [`comparacion-fase6.md`](comparacion-fase6.md). El arranque calcula bajo demanda el IFRA y la procedencia (`src/v2/lazy.ts`).
 - [ ] **Fase 7 — siguiente:** preparar la app para una enmienda nueva de IFRA (planteado en el chat de revisión; se detalla ahora que la Fase 6 está hecha).
-- **Pendiente de ti:** recompilar la app al cerrar la semana de prueba (no se ha recompilado desde la 0.2.1).
+- **Recompilada como 0.2.2** (2026-10-08, a petición del usuario): lleva la Fase 6 y la mezcla de dos diluyentes en la barra de añadir.
 
 ## Condiciones de IFRA (D11), a 2026-10-03
 

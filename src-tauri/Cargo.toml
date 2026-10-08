@@ -1,6 +1,6 @@
 [package]
 name = "perfumeria-app"
-version = "0.2.1"
+version = "0.2.2"
 description = "Perfumery formulation workbench"
 authors = ["smortenax"]
 edition = "2021"
