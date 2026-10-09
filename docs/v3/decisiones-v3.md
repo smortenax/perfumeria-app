@@ -91,7 +91,27 @@
 - El interruptor, en tus datos de usuario.
 - Sustituye el «sin inventario» de la v2 (P6) sin hacerlo inventario: no hay cantidades.
 
+## V3-4 · Cinco tipos de material (decidida por el usuario el 2026-10-09)
+
+**Pregunta** (tarjeta del hilo, 7.1 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md)): ¿Qué tipos de material tiene la v3?
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Cinco» (2026-10-09 13:27): «Sustancia, mezcla (natural o base), disolvente, provisional y fórmula congelada: solo los que cambian el cálculo.»
+
+**Cómo se aplica:** `materials.kind` es uno de estos cinco:
+
+| Tipo | Qué hace la app con él |
+|---|---|
+| `substance` | Sin componentes, es ella misma |
+| `mixture` | Sin componentes, su contenido es desconocido |
+| `solvent` | No cuenta como materia aromática |
+| `provisional` | Todo desconocido |
+| `frozen` | Composición fija |
+
+Un natural se reconoce porque tiene especie. De la v2: `sustancia` → `substance`; `natural` y `base` → `mixture`.
+
+**Por qué** (de la tarjeta): el plan no enumera tipos, y estos cinco son los que la app trata distinto.
+
 ## Pendientes
 
-- Las preguntas del §7 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md), de una en una. La primera: los tipos de material.
+- Las preguntas del §7 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md), de una en una. La siguiente: cómo se hace tu versión de un material común (7.2).
 - Confirmar la lectura de «uso offline pero mediante hosting» (V3-1): que la v3 necesita conexión.

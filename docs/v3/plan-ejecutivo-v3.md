@@ -42,7 +42,7 @@ Las tablas de materiales del plan, según [`modelo-materiales-v3.md`](modelo-mat
 
 | Paso | Tabla | Además de lo del plan |
 |---|---|---|
-| 2.1 | `materials` | `kind`: `substance`, `mixture`, `solvent`, `provisional`, `frozen` (pregunta 7.1). Según 7.2 y 7.3: `based_on_id` (tu versión de un común) y `aliases` (otros nombres para el buscador) |
+| 2.1 | `materials` | `kind`: `substance`, `mixture`, `solvent`, `provisional`, `frozen` (V3-4). Según 7.2 y 7.3: `based_on_id` (tu versión de un común) y `aliases` (otros nombres para el buscador) |
 | 2.2 | `material_components` | `amount_kind` (`exact`, `max`, `range`, `unknown`) con su comprobación: `range` exige mínimo ≤ máximo, `exact` y `max` exigen valor, `unknown` ninguno. Un material no se contiene a sí mismo |
 | 2.3 | `regulations` | Nada: `kind` es `max`, `prohibited` o `requirement`, y la enmienda va en `source`. `max_value` es fracción del producto terminado |
 | 2.4 | `lab_materials` | Usuario + material: «lo que tengo» (V3-3). Sin cantidades |

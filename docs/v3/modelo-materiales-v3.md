@@ -51,7 +51,7 @@
   - si se saben: `cas`, `species`, `part`, `process`, `chemotype`, `inci`, `origin`;
   - quién es su dueño: `owner_id`.
 - **2.2** El CAS, la especie y el resto son **datos del material, no su identidad** *[Plan §15]*. Dos materiales pueden compartir CAS (el aceite y el absoluto de una planta).
-- **2.3 · Los tipos (`kind`)** *[Propuesta: el plan no los enumera]*. Solo los que cambian lo que hace la app:
+- **2.3 · Los tipos (`kind`)** *[Tú, V3-4: el plan no los enumeraba]*. Solo los que cambian lo que hace la app:
 
   | Tipo | Qué hace la app con él |
   |---|---|
@@ -137,8 +137,8 @@
 
 | # | Pregunta | Opciones | Recomiendo |
 |---|---|---|---|
-| **7.1** | **¿Valen los cinco tipos de §2.3?** | **A** · Esos cinco · **B** · Separar natural y base (seis) · **C** · Otros que tengas en mente | **A**: son los que cambian el cálculo |
-| 7.2 | ¿Cómo se hace tu versión de un común? | **A** · Al ajustar, se **copia** lo del común en un material tuyo, como al congelar una fórmula. Sin columnas nuevas, pero si IFRA cambia, tu copia no se entera · **B** · Tu material **apunta** al común y hereda lo suyo. Una columna más, y los cambios de IFRA te llegan | **B**: un límite de IFRA nuevo no puede perderse en una copia |
+| ~~7.1~~ | ~~¿Valen los cinco tipos de §2.3?~~ | **Decidida (V3-4, 2026-10-09): los cinco** | |
+| **7.2** | **¿Cómo se hace tu versión de un común?** | **A** · Al ajustar, se **copia** lo del común en un material tuyo, como al congelar una fórmula. Sin columnas nuevas, pero si IFRA cambia, tu copia no se entera · **B** · Tu material **apunta** al común y hereda lo suyo. Una columna más, y los cambios de IFRA te llegan | **B**: un límite de IFRA nuevo no puede perderse en una copia |
 | 7.3 | ¿Por qué nombres busca el buscador? | **A** · Solo `name` (el plan tal cual) · **B** · `name` + una lista de otros nombres (comercial, sigla, sinónimos) en el mismo material | **B**: nadie busca «6-sec-Butylquinoline» |
 | 7.4 | ¿Se queda la regla D2 (§5.4)? | Sí / No | Sí: sin ella una cifra de consenso daría un verde que no está probado |
 
