@@ -126,7 +126,10 @@
 
 - **6.1 · Lo común lo escribe solo el script**, desde los datos del repositorio. Todos lo leen y nadie lo cambia *[Plan §17, §40]*.
 - **6.2 · Tus materiales** solo los ves tú. Llevan los mismos campos, componentes y regulaciones que los comunes *[Plan §18; Tú, V3-3]*.
-- **6.3 · Tu versión de un material común** no cambia el común y sale junto a él *[Tú, V3-3]*. Cómo se hace es la **pregunta 7.2**.
+- **6.3 · Tu versión de un material común** no cambia el común y sale junto a él *[Tú, V3-3]*. Es un material tuyo que **apunta al común** (`based_on_id`) *[Tú, V3-5]*:
+  - **hereda** su composición, sus regulaciones y sus datos;
+  - **añade lo tuyo**: tus cifras mandan sobre las del común por su autoridad (tu certificado de producto sobre el anexo), y tus límites se suman a los de IFRA, con el más estricto mandando;
+  - **un cambio de IFRA en el común te llega solo**.
 - **6.4 · «Lo que tengo»**: marcas los materiales que tienes, sin cantidades. Con el interruptor encendido, el buscador del banco solo te enseña esos *[Tú, V3-3]*.
   - Una tabla pequeña de usuario y material.
   - El plan solo excluye el «inventario avanzado» (§45).
@@ -138,8 +141,8 @@
 | # | Pregunta | Opciones | Recomiendo |
 |---|---|---|---|
 | ~~7.1~~ | ~~¿Valen los cinco tipos de §2.3?~~ | **Decidida (V3-4, 2026-10-09): los cinco** | |
-| **7.2** | **¿Cómo se hace tu versión de un común?** | **A** · Al ajustar, se **copia** lo del común en un material tuyo, como al congelar una fórmula. Sin columnas nuevas, pero si IFRA cambia, tu copia no se entera · **B** · Tu material **apunta** al común y hereda lo suyo. Una columna más, y los cambios de IFRA te llegan | **B**: un límite de IFRA nuevo no puede perderse en una copia |
-| 7.3 | ¿Por qué nombres busca el buscador? | **A** · Solo `name` (el plan tal cual) · **B** · `name` + una lista de otros nombres (comercial, sigla, sinónimos) en el mismo material | **B**: nadie busca «6-sec-Butylquinoline» |
+| ~~7.2~~ | ~~¿Cómo se hace tu versión de un común?~~ | **Decidida (V3-5, 2026-10-09): vínculo** | |
+| **7.3** | **¿Por qué nombres busca el buscador?** | **A** · Solo `name` (el plan tal cual) · **B** · `name` + una lista de otros nombres (comercial, sigla, sinónimos) en el mismo material | **B**: nadie busca «6-sec-Butylquinoline» |
 | 7.4 | ¿Se queda la regla D2 (§5.4)? | Sí / No | Sí: sin ella una cifra de consenso daría un verde que no está probado |
 
 ---

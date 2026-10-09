@@ -111,7 +111,22 @@ Un natural se reconoce porque tiene especie. De la v2: `sustancia` → `substanc
 
 **Por qué** (de la tarjeta): el plan no enumera tipos, y estos cinco son los que la app trata distinto.
 
+## V3-5 · Tu versión de un material común es un vínculo (decidida por el usuario el 2026-10-09)
+
+**Pregunta** (tarjeta del hilo, 7.2 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md)): ¿Cómo se hace tu versión de un material común?
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Vínculo» (2026-10-09 13:28): «Tu material apunta al común y hereda lo suyo; una columna más, y los cambios de IFRA del común te llegan solos.»
+
+**Cómo se aplica:** `materials.based_on_id`. Tu versión hereda la composición, las regulaciones y los datos del común, y añade los tuyos:
+
+- **las cifras**, por autoridad;
+- **los límites**, sumados: manda el más estricto.
+
+Un material común solo puede basarse en otro común, y no hay ciclos. Los productos de V3-2 no lo usan: el script les escribe la composición entera.
+
+**Por qué** (de la tarjeta): un límite nuevo de IFRA no puede perderse en una copia vieja.
+
 ## Pendientes
 
-- Las preguntas del §7 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md), de una en una. La siguiente: cómo se hace tu versión de un material común (7.2).
+- Las preguntas del §7 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md), de una en una. La siguiente: por qué nombres busca el buscador (7.3).
 - Confirmar la lectura de «uso offline pero mediante hosting» (V3-1): que la v3 necesita conexión.
