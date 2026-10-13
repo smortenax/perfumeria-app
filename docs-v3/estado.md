@@ -8,7 +8,7 @@
 - **Fases 0 a 3, hechas y comprobadas** (cada commit dice cómo): `v3/` sola, Supabase y PowerSync locales en Docker, PWA, inicio de sesión sin red, esquema de materiales con RLS, sincronización (un bucket común y uno por usuario) y disparadores, cifras exactas de ida y vuelta (las masas pueden ser `bigint`), repositorios (`src/db/materials.ts`) y adaptador al motor (`src/db/to-ifra.ts`, con el estado de IFRA por ficha de V3-25). Faltan, para cuando se usen: el interruptor «solo lo que tengo» (2.5) y `source_formula_id` (fase 7).
 - **Fase 4, en marcha.** La maquinaria, en `migracion-v3/` (su `LEEME.md`): migrar una tanda → informe → tu visto bueno → `aprobar.ts` → commit → `npm run datos:cargar` en `v3/`.
 - **Tanda 1 (materiales), aprobada y cargada** (`991f68a`): 4355 materiales comunes en Supabase local; una segunda carga no cambia nada; `data_version` = `991f68a`. Una copia nueva los descarga todos en 0,4 s y ocupa 18,5 MB (medido en Node, en local).
-- Pruebas: `npm test` 192, `npm run test:db` 22. Rama `v3`; **nada fusionado en `main`**.
+- Pruebas: `npm test` 192, `npm run test:db` 22. **La rama `v3` se fusionó en `main` el 2026-10-13, a petición del usuario** (`fdcf017`); se sigue trabajando en `v3`. La v2 entera, en la etiqueta `v2-final`.
 
 ## Sigue
 
