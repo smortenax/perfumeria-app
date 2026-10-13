@@ -140,7 +140,7 @@ export const materialComponents = pgTable(
     check(
       "material_components_amount",
       sql`case ${t.amountKind}
-        when 'exact' then ${t.value} is not null and ${t.min} is null and ${t.max} is null and ${t.value} > 0 and ${t.value} <= 1
+        when 'exact' then ${t.value} is not null and ${t.min} is null and ${t.max} is null and ${t.value} >= 0 and ${t.value} <= 1
         when 'max' then ${t.value} is not null and ${t.min} is null and ${t.max} is null and ${t.value} > 0 and ${t.value} <= 1
         when 'range' then ${t.value} is null and ${t.min} is not null and ${t.max} is not null and ${t.min} >= 0 and ${t.min} <= ${t.max} and ${t.max} <= 1
         when 'unknown' then ${t.value} is null and ${t.min} is null and ${t.max} is null

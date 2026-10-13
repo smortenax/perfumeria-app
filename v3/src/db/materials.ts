@@ -204,8 +204,11 @@ function checkKind(kind: MaterialKind): void {
 }
 
 function checkAmount(amount: Amount): void {
-  if (amount.kind === "exact" || amount.kind === "max") {
-    if (!isFraction(amount.value)) throw new RangeError("an amount is a fraction in (0, 1]");
+  if (amount.kind === "exact") {
+    // A documented 0 is a fact («it does not carry it»; IFRA's annex says so of some constituents), not a gap.
+    if (!isFraction(amount.value, true)) throw new RangeError("an exact amount is a fraction in [0, 1]");
+  } else if (amount.kind === "max") {
+    if (!isFraction(amount.value)) throw new RangeError("a maximum is a fraction in (0, 1]");
   } else if (amount.kind === "range") {
     if (!isFraction(amount.min, true) || !isFraction(amount.max) || amount.min.cmp(amount.max) > 0) {
       throw new RangeError("a range goes from min to max, both fractions, min ≤ max");

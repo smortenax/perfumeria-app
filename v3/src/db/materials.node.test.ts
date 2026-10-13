@@ -130,7 +130,8 @@ describe("the repository on the copy, without network", () => {
     await expect(addComponent(db, ME, COMMON, base, { kind: "unknown" }, "consensus", "x")).rejects.toThrow();
     await expect(addComponent(db, ME, MY_FROZEN, COMMON, { kind: "unknown" }, "consensus", "x")).rejects.toThrow();
     await expect(addComponent(db, ME, base, COMMON, { kind: "range", min: pct("3"), max: pct("2") }, "consensus", "x")).rejects.toThrow();
-    await expect(addComponent(db, ME, base, COMMON, { kind: "exact", value: Ratio.ZERO }, "consensus", "x")).rejects.toThrow();
+    await expect(addComponent(db, ME, base, COMMON, { kind: "max", value: Ratio.ZERO }, "consensus", "x")).rejects.toThrow();
+    await expect(addComponent(db, ME, base, COMMON, { kind: "exact", value: pct("101") }, "consensus", "x")).rejects.toThrow();
     await expect(addComponent(db, ME, base, COMMON, { kind: "unknown" }, "consensus", "  ")).rejects.toThrow();
     await expect(addRegulation(db, ME, base, { regime: "ifra", kind: "max", authority: "ifra", source: "x" })).rejects.toThrow();
     await expect(addRegulation(db, ME, base, { regime: "ifra", kind: "requirement", authority: "ifra", source: "x" })).rejects.toThrow();
