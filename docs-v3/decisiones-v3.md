@@ -511,6 +511,29 @@ Y sobre el material general (punto 5 de la lectura), 2026-10-13 17:19:
 
 **Por qué** (la recomendación de la sesión que elegiste): con ella, «funebris» o el INCI de la etiqueta habrían encontrado el cedro chino.
 
+## V3-25 · El estado de IFRA de una ficha es el suyo, con su condición, no el de la peor variante (decidida por el usuario el 2026-10-13)
+
+**De dónde sale:** la entrada del 2026-10-11 de la bandeja del laboratorio: el buscador enseña el cade de Maese Lab («Aceite de cade (enebro)», `v2:P00054`) como **prohibido**, aunque el producto lleva el proceso «rectificado» y la condición del estándar 119. El 119 prohíbe solo el crudo y permite el rectificado con HAP ≤ 1 ppb en el producto terminado. Pide que el buscador y el panel usen la condición del producto y que enseñen la especificación de HAP como aviso.
+
+**Lo que se encontró** (la sesión, en el código y los datos de la v2):
+
+- **La etiqueta del buscador** (`cardOf` en `src/v2/to-ifra.ts`) dice «prohibido» en cuanto un estándar del material prohíbe algo sin tope, sin mirar si es solo una variante ni la condición del material. **El cálculo sí lo distingue:** para el 119 pide acreditar el rectificado.
+- **La condición «rectificado» del cade** (M00054, `datos/v2/condiciones.csv`) tiene autoridad **consenso**: el usuario la dedujo de la página de la tienda. Por `CLAUDE.md` («El nombre que pone la tienda no es evidencia») y por §4.4 del modelo, cuenta como **supuesta**.
+
+**Pregunta** (tarjeta del hilo): Si un estándar prohíbe una variante y permite otra con especificación, ¿qué estado de IFRA enseñan la ficha y el buscador?
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «El de la ficha (Recomendado)» (2026-10-13 20:23): «Prohibido» solo para la variante prohibida; el rectificado, «cumplido», «supuesto» o «sin acreditar» según su autoridad, con la especificación de HAP como aviso. La categoría no lleva estado propio.»
+
+**Cómo se aplica:**
+
+- **El estado que enseñan la ficha y el buscador sale de las regulaciones de esa ficha y de su condición**, igual que el cálculo. «Prohibido» solo cuando la ficha es la variante prohibida o la prohibición no tiene condiciones.
+- **Un requisito sale según su autoridad** (§4.4 del modelo): «cumplido» es *acreditado* (lote o certificado con su fuente); «supuesto», literatura o consenso; «sin acreditar», *pendiente* (solo el anexo de IFRA).
+- **La especificación** (en el 119, los HAP) sale como aviso en la ficha y en el panel.
+- **La fila de una categoría no lleva estado propio** (V3-13): lo lleva cada ficha.
+- **El cade del usuario saldrá «especificación supuesta»**, no «cumplida», hasta que haya un documento del fabricante que acredite el rectificado (el vacío 46 del laboratorio).
+
+**Por qué** (la recomendación de la sesión que elegiste): es lo que ya hace el cálculo; con V3-13 cada ficha tiene sus límites, y su etiqueta tiene que ser la suya.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20). Siguen las cinco entradas pendientes de la bandeja del laboratorio (`../Perfumery/app/entradas.md`), que se llevan aquí.
