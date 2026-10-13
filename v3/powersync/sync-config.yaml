@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://unpkg.com/@powersync/service-sync-rules@latest/schema/sync_rules.json
+#
+# What goes down to each browser (V3-9). PowerSync does not go through RLS when it downloads,
+# so these rules repeat the RLS of each table. The service reads this file when it starts:
+# after a change, restart it (npm run sync:restart).
+
+config:
+  edition: 3
+
+streams:
+  # The probe of step 1.5: each user, their own rows.
+  own_rows:
+    auto_subscribe: true
+    queries:
+      - SELECT * FROM sync_probe WHERE owner_id = auth.user_id()

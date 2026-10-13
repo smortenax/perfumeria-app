@@ -10,9 +10,15 @@
     "test": "vitest run",
     "db:start": "supabase start",
     "db:stop": "supabase stop",
-    "db:reset": "supabase db reset",
+    "db:reset": "supabase db reset && npm run db:powersync-password",
     "db:generate": "drizzle-kit generate",
-    "db:powersync-password": "node --env-file=.env.local scripts/powersync-password.ts"
+    "db:powersync-password": "node --env-file=.env.local scripts/powersync-password.ts",
+    "env:local": "node scripts/local-env.ts",
+    "db:test-users": "node --env-file=.env.local scripts/test-users.ts",
+    "sync:start": "docker compose -f powersync/docker-compose.yaml --env-file .env.local up -d --wait",
+    "sync:stop": "docker compose -f powersync/docker-compose.yaml --env-file .env.local down",
+    "sync:restart": "docker compose -f powersync/docker-compose.yaml --env-file .env.local restart powersync",
+    "sync:logs": "docker compose -f powersync/docker-compose.yaml --env-file .env.local logs powersync"
   },
   "dependencies": {
     "drizzle-orm": "^0.45.4",

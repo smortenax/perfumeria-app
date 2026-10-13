@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=https://unpkg.com/@powersync/service-schema@latest/json-schema/powersync-config.json
+#
+# PowerSync local (plan v3, step 1.4; V3-9, V3-22), after the official example
+# powersync-ja/self-host-demo, demos/supabase (read 2026-10-13). Changes from it: it replicates
+# with powersync_role (read-only, from the migration) instead of postgres.
+
+telemetry:
+  disable_telemetry_sharing: true
+
+# The source: Supabase's local Postgres, inside Supabase's Docker network.
+replication:
+  connections:
+    - type: postgresql
+      uri: !env PS_DATA_SOURCE_URI
+      sslmode: disable
+
+# Where PowerSync keeps its buckets: a local MongoDB (see docker-compose.yaml).
+storage:
+  type: mongodb
+  uri: !env PS_MONGO_URI
+
+port: !env PS_PORT
+
+sync_config:
+  path: sync-config.yaml
+
+# Who may sync: Supabase's own sessions. PowerSync reads the public keys from Supabase's JWKS
+# endpoint ("kong" is Supabase's gateway inside its network); Supabase signs with an ES256 key
+# of its own (supabase/signing_key.json, never in Git).
+client_auth:
+  supabase: true
+  jwks_uri: http://kong:8000/auth/v1/.well-known/jwks.json
+  audience: ["authenticated"]

@@ -6,3 +6,6 @@
 .env.keys
 .env.local
 .env.*.local
+
+# The local signing key (step 1.4): a private key, never in Git
+signing_key.json
