@@ -1,0 +1,184 @@
+/**
+ * Batch 3 of the migration (plan v3, phase 4, steps 4.4, 4.5 and 4.6): IFRA's regulations and
+ * the manufacturers' ceilings. Writes migracion-v3/tandas/3-ifra/ (regulations.csv and
+ * informe.md), for the user to review (V3-21).
+ *
+ * From IFRA's own files (datos/ifra/51/estandares.csv, 51st amendment) and who is a member of
+ * each standard (datos/v2/grupo-miembros.csv): one regulation per member and category, as the
+ * v2 read them (src/v2/to-ifra.ts). A product carries its material's (V3-2), as the v2 judged it.
+ *
+ *   node migracion-v3/tanda-3-ifra.ts
+ */
+import { writeFileSync } from "node:fs";
+import { join } from "node:path";
+import { pctToFraction } from "./lib/cifras.ts";
+import { type Cell, writeTable } from "./lib/csv.ts";
+import { readSources, type Row } from "./lib/fuentes.ts";
+import { uuidFor, v2Id } from "./lib/ids.ts";
+
+const OUT = "migracion-v3/tandas/3-ifra";
+const src = readSources();
+const { v2 } = src;
+
+const CATEGORIES: ReadonlyArray<readonly [string, string]> = [
+  ["cat_1", "1"], ["cat_2", "2"], ["cat_3", "3"], ["cat_4", "4"], ["cat_5a", "5A"], ["cat_5b", "5B"], ["cat_5c", "5C"],
+  ["cat_5d", "5D"], ["cat_6", "6"], ["cat_7a", "7A"], ["cat_7b", "7B"], ["cat_8", "8"], ["cat_9", "9"], ["cat_10a", "10A"],
+  ["cat_10b", "10B"], ["cat_11a", "11A"], ["cat_11b", "11B"], ["cat_12", "12"],
+];
+/** STD 089 and the standards of the phototoxic oils it names: summed against their ceilings (V3-27; the v2's FUROCOUMARIN_OILS). */
+const FUROCOUMARINS = new Set(["IFRA_STD_086", "IFRA_STD_087", "IFRA_STD_088", "IFRA_STD_089", "IFRA_STD_090", "IFRA_STD_091", "IFRA_STD_092", "IFRA_STD_093", "IFRA_STD_096"]);
+const FIVE_MOP = uuidFor("ifra:5-MOP");
+const AUTHORITY: Readonly<Record<string, string>> = { lote: "lot", producto: "product", "anexo-ifra": "ifra", literatura: "literature", consenso: "consensus" };
+const isNumber = (t: string) => /^\d+(\.\d+)?$/.test(t);
+
+const notes: string[] = [];
+const materials = new Map(v2.materials.map((m) => [m.id, m]));
+const materialOfSubstance = new Map(v2.materials.filter((m) => m.substanceId).map((m) => [m.substanceId, m.id]));
+const productsOf = new Map<string, string[]>();
+for (const p of v2.products) productsOf.set(p.materialId, [...(productsOf.get(p.materialId) ?? []), p.id]);
+const standardOfGroup = new Map(v2.groups.map((g) => [g.id, g.reference]));
+const documents = new Map(v2.documents.map((d) => [d.id, d]));
+
+/** The v2 id of the material a member is (a substance's material, or the material itself), or the substance without a material. */
+const materialOf = (memberId: string) => (memberId.startsWith("S") ? (materialOfSubstance.get(memberId) ?? memberId) : memberId);
+
+const COLUMNS = ["id", "material_id", "regime", "category", "kind", "max_value", "group_key", "requirement", "authority", "source"] as const;
+const out: Array<Record<string, Cell>> = [];
+const counts = { members: 0, max: 0, prohibited: 0, requirement: 0, excluded: [] as string[], variantNotes: [] as string[], conditions: 0, ceilings: 0, fiveMop: 0, products: new Set<string>() };
+
+const sourceOf = (s: Row) => `IFRA 51, ${s.estandar}: ${s.nombre} (enmienda ${s.enmienda})`;
+
+/** Writes one regulation on a v2 container (material, product or substance) and on the products of a material. */
+function write(v2Container: string, key: string, row: Record<string, Cell>, withProducts = true) {
+  const targets = [v2Container, ...(withProducts ? (productsOf.get(v2Container) ?? []) : [])];
+  for (const target of targets) {
+    if (target !== v2Container) counts.products.add(target);
+    out.push({ id: uuidFor(`reg:${target}|${key}`), material_id: v2Id(target), ...row });
+  }
+}
+
+// ------------------------------------------------------------ the standards, member by member
+for (const gm of v2.groupMembers) {
+  const standard = standardOfGroup.get(gm.groupId)!;
+  const s = src.ifraStandards.get(standard)!;
+  const member = materialOf(gm.memberId);
+  counts.members++;
+  const group = FUROCOUMARINS.has(standard) ? "furocumarinas" : gm.subgroup ? `${standard} · ${gm.subgroup}` : standard;
+  const limits = CATEGORIES.flatMap(([column, category]) => {
+    const cell = s[column];
+    if (isNumber(cell)) return [{ category, kind: "max", value: pctToFraction(cell) }];
+    if (cell === "ver-nota" && isNumber(s.limite_nota)) return [{ category, kind: "max", value: pctToFraction(s.limite_nota) }];
+    if (cell === "prohibido") return [{ category, kind: "prohibited", value: null }];
+    return [];
+  });
+
+  // V3-27: a limit expressed as a constituent (STD 089, 5-MOP) is the constituent's, not the member's.
+  if (s.limite_expresado_como) {
+    if (s.limite_expresado_como !== "5-MOP") notes.push(`${standard}: límite expresado como «${s.limite_expresado_como}», sin material para él; no entra.`);
+    else if (counts.fiveMop === 0) {
+      for (const l of limits) {
+        out.push({
+          id: uuidFor(`reg:5-MOP|${standard}|${l.category}`), material_id: FIVE_MOP, regime: "ifra", category: l.category, kind: l.kind,
+          max_value: l.value, group_key: group, requirement: null, authority: "ifra", source: `${sourceOf(s)}; el límite es del 5-MOP en el producto terminado (V3-27)`,
+        });
+        counts.max++;
+      }
+      counts.fiveMop++;
+    }
+    continue;
+  }
+
+  for (const l of limits) {
+    write(member, `${standard}|${l.category}|${l.kind}`, {
+      regime: "ifra", category: l.category, kind: l.kind, max_value: l.value, group_key: group, requirement: null, authority: "ifra", source: sourceOf(s),
+    });
+    if (l.kind === "max") counts.max++;
+    else counts.prohibited++;
+  }
+
+  // A specification, unless the standard says it is about other processes than this material's (exclusiones.csv).
+  const process = (materials.get(member)?.process ?? "").toLowerCase();
+  const excluded = v2.exclusions.some((x) => x.standard === standard && x.processes.some((p) => process.includes(p)));
+  const specified = s.especificacion === "sí" && !excluded;
+  if (s.especificacion === "sí" && excluded) counts.excluded.push(`${member} (${materials.get(member)?.name}): ${standard}`);
+  if (specified) {
+    write(member, `${standard}|spec`, {
+      regime: "ifra", category: null, kind: "requirement", max_value: null, group_key: group,
+      requirement: (s.nota_especificacion || s.nombre).trim(), authority: "ifra", source: sourceOf(s),
+    });
+    counts.requirement++;
+  }
+
+  // A prohibition with no ceiling in any category: the material is prohibited as such, or (with a specification) a
+  // variant of it is, and the permitted one has to meet the specification (STD 119, the cade). With ceilings, the
+  // ceilings count and the prohibited variant is only a note of the standard (STD 078, the styrax).
+  if (s.prohibicion === "sí") {
+    if (limits.length === 0) {
+      write(member, `${standard}|prohibited`, {
+        regime: "ifra", category: null, kind: "prohibited", max_value: null, group_key: group, requirement: null, authority: "ifra", source: sourceOf(s),
+      });
+      counts.prohibited++;
+    } else if (limits.some((l) => l.kind === "max")) {
+      counts.variantNotes.push(`${standard} (${s.nombre})`);
+    }
+  }
+}
+
+// ------------------------------------------------------------ the claims that meet a specification (condiciones.csv)
+for (const c of v2.conditions) {
+  const s = src.ifraStandards.get(c.standard)!;
+  const group = FUROCOUMARINS.has(c.standard) ? "furocumarinas" : c.standard;
+  const doc = c.documentId ? `${c.documentId} · ${documents.get(c.documentId)?.title ?? ""}` : "sin documento";
+  write(c.containerId, `${c.standard}|condition|${c.authority}`, {
+    regime: "ifra", category: null, kind: "requirement", max_value: null, group_key: group, requirement: c.claim,
+    authority: AUTHORITY[c.authority], source: `Afirmación del cumplimiento de ${c.standard} (${s.nombre}): ${doc}`,
+  });
+  counts.conditions++;
+}
+
+// ------------------------------------------------------------ the manufacturers' ceilings of their products (D4, P62)
+for (const t of v2.ceilings) {
+  write(t.productId, `ceiling|${t.category}|${t.documentId}`, {
+    regime: "manufacturer", category: t.category, kind: "max", max_value: pctToFraction(t.maxPct), group_key: null, requirement: null,
+    authority: "product", source: `${t.documentId} · ${documents.get(t.documentId)?.title ?? ""}`,
+  }, false);
+  counts.ceilings++;
+}
+
+const ids = new Set<string>();
+for (const r of out) {
+  if (ids.has(String(r.id))) notes.push(`id repetido: ${r.id} (${r.material_id}, ${r.source})`);
+  ids.add(String(r.id));
+}
+writeTable(join(OUT, "regulations.csv"), COLUMNS, out);
+
+// ------------------------------------------------------------ the report
+const list = (items: readonly string[]) => (items.length ? items.map((i) => `  - ${i}`).join("\n") : "  - Ninguno.");
+const cat4 = out.filter((r) => r.category === "4" || r.category === null).length;
+const report = `# Tanda 3 · IFRA y los topes de fabricante
+
+*Generada por \`migracion-v3/tanda-3-ifra.ts\`. Los estándares, de los archivos de IFRA (\`datos/ifra/51/estandares.csv\`, 51.ª enmienda); quién es miembro de cada uno, de la v2 (\`grupo-miembros.csv\`); commit \`${src.commit}\`. \`validar:v2\`: sin errores.*
+
+**Qué entra** (\`regulations.csv\`, ${out.length} filas; ${cat4} de la categoría 4 o de todas, las que usa la app): ${counts.max} techos, ${counts.prohibited} prohibiciones, ${counts.requirement} especificaciones, ${counts.conditions} afirmaciones de cumplimiento y ${counts.ceilings} topes de fabricante, de ${counts.members} pertenencias a un estándar.
+
+**Cómo se traduce, como la v2:**
+
+- **Una regulación por miembro y categoría** (de la 1 a la 12): una cifra es un techo en fracción del producto terminado; «ver-nota», el techo de su nota; «prohibido», una prohibición en esa categoría; «sin-restriccion» o nada, ninguna fila. La enmienda va en la fuente.
+- **El grupo** (\`group_key\`) es el estándar, con su subgrupo donde lo tiene; el 089 y los estándares de los aceites fototóxicos que nombra (086 a 096) comparten «furocumarinas», y el motor suma la parte de cada uno sobre su techo.
+- **El 089 va en el 5-MOP** (V3-27): su límite es del 5-MOP en el producto terminado, no del aceite.
+- **Una prohibición sin techo en ninguna categoría** prohíbe el material como tal; con especificación, prohíbe una variante, y la permitida tiene que cumplirla (el 119, el cade; V3-25).
+- **Una especificación** es un requisito con autoridad de IFRA, pendiente de acreditar, salvo donde el estándar habla de otros procesos (\`exclusiones.csv\`):
+${list(counts.excluded)}
+- **Las afirmaciones de cumplimiento** de \`condiciones.csv\` son requisitos con su autoridad (el cade rectificado, por consenso: supuesto).
+- **Los topes de fabricante** de \`topes.csv\`, cada uno en su producto (D4).
+- **Cada producto lleva las regulaciones de su material** (V3-2; ${counts.products.size} productos), como la v2 lo juzgaba.
+
+**Lo que se pierde, para revisar:** estos estándares prohíben una variante y ponen techo a la permitida; entran los techos, y la nota de la variante prohibida no tiene sitio (la v2 la enseñaba como nota):
+${list([...new Set(counts.variantNotes)])}
+
+**Para revisar** (${notes.length}):
+
+${notes.length ? notes.map((n) => `- ${n}`).join("\n") : "- Nada."}
+`;
+writeFileSync(join(OUT, "informe.md"), report, "utf8");
+console.log(`Tanda 3: ${out.length} regulaciones; ${notes.length} notas para revisar. ${OUT}/informe.md`);
