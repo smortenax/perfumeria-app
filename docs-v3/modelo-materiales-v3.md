@@ -126,6 +126,7 @@
   - **La ficha y el buscador enseñan este estado, el de la propia ficha** *[Tú, V3-25]*: «prohibido» solo para la variante prohibida o para una prohibición sin condiciones; un rectificado con su requisito, «cumplido» (acreditado), «supuesto» o «sin acreditar» (pendiente), y la especificación como aviso. La categoría no lleva estado propio.
 - **4.5 · El grupo (`group_key`)** *[Plan §28; la regla, propuesta]*. Los miembros de un mismo estándar comparten grupo: los isómeros de una sustancia, o los aceites fototóxicos del 089. En un grupo se suma la parte de cada miembro sobre su máximo, y el total no pasa de 1.
 - **4.6 · De dónde salen las de IFRA** *[Plan §40]*. El script las escribe desde los archivos de IFRA: una por miembro y categoría. La app usa la 4, y la enmienda va en `source`.
+- **4.7 · Un límite expresado como un constituyente** *[Tú, V3-27]* (el 089: 5-MOP en el producto terminado) va en el material de ese constituyente, y el material que lo lleva lo tiene como componente, de cantidad desconocida hasta que un documento la dé. Tres niveles de precisión: componente desconocido; después, un valor de referencia para los componentes principales (a futuro); y la declaración de IFRA del material concreto, en su versión, que da la cifra cierta.
 
 ---
 

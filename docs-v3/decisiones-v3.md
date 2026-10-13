@@ -564,6 +564,29 @@ Y sobre el material general (punto 5 de la lectura), 2026-10-13 17:19:
 
 **El Aldambre** (lo encontró la sesión): en los datos de la app, 947-05-7 es la oxaciclotridecan-2-ona (M00083 en la v2, `tl:947-05-7` en la v1), y bien; en la app no hay ningún «Aldambre». El cruce equivocado está en `diluciones.py` del laboratorio, que se corrige allí. La biblioteca del laboratorio ya lo tiene con 1725-03-7 (Synarome, molécula), con dos dosis de la web y un conflicto de identidad pendiente (TGSC marca 1725-03-7 «not for fragrance use»; la web avisa de que el ámbar gris de Synarome es otro producto, Ambrarome). Ninguno de los dos CAS tiene estándar de IFRA. En la v3 entra en tu cuenta como material tuyo nuevo, porque 1725-03-7 no está en lo común (V3-15), con sus dosis (V3-14) y la identidad «en disputa» (V3-17).
 
+## V3-27 · Un límite expresado como un constituyente va como componente; tres niveles de precisión (decidida por el usuario el 2026-10-13)
+
+**Pregunta** (tarjeta del hilo, fase 4): ¿Cómo se escribe un límite expresado como un constituyente (el 089: 0,0015 % de 5-MOP en el producto terminado, `datos/ifra/51/estandares.csv`)?
+
+**Lo que hay** (medido en la v2): el 089 tiene un solo miembro, M00042, «Bergamot oil, furocoumarin free» (del cuaderno), y ninguna fila de composición declara su 5-MOP. Los estándares propios de los aceites fototóxicos (086 a 096) tienen 51 miembros, sumados como grupo combinado. La v2 no tiene el 5-MOP como sustancia.
+
+**Respuesta literal** (orko kill, 2026-10-13, escrita en la tarjeta):
+
+> de entrada como componente, luego se buscara un estandar para los principales componentes para que haya una base para todos que no requiera manualmente ajustarlos todos y el ultimo nivel de precision es cuando se da de alta los datos de ifra de algun material en concreto mediante la declaracion, donde entonces si se usa la version del material dada de alta el numero es certero
+
+**Lectura** (de la sesión): tres niveles de precisión, de menos a más:
+
+1. **De entrada, como componente:** el límite del 089 va en un material común «5-MOP», y cada miembro del 089 lo lleva como componente de cantidad desconocida, con la fuente «IFRA STD 089», hasta que un documento dé la cifra. El motor no lo da por «dentro» mientras tanto.
+2. **Después, un valor de referencia para los componentes principales:** una base para todos los materiales que no obligue a ajustarlos uno a uno. Queda en `docs/a-futuro.md`.
+3. **El más preciso, la declaración de IFRA de un material concreto:** dada de alta en su versión (V3-5, con autoridad de producto o lote), su cifra es la cierta y manda sobre las de los niveles anteriores.
+
+**Cómo se aplica** (propuesta de la sesión):
+
+- **La migración (paso 4.5)** crea el material común «5-MOP» (molécula, el nombre que da IFRA en el 089; sin CAS, porque los archivos de IFRA no lo dan para el 089) con su regulación del 089, y escribe el componente de cantidad desconocida en M00042. Sin columnas nuevas.
+- **Lo que pierde:** si un aceite con estándar fototóxico propio (087, 092…) declara un día su 5-MOP, contará por las dos vías, más estricto de lo que pide IFRA y nunca menos. En los datos de la v2 no pasa con ninguno.
+
+**Por qué** (la recomendación de la sesión que elegiste, con tu precisión de los niveles): no toca el esquema y hoy afecta a un material.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
