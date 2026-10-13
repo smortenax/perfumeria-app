@@ -194,7 +194,39 @@ Un material común solo puede basarse en otro común, y no hay ciclos. Los produ
 
 **Fuentes:** [precios de PowerSync](https://powersync.com/pricing), [guía de PowerSync con Supabase](https://docs.powersync.com/integrations/supabase/guide), [tipos](https://docs.powersync.com/sync/types), [ids](https://docs.powersync.com/sync/advanced/client-id), [Drizzle en PowerSync](https://docs.powersync.com/client-sdk-references/javascript-web/javascript-orm/drizzle), [pausas de Supabase](https://supabase.com/docs/guides/platform/free-project-pausing). Consultadas el 2026-10-13.
 
+## V3-10 · Bancos de trabajo para agrupar las fórmulas de un perfume (decidida por el usuario el 2026-10-13)
+
+**Respuesta literal** (orko kill, 2026-10-13 14:55):
+
+> dentro de la app creo que deberia haber un espacio global donde estan las formulas pero yambien una especia de carpetas que formen a modo de bancos de trabajo, sobretodo si voy a trabajar en una formula en concreto y hago un acorde para esta misma y lo guardo como corazon para ese perfume estaria bien que este en el mismo banco de trabajo que la formula final del perfume hay algunos matices mas pero creo que los ire añadiendo a futuro
+
+**Lectura** (la sesión, para que la confirmes):
+
+- **La biblioteca es el espacio global:** todas tus fórmulas.
+- **Un banco de trabajo es una carpeta tuya** que agrupa lo de un proyecto: el perfume final, sus versiones y los acordes que haces para él.
+- **Un acorde guardado como corazón** (congelado como material, plan §27) se queda en el banco del perfume.
+- **Los matices los añadirás más adelante.** Están apuntados en `docs/a-futuro.md`.
+
+**Cómo se aplica** (propuesta de la sesión):
+
+- **Una tabla `workbenches`** (id, dueño, nombre, notas), solo tuya y sincronizada (V3-9). Es una tabla más que las del §34 del plan, y la pides tú.
+- **`formulas.workbench_id`**, que puede ir vacío: una fórmula fuera de un banco sigue en la biblioteca. Una versión nueva (`parent_id`) nace en el banco de su madre.
+- **`materials.source_formula_id`** en un material `frozen`: de qué fórmula sale. Así el banco enseña el acorde y en qué fórmula se usa.
+- **Pendiente:** las preguntas B.1 y B.2 del [plan ejecutivo](plan-ejecutivo-v3.md).
+
+## V3-11 · Qué se registra de un material, y un buscador sin duplicados (decidida por el usuario el 2026-10-13)
+
+**Respuesta literal** (orko kill, 2026-10-13 14:55), con el archivo [`referencia-materiales-lab.md`](referencia-materiales-lab.md):
+
+> un par de cosas mas sobre v2 que tienen que mejorarse a v3 la busqueda de materiales a veces es confusa porque muchos son duplicados de si mismos paso un plan de que registrar sobre los materiales en lo que seria la database global de v3
+
+**Lectura** (la sesión, para que la confirmes):
+
+- **El buscador de la v3 no enseña el mismo material varias veces.** Medido en la v2: 210 CAS los comparten 906 materiales, y 43 nombres, 120 ([`modelo-materiales-v3.md`](modelo-materiales-v3.md) §9.2).
+- **Tu referencia dice qué se registra de cada material** en la base común.
+- **Donde choca con lo decidido** (V3-4, V3-6, P37), no se reinterpreta: van las preguntas 7.5 a 7.11 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md), de una en una. El cruce completo está en su §9.1.
+
 ## Pendientes
 
-- El modelo de materiales queda cerrado (V3-4 a V3-7).
-- Sin preguntas abiertas. Lo siguiente es la fase 0 de [`plan-ejecutivo-v3.md`](plan-ejecutivo-v3.md), cuando lo pidas.
+- **Las preguntas 7.5 a 7.11** de [`modelo-materiales-v3.md`](modelo-materiales-v3.md) **y B.1 y B.2** del [plan ejecutivo](plan-ejecutivo-v3.md), de una en una. Se hacen en un chat de Claude Code aparte, que se arranca con [`prompt-arranque-v3.md`](prompt-arranque-v3.md).
+- Después, la fase 0 del plan ejecutivo.
