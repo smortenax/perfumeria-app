@@ -351,7 +351,22 @@ Y sobre el material general (punto 5 de la lectura), 2026-10-13 17:19:
 
 **Por qué** (la recomendación de la sesión que elegiste): es una columna, encaja con cómo da IFRA sus datos y sirve para lo único que se hace con el CAS, buscar y enseñar. IFRA limita por estándar, no por CAS.
 
+## V3-17 · Los datos en disputa no viajan a la app: el dato sale marcado «en disputa» (decidida por el usuario el 2026-10-13)
+
+**Pregunta** (tarjeta del hilo, 7.10 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md)): ¿Viajan a la app los datos en disputa?
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «No, solo la marca (Recomendado)» (2026-10-13 17:37): «El material lleva la lista de campos en disputa y la ficha dice «en disputa»; se resuelven en el laboratorio y el script reimporta.»
+
+**Cómo se aplica:**
+
+- **`materials.disputed_fields`**, una lista con los nombres de los campos que tienen un conflicto pendiente, y **una marca `disputed` en cada fila de `material_doses`** que lo tenga.
+- **La ficha dice «en disputa»** junto al valor y no lo da por firme.
+- **Los conflictos se resuelven en el laboratorio** (los 222 pendientes de tus materiales; referencia §6) o en los CSV del repo (lo común), y el script vuelve a importar.
+- **Se llama «en disputa», no «provisional»**, para no confundirlo con el tipo `provisional` (propuesta de la sesión).
+
+**Por qué** (la recomendación de la sesión que elegiste): los conflictos se resuelven donde se investiga, y la app solo necesita no dar por firme lo que no lo es. Pasar a una tabla `conflicts` más adelante es añadirla: la marca se queda.
+
 ## Pendientes
 
-- **Las preguntas 7.10 y 7.11** de [`modelo-materiales-v3.md`](modelo-materiales-v3.md) **y B.1 y B.2** del [plan ejecutivo](plan-ejecutivo-v3.md), de una en una, en el chat que arrancó con [`prompt-arranque-v3.md`](prompt-arranque-v3.md).
+- **La pregunta 7.11** de [`modelo-materiales-v3.md`](modelo-materiales-v3.md) **y B.1 y B.2** del [plan ejecutivo](plan-ejecutivo-v3.md), de una en una, en el chat que arrancó con [`prompt-arranque-v3.md`](prompt-arranque-v3.md).
 - Después, la fase 0 del plan ejecutivo.

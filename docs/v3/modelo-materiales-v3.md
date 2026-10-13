@@ -83,6 +83,7 @@
   - **La fuente y la confianza**, como en tu referencia *[Propuesta]*: `sources`, etiquetas cortas, y `confidence` (alta, media, baja), por material.
   - **La dosis, en `material_doses`:** una fila por fuente, con mínima, típica y máxima, **siempre con su base** (del concentrado, del producto terminado o «sin declarar»), su autoridad y su fuente. Las columnas son las de `datos/v2/usos.csv`, que la v2 diseñó así y dejó vacía.
   - **Un campo vacío sale «no lo dice»**, nunca un valor por defecto.
+  - **Un dato en disputa sale «en disputa»** *[Tú, V3-17]*: `disputed_fields`, la lista de campos con un conflicto pendiente, y una marca `disputed` en cada dosis. Los conflictos no viajan a la app: se resuelven en el laboratorio o en el repo, y el script vuelve a importar.
   - **Después**, en otra fase: relaciones, descriptores por fuente, perfumes de referencia y física.
   - **Qué datos lo llenan:** en lo común, la pregunta 7.11 (tenacidad y familias); tus 111 materiales del laboratorio llenan la ficha de tus versiones, en tu cuenta (§6.5, V3-15). El glosario de la v1 tiene familia en 3119 de sus 4347 filas, matiz en 2154 y uso mínimo y máximo en 691 (`datos/glosario/materiales.csv`).
 
@@ -158,6 +159,7 @@
   - El que no casa, como **material tuyo nuevo**. Tus frascos marcan «lo que tengo» (§6.4) *[Propuesta]*.
   - **Su IFRA de segunda mano no calcula:** entra como texto «sin verificar» (regla 7 de tu referencia).
   - Tu cata y tus ejes, cuando exista la capa del usuario (aplazada, plan §46).
+  - Lo que tiene un conflicto pendiente en el laboratorio entra marcado «en disputa» (§2.7, V3-17).
 
 ---
 
@@ -179,7 +181,7 @@ El 2026-10-13 llegó tu referencia del laboratorio (§9), y abre estas preguntas
 | ~~7.7~~ | ~~¿Entra el núcleo de la ficha desde el principio?~~ | **Decidida (V3-14, 2026-10-13): el núcleo y la dosis; el resto, después** | |
 | ~~7.8~~ | ~~¿Entran en la base común los 111 materiales del laboratorio?~~ | **Decidida (V3-15, 2026-10-13): entran en tu cuenta, no en lo común** | |
 | ~~7.9~~ | ~~¿Cómo se guardan varios CAS?~~ | **Decidida (V3-16, 2026-10-13): el principal y una lista de otros, en el material** | |
-| **7.10** | **¿Viajan a la app los datos en disputa?** | **No**: los conflictos se quedan en el repo y el laboratorio, y en la app el dato sale marcado «provisional». **Sí**, con su tabla `conflicts` | **No.** Los decides tú en el repo, como hasta ahora; la app solo necesita saber que el dato es provisional |
+| ~~7.10~~ | ~~¿Viajan a la app los datos en disputa?~~ | **Decidida (V3-17, 2026-10-13): no; el dato sale marcado «en disputa»** | |
 | **7.11** | **¿Qué se hace con la tenacidad y las familias?** (escalas abiertas, §5 de la referencia) | **Aplazar:** el campo existe, pero no se enseña como número ni como lista cerrada hasta decidir la fuente. **Decidir ahora** | **Aplazar.** Las fuentes chocan por más de diez veces; la pregunta es de investigación, del laboratorio |
 
 ---
@@ -216,7 +218,7 @@ El 2026-10-13 llegó tu referencia del laboratorio (§9), y abre estas preguntas
 | IFRA: varias filas si cae bajo varios estándares; manda el menor | `regulations`, una fila por miembro y categoría, con `group_key` | **Encaja** |
 | Un dato que falta es vacío, nunca cero; todo porcentaje lleva su base; los componentes no se expanden solos y su cantidad es exacta, máxima, rango o desconocida; los límites son por sustancia | §3, §5 | **Encaja.** La dosis por fuente tiene que llevar su base |
 | Cada dato con su fuente; el material, con una confianza | Componentes y regulaciones llevan autoridad y fuente | **Decidida (V3-14):** la confianza del material entra con el núcleo |
-| Un dato puede estar en disputa: tabla `conflicts` | Los conflictos se deciden en CSV del repo (`datos/v2/conflictos/`) | **Pregunta 7.10** |
+| Un dato puede estar en disputa: tabla `conflicts` | Los conflictos se deciden en CSV del repo (`datos/v2/conflictos/`) | **Decidida (V3-17):** no viajan; el dato sale marcado «en disputa» |
 | El IFRA de segunda mano no se usa para calcular | IFRA sale solo de los archivos de IFRA (P37); V3-7 | **Encaja** |
 | Varios CAS por material | Un `cas` por material | **Decidida (V3-16):** `cas` y la lista `other_cas` |
 | Escalas abiertas: tenacidad y familia | — | **Pregunta 7.11** |

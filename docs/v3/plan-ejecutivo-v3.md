@@ -18,7 +18,7 @@
 
 Se hacen **de una en una**, en este orden, y cada respuesta entra en [`decisiones-v3.md`](decisiones-v3.md) como V3-12, V3-13… con tus palabras. Las fases 0 y 1 no dependen de ellas; la fase 2, sí.
 
-1. **7.5 a 7.11** (7.5 a 7.9 decididas: V3-12 a V3-16) de [`modelo-materiales-v3.md`](modelo-materiales-v3.md): los tipos, los duplicados, la ficha, los datos del laboratorio, varios CAS, los datos en disputa, la tenacidad y las familias. Cada una lleva sus opciones y la recomendación.
+1. **7.5 a 7.11** (7.5 a 7.10 decididas: V3-12 a V3-17) de [`modelo-materiales-v3.md`](modelo-materiales-v3.md): los tipos, los duplicados, la ficha, los datos del laboratorio, varios CAS, los datos en disputa, la tenacidad y las familias. Cada una lleva sus opciones y la recomendación.
 2. **Los bancos de trabajo** (V3-10):
 
 | # | Pregunta | Opciones | Recomiendo |
@@ -63,12 +63,12 @@ Las tablas de materiales del plan, según [`modelo-materiales-v3.md`](modelo-mat
 
 | Paso | Tabla | Además de lo del plan |
 |---|---|---|
-| 2.1 | `materials` | `kind`: `molecule`, `natural`, `composition`, `provisional` o `frozen`, y la marca `solvent` (V3-12). `based_on_id`, tu versión de un común (V3-5), con su grado, proveedor y pureza (referencia §2). `aliases`, otros nombres para el buscador (V3-6). `category_id` y `form`, para el buscador (V3-13). El núcleo de la ficha, lo propio de cada tipo, `sources` y `confidence`, en columnas que admiten vacío (V3-14). `cas` y la lista `other_cas` (V3-16). **Según las respuestas:** la marca «provisional» (7.10). `source_formula_id` en un `frozen`: de qué fórmula sale (V3-10) |
+| 2.1 | `materials` | `kind`: `molecule`, `natural`, `composition`, `provisional` o `frozen`, y la marca `solvent` (V3-12). `based_on_id`, tu versión de un común (V3-5), con su grado, proveedor y pureza (referencia §2). `aliases`, otros nombres para el buscador (V3-6). `category_id` y `form`, para el buscador (V3-13). El núcleo de la ficha, lo propio de cada tipo, `sources` y `confidence`, en columnas que admiten vacío (V3-14). `cas` y la lista `other_cas` (V3-16). `disputed_fields`, los campos en disputa (V3-17). `source_formula_id` en un `frozen`: de qué fórmula sale (V3-10) |
 | 2.1b | `material_categories` (V3-13) | Común, la escribe el script: id, nombre y otros nombres. Solo agrupa para el buscador: ninguna fórmula ni regulación apunta a ella |
 | 2.2 | `material_components` | Su propio `id` (V3-9). `amount_kind` (`exact`, `max`, `range`, `unknown`) con su comprobación: `range` exige mínimo ≤ máximo, `exact` y `max` exigen valor, `unknown` ninguno. Un material no se contiene a sí mismo |
 | 2.3 | `regulations` | Nada: `kind` es `max`, `prohibited` o `requirement`, y la enmienda va en `source`. `max_value` es fracción del producto terminado |
 | 2.4 | `lab_materials` | Usuario + material, con su propio `id` (V3-9): «lo que tengo» (V3-3). Sin cantidades |
-| 2.4b | `material_doses` (V3-14) | Una fila por fuente: mínima, típica y máxima, **siempre con su base** (del concentrado, del producto terminado o «sin declarar»), con su autoridad y su fuente. Las columnas, las de `datos/v2/usos.csv` |
+| 2.4b | `material_doses` (V3-14) | Una fila por fuente: mínima, típica y máxima, **siempre con su base** (del concentrado, del producto terminado o «sin declarar»), con su autoridad y su fuente. Las columnas, las de `datos/v2/usos.csv`. Una marca `disputed` si la fila está en disputa (V3-17) |
 | 2.5 | Perfil del usuario | El interruptor «solo lo que tengo», en los datos del usuario de Supabase Auth (sin tabla), con una copia en el navegador para cambiarlo sin red |
 
 | Paso | Qué | Hecho cuando |
@@ -104,7 +104,7 @@ Un script, `scripts/v3/importar.ts`, de los CSV a Postgres. **Reutiliza `src/v2/
 | 4.6 | **Requisitos** | Un `requirement` por estándar y miembro, con autoridad `ifra`; si `condiciones.csv` dice que se cumple, con la autoridad y la fuente de esa fila |
 | 4.7 | **Otros nombres** (V3-6) | Del glosario de la v1 (que sigue congelado: se lee, no se toca), unidos a la v2 por `v1-a-v2.csv`. El núcleo de la ficha (V3-14): qué datos lo llenan en lo común, según 7.11; lo del laboratorio va en tu cuenta (4.9) |
 | 4.8 | **Categorías y duplicados** (V3-11, V3-13) | **Agrupar:** el script pone cada material en su categoría por regla (una molécula, por su CAS; un natural, por especie + parte, o por su CAS si no dice la especie) y escribe la lista en `datos/v3/categorias.csv` para que la revises; agrupar no mezcla datos. Hoy, 906 materiales comparten 210 CAS (modelo §9.2). **Fusionar:** el script **no fusiona nada solo**. Los candidatos (el mismo material dos veces; hoy 43 nombres en 120 materiales) van a `datos/v3/conflictos/duplicados.csv`; tú decides cada fila y el script aplica tus decisiones. El id de la v2 de un material fusionado apunta al que queda, en `datos/v3/fusiones.csv`, así que las fórmulas que lo usaban lo siguen encontrando |
-| 4.9 | **Materiales del laboratorio, en tu cuenta** (V3-15) | `scripts/v3/importar-laboratorio.ts`, desde `materiales.sqlite` del laboratorio, que lee y no escribe. Escribe en tu cuenta (tu `owner_id`), no en lo común. El que ya es un común entra como tu versión (`based_on_id`) con tu núcleo, tus dosis y tus sinónimos; cuál es el común lo decides tú en `datos/v3/conflictos/laboratorio.csv` (hoy, 89 de los 103 con CAS casan por CAS con la v2). El que no casa, material tuyo nuevo. Tus frascos (`user_materials`), «lo que tengo». Su IFRA de segunda mano, texto «sin verificar» que no calcula. La cata y los ejes esperan a la capa del usuario |
+| 4.9 | **Materiales del laboratorio, en tu cuenta** (V3-15) | `scripts/v3/importar-laboratorio.ts`, desde `materiales.sqlite` del laboratorio, que lee y no escribe. Escribe en tu cuenta (tu `owner_id`), no en lo común. El que ya es un común entra como tu versión (`based_on_id`) con tu núcleo, tus dosis y tus sinónimos; cuál es el común lo decides tú en `datos/v3/conflictos/laboratorio.csv` (hoy, 89 de los 103 con CAS casan por CAS con la v2). El que no casa, material tuyo nuevo. Tus frascos (`user_materials`), «lo que tengo». Su IFRA de segunda mano, texto «sin verificar» que no calcula. La cata y los ejes esperan a la capa del usuario. Lo que tiene un conflicto pendiente en el laboratorio entra marcado «en disputa» (V3-17) |
 
 **Hecho cuando:** los recuentos coinciden con los CSV (menos las fusiones que decidiste), cada fusión tiene tu decisión en el CSV, una segunda ejecución no cambia ninguna fila, y el registro dice de qué commit salen los datos. **Y un navegador nuevo descarga el catálogo entero** con los mismos recuentos; se apunta cuánto ocupa y cuánto tarda esa primera descarga.
 
@@ -125,7 +125,7 @@ Un script, `scripts/v3/importar.ts`, de los CSV a Postgres. **Reutiliza `src/v2/
 | Paso | Qué | Hecho cuando |
 |---|---|---|
 | 6.1 | **Recorrer** todo lo común y lo tuyo, con filtros (tipo, común o tuyo, lo que tengo, estado IFRA) y el buscador | Encuentras un material por su nombre comercial, su sigla, su CAS o la grafía española |
-| 6.2 | **La ficha**, la misma para todos: identidad, composición con su autoridad y fuente, y regulación. Con V3-14, el núcleo y la dosis, cada dato con su fuente y su base; un dato en disputa sale «provisional» (7.10) | La ficha de un material común dice lo mismo que la de la v2 |
+| 6.2 | **La ficha**, la misma para todos: identidad, composición con su autoridad y fuente, y regulación. Con V3-14, el núcleo y la dosis, cada dato con su fuente y su base; un dato en disputa sale «en disputa» (V3-17) | La ficha de un material común dice lo mismo que la de la v2 |
 | 6.3 | **Crear tus materiales**, de cualquier tipo, con la misma ficha, sus regulaciones incluidas | Un material tuyo con su certificado da su IFRA como uno común |
 | 6.4 | **Tu versión de un común** | Hereda todo, añade lo tuyo, el común no cambia y salen los dos |
 | 6.5 | **Lo que tengo**: marcar de golpe o poco a poco | La lista se guarda y se ve en los filtros |
