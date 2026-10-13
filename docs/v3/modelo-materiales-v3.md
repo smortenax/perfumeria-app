@@ -161,6 +161,7 @@
   - **Su IFRA de segunda mano no calcula:** entra como texto «sin verificar» (regla 7 de tu referencia).
   - Tu cata y tus ejes, cuando exista la capa del usuario (aplazada, plan §46).
   - Lo que tiene un conflicto pendiente en el laboratorio entra marcado «en disputa» (§2.7, V3-17).
+- **6.6 · Dónde se ve un acorde congelado** *[Tú, V3-19]*. Cada fórmula vive en un banco de trabajo. Un material `frozen` sale en el buscador de su banco (el de su `source_formula_id`); si su fórmula lleva el marcador «acorde», sale en el de todos. Lo común y el resto de lo tuyo salen en todos.
 
 ---
 

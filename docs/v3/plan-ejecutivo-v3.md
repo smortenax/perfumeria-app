@@ -19,11 +19,11 @@
 Se hacen **de una en una**, en este orden, y cada respuesta entra en [`decisiones-v3.md`](decisiones-v3.md) como V3-12, V3-13… con tus palabras. Las fases 0 y 1 no dependen de ellas; la fase 2, sí.
 
 1. ~~**7.5 a 7.11**~~ (decididas: V3-12 a V3-18) de [`modelo-materiales-v3.md`](modelo-materiales-v3.md): los tipos, los duplicados, la ficha, los datos del laboratorio, varios CAS, los datos en disputa, la tenacidad y las familias. Cada una lleva sus opciones y la recomendación.
-2. **Los bancos de trabajo** (V3-10):
+2. **Los bancos de trabajo** (V3-10; B.1 decidida: V3-19):
 
 | # | Pregunta | Opciones | Recomiendo |
 |---|---|---|---|
-| **B.1** | **¿Una fórmula está en un banco o en varios?** | **Uno o ninguno.** **Varios** | **Uno o ninguno.** Un acorde que sirve a dos perfumes se congela como material y se usa en los dos, y su fórmula vive en un banco. Es una columna; varios bancos pedirían una tabla más |
+| ~~B.1~~ | ~~¿Una fórmula está en un banco o en varios?~~ | **Decidida (V3-19, 2026-10-13): cada fórmula, en un banco; unos marcadores la sacan a carpetas generales** | |
 | **B.2** | **¿Cada fórmula lleva un papel dentro de su banco** (corazón, acorde de salida, final)? | **Una etiqueta libre y opcional.** **Una lista cerrada.** **Nada** | **La etiqueta libre.** Aún no hay vocabulario, y una lista cerrada se puede sacar después de las etiquetas que uses. Toca P45 («acorde o perfume al guardar»), que sigue abierta en `docs/a-futuro.md` |
 
 ---
@@ -140,12 +140,12 @@ Un script, `scripts/v3/importar.ts`, de los CSV a Postgres. **Reutiliza `src/v2/
 
 | Paso | Qué | Hecho cuando |
 |---|---|---|
-| 7.1 | `formulas`: las del plan; `parent_id` a `NULL` si se borra la madre. `workbench_id`, que puede ir vacío (V3-10), y su papel en el banco si B.2 lo pide. Una versión nueva nace en el banco de su madre | — |
+| 7.1 | `formulas`: las del plan; `parent_id` a `NULL` si se borra la madre. `workbench_id`, obligatorio (V3-19): al crear una fórmula, eliges su banco o creas uno. Sus marcadores (V3-19), y su papel en el banco si B.2 lo pide. Una versión nueva nace en el banco de su madre | — |
 | 7.1b | `workbenches` (V3-10): id, dueño, nombre y notas. Solo tuyos y sincronizados (RLS y reglas de sincronización, como en 2.6) | A no ve los bancos de B |
 | 7.2 | `formula_events`: comprobación por tipo (`add` exige material, masa > 0, fracción en (0, 1] y diluyente si es < 1; `set_mass` y `remove`, un `target`; `reweigh`, bruto > tara; `note`, texto). **El orden lo da el `id` de cada evento**, un UUID v7 creado en el dispositivo, con su hora: dos equipos sin red no chocan, como sí harían con un `seq` consecutivo y `UNIQUE(formula_id, seq)` (§43 del plan; propuesta de la sesión por V3-9) | Dos copias añaden eventos sin red a la misma fórmula; al sincronizar, las dos ven el mismo historial |
 | 7.3 | RLS: fórmulas, solo las tuyas; eventos, según su fórmula y **solo se añaden**. Disparador: un evento solo usa materiales comunes o tuyos | Pruebas con dos usuarios: A no ve las fórmulas de B, no añade un evento con un material de B, ni edita ni borra un evento |
 | 7.4 | Leer tu biblioteca (`Documentos\Perfumería\Fórmulas`) desde tu equipo, con tu permiso | Copia de los archivos en la carpeta del proyecto |
-| 7.5 | `scripts/v3/importar-formulas.ts`: cabecera → `formulas`, historial → `formula_events` en orden. Las subcarpetas de tu biblioteca, si las hay, se proponen como bancos y lo decides tú. Las claves de la v2 de un material fusionado (4.8) se leen por `fusiones.csv`. Las claves: las de la v2, por el id que se calcula de ellas; `cas:`, por CAS; `prov:` y `own:`, un material provisional tuyo por nombre (P44); `vec:`, un material `frozen` tuyo con su composición; `solv:`, los disolventes; tus diluyentes propios, provisionales tuyos. Las versiones, unidas por `parent_id` | Para cada fórmula, `compose()` desde la base da la composición que guarda el archivo |
+| 7.5 | `scripts/v3/importar-formulas.ts`: cabecera → `formulas`, historial → `formula_events` en orden. Toda fórmula necesita banco (V3-19): el script propone uno para cada una (las subcarpetas de tu biblioteca, si las hay) en `datos/v3/conflictos/bancos.csv`, y lo decides tú. Las claves de la v2 de un material fusionado (4.8) se leen por `fusiones.csv`. Las claves: las de la v2, por el id que se calcula de ellas; `cas:`, por CAS; `prov:` y `own:`, un material provisional tuyo por nombre (P44); `vec:`, un material `frozen` tuyo con su composición; `solv:`, los disolventes; tus diluyentes propios, provisionales tuyos. Las versiones, unidas por `parent_id` | Para cada fórmula, `compose()` desde la base da la composición que guarda el archivo |
 | 7.6 | Las **pruebas de referencia** (la F-001) y el **informe de tu biblioteca** (`biblioteca.tool.test.ts`, el de `comparacion-fase6.md`), con los datos de la base | El mismo informe IFRA, línea a línea; cada diferencia, explicada |
 
 ---
@@ -154,12 +154,12 @@ Un script, `scripts/v3/importar.ts`, de los CSV a Postgres. **Reutiliza `src/v2/
 
 | Paso | Qué | Hecho cuando |
 |---|---|---|
-| 8.1 | Lanzador y biblioteca desde la base; las versiones, agrupadas por la cadena de `parent_id` | Ves tus fórmulas agrupadas |
-| 8.1b | **Los bancos de trabajo** (V3-10): la biblioteca enseña todas las fórmulas; cada banco, las suyas, con los acordes congelados y en qué fórmula se usan. Crear un banco, mover una fórmula a él | Haces un acorde dentro del banco de un perfume, lo guardas como corazón y lo usas en la fórmula final: los dos salen en el mismo banco, y el corazón dice dónde se usa |
-| 8.2 | El banco escribe un evento por acción: `add` con el `seq` siguiente, `set_mass`, `remove`, `reweigh` (la tara se propone desde el último repesado), `note`. Deshacer añade el evento contrario. El buscador, sobre el catálogo en memoria, **con el interruptor «solo lo que tengo»** | Recreas la **F-001** desde cero y sus números coinciden con los del cuaderno (el criterio de `plan-desarrollo.md`) |
+| 8.1 | Lanzador y biblioteca desde la base: tus bancos y las carpetas generales de los marcadores (V3-19); dentro de un banco, las versiones agrupadas por la cadena de `parent_id` | Ves tus bancos, y en cada uno sus fórmulas agrupadas |
+| 8.1b | **Los bancos de trabajo** (V3-10): la biblioteca enseña los bancos y las carpetas generales (V3-19); cada banco, sus fórmulas, con los acordes congelados y en qué fórmula se usan. Crear un banco, mover una fórmula a otro. Marcar una fórmula: sale además en la carpeta general de su marcador | Haces un acorde dentro del banco de un perfume, lo guardas como corazón y lo usas en la fórmula final: los dos salen en el mismo banco, y el corazón dice dónde se usa. Sin marcar, el corazón no sale en el buscador de otro banco; marcado «acorde», sí, y sale en la carpeta «Acordes» |
+| 8.2 | El banco escribe un evento por acción: `add` con el `seq` siguiente, `set_mass`, `remove`, `reweigh` (la tara se propone desde el último repesado), `note`. Deshacer añade el evento contrario. El buscador, sobre el catálogo en memoria, **con el interruptor «solo lo que tengo»**, y con los acordes de su banco y los marcados «acorde» (V3-19) | Recreas la **F-001** desde cero y sus números coinciden con los del cuaderno (el criterio de `plan-desarrollo.md`) |
 | 8.3 | Un **provisional** se crea desde el buscador con solo su nombre, y se completa luego en el glosario | — |
 | 8.4 | El panel de IFRA, los gráficos y la ficha, sobre el nuevo `IfraData` | Las dos lecturas coinciden con el cálculo a mano en tres casos |
-| 8.5 | Guardar una fórmula como material (`frozen`, §27), con su `source_formula_id`; se queda en el banco de su fórmula | Cambiar la fórmula después no cambia el material |
+| 8.5 | Guardar una fórmula como material (`frozen`, §27), con su `source_formula_id`; se queda en el banco de su fórmula. Marcarla «acorde» la congela y la deja usar en todos los bancos (V3-19) | Cambiar la fórmula después no cambia el material |
 | 8.6 | Pantalla estrecha y sin *hover* | El banco se usa en el móvil |
 | 8.7 | **Sin red** | Con la red cortada, pesas una fórmula entera con IFRA. Al volver la red, el historial sube completo y sin duplicados |
 

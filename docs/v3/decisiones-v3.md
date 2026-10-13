@@ -204,7 +204,7 @@ Un material común solo puede basarse en otro común, y no hay ciclos. Los produ
 
 **Lectura** (la sesión, para que la confirmes):
 
-- **La biblioteca es el espacio global:** todas tus fórmulas.
+- ~~**La biblioteca es el espacio global:** todas tus fórmulas.~~ [Cambiado por V3-19 (2026-10-13): la biblioteca enseña los bancos y las carpetas generales de los marcadores.]
 - **Un banco de trabajo es una carpeta tuya** que agrupa lo de un proyecto: el perfume final, sus versiones y los acordes que haces para él.
 - **Un acorde guardado como corazón** (congelado como material, plan §27) se queda en el banco del perfume.
 - **Los matices los añadirás más adelante.** Están apuntados en `docs/a-futuro.md`.
@@ -212,7 +212,7 @@ Un material común solo puede basarse en otro común, y no hay ciclos. Los produ
 **Cómo se aplica** (propuesta de la sesión):
 
 - **Una tabla `workbenches`** (id, dueño, nombre, notas), solo tuya y sincronizada (V3-9). Es una tabla más que las del §34 del plan, y la pides tú.
-- **`formulas.workbench_id`**, que puede ir vacío: una fórmula fuera de un banco sigue en la biblioteca. Una versión nueva (`parent_id`) nace en el banco de su madre.
+- **`formulas.workbench_id`**, ~~que puede ir vacío: una fórmula fuera de un banco sigue en la biblioteca~~ obligatorio (V3-19). Una versión nueva (`parent_id`) nace en el banco de su madre.
 - **`materials.source_formula_id`** en un material `frozen`: de qué fórmula sale. Así el banco enseña el acorde y en qué fórmula se usa.
 - **Pendiente:** las preguntas B.1 y B.2 del [plan ejecutivo](plan-ejecutivo-v3.md).
 
@@ -384,7 +384,31 @@ Y sobre el material general (punto 5 de la lectura), 2026-10-13 17:19:
 
 **Por qué** (la recomendación de la sesión que elegiste): en la app el vocabulario de familias ya estaba decidido (P48) y aplicado; la tenacidad es una pregunta de investigación del laboratorio, y como texto con su fuente no engaña.
 
+## V3-19 · Cada fórmula vive en un banco; unos marcadores la sacan a carpetas generales (decidida por el usuario el 2026-10-13)
+
+**Pregunta** (tarjeta del hilo, B.1 del [plan ejecutivo](plan-ejecutivo-v3.md)): ¿Una fórmula está en un banco de trabajo o en varios?
+
+**Respuesta literal** (orko kill, 2026-10-13, escrita en la tarjeta):
+
+> no lo tengo claro la idea de los bancos es que haya espacios de trabajo para forrmular un perfume o una idea de manera que todo eso no haga luego ruido en general, yo diria que quizas puede haber una variable extra o un tag para que las formulas sean encontradas entre bancos en casos concretos, por ejemplo si creo un acorde de flores en un banco para una formula este acorde quiero que acabe estando con el resto de acordes accesible para todas las formulas pero no necesariamente quiero que el resto de partes o formulas del workbench actual se compartan entre el resto, si todas las formulas que se crean en la app viven en el mismo sitio es muy caotico, la idea es compartimentalizar, podrian atribuirsele categorias o marcadores de manera que  acaben en una carpeta general: por ejemplo "perfume acabado" como categoria de que algo te salio bien o que es usable y "acorde" como mezcla que se presenta para usarse en otras formulas podrian estar viviendo, aparte de en su workbench en una carpeta que apile todos los archivos guardados con estos marcadores
+
+**Lectura** (de la sesión; el usuario la confirmó en la tarjeta con la opción «Sí, sin «Sueltas»», 2026-10-13 17:53: «Lo mismo, pero toda fórmula tiene que estar en un banco: al crearla se elige o se crea uno.»):
+
+1. **Un banco es un compartimento.** Lo que haces en él (versiones, pruebas, acordes) se queda dentro y no hace ruido fuera. **Una fórmula vive en un solo banco, y toda fórmula está en uno:** al crearla, eliges uno o creas otro.
+2. **Unos marcadores sacan una fórmula de su banco sin moverla**: por ejemplo «acorde» y «perfume acabado». La fórmula marcada sigue en su banco y además sale en una carpeta general que reúne todas las que lo llevan («Acordes», «Perfumes acabados»).
+3. **Un acorde marcado se usa en las fórmulas de cualquier banco**; uno sin marcar, solo dentro del suyo. Lo deduce la sesión de «accesible para todas las formulas pero no necesariamente [...] el resto de partes».
+4. **La biblioteca deja de ser la lista de todo:** enseña los bancos y las carpetas generales. Cambia la lectura de V3-10.
+
+**Cómo se aplica** (propuesta de la sesión, confirmada con la lectura):
+
+- **`formulas.workbench_id`, obligatorio.** Una versión nueva (`parent_id`) nace en el banco de su madre.
+- **Los marcadores, en la fórmula.** Si son una lista cerrada o etiquetas libres, y si llevan también el papel dentro del banco (corazón, salida), lo decide B.2.
+- **Marcar una fórmula como «acorde» la congela como material** (plan §27), para poder usarla como ingrediente, y ese material sale en el buscador de todos los bancos. Un acorde congelado sin la marca sale solo en el buscador de su banco.
+- **Al importar tu biblioteca de la v2**, toda fórmula necesita banco: el script propone uno para cada una (las subcarpetas, si las hay) en `datos/v3/conflictos/bancos.csv`, y lo decides tú.
+
+**Por qué** (del mensaje): «si todas las formulas que se crean en la app viven en el mismo sitio es muy caotico, la idea es compartimentalizar».
+
 ## Pendientes
 
-- **B.1 y B.2** del [plan ejecutivo](plan-ejecutivo-v3.md), de una en una, en el chat que arrancó con [`prompt-arranque-v3.md`](prompt-arranque-v3.md).
+- **B.2** del [plan ejecutivo](plan-ejecutivo-v3.md), de una en una, en el chat que arrancó con [`prompt-arranque-v3.md`](prompt-arranque-v3.md).
 - Después, la fase 0 del plan ejecutivo.
