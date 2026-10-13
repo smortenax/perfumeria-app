@@ -1,6 +1,7 @@
 import { wrapPowerSyncWithDrizzle } from "@powersync/drizzle-driver";
 import { PowerSyncDatabase } from "@powersync/web";
-import { SupabaseConnector } from "../connector";
+import { supabase } from "../client";
+import { powerSyncEndpoint, SupabaseConnector } from "../connector";
 import { AppSchema, tables } from "./schema";
 
 /**
@@ -14,7 +15,7 @@ function open(userId: string) {
     database: { dbFilename: `perfumeria-${userId}.sqlite` },
   });
   const db = wrapPowerSyncWithDrizzle(powerSync, { schema: tables });
-  void powerSync.connect(new SupabaseConnector());
+  void powerSync.connect(new SupabaseConnector(supabase, () => powerSyncEndpoint()));
   return { userId, powerSync, db };
 }
 

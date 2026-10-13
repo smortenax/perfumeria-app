@@ -4,14 +4,17 @@ import {
   type CrudEntry,
   type PowerSyncBackendConnector,
   type PowerSyncCredentials,
-} from "@powersync/web";
-import { supabase } from "./client";
+} from "@powersync/common";
+import type { SupabaseClient } from "@supabase/supabase-js";
 
 /**
  * Between the browser's copy and Supabase (V3-9, plan step 1.5), after PowerSync's own
  * example with Supabase (powersync-js, demos/react-supabase-todolist, read 2026-10-13).
  * PowerSync downloads with the session's token; what was written here waits in a queue and
  * goes up through Supabase, where RLS checks it.
+ *
+ * It gets its Supabase client and PowerSync's address from outside, so that the database
+ * tests send the same uploads as the app (db-tests/exactness.test.ts).
  */
 
 /**
@@ -29,12 +32,20 @@ export function powerSyncEndpoint(configured: string = import.meta.env.VITE_POWE
 const REFUSED = [/^22...$/, /^23...$/, /^42501$/];
 
 export class SupabaseConnector implements PowerSyncBackendConnector {
+  private readonly client: SupabaseClient;
+  private readonly endpoint: () => string;
+
+  constructor(client: SupabaseClient, endpoint: () => string) {
+    this.client = client;
+    this.endpoint = endpoint;
+  }
+
   async fetchCredentials(): Promise<PowerSyncCredentials> {
-    const { data, error } = await supabase.auth.getSession();
+    const { data, error } = await this.client.auth.getSession();
     if (!data.session || error) {
       throw new Error(`No Supabase session: ${error?.message ?? "signed out"}`);
     }
-    return { endpoint: powerSyncEndpoint(), token: data.session.access_token };
+    return { endpoint: this.endpoint(), token: data.session.access_token };
   }
 
   async uploadData(database: AbstractPowerSyncDatabase): Promise<void> {
@@ -46,7 +57,7 @@ export class SupabaseConnector implements PowerSyncBackendConnector {
     try {
       for (const op of transaction.crud) {
         last = op;
-        const table = supabase.from(op.table);
+        const table = this.client.from(op.table);
         const result =
           op.op === UpdateType.PUT
             ? await table.upsert({ ...op.opData, id: op.id })

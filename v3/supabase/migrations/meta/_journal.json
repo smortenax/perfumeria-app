@@ -71,6 +71,20 @@
       "when": 1791916747825,
       "tag": "20261013183907_drop_sync_probe",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1791917022488,
+      "tag": "20261013184342_sync_checks",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1791917023819,
+      "tag": "20261013184343_sync_checks_rls",
+      "breakpoints": true
     }
   ]
 }

@@ -33,3 +33,10 @@ streams:
       - SELECT * FROM regulations WHERE owner_id = auth.user_id()
       - SELECT * FROM material_doses WHERE owner_id = auth.user_id()
       - SELECT * FROM lab_materials WHERE user_id = auth.user_id()
+
+  # The exactness check of step 3.1: only who subscribes to it (the database tests), never
+  # the app, which does not subscribe.
+  exactness_checks:
+    auto_subscribe: false
+    queries:
+      - SELECT * FROM sync_checks WHERE owner_id = auth.user_id()

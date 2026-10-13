@@ -32,9 +32,11 @@
     "react-dom": "^19.3.0"
   },
   "devDependencies": {
+    "@powersync/node": "^1.1.1",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.1",
+    "better-sqlite3": "^13.0.3",
     "drizzle-kit": "^0.31.11",
     "supabase": "^2.120.0",
     "typescript": "~6.0.3",

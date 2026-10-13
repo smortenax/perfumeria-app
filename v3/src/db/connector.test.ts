@@ -1,8 +1,5 @@
-import { describe, expect, it, vi } from "vitest";
-
-vi.mock("@supabase/supabase-js", () => ({ createClient: () => ({}) }));
-vi.mock("@powersync/web", () => ({ UpdateType: { PUT: "PUT", PATCH: "PATCH", DELETE: "DELETE" } }));
-const { powerSyncEndpoint } = await import("./connector");
+import { describe, expect, it } from "vitest";
+import { powerSyncEndpoint } from "./connector";
 
 describe("powerSyncEndpoint: PowerSync's address, whole and without a final slash", () => {
   it("makes a path of the app's own site whole", () => {
