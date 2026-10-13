@@ -67,7 +67,7 @@
   **El disolvente es una marca, `solvent` (sí o no)**, aparte del tipo y de la función: DPG, alcohol, IPM, DEP, TEC, triacetina y BB son moléculas con la marca. **Lo marcado no cuenta como materia aromática.** La dilución no es un tipo: es un estado del frasco.
 
 - **2.4 · Los ids** *[Propuesta]*. Cada material tiene un id único. Para los que vienen de la v2, el script lo calcula a partir del suyo (`M00001`), así que **volver a importar da siempre los mismos ids** sin guardar una columna más.
-- **2.5 · Nombres** *[Plan §15; Tú, V3-6]*. Un `name`, el que se enseña, y **una lista de otros nombres** (`aliases`): nombre comercial, sigla, sinónimos. El buscador encuentra por cualquiera de ellos y por cualquiera de sus CAS (V3-16), como hoy («Hedione», «IBQ»). Los de los comunes salen del glosario de la v1, que no se toca; los tuyos, los pones tú.
+- **2.5 · Nombres** *[Plan §15; Tú, V3-6]*. Un `name`, el que se enseña, y **una lista de otros nombres** (`aliases`): nombre comercial, sigla, sinónimos. El buscador encuentra por cualquiera de ellos, por cualquiera de sus CAS (V3-16) y por la especie y el INCI (V3-24), como hoy («Hedione», «IBQ»). Los de los comunes salen del glosario de la v1, que no se toca; los tuyos, los pones tú.
 
 - **2.6 · Categorías: el buscador agrupa, la fórmula no** *[Tú, V3-13]*.
   - **Cada material concreto es una ficha propia**, con su composición y sus límites: el aceite, el absoluto y el CO2 de lavanda; la Hedione de cada proveedor.

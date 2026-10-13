@@ -128,7 +128,7 @@ Comparan con la v2, así que viven en `migracion-v3/`, no en `v3/` (V3-21).
 
 | Paso | Qué | Hecho cuando |
 |---|---|---|
-| 6.1 | **Recorrer** todo lo común y lo tuyo, con filtros (tipo, común o tuyo, lo que tengo, estado IFRA) y el buscador | Encuentras un material por su nombre comercial, su sigla, su CAS o la grafía española |
+| 6.1 | **Recorrer** todo lo común y lo tuyo, con filtros (tipo, común o tuyo, lo que tengo, estado IFRA) y el buscador, que mira el nombre, los otros nombres, todos los CAS, la especie y el INCI (V3-24) | Encuentras un material por su nombre comercial, su sigla, su CAS o la grafía española; el cedro chino, por «funebris», por «Cupressus Funebris Wood Oil» y por 85085-29-6 |
 | 6.2 | **La ficha**, la misma para todos: identidad, composición con su autoridad y fuente, y regulación. Con V3-14, el núcleo y la dosis, cada dato con su fuente y su base; la familia con su color y la tenacidad como texto con su fuente (V3-18); un dato en disputa sale «en disputa» (V3-17) | La ficha de un material común dice lo mismo que la de la v2 |
 | 6.3 | **Crear tus materiales**, de cualquier tipo, con la misma ficha, sus regulaciones incluidas | Un material tuyo con su certificado da su IFRA como uno común |
 | 6.4 | **Tu versión de un común** | Hereda todo, añade lo tuyo, el común no cambia y salen los dos |

@@ -491,6 +491,26 @@ Y sobre el material general (punto 5 de la lectura), 2026-10-13 17:19:
 
 **Por qué** (la recomendación de la sesión que elegiste): es lo que pide V3-13, cada ficha con su composición; el máximo le pone a una goma y a un absoluto la isoforona de un aceite.
 
+## V3-24 · El buscador encuentra también por la especie y por el INCI (decidida por el usuario el 2026-10-13)
+
+**De dónde sale:** la entrada del 2026-10-11 de la bandeja del laboratorio: el cedro chino de Maese Lab (INCI *Cupressus Funebris Wood Oil*, CAS 85085-29-6) no aparecía en la app, y el usuario lo usa como provisional en las fórmulas del perfume para su padre. Pide darlo de alta, mirar si alguna de las claves «chinese» es ya este material y no confundirlo con el cade.
+
+**Lo que se encontró** (la sesión, en los datos):
+
+- **Ya está en la v2:** M01127, «Cedarwood oil, Chinese» (*Cupressus funebris* Endl., aceite esencial), con el CAS 1159574-01-2. El anexo de IFRA lo da con 1159574-01-2 de principal y **85085-29-6 como otro CAS** (`datos/ifra/51/naturales.csv`), y con sus constituyentes (alfa-bisabolol 0,6 %, alfa-cedreno 19,1 %, beta-cedreno 6 %). Tiene tres formas más: rectificado (M01128), terpenos (M01137) y CO2 (M04044). M01260, «Fir needle oil, Chinese», es otra planta.
+- **No se encontraba** porque la v2 guarda un solo CAS por material y el buscador no mira ni la especie ni el INCI.
+
+**Pregunta** (tarjeta del hilo): ¿Encuentra también el buscador un material por su especie y por su INCI?
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Sí, por los dos (Recomendado)» (2026-10-13 20:18): «Además de nombre, otros nombres y CAS: la especie («funebris») y el INCI de la etiqueta («Cupressus Funebris Wood Oil»). Son columnas que ya tiene el material.»
+
+**Cómo se aplica:**
+
+- **El buscador mira** el nombre, los otros nombres (V3-6), todos los CAS (V3-16), la especie y el INCI. Sin columnas nuevas.
+- **El resto de la entrada ya está decidido:** el otro CAS entra desde el anexo (V3-16); las cuatro formas, en una categoría (V3-13); tu frasco, en tu cuenta como tu versión del aceite común (V3-15). Mientras tanto, en la v2 sigues con tu provisional.
+
+**Por qué** (la recomendación de la sesión que elegiste): con ella, «funebris» o el INCI de la etiqueta habrían encontrado el cedro chino.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20). Siguen las cinco entradas pendientes de la bandeja del laboratorio (`../Perfumery/app/entradas.md`), que se llevan aquí.
