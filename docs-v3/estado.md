@@ -18,5 +18,5 @@
 
 ## Dónde está
 
-- Los documentos de la v3 están en la rama `claude/project-thread-7fj8q8`, en `docs/v3/`. **Aún no están en `main`.**
+- Los documentos de la v3 están en la rama `claude/project-thread-7fj8q8`, en `docs-v3/`. **Aún no están en `main`.**
 - El laboratorio (`../Perfumery`, smortenax/perfumeria-lab) tiene `esquema.sql` y `materiales.sqlite` de la referencia.

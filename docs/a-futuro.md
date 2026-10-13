@@ -59,13 +59,13 @@ Cada fila: **qué**, **de dónde** (pregunta o fecha) y **qué no hay que cerrar
 
 | Qué | De dónde | Qué no hay que cerrar ahora |
 |---|---|---|
-| **Acorde o perfume al guardar**; la galería con filtros, **un icono y un visualizador por fórmula** | P45 (abierta; el marcador «acorde» o «perfume acabado» lo decide V3-20 de `docs/v3/decisiones-v3.md`) | El tipo decidiría qué lectura de IFRA se destaca (§5.4) |
+| **Acorde o perfume al guardar**; la galería con filtros, **un icono y un visualizador por fórmula** | P45 (abierta; el marcador «acorde» o «perfume acabado» lo decide V3-20 de `docs-v3/decisiones-v3.md`) | El tipo decidiría qué lectura de IFRA se destaca (§5.4) |
 | **Las categorías generales** visibles | P46, frente 8 | |
 | **Replicar una fórmula** | P47 (exploración) | |
 | **Exportar al cuaderno** (Markdown y CSV) | Plan, fase 5 | |
 | **Lo que va antes del banco** | §0, §8 | El banco ya tiene botón atrás |
 | **Cómo «Sin nombre (4)» pasó a «Zara tabaco»** | P52 (abierta) | |
-| **Los matices de los bancos de trabajo** de la v3: «hay algunos matices mas pero creo que los ire añadiendo a futuro» | Usuario, 2026-10-13 (V3-10 de `docs/v3/decisiones-v3.md`) | Que el banco sea una carpeta de fórmulas y no algo más rígido, y que un acorde congelado recuerde de qué fórmula sale |
+| **Los matices de los bancos de trabajo** de la v3: «hay algunos matices mas pero creo que los ire añadiendo a futuro» | Usuario, 2026-10-13 (V3-10 de `docs-v3/decisiones-v3.md`) | Que el banco sea una carpeta de fórmulas y no algo más rígido, y que un acorde congelado recuerde de qué fórmula sale |
 
 ## 4 · Producto y plataforma
 

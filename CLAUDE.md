@@ -2,12 +2,19 @@
 
 ## Trabajo en la v3 (desde 2026-10-13)
 
-**Para cualquier tarea de la v3, la autoridad es `docs/v3/`**: `decisiones-v3.md`,
+**Para cualquier tarea de la v3, la autoridad es `docs-v3/`**: `decisiones-v3.md`,
 `modelo-materiales-v3.md` y `plan-ejecutivo-v3.md`. Donde chocan, `PLAN_V3.md` manda sobre la
 v2 (V3-1), y lo que el usuario decide después, sobre `PLAN_V3.md`. Este se lee por secciones.
 
-**Al empezar cada sesión de la v3:** leer `docs/v3/estado.md`, no el de la v2. Al terminar:
+**Al empezar cada sesión de la v3:** leer `docs-v3/estado.md`, no el de la v2. Al terminar:
 actualizarlo, en 30 líneas como máximo, y hacer commit.
+
+**Dónde vive (V3-21):** la app de la v3, en `v3/`, que funciona sola dentro de esa carpeta (sus
+reglas, en `v3/CLAUDE.md`); su documentación, en `docs-v3/`. Nada en ellas apunta al resto del
+repo: van a acabar en su propio repositorio. **La v2 de la raíz no se toca.** El puente es
+`migracion-v3/`: lee la v2, la v1 y el laboratorio y escribe en `v3/datos/` solo información
+tratada y citada (documento, página, frase), por tandas que aprueba el usuario. Los PDF y demás
+documentos de origen no pasan a la v3.
 
 - Una decisión nueva entra en `decisiones-v3.md` como V3-n, con la frase literal del usuario.
   Lo que propone la sesión se marca como propuesta.

@@ -1,6 +1,8 @@
 # Plan ejecutivo de la v3
 
-*2026-10-07, revisado el 2026-10-13 con V3-8 y V3-9 (sin conexión), V3-10 (bancos de trabajo) y V3-11 (tu referencia de materiales y el buscador sin duplicados). Sale de `PLAN_V3.md` con las decisiones de [`decisiones-v3.md`](decisiones-v3.md) (V3-1: donde chocan, manda el plan). Cada paso dice cuándo está hecho, para que se pueda comprobar sin opinar. Va por fases y en orden; cada paso, un commit.*
+*2026-10-07, revisado el 2026-10-13 con V3-8 y V3-9 (sin conexión), V3-10 (bancos de trabajo) y V3-11 (tu referencia de materiales y el buscador sin duplicados). Sale de `PLAN_V3.md` con las decisiones de [`decisiones-v3.md`](decisiones-v3.md) (V3-1: donde chocan, manda el plan). Cada paso dice cuándo está hecho, para que se pueda comprobar sin opinar. Va por fases y en orden; cada paso, un commit. Revisado después con V3-12 a V3-21.*
+
+**Dónde vive** (V3-21): **la app, en `v3/`**, y funciona sola dentro de esa carpeta; **su documentación, en `docs-v3/`**. **Las rutas de este plan son de dentro de `v3/`** salvo las que empiezan por `docs-v3/` o `migracion-v3/`. La v2 de la raíz no se toca. **`migracion-v3/`**, fuera de las dos, es el puente: lee la v2, la v1 y el laboratorio y escribe en `v3/datos/` lo tratado y citado, por tandas que tú apruebas. Nada en `v3/` ni en `docs-v3/` apunta fuera.
 
 **El orden manda** (el usuario, 2026-10-07): primero **los datos y el glosario de materiales** (fases 2 a 6), y solo después **la formulación** (fases 7 a 9). En sus palabras: «hay que establecer el tratado de datos y todo el glosario de materiales conforme antes de hacer nada de la formulacion».
 
@@ -8,7 +10,7 @@
 
 **Sin conexión** (V3-8, V3-9): la app es una PWA y guarda **una copia de los datos en el navegador**, que PowerSync sincroniza con Supabase. La app lee y escribe siempre en esa copia; lo que haces sin red sube al volver. Hace falta red solo la primera vez, para entrar y descargar. Supabase sigue siendo el original.
 
-**Lo que no cambia:** `src/core/` (el motor) solo se toca si una prueba demuestra que hace falta, como hasta ahora. La v2 llega al motor por un adaptador. Los datos los escribe un script, nunca a mano.
+**Lo que no cambia:** el motor (`src/core/`, copiado de la v2 a `v3/src/core/`) solo se toca si una prueba demuestra que hace falta, como hasta ahora. Los datos llegan al motor por un adaptador. Los datos los escribe un script, nunca a mano.
 
 **Cómo se arranca:** en un chat de Claude Code aparte, con [`prompt-arranque-v3.md`](prompt-arranque-v3.md).
 
@@ -35,9 +37,9 @@ Se hacen **de una en una**, en este orden, y cada respuesta entra en [`decisione
 | 0.1 | Etiqueta `v2-final` en `main`, para poder volver a la v2 entera | La etiqueta está en GitHub |
 | 0.2 | La v3 se hace en una rama propia, que tú decides cuándo fusionar | Rama creada (con tu permiso, como pide `CLAUDE.md`) |
 | 0.3 | **Entorno en WSL:** el repo clonado dentro de WSL (en `~/`, no en `/mnt/c`, que es lento), Node 22 LTS y Docker Desktop con la integración de WSL activada (Supabase local y PowerSync local lo necesitan) | `npm ci && npm test` pasa en WSL, y `npx supabase --version` responde |
-| 0.4 | `docs/v3/estado.md`, como el de la v2: qué está hecho y qué sigue, en 30 líneas | Existe y se actualiza al final de cada sesión |
+| 0.4 | `docs-v3/estado.md`, como el de la v2: qué está hecho y qué sigue, en 30 líneas | Existe y se actualiza al final de cada sesión |
 
-**Tu app 0.2.1 instalada sigue funcionando** todo el tiempo: quitar Tauri del repo no la desinstala.
+**La v2 de la raíz no se toca** (V3-21): tu app instalada y su código siguen igual todo el tiempo.
 
 ---
 
@@ -45,7 +47,7 @@ Se hacen **de una en una**, en este orden, y cada respuesta entra en [`decisione
 
 | Paso | Qué | Hecho cuando |
 |---|---|---|
-| 1.1 | **Quitar Tauri.** Se borran `src-tauri/`, las dependencias `@tauri-apps/*` y el script `tauri`. Solo cuatro archivos las usan (`src/bench/io.ts`, `library.ts`, `store.ts`, `zoom.ts`); pasan a una interfaz de guardado con una implementación provisional en el navegador, que ya existe para el desarrollo | `npm run build` y `npm test` pasan; `npm run dev` abre el banco en el navegador y la prueba de la F-001 sigue verde (paso 2) |
+| 1.1 | **La carpeta `v3/`, sin Tauri** (V3-21): Vite, React y TypeScript, con su propio `package.json`. La copia del motor (`src/core/` de la v2, con el commit de donde sale) y sus pruebas. `v3/CLAUDE.md` con las reglas de la v3. La app de la raíz no se toca | Dentro de `v3/`: `npm run build` y `npm test` pasan, y la prueba de la F-001 sigue verde; `npm run dev` abre una página inicial. **Una copia de `v3/` sola, en otra carpeta, pasa `npm ci && npm test`**: nada apunta fuera |
 | 1.2 | **Supabase local:** `npx supabase init` y `npx supabase start`. Registro cerrado (`enable_signup = false`), tu usuario creado a mano. La publicación `powersync` y el rol de replicación que pide PowerSync, en una migración | Studio abre en `localhost:54323`. `.env.example` en el repo; `.env.local` fuera de Git |
 | 1.3 | **Drizzle en el servidor:** `drizzle-orm`, `drizzle-kit` y `postgres`. El esquema de Postgres en `db/schema/`. `drizzle.config.ts` escribe el SQL en `supabase/migrations/` con el formato de nombres de Supabase. **Una sola carpeta de migraciones**: RLS y disparadores van en SQL en la misma carpeta | `drizzle-kit generate` crea un SQL y `npx supabase db reset` lo aplica limpio |
 | 1.4 | **PowerSync local:** el servicio en Docker junto a Supabase local, como en el ejemplo oficial (`powersync-ja/self-host-demo`, `demos/supabase`). Su configuración y las reglas de sincronización, en `powersync/` dentro del repo | El servicio arranca y lee la publicación de Supabase |
@@ -86,13 +88,13 @@ Las tablas de materiales del plan, según [`modelo-materiales-v3.md`](modelo-mat
 |---|---|---|
 | 3.1 | **Exactitud en la copia y en la sincronización:** `numeric` llega al navegador como texto, sin pérdida; `bigint` llega como entero, así que en el esquema del navegador las columnas exactas se declaran como texto. El dominio los convierte a `Ratio` y `bigint`; nunca pasan por un `number` de JavaScript. **Si un `bigint` no vuelve idéntico, las masas pasan a `numeric`** | Prueba de ida y vuelta por la sincronización, en los dos sentidos: `9007199254740993` µg y `0.000000000000000000000000000001` vuelven idénticos |
 | 3.2 | **Repositorios** en `src/db/`, **siempre sobre la copia del navegador**, nunca directos a Supabase: cargar el catálogo (comunes y tuyos, con componentes y regulaciones), crear y editar tus materiales, marcar «lo tengo». Lo que se escribe va a la cola de subida | Pruebas sin red contra la copia; una prueba de subida contra Supabase local |
-| 3.3 | **Adaptador** `src/db/to-ifra.ts`: del catálogo al `IfraData` que ya usa el motor, como hace hoy `src/v2/to-ifra.ts` desde los CSV. Incluye `expand()` recursivo (§24) con dónde se para según el tipo, el componente «Sin identificar», el requisito según su autoridad, la regla de `group_key` (la parte de cada miembro sobre su máximo, sumada, no pasa de 1) y la herencia de tu versión (V3-5) | Con un catálogo de prueba, sin base de datos, sale el mismo `IfraData` que de los CSV equivalentes |
+| 3.3 | **Adaptador** `src/db/to-ifra.ts`: del catálogo al `IfraData` que ya usa el motor, como hace hoy `src/v2/to-ifra.ts` desde los CSV. Incluye `expand()` recursivo (§24) con dónde se para según el tipo, el componente «Sin identificar», el requisito según su autoridad, la regla de `group_key` (la parte de cada miembro sobre su máximo, sumada, no pasa de 1) y la herencia de tu versión (V3-5) | Con un catálogo de prueba, sin base de datos, sale el `IfraData` esperado. La comparación con el de los CSV de la v2 vive en `migracion-v3/` (V3-21) |
 
 ---
 
-## Fase 4 · La extracción de los datos de la v2 (pasos 7 y 12)
+## Fase 4 · La migración de los datos de la v2 (pasos 7 y 12)
 
-Un script, `scripts/v3/importar.ts`, de los CSV a Postgres. **Reutiliza `src/v2/load.ts` y `src/v2/validate.ts`: si `validar:v2` da un error, no importa nada.** El id de cada material se calcula a partir de su id de la v2, así que se puede repetir sin duplicar nada.
+**Dos pasos** (V3-21). **Migrar:** scripts en `migracion-v3/`, fuera de `v3/`, que leen la v2, la v1 y el laboratorio. **Reutilizan `src/v2/load.ts` y `src/v2/validate.ts` de la raíz: si `validar:v2` da un error, no migran nada.** Escriben lo común, tratado y con su cita (documento, página y frase), en `v3/datos/`, por tandas: cada tanda deja un informe en `migracion-v3/informes/` (qué entró, de dónde, de qué commit) y no pasa sin tu visto bueno. Los documentos de origen (los PDF de IFRA, los certificados) no pasan: solo su cita. Los conflictos, las categorías, las fusiones y los bancos que decides, en `migracion-v3/`. Lo tuyo (el laboratorio, 4.9; las fórmulas, 7.5) va directo a tu cuenta, no a `v3/datos/`. **Cargar:** `v3/scripts/cargar.ts` lleva `v3/datos/` a Supabase. El id de cada material se calcula a partir de su id de la v2, así que se puede repetir sin duplicar nada.
 
 | Paso | Qué entra | Cómo |
 |---|---|---|
@@ -103,14 +105,16 @@ Un script, `scripts/v3/importar.ts`, de los CSV a Postgres. **Reutiliza `src/v2/
 | 4.5 | **IFRA 51** | De `datos/ifra/51/` y `grupo-miembros.csv`: una regulación por miembro y categoría, `group_key` = la referencia del estándar (con su subgrupo en el 097 y el 181), y la enmienda en `source`. El 089 y sus miembros comparten `group_key` |
 | 4.6 | **Requisitos** | Un `requirement` por estándar y miembro, con autoridad `ifra`; si `condiciones.csv` dice que se cumple, con la autoridad y la fuente de esa fila |
 | 4.7 | **Otros nombres** (V3-6) | Del glosario de la v1 (que sigue congelado: se lee, no se toca), unidos a la v2 por `v1-a-v2.csv`. La familia y el matiz del glosario de la v1 (V3-18): la familia, una de las nueve de P48; el matiz, a `facets` (propuesta, se confirma aquí). La tenacidad no tiene datos comunes. Lo del laboratorio va en tu cuenta (4.9) |
-| 4.8 | **Categorías y duplicados** (V3-11, V3-13) | **Agrupar:** el script pone cada material en su categoría por regla (una molécula, por su CAS; un natural, por especie + parte, o por su CAS si no dice la especie) y escribe la lista en `datos/v3/categorias.csv` para que la revises; agrupar no mezcla datos. Hoy, 906 materiales comparten 210 CAS (modelo §9.2). **Fusionar:** el script **no fusiona nada solo**. Los candidatos (el mismo material dos veces; hoy 43 nombres en 120 materiales) van a `datos/v3/conflictos/duplicados.csv`; tú decides cada fila y el script aplica tus decisiones. El id de la v2 de un material fusionado apunta al que queda, en `datos/v3/fusiones.csv`, así que las fórmulas que lo usaban lo siguen encontrando |
-| 4.9 | **Materiales del laboratorio, en tu cuenta** (V3-15) | `scripts/v3/importar-laboratorio.ts`, desde `materiales.sqlite` del laboratorio, que lee y no escribe. Escribe en tu cuenta (tu `owner_id`), no en lo común. El que ya es un común entra como tu versión (`based_on_id`) con tu núcleo, tus dosis y tus sinónimos; cuál es el común lo decides tú en `datos/v3/conflictos/laboratorio.csv` (hoy, 89 de los 103 con CAS casan por CAS con la v2). El que no casa, material tuyo nuevo. Tus frascos (`user_materials`), «lo que tengo». Su IFRA de segunda mano, texto «sin verificar» que no calcula. La cata y los ejes esperan a la capa del usuario. Lo que tiene un conflicto pendiente en el laboratorio entra marcado «en disputa» (V3-17) |
+| 4.8 | **Categorías y duplicados** (V3-11, V3-13) | **Agrupar:** el script pone cada material en su categoría por regla (una molécula, por su CAS; un natural, por especie + parte, o por su CAS si no dice la especie) y escribe la lista en `migracion-v3/categorias.csv` para que la revises; agrupar no mezcla datos. Hoy, 906 materiales comparten 210 CAS (modelo §9.2). **Fusionar:** el script **no fusiona nada solo**. Los candidatos (el mismo material dos veces; hoy 43 nombres en 120 materiales) van a `migracion-v3/conflictos/duplicados.csv`; tú decides cada fila y el script aplica tus decisiones. El id de la v2 de un material fusionado apunta al que queda, en `migracion-v3/fusiones.csv`, así que las fórmulas que lo usaban lo siguen encontrando |
+| 4.9 | **Materiales del laboratorio, en tu cuenta** (V3-15) | `scripts/v3/importar-laboratorio.ts`, desde `materiales.sqlite` del laboratorio, que lee y no escribe. Escribe en tu cuenta (tu `owner_id`), no en lo común. El que ya es un común entra como tu versión (`based_on_id`) con tu núcleo, tus dosis y tus sinónimos; cuál es el común lo decides tú en `migracion-v3/conflictos/laboratorio.csv` (hoy, 89 de los 103 con CAS casan por CAS con la v2). El que no casa, material tuyo nuevo. Tus frascos (`user_materials`), «lo que tengo». Su IFRA de segunda mano, texto «sin verificar» que no calcula. La cata y los ejes esperan a la capa del usuario. Lo que tiene un conflicto pendiente en el laboratorio entra marcado «en disputa» (V3-17) |
 
-**Hecho cuando:** los recuentos coinciden con los CSV (menos las fusiones que decidiste), cada fusión tiene tu decisión en el CSV, una segunda ejecución no cambia ninguna fila, y el registro dice de qué commit salen los datos. **Y un navegador nuevo descarga el catálogo entero** con los mismos recuentos; se apunta cuánto ocupa y cuánto tarda esa primera descarga.
+**Hecho cuando:** los recuentos coinciden con los CSV (menos las fusiones que decidiste), cada dato de `v3/datos/` lleva su cita, cada tanda tiene su informe aprobado, cada fusión tiene tu decisión en el CSV, una segunda ejecución no cambia ninguna fila, y el registro dice de qué commit salen los datos. **Y un navegador nuevo descarga el catálogo entero** con los mismos recuentos; se apunta cuánto ocupa y cuánto tarda esa primera descarga.
 
 ---
 
 ## Fase 5 · La equivalencia de los materiales
+
+Comparan con la v2, así que viven en `migracion-v3/`, no en `v3/` (V3-21).
 
 | Paso | Qué | Hecho cuando |
 |---|---|---|
@@ -145,8 +149,8 @@ Un script, `scripts/v3/importar.ts`, de los CSV a Postgres. **Reutiliza `src/v2/
 | 7.2 | `formula_events`: comprobación por tipo (`add` exige material, masa > 0, fracción en (0, 1] y diluyente si es < 1; `set_mass` y `remove`, un `target`; `reweigh`, bruto > tara; `note`, texto). **El orden lo da el `id` de cada evento**, un UUID v7 creado en el dispositivo, con su hora: dos equipos sin red no chocan, como sí harían con un `seq` consecutivo y `UNIQUE(formula_id, seq)` (§43 del plan; propuesta de la sesión por V3-9) | Dos copias añaden eventos sin red a la misma fórmula; al sincronizar, las dos ven el mismo historial |
 | 7.3 | RLS: fórmulas, solo las tuyas; eventos, según su fórmula y **solo se añaden**. Disparador: un evento solo usa materiales comunes o tuyos | Pruebas con dos usuarios: A no ve las fórmulas de B, no añade un evento con un material de B, ni edita ni borra un evento |
 | 7.4 | Leer tu biblioteca (`Documentos\Perfumería\Fórmulas`) desde tu equipo, con tu permiso | Copia de los archivos en la carpeta del proyecto |
-| 7.5 | `scripts/v3/importar-formulas.ts`: cabecera → `formulas`, historial → `formula_events` en orden. Toda fórmula necesita banco (V3-19): el script propone uno para cada una (las subcarpetas de tu biblioteca, si las hay) en `datos/v3/conflictos/bancos.csv`, y lo decides tú. Las claves de la v2 de un material fusionado (4.8) se leen por `fusiones.csv`. Las claves: las de la v2, por el id que se calcula de ellas; `cas:`, por CAS; `prov:` y `own:`, un material provisional tuyo por nombre (P44); `vec:`, un material `frozen` tuyo con su composición; `solv:`, los disolventes; tus diluyentes propios, provisionales tuyos. Las versiones, unidas por `parent_id` | Para cada fórmula, `compose()` desde la base da la composición que guarda el archivo |
-| 7.6 | Las **pruebas de referencia** (la F-001) y el **informe de tu biblioteca** (`biblioteca.tool.test.ts`, el de `comparacion-fase6.md`), con los datos de la base | El mismo informe IFRA, línea a línea; cada diferencia, explicada |
+| 7.5 | `migracion-v3/importar-formulas.ts`, a tu cuenta (V3-21): cabecera → `formulas`, historial → `formula_events` en orden. Toda fórmula necesita banco (V3-19): el script propone uno para cada una (las subcarpetas de tu biblioteca, si las hay) en `migracion-v3/conflictos/bancos.csv`, y lo decides tú. Las claves de la v2 de un material fusionado (4.8) se leen por `fusiones.csv`. Las claves: las de la v2, por el id que se calcula de ellas; `cas:`, por CAS; `prov:` y `own:`, un material provisional tuyo por nombre (P44); `vec:`, un material `frozen` tuyo con su composición; `solv:`, los disolventes; tus diluyentes propios, provisionales tuyos. Las versiones, unidas por `parent_id` | Para cada fórmula, `compose()` desde la base da la composición que guarda el archivo |
+| 7.6 | Las **pruebas de referencia** (la F-001) y el **informe de tu biblioteca** (`biblioteca.tool.test.ts`, el de `comparacion-fase6.md`), con los datos de la base. La F-001 viaja con el motor a `v3/`; el informe compara con la v2 y vive en `migracion-v3/` | El mismo informe IFRA, línea a línea; cada diferencia, explicada |
 
 ---
 
@@ -172,7 +176,7 @@ Un script, `scripts/v3/importar.ts`, de los CSV a Postgres. **Reutiliza `src/v2/
 | 9.1 | Proyecto de Supabase en la nube; `supabase db push` y el script de importación contra él. **Una instancia de PowerSync Cloud** (plan gratis) conectada a él, con las reglas de `powersync/`. Los dos planes gratis se desactivan tras una semana sin uso; la app sigue funcionando con su copia y se reactivan desde su panel | Los recuentos de la fase 4, en la nube y en un navegador nuevo |
 | 9.2 | Alojar la web (un alojamiento estático para Vite; se elige en ese momento) | Entras desde el PC y desde el móvil, y la app queda instalada en los dos |
 | 9.3 | **Copias:** volcado nocturno de la base a un repositorio privado con una acción de GitHub. El plan gratuito de Supabase no da copias descargables | Aparece una copia cada noche |
-| 9.4 | Quitar los cargadores de CSV y JSON del tiempo de ejecución y el código de la v1 y la v2 que ya no se use. **Se quedan** `datos/`, `scripts/` y lo que usa el importador (`src/v2/load.ts`, `validate.ts`) | `npm test` pasa y la app no lee ningún CSV al arrancar |
+| 9.4 | **El repo final** (V3-21): cuando lo decidas, `v3/` y `docs-v3/` salen a su propio repositorio. La v2 de la raíz no se limpia: se queda como está, con su etiqueta `v2-final` | Una copia de `v3/` y `docs-v3/` solas, en otra carpeta, pasa `npm ci && npm test`, y ningún archivo apunta fuera de ellas |
 
 **Nota:** el glosario en la web (fase 6) puede publicarse antes que el banco, si quieres usarlo ya: 9.1 a 9.3 no dependen de las fórmulas.
 

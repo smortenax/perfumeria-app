@@ -1,6 +1,6 @@
 # Decisiones de la v3
 
-*Abierto el 2026-10-07. La autoridad de la v3 es `PLAN_V3.md` (en el repo, `docs/v3/PLAN_V3.md`) con lo que se decide aquí. Cada decisión cita el mensaje del usuario. Lo que propone la sesión va marcado como propuesta.*
+*Abierto el 2026-10-07. La autoridad de la v3 es `PLAN_V3.md` (en el repo, `docs-v3/PLAN_V3.md`) con lo que se decide aquí. Cada decisión cita el mensaje del usuario. Lo que propone la sesión va marcado como propuesta.*
 
 ---
 
@@ -49,7 +49,7 @@
 | F6 · Enmienda en la fórmula | Sin columna en la fórmula; la enmienda va en la regulación (ver abajo) |
 | F7 · Archivos JSON y cuaderno | Sin archivos; las fórmulas viven en la base de datos |
 | H1 · Sin conexión | ~~Hace falta conexión~~ **Sale de esta tabla:** todo funciona sin conexión (V3-8) |
-| H7 · Retirar Tauri primero | Como dice el plan (paso 1). **La app 0.2.1 que tienes instalada sigue funcionando** con sus archivos: quitar Tauri del repo no la desinstala |
+| H7 · Retirar Tauri primero | ~~Como dice el plan (paso 1).~~ **Cambiado por V3-21:** la v2 de la raíz no se toca, y la v3 nace sin Tauri en `v3/`. **La app 0.2.1 que tienes instalada sigue funcionando** con sus archivos |
 
 **Huecos que el plan no contradice:** *sustituido el 2026-10-07.* La primera versión los resolvía con columnas sacadas de la v2 (`ref`, `coverage`, `amendment`, `requirement_met`). El usuario pidió partir del plan v3 en su plenitud, y la segunda versión de [`modelo-materiales-v3.md`](modelo-materiales-v3.md) los resuelve con las tablas del plan. Se quedan de aquella tabla:
 - `numeric` y `bigint` viajan como texto por la API;
@@ -421,6 +421,34 @@ Y sobre el material general (punto 5 de la lectura), 2026-10-13 17:19:
 - **Toca P45** («acorde o perfume al guardar», abierta en `docs/a-futuro.md`): el marcador lo decide. La galería, el icono y el visualizador por fórmula siguen a futuro.
 
 **Por qué** (la recomendación de la sesión que elegiste): lo que hace actuar a la app («acorde» congela y comparte entre bancos) tiene que ser un valor fijo; el papel aún no tiene vocabulario, y una lista se puede sacar después de las etiquetas que uses.
+
+## V3-21 · La v3 vive en su propia carpeta, sin nada que la ate a la v2 (decidida por el usuario el 2026-10-13)
+
+**Respuestas literales** (orko kill, 2026-10-13), mientras la sesión empezaba la fase 1:
+
+> 18:12: «paralelo a la parte de preguntas, puedes empezar a la migracion de la app creo que es importante empezar a desarrollar ya por pasos la app v3 para ver como va funcionando y si es posible de momento solo son planes»
+
+> 18:16: «trabaja de manera que no haya conflicto con v2 y que v3 solo dependa de v2 en informacion y durante los primeros estados pero todo v3 debe poder existir en esa sola carpeta de v3 sin nada que vincule a v2 o la repo general»
+
+> 18:20, sobre la lectura de la sesión: «v3 tiene que funcionar internamente en esa carpeta, y la documentacion y los materiales se van pasando ahi paulatinamente te diria que la parte de documentacion este un una carpeta de un orden diferente a v3 pero  distinta al resto de la app tambien , de todas maneras para toda la documentacion de v3 quiero que pase a la repo final de manera auditada por ejemplo no quierotodos los pdfs con la normativa ifra quiero que a v3 pase solo la informacion tratada del pdf en el apartado del registro vinculada al material a diferencia del funcionamineto actual que todo lo que esta de referencia se pierde entre los documentos de la app»
+
+**Lectura** (de la sesión; el usuario la confirmó en la tarjeta con «Sí, así», 2026-10-13 18:21):
+
+1. **`v3/` es la app, y funciona sola dentro de esa carpeta:** código, pruebas, migraciones, PowerSync y sus datos de referencia.
+2. **La documentación de la v3, en una carpeta propia, `docs-v3/`**, al lado de `v3/` y aparte de `docs/` (la de la v1 y la v2). La documentación y los materiales pasan poco a poco.
+3. **A la v3 solo pasa información tratada, y auditada:** la cifra, el límite o el dato, en el registro de su material y con su fuente citada (documento, página y frase). Los documentos de origen (los PDF de IFRA, los certificados) no pasan: se quedan donde están, y la cita dice de dónde sale cada dato.
+4. **`v3/` y `docs-v3/` son lo que acabará siendo el repo final.** Nada en ellas apunta al resto.
+5. **La v2 no se toca.** La app de la raíz, con Tauri, sigue igual. **La v3 depende de la v2 solo en información, y al principio.**
+
+**Cómo se aplica** (propuesta de la sesión, confirmada con la lectura):
+
+- **El motor se copia a `v3/`** una vez, con el commit de donde sale; desde ahí es de la v3, y solo cambia si una prueba lo pide.
+- **La importación se parte en dos.** *Migrar:* scripts en `migracion-v3/`, en la raíz y fuera de `v3/`, leen la v2, la v1 y el laboratorio y escriben lo común, tratado y citado, en `v3/datos/`, por tandas. Cada tanda deja un informe (qué entró, de dónde, de qué commit) y no pasa sin tu visto bueno. Lo tuyo (laboratorio, fórmulas) va directo a tu cuenta. *Cargar:* un script dentro de `v3/` lleva `v3/datos/` a Supabase.
+- **Lo que compara con la v2** (las equivalencias de la fase 5, el informe de tu biblioteca) vive en `migracion-v3/`, no en `v3/`.
+- **Las rutas `datos/v3/…` de V3-13, V3-15 y V3-19** (conflictos, categorías, fusiones, bancos) pasan a `migracion-v3/…`: son de la migración, no de la app.
+- **Cambia el paso 1 del plan** (V3-1, H7: «retirar Tauri primero»): no se retira Tauri del repo; la v3 nace sin él.
+
+**Por qué** (del mensaje): «a diferencia del funcionamineto actual que todo lo que esta de referencia se pierde entre los documentos de la app».
 
 ## Pendientes
 
