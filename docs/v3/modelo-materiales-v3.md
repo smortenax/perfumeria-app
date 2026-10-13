@@ -118,7 +118,7 @@
   Si dos chocan, manda la de arriba.
 - **5.2 · Sin tabla de documentos** *[Plan §33]*. La fuente es un texto. El script solo trae cifras de documentos revisados.
 - **5.3 · Lo desconocido nunca vale cero** *[Plan §31]*. Cada sustancia sale **dentro**, **acotada**, **sin comprobar** o **se pasa**, y el cálculo puede salir parcial.
-- **5.4 · Una cifra de literatura o consenso nunca da «dentro», como mucho «acotada»**. Es la regla D2 de la v2. El plan no la menciona ni la contradice, y el motor ya la hace. **Pregunta 7.4.**
+- **5.4 · Una cifra de literatura o consenso nunca da «dentro», como mucho «acotada»** *[Tú, V3-7]*. Es la regla D2 de la v2, y se queda. Para comparar con IFRA se usa el máximo de su fuente. El plan no la menciona ni la contradice, y el motor ya la hace.
 
 ---
 
@@ -143,7 +143,9 @@
 | ~~7.1~~ | ~~¿Valen los cinco tipos de §2.3?~~ | **Decidida (V3-4, 2026-10-09): los cinco** | |
 | ~~7.2~~ | ~~¿Cómo se hace tu versión de un común?~~ | **Decidida (V3-5, 2026-10-09): vínculo** | |
 | ~~7.3~~ | ~~¿Por qué nombres busca el buscador?~~ | **Decidida (V3-6, 2026-10-13): varios nombres** | |
-| **7.4** | **¿Se queda la regla D2 (§5.4)?** | Sí / No | Sí: sin ella una cifra de consenso daría un verde que no está probado |
+| ~~7.4~~ | ~~¿Se queda la regla D2 (§5.4)?~~ | **Decidida (V3-7, 2026-10-13): sí** | |
+
+Con esto, el modelo de materiales queda cerrado.
 
 ---
 

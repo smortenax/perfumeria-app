@@ -140,7 +140,17 @@ Un material común solo puede basarse en otro común, y no hay ciclos. Los produ
 
 **Por qué** (de la tarjeta): nadie busca «6-sec-Butylquinoline». Hoy se encuentra por IBQ, y es una sola columna más.
 
+## V3-7 · Una cifra de literatura o consenso nunca da «dentro» (decidida por el usuario el 2026-10-13)
+
+**Pregunta** (tarjeta del hilo, 7.4 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md)): ¿Mantener la regla D2: una cifra de literatura o consenso nunca da «dentro»?
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Sí» (2026-10-13 11:25): «Una cifra de literatura o consenso da como mucho «acotada». Solo un lote, un certificado o el anexo de IFRA dan «dentro».»
+
+**Cómo se aplica:** la regla D2 de la v2 pasa a la v3 tal cual. La autoridad de cada fila de `material_components` decide el veredicto: con `literature` o `consensus`, como mucho «acotada», y para IFRA se usa el máximo de su fuente. El motor ya la hace, y el esquema no cambia.
+
+**Por qué** (de la tarjeta): sin ella, una cifra de consenso daría un verde que nada prueba.
+
 ## Pendientes
 
-- Las preguntas del §7 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md), de una en una. La siguiente y última: si se queda la regla D2 (7.4).
+- El modelo de materiales queda cerrado (V3-4 a V3-7).
 - Confirmar la lectura de «uso offline pero mediante hosting» (V3-1): que la v3 necesita conexión.
