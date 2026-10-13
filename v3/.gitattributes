@@ -1,0 +1,7 @@
+# Finales de linea LF en todo el texto, tambien en Windows.
+* text=auto eol=lf
+*.png binary
+*.ico binary
+*.icns binary
+*.xlsx binary
+*.pdf binary

@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=https://unpkg.com/@powersync/service-sync-rules@latest/schema/sync_rules.json
+#
+# What goes down to each browser (V3-9, plan step 2.6b). PowerSync does not go through RLS
+# when it downloads, so these rules repeat the RLS of each table (the migration
+# materials_rls). The service reads this file when it starts: after a change, restart it
+# (npm run sync:restart).
+#
+# The tables that hang from a material filter by the owner_id copied from it (migration
+# inherited_owner_trigger), not through a JOIN: a JOIN makes one bucket per material, and
+# PowerSync allows 1,000 per connection by default.
+
+config:
+  edition: 3
+
+streams:
+  # The common data, the same for everyone: written only by the loading script.
+  common:
+    auto_subscribe: true
+    queries:
+      - SELECT * FROM materials WHERE owner_id IS NULL
+      - SELECT * FROM material_categories
+      - SELECT * FROM material_components WHERE owner_id IS NULL
+      - SELECT * FROM regulations WHERE owner_id IS NULL
+      - SELECT * FROM material_doses WHERE owner_id IS NULL
+      - SELECT * FROM data_version
+
+  # Each user's own rows, to that user only.
+  own:
+    auto_subscribe: true
+    queries:
+      - SELECT * FROM materials WHERE owner_id = auth.user_id()
+      - SELECT * FROM material_components WHERE owner_id = auth.user_id()
+      - SELECT * FROM regulations WHERE owner_id = auth.user_id()
+      - SELECT * FROM material_doses WHERE owner_id = auth.user_id()
+      - SELECT * FROM lab_materials WHERE user_id = auth.user_id()
+
+  # The exactness check of step 3.1: only who subscribes to it (the database tests), never
+  # the app, which does not subscribe.
+  exactness_checks:
+    auto_subscribe: false
+    queries:
+      - SELECT * FROM sync_checks WHERE owner_id = auth.user_id()

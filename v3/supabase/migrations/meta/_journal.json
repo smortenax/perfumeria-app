@@ -1,0 +1,90 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1791909063511,
+      "tag": "20261013163103_powersync",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791909065708,
+      "tag": "20261013163105_sync_probe",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1791909067888,
+      "tag": "20261013163107_sync_probe_rls",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1791916235461,
+      "tag": "20261013183035_materials",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1791916303173,
+      "tag": "20261013183143_materials_rls",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1791916326194,
+      "tag": "20261013183206_materials_triggers",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1791916465041,
+      "tag": "20261013183425_inherited_owner",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1791916466360,
+      "tag": "20261013183426_inherited_owner_trigger",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1791916656797,
+      "tag": "20261013183736_materials_rls_functions",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1791916747825,
+      "tag": "20261013183907_drop_sync_probe",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1791917022488,
+      "tag": "20261013184342_sync_checks",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1791917023819,
+      "tag": "20261013184343_sync_checks_rls",
+      "breakpoints": true
+    }
+  ]
+}

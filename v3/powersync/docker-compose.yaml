@@ -1,0 +1,65 @@
+# PowerSync local, next to the local Supabase (plan v3, step 1.4; V3-22), after the official
+# example powersync-ja/self-host-demo, demos/supabase (read 2026-10-13). It joins Supabase's
+# Docker network to reach its Postgres and its gateway (kong).
+#
+#   npm run sync:start     (needs `npm run db:start` and `npm run env:local` first)
+#
+# The variables come from ../.env.local (POWERSYNC_DB_PASSWORD), never from Git.
+name: perfumeria-v3-powersync
+
+services:
+  powersync:
+    # Fixed version (1.27.0, the image's own label, 2026-10-06), not "latest".
+    image: journeyapps/powersync-service:1.27.0
+    restart: unless-stopped
+    command: ["start", "-r", "unified"]
+    depends_on:
+      mongo-rs-init:
+        condition: service_completed_successfully
+    environment:
+      POWERSYNC_CONFIG_PATH: /config/service.yaml
+      NODE_OPTIONS: --max-old-space-size=1000
+      # powersync_role (read-only, from the migration); its password, set by db:powersync-password.
+      # supabase_db_<project_id>: the Postgres container inside Supabase's network.
+      PS_DATA_SOURCE_URI: postgres://powersync_role:${POWERSYNC_DB_PASSWORD:?run npm run env:local}@supabase_db_perfumeria-v3:5432/postgres
+      PS_MONGO_URI: mongodb://mongo:27017/powersync
+      PS_PORT: "8080"
+    volumes:
+      - ./:/config
+    ports:
+      - "8080:8080"
+    networks:
+      - default
+      - supabase
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:8080/probes/liveness').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"]
+      interval: 5s
+      timeout: 1s
+      retries: 15
+
+  # PowerSync keeps its buckets in a MongoDB replica set.
+  mongo:
+    image: mongo:7.0
+    command: --replSet rs0 --bind_ip_all --quiet
+    restart: unless-stopped
+    volumes:
+      - mongo_storage:/data/db
+
+  mongo-rs-init:
+    image: mongo:7.0
+    depends_on:
+      - mongo
+    restart: on-failure
+    entrypoint:
+      - bash
+      - -c
+      - 'mongosh --host mongo:27017 --eval ''try{rs.status().ok && quit(0)} catch {} rs.initiate({_id: "rs0", version: 1, members: [{ _id: 0, host : "mongo:27017" }]})'''
+
+volumes:
+  mongo_storage:
+
+networks:
+  # supabase_network_<project_id>, created by `supabase start` (config.toml: perfumeria-v3).
+  supabase:
+    name: supabase_network_perfumeria-v3
+    external: true

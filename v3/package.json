@@ -1,0 +1,49 @@
+{
+  "name": "perfumeria-v3",
+  "private": true,
+  "version": "0.3.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && tsc -p tsconfig.tests.json && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "db:start": "supabase start",
+    "db:stop": "supabase stop",
+    "db:reset": "supabase db reset && npm run db:powersync-password",
+    "db:generate": "drizzle-kit generate",
+    "db:powersync-password": "node --env-file=.env.local scripts/powersync-password.ts",
+    "env:local": "node scripts/local-env.ts",
+    "db:test-users": "node --env-file=.env.local scripts/test-users.ts",
+    "sync:start": "docker compose -f powersync/docker-compose.yaml --env-file .env.local up -d --wait",
+    "sync:stop": "docker compose -f powersync/docker-compose.yaml --env-file .env.local down",
+    "sync:restart": "docker compose -f powersync/docker-compose.yaml --env-file .env.local restart powersync",
+    "sync:logs": "docker compose -f powersync/docker-compose.yaml --env-file .env.local logs powersync",
+    "test:db": "vitest run --config vitest.db.config.ts",
+    "datos:cargar": "node scripts/cargar.ts"
+  },
+  "dependencies": {
+    "@powersync/common": "^2.3.1",
+    "@powersync/drizzle-driver": "^0.8.0",
+    "@powersync/web": "^2.4.2",
+    "@supabase/supabase-js": "^2.117.3",
+    "drizzle-orm": "^0.45.4",
+    "postgres": "^3.4.9",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@powersync/node": "^1.1.1",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "better-sqlite3": "^13.0.3",
+    "drizzle-kit": "^0.31.11",
+    "supabase": "^2.120.0",
+    "typescript": "~6.0.3",
+    "vite": "^8.3.1",
+    "vite-plugin-pwa": "^2.0.0",
+    "vitest": "^5.0.2"
+  }
+}
