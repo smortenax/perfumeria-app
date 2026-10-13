@@ -307,7 +307,7 @@ Y sobre el material general (punto 5 de la lectura), 2026-10-13 17:19:
 
 - **Los campos propios de cada tipo** de tu referencia (§3) entran también, vacíos si no se saben: casa, código y qué quiere oler (composición); origen de síntesis e isómeros (molécula); la forma (natural) ya entró con V3-13.
 - **La fuente y la confianza, como en tu referencia:** `sources`, con etiquetas cortas, y `confidence` (alta, media, baja), por material. Un campo vacío sale «no lo dice».
-- **`material_doses` tiene las columnas de `datos/v2/usos.csv`** (magnitud, mínima, típica, máxima, unidad, base, autoridad, documento), que la v2 diseñó así y dejó vacía.
+- **`material_doses` tiene las columnas de `datos/v2/usos.csv`** (magnitud, mínima, típica, máxima, unidad, base, autoridad, documento), que la v2 diseñó así y dejó vacía. [Ajustado por la sesión al escribir el esquema (fase 2, 2026-10-13): sin magnitud ni unidad. En la v2 la tabla guardaba el uso y la duración; en la v3 solo guarda dosis, en fracción, y la duración es la tenacidad (V3-18).]
 - **Qué datos llenan el núcleo** lo deciden 7.8 (tus 111 materiales) y 7.11 (tenacidad y familias). Hoy, el glosario de la v1 tiene familia en 3119 de sus 4347 filas, matiz en 2154 y uso mínimo y máximo en 691 (`datos/glosario/materiales.csv`).
 
 **Por qué** (la recomendación de la sesión que elegiste): es lo que pediste registrar, una columna vacía no cuesta nada y la dosis ya tenía diseño. Las otras cuatro tablas se diseñan cuando el glosario funcione.

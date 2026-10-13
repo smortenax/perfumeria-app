@@ -70,7 +70,7 @@ Las tablas de materiales del plan, según [`modelo-materiales-v3.md`](modelo-mat
 | 2.2 | `material_components` | Su propio `id` (V3-9). `amount_kind` (`exact`, `max`, `range`, `unknown`) con su comprobación: `range` exige mínimo ≤ máximo, `exact` y `max` exigen valor, `unknown` ninguno. Un material no se contiene a sí mismo |
 | 2.3 | `regulations` | Nada: `kind` es `max`, `prohibited` o `requirement`, y la enmienda va en `source`. `max_value` es fracción del producto terminado |
 | 2.4 | `lab_materials` | Usuario + material, con su propio `id` (V3-9): «lo que tengo» (V3-3). Sin cantidades |
-| 2.4b | `material_doses` (V3-14) | Una fila por fuente: mínima, típica y máxima, **siempre con su base** (del concentrado, del producto terminado o «sin declarar»), con su autoridad y su fuente. Las columnas, las de `datos/v2/usos.csv`. Una marca `disputed` si la fila está en disputa (V3-17) |
+| 2.4b | `material_doses` (V3-14) | Una fila por fuente: mínima, típica y máxima, **siempre con su base** (del concentrado, del producto terminado o «sin declarar»), con su autoridad y su fuente. Como `datos/v2/usos.csv`, sin magnitud ni unidad: solo dosis, en fracción. Una marca `disputed` si la fila está en disputa (V3-17) |
 | 2.4c | `data_version` (V3-26) | Común, una fila: el commit de `v3/datos/`, la fecha y la tanda de la migración. La escribe el script de carga |
 | 2.5 | Perfil del usuario | El interruptor «solo lo que tengo», en los datos del usuario de Supabase Auth (sin tabla), con una copia en el navegador para cambiarlo sin red |
 
