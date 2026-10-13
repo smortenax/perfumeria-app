@@ -1,0 +1,12 @@
+id,id_v2,nombre,queda_id_v2,queda_nombre,queda_id,decision
+0e5b4ec9-a07d-5130-b24e-3eeb2bd6ca56,M03943,Jasmine absolute (sambac),M03477,Jasmine sambac absolute,ae01d6e0-90bc-59de-988a-0a6b64a7f2b6,"migracion-v3/respuestas/duplicados.csv, fila M03477+M03943"
+2b6613b8-bd22-5f5d-869f-0ebd39af1166,M04120,"Lavender oil (Lavandula angustifolia, Lavandula angustifolia angustifolia, Lavandula officinalis)",M00003,Lavender oil,d238af94-5ca6-5a0b-b482-4e2b4da17d2e,"migracion-v3/respuestas/duplicados.csv, fila M00003+M04120"
+65c56ed0-0f60-5bb8-8eba-0eb78632e30c,M04156,"Orange oil, sweet, folded",M03662,Orange sweet oil folded,5cc6f88b-d627-506f-b961-ceb79cafd531,"migracion-v3/respuestas/duplicados.csv, fila M03662+M04156"
+6ae07824-eceb-591e-b333-f204c7437577,M03997,Vetiver oil (all origins),M00053,Vetiver oil,da64d30d-5aed-5bf9-b989-d24e0a222653,"migracion-v3/respuestas/duplicados.csv, fila M00053+M03997"
+7066527c-733e-5689-b3b6-8be2922b34a6,M01160,Cistus absolute,M00058,Cistus absolute,37b4c112-9e0d-5b36-9afb-dc80acff57df,"migracion-v3/respuestas/duplicados.csv, fila M00058+M01160"
+71beb1f3-0f45-5c33-9c53-ad83ad0a405b,M04145,"Nutmeg oil, Java, terpeneless",M03615,"Nutmeg oil terpeneless, JAVA",1d168138-97b5-54bd-8469-b53f466ff50c,"migracion-v3/respuestas/duplicados.csv, fila M03615+M04145"
+96aa2353-4aa3-5d26-a57b-415865205784,M03663,"Orange sweet, Valencia oil",M00048,"Orange, sweet, Valencia oil",f6f456ea-dd7a-5528-873c-4e82101d3f0d,"migracion-v3/respuestas/duplicados.csv, fila M00048+M03663"
+b836e96a-bf52-518b-9a87-4c83ea7f74fd,M03525,"Lemon oil, expressed",M00045,"Lemon oil, expressed",a242c78c-e764-551d-856e-ac86f1ad1f07,"migracion-v3/respuestas/duplicados.csv, fila M00045+M03525"
+bc929112-76d8-5edc-9b3d-4ccb6ece49fc,M04123,Lemon (steam distilled) oil,M03971,Lemon oil steam distilled,56feb5dd-365a-5e27-b3fb-4f191c8a741e,"migracion-v3/respuestas/duplicados.csv, fila M03971+M04123"
+dcdbbaf8-532f-530e-b346-699c5c8f19be,M03556,Mandarin oil,M00047,Mandarin oil,ce23b186-5279-51d8-be42-7899d166591e,"migracion-v3/respuestas/duplicados.csv, fila M00047+M03556"
+dda46017-9fff-5b3a-882c-21110454181f,M03965,Jasmine grandiflorum absolute,M03931,Jasmine absolute (grandiflorum),0e6bebd6-622e-5afe-97b0-c8a182f951d1,"migracion-v3/respuestas/duplicados.csv, fila M03931+M03965"

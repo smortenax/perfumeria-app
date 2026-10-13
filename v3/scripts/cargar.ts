@@ -1,8 +1,10 @@
 /**
  * Loads v3/datos/ into Supabase (plan v3, phase 4, «Cargar»; V3-21): the common data, as the
  * migration wrote it and the user approved it. Run again, it changes no row: a row is only
- * updated when something in it differs. Then it writes data_version with the commit of the data
- * (V3-26), which must be committed first.
+ * updated when something in it differs. A common row that is no longer in the data (a material
+ * fused into another, plan step 4.8) is deleted, only in a table whose CSV is there; a user's
+ * row never is, and if one still points to it, nothing is loaded. Then it writes data_version
+ * with the commit of the data (V3-26), which must be committed first.
  *
  *   npm run datos:cargar                      (the local Supabase)
  *   DATABASE_URL=… npm run datos:cargar       (another one: the cloud, when the user asks)
@@ -37,9 +39,17 @@ function value(table: string, column: string, text: string): Value {
   return text;
 }
 
-async function load(db: postgres.TransactionSql, table: string): Promise<{ inserted: number; updated: number; rows: number }> {
+interface Loaded {
+  readonly inserted: number;
+  readonly updated: number;
+  readonly rows: number;
+  /** The ids in the data, or null when the table has no CSV (then nothing of it is deleted). */
+  readonly ids: string[] | null;
+}
+
+async function load(db: postgres.TransactionSql, table: string): Promise<Loaded> {
   const path = join(DATA, `${table}.csv`);
-  if (!existsSync(path)) return { inserted: 0, updated: 0, rows: 0 };
+  if (!existsSync(path)) return { inserted: 0, updated: 0, rows: 0, ids: null };
   const [header, ...lines] = parseCsv(readFileSync(path, "utf8")).filter((l) => l.length > 1 || l[0] !== "");
   const allowed = new Set(Object.values(getTableColumns(tables.get(table)!)).map((c) => c.name));
   for (const column of header) {
@@ -59,7 +69,16 @@ async function load(db: postgres.TransactionSql, table: string): Promise<{ inser
       returning (xmax = 0) as inserted`;
     for (const r of result) (r.inserted ? inserted++ : updated++);
   }
-  return { inserted, updated, rows: rows.length };
+  return { inserted, updated, rows: rows.length, ids: rows.map((r) => r.id as string) };
+}
+
+/** Deletes the common rows of a table that are not in its data; a user's rows are never touched. */
+async function prune(db: postgres.TransactionSql, table: string, ids: readonly string[]): Promise<number> {
+  const owned = Object.values(getTableColumns(tables.get(table)!)).some((c) => c.name === "owner_id");
+  const result = owned
+    ? await db`delete from ${db(table)} where owner_id is null and not (id = any(${ids as string[]}::uuid[])) returning id`
+    : await db`delete from ${db(table)} where not (id = any(${ids as string[]}::uuid[])) returning id`;
+  return result.length;
 }
 
 try {
@@ -74,9 +93,18 @@ try {
   // One transaction: if any row is refused, nothing is left half loaded.
   const report = await sql.begin(async (db) => {
     const lines: string[] = [];
+    const loaded = new Map<string, Loaded>();
+    for (const table of ORDER) loaded.set(table, await load(db, table));
+    // Children first: a fused material goes after its rows.
+    const deleted = new Map<string, number>();
+    for (const table of [...ORDER].reverse()) {
+      const ids = loaded.get(table)!.ids;
+      if (ids) deleted.set(table, await prune(db, table, ids));
+    }
     for (const table of ORDER) {
-      const { inserted, updated, rows } = await load(db, table);
-      if (rows > 0) lines.push(`${table}: ${rows} filas en los datos; ${inserted} nuevas, ${updated} cambiadas, ${rows - inserted - updated} iguales.`);
+      const { inserted, updated, rows } = loaded.get(table)!;
+      const gone = deleted.get(table) ?? 0;
+      if (rows > 0) lines.push(`${table}: ${rows} filas en los datos; ${inserted} nuevas, ${updated} cambiadas, ${rows - inserted - updated} iguales${gone ? `; ${gone} borradas` : ""}.`);
     }
     await db`
     insert into data_version (single, "commit", batch) values (true, ${commit}, ${batches})
