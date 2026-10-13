@@ -1,0 +1,13 @@
+# Dependencias y compilados
+node_modules/
+dist/
+
+# Claves y ajustes locales: nunca en Git
+.env.local
+.env.*.local
+
+# Registros y temporales
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

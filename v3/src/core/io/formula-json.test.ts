@@ -1,0 +1,158 @@
+import { describe, expect, it } from "vitest";
+import { Ratio } from "../arith/ratio";
+import { compose, vectorOf } from "../compose";
+import { f001 } from "../fixtures/f001";
+import type { Formula } from "../model/formula";
+import { DILUENTS, type Material } from "../model/material";
+import { FORMULA_FORMAT, FORMULA_FORMAT_MIX, formulaFromJson, formulaToJson } from "./formula-json";
+
+const sameComposition = (a: Formula, b: Formula) => {
+  const ca = compose(a);
+  const cb = compose(b);
+  expect(cb.totalUg.eq(ca.totalUg)).toBe(true);
+  expect(cb.parts.map((p) => `${p.material.key} ${p.massUg}`)).toEqual(ca.parts.map((p) => `${p.material.key} ${p.massUg}`));
+};
+
+describe("formula JSON", () => {
+  it("saves F-001 and reads it back with nothing lost", () => {
+    const original = f001();
+    const text = formulaToJson(original);
+    const read = formulaFromJson(text);
+    expect(read.history).toHaveLength(original.history.length);
+    sameComposition(original, read);
+    expect(formulaToJson(read)).toBe(text);
+  });
+
+  it("keeps the CAS of each material and the IFRA amendment it was checked with, to find them again if the glossary changes", () => {
+    const hedione: Material = { key: "fig:1234", kind: "base", name: "Hedione", cas: "24851-98-7" };
+    const formula: Formula = {
+      header: { name: "prueba", intention: "", container: null, workBatchUg: null, finalBatchUg: null },
+      history: [{ kind: "add", id: "h", material: hedione, massUg: 1_000n, fraction: Ratio.ONE, diluent: null }],
+    };
+    const text = formulaToJson(formula, { ifraAmendment: "51" });
+    const doc = JSON.parse(text);
+    expect(doc.ifra).toEqual({ amendment: "51", category: "4" });
+    expect(doc.materials["fig:1234"]).toEqual({ kind: "base", name: "Hedione", cas: "24851-98-7" });
+    const read = formulaFromJson(text);
+    expect(read.history[0].kind === "add" && read.history[0].material.cas).toBe("24851-98-7");
+    // Without the amendment, the file is as before.
+    expect(JSON.parse(formulaToJson(formula)).ifra).toBeUndefined();
+  });
+
+  it("keeps the version of a formula, and a formula without one stays as it was (P44)", () => {
+    const base = f001();
+    const v2: Formula = { ...base, header: { ...base.header, name: "Lejía v2", version: { family: "fam-1", number: 2, from: 1 } } };
+    const text = formulaToJson(v2);
+    expect(JSON.parse(text).header.version).toEqual({ family: "fam-1", number: 2, from: 1 });
+    expect(formulaFromJson(text).header.version).toEqual({ family: "fam-1", number: 2, from: 1 });
+    expect(JSON.parse(formulaToJson(base)).header.version).toBeUndefined();
+    expect(formulaFromJson(formulaToJson(base)).header.version).toBeUndefined();
+  });
+
+  it("writes one change per line, so Git sees each change", () => {
+    const text = formulaToJson(f001());
+    const lines = text.split("\n");
+    const start = lines.indexOf('  "history": [');
+    const end = lines.indexOf("  ],", start);
+    expect(end - start - 1).toBe(f001().history.length);
+    expect(lines[start + 2]).toContain('"material":"lab:MAT-hedione"');
+  });
+
+  it("carries a readable composition for anyone without the app", () => {
+    const doc = JSON.parse(formulaToJson(f001()));
+    const hedione = doc.composition.find((entry: { key: string }) => entry.key === "lab:MAT-hedione");
+    expect(hedione).toEqual({ material: "Hedione", key: "lab:MAT-hedione", massUg: "619000", ofBottle: "7,078 %" });
+    // Largest first: the alcohol, then the DPG carried by the dilutions.
+    expect(doc.composition.slice(0, 2).map((entry: { material: string }) => entry.material)).toEqual(["Alcohol", "DPG"]);
+  });
+
+  it("keeps every variable: container, tare, batches, notes, edits and reweighing", () => {
+    const a: Material = { key: "cas:A", kind: "base", name: "A" };
+    const own: Material = { key: "own:tintura-1", kind: "own", name: "Mi tintura" };
+    const formula: Formula = {
+      header: {
+        name: "Prueba",
+        intention: "Todo lo que guarda",
+        container: { capacityMl: Ratio.of(10), tareUg: 12_345_678n },
+        workBatchUg: 10_000_000n,
+        finalBatchUg: 40_000_000n,
+      },
+      history: [
+        { kind: "add", id: "1", material: a, massUg: 3_000_000n, fraction: Ratio.ONE, diluent: null },
+        { kind: "add", id: "2", material: own, massUg: 1_000_000n, fraction: Ratio.of(1, 10), diluent: a },
+        { kind: "note", id: "3", text: "evaluar mañana" },
+        { kind: "set-mass", id: "4", target: "1", massUg: 2_000_000n },
+        { kind: "reweigh", id: "5", grossUg: 12_345_678n + 2_500_000n, tareUg: 12_345_678n },
+        { kind: "remove", id: "6", target: "2" },
+      ],
+    };
+    const read = formulaFromJson(formulaToJson(formula));
+    expect(read.header).toEqual(formula.header);
+    expect(read.history.map((c) => c.kind)).toEqual(["add", "add", "note", "set-mass", "reweigh", "remove"]);
+    sameComposition(formula, read);
+  });
+
+  it("carries a formula used as a material with its vector, and checks its ID on reading", () => {
+    const b: Material = { key: "cas:B", kind: "base", name: "B" };
+    const quick: Material = { key: "prov:x", kind: "provisional", name: "Algo verde" };
+    const inner: Formula = {
+      header: { name: "Acorde", intention: "", container: null, workBatchUg: null, finalBatchUg: null },
+      history: [
+        { kind: "add", id: "i1", material: b, massUg: 1_000_000n, fraction: Ratio.ONE, diluent: null },
+        { kind: "add", id: "i2", material: quick, massUg: 2_000_000n, fraction: Ratio.ONE, diluent: null },
+      ],
+    };
+    const vector = vectorOf(inner);
+    const accord: Material = { key: vector.id, kind: "formula", name: "Acorde", vector };
+    const outer: Formula = {
+      header: { ...inner.header, name: "Con acorde" },
+      history: [{ kind: "add", id: "o1", material: accord, massUg: 300_000n, fraction: Ratio.ONE, diluent: null }],
+    };
+    const text = formulaToJson(outer);
+    const read = formulaFromJson(text);
+    sameComposition(outer, read);
+    // The provisional material travels with its definition, so it resolves anywhere.
+    expect(JSON.parse(text).materials["prov:x"]).toEqual({ kind: "provisional", name: "Algo verde" });
+    // A proportion changed by hand no longer matches the ID: reading refuses it.
+    const tampered = text.replace('["cas:B","1/3"]', '["cas:B","1/4"]');
+    expect(tampered).not.toBe(text);
+    expect(() => formulaFromJson(tampered)).toThrow(/vector ID/);
+  });
+
+  it("refuses a file of another format", () => {
+    expect(() => formulaFromJson('{"format":"otra-cosa/1"}')).toThrow(/format/);
+  });
+
+  it("keeps a mixture of two diluents, in a format an older app refuses instead of misreading (2026-10-08)", () => {
+    const a: Material = { key: "cas:A", kind: "base", name: "A" };
+    const mixed: Formula = {
+      header: { name: "mezcla", intention: "", container: null, workBatchUg: null, finalBatchUg: null },
+      history: [
+        {
+          kind: "add",
+          id: "m",
+          material: a,
+          massUg: 1_000_000n,
+          fraction: Ratio.of(1, 10),
+          diluent: DILUENTS.dpg,
+          secondDiluent: { material: DILUENTS.alcohol, fraction: Ratio.of(3, 5) },
+        },
+      ],
+    };
+    const text = formulaToJson(mixed);
+    const doc = JSON.parse(text);
+    expect(doc.format).toBe(FORMULA_FORMAT_MIX);
+    expect(doc.history[0].secondDiluent).toEqual({ material: "solv:alcohol", fraction: "3/5" });
+    expect(doc.materials["solv:alcohol"]).toEqual({ kind: "base", name: "Alcohol", solvent: true });
+    const read = formulaFromJson(text);
+    sameComposition(mixed, read);
+    const line = read.history[0];
+    expect(line.kind === "add" && line.secondDiluent?.fraction.toString()).toBe("3/5");
+    expect(formulaToJson(read)).toBe(text);
+    // Without a mixture, the file stays in the first format, and its lines carry no second diluent.
+    const plain = formulaToJson(f001());
+    expect(JSON.parse(plain).format).toBe(FORMULA_FORMAT);
+    expect(plain).not.toContain("secondDiluent");
+    expect(formulaFromJson(plain).history.some((c) => c.kind === "add" && c.secondDiluent)).toBe(false);
+  });
+});
