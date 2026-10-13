@@ -126,7 +126,21 @@ Un material común solo puede basarse en otro común, y no hay ciclos. Los produ
 
 **Por qué** (de la tarjeta): un límite nuevo de IFRA no puede perderse en una copia vieja.
 
+## V3-6 · El buscador encuentra por varios nombres (decidida por el usuario el 2026-10-13)
+
+**Pregunta** (tarjeta del hilo, 7.3 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md)): ¿Por qué nombres encuentra el buscador un material?
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Varios nombres» (2026-10-13 11:09): «Además del nombre, cada material lleva sus otros nombres (comercial, sigla, sinónimos); encuentras Hedione o IBQ como hoy.»
+
+**Cómo se aplica:** una columna `materials.aliases`, una lista de texto, sin tabla nueva.
+
+- **Comunes:** los otros nombres salen del glosario de la v1 (que no se toca), unidos a la v2 por `v1-a-v2.csv`.
+- **Tuyos:** los pones tú.
+- **Fuera al principio:** familias, uso y duración.
+
+**Por qué** (de la tarjeta): nadie busca «6-sec-Butylquinoline». Hoy se encuentra por IBQ, y es una sola columna más.
+
 ## Pendientes
 
-- Las preguntas del §7 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md), de una en una. La siguiente: por qué nombres busca el buscador (7.3).
+- Las preguntas del §7 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md), de una en una. La siguiente y última: si se queda la regla D2 (7.4).
 - Confirmar la lectura de «uso offline pero mediante hosting» (V3-1): que la v3 necesita conexión.

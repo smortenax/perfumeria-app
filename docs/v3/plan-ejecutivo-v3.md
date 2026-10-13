@@ -42,7 +42,7 @@ Las tablas de materiales del plan, según [`modelo-materiales-v3.md`](modelo-mat
 
 | Paso | Tabla | Además de lo del plan |
 |---|---|---|
-| 2.1 | `materials` | `kind`: `substance`, `mixture`, `solvent`, `provisional`, `frozen` (V3-4). `based_on_id`, tu versión de un común (V3-5). Según 7.3: `aliases` (otros nombres para el buscador) |
+| 2.1 | `materials` | `kind`: `substance`, `mixture`, `solvent`, `provisional`, `frozen` (V3-4). `based_on_id`, tu versión de un común (V3-5). `aliases`, otros nombres para el buscador (V3-6) |
 | 2.2 | `material_components` | `amount_kind` (`exact`, `max`, `range`, `unknown`) con su comprobación: `range` exige mínimo ≤ máximo, `exact` y `max` exigen valor, `unknown` ninguno. Un material no se contiene a sí mismo |
 | 2.3 | `regulations` | Nada: `kind` es `max`, `prohibited` o `requirement`, y la enmienda va en `source`. `max_value` es fracción del producto terminado |
 | 2.4 | `lab_materials` | Usuario + material: «lo que tengo» (V3-3). Sin cantidades |
@@ -78,7 +78,7 @@ Un script, `scripts/v3/importar.ts`, de los CSV a Postgres. **Reutiliza `src/v2/
 | 4.4 | **Productos** (89), según V3-2 | Cada producto, un material común con su composición entera: la de su material general más la de su certificado, escrita por el script. Sus **topes** (13), regulaciones `manufacturer`. Las **concentraciones por defecto** (10) no tienen sitio en el plan: se quedan en el CSV |
 | 4.5 | **IFRA 51** | De `datos/ifra/51/` y `grupo-miembros.csv`: una regulación por miembro y categoría, `group_key` = la referencia del estándar (con su subgrupo en el 097 y el 181), y la enmienda en `source`. El 089 y sus miembros comparten `group_key` |
 | 4.6 | **Requisitos** | Un `requirement` por estándar y miembro, con autoridad `ifra`; si `condiciones.csv` dice que se cumple, con la autoridad y la fuente de esa fila |
-| 4.7 | **Otros nombres**, según 7.3 | Del glosario de la v1 (que sigue congelado: se lee, no se toca), unidos a la v2 por `v1-a-v2.csv`. Familias, uso y duración no entran al principio |
+| 4.7 | **Otros nombres** (V3-6) | Del glosario de la v1 (que sigue congelado: se lee, no se toca), unidos a la v2 por `v1-a-v2.csv`. Familias, uso y duración no entran al principio |
 
 **Hecho cuando:** los recuentos coinciden con los CSV, una segunda ejecución no cambia ninguna fila, y el registro dice de qué commit salen los datos.
 
@@ -89,7 +89,7 @@ Un script, `scripts/v3/importar.ts`, de los CSV a Postgres. **Reutiliza `src/v2/
 | Paso | Qué | Hecho cuando |
 |---|---|---|
 | 5.1 | Para **cada material** de la v2, el `IfraMaterial` que sale de la base de datos y el que sale de los CSV | Iguales, material a material. Cada diferencia se lista y se explica; **nunca se arregla tocando la prueba** |
-| 5.2 | Según 7.3: para **cada material** del glosario de la v1, el buscador de la v3 lo encuentra por los mismos nombres que hoy | Iguales |
+| 5.2 | Para **cada material** del glosario de la v1, el buscador de la v3 lo encuentra por los mismos nombres que hoy | Iguales |
 
 ---
 
