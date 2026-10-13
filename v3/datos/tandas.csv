@@ -2,3 +2,4 @@ tanda,fecha,aprobacion,archivo,sha256
 1-materiales,2026-10-13,"orko kill, 2026-10-13, en la tarjeta del hilo: «Apruebo la tanda 1»",materials.csv,b904b588ab5bdd13b8208333faf86cfb228e4c19721b3ad5a319f032bd007efa
 2-composicion,2026-10-13,"orko kill, 2026-10-14, en la tarjeta del hilo: «Apruebo la tanda 2»",material_components.csv,031a290dfd64770c8caf275b9b6f1df28d96bd835bfe3ae932860611f0b2673f
 2-composicion,2026-10-13,"orko kill, 2026-10-14, en la tarjeta del hilo: «Apruebo la tanda 2 corregida» (solo cambian dos máximos de 0, que pasan a exacto de 0)",material_components.csv,e1cd2dd63e5dd2517eaf753595f20154ce9eb804f3eecd232d8e8ed19d9be296
+3-ifra,2026-10-13,"orko kill, 2026-10-14, en el hilo: «Apruebo la tanda 3»",regulations.csv,f915a862d4608abd02640dcb963a07a6876d048ed8333cfd3694841e9bc2a30d
