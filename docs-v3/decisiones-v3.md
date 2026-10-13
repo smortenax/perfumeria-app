@@ -467,6 +467,30 @@ Y sobre el material general (punto 5 de la lectura), 2026-10-13 17:19:
 
 **Por qué** (la recomendación de la sesión que elegiste): el esquema de la fase 2 se va a rehacer muchas veces, y en local se repite sin tocar el proyecto real.
 
+## V3-23 · Cada ficha toma su propia entrada del anexo de IFRA (decidida por el usuario el 2026-10-13)
+
+**De dónde sale:** la entrada del 2026-10-12 de la bandeja del laboratorio (`../Perfumery/app/entradas.md`): en el acorde `CuirESmarron`, el panel de IFRA da un máximo del 6,38 % por la isoforona al 0,2 % que la app atribuye al láudano (`v2:M03493`, «Labdanum gum»), cuando el frasco del usuario es un absoluto y tres documentos de proveedor de absoluto no la recogen. La entrada pide separar aceite, goma y absoluto, dar de alta el absoluto de Maese Lab y revisar de dónde sale la isoforona.
+
+**Lo que se encontró** (la sesión, en los datos):
+
+- **La isoforona al 0,2 % solo está en la entrada «Cistus oil» del anexo** (IFRA 51, `datos/ifra/51/naturales.csv`). La entrada «Cistus absolute» no la tiene (benzaldehído 0,6 %, alcohol cinámico 0,03 %, eugenol 0,06 %, geraniol 0,01 %).
+- **El anexo tiene una entrada propia «Labdanum gum»**, solo con benzaldehído al 0,2 %. Su CAS principal es otro, y la regla D14 de la v2 no la encontró: a M03493 le dio el máximo de las 5 entradas con CAS 8016-26-0 (aceites, absoluto, concreto y oleorresina de cistus y láudano; `datos/v2/composicion.csv`, filas 1008 a 1016). De ahí la isoforona.
+- **No es un caso suelto:** de los 228 materiales de la v2 con la composición «máximo de N entradas del anexo», 9 tienen entrada propia por nombre y no la usan (entre ellos el absoluto de clavo, el de lavandín grosso, el de azahar y el neroli).
+
+**Pregunta** (tarjeta del hilo): ¿Cómo asigna la migración la composición del anexo de IFRA a cada ficha?
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Su propia entrada (Recomendado)» (2026-10-13 20:14): «Cada ficha toma la entrada del anexo con su nombre; solo si no la tiene, el máximo de las de su CAS, diciendo de cuáles. Cambian 9 materiales (la goma de láudano pierde la isoforona).»
+
+**Cómo se aplica:**
+
+- **La migración (fase 4, paso 4.3)** da a cada ficha la entrada del anexo con su nombre. Solo si no la tiene, el máximo de las entradas que comparten su CAS, como la v2, y su fuente dice de qué entradas sale.
+- **En la equivalencia (fase 5)** estos 9 materiales salen distintos de la v2 a propósito; la lista y el porqué, con esta decisión.
+- **El resto de la entrada ya está decidido:** el aceite, la goma y el absoluto son fichas distintas de una categoría (V3-13); el absoluto de Maese Lab entra en tu cuenta como tu versión del absoluto común, y cuál es lo decides en `laboratorio.csv` (V3-15). Los tres documentos de proveedor que cita la entrada pasan, si se quiere, como fichas de producto con su cita (V3-2, V3-21).
+
+**Queda abierta** (propuesta de la sesión, para preguntarla aparte): los 219 materiales sin entrada propia llevan autoridad «anexo-ifra» con cifras de otras formas, y así pueden dar «dentro». Se parecen más a un supuesto (V3-7).
+
+**Por qué** (la recomendación de la sesión que elegiste): es lo que pide V3-13, cada ficha con su composición; el máximo le pone a una goma y a un absoluto la isoforona de un aceite.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20). Siguen las cinco entradas pendientes de la bandeja del laboratorio (`../Perfumery/app/entradas.md`), que se llevan aquí.
