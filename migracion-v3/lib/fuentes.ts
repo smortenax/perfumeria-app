@@ -23,6 +23,11 @@ export interface Sources {
   readonly ifraNaturals: readonly Row[];
   readonly ifraStandards: ReadonlyMap<string, Row>;
   readonly ifraStandardCas: readonly Row[];
+  /**
+   * The notes of datos/v2/composicion.csv by line, as the v2's loader numbers them (index + 2):
+   * the loader leaves them out, and they say which entry of the annex a figure comes from (D14).
+   */
+  readonly compositionNotes: ReadonlyMap<number, string>;
   /** The commit the data come from, to cite in every batch. */
   readonly commit: string;
 }
@@ -52,6 +57,7 @@ export function readSources(root = "."): Sources {
     ifraNaturals: records(join(root, "datos/ifra/51/naturales.csv")),
     ifraStandards: new Map(standards.map((s) => [s.estandar, s])),
     ifraStandardCas: records(join(root, "datos/ifra/51/estandar-cas.csv")),
+    compositionNotes: new Map(records(join(v2Dir, "composicion.csv")).map((r, i) => [i + 2, (r.notas ?? "").trim()])),
     commit,
   };
 }
