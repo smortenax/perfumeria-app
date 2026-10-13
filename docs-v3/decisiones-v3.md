@@ -551,7 +551,7 @@ Y sobre el material general (punto 5 de la lectura), 2026-10-13 17:19:
 
 ## La bandeja del laboratorio, llevada el 2026-10-13
 
-*Las entradas pendientes de `../Perfumery/app/entradas.md`, y adónde fue cada una. Desde aquí no se han marcado allí como llevadas (el mensaje de arranque dice que desde aquí no se escribe en el laboratorio).*
+*Las entradas pendientes de `../Perfumery/app/entradas.md`, y adónde fue cada una. Marcadas allí como llevadas por la sesión, porque el usuario lo pidió («márcalas tú y sigue con la fase 2», 2026-10-13), en el commit `fff8254` del laboratorio.*
 
 | Entrada | Adónde |
 |---|---|
@@ -568,5 +568,4 @@ Y sobre el material general (punto 5 de la lectura), 2026-10-13 17:19:
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
 - **Abierta, de V3-23:** ¿qué autoridad llevan las cifras del anexo que una ficha toma prestadas de otras formas con su CAS (219 materiales)? Hoy, «anexo-ifra», que puede dar «dentro».
-- **Marcar como llevadas** las entradas de la bandeja en el laboratorio: lo decide el usuario.
 - Después, la fase 0 del plan ejecutivo.

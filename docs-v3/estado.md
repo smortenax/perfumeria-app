@@ -12,7 +12,7 @@
 ## Sigue
 
 1. **Tú, cuando quieras:** `npx supabase login` dentro de `v3/`, para enlazar la nube (V3-22). A la nube no sube nada hasta que el esquema de la fase 2 esté probado.
-2. **Tú:** marcar como llevadas las entradas de la bandeja en el laboratorio (o decirme que lo haga). Y corregir allí el cruce del Aldambre en `diluciones.py`.
+2. **Tú:** corregir en el laboratorio el cruce del Aldambre en `diluciones.py` (las entradas de la bandeja, ya marcadas allí: `fff8254`).
 3. Pregunta abierta de V3-23: la autoridad de las cifras del anexo prestadas de otras formas (219 materiales).
 4. Fase 2: el esquema de los materiales. La tabla de prueba `sync_probe` y su panel se van entonces.
 
