@@ -138,7 +138,7 @@ Un material común solo puede basarse en otro común, y no hay ciclos. Los produ
 
 - **Comunes:** los otros nombres salen del glosario de la v1 (que no se toca), unidos a la v2 por `v1-a-v2.csv`.
 - **Tuyos:** los pones tú.
-- **Fuera al principio:** familias, uso y duración.
+- ~~**Fuera al principio:** familias, uso y duración.~~ [Cambiado por V3-14 (2026-10-13): el núcleo de la ficha y la dosis entran desde el principio.]
 
 **Por qué** (de la tarjeta): nadie busca «6-sec-Butylquinoline». Hoy se encuentra por IBQ, y es una sola columna más.
 
@@ -290,7 +290,29 @@ Y sobre el material general (punto 5 de la lectura), 2026-10-13 17:19:
 
 **Encaja con** la entrada del laboratorio del 2026-10-12, que pide separar el aceite, la goma y el absoluto de láudano, cada uno con sus constituyentes: tres fichas de una categoría. La entrada se lleva con las demás de la bandeja.
 
+## V3-14 · El núcleo de la ficha y la dosis entran desde el principio (decidida por el usuario el 2026-10-13)
+
+**Pregunta** (tarjeta del hilo, 7.7 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md)): ¿Entra el núcleo de la ficha desde el principio?
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Núcleo y dosis (Recomendado)» (2026-10-13 17:29): «Los campos del núcleo en columnas que admiten vacío, con su fuente; la dosis en material_doses, con su base. Relaciones, descriptores, perfumes de referencia y física, después.»
+
+**Cómo se aplica:**
+
+- **El núcleo de tu referencia (§3), en columnas de `materials` que admiten vacío:** familia, facetas, piso, evolución, tenacidad, potencia, umbral, difusión, efecto en la mezcla, función (estructura, modificador, traza, fijador, puente, booster) y dilución recomendada. El disolvente no es una función: es la marca de V3-12.
+- **La dosis, en `material_doses`:** una fila por fuente, con mínima, típica y máxima, **siempre con su base** (del concentrado, del producto terminado o «sin declarar»), su autoridad y su fuente.
+- **Después, en otra fase:** relaciones, descriptores por fuente, perfumes de referencia y física.
+- **Cambia V3-6** en lo que dejaba fuera al principio (familias, uso y duración).
+
+**Consecuencias** (propuesta de la sesión):
+
+- **Los campos propios de cada tipo** de tu referencia (§3) entran también, vacíos si no se saben: casa, código y qué quiere oler (composición); origen de síntesis e isómeros (molécula); la forma (natural) ya entró con V3-13.
+- **La fuente y la confianza, como en tu referencia:** `sources`, con etiquetas cortas, y `confidence` (alta, media, baja), por material. Un campo vacío sale «no lo dice».
+- **`material_doses` tiene las columnas de `datos/v2/usos.csv`** (magnitud, mínima, típica, máxima, unidad, base, autoridad, documento), que la v2 diseñó así y dejó vacía.
+- **Qué datos llenan el núcleo** lo deciden 7.8 (tus 111 materiales) y 7.11 (tenacidad y familias). Hoy, el glosario de la v1 tiene familia en 3119 de sus 4347 filas, matiz en 2154 y uso mínimo y máximo en 691 (`datos/glosario/materiales.csv`).
+
+**Por qué** (la recomendación de la sesión que elegiste): es lo que pediste registrar, una columna vacía no cuesta nada y la dosis ya tenía diseño. Las otras cuatro tablas se diseñan cuando el glosario funcione.
+
 ## Pendientes
 
-- **Las preguntas 7.7 a 7.11** de [`modelo-materiales-v3.md`](modelo-materiales-v3.md) **y B.1 y B.2** del [plan ejecutivo](plan-ejecutivo-v3.md), de una en una, en el chat que arrancó con [`prompt-arranque-v3.md`](prompt-arranque-v3.md).
+- **Las preguntas 7.8 a 7.11** de [`modelo-materiales-v3.md`](modelo-materiales-v3.md) **y B.1 y B.2** del [plan ejecutivo](plan-ejecutivo-v3.md), de una en una, en el chat que arrancó con [`prompt-arranque-v3.md`](prompt-arranque-v3.md).
 - Después, la fase 0 del plan ejecutivo.

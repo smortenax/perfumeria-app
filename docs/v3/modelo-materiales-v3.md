@@ -20,10 +20,10 @@
 | Cobertura de cada lista (columna con 4 valores) | **Sin columna**: la da el tipo, más un componente «Sin identificar» para las listas parciales (§3.5) | Plan §22, §31 |
 | «Requisito cumplido» como clase aparte | Un solo `requirement`, cuya **autoridad** dice si está acreditado (§4.4) | Plan §29, §32 |
 | Columna de enmienda de IFRA | La enmienda va en `source` | Plan §28 |
-| Dos tablas: nombres comerciales y perfil (familia, uso, duración) | **Fuera al principio**: el material tiene `name` (§2.5) | Plan §34 |
+| Dos tablas: nombres comerciales y perfil (familia, uso, duración) | Los otros nombres, en `aliases` (§2.5); **el núcleo de la ficha y la dosis, desde el principio** (§2.7) | Tú (V3-6, V3-14) |
 | Productos «basados en» su material general | Cada producto es **un material común con su composición entera**, que escribe el script | Tú (V3-2) + plan §17 |
 | D7, pura por convención; D8 y D12, la dilución y el certificado tal como se compra | **No hacen falta como reglas**: salen del propio modelo (§3.4 y §3.6) | Plan §8, §24 |
-| Uso habitual, duración, la base de cada número | Fuera al principio: el plan no los tiene | Plan §34 |
+| Uso habitual, duración, la base de cada número | La dosis por fuente, siempre con su base, y la tenacidad, en la ficha (§2.7) | Tú (V3-14) |
 | Los cuatro estados, la jerarquía de autoridad, lo desconocido nunca cero | **Se quedan**: el plan los mantiene | Plan §31, §32 |
 | Glosario, tu versión de un común, «lo que tengo» | Se quedan | Tú (V3-3) |
 | Cada material, una fila en el buscador | **Categorías:** el buscador enseña la categoría, y debajo las fichas concretas (§2.6) | Tú (V3-13) |
@@ -51,7 +51,8 @@
   - `name` y `kind`;
   - si se saben: `cas`, `species`, `part`, `process`, `chemotype`, `inci`, `origin`;
   - quién es su dueño: `owner_id`;
-  - su categoría, `category_id`, y en un natural su forma, `form` (§2.6) *[Tú, V3-13]*.
+  - su categoría, `category_id`, y en un natural su forma, `form` (§2.6) *[Tú, V3-13]*;
+  - el núcleo de la ficha, lo propio de su tipo, sus fuentes y su confianza, todo vacío si no se sabe (§2.7) *[Tú, V3-14]*.
 - **2.2** El CAS, la especie y el resto son **datos del material, no su identidad** *[Plan §15]*. Dos materiales pueden compartir CAS (el aceite y el absoluto de una planta).
 - **2.3 · Los tipos (`kind`)** *[Tú, V3-12, que cambia V3-4: los de tu referencia, más `frozen`]*. Por lo que define al material:
 
@@ -75,6 +76,15 @@
   - **El material general también es una ficha concreta** (Hedione sin fabricante), con sus límites generales por categoría de IFRA. Se usa cuando no aplicas un fabricante; el producto de un fabricante puede diferir por su certificado de conformidad.
   - **Las categorías las escribe el script, por regla:** una molécula, por su CAS; un natural, por especie + parte, o por su CAS si no dice la especie *[Propuesta]*. Tu versión de un común va en la categoría del común; un material tuyo, en una común o en ninguna *[Propuesta]*.
   - **Agrupar no mezcla datos. Fusionar** dos fichas que son el mismo material, sí: solo con tu visto bueno, fila a fila *[V3-11]*.
+
+- **2.7 · La ficha: el núcleo y la dosis** *[Tú, V3-14; los campos, de tu referencia §3]*.
+  - **El núcleo**, en columnas de `materials` que admiten vacío: familia (`family`), facetas (`facets`), piso (`tier`), evolución (`evolution`), tenacidad (`tenacity`), potencia (`strength`), umbral (`threshold`), difusión (`diffusion`), efecto en la mezcla (`blend_effect`), función (`role`: estructura, modificador, traza, fijador, puente, booster) y dilución recomendada (`recommended_dilution`). El disolvente no es una función: es la marca de §2.3.
+  - **Lo propio de cada tipo**, vacío si no se sabe *[Propuesta, por §9.1]*: casa (`house`), código (`code`) y qué quiere oler (`odor_target`) en una composición; origen de síntesis (`synthesis`) e isómeros (`isomers`) en una molécula; la forma (`form`, §2.6) en un natural.
+  - **La fuente y la confianza**, como en tu referencia *[Propuesta]*: `sources`, etiquetas cortas, y `confidence` (alta, media, baja), por material.
+  - **La dosis, en `material_doses`:** una fila por fuente, con mínima, típica y máxima, **siempre con su base** (del concentrado, del producto terminado o «sin declarar»), su autoridad y su fuente. Las columnas son las de `datos/v2/usos.csv`, que la v2 diseñó así y dejó vacía.
+  - **Un campo vacío sale «no lo dice»**, nunca un valor por defecto.
+  - **Después**, en otra fase: relaciones, descriptores por fuente, perfumes de referencia y física.
+  - **Qué datos lo llenan:** preguntas 7.8 (tus 111 materiales) y 7.11 (tenacidad y familias). El glosario de la v1 tiene familia en 3119 de sus 4347 filas, matiz en 2154 y uso mínimo y máximo en 691 (`datos/glosario/materiales.csv`).
 
 ---
 
@@ -161,7 +171,7 @@ El 2026-10-13 llegó tu referencia del laboratorio (§9), y abre estas preguntas
 |---|---|---|---|
 | ~~7.5~~ | ~~¿Qué tipos tiene un material?~~ | **Decidida (V3-12, 2026-10-13): los de la referencia, más `frozen`; el disolvente, una marca** | |
 | ~~7.6~~ | ~~¿Cómo deja de salir diez veces el mismo material?~~ | **Decidida (V3-13, 2026-10-13): categorías en el buscador; cada ficha concreta, con su composición y sus límites** | |
-| **7.7** | **¿Entra el núcleo de la ficha desde el principio?** Los 13 campos de la referencia (§3): olor, comportamiento, uso | **Sí, el núcleo y la dosis por fuente**; las relaciones, los descriptores, los perfumes de referencia y la física, en una fase posterior. **Todo ahora.** **Nada aún**, como decía V3-6 | **El núcleo y la dosis.** Son lo que pediste registrar, y caben en columnas que admiten vacío. El resto son tablas nuevas que esperan a que el glosario funcione. Cambia el «fuera al principio» de V3-6 |
+| ~~7.7~~ | ~~¿Entra el núcleo de la ficha desde el principio?~~ | **Decidida (V3-14, 2026-10-13): el núcleo y la dosis; el resto, después** | |
 | **7.8** | **¿Entran en la base común los 111 materiales del laboratorio?** | **Sí, por script**, con su fuente y como `literature` o `consensus`. **No**, como decía P37 | **Sí.** Sin ellos, el núcleo nace casi vacío. Por V3-7, nunca dan «dentro» en IFRA, y el IFRA de segunda mano no entra (regla 7 de la referencia) |
 | **7.9** | **¿Cómo se guardan varios CAS?** (el europeo y el americano de un natural) | **Una lista en el material**, como los otros nombres (V3-6). **Una tabla aparte** | **La lista.** Es una columna, como `aliases` |
 | **7.10** | **¿Viajan a la app los datos en disputa?** | **No**: los conflictos se quedan en el repo y el laboratorio, y en la app el dato sale marcado «provisional». **Sí**, con su tabla `conflicts` | **No.** Los decides tú en el repo, como hasta ahora; la app solo necesita saber que el dato es provisional |
@@ -180,7 +190,7 @@ El 2026-10-13 llegó tu referencia del laboratorio (§9), y abre estas preguntas
 | 3140 cifras de composición | `material_components`, con su autoridad y su documento como fuente |
 | 263 estándares de IFRA 51 y 2 condiciones | `regulations` |
 | Los 7 disolventes de la app | Ya son sustancias de la v2: esas moléculas, con la marca `solvent` (V3-12) |
-| **No entra al principio** | El perfil (familia, color), uso, duración, las 10 concentraciones por defecto, los lotes, los documentos como tabla |
+| **No entra al principio** | El color de las familias, las 10 concentraciones por defecto, los lotes, los documentos como tabla. El núcleo de la ficha y la dosis sí entran (V3-14), con los datos que decidan 7.8 y 7.11 |
 
 ---
 
@@ -195,12 +205,12 @@ El 2026-10-13 llegó tu referencia del laboratorio (§9), y abre estas preguntas
 | Tres tipos por lo que define al material: `molecule`, `natural`, `composition` (+ `provisional`). El disolvente es una molécula con función «disolvente» | V3-4: `substance`, `mixture`, `solvent`, `provisional`, `frozen` | **Decidida (V3-12):** los de la referencia, más `frozen`; el disolvente, una marca |
 | Estándar (lo común) y versión (tu frasco: proveedor, grado, pureza, isómeros, dilución de fábrica, procedencia, lote), que apunta al estándar | V3-5: tu versión es un material tuyo con `based_on_id`, que hereda | **Encaja.** Su decisión abierta 3 ya la contestó V3-5. Lo nuevo son los campos del frasco: grado, proveedor, pureza. Los lotes siguen aplazados (plan §46) |
 | Hedione HC o Iso E Super Plus son versiones, no materiales nuevos | V3-2: los 89 productos de la v2 son materiales comunes, cada uno por su lado | **Decidida (V3-13):** son fichas comunes de su categoría, cada una con su composición; el buscador las agrupa |
-| Núcleo de 13 campos: nombre y sinónimos, CAS, familia, facetas, piso, evolución, tenacidad, potencia, umbral, difusión, efecto, función, dilución recomendada | V3-6 y plan §34: familias, uso y duración, fuera al principio | **Choca. Pregunta 7.7** |
-| Campos propios por tipo: casa, origen de síntesis e isómeros (molécula); forma, especie, parte, método, quimiotipo y procedencia (natural); casa, código y qué quiere oler (composición) | El material tiene especie, parte, proceso, quimiotipo, INCI y origen | **Se suman** con 7.5 y 7.7 |
-| Tablas aparte: dosis por fuente (mínima, típica, máxima y su base), relaciones, descriptores por fuente, perfumes de referencia | No están en el plan | **Pregunta 7.7** (la dosis, con el núcleo; el resto, después) |
+| Núcleo de 13 campos: nombre y sinónimos, CAS, familia, facetas, piso, evolución, tenacidad, potencia, umbral, difusión, efecto, función, dilución recomendada | V3-6 y plan §34: familias, uso y duración, fuera al principio | **Decidida (V3-14):** entra desde el principio, en columnas que admiten vacío |
+| Campos propios por tipo: casa, origen de síntesis e isómeros (molécula); forma, especie, parte, método, quimiotipo y procedencia (natural); casa, código y qué quiere oler (composición) | El material tiene especie, parte, proceso, quimiotipo, INCI y origen | **Se suman** (V3-12, V3-13, V3-14) |
+| Tablas aparte: dosis por fuente (mínima, típica, máxima y su base), relaciones, descriptores por fuente, perfumes de referencia | No están en el plan | **Decidida (V3-14):** la dosis, con el núcleo; el resto, después |
 | IFRA: varias filas si cae bajo varios estándares; manda el menor | `regulations`, una fila por miembro y categoría, con `group_key` | **Encaja** |
 | Un dato que falta es vacío, nunca cero; todo porcentaje lleva su base; los componentes no se expanden solos y su cantidad es exacta, máxima, rango o desconocida; los límites son por sustancia | §3, §5 | **Encaja.** La dosis por fuente tiene que llevar su base |
-| Cada dato con su fuente; el material, con una confianza | Componentes y regulaciones llevan autoridad y fuente | **Nuevo:** la confianza del material, con 7.7 |
+| Cada dato con su fuente; el material, con una confianza | Componentes y regulaciones llevan autoridad y fuente | **Decidida (V3-14):** la confianza del material entra con el núcleo |
 | Un dato puede estar en disputa: tabla `conflicts` | Los conflictos se deciden en CSV del repo (`datos/v2/conflictos/`) | **Pregunta 7.10** |
 | El IFRA de segunda mano no se usa para calcular | IFRA sale solo de los archivos de IFRA (P37); V3-7 | **Encaja** |
 | Varios CAS por material | Un `cas` por material | **Pregunta 7.9** |
