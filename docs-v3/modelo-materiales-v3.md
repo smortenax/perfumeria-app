@@ -103,6 +103,7 @@
   - **una molécula sin componentes** es ella misma (lo que la v2 llamaba «pura por convención»);
   - **un natural, una composición o un provisional sin componentes** son desconocidos, y cuentan en el peor caso.
 - **3.5 · Una lista que no está completa** *[Propuesta]*. Cuando la fuente solo da parte de lo que hay (una ficha de seguridad lista solo lo clasificado), se añade un componente común, **«Sin identificar»**, con cantidad `unknown`. Así la app sabe que puede haber más y nunca da «dentro» por lo que falta.
+  - **También los aislados naturales sin documentos** (los 4 de la v2: geraniol, cumarina, eugenol y eucaliptol) llevan «Sin identificar» *[Tú, V3-29]*.
   - Sin esto, una lista parcial se leería como completa. En la v2 son **9 materiales y 2 productos**.
   - Es lo que en la primera versión hacía la columna de cobertura, pero con las tablas del plan.
 - **3.6 · En % del material tal como es** *[Plan §8]*. Si un producto se compra diluido y su certificado habla del producto tal cual, sus cifras son de ese producto y se pesa al 100 %. Es el material que es; la dilución con que tú lo pesas va en la adición.

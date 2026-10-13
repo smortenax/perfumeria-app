@@ -602,6 +602,19 @@ Y sobre el material general (punto 5 de la lectura), 2026-10-13 17:19:
 
 **Por qué** (la recomendación de la sesión que elegiste): son cifras de otro material, no de este; con autoridad de IFRA darían un verde que nada prueba.
 
+## V3-29 · Los aislados naturales sin documentos llevan «Sin identificar» (decidida por el usuario el 2026-10-14)
+
+**Pregunta** (tarjeta del hilo, tanda 2 de la migración): los 4 aislados naturales cuyo producto no tiene documentos (geraniol, cumarina, eugenol y eucaliptol, del cuaderno; medido en `datos/v2/`), ¿llevan «Sin identificar» o son puros? En la v2 quedan pendientes por D7; en la v3, una molécula sin componentes es ella misma (§3.4).
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Sin identificar (Recomendado)» (2026-10-13, poco antes de medianoche): «Componente de cantidad desconocida, fuente «aislado natural sin documentos de su producto (D7 de la v2)»: siguen pendientes, como en la v2, hasta que haya un documento.»
+
+**Cómo se aplica:**
+
+- **La migración (tanda 2)** les escribe el componente común «Sin identificar», de cantidad desconocida, con esa fuente. Siguen pendientes hasta que un documento de su producto diga lo que llevan; entonces manda su cifra (V3-27, nivel 3).
+- **El mismo componente cierra las listas que no están completas** (§3.5): en la v2, los 5 contenedores con composición que ninguna fuente cubre entera (certificados parciales y listas solo de alérgenos). Los 12 certificados que no declaran ninguna sustancia regulada son de productos de moléculas, y una molécula sin componentes ya es pura.
+
+**Por qué** (la recomendación de la sesión que elegiste): un aislado de una planta puede traer otros constituyentes regulados de ella, y lo desconocido nunca vale cero.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
