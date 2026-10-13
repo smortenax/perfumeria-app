@@ -43,6 +43,20 @@
       "when": 1791916326194,
       "tag": "20261013183206_materials_triggers",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1791916465041,
+      "tag": "20261013183425_inherited_owner",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1791916466360,
+      "tag": "20261013183426_inherited_owner_trigger",
+      "breakpoints": true
     }
   ]
 }

@@ -115,6 +115,8 @@ export const materialComponents = pgTable(
     materialId: uuid("material_id")
       .notNull()
       .references(() => materials.id, { onDelete: "cascade" }),
+    /** Its material's owner, copied by a trigger: what PowerSync filters by (one bucket for the common, one per user). */
+    ownerId: uuid("owner_id"),
     componentId: uuid("component_id")
       .notNull()
       .references(() => materials.id, { onDelete: "restrict" }),
@@ -129,6 +131,7 @@ export const materialComponents = pgTable(
   },
   (t) => [
     index("material_components_material_idx").on(t.materialId),
+    index("material_components_owner_idx").on(t.ownerId),
     index("material_components_component_idx").on(t.componentId),
     unique("material_components_once").on(t.materialId, t.componentId, t.authority, t.source),
     check("material_components_not_itself", sql`${t.materialId} <> ${t.componentId}`),
@@ -154,6 +157,8 @@ export const regulations = pgTable(
     materialId: uuid("material_id")
       .notNull()
       .references(() => materials.id, { onDelete: "cascade" }),
+    /** Its material's owner, copied by a trigger: what PowerSync filters by (one bucket for the common, one per user). */
+    ownerId: uuid("owner_id"),
     regime: text("regime").notNull(),
     /** IFRA's category of use ("4"); null when it holds for every category. */
     category: text("category"),
@@ -171,6 +176,7 @@ export const regulations = pgTable(
   },
   (t) => [
     index("regulations_material_idx").on(t.materialId),
+    index("regulations_owner_idx").on(t.ownerId),
     index("regulations_group_idx").on(t.groupKey),
     check("regulations_regime", sql`${t.regime} in ('ifra', 'manufacturer')`),
     check("regulations_authority", sql`${t.authority} in ${AUTHORITY}`),
@@ -194,6 +200,8 @@ export const materialDoses = pgTable(
     materialId: uuid("material_id")
       .notNull()
       .references(() => materials.id, { onDelete: "cascade" }),
+    /** Its material's owner, copied by a trigger: what PowerSync filters by (one bucket for the common, one per user). */
+    ownerId: uuid("owner_id"),
     min: numeric("min"),
     typical: numeric("typical"),
     max: numeric("max"),
@@ -208,6 +216,7 @@ export const materialDoses = pgTable(
   },
   (t) => [
     index("material_doses_material_idx").on(t.materialId),
+    index("material_doses_owner_idx").on(t.ownerId),
     check("material_doses_basis", sql`${t.basis} in ('concentrate', 'finished_product', 'undeclared')`),
     check("material_doses_authority", sql`${t.authority} in ${AUTHORITY}`),
     check("material_doses_source", sql`length(trim(${t.source})) > 0`),
