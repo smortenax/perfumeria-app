@@ -115,12 +115,19 @@ function select(containerId: string): Selected {
 // ------------------------------------------------------------ the rows of the v3
 const COLUMNS = ["id", "material_id", "component_id", "amount_kind", "value", "min", "max", "authority", "source"] as const;
 const out: Array<Record<string, Cell>> = [];
-const changed = { ownEntry: [] as string[], borrowed: new Set<string>(), unidentified: [] as string[], isolates: [] as string[], fiveMop: [] as string[], zeros: 0 };
+const changed = { ownEntry: [] as string[], borrowed: new Set<string>(), unidentified: [] as string[], isolates: [] as string[], fiveMop: [] as string[], zeros: 0, maxZeros: 0 };
 const docLabel = (id: string) => `${id} · ${documents.get(id)?.title ?? ""}`;
 
 function amountOf(row: CompositionRow): Record<string, Cell> {
   if (row.valueType === "tipico") return { amount_kind: "exact", value: pctToFraction(row.typical) };
-  if (row.valueType === "maximo") return { amount_kind: "max", value: pctToFraction(row.max) };
+  if (row.valueType === "maximo") {
+    // A maximum of 0 is an exact 0: the v3 keeps «max» above 0.
+    if (Number(row.max) === 0) {
+      changed.maxZeros++;
+      return { amount_kind: "exact", value: "0" };
+    }
+    return { amount_kind: "max", value: pctToFraction(row.max) };
+  }
   throw new Error(`Tipo de valor sin traducir: ${row.valueType} (${row.containerId})`);
 }
 
@@ -223,7 +230,7 @@ ${list(changed.fiveMop)}
 ${list(changed.unidentified)}
 - **«Sin identificar» en los aislados naturales sin documentos (V3-29):**
 ${list(changed.isolates)}
-- **Los ceros del anexo se quedan** (${changed.zeros} filas): una cifra exacta puede valer 0 («no lo lleva»; propuesta de la sesión, commit d700e55).
+- **Los ceros del anexo se quedan** (${changed.zeros} filas): una cifra exacta puede valer 0 («no lo lleva»; propuesta de la sesión, commit d700e55). Un máximo de 0 se escribe como exacto de 0 (${changed.maxZeros} filas, prestadas: siguen como literatura).
 
 **Cómo se traduce:** \`tipico\` → \`exact\`, \`maximo\` → \`max\` (la v2 no tiene rangos); el porcentaje, a fracción exacta; \`anexo-ifra\` → \`ifra\`, \`producto\` → \`product\`, \`literatura\` → \`literature\`. La fuente de cada fila: su documento con su título y la nota de la v2 (la entrada del anexo).
 

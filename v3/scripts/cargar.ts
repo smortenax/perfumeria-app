@@ -37,7 +37,7 @@ function value(table: string, column: string, text: string): Value {
   return text;
 }
 
-async function load(table: string): Promise<{ inserted: number; updated: number; rows: number }> {
+async function load(db: postgres.TransactionSql, table: string): Promise<{ inserted: number; updated: number; rows: number }> {
   const path = join(DATA, `${table}.csv`);
   if (!existsSync(path)) return { inserted: 0, updated: 0, rows: 0 };
   const [header, ...lines] = parseCsv(readFileSync(path, "utf8")).filter((l) => l.length > 1 || l[0] !== "");
@@ -53,9 +53,9 @@ async function load(table: string): Promise<{ inserted: number; updated: number;
   let updated = 0;
   for (let i = 0; i < rows.length; i += 500) {
     const batch = rows.slice(i, i + 500);
-    const result = await sql`
-      insert into ${sql(table)} ${sql(batch, header)}
-      on conflict (id) do update set ${sql.unsafe(set)} where ${sql.unsafe(differs)}
+    const result = await db`
+      insert into ${db(table)} ${db(batch, header)}
+      on conflict (id) do update set ${db.unsafe(set)} where ${db.unsafe(differs)}
       returning (xmax = 0) as inserted`;
     for (const r of result) (r.inserted ? inserted++ : updated++);
   }
@@ -65,20 +65,26 @@ async function load(table: string): Promise<{ inserted: number; updated: number;
 try {
   const pending = execSync(`git status --porcelain -- ${DATA}`, { encoding: "utf8" }).trim();
   if (pending) throw new Error(`v3/datos/ tiene cambios sin commit: el commit de los datos no los diría.\n${pending}`);
-  for (const table of ORDER) {
-    const { inserted, updated, rows } = await load(table);
-    if (rows > 0) console.log(`${table}: ${rows} filas en los datos; ${inserted} nuevas, ${updated} cambiadas, ${rows - inserted - updated} iguales.`);
-  }
   const commit = execSync(`git log -1 --format=%h -- ${DATA}`, { encoding: "utf8" }).trim();
   // The approved batches, from the audit trail that travels with the data (datos/tandas.csv).
   const trail = join(DATA, "tandas.csv");
   const batches = existsSync(trail)
     ? [...new Set(parseCsv(readFileSync(trail, "utf8")).slice(1).map((l) => l[0]).filter((b) => b))].join(" ")
     : null;
-  await sql`
+  // One transaction: if any row is refused, nothing is left half loaded.
+  const report = await sql.begin(async (db) => {
+    const lines: string[] = [];
+    for (const table of ORDER) {
+      const { inserted, updated, rows } = await load(db, table);
+      if (rows > 0) lines.push(`${table}: ${rows} filas en los datos; ${inserted} nuevas, ${updated} cambiadas, ${rows - inserted - updated} iguales.`);
+    }
+    await db`
     insert into data_version (single, "commit", batch) values (true, ${commit}, ${batches})
     on conflict (single) do update set "commit" = excluded."commit", batch = excluded.batch, loaded_at = now()
     where (data_version."commit", data_version.batch) is distinct from (excluded."commit", excluded.batch)`;
+    return lines;
+  });
+  for (const line of report) console.log(line);
   console.log(`data_version: ${commit} (tandas: ${batches ?? "ninguna"}).`);
 } finally {
   await sql.end();

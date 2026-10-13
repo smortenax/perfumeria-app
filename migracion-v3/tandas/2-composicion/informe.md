@@ -39,7 +39,7 @@
   - M00014 Coumarin
   - M00019 Eugenol
   - M00073 Eucalyptol
-- **Los ceros del anexo se quedan** (10 filas): una cifra exacta puede valer 0 («no lo lleva»; propuesta de la sesión, commit d700e55).
+- **Los ceros del anexo se quedan** (10 filas): una cifra exacta puede valer 0 («no lo lleva»; propuesta de la sesión, commit d700e55). Un máximo de 0 se escribe como exacto de 0 (2 filas, prestadas: siguen como literatura).
 
 **Cómo se traduce:** `tipico` → `exact`, `maximo` → `max` (la v2 no tiene rangos); el porcentaje, a fracción exacta; `anexo-ifra` → `ifra`, `producto` → `product`, `literatura` → `literature`. La fuente de cada fila: su documento con su título y la nota de la v2 (la entrada del anexo).
 
