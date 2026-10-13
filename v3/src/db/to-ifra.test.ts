@@ -132,6 +132,22 @@ describe("prohibitions, requirements and a manufacturer's ceiling (V3-25, P62)",
     expect(ifraCard(catalogOf(musk, blend), "musk")).toEqual({ state: "prohibited" });
   });
 
+  it("V3-30: prohibited as such, with a ceiling: alone, prohibited; inside a natural, against the ceiling; put straight into a mixture, pending", () => {
+    const isophorone = material("isophorone", "molecule", { regulations: [prohibited("STD_154"), ceiling("STD_154", "0.0013")] });
+    const cistus = material("cistus", "natural", { components: [component("isophorone", exact("0.01"))] });
+    const accord = material("accord", "composition", { components: [component("cistus", exact("10"), "product")] });
+    const blend = material("blend", "composition", { components: [component("isophorone", exact("1"), "product")] });
+    const catalog = catalogOf(isophorone, cistus, accord, blend);
+    const data = toIfra(catalog);
+    expect(ifraCard(catalog, "isophorone")).toEqual({ state: "prohibited" });
+    expect(data.materials.get("isophorone")!.substances).toContainEqual({ key: "prohibido:STD_154", fraction: Ratio.ONE });
+    expect(substancesOf(catalog, "cistus")).toEqual([["std:STD_154", "1/10000", null]]);
+    expect(data.materials.get("cistus")!.pending).toBeUndefined();
+    expect(substancesOf(catalog, "accord")).toEqual([["std:STD_154", "1/100000", null]]);
+    expect(data.materials.get("accord")!.pending).toBeUndefined();
+    expect(data.materials.get("blend")!.pending?.[0]).toContain("prohibido como tal");
+  });
+
   it("the cade: only IFRA's requirement is pending; a consensus assumes it; a product's document accredits it", () => {
     const cade = material("cade", "natural", { components: [], regulations: [prohibited("STD_119"), requirement("STD_119", "ifra")] });
     const mine = material("mine", "natural", { ownerId: ME, basedOnId: "cade", regulations: [requirement("STD_119", "consensus")] });

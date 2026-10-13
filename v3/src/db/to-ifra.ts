@@ -18,6 +18,9 @@ import type { Authority, Catalog, CatalogMaterial, Component, Regulation } from 
  * - The user's version of a common material (V3-5) inherits its composition, each component by
  *   the most authoritative row, and every regulation of both.
  * - Only category 4 counts, or a regulation for every category (plan, step 4.6).
+ * - A substance IFRA prohibits as such but limits in naturals (V3-30) has both rows: alone, it is
+ *   prohibited; inside a natural, it counts against the ceiling; put straight into anything else,
+ *   it leaves the check pending.
  *
  * Still to come with the migration (phase 4): how the standards whose limit is expressed as a
  * constituent (STD 089, 5-MOP) are written in `regulations`; the equivalence with the v2
@@ -93,10 +96,14 @@ export function effective(catalog: Catalog, id: string): Effective {
 
 const applies = (r: Regulation) => r.category === null || r.category === CATEGORY;
 
-/** The members a material carries (itself included when it has regulations), and why its list may be incomplete. */
-function flatten(catalog: Catalog, rootId: string): { loads: Map<string, Load>; pending: string[] } {
+/**
+ * The members a material carries (itself included when it has regulations), why its list may be
+ * incomplete, and which members arrive somewhere other than inside a natural (V3-30).
+ */
+function flatten(catalog: Catalog, rootId: string): { loads: Map<string, Load>; pending: string[]; outsideNaturals: Set<string> } {
   const loads = new Map<string, Load>();
   const pending = new Set<string>();
+  const outsideNaturals = new Set<string>();
   const walk = (id: string, load: Load, seen: readonly string[]) => {
     if (seen.includes(id)) {
       throw new Error(`A material that contains itself: ${[...seen, id].join(" → ")}`);
@@ -111,11 +118,12 @@ function flatten(catalog: Catalog, rootId: string): { loads: Map<string, Load>; 
       return;
     }
     for (const component of components) {
+      if (material.kind !== "natural") outsideNaturals.add(component.componentId);
       walk(component.componentId, scale(loadOf(component), load), [...seen, id]);
     }
   };
   walk(rootId, { known: Ratio.ONE, upper: Ratio.ONE }, []);
-  return { loads, pending: [...pending] };
+  return { loads, pending: [...pending], outsideNaturals };
 }
 
 type Entry = { key: string; fraction: Ratio | null; upper?: Ratio };
@@ -223,9 +231,13 @@ export function toIfra(catalog: Catalog): IfraData {
             const key = `prohibido:${groupOf(r)}`;
             substances.set(key, { key, name: `${member.name}, como tal`, limit: Ratio.ZERO, amendment: r.source });
             entries.push({ key, fraction: Ratio.ONE });
-          } else {
+          } else if (!mine.some((c) => c.kind === "max" && c.regime === "ifra" && groupOf(c) === groupOf(r))) {
             pending.push(`${member.name}: prohibido como tal; lo que trae este material no tiene techo en los datos (${groupOf(r)}).`);
+          } else if (flat.outsideNaturals.has(memberId)) {
+            // V3-30: its ceiling is for what a natural brings; put straight into a mixture, it is used as such.
+            pending.push(`${member.name}: prohibido como tal; aquí no llega dentro de un natural, y su techo es solo para lo que traen los naturales (${groupOf(r)}).`);
           }
+          // V3-30: inside a natural, a substance prohibited as such counts against its standard's ceiling.
         }
       }
       if (asItself) {

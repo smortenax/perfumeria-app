@@ -615,6 +615,23 @@ Y sobre el material general (punto 5 de la lectura), 2026-10-13 17:19:
 
 **Por qué** (la recomendación de la sesión que elegiste): un aislado de una planta puede traer otros constituyentes regulados de ella, y lo desconocido nunca vale cero.
 
+## V3-30 · Una molécula prohibida «como tal» lleva la prohibición y el techo (decidida por el usuario el 2026-10-14)
+
+**Pregunta** (tarjeta del hilo, tanda 3 de la migración): cinco estándares de IFRA 51 (158, 179, 110, 112 y 154) prohíben la sustancia como ingrediente y le ponen techo cuando llega dentro de un natural. Su nota de prohibición dice que la sustancia «as such should not be used as fragrance ingredient» (`datos/ifra/51/estandares.csv`). En la v2 son 9 materiales: la 7-metoxicumarina, el safrol, el isosafrol, el dihidrosafrol, las tres asaronas, el cianuro de bencilo y la isoforona (`datos/v2/grupo-miembros.csv`). Esas moléculas salen en 165 filas de composición de naturales (`v3/datos/material_components.csv`, tanda 2). ¿Cómo entran?
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Prohibida + techo (Recomendado)» (2026-10-14): «La molécula, y sus productos, lleva la prohibición y además el techo. Usada sola, da «prohibido». Cuando llega dentro de un natural, cuenta contra su techo. Cuesta un cambio pequeño en el adaptador (`v3/src/db/to-ifra.ts`, no en el motor), con su prueba: una prohibición con techo en el mismo estándar no deja «pendiente» al natural que la trae.»
+
+**Cómo se aplica:**
+
+- **La migración (tanda 3)** escribe a esas moléculas y a sus productos una fila `prohibited` para todas las categorías, además de sus techos. Reconoce el caso por la frase de IFRA en la nota de prohibición, no por una lista hecha a mano.
+- **El adaptador:**
+  - la molécula usada sola da «prohibido»;
+  - dentro de un natural, cuenta contra el techo de su estándar, sin dejarlo pendiente;
+  - dentro de cualquier otra cosa (una composición o una fórmula congelada que la lleva directamente), sigue pendiente, como antes (propuesta de la sesión: no hay techo para el uso «como tal», y lo desconocido nunca se pinta en verde).
+- **La ficha** dice «prohibido» (V3-25).
+
+**Por qué** (la recomendación de la sesión que elegiste): con solo el techo, la isoforona usada directamente daría «dentro» por debajo del 0,0013 % (STD 154, `limite_nota`), y eso contradice el texto de IFRA. Con solo la prohibición, las 165 filas de naturales quedarían pendientes y sin techo.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
