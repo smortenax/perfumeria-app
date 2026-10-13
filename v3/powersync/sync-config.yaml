@@ -33,5 +33,3 @@ streams:
       - SELECT * FROM regulations WHERE owner_id = auth.user_id()
       - SELECT * FROM material_doses WHERE owner_id = auth.user_id()
       - SELECT * FROM lab_materials WHERE user_id = auth.user_id()
-      # The probe of step 1.5, until the materials are proved to sync (step 2.8).
-      - SELECT * FROM sync_probe WHERE owner_id = auth.user_id()

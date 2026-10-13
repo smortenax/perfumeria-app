@@ -17,18 +17,18 @@ export const texts = {
   },
   start: {
     title: "Esqueleto de la v3",
-    lead: "La app funciona en el navegador, también sin conexión. Todavía no tiene datos.",
+    lead: "La app funciona en el navegador, también sin conexión. Los datos de los materiales llegan con la migración.",
     stepsTitle: "Lo que viene",
     steps: ["El glosario de materiales.", "La formulación."],
   },
-  probe: {
-    title: "Prueba de sincronización",
-    lead: "Cada nota se guarda primero en este navegador y sube a Supabase cuando hay conexión.",
-    note: "Nota",
-    add: "Añadir",
-    empty: "Todavía no hay notas.",
+  status: {
+    title: "Los datos en este navegador",
     connected: "Conectado con el servidor",
     offline: "Sin conexión con el servidor: se trabaja con la copia de este navegador",
+    materials: (common: number, own: number) =>
+      `${common} ${common === 1 ? "material común" : "materiales comunes"} y ${own} ${own === 1 ? "tuyo" : "tuyos"}`,
+    data: (commit: string) => `Datos comunes: ${commit}`,
+    noData: "Todavía no hay datos comunes cargados.",
     pending: (n: number) => (n === 1 ? "1 cambio pendiente de subir" : `${n} cambios pendientes de subir`),
     rejected: (n: number) =>
       n === 1 ? "1 cambio rechazado por Supabase, guardado aquí" : `${n} cambios rechazados por Supabase, guardados aquí`,

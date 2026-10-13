@@ -121,14 +121,6 @@ export const dataVersion = sqliteTable("data_version", {
   loadedAt: text("loaded_at"),
 });
 
-/** The probe of step 1.5, as `db/schema/probe.ts` on the server. Goes away after step 2.8. */
-export const syncProbe = sqliteTable("sync_probe", {
-  id: text("id").primaryKey(),
-  ownerId: text("owner_id"),
-  note: text("note"),
-  createdAt: text("created_at"),
-});
-
 /**
  * What Supabase refused to take (a broken rule, a row it does not allow): kept here, in this
  * browser only, instead of being dropped, so that nothing is lost in silence.
@@ -152,7 +144,6 @@ export const tables = {
   materialDoses,
   labMaterials,
   dataVersion,
-  syncProbe,
   uploadRejections,
 };
 
@@ -165,6 +156,5 @@ export const AppSchema = new DrizzleAppSchema({
   materialDoses,
   labMaterials,
   dataVersion,
-  syncProbe,
   uploadRejections: { tableDefinition: uploadRejections, options: { localOnly: true } },
 });

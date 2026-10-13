@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { currentUser, signOut, supabase, type SignedInUser } from "./db/client";
 import { closeLocalDatabase, localDatabaseFor } from "./db/local/database";
 import { SignIn } from "./SignIn";
-import { SyncProbe } from "./SyncProbe";
+import { SyncStatus } from "./SyncStatus";
 import { texts } from "./i18n/es";
 
 /**
@@ -52,7 +52,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
       </header>
       <h2>{t.title}</h2>
       <p>{t.lead}</p>
-      <SyncProbe local={local} user={user} />
+      <SyncStatus local={local} />
       <h3>{t.stepsTitle}</h3>
       <ol>
         {t.steps.map((step) => (

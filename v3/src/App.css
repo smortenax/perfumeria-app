@@ -114,22 +114,15 @@ button.link {
   max-width: 20rem;
 }
 
-.probe form {
-  display: flex;
-  gap: 0.5rem;
-  align-items: flex-end;
-  flex-wrap: wrap;
-}
-
-.probe .status {
+.status-panel .status {
   margin: 0.25rem 0;
   font-size: 0.875rem;
 }
 
-.probe .status.ok {
+.status-panel .status.ok {
   color: #2e7d32;
 }
 
-.probe .status.off {
+.status-panel .status.off {
   color: var(--accent);
 }
