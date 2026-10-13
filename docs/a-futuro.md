@@ -59,7 +59,7 @@ Cada fila: **qué**, **de dónde** (pregunta o fecha) y **qué no hay que cerrar
 
 | Qué | De dónde | Qué no hay que cerrar ahora |
 |---|---|---|
-| **Acorde o perfume al guardar**; la galería con filtros, **un icono y un visualizador por fórmula** | P45 (abierta) | El tipo decidiría qué lectura de IFRA se destaca (§5.4) |
+| **Acorde o perfume al guardar**; la galería con filtros, **un icono y un visualizador por fórmula** | P45 (abierta; el marcador «acorde» o «perfume acabado» lo decide V3-20 de `docs/v3/decisiones-v3.md`) | El tipo decidiría qué lectura de IFRA se destaca (§5.4) |
 | **Las categorías generales** visibles | P46, frente 8 | |
 | **Replicar una fórmula** | P47 (exploración) | |
 | **Exportar al cuaderno** (Markdown y CSV) | Plan, fase 5 | |

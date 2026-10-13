@@ -19,12 +19,12 @@
 Se hacen **de una en una**, en este orden, y cada respuesta entra en [`decisiones-v3.md`](decisiones-v3.md) como V3-12, V3-13… con tus palabras. Las fases 0 y 1 no dependen de ellas; la fase 2, sí.
 
 1. ~~**7.5 a 7.11**~~ (decididas: V3-12 a V3-18) de [`modelo-materiales-v3.md`](modelo-materiales-v3.md): los tipos, los duplicados, la ficha, los datos del laboratorio, varios CAS, los datos en disputa, la tenacidad y las familias. Cada una lleva sus opciones y la recomendación.
-2. **Los bancos de trabajo** (V3-10; B.1 decidida: V3-19):
+2. ~~**Los bancos de trabajo**~~ (V3-10; decididas: V3-19 y V3-20):
 
 | # | Pregunta | Opciones | Recomiendo |
 |---|---|---|---|
 | ~~B.1~~ | ~~¿Una fórmula está en un banco o en varios?~~ | **Decidida (V3-19, 2026-10-13): cada fórmula, en un banco; unos marcadores la sacan a carpetas generales** | |
-| **B.2** | **¿Cada fórmula lleva un papel dentro de su banco** (corazón, acorde de salida, final)? | **Una etiqueta libre y opcional.** **Una lista cerrada.** **Nada** | **La etiqueta libre.** Aún no hay vocabulario, y una lista cerrada se puede sacar después de las etiquetas que uses. Toca P45 («acorde o perfume al guardar»), que sigue abierta en `docs/a-futuro.md` |
+| ~~B.2~~ | ~~¿Cada fórmula lleva un papel dentro de su banco?~~ | **Decidida (V3-20, 2026-10-13): marcadores en lista cerrada («acorde», «perfume acabado»); el papel, etiqueta libre y opcional** | |
 
 ---
 
@@ -140,7 +140,7 @@ Un script, `scripts/v3/importar.ts`, de los CSV a Postgres. **Reutiliza `src/v2/
 
 | Paso | Qué | Hecho cuando |
 |---|---|---|
-| 7.1 | `formulas`: las del plan; `parent_id` a `NULL` si se borra la madre. `workbench_id`, obligatorio (V3-19): al crear una fórmula, eliges su banco o creas uno. Sus marcadores (V3-19), y su papel en el banco si B.2 lo pide. Una versión nueva nace en el banco de su madre | — |
+| 7.1 | `formulas`: las del plan; `parent_id` a `NULL` si se borra la madre. `workbench_id`, obligatorio (V3-19): al crear una fórmula, eliges su banco o creas uno. `markers`, lista cerrada (`accord`, `finished`), y `role`, texto libre y opcional (V3-20). Una versión nueva nace en el banco de su madre | — |
 | 7.1b | `workbenches` (V3-10): id, dueño, nombre y notas. Solo tuyos y sincronizados (RLS y reglas de sincronización, como en 2.6) | A no ve los bancos de B |
 | 7.2 | `formula_events`: comprobación por tipo (`add` exige material, masa > 0, fracción en (0, 1] y diluyente si es < 1; `set_mass` y `remove`, un `target`; `reweigh`, bruto > tara; `note`, texto). **El orden lo da el `id` de cada evento**, un UUID v7 creado en el dispositivo, con su hora: dos equipos sin red no chocan, como sí harían con un `seq` consecutivo y `UNIQUE(formula_id, seq)` (§43 del plan; propuesta de la sesión por V3-9) | Dos copias añaden eventos sin red a la misma fórmula; al sincronizar, las dos ven el mismo historial |
 | 7.3 | RLS: fórmulas, solo las tuyas; eventos, según su fórmula y **solo se añaden**. Disparador: un evento solo usa materiales comunes o tuyos | Pruebas con dos usuarios: A no ve las fórmulas de B, no añade un evento con un material de B, ni edita ni borra un evento |

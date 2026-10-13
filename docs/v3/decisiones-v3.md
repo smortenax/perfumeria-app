@@ -408,7 +408,21 @@ Y sobre el material general (punto 5 de la lectura), 2026-10-13 17:19:
 
 **Por qué** (del mensaje): «si todas las formulas que se crean en la app viven en el mismo sitio es muy caotico, la idea es compartimentalizar».
 
+## V3-20 · Los marcadores, una lista cerrada; el papel en el banco, una etiqueta libre (decidida por el usuario el 2026-10-13)
+
+**Pregunta** (tarjeta del hilo, B.2 del [plan ejecutivo](plan-ejecutivo-v3.md), replanteada tras V3-19): ¿Cómo son los marcadores y el papel de una fórmula dentro de su banco?
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Lista cerrada + papel libre (Recomendado)» (2026-10-13 18:10): «Marcadores fijos («acorde», «perfume acabado», se añaden más a petición) con su carpeta general; el papel en el banco («corazón», «salida»), etiqueta libre y opcional.»
+
+**Cómo se aplica:**
+
+- **`formulas.markers`**, una lista de valores fijos: `accord` («acorde») y `finished` («perfume acabado»). Cada uno tiene su carpeta general (V3-19). Un marcador nuevo entra cuando lo pidas, con su decisión.
+- **`formulas.role`**, texto libre y opcional («corazón», «salida»): solo describe, y la app no hace nada con él.
+- **Toca P45** («acorde o perfume al guardar», abierta en `docs/a-futuro.md`): el marcador lo decide. La galería, el icono y el visualizador por fórmula siguen a futuro.
+
+**Por qué** (la recomendación de la sesión que elegiste): lo que hace actuar a la app («acorde» congela y comparte entre bancos) tiene que ser un valor fijo; el papel aún no tiene vocabulario, y una lista se puede sacar después de las etiquetas que uses.
+
 ## Pendientes
 
-- **B.2** del [plan ejecutivo](plan-ejecutivo-v3.md), de una en una, en el chat que arrancó con [`prompt-arranque-v3.md`](prompt-arranque-v3.md).
+- **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20). Siguen las cinco entradas pendientes de la bandeja del laboratorio (`../Perfumery/app/entradas.md`), que se llevan aquí.
 - Después, la fase 0 del plan ejecutivo.
