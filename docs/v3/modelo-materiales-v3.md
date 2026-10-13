@@ -78,14 +78,15 @@
   - **Agrupar no mezcla datos. Fusionar** dos fichas que son el mismo material, sí: solo con tu visto bueno, fila a fila *[V3-11]*.
 
 - **2.7 · La ficha: el núcleo y la dosis** *[Tú, V3-14; los campos, de tu referencia §3]*.
-  - **El núcleo**, en columnas de `materials` que admiten vacío: familia (`family`), facetas (`facets`), piso (`tier`), evolución (`evolution`), tenacidad (`tenacity`), potencia (`strength`), umbral (`threshold`), difusión (`diffusion`), efecto en la mezcla (`blend_effect`), función (`role`: estructura, modificador, traza, fijador, puente, booster) y dilución recomendada (`recommended_dilution`). El disolvente no es una función: es la marca de §2.3.
+  - **El núcleo**, en columnas de `materials` que admiten vacío: familia (`family`, una de las nueve de P48, V3-18), facetas (`facets`), piso (`tier`), evolución (`evolution`), tenacidad (`tenacity`), potencia (`strength`), umbral (`threshold`), difusión (`diffusion`), efecto en la mezcla (`blend_effect`), función (`role`: estructura, modificador, traza, fijador, puente, booster) y dilución recomendada (`recommended_dilution`). El disolvente no es una función: es la marca de §2.3.
   - **Lo propio de cada tipo**, vacío si no se sabe *[Propuesta, por §9.1]*: casa (`house`), código (`code`) y qué quiere oler (`odor_target`) en una composición; origen de síntesis (`synthesis`) e isómeros (`isomers`) en una molécula; la forma (`form`, §2.6) en un natural.
   - **La fuente y la confianza**, como en tu referencia *[Propuesta]*: `sources`, etiquetas cortas, y `confidence` (alta, media, baja), por material.
   - **La dosis, en `material_doses`:** una fila por fuente, con mínima, típica y máxima, **siempre con su base** (del concentrado, del producto terminado o «sin declarar»), su autoridad y su fuente. Las columnas son las de `datos/v2/usos.csv`, que la v2 diseñó así y dejó vacía.
   - **Un campo vacío sale «no lo dice»**, nunca un valor por defecto.
   - **Un dato en disputa sale «en disputa»** *[Tú, V3-17]*: `disputed_fields`, la lista de campos con un conflicto pendiente, y una marca `disputed` en cada dosis. Los conflictos no viajan a la app: se resuelven en el laboratorio o en el repo, y el script vuelve a importar.
   - **Después**, en otra fase: relaciones, descriptores por fuente, perfumes de referencia y física.
-  - **Qué datos lo llenan:** en lo común, la pregunta 7.11 (tenacidad y familias); tus 111 materiales del laboratorio llenan la ficha de tus versiones, en tu cuenta (§6.5, V3-15). El glosario de la v1 tiene familia en 3119 de sus 4347 filas, matiz en 2154 y uso mínimo y máximo en 691 (`datos/glosario/materiales.csv`).
+  - **Familia y tenacidad** *[Tú, V3-18]*: la familia es una lista cerrada, las nueve de P48 con su color; tu texto libre va en `family_detail` *[Propuesta]*. La tenacidad es texto con su fuente («8 h, según TGSC»), nunca un número, hasta que se decida su fuente.
+  - **Qué datos lo llenan:** en lo común, la familia y el matiz del glosario de la v1 (el matiz, a `facets` *[Propuesta]*); tus 111 materiales del laboratorio llenan la ficha de tus versiones, en tu cuenta (§6.5, V3-15). El glosario de la v1 tiene familia en 3119 de sus 4347 filas, matiz en 2154 y uso mínimo y máximo en 691 (`datos/glosario/materiales.csv`).
 
 ---
 
@@ -182,7 +183,7 @@ El 2026-10-13 llegó tu referencia del laboratorio (§9), y abre estas preguntas
 | ~~7.8~~ | ~~¿Entran en la base común los 111 materiales del laboratorio?~~ | **Decidida (V3-15, 2026-10-13): entran en tu cuenta, no en lo común** | |
 | ~~7.9~~ | ~~¿Cómo se guardan varios CAS?~~ | **Decidida (V3-16, 2026-10-13): el principal y una lista de otros, en el material** | |
 | ~~7.10~~ | ~~¿Viajan a la app los datos en disputa?~~ | **Decidida (V3-17, 2026-10-13): no; el dato sale marcado «en disputa»** | |
-| **7.11** | **¿Qué se hace con la tenacidad y las familias?** (escalas abiertas, §5 de la referencia) | **Aplazar:** el campo existe, pero no se enseña como número ni como lista cerrada hasta decidir la fuente. **Decidir ahora** | **Aplazar.** Las fuentes chocan por más de diez veces; la pregunta es de investigación, del laboratorio |
+| ~~7.11~~ | ~~¿Qué se hace con la tenacidad y las familias?~~ | **Decidida (V3-18, 2026-10-13): las familias, las nueve de P48; la tenacidad, aplazada como texto con su fuente** | |
 
 ---
 
@@ -197,7 +198,7 @@ El 2026-10-13 llegó tu referencia del laboratorio (§9), y abre estas preguntas
 | 3140 cifras de composición | `material_components`, con su autoridad y su documento como fuente |
 | 263 estándares de IFRA 51 y 2 condiciones | `regulations` |
 | Los 7 disolventes de la app | Ya son sustancias de la v2: esas moléculas, con la marca `solvent` (V3-12) |
-| **No entra al principio** | El color de las familias, las 10 concentraciones por defecto, los lotes, los documentos como tabla. El núcleo de la ficha y la dosis sí entran (V3-14), con los datos que decidan 7.8 y 7.11 |
+| **No entra al principio** | Las familias en los gráficos, las 10 concentraciones por defecto, los lotes, los documentos como tabla. El núcleo de la ficha y la dosis sí entran (V3-14), con los datos que decidan 7.8 y 7.11 |
 
 ---
 
@@ -221,7 +222,7 @@ El 2026-10-13 llegó tu referencia del laboratorio (§9), y abre estas preguntas
 | Un dato puede estar en disputa: tabla `conflicts` | Los conflictos se deciden en CSV del repo (`datos/v2/conflictos/`) | **Decidida (V3-17):** no viajan; el dato sale marcado «en disputa» |
 | El IFRA de segunda mano no se usa para calcular | IFRA sale solo de los archivos de IFRA (P37); V3-7 | **Encaja** |
 | Varios CAS por material | Un `cas` por material | **Decidida (V3-16):** `cas` y la lista `other_cas` |
-| Escalas abiertas: tenacidad y familia | — | **Pregunta 7.11** |
+| Escalas abiertas: tenacidad y familia | — | **Decidida (V3-18):** familias de P48; tenacidad, texto con su fuente |
 | Los datos: 111 materiales investigados | P37: nada del laboratorio entra en la app | **Decidida (V3-15):** entran en tu cuenta, como tus versiones de los comunes o materiales tuyos (§6.5). Cambia P37 |
 | Capa del usuario: diluciones preparadas, cata y lectura, ejes estéticos | Plan §46: `material_preferences`, aplazado | **Aplazado**, sin cerrar la puerta: es tuyo, no del material |
 

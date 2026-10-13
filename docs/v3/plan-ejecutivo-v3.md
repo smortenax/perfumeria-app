@@ -18,7 +18,7 @@
 
 Se hacen **de una en una**, en este orden, y cada respuesta entra en [`decisiones-v3.md`](decisiones-v3.md) como V3-12, V3-13… con tus palabras. Las fases 0 y 1 no dependen de ellas; la fase 2, sí.
 
-1. **7.5 a 7.11** (7.5 a 7.10 decididas: V3-12 a V3-17) de [`modelo-materiales-v3.md`](modelo-materiales-v3.md): los tipos, los duplicados, la ficha, los datos del laboratorio, varios CAS, los datos en disputa, la tenacidad y las familias. Cada una lleva sus opciones y la recomendación.
+1. ~~**7.5 a 7.11**~~ (decididas: V3-12 a V3-18) de [`modelo-materiales-v3.md`](modelo-materiales-v3.md): los tipos, los duplicados, la ficha, los datos del laboratorio, varios CAS, los datos en disputa, la tenacidad y las familias. Cada una lleva sus opciones y la recomendación.
 2. **Los bancos de trabajo** (V3-10):
 
 | # | Pregunta | Opciones | Recomiendo |
@@ -102,7 +102,7 @@ Un script, `scripts/v3/importar.ts`, de los CSV a Postgres. **Reutiliza `src/v2/
 | 4.4 | **Productos** (89), según V3-2 | Cada producto, un material común con su composición entera: la de su material general más la de su certificado, escrita por el script. Sus **topes** (13), regulaciones `manufacturer`. Las **concentraciones por defecto** (10) no tienen sitio en el plan: se quedan en el CSV |
 | 4.5 | **IFRA 51** | De `datos/ifra/51/` y `grupo-miembros.csv`: una regulación por miembro y categoría, `group_key` = la referencia del estándar (con su subgrupo en el 097 y el 181), y la enmienda en `source`. El 089 y sus miembros comparten `group_key` |
 | 4.6 | **Requisitos** | Un `requirement` por estándar y miembro, con autoridad `ifra`; si `condiciones.csv` dice que se cumple, con la autoridad y la fuente de esa fila |
-| 4.7 | **Otros nombres** (V3-6) | Del glosario de la v1 (que sigue congelado: se lee, no se toca), unidos a la v2 por `v1-a-v2.csv`. El núcleo de la ficha (V3-14): qué datos lo llenan en lo común, según 7.11; lo del laboratorio va en tu cuenta (4.9) |
+| 4.7 | **Otros nombres** (V3-6) | Del glosario de la v1 (que sigue congelado: se lee, no se toca), unidos a la v2 por `v1-a-v2.csv`. La familia y el matiz del glosario de la v1 (V3-18): la familia, una de las nueve de P48; el matiz, a `facets` (propuesta, se confirma aquí). La tenacidad no tiene datos comunes. Lo del laboratorio va en tu cuenta (4.9) |
 | 4.8 | **Categorías y duplicados** (V3-11, V3-13) | **Agrupar:** el script pone cada material en su categoría por regla (una molécula, por su CAS; un natural, por especie + parte, o por su CAS si no dice la especie) y escribe la lista en `datos/v3/categorias.csv` para que la revises; agrupar no mezcla datos. Hoy, 906 materiales comparten 210 CAS (modelo §9.2). **Fusionar:** el script **no fusiona nada solo**. Los candidatos (el mismo material dos veces; hoy 43 nombres en 120 materiales) van a `datos/v3/conflictos/duplicados.csv`; tú decides cada fila y el script aplica tus decisiones. El id de la v2 de un material fusionado apunta al que queda, en `datos/v3/fusiones.csv`, así que las fórmulas que lo usaban lo siguen encontrando |
 | 4.9 | **Materiales del laboratorio, en tu cuenta** (V3-15) | `scripts/v3/importar-laboratorio.ts`, desde `materiales.sqlite` del laboratorio, que lee y no escribe. Escribe en tu cuenta (tu `owner_id`), no en lo común. El que ya es un común entra como tu versión (`based_on_id`) con tu núcleo, tus dosis y tus sinónimos; cuál es el común lo decides tú en `datos/v3/conflictos/laboratorio.csv` (hoy, 89 de los 103 con CAS casan por CAS con la v2). El que no casa, material tuyo nuevo. Tus frascos (`user_materials`), «lo que tengo». Su IFRA de segunda mano, texto «sin verificar» que no calcula. La cata y los ejes esperan a la capa del usuario. Lo que tiene un conflicto pendiente en el laboratorio entra marcado «en disputa» (V3-17) |
 
@@ -125,7 +125,7 @@ Un script, `scripts/v3/importar.ts`, de los CSV a Postgres. **Reutiliza `src/v2/
 | Paso | Qué | Hecho cuando |
 |---|---|---|
 | 6.1 | **Recorrer** todo lo común y lo tuyo, con filtros (tipo, común o tuyo, lo que tengo, estado IFRA) y el buscador | Encuentras un material por su nombre comercial, su sigla, su CAS o la grafía española |
-| 6.2 | **La ficha**, la misma para todos: identidad, composición con su autoridad y fuente, y regulación. Con V3-14, el núcleo y la dosis, cada dato con su fuente y su base; un dato en disputa sale «en disputa» (V3-17) | La ficha de un material común dice lo mismo que la de la v2 |
+| 6.2 | **La ficha**, la misma para todos: identidad, composición con su autoridad y fuente, y regulación. Con V3-14, el núcleo y la dosis, cada dato con su fuente y su base; la familia con su color y la tenacidad como texto con su fuente (V3-18); un dato en disputa sale «en disputa» (V3-17) | La ficha de un material común dice lo mismo que la de la v2 |
 | 6.3 | **Crear tus materiales**, de cualquier tipo, con la misma ficha, sus regulaciones incluidas | Un material tuyo con su certificado da su IFRA como uno común |
 | 6.4 | **Tu versión de un común** | Hereda todo, añade lo tuyo, el común no cambia y salen los dos |
 | 6.5 | **Lo que tengo**: marcar de golpe o poco a poco | La lista se guarda y se ve en los filtros |

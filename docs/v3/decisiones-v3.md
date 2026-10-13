@@ -366,7 +366,25 @@ Y sobre el material general (punto 5 de la lectura), 2026-10-13 17:19:
 
 **Por qué** (la recomendación de la sesión que elegiste): los conflictos se resuelven donde se investiga, y la app solo necesita no dar por firme lo que no lo es. Pasar a una tabla `conflicts` más adelante es añadirla: la marca se queda.
 
+## V3-18 · Las familias, las nueve de P48; la tenacidad, aplazada (decidida por el usuario el 2026-10-13)
+
+**Pregunta** (tarjeta del hilo, 7.11 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md)): ¿Qué se hace con la tenacidad y las familias, las dos escalas abiertas de tu referencia (§5)?
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Familias P48, tenacidad aplazada (Recomendado)» (2026-10-13 17:40): «En lo común, las 9 familias de P48 como lista cerrada (las 3119 de la v1); la tenacidad, texto con su fuente hasta decidir. Tu texto libre del lab, como texto en tu cuenta.»
+
+**Cómo se aplica:**
+
+- **`materials.family` es una de las nueve de P48**, una lista cerrada: Cítrico, Verde, Ozónico, Floral, Frutal, Especiado, Amaderado, Animal y Transformado (`datos/glosario/LEEME.md`), con el color de `datos/fuente/pieza-11-paleta.csv`. En lo común salen del glosario de la v1, que tiene familia en 3119 de sus 4347 filas.
+- **La tenacidad, aplazada:** `materials.tenacity` es texto con su fuente («8 h, según TGSC»), nunca un número con el que ordenar, filtrar o calcular, hasta que se decida de dónde sale y si va en horas o por tramos (decisión abierta 1 de tu referencia).
+
+**Consecuencias** (propuesta de la sesión):
+
+- **Tu texto libre del laboratorio** («floral (jazmín)», 84 valores distintos en 108 materiales, `materiales.sqlite`) va en una columna de texto aparte, `family_detail`, en tu cuenta. La familia cerrada de tu versión la hereda del común.
+- **El matiz de la v1** (la segunda familia de P48, en 2154 filas) va a `facets`. Se confirma al importar (fase 4, paso 4.7).
+
+**Por qué** (la recomendación de la sesión que elegiste): en la app el vocabulario de familias ya estaba decidido (P48) y aplicado; la tenacidad es una pregunta de investigación del laboratorio, y como texto con su fuente no engaña.
+
 ## Pendientes
 
-- **La pregunta 7.11** de [`modelo-materiales-v3.md`](modelo-materiales-v3.md) **y B.1 y B.2** del [plan ejecutivo](plan-ejecutivo-v3.md), de una en una, en el chat que arrancó con [`prompt-arranque-v3.md`](prompt-arranque-v3.md).
+- **B.1 y B.2** del [plan ejecutivo](plan-ejecutivo-v3.md), de una en una, en el chat que arrancó con [`prompt-arranque-v3.md`](prompt-arranque-v3.md).
 - Después, la fase 0 del plan ejecutivo.
