@@ -450,6 +450,23 @@ Y sobre el material general (punto 5 de la lectura), 2026-10-13 17:19:
 
 **Por qué** (del mensaje): «a diferencia del funcionamineto actual que todo lo que esta de referencia se pierde entre los documentos de la app».
 
+## V3-22 · Supabase y PowerSync en local para desarrollar; el proyecto de la nube, enlazado (decidida por el usuario el 2026-10-13)
+
+**Contexto:** el usuario pasó la dirección de su proyecto de Supabase (orko kill, 2026-10-13, durante la pregunta 7.8: «https://qizruaizjyvwbitpreoq.supabase.co este es el link de supa para que la app pueda empezar a montarse ya desde la v3»). Este PC no tiene Docker ni ninguna distribución de WSL (`wsl --list` y `docker --version`, 2026-10-13), y Supabase y PowerSync locales corren en Docker.
+
+**Pregunta** (tarjeta del hilo): ¿Cómo se monta Supabase para desarrollar la v3?
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Local + nube enlazada (Recomendado)» (2026-10-13 18:28): «Instalas Docker Desktop; Supabase y PowerSync locales para desarrollar, y tu proyecto de la nube recibe solo migraciones probadas. Mientras, adelanto 1.3 y 1.6.»
+
+**Cómo se aplica:**
+
+- **El usuario instala Docker Desktop para Windows**, que trae su propio WSL 2. **Se sigue trabajando en la carpeta de Windows**: no hace falta clonar el repo dentro de WSL. Cambia el paso 0.3.
+- **Se desarrolla contra Supabase y PowerSync locales** (pasos 1.2 y 1.4), donde el esquema se borra y se repite sin riesgo.
+- **El proyecto `qizruaizjyvwbitpreoq` se enlaza ya** (`supabase link`), y solo recibe migraciones que han pasado en local.
+- **Las credenciales las pone el usuario:** el inicio de sesión en Supabase, la contraseña de la base de datos y las claves, en `v3/.env.local`, fuera de Git. Nunca en el chat.
+
+**Por qué** (la recomendación de la sesión que elegiste): el esquema de la fase 2 se va a rehacer muchas veces, y en local se repite sin tocar el proyecto real.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20). Siguen las cinco entradas pendientes de la bandeja del laboratorio (`../Perfumery/app/entradas.md`), que se llevan aquí.

@@ -36,7 +36,7 @@ Se hacen **de una en una**, en este orden, y cada respuesta entra en [`decisione
 |---|---|---|
 | 0.1 | Etiqueta `v2-final` en `main`, para poder volver a la v2 entera | La etiqueta está en GitHub |
 | 0.2 | La v3 se hace en una rama propia, que tú decides cuándo fusionar | Rama creada (con tu permiso, como pide `CLAUDE.md`) |
-| 0.3 | **Entorno en WSL:** el repo clonado dentro de WSL (en `~/`, no en `/mnt/c`, que es lento), Node 22 LTS y Docker Desktop con la integración de WSL activada (Supabase local y PowerSync local lo necesitan) | `npm ci && npm test` pasa en WSL, y `npx supabase --version` responde |
+| 0.3 | **Entorno** (V3-22): Docker Desktop para Windows, que trae su propio WSL 2 (Supabase local y PowerSync local lo necesitan). Se trabaja en la carpeta de Windows, sin clonar el repo en WSL. El proyecto de la nube, `qizruaizjyvwbitpreoq`, enlazado; solo recibe migraciones probadas en local | `docker run hello-world` responde, y dentro de `v3/` `npx supabase --version` también |
 | 0.4 | `docs-v3/estado.md`, como el de la v2: qué está hecho y qué sigue, en 30 líneas | Existe y se actualiza al final de cada sesión |
 
 **La v2 de la raíz no se toca** (V3-21): tu app instalada y su código siguen igual todo el tiempo.
