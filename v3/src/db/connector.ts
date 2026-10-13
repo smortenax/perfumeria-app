@@ -6,6 +6,7 @@ import {
   type PowerSyncCredentials,
 } from "@powersync/common";
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { toServerRow } from "./server-row";
 
 /**
  * Between the browser's copy and Supabase (V3-9, plan step 1.5), after PowerSync's own
@@ -60,9 +61,9 @@ export class SupabaseConnector implements PowerSyncBackendConnector {
         const table = this.client.from(op.table);
         const result =
           op.op === UpdateType.PUT
-            ? await table.upsert({ ...op.opData, id: op.id })
+            ? await table.upsert(toServerRow(op.table, { ...op.opData, id: op.id }))
             : op.op === UpdateType.PATCH
-              ? await table.update(op.opData ?? {}).eq("id", op.id)
+              ? await table.update(toServerRow(op.table, op.opData ?? {})).eq("id", op.id)
               : await table.delete().eq("id", op.id);
         if (result.error) {
           throw result.error;

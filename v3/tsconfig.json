@@ -21,5 +21,7 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src", "db"],
+  /* The tests that run in Node (a copy of PowerSync on better-sqlite3) have their own check, with Node's types: tsconfig.tests.json. */
+  "exclude": ["src/**/*.node.test.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && tsc -p tsconfig.tests.json && vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "db:start": "supabase start",
@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "@powersync/node": "^1.1.1",
+    "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.1",
