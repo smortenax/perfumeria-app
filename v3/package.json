@@ -19,7 +19,8 @@
     "sync:stop": "docker compose -f powersync/docker-compose.yaml --env-file .env.local down",
     "sync:restart": "docker compose -f powersync/docker-compose.yaml --env-file .env.local restart powersync",
     "sync:logs": "docker compose -f powersync/docker-compose.yaml --env-file .env.local logs powersync",
-    "test:db": "vitest run --config vitest.db.config.ts"
+    "test:db": "vitest run --config vitest.db.config.ts",
+    "datos:cargar": "node scripts/cargar.ts"
   },
   "dependencies": {
     "@powersync/common": "^2.3.1",

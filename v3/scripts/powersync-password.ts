@@ -17,7 +17,7 @@ if (!password) {
 const sql = postgres("postgresql://postgres:postgres@127.0.0.1:54322/postgres", { max: 1 });
 try {
   // ALTER ROLE takes no parameters: the password goes in as a quoted literal.
-  await sql.unsafe(`ALTER ROLE powersync_role WITH PASSWORD '${password.replaceAll("'", "''")}'`);
+  await sql.unsafe(`ALTER ROLE powersync_role WITH PASSWORD '${password.replace(/'/g, "''")}'`);
   console.log("Contraseña de powersync_role puesta en la base local.");
 } finally {
   await sql.end();

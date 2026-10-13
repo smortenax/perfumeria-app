@@ -5,6 +5,8 @@
  *
  *   npm run db:test-users
  */
+export {};
+
 const url = process.env.VITE_SUPABASE_URL ?? "";
 const key = process.env.SUPABASE_LOCAL_SECRET_KEY ?? "";
 if (!/^http:\/\/(127\.0\.0\.1|localhost)(:\d+)?$/.test(url) || key === "") {

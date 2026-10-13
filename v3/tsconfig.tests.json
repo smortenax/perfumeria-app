@@ -3,6 +3,6 @@
   "compilerOptions": {
     "types": ["node", "vite/client"]
   },
-  "include": ["src", "db", "db-tests"],
+  "include": ["src", "db", "db-tests", "scripts"],
   "exclude": []
 }
