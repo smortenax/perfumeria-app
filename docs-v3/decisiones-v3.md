@@ -487,7 +487,7 @@ Y sobre el material general (punto 5 de la lectura), 2026-10-13 17:19:
 - **En la equivalencia (fase 5)** estos 9 materiales salen distintos de la v2 a propósito; la lista y el porqué, con esta decisión.
 - **El resto de la entrada ya está decidido:** el aceite, la goma y el absoluto son fichas distintas de una categoría (V3-13); el absoluto de Maese Lab entra en tu cuenta como tu versión del absoluto común, y cuál es lo decides en `laboratorio.csv` (V3-15). Los tres documentos de proveedor que cita la entrada pasan, si se quiere, como fichas de producto con su cita (V3-2, V3-21).
 
-**Queda abierta** (propuesta de la sesión, para preguntarla aparte): los 219 materiales sin entrada propia llevan autoridad «anexo-ifra» con cifras de otras formas, y así pueden dar «dentro». Se parecen más a un supuesto (V3-7).
+**Quedaba abierta** (decidida en V3-28: como literatura) (propuesta de la sesión, para preguntarla aparte): los 219 materiales sin entrada propia llevan autoridad «anexo-ifra» con cifras de otras formas, y así pueden dar «dentro». Se parecen más a un supuesto (V3-7).
 
 **Por qué** (la recomendación de la sesión que elegiste): es lo que pide V3-13, cada ficha con su composición; el máximo le pone a una goma y a un absoluto la isoforona de un aceite.
 
@@ -587,8 +587,22 @@ Y sobre el material general (punto 5 de la lectura), 2026-10-13 17:19:
 
 **Por qué** (la recomendación de la sesión que elegiste, con tu precisión de los niveles): no toca el esquema y hoy afecta a un material.
 
+## V3-28 · Las cifras del anexo prestadas de otras formas entran como literatura (decidida por el usuario el 2026-10-13)
+
+**Pregunta** (tarjeta del hilo, fase 4; la dejó abierta V3-23): las cifras del anexo que 219 materiales sin entrada propia toman de otras formas con su mismo CAS (regla D14 de la v2; medido sobre `datos/v2/composicion.csv`), ¿con qué autoridad entran?
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Como literatura (Recomendado)» (2026-10-13 21:34): «Fuente «IFRA 51, anexo: entradas prestadas por CAS (…)»; como mucho «acotado», nunca «dentro» (V3-7). El techo sigue siendo su máximo.»
+
+**Cómo se aplica:**
+
+- **La migración (paso 4.3)** escribe esas filas con autoridad `literature` y la fuente «IFRA 51, anexo: entradas prestadas por CAS (…)», con las entradas de las que salen. Las de un material con entrada propia (V3-23) siguen con autoridad `ifra`.
+- **Por V3-7**, dan como mucho «acotado»: para IFRA se cuenta su máximo, en el peor caso.
+- **La declaración de IFRA de uno de esos materiales**, dada de alta en su versión, manda sobre ellas (V3-27, nivel 3).
+- **En la equivalencia (fase 5)** estos 219 materiales salen distintos de la v2 a propósito.
+
+**Por qué** (la recomendación de la sesión que elegiste): son cifras de otro material, no de este; con autoridad de IFRA darían un verde que nada prueba.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
-- **Abierta, de V3-23:** ¿qué autoridad llevan las cifras del anexo que una ficha toma prestadas de otras formas con su CAS (219 materiales)? Hoy, «anexo-ifra», que puede dar «dentro».
 - Después, la fase 0 del plan ejecutivo.
