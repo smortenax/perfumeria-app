@@ -70,7 +70,7 @@
 
 ## 3 · La composición
 
-- **3.1 · Una fila por componente** *[Plan §21]*: el material, el componente, la cantidad, la autoridad y la fuente.
+- **3.1 · Una fila por componente** *[Plan §21]*: el material, el componente, la cantidad, la autoridad y la fuente. Cada fila lleva su propio id, porque la sincronización lo pide *[V3-9]*.
 - **3.2 · La cantidad es de uno de cuatro tipos** *[Plan §22]*:
   - `exact`, una cifra;
   - `max`, «como mucho»;
@@ -131,7 +131,7 @@
   - **añade lo tuyo**: tus cifras mandan sobre las del común por su autoridad (tu certificado de producto sobre el anexo), y tus límites se suman a los de IFRA, con el más estricto mandando;
   - **un cambio de IFRA en el común te llega solo**.
 - **6.4 · «Lo que tengo»**: marcas los materiales que tienes, sin cantidades. Con el interruptor encendido, el buscador del banco solo te enseña esos *[Tú, V3-3]*.
-  - Una tabla pequeña de usuario y material.
+  - Una tabla pequeña de usuario y material, con su propio id *[V3-9]*.
   - El plan solo excluye el «inventario avanzado» (§45).
 
 ---

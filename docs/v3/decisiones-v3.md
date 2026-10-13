@@ -166,9 +166,35 @@ Un material común solo puede basarse en otro común, y no hay ciclos. Los produ
 
 **Por qué** (del mensaje): no hay que encargarse de versiones, launchers ni tiendas de apps.
 
-**Pendiente:** dónde viven los datos sin red. Va en una tarjeta del hilo. Propuesta de la sesión: una copia en el navegador sincronizada con Supabase.
+**Dónde viven los datos sin red:** lo decide V3-9.
+
+## V3-9 · Una copia en el navegador, sincronizada con Supabase (decidida por el usuario el 2026-10-13)
+
+**Pregunta** (tarjeta del hilo): ¿Dónde guarda la app tus datos para funcionar sin conexión?
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Copia sincronizada» (2026-10-13 12:29): «Todo vive en el navegador y se sincroniza con Supabase cuando hay red. Sirve en varios equipos, y se añade PowerSync.»
+
+**Cómo se aplica:**
+
+- **La app es una PWA:** se descarga del sitio, queda guardada en el navegador y coge la versión nueva cuando hay red.
+- **Los datos viven en una base SQLite dentro del navegador**, que PowerSync sincroniza con Supabase. La app lee y escribe siempre en esa copia; lo que escribes sin red espera en una cola y sube al volver.
+- **Supabase sigue siendo el original.** El script escribe ahí lo común, y RLS comprueba todo lo que sube. Lo que baja a cada usuario lo deciden las reglas de sincronización de PowerSync, que repiten las de RLS.
+- **Hace falta red la primera vez:** para entrar y para la primera descarga. Después, todo funciona sin ella.
+- **Coste:** el plan gratis de PowerSync para empezar. Se desactiva tras una semana sin uso, como el de Supabase, pero la app sigue funcionando con su copia. El de pago empieza en 49 $ al mes. En local, PowerSync corre en Docker junto a Supabase.
+
+**Consecuencias en el esquema** (propuesta de la sesión):
+
+- **Cada tabla que se sincroniza lleva su propio `id` (uuid)**, también `material_components` y `lab_materials`. PowerSync no admite claves compuestas.
+- **El esquema se escribe dos veces con Drizzle:** Postgres en el servidor y SQLite en el navegador.
+- **Las cifras exactas:** `numeric` llega al navegador como texto, sin pérdida. `bigint` llega como entero, así que en el navegador se declara como texto y una prueba de ida y vuelta lo comprueba.
+- **El orden del historial lo da el id de cada evento** (un UUID v7, que lleva la hora del dispositivo), no un `seq` consecutivo. Así dos equipos sin red no chocan. Cambia la `UNIQUE(formula_id, seq)` del §43 del plan.
+- **Si editas el mismo material tuyo en dos equipos sin red, gana el último que sube.** El historial de una fórmula no tiene ese problema, porque solo se añade.
+
+**Por qué** (de la tarjeta): mantiene el Supabase del plan, deja abiertos el móvil y el producto, y sin red funciona igual.
+
+**Fuentes:** [precios de PowerSync](https://powersync.com/pricing), [guía de PowerSync con Supabase](https://docs.powersync.com/integrations/supabase/guide), [tipos](https://docs.powersync.com/sync/types), [ids](https://docs.powersync.com/sync/advanced/client-id), [Drizzle en PowerSync](https://docs.powersync.com/client-sdk-references/javascript-web/javascript-orm/drizzle), [pausas de Supabase](https://supabase.com/docs/guides/platform/free-project-pausing). Consultadas el 2026-10-13.
 
 ## Pendientes
 
 - El modelo de materiales queda cerrado (V3-4 a V3-7).
-- Dónde viven los datos sin conexión (V3-8): una copia sincronizada con Supabase o solo en el navegador. Según la respuesta cambian las fases 1 y 3 de [`plan-ejecutivo-v3.md`](plan-ejecutivo-v3.md).
+- Sin preguntas abiertas. Lo siguiente es la fase 0 de [`plan-ejecutivo-v3.md`](plan-ejecutivo-v3.md), cuando lo pidas.

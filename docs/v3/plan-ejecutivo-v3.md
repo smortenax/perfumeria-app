@@ -1,10 +1,12 @@
 # Plan ejecutivo de la v3
 
-*2026-10-07. Sale de `PLAN_V3.md` con las decisiones de [`decisiones-v3.md`](decisiones-v3.md) (V3-1: donde chocan, manda el plan). Cada paso dice cuándo está hecho, para que se pueda comprobar sin opinar. Va por fases y en orden; cada paso, un commit.*
+*2026-10-07, revisado el 2026-10-13 con V3-8 y V3-9 (sin conexión). Sale de `PLAN_V3.md` con las decisiones de [`decisiones-v3.md`](decisiones-v3.md) (V3-1: donde chocan, manda el plan). Cada paso dice cuándo está hecho, para que se pueda comprobar sin opinar. Va por fases y en orden; cada paso, un commit.*
 
 **El orden manda** (el usuario, 2026-10-07): primero **los datos y el glosario de materiales** (fases 2 a 6), y solo después **la formulación** (fases 7 a 9). En sus palabras: «hay que establecer el tratado de datos y todo el glosario de materiales conforme antes de hacer nada de la formulacion».
 
 **Cómo se lee:** «Hecho cuando» es la comprobación que cierra el paso. Si falla, el paso no está hecho. Entre paréntesis, el paso del §44 del plan al que corresponde.
+
+**Sin conexión** (V3-8, V3-9): la app es una PWA y guarda **una copia de los datos en el navegador**, que PowerSync sincroniza con Supabase. La app lee y escribe siempre en esa copia; lo que haces sin red sube al volver. Hace falta red solo la primera vez, para entrar y descargar. Supabase sigue siendo el original.
 
 **Lo que no cambia:** `src/core/` (el motor) solo se toca si una prueba demuestra que hace falta, como hasta ahora. La v2 llega al motor por un adaptador. Los datos los escribe un script, nunca a mano.
 
@@ -16,7 +18,7 @@
 |---|---|---|
 | 0.1 | Etiqueta `v2-final` en `main`, para poder volver a la v2 entera | La etiqueta está en GitHub |
 | 0.2 | La v3 se hace en una rama propia, que tú decides cuándo fusionar | Rama creada (con tu permiso, como pide `CLAUDE.md`) |
-| 0.3 | **Entorno en WSL:** el repo clonado dentro de WSL (en `~/`, no en `/mnt/c`, que es lento), Node 22 LTS y Docker Desktop con la integración de WSL activada (Supabase local lo necesita) | `npm ci && npm test` pasa en WSL, y `npx supabase --version` responde |
+| 0.3 | **Entorno en WSL:** el repo clonado dentro de WSL (en `~/`, no en `/mnt/c`, que es lento), Node 22 LTS y Docker Desktop con la integración de WSL activada (Supabase local y PowerSync local lo necesitan) | `npm ci && npm test` pasa en WSL, y `npx supabase --version` responde |
 | 0.4 | `docs/v3/estado.md`, como el de la v2: qué está hecho y qué sigue, en 30 líneas | Existe y se actualiza al final de cada sesión |
 
 **Tu app 0.2.1 instalada sigue funcionando** todo el tiempo: quitar Tauri del repo no la desinstala.
@@ -28,9 +30,12 @@
 | Paso | Qué | Hecho cuando |
 |---|---|---|
 | 1.1 | **Quitar Tauri.** Se borran `src-tauri/`, las dependencias `@tauri-apps/*` y el script `tauri`. Solo cuatro archivos las usan (`src/bench/io.ts`, `library.ts`, `store.ts`, `zoom.ts`); pasan a una interfaz de guardado con una implementación provisional en el navegador, que ya existe para el desarrollo | `npm run build` y `npm test` pasan; `npm run dev` abre el banco en el navegador y la prueba de la F-001 sigue verde (paso 2) |
-| 1.2 | **Supabase local:** `npx supabase init` y `npx supabase start`. Registro cerrado (`enable_signup = false`), tu usuario creado a mano | Studio abre en `localhost:54323`. `.env.example` en el repo; `.env.local` fuera de Git |
-| 1.3 | **Drizzle:** `drizzle-orm`, `drizzle-kit` y `postgres`. El esquema en `db/schema/`. `drizzle.config.ts` escribe el SQL en `supabase/migrations/` con el formato de nombres de Supabase. **Una sola carpeta de migraciones**: RLS y disparadores van en SQL en la misma carpeta | `drizzle-kit generate` crea un SQL y `npx supabase db reset` lo aplica limpio |
-| 1.4 | **Inicio de sesión:** cliente `supabase-js` en `src/db/client.ts` y una pantalla de entrar con correo y contraseña | Entras y ves el lanzador; sin sesión, no |
+| 1.2 | **Supabase local:** `npx supabase init` y `npx supabase start`. Registro cerrado (`enable_signup = false`), tu usuario creado a mano. La publicación `powersync` y el rol de replicación que pide PowerSync, en una migración | Studio abre en `localhost:54323`. `.env.example` en el repo; `.env.local` fuera de Git |
+| 1.3 | **Drizzle en el servidor:** `drizzle-orm`, `drizzle-kit` y `postgres`. El esquema de Postgres en `db/schema/`. `drizzle.config.ts` escribe el SQL en `supabase/migrations/` con el formato de nombres de Supabase. **Una sola carpeta de migraciones**: RLS y disparadores van en SQL en la misma carpeta | `drizzle-kit generate` crea un SQL y `npx supabase db reset` lo aplica limpio |
+| 1.4 | **PowerSync local:** el servicio en Docker junto a Supabase local, como en el ejemplo oficial (`powersync-ja/self-host-demo`, `demos/supabase`). Su configuración y las reglas de sincronización, en `powersync/` dentro del repo | El servicio arranca y lee la publicación de Supabase |
+| 1.5 | **La copia en el navegador:** `@powersync/web` y `@powersync/drizzle-driver`. El esquema del navegador (SQLite, con Drizzle) en `src/db/local/`. El conector: pide el token a la sesión de Supabase y sube la cola con `supabase-js` | Con una tabla de prueba: una fila escrita **con la red cortada** (herramientas del navegador) sigue ahí al recargar sin red, y aparece en Supabase al volver la red |
+| 1.6 | **La PWA:** `vite-plugin-pwa`. La app se guarda en el navegador y coge la versión nueva cuando hay red | Con la red cortada, recargar abre la app. Tras publicar un cambio, la siguiente carga con red lo trae |
+| 1.7 | **Inicio de sesión:** cliente `supabase-js` en `src/db/client.ts` y una pantalla de entrar con correo y contraseña. La sesión se guarda para abrir sin red | Entras y ves el lanzador; sin red, la app abre con tu sesión guardada; sin sesión, no |
 
 ---
 
@@ -38,21 +43,22 @@
 
 ## Fase 2 · El esquema de los materiales (pasos 5, 6 y 11)
 
-Las tablas de materiales del plan, según [`modelo-materiales-v3.md`](modelo-materiales-v3.md) (segunda versión, sobre el plan). Las de fórmulas esperan a la fase 7.
+Las tablas de materiales del plan, según [`modelo-materiales-v3.md`](modelo-materiales-v3.md) (segunda versión, sobre el plan). Las de fórmulas esperan a la fase 7. **Cada tabla se escribe dos veces con Drizzle**: en Postgres (`db/schema/`) y en el navegador (`src/db/local/`), y **cada una lleva su propio `id` uuid**, porque PowerSync no admite claves compuestas (V3-9).
 
 | Paso | Tabla | Además de lo del plan |
 |---|---|---|
 | 2.1 | `materials` | `kind`: `substance`, `mixture`, `solvent`, `provisional`, `frozen` (V3-4). `based_on_id`, tu versión de un común (V3-5). `aliases`, otros nombres para el buscador (V3-6) |
-| 2.2 | `material_components` | `amount_kind` (`exact`, `max`, `range`, `unknown`) con su comprobación: `range` exige mínimo ≤ máximo, `exact` y `max` exigen valor, `unknown` ninguno. Un material no se contiene a sí mismo |
+| 2.2 | `material_components` | Su propio `id` (V3-9). `amount_kind` (`exact`, `max`, `range`, `unknown`) con su comprobación: `range` exige mínimo ≤ máximo, `exact` y `max` exigen valor, `unknown` ninguno. Un material no se contiene a sí mismo |
 | 2.3 | `regulations` | Nada: `kind` es `max`, `prohibited` o `requirement`, y la enmienda va en `source`. `max_value` es fracción del producto terminado |
-| 2.4 | `lab_materials` | Usuario + material: «lo que tengo» (V3-3). Sin cantidades |
-| 2.5 | Perfil del usuario | El interruptor «solo lo que tengo», en los datos del usuario de Supabase Auth (sin tabla) |
+| 2.4 | `lab_materials` | Usuario + material, con su propio `id` (V3-9): «lo que tengo» (V3-3). Sin cantidades |
+| 2.5 | Perfil del usuario | El interruptor «solo lo que tengo», en los datos del usuario de Supabase Auth (sin tabla), con una copia en el navegador para cambiarlo sin red |
 
 | Paso | Qué | Hecho cuando |
 |---|---|---|
-| 2.6 | **RLS.** Materiales, componentes y regulaciones: lees los comunes y los tuyos; escribes solo los tuyos. `lab_materials`: solo los tuyos. Lo común solo lo escribe el script, con la clave de servicio | — |
+| 2.6 | **RLS** (lo que sube). Materiales, componentes y regulaciones: lees los comunes y los tuyos; escribes solo los tuyos. `lab_materials`: solo los tuyos. Lo común solo lo escribe el script, con la clave de servicio | — |
+| 2.6b | **Reglas de sincronización** (lo que baja), en `powersync/`: a todos, lo común; a cada uno, lo suyo. Repiten las de RLS, porque PowerSync no pasa por RLS al descargar | — |
 | 2.7 | **Disparadores:** un material común solo contiene comunes; la composición de un `frozen` no se cambia; sin ciclos de composición ni de «basado en»; `updated_at` al día | — |
-| 2.8 | **Pruebas de la base** (`npm run test:db`, contra Supabase local, con dos usuarios) | A no ve nada de B; A no escribe en lo común; la versión de A de un material común no cambia el común |
+| 2.8 | **Pruebas de la base** (`npm run test:db`, contra Supabase y PowerSync locales, con dos usuarios) | A no ve nada de B, **ni le llega por la sincronización**; A no escribe en lo común; la versión de A de un material común no cambia el común |
 
 ---
 
@@ -60,8 +66,8 @@ Las tablas de materiales del plan, según [`modelo-materiales-v3.md`](modelo-mat
 
 | Paso | Qué | Hecho cuando |
 |---|---|---|
-| 3.1 | **Exactitud por la API:** `numeric` y `bigint` se leen con `::text` y se escriben como texto; el dominio los convierte a `Ratio` y `bigint`. Nunca pasan por un `number` de JavaScript | Prueba de ida y vuelta: `9007199254740993` µg y `0.000000000000000000000000000001` vuelven idénticos |
-| 3.2 | **Repositorios** en `src/db/`: cargar el catálogo (comunes y tuyos, con componentes y regulaciones), crear y editar tus materiales, marcar «lo tengo» | Pruebas contra Supabase local |
+| 3.1 | **Exactitud en la copia y en la sincronización:** `numeric` llega al navegador como texto, sin pérdida; `bigint` llega como entero, así que en el esquema del navegador las columnas exactas se declaran como texto. El dominio los convierte a `Ratio` y `bigint`; nunca pasan por un `number` de JavaScript. **Si un `bigint` no vuelve idéntico, las masas pasan a `numeric`** | Prueba de ida y vuelta por la sincronización, en los dos sentidos: `9007199254740993` µg y `0.000000000000000000000000000001` vuelven idénticos |
+| 3.2 | **Repositorios** en `src/db/`, **siempre sobre la copia del navegador**, nunca directos a Supabase: cargar el catálogo (comunes y tuyos, con componentes y regulaciones), crear y editar tus materiales, marcar «lo tengo». Lo que se escribe va a la cola de subida | Pruebas sin red contra la copia; una prueba de subida contra Supabase local |
 | 3.3 | **Adaptador** `src/db/to-ifra.ts`: del catálogo al `IfraData` que ya usa el motor, como hace hoy `src/v2/to-ifra.ts` desde los CSV. Incluye `expand()` recursivo (§24) con dónde se para según el tipo, el componente «Sin identificar», el requisito según su autoridad, la regla de `group_key` (la parte de cada miembro sobre su máximo, sumada, no pasa de 1) y la herencia de tu versión (V3-5) | Con un catálogo de prueba, sin base de datos, sale el mismo `IfraData` que de los CSV equivalentes |
 
 ---
@@ -80,7 +86,7 @@ Un script, `scripts/v3/importar.ts`, de los CSV a Postgres. **Reutiliza `src/v2/
 | 4.6 | **Requisitos** | Un `requirement` por estándar y miembro, con autoridad `ifra`; si `condiciones.csv` dice que se cumple, con la autoridad y la fuente de esa fila |
 | 4.7 | **Otros nombres** (V3-6) | Del glosario de la v1 (que sigue congelado: se lee, no se toca), unidos a la v2 por `v1-a-v2.csv`. Familias, uso y duración no entran al principio |
 
-**Hecho cuando:** los recuentos coinciden con los CSV, una segunda ejecución no cambia ninguna fila, y el registro dice de qué commit salen los datos.
+**Hecho cuando:** los recuentos coinciden con los CSV, una segunda ejecución no cambia ninguna fila, y el registro dice de qué commit salen los datos. **Y un navegador nuevo descarga el catálogo entero** con los mismos recuentos; se apunta cuánto ocupa y cuánto tarda esa primera descarga.
 
 ---
 
@@ -103,6 +109,7 @@ Un script, `scripts/v3/importar.ts`, de los CSV a Postgres. **Reutiliza `src/v2/
 | 6.4 | **Tu versión de un común** | Hereda todo, añade lo tuyo, el común no cambia y salen los dos |
 | 6.5 | **Lo que tengo**: marcar de golpe o poco a poco | La lista se guarda y se ve en los filtros |
 | 6.6 | Pantalla estrecha y sin *hover* | El glosario se usa en el móvil |
+| 6.7 | **Sin red** | Con la red cortada: recorres, creas y editas tus materiales y marcas lo que tienes. Al volver la red, todo sube y se ve en otro navegador |
 
 ---
 
@@ -113,7 +120,7 @@ Un script, `scripts/v3/importar.ts`, de los CSV a Postgres. **Reutiliza `src/v2/
 | Paso | Qué | Hecho cuando |
 |---|---|---|
 | 7.1 | `formulas`: las del plan; `parent_id` a `NULL` si se borra la madre | — |
-| 7.2 | `formula_events`: comprobación por tipo (`add` exige material, masa > 0, fracción en (0, 1] y diluyente si es < 1; `set_mass` y `remove`, un `target`; `reweigh`, bruto > tara; `note`, texto) y `UNIQUE(formula_id, seq)` | — |
+| 7.2 | `formula_events`: comprobación por tipo (`add` exige material, masa > 0, fracción en (0, 1] y diluyente si es < 1; `set_mass` y `remove`, un `target`; `reweigh`, bruto > tara; `note`, texto). **El orden lo da el `id` de cada evento**, un UUID v7 creado en el dispositivo, con su hora: dos equipos sin red no chocan, como sí harían con un `seq` consecutivo y `UNIQUE(formula_id, seq)` (§43 del plan; propuesta de la sesión por V3-9) | Dos copias añaden eventos sin red a la misma fórmula; al sincronizar, las dos ven el mismo historial |
 | 7.3 | RLS: fórmulas, solo las tuyas; eventos, según su fórmula y **solo se añaden**. Disparador: un evento solo usa materiales comunes o tuyos | Pruebas con dos usuarios: A no ve las fórmulas de B, no añade un evento con un material de B, ni edita ni borra un evento |
 | 7.4 | Leer tu biblioteca (`Documentos\Perfumería\Fórmulas`) desde tu equipo, con tu permiso | Copia de los archivos en la carpeta del proyecto |
 | 7.5 | `scripts/v3/importar-formulas.ts`: cabecera → `formulas`, historial → `formula_events` en orden. Las claves: las de la v2, por el id que se calcula de ellas; `cas:`, por CAS; `prov:` y `own:`, un material provisional tuyo por nombre (P44); `vec:`, un material `frozen` tuyo con su composición; `solv:`, los disolventes; tus diluyentes propios, provisionales tuyos. Las versiones, unidas por `parent_id` | Para cada fórmula, `compose()` desde la base da la composición que guarda el archivo |
@@ -131,6 +138,7 @@ Un script, `scripts/v3/importar.ts`, de los CSV a Postgres. **Reutiliza `src/v2/
 | 8.4 | El panel de IFRA, los gráficos y la ficha, sobre el nuevo `IfraData` | Las dos lecturas coinciden con el cálculo a mano en tres casos |
 | 8.5 | Guardar una fórmula como material (`frozen`, §27) | Cambiar la fórmula después no cambia el material |
 | 8.6 | Pantalla estrecha y sin *hover* | El banco se usa en el móvil |
+| 8.7 | **Sin red** | Con la red cortada, pesas una fórmula entera con IFRA. Al volver la red, el historial sube completo y sin duplicados |
 
 ---
 
@@ -138,8 +146,8 @@ Un script, `scripts/v3/importar.ts`, de los CSV a Postgres. **Reutiliza `src/v2/
 
 | Paso | Qué | Hecho cuando |
 |---|---|---|
-| 9.1 | Proyecto de Supabase en la nube; `supabase db push` y el script de importación contra él | Los recuentos de la fase 4, en la nube |
-| 9.2 | Alojar la web (un alojamiento estático para Vite; se elige en ese momento) | Entras desde el PC y desde el móvil |
+| 9.1 | Proyecto de Supabase en la nube; `supabase db push` y el script de importación contra él. **Una instancia de PowerSync Cloud** (plan gratis) conectada a él, con las reglas de `powersync/`. Los dos planes gratis se desactivan tras una semana sin uso; la app sigue funcionando con su copia y se reactivan desde su panel | Los recuentos de la fase 4, en la nube y en un navegador nuevo |
+| 9.2 | Alojar la web (un alojamiento estático para Vite; se elige en ese momento) | Entras desde el PC y desde el móvil, y la app queda instalada en los dos |
 | 9.3 | **Copias:** volcado nocturno de la base a un repositorio privado con una acción de GitHub. El plan gratuito de Supabase no da copias descargables | Aparece una copia cada noche |
 | 9.4 | Quitar los cargadores de CSV y JSON del tiempo de ejecución y el código de la v1 y la v2 que ya no se use. **Se quedan** `datos/`, `scripts/` y lo que usa el importador (`src/v2/load.ts`, `validate.ts`) | `npm test` pasa y la app no lee ningún CSV al arrancar |
 
@@ -155,6 +163,6 @@ Del §46 del plan, más lo que la revisión encontró y V3-1 deja fuera:
 - **Favoritas, última dilución y nombre del frasco** (`material_preferences`).
 - **Concentración por defecto de un producto** (D12, 10 filas en `concentraciones.csv`).
 - **Familias, uso habitual y duración** (en la ficha y en los gráficos).
-- ~~**Sin conexión.**~~ Ya no se aplaza: entra con V3-8. El cómo, pendiente de una tarjeta del hilo.
+- ~~**Sin conexión.**~~ Ya no se aplaza: entra con V3-8 y V3-9 (fases 1, 3, 6 y 8).
 - **Exportar al cuaderno** (Markdown y CSV).
 - **Abrir la app a otros usuarios**, después de revisar las licencias de IFRA, el FIG y TGSC.
