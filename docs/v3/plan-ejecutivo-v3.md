@@ -155,6 +155,6 @@ Del §46 del plan, más lo que la revisión encontró y V3-1 deja fuera:
 - **Favoritas, última dilución y nombre del frasco** (`material_preferences`).
 - **Concentración por defecto de un producto** (D12, 10 filas en `concentraciones.csv`).
 - **Familias, uso habitual y duración** (en la ficha y en los gráficos).
-- **Sin conexión.**
+- ~~**Sin conexión.**~~ Ya no se aplaza: entra con V3-8. El cómo, pendiente de una tarjeta del hilo.
 - **Exportar al cuaderno** (Markdown y CSV).
 - **Abrir la app a otros usuarios**, después de revisar las licencias de IFRA, el FIG y TGSC.

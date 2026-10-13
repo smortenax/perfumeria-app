@@ -16,7 +16,7 @@
 
 - **En todo choque entre el plan y una decisión anterior, gana el plan.** Es a propósito: una base de datos que antes no existía, una plataforma web y el paso del ejecutable a una app alojada.
 - **Lo que el plan no contradice sigue vigente**, sobre todo lo que el propio plan conserva: lo desconocido nunca vale cero, la aritmética exacta, la jerarquía de autoridad, el historial manda, la dilución no crea material. También las reglas de cómo se migran los datos (scripts deterministas, conflictos que decide el usuario, `validar:v2`), que el plan recoge en su §40.
-- **Sin conexión:** la v3 necesita conexión. El «offline completo» queda fuera, como dice el plan (§45). *Si con «uso offline» querías decir que tiene que seguir funcionando sin red, esto cambia.*
+- ~~**Sin conexión:** la v3 necesita conexión. El «offline completo» queda fuera, como dice el plan (§45).~~ [Corregido el 2026-10-13: era una lectura equivocada. La v3 funciona entera sin conexión (V3-8).]
 
 **Por qué** (del mensaje): se ha decidido por numerosas razones que las ideas nuevas funcionan mejor.
 
@@ -27,7 +27,7 @@
 | 1 · ¿Siguen vigentes las de la v2? | **Manda el plan** (V3-1) |
 | 2 · Dónde viven los datos de referencia | **CSV en el repo → scripts → Postgres.** Es lo que dice el plan (§40) |
 | 3 · Modelo de materiales | **El del plan: 5 tablas** |
-| 4 · Sin conexión | **Hace falta conexión** (§45 del plan) |
+| 4 · Sin conexión | ~~Hace falta conexión~~ **Todo funciona sin conexión** (V3-8) |
 | 5 · Quién la usa | Sin decidir. **Default de la sesión:** solo tú, con el registro cerrado, hasta revisar las licencias de los datos. No cierra ninguna puerta |
 
 ---
@@ -48,7 +48,7 @@
 | F5 · Favoritas, última dilución, nombre del frasco | Aplazadas (§46, `material_preferences`). **La barra empieza sin ellas.** Los diluyentes propios son materiales provisionales privados |
 | F6 · Enmienda en la fórmula | Sin columna en la fórmula; la enmienda va en la regulación (ver abajo) |
 | F7 · Archivos JSON y cuaderno | Sin archivos; las fórmulas viven en la base de datos |
-| H1 · Sin conexión | Hace falta conexión |
+| H1 · Sin conexión | ~~Hace falta conexión~~ **Sale de esta tabla:** todo funciona sin conexión (V3-8) |
 | H7 · Retirar Tauri primero | Como dice el plan (paso 1). **La app 0.2.1 que tienes instalada sigue funcionando** con sus archivos: quitar Tauri del repo no la desinstala |
 
 **Huecos que el plan no contradice:** *sustituido el 2026-10-07.* La primera versión los resolvía con columnas sacadas de la v2 (`ref`, `coverage`, `amendment`, `requirement_met`). El usuario pidió partir del plan v3 en su plenitud, y la segunda versión de [`modelo-materiales-v3.md`](modelo-materiales-v3.md) los resuelve con las tablas del plan. Se quedan de aquella tabla:
@@ -150,7 +150,25 @@ Un material común solo puede basarse en otro común, y no hay ciclos. Los produ
 
 **Por qué** (de la tarjeta): sin ella, una cifra de consenso daría un verde que nada prueba.
 
+## V3-8 · La app funciona entera sin conexión, en el navegador (decidida por el usuario el 2026-10-13)
+
+**Pregunta** (tarjeta del hilo): ¿Confirmas que la v3 funciona solo con conexión a internet?
+
+**Respuesta literal** (orko kill, 2026-10-13 12:11):
+
+> el plan era que sea uso de navegador pero todas las funciones sin conexion a internet, la app funciona en local con auto host o algo asi pero todos los cambios se hacen enuna web por lo tanto no hay que encargarse de versiones y launchers o app stores
+
+**Lectura** (la sesión, para que la confirmes):
+
+- La app se usa **en el navegador** y **todas sus funciones van sin red**: el banco, la biblioteca, el glosario, IFRA y tus materiales.
+- **Se actualiza sola desde la web**, sin instaladores, versiones que repartir ni tiendas de apps. Es una app web instalable (PWA): la primera vez se descarga del sitio y queda guardada en el navegador, y cuando hay red coge la versión nueva.
+- **Cambia el plan escrito.** Su §45 deja fuera «SQLite WASM», «offline completo» y «sincronización local/cloud»; con este mensaje entran. Corrige la lectura de V3-1, que decía que hacía falta conexión.
+
+**Por qué** (del mensaje): no hay que encargarse de versiones, launchers ni tiendas de apps.
+
+**Pendiente:** dónde viven los datos sin red. Va en una tarjeta del hilo. Propuesta de la sesión: una copia en el navegador sincronizada con Supabase.
+
 ## Pendientes
 
 - El modelo de materiales queda cerrado (V3-4 a V3-7).
-- Confirmar la lectura de «uso offline pero mediante hosting» (V3-1): que la v3 necesita conexión.
+- Dónde viven los datos sin conexión (V3-8): una copia sincronizada con Supabase o solo en el navegador. Según la respuesta cambian las fases 1 y 3 de [`plan-ejecutivo-v3.md`](plan-ejecutivo-v3.md).
