@@ -14,7 +14,7 @@
 
 | Primera versión (v2) | Ahora (plan v3) | De dónde |
 |---|---|---|
-| Seis tipos de la v2: sustancia, natural, base, disolvente, provisional, fórmula | El plan no enumera los tipos. Propongo los que cambian el cálculo, nada más (§2.3) | Plan §15 |
+| Seis tipos de la v2: sustancia, natural, base, disolvente, provisional, fórmula | Los de tu referencia, por lo que define al material, más la fórmula congelada; el disolvente es una marca (§2.3) | Tú (V3-12) |
 | Un natural se identifica por especie + parte + proceso + quimiotipo (D1) | Son **atributos opcionales**. La identidad es el id | Plan §15 |
 | Id estable de la v2 en una columna `ref` | **Sin columna**: el script deriva el id de la v3 del de la v2, siempre el mismo | Plan §35 |
 | Cobertura de cada lista (columna con 4 valores) | **Sin columna**: la da el tipo, más un componente «Sin identificar» para las listas parciales (§3.5) | Plan §22, §31 |
@@ -51,17 +51,17 @@
   - si se saben: `cas`, `species`, `part`, `process`, `chemotype`, `inci`, `origin`;
   - quién es su dueño: `owner_id`.
 - **2.2** El CAS, la especie y el resto son **datos del material, no su identidad** *[Plan §15]*. Dos materiales pueden compartir CAS (el aceite y el absoluto de una planta).
-- **2.3 · Los tipos (`kind`)** *[Tú, V3-4: el plan no los enumeraba]*. Solo los que cambian lo que hace la app:
+- **2.3 · Los tipos (`kind`)** *[Tú, V3-12, que cambia V3-4: los de tu referencia, más `frozen`]*. Por lo que define al material:
 
-  | Tipo | Qué hace la app con él |
-  |---|---|
-  | `substance` | Una molécula. **Sin componentes, es ella misma**: pura |
-  | `mixture` | Un natural o una base. **Sin componentes, su contenido es desconocido** |
-  | `solvent` | DPG, alcohol, IPM, DEP, TEC, triacetina, BB. **No cuenta como materia aromática** |
-  | `provisional` | Solo un nombre. Todo desconocido |
-  | `frozen` | Una fórmula congelada. Su composición no se puede editar |
+  | Tipo | Lo define | Qué hace la app con él |
+  |---|---|---|
+  | `molecule` | Su química. También una mezcla de isómeros (Iso E Super) o la cumarina natural | **Sin componentes, es ella misma**: pura |
+  | `natural` | Su origen: especie, parte, método. También un semisintético sacado de un natural | **Sin componentes, su contenido es desconocido** |
+  | `composition` | Su receta: la base de una casa, o una tuya | **Sin componentes, su contenido es desconocido** |
+  | `provisional` | Solo un nombre | Todo desconocido |
+  | `frozen` | Una fórmula congelada | Su composición no se puede editar |
 
-  Natural y base no se separan porque la app los trata igual. Un natural se reconoce porque tiene especie.
+  **El disolvente es una marca, `solvent` (sí o no)**, aparte del tipo y de la función: DPG, alcohol, IPM, DEP, TEC, triacetina y BB son moléculas con la marca. **Lo marcado no cuenta como materia aromática.** La dilución no es un tipo: es un estado del frasco.
 
 - **2.4 · Los ids** *[Propuesta]*. Cada material tiene un id único. Para los que vienen de la v2, el script lo calcula a partir del suyo (`M00001`), así que **volver a importar da siempre los mismos ids** sin guardar una columna más.
 - **2.5 · Nombres** *[Plan §15; Tú, V3-6]*. Un `name`, el que se enseña, y **una lista de otros nombres** (`aliases`): nombre comercial, sigla, sinónimos. El buscador encuentra por cualquiera de ellos y por el CAS, como hoy («Hedione», «IBQ»). Los de los comunes salen del glosario de la v1, que no se toca; los tuyos, los pones tú.
@@ -78,8 +78,8 @@
   - `unknown`, lo lleva pero no se sabe cuánto.
 - **3.3 · La mezcla no se abre; IFRA, sí** *[Plan §23, §24]*. En la fórmula ves los materiales que usaste. Para IFRA, la app los abre en sus componentes, y estos en los suyos, hasta el final.
 - **3.4 · Dónde se para al abrir** *[Propuesta, por el tipo de §2.3]*:
-  - **una sustancia sin componentes** es ella misma (lo que la v2 llamaba «pura por convención»);
-  - **una mezcla o un provisional sin componentes** son desconocidos, y cuentan en el peor caso.
+  - **una molécula sin componentes** es ella misma (lo que la v2 llamaba «pura por convención»);
+  - **un natural, una composición o un provisional sin componentes** son desconocidos, y cuentan en el peor caso.
 - **3.5 · Una lista que no está completa** *[Propuesta]*. Cuando la fuente solo da parte de lo que hay (una ficha de seguridad lista solo lo clasificado), se añade un componente común, **«Sin identificar»**, con cantidad `unknown`. Así la app sabe que puede haber más y nunca da «dentro» por lo que falta.
   - Sin esto, una lista parcial se leería como completa. En la v2 son **9 materiales y 2 productos**.
   - Es lo que en la primera versión hacía la columna de cobertura, pero con las tablas del plan.
@@ -149,7 +149,7 @@ El 2026-10-13 llegó tu referencia del laboratorio (§9), y abre estas preguntas
 
 | # | Pregunta | Opciones | Recomiendo |
 |---|---|---|---|
-| **7.5** | **¿Qué tipos tiene un material?** | **Los de la referencia:** `molecule`, `natural`, `composition`, más `provisional` y `frozen`; el disolvente pasa a ser una función. **Los de V3-4:** `substance`, `mixture`, `solvent`, `provisional`, `frozen` | **Los de la referencia.** Es tu modelo, probado con 111 materiales, y el cálculo no cambia: una molécula sin componentes es ella misma, un natural o una composición sin componentes son desconocidos, y la función «disolvente» no cuenta como materia aromática. Cambia V3-4 |
+| ~~7.5~~ | ~~¿Qué tipos tiene un material?~~ | **Decidida (V3-12, 2026-10-13): los de la referencia, más `frozen`; el disolvente, una marca** | |
 | **7.6** | **¿Cómo deja de salir diez veces el mismo material?** (§9.2) | **Agrupar:** un estándar por identidad, y debajo sus formas, grados y productos, cada uno con su composición; una columna `standard_id` que solo agrupa, sin heredar. Los duplicados exactos se fusionan con tu visto bueno. **Fusionar:** los grados y productos salen de lo común y pasan a ser versiones tuyas, como dice la referencia al pie de la letra | **Agrupar.** Algunos grados cambian IFRA (sin furocumarinas, bajo en cumarina) y necesitan su propia composición en lo común. Es lo que la v1 ya hacía con las formas de un natural: una fila por planta en el buscador (P54) |
 | **7.7** | **¿Entra el núcleo de la ficha desde el principio?** Los 13 campos de la referencia (§3): olor, comportamiento, uso | **Sí, el núcleo y la dosis por fuente**; las relaciones, los descriptores, los perfumes de referencia y la física, en una fase posterior. **Todo ahora.** **Nada aún**, como decía V3-6 | **El núcleo y la dosis.** Son lo que pediste registrar, y caben en columnas que admiten vacío. El resto son tablas nuevas que esperan a que el glosario funcione. Cambia el «fuera al principio» de V3-6 |
 | **7.8** | **¿Entran en la base común los 111 materiales del laboratorio?** | **Sí, por script**, con su fuente y como `literature` o `consensus`. **No**, como decía P37 | **Sí.** Sin ellos, el núcleo nace casi vacío. Por V3-7, nunca dan «dentro» en IFRA, y el IFRA de segunda mano no entra (regla 7 de la referencia) |
@@ -163,12 +163,13 @@ El 2026-10-13 llegó tu referencia del laboratorio (§9), y abre estas preguntas
 
 | De la v2 | En la v3 |
 |---|---|
-| 3070 sustancias | `substance` |
-| 1183 naturales y 7 bases | `mixture` |
+| 3070 sustancias | `molecule` (V3-12) |
+| 1183 naturales | `natural` |
+| 7 bases | `composition` |
 | 89 productos | Materiales comunes: su composición es la de su material general más la de su certificado, escrita por el script (V3-2). Sus 13 topes, `manufacturer` |
 | 3140 cifras de composición | `material_components`, con su autoridad y su documento como fuente |
 | 263 estándares de IFRA 51 y 2 condiciones | `regulations` |
-| Los 7 disolventes de la app | `solvent` |
+| Los 7 disolventes de la app | Ya son sustancias de la v2: esas moléculas, con la marca `solvent` (V3-12) |
 | **No entra al principio** | El perfil (familia, color), uso, duración, las 10 concentraciones por defecto, los lotes, los documentos como tabla |
 
 ---
@@ -181,7 +182,7 @@ El 2026-10-13 llegó tu referencia del laboratorio (§9), y abre estas preguntas
 
 | Lo que dice la referencia | Lo decidido en la v3 | Queda |
 |---|---|---|
-| Tres tipos por lo que define al material: `molecule`, `natural`, `composition` (+ `provisional`). El disolvente es una molécula con función «disolvente» | V3-4: `substance`, `mixture`, `solvent`, `provisional`, `frozen` | **Choca. Pregunta 7.5** |
+| Tres tipos por lo que define al material: `molecule`, `natural`, `composition` (+ `provisional`). El disolvente es una molécula con función «disolvente» | V3-4: `substance`, `mixture`, `solvent`, `provisional`, `frozen` | **Decidida (V3-12):** los de la referencia, más `frozen`; el disolvente, una marca |
 | Estándar (lo común) y versión (tu frasco: proveedor, grado, pureza, isómeros, dilución de fábrica, procedencia, lote), que apunta al estándar | V3-5: tu versión es un material tuyo con `based_on_id`, que hereda | **Encaja.** Su decisión abierta 3 ya la contestó V3-5. Lo nuevo son los campos del frasco: grado, proveedor, pureza. Los lotes siguen aplazados (plan §46) |
 | Hedione HC o Iso E Super Plus son versiones, no materiales nuevos | V3-2: los 89 productos de la v2 son materiales comunes, cada uno por su lado | **Choca en el buscador:** hoy salen como materiales aparte. **Pregunta 7.6** |
 | Núcleo de 13 campos: nombre y sinónimos, CAS, familia, facetas, piso, evolución, tenacidad, potencia, umbral, difusión, efecto, función, dilución recomendada | V3-6 y plan §34: familias, uso y duración, fuera al principio | **Choca. Pregunta 7.7** |

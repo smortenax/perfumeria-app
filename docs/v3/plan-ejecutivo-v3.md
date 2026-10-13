@@ -18,7 +18,7 @@
 
 Se hacen **de una en una**, en este orden, y cada respuesta entra en [`decisiones-v3.md`](decisiones-v3.md) como V3-12, V3-13… con tus palabras. Las fases 0 y 1 no dependen de ellas; la fase 2, sí.
 
-1. **7.5 a 7.11** de [`modelo-materiales-v3.md`](modelo-materiales-v3.md): los tipos, los duplicados, la ficha, los datos del laboratorio, varios CAS, los datos en disputa, la tenacidad y las familias. Cada una lleva sus opciones y la recomendación.
+1. **7.5 a 7.11** (7.5 decidida: V3-12) de [`modelo-materiales-v3.md`](modelo-materiales-v3.md): los tipos, los duplicados, la ficha, los datos del laboratorio, varios CAS, los datos en disputa, la tenacidad y las familias. Cada una lleva sus opciones y la recomendación.
 2. **Los bancos de trabajo** (V3-10):
 
 | # | Pregunta | Opciones | Recomiendo |
@@ -63,7 +63,7 @@ Las tablas de materiales del plan, según [`modelo-materiales-v3.md`](modelo-mat
 
 | Paso | Tabla | Además de lo del plan |
 |---|---|---|
-| 2.1 | `materials` | `kind`: los de V3-4, o los de la referencia si 7.5 lo cambia. `based_on_id`, tu versión de un común (V3-5), con su grado, proveedor y pureza (referencia §2). `aliases`, otros nombres para el buscador (V3-6). **Según las respuestas:** `standard_id`, que agrupa sin heredar (7.6); el CAS como lista (7.9); el núcleo de la ficha y la confianza, en columnas que admiten vacío y con su fuente (7.7); la marca «provisional» (7.10). `source_formula_id` en un `frozen`: de qué fórmula sale (V3-10) |
+| 2.1 | `materials` | `kind`: `molecule`, `natural`, `composition`, `provisional` o `frozen`, y la marca `solvent` (V3-12). `based_on_id`, tu versión de un común (V3-5), con su grado, proveedor y pureza (referencia §2). `aliases`, otros nombres para el buscador (V3-6). **Según las respuestas:** `standard_id`, que agrupa sin heredar (7.6); el CAS como lista (7.9); el núcleo de la ficha y la confianza, en columnas que admiten vacío y con su fuente (7.7); la marca «provisional» (7.10). `source_formula_id` en un `frozen`: de qué fórmula sale (V3-10) |
 | 2.2 | `material_components` | Su propio `id` (V3-9). `amount_kind` (`exact`, `max`, `range`, `unknown`) con su comprobación: `range` exige mínimo ≤ máximo, `exact` y `max` exigen valor, `unknown` ninguno. Un material no se contiene a sí mismo |
 | 2.3 | `regulations` | Nada: `kind` es `max`, `prohibited` o `requirement`, y la enmienda va en `source`. `max_value` es fracción del producto terminado |
 | 2.4 | `lab_materials` | Usuario + material, con su propio `id` (V3-9): «lo que tengo» (V3-3). Sin cantidades |
@@ -95,8 +95,8 @@ Un script, `scripts/v3/importar.ts`, de los CSV a Postgres. **Reutiliza `src/v2/
 
 | Paso | Qué entra | Cómo |
 |---|---|---|
-| 4.1 | **Disolventes** | Los siete de la app: `kind = 'solvent'`, o moléculas con la función «disolvente» si 7.5 lo cambia |
-| 4.2 | **Materiales** (4260) | Con V3-4: `sustancia` → `substance`; `natural` y `base` → `mixture`. Con la referencia (7.5): `sustancia` → `molecule`, `natural` → `natural`, `base` → `composition`. Especie, parte, proceso, quimiotipo, CAS, INCI y origen. Las listas parciales (9 materiales y 2 productos) llevan el componente «Sin identificar» |
+| 4.1 | **Disolventes** | Los siete de la app ya son sustancias de la v2 (V3-12): el script les pone la marca `solvent`, y la clave `solv:` de las fórmulas apunta a ellas. Qué DPG es el de la app (M02736 o M02952), lo decides tú en `duplicados.csv` (4.8) |
+| 4.2 | **Materiales** (4260) | `sustancia` → `molecule`, `natural` → `natural`, `base` → `composition` (V3-12). Especie, parte, proceso, quimiotipo, CAS, INCI y origen. Las listas parciales (9 materiales y 2 productos) llevan el componente «Sin identificar» |
 | 4.3 | **Composición** (3140 cifras) | Solo de documentos `revisado` (D6). `source` = id y título del documento. Tipos: `tipico` → `exact`, `maximo` → `max`, `rango` → `range` |
 | 4.4 | **Productos** (89), según V3-2 | Cada producto, un material común con su composición entera: la de su material general más la de su certificado, escrita por el script. Sus **topes** (13), regulaciones `manufacturer`. Las **concentraciones por defecto** (10) no tienen sitio en el plan: se quedan en el CSV |
 | 4.5 | **IFRA 51** | De `datos/ifra/51/` y `grupo-miembros.csv`: una regulación por miembro y categoría, `group_key` = la referencia del estándar (con su subgrupo en el 097 y el 181), y la enmienda en `source`. El 089 y sus miembros comparten `group_key` |

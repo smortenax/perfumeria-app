@@ -93,6 +93,8 @@
 
 ## V3-4 · Cinco tipos de material (decidida por el usuario el 2026-10-09)
 
+> **Cambiada por V3-12 (2026-10-13):** los tipos son los de tu referencia, más `frozen`, y el disolvente es una marca aparte.
+
 **Pregunta** (tarjeta del hilo, 7.1 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md)): ¿Qué tipos de material tiene la v3?
 
 **Respuesta:** el usuario eligió en la tarjeta la opción «Cinco» (2026-10-09 13:27): «Sustancia, mezcla (natural o base), disolvente, provisional y fórmula congelada: solo los que cambian el cálculo.»
@@ -226,7 +228,35 @@ Un material común solo puede basarse en otro común, y no hay ciclos. Los produ
 - **Tu referencia dice qué se registra de cada material** en la base común.
 - **Donde choca con lo decidido** (V3-4, V3-6, P37), no se reinterpreta: van las preguntas 7.5 a 7.11 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md), de una en una. El cruce completo está en su §9.1.
 
+## V3-12 · Los tipos de tu referencia, más `frozen`; el disolvente, una marca aparte (decidida por el usuario el 2026-10-13)
+
+**Pregunta** (tarjeta del hilo, 7.5 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md)): ¿Qué tipos tiene un material en la v3?
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Referencia + frozen (Recomendado)» (2026-10-13 17:05): «molecule, natural, composition, provisional y frozen; el disolvente, una marca sí/no aparte de la función. Cambia V3-4.»
+
+**Cómo se aplica:** `materials.kind` es uno de estos cinco, y sustituye la tabla de V3-4:
+
+| Tipo | Lo define | Qué hace la app con él |
+|---|---|---|
+| `molecule` | Su química | Sin componentes, es ella misma |
+| `natural` | Su origen: especie, parte, método | Sin componentes, su contenido es desconocido |
+| `composition` | Su receta: la base de una casa, o una tuya | Sin componentes, su contenido es desconocido |
+| `provisional` | Solo un nombre | Todo desconocido |
+| `frozen` | Una fórmula tuya congelada (plan §27) | Composición fija |
+
+- **El disolvente es una marca, `materials.solvent` (sí o no)**, aparte del tipo y de la función estética. Lo marcado no cuenta como materia aromática. Así lo hace ya el motor (`solvent?: boolean` en `src/core/model/material.ts`), y un disolvente con estándar de IFRA cuenta como cualquier material (`lookup` en `src/core/ifra.ts`).
+- **Las reglas de clasificación de tu referencia (§1) valen:** decide la química, no cómo se vende; un semisintético sacado de un natural es `natural`; la dilución no es un tipo.
+- **De la v2:** `sustancia` → `molecule`, `natural` → `natural`, `base` → `composition`.
+
+**Consecuencias** (propuesta de la sesión):
+
+- **Los siete disolventes de la app ya están en la v2 como sustancias** (`datos/v2/materiales.csv`): benzoato de bencilo (M01446), IPM (M02733), DPG (M02736, y M02952 «isomer unspecified»), TEC (M03278), DEP (M03304), alcohol etílico (M03145) y triacetina (M02710). No se crean materiales nuevos: el script marca esas moléculas como disolvente, y la clave `solv:` de las fórmulas apunta a ellas. **Cuál de los dos DPG es el de la app lo decides tú**, en el CSV de duplicados (plan ejecutivo, 4.8).
+- El benzoato de bencilo está en el estándar IFRA_STD_009 (`datos/ifra/51/estandar-cas.csv`): pesado como diluyente, cuenta contra su límite, como ya hace el motor.
+- La función estética (estructura, modificador, fijador…) es un campo de la ficha: pregunta 7.7.
+
+**Por qué** (la recomendación de la sesión que elegiste): es tu modelo, probado con 111 materiales, y el cálculo no cambia. Separa el natural de la base, que en tu referencia llevan campos distintos.
+
 ## Pendientes
 
-- **Las preguntas 7.5 a 7.11** de [`modelo-materiales-v3.md`](modelo-materiales-v3.md) **y B.1 y B.2** del [plan ejecutivo](plan-ejecutivo-v3.md), de una en una. Se hacen en un chat de Claude Code aparte, que se arranca con [`prompt-arranque-v3.md`](prompt-arranque-v3.md).
+- **Las preguntas 7.6 a 7.11** de [`modelo-materiales-v3.md`](modelo-materiales-v3.md) **y B.1 y B.2** del [plan ejecutivo](plan-ejecutivo-v3.md), de una en una, en el chat que arrancó con [`prompt-arranque-v3.md`](prompt-arranque-v3.md).
 - Después, la fase 0 del plan ejecutivo.
