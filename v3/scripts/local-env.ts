@@ -37,7 +37,7 @@ const values: Array<[string, string]> = [
   ["VITE_SUPABASE_URL", url],
   ["VITE_SUPABASE_ANON_KEY", status.PUBLISHABLE_KEY],
   ["SUPABASE_LOCAL_SECRET_KEY", status.SECRET_KEY],
-  ["VITE_POWERSYNC_URL", keep("VITE_POWERSYNC_URL", () => "http://127.0.0.1:8080")],
+  ["VITE_POWERSYNC_URL", keep("VITE_POWERSYNC_URL", () => "/powersync")],
   ["POWERSYNC_DB_PASSWORD", keep("POWERSYNC_DB_PASSWORD", () => secret(24))],
   ["TEST_USER_A_EMAIL", keep("TEST_USER_A_EMAIL", () => "prueba-a@perfumeria.test")],
   ["TEST_USER_A_PASSWORD", keep("TEST_USER_A_PASSWORD", () => secret(18))],

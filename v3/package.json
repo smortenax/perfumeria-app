@@ -21,6 +21,10 @@
     "sync:logs": "docker compose -f powersync/docker-compose.yaml --env-file .env.local logs powersync"
   },
   "dependencies": {
+    "@powersync/common": "^2.3.1",
+    "@powersync/drizzle-driver": "^0.8.0",
+    "@powersync/web": "^2.4.2",
+    "@supabase/supabase-js": "^2.117.3",
     "drizzle-orm": "^0.45.4",
     "postgres": "^3.4.9",
     "react": "^19.3.0",
