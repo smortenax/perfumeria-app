@@ -13,6 +13,8 @@ actualizarlo, en 30 líneas como máximo, y hacer commit.
   Lo que propone la sesión se marca como propuesta.
 - Las reglas de abajo sobre la v1 congelada, `src/core/` y cómo se migran los datos siguen
   valiendo, salvo donde una V3 las cambie.
+- **Lo del laboratorio entra en la cuenta del usuario, no en lo común** (V3-15, cambia P37). El
+  script lo lee de `../Perfumery` y no escribe allí.
 
 ## Trabajo en la v2 (desde 2026-10)
 

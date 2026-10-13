@@ -312,7 +312,32 @@ Y sobre el material general (punto 5 de la lectura), 2026-10-13 17:19:
 
 **Por qué** (la recomendación de la sesión que elegiste): es lo que pediste registrar, una columna vacía no cuesta nada y la dosis ya tenía diseño. Las otras cuatro tablas se diseñan cuando el glosario funcione.
 
+## V3-15 · Lo del laboratorio entra en tu cuenta, no en lo común (decidida por el usuario el 2026-10-13)
+
+**Pregunta** (tarjeta del hilo, 7.8 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md)): ¿Entran en la base común los 111 materiales del laboratorio?
+
+**Respuesta literal** (orko kill, 2026-10-13, escrita en la tarjeta):
+
+> todo lo de laboratorio puede entrar a la app como si yo fuese usuario para probar las funciones de user, es decir todo lo de lab se trata como si yo estuviera consumiendo la app no se comparte para otros usuarios pero existe para mi base
+
+**Lectura** (de la sesión; el usuario la confirmó en la tarjeta con «Sí, así», 2026-10-13 17:34):
+
+1. **Todo lo del laboratorio entra, como tuyo y no como común:** tus materiales privados (`owner_id` = tú). Nadie más lo ve y lo común no cambia. Sirve para probar las funciones de usuario con datos reales.
+2. **Cambia P37:** lo del laboratorio entra en la app, en tu cuenta. **P35 sigue valiendo para lo común:** tus valoraciones no pasan a lo común.
+
+**Cómo se aplica** (propuesta de la sesión, confirmada con la lectura):
+
+- **Un material del laboratorio que ya es un común entra como tu versión de ese común** (V3-5, `based_on_id`): hereda su composición y su IFRA, y añade tu núcleo, tus dosis y tus sinónimos. De los 103 con CAS, 89 casan por CAS con la v2 (medido sobre `materiales.sqlite` y `datos/v2/materiales.csv`). **Cuál es el común lo decides tú** en `datos/v3/conflictos/laboratorio.csv`, porque por CAS un natural casa con varias formas.
+- **El que no casa entra como material tuyo nuevo.**
+- **Tus frascos (`user_materials`, 110 filas) marcan «lo que tengo».**
+- **El IFRA de segunda mano entra como texto «sin verificar», sin número, y no calcula** (regla 7 de tu referencia). El IFRA que calcula es el del común, que sale de los archivos de IFRA.
+- **Tu cata y tus ejes** (`user_evaluations`, 107 filas) entran cuando exista la capa del usuario, aplazada (plan §46).
+- **Los 222 conflictos pendientes** del laboratorio: pregunta 7.10.
+- **El script lee el laboratorio y no escribe en él.** Escribe en tu cuenta (tu `owner_id`), no con la clave de lo común.
+
+**Por qué** (del mensaje): para probar las funciones de usuario; «no se comparte para otros usuarios pero existe para mi base».
+
 ## Pendientes
 
-- **Las preguntas 7.8 a 7.11** de [`modelo-materiales-v3.md`](modelo-materiales-v3.md) **y B.1 y B.2** del [plan ejecutivo](plan-ejecutivo-v3.md), de una en una, en el chat que arrancó con [`prompt-arranque-v3.md`](prompt-arranque-v3.md).
+- **Las preguntas 7.9 a 7.11** de [`modelo-materiales-v3.md`](modelo-materiales-v3.md) **y B.1 y B.2** del [plan ejecutivo](plan-ejecutivo-v3.md), de una en una, en el chat que arrancó con [`prompt-arranque-v3.md`](prompt-arranque-v3.md).
 - Después, la fase 0 del plan ejecutivo.

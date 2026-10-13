@@ -84,7 +84,7 @@
   - **La dosis, en `material_doses`:** una fila por fuente, con mínima, típica y máxima, **siempre con su base** (del concentrado, del producto terminado o «sin declarar»), su autoridad y su fuente. Las columnas son las de `datos/v2/usos.csv`, que la v2 diseñó así y dejó vacía.
   - **Un campo vacío sale «no lo dice»**, nunca un valor por defecto.
   - **Después**, en otra fase: relaciones, descriptores por fuente, perfumes de referencia y física.
-  - **Qué datos lo llenan:** preguntas 7.8 (tus 111 materiales) y 7.11 (tenacidad y familias). El glosario de la v1 tiene familia en 3119 de sus 4347 filas, matiz en 2154 y uso mínimo y máximo en 691 (`datos/glosario/materiales.csv`).
+  - **Qué datos lo llenan:** en lo común, la pregunta 7.11 (tenacidad y familias); tus 111 materiales del laboratorio llenan la ficha de tus versiones, en tu cuenta (§6.5, V3-15). El glosario de la v1 tiene familia en 3119 de sus 4347 filas, matiz en 2154 y uso mínimo y máximo en 691 (`datos/glosario/materiales.csv`).
 
 ---
 
@@ -153,6 +153,11 @@
 - **6.4 · «Lo que tengo»**: marcas los materiales que tienes, sin cantidades. Con el interruptor encendido, el buscador del banco solo te enseña esos *[Tú, V3-3]*.
   - Una tabla pequeña de usuario y material, con su propio id *[V3-9]*.
   - El plan solo excluye el «inventario avanzado» (§45).
+- **6.5 · Lo del laboratorio, en tu cuenta** *[Tú, V3-15]*. Tus 111 materiales del laboratorio entran como tuyos, no como comunes: nadie más los ve.
+  - El que ya es un común entra como **tu versión** de ese común (§6.3): hereda su composición y su IFRA y añade tu núcleo, tus dosis y tus sinónimos. Cuál es el común lo decides tú, en un CSV de conflictos *[Propuesta]*.
+  - El que no casa, como **material tuyo nuevo**. Tus frascos marcan «lo que tengo» (§6.4) *[Propuesta]*.
+  - **Su IFRA de segunda mano no calcula:** entra como texto «sin verificar» (regla 7 de tu referencia).
+  - Tu cata y tus ejes, cuando exista la capa del usuario (aplazada, plan §46).
 
 ---
 
@@ -172,7 +177,7 @@ El 2026-10-13 llegó tu referencia del laboratorio (§9), y abre estas preguntas
 | ~~7.5~~ | ~~¿Qué tipos tiene un material?~~ | **Decidida (V3-12, 2026-10-13): los de la referencia, más `frozen`; el disolvente, una marca** | |
 | ~~7.6~~ | ~~¿Cómo deja de salir diez veces el mismo material?~~ | **Decidida (V3-13, 2026-10-13): categorías en el buscador; cada ficha concreta, con su composición y sus límites** | |
 | ~~7.7~~ | ~~¿Entra el núcleo de la ficha desde el principio?~~ | **Decidida (V3-14, 2026-10-13): el núcleo y la dosis; el resto, después** | |
-| **7.8** | **¿Entran en la base común los 111 materiales del laboratorio?** | **Sí, por script**, con su fuente y como `literature` o `consensus`. **No**, como decía P37 | **Sí.** Sin ellos, el núcleo nace casi vacío. Por V3-7, nunca dan «dentro» en IFRA, y el IFRA de segunda mano no entra (regla 7 de la referencia) |
+| ~~7.8~~ | ~~¿Entran en la base común los 111 materiales del laboratorio?~~ | **Decidida (V3-15, 2026-10-13): entran en tu cuenta, no en lo común** | |
 | **7.9** | **¿Cómo se guardan varios CAS?** (el europeo y el americano de un natural) | **Una lista en el material**, como los otros nombres (V3-6). **Una tabla aparte** | **La lista.** Es una columna, como `aliases` |
 | **7.10** | **¿Viajan a la app los datos en disputa?** | **No**: los conflictos se quedan en el repo y el laboratorio, y en la app el dato sale marcado «provisional». **Sí**, con su tabla `conflicts` | **No.** Los decides tú en el repo, como hasta ahora; la app solo necesita saber que el dato es provisional |
 | **7.11** | **¿Qué se hace con la tenacidad y las familias?** (escalas abiertas, §5 de la referencia) | **Aplazar:** el campo existe, pero no se enseña como número ni como lista cerrada hasta decidir la fuente. **Decidir ahora** | **Aplazar.** Las fuentes chocan por más de diez veces; la pregunta es de investigación, del laboratorio |
@@ -215,7 +220,7 @@ El 2026-10-13 llegó tu referencia del laboratorio (§9), y abre estas preguntas
 | El IFRA de segunda mano no se usa para calcular | IFRA sale solo de los archivos de IFRA (P37); V3-7 | **Encaja** |
 | Varios CAS por material | Un `cas` por material | **Pregunta 7.9** |
 | Escalas abiertas: tenacidad y familia | — | **Pregunta 7.11** |
-| Los datos: 111 materiales investigados | P37: nada del laboratorio entra en la app | **Pregunta 7.8** |
+| Los datos: 111 materiales investigados | P37: nada del laboratorio entra en la app | **Decidida (V3-15):** entran en tu cuenta, como tus versiones de los comunes o materiales tuyos (§6.5). Cambia P37 |
 | Capa del usuario: diluciones preparadas, cata y lectura, ejes estéticos | Plan §46: `material_preferences`, aplazado | **Aplazado**, sin cerrar la puerta: es tuyo, no del material |
 
 ### 9.2 · Los duplicados del buscador, medidos en la v2
