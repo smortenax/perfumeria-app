@@ -148,6 +148,7 @@ function merge(list: readonly Entry[]): Entry[] {
 
 /** The state of a requirement (§4.4, V3-25): accredited by a lot or a product, assumed by literature or consensus, else pending. */
 export type RequirementState = "accredited" | "assumed" | "pending";
+const PROVEN: readonly RequirementState[] = ["pending", "assumed", "accredited"];
 
 export function requirementState(rows: readonly Regulation[]): RequirementState {
   if (rows.some((r) => r.authority === "lot" || r.authority === "product")) return "accredited";
@@ -273,7 +274,7 @@ export function toIfra(catalog: Catalog): IfraData {
  */
 export type IfraCardState =
   | { readonly state: "prohibited" }
-  | { readonly state: "ceiling" }
+  | { readonly state: "ceiling"; readonly requirement?: RequirementState; readonly what?: string }
   | { readonly state: "requirement"; readonly requirement: RequirementState; readonly what: string }
   | { readonly state: "by-constituents" }
   | { readonly state: "no-data" }
@@ -287,10 +288,15 @@ export function ifraCard(catalog: Catalog, id: string): IfraCardState {
   const requirementGroups = new Set(requirements.map(groupOf));
   // «Prohibited» only for the prohibited variant: a prohibition whose group also allows a variant with a requirement is not this one's.
   if (own.some((r) => r.kind === "prohibited" && !requirementGroups.has(groupOf(r)))) return { state: "prohibited" };
-  if (own.some((r) => r.kind === "max")) return { state: "ceiling" };
-  if (requirements.length > 0) {
-    return { state: "requirement", requirement: requirementState(requirements), what: requirements.find((r) => r.requirement)?.requirement ?? "" };
-  }
+  // V3-25: a requirement shows with its state, also next to a ceiling; of several standards, the least proven.
+  const worst = [...requirementGroups]
+    .map((group) => {
+      const rows = requirements.filter((r) => groupOf(r) === group);
+      return { requirement: requirementState(rows), what: rows.find((r) => r.requirement)?.requirement ?? "" };
+    })
+    .sort((a, b) => PROVEN.indexOf(a.requirement) - PROVEN.indexOf(b.requirement))[0];
+  if (own.some((r) => r.kind === "max")) return worst ? { state: "ceiling", ...worst } : { state: "ceiling" };
+  if (worst) return { state: "requirement", ...worst };
   const flat = flatten(catalog, id);
   if ([...flat.loads.keys()].some((member) => member !== id)) return { state: "by-constituents" };
   return flat.pending.includes(NO_DATA) ? { state: "no-data" } : { state: "no-standard" };

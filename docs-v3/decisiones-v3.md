@@ -632,6 +632,33 @@ Y sobre el material general (punto 5 de la lectura), 2026-10-13 17:19:
 
 **Por qué** (la recomendación de la sesión que elegiste): con solo el techo, la isoforona usada directamente daría «dentro» por debajo del 0,0013 % (STD 154, `limite_nota`), y eso contradice el texto de IFRA. Con solo la prohibición, las 165 filas de naturales quedarían pendientes y sin techo.
 
+## V3-31 · Cuando IFRA prohíbe una variante, cada miembro entra por su especie y su proceso (decidida por el usuario el 2026-10-14)
+
+**Pregunta** (tarjeta del hilo, tanda 3 de la migración): cuatro estándares de IFRA 51 prohíben una variante y ponen techo a otra (`datos/ifra/51/estandares.csv`, `nota_prohibicion` y `nota_restriccion`):
+
+- el 097 prohíbe *Tagetes erecta*, y el techo es para *T. patula* y *T. minuta*;
+- el 071 prohíbe el bálsamo del Perú crudo, y el techo es para sus extractos y destilados;
+- el 078 prohíbe las gomas crudas de estoraque, y solo valen sus extractos y destilados;
+- el 083 prohíbe el aceite de verbena, y solo vale el absoluto.
+
+La tanda les ponía el techo a todos sus miembros. ¿Cómo entra cada uno?
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Por especie y proceso (Recomendado)» (2026-10-14): «La variante prohibida lleva «prohibido» (las 4 de T. erecta). La permitida, su techo (27). Si los datos no dicen cuál es (7), lleva techo y además un requisito pendiente, «no es la variante prohibida», con la frase de IFRA, como el cade (V3-25): nunca «dentro» hasta que un documento lo acredite. La regla de cada estándar va escrita en el script, citando a IFRA, y la ves en el informe.»
+
+**Cómo se aplica:**
+
+- **La migración (tanda 3)** clasifica cada miembro por la especie y el proceso que tiene en la v2 (`datos/v2/materiales.csv`), con una regla por estándar:
+  - 097, por la especie: *erecta* es la variante prohibida; *minuta* y *patula*, la permitida.
+  - 071 y 078, por el proceso: con proceso (un extracto, un destilado, un absoluto, un aceite, un resinoide), la permitida.
+  - 083: el absoluto es la permitida y el aceite, la prohibida.
+  - En los cuatro, sin especie o proceso en los datos: no se sabe.
+- **La variante prohibida** lleva una fila `prohibited` para todas las categorías, sin techo ni especificación.
+- **La permitida** lleva su techo y, si la hay, la especificación del estándar.
+- **Lo que no se sabe** lleva además un requisito: «No es la variante prohibida», seguido de la frase de IFRA. Queda pendiente hasta que un documento de su producto lo acredite (V3-25).
+- **El informe de la tanda** pone la regla de cada estándar y cada miembro con su clase.
+
+**Por qué** (la recomendación de la sesión que elegiste): con solo techos, *T. erecta* daba «requisito pendiente» en vez de «prohibido», y «Balsam, Peru», sin proceso en los datos, podía dar «dentro» siendo quizá el crudo. Lo desconocido nunca se pinta en verde.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).

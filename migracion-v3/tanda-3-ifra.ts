@@ -13,8 +13,9 @@ import { writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { pctToFraction } from "./lib/cifras.ts";
 import { type Cell, writeTable } from "./lib/csv.ts";
-import { readSources, type Row } from "./lib/fuentes.ts";
+import { known, readSources, type Row } from "./lib/fuentes.ts";
 import { uuidFor, v2Id } from "./lib/ids.ts";
+import type { Material as V2Material } from "../src/v2/model.ts";
 
 const OUT = "migracion-v3/tandas/3-ifra";
 const src = readSources();
@@ -31,8 +32,33 @@ const FIVE_MOP = uuidFor("ifra:5-MOP");
 const AUTHORITY: Readonly<Record<string, string>> = { lote: "lot", producto: "product", "anexo-ifra": "ifra", literatura: "literature", consenso: "consensus" };
 const isNumber = (t: string) => /^\d+(\.\d+)?$/.test(t);
 
+/** V3-30: IFRA prohibits the substance as an ingredient and limits it in the naturals that bring it. */
+const AS_SUCH = /as such should not be used/i;
+
+/**
+ * V3-31: the standards that prohibit one variant and limit another. Each member goes by the
+ * species and the process the v2 gives it; when they do not say which variant it is, «unknown».
+ */
+type Variant = "prohibited" | "permitted" | "unknown";
+const EXTRACT_OR_DISTILLATE = /absoluto|extracto|destilad|aceite|resinoide|rectificado/;
+const byProcess = (m: V2Material): Variant => (EXTRACT_OR_DISTILLATE.test(known(m.process) ?? "") ? "permitted" : "unknown");
+const VARIANTS: Readonly<Record<string, { readonly rule: string; readonly classify: (m: V2Material) => Variant }>> = {
+  IFRA_STD_097: {
+    rule: "por la especie: *Tagetes erecta*, prohibida; *T. minuta* y *T. patula*, permitidas",
+    classify: (m) => (/erecta/i.test(m.species) ? "prohibited" : /minuta|patula/i.test(m.species) ? "permitted" : "unknown"),
+  },
+  IFRA_STD_071: { rule: "por el proceso: un extracto o un destilado (absoluto, extracto, destilado, aceite, resinoide, rectificado), permitido; el crudo, prohibido", classify: byProcess },
+  IFRA_STD_078: { rule: "por el proceso: un extracto o un destilado de la exudación (absoluto, extracto, destilado, aceite, resinoide, rectificado), permitido; las gomas crudas, prohibidas", classify: byProcess },
+  IFRA_STD_083: {
+    rule: "por el proceso: el absoluto, permitido; el aceite, prohibido",
+    classify: (m) => (/^absoluto/.test(m.process) ? "permitted" : /^aceite/.test(m.process) ? "prohibited" : "unknown"),
+  },
+};
+const VARIANT_NAME: Readonly<Record<Variant, string>> = { prohibited: "prohibida", permitted: "permitida", unknown: "no se sabe" };
+
 const notes: string[] = [];
 const materials = new Map(v2.materials.map((m) => [m.id, m]));
+const substanceName = new Map(v2.substances.map((s) => [s.id, s.name]));
 const materialOfSubstance = new Map(v2.materials.filter((m) => m.substanceId).map((m) => [m.substanceId, m.id]));
 const productsOf = new Map<string, string[]>();
 for (const p of v2.products) productsOf.set(p.materialId, [...(productsOf.get(p.materialId) ?? []), p.id]);
@@ -44,7 +70,10 @@ const materialOf = (memberId: string) => (memberId.startsWith("S") ? (materialOf
 
 const COLUMNS = ["id", "material_id", "regime", "category", "kind", "max_value", "group_key", "requirement", "authority", "source"] as const;
 const out: Array<Record<string, Cell>> = [];
-const counts = { members: 0, max: 0, prohibited: 0, requirement: 0, excluded: [] as string[], variantNotes: [] as string[], conditions: 0, ceilings: 0, fiveMop: 0, products: new Set<string>() };
+const counts = {
+  members: 0, max: 0, prohibited: 0, requirement: 0, excluded: [] as string[], asSuch: [] as string[], variants: new Map<string, string[]>(),
+  variantRequirements: 0, conditions: 0, ceilings: 0, fiveMop: 0, products: new Set<string>(),
+};
 
 const sourceOf = (s: Row) => `IFRA 51, ${s.estandar}: ${s.nombre} (enmienda ${s.enmienda})`;
 
@@ -63,7 +92,8 @@ for (const gm of v2.groupMembers) {
   const s = src.ifraStandards.get(standard)!;
   const member = materialOf(gm.memberId);
   counts.members++;
-  const group = FUROCOUMARINS.has(standard) ? "furocumarinas" : gm.subgroup ? `${standard} · ${gm.subgroup}` : standard;
+  // The v2's subgroup is a heading of IFRA's list, not another ceiling: every member of a standard adds up against it.
+  const group = FUROCOUMARINS.has(standard) ? "furocumarinas" : standard;
   const limits = CATEGORIES.flatMap(([column, category]) => {
     const cell = s[column];
     if (isNumber(cell)) return [{ category, kind: "max", value: pctToFraction(cell) }];
@@ -88,6 +118,21 @@ for (const gm of v2.groupMembers) {
     continue;
   }
 
+  // V3-31: the prohibited variant is prohibited, with no ceiling nor specification.
+  const rule = VARIANTS[standard];
+  const v2Material = materials.get(member);
+  const variant: Variant | null = rule ? (v2Material ? rule.classify(v2Material) : "unknown") : null;
+  if (variant) {
+    counts.variants.set(standard, [...(counts.variants.get(standard) ?? []), `${v2Material?.name ?? substanceName.get(member) ?? member} (${member}): ${VARIANT_NAME[variant]}`]);
+  }
+  if (variant === "prohibited") {
+    write(member, `${standard}|prohibited`, {
+      regime: "ifra", category: null, kind: "prohibited", max_value: null, group_key: group, requirement: null, authority: "ifra", source: sourceOf(s),
+    });
+    counts.prohibited++;
+    continue;
+  }
+
   for (const l of limits) {
     write(member, `${standard}|${l.category}|${l.kind}`, {
       regime: "ifra", category: l.category, kind: l.kind, max_value: l.value, group_key: group, requirement: null, authority: "ifra", source: sourceOf(s),
@@ -109,17 +154,32 @@ for (const gm of v2.groupMembers) {
     counts.requirement++;
   }
 
+  // V3-31: when the data do not say which variant it is, a requirement, pending until a document accredits it (V3-25).
+  // Its own key: accrediting the standard's specification does not prove it is not the prohibited variant.
+  if (variant === "unknown") {
+    write(member, `${standard}|variant`, {
+      regime: "ifra", category: null, kind: "requirement", max_value: null, group_key: `${group} · variante`,
+      requirement: `No es la variante prohibida: «${s.nota_prohibicion.trim()}»`, authority: "ifra", source: sourceOf(s),
+    });
+    counts.variantRequirements++;
+  }
+
   // A prohibition with no ceiling in any category: the material is prohibited as such, or (with a specification) a
-  // variant of it is, and the permitted one has to meet the specification (STD 119, the cade). With ceilings, the
-  // ceilings count and the prohibited variant is only a note of the standard (STD 078, the styrax).
+  // variant of it is, and the permitted one has to meet the specification (STD 119, the cade). With ceilings: the
+  // prohibitions of some categories are already in; a substance prohibited «as such» has both (V3-30); a prohibited
+  // variant goes by V3-31; anything else is left for review.
   if (s.prohibicion === "sí") {
-    if (limits.length === 0) {
+    const asSuch = AS_SUCH.test(s.nota_prohibicion) && limits.some((l) => l.kind === "max");
+    if (limits.length === 0 || (asSuch && gm.memberId.startsWith("S"))) {
       write(member, `${standard}|prohibited`, {
         regime: "ifra", category: null, kind: "prohibited", max_value: null, group_key: group, requirement: null, authority: "ifra", source: sourceOf(s),
       });
       counts.prohibited++;
-    } else if (limits.some((l) => l.kind === "max")) {
-      counts.variantNotes.push(`${standard} (${s.nombre})`);
+      if (asSuch) counts.asSuch.push(`${standard} (${s.nombre}): ${v2Material?.name ?? substanceName.get(member) ?? member} (${member})`);
+    } else if (asSuch) {
+      notes.push(`${standard}: prohíbe la sustancia como tal, y ${member} no es una sustancia; entran sus techos (V3-30).`);
+    } else if (!rule && !limits.some((l) => l.kind === "prohibited")) {
+      notes.push(`${standard} (${s.nombre}): prohíbe algo y pone techo, y no tiene regla (V3-30, V3-31); entran sus techos.`);
     }
   }
 }
@@ -159,12 +219,12 @@ const report = `# Tanda 3 · IFRA y los topes de fabricante
 
 *Generada por \`migracion-v3/tanda-3-ifra.ts\`. Los estándares, de los archivos de IFRA (\`datos/ifra/51/estandares.csv\`, 51.ª enmienda); quién es miembro de cada uno, de la v2 (\`grupo-miembros.csv\`); commit \`${src.commit}\`. \`validar:v2\`: sin errores.*
 
-**Qué entra** (\`regulations.csv\`, ${out.length} filas; ${cat4} de la categoría 4 o de todas, las que usa la app): ${counts.max} techos, ${counts.prohibited} prohibiciones, ${counts.requirement} especificaciones, ${counts.conditions} afirmaciones de cumplimiento y ${counts.ceilings} topes de fabricante, de ${counts.members} pertenencias a un estándar.
+**Qué entra** (\`regulations.csv\`, ${out.length} filas; ${cat4} de la categoría 4 o de todas, las que usa la app): ${counts.max} techos, ${counts.prohibited} prohibiciones, ${counts.requirement} especificaciones, ${counts.variantRequirements} requisitos de «no es la variante prohibida», ${counts.conditions} afirmaciones de cumplimiento y ${counts.ceilings} topes de fabricante, de ${counts.members} pertenencias a un estándar.
 
 **Cómo se traduce, como la v2:**
 
 - **Una regulación por miembro y categoría** (de la 1 a la 12): una cifra es un techo en fracción del producto terminado; «ver-nota», el techo de su nota; «prohibido», una prohibición en esa categoría; «sin-restriccion» o nada, ninguna fila. La enmienda va en la fuente.
-- **El grupo** (\`group_key\`) es el estándar, con su subgrupo donde lo tiene; el 089 y los estándares de los aceites fototóxicos que nombra (086 a 096) comparten «furocumarinas», y el motor suma la parte de cada uno sobre su techo.
+- **El grupo** (\`group_key\`) es el estándar: el subgrupo de la v2 es un encabezado de la lista de IFRA, no otro techo, y todos los miembros de un estándar suman contra él (lo usa el 097, y el 137, el 138 y el 181 con «e.g.» o su especificación). El 089 y los estándares de los aceites fototóxicos que nombra (086 a 096) comparten «furocumarinas», y el motor suma la parte de cada uno sobre su techo.
 - **El 089 va en el 5-MOP** (V3-27): su límite es del 5-MOP en el producto terminado, no del aceite.
 - **Una prohibición sin techo en ninguna categoría** prohíbe el material como tal; con especificación, prohíbe una variante, y la permitida tiene que cumplirla (el 119, el cade; V3-25).
 - **Una especificación** es un requisito con autoridad de IFRA, pendiente de acreditar, salvo donde el estándar habla de otros procesos (\`exclusiones.csv\`):
@@ -173,8 +233,11 @@ ${list(counts.excluded)}
 - **Los topes de fabricante** de \`topes.csv\`, cada uno en su producto (D4).
 - **Cada producto lleva las regulaciones de su material** (V3-2; ${counts.products.size} productos), como la v2 lo juzgaba.
 
-**Lo que se pierde, para revisar:** estos estándares prohíben una variante y ponen techo a la permitida; entran los techos, y la nota de la variante prohibida no tiene sitio (la v2 la enseñaba como nota):
-${list([...new Set(counts.variantNotes)])}
+**Prohibidas como tal, con su techo** (V3-30): IFRA prohíbe la sustancia como ingrediente y la limita en los naturales que la traen. Cada una lleva una prohibición para todas las categorías y sus techos; sus productos, lo mismo:
+${list(counts.asSuch)}
+
+**Una variante prohibida** (V3-31): cada miembro va por la especie y el proceso que tiene en la v2. La prohibida lleva solo la prohibición. La permitida, sus techos y su especificación. Lo que no se sabe, además, el requisito «No es la variante prohibida», con la frase de IFRA, pendiente hasta que un documento lo acredite. Lleva su propia clave («IFRA_STD_078 · variante»): acreditar la especificación del estándar no prueba que no sea la variante prohibida.
+${[...counts.variants].map(([standard, members]) => `- **${standard}** (${src.ifraStandards.get(standard)!.nombre}), ${VARIANTS[standard].rule}:\n${list(members)}`).join("\n")}
 
 **Para revisar** (${notes.length}):
 

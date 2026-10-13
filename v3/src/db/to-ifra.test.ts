@@ -163,6 +163,18 @@ describe("prohibitions, requirements and a manufacturer's ceiling (V3-25, P62)",
     expect(ifraCard(catalog, "proven")).toEqual({ state: "requirement", requirement: "accredited", what: "rectificado" });
   });
 
+  it("V3-25: a ceiling with a requirement shows the requirement too; of several standards, the least proven", () => {
+    const minuta = material("minuta", "natural", { regulations: [ceiling("STD_097", "0.01"), requirement("STD_097", "ifra")] });
+    const both = material("both", "natural", {
+      regulations: [ceiling("STD_A", "1"), requirement("STD_A", "product"), { ...requirement("STD_B", "ifra"), requirement: "no es el crudo" }],
+    });
+    const plain = material("plain", "natural", { regulations: [ceiling("STD_A", "1")] });
+    const catalog = catalogOf(minuta, both, plain);
+    expect(ifraCard(catalog, "minuta")).toEqual({ state: "ceiling", requirement: "pending", what: "rectificado" });
+    expect(ifraCard(catalog, "both")).toEqual({ state: "ceiling", requirement: "pending", what: "no es el crudo" });
+    expect(ifraCard(catalog, "plain")).toEqual({ state: "ceiling" });
+  });
+
   it("a manufacturer's ceiling is its product's, reported apart", () => {
     const ambrinol = material("ambrinol", "molecule", {
       supplier: "Symrise",
