@@ -18,7 +18,7 @@
 
 Se hacen **de una en una**, en este orden, y cada respuesta entra en [`decisiones-v3.md`](decisiones-v3.md) como V3-12, V3-13… con tus palabras. Las fases 0 y 1 no dependen de ellas; la fase 2, sí.
 
-1. **7.5 a 7.11** (7.5 decidida: V3-12) de [`modelo-materiales-v3.md`](modelo-materiales-v3.md): los tipos, los duplicados, la ficha, los datos del laboratorio, varios CAS, los datos en disputa, la tenacidad y las familias. Cada una lleva sus opciones y la recomendación.
+1. **7.5 a 7.11** (7.5 y 7.6 decididas: V3-12 y V3-13) de [`modelo-materiales-v3.md`](modelo-materiales-v3.md): los tipos, los duplicados, la ficha, los datos del laboratorio, varios CAS, los datos en disputa, la tenacidad y las familias. Cada una lleva sus opciones y la recomendación.
 2. **Los bancos de trabajo** (V3-10):
 
 | # | Pregunta | Opciones | Recomiendo |
@@ -63,7 +63,8 @@ Las tablas de materiales del plan, según [`modelo-materiales-v3.md`](modelo-mat
 
 | Paso | Tabla | Además de lo del plan |
 |---|---|---|
-| 2.1 | `materials` | `kind`: `molecule`, `natural`, `composition`, `provisional` o `frozen`, y la marca `solvent` (V3-12). `based_on_id`, tu versión de un común (V3-5), con su grado, proveedor y pureza (referencia §2). `aliases`, otros nombres para el buscador (V3-6). **Según las respuestas:** `standard_id`, que agrupa sin heredar (7.6); el CAS como lista (7.9); el núcleo de la ficha y la confianza, en columnas que admiten vacío y con su fuente (7.7); la marca «provisional» (7.10). `source_formula_id` en un `frozen`: de qué fórmula sale (V3-10) |
+| 2.1 | `materials` | `kind`: `molecule`, `natural`, `composition`, `provisional` o `frozen`, y la marca `solvent` (V3-12). `based_on_id`, tu versión de un común (V3-5), con su grado, proveedor y pureza (referencia §2). `aliases`, otros nombres para el buscador (V3-6). `category_id` y `form`, para el buscador (V3-13). **Según las respuestas:** el CAS como lista (7.9); el núcleo de la ficha y la confianza, en columnas que admiten vacío y con su fuente (7.7); la marca «provisional» (7.10). `source_formula_id` en un `frozen`: de qué fórmula sale (V3-10) |
+| 2.1b | `material_categories` (V3-13) | Común, la escribe el script: id, nombre y otros nombres. Solo agrupa para el buscador: ninguna fórmula ni regulación apunta a ella |
 | 2.2 | `material_components` | Su propio `id` (V3-9). `amount_kind` (`exact`, `max`, `range`, `unknown`) con su comprobación: `range` exige mínimo ≤ máximo, `exact` y `max` exigen valor, `unknown` ninguno. Un material no se contiene a sí mismo |
 | 2.3 | `regulations` | Nada: `kind` es `max`, `prohibited` o `requirement`, y la enmienda va en `source`. `max_value` es fracción del producto terminado |
 | 2.4 | `lab_materials` | Usuario + material, con su propio `id` (V3-9): «lo que tengo» (V3-3). Sin cantidades |
@@ -72,7 +73,7 @@ Las tablas de materiales del plan, según [`modelo-materiales-v3.md`](modelo-mat
 
 | Paso | Qué | Hecho cuando |
 |---|---|---|
-| 2.6 | **RLS** (lo que sube). Materiales, componentes y regulaciones: lees los comunes y los tuyos; escribes solo los tuyos. `lab_materials`: solo los tuyos. Lo común solo lo escribe el script, con la clave de servicio | — |
+| 2.6 | **RLS** (lo que sube). Materiales, componentes y regulaciones: lees los comunes y los tuyos; escribes solo los tuyos. `lab_materials`: solo los tuyos. Categorías: las lees todas. Lo común solo lo escribe el script, con la clave de servicio | — |
 | 2.6b | **Reglas de sincronización** (lo que baja), en `powersync/`: a todos, lo común; a cada uno, lo suyo. Repiten las de RLS, porque PowerSync no pasa por RLS al descargar | — |
 | 2.7 | **Disparadores:** un material común solo contiene comunes; la composición de un `frozen` no se cambia; sin ciclos de composición ni de «basado en»; `updated_at` al día | — |
 | 2.8 | **Pruebas de la base** (`npm run test:db`, contra Supabase y PowerSync locales, con dos usuarios) | A no ve nada de B, **ni le llega por la sincronización**; A no escribe en lo común; la versión de A de un material común no cambia el común |
@@ -102,7 +103,7 @@ Un script, `scripts/v3/importar.ts`, de los CSV a Postgres. **Reutiliza `src/v2/
 | 4.5 | **IFRA 51** | De `datos/ifra/51/` y `grupo-miembros.csv`: una regulación por miembro y categoría, `group_key` = la referencia del estándar (con su subgrupo en el 097 y el 181), y la enmienda en `source`. El 089 y sus miembros comparten `group_key` |
 | 4.6 | **Requisitos** | Un `requirement` por estándar y miembro, con autoridad `ifra`; si `condiciones.csv` dice que se cumple, con la autoridad y la fuente de esa fila |
 | 4.7 | **Otros nombres** (V3-6) | Del glosario de la v1 (que sigue congelado: se lee, no se toca), unidos a la v2 por `v1-a-v2.csv`. Familias, uso y duración, según 7.7 |
-| 4.8 | **Duplicados** (V3-11, según 7.6) | El script **no fusiona nada solo**. Escribe los candidatos en `datos/v3/conflictos/duplicados.csv`: mismo nombre y CAS (se proponen para fusionar; hoy 43 nombres en 120 materiales) y mismo CAS o misma especie + parte + método (se proponen para agrupar bajo un estándar; hoy 210 CAS en 906 materiales). Tú decides cada fila, y el script aplica tus decisiones. El id de la v2 de un material fusionado apunta al que queda, en `datos/v3/fusiones.csv`, así que las fórmulas que lo usaban lo siguen encontrando |
+| 4.8 | **Categorías y duplicados** (V3-11, V3-13) | **Agrupar:** el script pone cada material en su categoría por regla (una molécula, por su CAS; un natural, por especie + parte, o por su CAS si no dice la especie) y escribe la lista en `datos/v3/categorias.csv` para que la revises; agrupar no mezcla datos. Hoy, 906 materiales comparten 210 CAS (modelo §9.2). **Fusionar:** el script **no fusiona nada solo**. Los candidatos (el mismo material dos veces; hoy 43 nombres en 120 materiales) van a `datos/v3/conflictos/duplicados.csv`; tú decides cada fila y el script aplica tus decisiones. El id de la v2 de un material fusionado apunta al que queda, en `datos/v3/fusiones.csv`, así que las fórmulas que lo usaban lo siguen encontrando |
 | 4.9 | **Materiales del laboratorio** (según 7.8) | Desde `materiales.sqlite` del laboratorio, por script, con su fuente y su confianza, como `literature` o `consensus`. El IFRA de segunda mano no entra. Lo que choque con lo que ya hay va a `datos/v3/conflictos/laboratorio.csv` |
 
 **Hecho cuando:** los recuentos coinciden con los CSV (menos las fusiones que decidiste), cada fusión tiene tu decisión en el CSV, una segunda ejecución no cambia ninguna fila, y el registro dice de qué commit salen los datos. **Y un navegador nuevo descarga el catálogo entero** con los mismos recuentos; se apunta cuánto ocupa y cuánto tarda esa primera descarga.
@@ -115,7 +116,7 @@ Un script, `scripts/v3/importar.ts`, de los CSV a Postgres. **Reutiliza `src/v2/
 |---|---|---|
 | 5.1 | Para **cada material** de la v2, el `IfraMaterial` que sale de la base de datos y el que sale de los CSV | Iguales, material a material. Cada diferencia se lista y se explica; **nunca se arregla tocando la prueba** |
 | 5.2 | Para **cada material** del glosario de la v1, el buscador de la v3 lo encuentra por los mismos nombres que hoy | Iguales |
-| 5.3 | **El buscador no repite** (V3-11) | Buscar «lemon» o «lavender» da una fila por estándar, con sus formas y grados debajo, no diez. Ningún nombre sale dos veces en la misma lista sin algo que lo distinga |
+| 5.3 | **El buscador no repite** (V3-11) | Buscar «lemon» o «lavender» da una fila por categoría (V3-13), con sus formas y proveedores debajo, no diez. Ninguna fórmula guarda una categoría, siempre un material concreto. Ningún nombre sale dos veces en la misma lista sin algo que lo distinga |
 
 ---
 

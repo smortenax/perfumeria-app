@@ -256,7 +256,41 @@ Un material común solo puede basarse en otro común, y no hay ciclos. Los produ
 
 **Por qué** (la recomendación de la sesión que elegiste): es tu modelo, probado con 111 materiales, y el cálculo no cambia. Separa el natural de la base, que en tu referencia llevan campos distintos.
 
+## V3-13 · El buscador agrupa por categorías; cada ficha concreta lleva su composición y sus límites (decidida por el usuario el 2026-10-13)
+
+**Pregunta** (tarjeta del hilo, 7.6 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md)): ¿Cómo deja de salir diez veces el mismo material en el buscador?
+
+**Respuesta literal** (orko kill, 2026-10-13, escrita en la tarjeta):
+
+> se agrupan de diferentes maneras, sinteticos que tienen diferente laboratorio pueden compartir categoria y luego tener opciones de proveedor  donde se cada proveedor obviamente tendra variaciones en composicion y se podria dar el ccaso que cada uno difiere de las categorias ifra dependiendo de los valores que lleva cada fabricante de acuerdo a su ficha de conformidad, de manera similar a como se hicieron con los diferentes tipos de extracciones naturales: lavanda existe como categoria y se concreta si es aceite absoluto extraccion de co2... cada uno es una ficha diferente pero el buscador no tiene que enseñarlas todas a la vez como materiales diferentes porque no es practico, un matix claro lo que pasa aqui no es que se compacten todos los materiales per se en la ficha sino que aunque cada uno sea basicamente el mismo material tienen matices para lo que al computo de la app respecta, la busqueda es accesible para el usuario pero la app tienen que rigurosamente saber que material esta tratando y los limites del mismo
+
+Y sobre el material general (punto 5 de la lectura), 2026-10-13 17:19:
+
+> y si a lo de  material generico en el sentido que hedione tendra dadas unas categorias generales ya aunquen no  apliques un fabricante concreto
+
+**Lectura** (de la sesión; el usuario la confirmó en la tarjeta con «Sí, así», 2026-10-13 17:18):
+
+1. **Se agrupa, no se fusiona.** Cada material concreto es una ficha propia, con su composición y sus límites: para el cálculo, cada uno tiene sus matices.
+2. **El grupo se arma distinto según el material:**
+   - **una molécula:** la categoría (Hedione) y debajo las opciones de cada fabricante o proveedor, cada una con su composición y su IFRA según su certificado de conformidad;
+   - **un natural:** la categoría (lavanda) y debajo su forma (aceite esencial, absoluto, extracto de CO2…); cada forma puede tener sus proveedores.
+3. **El buscador enseña la categoría**, no todas las fichas a la vez; al abrirla eliges la concreta.
+4. **La fórmula guarda siempre el material concreto**, nunca la categoría, y el IFRA se calcula con sus cifras y sus límites. Lo deduce la sesión de «la app tienen que rigurosamente saber que material esta tratando».
+5. **El material general también es una ficha concreta** (Hedione sin fabricante, aceite de lavanda sin proveedor), con sus límites generales por categoría de IFRA, de los archivos de IFRA. Se usa cuando no aplicas un fabricante concreto. Lo propuso la sesión y el usuario lo confirmó (segunda cita). Sus cifras de composición, si son de literatura, nunca dan «dentro» (V3-7).
+
+**Cómo se aplica** (propuesta de la sesión, confirmada con la lectura):
+
+- **Una tabla común, `material_categories`** (id, nombre, otros nombres), y **`materials.category_id`**. Es una tabla más que las del §34 del plan: la categoría de un natural («lavanda») no es un material que se pese, así que no puede ser una fila de `materials`. Sustituye al `standard_id` que proponía el modelo.
+- **El segundo nivel sale de campos del material:** la forma de un natural (`materials.form`, de tu referencia) y el fabricante o la tienda de un producto (columnas `fabricante` y `tienda` de `datos/v2/productos.csv`).
+- **Tu versión de un común (V3-5) va en la categoría del común.** Un material tuyo puede ir en una categoría común o en ninguna.
+- **El script agrupa por regla:** una molécula, por su CAS; un natural, por especie + parte, o por su CAS si no dice la especie (581 de 1183 naturales no la dicen; [`modelo-materiales-v3.md`](modelo-materiales-v3.md) §9.2). Agrupar no mezcla datos, así que tú revisas la lista después, en `datos/v3/categorias.csv`.
+- **Fusionar sí mezcla datos:** solo con tu visto bueno, fila a fila, en `datos/v3/conflictos/duplicados.csv` (V3-11).
+
+**Por qué** (del mensaje): «la busqueda es accesible para el usuario pero la app tienen que rigurosamente saber que material esta tratando y los limites del mismo».
+
+**Encaja con** la entrada del laboratorio del 2026-10-12, que pide separar el aceite, la goma y el absoluto de láudano, cada uno con sus constituyentes: tres fichas de una categoría. La entrada se lleva con las demás de la bandeja.
+
 ## Pendientes
 
-- **Las preguntas 7.6 a 7.11** de [`modelo-materiales-v3.md`](modelo-materiales-v3.md) **y B.1 y B.2** del [plan ejecutivo](plan-ejecutivo-v3.md), de una en una, en el chat que arrancó con [`prompt-arranque-v3.md`](prompt-arranque-v3.md).
+- **Las preguntas 7.7 a 7.11** de [`modelo-materiales-v3.md`](modelo-materiales-v3.md) **y B.1 y B.2** del [plan ejecutivo](plan-ejecutivo-v3.md), de una en una, en el chat que arrancó con [`prompt-arranque-v3.md`](prompt-arranque-v3.md).
 - Después, la fase 0 del plan ejecutivo.
