@@ -49,7 +49,7 @@
 
 - **2.1 · Campos** *[Plan §15]*:
   - `name` y `kind`;
-  - si se saben: `cas`, `species`, `part`, `process`, `chemotype`, `inci`, `origin`;
+  - si se saben: `cas` (el principal) y `other_cas` (una lista) *[Tú, V3-16]*, `species`, `part`, `process`, `chemotype`, `inci`, `origin`;
   - quién es su dueño: `owner_id`;
   - su categoría, `category_id`, y en un natural su forma, `form` (§2.6) *[Tú, V3-13]*;
   - el núcleo de la ficha, lo propio de su tipo, sus fuentes y su confianza, todo vacío si no se sabe (§2.7) *[Tú, V3-14]*.
@@ -67,7 +67,7 @@
   **El disolvente es una marca, `solvent` (sí o no)**, aparte del tipo y de la función: DPG, alcohol, IPM, DEP, TEC, triacetina y BB son moléculas con la marca. **Lo marcado no cuenta como materia aromática.** La dilución no es un tipo: es un estado del frasco.
 
 - **2.4 · Los ids** *[Propuesta]*. Cada material tiene un id único. Para los que vienen de la v2, el script lo calcula a partir del suyo (`M00001`), así que **volver a importar da siempre los mismos ids** sin guardar una columna más.
-- **2.5 · Nombres** *[Plan §15; Tú, V3-6]*. Un `name`, el que se enseña, y **una lista de otros nombres** (`aliases`): nombre comercial, sigla, sinónimos. El buscador encuentra por cualquiera de ellos y por el CAS, como hoy («Hedione», «IBQ»). Los de los comunes salen del glosario de la v1, que no se toca; los tuyos, los pones tú.
+- **2.5 · Nombres** *[Plan §15; Tú, V3-6]*. Un `name`, el que se enseña, y **una lista de otros nombres** (`aliases`): nombre comercial, sigla, sinónimos. El buscador encuentra por cualquiera de ellos y por cualquiera de sus CAS (V3-16), como hoy («Hedione», «IBQ»). Los de los comunes salen del glosario de la v1, que no se toca; los tuyos, los pones tú.
 
 - **2.6 · Categorías: el buscador agrupa, la fórmula no** *[Tú, V3-13]*.
   - **Cada material concreto es una ficha propia**, con su composición y sus límites: el aceite, el absoluto y el CO2 de lavanda; la Hedione de cada proveedor.
@@ -178,7 +178,7 @@ El 2026-10-13 llegó tu referencia del laboratorio (§9), y abre estas preguntas
 | ~~7.6~~ | ~~¿Cómo deja de salir diez veces el mismo material?~~ | **Decidida (V3-13, 2026-10-13): categorías en el buscador; cada ficha concreta, con su composición y sus límites** | |
 | ~~7.7~~ | ~~¿Entra el núcleo de la ficha desde el principio?~~ | **Decidida (V3-14, 2026-10-13): el núcleo y la dosis; el resto, después** | |
 | ~~7.8~~ | ~~¿Entran en la base común los 111 materiales del laboratorio?~~ | **Decidida (V3-15, 2026-10-13): entran en tu cuenta, no en lo común** | |
-| **7.9** | **¿Cómo se guardan varios CAS?** (el europeo y el americano de un natural) | **Una lista en el material**, como los otros nombres (V3-6). **Una tabla aparte** | **La lista.** Es una columna, como `aliases` |
+| ~~7.9~~ | ~~¿Cómo se guardan varios CAS?~~ | **Decidida (V3-16, 2026-10-13): el principal y una lista de otros, en el material** | |
 | **7.10** | **¿Viajan a la app los datos en disputa?** | **No**: los conflictos se quedan en el repo y el laboratorio, y en la app el dato sale marcado «provisional». **Sí**, con su tabla `conflicts` | **No.** Los decides tú en el repo, como hasta ahora; la app solo necesita saber que el dato es provisional |
 | **7.11** | **¿Qué se hace con la tenacidad y las familias?** (escalas abiertas, §5 de la referencia) | **Aplazar:** el campo existe, pero no se enseña como número ni como lista cerrada hasta decidir la fuente. **Decidir ahora** | **Aplazar.** Las fuentes chocan por más de diez veces; la pregunta es de investigación, del laboratorio |
 
@@ -218,7 +218,7 @@ El 2026-10-13 llegó tu referencia del laboratorio (§9), y abre estas preguntas
 | Cada dato con su fuente; el material, con una confianza | Componentes y regulaciones llevan autoridad y fuente | **Decidida (V3-14):** la confianza del material entra con el núcleo |
 | Un dato puede estar en disputa: tabla `conflicts` | Los conflictos se deciden en CSV del repo (`datos/v2/conflictos/`) | **Pregunta 7.10** |
 | El IFRA de segunda mano no se usa para calcular | IFRA sale solo de los archivos de IFRA (P37); V3-7 | **Encaja** |
-| Varios CAS por material | Un `cas` por material | **Pregunta 7.9** |
+| Varios CAS por material | Un `cas` por material | **Decidida (V3-16):** `cas` y la lista `other_cas` |
 | Escalas abiertas: tenacidad y familia | — | **Pregunta 7.11** |
 | Los datos: 111 materiales investigados | P37: nada del laboratorio entra en la app | **Decidida (V3-15):** entran en tu cuenta, como tus versiones de los comunes o materiales tuyos (§6.5). Cambia P37 |
 | Capa del usuario: diluciones preparadas, cata y lectura, ejes estéticos | Plan §46: `material_preferences`, aplazado | **Aplazado**, sin cerrar la puerta: es tuyo, no del material |

@@ -337,7 +337,21 @@ Y sobre el material general (punto 5 de la lectura), 2026-10-13 17:19:
 
 **Por qué** (del mensaje): para probar las funciones de usuario; «no se comparte para otros usuarios pero existe para mi base».
 
+## V3-16 · Varios CAS: el principal y una lista de otros, en el material (decidida por el usuario el 2026-10-13)
+
+**Pregunta** (tarjeta del hilo, 7.9 de [`modelo-materiales-v3.md`](modelo-materiales-v3.md)): ¿Cómo se guardan varios CAS de un material?
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Lista en el material (Recomendado)» (2026-10-13 17:35): «cas, el principal, y other_cas, una lista, como aliases. El buscador y las categorías usan todos.»
+
+**Cómo se aplica:**
+
+- **`materials.cas`**, el principal, el que se enseña, y **`materials.other_cas`**, una lista de texto, sin tabla nueva.
+- **El buscador** encuentra el material por cualquiera de ellos, y **la regla de categorías** (V3-13) agrupa por cualquiera.
+- **El script** une un natural con su entrada de IFRA por cualquiera de sus CAS. IFRA da dos para 246 de sus 302 naturales (`datos/ifra/51/naturales.csv`, columnas `cas_principal` y `otros_cas`). Los otros CAS de los comunes salen de ahí y de `otros_cas` del glosario de la v1 (38 filas, que se lee y no se toca).
+
+**Por qué** (la recomendación de la sesión que elegiste): es una columna, encaja con cómo da IFRA sus datos y sirve para lo único que se hace con el CAS, buscar y enseñar. IFRA limita por estándar, no por CAS.
+
 ## Pendientes
 
-- **Las preguntas 7.9 a 7.11** de [`modelo-materiales-v3.md`](modelo-materiales-v3.md) **y B.1 y B.2** del [plan ejecutivo](plan-ejecutivo-v3.md), de una en una, en el chat que arrancó con [`prompt-arranque-v3.md`](prompt-arranque-v3.md).
+- **Las preguntas 7.10 y 7.11** de [`modelo-materiales-v3.md`](modelo-materiales-v3.md) **y B.1 y B.2** del [plan ejecutivo](plan-ejecutivo-v3.md), de una en una, en el chat que arrancó con [`prompt-arranque-v3.md`](prompt-arranque-v3.md).
 - Después, la fase 0 del plan ejecutivo.
