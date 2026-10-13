@@ -534,7 +534,39 @@ Y sobre el material general (punto 5 de la lectura), 2026-10-13 17:19:
 
 **Por qué** (la recomendación de la sesión que elegiste): es lo que ya hace el cálculo; con V3-13 cada ficha tiene sus límites, y su etiqueta tiene que ser la suya.
 
+## V3-26 · La app enseña con qué commit se cargaron sus datos comunes (decidida por el usuario el 2026-10-13)
+
+**De dónde sale:** la entrada del 2026-10-04 de la bandeja del laboratorio: la v2 dice «Glosario generado el *fecha*», varios commits comparten fecha, y la habilidad `mezclas` del laboratorio, que repite la cuenta de IFRA con los datos de la app, no puede saber con qué datos se compiló la app que está abierta. Pide enseñar también el commit.
+
+**Pregunta** (tarjeta del hilo): ¿Enseña la app con qué commit se cargaron sus datos comunes?
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Sí, con una fila (Recomendado)» (2026-10-13 20:25): «El script de carga escribe en una tabla común de una fila el commit de v3/datos, la fecha y la tanda; el inicio y la ficha enseñan «Datos: abc1234 · fecha».»
+
+**Cómo se aplica:**
+
+- **Una tabla común de una fila, `data_version`** (commit de `v3/datos/`, fecha y tanda de la migración), que escribe el script de carga y se sincroniza como lo demás (V3-9).
+- **El inicio y la ficha enseñan «Datos: `abc1234` · fecha».** Como cada tanda de la migración apunta de qué commit de la v2, la v1 o el laboratorio sale (V3-21), se puede seguir hasta el origen.
+
+**Por qué** (la recomendación de la sesión que elegiste): con la sincronización, lo que hay que saber es con qué datos está tu copia, y la fecha sola no lo dice.
+
+## La bandeja del laboratorio, llevada el 2026-10-13
+
+*Las entradas pendientes de `../Perfumery/app/entradas.md`, y adónde fue cada una. Desde aquí no se han marcado allí como llevadas (el mensaje de arranque dice que desde aquí no se escribe en el laboratorio).*
+
+| Entrada | Adónde |
+|---|---|
+| 2026-10-13 · Referencia de materiales para el PLAN_V3 | V3-11 a V3-18 |
+| 2026-10-12 · El absoluto de láudano hereda constituyentes de aceite esencial | **V3-23**; el resto, por V3-13 y V3-15 |
+| 2026-10-11 · Falta el cedro chino | **V3-24**: ya estaba en la v2 (M01127) con otro CAS; el resto, por V3-13, V3-15 y V3-16 |
+| 2026-10-11 · El cade rectificado sale como «prohibido» | **V3-25** |
+| 2026-10-07 · Aldambre cruzado con un CAS que no es el suyo | **Sin decisión nueva** (abajo) |
+| 2026-10-04 · Que la app enseñe el commit de sus datos | **V3-26** |
+
+**El Aldambre** (lo encontró la sesión): en los datos de la app, 947-05-7 es la oxaciclotridecan-2-ona (M00083 en la v2, `tl:947-05-7` en la v1), y bien; en la app no hay ningún «Aldambre». El cruce equivocado está en `diluciones.py` del laboratorio, que se corrige allí. La biblioteca del laboratorio ya lo tiene con 1725-03-7 (Synarome, molécula), con dos dosis de la web y un conflicto de identidad pendiente (TGSC marca 1725-03-7 «not for fragrance use»; la web avisa de que el ámbar gris de Synarome es otro producto, Ambrarome). Ninguno de los dos CAS tiene estándar de IFRA. En la v3 entra en tu cuenta como material tuyo nuevo, porque 1725-03-7 no está en lo común (V3-15), con sus dosis (V3-14) y la identidad «en disputa» (V3-17).
+
 ## Pendientes
 
-- **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20). Siguen las cinco entradas pendientes de la bandeja del laboratorio (`../Perfumery/app/entradas.md`), que se llevan aquí.
+- **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
+- **Abierta, de V3-23:** ¿qué autoridad llevan las cifras del anexo que una ficha toma prestadas de otras formas con su CAS (219 materiales)? Hoy, «anexo-ifra», que puede dar «dentro».
+- **Marcar como llevadas** las entradas de la bandeja en el laboratorio: lo decide el usuario.
 - Después, la fase 0 del plan ejecutivo.
