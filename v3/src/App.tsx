@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { currentUser, signOut, supabase, type SignedInUser } from "./db/client";
 import { closeLocalDatabase, localDatabaseFor } from "./db/local/database";
+import { createVersion } from "./db/materials";
 import { Glossary } from "./glossary/Glossary";
 import { MaterialEditor } from "./glossary/MaterialEditor";
 import { MaterialSheet } from "./glossary/MaterialSheet";
@@ -65,7 +66,19 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
             <Glossary data={data} onOpen={(id) => go({ view: "sheet", id })} onNew={() => go({ view: "new" })} />
           </div>
           {route.view === "sheet" && (
-            <MaterialSheet data={data} id={route.id} onBack={() => go({ view: "list" })} onEdit={() => go({ view: "edit", id: route.id })} />
+            <MaterialSheet
+              data={data}
+              id={route.id}
+              onBack={() => go({ view: "list" })}
+              onEdit={() => go({ view: "edit", id: route.id })}
+              onOpen={(id) => go({ view: "sheet", id })}
+              onMakeVersion={() =>
+                void createVersion(local.db, local.userId, route.id).then(
+                  (id) => go({ view: "edit", id }),
+                  (e: unknown) => window.alert(texts.editor.failed(e instanceof Error ? e.message : String(e))),
+                )
+              }
+            />
           )}
           {route.view === "edit" && (
             <MaterialEditor

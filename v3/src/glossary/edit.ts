@@ -159,6 +159,18 @@ export function formOf(m: CatalogMaterial): Form {
   return out;
 }
 
+/**
+ * What a version inherits, as the form would show it (V3-5): for each field, the first value of the
+ * materials it is based on. Shown as a hint in the empty fields; it is never written to the version.
+ */
+export function inheritedForm(chain: readonly CatalogMaterial[]): Form {
+  const out: Record<string, string> = {};
+  for (const base of chain.slice(1)) {
+    for (const [key, value] of Object.entries(formOf(base))) if (!out[key] && value) out[key] = value;
+  }
+  return out;
+}
+
 /** A number as typed: «0,935» or «0.935». Null for an empty field; an error for what is not one. */
 export function numberOf(text: string): Ratio | null {
   const t = text.trim().replace(",", ".");

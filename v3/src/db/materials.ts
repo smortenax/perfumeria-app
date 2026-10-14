@@ -389,6 +389,17 @@ export async function createMaterial(db: LocalDb, ownerId: string, input: NewMat
   return id;
 }
 
+/**
+ * Your version of a material you can see (V3-5): its name and its kind, based on it, and nothing
+ * else. Everything it does not say it inherits; what you add is yours, and the material it is
+ * based on does not change. Several versions of one material are fine: two bottles, two shops.
+ */
+export async function createVersion(db: LocalDb, ownerId: string, baseId: string): Promise<string> {
+  const base = await visibleMaterial(db, ownerId, baseId);
+  if (base.kind === "frozen") throw new Error("a frozen formula has no versions: it is a formula");
+  return createMaterial(db, ownerId, { name: base.name ?? "", kind: oneOf(base.kind, MATERIAL_KINDS, "material kind"), basedOnId: baseId });
+}
+
 /** Changes one of the user's materials. A frozen formula stays one, and nothing becomes one. */
 export async function updateMaterial(
   db: LocalDb,

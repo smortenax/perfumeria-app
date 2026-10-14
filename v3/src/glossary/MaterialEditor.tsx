@@ -1,6 +1,6 @@
 import { type FormEvent, useMemo, useState } from "react";
 import { Ratio } from "../core/arith/ratio";
-import { type Amount, type Authority, type CatalogMaterial, DOSE_BASES, type DoseBasis, type RegulationKind } from "../db/catalog";
+import { type Amount, type Authority, type CatalogMaterial, type Dose, DOSE_BASES, type DoseBasis, type Regulation, type RegulationKind } from "../db/catalog";
 import type { LocalDatabase } from "../db/local/database";
 import {
   addComponent,
@@ -13,8 +13,9 @@ import {
   updateMaterial,
 } from "../db/materials";
 import { search } from "../db/search";
+import { effective } from "../db/to-ifra";
 import { texts } from "../i18n/es";
-import { changesOf, EDIT_SECTIONS, type Form, formOf, FormError, numberOf } from "./edit";
+import { changesOf, EDIT_SECTIONS, type Form, formOf, FormError, inheritedForm, numberOf } from "./edit";
 import { percent } from "./format";
 import type { GlossaryData } from "./useGlossary";
 
@@ -37,6 +38,9 @@ const pctOf = (text: string) => {
 export function MaterialEditor({ data, local, id, onDone, onDeleted }: { data: GlossaryData; local: LocalDatabase; id: string; onDone: () => void; onDeleted: () => void }) {
   const material = data.catalog.materials.get(id);
   if (!material || material.ownerId === null) return <p>{texts.glossary.missing}</p>;
+  // A version (V3-5) inherits from the materials it is based on: shown as hints and read-only rows, never written to it.
+  const { chain } = effective(data.catalog, id);
+  const bases = chain.slice(1);
   return (
     <article className="sheet editor">
       <button type="button" className="link" onClick={onDone}>
@@ -44,10 +48,10 @@ export function MaterialEditor({ data, local, id, onDone, onDeleted }: { data: G
       </button>
       <h2>{t.editTitle(material.name)}</h2>
       {material.basedOnId && <p className="hint">{t.versionHint}</p>}
-      <RecordForm key={material.id} material={material} local={local} />
-      <Composition material={material} data={data} local={local} />
-      <Regulations material={material} data={data} local={local} />
-      <Doses material={material} local={local} />
+      <RecordForm key={material.id} material={material} local={local} inherited={inheritedForm(chain)} />
+      <Composition material={material} data={data} local={local} bases={bases} />
+      <Regulations material={material} data={data} local={local} bases={bases} />
+      <Doses material={material} local={local} bases={bases} />
       <section className="sheet-section danger">
         <button
           type="button"
@@ -64,7 +68,7 @@ export function MaterialEditor({ data, local, id, onDone, onDeleted }: { data: G
 }
 
 /** The record's fields, in the sheet's sections; saved together. */
-function RecordForm({ material, local }: { material: CatalogMaterial; local: LocalDatabase }) {
+function RecordForm({ material, local, inherited }: { material: CatalogMaterial; local: LocalDatabase; inherited: Form }) {
   const [form, setForm] = useState<Form>(() => formOf(material));
   const [state, setState] = useState<{ kind: "idle" | "saving" | "saved" } | { kind: "error"; message: string }>({ kind: "idle" });
   const set = (key: string, value: string) => {
@@ -91,7 +95,9 @@ function RecordForm({ material, local }: { material: CatalogMaterial; local: Loc
               <label htmlFor={`f-${x.key}`}>{x.unit ? `${x.label} (${x.unit})` : x.label}</label>
               {x.input === "choice" ? (
                 <select id={`f-${x.key}`} value={form[x.key]} onChange={(e) => set(x.key, e.target.value)}>
-                  {x.key !== "kind" && <option value="">{texts.sheet.unknown}</option>}
+                  {x.key !== "kind" && (
+                    <option value="">{inherited[x.key] ? t.inherits(x.options!.find(([v]) => v === inherited[x.key])?.[1] ?? inherited[x.key]) : texts.sheet.unknown}</option>
+                  )}
                   {x.options!.map(([value, label]) => (
                     <option key={value} value={value}>
                       {label}
@@ -99,14 +105,17 @@ function RecordForm({ material, local }: { material: CatalogMaterial; local: Loc
                   ))}
                 </select>
               ) : x.input === "bool" ? (
-                <input id={`f-${x.key}`} type="checkbox" checked={form[x.key] === "true"} onChange={(e) => set(x.key, e.target.checked ? "true" : "")} />
+                <span>
+                  <input id={`f-${x.key}`} type="checkbox" checked={form[x.key] === "true"} onChange={(e) => set(x.key, e.target.checked ? "true" : "")} />
+                  {inherited[x.key] === "true" && form[x.key] !== "true" && <span className="hint"> {t.inherits(texts.sheet.yes)}</span>}
+                </span>
               ) : x.input === "evolution" ? (
                 <span className="evolution" id={`f-${x.key}`}>
                   {texts.sheet.evolution.map((stretch, i) => (
                     <label key={stretch}>
                       {stretch}
                       <select value={form[`evolution.${i}`]} onChange={(e) => set(`evolution.${i}`, e.target.value)}>
-                        <option value="">—</option>
+                        <option value="">{inherited[`evolution.${i}`] ? t.inherits(inherited[`evolution.${i}`]) : "—"}</option>
                         {[0, 1, 2, 3].map((n) => (
                           <option key={n} value={String(n)}>
                             {n}
@@ -117,9 +126,9 @@ function RecordForm({ material, local }: { material: CatalogMaterial; local: Loc
                   ))}
                 </span>
               ) : x.input === "list" || x.input === "long" ? (
-                <textarea id={`f-${x.key}`} rows={3} value={form[x.key]} placeholder={x.input === "list" ? t.listHint : ""} onChange={(e) => set(x.key, e.target.value)} />
+                <textarea id={`f-${x.key}`} rows={3} value={form[x.key]} placeholder={inherited[x.key] ? t.inherits(inherited[x.key]) : x.input === "list" ? t.listHint : ""} onChange={(e) => set(x.key, e.target.value)} />
               ) : (
-                <input id={`f-${x.key}`} type="text" inputMode={x.input === "number" || x.input === "percent" ? "decimal" : undefined} value={form[x.key]} onChange={(e) => set(x.key, e.target.value)} />
+                <input id={`f-${x.key}`} type="text" inputMode={x.input === "number" || x.input === "percent" ? "decimal" : undefined} value={form[x.key]} placeholder={inherited[x.key] ? t.inherits(inherited[x.key]) : ""} onChange={(e) => set(x.key, e.target.value)} />
               )}
             </div>
           ))}
@@ -162,7 +171,7 @@ const needSource = (source: string) => {
   if (source.trim() === "") throw new FormError(t.sourceRequired);
 };
 
-function Composition({ material, data, local }: { material: CatalogMaterial; data: GlossaryData; local: LocalDatabase }) {
+function Composition({ material, data, local, bases }: { material: CatalogMaterial; data: GlossaryData; local: LocalDatabase; bases: readonly CatalogMaterial[] }) {
   const c = t.composition;
   const [what, setWhat] = useState<"material" | "substance">("substance");
   const [query, setQuery] = useState("");
@@ -217,6 +226,7 @@ function Composition({ material, data, local }: { material: CatalogMaterial; dat
   return (
     <section className="sheet-section">
       <h3>{c.title}</h3>
+      <Inherited rows={bases.flatMap((b) => b.components.map((x) => `${nameOf(x.componentId, x.componentName, x.componentCas)} · ${amountText(x.amount)} · ${texts.sheet.authority[x.authority]} · ${x.source}`))} />
       <ul className="editable-rows">
         {material.components.map((x) => (
           <li key={x.id}>
@@ -293,7 +303,7 @@ function Composition({ material, data, local }: { material: CatalogMaterial; dat
   );
 }
 
-function Regulations({ material, data, local }: { material: CatalogMaterial; data: GlossaryData; local: LocalDatabase }) {
+function Regulations({ material, data, local, bases }: { material: CatalogMaterial; data: GlossaryData; local: LocalDatabase; bases: readonly CatalogMaterial[] }) {
   const r = t.regulations;
   const [regime, setRegime] = useState<"manufacturer" | "ifra">("manufacturer");
   const [kind, setKind] = useState<RegulationKind>("max");
@@ -332,14 +342,11 @@ function Regulations({ material, data, local }: { material: CatalogMaterial; dat
     <section className="sheet-section">
       <h3>{r.title}</h3>
       <p className="hint">{r.ifraNote}</p>
+      <Inherited rows={bases.flatMap((b) => b.regulations.map(regulationText))} />
       <ul className="editable-rows">
         {material.regulations.map((x) => (
           <li key={x.id}>
-            <span>
-              {r.regimes[x.regime]} · {x.category ?? texts.sheet.allCategories} ·{" "}
-              {x.kind === "max" && x.maxValue ? `${r.kinds.max} ${percent(x.maxValue)}` : x.kind === "requirement" ? (x.requirement ?? "") : r.kinds[x.kind]}
-              {x.groupKey ? ` · ${x.groupKey}` : ""} · {texts.sheet.authority[x.authority]} · {x.source}
-            </span>
+            <span>{regulationText(x)}</span>
             <button type="button" className="link" onClick={() => void removeRegulation(local.db, local.userId, x.id).catch((e: unknown) => setError(messageOf(e)))}>
               {t.remove}
             </button>
@@ -406,7 +413,7 @@ function Regulations({ material, data, local }: { material: CatalogMaterial; dat
   );
 }
 
-function Doses({ material, local }: { material: CatalogMaterial; local: LocalDatabase }) {
+function Doses({ material, local, bases }: { material: CatalogMaterial; local: LocalDatabase; bases: readonly CatalogMaterial[] }) {
   const d = t.doses;
   const [min, setMin] = useState("");
   const [typical, setTypical] = useState("");
@@ -433,17 +440,14 @@ function Doses({ material, local }: { material: CatalogMaterial; local: LocalDat
       setError(messageOf(err));
     }
   };
-  const show = (r: Ratio | null) => (r ? percent(r) : "—");
-
   return (
     <section className="sheet-section">
       <h3>{d.title}</h3>
+      <Inherited rows={bases.flatMap((b) => b.doses.map(doseText))} />
       <ul className="editable-rows">
         {material.doses.map((x) => (
           <li key={x.id}>
-            <span>
-              {show(x.min)} · {show(x.typical)} · {show(x.max)} · {texts.sheet.basis[x.basis]} · {texts.sheet.authority[x.authority]} · {x.source}
-            </span>
+            <span>{doseText(x)}</span>
             <button type="button" className="link" onClick={() => void removeDose(local.db, local.userId, x.id).catch((e: unknown) => setError(messageOf(e)))}>
               {t.remove}
             </button>
@@ -483,4 +487,32 @@ function Doses({ material, local }: { material: CatalogMaterial; local: LocalDat
       </form>
     </section>
   );
+}
+
+/** The rows a version inherits from the material it is based on: shown, not changed here. */
+function Inherited({ rows }: { rows: readonly string[] }) {
+  if (rows.length === 0) return null;
+  return (
+    <div className="inherited">
+      <p className="hint">{t.inheritedRows}</p>
+      <ul className="editable-rows">
+        {rows.map((row, i) => (
+          <li key={i}>
+            <span>{row}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function regulationText(x: Regulation): string {
+  const r = t.regulations;
+  const what = x.kind === "max" && x.maxValue ? `${r.kinds.max} ${percent(x.maxValue)}` : x.kind === "requirement" ? (x.requirement ?? "") : r.kinds[x.kind];
+  return `${r.regimes[x.regime]} · ${x.category ?? texts.sheet.allCategories} · ${what}${x.groupKey ? ` · ${x.groupKey}` : ""} · ${texts.sheet.authority[x.authority]} · ${x.source}`;
+}
+
+function doseText(x: Dose): string {
+  const show = (r: Ratio | null) => (r ? percent(r) : "—");
+  return `${show(x.min)} · ${show(x.typical)} · ${show(x.max)} · ${texts.sheet.basis[x.basis]} · ${texts.sheet.authority[x.authority]} · ${x.source}`;
 }

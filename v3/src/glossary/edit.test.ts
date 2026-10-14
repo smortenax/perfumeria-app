@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { Ratio } from "../core/arith/ratio";
 import { type CatalogMaterial, type MaterialFields, NO_EVOLUTION, NO_PHYSICAL } from "../db/catalog";
-import { changesOf, EDIT_SECTIONS, formOf, FormError, numberOf } from "./edit";
+import { changesOf, EDIT_SECTIONS, formOf, FormError, inheritedForm, numberOf } from "./edit";
 
 /**
  * Plan v3, step 6.3: the editor's form of one of your materials, read back into its record. A
@@ -64,5 +64,22 @@ describe("the editor's form (6.3)", () => {
     expect(new Set(keys).size).toBe(keys.length);
     expect(keys).toContain("physical.vaporPressure");
     expect(keys).toContain("tenacitySource");
+  });
+});
+
+describe("a version's editor (6.4): what it inherits is a hint, never its value", () => {
+  const common: CatalogMaterial = { ...mine, id: "c", ownerId: null, name: "Lavanda", kind: "natural", cas: "8000-28-0", family: "floral", aliases: ["Lavender oil"] };
+  const version: CatalogMaterial = { ...FIELDS, id: "v", ownerId: "me", name: "Lavanda", kind: "natural", basedOnId: "c", supplier: "Maese Lab", components: [], regulations: [], doses: [], descriptors: [], relations: [], references: [] };
+
+  it("the form holds only the version's own record, and the hints what the common one says", () => {
+    expect(formOf(version)).toMatchObject({ cas: "", family: "", supplier: "Maese Lab" });
+    expect(inheritedForm([version, common])).toMatchObject({ cas: "8000-28-0", family: "floral", aliases: "Lavender oil" });
+    expect(inheritedForm([version])).toEqual({});
+  });
+
+  it("saving an untouched version writes nothing it inherits", () => {
+    const changes = changesOf(formOf(version), version);
+    expect([changes.cas, changes.family, changes.aliases]).toEqual([null, null, []]);
+    expect(changes.supplier).toBe("Maese Lab");
   });
 });

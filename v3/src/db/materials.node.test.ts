@@ -12,6 +12,7 @@ import {
   addDose,
   addRegulation,
   createMaterial,
+  createVersion,
   deleteMaterial,
   loadCatalog,
   removeComponent,
@@ -19,7 +20,9 @@ import {
   updateMaterial,
   type LocalDb,
 } from "./materials";
+import { indexCatalog, search } from "./search";
 import { ifraCard, toIfra } from "./to-ifra";
+import { sheetOf } from "../glossary/sheet";
 
 /**
  * Plan v3, step 3.2, without network: the repository against a copy that is connected to
@@ -186,5 +189,54 @@ describe("plan v3, step 6.3: a material of yours with its certificate gives its 
       ["91-64-5", "Coumarin", null],
       ["119-84-6", "Dihydrocoumarin", null],
     ]);
+  });
+});
+
+describe("plan v3, step 6.4: your version of a common material", () => {
+  const LAVENDER = "77777777-7777-4777-8777-777777777777";
+  const layer: IfraLayer = { standards: new Map(), byCas: new Map(), annex: [] };
+
+  it("inherits everything, adds yours, the common one does not change, and both show", async () => {
+    await copy.execute(
+      `insert into materials (id, owner_id, name, kind, cas, species, family, tier, aliases, other_cas, disputed_fields, solvent)
+       values (?, null, 'Lavanda', 'natural', '8000-28-0', 'Lavandula angustifolia', 'floral', 'heart', '["Lavender oil"]', '[]', '[]', 0)`,
+      [LAVENDER],
+    );
+    await copy.execute(
+      `insert into material_doses (id, material_id, owner_id, min, typical, max, basis, authority, source, disputed)
+       values ('d-lav', ?, null, null, '0.05', null, 'concentrate', 'literature', 'Arctander', 0)`,
+      [LAVENDER],
+    );
+    const before = (await loadCatalog(db, ME)).materials.get(LAVENDER)!;
+
+    const mine = await createVersion(db, ME, LAVENDER);
+    await updateMaterial(db, ME, mine, { supplier: "Maese Lab", product: "Lavanda Fina 100 %", tier: "top_heart" });
+    await addDose(db, ME, mine, { max: pct("10"), basis: "concentrate", authority: "product", source: "ficha de Maese Lab" });
+
+    const catalog = await loadCatalog(db, ME);
+    // The common one does not change.
+    expect(catalog.materials.get(LAVENDER)).toEqual(before);
+    // Yours is a version: its name and kind, based on it, and only what you added.
+    expect(catalog.materials.get(mine)).toMatchObject({ name: "Lavanda", kind: "natural", basedOnId: LAVENDER, ownerId: ME, cas: null, family: null });
+
+    // It inherits everything, and what is yours shows as yours (its rows first).
+    const ifra = toIfra(catalog, layer);
+    const sheet = sheetOf(catalog, layer, ifra, mine);
+    const value = (section: string, label: string) => sheet.sections.find((x) => x.key === section)!.rows.find((r) => r.label === label)!.value;
+    expect(value("identity", "CAS")).toMatchObject({ text: "8000-28-0", yours: false });
+    expect(value("identity", "Especie")).toMatchObject({ text: "Lavandula angustifolia", yours: false });
+    expect(value("smell", "Familia")).toMatchObject({ text: "Floral", yours: false });
+    expect(value("smell", "Nivel")).toMatchObject({ text: "Salida-corazón", yours: true });
+    expect(value("bottle", "Tienda")).toMatchObject({ text: "Maese Lab", yours: true });
+    expect(sheet.sections.find((x) => x.key === "doses")!.tables[0].rows.map((r) => r[r.length - 1])).toEqual(["ficha de Maese Lab (tuyo)", "Arctander"]);
+
+    // Both show, in one row: yours first.
+    const rows = search(indexCatalog(catalog), "lavanda");
+    expect(rows.map((r) => r.members.map((m) => m.material.id))).toEqual([[mine, LAVENDER]]);
+  });
+
+  it("a frozen formula has no versions, and nobody bases one on what they cannot see", async () => {
+    await expect(createVersion(db, ME, MY_FROZEN)).rejects.toThrow();
+    await expect(createVersion(db, ME, SOMEONE_S)).rejects.toThrow();
   });
 });

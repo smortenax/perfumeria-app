@@ -443,3 +443,9 @@ form.add .error {
 .danger button {
   background: #b3261e;
 }
+
+/* A version's inherited rows (plan v3, step 6.4): shown, not changed. */
+.inherited .editable-rows li {
+  color: var(--muted);
+  font-style: italic;
+}

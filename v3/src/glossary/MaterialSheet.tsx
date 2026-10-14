@@ -7,8 +7,24 @@ import type { GlossaryData } from "./useGlossary";
  * A material's sheet as a plain data sheet (plan v3, step 6.2; V3-47): its sections, each with
  * «field: value» and its tables. What nobody says reads «no lo dice» (§1.2).
  */
-export function MaterialSheet({ data, id, onBack, onEdit }: { data: GlossaryData; id: string; onBack: () => void; onEdit: () => void }) {
+export function MaterialSheet({
+  data,
+  id,
+  onBack,
+  onEdit,
+  onOpen,
+  onMakeVersion,
+}: {
+  data: GlossaryData;
+  id: string;
+  onBack: () => void;
+  onEdit: () => void;
+  onOpen: (id: string) => void;
+  onMakeVersion: () => void;
+}) {
   const sheet = useMemo(() => (data.catalog.materials.has(id) ? sheetOf(data.catalog, data.layer, data.ifra, id) : null), [data, id]);
+  // Your versions of a common material (V3-5): it shows them, and makes one more.
+  const versions = useMemo(() => [...data.catalog.materials.values()].filter((m) => m.basedOnId === id && m.ownerId !== null), [data, id]);
   const t = texts.sheet;
   return (
     <article className="sheet">
@@ -21,12 +37,29 @@ export function MaterialSheet({ data, id, onBack, onEdit }: { data: GlossaryData
         <>
           <div className="title-bar">
             <h2>{sheet.name}</h2>
-            {sheet.own && (
+            {sheet.own ? (
               <button type="button" onClick={onEdit}>
                 {texts.editor.edit}
               </button>
+            ) : (
+              <button type="button" title={texts.editor.makeVersionHint} onClick={onMakeVersion}>
+                {texts.editor.makeVersion}
+              </button>
             )}
           </div>
+          {versions.length > 0 && (
+            <p className="hint">
+              {texts.editor.yourVersions}:{" "}
+              {versions.map((v, i) => (
+                <span key={v.id}>
+                  {i > 0 && " · "}
+                  <button type="button" className="link" onClick={() => onOpen(v.id)}>
+                    {[v.name, v.supplier, v.product].filter((x) => x).join(" · ")}
+                  </button>
+                </span>
+              ))}
+            </p>
+          )}
           <p className="hint">
             <span className={`ifra ifra-${sheet.ifra.state}`} title={texts.ifraStateHelp[sheet.ifra.state]}>
               {texts.ifraState[sheet.ifra.state]}
