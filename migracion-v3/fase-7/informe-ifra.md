@@ -5,15 +5,15 @@
 ## Resultado
 
 - **30 fórmulas:** 1 dan lo mismo línea a línea; 29 tienen diferencias.
-- **295 líneas distintas**, **0 sin explicar**.
+- **297 líneas distintas**, **0 sin explicar**.
 
 | Motivo | Líneas |
 |---|---|
-| V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo | 274 |
-| V3-48: un provisional nuevo, sin datos de IFRA | 112 |
+| V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo | 279 |
+| V3-48: un provisional nuevo, sin datos de IFRA | 105 |
 | cifras de otro proveedor | 23 |
 | anexo prestado, literatura | 12 |
-| 5-MOP como componente | 3 |
+| 5-MOP como componente | 5 |
 
 Ninguna diferencia queda sin explicar.
 
@@ -28,12 +28,12 @@ Lo primero que mirar: si una fórmula sale **menos prudente** que en la v2 (de �
 | Corazon | no, 8,9186 %, parcial | no, 53,6665 %, parcial | uso máximo mayor, parcial |
 | Sillon fondo | unknown, 100 %, parcial | no, 39,49 %, parcial | más prudente (lectura 1) |
 | sillon+cuero | no, 94,5595 %, parcial | no, 58,4129 %, parcial | más prudente (uso máximo menor) |
-| GERACUIR | no, 46,0819 %, parcial | no, 93,9874 %, parcial | uso máximo mayor, parcial |
+| GERACUIR | no, 46,0819 %, parcial | no, 0,2711 %, parcial | más prudente (uso máximo menor) |
 | Sillon fondo | unknown, 100 %, parcial | no, 39,49 %, parcial | más prudente (lectura 1) |
 | ZaraTobacoCollection | unknown, 100 %, parcial | unknown, 0,2836 %, parcial | más prudente (uso máximo menor) |
 | v2 Zara tabacco collection | unknown, 100 %, parcial | unknown, 1,4093 %, parcial | más prudente (uso máximo menor) |
 | olor a pie | no, 41,7667 %, parcial | no, 41,8 %, parcial | uso máximo mayor, parcial |
-| salida geranio | no, 3,5324 %, parcial | no, 49,115 %, parcial | uso máximo mayor, parcial |
+| salida geranio | no, 3,5324 %, parcial | no, 0,0132 %, parcial | más prudente (uso máximo menor) |
 | v2 Zara tabacco collection | unknown, 100 %, parcial | unknown, 1,597 %, parcial | más prudente (uso máximo menor) |
 
 ## Fórmula a fórmula
@@ -163,7 +163,7 @@ no, uso máx. 94,5595 %, parcial → no, uso máx. 58,4129 %, parcial
 
 ### GERACUIR (`GERACUIR.json`)
 
-no, uso máx. 46,0819 %, parcial → no, uso máx. 93,9874 %, parcial
+no, uso máx. 46,0819 %, parcial → no, uso máx. 0,2711 %, parcial
 
 | Línea | v2 | v3 | Motivo |
 |---|---|---|---|
@@ -177,14 +177,15 @@ no, uso máx. 46,0819 %, parcial → no, uso máx. 93,9874 %, parcial
 | std:IFRA_STD_035 | within, uso máx. 1850,0087 % | within, uso máx. 1939,0644 % | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo |
 | std:IFRA_STD_037 | within, uso máx. 506,6598 % | within, uso máx. 507,63 % | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo |
 | std:IFRA_STD_048 | bounded, uso máx. 4842,5195 % | within, uso máx. 100095,0005 % | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo |
-| std:IFRA_STD_087 | exceeds, uso máx. 72,2879 % | — | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo; V3-48: un provisional nuevo, sin datos de IFRA |
+| std:IFRA_STD_087 | exceeds, uso máx. 72,2879 % | — | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo |
+| std:IFRA_STD_089 | — | unknown, uso máx. 0,2711 % | 5-MOP como componente; V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo |
 | std:IFRA_STD_100 | within, uso máx. 1367,0985 % | within, uso máx. 11071,078 % | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo |
-| std:IFRA_STD_154 | exceeds, uso máx. 46,0819 % | — | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo; V3-48: un provisional nuevo, sin datos de IFRA |
-| std:IFRA_STD_190 | bounded, uso máx. 4681,3725 % | — | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo; V3-48: un provisional nuevo, sin datos de IFRA |
-| std:IFRA_STD_191 | bounded, uso máx. 51129,4463 % | — | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo; V3-48: un provisional nuevo, sin datos de IFRA |
+| std:IFRA_STD_154 | exceeds, uso máx. 46,0819 % | — | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo |
+| std:IFRA_STD_190 | bounded, uso máx. 4681,3725 % | — | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo |
+| std:IFRA_STD_191 | bounded, uso máx. 51129,4463 % | — | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo |
 | std:IFRA_STD_192 | within, uso máx. 42568413,4652 % | within, uso máx. 6290,9697 % | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo |
 | std:IFRA_STD_197 | within, uso máx. 585803,855 % | exceeds, uso máx. 93,9874 % | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo |
-| std:IFRA_STD_243 | within, uso máx. 9452,7008 % | — | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo; V3-48: un provisional nuevo, sin datos de IFRA |
+| std:IFRA_STD_243 | within, uso máx. 9452,7008 % | — | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo |
 
 ### GuiAaa con pirazinas (`GuiAaa con pirazinas.json`)
 
@@ -385,7 +386,7 @@ unknown, uso máx. 100 %, parcial → unknown, uso máx. 0,2836 %, parcial
 | std:IFRA_STD_037 | within, uso máx. 1042,4103 % | within, uso máx. 1043,0644 % | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo |
 | std:IFRA_STD_039 | within, uso máx. 6310,92 % | within, uso máx. 26295,5 % | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo |
 | std:IFRA_STD_069 | within, uso máx. 45132,1586 % | within, uso máx. 49254,8077 % | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo |
-| std:IFRA_STD_089 | — | unknown, uso máx. 0,2837 % | 5-MOP como componente; V3-48: un provisional nuevo, sin datos de IFRA |
+| std:IFRA_STD_089 | — | unknown, uso máx. 0,2837 % | 5-MOP como componente; V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo; V3-48: un provisional nuevo, sin datos de IFRA |
 | std:IFRA_STD_100 | within, uso máx. 4692,3664 % | — | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo; V3-48: un provisional nuevo, sin datos de IFRA |
 | std:IFRA_STD_197 | within, uso máx. 1078421,0526 % | — | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo; V3-48: un provisional nuevo, sin datos de IFRA |
 
@@ -419,7 +420,7 @@ unknown, uso máx. 100 %, parcial → unknown, uso máx. 1,4093 %, parcial
 | std:IFRA_STD_039 | within, uso máx. 4384,3183 % | within, uso máx. 130672,2707 % | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo |
 | std:IFRA_STD_048 | bounded, uso máx. 13111,5587 % | — | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo; V3-48: un provisional nuevo, sin datos de IFRA |
 | std:IFRA_STD_069 | within, uso máx. 133686,1637 % | within, uso máx. 244765,7417 % | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo |
-| std:IFRA_STD_089 | — | unknown, uso máx. 1,4099 % | 5-MOP como componente; V3-48: un provisional nuevo, sin datos de IFRA |
+| std:IFRA_STD_089 | — | unknown, uso máx. 1,4099 % | 5-MOP como componente; V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo; V3-48: un provisional nuevo, sin datos de IFRA |
 | std:IFRA_STD_100 | within, uso máx. 23318,1409 % | — | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo; V3-48: un provisional nuevo, sin datos de IFRA |
 | std:IFRA_STD_190 | bounded, uso máx. 12062,0205 % | — | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo; V3-48: un provisional nuevo, sin datos de IFRA |
 | std:IFRA_STD_191 | bounded, uso máx. 131740,0871 % | — | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo; V3-48: un provisional nuevo, sin datos de IFRA |
@@ -511,14 +512,15 @@ unknown, uso máx. 100 %, parcial → unknown, uso máx. 100 %, parcial
 
 ### salida geranio (`salida geranio.json`)
 
-no, uso máx. 3,5324 %, parcial → no, uso máx. 49,115 %, parcial
+no, uso máx. 3,5324 %, parcial → no, uso máx. 0,0132 %, parcial
 
 | Línea | v2 | v3 | Motivo |
 |---|---|---|---|
-| std:IFRA_STD_008 | bounded, uso máx. 4976190,4762 % | — | cifras de otro proveedor; V3-48: un provisional nuevo, sin datos de IFRA |
+| std:IFRA_STD_008 | bounded, uso máx. 4976190,4762 % | — | cifras de otro proveedor |
 | std:IFRA_STD_021 | within, uso máx. 952,8875 % | within, uso máx. 6966,6667 % | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo |
 | std:IFRA_STD_037 | exceeds, uso máx. 49,0918 % | exceeds, uso máx. 49,115 % | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo |
-| std:IFRA_STD_087 | exceeds, uso máx. 3,5324 % | — | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo; V3-48: un provisional nuevo, sin datos de IFRA |
+| std:IFRA_STD_087 | exceeds, uso máx. 3,5324 % | — | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo |
+| std:IFRA_STD_089 | — | unknown, uso máx. 0,0132 % | 5-MOP como componente; V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo |
 
 ### v2 Zara tabacco collection (`v2 Zara tabacco collection.json`)
 
@@ -538,7 +540,7 @@ unknown, uso máx. 100 %, parcial → unknown, uso máx. 1,597 %, parcial
 | std:IFRA_STD_039 | within, uso máx. 4968,2356 % | within, uso máx. 148075,6144 % | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo |
 | std:IFRA_STD_048 | bounded, uso máx. 14857,7973 % | — | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo; V3-48: un provisional nuevo, sin datos de IFRA |
 | std:IFRA_STD_069 | within, uso máx. 151490,9072 % | within, uso máx. 277364,4126 % | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo |
-| std:IFRA_STD_089 | — | unknown, uso máx. 1,5976 % | 5-MOP como componente; V3-48: un provisional nuevo, sin datos de IFRA |
+| std:IFRA_STD_089 | — | unknown, uso máx. 1,5976 % | 5-MOP como componente; V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo; V3-48: un provisional nuevo, sin datos de IFRA |
 | std:IFRA_STD_100 | within, uso máx. 26423,7242 % | — | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo; V3-48: un provisional nuevo, sin datos de IFRA |
 | std:IFRA_STD_190 | bounded, uso máx. 13668,4783 % | — | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo; V3-48: un provisional nuevo, sin datos de IFRA |
 | std:IFRA_STD_191 | bounded, uso máx. 149285,646 % | — | V3-48: el material de tu fórmula es otro (tu respuesta) o un provisional nuevo; V3-48: un provisional nuevo, sin datos de IFRA |

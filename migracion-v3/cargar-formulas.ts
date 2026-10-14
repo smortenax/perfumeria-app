@@ -11,6 +11,14 @@
  *
  *   node migracion-v3/cargar-formulas.ts <the email of your account>
  *   node migracion-v3/cargar-formulas.ts <email> --prueba        (loads and undoes it: a check)
+ *   node migracion-v3/cargar-formulas.ts <email> --rehacer       (a batch made again: see below)
+ *
+ * --rehacer: an event is never changed (it is only added), so a batch whose events point at other
+ * materials cannot be loaded over the one before. It first takes out of your account what batch 10
+ * put there (its workbenches, formulas and their events, its frozen accords and its provisionals,
+ * known by their ids and their source «tus fórmulas (…)»), then loads it whole: in one transaction,
+ * with the foreign keys between them set aside only for that deletion (they point at each other).
+ * Nothing you made in the app is touched.
  */
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
@@ -23,6 +31,7 @@ const BATCH = "10-formulas";
 const FOLDER = `migracion-v3/tandas/${BATCH}`;
 const email = process.argv[2];
 const dryRun = process.argv.includes("--prueba");
+const redo = process.argv.includes("--rehacer");
 if (!email) {
   console.error("Uso: node migracion-v3/cargar-formulas.ts <el correo de tu cuenta> [--prueba]");
   process.exit(1);
@@ -86,6 +95,21 @@ try {
       counts.set(table, at);
     };
 
+    if (redo) {
+      // What batch 10 put in your account: by the ids of this batch and by the source of its materials.
+      const formulaIds = tables.formulas.rows.map((f) => f.id);
+      const benchIds = tables.workbenches.rows.map((w) => w.id);
+      await db`set local session_replication_role = replica`;
+      const gone = {
+        events: (await db`delete from formula_events where owner_id = ${owner} and formula_id = any(${formulaIds}::uuid[]) returning id`).length,
+        materials: (await db`delete from materials where owner_id = ${owner} and (kind = 'frozen' or kind = 'provisional') and sources like 'tus fórmulas (%' returning id`).length,
+        formulas: (await db`delete from formulas where owner_id = ${owner} and id = any(${formulaIds}::uuid[]) returning id`).length,
+        benches: (await db`delete from workbenches where owner_id = ${owner} and id = any(${benchIds}::uuid[]) and id not in (select workbench_id from formulas) returning id`).length,
+      };
+      await db`set local session_replication_role = origin`;
+      counts.set("rehecho", { inserted: 0, same: 0 });
+      console.log(`Rehacer: quitados ${gone.events} eventos, ${gone.formulas} fórmulas, ${gone.benches} bancos y ${gone.materials} materiales de la tanda 10.`);
+    }
     for (const row of tables.workbenches.rows) await put("workbenches", row);
     // Mothers before their versions.
     const pending = [...tables.formulas.rows];

@@ -7,7 +7,7 @@
 | `workbenches.csv` | 9 bancos (V3-19): Guía, olor a pie, Zara tabaco, Ac Manzana Verde, church accord olibanum heavy, Cuir, idkGaidansing, salida geranio, Sin nombre |
 | `formulas.csv` | 33: las 30 de tu biblioteca y 3 instantáneas (V3-49); 6 versiones unidas a su madre |
 | `formula_events.csv` | 981 eventos (add 933, set_mass 1, remove 36, reweigh 11, note 0) |
-| `materials.csv` | 23 provisionales tuyos nuevos (V3-48) y 13 acordes congelados (V3-49) |
+| `materials.csv` | 22 provisionales tuyos nuevos (V3-48) y 13 acordes congelados (V3-49) |
 
 **Los acordes congelados** salen de su fórmula hasta el evento en que se congelaron: 10 de una fórmula de tu biblioteca, que se marca «acorde» para que se use desde cualquier banco (V3-19; propuesta de la sesión); 3 de una instantánea:
 
