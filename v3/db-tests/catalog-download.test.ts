@@ -16,7 +16,7 @@ import { admin, signIn } from "./local";
  * down. A new copy of PowerSync with the browser's core stands for the new browser.
  */
 
-const OWNED = ["materials", "material_components", "regulations", "material_doses"];
+const OWNED = ["materials", "material_components", "regulations", "material_doses", "material_descriptors", "material_relations", "material_references"];
 const IFRA = ["ifra_standards", "ifra_limits", "ifra_substances", "ifra_annex", "ifra_variant_rules", "ifra_spec_exclusions"];
 let folder = "";
 afterAll(async () => {
@@ -51,6 +51,9 @@ it("a new copy downloads the whole catalog, with Supabase's counts", async () =>
     material_components: [...catalog.materials.values()].reduce((n, m) => n + m.components.length, 0),
     regulations: [...catalog.materials.values()].reduce((n, m) => n + m.regulations.length, 0),
     material_doses: [...catalog.materials.values()].reduce((n, m) => n + m.doses.length, 0),
+    material_descriptors: [...catalog.materials.values()].reduce((n, m) => n + m.descriptors.length, 0),
+    material_relations: [...catalog.materials.values()].reduce((n, m) => n + m.relations.length, 0),
+    material_references: [...catalog.materials.values()].reduce((n, m) => n + m.references.length, 0),
     material_categories: catalog.categories.size,
     ifra_standards: layer.standards.size,
     ifra_limits: standards.reduce((n, s) => n + s.limits.size, 0),
