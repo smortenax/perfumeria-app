@@ -14,3 +14,8 @@ retirada-1-a-4,2026-10-14,"orko kill, 2026-10-14 (V3-34): «no sirven materiales
 6-capa-ifra,2026-10-14,"orko kill, 2026-10-14, en el hilo: «pushea y apruebo 6»",ifra_standards.csv,af1c7b466a88df8619bc22f3271693a14e6de4aa0b5776fccbc6cf36b1134ec2
 6-capa-ifra,2026-10-14,"orko kill, 2026-10-14, en el hilo: «pushea y apruebo 6»",ifra_substances.csv,e64333bef492e4d2f910fb5558ea6d72a83ca74f99d0d7fea0c70509da5646e6
 6-capa-ifra,2026-10-14,"orko kill, 2026-10-14, en el hilo: «pushea y apruebo 6»",ifra_variant_rules.csv,6adef8ca900509635d15e79ada6c2262de5c8a7e5a98c56c0f15494090e80209
+7-materiales,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 7»",material_descriptors.csv,0dd5c83fcdc705ca526a2ae9abb699897451e23e53498d4428ca08f6b3695136
+7-materiales,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 7»",material_doses.csv,8c84bee19ca1459b50544a02093930c5b08ea6bede7e737cd07ee208920272e0
+7-materiales,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 7»",material_references.csv,2f8c52d75b4a0f2005b980b8f47a6573f22312e3bd496c5105375c5d136b63e1
+7-materiales,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 7»",material_relations.csv,ebb3c81ea8ca673b6c22bd7ff59a3a09e9c2af2dc4ca30c2b12f81f655705a00
+7-materiales,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 7»",materials.csv,1bcfc702e91c299ed103f59ef317ed4bcba71a7f027b108b301f3f295fbc0495
