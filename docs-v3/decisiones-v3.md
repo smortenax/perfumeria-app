@@ -805,6 +805,21 @@ La tanda les ponía el techo a todos sus miembros. ¿Cómo entra cada uno?
 
 **Por qué** (la recomendación de la sesión que elegiste): un color por tema sale de la paleta sin convertir nada, y un cambio de paleta llega a todos los que no fijaste.
 
+## V3-39 · Lo que declara el certificado de tu producto va a tu versión (decidida por el usuario el 2026-10-14)
+
+**Pregunta** (tarjeta del hilo; la abre V3-34): ¿dónde va lo que declara el certificado de tu producto? Solo 9 de tus materiales tienen composición sacada de un documento de su propio producto: 62 filas, todas de certificados IFRA del fabricante (`datos/v2/composicion.csv`, autoridad «producto»). La pregunta incluye los topes del fabricante. El resto de la composición de sus parejas viene del anexo de IFRA, que es de la capa de IFRA (V3-35).
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «A tu versión (Recomendado)» (2026-10-14): «Es el documento de tu frasco: entra en tu versión, con autoridad de producto, y para tu frasco manda sobre lo que dice el anexo (V3-5, §6.3). Otro usuario con el mismo producto no lo vería hasta que haya un catálogo común de productos, que apunto en a-futuro.md.»
+
+**Cómo se aplica:**
+
+- **La composición de esos certificados** entra en tu versión de cada material, con autoridad `product` y la cita del documento.
+- **Los topes del fabricante** de tus productos también entran en tu versión. Son datos del material, no de IFRA (V3-35). La app los suma con IFRA y manda el más estricto.
+- **Para tu frasco, el certificado manda** sobre lo que dice el anexo de IFRA de ese natural (V3-5, §6.3).
+- **Un catálogo común de productos**, que serviría a cualquiera con el mismo frasco, queda en `docs/a-futuro.md`.
+
+**Por qué** (la recomendación de la sesión que elegiste): el certificado es de tu frasco, y V3-34 saca los productos de lo común.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
