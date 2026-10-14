@@ -7,14 +7,14 @@
 - Decisiones V3-1 a V3-31 (`decisiones-v3.md`). Las últimas: V3-27 (el 089 como componente 5-MOP), V3-28 (cifras prestadas del anexo, como literatura), V3-29 (aislados sin documentos: «Sin identificar»), V3-30 (prohibida «como tal»: prohibición y techo) y V3-31 (variante prohibida: por especie y proceso).
 - **Fases 0 a 3, hechas y comprobadas** (cada commit dice cómo): `v3/` sola, Supabase y PowerSync locales en Docker, PWA, inicio de sesión sin red, esquema de materiales con RLS, sincronización (un bucket común y uno por usuario) y disparadores, cifras exactas de ida y vuelta (las masas pueden ser `bigint`), repositorios (`src/db/materials.ts`) y adaptador al motor (`src/db/to-ifra.ts`, con el estado de IFRA por ficha de V3-25). Faltan, para cuando se usen: el interruptor «solo lo que tengo» (2.5) y `source_formula_id` (fase 7).
 - **Fase 4, en marcha.** La maquinaria, en `migracion-v3/` (su `LEEME.md`): migrar una tanda → informe → tu visto bueno → `aprobar.ts` → commit → `npm run datos:cargar` en `v3/`.
-- **Tandas 1 a 3, aprobadas y cargadas** en Supabase local (`5802adb`): 4355 materiales comunes, 3145 filas de composición y 7451 regulaciones (IFRA 51 por miembro y categoría, V3-30, V3-31, y 13 topes de fabricante). Una segunda carga no cambia nada; la carga va en una sola transacción. Una copia nueva lo descarga todo en 0,6 s y ocupa 36,7 MB (medido en Node, en local, `db-tests/catalog-download.test.ts`).
+- **Tandas 1 a 4, aprobadas y cargadas** en Supabase local (`c6b67c9`): 4344 materiales comunes en 3498 categorías, 3114 filas de composición y 7391 regulaciones (IFRA 51, V3-30, V3-31, 13 topes de fabricante). La tanda 4 aplica las 11 fusiones que decidiste (`migracion-v3/respuestas/duplicados.csv`, `fusiones.csv`); el DPG de la app es M02952. El cargador borra las filas comunes que ya no están en los datos (nunca las de un usuario). Una segunda carga no cambia nada. Una copia nueva lo descarga todo en 0,7 s y ocupa 41,6 MB (Node, local, `db-tests/catalog-download.test.ts`).
 - El adaptador (`src/db/to-ifra.ts`), con la tanda 3: una molécula prohibida «como tal» cuenta contra su techo dentro de un natural (V3-30); la ficha con techo y requisito enseña también el requisito (V3-25).
 - Pruebas: `npm test` 194, `npm run test:db` 22. **La rama `v3` se fusionó en `main` el 2026-10-13, a petición del usuario** (`fdcf017`); se sigue trabajando en `v3`. La v2 entera, en la etiqueta `v2-final`.
 
 ## Sigue
 
-1. **Tanda 4:** categorías y duplicados, con tus decisiones en CSV (cuál es el DPG de la app, M02736 o M02952; las fusiones).
-2. Tanda 5 (el laboratorio, en tu cuenta). Después, la fase 5 (equivalencia con la v2).
+1. **Tanda 5:** el laboratorio, en tu cuenta (paso 4.9, V3-15), con tus decisiones en `migracion-v3/conflictos/laboratorio.csv` (cuál es el común de cada material tuyo).
+2. Después, la fase 5 (equivalencia con la v2). Las categorías juntan partes de una planta que los datos no separan (nuez moscada y macis; naranja amarga, neroli y petitgrain): se separan cuando la parte esté en los datos.
 3. **Tú, cuando quieras:** `npx supabase login` en `v3/` (enlazar la nube) y corregir en el laboratorio el cruce del Aldambre en `diluciones.py`.
 
 ## Arranque local (dentro de `v3/`, con Docker Desktop abierto)
