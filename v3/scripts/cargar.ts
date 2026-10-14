@@ -104,7 +104,7 @@ try {
     for (const table of ORDER) {
       const { inserted, updated, rows } = loaded.get(table)!;
       const gone = deleted.get(table) ?? 0;
-      if (rows > 0) lines.push(`${table}: ${rows} filas en los datos; ${inserted} nuevas, ${updated} cambiadas, ${rows - inserted - updated} iguales${gone ? `; ${gone} borradas` : ""}.`);
+      if (rows > 0 || gone > 0) lines.push(`${table}: ${rows} filas en los datos; ${inserted} nuevas, ${updated} cambiadas, ${rows - inserted - updated} iguales${gone ? `; ${gone} borradas` : ""}.`);
     }
     await db`
     insert into data_version (single, "commit", batch) values (true, ${commit}, ${batches})
