@@ -949,6 +949,22 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 - **Al volver a ella, se ejecuta otra vez** y dice lo que sigue faltando.
 - **Cada hueco se llena con su fuente**, por una tanda que apruebas, como el resto de los datos.
 
+## V3-47 · La ficha de un material, de momento, es una hoja de datos normal; la diseñada, con el AOM (decidida por el usuario el 2026-10-14)
+
+**Respuesta literal** (orko kill, 2026-10-14, en el hilo, antes de la fase 6):
+
+> creo que el tema de visualizacion de datos aun tengo que trabajarlo un poco de momento creo que lo mejor es que se usen data sheets normales como placeholders pero en un futuro hare una tabla que este diseñada donde no todo sea texto sino que se visualizen los datos, pero antes hace falta tener datos suficientes para entender, probablemente se tengan que establecer sets de iconos y demas pero para eso hay que tener todos los datos en bruto y cuando diseñe el AOM mapa agregado de olores de multiples variables, podre hacer las fichas de materiales acorde
+
+**Lectura** (de la sesión; el usuario la confirmó en la tarjeta con «Sí, así (Recomendado)», 2026-10-14):
+
+- **En la fase 6, la ficha de un material es una hoja de datos normal**, provisional. Va por secciones con «campo: valor» y tablas: identidad, olor y uso, física, composición, IFRA, dosis, descriptores, relaciones y perfumes. Cada cifra va con su fuente y su base, y lo desconocido dice «no lo dice» (§1.2). Tu versión enseña lo que añade al común. Sin iconos, gráficos ni diseño propio.
+- **Más adelante, una ficha diseñada**, donde no todo sea texto y los datos se vean. Antes hace falta tener todos los datos en bruto y, seguramente, juegos de iconos. Las fichas se harán acordes al **AOM**, el mapa agregado de olores de múltiples variables, cuando el usuario lo diseñe.
+
+**Cómo se aplica** (propuesta de la sesión, confirmada con la lectura):
+
+- **El plan no cambia de contenido:** el paso 6.2 pide los mismos datos; solo cambia cómo se enseñan.
+- **La puerta que queda abierta:** un atributo por columna (V3-41), y ningún dato se guarda ya formateado para enseñarlo. La hoja se arma desde una lista de campos, así que la ficha diseñada sustituirá la vista sin tocar los datos. Entra en `docs/a-futuro.md`, junto al glosario visual (P15, P33, P34).
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).

@@ -141,6 +141,9 @@ Comparan con la v2, así que viven en `migracion-v3/`, no en `v3/` (V3-21).
 | 6.6 | Pantalla estrecha y sin *hover* | El glosario se usa en el móvil |
 | 6.7 | **Sin red** | Con la red cortada: recorres, creas y editas tus materiales y marcas lo que tienes. Al volver la red, todo sube y se ve en otro navegador |
 
+
+*Cambio del 2026-10-14 (V3-47): la ficha del 6.2 es, de momento, una hoja de datos normal (secciones con «campo: valor» y tablas), armada desde una lista de campos. La ficha diseñada, con iconos y acorde al AOM, llega después.*
+
 ---
 
 ## Bloque B · La formulación
