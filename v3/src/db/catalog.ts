@@ -169,6 +169,8 @@ export interface CatalogMaterial extends MaterialFields {
   readonly relations: readonly Relation[];
   /** Perfumes where it is known to be used. */
   readonly references: readonly Reference[];
+  /** A frozen formula (V3-49): its composition is its formula's, up to the event it was frozen at. */
+  readonly source?: { readonly formulaId: string; readonly eventId: string };
 }
 
 export interface Descriptor {

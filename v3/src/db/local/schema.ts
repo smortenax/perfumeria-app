@@ -39,6 +39,7 @@ export const materials = sqliteTable("materials", {
   form: text("form"),
   basedOnId: text("based_on_id"),
   sourceFormulaId: text("source_formula_id"),
+  sourceEventId: text("source_event_id"),
   grade: text("grade"),
   supplier: text("supplier"),
   product: text("product"),

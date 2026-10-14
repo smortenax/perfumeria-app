@@ -2,6 +2,8 @@ import { and, eq } from "drizzle-orm";
 import { Ratio } from "../core/arith/ratio";
 import type { Change, Formula } from "../core/model/formula";
 import type { Material } from "../core/model/material";
+import { makeVector } from "../core/model/vector";
+import { compose } from "../core/compose";
 import type { Catalog, CatalogMaterial } from "./catalog";
 import { bigintFromText, numericFromRatio, ratioFromNumeric } from "./exact";
 import * as local from "./local/schema";
@@ -222,58 +224,93 @@ export function engineMaterial(m: CatalogMaterial): Material {
   return { key: m.id, kind, name: m.name, ...(m.cas ? { cas: m.cas } : {}), ...(m.solvent ? { solvent: true } : {}) };
 }
 
-/** One of your formulas, as the engine reads it (decisions §3.4): its header and its history, in the order of its ids. */
+/**
+ * One of your formulas, as the engine reads it (decisions §3.4): its header and its history, in the
+ * order of its ids. A frozen formula it uses (V3-49) comes with its vector: its own formula, composed
+ * up to the event it was frozen at; exact, and the same forever, because a history is only added to.
+ */
 export async function loadFormula(db: LocalDb, catalog: Catalog, ownerId: string, id: string): Promise<Formula> {
-  const [record] = (await loadFormulas(db, ownerId)).filter((f) => f.id === id);
-  if (!record) throw new Error("not one of your formulas");
-  const events = (await db.select().from(local.formulaEvents).where(eq(local.formulaEvents.formulaId, id))).sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
-  const material = (materialId: string | null): Material => {
+  const records = new Map((await loadFormulas(db, ownerId)).map((f) => [f.id, f]));
+  const built = new Map<string, Formula>();
+  const frozen = new Map<string, Material>();
+
+  async function material(materialId: string | null, inside: readonly string[]): Promise<Material> {
     const m = materialId ? catalog.materials.get(materialId) : undefined;
     if (!m) throw new Error(`a formula's material is not in the copy: ${materialId}`);
-    return engineMaterial(m);
-  };
-  const mass = (value: string | null) => {
-    const m = bigintFromText(value);
-    if (m === null) throw new Error("an event lost a mass");
-    return m;
-  };
-  const ratio = (value: string | null) => {
-    const r = ratioFromNumeric(value);
-    if (!r) throw new Error("an event lost a figure");
-    return r;
-  };
-  const history: Change[] = events.map((e): Change => {
-    switch (e.kind) {
-      case "add":
-        return {
-          kind: "add",
-          id: e.id,
-          material: material(e.materialId),
-          massUg: mass(e.massUg),
-          fraction: ratio(e.fraction),
-          diluent: e.diluentId ? material(e.diluentId) : null,
-          ...(e.secondDiluentId ? { secondDiluent: { material: material(e.secondDiluentId), fraction: ratio(e.secondFraction) } } : {}),
-        };
-      case "set_mass":
-        return { kind: "set-mass", id: e.id, target: e.target ?? "", massUg: mass(e.massUg) };
-      case "remove":
-        return { kind: "remove", id: e.id, target: e.target ?? "" };
-      case "reweigh":
-        return { kind: "reweigh", id: e.id, grossUg: mass(e.grossUg), tareUg: mass(e.tareUg) };
-      case "note":
-        return { kind: "note", id: e.id, text: e.text ?? "" };
-      default:
-        throw new Error(`unknown event: ${e.kind}`);
+    if (m.kind !== "frozen") return engineMaterial(m);
+    const known = frozen.get(m.id);
+    if (known) return known;
+    if (!m.source) throw new Error(`«${m.name}» is a frozen formula without its formula (V3-49)`);
+    if (inside.includes(m.source.formulaId)) throw new Error(`«${m.name}» contains itself`);
+    const source = await formula(m.source.formulaId, inside);
+    const upTo = source.history.findIndex((c) => c.id === m.source!.eventId) + 1;
+    if (upTo === 0) throw new Error(`«${m.name}»: its event is not in its formula`);
+    const composition = compose(source, upTo);
+    const made: Material = { ...engineMaterial(m), vector: makeVector(composition.parts.map((p) => ({ material: p.material, amount: p.massUg }))) };
+    frozen.set(m.id, made);
+    return made;
+  }
+
+  async function formula(formulaId: string, inside: readonly string[]): Promise<Formula> {
+    const done = built.get(formulaId);
+    if (done) return done;
+    const record = records.get(formulaId);
+    if (!record) throw new Error("not one of your formulas");
+    const path = [...inside, formulaId];
+    const events = (await db.select().from(local.formulaEvents).where(eq(local.formulaEvents.formulaId, formulaId))).sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+    const mass = (value: string | null) => {
+      const v = bigintFromText(value);
+      if (v === null) throw new Error("an event lost a mass");
+      return v;
+    };
+    const ratio = (value: string | null) => {
+      const r = ratioFromNumeric(value);
+      if (!r) throw new Error("an event lost a figure");
+      return r;
+    };
+    const history: Change[] = [];
+    for (const e of events) {
+      switch (e.kind) {
+        case "add":
+          history.push({
+            kind: "add",
+            id: e.id,
+            material: await material(e.materialId, path),
+            massUg: mass(e.massUg),
+            fraction: ratio(e.fraction),
+            diluent: e.diluentId ? await material(e.diluentId, path) : null,
+            ...(e.secondDiluentId ? { secondDiluent: { material: await material(e.secondDiluentId, path), fraction: ratio(e.secondFraction) } } : {}),
+          });
+          break;
+        case "set_mass":
+          history.push({ kind: "set-mass", id: e.id, target: e.target ?? "", massUg: mass(e.massUg) });
+          break;
+        case "remove":
+          history.push({ kind: "remove", id: e.id, target: e.target ?? "" });
+          break;
+        case "reweigh":
+          history.push({ kind: "reweigh", id: e.id, grossUg: mass(e.grossUg), tareUg: mass(e.tareUg) });
+          break;
+        case "note":
+          history.push({ kind: "note", id: e.id, text: e.text ?? "" });
+          break;
+        default:
+          throw new Error(`unknown event: ${e.kind}`);
+      }
     }
-  });
-  return {
-    header: {
-      name: record.name,
-      intention: record.intention,
-      container: record.containerCapacityMl || record.containerTareUg !== null ? { capacityMl: record.containerCapacityMl, tareUg: record.containerTareUg } : null,
-      workBatchUg: record.workBatchUg,
-      finalBatchUg: record.finalBatchUg,
-    },
-    history,
-  };
+    const f: Formula = {
+      header: {
+        name: record.name,
+        intention: record.intention,
+        container: record.containerCapacityMl || record.containerTareUg !== null ? { capacityMl: record.containerCapacityMl, tareUg: record.containerTareUg } : null,
+        workBatchUg: record.workBatchUg,
+        finalBatchUg: record.finalBatchUg,
+      },
+      history,
+    };
+    built.set(formulaId, f);
+    return f;
+  }
+
+  return formula(id, []);
 }

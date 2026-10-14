@@ -978,6 +978,18 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 - **Los disolventes** (`solv:`) van a tus comunes disolventes (Etanol, DPG, IPM).
 - **Los acordes congelados** (`vec:`) entran como material congelado tuyo con su composición (plan 7.5), con sus materiales resueltos igual.
 
+## V3-49 · Un acorde congelado sale de su fórmula, hasta el evento en que se congeló (decidida por el usuario el 2026-10-14)
+
+**Pregunta** (tarjeta del hilo, paso 7.5): un acorde congelado (`vec:`) tiene proporciones como 17/1222, que no tienen decimal exacto, y la v3 no redondea cifras. ¿Cómo se guarda exacto? De tus 13 acordes, 10 son exactamente su fórmula de origen hasta su último evento; 3 no coinciden con ningún punto de su historial.
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Desde su fórmula (Recomendado)» (2026-10-14): «El acorde apunta a su fórmula y al evento en que se congeló (source_formula_id, que ya existe, y una columna nueva source_event_id). Como el historial solo se añade, su composición no cambia nunca. Sirve para 10 de 13. Para los otros 3 se crea una fórmula "instantánea" en su banco («… (congelado)»), con un vertido por componente, que da exactamente su vector.»
+
+**Cómo se aplica:**
+
+- **`materials.source_event_id`**: el evento de su fórmula hasta el que se compone. La composición del acorde la da el motor, `compose()` de su fórmula hasta ese evento; no se guarda aparte.
+- **Una fórmula de la que sale un acorde no se borra** mientras exista el acorde: su composición depende de ella. Cambia lo de V3-10, que la dejaba en `NULL` (propuesta de la sesión, porque se deduce de la respuesta).
+- **Las fórmulas instantáneas** llevan el papel «congelado de la v2» y un vertido puro por componente, con masas enteras proporcionales a su vector.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).

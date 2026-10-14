@@ -112,3 +112,24 @@ describe("a history, read back as the engine's formula (7.2)", () => {
     await expect(addEvent(db, SOMEONE, f, { kind: "note", text: "ajena" })).rejects.toThrow();
   });
 });
+
+describe("a frozen formula comes from its formula, up to the event it was frozen at (V3-49)", () => {
+  it("used in another formula, it opens into its parts; what its formula adds later does not change it", async () => {
+    const bench = await createWorkbench(db, ME, { name: "Acordes" });
+    const accord = await createFormula(db, ME, { name: "Acorde", workbenchId: bench, markers: ["accord"] });
+    const pour = await addEvent(db, ME, accord, { kind: "add", materialId: LINALOOL, massUg: 400n * MG, fraction: Ratio.of(1n, 4n), diluentId: DPG });
+    const frozen = crypto.randomUUID();
+    await copy.execute(
+      "insert into materials (id, owner_id, name, kind, solvent, aliases, other_cas, disputed_fields, source_formula_id, source_event_id) values (?, ?, 'Acorde congelado', 'frozen', 0, '[]', '[]', '[]', ?, ?)",
+      [frozen, ME, accord, pour],
+    );
+    // After freezing, the accord's formula goes on: the frozen one does not follow.
+    await addEvent(db, ME, accord, { kind: "add", materialId: DPG, massUg: 700n * MG, fraction: Ratio.ONE, diluentId: null });
+    const perfume = await createFormula(db, ME, { name: "Perfume", workbenchId: bench });
+    await addEvent(db, ME, perfume, { kind: "add", materialId: frozen, massUg: 900n * MG, fraction: Ratio.ONE, diluentId: null });
+
+    const parts = compose(await loadFormula(db, await loadCatalog(db, ME), ME, perfume)).parts.map((p) => [p.material.key, p.massUg.toString()]);
+    // 900 mg of an accord that was 1/4 linalool and 3/4 DPG.
+    expect(parts).toEqual([[DPG, (675n * MG).toString()], [LINALOOL, (225n * MG).toString()]]);
+  });
+});

@@ -189,6 +189,7 @@ export async function loadCatalog(db: LocalDb, userId: string): Promise<Catalog>
       ownerId: row.ownerId,
       name: row.name ?? "",
       kind: oneOf(row.kind, MATERIAL_KINDS, "material kind"),
+      ...(row.sourceFormulaId && row.sourceEventId ? { source: { formulaId: row.sourceFormulaId, eventId: row.sourceEventId } } : {}),
       ...fieldsOf(row),
       components: (components.get(row.id) ?? []).map(
         (c): Component => ({

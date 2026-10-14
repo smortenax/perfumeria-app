@@ -197,6 +197,20 @@
       "when": 1792008056901,
       "tag": "20261014200056_formulas_rls",
       "breakpoints": true
+    },
+    {
+      "idx": 28,
+      "version": "7",
+      "when": 1792009340030,
+      "tag": "20261014202220_frozen_source_event",
+      "breakpoints": true
+    },
+    {
+      "idx": 29,
+      "version": "7",
+      "when": 1792009351490,
+      "tag": "20261014202231_frozen_source_event_check",
+      "breakpoints": true
     }
   ]
 }

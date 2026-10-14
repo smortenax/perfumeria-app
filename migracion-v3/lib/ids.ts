@@ -19,3 +19,14 @@ export function uuidFor(key: string): string {
 
 /** The v3 id of a v2 material, product or substance without a material. */
 export const v2Id = (id: string): string => uuidFor(`v2:${id}`);
+
+/**
+ * A UUID v7 made from a time and a key (plan v3, step 7.5): the time orders a history as the v3 orders
+ * one (by id), and the key makes it the same every time the migration runs.
+ */
+export function uuidv7For(ms: number, key: string): string {
+  const time = Math.max(0, Math.floor(ms)).toString(16).padStart(12, "0").slice(-12);
+  const rand = createHash("sha256").update(key, "utf8").digest("hex");
+  const variant = ((parseInt(rand.slice(3, 4), 16) & 0x3) | 0x8).toString(16);
+  return `${time.slice(0, 8)}-${time.slice(8)}-7${rand.slice(0, 3)}-${variant}${rand.slice(4, 7)}-${rand.slice(7, 19)}`;
+}

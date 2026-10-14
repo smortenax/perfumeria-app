@@ -14,7 +14,9 @@
  * Every formula needs a workbench (V3-19): conflictos/bancos.csv proposes one (its subfolder; else
  * its family of versions; else its own name). You answer both in respuestas/.
  *
- *   node migracion-v3/tanda-10-formulas.ts
+ *   v3/node_modules/.bin/tsx migracion-v3/tanda-10-formulas.ts   (tsx: the v3's engine imports without extensions)
+ *
+ * With both answered, it also writes the batch (tanda-10-lote.ts) in migracion-v3/tandas/10-formulas/.
  */
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
@@ -23,6 +25,7 @@ import { parseCsvRecords } from "../src/data/csv.ts";
 import { type Cell, writeTable } from "./lib/csv.ts";
 import { readSources } from "./lib/fuentes.ts";
 import { uuidFor } from "./lib/ids.ts";
+import { writeBatch } from "./tanda-10-lote.ts";
 
 const LIBRARY = "migracion-v3/biblioteca";
 type Rec = Record<string, string>;
@@ -181,3 +184,24 @@ const report = `# Tanda 10 · Tus fórmulas: lo que decides antes de importarlas
 ${ambiguous.length ? `\n**Claves cuya pareja lleva a varios materiales tuyos** (van al CSV):\n\n${ambiguous.map((a) => `- ${a}`).join("\n")}\n` : ""}`;
 writeFileSync("migracion-v3/tandas/10-formulas-informe.md", report, "utf8");
 console.log(`Tanda 10: ${formulas.length} fórmulas, ${keys.size} claves; ${resolved.length} resueltas, ${conflictRows.length} al CSV, ${vec.length} acordes; bancos: ${new Set(benchRows.map((b) => b.recomendacion)).size}. ${existsSync("migracion-v3/respuestas/materiales-formulas.csv") ? "Hay respuestas." : "Sin respuestas todavía."}`);
+
+// ------------------------------------------------------------ with your answers, the batch (tanda-10-lote.ts)
+const MATERIAL_ANSWERS = "migracion-v3/respuestas/materiales-formulas.csv";
+const BENCH_ANSWERS = "migracion-v3/respuestas/bancos.csv";
+if (existsSync(MATERIAL_ANSWERS) && existsSync(BENCH_ANSWERS)) {
+  console.log(
+    writeBatch(
+      {
+        library: LIBRARY,
+        formulas: formulas as never,
+        resolved,
+        conflicts: conflictRows,
+        materialAnswer: new Map(csv(MATERIAL_ANSWERS).map((r) => [r.id, r.respuesta.trim()])),
+        benchAnswer: new Map(csv(BENCH_ANSWERS).map((r) => [r.id, r.respuesta.trim()])),
+        modified: new Map(csv(join(LIBRARY, "manifiesto.csv")).map((m) => [m.id, Date.parse(m.modificado)])),
+        targetOf,
+      },
+      "migracion-v3/tandas/10-formulas",
+    ),
+  );
+}
