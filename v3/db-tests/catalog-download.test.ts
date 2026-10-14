@@ -6,6 +6,7 @@ import { join } from "node:path";
 import { afterAll, expect, it } from "vitest";
 import { SupabaseConnector } from "../src/db/connector";
 import { AppSchema, tables } from "../src/db/local/schema";
+import { loadIfraLayer } from "../src/db/ifra-layer";
 import { loadCatalog } from "../src/db/materials";
 import { admin, signIn } from "./local";
 
@@ -15,6 +16,8 @@ import { admin, signIn } from "./local";
  * down. A new copy of PowerSync with the browser's core stands for the new browser.
  */
 
+const OWNED = ["materials", "material_components", "regulations", "material_doses"];
+const IFRA = ["ifra_standards", "ifra_limits", "ifra_substances", "ifra_annex", "ifra_variant_rules", "ifra_spec_exclusions"];
 let folder = "";
 afterAll(async () => {
   rmSync(folder, { recursive: true, force: true });
@@ -25,11 +28,9 @@ it("a new copy downloads the whole catalog, with Supabase's counts", async () =>
   const a = await signIn("A");
   const expected = Object.fromEntries(
     await Promise.all(
-      ["materials", "material_components", "regulations", "material_doses", "material_categories"].map(async (table) => {
-        const [row] = await admin.unsafe(
-          `select count(*)::int as n from ${table} ${table === "material_categories" ? "" : "where owner_id is null or owner_id = $1"}`,
-          table === "material_categories" ? [] : [a.id],
-        );
+      [...OWNED, "material_categories", ...IFRA].map(async (table) => {
+        const owned = OWNED.includes(table);
+        const [row] = await admin.unsafe(`select count(*)::int as n from ${table} ${owned ? "where owner_id is null or owner_id = $1" : ""}`, owned ? [a.id] : []);
         return [table, row.n as number];
       }),
     ),
@@ -42,12 +43,21 @@ it("a new copy downloads the whole catalog, with Supabase's counts", async () =>
   const seconds = (Date.now() - started) / 1000;
   const db = wrapPowerSyncWithDrizzle(copy, { schema: tables });
   const catalog = await loadCatalog(db, a.id);
+  // IFRA's layer comes down its own stream (V3-35): every standard, limit, CAS and row of the annex.
+  const layer = await loadIfraLayer(db);
+  const standards = [...layer.standards.values()];
   const got = {
     materials: catalog.materials.size,
     material_components: [...catalog.materials.values()].reduce((n, m) => n + m.components.length, 0),
     regulations: [...catalog.materials.values()].reduce((n, m) => n + m.regulations.length, 0),
     material_doses: [...catalog.materials.values()].reduce((n, m) => n + m.doses.length, 0),
     material_categories: catalog.categories.size,
+    ifra_standards: layer.standards.size,
+    ifra_limits: standards.reduce((n, s) => n + s.limits.size, 0),
+    ifra_substances: standards.reduce((n, s) => n + s.substances.length, 0),
+    ifra_annex: layer.annex.length,
+    ifra_variant_rules: standards.reduce((n, s) => n + s.variantRules.length, 0),
+    ifra_spec_exclusions: standards.reduce((n, s) => n + s.specExclusions.length, 0),
   };
   await copy.disconnect();
   await copy.close();
