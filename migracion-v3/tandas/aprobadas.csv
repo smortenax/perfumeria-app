@@ -32,3 +32,20 @@ retirada-1-a-4,2026-10-14,"orko kill, 2026-10-14 (V3-34): «no sirven materiales
 8-tu-version,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 8 cargala y luego reviso en app»",regulations.csv,79adbedbbb980ca2762853cc2554b763aafa15e7d7a8eecfad3daaaac48047ab
 9-categorias,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 9»",material_categories.csv,4a742a14215fbf678d89ea4264d49c69720f5ff405b50d619df31205a1e2f178
 9-categorias,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 9»",materials.csv,1ef754396fe04fe21f65e1a8314eb193616d3b5310554a4773ec0d7d7bfd30d2
+6-capa-ifra,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 6 y 8» (con los miembros de clase de V3-44)",ifra_annex.csv,3c2ecb680afec08ff5f2413944c5c23bf3d7fe564e35ec12a0829bacb0124ce3
+6-capa-ifra,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 6 y 8» (con los miembros de clase de V3-44)",ifra_limits.csv,eff0915fc03a549191da1116ab3bee9a2d4527469352b50e538decd729648380
+6-capa-ifra,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 6 y 8» (con los miembros de clase de V3-44)",ifra_spec_exclusions.csv,edb41c8dbe15a3ed4f29fed3dbf7cea641c3430dd5ef8d941e5bc31b9c360b23
+6-capa-ifra,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 6 y 8» (con los miembros de clase de V3-44)",ifra_standards.csv,af1c7b466a88df8619bc22f3271693a14e6de4aa0b5776fccbc6cf36b1134ec2
+6-capa-ifra,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 6 y 8» (con los miembros de clase de V3-44)",ifra_substances.csv,6a7746c91d2dce5714944cf3a1e73c038995d60d744dca6a304ce0dcdaa2a7ec
+6-capa-ifra,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 6 y 8» (con los miembros de clase de V3-44)",ifra_variant_rules.csv,6adef8ca900509635d15e79ada6c2262de5c8a7e5a98c56c0f15494090e80209
+8-tu-version,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 6 y 8» (con los aislados de V3-29)",lab_axes.csv,0e92c62f22a5c7e29e2408dd2652c8e54dc23d8055b67a23d96632884eaebc8b
+8-tu-version,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 6 y 8» (con los aislados de V3-29)",lab_dilutions.csv,8655d56cfee61aba1d69fbd565f2049855eed9d8452c04aee883d518e1bee993
+8-tu-version,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 6 y 8» (con los aislados de V3-29)",lab_evaluations.csv,d70205ea88f8a6b44c9d248f031ab604f856f1d2fbe36e8c4c32db0e42921565
+8-tu-version,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 6 y 8» (con los aislados de V3-29)",lab_materials.csv,21e370b0c8243e89cac93561faaf952e91cc5150cafebd81aee8ca90e73e704c
+8-tu-version,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 6 y 8» (con los aislados de V3-29)",material_components.csv,7717a3ee20fddc004af88ec9962f360f5ed63fdd738eb0e2291b8cfa70cdac95
+8-tu-version,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 6 y 8» (con los aislados de V3-29)",material_descriptors.csv,680ebbb213ac2273755a9ccf470528ab5e2c4d09676f3abc46539371841b4511
+8-tu-version,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 6 y 8» (con los aislados de V3-29)",material_doses.csv,384cfcaa2b2b1136a956234de77163e67060268937852fa632333eaa52010a3a
+8-tu-version,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 6 y 8» (con los aislados de V3-29)",material_references.csv,1bcb9cdefb957cc2c1cf79ba2f96fc61bd1dbe05592b060ca63ce00b76c7ab6d
+8-tu-version,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 6 y 8» (con los aislados de V3-29)",material_relations.csv,654088165ee2ba9e754731310eca9fb4843068ce0b3a7ced5cce457b14494a39
+8-tu-version,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 6 y 8» (con los aislados de V3-29)",materials.csv,def2fc8a0085cbbcb65b773d35f0f810b2814921432c4ad83ddabc2346f052b9
+8-tu-version,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 6 y 8» (con los aislados de V3-29)",regulations.csv,79adbedbbb980ca2762853cc2554b763aafa15e7d7a8eecfad3daaaac48047ab

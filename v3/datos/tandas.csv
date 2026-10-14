@@ -12,3 +12,9 @@ tanda,fecha,aprobacion,archivo,sha256
 7-materiales,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 7»",materials.csv,1bcfc702e91c299ed103f59ef317ed4bcba71a7f027b108b301f3f295fbc0495
 9-categorias,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 9»",material_categories.csv,4a742a14215fbf678d89ea4264d49c69720f5ff405b50d619df31205a1e2f178
 9-categorias,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 9»",materials.csv,1ef754396fe04fe21f65e1a8314eb193616d3b5310554a4773ec0d7d7bfd30d2
+6-capa-ifra,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 6 y 8» (con los miembros de clase de V3-44)",ifra_annex.csv,3c2ecb680afec08ff5f2413944c5c23bf3d7fe564e35ec12a0829bacb0124ce3
+6-capa-ifra,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 6 y 8» (con los miembros de clase de V3-44)",ifra_limits.csv,eff0915fc03a549191da1116ab3bee9a2d4527469352b50e538decd729648380
+6-capa-ifra,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 6 y 8» (con los miembros de clase de V3-44)",ifra_spec_exclusions.csv,edb41c8dbe15a3ed4f29fed3dbf7cea641c3430dd5ef8d941e5bc31b9c360b23
+6-capa-ifra,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 6 y 8» (con los miembros de clase de V3-44)",ifra_standards.csv,af1c7b466a88df8619bc22f3271693a14e6de4aa0b5776fccbc6cf36b1134ec2
+6-capa-ifra,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 6 y 8» (con los miembros de clase de V3-44)",ifra_substances.csv,6a7746c91d2dce5714944cf3a1e73c038995d60d744dca6a304ce0dcdaa2a7ec
+6-capa-ifra,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 6 y 8» (con los miembros de clase de V3-44)",ifra_variant_rules.csv,6adef8ca900509635d15e79ada6c2262de5c8a7e5a98c56c0f15494090e80209
