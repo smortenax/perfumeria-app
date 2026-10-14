@@ -6,7 +6,7 @@
 
 - **263 estándares** (`ifra_standards.csv`), con sus notas tal como las escribe IFRA y su enmienda: 59 de la 51, 116 de la 49 y el resto de enmiendas anteriores que la 51 mantiene.
 - **3004 límites por categoría** (`ifra_limits.csv`): 3002 techos en fracción del producto terminado y 2 prohibiciones de una categoría. En la categoría 4, la que usa la app: 177 techos y 0 prohibiciones. «ver-nota» toma la cifra de su nota; «sin-restriccion» o nada, ninguna fila. **76 estándares prohíben sin límite en ninguna categoría**: la app prohíbe el material como tal, o con especificación, una variante (el cade; V3-25).
-- **455 CAS regulados** (`ifra_substances.csv`), con su subgrupo y sus sinónimos cuando IFRA los da. El subgrupo es un encabezado de la lista de IFRA, no otro techo.
+- **481 CAS regulados** (`ifra_substances.csv`), con su subgrupo y sus sinónimos cuando IFRA los da. El subgrupo es un encabezado de la lista de IFRA, no otro techo.
 - **1030 filas del anexo de naturales** (`ifra_annex.csv`): lo que IFRA dice que trae cada natural, en fracción del natural, con su otro CAS. 3 no dicen el estándar de su constituyente (el CAS lo enlaza igual). 61 no traen CAS principal, solo otros CAS (el absoluto de ylang-ylang): la app los busca también por ellos. 1 filas repetidas iguales entran una vez.
 
 **Lo decidido encima del texto de IFRA:**
@@ -25,6 +25,7 @@
   - **IFRA_STD_071**: proceso contiene «absoluto» → permitida; proceso contiene «extracto» → permitida; proceso contiene «destilad» → permitida; proceso contiene «aceite» → permitida; proceso contiene «resinoide» → permitida; proceso contiene «rectificado» → permitida. Lee «Peru balsam crude should not be used…»; la restricción, a sus extractos y destilados.
   - **IFRA_STD_078**: proceso contiene «absoluto» → permitida; proceso contiene «extracto» → permitida; proceso contiene «destilad» → permitida; proceso contiene «aceite» → permitida; proceso contiene «resinoide» → permitida; proceso contiene «rectificado» → permitida. Lee «Crude gums of Liquidambar… should not be used…»; solo extractos o destilados de la exudación.
   - **IFRA_STD_083**: proceso empieza por «absoluto» → permitida; proceso empieza por «aceite» → prohibida. Lee «Verbena oils… should not be used…»; «Only Verbena absolutes… can be used».
+- **Los estándares de clase** (V3-44): IFRA_STD_188, IFRA_STD_184, IFRA_STD_089 no listan ningún CAS en los archivos de IFRA; toman los 26 miembros que les dio la v2 por nombre (`grupo-miembros.csv`), marcados «miembro por nombre, según la v2 (V3-44)». Sus límites siguen saliendo de IFRA.
 - **La especificación que no es de un proceso** (`ifra_spec_exclusions.csv`, 1): de `datos/v2/exclusiones.csv`, con su nota y la decisión del usuario que cita (el resinoide de estoraque no lleva la especificación de HAP del aceite de pirólisis).
 
 **Lo que no entra:** ningún material. La pertenencia de los materiales de la v2 a cada estándar (`grupo-miembros.csv`) era de la v2: en la v3 un material dice su CAS y la app lo busca aquí.

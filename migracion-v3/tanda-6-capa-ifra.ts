@@ -143,6 +143,26 @@ for (const row of src.ifraStandardCas) {
   for (const x of (row.sinonimos ?? "").split(" | ").map((y) => y.trim()).filter((y) => y)) if (!entry.synonyms.includes(x)) entry.synonyms.push(x);
   byStandardCas.set(key, entry);
 }
+// V3-44: a standard of a class lists no CAS in IFRA's files (089, 184, 188): it takes the members the v2 gave it
+// by name (grupo-miembros.csv), with the CAS of each. The limits stay IFRA's; only who belongs comes from that reading.
+const withCas = new Set([...byStandardCas.values()].map((x) => x.standard));
+const standardOfGroup = new Map(src.v2.groups.map((g) => [g.id, g.reference]));
+const v2Material = new Map(src.v2.materials.map((m) => [m.id, m]));
+const principal = new Map(src.v2.casAliases.filter((a) => a.relation === "principal").map((a) => [a.substanceId, a.cas]));
+const byName: string[] = [];
+for (const gm of src.v2.groupMembers) {
+  const standard = standardOfGroup.get(gm.groupId);
+  if (!standard || withCas.has(standard) || !src.ifraStandards.has(standard)) continue;
+  const cas = gm.memberId.startsWith("S") ? principal.get(gm.memberId) : v2Material.get(gm.memberId)?.cas;
+  if (!cas) {
+    notes.push(`${standard}: su miembro ${gm.memberId} en la v2 no tiene CAS; no entra (V3-44).`);
+    continue;
+  }
+  const key = `${standard}:${cas}`;
+  if (byStandardCas.has(key)) continue;
+  byStandardCas.set(key, { standard, cas, subgroups: ["miembro por nombre, según la v2 (V3-44)"], synonyms: [] });
+  byName.push(`${standard}: ${cas} (${gm.memberId})`);
+}
 for (const x of byStandardCas.values()) {
   substances.push({
     id: uuidFor(`ifra:cas:${x.standard}:${x.cas}`),
@@ -231,6 +251,7 @@ ${list(counts.expressedAs)}
 ${list(counts.asSuch)}
 - **Una variante prohibida** (V3-31), regla a regla, la primera que casa (\`ifra_variant_rules.csv\`, ${variantRules.length} reglas):
 ${Object.entries(VARIANTS).map(([code, v]) => `  - **${code}**: ${v.rules.map(([f, m, p, w]) => `${f === "species" ? "especie" : "proceso"} ${m === "starts" ? "empieza por" : "contiene"} «${p}» → ${w === "prohibited" ? "prohibida" : "permitida"}`).join("; ")}. Lee ${v.reads}.`).join("\n")}
+- **Los estándares de clase** (V3-44): ${[...new Set(byName.map((x) => x.split(":")[0]))].join(", ") || "ninguno"} no listan ningún CAS en los archivos de IFRA; toman los ${byName.length} miembros que les dio la v2 por nombre (\`grupo-miembros.csv\`), marcados «miembro por nombre, según la v2 (V3-44)». Sus límites siguen saliendo de IFRA.
 - **La especificación que no es de un proceso** (\`ifra_spec_exclusions.csv\`, ${exclusions.length}): de \`datos/v2/exclusiones.csv\`, con su nota y la decisión del usuario que cita (el resinoide de estoraque no lleva la especificación de HAP del aceite de pirólisis).
 
 **Lo que no entra:** ningún material. La pertenencia de los materiales de la v2 a cada estándar (\`grupo-miembros.csv\`) era de la v2: en la v3 un material dice su CAS y la app lo busca aquí.

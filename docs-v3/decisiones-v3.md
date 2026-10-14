@@ -896,6 +896,25 @@ Las fuentes: codefinity y openskillindex (atributo-valor), stanza.dev y leapcell
   - **Cada línea conserva su encabezado** en los dos lados.
 - **Se aplica a todos los campos de texto generales** de la tanda 7. El informe lista cada frase que pasa a tu versión, para que la revises antes de aprobar. Lo tuyo entra en tu versión, en el mismo campo, en la tanda de tu cuenta.
 
+## V3-44 · Un estándar de clase, sin CAS en los archivos de IFRA, toma los miembros que le dio la v2 (decidida por el usuario el 2026-10-14)
+
+**Pregunta** (tarjeta del hilo, tras la fase 5): tres estándares de IFRA abarcan una clase y no listan ningún CAS en sus archivos (`datos/ifra/51/estandar-cas.csv`):
+
+- el 089, los aceites cítricos y otros con furocumarinas;
+- el 184, «Pinacea derivatives»;
+- el 188, «Allyl esters».
+
+Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los perdían el allyl amyl glycolate (188), el cedro Atlas (184) y la bergamota sin bergaptenos (089). La v2 les daba 1, 7 y 18 miembros por nombre (`datos/v2/grupo-miembros.csv`, notas «D16, estándar de clase» y «el estándar le aplica por lo que es, aunque el índice no liste su CAS»).
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Con los miembros de la v2 (Recomendado)» (2026-10-14): «Para esos tres estándares, la capa lleva los CAS de los materiales que la v2 les asignó por nombre (grupo-miembros: 1, 7 y 18), marcados como «miembro por nombre, según la v2» y con su cita. Los límites siguen saliendo solo de IFRA; solo la pertenencia viene de esa lectura. Cuesta una excepción documentada a «IFRA, solo de sus archivos» (P37), y solo para la pertenencia.»
+
+**Cómo se aplica:**
+
+- **La tanda 6 (la capa de IFRA)**, para cada estándar que no lista ningún CAS en los archivos de IFRA, escribe en `ifra_substances` el CAS de cada miembro que le dio la v2: el del material, o el principal de la sustancia. El subgrupo dice «miembro por nombre, según la v2 (V3-44)».
+- **Los límites, las notas y las reglas siguen saliendo solo de los archivos de IFRA.** La excepción a P37 es solo para quién pertenece a esos estándares.
+
+**Por qué** (la recomendación de la sesión que elegiste): sin ellos, esos materiales salían sin un límite que IFRA les pone, y podían dar «dentro» sin serlo.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
