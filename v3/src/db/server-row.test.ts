@@ -2,10 +2,11 @@ import { getTableColumns, getTableName } from "drizzle-orm";
 import type { PgTable } from "drizzle-orm/pg-core";
 import { describe, expect, it } from "vitest";
 import * as checks from "../../db/schema/checks";
+import * as ifra from "../../db/schema/ifra";
 import * as server from "../../db/schema/materials";
 import { BOOLEAN_COLUMNS, LIST_COLUMNS, toServerRow } from "./server-row";
 
-const tables = [...Object.values(server), ...Object.values(checks)] as PgTable[];
+const tables = [...Object.values(server), ...Object.values(checks), ...Object.values(ifra)] as PgTable[];
 
 /** The columns of the server's schema of one column type, by table. */
 function columnsOf(type: string): Record<string, string[]> {
