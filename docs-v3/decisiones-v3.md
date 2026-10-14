@@ -830,6 +830,39 @@ La tanda les ponía el techo a todos sus miembros. ¿Cómo entra cada uno?
 
 **Por qué** (la recomendación de la sesión que elegiste): un solo camino para cada dato, y la decisión de cómo se guardan las voces es del laboratorio.
 
+## V3-41 · La información de un material vive en su registro: un atributo por columna y una tabla por lista con fuente (decidida por el usuario el 2026-10-14)
+
+**Mensajes literales** (orko kill, 2026-10-14):
+
+> la parte de la biblioteca hay que separarla, hay unaparte que es la general descripcion del material esa puede entrar directamente dentro de los parametros del material en sqlite como en su "informacion general" que eso este dentro o fuera del banco de formulacion, si no es un costo muy grande diria que se queda porque muchso parametros de la formulacion en la parte de graficos beben directamente de estos datos de los materiales, es decir la informacion de un material completa, menos ifra debe vvir en el registro del material en un tablero de informacion ordenada en sqlite, no se exactemetne a nivle de procesado de datos cual es la manera correcta, si hay dudas consulta internet antes de deducir la manera pero la idea es que todos los materiales tengan una serie de "atributos" viviendo en ellos que conformen la descripcion de estos, cuando veas el banco de materiales estos atributos se repartiran de manera legible en la ficha, cuando uses el banco el banco usara el material;color para el color o el material;longevidad para la tabla de duracion de material...
+
+> la idea es que dejen de existir 4000 jsons y todo este tratado de una manera de programacion correcta,
+
+**Lo que se consultó** (la sesión, en la web, como pide el mensaje): la recomendación común es un diseño mixto.
+
+- **Columnas con nombre y tipo** para los atributos que todas las fichas comparten y que se filtran, ordenan o dibujan.
+- **Tablas aparte** para lo que tiene varias filas por material.
+- **Nada de pares atributo-valor:** son lentos de consultar y no comprueban tipos.
+- **JSON solo para lo raro que no se consulta.** En PowerSync un JSON llega como texto y se descompone en cada lectura.
+
+Las fuentes: codefinity y openskillindex (atributo-valor), stanza.dev y leapcell (diseño mixto en Postgres), y la documentación de PowerSync (JSON y tablas sin procesar).
+
+**Lectura** (de la sesión; el usuario la confirmó en la tarjeta con «Sí, así», 2026-10-14):
+
+1. **Toda la información de un material, menos IFRA (V3-35), vive en su registro**, en la base de datos y en la copia SQLite de tu equipo. El banco la tiene sin conexión y la lee directamente: `material.color`, `material.tenacity`.
+2. **La ficha es un tablero ordenado por bloques**, los de tu `esquema.sql`, con un atributo con nombre por columna:
+   - identidad;
+   - olor: familia y color, facetas, tu texto de familia;
+   - comportamiento: piso, evolución, tenacidad, potencia, umbral, difusión, efecto;
+   - uso;
+   - seguridad;
+   - física: estado, densidad, presión de vapor, solubilidad, fórmula, peso molecular…;
+   - fuentes, confianza y «en disputa».
+3. **Lo que tiene varias filas por material, cada fila con su fuente**, va en su tabla: sinónimos, descriptores, relaciones, perfumes de referencia y dosis.
+4. **No hay un archivo ni un JSON por material, ni pares atributo-valor.** La migración lee las fuentes una sola vez y escribe filas; desde ahí, la fuente de la app es la base. Los CSV de `v3/datos/` son solo el paquete de carga de lo común, para que quede en Git qué entró y con qué cita. Los archivos de investigación del laboratorio siguen siendo del laboratorio.
+
+**Cómo se aplica:** en el paso 4.2 del plan (el esquema nuevo). Con la ficha en columnas, el banco y sus gráficos leen los atributos del material sin pasar por otra capa.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
