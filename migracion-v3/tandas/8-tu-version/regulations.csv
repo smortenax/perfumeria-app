@@ -1,0 +1,16 @@
+id,material_id,owner_id,regime,category,kind,max_value,group_key,requirement,authority,source
+07d3d896-a803-5bd2-93ea-56212e179cdd,0cd8da4b-f8ec-57a1-9c08-92c0bbe0ea9b,,manufacturer,4,max,0.041,,,product,D00031 · IFRA certificate — TOLU RES TYPE NAT 220951 (220951)
+0a900bcc-e25d-549f-bcbe-feb82a9e5446,eb951f65-bfb4-526d-9494-8638bac658b6,,manufacturer,4,max,0.012,,,product,D00021 · IFRA certificate — METHYL CINNAMATE (660449)
+186a67d3-463a-5627-a4d7-5e6c4c6f2bda,7cd12680-e89e-5dcd-be28-c63f88d07560,,manufacturer,4,max,0.3,,,product,D00017 · IFRA certificate — GERANYL ACET PURE RNW (00072104)
+56042d69-5b7b-52e1-8b0f-bd6b2020e8a6,96f98fca-0902-5dee-a8c7-de7bbbd4250d,,manufacturer,4,max,0.022105,,,product,D00022 · IFRA certificate — CYCLOSIA® 937250 (937250)
+6248a620-a6ca-5437-8cc8-4f7c19548f9e,7e068d51-df90-5a0a-a996-9457e6cb9209,,manufacturer,4,max,0.4,,,product,D00027 · IFRA certificate — GEOSMIN NEAT (00071044)
+82ce000f-2680-5976-9783-6cc0528c71d5,3c2e00ec-52c2-5578-bc4b-cdcee866a4a1,,manufacturer,4,max,0.48,,,product,D00029 · IFRA certificate — HABANOLIDE® 947303-3019033 (947303)
+882e1940-86da-5d21-8f14-4b7c408bad83,6e8651b9-889e-5e92-8d20-ee1e75cc6cc9,,manufacturer,4,max,0.000082,,,product,D00020 · IFRA certificate — AMBRINOL S (690993)
+9aa3946d-67c0-52a7-b500-9d6e0fab769f,cbd44221-db2f-5df8-a17a-4a0d0fe65a62,,manufacturer,4,max,0.096296,,,product,D00014 · IFRA certificate — BLACK AGAR 296985 (296985)
+a5dff5e5-d472-5208-bb2f-79573fda75d6,1eebace2-682b-5a1f-ac59-69ca73ae9c16,,manufacturer,4,max,0.025,,,product,"D00002 · IFRA-Conformity Certificate, ALDEHYDE C11 MOA 656012"
+ae62ee6c-b8e9-5c46-8040-329470a41965,96c6ebe9-13a2-500f-b317-3ff8a353baf6,,ifra,,requirement,,IFRA_STD_067,cumple las especificaciones de IFRA: «Any ingredient present which has an IFRA specification standard is used only if its quality meets the criteria established»,product,"Lo que afirma tu material de IFRA_STD_067: D00004 · IFRA 51 Ingredients, MOUSSE CHENE ABS. IFRA 43 (00133097)"
+c7fbbe7c-dd6f-51bc-9af0-91e44431efab,004114ce-5838-5383-94fb-5977a86c7472,,manufacturer,4,max,0.097,,,product,D00016 · IFRA certificate — STYRALYL ACETATE (611357)
+da0116b1-d6ad-5b9e-b05a-5394a3df6361,116d2dba-35e9-5ce3-ade3-f53bc6ca2688,,manufacturer,4,max,0.016,,,product,D00025 · IFRA certificate — EUCALYPTOL NAT. (130301)
+ddbac10e-d90e-5566-858c-5942e44f0dd0,51a36885-dfcf-5222-a41b-1c1972991bc7,,manufacturer,4,max,0.3,,,product,D00018 · IFRA certificate — CEDRAMBER® (00033386)
+e473a550-169f-5480-8957-24e65ee8c672,d09b998c-ce9a-51f5-8757-328f8b15c2c4,,ifra,,requirement,,IFRA_STD_119,rectificado,consensus,Lo que afirma tu material de IFRA_STD_119: sin documento
+fed26ce6-0a8d-5ec5-a83f-4f54661724e0,7d454a34-e4e1-5889-bd97-02bbd75738b2,,manufacturer,4,max,0.032,,,product,D00024 · IFRA certificate — AMBRETTOLIDE (00014200)
