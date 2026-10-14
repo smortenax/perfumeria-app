@@ -296,7 +296,19 @@ const byAnnex: Detector = (d, c) => {
   return null;
 };
 
-const DETECTORS: readonly Detector[] = [byType, byIsolate, byVariant, byProhibitedAsSuch, byClassLink, byAnnex];
+/** V3-27: a member of a standard limited as one of its constituents (089, 5-MOP) carries it, how much not known: counted at worst. */
+const byConstituent: Detector = (d, c) => {
+  if (d.where !== "sustancia" || d.v2 !== "—" || !d.v3.startsWith("≤")) return null;
+  const code = codesOf(d.what).find((x) => c.layer.standards.get(x)?.limitExpressedAs);
+  const standard = code ? c.layer.standards.get(code) : undefined;
+  if (!standard) return null;
+  return {
+    reason: "V3-27",
+    evidence: `${code} limita el ${standard.limitExpressedAs} en el producto terminado; la v3 lo cuenta como componente de cantidad desconocida (en el peor caso) hasta que un documento dé su cifra; la v2 lo dejaba como aviso pendiente`,
+  };
+};
+
+const DETECTORS: readonly Detector[] = [byType, byIsolate, byVariant, byProhibitedAsSuch, byConstituent, byClassLink, byAnnex];
 
 // ------------------------------------------------------------------ explaining a pair
 
