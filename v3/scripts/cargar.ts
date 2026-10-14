@@ -69,10 +69,12 @@ async function load(db: postgres.TransactionSql, table: string): Promise<Loaded>
   const path = join(DATA, `${table}.csv`);
   if (!existsSync(path)) return { inserted: 0, updated: 0, rows: 0, ids: null };
   const [header, ...lines] = parseCsv(readFileSync(path, "utf8")).filter((l) => l.length > 1 || l[0] !== "");
+  // Only rows need columns the schema has: a file with none (a table emptied of common rows) still prunes.
   const allowed = new Set(Object.values(getTableColumns(tables.get(table)!)).map((c) => c.name));
-  for (const column of header) {
+  for (const column of lines.length > 0 ? header : []) {
     if (!allowed.has(column)) throw new Error(`${path}: la columna «${column}» no está en el esquema de ${table}`);
   }
+  if (lines.length === 0) return { inserted: 0, updated: 0, rows: 0, ids: [] };
   const rows = lines.map((cells) => Object.fromEntries(header.map((c, i) => [c, value(table, c, cells[i] ?? "")])) as Record<string, Value>);
   const changing = header.filter((c) => c !== "id");
   const set = changing.map((c) => `"${c}" = excluded."${c}"`).join(", ");
