@@ -19,3 +19,14 @@ retirada-1-a-4,2026-10-14,"orko kill, 2026-10-14 (V3-34): «no sirven materiales
 7-materiales,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 7»",material_references.csv,2f8c52d75b4a0f2005b980b8f47a6573f22312e3bd496c5105375c5d136b63e1
 7-materiales,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 7»",material_relations.csv,ebb3c81ea8ca673b6c22bd7ff59a3a09e9c2af2dc4ca30c2b12f81f655705a00
 7-materiales,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 7»",materials.csv,1bcfc702e91c299ed103f59ef317ed4bcba71a7f027b108b301f3f295fbc0495
+8-tu-version,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 8 cargala y luego reviso en app»",lab_axes.csv,0e92c62f22a5c7e29e2408dd2652c8e54dc23d8055b67a23d96632884eaebc8b
+8-tu-version,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 8 cargala y luego reviso en app»",lab_dilutions.csv,8655d56cfee61aba1d69fbd565f2049855eed9d8452c04aee883d518e1bee993
+8-tu-version,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 8 cargala y luego reviso en app»",lab_evaluations.csv,d70205ea88f8a6b44c9d248f031ab604f856f1d2fbe36e8c4c32db0e42921565
+8-tu-version,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 8 cargala y luego reviso en app»",lab_materials.csv,21e370b0c8243e89cac93561faaf952e91cc5150cafebd81aee8ca90e73e704c
+8-tu-version,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 8 cargala y luego reviso en app»",material_components.csv,ae91e63db274335937e6501e81eef9fa8d7fe9b4ae25a8f79ca12aa12a1e99fb
+8-tu-version,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 8 cargala y luego reviso en app»",material_descriptors.csv,680ebbb213ac2273755a9ccf470528ab5e2c4d09676f3abc46539371841b4511
+8-tu-version,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 8 cargala y luego reviso en app»",material_doses.csv,384cfcaa2b2b1136a956234de77163e67060268937852fa632333eaa52010a3a
+8-tu-version,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 8 cargala y luego reviso en app»",material_references.csv,1bcb9cdefb957cc2c1cf79ba2f96fc61bd1dbe05592b060ca63ce00b76c7ab6d
+8-tu-version,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 8 cargala y luego reviso en app»",material_relations.csv,654088165ee2ba9e754731310eca9fb4843068ce0b3a7ced5cce457b14494a39
+8-tu-version,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 8 cargala y luego reviso en app»",materials.csv,7a54393d3258f6ff574f636023cb8d49b90bb0e282f3ed2ece9e531a1c67a35a
+8-tu-version,2026-10-14,"orko kill, 2026-10-14, en el hilo: «apruebo 8 cargala y luego reviso en app»",regulations.csv,79adbedbbb980ca2762853cc2554b763aafa15e7d7a8eecfad3daaaac48047ab
