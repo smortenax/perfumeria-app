@@ -686,6 +686,46 @@ La tanda les ponía el techo a todos sus miembros. ¿Cómo entra cada uno?
 
 **Por qué** (la recomendación de la sesión que elegiste): una lista a medias no puede pasar por completa, y cerrarla con «Sin identificar» dejaría pendientes tus versiones aunque el común tenga una composición buena.
 
+## V3-34 · La v3 empieza con materiales de la v3, completos: lo general es común y lo tuyo, tu versión (decidida por el usuario el 2026-10-14)
+
+**De dónde sale:** al ver la app de la v3 con las tandas 1 a 4 cargadas (4344 materiales comunes de la v2).
+
+**Mensaje literal** (orko kill, 2026-10-14):
+
+> creo que hay un problema aqui, si se estan pasando todos los materiales igual que siempre no se esta usando sqlite ni el nuevo registro de los materiales, creo que esto es un error, la idea es que lo que haya en la nueva version ya sea con el material intencionado o dicho deotra manera no sirve de nada migrar materiales sueltos en un glosario como la app v2 a la v3 si hemos cambiado todo el funcionamiento de los materiales, estos materiales no estan linkeados a su tabla con todos sus atributos en su posicion de sqlite ni tienen todo el glosario que se amplio de descripcion de los materiales
+> la idea es lo contrario que se usaran ya materiales todos definitivos con los parametros no personales de los mismos como descripcion general, y luego ir ampliando
+> por ejemplo en la investigacion de materiales que se hizo:
+> C:\Users\SERGI\Claude\Projects\Perfumery\fuentes\investigaciones\2026-10-11-voces-materiales\prompt-chat-laboratorio.md
+> todos esos materiales tienen gran parte del glosario de la informacion de la manera en la que viviran en la tabla final del proyecto, es mejor tener unos materiales bien (se empieza arbitrariamente con los que yo tengo que son los que testeare en el laboratorio, la informacion general, la no personal se da de alta como fuente global absoluta de materiales y las partes que se refieren a mi version del material si se ponen en la parte que respecta a la "ampliacion" del material de usuario y finalmente tendria una app v3 con los materiales de categoria v3 no sirven materiales de categoria y tipaje de v2 en la v3, ensucian la app)
+
+**Lectura** (de la sesión, en la tarjeta del hilo):
+
+1. **La v3 empieza solo con materiales «de la v3»**, completos y con el registro de tu referencia (`esquema.sql` del laboratorio): núcleo, descriptores por fuente, relaciones, datos físicos, perfumes de referencia, dosis, fuentes y confianza. Nada del glosario de la v2 tal cual.
+2. **Se empieza por los tuyos**, los del laboratorio, que son los que vas a probar en el banco.
+3. **De cada uno, lo general entra en lo común** como fuente global. **Lo tuyo** (tu frasco, tu tienda, tu grado, tu cata, tus ejes) entra en tu cuenta como tu versión (V3-5), que la amplía.
+4. **Después se amplía lo común** con más materiales, siempre con el registro completo.
+
+**Confirmación y lo que añade** (orko kill, 2026-10-14, en la tarjeta):
+
+> si  es asi creo que hay cosas que no estan en la tabla que falta añadir, que en la categorizacion inicial de los materiales si estaba los materiales tienene que tener en una de las casillas a parte, adicionalmente de la informacion ya buscada lo siguiente: abreviatura del material, siguiendo criterios de v2 pero que seran revisados a futuro y color de visualizacion de la app (dentro de las familias asignadas en la v2 ) desde la v1 el criterio de color en la visualizacion se rompio pero la idea es que en la 3 vuelva a estar disponible, el color y la abreviatura seran categorias futuramente ajustables por el usuario para sus materiales igual que el nombre (para facilitar el entendimiento seran editables desde la opcion de customizacion de materiales de la app)
+
+**Lectura de lo que añade** (propuesta de la sesión, para confirmar en las decisiones que siguen):
+
+- **Cada material lleva, en campos aparte, una abreviatura y un color de visualización**, además de lo investigado.
+- **La abreviatura sigue el criterio de la v2**, que se revisará más adelante.
+- **El color va dentro de la familia que tiene asignada** (las familias de la v2, P48, con su paleta). Se rompió desde la v1 y en la v3 vuelve.
+- **El nombre, el color y la abreviatura los podrás ajustar en tus materiales** desde la personalización de materiales de la app. Es más adelante: hoy no hay que cerrar esa puerta.
+
+**Lo que cambia:**
+
+- **V3-15:** lo general del laboratorio pasa a lo común; lo tuyo sigue en tu cuenta.
+- **V3-14:** los descriptores, las relaciones, los datos físicos y los perfumes de referencia entran ya, no después.
+- **V3-2 y el plan de la fase 4** (pasos 4.2 a 4.8): los materiales y los productos de la v2 no entran como comunes. **Las tandas 1 a 4**, aprobadas y cargadas, salen de lo común. La lógica de IFRA de la tanda 3 (V3-30, V3-31) sigue sirviendo para los materiales nuevos.
+- **V3-13:** las categorías se rehacen sobre los materiales nuevos.
+- **La tanda 5** (sin aprobar) no se carga tal cual: se rehace con esta división.
+
+**Lo que abre, de una en una:** dónde viven las sustancias reguladas que el cálculo de IFRA necesita; de dónde sale la composición general de tus materiales (V3-33); si entran las voces; qué es general y qué es tuyo, campo a campo; de dónde salen la abreviatura y el color, y qué tablas nuevas lleva el esquema.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
