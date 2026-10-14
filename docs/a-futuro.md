@@ -67,6 +67,7 @@ Cada fila: **qué**, **de dónde** (pregunta o fecha) y **qué no hay que cerrar
 | **Cómo «Sin nombre (4)» pasó a «Zara tabaco»** | P52 (abierta) | |
 | **Los matices de los bancos de trabajo** de la v3: «hay algunos matices mas pero creo que los ire añadiendo a futuro» | Usuario, 2026-10-13 (V3-10 de `docs-v3/decisiones-v3.md`) | Que el banco sea una carpeta de fórmulas y no algo más rígido, y que un acorde congelado recuerde de qué fórmula sale |
 | **Un valor de referencia para los componentes principales** de los naturales (el 5-MOP de los cítricos, para empezar): una base para todos que no obligue a ajustarlos uno a uno. Hasta entonces, el constituyente va como componente de cantidad desconocida | Usuario, 2026-10-13 (V3-27 de `docs-v3/decisiones-v3.md`) | Que la declaración de IFRA de un material concreto, en su versión, siga mandando sobre ese valor |
+| **La composición de tus materiales del laboratorio** (239 filas de 31 materiales, de la web y de TGSC, en `materiales.sqlite`): entra cuando el laboratorio enlace cada componente con su molécula (regla 4 de tu referencia); hoy solo 74 filas apuntan a un material | Usuario, 2026-10-14 (V3-33 de `docs-v3/decisiones-v3.md`) | Que tus versiones puedan llevar sus propias filas de composición, con su autoridad, sin tapar las del común (V3-5), y que una lista a medias se cierre con «Sin identificar» |
 
 ## 4 · Producto y plataforma
 

@@ -673,6 +673,19 @@ La tanda les ponía el techo a todos sus miembros. ¿Cómo entra cada uno?
 
 **Por qué** (la recomendación de la sesión que elegiste): guarda el aviso del laboratorio sin mezclarlo con las fuentes ni con el IFRA comprobado.
 
+## V3-33 · La composición del laboratorio queda aplazada (decidida por el usuario el 2026-10-14)
+
+**Pregunta** (tarjeta del hilo, tanda 5 de la migración): ¿entra en la tanda 5 la composición de tus materiales del laboratorio? Son 239 filas de 31 materiales, de la web (162) y de TGSC (77), en `material_components` de `materiales.sqlite`. Una fila necesita que su componente sea un material. Solo 74 enlazan con uno: 18 con otro material del laboratorio y 56 por nombre con uno común. Las otras 165 son un nombre sin material.
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Aplazada (Recomendado)» (2026-10-14): «No entra ahora. Tus versiones heredan la composición del común (anexo de IFRA y documentos). Los 10 materiales nuevos quedan «sin datos»: pendientes, nunca verdes. Lo apunto en a-futuro.md: entra cuando el laboratorio enlace cada componente con su molécula (regla 4 de tu referencia).»
+
+**Cómo se aplica:**
+
+- **La tanda 5 no lleva composición.** Tus versiones heredan la del común (V3-5). Tus materiales nuevos no llevan ninguna: un natural o una composición sin componentes queda «sin datos», y una molécula sin componentes es ella misma (§3.4).
+- **En `docs/a-futuro.md`**, con lo que no hay que cerrar: que tus versiones puedan llevar sus propias filas sin tapar las del común, y que una lista a medias se cierre con «Sin identificar».
+
+**Por qué** (la recomendación de la sesión que elegiste): una lista a medias no puede pasar por completa, y cerrarla con «Sin identificar» dejaría pendientes tus versiones aunque el común tenga una composición buena.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
