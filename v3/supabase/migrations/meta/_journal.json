@@ -113,6 +113,20 @@
       "when": 1791947735949,
       "tag": "20261014031535_material_record_old_text",
       "breakpoints": true
+    },
+    {
+      "idx": 16,
+      "version": "7",
+      "when": 1791947906091,
+      "tag": "20261014031826_glossary_tables",
+      "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "7",
+      "when": 1791947927512,
+      "tag": "20261014031847_glossary_tables_rls",
+      "breakpoints": true
     }
   ]
 }

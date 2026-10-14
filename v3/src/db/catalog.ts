@@ -161,6 +161,38 @@ export interface CatalogMaterial extends MaterialFields {
   readonly components: readonly Component[];
   readonly regulations: readonly Regulation[];
   readonly doses: readonly Dose[];
+  /** How each source describes its smell (V3-36). */
+  readonly descriptors: readonly Descriptor[];
+  readonly relations: readonly Relation[];
+  /** Perfumes where it is known to be used. */
+  readonly references: readonly Reference[];
+}
+
+export interface Descriptor {
+  readonly id: string;
+  readonly source: string;
+  readonly text: string;
+}
+
+export type RelationKind = "combines" | "substitute" | "clashes";
+export const RELATION_KINDS: readonly RelationKind[] = ["combines", "substitute", "clashes"];
+
+/** Another material it goes with, stands in for or clashes with: in the glossary (otherId) or only by name. */
+export interface Relation {
+  readonly id: string;
+  readonly kind: RelationKind;
+  readonly otherId: string | null;
+  readonly otherText: string | null;
+  readonly note: string | null;
+  readonly sources: string | null;
+}
+
+export interface Reference {
+  readonly id: string;
+  readonly perfume: string;
+  readonly house: string | null;
+  readonly note: string | null;
+  readonly sources: string | null;
 }
 
 export interface Category {

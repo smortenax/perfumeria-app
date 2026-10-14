@@ -275,6 +275,77 @@ export const materialDoses = pgTable(
   ],
 );
 
+/** How a source describes a material's smell, one row per source and text (V3-36). */
+export const materialDescriptors = pgTable(
+  "material_descriptors",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    materialId: uuid("material_id")
+      .notNull()
+      .references(() => materials.id, { onDelete: "cascade" }),
+    /** Its material's owner, copied by a trigger, as in the composition. */
+    ownerId: uuid("owner_id"),
+    /** A short tag of the source: TG, web, FIG… */
+    source: text("source").notNull(),
+    text: text("text").notNull(),
+    ...timestamps,
+  },
+  (t) => [
+    index("material_descriptors_material_idx").on(t.materialId),
+    index("material_descriptors_owner_idx").on(t.ownerId),
+    check("material_descriptors_source", sql`length(trim(${t.source})) > 0`),
+    check("material_descriptors_text", sql`length(trim(${t.text})) > 0`),
+  ],
+);
+
+/** What a material goes with, can stand in for, or clashes with (V3-36): another material, or only its name. */
+export const materialRelations = pgTable(
+  "material_relations",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    materialId: uuid("material_id")
+      .notNull()
+      .references(() => materials.id, { onDelete: "cascade" }),
+    ownerId: uuid("owner_id"),
+    kind: text("kind").notNull(),
+    /** The other material, when it is in the glossary; else, its name in other_text. */
+    otherId: uuid("other_id").references((): AnyPgColumn => materials.id, { onDelete: "set null" }),
+    otherText: text("other_text"),
+    note: text("note"),
+    sources: text("sources"),
+    ...timestamps,
+  },
+  (t) => [
+    index("material_relations_material_idx").on(t.materialId),
+    index("material_relations_owner_idx").on(t.ownerId),
+    index("material_relations_other_idx").on(t.otherId),
+    check("material_relations_kind", sql`${t.kind} in ('combines', 'substitute', 'clashes')`),
+    check("material_relations_other", sql`${t.otherId} is not null or length(trim(coalesce(${t.otherText}, ''))) > 0`),
+  ],
+);
+
+/** A perfume where a material is known to be used (V3-36). */
+export const materialReferences = pgTable(
+  "material_references",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    materialId: uuid("material_id")
+      .notNull()
+      .references(() => materials.id, { onDelete: "cascade" }),
+    ownerId: uuid("owner_id"),
+    perfume: text("perfume").notNull(),
+    house: text("house"),
+    note: text("note"),
+    sources: text("sources"),
+    ...timestamps,
+  },
+  (t) => [
+    index("material_references_material_idx").on(t.materialId),
+    index("material_references_owner_idx").on(t.ownerId),
+    check("material_references_perfume", sql`length(trim(${t.perfume})) > 0`),
+  ],
+);
+
 /** «Lo que tengo» (V3-3): the materials a user has, without quantities. */
 export const labMaterials = pgTable(
   "lab_materials",

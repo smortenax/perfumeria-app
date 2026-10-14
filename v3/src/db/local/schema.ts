@@ -132,6 +132,38 @@ export const materialDoses = sqliteTable("material_doses", {
   ...timestamps,
 });
 
+export const materialDescriptors = sqliteTable("material_descriptors", {
+  id: text("id").primaryKey(),
+  materialId: text("material_id"),
+  ownerId: text("owner_id"),
+  source: text("source"),
+  text: text("text"),
+  ...timestamps,
+});
+
+export const materialRelations = sqliteTable("material_relations", {
+  id: text("id").primaryKey(),
+  materialId: text("material_id"),
+  ownerId: text("owner_id"),
+  kind: text("kind"),
+  otherId: text("other_id"),
+  otherText: text("other_text"),
+  note: text("note"),
+  sources: text("sources"),
+  ...timestamps,
+});
+
+export const materialReferences = sqliteTable("material_references", {
+  id: text("id").primaryKey(),
+  materialId: text("material_id"),
+  ownerId: text("owner_id"),
+  perfume: text("perfume"),
+  house: text("house"),
+  note: text("note"),
+  sources: text("sources"),
+  ...timestamps,
+});
+
 export const labMaterials = sqliteTable("lab_materials", {
   id: text("id").primaryKey(),
   userId: text("user_id"),
@@ -168,6 +200,9 @@ export const tables = {
   materialComponents,
   regulations,
   materialDoses,
+  materialDescriptors,
+  materialRelations,
+  materialReferences,
   labMaterials,
   dataVersion,
   uploadRejections,
@@ -180,6 +215,9 @@ export const AppSchema = new DrizzleAppSchema({
   materialComponents,
   regulations,
   materialDoses,
+  materialDescriptors,
+  materialRelations,
+  materialReferences,
   labMaterials,
   dataVersion,
   uploadRejections: { tableDefinition: uploadRejections, options: { localOnly: true } },

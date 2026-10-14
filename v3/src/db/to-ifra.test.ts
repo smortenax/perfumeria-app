@@ -34,7 +34,7 @@ const ceiling = (group: string | null, limit: string, extra: Partial<Regulation>
 });
 
 function material(id: string, kind: MaterialKind, extra: Partial<CatalogMaterial> = {}): CatalogMaterial {
-  return { ...FIELDS, id, ownerId: null, name: id, kind, components: [], regulations: [], doses: [], ...extra };
+  return { ...FIELDS, id, ownerId: null, name: id, kind, components: [], regulations: [], doses: [], descriptors: [], relations: [], references: [], ...extra };
 }
 
 const catalogOf = (...materials: CatalogMaterial[]): Catalog => ({

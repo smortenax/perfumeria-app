@@ -7,6 +7,7 @@ import {
   DOSE_BASES,
   FAMILIES,
   MATERIAL_KINDS,
+  RELATION_KINDS,
   STRENGTHS,
   TIERS,
   type Amount,
@@ -158,11 +159,14 @@ function group<T>(rows: readonly T[], key: (row: T) => string | null): Map<strin
 
 /** Everything the copy holds: the common materials and the user's, with their tables, and what the user has. */
 export async function loadCatalog(db: LocalDb, userId: string): Promise<Catalog> {
-  const [materialRows, componentRows, regulationRows, doseRows, categoryRows, haveRows, versionRows] = await Promise.all([
+  const [materialRows, componentRows, regulationRows, doseRows, descriptorRows, relationRows, referenceRows, categoryRows, haveRows, versionRows] = await Promise.all([
     db.select().from(local.materials),
     db.select().from(local.materialComponents),
     db.select().from(local.regulations),
     db.select().from(local.materialDoses),
+    db.select().from(local.materialDescriptors),
+    db.select().from(local.materialRelations),
+    db.select().from(local.materialReferences),
     db.select().from(local.materialCategories),
     db.select().from(local.labMaterials).where(eq(local.labMaterials.userId, userId)),
     db.select().from(local.dataVersion),
@@ -170,6 +174,9 @@ export async function loadCatalog(db: LocalDb, userId: string): Promise<Catalog>
   const components = group(componentRows, (r) => r.materialId);
   const regulations = group(regulationRows, (r) => r.materialId);
   const doses = group(doseRows, (r) => r.materialId);
+  const descriptors = group(descriptorRows, (r) => r.materialId);
+  const relations = group(relationRows, (r) => r.materialId);
+  const references = group(referenceRows, (r) => r.materialId);
   const materials = new Map<string, CatalogMaterial>();
   for (const row of materialRows) {
     materials.set(row.id, {
@@ -213,6 +220,16 @@ export async function loadCatalog(db: LocalDb, userId: string): Promise<Catalog>
           notes: d.notes,
         }),
       ),
+      descriptors: (descriptors.get(row.id) ?? []).map((d) => ({ id: d.id, source: d.source ?? "", text: d.text ?? "" })),
+      relations: (relations.get(row.id) ?? []).map((r) => ({
+        id: r.id,
+        kind: oneOf(r.kind, RELATION_KINDS, "relation kind"),
+        otherId: r.otherId,
+        otherText: r.otherText,
+        note: r.note,
+        sources: r.sources,
+      })),
+      references: (references.get(row.id) ?? []).map((r) => ({ id: r.id, perfume: r.perfume ?? "", house: r.house, note: r.note, sources: r.sources })),
     });
   }
   return {
