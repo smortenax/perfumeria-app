@@ -92,6 +92,8 @@
 
 ## 3 · La composición
 
+> **Cambia con V3-35 y V3-36 (2026-10-14, paso 4.3):** un componente es un material del glosario **o una sustancia por su CAS y su nombre**, como en la biblioteca del laboratorio (`component_name` «si no está todavía»): así un certificado puede nombrar el limoneno aunque no sea un material del glosario, y su CAS lo enlaza con la capa de IFRA. Lo que el anexo de IFRA dice que trae un natural no se guarda en el material: lo lee la app de la capa. Ni la composición ni las regulaciones de un material llevan autoridad `ifra`.
+
 - **3.1 · Una fila por componente** *[Plan §21]*: el material, el componente, la cantidad, la autoridad y la fuente. Cada fila lleva su propio id, porque la sincronización lo pide *[V3-9]*.
 - **3.2 · La cantidad es de uno de cuatro tipos** *[Plan §22]*:
   - `exact`, una cifra;
