@@ -209,6 +209,86 @@ export const dataVersion = sqliteTable("data_version", {
   loadedAt: text("loaded_at"),
 });
 
+// IFRA's layer (V3-35): its own tables, read-only, down its own stream.
+
+export const ifraStandards = sqliteTable("ifra_standards", {
+  id: text("id").primaryKey(),
+  code: text("code"),
+  name: text("name"),
+  amendment: text("amendment"),
+  type: text("type"),
+  prohibition: integer("prohibition", { mode: "boolean" }),
+  restriction: integer("restriction", { mode: "boolean" }),
+  specification: integer("specification", { mode: "boolean" }),
+  prohibitedAsSuch: integer("prohibited_as_such", { mode: "boolean" }),
+  groupKey: text("group_key"),
+  limitExpressedAs: text("limit_expressed_as"),
+  limitExpressedAsCas: text("limit_expressed_as_cas"),
+  prohibitionNote: text("prohibition_note"),
+  restrictionNote: text("restriction_note"),
+  specificationNote: text("specification_note"),
+  limitNote: text("limit_note"),
+  phototoxicityNote: text("phototoxicity_note"),
+  property: text("property"),
+  scopeNote: text("scope_note"),
+  contributions: text("contributions"),
+  contributionsNote: text("contributions_note"),
+  ...timestamps,
+});
+
+export const ifraLimits = sqliteTable("ifra_limits", {
+  id: text("id").primaryKey(),
+  standardId: text("standard_id"),
+  category: text("category"),
+  kind: text("kind"),
+  maxValue: text("max_value"),
+  ...timestamps,
+});
+
+export const ifraSubstances = sqliteTable("ifra_substances", {
+  id: text("id").primaryKey(),
+  standardId: text("standard_id"),
+  cas: text("cas"),
+  subgroup: text("subgroup"),
+  synonyms: list("synonyms"),
+  ...timestamps,
+});
+
+export const ifraAnnex = sqliteTable("ifra_annex", {
+  id: text("id").primaryKey(),
+  amendment: text("amendment"),
+  naturalCas: text("natural_cas"),
+  naturalOtherCas: list("natural_other_cas"),
+  naturalName: text("natural_name"),
+  botanicalName: text("botanical_name"),
+  isoCategory: text("iso_category"),
+  rifmId: text("rifm_id"),
+  constituentCas: text("constituent_cas"),
+  constituentName: text("constituent_name"),
+  concentration: text("concentration"),
+  constituentStandard: text("constituent_standard"),
+  notice: text("notice"),
+  ...timestamps,
+});
+
+export const ifraVariantRules = sqliteTable("ifra_variant_rules", {
+  id: text("id").primaryKey(),
+  standardId: text("standard_id"),
+  field: text("field"),
+  match: text("match"),
+  pattern: text("pattern"),
+  variant: text("variant"),
+  ...timestamps,
+});
+
+export const ifraSpecExclusions = sqliteTable("ifra_spec_exclusions", {
+  id: text("id").primaryKey(),
+  standardId: text("standard_id"),
+  process: text("process"),
+  note: text("note"),
+  ...timestamps,
+});
+
 /**
  * What Supabase refused to take (a broken rule, a row it does not allow): kept here, in this
  * browser only, instead of being dropped, so that nothing is lost in silence.
@@ -237,6 +317,12 @@ export const tables = {
   labDilutions,
   labEvaluations,
   labAxes,
+  ifraStandards,
+  ifraLimits,
+  ifraSubstances,
+  ifraAnnex,
+  ifraVariantRules,
+  ifraSpecExclusions,
   dataVersion,
   uploadRejections,
 };
@@ -255,6 +341,12 @@ export const AppSchema = new DrizzleAppSchema({
   labDilutions,
   labEvaluations,
   labAxes,
+  ifraStandards,
+  ifraLimits,
+  ifraSubstances,
+  ifraAnnex,
+  ifraVariantRules,
+  ifraSpecExclusions,
   dataVersion,
   uploadRejections: { tableDefinition: uploadRejections, options: { localOnly: true } },
 });

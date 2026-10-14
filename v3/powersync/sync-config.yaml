@@ -43,6 +43,18 @@ streams:
       - SELECT * FROM lab_evaluations WHERE user_id = auth.user_id()
       - SELECT * FROM lab_axes WHERE user_id = auth.user_id()
 
+  # IFRA's layer (V3-35): apart from the materials, down its own stream, so that it can be given
+  # only to whom has it (an add-on, later). Today, to whoever signs in.
+  ifra:
+    auto_subscribe: true
+    queries:
+      - SELECT * FROM ifra_standards
+      - SELECT * FROM ifra_limits
+      - SELECT * FROM ifra_substances
+      - SELECT * FROM ifra_annex
+      - SELECT * FROM ifra_variant_rules
+      - SELECT * FROM ifra_spec_exclusions
+
   # The exactness check of step 3.1: only who subscribes to it (the database tests), never
   # the app, which does not subscribe.
   exactness_checks:
