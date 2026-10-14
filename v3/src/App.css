@@ -835,3 +835,59 @@ form.add label {
   margin-right: 4px;
   margin-bottom: 4px;
 }
+
+/* The landing (plan v3, step 8.1): the two parts, side by side. */
+.launch {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+}
+
+.launch-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2rem 1rem;
+  background: none;
+  color: var(--text);
+  border: 2px solid var(--accent);
+  border-radius: 16px;
+}
+
+.launch-card:hover,
+.launch-card:focus-visible {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+.launch-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6rem;
+  height: 6rem;
+  border: 3px solid var(--accent);
+  border-radius: 18px;
+  color: var(--accent);
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+.launch-icon.formula {
+  border-radius: 50%;
+}
+
+.launch-name {
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+
+.launch-detail {
+  color: var(--muted);
+  font-size: 0.875rem;
+}

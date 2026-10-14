@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { currentUser, signOut, supabase, type SignedInUser } from "./db/client";
 import { closeLocalDatabase, localDatabaseFor } from "./db/local/database";
 import { createVersion, setHave, setHaveMany } from "./db/materials";
 import { Glossary } from "./glossary/Glossary";
+import { Library } from "./formulation/Library";
 import { MaterialEditor } from "./glossary/MaterialEditor";
+import { Home } from "./Home";
 import { MaterialSheet } from "./glossary/MaterialSheet";
 import { NewMaterial } from "./glossary/NewMaterial";
 import { useGlossary } from "./glossary/useGlossary";
@@ -40,12 +42,13 @@ export default function App() {
 function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => void }) {
   const local = localDatabaseFor(user.id);
   const data = useGlossary(local);
-  const [route, go] = useRoute();
+  const [route, go, back] = useRoute();
   const leave = async () => {
     await closeLocalDatabase();
     await signOut();
     onSignedOut();
   };
+  const fail = (e: unknown) => window.alert(texts.editor.failed(e instanceof Error ? e.message : String(e)));
 
   return (
     <main className="start">
@@ -54,15 +57,23 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
           {texts.app.name} <span className="version">{texts.app.version}</span>
         </h1>
         <p className="who">
+          {route.view !== "home" && (
+            <>
+              <button type="button" className="link" onClick={() => go({ view: "home" })}>
+                {texts.home.back}
+              </button>
+              {" · "}
+            </>
+          )}
           {user.email} · <button type="button" className="link" onClick={() => void leave()}>{texts.app.signOut}</button>
         </p>
       </header>
-      {!data ? (
-        <p>{texts.glossary.loading}</p>
-      ) : (
+      {route.view === "home" && <Home data={data} onMaterials={() => go({ view: "materials" })} onFormulation={() => go({ view: "library" })} />}
+      {route.view !== "home" && !data && <p>{texts.glossary.loading}</p>}
+      {data && (
         <>
           {/* The glossary stays mounted while a sheet is open: back, it keeps its search and its filters. */}
-          <div hidden={route.view !== "list"}>
+          <div hidden={route.view !== "materials"}>
             <Glossary
               data={data}
               onOpen={(id) => go({ view: "sheet", id })}
@@ -70,24 +81,18 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
               mark={(ids, have) => setHaveMany(local.db, local.userId, ids, have)}
             />
           </div>
+          <div hidden={route.view !== "library"}>
+            <Library data={data} />
+          </div>
           {route.view === "sheet" && (
             <MaterialSheet
               data={data}
               id={route.id}
-              onBack={() => go({ view: "list" })}
+              onBack={() => back({ view: "materials" })}
               onEdit={() => go({ view: "edit", id: route.id })}
               onOpen={(id) => go({ view: "sheet", id })}
-              onHave={(have) =>
-                void setHave(local.db, local.userId, route.id, have).catch((e: unknown) =>
-                  window.alert(texts.editor.failed(e instanceof Error ? e.message : String(e))),
-                )
-              }
-              onMakeVersion={() =>
-                void createVersion(local.db, local.userId, route.id).then(
-                  (id) => go({ view: "edit", id }),
-                  (e: unknown) => window.alert(texts.editor.failed(e instanceof Error ? e.message : String(e))),
-                )
-              }
+              onHave={(have) => void setHave(local.db, local.userId, route.id, have).catch(fail)}
+              onMakeVersion={() => void createVersion(local.db, local.userId, route.id).then((id) => go({ view: "edit", id }), fail)}
             />
           )}
           {route.view === "edit" && (
@@ -95,11 +100,11 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
               data={data}
               local={local}
               id={route.id}
-              onDone={() => go({ view: "sheet", id: route.id })}
-              onDeleted={() => go({ view: "list" }, true)}
+              onDone={() => back({ view: "sheet", id: route.id })}
+              onDeleted={() => go({ view: "materials" }, true)}
             />
           )}
-          {route.view === "new" && <NewMaterial local={local} onCreated={(id) => go({ view: "edit", id }, true)} onCancel={() => go({ view: "list" })} />}
+          {route.view === "new" && <NewMaterial local={local} onCreated={(id) => go({ view: "edit", id }, true)} onCancel={() => back({ view: "materials" })} />}
         </>
       )}
       <details className="data-status">
@@ -110,47 +115,53 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
   );
 }
 
-type Route = { readonly view: "list" } | { readonly view: "new" } | { readonly view: "sheet" | "edit"; readonly id: string };
+type Route =
+  | { readonly view: "home" | "materials" | "library" | "new" }
+  | { readonly view: "sheet" | "edit"; readonly id: string };
 
-/** Where the app is lives in the address («#material/<id>», «…/editar», «#nuevo»), so the browser's back works. */
+/** Where the app is lives in the address, so the browser's back works: «#materiales», «#formulacion», «#material/<id>»… */
 function parseRoute(hash: string): Route {
   const m = /^#material\/([^/]+)(\/editar)?$/.exec(hash);
   if (m) return { view: m[2] ? "edit" : "sheet", id: m[1] };
-  return hash === "#nuevo" ? { view: "new" } : { view: "list" };
+  if (hash === "#nuevo") return { view: "new" };
+  if (hash === "#materiales") return { view: "materials" };
+  if (hash === "#formulacion") return { view: "library" };
+  return { view: "home" };
 }
-const hashOf = (r: Route) => (r.view === "list" ? "" : r.view === "new" ? "#nuevo" : `#material/${r.id}${r.view === "edit" ? "/editar" : ""}`);
+const HASH: Record<"home" | "materials" | "library" | "new", string> = { home: "", materials: "#materiales", library: "#formulacion", new: "#nuevo" };
+const hashOf = (r: Route) => ("id" in r ? `#material/${r.id}${r.view === "edit" ? "/editar" : ""}` : HASH[r.view]);
 
-function useRoute(): [Route, (r: Route, replace?: boolean) => void] {
+function useRoute(): [Route, (r: Route, replace?: boolean) => void, (fallback: Route) => void] {
   const [route, setRoute] = useState<Route>(() => parseRoute(window.location.hash));
-  const [listScroll, setListScroll] = useState(0);
+  const scrolls = useRef(new Map<string, number>());
   useEffect(() => {
     const changed = () => {
       const next = parseRoute(window.location.hash);
       setRoute(next);
-      // A sheet opens at its top; the glossary, where it was left.
-      requestAnimationFrame(() => window.scrollTo(0, next.view === "list" ? listScroll : 0));
+      // A sheet opens at its top; a list, where it was left.
+      requestAnimationFrame(() => window.scrollTo(0, scrolls.current.get(hashOf(next)) ?? 0));
     };
-    // Going back through steps the app pushed may come as a popstate without a hashchange: both are heard.
+    // Going back may come as a popstate without a hashchange: both are heard.
     window.addEventListener("hashchange", changed);
     window.addEventListener("popstate", changed);
     return () => {
       window.removeEventListener("hashchange", changed);
       window.removeEventListener("popstate", changed);
     };
-  }, [listScroll]);
+  }, []);
+  const depth = () => (window.history.state as { depth?: number } | null)?.depth ?? 0;
   const go = (next: Route, replace = false) => {
-    if (route.view === "list") setListScroll(window.scrollY);
-    const hash = hashOf(next);
-    const url = `${window.location.pathname}${window.location.search}${hash}`;
-    // Each step the app takes keeps how deep it is from the glossary: back to it goes back through them.
-    const depth = (window.history.state as { depth?: number } | null)?.depth ?? 0;
-    if (hash === "" && depth > 0) {
-      window.history.go(-depth);
-      return;
-    }
-    if (replace || hash === "") window.history.replaceState({ depth: hash === "" ? 0 : depth }, "", url);
-    else window.history.pushState({ depth: depth + 1 }, "", url);
+    scrolls.current.set(hashOf(route), window.scrollY);
+    const url = `${window.location.pathname}${window.location.search}${hashOf(next)}`;
+    if (replace) window.history.replaceState({ depth: depth() }, "", url);
+    else window.history.pushState({ depth: depth() + 1 }, "", url);
     window.dispatchEvent(new HashChangeEvent("hashchange"));
   };
-  return [route, go];
+  // Back where you came from, if you came from the app; else to where it belongs.
+  const back = (fallback: Route) => {
+    scrolls.current.set(hashOf(route), window.scrollY);
+    if (depth() > 0) window.history.back();
+    else go(fallback, true);
+  };
+  return [route, go, back];
 }

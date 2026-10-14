@@ -1,6 +1,7 @@
 import { type KeyboardEvent, useMemo, useRef, useState } from "react";
 import { type CatalogMaterial, MATERIAL_KINDS, type MaterialKind } from "../db/catalog";
 import { normalize } from "../db/search";
+import type { FormulaMarker, FormulaRecord } from "../db/formulas";
 import { listAll, search } from "../db/search";
 import { texts } from "../i18n/es";
 import { type Filters, type IfraState, keepOf, NO_FILTERS } from "./browse";
@@ -148,7 +149,7 @@ export function Glossary({ data, onOpen, onNew, mark }: { data: GlossaryData; on
       </div>
       <div className="tab-panel" role="tabpanel" id="glossary-panel" aria-labelledby={`tab-${tab}`}>
         {tab === "formulas" || tab === "accords" ? (
-          <Formulas data={data} query={query} accords={tab === "accords"} />
+          <Formulas data={data} query={query} marker={tab === "accords" ? "accord" : null} />
         ) : (
         <>
         <p className="hint">{materials.length ? t.foundMaterials(materials.length) : t.none}</p>
@@ -236,20 +237,21 @@ function Tile({ material, data, onOpen, marking, mark }: { material: CatalogMate
  * Your formulas (V3-50), by workbench (V3-19): each bench, with its formulas as tiles. They open in
  * the workbench, which comes with phase 8; for now they are shown, with their markers and versions.
  */
-function Formulas({ data, query, accords }: { data: GlossaryData; query: string; accords: boolean }) {
+export function Formulas({ data, query, marker }: { data: GlossaryData; query: string; marker: FormulaMarker | null }) {
+  const accords = marker !== null;
   const t = texts.glossary;
   const [open, setOpen] = useState<ReadonlySet<string>>(new Set());
   const words = normalize(query).split(/\s+/).filter((w) => w);
   const benchName = new Map(data.workbenches.map((b) => [b.id, b.name]));
   // «Acordes» is V3-19's general folder: the formulas marked as accords, from every workbench; they stay in theirs too.
   const shown = data.formulas.filter(
-    (f) => (!accords || f.markers.includes("accord")) && words.every((w) => normalize(`${f.name} ${benchName.get(f.workbenchId) ?? ""}`).includes(w)),
+    (f) => (!marker || f.markers.includes(marker)) && words.every((w) => normalize(`${f.name} ${benchName.get(f.workbenchId) ?? ""}`).includes(w)),
   );
   if (accords) {
     return (
       <>
         <p className="hint">
-          {shown.length ? t.foundAccords(shown.length) : t.noFormulas} {t.formulasLater}
+          {shown.length ? (marker === "accord" ? t.foundAccords(shown.length) : t.foundFormulas(shown.length)) : words.length ? t.noFormulas : t.noMarked} {t.formulasLater}
         </p>
         <ul className="grid">
           {[...shown].sort((x, y) => x.name.localeCompare(y.name, "es")).map((f) => (
@@ -270,7 +272,7 @@ function Formulas({ data, query, accords }: { data: GlossaryData; query: string;
       {/* Each workbench, a tile the size of a formula, folded; open, its formulas follow it in the grid (V3-50). */}
       <ul className="grid">
         {benches.map((b) => {
-          const inside = shown.filter((f) => f.workbenchId === b.id).sort((x, y) => x.name.localeCompare(y.name, "es"));
+          const inside = byVersions(shown.filter((f) => f.workbenchId === b.id));
           // While searching, a bench with what was found opens by itself.
           const isOpen = open.has(b.id) || words.length > 0;
           return [
@@ -340,4 +342,22 @@ function FormulaTile({ formula: f, data, bench, mini = false }: { formula: Gloss
       ))}
     </div>
   );
+}
+
+/**
+ * A workbench's formulas with their versions together (plan 8.1, P44): each mother, then the versions
+ * that come from it, in the order of the chain of parent_id; the mothers by name.
+ */
+export function byVersions(list: readonly FormulaRecord[]): FormulaRecord[] {
+  const ids = new Set(list.map((f) => f.id));
+  const children = new Map<string, FormulaRecord[]>();
+  for (const f of list) if (f.parentId && ids.has(f.parentId)) children.set(f.parentId, [...(children.get(f.parentId) ?? []), f]);
+  const byName = (a: FormulaRecord, b: FormulaRecord) => a.name.localeCompare(b.name, "es") || (a.id < b.id ? -1 : 1);
+  const out: FormulaRecord[] = [];
+  const visit = (f: FormulaRecord) => {
+    out.push(f);
+    for (const c of [...(children.get(f.id) ?? [])].sort(byName)) visit(c);
+  };
+  for (const root of list.filter((f) => !f.parentId || !ids.has(f.parentId)).sort(byName)) visit(root);
+  return out;
 }

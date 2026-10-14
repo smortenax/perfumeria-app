@@ -15,6 +15,18 @@ export const texts = {
     closed: "El registro está cerrado: las cuentas se crean a mano.",
     failed: "No se ha podido entrar",
   },
+  home: {
+    title: "Inicio",
+    back: "Inicio",
+    materials: "Materiales",
+    materialsDetail: (own: number, common: number) => `El glosario: ${own} tuyos y ${common} generales`,
+    formulation: "Formulación",
+    formulationDetail: (benches: number, formulas: number) => `Tus bancos de trabajo: ${benches} bancos, ${formulas} fórmulas`,
+  },
+  library: {
+    title: "Formulación",
+    tabs: { benches: "Bancos", accords: "Acordes", finished: "Perfumes acabados" },
+  },
   glossary: {
     title: "Glosario de materiales",
     loading: "Abriendo el glosario…",
@@ -31,6 +43,7 @@ export const texts = {
     formulasSearchHint: "Nombre de la fórmula o del banco",
     foundFormulas: (n: number) => (n === 1 ? "1 fórmula" : `${n} fórmulas`),
     noFormulas: "Ninguna fórmula con esa búsqueda.",
+    noMarked: "Ninguna fórmula lleva todavía este marcador.",
     formulasLater: "Se abren en el banco de trabajo, que llega en la fase 8.",
     markers: { accord: "acorde", finished: "perfume acabado" },
     versionFrom: (name: string) => `versión de «${name}»`,
