@@ -12,7 +12,7 @@ const IFRA_STATES = Object.keys(texts.ifraState) as IfraState[];
  * The glossary (plan v3, step 6.1): one search box over the common materials and yours, with
  * filters. One row per category (V3-13), with its materials under it; each opens its sheet.
  */
-export function Glossary({ data, onOpen }: { data: GlossaryData; onOpen: (id: string) => void }) {
+export function Glossary({ data, onOpen, onNew }: { data: GlossaryData; onOpen: (id: string) => void; onNew: () => void }) {
   const t = texts.glossary;
   const [query, setQuery] = useState("");
   const [filters, setFilters] = useState<Filters>(NO_FILTERS);
@@ -30,7 +30,12 @@ export function Glossary({ data, onOpen }: { data: GlossaryData; onOpen: (id: st
 
   return (
     <section className="glossary">
-      <h2>{t.title}</h2>
+      <div className="title-bar">
+        <h2>{t.title}</h2>
+        <button type="button" onClick={onNew}>
+          {texts.editor.newMaterial}
+        </button>
+      </div>
       <label className="search">
         {t.search}
         <input

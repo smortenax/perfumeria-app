@@ -345,3 +345,101 @@ button.member:focus-visible {
     gap: 0;
   }
 }
+
+/* The editor of your materials (plan v3, step 6.3): plain forms, provisional (V3-47). */
+.title-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+.editor fieldset {
+  border: none;
+  padding: 0;
+}
+
+.editor legend {
+  font-weight: 600;
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--muted) 40%, transparent);
+  width: 100%;
+}
+
+.editor .field {
+  align-items: center;
+}
+
+.editor .field label {
+  color: var(--muted);
+}
+
+textarea {
+  font: inherit;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--muted);
+  border-radius: 6px;
+  padding: 0.5rem 0.625rem;
+  resize: vertical;
+}
+
+.evolution {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+form.add {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.75rem 1rem;
+  padding: 0.75rem;
+  border: 1px dashed color-mix(in srgb, var(--muted) 50%, transparent);
+  border-radius: 6px;
+}
+
+form.add .wide {
+  flex: 1 1 16rem;
+}
+
+form.add .error {
+  flex-basis: 100%;
+  margin: 0;
+}
+
+.picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+}
+
+.editable-rows {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.75rem;
+}
+
+.editable-rows li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--muted) 25%, transparent);
+  font-size: 0.875rem;
+}
+
+.danger button {
+  background: #b3261e;
+}

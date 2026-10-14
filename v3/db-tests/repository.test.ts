@@ -75,6 +75,8 @@ it("what the repository writes reaches Supabase as Postgres keeps it, A's", asyn
     physical: { ...NO_PHYSICAL, state: "líquido", density: Ratio.fromDecimal("1.0365"), meltingPointC: Ratio.fromDecimal("-12.5"), molecularWeight: Ratio.fromDecimal("122.12702") },
   });
   await addComponent(db, a.id, id, common, { kind: "range", min: pct("1"), max: pct("2.5") }, "product", "ficha");
+  // Step 6.3: a substance of a certificate, by its CAS and name (V3-36), goes up as well as a material does.
+  await addComponent(db, a.id, id, { cas: "91-64-5", name: "Coumarin" }, { kind: "exact", value: pct("2") }, "product", "certificado");
   await addRegulation(db, a.id, id, { regime: "manufacturer", kind: "max", maxValue: pct("0.0082"), authority: "product", source: "certificado" });
   await addDose(db, a.id, id, { typical: pct("2"), basis: "concentrate", authority: "literature", source: "Fraterworks" });
   await setHave(db, a.id, id, true);
@@ -103,8 +105,10 @@ it("what the repository writes reaches Supabase as Postgres keeps it, A's", asyn
     family: "woody",
     ifra_unverified: "Restricción, STD 068 · sin verificar",
   });
-  const [c] = await admin`select owner_id, component_id, amount_kind, min::text as min, max::text as max from material_components where material_id = ${id}`;
+  const [c] = await admin`select owner_id, component_id, amount_kind, min::text as min, max::text as max from material_components where material_id = ${id} and component_id is not null`;
   expect(c).toEqual({ owner_id: a.id, component_id: common, amount_kind: "range", min: "0.01", max: "0.025" });
+  const [sub] = await admin`select owner_id, component_id, component_cas, component_name, value::text as value from material_components where material_id = ${id} and component_id is null`;
+  expect(sub).toEqual({ owner_id: a.id, component_id: null, component_cas: "91-64-5", component_name: "Coumarin", value: "0.02" });
   const [r] = await admin`select owner_id, max_value::text as max_value from regulations where material_id = ${id}`;
   expect(r).toEqual({ owner_id: a.id, max_value: "0.000082" });
   const [d] = await admin`select owner_id, typical::text as typical, disputed from material_doses where material_id = ${id}`;

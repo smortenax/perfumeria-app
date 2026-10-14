@@ -418,22 +418,39 @@ export async function deleteMaterial(db: LocalDb, ownerId: string, id: string): 
   await db.delete(local.materials).where(eq(local.materials.id, id));
 }
 
-/** Adds a component to one of the user's materials: a common material or another of theirs, never itself. */
+/** A component that is not a material of the glossary: a substance by its CAS and its name, as a certificate lists it (V3-36). */
+export interface SubstanceRef {
+  readonly cas: string | null;
+  readonly name: string;
+}
+
+const CAS_FORM = /^\d{2,7}-\d{2}-\d$/;
+
+/**
+ * Adds a component to one of the user's materials: a common material or another of theirs (by its
+ * id), never itself; or a substance by its CAS and name. What IFRA's annex says a natural brings is
+ * not written here: it lives in IFRA's layer (V3-35), so a component's authority is never «ifra».
+ */
 export async function addComponent(
   db: LocalDb,
   ownerId: string,
   materialId: string,
-  componentId: string,
+  component: string | SubstanceRef,
   amount: Amount,
   authority: Authority,
   source: string,
 ): Promise<string> {
   const container = await ownMaterial(db, ownerId, materialId);
   if (container.kind === "frozen") throw new Error("the composition of a frozen formula is not changed");
+  const componentId = typeof component === "string" ? component : null;
+  const substance = typeof component === "string" ? null : { cas: component.cas?.trim() || null, name: component.name.trim() };
   if (componentId === materialId) throw new Error("a material does not contain itself");
-  await visibleMaterial(db, ownerId, componentId);
+  if (componentId) await visibleMaterial(db, ownerId, componentId);
+  if (substance && substance.name === "") throw new Error("a substance has a name");
+  if (substance?.cas && !CAS_FORM.test(substance.cas)) throw new Error("a CAS is digits, two digits and a check digit: 91-64-5");
   checkAmount(amount);
   oneOf(authority, AUTHORITIES, "authority");
+  if (authority === "ifra") throw new Error("what IFRA says lives in its layer, not in a material (V3-35)");
   checkSource(source);
   const id = crypto.randomUUID();
   const stamp = now();
@@ -442,6 +459,8 @@ export async function addComponent(
     materialId,
     ownerId,
     componentId,
+    componentCas: substance?.cas ?? null,
+    componentName: substance?.name ?? null,
     amountKind: amount.kind,
     value: amount.kind === "exact" || amount.kind === "max" ? numericFromRatio(amount.value) : null,
     min: amount.kind === "range" ? numericFromRatio(amount.min) : null,
@@ -473,11 +492,16 @@ export interface NewRegulation {
   readonly source: string;
 }
 
-/** Adds a limit to one of the user's materials (V3-3: the user gives IFRA's or a maker's limits to their own). */
+/**
+ * Adds a limit to one of the user's materials: a maker's ceiling, or what a document claims of an
+ * IFRA standard («meets the specification», V3-39). IFRA's own limits come from its layer (V3-35).
+ */
 export async function addRegulation(db: LocalDb, ownerId: string, materialId: string, regulation: NewRegulation): Promise<string> {
   await ownMaterial(db, ownerId, materialId);
   oneOf(regulation.regime, ["ifra", "manufacturer"] as const, "regime");
   oneOf(regulation.authority, AUTHORITIES, "authority");
+  // IFRA's own limits live in its layer (V3-35): a material keeps what its documents say, never as IFRA's word.
+  if (regulation.authority === "ifra") throw new Error("what IFRA says lives in its layer, not in a material (V3-35)");
   checkSource(regulation.source);
   const maxValue = regulation.maxValue ?? null;
   if (regulation.kind === "max" && (maxValue === null || !isFraction(maxValue, true))) throw new RangeError("a maximum is a fraction in [0, 1]");

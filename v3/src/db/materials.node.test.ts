@@ -5,6 +5,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { Ratio } from "../core/arith/ratio";
+import type { IfraLayer } from "./ifra-layer";
 import { AppSchema, tables } from "./local/schema";
 import {
   addComponent,
@@ -18,6 +19,7 @@ import {
   updateMaterial,
   type LocalDb,
 } from "./materials";
+import { ifraCard, toIfra } from "./to-ifra";
 
 /**
  * Plan v3, step 3.2, without network: the repository against a copy that is connected to
@@ -136,7 +138,53 @@ describe("the repository on the copy, without network", () => {
     await expect(addRegulation(db, ME, base, { regime: "ifra", kind: "max", authority: "ifra", source: "x" })).rejects.toThrow();
     await expect(addRegulation(db, ME, base, { regime: "ifra", kind: "requirement", authority: "ifra", source: "x" })).rejects.toThrow();
     await expect(addDose(db, ME, base, { basis: "concentrate", authority: "literature", source: "x" })).rejects.toThrow();
+    // IFRA's word lives in its layer (V3-35): not as a component's or a limit's authority.
+    await expect(addComponent(db, ME, base, { cas: "91-64-5", name: "Coumarin" }, { kind: "exact", value: pct("2") }, "ifra", "anexo")).rejects.toThrow();
+    await expect(addRegulation(db, ME, base, { regime: "manufacturer", kind: "max", maxValue: pct("1"), authority: "ifra", source: "x" })).rejects.toThrow();
+    // A substance has a name, and its CAS, if it has one, is a CAS.
+    await expect(addComponent(db, ME, base, { cas: "91-64-5", name: " " }, { kind: "unknown" }, "product", "x")).rejects.toThrow();
+    await expect(addComponent(db, ME, base, { cas: "coumarin", name: "Coumarin" }, { kind: "unknown" }, "product", "x")).rejects.toThrow();
     expect(await queued()).toBe(after);
     expect(after).toBe(before + 1);
+  });
+});
+
+describe("plan v3, step 6.3: a material of yours with its certificate gives its IFRA as a common one", () => {
+  const COMMON_BASE = "66666666-6666-4666-8666-666666666666";
+  const coumarin = {
+    code: "IFRA_STD_051", name: "Coumarin", amendment: "51", type: "", prohibition: false, restriction: true, specification: false,
+    prohibitedAsSuch: false, groupKey: "IFRA_STD_051", limitExpressedAs: null, limitExpressedAsCas: null, prohibitionNote: null,
+    specificationNote: null, property: null, limits: new Map([["4", { kind: "max" as const, maxValue: pct("1.6") }]]),
+    substances: [{ cas: "91-64-5", subgroup: null, synonyms: [] }], variantRules: [], specExclusions: [],
+  };
+  const layer: IfraLayer = { standards: new Map([["IFRA_STD_051", coumarin]]), byCas: new Map([["91-64-5", ["IFRA_STD_051"]]]), annex: [] };
+
+  it("the same components, from a certificate, give the same IFRA material and the same state", async () => {
+    // The common one, as the sync brings it: a base with what its certificate declares.
+    await copy.execute("insert into materials (id, owner_id, name, kind) values (?, null, 'Base común', 'composition')", [COMMON_BASE]);
+    await copy.execute(
+      `insert into material_components (id, material_id, owner_id, component_id, component_cas, component_name, amount_kind, value, min, max, authority, source)
+       values ('c-a', ?, null, null, '91-64-5', 'Coumarin', 'exact', '0.02', null, null, 'product', 'certificado'),
+              ('c-b', ?, null, null, '119-84-6', 'Dihydrocoumarin', 'unknown', null, null, null, 'product', 'certificado')`,
+      [COMMON_BASE, COMMON_BASE],
+    );
+    // Yours, made in the app with the same certificate.
+    const mine = await createMaterial(db, ME, { name: "Mi base", kind: "composition" });
+    await addComponent(db, ME, mine, { cas: "91-64-5", name: "Coumarin" }, { kind: "exact", value: pct("2") }, "product", "certificado");
+    await addComponent(db, ME, mine, { cas: "119-84-6", name: "Dihydrocoumarin" }, { kind: "unknown" }, "product", "certificado");
+
+    const catalog = await loadCatalog(db, ME);
+    const ifra = toIfra(catalog, layer);
+    const shape = (id: string) => {
+      const m = ifra.materials.get(id)!;
+      return { ...m, substances: m.substances.map((x) => [x.key, x.fraction?.toString() ?? null, x.upper?.toString() ?? null]) };
+    };
+    expect(shape(mine)).toEqual(shape(COMMON_BASE));
+    expect(shape(mine).substances).toEqual([["std:IFRA_STD_051", "1/50", null]]);
+    expect(ifraCard(catalog, layer, mine)).toEqual(ifraCard(catalog, layer, COMMON_BASE));
+    expect(catalog.materials.get(mine)!.components.map((c) => [c.componentCas, c.componentName, c.componentId])).toEqual([
+      ["91-64-5", "Coumarin", null],
+      ["119-84-6", "Dihydrocoumarin", null],
+    ]);
   });
 });

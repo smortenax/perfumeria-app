@@ -7,7 +7,7 @@ import type { GlossaryData } from "./useGlossary";
  * A material's sheet as a plain data sheet (plan v3, step 6.2; V3-47): its sections, each with
  * «field: value» and its tables. What nobody says reads «no lo dice» (§1.2).
  */
-export function MaterialSheet({ data, id, onBack }: { data: GlossaryData; id: string; onBack: () => void }) {
+export function MaterialSheet({ data, id, onBack, onEdit }: { data: GlossaryData; id: string; onBack: () => void; onEdit: () => void }) {
   const sheet = useMemo(() => (data.catalog.materials.has(id) ? sheetOf(data.catalog, data.layer, data.ifra, id) : null), [data, id]);
   const t = texts.sheet;
   return (
@@ -19,7 +19,14 @@ export function MaterialSheet({ data, id, onBack }: { data: GlossaryData; id: st
         <p>{texts.glossary.missing}</p>
       ) : (
         <>
-          <h2>{sheet.name}</h2>
+          <div className="title-bar">
+            <h2>{sheet.name}</h2>
+            {sheet.own && (
+              <button type="button" onClick={onEdit}>
+                {texts.editor.edit}
+              </button>
+            )}
+          </div>
           <p className="hint">
             <span className={`ifra ifra-${sheet.ifra.state}`} title={texts.ifraStateHelp[sheet.ifra.state]}>
               {texts.ifraState[sheet.ifra.state]}

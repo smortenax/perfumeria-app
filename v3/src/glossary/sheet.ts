@@ -255,7 +255,9 @@ export function sheetOf(catalog: Catalog, layer: IfraLayer, ifra: IfraData, id: 
         : substance.limit.isZero()
           ? t.regulationKind.prohibited
           : t.limit(percent(substance.limit), substance.amendment);
-    return [standardLabel(layer, s.key), inside, substance?.combined ? `${limit}; ${t.combined}` : limit];
+    // A standard by its code and name; a maker's ceiling or a «prohibited as such», by the name the adapter gives it.
+    const label = s.key.startsWith("std:") ? standardLabel(layer, s.key) : (substance?.name ?? s.key);
+    return [label, inside, substance?.combined ? `${limit}; ${t.combined}` : limit];
   });
   const manufacturer = alongChain(
     (m) => m.regulations,
