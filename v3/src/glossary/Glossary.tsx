@@ -9,7 +9,7 @@ import type { GlossaryData } from "./useGlossary";
 const PAGE = 60;
 const IFRA_STATES = Object.keys(texts.ifraState) as IfraState[];
 /** The tabs (V3-50): your materials, the general ones (each a filter of «whose»), and your formulas, apart so nothing mixes. */
-const TABS = ["own", "common", "formulas"] as const;
+const TABS = ["own", "common", "formulas", "accords"] as const;
 type Tab = (typeof TABS)[number];
 
 /** Marks or unmarks materials as what you have (V3-3); answers how many changed. */
@@ -37,7 +37,7 @@ export function Glossary({ data, onOpen, onNew, mark }: { data: GlossaryData; on
   const [tab, setTab] = useState<Tab>("own");
   const choose = (next: Tab, focus = false) => {
     setTab(next);
-    if (next !== "formulas") set({ owner: next });
+    if (next === "own" || next === "common") set({ owner: next });
     else setMarking(false);
     if (focus) tabRefs.current[TABS.indexOf(next)]?.focus();
   };
@@ -68,7 +68,7 @@ export function Glossary({ data, onOpen, onNew, mark }: { data: GlossaryData; on
         <span className="buttons">
           <button
             type="button"
-            hidden={tab === "formulas"}
+            hidden={tab === "formulas" || tab === "accords"}
             className={marking ? "" : "secondary"}
             onClick={() => {
               setMarking((m) => !m);
@@ -87,7 +87,7 @@ export function Glossary({ data, onOpen, onNew, mark }: { data: GlossaryData; on
         <input
           type="search"
           value={query}
-          placeholder={tab === "formulas" ? t.formulasSearchHint : t.searchHint}
+          placeholder={tab === "formulas" || tab === "accords" ? t.formulasSearchHint : t.searchHint}
           onChange={(e) => {
             setQuery(e.target.value);
             setLimit(PAGE);
@@ -95,7 +95,7 @@ export function Glossary({ data, onOpen, onNew, mark }: { data: GlossaryData; on
           }}
         />
       </label>
-        {tab !== "formulas" && (
+        {(tab === "own" || tab === "common") && (
         <div className="filters">
           <label>
             {t.kind}
@@ -147,8 +147,8 @@ export function Glossary({ data, onOpen, onNew, mark }: { data: GlossaryData; on
         ))}
       </div>
       <div className="tab-panel" role="tabpanel" id="glossary-panel" aria-labelledby={`tab-${tab}`}>
-        {tab === "formulas" ? (
-          <Formulas data={data} query={query} />
+        {tab === "formulas" || tab === "accords" ? (
+          <Formulas data={data} query={query} accords={tab === "accords"} />
         ) : (
         <>
         <p className="hint">{materials.length ? t.foundMaterials(materials.length) : t.none}</p>
@@ -236,12 +236,30 @@ function Tile({ material, data, onOpen, marking, mark }: { material: CatalogMate
  * Your formulas (V3-50), by workbench (V3-19): each bench, with its formulas as tiles. They open in
  * the workbench, which comes with phase 8; for now they are shown, with their markers and versions.
  */
-function Formulas({ data, query }: { data: GlossaryData; query: string }) {
+function Formulas({ data, query, accords }: { data: GlossaryData; query: string; accords: boolean }) {
   const t = texts.glossary;
   const words = normalize(query).split(/\s+/).filter((w) => w);
   const benchName = new Map(data.workbenches.map((b) => [b.id, b.name]));
-  const byId = new Map(data.formulas.map((f) => [f.id, f]));
-  const shown = data.formulas.filter((f) => words.every((w) => normalize(`${f.name} ${benchName.get(f.workbenchId) ?? ""}`).includes(w)));
+  // «Acordes» is V3-19's general folder: the formulas marked as accords, from every workbench; they stay in theirs too.
+  const shown = data.formulas.filter(
+    (f) => (!accords || f.markers.includes("accord")) && words.every((w) => normalize(`${f.name} ${benchName.get(f.workbenchId) ?? ""}`).includes(w)),
+  );
+  if (accords) {
+    return (
+      <>
+        <p className="hint">
+          {shown.length ? t.foundAccords(shown.length) : t.noFormulas} {t.formulasLater}
+        </p>
+        <ul className="grid">
+          {[...shown].sort((x, y) => x.name.localeCompare(y.name, "es")).map((f) => (
+            <li key={f.id}>
+              <FormulaTile formula={f} data={data} bench={benchName.get(f.workbenchId) ?? null} />
+            </li>
+          ))}
+        </ul>
+      </>
+    );
+  }
   const benches = data.workbenches.filter((b) => shown.some((f) => f.workbenchId === b.id));
   return (
     <>
@@ -257,24 +275,34 @@ function Formulas({ data, query }: { data: GlossaryData; query: string }) {
               .sort((x, y) => x.name.localeCompare(y.name, "es"))
               .map((f) => (
                 <li key={f.id}>
-                  <div className="tile formula">
-                    <span className="icon formula-icon" aria-hidden="true">
-                      {initials(f.name)}
-                    </span>
-                    <span className="tile-name">{f.name}</span>
-                    {f.parentId && byId.get(f.parentId) && <span className="tile-detail">{t.versionFrom(byId.get(f.parentId)!.name)}</span>}
-                    {f.role && <span className="tile-detail">{f.role}</span>}
-                    {f.markers.map((m) => (
-                      <span key={m} className="ifra">
-                        {t.markers[m]}
-                      </span>
-                    ))}
-                  </div>
+                  <FormulaTile formula={f} data={data} bench={null} />
                 </li>
               ))}
           </ul>
         </section>
       ))}
     </>
+  );
+}
+
+/** One formula's tile: its icon, its name, its workbench when shown outside it, its version and its markers. */
+function FormulaTile({ formula: f, data, bench }: { formula: GlossaryData["formulas"][number]; data: GlossaryData; bench: string | null }) {
+  const t = texts.glossary;
+  const parent = f.parentId ? data.formulas.find((x) => x.id === f.parentId) : undefined;
+  return (
+    <div className="tile formula">
+      <span className="icon formula-icon" aria-hidden="true">
+        {initials(f.name)}
+      </span>
+      <span className="tile-name">{f.name}</span>
+      {bench && <span className="tile-detail">{t.inBench(bench)}</span>}
+      {parent && <span className="tile-detail">{t.versionFrom(parent.name)}</span>}
+      {f.role && <span className="tile-detail">{f.role}</span>}
+      {f.markers.map((m) => (
+        <span key={m} className="ifra">
+          {t.markers[m]}
+        </span>
+      ))}
+    </div>
   );
 }

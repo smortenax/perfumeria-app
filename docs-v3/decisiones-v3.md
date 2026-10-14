@@ -990,7 +990,7 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 - **Una fórmula de la que sale un acorde no se borra** mientras exista el acorde: su composición depende de ella. Cambia lo de V3-10, que la dejaba en `NULL` (propuesta de la sesión, porque se deduce de la respuesta).
 - **Las fórmulas instantáneas** llevan el papel «congelado de la v2» y un vertido puro por componente, con masas enteras proporcionales a su vector.
 
-## V3-50 · El glosario en rejilla con icono, y pestañas Propios, Generales y Fórmulas (decidida por el usuario el 2026-10-14)
+## V3-50 · El glosario en rejilla con icono, y pestañas Propios, Generales, Fórmulas y Acordes (decidida por el usuario el 2026-10-14)
 
 **Respuestas literales** (orko kill, 2026-10-14, en el hilo, con dos imágenes: un icono cuadrado de borde naranja con «34X» y unas pestañas redondeadas con borde):
 
@@ -1005,6 +1005,14 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 - **Los materiales, en rejilla:** cada uno con un icono provisional (cuadrado, borde de color, su abreviatura dentro; sin abreviatura, sus iniciales con borde discontinuo) y su nombre debajo, legible. La identidad visual llegará después (V3-47).
 - **Tres pestañas, justo encima de la rejilla** (bajo el buscador y los filtros): **Propios**, **Generales** y **Fórmulas**, al estilo de la imagen, con teclado (flechas, Inicio, Fin). Sustituyen al filtro «De quién». Se abre en Propios (propuesta de la sesión).
 - **Fórmulas, aparte:** tus bancos con sus fórmulas, con sus versiones y marcadores. Se abren en el banco, en la fase 8.
+
+**Después** (orko kill, 2026-10-14, en el hilo):
+
+> la parte de acordes tambien puede tener su tab separada creo yo me refiero los que setan registrados como acorde
+
+> se duplican en este caso coexisten en formulas y acordes
+
+- **Una cuarta pestaña, Acordes:** las fórmulas marcadas «acorde», de todos los bancos, cada una con el suyo. Es la carpeta general de V3-19. **Coexisten:** un acorde sale en Acordes y también en Fórmulas, en su banco.
 
 ## Pendientes
 
