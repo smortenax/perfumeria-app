@@ -774,6 +774,22 @@ La tanda les ponía el techo a todos sus miembros. ¿Cómo entra cada uno?
 
 **Por qué** (la recomendación de la sesión que elegiste): es la división que el laboratorio ya probó con tus 111 materiales, y V3-34 pide que lo general sea la fuente global y lo tuyo, tu ampliación.
 
+## V3-37 · La abreviatura de cada material es la tuya del glosario (decidida por el usuario el 2026-10-14)
+
+**Pregunta** (tarjeta del hilo; la abre V3-34, «abreviatura del material, siguiendo criterios de v2»): ¿de dónde sale la abreviatura de cada material de la v3? La v1 la tiene en `codigo` (`datos/glosario/materiales.csv`), única en todo el glosario: tuya en las 3119 filas del FIG y generada con tu estilo, como provisional, en 1206. El icono enseñaba la sigla comercial si la hay y, si no, la abreviatura (P39).
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Tu abreviatura del glosario (Recomendado)» (2026-10-14): «La de la v1 (`codigo`) de su pareja en la v2: «LnO» para el aceite de lavanda. Se apunta si es tuya o generada (provisional). Si un material nuevo no tiene pareja, se genera con el mismo estilo y queda provisional. La sigla comercial (IBQ, HCA) va a otros nombres, y el icono la sigue prefiriendo (P39), algo que se ve en la fase 6.»
+
+**Cómo se aplica:**
+
+- **`materials.abbreviation`**, con su origen: la tuya del glosario, o generada (provisional).
+- **Sale de la pareja de cada material en la v2** (`migracion-v3/respuestas/laboratorio.csv` y `datos/v2/v1-a-v2.csv`).
+- **Un material sin pareja** lleva una generada con el mismo estilo, única y provisional.
+- **La sigla comercial** va a los otros nombres. **El icono** prefiere la sigla comercial (P39) y termina con la letra del tipo de natural (P40); eso se ve en la fase 6.
+- **Más adelante podrás cambiarla en tus materiales** (V3-34). El criterio se revisará.
+
+**Por qué** (la recomendación de la sesión que elegiste): es tu abreviatura, la que ya usabas, y no se pierde cuando hay sigla comercial.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
