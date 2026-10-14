@@ -88,7 +88,7 @@ try {
   // The approved batches, from the audit trail that travels with the data (datos/tandas.csv).
   const trail = join(DATA, "tandas.csv");
   const batches = existsSync(trail)
-    ? [...new Set(parseCsv(readFileSync(trail, "utf8")).slice(1).map((l) => l[0]).filter((b) => b))].join(" ")
+    ? [...new Set(parseCsv(readFileSync(trail, "utf8")).slice(1).map((l) => l[0]).filter((b) => b))].join(" ") || null
     : null;
   // One transaction: if any row is refused, nothing is left half loaded.
   const report = await sql.begin(async (db) => {
