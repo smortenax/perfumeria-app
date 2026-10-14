@@ -45,11 +45,13 @@ export function MaterialSheet({
                 {texts.editor.edit}
               </button>
             ) : (
-              <button type="button" title={texts.editor.makeVersionHint} onClick={onMakeVersion}>
+              <button type="button" onClick={onMakeVersion}>
                 {texts.editor.makeVersion}
               </button>
             )}
           </div>
+          {/* Without hover (step 6.6): what the button does is said, not left to a tooltip. */}
+          {!sheet.own && <p className="hint">{texts.editor.makeVersionHint}</p>}
           {versions.length > 0 && (
             <p className="hint">
               {texts.editor.yourVersions}:{" "}
@@ -111,7 +113,9 @@ export function MaterialSheet({
                         {table.rows.map((cells, r) => (
                           <tr key={r}>
                             {cells.map((cell, c) => (
-                              <td key={c}>{cell}</td>
+                              <td key={c} data-label={table.columns[c]}>
+                                {cell}
+                              </td>
                             ))}
                           </tr>
                         ))}
