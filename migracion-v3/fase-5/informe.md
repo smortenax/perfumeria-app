@@ -1,6 +1,6 @@
 # Fase 5.1 · El IFRA de la v3 frente al de la v2, material a material
 
-*Generado por `migracion-v3/fase-5/equivalencia.test.ts`: no se edita a mano. Lee la v2 de `datos/v2/` (commit `d4c1e55`) y la v3 de `v3/datos/` y de tu tanda 8 (commit `2ffd9a3`), desde los CSV y sin base de datos, con la capa de IFRA de 263 estándares y 1030 filas del anexo. Compara el `IfraMaterial` del motor de cada material tuyo (el común y tu versión) con el de su pareja en la v2 (`migracion-v3/respuestas/laboratorio.csv`). El detalle, diferencia a diferencia, está en `diferencias.csv`.*
+*Generado por `migracion-v3/fase-5/equivalencia.test.ts`: no se edita a mano. Lee la v2 de `datos/v2/` (commit `d4c1e55`) y la v3 de `v3/datos/` y de tu tanda 8 (commit `6d4b353`), desde los CSV y sin base de datos, con la capa de IFRA de 263 estándares y 1030 filas del anexo. Compara el `IfraMaterial` del motor de cada material tuyo (el común y tu versión) con el de su pareja en la v2 (`migracion-v3/respuestas/laboratorio.csv`). El detalle, diferencia a diferencia, está en `diferencias.csv`.*
 
 ## Resultado
 

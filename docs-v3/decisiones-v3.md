@@ -930,6 +930,25 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 
 **Y sobre los CAS** (la misma tarjeta, segunda pregunta): 7 CAS de la v1 que no estaban en tu material de la v3 (`migracion-v3/conflictos/cas-de-la-v1.csv`). El usuario eligió «Acepto todas (Recomendado)»: los 6 cuya fila de la v1 se llama como tu material van a `other_cas`, y el del Aldambre (947-05-7, «Oxacyclotridecan-2-one») queda fuera. **Después, el del olíbano, fuera** (tarjeta siguiente, «Fuera (Recomendado)»): 8016-36-2 es el CAS de la entrada genérica «Olibanum oil» del anexo. Con él, la v3 tomaría esa entrada y no la de sacra (V3-23), y su IFRA cambiaría (sin carvona; tuyona del 0,3 % al 0,5 %). La recomendación lo pasó por alto; desde entonces, un CAS que haría candidata a otra entrada del anexo se recomienda «fuera». Las respuestas, en `migracion-v3/respuestas/cas-de-la-v1.csv`. No es una decisión nueva: aplica V3-16, que la tanda 7 no había aplicado entera. Ahora también entran los CAS de la entrada propia de cada natural en el anexo, la de su nombre, como la elige el adaptador (V3-23). Esa forma de leer V3-16 es propuesta de la sesión.
 
+## V3-46 · Los huecos del glosario se aceptan de momento y van a una ficha de mejoras (decidida por el usuario el 2026-10-14)
+
+**De dónde sale:** la sesión pidió aprobar la tanda 7 rehecha (V3-16) y, sobre ella, la tanda 9.
+
+**Respuesta literal** (orko kill, 2026-10-14, en el hilo):
+
+> si de momento acepto para materiales vacios como seuderal y otros sin registro de familia se documenta en una ficha de mejoras de app:glosario materiales que se revisitara para ir teniendo los materiales al orden necesario
+
+**Lectura** (de la sesión):
+
+- **Las tandas 7 y 9 quedan aprobadas tal como están**, con sus huecos («de momento acepto»).
+- **Los huecos van a una ficha de mejoras del glosario de materiales:** los materiales casi vacíos, como Suederal, los que no tienen familia y los demás. Se volverá a ella para ir poniendo los materiales en orden.
+
+**Cómo se aplica** (propuesta de la sesión):
+
+- **La ficha es `docs-v3/mejoras-glosario-materiales.md`**. La escribe `migracion-v3/mejoras-glosario.ts` desde lo común aprobado, y no se edita a mano. Para cada material dice lo que le falta del registro general: CAS o especie, abreviatura, familia, nivel, tenacidad, intensidad, evolución, descriptores, dosis y estado físico.
+- **Al volver a ella, se ejecuta otra vez** y dice lo que sigue faltando.
+- **Cada hueco se llena con su fuente**, por una tanda que apruebas, como el resto de los datos.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).

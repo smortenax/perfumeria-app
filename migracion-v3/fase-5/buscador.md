@@ -4,15 +4,15 @@
 
 ## 5.2 · Cada material tuyo, por sus nombres de la v1 y del laboratorio
 
-- **111 materiales, 2462 nombres** (cada nombre una vez por material). **2433 lo encuentran** (tu versión, en una fila de la lista) y **29 no**: 19 por una decisión y **10 sin explicar**.
-- De los que lo encuentran, 2433 lo dan entre las 12 primeras filas y 0 más abajo (el nombre lo comparten muchos materiales).
+- **111 materiales, 2462 nombres** (cada nombre una vez por material). **2443 lo encuentran** (tu versión, en una fila de la lista) y **19 no**: 19 por una decisión y **0 sin explicar**.
+- De los que lo encuentran, 2443 lo dan entre las 12 primeras filas y 0 más abajo (el nombre lo comparten muchos materiales).
 
 | De dónde sale el nombre | Nombres | No lo encuentran | Más abajo de la fila 12 |
 |---|---|---|---|
 | laboratorio: nombre | 111 | 0 | 0 |
 | laboratorio: sinónimo | 1049 | 0 | 0 |
 | laboratorio: tu frasco | 75 | 0 | 0 |
-| v1: CAS | 107 | 12 | 0 |
+| v1: CAS | 107 | 2 | 0 |
 | v1: código | 120 | 17 | 0 |
 | v1: nombre | 82 | 0 | 0 |
 | v1: nombre comercial | 54 | 0 | 0 |
@@ -28,23 +28,13 @@
 | Aceite de cade (enebro) | CadO | v1 fig:1287: código | V3-45: su abreviatura es CdO; los otros códigos de la v1 no entran |
 | Aldambre | 947-05-7 | v1 tl:947-05-7: CAS | V3-45: respondiste «fuera» en respuestas/cas-de-la-v1.csv |
 | Aldehído C11 MOA | AlM | v1 prod:symrise-656012: código | V3-45: su abreviatura es Met; los otros códigos de la v1 no entran |
-| Ámbar gris, tintura comercial (purificado) | 8038-65-1 | v1 fig:1069: CAS | **sin explicar** |
-| Ambrettolide | 123-69-3 | v1 fig:183: CAS | **sin explicar** |
 | Ambrettolide | Am2 | v1 tienda:63286-42-0: código | V3-45: su abreviatura es HH; los otros códigos de la v1 no entran |
-| Artemisa (Artemisia vulgaris), aceite esencial | 68991-20-8 | v1 fig:1108: CAS | **sin explicar** |
-| Canela de Ceilán, aceite esencial de corteza | 8015-91-6 | v1 fig:1402: CAS | **sin explicar** |
 | Castoreum | CsE | v1 fig:1345: código | V3-45: su abreviatura es CtA; los otros códigos de la v1 no entran |
-| Cedro chino, aceite esencial | 1159574-01-2 | v1 fig:1359: CAS | **sin explicar** |
 | Cilantro | COHO | v1 fig:1529: código | V3-45: su abreviatura es COSO; los otros códigos de la v1 no entran |
-| Cilantro | 8008-52-4 | v1 fig:1529: CAS | **sin explicar** |
 | Dihydromyrcenol | OOM | v1 fig:946: código | V3-45: su abreviatura es Di18; los otros códigos de la v1 no entran |
-| Dihydromyrcenol | 53219-21-9 | v1 fig:946: CAS | **sin explicar** |
 | Haba tonka (semillas), tintura comercial | TOBE | v1 fig:2990: código | V3-45: su abreviatura es TBT; los otros códigos de la v1 no entran |
-| Haba tonka (semillas), tintura comercial | 8024-04-2 | v1 fig:2990: CAS | **sin explicar** |
 | Iso E Super | OE | v1 fig:94: código | V3-45: su abreviatura es OT; los otros códigos de la v1 no entran |
-| Láudano de jara | 8016-26-0 | v1 fig:2143: CAS | **sin explicar** |
 | Láudano de jara | LaO | v1 fig:2150: código | V3-45: su abreviatura es LaA; los otros códigos de la v1 no entran |
-| Musgo de roble, absoluto | 9000-50-4 | v1 fig:2480: CAS | **sin explicar** |
 | Musgo de roble, absoluto | OAI | v1 prod:iff-00133097: código | V3-45: su abreviatura es OaA; los otros códigos de la v1 no entran |
 | Naranja dulce | ORPO | v1 fig:2557: código | V3-45: su abreviatura es ORSO; los otros códigos de la v1 no entran |
 | Olíbano (Boswellia sacra), aceite esencial | 8016-36-2 | v1 fig:2521: CAS | V3-45: respondiste «fuera» en respuestas/cas-de-la-v1.csv |
