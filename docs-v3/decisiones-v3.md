@@ -820,6 +820,16 @@ La tanda les ponía el techo a todos sus miembros. ¿Cómo entra cada uno?
 
 **Por qué** (la recomendación de la sesión que elegiste): el certificado es de tu frasco, y V3-34 saca los productos de lo común.
 
+## V3-40 · Las voces entran por la biblioteca del laboratorio, cuando estén en ella (decidida por el usuario el 2026-10-14)
+
+**Pregunta** (tarjeta del hilo; la abre V3-34): ¿entran ahora las voces en los materiales de la v3? Son 107 JSON con lo que dice la gente que formula (`../Perfumery/fuentes/investigaciones/2026-10-11-voces-materiales/voces/`). Su propio prompt (`prompt-chat-laboratorio.md`) dice que aún no están en la biblioteca y que cómo entran como tercera fuente es una decisión pendiente del usuario en el laboratorio.
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Por la biblioteca, después (Recomendado)» (2026-10-14): «La v3 lee la biblioteca del laboratorio. Las voces entran cuando el laboratorio decida cómo van en ella (su decisión pendiente «c») y las meta; entonces la v3 las toma como cualquier otra fuente. Así no hay dos caminos para el mismo dato. Lo apunto en a-futuro.md.»
+
+**Cómo se aplica:** la migración no lee los JSON de las voces. Cuando estén en `materiales.sqlite`, entran como el resto de su fuente. Queda en `docs/a-futuro.md`.
+
+**Por qué** (la recomendación de la sesión que elegiste): un solo camino para cada dato, y la decisión de cómo se guardan las voces es del laboratorio.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
