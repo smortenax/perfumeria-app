@@ -16,7 +16,7 @@
 ## Sigue
 
 1. **Tú:** entra en la app local con serpiot2000@gmail.com y comprueba que salen 111 comunes y 111 tuyos (la sesión del navegador integrado había caducado).
-2. **Fase 7, pasos 7.1 a 7.3, hechos:** `workbenches`, `formulas` y `formula_events` (CHECK por tipo, orden por UUID v7, solo se añaden), RLS y disparadores, canal propio; `src/db/formulas.ts` lee la fórmula como el motor. **Sigue el 7.4:** leer tu biblioteca, con tu permiso. Pendiente menor: con PowerSync parado, el panel seguía diciendo «Conectado» (lo vio la prueba del 6.7 en el navegador). La paleta de las familias (V3-38) aún no está en la v3. Tus bocetos: claude.ai/artifact/RXLX4e5WKR6xFNApMeyphj.
+2. **Fase 7, pasos 7.1 a 7.3, hechos:** `workbenches`, `formulas` y `formula_events` (CHECK por tipo, orden por UUID v7, solo se añaden), RLS y disparadores, canal propio; `src/db/formulas.ts` lee la fórmula como el motor. **7.4 hecho:** 30 fórmulas copiadas (`migracion-v3/copiar-biblioteca.ts`; copias fuera de Git, manifiesto con SHA-256). **Sigue el 7.5:** 33 materiales de tus fórmulas no llegan a tus 111 comunes (27 de 30 fórmulas); decidirlo contigo. Pendiente menor: con PowerSync parado, el panel seguía diciendo «Conectado» (lo vio la prueba del 6.7 en el navegador). La paleta de las familias (V3-38) aún no está en la v3. Tus bocetos: claude.ai/artifact/RXLX4e5WKR6xFNApMeyphj.
 3. **Tú, cuando quieras:** `npx supabase login` en `v3/` (enlazar la nube) y corregir en el laboratorio el cruce del Aldambre en `diluciones.py`.
 
 ## Arranque local (dentro de `v3/`, con Docker Desktop abierto)

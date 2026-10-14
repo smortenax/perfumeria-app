@@ -27,3 +27,6 @@ datos/glosario/.cache/
 
 # Salida de npm run validar:v2: se genera, no se guarda
 datos/v2/validacion.txt
+
+# Tu biblioteca de fórmulas copiada por migracion-v3/copiar-biblioteca.ts (plan v3, 7.4): no va a Git
+migracion-v3/biblioteca/archivos/
