@@ -79,6 +79,13 @@ it("a common material relates only to common ones", async () => {
   await expect(admin`insert into material_relations (material_id, kind) values (${common}, 'clashes')`).rejects.toMatchObject({ code: "23514" });
 });
 
+it("when the other material goes, its relations go with it", async () => {
+  const [{ id: gone }] = await admin`insert into materials (name, kind) values (${`${TAG} to delete`}, 'molecule') returning id`;
+  const [{ id: relation }] = await admin`insert into material_relations (material_id, kind, other_id) values (${common}, 'substitute', ${gone}) returning id`;
+  await admin`delete from materials where id = ${gone}`;
+  expect(await admin`select id from material_relations where id = ${relation}`).toHaveLength(0);
+});
+
 it("through the sync: A gets the common lists and its own; B, the common ones and never A's", async () => {
   const ownOf = async (table: string, material: string) => (await admin`select id from ${admin(table)} where material_id = ${material}`).map((r) => r.id as string);
   const commonIds = Object.fromEntries(await Promise.all(LISTS.map(async (t) => [t, await ownOf(t, common)] as const)));

@@ -308,8 +308,8 @@ export const materialRelations = pgTable(
       .references(() => materials.id, { onDelete: "cascade" }),
     ownerId: uuid("owner_id"),
     kind: text("kind").notNull(),
-    /** The other material, when it is in the glossary; else, its name in other_text. */
-    otherId: uuid("other_id").references((): AnyPgColumn => materials.id, { onDelete: "set null" }),
+    /** The other material, when it is in the glossary; else, its name in other_text. If it goes, the relation goes. */
+    otherId: uuid("other_id").references((): AnyPgColumn => materials.id, { onDelete: "cascade" }),
     otherText: text("other_text"),
     note: text("note"),
     sources: text("sources"),
