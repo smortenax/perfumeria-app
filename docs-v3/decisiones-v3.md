@@ -863,6 +863,22 @@ Las fuentes: codefinity y openskillindex (atributo-valor), stanza.dev y leapcell
 
 **Cómo se aplica:** en el paso 4.2 del plan (el esquema nuevo). Con la ficha en columnas, el banco y sus gráficos leen los atributos del material sin pasar por otra capa.
 
+## V3-42 · La tenacidad, en horas, con su escala y su fuente; la evolución, en cinco tramos (decidida por el usuario el 2026-10-14)
+
+**Pregunta** (tarjeta del hilo, paso 4.2): ¿cómo se guarda la tenacidad, la longevidad que usará el banco para su tabla de duración? El laboratorio la tiene en horas en tira, con el material puro, escala TGSC (`tenacity_h` de `materiales.sqlite`): 94 de los 111 materiales, entre 2 y 600 h, y 29 con un conflicto pendiente. La evolución, 5 tramos con intensidad de 0 a 3, todavía no tiene ningún dato. V3-18 la dejó como texto hasta decidir de dónde sale y si va en horas o por tramos.
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Horas, con escala y fuente (Recomendado)» (2026-10-14): «Un número en horas en tira, material puro y escala TGSC, con su fuente al lado. Lo tienen 94 materiales; los 29 en disputa salen «en disputa». El banco lo dibuja como orientación, nunca como medida exacta. La evolución tendrá sus 5 tramos de 0 a 3 como cinco números, vacíos hasta que se investiguen. Cambia V3-18.»
+
+**Cómo se aplica:**
+
+- **`materials.tenacity_hours`**, número de horas en tira, material puro, escala TGSC, con **`tenacity_source`** al lado. La base solo admite un número mayor que cero, o vacío.
+- **Los que están en disputa** llevan `tenacity_hours` en `disputed_fields` (V3-17) y la ficha lo dice.
+- **El banco lo dibuja como orientación**, con su escala, nunca como medida exacta.
+- **La evolución, cinco columnas** de 0 a 3, una por tramo: 0–15 min, 15 min–2 h, 2–8 h, 8–24 h y más de 24 h. Quedan vacías hasta que se investigue.
+- **Cambia V3-18:** la tenacidad deja de ser solo texto. La familia sigue como estaba.
+
+**Por qué** (la recomendación de la sesión que elegiste): es la cifra que el laboratorio ya tiene, con una escala conocida, y el banco la necesita para dibujar.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
