@@ -3,3 +3,7 @@ tanda,fecha,aprobacion,archivo,sha256
 2-composicion,2026-10-13,"orko kill, 2026-10-14, en la tarjeta del hilo: «Apruebo la tanda 2»",material_components.csv,031a290dfd64770c8caf275b9b6f1df28d96bd835bfe3ae932860611f0b2673f
 2-composicion,2026-10-13,"orko kill, 2026-10-14, en la tarjeta del hilo: «Apruebo la tanda 2 corregida» (solo cambian dos máximos de 0, que pasan a exacto de 0)",material_components.csv,e1cd2dd63e5dd2517eaf753595f20154ce9eb804f3eecd232d8e8ed19d9be296
 3-ifra,2026-10-13,"orko kill, 2026-10-14, en el hilo: «Apruebo la tanda 3»",regulations.csv,f915a862d4608abd02640dcb963a07a6876d048ed8333cfd3694841e9bc2a30d
+4-categorias,2026-10-14,"orko kill, 2026-10-14, en el hilo: «Apruebo la tanda 4»",material_categories.csv,375645e501707ab0372d2b39263d4252c4b2bd904ff8ab9b9f858ba2b6c9483f
+4-categorias,2026-10-14,"orko kill, 2026-10-14, en el hilo: «Apruebo la tanda 4»",material_components.csv,52c2834f50d63d06f476a3f3b185cd87cb9d049f333cf837619db889dc7e0762
+4-categorias,2026-10-14,"orko kill, 2026-10-14, en el hilo: «Apruebo la tanda 4»",materials.csv,a486a1c0d10872fca6d5c0969e5c86b640156f493bfc15d3e7e4cb0b7642ec2c
+4-categorias,2026-10-14,"orko kill, 2026-10-14, en el hilo: «Apruebo la tanda 4»",regulations.csv,6007aab6502f1f8083dcb573aaae5950bac6405a026804c3228c6c05b05e351b
