@@ -1036,6 +1036,48 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 - **Mala información es peor que falta de información.** Lo dudoso se audita antes de fiarse de ello.
 - **Dónde se apunta:** lo que falta, en la ficha de mejoras (V3-46); lo que está mal o es dudoso, en `migracion-v3/auditoria.csv`, que la ficha enseña en «A auditar». El primero: los sinónimos del Aldambre que no son suyos (dodecalactona…), venidos de una fila de la v1 que la v2 juntó con su pareja.
 
+## V3-52 · El banco de la v2 se porta a la v3 (decidida por el usuario el 2026-10-15)
+
+**Pregunta** (tarjeta del hilo, antes del paso 8.2): ¿se porta el banco de formulación de la v2 o se hace de nuevo? Son 45 archivos y unas 7.400 líneas; 16 leen los datos de la v2.
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Portar el de la v2 (Recomendado)» (2026-10-15): «Copio su pantalla a v3/ (barra de añadir, frasco, composición, historial, panel de IFRA y gráficos) y la conecto a la base nueva: cada acción escribe un evento, y lee el catálogo y el IFRA de la v3. Trabajas igual que ahora y se reutiliza lo probado. Cuesta adaptar los 16 archivos que leen datos de la v2.»
+
+**Cómo se aplica:** como el motor (`v3/src/core/`), el banco se copia a `v3/` y no importa nada de fuera (V3-21). Lo que leía de la v2 (su catálogo, su repositorio, su IFRA) pasa a leer la copia de la v3; lo que guardaba en archivos JSON pasa a eventos de la base (paso 8.2). Su aspecto sigue siendo provisional (V3-47).
+
+## V3-53 · DEP, TEC, triacetina y benzoato de bencilo entran en lo común (decidida por el usuario el 2026-10-15)
+
+**Pregunta** (tarjeta del hilo, antes del paso 8.2): el banco de la v2 ofrecía siete diluyentes; entre tus 111 comunes solo están Etanol, DPG e IPM. ¿Qué se hace con los otros cuatro?
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Comunes, con su CAS (Recomendado)» (2026-10-15): «Entran en lo común por una tanda que apruebas, como disolventes, con su nombre y su CAS. La capa de IFRA los lee por CAS (el benzoato de bencilo tiene estándar). Cualquiera los puede usar.»
+
+**Cómo se aplica:** la tanda 11 los añade a lo común con los datos que tenía la app de la v2 (sus nombres, su CAS y su sigla), cada uno en su categoría. Es una excepción acotada a V3-34, que la v3 no herede materiales de la v2: son cuatro disolventes que el banco ofrece.
+
+## V3-52 · Los huecos del glosario se buscan en la web, material por material: fabricante y TGSC primero (decidida por el usuario el 2026-10-15)
+
+**Pregunta** (sesión de la referencia ScentFriends): el usuario pide que «se buscaran los materiales uno por uno en la web y se añadieran descriptivos de los que faltan», porque las categorías de ScentFriends «no son las mismas que yo uso». ¿Qué se rellena y con qué fuentes?
+
+**Respuestas** (tarjetas, 2026-10-15):
+
+- **Alcance:** «Los huecos (Recomendado)»: «Solo lo que la ficha de mejoras marca como vacío: 11 sin familia, 14 sin tenacidad, 3 sin intensidad, 3 sin descriptores, 4 sin dosis, 4 sin estado físico y 1 sin especie. […] Cada dato, con su URL y traducido a tus familias y descriptores, en una tanda que tú apruebas.»
+- **Fuentes:** «Fabricante y TGSC (Recomendado)»: «Para las bases […], la página o ficha del fabricante. Para las moléculas, The Good Scents Company, que da la tenacidad en horas en tira con la misma escala que ya usas (V3-42). Las tiendas (ScentFriends, Fraterworks, Perfumer's Apprentice) solo como segunda fuente, y donde las fuentes chocan, «en disputa». Lo que no se encuentre queda vacío.»
+
+**Lectura** (de la sesión):
+
+- **Solo los huecos de `mejoras-glosario-materiales.md`**, no lo que ya tiene dato. La abreviatura no se busca: es tuya (V3-45). La evolución por tramos tampoco: ninguna fuente la da así.
+- **La familia se traduce a las nueve tuyas** (P48); la traducción es propuesta de la sesión, con la frase de la fuente al lado, y la decides al aprobar la tanda.
+- **Cada dato lleva URL, la frase que lo dice y qué fuente es** (fabricante, TGSC o tienda). De las tiendas no se copia prosa: solo el dato y su frase corta. Mala información es peor que ninguna (V3-51): si no se encuentra, queda vacío.
+- **Entra por una tanda**, escrita por script desde el CSV de la búsqueda, que apruebas.
+
+## V3-53 · De ScentFriends: la hoja de pesada exportable y la etiqueta de dilución (apuntada por el usuario el 2026-10-15; cuándo, sin decidir)
+
+**Literal** (2026-10-15): «ademas tambien tienen esta feature de exportacion que me parece bien, y un creador de diluciones en el que figura un boton para imprimir etiquetas que tambien es muy practico».
+
+**Lectura** (de la sesión):
+
+- **La exportación** es una hoja de laboratorio en PDF: cabecera con concentración, concentrado, alcohol, total y semáforo IFRA; una línea por material con nota, dilución, partes, objetivo en gramos, **real** (en blanco, para escribirlo) y una casilla. En la v3, la columna «real» puede salir ya rellena de los eventos del banco.
+- **El creador de diluciones** calcula material y disolvente en gramos para una cantidad y un porcentaje (también desde una dilución previa), da los pasos e imprime una etiqueta (material, %, disolvente, fecha).
+- **Propuesta de la sesión, sin decidir:** las dos, en la fase del banco, junto a la hoja de diluciones de cada fórmula.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
