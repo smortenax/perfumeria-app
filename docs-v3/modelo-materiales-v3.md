@@ -112,6 +112,8 @@
 
 ## 4 · La regulación
 
+> **Cambia con V3-35 (2026-10-14):** IFRA es una capa aparte y privada, en tablas propias y con su propio canal. Los límites de IFRA dejan de colgar del material: el material dice qué es (su CAS) y qué lleva, y la app lo lee contra la capa. Lo que sigue (clases, grupo, requisitos, V3-25, V3-27) vale dentro de la capa. `regulations` queda para los topes del fabricante y de tu versión (V3-39).
+
 - **4.1 · Una fila por regulación de un material** *[Plan §28]*: régimen, categoría, clase, máximo, grupo, requisito, autoridad y fuente.
 - **4.2 · Dos regímenes** *[Plan §29]*:
   - `ifra`, los estándares;
@@ -192,6 +194,8 @@ El 2026-10-13 llegó tu referencia del laboratorio (§9), y abre estas preguntas
 ---
 
 ## 8 · Qué entra de la v2
+
+> **Cambia con V3-34 (2026-10-14):** lo de la v2 no entra en lo común. La v3 empieza con tus materiales del laboratorio, completos (lo general, común; lo tuyo, tu versión: V3-36). De la v2 se usa la pareja de cada material tuyo: su familia cerrada, su abreviatura (V3-37, V3-38) y los certificados de tus productos, que van a tu versión (V3-39). La tabla de abajo es lo que se hizo en las tandas 1 a 4, que salen de lo común (plan, fase 4).
 
 | De la v2 | En la v3 |
 |---|---|

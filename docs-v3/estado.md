@@ -1,20 +1,18 @@
 # Estado de la v3
 
-*Actualizado el 2026-10-14. Como máximo 30 líneas: qué está hecho y qué sigue.*
+*Actualizado el 2026-10-14 (tarde). Como máximo 30 líneas: qué está hecho y qué sigue.*
 
 ## Hecho
 
-- Decisiones V3-1 a V3-31 (`decisiones-v3.md`). Las últimas: V3-27 (el 089 como componente 5-MOP), V3-28 (cifras prestadas del anexo, como literatura), V3-29 (aislados sin documentos: «Sin identificar»), V3-30 (prohibida «como tal»: prohibición y techo) y V3-31 (variante prohibida: por especie y proceso).
-- **Fases 0 a 3, hechas y comprobadas** (cada commit dice cómo): `v3/` sola, Supabase y PowerSync locales en Docker, PWA, inicio de sesión sin red, esquema de materiales con RLS, sincronización (un bucket común y uno por usuario) y disparadores, cifras exactas de ida y vuelta (las masas pueden ser `bigint`), repositorios (`src/db/materials.ts`) y adaptador al motor (`src/db/to-ifra.ts`, con el estado de IFRA por ficha de V3-25). Faltan, para cuando se usen: el interruptor «solo lo que tengo» (2.5) y `source_formula_id` (fase 7).
-- **Fase 4, en marcha.** La maquinaria, en `migracion-v3/` (su `LEEME.md`): migrar una tanda → informe → tu visto bueno → `aprobar.ts` → commit → `npm run datos:cargar` en `v3/`.
-- **Tandas 1 a 4, aprobadas y cargadas** en Supabase local (`c6b67c9`): 4344 materiales comunes en 3498 categorías, 3114 filas de composición y 7391 regulaciones (IFRA 51, V3-30, V3-31, 13 topes de fabricante). La tanda 4 aplica las 11 fusiones que decidiste (`migracion-v3/respuestas/duplicados.csv`, `fusiones.csv`); el DPG de la app es M02952. El cargador borra las filas comunes que ya no están en los datos (nunca las de un usuario). Una segunda carga no cambia nada. Una copia nueva lo descarga todo en 0,7 s y ocupa 41,6 MB (Node, local, `db-tests/catalog-download.test.ts`).
-- El adaptador (`src/db/to-ifra.ts`), con la tanda 3: una molécula prohibida «como tal» cuenta contra su techo dentro de un natural (V3-30); la ficha con techo y requisito enseña también el requisito (V3-25).
-- Pruebas: `npm test` 194, `npm run test:db` 22. **La rama `v3` se fusionó en `main` el 2026-10-13, a petición del usuario** (`fdcf017`); se sigue trabajando en `v3`. La v2 entera, en la etiqueta `v2-final`.
+- Decisiones V3-1 a V3-40 (`decisiones-v3.md`). **El giro del 2026-10-14 es V3-34:** la v3 no hereda el glosario de la v2; empieza con tus materiales del laboratorio, completos, con lo general en lo común y lo tuyo en tu versión (V3-36). IFRA, capa aparte y privada (V3-35); abreviatura del glosario (V3-37); color de la familia, ajustable (V3-38); certificados de tus productos, a tu versión (V3-39); voces, por la biblioteca, después (V3-40).
+- **Fases 0 a 3, hechas y comprobadas:** `v3/` sola, Supabase y PowerSync locales en Docker, PWA, sesión sin red, esquema con RLS, sincronización, cifras exactas, repositorios y adaptador al motor (`src/db/to-ifra.ts`, con V3-25 y V3-30). `materials.ifra_unverified` (V3-32).
+- **Fase 4, rehecha (plan, pasos 4.1 a 4.6).** Las tandas 1 a 4 (4344 comunes de la v2) siguen cargadas en Supabase local (`c6b67c9`) y **salen de lo común en el paso 4.1**. La tanda 5 (`fc79e1f`, sin aprobar) no se carga tal cual: su correspondencia con la v2 (`respuestas/laboratorio.csv`, aprobada) se reutiliza.
+- Pruebas: `npm test` 194, `npm run test:db` 22. Tu cuenta local existe (la creaste tú).
 
 ## Sigue
 
-1. **Tanda 5:** el laboratorio, en tu cuenta (paso 4.9, V3-15), con tus decisiones en `migracion-v3/conflictos/laboratorio.csv` (cuál es el común de cada material tuyo).
-2. Después, la fase 5 (equivalencia con la v2). Las categorías juntan partes de una planta que los datos no separan (nuez moscada y macis; naranja amarga, neroli y petitgrain): se separan cuando la parte esté en los datos.
+1. **4.1** retirar lo de la v2 de lo común; **4.2** el esquema nuevo (capa de IFRA con su canal, abreviatura, familia y color, descriptores, relaciones, referencias, física, frasco, diluciones, cata y ejes); **4.3** el adaptador sobre la capa.
+2. **4.4 a 4.6**, las tandas: la capa de IFRA, tus materiales en lo común y tu versión en tu cuenta.
 3. **Tú, cuando quieras:** `npx supabase login` en `v3/` (enlazar la nube) y corregir en el laboratorio el cruce del Aldambre en `diluciones.py`.
 
 ## Arranque local (dentro de `v3/`, con Docker Desktop abierto)
