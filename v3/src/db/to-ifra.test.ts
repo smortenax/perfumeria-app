@@ -19,7 +19,7 @@ const FIELDS: MaterialFields = {
   origin: null, categoryId: null, form: null, basedOnId: null, grade: null, supplier: null, purity: null, house: null, code: null,
   odorTarget: null, synthesis: null, isomers: null, family: null, familyDetail: null, facets: null, tier: null, evolution: null,
   tenacity: null, strength: null, threshold: null, diffusion: null, blendEffect: null, role: null, recommendedDilution: null,
-  sources: null, confidence: null, disputedFields: [],
+  sources: null, confidence: null, disputedFields: [], ifraUnverified: null,
 };
 
 let n = 0;

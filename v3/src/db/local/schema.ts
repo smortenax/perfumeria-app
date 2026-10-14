@@ -59,6 +59,7 @@ export const materials = sqliteTable("materials", {
   sources: text("sources"),
   confidence: text("confidence"),
   disputedFields: list("disputed_fields"),
+  ifraUnverified: text("ifra_unverified"),
   ...timestamps,
 });
 

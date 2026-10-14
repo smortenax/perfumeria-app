@@ -85,6 +85,8 @@ export const materials = pgTable(
     confidence: text("confidence"),
     /** The fields with a conflict still open, shown «en disputa» (V3-17). */
     disputedFields: text("disputed_fields").array().notNull().default(sql`'{}'::text[]`),
+    /** The lab's second-hand IFRA, as text without figures (V3-32): shown apart, never calculated. */
+    ifraUnverified: text("ifra_unverified"),
     ...timestamps,
   },
   (t) => [

@@ -1,0 +1,1 @@
+ALTER TABLE "materials" ADD COLUMN "ifra_unverified" text;

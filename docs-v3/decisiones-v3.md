@@ -659,6 +659,20 @@ La tanda les ponía el techo a todos sus miembros. ¿Cómo entra cada uno?
 
 **Por qué** (la recomendación de la sesión que elegiste): con solo techos, *T. erecta* daba «requisito pendiente» en vez de «prohibido», y «Balsam, Peru», sin proceso en los datos, podía dar «dentro» siendo quizá el crudo. Lo desconocido nunca se pinta en verde.
 
+## V3-32 · El IFRA de segunda mano del laboratorio, en un campo de texto (decidida por el usuario el 2026-10-14)
+
+**Pregunta** (tarjeta del hilo, tanda 5 de la migración): ¿dónde se guarda el IFRA de segunda mano de tus materiales del laboratorio? V3-15 dice que entra como texto «sin verificar» que no calcula, y la regla 7 de tu referencia, que va sin número. Son 107 entradas en `ifra_entries` de `materiales.sqlite`, y el esquema no tenía dónde ponerlas.
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Un campo de texto (Recomendado)» (2026-10-14): «Una columna nueva en el material, `ifra_unverified`, solo con texto: el tipo, el estándar y la condición, sin la cifra («Restricción, STD 068 · sin verificar»). La ficha lo enseña aparte del IFRA que calcula. Cuesta una migración pequeña, que llega a la copia del navegador y a los tipos, con su prueba.»
+
+**Cómo se aplica:**
+
+- **`materials.ifra_unverified`**, texto que admite vacío. Lo llena la tanda 5 en tus materiales. Lo común no lo lleva: su IFRA sale de los archivos de IFRA.
+- **No calcula:** el adaptador (`src/db/to-ifra.ts`) no lo lee, y nunca lleva la cifra.
+- **La ficha lo enseña aparte**, como «IFRA sin verificar» (fase 6).
+
+**Por qué** (la recomendación de la sesión que elegiste): guarda el aviso del laboratorio sin mezclarlo con las fuentes ni con el IFRA comprobado.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).

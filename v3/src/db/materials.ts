@@ -105,6 +105,7 @@ function fieldsOf(row: typeof local.materials.$inferSelect): MaterialFields {
     sources: row.sources,
     confidence: optionalOf(row.confidence, CONFIDENCES, "confidence"),
     disputedFields: row.disputedFields ?? [],
+    ifraUnverified: row.ifraUnverified,
   };
 }
 

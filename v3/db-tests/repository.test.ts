@@ -8,7 +8,7 @@ import { Ratio } from "../src/core/arith/ratio";
 import { SupabaseConnector } from "../src/db/connector";
 import { AppSchema, tables } from "../src/db/local/schema";
 import { addComponent, addDose, addRegulation, createMaterial, loadCatalog, setHave, type LocalDb } from "../src/db/materials";
-import { admin, signIn, type TestUser } from "./local";
+import { admin, downloadWhen, signIn, type TestUser } from "./local";
 
 /**
  * Plan v3, step 3.2, the upload: what the repository writes on A's copy reaches the local
@@ -64,6 +64,7 @@ it("what the repository writes reaches Supabase as Postgres keeps it, A's", asyn
     solvent: true,
     purity: Ratio.of(1n, 10n ** 30n),
     family: "woody",
+    ifraUnverified: "Restricción, STD 068 · sin verificar",
   });
   await addComponent(db, a.id, id, common, { kind: "range", min: pct("1"), max: pct("2.5") }, "product", "ficha");
   await addRegulation(db, a.id, id, { regime: "manufacturer", kind: "max", maxValue: pct("0.0082"), authority: "product", source: "certificado" });
@@ -72,7 +73,7 @@ it("what the repository writes reaches Supabase as Postgres keeps it, A's", asyn
 
   await waitFor(async () => (await copy.getUploadQueueStats()).count === 0);
 
-  const [m] = await admin`select owner_id, name, kind, aliases, solvent, purity::text as purity, family from materials where id = ${id}`;
+  const [m] = await admin`select owner_id, name, kind, aliases, solvent, purity::text as purity, family, ifra_unverified from materials where id = ${id}`;
   expect(m).toEqual({
     owner_id: a.id,
     name: `${TAG} Mi base`,
@@ -81,6 +82,7 @@ it("what the repository writes reaches Supabase as Postgres keeps it, A's", asyn
     solvent: true,
     purity: "0.000000000000000000000000000001",
     family: "woody",
+    ifra_unverified: "Restricción, STD 068 · sin verificar",
   });
   const [c] = await admin`select owner_id, component_id, amount_kind, min::text as min, max::text as max from material_components where material_id = ${id}`;
   expect(c).toEqual({ owner_id: a.id, component_id: common, amount_kind: "range", min: "0.01", max: "0.025" });
@@ -91,4 +93,8 @@ it("what the repository writes reaches Supabase as Postgres keeps it, A's", asyn
   const have = await admin`select user_id from lab_materials where material_id = ${id}`;
   expect(have).toEqual([{ user_id: a.id }]);
   expect(await copy.getAll("select * from upload_rejections")).toEqual([]);
+
+  // V3-32: the lab's second-hand IFRA comes down to a new copy as it went up.
+  const synced = await downloadWhen(a.token, (s) => s.get("materials")?.get(id)?.ifra_unverified !== undefined);
+  expect(synced.get("materials")?.get(id)?.ifra_unverified).toBe("Restricción, STD 068 · sin verificar");
 });

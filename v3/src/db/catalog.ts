@@ -103,6 +103,8 @@ export interface MaterialFields {
   readonly sources: string | null;
   readonly confidence: Confidence | null;
   readonly disputedFields: readonly string[];
+  /** The lab's second-hand IFRA, as text without figures (V3-32): shown apart, never calculated. */
+  readonly ifraUnverified: string | null;
 }
 
 export interface CatalogMaterial extends MaterialFields {
