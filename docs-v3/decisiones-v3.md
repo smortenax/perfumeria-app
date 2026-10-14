@@ -1014,6 +1014,12 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 
 - **Una cuarta pestaña, Acordes:** las fórmulas marcadas «acorde», de todos los bancos, cada una con el suyo. Es la carpeta general de V3-19. **Coexisten:** un acorde sale en Acordes y también en Fórmulas, en su banco.
 
+**Y** (orko kill, 2026-10-14, en el hilo):
+
+> en la parte de formulas los bancos de trabajo funcionan como una agrupacion de forumulas, de manera que al hacer click en un banco de trabajo se despliegan todas pero pero en el estado normal estan plegadas dentro de un workbench que ocupa el mism o espacio que una formula
+
+- **En Fórmulas, cada banco es una tarjeta del tamaño de una fórmula, plegada**, con cuántas fórmulas tiene; al pulsarla se despliegan sus fórmulas detrás de ella, en la misma rejilla, y al pulsarla otra vez se pliegan. Al buscar, un banco con lo encontrado se abre solo (propuesta de la sesión).
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).

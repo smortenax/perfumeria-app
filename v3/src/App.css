@@ -728,3 +728,20 @@ form.add label {
 .tile .formula-icon {
   border-radius: 50%;
 }
+
+/* A workbench in the «Fórmulas» tab (V3-50): a folded tile; open, its formulas follow it. */
+.tile .bench-icon {
+  border-radius: 6px 14px 14px 14px;
+  border-width: 3px;
+  box-shadow: 4px 4px 0 -1px var(--bg), 4px 4px 0 1px var(--accent);
+}
+
+.tile.bench-tile.open {
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border-color: var(--accent);
+}
+
+.grid li.in-bench .tile {
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  border-style: dashed;
+}

@@ -27,6 +27,7 @@ export const texts = {
     tabs: { own: "Propios", common: "Generales", formulas: "Fórmulas", accords: "Acordes" },
     foundAccords: (n: number) => (n === 1 ? "1 acorde" : `${n} acordes`),
     inBench: (name: string) => `banco «${name}»`,
+    benchCount: (n: number) => (n === 1 ? "banco · 1 fórmula" : `banco · ${n} fórmulas`),
     formulasSearchHint: "Nombre de la fórmula o del banco",
     foundFormulas: (n: number) => (n === 1 ? "1 fórmula" : `${n} fórmulas`),
     noFormulas: "Ninguna fórmula con esa búsqueda.",

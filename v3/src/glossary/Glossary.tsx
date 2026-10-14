@@ -238,6 +238,7 @@ function Tile({ material, data, onOpen, marking, mark }: { material: CatalogMate
  */
 function Formulas({ data, query, accords }: { data: GlossaryData; query: string; accords: boolean }) {
   const t = texts.glossary;
+  const [open, setOpen] = useState<ReadonlySet<string>>(new Set());
   const words = normalize(query).split(/\s+/).filter((w) => w);
   const benchName = new Map(data.workbenches.map((b) => [b.id, b.name]));
   // «Acordes» is V3-19's general folder: the formulas marked as accords, from every workbench; they stay in theirs too.
@@ -266,21 +267,37 @@ function Formulas({ data, query, accords }: { data: GlossaryData; query: string;
       <p className="hint">
         {shown.length ? t.foundFormulas(shown.length) : t.noFormulas} {t.formulasLater}
       </p>
-      {benches.map((b) => (
-        <section key={b.id} className="bench">
-          <h3>{b.name}</h3>
-          <ul className="grid">
-            {shown
-              .filter((f) => f.workbenchId === b.id)
-              .sort((x, y) => x.name.localeCompare(y.name, "es"))
-              .map((f) => (
-                <li key={f.id}>
-                  <FormulaTile formula={f} data={data} bench={null} />
-                </li>
-              ))}
-          </ul>
-        </section>
-      ))}
+      {/* Each workbench, a tile the size of a formula, folded; open, its formulas follow it in the grid (V3-50). */}
+      <ul className="grid">
+        {benches.map((b) => {
+          const inside = shown.filter((f) => f.workbenchId === b.id).sort((x, y) => x.name.localeCompare(y.name, "es"));
+          // While searching, a bench with what was found opens by itself.
+          const isOpen = open.has(b.id) || words.length > 0;
+          return [
+            <li key={b.id}>
+              <button
+                type="button"
+                className={`tile bench-tile${isOpen ? " open" : ""}`}
+                aria-expanded={isOpen}
+                onClick={() => setOpen((o) => (o.has(b.id) ? new Set([...o].filter((x) => x !== b.id)) : new Set([...o, b.id])))}
+              >
+                <span className="icon bench-icon" aria-hidden="true">
+                  {data.formulas.filter((f) => f.workbenchId === b.id).length}
+                </span>
+                <span className="tile-name">{b.name}</span>
+                <span className="tile-detail">{t.benchCount(inside.length)}</span>
+              </button>
+            </li>,
+            ...(isOpen
+              ? inside.map((f) => (
+                  <li key={f.id} className="in-bench">
+                    <FormulaTile formula={f} data={data} bench={null} />
+                  </li>
+                ))
+              : []),
+          ];
+        })}
+      </ul>
     </>
   );
 }
