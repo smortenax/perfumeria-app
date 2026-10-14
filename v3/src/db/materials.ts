@@ -171,6 +171,11 @@ export async function loadCatalog(db: LocalDb, userId: string): Promise<Catalog>
     db.select().from(local.labMaterials).where(eq(local.labMaterials.userId, userId)),
     db.select().from(local.dataVersion),
   ]);
+  const [dilutionRows, evaluationRows, axisRows] = await Promise.all([
+    db.select().from(local.labDilutions).where(eq(local.labDilutions.userId, userId)),
+    db.select().from(local.labEvaluations).where(eq(local.labEvaluations.userId, userId)),
+    db.select().from(local.labAxes).where(eq(local.labAxes.userId, userId)),
+  ]);
   const components = group(componentRows, (r) => r.materialId);
   const regulations = group(regulationRows, (r) => r.materialId);
   const doses = group(doseRows, (r) => r.materialId);
@@ -236,6 +241,25 @@ export async function loadCatalog(db: LocalDb, userId: string): Promise<Catalog>
     materials,
     categories: new Map(categoryRows.map((c) => [c.id, { id: c.id, name: c.name ?? "", aliases: c.aliases ?? [] }])),
     have: new Set(haveRows.map((h) => required(h.materialId, "material"))),
+    dilutions: new Map(
+      [...group(dilutionRows, (d) => d.materialId)].map(([material, rows]) => [
+        material,
+        rows.map((d) => ({
+          id: d.id,
+          fraction: required(ratioFromNumeric(d.fraction), "dilution fraction"),
+          solvent: d.solvent,
+          madeOn: d.madeOn,
+          description: d.description,
+        })),
+      ]),
+    ),
+    evaluations: new Map(
+      evaluationRows.map((e) => [
+        required(e.materialId, "material"),
+        { id: e.id, status: e.status, smellingTip: e.smellingTip, reading: e.reading, sheet: e.sheet },
+      ]),
+    ),
+    axes: new Map([...group(axisRows, (x) => x.materialId)].map(([material, rows]) => [material, rows.map((x) => x.axis ?? "")])),
     dataCommit: versionRows[0]?.commit ?? null,
   };
 }

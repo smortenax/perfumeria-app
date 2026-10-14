@@ -41,6 +41,9 @@ const catalogOf = (...materials: CatalogMaterial[]): Catalog => ({
   materials: new Map(materials.map((m) => [m.id, m])),
   categories: new Map(),
   have: new Set(),
+  dilutions: new Map(),
+  evaluations: new Map(),
+  axes: new Map(),
   dataCommit: null,
 });
 

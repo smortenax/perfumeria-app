@@ -201,11 +201,33 @@ export interface Category {
   readonly aliases: readonly string[];
 }
 
+/** A dilution the user made (V3-36): the pure matter as a fraction of the bottle, exact. */
+export interface Dilution {
+  readonly id: string;
+  readonly fraction: Ratio;
+  readonly solvent: string | null;
+  readonly madeOn: string | null;
+  readonly description: string | null;
+}
+
+/** The user's tasting of a material (V3-36). */
+export interface Evaluation {
+  readonly id: string;
+  readonly status: string | null;
+  readonly smellingTip: string | null;
+  readonly reading: string | null;
+  readonly sheet: string | null;
+}
+
 export interface Catalog {
   readonly materials: ReadonlyMap<string, CatalogMaterial>;
   readonly categories: ReadonlyMap<string, Category>;
   /** «Lo que tengo» (V3-3): the ids of the materials the user has marked. */
   readonly have: ReadonlySet<string>;
+  /** The user's lab (V3-36), by material: the dilutions they made, their tasting and their axes. */
+  readonly dilutions: ReadonlyMap<string, readonly Dilution[]>;
+  readonly evaluations: ReadonlyMap<string, Evaluation>;
+  readonly axes: ReadonlyMap<string, readonly string[]>;
   /** Which data the common rows were loaded from (V3-26); null while none has been loaded. */
   readonly dataCommit: string | null;
 }

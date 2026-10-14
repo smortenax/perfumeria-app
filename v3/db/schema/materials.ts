@@ -363,6 +363,73 @@ export const labMaterials = pgTable(
   (t) => [unique("lab_materials_once").on(t.userId, t.materialId), index("lab_materials_material_idx").on(t.materialId)],
 );
 
+/** The user's own columns: who they are, defaulting to whoever writes. */
+const labUser = () =>
+  uuid("user_id")
+    .notNull()
+    .default(sql`auth.uid()`)
+    .references(() => authUsers.id, { onDelete: "cascade" });
+const labMaterial = () =>
+  uuid("material_id")
+    .notNull()
+    .references(() => materials.id, { onDelete: "cascade" });
+
+/** A dilution the user made of a material (V3-36): how much pure matter, in what, and when. */
+export const labDilutions = pgTable(
+  "lab_dilutions",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: labUser(),
+    materialId: labMaterial(),
+    /** The pure matter, as a fraction of the bottle (0.1 is 10 %). */
+    fraction: numeric("fraction").notNull(),
+    /** In what, as the user writes it: «DPG», «alcohol 96º», «DPG y alcohol 96º». */
+    solvent: text("solvent"),
+    madeOn: text("made_on"),
+    description: text("description"),
+    ...timestamps,
+  },
+  (t) => [
+    index("lab_dilutions_user_idx").on(t.userId),
+    check("lab_dilutions_fraction", sql`${t.fraction} > 0 and ${t.fraction} <= 1`),
+    check("lab_dilutions_made_on", sql`${t.madeOn} is null or ${t.madeOn} ~ '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'`),
+  ],
+);
+
+/** The user's tasting of a material (V3-36): one per material. */
+export const labEvaluations = pgTable(
+  "lab_evaluations",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: labUser(),
+    materialId: labMaterial(),
+    /** «sin catar», «catado», «en contraste»…, as the user keeps it. */
+    status: text("status"),
+    smellingTip: text("smelling_tip"),
+    reading: text("reading"),
+    sheet: text("sheet"),
+    ...timestamps,
+  },
+  (t) => [unique("lab_evaluations_once").on(t.userId, t.materialId), index("lab_evaluations_material_idx").on(t.materialId)],
+);
+
+/** The user's aesthetic axes a material belongs to (V3-36): «ambar-gourmand», «cuero»… */
+export const labAxes = pgTable(
+  "lab_axes",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: labUser(),
+    materialId: labMaterial(),
+    axis: text("axis").notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [
+    unique("lab_axes_once").on(t.userId, t.materialId, t.axis),
+    index("lab_axes_material_idx").on(t.materialId),
+    check("lab_axes_axis", sql`length(trim(${t.axis})) > 0`),
+  ],
+);
+
 /** Which data the common rows were loaded from (V3-26): one row, written by the loading script. */
 export const dataVersion = pgTable(
   "data_version",

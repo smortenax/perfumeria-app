@@ -1,0 +1,2135 @@
+{
+  "id": "3c85c8bb-4cac-4b81-aa98-6f50b1b8a007",
+  "prevId": "29d8e686-d2e9-4ea2-90ac-8a4ce2077bbd",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.sync_checks": {
+      "name": "sync_checks",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "owner_id": {
+          "name": "owner_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "auth.uid()"
+        },
+        "mass_ug": {
+          "name": "mass_ug",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fraction": {
+          "name": "fraction",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "sync_checks_owner_id_users_id_fk": {
+          "name": "sync_checks_owner_id_users_id_fk",
+          "tableFrom": "sync_checks",
+          "tableTo": "users",
+          "schemaTo": "auth",
+          "columnsFrom": [
+            "owner_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.data_version": {
+      "name": "data_version",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "single": {
+          "name": "single",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "commit": {
+          "name": "commit",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "batch": {
+          "name": "batch",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "loaded_at": {
+          "name": "loaded_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "data_version_single_unique": {
+          "name": "data_version_single_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "single"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "data_version_single": {
+          "name": "data_version_single",
+          "value": "\"data_version\".\"single\""
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.lab_axes": {
+      "name": "lab_axes",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "auth.uid()"
+        },
+        "material_id": {
+          "name": "material_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "axis": {
+          "name": "axis",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "lab_axes_material_idx": {
+          "name": "lab_axes_material_idx",
+          "columns": [
+            {
+              "expression": "material_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "lab_axes_user_id_users_id_fk": {
+          "name": "lab_axes_user_id_users_id_fk",
+          "tableFrom": "lab_axes",
+          "tableTo": "users",
+          "schemaTo": "auth",
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "lab_axes_material_id_materials_id_fk": {
+          "name": "lab_axes_material_id_materials_id_fk",
+          "tableFrom": "lab_axes",
+          "tableTo": "materials",
+          "columnsFrom": [
+            "material_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "lab_axes_once": {
+          "name": "lab_axes_once",
+          "nullsNotDistinct": false,
+          "columns": [
+            "user_id",
+            "material_id",
+            "axis"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "lab_axes_axis": {
+          "name": "lab_axes_axis",
+          "value": "length(trim(\"lab_axes\".\"axis\")) > 0"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.lab_dilutions": {
+      "name": "lab_dilutions",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "auth.uid()"
+        },
+        "material_id": {
+          "name": "material_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fraction": {
+          "name": "fraction",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "solvent": {
+          "name": "solvent",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "made_on": {
+          "name": "made_on",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "lab_dilutions_user_idx": {
+          "name": "lab_dilutions_user_idx",
+          "columns": [
+            {
+              "expression": "user_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "lab_dilutions_user_id_users_id_fk": {
+          "name": "lab_dilutions_user_id_users_id_fk",
+          "tableFrom": "lab_dilutions",
+          "tableTo": "users",
+          "schemaTo": "auth",
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "lab_dilutions_material_id_materials_id_fk": {
+          "name": "lab_dilutions_material_id_materials_id_fk",
+          "tableFrom": "lab_dilutions",
+          "tableTo": "materials",
+          "columnsFrom": [
+            "material_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "lab_dilutions_fraction": {
+          "name": "lab_dilutions_fraction",
+          "value": "\"lab_dilutions\".\"fraction\" > 0 and \"lab_dilutions\".\"fraction\" <= 1"
+        },
+        "lab_dilutions_made_on": {
+          "name": "lab_dilutions_made_on",
+          "value": "\"lab_dilutions\".\"made_on\" is null or \"lab_dilutions\".\"made_on\" ~ '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.lab_evaluations": {
+      "name": "lab_evaluations",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "auth.uid()"
+        },
+        "material_id": {
+          "name": "material_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "smelling_tip": {
+          "name": "smelling_tip",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "reading": {
+          "name": "reading",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sheet": {
+          "name": "sheet",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "lab_evaluations_material_idx": {
+          "name": "lab_evaluations_material_idx",
+          "columns": [
+            {
+              "expression": "material_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "lab_evaluations_user_id_users_id_fk": {
+          "name": "lab_evaluations_user_id_users_id_fk",
+          "tableFrom": "lab_evaluations",
+          "tableTo": "users",
+          "schemaTo": "auth",
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "lab_evaluations_material_id_materials_id_fk": {
+          "name": "lab_evaluations_material_id_materials_id_fk",
+          "tableFrom": "lab_evaluations",
+          "tableTo": "materials",
+          "columnsFrom": [
+            "material_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "lab_evaluations_once": {
+          "name": "lab_evaluations_once",
+          "nullsNotDistinct": false,
+          "columns": [
+            "user_id",
+            "material_id"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.lab_materials": {
+      "name": "lab_materials",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "auth.uid()"
+        },
+        "material_id": {
+          "name": "material_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "lab_materials_material_idx": {
+          "name": "lab_materials_material_idx",
+          "columns": [
+            {
+              "expression": "material_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "lab_materials_user_id_users_id_fk": {
+          "name": "lab_materials_user_id_users_id_fk",
+          "tableFrom": "lab_materials",
+          "tableTo": "users",
+          "schemaTo": "auth",
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "lab_materials_material_id_materials_id_fk": {
+          "name": "lab_materials_material_id_materials_id_fk",
+          "tableFrom": "lab_materials",
+          "tableTo": "materials",
+          "columnsFrom": [
+            "material_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "lab_materials_once": {
+          "name": "lab_materials_once",
+          "nullsNotDistinct": false,
+          "columns": [
+            "user_id",
+            "material_id"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.material_categories": {
+      "name": "material_categories",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "aliases": {
+          "name": "aliases",
+          "type": "text[]",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'{}'::text[]"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.material_components": {
+      "name": "material_components",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "material_id": {
+          "name": "material_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "owner_id": {
+          "name": "owner_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "component_id": {
+          "name": "component_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "amount_kind": {
+          "name": "amount_kind",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "value": {
+          "name": "value",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "min": {
+          "name": "min",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "max": {
+          "name": "max",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "authority": {
+          "name": "authority",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source": {
+          "name": "source",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "material_components_material_idx": {
+          "name": "material_components_material_idx",
+          "columns": [
+            {
+              "expression": "material_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "material_components_owner_idx": {
+          "name": "material_components_owner_idx",
+          "columns": [
+            {
+              "expression": "owner_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "material_components_component_idx": {
+          "name": "material_components_component_idx",
+          "columns": [
+            {
+              "expression": "component_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "material_components_material_id_materials_id_fk": {
+          "name": "material_components_material_id_materials_id_fk",
+          "tableFrom": "material_components",
+          "tableTo": "materials",
+          "columnsFrom": [
+            "material_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "material_components_component_id_materials_id_fk": {
+          "name": "material_components_component_id_materials_id_fk",
+          "tableFrom": "material_components",
+          "tableTo": "materials",
+          "columnsFrom": [
+            "component_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "material_components_once": {
+          "name": "material_components_once",
+          "nullsNotDistinct": false,
+          "columns": [
+            "material_id",
+            "component_id",
+            "authority",
+            "source"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "material_components_not_itself": {
+          "name": "material_components_not_itself",
+          "value": "\"material_components\".\"material_id\" <> \"material_components\".\"component_id\""
+        },
+        "material_components_authority": {
+          "name": "material_components_authority",
+          "value": "\"material_components\".\"authority\" in ('lot', 'product', 'ifra', 'literature', 'consensus')"
+        },
+        "material_components_source": {
+          "name": "material_components_source",
+          "value": "length(trim(\"material_components\".\"source\")) > 0"
+        },
+        "material_components_amount": {
+          "name": "material_components_amount",
+          "value": "case \"material_components\".\"amount_kind\"\n        when 'exact' then \"material_components\".\"value\" is not null and \"material_components\".\"min\" is null and \"material_components\".\"max\" is null and \"material_components\".\"value\" >= 0 and \"material_components\".\"value\" <= 1\n        when 'max' then \"material_components\".\"value\" is not null and \"material_components\".\"min\" is null and \"material_components\".\"max\" is null and \"material_components\".\"value\" > 0 and \"material_components\".\"value\" <= 1\n        when 'range' then \"material_components\".\"value\" is null and \"material_components\".\"min\" is not null and \"material_components\".\"max\" is not null and \"material_components\".\"min\" >= 0 and \"material_components\".\"min\" <= \"material_components\".\"max\" and \"material_components\".\"max\" <= 1\n        when 'unknown' then \"material_components\".\"value\" is null and \"material_components\".\"min\" is null and \"material_components\".\"max\" is null\n        else false end"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.material_descriptors": {
+      "name": "material_descriptors",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "material_id": {
+          "name": "material_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "owner_id": {
+          "name": "owner_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "source": {
+          "name": "source",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "text": {
+          "name": "text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "material_descriptors_material_idx": {
+          "name": "material_descriptors_material_idx",
+          "columns": [
+            {
+              "expression": "material_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "material_descriptors_owner_idx": {
+          "name": "material_descriptors_owner_idx",
+          "columns": [
+            {
+              "expression": "owner_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "material_descriptors_material_id_materials_id_fk": {
+          "name": "material_descriptors_material_id_materials_id_fk",
+          "tableFrom": "material_descriptors",
+          "tableTo": "materials",
+          "columnsFrom": [
+            "material_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "material_descriptors_source": {
+          "name": "material_descriptors_source",
+          "value": "length(trim(\"material_descriptors\".\"source\")) > 0"
+        },
+        "material_descriptors_text": {
+          "name": "material_descriptors_text",
+          "value": "length(trim(\"material_descriptors\".\"text\")) > 0"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.material_doses": {
+      "name": "material_doses",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "material_id": {
+          "name": "material_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "owner_id": {
+          "name": "owner_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "min": {
+          "name": "min",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "typical": {
+          "name": "typical",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "max": {
+          "name": "max",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "basis": {
+          "name": "basis",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "authority": {
+          "name": "authority",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source": {
+          "name": "source",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "disputed": {
+          "name": "disputed",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "notes": {
+          "name": "notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "material_doses_material_idx": {
+          "name": "material_doses_material_idx",
+          "columns": [
+            {
+              "expression": "material_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "material_doses_owner_idx": {
+          "name": "material_doses_owner_idx",
+          "columns": [
+            {
+              "expression": "owner_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "material_doses_material_id_materials_id_fk": {
+          "name": "material_doses_material_id_materials_id_fk",
+          "tableFrom": "material_doses",
+          "tableTo": "materials",
+          "columnsFrom": [
+            "material_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "material_doses_basis": {
+          "name": "material_doses_basis",
+          "value": "\"material_doses\".\"basis\" in ('concentrate', 'finished_product', 'undeclared')"
+        },
+        "material_doses_authority": {
+          "name": "material_doses_authority",
+          "value": "\"material_doses\".\"authority\" in ('lot', 'product', 'ifra', 'literature', 'consensus')"
+        },
+        "material_doses_source": {
+          "name": "material_doses_source",
+          "value": "length(trim(\"material_doses\".\"source\")) > 0"
+        },
+        "material_doses_some": {
+          "name": "material_doses_some",
+          "value": "coalesce(\"material_doses\".\"min\", \"material_doses\".\"typical\", \"material_doses\".\"max\") is not null"
+        },
+        "material_doses_values": {
+          "name": "material_doses_values",
+          "value": "(\"material_doses\".\"min\" is null or (\"material_doses\".\"min\" >= 0 and \"material_doses\".\"min\" <= 1)) and (\"material_doses\".\"typical\" is null or (\"material_doses\".\"typical\" > 0 and \"material_doses\".\"typical\" <= 1)) and (\"material_doses\".\"max\" is null or (\"material_doses\".\"max\" > 0 and \"material_doses\".\"max\" <= 1)) and (\"material_doses\".\"min\" is null or \"material_doses\".\"max\" is null or \"material_doses\".\"min\" <= \"material_doses\".\"max\")"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.material_references": {
+      "name": "material_references",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "material_id": {
+          "name": "material_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "owner_id": {
+          "name": "owner_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "perfume": {
+          "name": "perfume",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "house": {
+          "name": "house",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "note": {
+          "name": "note",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sources": {
+          "name": "sources",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "material_references_material_idx": {
+          "name": "material_references_material_idx",
+          "columns": [
+            {
+              "expression": "material_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "material_references_owner_idx": {
+          "name": "material_references_owner_idx",
+          "columns": [
+            {
+              "expression": "owner_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "material_references_material_id_materials_id_fk": {
+          "name": "material_references_material_id_materials_id_fk",
+          "tableFrom": "material_references",
+          "tableTo": "materials",
+          "columnsFrom": [
+            "material_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "material_references_perfume": {
+          "name": "material_references_perfume",
+          "value": "length(trim(\"material_references\".\"perfume\")) > 0"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.material_relations": {
+      "name": "material_relations",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "material_id": {
+          "name": "material_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "owner_id": {
+          "name": "owner_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "kind": {
+          "name": "kind",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "other_id": {
+          "name": "other_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "other_text": {
+          "name": "other_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "note": {
+          "name": "note",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sources": {
+          "name": "sources",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "material_relations_material_idx": {
+          "name": "material_relations_material_idx",
+          "columns": [
+            {
+              "expression": "material_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "material_relations_owner_idx": {
+          "name": "material_relations_owner_idx",
+          "columns": [
+            {
+              "expression": "owner_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "material_relations_other_idx": {
+          "name": "material_relations_other_idx",
+          "columns": [
+            {
+              "expression": "other_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "material_relations_material_id_materials_id_fk": {
+          "name": "material_relations_material_id_materials_id_fk",
+          "tableFrom": "material_relations",
+          "tableTo": "materials",
+          "columnsFrom": [
+            "material_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "material_relations_other_id_materials_id_fk": {
+          "name": "material_relations_other_id_materials_id_fk",
+          "tableFrom": "material_relations",
+          "tableTo": "materials",
+          "columnsFrom": [
+            "other_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "material_relations_kind": {
+          "name": "material_relations_kind",
+          "value": "\"material_relations\".\"kind\" in ('combines', 'substitute', 'clashes')"
+        },
+        "material_relations_other": {
+          "name": "material_relations_other",
+          "value": "\"material_relations\".\"other_id\" is not null or length(trim(coalesce(\"material_relations\".\"other_text\", ''))) > 0"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.materials": {
+      "name": "materials",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "owner_id": {
+          "name": "owner_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "kind": {
+          "name": "kind",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "solvent": {
+          "name": "solvent",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "aliases": {
+          "name": "aliases",
+          "type": "text[]",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'{}'::text[]"
+        },
+        "cas": {
+          "name": "cas",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "other_cas": {
+          "name": "other_cas",
+          "type": "text[]",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'{}'::text[]"
+        },
+        "species": {
+          "name": "species",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "part": {
+          "name": "part",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "process": {
+          "name": "process",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "chemotype": {
+          "name": "chemotype",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "inci": {
+          "name": "inci",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "origin": {
+          "name": "origin",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "abbreviation": {
+          "name": "abbreviation",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "abbreviation_origin": {
+          "name": "abbreviation_origin",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "category_id": {
+          "name": "category_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "form": {
+          "name": "form",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "based_on_id": {
+          "name": "based_on_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "grade": {
+          "name": "grade",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "supplier": {
+          "name": "supplier",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "product": {
+          "name": "product",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "product_url": {
+          "name": "product_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "purity": {
+          "name": "purity",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "house": {
+          "name": "house",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "code": {
+          "name": "code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "odor_target": {
+          "name": "odor_target",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "synthesis": {
+          "name": "synthesis",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "isomers": {
+          "name": "isomers",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "family": {
+          "name": "family",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "color": {
+          "name": "color",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "family_detail": {
+          "name": "family_detail",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "facets": {
+          "name": "facets",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tier": {
+          "name": "tier",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tenacity_hours": {
+          "name": "tenacity_hours",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tenacity_source": {
+          "name": "tenacity_source",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "evolution_to_15m": {
+          "name": "evolution_to_15m",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "evolution_to_2h": {
+          "name": "evolution_to_2h",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "evolution_to_8h": {
+          "name": "evolution_to_8h",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "evolution_to_24h": {
+          "name": "evolution_to_24h",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "evolution_beyond_24h": {
+          "name": "evolution_beyond_24h",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "strength": {
+          "name": "strength",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "threshold": {
+          "name": "threshold",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "diffusion": {
+          "name": "diffusion",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "blend_effect": {
+          "name": "blend_effect",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "role": {
+          "name": "role",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "recommended_dilution": {
+          "name": "recommended_dilution",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cost": {
+          "name": "cost",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "handling": {
+          "name": "handling",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "physical_state": {
+          "name": "physical_state",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "appearance": {
+          "name": "appearance",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "stains": {
+          "name": "stains",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "solubility": {
+          "name": "solubility",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "density": {
+          "name": "density",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "melting_point_c": {
+          "name": "melting_point_c",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "formula": {
+          "name": "formula",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "molecular_weight": {
+          "name": "molecular_weight",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "vapor_pressure": {
+          "name": "vapor_pressure",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "stability": {
+          "name": "stability",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "incompatibilities": {
+          "name": "incompatibilities",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "physical_sources": {
+          "name": "physical_sources",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "notes": {
+          "name": "notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sources": {
+          "name": "sources",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "confidence": {
+          "name": "confidence",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "disputed_fields": {
+          "name": "disputed_fields",
+          "type": "text[]",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'{}'::text[]"
+        },
+        "ifra_unverified": {
+          "name": "ifra_unverified",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "materials_owner_idx": {
+          "name": "materials_owner_idx",
+          "columns": [
+            {
+              "expression": "owner_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "materials_category_idx": {
+          "name": "materials_category_idx",
+          "columns": [
+            {
+              "expression": "category_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "materials_based_on_idx": {
+          "name": "materials_based_on_idx",
+          "columns": [
+            {
+              "expression": "based_on_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "materials_common_abbreviation": {
+          "name": "materials_common_abbreviation",
+          "columns": [
+            {
+              "expression": "abbreviation",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "where": "\"materials\".\"owner_id\" is null",
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "materials_owner_id_users_id_fk": {
+          "name": "materials_owner_id_users_id_fk",
+          "tableFrom": "materials",
+          "tableTo": "users",
+          "schemaTo": "auth",
+          "columnsFrom": [
+            "owner_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "materials_category_id_material_categories_id_fk": {
+          "name": "materials_category_id_material_categories_id_fk",
+          "tableFrom": "materials",
+          "tableTo": "material_categories",
+          "columnsFrom": [
+            "category_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "materials_based_on_id_materials_id_fk": {
+          "name": "materials_based_on_id_materials_id_fk",
+          "tableFrom": "materials",
+          "tableTo": "materials",
+          "columnsFrom": [
+            "based_on_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "materials_kind": {
+          "name": "materials_kind",
+          "value": "\"materials\".\"kind\" in ('molecule', 'natural', 'composition', 'provisional', 'frozen')"
+        },
+        "materials_kind_owner": {
+          "name": "materials_kind_owner",
+          "value": "\"materials\".\"kind\" not in ('provisional', 'frozen') or \"materials\".\"owner_id\" is not null"
+        },
+        "materials_not_based_on_itself": {
+          "name": "materials_not_based_on_itself",
+          "value": "\"materials\".\"based_on_id\" is null or \"materials\".\"based_on_id\" <> \"materials\".\"id\""
+        },
+        "materials_purity": {
+          "name": "materials_purity",
+          "value": "\"materials\".\"purity\" is null or (\"materials\".\"purity\" > 0 and \"materials\".\"purity\" <= 1)"
+        },
+        "materials_family": {
+          "name": "materials_family",
+          "value": "\"materials\".\"family\" is null or \"materials\".\"family\" in ('citrus', 'green', 'ozonic', 'floral', 'fruity', 'spicy', 'woody', 'animal', 'transformed')"
+        },
+        "materials_tier": {
+          "name": "materials_tier",
+          "value": "\"materials\".\"tier\" is null or \"materials\".\"tier\" in ('top', 'top_heart', 'heart', 'heart_base', 'base')"
+        },
+        "materials_strength": {
+          "name": "materials_strength",
+          "value": "\"materials\".\"strength\" is null or \"materials\".\"strength\" in ('low', 'medium', 'high', 'very_high')"
+        },
+        "materials_synthesis": {
+          "name": "materials_synthesis",
+          "value": "\"materials\".\"synthesis\" is null or \"materials\".\"synthesis\" in ('synthetic', 'natural', 'semisynthetic')"
+        },
+        "materials_confidence": {
+          "name": "materials_confidence",
+          "value": "\"materials\".\"confidence\" is null or \"materials\".\"confidence\" in ('high', 'medium', 'low')"
+        },
+        "materials_abbreviation_origin": {
+          "name": "materials_abbreviation_origin",
+          "value": "\"materials\".\"abbreviation_origin\" is null or \"materials\".\"abbreviation_origin\" in ('user', 'generated')"
+        },
+        "materials_color": {
+          "name": "materials_color",
+          "value": "\"materials\".\"color\" is null or \"materials\".\"color\" ~ '^#[0-9a-f]{6}$'"
+        },
+        "materials_tenacity_hours": {
+          "name": "materials_tenacity_hours",
+          "value": "\"materials\".\"tenacity_hours\" is null or \"materials\".\"tenacity_hours\" > 0"
+        },
+        "materials_evolution": {
+          "name": "materials_evolution",
+          "value": "coalesce(\"materials\".\"evolution_to_15m\", 0) between 0 and 3 and coalesce(\"materials\".\"evolution_to_2h\", 0) between 0 and 3 and coalesce(\"materials\".\"evolution_to_8h\", 0) between 0 and 3 and coalesce(\"materials\".\"evolution_to_24h\", 0) between 0 and 3 and coalesce(\"materials\".\"evolution_beyond_24h\", 0) between 0 and 3"
+        },
+        "materials_density": {
+          "name": "materials_density",
+          "value": "\"materials\".\"density\" is null or \"materials\".\"density\" > 0"
+        },
+        "materials_molecular_weight": {
+          "name": "materials_molecular_weight",
+          "value": "\"materials\".\"molecular_weight\" is null or \"materials\".\"molecular_weight\" > 0"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.regulations": {
+      "name": "regulations",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "material_id": {
+          "name": "material_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "owner_id": {
+          "name": "owner_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "regime": {
+          "name": "regime",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "category": {
+          "name": "category",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "kind": {
+          "name": "kind",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "max_value": {
+          "name": "max_value",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "group_key": {
+          "name": "group_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "requirement": {
+          "name": "requirement",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "authority": {
+          "name": "authority",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source": {
+          "name": "source",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "regulations_material_idx": {
+          "name": "regulations_material_idx",
+          "columns": [
+            {
+              "expression": "material_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "regulations_owner_idx": {
+          "name": "regulations_owner_idx",
+          "columns": [
+            {
+              "expression": "owner_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "regulations_group_idx": {
+          "name": "regulations_group_idx",
+          "columns": [
+            {
+              "expression": "group_key",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "regulations_material_id_materials_id_fk": {
+          "name": "regulations_material_id_materials_id_fk",
+          "tableFrom": "regulations",
+          "tableTo": "materials",
+          "columnsFrom": [
+            "material_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "regulations_regime": {
+          "name": "regulations_regime",
+          "value": "\"regulations\".\"regime\" in ('ifra', 'manufacturer')"
+        },
+        "regulations_authority": {
+          "name": "regulations_authority",
+          "value": "\"regulations\".\"authority\" in ('lot', 'product', 'ifra', 'literature', 'consensus')"
+        },
+        "regulations_source": {
+          "name": "regulations_source",
+          "value": "length(trim(\"regulations\".\"source\")) > 0"
+        },
+        "regulations_kind": {
+          "name": "regulations_kind",
+          "value": "case \"regulations\".\"kind\"\n        when 'max' then \"regulations\".\"max_value\" is not null and \"regulations\".\"max_value\" >= 0 and \"regulations\".\"max_value\" <= 1\n        when 'prohibited' then \"regulations\".\"max_value\" is null\n        when 'requirement' then \"regulations\".\"requirement\" is not null and length(trim(\"regulations\".\"requirement\")) > 0\n        else false end"
+        }
+      },
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

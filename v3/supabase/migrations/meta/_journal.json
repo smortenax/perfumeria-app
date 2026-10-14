@@ -134,6 +134,20 @@
       "when": 1791948055579,
       "tag": "20261014032055_relation_other_cascade",
       "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "7",
+      "when": 1791948139089,
+      "tag": "20261014032219_lab_tables",
+      "breakpoints": true
+    },
+    {
+      "idx": 20,
+      "version": "7",
+      "when": 1791948151921,
+      "tag": "20261014032231_lab_tables_rls",
+      "breakpoints": true
     }
   ]
 }
