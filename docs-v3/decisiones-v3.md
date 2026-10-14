@@ -726,6 +726,31 @@ La tanda les ponía el techo a todos sus miembros. ¿Cómo entra cada uno?
 
 **Lo que abre, de una en una:** dónde viven las sustancias reguladas que el cálculo de IFRA necesita; de dónde sale la composición general de tus materiales (V3-33); si entran las voces; qué es general y qué es tuyo, campo a campo; de dónde salen la abreviatura y el color, y qué tablas nuevas lleva el esquema.
 
+## V3-35 · IFRA es una capa aparte y privada: el material dice qué es y qué lleva, y la app lo lee contra IFRA (decidida por el usuario el 2026-10-14)
+
+**Pregunta** (tarjeta del hilo, la primera que abre V3-34): ¿dónde viven las sustancias reguladas que el cálculo de IFRA necesita y que todavía no son materiales completos de la v3? IFRA 51 tiene 263 estándares que regulan 455 CAS (`datos/ifra/51/estandar-cas.csv`), y su anexo de naturales, 1031 filas (`naturales.csv`). La recomendación de la sesión era una capa de IFRA oculta, en la misma tabla de los materiales.
+
+**Respuesta literal** (orko kill, 2026-10-14, escrita en la tarjeta):
+
+> si la idea es que ifra sea oculta no solo por eso sino porque si se acaba valorando que la parte de ifra sea un add on o una parte de pago de la app la idea es que el usuario no tenga un acceso sencillo de descargar los datos del glosario y hacerse con ellos o algo asi, que no vivan juntos dentro de toda la info de material, tambien sera util porque las variables de ifra para materiales de usuario pueden entrar en conflictos por lo tanto tiene que haber una separacion donde el material dice algo que la app lee como ifra y entonces computa el porcentaje exacto pero que no este viviendo en el mismo cuadro del propio material de la app de manera que esta informacion sea mas privada de alguna manera...
+
+**Lectura** (de la sesión; el usuario la confirmó en la tarjeta con «Sí, así», 2026-10-14):
+
+1. **IFRA es una capa separada, no parte de la ficha.** Los estándares, los límites, las sustancias reguladas y lo que IFRA dice que trae cada natural viven en sus propias tablas, sacadas solo de los archivos de IFRA.
+2. **El material solo dice qué es y qué lleva:** su CAS, su identidad y su composición. La app lo lee contra la capa de IFRA y calcula el porcentaje exacto. La ficha no guarda límites.
+3. **La capa es privada.** No sale en el glosario ni en el buscador, y no se descarga junto a los datos de los materiales.
+4. **Por qué:** IFRA puede acabar siendo un complemento de pago; y tus datos de un material (el certificado de tu fabricante, tu versión) pueden chocar con los de IFRA, y la separación deja que la app los resuelva sin mezclarlos.
+5. **El límite que no se cierra hoy:** la app funciona sin conexión (V3-8), y para calcular sin red los datos de IFRA tienen que estar en el equipo. En su propio canal se pueden dar solo a quien tenga el complemento. Protegerlos del todo exigiría calcular en el servidor, con conexión. Eso se decide más adelante.
+
+**Cómo se aplica** (propuesta de la sesión, que se concreta en el esquema):
+
+- **Los límites salen del material.** Hoy cuelgan de él (`regulations.material_id`) y bajan con lo común. Pasan a la capa de IFRA, enlazados por CAS y por estándar, con la lógica de V3-27, V3-30 y V3-31 dentro de la capa.
+- **Lo que trae cada natural según IFRA** (el anexo) también es de la capa. La composición de la ficha (documentos, certificados) es del material.
+- **Los límites del fabricante y de tu versión** (topes de un producto, tu certificado) son datos del material, no de IFRA. La app los suma con los de IFRA y manda el más estricto (§6.3 del modelo).
+- **La capa baja por su propio canal** de sincronización, aparte de lo común, para poder darla solo a quien tenga el complemento.
+
+**Por qué** (del mensaje): «que no vivan juntos dentro de toda la info de material» y «que esta informacion sea mas privada de alguna manera».
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
