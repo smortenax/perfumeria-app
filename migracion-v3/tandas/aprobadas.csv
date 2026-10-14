@@ -8,3 +8,9 @@ tanda,fecha,aprobacion,archivo,sha256
 4-categorias,2026-10-14,"orko kill, 2026-10-14, en el hilo: «Apruebo la tanda 4»",materials.csv,a486a1c0d10872fca6d5c0969e5c86b640156f493bfc15d3e7e4cb0b7642ec2c
 4-categorias,2026-10-14,"orko kill, 2026-10-14, en el hilo: «Apruebo la tanda 4»",regulations.csv,6007aab6502f1f8083dcb573aaae5950bac6405a026804c3228c6c05b05e351b
 retirada-1-a-4,2026-10-14,"orko kill, 2026-10-14 (V3-34): «no sirven materiales de categoria y tipaje de v2 en la v3, ensucian la app». Lo comun de las tandas 1 a 4 sale de v3/datos/.",*,
+6-capa-ifra,2026-10-14,"orko kill, 2026-10-14, en el hilo: «pushea y apruebo 6»",ifra_annex.csv,3c2ecb680afec08ff5f2413944c5c23bf3d7fe564e35ec12a0829bacb0124ce3
+6-capa-ifra,2026-10-14,"orko kill, 2026-10-14, en el hilo: «pushea y apruebo 6»",ifra_limits.csv,eff0915fc03a549191da1116ab3bee9a2d4527469352b50e538decd729648380
+6-capa-ifra,2026-10-14,"orko kill, 2026-10-14, en el hilo: «pushea y apruebo 6»",ifra_spec_exclusions.csv,edb41c8dbe15a3ed4f29fed3dbf7cea641c3430dd5ef8d941e5bc31b9c360b23
+6-capa-ifra,2026-10-14,"orko kill, 2026-10-14, en el hilo: «pushea y apruebo 6»",ifra_standards.csv,af1c7b466a88df8619bc22f3271693a14e6de4aa0b5776fccbc6cf36b1134ec2
+6-capa-ifra,2026-10-14,"orko kill, 2026-10-14, en el hilo: «pushea y apruebo 6»",ifra_substances.csv,e64333bef492e4d2f910fb5558ea6d72a83ca74f99d0d7fea0c70509da5646e6
+6-capa-ifra,2026-10-14,"orko kill, 2026-10-14, en el hilo: «pushea y apruebo 6»",ifra_variant_rules.csv,6adef8ca900509635d15e79ada6c2262de5c8a7e5a98c56c0f15494090e80209
