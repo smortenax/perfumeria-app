@@ -8,7 +8,7 @@ import { Ratio } from "../src/core/arith/ratio";
 import { SupabaseConnector } from "../src/db/connector";
 import { AppSchema, tables } from "../src/db/local/schema";
 import { NO_PHYSICAL } from "../src/db/catalog";
-import { addComponent, addDose, addRegulation, createMaterial, loadCatalog, setHave, type LocalDb } from "../src/db/materials";
+import { addComponent, addDose, addRegulation, createMaterial, loadCatalog, setHave, setHaveMany, type LocalDb } from "../src/db/materials";
 import { admin, downloadWhen, signIn, type TestUser } from "./local";
 
 /**
@@ -80,6 +80,8 @@ it("what the repository writes reaches Supabase as Postgres keeps it, A's", asyn
   await addRegulation(db, a.id, id, { regime: "manufacturer", kind: "max", maxValue: pct("0.0082"), authority: "product", source: "certificado" });
   await addDose(db, a.id, id, { typical: pct("2"), basis: "concentrate", authority: "literature", source: "Fraterworks" });
   await setHave(db, a.id, id, true);
+  // Step 6.5: marked at once, it goes up as well.
+  await setHaveMany(db, a.id, [common], true);
 
   await waitFor(async () => (await copy.getUploadQueueStats()).count === 0);
 
@@ -115,6 +117,7 @@ it("what the repository writes reaches Supabase as Postgres keeps it, A's", asyn
   expect(d).toEqual({ owner_id: a.id, typical: "0.02", disputed: false });
   const have = await admin`select user_id from lab_materials where material_id = ${id}`;
   expect(have).toEqual([{ user_id: a.id }]);
+  expect(await admin`select user_id from lab_materials where material_id = ${common}`).toEqual([{ user_id: a.id }]);
   expect(await copy.getAll("select * from upload_rejections")).toEqual([]);
 
   // V3-32: the lab's second-hand IFRA comes down to a new copy as it went up.

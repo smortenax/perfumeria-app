@@ -14,6 +14,7 @@ export function MaterialSheet({
   onEdit,
   onOpen,
   onMakeVersion,
+  onHave,
 }: {
   data: GlossaryData;
   id: string;
@@ -21,6 +22,8 @@ export function MaterialSheet({
   onEdit: () => void;
   onOpen: (id: string) => void;
   onMakeVersion: () => void;
+  /** Little by little (step 6.5): this one, marked or not. */
+  onHave: (have: boolean) => void;
 }) {
   const sheet = useMemo(() => (data.catalog.materials.has(id) ? sheetOf(data.catalog, data.layer, data.ifra, id) : null), [data, id]);
   // Your versions of a common material (V3-5): it shows them, and makes one more.
@@ -61,6 +64,10 @@ export function MaterialSheet({
             </p>
           )}
           <p className="hint">
+            <label className="check have-toggle">
+              <input type="checkbox" checked={data.catalog.have.has(id)} onChange={(e) => onHave(e.target.checked)} />
+              {texts.glossary.haveToggle}
+            </label>{" "}
             <span className={`ifra ifra-${sheet.ifra.state}`} title={texts.ifraStateHelp[sheet.ifra.state]}>
               {texts.ifraState[sheet.ifra.state]}
             </span>

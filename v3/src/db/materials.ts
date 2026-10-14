@@ -607,3 +607,26 @@ export async function setHave(db: LocalDb, userId: string, materialId: string, h
     for (const row of rows) await db.delete(local.labMaterials).where(eq(local.labMaterials.id, row.id));
   }
 }
+
+/**
+ * Marks or unmarks many materials at once (plan v3, step 6.5: «de golpe», V3-3): the ones a search
+ * found, say. Only what changes is written; returns how many changed. Without quantities: it is a
+ * selection, not an inventory.
+ */
+export async function setHaveMany(db: LocalDb, userId: string, materialIds: readonly string[], have: boolean): Promise<number> {
+  const rows = await db.select().from(local.labMaterials).where(eq(local.labMaterials.userId, userId));
+  const marked = new Map<string, string[]>();
+  for (const row of rows) if (row.materialId) marked.set(row.materialId, [...(marked.get(row.materialId) ?? []), row.id]);
+  let changed = 0;
+  for (const materialId of new Set(materialIds)) {
+    if (have && !marked.has(materialId)) {
+      await visibleMaterial(db, userId, materialId);
+      await db.insert(local.labMaterials).values({ id: crypto.randomUUID(), userId, materialId, createdAt: now() });
+      changed++;
+    } else if (!have && marked.has(materialId)) {
+      for (const id of marked.get(materialId)!) await db.delete(local.labMaterials).where(eq(local.labMaterials.id, id));
+      changed++;
+    }
+  }
+  return changed;
+}

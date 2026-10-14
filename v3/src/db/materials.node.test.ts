@@ -17,12 +17,15 @@ import {
   loadCatalog,
   removeComponent,
   setHave,
+  setHaveMany,
   updateMaterial,
   type LocalDb,
 } from "./materials";
 import { indexCatalog, search } from "./search";
 import { ifraCard, toIfra } from "./to-ifra";
 import { sheetOf } from "../glossary/sheet";
+import { keepOf, NO_FILTERS } from "../glossary/browse";
+import { listAll } from "./search";
 
 /**
  * Plan v3, step 3.2, without network: the repository against a copy that is connected to
@@ -238,5 +241,31 @@ describe("plan v3, step 6.4: your version of a common material", () => {
   it("a frozen formula has no versions, and nobody bases one on what they cannot see", async () => {
     await expect(createVersion(db, ME, MY_FROZEN)).rejects.toThrow();
     await expect(createVersion(db, ME, SOMEONE_S)).rejects.toThrow();
+  });
+});
+
+describe("plan v3, step 6.5: what you have, marked at once or little by little", () => {
+  it("the list is kept, and the filter shows it", async () => {
+    const [x, y] = [await createMaterial(db, ME, { name: "Marca uno", kind: "molecule" }), await createMaterial(db, ME, { name: "Marca dos", kind: "molecule" })];
+    const before = (await loadCatalog(db, ME)).have;
+    // At once: what a search found; again, nothing changes.
+    expect(await setHaveMany(db, ME, [x, y, COMMON, x], true)).toBe(2 + (before.has(COMMON) ? 0 : 1));
+    expect(await setHaveMany(db, ME, [x, y], true)).toBe(0);
+    // Little by little: one off.
+    await setHave(db, ME, y, false);
+    const catalog = await loadCatalog(db, ME);
+    expect([catalog.have.has(x), catalog.have.has(y), catalog.have.has(COMMON)]).toEqual([true, false, true]);
+    const shown = listAll(indexCatalog(catalog), 500, keepOf({ ...NO_FILTERS, haveOnly: true }, catalog.have, () => "no-standard"))
+      .flatMap((r) => r.members.map((m) => m.material.id));
+    expect(shown).toContain(x);
+    expect(shown).toContain(COMMON);
+    expect(shown).not.toContain(y);
+    // Unmarking at once.
+    expect(await setHaveMany(db, ME, [x], false)).toBe(1);
+    expect((await loadCatalog(db, ME)).have.has(x)).toBe(false);
+  });
+
+  it("nobody marks what they cannot see", async () => {
+    await expect(setHaveMany(db, ME, [SOMEONE_S], true)).rejects.toThrow();
   });
 });

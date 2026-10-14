@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { currentUser, signOut, supabase, type SignedInUser } from "./db/client";
 import { closeLocalDatabase, localDatabaseFor } from "./db/local/database";
-import { createVersion } from "./db/materials";
+import { createVersion, setHave, setHaveMany } from "./db/materials";
 import { Glossary } from "./glossary/Glossary";
 import { MaterialEditor } from "./glossary/MaterialEditor";
 import { MaterialSheet } from "./glossary/MaterialSheet";
@@ -63,7 +63,12 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
         <>
           {/* The glossary stays mounted while a sheet is open: back, it keeps its search and its filters. */}
           <div hidden={route.view !== "list"}>
-            <Glossary data={data} onOpen={(id) => go({ view: "sheet", id })} onNew={() => go({ view: "new" })} />
+            <Glossary
+              data={data}
+              onOpen={(id) => go({ view: "sheet", id })}
+              onNew={() => go({ view: "new" })}
+              mark={(ids, have) => setHaveMany(local.db, local.userId, ids, have)}
+            />
           </div>
           {route.view === "sheet" && (
             <MaterialSheet
@@ -72,6 +77,11 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
               onBack={() => go({ view: "list" })}
               onEdit={() => go({ view: "edit", id: route.id })}
               onOpen={(id) => go({ view: "sheet", id })}
+              onHave={(have) =>
+                void setHave(local.db, local.userId, route.id, have).catch((e: unknown) =>
+                  window.alert(texts.editor.failed(e instanceof Error ? e.message : String(e))),
+                )
+              }
               onMakeVersion={() =>
                 void createVersion(local.db, local.userId, route.id).then(
                   (id) => go({ view: "edit", id }),

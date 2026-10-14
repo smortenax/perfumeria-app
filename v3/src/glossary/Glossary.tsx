@@ -8,18 +8,25 @@ import type { GlossaryData } from "./useGlossary";
 const PAGE = 30;
 const IFRA_STATES = Object.keys(texts.ifraState) as IfraState[];
 
+/** Marks or unmarks materials as what you have (V3-3); answers how many changed. */
+export type Mark = (ids: readonly string[], have: boolean) => Promise<number>;
+
 /**
  * The glossary (plan v3, step 6.1): one search box over the common materials and yours, with
- * filters. One row per category (V3-13), with its materials under it; each opens its sheet.
+ * filters. One row per category (V3-13), with its materials under it; each opens its sheet. In
+ * marking mode (step 6.5), each line is a box of «lo que tengo», and what the search and the
+ * filters show can be marked at once.
  */
-export function Glossary({ data, onOpen, onNew }: { data: GlossaryData; onOpen: (id: string) => void; onNew: () => void }) {
+export function Glossary({ data, onOpen, onNew, mark }: { data: GlossaryData; onOpen: (id: string) => void; onNew: () => void; mark: Mark }) {
   const t = texts.glossary;
   const [query, setQuery] = useState("");
   const [filters, setFilters] = useState<Filters>(NO_FILTERS);
   const [limit, setLimit] = useState(PAGE);
+  const [message, setMessage] = useState<string | null>(null);
   const set = (change: Partial<Filters>) => {
     setFilters((f) => ({ ...f, ...change }));
     setLimit(PAGE);
+    setMessage(null);
   };
 
   const rows = useMemo(() => {
@@ -27,14 +34,32 @@ export function Glossary({ data, onOpen, onNew }: { data: GlossaryData; onOpen: 
     return query.trim() ? search(data.index, query, limit, keep) : listAll(data.index, limit, keep);
   }, [data, query, filters, limit]);
   const shown = rows.reduce((n, r) => n + r.members.length, 0);
+  const [marking, setMarking] = useState(false);
+  const markShown = (have: boolean) =>
+    void mark(rows.flatMap((r) => r.members.map((m) => m.material.id)), have).then(
+      (n) => setMessage(t.marked(n)),
+      (e: unknown) => setMessage(texts.editor.failed(e instanceof Error ? e.message : String(e))),
+    );
 
   return (
     <section className="glossary">
       <div className="title-bar">
         <h2>{t.title}</h2>
-        <button type="button" onClick={onNew}>
-          {texts.editor.newMaterial}
-        </button>
+        <span className="buttons">
+          <button
+            type="button"
+            className={marking ? "" : "secondary"}
+            onClick={() => {
+              setMarking((m) => !m);
+              setMessage(null);
+            }}
+          >
+            {marking ? t.markDone : t.markMode}
+          </button>
+          <button type="button" onClick={onNew}>
+            {texts.editor.newMaterial}
+          </button>
+        </span>
       </div>
       <label className="search">
         {t.search}
@@ -45,6 +70,7 @@ export function Glossary({ data, onOpen, onNew }: { data: GlossaryData; onOpen: 
           onChange={(e) => {
             setQuery(e.target.value);
             setLimit(PAGE);
+            setMessage(null);
           }}
         />
       </label>
@@ -86,6 +112,20 @@ export function Glossary({ data, onOpen, onNew }: { data: GlossaryData; onOpen: 
         </label>
       </fieldset>
       <p className="hint">{rows.length ? t.found(rows.length, shown) : t.none}</p>
+      {marking && (
+        <div className="marking">
+          <p className="hint">{t.markHint}</p>
+          <span className="buttons">
+            <button type="button" disabled={shown === 0} onClick={() => markShown(true)}>
+              {t.markAll(shown)}
+            </button>
+            <button type="button" className="secondary" disabled={shown === 0} onClick={() => markShown(false)}>
+              {t.unmarkAll(shown)}
+            </button>
+          </span>
+          {message && <p className="hint">{message}</p>}
+        </div>
+      )}
       <ul className="rows">
         {rows.map((row) => (
           <li key={row.key} className="row">
@@ -93,7 +133,7 @@ export function Glossary({ data, onOpen, onNew }: { data: GlossaryData; onOpen: 
             <ul className="members">
               {row.members.map(({ material }) => (
                 <li key={material.id}>
-                  <Member material={material} data={data} onOpen={onOpen} />
+                  <Member material={material} data={data} onOpen={onOpen} marking={marking} mark={mark} />
                 </li>
               ))}
             </ul>
@@ -110,7 +150,7 @@ export function Glossary({ data, onOpen, onNew }: { data: GlossaryData; onOpen: 
 }
 
 /** One material's line: what tells it apart from the others of its row (V3-11). */
-function Member({ material, data, onOpen }: { material: CatalogMaterial; data: GlossaryData; onOpen: (id: string) => void }) {
+function Member({ material, data, onOpen, marking, mark }: { material: CatalogMaterial; data: GlossaryData; onOpen: (id: string) => void; marking: boolean; mark: Mark }) {
   const t = texts.glossary;
   const state = data.ifraStates.get(material.id)?.state ?? "no-data";
   const base = material.basedOnId ? data.catalog.materials.get(material.basedOnId) : undefined;
@@ -119,19 +159,33 @@ function Member({ material, data, onOpen }: { material: CatalogMaterial; data: G
     material.ownerId === null
       ? [t.common, material.form, material.house].filter((x) => x).join(" · ")
       : [t.own, material.supplier, material.product].filter((x) => x).join(" · ");
-  return (
-    <button type="button" className="member" onClick={() => onOpen(material.id)}>
+  const have = data.catalog.have.has(material.id);
+  const line = (
+    <>
       <span className="name">
         {abbreviation && <span className="abbr">{abbreviation}</span>}
         {material.name}
       </span>
       <span className="facts">
         {texts.kinds[material.kind]} · {whose}
-        {data.catalog.have.has(material.id) && <span className="have"> · {t.haveMark}</span>}
+        {have && <span className="have"> · {t.haveMark}</span>}
       </span>
       <span className={`ifra ifra-${state}`} title={texts.ifraStateHelp[state]}>
         {texts.ifraState[state]}
       </span>
+    </>
+  );
+  if (marking) {
+    return (
+      <label className="member marking">
+        <input type="checkbox" checked={have} onChange={() => void mark([material.id], !have)} aria-label={`${t.haveToggle}: ${material.name}`} />
+        {line}
+      </label>
+    );
+  }
+  return (
+    <button type="button" className="member" onClick={() => onOpen(material.id)}>
+      {line}
     </button>
   );
 }

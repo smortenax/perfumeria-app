@@ -449,3 +449,55 @@ form.add .error {
   color: var(--muted);
   font-style: italic;
 }
+
+/* «Lo que tengo» (plan v3, step 6.5). */
+.buttons {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+button.secondary {
+  background: none;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.marking {
+  margin: 0.5rem 0 1rem;
+}
+
+label.member.marking {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0 0.75rem;
+  align-items: center;
+  padding: 0.5rem 0.25rem;
+  color: var(--text);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+label.member.marking input {
+  grid-row: 1 / span 2;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+label.member.marking .facts {
+  grid-column: 2;
+}
+
+label.member.marking .ifra {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+}
+
+label.check.have-toggle {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--text);
+  font-size: 0.875rem;
+}
