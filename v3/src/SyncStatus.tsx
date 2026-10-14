@@ -58,7 +58,6 @@ export function SyncStatus({ local }: { local: LocalDatabase }) {
 
   return (
     <section className="status-panel">
-      <h3>{t.title}</h3>
       <p className={connected ? "status ok" : "status off"}>{connected ? t.connected : t.offline}</p>
       <p className="status">{t.materials(counts.common, counts.own)}</p>
       <p className="status">{counts.dataCommit ? t.data(counts.dataCommit.slice(0, 7)) : t.noData}</p>

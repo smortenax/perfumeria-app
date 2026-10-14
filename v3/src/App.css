@@ -126,3 +126,222 @@ button.link {
 .status-panel .status.off {
   color: var(--accent);
 }
+
+/* The glossary and the sheet (plan v3, phase 6; V3-47): a plain data sheet, provisional. */
+.start {
+  max-width: 56rem;
+}
+
+.glossary .search input {
+  font-size: 1rem;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  align-items: flex-end;
+  border: 1px solid color-mix(in srgb, var(--muted) 40%, transparent);
+  border-radius: 6px;
+  margin: 0.75rem 0;
+}
+
+.filters legend {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.filters label.check {
+  flex-direction: row;
+  align-items: center;
+}
+
+select {
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--muted);
+  border-radius: 6px;
+  padding: 0.375rem 0.5rem;
+}
+
+.rows,
+.members {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.row {
+  border-top: 1px solid color-mix(in srgb, var(--muted) 30%, transparent);
+  padding: 0.25rem 0;
+}
+
+.row h3 {
+  margin: 0.5rem 0 0.25rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+button.member {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0 0.75rem;
+  width: 100%;
+  text-align: left;
+  background: none;
+  color: var(--text);
+  padding: 0.5rem 0.25rem;
+}
+
+button.member:hover,
+button.member:focus-visible {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+.member .name {
+  font-weight: 600;
+}
+
+.member .facts {
+  grid-column: 1;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.member .ifra {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+}
+
+.abbr {
+  display: inline-block;
+  min-width: 2.5rem;
+  margin-right: 0.5rem;
+  color: var(--accent);
+  font-family: ui-monospace, monospace;
+  font-weight: 500;
+}
+
+.ifra {
+  font-size: 0.75rem;
+  border: 1px solid var(--muted);
+  border-radius: 999px;
+  padding: 0.125rem 0.5rem;
+  white-space: nowrap;
+}
+
+.ifra-prohibited {
+  border-color: #b3261e;
+  color: #b3261e;
+}
+
+.ifra-ceiling,
+.ifra-requirement {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.sheet h2 {
+  margin: 1rem 0 0.25rem;
+}
+
+.sheet-section {
+  margin: 1.5rem 0;
+}
+
+.sheet-section h3 {
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--muted) 40%, transparent);
+}
+
+.sheet dl {
+  margin: 0;
+}
+
+.sheet .field {
+  display: grid;
+  grid-template-columns: minmax(8rem, 14rem) 1fr;
+  gap: 0.75rem;
+  padding: 0.25rem 0;
+}
+
+.sheet dt {
+  color: var(--muted);
+}
+
+.sheet dd {
+  margin: 0;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.unknown {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.notes {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.disputed {
+  margin-left: 0.5rem;
+  font-size: 0.75rem;
+  color: #b3261e;
+  border: 1px solid #b3261e;
+  border-radius: 999px;
+  padding: 0 0.375rem;
+  font-style: normal;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin: 0.5rem 0;
+}
+
+.sheet table {
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  min-width: 100%;
+}
+
+.sheet caption {
+  text-align: left;
+  color: var(--muted);
+  padding: 0.25rem 0;
+}
+
+.sheet th,
+.sheet td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.25rem 0.5rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--muted) 25%, transparent);
+}
+
+.sheet th {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.data-status {
+  margin-top: 3rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 36rem) {
+  .start {
+    padding: 1.5rem 1rem;
+  }
+
+  .sheet .field {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}

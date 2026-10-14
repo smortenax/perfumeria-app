@@ -149,13 +149,37 @@ export function indexCatalog(catalog: Catalog): SearchIndex {
   return { entries, rows };
 }
 
+/** Which materials a list may show (the glossary's filters); the rest are not searched. */
+export type Keep = (material: CatalogMaterial) => boolean;
+const all: Keep = () => true;
+
 /**
- * The rows the query finds, at most `limit`. Within the found: the abbreviation as typed (codes
+ * Every row with a material that `keep` lets through, by name, at most `limit`: the glossary
+ * with an empty box. Its materials as in a search, yours first.
+ */
+export function listAll(index: SearchIndex, limit = 12, keep: Keep = all): SearchRow[] {
+  return [...index.rows]
+    .map(([key, row]) => ({ key, row, kept: row.entries.filter((e) => keep(e.material)) }))
+    .filter((r) => r.kept.length > 0)
+    .sort((a, b) => a.row.name.localeCompare(b.row.name, "es") || (a.key < b.key ? -1 : 1))
+    .slice(0, limit)
+    .map(({ key, row, kept }) => ({
+      key,
+      category: row.category,
+      name: row.name,
+      members: [...kept]
+        .sort((a, b) => Number(a.material.ownerId === null) - Number(b.material.ownerId === null) || a.material.name.localeCompare(b.material.name, "es") || (a.material.id < b.material.id ? -1 : 1))
+        .map((e) => ({ material: e.material, matched: true })),
+    }));
+}
+
+/**
+ * The rows the query finds, at most `limit`, among the materials `keep` lets through. Within the found: the abbreviation as typed (codes
  * tell capitals apart), then the same abbreviation, then a name or a CAS that starts with the
  * query, then the whole query as one phrase from the start of a word, then the rest; the names
  * written close to it last. A row comes where its best material does.
  */
-export function search(index: SearchIndex, typedQuery: string, limit = 12): SearchRow[] {
+export function search(index: SearchIndex, typedQuery: string, limit = 12, keep: Keep = all): SearchRow[] {
   const query = casForm(typedQuery) ?? typedQuery;
   const words = normalize(query).split(/\s+/).filter((w) => w !== "");
   if (words.length === 0) return [];
@@ -173,13 +197,14 @@ export function search(index: SearchIndex, typedQuery: string, limit = 12): Sear
             ? 3
             : 4;
   const found = new Map<Entry, number>();
-  for (const e of index.entries) if (words.every((w) => e.text.includes(w))) found.set(e, score(e));
+  const entries = index.entries.filter((e) => keep(e.material));
+  for (const e of entries) if (words.every((w) => e.text.includes(w))) found.set(e, score(e));
 
   const folded = fold(query);
   if (new Set([...found.keys()].map((e) => e.row)).size < limit && folded.length >= 5) {
     // About one edit every five letters: enough for «cumarina» and «coumarin».
     const allowed = Math.round(folded.length / 5);
-    for (const e of index.entries) {
+    for (const e of entries) {
       if (found.has(e) || e.folded.length === 0) continue;
       const d = Math.min(...e.folded.map((n) => nearest(folded, n, allowed) ?? Number.POSITIVE_INFINITY));
       if (d <= allowed) found.set(e, 5 + d);
@@ -196,7 +221,8 @@ export function search(index: SearchIndex, typedQuery: string, limit = 12): Sear
     key,
     category: row.category,
     name: row.name,
-    members: [...row.entries]
+    members: row.entries
+      .filter((e) => keep(e.material))
       .sort(
         (a, b) =>
           Number(a.material.ownerId === null) - Number(b.material.ownerId === null) ||

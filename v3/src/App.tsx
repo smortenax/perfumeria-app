@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { currentUser, signOut, supabase, type SignedInUser } from "./db/client";
 import { closeLocalDatabase, localDatabaseFor } from "./db/local/database";
+import { Glossary } from "./glossary/Glossary";
+import { MaterialSheet } from "./glossary/MaterialSheet";
+import { useGlossary } from "./glossary/useGlossary";
 import { SignIn } from "./SignIn";
 import { SyncStatus } from "./SyncStatus";
 import { texts } from "./i18n/es";
@@ -32,8 +35,9 @@ export default function App() {
 }
 
 function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => void }) {
-  const t = texts.start;
   const local = localDatabaseFor(user.id);
+  const data = useGlossary(local);
+  const [open, setOpen] = useOpenMaterial();
   const leave = async () => {
     await closeLocalDatabase();
     await signOut();
@@ -50,15 +54,45 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
           {user.email} · <button type="button" className="link" onClick={() => void leave()}>{texts.app.signOut}</button>
         </p>
       </header>
-      <h2>{t.title}</h2>
-      <p>{t.lead}</p>
-      <SyncStatus local={local} />
-      <h3>{t.stepsTitle}</h3>
-      <ol>
-        {t.steps.map((step) => (
-          <li key={step}>{step}</li>
-        ))}
-      </ol>
+      {!data ? (
+        <p>{texts.glossary.loading}</p>
+      ) : (
+        <>
+          {/* The glossary stays mounted while a sheet is open: back, it keeps its search and its filters. */}
+          <div hidden={open !== null}>
+            <Glossary data={data} onOpen={setOpen} />
+          </div>
+          {open && <MaterialSheet data={data} id={open} onBack={() => setOpen(null)} />}
+        </>
+      )}
+      <details className="data-status">
+        <summary>{texts.status.title}</summary>
+        <SyncStatus local={local} />
+      </details>
     </main>
   );
+}
+
+/** The open material lives in the address («#material/<id>»), so the browser's back returns to the glossary. */
+function useOpenMaterial(): [string | null, (id: string | null) => void] {
+  const read = () => /^#material\/(.+)$/.exec(window.location.hash)?.[1] ?? null;
+  const [open, setOpenState] = useState<string | null>(read);
+  const [listScroll, setListScroll] = useState(0);
+  useEffect(() => {
+    const changed = () => {
+      const id = read();
+      setOpenState(id);
+      // A sheet opens at its top; the glossary, where it was left.
+      requestAnimationFrame(() => window.scrollTo(0, id ? 0 : listScroll));
+    };
+    window.addEventListener("hashchange", changed);
+    return () => window.removeEventListener("hashchange", changed);
+  }, [listScroll]);
+  const setOpen = (id: string | null) => {
+    if (id) {
+      if (!read()) setListScroll(window.scrollY);
+      window.location.hash = `material/${id}`;
+    } else if (read()) window.history.back();
+  };
+  return [open, setOpen];
 }
