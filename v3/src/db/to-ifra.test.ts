@@ -209,7 +209,7 @@ describe("prohibitions, requirements and a manufacturer's ceiling (V3-25, V3-30,
       [entry("8016-26-0", "Cistus oil", "78-59-1", "Isophorone", "0.01")],
     );
     const isophorone = material("isophorone", "molecule", { cas: "78-59-1" });
-    const cistus = material("cistus", "natural", { cas: "8016-26-0" });
+    const cistus = material("cistus", "natural", { cas: "8016-26-0", aliases: ["Cistus oil"] });
     const accord = material("accord", "composition", { components: [component("cistus", exact("10"))] });
     const blend = material("blend", "composition", { components: [component("isophorone", exact("1"))] });
     const catalog = catalogOf(isophorone, cistus, accord, blend);
@@ -342,8 +342,20 @@ describe("what IFRA's annex says a natural brings (V3-23, V3-28, V3-39)", () => 
 
   it("IFRA gives some naturals only other CAS (the ylang-ylang absolute): they are found by them", () => {
     const onlyOther: IfraAnnexEntry = { ...entry("", "Ylang-ylang absolute", "5392-40-5", "Citral", "0.5"), naturalCas: null, naturalOtherCas: ["83863-30-3"] };
-    const ylang = material("ylang", "natural", { cas: "83863-30-3" });
+    const ylang = material("ylang", "natural", { cas: "83863-30-3", aliases: ["Ylang-ylang absolute"] });
     expect(substancesOf(catalogOf(ylang), layerOf(specs, [onlyOther]), "ylang")).toEqual([["std:STD_CIT", "1/200", null]]);
+  });
+
+  it("of two entries with its names, the first of its names wins, not the annex's order (V3-23)", () => {
+    const two = layerOf(specs, [entry("8008-31-9", "Tangerine oil", "5392-40-5", "Citral", "1"), entry("8008-31-9", "Mandarin oil", "5392-40-5", "Citral", "2")]);
+    const mandarin = material("mandarin", "natural", { cas: "8008-31-9", aliases: ["Mandarin oil", "Tangerine oil"] });
+    expect(substancesOf(catalogOf(mandarin), two, "mandarin")).toEqual([["std:STD_CIT", "1/50", null]]);
+  });
+
+  it("the only entry with its CAS is not its own if it does not carry its name: borrowed, as literature (V3-28)", () => {
+    const one = layerOf(specs, [entry("90028-06-1", "Tonka Bean absolute", "5392-40-5", "Citral", "3")]);
+    const tincture = material("tincture", "natural", { cas: "90028-06-1" });
+    expect(substancesOf(catalogOf(tincture), one, "tincture")).toEqual([["std:STD_CIT", null, "3/100"]]);
   });
 
   it("the certificate of your bottle rules over the annex for that constituent; the rest of the annex stays", () => {
@@ -394,6 +406,12 @@ describe("the user's version of a common material (V3-5)", () => {
 });
 
 describe("a component that is a substance, not a material of the glossary (V3-36)", () => {
+  it("known only by a name, without a CAS («Sin identificar», V3-29), it leaves the check pending, never free", () => {
+    const isolate = material("isolate", "molecule", { cas: "91-64-5", components: [{ ...substance("", "Sin identificar", { kind: "unknown" }, "consensus"), componentCas: null }] });
+    const data = toIfra(catalogOf(isolate), layerOf([{ code: "STD_COU", cas: ["91-64-5"], limit: "1.5" }]));
+    expect(data.materials.get("isolate")!.pending).toEqual([NO_DATA]);
+  });
+
   it("counts against its standard by its CAS, with its name", () => {
     const layer = layerOf([{ code: "STD_LIN", cas: ["78-70-6"], limit: "2" }]);
     const base = material("base", "composition", { ownerId: ME, components: [substance("78-70-6", "Linalool", exact("30"))] });

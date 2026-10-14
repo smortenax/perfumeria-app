@@ -193,7 +193,9 @@ function annexOf(layer: IfraLayer, identity: Identity): Component[] {
   const entries = layer.annex.filter((e) => (e.naturalCas !== null && identity.cas.includes(e.naturalCas)) || e.naturalOtherCas.some((c) => identity.cas.includes(c)));
   if (entries.length === 0) return [];
   const names = [...new Set(entries.map((e) => e.naturalName))];
-  const own = names.length === 1 ? names[0] : names.find((n) => identity.names.some((m) => fold(m) === fold(n)));
+  // V3-23: its own entry is the one with its name, the first of its names IFRA uses; with none, borrowed (V3-28),
+  // even when only one entry has its CAS (a tincture is not the absolute IFRA lists).
+  const own = identity.names.map((n) => names.find((e) => fold(e) === fold(n))).find((e) => e !== undefined);
   const component = (e: (typeof entries)[number], authority: Authority, source: string): Component => ({
     id: `annex:${e.naturalName}:${e.constituentCas ?? e.constituentName}`,
     componentId: null,
@@ -284,7 +286,8 @@ function nodes(catalog: Catalog, layer: IfraLayer) {
     return {
       id,
       name: (cas && names.get(cas)) ?? (cas ? `CAS ${cas}` : id.slice(5)),
-      kind: "substance",
+      // Known only by a name, without a CAS (as «Sin identificar», V3-29): nothing can be checked of it, and it is never free (§1.4).
+      kind: cas ? "substance" : "provisional",
       material: null,
       identity,
       components: [],
