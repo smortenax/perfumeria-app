@@ -1,3 +1,10 @@
+/* A box's size includes its padding and border: a tile at 100 % of its cell never spills into the next row. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   --bg: #f7f6f3;
   --text: #1f1d1a;
@@ -785,4 +792,46 @@ form.add label {
 
 .grid li.in-bench .tile {
   border: none;
+}
+
+/* No overlaps (V3-50): a grid cell shrinks below its text, and long names break inside their tile. */
+.grid > li,
+.quad > li {
+  min-width: 0;
+}
+
+.tile {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.tile-name,
+.tile-detail {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.tile.mini {
+  height: 100%;
+  justify-content: flex-start;
+}
+
+.tile.mini .icon {
+  flex-shrink: 0;
+}
+
+.tile.mini .icon.accord {
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 3px var(--accent);
+  margin: 3px;
+}
+
+.tile .icon {
+  flex-shrink: 0;
+  max-width: 100%;
+}
+
+.tile .bench-icon {
+  margin-right: 4px;
+  margin-bottom: 4px;
 }
