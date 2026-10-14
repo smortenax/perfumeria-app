@@ -790,6 +790,21 @@ La tanda les ponía el techo a todos sus miembros. ¿Cómo entra cada uno?
 
 **Por qué** (la recomendación de la sesión que elegiste): es tu abreviatura, la que ya usabas, y no se pierde cuando hay sigla comercial.
 
+## V3-38 · El color de un material es el de su familia, y se puede fijar (decidida por el usuario el 2026-10-14)
+
+**Pregunta** (tarjeta del hilo; la abre V3-34, «color de visualizacion de la app (dentro de las familias asignadas en la v2)»): ¿cómo se guarda el color de visualización de cada material? La paleta de P48 da a cada familia un color claro y uno oscuro, uno por tema (`datos/fuente/pieza-11-paleta.csv`).
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «El de su familia, ajustable (Recomendado)» (2026-10-14): «Cada material común lleva su familia cerrada (P48), la de su pareja en la v1, y su color sale de la paleta de esa familia, en claro u oscuro según el tema. Hay un campo `color` aparte que solo se llena cuando alguien lo fija, como tú al personalizar tus materiales. Si un día cambia la paleta, cambian todos los que no fijaste.»
+
+**Cómo se aplica:**
+
+- **`materials.family`**, la familia cerrada de P48, de la pareja de cada material en la v1. Tu texto libre sigue en `family_detail` (V3-18).
+- **La paleta viaja con la app**, en claro y oscuro, como dato de la v3. Su origen es `pieza-11-paleta.csv`.
+- **`materials.color`** queda vacío salvo cuando alguien lo fija. Lo fijarás tú en tus materiales, desde la personalización (V3-34), y entonces manda sobre el de la familia.
+- **Un material sin familia** no lleva color propio: se ve en neutro, nunca con un color inventado.
+
+**Por qué** (la recomendación de la sesión que elegiste): un color por tema sale de la paleta sin convertir nada, y un cambio de paleta llega a todos los que no fijaste.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
