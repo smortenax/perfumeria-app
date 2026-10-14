@@ -195,7 +195,9 @@ function annexOf(layer: IfraLayer, identity: Identity): Component[] {
   const names = [...new Set(entries.map((e) => e.naturalName))];
   // V3-23: its own entry is the one with its name, the first of its names IFRA uses; with none, borrowed (V3-28),
   // even when only one entry has its CAS (a tincture is not the absolute IFRA lists).
-  const own = identity.names.map((n) => names.find((e) => fold(e) === fold(n))).find((e) => e !== undefined);
+  // The brackets of an annex's name say no variant («Vetiver oil (all origins)», «… (Neroli and Neroli bigarade)»): it matches without them.
+  const isName = (entry: string, name: string) => fold(name) === fold(entry) || fold(name) === fold(entry.replace(/\s*\([^)]*\)\s*$/, ""));
+  const own = identity.names.map((n) => names.find((e) => isName(e, n))).find((e) => e !== undefined);
   const component = (e: (typeof entries)[number], authority: Authority, source: string): Component => ({
     id: `annex:${e.naturalName}:${e.constituentCas ?? e.constituentName}`,
     componentId: null,

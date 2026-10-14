@@ -244,6 +244,22 @@ for (const row of v2.composition) {
     source: `${row.documentId} · ${doc?.title ?? ""}${note ? ` (${note})` : ""} — D12: cifras del producto tal como se compra`,
   });
 }
+// V3-29: a natural isolate whose product has no documents carries «Sin identificar»: it may bring other
+// constituents of its plant, and what is not known is never free. Your bottle is that product, so it is your version's.
+const isolates: string[] = [];
+const documented = new Set(components.map((c) => c.material_id));
+for (const [id, answer] of answers) {
+  if (!answer.startsWith("versión de ")) continue;
+  const target = answer.slice("versión de ".length);
+  const material = v2Materials.get(productMaterial.get(target) ?? target);
+  if (material?.origin !== "aislado-natural" || documented.has(mine(id))) continue;
+  isolates.push(`${id} (${material.name})`);
+  components.push({
+    id: uuidFor(`tuya-component:${id}|sin-identificar`), material_id: mine(id), owner_id: null, component_id: null, component_cas: null,
+    component_name: "Sin identificar", amount_kind: "unknown", value: null, min: null, max: null, authority: "consensus",
+    source: "Aislado natural sin documentos de su producto: puede traer otros constituyentes de su planta (V3-29; D7 de la v2)",
+  });
+}
 const regulations: Array<Record<string, Cell>> = [];
 for (const t of v2.ceilings) {
   const labId = labOfContainer.get(t.productId);
@@ -326,6 +342,7 @@ const report = `# Tanda 8 · Tu versión de cada material, en tu cuenta
   - **El IFRA de segunda mano** (V3-32), en ${counts.ifra}: el tipo y el estándar «· sin verificar», sin cifras; ${conditionsLeft} notas de condición con cifras se quedan en el laboratorio. Su conflicto pendiente, como «en disputa».
 - **Las filas de tu material** que la tanda 7 apartó (V3-43): ${descriptors.length} descriptores, ${relations.length} relaciones, ${references.length} perfumes de referencia y ${doses.length} dosis.
 - **Lo que declaran los certificados de tus productos** (V3-39): ${components.length} filas de composición (autoridad \`product\`; D12: cifras del producto tal como se compra), de ${new Set(components.map((c) => c.material_id)).size} materiales, ${components.filter((c) => c.component_id !== null).length} con un material tuyo como componente y ${components.filter((c) => c.component_id === null).length} con la sustancia por su CAS y su nombre; ${regulations.filter((r) => r.regime === "manufacturer").length} topes del fabricante, y ${regulations.filter((r) => r.kind === "requirement").length} afirmaciones de una especificación (el cade rectificado, por consenso: supuesta).
+- **Los aislados naturales sin documentos de su producto** (V3-29): ${isolates.length} llevan «Sin identificar», cantidad desconocida, y quedan pendientes hasta que un documento diga lo que traen: ${isolates.join(", ") || "ninguno"}.
 - **Tu laboratorio** (V3-36): ${have.length} «lo tengo», ${dilutions.length} diluciones, ${evaluations.length} catas y ${axes.length} ejes.
 
 **Lo que no entra:** la composición del laboratorio (V3-33), las voces (V3-40) y la dilución de compra de tus frascos (no se registra: la dilución se elige en la app).

@@ -352,6 +352,12 @@ describe("what IFRA's annex says a natural brings (V3-23, V3-28, V3-39)", () => 
     expect(substancesOf(catalogOf(mandarin), two, "mandarin")).toEqual([["std:STD_CIT", "1/50", null]]);
   });
 
+  it("an annex name's brackets say no variant: «Vetiver oil (all origins)» is the entry of a «Vetiver oil»", () => {
+    const vetiver = layerOf(specs, [entry("8016-96-4", "Vetiver oil (all origins)", "5392-40-5", "Citral", "1")]);
+    const mine = material("vetiver", "natural", { cas: "8016-96-4", aliases: ["Vetiver Oil"] });
+    expect(substancesOf(catalogOf(mine), vetiver, "vetiver")).toEqual([["std:STD_CIT", "1/100", null]]);
+  });
+
   it("the only entry with its CAS is not its own if it does not carry its name: borrowed, as literature (V3-28)", () => {
     const one = layerOf(specs, [entry("90028-06-1", "Tonka Bean absolute", "5392-40-5", "Citral", "3")]);
     const tincture = material("tincture", "natural", { cas: "90028-06-1" });

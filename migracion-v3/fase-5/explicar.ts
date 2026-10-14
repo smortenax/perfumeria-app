@@ -35,7 +35,11 @@ export const REASONS: Readonly<Record<string, Reason>> = {
     decisions: "V3-34, V3-39",
   },
   tipo: { short: "tipo del laboratorio", label: "El laboratorio tiene el material por otro tipo que la v2 (molécula, natural, composición)", decisions: "V3-12, V3-34" },
-  aislado: { short: "aislado sin «Sin identificar»", label: "Aislado natural sin «Sin identificar»: la composición del laboratorio quedó aplazada", decisions: "V3-29, V3-33" },
+  aislado: {
+    short: "aislado natural, «Sin identificar» en tu versión",
+    label: "Aislado natural sin documentos: tu versión lleva «Sin identificar» y queda pendiente, como la v2 por sus impurezas; el común es la molécula",
+    decisions: "V3-29, V3-33",
+  },
   "por-cas": {
     short: "capa de IFRA por CAS",
     label: "La capa de IFRA lee por CAS: la v2 lo enlazaba por el grupo de la v2 o solo daba el anexo a los naturales del glosario",
@@ -110,8 +114,10 @@ export function v2Variants(data: Dataset, files: IfraFiles): V2Variants {
 export function annexFor(layer: IfraLayer, cas: readonly string[], names: readonly string[]) {
   const entries = layer.annex.filter((e) => (e.naturalCas !== null && cas.includes(e.naturalCas)) || e.naturalOtherCas.some((c) => cas.includes(c)));
   const entryNames = [...new Set(entries.map((e) => e.naturalName))];
-  const candidates = entryNames.filter((n) => names.some((m) => fold(m) === fold(n)));
-  const own = entryNames.length === 1 ? entryNames[0] : candidates[0];
+  // As the adapter does since 0ba4302 (V3-23, V3-28): its own entry is the first of its names IFRA uses; with none, borrowed.
+  const isName = (entry: string, name: string) => fold(name) === fold(entry) || fold(name) === fold(entry.replace(/\s*\([^)]*\)\s*$/, ""));
+  const candidates = [...new Set(names.map((m) => entryNames.find((n) => isName(n, m))).filter((n): n is string => n !== undefined))];
+  const own = candidates[0];
   return { entries, entryNames, candidates, own, onlyEntry: entryNames.length === 1 };
 }
 
@@ -119,6 +125,8 @@ export interface PairContext {
   readonly pair: Pair;
   readonly v2Material: Material;
   readonly v3: CatalogMaterial;
+  /** Your version of it (batch 8). */
+  readonly mine: CatalogMaterial;
   readonly cas: readonly string[];
   readonly annex: ReturnType<typeof annexFor>;
   /** The v2's annex rows of the pair (authority anexo-ifra) with the note that says which entry they come from. */
@@ -148,6 +156,7 @@ export function contextOf(
     pair,
     v2Material,
     v3: common,
+    mine,
     cas,
     annex: annexFor(layer, cas, names),
     v2Annex: data.composition.filter((r) => chain.includes(r.containerId) && r.authority === "anexo-ifra").map((row) => ({ row, note: notes.get(row.line) ?? "" })),
@@ -200,8 +209,12 @@ const byType: Detector = (d, c) => {
   return null;
 };
 
-/** V3-29 and V3-33: a natural isolate with no documents was pending in the v2. */
+/** V3-29 and V3-33: a natural isolate with no documents was pending in the v2; in the v3 its pending is «Sin identificar», on your version. */
 const byIsolate: Detector = (d, c) => {
+  const unidentified = (c.mine?.components ?? []).some((x) => x.componentId === null && x.componentName === "Sin identificar");
+  if (unidentified && d.where === "pendiente" && ((d.what.startsWith("impurezas:") && d.v3 === "—") || (d.what === "sin-datos" && d.v2 === "—"))) {
+    return { reason: "aislado", evidence: "v2: pendiente por impurezas sin declarar (D7); v3: pendiente por «Sin identificar» en tu versión (V3-29): el mismo pendiente, con otro texto" };
+  }
   if (d.where !== "pendiente" || !d.what.startsWith("impurezas:") || d.v3 !== "—") return null;
   if (c.v3.kind !== "molecule" || c.hasV3Components) return null;
   return {
@@ -263,11 +276,9 @@ const byAnnex: Detector = (d, c) => {
     const reads = `v2: ninguna fila del anexo (D14 solo lo daba a los naturales del glosario); v3: lee ${c.annex.entries.length} filas del anexo por CAS, de ${c.annex.entryNames.join(", ")}`;
     // V3-23 and V3-28: an entry that is not the material's own is borrowed, so its figures are literature (a bound, never «dentro»).
     // The adapter takes the only entry of a CAS as the material's own, whatever its name, and counts it as proven.
-    if (d.where === "sustancia" && c.annex.onlyEntry && c.annex.candidates.length === 0 && !d.v3.startsWith("≤")) {
-      return {
-        reason: "sin-explicar",
-        evidence: `${reads}. V3-35 explica que lea el anexo por CAS, pero V3-23 y V3-28 piden que, sin entrada con su nombre, las cifras entren como literatura (cota, nunca «dentro»): la v3 toma «${c.annex.own}» como propia por ser la única de su CAS y la da por conocida`,
-      };
+    // V3-23 and V3-28: without an entry with its name, the figures are borrowed: literature, a bound, never «dentro».
+    if (d.where === "sustancia" && c.annex.candidates.length === 0) {
+      return { reason: "V3-28", evidence: `${reads}. Ninguna lleva su nombre: el máximo de las de su CAS, como literatura (cota, nunca «dentro»)` };
     }
     return { reason: "por-cas", evidence: reads };
   }
@@ -275,6 +286,9 @@ const byAnnex: Detector = (d, c) => {
   const own = c.annex.own;
   if (before.borrowed && own !== undefined) return { reason: "V3-23", evidence: `v2: el máximo de las entradas de su CAS (D14); v3: su propia entrada «${own}»` };
   if (before.borrowed && own === undefined) return { reason: "V3-28", evidence: "v2: el máximo de las entradas de su CAS, con autoridad del anexo; v3: lo mismo, como literatura" };
+  if (before.name !== null && own !== undefined && fold(before.name) !== fold(own) && c.annex.candidates.some((n) => fold(n) === fold(before.name!))) {
+    return { reason: "V3-23", evidence: `dos entradas del anexo llevan nombres suyos (${c.annex.candidates.join(", ")}): la v3 toma la del primero de sus nombres, «${own}»; la v2 usó «${before.name}»` };
+  }
   if (before.name !== null && own !== undefined && fold(before.name) !== fold(own)) {
     const many = c.annex.candidates.length > 1 ? ` Hay ${c.annex.candidates.length} entradas con el nombre de un alias suyo (${c.annex.candidates.join(", ")}) y la v3 toma la primera.` : "";
     return { reason: "sin-explicar", evidence: `la v2 usó la entrada «${before.name}» y la v3 usa «${own}».${many}` };

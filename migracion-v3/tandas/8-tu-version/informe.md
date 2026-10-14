@@ -9,7 +9,8 @@
   - **Lo de tu material concreto que la tanda 7 apartó** (V3-43): 424 frases de los textos generales, en el mismo campo. La parte general de cada texto coincide con la aprobada en la tanda 7 (0 diferencias).
   - **El IFRA de segunda mano** (V3-32), en 107: el tipo y el estándar «· sin verificar», sin cifras; 74 notas de condición con cifras se quedan en el laboratorio. Su conflicto pendiente, como «en disputa».
 - **Las filas de tu material** que la tanda 7 apartó (V3-43): 83 descriptores, 75 relaciones, 0 perfumes de referencia y 1 dosis.
-- **Lo que declaran los certificados de tus productos** (V3-39): 62 filas de composición (autoridad `product`; D12: cifras del producto tal como se compra), de 9 materiales, 14 con un material tuyo como componente y 48 con la sustancia por su CAS y su nombre; 13 topes del fabricante, y 2 afirmaciones de una especificación (el cade rectificado, por consenso: supuesta).
+- **Lo que declaran los certificados de tus productos** (V3-39): 66 filas de composición (autoridad `product`; D12: cifras del producto tal como se compra), de 13 materiales, 14 con un material tuyo como componente y 52 con la sustancia por su CAS y su nombre; 13 topes del fabricante, y 2 afirmaciones de una especificación (el cade rectificado, por consenso: supuesta).
+- **Los aislados naturales sin documentos de su producto** (V3-29): 4 llevan «Sin identificar», cantidad desconocida, y quedan pendientes hasta que un documento diga lo que traen: MAT-cumarina-natural (Coumarin), MAT-eucaliptol (Eucalyptol), MAT-eugenol-98 (Eugenol), MAT-geraniol-98 (Geraniol).
 - **Tu laboratorio** (V3-36): 110 «lo tengo», 51 diluciones, 107 catas y 132 ejes.
 
 **Lo que no entra:** la composición del laboratorio (V3-33), las voces (V3-40) y la dilución de compra de tus frascos (no se registra: la dilución se elige en la app).
