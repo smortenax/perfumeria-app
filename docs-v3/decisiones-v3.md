@@ -1052,7 +1052,7 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 
 **Cómo se aplica:** la tanda 11 los añade a lo común con los datos que tenía la app de la v2 (sus nombres, su CAS y su sigla), cada uno en su categoría. Es una excepción acotada a V3-34, que la v3 no herede materiales de la v2: son cuatro disolventes que el banco ofrece.
 
-## V3-52 · Los huecos del glosario se buscan en la web, material por material: fabricante y TGSC primero (decidida por el usuario el 2026-10-15)
+## V3-54 · Los huecos del glosario se buscan en la web, material por material: fabricante y TGSC primero (decidida por el usuario el 2026-10-15)
 
 **Pregunta** (sesión de la referencia ScentFriends): el usuario pide que «se buscaran los materiales uno por uno en la web y se añadieran descriptivos de los que faltan», porque las categorías de ScentFriends «no son las mismas que yo uso». ¿Qué se rellena y con qué fuentes?
 
@@ -1068,7 +1068,7 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 - **Cada dato lleva URL, la frase que lo dice y qué fuente es** (fabricante, TGSC o tienda). De las tiendas no se copia prosa: solo el dato y su frase corta. Mala información es peor que ninguna (V3-51): si no se encuentra, queda vacío.
 - **Entra por una tanda**, escrita por script desde el CSV de la búsqueda, que apruebas.
 
-## V3-53 · De ScentFriends: la hoja de pesada exportable y la etiqueta de dilución (apuntada por el usuario el 2026-10-15; cuándo, sin decidir)
+## V3-55 · De ScentFriends: la hoja de pesada exportable y la etiqueta de dilución (apuntada por el usuario el 2026-10-15; cuándo, sin decidir)
 
 **Literal** (2026-10-15): «ademas tambien tienen esta feature de exportacion que me parece bien, y un creador de diluciones en el que figura un boton para imprimir etiquetas que tambien es muy practico».
 
