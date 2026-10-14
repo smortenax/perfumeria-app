@@ -751,6 +751,29 @@ La tanda les ponía el techo a todos sus miembros. ¿Cómo entra cada uno?
 
 **Por qué** (del mensaje): «que no vivan juntos dentro de toda la info de material» y «que esta informacion sea mas privada de alguna manera».
 
+## V3-36 · Lo común y lo tuyo, como en tu biblioteca, y todo desde ya (decidida por el usuario el 2026-10-14)
+
+**Pregunta** (tarjeta del hilo, abierta por V3-34): ¿qué va a lo común y qué a tu versión? La biblioteca del laboratorio ya separa una capa estándar (global, `owner_id` vacío, donde están tus 111 materiales) de una capa de usuario (las tablas `user_*`) (`../Perfumery/biblioteca/esquema.sql`).
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «La de tu biblioteca, toda ya (Recomendado)» (2026-10-14): «Lo estándar de esquema.sql va a lo común y las tablas user_* a tu versión, todo desde ahora: también tu cata, tus ejes y tus diluciones. Cuesta las tablas nuevas en el esquema de la v3 (descriptores, relaciones, referencias, física, cata, ejes y diluciones), cada una con su prueba.»
+
+**Cómo se aplica:**
+
+- **A lo común:**
+  - el material: su identidad, su núcleo y los campos de su tipo;
+  - los sinónimos (1049) y los datos físicos (108);
+  - los descriptores por fuente (1173) y las relaciones (1156);
+  - los perfumes de referencia (91) y las dosis por fuente (483);
+  - los conflictos pendientes, como «en disputa» (V3-17).
+
+  Las cifras, de `materiales.sqlite`.
+- **A tu versión:** tu frasco (`user_materials`: tienda, producto, grado, casa declarada), tus diluciones preparadas (`user_bottles`), tu cata (`user_evaluations`), tus ejes (`user_material_axes`) y «lo que tengo».
+- **Cambia V3-14** (los descriptores, las relaciones, la física y las referencias ya no esperan) **y el plan §46** (la capa del usuario entra con tus datos).
+- **Aparte:** la composición del laboratorio (V3-33) y el IFRA de segunda mano. Este último no entra en la capa de IFRA, que sale solo de los archivos de IFRA (V3-35).
+- **La correspondencia de cada material tuyo con la v2** (`migracion-v3/respuestas/laboratorio.csv`) se sigue usando. De ella salen la familia cerrada (P48), la abreviatura, el CAS que enlaza con IFRA y la composición de los documentos.
+
+**Por qué** (la recomendación de la sesión que elegiste): es la división que el laboratorio ya probó con tus 111 materiales, y V3-34 pide que lo general sea la fuente global y lo tuyo, tu ampliación.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
