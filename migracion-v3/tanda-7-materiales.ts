@@ -22,6 +22,7 @@ import { pctToFraction } from "./lib/cifras.ts";
 import { type Cell, writeTable } from "./lib/csv.ts";
 import { many, readSources, type Row } from "./lib/fuentes.ts";
 import { uuidFor } from "./lib/ids.ts";
+import { isPersonalRow, shopsOf, splitPersonal, tagsOf } from "./lib/personal.ts";
 
 const LAB = "../Perfumery/biblioteca/materiales.sqlite";
 const ANSWERS = "migracion-v3/respuestas/laboratorio.csv";
@@ -49,7 +50,7 @@ const HEADINGS = [
   "Abreviaturas",
   "Familias",
   "CAS",
-  "Texto que parece del usuario o de su tienda",
+  "Lo tuyo, a tu versión (V3-43)",
   "En disputa",
   "IFRA sin verificar",
   "Duplicados fusionados y dosis",
@@ -135,6 +136,24 @@ const grouped = (sql: string, key: string, valueOf: (r: LabRow) => string) => {
 const synonyms = grouped("select material_id, name from material_synonyms order by name", "material_id", (r) => text(r.name));
 const physical = new Map(all("select * from material_physical").map((p) => [text(p.material_id), p]));
 const pendingConflicts = grouped("select material_id, field from conflicts where status = 'pendiente' order by field", "material_id", (r) => text(r.field));
+
+// ------------------------------------------------------------ V3-43: what speaks of the user's own material goes to their version
+// Only the shop of each bottle is read from user_materials, to tell the user's sentences and rows apart.
+const labSources = all("select id, name from sources").map((s) => ({ id: text(s.id), name: text(s.name) }));
+const shopsByMaterial = new Map(all("select material_id, supplier from user_materials").map((u) => [text(u.material_id), shopsOf(text(u.supplier))]));
+const shopsFor = (id: string) => shopsByMaterial.get(id) ?? [];
+const tagsFor = (id: string) => tagsOf(shopsFor(id), labSources);
+/** The free-text columns of the card, split sentence by sentence (lib/personal.ts). */
+const NARRATIVE = [
+  "notes", "isomers", "handling", "recommended_dilution", "origin", "threshold", "diffusion", "blend_effect", "cost", "odor_target", "house",
+  "family_detail", "facets", "physical_state", "appearance", "stains", "solubility", "vapor_pressure", "stability", "incompatibilities",
+] as const;
+const toVersion = { sentences: [] as string[], descriptors: [] as string[], relations: [] as string[], references: [] as string[], doses: [] as string[] };
+const general = (id: string, column: string, value: string | null): string | null => {
+  const split = splitPersonal(value, shopsFor(id));
+  for (const sentence of split.moved) toVersion.sentences.push(`${id} · \`${column}\`: «${sentence}»`);
+  return split.general;
+};
 const ifraEntries = new Map<string, LabRow[]>();
 for (const e of all("select * from ifra_entries order by standard")) ifraEntries.set(text(e.material_id), [...(ifraEntries.get(text(e.material_id)) ?? []), e]);
 
@@ -334,6 +353,9 @@ for (const m of materials) {
     // V3-32: «Lo común no lo lleva»; the lab's second-hand IFRA goes to the user's version (batch 8), and its dispute with it.
     confidence: optional(CONFIDENCE, m.confidence, "confianza", id), disputed_fields: disputed.filter((f) => f !== "ifra_unverified"), ifra_unverified: null,
   });
+  // V3-43: here, only the general part of each text; what speaks of your material goes to your version (batch 8).
+  const row = materialRows[materialRows.length - 1];
+  for (const column of NARRATIVE) row[column] = general(id, column, row[column] as string | null);
 }
 const labIdOfRow = new Map(materialRows.map((r, i) => [r, text(materials[i].id)]));
 
@@ -364,6 +386,10 @@ for (const d of all("select * from material_descriptors order by material_id, so
     note("Otros", `${labId}: un descriptor sin fuente o sin texto no entra.`);
     continue;
   }
+  if (isPersonalRow(body, source, shopsFor(labId), tagsFor(labId))) {
+    toVersion.descriptors.push(`${labId} · ${source}: «${body}»`);
+    continue;
+  }
   push(descriptors, "comun-descriptor", [labId, source, body], { material_id: common(labId), owner_id: null, source, text: body });
 }
 for (const r of all("select * from material_relations order by material_id, kind, other_id, other_text")) {
@@ -376,6 +402,10 @@ for (const r of all("select * from material_relations order by material_id, kind
     continue;
   }
   const [relNote, relSources] = [required(r.note) || null, required(r.sources) || null];
+  if (isPersonalRow(`${otherText ?? ""} ${relNote ?? ""}`, relSources ?? "", shopsFor(labId), tagsFor(labId))) {
+    toVersion.relations.push(`${labId} · ${text(r.kind)} ${otherLab ?? otherText}: «${relNote ?? ""}»`);
+    continue;
+  }
   push(relations, "comun-relation", [labId, text(r.kind), otherLab, otherText, relNote, relSources], {
     material_id: common(labId), owner_id: null, kind: text(r.kind), other_id: otherLab === null ? null : common(otherLab),
     other_text: otherLab === null ? otherText : null, note: relNote, sources: relSources,
@@ -389,6 +419,10 @@ for (const r of all("select * from material_references order by material_id, per
     continue;
   }
   const [house, refNote, refSources] = [required(r.house) || null, required(r.note) || null, required(r.sources) || null];
+  if (isPersonalRow(`${perfume} ${house ?? ""} ${refNote ?? ""}`, refSources ?? "", shopsFor(labId), tagsFor(labId))) {
+    toVersion.references.push(`${labId} · ${perfume}: «${refNote ?? ""}»`);
+    continue;
+  }
   push(references, "comun-reference", [labId, perfume, house, refNote, refSources], {
     material_id: common(labId), owner_id: null, perfume, house, note: refNote, sources: refSources,
   });
@@ -428,6 +462,10 @@ for (const d of all("select * from material_dosages order by material_id, kind, 
     continue;
   }
   const said = [required(d.text), text(d.confidence) ? `confianza: ${text(d.confidence)}` : "", basis === "undeclared" && text(d.basis) !== "sin declarar" ? `base: ${text(d.basis)}` : ""].filter((t) => t);
+  if (isPersonalRow(text(d.text), text(d.sources), shopsFor(id), tagsFor(id))) {
+    toVersion.doses.push(`${id} · ${text(d.sources)}: «${required(d.text)}»`);
+    continue;
+  }
   push(doses, "comun-dose", [id, text(d.kind), text(d.basis), d.min_pct, d.typical_pct, d.max_pct, text(d.text), text(d.sources), text(d.confidence)], {
     material_id: common(id), owner_id: null, min, typical, max, basis,
     authority: DOSE_AUTHORITY[text(d.kind)] ?? "consensus", source: required(d.sources) ? `lab: ${required(d.sources)}` : "lab",
@@ -489,13 +527,18 @@ for (const r of doses.rows) {
 }
 if (problems.length) throw new Error(`La tanda no cumple el esquema:\n${problems.slice(0, 20).join("\n")}`);
 
-// ------------------------------------------------------------ what looks like the user's or a shop's, in general fields
-const PERSONAL = /(Olfatorium|\bkit\b|el usuario|del usuario|\bse compr[oó]|\bse pes[oó]|mi frasco|mi lote)/i;
-for (const column of ["notes", "isomers", "physical_state", "handling", "blend_effect", "recommended_dilution", "origin", "house", "threshold", "diffusion", "stability", "incompatibilities", "ifra_unverified"] as const) {
-  const hits = materialRows.filter((r) => PERSONAL.test(text(r[column])));
-  if (!hits.length) continue;
-  note("Texto que parece del usuario o de su tienda", `\`${column}\`: ${hits.length} materiales (${hits.length <= 8 ? hits.map((r) => labIdOfRow.get(r)).join(", ") : "ver el CSV"}) hablan de «Olfatorium», «el kit», «el usuario» o de cuándo se compró o se pesó. Entra tal cual, como pediste que entre lo del laboratorio.`);
+// ------------------------------------------------------------ V3-43: what still looks yours after the split
+for (const r of materialRows) {
+  const id = labIdOfRow.get(r)!;
+  for (const column of NARRATIVE) {
+    const value = text(r[column]);
+    if (value && isPersonalRow(value, "", shopsFor(id), tagsFor(id))) note("Lo tuyo, a tu versión (V3-43)", `${id} · \`${column}\`: aún nombra tu tienda o tu frasco después de separar; revisar.`);
+  }
 }
+note(
+  "Lo tuyo, a tu versión (V3-43)",
+  `Pasan a tu versión, y no entran aquí: ${toVersion.sentences.length} frases de los textos generales, ${toVersion.descriptors.length} descriptores, ${toVersion.relations.length} relaciones, ${toVersion.references.length} perfumes de referencia y ${toVersion.doses.length} dosis. La lista entera, al final del informe.`,
+);
 
 // ------------------------------------------------------------ notes on the disputes and the IFRA text
 const notColumns = new Map<string, number>();
@@ -561,6 +604,18 @@ const fieldRows: Array<[string, string, string]> = [
   ["`owner_id`, `category_id`, `based_on_id`, `grade`, `supplier`, `product`, `product_url`, `purity`", "vacíos: lo común no tiene dueño ni tienda ni frasco; las categorías vienen en un paso posterior", "0"],
 ];
 
+const toVersionReport = (
+  [
+    ["Frases de los textos generales", toVersion.sentences],
+    ["Descriptores", toVersion.descriptors],
+    ["Relaciones", toVersion.relations],
+    ["Perfumes de referencia", toVersion.references],
+    ["Dosis", toVersion.doses],
+  ] as const
+)
+  .map(([title, items]) => [`### ${title} (${items.length})`, "", ...(items.length ? items.map((x) => `- ${x}`) : ["- Ninguna."])].join("\n"))
+  .join("\n\n");
+
 const appendix = traces.map((t) => `| ${t.labId} | ${t.pair} | ${t.v1Id || "—"} | ${t.abbreviation ?? "—"}${t.origin ? ` (${t.origin === "user" ? "tuya" : "generada"})` : ""} | ${t.family ?? "—"} |`).join("\n");
 
 const report = `# Tanda 7 · Los materiales del laboratorio, en lo común
@@ -612,6 +667,12 @@ ${HEADINGS.map((h) => {
 - **Con pareja, pero sin fila en la v1:** ${noV1Row.length}${noV1Row.length ? ` (${noV1Row.map((t) => `${t.labId} → ${t.pair}`).join("; ")})` : ""}.
 - **Sin abreviatura en total:** ${noAbbreviation.length} de ${total}. **Con abreviatura tuya:** ${userAbbreviations}. **Generada, provisional:** ${generated.length}.
 - **Sin familia:** ${noFamily.length} de ${total}${noFamily.length ? ` (${noFamily.map((t) => t.labId).join(", ")})` : ""}.
+
+## Lo que va a tu versión (V3-43)
+
+Una frase es tuya si nombra la tienda de tu frasco de ese material (\`user_materials\`: solo se lee su tienda) o habla de tu compra o de tu frasco («el kit», «se compró», «la compra», «la etiqueta», «el usuario»…); una fila (descriptor, dosis, relación, perfume), si además su fuente es la ficha de tu tienda. Se separa frase a frase y, dentro de una frase, por sus partes separadas por «;». Lo de aquí no entra en lo común: entra en tu versión, en el mismo campo, en la tanda de tu cuenta.
+
+${toVersionReport}
 
 ## Pareja, abreviatura y familia de cada material
 
