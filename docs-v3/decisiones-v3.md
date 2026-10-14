@@ -990,6 +990,22 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 - **Una fórmula de la que sale un acorde no se borra** mientras exista el acorde: su composición depende de ella. Cambia lo de V3-10, que la dejaba en `NULL` (propuesta de la sesión, porque se deduce de la respuesta).
 - **Las fórmulas instantáneas** llevan el papel «congelado de la v2» y un vertido puro por componente, con masas enteras proporcionales a su vector.
 
+## V3-50 · El glosario en rejilla con icono, y pestañas Propios, Generales y Fórmulas (decidida por el usuario el 2026-10-14)
+
+**Respuestas literales** (orko kill, 2026-10-14, en el hilo, con dos imágenes: un icono cuadrado de borde naranja con «34X» y unas pestañas redondeadas con borde):
+
+> para los materiales cambia el formato en el que salen, en vez de en lista en grid con un icono (temporalmente sera este en el futuro tendra visual identitaria) el icono tiene que ser suficietnemetne granda para que debajo quepa la letra de manera visible para la diferencia de materiales, dos pestañas en la parte de lfiltros, un seleccionador como el de la derecha estilo tabs rota entre propios y generales
+
+> una pestaña adicional que sean formulas para que no se mezcle todo
+
+> y las pestañas estan encima de los materiales, donde pone 60 materiales no encima del buscador
+
+**Lectura** (de la sesión):
+
+- **Los materiales, en rejilla:** cada uno con un icono provisional (cuadrado, borde de color, su abreviatura dentro; sin abreviatura, sus iniciales con borde discontinuo) y su nombre debajo, legible. La identidad visual llegará después (V3-47).
+- **Tres pestañas, justo encima de la rejilla** (bajo el buscador y los filtros): **Propios**, **Generales** y **Fórmulas**, al estilo de la imagen, con teclado (flechas, Inicio, Fin). Sustituyen al filtro «De quién». Se abre en Propios (propuesta de la sesión).
+- **Fórmulas, aparte:** tus bancos con sus fórmulas, con sus versiones y marcadores. Se abren en el banco, en la fase 8.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
