@@ -915,6 +915,21 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 
 **Por qué** (la recomendación de la sesión que elegiste): sin ellos, esos materiales salían sin un límite que IFRA les pone, y podían dar «dentro» sin serlo.
 
+## V3-45 · Los códigos de la v1 que no son la abreviatura no entran; las abreviaturas se revisarán (decidida por el usuario el 2026-10-14)
+
+**Pregunta** (tarjeta del hilo, fase 5.2): el buscador de la v3 no encuentra tus materiales por 17 códigos que tenían en la v1: los de otras filas de la v1 de su pareja, que no quedaron como abreviatura (V3-37 deja una). Por ejemplo, PcO del patchouli (la v3 tiene PtO), OE del Iso E Super (tiene OT) y LaO del láudano (tiene LaA). 13 son tuyos y 4 generados. ¿Van a otros nombres, solo los tuyos, o fuera?
+
+**Respuesta literal** (orko kill, 2026-10-14, escrita en la tarjeta):
+
+> los codigos de materiales de momento se pueden quedar asi la cosa es que de todas formas hay muchos que tientn que cambiar (por ejemplo se usa su nombre quimico en vez de nombre comercial para la abreviacion y eso confunde)
+
+**Lectura** (de la sesión):
+
+- **Los códigos se quedan como están:** cada material lleva su abreviatura (V3-37) y los otros códigos de la v1 de su pareja no van a otros nombres. El buscador no los encuentra, y la fase 5.2 lo cuenta como esperado.
+- **Muchas abreviaturas tendrán que cambiar:** algunas salen del nombre químico en vez del comercial, y eso confunde. Queda para más adelante (`docs/a-futuro.md`), con el «el criterio se revisará» de V3-37.
+
+**Y sobre los CAS** (la misma tarjeta, segunda pregunta): 7 CAS de la v1 que no estaban en tu material de la v3 (`migracion-v3/conflictos/cas-de-la-v1.csv`). El usuario eligió «Acepto todas (Recomendado)»: los 6 cuya fila de la v1 se llama como tu material van a `other_cas`, y el del Aldambre (947-05-7, «Oxacyclotridecan-2-one») queda fuera. **Después, el del olíbano, fuera** (tarjeta siguiente, «Fuera (Recomendado)»): 8016-36-2 es el CAS de la entrada genérica «Olibanum oil» del anexo. Con él, la v3 tomaría esa entrada y no la de sacra (V3-23), y su IFRA cambiaría (sin carvona; tuyona del 0,3 % al 0,5 %). La recomendación lo pasó por alto; desde entonces, un CAS que haría candidata a otra entrada del anexo se recomienda «fuera». Las respuestas, en `migracion-v3/respuestas/cas-de-la-v1.csv`. No es una decisión nueva: aplica V3-16, que la tanda 7 no había aplicado entera. Ahora también entran los CAS de la entrada propia de cada natural en el anexo, la de su nombre, como la elige el adaptador (V3-23). Esa forma de leer V3-16 es propuesta de la sesión.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).

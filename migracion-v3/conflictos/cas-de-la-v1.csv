@@ -1,0 +1,8 @@
+id,nombre,tipo,cas_de_la_v3,cas_de_la_v1,fila_de_la_v1,nombre_en_la_v1,recomendacion,motivo
+MAT-aldambre,Aldambre,molecule,1725-03-7,947-05-7,tl:947-05-7,Oxacyclotridecan-2-one,fuera,"ninguna fila de la v1 con ese CAS comparte nombre con tu material: la v2 las juntó con su pareja, y puede ser otra forma u otra sustancia"
+MAT-ambar-gris-tintura,"Ámbar gris, tintura comercial (purificado)",natural,84836-94-2,8038-65-1,fig:1069,Ambergris tincture,otro CAS,"una fila de la v1 con ese CAS se llama como tu material («Ambergris tincture»): es el mismo, con otro CAS"
+MAT-ambrettolide,Ambrettolide,molecule,63286-42-0,123-69-3,fig:183,Ambrettolide,otro CAS,"una fila de la v1 con ese CAS se llama como tu material («Ambrettolide»): es el mismo, con otro CAS"
+MAT-dihydromyrcenol,Dihydromyrcenol,molecule,18479-58-8,53219-21-9,fig:946,Dihydromyrcenol,otro CAS,"una fila de la v1 con ese CAS se llama como tu material («Dihydromyrcenol»): es el mismo, con otro CAS"
+MAT-haba-tonka-tintura,"Haba tonka (semillas), tintura comercial",natural,90028-06-1,8024-04-2,fig:2990 fig:2992,Tonka bean extract | Tonka bean tincture,otro CAS,"una fila de la v1 con ese CAS se llama como tu material («Tonka bean tincture»): es el mismo, con otro CAS"
+MAT-musgo-de-roble-absoluto,"Musgo de roble, absoluto",natural,90028-68-5,9000-50-4,fig:2480,Oakmoss absolute,otro CAS,"una fila de la v1 con ese CAS se llama como tu material («Oakmoss absolute»): es el mismo, con otro CAS"
+MAT-olibano-boswellia-sacra-aceite-esencial,"Olíbano (Boswellia sacra), aceite esencial",natural,89957-98-2,8016-36-2,fig:2521,Olibanum oil,fuera,"es el CAS de otra entrada del anexo de IFRA («Olibanum oil»): con él sería candidata y podría ser la suya (V3-23), con otro IFRA"

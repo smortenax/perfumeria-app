@@ -24,7 +24,7 @@ Tipos: molecule 74, natural 30, composition 7 (el del laboratorio). Cada columna
 | `name`, `kind`, `form`, `house`, `code`, `odor_target`, `synthesis`, `isomers`, `species`, `part`, `process`, `chemotype`, `inci`, `origin` | `materials` del laboratorio (`origin` es su «procedencia»; el tipo, el del laboratorio) | `name` 111, `kind` 111, `cas` 103, `inci` 44, `species` 29, `origin` 28 |
 | `solvent` | función «disolvente» del laboratorio (entonces `role` queda vacío) | 3 |
 | `aliases` | `material_synonyms` del laboratorio, más el nombre del material de la v2 y los nombres de las filas de la v1 de la pareja (comercial, sigla, IFRA, sinónimos, PubChem, transparencia, tiendas; no el código); sin repetir el nombre ni mayúsculas distintas | 111 materiales; 922 nombres vienen de la pareja |
-| `cas`, `other_cas` | el primer CAS que encuentra `\b\d{2,7}-\d{2}-\d\b` en el texto de CAS del laboratorio; el resto, en orden y sin repetir | `cas` 103, `other_cas` 11 |
+| `cas`, `other_cas` | el primer CAS que encuentra `\b\d{2,7}-\d{2}-\d\b` en el texto de CAS del laboratorio; el resto, en orden y sin repetir; después (V3-16), los de la entrada propia de un natural en el anexo de IFRA (la de su nombre, como la elige el adaptador, V3-23) y los `otros_cas` de las filas de la v1 de su pareja; el CAS de una fila de la v1 que no es ninguno de ellos, solo si respondes «otro CAS» en `respuestas/cas-de-la-v1.csv` | `cas` 103, `other_cas` 26; 14 CAS del anexo, 0 de la v1 y 5 de tus respuestas |
 | `abbreviation`, `abbreviation_origin` | `codigo` y `codigo_origen` de la pareja del material en la v1 (V3-37): `usuario` → `user`, `generado` → `generated`; única en la tanda | 97 del usuario, 5 generadas |
 | `family` | `familia` de la pareja en la v1, en la lista cerrada de P48 (V3-18, V3-38) | 97 de 111 |
 | `color` | vacío: sale de la paleta de la familia (V3-38) | 0 |
@@ -131,6 +131,18 @@ Tipos: molecule 74, natural 30, composition 7 (el del laboratorio). Cada columna
 ### Otros (0)
 
 - Nada.
+
+### CAS de la v1 que no son de tu material en la v3 (7)
+
+No se juntan en silencio: van a `conflictos/cas-de-la-v1.csv` con una recomendación, y los decides tú en `respuestas/cas-de-la-v1.csv` («otro CAS» o «fuera»). Sin respuesta, no entran.
+
+- MAT-aldambre: **947-05-7** (fila tl:947-05-7 de la v1, «Oxacyclotridecan-2-one»; la v3 tiene 1725-03-7) → recomendado «fuera»; tu respuesta: «fuera»
+- MAT-ambar-gris-tintura: **8038-65-1** (fila fig:1069 de la v1, «Ambergris tincture»; la v3 tiene 84836-94-2) → recomendado «otro CAS»; tu respuesta: «otro CAS»
+- MAT-ambrettolide: **123-69-3** (fila fig:183 de la v1, «Ambrettolide»; la v3 tiene 63286-42-0) → recomendado «otro CAS»; tu respuesta: «otro CAS»
+- MAT-dihydromyrcenol: **53219-21-9** (fila fig:946 de la v1, «Dihydromyrcenol»; la v3 tiene 18479-58-8) → recomendado «otro CAS»; tu respuesta: «otro CAS»
+- MAT-haba-tonka-tintura: **8024-04-2** (fila fig:2990 fig:2992 de la v1, «Tonka bean extract | Tonka bean tincture»; la v3 tiene 90028-06-1) → recomendado «otro CAS»; tu respuesta: «otro CAS»
+- MAT-musgo-de-roble-absoluto: **9000-50-4** (fila fig:2480 de la v1, «Oakmoss absolute»; la v3 tiene 90028-68-5) → recomendado «otro CAS»; tu respuesta: «otro CAS»
+- MAT-olibano-boswellia-sacra-aceite-esencial: **8016-36-2** (fila fig:2521 de la v1, «Olibanum oil»; la v3 tiene 89957-98-2) → recomendado «fuera»; tu respuesta: «fuera»
 
 ### Resumen de abreviaturas y familias
 

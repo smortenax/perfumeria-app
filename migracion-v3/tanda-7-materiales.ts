@@ -14,7 +14,7 @@
  *   node migracion-v3/tanda-7-materiales.ts
  */
 import { execSync } from "node:child_process";
-import { readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { DatabaseSync } from "node:sqlite";
 import { parseCsvRecords } from "../src/data/csv.ts";
@@ -214,6 +214,34 @@ function chooseRow(labNames: ReadonlySet<string>, pair: Pair): { chosen: PairRow
   return { chosen: ranked[0]?.r ?? null, others: ranked.slice(1).map((x) => x.r) };
 }
 
+// ------------------------------------------------------------ the other CAS (V3-16): IFRA's annex and the v1
+/** Each natural of IFRA's annex, in the file's order, with all its CAS (`cas_principal` and `otros_cas`). */
+const annexCas = new Map<string, string[]>();
+for (const r of src.ifraNaturals) {
+  const list = annexCas.get(r.nombre) ?? [];
+  for (const c of [r.cas_principal, ...(r.otros_cas.match(CAS) ?? [])]) if (c && !list.includes(c)) list.push(c);
+  annexCas.set(r.nombre, list);
+}
+const foldName = (s: string) => s.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase().trim();
+/**
+ * A natural's own entry in the annex, as the adapter chooses it (V3-23, v3/src/db/to-ifra.ts): among the entries
+ * with one of its CAS, the one with the first of its names; the brackets of an annex's name say no variant.
+ */
+function ownEntry(names: readonly string[], cas: readonly string[]): string | null {
+  const candidates = [...annexCas].filter(([, list]) => list.some((c) => cas.includes(c))).map(([n]) => n);
+  const isName = (entry: string, n: string) => foldName(n) === foldName(entry) || foldName(n) === foldName(entry.replace(/\s*\([^)]*\)\s*$/, ""));
+  return names.map((n) => candidates.find((e) => isName(e, n))).find((e) => e !== undefined) ?? null;
+}
+/** Your answers to conflictos/cas-de-la-v1.csv, by «<lab id> <CAS>». */
+const CAS_CONFLICTS = "migracion-v3/conflictos/cas-de-la-v1.csv";
+const CAS_ANSWERS = "migracion-v3/respuestas/cas-de-la-v1.csv";
+const casAnswers = new Map(
+  (existsSync(CAS_ANSWERS) ? parseCsvRecords(readFileSync(CAS_ANSWERS, "utf8")) : []).map((r) => [`${r.id} ${r.cas_de_la_v1}`, r.respuesta.trim()]),
+);
+const casConflicts: Array<Record<string, Cell>> = [];
+let casFromAnnex = 0;
+let casFromV1 = 0;
+
 // ------------------------------------------------------------ the IFRA of second hand (V3-32), as in batch 5
 let conditionsLeft = 0;
 /** The kind, the standard and the condition, without figures; a condition with figures stays in the lab. */
@@ -318,6 +346,41 @@ for (const m of materials) {
   const casList = [...new Set(casText.match(CAS) ?? [])];
   if (casText && !casList.length) note("CAS", `${id}: el texto de CAS del laboratorio no trae ningún CAS («${casText}»): queda vacío.`);
   else if (casText && casText.replace(CAS, "").replace(/[\s/;,]+/g, "") !== "") note("CAS", `${id}: el texto de CAS lleva más que los números (se pierde lo que no es CAS): «${casText}»`);
+  // The other CAS (V3-16): after the lab's, a natural's own entry in IFRA's annex and the v1's `otros_cas` of its pair.
+  const own = kind === "natural" ? ownEntry([name, ...aliases], casList) : null;
+  const fromAnnex = own ? annexCas.get(own)!.filter((c) => !casList.includes(c)) : [];
+  const fromV1 = pair.rows.flatMap((r) => r.row.otros_cas.match(CAS) ?? []).filter((c) => !casList.includes(c) && !fromAnnex.includes(c));
+  const casAll = [...new Set([...casList, ...fromAnnex, ...fromV1])];
+  casFromAnnex += fromAnnex.length;
+  casFromV1 += new Set(fromV1).size;
+  // The CAS of a v1 row of its pair that is none of those is not merged in silence: you decide it.
+  const v3Cas = casAll.join(" ");
+  const foreign = [...new Set(pair.rows.map((r) => r.row.cas.trim()).filter((c) => c && !casAll.includes(c)))];
+  for (const v1Cas of foreign) {
+    const rows = pair.rows.filter((r) => r.row.cas.trim() === v1Cas);
+    const rowNames = rows.flatMap((r) => [r.row.nombre, r.row.nombre_comercial, ...many(r.row.otros_nombres_comerciales), ...many(r.row.sinonimos), ...many(r.row.nombre_ifra)]).filter((n) => n);
+    const shared = rowNames.find((n) => labNames.has(nameKey(n)));
+    // A CAS that would make another entry of the annex a candidate may change which entry is its own (V3-23), so its IFRA.
+    const entriesOf = (cas: readonly string[]) => [...annexCas].filter(([, list]) => list.some((c) => cas.includes(c))).map(([n]) => n);
+    const newEntries = kind === "natural" ? entriesOf([v1Cas]).filter((e) => !entriesOf(v3Cas.split(" ")).includes(e)) : [];
+    const recommended = shared && newEntries.length === 0 ? "otro CAS" : "fuera";
+    if (casAnswers.get(`${id} ${v1Cas}`) === "otro CAS") casAll.push(v1Cas);
+    casConflicts.push({
+      id,
+      nombre: name,
+      tipo: kind,
+      cas_de_la_v3: v3Cas,
+      cas_de_la_v1: v1Cas,
+      fila_de_la_v1: rows.map((r) => r.v1Id).join(" "),
+      nombre_en_la_v1: rows.map((r) => r.row.nombre_comercial || r.row.nombre).join(" | "),
+      recomendacion: recommended,
+      motivo: !shared
+        ? `ninguna fila de la v1 con ese CAS comparte nombre con tu material: la v2 las juntó con su pareja, y puede ser otra forma u otra sustancia`
+        : newEntries.length
+          ? `es el CAS de otra entrada del anexo de IFRA (${newEntries.map((e) => `«${e}»`).join(", ")}): con él sería candidata y podría ser la suya (V3-23), con otro IFRA`
+          : `una fila de la v1 con ese CAS se llama como tu material («${shared}»): es el mismo, con otro CAS`,
+    });
+  }
 
   const ph = physical.get(id);
   const phValue = (column: string) => text(ph?.[column]).trim() || null;
@@ -333,7 +396,7 @@ for (const m of materials) {
 
   materialRows.push({
     id: common(id), owner_id: null, name, kind, solvent: roleText === "disolvente", aliases,
-    cas: casList[0] ?? null, other_cas: casList.slice(1),
+    cas: casAll[0] ?? null, other_cas: casAll.slice(1),
     species: value("species"), part: value("part"), process: value("process"), chemotype: value("chemotype"), inci: value("inci"), origin: value("origin"),
     abbreviation, abbreviation_origin: abbreviationOrigin, category_id: null, form: value("form"), based_on_id: null,
     grade: null, supplier: null, product: null, product_url: null, purity: null,
@@ -566,6 +629,7 @@ if (dosesWithoutFigures) note("Duplicados fusionados y dosis", `${dosesWithoutFi
 
 // ------------------------------------------------------------ files
 writeTable(join(OUT, "materials.csv"), MATERIAL_COLUMNS, materialRows);
+writeTable(CAS_CONFLICTS, ["id", "nombre", "tipo", "cas_de_la_v3", "cas_de_la_v1", "fila_de_la_v1", "nombre_en_la_v1", "recomendacion", "motivo"], casConflicts);
 writeTable(join(OUT, "material_descriptors.csv"), ["id", "material_id", "owner_id", "source", "text"], descriptors.rows);
 writeTable(join(OUT, "material_relations.csv"), ["id", "material_id", "owner_id", "kind", "other_id", "other_text", "note", "sources"], relations.rows);
 writeTable(join(OUT, "material_references.csv"), ["id", "material_id", "owner_id", "perfume", "house", "note", "sources"], references.rows);
@@ -588,7 +652,7 @@ const fieldRows: Array<[string, string, string]> = [
   ["`name`, `kind`, `form`, `house`, `code`, `odor_target`, `synthesis`, `isomers`, `species`, `part`, `process`, `chemotype`, `inci`, `origin`", "`materials` del laboratorio (`origin` es su «procedencia»; el tipo, el del laboratorio)", `\`name\` ${filled("name")}, \`kind\` ${filled("kind")}, \`cas\` ${filled("cas")}, \`inci\` ${filled("inci")}, \`species\` ${filled("species")}, \`origin\` ${filled("origin")}`],
   ["`solvent`", "función «disolvente» del laboratorio (entonces `role` queda vacío)", `${tally((r) => r.solvent === true)}`],
   ["`aliases`", `\`material_synonyms\` del laboratorio, más el nombre del material de la v2 y los nombres de las filas de la v1 de la pareja (comercial, sigla, IFRA, sinónimos, PubChem, transparencia, tiendas; no el código); sin repetir el nombre ni mayúsculas distintas`, `${filled("aliases")} materiales; ${aliasesFromPair} nombres vienen de la pareja`],
-  ["`cas`, `other_cas`", "el primer CAS que encuentra `\\b\\d{2,7}-\\d{2}-\\d\\b` en el texto de CAS del laboratorio; el resto, en orden y sin repetir", `\`cas\` ${filled("cas")}, \`other_cas\` ${filled("other_cas")}`],
+  ["`cas`, `other_cas`", "el primer CAS que encuentra `\\b\\d{2,7}-\\d{2}-\\d\\b` en el texto de CAS del laboratorio; el resto, en orden y sin repetir; después (V3-16), los de la entrada propia de un natural en el anexo de IFRA (la de su nombre, como la elige el adaptador, V3-23) y los `otros_cas` de las filas de la v1 de su pareja; el CAS de una fila de la v1 que no es ninguno de ellos, solo si respondes «otro CAS» en `respuestas/cas-de-la-v1.csv`", `\`cas\` ${filled("cas")}, \`other_cas\` ${filled("other_cas")}; ${casFromAnnex} CAS del anexo, ${casFromV1} de la v1 y ${casConflicts.filter((c) => casAnswers.get(`${c.id} ${c.cas_de_la_v1}`) === "otro CAS").length} de tus respuestas`],
   ["`abbreviation`, `abbreviation_origin`", "`codigo` y `codigo_origen` de la pareja del material en la v1 (V3-37): `usuario` → `user`, `generado` → `generated`; única en la tanda", `${userAbbreviations} del usuario, ${generated.length} generadas`],
   ["`family`", "`familia` de la pareja en la v1, en la lista cerrada de P48 (V3-18, V3-38)", fromPair("family")],
   ["`color`", "vacío: sale de la paleta de la familia (V3-38)", "0"],
@@ -660,6 +724,10 @@ ${HEADINGS.map((h) => {
   const items = review.get(h)!;
   return `### ${h} (${items.length})\n\n${items.length ? items.map((n) => `- ${n}`).join("\n") : "- Nada."}`;
 }).join("\n\n")}
+
+### CAS de la v1 que no son de tu material en la v3 (${casConflicts.length})
+
+${casConflicts.length ? `No se juntan en silencio: van a \`conflictos/cas-de-la-v1.csv\` con una recomendación, y los decides tú en \`respuestas/cas-de-la-v1.csv\` («otro CAS» o «fuera»). Sin respuesta, no entran.\n\n${casConflicts.map((c) => `- ${c.id}: **${c.cas_de_la_v1}** (fila ${c.fila_de_la_v1} de la v1, «${c.nombre_en_la_v1}»; la v3 tiene ${c.cas_de_la_v3 || "ninguno"}) → recomendado «${c.recomendacion}»; ${casAnswers.has(`${c.id} ${c.cas_de_la_v1}`) ? `tu respuesta: «${casAnswers.get(`${c.id} ${c.cas_de_la_v1}`)}»` : "sin responder"}`).join("\n")}` : "- Ninguno."}
 
 ### Resumen de abreviaturas y familias
 
