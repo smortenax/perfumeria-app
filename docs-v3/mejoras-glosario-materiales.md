@@ -58,6 +58,15 @@ Sin familia, la app no le da color (V3-38). La familia sale de la pareja en la v
 - **Generadas, provisionales:** 5. **Tuyas, del glosario de la v1:** 97.
 - **A revisar (V3-45):** muchas salen del nombre químico en vez del comercial, y eso confunde. La lista entera, con la columna «abreviatura» de la tabla de abajo. Los otros códigos de la v1 de cada pareja no entraron (V3-45).
 
+## A auditar (V3-51)
+
+Lo que se sabe mal o dudoso, para corregirlo como detalle: mala información es peor que falta de información. La lista es `migracion-v3/auditoria.csv`; se añade una fila por hallazgo.
+
+| Id | Material | Campo | Problema | Pista |
+|---|---|---|---|---|
+| A001 | Aldambre | aliases | Tiene sinónimos que no son el Aldambre: Dodecanolactone, dodecalactone, Oxacyclododecan-2-one, 2-Oxacyclododecan-1-one, 12-dodecanolide | Vienen de la fila tl:947-05-7 de la v1 («Oxacyclotridecan-2-one»), que la v2 juntó con su pareja; su CAS ya quedó fuera (V3-45) |
+| A002 | (varios) | aliases | Otras filas de la v1 de una pareja que no comparten nombre ni CAS con tu material pueden haber traído sinónimos ajenos | Las 6 de la fase 5.2: Aldambre, Artemisa, Cedro chino, Cilantro, Haba tonka, Láudano de jara (migracion-v3/fase-5/buscador.md) |
+
 ## Material por material
 
 «sí»: lo tiene; «—»: le falta; «·»: no aplica.

@@ -17,6 +17,7 @@ const materials = table("materials").filter((m) => m.owner_id === "");
 const withRows = (name: string) => new Set(table(name).map((r) => r.material_id));
 const descriptors = withRows("material_descriptors");
 const doses = withRows("material_doses");
+const audit = parseCsvRecords(readFileSync("migracion-v3/auditoria.csv", "utf8"));
 const commit = execSync("git log -1 --format=%h -- v3/datos", { encoding: "utf8" }).trim();
 
 const KIND: Readonly<Record<string, string>> = { molecule: "molécula", natural: "natural", composition: "base" };
@@ -78,6 +79,14 @@ ${noFamily.map((m) => `- ${m.name} (${KIND[m.kind] ?? m.kind})`).join("\n")}
 - **Sin abreviatura (${noAbbreviation.length}):** ${noAbbreviation.map((m) => m.name).join(" · ")}.
 - **Generadas, provisionales:** ${materials.filter((m) => m.abbreviation_origin === "generated").length}. **Tuyas, del glosario de la v1:** ${materials.filter((m) => m.abbreviation_origin === "user").length}.
 - **A revisar (V3-45):** muchas salen del nombre químico en vez del comercial, y eso confunde. La lista entera, con la columna «abreviatura» de la tabla de abajo. Los otros códigos de la v1 de cada pareja no entraron (V3-45).
+
+## A auditar (V3-51)
+
+Lo que se sabe mal o dudoso, para corregirlo como detalle: mala información es peor que falta de información. La lista es \`migracion-v3/auditoria.csv\`; se añade una fila por hallazgo.
+
+| Id | Material | Campo | Problema | Pista |
+|---|---|---|---|---|
+${audit.map((r) => `| ${r.id} | ${cell(r.material)} | ${r.campo} | ${cell(r.problema)} | ${cell(r.pista)} |`).join("\n")}
 
 ## Material por material
 

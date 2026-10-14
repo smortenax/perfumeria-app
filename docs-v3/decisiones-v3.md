@@ -1024,6 +1024,18 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 
 - **Desplegadas, a la mitad y de cuatro en cuatro:** cada hueco de la rejilla lleva 2×2 fórmulas pequeñas (su icono y su nombre); un acorde, con un anillo alrededor del icono (propuesta de la sesión).
 
+## V3-51 · Pulir los materiales es tarea de detalle; mala información es peor que falta de información (decidida por el usuario el 2026-10-15)
+
+**Respuesta literal** (orko kill, 2026-10-15, en el hilo):
+
+> es importante tener en cuenta los materiales que falta por rellenar, tambien hay que auditar algunos de los que ahora hay el pulir los materiales rellenarlos y referenciarlos es una tare titanica que es mejor hacerla como detalles creo yo, porque con la nueva version editar partes de un material es facil, por ejemplo me he dado cuenta que aldambre tiene sinonimos que no se corresponden por ejemplo dodecalactone/=aldambre no hace falta corregirlo ahora pero es ejemplo de que hay que auditar alguna informacion, mala informacion es peor que falta de informacion
+
+**Lectura** (de la sesión):
+
+- **Rellenar, auditar y referenciar los materiales se hace como detalle**, poco a poco, no en una tanda grande: en la v3, cambiar una parte de un material es fácil.
+- **Mala información es peor que falta de información.** Lo dudoso se audita antes de fiarse de ello.
+- **Dónde se apunta:** lo que falta, en la ficha de mejoras (V3-46); lo que está mal o es dudoso, en `migracion-v3/auditoria.csv`, que la ficha enseña en «A auditar». El primero: los sinónimos del Aldambre que no son suyos (dodecalactona…), venidos de una fila de la v1 que la v2 juntó con su pareja.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).

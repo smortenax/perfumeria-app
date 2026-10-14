@@ -1,0 +1,3 @@
+id,material,campo,problema,pista,apuntado
+A001,Aldambre,aliases,"Tiene sinónimos que no son el Aldambre: Dodecanolactone, dodecalactone, Oxacyclododecan-2-one, 2-Oxacyclododecan-1-one, 12-dodecanolide","Vienen de la fila tl:947-05-7 de la v1 («Oxacyclotridecan-2-one»), que la v2 juntó con su pareja; su CAS ya quedó fuera (V3-45)","orko kill, 2026-10-15"
+A002,(varios),aliases,Otras filas de la v1 de una pareja que no comparten nombre ni CAS con tu material pueden haber traído sinónimos ajenos,"Las 6 de la fase 5.2: Aldambre, Artemisa, Cedro chino, Cilantro, Haba tonka, Láudano de jara (migracion-v3/fase-5/buscador.md)","propuesta de la sesión, 2026-10-15"
