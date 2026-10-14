@@ -879,6 +879,23 @@ Las fuentes: codefinity y openskillindex (atributo-valor), stanza.dev y leapcell
 
 **Por qué** (la recomendación de la sesión que elegiste): es la cifra que el laboratorio ya tiene, con una escala conocida, y el banco la necesita para dibujar.
 
+## V3-43 · Lo que habla de tu material concreto va a tu versión, aunque esté en un texto general (decidida por el usuario el 2026-10-14)
+
+**Pregunta** (tarjeta del hilo, tanda 7): ¿qué se hace con el texto de los campos generales que menciona tu tienda o tu frasco? Son 32 notas, 10 campos de isómeros, y la manipulación, la dilución recomendada y la procedencia de 5 aceites (`migracion-v3/tandas/7-materiales/informe.md`). Dicen cosas como «Olfatorium», «el kit» o «se compró».
+
+**Respuesta literal** (orko kill, 2026-10-14, escrita en la tarjeta):
+
+> esa informacion tiene que pertenecer a la parte de ficha de usuario, la informacion general del material que no lo vincula al mio forma parte del glosario general de materiales todas las especificaciones de mi material van al material de mi usuario
+
+**Lectura** (de la sesión):
+
+- **Dentro de un mismo texto se separa**: lo que habla de tu material concreto va a tu versión, y lo general se queda en lo común.
+- **La separación la hace el script, frase a frase** (propuesta de la sesión). Las notas del laboratorio están escritas por líneas («Web: …», «TGSC: …»), y en cada línea se mezclan frases generales con frases de tu frasco.
+  - **Una frase es tuya** si nombra a la tienda de tu frasco de ese material (`user_materials.supplier`) o habla de tu compra o de tu frasco: «el kit», «se compró», «la compra», «la etiqueta», «el usuario», «mi frasco», «mi lote».
+  - **Lo demás es general**, incluidas otras tiendas y fabricantes, que son literatura.
+  - **Cada línea conserva su encabezado** en los dos lados.
+- **Se aplica a todos los campos de texto generales** de la tanda 7. El informe lista cada frase que pasa a tu versión, para que la revises antes de aprobar. Lo tuyo entra en tu versión, en el mismo campo, en la tanda de tu cuenta.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
