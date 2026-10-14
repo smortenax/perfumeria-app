@@ -16,6 +16,7 @@ import {
   type Component,
   type Dose,
   type DoseBasis,
+  type Evolution,
   type MaterialChanges,
   type MaterialFields,
   type MaterialKind,
@@ -67,6 +68,13 @@ function required<T>(value: T | null, what: string): T {
   return value;
 }
 
+/** An intensity of the evolution as the copy keeps it: 0 to 3, or unknown. */
+function evolutionOf(value: number | null): Evolution {
+  if (value === null) return null;
+  if (value === 0 || value === 1 || value === 2 || value === 3) return value;
+  throw new RangeError(`An evolution is 0 to 3: ${value}`);
+}
+
 function fieldsOf(row: typeof local.materials.$inferSelect): MaterialFields {
   return {
     solvent: row.solvent ?? false,
@@ -79,11 +87,15 @@ function fieldsOf(row: typeof local.materials.$inferSelect): MaterialFields {
     chemotype: row.chemotype,
     inci: row.inci,
     origin: row.origin,
+    abbreviation: row.abbreviation,
+    abbreviationOrigin: optionalOf(row.abbreviationOrigin, ["user", "generated"] as const, "abbreviation origin"),
     categoryId: row.categoryId,
     form: row.form,
     basedOnId: row.basedOnId,
     grade: row.grade,
     supplier: row.supplier,
+    product: row.product,
+    productUrl: row.productUrl,
     purity: ratioFromNumeric(row.purity),
     house: row.house,
     code: row.code,
@@ -91,17 +103,42 @@ function fieldsOf(row: typeof local.materials.$inferSelect): MaterialFields {
     synthesis: optionalOf(row.synthesis, ["synthetic", "natural", "semisynthetic"] as const, "synthesis"),
     isomers: row.isomers,
     family: optionalOf(row.family, FAMILIES, "family"),
+    color: row.color,
     familyDetail: row.familyDetail,
     facets: row.facets,
     tier: optionalOf(row.tier, TIERS, "tier"),
-    evolution: row.evolution,
-    tenacity: row.tenacity,
+    tenacityHours: ratioFromNumeric(row.tenacityHours),
+    tenacitySource: row.tenacitySource,
+    evolution: [
+      evolutionOf(row.evolutionTo15m),
+      evolutionOf(row.evolutionTo2h),
+      evolutionOf(row.evolutionTo8h),
+      evolutionOf(row.evolutionTo24h),
+      evolutionOf(row.evolutionBeyond24h),
+    ],
     strength: optionalOf(row.strength, STRENGTHS, "strength"),
     threshold: row.threshold,
     diffusion: row.diffusion,
     blendEffect: row.blendEffect,
     role: row.role,
     recommendedDilution: row.recommendedDilution,
+    cost: row.cost,
+    handling: row.handling,
+    physical: {
+      state: row.physicalState,
+      appearance: row.appearance,
+      stains: row.stains,
+      solubility: row.solubility,
+      density: ratioFromNumeric(row.density),
+      meltingPointC: ratioFromNumeric(row.meltingPointC),
+      formula: row.formula,
+      molecularWeight: ratioFromNumeric(row.molecularWeight),
+      vaporPressure: row.vaporPressure,
+      stability: row.stability,
+      incompatibilities: row.incompatibilities,
+      sources: row.physicalSources,
+    },
+    notes: row.notes,
     sources: row.sources,
     confidence: optionalOf(row.confidence, CONFIDENCES, "confidence"),
     disputedFields: row.disputedFields ?? [],
@@ -196,6 +233,12 @@ function checkFields(fields: Partial<MaterialFields>): void {
   if (fields.tier) oneOf(fields.tier, TIERS, "tier");
   if (fields.strength) oneOf(fields.strength, STRENGTHS, "strength");
   if (fields.confidence) oneOf(fields.confidence, CONFIDENCES, "confidence");
+  if (fields.abbreviationOrigin) oneOf(fields.abbreviationOrigin, ["user", "generated"] as const, "abbreviation origin");
+  if (fields.color && !/^#[0-9a-f]{6}$/.test(fields.color)) throw new RangeError("a colour is «#rrggbb», in lower case");
+  if (fields.tenacityHours && fields.tenacityHours.num <= 0n) throw new RangeError("a tenacity is a number of hours above 0");
+  if (fields.evolution) for (const e of fields.evolution) evolutionOf(e);
+  if (fields.physical?.density && fields.physical.density.num <= 0n) throw new RangeError("a density is above 0");
+  if (fields.physical?.molecularWeight && fields.physical.molecularWeight.num <= 0n) throw new RangeError("a molecular weight is above 0");
 }
 
 /** A user creates any kind but a frozen formula: that one comes from freezing a formula (phase 8). */
@@ -242,10 +285,37 @@ async function visibleMaterial(db: LocalDb, ownerId: string, id: string) {
 
 /** The fields as the copy keeps them: the purity as exact text, the lists as lists of its own. */
 function fieldColumns(fields: Partial<MaterialFields>) {
-  const { purity, aliases, otherCas, disputedFields, ...rest } = fields;
+  const { purity, aliases, otherCas, disputedFields, tenacityHours, evolution, physical, ...rest } = fields;
+  const exact = (value: Ratio | null) => (value === null ? null : numericFromRatio(value));
   return {
     ...rest,
-    ...(purity !== undefined ? { purity: purity === null ? null : numericFromRatio(purity) } : {}),
+    ...(purity !== undefined ? { purity: exact(purity) } : {}),
+    ...(tenacityHours !== undefined ? { tenacityHours: exact(tenacityHours) } : {}),
+    ...(evolution !== undefined
+      ? {
+          evolutionTo15m: evolution[0],
+          evolutionTo2h: evolution[1],
+          evolutionTo8h: evolution[2],
+          evolutionTo24h: evolution[3],
+          evolutionBeyond24h: evolution[4],
+        }
+      : {}),
+    ...(physical !== undefined
+      ? {
+          physicalState: physical.state,
+          appearance: physical.appearance,
+          stains: physical.stains,
+          solubility: physical.solubility,
+          density: exact(physical.density),
+          meltingPointC: exact(physical.meltingPointC),
+          formula: physical.formula,
+          molecularWeight: exact(physical.molecularWeight),
+          vaporPressure: physical.vaporPressure,
+          stability: physical.stability,
+          incompatibilities: physical.incompatibilities,
+          physicalSources: physical.sources,
+        }
+      : {}),
     ...(aliases !== undefined ? { aliases: [...aliases] } : {}),
     ...(otherCas !== undefined ? { otherCas: [...otherCas] } : {}),
     ...(disputedFields !== undefined ? { disputedFields: [...disputedFields] } : {}),

@@ -65,6 +65,34 @@ export interface Dose {
   readonly notes: string | null;
 }
 
+/** An intensity of the evolution, 0 to 3; null when it is not known. */
+export type Evolution = 0 | 1 | 2 | 3 | null;
+
+/** What a material is physically (V3-36): every field may be unknown; the numbers, exact. */
+export interface Physical {
+  readonly state: string | null;
+  /** What it looks like («incoloro a amarillo pálido»): not the display colour. */
+  readonly appearance: string | null;
+  readonly stains: string | null;
+  readonly solubility: string | null;
+  /** g/ml at 20–25 °C. */
+  readonly density: Ratio | null;
+  readonly meltingPointC: Ratio | null;
+  readonly formula: string | null;
+  readonly molecularWeight: Ratio | null;
+  /** With its unit and temperature, as the source gives it. */
+  readonly vaporPressure: string | null;
+  readonly stability: string | null;
+  readonly incompatibilities: string | null;
+  readonly sources: string | null;
+}
+
+export const NO_EVOLUTION: readonly [Evolution, Evolution, Evolution, Evolution, Evolution] = [null, null, null, null, null];
+export const NO_PHYSICAL: Physical = {
+  state: null, appearance: null, stains: null, solubility: null, density: null, meltingPointC: null, formula: null,
+  molecularWeight: null, vaporPressure: null, stability: null, incompatibilities: null, sources: null,
+};
+
 /** The fields a material carries besides its identity and its tables (all of them may be unknown). */
 export interface MaterialFields {
   readonly solvent: boolean;
@@ -76,12 +104,19 @@ export interface MaterialFields {
   readonly process: string | null;
   readonly chemotype: string | null;
   readonly inci: string | null;
+  /** Where it comes from: a country or region. */
   readonly origin: string | null;
+  /** The glossary's short name (V3-37), the user's or generated (provisional). */
+  readonly abbreviation: string | null;
+  readonly abbreviationOrigin: "user" | "generated" | null;
   readonly categoryId: string | null;
   readonly form: string | null;
   readonly basedOnId: string | null;
   readonly grade: string | null;
   readonly supplier: string | null;
+  /** A version's bottle (V3-36): the product as the shop names it, and its page. */
+  readonly product: string | null;
+  readonly productUrl: string | null;
   readonly purity: Ratio | null;
   readonly house: string | null;
   readonly code: string | null;
@@ -89,17 +124,27 @@ export interface MaterialFields {
   readonly synthesis: "synthetic" | "natural" | "semisynthetic" | null;
   readonly isomers: string | null;
   readonly family: Family | null;
+  /** Fixed by somebody (V3-38), «#rrggbb»; null, its family's colour in the palette. */
+  readonly color: string | null;
   readonly familyDetail: string | null;
   readonly facets: string | null;
   readonly tier: Tier | null;
-  readonly evolution: string | null;
-  readonly tenacity: string | null;
+  /** Hours on a blotter, pure material, TGSC's scale (V3-42): a guide, never a measure. */
+  readonly tenacityHours: Ratio | null;
+  readonly tenacitySource: string | null;
+  /** Intensity 0–3 in five stretches (V3-42): to 15 min, to 2 h, to 8 h, to 24 h, beyond. */
+  readonly evolution: readonly [Evolution, Evolution, Evolution, Evolution, Evolution];
   readonly strength: Strength | null;
   readonly threshold: string | null;
   readonly diffusion: string | null;
   readonly blendEffect: string | null;
   readonly role: string | null;
   readonly recommendedDilution: string | null;
+  readonly cost: string | null;
+  readonly handling: string | null;
+  /** The physical block (V3-36, V3-41). */
+  readonly physical: Physical;
+  readonly notes: string | null;
   readonly sources: string | null;
   readonly confidence: Confidence | null;
   readonly disputedFields: readonly string[];

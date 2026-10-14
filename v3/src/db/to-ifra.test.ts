@@ -3,7 +3,7 @@ import { Ratio } from "../core/arith/ratio";
 import { checkIfra } from "../core/ifra";
 import type { Change, Formula } from "../core/model/formula";
 import { DILUENTS, type Material } from "../core/model/material";
-import type { Amount, Authority, Catalog, CatalogMaterial, Component, MaterialFields, MaterialKind, Regulation } from "./catalog";
+import { type Amount, type Authority, type Catalog, type CatalogMaterial, type Component, type MaterialFields, type MaterialKind, NO_EVOLUTION, NO_PHYSICAL, type Regulation } from "./catalog";
 import { effective, ifraCard, NO_DATA, toIfra } from "./to-ifra";
 
 /**
@@ -16,10 +16,10 @@ const ME = "user-me";
 
 const FIELDS: MaterialFields = {
   solvent: false, aliases: [], cas: null, otherCas: [], species: null, part: null, process: null, chemotype: null, inci: null,
-  origin: null, categoryId: null, form: null, basedOnId: null, grade: null, supplier: null, purity: null, house: null, code: null,
-  odorTarget: null, synthesis: null, isomers: null, family: null, familyDetail: null, facets: null, tier: null, evolution: null,
-  tenacity: null, strength: null, threshold: null, diffusion: null, blendEffect: null, role: null, recommendedDilution: null,
-  sources: null, confidence: null, disputedFields: [], ifraUnverified: null,
+  origin: null, abbreviation: null, abbreviationOrigin: null, categoryId: null, form: null, basedOnId: null, grade: null, supplier: null, product: null, productUrl: null, purity: null, house: null, code: null,
+  odorTarget: null, synthesis: null, isomers: null, family: null, color: null, familyDetail: null, facets: null, tier: null,
+  tenacityHours: null, tenacitySource: null, evolution: NO_EVOLUTION, strength: null, threshold: null, diffusion: null, blendEffect: null, role: null, recommendedDilution: null,
+  cost: null, handling: null, physical: NO_PHYSICAL, notes: null, sources: null, confidence: null, disputedFields: [], ifraUnverified: null,
 };
 
 let n = 0;

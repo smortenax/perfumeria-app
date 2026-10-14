@@ -7,6 +7,7 @@ import { afterAll, beforeAll, expect, it } from "vitest";
 import { Ratio } from "../src/core/arith/ratio";
 import { SupabaseConnector } from "../src/db/connector";
 import { AppSchema, tables } from "../src/db/local/schema";
+import { NO_PHYSICAL } from "../src/db/catalog";
 import { addComponent, addDose, addRegulation, createMaterial, loadCatalog, setHave, type LocalDb } from "../src/db/materials";
 import { admin, downloadWhen, signIn, type TestUser } from "./local";
 
@@ -65,6 +66,13 @@ it("what the repository writes reaches Supabase as Postgres keeps it, A's", asyn
     purity: Ratio.of(1n, 10n ** 30n),
     family: "woody",
     ifraUnverified: "Restricción, STD 068 · sin verificar",
+    abbreviation: "MiB",
+    abbreviationOrigin: "generated",
+    color: "#c475aa",
+    tenacityHours: Ratio.fromDecimal("336.5"),
+    tenacitySource: "TGSC",
+    evolution: [3, 3, 2, null, 0],
+    physical: { ...NO_PHYSICAL, state: "líquido", density: Ratio.fromDecimal("1.0365"), meltingPointC: Ratio.fromDecimal("-12.5"), molecularWeight: Ratio.fromDecimal("122.12702") },
   });
   await addComponent(db, a.id, id, common, { kind: "range", min: pct("1"), max: pct("2.5") }, "product", "ficha");
   await addRegulation(db, a.id, id, { regime: "manufacturer", kind: "max", maxValue: pct("0.0082"), authority: "product", source: "certificado" });
@@ -74,6 +82,17 @@ it("what the repository writes reaches Supabase as Postgres keeps it, A's", asyn
   await waitFor(async () => (await copy.getUploadQueueStats()).count === 0);
 
   const [m] = await admin`select owner_id, name, kind, aliases, solvent, purity::text as purity, family, ifra_unverified from materials where id = ${id}`;
+  // V3-37, V3-38, V3-41, V3-42: the record's new attributes, each in its column, the numbers exact.
+  const [record] = await admin`
+    select abbreviation, abbreviation_origin, color, tenacity_hours::text as tenacity_hours, tenacity_source,
+      evolution_to_15m, evolution_to_2h, evolution_to_8h, evolution_to_24h, evolution_beyond_24h,
+      physical_state, density::text as density, melting_point_c::text as melting_point_c, molecular_weight::text as molecular_weight
+    from materials where id = ${id}`;
+  expect(record).toEqual({
+    abbreviation: "MiB", abbreviation_origin: "generated", color: "#c475aa", tenacity_hours: "336.5", tenacity_source: "TGSC",
+    evolution_to_15m: 3, evolution_to_2h: 3, evolution_to_8h: 2, evolution_to_24h: null, evolution_beyond_24h: 0,
+    physical_state: "líquido", density: "1.0365", melting_point_c: "-12.5", molecular_weight: "122.12702",
+  });
   expect(m).toEqual({
     owner_id: a.id,
     name: `${TAG} Mi base`,
@@ -97,4 +116,10 @@ it("what the repository writes reaches Supabase as Postgres keeps it, A's", asyn
   // V3-32: the lab's second-hand IFRA comes down to a new copy as it went up.
   const synced = await downloadWhen(a.token, (s) => s.get("materials")?.get(id)?.ifra_unverified !== undefined);
   expect(synced.get("materials")?.get(id)?.ifra_unverified).toBe("Restricción, STD 068 · sin verificar");
+  // And the copy reads them back as they were written: the numbers exact, the evolution as five stretches.
+  const mine = (await loadCatalog(db, a.id)).materials.get(id)!;
+  expect(mine.tenacityHours?.toString()).toBe(Ratio.fromDecimal("336.5").toString());
+  expect(mine.evolution).toEqual([3, 3, 2, null, 0]);
+  expect(mine.physical.meltingPointC?.toString()).toBe(Ratio.fromDecimal("-12.5").toString());
+  expect(synced.get("materials")?.get(id)?.tenacity_hours).toBe("336.5");
 });

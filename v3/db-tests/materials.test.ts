@@ -228,6 +228,32 @@ describe("the triggers of step 2.7, whoever writes (here, as the loading script)
   });
 });
 
+describe("the record's attributes keep their scales (V3-37, V3-38, V3-42)", () => {
+  const fails = async (query: Promise<unknown>) => expect(query).rejects.toMatchObject({ code: "23514" });
+
+  it("a colour is «#rrggbb», an evolution 0 to 3, the hours, density and weight above 0", async () => {
+    const m = await insertCommon("scales", "molecule");
+    await admin`update materials set color = '#c475aa', evolution_to_2h = 3, tenacity_hours = 2, density = 0.9 where id = ${m}`;
+    await fails(admin`update materials set color = 'rosa' where id = ${m}`);
+    await fails(admin`update materials set color = '#C475AA' where id = ${m}`);
+    await fails(admin`update materials set evolution_to_8h = 4 where id = ${m}`);
+    await fails(admin`update materials set tenacity_hours = 0 where id = ${m}`);
+    await fails(admin`update materials set density = 0 where id = ${m}`);
+    await fails(admin`update materials set molecular_weight = -1 where id = ${m}`);
+    await fails(admin`update materials set abbreviation_origin = 'mine' where id = ${m}`);
+  });
+
+  it("an abbreviation is unique among the common materials, and a user's version may repeat it", async () => {
+    const first = await insertCommon("abbreviated", "molecule");
+    const second = await insertCommon("abbreviated twice", "molecule");
+    await admin`update materials set abbreviation = ${`${TAG}Ab`} where id = ${first}`;
+    await expect(admin`update materials set abbreviation = ${`${TAG}Ab`} where id = ${second}`).rejects.toMatchObject({ code: "23505" });
+    const [own] = await admin`insert into materials (name, kind, owner_id, based_on_id, abbreviation)
+                              values (${`${TAG} A's abbreviated`}, 'molecule', ${a.id}, ${first}, ${`${TAG}Ab`}) returning id`;
+    expect(own.id).toBeTruthy();
+  });
+});
+
 describe("what reaches the browser keeps every figure exact (V3-9)", () => {
   it("a numeric comes down through the sync as the same text, without going through a float", async () => {
     const exact = "0.123456789012345678901234567891";

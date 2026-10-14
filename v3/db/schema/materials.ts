@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { type AnyPgColumn, boolean, check, index, numeric, pgTable, text, timestamp, unique, uuid } from "drizzle-orm/pg-core";
+import { type AnyPgColumn, boolean, check, index, numeric, pgTable, smallint, text, timestamp, unique, uniqueIndex, uuid } from "drizzle-orm/pg-core";
 import { authUsers } from "drizzle-orm/supabase";
 
 /**
@@ -48,7 +48,11 @@ export const materials = pgTable(
     process: text("process"),
     chemotype: text("chemotype"),
     inci: text("inci"),
+    /** Where it comes from: a country or region (the lab's «procedencia»). */
     origin: text("origin"),
+    /** The short name of the glossary (V3-37): the user's, or generated in their style and provisional. */
+    abbreviation: text("abbreviation"),
+    abbreviationOrigin: text("abbreviation_origin"),
     /** The search's group (V3-13) and, in a natural, its form: essential oil, absolute, CO2 extract… */
     categoryId: uuid("category_id").references(() => materialCategories.id, { onDelete: "set null" }),
     form: text("form"),
@@ -56,6 +60,9 @@ export const materials = pgTable(
     basedOnId: uuid("based_on_id").references((): AnyPgColumn => materials.id, { onDelete: "restrict" }),
     grade: text("grade"),
     supplier: text("supplier"),
+    /** A version's bottle (V3-36): the product as the shop names it, and its page. */
+    product: text("product"),
+    productUrl: text("product_url"),
     /** As the bottle says it, informative: what is known of the rest goes in the composition. */
     purity: numeric("purity"),
     // What belongs to each kind (V3-14): a molecule's house, synthesis and isomers; a composition's house, code and target.
@@ -67,12 +74,20 @@ export const materials = pgTable(
     // The core of the card (V3-14), empty when unknown.
     /** One of the nine families of P48 (V3-18); the user's own words go in family_detail. */
     family: text("family"),
+    /** Fixed by somebody (V3-38), «#rrggbb»; empty, it is its family's colour in the palette. */
+    color: text("color"),
     familyDetail: text("family_detail"),
     facets: text("facets"),
     tier: text("tier"),
-    evolution: text("evolution"),
-    /** Text with its source, never a number, until its source is decided (V3-18). */
-    tenacity: text("tenacity"),
+    /** Hours on a blotter, pure material, TGSC's scale (V3-42): a guide for the bench, never a measure. */
+    tenacityHours: numeric("tenacity_hours"),
+    tenacitySource: text("tenacity_source"),
+    /** Its intensity, 0 to 3, in five stretches (V3-42): to 15 min, to 2 h, to 8 h, to 24 h, beyond. */
+    evolutionTo15m: smallint("evolution_to_15m"),
+    evolutionTo2h: smallint("evolution_to_2h"),
+    evolutionTo8h: smallint("evolution_to_8h"),
+    evolutionTo24h: smallint("evolution_to_24h"),
+    evolutionBeyond24h: smallint("evolution_beyond_24h"),
     strength: text("strength"),
     threshold: text("threshold"),
     diffusion: text("diffusion"),
@@ -80,6 +95,25 @@ export const materials = pgTable(
     /** Its aesthetic role: structure, modifier, trace, fixative, bridge, booster. Not the solvent mark. */
     role: text("role"),
     recommendedDilution: text("recommended_dilution"),
+    cost: text("cost"),
+    // Safety and the physical block (V3-36, V3-41), one attribute per column; numbers exact.
+    handling: text("handling"),
+    physicalState: text("physical_state"),
+    /** What it looks like («incoloro a amarillo pálido»): not the display colour. */
+    appearance: text("appearance"),
+    stains: text("stains"),
+    solubility: text("solubility"),
+    /** g/ml at 20–25 °C. */
+    density: numeric("density"),
+    meltingPointC: numeric("melting_point_c"),
+    formula: text("formula"),
+    molecularWeight: numeric("molecular_weight"),
+    /** With its unit and temperature, as the source gives it. */
+    vaporPressure: text("vapor_pressure"),
+    stability: text("stability"),
+    incompatibilities: text("incompatibilities"),
+    physicalSources: text("physical_sources"),
+    notes: text("notes"),
     /** Short tags of where the card's data come from, and how sure (V3-14). */
     sources: text("sources"),
     confidence: text("confidence"),
@@ -93,6 +127,8 @@ export const materials = pgTable(
     index("materials_owner_idx").on(t.ownerId),
     index("materials_category_idx").on(t.categoryId),
     index("materials_based_on_idx").on(t.basedOnId),
+    // Unique in the common glossary, as it was in the v1's (V3-37); a user's version may repeat it.
+    uniqueIndex("materials_common_abbreviation").on(t.abbreviation).where(sql`${t.ownerId} is null`),
     check("materials_kind", sql`${t.kind} in ('molecule', 'natural', 'composition', 'provisional', 'frozen')`),
     // A provisional material or a frozen formula is always somebody's.
     check("materials_kind_owner", sql`${t.kind} not in ('provisional', 'frozen') or ${t.ownerId} is not null`),
@@ -106,6 +142,15 @@ export const materials = pgTable(
     check("materials_strength", sql`${t.strength} is null or ${t.strength} in ('low', 'medium', 'high', 'very_high')`),
     check("materials_synthesis", sql`${t.synthesis} is null or ${t.synthesis} in ('synthetic', 'natural', 'semisynthetic')`),
     check("materials_confidence", sql`${t.confidence} is null or ${t.confidence} in ('high', 'medium', 'low')`),
+    check("materials_abbreviation_origin", sql`${t.abbreviationOrigin} is null or ${t.abbreviationOrigin} in ('user', 'generated')`),
+    check("materials_color", sql`${t.color} is null or ${t.color} ~ '^#[0-9a-f]{6}$'`),
+    check("materials_tenacity_hours", sql`${t.tenacityHours} is null or ${t.tenacityHours} > 0`),
+    check(
+      "materials_evolution",
+      sql`coalesce(${t.evolutionTo15m}, 0) between 0 and 3 and coalesce(${t.evolutionTo2h}, 0) between 0 and 3 and coalesce(${t.evolutionTo8h}, 0) between 0 and 3 and coalesce(${t.evolutionTo24h}, 0) between 0 and 3 and coalesce(${t.evolutionBeyond24h}, 0) between 0 and 3`,
+    ),
+    check("materials_density", sql`${t.density} is null or ${t.density} > 0`),
+    check("materials_molecular_weight", sql`${t.molecularWeight} is null or ${t.molecularWeight} > 0`),
   ],
 );
 
