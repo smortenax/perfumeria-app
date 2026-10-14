@@ -15,16 +15,34 @@ import { join } from "node:path";
 import { getTableColumns, getTableName } from "drizzle-orm";
 import type { PgTable } from "drizzle-orm/pg-core";
 import postgres from "postgres";
+import * as ifra from "../db/schema/ifra.ts";
 import * as schema from "../db/schema/materials.ts";
 import { BOOLEAN_COLUMNS, LIST_COLUMNS } from "../src/db/server-row.ts";
 import { parseCsv } from "./csv.ts";
 
 const DATA = "datos";
-/** In the order their foreign keys need. */
-const ORDER = ["material_categories", "materials", "material_components", "regulations", "material_doses"] as const;
+/** In the order their foreign keys need: the materials and their lists, then IFRA's layer (V3-35). */
+const ORDER = [
+  "material_categories",
+  "materials",
+  "material_components",
+  "regulations",
+  "material_doses",
+  "material_descriptors",
+  "material_relations",
+  "material_references",
+  "ifra_standards",
+  "ifra_limits",
+  "ifra_substances",
+  "ifra_annex",
+  "ifra_variant_rules",
+  "ifra_spec_exclusions",
+] as const;
 
 const tables = new Map<string, PgTable>(
-  (Object.values(schema) as PgTable[]).filter((t) => typeof t === "object" && t !== null && getTableName(t)).map((t) => [getTableName(t), t]),
+  ([...Object.values(schema), ...Object.values(ifra)] as PgTable[])
+    .filter((t) => typeof t === "object" && t !== null && getTableName(t))
+    .map((t) => [getTableName(t), t]),
 );
 
 const url = process.env.DATABASE_URL ?? "postgresql://postgres:postgres@127.0.0.1:54322/postgres";

@@ -340,6 +340,12 @@ describe("what IFRA's annex says a natural brings (V3-23, V3-28, V3-39)", () => 
     expect(substancesOf(catalogOf(lemon), layer, "lemon")).toEqual([["std:STD_CIT", null, "1/25"]]);
   });
 
+  it("IFRA gives some naturals only other CAS (the ylang-ylang absolute): they are found by them", () => {
+    const onlyOther: IfraAnnexEntry = { ...entry("", "Ylang-ylang absolute", "5392-40-5", "Citral", "0.5"), naturalCas: null, naturalOtherCas: ["83863-30-3"] };
+    const ylang = material("ylang", "natural", { cas: "83863-30-3" });
+    expect(substancesOf(catalogOf(ylang), layerOf(specs, [onlyOther]), "ylang")).toEqual([["std:STD_CIT", "1/200", null]]);
+  });
+
   it("the certificate of your bottle rules over the annex for that constituent; the rest of the annex stays", () => {
     const common = material("lemon", "natural", { cas: "8008-56-8", aliases: ["Lemon oil, expressed"] });
     const mine = material("my-lemon", "natural", { ownerId: ME, basedOnId: "lemon", components: [substance("5392-40-5", "Citral", exact("2.5"))] });

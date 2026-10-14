@@ -96,7 +96,8 @@ export const ifraAnnex = pgTable(
   {
     id: uuid("id").primaryKey().defaultRandom(),
     amendment: text("amendment").notNull(),
-    naturalCas: text("natural_cas").notNull(),
+    /** Its principal CAS; IFRA gives only other CAS for a few naturals (the ylang-ylang absolute). */
+    naturalCas: text("natural_cas"),
     naturalOtherCas: text("natural_other_cas").array().notNull().default(sql`'{}'::text[]`),
     naturalName: text("natural_name").notNull(),
     botanicalName: text("botanical_name"),

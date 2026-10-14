@@ -1,0 +1,1 @@
+ALTER TABLE "ifra_annex" ALTER COLUMN "natural_cas" DROP NOT NULL;

@@ -53,7 +53,8 @@ export interface IfraStandard {
 
 /** One row of IFRA's annex: what a natural brings of a regulated constituent, as a fraction of the natural. */
 export interface IfraAnnexEntry {
-  readonly naturalCas: string;
+  /** Its principal CAS; null when IFRA gives only other CAS. */
+  readonly naturalCas: string | null;
   readonly naturalOtherCas: readonly string[];
   readonly naturalName: string;
   readonly botanicalName: string | null;
@@ -146,7 +147,7 @@ export function buildIfraLayer(rows: IfraRows): IfraLayer {
     standards,
     byCas,
     annex: rows.annex.map((a) => ({
-      naturalCas: a.naturalCas ?? "",
+      naturalCas: a.naturalCas,
       naturalOtherCas: a.naturalOtherCas ?? [],
       naturalName: a.naturalName ?? "",
       botanicalName: a.botanicalName,

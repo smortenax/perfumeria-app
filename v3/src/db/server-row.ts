@@ -7,12 +7,15 @@
 export const LIST_COLUMNS: Readonly<Record<string, readonly string[]>> = {
   materials: ["aliases", "other_cas", "disputed_fields"],
   material_categories: ["aliases"],
+  ifra_substances: ["synonyms"],
+  ifra_annex: ["natural_other_cas"],
 };
 
 export const BOOLEAN_COLUMNS: Readonly<Record<string, readonly string[]>> = {
   materials: ["solvent"],
   material_doses: ["disputed"],
   data_version: ["single"],
+  ifra_standards: ["prohibition", "restriction", "specification", "prohibited_as_such"],
 };
 
 /** A row of the copy, as Postgres takes it: lists as arrays and booleans as booleans. */

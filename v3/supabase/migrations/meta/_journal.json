@@ -169,6 +169,13 @@
       "when": 1791948623704,
       "tag": "20261014033023_components_by_cas",
       "breakpoints": true
+    },
+    {
+      "idx": 24,
+      "version": "7",
+      "when": 1791949235175,
+      "tag": "20261014034035_annex_natural_cas_optional",
+      "breakpoints": true
     }
   ]
 }

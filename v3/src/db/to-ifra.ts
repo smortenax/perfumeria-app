@@ -190,7 +190,7 @@ function ifraRegulations(layer: IfraLayer, identity: Identity): Regulation[] {
 
 /** What IFRA's annex says a natural brings: its own entry, or the most any entry with its CAS gives, as literature. */
 function annexOf(layer: IfraLayer, identity: Identity): Component[] {
-  const entries = layer.annex.filter((e) => identity.cas.includes(e.naturalCas) || e.naturalOtherCas.some((c) => identity.cas.includes(c)));
+  const entries = layer.annex.filter((e) => (e.naturalCas !== null && identity.cas.includes(e.naturalCas)) || e.naturalOtherCas.some((c) => identity.cas.includes(c)));
   if (entries.length === 0) return [];
   const names = [...new Set(entries.map((e) => e.naturalName))];
   const own = names.length === 1 ? names[0] : names.find((n) => identity.names.some((m) => fold(m) === fold(n)));
