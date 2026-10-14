@@ -19,7 +19,7 @@ async function cleanUp(): Promise<void> {
     const gone = await admin`
       delete from materials
       where name like ${TAG + "%"}
-        and id not in (select component_id from material_components)
+        and id not in (select component_id from material_components where component_id is not null)
         and id not in (select based_on_id from materials where based_on_id is not null)
       returning id`;
     if (gone.length === 0) return;
@@ -52,9 +52,9 @@ beforeAll(async () => {
   commonMolecule = await insertCommon("Linalool", "molecule");
   commonNatural = await insertCommon("Lavender oil", "natural");
   await admin`insert into material_components (material_id, component_id, amount_kind, value, authority, source)
-              values (${commonNatural}, ${commonMolecule}, 'max', 0.45, 'ifra', 'IFRA 51, anexo (prueba)')`;
+              values (${commonNatural}, ${commonMolecule}, 'max', 0.45, 'literature', 'TGSC (prueba)')`;
   await admin`insert into regulations (material_id, regime, category, kind, max_value, authority, source)
-              values (${commonMolecule}, 'ifra', '4', 'max', 0.02, 'ifra', 'IFRA 51 (prueba)')`;
+              values (${commonMolecule}, 'manufacturer', '4', 'max', 0.02, 'product', 'certificado (prueba)')`;
 });
 
 afterAll(async () => {
@@ -251,6 +251,28 @@ describe("the record's attributes keep their scales (V3-37, V3-38, V3-42)", () =
     const [own] = await admin`insert into materials (name, kind, owner_id, based_on_id, abbreviation)
                               values (${`${TAG} A's abbreviated`}, 'molecule', ${a.id}, ${first}, ${`${TAG}Ab`}) returning id`;
     expect(own.id).toBeTruthy();
+  });
+});
+
+describe("a material's composition and limits after V3-35 and V3-36", () => {
+  const fails = async (query: Promise<unknown>) => expect(query).rejects.toMatchObject({ code: "23514" });
+
+  it("a component is a material of the glossary or a substance with its name, never both nor neither", async () => {
+    const m = await insertCommon("with a substance", "natural");
+    await admin`insert into material_components (material_id, component_cas, component_name, amount_kind, value, authority, source)
+                values (${m}, '78-70-6', 'Linalool', 'exact', 0.3, 'product', 'certificado (prueba)')`;
+    await fails(admin`insert into material_components (material_id, component_id, component_cas, component_name, amount_kind, authority, source)
+                      values (${m}, ${commonMolecule}, '78-70-6', 'Linalool', 'unknown', 'product', 'otra (prueba)')`);
+    await fails(admin`insert into material_components (material_id, component_cas, amount_kind, authority, source)
+                      values (${m}, '78-70-6', 'unknown', 'product', 'sin nombre (prueba)')`);
+  });
+
+  it("IFRA's own figures are not a material's: they live in IFRA's layer", async () => {
+    const m = await insertCommon("no IFRA rows", "natural");
+    await fails(admin`insert into material_components (material_id, component_id, amount_kind, value, authority, source)
+                      values (${m}, ${commonMolecule}, 'max', 0.1, 'ifra', 'IFRA 51, anexo (prueba)')`);
+    await fails(admin`insert into regulations (material_id, regime, category, kind, max_value, authority, source)
+                      values (${m}, 'ifra', '4', 'max', 0.02, 'ifra', 'IFRA 51 (prueba)')`);
   });
 });
 

@@ -193,7 +193,9 @@ export async function loadCatalog(db: LocalDb, userId: string): Promise<Catalog>
       components: (components.get(row.id) ?? []).map(
         (c): Component => ({
           id: c.id,
-          componentId: required(c.componentId, "component"),
+          componentId: c.componentId,
+          componentCas: c.componentCas,
+          componentName: c.componentName,
           amount: amountOf(c),
           authority: oneOf(c.authority, AUTHORITIES, "authority"),
           source: c.source ?? "",

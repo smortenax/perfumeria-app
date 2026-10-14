@@ -164,9 +164,11 @@ export const materialComponents = pgTable(
       .references(() => materials.id, { onDelete: "cascade" }),
     /** Its material's owner, copied by a trigger: what PowerSync filters by (one bucket for the common, one per user). */
     ownerId: uuid("owner_id"),
-    componentId: uuid("component_id")
-      .notNull()
-      .references(() => materials.id, { onDelete: "restrict" }),
+    /** The component, when it is a material of the glossary (V3-36, as the lab's library)… */
+    componentId: uuid("component_id").references(() => materials.id, { onDelete: "restrict" }),
+    /** …or, when it is not, the substance by its CAS, which links it with IFRA's layer (V3-35), and its name. */
+    componentCas: text("component_cas"),
+    componentName: text("component_name"),
     /** exact: a figure; max: at most; range: between two; unknown: it is there, how much is not known. */
     amountKind: text("amount_kind").notNull(),
     value: numeric("value"),
@@ -181,8 +183,17 @@ export const materialComponents = pgTable(
     index("material_components_owner_idx").on(t.ownerId),
     index("material_components_component_idx").on(t.componentId),
     unique("material_components_once").on(t.materialId, t.componentId, t.authority, t.source),
-    check("material_components_not_itself", sql`${t.materialId} <> ${t.componentId}`),
+    unique("material_components_cas_once").on(t.materialId, t.componentCas, t.authority, t.source),
+    index("material_components_cas_idx").on(t.componentCas),
+    check("material_components_not_itself", sql`${t.componentId} is null or ${t.materialId} <> ${t.componentId}`),
+    // A material of the glossary, or a substance with its name: never both, never neither.
+    check(
+      "material_components_what",
+      sql`(${t.componentId} is not null and ${t.componentCas} is null and ${t.componentName} is null) or (${t.componentId} is null and length(trim(coalesce(${t.componentName}, ''))) > 0)`,
+    ),
     check("material_components_authority", sql`${t.authority} in ${AUTHORITY}`),
+    // What IFRA says a natural brings lives in IFRA's layer (V3-35), not in the material.
+    check("material_components_not_ifra", sql`${t.authority} <> 'ifra'`),
     check("material_components_source", sql`length(trim(${t.source})) > 0`),
     check(
       "material_components_amount",
@@ -227,6 +238,8 @@ export const regulations = pgTable(
     index("regulations_group_idx").on(t.groupKey),
     check("regulations_regime", sql`${t.regime} in ('ifra', 'manufacturer')`),
     check("regulations_authority", sql`${t.authority} in ${AUTHORITY}`),
+    // IFRA's own limits live in its layer (V3-35): here, a manufacturer's ceiling and what a material claims (V3-39).
+    check("regulations_not_ifra", sql`${t.authority} <> 'ifra'`),
     check("regulations_source", sql`length(trim(${t.source})) > 0`),
     check(
       "regulations_kind",

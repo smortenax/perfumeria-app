@@ -93,6 +93,8 @@ export const materialComponents = sqliteTable("material_components", {
   materialId: text("material_id"),
   ownerId: text("owner_id"),
   componentId: text("component_id"),
+  componentCas: text("component_cas"),
+  componentName: text("component_name"),
   amountKind: text("amount_kind"),
   value: text("value"),
   min: text("min"),

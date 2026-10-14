@@ -31,7 +31,10 @@ export type Amount =
 
 export interface Component {
   readonly id: string;
-  readonly componentId: string;
+  /** A material of the glossary; or null, and the component is a substance known by its CAS and name (V3-35, V3-36). */
+  readonly componentId: string | null;
+  readonly componentCas: string | null;
+  readonly componentName: string | null;
   readonly amount: Amount;
   readonly authority: Authority;
   readonly source: string;

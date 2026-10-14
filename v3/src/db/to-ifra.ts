@@ -1,30 +1,36 @@
 import { Ratio } from "../core/arith/ratio";
 import type { IfraData, IfraMaterial, IfraSubstance } from "../core/ifra";
-import type { Authority, Catalog, CatalogMaterial, Component, Regulation } from "./catalog";
+import type { Authority, Catalog, CatalogMaterial, Component, MaterialKind, Regulation } from "./catalog";
+import type { IfraLayer, IfraStandard } from "./ifra-layer";
 
 /**
- * From the catalog to the engine's IfraData (plan v3, step 3.3), as src/v2/to-ifra.ts did from
- * the v2's CSV. The engine reasons by IFRA standards, not molecules: each standard is a
- * «substance» with its ceiling, and what each member brings adds up against it.
+ * From the catalog and IFRA's layer to the engine's IfraData (plan v3, steps 3.3 and 4.3), as
+ * src/v2/to-ifra.ts did from the v2's CSV. The engine reasons by IFRA standards, not molecules:
+ * each standard is a «substance» with its ceiling, and what each member brings adds up against it.
  *
- * - A material's composition is opened recursively (plan §24). A molecule without components is
- *   itself; a natural, a composition, a provisional or a frozen formula without components is
- *   unknown, and leaves the check pending, never free (§3.4, §5.3).
+ * - IFRA is a layer apart (V3-35): a material says what it is (its CAS, its species, its process)
+ *   and what it carries; its IFRA comes from reading that against the layer. The material keeps
+ *   only what is its own: a manufacturer's ceiling, and what its documents claim (V3-39).
+ * - A material's composition is opened recursively (plan §24): its components, which may be
+ *   materials or substances known by their CAS (V3-36), and, in a natural, what IFRA's annex
+ *   says it brings: its own entry if it has one, or the most any entry with its CAS gives, as
+ *   literature (V3-23, V3-28). Of two rows for one CAS, the most authoritative counts: the
+ *   certificate of the user's bottle over the annex (V3-39). A molecule without components is
+ *   itself; a natural, a composition, a provisional or a frozen formula without any is unknown,
+ *   and leaves the check pending, never free (§3.4, §5.3).
  * - A figure of the literature or of consensus is never known: it counts its maximum in the
  *   worst case (V3-7). An «unknown» amount counts, at worst, the whole of its container.
- * - A material with regulations is a member: of its group (group_key) or alone. Members of one
- *   group with one ceiling add up against it; with several ceilings, each is a substance of a
- *   combined group, where the shares of their ceilings add up to at most 1 (§4.5).
- * - The user's version of a common material (V3-5) inherits its composition, each component by
- *   the most authoritative row, and every regulation of both.
- * - Only category 4 counts, or a regulation for every category (plan, step 4.6).
- * - A substance IFRA prohibits as such but limits in naturals (V3-30) has both rows: alone, it is
- *   prohibited; inside a natural, it counts against the ceiling; put straight into anything else,
- *   it leaves the check pending.
- *
- * Still to come with the migration (phase 4): how the standards whose limit is expressed as a
- * constituent (STD 089, 5-MOP) are written in `regulations`; the equivalence with the v2
- * (phase 5) will tell what is missing.
+ * - Members of one group (IFRA's standard, or «furocumarinas») with one ceiling add up against
+ *   it; with several, each is a substance of a combined group, whose shares add up to at most 1.
+ * - The user's version of a common material (V3-5) inherits what it is, its composition (each
+ *   component by the most authoritative row) and its regulations.
+ * - Only category 4 counts, or a rule for every category (plan, step 4.6).
+ * - A limit expressed as a constituent (STD 089, 5-MOP) is that constituent's, and its members
+ *   carry it as a component of unknown amount until a document gives it (V3-27).
+ * - A substance IFRA prohibits as such but limits in naturals (V3-30): alone, prohibited; inside
+ *   a natural, against the ceiling; put straight into anything else, pending.
+ * - A standard that prohibits a variant (V3-31): the prohibited one is prohibited; the permitted
+ *   one keeps its ceiling; one the data do not place carries a pending requirement.
  */
 
 export const NO_DATA = "Sin datos de sus constituyentes: puede llevar sustancias con techo.";
@@ -32,6 +38,8 @@ export const CATEGORY = "4";
 
 const RANK: Readonly<Record<Authority, number>> = { lot: 0, product: 1, ifra: 2, literature: 3, consensus: 4 };
 const isPlaceholder = (authority: Authority) => authority === "literature" || authority === "consensus";
+/** For comparing names and processes: no accents, no case. */
+const fold = (text: string) => text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
 
 /** What a material brings of a member, as a fraction of its pure matter: known, or bounded by `upper`. */
 interface Load {
@@ -59,9 +67,14 @@ function loadOf(component: Component): Load {
   return isPlaceholder(component.authority) ? { known: null, upper: value } : { known: value, upper: value };
 }
 
+/** The member a component is: a material of the catalog, or a substance by its CAS (or its name, without one). */
+const childOf = (c: Component): string => c.componentId ?? (c.componentCas ? `cas:${c.componentCas}` : `name:${fold(c.componentName ?? "")}`);
+
 /** A material with what it inherits from the common one it is based on (V3-5). */
 export interface Effective {
   readonly material: CatalogMaterial;
+  /** The material first, then the one it is based on, and so on. */
+  readonly chain: readonly CatalogMaterial[];
   readonly components: readonly Component[];
   readonly regulations: readonly Regulation[];
 }
@@ -81,26 +94,218 @@ export function effective(catalog: Catalog, id: string): Effective {
   chain.forEach((m, depth) => {
     for (const component of m.components) {
       const rank = RANK[component.authority];
-      const before = best.get(component.componentId);
+      const before = best.get(childOf(component));
       if (!before || rank < before.rank || (rank === before.rank && depth < before.depth)) {
-        best.set(component.componentId, { component, rank, depth });
+        best.set(childOf(component), { component, rank, depth });
       }
     }
   });
   return {
     material,
+    chain,
     components: [...best.values()].map((b) => b.component),
     regulations: chain.flatMap((m) => m.regulations),
   };
 }
 
+/** What a member says to IFRA (V3-35): its CAS numbers, its species and process, its names. */
+interface Identity {
+  readonly cas: readonly string[];
+  readonly species: string | null;
+  readonly process: string | null;
+  readonly names: readonly string[];
+}
+
+/** A member of a material's tree, with its IFRA read from the layer and its own regulations. */
+interface Node {
+  readonly id: string;
+  readonly name: string;
+  readonly kind: MaterialKind | "substance";
+  readonly material: CatalogMaterial | null;
+  readonly identity: Identity;
+  readonly components: readonly Component[];
+  readonly regulations: readonly Regulation[];
+}
+
 const applies = (r: Regulation) => r.category === null || r.category === CATEGORY;
+const groupOf = (r: Regulation) => r.groupKey ?? `reg:${r.id}`;
+
+/** V3-31: which variant a member is, by the first rule that matches its species or process. */
+function variantOf(standard: IfraStandard, identity: Identity): "prohibited" | "permitted" | "unknown" {
+  for (const rule of standard.variantRules) {
+    const value = fold((rule.field === "species" ? identity.species : identity.process) ?? "");
+    const pattern = fold(rule.pattern);
+    if (value && (rule.match === "starts" ? value.startsWith(pattern) : value.includes(pattern))) return rule.variant;
+  }
+  return "unknown";
+}
+
+/** What IFRA's layer says of a member, as rows of its regulation (V3-25, V3-27, V3-30, V3-31). */
+function ifraRegulations(layer: IfraLayer, identity: Identity): Regulation[] {
+  const codes = new Set<string>();
+  for (const cas of identity.cas) for (const code of layer.byCas.get(cas) ?? []) codes.add(code);
+  for (const s of layer.standards.values()) if (s.limitExpressedAsCas && identity.cas.includes(s.limitExpressedAsCas)) codes.add(s.code);
+  const out: Regulation[] = [];
+  for (const code of [...codes].sort()) {
+    const s = layer.standards.get(code)!;
+    // V3-27: a limit expressed as a constituent is that constituent's, not its members'.
+    if (s.limitExpressedAs && !(s.limitExpressedAsCas && identity.cas.includes(s.limitExpressedAsCas))) continue;
+    const row = (kind: Regulation["kind"], extra: Partial<Regulation> = {}): Regulation => ({
+      id: `ifra:${code}:${kind}:${extra.category ?? "all"}`,
+      regime: "ifra",
+      category: null,
+      kind,
+      maxValue: null,
+      groupKey: s.groupKey,
+      requirement: null,
+      authority: "ifra",
+      source: `IFRA ${s.amendment}, ${s.code}: ${s.name}`,
+      ...extra,
+    });
+    const variant = s.variantRules.length > 0 ? variantOf(s, identity) : null;
+    if (variant === "prohibited") {
+      out.push(row("prohibited"));
+      continue;
+    }
+    const limit = s.limits.get(CATEGORY);
+    if (limit?.kind === "max") out.push(row("max", { category: CATEGORY, maxValue: limit.maxValue }));
+    if (limit?.kind === "prohibited") out.push(row("prohibited", { category: CATEGORY }));
+    // A prohibition with no limit in any category prohibits the member as such (with a specification, a variant of
+    // it, as the cade: V3-25); one prohibited as such keeps its ceiling too (V3-30).
+    if (s.prohibition && (s.limits.size === 0 || s.prohibitedAsSuch)) out.push(row("prohibited"));
+    const process = fold(identity.process ?? "");
+    if (s.specification && !s.specExclusions.some((x) => process.includes(fold(x.process)))) {
+      out.push(row("requirement", { requirement: (s.specificationNote ?? s.name).trim() }));
+    }
+    if (variant === "unknown") {
+      out.push(row("requirement", {
+        id: `ifra:${code}:variant`,
+        groupKey: `${s.groupKey} · variante`,
+        requirement: `No es la variante prohibida: «${(s.prohibitionNote ?? "").trim()}»`,
+      }));
+    }
+  }
+  return out;
+}
+
+/** What IFRA's annex says a natural brings: its own entry, or the most any entry with its CAS gives, as literature. */
+function annexOf(layer: IfraLayer, identity: Identity): Component[] {
+  const entries = layer.annex.filter((e) => identity.cas.includes(e.naturalCas) || e.naturalOtherCas.some((c) => identity.cas.includes(c)));
+  if (entries.length === 0) return [];
+  const names = [...new Set(entries.map((e) => e.naturalName))];
+  const own = names.length === 1 ? names[0] : names.find((n) => identity.names.some((m) => fold(m) === fold(n)));
+  const component = (e: (typeof entries)[number], authority: Authority, source: string): Component => ({
+    id: `annex:${e.naturalName}:${e.constituentCas ?? e.constituentName}`,
+    componentId: null,
+    componentCas: e.constituentCas,
+    componentName: e.constituentName,
+    amount: e.concentration.isZero() ? { kind: "exact", value: e.concentration } : { kind: "max", value: e.concentration },
+    authority,
+    source,
+  });
+  if (own !== undefined) {
+    return entries.filter((e) => e.naturalName === own).map((e) => component(e, "ifra", `IFRA, anexo de naturales: ${own}`));
+  }
+  // V3-28: borrowed from the other forms with its CAS, the most of each: literature, never «inside».
+  const most = new Map<string, (typeof entries)[number]>();
+  for (const e of entries) {
+    const key = e.constituentCas ?? e.constituentName;
+    const before = most.get(key);
+    if (!before || e.concentration.cmp(before.concentration) > 0) most.set(key, e);
+  }
+  return [...most.values()].map((e) => component(e, "literature", `IFRA, anexo de naturales: prestada por CAS de «${e.naturalName}»`));
+}
+
+/** V3-27: a member of a standard limited as one of its constituents carries it, how much not known until a document says. */
+function constituentsOf(layer: IfraLayer, identity: Identity): Component[] {
+  const out: Component[] = [];
+  for (const s of layer.standards.values()) {
+    if (!s.limitExpressedAs || !s.limitExpressedAsCas) continue;
+    if (!s.substances.some((x) => identity.cas.includes(x.cas))) continue;
+    out.push({
+      id: `limit:${s.code}`,
+      componentId: null,
+      componentCas: s.limitExpressedAsCas,
+      componentName: s.limitExpressedAs,
+      amount: { kind: "unknown" },
+      authority: "ifra",
+      source: `IFRA ${s.amendment}, ${s.code}: el límite es del ${s.limitExpressedAs} en el producto terminado (V3-27)`,
+    });
+  }
+  return out;
+}
+
+/** The members of the catalog as IFRA reads them, each built once. */
+function nodes(catalog: Catalog, layer: IfraLayer) {
+  const cache = new Map<string, Node>();
+  const names = new Map<string, string>();
+  const casOfMaterial = (id: string): string | null => {
+    for (let m = catalog.materials.get(id); m; m = m.basedOnId ? catalog.materials.get(m.basedOnId) : undefined) if (m.cas) return m.cas;
+    return null;
+  };
+
+  const ofMaterial = (id: string): Node => {
+    const { material, chain, components, regulations } = effective(catalog, id);
+    const identity: Identity = {
+      cas: [...new Set(chain.flatMap((m) => [...(m.cas ? [m.cas] : []), ...m.otherCas]))],
+      species: chain.find((m) => m.species)?.species ?? null,
+      process: chain.find((m) => m.process)?.process ?? null,
+      names: [...new Set(chain.flatMap((m) => [m.name, ...m.aliases]))],
+    };
+    // Of two rows for one substance, the most authoritative; at the same authority, the material's own over IFRA's.
+    const extra = [...(material.kind === "natural" ? annexOf(layer, identity) : []), ...constituentsOf(layer, identity)];
+    const byCas = new Map<string, Component>();
+    const rest: Component[] = [];
+    for (const c of [...components, ...extra]) {
+      const cas = c.componentId ? casOfMaterial(c.componentId) : c.componentCas;
+      if (!cas) {
+        rest.push(c);
+        continue;
+      }
+      const before = byCas.get(cas);
+      if (!before || RANK[c.authority] < RANK[before.authority]) byCas.set(cas, c);
+    }
+    for (const c of extra) if (c.componentCas && c.componentName && !names.has(c.componentCas)) names.set(c.componentCas, c.componentName);
+    for (const c of components) if (c.componentCas && c.componentName && !names.has(c.componentCas)) names.set(c.componentCas, c.componentName);
+    return {
+      id,
+      name: material.name,
+      kind: material.kind,
+      material,
+      identity,
+      components: [...byCas.values(), ...rest],
+      regulations: [...ifraRegulations(layer, identity), ...regulations],
+    };
+  };
+
+  const ofSubstance = (id: string): Node => {
+    const cas = id.startsWith("cas:") ? id.slice(4) : null;
+    const identity: Identity = { cas: cas ? [cas] : [], species: null, process: null, names: [] };
+    return {
+      id,
+      name: (cas && names.get(cas)) ?? (cas ? `CAS ${cas}` : id.slice(5)),
+      kind: "substance",
+      material: null,
+      identity,
+      components: [],
+      regulations: ifraRegulations(layer, identity),
+    };
+  };
+
+  return (id: string): Node => {
+    const before = cache.get(id);
+    if (before) return before;
+    const node = catalog.materials.has(id) ? ofMaterial(id) : ofSubstance(id);
+    cache.set(id, node);
+    return node;
+  };
+}
 
 /**
  * The members a material carries (itself included when it has regulations), why its list may be
  * incomplete, and which members arrive somewhere other than inside a natural (V3-30).
  */
-function flatten(catalog: Catalog, rootId: string): { loads: Map<string, Load>; pending: string[]; outsideNaturals: Set<string> } {
+function flatten(node: (id: string) => Node, rootId: string): { loads: Map<string, Load>; pending: string[]; outsideNaturals: Set<string> } {
   const loads = new Map<string, Load>();
   const pending = new Set<string>();
   const outsideNaturals = new Set<string>();
@@ -108,18 +313,18 @@ function flatten(catalog: Catalog, rootId: string): { loads: Map<string, Load>; 
     if (seen.includes(id)) {
       throw new Error(`A material that contains itself: ${[...seen, id].join(" → ")}`);
     }
-    const { material, components, regulations } = effective(catalog, id);
-    if (regulations.some(applies)) {
+    const n = node(id);
+    if (n.regulations.some(applies)) {
       const before = loads.get(id);
       loads.set(id, before ? plus(before, load) : load);
     }
-    if (components.length === 0) {
-      if (material.kind !== "molecule") pending.add(NO_DATA);
+    if (n.components.length === 0) {
+      if (n.kind !== "molecule" && n.kind !== "substance") pending.add(NO_DATA);
       return;
     }
-    for (const component of components) {
-      if (material.kind !== "natural") outsideNaturals.add(component.componentId);
-      walk(component.componentId, scale(loadOf(component), load), [...seen, id]);
+    for (const component of n.components) {
+      if (n.kind !== "natural") outsideNaturals.add(childOf(component));
+      walk(childOf(component), scale(loadOf(component), load), [...seen, id]);
     }
   };
   walk(rootId, { known: Ratio.ONE, upper: Ratio.ONE }, []);
@@ -156,29 +361,24 @@ export function requirementState(rows: readonly Regulation[]): RequirementState 
   return "pending";
 }
 
-const groupOf = (r: Regulation) => r.groupKey ?? `reg:${r.id}`;
-
 /** The engine's IfraData for every material of the catalog, keyed by the material's id. */
-export function toIfra(catalog: Catalog): IfraData {
-  // Which ceilings each group has, over the whole catalog: one ceiling adds up against it; several make a combined group.
+export function toIfra(catalog: Catalog, layer: IfraLayer): IfraData {
+  // Which ceilings each group has in IFRA's layer: one ceiling adds up against it; several make a combined group.
   const limitsOf = new Map<string, Set<string>>();
-  for (const m of catalog.materials.values()) {
-    for (const r of m.regulations) {
-      if (r.regime === "ifra" && r.kind === "max" && applies(r) && r.maxValue) {
-        limitsOf.set(groupOf(r), (limitsOf.get(groupOf(r)) ?? new Set()).add(r.maxValue.toString()));
-      }
-    }
+  for (const s of layer.standards.values()) {
+    const limit = s.limits.get(CATEGORY);
+    if (limit?.kind === "max" && limit.maxValue) limitsOf.set(s.groupKey, (limitsOf.get(s.groupKey) ?? new Set()).add(limit.maxValue.toString()));
   }
+  const node = nodes(catalog, layer);
   const substances = new Map<string, IfraSubstance>();
-  const casOf = (m: CatalogMaterial) => [...(m.cas ? [m.cas] : []), ...m.otherCas];
 
   /** The engine's substance for a ceiling of IFRA on a member, registered once. */
-  const ifraSubstance = (r: Regulation, member: CatalogMaterial): string => {
+  const ifraSubstance = (r: Regulation, member: Node): string => {
     const group = groupOf(r);
     const several = (limitsOf.get(group)?.size ?? 0) > 1;
     const key = several ? `std:${group}@${r.maxValue!.toString()}` : `std:${group}`;
     const before = substances.get(key);
-    const cas = [...new Set([...(before?.cas ?? []), ...casOf(member)])];
+    const cas = [...new Set([...(before?.cas ?? []), ...member.identity.cas])];
     substances.set(key, {
       key,
       name: before && !before.name.split(" / ").includes(member.name) ? `${before.name} / ${member.name}` : (before?.name ?? member.name),
@@ -197,15 +397,15 @@ export function toIfra(catalog: Catalog): IfraData {
       materials.set(material.id, { status: "unchecked", substances: [], conditions: [] });
       continue;
     }
-    const flat = flatten(catalog, material.id);
+    const flat = flatten(node, material.id);
     const entries: Entry[] = [];
     const conditions: string[] = [];
     const assumed: string[] = [];
     const pending = [...flat.pending];
     for (const [memberId, load] of flat.loads) {
-      const { material: member, regulations } = effective(catalog, memberId);
+      const member = node(memberId);
       const asItself = memberId === material.id;
-      const mine = regulations.filter(applies);
+      const mine = member.regulations.filter(applies);
       const requirementsByGroup = new Map<string, Regulation[]>();
       for (const r of mine.filter((r) => r.kind === "requirement")) {
         requirementsByGroup.set(groupOf(r), [...(requirementsByGroup.get(groupOf(r)) ?? []), r]);
@@ -213,13 +413,14 @@ export function toIfra(catalog: Catalog): IfraData {
       for (const r of mine) {
         if (r.kind === "max" && r.regime === "manufacturer") {
           // A manufacturer's ceiling is of its product: it counts what the product brings, reported apart (P62).
+          const supplier = member.material?.supplier ?? member.material?.house ?? null;
           const key = `tope:${member.id}`;
           substances.set(key, {
             key,
-            name: `${member.name} (tope de ${member.supplier ?? member.house ?? "su fabricante"})`,
+            name: `${member.name} (tope de ${supplier ?? "su fabricante"})`,
             limit: r.maxValue!,
             amendment: "",
-            supplier: member.supplier ?? member.house ?? "fabricante",
+            supplier: supplier ?? "fabricante",
           });
           entries.push(load.known ? { key, fraction: load.known } : { key, fraction: null, upper: load.upper });
         } else if (r.kind === "max") {
@@ -280,14 +481,15 @@ export type IfraCardState =
   | { readonly state: "no-data" }
   | { readonly state: "no-standard" };
 
-export function ifraCard(catalog: Catalog, id: string): IfraCardState {
-  const { material, regulations } = effective(catalog, id);
-  if (material.kind === "provisional") return { state: "no-data" };
-  const own = regulations.filter(applies);
-  const requirements = own.filter((r) => r.kind === "requirement");
+export function ifraCard(catalog: Catalog, layer: IfraLayer, id: string): IfraCardState {
+  const node = nodes(catalog, layer);
+  const own = node(id);
+  if (own.kind === "provisional") return { state: "no-data" };
+  const regulations = own.regulations.filter(applies);
+  const requirements = regulations.filter((r) => r.kind === "requirement");
   const requirementGroups = new Set(requirements.map(groupOf));
   // «Prohibited» only for the prohibited variant: a prohibition whose group also allows a variant with a requirement is not this one's.
-  if (own.some((r) => r.kind === "prohibited" && !requirementGroups.has(groupOf(r)))) return { state: "prohibited" };
+  if (regulations.some((r) => r.kind === "prohibited" && !requirementGroups.has(groupOf(r)))) return { state: "prohibited" };
   // V3-25: a requirement shows with its state, also next to a ceiling; of several standards, the least proven.
   const worst = [...requirementGroups]
     .map((group) => {
@@ -295,9 +497,9 @@ export function ifraCard(catalog: Catalog, id: string): IfraCardState {
       return { requirement: requirementState(rows), what: rows.find((r) => r.requirement)?.requirement ?? "" };
     })
     .sort((a, b) => PROVEN.indexOf(a.requirement) - PROVEN.indexOf(b.requirement))[0];
-  if (own.some((r) => r.kind === "max")) return worst ? { state: "ceiling", ...worst } : { state: "ceiling" };
+  if (regulations.some((r) => r.kind === "max")) return worst ? { state: "ceiling", ...worst } : { state: "ceiling" };
   if (worst) return { state: "requirement", ...worst };
-  const flat = flatten(catalog, id);
+  const flat = flatten(node, id);
   if ([...flat.loads.keys()].some((member) => member !== id)) return { state: "by-constituents" };
   return flat.pending.includes(NO_DATA) ? { state: "no-data" } : { state: "no-standard" };
 }
