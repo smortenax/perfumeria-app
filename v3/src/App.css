@@ -745,3 +745,44 @@ form.add label {
   border-color: color-mix(in srgb, var(--accent) 45%, transparent);
   border-style: dashed;
 }
+
+/* An open workbench: its formulas at half size, four to a slot (V3-50). */
+.quad {
+  list-style: none;
+  margin: 0;
+  padding: 0.25rem;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.25rem;
+  border: 1px dashed color-mix(in srgb, var(--accent) 45%, transparent);
+  border-radius: 12px;
+}
+
+.tile.mini {
+  padding: 0.25rem 0.125rem;
+  gap: 0.125rem;
+  border: none;
+}
+
+.tile.mini .icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: 0.75rem;
+  border-width: 1.5px;
+}
+
+.tile.mini .icon.accord {
+  box-shadow: 0 0 0 3px var(--bg), 0 0 0 4px var(--accent);
+}
+
+.tile.mini .tile-name {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  -webkit-line-clamp: 2;
+}
+
+.grid li.in-bench .tile {
+  border: none;
+}

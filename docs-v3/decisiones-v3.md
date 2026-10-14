@@ -1020,6 +1020,10 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 
 - **En Fórmulas, cada banco es una tarjeta del tamaño de una fórmula, plegada**, con cuántas fórmulas tiene; al pulsarla se despliegan sus fórmulas detrás de ella, en la misma rejilla, y al pulsarla otra vez se pliegan. Al buscar, un banco con lo encontrado se abre solo (propuesta de la sesión).
 
+> se pueden despledar a 1/2x y por dos filas para ocupar menos, cada slot caben 4
+
+- **Desplegadas, a la mitad y de cuatro en cuatro:** cada hueco de la rejilla lleva 2×2 fórmulas pequeñas (su icono y su nombre); un acorde, con un anillo alrededor del icono (propuesta de la sesión).
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).

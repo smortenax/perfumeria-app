@@ -288,10 +288,17 @@ function Formulas({ data, query, accords }: { data: GlossaryData; query: string;
                 <span className="tile-detail">{t.benchCount(inside.length)}</span>
               </button>
             </li>,
+            // Open, its formulas at half size, four to a slot: two by two (V3-50).
             ...(isOpen
-              ? inside.map((f) => (
-                  <li key={f.id} className="in-bench">
-                    <FormulaTile formula={f} data={data} bench={null} />
+              ? Array.from({ length: Math.ceil(inside.length / 4) }, (_, i) => inside.slice(i * 4, i * 4 + 4)).map((four) => (
+                  <li key={four[0].id} className="in-bench">
+                    <ul className="quad">
+                      {four.map((f) => (
+                        <li key={f.id}>
+                          <FormulaTile formula={f} data={data} bench={null} mini />
+                        </li>
+                      ))}
+                    </ul>
                   </li>
                 ))
               : []),
@@ -303,9 +310,20 @@ function Formulas({ data, query, accords }: { data: GlossaryData; query: string;
 }
 
 /** One formula's tile: its icon, its name, its workbench when shown outside it, its version and its markers. */
-function FormulaTile({ formula: f, data, bench }: { formula: GlossaryData["formulas"][number]; data: GlossaryData; bench: string | null }) {
+function FormulaTile({ formula: f, data, bench, mini = false }: { formula: GlossaryData["formulas"][number]; data: GlossaryData; bench: string | null; mini?: boolean }) {
   const t = texts.glossary;
   const parent = f.parentId ? data.formulas.find((x) => x.id === f.parentId) : undefined;
+  // Half size, inside an open workbench: its icon and its name; an accord, a dot (its full tile is in Acordes).
+  if (mini) {
+    return (
+      <div className="tile formula mini" title={f.name}>
+        <span className={`icon formula-icon${f.markers.includes("accord") ? " accord" : ""}`} aria-hidden="true">
+          {initials(f.name)}
+        </span>
+        <span className="tile-name">{f.name}</span>
+      </div>
+    );
+  }
   return (
     <div className="tile formula">
       <span className="icon formula-icon" aria-hidden="true">
