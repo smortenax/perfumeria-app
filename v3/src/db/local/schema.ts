@@ -38,6 +38,7 @@ export const materials = sqliteTable("materials", {
   categoryId: text("category_id"),
   form: text("form"),
   basedOnId: text("based_on_id"),
+  sourceFormulaId: text("source_formula_id"),
   grade: text("grade"),
   supplier: text("supplier"),
   product: text("product"),
@@ -203,6 +204,49 @@ export const labAxes = sqliteTable("lab_axes", {
   createdAt: text("created_at"),
 });
 
+/** Your workbenches, formulas and their history (phase 7). Masses as text: a bigint never goes through a number. */
+export const workbenches = sqliteTable("workbenches", {
+  id: text("id").primaryKey(),
+  ownerId: text("owner_id"),
+  name: text("name"),
+  notes: text("notes"),
+  ...timestamps,
+});
+
+export const formulas = sqliteTable("formulas", {
+  id: text("id").primaryKey(),
+  ownerId: text("owner_id"),
+  workbenchId: text("workbench_id"),
+  parentId: text("parent_id"),
+  name: text("name"),
+  intention: text("intention"),
+  containerCapacityMl: text("container_capacity_ml"),
+  containerTareUg: text("container_tare_ug"),
+  workBatchUg: text("work_batch_ug"),
+  finalBatchUg: text("final_batch_ug"),
+  markers: list("markers"),
+  role: text("role"),
+  ...timestamps,
+});
+
+export const formulaEvents = sqliteTable("formula_events", {
+  id: text("id").primaryKey(),
+  formulaId: text("formula_id"),
+  ownerId: text("owner_id"),
+  kind: text("kind"),
+  materialId: text("material_id"),
+  massUg: text("mass_ug"),
+  fraction: text("fraction"),
+  diluentId: text("diluent_id"),
+  secondDiluentId: text("second_diluent_id"),
+  secondFraction: text("second_fraction"),
+  target: text("target"),
+  grossUg: text("gross_ug"),
+  tareUg: text("tare_ug"),
+  text: text("text"),
+  createdAt: text("created_at"),
+});
+
 export const dataVersion = sqliteTable("data_version", {
   id: text("id").primaryKey(),
   single: integer("single", { mode: "boolean" }),
@@ -307,6 +351,9 @@ export const uploadRejections = sqliteTable("upload_rejections", {
 
 /** The tables, as Drizzle queries them. */
 export const tables = {
+  workbenches,
+  formulas,
+  formulaEvents,
   materialCategories,
   materials,
   materialComponents,
@@ -331,6 +378,9 @@ export const tables = {
 
 /** The same tables, as PowerSync keeps them: the rejections never leave the browser. */
 export const AppSchema = new DrizzleAppSchema({
+  workbenches,
+  formulas,
+  formulaEvents,
   materialCategories,
   materials,
   materialComponents,

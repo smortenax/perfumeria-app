@@ -183,6 +183,20 @@
       "when": 1791998574012,
       "tag": "20261014172254_components_by_cas_rls",
       "breakpoints": true
+    },
+    {
+      "idx": 26,
+      "version": "7",
+      "when": 1792008011181,
+      "tag": "20261014200011_formulas",
+      "breakpoints": true
+    },
+    {
+      "idx": 27,
+      "version": "7",
+      "when": 1792008056901,
+      "tag": "20261014200056_formulas_rls",
+      "breakpoints": true
     }
   ]
 }

@@ -9,6 +9,7 @@ export const LIST_COLUMNS: Readonly<Record<string, readonly string[]>> = {
   material_categories: ["aliases"],
   ifra_substances: ["synonyms"],
   ifra_annex: ["natural_other_cas"],
+  formulas: ["markers"],
 };
 
 export const BOOLEAN_COLUMNS: Readonly<Record<string, readonly string[]>> = {

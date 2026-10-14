@@ -42,6 +42,10 @@ streams:
       - SELECT * FROM lab_dilutions WHERE user_id = auth.user_id()
       - SELECT * FROM lab_evaluations WHERE user_id = auth.user_id()
       - SELECT * FROM lab_axes WHERE user_id = auth.user_id()
+      # Your formulas (phase 7): workbenches, formulas and their history; the events carry their formula's owner.
+      - SELECT * FROM workbenches WHERE owner_id = auth.user_id()
+      - SELECT * FROM formulas WHERE owner_id = auth.user_id()
+      - SELECT * FROM formula_events WHERE owner_id = auth.user_id()
 
   # IFRA's layer (V3-35): apart from the materials, down its own stream, so that it can be given
   # only to whom has it (an add-on, later). Today, to whoever signs in.

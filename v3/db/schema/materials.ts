@@ -1,6 +1,7 @@
 import { sql } from "drizzle-orm";
 import { type AnyPgColumn, boolean, check, index, numeric, pgTable, smallint, text, timestamp, unique, uniqueIndex, uuid } from "drizzle-orm/pg-core";
 import { authUsers } from "drizzle-orm/supabase";
+import { formulas } from "./formulas";
 
 /**
  * The materials' tables (plan v3, phase 2; docs-v3/modelo-materiales-v3.md). Common rows
@@ -58,6 +59,8 @@ export const materials = pgTable(
     form: text("form"),
     /** The user's version of a common material (V3-5): it inherits, and adds its own. */
     basedOnId: uuid("based_on_id").references((): AnyPgColumn => materials.id, { onDelete: "restrict" }),
+    /** A frozen formula's formula (V3-10): the workbench shows the accord and where it is used. */
+    sourceFormulaId: uuid("source_formula_id").references((): AnyPgColumn => formulas.id, { onDelete: "set null" }),
     grade: text("grade"),
     supplier: text("supplier"),
     /** A version's bottle (V3-36): the product as the shop names it, and its page. */
