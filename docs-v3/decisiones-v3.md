@@ -965,6 +965,19 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 - **El plan no cambia de contenido:** el paso 6.2 pide los mismos datos; solo cambia cómo se enseñan.
 - **La puerta que queda abierta:** un atributo por columna (V3-41), y ningún dato se guarda ya formateado para enseñarlo. La hoja se arma desde una lista de campos, así que la ficha diseñada sustituirá la vista sin tocar los datos. Entra en `docs/a-futuro.md`, junto al glosario visual (P15, P33, P34).
 
+## V3-48 · Los materiales de tus fórmulas que no son de tus 111, uno a uno (decidida por el usuario el 2026-10-14)
+
+**Pregunta** (tarjeta del hilo, paso 7.5): tus 30 fórmulas usan 190 materiales distintos. 134 llegan a uno de tus 111 comunes, 3 son disolventes, 7 son provisionales por nombre y 13 son acordes congelados. Los otros **33 son materiales de la v2 que no están entre tus 111** (V3-34) y aparecen en 27 de las 30 fórmulas. ¿Qué se hace con ellos?
+
+**Respuesta:** el usuario eligió en la tarjeta la opción «Uno a uno en un CSV (Recomendado)» (2026-10-14): «El script propone para cada uno, en conflictos/materiales-formulas.csv: que es uno de tus 111 (por CAS o nombre, con el motivo), o un provisional tuyo nuevo con su nombre y su CAS. Tú lo decides. Ninguna fórmula pierde un material y nada se junta en silencio.»
+
+**Cómo se aplica** (propuesta de la sesión):
+
+- **Los provisionales por nombre** de tus fórmulas (`prov:`) entran en el mismo CSV: algunos ya son uno de tus 111 (Suederal, Cedro chino…).
+- **Una fórmula apunta a tu versión** del material (tu frasco, con tu certificado, V3-39), no al común, cuando la tienes. Sin versión, al común.
+- **Los disolventes** (`solv:`) van a tus comunes disolventes (Etanol, DPG, IPM).
+- **Los acordes congelados** (`vec:`) entran como material congelado tuyo con su composición (plan 7.5), con sus materiales resueltos igual.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).

@@ -1,0 +1,41 @@
+id,nombre,cas,formulas,recomendacion,candidato,motivo
+fig:1016,Allyl cinnamate,1866-31-5,1: olor a pie.json,provisional,,ninguno de tus 111 tiene su CAS ni su nombre
+fig:1052,alpha-Irone,79-69-6,8: Ac Manzana Verde.json | Zara tabaco v2.json | Zara tabaco v3 (2).json | Zara tabaco v3.json | ZaraTobacoCollection.json | copias-v1/v2 Zara tabacco collection.json | olor a pie.json | v2 Zara tabacco collection.json,provisional,,ninguno de tus 111 tiene su CAS ni su nombre
+fig:1094,Anisole,100-66-3,1: Sin nombre.json,provisional,,ninguno de tus 111 tiene su CAS ni su nombre
+fig:1193,Benzyl salicylate,118-58-1,3: Zara tabaco v2.json | Zara tabaco v3 (2).json | Zara tabaco v3.json,provisional,,ninguno de tus 111 tiene su CAS ni su nombre
+fig:1197,Bergamot oil,8007-75-8,1: Juancuir rect.json,provisional,,ninguno de tus 111 tiene su CAS ni su nombre
+fig:1286,Cade oil,8013-10-3,2: NaturalCuir.json | church accord olibanum heavy.json,tuyo:MAT-aceite-de-cade-enebro,Aceite de cade (enebro),el mismo CAS (8013-10-3) que tu «Aceite de cade (enebro)»
+fig:1831,Eucalyptus oil,8000-48-4,3: ZaraTobacoCollection.json | copias-v1/v2 Zara tabacco collection.json | v2 Zara tabacco collection.json,provisional,,ninguno de tus 111 tiene su CAS ni su nombre
+fig:2046,Irone,1335-94-0,1: Sin nombre.json,provisional,,ninguno de tus 111 tiene su CAS ni su nombre
+fig:2080,Orchindone,87-19-4,1: Sin nombre.json,provisional,,ninguno de tus 111 tiene su CAS ni su nombre
+fig:2154,Lactoscatone,21280-29-5,1: olor a pie.json,provisional,,ninguno de tus 111 tiene su CAS ni su nombre
+fig:2182,Lavender extract,8000-28-0,1: olor a pie.json,tuyo:MAT-lavanda,Lavanda,el mismo CAS (8000-28-0) que tu «Lavanda»
+fig:2213,Lime oil,8008-26-2,3: Zara tabaco v2.json | Zara tabaco v3 (2).json | Zara tabaco v3.json,provisional,,ninguno de tus 111 tiene su CAS ni su nombre
+fig:2314,Jasmea,67924-13-4,1: olor a pie.json,provisional,,ninguno de tus 111 tiene su CAS ni su nombre
+fig:2755,Propionic acid,79-09-4,1: Sin nombre.json,provisional,,ninguno de tus 111 tiene su CAS ni su nombre
+fig:2880,Spearminty oil,8008-79-5,3: ZaraTobacoCollection.json | copias-v1/v2 Zara tabacco collection.json | v2 Zara tabacco collection.json,provisional,,ninguno de tus 111 tiene su CAS ni su nombre
+fig:2937,Tea tree oil,68647-73-4,3: ZaraTobacoCollection.json | copias-v1/v2 Zara tabacco collection.json | v2 Zara tabacco collection.json,provisional,,ninguno de tus 111 tiene su CAS ni su nombre
+fig:2974,Thyme absolute,8007-46-3,3: ZaraTobacoCollection.json | copias-v1/v2 Zara tabacco collection.json | v2 Zara tabacco collection.json,provisional,,ninguno de tus 111 tiene su CAS ni su nombre
+fig:450,Aldehido alfa hexil cinamico,165184-98-5,1: Juancuir rect.json,tuyo:MAT-aldehido-alfa-hexil-cinamico,Aldehído alfa-hexil cinámico,el mismo nombre que tu «Aldehído alfa-hexil cinámico»
+fig:883,Florex,69486-14-2,1: olor a pie.json,provisional,,ninguno de tus 111 tiene su CAS ni su nombre
+fig:918,Phytone,502-69-2,1: Sin nombre.json,provisional,,ninguno de tus 111 tiene su CAS ni su nombre
+fig:955,Intreleven aldehyde,58296-81-4,1: Sin nombre.json,provisional,,ninguno de tus 111 tiene su CAS ni su nombre
+prod:symrise-611357,Styrallyl Acetate,93-92-5,3: GuiAaa con pirazinas.json | GuiAaa sin pirazinas.json | guia.json,tuyo:MAT-acetato-de-estiralilo,Acetato de estiralilo,el mismo CAS (93-92-5) que tu «Acetato de estiralilo»
+prov:0123-07-09,0123-07-09,,3: Zara tabaco v2.json | Zara tabaco v3 (2).json | Zara tabaco v3.json,tuyo:MAT-etil-4-fenol,Etil-4-fenol,el mismo CAS (123-07-9) que tu «Etil-4-fenol»
+prov:aldehido c12 mna,Aldehído C12 MNA,,2: CuirESmarron.json | GERACUIR.json,tuyo:MAT-aldehido-c12-mna,Aldehído C12 MNA,el mismo nombre que tu «Aldehído C12 MNA»
+prov:cedro chino,Cedro Chino,,8: CuirESmarron.json | CuirJuan/Fondo sillon.json | CuirJuan/Sillon fondo.json | CuirJuan/V1-fresh cuir.json | CuirJuan/sillon+cuero.json | GERACUIR.json | Sillon fondo.json | V2-cuir.json,tuyo:MAT-cedro-chino-aceite-esencial,"Cedro chino, aceite esencial","tu «Cedro chino, aceite esencial» empieza por su nombre"
+prov:miel,miel,,1: protoguidev3.json,tuyo:MAT-miel-esencia-aromatica,"Miel, esencia aromática","tu «Miel, esencia aromática» empieza por su nombre"
+prov:norlimbanol,norlimbanol,,1: protoguidev3.json,tuyo:MAT-norlimbanol,Norlimbanol,el mismo nombre que tu «Norlimbanol»
+prov:suederal,suederal,,5: CuirESmarron.json | CuirJuan/V1-fresh cuir.json | CuirJuan/sillon+cuero.json | GERACUIR.json | V2-cuir.json,tuyo:MAT-suederal,Suederal,el mismo nombre que tu «Suederal»
+prov:trufa abs,trufa abs,,3: Juancuir rect.json | church accord olibanum heavy.json | juancuir turbulent.json,provisional,,ninguno de tus 111 tiene su CAS ni su nombre
+v2:M01024,Artemisia herba-alba oil,84775-75-7,3: CuirJuan/Corazon+salida.json | CuirJuan/V1-fresh cuir.json | V2-cuir.json,provisional,,ninguno de tus 111 tiene su CAS ni su nombre
+v2:M01468,beta-Ionone,14901-07-6,3: GuiAaa con pirazinas.json | GuiAaa sin pirazinas.json | GuiAaa.json,tuyo:MAT-ionona-beta,Ionona beta,el mismo nombre que tu «Ionona beta»
+v2:M02418,Rose oxide levo,3033-23-6,1: protoguidev3.json,tuyo:MAT-oxido-de-rosa,Óxido de rosa,el mismo nombre que tu «Óxido de rosa»
+v2:M02544,Styrax,101227-15-0,4: CuirJuan/V1-fresh cuir.json | CuirJuan/sillon+cuero.json | GERACUIR.json | V2-cuir.json,tuyo:MAT-resinoide-estyrax-estoraque,Resinoide de estírax (estoraque),el mismo nombre que tu «Resinoide de estírax (estoraque)»
+v2:M03493,Labdanum gum,8016-26-0,13: CuirESmarron.json | CuirJuan/Corazon+salida.json | CuirJuan/Corazon.json | CuirJuan/V1-fresh cuir.json | CuirJuan/sillon+cuero.json | GERACUIR.json | GuiAaa con pirazinas.json | GuiAaa sin pirazinas.json | GuiAaa.json | V2-cuir.json | guia.json | idkGaidansing.json | protoguidev3.json,tuyo:MAT-laudano-de-jara,Láudano de jara,el mismo CAS (8016-26-0) que tu «Láudano de jara»
+v2:M03868,"Tolu, balsam, gum",8024-03-1,5: CuirJuan/Fondo sillon.json | GuiAaa con pirazinas.json | GuiAaa sin pirazinas.json | GuiAaa.json | protoguidev3.json,provisional,,ninguno de tus 111 tiene su CAS ni su nombre
+v2:M03941,Cade oil,8013-10-3,6: GuiAaa con pirazinas.json | GuiAaa sin pirazinas.json | GuiAaa.json | guia.json | idkGaidansing.json | protoguidev3.json,tuyo:MAT-aceite-de-cade-enebro,Aceite de cade (enebro),el mismo CAS (8013-10-3) que tu «Aceite de cade (enebro)»
+v2:M04261,Benzyl salicylate,118-58-1,3: GuiAaa con pirazinas.json | GuiAaa sin pirazinas.json | guia.json,provisional,,ninguno de tus 111 tiene su CAS ni su nombre
+v2:M04268,"Bergamot oil, terpeneless",8007-75-8,2: GERACUIR.json | salida geranio.json,provisional,,ninguno de tus 111 tiene su CAS ni su nombre
+v2:P00050,Resinoide de benjuí,9000-72-0,11: CuirJuan/Corazon+salida.json | CuirJuan/Corazon.json | CuirJuan/V1-fresh cuir.json | GuiAaa con pirazinas.json | GuiAaa sin pirazinas.json | GuiAaa.json | V2-cuir.json | guia.json | idkGaidansing.json | protoguidev3.json | v2 Zara tabacco collection.json,tuyo:MAT-resinoide-benjui,Resinoide de benjuí,el mismo CAS (9000-72-0) que tu «Resinoide de benjuí»
+v2:P00088,Benzoin Siam Resinoid (IFF),9000-72-0,8: CuirJuan/Corazon+salida.json | CuirJuan/Corazon.json | CuirJuan/V1-fresh cuir.json | GERACUIR.json | GuiAaa con pirazinas.json | GuiAaa sin pirazinas.json | V2-cuir.json | guia.json,tuyo:MAT-resinoide-benjui,Resinoide de benjuí,el mismo CAS (9000-72-0) que tu «Resinoide de benjuí»
