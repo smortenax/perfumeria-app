@@ -254,6 +254,7 @@ id,material_id,owner_id,source,text
 3f4041aa-4e66-513c-84cb-0e57b897fd80,80cdabab-46a8-5844-b8a7-d55b2005a780,,web,ScenTree (clasificación): Floral > Fresh Flowers > Plastic > Aldehydes > Mushroom
 3f5492b2-579e-5cf2-9dd5-4bb735215cf5,09b9cadf-1311-5002-b027-5f0a0b77bfdb,,TG,"PerfumersWorld: sweet balsamic vanilla, soft-spicy-cinnamic"
 3f5b41e1-a1c6-599b-a07a-30de670e8f6e,c811f0e8-c0e4-5a40-9d87-f7cb3bdba3eb,,TG,"Biolandes: moss family / smoked, humic, woody"
+3f86a749-57ab-5549-bfd7-adb2d437a1ff,4352551b-fca9-5d6a-8bf5-c175015da6e3,,TG,Anhui Suzhou Jinli Aromatic Chemicals: irritative roast
 3f90478d-d38f-575d-9664-bbd0865b87a6,797168ad-6c06-59ec-bd0f-2a9aac8167b7,,TG,"TGSC (Luebke, William, 1989), al 100 %: fresh clean soft natural floral muguet linalool"
 3f913179-2950-561b-9225-40fa7726f130,bce96d26-a651-56fd-beba-3cf582d6b5be,,TG,"Moellhausen (Amarocit): fresh herbal, green fruity; citrusy, reminding of grapefruit peel"
 3faca007-4a65-5397-8ba0-c0887aa13bf7,797168ad-6c06-59ec-bd0f-2a9aac8167b7,,TG,"Moellhausen (FLOROL): fresh, floral (muguet, rosy), lightly earthy note"
@@ -286,6 +287,7 @@ id,material_id,owner_id,source,text
 44e61144-e284-503d-ace1-8c12107572c0,c0bcc866-20e7-5f2a-8a3a-2c4fc79ded81,,TG,"Moellhausen: fatty-citrusy, tangerine note; aldehydic"
 44eb64f8-f26f-5bc4-a217-b329758c8cfc,f651a9e1-1f05-579f-8a87-5c9b717fe203,,TG,"Pell Wall Perfumes (Escocia, 2 %) — ficha 8038-65-1: Ambergris , animalic, marine"
 45457b27-2644-56a6-8c84-523d80cbc95d,7b46db90-485c-5a1f-ac65-a944fb216beb,,TG,Creatingperfume.com (Suederal LT): Super strong leather
+4581d417-0ba4-5bc2-a48d-5aaf82d8a3d0,4352551b-fca9-5d6a-8bf5-c175015da6e3,,TG,"TGSC (al 0,1 % en PG): rubber sulfurous"
 45c6786e-66b9-5b46-bb85-b933805b6e3d,c929f861-af9a-5a82-baea-57e3594cff73,,TG,"Luebke, William (TGSC, 1985), al 100 %: sweet fruity apple green tropical plum woody"
 45c9b317-a614-5648-8388-5d171b87a2d7,5b667d33-88cc-57ef-b266-9c2f68238683,,TG,"Robertet: Ambery/vanillic, woody, leather"
 45f2fccd-5b51-51a1-aa0f-a9e0eef84cd9,49ea9a32-0751-5759-9f43-9811d76b4d54,,TG,"TGSC (sin autor), al 100.00 %: fresh ground black pepper"
@@ -714,6 +716,7 @@ a764f6a6-aa6c-5557-abaf-02bbdeb1113f,26c81b1e-4094-53a8-a79f-d93388cf3754,,FIG,"
 a76c58ca-4698-5081-b997-f9a5b30a3b90,ff37315b-9a1f-57c8-90e1-eb9d23911346,,web,"Arctander (citado vía buscador): la semejanza con el geranio aparece solo al diluirlo, y mejor dentro de una composición"
 a781ba82-fc15-5996-b871-0d1a902af346,40f89c9f-8ef5-5f92-87a9-31d9454a3194,,TG,"Lebermuth: Spicy, warm, bitter"
 a7ad36a4-4fc8-56e9-9c2e-59e9eb1a95b5,aa83f1f1-92a9-5f1d-b9a8-83f3dca795bc,,web,"ScenTree: used for warm, almond and coumarinic notes"
+a803e396-6dee-5f88-944b-a4bd17fe7941,4352551b-fca9-5d6a-8bf5-c175015da6e3,,TG,FCI SAS: rubber barbecue
 a82fad99-b49f-5a68-82a4-642b1353ca88,edbc453b-fcdf-5c8b-9537-41ef2a62f206,,TG,"TGSC (Luebke, William, 1984), al 10.00 % en dipropilenglicol (muestra de Givaudan Corporation): sweet spicy clove woody"
 a8437752-8391-5599-8fe9-6ed66bcd6f29,ffec42bc-466d-504a-9883-3ba18c6059f4,,TG,"TGSC (sin autor), al 100 %: woody earthy rooty balsam amber"
 a845a7eb-a36a-5224-a650-ef2e03fbb550,11281cd2-4341-5e1b-9e49-cc2c367de10c,,web,Perfumer's World: sweet fruity coconut tuberose gardenia floral-orientals vanilla cream milk
