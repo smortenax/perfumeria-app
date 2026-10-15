@@ -5,3 +5,5 @@
 *.icns binary
 *.xlsx binary
 *.pdf binary
+# Los .cmd de Windows, con CRLF: cmd.exe no lee bien sus etiquetas con LF.
+*.cmd text eol=crlf
