@@ -11,6 +11,7 @@
  *
  *   node migracion-v3/tanda-14-fichas-nuevos.ts
  */
+import { execSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
@@ -18,10 +19,15 @@ import { type Cell, writeTable } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
 const OUT = "migracion-v3/tandas/14-fichas-nuevos";
+// The tenacity in hours is of the pure material on a strip, TGSC's scale (V3-42): a figure at another dilution goes to the notes.
 const FOUND = "migracion-v3/web/fichas-13.csv";
 type Rec = Record<string, Cell>;
+// The common data as batch 13 left it (its approval, d7baf4b): the batch is made again from there,
+// never on top of itself, so that redoing it (2026-10-15: a tenacity that was not of the pure
+// material, V3-42) gives the same tables as doing it once.
+const BASE = "d7baf4b";
 const read = (path: string) => {
-  const text = readFileSync(path, "utf8");
+  const text = execSync(`git show ${BASE}:${path}`, { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
   return { header: text.slice(0, text.indexOf("\n")).split(","), rows: parseCsvRecords(text) as Rec[] };
 };
 const materials = read("v3/datos/materials.csv");

@@ -142,13 +142,13 @@ https://www.thegoodscentscompany.com/data/rw1002671.html
 | Fórmula | C10 H9 Cl3 O2 | «C10 H9 Cl3 O2» |
 | Peso molecular | 267.53613 | «267.53613000» |
 | Intensidad | medium | «medium , recommend smelling in a 10.00 % solution or less» |
-| Tenacidad (h) | 400 | «400 hour(s) at 20.00 % in dipropylene glycol» |
+| Nota | Tenacidad en TGSC: «400 hour(s) at 20.00 % in dipropylene glycol»: al 20 % en DPG, no puro; la tenacidad en horas es del material puro (V3-42), así que no entra como cifra. | «400 hour(s) at 20.00 % in dipropylene glycol» |
 | Manejo | TGSC: GHS «None found.» Es un compuesto clorado. | «None found.» |
 | En la mezcla | Arctander (en TGSC): «has found wide application in perfume compositions as a fixative in Rose and Geranium compounds, soap fragrances». PerfumersWorld: «Blends-well-with - +Aldehyde C11 undecylenic». | «has found wide application in perfume compositions as a fixative in Rose and Geranium compounds, soap fragrances» |
 | Familia | floral | «Odor Type: floral» |
 | Matiz | floral (rosa) / balsámica | propuesta de la sesión, por «heavy deep rose floral powdery balsamic soapy» |
 | Facetas | rosa pesada, atalcado, balsámico, jabonoso | propuesta de la sesión, por «heavy deep rose floral powdery balsamic soapy» |
-| Nivel | base | propuesta de la sesión, por «400 hour(s) at 20.00 % in dipropylene glycol» |
+| Nivel | base | propuesta de la sesión, por «0.000042 mmHg @ 25.00 °C. (est); 400 hour(s) at 20.00 % in dipropylene glycol» |
 | Papel | fixative | propuesta de la sesión, por «as a fixative in Rose and Geranium compounds» |
 | Dosis máx. (fracción del concentrado) | 0.008 | «0.8000 % in the fragrance concentrate.» |
 | Descriptor | TGSC (al 10 % en DPG): heavy deep rose floral powdery balsamic soapy | «at 10.00 % in dipropylene glycol. heavy deep rose floral powdery balsamic soapy» |
