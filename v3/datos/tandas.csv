@@ -37,3 +37,4 @@ tanda,fecha,aprobacion,archivo,sha256
 14-fichas-nuevos,2026-10-15,"el usuario: «apruebo 14 corregida»",material_descriptors.csv,effd0da1cd9458b8ec825b0a08b5340e7cdceb6f00300bf2655d74b12749ef56
 14-fichas-nuevos,2026-10-15,"el usuario: «apruebo 14 corregida»",material_doses.csv,dd9221b6611de9f803f878ba8e46f16049283e28e999538ab9f93d3688b421a8
 14-fichas-nuevos,2026-10-15,"el usuario: «apruebo 14 corregida»",materials.csv,3f84fa433353a2b6fb0a6ec61b1eaad69d892821d9789bc6df4b7da20c5a56d2
+15-paleta,2026-10-15,"el usuario: «aprubo 15 carga la paleta y comprueba»",family_palette.csv,5f34d9666a65fe6fbe37d8cf73538980901a84fc5a7c369405936ef31c795f8e
