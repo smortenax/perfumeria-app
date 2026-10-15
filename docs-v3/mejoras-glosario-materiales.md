@@ -1,26 +1,26 @@
 # Mejoras del glosario de materiales
 
-*Generada por `migracion-v3/mejoras-glosario.ts` desde lo común aprobado (`v3/datos/`, commit `6d4b353`). No se edita a mano: cuando vuelvas a ella, se ejecuta otra vez y dice lo que sigue faltando. No cambia ningún dato.*
+*Generada por `migracion-v3/mejoras-glosario.ts` desde lo común aprobado (`v3/datos/`, commit `3630006`). No se edita a mano: cuando vuelvas a ella, se ejecuta otra vez y dice lo que sigue faltando. No cambia ningún dato.*
 
 **Por qué existe (V3-46).** Las tandas 7 y 9 entraron con huecos, aceptados de momento: «si de momento acepto para materiales vacios como seuderal y otros sin registro de familia se documenta en una ficha de mejoras de app:glosario materiales que se revisitara para ir teniendo los materiales al orden necesario» (orko kill, 2026-10-14). Esta es esa ficha. Cada hueco se llena con su fuente, por una tanda que apruebas, nunca a mano.
 
 ## Resumen
 
-111 materiales comunes. Lo que le falta a cada campo del registro general, contando solo donde aplica: el CAS, en las moléculas; la especie, en los naturales; y del olor y el uso, nada en los 3 disolventes.
+115 materiales comunes. Lo que le falta a cada campo del registro general, contando solo donde aplica: el CAS, en las moléculas; la especie, en los naturales; y del olor y el uso, nada en los 7 disolventes.
 
 | Campo | Le falta a | De |
 |---|---|---|
-| CAS | 0 | 74 |
+| CAS | 0 | 78 |
 | especie | 1 | 30 |
-| abreviatura | 9 | 111 |
-| familia | 11 | 108 |
+| abreviatura | 9 | 115 |
+| familia | 1 | 108 |
 | nivel | 0 | 108 |
-| tenacidad | 14 | 108 |
-| intensidad | 3 | 108 |
+| tenacidad | 12 | 108 |
+| intensidad | 2 | 108 |
 | evolución | 108 | 108 |
-| descriptores | 3 | 108 |
+| descriptores | 2 | 108 |
 | dosis | 4 | 108 |
-| estado físico | 4 | 111 |
+| estado físico | 4 | 115 |
 
 **La evolución** está vacía en todos: el laboratorio no la da por tramos, y repartirla en los cinco de V3-42 queda por hacer.
 
@@ -28,34 +28,19 @@
 
 | Material | Tipo | Le falta |
 |---|---|---|
-| Miel, esencia aromática | base | abreviatura, familia, tenacidad, intensidad, evolución, descriptores, dosis |
-| Aldehído alfa-hexil cinámico | molécula | tenacidad, intensidad, evolución, descriptores, dosis, estado físico |
 | Esencia de trufa | base | abreviatura, familia, tenacidad, intensidad, evolución, descriptores |
-| Auranone | base | abreviatura, familia, tenacidad, evolución |
-| Black Agar 296985 | base | abreviatura, familia, tenacidad, evolución |
-| Dewfruit TEC | base | abreviatura, familia, tenacidad, evolución |
-| Suederal | natural | especie, abreviatura, familia, evolución |
+| Miel, esencia aromática | base | abreviatura, tenacidad, intensidad, evolución, descriptores, dosis |
 
-## Sin familia (11)
+## Sin familia (1)
 
 Sin familia, la app no le da color (V3-38). La familia sale de la pareja en la v1 (tanda 7): un material sin pareja en la v2, o cuya fila de la v1 no la tiene, queda sin ella.
 
-- Aldambre (molécula)
-- Auranone (base)
-- Bálsamo de Tolú, resinoide (natural)
-- Black Agar 296985 (base)
-- Cacao, absoluto (natural)
-- Cassis Base 345 B (base)
-- Castóreo sintético (base)
-- Dewfruit TEC (base)
 - Esencia de trufa (base)
-- Miel, esencia aromática (base)
-- Suederal (natural)
 
 ## Abreviaturas
 
 - **Sin abreviatura (9):** Auranone · Bálsamo de Tolú, resinoide · Black Agar 296985 · Cacao, absoluto · Cassis Base 345 B · Dewfruit TEC · Esencia de trufa · Miel, esencia aromática · Suederal.
-- **Generadas, provisionales:** 5. **Tuyas, del glosario de la v1:** 97.
+- **Generadas, provisionales:** 9. **Tuyas, del glosario de la v1:** 97.
 - **A revisar (V3-45):** muchas salen del nombre químico en vez del comercial, y eso confunde. La lista entera, con la columna «abreviatura» de la tabla de abajo. Los otros códigos de la v1 de cada pareja no entraron (V3-45).
 
 ## A auditar (V3-51)
@@ -87,9 +72,9 @@ Lo que se sabe mal o dudoso, para corregirlo como detalle: mala información es 
 | Acetato de terpinilo | molécula | TAI | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Ajenjo, aceite esencial | natural | WoO | · | sí | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Alcohol Feniletílico | molécula | PA5 | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
-| Aldambre | molécula | OxO (generada) | sí | · | **—** | sí | **—** | sí | **—** | sí | sí | sí |
+| Aldambre | molécula | OxO (generada) | sí | · | sí | sí | **—** | sí | **—** | sí | sí | sí |
 | Aldehído alfa-amil cinámico | molécula | αAm | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
-| Aldehído alfa-hexil cinámico | molécula | αHe | sí | · | sí | sí | **—** | **—** | **—** | **—** | **—** | **—** |
+| Aldehído alfa-hexil cinámico | molécula | αHe | sí | · | sí | sí | sí | sí | **—** | sí | **—** | sí |
 | Aldehído benzoico (benzaldehído) | molécula | Bz | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Aldehído C10 (decanal) | molécula | De9 | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Aldehído C11 MOA | molécula | Met | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
@@ -103,33 +88,35 @@ Lo que se sabe mal o dudoso, para corregirlo como detalle: mala información es 
 | Ambrinol S | molécula | OTN | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Antranilato de metilo | molécula | MA16 | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Artemisa (Artemisia vulgaris), aceite esencial | natural | ARVO | · | sí | sí | sí | sí | sí | **—** | sí | sí | sí |
-| Auranone | base | **—** | · | · | **—** | sí | **—** | sí | **—** | sí | sí | sí |
-| Bálsamo de Tolú, resinoide | natural | **—** | · | sí | **—** | sí | sí | sí | **—** | sí | sí | sí |
+| Auranone | base | **—** | · | · | sí | sí | **—** | sí | **—** | sí | sí | sí |
+| Bálsamo de Tolú, resinoide | natural | **—** | · | sí | sí | sí | sí | sí | **—** | sí | sí | sí |
+| Benzoato de bencilo | molécula, disolvente | BBd (generada) | sí | · | · | · | · | · | · | · | · | **—** |
 | Bergamota sin bergaptenos | natural | BFO | · | sí | sí | sí | sí | sí | **—** | sí | sí | sí |
-| Black Agar 296985 | base | **—** | · | · | **—** | sí | **—** | sí | **—** | sí | sí | sí |
-| Cacao, absoluto | natural | **—** | · | sí | **—** | sí | sí | sí | **—** | sí | sí | sí |
+| Black Agar 296985 | base | **—** | · | · | sí | sí | **—** | sí | **—** | sí | sí | sí |
+| Cacao, absoluto | natural | **—** | · | sí | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Calone | molécula | MBD | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Canela de Ceilán, aceite esencial de corteza | natural | CIBO | · | sí | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Cashmeran | molécula | DPI | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
-| Cassis Base 345 B | base | **—** | · | · | **—** | sí | sí | sí | **—** | sí | sí | sí |
-| Castóreo sintético | base | CaS (generada) | · | · | **—** | sí | **—** | sí | **—** | sí | sí | sí |
+| Cassis Base 345 B | base | **—** | · | · | sí | sí | sí | sí | **—** | sí | sí | sí |
+| Castóreo sintético | base | CaS (generada) | · | · | sí | sí | **—** | sí | **—** | sí | sí | sí |
 | Castoreum | natural | CtA | · | sí | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Cedramber | molécula | CME | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Cedro Atlas | natural | CATO | · | sí | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Cedro chino, aceite esencial | natural | CECO | · | sí | sí | sí | sí | sí | **—** | sí | **—** | sí |
-| Cilantro | natural | COSO | · | sí | sí | sí | **—** | sí | **—** | sí | sí | sí |
+| Cilantro | natural | COSO | · | sí | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Cinamato de metilo | molécula | MCI | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | cis-3-Hexenol | molécula | He9 | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Cumarina natural | molécula | Cu | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Dartanol | molécula | EY | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Datilat | molécula | CB | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
-| Dewfruit TEC | base | **—** | · | · | **—** | sí | **—** | sí | **—** | sí | sí | sí |
+| DEP | molécula, disolvente | DEPd (generada) | sí | · | · | · | · | · | · | · | · | **—** |
+| Dewfruit TEC | base | **—** | · | · | sí | sí | **—** | sí | **—** | sí | sí | sí |
 | Dihydromyrcenol | molécula | Di18 | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Diphenyl Oxide | molécula | DE13 | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | DPG (dipropilenglicol) | molécula, disolvente | Dipr (generada) | sí | · | · | · | · | · | · | · | · | sí |
 | Ebanol | molécula | MT3 | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Esencia de trufa | base | **—** | · | · | **—** | sí | **—** | **—** | **—** | **—** | sí | sí |
-| Etanol | molécula, disolvente | EA8 (generada) | sí | · | · | · | · | · | · | · | · | **—** |
+| Etanol | molécula, disolvente | EA8 (generada) | sí | · | · | · | · | · | · | · | · | sí |
 | Ethyl Maltol | molécula | EMA | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Ethylene Brassylate | molécula | EBR | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Etil-4-fenol | molécula | Et5 | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
@@ -149,7 +136,7 @@ Lo que se sabe mal o dudoso, para corregirlo como detalle: mala información es 
 | Hidroxicitronelal (Cyclosia) | molécula | Ho | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Ionona Alpha | molécula | αIn | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Ionona beta | molécula | βIo | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
-| IPM (miristato de isopropilo) | molécula, disolvente | IsM (generada) | sí | · | · | · | · | · | · | · | · | **—** |
+| IPM (miristato de isopropilo) | molécula, disolvente | IsM (generada) | sí | · | · | · | · | · | · | · | · | sí |
 | Iso E Super | molécula | OT | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Isobutilquinoleína (IBQ) | molécula | Bu4 | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Kephalis | molécula | TEE | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
@@ -157,13 +144,13 @@ Lo que se sabe mal o dudoso, para corregirlo como detalle: mala información es 
 | Lavanda | natural | LnO | · | sí | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Limón | natural | LmO | · | sí | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Linalol | molécula | Li | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
-| Litsea Cubeba | natural | LICO | · | sí | sí | sí | sí | sí | **—** | sí | sí | **—** |
+| Litsea Cubeba | natural | LICO | · | sí | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Mandarina | natural | MnO | · | sí | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Maritima | molécula | DD2 | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Mayol | molécula | ISC | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Methyl Pamplemousse | molécula | DTE | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Metil ionona gamma | molécula | αISM | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
-| Miel, esencia aromática | base | **—** | · | · | **—** | sí | **—** | **—** | **—** | **—** | **—** | sí |
+| Miel, esencia aromática | base | **—** | · | · | sí | sí | **—** | **—** | **—** | **—** | **—** | sí |
 | Musgo de roble, absoluto | natural | OaA | · | sí | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Naranja dulce | natural | ORSO | · | sí | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Norlimbanol | molécula | TRH | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
@@ -180,7 +167,9 @@ Lo que se sabe mal o dudoso, para corregirlo como detalle: mala información es 
 | Salvia Officinalis | natural | SDO | · | sí | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Sandalmysore Core | molécula | MTC | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Stemone | molécula | MH4 | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
-| Suederal | natural | **—** | · | **—** | **—** | sí | sí | sí | **—** | sí | sí | sí |
+| Suederal | natural | **—** | · | **—** | sí | sí | sí | sí | **—** | sí | sí | sí |
+| TEC | molécula, disolvente | TEC (generada) | sí | · | · | · | · | · | · | · | · | **—** |
+| Triacetina | molécula, disolvente | TRI (generada) | sí | · | · | · | · | · | · | · | · | **—** |
 | Vainillina | molécula | Vn | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Vertenex (PTBCHA) | molécula | BA4 | sí | · | sí | sí | sí | sí | **—** | sí | sí | sí |
 | Vetiver | natural | VeO | · | sí | sí | sí | sí | sí | **—** | sí | sí | sí |

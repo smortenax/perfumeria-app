@@ -27,3 +27,5 @@ tanda,fecha,aprobacion,archivo,sha256
 9-categorias,2026-10-14,"orko kill, 2026-10-14, en el hilo: «si de momento acepto» (tanda 7 rehecha con V3-16 y tanda 9 sobre ella; los huecos, a la ficha de mejoras del glosario)",materials.csv,97bd57641c217de6056e03b7e0ad104dfbebcdc33bc8399879c716d63a3c3a76
 11-diluyentes,2026-10-15,"orko kill, 2026-10-15, en el hilo: «apruebo 11»",material_categories.csv,3daa119b90f54670570d4e7b565affb6b43b0cb2aceefef221dbfc5f1adbb505
 11-diluyentes,2026-10-15,"orko kill, 2026-10-15, en el hilo: «apruebo 11»",materials.csv,c370cbe68fe6ed814bfdcc8ab49f9d68db9efdb3fec71db5f1f4af9d9e8f7653
+12-huecos-web,2026-10-15,"orko kill, 2026-10-15, en el hilo: «apruebo 12»",material_descriptors.csv,ad39b2517a6d0ba1363a23c8c3df7cf1f4fc23ab9972b7785f4fede2cfa7ab0a
+12-huecos-web,2026-10-15,"orko kill, 2026-10-15, en el hilo: «apruebo 12»",materials.csv,0b4442e7e22995e683ac74a301d319fcb28d461673b01fa35c0404915e969247
