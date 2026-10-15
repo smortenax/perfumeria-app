@@ -3,6 +3,7 @@ import type { IfraCardState } from "../db/to-ifra";
 import type { GlossaryData } from "../glossary/useGlossary";
 import { type CatalogEntry, fold, type IfraState, normalize, searchCatalog, type UsageData } from "./data/catalog";
 import type { MaterialRepository } from "./data/repository";
+import { texts } from "./texts";
 
 /**
  * The workbench's materials from the v3 (V3-52): the ported workbench reads a repository of the
@@ -24,6 +25,8 @@ const STATE: Readonly<Record<IfraCardState["state"], IfraState>> = {
 export function repositoryOfV3(data: GlossaryData): MaterialRepository {
   const entries: CatalogEntry[] = [];
   for (const m of data.catalog.materials.values()) {
+    // A frozen formula is poured with its vector, which the workbench builds for the ones its bench may use (V3-19, V3-49).
+    if (m.kind === "frozen") continue;
     const base = m.basedOnId ? data.catalog.materials.get(m.basedOnId) : undefined;
     const pick = <T,>(get: (x: typeof m) => T | null | undefined): T | null => get(m) ?? (base ? (get(base) ?? null) : null);
     const abbreviation = pick((x) => x.abbreviation);
@@ -54,7 +57,10 @@ export function repositoryOfV3(data: GlossaryData): MaterialRepository {
       ...(aliases.length ? { aliases } : {}),
       ...(m.product ? { shopNames: [m.product] } : {}),
       ...(usage ? { usage } : {}),
-      ...(m.ownerId !== null && m.supplier ? { maker: { name: m.supplier, code: m.code ?? "" } } : {}),
+      // Your version of a common is one row with it, yours first (as a maker's product in the v2, P62).
+      ...(m.ownerId !== null && (m.supplier || base)
+        ? { maker: { name: m.supplier ?? texts.bench.yourVersion, code: m.code ?? "", ...(base ? { general: base.id } : {}) } }
+        : {}),
     });
   }
   const byKey = new Map(entries.map((e) => [e.material.key, e]));
@@ -84,7 +90,7 @@ const DILUENT_NAMES: Readonly<Record<string, RegExp>> = {
  * The id in the v3 of a key the bar gives: a material's key is already its id; a diluent of the bar
  * («solv:dpg») is the common diluent of that name. One the v3 does not have is said, not guessed.
  */
-export function v3IdOf(data: GlossaryData): (key: string) => string {
+export function v3IdOf(data: Pick<GlossaryData, "catalog">): (key: string) => string {
   const solvents = [...data.catalog.materials.values()].filter((m) => m.ownerId === null && m.solvent);
   return (key) => {
     const name = DILUENT_NAMES[key];

@@ -302,6 +302,34 @@ export function engineMaterial(m: CatalogMaterial): Material {
  * up to the event it was frozen at; exact, and the same forever, because a history is only added to.
  */
 export async function loadFormula(db: LocalDb, catalog: Catalog, ownerId: string, id: string): Promise<Formula> {
+  return (await loaderOf(db, catalog, ownerId)).formula(id, []);
+}
+
+/**
+ * Frozen formulas of yours as the engine pours them (V3-49): each with its vector, from its formula
+ * up to its event. One that cannot be built (its formula is not in the copy) is left out, never
+ * guessed; the reason goes with it.
+ */
+export async function loadFrozen(
+  db: LocalDb,
+  catalog: Catalog,
+  ownerId: string,
+  ids: readonly string[],
+): Promise<{ readonly materials: readonly Material[]; readonly failed: ReadonlyMap<string, string> }> {
+  const loader = await loaderOf(db, catalog, ownerId);
+  const materials: Material[] = [];
+  const failed = new Map<string, string>();
+  for (const id of ids) {
+    try {
+      materials.push(await loader.material(id, []));
+    } catch (e) {
+      failed.set(id, e instanceof Error ? e.message : String(e));
+    }
+  }
+  return { materials, failed };
+}
+
+async function loaderOf(db: LocalDb, catalog: Catalog, ownerId: string) {
   const records = new Map((await loadFormulas(db, ownerId)).map((f) => [f.id, f]));
   const built = new Map<string, Formula>();
   const frozen = new Map<string, Material>();
@@ -384,5 +412,5 @@ export async function loadFormula(db: LocalDb, catalog: Catalog, ownerId: string
     return f;
   }
 
-  return formula(id, []);
+  return { formula, material };
 }

@@ -239,6 +239,8 @@ export function AddBar(props: {
   ref?: Ref<AddBarHandle>;
   entries: readonly CatalogEntry[];
   sessionMaterials: readonly Material[];
+  /** «Lo que tengo» (V3-3): with it, the switch «solo lo que tengo» (plan 8.2); without it, no switch. */
+  have?: ReadonlySet<string>;
   onAdd: (change: Change) => void;
   onQuickMaterial: () => void;
   /** The v2 opened a formula's file to use it as a material; in the v3 an accord is found in the bar (V3-49): without it, no entry. */
@@ -282,6 +284,7 @@ export function AddBar(props: {
   const [customAt, setCustomAt] = useState(0);
   const [mine, setMine] = useState(true);
   const [formulas, setFormulas] = useState(true);
+  const [onlyHave, setOnlyHave] = useState(false);
   const [menu, setMenu] = useState(false);
   const [otherOpen, setOtherOpen] = useState(false);
   const [ownName, setOwnName] = useState("");
@@ -450,7 +453,8 @@ export function AddBar(props: {
     if (selected || q === "") {
       return [];
     }
-    const pool = mine ? props.entries : props.entries.filter((e) => e.group !== "own");
+    const had = onlyHave ? props.have : undefined;
+    const pool = (mine ? props.entries : props.entries.filter((e) => e.group !== "own")).filter((e) => !had || had.has(e.material.key) || e.group === "diluent");
     // «Mis materiales» takes in the provisional ones too, remembered from the library (P44).
     const session: Result[] = props.sessionMaterials
       .filter((m) => (m.kind === "formula" ? formulas : mine) && normalize(m.name).includes(q))
@@ -535,7 +539,7 @@ export function AddBar(props: {
       return all.length > 0 ? all : [{ kind: "note", text: cas ? t.casMissing(cas) : t.casInvalid(query.trim()) }];
     }
     return exact ? all : [...all, { kind: "create", name: query.trim() }];
-  }, [query, selected, mine, formulas, props.entries, props.sessionMaterials, plants]);
+  }, [query, selected, mine, formulas, onlyHave, props.have, props.entries, props.sessionMaterials, plants]);
 
   /** What a row stands for now: a plant's row, the option its chip is on. */
   const onChip = (r: Result): Result => (r.kind === "material" && r.plant ? r.plant.options[chips[r.plant.key] ?? r.plant.at] : r);
@@ -816,6 +820,7 @@ export function AddBar(props: {
               <span className="muted">{t.include}</span>
               <Switch checked={mine} label={t.mine} onChange={setMine} />
               <Switch checked={formulas} label={t.formulas} onChange={setFormulas} />
+              {props.have && <Switch checked={onlyHave} label={t.have} onChange={setOnlyHave} />}
             </li>
             {results.map((row, i) => {
               const r = onChip(row);

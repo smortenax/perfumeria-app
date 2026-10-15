@@ -7,7 +7,7 @@ import { checkIfra, type IfraBase, type IfraReport } from "../core/ifra";
 import { formulaToJson as toJsonWith } from "../core/io/formula-json";
 import type { Change, Formula, FormulaHeader } from "../core/model/formula";
 import type { Material } from "../core/model/material";
-import { addEvent, copyFormula, type FormulaRecord, loadFormula, loadFormulas, type NewEvent, updateFormula } from "../db/formulas";
+import { addEvent, copyFormula, type FormulaRecord, loadFormula, loadFormulas, loadFrozen, updateFormula } from "../db/formulas";
 import type { LocalDatabase } from "../db/local/database";
 import { createMaterial } from "../db/materials";
 import type { GlossaryData } from "../glossary/useGlossary";
@@ -26,6 +26,7 @@ import { assumptionsOf } from "./assumptions";
 import { specificationKeys } from "./ifra-explain";
 import { download, fileNameFor } from "./io";
 import { draftWarnings, MaterialCard } from "./MaterialCard";
+import { eventOf } from "./events";
 import { undoOf } from "./undo";
 import { bandOf, ifraOfMaterial, pourKey, previewPour, type Pour } from "./usage-bar";
 import { repositoryOfV3, v3IdOf } from "./v3-repository";
@@ -52,29 +53,6 @@ const message = (e: unknown) => (e instanceof Error ? e.message : String(e));
 const reopensByWeighing = (formula: Formula) => formula.header.container?.tareUg != null && formula.history.length > 0;
 const newId = (): string => crypto.randomUUID();
 
-/** A change of the engine as the event the v3 keeps (plan 8.2): by the materials' ids in the v3. */
-function eventOf(c: Change, idOf: (key: string) => string): NewEvent {
-  switch (c.kind) {
-    case "add":
-      return {
-        kind: "add",
-        materialId: idOf(c.material.key),
-        massUg: c.massUg,
-        fraction: c.fraction,
-        diluentId: c.diluent ? idOf(c.diluent.key) : null,
-        ...(c.secondDiluent ? { secondDiluent: { materialId: idOf(c.secondDiluent.material.key), fraction: c.secondDiluent.fraction } } : {}),
-      };
-    case "set-mass":
-      return { kind: "set_mass", target: c.target, massUg: c.massUg };
-    case "remove":
-      return { kind: "remove", target: c.target };
-    case "reweigh":
-      return { kind: "reweigh", grossUg: c.grossUg, tareUg: c.tareUg };
-    case "note":
-      return { kind: "note", text: c.text };
-  }
-}
-
 interface BenchProps {
   readonly data: GlossaryData;
   readonly local: LocalDatabase;
@@ -93,16 +71,25 @@ export function Bench(props: BenchProps) {
   const { data, local, formulaId } = props;
   const repository = useMemo(() => repositoryOfV3(data), [data]);
   // The formula, read from the copy, again whenever the data changes (an event, a sync).
-  const [loaded, setLoaded] = useState<{ formula: Formula; record: FormulaRecord } | null>(null);
+  const [loaded, setLoaded] = useState<{ formula: Formula; record: FormulaRecord; frozen: readonly Material[] } | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
   useEffect(() => {
     let live = true;
     Promise.all([loadFormula(local.db, data.catalog, local.userId, formulaId), loadFormulas(local.db, local.userId)])
-      .then(([formula, records]) => {
+      .then(async ([formula, records]) => {
         const record = records.find((r) => r.id === formulaId);
-        if (live && record) setLoaded({ formula, record });
+        if (!record) throw new Error("not one of your formulas");
+        // The frozen formulas this bench may pour (V3-19): the ones of its workbench and the ones marked «acorde»; never one of itself.
+        const byId = new Map(records.map((r) => [r.id, r]));
+        const usable = [...data.catalog.materials.values()].filter((m) => {
+          const source = m.kind === "frozen" && m.ownerId === local.userId && m.source ? byId.get(m.source.formulaId) : undefined;
+          return source !== undefined && source.id !== formulaId && (source.workbenchId === record.workbenchId || source.markers.includes("accord"));
+        });
+        const { materials } = await loadFrozen(local.db, data.catalog, local.userId, usable.map((m) => m.id));
+        if (live) setLoaded({ formula, record, frozen: materials });
       })
       .catch((e: unknown) => {
+        console.error(e);
         if (live) setLoadError(message(e));
       });
     return () => {
@@ -119,12 +106,12 @@ export function Bench(props: BenchProps) {
   }
   return (
     <div className="bench-root">
-      <BenchScreen key={formulaId} {...props} formula={loaded.formula} repository={repository} />
+      <BenchScreen key={formulaId} {...props} formula={loaded.formula} frozen={loaded.frozen} repository={repository} />
     </div>
   );
 }
 
-function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly repository: ReturnType<typeof repositoryOfV3> }) {
+function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly frozen: readonly Material[]; readonly repository: ReturnType<typeof repositoryOfV3> }) {
   const { formula, repository, local, formulaId } = props;
   const owner = local.userId;
   const ifra = props.data.ifra;
@@ -217,7 +204,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
   const families = useMemo(() => new Map(repository.entries.filter((e) => e.family).map((e) => [e.material.key, e.family!])), [repository]);
   const familyOf = (key: string) => families.get(key);
   const chemical = useMemo(() => new Map(repository.entries.filter((e) => e.tradeName).map((e) => [e.material.key, e.chemicalName])), [repository]);
-  const known = session;
+  const known = useMemo(() => [...props.frozen, ...session], [props.frozen, session]);
 
   /** The header is the formula's record: its changes are written to it. */
   const setHeader = (header: FormulaHeader) =>
@@ -353,6 +340,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
               ref={addBar}
               entries={repository.entries}
               sessionMaterials={known}
+              have={props.data.catalog.have}
               onAdd={change}
               onSelect={setCardMaterial}
               onDraft={setDraft}
