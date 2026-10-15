@@ -7,7 +7,7 @@ import { checkIfra, type IfraBase, type IfraReport } from "../core/ifra";
 import { formulaToJson as toJsonWith } from "../core/io/formula-json";
 import type { Change, Formula, FormulaHeader } from "../core/model/formula";
 import type { Material } from "../core/model/material";
-import { addEvent, copyFormula, freezeFormula, type FormulaRecord, loadFormula, loadFormulas, loadFrozen, updateFormula } from "../db/formulas";
+import { addEvent, copyFormula, freezeFormula, type FormulaRecord, loadFormula, loadFormulas, loadFrozen, updateFormula, usableFrozen } from "../db/formulas";
 import type { LocalDatabase } from "../db/local/database";
 import { createMaterial } from "../db/materials";
 import type { GlossaryData } from "../glossary/useGlossary";
@@ -80,13 +80,7 @@ export function Bench(props: BenchProps) {
       .then(async ([formula, records]) => {
         const record = records.find((r) => r.id === formulaId);
         if (!record) throw new Error("not one of your formulas");
-        // The frozen formulas this bench may pour (V3-19): the ones of its workbench and the ones marked «acorde»; never one of itself.
-        const byId = new Map(records.map((r) => [r.id, r]));
-        const usable = [...data.catalog.materials.values()].filter((m) => {
-          const source = m.kind === "frozen" && m.ownerId === local.userId && m.source ? byId.get(m.source.formulaId) : undefined;
-          return source !== undefined && source.id !== formulaId && (source.workbenchId === record.workbenchId || source.markers.includes("accord"));
-        });
-        const { materials } = await loadFrozen(local.db, data.catalog, local.userId, usable.map((m) => m.id));
+        const { materials } = await loadFrozen(local.db, data.catalog, local.userId, usableFrozen(data.catalog, records, local.userId, formulaId));
         if (live) setLoaded({ formula, record, frozen: materials });
       })
       .catch((e: unknown) => {

@@ -445,3 +445,19 @@ export async function freezeFormula(db: LocalDb, ownerId: string, formulaId: str
   });
   return id;
 }
+
+/**
+ * The frozen formulas of yours a formula may pour (V3-19): the ones of its workbench and the ones
+ * marked «acorde» in any; never one of itself (it would contain itself).
+ */
+export function usableFrozen(catalog: Catalog, records: readonly FormulaRecord[], ownerId: string, formulaId: string): string[] {
+  const byId = new Map(records.map((r) => [r.id, r]));
+  const record = byId.get(formulaId);
+  if (!record) throw new Error("not one of your formulas");
+  return [...catalog.materials.values()]
+    .filter((m) => {
+      const source = m.kind === "frozen" && m.ownerId === ownerId && m.source ? byId.get(m.source.formulaId) : undefined;
+      return source !== undefined && source.id !== formulaId && (source.workbenchId === record.workbenchId || source.markers.includes("accord"));
+    })
+    .map((m) => m.id);
+}
