@@ -324,6 +324,8 @@ export const texts = {
       `${common} ${common === 1 ? "material común" : "materiales comunes"} y ${own} ${own === 1 ? "tuyo" : "tuyos"}`,
     data: (commit: string) => `Datos comunes: ${commit}`,
     noData: "Todavía no hay datos comunes cargados.",
+    lastSynced: (when: string) => `Última sincronización: ${when}`,
+    neverSynced: "Todavía no se ha sincronizado con el servidor.",
     pending: (n: number) => (n === 1 ? "1 cambio pendiente de subir" : `${n} cambios pendientes de subir`),
     rejected: (n: number) =>
       n === 1 ? "1 cambio rechazado por Supabase, guardado aquí" : `${n} cambios rechazados por Supabase, guardados aquí`,
