@@ -8,7 +8,7 @@ export const texts = {
   },
   signIn: {
     devMe: "Entrar como tú",
-    devTest: "Entrar como prueba A",
+    devTest: "Entrar como prueba A (cuenta de prueba, sin tus datos)",
     devHint: "Solo en desarrollo (npm run dev): la versión publicada no lleva estos botones.",
     title: "Entrar",
     email: "Correo",
