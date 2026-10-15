@@ -1078,6 +1078,49 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 - **El creador de diluciones** calcula material y disolvente en gramos para una cantidad y un porcentaje (también desde una dilución previa), da los pasos e imprime una etiqueta (material, %, disolvente, fecha).
 - **Propuesta de la sesión, sin decidir:** las dos, en la fase del banco, junto a la hoja de diluciones de cada fórmula.
 
+## V3-56 · De ScentFriends entra lo propuesto; los alérgenos y el CLP, aparte (decidida por el usuario el 2026-10-15)
+
+**Literal** (2026-10-15, a la lista de lo que servía de la referencia): «de acuerdo con las propuestas, aun asi hay algunas cosas trabajar en partes esta bien y muchas veces es estandar, igual que los % […]». Lo de las partes es V3-58 y V3-59.
+
+**Lectura** (de la sesión):
+
+- **Entran, después de portar el banco (V3-52):** la hoja de pesada exportable y el creador de diluciones con su etiqueta (V3-55), la hoja de diluciones de cada fórmula (qué preparar antes de pesar), el panel de avisos (IFRA, reparto por pisos, gramos de alcohol), el tipo de producto y la concentración arriba del banco y, del gráfico de evolución, solo la forma de dibujarlo, con tus datos (V3-42).
+- **Los alérgenos de la UE, el Anexo III y la etiqueta CLP** quedan para una decisión aparte.
+- **No entran:** su modo de pesada (solo marca casillas), los precios y el carrito, y sus textos y fichas.
+
+## V3-57 · Repesar, cuando lo decide el usuario, con el frasco o con el frasco tarado (decidida por el usuario el 2026-10-15; cambia P12, §3.5)
+
+**Literal** (2026-10-15):
+
+> de acuerdo con las propuestas, aun asi hay algunas cosas trabajar en partes esta bien y muchas veces es estandar, igual que los % yo diria que hay que buscar una manera de incorporar eso a la app pero es complicado obviamente, el conflicto es, durante el trabajo normal se tiene que trabajar con la precision de los gramos y lo que se ponga de producto tiene que consercar la precision de la medida, sin embargo la parte de exportar la forumula en partes o en porcentages o para recomponer una formula lo ideal es que haya una informacion relativa no absoluta, entoces lo que propongo es que el sistema de repesado se rediseñe de manera que no se algo que te sale al reabrir la formula directamente sino una opcion de repesar o algo asi donde puedas poner el nuevo peso por si se ha usado el contenido de la formula, esencialmente haciendo lo de repesar pero a decision del usuario, tambien hay que dar la opcion de si se tiene en cuenta el flasco o no en la repesada, podria ser que se ponga el peso junto con el flasco o que el flasco este tarado y no se tenga que restar en este nuevo "repesar". la parte de la composicion por otro lado deberia tener tambien una pestaña de partes donde el uso de los ingredientes se pone en uso de entre 0 a 1000 partes de producto total, para quien esta familiarizado con este tipo de pesada, se redondea para que la cantidad se ajsute a la unidad minima, finalmente para acabar de completar todas las opciones que faltan en el menu desplegable de opciones de la derecha debe haber un boton mas que sea para usar la formula, usar la formula te abre una ventana flotante que te muestra la composicion entera de la formula y donde puedes configurar unos parametros para que te de la receta exacta dependiendo de tus necesidades, usa la formula en valores relativos para calcular cuanto te hace falta mezclar de cada materiales para un valor deseado, creo que esta parte deberia tener tanto la opcion de usar formulas en su estado normal como ademas usar formulas con un requerimiento, PE la formula como tal esta al 35% pero digamos que yo el perfume final no lo quiero al 30 lo quiero al 25%, en vez de seleccional que quiero usar la formula 1:1 lo que selecciono es que quiero usar la formula para un producto de 25% mezcla 75% alcohol, y por lo tanto se ajustara subiendo la cantidad de alcohol que se usa, tabmien puede hacer lo contrario pero si concentras mas la formula de lo que esta tendra un aviso para cuando pases el % definido por "uso maximo en fragancia final"...
+
+**Lectura** (de la sesión):
+
+- **El principio:** se trabaja y se guarda en gramos, con la precisión de la báscula; las partes y los % son vistas y salidas relativas, para exportar o recomponer. Nada de lo pesado se redondea.
+- **Reabrir una fórmula ya no pide pesarla.** Repesar es una opción del menú («Repesar…», que ya existe en la v2), cuando has usado parte de lo que había. Cambia P12 (§3.5: «al reabrir una fórmula con vial, se pesa»); lo demás de §3.5 sigue: la app escala todo a lo que queda, lo apunta en el historial, rechaza un peso imposible (P52) y avisa de lo evaporado.
+- **Al repesar eliges cómo pesas:** con el frasco (escribes el bruto y la app resta la tara) o con el frasco tarado en la báscula (escribes lo que queda y no se resta nada). Sin tara conocida, solo vale la segunda.
+- **Para la prueba de mañana el banco sigue como en la v2** (V3-52); el cambio va justo después.
+
+## V3-58 · La composición, también en partes de 1000 (decidida por el usuario el 2026-10-15)
+
+**Literal:** el de V3-57 («una pestaña de partes donde el uso de los ingredientes se pone en uso de entre 0 a 1000 partes de producto total […] se redondea para que la cantidad se ajsute a la unidad minima»).
+
+**Lectura** (de la sesión):
+
+- **Una pestaña más en la composición:** junto a «materia aromática» y «frasco», «partes», con cada material en partes de 1000 del total. Es una vista: la fórmula sigue en gramos.
+- **Cómo se redondea**, pendiente de tu respuesta (abajo, «Pendientes de V3-57 a V3-59»).
+
+## V3-59 · «Usar la fórmula»: la receta exacta para lo que necesitas (decidida por el usuario el 2026-10-15)
+
+**Literal:** el de V3-57 (desde «finalmente para acabar de completar…»).
+
+**Lectura** (de la sesión):
+
+- **Un botón más en el menú «Opciones»:** «Usar la fórmula…». Abre una ventana flotante con la composición entera y unos parámetros; con las proporciones de la fórmula, calcula cuánto pesar de cada material para lo que pides.
+- **Dos modos.** **Tal cual (1:1):** la misma fórmula, a otra cantidad. **Con un requisito:** a otra concentración. Por ejemplo, la fórmula está al 35 % (lote de trabajo entre lote final, §3.3) y la quieres al 25 %: la receta da el concentrado para un 25 % y sube el alcohol hasta el 75 %.
+- **Se puede concentrar más de lo que está**, con un aviso al pasar el uso máximo de IFRA (la segunda lectura, §5: «hasta qué % se puede usar en un perfume»). Con datos de IFRA incompletos, el aviso dice «parcial» y nunca da por bueno (§1.2).
+- **Los gramos de la receta, a la precisión de la báscula** (0,001 g); la receta es la base natural de la hoja de pesada (V3-55).
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
