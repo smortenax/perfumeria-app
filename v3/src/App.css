@@ -691,6 +691,23 @@ form.add label {
   background: color-mix(in srgb, var(--accent) 15%, transparent);
 }
 
+/* The family's colour (V3-38): edge and letters in it, a tint behind when you have it. */
+.tile .icon.fam {
+  --fam: var(--fam-light);
+  border-color: var(--fam);
+  color: var(--fam);
+}
+
+@media (prefers-color-scheme: dark) {
+  .tile .icon.fam {
+    --fam: var(--fam-dark);
+  }
+}
+
+.tile .icon.fam.have {
+  background: color-mix(in srgb, var(--fam) 18%, transparent);
+}
+
 .tile-name {
   font-weight: 600;
   font-size: 0.9375rem;

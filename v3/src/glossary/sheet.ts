@@ -1,3 +1,4 @@
+import { PALETTE } from "../families/palette";
 import type { IfraData } from "../core/ifra";
 import type { Amount, Catalog, CatalogMaterial, Component } from "../db/catalog";
 import type { IfraLayer } from "../db/ifra-layer";
@@ -118,7 +119,12 @@ function fieldsOf(catalog: Catalog): Readonly<Record<"identity" | "bottle" | "sm
       { label: f.purity, get: (m) => (m.purity ? percent(m.purity) : null) },
     ],
     smell: [
-      { label: f.family, get: (m) => (m.family ? t.families[m.family] : null), column: "family" },
+      {
+        label: f.family,
+        // With the colour it is drawn in (V3-38): «Floral · rosa malva».
+        get: (m) => (m.family ? [t.families[m.family], PALETTE.get(m.family)?.colourName].filter((x) => x).join(" · ") : null),
+        column: "family",
+      },
       { label: f.color, get: (m) => known(m.color) },
       { label: f.familyDetail, get: (m) => known(m.familyDetail), column: "family_detail" },
       { label: f.facets, get: (m) => known(m.facets) },

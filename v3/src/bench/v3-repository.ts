@@ -1,7 +1,8 @@
 import { engineMaterial } from "../db/formulas";
 import type { IfraCardState } from "../db/to-ifra";
+import { coloursOf, familyOf, PALETTE } from "../families/palette";
 import type { GlossaryData } from "../glossary/useGlossary";
-import { type CatalogEntry, fold, type IfraState, normalize, searchCatalog, type UsageData } from "./data/catalog";
+import { type CatalogEntry, fold, type IfraState, normalize, type ScentFamily, searchCatalog, type UsageData } from "./data/catalog";
 import type { MaterialRepository } from "./data/repository";
 import { texts } from "./texts";
 
@@ -21,6 +22,12 @@ const STATE: Readonly<Record<IfraCardState["state"], IfraState>> = {
   "no-data": "sin-dato",
   "no-standard": "sin-estandar",
 };
+
+/** The families of the palette as the workbench draws them (P48): it is light only, as the v2's sketches. */
+const SCENT_FAMILIES: readonly ScentFamily[] = [...PALETTE.values()]
+  .sort((a, b) => a.order - b.order)
+  .map((f) => ({ name: f.name, short: f.short, colour: f.light, order: f.order, covers: f.covers }));
+const scentOf = new Map([...PALETTE.keys()].map((k, i) => [k, SCENT_FAMILIES.find((s) => s.name === PALETTE.get(k)!.name) ?? SCENT_FAMILIES[i]]));
 
 export function repositoryOfV3(data: GlossaryData): MaterialRepository {
   const entries: CatalogEntry[] = [];
@@ -42,6 +49,10 @@ export function repositoryOfV3(data: GlossaryData): MaterialRepository {
         }
       : undefined;
     const names = [m.name, ...aliases, ...(m.product ? [m.product] : [])];
+    // Its family's colour (V3-38), or the one fixed for it, which then draws it in its family.
+    const family = familyOf(data.catalog, m);
+    const scent = family ? scentOf.get(family) : undefined;
+    const colours = scent ? coloursOf(data.catalog, m) : null;
     entries.push({
       material: engineMaterial(m),
       group: m.ownerId !== null ? "own" : m.solvent ? "diluent" : "base",
@@ -57,6 +68,7 @@ export function repositoryOfV3(data: GlossaryData): MaterialRepository {
       ...(aliases.length ? { aliases } : {}),
       ...(m.product ? { shopNames: [m.product] } : {}),
       ...(usage ? { usage } : {}),
+      ...(scent && colours ? { family: { family: colours.light === scent.colour ? scent : { ...scent, colour: colours.light }, confidence: m.confidence ?? "" } } : {}),
       // Your version of a common is one row with it, yours first (as a maker's product in the v2, P62).
       ...(m.ownerId !== null && (m.supplier || base)
         ? { maker: { name: m.supplier ?? texts.bench.yourVersion, code: m.code ?? "", ...(base ? { general: base.id } : {}) } }
@@ -70,7 +82,7 @@ export function repositoryOfV3(data: GlossaryData): MaterialRepository {
     search: (query, limit) => searchCatalog(entries, query, limit),
     get: (key) => byKey.get(key),
     ifraData: () => data.ifra,
-    families: [],
+    families: SCENT_FAMILIES,
     source: { amendment: "51", generated: data.catalog.dataCommit ?? "" },
   };
 }

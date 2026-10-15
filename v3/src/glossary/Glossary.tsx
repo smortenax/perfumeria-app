@@ -1,8 +1,9 @@
-import { type KeyboardEvent, type ReactNode, useMemo, useRef, useState } from "react";
+import { type CSSProperties, type KeyboardEvent, type ReactNode, useMemo, useRef, useState } from "react";
 import { type CatalogMaterial, MATERIAL_KINDS, type MaterialKind } from "../db/catalog";
 import { normalize } from "../db/search";
 import type { FormulaMarker, FormulaRecord } from "../db/formulas";
 import { listAll, search } from "../db/search";
+import { coloursOf } from "../families/palette";
 import { texts } from "../i18n/es";
 import { type Filters, type IfraState, keepOf, NO_FILTERS } from "./browse";
 import type { GlossaryData } from "./useGlossary";
@@ -214,13 +215,19 @@ function Tile({ material, data, onOpen, marking, mark }: { material: CatalogMate
   const base = material.basedOnId ? data.catalog.materials.get(material.basedOnId) : undefined;
   const abbreviation = material.abbreviation ?? base?.abbreviation ?? null;
   const have = data.catalog.have.has(material.id);
+  // Its family's colour, light or dark with the theme, or the one fixed for it (V3-38); else neutral.
+  const colours = coloursOf(data.catalog, material);
   const detail =
     material.ownerId === null
       ? [material.form, material.house].filter((x) => x).join(" · ")
       : ([material.supplier, material.product].filter((x) => x)[0] ?? texts.kinds[material.kind]);
   const content = (
     <>
-      <span className={`icon${abbreviation ? "" : " no-abbr"}${have ? " have" : ""}`} aria-hidden="true">
+      <span
+        className={`icon${abbreviation ? "" : " no-abbr"}${have ? " have" : ""}${colours ? " fam" : ""}`}
+        style={colours ? ({ "--fam-light": colours.light, "--fam-dark": colours.dark } as CSSProperties) : undefined}
+        aria-hidden="true"
+      >
         {abbreviation ?? initials(material.name)}
       </span>
       <span className="tile-name">{material.name}</span>
