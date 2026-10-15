@@ -61,6 +61,10 @@ interface BenchProps {
   readonly formulaId: string;
   readonly onExit: () => void;
   readonly onOpen: (id: string) => void;
+  /** Whether it is the screen in front: kept open behind, its keys do nothing. */
+  readonly active?: boolean;
+  /** A material's sheet, in Materials. */
+  readonly onOpenMaterial?: (id: string) => void;
 }
 
 /**
@@ -329,6 +333,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      if (props.active === false) return;
       const typing = e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement;
       const key = e.key.toLowerCase();
       if (!typing && e.ctrlKey && key === "z" && !e.shiftKey) {
@@ -403,6 +408,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
               band={bandOf(cardMaterial ? entryByKey.get(cardMaterial.key)?.usage : undefined)}
               draft={preview}
               data={ifra}
+              onOpenSheet={cardMaterial && props.onOpenMaterial && entryByKey.has(cardMaterial.key) ? () => props.onOpenMaterial!(cardMaterial.key) : undefined}
             />
           </div>
         </div>

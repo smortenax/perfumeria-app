@@ -4,6 +4,7 @@ import { normalize } from "../db/search";
 import type { FormulaMarker, FormulaRecord } from "../db/formulas";
 import { listAll, search } from "../db/search";
 import { coloursOf } from "../families/palette";
+import { paletteMarkdown, paletteOf } from "./palette-export";
 import { texts } from "../i18n/es";
 import { type Filters, type IfraState, keepOf, NO_FILTERS } from "./browse";
 import type { GlossaryData } from "./useGlossary";
@@ -41,6 +42,26 @@ export function Glossary({
   const [filters, setFilters] = useState<Filters>({ ...NO_FILTERS, owner: "own" });
   const [limit, setLimit] = useState(PAGE);
   const [message, setMessage] = useState<string | null>(null);
+  // «Exportar paleta»: your materials by their names, copied or as a Markdown file.
+  const [paletteNote, setPaletteNote] = useState<string | null>(null);
+  const palette = () => paletteMarkdown(paletteOf(data.catalog), new Date());
+  const copyPalette = async () => {
+    const text = palette();
+    const copied = await navigator.clipboard
+      ?.writeText(text)
+      .then(() => true)
+      .catch(() => false);
+    // Where the clipboard API is not allowed (some embedded browsers), the old way: a selected text.
+    const done = copied || copyBySelection(text);
+    setPaletteNote(done ? t.paletteCopied(paletteOf(data.catalog).length) : t.paletteNoClipboard);
+  };
+  const downloadPalette = () => {
+    const url = URL.createObjectURL(new Blob([palette()], { type: "text/markdown;charset=utf-8" }));
+    const a = Object.assign(document.createElement("a"), { href: url, download: `mi-paleta-${new Date().toISOString().slice(0, 10)}.md` });
+    a.click();
+    URL.revokeObjectURL(url);
+    setPaletteNote(t.paletteDownloaded(paletteOf(data.catalog).length));
+  };
   const [marking, setMarking] = useState(false);
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const set = (change: Partial<Filters>) => {
@@ -91,11 +112,18 @@ export function Glossary({
           >
             {marking ? t.markDone : t.markMode}
           </button>
+          <button type="button" className="secondary" hidden={tab !== "own"} onClick={() => void copyPalette()}>
+            {t.copyPalette}
+          </button>
+          <button type="button" className="secondary" hidden={tab !== "own"} onClick={downloadPalette}>
+            {t.downloadPalette}
+          </button>
           <button type="button" onClick={onNew}>
             {texts.editor.newMaterial}
           </button>
         </span>
       </div>
+      {paletteNote && tab === "own" && <p className="hint">{paletteNote}</p>}
       <label className="search">
         {t.search}
         <input
@@ -397,6 +425,22 @@ function FormulaTile({
       ))}
     </Clickable>
   );
+}
+
+/** Copies a text by selecting it: the way before the clipboard API, still allowed where that one is not. */
+function copyBySelection(text: string): boolean {
+  const area = Object.assign(document.createElement("textarea"), { value: text, readOnly: true });
+  area.style.position = "fixed";
+  area.style.opacity = "0";
+  document.body.append(area);
+  area.select();
+  try {
+    return document.execCommand("copy");
+  } catch {
+    return false;
+  } finally {
+    area.remove();
+  }
 }
 
 /** A tile that opens what it shows when it can; else, only shown. */

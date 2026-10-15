@@ -41,6 +41,8 @@
     /* The workbench takes the whole window, as the v2's did: over the app, with its own way back. */
     position: fixed;
     inset: 0;
+    /* Below the app's launcher (App.css, .app-nav). */
+    top: var(--app-nav-h, 0);
     z-index: 10;
     overflow: auto;
   }
@@ -306,8 +308,8 @@
 
   .bench {
     position: relative;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     padding: 16px;
     display: grid;
     grid-template-columns: minmax(0, 1fr) 340px;
@@ -1105,6 +1107,16 @@
   /* The card of the chosen material (P57): under the add bar, where the recent ones were, and as
      wide. Who it is, what the formula carries of it, and two boxes that stay marked holes until
      their data comes: dashed edge and muted text, never a figure that looks like one (§1.2). */
+
+  .mc-sheet {
+    justify-self: start;
+    padding: 0;
+    border: none;
+    background: none;
+    color: var(--blue);
+    font-size: 12px;
+    cursor: pointer;
+  }
 
   .material-card {
     position: relative;

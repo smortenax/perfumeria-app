@@ -922,3 +922,78 @@ form.add label {
   color: var(--muted);
   font-size: 0.875rem;
 }
+
+/* One launcher for the whole app (2026-10-15): always on top, the workbench below it. */
+:root {
+  --app-nav-h: 3rem;
+}
+
+.app-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  height: var(--app-nav-h);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1rem;
+  background: var(--bg);
+  border-bottom: 1px solid color-mix(in srgb, var(--muted) 35%, transparent);
+  font-size: 0.875rem;
+}
+
+.app-nav .app-name {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.app-nav .app-links {
+  display: flex;
+  gap: 0.25rem;
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.app-nav .app-link {
+  background: none;
+  border: none;
+  color: var(--text);
+  padding: 0.375rem 0.625rem;
+  border-radius: 8px;
+  white-space: nowrap;
+  max-width: 16rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  font: inherit;
+}
+
+.app-nav .app-link:hover {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+.app-nav .app-link[aria-current="page"] {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  font-weight: 600;
+}
+
+.app-nav .who {
+  margin: 0;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.start {
+  padding-top: calc(var(--app-nav-h) + 1.5rem);
+}
+
+@media (max-width: 40rem) {
+  .app-nav .app-name,
+  .app-nav .who {
+    display: none;
+  }
+}

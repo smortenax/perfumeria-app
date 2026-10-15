@@ -173,6 +173,7 @@ export const texts = {
 
   /** The card of the material chosen in the add bar, under it (P57). */
   materialCard: {
+    openSheet: "Ver ficha →",
     choose: "Elige un material para ver su margen y su uso habitual",
     kind: { formula: "fórmula", provisional: "provisional", diluent: "diluyente" },
     pureByConvention: "pura por convención, sin documentos",

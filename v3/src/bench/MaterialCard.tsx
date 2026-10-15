@@ -286,6 +286,8 @@ export function MaterialCard(props: {
   draft?: Preview | null;
   /** IFRA data, for the names of the substances. */
   data: IfraData;
+  /** Opens its sheet in Materials (the launcher, 2026-10-15); without it, no link. */
+  onOpenSheet?: (() => void) | undefined;
 }) {
   const { material } = props;
   if (!material) {
@@ -320,6 +322,11 @@ export function MaterialCard(props: {
   return (
     <div className="card material-card">
       <Identity material={material} entry={props.entry} />
+      {props.onOpenSheet && (
+        <button type="button" className="mc-sheet link" onClick={props.onOpenSheet}>
+          {t.openSheet}
+        </button>
+      )}
       <div className="mc-carried">
         <span className="label">{t.inFormula}</span>
         <span className="num mc-mass" title={texts.composition.amountHelp}>

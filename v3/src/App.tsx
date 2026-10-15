@@ -51,25 +51,40 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
     onSignedOut();
   };
   const fail = (e: unknown) => window.alert(texts.editor.failed(e instanceof Error ? e.message : String(e)));
+  // The last formula opened stays open behind (its workbench keeps its state): the launcher goes back to it.
+  const [lastFormula, setLastFormula] = useState<string | null>(route.view === "formula" ? route.id : null);
+  useEffect(() => {
+    if (route.view === "formula") setLastFormula(route.id);
+  }, [route]);
+  const benchName = lastFormula ? data?.formulas.find((f) => f.id === lastFormula)?.name : undefined;
+  const section = route.view === "home" ? "home" : route.view === "library" ? "library" : route.view === "formula" ? "bench" : "materials";
+  const n = texts.nav;
 
   return (
     <main className="start">
-      <header>
-        <h1>
+      {/* One launcher for the whole app: materials and the workbench live side by side (the user, 2026-10-15). */}
+      <nav className="app-nav" aria-label={n.label}>
+        <span className="app-name">
           {texts.app.name} <span className="version">{texts.app.version}</span>
-        </h1>
-        <p className="who">
-          {route.view !== "home" && (
-            <>
-              <button type="button" className="link" onClick={() => go({ view: "home" })}>
-                {texts.home.back}
-              </button>
-              {" · "}
-            </>
-          )}
+        </span>
+        <span className="app-links">
+          {(
+            [
+              ["home", n.home, () => go({ view: "home" })],
+              ["materials", n.materials, () => go({ view: "materials" })],
+              ["library", n.library, () => go({ view: "library" })],
+              ...(lastFormula ? [["bench", n.bench(benchName ?? ""), () => go({ view: "formula", id: lastFormula })] as const] : []),
+            ] as const
+          ).map(([key, label, onClick]) => (
+            <button key={key} type="button" className="app-link" aria-current={section === key ? "page" : undefined} onClick={onClick}>
+              {label}
+            </button>
+          ))}
+        </span>
+        <span className="who">
           {user.email} · <button type="button" className="link" onClick={() => void leave()}>{texts.app.signOut}</button>
-        </p>
-      </header>
+        </span>
+      </nav>
       {route.view === "home" && <Home data={data} onMaterials={() => go({ view: "materials" })} onFormulation={() => go({ view: "library" })} />}
       {route.view !== "home" && !data && <p>{texts.glossary.loading}</p>}
       {data && (
@@ -114,8 +129,19 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
               onDeleted={() => go({ view: "materials" }, true)}
             />
           )}
-          {route.view === "formula" && (
-            <Bench data={data} local={local} formulaId={route.id} onExit={() => back({ view: "library" })} onOpen={(id) => go({ view: "formula", id }, true)} />
+          {/* Kept open while you look at materials: back, it is as you left it. */}
+          {lastFormula && (
+            <div hidden={route.view !== "formula"}>
+              <Bench
+                data={data}
+                local={local}
+                formulaId={lastFormula}
+                active={route.view === "formula"}
+                onExit={() => back({ view: "library" })}
+                onOpen={(id) => go({ view: "formula", id }, true)}
+                onOpenMaterial={(id) => go({ view: "sheet", id })}
+              />
+            </div>
           )}
           {route.view === "new" && <NewMaterial local={local} onCreated={(id) => go({ view: "edit", id }, true)} onCancel={() => back({ view: "materials" })} />}
         </>
