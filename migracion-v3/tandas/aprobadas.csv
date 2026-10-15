@@ -72,3 +72,6 @@ retirada-1-a-4,2026-10-14,"orko kill, 2026-10-14 (V3-34): «no sirven materiales
 12-huecos-web,2026-10-15,"orko kill, 2026-10-15, en el hilo: «apruebo 12»",materials.csv,0b4442e7e22995e683ac74a301d319fcb28d461673b01fa35c0404915e969247
 13-nuevos,2026-10-15,"el usuario: «apruebo 13»",material_categories.csv,ffebc3b9d9b2f817f7ef2efb6e2f11944dbfae21bb2aa2428244d76982ec3e10
 13-nuevos,2026-10-15,"el usuario: «apruebo 13»",materials.csv,7a5c32c26f64e56d0a7e5768181d872df1af770f4321bd39e8ba77f3a8614149
+14-fichas-nuevos,2026-10-15,"el usuario: «apruebo 14»",material_descriptors.csv,effd0da1cd9458b8ec825b0a08b5340e7cdceb6f00300bf2655d74b12749ef56
+14-fichas-nuevos,2026-10-15,"el usuario: «apruebo 14»",material_doses.csv,dd9221b6611de9f803f878ba8e46f16049283e28e999538ab9f93d3688b421a8
+14-fichas-nuevos,2026-10-15,"el usuario: «apruebo 14»",materials.csv,8f48e13fe6ca7c8b80dd1ed1bd687f15b4a3cd803c36d9adbeebe6e491c6b380
