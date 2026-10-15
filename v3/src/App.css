@@ -997,3 +997,220 @@ form.add label {
     display: none;
   }
 }
+
+/*
+ * The whole app in the workbench's palette (boceto 4, bench/bench.css), so that it looks one
+ * (the user, 2026-10-16: «al menos el estilo de colores del banco … para que este un poco mas
+ * homogenea»). Light only, as the workbench; provisional, until the visual design. The families'
+ * colours of the materials stay as they are (V3-38).
+ */
+:root {
+  --bg: #f3f2ee;
+  --panel: #ffffff;
+  --line: #d9d7cf;
+  --line-strong: #bdbab0;
+  --fill: #efeee9;
+  --text: #1d1d1b;
+  --ink-2: #3f3e39;
+  --muted: #57564f;
+  --faint: #8c8a82;
+  --accent: #1d1d1b;
+  --blue: #2f5d8a;
+  --blue-bg: #e3ebf3;
+  --amber: #7a4e00;
+  --amber-bg: #f6ecd9;
+  --red: #a32d2d;
+  --red-bg: #f7e1de;
+  --green: #2f6b3f;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #f3f2ee;
+    --text: #1d1d1b;
+    --muted: #57564f;
+    --accent: #1d1d1b;
+  }
+
+  .tile .icon.fam {
+    --fam: var(--fam-light);
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.error {
+  color: var(--red);
+}
+
+/* Buttons as the workbench's: the main one in ink, the others on paper with a line. */
+button {
+  background: var(--text);
+  color: var(--panel);
+  border-radius: 10px;
+}
+
+button.secondary {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--line-strong);
+}
+
+button.secondary:hover {
+  background: var(--fill);
+}
+
+button.link {
+  color: var(--blue);
+}
+
+input,
+select,
+textarea {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 1px;
+}
+
+/* The launcher, a card along the top. */
+.app-nav {
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+}
+
+.app-nav .app-link[aria-current="page"] {
+  color: var(--text);
+  background: var(--fill);
+}
+
+/* Tabs and their panel: paper and lines, as the workbench's cards. */
+.tabs {
+  border-bottom: 1px solid var(--line);
+}
+
+.tab {
+  background: var(--fill);
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: -1px;
+}
+
+.tab[aria-selected="true"] {
+  background: var(--panel);
+  color: var(--text);
+  border-bottom: 1px solid var(--panel);
+}
+
+.tab[aria-selected="false"] {
+  opacity: 1;
+}
+
+.tab-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+}
+
+.filters {
+  border-color: var(--line);
+  border-radius: 10px;
+}
+
+/* A material, a formula, a workbench: a card. Without a family, a neutral icon. */
+.tile {
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+
+.tile:hover,
+.tile:focus-visible {
+  background: var(--fill);
+}
+
+.tile .icon {
+  border-color: var(--line-strong);
+  color: var(--ink-2);
+}
+
+.tile .icon.have {
+  background: var(--fill);
+}
+
+/* The IFRA pills, in the workbench's tones. */
+.ifra {
+  border-color: var(--line-strong);
+  color: var(--muted);
+  background: var(--panel);
+}
+
+.ifra-prohibited {
+  border-color: var(--red);
+  color: var(--red);
+  background: var(--red-bg);
+}
+
+.ifra-ceiling,
+.ifra-requirement {
+  border-color: var(--amber);
+  color: var(--amber);
+  background: var(--amber-bg);
+}
+
+/* The sheet and the editor: their sections as cards. */
+.sheet-section,
+.editor fieldset {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+}
+
+.sheet th,
+.sheet td {
+  border-bottom-color: var(--line);
+}
+
+.editor legend {
+  border-bottom-color: var(--line);
+}
+
+.status-panel .status.ok {
+  color: var(--green);
+}
+
+.status-panel .status.off {
+  color: var(--amber);
+}
+
+/* The start page's two doors, as the workbench's cards. */
+.launch-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.launch-card:hover,
+.launch-card:focus-visible {
+  background: var(--fill);
+}
+
+.launch-icon {
+  border: 2px solid var(--ink-2);
+  color: var(--ink-2);
+}
