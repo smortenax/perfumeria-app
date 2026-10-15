@@ -25,6 +25,8 @@ export const texts = {
   },
   library: {
     title: "Formulación",
+    newBench: "Nuevo banco",
+    newBenchName: "Nombre del banco de trabajo",
     tabs: { benches: "Bancos", accords: "Acordes", finished: "Perfumes acabados" },
   },
   glossary: {
@@ -44,7 +46,9 @@ export const texts = {
     foundFormulas: (n: number) => (n === 1 ? "1 fórmula" : `${n} fórmulas`),
     noFormulas: "Ninguna fórmula con esa búsqueda.",
     noMarked: "Ninguna fórmula lleva todavía este marcador.",
-    formulasLater: "Se abren en el banco de trabajo, que llega en la fase 8.",
+    formulasLater: "Se abren en el banco de trabajo.",
+    newFormula: "Nueva fórmula",
+    newFormulaName: "Nueva fórmula",
     markers: { accord: "acorde", finished: "perfume acabado" },
     versionFrom: (name: string) => `versión de «${name}»`,
     more: "Ver más",

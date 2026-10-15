@@ -367,19 +367,21 @@ function fieldColumns(fields: Partial<MaterialFields>) {
 }
 
 /** Creates one of the user's materials; returns its id. */
-export async function createMaterial(db: LocalDb, ownerId: string, input: NewMaterial): Promise<string> {
+export async function createMaterial(db: LocalDb, ownerId: string, input: NewMaterial & { readonly id?: string }): Promise<string> {
   checkKind(input.kind);
   checkFields(input);
   if (input.name.trim() === "") throw new Error("a material has a name");
   if (input.basedOnId) await visibleMaterial(db, ownerId, input.basedOnId);
-  const id = crypto.randomUUID();
+  // An id made by the caller (the workbench uses a provisional at once, while it is written).
+  const { id: given, ...fields } = input;
+  const id = given ?? crypto.randomUUID();
   const stamp = now();
   await db.insert(local.materials).values({
     solvent: false,
     aliases: [],
     otherCas: [],
     disputedFields: [],
-    ...fieldColumns(input),
+    ...fieldColumns(fields),
     id,
     ownerId,
     name: input.name.trim(),

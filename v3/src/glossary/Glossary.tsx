@@ -1,4 +1,4 @@
-import { type KeyboardEvent, useMemo, useRef, useState } from "react";
+import { type KeyboardEvent, type ReactNode, useMemo, useRef, useState } from "react";
 import { type CatalogMaterial, MATERIAL_KINDS, type MaterialKind } from "../db/catalog";
 import { normalize } from "../db/search";
 import type { FormulaMarker, FormulaRecord } from "../db/formulas";
@@ -22,7 +22,19 @@ export type Mark = (ids: readonly string[], have: boolean) => Promise<number>;
  * own visual identity later, V3-47) and its name under it. A category's materials go together
  * (V3-13). In marking mode (step 6.5) each tile is a box of «lo que tengo».
  */
-export function Glossary({ data, onOpen, onNew, mark }: { data: GlossaryData; onOpen: (id: string) => void; onNew: () => void; mark: Mark }) {
+export function Glossary({
+  data,
+  onOpen,
+  onNew,
+  mark,
+  onOpenFormula,
+}: {
+  data: GlossaryData;
+  onOpen: (id: string) => void;
+  onNew: () => void;
+  mark: Mark;
+  onOpenFormula?: (id: string) => void;
+}) {
   const t = texts.glossary;
   const [query, setQuery] = useState("");
   const [filters, setFilters] = useState<Filters>({ ...NO_FILTERS, owner: "own" });
@@ -149,7 +161,7 @@ export function Glossary({ data, onOpen, onNew, mark }: { data: GlossaryData; on
       </div>
       <div className="tab-panel" role="tabpanel" id="glossary-panel" aria-labelledby={`tab-${tab}`}>
         {tab === "formulas" || tab === "accords" ? (
-          <Formulas data={data} query={query} marker={tab === "accords" ? "accord" : null} />
+          <Formulas data={data} query={query} marker={tab === "accords" ? "accord" : null} {...(onOpenFormula ? { onOpen: onOpenFormula } : {})} />
         ) : (
         <>
         <p className="hint">{materials.length ? t.foundMaterials(materials.length) : t.none}</p>
@@ -234,10 +246,22 @@ function Tile({ material, data, onOpen, marking, mark }: { material: CatalogMate
 }
 
 /**
- * Your formulas (V3-50), by workbench (V3-19): each bench, with its formulas as tiles. They open in
- * the workbench, which comes with phase 8; for now they are shown, with their markers and versions.
+ * Your formulas (V3-50), by workbench (V3-19): each bench, with its formulas as tiles. A formula
+ * opens in the workbench (plan 8.2); an open bench offers a new formula in it.
  */
-export function Formulas({ data, query, marker }: { data: GlossaryData; query: string; marker: FormulaMarker | null }) {
+export function Formulas({
+  data,
+  query,
+  marker,
+  onOpen,
+  onNew,
+}: {
+  data: GlossaryData;
+  query: string;
+  marker: FormulaMarker | null;
+  onOpen?: (id: string) => void;
+  onNew?: (workbenchId: string) => void;
+}) {
   const accords = marker !== null;
   const t = texts.glossary;
   const [open, setOpen] = useState<ReadonlySet<string>>(new Set());
@@ -256,14 +280,15 @@ export function Formulas({ data, query, marker }: { data: GlossaryData; query: s
         <ul className="grid">
           {[...shown].sort((x, y) => x.name.localeCompare(y.name, "es")).map((f) => (
             <li key={f.id}>
-              <FormulaTile formula={f} data={data} bench={benchName.get(f.workbenchId) ?? null} />
+              <FormulaTile formula={f} data={data} bench={benchName.get(f.workbenchId) ?? null} {...(onOpen ? { onOpen } : {})} />
             </li>
           ))}
         </ul>
       </>
     );
   }
-  const benches = data.workbenches.filter((b) => shown.some((f) => f.workbenchId === b.id));
+  // An empty workbench is shown too, unless searching: a new one is where its first formula is made.
+  const benches = data.workbenches.filter((b) => shown.some((f) => f.workbenchId === b.id) || (words.length === 0 && onNew));
   return (
     <>
       <p className="hint">
@@ -292,14 +317,25 @@ export function Formulas({ data, query, marker }: { data: GlossaryData; query: s
             </li>,
             // Open, its formulas at half size, four to a slot: two by two (V3-50).
             ...(isOpen
-              ? Array.from({ length: Math.ceil(inside.length / 4) }, (_, i) => inside.slice(i * 4, i * 4 + 4)).map((four) => (
-                  <li key={four[0].id} className="in-bench">
+              ? slotsOf([...inside, ...(onNew ? ([null] as const) : [])]).map((four, i) => (
+                  <li key={`${b.id}-${i}`} className="in-bench">
                     <ul className="quad">
-                      {four.map((f) => (
-                        <li key={f.id}>
-                          <FormulaTile formula={f} data={data} bench={null} mini />
-                        </li>
-                      ))}
+                      {four.map((f) =>
+                        f ? (
+                          <li key={f.id}>
+                            <FormulaTile formula={f} data={data} bench={null} mini {...(onOpen ? { onOpen } : {})} />
+                          </li>
+                        ) : (
+                          <li key="new">
+                            <button type="button" className="tile formula mini new-formula" onClick={() => onNew?.(b.id)}>
+                              <span className="icon formula-icon" aria-hidden="true">
+                                +
+                              </span>
+                              <span className="tile-name">{t.newFormula}</span>
+                            </button>
+                          </li>
+                        ),
+                      )}
                     </ul>
                   </li>
                 ))
@@ -312,22 +348,34 @@ export function Formulas({ data, query, marker }: { data: GlossaryData; query: s
 }
 
 /** One formula's tile: its icon, its name, its workbench when shown outside it, its version and its markers. */
-function FormulaTile({ formula: f, data, bench, mini = false }: { formula: GlossaryData["formulas"][number]; data: GlossaryData; bench: string | null; mini?: boolean }) {
+function FormulaTile({
+  formula: f,
+  data,
+  bench,
+  mini = false,
+  onOpen,
+}: {
+  formula: GlossaryData["formulas"][number];
+  data: GlossaryData;
+  bench: string | null;
+  mini?: boolean;
+  onOpen?: (id: string) => void;
+}) {
   const t = texts.glossary;
   const parent = f.parentId ? data.formulas.find((x) => x.id === f.parentId) : undefined;
   // Half size, inside an open workbench: its icon and its name; an accord, a dot (its full tile is in Acordes).
   if (mini) {
     return (
-      <div className="tile formula mini" title={f.name}>
+      <Clickable className="tile formula mini" title={f.name} onClick={onOpen && (() => onOpen(f.id))}>
         <span className={`icon formula-icon${f.markers.includes("accord") ? " accord" : ""}`} aria-hidden="true">
           {initials(f.name)}
         </span>
         <span className="tile-name">{f.name}</span>
-      </div>
+      </Clickable>
     );
   }
   return (
-    <div className="tile formula">
+    <Clickable className="tile formula" onClick={onOpen && (() => onOpen(f.id))}>
       <span className="icon formula-icon" aria-hidden="true">
         {initials(f.name)}
       </span>
@@ -340,8 +388,24 @@ function FormulaTile({ formula: f, data, bench, mini = false }: { formula: Gloss
           {t.markers[m]}
         </span>
       ))}
-    </div>
+    </Clickable>
   );
+}
+
+/** A tile that opens what it shows when it can; else, only shown. */
+function Clickable({ onClick, children, ...rest }: { className: string; title?: string; onClick?: (() => void) | undefined; children: ReactNode }) {
+  return onClick ? (
+    <button type="button" {...rest} onClick={onClick}>
+      {children}
+    </button>
+  ) : (
+    <div {...rest}>{children}</div>
+  );
+}
+
+/** Four to a slot, two by two (V3-50). */
+function slotsOf<T>(items: readonly T[]): T[][] {
+  return Array.from({ length: Math.ceil(items.length / 4) }, (_, i) => items.slice(i * 4, i * 4 + 4));
 }
 
 /**

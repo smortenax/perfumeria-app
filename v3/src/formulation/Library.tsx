@@ -14,7 +14,17 @@ const MARKER = { benches: null, accords: "accord", finished: "finished" } as con
  * «Perfumes acabados», with the marked formulas of every workbench. A formula opens in the
  * workbench (step 8.2).
  */
-export function Library({ data }: { data: GlossaryData }) {
+export function Library({
+  data,
+  onOpen,
+  onNew,
+  onNewBench,
+}: {
+  data: GlossaryData;
+  onOpen: (id: string) => void;
+  onNew: (workbenchId: string) => void;
+  onNewBench: (name: string) => void;
+}) {
   const t = texts.library;
   const [tab, setTab] = useState<Tab>("benches");
   const [query, setQuery] = useState("");
@@ -31,6 +41,17 @@ export function Library({ data }: { data: GlossaryData }) {
     <section className="glossary library">
       <div className="title-bar">
         <h2>{t.title}</h2>
+        <span className="buttons">
+          <button
+            type="button"
+            onClick={() => {
+              const name = window.prompt(t.newBenchName)?.trim();
+              if (name) onNewBench(name);
+            }}
+          >
+            {t.newBench}
+          </button>
+        </span>
       </div>
       <label className="search">
         {texts.glossary.search}
@@ -58,7 +79,7 @@ export function Library({ data }: { data: GlossaryData }) {
         ))}
       </div>
       <div className="tab-panel" role="tabpanel" id="library-panel" aria-labelledby={`library-tab-${tab}`}>
-        <Formulas data={data} query={query} marker={MARKER[tab]} />
+        <Formulas data={data} query={query} marker={MARKER[tab]} onOpen={onOpen} {...(tab === "benches" ? { onNew } : {})} />
       </div>
     </section>
   );

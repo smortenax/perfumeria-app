@@ -142,6 +142,78 @@ export async function createFormula(db: LocalDb, ownerId: string, input: NewForm
   return id;
 }
 
+/** What the header of a formula may change (decisions §3.3): its name, intention, container and batches. */
+export interface FormulaHeaderChanges {
+  readonly name?: string;
+  readonly intention?: string;
+  readonly containerCapacityMl?: Ratio | null;
+  readonly containerTareUg?: bigint | null;
+  readonly workBatchUg?: bigint | null;
+  readonly finalBatchUg?: bigint | null;
+  readonly markers?: readonly FormulaMarker[];
+  readonly role?: string | null;
+}
+
+/** Changes the header of one of your formulas; its history is never changed (it is only added to). */
+export async function updateFormula(db: LocalDb, ownerId: string, id: string, changes: FormulaHeaderChanges): Promise<void> {
+  await ownFormula(db, ownerId, id);
+  const positive = (value: bigint | null | undefined, what: string) => {
+    if (value !== null && value !== undefined && value <= 0n) throw new RangeError(`${what} is above 0`);
+  };
+  positive(changes.workBatchUg, "a work batch");
+  positive(changes.finalBatchUg, "a final batch");
+  if (changes.containerTareUg !== null && changes.containerTareUg !== undefined && changes.containerTareUg < 0n) throw new RangeError("a tare is not below 0");
+  if (changes.containerCapacityMl && changes.containerCapacityMl.num <= 0n) throw new RangeError("a capacity is above 0");
+  for (const m of changes.markers ?? []) if (!(FORMULA_MARKERS as readonly string[]).includes(m)) throw new Error(`unknown marker: ${m}`);
+  await db
+    .update(local.formulas)
+    .set({
+      ...(changes.name !== undefined ? { name: nonEmpty(changes.name, "a formula") } : {}),
+      ...(changes.intention !== undefined ? { intention: changes.intention } : {}),
+      ...(changes.containerCapacityMl !== undefined ? { containerCapacityMl: changes.containerCapacityMl ? numericFromRatio(changes.containerCapacityMl) : null } : {}),
+      ...(changes.containerTareUg !== undefined ? { containerTareUg: text(changes.containerTareUg) } : {}),
+      ...(changes.workBatchUg !== undefined ? { workBatchUg: text(changes.workBatchUg) } : {}),
+      ...(changes.finalBatchUg !== undefined ? { finalBatchUg: text(changes.finalBatchUg) } : {}),
+      ...(changes.markers !== undefined ? { markers: [...new Set(changes.markers)] } : {}),
+      ...(changes.role !== undefined ? { role: changes.role?.trim() || null } : {}),
+      updatedAt: now(),
+    })
+    .where(eq(local.formulas.id, id));
+}
+
+/**
+ * A new formula from one of yours (P44, §3.2): a version of it (its parentId, in its workbench) or a
+ * variation that goes on alone; either takes a copy of its history, with new ids in the same order.
+ */
+export async function copyFormula(
+  db: LocalDb,
+  ownerId: string,
+  sourceId: string,
+  input: { readonly name: string; readonly asVersion: boolean; readonly containerCapacityMl?: Ratio | null; readonly containerTareUg?: bigint | null },
+): Promise<string> {
+  const [source] = (await loadFormulas(db, ownerId)).filter((f) => f.id === sourceId);
+  if (!source) throw new Error("not one of your formulas");
+  const id = await createFormula(db, ownerId, {
+    name: input.name,
+    workbenchId: source.workbenchId,
+    parentId: input.asVersion ? source.id : null,
+    intention: source.intention,
+    containerCapacityMl: input.containerCapacityMl !== undefined ? input.containerCapacityMl : source.containerCapacityMl,
+    containerTareUg: input.containerTareUg !== undefined ? input.containerTareUg : source.containerTareUg,
+    workBatchUg: source.workBatchUg,
+    finalBatchUg: source.finalBatchUg,
+    role: source.role,
+  });
+  const events = (await db.select().from(local.formulaEvents).where(eq(local.formulaEvents.formulaId, sourceId))).sort((a, b) => (a.id < b.id ? -1 : 1));
+  const renamed = new Map<string, string>();
+  for (const e of events) {
+    const newId = uuidv7();
+    renamed.set(e.id, newId);
+    await db.insert(local.formulaEvents).values({ ...e, id: newId, formulaId: id, ownerId, target: e.target ? (renamed.get(e.target) ?? e.target) : null, createdAt: now() });
+  }
+  return id;
+}
+
 const isFraction = (r: Ratio) => r.num > 0n && r.cmp(Ratio.ONE) <= 0;
 
 /**

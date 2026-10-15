@@ -1,0 +1,416 @@
+import { useState } from "react";
+import { Ratio } from "../core/arith/ratio";
+import { formatGrams, formatPercent } from "../core/display";
+import type { IfraBase, IfraReport } from "../core/ifra";
+import { texts } from "./texts";
+import { roomText, usedText } from "./composition-ifra";
+import { groupRows, splitPending, whyOf, type GroupRow } from "./ifra-explain";
+import { materialRows, readingIn, substanceRows, supplierRows, type MaterialRow, type SubstanceRow } from "./ifra-panel";
+
+const t = texts.ifra;
+
+/**
+ * The IFRA box: two lines, the two readings (§5.4, P23), and nothing to open: the detail
+ * is the fixed panel of the lower area (P57). Reading 1 goes in the base of the panel's switch,
+ * named in the head (P58). Never green with something unknown (§5.5); a bounded load is its own
+ * state (P31). On hover of the second reading, the range from what is known to the worst case (P31).
+ */
+export function IfraSummary(props: { report: IfraReport | null; empty: boolean; base?: IfraBase }) {
+  const { report } = props;
+  const hasData = report !== null && !props.empty;
+  const reading = hasData ? readingIn(report, props.base) : null;
+  const bounded = reading !== null && reading.checks.some((c) => c.verdict === "bounded");
+  const asIs = !reading ? "—" : reading.asIs === "no" ? t.no : reading.asIs === "unknown" ? t.unknown : t.yes;
+  const asIsClass = !reading ? "" : reading.asIs === "no" ? "bad" : reading.asIs === "unknown" ? "unknown" : bounded ? "bounded" : "";
+  const maxUse = !hasData ? "—" : maxUseText(report);
+  // What sets the second reading, so a figure under 100 % says why.
+  const limiting = hasData && report.maxUse.lt(Ratio.ONE) ? report.checks.find((c) => c.maxUse.eq(report.maxUse)) : undefined;
+  // A manufacturer's ceiling passed (P62), in the base of the switch: said apart from IFRA's readings.
+  const supplierReading = reading ? report?.supplierReadings.find((r) => r.base === reading.base) : undefined;
+  const overSupplier = hasData && supplierReading
+    ? report.supplierChecks.filter((_, i) => supplierReading.checks[i]?.verdict === "exceeds").map((c) => c.substance.name)
+    : [];
+  const range =
+    hasData && !report.maxUseKnown.eq(report.maxUse) ? t.range(formatPercent(report.maxUse, 2), formatPercent(report.maxUseKnown, 2)) : undefined;
+  return (
+    <div className={limiting ? "card ifra-summary with-limit" : "card ifra-summary"}>
+      <span className="ifra-head">
+        <span className="ifra-title">{t.title}</span>
+        <span className="muted small" title={reading ? t.baseHelp[reading.base] : undefined}>
+          {reading ? `${t.category} · ${t.baseShort[reading.base]}` : t.category}
+        </span>
+        {hasData && report.partial && (
+          <span className="status-pill amber">
+            <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+              <circle cx="6" cy="6" r="4.8" fill="none" stroke="currentColor" strokeWidth="1.4" />
+              <path d="M6 1.2a4.8 4.8 0 0 1 0 9.6z" fill="currentColor" />
+            </svg>
+            {t.knownOnly}
+          </span>
+        )}
+        {hasData && !report.partial && bounded && <span className="status-pill blue">{t.bounded}</span>}
+      </span>
+      <span className="ifra-line">
+        <span className="question">{t.asIsQuestion}</span>
+        <span className={`answer ${asIsClass}`}>{asIs}</span>
+      </span>
+      <span className="ifra-line" title={range}>
+        <span className="question">{t.maxUseQuestion}</span>
+        <span className="answer num">{maxUse}</span>
+      </span>
+      {limiting && (
+        <span className="ifra-limit muted tiny" title={limiting.substance.name}>
+          {t.limitedBy(limiting.substance.name)}
+        </span>
+      )}
+      {overSupplier.length > 0 && (
+        <span className="ifra-limit supplier-over tiny" title={t.suppliersHelp}>
+          {t.supplierOver(overSupplier.join(", "))}
+        </span>
+      )}
+    </div>
+  );
+}
+
+/**
+ * Reading 2 to read (§5.4, §1.2). With something unchecked it is a bound, never a value: what is
+ * unknown can only lower it, so «≤ X %»; and when nothing known bounds it, it cannot be said at all
+ * («Sin comprobar»), never «100 %», which reads as free (2026-10-01, castoreum).
+ */
+function maxUseText(report: IfraReport): string {
+  const whole = report.maxUse.eq(Ratio.ONE);
+  if (report.partial) {
+    return whole ? t.unknown : `≤ ${formatPercent(report.maxUse, 2)}`;
+  }
+  return formatPercent(report.maxUse, whole ? 0 : 2);
+}
+
+/**
+ * Decimals enough to read a small share: two significant figures below 1 %, never fewer than
+ * `least`. A trace of 0,0004 % reads «0,0004», not «0,000» (the number is only for the screen).
+ */
+function digitsFor(share: Ratio, least: number): number {
+  const pct = Number(share.toFixed(12)) * 100;
+  return pct <= 0 || pct >= 1 ? least : Math.min(8, Math.max(least, 1 - Math.floor(Math.log10(pct))));
+}
+
+const pctOf = (share: Ratio) => formatPercent(share, digitsFor(share, 3)).replace(" %", "");
+
+/** A ceiling as a figure to read: its %, or «prohibida». */
+const limitText = (limit: Ratio) => (limit.isZero() ? t.prohibited : formatPercent(limit, digitsFor(limit, 2)));
+
+/** The fill of a bar: the share of the ceiling, up to the end; full for a prohibited substance that is there. */
+const widthOf = (used: Ratio | null) => (used === null ? 100 : Math.min(100, Number(used.toFixed(4)) * 100));
+
+/**
+ * One substance (§5.4, §10.3): its name and CAS, its share of the product against its ceiling, the
+ * bar, and what still fits of it. On hover, where it comes from, material by material. With
+ * something unchecked in the bottle what still fits is a bound, «≤», never a value (§1.2).
+ */
+function SubstanceItem(props: { row: SubstanceRow; partial: boolean }) {
+  const { row, partial } = props;
+  const value = row.worstShare.eq(row.knownShare) ? pctOf(row.knownShare) : `${pctOf(row.knownShare)}–${pctOf(row.worstShare)}`;
+  const exhausted = row.roomUg !== null && row.roomUg.isZero();
+  const mass = row.roomUg === null || exhausted ? "" : `${partial ? "≤ " : ""}${roomText(row.roomUg)}`;
+  const room = row.roomUg === null ? t.noCeiling : exhausted ? t.noRoom : t.room(mass);
+  const help = [
+    t.sourcesHelp,
+    ...row.sources.map((s) => t.sourceLine(s.name, formatPercent(s.worstShare, 3), formatPercent(s.part, 0))),
+    row.roomUg === null ? t.noCeilingHelp(row.name) : exhausted ? t.noRoomHelp(row.name) : t.roomHelp(mass, row.name),
+  ];
+  if (!row.worstShare.eq(row.knownShare)) {
+    help.push(t.range(`${pctOf(row.knownShare)} %`, `${pctOf(row.worstShare)} %`));
+  }
+  return (
+    <div className="ceiling-row" title={help.join("\n")}>
+      <span className="ceiling-name">{row.name}</span>
+      <span className="num ceiling-value">{t.of(value, limitText(row.limit))}</span>
+      <span className="ceiling-bar">
+        <span className={`fill ${row.verdict}`} style={{ width: `${widthOf(row.used)}%` }} />
+      </span>
+      <span className={`num ceiling-use ${row.verdict}`}>{row.used ? usedText(row.used) : "—"}</span>
+      <span className="ceiling-cas muted tiny num">{row.cas.length > 0 ? t.casLine(row.cas.join(", ")) : ""}</span>
+      <span className={`num ceiling-room tiny ${exhausted ? "exceeds" : "muted"}`}>{room}</span>
+    </div>
+  );
+}
+
+const quotientText = (q: Ratio) => q.toFixed(2).replace(".", ",");
+
+/**
+ * Why a «no» or a «no se sabe» (Phase 5): the substances over their ceiling with the materials that bring them, the group of
+ * phototoxics over 1, and, for the unknown, how many things are unchecked, unknown by quantity or unproven by specification.
+ */
+function Why(props: { report: IfraReport; specifications: ReadonlySet<string>; base?: IfraBase }) {
+  const { report } = props;
+  const reading = readingIn(report, props.base);
+  if (reading.asIs === "yes") {
+    return null;
+  }
+  const why = whyOf(report, props.specifications, reading.base);
+  const unknown = reading.asIs === "unknown";
+  const lines: string[] = [];
+  if (!unknown) {
+    for (const row of why.exceeds) {
+      lines.push(t.whyExceeds(row.name, row.used ? usedText(row.used) : t.prohibited, `${pctOf(row.worstShare)} %`, limitText(row.limit)));
+      lines.push(t.whyBrings(row.sources.slice(0, 3).map((s) => `${s.name} ${formatPercent(s.part, 0)}`).join(", ")));
+    }
+    for (const g of why.groupsOver) {
+      lines.push(t.whyGroup(t.groupNames[g.group] ?? g.group, quotientText(g.worstSum)));
+    }
+  } else {
+    if (why.unchecked.length > 0) {
+      lines.push(t.whyUnchecked(why.unchecked.length));
+    }
+    if (why.pending.quantities.length > 0) {
+      lines.push(t.whyQuantities(why.pending.quantities.length));
+    }
+    if (why.pending.specifications.length > 0) {
+      lines.push(t.whySpecifications(why.pending.specifications.length));
+    }
+  }
+  if (lines.length === 0) {
+    return null;
+  }
+  return (
+    <div className="detail-section why">
+      <div className={unknown ? "section-title amber" : "section-title"}>{unknown ? t.whyUnknown : t.whyNo}</div>
+      {lines.map((line, i) => (
+        <div key={i} className="detail-item">
+          {line}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/** A group summed against its ceilings: its members, each over its own ceiling, and the sum (STD 089). */
+function GroupItem(props: { row: GroupRow }) {
+  const { row } = props;
+  return (
+    <div className="material-ceilings" title={t.groupHelp}>
+      <div className="ceiling-material">
+        {t.groupNames[row.group] ?? row.group} <span className={`num ceiling-use ${row.verdict}`}>{t.verdict[row.verdict]}</span>
+      </div>
+      {row.members.map((m) => (
+        <div key={m.key} className="ceiling-row sub">
+          <span className="ceiling-name">{t.memberLine(m.name, quotientText(m.knownQuotient), quotientText(m.worstQuotient))}</span>
+        </div>
+      ))}
+      <div className="detail-item">
+        <strong>{t.groupSum(quotientText(row.knownSum), quotientText(row.worstSum))}</strong>
+      </div>
+    </div>
+  );
+}
+
+/** One material seen by material (§5.4): what it alone uses of each ceiling it loads. */
+function MaterialItem(props: { row: MaterialRow }) {
+  const { row } = props;
+  return (
+    <div className="material-ceilings">
+      <div className="ceiling-material">{row.name}</div>
+      {row.items.map((item) => (
+        <div
+          key={item.key}
+          className="ceiling-row sub"
+          title={t.itemHelp(row.name, item.used ? usedText(item.used) : t.prohibited, item.name, t.verdict[item.verdict])}
+        >
+          <span className="ceiling-name">{item.name}</span>
+          <span className="num ceiling-value">{t.of(pctOf(item.worstShare), limitText(item.limit))}</span>
+          <span className="ceiling-bar">
+            <span className={`fill ${item.verdict}`} style={{ width: `${widthOf(item.used)}%` }} />
+          </span>
+          <span className={`num ceiling-use ${item.verdict}`}>{item.used ? usedText(item.used) : "—"}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+type PanelView = "substance" | "material";
+// The view of the panel lasts the session, as the composition's does; it is not written to disk.
+let rememberedView: PanelView = "substance";
+
+/**
+ * The IFRA panel (P57, E4): fixed in the lower area, because the composition and IFRA are read one
+ * against the other all the time. The switch of bases, «Ahora» and «Al completar» (P58), when the
+ * header has both: what it chooses goes to the box, the composition and the card as well. Then the
+ * second reading with its base, and the ceilings by substance (CAS, what still fits, and on hover
+ * where it comes from) or by material; what is unchecked, pending and conditions. It scrolls
+ * inside when it is long. With nothing in the bottle it has an empty state of its own.
+ */
+export function IfraPanel(props: {
+  report: IfraReport | null;
+  empty: boolean;
+  base?: IfraBase;
+  onBase: (base: IfraBase) => void;
+  /** The pending entries that are specifications to prove, by `pendingKey`: the adapter knows them (v2); none in the v1. */
+  specifications?: ReadonlySet<string>;
+  /** What the bar assumed for the lines of the formula (D12). */
+  assumptions?: ReadonlyArray<{ readonly material: string; readonly text: string }>;
+}) {
+  const { report } = props;
+  const [view, setView] = useState<PanelView>(rememberedView);
+  const hasData = report !== null && !props.empty;
+  const reading = report ? readingIn(report, props.base) : null;
+  const pick = (v: PanelView) => {
+    rememberedView = v;
+    setView(v);
+  };
+  const maxUse = hasData ? formatPercent(report.maxUse, report.maxUse.eq(Ratio.ONE) ? 0 : 2) : "";
+  const cannotSay = hasData && report.partial && report.maxUse.eq(Ratio.ONE);
+  const specifications = props.specifications ?? new Set<string>();
+  const pending = hasData ? splitPending(report, specifications) : { quantities: [], specifications: [] };
+  const groups = hasData ? groupRows(report, reading?.base) : [];
+  const substances = hasData && view === "substance" ? substanceRows(report, reading?.base) : [];
+  const materials = hasData && view === "material" ? materialRows(report, reading?.base) : [];
+  return (
+    <section className="card ifra-panel" aria-label={t.detailTitle}>
+      <div className="detail-head">
+        <span className="detail-title">{t.detailTitle}</span>
+        {report && reading && report.readings.length > 1 ? (
+          <span className="view-switch right" role="radiogroup" aria-label={t.baseSwitch}>
+            {report.readings.map((r) => (
+              <button
+                key={r.base}
+                type="button"
+                role="radio"
+                aria-checked={r.base === reading.base}
+                className={r.base === reading.base ? "on" : ""}
+                title={t.baseHelp[r.base]}
+                onClick={() => props.onBase(r.base)}
+              >
+                {t.bases[r.base]}
+              </button>
+            ))}
+          </span>
+        ) : (
+          reading && (
+            <span className="muted small right" title={t.baseHelp[reading.base]}>
+              {t.bases[reading.base]}
+            </span>
+          )
+        )}
+      </div>
+      {hasData && reading && <div className="panel-base muted tiny">{t.baseLine[reading.base](formatGrams(report.finalBatchUg, 3))}</div>}
+      {!hasData ? (
+        <p className="muted small panel-empty">{t.panelEmpty}</p>
+      ) : (
+        <div className="panel-body">
+          <p className="second-reading small" title={t.maxUseQuestion}>
+            {cannotSay ? t.secondReadingUnknown : report.partial ? t.secondReadingPartial(maxUse) : t.secondReading(maxUse)}
+          </p>
+          <Why report={report} specifications={specifications} {...(reading ? { base: reading.base } : {})} />
+          {report.checks.length === 0 && report.unchecked.length === 0 && report.pending.length === 0 && report.conditions.length === 0 && (
+            <p className="muted small">{t.nothing}</p>
+          )}
+          {report.checks.length > 0 && (
+            <div className="detail-section">
+              <div className="section-title with-switch">
+                <span>{view === "substance" ? t.ceilings(report.checks.length) : t.materialsTitle(materials.length)}</span>
+                <span className="view-switch right" role="radiogroup" aria-label={t.viewSwitch}>
+                  {(["substance", "material"] as const).map((v) => (
+                    <button key={v} type="button" role="radio" aria-checked={v === view} className={v === view ? "on" : ""} onClick={() => pick(v)}>
+                      {t.views[v]}
+                    </button>
+                  ))}
+                </span>
+              </div>
+              {substances.map((row) => (
+                <SubstanceItem key={row.key} row={row} partial={report.partial} />
+              ))}
+              {materials.map((row) => (
+                <MaterialItem key={row.key} row={row} />
+              ))}
+            </div>
+          )}
+          {groups.length > 0 && (
+            <div className="detail-section">
+              <div className="section-title">{t.groups(groups.length)}</div>
+              {groups.map((g) => (
+                <GroupItem key={g.group} row={g} />
+              ))}
+            </div>
+          )}
+          {report.supplierChecks.length > 0 && (
+            <div className="detail-section">
+              <div className="section-title" title={t.suppliersHelp}>
+                {t.suppliers(report.supplierChecks.length)}
+              </div>
+              {supplierRows(report, reading?.base).map((row) => (
+                <SubstanceItem key={row.key} row={row} partial={report.partial} />
+              ))}
+            </div>
+          )}
+          {report.unchecked.length > 0 && (
+            <div className="detail-section">
+              <div className="section-title amber">{t.unchecked(report.unchecked.length)}</div>
+              {report.unchecked.map((name) => (
+                <div key={name} className="detail-item">
+                  <strong>{name}.</strong> {t.uncheckedWhy}
+                </div>
+              ))}
+            </div>
+          )}
+          {pending.quantities.length > 0 && (
+            <div className="detail-section">
+              <div className="section-title amber" title={t.pendingQuantitiesHelp}>
+                {t.pendingQuantities(pending.quantities.length)}
+              </div>
+              {pending.quantities.map((p, i) => (
+                <div key={i} className="detail-item">
+                  <strong>{p.material}.</strong> {p.text}
+                </div>
+              ))}
+            </div>
+          )}
+          {pending.specifications.length > 0 && (
+            <div className="detail-section">
+              <div className="section-title amber" title={t.pendingSpecificationsHelp}>
+                {t.pendingSpecifications(pending.specifications.length)}
+              </div>
+              {pending.specifications.map((p, i) => (
+                <div key={i} className="detail-item">
+                  <strong>{p.material}.</strong> {p.text}
+                </div>
+              ))}
+            </div>
+          )}
+          {report.conditions.length > 0 && (
+            <div className="detail-section">
+              <div className="section-title">{t.conditions(report.conditions.length)}</div>
+              {report.conditions.map((cond, i) => (
+                <div key={i} className="detail-item">
+                  <strong>{cond.material}.</strong> {cond.text}{" "}
+                  {cond.assumed ? (
+                    <span className="pill amber" title={t.conditionAssumedHelp}>
+                      {t.conditionAssumed}
+                    </span>
+                  ) : (
+                    <span className="pill" title={t.conditionProvenHelp}>
+                      {t.conditionProven}
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+          {(props.assumptions ?? []).length > 0 && (
+            <div className="detail-section">
+              <div className="section-title" title={t.assumptionsHelp}>
+                {t.assumptions((props.assumptions ?? []).length)}
+              </div>
+              {(props.assumptions ?? []).map((a, i) => (
+                <div key={i} className="detail-item">
+                  <strong>{a.material}.</strong> {a.text}
+                </div>
+              ))}
+            </div>
+          )}
+          <div className="detail-source">{t.source}</div>
+        </div>
+      )}
+    </section>
+  );
+}

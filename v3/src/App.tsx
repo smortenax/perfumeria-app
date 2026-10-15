@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { currentUser, signOut, supabase, type SignedInUser } from "./db/client";
 import { closeLocalDatabase, localDatabaseFor } from "./db/local/database";
+import { createFormula, createWorkbench } from "./db/formulas";
 import { createVersion, setHave, setHaveMany } from "./db/materials";
+import { Bench } from "./bench/Bench";
 import { Glossary } from "./glossary/Glossary";
 import { Library } from "./formulation/Library";
 import { MaterialEditor } from "./glossary/MaterialEditor";
@@ -79,10 +81,18 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
               onOpen={(id) => go({ view: "sheet", id })}
               onNew={() => go({ view: "new" })}
               mark={(ids, have) => setHaveMany(local.db, local.userId, ids, have)}
+              onOpenFormula={(id) => go({ view: "formula", id })}
             />
           </div>
           <div hidden={route.view !== "library"}>
-            <Library data={data} />
+            <Library
+              data={data}
+              onOpen={(id) => go({ view: "formula", id })}
+              onNewBench={(name) => void createWorkbench(local.db, local.userId, { name }).catch(fail)}
+              onNew={(workbenchId) =>
+                void createFormula(local.db, local.userId, { name: texts.glossary.newFormulaName, workbenchId }).then((id) => go({ view: "formula", id }), fail)
+              }
+            />
           </div>
           {route.view === "sheet" && (
             <MaterialSheet
@@ -104,6 +114,9 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
               onDeleted={() => go({ view: "materials" }, true)}
             />
           )}
+          {route.view === "formula" && (
+            <Bench data={data} local={local} formulaId={route.id} onExit={() => back({ view: "library" })} onOpen={(id) => go({ view: "formula", id }, true)} />
+          )}
           {route.view === "new" && <NewMaterial local={local} onCreated={(id) => go({ view: "edit", id }, true)} onCancel={() => back({ view: "materials" })} />}
         </>
       )}
@@ -117,19 +130,21 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
 
 type Route =
   | { readonly view: "home" | "materials" | "library" | "new" }
-  | { readonly view: "sheet" | "edit"; readonly id: string };
+  | { readonly view: "sheet" | "edit" | "formula"; readonly id: string };
 
 /** Where the app is lives in the address, so the browser's back works: «#materiales», «#formulacion», «#material/<id>»… */
 function parseRoute(hash: string): Route {
   const m = /^#material\/([^/]+)(\/editar)?$/.exec(hash);
   if (m) return { view: m[2] ? "edit" : "sheet", id: m[1] };
+  const f = /^#formula\/([^/]+)$/.exec(hash);
+  if (f) return { view: "formula", id: f[1] };
   if (hash === "#nuevo") return { view: "new" };
   if (hash === "#materiales") return { view: "materials" };
   if (hash === "#formulacion") return { view: "library" };
   return { view: "home" };
 }
 const HASH: Record<"home" | "materials" | "library" | "new", string> = { home: "", materials: "#materiales", library: "#formulacion", new: "#nuevo" };
-const hashOf = (r: Route) => ("id" in r ? `#material/${r.id}${r.view === "edit" ? "/editar" : ""}` : HASH[r.view]);
+const hashOf = (r: Route) => (r.view === "formula" ? `#formula/${r.id}` : "id" in r ? `#material/${r.id}${r.view === "edit" ? "/editar" : ""}` : HASH[r.view]);
 
 function useRoute(): [Route, (r: Route, replace?: boolean) => void, (fallback: Route) => void] {
   const [route, setRoute] = useState<Route>(() => parseRoute(window.location.hash));
