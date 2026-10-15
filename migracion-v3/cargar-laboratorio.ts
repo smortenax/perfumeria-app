@@ -8,12 +8,15 @@
  *   node migracion-v3/cargar-laboratorio.ts <the email of your account>                (the local Supabase)
  *   node migracion-v3/cargar-laboratorio.ts <email> --prueba                           (loads and undoes it: a check)
  *   DATABASE_URL=… node migracion-v3/cargar-laboratorio.ts <the email of your account> (another one)
+ *   node migracion-v3/cargar-laboratorio.ts <email> --tanda=17-tus-nuevos              (another batch of yours)
+ *
+ * Batch 8 by default; another batch of yours with --tanda, with only the tables it has.
  *
  * The account must exist: you create it, with your own password. With --prueba the batch need
  * not be approved yet: nothing stays.
  */
 import { createHash } from "node:crypto";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
@@ -21,7 +24,7 @@ import { parseCsvRecords } from "../src/data/csv.ts";
 // The Postgres client of the v3 (this folder has no dependencies of its own).
 const postgres = createRequire(join(process.cwd(), "v3/package.json"))("postgres");
 
-const BATCH = "8-tu-version";
+const BATCH = process.argv.find((a) => a.startsWith("--tanda="))?.slice("--tanda=".length) ?? "8-tu-version";
 const FOLDER = `migracion-v3/tandas/${BATCH}`;
 const email = process.argv[2];
 const dryRun = process.argv.includes("--prueba");
@@ -48,7 +51,7 @@ const OWNER: Readonly<Record<string, string>> = {
 const ORDER = Object.keys(OWNER);
 
 const approved = parseCsvRecords(readFileSync("migracion-v3/tandas/aprobadas.csv", "utf8")).filter((r) => r.tanda === BATCH);
-const tables = ORDER.map((table) => {
+const tables = ORDER.filter((table) => existsSync(join(FOLDER, `${table}.csv`))).map((table) => {
   const text = readFileSync(join(FOLDER, `${table}.csv`), "utf8");
   const hash = createHash("sha256").update(text, "utf8").digest("hex");
   if (!dryRun && approved.filter((r) => r.archivo === `${table}.csv`).at(-1)?.sha256 !== hash) {
