@@ -7,7 +7,7 @@ import { checkIfra, type IfraBase, type IfraReport } from "../core/ifra";
 import { formulaToJson as toJsonWith } from "../core/io/formula-json";
 import type { Change, Formula, FormulaHeader } from "../core/model/formula";
 import type { Material } from "../core/model/material";
-import { addEvent, copyFormula, type FormulaRecord, loadFormula, loadFormulas, loadFrozen, updateFormula } from "../db/formulas";
+import { addEvent, copyFormula, freezeFormula, type FormulaRecord, loadFormula, loadFormulas, loadFrozen, updateFormula } from "../db/formulas";
 import type { LocalDatabase } from "../db/local/database";
 import { createMaterial } from "../db/materials";
 import type { GlossaryData } from "../glossary/useGlossary";
@@ -39,7 +39,8 @@ type Dialog =
   | { kind: "reweigh"; onOpen: boolean }
   | { kind: "note" }
   | { kind: "quick" }
-  | { kind: "saveAs" };
+  | { kind: "saveAs" }
+  | { kind: "freeze" };
 
 interface View {
   readonly composition: Composition | null;
@@ -106,12 +107,12 @@ export function Bench(props: BenchProps) {
   }
   return (
     <div className="bench-root">
-      <BenchScreen key={formulaId} {...props} formula={loaded.formula} frozen={loaded.frozen} repository={repository} />
+      <BenchScreen key={formulaId} {...props} formula={loaded.formula} record={loaded.record} frozen={loaded.frozen} repository={repository} />
     </div>
   );
 }
 
-function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly frozen: readonly Material[]; readonly repository: ReturnType<typeof repositoryOfV3> }) {
+function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly record: FormulaRecord; readonly frozen: readonly Material[]; readonly repository: ReturnType<typeof repositoryOfV3> }) {
   const { formula, repository, local, formulaId } = props;
   const owner = local.userId;
   const ifra = props.data.ifra;
@@ -129,6 +130,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly f
   const [playing, setPlaying] = useState(false);
   const [frame, setFrame] = useState<number | null>(null);
   const [pending, setPending] = useState(0);
+  const [notice, setNotice] = useState<string | null>(null);
   const addBar = useRef<AddBarHandle>(null);
   const frameRef = useRef(frame);
   frameRef.current = frame;
@@ -220,6 +222,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly f
     );
   /** Every change is an event, written at once (plan 8.2). */
   const change = (c: Change) => {
+    setNotice(null);
     setPlaying(false);
     setFrame(null);
     setSelectedId(null);
@@ -275,6 +278,24 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly f
     return material;
   };
 
+  // A formula as a material (plan 8.5): frozen as it is, or as it was at the step the history shows.
+  const frozenUpTo = frame !== null && frame > 0 ? formula.history[frame - 1] : null;
+  const freeze = (name: string) =>
+    write(async () => {
+      await freezeFormula(local.db, owner, formulaId, { name, ...(frozenUpTo ? { eventId: frozenUpTo.id } : {}) });
+      setNotice(texts.bench.frozen(name));
+    });
+  // Marked «acorde», it is used in every bench (V3-19); one with nothing frozen yet is frozen as it is.
+  const accord = props.record.markers.includes("accord");
+  const toggleAccord = () =>
+    write(async () => {
+      const markers = accord ? props.record.markers.filter((m) => m !== "accord") : [...props.record.markers, "accord" as const];
+      await updateFormula(local.db, owner, formulaId, { markers });
+      const hasFrozen = [...props.data.catalog.materials.values()].some((m) => m.kind === "frozen" && m.source?.formulaId === formulaId);
+      if (!accord && !hasFrozen && (view.composition?.parts.length ?? 0) > 0) await freezeFormula(local.db, owner, formulaId, { name: formula.header.name });
+      setNotice(accord ? texts.bench.unmarkedAccord : texts.bench.markedAccord);
+    });
+
   const startReweigh = () => {
     if (formula.header.container?.tareUg == null) {
       setError(texts.dialogs.needTare);
@@ -308,7 +329,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly f
   const total = view.composition?.totalUg ?? Ratio.ZERO;
   const workBatch = formula.header.workBatchUg;
   const fill = workBatch ? Number(total.div(Ratio.of(workBatch)).toFixed(4)) : null;
-  const status = error ?? (pending > 0 ? texts.bench.saving : texts.bench.savedLive);
+  const status = error ?? (pending > 0 ? texts.bench.saving : (notice ?? texts.bench.savedLive));
   const tare = formula.header.container?.tareUg ?? null;
   const adds = formula.history.slice(0, frame ?? formula.history.length).filter((c): c is Add => c.kind === "add");
   const empty = !view.composition || view.composition.parts.length === 0;
@@ -387,6 +408,12 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly f
             <div className="menu-pop options">
               <button type="button" className="menuitem" onClick={menuAction(() => setDialog({ kind: "saveAs" }))}>
                 <span>{texts.menu.saveAs}</span>
+              </button>
+              <button type="button" className="menuitem" disabled={empty} onClick={menuAction(() => setDialog({ kind: "freeze" }))}>
+                <span>{texts.menu.freeze}</span>
+              </button>
+              <button type="button" className="menuitem" onClick={menuAction(toggleAccord)}>
+                <span>{accord ? texts.menu.unmarkAccord : texts.menu.markAccord}</span>
               </button>
               <button type="button" className="menuitem" onClick={menuAction(exportJson)}>
                 <span>{texts.bench.exportJson}</span>
@@ -530,6 +557,20 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly f
               return repository.entries.some((e) => e.cas === cas) ? texts.addBar.casKnown(cas) : texts.addBar.casMissing(cas);
             }
             addBar.current?.select(createProvisional(value.trim()));
+            return null;
+          }}
+          onClose={() => setDialog(null)}
+        />
+      )}
+      {dialog?.kind === "freeze" && (
+        <PromptDialog
+          title={texts.dialogs.freezeTitle}
+          label={texts.dialogs.freezeLabel}
+          initial={formula.header.name}
+          help={texts.dialogs.freezeHelp(frozenUpTo ? String(frame) : null)}
+          submit={(value) => {
+            if (value.trim() === "") return texts.dialogs.freezeLabel;
+            freeze(value.trim());
             return null;
           }}
           onClose={() => setDialog(null)}

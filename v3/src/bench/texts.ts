@@ -45,6 +45,9 @@ export const texts = {
     loading: "Abriendo la fórmula…",
     yourVersion: "tu versión",
     savedLive: "guardada · cada paso al momento",
+    frozen: (name: string) => `guardada como material «${name}»`,
+    markedAccord: "marcada como acorde: se usa en todos los bancos",
+    unmarkedAccord: "ya no es un acorde: se usa solo en su banco",
     writeError: "No se ha podido guardar el último paso",
     exportJson: "Exportar como archivo (.json)",
     cannotUndo: {
@@ -374,6 +377,9 @@ export const texts = {
     options: "Opciones",
     save: "Guardar",
     saveAs: "Guardar como…",
+    freeze: "Guardar como material…",
+    markAccord: "Marcar como acorde",
+    unmarkAccord: "Quitar la marca de acorde",
     open: "Abrir…",
     newBench: "Nuevo",
     reweigh: "Repesar…",
@@ -476,6 +482,10 @@ export const texts = {
   },
 
   dialogs: {
+    freezeTitle: "Guardar la fórmula como material",
+    freezeLabel: "Nombre del material",
+    freezeHelp: (upTo: string | null) =>
+      `${upTo ? `Se guarda tal como estaba en el paso ${upTo} del historial.` : "Se guarda tal como está ahora."} Lo que cambies después en la fórmula no lo cambia. Se usa en las fórmulas de este banco; marcada como acorde, en todos.`,
     cancel: "Cancelar",
     accept: "Aceptar",
     massTitle: (name: string) => `Cambiar la masa de ${name}`,

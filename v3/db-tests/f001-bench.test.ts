@@ -11,7 +11,7 @@ import { F001_LINES, f001 } from "../src/core/fixtures/f001";
 import { eventOf } from "../src/bench/events";
 import { v3IdOf } from "../src/bench/v3-repository";
 import { SupabaseConnector } from "../src/db/connector";
-import { addEvent, createFormula, createWorkbench, loadFormula } from "../src/db/formulas";
+import { addEvent, createFormula, createWorkbench, freezeFormula, loadFormula, loadFrozen } from "../src/db/formulas";
 import { AppSchema, tables } from "../src/db/local/schema";
 import { createMaterial, loadCatalog, type LocalDb } from "../src/db/materials";
 import { admin, signIn, type TestUser } from "./local";
@@ -20,6 +20,7 @@ import { admin, signIn, type TestUser } from "./local";
  * Plan v3, step 8.2, «hecho cuando»: the F-001 made again from nothing, by the way the workbench
  * writes it (each pour, the event of eventOf, with the bar's diluents as the common ones), gives the
  * numbers of the notebook. Its materials are provisional ones of A's: the numbers do not depend on them.
+ * And step 8.5: a formula saved as a material does not change when the formula does.
  */
 
 const TAG = "[prueba 8.2]";
@@ -40,6 +41,8 @@ async function waitFor<T>(probe: () => Promise<T | null | undefined | false>): P
 }
 
 async function cleanUp(): Promise<void> {
+  // A frozen formula holds its formula and its event: it goes first.
+  await admin`delete from materials where name like ${TAG + "%"} and kind = 'frozen'`;
   await admin`delete from formulas where name like ${TAG + "%"}`;
   await admin`delete from workbenches where name like ${TAG + "%"}`;
   await admin`delete from materials where name like ${TAG + "%"}`;
@@ -94,4 +97,30 @@ it("the F-001, poured again in the workbench's way, weighs as the notebook", asy
   expect(formatPercent(partOf(common("solv:dpg")).div(c.totalUg), 2)).toBe("8,29 %");
   expect(partOf(common("solv:alcohol")).eq(Ratio.of(5_568_500))).toBe(true);
   expect(formatPercent(partOf(common("solv:alcohol")).div(c.totalUg), 2)).toBe("63,68 %");
+});
+
+it("a formula saved as a material keeps what it was: changing the formula after does not change it (8.5)", async () => {
+  const bench = await createWorkbench(db, a.id, { name: `${TAG} banco del acorde` });
+  const formulaId = await createFormula(db, a.id, { name: `${TAG} Corazón`, workbenchId: bench });
+  const rose = await createMaterial(db, a.id, { name: `${TAG} Rosa`, kind: "provisional" });
+  const musk = await createMaterial(db, a.id, { name: `${TAG} Almizcle`, kind: "provisional" });
+  await addEvent(db, a.id, formulaId, { kind: "add", materialId: rose, massUg: 300n, fraction: Ratio.ONE, diluentId: null });
+  const second = await addEvent(db, a.id, formulaId, { kind: "add", materialId: musk, massUg: 700n, fraction: Ratio.ONE, diluentId: null });
+  const frozen = await freezeFormula(db, a.id, formulaId, { name: `${TAG} Corazón congelado` });
+  // Afterwards, the formula changes: more rose, and the musk taken away.
+  await addEvent(db, a.id, formulaId, { kind: "add", materialId: rose, massUg: 500n, fraction: Ratio.ONE, diluentId: null });
+  await addEvent(db, a.id, formulaId, { kind: "remove", target: second });
+
+  const catalog = await loadCatalog(db, a.id);
+  const { materials, failed } = await loadFrozen(db, catalog, a.id, [frozen]);
+  expect(failed.size).toBe(0);
+  const share = new Map(materials[0].vector!.components.map((c) => [c.material.key, c.proportion]));
+  expect(share.size).toBe(2);
+  expect(share.get(rose)?.eq(Ratio.of(3n, 10n))).toBe(true);
+  expect(share.get(musk)?.eq(Ratio.of(7n, 10n))).toBe(true);
+  // And Supabase takes it as it is (V3-49: its formula and its event, both of A's).
+  await waitFor(async () => (await copy.getUploadQueueStats()).count === 0);
+  expect(await copy.getAll("select * from upload_rejections")).toEqual([]);
+  const [row] = await admin`select kind, source_formula_id from materials where id = ${frozen}`;
+  expect(row).toMatchObject({ kind: "frozen", source_formula_id: formulaId });
 });

@@ -414,3 +414,34 @@ async function loaderOf(db: LocalDb, catalog: Catalog, ownerId: string) {
 
   return { formula, material };
 }
+
+/**
+ * Saves one of your formulas as a material (plan 8.5, V3-49): a frozen formula of yours, up to one
+ * of its events (by default the last), so that changing the formula afterwards does not change it.
+ * It is poured in the formulas of its workbench, and in every one when its formula is marked
+ * «acorde» (V3-19).
+ */
+export async function freezeFormula(db: LocalDb, ownerId: string, formulaId: string, input: { readonly name: string; readonly eventId?: string }): Promise<string> {
+  await ownFormula(db, ownerId, formulaId);
+  const events = (await db.select().from(local.formulaEvents).where(eq(local.formulaEvents.formulaId, formulaId))).sort((a, b) => (a.id < b.id ? -1 : 1));
+  if (events.length === 0) throw new Error("an empty formula is no material");
+  const eventId = input.eventId ?? events[events.length - 1].id;
+  if (!events.some((e) => e.id === eventId)) throw new Error("a formula is frozen at one of its own events");
+  const id = crypto.randomUUID();
+  const stamp = now();
+  await db.insert(local.materials).values({
+    id,
+    ownerId,
+    name: nonEmpty(input.name, "a material"),
+    kind: "frozen",
+    solvent: false,
+    aliases: [],
+    otherCas: [],
+    disputedFields: [],
+    sourceFormulaId: formulaId,
+    sourceEventId: eventId,
+    createdAt: stamp,
+    updatedAt: stamp,
+  });
+  return id;
+}
