@@ -226,6 +226,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
     setPlaying(false);
     setFrame(null);
     setSelectedId(null);
+    redoable.current = [];
     write(() => addEvent(local.db, owner, formulaId, eventOf(c, v3IdOf(props.data))));
   };
   /** Undo adds the opposite event; what has none is said (undo.ts). */
@@ -233,8 +234,26 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
     const u = undoOf(formula);
     if ("event" in u) {
       setFrame(null);
-      write(() => addEvent(local.db, owner, formulaId, u.event));
+      write(async () => {
+        redoable.current.push(await addEvent(local.db, owner, formulaId, u.event));
+      });
     } else setError(texts.bench.cannotUndo[u.refused]);
+  };
+  /**
+   * Redo: a history is only added to, so redoing is undoing an undo. It is offered while the last
+   * change is an undo made in this session; after redoing, the undo before it is no longer the last
+   * change, so only the last undo can be redone. Any other change ends it.
+   */
+  const redoable = useRef<string[]>([]);
+  const lastId = formula.history[formula.history.length - 1]?.id;
+  const canRedo = redoable.current.length > 0 && lastId === redoable.current[redoable.current.length - 1];
+  const redo = () => {
+    if (!canRedo) return;
+    const u = undoOf(formula);
+    if (!("event" in u)) return setError(texts.bench.cannotUndo[u.refused]);
+    setFrame(null);
+    redoable.current = [];
+    write(() => addEvent(local.db, owner, formulaId, u.event));
   };
 
   const exportJson = () => download(fileNameFor(formula.header.name), formulaToJson(formula));
@@ -311,6 +330,9 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
       if (!typing && e.ctrlKey && key === "z" && !e.shiftKey) {
         e.preventDefault();
         undo();
+      } else if (!typing && e.ctrlKey && (key === "y" || (key === "z" && e.shiftKey))) {
+        e.preventDefault();
+        redo();
       } else if (e.key === "Escape") {
         setMenuOpen(false);
       }
@@ -429,6 +451,10 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
               <button type="button" className="menuitem" disabled={formula.history.length === 0} onClick={menuAction(undo)}>
                 <span>{texts.menu.undo}</span>
                 <span className="num key">Ctrl+Z</span>
+              </button>
+              <button type="button" className="menuitem" disabled={!canRedo} onClick={menuAction(redo)}>
+                <span>{texts.menu.redo}</span>
+                <span className="num key">Ctrl+Y</span>
               </button>
             </div>
           )}
