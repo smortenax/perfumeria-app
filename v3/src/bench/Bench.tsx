@@ -7,7 +7,7 @@ import { checkIfra, type IfraBase, type IfraReport } from "../core/ifra";
 import { formulaToJson as toJsonWith } from "../core/io/formula-json";
 import type { Change, Formula, FormulaHeader } from "../core/model/formula";
 import type { Material } from "../core/model/material";
-import { addEvent, copyFormula, freezeFormula, type FormulaRecord, loadFormula, loadFormulas, loadFrozen, updateFormula, usableFrozen } from "../db/formulas";
+import { addEvent, copyFormula, freezeFormula, type FormulaMarker, type FormulaRecord, loadFormula, loadFormulas, loadFrozen, moveFormula, updateFormula, usableFrozen } from "../db/formulas";
 import type { LocalDatabase } from "../db/local/database";
 import { createMaterial } from "../db/materials";
 import type { GlossaryData } from "../glossary/useGlossary";
@@ -18,7 +18,7 @@ import { BottleFrame } from "./Bottle";
 import { ProjectionCard, RepartoCard, VisualizerPlaceholder } from "./Charts";
 import { ifraOfLines } from "./composition-ifra";
 import { CompositionCard } from "./CompositionList";
-import { PromptDialog, SaveAsDialog, type SaveAsChoice } from "./Dialogs";
+import { ChoiceDialog, PromptDialog, SaveAsDialog, type SaveAsChoice } from "./Dialogs";
 import { GramsCard, IntentionCard, NameCard } from "./Header";
 import { ChangeDetail, HistoryDock } from "./HistoryDock";
 import { IfraPanel, IfraSummary } from "./IfraBox";
@@ -26,7 +26,7 @@ import { assumptionsOf } from "./assumptions";
 import { specificationKeys } from "./ifra-explain";
 import { download, fileNameFor } from "./io";
 import { draftWarnings, MaterialCard } from "./MaterialCard";
-import { eventOf } from "./events";
+import { eventOf, headerChanges } from "./events";
 import { undoOf } from "./undo";
 import { bandOf, ifraOfMaterial, pourKey, previewPour, type Pour } from "./usage-bar";
 import { repositoryOfV3, v3IdOf } from "./v3-repository";
@@ -40,7 +40,8 @@ type Dialog =
   | { kind: "note" }
   | { kind: "quick" }
   | { kind: "saveAs" }
-  | { kind: "freeze" };
+  | { kind: "freeze" }
+  | { kind: "move" };
 
 interface View {
   readonly composition: Composition | null;
@@ -203,17 +204,12 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
   const known = useMemo(() => [...props.frozen, ...session], [props.frozen, session]);
 
   /** The header is the formula's record: its changes are written to it. */
-  const setHeader = (header: FormulaHeader) =>
-    write(() =>
-      updateFormula(local.db, owner, formulaId, {
-        name: header.name,
-        intention: header.intention,
-        containerCapacityMl: header.container?.capacityMl ?? null,
-        containerTareUg: header.container?.tareUg ?? null,
-        workBatchUg: header.workBatchUg,
-        finalBatchUg: header.finalBatchUg,
-      }),
-    );
+  // Only what changed is written: two edits in a row, before the copy brings back the first, would
+  // otherwise write the whole header as it was and undo each other (seen in the test phase).
+  const setHeader = (header: FormulaHeader) => {
+    const changes = headerChanges(formula.header, header);
+    if (Object.keys(changes).length > 0) write(() => updateFormula(local.db, owner, formulaId, changes));
+  };
   /** Every change is an event, written at once (plan 8.2). */
   const change = (c: Change) => {
     setNotice(null);
@@ -297,6 +293,20 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
     write(async () => {
       await freezeFormula(local.db, owner, formulaId, { name, ...(frozenUpTo ? { eventId: frozenUpTo.id } : {}) });
       setNotice(texts.bench.frozen(name));
+    });
+  // Marked «perfume acabado», it shows in that general folder too (V3-19, plan 8.1b).
+  const finished = props.record.markers.includes("finished");
+  const toggleMarker = (marker: FormulaMarker, on: boolean, notice: string) =>
+    write(async () => {
+      const markers = on ? [...props.record.markers, marker] : props.record.markers.filter((m) => m !== marker);
+      await updateFormula(local.db, owner, formulaId, { markers });
+      setNotice(notice);
+    });
+  // To another workbench, with its versions (plan 8.1b).
+  const moveTo = (workbenchId: string) =>
+    write(async () => {
+      const n = await moveFormula(local.db, owner, formulaId, workbenchId);
+      setNotice(texts.bench.moved(props.data.workbenches.find((w) => w.id === workbenchId)?.name ?? "", n));
     });
   // Marked «acorde», it is used in every bench (V3-19); one with nothing frozen yet is frozen as it is.
   const accord = props.record.markers.includes("accord");
@@ -430,6 +440,12 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
               </button>
               <button type="button" className="menuitem" onClick={menuAction(toggleAccord)}>
                 <span>{accord ? texts.menu.unmarkAccord : texts.menu.markAccord}</span>
+              </button>
+              <button type="button" className="menuitem" onClick={menuAction(() => toggleMarker("finished", !finished, finished ? texts.bench.unmarkedFinished : texts.bench.markedFinished))}>
+                <span>{finished ? texts.menu.unmarkFinished : texts.menu.markFinished}</span>
+              </button>
+              <button type="button" className="menuitem" disabled={props.data.workbenches.length < 2} onClick={menuAction(() => setDialog({ kind: "move" }))}>
+                <span>{texts.menu.move}</span>
               </button>
               <button type="button" className="menuitem" onClick={menuAction(exportJson)}>
                 <span>{texts.bench.exportJson}</span>
@@ -578,6 +594,18 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
             }
             addBar.current?.select(createProvisional(value.trim()));
             return null;
+          }}
+          onClose={() => setDialog(null)}
+        />
+      )}
+      {dialog?.kind === "move" && (
+        <ChoiceDialog
+          title={texts.dialogs.moveTitle}
+          help={texts.dialogs.moveHelp}
+          options={props.data.workbenches.map((w) => ({ id: w.id, label: w.id === props.record.workbenchId ? `${w.name} ${texts.dialogs.current}` : w.name }))}
+          initial={props.record.workbenchId}
+          onDone={(id) => {
+            if (id !== props.record.workbenchId) moveTo(id);
           }}
           onClose={() => setDialog(null)}
         />

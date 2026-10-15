@@ -461,3 +461,27 @@ export function usableFrozen(catalog: Catalog, records: readonly FormulaRecord[]
     })
     .map((m) => m.id);
 }
+
+/**
+ * Moves one of your formulas to another of your workbenches (plan 8.1b), with its versions: a
+ * version lives in its mother's workbench (V3-19), so the chain goes together. Returns how many
+ * formulas moved.
+ */
+export async function moveFormula(db: LocalDb, ownerId: string, formulaId: string, workbenchId: string): Promise<number> {
+  await ownFormula(db, ownerId, formulaId);
+  await ownWorkbench(db, ownerId, workbenchId);
+  const all = await loadFormulas(db, ownerId);
+  const moving = new Set([formulaId]);
+  for (let grew = true; grew; ) {
+    grew = false;
+    for (const f of all) {
+      if (f.parentId && moving.has(f.parentId) && !moving.has(f.id)) {
+        moving.add(f.id);
+        grew = true;
+      }
+    }
+  }
+  const stamp = now();
+  for (const id of moving) await db.update(local.formulas).set({ workbenchId, updatedAt: stamp }).where(eq(local.formulas.id, id));
+  return moving.size;
+}

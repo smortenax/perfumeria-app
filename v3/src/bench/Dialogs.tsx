@@ -82,6 +82,37 @@ export function PromptDialog(props: {
   );
 }
 
+/** Choosing one of a few: the workbench a formula moves to (plan 8.1b). */
+export function ChoiceDialog(props: {
+  title: string;
+  help?: string;
+  options: ReadonlyArray<{ readonly id: string; readonly label: string }>;
+  initial: string | null;
+  onDone: (id: string) => void;
+  onClose: () => void;
+}) {
+  const [chosen, setChosen] = useState<string | null>(props.initial);
+  return (
+    <Modal
+      title={props.title}
+      error={null}
+      onCancel={props.onClose}
+      onAccept={() => {
+        if (chosen) props.onDone(chosen);
+        props.onClose();
+      }}
+    >
+      {props.help && <p className="help">{props.help}</p>}
+      {props.options.map((o) => (
+        <label key={o.id} className="radio">
+          <input type="radio" checked={chosen === o.id} onChange={() => setChosen(o.id)} />
+          <span>{o.label}</span>
+        </label>
+      ))}
+    </Modal>
+  );
+}
+
 export interface SaveAsChoice {
   /** A new version of this formula, or a new formula of its own (P44). */
   readonly kind: "version" | "new";

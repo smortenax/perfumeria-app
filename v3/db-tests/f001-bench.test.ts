@@ -11,7 +11,7 @@ import { F001_LINES, f001 } from "../src/core/fixtures/f001";
 import { eventOf } from "../src/bench/events";
 import { v3IdOf } from "../src/bench/v3-repository";
 import { SupabaseConnector } from "../src/db/connector";
-import { addEvent, createFormula, createWorkbench, freezeFormula, loadFormula, loadFrozen } from "../src/db/formulas";
+import { addEvent, createFormula, createWorkbench, freezeFormula, loadFormula, loadFormulas, loadFrozen, moveFormula } from "../src/db/formulas";
 import { AppSchema, tables } from "../src/db/local/schema";
 import { createMaterial, loadCatalog, type LocalDb } from "../src/db/materials";
 import { admin, signIn, type TestUser } from "./local";
@@ -123,4 +123,19 @@ it("a formula saved as a material keeps what it was: changing the formula after 
   expect(await copy.getAll("select * from upload_rejections")).toEqual([]);
   const [row] = await admin`select kind, source_formula_id from materials where id = ${frozen}`;
   expect(row).toMatchObject({ kind: "frozen", source_formula_id: formulaId });
+});
+
+it("a formula moves to another workbench with its versions, and Supabase takes it (8.1b)", async () => {
+  const from = await createWorkbench(db, a.id, { name: `${TAG} banco de origen` });
+  const to = await createWorkbench(db, a.id, { name: `${TAG} banco de destino` });
+  const mother = await createFormula(db, a.id, { name: `${TAG} madre`, workbenchId: from });
+  const version = await createFormula(db, a.id, { name: `${TAG} madre v2`, parentId: mother });
+  const other = await createFormula(db, a.id, { name: `${TAG} otra`, workbenchId: from });
+  expect(await moveFormula(db, a.id, mother, to)).toBe(2);
+  const bench = new Map((await loadFormulas(db, a.id)).map((f) => [f.id, f.workbenchId]));
+  expect([bench.get(mother), bench.get(version), bench.get(other)]).toEqual([to, to, from]);
+  await waitFor(async () => (await copy.getUploadQueueStats()).count === 0);
+  expect(await copy.getAll("select * from upload_rejections")).toEqual([]);
+  const rows = await admin`select id, workbench_id from formulas where id in (${mother}, ${version})`;
+  expect(rows.map((r) => r.workbench_id)).toEqual([to, to]);
 });

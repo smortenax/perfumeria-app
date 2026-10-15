@@ -47,6 +47,9 @@ export const texts = {
     savedLive: "guardada · cada paso al momento",
     frozen: (name: string) => `guardada como material «${name}»`,
     markedAccord: "marcada como acorde: se usa en todos los bancos",
+    markedFinished: "marcada como perfume acabado",
+    unmarkedFinished: "ya no está marcada como perfume acabado",
+    moved: (bench: string, n: number) => (n === 1 ? `movida a «${bench}»` : `movida a «${bench}», con sus ${n - 1} versiones`),
     unmarkedAccord: "ya no es un acorde: se usa solo en su banco",
     writeError: "No se ha podido guardar el último paso",
     exportJson: "Exportar como archivo (.json)",
@@ -379,6 +382,9 @@ export const texts = {
     saveAs: "Guardar como…",
     freeze: "Guardar como material…",
     markAccord: "Marcar como acorde",
+    markFinished: "Marcar como perfume acabado",
+    unmarkFinished: "Quitar la marca de perfume acabado",
+    move: "Mover a otro banco…",
     unmarkAccord: "Quitar la marca de acorde",
     open: "Abrir…",
     newBench: "Nuevo",
@@ -482,6 +488,9 @@ export const texts = {
   },
 
   dialogs: {
+    moveTitle: "Mover a otro banco",
+    moveHelp: "Se mueve con sus versiones: una versión vive en el banco de su madre.",
+    current: "(el actual)",
     freezeTitle: "Guardar la fórmula como material",
     freezeLabel: "Nombre del material",
     freezeHelp: (upTo: string | null) =>
