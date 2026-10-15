@@ -21,7 +21,7 @@
 
 ## Arranque local (dentro de `v3/`, con Docker Desktop abierto)
 
-`npm run db:start` · `npm run sync:start` · `npm run dev`; la primera vez, también `npm run env:local` y `npm run db:test-users`. Las migraciones nuevas, con `npx supabase migration up`: `db:reset` borra las cuentas.
+`npm run db:start` · `npm run sync:start` · `npm run dev` (con Docker Desktop abierto; si se para, se vuelve a abrir y todo arranca solo). En desarrollo, la pantalla de entrada tiene «Entrar como prueba A» y, si pones `DEV_LOGIN_EMAIL` y `DEV_LOGIN_PASSWORD` en `v3/.env.local`, «Entrar como tú»; la versión publicada no los lleva; la primera vez, también `npm run env:local` y `npm run db:test-users`. Las migraciones nuevas, con `npx supabase migration up`: `db:reset` borra las cuentas.
 
 ## A tener en cuenta
 

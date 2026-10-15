@@ -2,6 +2,9 @@ import { useState, type FormEvent } from "react";
 import { signIn, type SignedInUser } from "./db/client";
 import { texts } from "./i18n/es";
 
+/** The one-click sign-in of the test phase (vite.config.ts); none where Vite did not define it. */
+const DEV_LOGINS = typeof __DEV_LOGINS__ === "undefined" ? [] : __DEV_LOGINS__;
+
 /** Signing in with mail and password (plan step 1.7). Sign-up is closed: accounts are made by hand. */
 export function SignIn({ onSignedIn }: { onSignedIn: (user: SignedInUser) => void }) {
   const t = texts.signIn;
@@ -10,17 +13,20 @@ export function SignIn({ onSignedIn }: { onSignedIn: (user: SignedInUser) => voi
   const [working, setWorking] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function submit(e: FormEvent) {
-    e.preventDefault();
+  async function enter(mail: string, secret: string) {
     setWorking(true);
     setError(null);
     try {
-      onSignedIn(await signIn(email.trim(), password));
+      onSignedIn(await signIn(mail.trim(), secret));
     } catch (err) {
       setError(`${t.failed}: ${(err as Error).message}`);
     } finally {
       setWorking(false);
     }
+  }
+  function submit(e: FormEvent) {
+    e.preventDefault();
+    void enter(email, password);
   }
 
   return (
@@ -43,6 +49,17 @@ export function SignIn({ onSignedIn }: { onSignedIn: (user: SignedInUser) => voi
         </button>
         {error && <p className="error">{error}</p>}
         <p className="hint">{t.closed}</p>
+        {/* The test phase, in development only (vite.config.ts): one click, no password typed. */}
+        {DEV_LOGINS.length > 0 && (
+          <div className="dev-logins">
+            {DEV_LOGINS.map((l) => (
+              <button key={l.who} type="button" className="secondary" disabled={working} onClick={() => void enter(l.email, l.password)}>
+                {l.who === "me" ? t.devMe : t.devTest}
+              </button>
+            ))}
+            <p className="hint">{t.devHint}</p>
+          </div>
+        )}
       </form>
     </main>
   );

@@ -114,6 +114,20 @@ button.link {
   text-decoration: underline;
 }
 
+.dev-logins {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--muted);
+}
+
+.dev-logins .hint {
+  flex-basis: 100%;
+  margin: 0;
+}
+
 .sign-in {
   display: flex;
   flex-direction: column;

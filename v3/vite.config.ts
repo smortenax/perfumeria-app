@@ -1,9 +1,25 @@
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 
+/**
+ * One-click sign-in for the test phase, in development only (`npm run dev`): the test user A of
+ * .env.local and, if you write them there yourself, your own mail and password (DEV_LOGIN_EMAIL,
+ * DEV_LOGIN_PASSWORD). They reach the page only while Vite serves it on this computer: a build
+ * (`npm run build`, what is published) gets an empty list, so no password is ever in it.
+ */
+function devLogins(command: string, mode: string): Array<{ who: "test" | "me"; email: string; password: string }> {
+  if (command !== "serve") return [];
+  const env = loadEnv(mode, process.cwd(), "");
+  return [
+    { who: "me" as const, email: env.DEV_LOGIN_EMAIL, password: env.DEV_LOGIN_PASSWORD },
+    { who: "test" as const, email: env.TEST_USER_A_EMAIL, password: env.TEST_USER_A_PASSWORD },
+  ].filter((l) => l.email && l.password);
+}
+
 // The v3 runs in the browser (V3-8): no desktop shell, Vite's default port.
-export default defineConfig({
+export default defineConfig(({ command, mode }) => ({
+  define: { __DEV_LOGINS__: JSON.stringify(devLogins(command, mode)) },
   // PowerSync's web SDK carries web workers and WASM: Vite must not pre-bundle it
   // (as in PowerSync's own example, demos/react-supabase-todolist).
   optimizeDeps: {
@@ -55,4 +71,4 @@ export default defineConfig({
       },
     }),
   ],
-});
+}));
