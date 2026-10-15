@@ -29,3 +29,5 @@ tanda,fecha,aprobacion,archivo,sha256
 11-diluyentes,2026-10-15,"orko kill, 2026-10-15, en el hilo: «apruebo 11»",materials.csv,c370cbe68fe6ed814bfdcc8ab49f9d68db9efdb3fec71db5f1f4af9d9e8f7653
 12-huecos-web,2026-10-15,"orko kill, 2026-10-15, en el hilo: «apruebo 12»",material_descriptors.csv,ad39b2517a6d0ba1363a23c8c3df7cf1f4fc23ab9972b7785f4fede2cfa7ab0a
 12-huecos-web,2026-10-15,"orko kill, 2026-10-15, en el hilo: «apruebo 12»",materials.csv,0b4442e7e22995e683ac74a301d319fcb28d461673b01fa35c0404915e969247
+13-nuevos,2026-10-15,"el usuario: «apruebo 13»",material_categories.csv,ffebc3b9d9b2f817f7ef2efb6e2f11944dbfae21bb2aa2428244d76982ec3e10
+13-nuevos,2026-10-15,"el usuario: «apruebo 13»",materials.csv,7a5c32c26f64e56d0a7e5768181d872df1af770f4321bd39e8ba77f3a8614149
