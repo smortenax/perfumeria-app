@@ -21,7 +21,7 @@
 
 ## Arranque local (dentro de `v3/`, con Docker Desktop abierto)
 
-**Doble clic en `v3/Abrir Perfumería.cmd`**: abre Docker si hace falta, arranca Supabase, PowerSync y la app, y abre el navegador (si ya está en marcha, solo el navegador). A mano: `npm run db:start` · `npm run sync:start` · `npm run dev`. En desarrollo, la pantalla de entrada tiene «Entrar como prueba A» y, si pones `DEV_LOGIN_EMAIL` y `DEV_LOGIN_PASSWORD` en `v3/.env.local`, «Entrar como tú»; la versión publicada no los lleva; la primera vez, también `npm run env:local` y `npm run db:test-users`. Las migraciones nuevas, con `npx supabase migration up`: `db:reset` borra las cuentas.
+**Doble clic en `v3/Abrir Perfumería.cmd`**: abre Docker si hace falta, arranca Supabase, PowerSync y la app, y abre el navegador (si ya está en marcha, solo el navegador). A mano: `npm run db:start` · `npm run sync:start` · `npm run dev`. En desarrollo, «Entrar como tú, sin contraseña» (tu correo en `DEV_LOGIN_EMAIL` de `v3/.env.local`; el servidor pide al Supabase local un acceso de un solo uso); la cuenta de prueba, solo en `[::1]`; la versión publicada no los lleva; la versión publicada no los lleva; la primera vez, también `npm run env:local` y `npm run db:test-users`. Las migraciones nuevas, con `npx supabase migration up`: `db:reset` borra las cuentas.
 
 ## A tener en cuenta
 

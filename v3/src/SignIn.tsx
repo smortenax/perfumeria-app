@@ -1,9 +1,13 @@
 import { useState, type FormEvent } from "react";
-import { signIn, type SignedInUser } from "./db/client";
+import { signIn, signInForTesting, type SignedInUser } from "./db/client";
 import { texts } from "./i18n/es";
 
 /** The one-click sign-in of the test phase (vite.config.ts); none where Vite did not define it. */
-const DEV_LOGINS = typeof __DEV_LOGINS__ === "undefined" ? [] : __DEV_LOGINS__;
+// Yours on the address you use (localhost); the test account only on [::1], where the session tests:
+// the user does not want a way in that does not have their materials (2026-10-15).
+const DEV_LOGINS = (typeof __DEV_LOGINS__ === "undefined" ? [] : __DEV_LOGINS__).filter((l) =>
+  l.who === "me" ? location.hostname !== "[::1]" : location.hostname === "[::1]",
+);
 
 /** Signing in with mail and password (plan step 1.7). Sign-up is closed: accounts are made by hand. */
 export function SignIn({ onSignedIn }: { onSignedIn: (user: SignedInUser) => void }) {
@@ -13,11 +17,11 @@ export function SignIn({ onSignedIn }: { onSignedIn: (user: SignedInUser) => voi
   const [working, setWorking] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function enter(mail: string, secret: string) {
+  async function enter(how: () => Promise<SignedInUser>) {
     setWorking(true);
     setError(null);
     try {
-      onSignedIn(await signIn(mail.trim(), secret));
+      onSignedIn(await how());
     } catch (err) {
       setError(`${t.failed}: ${(err as Error).message}`);
     } finally {
@@ -26,7 +30,7 @@ export function SignIn({ onSignedIn }: { onSignedIn: (user: SignedInUser) => voi
   }
   function submit(e: FormEvent) {
     e.preventDefault();
-    void enter(email, password);
+    void enter(() => signIn(email.trim(), password));
   }
 
   return (
@@ -53,7 +57,7 @@ export function SignIn({ onSignedIn }: { onSignedIn: (user: SignedInUser) => voi
         {DEV_LOGINS.length > 0 && (
           <div className="dev-logins">
             {DEV_LOGINS.map((l) => (
-              <button key={l.who} type="button" className="secondary" disabled={working} onClick={() => void enter(l.email, l.password)}>
+              <button key={l.who} type="button" className="secondary" disabled={working} onClick={() => void enter(() => signInForTesting(l.who))}>
                 {l.who === "me" ? t.devMe : t.devTest}
               </button>
             ))}

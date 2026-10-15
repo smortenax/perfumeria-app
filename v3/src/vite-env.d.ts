@@ -7,7 +7,7 @@ interface ImportMetaEnv {
 }
 
 /** One-click sign-in for the test phase, filled only by `npm run dev` (vite.config.ts); empty in a build. */
-declare const __DEV_LOGINS__: ReadonlyArray<{ readonly who: "test" | "me"; readonly email: string; readonly password: string }>;
+declare const __DEV_LOGINS__: ReadonlyArray<{ readonly who: "test" | "me"; readonly email: string }>;
 
 interface ImportMeta {
   readonly env: ImportMetaEnv;

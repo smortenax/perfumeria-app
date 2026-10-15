@@ -51,6 +51,19 @@ export async function signIn(email: string, password: string): Promise<SignedInU
   return toUser(data.user);
 }
 
+/**
+ * The one-click sign-in of the test phase (vite.config.ts, devLogin): the dev server, on this
+ * computer, gets a one-use sign-in for the account from the local Supabase, and it is redeemed here.
+ */
+export async function signInForTesting(who: "test" | "me"): Promise<SignedInUser> {
+  const response = await fetch("/__dev/login", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ who }) });
+  const answer = (await response.json()) as { tokenHash?: string; error?: string };
+  if (!response.ok || !answer.tokenHash) throw new Error(answer.error ?? `HTTP ${response.status}`);
+  const { data, error } = await supabase.auth.verifyOtp({ token_hash: answer.tokenHash, type: "magiclink" });
+  if (error || !data.user) throw error ?? new Error("sign-in without a user");
+  return toUser(data.user);
+}
+
 /** Signing out of this browser. Without network Supabase may not answer: the kept session goes anyway. */
 export async function signOut(): Promise<void> {
   await Promise.race([supabase.auth.signOut({ scope: "local" }), new Promise((resolve) => setTimeout(resolve, 3000))]);
