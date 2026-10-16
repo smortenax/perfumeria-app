@@ -82,3 +82,5 @@ retirada-1-a-4,2026-10-14,"orko kill, 2026-10-14 (V3-34): «no sirven materiales
 16-mercaptano,2026-10-15,"el usuario: «y apruebo 16»",material_categories.csv,cccfe1bb5eeb0b41ce4e0df81221d920c839b6a7f426f405d848ff333373a316
 16-mercaptano,2026-10-15,"el usuario: «y apruebo 16»",material_descriptors.csv,5b13b2d5e122521608371ee15ab894ce0b221a91727d310d1f0d12b6a738c4a2
 16-mercaptano,2026-10-15,"el usuario: «y apruebo 16»",materials.csv,676a1a94ef9d7194fae6b63171f7e3fc103c0741dcf03a4df031688f0328a5a2
+17-tus-nuevos,2026-10-16,"el usuario: «SI APRUEBO» (tanda 17)",lab_materials.csv,eafdbbad67a87c48cfd4f057154c14ebfd42f6b6ee5ea33bf313e0a909dd002f
+17-tus-nuevos,2026-10-16,"el usuario: «SI APRUEBO» (tanda 17)",materials.csv,64e08bb41138451578ef8cfdad27029fdfea85a9eba2874f2b8bd7b21863c0f0
