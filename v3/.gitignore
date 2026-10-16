@@ -11,3 +11,6 @@ dist/
 *.tmp
 .DS_Store
 Thumbs.db
+
+# Cachés de TypeScript
+*.tsbuildinfo
