@@ -485,3 +485,53 @@ export async function moveFormula(db: LocalDb, ownerId: string, formulaId: strin
   for (const id of moving) await db.update(local.formulas).set({ workbenchId, updatedAt: stamp }).where(eq(local.formulas.id, id));
   return moving.size;
 }
+
+/** Renames one of your workbenches. */
+export async function renameWorkbench(db: LocalDb, ownerId: string, id: string, name: string): Promise<void> {
+  await ownWorkbench(db, ownerId, id);
+  await db.update(local.workbenches).set({ name: nonEmpty(name, "a workbench"), updatedAt: now() }).where(eq(local.workbenches.id, id));
+}
+
+/** Deletes one of your workbenches, only when no formula is left in it (the database refuses otherwise). */
+export async function deleteWorkbench(db: LocalDb, ownerId: string, id: string): Promise<void> {
+  await ownWorkbench(db, ownerId, id);
+  if ((await loadFormulas(db, ownerId)).some((f) => f.workbenchId === id)) throw new Error("a workbench with formulas is not deleted");
+  await db.delete(local.workbenches).where(eq(local.workbenches.id, id));
+}
+
+/**
+ * Deletes one of your formulas with its history, as Supabase does (its events go with it; its
+ * versions lose their mother). A formula saved as a material is not deleted: the material holds it
+ * (V3-49), and the database refuses; that is said before trying.
+ */
+export async function deleteFormula(db: LocalDb, catalog: Catalog, ownerId: string, id: string): Promise<void> {
+  await ownFormula(db, ownerId, id);
+  const frozen = [...catalog.materials.values()].filter((m) => m.kind === "frozen" && m.source?.formulaId === id);
+  if (frozen.length > 0) throw new FormulaInUse(frozen.map((m) => m.name));
+  await db.update(local.formulas).set({ parentId: null, updatedAt: now() }).where(eq(local.formulas.parentId, id));
+  await db.delete(local.formulas).where(eq(local.formulas.id, id));
+  await db.delete(local.formulaEvents).where(eq(local.formulaEvents.formulaId, id));
+}
+
+/** A formula saved as a material, which therefore is not deleted. */
+export class FormulaInUse extends Error {
+  readonly materials: readonly string[];
+  constructor(materials: readonly string[]) {
+    super(`saved as a material: ${materials.join(", ")}`);
+    this.materials = materials;
+  }
+}
+
+/**
+ * Where a formula is used as a material (plan 8.1b: «el corazón dice dónde se usa»): the formulas of
+ * yours that pour any of the materials frozen from it.
+ */
+export async function usesOfFormula(db: LocalDb, catalog: Catalog, ownerId: string, id: string): Promise<{ readonly material: string; readonly formulaIds: readonly string[] }[]> {
+  const frozen = [...catalog.materials.values()].filter((m) => m.kind === "frozen" && m.ownerId === ownerId && m.source?.formulaId === id);
+  const out = [];
+  for (const m of frozen) {
+    const events = await db.select().from(local.formulaEvents).where(eq(local.formulaEvents.materialId, m.id));
+    out.push({ material: m.name, formulaIds: [...new Set(events.filter((e) => e.kind === "add").map((e) => e.formulaId ?? ""))].filter((f) => f) });
+  }
+  return out;
+}

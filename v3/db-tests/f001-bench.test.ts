@@ -11,7 +11,7 @@ import { F001_LINES, f001 } from "../src/core/fixtures/f001";
 import { eventOf } from "../src/bench/events";
 import { v3IdOf } from "../src/bench/v3-repository";
 import { SupabaseConnector } from "../src/db/connector";
-import { addEvent, createFormula, createWorkbench, freezeFormula, loadFormula, loadFormulas, loadFrozen, moveFormula } from "../src/db/formulas";
+import { addEvent, createFormula, createWorkbench, deleteFormula, deleteWorkbench, FormulaInUse, freezeFormula, loadFormula, loadFormulas, loadFrozen, loadWorkbenches, moveFormula, renameWorkbench, usesOfFormula } from "../src/db/formulas";
 import { AppSchema, tables } from "../src/db/local/schema";
 import { createMaterial, loadCatalog, type LocalDb } from "../src/db/materials";
 import { admin, signIn, type TestUser } from "./local";
@@ -41,7 +41,8 @@ async function waitFor<T>(probe: () => Promise<T | null | undefined | false>): P
 }
 
 async function cleanUp(): Promise<void> {
-  // A frozen formula holds its formula and its event: it goes first.
+  // The pours of a frozen formula first (they hold it), then the frozen formulas (they hold their formula and its event).
+  await admin`delete from formula_events where material_id in (select id from materials where name like ${TAG + "%"} and kind = 'frozen')`;
   await admin`delete from materials where name like ${TAG + "%"} and kind = 'frozen'`;
   await admin`delete from formulas where name like ${TAG + "%"}`;
   await admin`delete from workbenches where name like ${TAG + "%"}`;
@@ -138,4 +139,41 @@ it("a formula moves to another workbench with its versions, and Supabase takes i
   expect(await copy.getAll("select * from upload_rejections")).toEqual([]);
   const rows = await admin`select id, workbench_id from formulas where id in (${mother}, ${version})`;
   expect(rows.map((r) => r.workbench_id)).toEqual([to, to]);
+});
+
+it("a formula is deleted with its history and its versions stay; one saved as a material is not; an empty workbench goes; and the heart says where it is used (8.1b)", async () => {
+  const bench = await createWorkbench(db, a.id, { name: `${TAG} banco para borrar` });
+  const rose = await createMaterial(db, a.id, { name: `${TAG} Rosa para borrar`, kind: "provisional" });
+  const mother = await createFormula(db, a.id, { name: `${TAG} madre para borrar`, workbenchId: bench });
+  const version = await createFormula(db, a.id, { name: `${TAG} su versión`, parentId: mother });
+  await addEvent(db, a.id, mother, { kind: "add", materialId: rose, massUg: 100n, fraction: Ratio.ONE, diluentId: null });
+  const heart = await createFormula(db, a.id, { name: `${TAG} corazón para usar`, workbenchId: bench });
+  await addEvent(db, a.id, heart, { kind: "add", materialId: rose, massUg: 100n, fraction: Ratio.ONE, diluentId: null });
+  const frozen = await freezeFormula(db, a.id, heart, { name: `${TAG} Corazón usado` });
+  await addEvent(db, a.id, version, { kind: "add", materialId: frozen, massUg: 50n, fraction: Ratio.ONE, diluentId: null });
+
+  let catalog = await loadCatalog(db, a.id);
+  expect(await usesOfFormula(db, catalog, a.id, heart)).toEqual([{ material: `${TAG} Corazón usado`, formulaIds: [version] }]);
+  await expect(deleteFormula(db, catalog, a.id, heart)).rejects.toBeInstanceOf(FormulaInUse);
+
+  await deleteFormula(db, catalog, a.id, mother);
+  const left = new Map((await loadFormulas(db, a.id)).map((f) => [f.id, f]));
+  expect(left.has(mother)).toBe(false);
+  expect(left.get(version)?.parentId).toBeNull();
+  catalog = await loadCatalog(db, a.id);
+  expect((await loadFormula(db, catalog, a.id, version)).history).toHaveLength(1);
+
+  await renameWorkbench(db, a.id, bench, `${TAG} banco renombrado`);
+  expect((await loadWorkbenches(db, a.id)).find((w) => w.id === bench)?.name).toBe(`${TAG} banco renombrado`);
+  await expect(deleteWorkbench(db, a.id, bench)).rejects.toThrow(/formulas/);
+  const empty = await createWorkbench(db, a.id, { name: `${TAG} banco vacío` });
+  await deleteWorkbench(db, a.id, empty);
+
+  await waitFor(async () => (await copy.getUploadQueueStats()).count === 0);
+  expect(await copy.getAll("select * from upload_rejections")).toEqual([]);
+  expect(await admin`select id from formulas where id = ${mother}`).toEqual([]);
+  expect(await admin`select id from formula_events where formula_id = ${mother}`).toEqual([]);
+  expect(await admin`select id from workbenches where id = ${empty}`).toEqual([]);
+  const [v] = await admin`select parent_id from formulas where id = ${version}`;
+  expect(v.parent_id).toBeNull();
 });

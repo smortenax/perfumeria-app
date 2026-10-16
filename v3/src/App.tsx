@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { currentUser, signOut, supabase, type SignedInUser } from "./db/client";
 import { closeLocalDatabase, localDatabaseFor } from "./db/local/database";
-import { createFormula, createWorkbench } from "./db/formulas";
+import { createFormula, createWorkbench, deleteWorkbench } from "./db/formulas";
 import { createVersion, setHave, setHaveMany } from "./db/materials";
 import { Bench } from "./bench/Bench";
 import { Glossary } from "./glossary/Glossary";
@@ -56,6 +56,10 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
   useEffect(() => {
     if (route.view === "formula") setLastFormula(route.id);
   }, [route]);
+  // A formula deleted (or not yours) is not kept open behind.
+  useEffect(() => {
+    if (data && lastFormula && !data.formulas.some((f) => f.id === lastFormula) && route.view !== "formula") setLastFormula(null);
+  }, [data, lastFormula, route]);
   const benchName = lastFormula ? data?.formulas.find((f) => f.id === lastFormula)?.name : undefined;
   const section = route.view === "home" ? "home" : route.view === "library" ? "library" : route.view === "formula" ? "bench" : "materials";
   const n = texts.nav;
@@ -104,6 +108,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
               data={data}
               onOpen={(id) => go({ view: "formula", id })}
               onNewBench={(name) => void createWorkbench(local.db, local.userId, { name }).catch(fail)}
+              onDeleteBench={(id) => void deleteWorkbench(local.db, local.userId, id).catch(fail)}
               onNew={(workbenchId) =>
                 void createFormula(local.db, local.userId, { name: texts.glossary.newFormulaName, workbenchId }).then((id) => go({ view: "formula", id }), fail)
               }

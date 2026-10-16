@@ -290,12 +290,15 @@ export function Formulas({
   marker,
   onOpen,
   onNew,
+  onDeleteBench,
 }: {
   data: GlossaryData;
   query: string;
   marker: FormulaMarker | null;
   onOpen?: (id: string) => void;
   onNew?: (workbenchId: string) => void;
+  /** An empty workbench can go (its formulas, none, would stop it). */
+  onDeleteBench?: (workbenchId: string) => void;
 }) {
   const accords = marker !== null;
   const t = texts.glossary;
@@ -352,11 +355,20 @@ export function Formulas({
             </li>,
             // Open, its formulas at half size, four to a slot: two by two (V3-50).
             ...(isOpen
-              ? slotsOf([...inside, ...(onNew ? ([null] as const) : [])]).map((four, i) => (
+              ? slotsOf<Slot>([...inside, ...(onNew ? (["new"] as const) : []), ...(onDeleteBench && inside.length === 0 && !words.length ? (["delete"] as const) : [])]).map((four, i) => (
                   <li key={`${b.id}-${i}`} className="in-bench">
                     <ul className="quad">
                       {four.map((f) =>
-                        f ? (
+                        f === "delete" ? (
+                          <li key="delete">
+                            <button type="button" className="tile formula mini delete-bench" onClick={() => onDeleteBench?.(b.id)}>
+                              <span className="icon formula-icon" aria-hidden="true">
+                                ×
+                              </span>
+                              <span className="tile-name">{t.deleteBench}</span>
+                            </button>
+                          </li>
+                        ) : f !== "new" ? (
                           <li key={f.id}>
                             <FormulaTile formula={f} data={data} bench={null} mini {...(onOpen ? { onOpen } : {})} />
                           </li>
@@ -453,6 +465,9 @@ function Clickable({ onClick, children, ...rest }: { className: string; title?: 
     <div {...rest}>{children}</div>
   );
 }
+
+/** A slot of an open workbench: a formula, or its «new formula» and «delete workbench» tiles. */
+type Slot = GlossaryData["formulas"][number] | "new" | "delete";
 
 /** Four to a slot, two by two (V3-50). */
 function slotsOf<T>(items: readonly T[]): T[][] {

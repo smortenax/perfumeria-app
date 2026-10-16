@@ -82,6 +82,23 @@ export function PromptDialog(props: {
   );
 }
 
+/** Asking before something that cannot be undone (deleting a formula). */
+export function ConfirmDialog(props: { title: string; text: string; onConfirm: () => void; onClose: () => void }) {
+  return (
+    <Modal
+      title={props.title}
+      error={null}
+      onCancel={props.onClose}
+      onAccept={() => {
+        props.onConfirm();
+        props.onClose();
+      }}
+    >
+      <p className="help">{props.text}</p>
+    </Modal>
+  );
+}
+
 /** Choosing one of a few: the workbench a formula moves to (plan 8.1b). */
 export function ChoiceDialog(props: {
   title: string;

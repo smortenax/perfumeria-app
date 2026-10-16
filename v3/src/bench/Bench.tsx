@@ -7,7 +7,7 @@ import { checkIfra, type IfraBase, type IfraReport } from "../core/ifra";
 import { formulaToJson as toJsonWith } from "../core/io/formula-json";
 import type { Change, Formula, FormulaHeader } from "../core/model/formula";
 import type { Material } from "../core/model/material";
-import { addEvent, copyFormula, freezeFormula, type FormulaMarker, type FormulaRecord, loadFormula, loadFormulas, loadFrozen, moveFormula, updateFormula, usableFrozen } from "../db/formulas";
+import { addEvent, copyFormula, deleteFormula, freezeFormula, FormulaInUse, type FormulaMarker, type FormulaRecord, loadFormula, loadFormulas, loadFrozen, moveFormula, renameWorkbench, updateFormula, usableFrozen, usesOfFormula } from "../db/formulas";
 import type { LocalDatabase } from "../db/local/database";
 import { createMaterial } from "../db/materials";
 import type { GlossaryData } from "../glossary/useGlossary";
@@ -18,7 +18,7 @@ import { BottleFrame } from "./Bottle";
 import { ProjectionCard, RepartoCard, VisualizerPlaceholder } from "./Charts";
 import { ifraOfLines } from "./composition-ifra";
 import { CompositionCard } from "./CompositionList";
-import { ChoiceDialog, PromptDialog, SaveAsDialog, type SaveAsChoice } from "./Dialogs";
+import { ChoiceDialog, ConfirmDialog, PromptDialog, SaveAsDialog, type SaveAsChoice } from "./Dialogs";
 import { GramsCard, IntentionCard, NameCard } from "./Header";
 import { ChangeDetail, HistoryDock } from "./HistoryDock";
 import { IfraPanel, IfraSummary } from "./IfraBox";
@@ -41,7 +41,10 @@ type Dialog =
   | { kind: "quick" }
   | { kind: "saveAs" }
   | { kind: "freeze" }
-  | { kind: "move" };
+  | { kind: "move" }
+  | { kind: "role" }
+  | { kind: "renameBench" }
+  | { kind: "delete" };
 
 interface View {
   readonly composition: Composition | null;
@@ -54,6 +57,9 @@ interface View {
 const message = (e: unknown) => (e instanceof Error ? e.message : String(e));
 const reopensByWeighing = (formula: Formula) => formula.header.container?.tareUg != null && formula.history.length > 0;
 const newId = (): string => crypto.randomUUID();
+
+/** Where this formula is used as a material (plan 8.1b). */
+type Uses = Awaited<ReturnType<typeof usesOfFormula>>;
 
 interface BenchProps {
   readonly data: GlossaryData;
@@ -77,7 +83,7 @@ export function Bench(props: BenchProps) {
   const { data, local, formulaId } = props;
   const repository = useMemo(() => repositoryOfV3(data), [data]);
   // The formula, read from the copy, again whenever the data changes (an event, a sync).
-  const [loaded, setLoaded] = useState<{ formula: Formula; record: FormulaRecord; frozen: readonly Material[] } | null>(null);
+  const [loaded, setLoaded] = useState<{ formula: Formula; record: FormulaRecord; frozen: readonly Material[]; uses: Uses } | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
   useEffect(() => {
     let live = true;
@@ -86,7 +92,8 @@ export function Bench(props: BenchProps) {
         const record = records.find((r) => r.id === formulaId);
         if (!record) throw new Error("not one of your formulas");
         const { materials } = await loadFrozen(local.db, data.catalog, local.userId, usableFrozen(data.catalog, records, local.userId, formulaId));
-        if (live) setLoaded({ formula, record, frozen: materials });
+        const uses = await usesOfFormula(local.db, data.catalog, local.userId, formulaId);
+        if (live) setLoaded({ formula, record, frozen: materials, uses });
       })
       .catch((e: unknown) => {
         console.error(e);
@@ -106,12 +113,12 @@ export function Bench(props: BenchProps) {
   }
   return (
     <div className="bench-root">
-      <BenchScreen key={formulaId} {...props} formula={loaded.formula} record={loaded.record} frozen={loaded.frozen} repository={repository} />
+      <BenchScreen key={formulaId} {...props} formula={loaded.formula} record={loaded.record} frozen={loaded.frozen} uses={loaded.uses} repository={repository} />
     </div>
   );
 }
 
-function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly record: FormulaRecord; readonly frozen: readonly Material[]; readonly repository: ReturnType<typeof repositoryOfV3> }) {
+function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly record: FormulaRecord; readonly frozen: readonly Material[]; readonly uses: Uses; readonly repository: ReturnType<typeof repositoryOfV3> }) {
   const { formula, repository, local, formulaId } = props;
   const owner = local.userId;
   const ifra = props.data.ifra;
@@ -306,6 +313,32 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
       await updateFormula(local.db, owner, formulaId, { markers });
       setNotice(notice);
     });
+  // Its role in a perfume (V3-20: free text, optional), its workbench's name, and deleting it.
+  const benchOf = props.data.workbenches.find((w) => w.id === props.record.workbenchId);
+  const setRole = (role: string) =>
+    write(async () => {
+      await updateFormula(local.db, owner, formulaId, { role: role.trim() || null });
+      setNotice(role.trim() ? texts.bench.roleSet(role.trim()) : texts.bench.roleCleared);
+    });
+  const renameBench = (name: string) =>
+    write(async () => {
+      await renameWorkbench(local.db, owner, props.record.workbenchId, name);
+      setNotice(texts.bench.benchRenamed(name.trim()));
+    });
+  // Not through the queue of writes: that one clears the message once its work is done, and a
+  // refusal must stay in sight. It waits for what is queued, so nothing is written after it.
+  const remove = async () => {
+    await queue.current;
+    try {
+      await deleteFormula(local.db, props.data.catalog, owner, formulaId);
+      props.onExit();
+    } catch (e) {
+      setError(e instanceof FormulaInUse ? texts.bench.inUse(e.materials) : `${texts.bench.writeError}: ${message(e)}`);
+    }
+  };
+  const formulaName = (id: string) => props.data.formulas.find((f) => f.id === id)?.name ?? id;
+  const usedIn = props.uses.flatMap((u) => u.formulaIds.map((id) => ({ material: u.material, id })));
+
   // To another workbench, with its versions (plan 8.1b).
   const moveTo = (workbenchId: string) =>
     write(async () => {
@@ -453,6 +486,12 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
               <button type="button" className="menuitem" disabled={props.data.workbenches.length < 2} onClick={menuAction(() => setDialog({ kind: "move" }))}>
                 <span>{texts.menu.move}</span>
               </button>
+              <button type="button" className="menuitem" onClick={menuAction(() => setDialog({ kind: "role" }))}>
+                <span>{texts.menu.role}</span>
+              </button>
+              <button type="button" className="menuitem" onClick={menuAction(() => setDialog({ kind: "renameBench" }))}>
+                <span>{texts.menu.renameBench}</span>
+              </button>
               <button type="button" className="menuitem" onClick={menuAction(exportJson)}>
                 <span>{texts.bench.exportJson}</span>
               </button>
@@ -471,6 +510,22 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
               <button type="button" className="menuitem" disabled={!canRedo} onClick={menuAction(redo)}>
                 <span>{texts.menu.redo}</span>
                 <span className="num key">Ctrl+Y</span>
+              </button>
+              {/* Where it is used as a material (plan 8.1b: «el corazón dice dónde se usa»). */}
+              {props.uses.length > 0 && (
+                <>
+                  <div className="menu-sep" />
+                  <span className="menu-note">{usedIn.length ? texts.menu.usedIn : texts.menu.notUsedYet(props.uses.map((u) => u.material))}</span>
+                  {usedIn.map((u) => (
+                    <button key={`${u.material}:${u.id}`} type="button" className="menuitem" onClick={menuAction(() => props.onOpen(u.id))}>
+                      <span>{texts.menu.openUse(formulaName(u.id), u.material)}</span>
+                    </button>
+                  ))}
+                </>
+              )}
+              <div className="menu-sep" />
+              <button type="button" className="menuitem danger" onClick={menuAction(() => setDialog({ kind: "delete" }))}>
+                <span>{texts.menu.delete}</span>
               </button>
             </div>
           )}
@@ -603,6 +658,35 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
           }}
           onClose={() => setDialog(null)}
         />
+      )}
+      {dialog?.kind === "role" && (
+        <PromptDialog
+          title={texts.dialogs.roleTitle}
+          label={texts.dialogs.roleLabel}
+          help={texts.dialogs.roleHelp}
+          initial={props.record.role ?? ""}
+          submit={(value) => {
+            setRole(value);
+            return null;
+          }}
+          onClose={() => setDialog(null)}
+        />
+      )}
+      {dialog?.kind === "renameBench" && (
+        <PromptDialog
+          title={texts.dialogs.renameBenchTitle}
+          label={texts.dialogs.renameBenchLabel}
+          initial={benchOf?.name ?? ""}
+          submit={(value) => {
+            if (value.trim() === "") return texts.dialogs.renameBenchLabel;
+            renameBench(value);
+            return null;
+          }}
+          onClose={() => setDialog(null)}
+        />
+      )}
+      {dialog?.kind === "delete" && (
+        <ConfirmDialog title={texts.dialogs.deleteTitle} text={texts.dialogs.deleteText(formula.header.name, formula.history.length)} onConfirm={() => void remove()} onClose={() => setDialog(null)} />
       )}
       {dialog?.kind === "move" && (
         <ChoiceDialog

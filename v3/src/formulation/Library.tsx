@@ -19,11 +19,13 @@ export function Library({
   onOpen,
   onNew,
   onNewBench,
+  onDeleteBench,
 }: {
   data: GlossaryData;
   onOpen: (id: string) => void;
   onNew: (workbenchId: string) => void;
   onNewBench: (name: string) => void;
+  onDeleteBench: (workbenchId: string) => void;
 }) {
   const t = texts.library;
   const [tab, setTab] = useState<Tab>("benches");
@@ -79,7 +81,7 @@ export function Library({
         ))}
       </div>
       <div className="tab-panel" role="tabpanel" id="library-panel" aria-labelledby={`library-tab-${tab}`}>
-        <Formulas data={data} query={query} marker={MARKER[tab]} onOpen={onOpen} {...(tab === "benches" ? { onNew } : {})} />
+        <Formulas data={data} query={query} marker={MARKER[tab]} onOpen={onOpen} {...(tab === "benches" ? { onNew, onDeleteBench } : {})} />
       </div>
     </section>
   );
