@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { IfraData } from "../core/ifra";
 import type { Catalog } from "../db/catalog";
 import { type IfraLayer, loadIfraLayer } from "../db/ifra-layer";
@@ -21,45 +21,61 @@ export interface GlossaryData {
   readonly formulas: readonly FormulaRecord[];
 }
 
-/** The tables the glossary reads: when any of them changes (a sync, an edit), it is read again. */
-const TABLES = [
+/** The tables of the catalog and IFRA: when any of them changes (a sync, an edit), all of it is read again. */
+const CATALOG_TABLES = [
   "materials", "material_categories", "material_components", "regulations", "material_doses", "material_descriptors",
   "material_relations", "material_references", "lab_materials", "lab_dilutions", "lab_evaluations", "lab_axes",
   "ifra_standards", "ifra_limits", "ifra_substances", "ifra_annex", "ifra_variant_rules", "ifra_spec_exclusions", "data_version",
-  "workbenches", "formulas", "formula_events",
 ];
+/**
+ * Your workbenches and formulas: read apart, and only them. Editing a formula (its name, a pour)
+ * must not read the whole catalog again (the test phase: typing a name re-read it on every key).
+ * A formula's history is the workbench's to watch (bench/Bench.tsx), not this one's.
+ */
+const FORMULA_TABLES = ["workbenches", "formulas"];
 
-async function read(local: LocalDatabase): Promise<GlossaryData> {
-  const [catalog, layer, workbenches, formulas] = await Promise.all([
-    loadCatalog(local.db, local.userId),
-    loadIfraLayer(local.db),
-    loadWorkbenches(local.db, local.userId),
-    loadFormulas(local.db, local.userId),
-  ]);
+type CatalogPart = Omit<GlossaryData, "workbenches" | "formulas">;
+type FormulaPart = Pick<GlossaryData, "workbenches" | "formulas">;
+
+async function readCatalog(local: LocalDatabase): Promise<CatalogPart> {
+  const [catalog, layer] = await Promise.all([loadCatalog(local.db, local.userId), loadIfraLayer(local.db)]);
   const ifraStates = new Map([...catalog.materials.keys()].map((id) => [id, ifraCard(catalog, layer, id)]));
-  return { catalog, layer, ifra: toIfra(catalog, layer), index: indexCatalog(catalog), ifraStates, workbenches, formulas };
+  return { catalog, layer, ifra: toIfra(catalog, layer), index: indexCatalog(catalog), ifraStates };
+}
+
+async function readFormulas(local: LocalDatabase): Promise<FormulaPart> {
+  const [workbenches, formulas] = await Promise.all([loadWorkbenches(local.db, local.userId), loadFormulas(local.db, local.userId)]);
+  return { workbenches, formulas };
 }
 
 export function useGlossary(local: LocalDatabase): GlossaryData | null {
-  const [data, setData] = useState<GlossaryData | null>(null);
+  const [catalogPart, setCatalogPart] = useState<CatalogPart | null>(null);
+  const [formulaPart, setFormulaPart] = useState<FormulaPart | null>(null);
   useEffect(() => {
     let live = true;
-    let reading = Promise.resolve();
-    const refresh = () => {
-      reading = reading
-        .then(() => read(local))
-        .then((d) => {
-          if (live) setData(d);
-        })
-        // A failed reading keeps the last one on screen; the next change reads again.
-        .catch((error: unknown) => console.error("glossary", error));
+    // One reading after another of each part; a failed one keeps the last on screen, the next change reads again.
+    const reader = <T,>(read: () => Promise<T>, set: (value: T) => void, what: string) => {
+      let reading = Promise.resolve();
+      return () => {
+        reading = reading
+          .then(read)
+          .then((value) => {
+            if (live) set(value);
+          })
+          .catch((error: unknown) => console.error(what, error));
+      };
     };
-    refresh();
-    const stop = local.powerSync.onChangeWithCallback({ onChange: refresh }, { tables: TABLES, throttleMs: 500 });
+    const refreshCatalog = reader(() => readCatalog(local), setCatalogPart, "glossary");
+    const refreshFormulas = reader(() => readFormulas(local), setFormulaPart, "formulas");
+    refreshCatalog();
+    refreshFormulas();
+    const stopCatalog = local.powerSync.onChangeWithCallback({ onChange: refreshCatalog }, { tables: CATALOG_TABLES, throttleMs: 500 });
+    const stopFormulas = local.powerSync.onChangeWithCallback({ onChange: refreshFormulas }, { tables: FORMULA_TABLES, throttleMs: 300 });
     return () => {
       live = false;
-      stop();
+      stopCatalog();
+      stopFormulas();
     };
   }, [local]);
-  return data;
+  return useMemo(() => (catalogPart && formulaPart ? { ...catalogPart, ...formulaPart } : null), [catalogPart, formulaPart]);
 }

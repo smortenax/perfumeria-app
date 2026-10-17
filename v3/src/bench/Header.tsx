@@ -8,7 +8,7 @@ import { texts } from "./texts";
 const g = texts.grams;
 
 /** The name, big, and the file it lives in (§10.1: «solo nombre y fecha»). */
-export function NameCard(props: { header: FormulaHeader; status: string; statusIsError: boolean; onChange: (header: FormulaHeader) => void }) {
+export function NameCard(props: { header: FormulaHeader; status: string; statusIsError: boolean; onChange: (header: FormulaHeader) => void; onDone?: () => void }) {
   return (
     <div className="card name-card">
       <input
@@ -16,6 +16,10 @@ export function NameCard(props: { header: FormulaHeader; status: string; statusI
         value={props.header.name}
         placeholder={texts.bench.namePlaceholder}
         onChange={(e) => props.onChange({ ...props.header, name: e.target.value })}
+        onBlur={props.onDone}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") e.currentTarget.blur();
+        }}
       />
       <span className={props.statusIsError ? "num status error" : "num status"}>{props.status}</span>
     </div>
@@ -23,7 +27,7 @@ export function NameCard(props: { header: FormulaHeader; status: string; statusI
 }
 
 /** The intention (§3.3). */
-export function IntentionCard(props: { header: FormulaHeader; onChange: (header: FormulaHeader) => void }) {
+export function IntentionCard(props: { header: FormulaHeader; onChange: (header: FormulaHeader) => void; onDone?: () => void }) {
   return (
     <label className="card intention-card">
       <span className="label">{texts.bench.intention}</span>
@@ -31,6 +35,7 @@ export function IntentionCard(props: { header: FormulaHeader; onChange: (header:
         value={props.header.intention}
         placeholder={texts.bench.intentionPlaceholder}
         onChange={(e) => props.onChange({ ...props.header, intention: e.target.value })}
+        onBlur={props.onDone}
       />
     </label>
   );

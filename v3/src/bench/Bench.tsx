@@ -81,8 +81,15 @@ interface BenchProps {
  */
 export function Bench(props: BenchProps) {
   const { data, local, formulaId } = props;
-  const repository = useMemo(() => repositoryOfV3(data), [data]);
-  // The formula, read from the copy, again whenever the data changes (an event, a sync).
+  // The bar's catalog, built again only when the catalog or IFRA change, not with every edit of a formula.
+  const repository = useMemo(() => repositoryOfV3(data), [data.catalog, data.ifra, data.ifraStates]); // eslint-disable-line react-hooks/exhaustive-deps
+  // Its history is watched here (useGlossary does not read it): a pour, a sync, and the formula is read again.
+  const [tick, setTick] = useState(0);
+  useEffect(
+    () => local.powerSync.onChangeWithCallback({ onChange: () => setTick((t) => t + 1) }, { tables: ["formula_events"], throttleMs: 150 }),
+    [local],
+  );
+  // The formula, read from the copy, again whenever its data changes (an event, its header, a sync).
   const [loaded, setLoaded] = useState<{ formula: Formula; record: FormulaRecord; frozen: readonly Material[]; uses: Uses } | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
   useEffect(() => {
@@ -102,7 +109,7 @@ export function Bench(props: BenchProps) {
     return () => {
       live = false;
     };
-  }, [data, formulaId, local]);
+  }, [data, formulaId, local, tick]);
 
   if (!loaded) {
     return (
@@ -217,6 +224,54 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
   /** The header is the formula's record: its changes are written to it. */
   // Only what changed is written: two edits in a row, before the copy brings back the first, would
   // otherwise write the whole header as it was and undo each other (seen in the test phase).
+  // What is being typed in the name and the intention (the test phase: written on every key, the
+  // field jumped and letters were lost). It is on screen at once and written when typing stops for
+  // a moment, when the field is left or when the workbench is; an empty name is never written.
+  const [typed, setTyped] = useState<{ readonly name?: string; readonly intention?: string }>({});
+  const typedRef = useRef(typed);
+  typedRef.current = typed;
+  const savedRef = useRef(formula.header);
+  savedRef.current = formula.header;
+  const typingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const shownHeader: FormulaHeader = { ...formula.header, ...typed };
+  const flushTyped = () => {
+    if (typingTimer.current) clearTimeout(typingTimer.current);
+    typingTimer.current = null;
+    const t = typedRef.current;
+    const changes: { name?: string; intention?: string } = {};
+    if (t.name !== undefined && t.name.trim() !== "" && t.name !== savedRef.current.name) changes.name = t.name;
+    if (t.intention !== undefined && t.intention !== savedRef.current.intention) changes.intention = t.intention;
+    if (Object.keys(changes).length > 0) write(() => updateFormula(local.db, owner, formulaId, changes));
+  };
+  const typeHeader = (header: FormulaHeader) => {
+    setTyped((t) => ({
+      ...t,
+      ...(header.name !== shownHeader.name ? { name: header.name } : {}),
+      ...(header.intention !== shownHeader.intention ? { intention: header.intention } : {}),
+    }));
+    if (typingTimer.current) clearTimeout(typingTimer.current);
+    typingTimer.current = setTimeout(flushTyped, 2000);
+  };
+  const doneTyping = () => {
+    flushTyped();
+    // Left empty, the name goes back to the one written.
+    if (typedRef.current.name !== undefined && typedRef.current.name.trim() === "") setTyped(({ name: _, ...rest }) => rest);
+  };
+  // Once the copy holds what was typed, the typed copy goes; while typing on, it stays.
+  useEffect(() => {
+    setTyped((t) => {
+      const keepName = t.name !== undefined && t.name !== formula.header.name;
+      const keepIntention = t.intention !== undefined && t.intention !== formula.header.intention;
+      if (keepName === (t.name !== undefined) && keepIntention === (t.intention !== undefined)) return t;
+      return { ...(keepName ? { name: t.name } : {}), ...(keepIntention ? { intention: t.intention } : {}) };
+    });
+  }, [formula.header.name, formula.header.intention]);
+  // Hidden or closed, what was typed is written.
+  useEffect(() => {
+    if (props.active === false) flushTyped();
+  }, [props.active]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => () => flushTyped(), []); // eslint-disable-line react-hooks/exhaustive-deps
+
   const setHeader = (header: FormulaHeader) => {
     const changes = headerChanges(formula.header, header);
     if (Object.keys(changes).length > 0) write(() => updateFormula(local.db, owner, formulaId, changes));
@@ -393,7 +448,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
   const total = view.composition?.totalUg ?? Ratio.ZERO;
   const workBatch = formula.header.workBatchUg;
   const fill = workBatch ? Number(total.div(Ratio.of(workBatch)).toFixed(4)) : null;
-  const status = error ?? (pending > 0 ? texts.bench.saving : (notice ?? texts.bench.savedLive));
+  const status = error ?? (pending > 0 ? texts.bench.saving : Object.keys(typed).length > 0 ? texts.bench.unsaved : (notice ?? texts.bench.savedLive));
   const tare = formula.header.container?.tareUg ?? null;
   const adds = formula.history.slice(0, frame ?? formula.history.length).filter((c): c is Add => c.kind === "add");
   const empty = !view.composition || view.composition.parts.length === 0;
@@ -405,7 +460,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
       <div className="main">
         <div className="top">
           <BottleFrame
-            name={formula.header.name || texts.bench.untitled}
+            name={shownHeader.name || texts.bench.untitled}
             fill={fill}
             aromatic={bottleTotal ? { name: texts.composition.aromatic, share: formatPercent(view.composition!.aromaticUg.div(bottleTotal), 2) } : null}
             solvents={
@@ -413,13 +468,16 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
                 ? view.composition!.parts.filter((p) => p.material.solvent).map((p) => ({ name: p.material.name, share: formatPercent(p.massUg.div(bottleTotal), 2) }))
                 : []
             }
-            onBack={props.onExit}
+            onBack={() => {
+              flushTyped();
+              props.onExit();
+            }}
           />
-          <GramsCard header={formula.header} totalUg={total} onChange={setHeader} />
+          <GramsCard header={shownHeader} totalUg={total} onChange={setHeader} />
           <div className="top-right">
             <div className="head-row">
-              <NameCard header={formula.header} status={status} statusIsError={error !== null} onChange={setHeader} />
-              <IntentionCard header={formula.header} onChange={setHeader} />
+              <NameCard header={shownHeader} status={status} statusIsError={error !== null} onChange={typeHeader} onDone={doneTyping} />
+              <IntentionCard header={shownHeader} onChange={typeHeader} onDone={doneTyping} />
             </div>
             <AddBar
               ref={addBar}
