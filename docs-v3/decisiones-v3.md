@@ -1121,6 +1121,49 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 - **Se puede concentrar más de lo que está**, con un aviso al pasar el uso máximo de IFRA (la segunda lectura, §5: «hasta qué % se puede usar en un perfume»). Con datos de IFRA incompletos, el aviso dice «parcial» y nunca da por bueno (§1.2).
 - **Los gramos de la receta, a la precisión de la báscula** (0,001 g); la receta es la base natural de la hoja de pesada (V3-55).
 
+## V3-60 · Las catas, solo en la app; el diario del laboratorio, de archivo (cerrada con el usuario el 2026-10-18 en el proyecto LAB)
+
+**Literal:** pendiente de copiar del hilo del proyecto LAB donde se cerró. El resumen, en `catas-diseno.md` (decisión 1).
+
+**Lectura** (de la sesión):
+
+- **La app manda.** Las catas nuevas, solo en la app, en un apartado propio, «Catas».
+- **`diario/` del laboratorio queda de archivo**; las 102 fichas en blanco dejan de usarse.
+- **Las fichas rellenas se consultan como catas de legado**: `lab_evaluations` (tanda 8), de solo lectura, con su `sheet`. Su `status` alimenta la cola hasta que haya tiras cerradas.
+- **Una cata apunta a un material tuyo y no escribe en él** (ni familia, ni descriptores, ni categorías).
+
+## V3-61 · La ficha de cata, con pestañas por tiempo (cerrada con el usuario el 2026-10-18 en el proyecto LAB)
+
+**Literal:** pendiente de copiar del hilo. El resumen, en `catas-diseno.md` (decisión 2, versión 2).
+
+**Lectura** (de la sesión):
+
+- **Primero se migra la tradición de las hojas de forma usable**; cribar o bajar densidad, después.
+- **Una pestaña por momento:** t0 · t5 · t30 · t60 · 24 h · días. t0, la apertura a ciegas, se guarda una vez y no se edita; t5, el desglose entero; de t30 en adelante, lo que cambia, empezando vacío. Un bloque sin tocar es «sin dato»; uno revisado sin cambios, «igual».
+- **Controles:** texto (o el dictado del teclado) para lo descriptivo y las sinestésicas; casillas para las familias (Calkin y Jellinek, Ellena y las 9 de P48, además, no en su lugar); un polo por eje del efecto; un slider de intensidad de cerca; botones para las elecciones únicas; la batería con `sí · — · ? · n/r`; la curva en cuatro columnas.
+- **Al cerrar, una vez por tira:** papel, efecto, versatilidad, modo de decaer, R1-R3, sesgos, afinidades, destinos y el cotejo, que solo se abre con la serie cerrada.
+- **A ciegas:** mientras se cata se ve la etiqueta (A-D); el nombre, al cerrar la t5.
+
+## V3-62 · Las catas, en columnas, con vocabularios por código fijo (cerrada con el usuario el 2026-10-18 en el proyecto LAB)
+
+**Literal:** pendiente de copiar del hilo. El resumen, en `catas-diseno.md` (decisión 3).
+
+**Lectura** (de la sesión):
+
+- **Tablas tuyas, con `user_id` y RLS:** `tasting_sessions`, `tasting_strips` (la fracción y el disolvente, copiados de `lab_dilutions`), `tasting_moments` (un atributo por columna, V3-41, con hijas para familias, batería y curva) y `tasting_closures`.
+- **Lo que se elige de una lista, con un código fijo** validado por la base de datos; la etiqueta, aparte.
+- **La tenacidad no se guarda:** sale, en horas (V3-42), del último momento que aún se nota de cerca. **Nada escribe en `materials`.**
+
+## V3-63 · La primera versión de las catas: catar y cola (cerrada con el usuario el 2026-10-18 en el proyecto LAB)
+
+**Literal:** pendiente de copiar del hilo. El resumen, en `catas-diseno.md` (decisión 4).
+
+**Lectura** (de la sesión):
+
+- **Entra:** la sesión con hasta 4 tiras, las pestañas, los temporizadores con aviso con la app abierta, el cierre y el cotejo, el legado para consultar y la cola de pendientes (lo que tienes sin catar, agrupado por disolvente y dilución, con el progreso y los 12 del pedido del 2026-10-18 marcados).
+- **Dictado:** el del teclado del móvil.
+- **Aparcado:** la vista comparativa horizontal, la curva multilínea, el selector hex, el cotejo asistido y exportar a .md.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
