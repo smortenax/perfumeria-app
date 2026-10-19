@@ -2814,3 +2814,27 @@
 .mix-extras .link {
   font-size: 12px;
 }
+
+/* «Usar la fórmula» (V3-59): the recipe, one line per pour. */
+.bench-root .recipe {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0;
+  font-size: 13px;
+}
+
+.bench-root .recipe td {
+  padding: 3px 4px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.bench-root .recipe td.num {
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.bench-root .recipe tr.sum td {
+  font-weight: 600;
+  border-top: 1px solid var(--line);
+}

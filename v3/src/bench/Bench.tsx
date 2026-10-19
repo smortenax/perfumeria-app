@@ -18,7 +18,9 @@ import { BottleFrame } from "./Bottle";
 import { ProjectionCard, RepartoCard, VisualizerPlaceholder } from "./Charts";
 import { ifraOfLines } from "./composition-ifra";
 import { CompositionCard } from "./CompositionList";
-import { ChoiceDialog, ConfirmDialog, PromptDialog, ReweighDialog, SaveAsDialog, type SaveAsChoice } from "./Dialogs";
+import { ChoiceDialog, ConfirmDialog, PromptDialog, ReweighDialog, SaveAsDialog, type SaveAsChoice, UseFormulaDialog } from "./Dialogs";
+import { dilutionText } from "./format";
+import { ownConcentration } from "./use-formula";
 import { GramsCard, IntentionCard, NameCard } from "./Header";
 import { ChangeDetail, HistoryDock } from "./HistoryDock";
 import { IfraPanel, IfraSummary } from "./IfraBox";
@@ -38,6 +40,7 @@ type Add = Extract<Change, { kind: "add" }>;
 type Dialog =
   | { kind: "mass"; line: Add }
   | { kind: "reweigh" }
+  | { kind: "useFormula" }
   | { kind: "note" }
   | { kind: "quick" }
   | { kind: "saveAs" }
@@ -557,6 +560,9 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
                 <span>{texts.bench.exportJson}</span>
               </button>
               <div className="menu-sep" />
+              <button type="button" className="menuitem" disabled={empty} onClick={menuAction(() => setDialog({ kind: "useFormula" }))}>
+                <span>{texts.menu.useFormula}</span>
+              </button>
               <button type="button" className="menuitem" onClick={menuAction(startReweigh)}>
                 <span>{texts.menu.reweigh}</span>
               </button>
@@ -654,6 +660,20 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
           totalUg={view.composition?.totalUg ?? null}
           help={texts.dialogs.reweighHelp}
           onDone={({ grossUg, tareUg }) => change({ kind: "reweigh", id: newId(), grossUg, tareUg })}
+          onClose={() => setDialog(null)}
+        />
+      )}
+      {dialog?.kind === "useFormula" && !empty && (
+        // The whole formula, whatever step of the history is being looked at.
+        <UseFormulaDialog
+          composition={compose(formula)}
+          report={checkIfra(formula, ifra)}
+          own={ownConcentration(formula.header.workBatchUg, formula.header.finalBatchUg)}
+          describe={(line) =>
+            line.fraction.eq(Ratio.ONE)
+              ? `${line.material.name} · ${texts.useFormula.pure}`
+              : `${line.material.name} · ${texts.useFormula.diluted(dilutionText(line.fraction), [line.diluent, line.secondDiluent?.material, ...(line.moreDiluents ?? []).map((d) => d.material)].flatMap((m) => (m ? [m.name] : [])).join(" + "))}`
+          }
           onClose={() => setDialog(null)}
         />
       )}

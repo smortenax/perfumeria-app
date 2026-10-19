@@ -391,8 +391,27 @@ export const texts = {
       `${material} sola usa el ${used} del techo de ${name}. Con lo que aportan los demás, la sustancia está: ${verdict}.`,
   },
 
+  /** «Usar la fórmula…» (V3-59). */
+  useFormula: {
+    title: "Usar la fórmula",
+    help: "La receta exacta para lo que necesitas, con las proporciones de la fórmula: cuánto pesar de cada cosa, tal como se echó (con su dilución), y el alcohol que completa. Al miligramo. No cambia la fórmula.",
+    asIs: (percent: string) => `Tal cual (1:1): al ${percent}, como la fórmula`,
+    asIsUnknown: "Tal cual: hace falta el lote de trabajo y el final para saber su concentración",
+    required: "Con un requisito: a otra concentración",
+    concentration: "Concentración en el producto final (%)",
+    total: "Cantidad de producto final (g)",
+    unreadable: "Escribe una cantidad y una concentración válidas (más de 0 y hasta 100 %).",
+    concentrate: (percent: string) => `Concentrado (${percent} del total)`,
+    alcohol: "Alcohol",
+    totalRow: "Total",
+    over: (max: string) => `Por encima del uso máximo de IFRA en un perfume final: ${max}.`,
+    partial: "Los datos de IFRA de esta fórmula son parciales: no se puede dar por buena ninguna concentración.",
+    pure: "puro",
+    diluted: (percent: string, diluents: string) => `al ${percent} en ${diluents}`,
+  },
   menu: {
     options: "Opciones",
+    useFormula: "Usar la fórmula…",
     save: "Guardar",
     saveAs: "Guardar como…",
     freeze: "Guardar como material…",

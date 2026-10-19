@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Ratio } from "../core/arith/ratio";
 import { parseMass } from "../core/arith/units";
+import type { Composition, Line } from "../core/compose";
+import { formatGrams, formatPercent } from "../core/display";
 import { readReweigh, type Reweigh, type ReweighMode } from "./reweigh";
+import { maxUseWarning, recipe } from "./use-formula";
 import { texts } from "./texts";
 
 const t = texts.dialogs;
@@ -276,6 +279,84 @@ export function ReweighDialog(props: { tareUg: bigint | null; totalUg: Ratio | n
         <span>{mode === "withBottle" ? t.grossLabel : t.netLabel}</span>
         <input ref={input} inputMode="decimal" value={value} onChange={(e) => setValue(e.target.value)} />
       </label>
+    </Modal>
+  );
+}
+
+/**
+ * «Usar la fórmula…» (V3-59): the whole formula and the exact recipe for what you need, as it is
+ * (1:1, at its own concentration) or at another concentration, with the rest in alcohol. Nothing is
+ * written: it is a recipe to weigh by.
+ */
+export function UseFormulaDialog(props: {
+  composition: Composition;
+  report: { readonly maxUse: Ratio; readonly partial: boolean } | null;
+  /** The formula's own concentration (work batch over final batch); null when its batches are not known. */
+  own: Ratio | null;
+  describe: (line: Line) => string;
+  onClose: () => void;
+}) {
+  const u = texts.useFormula;
+  const [mode, setMode] = useState<"asIs" | "required">(props.own ? "asIs" : "required");
+  const [grams, setGrams] = useState("50");
+  const [percent, setPercent] = useState(props.own ? formatPercent(props.own, 2).replace(" %", "") : "20");
+  let result: ReturnType<typeof recipe> | null = null;
+  let problem: string | null = null;
+  try {
+    const totalUg = parseMass(grams, "g");
+    const concentration = mode === "asIs" ? props.own! : Ratio.fromDecimal(percent.trim().replace(",", ".")).div(Ratio.of(100n));
+    result = recipe(props.composition, totalUg, concentration);
+  } catch {
+    problem = u.unreadable;
+  }
+  const warning = result && mode === "required" ? maxUseWarning(result.concentration, props.report) : null;
+  return (
+    <Modal title={u.title} error={null} onCancel={props.onClose} onAccept={props.onClose}>
+      <p className="help">{u.help}</p>
+      <label className="radio">
+        <input type="radio" checked={mode === "asIs"} disabled={!props.own} onChange={() => setMode("asIs")} />
+        <span>{props.own ? u.asIs(formatPercent(props.own, 2)) : u.asIsUnknown}</span>
+      </label>
+      <label className="radio">
+        <input type="radio" checked={mode === "required"} onChange={() => setMode("required")} />
+        <span>{u.required}</span>
+      </label>
+      {mode === "required" && (
+        <label className="field">
+          <span>{u.concentration}</span>
+          <input inputMode="decimal" value={percent} onChange={(e) => setPercent(e.target.value)} />
+        </label>
+      )}
+      <label className="field">
+        <span>{u.total}</span>
+        <input inputMode="decimal" value={grams} onChange={(e) => setGrams(e.target.value)} />
+      </label>
+      {problem && <p className="error">{problem}</p>}
+      {result && (
+        <table className="recipe">
+          <tbody>
+            {result.lines.map((l) => (
+              <tr key={l.line.id}>
+                <td>{props.describe(l.line)}</td>
+                <td className="num">{formatGrams(Ratio.of(l.massUg), 3)}</td>
+              </tr>
+            ))}
+            <tr className="sum">
+              <td>{u.concentrate(formatPercent(result.concentration, 2))}</td>
+              <td className="num">{formatGrams(Ratio.of(result.concentrateUg), 3)}</td>
+            </tr>
+            <tr>
+              <td>{u.alcohol}</td>
+              <td className="num">{formatGrams(Ratio.of(result.alcoholUg), 3)}</td>
+            </tr>
+            <tr className="sum">
+              <td>{u.totalRow}</td>
+              <td className="num">{formatGrams(Ratio.of(result.totalUg), 3)}</td>
+            </tr>
+          </tbody>
+        </table>
+      )}
+      {warning && <p className={warning.kind === "over" ? "error" : "help"}>{warning.kind === "over" ? u.over(formatPercent(warning.maxUse, 2)) : u.partial}</p>}
     </Modal>
   );
 }
