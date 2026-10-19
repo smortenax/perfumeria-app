@@ -3,7 +3,8 @@
  * step 4.6; V3-15, V3-36): never into the common data. Only what you approved: each CSV must have
  * the hash written down in migracion-v3/tandas/aprobadas.csv for 8-tu-version. Every row gets
  * your id as its owner; one transaction, so a refused row leaves nothing half loaded. Run again,
- * it changes no row. It deletes nothing: what you add in the app stays yours.
+ * it changes no row. It deletes only what a batch lists in its borrar.csv (table, id), approved as
+ * the rest, and only rows of your account: what you add in the app stays yours.
  *
  *   node migracion-v3/cargar-laboratorio.ts <the email of your account>                (the local Supabase)
  *   node migracion-v3/cargar-laboratorio.ts <email> --prueba                           (loads and undoes it: a check)
@@ -60,6 +61,20 @@ const tables = ORDER.filter((table) => existsSync(join(FOLDER, `${table}.csv`)))
   return { table, header: text.slice(0, text.indexOf("\n")).split(","), rows: parseCsvRecords(text) };
 });
 
+/** What the batch takes out of your account (batch 18: the rows of blank tasting sheets), approved as the rest. */
+const removals = (() => {
+  const file = join(FOLDER, "borrar.csv");
+  if (!existsSync(file)) return [];
+  const text = readFileSync(file, "utf8");
+  const hash = createHash("sha256").update(text, "utf8").digest("hex");
+  if (!dryRun && approved.filter((r) => r.archivo === "borrar.csv").at(-1)?.sha256 !== hash) {
+    throw new Error(`${FOLDER}/borrar.csv no es el que aprobaste (aprobadas.csv): no se carga nada.`);
+  }
+  const rows = parseCsvRecords(text);
+  for (const r of rows) if (!(r.table in OWNER)) throw new Error(`borrar.csv: la tabla ${r.table} no es de tu laboratorio.`);
+  return rows;
+})();
+
 /** Thrown at the end of a check (--prueba), to undo the transaction and keep its report. */
 class DryRun extends Error {
   readonly lines: string[];
@@ -101,6 +116,11 @@ try {
         for (const r of result) (r.inserted ? inserted++ : updated++);
       }
       out.push(`${table}: ${records.length} filas; ${inserted} nuevas, ${updated} cambiadas, ${records.length - inserted - updated} iguales.`);
+    }
+    for (const table of ORDER.filter((t) => removals.some((r) => r.table === t)).reverse()) {
+      const ids = removals.filter((r) => r.table === table).map((r) => r.id);
+      const gone = await db`delete from ${db(table)} where id = any(${ids}::uuid[]) and ${db(OWNER[table])} = ${owner} returning id`;
+      out.push(`${table}: ${ids.length} filas para borrar; ${gone.length} borradas, ${ids.length - gone.length} ya no estaban.`);
     }
     // A check: everything went in; now it is undone, and nothing stays.
     if (dryRun) throw new DryRun(out);

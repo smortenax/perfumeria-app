@@ -844,10 +844,10 @@ function HistoryView({ data, tastings, onOpenStrip }: { data: GlossaryData; tast
   );
 }
 
-/** The lab's filled sheets (V3-60): read only. The blank ones are no longer used. */
+/** The lab's filled sheets (V3-60, batch 18): their text, read only; one marked tasted or with its opening written. */
 function LegacyView({ data }: { data: GlossaryData }) {
   const rows = [...data.catalog.evaluations.entries()]
-    .filter(([, e]) => legacyTasted(e.status))
+    .filter(([, e]) => legacyTasted(e.status) || (e.sheet ?? "").includes("\n"))
     .map(([id, e]) => ({ id, e, name: nameOf(data, id) }))
     .sort((a, b) => a.name.localeCompare(b.name, "es"));
   return (

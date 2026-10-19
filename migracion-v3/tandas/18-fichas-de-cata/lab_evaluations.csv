@@ -1,0 +1,3545 @@
+id,user_id,material_id,status,smelling_tip,reading,sheet
+09279789-794c-54f5-8107-d43000b7e798,,8bed6283-2aa4-5c26-9b4a-96d67a6ff19d,catado,,,"---
+material: Allyl Amyl Glycolate
+material_id: MAT-allyl-amyl-glycolate
+familia: (no se repite aqui a proposito — esta en materias-primas/allyl-amyl-glycolate.md. Ver ""Contaminacion por metadatos"" en conocimiento/tecnicas/protocolo-cata.md)
+fecha_cata: 2026-08-03
+dilucion: 10% DPG
+dosis: 2 gotas (cuentagotas del frasco) — dosis estandar del laboratorio
+hora_aplicacion: (pendiente de anotar — la lectura de t=0 se dicto en caliente)
+confianza: alta
+formato: pre-rejilla  # evaluada antes del 2026-08-04: su silencio NO significa ausencia, significa que no habia sistema. No leerla con las reglas de conocimiento/tecnicas/rejilla-de-evaluacion.md
+---
+
+# Ficha de diario olfativo — Allyl Amyl Glycolate
+
+> Escribir con palabras propias, sin consultar fuentes antes de catar. No hay
+> descripciones objetivamente correctas: el valor esta en construir una red de
+> asociaciones consistente. Si aparece el bloqueo, usar el juego de las veinte
+> preguntas (`conocimiento/tecnicas/lenguaje-descriptivo.md`).
+>
+> **La lectura inmediata (t=0) se escribe antes de abrir nada mas** — ni la ficha
+> de inventario, ni la de fuente. Es la unica lectura que puede ser ciega y es la
+> que mas vale como evidencia. El cotejo con el Corpus B se hace al cerrar la
+> serie entera, no antes.
+
+## Descriptores inmediatos
+
+Otra vez **notas que podrian ser de ambiente**, pero **aqui ya son mas fuertes**:
+mas fuerte que el Polysantol, catado justo antes, y con **mas impacto**.
+
+**Desde el principio de la respiracion ya tiene fuerza.** Punto **punzante,
+casi electrico**.
+
+**Verde, claramente.** La duda entre citrico y herbaceo se resuelve hacia la
+planta: *""el citrico forma parte de un verde""*, no al reves. Mas **vegetacion**
+que fruta.
+
+**Madera, pero de tallo, no de tronco.** La precision es propia y es fina: no la
+madera de un arbol grande, sino la de un **arbol de centimetros de grosor**, de
+los que **tiran a verde** y tienen **mas matices de planta que arboreos**.
+
+Quizas un **punto de flor, muy apagado**.
+
+## Lenguaje sinestesico
+- **Textura y peso:** con cuerpo al entrar, se aligera enseguida.
+- **Temperatura:** (no registrada en esta lectura)
+- **Forma:** **punzante y casi electrico**, pero solo al principio.
+
+## Curva de inspiracion
+
+Notacion propia del laboratorio, ver `conocimiento/tecnicas/curva-de-inspiracion.md`.
+Dividir la inspiracion en cuatro segmentos y anotar donde esta el pico y como
+evoluciona hasta el final.
+
+| Segmento | Observacion |
+|---|---|
+| 1 | **Pico**: *""el olor sale que flipas al principio, sale mucho""*. Aqui esta todo |
+| 2 | Empieza a caer |
+| 3 | Ya apagado |
+| 4 | *""Solo una decoracion""*: al final no se nota apenas |
+
+Resumen abreviado: **pico en 1, se apaga hacia el final.** *""En la primera parte
+de la bocanada notas lo que tienes que notar.""*
+
+**Confirmado a +5 min, y es el unico de la sesion que no se mueve.** *""Te lo
+cuenta todo con la entrada. No hay mucho mas despues: lo hueles, te carga y lo
+dejas tal cual, ya es suficiente.""* El Dihydromyrcenol se dio la vuelta y el
+Polysantol se aplano; este sostiene la misma curva cinco minutos despues. Que un
+material mantenga su curva y otro no **es en si un dato del material**, no ruido
+de la cata.
+
+**A los 30 min la curva se detalla, sin contradecir lo anterior:**
+
+| Segmento | 30 min |
+|---|---|
+| 1 | **Apertura un poco citrica** |
+| 2-3 | **Verde**, la gran mayoria del olor |
+| 4 | **Puntillo dulce** — *""venga, un regalito dulcillo""* |
+
+Lo que a t=0 se despacho como *""al final solo una decoracion""* ahora tiene nombre:
+**el cierre dulce**. No es que la curva haya cambiado; es que al bajar el volumen
+se oye lo que antes tapaba el pico. **Segundo material de la sesion que cierra en
+dulce**, junto al Resinoide Estyrax.
+
+**Cierra el ciclo de la sesion.** Los cuatro materiales han dado cuatro
+comportamientos distintos dentro de la inspiracion: Dihydromyrcenol crece hacia
+el final, Estyrax se desdobla en dos lineas simultaneas, Polysantol solo aparece
+al final, y este descarga todo al principio. Es el segundo caso de pico en 1
+—el primero fue el Stemone— y **la pareja Stemone/Allyl Amyl Glycolate es hoy la
+mejor prueba de que la notacion discrimina**: los dos pican al entrar, pero uno
+es hoja de higuera agresiva y el otro vegetacion suelta.
+
+## Evolucion en tira
+
+Intervalos segun `conocimiento/tecnicas/protocolo-cata.md`, contados desde la hora
+de aplicacion del frontmatter.
+
+**Una casilla vacia no es un dato.** Si un intervalo no se lee, escribir
+*no realizada*: ""no habia nada que anotar"" y ""no lo oli"" son datos opuestos.
+
+| Momento | Hora | Observacion |
+|---|---|---|
+| Inmediato (salida) | | Verde vegetal con fuerza desde el arranque, punzante y casi electrico. El citrico va dentro del verde. Madera de tallo fino, no de tronco. Flor muy apagada. Todo el olor esta en la primera parte de la bocanada; al final queda solo decoracion. Entra como nota de cabeza. |
+| **+5 min** (intervalo extra, fuera de protocolo) | | **Sin evolucionar apreciablemente.** Sigue punzante en la entrada y **lo cuenta todo en la entrada**: *""una vez vuelves a la entrada no esperas nada mas""*. Verde herbal, casi citrico sin llegar a citrico. Imagen nueva y precisa: **corteza verde de arbol joven**. Comparado en directo con el Polysantol: **parecido pero mas potente y mas cargante**. |
+| 15 min | | *No realizada* — se leyo a +5 min en su lugar. |
+| ~30 min (cuerpo) | | **Todo lo que no era verde se ha ido: mas verde que nunca**, tirando a **cesped**. Lo que queda sobre la tira es la parte verde, no la citrica. Estructura ordenada: **apertura un poco citrica → verde (la gran mayoria) → puntillo dulce al final**. Nueva asociacion: **la zona de macetas de un garden center**, plantas verdes sin flores. Se mantiene el simil de la corteza verde rascada. |
+| 1 h (cuerpo asentado) | | ⚠️ *Lectura informada — cotejo ya hecho.* **Revelacion: manzana verde.** Concretamente **el caramelo de manzana verde** de la infancia, de los envueltos. Todo el perfil se reordena bajo esa imagen: el punzante es su acidez, el verde es que la manzana no esta madura, el dulce del cierre es el caramelo. *""Ya no puedo desvincular el olor de la manzana.""* La **piña** se reconoce despues de leerla, pero secundaria: *""siento que deberia ser mas citrica""*. |
+| Dry-out (varias horas) | | *No realizada.* |
+| **24 h** | 2026-08-04 | ⚠️ *Lectura informada.* **Nada.** *""Ya no tiene ningun olor, se ha evaporado por completo.""* Ni siquiera queda el verde, que era lo unico que aguantaba a los 30 min. **Serie cerrada por agotamiento del material.** |
+| Dias sucesivos | | *No procede* — no queda olor que seguir. |
+
+## Modo de decaer
+
+**Truncamiento**, y de los claros. Determinado a los 30 min:
+
+> *""Todo lo que había antes, que no era verde, se ha ido. Ahora es más verde que
+> nunca.""*
+
+No baja en bloque: **pierde facetas y cambia de forma**. Lo citrico y lo punzante
+—que a t=0 eran la mitad de la descripcion— se han caido, y queda el verde solo.
+
+Contraste directo con el Resinoide Estyrax, catado el mismo dia y leido a la
+misma hora, que **se desvanecio**: mismas notas, menos volumen. Dos materiales,
+dos modos, misma sesion y mismas condiciones. Es la comparacion mas limpia que
+tiene el diario sobre los dos modos de decaer.
+
+**Encaja con la hipotesis de la dispersion de volatilidades**
+(`conocimiento/tecnicas/curva-de-inspiracion.md`): los truncamientos registrados
+—Methyl Pamplemousse, Stemone y ahora este— son moleculas unicas con facetas de
+distinta velocidad; los desvanecimientos —Absoluto de Tabaco, Estyrax— son
+materiales complejos y pesados. Cinco casos, tres a dos. **Sigue sin confirmar
+por fuente**, pero ya no es una intuicion de un solo caso.
+
+## Atributos de rendimiento
+
+| Atributo | Observacion |
+|---|---|
+| **Impacto** (golpe inicial) | **Alto** — el mayor de la sesion. Sale mucho y sale ya |
+| **Tenacidad** (cuanto dura detectable) | (pendiente) |
+| **Difusion** (distancia al poco de aplicar) | (pendiente) |
+| **Volumen** (presencia a distancia pasado el tiempo) | (pendiente) |
+
+## Ubicacion en la piramide, dicha en el lenguaje propio
+
+> *""Es como mas grande en la cabeza que en el resto del cuerpo, y asi es como
+> entra.""*
+
+Segunda vez en la sesion que se usa el **cuerpo como mapa de la piramide**: en el
+Polysantol fue *""esto no es la cabeza, seria el torso, incluso las piernas""*.
+Dos usos espontaneos y coherentes entre si, con la cabeza arriba y las piernas
+abajo — el mismo reparto que la piramide clasica
+(`conocimiento/tecnicas/piramide-y-volatilidad.md`), pero llegado por cuenta propia
+y aplicado a la percepcion directa en vez de a la teoria.
+
+Merece la pena vigilar si se sostiene con mas materiales: seria la segunda
+herramienta propia del laboratorio despues de la curva de inspiracion.
+
+## Asociaciones personales
+
+**Las manos despues de tocar varias plantas.** No una sola: *""un poco de cesped,
+un poco de esto otro, un poco de tal""*. Verde de mezcla, de manoseo, no de una
+especie concreta.
+
+Es una asociacion de **gesto y de resto** —lo que queda en la piel— y no de lugar
+ni de objeto. Otra categoria distinta de las anteriores del diario.
+
+**A 1 h, la asociacion que manda: los caramelos de manzana verde de la infancia.**
+Es la primera del diario que es a la vez **comestible** y **de recuerdo propio**, y
+desplaza a las anteriores sin borrarlas: la corteza y el garden center siguen
+siendo lo que se percibio a ciegas, y esta es la que las explica.
+
+**A +5 min, la imagen se afina mucho: la corteza verde de un arbol joven.**
+
+> *""Cuando un arbol aun es muy joven, al partirlo ni siquiera se parte, sino que
+> se desdoblega. Le rascas un poquito a la corteza y es asi como verde. Entre el
+> tronco y la parte de fuera de la corteza tiene ese punto verde.""*
+
+Es la localizacion exacta de lo que a t=0 se dijo como *""madera de tallo, no de
+tronco""*: no es la madera ni la hoja, es **la capa verde bajo la corteza**. Y el
+verbo elegido —*desdoblegar* en vez de *romper*— dice tanto como el olor: materia
+que cede sin quebrarse.
+
+**Ambientador de coche, pero no de coche nuevo.** Distincion hecha en directo
+contra el Polysantol, catado justo antes: *""el coche nuevo es mas sutil; este es
+como el ambientador que hay en un coche""*. No de pino. **De hierba con un poquito
+de algo citrico.**
+
+**A los 30 min, un sitio muy concreto: la zona de macetas de un garden center.**
+Y la precision importa tanto como el sitio: *""no plantas en plan flores, sino la
+zona en la que son todo macetas y ficus, plantas verdes sin flores""*. Interior
+cerrado, mucha hoja, cero floracion.
+
+Es coherente con lo que ya decia la ficha en el eje floral: aqui la flor es *""muy
+apagada""*, y ahora directamente **se elige un lugar sin flores** para describirlo.
+
+## Campo olfativo propio
+
+Candidato: **""verde de manos""** — vegetacion suelta, mezclada, con tallo y savia.
+
+Ya son tres verdes en el diario, y se separan bien:
+
+| Material | Verde | Que lo distingue |
+|---|---|---|
+| Stemone | *""verde de hoja""* | Agreste, agresivo, una sola planta con nombre: higuera |
+| Methyl Pamplemousse | *""verde de jardin""* | Domestico, calmado, con flor discreta |
+| Allyl Amyl Glycolate | *""verde de manos""* / **corteza verde** | Mezcla de varias plantas, tallo, resto en la piel. La capa verde bajo la corteza de un arbol joven |
+
+**Y quedan ordenados por intensidad**, dicho en directo a +5 min: el Stemone es
+el verde intenso; este es **menos intenso que el Stemone pero mas punzante y mas
+citrico**; el Methyl Pamplemousse es el calmado. Tres verdes, tres alturas.
+
+## El te como sistema de referencia — tercer caso
+
+Este material se identifica con un te concreto del inventario personal, citado
+por su nombre: **Asian Wellness**. La lectura no es global, es **nota a nota**,
+que es lo interesante:
+
+| Nota declarada del te | ¿Se percibe en este material? |
+|---|---|
+| Te verde por encima de un punto citrico | **Si** |
+| Flor de *Camellia sinensis* | **Si** |
+| Trozos de aloe vera | **Si** |
+| Mango | **No** |
+| Piña | **No** |
+
+Eso ya no es una asociacion: es una **deconstruccion** — coger una mezcla
+conocida, listar sus componentes y decir cuales estan y cuales no. Es el ejercicio
+de Nivel 3 del itinerario, hecho espontaneamente sobre un te en vez de sobre un
+perfume.
+
+⚠️ **Tercer material del diario que aterriza en un te con aloe vera.** El Methyl
+Pamplemousse (*""te de la tienda con citrico y aloe vera""*), el Dihydromyrcenol
+(*""te de lima con aloe vera y te verde""*) y ahora este. O los tres comparten un
+rasgo real —lo verde-citrico transparente—, o el te esta funcionando como
+**casillero por defecto**. Prueba que lo decide: **oler las tres tiras seguidas y
+obligarse a decir que las separa**, no en que se parecen. Estan las tres vivas
+ahora mismo salvo el Methyl Pamplemousse, cuya tira se descarto.
+
+## Afinidades
+(pendiente — con que materiales del inventario intuyes que combinaria bien, y por que)
+
+## Sesgo de solvente
+La persistencia observada incluye la retencion del DPG y no es tenacidad natural del material — ver `conocimiento/tecnicas/solventes-dpg-vs-alcohol.md`.
+
+## Notas libres
+(pendiente)
+
+## Cotejo real — contra `conocimiento/materiales/monografia-allyl-amyl-glycolate.md`
+
+Hecho el 2026-08-03 tras fusionar la destilacion del 2026-08-02. **Este es el
+cotejo bueno**; el de mas abajo se hizo contra la etiqueta de familia del kit, que
+resulta que **ya estaba corregida** en el repo desde el dia 2.
+
+### La divergencia que se anoto ya estaba resuelta, y la cata la confirma
+
+Durante la sesion se registro como divergencia fuerte que el material se
+percibiera **verde** estando clasificado como **ambar/dulces/almizcles**, y se
+decidio no tocar la familia por no tener fuente detras.
+
+**La fuente existia.** La ficha destilada corrige la familia a **verde / frutal**
+y la volatilidad a **salida / corazon**, y lo dice en estos terminos: la etiqueta
+del kit *""se equivoca en familia y en piso a la vez""*. Es decir, la cata a ciegas
+**llego a la misma correccion, por su cuenta y el mismo dia**, sin haber leido la
+ficha.
+
+Y no es un caso aislado: la propia ficha lo llama **el tercer caso del mismo
+patron**, tras el Stemone y el cilantro. Lo que en la sesion se planteo como
+hipotesis con dos casos —*las etiquetas del kit describen el cajon comercial, no
+el material*— esta documentado con tres.
+
+### Lo que coincide
+
+| Ficha destilada | Percibido a ciegas |
+|---|---|
+| **Verde**, punzante y fresco | Verde dominante en las tres lecturas, punzante *""casi electrico""* |
+| **Material de gran impacto**, se percibe de inmediato | *""Sale que flipas al principio""*, pico en el segmento 1 |
+| Salida / corazon | *""Te lo cuenta todo con la entrada""* |
+| Moderniza **acordes verdes de tipo galbano** | Verde vegetal, corteza, tallo |
+
+### Lo que diverge
+
+**La piña.** La ficha describe el perfil como *piña (ananas) y manzana verde*, y
+la cata no vio fruta por ninguna parte: vio corteza, cesped, tallo, garden center.
+
+Y hay un detalle que lo vuelve mas interesante: en la misma lectura, al
+deconstruir el te **Asian Wellness**, se dijo expresamente **""la piña no esta""**.
+Es decir, no es que la piña no se nombrara — es que se busco y se descarto.
+
+Lecturas posibles, sin arbitrar: que al 10 % en DPG la faceta frutal quede
+aplastada; que *""frutal-metalico""* y *""corteza verde rascada""* sean dos nombres
+para lo mismo; o que la fuente describa el material puro y esto sea otra cosa.
+
+**Lo metalico tampoco aparecio**, igual que en el Dihydromyrcenol. Dos materiales
+documentados como metalicos y cero apariciones del descriptor: puede que sea
+vocabulario que aun no esta en uso en este diario mas que un fallo de percepcion.
+
+> ✅ **Resuelto en la lectura de 1 h.** La fuente decia *piña **y manzana verde***,
+> y la segunda mitad de la frase era la buena: **la manzana verde estaba desde el
+> principio y lo que faltaba era el nombre**. La piña se reconoce despues de
+> leerla y en segundo plano — *""siento que deberia ser mas citrica""*.
+>
+> **Lo metalico sigue sin aparecer**, ahora incluso buscandolo con la palabra
+> delante. Es el unico descriptor documentado de los cuatro materiales que no ha
+> caido de ninguna forma. Refuerza el vacio 31: no es que no se perciba, es que
+> probablemente se este percibiendo y llamando de otra manera — igual que
+> *animalico* resulto ser *gasolina* en el Estyrax.
+
+### Lo que la ficha aporta
+
+La ficha propone exactamente la prueba que la cata ya venia pidiendo: **juntarlo
+con el Stemone**, porque comparten territorio verde por vias distintas — hoja
+frente a frutal-metalico. La pregunta que da sentido al ejercicio: *si dos verdes
+de origen distinto se suman o se estorban*. Los dos estan al 10 % DPG y los dos
+catados.
+
+⚠️ Dilucion de trabajo y limites IFRA: **sin dato**, y siendo de gran impacto es
+de los que mas falta hacen.
+
+## Cotejo provisional (superado) — hecho contra un clon incompleto
+
+⚠️ **A partir de aqui las lecturas de esta tira no son ciegas.** Cotejo hecho por
+decision consciente con tres lecturas en el banco (t=0, +5, 30 min). Lo que venga
+despues queda **informado**; la comparacion seria es contra t=0.
+
+**Lo que el repositorio documenta:** solo la familia.
+`conocimiento/materiales/kit-iniciacion-30-materias.md` lo clasifica en
+**ambar/dulces/almizcles**, junto a Ethylene Brassylate, Galaxolide y Ethyl
+Maltol. No hay ficha propia en `conocimiento/materiales/`: ni perfil, ni piso, ni
+dosificacion.
+
+### Resultado del cotejo: divergencia fuerte, con un hilo que la salva
+
+| Documentado | Percibido a ciegas |
+|---|---|
+| Ambar / dulce / almizcle | **Verde dominante** en las tres lecturas: cesped, corteza rascada, garden center |
+| — | Punzante, casi electrico, con apertura citrica |
+| Dulce | **Solo al cierre**: *""venga, un regalito dulcillo""* en el segmento 4 |
+
+**El unico punto de contacto con la etiqueta es el cierre dulce**, que en la cata
+es un detalle final y en la clasificacion es la categoria entera. El resto —lo
+verde, lo punzante, lo citrico— no esta en la etiqueta por ninguna parte.
+
+**Segundo caso del mismo fenomeno.** Con el Stemone paso exactamente esto: el
+inventario decia *florales/transparentes* y la cata dio verde, hasta el punto de
+que la familia se corrigio a `verde` tras el cotejo. Dos de dos: **la
+clasificacion del itinerario describe la funcion en formula o la nota dominante en
+mezcla, no lo que se percibe en tira**. Es una hipotesis con dos casos, no una
+conclusion.
+
+**Que NO se hace todavia:** cambiar la familia en `materias-primas/`. Con el
+Stemone se cambio porque habia una ficha de fuente que respaldaba la correccion
+(`conocimiento/materiales/monografia-stemone.md`). Aqui no hay fuente ninguna, solo la cata
+propia contra una etiqueta. Se deja anotada la divergencia y se decide cuando haya
+perfil documentado.
+
+## La lectura de 1 h: el perfil entero se unifica en un solo objeto
+
+Hasta ahora la ficha era una lista de facetas sueltas —apertura citrica, verde
+dominante, cierre dulce, punzante— que convivian sin explicarse unas a otras. A la
+hora aparece **una sola imagen que las ordena todas**:
+
+> *""El tipico caramelo de manzana verde, de los que vienen envueltos. Los que
+> comia de pequeño.""*
+
+| Faceta registrada antes | Que es, bajo la imagen de la manzana verde |
+|---|---|
+| Apertura citrica, punzante | **La acidez** de la manzana |
+| Verde dominante en medio | Que la manzana **aun no esta madura** |
+| Puntillo dulce al cierre | **El caramelo** |
+
+*""Ahora me tiene sentido.""* Y ese es el salto que distingue una lista de
+descriptores de una **descripcion**: no se ha añadido ningun dato nuevo, se ha
+encontrado el objeto que hace coherentes los que ya habia.
+
+### Segunda vez que un recuerdo de infancia llega tarde
+
+En la ficha del Stemone quedo anotado como aviso de metodo que *""las asociaciones
+profundas tardan en aflorar y no conviene dar por cerrada una ficha en la primera
+pasada""* — alli fue el recuerdo de recoger higos, y no aparecio hasta la tercera
+lectura. Aqui vuelve a pasar, y a la cuarta.
+
+**Con una diferencia importante: esta vez hizo falta un empujon externo.** El
+recuerdo no salio solo; salio al leer la palabra *manzana* en la ficha destilada.
+
+### Entonces, ¿es reconocimiento o es sugestion?
+
+La pregunta es obligada, porque la lectura es informada. Y hay un argumento
+concreto a favor del reconocimiento:
+
+**La fuente sugirio dos frutas y la cata solo acepto una.** Si esto fuera sugestion
+pura, la piña habria entrado igual que la manzana. En cambio se acepta la manzana
+sin reservas —con recuerdo propio y especifico detras, el caramelo envuelto de la
+infancia, que la fuente no menciona— y la piña se admite a regañadientes y en
+segundo plano, con una objecion razonada: *""la piña deberia ser mas citrica""*.
+
+**La aceptacion selectiva es la prueba.** Una nariz sugestionada no discrimina.
+
+**Como se anota, en consecuencia:**
+
+| Descriptor | Confianza | Por que |
+|---|---|---|
+| **Manzana verde** | **Alta** | Reconocimiento con recuerdo propio y especifico; reordena facetas ya registradas a ciegas |
+| **Piña** | **Baja — informada** | Solo aparece despues de leer la palabra, en segundo plano y con objecion |
+
+## Dos hallazgos de la lectura de 30 min
+
+### El arbol por fuera frente al arbol por dentro
+
+Razonando por que le viene un arbol a la cabeza y a la vez no le encaja:
+
+> *""No el arbol como tal, sino la hoja o el entorno en el que esta, porque el
+> tronco normalmente desde fuera no lo hueles cuando esta ahi plantado. Lo que
+> hueles es mas las hojas y demas. Huele a bosquecillo, a la parte verde del
+> bosque.""*
+
+Eso separa **el olor de un material** del **olor de ese material en su sitio**, y
+lo hace con un criterio fisico: la madera cerrada no emite, emite lo que esta
+expuesto.
+
+⚠️ **Y da el eje que ordena los dos amaderados de la sesion.** El Resinoide
+Estyrax se definio como *""oler cosas por dentro""* —cuerpos, troncos partidos— y
+este es exactamente lo contrario: **el arbol por fuera**, la corteza, la hoja, el
+aire alrededor. Mismo reino, lados opuestos:
+
+| | Resinoide Estyrax | Allyl Amyl Glycolate |
+|---|---|---|
+| Donde esta el olor | Dentro de la materia | En la superficie y el entorno |
+| Imagen | Tronco partido, cofre abierto, cuero | Corteza rascada, hoja, bosque |
+| Estado del material | Curado, guardado, muerto | Vivo, joven, en pie |
+
+Es la comparacion mas limpia que ha dado la sesion, y no salio de un ejercicio:
+salio de catarlos el mismo dia, a la misma dilucion, con las dos tiras vivas.
+
+### El cedro, cazado al vuelo
+
+Segunda vez en la sesion que aparece un descriptor y se pone en cuarentena en el
+acto — la primera fue el pino en el Dihydromyrcenol:
+
+> *""Me viene en la cabeza la palabra cedro, pero no creo que sea esto. De hecho
+> creo que hay otro que se llama no sé qué de cedro, así que este seguro que no
+> es.""*
+
+Es exactamente el mecanismo del **descriptor de segunda generacion** documentado
+hoy en `diario/cata-dihydromyrcenol.md`, y esta vez se detecta antes de escribirlo. El
+razonamiento ademas es correcto: hay un **Cedro Atlas** en el inventario, y saber
+que existe hace que la palabra este disponible sin que el olor la haya traido.
+
+**Que se hace con esto:** se anota la palabra y se anota la sospecha, las dos.
+Cuando el Cedro Atlas se cate —esta en la fase 2, pendiente de DPG— esta tira es
+el contraste. Si no se parecen, el cedro de hoy era vocabulario, no olfato.
+
+## Notas posteriores a t=0
+
+*Escrito despues de cerrar la lectura inmediata. Son conexiones con el propio
+diario, no con ninguna fuente.*
+
+**Tercera aparicion de ""lo electrico"", y en un material que no se parece a los
+otros dos.** El descriptor salio con el Stemone (*""descarga al inspirarlo""*), con
+el Vetiver (*""parecida al Stemone, no en el olor sino en la electricidad""*) y
+ahora aqui. Tres materiales distintos, tres olores distintos, el mismo recurso
+descriptivo — y en los tres asociado a lo punzante y no al olor en si.
+
+Refuerza lo que ya se venia diciendo: **""electrico"" no es un campo olfativo, es
+un eje transversal**, y muy probablemente lo que se esta nombrando no es olfato
+sino respuesta trigeminal (`fuentes/vacios.md`, item 19). Con tres casos el hueco
+sube de interes: es la pregunta 21 del NB-D en `fuentes/preguntas-corpus-b.md`.
+
+**Este material rebate en parte la sospecha de fatiga olfativa.** Tras el
+Dihydromyrcenol, el Estyrax y el Polysantol, los tres leidos como suaves y no
+saturantes, quedo anotada la duda de si era la nariz y no los materiales
+(ver `diario/cata-polysantol.md`). Este, catado el ultimo de la tanda, se percibe como
+**el mas fuerte y el de mayor impacto de la sesion**. Una nariz fatigada no
+deberia dar esa lectura.
+
+No lo cierra del todo —la fatiga afecta mas a unos perfiles que a otros—, pero
+mueve la explicacion hacia los materiales. Sigue mereciendo la pena la
+comprobacion con la tira del Estyrax si se hace.
+
+## Al cerrar la serie
+
+- Revisar la **familia asignada en el inventario** frente a lo percibido. No se
+  detalla aqui a proposito: escribirla ahora contaminaria las lecturas de 15 y
+  30 minutos, que es exactamente lo que paso con el Stemone.
+- Cotejar con el Corpus B **solo cuando la serie este cerrada**.
+"
+4740e550-4eca-5201-978c-a798a85b642e,,ff7a64b7-0d08-53ef-ba70-2655f0da3d24,sin catar,,,"---
+material: Ethylene Brassylate
+material_id: MAT-ethylene-brassylate
+familia: (no se repite aquí a propósito — está en materias-primas/. Ver
+  ""Contaminación por metadatos"" en conocimiento/tecnicas/protocolo-cata.md)
+fecha_cata: (pendiente)
+dilucion: 10 % DPG — rebajado del 50 % de fábrica el 2026-08-04
+dosis: 2 gotas (cuentagotas) — dosis estandar del laboratorio
+hora_aplicacion: (pendiente)
+confianza: (pendiente)
+formato: rejilla v2
+---
+
+# Ethylene Brassylate
+
+> **ORDEN OBLIGATORIO: la APERTURA primero, el DESGLOSE después. Nunca al revés.**
+> La rejilla es un vector de priming. Ver `conocimiento/tecnicas/rejilla-de-evaluacion.md`.
+
+### Los cuatro símbolos — ningún campo en blanco
+
+`valor` lo percibo y lo nombro · **`—`** lo he buscado y **no está** ·
+**`?`** percibo algo y no sé nombrarlo · `n/r` no evaluado
+
+> ⚠️ **En los bloques de casillas, ninguna marcada significa `n/r` (no evaluado).**
+> Si has mirado y **no es ninguna**, escríbelo al lado: `— ninguna aplica`.
+
+### Los tiempos, y por qué son así
+
+| Etiqueta | Qué es | Cuánto dura |
+|---|---|---|
+| **`t0`** | **La apertura.** La premisa, a nariz limpia | Segundos |
+| **`t5`** | **El desglose.** La rejilla entera | Es una **ventana**, no un instante: lo que se tarda en rellenarla |
+| **`t30` · `t60`** | **Checkpoints.** Solo lo que ha cambiado | Minutos |
+| **`24h` · `d3` · `d7`** | Fondo y tenacidad | — |
+
+**El grueso del análisis va delante, y es deliberado.** Describir olor, forma,
+intensidad y color es mucho más significativo en la salida; definir la complejidad
+de una nota a la hora aporta poco. Las lecturas posteriores **no rebarren la
+rejilla: registran cambios**.
+
+`t15` se añade solo si el material se está moviendo rápido a ojo vista.
+
+Formato en los campos: `rugosa (t5) → suave (t30)`, o con comas.
+
+---
+
+# t0 · APERTURA
+
+> Sin mirar nada: ni rejilla, ni casilleros, ni fichas. **Una sola vez. No se
+> corrige nunca.** Si aparece el bloqueo, el juego de las veinte preguntas.
+>
+> Escribe del tirón, sin separar. Si aparecen, mejor — pero no las busques:
+> **el choque** (lo primerísimo) · **asociaciones** (sitios, objetos, recuerdos) ·
+> **lo que no sabes decir todavía** (percibes algo y no le encuentras nombre).
+
+**
+
+Un olor fresco pero fresco en el sentido de limpio no de frío floral otra vez es un olor parecido a detergente diria que mas dulce que galaxoilide al final noto algo que me cuesta identificar
+
+**
+
+
+
+
+---
+
+# BITÁCORA DE PASADAS
+
+> Cada pasada declara **qué bloques se barrieron**:
+> **bloque barrido + campo sin entrada nueva = igual** ·
+> **bloque no declarado = sin dato en esa pasada.**
+
+### t5 · __:__ · desglose completo · ciega
+
+
+
+<!--  Los checkpoints se van añadiendo aquí debajo:
+
+### t30 · 19:45 · barrido: B, C, D · informada
+Ha bajado un escalón. Sigue el balsámico, se ha calmado la salida.
+
+Bloques: A identidad · B forma · C sinestésico · D impacto/difusión
+         E modo de decaer · F descartes · G destino                  -->
+
+---
+
+# t5 · DESGLOSE
+
+## A · Identidad
+
+> [!abstract]- 🗂️ A1 · FAMILIA percibida (Calkin & Jellinek) — a ciegas · varias posibles
+> - [ ] Aldehídica
+> - [ ] Ámbar
+> - [ ] Animal
+> - [ ] Anisada
+> - [ ] Aromática-Herbal
+> - [ ] Balsámica
+> - [ ] Alcanforada-Cineol
+> - [ ] Cinámica
+> - [ ] Cítrica
+> - [x] Floral · *subgrupos: Rosa · Jazmín · Muguet · Lilas*
+> - [x] Fresca
+> - [ ] Frutal
+> - [ ] Verde
+> - [ ] Herbal
+> - [ ] Iris
+> - [ ] Lavanda
+> - [ ] Cuero
+> - [ ] Linalool
+> - [ ] Mentolada
+> - [ ] Musgosa
+> - [ ] Almizclada
+> - [ ] Especiada
+> - [ ] Dulce
+> - [ ] Sandía-Pepino
+
+> [!abstract]- 🗂️ A2 · GRUPO (Ellena) — varias posibles
+> - [x] **1 Flores** · Rosas · Blancas
+> - [ ] **2 Frutos** · Cítricos · Huerto · Rojos-blandos
+> - [ ] **3 Maderas** · Sándalo · Pachulí · Vetiver · Cedro · Liquen
+> - [ ] **4 Hierbas** · Verde recién cortada · Aromáticas · Anisadas
+> - [ ] **5 Especias** · Frías · Calientes
+> - [ ] **6 Dulces** · Vainillas · Cumarinas · Almizcles sintéticos
+> - [ ] **7 Animales** · Ámbares · Castóreos · Civetas
+> - [ ] **8 Marinos** · Algas · calone
+> - [x] **9 Minerales** · Aldehídos
+
+**A3 · ¿Huele a una COSA o al AIRE DE UN SITIO?** — una sola
+
+*No es la asociación personal: es de qué se predica el olor. Un armario mohoso es
+el sitio DONDE estaría esa madera; una tienda de ropa ES lo que huele el Polysantol.*
+
+- [ ] **una cosa** que podrías tocar → *¿cuál?*
+- [ ] **el aire de un sitio**, sin materia detrás → *¿qué sitio?*
+- [ ] **las dos a la vez**
+- [ ] no sabría decir
+
+**A4 · Campo olfativo propio**
+
+
+## B · Forma dentro de la inhalación
+
+**B1 · Curva de intensidad** — *una casilla por segmento. Al rellenarla se dibuja
+la forma, y el cuadro sirve casi de icono del material.*
+
+|           | seg 1 | seg 2 | seg 3 | seg 4 |
+| --------- | ----- | ----- | ----- | ----- |
+| **ALTA**  |       | `█    | `█    |       |
+| **MEDIA** | `█    |       |       |       |
+| **BAJA**  |       |       |       | `█    |
+
+*Rellenar con `█`. `plano` es una respuesta completa, no un hueco.*
+
+**Resumen de curva:**
+
+**B2 · Altura** — *cuánto pesa en total, no su forma. Relativo a los demás
+materiales **a la misma concentración**.*
+- [ ] **imperceptible** — hay que buscarlo *(Polysantol al 10 %)*
+- [x] **discreto** — se percibe sin esfuerzo, pero no llena
+- [ ] **presente** — llena la nariz sin dominarla
+- [ ] **fuerte** — domina la mesa *(Absoluto de Tabaco, Allyl Amyl Glycolate)*
+- [ ] **abrumador** — satura y tapa lo demás
+
+**B3 · Complejidad** — una sola. **Se responde DESPUÉS de B1, nunca antes**
+- [ ] **simple** — una familia en los cuatro segmentos
+- [x] **compuesto** — dos o tres separables → *¿cuál en qué segmento?*
+- [ ] **complejo** — varias que **no se dejan separar**
+
+**B4 · Bloqueo** (prueba de la bocanada) — una sola
+- [x] **B1** — bloquea en bocanadas pequeñas, o incluso sin inspirar
+- [ ] **B2** — no bloquea de entrada; solo con bocanada fuerte
+- [ ] **B3** — no bloquea ni con una bocanada a todo pulmón
+
+## C · Sinestésico — 🔓 casillero ABIERTO
+
+> El vocabulario es **red de seguridad para el bloqueo, no menú**.
+> Si sale una palabra que no está, **esa gana**.
+
+|     | Campo              | Vocabulario de arranque                                                    | Respuesta                                           |
+| --- | ------------------ | -------------------------------------------------------------------------- | --------------------------------------------------- |
+| C1  | **Textura y peso** | duro·blando·aterciopelado·sedoso·áspero·aceitoso·denso· ligero·pesado·fino | blando atercipelado                                 |
+| C2  | **Temperatura**    | frío·templado·caliente                                                     | frio                                                |
+| C3  | **Forma**          | afilado·plano·punzante·frágil·romo·envolvente                              | fragil y envolvente                                 |
+| C4  | **Color**          | libre                                                                      | color blanco claro con un toque de purpura o rosado |
+| C5  | **Brillo**         | brillante·oscuro·mate·transparente                                         | brillante y sobretodo transparente                  |
+
+## D · Impacto y difusión
+
+> Los otros dos atributos de rendimiento —**tenacidad** y **volumen**— **no se
+> pueden medir aquí**: exigen que pase el tiempo. Están abajo, en los checkpoints.
+
+|     | Atributo                                  | Respuesta                     |
+| --- | ----------------------------------------- | ----------------------------- |
+| D1  | **Impacto** — golpe inicial, nariz cerca  | muy fuerte con la nariz cerca |
+| D2  | **Difusión** — 🔴 a un palmo y a un metro |                               |
+
+## F · Batería de descartes
+
+> ⚠️ **Tres estados, no dos — por eso aquí no hay casillas.** Una casilla solo
+> distingue marcada / sin marcar, y este bloque necesita `sí` · `—` (buscado y
+> ausente) · `?` (percibo algo y no sé nombrarlo).
+
+| Eje                      | `sí` | `—` | `?` |                   |
+| ------------------------ | ---- | --- | --- | ----------------- |
+| **Metálico**             | `█   |     |     | metalico al final |
+| **Jabonoso**             | `█   |     |     |                   |
+| **Verde**                |      | `█  |     |                   |
+| **Floral**               | `█   |     |     |                   |
+| **Dulce**                |      |     | `█  |                   |
+| **Ahumado / quemado**    |      | `█  |     |                   |
+| **Animálico**            |      | `█  |     |                   |
+| **Resinoso / balsámico** |      |     |     |                   |
+
+*Marcar con `X`. **Fila entera vacía = `n/r`** — no significa que no esté.*
+
+---
+
+# CHECKPOINTS
+*Solo lo que cambia. Aquí viven los campos que exigen que pase el tiempo.*
+
+|     | Atributo                                             | Respuesta |
+| --- | ---------------------------------------------------- | --------- |
+| D3  | **Tenacidad** — cuánto sigue detectable              |           |
+| D4  | **Volumen** — presencia a distancia pasado el tiempo |           |
+
+**Canal a distancia** — *qué se huele SIN acercarse: al entrar en la sala, al
+volver de un descanso, al pasar por la mesa. Con su hora.*
+
+
+**E · Modo de decaer** — *solo al cerrar la serie. No se estima, se espera.*
+- [ ] **se desvanece** — baja entero, conservando la forma
+- [ ] **se trunca** — pierde la punta y queda la base: cambia la forma
+- [ ] **se simplifica** — pierde matices y conserva uno con identidad propia
+
+---
+
+# ZONA FIJA
+*Una vez por material. Primero lo que se marca, después lo que se escribe.*
+
+## G · Función, afinidad y destino
+
+**G1 · ¿Protagoniza o acompaña?** — una sola
+- [ ] **tesis** — aporta la idea
+- [x] **sostiene** — no aporta la idea, la sujeta
+- [ ] **lleva lejos** — no aporta la idea, la proyecta
+
+**G2 · Efecto** (Jellinek) — **un polo de cada eje como máximo. Nunca los dos del mismo.**
+- [ ] **RICO** — sensual, erógeno
+- [x] **FRESCO** — limpieza, higiene
+- [x] **GENTLE** — sedante, narcótico, calmante
+- [ ] **ACTIVE** — estimulante, activación, energizante
+
+**G3 · Versatilidad** (Aftel) — una sola
+- [ ] **difícil**
+- [ ] **congenial**
+- [x] **turgente** *(traducción dudosa de* turgid*: recargado, excesivo)*
+- [ ] **tenaz**
+
+**G4 · Afinidades** — *con qué lo pondrías, y por qué*
+pega con notas que predominene y que sean fuertes con especias por ejemplo
+
+**G5 · Destino** — *fuera del perfume de persona: detergente, champú, ambientador,
+un coche, una tienda…*
+este tiene olor otra vez muy fuerte de detergente me gustaria olerlo al abrir la cama antes de ir a dormir en o en ropa nueva que compro
+
+**G6 · Destino negativo** — *dónde estaría mal, o ""no querría que X oliese a esto""*
+no me gustaria oler esto al comer i al hacer ejercico me 
+
+**G7 · Prueba de las manos** *(opcional)*
+oleria limpio pero seria molesto y anticlimatico en el largo plazo
+
+## Reconocimiento — dos preguntas distintas
+
+**R1 · ¿Acertaría la FAMILIA a ciegas?**
+- [ ] no sabría por dónde empezar
+- [x] la acotaría a dos o tres posible confunsion con galaxolide si me parecen similares al fin y al cabo
+- [ ] la acertaría con seguridad
+
+**R2 · ¿Reconocería EL MATERIAL a ciegas, entre sus vecinos?**
+- [ ] no
+- [x] lo confundiría con → galaxolide
+- [ ] lo reconocería con seguridad
+- [ ] ✅ **confirmado a ciegas** → *fecha:*
+
+**R3 · ¿Sé cómo se comporta mezclado?**
+- [x] no lo he usado nunca
+- [ ] lo he usado en un acorde → *¿cuál?*
+
+---
+
+# DESPUÉS DEL DESGLOSE
+
+## Imagen revisada
+> La imagen se esclarece al desgranar el olor. **La de la apertura no se
+> sobrescribe: que cambie es el dato.** Admite varias entradas con su tiempo.
+> una cama de nubes algodon en este olor las formas son hasta mas difusas me cuesta notar la flor incluso sobretodo noto el ""frescor "" y el olor a limpio con escasos matizes de petalos pasandos sobre mi
+
+
+
+## Metáfora *(opcional)*
+> **Criterio de Arctander:** vale si otro la puede usar.
+
+el olor es como si un alavanderia floreciese, donde todas las labadoras se abren a la vez 
+
+---
+
+# CIERRE — Cotejo
+*Después de ir a por el contraste. Nunca antes.*
+
+| Campo | Respuesta |
+|---|---|
+| **Familia y grupo documentados** *(con mi predicción al lado)* | |
+| **La firma** — el descriptor que lo identifica ante otro perfumista | |
+| **Para qué se usa** — función y acordes canónicos donde aparece | |
+| **Divergencias** — dónde coincidí, dónde no, y qué lo explica | |
+| **Color, contra el mapa de Aftel** | |
+
+> [!quote]- 🎨 Mapa cromático de Aftel — solo para cotejar, NUNCA antes de catar
+>
+> | Color | Materiales |
+> |---|---|
+> | Naranja rojizo | Rosa · Patchouli |
+> | Turquesa | Lavanda |
+> | Azul oscuro | Manzanilla alemana |
+> | Verde amarronado | Musgo de roble · Osmanthus |
+> | Ámbar | Nardo · Jazmín · Benjuí |
+>
+> ⚠️ **No es una respuesta correcta**: es la asociación de Aftel.
+
+**Los aciertos se registran igual que los fallos.**
+
+## Fiabilidad — *solo si hay algo que avise de un problema*
+
+> Se rellena **al cerrar**, no durante. Si la lectura fue limpia, se deja vacío.
+> Sesgos posibles: **priming** (metadatos del repo · descriptor derivado de otro
+> descriptor · pista del nombre del material · algo leído antes de catar) ·
+> **fatiga** olfativa · **sesgo de solvente** (el DPG retiene: al 10 % hay más DPG
+> que al 50 %) · lectura **informada** en vez de ciega.
+
+
+
+## Al cerrar la serie
+- [ ] Responder el **modo de decaer**
+- [ ] Recoger los **`?`** → `fuentes/vacios.md`
+- [ ] Actualizar `registro-materiales.csv` a `catado`
+- [ ] Revisar **R1, R2 y R3**
+- [ ] Decidir si la tira se tira o sigue corriendo
+
+## Notas libres
+
+t30 como era de esperar mantiene la fuerza del aroma, se comporta como los otros de su estilo, galaxolide o polysantol conservando el olor 
+t1h el olor se mantiene en el tiempo la intensidad es un poco menor, ningun otro cambio perceptible"
+4d1779d2-7e67-5cc6-8eee-1b92562f3b78,,2107464b-03f1-59f9-902f-e9aa72673f15,catado (serie parcial),,,"---
+material: Resinoide Estyrax (estoraque)
+material_id: MAT-resinoide-estyrax-estoraque
+familia: (no se repite aqui a proposito — esta en materias-primas/resinoide-estyrax-estoraque.md. Ver ""Contaminacion por metadatos"" en conocimiento/tecnicas/protocolo-cata.md)
+fecha_cata: 2026-08-03
+dilucion: 10% DPG
+dosis: 2 gotas (cuentagotas del frasco) — dosis estandar del laboratorio
+hora_aplicacion: (pendiente de anotar — la lectura de t=0 se dicto en caliente)
+confianza: alta
+formato: pre-rejilla  # evaluada antes del 2026-08-04: su silencio NO significa ausencia, significa que no habia sistema. No leerla con las reglas de conocimiento/tecnicas/rejilla-de-evaluacion.md
+---
+
+# Ficha de diario olfativo — Resinoide Estyrax (estoraque)
+
+> Escribir con palabras propias, sin consultar fuentes antes de catar. No hay
+> descripciones objetivamente correctas: el valor esta en construir una red de
+> asociaciones consistente. Si aparece el bloqueo, usar el juego de las veinte
+> preguntas (`conocimiento/tecnicas/lenguaje-descriptivo.md`).
+>
+> **La lectura inmediata (t=0) se escribe antes de abrir nada mas** — ni la ficha
+> de inventario, ni la de fuente. Es la unica lectura que puede ser ciega y es la
+> que mas vale como evidencia. El cotejo con el Corpus B se hace al cerrar la
+> serie entera, no antes.
+
+## Descriptores inmediatos
+
+**Amaderado y fuerte**, con un **punto animalico**.
+
+Referencia externa para situar ese punto animalico: de los materiales olidos en
+la tienda al comprar, **no tanto el castoreo como la isobutilquinoleina (IBQ)**.
+Ninguno de los dos esta en la paleta — es una comparacion de memoria, no de
+tira, y se anota como tal.
+
+**Fuerte pero no potente**, y la distincion es explicita: *""puedo respirar
+profundamente sin que se me interrumpa la respiracion por el olor""*. La imagen
+propia:
+
+> *""Si mi nariz fuese una especie de tunel, este entra holgadamente, entra por
+> completo.""*
+
+**Se percibe estructuralmente como final, no como principio.** Parece una nota
+que queda **por debajo** de otras: *""podria tener por encima otras cosas, y eso
+seria lo que me pararia la respiracion; esto es solo una nota como base, una
+parte final""*.
+
+Es **apacible**.
+
+**Madera** — algun cedro, o algo cercano. Y el olor que **extraen los troncos**:
+la misma familia de sensacion que al partir la resina de pino de `T-2026-001`,
+**pero de otro arbol**. Se descarta el pino explicitamente: *""no tiene ningun
+tipo de olor a pino""*.
+
+**Podria recordar al cuero** (""a la piel""), mezclado con alguna otra cosa.
+
+**Cierre dulce.** Al final del todo, cuando acabas de olerlo, **deja un poco de
+dulzor**.
+
+## Lenguaje sinestesico
+- **Textura y peso:** **rugosa** — pero conviviendo con una parte punzante, ver
+  abajo. Poco denso: no ocupa el tunel entero.
+- **Temperatura:** podria ser **calido**, pero no es destacable en este material.
+- **Forma:** **es lo destacable de este olor.** No es directo: tiene varios
+  palos. **Dos cosas compitiendo por la atencion al olerlo** — una parte mas
+  **punzante** y otra mas **rugosa**. No se turnan: compiten a la vez.
+
+## Curva de inspiracion
+
+Notacion propia del laboratorio, ver `conocimiento/tecnicas/curva-de-inspiracion.md`.
+Dividir la inspiracion en cuatro segmentos y anotar donde esta el pico y como
+evoluciona hasta el final.
+
+| Segmento | Observacion |
+|---|---|
+| 1 | (pendiente de precisar) |
+| 2 | (pendiente de precisar) |
+| 3 | (pendiente de precisar) |
+| 4 | **Deja dulzor al cerrar**: *""al final, final, cuando lo acabas de oler, te deja un poco de dulzor""* |
+
+Resumen abreviado: **cierra en dulce**; el reparto de intensidad entre los cuatro
+segmentos queda sin precisar en esta lectura.
+
+**Lo punzante y lo rugoso no son segmentos, son simultaneos.** En este material
+la competicion entre las dos partes atraviesa toda la inspiracion, en vez de
+repartirse por tramos. Es un comportamiento que la notacion no cubre todavia: los
+cuatro casos anteriores se describian bien como una linea de intensidad, y este
+pide **dos lineas a la vez**. Anotado como limitacion, no como fallo de la cata.
+
+## Evolucion en tira
+
+Intervalos segun `conocimiento/tecnicas/protocolo-cata.md`, contados desde la hora
+de aplicacion del frontmatter.
+
+**Una casilla vacia no es un dato.** Si un intervalo no se lee, escribir
+*no realizada*: ""no habia nada que anotar"" y ""no lo oli"" son datos opuestos.
+
+| Momento | Hora | Observacion |
+|---|---|---|
+| Inmediato (salida) | | Amaderado fuerte pero no saturante, con punto animalico (referencia de memoria: IBQ antes que castoreo). Madera/tronco de arbol que no es pino. Recuerda al cuero. Dos partes compitiendo, punzante y rugosa. Cierra con dulzor. Se percibe como nota de base, con sitio libre por encima. |
+| **+5 min** (intervalo extra, fuera de protocolo) | | **Con reposo se notan aun mas las notas fuertes.** Sigue el perfil de cuero, ahora tirando incluso a **oud**. Llega a **picar** un poco. Aparecen dos referencias comerciales de memoria (ver abajo). Se precisa la diferencia con el Dihydromyrcenol: aquel **llena la nariz**, este **no la llena pero cubre la capacidad olfativa**. |
+| 15 min | | *No realizada* — se leyo a +5 min en su lugar. |
+| ~30 min (cuerpo) | | **Mismas notas, mucha menos potencia.** Las caracteristicas quedan *""marcadas sobre el papel""*, pero **la embriaguez ha bajado sustancialmente**: hay que acercarse mas a la tira. Al final, **quizas algo mas amaderado**. Sin cambios de olor: *""evolucion continua""*. Observacion propia: *""estas notas mas animalicas parecen que se acaban antes""*. |
+| 1 h (cuerpo asentado) | | ⚠️ *Lectura informada — cotejo ya hecho.* **Se ha estabilizado.** Bajo en la primera media hora y **de 30 min a 1 h esta practicamente igual**: *""la parte que queda despues de que se evapore lo mas volatil sigue quedando""*. Amaderado y dulce. **La punzada de gasolina se identifica y se acepta**: es lo que la cata venia llamando *animalico*. Lo floral sigue sin verse, pero por falta de referencia, no por ausencia. |
+| Dry-out (varias horas) | | *No realizada.* |
+| **24 h** | 2026-08-04 | ⚠️ *Lectura informada.* **Queda ~40 % de lo que habia a los 30 min** — mas que el Polysantol, que se quedo en ~25 %. Y una observacion de forma de la curva: *""el mayor cambio de este olor es del recien puesto a los treinta minutos""*; de ahi a las 24 h se mantiene en meseta. **Se simplifica al bajar**: los otros matices se pierden y **queda sobre todo la nota animalica de fondo**, la que las fuentes categorizan como **gasolina**. |
+| Dias sucesivos | | (pendiente — la tira sigue viva, merece seguirla) |
+
+## Modo de decaer
+
+**Desvanecimiento**, determinado a los 30 min. Baja de intensidad **conservando
+la forma**: las notas percibidas son las mismas, solo que mas lejos.
+
+> *""El unico cambio ha sido ese. Las notas que percibo son mas o menos las
+> mismas. Evolucion continua, sin cambios de olor.""*
+
+Con un matiz que impide llamarlo desvanecimiento puro: **al final queda algo mas
+amaderado**. Si eso se acentua en el dry-out, seria un truncamiento lento —
+pierde primero lo animalico y queda la madera. A los 30 min todavia no basta para
+decirlo.
+
+Segundo desvanecimiento del diario, junto al Absoluto de Tabaco. Los dos son
+materiales complejos y de fondo; los truncamientos registrados hasta ahora
+(Methyl Pamplemousse, Stemone) eran moleculas unicas. Coherente con la hipotesis
+de la ficha `curva-de-inspiracion.md` —lo que predice el modo es la dispersion de
+volatilidades, no la complejidad— pero **con cuatro casos no se confirma nada**.
+
+### Corregido a 1 h: no era desvanecimiento, era truncamiento lento
+
+La lectura de 1 h obliga a revisar lo de arriba. **La curva no es una bajada
+continua: es una caida y luego una meseta.**
+
+> *""Bajo despues de la primera media hora, pero ahora es practicamente igual de
+> potente que a los 30 minutos. La parte que queda despues de que se evapore lo
+> mas volatil sigue quedando a partir de la hora.""*
+
+Eso es exactamente el patron que se describio con el Methyl Pamplemousse: **se
+pierde la punta y la base se queda**. La reserva que se dejo anotada a los 30 min
+—*""si eso se acentua en el dry-out seria un truncamiento lento""*— se cumple.
+
+**Modo definitivo: truncamiento lento.** Y el diario recupera la correlacion que
+el Dihydromyrcenol habia roto, pero por el otro lado: aqui un material complejo
+tambien trunca. Con lo cual la conclusion se afina — **el modo no depende ni de la
+complejidad ni de si es molecula o natural, sino de si hay facetas a velocidades
+distintas**, que es lo que decia la hipotesis desde el principio.
+
+## Atributos de rendimiento
+
+| Atributo | Observacion |
+|---|---|
+| **Impacto** (golpe inicial) | Moderado. Fuerte de caracter, pero no golpea ni corta la respiracion |
+| **Tenacidad** (cuanto dura detectable) | (pendiente) |
+| **Difusion** (distancia al poco de aplicar) | (pendiente) |
+| **Volumen** (presencia a distancia pasado el tiempo) | **Bajo, y es su rasgo mas claro.** *""Entra holgadamente por el tunel""*: deja hueco libre por encima. Comparar con el Stemone y el Tabaco, que si opacaban |
+
+## Asociaciones personales
+
+**Un armario viejo recien abierto**, con fotos y varias cosas dentro: de todas
+ellas queda **un olor residual dificil de reconocer y de matizar**. O **un cofre
+antiguo al abrirlo**.
+
+**No muy polvoriento** — la matizacion es del propio usuario y separa este
+recuerdo del topico del polvo.
+
+## Campo olfativo propio
+
+Candidato: **""interior cerrado seco""** — mueble antiguo, cofre, madera curada,
+residuo de muchas cosas guardadas juntas.
+
+**Reformulacion a +5 min, y es mejor que la anterior:**
+
+> *""Tiene que haber algun tipo de asociacion de esto: de oler cuerpos, de oler
+> troncos, de oler cosas por dentro.""*
+
+**""Oler cosas por dentro""** es una definicion mas precisa y mas amplia que
+*""interior cerrado""*: no es el interior de un espacio (un armario, una habitacion
+cerrada), es el interior de una **materia** — la carne del tronco, el cuerpo por
+dentro. Explica de una sola vez el cuero, lo animalico y la madera de tronco
+partido, que hasta ahora iban sueltos en la ficha.
+
+Y encaja con el eje estetico declarado del proyecto (resinas, cuero, animalicas).
+Vigilar si otros materiales lo pueblan: si aparece un segundo habitante, este
+campo se queda con el nombre nuevo.
+
+**Tercer habitante de un posible supracampo.** Ya hay tres materiales que
+describen un interior cerrado y se separan por la humedad y por lo que se guarda:
+
+| Material | Campo | Que lo separa |
+|---|---|---|
+| Stemone | *""madera vieja y moho""* | Humedo, mohoso, piedra |
+| Absoluto de Tabaco | *""despensa / a granel""* | Seco y dulce, comestible |
+| Resinoide Estyrax | *""interior cerrado seco""* | Seco y no comestible: mueble, no despensa |
+
+En la ficha del tabaco quedo la pregunta de si la humedad era la linea divisoria.
+Con este tercer caso la respuesta parece que **no basta con la humedad**: hace
+falta un segundo eje, comestible frente a no comestible.
+
+## Afinidades
+
+**Tiene sitio libre por encima.** La observacion mas util de la cata para
+formular: se percibe como base con hueco, no como material que ocupe la fragancia
+entera. Pide algo por encima que si detenga la respiracion.
+
+*Pendiente de concretar con que material del inventario.*
+
+## Sesgo de solvente
+La persistencia observada incluye la retencion del DPG y no es tenacidad natural del material — ver `conocimiento/tecnicas/solventes-dpg-vs-alcohol.md`.
+
+## Notas libres
+(pendiente)
+
+## Lectura +5 min — cantidad frente a potencia
+
+La observacion mas util de esta lectura, y es de vocabulario, no de olor.
+Formulada comparando dos tiras vivas de la misma sesion:
+
+| | Dihydromyrcenol | Resinoide Estyrax |
+|---|---|---|
+| Al olerlo | **Te llena la nariz** | **No te llena la nariz, pero te cubre la capacidad olfativa** |
+| Mecanismo propuesto | Muchas particulas | Pocas particulas, pero **las que entran tienen potencia** |
+
+> *""Aunque no sea una abrumante cantidad de particulas, siento que las que entran
+> huelen.""*
+
+Y una hipotesis propia sobre el receptor, no sobre el material: *""a lo mejor
+tengo mas sensibilidad a cosas como el Dihydromyrcenol y por eso me afecta mas""*.
+
+**Esto no contradice la lectura de t=0, la afina.** Alli se dijo *""entra
+holgadamente por el tunel, deja hueco libre por encima""*; aqui se separa ese
+hueco en dos cosas distintas: **cuanto espacio ocupa** y **cuanta fuerza trae lo
+que ocupa**. Un material puede tapar sin ocupar.
+
+⚠️ **Es exactamente el hueco 20/21 del proyecto**, ya redactado como pregunta 17
+del NB-B en `fuentes/preguntas-corpus-b.md`: como se define *volumen* frente a
+*difusion* e *intensidad*, y si hay termino para lo saturante. La cata ha llegado
+a la distincion por su cuenta, antes de tener la respuesta de la fuente. Cuando
+se lance esa pregunta, este par de tiras es el caso concreto que contrastar.
+
+**No se ha verificado la parte fisica.** Que la diferencia sea ""cantidad de
+particulas"" frente a ""potencia por particula"" es una imagen propia, util para
+describir, **sin ningun respaldo de fuente**. No tratarla como mecanismo real
+hasta que el Corpus B diga algo.
+
+## Lectura 30 min — ""lo animalico se acaba antes"", segundo caso del mismo patron
+
+La observacion que sale de esta lectura es una generalizacion:
+
+> *""Estas notas mas animalicas, potentes y demas, parecen que se acaban antes.
+> Este olor como interior, como de algo por dentro, dura poco.""*
+
+⚠️ **Es la segunda vez que pasa esto en el diario, y la primera quedo sin
+resolver.** En la sesion 1, el Absoluto de Tabaco se leyo a 1 h con la intensidad
+*""muy rebajada, contra lo esperado""*, y quedaron tres explicaciones abiertas:
+tenacidad no es intensidad, la dilucion al 10 % DPG, o fatiga olfativa. Aquella
+lectura no pudo cerrarse porque la tira se descarto.
+
+Hoy se repite el patron con otro material pesado, y ademas **con un contraste
+util dentro de la misma sesion**: a los 30 minutos el Dihydromyrcenol seguia
+potente y este ha caido. El material que se esperaria ligero aguanta y el que se
+esperaria de fondo baja.
+
+Explicaciones posibles, ninguna confirmada y **ninguna descartable todavia**:
+
+1. **Es real** y hay que revisar que significa ""nota de fondo"" en tira frente a
+   en piel.
+2. **Adaptacion a esta tira concreta.** Es la cuarta vez que se huele el mismo
+   material en media hora. La nariz se adapta a un estimulo repetido mucho mas
+   que a uno nuevo, y eso afectaria mas a lo que se ha olido mas veces.
+3. **Sesgo de solvente**, ya documentado en esta ficha: el DPG no se evapora y
+   altera lo que se percibe como persistencia.
+4. **Confusion entre intensidad y tenacidad.** Que baje de volumen no dice nada
+   de cuanto seguira siendo detectable — eso lo dicen el dry-out y las 24 h.
+
+**Como se decide:** esta vez **no tirar la tira**. Las lecturas de dry-out y de
+24 h son exactamente las que faltaron la vez anterior. Si a las 24 h sigue
+detectable aunque debil, la explicacion 4 gana y el patron no era lo que parecia.
+
+### ✅ Resuelto a 1 h: gana la explicacion 4
+
+**Lo animalico no se acaba antes.** A la hora el material esta practicamente igual
+que a los 30 minutos: bajo una vez, al irse la fraccion volatil, y ahi se quedo.
+
+Lo que se midio a los 30 min fue **una caida de intensidad**, y se interpreto como
+**falta de tenacidad**. Son cosas distintas y el diario ya lo tenia escrito como
+posibilidad. Ahora esta comprobado: **este material es tenaz y no es intenso**.
+
+**Y esto ilumina hacia atras la lectura del Absoluto de Tabaco.** En la sesion 1
+paso lo mismo —caida ""contra lo esperado"" a 1 h— y quedaron tres explicaciones,
+entre ellas la fatiga olfativa al final de una sesion larga. Hoy, el usuario nota
+espontaneamente que *""en el tabaco se evaporo mucho antes""*. Con la tira del
+tabaco tirada no se puede comprobar, pero la comparacion **es sugerente y no
+concluyente**: eran sesiones distintas, dias distintos y estados de nariz
+distintos. Sigue exigiendo recata del tabaco.
+
+## Cotejo real — contra `conocimiento/materiales/monografia-resinoide-estyrax-estoraque.md`
+
+Hecho el 2026-08-03 despues de fusionar la destilacion del 2026-08-02, que no
+estaba en este clon durante la cata. **Este es el cotejo bueno**; el de mas abajo
+se hizo solo contra la etiqueta de familia y queda como registro de lo que se
+comparo entonces.
+
+### Lo que coincide, y una coincidencia es asombrosa
+
+| Ficha destilada | Percibido a ciegas |
+|---|---|
+| Nota de **fondo** | *""Parece una nota que te queda al final; podria tener otras cosas por encima""* (t=0) |
+| **Salida punzante** (estireno) | Una de las dos lineas simultaneas es **punzante**, compitiendo con la rugosa |
+| **Dulzura profunda** tras disiparse la salida | **Cierre dulce** a t=0, y a 30 min *""quizas algo mas amaderado""* |
+| **Ingrediente estructural del acorde cuero** | *""Podria recordar al cuero""*, punto animalico cerca de la IBQ |
+
+### La coincidencia que no esperaba nadie
+
+La ficha describe como se obtiene el material:
+
+> *Balsamo natural formado como **producto patologico** en los tejidos del arbol.
+> Se recolecta **raspando el balsamo de las heridas del tronco**.*
+
+Y la cata a ciegas, sin saberlo, definio su campo olfativo asi:
+
+> *""Tiene que haber algun tipo de asociacion de esto: de oler cuerpos, de oler
+> troncos, **de oler cosas por dentro**.""*
+
+**El material literalmente es el interior de un arbol herido**, y la nariz lo
+nombro como el interior de una materia antes de leer una sola linea. No es que la
+cata acertara un descriptor: acerto **el gesto de origen** del material. Es el
+mejor resultado de las dos sesiones.
+
+### Lo que diverge
+
+**La ficha dice floral y la cata no vio ninguna flor.** El perfil documentado es
+*balsamico-dulce y floral*, con **jacinto, lila o clavel**. En t=0, +5 y 30 min no
+aparece nada floral: aparecen cuero, animalico, oud, tronco y mueble viejo.
+
+Tres lecturas posibles, sin arbitrar:
+
+1. **Es cuestion de tiempo.** El floral podria estar en el dry-out, que aun no se
+   ha leido. Es la primera cosa que hay que buscar esta noche.
+2. **Es cuestion de concentracion.** Al 10 % en DPG el reparto de facetas no tiene
+   por que ser el del material puro que describe la fuente.
+3. **Es cuestion de vocabulario.** Lo que la fuente llama *jacinto* o *clavel* —
+   florales pesados, especiados, casi carnosos— puede ser justo lo que la cata
+   nombro como *animalico* y *punzante*. No serian percepciones distintas sino
+   dos nombres para la misma cosa, uno de perfumista y otro propio.
+
+La 3 es la mas probable y la mas util: se comprueba oliendo un clavel o un
+jacinto de verdad y viendo si suena la misma cuerda.
+
+### ✅ Confirmado a 1 h: era la 3, y lo dice la propia cata
+
+> *""Ese dulce que yo decia en general, si tuviera la categoria con los olores mas
+> afinados, a lo mejor en vez de decir dulce en general tendria concretado que
+> puede ser **dulce de alguna flor**. Pero ahora mismo no tengo tan presente el
+> olor del clavel ni de la lila. Aqui es mas por falta de conocimiento.""*
+
+**El floral estaba, y lo que faltaba era el nombre.** No es un fallo de nariz: es
+que *jacinto*, *lila* y *clavel* no estan todavia en la biblioteca de referencia,
+asi que lo percibido se archivo bajo la etiqueta disponible mas cercana — *dulce*.
+
+**Accion concreta, y es barata:** oler un clavel, una lila y un jacinto de verdad,
+en cuanto haya ocasion, sin mas objetivo que fijarlos. Son tres olores de
+floristeria, no materiales de perfumeria — no hay que comprar nada. Hasta
+entonces, cualquier cotejo con perfiles florales seguira topando con el mismo
+muro.
+
+### ✅ Cerrado en la sesion comparativa (2026-08-03)
+
+Comparando el Estyrax contra el Absoluto de Tabaco, la identificacion sale sola y
+ya sin dudas:
+
+> *""Tiene esas notas que se describian desde las fuentes como florales, que lo
+> hacen dulce al final. Yo identificaba eso como un punto dulce del final, que era
+> por una parte como mas de flores tecnicamente.""*
+
+**El floral y el cierre dulce son la misma cosa.** No faltaba percepcion: faltaba
+el nombre, exactamente como se habia planteado. Y lo que lo desbloqueo no fue una
+lectura mas de la tira, sino **la comparacion con un material que cierra sin
+dulzor** — el tabaco. Contra el, el dulce floral del Estyrax es evidente.
+
+**Metodo que se lleva de aqui:** un descriptor que no aparece solo puede aparecer
+por contraste. Cuando algo documentado no se percibe, antes de darlo por ausente
+conviene **buscar un material de la paleta que no lo tenga** y olerlos seguidos.
+
+### Lo que la ficha aporta y la cata no podia saber
+
+⚠️ **La salida punzante es gasolina/hidrocarburo, por estireno natural.** Y hay
+una consecuencia estetica que la ficha marca: es exactamente el tipo de nota
+anti-estetica que persigue el proyecto — y ya esta en casa, dentro de un material
+comprado por balsamico. **La cata percibio esa salida como ""punzante"" pero no la
+nombro.** Merece una relectura dedicada: cuanto dura, si se puede sostener en vez
+de dejarla disipar.
+
+### ⚠️ Hallazgo de vocabulario a 1 h: ""animalico"" era esto
+
+Al releer con la ficha delante, la identificacion es inmediata y la hace el propio
+usuario:
+
+> *""Lo que yo estaba llamando **animalico** —y que me recordaba al IBQ— es lo que
+> aqui identifican claramente como **gasolina o hidrocarburo**. Entiendo este tipo
+> de olor.""*
+
+**Es la primera traduccion cerrada entre el vocabulario propio y el de las
+fuentes**, y no es menor: reordena varias fichas hacia atras.
+
+- Lo que en este diario se archiva como *animalico* puede ser, al menos en parte,
+  **empireumatico/hidrocarburo** — que es una familia distinta.
+- Explica por que la cata lo asocio a la **IBQ**: la ficha del acorde cuero
+  describe la IBQ como *verde-metalica en concentracion alta*. El puente entre los
+  dos no era lo animal, era **lo quimico-punzante**.
+- Y toca directamente el vacio 31: *metalico* sigue sin aparecer nunca en el
+  diario, pero puede que lleve todo el rato apareciendo **bajo otro nombre**.
+
+**Que no se concluye:** que animalico y gasolina sean sinonimos. El castoreum
+—animalico de verdad— aun no se ha catado, y hasta entonces no hay con que
+contrastar. Lo que si queda es que **el uso propio de ""animalico"" no esta
+calibrado**, y que se calibra catando el castoreum y la IBQ.
+
+⚠️ **El nombre engaña:** este material es *Liquidambar*, no del genero *Styrax* —
+ese es el del benjui.
+
+⚠️ **Sin limite IFRA documentado**, y la ficha avisa de que el estoraque tiene
+historial de restriccion por sensibilizacion. **No llevarlo a piel** hasta tenerlo.
+
+## Cotejo provisional (superado) — hecho contra un clon incompleto
+
+⚠️ **A partir de aqui las lecturas de esta tira no son ciegas.** El cotejo se hizo
+por decision consciente, con tres lecturas ya en el banco (t=0, +5, 30 min) y
+antes del dry-out. Las lecturas de dry-out, 24 h y dias sucesivos quedan
+**informadas**: siguen siendo datos, pero no valen como evidencia independiente.
+La comparacion seria es siempre contra t=0.
+
+**Lo que el repositorio documenta de este material — y es poco:**
+
+| Fuente en el repo | Que dice |
+|---|---|
+| `conocimiento/materiales/kit-iniciacion-30-materias.md` | Resinas y eje narrativo del proyecto. **""Balsamico-cuero suave""** |
+| `conocimiento/acordes/acorde-cuero.md` | Ladrillo del acorde cuero, **estilo ahumado/rustico**, junto a birch tar, cade y labdanum |
+
+**No existe `conocimiento/materiales/monografia-resinoide-estyrax-estoraque.md`.** No hay
+perfil olfativo detallado, ni piso de la piramide, ni dosificacion: solo la
+etiqueta de arriba.
+
+### Resultado del cotejo: acierto de lleno
+
+| Documentado | Percibido a ciegas |
+|---|---|
+| Cuero suave | *""Podria recordar a la piel, al cuero""* (t=0) |
+| Balsamico | Dulzor al cierre, madera, tronco |
+| Ahumado/rustico | Punto animalico, *""tirando a oud""* (+5 min) |
+
+**La cata ciega llego a ""cuero"" y ""animalico"" sin ninguna pista**, y ademas situo
+el punto animalico cerca de la IBQ — que es, segun la propia ficha del acorde, *la
+molecula que define la familia del cuero-ante*. Es la coincidencia mas fuerte
+registrada hasta hoy entre una cata propia y lo documentado.
+
+**Lo que la cata añade y el repo no tenia:** el volumen bajo (deja hueco por
+encima), las dos lineas simultaneas punzante/rugosa, el desvanecimiento a 30 min,
+el cierre dulce y el campo *""oler cosas por dentro""*.
+
+**Lo que sigue faltando:** perfil detallado, piso, dosificacion y ratio en tintura.
+Registrado como hueco — la pregunta ya esta redactada (NB-A, pregunta 9 de
+`fuentes/preguntas-corpus-b.md`), y este es el unico de los cuatro materiales de
+la sesion que **si** puede resolverse con el Corpus B, por ser un natural clasico.
+
+## Referencias comerciales que evoca
+
+Citadas de memoria durante la cata, no olidas en paralelo. **Los nombres se
+transcriben tal como se dijeron y estan sin confirmar** (`confianza: baja` en los
+titulos):
+
+**Nombres confirmados por el usuario a 1 h** (la transcripcion de +5 min los habia
+recogido mal):
+
+- **City on Fire** — Imaginary Authors → `referentes/perfumes/city-on-fire.md`
+- **Saddles of the Silk Road** — Mystikum → `referentes/perfumes/saddles-of-the-silk-road.md`
+
+Ambas apuntan al mismo eje: **cuero, humo, oud**. Es la primera vez que una cata
+de materia prima engancha con la biblioteca de referencias comerciales.
+
+**Hipotesis del usuario, sin verificar:** uno de los dos *""intenta simular una
+cerilla""*, y ese parecido apunta a esta misma nota. Con la ficha delante encaja:
+la cerilla es fosforo y azufre encendidos, y este material tiene una salida
+punzante de hidrocarburo. **No hay forma de saber si el perfume lleva estoraque**
+—las casas no publican formulas y aqui no hay fuente— pero como objetivo estetico
+la pista es utilizable: si un comercial construye ese registro, el ladrillo para
+intentarlo esta en casa.
+
+**Prueba pendiente, y es de las buenas:** oler la tira de estoraque y el perfume
+en paralelo, con la tira ya en su fase de meseta (a partir de 30-60 min), que es
+cuando el material esta estable. No como ingrediente — como diana.
+
+## Notas posteriores a t=0
+
+*Escrito despues de cerrar la lectura inmediata. Son conexiones con el propio
+diario y con el inventario, no con ninguna fuente.*
+
+**Cuero y animalico dichos a ciegas, sobre el ladrillo del acorde cuero.** Este
+material entro en la sesion por ser la contraparte de `T-2026-002` (cuero
+exploratorio) y componente documentado del acorde cuero
+(`conocimiento/acordes/acorde-cuero.md`). La lectura de t=0 saco por su cuenta *animalico*
+y *podria recordar al cuero*, sin consultar nada. Es la primera vez que una cata
+ciega de este laboratorio aterriza en el eje al que apuntaba el plan.
+
+**El descarte del pino es un dato, no una ausencia.** Reconocer el gesto de
+*""olor que extraen los troncos""* y a la vez rechazar el pino separa dos cosas que
+la palabra ""resina"" mete en el mismo saco. Cuando `T-2026-001` (corteza y resina
+de pino) este lista, esta tira es su contraste natural: misma familia de gesto,
+arbol distinto.
+
+**La referencia a IBQ y castoreo viene de la tienda, no de una tira.** Vale como
+orientacion y esta bien anotada, pero no es comparacion controlada: otra
+concentracion, otro solvente, otro dia, otra nariz de contexto. Si alguna vez
+entra IBQ en la paleta, se cata al 10 % y se compara en condiciones.
+
+⚠️ **La IBQ es material potente** (0,1-0,5 % en fórmula, ver
+`conocimiento/seguridad/alcohol-tabaco-materiales-potentes.md`). Que aparezca como
+referencia descriptiva no la convierte en candidata de compra inmediata.
+"
+54739231-0965-5d1b-b387-347749b62aba,,1a1e565f-3458-5afd-8d98-8fad242711fa,sin catar,"Pura en tira, pero se juzga en mezcla: sola parece débil",,
+62e71739-de74-5639-9431-0e4e763379c1,,e7c40519-28e7-50aa-a3a6-e9be0de9779d,catado,,,"---
+material: Dihydromyrcenol
+material_id: MAT-dihydromyrcenol
+familia: (no se repite aqui a proposito — esta en materias-primas/dihydromyrcenol.md. Ver ""Contaminacion por metadatos"" en conocimiento/tecnicas/protocolo-cata.md)
+fecha_cata: 2026-08-03
+dilucion: 10% DPG
+dosis: 2 gotas (cuentagotas del frasco) — dosis estandar del laboratorio
+hora_aplicacion: (pendiente de anotar — la lectura de t=0 se dicto en caliente)
+confianza: alta
+formato: pre-rejilla  # evaluada antes del 2026-08-04: su silencio NO significa ausencia, significa que no habia sistema. No leerla con las reglas de conocimiento/tecnicas/rejilla-de-evaluacion.md
+---
+
+# Ficha de diario olfativo — Dihydromyrcenol
+
+> Escribir con palabras propias, sin consultar fuentes antes de catar. No hay
+> descripciones objetivamente correctas: el valor esta en construir una red de
+> asociaciones consistente. Si aparece el bloqueo, usar el juego de las veinte
+> preguntas (`conocimiento/tecnicas/lenguaje-descriptivo.md`).
+>
+> **La lectura inmediata (t=0) se escribe antes de abrir nada mas** — ni la ficha
+> de inventario, ni la de fuente. Es la unica lectura que puede ser ciega y es la
+> que mas vale como evidencia. El cotejo con el Corpus B se hace al cerrar la
+> serie entera, no antes.
+
+## Descriptores inmediatos
+
+**Citrico, pero no punzante.** Se nota el citrico, y lo que mas lo define es lo
+que *no* hace: **es mas sutil que otros**, **menos intenso que otros citricos**
+— y por eso resulta **casi agradable**.
+
+**Floralmente citrico.** No es un citrico extraido directamente de una mandarina
+o un limon. Podria ser algo de **flor de azahar** o similar: el citrico llega por
+via floral, no por via de la fruta.
+
+**Fresquito**, un poco fresco, no mucho. Duda abierta: *no sabria decir si el
+frescor es solo citrico*. Quizas tenga algo **mentolado**, muy sutil, o quizas
+venga **de otra flor**.
+
+En conjunto: **sutil y apacible**.
+
+## Lenguaje sinestesico
+- **Textura y peso:** ligero. No pesa, no satura.
+- **Temperatura:** **fresco**, pero de forma moderada — ""fresquito"", no frio.
+- **Forma:** **no punzante**. Redondeado hasta el final, donde se agudiza un poco.
+
+## Curva de inspiracion
+
+Notacion propia del laboratorio, ver `conocimiento/tecnicas/curva-de-inspiracion.md`.
+Dividir la inspiracion en cuatro segmentos y anotar donde esta el pico y como
+evoluciona hasta el final.
+
+| Segmento | Observacion |
+|---|---|
+| 1 | Entrada sutil, apacible. Citrico suave, sin golpe |
+| 2 | Se mantiene sutil. **A +5 min**: aparece aqui un dulce muy leve dentro del citrico, no destacable |
+| 3 | Empieza a agudizarse |
+| 4 | **Pico**: conforme acabas la respiracion, se nota un poco mas de intensidad |
+
+Resumen abreviado: **sutil en 1-2, se agudiza en 3, pico en 4.**
+
+**Es la primera curva creciente registrada en este laboratorio.** Hasta ahora:
+Stemone picaba en 1 y soltaba, Vetiver entraba en 2 y sostenia, el Absoluto de
+Tabaco era plano. Este es el primero que **entra por debajo y termina arriba**.
+
+En formulacion eso lo situa como el que **cierra** la inspiracion en vez de
+abrirla: con el Stemone no competiria, se relevarian.
+
+## Evolucion en tira
+
+Intervalos segun `conocimiento/tecnicas/protocolo-cata.md`, contados desde la hora
+de aplicacion del frontmatter.
+
+**Una casilla vacia no es un dato.** Si un intervalo no se lee, escribir
+*no realizada*: ""no habia nada que anotar"" y ""no lo oli"" son datos opuestos.
+
+| Momento | Hora | Observacion |
+|---|---|---|
+| Inmediato (salida) | | Citrico suave y **floralmente citrico** (azahar antes que limon), fresquito, sutil y apacible. No punzante. Se agudiza al final de la inspiracion. Recuerdo de olor de ambiente de tienda. |
+| **+5 min** (intervalo extra, fuera de protocolo) | | **Practicamente igual que al inicio**: sin evolucion apreciable en cinco minutos. Sigue el matiz citrico, verdoso, **nada dulce**. Aparece un dulce muy leve **en el segundo cuarto de la respiracion**, no destacable. Nueva asociacion concreta: **un te de lima o limon con aloe vera y te verde**. Descrito ahora como **fuerte y punzante en la entrada** — ver la nota de divergencia mas abajo. |
+| 15 min | | *No realizada* — se leyo a +5 min en su lugar. |
+| ~30 min (cuerpo) | | **Sigue potente, y la potencia va en crescendo dentro de la inspiracion**: al principio no se huele entero, se completa segun avanza la bocanada. Aparecen matices de **producto de limpieza**: quitagrasas tipo KH-7, lejia citrica de limon o lima, friegasuelos. **El citrico se vuelve menos evidente que antes** — *""me resulta confuso este olor""*—, aunque *""algo de citrico hay seguro""*. Asociacion nueva: **un sitio donde guardas fruta**. Duda con el pino, sin resolver (ver nota). |
+| 1 h (cuerpo asentado) | | ⚠️ *Lectura informada — cotejo ya hecho.* **Se ha apagado.** Han desaparecido a la vez lo citrico, la parte floral y la frescura: *""no huele casi a nada ya la tira""*. Con la nariz pasando por encima, **muy sutil, casi imperceptible**. Conclusion propia: *""seria una nota que solo te dura en salida y se va""*. |
+| Dry-out (varias horas) | | *No realizada.* |
+| **24 h** | 2026-08-04 | ⚠️ *Lectura informada.* **Nada.** *""No tiene ningun olor ya, se ha evaporado todo.""* La tira esta muerta: no queda residuo detectable. **Serie cerrada por agotamiento del material.** |
+| Dias sucesivos | | *No procede* — no queda olor que seguir. |
+
+## Modo de decaer
+
+**Desvanecimiento, y hasta casi cero.** Determinado a 1 h: no se cae una faceta y
+queda otra — **se van todas a la vez**. Lo citrico, lo floral y el frescor
+desaparecen juntos y no deja base debajo.
+
+### Y esto rompe la correlacion facil, no la hipotesis
+
+Hasta esta lectura el reparto era limpio: truncaban las moleculas unicas (Methyl
+Pamplemousse, Stemone, Allyl Amyl Glycolate) y se desvanecian los materiales
+complejos (Absoluto de Tabaco, Resinoide Estyrax). **Este es una molecula unica y
+se desvanece**, asi que la correlacion ""molecula = trunca"" queda rota con un solo
+caso.
+
+Lo que **no** queda roto es la hipotesis de fondo de
+`conocimiento/tecnicas/curva-de-inspiracion.md`: lo que predice el modo no es la
+complejidad sino **la dispersion de volatilidades**. Una molecula unica cuyas
+facetas se evaporan todas al mismo ritmo no puede cambiar de forma — solo puede
+apagarse entera. Que el Methyl Pamplemousse trunque y este no, siendo los dos
+moleculas y los dos citricos de salida, es exactamente lo que la hipotesis
+permite: dependen de si sus facetas tienen velocidades distintas o iguales.
+
+Sigue sin confirmar por fuente. Pero el caso que parecia contradecirla es el que
+mejor la sostiene.
+
+## Atributos de rendimiento
+
+| Atributo | Observacion |
+|---|---|
+| **Impacto** (golpe inicial) | **Bajo, y desplazado al final.** No golpea al entrar; lo poco que aprieta lo aprieta al cerrar la inspiracion |
+| **Tenacidad** (cuanto dura detectable) | **Baja, confirmada a 1 h.** Se apaga entre los 30 y los 60 min. La prevision de t=0 —*""se anticipa baja: el mas volatil""*— era correcta |
+| **Difusion** (distancia al poco de aplicar) | (pendiente) |
+| **Volumen** (presencia a distancia pasado el tiempo) | **No satura.** Es de los que ocupan poco: sutil, apacible, no tapa la nariz |
+
+## Asociaciones personales
+
+**Olor de ambiente — de tienda.** No un objeto ni un recuerdo concreto: el olor
+de fondo de un espacio comercial. Es la primera asociacion de la ficha, y es de
+espacio, no de materia.
+
+**A +5 min, un te concreto:** lima o algo limonoso, **aloe vera** y **te verde**.
+
+### ⭐ El objeto exacto (sesión comparativa, 2026-08-03)
+
+> *""Huele **exactamente** a las toallitas que te dan cuando sales de un restaurante
+> en el que comes con las manos.""*
+
+**Este es el descriptor definitorio del material**, al mismo nivel que el caramelo
+de manzana verde en el Allyl Amyl Glycolate. Lo dice el propio usuario: *""me
+parece muy definitorio, podría añadirse a los escritos del material""*.
+
+Por qué cierra la ficha mejor que nada de lo anterior:
+
+- **Explica el registro entero de una vez.** Tienda, té, lejía, friegasuelos y
+  ahora la toallita eran cinco intentos de rodear lo mismo: un **cítrico
+  artificial de limpieza**. La toallita es el objeto concreto donde eso existe.
+- **Explica por qué el cítrico no se dejaba nombrar.** *""No es reconocible como la
+  naranja, el limón o la lima""* — porque no es un cítrico de fruta, es un cítrico
+  fabricado. La confusión registrada a los 30 min (*""me resulta confuso este
+  olor""*) tenía esa causa.
+- **Y coincide con la fuente sin haberla usado para llegar aquí**: la ficha
+  destilada lo describe como *extremadamente limpio, jabonoso*, con frescura de
+  *""ropa limpia""*.
+
+⚠️ **Cotejo verificable con el objeto real — y es el único del proyecto.** Hay
+toallitas en casa. Todo lo demás en este diario se coteja contra un texto o contra
+un recuerdo; esto se puede oler **en paralelo**, tira y toallita a la vez. Si el
+parecido aguanta con las dos cosas delante, es el ancla más sólida de la ficha.
+
+**A los 30 min, el registro cambia de golpe a producto de limpieza:**
+
+- Quitagrasas tipo **KH-7**.
+- **Lejia citrica** de limon o lima.
+- **Friegasuelos**, o algun producto de limpieza sin identificar.
+- Y una asociacion distinta, no de limpieza: **un sitio donde guardas fruta**.
+
+El salto es coherente con el eje `conocimiento/tecnicas/ambiente-vs-materia.md`:
+este material ya estaba en el polo ambiente desde t=0 (*""olor de tienda""*), y a
+los 30 min el ambiente se vuelve **funcional** — no un sitio, sino **un producto
+que perfuma un sitio**. Es el tercer registro distinto del mismo polo en la misma
+tira: tienda, te, limpieza.
+
+⚠️ **Es el mismo te que salio con el Methyl Pamplemousse.** En su ficha consta
+*""otro te de la tienda, este con algo de citrico y aloe vera""*, con la precision
+de que el parecido no era de olor sino de **arquitectura**: base verde con algo
+concreto por encima. Que dos materiales distintos aterricen en el mismo te no es
+casualidad — o comparten un rasgo real, o el te esta funcionando como **casillero
+por defecto** para cualquier verde-citrico. Se resuelve oliendo las dos tiras
+seguidas cuando ambos vuelvan a estar en marcha, y preguntandose que las separa.
+
+## Campo olfativo propio
+
+Candidato: **""citrico floral limpio""** — citrico sin fruta, sin acidez y sin
+punzada; fresco moderado; con caracter de ambiente mas que de ingrediente.
+
+Contrasta con todo lo catado hasta ahora, que era **materia** (hoja, raiz,
+madera vieja, pasa). Este es el primero que se describe como **ambiente**.
+
+## Afinidades
+(pendiente — con que materiales del inventario intuyes que combinaria bien, y por que)
+
+## Divergencia entre t=0 y +5 min — dos descriptores se han dado la vuelta
+
+No es un matiz: **dos rasgos se describen ahora al reves que en la lectura
+inmediata**, con el material practicamente sin evolucionar.
+
+| Rasgo | t=0 | +5 min |
+|---|---|---|
+| Intensidad | *""No llega a ser punzante, es mas sutil que otros""*, *""menos intenso que otros citricos""*, *""casi agradable""* | *""Potentillo""*, *""olor fuerte""* |
+| Donde aprieta | *""Se agudiza de cara al final, conforme acabas la respiracion""* | *""Punzante en la entrada""* |
+
+Y a la vez se afirma que **el estado es practicamente igual que al inicio**. Si
+el material no ha cambiado, lo que ha cambiado es el marco de comparacion o la
+nariz.
+
+Tres explicaciones posibles, ninguna confirmada:
+
+1. **Cambio de referencia (la mas probable).** A t=0 la comparacion era contra
+   citricos recordados —mandarina, limon—, y frente a ellos este era suave. A
+   +5 min la comparacion es contra lo catado en medio: Estyrax y Polysantol, los
+   dos descritos como poco intensos. Frente a ese trio, el mismo material se lee
+   fuerte. **La escala de intensidad de este diario es relativa a lo que se acaba
+   de oler**, y eso es un aviso de metodo que afecta a todas las fichas.
+2. **Recuperacion de la nariz.** Si a t=0 la nariz venia de algo, la lectura
+   inicial pudo quedarse corta.
+3. **Cambio real de la tira**, poco probable habiendo dicho que el estado es el
+   mismo.
+
+**No se corrige ninguna de las dos lecturas.** Las dos son datos y la distancia
+entre ellas es justamente lo que enseña — mismo criterio que se aplico al
+*""rancio""* del Stemone. Lo que si sale de aqui es una regla practica: al anotar
+intensidad, **decir contra que se compara**.
+
+Nota sobre el intervalo: esta lectura es a **+5 min**, que no es un intervalo del
+protocolo (`conocimiento/tecnicas/protocolo-cata.md` marca inmediato, 15, 30, 60).
+Se registra como intervalo extra y **no sustituye a la lectura de 15 min**.
+
+### Resuelto a los 30 min: la de +5 era la lectura rara
+
+A los 30 minutos vuelve la descripcion de t=0, y con mas detalle:
+
+> *""Es una potencia que va por tiempos, in crescendo. Al principio no llegas a
+> olerlo todo; se te va dando el olor completo segun avanzas la inspiracion.""*
+
+Es decir, **dos de las tres lecturas coinciden en que crece hacia el final** (t=0
+y 30 min) y solo la de +5 min dijo *""punzante en la entrada""*. La curva creciente
+se sostiene; la lectura discrepante se queda anotada como lo que fue: un momento
+en que la referencia de comparacion era otra.
+
+Lo que si se mantiene de la lectura de +5 es el aviso general que salio de ella:
+**al anotar intensidad, decir contra que se compara**.
+
+## Cotejo real — contra `conocimiento/materiales/monografia-dihydromyrcenol.md`
+
+Hecho el 2026-08-03 tras fusionar la destilacion del 2026-08-02. **Este es el
+cotejo bueno**; el de mas abajo se hizo solo contra la etiqueta de familia.
+
+### Lo que coincide
+
+| Ficha destilada | Percibido a ciegas |
+|---|---|
+| Familia **citrica / linalool** | *""Floralmente citrico""*, no citrico de fruta: azahar antes que limon |
+| **Extremadamente limpio, jabonoso** | A 30 min, por su cuenta: **quitagrasas, lejia citrica, friegasuelos** |
+| Aporta **volumen** | *""Te llena la nariz""* (+5 min), dicho comparandolo con el Estyrax |
+| **Potente, casi agresivo** en su frescura | *""Potentillo, fuerte, punzante en la entrada""* (+5 min) |
+| **Fresco** | *""Fresquito""*, con la duda de si el frescor era citrico o mentolado |
+
+**Lo de ""floralmente citrico"" merece pararse.** La familia documentada es
+*citrica / linalool*, y el linalool es el componente floral-lavandoso. La cata
+llego a **citrico + flor** sin tener la etiqueta delante y sin saber que ese es
+justo el reparto del material. Es la coincidencia mas fina de esta ficha.
+
+**Y hay que corregir algo que se anoto antes.** La lectura de +5 min quedo
+registrada como *""la discrepante""* por decir fuerte y punzante donde t=0 decia
+sutil. Con la ficha delante, **esa lectura es la que mas se parece al perfil
+documentado**: la fuente dice *potente y casi agresivo*. No se corrige ninguna de
+las dos — la de t=0 sigue siendo la unica ciega y limpia — pero deja de ser
+razonable llamar ""rara"" a la de +5.
+
+### Lo que diverge
+
+**Metalico y lavanda: no aparecieron.** La ficha los da como matices centrales y
+en tres lecturas no salio ninguno de los dos. La lavanda quizas se colo dentro de
+*""floralmente citrico""*; lo metalico no tiene equivalente en la ficha de diario.
+Buscar los dos en el dry-out, sabiendo que ya no es lectura ciega.
+
+**La volatilidad sigue abierta.** Documentado como **nota de salida**, y a 30 min
+seguia potente. La explicacion mas probable es el DPG, que retiene y no se
+evapora (`conocimiento/tecnicas/solventes-dpg-vs-alcohol.md`). Queda como pregunta
+para cuando se pueda catar diluido en alcohol.
+
+> ✅ **Resuelto en la lectura de 1 h (2026-08-03).** La tira se apago por completo
+> entre los 30 y los 60 minutos. **La clasificacion de nota de salida es
+> correcta**, y la divergencia era de calendario, no de fondo: la lectura de 30 min
+> pillo el material justo antes de la caida.
+>
+> Dos consecuencias:
+>
+> 1. **El DPG no lo retuvo.** La hipotesis del sesgo de solvente se debilita para
+>    este material: si el DPG lo estuviera sosteniendo, no habria caido a plomo en
+>    media hora. No invalida el sesgo como fenomeno general —esta documentado—,
+>    pero aqui no explica lo que se vio.
+> 2. **Su ventana util es corta y hay que planificarla.** Todo lo interesante
+>    ocurre en la primera media hora. Si se recata, concentrar ahi las lecturas
+>    —0, 5, 15, 30, 45 min— en vez de repartirlas hasta las 24 h.
+
+**Metalico y lavanda: no comprobables en esta tira.** Se buscaron en la lectura de
+1 h siguiendo el plan, pero **ya no habia material que oler**. No se anota que no
+esten: se anota que **la tira se apago antes de poder mirarlo**. La comprobacion
+exige recata, y con el calendario corto del punto 2 de arriba: la ventana para
+buscar esos dos descriptores esta en los primeros 30 minutos, no al final.
+
+### Lo que la ficha aporta y cambia la lectura del material
+
+⚠️ **Es el material del kit mas lejano a la estetica del proyecto.** La ficha lo
+dice sin rodeos: lo limpio-jabonoso-fresco es el polo opuesto de resinas,
+incienso, cuero y animalicas. La referencia canonica que cita es *Cool Water*.
+
+Eso encaja con lo que la cata venia diciendo por otro camino: este material se
+fue tres veces al polo **ambiente** (`conocimiento/tecnicas/ambiente-vs-materia.md`)
+— tienda, te, producto de limpieza. **La nariz lo estaba clasificando como olor
+funcional antes de saber que lo es.**
+
+No lo hace inutil: la propia ficha sugiere usarlo como contraste deliberado en
+una formula oscura. Pero conviene saber que se usa a contrapelo.
+
+⚠️ Dilucion de trabajo y limites IFRA: **sin dato** en la ficha.
+
+## Cotejo provisional (superado) — hecho contra un clon incompleto
+
+⚠️ **A partir de aqui las lecturas de esta tira no son ciegas.** Cotejo hecho por
+decision consciente con tres lecturas en el banco (t=0, +5, 30 min). Lo posterior
+queda **informado**; la comparacion seria es contra t=0.
+
+**Lo que el repositorio documenta:** solo la familia. El itinerario
+(`itinerario_perfumeria.md`, Nivel 1) y su destilado
+(`conocimiento/materiales/kit-iniciacion-30-materias.md`) lo clasifican como
+**citrico de salida**, junto a naranja, mandarina, limon, bergamota, litsea y
+Methyl Pamplemousse. No hay ficha propia en `conocimiento/materiales/`: ni perfil,
+ni descriptores, ni dosificacion.
+
+### Resultado: acierta el citrico, y deja dos divergencias abiertas
+
+| Documentado | Percibido a ciegas |
+|---|---|
+| Citrico | **Si**, y sostenido en las tres lecturas: *""algo de citrico hay seguro""* |
+| De **salida** | **A los 30 min sigue potente.** Una nota de salida deberia estar cayendo ya |
+| — | Todo el registro de **ambiente**: tienda, te, producto de limpieza. No esta en la etiqueta |
+
+**Divergencia 1 — la volatilidad.** Es la mas util para formular: si a los 30
+minutos aguanta asi, en fórmula no se comporta solo como una salida que abre y se
+va. **Aviso importante antes de sacar conclusiones:** viene al 10 % en DPG, y el
+DPG no se evapora y retiene el material — el sesgo esta documentado en
+`conocimiento/tecnicas/solventes-dpg-vs-alcohol.md` y afecta a esta lectura de
+lleno. La prueba limpia seria catarlo diluido en alcohol, hoy imposible sin DPG
+suelto para igualar el resto de la paleta.
+
+**Divergencia 2 — el registro de ambiente.** La etiqueta dice de que familia es;
+no dice a que huele. Que la cata lo mande tres veces al polo ambiente
+(`conocimiento/tecnicas/ambiente-vs-materia.md`) es informacion que la
+clasificacion no contiene, no un error de ninguna de las dos.
+
+## La duda del pino, a los 30 min — descriptor de segunda generacion
+
+Durante la lectura de los 30 minutos empiezan a venir **cosas relacionadas con el
+pino**, y el propio usuario las pone en cuarentena en el momento:
+
+> *""No sé por qué ahora me están viniendo más cosas relacionadas con el pino a la
+> cabeza. Sigo pensando que podría ser solo un cítrico que lo estoy confundiendo.""*
+
+**La cadena de asociacion es visible y conviene dejarla escrita**, porque es un
+mecanismo nuevo en este diario:
+
+`citrico → lejia citrica / friegasuelos → producto de limpieza → pino`
+
+Es decir, el pino **no aparece por la nariz sino por el final de una cadena de
+asociaciones**: muchos productos de limpieza se perfuman en clave de pino, asi
+que nombrar ""friegasuelos"" puede arrastrar el pino detras sin que la tira lo
+tenga. Llamemoslo **descriptor de segunda generacion**: el que se deriva de otro
+descriptor en vez de derivarse del olor.
+
+**Doble motivo para desconfiar aqui**: el pino es ademas el material con el que
+mas se ha trabajado en este laboratorio (`T-2026-001` y `T-2026-003`), y el
+propio usuario lo dice — su referencia de pino es concreta y es **la resina**, no
+un ambiente. Lo que si deja abierto es otra cosa: *""un bosque de pinos en
+general, como mas asi""*, que no es la resina sino el aire del pinar. Coherente
+con el polo ambiente de este material.
+
+**Como se resuelve, y no es con mas cata de esta tira:** cuando `T-2026-001` este
+filtrada, oler las dos en paralelo. Si el parecido no aparece con la tintura de
+pino real delante, el pino de hoy era de la cadena de asociaciones.
+
+**Registrar la confusion tambien es el dato.** *""Me resulta confuso este olor en
+realidad. Hasta ahora el citrico lo he notado muy claro, ahora ya no sabria
+decirte.""* Que un material se vuelva mas dificil de nombrar con el tiempo, en vez
+de mas facil, es una observacion util: no todo se aclara al reposar.
+
+## Notas posteriores a t=0
+
+*Escrito despues de cerrar la lectura inmediata. Son conexiones con el propio
+diario, no con ninguna fuente.*
+
+**El eje de presencia floral gana un tercer punto.** En la ficha del Methyl
+Pamplemousse quedo dibujado un eje: el Stemone es *""todo lo que rodea a una flor
+pero no la flor""*, el Methyl Pamplemousse es *""la planta que tiene alguna flor""*.
+Aqui la flor aparece **como via de entrada de otra cosa**: no se huele la flor,
+se huele un citrico *que llega en forma floral*. Es una cuarta posicion posible
+del eje, y merece revisarse cuando haya mas florales catados.
+
+**Azahar, otra vez.** El azahar ya se propuso como afinidad del Absoluto de
+Tabaco (*""un citrico menos fresco, mas carnoso""*) y no esta en la paleta. Que
+aparezca por segunda vez, ahora como descriptor espontaneo, refuerza que seria
+una compra dirigida coherente y no un capricho.
+
+**La duda del mentol queda anotada, no resuelta.** El frescor que no se sabe si
+es citrico o mentolado es el mismo tipo de observacion que en el Vetiver dio
+*""un primo de la menta, pero no en lo que huele sino en lo que refresca""*. Puede
+que sea otra vez la distincion entre olor y efecto fisico en la nariz
+(`fuentes/vacios.md`, item 19). Vigilar a 15 y 30 min: si el frescor cae antes
+que el citrico, son dos fenomenos distintos.
+
+## Sesgo de solvente
+La persistencia observada incluye la retencion del DPG y no es tenacidad natural del material — ver `conocimiento/tecnicas/solventes-dpg-vs-alcohol.md`.
+
+## Notas libres
+(pendiente)
+"
+91de0a06-7bc8-558c-9b20-d44a3fbb70e2,,1e48a934-bee3-5924-bd64-c486e20733bd,catado (serie parcial),,,"---
+material: Polysantol
+material_id: MAT-polysantol
+familia: (no se repite aqui a proposito — esta en materias-primas/polysantol.md. Ver ""Contaminacion por metadatos"" en conocimiento/tecnicas/protocolo-cata.md)
+fecha_cata: 2026-08-03
+dilucion: 10% DPG
+dosis: 2 gotas (cuentagotas del frasco) — dosis estandar del laboratorio
+hora_aplicacion: (pendiente de anotar — la lectura de t=0 se dicto en caliente)
+confianza: alta
+formato: pre-rejilla  # evaluada antes del 2026-08-04: su silencio NO significa ausencia, significa que no habia sistema. No leerla con las reglas de conocimiento/tecnicas/rejilla-de-evaluacion.md
+---
+
+# Ficha de diario olfativo — Polysantol
+
+> Escribir con palabras propias, sin consultar fuentes antes de catar. No hay
+> descripciones objetivamente correctas: el valor esta en construir una red de
+> asociaciones consistente. Si aparece el bloqueo, usar el juego de las veinte
+> preguntas (`conocimiento/tecnicas/lenguaje-descriptivo.md`).
+>
+> **La lectura inmediata (t=0) se escribe antes de abrir nada mas** — ni la ficha
+> de inventario, ni la de fuente. Es la unica lectura que puede ser ciega y es la
+> que mas vale como evidencia. El cotejo con el Corpus B se hace al cerrar la
+> serie entera, no antes.
+
+## Descriptores inmediatos
+
+**Intensidad baja**, y otra vez una nota **que se percibe al final de la bocanada**.
+
+Ubicacion estructural dicha con una imagen propia: **esto no es lo primero que
+olerias de un perfume**. Si el perfume fuese un cuerpo, esto no es la cabeza —
+seria **el torso, incluso las piernas**.
+
+**Fresco**, claramente.
+
+**Incienso y olor de ambiente.** Algun tipo de incienso, quizas **palo santo**.
+Incluso **ambientador de coche**.
+
+**Madera blanca, clara, leve**, sin mucho protagonismo. Explicitamente **distinta
+de la madera del Resinoide Estyrax**, catado justo antes.
+
+Quizas **algo citrico**, pero como parte del olor, no como capa separada.
+
+**Olor complejo otra vez**: no directo, con **multiples direcciones**.
+
+**Huele a nuevo.** Olor de novedad: un coche nuevo con ambientador, o un juguete
+recien abierto — precision del propio usuario: **de madera, no de plastico**,
+porque el plastico llevaria la imagen a otro sitio.
+
+Y la formulacion que mejor lo cierra:
+
+> *""Que el olor no sea algo con olor, como podria ser una flor, sino un olor
+> ambiental que forma parte de un entorno.""*
+
+## Lenguaje sinestesico
+- **Textura y peso:** suave y ligero. No pesa.
+- **Temperatura:** **fresco**, sin duda.
+- **Forma:** difusa, con varias direcciones. Nada punzante ni afilado.
+
+## Curva de inspiracion
+
+Notacion propia del laboratorio, ver `conocimiento/tecnicas/curva-de-inspiracion.md`.
+Dividir la inspiracion en cuatro segmentos y anotar donde esta el pico y como
+evoluciona hasta el final.
+
+| Segmento | Observacion |
+|---|---|
+| 1 | Poco presente |
+| 2 | Poco presente |
+| 3 | Empieza a percibirse |
+| 4 | **Es donde se percibe**: *""se percibe al final de la bocanada de aire""* |
+
+Resumen abreviado a t=0: **se percibe al final de la inspiracion.**
+
+**Correccion a +5 min: la curva es plana.** Dicho con la notacion ya
+interiorizada y sin que nadie la pidiera:
+
+> *""Que no tenga ningun beat en el olor, o sea, que en los cuatro tiempos del
+> olor huela igual de fuerte.""*
+
+Consecuencia que se saca sola: si no hay pico en ningun segmento, **una sola
+bocanada casi no lo detecta**. *""En un ambiente en que no lo estes analizando te
+pasaria por alto: no destaca, no hace ningun cambio, es invariable.""*
+
+Cual de las dos lecturas vale: **las dos, en momentos distintos.** A t=0 la tira
+acababa de mojarse y la parte de madera recien partida estaba viva; a +5 min esa
+parte se ha calmado y lo que queda es uniforme. Aqui el cambio **si** tiene una
+explicacion material —la propia lectura dice que el tronco *""ya ha reposado""*—,
+a diferencia de la divergencia del Dihydromyrcenol, donde el material seguia
+igual y lo que cambio fue la referencia de comparacion.
+
+**Segunda curva de este tipo en la misma sesion**, junto al Dihydromyrcenol.
+Ojo con la lectura: en el Dihydromyrcenol el final era un **pico de intensidad**
+sobre un material que ya se percibia antes; aqui es mas bien **el momento en que
+aparece** un material de intensidad baja. Puede que sean el mismo fenomeno o dos
+distintos —aparecer tarde y apretar al final— y con dos casos no se decide.
+Anotado para vigilarlo en los proximos materiales.
+
+## Evolucion en tira
+
+Intervalos segun `conocimiento/tecnicas/protocolo-cata.md`, contados desde la hora
+de aplicacion del frontmatter.
+
+**Una casilla vacia no es un dato.** Si un intervalo no se lee, escribir
+*no realizada*: ""no habia nada que anotar"" y ""no lo oli"" son datos opuestos.
+
+| Momento | Hora | Observacion |
+|---|---|---|
+| Inmediato (salida) | | Intensidad baja, fresco. Incienso / palo santo / ambientador de coche. Madera blanca, clara, leve, distinta de la del Estyrax. Punto citrico integrado. Olor a nuevo (juguete de madera recien abierto). Complejo, con varias direcciones. Se percibe al final de la bocanada. |
+| **+5 min** (intervalo extra, fuera de protocolo) | | **Misma intensidad baja que al principio**: hay que acercarse a la tira. **No se ha degradado.** Lo que si ha cambiado: *""el tronco blanquito ya ha reposado, ya no es que se acabe de romper""* — la parte de madera recien partida se ha calmado. Queda madera blanca muy sutil, **casi a aglomerado o a mueble de IKEA**, y el olor a nuevo. Ahora se describe como **plano en los cuatro tiempos**, no como algo que aparezca al final. |
+| 15 min | | *No realizada* — se leyo a +5 min en su lugar. |
+| ~30 min (cuerpo) | | **Estable**: sigue el maderillo tipo **palo santo** y el caracter fresco, limpio y calmado. No se registra caida de intensidad, a diferencia del Estyrax a esta misma hora. Sigue sin ser protagonista: *""armoniza un sitio, una estancia, o un perfume""*. Formulacion nueva: **no se vale por si mismo**. |
+| 1 h (cuerpo asentado) | | ⚠️ *Lectura informada — cotejo ya hecho.* **Practicamente igual que antes.** Tercera lectura consecutiva sin caida apreciable. Sigue siendo *""el olor que te apetece oler en un sitio nuevo""*. Se acepta el descriptor **sandalo** por primera vez, tras haberlo evitado a proposito (ver nota de metodo). Rico, potente, de **madera natural**, suave. Sigue valiendo **madera nueva**. |
+| Dry-out (varias horas) | | *No realizada.* |
+| **24 h** | 2026-08-04 | ⚠️ *Lectura informada.* **Sigue estando, y claramente mas bajo: ~25 % de lo que se olia.** *""Se aprecia menos, pero como ya era de poca intensidad...""*. Pierde intensidad **y profundidad**: *""es como mas ligero, pero sigue estando ahi""*. Descriptor propio nuevo: **la nota residual que queda cuando ya se te ha acabado el perfume, y al dia siguiente la notas**. ⚠️ **La prueba a distancia tampoco se hizo esta vez** (tercera lectura consecutiva que la deja pendiente). |
+| Dias sucesivos | | (pendiente — la tira sigue viva, merece seguirla) |
+
+## Modo de decaer
+
+> ✅ **A 1 h sigue sin decaer.** Tres lecturas —+5 min, 30 min y 1 h— sin caida
+> apreciable, mientras el Dihydromyrcenol se apagaba del todo y el Estyrax bajaba
+> un escalon. **La sustantividad que documenta la fuente queda confirmada por
+> observacion propia**, y es el unico atributo de esa ficha que la cata ha podido
+> verificar.
+>
+> El modo sigue sin poder determinarse por la razon de siempre: **no se puede
+> clasificar como trunca o se desvanece algo que todavia no ha bajado**. Se decide
+> en las 24 h, que en este material es la lectura que mas puede dar.
+
+> ✅ **RESUELTO a 24 h: se desvanece, no se trunca.** Baja a ~25 % pero sigue
+> detectable, y **baja de forma pareja** —no desaparece una capa y queda otra, se
+> atenua entero—. Eso lo separa del Estyrax, que a las 24 h **se simplifica**
+> perdiendo matices y quedandose con el animalico.
+>
+> **Y corrige una prediccion propia.** A t=0 se anoto la tenacidad como
+> *""anticipada baja: no es muy tenaz""*. **Era falsa.** Sobrevivio a 24 h mientras
+> los dos citricos de la sesion se evaporaron del todo. El error tiene una causa
+> identificable y util: **se confundio intensidad con tenacidad** — un material
+> que se percibe poco desde el principio se juzga fugaz, y son ejes
+> independientes. La ficha de fuente decia *""gran sustantividad""* y llevaba razon.
+>
+> **Novedad de la lectura, y es descriptor propio:** *""la nota residual que queda
+> cuando ya se te ha acabado el perfume, y al dia siguiente la notas""*. Define el
+> material por **el momento del ciclo** en que se percibe, no por a que huele —
+> coherente con las tres lecturas anteriores, que lo describian por su funcion.
+>
+## ✅ RESUELTO: es difusivo, y la fuente tenia razon (2026-08-04)
+
+La prueba a distancia no hacia falta montarla — **ya estaba hecha sin querer**:
+
+> *""Claramente es uno de los olores mas difusivos: incluso al tenerlos detras de
+> la mesa de trabajo me llegaban notas del olor. Hasta las 6 h o asi pasaba;
+> ahora, tras las 24 h, ya no.""*
+
+**Es la mejor medicion de difusion que puede tener este laboratorio**, y
+precisamente porque no se buscaba. Una prueba deliberada —acercar y alejar la
+nariz— siempre lleva dentro la expectativa de encontrar algo. Esto es lo
+contrario: el olor **llego solo**, sin atencion puesta, desde detras de la mesa y
+durante horas. Difusion involuntaria, que es la unica que no puede estar sugerida.
+
+### Qué queda arbitrado
+
+| Divergencia | Veredicto |
+|---|---|
+| Ficha: *""muy potente, rica, **difusiva**, **radiante**""* | ✅ **Confirmada.** Alcance real de metros, sostenido ~6 h |
+| Cata: *""el material mas debil de la sesion""* | ✅ **Tambien cierta.** A nariz pegada, al 10 % en DPG, es discreto |
+
+**Las dos lecturas eran verdad porque median ejes distintos.** De las cuatro
+explicaciones abiertas, gana la **3 — *difusivo no es intenso***. Y con ella caen
+las otras: no hacia falta culpar a la dilucion ni a la `confianza: media` de la
+ficha. **La ficha destilada acerto en el atributo que parecia mas equivocado.**
+
+### Lo que este material deja demostrado, y vale para todo el diario
+
+`conocimiento/tecnicas/lenguaje-descriptivo.md` **define** impacto, tenacidad,
+difusion y volumen, pero hasta hoy el diario no tenia **ni un caso observado** en
+que se separasen. El Polysantol los separa los cuatro a la vez:
+
+| Atributo | Polysantol al 10 % DPG |
+|---|---|
+| **Impacto** | **Bajo.** Sutil, hay que acercarse a la tira |
+| **Difusion** | **Alta.** Llega desde detras de la mesa, sin buscarlo |
+| **Tenacidad** | **Alta.** ~25 % a las 24 h |
+| **Volumen** | **Alto hasta ~6 h**, nulo a 24 h |
+
+⚠️ **Y ojo con el ultimo par, porque es el hallazgo fino:** a las 24 h el material
+**sigue en la tira** (tenacidad) pero **ya no llega a la mesa** (volumen). Tenacidad
+y volumen se separan aqui de forma limpia — *""sigue oliendo""* y *""sigue llegando""*
+dejan de ser lo mismo, y a partir de ahora se anotan por separado.
+
+**Consecuencia de formulacion, que invierte lo dicho antes.** Se habia escrito que
+este material *""no aporta la tesis, sostiene a los que la aportan""* y que **no
+sirve para variar una sola proporcion** porque no se notaria. Eso se juzgo con la
+nariz encima de la tira. **A distancia si se nota** — y un material que proyecta
+sin golpear de cerca es exactamente lo que hace que un perfume **se perciba desde
+fuera sin ser invasivo de cerca**. Sigue sin aportar la tesis, pero **no es
+relleno**: es el que la lleva lejos.
+
+> **Nota de fiabilidad:** es un recuerdo del 2026-08-03 reconstruido al dia
+> siguiente, no una lectura anotada en su momento. Es firme en lo cualitativo
+> (llegaba, y desde lejos) y aproximado en el plazo (*""6 h o asi""*). No se afina
+> mas: se anota como lo que es.
+
+### Metodo: la difusion no se mide donde se estaba mirando
+
+Cuatro lecturas planificaron la prueba a distancia y ninguna la hizo, y sin
+embargo **el dato existia desde el primer dia**. La leccion no es que se olvidara
+la prueba: es que **la difusion no se observa en la tira, se observa en la
+habitacion**, y toda la atencion del protocolo esta puesta en la tira.
+
+**Regla operativa nueva:** en cada sesion, anotar aparte **que se huele sin
+acercarse** — al entrar en la sala, al volver de un descanso, al pasar por la mesa.
+Es un canal de observacion distinto del de los intervalos, y de momento el unico
+que ha dado difusion y volumen reales.
+
+**Sin determinar a los 30 min, y por una razon interesante: todavia no ha
+decaido.** El material se lee estable, con las mismas notas y sin caida de
+intensidad reseñable, mientras el Resinoide Estyrax —catado el mismo dia y leido
+a la misma hora— si ha bajado claramente.
+
+Es el material mas debil de la sesion y es el que mejor aguanta. Ojo con la
+lectura facil: **empezar bajo no es lo mismo que caer poco**, y de un material
+que apenas se percibia desde el principio es mas dificil notar que ha bajado.
+Se decide en el dry-out y a las 24 h.
+
+## Atributos de rendimiento
+
+| Atributo | Observacion |
+|---|---|
+| **Impacto** (golpe inicial) | **Sutil** |
+| **Tenacidad** (cuanto dura detectable) | *Anticipada como baja* — ""no es muy tenaz"". Es una prevision hecha a t=0, no una medicion: solo las lecturas de dry-out y 24 h pueden confirmarla |
+| **Difusion** (distancia al poco de aplicar) | ✅ **ALTA.** *""Uno de los olores mas difusivos""* — llegaba desde detras de la mesa de trabajo sin buscarlo. Confirma la ficha de fuente |
+| **Volumen** (presencia a distancia pasado el tiempo) | ✅ **Alto hasta ~6 h, nulo a 24 h.** Se separa de la tenacidad: a 24 h sigue en la tira pero ya no llega a la mesa. (La nota previa —*""podria olerlo varias bocanadas sin saturarme""*— medía impacto de cerca, no volumen) |
+
+## Asociaciones personales
+
+**Cosas recien estrenadas.** Un **coche nuevo con ambientador**. Un **juguete
+recien abierto** — de madera, no de plastico: el plastico llevaria el recuerdo a
+otro sitio.
+
+Es una asociacion de **estado** (lo nuevo, lo no usado), no de objeto ni de lugar.
+Distinta en naturaleza de las anteriores del diario, que eran sitios (una casa
+rural, una despensa, un armario viejo).
+
+**A +5 min, el sitio se concreta y es un sitio comercial:**
+
+- **Casa nueva.**
+- **Tienda algo esoterica, pero sin inciensos encendidos** ni aroma artificial
+  dando vueltas. La matizacion es importante: es el incienso **de fondo**, no el
+  que arde.
+- **Tienda de ropa** (se cito una cadena concreta, transcrita como *""Vesca""* —
+  confirmar cual es).
+- **Mueble de aglomerado, casi IKEA.** No al cien por cien.
+
+Y una lectura sobre la intencion, que es lo mas fino de la asociacion:
+
+> *""Un sitio limpio en el que se ha pensado que el olor sea transitorio: vamos a
+> ponerle algo que huela a limpio, tranquilo y apacible.""*
+
+Es decir, no lo asocia a un espacio cualquiera sino a un **olor diseñado para no
+notarse**. Encaja con la curva plana: lo que no tiene pico no se nota, y eso
+puede ser justo el objetivo de quien lo puso ahi.
+
+## Campo olfativo propio
+
+Candidato: **""ambiente nuevo""** — incienso suave, madera clara, aire de sitio
+recien estrenado. Fresco, sin materia identificable detras.
+
+**Contrapunto exacto del Resinoide Estyrax**, catado justo antes: los dos son
+madera y los dos son de fondo, pero uno es **madera vieja guardada** (armario,
+cofre, residuo) y el otro **madera clara recien abierta**. El eje que los separa
+no es la familia: es el **tiempo** — lo curado frente a lo estrenado.
+
+## Afinidades
+
+**Neutral y utilizable como cuerpo en muchas fragancias**, siempre que se quiera
+ese toque de nuevo y apacible. Es la primera vez en el diario que un material se
+describe por su **funcion en formula** antes que por su olor.
+
+**Confirmado y precisado a +5 min:** *""buen recurso si quieres algo mantenido en
+el olor que no sature""*. Y **sosegante** — calma bastante.
+
+**A los 30 min la funcion queda dicha del todo, y es una funcion subordinada:**
+
+> *""No se acaba de valer por si mismo. Es bueno que este por ahi, pero si
+> estuviese solo no lo notaria. Tiene que estar con mas olor, tiene que ayudar.""*
+
+Tercera lectura consecutiva que lo describe por su papel y no por su olor. Es el
+unico de los siete materiales del diario del que se ha dicho **para que sirve**
+antes que **a que huele**, y las tres veces ha salido lo mismo: acompaña,
+armoniza, no protagoniza.
+
+**Consecuencia practica para la primera formula:** es un material de relleno
+estructural, no de idea. En un acorde no aporta la tesis, sostiene a los que la
+aportan. Y por lo mismo, **no sirve para el ejercicio de variar una sola
+proporcion**: si se mueve su porcentaje y no se nota nada, no se aprende nada.
+
+⚠️ **Comparacion pendiente con el Vetiver.** En la cata del Vetiver quedo
+apuntada una afinidad con *""madera clara, no oscura""*, y este material se acaba
+de describir espontaneamente como **madera blanca, clara, leve**. Encaja. Pero
+**la tira de Vetiver se descarto** (ver su ficha), asi que la comparacion no
+puede hacerse hoy: exige recatar el Vetiver con tira nueva y olerlos en paralelo,
+oliendo primero la tira mas antigua.
+
+## Sesgo de solvente
+La persistencia observada incluye la retencion del DPG y no es tenacidad natural del material — ver `conocimiento/tecnicas/solventes-dpg-vs-alcohol.md`.
+
+## Notas libres
+(pendiente)
+
+## Cotejo real — contra `conocimiento/materiales/monografia-polysantol.md`
+
+Hecho el 2026-08-03 tras fusionar la destilacion del 2026-08-02. **Este es el
+cotejo bueno**; el de mas abajo se hizo solo contra la etiqueta de familia.
+
+**Aviso previo, y aqui pesa mas que en los otros tres:** la ficha destilada lleva
+`confianza: media` y lo explica — el Polysantol es un aromaquimico de marca
+(Firmenich) y el corpus no cubre ese tipo de material, asi que lo que hay puede
+venir de una mencion de pasada. **La fuente autoritativa seria la ficha de
+producto del fabricante.** Con eso en mente, un desacuerdo entre la cata y esta
+ficha no significa lo mismo que en el Estyrax.
+
+### Lo que coincide
+
+| Ficha destilada | Percibido a ciegas |
+|---|---|
+| **Amaderada (sandalo)** | Madera blanca, clara, leve. *""Palo santo""* — registro amaderado-sacro |
+| Nota de **fondo** | *""Si el perfume fuese un cuerpo, esto no es la cabeza; seria el torso, incluso las piernas""* |
+| **Gran sustantividad** | A 30 min **no ha caido**, mientras el Estyrax si. Es la confirmacion mas solida de la ficha |
+| **Efecto de madera incluso en concentraciones bajas** | Al 10 % se percibe poco pero se percibe siempre, sin desaparecer |
+
+### Lo que diverge, y es frontal
+
+| Ficha destilada | Percibido a ciegas |
+|---|---|
+| **Muy potente**, **rica**, **difusiva**, **radiante** | **El material mas debil de la sesion.** *""Me tengo que acercar bastante a la tira""* |
+
+Cuatro explicaciones, ninguna descartada:
+
+1. **La dilucion.** La ficha describe el material tal como lo trata la fuente;
+   aqui se cata al 10 % en DPG. *Potente* se predica del puro.
+2. **La confianza media de la ficha.** Es el material peor documentado de los
+   cuatro, y la propia ficha avisa de que puede venir de mencion suelta.
+3. **Difusivo no es intenso.** Difusion es cuanto viaja el olor, no cuanto pega
+   de cerca. La cata midio de cerca, con la nariz encima de la tira. **Un material
+   puede ser radiante a un metro y discreto a dos centimetros** — y eso enlaza
+   directamente con el vacio 21, la separacion entre volumen, difusion e
+   intensidad, que esta sesion ya toco con el par Dihydromyrcenol/Estyrax.
+4. **Que la cata tenga razon y la ficha no**, dado el punto 2.
+
+**La 3 es la que se puede probar hoy y no se ha probado:** la difusion se mide
+alejandose de la tira, no acercandose. Ninguna lectura de esta sesion se hizo a
+distancia. Pendiente para el dry-out.
+
+⚠️ **Sigue pendiente tras la lectura de 1 h.** La prueba a distancia estaba en el
+plan de esa lectura y no se hizo — no se registro ninguna observacion a un palmo
+ni a un brazo. **La divergencia principal de este material sigue sin arbitrar**, y
+es la unica de la sesion que se puede resolver sin comprar ni preguntar nada:
+basta con alejar la nariz. Repetir en la lectura de 24 h.
+
+### Consecuencia sobre el guardarrail
+
+La cata **no** autoriza a bajar la guardia: sigue figurando entre los materiales
+potentes y sigue sin haber dilucion de trabajo ni limite IFRA documentados. Lo
+unico que añade es que **al 10 % en DPG y a nariz pegada es discreto**, que es
+informacion de dosificacion, no de seguridad.
+
+## Cotejo provisional (superado) — hecho contra un clon incompleto
+
+⚠️ **A partir de aqui las lecturas de esta tira no son ciegas.** Cotejo hecho por
+decision consciente con tres lecturas en el banco. Lo posterior queda
+**informado**; la comparacion seria es contra t=0.
+
+**Lo que el repositorio documenta:**
+
+| Fuente en el repo | Que dice |
+|---|---|
+| `conocimiento/materiales/kit-iniciacion-30-materias.md` | **Amaderados/resinosos** |
+| `conocimiento/seguridad/` (via la misma ficha) | Figura entre los **materiales potentes** que *""no se huelen ni se usan puros""* |
+
+No hay ficha propia en `conocimiento/materiales/`.
+
+### Resultado: acierta la familia, choca de frente con lo de ""potente""
+
+| Documentado | Percibido a ciegas |
+|---|---|
+| Amaderado | **Si**: madera blanca, clara, leve; palo santo |
+| Potente, no oler puro | **El material mas debil de la sesion**: *""me tengo que acercar bastante a la tira""* |
+
+**La contradiccion ya estaba registrada antes de esta cata**, y esta lectura la
+confirma desde la nariz: `fuentes/vacios.md` recoge que el itinerario lista
+Polysantol entre los potentes mientras el kit lo envia al 10 % DPG. Es decir,
+""potente"" se predica del material **puro**, y lo catado hoy es una dilucion al
+10 % — no son la misma cosa, y la etiqueta no lo aclara.
+
+**Ojo con la conclusion facil:** de esta cata **no** se sigue que el Polysantol
+no sea potente. Se sigue que **al 10 % en DPG es discreto**, que es justo la
+informacion que hacia falta para dosificarlo. Nada aqui autoriza a olerlo puro:
+el guardarrail sigue en pie.
+
+**Lo que la cata añade y el repo no tenia:** la funcion (acompaña, no protagoniza),
+la curva plana, el caracter de ambiente y la estabilidad a 30 min.
+
+## Nota de metodo (1 h): el nombre del material suprimio un descriptor
+
+La ficha destilada dice **sandalo** y las tres catas a ciegas no lo dijeron nunca.
+No fue por no percibirlo. Fue una decision consciente:
+
+> *""Yo no habia utilizado la terminologia de sandalo porque era como demasiado
+> vinculado al nombre: Poly**santol**, sandalo. Estaba intentando desgranarlo en
+> otro tipo de inciensos, a otro tipo de ideas.""*
+
+**Es priming al reves, y es un vector nuevo.** El diario ya tenia documentado que
+los metadatos del repositorio contaminan (la familia del Stemone) y que un
+descriptor puede nacer de otro descriptor (el pino del Dihydromyrcenol). Este es el
+tercer mecanismo: **el nombre comercial del material contiene una pista, y al
+detectarla se descarta el descriptor correcto por sospechoso**.
+
+La disciplina anti-priming, llevada un paso de mas, **borra informacion buena**.
+
+**Regla que sale de aqui:** si un descriptor viene sugerido por el nombre, no se
+tacha — **se escribe entre parentesis y se marca como sospechoso de venir del
+nombre**. Que la sospecha conste es suficiente; suprimirlo no deja rastro de nada.
+
+## El valor de tener un ancla canonica
+
+El propio usuario formula lo que gana al aceptar la palabra:
+
+> *""Si puedo directamente decir sandalo, identificar este olor como sandalo ya,
+> creo que seria un buen progreso. Que este olor ya sea sandalo, y decir: este es
+> sandalo y esto es inexcusablemente sandalo.""*
+
+Esto no contradice el metodo del diario, lo completa. `diario/cotejos/cotejo-sesion-2.md` deja
+anotado que las fuentes describen **por referente** y este diario **por gesto y
+origen**, y que los dos sirven para cosas distintas. Aqui se ve para que sirve el
+suyo: **un ancla compartida**. *""Madera blanca de un tronco recien partido""* no se
+puede pedir a un proveedor ni discutir con otro perfumista; *""sandalo""* si.
+
+Lo uno no sustituye a lo otro. La ficha se queda con las dos capas: **sandalo**
+como ancla, y *madera nueva, palo santo, no huele a nada y huele bien* como red
+propia — que es lo que distingue este material del sandalo natural y de cualquier
+otro amaderado que entre despues.
+
+## Herramienta nueva (30 min): el olor medido por como te deja a ti
+
+La prueba mental que aparece en esta lectura no estaba en el diario hasta ahora:
+**imaginar que a uno le huelen las manos a ese material** y preguntarse que
+pensaria quien lo huele.
+
+| Material | Si te oliesen las manos a esto | Veredicto |
+|---|---|---|
+| **Polysantol** | *""Parecia que me he echado una crema hidratante""* | Esta bien |
+| **Resinoide Estyrax** | *""Lo volverian raro, seria extraño""* | Raro |
+
+Y con el mismo criterio, aplicado a espacios: *""si una casa huele un poquito a
+esto, esta bien; si un coche, esta bien; si unos zapatos nuevos te cuelan un poco
+a esto, esta bien""*.
+
+**Que mide.** No es intensidad, ni familia, ni curva: es **cuanto se acepta
+socialmente el olor** y que dice de quien lo lleva. Un material puede ser
+excelente y a la vez marcar a quien lo usa — que es exactamente el terreno de la
+estetica declarada del proyecto (resinas, cuero, animalicas). El Estyrax siendo
+*""raro""* no es un defecto: es una eleccion.
+
+**Estado: candidata, no notacion.** Con dos materiales comparados no da para
+ficha propia en `conocimiento/`. Si aparece un tercer caso se promueve, como se
+hizo con la curva de inspiracion y con ambiente/materia. Vigilar si vuelve a
+salir sola, sin que nadie la pida — ese fue el criterio las dos veces anteriores.
+
+## El palo santo vuelve, y trae una definicion
+
+A t=0 se dijo *""algun tipo de incienso, quizas palo santo""*. A los 30 min vuelve,
+y esta vez con la formulacion que lo explica:
+
+> *""Como el palo santo, que lo coges y lo hueles y dices: no huele mucho a nada,
+> pero huele bien.""*
+
+Es la descripcion mas exacta que hay en la ficha de que hace este material. **Un
+olor sin objeto y con valor**: no se puede decir a que huele y aun asi se aprueba.
+Encaja con el polo ambiente (`conocimiento/tecnicas/ambiente-vs-materia.md`) y con
+la curva plana — lo que no tiene pico ni materia identificable no se nombra, se
+acepta.
+
+## Notas posteriores a t=0
+
+*Escrito despues de cerrar la lectura inmediata. Son conexiones con el propio
+diario, no con ninguna fuente.*
+
+**""Ambiente"" deja de ser un descriptor y empieza a ser una categoria.** En el
+Dihydromyrcenol, la primera asociacion fue *""olor de ambiente, de tienda""*, y se
+anoto como rareza: el primer material del diario que se describia como espacio y
+no como materia. Aqui vuelve, y esta vez enunciado como criterio general:
+
+> *""Que el olor no sea algo con olor, como podria ser una flor, sino un olor
+> ambiental que forma parte de un entorno.""*
+
+Eso ya no es una asociacion suelta: es un **eje** que atraviesa el diario, del
+material que huele a si mismo (Stemone: hoja de higuera; Tabaco: pasa) al
+material que huele a un sitio (Dihydromyrcenol: tienda; Polysantol: coche nuevo).
+Dos casos claros y ambos de esta sesion. **Pendiente de decidir si se promueve a
+`conocimiento/` como notacion propia**, al modo de la curva de inspiracion — con
+dos ejemplares todavia es pronto.
+
+⚠️ **Posible confusion con fatiga olfativa.** Los tres materiales de la sesion se
+han descrito como poco intensos y no saturantes —*""entra holgadamente""*,
+*""sutil""*, *""varias bocanadas sin saturarme""*— frente a la sesion 1, donde
+Stemone y Tabaco si opacaban. Puede ser real (los tres son de fondo o de
+transicion suave) o puede ser la nariz adaptandose a lo largo de la sesion. Es el
+mismo confundido que dejo abierta la lectura del tabaco a 1 h.
+
+**Como se descarta:** reiniciar la nariz con lana o aire fresco
+(`conocimiento/tecnicas/protocolo-cata.md`) y volver a oler la tira del Estyrax. Si
+sube de intensidad, parte de lo registrado como ""suave"" era fatiga.
+"
+9f5b6625-af46-5236-8503-bb36f7fe217a,,eddcce30-c42e-5dac-b5fe-381f00f75951,catado (serie parcial),,,"---
+material: Vetiver
+material_id: MAT-vetiver
+familia: amaderados/resinosos
+fecha_cata: 2026-07-31
+dilucion: 10% DPG
+dosis: 2 gotas (cuentagotas del frasco) — dosis estándar del laboratorio
+confianza: alta
+formato: pre-rejilla  # evaluada antes del 2026-08-04: su silencio NO significa ausencia, significa que no habia sistema. No leerla con las reglas de conocimiento/tecnicas/rejilla-de-evaluacion.md
+---
+
+# Ficha de diario olfativo — Vetiver
+
+## Descriptores inmediatos
+
+Lo primero: **como un primo de la menta — pero no en lo que huele, sino en lo que refresca**. Un frescor cuyo origen no se logra identificar. *""No es menta, es frescor.""* Candidato alternativo propuesto: **wasabi**, o alguna otra planta con ese tipo de nota fresca.
+
+Ese frescor **se va muy rápido** y da paso a algo **más fuerte y amargo**.
+
+Hay también una **parte arranciada** — no necesariamente rancia, sino **parecida al Stemone**. Y el parecido es explícitamente **no de olor, sino de ""electricidad""**.
+
+## La referencia que lo cierra
+
+**Licor de hierbas.** Ratafía, Jägermeister — de esos licores herbales amargos. Concretamente: **un chupito de licor de hierbas sacado del congelador**.
+
+## Curva de inspiración
+
+Notación propia del laboratorio, ver `conocimiento/tecnicas/curva-de-inspiracion.md`.
+
+Dividiendo la inspiración en cuatro segmentos:
+
+| Segmento | Vetiver |
+|---|---|
+| 1 | Frescor mentolado/wasabi. Se va rápido |
+| 2 | **Pico de ataque.** Aparece la parte punzante, amarga |
+| 3 | Se mantiene fuerte |
+| 4 | Baja la intensidad |
+
+**Comparado con el Stemone, que ataca en el segmento 1**, el vetiver entra más tarde y **se sostiene mucho más**: aguanta hasta el final, solo bajando al cuarto segmento.
+
+## Atributos de rendimiento
+
+| Atributo | Observación |
+|---|---|
+| **Impacto** (golpe inicial) | Desplazado: no golpea al entrar sino en el **segundo segmento** de la inspiración. |
+| **Tenacidad** | Persistente durante toda la inspiración. (Tenacidad en el tiempo largo: pendiente de las lecturas siguientes.) |
+| **Difusión** | (pendiente) |
+| **Volumen** | **No es opacante**, a diferencia del tabaco y del Stemone. *""Podría estar más fuerte y no me taparía la nariz.""* Ocupa sin saturar. |
+
+## Evolución en tira
+
+| Momento | Observación |
+|---|---|
+| Inmediato (salida) | Frescor tipo menta/wasabi que se disipa rápido, dando paso a un amargor herbal fuerte y punzante. Referencia: licor de hierbas helado. No opacante. |
+| 15 min | *No realizada* — tira descartada (confirmado 2026-08-03). |
+| ~30 min (cuerpo) | *No realizada* — tira descartada. |
+| 1 h (cuerpo asentado) | *No realizada* — tira descartada. |
+| Dry-out (varias horas) | *No realizada* — tira descartada. |
+| 24 h | *No realizada* — tira descartada. |
+| Días sucesivos | *No realizada* — tira descartada. |
+
+## Asociaciones personales
+
+Un **chupito de licor de hierbas del congelador**. Bebida espirituosa herbal-amarga, servida muy fría.
+
+## Campo olfativo propio
+
+Comparte con el Stemone el rasgo de **""electricidad""** —la sensación punzante independiente del olor— pero no comparte el olor en sí. Sugiere que **""lo eléctrico"" no es un campo olfativo sino un eje transversal** que atraviesa campos distintos. Ver nota abajo.
+
+Campo propio candidato: **""herbal amargo frío""** — licor de hierbas, amargor vegetal, frescor sin dulzor.
+
+## Nota — ""electricidad"" como eje, no como campo
+
+Segunda vez que se usa el mismo recurso descriptivo, y ahora de forma explícitamente separada del olor:
+
+- Stemone: *""casi eléctrico, por la descarga que da al inspirarlo""*
+- Vetiver: *""parecida al Stemone, no en el olor sino en la electricidad""*
+- Y aquí, además: *""un primo de la menta, no en lo que huele sino en lo que refresca""*
+
+Es decir: se está distinguiendo, de forma consistente y espontánea, entre **lo que un material huele** y **lo que un material hace físicamente en la nariz** (refrescar, pinchar, descargar).
+
+Eso es exactamente la distinción que plantea la hipótesis trigeminal de `fuentes/vacios.md`, ítem 19 — llegada por uso, no por teoría. **Sigue sin confirmar por fuente**, pero ya se está empleando como herramienta de análisis y funciona.
+
+## Afinidades
+
+**Algo amaderado.** *""Este tipo de olores fuertecillos quedan muy interesantes con algo de madera.""*
+
+Precisión importante: **no madera oscura — madera clara**, no tan apagada.
+
+*Nota de inventario: de los amaderados de la paleta, **Polysantol** es el único al 10 % DPG, es decir el único directamente comparable sin preparación previa, y está programado para la sesión 2 (`diario/plan-de-catas.md`). Cedro Atlas, Iso E Super, Vertenex y Mayol vienen puros; Sandalmysore Core al 50 %. Todos requieren dilución para un acorde comparable.*
+
+## Sesgo de solvente
+
+La persistencia observada incluye la retención del DPG y no es tenacidad natural del material — ver `conocimiento/tecnicas/solventes-dpg-vs-alcohol.md`.
+
+## Qué buscar en las lecturas siguientes
+
+Cotejo con la fuente hecho **después** de la lectura inmediata (`conocimiento/materiales/monografia-vetiver.md`). Resumen de lo que cambia:
+
+El perfil documentado del vetiver es **dulce, muy pesado, amaderado-terroso, a raíces y tierra húmeda**. En la lectura inmediata **no apareció nada de eso**: ni tierra, ni raíz, ni dulzor.
+
+Pero la fuente documenta que los aceites recién destilados o de raíces jóvenes dan **notas de salida verdes, tipo peladura de patata o espárrago** — que sí encaja con lo percibido.
+
+**Hipótesis: la cata llegó pronto, no equivocada.**
+
+Qué vigilar a 15 min, 30 min, 1 h y dry-out:
+
+- [ ] ¿Aparece **tierra húmeda / suelo mojado**?
+- [ ] ¿Aparece **raíz**?
+- [ ] ¿Aparece **dulzor** amaderado? (la fuente lo atribuye al vetiverol; el amargor ya percibido, a la vetiverona)
+- [ ] ¿El ""frescor tipo wasabi"" se disipa del todo?
+
+Si aparecen, la lectura inicial capturó correctamente la salida verde. Si no aparecen nunca, hay que buscar otra explicación.
+
+⚠️ **La hipótesis queda sin resolver: la tira se descartó** (confirmado 2026-08-03) y no hubo ninguna lectura posterior a t=0. Las casillas de arriba siguen abiertas y solo pueden cerrarse **recatando el vetiver** en una sesión futura, con tira nueva y las mismas condiciones (10 % DPG, 2 gotas).
+
+## Seguimiento largo — pendiente de una tira nueva
+
+La fuente afirma que el vetiver puede seguir siendo perceptible en una mouillette durante **semanas o meses**. Es verificable directamente y sigue siendo la primera afirmación de una fuente que este laboratorio puede comprobar por sí mismo a largo plazo.
+
+**La tira del 2026-07-31 se tiró**, así que la comprobación no se hizo. Cuando se recate el vetiver: etiquetar la tira con material, fecha y hora, **guardarla aparte del material de la sesión** y volver a olerla a la semana y al mes.
+"
+c345afb4-79d1-595b-be62-a11656f99d57,,f3ed2528-77cc-5fce-86e7-8459e73a08e0,catado (serie parcial),,,"---
+material: Resinoide Benjui
+material_id: MAT-resinoide-benjui
+familia: (no se repite aquí a propósito — está en materias-primas/. Ver
+  ""Contaminación por metadatos"" en conocimiento/tecnicas/protocolo-cata.md)
+fecha_cata: (pendiente)
+dilucion: 10 % DPG — rebajado del 50 % de fábrica el 2026-08-04
+dosis: 2 gotas (cuentagotas) — dosis estandar del laboratorio
+hora_aplicacion: (pendiente)
+confianza: (pendiente)
+formato: rejilla v2
+---
+
+# Resinoide Benjui
+
+---
+
+> [!danger] 🔴 AVISO DE PRIMING — leer antes de empezar
+> Se le adelantaron al catador **dos datos de fuente sobre este material** durante
+> el diseño del sistema, el 2026-08-04:
+>
+> 1. **El mapa cromático de Aftel**, donde el benjuí figura como **ámbar**.
+>    → **C4 (color) queda comprometido** y **no sirve para cotejar contra Aftel**.
+> 2. **La distinción Siam / Sumatra**, con el dato de que el Sumatra *""puede
+>    recordar al estoraque""*. → Si aparece estoraque, marcarlo como sospechoso.
+>
+> **No se tachan: se anotan marcadas.** Un descriptor con priming sigue siendo un
+> dato, pero no es el mismo dato. El resto de la ficha sigue siendo ciego.
+
+> **ORDEN OBLIGATORIO: la APERTURA primero, el DESGLOSE después. Nunca al revés.**
+> La rejilla es un vector de priming. Ver `conocimiento/tecnicas/rejilla-de-evaluacion.md`.
+
+### Los cuatro símbolos — ningún campo en blanco
+
+`valor` lo percibo y lo nombro · **`—`** lo he buscado y **no está** ·
+**`?`** percibo algo y no sé nombrarlo · `n/r` no evaluado
+
+> ⚠️ **En los bloques de casillas, ninguna marcada significa `n/r` (no evaluado).**
+> Si has mirado y **no es ninguna**, escríbelo al lado: `— ninguna aplica`.
+
+### Los tiempos, y por qué son así
+
+| Etiqueta | Qué es | Cuánto dura |
+|---|---|---|
+| **`t0`** | **La apertura.** La premisa, a nariz limpia | Segundos |
+| **`t5`** | **El desglose.** La rejilla entera | Es una **ventana**, no un instante: lo que se tarda en rellenarla |
+| **`t30` · `t60`** | **Checkpoints.** Solo lo que ha cambiado | Minutos |
+| **`24h` · `d3` · `d7`** | Fondo y tenacidad | — |
+
+**El grueso del análisis va delante, y es deliberado.** Describir olor, forma,
+intensidad y color es mucho más significativo en la salida; definir la complejidad
+de una nota a la hora aporta poco. Las lecturas posteriores **no rebarren la
+rejilla: registran cambios**.
+
+`t15` se añade solo si el material se está moviendo rápido a ojo vista.
+
+Formato en los campos: `rugosa (t5) → suave (t30)`, o con comas.
+
+---
+
+# t0 · APERTURA
+
+> Sin mirar nada: ni rejilla, ni casilleros, ni fichas. **Una sola vez. No se
+> corrige nunca.** Si aparece el bloqueo, el juego de las veinte preguntas.
+>
+> Escribe del tirón, sin separar. Si aparecen, mejor — pero no las busques:
+> **el choque** (lo primerísimo) · **asociaciones** (sitios, objetos, recuerdos) ·
+> **lo que no sabes decir todavía** (percibes algo y no le encuentras nombre).
+
+**Al abrir ahora nada más respirar lo primero que me ha venido a la cabeza es el olor del humo que se echa en algunas atracciones de barcos de parques temáticos parques temáticos rollo por ejemplo aquí en en España el están los toros o la bruja o lo que sea y es bueno básicamente en la atracción en algún momento te echan una especie de humo y me he recordado este olor dicho esto describiendo el aroma Se trató de un aroma dulce resinoso con apertura tirando a fresca y un y un dulzor sobre todo en la mitad del del aroma del olor**
+
+
+---
+
+# BITÁCORA DE PASADAS
+
+> Cada pasada declara **qué bloques se barrieron**:
+> **bloque barrido + campo sin entrada nueva = igual** ·
+> **bloque no declarado = sin dato en esa pasada.**
+
+### t5 · __:__ · desglose completo · ciega
+
+
+
+<!--  Los checkpoints se van añadiendo aquí debajo:
+
+### t30 · 19:45 · barrido: B, C, D · informada
+Ha bajado un escalón. Sigue el balsámico, se ha calmado la salida.
+
+Bloques: A identidad · B forma · C sinestésico · D impacto/difusión
+         E modo de decaer · F descartes · G destino                  -->
+
+---
+
+# t5 · DESGLOSE
+
+## A · Identidad
+
+> [!abstract]- 🗂️ A1 · FAMILIA percibida (Calkin & Jellinek) — a ciegas · varias posibles
+> - [ ] Aldehídica
+> - [x] Ámbar
+> - [ ] Animal
+> - [ ] Anisada
+> - [ ] Aromática-Herbal
+> - [ ] Balsámica
+> - [ ] Alcanforada-Cineol
+> - [x] Cinámica
+> - [ ] Cítrica
+> - [ ] Floral · *subgrupos: Rosa · Jazmín · Muguet · Lilas*
+> - [x] Fresca
+> - [ ] Frutal
+> - [ ] Verde
+> - [ ] Herbal
+> - [ ] Iris
+> - [ ] Lavanda
+> - [ ] Cuero
+> - [ ] Linalool
+> - [ ] Mentolada
+> - [ ] Musgosa
+> - [x] Almizclada
+> - [ ] Especiada
+> - [x] Dulce
+> - [ ] Sandía-Pepino
+
+> [!abstract]- 🗂️ A2 · GRUPO (Ellena) — varias posibles
+> - [ ] **1 Flores** · Rosas · Blancas
+> - [ ] **2 Frutos** · Cítricos · Huerto · Rojos-blandos
+> - [x] **3 Maderas** · Sándalo · Pachulí · Vetiver · Cedro · Liquen
+> - [ ] **4 Hierbas** · Verde recién cortada · Aromáticas · Anisadas
+> - [ ] **5 Especias** · Frías · Calientes
+> - [ ] **6 Dulces** · Vainillas · Cumarinas · Almizcles sintéticos
+> - [x] **7 Animales** · Ámbares · Castóreos · Civetas
+> - [ ] **8 Marinos** · Algas · calone
+> - [ ] **9 Minerales** · Aldehídos
+
+**A3 · ¿Huele a una COSA o al AIRE DE UN SITIO?** — una sola
+
+*No es la asociación personal: es de qué se predica el olor. Un armario mohoso es
+el sitio DONDE estaría esa madera; una tienda de ropa ES lo que huele el Polysantol.*
+
+- [ ] **una cosa** que podrías tocar → *¿cuál?*
+- [x] **el aire de un sitio**, sin materia detrás → *¿qué sitio?* humo que usan en atracciones 
+- [ ] **las dos a la vez**
+- [ ] no sabría decir
+
+**A4 · Campo olfativo propio**
+amaderada/ambar
+
+## B · Forma dentro de la inhalación
+
+**B1 · Curva de intensidad** — *una casilla por segmento. Al rellenarla se dibuja
+la forma, y el cuadro sirve casi de icono del material.*
+
+|           | seg 1 | seg 2 | seg 3 | seg 4 |
+| --------- | ----- | ----- | ----- | ----- |
+| **ALTA**  |       |       | `█    | `█    |
+| **MEDIA** |       | `█    |       |       |
+| **BAJA**  | `█    |       |       |       |
+
+*Rellenar con `█`. `plano` es una respuesta completa, no un hueco.*
+
+**Resumen de curva:**
+apertura sutil que crece y se estabiliza
+
+**B2 · Altura** — *cuánto pesa en total, no su forma. Relativo a los demás
+materiales **a la misma concentración**.*
+- [x] **imperceptible** — hay que buscarlo *(Polysantol al 10 %)*
+- [ ] **discreto** — se percibe sin esfuerzo, pero no llena
+- [ ] **presente** — llena la nariz sin dominarla
+- [ ] **fuerte** — domina la mesa *(Absoluto de Tabaco, Allyl Amyl Glycolate)*
+- [ ] **abrumador** — satura y tapa lo demás
+
+**B3 · Complejidad** — una sola. **Se responde DESPUÉS de B1, nunca antes**
+- [ ] **simple** — una familia en los cuatro segmentos
+- [x] **compuesto** — dos o tres separables → *¿cuál en qué segmento?* apertura fresca lo dulce viene a posteriiori en el fuinal baila lo dulce con el almizclado
+- [ ] **complejo** — varias que **no se dejan separar**
+
+**B4 · Bloqueo** (prueba de la bocanada) — una sola
+- [ ] **B1** — bloquea en bocanadas pequeñas, o incluso sin inspirar
+- [ ] **B2** — no bloquea de entrada; solo con bocanada fuerte
+- [x] **B3** — no bloquea ni con una bocanada a todo pulmón
+
+## C · Sinestésico — 🔓 casillero ABIERTO
+
+> El vocabulario es **red de seguridad para el bloqueo, no menú**.
+> Si sale una palabra que no está, **esa gana**.
+
+|     | Campo              | Vocabulario de arranque                                                    | Respuesta                                                 |
+| --- | ------------------ | -------------------------------------------------------------------------- | --------------------------------------------------------- |
+| C1  | **Textura y peso** | duro·blando·aterciopelado·sedoso·áspero·aceitoso· denso·ligero·pesado·fino | aceitoso y ligero                                         |
+| C2  | **Temperatura**    | frío·templado·caliente                                                     | apertura fresca cierre caliente                           |
+| C3  | **Forma**          | afilado·plano·punzante·frágil·romo·envolvente                              | punzante y envolvente                                     |
+| C4  | **Color**          | libre                                                                      | naranja, color miel                                       |
+| C5  | **Brillo**         | brillante·oscuro·mate·transparente                                         | traslucido un mas brillante que oscuro pero tampoco claro |
+
+## D · Impacto y difusión
+
+> Los otros dos atributos de rendimiento —**tenacidad** y **volumen**— **no se
+> pueden medir aquí**: exigen que pase el tiempo. Están abajo, en los checkpoints.
+
+|     | Atributo                                  | Respuesta                  |
+| --- | ----------------------------------------- | -------------------------- |
+| D1  | **Impacto** — golpe inicial, nariz cerca  | cercano a la nariz intenso |
+| D2  | **Difusión** — 🔴 a un palmo y a un metro | no perceptible             |
+
+## F · Batería de descartes
+
+> ⚠️ **Tres estados, no dos — por eso aquí no hay casillas.** Una casilla solo
+> distingue marcada / sin marcar, y este bloque necesita `sí` · `—` (buscado y
+> ausente) · `?` (percibo algo y no sé nombrarlo).
+
+| Eje                      | `sí` | `—` | `?`    |
+| ------------------------ | ---- | --- | ------ |
+| **Metálico**             |      | `█  |        |
+| **Jabonoso**             |      | `█  |        |
+| **Verde**                |      | `█  |        |
+| **Floral**               |      |     | `█<br> |
+| **Dulce**                | `█   |     |        |
+| **Ahumado / quemado**    |      | `█  |        |
+| **Animálico**            |      |     | `█     |
+| **Resinoso / balsámico** | `█   |     |        |
+
+*Marcar con `X`. **Fila entera vacía = `n/r`** — no significa que no esté.*
+
+---
+
+# CHECKPOINTS
+*Solo lo que cambia. Aquí viven los campos que exigen que pase el tiempo.*
+
+|     | Atributo                                             | Respuesta |
+| --- | ---------------------------------------------------- | --------- |
+| D3  | **Tenacidad** — cuánto sigue detectable              |           |
+| D4  | **Volumen** — presencia a distancia pasado el tiempo |           |
+
+**Canal a distancia** — *qué se huele SIN acercarse: al entrar en la sala, al
+volver de un descanso, al pasar por la mesa. Con su hora.*
+
+
+**E · Modo de decaer** — *solo al cerrar la serie. No se estima, se espera.*
+- [ ] **se desvanece** — baja entero, conservando la forma
+- [x] **se trunca** — pierde la punta y queda la base: cambia la forma
+- [ ] **se simplifica** — pierde matices y conserva uno con identidad propia
+
+---
+
+# ZONA FIJA
+*Una vez por material. Primero lo que se marca, después lo que se escribe.*
+
+## G · Función, afinidad y destino
+
+**G1 · ¿Protagoniza o acompaña?** — una sola
+- [ ] **tesis** — aporta la idea
+- [x] **sostiene** — no aporta la idea, la sujeta
+- [ ] **lleva lejos** — no aporta la idea, la proyecta
+
+**G2 · Efecto** (Jellinek) — **un polo de cada eje como máximo. Nunca los dos del mismo.**
+- [x] **RICO** — sensual, erógeno
+- [ ] **FRESCO** — limpieza, higiene
+- [x] **GENTLE** — sedante, narcótico, calmante
+- [ ] **ACTIVE** — estimulante, activación, energizante
+
+**G3 · Versatilidad** (Aftel) — una sola
+- [ ] **difícil**
+- [x] **congenial**
+- [ ] **turgente** *(traducción dudosa de* turgid*: recargado, excesivo)*
+- [ ] **tenaz**
+
+**G4 · Afinidades** — *con qué lo pondrías, y por qué*
+me viene a la cabeza cardamomo algo especiado, aunque este tipo  de olor se puede usar para gourmand o para perfumes mas animalicos, da personalidad y cambia el caracter de los perfumes pero no lo definira categoricamente
+
+**G5 · Destino** — *fuera del perfume de persona: detergente, champú, ambientador,
+un coche, una tienda…*
+seria un buen olor para la entrada a una tienda de productos esotericos, pero muy fuerte para toda la tienda
+
+**G6 · Destino negativo** — *dónde estaría mal, o ""no querría que X oliese a esto""*
+olor que no buscas en una oficina
+
+**G7 · Prueba de las manos** *(opcional)*
+
+
+## Reconocimiento — dos preguntas distintas
+
+**R1 · ¿Acertaría la FAMILIA a ciegas?**
+- [ ] no sabría por dónde empezar
+- [ ] la acotaría a dos o tres
+- [x] la acertaría con seguridad
+
+**R2 · ¿Reconocería EL MATERIAL a ciegas, entre sus vecinos?**
+- [ ] no
+- [x] lo confundiría con → *¿con cuál?* otras resinas o quizas algun gourmand con notas conflictivas
+- [ ] lo reconocería con seguridad
+- [ ] ✅ **confirmado a ciegas** → *fecha:*
+
+**R3 · ¿Sé cómo se comporta mezclado?**
+- [x] no lo he usado nunca
+- [ ] lo he usado en un acorde → *¿cuál?*
+
+---
+
+# DESPUÉS DEL DESGLOSE
+
+## Imagen revisada
+> La imagen se esclarece al desgranar el olor. **La de la apertura no se
+> sobrescribe: que cambie es el dato.** Admite varias entradas con su tiempo.
+imagen nueva la historia de hansel i gretel, es como entre un bosque profundo encontrar un claro con una casa hecha de dulces, puertas de galleta y de la que sale un olor de caramelo cocinado al fuego
+
+
+## Metáfora *(opcional)*
+> **Criterio de Arctander:** vale si otro la puede usar.
+olor a tienda de cuero vieja, con muebles de madera con una pasteleria tras el mostrador
+
+
+---
+
+# CIERRE — Cotejo
+*Después de ir a por el contraste. Nunca antes.*
+
+| Campo | Respuesta |
+|---|---|
+| **Familia y grupo documentados** | Fuente: **balsámica**, nota de **fondo**. Predije *ámbar · cinámica · fresca · almizclada · dulce*, grupos *maderas* y *animales*. **No marqué balsámica**, que es la respuesta — pero ámbar y dulce están al lado |
+| **La firma** | **Vainilla.** *""Dulce, cálido y marcadamente avainillado""*. Y el origen: **exudado de un árbol herido** |
+| **Para qué se usa** | **Fijador fundamental** en orientales y florales dulces; **redondea** las notas. Técnica propia: **pre-fijar el alcohol** antes de montar el resto. Pilar del acorde ámbar junto a labdanum y vainillina |
+| **Divergencias** | ✅ Coinciden dulce, cálido, resinoso y cierre balsámico. ✅ **Acerté la función**: marqué `sostiene` y la fuente dice *fijador que redondea*. ❌ **La vainilla no apareció** en cuatro lecturas — rocé el territorio por caramelo y pastelería, pero no la palabra. ❌ Marqué `B2 = imperceptible` frente a *tenacidad excepcional*, y además contradice mi propio `D1 = intenso`. ❌ Lo *empolvado* del cierre no lo vi |
+| ~~**Color contra Aftel**~~ | ❌ **No aplica**: el mapa se vio antes de catar. *(Anecdótico: dije ""naranja color miel"" y Aftel dice ámbar — pero con priming no cuenta)* |
+
+**Aciertos que valen tanto como los fallos:** la función en fórmula, el registro
+dulce-resinoso y el cierre. La firma —vainilla— es lo que hay que aprender a
+nombrar.
+
+> [!quote]- 🎨 Mapa cromático de Aftel — solo para cotejar, NUNCA antes de catar
+>
+> | Color | Materiales |
+> |---|---|
+> | Naranja rojizo | Rosa · Patchouli |
+> | Turquesa | Lavanda |
+> | Azul oscuro | Manzanilla alemana |
+> | Verde amarronado | Musgo de roble · Osmanthus |
+> | Ámbar | Nardo · Jazmín · Benjuí |
+>
+> ⚠️ **No es una respuesta correcta**: es la asociación de Aftel.
+
+**Los aciertos se registran igual que los fallos.**
+
+## Fiabilidad — *solo si hay algo que avise de un problema*
+
+> Se rellena **al cerrar**, no durante. Si la lectura fue limpia, se deja vacío.
+> Sesgos posibles: **priming** (metadatos del repo · descriptor derivado de otro
+> descriptor · pista del nombre del material · algo leído antes de catar) ·
+> **fatiga** olfativa · **sesgo de solvente** (el DPG retiene: al 10 % hay más DPG
+> que al 50 %) · lectura **informada** en vez de ciega.
+
+
+
+**Lectura informada a partir del 2026-08-05**, al hacer el cotejo con la serie de
+salida completa (t0, t5, t30, t60) y 24 h y días por delante. Excepción prevista en
+`protocolo-cata.md`. La comparación seria sigue siendo contra t0.
+
+**Priming previo, ya declarado en cabecera:** mapa de Aftel (ámbar) y pista
+Siam/Sumatra. Anula el cotejo de color.
+
+
+## Al cerrar la serie
+- [ ] Responder el **modo de decaer**
+- [ ] Recoger los **`?`** → `fuentes/vacios.md`
+- [ ] Actualizar `registro-materiales.csv` a `catado`
+- [ ] Revisar **R1, R2 y R3**
+- [ ] Decidir si la tira se tira o sigue corriendo
+
+## Notas libres
+
+t30
+la segunda lectura del benjui solo ha aflojado y acortado la nota en la bocanada 
+
+t1h
+la nota sobre la bocanada se mantiene con respecto a t30 pero se ha perdido defiinitivamente el dulzor, se ha secado la resina o caramelo, ahora el dulzor es anecdotico"
+cd2a4090-f81e-5c61-a1e1-edc5209af394,,80381a8d-6a19-532d-b999-af7dbb48e1a3,catado (serie parcial),,,"---
+material: Absoluto de Tabaco
+material_id: MAT-absoluto-de-tabaco
+familia: resinas / eje narrativo
+fecha_cata: 2026-07-31
+dilucion: 10% DPG
+dosis: 2 gotas (cuentagotas del frasco) — dosis estándar del laboratorio
+confianza: alta
+formato: pre-rejilla  # evaluada antes del 2026-08-04: su silencio NO significa ausencia, significa que no habia sistema. No leerla con las reglas de conocimiento/tecnicas/rejilla-de-evaluacion.md
+---
+
+# Ficha de diario olfativo — Absoluto de Tabaco
+
+> **Línea base de `T-2026-004`** (tintura de tabaco de liar, en maceración desde
+> 2026-07-31). Esta ficha existe para poder contrastar la tintura casera contra
+> el absoluto comercial cuando esté lista.
+
+## Descriptores inmediatos
+
+**Es exactamente igual que un té de la tienda.** Casi sin matiz — el parecido es exagerado. Reconocido al destapar, antes incluso de olerlo con atención. El té en cuestión lleva **algarroba y pasas**.
+
+Primer pensamiento: **dátiles**. Corregido enseguida a **pasas** — tiene un punto que no llega a dátil.
+
+**Tabaco dulce.** El final es dulce; el principio no, el principio es más bien fuerte. Un olor que **captura y te hace volver a olerlo**.
+
+Un punto **cítrico o ácido**.
+
+## Lenguaje sinestésico
+
+- **Textura:** pegajoso.
+- **Peso:** **pesado** — y por una razón concreta: **no baja la potencia durante la inspiración**. Se mantiene igual de principio a fin. Se podría estar en una bocanada infinita embriagándose del mismo olor.
+- **Forma:** si el Stemone era **una línea recta**, este es **una mancha, una esfera, un círculo que avanza en varias direcciones a la vez**.
+
+## Estructura: compuesto, no directo
+
+Al contrario que el Stemone, **aquí hay muchos olores a la vez**: una mezcla de varias familias superpuestas. No es un olor directo.
+
+Componentes percibidos dentro de la mezcla:
+- Pasa / dátil (dominante)
+- **Madera**, hacia el final
+- **Un poco de flor** — pero no una flor blanca ni apasionada: *""una flor opacada por otros colores""*
+- Un fondo cítrico/ácido latente
+
+## Evolución en tira
+
+| Momento | Observación |
+|---|---|
+| Inmediato (salida) | Reconocimiento instantáneo del té de algarroba y pasas. Arranque fuerte, no dulce. Potencia constante durante toda la inspiración, sin el punzor del Stemone. |
+| 15 min | *No realizada* — sesión con cuatro tiras simultáneas. |
+| ~30 min (cuerpo) | *No realizada.* |
+| 1 h (cuerpo asentado) | **Intensidad muy rebajada, contra lo esperado**: hay que esforzarse bastante más para olerlo. Pero **el olor es el mismo**: siguen el punto dulce, los matices, las pasas. **No cambia de forma, solo de volumen** — *""lo mismo pero más flojito""*, una versión más floja de la anterior. |
+| Dry-out (varias horas) | *No realizada* — tira descartada (confirmado 2026-08-03). |
+| 24 h | *No realizada* — tira descartada. |
+| Días sucesivos | *No realizada* — tira descartada. |
+
+## Atributos de rendimiento
+
+| Atributo | Observación |
+|---|---|
+| **Impacto** (golpe inicial) | Alto pero no agresivo. Captura en vez de golpear. |
+| **Tenacidad** (cuánto dura detectable) | (pendiente) |
+| **Difusión** (distancia al poco de aplicar) | (pendiente) |
+| **Volumen** (presencia a distancia pasado el tiempo) | Medianamente voluminoso. |
+
+## Asociaciones personales
+
+**El té de algarroba y pasas de la tienda** — asociación tan fuerte que dificultó seguir describiendo. Ver nota de método abajo.
+
+Un sitio donde se conservan cosas: una tienda de **conservas** (no las más olorosas), o un sitio **a granel**, con mezclas de bastantes olores superpuestos.
+
+## Nota de método — el bloqueo por asociación
+
+La identificación instantánea con un olor conocido **bloqueó la descripción**: *""hay un concepto que describe a la perfección este olor y me cuesta moverme de ahí""*.
+
+Es un fenómeno esperable y no invalida nada. La descripción se completó igualmente siguiendo la guía campo por campo, que es exactamente para lo que sirve tener una plantilla. Registrado como aprendizaje de procedimiento, no como defecto de la cata.
+
+## Campo olfativo propio
+
+Candidato: **""despensa / a granel""** — conservas, granel, pasa, algarroba, madera de mueble viejo. Superposición de muchos olores en un espacio cerrado.
+
+Nótese que comparte el rasgo de *interior cerrado* con el campo *""madera vieja y moho""* del Stemone, pero sin humedad ni moho: aquí es seco y dulce. Puede que ambos sean subcampos de algo mayor, o puede que la humedad sea justo la línea que los separa. Pendiente de más habitantes.
+
+## Afinidades
+
+**Un cítrico** — hay algo cítrico latente que pide continuación. Pero **no la bergamota, ""tan típica""**: un cítrico menos fresco, más carnoso.
+
+Candidatos propuestos: **mandarina**, **naranja**, **azahar**. Y con especial convicción, **piña** — *""con piña quedaría muy bien""*. Mango solo si está algo verde.
+
+*Nota de inventario: **Mandarina** y **Naranja dulce** están disponibles (ambas puras, requieren dilución al 10 % para un acorde comparable). **Azahar** y **piña** no están en la paleta — el azahar sería una compra dirigida coherente con el eje; la piña no tiene equivalente evidente en el kit y habría que buscar con qué material construirla.*
+
+## Sesgo de solvente
+
+La persistencia observada incluye la retención del DPG y no es tenacidad natural del material — ver `conocimiento/tecnicas/solventes-dpg-vs-alcohol.md`.
+
+## Concordancia con la fuente
+
+`conocimiento/tecnicas/tinturas-alcoholicas.md` recoge del itinerario que **el absoluto de tabaco comercial tiende a un perfil ""pipa/dulce""**. La percepción registrada aquí —*""es un tabaco dulce""*, pasa, algarroba, dátil— **confirma esa caracterización** de forma independiente, sin haber consultado la ficha antes de catar.
+
+Eso refuerza la premisa del contraste pendiente: la tintura casera de tabaco de liar sin tostar (`T-2026-004`) debería dar algo distinto de esto. Cuando esté lista, esta ficha es el punto de comparación.
+
+## Divergencia a 1 h — tenacidad excepcional frente a caída de intensidad
+
+La fuente atribuye al absoluto de tabaco **tenacidad excepcional** y **alto poder de penetración** (`conocimiento/materiales/monografia-absoluto-de-tabaco.md`). A la hora, la percepción fue de intensidad **muy rebajada**, con esfuerzo para olerlo.
+
+Tres explicaciones posibles, no excluyentes y ninguna confirmada:
+
+1. **Tenacidad no es intensidad.** Un material puede seguir siendo detectable durante mucho tiempo *y a la vez* ser débil. La fuente afirma persistencia, no que se mantenga fuerte. Puede que no haya contradicción real.
+2. **Dilución.** Arctander describe el material puro; aquí está al 10 % DPG.
+3. ⚠️ **Fatiga olfativa.** La lectura llega al final de una sesión larga con cuatro tiras y muchas inhalaciones. La caída podría estar en la nariz y no en la tira. Es el confundido más probable y el más fácil de descartar.
+
+**Cómo se resuelve:** la lectura de **24 h con nariz descansada** discrimina. Si el tabaco vuelve a percibirse con cuerpo, la caída era fatiga; si sigue débil, era el material.
+
+⚠️ **No se resolvió: la tira se descartó** (confirmado 2026-08-03) y la lectura de 24 h nunca se hizo. La divergencia queda abierta. Al recatar, la prueba limpia es aplicar la tira de tabaco **al principio de la sesión y volver a leerla al día siguiente**, con nariz descansada, antes de sacar conclusiones sobre su tenacidad. Es una de las razones para no dejar el tabaco para el final de una tanda larga.
+
+## Comparación con el Resinoide Estyrax — sesión comparativa 2026-08-03
+
+⚠️ **Juicio de frasco abanicado y de memoria**, no de tira: la de esta cata se
+descartó. Vale para carácter y familia; **no para intensidad ni volumen**.
+
+Los dos se agrupan como **potentes que no bloquean**: *""no me llenan la nariz de
+la misma manera que otros ni te bloquean la respiración de lo fuertes que son""*.
+Eso **corrige** la posición que este material tenía en `diario/mapa-comparativo-paleta.md`,
+donde figuraba entre los opacantes junto al Stemone.
+
+Y separa dos materiales que el diario venía juntando por peso y oscuridad:
+
+| | Absoluto de Tabaco | Resinoide Estyrax |
+|---|---|---|
+| Registro | **Rancio**: sitio viejo, mohoso, algarroba | **Fresco**: resina fresca, cuero nuevo |
+| Cierre | **Sin cierre dulce** | Cierre **dulce**, de origen floral |
+| Efecto | Pegajoso, pesado | Intenso, **no engarrota la nariz** |
+
+**Lo que aporta a esta ficha:** que el dulce del tabaco —pasa, algarroba, dátil—
+está **presente desde el principio y en el cuerpo**, no como cierre. Es una
+distinción que la cata en solitario no podía dar, porque hacía falta un material
+que sí cerrara en dulce para notar que este no lo hace.
+
+Confirma además, desde otro ángulo, el *""casi repulsivo""* de Arctander: lo rancio
+y el sitio viejo son lo que separa a este material del otro, y es justo el rasgo
+que la fuente marca. Al 10 % DPG resultó seductor; comparado, sigue siendo el
+áspero de los dos.
+
+## Pregunta abierta
+
+Duda planteada durante la cata sobre si **la concentración es demasiado alta** para evaluar cómodamente. Está al 10 % DPG y 2 gotas, igual que el Stemone, así que la diferencia es del material, no del montaje. Si se confirma que satura, valorar catarlo también más diluido y anotarlo como cata aparte.
+"
+d76e5913-02a5-5141-9bff-b788214505d3,,35638b82-6ad4-5df4-ba4e-23eedad9e45e,catado (serie parcial),,,"---
+material: Stemone
+material_id: MAT-stemone
+familia: florales/transparentes
+fecha_cata: 2026-07-31
+dilucion: 10% DPG
+dosis: 2 gotas (cuentagotas del frasco) — dosis estándar del laboratorio
+confianza: alta
+formato: pre-rejilla  # evaluada antes del 2026-08-04: su silencio NO significa ausencia, significa que no habia sistema. No leerla con las reglas de conocimiento/tecnicas/rejilla-de-evaluacion.md
+---
+
+# Ficha de diario olfativo — Stemone
+
+> Escribir con palabras propias, sin consultar fuentes antes de catar. No hay
+> descripciones objetivamente correctas: el valor esta en construir una red de
+> asociaciones consistente.
+
+## Descriptores inmediatos
+
+Un olor **viejo**. Lo primero que viene a la cabeza es **rancio**: un lugar húmedo con madera vieja.
+
+Lo segundo, la sensación de **oler setas al freírlas en una sartén**.
+
+## Lenguaje sinestésico
+
+- **Textura y peso:** rugosa, y muy **áspera**. No pesada — el olor es fuerte solo un instante. Pero sin duda **grande**, porque ese instante te paraliza.
+- **Temperatura:** fría.
+- **Forma:** punzante. Y casi **eléctrico**, por la especie de descarga que da al inspirarlo.
+- **Opacidad (t+15 min):** **translúcida, no transparente.** Es demasiado potente para llamarla transparente: atravesar la fragancia **te distorsiona**. Pasa luz, pero deformada.
+
+## Sensación física, más allá del olor (t+15 min)
+
+No es solo que huela: **pica**. Como oler una hierba del campo con una ortiga y que además te escuezan **los micropelillos que se clavan al tocarla**, pero por dentro de la nariz, al respirar.
+
+Referencia propia: la sensación en la garganta de un **batido de apio** — un tallo verde que pica.
+
+> Hipótesis a verificar (no confirmada por ninguna fuente todavía): puede que
+> parte de lo descrito aquí —el picor, la ""descarga eléctrica"", el efecto
+> paralizante— no sea olfato en sentido estricto sino **irritación de la vía
+> trigeminal**, que es la que responde a estímulos punzantes y se percibe junto
+> al olor pero por un nervio distinto. Si se confirma, explicaría por qué el
+> descriptor que salió solo fue ""eléctrico"" y no una comparación olfativa.
+> Registrado en `fuentes/vacios.md`, ítem 19.
+
+**Observación que apoya la hipótesis (t+30 min):** el picor y la parte eléctrica **han desaparecido, mientras el olor verde sigue intacto**. Las dos sensaciones tienen curvas de decaimiento distintas. Si fueran el mismo fenómeno deberían apagarse a la vez; que no lo hagan sugiere dos mecanismos separados. No es prueba, pero es evidencia en la dirección de la hipótesis.
+
+## Evolución en tira
+
+Intervalos según `conocimiento/tecnicas/protocolo-cata.md`.
+
+| Momento | Observación |
+|---|---|
+| Inmediato (salida) | Entra en la nariz de forma punzante: atrapa y paraliza durante unos segundos, deja sin aire. Una especie de descarga eléctrica al inspirar, que **se relaja conforme acaba la inspiración**. |
+| 15 min | **Ahora sí aparece la higuera.** Es un olor **verde, claramente** — de los más verdes. **Menos húmedo** de lo que parecía al principio: al reposar se queda la parte punzante y fuerte junto al verde. Aparece también **ortiga**. Es muy **directo**: no toca varios palos olfativos, es una cosa concreta. |
+| ~30 min (cuerpo) | **La parte punzante y eléctrica se ha relajado**: ya no bloquea las fosas nasales ni raspa. Queda el verde solo, sin la intensidad agresiva del principio. **No hay nada más debajo, ni lo va a haber**: no se abre en capas. Si fuese una higuera, sería **una higuera sin frutos** — solo el ramo de hojas, incluso con el **líquido blanco que segregan**. La imagen: *estocadas en la nariz con un fajo de hojas de higuera*. |
+| 1 h (cuerpo asentado) | *No realizada* — tira descartada (confirmado 2026-08-03). |
+| Dry-out (varias horas) | *No realizada* — tira descartada. |
+| 24 h | *No realizada* — tira descartada. |
+| Días sucesivos | *No realizada* — tira descartada. |
+
+## Atributos de rendimiento
+
+| Atributo | Observación |
+|---|---|
+| **Impacto** (golpe inicial) | Muy alto. Paraliza y deja sin aire. El golpe es breve pero enorme. |
+| **Tenacidad** (cuánto dura detectable) | **Alta** (t+30 min): se mantiene igual con el paso del tiempo, sin declinar. Atención: parte de esta persistencia es retención del DPG, no del material — ver sección de sesgo de solvente. |
+| **Difusión** (distancia al poco de aplicar) | (pendiente) |
+| **Volumen** (presencia a distancia pasado el tiempo) | (pendiente) |
+
+## Asociaciones personales
+
+Bosques húmedos. Casas de montaña. Una **casa rural vieja construida sobre todo de piedra y madera**, afectada por la humedad y por el moho.
+
+Matiz importante: **no es tan húmedo como el musgo**, y tiene un **punto mohoso** propio.
+
+**t+30 min:** recuerdo de infancia — **recoger higos, estar en higueras**. La asociación no apareció hasta la tercera lectura, aunque la memoria estaba ahí desde siempre. Anotado como aviso de método: las asociaciones profundas tardan en aflorar y no conviene dar por cerrada una ficha en la primera pasada.
+
+## Campo olfativo propio
+
+Este material **atraviesa dos campos** según el momento, lo cual es en sí un dato:
+
+1. **""Madera vieja y moho""** (lectura inmediata) — humedad de interior cerrado, piedra, rancio, seta.
+2. **""Verde que pica""** (a los 15 min) — higuera, ortiga, apio, tallo aplastado. Verde vegetal con agresión física. A t+30 el picor se cae y queda **""verde de hoja""** a secas: hoja de higuera, césped, tallo, látex. Puede que el picor fuera un rasgo de la salida y no del campo.
+
+Nombres provisionales. Renombrar cuando haya más materiales que los pueblen — un campo con un solo habitante todavía no es un campo.
+
+## Revisión de vocabulario (t+15 min)
+
+El descriptor inicial **""rancio""** se pone en duda al reposar la tira: puede que la palabra correcta no fuera esa. Candidata alternativa propuesta: **apio**.
+
+Se conservan ambas. La lectura inmediata no se corrige a posteriori — lo que se percibió a t=0 es un dato tan válido como lo de t+15, y la distancia entre las dos es justamente lo que enseña.
+
+## Afinidades
+
+Combinaría con cosas **menos punzantes y suavemente dulces**. La intuición concreta: unas **flores blancas** podrían calmar esta electricidad.
+
+*Nota de inventario: el floral blanco disponible es la **Hedione** (jazmín/difusión). Viene pura, así que para un acorde comparable habría que diluirla al 10 % primero — pendiente de conseguir DPG (`diario/plan-de-catas.md`, fase 2).*
+
+## Sesgo de solvente
+
+La persistencia observada incluye la retención del DPG y no es tenacidad natural del material — ver `conocimiento/tecnicas/solventes-dpg-vs-alcohol.md`.
+
+## Divergencia con la clasificación de partida — resuelta a medias
+
+El inventario lo tiene como **florales/transparentes (verde/higuera)**, etiqueta heredada del itinerario.
+
+- **A t=0 la percepción divergía por completo**: rancio, seta, moho, madera vieja, piedra húmeda. Nada de verde ni de higuera.
+- **A t+15 min converge**: aparece la higuera con claridad y el verde se impone como el rasgo dominante.
+
+**Lectura:** la etiqueta del inventario describe el **cuerpo** del material, no su salida. Ambas observaciones son correctas en su momento — no había error de percepción, había un intervalo de lectura equivocado. Esto valida el protocolo de intervalos frente a la cata de una sola pasada.
+
+> ⚠️ **Contaminación registrada.** Entre la lectura inmediata y la de 15 min se
+> leyó la etiqueta `verde/higuera` del propio inventario. La aparición de la
+> higuera a t+15 **no es una percepción limpia**: hubo priming.
+>
+> Eso no invalida la lectura —el reconocimiento fue genuino, con recuerdo de
+> infancia asociado— pero sí obliga a rebajar su peso como evidencia
+> independiente. **La única lectura no contaminada de esta ficha es la de t=0**,
+> y esa divergía por completo de la etiqueta.
+>
+> Conclusión de método: el priming no vino de una fuente externa sino de los
+> metadatos del propio repositorio. Ver `conocimiento/tecnicas/protocolo-cata.md`.
+
+**A t+30 min la etiqueta cae por los dos lados.** Ninguna de las dos palabras sobrevive a la cata:
+
+- **""Transparente""** — demasiado potente para esa palabra. Atravesarla distorsiona. Corrección propuesta: **translúcido**.
+- **""Floral""** — no es floral, y ni siquiera herbal: es **hierba con nombre y apellido**. Hierba verde, césped. Formulado de la forma más precisa que dio la cata:
+
+> *""Las flores tienen muchos aromas, y justo esto es como si no hubiera flor. Es todo lo que involucra a una flor —el tallo, el entorno— pero no la flor en sí.""*
+
+Es decir: el material aporta la **arquitectura vegetal verde**, no la floración. Que se catalogue entre los florales puede deberse a su función en fórmula (aportar el contexto verde a un acorde floral) más que a su olor propio — **hipótesis, sin confirmar**.
+
+Queda abierto para contrastar con la monografía del Corpus B. Si el contraste confirma la lectura, corregir la familia en `materias-primas/stemone.md`, que hoy dice `florales/transparentes`.
+"
+d97b3dff-efa5-5b9b-b541-ddbe1bd63cbd,,e7ec2e5c-a6e2-53f7-8573-8e2e692b4cf7,catado (serie parcial),,,"---
+material: Methyl Pamplemousse
+material_id: MAT-methyl-pamplemousse
+familia: citricos de salida
+fecha_cata: 2026-07-31
+dilucion: 10% DPG
+dosis: 2 gotas (cuentagotas del frasco) — dosis estándar del laboratorio
+confianza: alta
+formato: pre-rejilla  # evaluada antes del 2026-08-04: su silencio NO significa ausencia, significa que no habia sistema. No leerla con las reglas de conocimiento/tecnicas/rejilla-de-evaluacion.md
+---
+
+# Ficha de diario olfativo — Methyl Pamplemousse
+
+## Descriptores inmediatos
+
+**Verde otra vez, pero no tan directo.** Se mueve en dos direcciones. El verde viene **más calmado** que el del Stemone.
+
+Más **floral** que aquel, y **dulce en comparación con lo verde** que sale al principio — no dulce dulce: **un dulce de flor**.
+
+Un punto **cítrico leve**. Y un **picor muy suave**, como el olor característico del jengibre pero muy diluido.
+
+## Lenguaje sinestésico
+
+- **Peso:** **mucho más ligero que todo lo catado hasta ahora.** Hay que esforzarse para olerlo.
+- **Forma:** *""la forma de una lágrima del revés""* — **entra pinchándote y luego rueda un poco sobre ti**. Cambia de estado a mitad de camino: empieza puntiagudo y termina rodando.
+
+## Estructura: tres cosas a la vez
+
+A diferencia del Stemone, que era una sola cosa, aquí hay **un verde enmascarado** por otros dos elementos:
+
+1. **Verde** — la base, claramente presente, como en el Stemone pero calmado.
+2. **Un punto cítrico** — leve. *Balsámico quizá no llega.*
+3. **Un poco de flor** — ver abajo.
+
+No se logra identificar de dónde viene la parte punzante. Duda abierta: **¿el verde llega a ser mentolado?** Sin resolver.
+
+## La flor: presente pero no protagonista
+
+No es una peonía ni una flor muy olorosa. La imagen exacta:
+
+> *""Un jardín que no tiene muchas flores. Un jardincillo no floral: la protagonista no es la flor, como en muchos casos, sino la planta que tiene alguna flor, que algo de olor le da. Notas que hay algo ahí, claramente, pero no es protagonista para nada.""*
+
+**Comparar con la formulación del Stemone**, donde no había flor en absoluto (""todo lo que rodea a una flor pero no la flor""). Aquí sí la hay, solo que en segundo plano. Los dos materiales quedan situados en **distintos puntos de un mismo eje de presencia floral** — ver nota de taxonomía abajo.
+
+## Evolución en tira
+
+| Momento | Observación |
+|---|---|
+| Inmediato (salida) | Verde calmado en dos direcciones, con cítrico leve y flor de fondo. Entrada puntiaguda que rueda. **Volatilidad perceptible en directo: el cambio se nota ya durante la propia cata**, sin esperar al siguiente intervalo. |
+| 15 min | *No realizada* — sesión con cuatro tiras simultáneas, intervalo omitido. |
+| ~30 min (cuerpo) | **Las notas dulces florecen.** Sigue siendo cítrico pero **ya no punzante**: nota agradable, rebajada, dulce. Mucho menos intensa, pero **el olor se mantiene por completo por la parte de abajo**. Descrito como **un plateau en la parte de arriba**: la parte perforante se corta y se relaja, la base sigue. ⚠️ *Lectura no ciega — ver nota de contaminación.* |
+| 1 h (cuerpo asentado) | *No realizada* — tira descartada (confirmado 2026-08-03). |
+| Dry-out (varias horas) | *No realizada* — tira descartada. |
+| 24 h | *No realizada* — tira descartada. |
+| Días sucesivos | *No realizada* — tira descartada. |
+
+## Atributos de rendimiento
+
+| Atributo | Observación |
+|---|---|
+| **Impacto** (golpe inicial) | Bajo. Hay que ir a buscarlo. |
+| **Tenacidad** (cuánto dura detectable) | (pendiente — pero se anticipa baja: el más volátil de la sesión) |
+| **Difusión** (distancia al poco de aplicar) | (pendiente) |
+| **Volumen** (presencia a distancia pasado el tiempo) | (pendiente) |
+
+## Asociaciones personales
+
+**Otro té de la tienda**, este con algo de cítrico y **aloe vera**. Matiz importante y bien visto: *no huele a aloe vera*, pero se le parece **por estructura** — ese té lleva el aloe **por encima** de un té verde de base. Es decir, el símil no es de olor sino de arquitectura: **base verde + algo concreto por encima**.
+
+Recuerdo visual: no un jardín, sino **un balconcito con un par de plantas** — un geranio que no huele mucho, con una flor abierta. Y ya está.
+
+## Campo olfativo propio
+
+Comparte el **verde** con el Stemone, pero no el picor ni la humedad. Candidato: **""verde de jardín""** — vegetal doméstico, calmado, con flor discreta. Frente al *""verde de hoja""* del Stemone, que es agreste y agresivo.
+
+## Nota de taxonomía propia — un eje, no una etiqueta
+
+Tras tres materiales, empieza a dibujarse un **eje de presencia floral** construido con formulaciones propias:
+
+| Material | Posición |
+|---|---|
+| Stemone | Flor ausente: *""todo lo que rodea a una flor, pero no la flor""* |
+| Methyl Pamplemousse | Flor presente pero secundaria: *""la protagonista es la planta que tiene alguna flor""* |
+
+Eso ya no es una lista de etiquetas: es una **dimensión graduable** donde colocar materiales futuros. Merece seguirse.
+
+## Afinidades
+
+**Una navaja suiza.** No es protagonista: **viene a acompañar otros olores**, y se puede mezclar con muchas cosas.
+
+Tres direcciones propuestas:
+- **Con Stemone** → un perfume muy verde, con muchas notas verdes, pero **calmándolas** con este. *(Ambos están al 10 % DPG y ambos catados: este acorde es realizable ya, sin preparación previa.)*
+- **Con un cítrico** → realzar su parte cítrica latente.
+- **Con algo dulce** → resaltar el dulce del final. Se apunta hacia **fruta tropical**.
+
+## Observación de estructura del material
+
+El **dulce parece accidental**: no es un rasgo destacable del cuerpo, aparece solo en la despedida. *""Te despide como dulce y se va.""*
+
+**Confirmado en la lectura posterior.** Lo que a t=0 se percibió como un dulce marginal de despedida es lo que después **florece y se queda**. La observación inicial no era un detalle menor: anticipaba la estructura del material. Razonamiento propio registrado en la segunda lectura:
+
+> *""Las partes cítricas suelen ser las que más rápido se volatilizan, y queda más el fondo dulce.""*
+
+Es aplicación correcta de la volatilidad diferencial, y no depende de haber leído la fuente.
+
+## Nota de contaminación ⚠️
+
+**La lectura posterior no es ciega.** Entre la lectura inmediata y esta se destiló y consultó `conocimiento/materiales/monografia-methyl-pamplemousse.md`, con el perfil de pomelo de la fuente. La lectura arranca explícitamente desde ahí (*""hemos quedado que era cítrico como un pomelo… si fuese así""*).
+
+No invalida el dato, pero lo degrada como evidencia independiente. **La única lectura ciega de esta ficha es la inmediata.**
+
+Causa: se hizo el cotejo con la fuente mientras la tira seguía en curso. Regla añadida a `conocimiento/tecnicas/protocolo-cata.md` para que no se repita: la serie completa de un material se cierra antes de abrir su ficha de fuente.
+
+**Consecuencia sobre la divergencia registrada:** la hipótesis de que el DPG aplastaba el cítrico sigue en pie y sin resolver. La prueba propuesta —catarlo primero, con nariz limpia y misma dilución— **sigue siendo válida y necesaria**, y ahora además debería hacerse sabiendo que la percepción ya está informada por la etiqueta de pomelo.
+
+## Sesgo de solvente
+
+La persistencia observada incluye la retención del DPG y no es tenacidad natural del material — ver `conocimiento/tecnicas/solventes-dpg-vs-alcohol.md`.
+"
+ebdaab98-a79b-5a5b-962a-7ffc8dd085e8,,2cc1f035-2239-55cc-90ed-49f43084c47e,catado (serie parcial),,,"---
+material: Galaxolide
+material_id: MAT-galaxolide
+familia: (no se repite aquí a propósito — está en materias-primas/. Ver
+  ""Contaminación por metadatos"" en conocimiento/tecnicas/protocolo-cata.md)
+fecha_cata: (pendiente)
+dilucion: 10 % DPG — rebajado del 50 % de fábrica el 2026-08-04
+dosis: 2 gotas (cuentagotas) — dosis estandar del laboratorio
+hora_aplicacion: (pendiente)
+confianza: (pendiente)
+formato: rejilla v2
+---
+
+# Galaxolide
+
+> **ORDEN OBLIGATORIO: la APERTURA primero, el DESGLOSE después. Nunca al revés.**
+> La rejilla es un vector de priming. Ver `conocimiento/tecnicas/rejilla-de-evaluacion.md`.
+
+### Los cuatro símbolos — ningún campo en blanco
+
+`valor` lo percibo y lo nombro · **`—`** lo he buscado y **no está** ·
+**`?`** percibo algo y no sé nombrarlo · `n/r` no evaluado
+
+> ⚠️ **En los bloques de casillas, ninguna marcada significa `n/r` (no evaluado).**
+> Si has mirado y **no es ninguna**, escríbelo al lado: `— ninguna aplica`.
+
+### Los tiempos, y por qué son así
+
+| Etiqueta | Qué es | Cuánto dura |
+|---|---|---|
+| **`t0`** | **La apertura.** La premisa, a nariz limpia | Segundos |
+| **`t5`** | **El desglose.** La rejilla entera | Es una **ventana**, no un instante: lo que se tarda en rellenarla |
+| **`t30` · `t60`** | **Checkpoints.** Solo lo que ha cambiado | Minutos |
+| **`24h` · `d3` · `d7`** | Fondo y tenacidad | — |
+
+**El grueso del análisis va delante, y es deliberado.** Describir olor, forma,
+intensidad y color es mucho más significativo en la salida; definir la complejidad
+de una nota a la hora aporta poco. Las lecturas posteriores **no rebarren la
+rejilla: registran cambios**.
+
+`t15` se añade solo si el material se está moviendo rápido a ojo vista.
+
+Formato en los campos: `rugosa (t5) → suave (t30)`, o con comas.
+
+---
+
+# t0 · APERTURA
+
+> Sin mirar nada: ni rejilla, ni casilleros, ni fichas. **Una sola vez. No se
+> corrige nunca.** Si aparece el bloqueo, el juego de las veinte preguntas.
+>
+> Escribe del tirón, sin separar. Si aparecen, mejor — pero no las busques:
+> **el choque** (lo primerísimo) · **asociaciones** (sitios, objetos, recuerdos) ·
+> **lo que no sabes decir todavía** (percibes algo y no le encuentras nombre).
+> La apertura de este olor es sin duda floral parece como ropa limpia creo que tiene un punto A la banda o flores blancas sin duda es floral con un toque dulce
+> no solo ropa limpia sino detergente floral concretamente
+
+
+
+
+---
+
+# BITÁCORA DE PASADAS
+
+> Cada pasada declara **qué bloques se barrieron**:
+> **bloque barrido + campo sin entrada nueva = igual** ·
+> **bloque no declarado = sin dato en esa pasada.**
+
+### t5 · __:__ · desglose completo · ciega
+
+
+
+<!--  Los checkpoints se van añadiendo aquí debajo:
+
+### t30 · 19:45 · barrido: B, C, D · informada
+Ha bajado un escalón. Sigue el balsámico, se ha calmado la salida.
+
+Bloques: A identidad · B forma · C sinestésico · D impacto/difusión
+         E modo de decaer · F descartes · G destino                  -->
+
+---
+
+# t5 · DESGLOSE
+
+## A · Identidad
+
+> [!abstract]- 🗂️ A1 · FAMILIA percibida (Calkin & Jellinek) — a ciegas · varias posibles
+> - [x] Aldehídica
+> - [ ] Ámbar
+> - [ ] Animal
+> - [ ] Anisada
+> - [ ] Aromática-Herbal
+> - [ ] Balsámica
+> - [ ] Alcanforada-Cineol
+> - [ ] Cinámica
+> - [ ] Cítrica
+> - [x] Floral · *subgrupos: Rosa · Jazmín · Muguet · Lilas*
+> - [ ] Fresca
+> - [ ] Frutal
+> - [ ] Verde
+> - [ ] Herbal
+> - [ ] Iris
+> - [x] Lavanda
+> - [ ] Cuero
+> - [ ] Linalool
+> - [ ] Mentolada
+> - [ ] Musgosa
+> - [ ] Almizclada
+> - [ ] Especiada
+> - [ ] Dulce
+> - [x] Sandía-Pepino
+
+> [!abstract]- 🗂️ A2 · GRUPO (Ellena) — varias posibles
+> - [x] **1 Flores** · Rosas · Blancas
+> - [ ] **2 Frutos** · Cítricos · Huerto · Rojos-blandos
+> - [ ] **3 Maderas** · Sándalo · Pachulí · Vetiver · Cedro · Liquen
+> - [ ] **4 Hierbas** · Verde recién cortada · Aromáticas · Anisadas
+> - [ ] **5 Especias** · Frías · Calientes
+> - [ ] **6 Dulces** · Vainillas · Cumarinas · Almizcles sintéticos
+> - [ ] **7 Animales** · Ámbares · Castóreos · Civetas
+> - [ ] **8 Marinos** · Algas · calone
+> - [x] **9 Minerales** · Aldehídos
+
+**A3 · ¿Huele a una COSA o al AIRE DE UN SITIO?** — una sola
+
+*No es la asociación personal: es de qué se predica el olor. Un armario mohoso es
+el sitio DONDE estaría esa madera; una tienda de ropa ES lo que huele el Polysantol.*
+
+- [ ] **una cosa** que podrías tocar → *¿cuál?*
+- [x] **el aire de un sitio**, sin materia detrás → *¿qué sitio?* huele a tintoreria o lavanderia
+- [ ] **las dos a la vez**
+- [ ] no sabría decir
+
+**A4 · Campo olfativo propio**
+floral jabonoso
+
+## B · Forma dentro de la inhalación
+
+**B1 · Curva de intensidad** — *una casilla por segmento. Al rellenarla se dibuja
+la forma, y el cuadro sirve casi de icono del material.*
+
+|           | seg 1 | seg 2 | seg 3 | seg 4 |
+| --------- | ----- | ----- | ----- | ----- |
+| **ALTA**  |       |       |       |       |
+| **MEDIA** | █     | █     | █     | █     |
+| **BAJA**  |       |       |       |       |
+
+*Rellenar con `█`. `plano` es una respuesta completa, no un hueco.*
+
+**Resumen de curva:**
+parede un olor totalmente plano
+
+**B2 · Altura** — *cuánto pesa en total, no su forma. Relativo a los demás
+materiales **a la misma concentración**.*
+- [ ] **imperceptible** — hay que buscarlo *(Polysantol al 10 %)*
+- [x] **discreto** — se percibe sin esfuerzo, pero no llena
+- [ ] **presente** — llena la nariz sin dominarla
+- [ ] **fuerte** — domina la mesa *(Absoluto de Tabaco, Allyl Amyl Glycolate)*
+- [ ] **abrumador** — satura y tapa lo demás
+
+**B3 · Complejidad** — una sola. **Se responde DESPUÉS de B1, nunca antes**
+- [x] **simple** — una familia en los cuatro segmentos el mismo olor 
+- [ ] **compuesto** — dos o tres separables → *¿cuál en qué segmento?*
+- [ ] **complejo** — varias que **no se dejan separar**
+
+**B4 · Bloqueo** (prueba de la bocanada) — una sola
+- [x] **B1** — bloquea en bocanadas pequeñas, o incluso sin inspirar
+- [ ] **B2** — no bloquea de entrada; solo con bocanada fuerte
+- [ ] **B3** — no bloquea ni con una bocanada a todo pulmón
+
+## C · Sinestésico — 🔓 casillero ABIERTO
+
+> El vocabulario es **red de seguridad para el bloqueo, no menú**.
+> Si sale una palabra que no está, **esa gana**.
+
+|     | Campo              | Vocabulario de arranque                                                    | Respuesta                          |
+| --- | ------------------ | -------------------------------------------------------------------------- | ---------------------------------- |
+| C1  | **Textura y peso** | duro·blando·aterciopelado·sedoso·áspero· aceitoso·denso·ligero·pesado·fino | sedoso ligero blando               |
+| C2  | **Temperatura**    | frío·templado·caliente                                                     | fresco                             |
+| C3  | **Forma**          | afilado·plano·punzante·frágil·romo·envolvente                              | afilado fragil envolvente          |
+| C4  | **Color**          | libre                                                                      | blanco ligeramente tintado de lila |
+| C5  | **Brillo**         | brillante·oscuro·mate·transparente                                         | semitransparente brillante         |
+
+## D · Impacto y difusión
+
+> Los otros dos atributos de rendimiento —**tenacidad** y **volumen**— **no se
+> pueden medir aquí**: exigen que pase el tiempo. Están abajo, en los checkpoints.
+
+|     | Atributo                                  | Respuesta              |
+| --- | ----------------------------------------- | ---------------------- |
+| D1  | **Impacto** — golpe inicial, nariz cerca  | impacto cercano fuerte |
+| D2  | **Difusión** — 🔴 a un palmo y a un metro |                        |
+
+## F · Batería de descartes
+
+> ⚠️ **Tres estados, no dos — por eso aquí no hay casillas.** Una casilla solo
+> distingue marcada / sin marcar, y este bloque necesita `sí` · `—` (buscado y
+> ausente) · `?` (percibo algo y no sé nombrarlo).
+
+| Eje                      | `sí` | `—` | `?` |
+| ------------------------ | ---- | --- | --- |
+| **Metálico**             |      | █   |     |
+| **Jabonoso**             | █    |     |     |
+| **Verde**                |      |     | █   |
+| **Floral**               | █    |     |     |
+| **Dulce**                |      |     | █   |
+| **Ahumado / quemado**    |      | █   |     |
+| **Animálico**            |      | █   |     |
+| **Resinoso / balsámico** |      | █   |     |
+
+*Marcar con `X`. **Fila entera vacía = `n/r`** — no significa que no esté.*
+
+---
+
+# CHECKPOINTS
+*Solo lo que cambia. Aquí viven los campos que exigen que pase el tiempo.*
+
+|     | Atributo                                             | Respuesta |
+| --- | ---------------------------------------------------- | --------- |
+| D3  | **Tenacidad** — cuánto sigue detectable              |           |
+| D4  | **Volumen** — presencia a distancia pasado el tiempo |           |
+
+**Canal a distancia** — *qué se huele SIN acercarse: al entrar en la sala, al
+volver de un descanso, al pasar por la mesa. Con su hora.*
+
+
+**E · Modo de decaer** — *solo al cerrar la serie. No se estima, se espera.*
+- [ ] **se desvanece** — baja entero, conservando la forma
+- [ ] **se trunca** — pierde la punta y queda la base: cambia la forma
+- [ ] **se simplifica** — pierde matices y conserva uno con identidad propia
+
+---
+
+# ZONA FIJA
+*Una vez por material. Primero lo que se marca, después lo que se escribe.*
+
+## G · Función, afinidad y destino
+
+**G1 · ¿Protagoniza o acompaña?** — una sola
+- [ ] **tesis** — aporta la idea
+- [x] **sostiene** — no aporta la idea, la sujeta
+- [ ] **lleva lejos** — no aporta la idea, la proyecta
+
+**G2 · Efecto** (Jellinek) — **un polo de cada eje como máximo. Nunca los dos del mismo.**
+- [ ] **RICO** — sensual, erógeno
+- [x] **FRESCO** — limpieza, higiene
+- [x] **GENTLE** — sedante, narcótico, calmante
+- [ ] **ACTIVE** — estimulante, activación, energizante
+
+**G3 · Versatilidad** (Aftel) — una sola
+- [ ] **difícil**
+- [x] **congenial**
+- [ ] **turgente** *(traducción dudosa de* turgid*: recargado, excesivo)*
+- [ ] **tenaz**
+
+**G4 · Afinidades** — *con qué lo pondrías, y por qué*
+citrico por encima madera por debajo, tiene que calmarse este olor floral tan intenso de detergente
+
+**G5 · Destino** — *fuera del perfume de persona: detergente, champú, ambientador,
+un coche, una tienda…*
+indudablemetne detergente
+
+
+**G6 · Destino negativo** — *dónde estaría mal, o ""no querría que X oliese a esto""*
+una cafeteria un sitio de comida, es un olor que quita apetito
+
+**G7 · Prueba de las manos** *(opcional)*
+en las manos no quedaria mal pero molestaria al rato y podria ser repetitivo
+
+## Reconocimiento — dos preguntas distintas
+
+**R1 · ¿Acertaría la FAMILIA a ciegas?**
+- [ ] no sabría por dónde empezar
+- [ ] la acotaría a dos o tres
+- [x] la acertaría con seguridad
+
+**R2 · ¿Reconocería EL MATERIAL a ciegas, entre sus vecinos?**
+- [ ] no
+- [ ] lo confundiría con → *¿con cuál?*
+- [x] lo reconocería con seguridad
+- [ ] ✅ **confirmado a ciegas** → *fecha:*
+
+**R3 · ¿Sé cómo se comporta mezclado?**
+- [x] no lo he usado nunca
+- [ ] lo he usado en un acorde → *¿cuál?*
+
+---
+
+# DESPUÉS DEL DESGLOSE
+
+## Imagen revisada
+> La imagen se esclarece al desgranar el olor. **La de la apertura no se
+> sobrescribe: que cambie es el dato.** Admite varias entradas con su tiempo.
+olor a una cama limpia con ropa limpia, o quizas una cama de hotel con sabanas limpias
+
+
+## Metáfora *(opcional)*
+> **Criterio de Arctander:** vale si otro la puede usar.
+ huele a estar en un anucion de detergente, tumbado sobre una cama de flores de color lila rosa claro y blanco y me imagino a un oso de mimosin por ahi dando vueltas tambien, al lado de la cama
+
+
+---
+
+# CIERRE — Cotejo
+*Después de ir a por el contraste. Nunca antes.*
+
+| Campo | Respuesta |
+|---|---|
+| **Familia y grupo documentados** | Fuente: **almizclada**, nota de **fondo**. Predije *aldehídica · floral · lavanda · sandía-pepino*, grupos *flores* y *minerales*. **No marqué almizclada** — pero clavé el carácter |
+| **La firma** | **Ropa recién lavada.** Es *""el aroma químico que define el olor a limpio""* en la cultura popular, y el **estándar en detergentes** |
+| **Para qué se usa** | Uno de los más usados de la industria. **Hasta el 20 % o más** en fragancias finas (*Paris*, *Trésor*, *Eternity*, *Dune*) para dar **estructura monolítica y difusión radiante** |
+| **Divergencias** | ✅✅ **Cuatro coincidencias directas y ninguna genérica**: ropa limpia · detergente · floral · plano-monolítico. ✅ *""Extremadamente persistente""* frente a mi *""a t30 igual de fuerte que al ponerlo""*. ❌ **La difusión radiante no la medí**: marqué `B1` en la bocanada pero nunca olí a distancia. Mismo error que con el Polysantol |
+| **Color contra el mapa de Aftel** | No figura en su mapa (que solo cubre naturales). Dije **blanco tintado de lila** |
+
+> ### 🏆 El mejor acierto que ha dado el diario
+>
+> *""Ropa limpia""* y *""indudablemente detergente""*, dichos a ciegas, frente a una
+> fuente que lo define como **el aroma del ""ropa recién lavada""** y **el estándar
+> en detergentes**. Y *""totalmente plano""* frente a *""estructura monolítica""*: la
+> misma observación, un tratado y una nariz, sin contacto entre las dos.
+>
+> **Y da el primer `jabonoso = sí` del diario**, uno de los dos ejes del vacío 31 —
+> descriptores que las fuentes usan y este diario no había usado nunca en diez
+> materiales. La batería de descartes hizo justo para lo que se diseñó: **el eje
+> estaba en la lista antes de que apareciera el material que lo activa.**
+
+> [!quote]- 🎨 Mapa cromático de Aftel — solo para cotejar, NUNCA antes de catar
+>
+> | Color | Materiales |
+> |---|---|
+> | Naranja rojizo | Rosa · Patchouli |
+> | Turquesa | Lavanda |
+> | Azul oscuro | Manzanilla alemana |
+> | Verde amarronado | Musgo de roble · Osmanthus |
+> | Ámbar | Nardo · Jazmín · Benjuí |
+>
+> ⚠️ **No es una respuesta correcta**: es la asociación de Aftel.
+
+**Los aciertos se registran igual que los fallos.**
+
+## Fiabilidad — *solo si hay algo que avise de un problema*
+
+> Se rellena **al cerrar**, no durante. Si la lectura fue limpia, se deja vacío.
+> Sesgos posibles: **priming** (metadatos del repo · descriptor derivado de otro
+> descriptor · pista del nombre del material · algo leído antes de catar) ·
+> **fatiga** olfativa · **sesgo de solvente** (el DPG retiene: al 10 % hay más DPG
+> que al 50 %) · lectura **informada** en vez de ciega.
+
+
+
+**Lectura informada a partir del 2026-08-05**, al hacer el cotejo con la serie de
+salida completa (t0, t5, t30, t60) y 24 h y días por delante. Excepción prevista en
+`protocolo-cata.md`. La comparación seria sigue siendo contra t0.
+
+⚠️ **Posible contaminación cruzada hacia el Ethylene Brassylate**, no al revés: la
+tira de este material pudo impedir leer a su vecino (`plan-de-catas.md`, sesión 3).
+Su propia lectura no queda comprometida por eso.
+
+
+## Al cerrar la serie
+- [ ] Responder el **modo de decaer**
+- [ ] Recoger los **`?`** → `fuentes/vacios.md`
+- [ ] Actualizar `registro-materiales.csv` a `catado`
+- [ ] Revisar **R1, R2 y R3**
+- [ ] Decidir si la tira se tira o sigue corriendo
+
+## Notas libres
+
+t30 el olor sigue siendo intenso es como si estuviera pegado te diria que practicamente esta igual de fuerte que en el momento en el que se puso
+t1h el "
