@@ -1123,7 +1123,7 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 
 ## V3-60 · Las catas, solo en la app; el diario del laboratorio, de archivo (cerrada con el usuario el 2026-10-18 en el proyecto LAB)
 
-**Literal:** pendiente de copiar del hilo del proyecto LAB donde se cerró. El resumen, en `catas-diseno.md` (decisión 1).
+**Literal** (2026-10-19, a la lectura de abajo que le pasó la sesión, al no tener la sesión el hilo del proyecto LAB donde se cerró el 2026-10-18): «si ok a las 6». El resumen de entonces, en `catas-diseno.md` (decisión 1).
 
 **Lectura** (de la sesión):
 
@@ -1134,7 +1134,7 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 
 ## V3-61 · La ficha de cata, con pestañas por tiempo (cerrada con el usuario el 2026-10-18 en el proyecto LAB)
 
-**Literal:** pendiente de copiar del hilo. El resumen, en `catas-diseno.md` (decisión 2, versión 2).
+**Literal** (2026-10-19, a la lectura de abajo que le pasó la sesión, al no tener la sesión el hilo del proyecto LAB donde se cerró el 2026-10-18): «si ok a las 6». El resumen de entonces, en `catas-diseno.md` (decisión 2, versión 2).
 
 **Lectura** (de la sesión):
 
@@ -1146,7 +1146,7 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 
 ## V3-62 · Las catas, en columnas, con vocabularios por código fijo (cerrada con el usuario el 2026-10-18 en el proyecto LAB)
 
-**Literal:** pendiente de copiar del hilo. El resumen, en `catas-diseno.md` (decisión 3).
+**Literal** (2026-10-19, a la lectura de abajo que le pasó la sesión, al no tener la sesión el hilo del proyecto LAB donde se cerró el 2026-10-18): «si ok a las 6». El resumen de entonces, en `catas-diseno.md` (decisión 3).
 
 **Lectura** (de la sesión):
 
@@ -1156,7 +1156,7 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 
 ## V3-63 · La primera versión de las catas: catar y cola (cerrada con el usuario el 2026-10-18 en el proyecto LAB)
 
-**Literal:** pendiente de copiar del hilo. El resumen, en `catas-diseno.md` (decisión 4).
+**Literal** (2026-10-19, a la lectura de abajo que le pasó la sesión, al no tener la sesión el hilo del proyecto LAB donde se cerró el 2026-10-18): «si ok a las 6». El resumen de entonces, en `catas-diseno.md` (decisión 4).
 
 **Lectura** (de la sesión):
 
@@ -1214,6 +1214,7 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 - **Los avisos con la app cerrada, para más tarde.**
 - **El legado «catado (serie parcial)» cuenta como catado**, de momento.
 - **Las fichas en blanco del laboratorio sobran**: el formato de la app las sustituye. Más tarde, buscar la manera de que las fichas hechas en la app queden también como registro en el ordenador según se hacen (enlaza con el «exportar a .md» aparcado en V3-63).
+- **Confirmado (2026-10-19, «si ok a las 6»), lo que la sesión había decidido sola:** la intensidad de 1 a 5 con las palabras de la hoja; ninguna pestaña antes de la t0; las marcas de la cola con su motivo; la cola agrupada por concentración habitual; «Nueva cata» reutiliza la tira en curso del material; como máximo 4 tiras por sesión.
 - **Las catas parten de las diluciones registradas** (V3-65): se elige el % entre los frascos que existen de ese material; no hay dilución libre. Hasta que exista la parte de diluciones, la tira sigue admitiendo «sin dilución».
 
 ## Pendientes
