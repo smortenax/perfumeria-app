@@ -30,10 +30,12 @@ export function MaterialTastings({
 }) {
   const strips = (tastings?.strips ?? []).filter((s) => s.materialId === materialId).sort((a, b) => (a.appliedAt < b.appliedAt ? 1 : -1));
   const legacy = data.catalog.evaluations.get(materialId);
+  // A sheet of the lab with its text (batch 18), tasted or not: it is linked.
+  const hasLegacy = legacyTasted(legacy?.status) || (legacy?.sheet ?? "").includes("\n");
   return (
     <section className="sheet-section material-tastings">
       <h3>{t.title}</h3>
-      {strips.length === 0 && !legacyTasted(legacy?.status) && <p className="unknown">{t.notTastedYet}</p>}
+      {strips.length === 0 && !hasLegacy && <p className="unknown">{t.notTastedYet}</p>}
       {strips.length > 0 && (
         <ul>
           {strips.map((s) => {
@@ -49,7 +51,7 @@ export function MaterialTastings({
           })}
         </ul>
       )}
-      {legacyTasted(legacy?.status) && (
+      {hasLegacy && (
         <p>
           <button type="button" className="link" onClick={onLegacy}>
             {t.legacySheet(legacy?.status ?? "")}
