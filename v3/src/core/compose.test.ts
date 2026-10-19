@@ -183,6 +183,20 @@ describe("compose: a pour in a mixture of two diluents (2026-10-08)", () => {
     expect(massOf(f, ALCOHOL).eq(Ratio.of(500n * MG))).toBe(true);
   });
 
+  // V3-67 (2026-10-19): «los diluyentes que hagan falta». Two were the most a pour could carry.
+  it("splits among three diluents or more, each with its share and the first with the rest", () => {
+    const IPM = DILUENTS.ipm;
+    const f = formula({ ...(mixed(A, 1n * G, "10", ALCOHOL, "30") as Add), moreDiluents: [{ material: IPM, fraction: Ratio.of(1, 5) }] });
+    expect(massOf(f, A).eq(Ratio.of(100n * MG))).toBe(true);
+    expect(massOf(f, ALCOHOL).eq(Ratio.of(300n * MG))).toBe(true);
+    expect(massOf(f, IPM).eq(Ratio.of(200n * MG))).toBe(true);
+    expect(massOf(f, DPG).eq(Ratio.of(400n * MG))).toBe(true);
+    expect(compose(f).totalUg.eq(Ratio.of(1n * G))).toBe(true);
+    expect(() => compose(formula({ ...(mixed(A, G, "10", ALCOHOL, "30") as Add), moreDiluents: [{ material: ALCOHOL, fraction: Ratio.of(1, 10) }] }))).toThrow(/same/);
+    expect(() => compose(formula({ ...(mixed(A, G, "10", ALCOHOL, "30") as Add), moreDiluents: [{ material: IPM, fraction: Ratio.of(3, 5) }] }))).toThrow(/leave some/);
+    expect(() => compose(formula({ ...pour(A, G, "10", DPG), moreDiluents: [{ material: IPM, fraction: Ratio.of(1, 5) }] }))).toThrow(/second one/);
+  });
+
   it("refuses a mixture that is not one: pure matter, no first diluent, the same diluent twice, or nothing left for one", () => {
     const second = { material: ALCOHOL, fraction: Ratio.of(1, 2) };
     expect(() => compose(formula({ ...pour(A, G), secondDiluent: second }))).toThrow(/first one/);

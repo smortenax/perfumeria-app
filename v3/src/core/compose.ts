@@ -15,6 +15,8 @@ export interface Line {
   readonly diluent: Material | null;
   /** With a mixture of two diluents, the second one and its share of what was poured. */
   readonly secondDiluent?: SecondDiluent;
+  /** The third diluent and on (V3-67), each with its share of what was poured. */
+  readonly moreDiluents?: readonly SecondDiluent[];
 }
 
 /** How much of one substance is in the bottle. */
@@ -43,7 +45,7 @@ export function replay(formula: Formula, upTo = formula.history.length): Line[] 
   for (const change of formula.history.slice(0, upTo)) {
     switch (change.kind) {
       case "add": {
-        checkAdd(change.material, change.fraction, change.diluent, change.massUg, change.secondDiluent);
+        checkAdd(change.material, change.fraction, change.diluent, change.massUg, change.secondDiluent, change.moreDiluents);
         lines.set(change.id, {
           id: change.id,
           material: change.material,
@@ -51,6 +53,7 @@ export function replay(formula: Formula, upTo = formula.history.length): Line[] 
           fraction: change.fraction,
           diluent: change.diluent,
           ...(change.secondDiluent ? { secondDiluent: change.secondDiluent } : {}),
+          ...(change.moreDiluents?.length ? { moreDiluents: change.moreDiluents } : {}),
         });
         break;
       }
@@ -115,11 +118,11 @@ export function breakdown(line: Line): Part[] {
   const diluted = line.massUg.sub(pure);
   if (!diluted.isZero()) {
     // checkAdd guarantees a diluent whenever the fraction is below 1, and a share of it beside a second one.
-    const second = line.secondDiluent ? line.massUg.mul(line.secondDiluent.fraction) : Ratio.ZERO;
-    parts.push({ material: line.diluent as Material, massUg: diluted.sub(second) });
-    if (line.secondDiluent) {
-      parts.push({ material: line.secondDiluent.material, massUg: second });
-    }
+    // The second diluent and the ones after it carry their shares; the first takes what is left.
+    const others = [...(line.secondDiluent ? [line.secondDiluent] : []), ...(line.moreDiluents ?? [])];
+    const shares = others.map((d) => ({ material: d.material, massUg: line.massUg.mul(d.fraction) }));
+    parts.push({ material: line.diluent as Material, massUg: diluted.sub(Ratio.sum(shares.map((s) => s.massUg))) });
+    parts.push(...shares);
   }
   return parts;
 }
@@ -144,7 +147,7 @@ export function vectorOf(formula: Formula): Vector {
   return makeVector(parts.map((part) => ({ material: part.material, amount: part.massUg })));
 }
 
-function checkAdd(material: Material, fraction: Ratio, diluent: Material | null, massUg: bigint, second?: SecondDiluent): void {
+function checkAdd(material: Material, fraction: Ratio, diluent: Material | null, massUg: bigint, second?: SecondDiluent, more?: readonly SecondDiluent[]): void {
   if (massUg <= 0n) {
     throw new RangeError(`"${material.name}": a mass must be greater than zero`);
   }
@@ -165,6 +168,19 @@ function checkAdd(material: Material, fraction: Ratio, diluent: Material | null,
     if (second.fraction.sign() <= 0 || !fraction.add(second.fraction).lt(Ratio.ONE)) {
       // Each of the two must be there: a mixture where one gets nothing is a pour with one diluent.
       throw new RangeError(`"${material.name}": the second diluent must take above 0 and leave some to the first`);
+    }
+  }
+  if (more && more.length > 0) {
+    if (!second || !diluent) {
+      throw new Error(`"${material.name}": a third diluent needs a first and a second one`);
+    }
+    const keys = [diluent.key, second.material.key, ...more.map((d) => d.material.key)];
+    if (new Set(keys).size !== keys.length) {
+      throw new Error(`"${material.name}": the diluents of a mixture are the same`);
+    }
+    if (more.some((d) => d.fraction.sign() <= 0) || !Ratio.sum([fraction, second.fraction, ...more.map((d) => d.fraction)]).lt(Ratio.ONE)) {
+      // As with two: each takes something, and the first is left some.
+      throw new RangeError(`"${material.name}": each diluent must take above 0 and leave some to the first`);
     }
   }
 }

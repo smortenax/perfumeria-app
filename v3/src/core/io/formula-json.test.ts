@@ -4,7 +4,7 @@ import { compose, vectorOf } from "../compose";
 import { f001 } from "../fixtures/f001";
 import type { Formula } from "../model/formula";
 import { DILUENTS, type Material } from "../model/material";
-import { FORMULA_FORMAT, FORMULA_FORMAT_MIX, formulaFromJson, formulaToJson } from "./formula-json";
+import { FORMULA_FORMAT, FORMULA_FORMAT_MANY, FORMULA_FORMAT_MIX, formulaFromJson, formulaToJson } from "./formula-json";
 
 const sameComposition = (a: Formula, b: Formula) => {
   const ca = compose(a);
@@ -154,5 +154,28 @@ describe("formula JSON", () => {
     expect(JSON.parse(plain).format).toBe(FORMULA_FORMAT);
     expect(plain).not.toContain("secondDiluent");
     expect(formulaFromJson(plain).history.some((c) => c.kind === "add" && c.secondDiluent)).toBe(false);
+  });
+  it("keeps three diluents or more in a third format, which an app of the second refuses (V3-67)", () => {
+    const a: Material = { key: "cas:A", kind: "base", name: "A" };
+    const many: Formula = {
+      header: { name: "tres", intention: "", container: null, workBatchUg: null, finalBatchUg: null },
+      history: [
+        {
+          kind: "add",
+          id: "m",
+          material: a,
+          massUg: 1_000_000n,
+          fraction: Ratio.of(1, 10),
+          diluent: DILUENTS.dpg,
+          secondDiluent: { material: DILUENTS.alcohol, fraction: Ratio.of(3, 10) },
+          moreDiluents: [{ material: DILUENTS.ipm, fraction: Ratio.of(1, 5) }],
+        },
+      ],
+    };
+    const text = formulaToJson(many);
+    expect(JSON.parse(text).format).toBe(FORMULA_FORMAT_MANY);
+    const read = formulaFromJson(text);
+    sameComposition(many, read);
+    expect(formulaToJson(read)).toBe(text);
   });
 });

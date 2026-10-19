@@ -60,6 +60,11 @@ export type Change =
       readonly diluent: Material | null;
       /** With a mixture of two diluents, the second one; absent with one diluent or none. */
       readonly secondDiluent?: SecondDiluent;
+      /**
+       * The third diluent and on, each with its share of what was poured (V3-67, 2026-10-19: «los
+       * diluyentes que hagan falta»); only beside a second one. The first takes what is left.
+       */
+      readonly moreDiluents?: readonly SecondDiluent[];
     }
   /** Free editing (§3.1): a line gets a new mass. */
   | { readonly kind: "set-mass"; readonly id: string; readonly target: string; readonly massUg: bigint }
