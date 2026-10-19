@@ -46,6 +46,7 @@ const OWNER: Readonly<Record<string, string>> = {
   material_references: "owner_id",
   lab_materials: "user_id",
   lab_dilutions: "user_id",
+  lab_dilution_diluents: "user_id",
   lab_evaluations: "user_id",
   lab_axes: "user_id",
 };
