@@ -530,9 +530,12 @@ export const texts = {
     massLabel: "Masa pesada (mg)",
     reweighTitle: "Repesar el frasco",
     reweighHelp:
-      "Pesa el frasco entero. Bruto menos tara es lo que queda de verdad, y la app escala todo a esa masa (§3.5). Escalar supone que todo se va por igual: no vale para lo evaporado.",
-    reweighOnOpen: "Al reabrir una fórmula con vial, se pesa.",
+      "Para cuando has usado parte de lo que había. Lo que queda de verdad es la masa nueva, y la app escala todo a ella (§3.5). Escalar supone que todo se va por igual: no vale para lo evaporado.",
+    reweighWithBottle: (tare: string) => `Con el frasco: escribes el bruto y la app resta la tara (${tare} g)`,
+    reweighWithBottleNoTare: "Con el frasco: hace falta su tara, en «Peso del frasco»",
+    reweighTared: "Con el frasco tarado en la báscula: escribes lo que queda",
     grossLabel: "Peso bruto (g)",
+    netLabel: "Lo que queda (g)",
     needTare: "Para repesar hace falta la tara del recipiente: escríbela en «Peso del frasco».",
     tooLight: "El bruto tiene que ser mayor que la tara.",
     tooHeavy: (max: string) =>

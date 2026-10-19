@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Ratio } from "../core/arith/ratio";
 import { parseMass } from "../core/arith/units";
 import { compose, replay, type Composition, type Line } from "../core/compose";
-import { formatDecimal, formatGrams, formatPercent } from "../core/display";
+import { formatDecimal, formatPercent } from "../core/display";
 import { checkIfra, type IfraBase, type IfraReport } from "../core/ifra";
 import { formulaToJson as toJsonWith } from "../core/io/formula-json";
 import type { Change, Formula, FormulaHeader } from "../core/model/formula";
@@ -18,7 +18,7 @@ import { BottleFrame } from "./Bottle";
 import { ProjectionCard, RepartoCard, VisualizerPlaceholder } from "./Charts";
 import { ifraOfLines } from "./composition-ifra";
 import { CompositionCard } from "./CompositionList";
-import { ChoiceDialog, ConfirmDialog, PromptDialog, SaveAsDialog, type SaveAsChoice } from "./Dialogs";
+import { ChoiceDialog, ConfirmDialog, PromptDialog, ReweighDialog, SaveAsDialog, type SaveAsChoice } from "./Dialogs";
 import { GramsCard, IntentionCard, NameCard } from "./Header";
 import { ChangeDetail, HistoryDock } from "./HistoryDock";
 import { IfraPanel, IfraSummary } from "./IfraBox";
@@ -37,7 +37,7 @@ type Add = Extract<Change, { kind: "add" }>;
 
 type Dialog =
   | { kind: "mass"; line: Add }
-  | { kind: "reweigh"; onOpen: boolean }
+  | { kind: "reweigh" }
   | { kind: "note" }
   | { kind: "quick" }
   | { kind: "saveAs" }
@@ -56,7 +56,6 @@ interface View {
 }
 
 const message = (e: unknown) => (e instanceof Error ? e.message : String(e));
-const reopensByWeighing = (formula: Formula) => formula.header.container?.tareUg != null && formula.history.length > 0;
 const newId = (): string => crypto.randomUUID();
 
 /** Where this formula is used as a material (plan 8.1b). */
@@ -138,7 +137,8 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
   // What the add bar is writing, read (P57): IFRA is checked on it while it is typed; nothing is added.
   const [draft, setDraft] = useState<Pour | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [dialog, setDialog] = useState<Dialog | null>(() => (reopensByWeighing(formula) ? { kind: "reweigh", onOpen: true } : null));
+  // Reopening no longer asks to weigh (V3-57): «Repesar…» is in the menu, for when you used some.
+  const [dialog, setDialog] = useState<Dialog | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [playing, setPlaying] = useState(false);
@@ -414,11 +414,11 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
     });
 
   const startReweigh = () => {
-    if (formula.header.container?.tareUg == null) {
-      setError(texts.dialogs.needTare);
+    if (!view.composition || view.composition.totalUg.isZero()) {
+      setError(texts.dialogs.nothingToReweigh);
       return;
     }
-    setDialog({ kind: "reweigh", onOpen: false });
+    setDialog({ kind: "reweigh" });
   };
 
   useEffect(() => {
@@ -648,39 +648,12 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
           onClose={() => setDialog(null)}
         />
       )}
-      {dialog?.kind === "reweigh" && tare !== null && (
-        <PromptDialog
-          title={texts.dialogs.reweighTitle}
-          label={texts.dialogs.grossLabel}
-          help={
-            (dialog.onOpen ? `${texts.dialogs.reweighOnOpen} ` : "") +
-            texts.dialogs.reweighHelp +
-            (view.composition && !view.composition.totalUg.isZero()
-              ? ` ${texts.dialogs.grossRange(formatGrams(Ratio.of(tare), 3), formatGrams(Ratio.of(tare).add(view.composition.totalUg), 3))}`
-              : "")
-          }
-          submit={(value) => {
-            let grossUg: bigint;
-            try {
-              grossUg = parseMass(value, "g");
-            } catch {
-              return texts.grams.invalid;
-            }
-            if (grossUg <= tare) {
-              return texts.dialogs.tooLight;
-            }
-            if (!view.composition || view.composition.totalUg.isZero()) {
-              return texts.dialogs.nothingToReweigh;
-            }
-            // Reweighing only finds what is left: the bottle cannot weigh more than it held (§3.5).
-            // A gross typed in mg, the way the bench weighs, would make it thousands of times heavier.
-            const most = Ratio.of(tare).add(view.composition.totalUg);
-            if (Ratio.of(grossUg).gt(most)) {
-              return texts.dialogs.tooHeavy(formatGrams(most, 3));
-            }
-            change({ kind: "reweigh", id: newId(), grossUg, tareUg: tare });
-            return null;
-          }}
+      {dialog?.kind === "reweigh" && (
+        <ReweighDialog
+          tareUg={tare}
+          totalUg={view.composition?.totalUg ?? null}
+          help={texts.dialogs.reweighHelp}
+          onDone={({ grossUg, tareUg }) => change({ kind: "reweigh", id: newId(), grossUg, tareUg })}
           onClose={() => setDialog(null)}
         />
       )}

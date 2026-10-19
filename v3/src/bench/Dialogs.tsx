@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Ratio } from "../core/arith/ratio";
 import { parseMass } from "../core/arith/units";
+import { readReweigh, type Reweigh, type ReweighMode } from "./reweigh";
 import { texts } from "./texts";
 
 const t = texts.dialogs;
@@ -231,6 +232,50 @@ export function SaveAsDialog(props: {
           )}
         </fieldset>
       )}
+    </Modal>
+  );
+}
+
+/**
+ * «Repesar…» (V3-57): when you decide, not on reopening. You say how you weigh: the whole bottle (the
+ * app takes off its tare) or with the bottle tared on the scale (what you read is what is left).
+ * Without a known tare, only the second.
+ */
+export function ReweighDialog(props: { tareUg: bigint | null; totalUg: Ratio | null; help: string; onDone: (r: Reweigh) => void; onClose: () => void }) {
+  const t = texts.dialogs;
+  const [mode, setMode] = useState<ReweighMode>(props.tareUg !== null ? "withBottle" : "tared");
+  const [value, setValue] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const input = useRef<HTMLInputElement>(null);
+  useEffect(() => input.current?.focus(), [mode]);
+  return (
+    <Modal
+      title={t.reweighTitle}
+      error={error}
+      onCancel={props.onClose}
+      onAccept={() => {
+        const read = readReweigh(mode, value, props.tareUg, props.totalUg);
+        if ("error" in read) {
+          setError(read.error);
+        } else {
+          props.onDone(read);
+          props.onClose();
+        }
+      }}
+    >
+      <p className="help">{props.help}</p>
+      <label className="radio">
+        <input type="radio" checked={mode === "withBottle"} disabled={props.tareUg === null} onChange={() => setMode("withBottle")} />
+        <span>{props.tareUg === null ? t.reweighWithBottleNoTare : t.reweighWithBottle(Ratio.of(props.tareUg).div(Ratio.of(1_000_000n)).toFixed(3).replace(".", ","))}</span>
+      </label>
+      <label className="radio">
+        <input type="radio" checked={mode === "tared"} onChange={() => setMode("tared")} />
+        <span>{t.reweighTared}</span>
+      </label>
+      <label className="field">
+        <span>{mode === "withBottle" ? t.grossLabel : t.netLabel}</span>
+        <input ref={input} inputMode="decimal" value={value} onChange={(e) => setValue(e.target.value)} />
+      </label>
     </Modal>
   );
 }
