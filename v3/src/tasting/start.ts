@@ -23,6 +23,7 @@ export async function tasteMaterial(
   if (already) return already.id;
   const sessionId = open?.id ?? (await createSession(local.db, local.userId));
   const dilution = latestDilution(data.catalog.dilutions.get(materialId));
+  // The newest bottle of yours, not archived; without one, the bottle is chosen on the strip before smelling it.
   const stripId = await addStrip(local.db, local.userId, sessionId, { materialId, dilutionId: dilution?.id ?? null, dose: texts.tasting.doseHint });
   if (from === "sheet") await saveClosure(local.db, local.userId, stripId, { biases: ["informed"] });
   return stripId;

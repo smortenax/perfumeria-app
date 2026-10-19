@@ -147,10 +147,11 @@ export interface Queue {
   readonly marked: readonly QueueItem[];
 }
 
-/** The dilution a strip of this material is made from: the newest you made. */
+/** The bottle a strip of this material is made from: the newest you made and have not archived (V3-67). */
 export function latestDilution(dilutions: readonly Dilution[] | undefined): Dilution | null {
-  if (!dilutions || dilutions.length === 0) return null;
-  return [...dilutions].sort((a, b) => (b.madeOn ?? "").localeCompare(a.madeOn ?? ""))[0];
+  const live = (dilutions ?? []).filter((d) => !d.archivedAt);
+  if (live.length === 0) return null;
+  return [...live].sort((a, b) => (b.madeOn ?? "").localeCompare(a.madeOn ?? ""))[0];
 }
 
 const solventKey = (s: string | null) => (s ?? "").trim().toLowerCase();

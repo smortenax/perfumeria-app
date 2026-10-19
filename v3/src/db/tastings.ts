@@ -263,26 +263,45 @@ export async function deleteSession(db: LocalDb, userId: string, sessionId: stri
  * A strip in one of your sessions, under the first free blind label (A to D). Its fraction and solvent
  * are copied from your dilution, so that editing the bottle later does not change the tasting.
  */
+/** Which bottle a strip is of (V3-66, V3-67): one of yours of that material, or the material pure; null while not chosen. */
+export interface StripBottle {
+  readonly dilutionId?: string | null;
+  readonly pure?: boolean;
+}
+
+/**
+ * What a strip copies of its bottle when it is made, so that correcting the bottle later does not
+ * change the tasting: its exact fraction and its diluents in words. Pure is 1 and no diluent.
+ */
+async function bottleSnapshot(db: LocalDb, userId: string, materialId: string, bottle: StripBottle) {
+  if (bottle.pure) return { dilutionId: null, fraction: "1", solvent: null };
+  if (!bottle.dilutionId) return { dilutionId: null, fraction: null, solvent: null };
+  const [dilution] = await db.select().from(local.labDilutions).where(and(eq(local.labDilutions.id, bottle.dilutionId), eq(local.labDilutions.userId, userId)));
+  if (!dilution) throw new Error("not one of your dilutions");
+  if (dilution.materialId !== materialId) throw new Error("the dilution is of another material");
+  const diluents = (await db.select().from(local.labDilutionDiluents).where(eq(local.labDilutionDiluents.dilutionId, dilution.id))).sort(
+    (a, b) => Number(a.position) - Number(b.position),
+  );
+  let solvent = dilution.solvent;
+  if (diluents.length > 0) {
+    const names = new Map((await db.select().from(local.materials).where(inArray(local.materials.id, diluents.map((d) => d.diluentId!)))).map((m) => [m.id, m.name ?? "—"]));
+    solvent = diluents.map((d) => names.get(d.diluentId!) ?? "—").join(" y ");
+  }
+  return { dilutionId: dilution.id, fraction: dilution.fraction, solvent };
+}
+
 export async function addStrip(
   db: LocalDb,
   userId: string,
   sessionId: string,
-  input: { readonly materialId: string; readonly dilutionId?: string | null; readonly dose?: string | null; readonly appliedAt?: string },
+  input: { readonly materialId: string; readonly dose?: string | null; readonly appliedAt?: string } & StripBottle,
 ): Promise<string> {
   await ownSession(db, userId, sessionId);
   await visibleMaterial(db, userId, input.materialId);
   const taken = new Set((await db.select().from(local.tastingStrips).where(eq(local.tastingStrips.sessionId, sessionId))).map((s) => s.blindLabel));
   const label = BLIND_LABELS.find((l) => !taken.has(l));
   if (!label) throw new Error("a session holds four strips at most");
-  let fraction: string | null = null;
-  let solvent: string | null = null;
-  if (input.dilutionId) {
-    const [dilution] = await db.select().from(local.labDilutions).where(and(eq(local.labDilutions.id, input.dilutionId), eq(local.labDilutions.userId, userId)));
-    if (!dilution) throw new Error("not one of your dilutions");
-    if (dilution.materialId !== input.materialId) throw new Error("the dilution is of another material");
-    fraction = dilution.fraction;
-    solvent = dilution.solvent;
-  }
+  const { fraction, solvent } = await bottleSnapshot(db, userId, input.materialId, input);
   const stripId = id();
   const stamp = now();
   await db.insert(local.tastingStrips).values({
@@ -290,7 +309,7 @@ export async function addStrip(
     sessionId,
     userId,
     materialId: input.materialId,
-    dilutionId: input.dilutionId ?? null,
+    dilutionId: input.pure ? null : (input.dilutionId ?? null),
     fraction,
     solvent,
     dose: clean(input.dose),
@@ -302,6 +321,15 @@ export async function addStrip(
     updatedAt: stamp,
   });
   return stripId;
+}
+
+/** Changes the bottle of a strip before it is smelled (V3-66): once the opening is written, it stays. */
+export async function setStripBottle(db: LocalDb, userId: string, stripId: string, bottle: StripBottle): Promise<void> {
+  const strip = await ownStrip(db, userId, stripId);
+  const moments = await db.select().from(local.tastingMoments).where(eq(local.tastingMoments.stripId, stripId));
+  if (moments.length > 0) throw new Error("the bottle of a strip is fixed once it is smelled");
+  const snap = await bottleSnapshot(db, userId, strip.materialId!, bottle);
+  await db.update(local.tastingStrips).set({ ...snap, updatedAt: now() }).where(eq(local.tastingStrips.id, stripId));
 }
 
 /** Takes a strip out of its session, with all it holds, before anything was written on it but the opening. */
@@ -323,8 +351,9 @@ export function writeOpening(db: LocalDb, userId: string, stripId: string, text:
 }
 
 async function makeOpening(db: LocalDb, userId: string, stripId: string, text: string): Promise<string> {
-  await ownStrip(db, userId, stripId);
+  const strip = await ownStrip(db, userId, stripId);
   if (text.trim() === "") throw new Error("an opening says something");
+  if (strip.fraction === null) throw new Error("first the bottle (or pure), then the opening (V3-66)");
   const [existing] = await db.select().from(local.tastingMoments).where(and(eq(local.tastingMoments.stripId, stripId), eq(local.tastingMoments.moment, "t0")));
   if (existing) throw new Error("the opening (t0) is written once and never corrected");
   const momentId = id();

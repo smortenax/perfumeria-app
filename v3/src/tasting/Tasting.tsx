@@ -2,9 +2,10 @@ import { type ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { Ratio } from "../core/arith/ratio";
 import type { LocalDatabase } from "../db/local/database";
 import {
-  addStrip, closeStrip, createSession, deleteSession, endSession, ensureMoment, type MomentFields, removeStrip, revealStrip, saveClosure, setBattery,
+  addStrip, closeStrip, setStripBottle, createSession, deleteSession, endSession, ensureMoment, type MomentFields, removeStrip, revealStrip, saveClosure, setBattery,
   setCurve, setFamily, setMark, type TastingClosure, type TastingMoment, type Tastings, type TastingStrip, updateMoment, writeOpening,
 } from "../db/tastings";
+import { bottleText } from "../dilution/Dilutions";
 import { percent } from "../glossary/format";
 import type { GlossaryData } from "../glossary/useGlossary";
 import { texts } from "../i18n/es";
@@ -25,7 +26,35 @@ const when = (iso: string) => {
   const d = new Date(iso);
   return Number.isNaN(d.getTime()) ? "" : d.toLocaleString("es-ES", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
 };
-const dilutionText = (s: Pick<TastingStrip, "fraction" | "solvent">) => (s.fraction ? t.dilutionOf(percent(s.fraction, 2), s.solvent) : (s.solvent ?? t.unknownDilution));
+const dilutionText = (s: Pick<TastingStrip, "fraction" | "solvent">) =>
+  s.fraction?.eq(Ratio.ONE) && !s.solvent ? t.pure : s.fraction ? t.dilutionOf(percent(s.fraction, 4), s.solvent) : (s.solvent ?? t.unknownDilution);
+
+/** A strip's bottle, as a choice: «» none yet, «pure», or the id of one of your bottles. */
+const bottleKey = (b: { dilutionId: string | null; pure: boolean }) => (b.pure ? "pure" : (b.dilutionId ?? ""));
+const bottleOfKey = (key: string) => ({ dilutionId: key && key !== "pure" ? key : null, pure: key === "pure" });
+
+/** The bottle of a strip (V3-66, V3-67): one of your bottles of the material, not archived, or pure. */
+function BottleSelect({ data, materialId, value, onChange }: { data: GlossaryData; materialId: string; value: string; onChange: (key: string) => void }) {
+  const bottles = (data.catalog.dilutions.get(materialId) ?? []).filter((d) => !d.archivedAt || d.id === value);
+  return (
+    <label className="field">
+      {t.dilution}
+      <select value={value} onChange={(e) => onChange(e.target.value)}>
+        <option value="" disabled>
+          {t.chooseBottle}
+        </option>
+        <option value="pure">{t.pure}</option>
+        {bottles.map((d) => (
+          <option key={d.id} value={d.id}>
+            {bottleText(data, d)}
+            {d.madeOn ? ` · ${d.madeOn}` : ""}
+          </option>
+        ))}
+      </select>
+      {bottles.length === 0 && <small className="hint">{t.noBottles}</small>}
+    </label>
+  );
+}
 /** A tenacity in hours (V3-42), shown in minutes under an hour: «al menos 25 min», «1,5 h». */
 const hoursText = (h: Ratio) => (h.lt(Ratio.ONE) ? `${h.mul(Ratio.of(60n)).toFixed(0)} min` : `${h.toFixed(1).replace(".", ",")} h`);
 const nameOf = (data: GlossaryData, id: string) => data.catalog.materials.get(id)?.name ?? "—";
@@ -257,7 +286,7 @@ function AddStrip({
 }: {
   data: GlossaryData;
   tastings: Tastings;
-  onAdd: (input: { materialId: string; dilutionId: string | null; dose: string }) => void;
+  onAdd: (input: { materialId: string; dilutionId: string | null; pure: boolean; dose: string }) => void;
   onCancel: () => void;
 }) {
   const options = useMemo(() => {
@@ -269,8 +298,7 @@ function AddStrip({
   }, [data, tastings]);
   const [query, setQuery] = useState("");
   const [materialId, setMaterialId] = useState<string | null>(null);
-  const dilutions = materialId ? (data.catalog.dilutions.get(materialId) ?? []) : [];
-  const [dilutionId, setDilutionId] = useState<string | null>(null);
+  const [bottle, setBottle] = useState("");
   const [dose, setDose] = useState<string>(t.doseHint);
   const shown = options.filter((m) => m.name.toLowerCase().includes(query.trim().toLowerCase())).slice(0, 30);
   return (
@@ -296,7 +324,7 @@ function AddStrip({
                   type="button"
                   onClick={() => {
                     setMaterialId(m.id);
-                    setDilutionId(latestDilution(data.catalog.dilutions.get(m.id))?.id ?? null);
+                    setBottle(latestDilution(data.catalog.dilutions.get(m.id))?.id ?? "");
                   }}
                 >
                   {m.name}
@@ -308,18 +336,7 @@ function AddStrip({
       )}
       {materialId && (
         <>
-          <label className="field">
-            {t.dilution}
-            <select value={dilutionId ?? ""} onChange={(e) => setDilutionId(e.target.value || null)}>
-              <option value="">{t.noDilution}</option>
-              {dilutions.map((d) => (
-                <option key={d.id} value={d.id}>
-                  {t.dilutionOf(percent(d.fraction, 2), d.solvent)}
-                  {d.madeOn ? ` · ${d.madeOn}` : ""}
-                </option>
-              ))}
-            </select>
-          </label>
+          <BottleSelect data={data} materialId={materialId} value={bottle} onChange={setBottle} />
           <label className="field">
             {t.dose}
             <input value={dose} onChange={(e) => setDose(e.target.value)} />
@@ -327,7 +344,7 @@ function AddStrip({
         </>
       )}
       <div className="tasting-actions">
-        <button type="button" className="primary" disabled={!materialId} onClick={() => materialId && onAdd({ materialId, dilutionId, dose })}>
+        <button type="button" className="primary" disabled={!materialId} onClick={() => materialId && onAdd({ materialId, ...bottleOfKey(bottle), dose })}>
           {t.add}
         </button>
         <button type="button" onClick={onCancel}>
@@ -380,6 +397,15 @@ function StripView({
         {strip.dose ? ` · ${strip.dose}` : ""} · {t.applied(when(strip.appliedAt))}
         {strip.closedAt ? ` · ${t.closed(when(strip.closedAt))}` : ""}
       </p>
+      {/* Before it is smelled, its bottle can still be chosen or changed (V3-66). */}
+      {moments.length === 0 && (
+        <BottleSelect
+          data={data}
+          materialId={strip.materialId}
+          value={bottleKey({ dilutionId: strip.dilutionId, pure: !strip.dilutionId && !!strip.fraction?.eq(Ratio.ONE) })}
+          onChange={(key) => run(setStripBottle(local.db, local.userId, strip.id, bottleOfKey(key)))}
+        />
+      )}
       <div className="tabs moment-tabs" role="tablist">
         {due.map((d) => (
           <button key={d.moment} type="button" role="tab" className={`tab ${d.state}`} aria-selected={tab === d.moment} onClick={() => setTab(d.moment)}>
@@ -440,7 +466,8 @@ function Opening({ local, strip, moment, run }: { local: LocalDatabase; strip: T
       <p className="hint">{t.t0Hint}</p>
       <textarea rows={6} value={text} onChange={(e) => setText(e.target.value)} aria-label={t.momentTitle.t0} />
       <p className="hint">{t.dictateHint}</p>
-      <button type="button" className="primary" disabled={!text.trim()} onClick={() => run(writeOpening(local.db, local.userId, strip.id, text))}>
+      {strip.fraction === null && <p className="hint">{t.bottleFirst}</p>}
+      <button type="button" className="primary" disabled={!text.trim() || strip.fraction === null} onClick={() => run(writeOpening(local.db, local.userId, strip.id, text))}>
         {t.t0Save}
       </button>
     </div>

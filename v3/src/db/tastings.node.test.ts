@@ -7,7 +7,7 @@ import { afterAll, beforeAll, expect, it } from "vitest";
 import { AppSchema, tables } from "./local/schema";
 import type { LocalDb } from "./materials";
 import {
-  addStrip, closeStrip, createSession, deleteSession, ensureMoment, loadTastings, removeStrip, revealStrip, saveClosure, setCurve, setFamily, updateMoment,
+  addStrip, closeStrip, setStripBottle, createSession, deleteSession, ensureMoment, loadTastings, removeStrip, revealStrip, saveClosure, setCurve, setFamily, updateMoment,
   writeOpening,
 } from "./tastings";
 
@@ -44,7 +44,7 @@ it("a session takes four strips at most, each under the next blind label, with i
   const session = await createSession(db, ME);
   const labels = [];
   for (let i = 0; i < 4; i++) labels.push(await addStrip(db, ME, session, { materialId: HEDIONE, dilutionId: i === 0 ? MY_DILUTION : null }));
-  await expect(addStrip(db, ME, session, { materialId: HEDIONE })).rejects.toThrow(/four strips/);
+  await expect(addStrip(db, ME, session, { materialId: HEDIONE, pure: true })).rejects.toThrow(/four strips/);
   const read = await loadTastings(db, ME);
   expect(read.strips.map((s) => s.blindLabel)).toEqual(["A", "B", "C", "D"]);
   expect(read.strips[0].fraction?.toString()).toBe("1/10");
@@ -52,7 +52,7 @@ it("a session takes four strips at most, each under the next blind label, with i
   expect(read.strips[1].fraction).toBeNull();
   // Taking one out frees its letter.
   await removeStrip(db, ME, labels[1]);
-  expect(await addStrip(db, ME, session, { materialId: HEDIONE })).toBeTruthy();
+  expect(await addStrip(db, ME, session, { materialId: HEDIONE, pure: true })).toBeTruthy();
   expect((await loadTastings(db, ME)).strips.map((s) => s.blindLabel)).toEqual(["A", "B", "C", "D"]);
   await deleteSession(db, ME, session);
   expect((await loadTastings(db, ME)).strips).toEqual([]);
@@ -61,14 +61,14 @@ it("a session takes four strips at most, each under the next blind label, with i
 it("a strip is of a material you can see, and of your dilution of that material", async () => {
   const session = await createSession(db, ME);
   await expect(addStrip(db, ME, session, { materialId: THEIRS })).rejects.toThrow(/common material or yours/);
-  await expect(addStrip(db, SOMEONE, session, { materialId: HEDIONE })).rejects.toThrow(/not one of your/);
+  await expect(addStrip(db, SOMEONE, session, { materialId: HEDIONE, pure: true })).rejects.toThrow(/not one of your/);
   await expect(addStrip(db, SOMEONE, (await createSession(db, SOMEONE)), { materialId: HEDIONE, dilutionId: MY_DILUTION })).rejects.toThrow(/dilutions/);
   await deleteSession(db, ME, session);
 });
 
 it("the opening once; the name after t5; a tab after the opening takes only fixed codes", async () => {
   const session = await createSession(db, ME);
-  const strip = await addStrip(db, ME, session, { materialId: HEDIONE });
+  const strip = await addStrip(db, ME, session, { materialId: HEDIONE, pure: true });
   await expect(ensureMoment(db, ME, strip, "t5")).rejects.toThrow(/first the opening/);
   await expect(revealStrip(db, ME, strip)).rejects.toThrow(/after the opening/);
   await writeOpening(db, ME, strip, "jazmín transparente");
@@ -96,7 +96,7 @@ it("the opening once; the name after t5; a tab after the opening takes only fixe
 
 it("the comparison only once the series is closed", async () => {
   const session = await createSession(db, ME);
-  const strip = await addStrip(db, ME, session, { materialId: HEDIONE });
+  const strip = await addStrip(db, ME, session, { materialId: HEDIONE, pure: true });
   await expect(closeStrip(db, ME, strip)).rejects.toThrow(/without its opening/);
   await writeOpening(db, ME, strip, "verde");
   await saveClosure(db, ME, strip, { decay: "truncates", role: "thesis" });
@@ -108,5 +108,19 @@ it("the comparison only once the series is closed", async () => {
   expect(read.closures[0]).toMatchObject({ decay: "truncates", role: "thesis", comparison: "la fuente dice…" });
   expect(read.strips[0].closedAt).not.toBeNull();
   expect(read.strips[0].revealedAt).not.toBeNull();
+  await deleteSession(db, ME, session);
+});
+
+it("a strip is smelled from a bottle of yours or pure (V3-66, V3-67): chosen before the opening, fixed after", async () => {
+  const session = await createSession(db, ME);
+  const strip = await addStrip(db, ME, session, { materialId: HEDIONE });
+  await expect(writeOpening(db, ME, strip, "jazmín")).rejects.toThrow(/first the bottle/);
+  await setStripBottle(db, ME, strip, { dilutionId: MY_DILUTION });
+  expect((await loadTastings(db, ME)).strips.find((s) => s.id === strip)?.fraction?.toString()).toBe("1/10");
+  await setStripBottle(db, ME, strip, { pure: true });
+  const pure = (await loadTastings(db, ME)).strips.find((s) => s.id === strip)!;
+  expect([pure.fraction?.toString(), pure.dilutionId, pure.solvent]).toEqual(["1", null, null]);
+  await writeOpening(db, ME, strip, "jazmín");
+  await expect(setStripBottle(db, ME, strip, { dilutionId: MY_DILUTION })).rejects.toThrow(/fixed once/);
   await deleteSession(db, ME, session);
 });
