@@ -45,7 +45,7 @@ const tables = new Map<string, PgTable>(
     .map((t) => [getTableName(t), t]),
 );
 
-const url = process.env.DATABASE_URL ?? "postgresql://postgres:postgres@127.0.0.1:54322/postgres";
+const url = process.env.DATABASE_URL ?? "postgresql://postgres:postgres@127.0.0.1:55322/postgres";
 const sql = postgres(url, { max: 1, onnotice: () => {} });
 
 type Value = string | boolean | null | string[];

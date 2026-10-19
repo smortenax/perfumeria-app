@@ -14,6 +14,6 @@ export default defineConfig({
   schemaFilter: ["public"],
   dbCredentials: {
     // Supabase's local database (`npx supabase start`); its well-known local password, not a secret.
-    url: "postgresql://postgres:postgres@127.0.0.1:54322/postgres",
+    url: "postgresql://postgres:postgres@127.0.0.1:55322/postgres",
   },
 });

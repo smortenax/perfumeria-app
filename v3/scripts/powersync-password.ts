@@ -14,7 +14,7 @@ if (!password) {
 }
 
 // Supabase's local database; its well-known local password, not a secret.
-const sql = postgres("postgresql://postgres:postgres@127.0.0.1:54322/postgres", { max: 1 });
+const sql = postgres("postgresql://postgres:postgres@127.0.0.1:55322/postgres", { max: 1 });
 try {
   // ALTER ROLE takes no parameters: the password goes in as a quoted literal.
   await sql.unsafe(`ALTER ROLE powersync_role WITH PASSWORD '${password.replace(/'/g, "''")}'`);

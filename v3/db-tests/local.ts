@@ -14,7 +14,7 @@ if (!/^http:\/\/(127\.0\.0\.1|localhost)(:\d+)?$/.test(url) || anonKey === "") {
 }
 
 /** The local database as its owner, like the loading script: RLS does not stop it. */
-export const admin = postgres("postgresql://postgres:postgres@127.0.0.1:54322/postgres", { max: 2, onnotice: () => {} });
+export const admin = postgres("postgresql://postgres:postgres@127.0.0.1:55322/postgres", { max: 2, onnotice: () => {} });
 
 export interface TestUser {
   readonly id: string;
