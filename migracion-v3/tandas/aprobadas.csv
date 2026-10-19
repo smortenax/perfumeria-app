@@ -86,3 +86,5 @@ retirada-1-a-4,2026-10-14,"orko kill, 2026-10-14 (V3-34): «no sirven materiales
 17-tus-nuevos,2026-10-16,"el usuario: «SI APRUEBO» (tanda 17)",materials.csv,64e08bb41138451578ef8cfdad27029fdfea85a9eba2874f2b8bd7b21863c0f0
 18-fichas-de-cata,2026-10-19,"el usuario: «tratala como blanco apruebo tanda» (tanda 18)",borrar.csv,153e107cd1158dddde1ca4e4d5463ad05564a6fff286a6fe648e589ac7715d7a
 18-fichas-de-cata,2026-10-19,"el usuario: «tratala como blanco apruebo tanda» (tanda 18)",lab_evaluations.csv,afb2ffbc96bf582da9fefc27b9b783a96f7d2e68c0b8dbfad65d93636bb1dc74
+19-frascos,2026-10-19,"el usuario: «si adelante» (tanda 19)",lab_dilution_diluents.csv,4c95a2beced36c49eea8cdef68cb003e2992e4ecc56beafa7fc7353721d53ac3
+19-frascos,2026-10-19,"el usuario: «si adelante» (tanda 19)",lab_dilutions.csv,a5c5c15f6a4baf82efd090a1b8654e823fe41cd3d77c0accff42811ca8edcab6
