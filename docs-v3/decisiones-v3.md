@@ -1163,6 +1163,7 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 - **Entra:** la sesión con hasta 4 tiras, las pestañas, los temporizadores con aviso con la app abierta, el cierre y el cotejo, el legado para consultar y la cola de pendientes (lo que tienes sin catar, agrupado por disolvente y dilución, con el progreso y los 12 del pedido del 2026-10-18 marcados).
 - **Dictado:** el del teclado del móvil.
 - **Aparcado:** la vista comparativa horizontal, la curva multilínea, el selector hex, el cotejo asistido y exportar a .md.
+- **Cambio del usuario (2026-10-19), literal:** «en la parte de Por catar deberian aparecer los materiales idealmente los 161 no solo los 13 nuevos». La cola toma todos tus materiales (tus versiones y los tuyos), tengan o no «lo tengo»; los comunes, no. Propuesta de la sesión: los frascos se agrupan por su concentración habitual (un 9,98 % pesado va con los «≈10 %»), y cada línea dice la exacta.
 
 ## Pendientes
 

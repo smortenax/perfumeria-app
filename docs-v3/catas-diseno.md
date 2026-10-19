@@ -157,7 +157,7 @@ rompe las catas que ya existen. Lo descriptivo (apertura, descripciones, sinest�
 
 ## Cómo vive la cata a partir de ahora (construido el 2026-10-19)
 
-1. **De dónde salen los materiales:** la pestaña **Cola** de «Catas» lista lo que tienes («lo tengo») y aún no has catado, agrupado por tu última dilución (fracción y disolvente). Cuenta como catado lo que tiene una tira cerrada en la app o una ficha del laboratorio marcada «catado». «Marcar» lo sube arriba con su motivo (p. ej. «pedido 2026-10-18»).
+1. **De dónde salen los materiales:** la pestaña **Cola** de «Catas» lista todos tus materiales que aún no has catado (cambio del 2026-10-19: no solo «lo tengo»), agrupados por tu última dilución (concentración habitual y disolvente). Cuenta como catado lo que tiene una tira cerrada en la app o una ficha del laboratorio marcada «catado». «Marcar» lo sube arriba con su motivo (p. ej. «pedido 2026-10-18»).
 2. **La sesión:** «A la sesión» (o «Añadir tira») crea la tira con la siguiente letra libre (A-D), el frasco y la dosis. Desde ahí solo ves la letra.
 3. **t0:** la apertura, del tirón (con el dictado del teclado si quieres). Se guarda una vez; la app y la base de datos no dejan corregirla.
 4. **t5:** el desglose entero. Al terminarlo, «Terminar t5 y ver el nombre».

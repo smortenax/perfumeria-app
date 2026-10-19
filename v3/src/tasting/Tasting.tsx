@@ -1,6 +1,5 @@
 import { type ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { Ratio } from "../core/arith/ratio";
-import type { CatalogMaterial } from "../db/catalog";
 import type { LocalDatabase } from "../db/local/database";
 import {
   addStrip, closeStrip, createSession, deleteSession, endSession, ensureMoment, type MomentFields, removeStrip, revealStrip, saveClosure, setBattery,
@@ -38,7 +37,7 @@ const shownMoments = (moments: readonly TastingMoment[], stripId: string, extra:
 
 /**
  * «Catas» (V3-60 to V3-63): a session with up to four strips, each with its tabs by time and its
- * timer; the closing and the comparison; the queue of what you have and have not tasted; the lab's
+ * timer; the closing and the comparison; the queue of your materials not tasted yet; the lab's
  * sheets, read only. Stays mounted while you are elsewhere, so that the notices still come.
  */
 export function Tasting({ data, local, tastings, visible }: { data: GlossaryData; local: LocalDatabase; tastings: Tastings; visible: boolean }) {
@@ -229,7 +228,7 @@ function SessionView({
   );
 }
 
-/** Adding a strip: a material you have, its bottle and the dose. */
+/** Adding a strip: a material of yours, its bottle and the dose. */
 function AddStrip({
   data,
   tastings,
@@ -244,9 +243,8 @@ function AddStrip({
   const options = useMemo(() => {
     const queue = buildQueue(data.catalog, tastings);
     const pending = new Set(queue.groups.flatMap((g) => g.items.map((i) => i.materialId)));
-    return [...data.catalog.have]
-      .map((id) => data.catalog.materials.get(id))
-      .filter((m): m is CatalogMaterial => !!m)
+    return [...data.catalog.materials.values()]
+      .filter((m) => m.ownerId !== null)
       .sort((a, b) => (pending.has(a.id) ? 0 : 1) - (pending.has(b.id) ? 0 : 1) || a.name.localeCompare(b.name, "es"));
   }, [data, tastings]);
   const [query, setQuery] = useState("");
@@ -762,6 +760,7 @@ function QueueView({
     <li key={i.materialId} className="queue-item">
       <span className="queue-name">
         {i.name}
+        {i.dilution && <small className="hint"> · {percent(i.dilution.fraction, 2)}</small>}
         {i.mark && <span className="mark-badge">{i.mark}</span>}
       </span>
       <span className="queue-buttons">
@@ -787,7 +786,7 @@ function QueueView({
       )}
       {queue.groups.map((g) => (
         <details key={g.key ?? "none"} className="queue-group" open={queue.groups.length <= 3}>
-          <summary>{t.queueGroup(g.fraction ? t.dilutionOf(percent(g.fraction, 2), g.solvent) : t.queueNoDilution, g.items.length)}</summary>
+          <summary>{t.queueGroup(g.fraction ? t.dilutionOf(`≈${percent(g.fraction, 2)}`, g.solvent) : t.queueNoDilution, g.items.length)}</summary>
           <ul className="queue-list">{g.items.map(item)}</ul>
         </details>
       ))}

@@ -132,7 +132,7 @@ export interface QueueItem {
 }
 
 export interface QueueGroup {
-  /** «10 % · DPG»; null for the materials without a dilution of yours. */
+  /** The nominal dilution and solvent («10 % · DPG»); null for the materials without a dilution of yours. */
   readonly key: string | null;
   readonly fraction: Ratio | null;
   readonly solvent: string | null;
@@ -141,7 +141,7 @@ export interface QueueGroup {
 
 export interface Queue {
   readonly groups: readonly QueueGroup[];
-  /** Of what you have: tasted (a strip closed in the app, or the lab's sheet), and pending. */
+  /** Of your materials: tasted (a strip closed in the app, or the lab's sheet), and pending. */
   readonly tasted: number;
   readonly pending: number;
   readonly marked: readonly QueueItem[];
@@ -155,27 +155,43 @@ export function latestDilution(dilutions: readonly Dilution[] | undefined): Dilu
 
 const solventKey = (s: string | null) => (s ?? "").trim().toLowerCase();
 
+/** The usual strengths of a dilution, in percent: a weighed 9,98 % is a «10 %» bottle. */
+const NOMINAL_PERCENTS = [0.01, 0.1, 0.5, 1, 2, 3, 5, 10, 15, 20, 25, 30, 50, 100];
+
 /**
- * The queue (V3-63): what you have and have not tasted, grouped by solvent and dilution, so that a
+ * The strength a weighed dilution was made for, to group bottles alike: the usual one within 15 %
+ * of it (9,98 % and 10,05 % are «10 %»), else the fraction as it is. Only for grouping: each
+ * strip keeps the exact fraction of its bottle.
+ */
+export function nominalFraction(fraction: Ratio): Ratio {
+  const percent = Number(fraction.toFixed(6)) * 100;
+  const near = NOMINAL_PERCENTS.find((p) => Math.abs(percent - p) <= p * 0.15);
+  return near === undefined ? fraction : Ratio.fromDecimal(String(near)).div(Ratio.of(100n));
+}
+
+/**
+ * The queue (V3-63, widened by the user on 2026-10-19): every material of yours, not only what you
+ * marked as «lo tengo», that you have not tasted, grouped by solvent and dilution, so that a
  * session takes strips alike in both (the lab's tasting plan); the marked ones first.
  */
 export function buildQueue(catalog: Catalog, tastings: Pick<Tastings, "strips" | "marks">): Queue {
   const closed = new Set(tastings.strips.filter((s) => s.closedAt).map((s) => s.materialId));
   const isTasted = (id: string) => closed.has(id) || legacyTasted(catalog.evaluations.get(id)?.status);
-  const have = [...catalog.have].filter((id) => catalog.materials.has(id));
-  const pending = have.filter((id) => !isTasted(id));
+  const yours = [...catalog.materials.values()].filter((m) => m.ownerId !== null).map((m) => m.id);
+  const pending = yours.filter((id) => !isTasted(id));
   const items = pending
     .map((id): QueueItem => ({ materialId: id, name: catalog.materials.get(id)!.name, dilution: latestDilution(catalog.dilutions.get(id)), mark: tastings.marks.get(id) ?? null }))
     .sort((a, b) => (a.mark ? 0 : 1) - (b.mark ? 0 : 1) || a.name.localeCompare(b.name, "es"));
   const groups = new Map<string, { fraction: Ratio | null; solvent: string | null; items: QueueItem[] }>();
   for (const item of items) {
-    const key = item.dilution ? `${item.dilution.fraction.toString()}|${solventKey(item.dilution.solvent)}` : "";
-    const group = groups.get(key) ?? { fraction: item.dilution?.fraction ?? null, solvent: item.dilution?.solvent ?? null, items: [] };
+    const nominal = item.dilution ? nominalFraction(item.dilution.fraction) : null;
+    const key = item.dilution && nominal ? `${nominal.toString()}|${solventKey(item.dilution.solvent)}` : "";
+    const group = groups.get(key) ?? { fraction: nominal, solvent: item.dilution?.solvent ?? null, items: [] };
     group.items.push(item);
     groups.set(key, group);
   }
   const ordered = [...groups.entries()]
     .map(([key, g]): QueueGroup => ({ key: key === "" ? null : key, fraction: g.fraction, solvent: g.solvent, items: g.items }))
     .sort((a, b) => (a.key === null ? 1 : 0) - (b.key === null ? 1 : 0) || b.items.length - a.items.length);
-  return { groups: ordered, tasted: have.length - pending.length, pending: pending.length, marked: items.filter((i) => i.mark) };
+  return { groups: ordered, tasted: yours.length - pending.length, pending: pending.length, marked: items.filter((i) => i.mark) };
 }

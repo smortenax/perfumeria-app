@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { Ratio } from "../core/arith/ratio";
 import type { Catalog, CatalogMaterial, Dilution } from "../db/catalog";
 import type { TastingMoment, TastingStrip } from "../db/tastings";
-import { blockState, buildQueue, changedBlocks, countdown, dueMoments, legacyTasted, nextWaiting, tenacity } from "./logic";
+import { blockState, buildQueue, nominalFraction, changedBlocks, countdown, dueMoments, legacyTasted, nextWaiting, tenacity } from "./logic";
 
 const APPLIED = "2026-10-18T10:00:00.000Z";
 const at = (minutes: number) => new Date(Date.parse(APPLIED) + minutes * 60_000).toISOString();
@@ -70,13 +70,13 @@ describe("the tenacity, in hours, from the tabs (V3-42, V3-62)", () => {
 });
 
 describe("the queue (V3-63)", () => {
-  const mat = (id: string, name: string) => ({ id, name }) as CatalogMaterial;
+  const mat = (id: string, name: string, ownerId: string | null = "me") => ({ id, name, ownerId }) as CatalogMaterial;
   const dil = (id: string, pct: number, solvent: string | null, madeOn: string | null): Dilution => ({
     id, fraction: Ratio.of(BigInt(pct), 100n), solvent, madeOn, description: null,
   });
   const catalog = {
-    materials: new Map([["a", mat("a", "Vetiver")], ["b", mat("b", "Benjuí")], ["c", mat("c", "Galaxolide")], ["d", mat("d", "Ámbar")], ["e", mat("e", "Iso E")]]),
-    have: new Set(["a", "b", "c", "d", "e", "gone"]),
+    materials: new Map([["a", mat("a", "Vetiver")], ["b", mat("b", "Benjuí")], ["c", mat("c", "Galaxolide")], ["d", mat("d", "Ámbar")], ["e", mat("e", "Iso E")], ["common", mat("common", "Hedione común", null)]]),
+    have: new Set(["a"]),
     dilutions: new Map([
       ["a", [dil("a1", 10, "DPG", "2026-08-01")]],
       ["b", [dil("b0", 50, "alcohol", "2026-07-01"), dil("b1", 10, "dpg", "2026-08-02")]],
@@ -85,7 +85,8 @@ describe("the queue (V3-63)", () => {
     evaluations: new Map([["d", { id: "x", status: "catado (serie parcial)", smellingTip: null, reading: null, sheet: null }]]),
   } as unknown as Catalog;
 
-  it("what you have and have not tasted, by dilution and solvent, the marked first", () => {
+  // The user, 2026-10-19: «deberian aparecer los materiales idealmente los 161 no solo los 13 nuevos».
+  it("every material of yours not tasted, «lo tengo» or not; never a common one; by dilution and solvent, the marked first", () => {
     const closedStrip = { materialId: "c", closedAt: at(2000) } as TastingStrip;
     const q = buildQueue(catalog, { strips: [closedStrip], marks: new Map([["e", "pedido 2026-10-18"]]) });
     expect(q.tasted).toBe(2); // c, closed in the app; d, the lab's sheet
@@ -94,6 +95,14 @@ describe("the queue (V3-63)", () => {
     // b's newest dilution is 10 % in dpg: with a, whatever the case of the solvent.
     expect(q.groups.map((g) => g.items.map((i) => i.materialId))).toEqual([["b", "a"], ["e"]]);
     expect(q.groups[1].key).toBeNull();
+  });
+
+  it("groups a weighed bottle with its usual strength: 9,98 % and 10,05 % are «10 %»; 7 % stays 7 %", () => {
+    const pct = (p: string) => Ratio.fromDecimal(p).div(Ratio.of(100n));
+    expect(nominalFraction(pct("9.98")).eq(pct("10"))).toBe(true);
+    expect(nominalFraction(pct("10.05")).eq(pct("10"))).toBe(true);
+    expect(nominalFraction(pct("1.08")).eq(pct("1"))).toBe(true);
+    expect(nominalFraction(pct("7")).eq(pct("7"))).toBe(true);
   });
 
   it("the lab's sheet counts as tasted only when it says so", () => {
