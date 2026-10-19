@@ -13,7 +13,9 @@ import { NewMaterial } from "./glossary/NewMaterial";
 import { useGlossary } from "./glossary/useGlossary";
 import { SignIn } from "./SignIn";
 import { SyncStatus } from "./SyncStatus";
-import { Tasting } from "./tasting/Tasting";
+import { MaterialTastings } from "./tasting/MaterialTastings";
+import { tasteMaterial } from "./tasting/start";
+import { type Tab as TastingTab, Tasting } from "./tasting/Tasting";
 import { useTastings } from "./tasting/useTastings";
 import { texts } from "./i18n/es";
 
@@ -64,7 +66,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
     if (data && lastFormula && !data.formulas.some((f) => f.id === lastFormula) && route.view !== "formula") setLastFormula(null);
   }, [data, lastFormula, route]);
   const benchName = lastFormula ? data?.formulas.find((f) => f.id === lastFormula)?.name : undefined;
-  const section = route.view === "home" ? "home" : route.view === "library" ? "library" : route.view === "tasting" ? "tasting" : route.view === "formula" ? "bench" : "materials";
+  const section = route.view === "home" ? "home" : route.view === "library" ? "library" : route.view === "tasting" || route.view === "strip" ? "tasting" : route.view === "formula" ? "bench" : "materials";
   const n = texts.nav;
 
   return (
@@ -80,7 +82,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
               ["home", n.home, () => go({ view: "home" })],
               ["materials", n.materials, () => go({ view: "materials" })],
               ["library", n.library, () => go({ view: "library" })],
-              ["tasting", n.tasting, () => go({ view: "tasting" })],
+              ["tasting", n.tasting, () => go({ view: "tasting", tab: "session" })],
               ...(lastFormula ? [["bench", n.bench(benchName ?? ""), () => go({ view: "formula", id: lastFormula })] as const] : []),
             ] as const
           ).map(([key, label, onClick]) => (
@@ -93,7 +95,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
           {user.email} · <button type="button" className="link" onClick={() => void leave()}>{texts.app.signOut}</button>
         </span>
       </nav>
-      {route.view === "home" && <Home data={data} tastings={tastings} onMaterials={() => go({ view: "materials" })} onFormulation={() => go({ view: "library" })} onTasting={() => go({ view: "tasting" })} />}
+      {route.view === "home" && <Home data={data} tastings={tastings} onMaterials={() => go({ view: "materials" })} onFormulation={() => go({ view: "library" })} onTasting={() => go({ view: "tasting", tab: "session" })} />}
       {route.view !== "home" && !data && <p>{texts.glossary.loading}</p>}
       {data && (
         <>
@@ -119,7 +121,19 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
             />
           </div>
           {/* Always mounted: the timers of the strips keep giving their notices while you are elsewhere. */}
-          {tastings && <Tasting data={data} local={local} tastings={tastings} visible={route.view === "tasting"} />}
+          {tastings && (
+            <Tasting
+              data={data}
+              local={local}
+              tastings={tastings}
+              visible={route.view === "tasting" || route.view === "strip"}
+              tab={route.view === "tasting" ? route.tab : "session"}
+              stripId={route.view === "strip" ? route.id : null}
+              onTab={(tab) => go({ view: "tasting", tab }, true)}
+              onOpenStrip={(id) => go({ view: "strip", id })}
+              onBack={() => back({ view: "tasting", tab: "session" })}
+            />
+          )}
           {route.view === "sheet" && (
             <MaterialSheet
               data={data}
@@ -129,6 +143,18 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
               onOpen={(id) => go({ view: "sheet", id })}
               onHave={(have) => void setHave(local.db, local.userId, route.id, have).catch(fail)}
               onMakeVersion={() => void createVersion(local.db, local.userId, route.id).then((id) => go({ view: "edit", id }), fail)}
+              tastings={
+                <MaterialTastings
+                  data={data}
+                  tastings={tastings}
+                  materialId={route.id}
+                  onOpenStrip={(id) => go({ view: "strip", id })}
+                  onLegacy={() => go({ view: "tasting", tab: "legacy" })}
+                  onNew={() => {
+                    if (tastings) void tasteMaterial(data, local, tastings, route.id).then((id) => go({ view: "strip", id }), fail);
+                  }}
+                />
+              }
             />
           )}
           {route.view === "edit" && (
@@ -166,7 +192,9 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
 }
 
 type Route =
-  | { readonly view: "home" | "materials" | "library" | "tasting" | "new" }
+  | { readonly view: "home" | "materials" | "library" | "new" }
+  | { readonly view: "tasting"; readonly tab: TastingTab }
+  | { readonly view: "strip"; readonly id: string }
   | { readonly view: "sheet" | "edit" | "formula"; readonly id: string };
 
 /** Where the app is lives in the address, so the browser's back works: «#materiales», «#formulacion», «#material/<id>»… */
@@ -178,11 +206,26 @@ function parseRoute(hash: string): Route {
   if (hash === "#nuevo") return { view: "new" };
   if (hash === "#materiales") return { view: "materials" };
   if (hash === "#formulacion") return { view: "library" };
-  if (hash === "#catas") return { view: "tasting" };
+  const c = /^#catas(?:\/(cola|catadas|legado))?$/.exec(hash);
+  if (c) return { view: "tasting", tab: c[1] ? TASTING_TAB_OF[c[1]] : "session" };
+  const strip = /^#cata\/([^/]+)$/.exec(hash);
+  if (strip) return { view: "strip", id: strip[1] };
   return { view: "home" };
 }
-const HASH: Record<"home" | "materials" | "library" | "tasting" | "new", string> = { home: "", materials: "#materiales", library: "#formulacion", tasting: "#catas", new: "#nuevo" };
-const hashOf = (r: Route) => (r.view === "formula" ? `#formula/${r.id}` : "id" in r ? `#material/${r.id}${r.view === "edit" ? "/editar" : ""}` : HASH[r.view]);
+const HASH: Record<"home" | "materials" | "library" | "new", string> = { home: "", materials: "#materiales", library: "#formulacion", new: "#nuevo" };
+/** «Catas» in the address: its tabs, and one tasting (the user, 2026-10-19: a material links to it). */
+const TASTING_TAB_OF: Record<string, TastingTab> = { cola: "queue", catadas: "history", legado: "legacy" };
+const TASTING_SLUG: Record<TastingTab, string> = { session: "", queue: "/cola", history: "/catadas", legacy: "/legado" };
+const hashOf = (r: Route) =>
+  r.view === "formula"
+    ? `#formula/${r.id}`
+    : r.view === "strip"
+      ? `#cata/${r.id}`
+      : r.view === "tasting"
+        ? `#catas${TASTING_SLUG[r.tab]}`
+        : "id" in r
+          ? `#material/${r.id}${r.view === "edit" ? "/editar" : ""}`
+          : HASH[r.view];
 
 function useRoute(): [Route, (r: Route, replace?: boolean) => void, (fallback: Route) => void] {
   const [route, setRoute] = useState<Route>(() => parseRoute(window.location.hash));

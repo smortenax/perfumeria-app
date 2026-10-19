@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { type ReactNode, useMemo } from "react";
 import { texts } from "../i18n/es";
 import { type SheetValue, sheetOf } from "./sheet";
 import type { GlossaryData } from "./useGlossary";
@@ -15,6 +15,7 @@ export function MaterialSheet({
   onOpen,
   onMakeVersion,
   onHave,
+  tastings,
 }: {
   data: GlossaryData;
   id: string;
@@ -24,6 +25,8 @@ export function MaterialSheet({
   onMakeVersion: () => void;
   /** Little by little (step 6.5): this one, marked or not. */
   onHave: (have: boolean) => void;
+  /** Its tastings, as links to «Catas» (the user, 2026-10-19): they live there, not in the sheet. */
+  tastings?: ReactNode;
 }) {
   const sheet = useMemo(() => (data.catalog.materials.has(id) ? sheetOf(data.catalog, data.layer, data.ifra, id) : null), [data, id]);
   // Your versions of a common material (V3-5): it shows them, and makes one more.
@@ -74,6 +77,7 @@ export function MaterialSheet({
               {texts.ifraState[sheet.ifra.state]}
             </span>
           </p>
+          {tastings}
           {sheet.sections.map((section) => (
             <section key={section.key} className="sheet-section">
               <h3>

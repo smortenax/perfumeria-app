@@ -516,6 +516,10 @@ export const texts = {
     open: "Abrir",
     back: "Volver",
     materialTastings: (n: number) => (n === 1 ? "1 cata" : `${n} catas`),
+    notTastedYet: "Aún sin catar.",
+    materialTasting: (date: string, closed: boolean) => `Cata del ${date}${closed ? " · cerrada" : " · en curso"}`,
+    legacySheet: (status: string) => `Ficha del laboratorio (${status})`,
+    newTasting: "Nueva cata",
     failed: (message: string) => `No se ha podido guardar: ${message}`,
   },
 } as const;

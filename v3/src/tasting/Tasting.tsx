@@ -9,6 +9,7 @@ import { percent } from "../glossary/format";
 import type { GlossaryData } from "../glossary/useGlossary";
 import { texts } from "../i18n/es";
 import { blockState, buildQueue, changedBlocks, countdown, dueMoments, latestDilution, legacyTasted, nextWaiting, tenacity } from "./logic";
+import { tasteMaterial } from "./start";
 import { useNow } from "./useTastings";
 import {
   BATTERY_AXES, BATTERY_STATES, BIASES, type Block, COMPLEXITY, CURVE_LEVELS, CURVE_SEGMENTS, DECAY, DEFAULT_MOMENTS, EFFECT_ENERGY, EFFECT_RICHNESS,
@@ -17,8 +18,8 @@ import {
 import "./tasting.css";
 
 const t = texts.tasting;
-const TABS = ["session", "queue", "history", "legacy"] as const;
-type Tab = (typeof TABS)[number];
+export const TABS = ["session", "queue", "history", "legacy"] as const;
+export type Tab = (typeof TABS)[number];
 
 const when = (iso: string) => {
   const d = new Date(iso);
@@ -40,9 +41,30 @@ const shownMoments = (moments: readonly TastingMoment[], stripId: string, extra:
  * timer; the closing and the comparison; the queue of your materials not tasted yet; the lab's
  * sheets, read only. Stays mounted while you are elsewhere, so that the notices still come.
  */
-export function Tasting({ data, local, tastings, visible }: { data: GlossaryData; local: LocalDatabase; tastings: Tastings; visible: boolean }) {
-  const [tab, setTab] = useState<Tab>("session");
-  const [stripId, setStripId] = useState<string | null>(null);
+export function Tasting({
+  data,
+  local,
+  tastings,
+  visible,
+  tab,
+  stripId,
+  onTab,
+  onOpenStrip,
+  onBack,
+}: {
+  data: GlossaryData;
+  local: LocalDatabase;
+  tastings: Tastings;
+  visible: boolean;
+  /** Where «Catas» is, from the address (App.tsx): its tab, or one strip open. */
+  tab: Tab;
+  stripId: string | null;
+  onTab: (tab: Tab) => void;
+  onOpenStrip: (id: string) => void;
+  onBack: () => void;
+}) {
+  const setTab = onTab;
+  const setStripId = onOpenStrip;
   const fail = (e: unknown) => window.alert(t.failed(e instanceof Error ? e.message : String(e)));
   const run = (p: Promise<unknown>) => void p.catch(fail);
   const open = tastings.sessions.find((s) => !s.endedAt) ?? null;
@@ -51,9 +73,7 @@ export function Tasting({ data, local, tastings, visible }: { data: GlossaryData
   const notices = useDueNotices(openStrips, tastings.moments, now);
 
   const addToSession = async (materialId: string) => {
-    const sessionId = open?.id ?? (await createSession(local.db, local.userId));
-    const dilution = latestDilution(data.catalog.dilutions.get(materialId));
-    await addStrip(local.db, local.userId, sessionId, { materialId, dilutionId: dilution?.id ?? null, dose: t.doseHint });
+    await tasteMaterial(data, local, tastings, materialId);
     setTab("session");
   };
 
@@ -70,7 +90,7 @@ export function Tasting({ data, local, tastings, visible }: { data: GlossaryData
         </div>
       )}
       {strip ? (
-        <StripView data={data} local={local} tastings={tastings} strip={strip} now={now} onBack={() => setStripId(null)} run={run} />
+        <StripView data={data} local={local} tastings={tastings} strip={strip} now={now} onBack={onBack} run={run} />
       ) : (
         <>
           <div className="title-bar">

@@ -1165,6 +1165,19 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 - **Aparcado:** la vista comparativa horizontal, la curva multilínea, el selector hex, el cotejo asistido y exportar a .md.
 - **Cambio del usuario (2026-10-19), literal:** «en la parte de Por catar deberian aparecer los materiales idealmente los 161 no solo los 13 nuevos». La cola toma todos tus materiales (tus versiones y los tuyos), tengan o no «lo tengo»; los comunes, no. Propuesta de la sesión: los frascos se agrupan por su concentración habitual (un 9,98 % pesado va con los «≈10 %»), y cada línea dice la exacta.
 
+## V3-64 · La cata vive en «Catas»; el material solo la enlaza (decidida por el usuario el 2026-10-19)
+
+**Literal** (2026-10-19):
+
+> before any evaluation i need to know where does the cata live, the ideal scenario is that there is a glossary of catas as it is now where you can consult all the progress but also that the evaluation is on its own linked to the materials in a way taht you can also searching through the materials start a new cata from the material browser (and it gets sent to the cata ui) and also have the cata linked on the material if its done, both of this steps are just relations so you can from a material get sent directly to the cata itself or to create a new cata, it does not mean that the whole cata sheet is inside the material udim
+
+**Lectura** (de la sesión):
+
+- **La cata vive en «Catas»**, con su glosario (Sesión, Cola, Catadas, Legado) para ver todo el progreso. Precisa V3-60.
+- **El material solo la enlaza**, en los dos sentidos: en su ficha, una sección «Catas» con un enlace a cada cata (fecha, en curso o cerrada, tenacidad) y a la ficha del laboratorio si la hay; y «Nueva cata», que abre la cata en «Catas». La hoja de cata nunca va dentro del material.
+- **Cada cata tiene su dirección** (`#cata/<id>`), y cada pestaña de «Catas» la suya (`#catas/cola`…), para poder enlazarlas.
+- **Propuesta de la sesión:** «Nueva cata» pone la tira en la sesión abierta (o abre una); si el material ya tiene una tira abierta en ella, lleva a esa en vez de crear otra.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).

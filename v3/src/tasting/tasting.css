@@ -422,3 +422,14 @@
     padding-inline: 0.625rem;
   }
 }
+
+/* A material's tastings, on its sheet: links only (the user, 2026-10-19). */
+.material-tastings ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.material-tastings li {
+  padding: 0.25rem 0;
+}

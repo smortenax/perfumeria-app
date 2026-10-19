@@ -163,4 +163,5 @@ rompe las catas que ya existen. Lo descriptivo (apertura, descripciones, sinest�
 4. **t5:** el desglose entero. Al terminarlo, «Terminar t5 y ver el nombre».
 5. **t30 en adelante:** cada pestaña empieza vacía, con su cuenta atrás y su aviso (con la app abierta). Se escribe lo que cambió y se marca «Revisado: sigue igual» lo que no; «Comparar con» dice qué bloques cambiaron. «¿Se nota de cerca?» en cada tiempo da la tenacidad.
 6. **Cierre:** lo fijo (modo de decaer, papel, efecto, versatilidad, R1-R3, sesgos, afinidades y destinos) y «Cerrar la serie»; solo entonces se abre el cotejo.
-7. **Adónde va:** a tus tablas `tasting_*` (tu cuenta, con RLS, sincronizadas sin conexión). Nada se escribe en el material. Las catas cerradas salen en **Catadas**; las fichas del laboratorio, en **Legado**, de solo lectura.
+7. **Desde Materiales (V3-64):** la ficha de cada material tiene una sección «Catas» con el enlace a cada cata suya y «Nueva cata», que la abre en «Catas». Solo son enlaces: la hoja de cata vive en «Catas».
+8. **Adónde va:** a tus tablas `tasting_*` (tu cuenta, con RLS, sincronizadas sin conexión). Nada se escribe en el material. Las catas cerradas salen en **Catadas**; las fichas del laboratorio, en **Legado**, de solo lectura.
