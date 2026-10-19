@@ -174,10 +174,13 @@ export function nominalFraction(fraction: Ratio): Ratio {
  * marked as «lo tengo», that you have not tasted, grouped by solvent and dilution, so that a
  * session takes strips alike in both (the lab's tasting plan); the marked ones first.
  */
+/** What can be tasted: your materials, not the solvents (the user, 2026-10-19: «se quitan los disolventes de las catas»). */
+export const tastable = (m: { readonly ownerId: string | null; readonly solvent: boolean }) => m.ownerId !== null && !m.solvent;
+
 export function buildQueue(catalog: Catalog, tastings: Pick<Tastings, "strips" | "marks">): Queue {
   const closed = new Set(tastings.strips.filter((s) => s.closedAt).map((s) => s.materialId));
   const isTasted = (id: string) => closed.has(id) || legacyTasted(catalog.evaluations.get(id)?.status);
-  const yours = [...catalog.materials.values()].filter((m) => m.ownerId !== null).map((m) => m.id);
+  const yours = [...catalog.materials.values()].filter(tastable).map((m) => m.id);
   const pending = yours.filter((id) => !isTasted(id));
   const items = pending
     .map((id): QueueItem => ({ materialId: id, name: catalog.materials.get(id)!.name, dilution: latestDilution(catalog.dilutions.get(id)), mark: tastings.marks.get(id) ?? null }))

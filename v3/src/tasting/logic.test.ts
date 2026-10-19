@@ -70,12 +70,12 @@ describe("the tenacity, in hours, from the tabs (V3-42, V3-62)", () => {
 });
 
 describe("the queue (V3-63)", () => {
-  const mat = (id: string, name: string, ownerId: string | null = "me") => ({ id, name, ownerId }) as CatalogMaterial;
+  const mat = (id: string, name: string, ownerId: string | null = "me", solvent = false) => ({ id, name, ownerId, solvent }) as CatalogMaterial;
   const dil = (id: string, pct: number, solvent: string | null, madeOn: string | null): Dilution => ({
     id, fraction: Ratio.of(BigInt(pct), 100n), solvent, madeOn, description: null,
   });
   const catalog = {
-    materials: new Map([["a", mat("a", "Vetiver")], ["b", mat("b", "Benjuí")], ["c", mat("c", "Galaxolide")], ["d", mat("d", "Ámbar")], ["e", mat("e", "Iso E")], ["common", mat("common", "Hedione común", null)]]),
+    materials: new Map([["a", mat("a", "Vetiver")], ["b", mat("b", "Benjuí")], ["c", mat("c", "Galaxolide")], ["d", mat("d", "Ámbar")], ["e", mat("e", "Iso E")], ["common", mat("common", "Hedione común", null)], ["dpg", mat("dpg", "Mi DPG", "me", true)]]),
     have: new Set(["a"]),
     dilutions: new Map([
       ["a", [dil("a1", 10, "DPG", "2026-08-01")]],
@@ -86,7 +86,7 @@ describe("the queue (V3-63)", () => {
   } as unknown as Catalog;
 
   // The user, 2026-10-19: «deberian aparecer los materiales idealmente los 161 no solo los 13 nuevos».
-  it("every material of yours not tasted, «lo tengo» or not; never a common one; by dilution and solvent, the marked first", () => {
+  it("every material of yours not tasted, «lo tengo» or not; never a common one nor a solvent; by dilution and solvent, the marked first", () => {
     const closedStrip = { materialId: "c", closedAt: at(2000) } as TastingStrip;
     const q = buildQueue(catalog, { strips: [closedStrip], marks: new Map([["e", "pedido 2026-10-18"]]) });
     expect(q.tasted).toBe(2); // c, closed in the app; d, the lab's sheet

@@ -1195,6 +1195,27 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 - **Orden:** la dilución en las catas se pausa (la pregunta 1 de las catas abiertas); se cierran las demás incógnitas de las catas, y después se diseña esto.
 - **Nota de la sesión:** hoy `lab_dilutions` guarda una fracción y el disolvente en texto; varios diluyentes con su parte no caben. Al diseñarlo se verá cómo encaja con el `add` de `formula_events`, que ya admite dos diluyentes.
 
+## V3-66 · Las preguntas abiertas de las catas (decidida por el usuario el 2026-10-19)
+
+**Literal** (2026-10-19), a las cinco preguntas de la sesión:
+
+> se quitan los disolventes de las catas
+> si desde la ficha de material nace importada
+> vale dejamos  para mas tarde lo otro
+> de momento el legado cuenta catado a efectos practicos esta
+> las fichas en blanco de laboratorio se pueden borrar el nuevo formato en el que se guarde la app lo sustituira una vez se haga, dicho esto si estaria bien que quedara registro de las apps una vez que se hagan se buscara una manera, mas tarde de que en el ordenador acaben viviendo las fichas conforme se van haciendo
+> lel tema de las diluciones
+> las catas usan las diluciones creadas como base, dejan que escoger el % sea una opcion pero obciamente solo se pueden catar las dilciones entre las que existen, por lo tanto no hay un lugar libre sino se seleccionan de entre materiales que existen y dilciones que existen
+
+**Lectura** (de la sesión):
+
+- **Los disolventes no se catan:** salen de la cola y de «Añadir tira». Hecho.
+- **Una cata que nace desde la ficha del material es «informada»** («importada» en el mensaje, que se lee como «informada», el sesgo de la hoja): se crea con ese sesgo marcado en el cierre, y se puede quitar. Hecho. A confirmar la lectura.
+- **Los avisos con la app cerrada, para más tarde.**
+- **El legado «catado (serie parcial)» cuenta como catado**, de momento.
+- **Las fichas en blanco del laboratorio sobran**: el formato de la app las sustituye. Más tarde, buscar la manera de que las fichas hechas en la app queden también como registro en el ordenador según se hacen (enlaza con el «exportar a .md» aparcado en V3-63).
+- **Las catas parten de las diluciones registradas** (V3-65): se elige el % entre los frascos que existen de ese material; no hay dilución libre. Hasta que exista la parte de diluciones, la tira sigue admitiendo «sin dilución».
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).

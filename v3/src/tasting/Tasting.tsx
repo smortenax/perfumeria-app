@@ -8,7 +8,7 @@ import {
 import { percent } from "../glossary/format";
 import type { GlossaryData } from "../glossary/useGlossary";
 import { texts } from "../i18n/es";
-import { blockState, buildQueue, changedBlocks, countdown, dueMoments, latestDilution, legacyTasted, nextWaiting, tenacity } from "./logic";
+import { blockState, buildQueue, tastable, changedBlocks, countdown, dueMoments, latestDilution, legacyTasted, nextWaiting, tenacity } from "./logic";
 import { tasteMaterial } from "./start";
 import { useNow } from "./useTastings";
 import {
@@ -264,7 +264,7 @@ function AddStrip({
     const queue = buildQueue(data.catalog, tastings);
     const pending = new Set(queue.groups.flatMap((g) => g.items.map((i) => i.materialId)));
     return [...data.catalog.materials.values()]
-      .filter((m) => m.ownerId !== null)
+      .filter(tastable)
       .sort((a, b) => (pending.has(a.id) ? 0 : 1) - (pending.has(b.id) ? 0 : 1) || a.name.localeCompare(b.name, "es"));
   }, [data, tastings]);
   const [query, setQuery] = useState("");

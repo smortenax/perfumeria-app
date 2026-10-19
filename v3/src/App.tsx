@@ -151,7 +151,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
                   onOpenStrip={(id) => go({ view: "strip", id })}
                   onLegacy={() => go({ view: "tasting", tab: "legacy" })}
                   onNew={() => {
-                    if (tastings) void tasteMaterial(data, local, tastings, route.id).then((id) => go({ view: "strip", id }), fail);
+                    if (tastings) void tasteMaterial(data, local, tastings, route.id, "sheet").then((id) => go({ view: "strip", id }), fail);
                   }}
                 />
               }
