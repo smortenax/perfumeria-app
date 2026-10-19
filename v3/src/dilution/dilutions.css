@@ -1,0 +1,119 @@
+/* «Diluciones» (V3-67): one column, big targets, for the bench and the phone. */
+
+.dilutions {
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
+.dilutions .field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0.5rem 0;
+}
+
+.dilutions input:not([type="checkbox"]),
+.dilutions select,
+.dilutions textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+}
+
+.dilutions button {
+  min-height: 2.75rem;
+}
+
+.bottle-list,
+.dilutions .pick-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.dilutions .pick-list {
+  max-height: 16rem;
+  overflow-y: auto;
+}
+
+.dilutions .pick-list button,
+.bottle-row {
+  width: 100%;
+  text-align: left;
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+
+.bottle-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.bottle-name {
+  font-weight: 600;
+}
+
+.bottle-detail {
+  color: var(--muted);
+  font-size: 0.875rem;
+  overflow-wrap: anywhere;
+}
+
+.dilutions fieldset {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.5rem 0.75rem;
+  margin: 0.75rem 0;
+  background: var(--panel);
+}
+
+.dilutions legend {
+  font-weight: 600;
+  padding: 0 0.25rem;
+}
+
+.dilutions .pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.diluent-row {
+  display: grid;
+  grid-template-columns: 1fr 6.5rem auto;
+  gap: 0.5rem;
+  align-items: end;
+}
+
+.dilutions .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+}
+
+.dilutions .result {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.material-dilutions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.material-dilutions li {
+  padding: 0.25rem 0;
+}

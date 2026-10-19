@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { type AnyPgColumn, boolean, check, index, numeric, pgTable, smallint, text, timestamp, unique, uniqueIndex, uuid } from "drizzle-orm/pg-core";
+import { type AnyPgColumn, bigint, boolean, check, index, numeric, pgTable, smallint, text, timestamp, unique, uniqueIndex, uuid } from "drizzle-orm/pg-core";
 import { authUsers } from "drizzle-orm/supabase";
 import { formulaEvents, formulas } from "./formulas";
 
@@ -394,25 +394,68 @@ const labMaterial = () =>
     .notNull()
     .references(() => materials.id, { onDelete: "cascade" });
 
-/** A dilution the user made of a material (V3-36): how much pure matter, in what, and when. */
+/**
+ * A dilution the user made of a material, a bottle (V3-36, V3-65, V3-67): how much pure matter, in
+ * what, and when. What was weighed (material_mass_ug and each diluent's mass) is the truth; the
+ * fractions are worked out from it and kept to six decimals (0,0001 %), below what a 0,001 g scale
+ * can tell. The batch-8 bottles have only their fraction and their solvent in words.
+ */
 export const labDilutions = pgTable(
   "lab_dilutions",
   {
     id: uuid("id").primaryKey().defaultRandom(),
     userId: labUser(),
     materialId: labMaterial(),
-    /** The pure matter, as a fraction of the bottle (0.1 is 10 %). */
+    /** The pure matter, as a fraction of the bottle (0.1 is 10 %): the exact figure (9,97 %). */
     fraction: numeric("fraction").notNull(),
-    /** In what, as the user writes it: «DPG», «alcohol 96º», «DPG y alcohol 96º». */
+    /** In what, as the user wrote it before V3-67: «DPG», «alcohol 96º». The diluents now live in lab_dilution_diluents. */
     solvent: text("solvent"),
     madeOn: text("made_on"),
     description: text("description"),
+    /** Its name, roughly («al 10 %», V3-67): the figure that counts is the fraction. */
+    label: text("label"),
+    /** The material weighed in, or, made from another bottle, how much of that bottle. */
+    materialMassUg: bigint("material_mass_ug", { mode: "bigint" }),
+    /** The bottle it was made from (a 10 % from the 50 %), when it was. */
+    sourceDilutionId: uuid("source_dilution_id").references((): AnyPgColumn => labDilutions.id, { onDelete: "set null" }),
+    /** A finished bottle: it no longer shows among the choices, and is not deleted (V3-67). */
+    archivedAt: timestamp("archived_at", { withTimezone: true }),
     ...timestamps,
   },
   (t) => [
     index("lab_dilutions_user_idx").on(t.userId),
+    index("lab_dilutions_material_idx").on(t.materialId),
     check("lab_dilutions_fraction", sql`${t.fraction} > 0 and ${t.fraction} <= 1`),
     check("lab_dilutions_made_on", sql`${t.madeOn} is null or ${t.madeOn} ~ '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'`),
+    check("lab_dilutions_mass", sql`${t.materialMassUg} is null or ${t.materialMassUg} > 0`),
+    check("lab_dilutions_not_own_source", sql`${t.sourceDilutionId} is null or ${t.sourceDilutionId} <> ${t.id}`),
+  ],
+);
+
+/** One diluent of a bottle (V3-67: as many as it takes): a diluent material, what was weighed, and its share of the bottle. */
+export const labDilutionDiluents = pgTable(
+  "lab_dilution_diluents",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    dilutionId: uuid("dilution_id")
+      .notNull()
+      .references(() => labDilutions.id, { onDelete: "cascade" }),
+    userId: labUser(),
+    diluentId: uuid("diluent_id")
+      .notNull()
+      .references(() => materials.id, { onDelete: "restrict" }),
+    /** What was weighed of it into this bottle; null when it all came in the source bottle. */
+    massUg: bigint("mass_ug", { mode: "bigint" }),
+    /** Its share of the whole bottle, to six decimals. */
+    fraction: numeric("fraction").notNull(),
+    position: smallint("position").notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [
+    index("lab_dilution_diluents_user_idx").on(t.userId),
+    unique("lab_dilution_diluents_once").on(t.dilutionId, t.diluentId),
+    check("lab_dilution_diluents_fraction", sql`${t.fraction} > 0 and ${t.fraction} < 1`),
+    check("lab_dilution_diluents_mass", sql`${t.massUg} is null or ${t.massUg} > 0`),
   ],
 );
 

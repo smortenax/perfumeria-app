@@ -209,10 +209,27 @@ export interface Category {
 /** A dilution the user made (V3-36): the pure matter as a fraction of the bottle, exact. */
 export interface Dilution {
   readonly id: string;
+  /** The pure matter, the exact figure (V3-67): 0.0997 for a bottle «al 10 %». */
   readonly fraction: Ratio;
+  /** In words, as before V3-67 («DPG»); a bottle made in the app has its diluents instead. */
   readonly solvent: string | null;
   readonly madeOn: string | null;
   readonly description: string | null;
+  /** Its rough name («al 10 %»). */
+  readonly label: string | null;
+  /** The material weighed in (or of the source bottle), in micrograms; null for the older bottles. */
+  readonly materialMassUg: bigint | null;
+  readonly sourceDilutionId: string | null;
+  readonly archivedAt: string | null;
+  /** Its diluents, in order, each with its share of the bottle (V3-67: as many as it takes). */
+  readonly diluents: readonly DilutionDiluent[];
+}
+
+export interface DilutionDiluent {
+  readonly id: string;
+  readonly diluentId: string;
+  readonly massUg: bigint | null;
+  readonly fraction: Ratio;
 }
 
 /** The user's tasting of a material (V3-36). */

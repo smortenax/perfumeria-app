@@ -13,12 +13,14 @@ export function Home({
   onMaterials,
   onFormulation,
   onTasting,
+  onDilutions,
 }: {
   data: GlossaryData | null;
   tastings: Tastings | null;
   onMaterials: () => void;
   onFormulation: () => void;
   onTasting: () => void;
+  onDilutions: () => void;
 }) {
   const t = texts.home;
   const own = data ? [...data.catalog.materials.values()].filter((m) => m.ownerId !== null).length : null;
@@ -54,6 +56,17 @@ export function Home({
             </span>
             <span className="launch-name">{texts.tasting.title}</span>
             <span className="launch-detail">{queue ? texts.tasting.homeDetail(queue.pending, openSessions) : texts.glossary.loading}</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" className="launch-card" onClick={onDilutions}>
+            <span className="launch-icon dilution" aria-hidden="true">
+              D
+            </span>
+            <span className="launch-name">{texts.dilutions.title}</span>
+            <span className="launch-detail">
+              {data ? texts.dilutions.homeDetail([...data.catalog.dilutions.values()].reduce((n, l) => n + l.filter((d) => !d.archivedAt).length, 0)) : texts.glossary.loading}
+            </span>
           </button>
         </li>
       </ul>

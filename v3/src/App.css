@@ -964,6 +964,8 @@ form.add label {
   padding: 0.375rem 0.625rem;
   border-radius: 8px;
   white-space: nowrap;
+  /* With six sections, on a phone they scroll sideways whole instead of each being cut. */
+  flex: none;
   max-width: 16rem;
   overflow: hidden;
   text-overflow: ellipsis;

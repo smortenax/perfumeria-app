@@ -72,7 +72,7 @@ describe("the tenacity, in hours, from the tabs (V3-42, V3-62)", () => {
 describe("the queue (V3-63)", () => {
   const mat = (id: string, name: string, ownerId: string | null = "me", solvent = false) => ({ id, name, ownerId, solvent }) as CatalogMaterial;
   const dil = (id: string, pct: number, solvent: string | null, madeOn: string | null): Dilution => ({
-    id, fraction: Ratio.of(BigInt(pct), 100n), solvent, madeOn, description: null,
+    id, fraction: Ratio.of(BigInt(pct), 100n), solvent, madeOn, description: null, label: null, materialMassUg: null, sourceDilutionId: null, archivedAt: null, diluents: [],
   });
   const catalog = {
     materials: new Map([["a", mat("a", "Vetiver")], ["b", mat("b", "Benjuí")], ["c", mat("c", "Galaxolide")], ["d", mat("d", "Ámbar")], ["e", mat("e", "Iso E")], ["common", mat("common", "Hedione común", null)], ["dpg", mat("dpg", "Mi DPG", "me", true)]]),

@@ -25,7 +25,7 @@ import {
   type Regulation,
   type RegulationKind,
 } from "./catalog";
-import { numericFromRatio, ratioFromNumeric } from "./exact";
+import { bigintFromText, numericFromRatio, ratioFromNumeric } from "./exact";
 import * as local from "./local/schema";
 
 /**
@@ -171,8 +171,9 @@ export async function loadCatalog(db: LocalDb, userId: string): Promise<Catalog>
     db.select().from(local.labMaterials).where(eq(local.labMaterials.userId, userId)),
     db.select().from(local.dataVersion),
   ]);
-  const [dilutionRows, evaluationRows, axisRows] = await Promise.all([
+  const [dilutionRows, dilutionDiluentRows, evaluationRows, axisRows] = await Promise.all([
     db.select().from(local.labDilutions).where(eq(local.labDilutions.userId, userId)),
+    db.select().from(local.labDilutionDiluents).where(eq(local.labDilutionDiluents.userId, userId)),
     db.select().from(local.labEvaluations).where(eq(local.labEvaluations.userId, userId)),
     db.select().from(local.labAxes).where(eq(local.labAxes.userId, userId)),
   ]);
@@ -253,6 +254,19 @@ export async function loadCatalog(db: LocalDb, userId: string): Promise<Catalog>
           solvent: d.solvent,
           madeOn: d.madeOn,
           description: d.description,
+          label: d.label,
+          materialMassUg: bigintFromText(d.materialMassUg),
+          sourceDilutionId: d.sourceDilutionId,
+          archivedAt: d.archivedAt,
+          diluents: dilutionDiluentRows
+            .filter((x) => x.dilutionId === d.id)
+            .sort((a, b) => Number(a.position) - Number(b.position))
+            .map((x) => ({
+              id: x.id,
+              diluentId: required(x.diluentId, "diluent"),
+              massUg: bigintFromText(x.massUg),
+              fraction: required(ratioFromNumeric(x.fraction), "diluent fraction"),
+            })),
         })),
       ]),
     ),

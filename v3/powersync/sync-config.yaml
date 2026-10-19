@@ -40,6 +40,7 @@ streams:
       - SELECT * FROM material_references WHERE owner_id = auth.user_id()
       - SELECT * FROM lab_materials WHERE user_id = auth.user_id()
       - SELECT * FROM lab_dilutions WHERE user_id = auth.user_id()
+      - SELECT * FROM lab_dilution_diluents WHERE user_id = auth.user_id()
       - SELECT * FROM lab_evaluations WHERE user_id = auth.user_id()
       - SELECT * FROM lab_axes WHERE user_id = auth.user_id()
       # Your formulas (phase 7): workbenches, formulas and their history; the events carry their formula's owner.

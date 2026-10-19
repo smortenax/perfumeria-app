@@ -15,7 +15,7 @@ export function MaterialSheet({
   onOpen,
   onMakeVersion,
   onHave,
-  tastings,
+  links,
 }: {
   data: GlossaryData;
   id: string;
@@ -25,8 +25,8 @@ export function MaterialSheet({
   onMakeVersion: () => void;
   /** Little by little (step 6.5): this one, marked or not. */
   onHave: (have: boolean) => void;
-  /** Its tastings, as links to «Catas» (the user, 2026-10-19): they live there, not in the sheet. */
-  tastings?: ReactNode;
+  /** Its tastings and its bottles, as links to «Catas» and «Diluciones» (V3-64, V3-67): they live there, not in the sheet. */
+  links?: ReactNode;
 }) {
   const sheet = useMemo(() => (data.catalog.materials.has(id) ? sheetOf(data.catalog, data.layer, data.ifra, id) : null), [data, id]);
   // Your versions of a common material (V3-5): it shows them, and makes one more.
@@ -77,7 +77,7 @@ export function MaterialSheet({
               {texts.ifraState[sheet.ifra.state]}
             </span>
           </p>
-          {tastings}
+          {links}
           {sheet.sections.map((section) => (
             <section key={section.key} className="sheet-section">
               <h3>

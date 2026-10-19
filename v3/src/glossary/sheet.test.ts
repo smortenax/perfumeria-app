@@ -79,7 +79,7 @@ const catalog: Catalog = {
   materials: new Map([coumarin, tonka, mine].map((m) => [m.id, m])),
   categories: new Map(),
   have: new Set(["my-cou"]),
-  dilutions: new Map([["my-cou", [{ id: "dl1", fraction: pct("10"), solvent: "DPG", madeOn: "2026-09-01", description: null }]]]),
+  dilutions: new Map([["my-cou", [{ id: "dl1", fraction: pct("10"), solvent: "DPG", madeOn: "2026-09-01", description: null, label: null, materialMassUg: null, sourceDilutionId: null, archivedAt: null, diluents: [] }]]]),
   evaluations: new Map([["my-cou", { id: "e1", status: "catado", smellingTip: null, reading: "heno dulce", sheet: null }]]),
   axes: new Map([["my-cou", ["dulce", "heno"]]]),
   dataCommit: null,

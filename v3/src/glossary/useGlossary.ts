@@ -24,7 +24,7 @@ export interface GlossaryData {
 /** The tables of the catalog and IFRA: when any of them changes (a sync, an edit), all of it is read again. */
 const CATALOG_TABLES = [
   "materials", "material_categories", "material_components", "regulations", "material_doses", "material_descriptors",
-  "material_relations", "material_references", "lab_materials", "lab_dilutions", "lab_evaluations", "lab_axes",
+  "material_relations", "material_references", "lab_materials", "lab_dilutions", "lab_dilution_diluents", "lab_evaluations", "lab_axes",
   "ifra_standards", "ifra_limits", "ifra_substances", "ifra_annex", "ifra_variant_rules", "ifra_spec_exclusions", "data_version",
 ];
 /**
