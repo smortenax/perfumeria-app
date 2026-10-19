@@ -26,6 +26,7 @@ import { assumptionsOf } from "./assumptions";
 import { specificationKeys } from "./ifra-explain";
 import { download, fileNameFor } from "./io";
 import { draftWarnings, MaterialCard } from "./MaterialCard";
+import { bottlesFor } from "./bottles";
 import { eventOf, headerChanges } from "./events";
 import { undoOf } from "./undo";
 import { bandOf, ifraOfMaterial, pourKey, previewPour, type Pour } from "./usage-bar";
@@ -86,7 +87,7 @@ export function Bench(props: BenchProps) {
   // Its history is watched here (useGlossary does not read it): a pour, a sync, and the formula is read again.
   const [tick, setTick] = useState(0);
   useEffect(
-    () => local.powerSync.onChangeWithCallback({ onChange: () => setTick((t) => t + 1) }, { tables: ["formula_events"], throttleMs: 150 }),
+    () => local.powerSync.onChangeWithCallback({ onChange: () => setTick((t) => t + 1) }, { tables: ["formula_events", "formula_event_diluents"], throttleMs: 150 }),
     [local],
   );
   // The formula, read from the copy, again whenever its data changes (an event, its header, a sync).
@@ -277,13 +278,14 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
     if (Object.keys(changes).length > 0) write(() => updateFormula(local.db, owner, formulaId, changes));
   };
   /** Every change is an event, written at once (plan 8.2). */
-  const change = (c: Change) => {
+  const change = (c: Change, dilutionId?: string | null) => {
     setNotice(null);
     setPlaying(false);
     setFrame(null);
     setSelectedId(null);
     redoable.current = [];
-    write(() => addEvent(local.db, owner, formulaId, eventOf(c, v3IdOf(props.data))));
+    // A pour that is exactly one of your bottles says which (V3-67).
+    write(() => addEvent(local.db, owner, formulaId, { ...eventOf(c, v3IdOf(props.data)), ...(dilutionId && c.kind === "add" ? { dilutionId } : {}) }));
   };
   /** Undo adds the opposite event; what has none is said (undo.ts). */
   const undo = () => {
@@ -485,6 +487,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
               sessionMaterials={known}
               have={props.data.catalog.have}
               onAdd={change}
+              bottles={(key) => bottlesFor(props.data, key)}
               onSelect={setCardMaterial}
               onDraft={setDraft}
               warning={warning}

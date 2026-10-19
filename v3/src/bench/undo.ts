@@ -36,6 +36,7 @@ export function undoOf(formula: Formula): Undo {
           fraction: before.fraction,
           diluentId: before.diluent?.key ?? null,
           ...(before.secondDiluent ? { secondDiluent: { materialId: before.secondDiluent.material.key, fraction: before.secondDiluent.fraction } } : {}),
+          ...(before.moreDiluents?.length ? { moreDiluents: before.moreDiluents.map((d) => ({ materialId: d.material.key, fraction: d.fraction })) } : {}),
         },
       };
     }

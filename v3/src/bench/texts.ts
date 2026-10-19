@@ -173,7 +173,16 @@ export const texts = {
     changeDiluent: "Cambiar este diluyente",
     mixPure: "Con dos diluyentes, el material no va puro: escribe su %",
     badMixPercent: (diluent: string) => `% de ${diluent} no válido: mayor que 0 y hasta 100`,
-    noRest: (diluent: string) => `Los dos % llegan a 100: no queda nada para ${diluent}`,
+    noRest: (diluent: string) => `Los % llegan a 100: no queda nada para ${diluent}`,
+    /** Your bottles of the material (V3-67) and the diluents beyond the two. */
+    bottles: "Tus frascos",
+    bottlesButton: (n: number) => (n === 1 ? "1 frasco" : `${n} frascos`),
+    bottlesHelp: "Tus frascos de este material: elige uno y pone sus cifras exactas",
+    extrasHelp: "Más diluyentes: cada uno con su %; el de abajo se lleva el resto",
+    bottleHelp: (percent: string, diluents: string) => `${percent} en ${diluents}: pone sus cifras exactas`,
+    addExtra: "+ diluyente",
+    extraDiluent: "Otro diluyente",
+    removeExtra: "Quitar",
   },
 
   /** The card of the material chosen in the add bar, under it (P57). */

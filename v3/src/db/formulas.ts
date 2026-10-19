@@ -1,4 +1,4 @@
-import { and, eq } from "drizzle-orm";
+import { and, eq, inArray } from "drizzle-orm";
 import { Ratio } from "../core/arith/ratio";
 import type { Change, Formula } from "../core/model/formula";
 import type { Material } from "../core/model/material";
@@ -63,6 +63,10 @@ export type NewEvent =
       readonly fraction: Ratio;
       readonly diluentId: string | null;
       readonly secondDiluent?: { readonly materialId: string; readonly fraction: Ratio };
+      /** The third diluent and on (V3-67), each with its share of what is poured. */
+      readonly moreDiluents?: readonly { readonly materialId: string; readonly fraction: Ratio }[];
+      /** The bottle of yours it was poured from (V3-67), when it was. */
+      readonly dilutionId?: string | null;
     }
   | { readonly kind: "set_mass"; readonly target: string; readonly massUg: bigint }
   | { readonly kind: "remove"; readonly target: string }
@@ -210,6 +214,9 @@ export async function copyFormula(
     const newId = uuidv7();
     renamed.set(e.id, newId);
     await db.insert(local.formulaEvents).values({ ...e, id: newId, formulaId: id, ownerId, target: e.target ? (renamed.get(e.target) ?? e.target) : null, createdAt: now() });
+    for (const d of await db.select().from(local.formulaEventDiluents).where(eq(local.formulaEventDiluents.eventId, e.id))) {
+      await db.insert(local.formulaEventDiluents).values({ ...d, id: uuidv7(), eventId: newId, ownerId, createdAt: now() });
+    }
   }
   return id;
 }
@@ -236,6 +243,22 @@ export async function addEvent(db: LocalDb, ownerId: string, formulaId: string, 
           throw new RangeError("a second diluent takes part of what is poured, and leaves some to the first");
         }
       }
+      if (event.moreDiluents?.length) {
+        if (!event.secondDiluent) throw new Error("a third diluent needs a first and a second one");
+        const keys = [event.diluentId, event.secondDiluent.materialId, ...event.moreDiluents.map((d) => d.materialId)];
+        if (new Set(keys).size !== keys.length) throw new Error("the diluents of a mixture are not repeated");
+        for (const d of event.moreDiluents) {
+          await usableMaterial(db, ownerId, d.materialId);
+          if (d.fraction.num <= 0n) throw new RangeError("each diluent takes part of what is poured");
+        }
+        if (Ratio.sum([event.fraction, event.secondDiluent.fraction, ...event.moreDiluents.map((d) => d.fraction)]).cmp(Ratio.ONE) >= 0) {
+          throw new RangeError("the diluents leave some to the first");
+        }
+      }
+      if (event.dilutionId) {
+        const [bottle] = await db.select().from(local.labDilutions).where(and(eq(local.labDilutions.id, event.dilutionId), eq(local.labDilutions.userId, ownerId)));
+        if (!bottle || bottle.materialId !== event.materialId) throw new Error("a pour comes from a bottle of yours of that material");
+      }
       Object.assign(row, {
         materialId: event.materialId,
         massUg: event.massUg.toString(),
@@ -243,6 +266,7 @@ export async function addEvent(db: LocalDb, ownerId: string, formulaId: string, 
         diluentId: event.diluentId,
         secondDiluentId: event.secondDiluent?.materialId ?? null,
         secondFraction: event.secondDiluent ? numericFromRatio(event.secondDiluent.fraction) : null,
+        dilutionId: event.dilutionId ?? null,
       });
       break;
     }
@@ -264,6 +288,21 @@ export async function addEvent(db: LocalDb, ownerId: string, formulaId: string, 
       break;
   }
   await db.insert(local.formulaEvents).values(row);
+  if (event.kind === "add") {
+    // After the pour, in the queue's order: Supabase takes them only beside it.
+    let position = 3;
+    for (const d of event.moreDiluents ?? []) {
+      await db.insert(local.formulaEventDiluents).values({
+        id: uuidv7(),
+        eventId: id,
+        ownerId,
+        position: position++,
+        diluentId: d.materialId,
+        fraction: numericFromRatio(d.fraction),
+        createdAt: now(),
+      });
+    }
+  }
   return id;
 }
 
@@ -358,6 +397,9 @@ async function loaderOf(db: LocalDb, catalog: Catalog, ownerId: string) {
     if (!record) throw new Error("not one of your formulas");
     const path = [...inside, formulaId];
     const events = (await db.select().from(local.formulaEvents).where(eq(local.formulaEvents.formulaId, formulaId))).sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+    const extra = events.length
+      ? await db.select().from(local.formulaEventDiluents).where(inArray(local.formulaEventDiluents.eventId, events.map((e) => e.id)))
+      : [];
     const mass = (value: string | null) => {
       const v = bigintFromText(value);
       if (v === null) throw new Error("an event lost a mass");
@@ -367,6 +409,14 @@ async function loaderOf(db: LocalDb, catalog: Catalog, ownerId: string) {
       const r = ratioFromNumeric(value);
       if (!r) throw new Error("an event lost a figure");
       return r;
+    };
+    /** A pour's third diluent and on, in their order (V3-67); nothing when it has none. */
+    const moreOf = async (eventId: string, at: readonly string[]) => {
+      const rows = extra.filter((x) => x.eventId === eventId).sort((a, b) => Number(a.position) - Number(b.position));
+      if (rows.length === 0) return {};
+      const moreDiluents = [];
+      for (const r of rows) moreDiluents.push({ material: await material(r.diluentId, at), fraction: ratio(r.fraction) });
+      return { moreDiluents };
     };
     const history: Change[] = [];
     for (const e of events) {
@@ -380,6 +430,7 @@ async function loaderOf(db: LocalDb, catalog: Catalog, ownerId: string) {
             fraction: ratio(e.fraction),
             diluent: e.diluentId ? await material(e.diluentId, path) : null,
             ...(e.secondDiluentId ? { secondDiluent: { material: await material(e.secondDiluentId, path), fraction: ratio(e.secondFraction) } } : {}),
+            ...(await moreOf(e.id, path)),
           });
           break;
         case "set_mass":

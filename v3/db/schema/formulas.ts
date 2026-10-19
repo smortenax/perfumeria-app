@@ -1,7 +1,7 @@
 import { sql } from "drizzle-orm";
-import { type AnyPgColumn, bigint, check, index, numeric, pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
+import { type AnyPgColumn, bigint, check, index, numeric, pgTable, smallint, text, timestamp, unique, uuid } from "drizzle-orm/pg-core";
 import { authUsers } from "drizzle-orm/supabase";
-import { materials } from "./materials";
+import { labDilutions, materials } from "./materials";
 
 /**
  * The formulas' tables (plan v3, phase 7; plan §34, V3-10, V3-19, V3-20). Each user's own: no
@@ -106,12 +106,15 @@ export const formulaEvents = pgTable(
     tareUg: bigint("tare_ug", { mode: "bigint" }),
     /** note: its text. */
     text: text("text"),
+    /** add: the bottle of yours it was poured from (V3-67), when it was; its figures above are what count. */
+    dilutionId: uuid("dilution_id").references((): AnyPgColumn => labDilutions.id),
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
   },
   (t) => [
     index("formula_events_formula_idx").on(t.formulaId),
     index("formula_events_owner_idx").on(t.ownerId),
     check("formula_events_kind", sql`${t.kind} in ('add', 'set_mass', 'remove', 'reweigh', 'note')`),
+    check("formula_events_dilution", sql`${t.dilutionId} is null or ${t.kind} = 'add'`),
     // Each kind carries what it needs and nothing else (plan 7.2).
     check(
       "formula_events_shape",
@@ -131,5 +134,36 @@ export const formulaEvents = pgTable(
           and ${t.target} is null and ${t.grossUg} is null
         else false end`,
     ),
+  ],
+);
+
+/**
+ * The third diluent of a pour and on (V3-67, 2026-10-19: «los diluyentes que hagan falta»): the engine's
+ * moreDiluents. The second stays in formula_events (second_diluent_id), as before. Only added, with
+ * its pour, as the history.
+ */
+export const formulaEventDiluents = pgTable(
+  "formula_event_diluents",
+  {
+    id: uuid("id").primaryKey(),
+    eventId: uuid("event_id")
+      .notNull()
+      .references(() => formulaEvents.id, { onDelete: "cascade" }),
+    /** The formula's owner, copied from the pour: the sync filters by it. */
+    ownerId: uuid("owner_id").references(() => authUsers.id, { onDelete: "cascade" }),
+    /** 3, 4…: its place among the diluents of the pour. */
+    position: smallint("position").notNull(),
+    diluentId: uuid("diluent_id")
+      .notNull()
+      .references(() => materials.id, { onDelete: "restrict" }),
+    /** Its share of what was poured. */
+    fraction: numeric("fraction").notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [
+    index("formula_event_diluents_owner_idx").on(t.ownerId),
+    unique("formula_event_diluents_once").on(t.eventId, t.position),
+    check("formula_event_diluents_position", sql`${t.position} >= 3`),
+    check("formula_event_diluents_fraction", sql`${t.fraction} > 0 and ${t.fraction} < 1`),
   ],
 );

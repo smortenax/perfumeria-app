@@ -12,6 +12,7 @@ export function eventOf(c: Change, idOf: (key: string) => string): NewEvent {
         fraction: c.fraction,
         diluentId: c.diluent ? idOf(c.diluent.key) : null,
         ...(c.secondDiluent ? { secondDiluent: { materialId: idOf(c.secondDiluent.material.key), fraction: c.secondDiluent.fraction } } : {}),
+        ...(c.moreDiluents?.length ? { moreDiluents: c.moreDiluents.map((d) => ({ materialId: idOf(d.material.key), fraction: d.fraction })) } : {}),
       };
     case "set-mass":
       return { kind: "set_mass", target: c.target, massUg: c.massUg };

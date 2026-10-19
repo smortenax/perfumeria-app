@@ -33,6 +33,7 @@ import { dilutionText } from "./format";
 import { IconText } from "./Icon";
 import { newId } from "./state";
 import { pourKey, type Pour } from "./usage-bar";
+import { type BottleChoice, percentCell } from "./bottles";
 
 const t = texts.addBar;
 
@@ -103,12 +104,38 @@ const mixFrom = (d: Dilution): Mix | null =>
 
 const mixDilution = (m: Mix): Dilution => ({ percent: m.percent, diluent: m.first, mix: { percent: m.firstPercent, diluent: m.second } });
 
-/** The mixture read as `add` reads it: the fraction of pure matter and the two diluents; or what is wrong, and in which cell. */
-function readMix(m: Mix): { fraction: Ratio; diluent: Material; secondDiluent: SecondDiluent } | { error: string; at?: 0 | 1 } {
+/** A diluent added to a mixture beyond the two (V3-67): its diluent and its % of what is poured. */
+interface Extra {
+  readonly id: DiluentId;
+  readonly percent: string;
+}
+
+/**
+ * The mixture read as `add` reads it: the fraction of pure matter and the diluents; or what is wrong,
+ * and in which cell. The extra diluents (V3-67) carry their %, as the upper one; the lower one takes the rest.
+ */
+function readMix(
+  m: Mix,
+  extras: readonly Extra[] = [],
+): { fraction: Ratio; diluent: Material; secondDiluent: SecondDiluent; moreDiluents?: SecondDiluent[] } | { error: string; at?: 0 | 1 } {
   const first = diluentMaterial(m.first);
   const second = diluentMaterial(m.second);
   if (!first || !second || first.key === second.key) {
     return { error: t.badDiluent };
+  }
+  const more: SecondDiluent[] = [];
+  for (const x of extras) {
+    const material = diluentMaterial(x.id);
+    if (!material || [first.key, second.key, ...more.map((d) => d.material.key)].includes(material.key)) {
+      return { error: t.badDiluent };
+    }
+    try {
+      const share = parsePercent(x.percent);
+      if (share.eq(Ratio.ONE)) throw new RangeError();
+      more.push({ material, fraction: share });
+    } catch {
+      return { error: t.badMixPercent(material.name) };
+    }
   }
   let fraction: Ratio;
   try {
@@ -125,20 +152,31 @@ function readMix(m: Mix): { fraction: Ratio; diluent: Material; secondDiluent: S
   } catch {
     return { error: t.badMixPercent(first.name), at: 1 };
   }
-  const rest = Ratio.ONE.sub(fraction).sub(share);
+  const rest = Ratio.ONE.sub(fraction).sub(share).sub(Ratio.sum(more.map((d) => d.fraction)));
   if (rest.sign() <= 0) {
     return { error: t.noRest(second.name), at: 1 };
   }
-  return { fraction, diluent: first, secondDiluent: { material: second, fraction: rest } };
+  return { fraction, diluent: first, secondDiluent: { material: second, fraction: rest }, ...(more.length ? { moreDiluents: more } : {}) };
 }
 
-/** What is left for the second diluent, while both % can be read; null while not. */
-function restOf(m: Mix): Ratio | null {
+/** What is left for the lower diluent, while every % can be read; null while not. */
+function restOf(m: Mix, extras: readonly Extra[] = []): Ratio | null {
   try {
-    return Ratio.ONE.sub(parsePercent(m.percent)).sub(parsePercent(m.firstPercent));
+    return Ratio.ONE.sub(parsePercent(m.percent))
+      .sub(parsePercent(m.firstPercent))
+      .sub(Ratio.sum(extras.map((x) => parsePercent(x.percent))));
   } catch {
     return null;
   }
+}
+
+/** Whether a pour is exactly one of your bottles (V3-67): then it says it came from it. */
+function isBottle(b: BottleChoice, fraction: Ratio, diluents: readonly { key: string; share: Ratio }[]): boolean {
+  if (!b.fraction.eq(fraction) || b.diluents.length !== diluents.length) return false;
+  return b.diluents.every((d) => {
+    const key = diluentMaterial(d.id)?.key;
+    return diluents.some((x) => x.key === key && x.share.eq(d.share));
+  });
 }
 
 function Switch(props: { checked: boolean; label: string; title?: string; className?: string; onChange: (checked: boolean) => void }) {
@@ -241,7 +279,10 @@ export function AddBar(props: {
   sessionMaterials: readonly Material[];
   /** «Lo que tengo» (V3-3): with it, the switch «solo lo que tengo» (plan 8.2); without it, no switch. */
   have?: ReadonlySet<string>;
-  onAdd: (change: Change) => void;
+  /** A pour; with the bottle of yours it is exactly, when it is one (V3-67). */
+  onAdd: (change: Change, dilutionId?: string | null) => void;
+  /** Your bottles of a material (V3-67): a tab each above the dilution; none, no tabs. */
+  bottles?: (materialKey: string) => readonly BottleChoice[];
   onQuickMaterial: () => void;
   /** The v2 opened a formula's file to use it as a material; in the v3 an accord is found in the bar (V3-49): without it, no entry. */
   onFormulaAsMaterial?: () => void;
@@ -278,6 +319,12 @@ export function AddBar(props: {
   const [editing, setEditing] = useState<{ at: number; text: string } | null>(null);
   const [diluent, setDiluent] = useState<DiluentId>("dpg");
   const [mix, setMix] = useState<Mix | null>(null);
+  /** The diluents of a mixture beyond the two (V3-67, «añadir diluyente»). */
+  const [extras, setExtras] = useState<Extra[]>([]);
+  /** The bottle whose tab was pressed last: the pour says it came from it while it still is it. */
+  const [bottle, setBottle] = useState<BottleChoice | null>(null);
+  const [bottleMenu, setBottleMenu] = useState(false);
+  const [extrasOpen, setExtrasOpen] = useState(false);
   /** In a mixture, the diluent the menu of other diluents replaces: 0 the upper one, 1 the lower. */
   const [mixSlot, setMixSlot] = useState<0 | 1>(1);
   const [focusMix, setFocusMix] = useState<0 | 1 | null>(null);
@@ -406,6 +453,7 @@ export function AddBar(props: {
     setOtherOpen(false);
     if (!on) {
       setMix(null);
+      setExtras([]);
       return;
     }
     const from = mixOf(prefs);
@@ -562,8 +610,32 @@ export function AddBar(props: {
     // Last used in a mixture, it opens in the mixture (2026-10-08).
     const lastMix = knownMix(p.last);
     setMix(lastMix && mixFrom(lastMix));
+    setExtras([]);
+    setBottle(null);
     setOtherOpen(false);
     props.onSelect?.(material);
+  };
+
+  /** Your bottles of the chosen material (V3-67), and what pressing one does: its exact figures in the cells. */
+  const bottles = selected && props.bottles ? props.bottles(selected.key) : [];
+  const useBottle = (b: BottleChoice) => {
+    setError(null);
+    setEditing(null);
+    setOtherOpen(false);
+    setBottle(b);
+    const [first, second, ...more] = b.diluents;
+    if (!second) {
+      setMix(null);
+      setExtras([]);
+      setPercent(percentCell(b.fraction));
+      setCustomAt(0);
+      setDiluent(first.id);
+      return;
+    }
+    // The upper diluent and the extra ones carry their %; the lower one takes the rest, which is its share.
+    setMix({ percent: percentCell(b.fraction), firstPercent: percentCell(first.share), first: first.id, second: second.id });
+    setExtras(more.map((d) => ({ id: d.id, percent: percentCell(d.share) })));
+    setExtrasOpen(more.length > 0);
   };
 
   useImperativeHandle(props.ref, () => ({
@@ -625,8 +697,9 @@ export function AddBar(props: {
     let fraction: Ratio;
     let diluentUsed: Material | null;
     let secondDiluent: SecondDiluent | undefined;
+    let moreDiluents: SecondDiluent[] | undefined;
     if (mix) {
-      const read = readMix(mix);
+      const read = readMix(mix, extras);
       if ("error" in read) {
         setError(read.error);
         if (read.at !== undefined) {
@@ -634,7 +707,7 @@ export function AddBar(props: {
         }
         return;
       }
-      ({ fraction, diluent: diluentUsed, secondDiluent } = read);
+      ({ fraction, diluent: diluentUsed, secondDiluent, moreDiluents } = read);
     } else {
       try {
         fraction = parsePercent(percentText);
@@ -648,15 +721,25 @@ export function AddBar(props: {
         return;
       }
     }
-    props.onAdd({
-      kind: "add",
-      id: newId(),
-      material: selected,
-      massUg,
-      fraction,
-      diluent: diluentUsed,
-      ...(secondDiluent ? { secondDiluent } : {}),
-    });
+    const shares = diluentUsed
+      ? [
+          { key: diluentUsed.key, share: Ratio.ONE.sub(fraction).sub(Ratio.sum([secondDiluent, ...(moreDiluents ?? [])].flatMap((d) => (d ? [d.fraction] : [])))) },
+          ...[secondDiluent, ...(moreDiluents ?? [])].flatMap((d) => (d ? [{ key: d.material.key, share: d.fraction }] : [])),
+        ]
+      : [];
+    props.onAdd(
+      {
+        kind: "add",
+        id: newId(),
+        material: selected,
+        massUg,
+        fraction,
+        diluent: diluentUsed,
+        ...(secondDiluent ? { secondDiluent } : {}),
+        ...(moreDiluents?.length ? { moreDiluents } : {}),
+      },
+      bottle && isBottle(bottle, fraction, shares) ? bottle.id : null,
+    );
     rememberLast(selected.key, mix ? mixDilution(mix) : { percent: percentText, diluent });
     setSelected(null);
     setQuery("");
@@ -674,7 +757,7 @@ export function AddBar(props: {
     try {
       const massUg = parseMass(quantity, unit);
       if (mix) {
-        const read = readMix(mix);
+        const read = readMix(mix, extras);
         return "error" in read ? null : { material: selected, massUg, ...read };
       }
       const fraction = parsePercent(percent);
@@ -683,7 +766,7 @@ export function AddBar(props: {
     } catch {
       return null;
     }
-  }, [selected, quantity, unit, percent, diluent, mix]);
+  }, [selected, quantity, unit, percent, diluent, mix, extras]);
   const draftKey = pourKey(draft);
   const onDraft = props.onDraft;
   useEffect(() => {
@@ -692,7 +775,7 @@ export function AddBar(props: {
   }, [draftKey]);
 
   const isFavorite = prefs.favorites.some((f) => sameDilution(f, current));
-  const rest = mix ? restOf(mix) : null;
+  const rest = mix ? restOf(mix, extras) : null;
   const firstName = mix ? (diluentMaterial(mix.first)?.name ?? mix.first) : "";
   const secondName = mix ? (diluentMaterial(mix.second)?.name ?? mix.second) : "";
   /** The keys of a cell of the mixture: Intro goes on to the next cell, and from the last one adds; Ctrl+Intro adds. */
@@ -925,8 +1008,45 @@ export function AddBar(props: {
         <div className="field-label">
           <span>{t.dilution}</span>
           <Switch checked={mix !== null} label={t.mix} title={t.mixHelp} className="mix-switch" onChange={turnMix} />
-          {source && <span className="hint">{t.src[source]}</span>}
+          {bottles.length > 0 && (
+            // Your bottles of this material (V3-67): the bench's cards keep their size, so they open from here.
+            <button
+              type="button"
+              className={bottle ? "tool bottle-btn on" : "tool bottle-btn"}
+              tabIndex={-1}
+              aria-expanded={bottleMenu}
+              title={t.bottlesHelp}
+              onClick={() => setBottleMenu(!bottleMenu)}
+            >
+              {bottle ? bottle.label : t.bottlesButton(bottles.length)}
+            </button>
+          )}
+          {mix && (
+            <button type="button" className="tool extra-btn" tabIndex={-1} aria-expanded={extrasOpen} title={t.extrasHelp} onClick={() => setExtrasOpen(!extrasOpen)}>
+              {extras.length ? `+${extras.length}` : "+"}
+            </button>
+          )}
+          {source && !bottle && <span className="hint">{t.src[source]}</span>}
         </div>
+        {bottleMenu && bottles.length > 0 && (
+          <div className="menu-pop bottle-menu" role="menu" aria-label={t.bottles} onMouseLeave={() => setBottleMenu(false)}>
+            {bottles.map((b) => (
+              <button
+                key={b.id}
+                type="button"
+                role="menuitem"
+                className={bottle?.id === b.id ? "menuitem checked" : "menuitem"}
+                onClick={() => {
+                  useBottle(b);
+                  setBottleMenu(false);
+                }}
+              >
+                {b.label}
+                <span className="muted tiny"> · {t.bottleHelp(`${percentCell(b.fraction)} %`, b.diluents.map((d) => diluentMaterial(d.id)?.name ?? d.id).join(" + "))}</span>
+              </button>
+            ))}
+          </div>
+        )}
         {!mix && assumed && samePercent(assumed.percent, percent) && (
           <div className="dilution-note muted tiny" title={`${t.assumedHelp} ${assumed.source}`}>
             {t.assumed(assumed.percent.replace(".", ","), assumed.why, assumed.diluent.toUpperCase())}
@@ -1136,6 +1256,52 @@ export function AddBar(props: {
             )}
           </div>
         </div>
+        {mix && (
+          // The diluents beyond the two (V3-67): each with its %; the lower one still takes the rest.
+          <div className="menu-pop mix-extras" hidden={!extrasOpen}>
+            {extras.map((x, i) => (
+              <div key={i} className="mix-extra">
+                <select
+                  value={x.id}
+                  aria-label={t.extraDiluent}
+                  onChange={(e) => setExtras(extras.map((y, j) => (j === i ? { ...y, id: e.target.value as DiluentId } : y)))}
+                >
+                  {[...APP_DILUENTS.map((id) => ({ id: id as DiluentId, name: diluentMaterial(id)?.name ?? id })), ...ownDiluents().map((d) => ({ id: d.id, name: d.name }))].map((d) => (
+                    <option key={d.id} value={d.id}>
+                      {d.name}
+                    </option>
+                  ))}
+                </select>
+                <label className="cell mix-cell num">
+                  <input
+                    value={x.percent}
+                    inputMode="decimal"
+                    autoComplete="off"
+                    aria-label={t.mixFirstPercent(diluentMaterial(x.id)?.name ?? x.id)}
+                    onChange={(e) => setExtras(extras.map((y, j) => (j === i ? { ...y, percent: e.target.value } : y)))}
+                  />
+                  %
+                </label>
+                <button type="button" className="link" tabIndex={-1} onClick={() => setExtras(extras.filter((_, j) => j !== i))}>
+                  {t.removeExtra}
+                </button>
+              </div>
+            ))}
+            <button
+              type="button"
+              className="link"
+              tabIndex={-1}
+              onClick={() =>
+                setExtras([
+                  ...extras,
+                  { id: APP_DILUENTS.find((d) => ![mix.first, mix.second, ...extras.map((x) => x.id)].includes(d)) ?? "ipm", percent: "" },
+                ])
+              }
+            >
+              {t.addExtra}
+            </button>
+          </div>
+        )}
       </div>
 
       <button type="button" className="add-btn" onClick={() => add()}>

@@ -26,13 +26,16 @@ export function amountText(micrograms: Ratio): string {
 }
 
 /** How a line was poured: «619 mg, puro», «110 mg al 50 % en DPG» or, in a mixture, «110 mg al 10 % en DPG 30 % + Alcohol 60 %». */
-export function pouredText(massUg: Ratio, fraction: Ratio, diluentName: string | undefined, second?: SecondDiluent): string {
+export function pouredText(massUg: Ratio, fraction: Ratio, diluentName: string | undefined, second?: SecondDiluent, more?: readonly SecondDiluent[]): string {
   if (fraction.eq(Ratio.ONE)) {
     return texts.history.linePure(massText(massUg));
   }
   if (second) {
-    const first = Ratio.ONE.sub(fraction).sub(second.fraction);
-    return texts.history.lineMixed(massText(massUg), dilutionText(fraction), diluentName ?? "?", dilutionText(first), second.material.name, dilutionText(second.fraction));
+    const others = [second, ...(more ?? [])];
+    const first = Ratio.ONE.sub(fraction).sub(Ratio.sum(others.map((d) => d.fraction)));
+    const text = texts.history.lineMixed(massText(massUg), dilutionText(fraction), diluentName ?? "?", dilutionText(first), second.material.name, dilutionText(second.fraction));
+    // The third diluent and on (V3-67), after the second.
+    return [text, ...(more ?? []).map((d) => `${d.material.name} ${dilutionText(d.fraction)}`)].join(" + ");
   }
   return texts.history.lineDiluted(massText(massUg), dilutionText(fraction), diluentName ?? "?");
 }

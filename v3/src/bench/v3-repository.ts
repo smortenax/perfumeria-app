@@ -88,7 +88,7 @@ export function repositoryOfV3(data: GlossaryData): MaterialRepository {
 }
 
 /** The v2's diluents of the bar, by the name of the common diluent each one is in the v3 (batch 10: Etanol, DPG, IPM; V3-53: the other four). */
-const DILUENT_NAMES: Readonly<Record<string, RegExp>> = {
+export const DILUENT_NAMES: Readonly<Record<string, RegExp>> = {
   "solv:alcohol": /^etanol/i,
   "solv:dpg": /^dpg/i,
   "solv:ipm": /^ipm/i,

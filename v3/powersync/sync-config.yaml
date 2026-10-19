@@ -47,6 +47,7 @@ streams:
       - SELECT * FROM workbenches WHERE owner_id = auth.user_id()
       - SELECT * FROM formulas WHERE owner_id = auth.user_id()
       - SELECT * FROM formula_events WHERE owner_id = auth.user_id()
+      - SELECT * FROM formula_event_diluents WHERE owner_id = auth.user_id()
       # Your tastings (V3-62): every row carries its owner, so no JOIN.
       - SELECT * FROM tasting_sessions WHERE user_id = auth.user_id()
       - SELECT * FROM tasting_strips WHERE user_id = auth.user_id()

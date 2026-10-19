@@ -254,6 +254,8 @@ export interface Pour {
   readonly fraction: Ratio;
   readonly diluent: Material | null;
   readonly secondDiluent?: SecondDiluent;
+  /** The third diluent and on (V3-67). */
+  readonly moreDiluents?: readonly SecondDiluent[];
 }
 
 /** What adding the pour would do: where it leaves the material on the strip, and which ceilings it breaks. */
@@ -283,6 +285,7 @@ export function previewPour(formula: Formula, data: IfraData, before: IfraReport
     fraction: pour.fraction,
     diluent: pour.diluent,
     ...(pour.secondDiluent ? { secondDiluent: pour.secondDiluent } : {}),
+    ...(pour.moreDiluents?.length ? { moreDiluents: pour.moreDiluents } : {}),
   };
   const after: Formula = { header: formula.header, history: [...formula.history, change] };
   const report = checkIfra(after, data);
@@ -314,5 +317,6 @@ export function previewPour(formula: Formula, data: IfraData, before: IfraReport
  */
 export function pourKey(pour: Pour | null): string {
   const second = pour?.secondDiluent ? `|${pour.secondDiluent.material.key}|${pour.secondDiluent.fraction.toString()}` : "";
-  return pour ? `${pour.material.key}|${pour.massUg}|${pour.fraction.toString()}|${pour.diluent?.key ?? ""}${second}` : "";
+  const more = (pour?.moreDiluents ?? []).map((d) => `|${d.material.key}|${d.fraction.toString()}`).join("");
+  return pour ? `${pour.material.key}|${pour.massUg}|${pour.fraction.toString()}|${pour.diluent?.key ?? ""}${second}${more}` : "";
 }

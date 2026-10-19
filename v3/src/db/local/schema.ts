@@ -260,6 +260,18 @@ export const formulaEvents = sqliteTable("formula_events", {
   grossUg: text("gross_ug"),
   tareUg: text("tare_ug"),
   text: text("text"),
+  dilutionId: text("dilution_id"),
+  createdAt: text("created_at"),
+});
+
+/** The third diluent of a pour and on (V3-67). */
+export const formulaEventDiluents = sqliteTable("formula_event_diluents", {
+  id: text("id").primaryKey(),
+  eventId: text("event_id"),
+  ownerId: text("owner_id"),
+  position: integer("position"),
+  diluentId: text("diluent_id"),
+  fraction: text("fraction"),
   createdAt: text("created_at"),
 });
 
@@ -482,6 +494,7 @@ export const tables = {
   workbenches,
   formulas,
   formulaEvents,
+  formulaEventDiluents,
   tastingSessions,
   tastingStrips,
   tastingMoments,
@@ -518,6 +531,7 @@ export const AppSchema = new DrizzleAppSchema({
   workbenches,
   formulas,
   formulaEvents,
+  formulaEventDiluents,
   tastingSessions,
   tastingStrips,
   tastingMoments,
