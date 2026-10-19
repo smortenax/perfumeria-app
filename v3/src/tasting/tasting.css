@@ -1,0 +1,424 @@
+/* «Catas» (V3-61): for the bench, mostly from the phone, with one hand; big targets, one column. */
+
+.tasting {
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
+.tasting .hint {
+  color: var(--muted);
+}
+
+.tasting button:not(.link):not(.chip):not(.strip-card):not(.curve-cell):not(.tab):not(.tasting-notice):not(.primary) {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--line-strong);
+}
+
+.tasting button {
+  min-height: 2.75rem;
+}
+
+.tasting button.danger,
+.tasting button.link.danger {
+  color: var(--red);
+}
+
+.tasting-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.tasting-empty {
+  padding: 1rem 0;
+}
+
+.tasting-notices {
+  position: sticky;
+  top: var(--app-nav-h, 3rem);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.tasting-notice {
+  background: var(--amber-bg);
+  color: var(--amber);
+  border: 1px solid var(--amber);
+  text-align: left;
+  font-weight: 600;
+}
+
+.strip-cards,
+.queue-list,
+.pick-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.strip-card {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 0.25rem 0.75rem;
+  width: 100%;
+  text-align: left;
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--line);
+  padding: 0.75rem;
+}
+
+.strip-label {
+  grid-row: span 2;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  align-self: center;
+  text-align: center;
+}
+
+.strip-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+}
+
+.strip-name {
+  font-weight: 600;
+}
+
+.strip-detail {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.strip-moments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.moment-dot {
+  font-size: 0.75rem;
+  padding: 0.0625rem 0.375rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--faint);
+}
+
+.moment-dot.done {
+  background: var(--fill);
+  color: var(--text);
+}
+
+.moment-dot.due {
+  background: var(--amber-bg);
+  color: var(--amber);
+  border-color: var(--amber);
+}
+
+.strip-timer {
+  grid-column: 2;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.moment-tabs {
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex-wrap: nowrap;
+}
+
+.moment-tabs .tab {
+  flex: 0 0 auto;
+  font-variant-numeric: tabular-nums;
+}
+
+.moment-tabs .tab.due {
+  color: var(--amber);
+  font-weight: 700;
+}
+
+.moment-tabs .tab.waiting small {
+  color: var(--faint);
+}
+
+.tasting .field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0.5rem 0;
+}
+
+.tasting textarea,
+.tasting input:not([type="checkbox"]):not([type="range"]),
+.tasting select {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+}
+
+.opening blockquote {
+  margin: 0.5rem 0;
+  padding: 0.75rem;
+  border-left: 3px solid var(--line-strong);
+  background: var(--panel);
+  white-space: pre-wrap;
+}
+
+.moment-title {
+  margin: 0.75rem 0 0.25rem;
+}
+
+.block {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.5rem 0.75rem;
+  margin: 0.75rem 0;
+  background: var(--panel);
+}
+
+.block header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.block h3 {
+  margin: 0.25rem 0;
+  font-size: 1rem;
+}
+
+.block-state {
+  font-size: 0.75rem;
+  color: var(--faint);
+}
+
+.block-data .block-state {
+  color: var(--green);
+}
+
+.block-same .block-state {
+  color: var(--blue);
+}
+
+.tasting .reviewed {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.5rem;
+  color: var(--muted);
+}
+
+.choice {
+  border: 0;
+  padding: 0;
+  margin: 0.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.choice legend {
+  margin-bottom: 0.25rem;
+  padding: 0;
+}
+
+.choice .sep {
+  width: 0.75rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  padding: 0.25rem 0;
+}
+
+.tasting .chip {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+}
+
+.tasting .chip[aria-pressed="true"] {
+  background: var(--text);
+  color: var(--panel);
+  border-color: var(--text);
+}
+
+.families summary {
+  cursor: pointer;
+  padding: 0.375rem 0;
+  font-weight: 600;
+}
+
+.intensity input[type="range"] {
+  width: 100%;
+  min-height: 2.75rem;
+}
+
+.intensity input.unset {
+  opacity: 0.35;
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+}
+
+.curve {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.curve-row {
+  display: grid;
+  grid-template-columns: 3.5rem repeat(4, 1fr);
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.curve-level {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.tasting .curve-cell {
+  background: var(--fill);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  min-height: 2.75rem;
+}
+
+.tasting .curve-cell[aria-pressed="true"] {
+  background: var(--text);
+  border-color: var(--text);
+}
+
+.battery {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.battery-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.25rem 0.5rem;
+}
+
+.battery-states {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.battery-states .chip {
+  min-width: 2.75rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.queue progress {
+  width: 100%;
+  height: 0.75rem;
+}
+
+.queue-group summary {
+  cursor: pointer;
+  padding: 0.5rem 0;
+  font-weight: 600;
+}
+
+.queue-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.25rem 0.5rem;
+  padding: 0.375rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.queue-name {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.queue-buttons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.mark-badge {
+  margin-left: 0.5rem;
+  font-size: 0.75rem;
+  padding: 0.0625rem 0.375rem;
+  border-radius: 999px;
+  background: var(--amber-bg);
+  color: var(--amber);
+}
+
+.pick-list {
+  max-height: 16rem;
+  overflow-y: auto;
+}
+
+.pick-list button {
+  width: 100%;
+  text-align: left;
+}
+
+.legacy-sheet {
+  border-bottom: 1px solid var(--line);
+  padding: 0.5rem 0;
+}
+
+.legacy-sheet summary {
+  cursor: pointer;
+}
+
+.legacy-sheet pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 0.8125rem;
+  background: var(--panel);
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+
+.strip-view .title-bar h2 {
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+/* The four tabs of «Catas» fit a phone's width (375 px). */
+@media (max-width: 480px) {
+  .tasting > .tabs .tab {
+    padding-inline: 0.625rem;
+  }
+}

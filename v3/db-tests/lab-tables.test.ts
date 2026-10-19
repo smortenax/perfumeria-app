@@ -31,10 +31,9 @@ afterAll(async () => {
   await admin.end();
 });
 
-it("you write your dilution, your tasting and your axis; they are yours, whoever you say", async () => {
+it("you write your dilution and your axis; they are yours, whoever you say", async () => {
   const rows = {
     lab_dilutions: { material_id: common, fraction: "0.1", solvent: "DPG", made_on: "2026-10-14", description: "frasco de trabajo" },
-    lab_evaluations: { material_id: common, status: "catado", reading: "jazmín transparente" },
     lab_axes: { material_id: common, axis: "floral" },
   };
   for (const [table, row] of Object.entries(rows)) {
@@ -45,6 +44,20 @@ it("you write your dilution, your tasting and your axis; they are yours, whoever
     expect(stored.user_id, table).toBe(a.id);
     expect((await insertAs(a, table, { ...row, user_id: b.id })).code, `${table}, para B`).toBe("42501");
   }
+});
+
+// V3-60: the lab's tasting is the legacy, read only; the new tastings are tasting_* (db-tests/tastings.test.ts).
+it("your lab's tasting is yours to read, never to write: only the loading script writes it", async () => {
+  [{ id: ids.lab_evaluations }] = await admin`
+    insert into lab_evaluations (user_id, material_id, status, reading) values (${a.id}, ${common}, 'catado', 'jazmín transparente') returning id`;
+  const { data } = await a.db.from("lab_evaluations").select("reading").eq("id", ids.lab_evaluations);
+  expect(data).toEqual([{ reading: "jazmín transparente" }]);
+  expect((await insertAs(a, "lab_evaluations", { material_id: common, status: "catado" })).code).toBe("42501");
+  const { data: changed } = await a.db.from("lab_evaluations").update({ reading: "otra" }).eq("id", ids.lab_evaluations).select("id");
+  expect(changed).toEqual([]);
+  await a.db.from("lab_evaluations").delete().eq("id", ids.lab_evaluations);
+  const [still] = await admin`select reading from lab_evaluations where id = ${ids.lab_evaluations}`;
+  expect(still.reading).toBe("jazmín transparente");
 });
 
 it("B sees none of yours", async () => {

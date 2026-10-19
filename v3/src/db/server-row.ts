@@ -10,12 +10,15 @@ export const LIST_COLUMNS: Readonly<Record<string, readonly string[]>> = {
   ifra_substances: ["synonyms"],
   ifra_annex: ["natural_other_cas"],
   formulas: ["markers"],
+  tasting_moments: ["reviewed"],
+  tasting_closures: ["biases"],
 };
 
 export const BOOLEAN_COLUMNS: Readonly<Record<string, readonly string[]>> = {
   materials: ["solvent"],
   material_doses: ["disputed"],
   data_version: ["single"],
+  tasting_moments: ["near_detectable", "far_detectable"],
   ifra_standards: ["prohibition", "restriction", "specification", "prohibited_as_such"],
 };
 

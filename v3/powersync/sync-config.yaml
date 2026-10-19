@@ -46,6 +46,15 @@ streams:
       - SELECT * FROM workbenches WHERE owner_id = auth.user_id()
       - SELECT * FROM formulas WHERE owner_id = auth.user_id()
       - SELECT * FROM formula_events WHERE owner_id = auth.user_id()
+      # Your tastings (V3-62): every row carries its owner, so no JOIN.
+      - SELECT * FROM tasting_sessions WHERE user_id = auth.user_id()
+      - SELECT * FROM tasting_strips WHERE user_id = auth.user_id()
+      - SELECT * FROM tasting_moments WHERE user_id = auth.user_id()
+      - SELECT * FROM tasting_families WHERE user_id = auth.user_id()
+      - SELECT * FROM tasting_battery WHERE user_id = auth.user_id()
+      - SELECT * FROM tasting_curve WHERE user_id = auth.user_id()
+      - SELECT * FROM tasting_closures WHERE user_id = auth.user_id()
+      - SELECT * FROM tasting_marks WHERE user_id = auth.user_id()
 
   # IFRA's layer (V3-35): apart from the materials, down its own stream, so that it can be given
   # only to whom has it (an add-on, later). Today, to whoever signs in.

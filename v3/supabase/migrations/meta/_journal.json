@@ -211,6 +211,20 @@
       "when": 1792009351490,
       "tag": "20261014202231_frozen_source_event_check",
       "breakpoints": true
+    },
+    {
+      "idx": 30,
+      "version": "7",
+      "when": 1792402065978,
+      "tag": "20261019092745_tastings",
+      "breakpoints": true
+    },
+    {
+      "idx": 31,
+      "version": "7",
+      "when": 1792402080979,
+      "tag": "20261019092800_tastings_rls",
+      "breakpoints": true
     }
   ]
 }

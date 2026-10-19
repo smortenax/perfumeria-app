@@ -13,6 +13,8 @@ import { NewMaterial } from "./glossary/NewMaterial";
 import { useGlossary } from "./glossary/useGlossary";
 import { SignIn } from "./SignIn";
 import { SyncStatus } from "./SyncStatus";
+import { Tasting } from "./tasting/Tasting";
+import { useTastings } from "./tasting/useTastings";
 import { texts } from "./i18n/es";
 
 /**
@@ -44,6 +46,7 @@ export default function App() {
 function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => void }) {
   const local = localDatabaseFor(user.id);
   const data = useGlossary(local);
+  const tastings = useTastings(local);
   const [route, go, back] = useRoute();
   const leave = async () => {
     await closeLocalDatabase();
@@ -61,7 +64,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
     if (data && lastFormula && !data.formulas.some((f) => f.id === lastFormula) && route.view !== "formula") setLastFormula(null);
   }, [data, lastFormula, route]);
   const benchName = lastFormula ? data?.formulas.find((f) => f.id === lastFormula)?.name : undefined;
-  const section = route.view === "home" ? "home" : route.view === "library" ? "library" : route.view === "formula" ? "bench" : "materials";
+  const section = route.view === "home" ? "home" : route.view === "library" ? "library" : route.view === "tasting" ? "tasting" : route.view === "formula" ? "bench" : "materials";
   const n = texts.nav;
 
   return (
@@ -77,6 +80,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
               ["home", n.home, () => go({ view: "home" })],
               ["materials", n.materials, () => go({ view: "materials" })],
               ["library", n.library, () => go({ view: "library" })],
+              ["tasting", n.tasting, () => go({ view: "tasting" })],
               ...(lastFormula ? [["bench", n.bench(benchName ?? ""), () => go({ view: "formula", id: lastFormula })] as const] : []),
             ] as const
           ).map(([key, label, onClick]) => (
@@ -89,7 +93,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
           {user.email} · <button type="button" className="link" onClick={() => void leave()}>{texts.app.signOut}</button>
         </span>
       </nav>
-      {route.view === "home" && <Home data={data} onMaterials={() => go({ view: "materials" })} onFormulation={() => go({ view: "library" })} />}
+      {route.view === "home" && <Home data={data} tastings={tastings} onMaterials={() => go({ view: "materials" })} onFormulation={() => go({ view: "library" })} onTasting={() => go({ view: "tasting" })} />}
       {route.view !== "home" && !data && <p>{texts.glossary.loading}</p>}
       {data && (
         <>
@@ -114,6 +118,8 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
               }
             />
           </div>
+          {/* Always mounted: the timers of the strips keep giving their notices while you are elsewhere. */}
+          {tastings && <Tasting data={data} local={local} tastings={tastings} visible={route.view === "tasting"} />}
           {route.view === "sheet" && (
             <MaterialSheet
               data={data}
@@ -160,7 +166,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
 }
 
 type Route =
-  | { readonly view: "home" | "materials" | "library" | "new" }
+  | { readonly view: "home" | "materials" | "library" | "tasting" | "new" }
   | { readonly view: "sheet" | "edit" | "formula"; readonly id: string };
 
 /** Where the app is lives in the address, so the browser's back works: «#materiales», «#formulacion», «#material/<id>»… */
@@ -172,9 +178,10 @@ function parseRoute(hash: string): Route {
   if (hash === "#nuevo") return { view: "new" };
   if (hash === "#materiales") return { view: "materials" };
   if (hash === "#formulacion") return { view: "library" };
+  if (hash === "#catas") return { view: "tasting" };
   return { view: "home" };
 }
-const HASH: Record<"home" | "materials" | "library" | "new", string> = { home: "", materials: "#materiales", library: "#formulacion", new: "#nuevo" };
+const HASH: Record<"home" | "materials" | "library" | "tasting" | "new", string> = { home: "", materials: "#materiales", library: "#formulacion", tasting: "#catas", new: "#nuevo" };
 const hashOf = (r: Route) => (r.view === "formula" ? `#formula/${r.id}` : "id" in r ? `#material/${r.id}${r.view === "edit" ? "/editar" : ""}` : HASH[r.view]);
 
 function useRoute(): [Route, (r: Route, replace?: boolean) => void, (fallback: Route) => void] {

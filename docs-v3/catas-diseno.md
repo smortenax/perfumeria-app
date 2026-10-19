@@ -152,3 +152,15 @@ rompe las catas que ya existen. Lo descriptivo (apertura, descripciones, sinest�
 - **`lab_evaluations`** (107 filas, una por material) se queda como **archivo**, con las 11 fichas en Markdown en
   `sheet`. Su `status` alimenta la cola del plan de catas hasta que haya tiras cerradas.
 - **`lab_dilutions`** es lo que el prompt llama `user_bottles`: de ahí salen la fracción y el disolvente de cada tira.
+
+---
+
+## Cómo vive la cata a partir de ahora (construido el 2026-10-19)
+
+1. **De dónde salen los materiales:** la pestaña **Cola** de «Catas» lista lo que tienes («lo tengo») y aún no has catado, agrupado por tu última dilución (fracción y disolvente). Cuenta como catado lo que tiene una tira cerrada en la app o una ficha del laboratorio marcada «catado». «Marcar» lo sube arriba con su motivo (p. ej. «pedido 2026-10-18»).
+2. **La sesión:** «A la sesión» (o «Añadir tira») crea la tira con la siguiente letra libre (A-D), el frasco y la dosis. Desde ahí solo ves la letra.
+3. **t0:** la apertura, del tirón (con el dictado del teclado si quieres). Se guarda una vez; la app y la base de datos no dejan corregirla.
+4. **t5:** el desglose entero. Al terminarlo, «Terminar t5 y ver el nombre».
+5. **t30 en adelante:** cada pestaña empieza vacía, con su cuenta atrás y su aviso (con la app abierta). Se escribe lo que cambió y se marca «Revisado: sigue igual» lo que no; «Comparar con» dice qué bloques cambiaron. «¿Se nota de cerca?» en cada tiempo da la tenacidad.
+6. **Cierre:** lo fijo (modo de decaer, papel, efecto, versatilidad, R1-R3, sesgos, afinidades y destinos) y «Cerrar la serie»; solo entonces se abre el cotejo.
+7. **Adónde va:** a tus tablas `tasting_*` (tu cuenta, con RLS, sincronizadas sin conexión). Nada se escribe en el material. Las catas cerradas salen en **Catadas**; las fichas del laboratorio, en **Legado**, de solo lectura.

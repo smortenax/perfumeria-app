@@ -248,6 +248,118 @@ export const formulaEvents = sqliteTable("formula_events", {
   createdAt: text("created_at"),
 });
 
+/** Your tastings (V3-60 to V3-63): sessions, strips, their tabs and closings, as the server keeps them. */
+export const tastingSessions = sqliteTable("tasting_sessions", {
+  id: text("id").primaryKey(),
+  userId: text("user_id"),
+  startedAt: text("started_at"),
+  endedAt: text("ended_at"),
+  note: text("note"),
+  ...timestamps,
+});
+
+export const tastingStrips = sqliteTable("tasting_strips", {
+  id: text("id").primaryKey(),
+  sessionId: text("session_id"),
+  userId: text("user_id"),
+  materialId: text("material_id"),
+  dilutionId: text("dilution_id"),
+  fraction: text("fraction"),
+  solvent: text("solvent"),
+  dose: text("dose"),
+  appliedAt: text("applied_at"),
+  blindLabel: text("blind_label"),
+  revealedAt: text("revealed_at"),
+  closedAt: text("closed_at"),
+  ...timestamps,
+});
+
+export const tastingMoments = sqliteTable("tasting_moments", {
+  id: text("id").primaryKey(),
+  stripId: text("strip_id"),
+  userId: text("user_id"),
+  moment: text("moment"),
+  at: text("at"),
+  text: text("text"),
+  intensity: integer("intensity"),
+  texture: text("texture"),
+  temperature: text("temperature"),
+  shape: text("shape"),
+  color: text("color"),
+  brightness: text("brightness"),
+  thingOrPlace: text("thing_or_place"),
+  thingOrPlaceText: text("thing_or_place_text"),
+  ownField: text("own_field"),
+  complexity: text("complexity"),
+  complexityNote: text("complexity_note"),
+  puff: text("puff"),
+  revisedImage: text("revised_image"),
+  metaphor: text("metaphor"),
+  notes: text("notes"),
+  nearDetectable: integer("near_detectable", { mode: "boolean" }),
+  farDetectable: integer("far_detectable", { mode: "boolean" }),
+  reviewed: list("reviewed"),
+  ...timestamps,
+});
+
+export const tastingFamilies = sqliteTable("tasting_families", {
+  id: text("id").primaryKey(),
+  momentId: text("moment_id"),
+  userId: text("user_id"),
+  scheme: text("scheme"),
+  code: text("code"),
+  createdAt: text("created_at"),
+});
+
+export const tastingBattery = sqliteTable("tasting_battery", {
+  id: text("id").primaryKey(),
+  momentId: text("moment_id"),
+  userId: text("user_id"),
+  axis: text("axis"),
+  state: text("state"),
+  ...timestamps,
+});
+
+export const tastingCurve = sqliteTable("tasting_curve", {
+  id: text("id").primaryKey(),
+  momentId: text("moment_id"),
+  userId: text("user_id"),
+  segment: integer("segment"),
+  level: text("level"),
+  ...timestamps,
+});
+
+export const tastingClosures = sqliteTable("tasting_closures", {
+  id: text("id").primaryKey(),
+  stripId: text("strip_id"),
+  userId: text("user_id"),
+  role: text("role"),
+  effectRichness: text("effect_richness"),
+  effectEnergy: text("effect_energy"),
+  versatility: text("versatility"),
+  decay: text("decay"),
+  r1: text("r1"),
+  r2: text("r2"),
+  r2Note: text("r2_note"),
+  r3: text("r3"),
+  r3Note: text("r3_note"),
+  biases: list("biases"),
+  biasNote: text("bias_note"),
+  affinities: text("affinities"),
+  destination: text("destination"),
+  negativeDestination: text("negative_destination"),
+  comparison: text("comparison"),
+  ...timestamps,
+});
+
+export const tastingMarks = sqliteTable("tasting_marks", {
+  id: text("id").primaryKey(),
+  userId: text("user_id"),
+  materialId: text("material_id"),
+  label: text("label"),
+  createdAt: text("created_at"),
+});
+
 export const dataVersion = sqliteTable("data_version", {
   id: text("id").primaryKey(),
   single: integer("single", { mode: "boolean" }),
@@ -355,6 +467,14 @@ export const tables = {
   workbenches,
   formulas,
   formulaEvents,
+  tastingSessions,
+  tastingStrips,
+  tastingMoments,
+  tastingFamilies,
+  tastingBattery,
+  tastingCurve,
+  tastingClosures,
+  tastingMarks,
   materialCategories,
   materials,
   materialComponents,
@@ -382,6 +502,14 @@ export const AppSchema = new DrizzleAppSchema({
   workbenches,
   formulas,
   formulaEvents,
+  tastingSessions,
+  tastingStrips,
+  tastingMoments,
+  tastingFamilies,
+  tastingBattery,
+  tastingCurve,
+  tastingClosures,
+  tastingMarks,
   materialCategories,
   materials,
   materialComponents,
