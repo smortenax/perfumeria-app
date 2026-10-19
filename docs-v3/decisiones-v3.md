@@ -1178,6 +1178,23 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 - **Cada cata tiene su dirección** (`#cata/<id>`), y cada pestaña de «Catas» la suya (`#catas/cola`…), para poder enlazarlas.
 - **Propuesta de la sesión:** «Nueva cata» pone la tira en la sesión abierta (o abre una); si el material ya tiene una tira abierta en ella, lleva a esa en vez de crear otra.
 
+## V3-65 · Las diluciones, una parte propia de la app, vinculadas al material (decidida por el usuario el 2026-10-19; cuándo: después de cerrar las catas)
+
+**Literal** (2026-10-19):
+
+> creo que falta un nivel de complejidad de la app que solucionaria este problema y otros de dentro de la app de formulacion, crear la parte de diluciones en la app, de entrada muy sencillo pones los porcentajes pones los porcentajes la cantidad y te lo calcula, se ira mejorando con incluso recomendaciones por los materiales y demas. para que es tan util esto? porque estandarizara los materiales dados de alta como propios con las diluciones concretas que quedaran registradas, si uso material Labdanum y creo quna dilucion al 10% que resultla ser un 9,67% se guarda como 9,67%, habra que cambiar la parte de formulacion para que desde  este cambio te salgan los materiales que has registrado en diluciones como las diluciones "favoritas" esto tambien es util para cuando los materiales llevan multiples diluyentes etc todo esto se estandarizara entonces una vez seleccionas el material a parte de la opcion de poner tu el numero a mano tendras guardadas las diluciones que hayas registrado, esto tambien sera compatible con los estandares de dilucion en catas. entonces creo que lo de las diluciones de catas se pausa, se acaba el resto de incognitas de las catas y a posteriori se empieza a mirar la manera de implementar las diluciones en la app tambien de manera que se guarden vinculadas al material, no quiero que cada dilucion sea un material diferente de usuario sino que cada material tenga propiedad de las diluciones exactas con el % justo y el diluyente y al usar la app de formulacion en el apartado de la dilucion tengas las opciones, podria ser que a nivel visual en la app, al seleccionar el material justo encima de la parte de diluciones aparezcan pestañas: PE
+> 10%, 50% y en la pestaña 10%, al hacer click te ponga en los parametros 10.70% , eth y en la del 50% por ejemplo pone 50%, 30eth, resto dpg,...
+
+**Lectura** (de la sesión):
+
+- **Una parte de diluciones en la app.** Para empezar, sencilla: pones el porcentaje y la cantidad, y te calcula cuánto pesar. Más adelante, con recomendaciones por material.
+- **Cada dilución que haces queda registrada con su cifra exacta**: si buscabas un 10 % y te sale un 9,67 %, se guarda 9,67 %. Con su diluyente o sus diluyentes (p. ej. 50 %, 30 % de etanol y el resto DPG).
+- **Es una propiedad del material, no un material nuevo.** Cada material tuyo tiene sus diluciones exactas.
+- **En Formulación**, al elegir un material, encima de la dilución salen pestañas con tus diluciones de ese material («10 %», «50 %»); al tocar una, rellena los parámetros con lo exacto (10,70 % en etanol; 50 %, 30 % de etanol y el resto DPG). Escribir el número a mano sigue siendo posible.
+- **Las catas usan los mismos frascos**: es el estándar de dilución de las catas.
+- **Orden:** la dilución en las catas se pausa (la pregunta 1 de las catas abiertas); se cierran las demás incógnitas de las catas, y después se diseña esto.
+- **Nota de la sesión:** hoy `lab_dilutions` guarda una fracción y el disolvente en texto; varios diluyentes con su parte no caben. Al diseñarlo se verá cómo encaja con el `add` de `formula_events`, que ya admite dos diluyentes.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
