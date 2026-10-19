@@ -1217,6 +1217,33 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 - **Confirmado (2026-10-19, «si ok a las 6»), lo que la sesión había decidido sola:** la intensidad de 1 a 5 con las palabras de la hoja; ninguna pestaña antes de la t0; las marcas de la cola con su motivo; la cola agrupada por concentración habitual; «Nueva cata» reutiliza la tira en curso del material; como máximo 4 tiras por sesión.
 - **Las catas parten de las diluciones registradas** (V3-65): se elige el % entre los frascos que existen de ese material; no hay dilución libre. Hasta que exista la parte de diluciones, la tira sigue admitiendo «sin dilución».
 
+## V3-67 · Las diluciones: cómo son (decidida por el usuario el 2026-10-19; desarrolla V3-65)
+
+**Literal** (2026-10-19), a las diez preguntas de la sesión:
+
+> 1vive en un apartado propio donde aparecen todas, pero a la vez todos tus propios materiales tienen tambien las diluciones dadas de alta en la ficha, por otro lado tambien esta el boton de dar de alta.
+> 2si correcto los registros de texto puden ser estimados "al 10%" pero a la hora de la verdad el material y en la formulacion el 10% es 9,97,
+> 3 quizas habria que replantear si usar solo 2 diluyentes esta bien, quizas la mejor opcion seria que el banco tenga un boton de añadir diluyentes por si hay casos de 3 diluyentes o no  se, me parece que casi siempre va a ser dos o menos pero es una flaqueza de diseño hacerlo universalmente asi,
+> lo de corregir un flasco no se bien bien que dices
+> puro no necesita diluciones se pone directamente puro desde la app y ya no hace falta que exista aqui 
+> los 51 luego se pasan cuendo este todo planeado
+> 9 me parece bien
+
+Y, a las opciones de la 3, la 5, la 6 y la 10 (con la recomendación de la sesión en cada una): «si lanzalo todo asi de momento lo otro es mas de correccion si es necesario».
+
+**Lectura** (de la sesión):
+
+1. **Vive en un apartado propio, «Diluciones»,** con todas; cada material tuyo enseña las suyas en su ficha, con el botón de dar de alta.
+2. **Cada frasco guarda el material, sus diluyentes (materiales de la app, no texto), lo pesado en µg y la fecha;** de lo pesado sale la cifra exacta (9,97 %), que es la que usan el material y la fórmula. El nombre puede ser aproximado («al 10 %»).
+3. **Los diluyentes que hagan falta**, también en el banco (botón «añadir diluyente») y en la fórmula y el motor: hoy admiten dos. Es el cambio más grande; se hace una vez.
+4. **La calculadora:** el % que quieres, la cantidad y los diluyentes → los gramos de cada uno; luego se apunta lo pesado y queda lo exacto. También desde otro frasco.
+5. **Un frasco se puede corregir** (sus pesos): lo que ya lo usó conserva su cifra, porque cada fórmula y cada cata guardan la suya. Un frasco acabado se archiva: no sale en las pestañas y no se borra.
+6. **En Formulación:** pestañas con tus frascos del material encima de la dilución; al tocar una, rellena lo exacto. La fórmula guarda las cifras (mandan) y el frasco del que salieron. Los frascos sustituyen a las favoritas del navegador.
+7. **«Puro» no es una dilución:** se elige en la app y no se registra.
+8. **Tus 51 frascos se pasan al final**, cuando todo esté hecho, por tanda.
+9. **En las catas, la tira se elige entre tus frascos (o puro).**
+10. **Para más tarde:** imprimir la etiqueta del frasco (V3-55) y las recomendaciones por material.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
