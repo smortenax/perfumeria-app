@@ -5,7 +5,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterAll, beforeAll, expect, it } from "vitest";
 import { Ratio } from "../core/arith/ratio";
-import { archiveBottle, createBottle, updateBottle } from "./dilutions";
+import { archiveBottle, createBottle, describeBottle, updateBottle } from "./dilutions";
 import { AppSchema, tables } from "./local/schema";
 import { loadCatalog, type LocalDb } from "./materials";
 
@@ -74,4 +74,12 @@ it("refuses a diluent that is not one, a material that is not yours, and a sourc
   await expect(createBottle(db, ME, { materialId: LABDANUM, materialUg: G, diluents: [{ diluentId: LABDANUM, massUg: G }] })).rejects.toThrow(/not a diluent/);
   await expect(createBottle(db, "someone", { materialId: LABDANUM, materialUg: G, diluents: [{ diluentId: DPG, massUg: G }] })).rejects.toThrow(/common material or yours/);
   await expect(createBottle(db, ME, { materialId: LABDANUM, materialUg: G, diluents: [] })).rejects.toThrow(/at least one diluent/);
+});
+
+it("a bottle's name, date and note change without touching what it holds", async () => {
+  const id = await createBottle(db, ME, { materialId: LABDANUM, materialUg: 997_000n, diluents: [{ diluentId: DPG, massUg: 9_003_000n }] });
+  await describeBottle(db, ME, id, { label: "al 10 % (nuevo)", madeOn: "2026-10-19", description: "frasco ámbar" });
+  const b = (await loadCatalog(db, ME)).dilutions.get(LABDANUM)!.find((d) => d.id === id)!;
+  expect([b.label, b.madeOn, b.description, b.fraction.toString(), b.diluents.length]).toEqual(["al 10 % (nuevo)", "2026-10-19", "frasco ámbar", pct("9.97").toString(), 1]);
+  await expect(describeBottle(db, ME, id, { madeOn: "19/10" })).rejects.toThrow(/date/);
 });

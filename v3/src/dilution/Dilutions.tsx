@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Ratio } from "../core/arith/ratio";
 import type { CatalogMaterial, Dilution } from "../db/catalog";
-import { archiveBottle, type BottleInput, createBottle, updateBottle } from "../db/dilutions";
+import { archiveBottle, type BottleInput, createBottle, describeBottle, updateBottle } from "../db/dilutions";
 import type { LocalDatabase } from "../db/local/database";
 import { percent } from "../glossary/format";
 import type { GlossaryData } from "../glossary/useGlossary";
@@ -164,7 +164,14 @@ function BottleEditor({
   const firstDpg = diluents.find((d) => /dpg|dipropilen/i.test(d.name))?.id ?? diluents[0]?.id ?? "";
   const [rows, setRows] = useState<Row[]>(
     bottle && bottle.diluents.length > 0
-      ? bottle.diluents.filter((x) => x.massUg !== null).map((x, i, list) => ({ diluentId: x.diluentId, share: i === list.length - 1 ? "" : percent(x.fraction, 2).replace(" %", ""), grams: gramsText(x.massUg!) }))
+      ? // Made from another bottle, only what was added is weighed here; a bottle without weights (batch 19) shows its diluents, to weigh again.
+        bottle.diluents
+          .filter((x) => !bottle.sourceDilutionId || x.massUg !== null)
+          .map((x, i, list) => ({
+            diluentId: x.diluentId,
+            share: i === list.length - 1 ? "" : percent(x.fraction, 2).replace(" %", ""),
+            grams: x.massUg !== null ? gramsText(x.massUg) : "",
+          }))
       : [{ diluentId: firstDpg, share: "", grams: "" }],
   );
   const [madeOn, setMadeOn] = useState(bottle?.madeOn ?? new Date().toISOString().slice(0, 10));
@@ -211,7 +218,16 @@ function BottleEditor({
     }
   })();
 
+  // Nothing weighed written on a bottle that has its figure: only its name, date and note change.
+  const onlyWords = !!bottle && !weighed && !materialGrams.trim() && rows.every((r) => !r.grams.trim());
   const save = () => {
+    if (bottle && onlyWords) {
+      void describeBottle(local.db, local.userId, bottle.id, { label, madeOn, description: note }).then(
+        () => onDone(bottle.id),
+        (e: unknown) => setError(t.failed(e instanceof Error ? e.message : String(e))),
+      );
+      return;
+    }
     if (!materialId || !weighed) return;
     const input: BottleInput = { materialId, label, madeOn, description: note, materialUg: weighed.input.materialUg, sourceDilutionId: sourceId, diluents: weighed.input.diluents };
     const done = bottle ? updateBottle(local.db, local.userId, bottle.id, input).then(() => bottle.id) : createBottle(local.db, local.userId, input);
@@ -338,7 +354,11 @@ function BottleEditor({
               </label>
             ))}
             <p className="result" role="status">
-              {weighed ? t.result(percent(weighed.bottle.fraction, 4), gramsText(weighed.bottle.totalUg)) : t.resultUnknown}
+              {weighed
+                ? t.result(percent(weighed.bottle.fraction, 4), gramsText(weighed.bottle.totalUg))
+                : bottle
+                  ? t.resultNow(percent(bottle.fraction, 4))
+                  : t.resultUnknown}
             </p>
           </fieldset>
 
@@ -357,7 +377,7 @@ function BottleEditor({
           </label>
           {error && <p className="error">{error}</p>}
           <div className="actions">
-            <button type="button" disabled={!weighed} onClick={save}>
+            <button type="button" disabled={!weighed && !onlyWords} onClick={save}>
               {t.save}
             </button>
             <button type="button" className="secondary" onClick={onCancel}>

@@ -8,14 +8,14 @@ import type { MaterialFamily } from "./data/catalog";
 import { texts } from "./texts";
 import { describeLineIfra, detailOfLineIfra, type LineIfra } from "./composition-ifra";
 import { familyLook, familyText } from "./family";
-import { amountText, initials, pouredText, pureText, shareText, weighingWarning } from "./format";
+import { amountText, initials, partsText, pouredText, pureText, shareText, weighingWarning } from "./format";
 import { IconText, iconLength } from "./Icon";
 
 const t = texts.composition;
 
 type Add = Extract<Change, { kind: "add" }>;
 type Flag = { text: string; tone: "amber" | "grey" };
-type View = "aromatic" | "bottle";
+type View = "aromatic" | "bottle" | "parts";
 
 /**
  * The base the composition was last read in (P57): it stays for the session, across benches,
@@ -67,6 +67,7 @@ export function CompositionCard(props: {
   const comp = props.composition;
   const aromatic = comp ? comp.parts.filter((p) => !p.material.solvent) : [];
   // In the bottle the diluents are lines too, and the % is over everything in it (§1.1).
+  // In parts (V3-58), the aromatic matter in 1000 parts, as the smell view.
   const shown = comp ? (view === "bottle" ? comp.parts : aromatic) : [];
   const baseUg = comp ? (view === "bottle" ? comp.totalUg : comp.aromaticUg) : null;
 
@@ -163,22 +164,22 @@ export function CompositionCard(props: {
         <span className="composition-title">{t.title}</span>
         <span className="muted small">{t.count(aromatic.length)}</span>
         <span className="view-switch right" role="radiogroup" aria-label={t.viewLabel}>
-          {(["aromatic", "bottle"] as const).map((v) => (
+          {(["aromatic", "bottle", "parts"] as const).map((v) => (
             <button
               key={v}
               type="button"
               role="radio"
               aria-checked={view === v}
               className={view === v ? "on" : ""}
-              title={v === "aromatic" ? t.viewAromaticHelp : t.viewBottleHelp}
+              title={v === "aromatic" ? t.viewAromaticHelp : v === "bottle" ? t.viewBottleHelp : t.viewPartsHelp}
               onClick={() => setView(v)}
             >
-              {v === "aromatic" ? t.viewAromatic : t.viewBottle}
+              {v === "aromatic" ? t.viewAromatic : v === "bottle" ? t.viewBottle : t.viewParts}
             </button>
           ))}
         </span>
         {/* Every number goes with its base (§1.1): the head says the one the list is in. */}
-        <span className="composition-base muted tiny">{view === "aromatic" ? t.baseAromatic : t.baseBottle}</span>
+        <span className="composition-base muted tiny">{view === "aromatic" ? t.baseAromatic : view === "bottle" ? t.baseBottle : t.baseParts}</span>
       </div>
       <div className="composition-rows">
         {!comp || baseUg === null || shown.length === 0 ? (
@@ -229,7 +230,7 @@ export function CompositionCard(props: {
                     <span className="num row-amount" title={t.amountHelp}>
                       {amountText(part.massUg)}
                     </span>
-                    <span className="num row-share">{share.text}</span>
+                    <span className="num row-share">{view === "parts" ? partsText(part.massUg, baseUg) : share.text}</span>
                     {ifra && (
                       <span className={`row-ifra ${ifra.tone}`} title={ifra.title}>
                         {ifra.share && (

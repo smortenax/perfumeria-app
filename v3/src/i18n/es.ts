@@ -563,6 +563,7 @@ export const texts = {
     diluentGrams: (name: string) => `${name} (g)`,
     result: (pct: string, total: string) => `Sale al ${pct} · ${total} g en total`,
     resultUnknown: "Escribe los pesos para ver la cifra exacta.",
+    resultNow: (pct: string) => `Ahora está al ${pct}. Escribe los pesos solo si lo rehiciste o lo corriges; para cambiar el nombre o la nota, no hace falta.`,
     madeOn: "Fecha",
     note: "Nota",
     save: "Guardar",

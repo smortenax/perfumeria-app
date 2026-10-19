@@ -129,6 +129,24 @@ export async function updateBottle(db: LocalDb, userId: string, id: string, inpu
   await writeDiluents(db, userId, id, bottle);
 }
 
+/**
+ * Changes what a bottle is called and says (its rough name, its date, its note), not what it holds:
+ * for the bottles that came without their weights (batch 19), which keep their figure as it is.
+ */
+export async function describeBottle(
+  db: LocalDb,
+  userId: string,
+  id: string,
+  changes: { readonly label?: string | null; readonly madeOn?: string | null; readonly description?: string | null },
+): Promise<void> {
+  await ownBottle(db, userId, id);
+  if (changes.madeOn && !DATE.test(changes.madeOn)) throw new Error("a date is 2026-10-19");
+  await db
+    .update(local.labDilutions)
+    .set({ label: clean(changes.label), madeOn: clean(changes.madeOn), description: clean(changes.description), updatedAt: now() })
+    .where(eq(local.labDilutions.id, id));
+}
+
 /** A finished bottle leaves the choices, and stays (V3-67); or comes back. */
 export async function archiveBottle(db: LocalDb, userId: string, id: string, archived: boolean): Promise<void> {
   await ownBottle(db, userId, id);

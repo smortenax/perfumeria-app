@@ -40,6 +40,21 @@ export function pouredText(massUg: Ratio, fraction: Ratio, diluentName: string |
   return texts.history.lineDiluted(massText(massUg), dilutionText(fraction), diluentName ?? "?");
 }
 
+/**
+ * A share in parts of 1000 (V3-58, chosen 2026-10-19: «Unidad y décima»): to the unit, and to a tenth
+ * only below 1, so that a small material does not read as 0. A view: the formula stays in grams.
+ */
+export function partsText(part: Ratio, total: Ratio): string {
+  if (total.isZero()) return "—";
+  const parts = part.mul(Ratio.of(1000)).div(total);
+  if (parts.lt(Ratio.ONE)) {
+    const tenths = parts.mul(Ratio.of(10));
+    const rounded = (2n * tenths.num + tenths.den) / (2n * tenths.den);
+    return rounded === 0n && !parts.isZero() ? "< 0,1" : `0,${rounded.toString()}`.replace("0,10", "1");
+  }
+  return ((2n * parts.num + parts.den) / (2n * parts.den)).toString();
+}
+
 /** A fraction as a percent without trailing zeros: 1/10 is "10 %", 1/200 is "0,5 %". */
 export function dilutionText(fraction: Ratio): string {
   const text = formatDecimal(fraction.mul(Ratio.of(100)), 3).replace(/,?0+$/, "");

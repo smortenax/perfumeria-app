@@ -445,9 +445,12 @@ export const texts = {
     /** The base of the column, said with the switch (§1.1, P57): every number goes with its base. */
     baseAromatic: "mg puros · % de la materia aromática",
     baseBottle: "mg puros · % del frasco",
+    baseParts: "mg puros · partes de 1000 de la materia aromática",
     viewLabel: "Base de los porcentajes",
     viewAromatic: "materia aromática",
     viewBottle: "frasco",
+    viewParts: "partes",
+    viewPartsHelp: "La materia aromática en partes de 1000, a la unidad (una décima por debajo de 1): una vista, la fórmula sigue en gramos",
     viewAromaticHelp: "Cada % sobre la materia aromática, sin disolventes: la vista del olor",
     viewBottleHelp: "Cada % sobre todo el frasco, con los disolventes",
     amountHelp: "Materia pura en el frasco, sin el diluyente",

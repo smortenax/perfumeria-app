@@ -1108,7 +1108,8 @@ Como la capa lee por CAS (V3-35), no se aplicaban a nada. En tus materiales los 
 **Lectura** (de la sesión):
 
 - **Una pestaña más en la composición:** junto a «materia aromática» y «frasco», «partes», con cada material en partes de 1000 del total. Es una vista: la fórmula sigue en gramos.
-- **Cómo se redondea**, pendiente de tu respuesta (abajo, «Pendientes de V3-57 a V3-59»).
+- **Cómo se redondea** (elegido por el usuario el 2026-10-19 en una tarjeta del hilo, «Unidad y décima»): a la unidad, y con una décima solo los materiales que quedarían por debajo de 1 («0,4»; «< 0,1» si ni eso).
+- **Propuesta de la sesión:** las partes son de la materia aromática (sin disolventes), como la vista del olor; el encabezado lo dice. Es una pestaña más junto a «materia aromática» y «frasco».
 
 ## V3-59 · «Usar la fórmula»: la receta exacta para lo que necesitas (decidida por el usuario el 2026-10-15)
 
@@ -1243,6 +1244,16 @@ Y, a las opciones de la 3, la 5, la 6 y la 10 (con la recomendación de la sesi�
 8. **Tus 51 frascos se pasan al final**, cuando todo esté hecho, por tanda.
 9. **En las catas, la tira se elige entre tus frascos (o puro).**
 10. **Para más tarde:** imprimir la etiqueta del frasco (V3-55) y las recomendaciones por material.
+
+## V3-68 · Primero, cerrar cabos sueltos; después, la app en el móvil (decidida por el usuario el 2026-10-19)
+
+**Literal** (2026-10-19): «el banco en el movil mas adelante, siguiente paso conectividad de movil para catas y para la app en general pero de momento centremonos en dejar todos los cabos sueltos para que sea usable en breves».
+
+**Lectura** (de la sesión):
+
+- **Ahora:** cerrar lo que queda suelto para que la app se pueda usar ya, en el ordenador.
+- **Después:** la conectividad del móvil, para las catas y para toda la app (la nube: Supabase y PowerSync fuera de tu PC, y la app publicada).
+- **Más adelante:** el banco en el móvil (8.6).
 
 ## Pendientes
 
