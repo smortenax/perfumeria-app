@@ -107,6 +107,8 @@ export const texts = {
     more: "Material nuevo rápido o fórmula como material",
     quickMaterial: "Material nuevo rápido…",
     formulaAsMaterial: "Fórmula como material…",
+    formulaTag: "fórmula",
+    keptOnChoosing: "se guarda como material al elegirla",
     include: "Incluir",
     mine: "Mis materiales",
     formulas: "Fórmulas",
@@ -550,6 +552,12 @@ export const texts = {
     accept: "Aceptar",
     massTitle: (name: string) => `Cambiar la masa de ${name}`,
     massLabel: "Masa pesada (mg)",
+    formulaAsMaterialTitle: "Fórmula como material",
+    formulaAsMaterialHelp:
+      "Las fórmulas de este banco y los acordes de los demás. La que aún no está guardada como material se guarda al elegirla, tal como está ahora, y queda elegida en la barra para pesarla.",
+    formulaAsMaterialNone: "No hay fórmulas que usar aquí: ni otras en este banco ni acordes marcados en los demás.",
+    keptNow: "se guarda ahora",
+    keptAs: (name: string) => `guardada como «${name}»`,
     reweighTitle: "Repesar el frasco",
     reweighHelp:
       "Para cuando has usado parte de lo que había. Lo que queda de verdad es la masa nueva, y la app escala todo a ella (§3.5). Escalar supone que todo se va por igual: no vale para lo evaporado.",

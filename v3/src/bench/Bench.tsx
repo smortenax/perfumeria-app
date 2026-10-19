@@ -43,6 +43,7 @@ type Dialog =
   | { kind: "useFormula" }
   | { kind: "note" }
   | { kind: "quick" }
+  | { kind: "formulaAsMaterial" }
   | { kind: "saveAs" }
   | { kind: "freeze" }
   | { kind: "move" }
@@ -135,6 +136,39 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
   /** Exported as the v2's file: a copy outside the app (there is nothing to save). */
   const formulaToJson = (f: Formula) => toJsonWith(f, { ifraAmendment: repository.source.amendment });
   const [session, setSession] = useState<Material[]>([]);
+  /**
+   * The formulas that can be poured into this one (V3-19, 2026-10-19): those of its workbench and the
+   * accords of any, not itself; each with its place and, when it is kept as a material already, that
+   * material (the newest). The others are kept on choosing them.
+   */
+  const pourable = useMemo(() => {
+    const benchName = new Map(props.data.workbenches.map((w) => [w.id, w.name]));
+    const frozenOf = new Map<string, Material>();
+    for (const m of props.frozen) {
+      const source = props.data.catalog.materials.get(m.key)?.source?.formulaId;
+      if (source) frozenOf.set(source, m);
+    }
+    return props.data.formulas
+      .filter((f) => f.id !== formulaId && (f.workbenchId === props.record.workbenchId || f.markers.includes("accord")))
+      .map((f) => ({ id: f.id, name: f.name, place: benchName.get(f.workbenchId) ?? "", material: frozenOf.get(f.id) ?? null }))
+      .sort((a, b) => a.name.localeCompare(b.name, "es"));
+  }, [props.data, props.frozen, props.record.workbenchId, formulaId]);
+  /** Where each formula kept as a material comes from: its workbench. */
+  const placeOfFrozen = useMemo(() => {
+    const benchName = new Map(props.data.workbenches.map((w) => [w.id, w.name]));
+    const benchOf = new Map(props.data.formulas.map((f) => [f.id, benchName.get(f.workbenchId) ?? ""]));
+    return new Map(props.frozen.map((m) => [m.key, benchOf.get(props.data.catalog.materials.get(m.key)?.source?.formulaId ?? "") ?? ""]));
+  }, [props.data, props.frozen]);
+  /** A formula kept as a material just now, to choose in the bar as soon as it is read back. */
+  const [toChoose, setToChoose] = useState<string | null>(null);
+  useEffect(() => {
+    if (!toChoose) return;
+    const m = props.frozen.find((x) => x.key === toChoose);
+    if (m) {
+      addBar.current?.select(m);
+      setToChoose(null);
+    }
+  }, [toChoose, props.frozen]);
   // The material the card under the add bar shows: the last one chosen, kept after adding it (P57).
   const [cardMaterial, setCardMaterial] = useState<Material | null>(null);
   // What the add bar is writing, read (P57): IFRA is checked on it while it is typed; nothing is added.
@@ -416,6 +450,19 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
       setNotice(accord ? texts.bench.unmarkedAccord : texts.bench.markedAccord);
     });
 
+  /** Pours a formula as a material (2026-10-19): the one it is kept as, or kept now, as «Guardar como material» does. */
+  const useFormulaAsMaterial = (id: string) => {
+    const f = pourable.find((x) => x.id === id);
+    if (!f) return;
+    if (f.material) {
+      addBar.current?.select(f.material);
+      return;
+    }
+    write(async () => {
+      setToChoose(await freezeFormula(local.db, owner, id, { name: f.name }));
+    });
+  };
+
   const startReweigh = () => {
     if (!view.composition || view.composition.totalUg.isZero()) {
       setError(texts.dialogs.nothingToReweigh);
@@ -495,6 +542,10 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
               onDraft={setDraft}
               warning={warning}
               onQuickMaterial={() => setDialog({ kind: "quick" })}
+              onFormulaAsMaterial={() => setDialog({ kind: "formulaAsMaterial" })}
+              pendingFormulas={pourable.filter((f) => !f.material).map((f) => ({ id: f.id, name: f.name, place: f.place }))}
+              onUseFormula={useFormulaAsMaterial}
+              formulaPlace={(key) => placeOfFrozen.get(key)}
               onCreateProvisional={createProvisional}
             />
             <MaterialCard
@@ -741,6 +792,19 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
       )}
       {dialog?.kind === "delete" && (
         <ConfirmDialog title={texts.dialogs.deleteTitle} text={texts.dialogs.deleteText(formula.header.name, formula.history.length)} onConfirm={() => void remove()} onClose={() => setDialog(null)} />
+      )}
+      {dialog?.kind === "formulaAsMaterial" && (
+        <ChoiceDialog
+          title={texts.dialogs.formulaAsMaterialTitle}
+          help={pourable.length ? texts.dialogs.formulaAsMaterialHelp : texts.dialogs.formulaAsMaterialNone}
+          options={pourable.map((f) => ({
+            id: f.id,
+            label: `${f.name} · ${f.place}${!f.material ? ` (${texts.dialogs.keptNow})` : f.material.name !== f.name ? ` (${texts.dialogs.keptAs(f.material.name)})` : ""}`,
+          }))}
+          initial={null}
+          onDone={useFormulaAsMaterial}
+          onClose={() => setDialog(null)}
+        />
       )}
       {dialog?.kind === "move" && (
         <ChoiceDialog

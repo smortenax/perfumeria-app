@@ -76,6 +76,8 @@ type Result =
       plant?: { readonly key: string; readonly name: string; readonly options: readonly MaterialResult[]; readonly at: number };
     }
   | { kind: "create"; name: string }
+  /** A formula not yet kept as a material (2026-10-19): choosing it keeps it, and it is poured as one. */
+  | { kind: "formula"; id: string; name: string; place: string }
   /** What was typed cannot be a material: a CAS that is not in the glossary (P56). */
   | { kind: "note"; text: string };
 
@@ -284,8 +286,14 @@ export function AddBar(props: {
   /** Your bottles of a material (V3-67): a tab each above the dilution; none, no tabs. */
   bottles?: (materialKey: string) => readonly BottleChoice[];
   onQuickMaterial: () => void;
-  /** The v2 opened a formula's file to use it as a material; in the v3 an accord is found in the bar (V3-49): without it, no entry. */
+  /** «Fórmula como material…» in the «+» menu (2026-10-19): a list of the formulas that can be poured here. */
   onFormulaAsMaterial?: () => void;
+  /** Formulas that can be poured here but are not kept as a material yet: found with «Fórmulas» on (2026-10-19). */
+  pendingFormulas?: readonly { readonly id: string; readonly name: string; readonly place: string }[];
+  /** Keeps one of them as a material and chooses it in the bar. */
+  onUseFormula?: (formulaId: string) => void;
+  /** Where each formula kept as a material comes from («· Cuir»), to tell apart those with the same name. */
+  formulaPlace?: (materialKey: string) => string | undefined;
   onCreateProvisional: (name: string) => Material;
   /** A material took the user's name for it (P56): the formula names it so too. */
   onNamed?: () => void;
@@ -506,7 +514,16 @@ export function AddBar(props: {
     // «Mis materiales» takes in the provisional ones too, remembered from the library (P44).
     const session: Result[] = props.sessionMaterials
       .filter((m) => (m.kind === "formula" ? formulas : mine) && normalize(m.name).includes(q))
-      .map((m) => ({ kind: "material", material: m, tag: m.kind === "formula" ? "fórmula" : "provisional", cas: "" }));
+      .map((m) => ({
+        kind: "material",
+        material: m,
+        tag: m.kind === "formula" ? [t.formulaTag, props.formulaPlace?.(m.key)].filter((x) => x).join(" · ") : "provisional",
+        cas: "",
+      }));
+    // The formulas not kept as a material yet, when «Fórmulas» is on: choosing one keeps it (2026-10-19).
+    const pendingFormulas: Result[] = formulas
+      ? (props.pendingFormulas ?? []).filter((f) => normalize(f.name).includes(q)).map((f) => ({ kind: "formula", id: f.id, name: f.name, place: f.place }))
+      : [];
     const words = q.split(" ");
     const says = (name: string) => words.every((w) => normalize(name).includes(w));
     const shopName = (e: CatalogEntry) =>
@@ -579,7 +596,7 @@ export function AddBar(props: {
         break;
       }
     }
-    const all = [...session, ...found];
+    const all = [...session, ...pendingFormulas, ...found];
     const exact = all.some((r) => r.kind === "material" && normalize(r.material.name) === q);
     // A CAS is not a name: one the glossary does not have is not made a material (P56).
     if (/^\s*\d{2,7}-\d{2}-\d{1,2}\s*$/.test(query)) {
@@ -587,7 +604,7 @@ export function AddBar(props: {
       return all.length > 0 ? all : [{ kind: "note", text: cas ? t.casMissing(cas) : t.casInvalid(query.trim()) }];
     }
     return exact ? all : [...all, { kind: "create", name: query.trim() }];
-  }, [query, selected, mine, formulas, onlyHave, props.have, props.entries, props.sessionMaterials, plants]);
+  }, [query, selected, mine, formulas, onlyHave, props.have, props.entries, props.sessionMaterials, props.pendingFormulas, plants]);
 
   /** What a row stands for now: a plant's row, the option its chip is on. */
   const onChip = (r: Result): Result => (r.kind === "material" && r.plant ? r.plant.options[chips[r.plant.key] ?? r.plant.at] : r);
@@ -658,7 +675,11 @@ export function AddBar(props: {
     if (result.kind === "note") {
       return;
     }
-    if (result.kind === "create") {
+    if (result.kind === "formula") {
+      setQuery("");
+      setOpen(false);
+      props.onUseFormula?.(result.id);
+    } else if (result.kind === "create") {
       select(props.onCreateProvisional(result.name));
     } else if (result.bottleName !== undefined && result.material.kind === "base") {
       // The name it was found by is the user's from now on (P56).
@@ -910,7 +931,7 @@ export function AddBar(props: {
               const plant = row.kind === "material" ? row.plant : undefined;
               return (
               <li
-                key={row.kind === "create" ? "create" : row.kind === "note" ? "note" : (plant?.key ?? row.material.key)}
+                key={row.kind === "create" ? "create" : row.kind === "note" ? "note" : row.kind === "formula" ? `formula:${row.id}` : (plant?.key ?? row.material.key)}
                 className={[i === highlight ? "active" : "", plant ? "plant-row" : ""].join(" ").trim() || undefined}
                 onMouseEnter={() => setHighlight(i)}
                 onMouseDown={(e) => {
@@ -922,6 +943,12 @@ export function AddBar(props: {
                   <span className="muted">{r.text}</span>
                 ) : r.kind === "create" ? (
                   <span className="create">{t.createProvisional(r.name)}</span>
+                ) : r.kind === "formula" ? (
+                  <span className="result-name">
+                    <span className="primary">{r.name}</span>
+                    <span className="pill">{[t.formulaTag, r.place].join(" · ")}</span>
+                    <span className="muted tiny"> {t.keptOnChoosing}</span>
+                  </span>
                 ) : (
                   <>
                     {r.icon &&
