@@ -1,0 +1,107 @@
+{
+  "generated_at": "2026-10-20T22:20:19.517655+00:00",
+  "data_dir": "/home/ivan/perfumate-scrap/perfumate_scraper/data",
+  "summary": {
+    "expected": 2212,
+    "saved": 2212,
+    "stored": 2212,
+    "checked": 2212,
+    "compared": 2212,
+    "metadata_checked": 2212,
+    "errors": 0,
+    "warnings": 0
+  },
+  "coverage": {
+    "source_url": {
+      "present": 2212,
+      "missing": 0,
+      "invalid": 0
+    },
+    "name": {
+      "present": 2212,
+      "missing": 0,
+      "invalid": 0
+    },
+    "supplier": {
+      "present": 710,
+      "missing": 1502,
+      "invalid": 0
+    },
+    "catalog_source": {
+      "present": 50,
+      "missing": 2162,
+      "invalid": 0
+    },
+    "cas": {
+      "present": 1642,
+      "missing": 570,
+      "invalid": 0
+    },
+    "origin": {
+      "present": 2212,
+      "missing": 0,
+      "invalid": 0
+    },
+    "note": {
+      "present": 2212,
+      "missing": 0,
+      "invalid": 0
+    },
+    "primary_odor_category": {
+      "present": 2188,
+      "missing": 24,
+      "invalid": 0
+    },
+    "odor_description": {
+      "present": 2212,
+      "missing": 0,
+      "invalid": 0
+    },
+    "substantivity_text": {
+      "present": 898,
+      "missing": 1314,
+      "invalid": 0
+    },
+    "working_dilution": {
+      "present": 2123,
+      "missing": 89,
+      "invalid": 0
+    },
+    "impact": {
+      "present": 2126,
+      "missing": 86,
+      "invalid": 0
+    },
+    "substantivity_hours": {
+      "present": 891,
+      "missing": 1321,
+      "invalid": 0
+    },
+    "tags": {
+      "present": 2210,
+      "missing": 2,
+      "invalid": 0
+    },
+    "synonyms": {
+      "present": 1960,
+      "missing": 252,
+      "invalid": 0
+    },
+    "families": {
+      "present": 2212,
+      "missing": 0,
+      "invalid": 0
+    },
+    "subcategories": {
+      "present": 2212,
+      "missing": 0,
+      "invalid": 0
+    },
+    "constituents": {
+      "present": 739,
+      "missing": 1473,
+      "invalid": 0
+    }
+  },
+  "issues": []
+}

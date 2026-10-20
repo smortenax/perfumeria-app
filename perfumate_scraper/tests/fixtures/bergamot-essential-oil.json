@@ -1,0 +1,75 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ChemicalSubstance",
+  "name": "Bergamot Essential Oil",
+  "description": "Bergamot Essential Oil (CAS 8007-75-8): Sparkling, sweet-tart citrus with a distinctive floral-lavender and slightly spicy tea-like nuance, more refined than other citrus oils. The backbone of colognes and fougeres; perfumers use it generously in top notes to lend elegance and lift.",
+  "url": "https://perfumate.app/material/bergamot-essential-oil",
+  "identifier": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "CAS",
+      "value": "8007-75-8"
+    }
+  ],
+  "alternateName": [
+    "Bergamot Oil",
+    "Citrus bergamia",
+    "Bergamot Expressed",
+    "Citrus bergamia oil",
+    "Bergamot"
+  ],
+  "keywords": "citrus, bergamot, floral, fresh, spicy, zesty",
+  "hasPart": [
+    {
+      "@type": "ChemicalSubstance",
+      "name": "Limonene",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "CAS",
+          "value": "138-86-3"
+        }
+      ]
+    },
+    {
+      "@type": "ChemicalSubstance",
+      "name": "Linalool",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "CAS",
+          "value": "78-70-6"
+        }
+      ]
+    },
+    {
+      "@type": "ChemicalSubstance",
+      "name": "Geraniol",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "CAS",
+          "value": "106-24-1"
+        }
+      ]
+    },
+    {
+      "@type": "ChemicalSubstance",
+      "name": "Citral",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "CAS",
+          "value": "5392-40-5"
+        }
+      ]
+    }
+  ],
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "The PerfuMate materials catalog",
+    "url": "https://perfumate.app/catalog"
+  },
+  "isAccessibleForFree": true,
+  "dateModified": "2026-10-18"
+}

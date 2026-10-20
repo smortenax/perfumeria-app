@@ -1,0 +1,19 @@
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Amazonia",
+  "description": "Amazonia: Aquatic-green base evoking fresh flowing water, jungle greenery, earth and fresh air. The supplier names Cascalone among its ingredients; this is a formulated base, not a natural extract.",
+  "url": "https://perfumate.app/material/amazonia",
+  "alternateName": [
+    "Amazonia Fraterworks",
+    "Amazonia 670740"
+  ],
+  "keywords": "watery, green, earthy, fresh",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "The PerfuMate materials catalog",
+    "url": "https://perfumate.app/catalog"
+  },
+  "isAccessibleForFree": true,
+  "dateModified": "2026-10-18"
+}

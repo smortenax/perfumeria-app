@@ -1,0 +1,14 @@
+/.venv/
+!/data/
+!/data/perfumate.sqlite3
+!/data/audit.json
+!/data/html.tar.xz
+!/data/html.tar.xz.sha256
+/data/catalog.html
+/data/html/
+/data/*.tmp
+/data/*.sqlite3-journal
+/data/*.sqlite3-wal
+/data/*.sqlite3-shm
+__pycache__/
+*.pyc
