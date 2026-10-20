@@ -1255,6 +1255,16 @@ Y, a las opciones de la 3, la 5, la 6 y la 10 (con la recomendación de la sesi�
 - **Después:** la conectividad del móvil, para las catas y para toda la app (la nube: Supabase y PowerSync fuera de tu PC, y la app publicada).
 - **Más adelante:** el banco en el móvil (8.6).
 
+## V3-69 · La app publicada: Supabase y PowerSync en la nube, y la web en Cloudflare (decidida por el usuario el 2026-10-19 y el 20)
+
+**Literal** (2026-10-19): «si puedes seguir ya yengo porwesync y alojamiento la que recomiendes si el plan decia una la del plan»; y, para copiar a la nube lo que solo estaba en su PC y quedarse con los 123 «lo tengo» de la nube, «vale» (2026-10-20).
+
+**Lectura** (de la sesión):
+
+- **Plan 9.1 y 9.2:** Supabase en la nube (`qizruaizjyvwbitpreoq`, «perfu-app»), con las migraciones subidas y los datos cargados (lo común y tu cuenta); PowerSync Cloud conectado con `powersync_role`, «Use Supabase Auth» y las reglas de `powersync/sync-config.yaml`.
+- **El alojamiento (el plan no fijaba uno): Cloudflare**, propuesta de la sesión: sirve `dist/` como archivos estáticos (`v3/wrangler.jsonc`), en `https://perfumeria-v3.perfumeria-v3.workers.dev`. Se publica con `npm run build` y `npx wrangler deploy`.
+- **La configuración de la versión publicada** va en `v3/.env.production.local`, fuera de Git (solo valores públicos).
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).

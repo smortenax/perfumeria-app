@@ -14,3 +14,6 @@ Thumbs.db
 
 # Cachés de TypeScript
 *.tsbuildinfo
+
+# Estado local de wrangler (publicar en Cloudflare)
+.wrangler
