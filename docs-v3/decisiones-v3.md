@@ -1265,6 +1265,18 @@ Y, a las opciones de la 3, la 5, la 6 y la 10 (con la recomendación de la sesi�
 - **El alojamiento (el plan no fijaba uno): Cloudflare**, propuesta de la sesión: sirve `dist/` como archivos estáticos (`v3/wrangler.jsonc`), en `https://perfumeria-v3.perfumeria-v3.workers.dev`. Se publica con `npm run build` y `npx wrangler deploy`.
 - **La configuración de la versión publicada** va en `v3/.env.production.local`, fuera de Git (solo valores públicos).
 
+## V3-70 · El sistema de datos de los materiales se rediseña: glosario (identidad y producto), tu frasco aparte e IFRA fuera del material (decidida por el usuario el 2026-10-21; los detalles, en iteración)
+
+**Literal** (2026-10-21): «el sistema de datos se tiene que reorganizar ahora es muy caotico, de momento no se tocan los datos actuales lo que se hara es rediseñar primero el sistema de datos de la app y luego se creara un nuevo banco con las bases del nuevo sistema y se hara criba de los datos que portar de la app actual y de perfumate»; «toda la info base de un material puede estar en glosario hasta el fabricante pero solo es hasta que el usuario selecciona los materiales que tiene y desde su inventario [...] es en ese momento donde puede el usuario si quiere editar los constituyentes que tiene su material»; sobre la propuesta de tres niveles: «si me parece bien este esquema lo unico es buscar una manera infalible que la ifra este separade del producto en si [...] la base de datos es mucho mas limpia si los limites como tal no viven dentro, obciamente la informacion de lo que cada material aplica en constituyente si esta vinculkada directamente a cada material y se puede sobreescribir en el caso de que un usuario tenga una informacion diferente en su proveedor»; y «en general vamos a iterear sobre esta idea».
+
+**Lectura** (de la sesión):
+
+- **Los datos actuales no se tocan.** Se diseña un banco nuevo y se criban los datos de la app actual y de PerfuMate (rama `perfumate-db`).
+- **Tres niveles, decididos:** identidad (lo que es) y producto (cómo lo vende un fabricante) son el glosario, común; tu frasco (inventario) es tuyo, y solo ahí se sobrescriben los constituyentes (tu GC-MS o la declaración de tu proveedor).
+- **IFRA no vive en el material:** los límites, aparte; el material solo lleva su composición por CAS.
+- **Propuestas de la sesión, sin decidir:** la clasificación por tipos de REACH, las afirmaciones por fuente con rango, las siete garantías de IFRA, el apartado «Apuntes» para los textos y los campos de cada cuadro. Están en los documentos «Sistema de datos de materiales: propuesta» (claude.ai/artifact/9MndRHDiSktzppUzsJvBQV) y «Glosario esquemático: qué hay en cada cuadro» (claude.ai/artifact/KQX55ZwNKioKcWr2VJtbXV).
+- **Cambia, cuando se cierre el diseño:** V3-2, V3-5, V3-34, V3-36, V3-39, V3-41 y V3-43 (detalle en el segundo documento).
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
