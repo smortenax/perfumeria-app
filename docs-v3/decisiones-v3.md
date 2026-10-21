@@ -1277,6 +1277,11 @@ Y, a las opciones de la 3, la 5, la 6 y la 10 (con la recomendación de la sesi�
 - **Propuestas de la sesión, sin decidir:** la clasificación por tipos de REACH, las afirmaciones por fuente con rango, las siete garantías de IFRA, el apartado «Apuntes» para los textos y los campos de cada cuadro. Están en los documentos «Sistema de datos de materiales: propuesta» (claude.ai/artifact/9MndRHDiSktzppUzsJvBQV) y «Glosario esquemático: qué hay en cada cuadro» (claude.ai/artifact/KQX55ZwNKioKcWr2VJtbXV).
 - **Cambia, cuando se cierre el diseño:** V3-2, V3-5, V3-34, V3-36, V3-39, V3-41 y V3-43 (detalle en el segundo documento).
 
+**Correcciones del usuario** (2026-10-21, 16:52): «multiconstituyente tiene categorias dentro un multiconstituyente como tal: o bien es un natural, o bien es una mezcla y te diria que lo que son creados o acordes [...] estan en otra categoria que es de los usuarios»; «las sustancias tienen que estar relacionadas directamente con la identidad y el producto y lo que sobrescriba el usuario va despues»; «en el glosario en lo general de todos los componentes tambien se intentara poner gsmc aunque sean genericos [...] el usuario puede crear en sus materiales una version que tenga otros constituyentes a raiz de la del glosario, pero no la tiene que crear de cero»; y «hay que hacer un esquema COMPLETO [...] lo que no se ponga aqui no estara en la app».
+
+- **Decidido:** arriba, puro o multiconstituyente; lo multiconstituyente es natural o mezcla (un producto de reacción es mezcla). Acordes y fórmulas, fuera del glosario. Todo material del glosario con composición, aunque sea genérica. Tu material parte del del glosario y guarda tus cambios (constituyentes, alérgenos o cualquier campo).
+- **Propuesta de la sesión, con siete preguntas abiertas:** el esquema completo en «Esquema completo de materiales» (claude.ai/artifact/1S97psgg1h8syxno6CfTg7).
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
