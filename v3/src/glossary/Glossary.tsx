@@ -338,8 +338,16 @@ export function Formulas({
           const inside = byVersions(shown.filter((f) => f.workbenchId === b.id));
           // While searching, a bench with what was found opens by itself.
           const isOpen = open.has(b.id) || words.length > 0;
+          // «Nueva fórmula» as a tile only while the last slot has room; else only the «+» on the workbench (2026-10-21).
+          const newTile = onNew && inside.length % 4 !== 0;
           return [
-            <li key={b.id}>
+            <li key={b.id} className="bench-li">
+              {onNew && (
+                // Always there, whatever the workbench holds (the user, 2026-10-21: «poner el + en el lateral de la carpeta»).
+                <button type="button" className="bench-new" title={t.newFormulaIn(b.name)} aria-label={t.newFormulaIn(b.name)} onClick={() => onNew(b.id)}>
+                  +
+                </button>
+              )}
               <button
                 type="button"
                 className={`tile bench-tile${isOpen ? " open" : ""}`}
@@ -355,7 +363,7 @@ export function Formulas({
             </li>,
             // Open, its formulas at half size, four to a slot: two by two (V3-50).
             ...(isOpen
-              ? slotsOf<Slot>([...inside, ...(onNew ? (["new"] as const) : []), ...(onDeleteBench && inside.length === 0 && !words.length ? (["delete"] as const) : [])]).map((four, i) => (
+              ? slotsOf<Slot>([...inside, ...(newTile ? (["new"] as const) : []), ...(onDeleteBench && inside.length === 0 && !words.length ? (["delete"] as const) : [])]).map((four, i) => (
                   <li key={`${b.id}-${i}`} className="in-bench">
                     <ul className="quad">
                       {four.map((f) =>

@@ -1216,3 +1216,31 @@ button:focus-visible {
   border: 2px solid var(--ink-2);
   color: var(--ink-2);
 }
+
+/* «+» on a workbench's tile: a new formula in it, however full it is (2026-10-21). */
+.bench-li {
+  position: relative;
+}
+
+.bench-new {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 1;
+  width: 32px;
+  height: 32px;
+  min-height: 32px;
+  padding: 0;
+  border-radius: 999px;
+  font-size: 1.25rem;
+  line-height: 1;
+  background: var(--text);
+  color: var(--panel);
+}
+
+@media (pointer: coarse) {
+  .bench-new {
+    width: 40px;
+    height: 40px;
+  }
+}

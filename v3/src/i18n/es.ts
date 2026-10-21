@@ -60,6 +60,7 @@ export const texts = {
     noMarked: "Ninguna fórmula lleva todavía este marcador.",
     formulasLater: "Se abren en el banco de trabajo.",
     newFormula: "Nueva fórmula",
+    newFormulaIn: (bench: string) => `Nueva fórmula en «${bench}»`,
     deleteBench: "Borrar banco",
     newFormulaName: "Nueva fórmula",
     markers: { accord: "acorde", finished: "perfume acabado" },
