@@ -1282,6 +1282,12 @@ Y, a las opciones de la 3, la 5, la 6 y la 10 (con la recomendación de la sesi�
 - **Decidido:** arriba, puro o multiconstituyente; lo multiconstituyente es natural o mezcla (un producto de reacción es mezcla). Acordes y fórmulas, fuera del glosario. Todo material del glosario con composición, aunque sea genérica. Tu material parte del del glosario y guarda tus cambios (constituyentes, alérgenos o cualquier campo).
 - **Propuesta de la sesión, con siete preguntas abiertas:** el esquema completo en «Esquema completo de materiales» (claude.ai/artifact/1S97psgg1h8syxno6CfTg7).
 
+**La regla de los tres tipos** (2026-10-21, 17:44): «mi intuicion es que la regla de los 3 tipos es mejor pero hay que ponerla aprueab»; tras la prueba con quince casos reales, «si me parece bien al final todo lo que tenga posibilidad de requerir desglose de constituyentes ira a mezcla no?», «y que no sea natural», «lo digo reduccionista para intentar establecer reglas claras».
+
+- **Decidido (cambia el «puro o multiconstituyente» de arriba):** tres tipos y sin nivel intermedio, por este orden de preguntas: ¿es una molécula con fórmula y CAS? → **puro**, aunque traiga isómeros (van en el producto). ¿Sale directamente de una planta o un animal? → **natural**. Si no es ninguno de los dos y puede requerir desglose de constituyentes → **mezcla**.
+- **Lectura de la sesión:** el puro se compone de sí mismo al 100 %; el natural y la mezcla llevan desglose. Una variante de un puro con un constituyente que importa (otra molécula, no otra proporción de isómeros) pasa a mezcla.
+- **Propuesta de la sesión, sin confirmar:** la mezcla también lleva origen (sintético, biotecnológico) y puede tener CAS propio (productos de reacción, Clearwood); si IFRA lista ese CAS, el cálculo lo usa como sustancia.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
