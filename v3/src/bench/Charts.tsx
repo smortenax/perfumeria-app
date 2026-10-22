@@ -66,8 +66,9 @@ const NO_FAMILY = "#D9D7CF";
 const GAP = 1.2;
 
 /**
- * The share of the matter (§10.2): no legend, only colour. Each material is a slice,
- * in the colour of its family (P48); its name, its part and its family on hover.
+ * The share of the matter (§10.2). Each material is a slice, in the colour of its family (P48); its
+ * name, its part and its family on hover. Beside it, the families with their % (audit F-07), so the
+ * colours are read, not remembered.
  */
 export function RepartoCard(props: { composition: Composition | null; familyOf?: (key: string) => MaterialFamily | undefined }) {
   const [hover, setHover] = useState<number | null>(null);
@@ -94,6 +95,12 @@ export function RepartoCard(props: { composition: Composition | null; familyOf?:
     return arc;
   });
   const hovered = hover === null ? null : arcs[hover];
+  const byFamily = new Map<string, { family: string; color: string; share: number }>();
+  for (const s of segments) {
+    const f = byFamily.get(s.family) ?? { family: s.family, color: s.color, share: 0 };
+    byFamily.set(s.family, { ...f, share: f.share + s.share });
+  }
+  const families = [...byFamily.values()].sort((x, y) => y.share - x.share);
   const aromaticOfBottle = comp && !comp.totalUg.isZero() ? formatPercent(comp.aromaticUg.div(comp.totalUg), 1) : "";
 
   return (
@@ -150,6 +157,17 @@ export function RepartoCard(props: { composition: Composition | null; familyOf?:
             </>
           )}
         </svg>
+        {families.length > 0 && (
+          <ul className="donut-legend">
+            {families.map((f) => (
+              <li key={f.family}>
+                <span className="swatch" style={{ background: f.color }} aria-hidden="true" />
+                <span className="legend-name">{f.family}</span>
+                <span className="num">{`${(f.share * 100).toFixed(1).replace(".", ",")} %`}</span>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );

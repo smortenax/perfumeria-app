@@ -1636,6 +1636,45 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 16px;
+  }
+
+  /* The families of the donut, named, with their share of the aromatic matter (audit F-07). */
+  .donut-legend {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    font-size: 12px;
+  }
+
+  .donut-legend li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .donut-legend .swatch {
+    width: 10px;
+    height: 10px;
+    flex: none;
+    border-radius: 3px;
+  }
+
+  .donut-legend .legend-name {
+    color: var(--ink-2);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .donut-legend .num {
+    margin-left: auto;
+    padding-left: 8px;
+    color: var(--ink);
   }
 
   .projection {
