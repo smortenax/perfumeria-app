@@ -8,7 +8,7 @@ import { texts } from "./texts";
 import { familyLook } from "./family";
 import { roomText } from "./composition-ifra";
 import { amountText, initials, massText, shareText } from "./format";
-import { IconText, iconLength } from "./Icon";
+import { FamilyIcon } from "./FamilyIcon";
 import { ProvenanceButton } from "./Provenance";
 import { carriedOf, USAGE_DECADES, usagePosition } from "./material-card";
 import type { Cap, MaterialIfra, Preview, UsageBand } from "./usage-bar";
@@ -21,7 +21,7 @@ const search = texts.addBar;
  * The material with its abbreviation in the colour of its family, as the search shows it (P48),
  * and its names, CAS and state against IFRA, with the search's own pills and texts (§4, P56).
  */
-function Identity(props: { material: Material; entry: CatalogEntry | undefined }) {
+function Identity(props: { material: Material; entry: CatalogEntry | undefined; onOpenSheet?: (() => void) | undefined }) {
   const { material, entry } = props;
   // A material outside the glossary has no abbreviation: its initials, as in the history dock.
   const icon = entry ? { text: entry.icon, mark: entry.iconMark, type: entry.iconType } : { text: initials(material.name), mark: undefined, type: undefined };
@@ -35,12 +35,9 @@ function Identity(props: { material: Material; entry: CatalogEntry | undefined }
     .join(" · ");
   const cas = entry?.cas ?? material.cas;
   const tag = material.kind === "formula" ? t.kind.formula : material.kind === "provisional" ? t.kind.provisional : entry?.group === "diluent" ? t.kind.diluent : null;
-  const long = iconLength(icon.text, icon.mark) > 4;
   return (
     <div className="mc-identity">
-      <span className={`code-chip ${long ? "long " : ""}${look.className}`} style={look.style} title={chipTitle}>
-        <IconText text={icon.text} mark={icon.mark} type={icon.type} />
-      </span>
+      <FamilyIcon icon={icon} family={entry?.family} title={chipTitle} />
       <span className="mc-names">
         <span className="mc-name" title={material.name}>
           {material.name}
@@ -70,6 +67,12 @@ function Identity(props: { material: Material; entry: CatalogEntry | undefined }
           )}
           <ProvenanceButton provenance={entry?.provenance} />
         </span>
+        {/* Under the names, its own line: beside them it took the room the name needs (audit F-04). */}
+        {props.onOpenSheet && (
+          <button type="button" className="mc-sheet link" onClick={props.onOpenSheet}>
+            {t.openSheet}
+          </button>
+        )}
       </span>
     </div>
   );
@@ -321,12 +324,7 @@ export function MaterialCard(props: {
   const substanceName = (key: string) => props.data.substances.get(key)?.name ?? key;
   return (
     <div className="card material-card">
-      <Identity material={material} entry={props.entry} />
-      {props.onOpenSheet && (
-        <button type="button" className="mc-sheet link" onClick={props.onOpenSheet}>
-          {t.openSheet}
-        </button>
-      )}
+      <Identity material={material} entry={props.entry} onOpenSheet={props.onOpenSheet} />
       <div className="mc-carried">
         <span className="label">{t.inFormula}</span>
         <span className="num mc-mass" title={texts.composition.amountHelp}>

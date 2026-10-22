@@ -114,7 +114,7 @@ export const texts = {
     formulas: "Formulas",
     have: "Only what I have",
     material: "Material",
-    pickHint: "Enter or Tab choose",
+    pickHint: "Enter or Tab to choose",
     search: "Search by name or CAS",
     release: "Release the material",
     createProvisional: (name: string) => `Create «${name}» as a provisional material`,

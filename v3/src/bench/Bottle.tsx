@@ -12,11 +12,15 @@ export interface BottlePart {
  * the frame (P26). Under it, what it holds: the aromatic matter and each solvent,
  * as % of the bottle (P49). Drawn as in the sketch (boceto 4).
  */
+const LABEL_ROOM = 84;
+
 export function BottleFrame(props: { name: string; fill: number | null; aromatic: BottlePart | null; solvents: readonly BottlePart[]; onBack: () => void }) {
   const fill = props.fill === null ? 0 : Math.max(0, Math.min(1, props.fill));
   const offset = (1 - fill) * 156;
   const label = props.name.length > 12 ? `${props.name.slice(0, 11)}…` : props.name;
   const fontSize = Math.max(13, Math.min(27, 150 / Math.max(label.length, 1) * 1.7));
+  // The label is 96 wide: the name keeps 4 of margin each side, squeezed to fit if it would not (audit F-04).
+  const fits = label.length * fontSize * 0.6 <= LABEL_ROOM;
   return (
     <div className="bottle-frame">
       <svg width="208" height="284" viewBox="0 0 208 284" aria-hidden="true" className="frame-shape">
@@ -44,7 +48,15 @@ export function BottleFrame(props: { name: string; fill: number | null; aromatic
           <line x1="48" y1="63" x2="92" y2="63" stroke="#57564F" strokeWidth="1.4" />
           <rect x="50" y="2" width="40" height="44" rx="18" fill="#3F3E39" />
           <rect x="22" y="148" width="96" height="60" rx="6" fill="#FFFFFF" stroke="#8C8A82" strokeWidth="1.4" />
-          <text x="70" y={178 + fontSize / 3} textAnchor="middle" fontSize={fontSize} fontWeight="600" fill="#1D1D1B">
+          <text
+            x="70"
+            y={178 + fontSize / 3}
+            textAnchor="middle"
+            fontSize={fontSize}
+            fontWeight="600"
+            fill="#1D1D1B"
+            {...(fits ? {} : { textLength: LABEL_ROOM, lengthAdjust: "spacingAndGlyphs" })}
+          >
             {label}
           </text>
         </svg>

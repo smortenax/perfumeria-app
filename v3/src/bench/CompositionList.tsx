@@ -7,9 +7,9 @@ import type { Material } from "../core/model/material";
 import type { MaterialFamily } from "./data/catalog";
 import { texts } from "./texts";
 import { describeLineIfra, detailOfLineIfra, type LineIfra } from "./composition-ifra";
-import { familyLook, familyText } from "./family";
+import { familyText } from "./family";
 import { amountText, initials, partsText, pouredText, pureText, shareText, weighingWarning } from "./format";
-import { IconText, iconLength } from "./Icon";
+import { FamilyIcon } from "./FamilyIcon";
 
 const t = texts.composition;
 
@@ -189,7 +189,7 @@ export function CompositionCard(props: {
             const { flags, lines } = describe(part);
             const share = shareText(part.massUg, baseUg);
             const isOpen = open.has(part.material.key);
-            const look = familyLook(props.familyOf?.(part.material.key));
+            const family = props.familyOf?.(part.material.key);
             // A material outside the glossary has no abbreviation: its initials, as in the history dock.
             const icon = props.iconOf?.(part.material.key) ?? { text: initials(part.material.name) };
             const ifra = describeLineIfra(props.lineIfra?.get(part.material.key));
@@ -210,13 +210,7 @@ export function CompositionCard(props: {
                     </button>
                   )}
                   <button type="button" className="row" aria-expanded={isOpen} title={share.exact} onClick={() => toggle(part.material.key)}>
-                    <span
-                      className={`code-chip ${iconLength(icon.text, icon.mark) > 4 ? "long " : ""}${look.className}`}
-                      style={look.style}
-                      title={look.title}
-                    >
-                      <IconText text={icon.text} mark={icon.mark} type={icon.type} />
-                    </span>
+                    <FamilyIcon icon={icon} family={family} />
                     <span className="row-main">
                       <span className="row-name" title={part.material.name}>
                         {part.material.name}

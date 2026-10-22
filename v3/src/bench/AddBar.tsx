@@ -29,8 +29,9 @@ import {
 } from "./prefs";
 import { proposedWeighing } from "./assumptions";
 import { familyLook } from "./family";
-import { dilutionText } from "./format";
+import { dilutionText, initials } from "./format";
 import { IconText } from "./Icon";
+import { FamilyIcon, MaterialChip } from "./FamilyIcon";
 import { newId } from "./state";
 import { pourKey, type Pour } from "./usage-bar";
 import { type BottleChoice, percentCell } from "./bottles";
@@ -818,7 +819,7 @@ export function AddBar(props: {
       mixRefs[0].current?.focus();
     }
   };
-  const cas = selected ? byKey.get(selected.key)?.cas : undefined;
+  const chosenEntry = selected ? byKey.get(selected.key) : undefined;
 
   return (
     <div className="card add-form">
@@ -859,7 +860,6 @@ export function AddBar(props: {
               </span>
             )}
           </span>
-          <span className="hint">{t.pickHint}</span>
         </div>
         <div className={selected ? "field material-field chosen" : "field material-field"}>
           <input
@@ -908,7 +908,15 @@ export function AddBar(props: {
               }
             }}
           />
-          {cas && <span className="num cas">{cas}</span>}
+          {/* The chosen material whole, its icon and its name, over the field (audit F-04); typing replaces it. */}
+          {selected && (
+            <MaterialChip
+              className="chosen-chip"
+              name={selected.name}
+              icon={chosenEntry ? { text: chosenEntry.icon, mark: chosenEntry.iconMark, type: chosenEntry.iconType } : { text: initials(selected.name) }}
+              family={chosenEntry?.family}
+            />
+          )}
           {selected && (
             <button type="button" className="release" tabIndex={-1} aria-label={t.release} title={t.release} onClick={release}>
               <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
@@ -921,6 +929,7 @@ export function AddBar(props: {
           <ul className="results">
             {/* What the search takes in, while searching (P49). Pressing a switch keeps the focus in the bar. */}
             <li className="results-switches" onMouseDown={(e) => e.preventDefault()}>
+              <span className="hint">{t.pickHint}</span>
               <span className="muted">{t.include}</span>
               <Switch checked={mine} label={t.mine} onChange={setMine} />
               <Switch checked={formulas} label={t.formulas} onChange={setFormulas} />
@@ -956,11 +965,7 @@ export function AddBar(props: {
                         // The icon carries the family's colour, and says it on hover (P48).
                         const look = familyLook(r.family);
                         const title = r.code && r.code !== r.icon ? `${r.code} · ${look.title}` : look.title;
-                        return (
-                          <span className={`code-chip ${look.className}`} style={look.style} title={title}>
-                            <IconText text={r.icon} mark={r.iconMark} type={r.iconType} />
-                          </span>
-                        );
+                        return <FamilyIcon icon={{ text: r.icon, mark: r.iconMark, type: r.iconType }} family={r.family} title={title} />;
                       })()}
                     <span className="result-name">
                       <span className="primary">
