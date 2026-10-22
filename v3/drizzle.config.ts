@@ -10,8 +10,8 @@ export default defineConfig({
   schema: "./db/schema",
   out: "./supabase/migrations",
   migrations: { prefix: "supabase" },
-  // Supabase owns the other schemas (auth, storage…): Drizzle only manages public.
-  schemaFilter: ["public"],
+  // Supabase owns the other schemas (auth, storage…): Drizzle manages public and common (V3-70).
+  schemaFilter: ["public", "common"],
   dbCredentials: {
     // Supabase's local database (`npx supabase start`); its well-known local password, not a secret.
     url: "postgresql://postgres:postgres@127.0.0.1:55322/postgres",

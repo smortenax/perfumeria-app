@@ -1,0 +1,70 @@
+id,type,entries,slugs,names
+natural:anthemis nobilis::essential_oil::,natural,2,chamomile-essential-oil chamomile-essential-oil-roman,Chamomile Essential Oil | Chamomile Essential Oil Roman
+natural:boswellia carterii::::,natural,2,olibanum-coeur-md olibanum-sfe-cert,Olibanum Coeur MD | OLIBANUM SFE CERT
+natural:boswellia carterii::essential_oil::,natural,2,frankincense-essential-oil olibanum-essential-oil,Frankincense Essential Oil | Olibanum Essential Oil
+natural:cananga odorata::essential_oil::,natural,2,ylang-ylang-complete-essential-oil ylang-ylang-essential-oil,Ylang Ylang Complete Essential Oil | Ylang Ylang Essential Oil
+natural:cananga odorata:flower:essential_oil::,natural,4,ylang-ylang-essential-oil-extra ylang-ylang-essential-oil-first ylang-ylang-essential-oil-iii ylang-ylang-essential-oil-second,Ylang Ylang Essential Oil Extra | Ylang Ylang Essential Oil First | Ylang Ylang Essential Oil III | Ylang Ylang Essential Oil Second
+natural:chrysopogon zizanioides::essential_oil::,natural,2,vetiver-bourbon-essential-oil vetiver-essential-oil,Vetiver Bourbon Essential Oil | Vetiver Essential Oil
+natural:citrus aurantium amara:flower:absolute::,natural,2,orange-blossom-absolute orange-flower-water-absolute,Orange Blossom Absolute | Orange Flower Water Absolute
+natural:citrus paradisi::essential_oil::,natural,3,grapefruit-essential-oil grapefruit-pink-essential-oil grapefruit-white-essential-oil,Grapefruit Essential Oil | Grapefruit Pink Essential Oil | Grapefruit White Essential Oil
+natural:citrus reticulata:leaf_twig:essential_oil::,natural,2,petitgrain-essential-oil petitgrain-mandarin-essential-oil,Petitgrain Essential Oil | Petitgrain Mandarin Essential Oil
+natural:citrus reticulata:peel:essential_oil::,natural,2,green-mandarin-essential-oil yellow-mandarin-essential-oil,Green Mandarin Essential Oil | Yellow Mandarin Essential Oil
+natural:citrus sinensis::essential_oil::,natural,3,blood-orange-essential-oil orange-essential-oil sweet-orange-essential-oil,Blood Orange Essential Oil | Orange Essential Oil | Sweet Orange Essential Oil
+natural:cocos nucifera::essential_oil::,natural,2,coconut-pure-jungle-essence virgin-coconut-oil,Coconut Pure Jungle Essence | Virgin Coconut Oil
+natural:dark patchouli::essential_oil::,natural,2,patchouli-dark-essential-oil patchouli-essential-oil,Patchouli Dark Essential Oil | Patchouli Essential Oil
+natural:dark patchouli::essential_oil::iron_free,natural,2,patchouli-essential-oil-iron-free patchouli-iron-free-essential-oil,Patchouli Essential Oil Iron-Free | Patchouli Iron-Free Essential Oil
+natural:daucus carota:seed:essential_oil::,natural,2,carrot-heart carrot-seed-essential-oil,Carrot Heart | Carrot Seed Essential Oil
+natural:eucalyptus dives::essential_oil::,natural,2,eucalyptus-essential-oil eucalyptus-pure-jungle-essence,Eucalyptus Essential Oil | Eucalyptus Pure Jungle Essence
+natural:juniperus virginiana::essential_oil::,natural,2,cedarwood-essential-oil cedarwood-essential-oil-virginia,Cedarwood Essential Oil | Cedarwood Essential Oil Virginia
+natural:lavandula hybrida::essential_oil::,natural,2,lavandin-essential-oil-grosso lavandin-super-essential-oil,Lavandin Essential Oil Grosso | Lavandin Super Essential Oil
+natural:nelumbo nucifera::absolute::,natural,2,pink-lotus-absolute white-lotus-absolute,Pink Lotus Absolute | White Lotus Absolute
+natural:pelargonium graveolens::essential_oil::,natural,3,geranium-essential-oil-bourbon geranium-essential-oil-egypt geranium-essential-oil-morocco,Geranium Essential Oil Bourbon | Geranium Essential Oil Egypt | Geranium Essential Oil Morocco
+natural:picea mariana::essential_oil::,natural,2,black-spruce-essential-oil spruce-essential-oil,Black spruce Essential Oil | Spruce Essential Oil
+natural:rosa centifolia:flower:absolute::,natural,2,rose-absolute-morocco-rosa-centifolia rose-de-mai-absolute-rosa-centifolia,Rose Absolute Morocco (Rosa centifolia) | Rose de Mai Absolute (Rosa centifolia)
+natural:rosa damascena:flower:absolute::,natural,3,rose-absolute-india-rosa-damascena-kannauj rose-absolute-rosa-damascena rose-absolute-turkey-rosa-damascena,"Rose Absolute India (Rosa damascena, Kannauj) | Rose Absolute (Rosa damascena) | Rose Absolute Turkey (Rosa damascena)"
+natural:rosa damascena:flower:essential_oil::,natural,3,rose-otto-iran-rosa-damascena-kashan rose-otto-rosa-damascena rose-otto-turkey-rosa-damascena-isparta,"Rose Otto Iran (Rosa damascena, Kashan) | Rose Otto (Rosa damascena) | Rose Otto Turkey (Rosa damascena, Isparta)"
+natural:santalum album::essential_oil::,natural,2,sandalwood-essential-oil-australian-album sandalwood-essential-oil-east-indian,Sandalwood Essential Oil Australian album | Sandalwood Essential Oil East Indian
+natural:thymus vulgaris::essential_oil::,natural,2,thyme-essential-oil thyme-essential-oil-red,Thyme Essential Oil | Thyme Essential Oil red
+pure:104-67-6:unspecified,pure,2,gamma-undecalactone persicol,gamma-Undecalactone | Persicol
+pure:106-02-5:unspecified,pure,2,exaltolide macrolide,Exaltolide | Macrolide
+pure:107-75-5:unspecified,pure,2,hydroxycitronellal l-laurinal,Hydroxycitronellal | l-Laurinal
+pure:120-57-0:unspecified,pure,2,heliotropal heliotropin,Heliotropal | Heliotropin
+pure:122-70-3:unspecified,pure,2,phenethyl-propionate phenylethyl-propionate,Phenethyl Propionate | Phenylethyl Propionate
+pure:1222-05-5:unspecified,pure,3,galaxolide galaxolide-50-bb galaxolide-50-ipm,Galaxolide | Galaxolide 50% BB | Galaxolide 50% IPM
+pure:1335-46-2:unspecified,pure,6,iralia iralia-total isoraldeine-70 isoraldeine-95 methyl-ionone-mixed-isomers ultralia,Iralia | Iralia Total | Isoraldeine 70 | Isoraldeine 95 | Methyl Ionone (mixed isomers) | Ultralia
+pure:147060-73-9:unspecified,pure,2,citrathal-tech citrylal,Citrathal Tech | Citrylal
+pure:1617-23-8:unspecified,pure,2,cerezoate fruitaleur,Cerezoate | Fruitaleur
+pure:18479-58-8:unspecified,pure,2,dihydromyrcenol dimyrcetol,Dihydromyrcenol | Dimyrcetol
+pure:18871-14-2:unspecified,pure,3,jasmal jasmonyl jasmopyrane-forte,Jasmal | Jasmonyl | Jasmopyrane Forte
+pure:189440-77-5:unspecified,pure,2,anapear methyl-anjoulate,Anapear | Methyl Anjoulate
+pure:23696-85-7:unspecified,pure,2,damascenone damascenone-total,Damascenone | Damascenone Total
+pure:24683-00-9:unspecified,pure,2,2-isobutyl-3-methoxypyrazine galbazine,2-Isobutyl-3-methoxypyrazine | Galbazine
+pure:24851-98-7:unspecified,pure,3,hedione hedione-hc-high-cis kharismal-iff,Hedione | Hedione HC (High Cis) | Kharismal (IFF)
+pure:25225-08-5:unspecified,pure,2,aphermate aquamate,Aphermate | Aquamate
+pure:2556-10-7:unspecified,pure,2,hyacintal hyacinth-body,Hyacintal | Hyacinth Body
+pure:28219-60-5:unspecified,pure,2,hindinol sandal-mysore-core,Hindinol | Sandal Mysore Core
+pure:28219-61-6:unspecified,pure,3,bacdanol dartanol sanjinol,Bacdanol | Dartanol | Sanjinol
+pure:28645-51-4:unspecified,pure,2,isoambrettolide sublimolide,Isoambrettolide | Sublimolide
+pure:3142-72-1:unspecified,pure,2,2-methyl-2-pentenoic-acid strawberriff,2-Methyl-2-Pentenoic Acid | Strawberriff
+pure:32210-23-4:unspecified,pure,2,ptbcha-super vertenex,PTBCHA Super | Vertenex
+pure:3738-00-9:unspecified,pure,2,ambrox-dl cetalox,Ambrox DL | Cetalox
+pure:39924-52-2:unspecified,pure,2,jasmoneige zeppin,Jasmoneige | ZEPPIN
+pure:42822-86-6:unspecified,pure,2,coolact-38d geranodyle,Coolact 38D | Geranodyle
+pure:478695-70-4:unspecified,pure,2,applelide edenolide,Applelide | Edenolide
+pure:54464-57-2:unspecified,pure,6,amber-gamma anthamber iso-e-super orbitone-t-neo sylvamber timbersilk,Amber Gamma | Anthamber | Iso E Super | Orbitone T Neo | Sylvamber | Timbersilk
+pure:56973-85-4:unspecified,pure,2,dynascone neobutenone-alpha,Dynascone | Neobutenone Alpha
+pure:57345-19-4:unspecified,pure,4,amberketal ambermor-ketal-ipm z11-10-mip z11-hd,Amberketal | Ambermor Ketal IPM | Z11 10 MIP | Z11 HD
+pure:58567-11-6:unspecified,pure,2,amber-decane boisambrene-forte,Amber Decane | Boisambrene Forte
+pure:5986-55-0:unspecified,pure,2,clearwood-prisma patchoulol,Clearwood Prisma | Patchoulol
+pure:67634-20-2:unspecified,pure,2,cyclabute gardocyclene,Cyclabute | Gardocyclene
+pure:6790-58-5:unspecified,pure,6,ambermor ambermor-ex ambrofix ambrox-super ambroxan orcanox,Ambermor | Ambermor-Ex | Ambrofix | Ambrox Super | Ambroxan | Orcanox
+pure:68845-00-1:unspecified,pure,2,boisiris physeol,Boisiris | Physeol
+pure:68908-82-7:unspecified,pure,2,indolene schiff-indol-hydroxy-50-rh,Indolene | Schiff indol hydroxy 50 RH
+pure:68966-86-9:unspecified,pure,2,mahagonate poivrol,Mahagonate | Poivrol
+pure:68991-97-9:unspecified,pure,2,cyclemone-a melafleur,Cyclemone A | Melafleur
+pure:70788-30-6:unspecified,pure,4,dextramber norlimbanol norlimbanol-dextro timberol,Dextramber | Norlimbanol | Norlimbanol Dextro | Timberol
+pure:76649-25-7:unspecified,pure,2,3-6-nonadienol orrisol,"3,6-Nonadienol | Orrisol"
+pure:78-69-3:unspecified,pure,2,tetrahydro-muguol tetrahydrolinalool,Tetrahydro Muguol | Tetrahydrolinalool
+pure:87731-18-8:unspecified,pure,2,violet-t violiff,Violet T | Violiff
+pure:91-64-5:unspecified,pure,2,coumarin coumarin-ex-cassia,Coumarin | Coumarin ex Cassia
+pure:94-47-3:unspecified,pure,2,phenethyl-benzoate phenylethyl-benzoate,Phenethyl Benzoate | Phenylethyl Benzoate

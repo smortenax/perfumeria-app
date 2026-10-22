@@ -20,7 +20,8 @@
     "sync:restart": "docker compose -f powersync/docker-compose.yaml --env-file .env.local restart powersync",
     "sync:logs": "docker compose -f powersync/docker-compose.yaml --env-file .env.local logs powersync",
     "test:db": "vitest run --config vitest.db.config.ts",
-    "datos:cargar": "tsx scripts/cargar.ts"
+    "datos:cargar": "tsx scripts/cargar.ts",
+    "datos:cargar-comun": "tsx scripts/cargar-comun.ts"
   },
   "dependencies": {
     "@powersync/common": "^2.3.1",

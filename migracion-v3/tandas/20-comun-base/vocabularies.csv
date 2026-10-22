@@ -1,0 +1,33 @@
+id,list,code,name,parent_id,color,sort,batch_id
+0874e961-3d45-5ca9-b367-30167a382f70,text_type,ifra_secondhand,IFRA de segunda mano,,,6,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+1bf3da3f-1364-527d-a119-1f6ae4cbc958,family,woody,Amaderado,,#923002,7,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+1d6c55c8-affd-52ce-b14f-9afdb8982da0,isomeric_form,unspecified,sin especificar,,,1,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+276e9011-846c-5938-98c1-6f2f4fbe91b8,treatment,decolorized,decolorado,,,4,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+2aca08f7-479e-57e0-bfae-88906a1c2a07,family,floral,Floral,,#c475aa,4,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+47ea1988-281d-5113-89cd-06580ae647dc,note,heart,corazón,,,2,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+4e704331-5cc3-5c6e-9ad8-5f8cf6167229,text_type,history,historia,,,3,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+6a126f76-1440-57a1-a050-6210914c8e3b,family,fruity,Frutal,,#896ffb,5,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+6d2bcee0-b10a-5be2-8cdc-3223bfed70bb,family,citrus,Cítrico,,#c3b503,1,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+74aeb118-bfc8-5a4d-a674-02de96ff4cd6,family,spicy,Especiado,,#d86f0d,6,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+7cf539bc-526e-593c-9cdc-dbbbcd215e7d,family,green,Verde,,#43cd99,2,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+8376f01b-1f8a-57ae-b1d1-c0a83eed5f3c,isomeric_form,enriched,enriquecido en un isómero,,,4,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+8475a463-472e-584c-b163-ad83d3c233e8,relation_type,confused_with,se confunde con,,,4,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+93e6c6e1-426b-5ce7-a2e2-927bf9f4e2c0,relation_type,similar,similar,,,2,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+9c7bf681-09fd-5d11-86ae-ad9e66d4e547,isomeric_form,enantiomer,enantiómero,,,3,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+b2a30aa9-6f9f-5f13-842f-3fbc3398d1c8,isomeric_form,single_isomer,isómero único,,,5,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+b558572f-4f9a-54fb-975e-1c2c4a39c7ec,family,animal,Animal,,#d22c50,8,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+b9e36c7d-91e4-5da7-aa30-9dc1685540a8,text_type,comparison,comparación,,,4,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+ba8384c3-407b-5f89-bd1c-3007d087c74e,family,ozonic,Ozónico,,#2db9f3,3,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+c3b010e0-f6dc-5fd3-b3c9-60c27e89b0dd,family,transformed,Transformado,,#8a8a8a,9,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+c5edde52-a6f6-5b86-877d-091fd9c0ab23,text_type,use,uso,,,2,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+c820fe89-1bb9-5e90-9d73-b4218104ca04,treatment,rectified,rectificado,,,1,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+cc6606bd-2222-56cc-9da2-ef625eef7d7c,text_type,description,descripción,,,1,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+d34b9905-eeed-57ff-8a37-a113bb249dc6,isomeric_form,racemic,racémico,,,2,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+d50f1775-f748-5adc-a5cb-947086fc081c,text_type,warning,advertencia,,,5,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+da734077-3cda-550e-ab8e-1f6b7897971b,treatment,terpeneless,sin terpenos,,,2,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+dbbea52c-3d44-5259-a286-622b8f916810,treatment,fcf,sin furocumarinas,,,3,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+e630f89a-883a-54e2-8e7d-a6c6b930fdb1,relation_type,blends_with,combina con,,,3,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+e8b4d254-28a1-5473-b282-c45b405050f5,relation_type,obtained_from,se obtiene de,,,5,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+ecd0ea95-4a47-513b-a613-55d6fc141abb,relation_type,substitute,sustituto,,,1,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+fbd4e907-ed20-5805-9813-b45ef31cf0d5,note,base,fondo,,,3,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+ff0efd2e-db3e-51bf-84d2-c0fe4504f280,note,top,salida,,,1,83dd3e47-315c-5281-8e1f-9dc5219b2d85

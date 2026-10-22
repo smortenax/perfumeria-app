@@ -1,0 +1,32 @@
+id,code,name,group,value_type,unit,is_list,vocabulary_list,applies_to,sort,batch_id
+012c2c5b-8530-5c97-a99b-3237111ee6f8,purity_typical,pureza típica,pure,number,fracción,false,,pure,1,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+0701d5d5-5bdf-5119-a87a-ddc3a1054648,odor_threshold,umbral de olor,performance,number,,false,,all,15,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+08e5b6a5-a652-5bab-b694-ffa594f9934b,appearance,aspecto,physical,text,,false,,all,21,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+192b226b-d59c-5ca3-b508-3dbc4df80554,handling,manejo,physical,text,,false,,all,31,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+293fab6f-6089-56a6-a3a1-7e0cad473ee3,incompatibilities,incompatibilidades,physical,text,,false,,all,30,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+2ecc0ae3-926d-505c-b1c6-9b362ff20073,subfamilies,subfamilias con %,olfactory,list,,true,subfamily,all,7,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+3754ddcb-6b67-5039-b1cd-de33800886a1,concept,concepto,blend,text,,false,,blend,4,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+3bc83c53-1b42-544d-a19f-60edbd15fa91,odor_category,categoría olfativa,olfactory,text,,false,,all,9,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+3e449838-512d-52a0-8524-53827d2881c8,provenance,procedencia,natural,list,,true,country,natural,3,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+3eb3c1c9-9028-597c-bb91-d25a838d5ab7,density,densidad,physical,number,g/mL,false,,all,22,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+3fea2d10-dd73-5f0c-baf8-d7a85210042f,vapor_pressure,presión de vapor,physical,number,mmHg,false,,all,26,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+4ebe2ea9-9a1b-53b3-9a4b-d7f5ce236819,stains,mancha o decolora,physical,text,,false,,all,28,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+4edf6710-b63a-5a48-817a-ed6074d69d78,diffusion,difusión,performance,number,,false,,all,13,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+565bc995-2d34-52f0-b6d0-565344bd5df1,note,nota,olfactory,list,,true,note,all,11,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+6be0ba2b-3e0a-54b8-bc94-a22ff8853aaf,product_isomers_purity,isómeros o pureza del producto,product,text,,false,,product,5,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+7337693e-fae0-51c0-8732-962bd810df3c,dose_in_formula,dosis en fórmula,performance,range,fracción,false,,all,17,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+7db635ee-43b5-5a39-bc53-4281ba52c89d,role,papel,performance,list,,true,role,all,18,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+8c21fc8b-c302-552e-a826-b89de71bd346,potency,potencia,performance,number,,false,,all,12,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+91d0d5d5-ef76-577c-aae0-a35e924d46c4,isomer_ratio,proporción de isómeros,pure,text,,false,,pure,2,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+92182b9b-5170-518c-9327-70e199fa9481,working_dilution,dilución de trabajo,performance,range,fracción,false,,all,16,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+9744183e-d575-510f-a864-26f1d8acb432,flash_point,punto de inflamación,physical,number,°C,false,,all,25,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+9ea69e5c-f9de-5a28-bc95-2696016fcd36,descriptors,descriptores,olfactory,list,,true,descriptor,all,8,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+a2c193db-6485-57be-a90b-7b71099bc3ad,boiling_point,punto de ebullición,physical,number,°C,false,,all,24,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+b359ec2f-1714-5aa5-b6b0-ee45b5a322ae,melting_point,punto de fusión,physical,number,°C,false,,all,23,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+ccb35166-fd35-5061-b369-f6487b3bdaa5,stability,estabilidad,physical,text,,false,,all,29,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+d201560b-4335-538d-8e84-650b6b463799,families,familias con %,olfactory,list,,true,family,all,6,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+d6579ce4-6a33-5fcc-bf24-9f7bc8ab0c72,physical_state,estado físico,physical,list,,true,physical_state,all,20,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+e2147a2b-1cfd-5863-9bb5-5a06f5de4376,evokes,evoca,olfactory,text,,false,,all,10,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+e7426c25-f549-5034-a4b9-51f629b0557e,solubility,solubilidad,performance,text,,false,,all,19,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+f7697981-b44e-56a6-b1e3-a5b0ef83464f,duration_strip,duración en tira,performance,number,h,false,,all,14,83dd3e47-315c-5281-8e1f-9dc5219b2d85
+ff41fa6e-d661-5975-bcc3-3298b9e826e4,logp,logP,physical,number,,false,,all,27,83dd3e47-315c-5281-8e1f-9dc5219b2d85
