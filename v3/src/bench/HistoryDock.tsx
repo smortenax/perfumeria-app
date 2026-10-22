@@ -13,8 +13,9 @@ const t = texts.history;
 
 type Add = Extract<Change, { kind: "add" }>;
 
-const CHIP = 28;
-const GAP = 8;
+/** Each change takes a slot wider than its 28 px chip, so its amount can sit under it (audit F-06). */
+const SLOT = 52;
+const GAP = 4;
 
 function describe(change: Change, adds: ReadonlyMap<string, Add>): { title: string; sub: string } {
   switch (change.kind) {
@@ -32,6 +33,13 @@ function describe(change: Change, adds: ReadonlyMap<string, Add>): { title: stri
     case "note":
       return { title: t.note, sub: `«${change.text}»` };
   }
+}
+
+/** What goes under a chip: what was poured, or the mass it was changed to. */
+function amountOf(change: Change): string | null {
+  if (change.kind === "add") return `+${massText(Ratio.of(change.massUg))}`;
+  if (change.kind === "set-mass") return `→ ${massText(Ratio.of(change.massUg))}`;
+  return null;
 }
 
 /** The dock's shape: rounded, with a bite at the top centre for the play button (P26). */
@@ -82,16 +90,16 @@ export function HistoryDock(props: {
   }, []);
 
   const n = props.history.length;
-  const content = n * (CHIP + GAP);
+  const content = n * (SLOT + GAP);
   const maxScroll = Math.max(0, content - areaWidth + 24);
   // A new change comes into view.
   useEffect(() => setScroll(maxScroll), [n, maxScroll]);
 
   const adds = new Map(props.history.filter((c): c is Add => c.kind === "add").map((c) => [c.id, c]));
   const end = props.frame ?? n;
-  const centre = (i: number) => i * (CHIP + GAP) + CHIP / 2 - scroll;
+  const centre = (i: number) => i * (SLOT + GAP) + SLOT / 2 - scroll;
   const scaleOf = (i: number) => (pointer === null ? 1 : 1 + 0.8 * Math.max(0, 1 - Math.abs(centre(i) - pointer) / 84));
-  const hovered = pointer === null ? null : props.history.findIndex((_, i) => Math.abs(centre(i) - pointer) <= (CHIP + GAP) / 2);
+  const hovered = pointer === null ? null : props.history.findIndex((_, i) => Math.abs(centre(i) - pointer) <= (SLOT + GAP) / 2);
   const tip = hovered !== null && hovered >= 0 ? describe(props.history[hovered], adds) : null;
 
   return (
@@ -139,10 +147,11 @@ export function HistoryDock(props: {
                   iconLength(icon.text, icon.mark) > 3 ? "chip-long" : "",
                   look?.className ?? "",
                 ];
+                const amount = amountOf(change);
                 return (
+                  <div key={change.id} className={`chip-slot${i >= end ? " future" : ""}`}>
                   <button
                     type="button"
-                    key={change.id}
                     className={classes.join(" ")}
                     aria-label={`${info.title}, ${info.sub}`}
                     title={look?.title}
@@ -163,6 +172,12 @@ export function HistoryDock(props: {
                       "±"
                     )}
                   </button>
+                  {amount && (
+                    <span className="chip-amount" aria-hidden="true" style={{ transform: `translateX(${shift}px)` }}>
+                      {amount}
+                    </span>
+                  )}
+                  </div>
                 );
               })}
             </div>
