@@ -83,13 +83,27 @@ label {
   color: var(--muted);
 }
 
-input {
+/* Text fields; a checkbox or a radio keeps its own box (audit F-12). */
+input:not([type="checkbox"], [type="radio"]) {
   font: inherit;
   color: var(--text);
   background: transparent;
   border: 1px solid var(--muted);
   border-radius: 6px;
   padding: 0.5rem 0.625rem;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  flex: none;
+  margin: 0;
+}
+
+/* A box and its words on one line, the box first (audit F-12). */
+label.check {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 button {
@@ -161,7 +175,8 @@ button.link {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem 1rem;
-  align-items: flex-end;
+  /* The words of a checkbox on the line of the selects' words (audit F-12). */
+  align-items: last baseline;
   border: 1px solid color-mix(in srgb, var(--muted) 40%, transparent);
   border-radius: 6px;
   margin: 0.75rem 0;
@@ -1082,7 +1097,7 @@ button.link {
   color: var(--blue);
 }
 
-input,
+input:not([type="checkbox"], [type="radio"]),
 select,
 textarea {
   background: var(--panel);
