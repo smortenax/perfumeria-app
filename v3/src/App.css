@@ -999,6 +999,17 @@ form.add label {
   .app-nav .who {
     display: none;
   }
+
+  /* What you tap most on a phone: 44 px, the vault's floor for primary targets (audit F-15). */
+  .app-nav .app-link {
+    min-height: 2.75rem;
+  }
+}
+
+/* Small controls outside the bench at WCAG's 24 px (audit F-15). */
+.app-nav .who .link,
+.data-status summary {
+  min-height: 24px;
 }
 
 /*
