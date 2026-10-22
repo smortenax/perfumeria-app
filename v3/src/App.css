@@ -14,6 +14,14 @@
      token picker; until then, the system's. */
   --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  /* Six text sizes for the shell and the bench, none below 11 px (audit F-10). The values wait for the
+     token picker; these are the sizes the app already used most, rounded onto one scale. */
+  --text-xs: 0.6875rem;
+  --text-sm: 0.75rem;
+  --text-md: 0.8125rem;
+  --text-lg: 1rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.75rem;
   color-scheme: light dark;
   font-family: var(--font-sans);
   line-height: 1.5;
@@ -42,7 +50,7 @@ body {
 
 .start h1 {
   margin: 0 0 2rem;
-  font-size: 1.75rem;
+  font-size: var(--text-2xl);
 }
 
 .start .version {
@@ -51,12 +59,12 @@ body {
 }
 
 .start h2 {
-  font-size: 1.25rem;
+  font-size: var(--text-xl);
   margin: 0 0 0.5rem;
 }
 
 .start h3 {
-  font-size: 1rem;
+  font-size: var(--text-lg);
   margin: 2rem 0 0.5rem;
   color: var(--muted);
 }
@@ -72,7 +80,7 @@ body {
 
 .hint {
   color: var(--muted);
-  font-size: 0.875rem;
+  font-size: var(--text-md);
 }
 
 .error {
@@ -83,7 +91,7 @@ label {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  font-size: 0.875rem;
+  font-size: var(--text-md);
   color: var(--muted);
 }
 
@@ -155,7 +163,7 @@ button.link {
 
 .status-panel .status {
   margin: 0.25rem 0;
-  font-size: 0.875rem;
+  font-size: var(--text-md);
 }
 
 .status-panel .status.ok {
@@ -172,7 +180,7 @@ button.link {
 }
 
 .glossary .search input {
-  font-size: 1rem;
+  font-size: var(--text-lg);
 }
 
 .filters {
@@ -188,7 +196,7 @@ button.link {
 
 .filters legend {
   color: var(--muted);
-  font-size: 0.875rem;
+  font-size: var(--text-md);
 }
 
 .filters label.check {
@@ -219,7 +227,7 @@ select {
 
 .row h3 {
   margin: 0.5rem 0 0.25rem;
-  font-size: 0.875rem;
+  font-size: var(--text-md);
   color: var(--muted);
 }
 
@@ -246,7 +254,7 @@ button.member:focus-visible {
 .member .facts {
   grid-column: 1;
   color: var(--muted);
-  font-size: 0.875rem;
+  font-size: var(--text-md);
 }
 
 .member .ifra {
@@ -265,7 +273,7 @@ button.member:focus-visible {
 }
 
 .ifra {
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   border: 1px solid var(--muted);
   border-radius: 999px;
   padding: 0.125rem 0.5rem;
@@ -292,7 +300,7 @@ button.member:focus-visible {
 }
 
 .sheet-section h3 {
-  font-size: 1rem;
+  font-size: var(--text-lg);
   margin: 0 0 0.5rem;
   padding-bottom: 0.25rem;
   border-bottom: 1px solid color-mix(in srgb, var(--muted) 40%, transparent);
@@ -326,12 +334,12 @@ button.member:focus-visible {
 
 .notes {
   color: var(--muted);
-  font-size: 0.875rem;
+  font-size: var(--text-md);
 }
 
 .disputed {
   margin-left: 0.5rem;
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   color: #b3261e;
   border: 1px solid #b3261e;
   border-radius: 999px;
@@ -346,7 +354,7 @@ button.member:focus-visible {
 
 .sheet table {
   border-collapse: collapse;
-  font-size: 0.875rem;
+  font-size: var(--text-md);
   min-width: 100%;
 }
 
@@ -372,7 +380,7 @@ button.member:focus-visible {
 .data-status {
   margin-top: 3rem;
   color: var(--muted);
-  font-size: 0.875rem;
+  font-size: var(--text-md);
 }
 
 @media (max-width: 36rem) {
@@ -477,7 +485,7 @@ form.add .error {
   gap: 1rem;
   padding: 0.25rem 0;
   border-bottom: 1px solid color-mix(in srgb, var(--muted) 25%, transparent);
-  font-size: 0.875rem;
+  font-size: var(--text-md);
 }
 
 .danger button {
@@ -514,7 +522,7 @@ label.member.marking {
   align-items: center;
   padding: 0.5rem 0.25rem;
   color: var(--text);
-  font-size: 1rem;
+  font-size: var(--text-lg);
   cursor: pointer;
 }
 
@@ -539,7 +547,7 @@ label.check.have-toggle {
   align-items: center;
   gap: 0.375rem;
   color: var(--text);
-  font-size: 0.875rem;
+  font-size: var(--text-md);
 }
 
 /* Narrow screens and touch (plan v3, step 6.6): a sheet's table, one block per row; and fingers, not a pointer. */
@@ -605,7 +613,7 @@ label.check.have-toggle {
   input[type="search"],
   textarea {
     min-height: 2.75rem;
-    font-size: 1rem;
+    font-size: var(--text-lg);
   }
 }
 
@@ -710,7 +718,7 @@ form.add label {
   border-radius: 14px;
   color: var(--accent);
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: var(--text-xl);
   letter-spacing: 0.02em;
   overflow-wrap: anywhere;
 }
@@ -744,7 +752,7 @@ form.add label {
 
 .tile-name {
   font-weight: 600;
-  font-size: 0.9375rem;
+  font-size: var(--text-lg);
   line-height: 1.25;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -754,7 +762,7 @@ form.add label {
 
 .tile-detail {
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   line-height: 1.2;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -764,7 +772,7 @@ form.add label {
 
 .tile .ifra {
   margin-top: auto;
-  font-size: 0.6875rem;
+  font-size: var(--text-xs);
 }
 
 .tile.marking input {
@@ -776,7 +784,7 @@ form.add label {
 /* The «Fórmulas» tab (V3-50): workbenches and their formulas, apart from the materials. */
 .bench h3 {
   margin: 1rem 0 0.25rem;
-  font-size: 1rem;
+  font-size: var(--text-lg);
 }
 
 .tile.formula {
@@ -827,7 +835,7 @@ form.add label {
 .tile.mini .icon {
   width: 2.25rem;
   height: 2.25rem;
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   border-width: 1.5px;
 }
 
@@ -836,7 +844,7 @@ form.add label {
 }
 
 .tile.mini .tile-name {
-  font-size: 0.6875rem;
+  font-size: var(--text-xs);
   font-weight: 500;
   -webkit-line-clamp: 2;
 }
@@ -925,7 +933,7 @@ form.add label {
   border: 3px solid var(--accent);
   border-radius: 18px;
   color: var(--accent);
-  font-size: 2.25rem;
+  font-size: var(--text-2xl);
   font-weight: 700;
 }
 
@@ -934,13 +942,13 @@ form.add label {
 }
 
 .launch-name {
-  font-size: 1.375rem;
+  font-size: var(--text-xl);
   font-weight: 700;
 }
 
 .launch-detail {
   color: var(--muted);
-  font-size: 0.875rem;
+  font-size: var(--text-md);
 }
 
 /* One launcher for the whole app (2026-10-15): always on top, the workbench below it. */
@@ -961,7 +969,7 @@ form.add label {
   padding: 0 1rem;
   background: var(--bg);
   border-bottom: 1px solid color-mix(in srgb, var(--muted) 35%, transparent);
-  font-size: 0.875rem;
+  font-size: var(--text-md);
 }
 
 .app-nav .app-name {
@@ -1056,7 +1064,7 @@ form.add label {
 /* «Continue» on the start page (audit F-14): what is in progress, one tap back into it. */
 .continue h3,
 .launch-title {
-  font-size: 1rem;
+  font-size: var(--text-lg);
   margin: 1.25rem 0 0.5rem;
 }
 
@@ -1097,7 +1105,7 @@ form.add label {
 
 .continue-kind {
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
@@ -1108,7 +1116,7 @@ form.add label {
 
 .continue-detail {
   color: var(--muted);
-  font-size: 0.875rem;
+  font-size: var(--text-md);
   font-variant-numeric: tabular-nums;
 }
 
@@ -1120,7 +1128,7 @@ form.add label {
 .home-account {
   display: none;
   color: var(--muted);
-  font-size: 0.875rem;
+  font-size: var(--text-md);
 }
 
 /* Small controls outside the bench at WCAG's 24 px (audit F-15). */
@@ -1369,7 +1377,7 @@ button:focus-visible {
   min-height: 32px;
   padding: 0;
   border-radius: 999px;
-  font-size: 1.25rem;
+  font-size: var(--text-xl);
   line-height: 1;
   background: var(--text);
   color: var(--panel);
@@ -1422,7 +1430,7 @@ button:focus-visible {
     max-width: none;
     padding: 0 0.125rem;
     border-radius: 0;
-    font-size: 0.75rem;
+    font-size: var(--text-sm);
     text-align: center;
   }
 

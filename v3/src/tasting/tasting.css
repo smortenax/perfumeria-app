@@ -79,7 +79,7 @@
 
 .strip-label {
   grid-row: span 2;
-  font-size: 2rem;
+  font-size: var(--text-2xl);
   font-weight: 700;
   line-height: 1;
   align-self: center;
@@ -99,7 +99,7 @@
 
 .strip-detail {
   color: var(--muted);
-  font-size: 0.875rem;
+  font-size: var(--text-md);
 }
 
 .strip-moments {
@@ -109,7 +109,7 @@
 }
 
 .moment-dot {
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   padding: 0.0625rem 0.375rem;
   border-radius: 999px;
   border: 1px solid var(--line);
@@ -165,7 +165,7 @@
 .tasting select {
   width: 100%;
   box-sizing: border-box;
-  font-size: 1rem;
+  font-size: var(--text-lg);
   padding: 0.5rem;
   border: 1px solid var(--line-strong);
   border-radius: 8px;
@@ -202,11 +202,11 @@
 
 .block h3 {
   margin: 0.25rem 0;
-  font-size: 1rem;
+  font-size: var(--text-lg);
 }
 
 .block-state {
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   color: var(--faint);
 }
 
@@ -302,7 +302,7 @@
 }
 
 .curve-level {
-  font-size: 0.875rem;
+  font-size: var(--text-md);
   color: var(--muted);
 }
 
@@ -376,7 +376,7 @@
 
 .mark-badge {
   margin-left: 0.5rem;
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   padding: 0.0625rem 0.375rem;
   border-radius: 999px;
   background: var(--amber-bg);
@@ -405,14 +405,14 @@
 .legacy-sheet pre {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
-  font-size: 0.8125rem;
+  font-size: var(--text-md);
   background: var(--panel);
   padding: 0.75rem;
   border-radius: 8px;
 }
 
 .strip-view .title-bar h2 {
-  font-size: 1.125rem;
+  font-size: var(--text-xl);
   margin: 0;
 }
 

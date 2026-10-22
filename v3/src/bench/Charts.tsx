@@ -136,7 +136,7 @@ export function RepartoCard(props: { composition: Composition | null; familyOf?:
               <text x="80" y="105" textAnchor="middle" fontSize="11" fill="#57564F">
                 {c.ofAromatic}
               </text>
-              <text x="80" y="119" textAnchor="middle" fontSize="10" fill="#57564F">
+              <text x="80" y="119" textAnchor="middle" fontSize="11" fill="#57564F">
                 {hovered.family}
               </text>
             </>
