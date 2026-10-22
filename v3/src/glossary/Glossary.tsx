@@ -3,7 +3,7 @@ import { type CatalogMaterial, MATERIAL_KINDS, type MaterialKind } from "../db/c
 import { normalize } from "../db/search";
 import type { FormulaMarker, FormulaRecord } from "../db/formulas";
 import { listAll, search } from "../db/search";
-import { coloursOf } from "../families/palette";
+import { coloursOf, textColourOf } from "../families/palette";
 import { paletteMarkdown, paletteOf } from "./palette-export";
 import { texts } from "../i18n/en";
 import { type Filters, type IfraState, keepOf, NO_FILTERS } from "./browse";
@@ -253,7 +253,7 @@ function Tile({ material, data, onOpen, marking, mark }: { material: CatalogMate
     <>
       <span
         className={`icon${abbreviation ? "" : " no-abbr"}${have ? " have" : ""}${colours ? " fam" : ""}`}
-        style={colours ? ({ "--fam-light": colours.light, "--fam-dark": colours.dark } as CSSProperties) : undefined}
+        style={colours ? ({ "--fam-light": colours.light, "--fam-dark": colours.dark, "--fam-text": textColourOf(colours.light) } as CSSProperties) : undefined}
         aria-hidden="true"
       >
         {abbreviation ?? initials(material.name)}

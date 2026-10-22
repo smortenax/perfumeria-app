@@ -705,11 +705,12 @@ form.add label {
   background: color-mix(in srgb, var(--accent) 15%, transparent);
 }
 
-/* The family's colour (V3-38): edge and letters in it, a tint behind when you have it. */
+/* The family's colour (V3-38): the edge in it, a tint behind when you have it, and the letters in its
+   hue darkened to 4.5:1 (audit F-01, --fam-text from families/palette.ts). */
 .tile .icon.fam {
   --fam: var(--fam-light);
   border-color: var(--fam);
-  color: var(--fam);
+  color: var(--fam-text, var(--fam));
 }
 
 @media (prefers-color-scheme: dark) {

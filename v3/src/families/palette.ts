@@ -1,6 +1,7 @@
 import { parseCsvRecords } from "../bench/data/csv";
 import type { Catalog, CatalogMaterial, Family } from "../db/catalog";
 import { FAMILIES } from "../db/catalog";
+import { mix, readableOn } from "./contrast";
 
 /**
  * The palette of the families (V3-38): each closed family of P48 with its colour for a light and a
@@ -64,4 +65,17 @@ export function coloursOf(catalog: Catalog, material: CatalogMaterial): { readon
   const family = familyOf(catalog, material);
   const colour = family ? PALETTE.get(family) : undefined;
   return colour ? { light: colour.light, dark: colour.dark } : null;
+}
+
+/** The paper behind a material's icon: App.css --panel, which the app keeps light (V3-38 colours are the light ones). */
+const PAPER = "#ffffff";
+/** The tint behind the icon of a material you have: App.css, .tile .icon.fam.have. */
+const HAVE_TINT = 0.18;
+
+/**
+ * A family colour as the icon's letters (audit F-01): its hue, darkened in OkLCh until it reads at
+ * 4.5:1 on the paper and on the tint of a material you have. The edge and the tint keep the colour itself.
+ */
+export function textColourOf(colour: string): string {
+  return readableOn(colour, [PAPER, mix(colour, HAVE_TINT, PAPER)]);
 }
