@@ -1,6 +1,7 @@
 import { engineMaterial } from "../db/formulas";
 import type { IfraCardState } from "../db/to-ifra";
 import { coloursOf, familyOf, PALETTE } from "../families/palette";
+import { texts as appTexts } from "../i18n/en";
 import type { GlossaryData } from "../glossary/useGlossary";
 import { type CatalogEntry, fold, type IfraState, normalize, type ScentFamily, searchCatalog, type UsageData } from "./data/catalog";
 import type { MaterialRepository } from "./data/repository";
@@ -24,10 +25,11 @@ const STATE: Readonly<Record<IfraCardState["state"], IfraState>> = {
 };
 
 /** The families of the palette as the workbench draws them (P48): it is light only, as the v2's sketches. */
+// Named in the interface's language (V3-71): the palette file keeps its Spanish names, the bench shows the English ones.
 const SCENT_FAMILIES: readonly ScentFamily[] = [...PALETTE.values()]
   .sort((a, b) => a.order - b.order)
-  .map((f) => ({ name: f.name, short: f.short, colour: f.light, order: f.order, covers: f.covers }));
-const scentOf = new Map([...PALETTE.keys()].map((k, i) => [k, SCENT_FAMILIES.find((s) => s.name === PALETTE.get(k)!.name) ?? SCENT_FAMILIES[i]]));
+  .map((f) => ({ name: appTexts.sheet.families[f.family], short: appTexts.sheet.families[f.family], colour: f.light, order: f.order, covers: f.covers }));
+const scentOf = new Map([...PALETTE.keys()].map((k, i) => [k, SCENT_FAMILIES.find((s) => s.name === appTexts.sheet.families[k]) ?? SCENT_FAMILIES[i]]));
 
 export function repositoryOfV3(data: GlossaryData): MaterialRepository {
   const entries: CatalogEntry[] = [];
