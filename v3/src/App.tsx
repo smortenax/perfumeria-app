@@ -13,6 +13,7 @@ import { NewMaterial } from "./glossary/NewMaterial";
 import { useGlossary } from "./glossary/useGlossary";
 import { SignIn } from "./SignIn";
 import { SyncStatus } from "./SyncStatus";
+import { FailureNote } from "./FailureNote";
 import { Dilutions, MaterialDilutions } from "./dilution/Dilutions";
 import { MaterialTastings } from "./tasting/MaterialTastings";
 import { tasteMaterial } from "./tasting/start";
@@ -56,7 +57,9 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
     await signOut();
     onSignedOut();
   };
-  const fail = (e: unknown) => window.alert(texts.editor.failed(e instanceof Error ? e.message : String(e)));
+  // What could not be saved is said in the page, not in an alert (audit F-09).
+  const [failure, setFailure] = useState<string | null>(null);
+  const fail = (e: unknown) => setFailure(texts.editor.failed(e instanceof Error ? e.message : String(e)));
   // The last formula opened stays open behind (its workbench keeps its state): the launcher goes back to it.
   const [lastFormula, setLastFormula] = useState<string | null>(route.view === "formula" ? route.id : null);
   useEffect(() => {
@@ -218,6 +221,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
           {route.view === "new" && <NewMaterial local={local} onCreated={(id) => go({ view: "edit", id }, true)} onCancel={() => back({ view: "materials" })} />}
         </>
       )}
+      <FailureNote message={failure} onClose={() => setFailure(null)} floating />
       <details className="data-status">
         <summary>{texts.status.title}</summary>
         <SyncStatus local={local} />

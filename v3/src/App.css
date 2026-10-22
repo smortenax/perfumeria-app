@@ -1013,6 +1013,46 @@ form.add label {
   padding-top: calc(var(--app-nav-h) + 1.5rem);
 }
 
+/* An error in the page (audit F-09): in place, or floating above the bottom of the window. */
+.failure {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.75rem;
+  margin: 0.75rem 0;
+  padding: 0.625rem 0.875rem;
+  color: var(--red);
+  background: var(--red-bg);
+  border: 1px solid var(--red);
+  border-radius: 10px;
+}
+
+.failure .link {
+  min-height: 24px;
+  padding: 0;
+  background: none;
+  color: var(--red);
+  text-decoration: underline;
+}
+
+.failure.floating {
+  position: fixed;
+  z-index: 30;
+  left: 50%;
+  bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100vw - 2rem);
+  margin: 0;
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--text) 18%, transparent);
+}
+
+@media (max-width: 40rem) {
+  .failure.floating {
+    bottom: calc(var(--tab-bar-h, 3.5rem) + env(safe-area-inset-bottom, 0px) + 0.75rem);
+  }
+}
+
 /* «Continue» on the start page (audit F-14): what is in progress, one tap back into it. */
 .continue h3,
 .launch-title {

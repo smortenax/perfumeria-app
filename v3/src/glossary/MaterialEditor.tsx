@@ -17,6 +17,7 @@ import { effective } from "../db/to-ifra";
 import { texts } from "../i18n/en";
 import { changesOf, EDIT_SECTIONS, type Form, formOf, FormError, inheritedForm, numberOf } from "./edit";
 import { percent } from "./format";
+import { FailureNote } from "../FailureNote";
 import type { GlossaryData } from "./useGlossary";
 
 /** The authorities a user writes with: IFRA's word lives in its layer (V3-35). */
@@ -36,6 +37,7 @@ const pctOf = (text: string) => {
  * fields as its sheet (V3-47); every figure with its source.
  */
 export function MaterialEditor({ data, local, id, onDone, onDeleted }: { data: GlossaryData; local: LocalDatabase; id: string; onDone: () => void; onDeleted: () => void }) {
+  const [deleteError, setDeleteError] = useState<string | null>(null);
   const material = data.catalog.materials.get(id);
   if (!material || material.ownerId === null) return <p>{texts.glossary.missing}</p>;
   // A version (V3-5) inherits from the materials it is based on: shown as hints and read-only rows, never written to it.
@@ -57,11 +59,13 @@ export function MaterialEditor({ data, local, id, onDone, onDeleted }: { data: G
           type="button"
           onClick={() => {
             if (!window.confirm(t.confirmDelete(material.name))) return;
-            void deleteMaterial(local.db, local.userId, material.id).then(onDeleted, (e: unknown) => window.alert(messageOf(e)));
+            setDeleteError(null);
+            void deleteMaterial(local.db, local.userId, material.id).then(onDeleted, (e: unknown) => setDeleteError(messageOf(e)));
           }}
         >
           {t.delete}
         </button>
+        <FailureNote message={deleteError} onClose={() => setDeleteError(null)} />
       </section>
     </article>
   );

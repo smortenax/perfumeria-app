@@ -11,6 +11,7 @@ import type { GlossaryData } from "../glossary/useGlossary";
 import { texts } from "../i18n/en";
 import { blockState, buildQueue, tastable, changedBlocks, countdown, dueMoments, latestDilution, legacyTasted, nextWaiting, tenacity } from "./logic";
 import { tasteMaterial } from "./start";
+import { FailureNote } from "../FailureNote";
 import { useNow } from "./useTastings";
 import {
   BATTERY_AXES, BATTERY_STATES, BIASES, type Block, COMPLEXITY, CURVE_LEVELS, CURVE_SEGMENTS, DECAY, DEFAULT_MOMENTS, EFFECT_ENERGY, EFFECT_RICHNESS,
@@ -94,7 +95,8 @@ export function Tasting({
 }) {
   const setTab = onTab;
   const setStripId = onOpenStrip;
-  const fail = (e: unknown) => window.alert(t.failed(e instanceof Error ? e.message : String(e)));
+  const [failure, setFailure] = useState<string | null>(null);
+  const fail = (e: unknown) => setFailure(t.failed(e instanceof Error ? e.message : String(e)));
   const run = (p: Promise<unknown>) => void p.catch(fail);
   const open = tastings.sessions.find((s) => !s.endedAt) ?? null;
   const openStrips = open ? tastings.strips.filter((s) => s.sessionId === open.id) : [];
@@ -109,6 +111,7 @@ export function Tasting({
   const strip = stripId ? tastings.strips.find((s) => s.id === stripId) : undefined;
   return (
     <section className="tasting" hidden={!visible}>
+      <FailureNote message={failure} onClose={() => setFailure(null)} floating />
       {notices.length > 0 && (
         <div className="tasting-notices" role="status">
           {notices.map((n) => (
