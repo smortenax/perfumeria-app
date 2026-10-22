@@ -154,7 +154,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <div class="wrap">
   <header style="display:grid;gap:10px">
     <h1>Radiografía de los datos</h1>
-    <p class="lede">Segunda versión, con la auditoría del esquema aprobada el 22 de octubre (V3-70): 46 tablas y una vista. Las sustancias pasan a ser el centro, la composición va en filas con cabecera, las afirmaciones sustituyen a los datos por fuente y la ficha es una tabla para que llegue al móvil. Pulsa una tabla para ver qué guarda cada campo y con qué se une.</p>
+    <p class="lede">Segunda versión, con la auditoría del esquema (V3-70) y la evaluación de esta radiografía, las dos del 22 de octubre: 47 tablas y una vista. De los once puntos abiertos de la auditoría, el 22 aprobaste los nueve con la propuesta de la revisión (A3 con la de la sesión, no con los enteros escalados); A7 y A10 quedan por comprobar con datos, y A8, abierto. Las sustancias pasan a ser el centro, la composición va en filas con cabecera, las afirmaciones sustituyen a los datos por fuente y la ficha es una tabla para que llegue al móvil. Pulsa una tabla para ver qué guarda cada campo y con qué se une.</p>
   </header>
 
   <section class="stats" id="stats" aria-label="Recuento"></section>
@@ -177,8 +177,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     <span><span class="k fk">FK</span> apunta a otra tabla</span>
     <span><span class="tag" style="color:var(--muted)">vista</span> se calcula, no se guarda</span>
     <span><span class="tag" style="color:var(--muted)">filas</span> cada línea es una fila de otra tabla</span>
-    <span><span class="tag" style="color:var(--fg);border-color:var(--fg)">nueva</span> no estaba en la primera radiografía</span>
-    <span><span class="tag" style="color:var(--muted);border-style:dashed">cambia</span> estaba, con cambios</span>
+    <span><span class="tag" style="color:var(--fg);border-color:var(--fg)">nueva</span> no sale de ninguna tabla anterior</span>
+    <span><span class="tag" style="color:var(--muted);border-style:dashed">cambia</span> sale de una tabla de la primera versión</span>
+    <span><span class="mono" style="font-size:11px">fracción</span> numeric exacto en Postgres, texto en el móvil y fracción exacta en el motor; nunca <span class="mono">real</span> (A3)</span>
+    <span><span class="mono" style="font-size:11px">fijo</span> valores comprobados por la base, sin tabla</span>
     <span><span class="mv" style="color:var(--fg)"><svg viewBox="0 0 11 14" aria-hidden="true"><rect x=".75" y=".75" width="9.5" height="12.5" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 11h3" stroke="currentColor" stroke-width="1.5"/></svg></span> baja al móvil</span>
     <span><svg width="34" height="8" aria-hidden="true"><path d="M1 4H33" stroke="var(--wire)" stroke-width="1.5" stroke-dasharray="3 4"/></svg> unión que solo se calcula</span>
   </div>
@@ -207,16 +209,16 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <h2>Cómo se lee un dato</h2>
       <p class="note">El valor que enseña la app sale de una cadena fija. Lo de arriba manda sobre lo de abajo.</p>
       <div class="flow"><b>mis_afirmaciones</b><em>›</em><b>afirmaciones ★ manda</b><em>›</em><b>el resto, guardado</b></div>
-      <p class="note">Solo hay una ★ por atributo y material. El script la resuelve al aprobar la tanda y la deja escrita en <span class="mono">ficha</span>.</p>
+      <p class="note">Solo hay una ★ por material, producto y atributo. El script la resuelve al aprobar la tanda y la deja escrita en <span class="mono">ficha</span>.</p>
       <p class="note">Para la composición, la de tu frasco manda sobre la del producto, y la del producto sobre la genérica.</p>
       <div class="flow"><b>mis_composiciones · tu frasco</b><em>›</em><b>composiciones · producto</b><em>›</em><b>composiciones · identidad</b><em>›</em><b>ifra_anexo</b></div>
-      <p class="note">Cada composición es la del producto tal como se vende, o la de tu frasco tal como está (P14). Las cifras son fracciones exactas; el porcentaje solo se pinta.</p>
+      <p class="note">Cada composición es la del producto tal como se vende, o la de tu frasco tal como está (P14). Las cifras son fracciones exactas: <span class="mono">numeric</span> en Postgres, texto en el móvil y fracción de enteros en el motor, nunca un decimal de coma flotante (A3). El porcentaje solo se pinta.</p>
       <p class="note">Un hueco es «no lo dice», nunca un cero.</p>
     </div>
     <div class="box">
       <h2>Cómo llega a IFRA</h2>
       <p class="note">El material no lleva ningún límite. IFRA solo se toca a través de las sustancias, y el veredicto se calcula en la app, sin conexión, con la categoría y la enmienda de la fórmula.</p>
-      <div class="flow"><b>ficha · composición resuelta</b><em>›</em><b>sustancias + alias</b><em>›</em><b>ifra_sustancias</b><em>›</em><b>ifra_estandares</b><em>›</em><b>ifra_limites · categorias_ifra · enmiendas</b></div>
+      <div class="flow"><b>ficha_composicion</b><em>›</em><b>sustancias + alias</b><em>›</em><b>ifra_sustancias</b><em>›</em><b>ifra_estandares</b><em>›</em><b>ifra_limites · categorias_ifra · enmiendas</b></div>
       <p class="note">El resultado no se guarda: se calcula cada vez. Solo cuando emites un informe queda una foto en <span class="mono">informes_ifra</span>.</p>
       <p class="note">El tope del fabricante y tus límites se suman después: manda el más estricto. El tope del fabricante no es IFRA.</p>
     </div>
@@ -224,7 +226,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
   <section class="box" id="cambios">
     <h2>Qué cambia respecto a la versión anterior</h2>
-    <p class="note">La primera radiografía tenía 42 tablas y tres vistas; esta tiene 46 tablas y una vista. Lo que desaparece no se pierde: pasa a otra tabla.</p>
+    <p class="note">La primera radiografía tenía 42 tablas y tres vistas; esta tiene 47 tablas y una vista. Lo que desaparece no se pierde: pasa a otra tabla.</p>
     <div class="changes">
       <div><b style="font-size:13px">Se quitan</b><ul>
         <li><code>puros</code>, <code>naturales</code>, <code>mezclas</code> <span>· sus campos van dentro de <code>materiales</code>, con una comprobación por tipo; fórmula, peso y SMILES, a <code>sustancias</code></span></li>
@@ -246,7 +248,16 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         <li><code>tandas</code> <span>· cada fila del glosario dice de qué carga viene, y una carga se deshace entera</span></li>
         <li><code>enmiendas</code>, <code>categorias_ifra</code> <span>· IFRA por enmienda; la fórmula guarda las dos</span></li>
         <li><code>informes_ifra</code> <span>· la foto de cada informe emitido</span></li>
+        <li><code>ficha_composicion</code> <span>· la composición resuelta de cada ficha, en filas, para el móvil</span></li>
         <li>Núcleo químico <span>· <code>sustancias</code> y <code>sustancia_alias</code> salen de la regulación y son la puerta común</span></li>
+      </ul></div>
+      <div><b style="font-size:13px">Corregido tras la evaluación</b><ul>
+        <li>La ficha va por material y producto, y su composición, en <code>ficha_composicion</code> <span>· un frasco de Galaxolide al 50 % en IPM ya no cuenta el doble de Galaxolide</span></li>
+        <li>Bajan también al móvil <code>productos</code>, <code>identificadores</code>, <code>atributos</code>, <code>escalas</code> y <code>topes_fabricante</code> <span>· sin el último, el tope del fabricante no se aplicaría sin conexión</span></li>
+        <li>Las columnas de vocabulario se unen por (lista, id); las listas cortas son valores comprobados <span>· y los términos guardan su lista</span></li>
+        <li><code>atributos</code> enseña sus columnas, y <code>familia_principal</code> apunta al vocabulario</li>
+        <li>Una ★ por material, producto y atributo, con NULLS NOT DISTINCT <span>· propuesta, pendiente de tu respuesta</span></li>
+        <li><code>alergenos_entradas</code> tiene <code>condicion</code></li>
       </ul></div>
     </div>
     <p class="note">Quedan por comprobar con datos la regla del doble recuento (A7) y las familias en dos niveles (A10). Siguen abiertos el aceite alérgeno con sus constituyentes (A8) y la escala de potencia.</p>
@@ -284,7 +295,7 @@ const T = [
   ["lista","texto","pk","","Familia, subfamilia, descriptor, parte, proceso, tratamiento, forma isomérica, estado físico, papel, nota, país, tipo de relación, de apunte"],["id","id","pk"],["codigo","texto"],["nombre","texto","","","En español, como lo enseña la app"],["padre_id","id","fk","vocabularios","Familias en dos niveles: el % general es la suma de sus hijas (por probar con datos)"],["color","texto","","","Solo familias: el color fijo de V3-38"],["orden","núm"]]},
  {id:"equivalencias", lane:"apoyo", col:0, what:"Qué palabra de cada fuente corresponde a cada término nuestro. Por eso los vocabularios siguen en una sola tabla.", cols:[
   ["id","id","pk"],["fuente_id","id","fk","fuentes","","",1],["termino_fuente","texto","","","«animalic», «Amber», «woody-dry»"],["lista","texto"],["vocabulario_id","id","fk","vocabularios","El término nuestro","",1],["nota","texto"]]},
- {id:"escalas", lane:"apoyo", col:0, st:"cambia", what:"Cada escala de potencia o difusión de una fuente y cómo se pasa a la propia. La conversión deja de ser texto.", cols:[
+ {id:"escalas", lane:"apoyo", col:0, movil:true, st:"cambia", what:"Cada escala de potencia o difusión de una fuente y cómo se pasa a la propia. La conversión deja de ser texto.", cols:[
   ["id","id","pk"],["nombre","texto","","","0-10 de ScentFriends, escala de PerfuMate, palabras"],["fuente_id","id","fk","fuentes","","",1],["atributo_id","id","fk","atributos","Qué mide"],["minimo","núm"],["maximo","núm"],["regla","vocab","","","Mínimo-máximo o tabla de puntos"],["puntos","lista","","","Si la regla es por puntos"]]},
  {id:"tandas", lane:"apoyo", col:0, st:"nueva", what:"Cada carga del script. Amplía lo que ya existe en la v3 (tandas.csv y data_version): ahora cada fila del glosario dice de qué tanda viene, y una tanda se puede deshacer entera.", cols:[
   ["id","id","pk"],["fecha","fecha"],["script","texto"],["fuente_id","id","fk","fuentes","","",1],["estado","vocab","","","Propuesta, aprobada, revertida"],["aprobada_por","texto"],["commit","texto"],["sha256","texto"]]},
@@ -301,7 +312,7 @@ const T = [
   ["tanda_id","id","fk","tandas","","",1]]},
  {id:"natural_tratamientos", lane:"glos", col:0, rows:"lista", what:"Los tratamientos de un natural (rectificado, sin terpenos, sin furocumarinas). Entran en su clave de identidad, ordenados.", cols:[
   ["material_id","id","fk","materiales"],["tratamiento","vocab","","","La v3 solo tiene «form» en 37, que mezcla proceso y forma",[0,0]],["tanda_id","id","fk","tandas","","",1]]},
- {id:"identificadores", lane:"glos", col:0, st:"cambia", rows:"lista", what:"Nombres y códigos que no son CAS: INCI, FEMA, EINECS y sinónimos. Con ellos se busca también por el nombre comercial. El CAS vive solo en sustancias.", cols:[
+ {id:"identificadores", lane:"glos", col:0, movil:true, st:"cambia", rows:"lista", what:"Nombres y códigos que no son CAS: INCI, FEMA, EINECS y sinónimos. Con ellos se busca también por el nombre comercial. El CAS vive solo en sustancias.", cols:[
   ["id","id","pk"],["material_id","id","fk","materiales"],["tipo","vocab","","","INCI, FEMA, EINECS, sinónimo comercial, químico u otro idioma"],["valor","texto","","","Sinónimos: v3 127, PerfuMate 1960; INCI: v3 44",[127,1960]],["fuente_id","id","fk","fuentes","","",1],["tanda_id","id","fk","tandas","","",1]]},
  {id:"relaciones", lane:"glos", col:0, st:"cambia", rows:"lista", what:"Sustitutos, similares, con qué combina, con qué se confunde y, nuevo, de qué se obtiene (los reactivos de un producto de reacción).", cols:[
   ["id","id","pk"],["material_id","id","fk","materiales"],["tipo","vocab","","","Sustituto, similar, combina con, se confunde con, se obtiene de"],["otro_id","id","fk","materiales","",[102,0]],["fuente_id","id","fk","fuentes","","",1],["nota","texto"],["tanda_id","id","fk","tandas","","",1]]},
@@ -310,25 +321,28 @@ const T = [
  {id:"apuntes", lane:"glos", col:0, rows:"lista", what:"Textos con su fuente. El texto nunca calcula; un dato que traiga dentro se saca a una afirmación.", cols:[
   ["id","id","pk"],["material_id","id","fk","materiales"],["tipo","vocab","","","Descripción, uso, historia, comparación, advertencia, IFRA de segunda mano"],["texto","texto","","","v3: notas 124, efecto en mezcla 100; PerfuMate: descripción 2212",[124,2212]],["fuente_id","id","fk","fuentes","","",1],["idioma","texto"],["tanda_id","id","fk","tandas","","",1]]},
 
- {id:"productos", lane:"glos", col:1, st:"cambia", what:"Cómo lo vende una empresa. La dilución es informativa: la composición del producto ya es la de como se vende, disolvente incluido.", cols:[
+ {id:"productos", lane:"glos", col:1, movil:true, st:"cambia", what:"Cómo lo vende una empresa. La dilución es informativa: la composición del producto ya es la de como se vende, disolvente incluido.", cols:[
   ["id","id","pk"],["material_id","id","fk","materiales"],["empresa_id","id","fk","empresas","",[23,710]],["nombre_comercial","texto","","","Hedione, Hedione HC, Iso E Super",[23,710]],["codigo","texto","","","",[6,0]],["cautivo","sí/no","","","",[0,0]],["grado","texto","","","",[0,0]],["dilucion","fracción","","","Informativa: no entra en el cálculo",[0,0]],["disolvente_id","id","fk","materiales"],["estado","vocab","","","En catálogo o descatalogado",[0,0]],["tanda_id","id","fk","tandas","","",1]]},
  {id:"documentos", lane:"glos", col:1, st:"cambia", rows:"lista", what:"Los documentos del fabricante. Un certificado IFRA apunta a su enmienda y avisa cuando se queda viejo.", cols:[
   ["id","id","pk"],["producto_id","id","fk","productos"],["tipo","vocab","","","Ficha de seguridad, certificado IFRA, alérgenos, análisis",[0,0]],["archivo_url","texto"],["fecha","fecha"],["enmienda_id","id","fk","enmiendas"],["paginas","núm"],["tanda_id","id","fk","tandas","","",1]]},
- {id:"topes_fabricante", lane:"glos", col:1, st:"cambia", rows:"lista", what:"El límite de uso que pone el fabricante. No es IFRA; se compara después y manda el más estricto.", cols:[
+ {id:"topes_fabricante", lane:"glos", col:1, movil:true, st:"cambia", rows:"lista", what:"El límite de uso que pone el fabricante. No es IFRA; se compara después y manda el más estricto.", cols:[
   ["id","id","pk"],["producto_id","id","fk","productos"],["categoria_id","id","fk","categorias_ifra"],["tope","fracción","","","",[0,0]],["documento_id","id","fk","documentos"],["tanda_id","id","fk","tandas","","",1]]},
- {id:"composiciones", lane:"glos", col:1, st:"nueva", rows:"lista", what:"La cabecera de cada composición: de qué cuelga, quién la da y de qué documento sale. Un material puede tener varias (literatura, fabricante); el motor elige por precedencia.", cols:[
+ {id:"composiciones", lane:"glos", col:1, st:"cambia", rows:"lista", what:"La cabecera de cada composición: de qué cuelga, quién la da y de qué documento sale. Un material puede tener varias (literatura, fabricante); el motor elige por precedencia.", cols:[
   ["id","id","pk"],["material_id","id","fk","materiales","Genérica. Exactamente uno de los dos"],["producto_id","id","fk","productos","Del fabricante, tal como se vende"],["autoridad","vocab","","","Producto, literatura, consenso"],["documento_id","id","fk","documentos"],["fuente_id","id","fk","fuentes","","",1],["pagina","núm"],["cita","texto"],["fecha","fecha"],["incompleta","sí/no","","","Si la fuente solo da una parte"],["tanda_id","id","fk","tandas","","",1]]},
- {id:"composicion_lineas", lane:"glos", col:1, st:"nueva", rows:"lista", what:"Las sustancias de una composición y su fracción. La suma no puede pasar de 1 (se comprueba al aprobar la tanda).", cols:[
+ {id:"composicion_lineas", lane:"glos", col:1, st:"cambia", rows:"lista", what:"Las sustancias de una composición y su fracción. La suma no puede pasar de 1 (se comprueba al aprobar la tanda).", cols:[
   ["id","id","pk"],["composicion_id","id","fk","composiciones"],["sustancia_id","id","fk","sustancias","",[0,739]],["tipo_cifra","vocab","","","Típico, máximo o rango"],["valor","fracción"],["minimo","fracción"],["maximo","fracción"],["define","sí/no","","","Las moléculas que definen una mezcla (antes mezcla_moleculas)"]]},
 
- {id:"afirmaciones", lane:"glos", col:2, st:"cambia", rows:"lista", what:"Antes datos_por_fuente. Una por material, atributo y fuente: lo que dijo la fuente intacto, el valor pasado a la escala propia, la condición en columnas y una sola ★ por atributo, impuesta por la base.", cols:[
-  ["id","id","pk"],["material_id","id","fk","materiales"],["producto_id","id","fk","productos","Solo si el dato es de un producto"],["atributo_id","id","fk","atributos"],["valor_original","texto","","","Lo que dijo la fuente, tal cual: «3 days», «Low»"],["unidad_original","texto"],["valor_min","núm","","","Convertido a la unidad y escala propias; con esto se ordena y calcula"],["valor_max","núm"],["valor_texto","texto"],["escala_id","id","fk","escalas","","",1],["dilucion","fracción","","","Condición: al 10 %, pura…"],["disolvente_id","id","fk","materiales"],["temperatura_c","núm","","","Densidad a 20 °C, presión de vapor a 25 °C"],["presion","texto","","","Ebullición «@ 0,20 mm Hg»"],["soporte","vocab","","","Tira, piel"],["fuente_id","id","fk","fuentes","","",1],["derivada_de","id","fk","afirmaciones","Si copia otra afirmación: no cuenta como fuente distinta"],["rango","vocab","","","★ manda (una sola), normal, descartado, en disputa"],["motivo","texto"],["cita","texto"],["tanda_id","id","fk","tandas","","",1]]},
- {id:"afirmacion_terminos", lane:"glos", col:2, st:"nueva", rows:"lista", what:"Los valores de un atributo de lista: «floral 46 %, gourmand 23 %» es una afirmación con dos términos.", cols:[
-  ["id","id","pk"],["afirmacion_id","id","fk","afirmaciones"],["vocabulario_id","id","fk","vocabularios","Comprobado contra su lista","",1],["porcentaje","fracción"]]},
- {id:"ficha", lane:"glos", col:2, st:"cambia", movil:true, what:"La ficha que lee la app, ya resuelta. Es una tabla que escribe el script al aprobar cada tanda, no una vista: así PowerSync la copia al móvil. Incluye la composición resuelta, que es lo que usa el motor IFRA sin conexión.", cols:[
-  ["material_id","id","pkfk","materiales"],["nombre, ticker, tipo, clave","—","","","Copiados de la identidad"],["familia_principal","vocab","fk","afirmaciones","De la ★ de familias"],["potencia","núm","","","En tu escala"],["duracion_h","núm"],["dilucion_trabajo","texto"],["densidad","núm","","","Para pasar de volumen a masa"],["nota","vocab"],["… un campo por atributo","—","","","Solo el valor que manda; si no hay, «no lo dice»"],["composicion_resuelta","lista","fk","composicion_lineas","Sustancia y fracción, con su autoridad: la del producto si hay, si no la genérica, si no la del anexo"],["tanda_id","id","fk","tandas","","",1]]},
+ {id:"afirmaciones", lane:"glos", col:2, st:"cambia", rows:"lista", what:"Antes datos_por_fuente. Una por material, atributo y fuente: lo que dijo la fuente intacto, el valor pasado a la escala propia, la condición en columnas y una sola ★ por material, producto y atributo (producto vacío: dato genérico), impuesta con un índice único NULLS NOT DISTINCT, que la v3 tiene con Postgres 17.", cols:[
+  ["id","id","pk"],["material_id","id","fk","materiales"],["producto_id","id","fk","productos","Solo si el dato es de un producto"],["atributo_id","id","fk","atributos"],["valor_original","texto","","","Lo que dijo la fuente, tal cual: «3 days», «Low»"],["unidad_original","texto"],["valor_min","núm","","","Convertido a la unidad y escala propias; con esto se ordena y calcula"],["valor_max","núm"],["valor_texto","texto"],["escala_id","id","fk","escalas","","",1],["dilucion","fracción","","","Condición: al 10 %, pura…"],["disolvente_id","id","fk","materiales"],["temperatura_c","núm","","","Densidad a 20 °C, presión de vapor a 25 °C"],["presion","texto","","","Ebullición «@ 0,20 mm Hg»"],["soporte","vocab","","","Tira, piel"],["fuente_id","id","fk","fuentes","","",1],["derivada_de","id","fk","afirmaciones","Si copia otra afirmación: no cuenta como fuente distinta"],["rango","vocab","","","★ manda (una por material, producto y atributo), normal, descartado, en disputa"],["motivo","texto"],["cita","texto"],["tanda_id","id","fk","tandas","","",1]]},
+ {id:"afirmacion_terminos", lane:"glos", col:2, st:"cambia", rows:"lista", what:"Los valores de un atributo de lista: «floral 46 %, gourmand 23 %» es una afirmación con dos términos.", cols:[
+  ["id","id","pk"],["afirmacion_id","id","fk","afirmaciones"],["lista","texto","","","La del atributo (atributos.lista_vocab), copiada y comprobada al escribir"],["vocabulario_id","id","fk","vocabularios","Clave (lista, id): un término de otra lista no entra","",1],["porcentaje","fracción"]]},
+ {id:"ficha", lane:"glos", col:2, st:"cambia", movil:true, what:"La ficha que lee la app, ya resuelta: una fila genérica por material y otra por cada producto con datos propios, única por (material, producto). Es una tabla que escribe el script al aprobar cada tanda, no una vista: así PowerSync la copia al móvil. Su composición va aparte, en ficha_composicion.", cols:[
+  ["id","id","pk"],["material_id","id","fk","materiales"],["producto_id","id","fk","productos","Vacío: la ficha genérica. Con producto: la de ese producto, que toma de la genérica lo que el producto no cambia"],["nombre, ticker, tipo, clave","—","","","Copiados de la identidad; con producto, también su nombre comercial"],["familia_principal","vocab","","","El término de la ★ de familias"],["potencia","núm","","","En tu escala"],["duracion_h","núm"],["dilucion_trabajo","texto"],["densidad","núm","","","Para pasar de volumen a masa"],["nota","vocab"],["… un campo por atributo","—","","","Solo el valor que manda; si no hay, «no lo dice»"],["tanda_id","id","fk","tandas","","",1]]},
+ {id:"ficha_composicion", lane:"glos", col:2, st:"nueva", movil:true, rows:"lista", what:"La composición resuelta de cada ficha, en filas: la que usa el motor IFRA sin conexión. La ficha de un producto lleva la del producto tal como se vende (un Galaxolide al 50 % en IPM lleva su IPM); la genérica, la genérica y, si no hay, la del anexo IFRA. La escribe el script con la ficha.", cols:[
+  ["id","id","pk"],["ficha_id","id","fk","ficha"],["sustancia_id","id","fk","sustancias"],["tipo_cifra","vocab","","","Típico, máximo o rango"],["valor","fracción"],["minimo","fracción"],["maximo","fracción"],["autoridad","vocab","","","Producto, anexo IFRA, literatura o consenso: un placeholder nunca da «dentro»"],["origen","vocab","","","De qué tabla sale: composiciones o ifra_anexo"],["origen_id","id","","","Su id en esa tabla. No es clave foránea: puede venir de dos tablas"],["tanda_id","id","fk","tandas","","",1]]},
 
- {id:"atributos", lane:"glos", col:3, st:"cambia", kind:"catalogo", what:"Qué forma tiene cada dato que va por fuente: tipo de valor, unidad y si es lista. Cada línea es una clase de afirmación, no una columna; añadir un dato nuevo es añadir una fila aquí.", attrs:[
+ {id:"atributos", lane:"glos", col:3, st:"cambia", movil:true, kind:"catalogo", what:"Qué forma tiene cada dato que va por fuente: tipo de valor, unidad y si es lista. Arriba, sus columnas; debajo, las filas de hoy. Añadir un dato nuevo es añadir una fila.", cols:[
+  ["id","id","pk"],["nombre","texto"],["grupo","vocab","","","Perfil olfativo, rendimiento y uso, física y manejo…"],["tipo_valor","vocab","","","Número, rango, texto, lista o sí/no"],["unidad","texto","","","h, °C, g/mol; vacío si no tiene"],["es_lista","sí/no","","","Si sus valores van en afirmacion_terminos"],["lista_vocab","texto","","","La lista de vocabularios de sus términos: familia, descriptor, papel…"],["aplica_a","vocab","","","Puro, natural, mezcla, producto o todos"],["orden","núm"]], attrs:[
   ["Puro", [["pureza típica","fracción",[0,0]],["proporción de isómeros","lista",[77,0]]]],
   ["Natural", [["procedencia","lista de países",[28,0]]]],
   ["Mezcla", [["concepto","texto",[0,0]]]],
@@ -349,9 +363,9 @@ const T = [
   ["id","id","pk"],["numero","núm","","","51, 52"],["notificacion","fecha"],["vigor_nuevas","fecha"],["vigor_existentes","fecha"]]},
  {id:"categorias_ifra", lane:"reg", col:0, st:"nueva", movil:true, what:"Las 18 categorías de cada enmienda: 1, 2, 3, 4, 5A–5D, 6, 7A–7B, 8, 9, 10A–10B, 11A–11B y 12. Las usan los límites IFRA, los topes del fabricante, tus límites y la fórmula.", cols:[
   ["id","id","pk"],["enmienda_id","id","fk","enmiendas"],["codigo","texto","","","4, 5A…"],["descripcion","texto","","","Perfume fino, crema de cara…"]]},
- {id:"alergenos_entradas", lane:"reg", col:0, st:"nueva", movil:true, what:"Las entradas de la lista de alérgenos de la UE (reglamento 2023/1545), con su nombre de etiqueta. Una entrada puede ser un aceite entero o un grupo. Los umbrales van una vez: 0,001 % sin aclarado y 0,01 % con aclarado.", cols:[
-  ["id","id","pk"],["nombre_etiqueta","texto","","","«Lavandula Oil/Extract», «Linalool»"],["lista","texto","","","Las 26 o las ampliadas"],["vigor_nuevos","fecha","","","31-jul-2026"],["vigor_existentes","fecha"],["umbral_sin_aclarado","fracción"],["umbral_con_aclarado","fracción"]]},
- {id:"alergeno_sustancias", lane:"reg", col:0, st:"nueva", movil:true, rows:"lista", what:"Qué sustancias, o qué natural entero, cubre cada entrada. Si un aceite con entrada propia se declara además por sus constituyentes está por comprobar en el anexo del reglamento (A8).", cols:[
+ {id:"alergenos_entradas", lane:"reg", col:0, st:"cambia", movil:true, what:"Las entradas de la lista de alérgenos de la UE (reglamento 2023/1545), con su nombre de etiqueta. Una entrada puede ser un aceite entero o un grupo. Los umbrales (0,001 % sin aclarado y 0,01 % con aclarado, según la fuente secundaria de la auditoría) hoy son iguales en todas; van por entrada por si una lista los cambia.", cols:[
+  ["id","id","pk"],["nombre_etiqueta","texto","","","«Lavandula Oil/Extract», «Linalool»"],["lista","texto","","","Las 26 o las ampliadas"],["vigor_nuevos","fecha","","","31-jul-2026"],["vigor_existentes","fecha"],["umbral_sin_aclarado","fracción"],["umbral_con_aclarado","fracción"],["condicion","texto","","","Si el anexo pone una condición a la entrada; por comprobar al leerlo"]]},
+ {id:"alergeno_sustancias", lane:"reg", col:0, st:"cambia", movil:true, rows:"lista", what:"Qué sustancias, o qué natural entero, cubre cada entrada. Si un aceite con entrada propia se declara además por sus constituyentes está por comprobar en el anexo del reglamento (A8).", cols:[
   ["id","id","pk"],["entrada_id","id","fk","alergenos_entradas"],["sustancia_id","id","fk","sustancias","Una molécula o un natural entero"]]},
  {id:"ifra_estandares", lane:"reg", col:1, st:"cambia", movil:true, what:"Los estándares IFRA, ya cargados en la v3 (265 filas). Ahora apuntan a su enmienda, y el motor usa el tipo: un límite se suma, una prohibición no admite nada, una especificación se acredita.", cols:[
   ["id","id","pk"],["enmienda_id","id","fk","enmiendas"],["codigo","texto"],["nombre","texto"],["tipo","vocab","","","Límite, prohibición, especificación"],["grupo","texto","","","Varios CAS que suman juntos"],["limite_expresado_como","texto"],["+ 6 campos más","—","","","Los de la tabla actual"]]},
@@ -359,7 +373,7 @@ const T = [
   ["id","id","pk"],["estandar_id","id","fk","ifra_estandares"],["sustancia_id","id","fk","sustancias","Resuelta: la unión con todo lo demás"],["cas_original","texto","","","Como lo escribe IFRA"],["subgrupo","texto"],["sinonimos","texto"]]},
  {id:"ifra_limites", lane:"reg", col:1, st:"cambia", movil:true, rows:"lista", what:"El límite de cada estándar en cada categoría (3004 filas), en fracción, como el resto de la base.", cols:[
   ["id","id","pk"],["estandar_id","id","fk","ifra_estandares"],["categoria_id","id","fk","categorias_ifra"],["tipo","texto"],["maximo","fracción","","","0,006 es 0,6 %"]]},
- {id:"ifra_anexo", lane:"reg", col:1, st:"cambia", rows:"lista", what:"La composición de los naturales según el anexo de IFRA (1030 filas). No baja al móvil: ya va dentro de la composición resuelta de la ficha.", cols:[
+ {id:"ifra_anexo", lane:"reg", col:1, st:"cambia", rows:"lista", what:"La composición de los naturales según el anexo de IFRA (1030 filas). No baja al móvil: lo que hace falta ya está en ficha_composicion.", cols:[
   ["id","id","pk"],["enmienda_id","id","fk","enmiendas"],["natural_id","id","fk","sustancias","El natural, resuelto a su sustancia"],["constituyente_id","id","fk","sustancias"],["concentracion","fracción"],["nombre_natural, nombre_botanico","texto"],["+ 3 campos más","—"]]},
  {id:"ifra_reglas", lane:"reg", col:1, movil:true, rows:"lista", what:"Reglas de variantes y exclusiones de especificación (17 y 1 filas).", cols:[
   ["id","id","pk"],["estandar_id","id","fk","ifra_estandares"],["campo, patrón, variante","texto"]]},
@@ -369,11 +383,11 @@ const T = [
   ["id","id","pk"],["owner_id","id","","","Solo lo ves tú"],["tipo","vocab","","","Frasco o acorde"],["material_id","id","fk","materiales","Obligatorio salvo en acordes"],["producto_id","id","fk","productos","Si sabes cuál es"],["formula_id","id","fk","formulas","Solo acordes: su receta congelada"],["nombre","texto"],["ticker","texto"],["procedencia_pais","vocab"],["procedencia_region","texto"],["proveedor_id","id","fk","empresas","Antes texto libre"],["url_tienda","texto"],["lote","texto"],["fecha_compra","fecha"],["cantidad_ug","núm","","","En µg enteros, como las fórmulas"],["precio","núm"],["pureza","fracción"],["dilucion","fracción","","","Informativa: tu composición es la de tu frasco tal como está"],["disolvente_id","id","fk","materiales"],["estado","vocab","","","En uso, agotado, archivado, no lo tengo"]]},
  {id:"mis_afirmaciones", lane:"tuyo", col:0, st:"cambia", movil:true, rows:"lista", what:"Antes mis_cambios. Tus datos con la misma forma que las afirmaciones del glosario: una densidad corregida sirve para pasar de volumen a masa, y una lista de familias cabe.", cols:[
   ["id","id","pk"],["mi_material_id","id","fk","mis_materiales"],["atributo_id","id","fk","atributos"],["valor_original","texto"],["valor_min","núm"],["valor_max","núm"],["valor_texto","texto"],["escala_id","id","fk","escalas","","",1],["dilucion, disolvente, temperatura, presión, soporte","—","","","La misma condición que en el glosario"],["fuente","texto","","","«Mi cata»"],["documento_id","id","fk","mis_documentos"]]},
- {id:"mi_afirmacion_terminos", lane:"tuyo", col:0, st:"nueva", movil:true, rows:"lista", what:"Gemela de afirmacion_terminos, para tus listas.", cols:[
-  ["id","id","pk"],["mi_afirmacion_id","id","fk","mis_afirmaciones"],["vocabulario_id","id","fk","vocabularios","","",1],["porcentaje","fracción"]]},
- {id:"mis_composiciones", lane:"tuyo", col:0, st:"nueva", movil:true, rows:"lista", what:"La cabecera de tus GC-MS y declaraciones de proveedor. Si existe, manda para IFRA.", cols:[
+ {id:"mi_afirmacion_terminos", lane:"tuyo", col:0, st:"cambia", movil:true, rows:"lista", what:"Gemela de afirmacion_terminos, para tus listas.", cols:[
+  ["id","id","pk"],["mi_afirmacion_id","id","fk","mis_afirmaciones"],["lista","texto","","","La del atributo, como en el glosario"],["vocabulario_id","id","fk","vocabularios","Clave (lista, id)","",1],["porcentaje","fracción"]]},
+ {id:"mis_composiciones", lane:"tuyo", col:0, st:"cambia", movil:true, rows:"lista", what:"La cabecera de tus GC-MS y declaraciones de proveedor. Si existe, manda para IFRA.", cols:[
   ["id","id","pk"],["mi_material_id","id","fk","mis_materiales"],["autoridad","vocab","","","Lote o producto"],["documento_id","id","fk","mis_documentos"],["fecha","fecha"],["incompleta","sí/no"]]},
- {id:"mi_composicion_lineas", lane:"tuyo", col:0, st:"nueva", movil:true, rows:"lista", what:"Las sustancias de tu composición.", cols:[
+ {id:"mi_composicion_lineas", lane:"tuyo", col:0, st:"cambia", movil:true, rows:"lista", what:"Las sustancias de tu composición.", cols:[
   ["id","id","pk"],["mi_composicion_id","id","fk","mis_composiciones"],["sustancia_id","id","fk","sustancias"],["tipo_cifra","vocab"],["valor","fracción"],["minimo","fracción"],["maximo","fracción"]]},
  {id:"mis_documentos", lane:"tuyo", col:0, st:"cambia", movil:true, rows:"lista", what:"Tus GC-MS, el certificado IFRA de tu proveedor y tu ficha de seguridad.", cols:[
   ["id","id","pk"],["mi_material_id","id","fk","mis_materiales"],["tipo","vocab"],["archivo","texto"],["fecha","fecha"],["enmienda_id","id","fk","enmiendas"]]},
@@ -382,7 +396,7 @@ const T = [
  {id:"mis_apuntes", lane:"tuyo", col:0, movil:true, rows:"lista", what:"Tus opiniones y notas, privadas.", cols:[
   ["id","id","pk"],["mi_material_id","id","fk","mis_materiales"],["texto","texto"],["fecha","fecha"]]},
  {id:"mi_ficha", lane:"tuyo", col:0, kind:"vista", what:"Lo que ves de tu material: la ficha del glosario con tus afirmaciones y tu composición encima. Se calcula en el móvil con la misma lógica que la ficha.", cols:[
-  ["mi_material_id","id","fk","mis_materiales"],["ficha del glosario","—","fk","ficha"],["tus afirmaciones","—","fk","mis_afirmaciones"],["tu composición","—","fk","mis_composiciones"]]},
+  ["mi_material_id","id","fk","mis_materiales"],["ficha del glosario","—","fk","ficha","La de tu producto si lo sabes; si no, la genérica"],["composición del glosario","—","fk","ficha_composicion"],["forma de cada dato","—","fk","atributos","Tipo de valor y escala, para leer y convertir lo tuyo"],["tus afirmaciones","—","fk","mis_afirmaciones"],["tu composición","—","fk","mis_composiciones"]]},
 
  {id:"diluciones", lane:"tuyo", col:1, st:"cambia", movil:true, sub:"hoy lab_dilutions y lab_dilution_diluents", what:"Tus diluciones. Ahora cuelgan de un material tuyo y el disolvente es un material, no un texto.", cols:[
   ["id","id","pk"],["mi_material_id","id","fk","mis_materiales","Antes material_id"],["fraccion","fracción"],["disolvente_id","id","fk","materiales","Antes texto"],["hecha_el","texto"],["etiqueta","texto"],["masa_material_ug","núm"],["dilucion_origen_id","id","fk","diluciones","Una dilución hecha de otra"],["archivada","fecha"],["+ disolventes por posición","—"]]},
@@ -398,21 +412,31 @@ const T = [
  {id:"informes_ifra", lane:"tuyo", col:2, st:"nueva", movil:true, rows:"lista", what:"Cuando emites un informe IFRA, se guarda una foto de lo que se usó, para poder repetirlo aunque cambien el glosario o IFRA. El veredicto se sigue calculando cada vez; esto solo congela un informe emitido.", cols:[
   ["id","id","pk"],["formula_id","id","fk","formulas"],["enmienda_id","id","fk","enmiendas"],["categoria_id","id","fk","categorias_ifra"],["fecha","fecha"],["foto","JSON","","","Composición efectiva y límites usados"]]}
 ];
+// Vocabulary columns: a real list joins vocabularios by (lista, id) with a fixed, generated lista; a short closed list is a CHECK.
+const VOCAB = {"materiales.parte":"parte", "materiales.proceso":"proceso", "materiales.forma_isomerica":"forma_isomerica", "natural_tratamientos.tratamiento":"tratamiento", "empresas.pais":"pais", "relaciones.tipo":"tipo_relacion", "apuntes.tipo":"tipo_apunte", "ficha.familia_principal":"familia", "ficha.nota":"nota", "mis_materiales.procedencia_pais":"pais"};
+T.forEach(t => { if (t.cols) t.cols = t.cols.map(c => {
+  if (c[1] !== "vocab") return c;
+  const [n, , , , d = "", cov = null] = c, lista = VOCAB[t.id + "." + n];
+  return lista
+    ? [n, "vocab · " + lista, "fk", "vocabularios", (d ? d + ". " : "") + `Clave (lista, id) contra vocabularios, con la lista fija «${lista}» en una columna generada`, cov, 1]
+    : [n, "fijo", "", "", (d ? d + ". " : "") + "Valores comprobados por la base (CHECK), sin tabla", cov];
+}); });
 const byId = Object.fromEntries(T.map(t => [t.id, t]));
 const laneOf = id => byId[id]?.lane;
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
 function colsOf(t){
-  if (t.attrs) return t.attrs.flatMap(([g, list]) => list.map(([n, ty, cov]) => ({n, ty, cov, grp:g, attr:true})));
-  return t.cols.map(([n, ty, fl="", ref="", d="", cov=null, soft=0]) => ({n, ty, fl, ref, d, cov, soft}));
+  const cols = (t.cols || []).map(([n, ty, fl="", ref="", d="", cov=null, soft=0]) => ({n, ty, fl, ref, d, cov, soft, grp: t.attrs ? "Columnas" : undefined}));
+  if (!t.attrs) return cols;
+  return cols.concat(t.attrs.flatMap(([g, list]) => list.map(([n, ty, cov]) => ({n, ty, cov, grp:"Filas · " + g, attr:true}))));
 }
 
 // ---------- stats ----------
 function stats(){
   const tables = T.filter(t => !t.kind || t.kind === "catalogo");
   const views = T.filter(t => t.kind === "vista");
-  const glosFields = T.filter(t => t.lane === "glos" && !t.kind).reduce((a, t) => a + colsOf(t).filter(c => c.fl !== "pk" && c.fl !== "fk" && c.fl !== "pkfk" && c.n !== "id").length, 0);
-  const attrs = colsOf(byId.atributos).length;
+  const glosFields = T.filter(t => t.lane === "glos" && !t.kind).reduce((a, t) => a + colsOf(t).filter(c => c.fl !== "pk" && c.fl !== "pkfk" && !(c.fl === "fk" && c.ty === "id") && c.n !== "id").length, 0);
+  const attrs = colsOf(byId.atributos).filter(c => c.attr).length;
   const all = T.flatMap(t => colsOf(t).filter(c => c.cov));
   const zero = all.filter(c => c.cov[0] === 0 && c.cov[1] === 0).length;
   const short = {apoyo:"de apoyo", glos:"del glosario", nucleo:"del núcleo", reg:"de regulación", tuyo:"tuyas"};
@@ -540,7 +564,7 @@ function showPanel(){
   const items = cols.map((c, i) => {
     const covTxt = c.cov ? `<br><span class="mono" style="font-size:11px">hoy: v3 ${c.cov[0]} de ${V3} · PerfuMate ${c.cov[1]} de ${PM}</span>` : "";
     const refTxt = c.ref ? ` → <a href="#" data-go="${c.ref}" class="mono">${c.ref}</a>` : "";
-    const desc = c.d || (c.grp ? `${c.grp} · ${c.ty}` : "");
+    const desc = c.d || (c.attr ? `${c.grp} · ${c.ty}` : "");
     return `<div ${i === selRow ? 'style="background:var(--bg);border-radius:4px;padding:4px 6px;margin:-4px -6px"' : ""}><dt>${esc(c.n)} <span style="color:var(--faint)">${esc(c.ty)}</span>${refTxt}</dt>${desc || covTxt ? `<dd>${desc ? esc(desc) + covTxt : covTxt.replace(/^<br>/, "")}</dd>` : ""}</div>`;
   }).join("");
   panel.innerHTML = `<button class="btn x" type="button" aria-label="Cerrar">×</button>

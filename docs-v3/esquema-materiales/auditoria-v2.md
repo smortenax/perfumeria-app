@@ -83,19 +83,21 @@ Los 24 cambios quedan aceptados con esta redacción final. Donde dice «A#», la
 
 Once puntos, cada uno con una propuesta concreta. Todos los cierras tú salvo A7 y A8; A7 y A8 se cierran comprobando una fuente, y su casilla sirve para aprobar quién lo comprueba.
 
+*Casillas rellenadas por la sesión el 2026-10-22 con tu aprobación de las 23:58 («yo apruego las decisiones», sobre la ronda 4 de la revisión de la sesión), apuntada en V3-70.*
+
 | # | Punto | Propuesta | Quién lo cierra | Tu respuesta |
 | --- | --- | --- | --- | --- |
-| A1 | Puros y naturales dentro de `materiales` | Sí, con comprobación por tipo | Tú |  |
-| A2 | Lo tuyo en tablas gemelas (`mis_afirmaciones`, `mis_composiciones`) | Sí: se copia la forma, no se juntan las tablas | Tú |  |
-| A3 | Cómo guardar cifras exactas en servidor y móvil | Enteros escalados: masas en µg, fracciones en partes por mil millones. La alternativa es texto y una librería decimal en el motor | Tú |  |
-| A4 | «No lo tengo» como material tuyo | Sí, oculto en tu lista salvo que lo pidas. Al comprarlo se rellena la compra en la misma fila y cambia el estado, así las fórmulas que lo usan no se rompen | Tú |  |
-| A5 | Listas con tabla hija (`afirmacion_terminos`) | Sí: un JSON no deja comprobar que la familia existe | Tú |  |
-| A6 | Clave de la mezcla | `materiales.empresa_id`, obligatorio solo en mezclas; clave `mezcla:empresa:nombre` | Tú |  |
-| A7 | Regla contra el doble cómputo | Dentro de un estándar, si el material entra por su CAS, sus constituyentes no suman a ese estándar | Comprobar en la guía de IFRA y contra F-001 |  |
-| A8 | Aceite con entrada propia y sus constituyentes | Se declaran los dos, según dos fuentes secundarias | Leer el anexo III del reglamento 2023/1545 |  |
-| A9 | Nombre de la identidad | Químico en la identidad, comercial en el producto; los dos buscables por `identificadores` | Tú (pendiente de V3-70) |  |
-| A10 | Familias en dos niveles y escala de potencia | Familias con padre; el % general es la suma de los % de sus hijas, por fuente, y el consenso se calcula sobre esa suma. La escala de potencia sigue sin proponer | Tú (pendiente de V3-70) |  |
-| A11 | Familias y descriptores en tablas propias | No: una sola `vocabularios` con clave (lista, id), `padre_id` y `color`; así `equivalencias` sigue siendo una tabla | Tú (discrepancia con tu revisión) |  |
+| A1 | Puros y naturales dentro de `materiales` | Sí, con comprobación por tipo | Tú | Aprobado el 22-10 (V3-70) |
+| A2 | Lo tuyo en tablas gemelas (`mis_afirmaciones`, `mis_composiciones`) | Sí: se copia la forma, no se juntan las tablas | Tú | Aprobado el 22-10 (V3-70) |
+| A3 | Cómo guardar cifras exactas en servidor y móvil | Enteros escalados: masas en µg, fracciones en partes por mil millones. La alternativa es texto y una librería decimal en el motor | Tú | Aprobada la propuesta de la sesión, no esta: `numeric` en Postgres, texto en el móvil y fracción exacta en el motor (V3-70) |
+| A4 | «No lo tengo» como material tuyo | Sí, oculto en tu lista salvo que lo pidas. Al comprarlo se rellena la compra en la misma fila y cambia el estado, así las fórmulas que lo usan no se rompen | Tú | Aprobado el 22-10 (V3-70) |
+| A5 | Listas con tabla hija (`afirmacion_terminos`) | Sí: un JSON no deja comprobar que la familia existe | Tú | Aprobado el 22-10 (V3-70) |
+| A6 | Clave de la mezcla | `materiales.empresa_id`, obligatorio solo en mezclas; clave `mezcla:empresa:nombre` | Tú | Aprobado el 22-10 (V3-70) |
+| A7 | Regla contra el doble cómputo | Dentro de un estándar, si el material entra por su CAS, sus constituyentes no suman a ese estándar | Comprobar en la guía de IFRA y contra F-001 | Aprobado; se comprueba con la guía de IFRA, F-001 y los 15 casos al construir el motor |
+| A8 | Aceite con entrada propia y sus constituyentes | Se declaran los dos, según dos fuentes secundarias | Leer el anexo III del reglamento 2023/1545 | Abierto: falta leer el anexo |
+| A9 | Nombre de la identidad | Químico en la identidad, comercial en el producto; los dos buscables por `identificadores` | Tú (pendiente de V3-70) | Aprobado el 22-10 (V3-70) |
+| A10 | Familias en dos niveles y escala de potencia | Familias con padre; el % general es la suma de los % de sus hijas, por fuente, y el consenso se calcula sobre esa suma. La escala de potencia sigue sin proponer | Tú (pendiente de V3-70) | Familias: aprobado, a probar con datos. Potencia: abierta |
+| A11 | Familias y descriptores en tablas propias | No: una sola `vocabularios` con clave (lista, id), `padre_id` y `color`; así `equivalencias` sigue siendo una tabla | Tú (discrepancia con tu revisión) | Aprobado el 22-10 (V3-70) |
 
 ## Esquema consolidado v2
 
