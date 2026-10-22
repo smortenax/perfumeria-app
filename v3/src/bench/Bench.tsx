@@ -565,12 +565,13 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
             {texts.bench.computeError}: {view.error}
           </p>
         )}
-        {/* Lower area, left to right (P57): the visualizer; the share of the matter over the projection; the IFRA panel. */}
+        {/* Lower area (P57, rebalanced by audit F-05): a narrow column with the share of the matter and the
+            slots still waiting for data; the IFRA panel wide, beside the composition. */}
         <div className="lower">
-          <VisualizerPlaceholder />
           <div className="charts">
             <RepartoCard composition={view.composition} familyOf={familyOf} />
             <ProjectionCard />
+            <VisualizerPlaceholder />
           </div>
           <IfraPanel report={view.report} empty={empty} {...(ifraBase ? { base: ifraBase } : {})} onBase={setChosenBase} specifications={specifications} assumptions={assumptions} />
         </div>

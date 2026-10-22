@@ -6,18 +6,15 @@ import { texts } from "./texts";
 
 const c = texts.charts;
 
-/** The perfume's visualizer, the app's signature (P23): its place, big, until it is designed (P33). */
+/**
+ * The perfume's visualizer, the app's signature (P23), kept for the AOM: until it is designed (P33) it
+ * holds one line, not a third of the bench (audit F-05).
+ */
 export function VisualizerPlaceholder() {
   return (
-    <div className="visualizer">
-      <svg width="190" height="190" viewBox="0 0 200 200" fill="none" stroke="#BDBAB0" strokeWidth="1.5" aria-hidden="true">
-        <circle cx="100" cy="100" r="28" />
-        <circle cx="100" cy="100" r="52" strokeDasharray="4 6" />
-        <circle cx="100" cy="100" r="76" />
-        <circle cx="100" cy="100" r="96" strokeDasharray="2 8" />
-      </svg>
-      <span className="vis-title">{c.visualizer}</span>
-      <span className="muted">{c.visualizerNote}</span>
+    <div className="slot-line visualizer">
+      <span className="chart-title">{c.visualizer}</span>
+      <span className="pill">{c.visualizerNote}</span>
     </div>
   );
 }
@@ -193,7 +190,16 @@ const HOURS: Array<[number, string]> = [
  * Its axes are drawn in the page, not as a scaled picture, so the card can be as narrow as the
  * bench asks (P57) and its labels keep their size.
  */
-export function ProjectionCard() {
+export function ProjectionCard({ hasData = false }: { hasData?: boolean }) {
+  // Without durations it is one line that says what it waits for (audit F-05, P-UX-05).
+  if (!hasData) {
+    return (
+      <div className="card slot-line projection">
+        <span className="chart-title">{c.projection}</span>
+        <span className="pill">{c.noData}</span>
+      </div>
+    );
+  }
   return (
     <div className="card chart-card projection">
       <div className="chart-head">

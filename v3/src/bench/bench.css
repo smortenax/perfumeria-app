@@ -323,7 +323,7 @@
     height: 100%;
     padding: 16px;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 340px;
+    grid-template-columns: minmax(0, 1fr) 380px;
     grid-template-rows: minmax(0, 1fr) 96px;
     gap: 12px;
     overflow: hidden;
@@ -1541,9 +1541,9 @@
     font-size: 12px;
   }
 
-  /* Lower area (P57), left to right: the visualizer, the share of the matter over the projection,
-     and the IFRA panel. They share the width as the sketch does (26 : 30 : 20), the composition
-     column keeping its own beside them. */
+  /* Lower area (P57, rebalanced by audit F-05): a narrow column for the share of the matter and the
+     one-line slots still waiting for data, and the IFRA panel taking the rest of the width, beside the
+     composition column. */
 
   .lower {
     flex: 1;
@@ -1552,28 +1552,29 @@
     gap: 12px;
   }
 
-  .visualizer {
-    flex: 26 1 0;
+  /* A card without its data yet: one line, its title and what it waits for (audit F-05). */
+  .slot-line {
+    flex: none;
     min-width: 0;
-    border: 1.5px dashed var(--line-strong);
-    border-radius: 12px;
+    min-height: 40px;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
-    /* No side padding: it would come on top of the share of the width the sketch gives it. */
-    padding: 24px 0;
-    text-align: center;
+    gap: 4px 8px;
+    padding: 8px 14px 8px 6px;
   }
 
-  .vis-title {
-    font-size: 15px;
-    font-weight: 500;
+  .charts .slot-line {
+    flex: none;
+  }
+
+  .slot-line.visualizer {
+    border: 1.5px dashed var(--line-strong);
+    border-radius: 12px;
   }
 
   .charts {
-    flex: 30 1 0;
+    flex: 0 1 340px;
     min-width: 0;
     display: flex;
     flex-direction: column;
@@ -1831,7 +1832,7 @@
   /* The IFRA panel (P57): fixed in the lower area, with the head as the composition has, and the
      body scrolling inside when it is long. */
   .ifra-panel {
-    flex: 20 1 0;
+    flex: 1 1 0;
     min-width: 0;
     min-height: 0;
     display: flex;
