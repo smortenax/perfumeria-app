@@ -108,8 +108,9 @@ que el móvil vea filas cambiadas y no nuevas.
 - **Sus valores:** cada afirmación con ★, por código de atributo, en `values` (jsonb), y a la vista
   las que más se usan: familia principal, nota, duración, dilución de trabajo y densidad. La ficha
   de un producto toma la ★ del producto y, donde no tiene, la genérica.
-- **La familia principal** (A10, a prueba): de las familias con ★, la general cuyas detalladas
-  suman más; si una detallada aún no tiene general, ella misma.
+- **La familia principal:** de las familias con ★, la que más suma. Hoy las familias van como
+  las da cada fuente, sin general por encima (V3-71); cuando se estandaricen y una familia tenga
+  `parent_id`, la principal será la general cuyas hijas suman más (A10): la función ya lo hace.
 - **La composición resuelta**, la primera que exista de:
   1. la del producto (tal como se vende);
   2. la genérica del material (primero la de fabricante, luego literatura, luego consenso; la
@@ -125,6 +126,12 @@ columna generada constante, para que la clave foránea sea (lista, id): una fami
 acabar en la columna de la parte. Las listas cortas que no crecen (tipo, rango, autoridad) son
 valores comprobados. `equivalences` dice qué palabra de cada fuente es qué término nuestro.
 
+**El idioma de los datos es el inglés** (V3-71): códigos y nombres de las listas, atributos,
+categorías de IFRA, notas de las fuentes. Lo de PerfuMate entra tal como viene. **Las familias, como
+las da cada fuente:** las 24 de PerfuMate son términos suyos (Floral, Woody, Gourmand, Musk…), sin
+ponerlas bajo tus nueve, que de momento siguen solo en la app actual con su color (V3-38). Cuando
+haya más fuentes se decide cuáles se unen y si se simplifican en menos.
+
 ## Cifras
 
 Toda fracción es `numeric` (exacta) en Postgres, texto en el móvil y fracción exacta en el motor;
@@ -138,7 +145,7 @@ una clave estable (`migracion-v3/lib/ids.ts`): repetir el script da los mismos.
 
 | Tanda | Qué trae | Script |
 |---|---|---|
-| 20 · base | Fuentes, vocabularios (formas isoméricas, tratamientos, notas, tus nueve familias con su color), 31 atributos, la 51.ª enmienda con sus 18 categorías, y IFRA reordenado (652 sustancias, 263 estándares, 3004 límites, 1030 filas del anexo) | `node migracion-v3/tanda-20-comun-base.ts` |
+| 20 · base | Fuentes, vocabularios (formas isoméricas, tratamientos, notas, sin familias), 31 atributos, todo en inglés, la 51.ª enmienda con sus 18 categorías, y IFRA reordenado (652 sustancias, 263 estándares, 3004 límites, 1030 filas del anexo) | `node migracion-v3/tanda-20-comun-base.ts` |
 | 21 · PerfuMate | 1920 de 2212 entradas: 1824 materiales, 391 productos, 38 empresas, 13985 afirmaciones, 483 composiciones | `node --no-warnings migracion-v3/tanda-21-perfumate.ts` |
 
 La carga, desde `v3/`:
@@ -167,7 +174,7 @@ términos de su lista, las columnas por tipo, la clave al cerrar y la ficha.
 - **La app aún no lee `common`:** ni el glosario, ni el banco, ni el motor de IFRA. Tampoco las
   reglas de sincronización de PowerSync.
 - **`aprobar.ts`** aún no copia una tanda a `v3/datos/comun/<tanda>/`.
-- **Datos:** el nombre químico de los puros (PubChem, A9); traducir 387 términos de PerfuMate; las
-  familias detalladas sin general (Resinoso, Dulce…); la escala de potencia; los alérgenos de la
+- **Datos:** el nombre químico de los puros (PubChem, A9); estandarizar las familias entre
+  fuentes (V3-71); la escala de potencia; los alérgenos de la
   UE (A8); las 292 entradas sin clasificar.
 - **Por comprobar con el motor:** la regla contra el doble cómputo (A7).

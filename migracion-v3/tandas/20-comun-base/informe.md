@@ -6,7 +6,7 @@ La base de lo común en el esquema nuevo (V3-70; `docs-v3/sistema-materiales.md`
 |---|---|
 | sources | 2 |
 | batches | 1 |
-| vocabularies | 32 |
+| vocabularies | 23 |
 | attributes | 31 |
 | amendments | 1 |
 | ifra_categories | 18 |
@@ -20,10 +20,10 @@ La base de lo común en el esquema nuevo (V3-70; `docs-v3/sistema-materiales.md`
 
 ## Qué hay que mirar
 
-- Las nueve familias generales del usuario, con su color claro (V3-38), de v3/datos/family_palette.csv. El color oscuro y lo que cubre cada una siguen en ese archivo.
-- 31 atributos: los 30 de la radiografía y «categoría olfativa», que trae PerfuMate (texto: «Bright citrus»).
+- Sin familias: cada fuente trae las suyas, como las da (V3-71). Tus nueve familias, con su color (V3-38), siguen en la app actual hasta que se estandaricen.
+- 31 atributos: los 30 de la radiografía y «odor category», que trae PerfuMate (texto: «Bright citrus»). Nombres en inglés (V3-71).
 - La 51.ª enmienda, sin fechas: los archivos de IFRA que tiene la v3 no las dan.
-- Las descripciones de las 18 categorías son un resumen de la sesión en español, para mostrarlas; la definición que vale es la de IFRA.
+- Las descripciones de las 18 categorías, en inglés, son un resumen de la sesión de las definiciones de IFRA (de memoria: los archivos de IFRA de la v3 no las traen); la definición que vale es la de la guía de IFRA.
 - Alias no puesto: 72968-50-4 aparece como otro CAS de dos naturales distintos del anexo.
 - Alias no puesto: 84082-79-1 es otro CAS de Sage Dalmatian oil en el anexo, pero ya es una sustancia (Sage Dalmatian oleoresin).
 - Alias no puesto: 90244-89-6 aparece como otro CAS de dos naturales distintos del anexo.
@@ -60,3 +60,4 @@ La base de lo común en el esquema nuevo (V3-70; `docs-v3/sistema-materiales.md`
 - Alias no puesto: 8028-48-6 aparece como otro CAS de dos naturales distintos del anexo.
 - El anexo da 8016-26-0 89997-74-0 84775-64-4 en una celda (Labdanum gum): el primero es el CAS del natural y los demás, sus alias.
 - Alias no puesto: 89997-74-0 es otro CAS de Labdanum gum en el anexo, pero ya es una sustancia (Labdanum resinoid).
+- Las reglas de variante de IFRA se escriben con la palabra en inglés del proceso (V3-71): aceite → oil (y «empieza por aceite» → «contiene oil»), absoluto → absolute, destilad → distilled, extracto → extract, resinoide → resinoid; «rectificado» pasa a la lista de tratamientos (rectified), porque en el sistema nuevo no es un proceso. Las notas, traducidas.

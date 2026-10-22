@@ -24,25 +24,25 @@ propios). 4047 líneas de composición resuelta.
 - **IFRA:** 618 fichas tienen al menos una sustancia de un estándar de IFRA en su composición. El
   motor aún no lee estas tablas: eso es el siguiente paso de la app, no de la carga.
 
-## La familia principal (A10, a prueba)
+## La familia principal
 
-La general que más suma de las familias con ★ de cada ficha:
+Las familias van como las da PerfuMate (V3-71): 24 términos en inglés, sin general por encima. La
+principal de cada ficha es la que más suma:
 
-| Familia | Fichas | | Familia | Fichas |
-|---|---|---|---|---|
-| Floral | 364 | | Animal | 112 |
-| Frutal | 347 | | Ozónico | 91 |
-| Verde | 306 | | *Sin general:* Resinoso | 71 |
-| Amaderado | 233 | | Dulce, Disolvente | 26 cada una |
-| Especiado | 132 | | Tropical, Ámbar gris, Otra | 13, 11, 7 |
-| Cítrico | 115 | | Sin ninguna familia | 47 |
-
-154 fichas tienen como principal una familia detallada que tu paleta no pone bajo ninguna de tus
-nueve: decidir dónde van (sobre todo Resinoso) es lo primero que enseña esta prueba.
+| Familia | Fichas | | Familia | Fichas | | Familia | Fichas |
+|---|---|---|---|---|---|---|---|
+| Floral | 360 | | Resinous | 71 | | Sweet | 26 |
+| Woody | 195 | | Aldehydic | 65 | | Solvent | 26 |
+| Fruity | 194 | | Musk | 65 | | Leather | 15 |
+| Green | 175 | | Amber | 42 | | Tropical | 13 |
+| Gourmand | 153 | | Animalic | 32 | | Ambergris | 11 |
+| Herbal | 131 | | Earthy | 28 | | Smoky | 10 |
+| Citrus | 115 | | Aquatic | 26 | | Other, Powdery | 7, 4 |
+| Spicy | 90 | | | | | Sin ninguna familia | 47 |
 
 ## Dos ejemplos
 
-- **Bergamot Essential Oil** (`natural:citrus bergamia::essential_oil::`): familia Cítrico; su composición es la de PerfuMate (literatura),
+- **Bergamot Essential Oil** (`natural:citrus bergamia::essential_oil::`): familia Citrus; su composición es la de PerfuMate (literatura),
   incompleta: solo cuatro sustancias (limoneno 0,38, linalol 0,11, citral y geraniol), sin el
   acetato de linalilo.
 - **6790-58-5 (el Ambroxan de siempre):** un solo material puro con seis productos: Ambrofix
@@ -55,6 +55,6 @@ nueve: decidir dónde van (sobre todo Resinoso) es lo primero que enseña esta p
 - El esquema aguanta los datos reales: ni una fila rechazada por las comprobaciones (una ★ por
   material, producto y atributo; la clave de identidad; las columnas de cada tipo; los términos de
   la lista de su atributo).
-- Lo flojo está en el contenido, no en la forma: nombres en inglés y comerciales, 387 términos sin
-  traducir, calidades distintas en una misma identidad (Ylang Extra/I/II/III), mezclas sin
+- Lo flojo está en el contenido, no en la forma: nombres comerciales en los puros (falta el químico),
+  calidades distintas en una misma identidad (Ylang Extra/I/II/III), mezclas sin
   composición y 292 entradas sin clasificar. Todo está listado en `revision/`.

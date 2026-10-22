@@ -1309,6 +1309,21 @@ Y, a las opciones de la 3, la 5, la 6 y la 10 (con la recomendación de la sesi�
 - **Hecho:** lo común del esquema, en 33 tablas en un esquema de Postgres aparte, `common`, al lado de las de hoy, que no se tocan; la carga por tandas (`npm run datos:cargar-comun`) y la ficha que escribe el script. Referencia: `sistema-materiales.md`. Tanda 20 (la base: IFRA y tus familias reordenados) y tanda 21 (PerfuMate), **sin aprobar**; cómo resulta, en `migracion-v3/tandas/21-perfumate/resultado.md`.
 - **Propuesta de la sesión, sin confirmar:** las tablas con nombre en inglés (el código va en inglés); si un material tiene una sola entrada en una fuente, lo que dice es del material aunque nombre un proveedor; las familias de PerfuMate bajo tus nueve según lo que cubre cada una en tu paleta; la especie de un natural, leída de sus sinónimos en latín o del anexo de IFRA; la ★ cuando hay una sola afirmación o todas concuerdan, y «en disputa» si no.
 
+## V3-71 · Un idioma estándar, el inglés, para la app y sus datos; las familias, como las da cada fuente (decidida por el usuario el 2026-10-22)
+
+**Respuesta literal** (orko kill, 2026-10-22 18:20):
+
+> vale una cosa mas importante que no mencione tanto los materiales como la app en general las familias y demas tienene que tener un estandar de idioma sino luego da mucho problema, todo el texto de la app al ingles, lo sacado de perfumate tambien. luego en cuanto al modelo de materiales perfecto de momento guardamos las familias como hace en la fuente original cuando haya mas fuentes se acabara mirando cuantas se tienene que estandarizar en la misma y tambien si vale la pena simplificarlas en menor cantidad de tipos, de la misma manera que se paso de los 20+ tipos de FIG a los 7 tipos de la app en cualquier caso la traduccion de las familias pasa a luego la traduccion del idioma ahora y cuando este todo el estandar listo se mira de mudar todo al sistema
+
+**Lectura** (la sesión, para que la confirmes):
+
+- **El idioma estándar es el inglés**, para los datos (familias, vocabularios, atributos, descripciones) y para el texto de la app (la interfaz). Lo de PerfuMate entra tal como viene, en inglés. Cambia la regla de `v3/CLAUDE.md` («la interfaz, en español»). La documentación y la conversación siguen en español.
+- **Las familias se guardan como las da la fuente**: las de PerfuMate son términos suyos, sin ponerlas bajo tus nueve. Cuando haya más fuentes, se verá cuáles se unen y si se simplifican en menos tipos (como de los más de 20 del FIG a los de la app). Eso deja abierta A10 (familias en dos niveles).
+- **Primero, la traducción de la app; después, la estandarización de las familias; cuando el estándar esté listo, se muda todo al sistema nuevo** (lo de la app actual y tus datos).
+- **Propuesta de la sesión:** tus nueve familias de la paleta (V3-38) no entran de momento en la lista común de familias del sistema nuevo; siguen en la app actual con su color. Tus propios nombres (el de un material tuyo, una nota, una fórmula) no se traducen: son tuyos.
+
+---
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).

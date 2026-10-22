@@ -5,7 +5,7 @@
  *
  *   · The fixed vocabularies of the design (isomeric form, text type, relation type, treatments)
  *     and the attributes' catalogue, as the radiografía of 2026-10-22 lists them.
- *   · The user's nine general families, with their colours (V3-38), from v3/datos/family_palette.csv.
+ *   · No families: each source brings its own, as it gives them (V3-71).
  *   · IFRA's 51st amendment as the v3 already has it (v3/datos/ifra_*.csv, batch 6, approved
  *     2026-10-14), by amendment and category, and every CAS it names as a substance.
  *
@@ -34,8 +34,8 @@ const notes: string[] = [];
 const SOURCE_IFRA = sourceId("ifra");
 const SOURCE_USER = sourceId("user");
 const sources: Row[] = [
-  { id: SOURCE_IFRA, name: "IFRA, 51.ª enmienda", url: "https://ifrafragrance.org/standards/library", kind: "regulation", consulted_on: null, notes: "Los archivos de IFRA en datos/ifra/51/ (P37), ya tratados en la tanda 6 de la v3." },
-  { id: SOURCE_USER, name: "El usuario", url: null, kind: "own", consulted_on: null, notes: "Decisiones y datos del usuario: su paleta de familias (V3-38)." },
+  { id: SOURCE_IFRA, name: "IFRA, 51st Amendment", url: "https://ifrafragrance.org/standards/library", kind: "regulation", consulted_on: null, notes: "IFRA's files in datos/ifra/51/ (P37), already processed in batch 6 of the v3." },
+  { id: SOURCE_USER, name: "The user", url: null, kind: "own", consulted_on: null, notes: "The user's decisions and data." },
 ];
 const batches: Row[] = [
   { id: BATCH, code: CODE, script: "migracion-v3/tanda-20-comun-base.ts", source_id: null, status: "proposed", approval: null, commit: null, sha256: null },
@@ -49,77 +49,76 @@ function term(list: string, code: string, name: string, sort: number | null = nu
   return id;
 }
 [
-  ["unspecified", "sin especificar"],
-  ["racemic", "racémico"],
-  ["enantiomer", "enantiómero"],
-  ["enriched", "enriquecido en un isómero"],
-  ["single_isomer", "isómero único"],
+  ["unspecified", "unspecified"],
+  ["racemic", "racemic"],
+  ["enantiomer", "enantiomer"],
+  ["enriched", "enriched in one isomer"],
+  ["single_isomer", "single isomer"],
 ].forEach(([c, n], i) => term("isomeric_form", c, n, i + 1));
 [
-  ["description", "descripción"],
-  ["use", "uso"],
-  ["history", "historia"],
-  ["comparison", "comparación"],
-  ["warning", "advertencia"],
-  ["ifra_secondhand", "IFRA de segunda mano"],
+  ["description", "description"],
+  ["use", "use"],
+  ["history", "history"],
+  ["comparison", "comparison"],
+  ["warning", "warning"],
+  ["ifra_secondhand", "IFRA, second-hand"],
 ].forEach(([c, n], i) => term("text_type", c, n, i + 1));
 [
-  ["substitute", "sustituto"],
+  ["substitute", "substitute"],
   ["similar", "similar"],
-  ["blends_with", "combina con"],
-  ["confused_with", "se confunde con"],
-  ["obtained_from", "se obtiene de"],
+  ["blends_with", "blends with"],
+  ["confused_with", "confused with"],
+  ["obtained_from", "obtained from"],
 ].forEach(([c, n], i) => term("relation_type", c, n, i + 1));
 [
-  ["rectified", "rectificado"],
-  ["terpeneless", "sin terpenos"],
-  ["fcf", "sin furocumarinas"],
-  ["decolorized", "decolorado"],
+  ["rectified", "rectified"],
+  ["terpeneless", "terpeneless"],
+  ["fcf", "furocoumarin-free (FCF)"],
+  ["decolorized", "decolorized"],
 ].forEach(([c, n], i) => term("treatment", c, n, i + 1));
 [
-  ["top", "salida"],
-  ["heart", "corazón"],
-  ["base", "fondo"],
+  ["top", "top"],
+  ["heart", "heart"],
+  ["base", "base"],
 ].forEach(([c, n], i) => term("note", c, n, i + 1));
-for (const f of read("family_palette.csv")) {
-  term("family", f.family, f.name, Number(f.order), { color: f.light });
-}
-notes.push(`Las nueve familias generales del usuario, con su color claro (V3-38), de v3/datos/family_palette.csv. El color oscuro y lo que cubre cada una siguen en ese archivo.`);
+// Families come as each source gives them (V3-71): none are seeded here. The user's nine, with
+// their colours (V3-38), stay in the app of today until the families are standardised.
+notes.push("Sin familias: cada fuente trae las suyas, como las da (V3-71). Tus nueve familias, con su color (V3-38), siguen en la app actual hasta que se estandaricen.");
 
 // ---------------------------------------------------------------- attributes
 type Attr = [code: string, name: string, group: string, valueType: string, unit: string | null, list: string | null, appliesTo: string];
 const ATTRIBUTES: Attr[] = [
-  ["purity_typical", "pureza típica", "pure", "number", "fracción", null, "pure"],
-  ["isomer_ratio", "proporción de isómeros", "pure", "text", null, null, "pure"],
-  ["provenance", "procedencia", "natural", "list", null, "country", "natural"],
-  ["concept", "concepto", "blend", "text", null, null, "blend"],
-  ["product_isomers_purity", "isómeros o pureza del producto", "product", "text", null, null, "product"],
-  ["families", "familias con %", "olfactory", "list", null, "family", "all"],
-  ["subfamilies", "subfamilias con %", "olfactory", "list", null, "subfamily", "all"],
-  ["descriptors", "descriptores", "olfactory", "list", null, "descriptor", "all"],
-  ["odor_category", "categoría olfativa", "olfactory", "text", null, null, "all"],
-  ["evokes", "evoca", "olfactory", "text", null, null, "all"],
-  ["note", "nota", "olfactory", "list", null, "note", "all"],
-  ["potency", "potencia", "performance", "number", null, null, "all"],
-  ["diffusion", "difusión", "performance", "number", null, null, "all"],
-  ["duration_strip", "duración en tira", "performance", "number", "h", null, "all"],
-  ["odor_threshold", "umbral de olor", "performance", "number", null, null, "all"],
-  ["working_dilution", "dilución de trabajo", "performance", "range", "fracción", null, "all"],
-  ["dose_in_formula", "dosis en fórmula", "performance", "range", "fracción", null, "all"],
-  ["role", "papel", "performance", "list", null, "role", "all"],
-  ["solubility", "solubilidad", "performance", "text", null, null, "all"],
-  ["physical_state", "estado físico", "physical", "list", null, "physical_state", "all"],
-  ["appearance", "aspecto", "physical", "text", null, null, "all"],
-  ["density", "densidad", "physical", "number", "g/mL", null, "all"],
-  ["melting_point", "punto de fusión", "physical", "number", "°C", null, "all"],
-  ["boiling_point", "punto de ebullición", "physical", "number", "°C", null, "all"],
-  ["flash_point", "punto de inflamación", "physical", "number", "°C", null, "all"],
-  ["vapor_pressure", "presión de vapor", "physical", "number", "mmHg", null, "all"],
+  ["purity_typical", "typical purity", "pure", "number", "fraction", null, "pure"],
+  ["isomer_ratio", "isomer ratio", "pure", "text", null, null, "pure"],
+  ["provenance", "provenance", "natural", "list", null, "country", "natural"],
+  ["concept", "concept", "blend", "text", null, null, "blend"],
+  ["product_isomers_purity", "product isomers or purity", "product", "text", null, null, "product"],
+  ["families", "families with %", "olfactory", "list", null, "family", "all"],
+  ["subfamilies", "subfamilies with %", "olfactory", "list", null, "subfamily", "all"],
+  ["descriptors", "descriptors", "olfactory", "list", null, "descriptor", "all"],
+  ["odor_category", "odor category", "olfactory", "text", null, null, "all"],
+  ["evokes", "evokes", "olfactory", "text", null, null, "all"],
+  ["note", "note", "olfactory", "list", null, "note", "all"],
+  ["potency", "potency", "performance", "number", null, null, "all"],
+  ["diffusion", "diffusion", "performance", "number", null, null, "all"],
+  ["duration_strip", "duration on strip", "performance", "number", "h", null, "all"],
+  ["odor_threshold", "odor threshold", "performance", "number", null, null, "all"],
+  ["working_dilution", "working dilution", "performance", "range", "fraction", null, "all"],
+  ["dose_in_formula", "dose in formula", "performance", "range", "fraction", null, "all"],
+  ["role", "role", "performance", "list", null, "role", "all"],
+  ["solubility", "solubility", "performance", "text", null, null, "all"],
+  ["physical_state", "physical state", "physical", "list", null, "physical_state", "all"],
+  ["appearance", "appearance", "physical", "text", null, null, "all"],
+  ["density", "density", "physical", "number", "g/mL", null, "all"],
+  ["melting_point", "melting point", "physical", "number", "°C", null, "all"],
+  ["boiling_point", "boiling point", "physical", "number", "°C", null, "all"],
+  ["flash_point", "flash point", "physical", "number", "°C", null, "all"],
+  ["vapor_pressure", "vapor pressure", "physical", "number", "mmHg", null, "all"],
   ["logp", "logP", "physical", "number", null, null, "all"],
-  ["stains", "mancha o decolora", "physical", "text", null, null, "all"],
-  ["stability", "estabilidad", "physical", "text", null, null, "all"],
-  ["incompatibilities", "incompatibilidades", "physical", "text", null, null, "all"],
-  ["handling", "manejo", "physical", "text", null, null, "all"],
+  ["stains", "stains or discolors", "physical", "text", null, null, "all"],
+  ["stability", "stability", "physical", "text", null, null, "all"],
+  ["incompatibilities", "incompatibilities", "physical", "text", null, null, "all"],
+  ["handling", "handling", "physical", "text", null, null, "all"],
 ];
 const attributes: Row[] = ATTRIBUTES.map(([code, name, group, valueType, unit, list, appliesTo], i) => ({
   id: attributeId(code),
@@ -134,35 +133,35 @@ const attributes: Row[] = ATTRIBUTES.map(([code, name, group, valueType, unit, l
   sort: i + 1,
   batch_id: BATCH,
 }));
-notes.push(`${attributes.length} atributos: los 30 de la radiografía y «categoría olfativa», que trae PerfuMate (texto: «Bright citrus»).`);
+notes.push(`${attributes.length} atributos: los 30 de la radiografía y «odor category», que trae PerfuMate (texto: «Bright citrus»). Nombres en inglés (V3-71).`);
 
 // ---------------------------------------------------------------- IFRA 51
 const AMENDMENT = uuidFor("common:amendment:51");
 const amendments: Row[] = [{ id: AMENDMENT, number: 51, notified_on: null, in_force_new: null, in_force_existing: null, batch_id: BATCH }];
 notes.push("La 51.ª enmienda, sin fechas: los archivos de IFRA que tiene la v3 no las dan.");
 const CATEGORIES: ReadonlyArray<readonly [string, string]> = [
-  ["1", "Productos para los labios"],
-  ["2", "Desodorantes y antitranspirantes"],
-  ["3", "Productos para los ojos y la cara de hombre"],
-  ["4", "Perfume fino"],
-  ["5A", "Cremas y lociones de cuerpo"],
-  ["5B", "Cremas de cara"],
-  ["5C", "Cremas de manos"],
-  ["5D", "Productos de bebé"],
-  ["6", "Productos para la boca"],
-  ["7A", "Productos de pelo con aclarado"],
-  ["7B", "Productos de pelo sin aclarado"],
-  ["8", "Productos para las mucosas"],
-  ["9", "Productos con aclarado para el cuerpo"],
-  ["10A", "Productos del hogar"],
-  ["10B", "Productos del hogar en aerosol"],
-  ["11A", "Productos sin contacto con la piel o con contacto mínimo"],
-  ["11B", "Productos con contacto mínimo y con aclarado"],
-  ["12", "Productos sin contacto con la piel"],
+  ["1", "Lip products"],
+  ["2", "Axillae products (deodorants and antiperspirants)"],
+  ["3", "Products applied to the face or body with the fingertips (eye products, men's facial products)"],
+  ["4", "Fine fragrance products"],
+  ["5A", "Body lotion products, applied with the hands"],
+  ["5B", "Face moisturiser products, applied with the hands"],
+  ["5C", "Hand cream products"],
+  ["5D", "Baby creams, baby oils and baby talc"],
+  ["6", "Products with oral and lip exposure (mouthwash, toothpaste)"],
+  ["7A", "Rinse-off hair products, with some hand contact"],
+  ["7B", "Leave-on hair products, with some hand contact"],
+  ["8", "Products with significant anogenital exposure"],
+  ["9", "Rinse-off products with body and hand exposure"],
+  ["10A", "Household care products with mostly hand contact, excluding aerosols and sprays"],
+  ["10B", "Household care products with mostly hand contact, including aerosols and sprays"],
+  ["11A", "Products with intended skin contact but minimal transfer from an inert substrate, without UV exposure"],
+  ["11B", "Products with intended skin contact but minimal transfer from an inert substrate, with possible UV exposure"],
+  ["12", "Products not intended for direct skin contact"],
 ];
 const categoryId = (code: string) => uuidFor(`common:ifra-category:51:${code}`);
 const ifraCategories: Row[] = CATEGORIES.map(([code, description]) => ({ id: categoryId(code), amendment_id: AMENDMENT, code, description, batch_id: BATCH }));
-notes.push("Las descripciones de las 18 categorías son un resumen de la sesión en español, para mostrarlas; la definición que vale es la de IFRA.");
+notes.push("Las descripciones de las 18 categorías, en inglés, son un resumen de la sesión de las definiciones de IFRA (de memoria: los archivos de IFRA de la v3 no las traen); la definición que vale es la de la guía de IFRA.");
 
 const substances = new Map<string, Row>();
 const aliases = new Map<string, Row>();
@@ -173,6 +172,9 @@ function substance(cas: string, name: string, kind = "defined"): string {
 }
 
 const standards = read("ifra_standards.csv");
+// The few Spanish notes of batch 6, in English (V3-71).
+const SUBGROUP_EN: Readonly<Record<string, string>> = { "miembro por nombre, según la v2 (V3-44)": "member by name, as in the v2 (V3-44)" };
+const NOTICE_EN: Readonly<Record<string, string>> = { "IFRA escribe «0..3»; se lee 0.3": "IFRA writes «0..3»; read as 0.3" };
 const ifraSubstanceRows = read("ifra_substances.csv");
 const membersOf = new Map<string, number>();
 for (const s of ifraSubstanceRows) membersOf.set(s.standard_id, (membersOf.get(s.standard_id) ?? 0) + 1);
@@ -247,7 +249,7 @@ const ifraAnnex: Row[] = annexRows.map((a) => {
     iso_category: a.iso_category || null,
     rifm_id: a.rifm_id || null,
     constituent_standard: a.constituent_standard || null,
-    notice: a.notice || null,
+    notice: NOTICE_EN[a.notice] ?? (a.notice || null),
     batch_id: BATCH,
   };
 });
@@ -263,16 +265,39 @@ const ifraSubstances: Row[] = ifraSubstanceRows.map((s) => {
     standard_id: s.standard_id,
     substance_id: substance(s.cas, name),
     original_cas: s.cas,
-    subgroup: s.subgroup || null,
+    subgroup: SUBGROUP_EN[s.subgroup] ?? (s.subgroup || null),
     synonyms,
     batch_id: BATCH,
   };
 });
 
 
+// The rules match the process as the new system writes it: an English code of the «process» list
+// (V3-71). The v3 of today matched Spanish process names; each pattern gets its English word.
+// «rectificado» is a treatment in the new system, not a process: the rule reads that list.
+const PATTERN_EN: Readonly<Record<string, readonly [field: string | null, match: string | null, pattern: string]>> = {
+  aceite: [null, "contains", "oil"],
+  absoluto: [null, null, "absolute"],
+  destilad: [null, null, "distilled"],
+  extracto: [null, null, "extract"],
+  resinoide: [null, null, "resinoid"],
+  rectificado: ["treatment", null, "rectified"],
+};
+function englishRule(field: string, match: string, pattern: string) {
+  if (field !== "process") return { field, match, pattern };
+  const en = PATTERN_EN[pattern];
+  if (!en) throw new Error(`Regla de IFRA sin palabra en inglés: «${pattern}»`);
+  // «starts with aceite» (aceite esencial, aceite por expresión) is «contains oil» in the codes (essential_oil, expressed_oil).
+  return { field: en[0] ?? field, match: en[1] ?? match, pattern: en[2] };
+}
+const SPEC_NOTE_EN: Readonly<Record<string, string>> = {
+  "6e94aa32-d433-5677-b577-e105108450ff":
+    "datos/v2/exclusiones.csv: IFRA 51, STD 078: «Styrax oil obtained through pyrolysis shall be rectified…»; the PAH specification is the pyrolysis oil's, not a resinoid's (the user, 2026-10-03: only the resinoid). On 2026-10-04 «absolute», «extract» and «solvent extraction» were removed; they had been added on 2026-10-03 without a decision of the user.",
+};
+notes.push("Las reglas de variante de IFRA se escriben con la palabra en inglés del proceso (V3-71): aceite → oil (y «empieza por aceite» → «contiene oil»), absoluto → absolute, destilad → distilled, extracto → extract, resinoide → resinoid; «rectificado» pasa a la lista de tratamientos (rectified), porque en el sistema nuevo no es un proceso. Las notas, traducidas.");
 const ifraRules: Row[] = [
-  ...read("ifra_variant_rules.csv").map((r) => ({ id: r.id, standard_id: r.standard_id, kind: "variant", field: r.field, match: r.match, pattern: r.pattern, variant: r.variant, note: null, batch_id: BATCH })),
-  ...read("ifra_spec_exclusions.csv").map((r) => ({ id: r.id, standard_id: r.standard_id, kind: "specification_exclusion", field: "process", match: "contains", pattern: r.process, variant: null, note: r.note, batch_id: BATCH })),
+  ...read("ifra_variant_rules.csv").map((r) => ({ id: r.id, standard_id: r.standard_id, kind: "variant", ...englishRule(r.field, r.match, r.pattern), variant: r.variant, note: null, batch_id: BATCH })),
+  ...read("ifra_spec_exclusions.csv").map((r) => ({ id: r.id, standard_id: r.standard_id, kind: "specification_exclusion", ...englishRule("process", "contains", r.process), variant: null, note: SPEC_NOTE_EN[r.id] ?? r.note, batch_id: BATCH })),
 ];
 
 // ---------------------------------------------------------------- write

@@ -1,2 +1,2 @@
 id,name,url,kind,consulted_on,notes
-212511a4-1e19-5fe5-9c7f-21f4b2afa47e,PerfuMate,https://perfumate.app/catalog,web,2026-10-20,"Scrape del catálogo (rama perfumate-db, commit ec2f1ab; permiso de scraping según su README): 2212 materiales. migracion-v3/perfumate/perfumate.sqlite3, sha256 7f60451a2f88b0841c52f7a71f167d499c3a3497f80c1dd76344ed66c67d9ff8."
+212511a4-1e19-5fe5-9c7f-21f4b2afa47e,PerfuMate,https://perfumate.app/catalog,web,2026-10-20,"Catalogue scrape (branch perfumate-db, commit ec2f1ab; scraping allowed per its README): 2212 materials. migracion-v3/perfumate/perfumate.sqlite3, sha256 7f60451a2f88b0841c52f7a71f167d499c3a3497f80c1dd76344ed66c67d9ff8."

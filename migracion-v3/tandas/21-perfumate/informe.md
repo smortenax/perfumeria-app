@@ -17,9 +17,9 @@ El catálogo de PerfuMate (2212 entradas, scrape del 2026-10-20) en el esquema n
 - **Los naturales (421).** La especie sale de un sinónimo en latín («Salvia sclarea absolute»), si su género está en el anexo de IFRA o parece latino y no es un nombre común de PerfuMate: 363. Sin sinónimo en latín, la del CAS en el anexo de IFRA: 38; la de otra entrada de PerfuMate con el mismo CAS: 20. La parte, del nombre: 132; el proceso: 412; con tratamientos (FCF, sin terpenos…): 14; con quimiotipo: 6. Lo que no se lee queda vacío en la clave, no se supone.
 - **El nombre de la identidad** es el de PerfuMate (en inglés). Para un puro con proveedor es el comercial («Hedione»), no el químico que pide A9: falta traerlo de PubChem.
 - **De quién son los datos.** Si un material tiene una sola entrada, lo que dice PerfuMate es del material, aunque nombre un proveedor (el producto se crea igual). Si tiene varias, lo de cada entrada con proveedor va a su producto.
-- **Las familias (A10, para probar con datos).** Las de PerfuMate que son una de tus nueve van a ella (Citrus → cítrico, Animalic → animal). Las demás son familias detalladas bajo la general que las nombra en «covers» de tu paleta: Gourmand → frutal; Herbal → verde; Aldehydic y Aquatic → ozónico; Earthy y Smoky → amaderado; Powdery → floral; Amber → especiado; Musk y Leather → animal. Sin general, porque tu paleta no las nombra: Sweet, Resinous, Tropical, Fresh, Solvent, Ambergris y Other. La familia principal de la ficha es la general que más suma.
+- **Las familias, como las da PerfuMate** (V3-71): cada una es un término suyo, con su nombre en inglés y sin general por encima. Cuáles se unen, o si se simplifican en menos, se decide cuando haya más fuentes. La familia principal de la ficha es la que más suma.
 - **Subfamilias repetidas** en una misma entrada (bajo dos familias de PerfuMate): 111; quedan como un término con los pesos sumados.
-- **Sin traducir:** 387 subfamilias y descriptores de PerfuMate van con su palabra en inglés como nombre.
+- **En inglés, tal como vienen** (V3-71): 387 subfamilias y descriptores, las familias, las notas y las descripciones.
 - **La potencia** (el «impact» de PerfuMate, de 1 a 10 en lo descargado) se guarda tal cual, sin pasar a tu escala, que sigue abierta.
 
 ## Más cosas que mirar

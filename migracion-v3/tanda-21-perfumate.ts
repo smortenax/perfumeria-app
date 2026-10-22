@@ -176,45 +176,45 @@ function speciesOf(e: Entry): { species: string; from: string } | null {
   return null;
 }
 const PARTS: ReadonlyArray<readonly [RegExp, string, string]> = [
-  [/\bpetitgrain\b/i, "leaf_twig", "hoja y ramita"],
-  [/\b(leaf|leaves)\b/i, "leaf", "hoja"],
-  [/\b(flower|flowers|blossom)\b/i, "flower", "flor"],
-  [/\bseeds?\b/i, "seed", "semilla"],
-  [/\bbark\b/i, "bark", "corteza"],
-  [/\brhizomes?\b/i, "rhizome", "rizoma"],
-  [/\broots?\b/i, "root", "raíz"],
-  [/\bwood\b/i, "wood", "madera"],
-  [/\b(peel|rind)\b/i, "peel", "cáscara"],
-  [/\b(berry|berries)\b/i, "berry", "baya"],
-  [/\bfruits?\b/i, "fruit", "fruto"],
-  [/\bneedles?\b/i, "needle", "aguja"],
-  [/\btwigs?\b/i, "twig", "ramita"],
-  [/\bbuds?\b/i, "bud", "yema"],
-  [/\bherb\b/i, "herb", "planta"],
+  [/\bpetitgrain\b/i, "leaf_twig", "leaf and twig"],
+  [/\b(leaf|leaves)\b/i, "leaf", "leaf"],
+  [/\b(flower|flowers|blossom)\b/i, "flower", "flower"],
+  [/\bseeds?\b/i, "seed", "seed"],
+  [/\bbark\b/i, "bark", "bark"],
+  [/\brhizomes?\b/i, "rhizome", "rhizome"],
+  [/\broots?\b/i, "root", "root"],
+  [/\bwood\b/i, "wood", "wood"],
+  [/\b(peel|rind)\b/i, "peel", "peel"],
+  [/\b(berry|berries)\b/i, "berry", "berry"],
+  [/\bfruits?\b/i, "fruit", "fruit"],
+  [/\bneedles?\b/i, "needle", "needle"],
+  [/\btwigs?\b/i, "twig", "twig"],
+  [/\bbuds?\b/i, "bud", "bud"],
+  [/\bherb\b/i, "herb", "herb"],
 ];
 const PROCESSES: ReadonlyArray<readonly [RegExp, string, string]> = [
-  [/\babsol(ute|ue)\b/i, "absolute", "absoluto"],
-  [/\bconcrete\b/i, "concrete", "concreto"],
-  [/\b(co2|supercritical)\b/i, "co2_extract", "extracto CO₂"],
-  [/\bresinoid\b/i, "resinoid", "resinoide"],
-  [/\boleoresin\b/i, "oleoresin", "oleorresina"],
-  [/\b(tincture|infusion)\b/i, "tincture", "tintura"],
-  [/\b(hydrosol|floral water)\b/i, "hydrosol", "hidrolato"],
-  [/\bterpenes\b/i, "terpene_fraction", "fracción de terpenos"],
-  [/\b(expressed|cold[- ]pressed)\b/i, "expressed_oil", "aceite por expresión"],
-  [/\b(distilled)\b/i, "distilled_oil", "aceite destilado"],
-  [/\bbalsam\b/i, "balsam", "bálsamo"],
-  [/\b(gum|resin)\b/i, "exudate", "exudado"],
-  [/\b(essential oil|oil|eo|essence)\b/i, "essential_oil", "aceite esencial"],
+  [/\babsol(ute|ue)\b/i, "absolute", "absolute"],
+  [/\bconcrete\b/i, "concrete", "concrete"],
+  [/\b(co2|supercritical)\b/i, "co2_extract", "CO₂ extract"],
+  [/\bresinoid\b/i, "resinoid", "resinoid"],
+  [/\boleoresin\b/i, "oleoresin", "oleoresin"],
+  [/\b(tincture|infusion)\b/i, "tincture", "tincture"],
+  [/\b(hydrosol|floral water)\b/i, "hydrosol", "hydrosol"],
+  [/\bterpenes\b/i, "terpene_fraction", "terpene fraction"],
+  [/\b(expressed|cold[- ]pressed)\b/i, "expressed_oil", "expressed oil"],
+  [/\b(distilled)\b/i, "distilled_oil", "distilled oil"],
+  [/\bbalsam\b/i, "balsam", "balsam"],
+  [/\b(gum|resin)\b/i, "exudate", "exudate"],
+  [/\b(essential oil|oil|eo|essence)\b/i, "essential_oil", "essential oil"],
 ];
 const TREATMENTS: ReadonlyArray<readonly [RegExp, string, string]> = [
-  [/\bfcf\b|bergapten[- ]free|furocoumarin[- ]free/i, "fcf", "sin furocumarinas"],
-  [/\bfcr\b|furocoumarin[- ]reduced/i, "fcr", "con furocumarinas reducidas"],
-  [/terpeneless|deterpenated|terpene[- ]free/i, "terpeneless", "sin terpenos"],
-  [/\brectified\b/i, "rectified", "rectificado"],
-  [/decolou?ri[sz]ed/i, "decolorized", "decolorado"],
-  [/low[- ]atranol/i, "low_atranol", "bajo en atranol"],
-  [/iron[- ]free/i, "iron_free", "sin hierro"],
+  [/\bfcf\b|bergapten[- ]free|furocoumarin[- ]free/i, "fcf", "furocoumarin-free (FCF)"],
+  [/\bfcr\b|furocoumarin[- ]reduced/i, "fcr", "furocoumarin-reduced (FCR)"],
+  [/terpeneless|deterpenated|terpene[- ]free/i, "terpeneless", "terpeneless"],
+  [/\brectified\b/i, "rectified", "rectified"],
+  [/decolou?ri[sz]ed/i, "decolorized", "decolorized"],
+  [/low[- ]atranol/i, "low_atranol", "low atranol"],
+  [/iron[- ]free/i, "iron_free", "iron-free"],
 ];
 const firstOf = (table: ReadonlyArray<readonly [RegExp, string, string]>, ...texts: string[]) => {
   for (const text of texts) for (const [re, code, name] of table) if (re.test(text)) return { code, name };
@@ -266,47 +266,17 @@ function substance(cas: string | null, name: string, kind = "defined"): string {
   return id;
 }
 
-// PerfuMate's families: the ones that are the user's general families go to them; the rest are
-// detailed families under the general one whose «covers» names them (family_palette.csv), or
-// without one when none does (A10, a proposal of the session to try with data).
-const FAMILY: Readonly<Record<string, readonly [code: string, name: string, parent: string | null]>> = {
-  Citrus: ["citrus", "Cítrico", null],
-  Green: ["green", "Verde", null],
-  Floral: ["floral", "Floral", null],
-  Fruity: ["fruity", "Frutal", null],
-  Spicy: ["spicy", "Especiado", null],
-  Woody: ["woody", "Amaderado", null],
-  Animalic: ["animal", "Animal", null],
-  Gourmand: ["gourmand", "Gourmand", "fruity"],
-  Herbal: ["herbal", "Herbal", "green"],
-  Aldehydic: ["aldehydic", "Aldehídico", "ozonic"],
-  Aquatic: ["aquatic", "Acuoso", "ozonic"],
-  Earthy: ["earthy", "Terroso", "woody"],
-  Smoky: ["smoky", "Ahumado", "woody"],
-  Powdery: ["powdery", "Atalcado", "floral"],
-  Amber: ["amber", "Ámbar", "spicy"],
-  Musk: ["musk", "Almizcle", "animal"],
-  Leather: ["leather", "Cuero", "animal"],
-  Sweet: ["sweet", "Dulce", null],
-  Resinous: ["resinous", "Resinoso", null],
-  Tropical: ["tropical", "Tropical", null],
-  Fresh: ["fresh", "Fresco", null],
-  Solvent: ["solvent", "Disolvente", null],
-  Ambergris: ["ambergris", "Ámbar gris", null],
-  Other: ["other", "Otra", null],
-};
-const GENERAL = new Set(["citrus", "green", "ozonic", "floral", "fruity", "spicy", "woody", "animal", "transformed"]);
+// PerfuMate's families, as PerfuMate gives them (V3-71): each one a term of its own, with its
+// English name and no parent; which ones join, or fold into fewer, is decided when there are more
+// sources.
 function family(pmName: string): string {
-  const known = FAMILY[pmName];
-  if (!known) throw new Error(`Familia de PerfuMate sin traducir: «${pmName}»`);
-  const [code, name, parent] = known;
-  const id = GENERAL.has(code) ? vocabId("family", code) : term("family", code, name, { parent_id: parent ? vocabId("family", parent) : null });
+  const id = term("family", slug(pmName), pmName.trim());
   equivalence("family", pmName, id);
   return id;
 }
 const NOTE: Readonly<Record<string, string>> = { top: "top", heart: "heart", base: "base" };
 function note(pmNote: string): string {
-  const id = NOTE[pmNote] ? vocabId("note", NOTE[pmNote]) : term("note", slug(pmNote), pmNote === "outside" ? "fuera de la pirámide (PerfuMate)" : pmNote);
+  const id = NOTE[pmNote] ? vocabId("note", NOTE[pmNote]) : term("note", slug(pmNote), pmNote === "outside" ? "outside the pyramid (PerfuMate)" : pmNote);
   equivalence("note", pmNote, id);
   return id;
 }
@@ -618,7 +588,7 @@ const impacts = entries.map((e) => e.impact).filter((n): n is number => n !== nu
 const scales: Row[] = [
   {
     id: SCALE,
-    name: "PerfuMate · impacto",
+    name: "PerfuMate · impact",
     source_id: PM,
     attribute_id: attributeId("potency"),
     min: num(Math.min(...impacts)),
@@ -635,7 +605,7 @@ const sources: Row[] = [
     url: "https://perfumate.app/catalog",
     kind: "web",
     consulted_on: entries.map((e) => e.downloadedAt.slice(0, 10)).sort().at(-1)!,
-    notes: `Scrape del catálogo (rama perfumate-db, commit ec2f1ab; permiso de scraping según su README): ${entries.length} materiales. migracion-v3/perfumate/perfumate.sqlite3, sha256 ${sha256}.`,
+    notes: `Catalogue scrape (branch perfumate-db, commit ec2f1ab; scraping allowed per its README): ${entries.length} materials. migracion-v3/perfumate/perfumate.sqlite3, sha256 ${sha256}.`,
   },
 ];
 const batches: Row[] = [{ id: BATCH, code: CODE, script: "migracion-v3/tanda-21-perfumate.ts", source_id: PM, status: "proposed", approval: null, commit: null, sha256 }];
@@ -710,9 +680,9 @@ const report = [
   `- **Los naturales (${naturals}).** La especie sale de un sinónimo en latín («Salvia sclarea absolute»), si su género está en el anexo de IFRA o parece latino y no es un nombre común de PerfuMate: ${stats.speciesRead - bySource.annex - bySource.sibling}. Sin sinónimo en latín, la del CAS en el anexo de IFRA: ${bySource.annex}; la de otra entrada de PerfuMate con el mismo CAS: ${bySource.sibling}. La parte, del nombre: ${stats.partRead}; el proceso: ${stats.processRead}; con tratamientos (FCF, sin terpenos…): ${stats.treated}; con quimiotipo: ${stats.chemotype}. Lo que no se lee queda vacío en la clave, no se supone.`,
   "- **El nombre de la identidad** es el de PerfuMate (en inglés). Para un puro con proveedor es el comercial («Hedione»), no el químico que pide A9: falta traerlo de PubChem.",
   "- **De quién son los datos.** Si un material tiene una sola entrada, lo que dice PerfuMate es del material, aunque nombre un proveedor (el producto se crea igual). Si tiene varias, lo de cada entrada con proveedor va a su producto.",
-  "- **Las familias (A10, para probar con datos).** Las de PerfuMate que son una de tus nueve van a ella (Citrus → cítrico, Animalic → animal). Las demás son familias detalladas bajo la general que las nombra en «covers» de tu paleta: Gourmand → frutal; Herbal → verde; Aldehydic y Aquatic → ozónico; Earthy y Smoky → amaderado; Powdery → floral; Amber → especiado; Musk y Leather → animal. Sin general, porque tu paleta no las nombra: Sweet, Resinous, Tropical, Fresh, Solvent, Ambergris y Other. La familia principal de la ficha es la general que más suma.",
+  "- **Las familias, como las da PerfuMate** (V3-71): cada una es un término suyo, con su nombre en inglés y sin general por encima. Cuáles se unen, o si se simplifican en menos, se decide cuando haya más fuentes. La familia principal de la ficha es la que más suma.",
   `- **Subfamilias repetidas** en una misma entrada (bajo dos familias de PerfuMate): ${repeatedTerms}; quedan como un término con los pesos sumados.`,
-  `- **Sin traducir:** ${untranslated} subfamilias y descriptores de PerfuMate van con su palabra en inglés como nombre.`,
+  `- **En inglés, tal como vienen** (V3-71): ${untranslated} subfamilias y descriptores, las familias, las notas y las descripciones.`,
   `- **La potencia** (el «impact» de PerfuMate, de ${Math.min(...impacts)} a ${Math.max(...impacts)} en lo descargado) se guarda tal cual, sin pasar a tu escala, que sigue abierta.`,
   "",
   "## Más cosas que mirar",

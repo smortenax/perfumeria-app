@@ -8,12 +8,12 @@ id,list,code,name,parent_id,color,sort,batch_id
 0384f1ea-2aaf-5266-b592-48ff2a3f4f96,subfamily,castoreum,castoreum,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 041d49c7-b1a7-503d-9965-cb5d5fff2bee,descriptor,oily,oily,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 05086599-33c5-563b-8abb-7080322a5f6f,descriptor,cinnamon,cinnamon,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-05917004-7186-569e-8d04-c5b88b352720,process,concrete,concreto,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+05917004-7186-569e-8d04-c5b88b352720,process,concrete,concrete,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 05fac054-f343-5cfb-8044-16b69c0586cd,subfamily,hinoki,hinoki,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 05fe26fc-a524-559a-9814-207e99039354,descriptor,peach,peach,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 06c92f62-479b-5e9d-8437-c32ea2c69c0f,subfamily,metallic,metallic,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 0836ac56-17f2-58c7-97c2-5b5c37ce63be,subfamily,ylang,ylang,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-0866ea90-2cbb-5218-8a7f-b4e1c5770e13,part,wood,madera,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+0866ea90-2cbb-5218-8a7f-b4e1c5770e13,part,wood,wood,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 0afc46d9-2c35-51dd-92e4-0fddbf8aaa61,descriptor,waxy,waxy,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 0b1c71bf-ae1e-5181-840c-59f9b7a6eca8,subfamily,jammy,jammy,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 0c23afab-ff87-50e1-ba01-957719b46248,descriptor,nutmeg,nutmeg,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
@@ -34,16 +34,17 @@ id,list,code,name,parent_id,color,sort,batch_id
 14af9c1f-0252-583d-bf8c-02d83b7dd347,subfamily,juicy,juicy,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 165e35df-ef8c-5ee7-b993-9ef152ba375f,descriptor,spicy,spicy,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 16e54a9d-0c3b-5e07-8c95-fcc1146526ce,subfamily,powdery,powdery,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-17705afe-67cd-5833-91d3-6739ef588857,family,fresh,Fresco,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+17705afe-67cd-5833-91d3-6739ef588857,family,fresh,Fresh,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 181dbb9d-9456-5da4-8b0f-ba59efc7362d,descriptor,lime,lime,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 1837350e-9f91-5979-858b-4ec51f69fffc,descriptor,mineral,mineral,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 184b2221-0a6b-58f6-b7f6-b9d4047ff1ad,descriptor,herbaceous,herbaceous,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 18c716f8-2abe-5ce8-b044-eb9896357b8a,subfamily,fatty,fatty,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-1acf4ed7-8f47-591d-929b-cbedf60e30b8,part,leaf,hoja,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+1acf4ed7-8f47-591d-929b-cbedf60e30b8,part,leaf,leaf,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 1b16badd-81e1-5ec6-83df-1c8d1c8089c2,descriptor,burnt_sugar,burnt sugar,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 1b5cfbc4-9eaa-58e9-bf70-4cba6119d69d,subfamily,lily,lily,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-1bb7348b-ebd0-51c5-b65b-f2f89536fe46,process,balsam,bálsamo,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+1bb7348b-ebd0-51c5-b65b-f2f89536fe46,process,balsam,balsam,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 1bea6d56-19d5-5b68-bec3-be623f040fdc,descriptor,cherry,cherry,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+1bf3da3f-1364-527d-a119-1f6ae4cbc958,family,woody,Woody,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 1c1a0fd6-29cb-56ef-8ed7-c6c8226391b7,descriptor,camphoraceous,camphoraceous,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 1c9dea9c-d661-5881-b2f5-f4958e4f53a8,descriptor,ozonic,ozonic,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 1d832563-f932-598c-8f39-d478dfad8577,descriptor,peach_skin,peach skin,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
@@ -52,7 +53,7 @@ id,list,code,name,parent_id,color,sort,batch_id
 1e36b415-06b3-5ef5-bdf9-b88e76cffbfc,subfamily,ambergris,ambergris,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 1ee0121e-4bfb-59ed-a8e1-7b241c13d753,descriptor,cedar,cedar,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 1f1be95a-2027-5d2a-b2c1-1e565c310041,subfamily,pear,pear,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-1fbddf6c-bb1d-598e-ac54-939e31b729ee,family,amber,Ámbar,74aeb118-bfc8-5a4d-a674-02de96ff4cd6,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+1fbddf6c-bb1d-598e-ac54-939e31b729ee,family,amber,Amber,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 1fe49190-bb48-5498-9959-43910f3bc98a,subfamily,solvent,solvent,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 20b50e52-d457-5678-a178-bdfe8cfc7568,subfamily,civet,civet,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 21c8d355-7c9a-5e5a-91c3-d9e8936c8e46,descriptor,praline,praline,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
@@ -67,6 +68,7 @@ id,list,code,name,parent_id,color,sort,batch_id
 278c12c4-0b76-5612-9c37-2417994f94b3,descriptor,sugary,sugary,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 29594639-39aa-55de-b222-f3619302b1a7,subfamily,sweet_orange,sweet-orange,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 29c066a3-98b1-5532-85ed-7402219c2750,descriptor,fruity,fruity,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+2aca08f7-479e-57e0-bfae-88906a1c2a07,family,floral,Floral,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 2acec186-ecc4-574d-8abb-6e4f7d3efe03,subfamily,boozy,boozy,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 2b93865b-c249-5a3d-83e0-c47a0f8b0a84,subfamily,rain,rain,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 2b9d7062-5a73-592c-9ec7-0999bd768cf0,subfamily,rooty,rooty,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
@@ -80,13 +82,13 @@ id,list,code,name,parent_id,color,sort,batch_id
 2f9120c7-d34a-5373-a2f1-e37ef0e09ef0,descriptor,apple,apple,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 2fbd739b-c9e4-5d3e-8243-21a7a76a664d,subfamily,osmanthus,osmanthus,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 306de262-88da-5051-b1fa-17635396ff21,subfamily,soil,soil,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-31efea43-776a-5a38-8af1-a6af95408315,part,herb,planta,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+31efea43-776a-5a38-8af1-a6af95408315,part,herb,herb,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 327ae2e5-6264-595c-8f36-7b047b01c63b,descriptor,narcotic,narcotic,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 34efbc87-e0c8-50e2-9ee9-f6b1de230c24,descriptor,fatty,fatty,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 354eb786-91f3-5026-88d3-c4b7437b7783,descriptor,leafy,leafy,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 35d6a59f-6423-5b39-b4e7-25c8079961c8,descriptor,boozy,boozy,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-361fe73c-f8dc-551c-bcfa-31cb158209db,family,sweet,Dulce,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-370d5ce7-80af-5250-bd75-9c01be0c6d10,process,essential_oil,aceite esencial,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+361fe73c-f8dc-551c-bcfa-31cb158209db,family,sweet,Sweet,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+370d5ce7-80af-5250-bd75-9c01be0c6d10,process,essential_oil,essential oil,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 3735bd12-0e29-5f3b-9159-8e10c2aa0418,descriptor,melon,melon,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 37580f0c-e5c7-581a-8564-c60b76f10745,descriptor,tannic,tannic,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 38107f52-90d8-54b9-a51f-b51e6a340414,descriptor,marine,marine,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
@@ -114,7 +116,7 @@ id,list,code,name,parent_id,color,sort,batch_id
 45fa5824-f72e-5634-a099-872bf044db87,descriptor,radiant,radiant,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 46aade36-2975-5e64-85ab-627d24bed479,descriptor,creamy,creamy,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 48d404f7-2974-5911-8ea6-1fb751d2804f,subfamily,bitter_orange,bitter-orange,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-4918394f-33ac-5d1e-9fec-2e24a52d211f,part,bud,yema,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+4918394f-33ac-5d1e-9fec-2e24a52d211f,part,bud,bud,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 499a9059-e4ba-54f5-8337-250931d53cbe,descriptor,red_fruit,red fruit,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 49b4efb9-6c56-5310-bd9a-22e0ba1b4a6e,descriptor,powdery,powdery,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 49d4aba9-0013-5361-bf98-f6f7f82b3d5b,descriptor,tuberose,tuberose,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
@@ -122,14 +124,14 @@ id,list,code,name,parent_id,color,sort,batch_id
 4b66cf2e-d510-5206-b295-05ad208c5fba,descriptor,anisic,anisic,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 4b713e07-3126-51c8-951e-3a02ca9f5c0b,subfamily,myrrh,myrrh,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 4b96b0c7-cc29-5d8a-92a5-db449470c515,subfamily,rose,rose,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-4c04959d-c922-5a97-ba05-a8d3d0ad9673,family,ambergris,Ámbar gris,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+4c04959d-c922-5a97-ba05-a8d3d0ad9673,family,ambergris,Ambergris,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 4c3d88d3-d98b-5e0b-92e3-81f4c7cc0bf7,descriptor,gingerbread,gingerbread,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 4ca5941e-eb50-550d-82e3-f4ba55c6dc68,descriptor,chamomile,chamomile,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 4e22193e-364f-5021-9ff9-f47bc3c0ea1d,descriptor,animalic,animalic,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 4e240973-1390-5c6d-9365-e2f77da34332,subfamily,makeup,makeup,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 4e2eec05-b0be-59d5-9739-917c7eef01d4,subfamily,ashy,ashy,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-4e93dd28-4b52-52de-b0ed-7c28c41cfd8c,process,distilled_oil,aceite destilado,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-4eec5045-10fc-5a54-836d-43dbbd771c0a,family,herbal,Herbal,7cf539bc-526e-593c-9cdc-dbbbcd215e7d,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+4e93dd28-4b52-52de-b0ed-7c28c41cfd8c,process,distilled_oil,distilled oil,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+4eec5045-10fc-5a54-836d-43dbbd771c0a,family,herbal,Herbal,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 4f414d5b-c897-5092-8e41-348b6479dc0e,subfamily,watery,watery,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 5010ef5c-6d56-5ecc-8c66-be6685083bde,descriptor,lemon,lemon,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 50368dce-f7df-56ab-8021-ec26e1d03d1d,subfamily,orange_blossom,orange-blossom,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
@@ -160,8 +162,9 @@ id,list,code,name,parent_id,color,sort,batch_id
 5f9e6a0a-3378-5cbe-915f-fe29ca64f835,descriptor,pear,pear,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 60024031-74ed-5785-b429-5d8fbcc1dc64,subfamily,purple,purple,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 601455eb-2952-530b-8cc6-c6dc419be754,descriptor,almond,almond,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+6056fa8c-8279-58fc-bb97-cb073f0af817,family,animalic,Animalic,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 60b7a345-dbe8-552e-9e3a-76a1b67873de,descriptor,lemony,lemony,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-61c9ccdd-9c55-5588-842a-c5e5cc555757,part,peel,cáscara,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+61c9ccdd-9c55-5588-842a-c5e5cc555757,part,peel,peel,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 6265b18d-3846-5ece-acc1-97205123e23b,subfamily,melon,melon,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 6298a12a-5f2f-5e6f-b3d9-20d11dedbe1f,subfamily,spicy,spicy,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 62bdb885-2d2c-57cc-83a8-09b2f182b5cc,descriptor,sweet,sweet,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
@@ -175,9 +178,11 @@ id,list,code,name,parent_id,color,sort,batch_id
 68275da7-a733-5f6c-8b99-381f151fb960,subfamily,champaca,champaca,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 690e7d5f-6dd7-56bf-a77f-0e55376ab9e8,subfamily,amber,amber,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 691f5e35-dcbc-5a92-84fe-a0e2b0a58e9c,subfamily,chocolate,chocolate,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+6a126f76-1440-57a1-a050-6210914c8e3b,family,fruity,Fruity,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 6c6fa44c-eadb-5c16-a3b3-cb64c8432a54,subfamily,incense,incense,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 6c923d99-7f26-59c5-bb8a-111e4c2ef927,subfamily,tobacco,tobacco,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 6d0becc5-3aa3-527b-b52f-a89c323f5691,descriptor,vegetal,vegetal,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+6d2bcee0-b10a-5be2-8cdc-3223bfed70bb,family,citrus,Citrus,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 6d2e0dbd-0e53-54af-99df-669e7d1af752,subfamily,coconut,coconut,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 6e5bb1ff-dd07-53c9-beb0-60a5d39110b4,descriptor,vanilla,vanilla,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 6e8d8551-feb2-5ef9-af88-6aebbee00014,descriptor,oud_agarwood,oud agarwood,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
@@ -188,29 +193,31 @@ id,list,code,name,parent_id,color,sort,batch_id
 700ad955-860d-59c1-be3c-fa941d8f2fb4,subfamily,coffee,coffee,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 7026ab89-e01e-5964-b22e-fca62bb156c9,descriptor,grapefruit,grapefruit,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 708af31b-8ebd-515a-8273-0f6c6852287a,descriptor,berry,berry,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-7157d22c-3307-5f83-b0cd-4e6f173767c7,part,needle,aguja,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+7157d22c-3307-5f83-b0cd-4e6f173767c7,part,needle,needle,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 71d35f61-bb64-5f98-8aa4-8e6a18332d92,descriptor,fig,fig,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-72d0c32c-f4de-51fd-9d38-980426ffcde6,family,resinous,Resinoso,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+72d0c32c-f4de-51fd-9d38-980426ffcde6,family,resinous,Resinous,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 741bce77-a306-55ed-8dac-6fba49807c03,subfamily,woody,woody,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 743d13e2-9a26-58ab-bfd0-3968f55c29c1,subfamily,bergamot,bergamot,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 747a1c0a-21a2-56de-88d4-4dbfafcebd53,descriptor,floral,floral,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+74aeb118-bfc8-5a4d-a674-02de96ff4cd6,family,spicy,Spicy,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 75b7dd64-1ea4-5260-87ec-e15a840ebdbb,subfamily,indolic,indolic,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 7640bb2f-f5d9-5402-92dd-c5f769b5a150,descriptor,aquatic,aquatic,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 777778f8-78a8-5e4a-b0aa-4cfa8ef4c43c,descriptor,ylang,ylang,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 77cb6bc2-b728-57e9-96f0-8a26128a8a03,subfamily,elemi,elemi,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 78d3ae93-12c5-5c4a-993a-109b126dd422,subfamily,red_fruit,red-fruit,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-79345f1f-d75e-5e2f-b322-c9c8ef5eb3e3,treatment,low_atranol,bajo en atranol,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+79345f1f-d75e-5e2f-b322-c9c8ef5eb3e3,treatment,low_atranol,low atranol,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 7ad82c53-d5f8-58e9-aa79-8c9a27487aa9,descriptor,peony,peony,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 7b04d408-cbe4-5fad-a671-7bdbd89eb5c0,subfamily,creamy,creamy,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 7b9d66d5-6868-5f28-a132-26d0dafa7188,subfamily,mineral,mineral,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 7bd8be79-44ee-5be2-9f1e-eceb1b84553d,descriptor,musky,musky,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 7ce6b3be-82c4-5fb8-bbf4-d774b6909a52,subfamily,apple,apple,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+7cf539bc-526e-593c-9cdc-dbbbcd215e7d,family,green,Green,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 7d892930-d2c1-5704-a1e9-e69fb4e91ea7,descriptor,toffee,toffee,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 7dd5b30e-36b6-569b-9d02-598de0bbafcf,subfamily,citric,citric,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 7e53e7bd-19b7-5f6a-b56d-f022623cdf6a,descriptor,lychee,lychee,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 7eb1e76a-d458-5e05-970c-8dd47d1ad3e7,subfamily,earthy,earthy,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 7f4fb569-abc6-5a47-8ac8-12e84252fd05,subfamily,milky,milky,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-7fd69bc9-6309-5222-869b-60ae663da460,process,terpene_fraction,fracción de terpenos,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+7fd69bc9-6309-5222-869b-60ae663da460,process,terpene_fraction,terpene fraction,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 8005f861-b6fc-5355-8f67-1c65cc68cdbc,subfamily,berry,berry,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 80260e9d-0eb8-5b0a-81c7-647db3adf897,subfamily,lilac,lilac,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 8027371f-2531-54e3-959a-99eff4363297,subfamily,cedar,cedar,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
@@ -225,22 +232,22 @@ id,list,code,name,parent_id,color,sort,batch_id
 886370bd-aa27-5287-a82b-7af6607771f8,descriptor,bread,bread,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 899f53a4-273f-5272-8ce9-e6a63ea7ee12,subfamily,red,red,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 8b186937-3e36-559e-a919-115e4e4d471b,descriptor,pine,pine,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-8d7449d8-2be9-5994-85ae-5f8eef1157d8,treatment,fcr,con furocumarinas reducidas,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-8e596491-17e4-5f4a-9f64-bccfe48a0388,part,root,raíz,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+8d7449d8-2be9-5994-85ae-5f8eef1157d8,treatment,fcr,furocoumarin-reduced (FCR),,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+8e596491-17e4-5f4a-9f64-bccfe48a0388,part,root,root,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 8f97547a-3cba-5d5c-9587-4ca44cfa6b70,subfamily,beet,beet,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 8f98c7b4-cc49-50e4-9251-a91209e8e6a7,subfamily,warm,warm,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 8fa4935e-eccd-5104-b4b0-a613e7c1ef26,descriptor,tart,tart,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 90eba2ae-ed12-5da5-ad9f-907e21f6b6e9,subfamily,fougere,fougere,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 91ded139-c7e0-5e4d-875d-1dfb43a7742e,descriptor,honeyed,honeyed,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 91e9102a-3813-555d-89b1-b5198de5146f,subfamily,grapefruit_white,grapefruit-white,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-91ff5764-95e0-58d0-b7a6-45f9ff47ba0d,part,seed,semilla,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-9271e69e-0ceb-5c3e-b211-f633e799299c,process,resinoid,resinoide,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+91ff5764-95e0-58d0-b7a6-45f9ff47ba0d,part,seed,seed,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+9271e69e-0ceb-5c3e-b211-f633e799299c,process,resinoid,resinoid,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 92c42a06-720f-502a-9238-99161ec4dcbc,descriptor,soapy,soapy,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 93f18021-c5dc-5a07-9983-aa21172167c5,subfamily,gourmand,gourmand,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 943060c2-fe22-5621-95d6-538865afc160,descriptor,jasmine,jasmine,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 951a53d6-a1d2-5286-9184-23032a620fac,subfamily,anisic,anisic,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 9608d396-391c-5013-9eb6-254d21524cec,subfamily,minty,minty,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-96cd2c6e-dc3f-5a34-8e36-b5a93b73e356,family,aquatic,Acuoso,ba8384c3-407b-5f89-bd1c-3007d087c74e,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+96cd2c6e-dc3f-5a34-8e36-b5a93b73e356,family,aquatic,Aquatic,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 96de8d67-ae9f-52e2-a75f-1be320be9fd4,descriptor,ginger,ginger,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 9717b67a-d248-547a-8535-413d18c22431,subfamily,smoky,smoky,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 976683d7-faff-5630-8d32-a0d6a1914f47,subfamily,yuzu,yuzu,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
@@ -253,7 +260,7 @@ id,list,code,name,parent_id,color,sort,batch_id
 9a6a3e14-9421-5957-b5ca-b9942af96b2c,descriptor,strawberry,strawberry,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 9ad21c76-92ac-5410-bb31-a81b93274bf4,subfamily,leathery,leathery,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 9e04e5ee-cd89-54d3-947f-52314a158c86,subfamily,clean,clean,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-9f1768e8-3234-5b1f-b1ce-73cfe6873cc9,family,solvent,Disolvente,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+9f1768e8-3234-5b1f-b1ce-73cfe6873cc9,family,solvent,Solvent,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 9f33c5d1-fbec-5fcf-8c55-14b43d94dccc,descriptor,astringent,astringent,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 9fa37b51-ee7c-5209-ad6b-2efefe111294,subfamily,seedy,seedy,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 9fb50bd8-a1a4-55d2-8f5c-690fef7e839f,subfamily,salty,salty,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
@@ -261,9 +268,9 @@ id,list,code,name,parent_id,color,sort,batch_id
 a03ca1ad-6351-5b92-92e9-f83a9a4ac298,subfamily,fig,fig,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 a2308bbc-d54d-5c86-b27d-adc73092cd1f,descriptor,dairy,dairy,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 a232ffb5-80eb-5fe2-b5cc-4d6cb0035811,descriptor,incense,incense,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-a29b7c8d-f9a9-53bf-84dc-fbbe0e780d1a,family,powdery,Atalcado,2aca08f7-479e-57e0-bfae-88906a1c2a07,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+a29b7c8d-f9a9-53bf-84dc-fbbe0e780d1a,family,powdery,Powdery,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 a2b7a510-ddb4-58f2-bb0e-8592a6eaa805,subfamily,icy,icy,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-a36c3107-60c3-543a-a191-1187c247a0b5,part,berry,baya,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+a36c3107-60c3-543a-a191-1187c247a0b5,part,berry,berry,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 a38bc8dc-70de-57c3-b236-e365297252aa,subfamily,herbal,herbal,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 a3e9b7af-190a-5109-94f8-81f230f7e18f,subfamily,suede,suede,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 a3f59751-3fca-5406-8ef9-642d190754a7,descriptor,rum,rum,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
@@ -275,9 +282,9 @@ a6763d59-68cf-5499-afe6-62ab941703c0,descriptor,buttery,buttery,,,,3a9e8d15-e8b4
 a67c4a43-f120-5d8f-8c5f-1e4f4217ff2f,subfamily,caramel,caramel,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 a69cc49a-c936-59fa-b737-be4e2a9ab918,descriptor,salty,salty,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 a6dfa120-8033-50ac-a65a-80f3a6adb3b9,subfamily,vanillic,vanillic,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-a7ce7266-33ff-530a-acc5-b947989d1ae8,family,leather,Cuero,b558572f-4f9a-54fb-975e-1c2c4a39c7ec,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+a7ce7266-33ff-530a-acc5-b947989d1ae8,family,leather,Leather,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 a8324861-d609-53bc-981e-5eb658ae802f,subfamily,cumin,cumin,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-a9657186-b462-5a9b-896d-432f572b7ae3,family,smoky,Ahumado,1bf3da3f-1364-527d-a119-1f6ae4cbc958,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+a9657186-b462-5a9b-896d-432f572b7ae3,family,smoky,Smoky,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 aa885cff-53a5-5911-8320-bff90cc1238b,subfamily,maple,maple,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 abeeb1d5-cd3d-5d45-8e7f-8183decdb60e,descriptor,cucumber,cucumber,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 ac20f27f-b70c-51b8-90f8-147da9ea3596,subfamily,clove,clove,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
@@ -288,7 +295,7 @@ afb301bc-01d6-540e-86b1-7691c9e40694,descriptor,hay,hay,,,,3a9e8d15-e8b4-5d0c-b9
 b01e41dd-d092-58bc-b290-3b4e4304cf70,subfamily,guaiac,guaiac,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 b2677af7-ed7b-529f-891e-2d9b072c2d63,subfamily,galbanum,galbanum,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 b43b3348-f5d7-5c59-936f-06fe80d84e1b,subfamily,heliotrope,heliotrope,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-b4988fd0-a848-574c-a61d-32226ff71efe,part,leaf_twig,hoja y ramita,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+b4988fd0-a848-574c-a61d-32226ff71efe,part,leaf_twig,leaf and twig,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 b566b706-63a1-577e-b3b9-17a9f32e9107,descriptor,blackcurrant,blackcurrant,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 b58fca91-b4ea-549e-a773-d79b921a48b7,subfamily,saffron,saffron,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 b5e4d420-74fe-5169-bd81-5180ac32939a,descriptor,dry,dry,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
@@ -306,7 +313,7 @@ b9ef2e43-db90-5749-8ad9-ec87770d5d21,descriptor,celery,celery,,,,3a9e8d15-e8b4-5
 ba94f520-cc27-59ea-8591-8d88a1b707a1,subfamily,honeyed,honeyed,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 baaee4a8-3723-5124-856b-e0195781753b,subfamily,dried,dried,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 bb14f075-dad9-5523-8555-20afd6d61d7e,descriptor,orange_blossom,orange blossom,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-bb1d9e51-1743-5b3a-b2b3-b6e2ed31e061,family,gourmand,Gourmand,6a126f76-1440-57a1-a050-6210914c8e3b,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+bb1d9e51-1743-5b3a-b2b3-b6e2ed31e061,family,gourmand,Gourmand,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 bc372e08-0847-5b5a-b1cf-fd8bc2258098,descriptor,tarry,tarry,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 bd0b2a64-c1df-5879-ac80-fcadbb984b6f,subfamily,marine,marine,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 bd0ebf09-cff7-5a0f-980c-7a5d9383948b,descriptor,ripe,ripe,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
@@ -320,19 +327,19 @@ c0d987af-ce0c-58cf-8c68-441863088554,subfamily,floral,floral,,,,3a9e8d15-e8b4-5d
 c1aaa151-220f-567c-bfb3-6f3aa2b46cdf,descriptor,brandy,brandy,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 c218ae09-2a02-5d77-9fe2-adc7e097c1e1,descriptor,malt,malt,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 c2fe399e-f902-5e5e-8c96-7e9683350830,descriptor,aromatic,aromatic,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-c378d194-a5bd-5461-a1a6-7805e957fba6,family,aldehydic,Aldehídico,ba8384c3-407b-5f89-bd1c-3007d087c74e,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+c378d194-a5bd-5461-a1a6-7805e957fba6,family,aldehydic,Aldehydic,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 c3c9348b-5f5c-5356-a3c8-3c7ebc8993c2,subfamily,lemon,lemon,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 c48ec01f-4f5d-5eab-a1ab-033ee88b8a46,descriptor,watery,watery,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 c51f2584-77e2-51cc-835f-db38d2152122,descriptor,cocoa,cocoa,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 c5ef88c7-1105-5520-830d-8bbb81c6aa7c,descriptor,iris_orris,iris orris,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-c6bb82d5-cbf0-5815-888b-56507f46424e,process,expressed_oil,aceite por expresión,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-c71936e2-3ae4-5ea0-9f32-9ba38f6e0d43,process,co2_extract,extracto CO₂,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+c6bb82d5-cbf0-5815-888b-56507f46424e,process,expressed_oil,expressed oil,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+c71936e2-3ae4-5ea0-9f32-9ba38f6e0d43,process,co2_extract,CO₂ extract,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 c777c3aa-dccb-5c76-b866-0eddba0b098c,descriptor,apricot,apricot,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 c778c5c2-5f55-5e36-bec6-89d6e7afc0a7,subfamily,vetiver,vetiver,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-c7a9f45b-9fb4-5aad-9cda-a9232f36c1f9,process,absolute,absoluto,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-c7eabdfb-4b36-5560-8cd7-1ac03aa48166,note,outside,fuera de la pirámide (PerfuMate),,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+c7a9f45b-9fb4-5aad-9cda-a9232f36c1f9,process,absolute,absolute,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+c7eabdfb-4b36-5560-8cd7-1ac03aa48166,note,outside,outside the pyramid (PerfuMate),,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 c89215d6-def1-5b31-addb-9e09edcfaa1a,descriptor,sulfurous,sulfurous,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-c89c5ae3-9f76-5909-bbac-bab740f9cc67,family,earthy,Terroso,1bf3da3f-1364-527d-a119-1f6ae4cbc958,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+c89c5ae3-9f76-5909-bbac-bab740f9cc67,family,earthy,Earthy,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 c8f85ac3-ebf8-541d-b9e0-f6e9c0fa19a0,descriptor,warm,warm,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 ca1d28d1-c383-5bd4-9e36-ea33addd8d6a,descriptor,lactonic,lactonic,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 cbab2468-0e13-5e80-b0d7-2f3c75ce211a,descriptor,tea,tea,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
@@ -347,7 +354,7 @@ d04346fa-1912-5311-8c30-5de92fa59c5a,descriptor,resinous,resinous,,,,3a9e8d15-e8
 d088ff83-4613-5688-adbc-e3b9b2237cd7,subfamily,lavender,lavender,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 d0bf7968-e50e-577d-a5d8-bb15c3c92b08,subfamily,nutmeg,nutmeg,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 d1207a48-8c35-54ca-99b3-337aae01b997,subfamily,other,other,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-d16a9de3-8898-5a7f-9edd-1dadb4701344,part,bark,corteza,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+d16a9de3-8898-5a7f-9edd-1dadb4701344,part,bark,bark,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 d272aa96-81b5-5103-811d-44c8c36ba336,subfamily,benzoin,benzoin,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 d373ab69-84bb-57b7-a135-7944db11c3a9,subfamily,crisp,crisp,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 d47f859f-da2a-5a5d-8bd1-71a51e805f9a,subfamily,grassy,grassy,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
@@ -355,7 +362,7 @@ d540a7cd-2dd9-5673-820c-37282e7f029e,descriptor,castoreum,castoreum,,,,3a9e8d15-
 d5f43e49-524f-5074-bf4b-bddd8997dd0b,descriptor,brothy,brothy,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 d6bb45aa-7328-5c69-86d9-7a97c8047562,descriptor,tropical,tropical,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 d7756602-e396-599b-9c01-569ec377759c,subfamily,white,white,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-d7f8888b-602c-5121-8785-f389a3e8edff,treatment,iron_free,sin hierro,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+d7f8888b-602c-5121-8785-f389a3e8edff,treatment,iron_free,iron-free,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 d87b45e5-ea18-5b3a-973a-a3530c03557c,descriptor,mossy,mossy,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 d89c88ca-25d8-5544-bd3c-53b95e602dcb,subfamily,skin,skin,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 d8d581c5-d730-546f-a11a-2eb021e5032b,descriptor,pineapple,pineapple,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
@@ -378,7 +385,7 @@ e1287ff8-23e0-51f2-a274-bedc9b440690,descriptor,thyme,thyme,,,,3a9e8d15-e8b4-5d0
 e1c2f973-d64a-54d6-be21-3153b0150bae,subfamily,exotic,exotic,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 e1ff8230-8376-5b06-bb78-655acc8dc35c,subfamily,grapefruit_pink,grapefruit-pink,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 e271c950-a913-567f-bf66-5f703b9af3ff,descriptor,geranium,geranium,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-e2c3fbda-d51c-5e8a-8b3a-cd7c0de377ff,part,fruit,fruto,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+e2c3fbda-d51c-5e8a-8b3a-cd7c0de377ff,part,fruit,fruit,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 e3548777-1836-55af-8fe0-950e7fe377eb,subfamily,patchouli,patchouli,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 e3714e25-3772-54c5-8848-406cf26f5dca,subfamily,pine,pine,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 e40ddaef-e54e-5227-8d1a-83bb19e019ec,subfamily,cinnamon,cinnamon,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
@@ -394,7 +401,7 @@ e9f258cf-356c-5cbe-afde-c410d997457d,subfamily,tonka,tonka,,,,3a9e8d15-e8b4-5d0c
 ea06c3a3-740f-5e97-afd9-bf4c49a12873,subfamily,narcotic,narcotic,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 ea23d4ad-2501-5324-8926-cd1454160187,subfamily,dry,dry,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 eae46f11-b288-564b-bc9f-0b085e0bff62,descriptor,minty,minty,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-eb0d9c3e-c13f-5b53-a85f-b7a74924a0d6,family,other,Otra,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+eb0d9c3e-c13f-5b53-a85f-b7a74924a0d6,family,other,Other,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 ebbeb3a9-80f6-59d7-a878-2cf530d4c49f,descriptor,burnt,burnt,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 ecae1d12-8291-5116-b0ca-e34c24bbcfb5,descriptor,saffron,saffron,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 ee07f742-1fa2-592c-8a42-19a8b8dadd84,subfamily,yellow,yellow,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
@@ -402,7 +409,7 @@ ee3ed5da-ee09-5b5c-8310-908bd05a639a,descriptor,sharp,sharp,,,,3a9e8d15-e8b4-5d0
 ee8e13d5-6550-5366-9a81-e7d355996606,descriptor,white_floral,white floral,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 efc786bc-b0d3-520c-9eb8-8602947dfc9d,descriptor,raspberry,raspberry,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 efdc6728-cc25-5c25-9d74-9f09cb38e091,descriptor,vanillic,vanillic,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-f0144164-a524-5145-851a-864b756e69f7,part,flower,flor,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+f0144164-a524-5145-851a-864b756e69f7,part,flower,flower,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 f0351c09-57db-5e01-bc18-40c458da94d3,descriptor,smoky,smoky,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 f1954fe3-576c-5dce-b67a-7d15a5cc7099,subfamily,vanilla,vanilla,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 f1db69fd-b366-52e5-a1ce-b8b1fede8ec1,descriptor,clove,clove,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
@@ -418,9 +425,9 @@ f6dfe438-6e8a-5d40-a8cc-7b9087472299,descriptor,musty,musty,,,,3a9e8d15-e8b4-5d0
 f7eb7e15-5264-5b18-b693-141814959777,descriptor,pistachio,pistachio,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 f880cb66-292b-5276-96bb-25579defa544,descriptor,skin_like,skin-like,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 f8b87365-cbc8-5c6e-aa35-eb5860ac6963,descriptor,oud,oud,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-f96b1d80-d3dd-53e4-809e-fd55b53eb479,family,musk,Almizcle,b558572f-4f9a-54fb-975e-1c2c4a39c7ec,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+f96b1d80-d3dd-53e4-809e-fd55b53eb479,family,musk,Musk,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 fac1a5df-a91a-5073-8070-5d5d1abf55af,descriptor,balsamic,balsamic,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
-fb0a9390-92e5-5f38-8f48-b0d6b7baa7c0,process,tincture,tintura,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
+fb0a9390-92e5-5f38-8f48-b0d6b7baa7c0,process,tincture,tincture,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 fb6d7afa-61a5-5b42-b78b-0a8291790827,descriptor,grassy,grassy,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 fbaab82b-cc2f-504f-a2ff-468e48fe8825,descriptor,wet,wet,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba
 fc4a2a7e-47b6-5f4e-8dc3-53112b3d1233,subfamily,iris,iris,,,,3a9e8d15-e8b4-5d0c-b989-bf4447afb4ba

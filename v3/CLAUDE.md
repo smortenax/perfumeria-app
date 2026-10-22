@@ -25,8 +25,8 @@ decisiones están en `docs-v3/`, al lado de esta carpeta: **`docs-v3/decisiones-
 
 ## Cómo se trabaja
 
-- **Código, identificadores y comentarios, en inglés. La interfaz, en español**, desde
-  `src/i18n/es.ts`. La documentación, en español.
+- **Código, identificadores, comentarios, la interfaz y los datos, en inglés** (V3-71: un solo
+  idioma estándar). La interfaz lee sus textos de `src/i18n/`. La documentación, en español.
 - **Comandos, dentro de `v3/`:** `npm run dev`, `npm run build`, `npm test`.
 - **Commit y push por cada paso terminado**, con su «Hecho cuando» comprobado. En Windows:
   mensaje a un archivo y `git commit -F`; archivos en UTF-8 y con finales de línea LF.
