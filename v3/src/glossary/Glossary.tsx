@@ -39,7 +39,9 @@ export function Glossary({
 }) {
   const t = texts.glossary;
   const [query, setQuery] = useState("");
-  const [filters, setFilters] = useState<Filters>({ ...NO_FILTERS, owner: "own" });
+  // A new account opens on the common materials: an empty «Own» tab is not a first screen (audit F-08).
+  const [first] = useState<"own" | "common">(() => ([...data.catalog.materials.values()].some((m) => m.ownerId !== null) ? "own" : "common"));
+  const [filters, setFilters] = useState<Filters>({ ...NO_FILTERS, owner: first });
   const [limit, setLimit] = useState(PAGE);
   const [message, setMessage] = useState<string | null>(null);
   // «Exportar paleta»: your materials by their names, copied or as a Markdown file.
@@ -69,7 +71,7 @@ export function Glossary({
     setLimit(PAGE);
     setMessage(null);
   };
-  const [tab, setTab] = useState<Tab>("own");
+  const [tab, setTab] = useState<Tab>(first);
   const choose = (next: Tab, focus = false) => {
     setTab(next);
     if (next === "own" || next === "common") set({ owner: next });
@@ -90,6 +92,12 @@ export function Glossary({
     return query.trim() ? search(data.index, query, limit, keep) : listAll(data.index, limit, keep);
   }, [data, query, filters, limit]);
   const materials = rows.flatMap((r) => r.members.map((m) => m.material));
+  // «Nothing yet» and «no matches» are two states (audit F-08): only the second offers to clear.
+  const searching = query.trim() !== "" || filters.kind !== null || filters.ifra !== null || filters.haveOnly;
+  const clear = () => {
+    setQuery("");
+    set({ kind: null, ifra: null, haveOnly: false });
+  };
   const markShown = (have: boolean) =>
     void mark(materials.map((m) => m.id), have).then(
       (n) => setMessage(t.marked(n)),
@@ -193,7 +201,18 @@ export function Glossary({
           <Formulas data={data} query={query} marker={tab === "accords" ? "accord" : null} {...(onOpenFormula ? { onOpen: onOpenFormula } : {})} />
         ) : (
         <>
-        <p className="hint">{materials.length ? t.foundMaterials(materials.length) : t.none}</p>
+        {materials.length ? (
+          <p className="hint">{t.foundMaterials(materials.length)}</p>
+        ) : searching ? (
+          <p className="hint">
+            {t.none}{" "}
+            <button type="button" className="link" onClick={clear}>
+              {t.clearFilters}
+            </button>
+          </p>
+        ) : (
+          <p className="hint">{tab === "own" ? t.noOwnYet : t.noCommonYet}</p>
+        )}
         {marking && (
           <div className="marking">
             <p className="hint">{t.markHint}</p>
@@ -313,7 +332,7 @@ export function Formulas({
     return (
       <>
         <p className="hint">
-          {shown.length ? (marker === "accord" ? t.foundAccords(shown.length) : t.foundFormulas(shown.length)) : words.length ? t.noFormulas : t.noMarked} {t.formulasLater}
+          {shown.length ? `${marker === "accord" ? t.foundAccords(shown.length) : t.foundFormulas(shown.length)} ${t.formulasLater}` : words.length ? t.noFormulas : t.noMarked}
         </p>
         <ul className="grid">
           {[...shown].sort((x, y) => x.name.localeCompare(y.name, "es")).map((f) => (
@@ -330,7 +349,7 @@ export function Formulas({
   return (
     <>
       <p className="hint">
-        {shown.length ? t.foundFormulas(shown.length) : t.noFormulas} {t.formulasLater}
+        {shown.length ? `${t.foundFormulas(shown.length)} ${t.formulasLater}` : words.length ? t.noFormulas : t.noFormulasYet(data.workbenches.length > 0)}
       </p>
       {/* Each workbench, a tile the size of a formula, folded; open, its formulas follow it in the grid (V3-50). */}
       <ul className="grid">
