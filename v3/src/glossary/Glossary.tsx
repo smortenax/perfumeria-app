@@ -3,7 +3,9 @@ import { type CatalogMaterial, MATERIAL_KINDS, type MaterialKind } from "../db/c
 import { normalize } from "../db/search";
 import type { FormulaMarker, FormulaRecord } from "../db/formulas";
 import { listAll, search } from "../db/search";
-import { coloursOf, textColourOf } from "../families/palette";
+import { coloursOf, familyOf, textColourOf } from "../families/palette";
+import { orbLookOf, type OrbScales, orbScalesOf, seedOf } from "./orb/fromCatalog";
+import { MaterialOrb } from "./orb/MaterialOrb";
 import { paletteMarkdown, paletteOf } from "./palette-export";
 import { texts } from "../i18n/en";
 import { type Filters, type IfraState, keepOf, NO_FILTERS } from "./browse";
@@ -87,6 +89,7 @@ export function Glossary({
     choose(TABS[next], true);
   };
 
+  const scales = useMemo(() => orbScalesOf(data.catalog), [data.catalog]);
   const rows = useMemo(() => {
     const keep = keepOf(filters, data.catalog.have, (id) => data.ifraStates.get(id)?.state ?? "no-data");
     return query.trim() ? search(data.index, query, limit, keep) : listAll(data.index, limit, keep);
@@ -230,7 +233,7 @@ export function Glossary({
         <ul className="grid">
           {materials.map((material) => (
             <li key={material.id}>
-              <Tile material={material} data={data} onOpen={onOpen} marking={marking} mark={mark} />
+              <Tile material={material} data={data} scales={scales} onOpen={onOpen} marking={marking} mark={mark} />
             </li>
           ))}
         </ul>
@@ -256,7 +259,7 @@ const initials = (name: string) =>
     .join("");
 
 /** One material's tile: its icon with its abbreviation, its name under it, and what tells it apart (V3-11). */
-function Tile({ material, data, onOpen, marking, mark }: { material: CatalogMaterial; data: GlossaryData; onOpen: (id: string) => void; marking: boolean; mark: Mark }) {
+function Tile({ material, data, scales, onOpen, marking, mark }: { material: CatalogMaterial; data: GlossaryData; scales: OrbScales; onOpen: (id: string) => void; marking: boolean; mark: Mark }) {
   const t = texts.glossary;
   const state = data.ifraStates.get(material.id)?.state ?? "no-data";
   const base = material.basedOnId ? data.catalog.materials.get(material.basedOnId) : undefined;
@@ -264,6 +267,9 @@ function Tile({ material, data, onOpen, marking, mark }: { material: CatalogMate
   const have = data.catalog.have.has(material.id);
   // Its family's colour, light or dark with the theme, or the one fixed for it (V3-38); else neutral.
   const colours = coloursOf(data.catalog, material);
+  const family = familyOf(data.catalog, material);
+  const strength = material.strength ?? base?.strength ?? null;
+  const traits = [family ? texts.sheet.families[family] : null, strength ? t.orb.strength(texts.sheet.strengths[strength]) : null].filter((x) => x).join(" · ");
   const detail =
     material.ownerId === null
       ? [material.form, material.house].filter((x) => x).join(" · ")
@@ -277,7 +283,10 @@ function Tile({ material, data, onOpen, marking, mark }: { material: CatalogMate
       >
         {abbreviation ?? initials(material.name)}
       </span>
+      {/* The material's orb, a still in the corner (prototype, picks §4); what it draws is said in words below. */}
+      <MaterialOrb className="tile-orb" look={orbLookOf(data.catalog, material, scales)} size={32} seed={seedOf(material.id)} />
       <span className="tile-name">{material.name}</span>
+      {traits && <span className="tile-traits">{traits}</span>}
       {detail && <span className="tile-detail">{detail}</span>}
       <span className={`ifra ifra-${state}`} title={texts.ifraStateHelp[state]}>
         {texts.ifraState[state]}

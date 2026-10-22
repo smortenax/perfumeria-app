@@ -1,5 +1,6 @@
 import { type ReactNode, useMemo } from "react";
 import { texts } from "../i18n/en";
+import { OrbHero } from "./OrbHero";
 import { type SheetValue, sheetOf } from "./sheet";
 import type { GlossaryData } from "./useGlossary";
 
@@ -53,6 +54,7 @@ export function MaterialSheet({
               </button>
             )}
           </div>
+          <OrbHero catalog={data.catalog} material={data.catalog.materials.get(id)!} />
           {/* Without hover (step 6.6): what the button does is said, not left to a tooltip. */}
           {!sheet.own && <p className="hint">{texts.editor.makeVersionHint}</p>}
           {versions.length > 0 && (

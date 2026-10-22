@@ -110,6 +110,22 @@ export const texts = {
     versionOf: (name: string) => `your version of «${name}»`,
     back: "Back to the glossary",
     missing: "That material is not in this browser.",
+    /** The material orb (prototype, picks 2026-10-22 §4): what it draws, said in words beside it. */
+    orb: {
+      strength: (s: string) => `${s} strength`,
+      family: "Colour · family",
+      intensity: "Density · strength",
+      diffusion: "Glow · diffusion",
+      luminosity: "Inner light · luminosity",
+      contour: "Contour · type",
+      note: "Weight · note",
+      drift: "Drift · tenacity",
+      byRank: "by rank in the glossary",
+      noData: "no data: drawn neutral",
+      notYet: "not drawn yet",
+      hours: (h: string) => `${h} h on a blotter`,
+      prototype: "Prototype: the orb draws what the glossary says today; it will read the new material sheets (V3-70).",
+    },
   },
   editor: {
     newMaterial: "New material",

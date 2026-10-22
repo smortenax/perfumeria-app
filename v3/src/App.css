@@ -1021,6 +1021,59 @@ form.add label {
   padding-top: calc(var(--app-nav-h) + 1.5rem);
 }
 
+/* The material orb (prototype, picks 2026-10-22 §4): a still in a tile's corner; live at the head of the sheet. */
+.tile-orb {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  border-radius: 8px;
+}
+
+.tile-traits {
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+
+.orb-hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1rem 1.5rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.orb-hero .material-orb {
+  border-radius: 16px;
+}
+
+.orb-facts {
+  flex: 1 1 16rem;
+  min-width: 0;
+}
+
+.orb-facts dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: 0.5rem 1rem;
+}
+
+.orb-facts dt {
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+
+.orb-facts dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.orb-facts dd.unknown {
+  color: var(--muted);
+  font-weight: 400;
+  font-style: italic;
+}
+
 /* An error in the page (audit F-09): in place, or floating above the bottom of the window. */
 .failure {
   display: flex;

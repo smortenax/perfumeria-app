@@ -1322,6 +1322,24 @@ Y, a las opciones de la 3, la 5, la 6 y la 10 (con la recomendación de la sesi�
 - **Primero, la traducción de la app; después, la estandarización de las familias; cuando el estándar esté listo, se muda todo al sistema nuevo** (lo de la app actual y tus datos).
 - **Propuesta de la sesión:** tus nueve familias de la paleta (V3-38) no entran de momento en la lista común de familias del sistema nuevo; siguen en la app actual con su color. Tus propios nombres (el de un material tuyo, una nota, una fórmula) no se traducen: son tuyos.
 
+## V3-72 · El orbe del material: una firma visual por material, en las listas y al frente de la ficha (propuesta de la sesión, 2026-10-22; prototipo, sin confirmar)
+
+**Palabras literales del usuario** (orko kill, 2026-10-22, en el hilo de la auditoría de diseño):
+
+> New feature, as a prototype: the material orb. It replaces the family pie chart on list rows and leads the material sheet (F-13 L3 on the V3-70 sheet).
+
+> Before building beyond the prototype, record the orb as decision V3-n with the owner's words.
+
+Y, recogido en la hoja de elecciones de la auditoría (designVault, `00-inbox/research/2026-10-22-perfumeria-audit-picks.md`, §4): «esto también sirve de guía a cómo hacer las fichas de materiales de una mejor manera, no como los listados de ahora que hay en la app, que son una tabla con letras».
+
+**Lectura** (la sesión, para que la confirmes):
+
+- **Qué es:** cada material tiene un orbe en un marco oscuro. Sus colores son tus nueve familias (V3-38), nunca el código de color de PerfuMate; la densidad del color, la potencia; el halo en el marco, la difusión; la luz de dentro, la luminosidad; el contorno, el tipo (puro = esfera; natural = borde orgánico; absoluto o resinoide = más); el peso, la nota; la deriva, la duración en tira (solo en la ficha).
+- **Reglas:** lo desconocido nunca vale cero (sin dato, el orbe queda neutro y la ficha dice «no data»); el orbe es decorativo (`aria-hidden`) y lo que dibuja también se dice en texto; IFRA y seguridad nunca van en el orbe; en las catas, solo después de revelar el nombre.
+- **Prototipo hecho** (rama `claude/design-audit-fixes`): el código del kit de la bóveda copiado en `v3/src/glossary/orb/` (sin importar nada de la bóveda); una imagen fija en la esquina de cada tarjeta del glosario y el orbe animado al frente de la ficha, con lo que dibuja en texto al lado. Lee los campos de hoy del glosario (familia, fuerza por rango, tipo, nivel, tenacidad) en un solo sitio, `fromCatalog.ts`, que pasará a leer las fichas de V3-70.
+- **Abierto, para el usuario:** cómo se reparten las 24 familias de PerfuMate entre los nueve colores (V3-71 las guarda como las da la fuente) y de dónde sale la luminosidad (una marca de descriptor, como limpio, almizclado o aldehídico, o un valor tuyo por material). Hasta entonces el orbe no dibuja luminosidad ni difusión (la difusión de hoy es texto libre).
+- **No se construye más allá del prototipo** hasta que confirmes esta decisión.
+
 ---
 
 ## Pendientes
