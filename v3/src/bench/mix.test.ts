@@ -16,12 +16,12 @@ const tenth = Ratio.of(1, 10);
 describe("the text of a pour in a mixture", () => {
   it("says the share of each diluent, the first one as what is left", () => {
     const text = pouredText(Ratio.of(G), tenth, "DPG", { material: DILUENTS.alcohol, fraction: Ratio.of(3, 5) });
-    expect(text).toBe("1,000 g al 10 % en DPG 30 % + Alcohol 60 %");
+    expect(text).toBe("1,000 g at 10 % in DPG 30 % + Alcohol 60 %");
   });
 
   it("with one diluent, or none, it is as before", () => {
-    expect(pouredText(Ratio.of(G), tenth, "DPG")).toBe("1,000 g al 10 % en DPG");
-    expect(pouredText(Ratio.of(G), Ratio.ONE, undefined)).toBe("1,000 g, puro");
+    expect(pouredText(Ratio.of(G), tenth, "DPG")).toBe("1,000 g at 10 % in DPG");
+    expect(pouredText(Ratio.of(G), Ratio.ONE, undefined)).toBe("1,000 g, neat");
   });
 });
 

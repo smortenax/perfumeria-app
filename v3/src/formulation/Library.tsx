@@ -1,7 +1,7 @@
 import { type KeyboardEvent, useRef, useState } from "react";
 import { Formulas } from "../glossary/Glossary";
 import type { GlossaryData } from "../glossary/useGlossary";
-import { texts } from "../i18n/es";
+import { texts } from "../i18n/en";
 
 /** The library's tabs (V3-19): your workbenches, and the general folders of the markers. */
 const TABS = ["benches", "accords", "finished"] as const;

@@ -5,7 +5,7 @@ import type { FormulaMarker, FormulaRecord } from "../db/formulas";
 import { listAll, search } from "../db/search";
 import { coloursOf } from "../families/palette";
 import { paletteMarkdown, paletteOf } from "./palette-export";
-import { texts } from "../i18n/es";
+import { texts } from "../i18n/en";
 import { type Filters, type IfraState, keepOf, NO_FILTERS } from "./browse";
 import type { GlossaryData } from "./useGlossary";
 
@@ -57,7 +57,7 @@ export function Glossary({
   };
   const downloadPalette = () => {
     const url = URL.createObjectURL(new Blob([palette()], { type: "text/markdown;charset=utf-8" }));
-    const a = Object.assign(document.createElement("a"), { href: url, download: `mi-paleta-${new Date().toISOString().slice(0, 10)}.md` });
+    const a = Object.assign(document.createElement("a"), { href: url, download: `my-palette-${new Date().toISOString().slice(0, 10)}.md` });
     a.click();
     URL.revokeObjectURL(url);
     setPaletteNote(t.paletteDownloaded(paletteOf(data.catalog).length));

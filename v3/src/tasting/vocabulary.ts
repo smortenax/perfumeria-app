@@ -1,7 +1,7 @@
 /**
  * The tasting's fixed vocabularies (V3-62): every choice from a list is kept as one of these codes,
  * checked by the database (db/schema/tastings.ts builds its CHECKs from here). What you read on
- * screen is apart, in src/i18n/es.ts, so renaming an option never breaks a tasting already made.
+ * screen is apart, in src/i18n/en.ts, so renaming an option never breaks a tasting already made.
  * The lists are the lab's evaluation grid v2 (rejilla de evaluación, 2026-08-04) and P48.
  */
 

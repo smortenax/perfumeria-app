@@ -10,7 +10,7 @@ import {
   STRENGTHS,
   TIERS,
 } from "../db/catalog";
-import { texts } from "../i18n/es";
+import { texts } from "../i18n/en";
 import { decimal } from "./format";
 
 /**

@@ -30,5 +30,5 @@ export function paletteOf(catalog: Catalog): string[] {
 /** The palette as Markdown: a title, how many and when, and one line per material. */
 export function paletteMarkdown(names: readonly string[], date: Date): string {
   const day = date.toISOString().slice(0, 10);
-  return `# Mi paleta\n\n${names.length === 1 ? "1 material" : `${names.length} materiales`} · ${day}\n\n${names.map((n) => `- ${n}`).join("\n")}\n`;
+  return `# My palette\n\n${names.length === 1 ? "1 material" : `${names.length} materials`} · ${day}\n\n${names.map((n) => `- ${n}`).join("\n")}\n`;
 }

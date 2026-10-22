@@ -227,11 +227,11 @@ describe("plan v3, step 6.4: your version of a common material", () => {
     const sheet = sheetOf(catalog, layer, ifra, mine);
     const value = (section: string, label: string) => sheet.sections.find((x) => x.key === section)!.rows.find((r) => r.label === label)!.value;
     expect(value("identity", "CAS")).toMatchObject({ text: "8000-28-0", yours: false });
-    expect(value("identity", "Especie")).toMatchObject({ text: "Lavandula angustifolia", yours: false });
-    expect(value("smell", "Familia")).toMatchObject({ text: "Floral", yours: false });
-    expect(value("smell", "Nivel")).toMatchObject({ text: "Salida-corazón", yours: true });
-    expect(value("bottle", "Tienda")).toMatchObject({ text: "Maese Lab", yours: true });
-    expect(sheet.sections.find((x) => x.key === "doses")!.tables[0].rows.map((r) => r[r.length - 1])).toEqual(["ficha de Maese Lab (tuyo)", "Arctander"]);
+    expect(value("identity", "Species")).toMatchObject({ text: "Lavandula angustifolia", yours: false });
+    expect(value("smell", "Family")).toMatchObject({ text: "Floral", yours: false });
+    expect(value("smell", "Tier")).toMatchObject({ text: "Top-heart", yours: true });
+    expect(value("bottle", "Shop")).toMatchObject({ text: "Maese Lab", yours: true });
+    expect(sheet.sections.find((x) => x.key === "doses")!.tables[0].rows.map((r) => r[r.length - 1])).toEqual(["ficha de Maese Lab (yours)", "Arctander"]);
 
     // Both show, in one row: yours first.
     const rows = search(indexCatalog(catalog), "lavanda");

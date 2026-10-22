@@ -33,7 +33,7 @@ import type { IfraLayer, IfraStandard } from "./ifra-layer";
  *   one keeps its ceiling; one the data do not place carries a pending requirement.
  */
 
-export const NO_DATA = "Sin datos de sus constituyentes: puede llevar sustancias con techo.";
+export const NO_DATA = "No data on its constituents: it may contain substances with a ceiling.";
 export const CATEGORY = "4";
 
 const RANK: Readonly<Record<Authority, number>> = { lot: 0, product: 1, ifra: 2, literature: 3, consensus: 4 };
@@ -180,8 +180,8 @@ function ifraRegulations(layer: IfraLayer, identity: Identity): Regulation[] {
     if (variant === "unknown") {
       out.push(row("requirement", {
         id: `ifra:${code}:variant`,
-        groupKey: `${s.groupKey} · variante`,
-        requirement: `No es la variante prohibida: «${(s.prohibitionNote ?? "").trim()}»`,
+        groupKey: `${s.groupKey} · variant`,
+        requirement: `Not the prohibited variant: «${(s.prohibitionNote ?? "").trim()}»`,
       }));
     }
   }
@@ -208,7 +208,7 @@ function annexOf(layer: IfraLayer, identity: Identity): Component[] {
     source,
   });
   if (own !== undefined) {
-    return entries.filter((e) => e.naturalName === own).map((e) => component(e, "ifra", `IFRA, anexo de naturales: ${own}`));
+    return entries.filter((e) => e.naturalName === own).map((e) => component(e, "ifra", `IFRA, naturals annex: ${own}`));
   }
   // V3-28: borrowed from the other forms with its CAS, the most of each: literature, never «inside».
   const most = new Map<string, (typeof entries)[number]>();
@@ -217,7 +217,7 @@ function annexOf(layer: IfraLayer, identity: Identity): Component[] {
     const before = most.get(key);
     if (!before || e.concentration.cmp(before.concentration) > 0) most.set(key, e);
   }
-  return [...most.values()].map((e) => component(e, "literature", `IFRA, anexo de naturales: prestada por CAS de «${e.naturalName}»`));
+  return [...most.values()].map((e) => component(e, "literature", `IFRA, naturals annex: borrowed by CAS from «${e.naturalName}»`));
 }
 
 /** V3-27: a member of a standard limited as one of its constituents carries it, how much not known until a document says. */
@@ -233,7 +233,7 @@ function constituentsOf(layer: IfraLayer, identity: Identity): Component[] {
       componentName: s.limitExpressedAs,
       amount: { kind: "unknown" },
       authority: "ifra",
-      source: `IFRA ${s.amendment}, ${s.code}: el límite es del ${s.limitExpressedAs} en el producto terminado (V3-27)`,
+      source: `IFRA ${s.amendment}, ${s.code}: the limit is of ${s.limitExpressedAs} in the finished product (V3-27)`,
     });
   }
   return out;
@@ -422,10 +422,10 @@ export function toIfra(catalog: Catalog, layer: IfraLayer): IfraData {
           const key = `tope:${member.id}`;
           substances.set(key, {
             key,
-            name: `${member.name} (tope de ${supplier ?? "su fabricante"})`,
+            name: `${member.name} (cap from ${supplier ?? "its manufacturer"})`,
             limit: r.maxValue!,
             amendment: "",
-            supplier: supplier ?? "fabricante",
+            supplier: supplier ?? "manufacturer",
           });
           entries.push(load.known ? { key, fraction: load.known } : { key, fraction: null, upper: load.upper });
         } else if (r.kind === "max") {
@@ -436,13 +436,13 @@ export function toIfra(catalog: Catalog, layer: IfraLayer): IfraData {
           if (asItself) {
             // A prohibition with nothing else: the material is prohibited as such.
             const key = `prohibido:${groupOf(r)}`;
-            substances.set(key, { key, name: `${member.name}, como tal`, limit: Ratio.ZERO, amendment: r.source });
+            substances.set(key, { key, name: `${member.name}, as such`, limit: Ratio.ZERO, amendment: r.source });
             entries.push({ key, fraction: Ratio.ONE });
           } else if (!mine.some((c) => c.kind === "max" && c.regime === "ifra" && groupOf(c) === groupOf(r))) {
-            pending.push(`${member.name}: prohibido como tal; lo que trae este material no tiene techo en los datos (${groupOf(r)}).`);
+            pending.push(`${member.name}: prohibited as such; what this material brings has no ceiling in the data (${groupOf(r)}).`);
           } else if (flat.outsideNaturals.has(memberId)) {
             // V3-30: its ceiling is for what a natural brings; put straight into a mixture, it is used as such.
-            pending.push(`${member.name}: prohibido como tal; aquí no llega dentro de un natural, y su techo es solo para lo que traen los naturales (${groupOf(r)}).`);
+            pending.push(`${member.name}: prohibited as such; here it does not come inside a natural, and its ceiling is only for what naturals bring (${groupOf(r)}).`);
           }
           // V3-30: inside a natural, a substance prohibited as such counts against its standard's ceiling.
         }
@@ -454,11 +454,11 @@ export function toIfra(catalog: Catalog, layer: IfraLayer): IfraData {
           if (state === "accredited") {
             conditions.push(`${what} (${group})`);
           } else if (state === "assumed") {
-            const text = `${what} (${group}): supuesta, no acreditada`;
+            const text = `${what} (${group}): assumed, not proven`;
             conditions.push(text);
             assumed.push(text);
           } else {
-            pending.push(`${member.name}: ${what}: no está acreditado (${group}).`);
+            pending.push(`${member.name}: ${what}: not proven (${group}).`);
           }
         }
       }

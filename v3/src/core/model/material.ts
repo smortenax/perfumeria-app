@@ -56,6 +56,6 @@ export const DILUENTS = {
   ipm: { key: "solv:ipm", kind: "base", name: "IPM", solvent: true },
   dep: { key: "solv:dep", kind: "base", name: "DEP", solvent: true },
   tec: { key: "solv:tec", kind: "base", name: "TEC", solvent: true },
-  triacetina: { key: "solv:triacetina", kind: "base", name: "Triacetina", solvent: true },
-  bb: { key: "solv:bb", kind: "base", name: "Benzoato de bencilo", solvent: true },
+  triacetina: { key: "solv:triacetina", kind: "base", name: "Triacetin", solvent: true },
+  bb: { key: "solv:bb", kind: "base", name: "Benzyl benzoate", solvent: true },
 } as const satisfies Record<string, Material>;

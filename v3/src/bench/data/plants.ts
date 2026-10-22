@@ -11,34 +11,34 @@ export const FORM_ORDER = ["oil", "absolute", "concrete", "extract", "resinoid",
 
 const FORM_WORDS = new Set(["oil", "absolute", "concrete", "extract", "resinoid", "oleoresin", "tincture", "distillate", "terpenes", "gum", "resin", "essential", "co2"]);
 
-/** What a variant says, in Spanish where the trade has a usual word for it; the rest as the glossary has it. */
+/** What a variant says, in plain English words; the rest as the glossary has it. */
 const VARIANT_WORDS: ReadonlyArray<readonly [RegExp, string]> = [
-  [/\bsuper low coumarins?\b/i, "muy bajo en cumarina"],
-  [/\blow coumarins?\b/i, "bajo en cumarina"],
-  [/\bterpeneless\b/i, "sin terpenos"],
-  [/\brectified\b/i, "rectificado"],
-  [/\bfolded\b/i, "plegado"],
-  [/\bexpressed\b/i, "exprimido"],
-  [/\bdistilled\b/i, "destilado"],
-  [/\bpyrogenated\b/i, "pirogenado"],
-  [/\bdecolou?rized\b/i, "decolorado"],
+  [/\bsuper low coumarins?\b/i, "super low coumarin"],
+  [/\blow coumarins?\b/i, "low coumarin"],
+  [/\bterpeneless\b/i, "terpeneless"],
+  [/\brectified\b/i, "rectified"],
+  [/\bfolded\b/i, "folded"],
+  [/\bexpressed\b/i, "expressed"],
+  [/\bdistilled\b/i, "distilled"],
+  [/\bpyrogenated\b/i, "pyrogenated"],
+  [/\bdecolou?rized\b/i, "decolorized"],
 ];
 
 /** A form as the chip says it. */
 export function formLabel(form: string): string {
   const labels: Record<string, string> = {
-    oil: "aceite",
-    absolute: "absoluto",
-    concrete: "concreto",
-    extract: "extracto",
-    resinoid: "resinoide",
-    oleoresin: "oleorresina",
-    tincture: "tintura",
-    distillate: "destilado",
-    terpenes: "terpenos",
-    gum: "goma",
-    resin: "resina",
-    "": "sin forma",
+    oil: "oil",
+    absolute: "absolute",
+    concrete: "concrete",
+    extract: "extract",
+    resinoid: "resinoid",
+    oleoresin: "oleoresin",
+    tincture: "tincture",
+    distillate: "distillate",
+    terpenes: "terpenes",
+    gum: "gum",
+    resin: "resin",
+    "": "no form",
   };
   return labels[form] ?? form;
 }

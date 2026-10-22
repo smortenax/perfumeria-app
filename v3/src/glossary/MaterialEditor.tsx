@@ -14,7 +14,7 @@ import {
 } from "../db/materials";
 import { search } from "../db/search";
 import { effective } from "../db/to-ifra";
-import { texts } from "../i18n/es";
+import { texts } from "../i18n/en";
 import { changesOf, EDIT_SECTIONS, type Form, formOf, FormError, inheritedForm, numberOf } from "./edit";
 import { percent } from "./format";
 import type { GlossaryData } from "./useGlossary";

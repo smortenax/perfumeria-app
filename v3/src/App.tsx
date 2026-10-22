@@ -18,7 +18,7 @@ import { MaterialTastings } from "./tasting/MaterialTastings";
 import { tasteMaterial } from "./tasting/start";
 import { type Tab as TastingTab, Tasting } from "./tasting/Tasting";
 import { useTastings } from "./tasting/useTastings";
-import { texts } from "./i18n/es";
+import { texts } from "./i18n/en";
 
 /**
  * Who is using the app decides what opens (plan step 1.7): without a session, signing in;

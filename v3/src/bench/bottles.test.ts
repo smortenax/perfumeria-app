@@ -55,6 +55,6 @@ describe("your bottles in the add bar (V3-67)", () => {
 
   it("says a pour in three diluents with each one's share", () => {
     const text = pouredText(Ratio.of(1_000_000n), pct("10"), "DPG", { material: DILUENTS.alcohol, fraction: pct("30") }, [{ material: DILUENTS.ipm, fraction: pct("20") }]);
-    expect(text).toBe("1,000 g al 10 % en DPG 40 % + Alcohol 30 % + IPM 20 %");
+    expect(text).toBe("1,000 g at 10 % in DPG 40 % + Alcohol 30 % + IPM 20 %");
   });
 });

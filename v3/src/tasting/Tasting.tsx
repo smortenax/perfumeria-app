@@ -8,7 +8,7 @@ import {
 import { bottleText } from "../dilution/Dilutions";
 import { percent } from "../glossary/format";
 import type { GlossaryData } from "../glossary/useGlossary";
-import { texts } from "../i18n/es";
+import { texts } from "../i18n/en";
 import { blockState, buildQueue, tastable, changedBlocks, countdown, dueMoments, latestDilution, legacyTasted, nextWaiting, tenacity } from "./logic";
 import { tasteMaterial } from "./start";
 import { useNow } from "./useTastings";
@@ -24,7 +24,7 @@ export type Tab = (typeof TABS)[number];
 
 const when = (iso: string) => {
   const d = new Date(iso);
-  return Number.isNaN(d.getTime()) ? "" : d.toLocaleString("es-ES", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+  return Number.isNaN(d.getTime()) ? "" : d.toLocaleString("en-GB", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
 };
 const dilutionText = (s: Pick<TastingStrip, "fraction" | "solvent">) =>
   s.fraction?.eq(Ratio.ONE) && !s.solvent ? t.pure : s.fraction ? t.dilutionOf(percent(s.fraction, 4), s.solvent) : (s.solvent ?? t.unknownDilution);

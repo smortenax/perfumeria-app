@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { powerSyncEndpoint } from "./db/connector";
 import type { LocalDatabase } from "./db/local/database";
-import { texts } from "./i18n/es";
+import { texts } from "./i18n/en";
 
 interface Counts {
   readonly common: number;
@@ -85,7 +85,7 @@ export function SyncStatus({ local }: { local: LocalDatabase }) {
   return (
     <section className="status-panel">
       <p className={connected && reachable ? "status ok" : "status off"}>{connected && reachable ? t.connected : t.offline}</p>
-      <p className="status">{lastSynced ? t.lastSynced(lastSynced.toLocaleString("es-ES", { dateStyle: "short", timeStyle: "short" })) : t.neverSynced}</p>
+      <p className="status">{lastSynced ? t.lastSynced(lastSynced.toLocaleString("en-GB", { dateStyle: "short", timeStyle: "short" })) : t.neverSynced}</p>
       <p className="status">{t.materials(counts.common, counts.own)}</p>
       <p className="status">{counts.dataCommit ? t.data(counts.dataCommit.slice(0, 7)) : t.noData}</p>
       <p className="status">{t.pending(pending)}</p>

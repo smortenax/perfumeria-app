@@ -199,7 +199,7 @@ describe("prohibitions, requirements and a manufacturer's ceiling (V3-25, V3-30,
     const data = toIfra(catalog, layer);
     expect(data.materials.get("musk")!.substances).toEqual([{ key: "prohibido:STD_MUSK", fraction: Ratio.ONE }]);
     expect(data.substances.get("prohibido:STD_MUSK")!.limit.isZero()).toBe(true);
-    expect(data.materials.get("blend")!.pending?.[0]).toContain("prohibido como tal");
+    expect(data.materials.get("blend")!.pending?.[0]).toContain("prohibited as such");
     expect(ifraCard(catalog, layer, "musk")).toEqual({ state: "prohibited" });
   });
 
@@ -220,7 +220,7 @@ describe("prohibitions, requirements and a manufacturer's ceiling (V3-25, V3-30,
     expect(data.materials.get("cistus")!.pending).toBeUndefined();
     expect(substancesOf(catalog, layer, "accord")).toEqual([["std:STD_154", "1/100000", null]]);
     expect(data.materials.get("accord")!.pending).toBeUndefined();
-    expect(data.materials.get("blend")!.pending?.[0]).toContain("prohibido como tal");
+    expect(data.materials.get("blend")!.pending?.[0]).toContain("prohibited as such");
   });
 
   it("the cade: only IFRA's requirement is pending; a consensus assumes it; a product's document accredits it", () => {
@@ -230,8 +230,8 @@ describe("prohibitions, requirements and a manufacturer's ceiling (V3-25, V3-30,
     const proven = material("proven", "natural", { ownerId: ME, basedOnId: "cade", regulations: [claim("STD_119", "product")] });
     const catalog = catalogOf(cade, mine, proven);
     const data = toIfra(catalog, layer);
-    expect(data.materials.get("cade")!.pending).toEqual([NO_DATA, "cade: rectificado: no está acreditado (STD_119)."]);
-    expect(data.materials.get("mine")!.assumed).toEqual(["rectificado (STD_119): supuesta, no acreditada"]);
+    expect(data.materials.get("cade")!.pending).toEqual([NO_DATA, "cade: rectificado: not proven (STD_119)."]);
+    expect(data.materials.get("mine")!.assumed).toEqual(["rectificado (STD_119): assumed, not proven"]);
     expect(data.materials.get("proven")!.conditions).toEqual(["rectificado (STD_119)"]);
     // V3-25: never «prohibited» for the rectified; its own state, with its condition.
     expect(ifraCard(catalog, layer, "cade")).toEqual({ state: "requirement", requirement: "pending", what: "rectificado" });
@@ -271,7 +271,7 @@ describe("prohibitions, requirements and a manufacturer's ceiling (V3-25, V3-30,
     });
     const data = toIfra(catalogOf(ambrinol), layerOf([]));
     expect(data.materials.get("ambrinol")!.substances).toEqual([{ key: "tope:ambrinol", fraction: Ratio.ONE }]);
-    expect(data.substances.get("tope:ambrinol")).toMatchObject({ supplier: "Symrise", name: "ambrinol (tope de Symrise)" });
+    expect(data.substances.get("tope:ambrinol")).toMatchObject({ supplier: "Symrise", name: "ambrinol (cap from Symrise)" });
   });
 });
 
@@ -302,7 +302,7 @@ describe("a standard that prohibits a variant (V3-31)", () => {
 
   it("one the data do not place keeps its ceiling and, apart, «not the prohibited variant», pending", () => {
     const data = toIfra(catalog, layer).materials.get("unknown")!;
-    expect(data.pending).toContain("unknown: No es la variante prohibida: «Tagetes erecta should not be used»: no está acreditado (STD_097 · variante).");
+    expect(data.pending).toContain("unknown: Not the prohibited variant: «Tagetes erecta should not be used»: not proven (STD_097 · variant).");
     expect(data.substances).toEqual([{ key: "std:STD_097", fraction: Ratio.ONE }]);
   });
 });

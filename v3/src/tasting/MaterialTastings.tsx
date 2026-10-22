@@ -1,12 +1,12 @@
 import type { Tastings } from "../db/tastings";
 import type { GlossaryData } from "../glossary/useGlossary";
-import { texts } from "../i18n/es";
+import { texts } from "../i18n/en";
 import { legacyTasted, tenacity } from "./logic";
 
 const t = texts.tasting;
 const when = (iso: string) => {
   const d = new Date(iso);
-  return Number.isNaN(d.getTime()) ? "" : d.toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric" });
+  return Number.isNaN(d.getTime()) ? "" : d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
 };
 
 /**

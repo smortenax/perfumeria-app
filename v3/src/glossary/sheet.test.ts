@@ -106,17 +106,17 @@ describe("the sheet of a common material (6.2)", () => {
   });
 
   it("each value with its notes; what nobody says is null, never empty or zero", () => {
-    expect(row(s, "identity", "Abreviatura")).toMatchObject({ text: "Cou", notes: ["tuya"] });
-    expect(row(s, "smell", "Tenacidad")).toMatchObject({ text: "400 h en papel, puro", notes: ["según TGSC"] });
-    expect(row(s, "physical", "Densidad").text).toBe("0,935 g/ml");
+    expect(row(s, "identity", "Abbreviation")).toMatchObject({ text: "Cou", notes: ["yours"] });
+    expect(row(s, "smell", "Tenacity")).toMatchObject({ text: "400 h on paper, neat", notes: ["according to TGSC"] });
+    expect(row(s, "physical", "Density").text).toBe("0,935 g/ml");
     expect(row(s, "identity", "INCI").text).toBeNull();
-    expect(row(s, "smell", "Familia").text).toBe("Transformado");
+    expect(row(s, "smell", "Family").text).toBe("Transformed");
   });
 
   it("a datum in dispute says so, also when it is not known (V3-17)", () => {
-    expect(row(s, "smell", "Tenacidad").disputed).toBe(true);
-    expect(row(s, "smell", "Intensidad")).toMatchObject({ text: null, disputed: true });
-    expect(row(s, "smell", "Nivel").disputed).toBe(false);
+    expect(row(s, "smell", "Tenacity").disputed).toBe(true);
+    expect(row(s, "smell", "Strength")).toMatchObject({ text: null, disputed: true });
+    expect(row(s, "smell", "Tier").disputed).toBe(false);
   });
 
   it("its IFRA: its own state and its standard with the limit of category 4", () => {
@@ -125,11 +125,11 @@ describe("the sheet of a common material (6.2)", () => {
     expect(table.rows).toHaveLength(1);
     expect(table.rows[0][0]).toBe("STD 051 Coumarin");
     expect(table.rows[0][1]).toBe("100 %");
-    expect(table.rows[0][2]).toMatch(/^1,6 % del producto terminado/);
+    expect(table.rows[0][2]).toMatch(/^1,6 % of the finished product/);
   });
 
   it("its doses, with their base and authority", () => {
-    expect(s.sections.find((x) => x.key === "doses")!.tables[0].rows).toEqual([["0,5 %", "—", "10 %", "% del concentrado", "literatura", "", "", "Arctander"]]);
+    expect(s.sections.find((x) => x.key === "doses")!.tables[0].rows).toEqual([["0,5 %", "—", "10 %", "% of the concentrate", "literature", "", "", "Arctander"]]);
   });
 });
 
@@ -137,11 +137,11 @@ describe("the composition says how much and who says it", () => {
   it("a range, a figure unknown; and a material without one says so", () => {
     const table = sheet("ton").sections.find((x) => x.key === "composition")!.tables[0];
     expect(table.rows).toEqual([
-      ["Coumarin · 91-64-5", "20 % – 40 %", "producto", "certificado"],
-      ["Dihydrocoumarin · 119-84-6", "lo lleva, sin cifra", "producto", "certificado"],
+      ["Coumarin · 91-64-5", "20 % – 40 %", "product", "certificado"],
+      ["Dihydrocoumarin · 119-84-6", "contains it, no figure", "product", "certificado"],
     ]);
     const empty = sheet("cou").sections.find((x) => x.key === "composition")!.tables[0];
-    expect([empty.rows, empty.empty]).toEqual([[], "Su registro no da composición (lo que dice el anexo de IFRA va en IFRA)."]);
+    expect([empty.rows, empty.empty]).toEqual([[], "Its record gives no composition (what IFRA's annex says goes under IFRA)."]);
   });
 });
 
@@ -149,18 +149,18 @@ describe("your version (V3-5): the common material's record with yours over it",
   const s = sheet("my-cou");
 
   it("says whose it is, and adds your bottle and your lab", () => {
-    expect(row(s, "identity", "De quién").text).toBe("tu versión de «Cumarina»");
+    expect(row(s, "identity", "Whose").text).toBe("your version of «Cumarina»");
     expect(s.sections.map((x) => x.key)).toEqual(["identity", "bottle", "smell", "physical", "composition", "ifra", "doses", "descriptors", "relations", "references", "lab", "notes"]);
-    expect(row(s, "bottle", "Página")).toMatchObject({ text: "https://example.test/coumarin", link: "https://example.test/coumarin" });
-    expect(row(s, "lab", "Ejes").text).toBe("dulce · heno");
+    expect(row(s, "bottle", "Page")).toMatchObject({ text: "https://example.test/coumarin", link: "https://example.test/coumarin" });
+    expect(row(s, "lab", "Axes").text).toBe("dulce · heno");
     expect(s.sections.find((x) => x.key === "lab")!.tables[0].rows).toEqual([["10 %", "DPG", "2026-09-01", ""]]);
   });
 
   it("inherits what it does not say, and marks what is yours", () => {
     expect(row(s, "identity", "CAS")).toMatchObject({ text: "91-64-5", yours: false });
     // The same value as its common material's is inherited, not yours.
-    expect(row(s, "identity", "Abreviatura")).toMatchObject({ text: "Cou", yours: false, notes: ["tuya"] });
-    expect(row(s, "notes", "Notas")).toMatchObject({ text: "Comprada en 2026.", yours: true, notes: ["tuyo"] });
+    expect(row(s, "identity", "Abbreviation")).toMatchObject({ text: "Cou", yours: false, notes: ["yours"] });
+    expect(row(s, "notes", "Notes")).toMatchObject({ text: "Comprada en 2026.", yours: true, notes: ["yours"] });
     expect(s.sections.find((x) => x.key === "doses")!.tables[0].rows).toHaveLength(1);
     expect(s.ifra.state).toBe("ceiling");
   });

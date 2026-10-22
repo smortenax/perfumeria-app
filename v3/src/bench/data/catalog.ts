@@ -282,7 +282,7 @@ export function buildCatalog(files: CatalogFiles): Catalog {
   const prohibited = (key: string): string => {
     const id = `prohibido:${key}`;
     if (!substances.has(id)) {
-      substances.set(id, { key: id, name: `${standards.get(key)?.nombre ?? key}, como tal`, limit: Ratio.ZERO, amendment, ...casField(key) });
+      substances.set(id, { key: id, name: `${standards.get(key)?.nombre ?? key}, as such`, limit: Ratio.ZERO, amendment, ...casField(key) });
     }
     return id;
   };
@@ -292,7 +292,7 @@ export function buildCatalog(files: CatalogFiles): Catalog {
   const capByCas = new Map<string, string>();
   for (const c of files.topesProveedor ? parseCsvRecords(files.topesProveedor) : []) {
     const key = `prov:${c.cas}`;
-    substances.set(key, { key, name: `${c.sustancia} (tope de ${c.fabricante})`, limit: pct(c.limite_pct), amendment: "", cas: [c.cas], supplier: c.fabricante });
+    substances.set(key, { key, name: `${c.sustancia} (cap from ${c.fabricante})`, limit: pct(c.limite_pct), amendment: "", cas: [c.cas], supplier: c.fabricante });
     capByCas.set(c.cas, key);
   }
   const capsInside = new Map<string, Map<string, Ratio>>();
@@ -364,25 +364,25 @@ export function buildCatalog(files: CatalogFiles): Catalog {
           list.push({ key: `std:${key}`, fraction: worst });
         }
       } else if (s?.prohibicion && s.cat_4 === "") {
-        pending.push(`${s.nombre}: prohibido como tal; lo que trae este natural no tiene techo en los datos (${short(key)}).`);
+        pending.push(`${s.nombre}: prohibited as such; what this natural brings has no ceiling in the data (${short(key)}).`);
       }
     }
     for (const { name, certificate } of outside.get(m.id) ?? []) {
       pending.push(
         certificate
-          ? `${name}: su certificado la declara regulada, pero no tiene estándar en los datos de IFRA.`
-          : `${name}: el anexo lo da como regulado, pero no está en el índice de IFRA.`,
+          ? `${name}: its certificate declares it regulated, but it has no standard in IFRA's data.`
+          : `${name}: the annex gives it as regulated, but it is not in IFRA's index.`,
       );
     }
     if (state === "sin-dato" || all.includes(NO_CONSTITUENT_DATA)) {
       pending.push(
         supplied.has(m.id)
-          ? "Fuera del anexo de IFRA: solo constan las sustancias que declara su proveedor, y puede llevar otras con techo."
-          : "Sin datos de sus constituyentes en el anexo de IFRA: puede llevar sustancias con techo.",
+          ? "Outside IFRA's annex: only the substances its supplier declares are recorded, and it may contain others with a ceiling."
+          : "No data on its constituents in IFRA's annex: it may contain substances with a ceiling.",
       );
     }
     if (supplied.has(m.id)) {
-      conditions.push("Incluye constituyentes declarados por proveedores (auditados), donde el anexo de IFRA no los da.");
+      conditions.push("Includes constituents declared by suppliers (audited), where IFRA's annex does not give them.");
     }
     // A manufacturer's ceiling (P62): whole in a material of that CAS, else as its certificate declares it.
     const ownCap = capByCas.get(m.cas);

@@ -157,7 +157,7 @@ describe("the two readings agree with the reckoning by hand (8.4)", () => {
     expect(panel(report)).toEqual({ asIs: "No", maxUse: "7,50 %" });
     // The panel's switch to the other base reads it as it is now.
     const html = renderToStaticMarkup(createElement(IfraSummary, { report, empty: false, base: "now" }));
-    expect(html).toContain(">Sí<");
+    expect(html).toContain(">Yes<");
   });
 });
 

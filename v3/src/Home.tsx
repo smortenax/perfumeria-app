@@ -1,7 +1,7 @@
 import type { Tastings } from "./db/tastings";
 import type { GlossaryData } from "./glossary/useGlossary";
 import { buildQueue } from "./tasting/logic";
-import { texts } from "./i18n/es";
+import { texts } from "./i18n/en";
 
 /**
  * The landing (plan v3, step 8.1): the parts of the app (and «Catas», V3-60), side by side, each opened from here;
@@ -52,7 +52,7 @@ export function Home({
         <li>
           <button type="button" className="launch-card" onClick={onTasting}>
             <span className="launch-icon tasting" aria-hidden="true">
-              C
+              E
             </span>
             <span className="launch-name">{texts.tasting.title}</span>
             <span className="launch-detail">{queue ? texts.tasting.homeDetail(queue.pending, openSessions) : texts.glossary.loading}</span>

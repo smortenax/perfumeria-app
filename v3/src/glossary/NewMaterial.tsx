@@ -2,7 +2,7 @@ import { type FormEvent, useState } from "react";
 import type { MaterialKind } from "../db/catalog";
 import type { LocalDatabase } from "../db/local/database";
 import { createMaterial } from "../db/materials";
-import { texts } from "../i18n/es";
+import { texts } from "../i18n/en";
 import { CREATABLE_KINDS } from "./edit";
 
 /**

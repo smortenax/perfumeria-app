@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { signIn, signInForTesting, type SignedInUser } from "./db/client";
-import { texts } from "./i18n/es";
+import { texts } from "./i18n/en";
 
 /** The one-click sign-in of the test phase (vite.config.ts); none where Vite did not define it. */
 // Yours on the address you use (localhost); the test account only on [::1], where the session tests:

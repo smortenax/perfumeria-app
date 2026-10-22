@@ -1,5 +1,5 @@
 import { type ReactNode, useMemo } from "react";
-import { texts } from "../i18n/es";
+import { texts } from "../i18n/en";
 import { type SheetValue, sheetOf } from "./sheet";
 import type { GlossaryData } from "./useGlossary";
 

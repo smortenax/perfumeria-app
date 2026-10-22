@@ -5,7 +5,7 @@ import { changesOf, EDIT_SECTIONS, formOf, FormError, inheritedForm, numberOf } 
 
 /**
  * Plan v3, step 6.3: the editor's form of one of your materials, read back into its record. A
- * number is exact, an empty field is unknown, and what cannot be read says so in Spanish.
+ * number is exact, an empty field is unknown, and what cannot be read says so in plain words.
  */
 
 const FIELDS: MaterialFields = {
@@ -50,12 +50,12 @@ describe("the editor's form (6.3)", () => {
     expect(changes.evolution).toEqual([null, 2, null, null, null]);
   });
 
-  it("what cannot be read is refused, in Spanish", () => {
+  it("what cannot be read is refused, and it says why", () => {
     expect(() => changesOf({ ...formOf(mine), name: "  " }, mine)).toThrow(FormError);
-    expect(() => changesOf({ ...formOf(mine), cas: "91645" }, mine)).toThrow("no es un CAS");
-    expect(() => changesOf({ ...formOf(mine), otherCas: "91-64-5\nfoo" }, mine)).toThrow("«foo» no es un CAS");
-    expect(() => changesOf({ ...formOf(mine), tenacityHours: "mucho" }, mine)).toThrow("«mucho» no es un número");
-    expect(() => changesOf({ ...formOf(mine), color: "red" }, mine)).toThrow("no es un color");
+    expect(() => changesOf({ ...formOf(mine), cas: "91645" }, mine)).toThrow("is not a CAS");
+    expect(() => changesOf({ ...formOf(mine), otherCas: "91-64-5\nfoo" }, mine)).toThrow("«foo» is not a CAS");
+    expect(() => changesOf({ ...formOf(mine), tenacityHours: "lots" }, mine)).toThrow("«lots» is not a number");
+    expect(() => changesOf({ ...formOf(mine), color: "red" }, mine)).toThrow("is not a colour");
     expect(numberOf("1,5")!.eq(Ratio.fromDecimal("1.5"))).toBe(true);
   });
 

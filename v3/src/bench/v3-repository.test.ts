@@ -38,12 +38,12 @@ const ethanol = material("eth-id", "Etanol", { solvent: true });
 const accord = material("acc", "Corazón", { ownerId: ME, kind: "frozen", source: { formulaId: "f1", eventId: "e1" } });
 
 describe("the v3's catalog in the bar (8.2)", () => {
-  it("your version of a common is one row with it, yours as a maker's product, by its supplier or as «tu versión» (P62)", () => {
+  it("your version of a common is one row with it, yours as a maker's product, by its supplier or as «your version» (P62)", () => {
     const repository = repositoryOfV3(dataOf([hedione, myHedione, linalool, myLinalool]));
     const makers = makerIndex(repository.entries);
     expect(makers.get("hed")?.map((e) => e.material.key)).toEqual(["hed", "my-hed"]);
     expect(makers.get("hed")?.[1].maker?.name).toBe("Perfumiarz");
-    expect(makers.get("lin")?.[1].maker?.name).toBe("tu versión");
+    expect(makers.get("lin")?.[1].maker?.name).toBe("your version");
     // Inherited from its common: what the version does not say.
     expect(repository.get("my-hed")?.code).toBe("MDJ");
     expect(repository.get("my-hed")?.cas).toBe("24851-98-7");

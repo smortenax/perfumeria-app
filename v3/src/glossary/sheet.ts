@@ -3,7 +3,7 @@ import type { IfraData } from "../core/ifra";
 import type { Amount, Catalog, CatalogMaterial, Component } from "../db/catalog";
 import type { IfraLayer } from "../db/ifra-layer";
 import { effective, ifraCard, type IfraCardState } from "../db/to-ifra";
-import { texts } from "../i18n/es";
+import { texts } from "../i18n/en";
 import { decimal, percent } from "./format";
 
 /**

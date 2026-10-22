@@ -34,6 +34,6 @@ describe("the palette of your materials", () => {
   });
 
   it("as Markdown: a title, how many and when, one line each", () => {
-    expect(paletteMarkdown(["A", "B"], new Date("2026-10-15T12:00:00Z"))).toBe("# Mi paleta\n\n2 materiales · 2026-10-15\n\n- A\n- B\n");
+    expect(paletteMarkdown(["A", "B"], new Date("2026-10-15T12:00:00Z"))).toBe("# My palette\n\n2 materials · 2026-10-15\n\n- A\n- B\n");
   });
 });

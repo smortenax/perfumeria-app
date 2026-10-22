@@ -5,7 +5,7 @@ import { archiveBottle, type BottleInput, createBottle, describeBottle, updateBo
 import type { LocalDatabase } from "../db/local/database";
 import { percent } from "../glossary/format";
 import type { GlossaryData } from "../glossary/useGlossary";
-import { texts } from "../i18n/es";
+import { texts } from "../i18n/en";
 import { bottleOf, plan, storedBottle } from "./calc";
 import "./dilutions.css";
 
@@ -37,7 +37,7 @@ export function bottleText(data: GlossaryData, d: Dilution): string {
       ? d.solvent
         ? t.inWords(d.solvent)
         : ""
-      : `en ${d.diluents.map((x, i) => (d.diluents.length > 1 && i < d.diluents.length - 1 ? `${name(x.diluentId)} ${percent(x.fraction, 2)}` : name(x.diluentId))).join(" y ")}`;
+      : `in ${d.diluents.map((x, i) => (d.diluents.length > 1 && i < d.diluents.length - 1 ? `${name(x.diluentId)} ${percent(x.fraction, 2)}` : name(x.diluentId))).join(" and ")}`;
   return [d.label, exact, diluents].filter((x) => x).join(" · ");
 }
 
@@ -201,7 +201,7 @@ function BottleEditor({
       );
       setMaterialGrams(gramsText(p.materialUg));
       setRows(rows.map((r) => ({ ...r, grams: gramsText(p.diluents.find((d) => d.diluentId === r.diluentId)?.massUg ?? 0n) })));
-      if (!label.trim()) setLabel(`al ${target.trim()} %`);
+      if (!label.trim()) setLabel(`at ${target.trim()} %`);
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
     }
