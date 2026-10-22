@@ -23,7 +23,7 @@
     --blue-bg: #e3ebf3;
     --red: #a32d2d;
     --red-bg: #f7e1de;
-    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-family: var(--font-sans);
     font-size: 13px;
     line-height: 1.4;
     color: var(--ink);
@@ -69,7 +69,7 @@
   }
 
   .num {
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-family: var(--font-mono);
     font-variant-numeric: tabular-nums;
   }
 
@@ -815,7 +815,7 @@
   }
 
   .result-name .trade-code {
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-family: var(--font-mono);
     font-size: 11px;
     font-weight: 500;
     color: var(--ink-2);
@@ -832,7 +832,7 @@
     padding: 2px 5px;
     border: 1px solid var(--line);
     border-radius: 6px;
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-family: var(--font-mono);
     font-size: 11px;
     text-align: center;
   }
@@ -1165,7 +1165,7 @@
     justify-content: center;
     border: 1px solid var(--line);
     border-radius: 10px;
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-family: var(--font-mono);
     font-size: 14px;
     font-weight: 500;
     letter-spacing: -0.02em;
@@ -1447,7 +1447,7 @@
     justify-content: space-between;
     gap: 4px;
     margin-top: 4px;
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-family: var(--font-mono);
     font-size: 9.5px;
     line-height: 12px;
     color: var(--muted);
@@ -2079,7 +2079,7 @@
     justify-content: center;
     border: 1px solid var(--line);
     border-radius: 8px;
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-family: var(--font-mono);
     font-size: 11px;
     font-weight: 500;
     letter-spacing: -0.02em;

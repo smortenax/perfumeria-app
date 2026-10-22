@@ -10,8 +10,12 @@
   --text: #1f1d1a;
   --muted: #6b665e;
   --accent: #8a5a2b;
+  /* One font stack for the shell and the bench, and one for figures (audit F-11). The faces wait for the
+     token picker; until then, the system's. */
+  --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   color-scheme: light dark;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.5;
 }
 
@@ -256,7 +260,7 @@ button.member:focus-visible {
   min-width: 2.5rem;
   margin-right: 0.5rem;
   color: var(--accent);
-  font-family: ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-weight: 500;
 }
 
