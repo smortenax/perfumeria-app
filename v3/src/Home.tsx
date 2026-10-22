@@ -1,35 +1,114 @@
 import type { Tastings } from "./db/tastings";
 import type { GlossaryData } from "./glossary/useGlossary";
-import { buildQueue } from "./tasting/logic";
+import { buildQueue, countdown, dueMoments } from "./tasting/logic";
+import { useNow } from "./tasting/useTastings";
+import { DEFAULT_MOMENTS } from "./tasting/vocabulary";
 import { texts } from "./i18n/en";
 
 /**
- * The landing (plan v3, step 8.1): the parts of the app (and «Catas», V3-60), side by side, each opened from here;
- * from either one, «Inicio» comes back. What each holds is said in numbers from your copy.
+ * The landing (plan v3, step 8.1): first «Continue», what is in progress, one tap back into it (audit
+ * F-14); then the parts of the app (and «Catas», V3-60), each opened from here, with what each holds in
+ * numbers from your copy. On a phone the account lives here too, as the nav moves to the bottom (F-03).
  */
 export function Home({
   data,
   tastings,
+  email,
+  lastFormulaId,
   onMaterials,
   onFormulation,
   onTasting,
+  onQueue,
   onDilutions,
+  onOpenFormula,
+  onSignOut,
 }: {
   data: GlossaryData | null;
   tastings: Tastings | null;
+  email: string;
+  /** The formula open behind, if any; else the last one made is offered. */
+  lastFormulaId: string | null;
   onMaterials: () => void;
   onFormulation: () => void;
   onTasting: () => void;
+  onQueue: () => void;
   onDilutions: () => void;
+  onOpenFormula: (id: string) => void;
+  onSignOut: () => void;
 }) {
   const t = texts.home;
   const own = data ? [...data.catalog.materials.values()].filter((m) => m.ownerId !== null).length : null;
   const common = data ? data.catalog.materials.size - (own ?? 0) : null;
   const queue = data && tastings ? buildQueue(data.catalog, tastings) : null;
   const openSessions = tastings ? tastings.sessions.filter((s) => !s.endedAt).length : 0;
+
+  const formula = data
+    ? (data.formulas.find((f) => f.id === lastFormulaId) ??
+      [...data.formulas].sort((a, b) => (b.createdAt ?? "").localeCompare(a.createdAt ?? ""))[0] ??
+      null)
+    : null;
+  const bench = formula ? data?.workbenches.find((b) => b.id === formula.workbenchId)?.name : undefined;
+
+  // The open session and its timers, as «Catas» counts them: from each strip's opening (t0) on.
+  const session = tastings?.sessions.find((s) => !s.endedAt) ?? null;
+  const strips = session && tastings ? tastings.strips.filter((s) => s.sessionId === session.id && !s.closedAt) : [];
+  const now = useNow(strips.length > 0);
+  const timers = strips.flatMap((s) => {
+    const written = tastings!.moments.filter((m) => m.stripId === s.id).map((m) => m.moment);
+    if (!written.includes("t0")) return [];
+    return dueMoments(s, written, DEFAULT_MOMENTS.filter((m) => m !== "t0"), now)
+      .filter((d) => d.state !== "done")
+      .map((d) => ({ ...d, label: s.blindLabel }));
+  });
+  const due = timers.find((d) => d.state === "due");
+  const next = timers.filter((d) => d.state === "waiting").sort((a, b) => a.dueAt - b.dueAt)[0];
+  const moment = texts.tasting.moments;
+  const timerText = due ? t.dueNow(due.label, moment[due.moment]) : next ? t.nextTimer(next.label, moment[next.moment], countdown(next.dueAt - now)) : t.noTimer;
+
+  const pending = queue?.pending ?? 0;
+  const anything = formula || session || pending > 0;
+
   return (
     <section className="home">
       <h2>{t.title}</h2>
+      {data && (
+        <section className="continue" aria-labelledby="continue-title">
+          <h3 id="continue-title">{t.continue}</h3>
+          {anything ? (
+            <ul className="continue-list">
+              {formula && (
+                <li>
+                  <button type="button" className="continue-item" onClick={() => onOpenFormula(formula.id)}>
+                    <span className="continue-kind">{t.lastFormula}</span>
+                    <span className="continue-name">{formula.name}</span>
+                    {bench && <span className="continue-detail">{t.formulaIn(bench)}</span>}
+                  </button>
+                </li>
+              )}
+              {session && (
+                <li>
+                  <button type="button" className={`continue-item${due ? " due" : ""}`} onClick={onTasting}>
+                    <span className="continue-kind">{t.session}</span>
+                    <span className="continue-name">{t.sessionStrips(strips.length)}</span>
+                    <span className="continue-detail">{timerText}</span>
+                  </button>
+                </li>
+              )}
+              {pending > 0 && (
+                <li>
+                  <button type="button" className="continue-item" onClick={onQueue}>
+                    <span className="continue-kind">{t.queue}</span>
+                    <span className="continue-name">{t.queueDetail(pending)}</span>
+                  </button>
+                </li>
+              )}
+            </ul>
+          ) : (
+            <p className="hint">{t.nothing}</p>
+          )}
+        </section>
+      )}
+      <h3 className="launch-title">{t.sections}</h3>
       <ul className="launch">
         <li>
           <button type="button" className="launch-card" onClick={onMaterials}>
@@ -70,6 +149,13 @@ export function Home({
           </button>
         </li>
       </ul>
+      {/* The account: in the top bar on a wide screen, here on a phone (audit F-03). */}
+      <p className="home-account">
+        {texts.app.signedInAs(email)} ·{" "}
+        <button type="button" className="link" onClick={onSignOut}>
+          {texts.app.signOut}
+        </button>
+      </p>
     </section>
   );
 }

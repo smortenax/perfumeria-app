@@ -88,7 +88,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
               ...(lastFormula ? [["bench", n.bench(benchName ?? ""), () => go({ view: "formula", id: lastFormula })] as const] : []),
             ] as const
           ).map(([key, label, onClick]) => (
-            <button key={key} type="button" className="app-link" aria-current={section === key ? "page" : undefined} onClick={onClick}>
+            <button key={key} type="button" className={`app-link app-link-${key}`} aria-current={section === key ? "page" : undefined} onClick={onClick}>
               {label}
             </button>
           ))}
@@ -97,8 +97,21 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
           {user.email} · <button type="button" className="link" onClick={() => void leave()}>{texts.app.signOut}</button>
         </span>
       </nav>
-      {route.view === "home" && <Home data={data} tastings={tastings} onMaterials={() => go({ view: "materials" })} onFormulation={() => go({ view: "library" })} onTasting={() => go({ view: "tasting", tab: "session" })}
-          onDilutions={() => go({ view: "dilutions" })} />}
+      {route.view === "home" && (
+        <Home
+          data={data}
+          tastings={tastings}
+          email={user.email}
+          lastFormulaId={lastFormula}
+          onMaterials={() => go({ view: "materials" })}
+          onFormulation={() => go({ view: "library" })}
+          onTasting={() => go({ view: "tasting", tab: "session" })}
+          onQueue={() => go({ view: "tasting", tab: "queue" })}
+          onDilutions={() => go({ view: "dilutions" })}
+          onOpenFormula={(id) => go({ view: "formula", id })}
+          onSignOut={() => void leave()}
+        />
+      )}
       {route.view !== "home" && !data && <p>{texts.glossary.loading}</p>}
       {data && (
         <>

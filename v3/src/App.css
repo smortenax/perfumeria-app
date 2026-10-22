@@ -1013,16 +1013,74 @@ form.add label {
   padding-top: calc(var(--app-nav-h) + 1.5rem);
 }
 
-@media (max-width: 40rem) {
-  .app-nav .app-name,
-  .app-nav .who {
-    display: none;
-  }
+/* «Continue» on the start page (audit F-14): what is in progress, one tap back into it. */
+.continue h3,
+.launch-title {
+  font-size: 1rem;
+  margin: 1.25rem 0 0.5rem;
+}
 
-  /* What you tap most on a phone: 44 px, the vault's floor for primary targets (audit F-15). */
-  .app-nav .app-link {
-    min-height: 2.75rem;
-  }
+.continue-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0.75rem;
+}
+
+.continue-item {
+  width: 100%;
+  height: 100%;
+  min-height: 2.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.125rem;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.continue-item:hover,
+.continue-item:focus-visible {
+  background: var(--fill);
+}
+
+.continue-item.due {
+  border-color: var(--amber);
+  box-shadow: inset 3px 0 var(--amber);
+}
+
+.continue-kind {
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.continue-name {
+  font-weight: 600;
+}
+
+.continue-detail {
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.continue-item.due .continue-detail {
+  color: var(--amber);
+}
+
+/* The account on the start page: only on a phone, where the top bar is gone (audit F-03). */
+.home-account {
+  display: none;
+  color: var(--muted);
+  font-size: 0.875rem;
 }
 
 /* Small controls outside the bench at WCAG's 24 px (audit F-15). */
@@ -1281,5 +1339,84 @@ button:focus-visible {
   .bench-new {
     width: 40px;
     height: 40px;
+  }
+}
+
+/*
+ * On a phone, the sections in a bar at the bottom, in reach of the thumb (audit F-03): five tabs of
+ * 56 px (F-15 asks 44), the open bench as a chip above them, the account on the start page. Last in
+ * the file, so it wins over the palette's rules for the nav.
+ */
+:root {
+  --tab-bar-h: 3.5rem;
+}
+
+@media (max-width: 40rem) {
+  :root {
+    --app-nav-h: 0px;
+  }
+
+  .app-nav {
+    top: auto;
+    bottom: 0;
+    height: auto;
+    padding: 0 max(0px, env(safe-area-inset-right, 0px)) env(safe-area-inset-bottom, 0px) max(0px, env(safe-area-inset-left, 0px));
+    border-bottom: none;
+    border-top: 1px solid var(--line);
+  }
+
+  .app-nav .app-name,
+  .app-nav .who {
+    display: none;
+  }
+
+  .app-nav .app-links {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0;
+    overflow: visible;
+  }
+
+  .app-nav .app-link {
+    min-height: var(--tab-bar-h);
+    max-width: none;
+    padding: 0 0.125rem;
+    border-radius: 0;
+    font-size: 0.75rem;
+    text-align: center;
+  }
+
+  .app-nav .app-link[aria-current="page"] {
+    box-shadow: inset 0 2px var(--text);
+  }
+
+  /* The bench left open: a chip that floats over the content, above the bar. */
+  .app-nav .app-link-bench {
+    position: fixed;
+    right: max(1rem, env(safe-area-inset-right, 0px));
+    bottom: calc(var(--tab-bar-h) + env(safe-area-inset-bottom, 0px) + 0.75rem);
+    min-height: 2.75rem;
+    max-width: calc(100vw - 2rem);
+    padding: 0 1rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: var(--panel);
+    box-shadow: 0 4px 16px color-mix(in srgb, var(--text) 16%, transparent);
+  }
+
+  .app-nav .app-link-bench[aria-current="page"] {
+    display: none;
+  }
+
+  .start {
+    padding-bottom: calc(var(--tab-bar-h) + env(safe-area-inset-bottom, 0px) + 4.5rem);
+  }
+
+  .start .bench-root {
+    bottom: calc(var(--tab-bar-h) + env(safe-area-inset-bottom, 0px));
+  }
+
+  .home-account {
+    display: block;
   }
 }
