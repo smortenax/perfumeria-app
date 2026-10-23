@@ -60,6 +60,7 @@ export const texts = {
     newBench: "New bench",
     newBenchName: "Name of the workbench",
     tabs: { benches: "Benches", accords: "Accords", finished: "Finished perfumes" },
+    formulasCount: (n: number) => (n === 1 ? "1 formula" : `${n} formulas`),
   },
   glossary: {
     title: "Materials glossary",
@@ -131,6 +132,19 @@ export const texts = {
       notYet: "not drawn yet",
       hours: (h: string) => `${h} h on a blotter`,
       prototype: "Prototype: the orb draws what the glossary says today; it will read the new material sheets (V3-70).",
+    },
+    /** The four facts at the head of a sheet (V3-73). */
+    hero: {
+      family: "Family",
+      strength: "Strength",
+      strengthOf: (s: string) => `Strength: ${s}`,
+      strip: "On a blotter",
+      duration: (h: number) =>
+        (h < 24 ? `${Number(h.toFixed(1))} h` : h < 24 * 7 ? `${Number((h / 24).toFixed(1))} days` : `${Number((h / 168).toFixed(1))} weeks`).replace(".", ","),
+      durationOn: (d: string) => `Duration on a blotter: ${d}`,
+      logScale: "Log scale, 1 hour to 30 days",
+      note: "Note",
+      hidden: (n: number) => (n === 1 ? "1 field not stated" : `${n} fields not stated`),
     },
   },
   editor: {
@@ -225,6 +239,7 @@ export const texts = {
   requirementState: { accredited: "met", assumed: "assumed, not proven", pending: "not proven" },
   sheet: {
     unknown: "not stated",
+    crumb: "Where you are",
     yours: "yours",
     disputed: "disputed",
     yes: "yes",
