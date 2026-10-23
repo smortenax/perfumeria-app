@@ -1,0 +1,367 @@
+/*
+ * The screens in the "Molecule poster" direction (V3-73): big page titles, panels with square edges,
+ * pills instead of selects, underline tabs, the orb framed with its text beside it. Built from the
+ * revamp prototype (designVault, 00-inbox/research/kit/revamp-prototype.html). Loaded last.
+ */
+
+/* Page titles: the poster's one loud layer. */
+.page-title {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.title-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.75rem 1rem;
+  margin-bottom: var(--space-gap);
+}
+
+.title-bar .buttons {
+  margin-left: auto;
+}
+
+/* Buttons: the main one in the accent, the others on paper with a field's edge; 40 px tall. */
+.start button:not(.link):not(.app-link):not(.tab):not(.pill):not(.nav-collapse):not(.tile):not(.launch-card):not(.continue-item) {
+  min-height: 40px;
+  padding: 0 14px;
+  font-weight: 700;
+}
+
+.start button.secondary {
+  font-weight: 500;
+  border-color: var(--border-control);
+}
+
+/* Home */
+.home .page-title {
+  margin-bottom: var(--space-gap);
+}
+
+.continue h3,
+.launch-title {
+  margin: 1.5rem 0 0.5rem;
+  color: var(--muted);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.continue-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-gap);
+}
+
+.continue-item,
+.launch-card {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  width: 100%;
+  min-height: 0;
+  padding: calc(var(--space-inset) * 1.25);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-panel);
+  background: var(--panel);
+  color: var(--text);
+  text-align: left;
+  box-shadow: none;
+}
+
+.continue-item:hover,
+.launch-card:hover {
+  border-color: var(--line-strong);
+  background: var(--panel);
+}
+
+.continue-item.due {
+  border-color: var(--accent-default);
+  box-shadow: inset 4px 0 0 var(--accent-default);
+}
+
+.continue-kind {
+  color: var(--muted);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.continue-name {
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+.launch {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-gap);
+  padding: 0;
+  list-style: none;
+}
+
+.launch-number {
+  font-size: var(--size-text-number);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.launch-name {
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+.launch-detail {
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+
+/* The search and the filters in one panel. */
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px 20px;
+  margin-bottom: var(--space-gap);
+  padding: var(--space-inset);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-panel);
+  background: var(--panel);
+}
+
+.tools .search {
+  display: grid;
+  flex: 1 1 100%;
+  gap: 4px;
+  color: var(--muted);
+  font-size: var(--text-xs);
+  font-weight: 700;
+}
+
+.tools .search input,
+.start input[type="search"],
+.start input[type="text"],
+.start input[type="number"],
+.start input[type="email"],
+.start input[type="password"],
+.start textarea,
+.start select {
+  min-height: 40px;
+  border: 1px solid var(--border-control);
+  border-radius: var(--radius-control);
+  background: var(--surface-sunken);
+  color: var(--text);
+  font: inherit;
+}
+
+.tools .search input {
+  padding: 0 12px;
+  font-size: var(--text-md);
+  font-weight: 400;
+}
+
+.pills-field {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.field-label {
+  color: var(--muted);
+  font-size: var(--text-xs);
+  font-weight: 700;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.start .pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--border-control);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+  font-size: var(--text-sm);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.start .pill[aria-pressed="true"] {
+  border-color: var(--accent-default);
+  background: var(--accent-default);
+  color: var(--text-on-accent);
+  font-weight: 700;
+}
+
+/* Tabs: an underline under the chosen one. The row scrolls sideways only (no stray scrollbar). */
+.start .tabs {
+  display: flex;
+  gap: 4px;
+  margin: 0;
+  border: 0;
+  box-shadow: inset 0 -1px var(--line);
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.start .tab {
+  min-height: 44px;
+  margin: 0;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  white-space: nowrap;
+}
+
+.start .tab:hover {
+  background: none;
+  color: var(--text);
+}
+
+.start .tab[aria-selected="true"] {
+  background: none;
+  color: var(--text);
+  font-weight: 700;
+  box-shadow: inset 0 -2px var(--accent-default);
+}
+
+.start .tab-panel {
+  padding: var(--space-gap) 0 0;
+  border: 0;
+  background: none;
+}
+
+/* The materials: cards, the orb framed with its text beside it. */
+.glossary .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
+  gap: var(--space-gap);
+  padding: 0;
+  list-style: none;
+}
+
+.glossary .grid > li {
+  display: flex;
+  min-width: 0;
+}
+
+.start .tile {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  width: 100%;
+  min-width: 0;
+  padding: var(--space-inset);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-panel);
+  background: var(--panel);
+  color: var(--text);
+  text-align: left;
+  box-shadow: none;
+}
+
+.start .tile:hover {
+  border-color: var(--line-strong);
+  background: var(--panel);
+}
+
+.tile-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+}
+
+.tile-ttl {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.tile-abbr {
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.tile-abbr i {
+  font-weight: 500;
+}
+
+.start .tile-name {
+  font-weight: 700;
+  font-size: var(--text-md);
+  line-height: 1.3;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  text-align: left;
+}
+
+.start .tile-detail,
+.start .tile-traits {
+  color: var(--muted);
+  font-size: var(--text-xs);
+  text-align: left;
+}
+
+.tile-traits {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  flex: none;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.15);
+}
+
+.tile-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.have-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--surface-chip);
+  color: var(--text);
+  font-size: var(--text-xs);
+  font-weight: 700;
+}
+
+.have-chip::before {
+  content: "✓ ";
+  white-space: pre;
+}

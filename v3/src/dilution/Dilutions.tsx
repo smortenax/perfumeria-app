@@ -95,7 +95,7 @@ function BottleList({ data, all, onOpen, onNew }: { data: GlossaryData; all: { m
   return (
     <section className="dilutions">
       <div className="title-bar">
-        <h2>{t.title}</h2>
+        <h2 className="page-title">{t.title}</h2>
         <span className="buttons">
           <button type="button" onClick={onNew}>
             {t.newBottle}
@@ -240,7 +240,7 @@ function BottleEditor({
         <button type="button" className="link" onClick={onCancel}>
           ← {t.back}
         </button>
-        <h2>{bottle ? `${name(materialId ?? "")} · ${bottle.label ?? percent(bottle.fraction, 2)}` : t.newBottle}</h2>
+        <h2 className="page-title">{bottle ? `${name(materialId ?? "")} · ${bottle.label ?? percent(bottle.fraction, 2)}` : t.newBottle}</h2>
       </div>
 
       {materialId ? (

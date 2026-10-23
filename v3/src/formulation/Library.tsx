@@ -42,7 +42,7 @@ export function Library({
   return (
     <section className="glossary library">
       <div className="title-bar">
-        <h2>{t.title}</h2>
+        <h2 className="page-title">{t.title}</h2>
         <span className="buttons">
           <button
             type="button"

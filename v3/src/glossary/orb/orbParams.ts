@@ -76,6 +76,35 @@ export function tenScale(value: number | undefined): number | undefined {
 }
 
 /** The values the shader takes, after defaults. */
+/**
+ * Any CSS colour a stylesheet can hand over, as 0-1 RGB: #rgb, #rgba, #rrggbb, #rrggbbaa, rgb() and
+ * rgba(). Production CSS minifiers shorten #ffffff to #fff, so a six-digit-only parser reads it wrong.
+ * Null for anything else (a colour name, a var() left unresolved): the caller picks its fallback.
+ */
+export function parseColor(css: string): [number, number, number] | null {
+  const s = css.trim().toLowerCase();
+  let m = /^#([0-9a-f]{3,4})$/.exec(s);
+  if (m) return [0, 1, 2].map((i) => parseInt(m![1][i] + m![1][i], 16) / 255) as [number, number, number];
+  m = /^#([0-9a-f]{6})([0-9a-f]{2})?$/.exec(s);
+  if (m) return [0, 2, 4].map((i) => parseInt(m![1].slice(i, i + 2), 16) / 255) as [number, number, number];
+  m = /^rgba?\(\s*([\d.]+)[\s,]+([\d.]+)[\s,]+([\d.]+)/.exec(s);
+  if (m) return [m[1], m[2], m[3]].map((v) => Math.min(255, Number(v)) / 255) as [number, number, number];
+  return null;
+}
+
+/**
+ * An orb under 40 px can't resolve its marbling: a red musk with a blue clean note averages to lavender
+ * at 24 px. Small orbs draw denser and with less inner light, so their main family still reads.
+ */
+export function smallLook(look: OrbLook, px: number): OrbLook {
+  if (px >= 40) return look;
+  return {
+    ...look,
+    intensity: Math.max(look.intensity ?? NEUTRAL.intensity, 0.75),
+    ...(look.luminosity === undefined ? {} : { luminosity: look.luminosity * 0.4 }),
+  };
+}
+
 export interface OrbUniforms {
   colors: [string, string, string];
   /** Where colour 2 and colour 3 start on the 0..1 field (2 = never). */

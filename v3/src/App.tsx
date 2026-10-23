@@ -19,6 +19,8 @@ import { MaterialTastings } from "./tasting/MaterialTastings";
 import { tasteMaterial } from "./tasting/start";
 import { type Tab as TastingTab, Tasting } from "./tasting/Tasting";
 import { useTastings } from "./tasting/useTastings";
+import { useDueCount } from "./tasting/useDue";
+import { NavIcon, type NavIconName } from "./NavIcon";
 import { texts } from "./i18n/en";
 
 /**
@@ -70,34 +72,58 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
     if (data && lastFormula && !data.formulas.some((f) => f.id === lastFormula) && route.view !== "formula") setLastFormula(null);
   }, [data, lastFormula, route]);
   const benchName = lastFormula ? data?.formulas.find((f) => f.id === lastFormula)?.name : undefined;
+  const due = useDueCount(tastings);
+  // The sidebar folds to icons on the workbench unless you open it; your choice holds until you leave.
+  const [navMini, setNavMini] = useState<boolean | null>(null);
+  useEffect(() => setNavMini(null), [route.view]);
+  const mini = navMini ?? route.view === "formula";
+  const navItem = (key: string, icon: NavIconName, label: string, onClick: () => void, badgeLabel?: string, badge = 0) => (
+    <button key={key} type="button" className={`app-link app-link-${key}`} aria-current={section === key ? "page" : undefined} onClick={onClick} title={mini ? label : undefined}>
+      <NavIcon name={icon} />
+      <span className="nav-label">{label}</span>
+      {badge > 0 && (
+        <span className="nav-badge" aria-label={badgeLabel}>
+          {badge}
+        </span>
+      )}
+    </button>
+  );
   const section = route.view === "home" ? "home" : route.view === "library" ? "library" : route.view === "tasting" || route.view === "strip" ? "tasting" : route.view === "dilutions" || route.view === "bottle" || route.view === "newBottle" ? "dilutions" : route.view === "formula" ? "bench" : "materials";
   const n = texts.nav;
 
   return (
-    <main className="start">
-      {/* One launcher for the whole app: materials and the workbench live side by side (the user, 2026-10-15). */}
+    <main className={`start${mini ? " nav-mini" : ""}`}>
+      {/* One launcher for the whole app (2026-10-15), as a sidebar on wide screens (V3-73): Home, then
+          the library (materials, dilutions) and the work (formulation, the open bench, evaluations). It
+          folds to icons on the workbench, which needs the width; a top bar on narrow screens, and the
+          bottom bar of audit F-03 on a phone. */}
       <nav className="app-nav" aria-label={n.label}>
         <span className="app-name">
-          {texts.app.name} <span className="version">{texts.app.version}</span>
+          <span className="app-mark" aria-hidden="true" />
+          <span className="app-name-text">
+            {texts.app.name} <span className="version">{texts.app.version}</span>
+          </span>
         </span>
         <span className="app-links">
-          {(
-            [
-              ["home", n.home, () => go({ view: "home" })],
-              ["materials", n.materials, () => go({ view: "materials" })],
-              ["library", n.library, () => go({ view: "library" })],
-              ["tasting", n.tasting, () => go({ view: "tasting", tab: "session" })],
-              ["dilutions", n.dilutions, () => go({ view: "dilutions" })],
-              ...(lastFormula ? [["bench", n.bench(benchName ?? ""), () => go({ view: "formula", id: lastFormula })] as const] : []),
-            ] as const
-          ).map(([key, label, onClick]) => (
-            <button key={key} type="button" className={`app-link app-link-${key}`} aria-current={section === key ? "page" : undefined} onClick={onClick}>
-              {label}
-            </button>
-          ))}
+          {navItem("home", "home", n.home, () => go({ view: "home" }))}
+          <span className="nav-group">{n.groupLibrary}</span>
+          {navItem("materials", "materials", n.materials, () => go({ view: "materials" }))}
+          {navItem("dilutions", "dilutions", n.dilutions, () => go({ view: "dilutions" }))}
+          <span className="nav-group">{n.groupWork}</span>
+          {navItem("library", "library", n.library, () => go({ view: "library" }))}
+          {lastFormula && navItem("bench", "bench", n.bench(benchName ?? ""), () => go({ view: "formula", id: lastFormula }))}
+          {navItem("tasting", "tasting", n.tasting, () => go({ view: "tasting", tab: "session" }), due > 0 ? n.due(due) : undefined, due)}
         </span>
+        <button type="button" className="nav-collapse" aria-expanded={!mini} onClick={() => setNavMini(!mini)}>
+          <span aria-hidden="true">{mini ? "»" : "«"}</span>
+          <span className="nav-label">{mini ? n.expand : n.collapse}</span>
+        </button>
         <span className="who">
-          {user.email} · <button type="button" className="link" onClick={() => void leave()}>{texts.app.signOut}</button>
+          <span className="avatar" aria-hidden="true">{user.email.slice(0, 1).toUpperCase()}</span>
+          <span className="who-text">
+            <span className="who-mail">{user.email}</span> ·{" "}
+            <button type="button" className="link" onClick={() => void leave()}>{texts.app.signOut}</button>
+          </span>
         </span>
       </nav>
       {route.view === "home" && (

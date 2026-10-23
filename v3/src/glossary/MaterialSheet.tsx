@@ -43,7 +43,7 @@ export function MaterialSheet({
       ) : (
         <>
           <div className="title-bar">
-            <h2>{sheet.name}</h2>
+            <h2 className="page-title">{sheet.name}</h2>
             {sheet.own ? (
               <button type="button" onClick={onEdit}>
                 {texts.editor.edit}

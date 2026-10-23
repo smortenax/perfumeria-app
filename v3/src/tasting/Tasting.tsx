@@ -126,7 +126,7 @@ export function Tasting({
       ) : (
         <>
           <div className="title-bar">
-            <h2>{t.title}</h2>
+            <h2 className="page-title">{t.title}</h2>
           </div>
           <div className="tabs" role="tablist" aria-label={t.title}>
             {TABS.map((x) => (

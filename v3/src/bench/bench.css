@@ -6,17 +6,18 @@
 .bench-root {
   /* The palette and measures of the sketch (boceto 4). Light only, as the sketches; provisional. */
   & {
-    --bg: #f3f2ee;
-    --panel: #ffffff;
-    --line: #d9d7cf;
-    --line-strong: #bdbab0;
-    --line-soft: #e6e4dd;
-    --ink: #1d1d1b;
-    --ink-2: #3f3e39;
-    --muted: #57564f;
-    --faint: #8c8a82;
-    --fill: #efeee9;
-    --fill-2: #f8f7f4;
+    /* The tokens of V3-73 (src/theme/tokens.css) under the workbench's own names. */
+    --bg: var(--surface-base);
+    --panel: var(--surface-raised);
+    --line: var(--border-subtle);
+    --line-strong: var(--border-control);
+    --line-soft: var(--border-subtle);
+    --ink: var(--text-default);
+    --ink-2: var(--text-muted);
+    --muted: var(--text-muted);
+    --faint: var(--text-muted);
+    --fill: var(--surface-sunken);
+    --fill-2: var(--surface-chip);
     --amber: #7a4e00;
     --amber-bg: #f6ecd9;
     --blue: #2f5d8a;
@@ -43,6 +44,8 @@
     inset: 0;
     /* Below the app's launcher (App.css, .app-nav). */
     top: var(--app-nav-h, 0);
+    /* Beside the sidebar on wide screens (V3-73). */
+    left: var(--app-nav-w, 0);
     z-index: 10;
     overflow: auto;
   }

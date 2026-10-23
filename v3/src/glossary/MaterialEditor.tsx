@@ -48,7 +48,7 @@ export function MaterialEditor({ data, local, id, onDone, onDeleted }: { data: G
       <button type="button" className="link" onClick={onDone}>
         ← {t.toSheet}
       </button>
-      <h2>{t.editTitle(material.name)}</h2>
+      <h2 className="page-title">{t.editTitle(material.name)}</h2>
       {material.basedOnId && <p className="hint">{t.versionHint}</p>}
       <RecordForm key={material.id} material={material} local={local} inherited={inheritedForm(chain)} />
       <Composition material={material} data={data} local={local} bases={bases} />

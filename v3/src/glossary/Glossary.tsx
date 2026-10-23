@@ -1,15 +1,14 @@
-import { type CSSProperties, type KeyboardEvent, type ReactNode, useMemo, useRef, useState } from "react";
+import { type KeyboardEvent, type ReactNode, useMemo, useRef, useState } from "react";
 import { type CatalogMaterial, MATERIAL_KINDS, type MaterialKind } from "../db/catalog";
 import { normalize } from "../db/search";
 import type { FormulaMarker, FormulaRecord } from "../db/formulas";
 import { listAll, search } from "../db/search";
 import { coloursOf, familyOf } from "../families/palette";
 import { orbLookOf, type OrbScales, orbScalesOf, seedOf } from "./orb/fromCatalog";
-import type { OrbLook } from "./orb/orbParams";
 import { MaterialOrb } from "./orb/MaterialOrb";
-import { type Ink, inkOf } from "./orb/orbInk";
 import { paletteMarkdown, paletteOf } from "./palette-export";
 import { texts } from "../i18n/en";
+import { Pills } from "../Pills";
 import { type Filters, type IfraState, keepOf, NO_FILTERS } from "./browse";
 import type { GlossaryData } from "./useGlossary";
 
@@ -112,7 +111,7 @@ export function Glossary({
   return (
     <section className="glossary">
       <div className="title-bar">
-        <h2>{t.title}</h2>
+        <h2 className="page-title">{t.title}</h2>
         <span className="buttons">
           <button
             type="button"
@@ -137,49 +136,45 @@ export function Glossary({
         </span>
       </div>
       {paletteNote && tab === "own" && <p className="hint">{paletteNote}</p>}
-      <label className="search">
-        {t.search}
-        <input
-          type="search"
-          value={query}
-          placeholder={tab === "formulas" || tab === "accords" ? t.formulasSearchHint : t.searchHint}
-          onChange={(e) => {
-            setQuery(e.target.value);
-            setLimit(PAGE);
-            setMessage(null);
-          }}
-        />
-      </label>
+      <div className="tools">
+        <label className="search">
+          {t.search}
+          <input
+            type="search"
+            value={query}
+            placeholder={tab === "formulas" || tab === "accords" ? t.formulasSearchHint : t.searchHint}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              setLimit(PAGE);
+              setMessage(null);
+            }}
+          />
+        </label>
         {(tab === "own" || tab === "common") && (
-        <div className="filters">
-          <label>
-            {t.kind}
-            <select value={filters.kind ?? ""} onChange={(e) => set({ kind: (e.target.value || null) as MaterialKind | null })}>
-              <option value="">{t.any}</option>
-              {MATERIAL_KINDS.map((k) => (
-                <option key={k} value={k}>
-                  {texts.kinds[k]}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label>
-            {t.ifra}
-            <select value={filters.ifra ?? ""} onChange={(e) => set({ ifra: (e.target.value || null) as IfraState | null })}>
-              <option value="">{t.any}</option>
-              {IFRA_STATES.map((s) => (
-                <option key={s} value={s}>
-                  {texts.ifraState[s]}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label className="check">
-            <input type="checkbox" checked={filters.haveOnly} onChange={(e) => set({ haveOnly: e.target.checked })} />
-            {t.haveOnly}
-          </label>
-        </div>
+          <>
+            <Pills
+              label={t.kind}
+              value={filters.kind}
+              options={[{ value: null, label: t.any }, ...MATERIAL_KINDS.map((k) => ({ value: k, label: texts.kinds[k] }))]}
+              onChange={(kind: MaterialKind | null) => set({ kind })}
+            />
+            <Pills
+              label={t.ifra}
+              value={filters.ifra}
+              options={[{ value: null, label: t.any }, ...IFRA_STATES.map((st) => ({ value: st, label: texts.ifraState[st] }))]}
+              onChange={(ifra: IfraState | null) => set({ ifra })}
+            />
+            <div className="pills-field" role="group" aria-label={t.haveOnly}>
+              <span className="field-label" aria-hidden="true">&nbsp;</span>
+              <span className="pills">
+                <button type="button" className="pill" aria-pressed={filters.haveOnly} onClick={() => set({ haveOnly: !filters.haveOnly })}>
+                  {t.haveOnly}
+                </button>
+              </span>
+            </div>
+          </>
         )}
+      </div>
       <div className="tabs" role="tablist" aria-label={t.owner}>
         {TABS.map((x, i) => (
           <button
@@ -278,20 +273,26 @@ function Tile({ material, data, scales, onOpen, marking, mark }: { material: Cat
       : ([material.supplier, material.product].filter((x) => x)[0] ?? texts.kinds[material.kind]);
   const content = (
     <>
-      {/* The material's orb, with its abbreviation written over it (owner, 2026-10-23; prototype, V3-72). */}
-      <TileOrb
-        look={orbLookOf(data.catalog, material, scales)}
-        seed={seedOf(material.id)}
-        letters={abbreviation ?? initials(material.name)}
-        isInitials={!abbreviation}
-        have={have}
-        colours={colours}
-      />
-      <span className="tile-name">{material.name}</span>
-      {traits && <span className="tile-traits">{traits}</span>}
-      {detail && <span className="tile-detail">{detail}</span>}
-      <span className={`ifra ifra-${state}`} title={texts.ifraStateHelp[state]}>
-        {texts.ifraState[state]}
+      {/* The orb in its frame, the text beside it (V3-73: the letters over the orb of V3-72 are dropped). */}
+      <span className="tile-top">
+        <MaterialOrb look={orbLookOf(data.catalog, material, scales)} size={72} seed={seedOf(material.id)} expectColor={colours?.light} />
+        <span className="tile-ttl">
+          <span className="tile-abbr">{abbreviation ?? <i>{initials(material.name)}</i>}</span>
+          <span className="tile-name">{material.name}</span>
+          {detail && <span className="tile-detail">{detail}</span>}
+        </span>
+      </span>
+      {traits && (
+        <span className="tile-traits">
+          {colours && <span className="dot" style={{ background: colours.light }} aria-hidden="true" />}
+          {traits}
+        </span>
+      )}
+      <span className="tile-meta">
+        <span className={`ifra ifra-${state}`} title={texts.ifraStateHelp[state]}>
+          {texts.ifraState[state]}
+        </span>
+        {have && <span className="have-chip">{t.haveMark}</span>}
       </span>
     </>
   );
@@ -303,30 +304,14 @@ function Tile({ material, data, scales, onOpen, marking, mark }: { material: Cat
       </label>
     );
   }
+  // No aria-label: the tile's text (name, traits, IFRA state, «have») is its name, so nothing is hidden from a screen reader.
   return (
-    <button type="button" className="tile" onClick={() => onOpen(material.id)} aria-label={`${material.name}${have ? `, ${t.haveMark}` : ""}`}>
+    <button type="button" className="tile" onClick={() => onOpen(material.id)}>
       {content}
     </button>
   );
 }
 
-/**
- * A material's orb in its tile, its letters over it: black where the orb is light enough, else white
- * (orb/orbInk.ts). A ring in the family's colour says you have it; initials, not an abbreviation, lean.
- */
-function TileOrb({ look, seed, letters, isInitials, have, colours }: { look: OrbLook; seed: number; letters: string; isInitials: boolean; have: boolean; colours: { light: string; dark: string } | null }) {
-  const [ink, setInk] = useState<Ink | null>(null);
-  return (
-    <span
-      className={`tile-orb-mark${have ? " have" : ""}${colours ? " fam" : ""}`}
-      style={colours ? ({ "--fam-light": colours.light } as CSSProperties) : undefined}
-      aria-hidden="true"
-    >
-      <MaterialOrb look={look} size={96} seed={seed} onPaint={(canvas) => setInk(inkOf(canvas))} />
-      <span className={`orb-letters ink-${ink?.ink ?? "dark"}${ink?.halo ? " halo" : ""}${isInitials ? " initials" : ""}${letters.length > 4 ? " long" : ""}`}>{letters}</span>
-    </span>
-  );
-}
 
 /**
  * Your formulas (V3-50), by workbench (V3-19): each bench, with its formulas as tiles. A formula

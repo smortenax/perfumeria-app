@@ -66,11 +66,12 @@ export function Home({
   const timerText = due ? t.dueNow(due.label, moment[due.moment]) : next ? t.nextTimer(next.label, moment[next.moment], countdown(next.dueAt - now)) : t.noTimer;
 
   const pending = queue?.pending ?? 0;
+  const dilutionCount = data ? [...data.catalog.dilutions.values()].reduce((n, l) => n + l.filter((d) => !d.archivedAt).length, 0) : null;
   const anything = formula || session || pending > 0;
 
   return (
     <section className="home">
-      <h2>{t.title}</h2>
+      <h2 className="page-title">{t.title}</h2>
       {data && (
         <section className="continue" aria-labelledby="continue-title">
           <h3 id="continue-title">{t.continue}</h3>
@@ -112,40 +113,30 @@ export function Home({
       <ul className="launch">
         <li>
           <button type="button" className="launch-card" onClick={onMaterials}>
-            <span className="launch-icon" aria-hidden="true">
-              M
-            </span>
+            <span className="launch-number num" aria-hidden="true">{data ? data.catalog.materials.size : "–"}</span>
             <span className="launch-name">{t.materials}</span>
             <span className="launch-detail">{data ? t.materialsDetail(own!, common!) : texts.glossary.loading}</span>
           </button>
         </li>
         <li>
           <button type="button" className="launch-card" onClick={onFormulation}>
-            <span className="launch-icon formula" aria-hidden="true">
-              F
-            </span>
+            <span className="launch-number num" aria-hidden="true">{data ? data.formulas.length : "–"}</span>
             <span className="launch-name">{t.formulation}</span>
             <span className="launch-detail">{data ? t.formulationDetail(data.workbenches.length, data.formulas.length) : texts.glossary.loading}</span>
           </button>
         </li>
         <li>
           <button type="button" className="launch-card" onClick={onTasting}>
-            <span className="launch-icon tasting" aria-hidden="true">
-              E
-            </span>
+            <span className="launch-number num" aria-hidden="true">{queue ? queue.pending : "–"}</span>
             <span className="launch-name">{texts.tasting.title}</span>
             <span className="launch-detail">{queue ? texts.tasting.homeDetail(queue.pending, openSessions) : texts.glossary.loading}</span>
           </button>
         </li>
         <li>
           <button type="button" className="launch-card" onClick={onDilutions}>
-            <span className="launch-icon dilution" aria-hidden="true">
-              D
-            </span>
+            <span className="launch-number num" aria-hidden="true">{dilutionCount ?? "–"}</span>
             <span className="launch-name">{texts.dilutions.title}</span>
-            <span className="launch-detail">
-              {data ? texts.dilutions.homeDetail([...data.catalog.dilutions.values()].reduce((n, l) => n + l.filter((d) => !d.archivedAt).length, 0)) : texts.glossary.loading}
-            </span>
+            <span className="launch-detail">{dilutionCount !== null ? texts.dilutions.homeDetail(dilutionCount) : texts.glossary.loading}</span>
           </button>
         </li>
       </ul>

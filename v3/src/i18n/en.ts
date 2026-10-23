@@ -28,6 +28,12 @@ export const texts = {
     tasting: "Evaluations",
     dilutions: "Dilutions",
     bench: (name: string) => (name ? `Bench · ${name}` : "Bench"),
+    /** The sidebar's groups and its fold (V3-73). */
+    groupLibrary: "Library",
+    groupWork: "Work",
+    collapse: "Collapse the sidebar",
+    expand: "Expand the sidebar",
+    due: (n: number) => (n === 1 ? "1 strip due" : `${n} strips due`),
   },
   home: {
     title: "Home",

@@ -31,7 +31,7 @@ export function NewMaterial({ local, onCreated, onCancel }: { local: LocalDataba
       <button type="button" className="link" onClick={onCancel}>
         ← {texts.glossary.back}
       </button>
-      <h2>{t.newTitle}</h2>
+      <h2 className="page-title">{t.newTitle}</h2>
       <p className="hint">{t.newLead}</p>
       <form className="add" onSubmit={(e) => void create(e)}>
         <label className="wide">
