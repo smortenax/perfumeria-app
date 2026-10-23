@@ -126,7 +126,7 @@ export function Tasting({
       ) : (
         <>
           <div className="title-bar">
-            <h2>{t.title}</h2>
+            <h2 className="page-title">{t.title}</h2>
           </div>
           <div className="tabs" role="tablist" aria-label={t.title}>
             {TABS.map((x) => (
@@ -168,7 +168,8 @@ function useDueNotices(strips: readonly TastingStrip[], moments: readonly Tastin
     for (const d of due) {
       if (seen.current.has(d.key)) continue;
       seen.current.add(d.key);
-      navigator.vibrate?.(200);
+      // The browser refuses to vibrate before the first tap, and says so in the console.
+      if (navigator.userActivation?.hasBeenActive ?? true) navigator.vibrate?.(200);
       if ("Notification" in window && Notification.permission === "granted") {
         try {
           new Notification(t.dueNow(d.label, t.moments[d.moment]));

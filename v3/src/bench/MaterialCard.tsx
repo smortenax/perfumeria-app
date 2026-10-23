@@ -291,11 +291,17 @@ export function MaterialCard(props: {
   data: IfraData;
   /** Opens its sheet in Materials (the launcher, 2026-10-15); without it, no link. */
   onOpenSheet?: (() => void) | undefined;
+  /**
+   * Under the material field of the add bar (V3-73), where the field already says who it is: no
+   * identity, only what the formula carries, the margin and the usual use, live while typing.
+   */
+  inline?: boolean;
 }) {
   const { material } = props;
+  const frame = props.inline ? "material-card insight" : "card material-card";
   if (!material) {
     return (
-      <div className="card material-card idle">
+      <div className={`${frame} idle`}>
         <span className="muted small">{t.choose}</span>
       </div>
     );
@@ -323,8 +329,19 @@ export function MaterialCard(props: {
       : null;
   const substanceName = (key: string) => props.data.substances.get(key)?.name ?? key;
   return (
-    <div className="card material-card">
-      <Identity material={material} entry={props.entry} onOpenSheet={props.onOpenSheet} />
+    <div className={frame} aria-live="polite">
+      {props.inline ? (
+        <span className="insight-who">
+          <span className="insight-name">{material.name}</span>
+          {props.onOpenSheet && (
+            <button type="button" className="mc-sheet link" onClick={props.onOpenSheet}>
+              {t.openSheet}
+            </button>
+          )}
+        </span>
+      ) : (
+        <Identity material={material} entry={props.entry} onOpenSheet={props.onOpenSheet} />
+      )}
       <div className="mc-carried">
         <span className="label">{t.inFormula}</span>
         <span className="num mc-mass" title={texts.composition.amountHelp}>

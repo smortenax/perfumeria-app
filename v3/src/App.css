@@ -6,34 +6,23 @@
 }
 
 :root {
-  --bg: #f7f6f3;
-  --text: #1f1d1a;
-  --muted: #6b665e;
-  --accent: #8a5a2b;
-  /* One font stack for the shell and the bench, and one for figures (audit F-11). The faces wait for the
-     token picker; until then, the system's. */
-  --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  /* Six text sizes for the shell and the bench, none below 11 px (audit F-10). The values wait for the
-     token picker; these are the sizes the app already used most, rounded onto one scale. */
-  --text-xs: 0.6875rem;
-  --text-sm: 0.75rem;
-  --text-md: 0.8125rem;
-  --text-lg: 1rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.75rem;
-  color-scheme: light dark;
+  --bg: var(--surface-base);
+  --text: var(--text-default);
+  --muted: var(--text-muted);
+  --accent: var(--accent-default);
+  /* One font stack for the shell and the bench, and one for figures (audit F-11), from the tokens (V3-73). */
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-figures);
+  /* Six text sizes for the shell and the bench, none below 12 px (V3-73 tokens). */
+  --text-xs: var(--size-text-xs);
+  --text-sm: var(--size-text-sm);
+  --text-md: var(--size-text-md);
+  --text-lg: var(--size-text-lg);
+  --text-xl: var(--size-text-xl);
+  --text-2xl: var(--size-text-2xl);
+  color-scheme: light;
   font-family: var(--font-sans);
   line-height: 1.5;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #1b1a18;
-    --text: #ece9e3;
-    --muted: #a39d93;
-    --accent: #d39a5e;
-  }
 }
 
 body {
@@ -951,189 +940,13 @@ form.add label {
   font-size: var(--text-md);
 }
 
-/* One launcher for the whole app (2026-10-15): always on top, the workbench below it. */
-:root {
-  --app-nav-h: 3rem;
-}
+/* The launcher (the sidebar, the top bar and the phone bar): src/theme/layout.css (V3-73). */
 
-.app-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 20;
-  height: var(--app-nav-h);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0 1rem;
-  background: var(--bg);
-  border-bottom: 1px solid color-mix(in srgb, var(--muted) 35%, transparent);
-  font-size: var(--text-md);
-}
-
-.app-nav .app-name {
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.app-nav .app-links {
-  display: flex;
-  gap: 0.25rem;
-  flex: 1;
-  min-width: 0;
-  overflow-x: auto;
-}
-
-.app-nav .app-link {
-  background: none;
-  border: none;
-  color: var(--text);
-  padding: 0.375rem 0.625rem;
-  border-radius: 8px;
-  white-space: nowrap;
-  /* With six sections, on a phone they scroll sideways whole instead of each being cut. */
-  flex: none;
-  max-width: 16rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  cursor: pointer;
-  font: inherit;
-}
-
-.app-nav .app-link:hover {
-  background: color-mix(in srgb, var(--accent) 10%, transparent);
-}
-
-.app-nav .app-link[aria-current="page"] {
-  color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 14%, transparent);
-  font-weight: 600;
-}
-
-.app-nav .who {
-  margin: 0;
-  color: var(--muted);
-  white-space: nowrap;
-}
-
-.start {
-  padding-top: calc(var(--app-nav-h) + 1.5rem);
-}
-
-/* The material orb (prototype, V3-72): in a tile, a still in the icon's place with the abbreviation
-   written over it (owner, 2026-10-23); live at the head of the sheet. The ink comes from orb/orbInk.ts. */
-.tile-orb-mark {
-  position: relative;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-}
-
-/* In a tile the orb sits on the card itself: its frame is the panel, so it reads as written on paper. */
-.tile-orb-mark .material-orb {
-  --orb-frame: var(--panel);
-  grid-area: 1 / 1;
-  border-radius: 50%;
-  background: var(--panel);
-  box-shadow: none;
-  /* Only the sphere (radius 0.72 of the half; a natural's wobble loses its outer edge): no plate on hover. */
-  clip-path: circle(36.5%);
-}
-
-/* You have it: a ring in the family's colour (neutral without one), where the tint used to be. The
-   app is light only for now, so the family's light colour. */
-.tile-orb-mark.have {
-  outline: 2px solid var(--ink-2);
-  outline-offset: -6px;
-}
-
-.tile-orb-mark.fam.have {
-  outline-color: var(--fam-light);
-}
-
-.orb-letters {
-  /* Positioned, so it paints over the clipped canvas (clip-path makes a stacking context). */
-  position: relative;
-  grid-area: 1 / 1;
-  white-space: nowrap;
-  font-weight: 700;
-  font-size: var(--text-xl);
-  line-height: 1;
-  letter-spacing: 0.02em;
-  text-align: center;
-  overflow-wrap: anywhere;
-}
-
-.orb-letters.long {
-  font-size: var(--text-md);
-}
-
-.orb-letters.initials {
-  font-style: italic;
-  font-weight: 600;
-}
-
-.orb-letters.ink-dark {
-  color: var(--orb-ink-dark);
-}
-
-.orb-letters.ink-light {
-  color: var(--orb-ink-light);
-}
-
-/* Where neither ink reads on all of the orb under it, a soft edge in the other one. */
-.orb-letters.ink-dark.halo {
-  text-shadow: 0 0 3px var(--orb-ink-light), 0 0 2px var(--orb-ink-light);
-}
-
-.orb-letters.ink-light.halo {
-  text-shadow: 0 0 3px var(--orb-ink-dark), 0 0 2px var(--orb-ink-dark);
-}
+/* The material orb in a tile: src/theme/screens.css (V3-73); its letters over it (V3-72) are dropped. */
 
 .tile-traits {
   color: var(--muted);
   font-size: var(--text-sm);
-}
-
-.orb-hero {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 1rem 1.5rem;
-  margin: 0.5rem 0 1rem;
-}
-
-.orb-hero .material-orb {
-  border-radius: 16px;
-}
-
-.orb-facts {
-  flex: 1 1 16rem;
-  min-width: 0;
-}
-
-.orb-facts dl {
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
-  gap: 0.5rem 1rem;
-}
-
-.orb-facts dt {
-  color: var(--muted);
-  font-size: var(--text-sm);
-}
-
-.orb-facts dd {
-  margin: 0;
-  font-weight: 600;
-}
-
-.orb-facts dd.unknown {
-  color: var(--muted);
-  font-weight: 400;
-  font-style: italic;
 }
 
 /* An error in the page (audit F-09): in place, or floating above the bottom of the window. */
@@ -1259,16 +1072,18 @@ form.add label {
  * colours of the materials stay as they are (V3-38).
  */
 :root {
-  --bg: #f3f2ee;
-  --panel: #ffffff;
-  --line: #d9d7cf;
-  --line-strong: #bdbab0;
-  --fill: #efeee9;
-  --text: #1d1d1b;
-  --ink-2: #3f3e39;
-  --muted: #57564f;
-  --faint: #8c8a82;
-  --accent: #1d1d1b;
+  /* The legacy names, onto the tokens of V3-73 (src/theme/tokens.css). */
+  --bg: var(--surface-base);
+  --panel: var(--surface-raised);
+  --line: var(--border-subtle);
+  --line-strong: var(--border-control);
+  --fill: var(--surface-sunken);
+  --text: var(--text-default);
+  --ink-2: var(--text-muted);
+  --muted: var(--text-muted);
+  /* Was #8c8a82 (3.46:1 on white, under the 4.5:1 floor): faint text is now the muted one. */
+  --faint: var(--text-muted);
+  --accent: var(--accent-default);
   --blue: #2f5d8a;
   --blue-bg: #e3ebf3;
   --amber: #7a4e00;
@@ -1277,19 +1092,6 @@ form.add label {
   --red-bg: #f7e1de;
   --green: #2f6b3f;
   color-scheme: light;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #f3f2ee;
-    --text: #1d1d1b;
-    --muted: #57564f;
-    --accent: #1d1d1b;
-  }
-
-  .tile .icon.fam {
-    --fam: var(--fam-light);
-  }
 }
 
 body {
@@ -1301,11 +1103,11 @@ body {
   color: var(--red);
 }
 
-/* Buttons as the workbench's: the main one in ink, the others on paper with a line. */
+/* The main action in the accent (V3-73), the others on paper with a field's edge. */
 button {
-  background: var(--text);
-  color: var(--panel);
-  border-radius: 10px;
+  background: var(--accent-default);
+  color: var(--text-on-accent);
+  border-radius: var(--radius-control);
 }
 
 button.secondary {
@@ -1337,17 +1139,6 @@ textarea:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--text);
   outline-offset: 1px;
-}
-
-/* The launcher, a card along the top. */
-.app-nav {
-  background: var(--panel);
-  border-bottom: 1px solid var(--line);
-}
-
-.app-nav .app-link[aria-current="page"] {
-  color: var(--text);
-  background: var(--fill);
 }
 
 /* Tabs and their panel: paper and lines, as the workbench's cards. On a phone the row scrolls inside
@@ -1502,84 +1293,5 @@ button:focus-visible {
   .bench-new {
     width: 40px;
     height: 40px;
-  }
-}
-
-/*
- * On a phone, the sections in a bar at the bottom, in reach of the thumb (audit F-03): five tabs of
- * 56 px (F-15 asks 44), the open bench as a chip above them, the account on the start page. Last in
- * the file, so it wins over the palette's rules for the nav.
- */
-:root {
-  --tab-bar-h: 3.5rem;
-}
-
-@media (max-width: 40rem) {
-  :root {
-    --app-nav-h: 0px;
-  }
-
-  .app-nav {
-    top: auto;
-    bottom: 0;
-    height: auto;
-    padding: 0 max(0px, env(safe-area-inset-right, 0px)) env(safe-area-inset-bottom, 0px) max(0px, env(safe-area-inset-left, 0px));
-    border-bottom: none;
-    border-top: 1px solid var(--line);
-  }
-
-  .app-nav .app-name,
-  .app-nav .who {
-    display: none;
-  }
-
-  .app-nav .app-links {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 0;
-    overflow: visible;
-  }
-
-  .app-nav .app-link {
-    min-height: var(--tab-bar-h);
-    max-width: none;
-    padding: 0 0.125rem;
-    border-radius: 0;
-    font-size: var(--text-sm);
-    text-align: center;
-  }
-
-  .app-nav .app-link[aria-current="page"] {
-    box-shadow: inset 0 2px var(--text);
-  }
-
-  /* The bench left open: a chip that floats over the content, above the bar. */
-  .app-nav .app-link-bench {
-    position: fixed;
-    right: max(1rem, env(safe-area-inset-right, 0px));
-    bottom: calc(var(--tab-bar-h) + env(safe-area-inset-bottom, 0px) + 0.75rem);
-    min-height: 2.75rem;
-    max-width: calc(100vw - 2rem);
-    padding: 0 1rem;
-    border: 1px solid var(--line-strong);
-    border-radius: 999px;
-    background: var(--panel);
-    box-shadow: 0 4px 16px color-mix(in srgb, var(--text) 16%, transparent);
-  }
-
-  .app-nav .app-link-bench[aria-current="page"] {
-    display: none;
-  }
-
-  .start {
-    padding-bottom: calc(var(--tab-bar-h) + env(safe-area-inset-bottom, 0px) + 4.5rem);
-  }
-
-  .start .bench-root {
-    bottom: calc(var(--tab-bar-h) + env(safe-area-inset-bottom, 0px));
-  }
-
-  .home-account {
-    display: block;
   }
 }

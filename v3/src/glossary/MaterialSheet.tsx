@@ -1,6 +1,6 @@
 import { type ReactNode, useMemo } from "react";
 import { texts } from "../i18n/en";
-import { OrbHero } from "./OrbHero";
+import { SheetHero } from "./SheetHero";
 import { type SheetValue, sheetOf } from "./sheet";
 import type { GlossaryData } from "./useGlossary";
 
@@ -33,28 +33,52 @@ export function MaterialSheet({
   // Your versions of a common material (V3-5): it shows them, and makes one more.
   const versions = useMemo(() => [...data.catalog.materials.values()].filter((m) => m.basedOnId === id && m.ownerId !== null), [data, id]);
   const t = texts.sheet;
+  const material = data.catalog.materials.get(id);
+  const base = material?.basedOnId ? data.catalog.materials.get(material.basedOnId) : undefined;
+  const abbreviation = material?.abbreviation ?? base?.abbreviation ?? null;
   return (
     <article className="sheet">
-      <button type="button" className="link" onClick={onBack}>
-        ← {texts.glossary.back}
-      </button>
+      <nav className="crumb" aria-label={t.crumb}>
+        <button type="button" className="link" onClick={onBack}>
+          {texts.nav.materials}
+        </button>
+        <span aria-hidden="true">/</span>
+        <span>{sheet?.name ?? texts.glossary.missing}</span>
+      </nav>
       {!sheet ? (
         <p>{texts.glossary.missing}</p>
       ) : (
         <>
-          <div className="title-bar">
-            <h2>{sheet.name}</h2>
-            {sheet.own ? (
-              <button type="button" onClick={onEdit}>
-                {texts.editor.edit}
-              </button>
-            ) : (
-              <button type="button" onClick={onMakeVersion}>
-                {texts.editor.makeVersion}
-              </button>
-            )}
-          </div>
-          <OrbHero catalog={data.catalog} material={data.catalog.materials.get(id)!} />
+          <SheetHero
+            catalog={data.catalog}
+            material={material!}
+            name={sheet.name}
+            chips={
+              <>
+                <span className="chip">{texts.kinds[material!.kind]}</span>
+                {abbreviation && <span className="chip">{abbreviation}</span>}
+                <span className={`ifra ifra-${sheet.ifra.state}`} title={texts.ifraStateHelp[sheet.ifra.state]}>
+                  {texts.ifraState[sheet.ifra.state]}
+                </span>
+              </>
+            }
+            actions={
+              <>
+                {sheet.own ? (
+                  <button type="button" onClick={onEdit}>
+                    {texts.editor.edit}
+                  </button>
+                ) : (
+                  <button type="button" onClick={onMakeVersion}>
+                    {texts.editor.makeVersion}
+                  </button>
+                )}
+                <button type="button" className="pill" aria-pressed={data.catalog.have.has(id)} onClick={() => onHave(!data.catalog.have.has(id))}>
+                  {texts.glossary.haveToggle}
+                </button>
+              </>
+            }
+          />
           {/* Without hover (step 6.6): what the button does is said, not left to a tooltip. */}
           {!sheet.own && <p className="hint">{texts.editor.makeVersionHint}</p>}
           {versions.length > 0 && (
@@ -70,33 +94,45 @@ export function MaterialSheet({
               ))}
             </p>
           )}
-          <p className="hint">
-            <label className="check have-toggle">
-              <input type="checkbox" checked={data.catalog.have.has(id)} onChange={(e) => onHave(e.target.checked)} />
-              {texts.glossary.haveToggle}
-            </label>{" "}
-            <span className={`ifra ifra-${sheet.ifra.state}`} title={texts.ifraStateHelp[sheet.ifra.state]}>
-              {texts.ifraState[sheet.ifra.state]}
-            </span>
-          </p>
-          {links}
+          {links && <div className="sheet-links">{links}</div>}
+          <div className="sheet-sections">
           {sheet.sections.map((section) => (
-            <section key={section.key} className="sheet-section">
+            <section key={section.key} className={`sheet-section${section.tables.some((x) => x.rows.length > 0) || section.key === "notes" ? " wide" : ""}`}>
               <h3>
                 {section.title}
                 {section.disputed && <span className="disputed">{t.disputed}</span>}
               </h3>
-              {section.rows.length > 0 && (
+              {section.rows.some((row) => row.value.text !== null) && (
                 <dl>
-                  {section.rows.map((row) => (
-                    <div key={row.label} className="field">
-                      <dt>{row.label}</dt>
-                      <dd>
-                        <Value value={row.value} />
-                      </dd>
-                    </div>
-                  ))}
+                  {section.rows
+                    .filter((row) => row.value.text !== null)
+                    .map((row) => (
+                      <div key={row.label} className="field">
+                        <dt>{row.label}</dt>
+                        <dd>
+                          <Value value={row.value} />
+                        </dd>
+                      </div>
+                    ))}
                 </dl>
+              )}
+              {/* What nobody says, folded under one line (V3-73): still there, not a wall of «not stated». */}
+              {section.rows.some((row) => row.value.text === null) && (
+                <details className="unstated">
+                  <summary>{texts.glossary.hero.hidden(section.rows.filter((row) => row.value.text === null).length)}</summary>
+                  <dl>
+                    {section.rows
+                      .filter((row) => row.value.text === null)
+                      .map((row) => (
+                        <div key={row.label} className="field">
+                          <dt>{row.label}</dt>
+                          <dd>
+                            <Value value={row.value} />
+                          </dd>
+                        </div>
+                      ))}
+                  </dl>
+                </details>
               )}
               {section.tables.map((table, i) => (
                 <div key={i} className="table-wrap">
@@ -132,6 +168,7 @@ export function MaterialSheet({
               ))}
             </section>
           ))}
+          </div>
         </>
       )}
     </article>

@@ -1,26 +1,9 @@
-/* The frame around every orb: the glow and fog need a background to read. */
-:root {
-  --orb-frame: #2b2830;
-  --orb-frame-line: #3d3944;
-  /* The letters written over an orb (orbInk.ts picks one). */
-  --orb-ink-dark: #000;
-  --orb-ink-light: #fff;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --orb-frame: #26232b;
-    --orb-frame-line: #3f3a47;
-  }
-}
-:root[data-theme="dark"] {
-  --orb-frame: #26232b;
-  --orb-frame-line: #3f3a47;
-}
-
+/* The frame around every orb: the glow and fog need a background to read. Its colours are the
+   tokens --orb-frame and --orb-frame-line (src/theme/tokens.css, V3-73). */
 .material-orb {
   display: block;
   flex: none;
-  border-radius: 10px;
+  border-radius: var(--radius-orb-frame);
   background: var(--orb-frame);
   box-shadow: inset 0 0 0 1px var(--orb-frame-line);
 }

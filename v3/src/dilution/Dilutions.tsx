@@ -7,6 +7,9 @@ import { percent } from "../glossary/format";
 import type { GlossaryData } from "../glossary/useGlossary";
 import { texts } from "../i18n/en";
 import { bottleOf, plan, storedBottle } from "./calc";
+import { coloursOf } from "../families/palette";
+import { orbLookOf, orbScalesOf, seedOf } from "../glossary/orb/fromCatalog";
+import { MaterialOrb } from "../glossary/orb/MaterialOrb";
 import "./dilutions.css";
 
 const t = texts.dilutions;
@@ -71,19 +74,40 @@ export function Dilutions({
     () => [...data.catalog.dilutions.entries()].flatMap(([materialId, list]) => list.map((d) => ({ materialId, d }))),
     [data],
   );
-  if (newFor !== null) return <BottleEditor key={`new:${newFor}`} data={data} local={local} materialId={newFor || null} onDone={onOpen} onCancel={onBack} />;
-  if (bottleId) {
-    const found = all.find((x) => x.d.id === bottleId);
-    return found ? (
-      <BottleEditor key={bottleId} data={data} local={local} materialId={found.materialId} bottle={found.d} onDone={() => onBack()} onCancel={onBack} />
-    ) : (
-      <p>{texts.glossary.missing}</p>
-    );
-  }
-  return <BottleList data={data} all={all} onOpen={onOpen} onNew={() => onNew()} />;
+  const found = bottleId ? all.find((x) => x.d.id === bottleId) : undefined;
+  const editor =
+    newFor !== null ? (
+      <BottleEditor key={`new:${newFor}`} data={data} local={local} materialId={newFor || null} onDone={onOpen} onCancel={onBack} />
+    ) : bottleId ? (
+      found ? (
+        <BottleEditor key={bottleId} data={data} local={local} materialId={found.materialId} bottle={found.d} onDone={() => onBack()} onCancel={onBack} />
+      ) : (
+        <p>{texts.glossary.missing}</p>
+      )
+    ) : null;
+  // The bottles as a list, the open one (or the calculator) beside it on a wide screen (V3-73); on a narrow one, one at a time.
+  return (
+    <div className={`dilutions-page${editor ? " with-editor" : ""}`}>
+      <BottleList data={data} all={all} selected={bottleId} onOpen={onOpen} onNew={() => onNew()} />
+      {editor && <div className="bottle-pane">{editor}</div>}
+    </div>
+  );
 }
 
-function BottleList({ data, all, onOpen, onNew }: { data: GlossaryData; all: { materialId: string; d: Dilution }[]; onOpen: (id: string) => void; onNew: () => void }) {
+function BottleList({
+  data,
+  all,
+  selected,
+  onOpen,
+  onNew,
+}: {
+  data: GlossaryData;
+  all: { materialId: string; d: Dilution }[];
+  selected: string | null;
+  onOpen: (id: string) => void;
+  onNew: () => void;
+}) {
+  const scales = useMemo(() => orbScalesOf(data.catalog), [data]);
   const [query, setQuery] = useState("");
   const [archived, setArchived] = useState(false);
   const q = query.trim().toLowerCase();
@@ -95,34 +119,45 @@ function BottleList({ data, all, onOpen, onNew }: { data: GlossaryData; all: { m
   return (
     <section className="dilutions">
       <div className="title-bar">
-        <h2>{t.title}</h2>
+        <h2 className="page-title">{t.title}</h2>
         <span className="buttons">
           <button type="button" onClick={onNew}>
             {t.newBottle}
           </button>
         </span>
       </div>
-      <label className="search">
-        {t.search}
-        <input type="search" value={query} placeholder={t.searchHint} onChange={(e) => setQuery(e.target.value)} />
-      </label>
-      <label className="check">
-        <input type="checkbox" checked={archived} onChange={(e) => setArchived(e.target.checked)} /> {t.showArchived}
-      </label>
+      <div className="tools">
+        <label className="search">
+          {t.search}
+          <input type="search" value={query} placeholder={t.searchHint} onChange={(e) => setQuery(e.target.value)} />
+        </label>
+        <span className="pills">
+          <button type="button" className="pill" aria-pressed={archived} onClick={() => setArchived((a) => !a)}>
+            {t.showArchived}
+          </button>
+        </span>
+      </div>
       {all.length === 0 && <p className="hint">{t.empty}</p>}
       <ul className="bottle-list">
-        {shown.map(({ d, name }) => (
-          <li key={d.id}>
-            <button type="button" className="bottle-row" onClick={() => onOpen(d.id)}>
-              <span className="bottle-name">{name}</span>
-              <span className="bottle-detail">
-                {bottleText(data, d)}
-                {d.madeOn ? ` · ${d.madeOn}` : ""}
-                {d.archivedAt ? ` · ${t.archived}` : ""}
-              </span>
-            </button>
-          </li>
-        ))}
+        {shown.map(({ d, name, materialId }) => {
+          const material = data.catalog.materials.get(materialId);
+          const colours = material ? coloursOf(data.catalog, material) : null;
+          return (
+            <li key={d.id}>
+              <button type="button" className="bottle-row" aria-current={d.id === selected ? "true" : undefined} onClick={() => onOpen(d.id)}>
+                {material && <MaterialOrb look={orbLookOf(data.catalog, material, scales)} size={32} seed={seedOf(material.id)} expectColor={colours?.light} />}
+                <span className="bottle-main">
+                  <span className="bottle-name">{name}</span>
+                  <span className="bottle-detail">
+                    {bottleText(data, d)}
+                    {d.madeOn ? ` · ${d.madeOn}` : ""}
+                    {d.archivedAt ? ` · ${t.archived}` : ""}
+                  </span>
+                </span>
+              </button>
+            </li>
+          );
+        })}
       </ul>
     </section>
   );
@@ -240,7 +275,7 @@ function BottleEditor({
         <button type="button" className="link" onClick={onCancel}>
           ← {t.back}
         </button>
-        <h2>{bottle ? `${name(materialId ?? "")} · ${bottle.label ?? percent(bottle.fraction, 2)}` : t.newBottle}</h2>
+        <h2 className="page-title">{bottle ? `${name(materialId ?? "")} · ${bottle.label ?? percent(bottle.fraction, 2)}` : t.newBottle}</h2>
       </div>
 
       {materialId ? (

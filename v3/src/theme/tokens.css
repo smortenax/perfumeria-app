@@ -1,0 +1,49 @@
+/*
+ * The app's design tokens: the direction "Molecule poster" the user picked on 2026-10-23 (V3-73),
+ * copied from the design vault (designVault, 50-tokens/products/perfumeria.json, D-0005). v3 keeps
+ * its own copy and imports nothing from the vault. Every colour pair below keeps the contrast the
+ * vault checks: text 4.5:1 on every surface, the accent 4.5:1, focus and field edges 3:1.
+ * The accent is provisional (the user: the green doesn't quite convince yet).
+ */
+:root {
+  /* Surfaces */
+  --surface-base: #e4e9ee;
+  --surface-raised: #f8f9fa;
+  --surface-sunken: #eef1f4;
+  --surface-chip: #e2e8ee;
+  /* Text */
+  --text-default: #111418;
+  --text-muted: #4c5662;
+  --text-on-accent: #ffffff;
+  /* Lines: subtle between groups; control is the edge of a field (3:1) */
+  --border-subtle: #c8d0d9;
+  --border-control: #7b8591;
+  /* The one accent: the main action per view, the selected option, the current state */
+  --accent-default: #23704d;
+  --accent-focus: #23704d;
+  /* Behind every material orb */
+  --orb-frame: #2a2d34;
+  --orb-frame-line: #3d414a;
+
+  /* Type */
+  --font-body: "Atkinson Hyperlegible Next Variable", "Atkinson Hyperlegible Next", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-figures: "Geist Mono Variable", "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --size-text-xs: 0.75rem;
+  --size-text-sm: 0.8125rem;
+  --size-text-md: 0.875rem;
+  --size-text-lg: 1rem;
+  --size-text-xl: 1.25rem;
+  --size-text-2xl: 2.1875rem;
+  --size-text-number: 2.5rem;
+
+  /* Space, radius, sizes */
+  --space-inset: 1rem;
+  --space-gap: 1rem;
+  --radius-panel: 4px;
+  --radius-control: 8px;
+  --radius-orb-frame: 10px;
+  --size-target: 44px;
+  --size-sidebar: 216px;
+  --size-sidebar-mini: 64px;
+  --size-bench-side: 360px;
+}

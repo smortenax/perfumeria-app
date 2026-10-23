@@ -15,7 +15,7 @@ import { casForm } from "./data/catalog";
 import { texts } from "./texts";
 import { AddBar, type AddBarHandle } from "./AddBar";
 import { BottleFrame } from "./Bottle";
-import { ProjectionCard, RepartoCard, VisualizerPlaceholder } from "./Charts";
+import { OdourMapPlaceholder, ProjectionCard, RepartoCard } from "./Charts";
 import { ifraOfLines } from "./composition-ifra";
 import { CompositionCard } from "./CompositionList";
 import { ChoiceDialog, ConfirmDialog, PromptDialog, ReweighDialog, SaveAsDialog, type SaveAsChoice, UseFormulaDialog } from "./Dialogs";
@@ -33,6 +33,8 @@ import { eventOf, headerChanges } from "./events";
 import { undoOf } from "./undo";
 import { bandOf, ifraOfMaterial, pourKey, previewPour, type Pour } from "./usage-bar";
 import { repositoryOfV3, v3IdOf } from "./v3-repository";
+import { orbLookOf, orbScalesOf, seedOf } from "../glossary/orb/fromCatalog";
+import { MaterialOrb } from "../glossary/orb/MaterialOrb";
 import "./bench.css";
 
 type Add = Extract<Change, { kind: "add" }>;
@@ -75,6 +77,8 @@ interface BenchProps {
   readonly active?: boolean;
   /** A material's sheet, in Materials. */
   readonly onOpenMaterial?: (id: string) => void;
+  /** A new dilution of a material, in Dilutions (V3-73). */
+  readonly onNewBottle?: (materialId: string) => void;
 }
 
 /**
@@ -255,6 +259,12 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
     [repository],
   );
   const families = useMemo(() => new Map(repository.entries.filter((e) => e.family).map((e) => [e.material.key, e.family!])), [repository]);
+  // Each material as its orb, as in Materials and Dilutions (V3-73); a material outside the catalogue keeps its icon.
+  const scales = useMemo(() => orbScalesOf(props.data.catalog), [props.data]);
+  const orbOf = (size: number) => (key: string) => {
+    const m = props.data.catalog.materials.get(key);
+    return m ? <MaterialOrb look={orbLookOf(props.data.catalog, m, scales)} size={size} seed={seedOf(m.id)} /> : undefined;
+  };
   const familyOf = (key: string) => families.get(key);
   const chemical = useMemo(() => new Map(repository.entries.filter((e) => e.tradeName).map((e) => [e.material.key, e.chemicalName])), [repository]);
   const known = useMemo(() => [...props.frozen, ...session], [props.frozen, session]);
@@ -509,160 +519,197 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
 
   return (
     <div className="bench">
-      <div className="main">
-        <div className="top">
-          <BottleFrame
-            name={shownHeader.name || texts.bench.untitled}
-            fill={fill}
-            aromatic={bottleTotal ? { name: texts.composition.aromatic, share: formatPercent(view.composition!.aromaticUg.div(bottleTotal), 2) } : null}
-            solvents={
-              bottleTotal
-                ? view.composition!.parts.filter((p) => p.material.solvent).map((p) => ({ name: p.material.name, share: formatPercent(p.massUg.div(bottleTotal), 2) }))
-                : []
-            }
-            onBack={() => {
-              flushTyped();
-              props.onExit();
-            }}
-          />
-          <GramsCard header={shownHeader} totalUg={total} onChange={setHeader} />
-          <div className="top-right">
-            <div className="head-row">
-              <NameCard header={shownHeader} status={status} statusIsError={error !== null} onChange={typeHeader} onDone={doneTyping} />
-              <IntentionCard header={shownHeader} onChange={typeHeader} onDone={doneTyping} />
-            </div>
-            <AddBar
-              ref={addBar}
-              entries={repository.entries}
-              sessionMaterials={known}
-              have={props.data.catalog.have}
-              onAdd={change}
-              bottles={(key) => bottlesFor(props.data, key)}
-              onSelect={setCardMaterial}
-              onDraft={setDraft}
-              warning={warning}
-              onQuickMaterial={() => setDialog({ kind: "quick" })}
-              onFormulaAsMaterial={() => setDialog({ kind: "formulaAsMaterial" })}
-              pendingFormulas={pourable.filter((f) => !f.material).map((f) => ({ id: f.id, name: f.name, place: f.place }))}
-              onUseFormula={useFormulaAsMaterial}
-              formulaPlace={(key) => placeOfFrozen.get(key)}
-              onCreateProvisional={createProvisional}
-            />
-            <MaterialCard
-              material={cardMaterial}
-              entry={cardMaterial ? entryByKey.get(cardMaterial.key) : undefined}
-              composition={view.composition}
-              ifra={cardIfra}
-              band={bandOf(cardMaterial ? entryByKey.get(cardMaterial.key)?.usage : undefined)}
-              draft={preview}
-              data={ifra}
-              onOpenSheet={cardMaterial && props.onOpenMaterial && entryByKey.has(cardMaterial.key) ? () => props.onOpenMaterial!(cardMaterial.key) : undefined}
-            />
-          </div>
-        </div>
-        {view.error && (
-          <p className="compute-error">
-            {texts.bench.computeError}: {view.error}
-          </p>
-        )}
-        {/* Lower area (P57, rebalanced by audit F-05): a narrow column with the share of the matter and the
-            slots still waiting for data; the IFRA panel wide, beside the composition. */}
-        <div className="lower">
-          <div className="charts">
-            <RepartoCard composition={view.composition} familyOf={familyOf} />
-            <ProjectionCard />
-            <VisualizerPlaceholder />
-          </div>
-          <IfraPanel report={view.report} empty={empty} {...(ifraBase ? { base: ifraBase } : {})} onBase={setChosenBase} specifications={specifications} assumptions={assumptions} />
-        </div>
-      </div>
-
-      <div className="side">
-        <div className="ifra-row">
-          <IfraSummary report={view.report} empty={empty} {...(ifraBase ? { base: ifraBase } : {})} />
-          <button type="button" className="tool menu-btn" aria-label={texts.menu.options} title={texts.menu.options} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
-              <path d="M3 5h12M3 9h12M3 13h12" />
+      {/* The bench as one page that scrolls (V3-73): the head, the bottle and its grams, the add bar
+          with what the chosen material carries under it, the composition beside the charts, and the
+          history docked at the bottom. */}
+      <header className="formula-head">
+        <button
+          type="button"
+          className="back"
+          aria-label={texts.bench.back}
+          title={texts.bench.back}
+          onClick={() => {
+            flushTyped();
+            props.onExit();
+          }}
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M10 3L5 8l5 5" />
+          </svg>
+        </button>
+        <NameCard header={shownHeader} status={status} statusIsError={error !== null} onChange={typeHeader} onDone={doneTyping} />
+        <IntentionCard header={shownHeader} onChange={typeHeader} onDone={doneTyping} />
+        <div className="head-actions">
+          <button type="button" className="tool" aria-label={texts.menu.undo} title={`${texts.menu.undo} (Ctrl+Z)`} disabled={formula.history.length === 0} onClick={undo}>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M7 4L3 8l4 4" />
+              <path d="M3 8h8a4 4 0 0 1 0 8H9" />
             </svg>
           </button>
-          {menuOpen && (
-            <div className="menu-pop options">
-              <button type="button" className="menuitem" onClick={menuAction(() => setDialog({ kind: "saveAs" }))}>
-                <span>{texts.menu.saveAs}</span>
-              </button>
-              <button type="button" className="menuitem" disabled={empty} onClick={menuAction(() => setDialog({ kind: "freeze" }))}>
-                <span>{texts.menu.freeze}</span>
-              </button>
-              <button type="button" className="menuitem" onClick={menuAction(toggleAccord)}>
-                <span>{accord ? texts.menu.unmarkAccord : texts.menu.markAccord}</span>
-              </button>
-              <button type="button" className="menuitem" onClick={menuAction(() => toggleMarker("finished", !finished, finished ? texts.bench.unmarkedFinished : texts.bench.markedFinished))}>
-                <span>{finished ? texts.menu.unmarkFinished : texts.menu.markFinished}</span>
-              </button>
-              <button type="button" className="menuitem" disabled={props.data.workbenches.length < 2} onClick={menuAction(() => setDialog({ kind: "move" }))}>
-                <span>{texts.menu.move}</span>
-              </button>
-              <button type="button" className="menuitem" onClick={menuAction(() => setDialog({ kind: "role" }))}>
-                <span>{texts.menu.role}</span>
-              </button>
-              <button type="button" className="menuitem" onClick={menuAction(() => setDialog({ kind: "renameBench" }))}>
-                <span>{texts.menu.renameBench}</span>
-              </button>
-              <button type="button" className="menuitem" onClick={menuAction(exportJson)}>
-                <span>{texts.bench.exportJson}</span>
-              </button>
+          <button type="button" className="tool" aria-label={texts.menu.redo} title={`${texts.menu.redo} (Ctrl+Y)`} disabled={!canRedo} onClick={redo}>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M11 4l4 4-4 4" />
+              <path d="M15 8H7a4 4 0 0 0 0 8h2" />
+            </svg>
+          </button>
+          <span className="options-wrap">
+            <button type="button" className="tool menu-btn" aria-label={texts.menu.options} title={texts.menu.options} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
+                <path d="M3 5h12M3 9h12M3 13h12" />
+              </svg>
+            </button>
+      {menuOpen && (
+        <div className="menu-pop options">
+          <button type="button" className="menuitem" onClick={menuAction(() => setDialog({ kind: "saveAs" }))}>
+            <span>{texts.menu.saveAs}</span>
+          </button>
+          <button type="button" className="menuitem" disabled={empty} onClick={menuAction(() => setDialog({ kind: "freeze" }))}>
+            <span>{texts.menu.freeze}</span>
+          </button>
+          <button type="button" className="menuitem" onClick={menuAction(toggleAccord)}>
+            <span>{accord ? texts.menu.unmarkAccord : texts.menu.markAccord}</span>
+          </button>
+          <button type="button" className="menuitem" onClick={menuAction(() => toggleMarker("finished", !finished, finished ? texts.bench.unmarkedFinished : texts.bench.markedFinished))}>
+            <span>{finished ? texts.menu.unmarkFinished : texts.menu.markFinished}</span>
+          </button>
+          <button type="button" className="menuitem" disabled={props.data.workbenches.length < 2} onClick={menuAction(() => setDialog({ kind: "move" }))}>
+            <span>{texts.menu.move}</span>
+          </button>
+          <button type="button" className="menuitem" onClick={menuAction(() => setDialog({ kind: "role" }))}>
+            <span>{texts.menu.role}</span>
+          </button>
+          <button type="button" className="menuitem" onClick={menuAction(() => setDialog({ kind: "renameBench" }))}>
+            <span>{texts.menu.renameBench}</span>
+          </button>
+          <button type="button" className="menuitem" onClick={menuAction(exportJson)}>
+            <span>{texts.bench.exportJson}</span>
+          </button>
+          <div className="menu-sep" />
+          <button type="button" className="menuitem" disabled={empty} onClick={menuAction(() => setDialog({ kind: "useFormula" }))}>
+            <span>{texts.menu.useFormula}</span>
+          </button>
+          <button type="button" className="menuitem" onClick={menuAction(startReweigh)}>
+            <span>{texts.menu.reweigh}</span>
+          </button>
+          <button type="button" className="menuitem" onClick={menuAction(() => setDialog({ kind: "note" }))}>
+            <span>{texts.menu.note}</span>
+          </button>
+          <div className="menu-sep" />
+          <button type="button" className="menuitem" disabled={formula.history.length === 0} onClick={menuAction(undo)}>
+            <span>{texts.menu.undo}</span>
+            <span className="num key">Ctrl+Z</span>
+          </button>
+          <button type="button" className="menuitem" disabled={!canRedo} onClick={menuAction(redo)}>
+            <span>{texts.menu.redo}</span>
+            <span className="num key">Ctrl+Y</span>
+          </button>
+          {/* Where it is used as a material (plan 8.1b: «el corazón dice dónde se usa»). */}
+          {props.uses.length > 0 && (
+            <>
               <div className="menu-sep" />
-              <button type="button" className="menuitem" disabled={empty} onClick={menuAction(() => setDialog({ kind: "useFormula" }))}>
-                <span>{texts.menu.useFormula}</span>
-              </button>
-              <button type="button" className="menuitem" onClick={menuAction(startReweigh)}>
-                <span>{texts.menu.reweigh}</span>
-              </button>
-              <button type="button" className="menuitem" onClick={menuAction(() => setDialog({ kind: "note" }))}>
-                <span>{texts.menu.note}</span>
-              </button>
-              <div className="menu-sep" />
-              <button type="button" className="menuitem" disabled={formula.history.length === 0} onClick={menuAction(undo)}>
-                <span>{texts.menu.undo}</span>
-                <span className="num key">Ctrl+Z</span>
-              </button>
-              <button type="button" className="menuitem" disabled={!canRedo} onClick={menuAction(redo)}>
-                <span>{texts.menu.redo}</span>
-                <span className="num key">Ctrl+Y</span>
-              </button>
-              {/* Where it is used as a material (plan 8.1b: «el corazón dice dónde se usa»). */}
-              {props.uses.length > 0 && (
-                <>
-                  <div className="menu-sep" />
-                  <span className="menu-note">{usedIn.length ? texts.menu.usedIn : texts.menu.notUsedYet(props.uses.map((u) => u.material))}</span>
-                  {usedIn.map((u) => (
-                    <button key={`${u.material}:${u.id}`} type="button" className="menuitem" onClick={menuAction(() => props.onOpen(u.id))}>
-                      <span>{texts.menu.openUse(formulaName(u.id), u.material)}</span>
-                    </button>
-                  ))}
-                </>
-              )}
-              <div className="menu-sep" />
-              <button type="button" className="menuitem danger" onClick={menuAction(() => setDialog({ kind: "delete" }))}>
-                <span>{texts.menu.delete}</span>
-              </button>
-            </div>
+              <span className="menu-note">{usedIn.length ? texts.menu.usedIn : texts.menu.notUsedYet(props.uses.map((u) => u.material))}</span>
+              {usedIn.map((u) => (
+                <button key={`${u.material}:${u.id}`} type="button" className="menuitem" onClick={menuAction(() => props.onOpen(u.id))}>
+                  <span>{texts.menu.openUse(formulaName(u.id), u.material)}</span>
+                </button>
+              ))}
+            </>
           )}
+          <div className="menu-sep" />
+          <button type="button" className="menuitem danger" onClick={menuAction(() => setDialog({ kind: "delete" }))}>
+            <span>{texts.menu.delete}</span>
+          </button>
         </div>
-        <CompositionCard
-          composition={view.composition}
-          lines={view.lines}
-          adds={adds}
-          report={view.report}
-          ifra={ifra}
-          {...(lineIfra ? { lineIfra } : {})}
-          {...(ifraBase ? { ifraBase } : {})}
-          iconOf={(key) => icons.get(key)}
-          chemicalOf={(key) => chemical.get(key)}
-          glossaryNameOf={(key) => byKey.get(key)?.name}
-          familyOf={familyOf}
-          onAgain={(m) => addBar.current?.select(m)}
+      )}
+          </span>
+        </div>
+      </header>
+
+      <div className="card weigh-row">
+        <BottleFrame
+          name={shownHeader.name || texts.bench.untitled}
+          fill={fill}
+          aromatic={bottleTotal ? { name: texts.composition.aromatic, share: formatPercent(view.composition!.aromaticUg.div(bottleTotal), 2) } : null}
+          solvents={
+            bottleTotal
+              ? view.composition!.parts.filter((p) => p.material.solvent).map((p) => ({ name: p.material.name, share: formatPercent(p.massUg.div(bottleTotal), 2) }))
+              : []
+          }
         />
+        <GramsCard header={shownHeader} totalUg={total} onChange={setHeader} />
+      </div>
+
+      <AddBar
+        ref={addBar}
+        entries={repository.entries}
+        sessionMaterials={known}
+        have={props.data.catalog.have}
+        onAdd={change}
+        bottles={(key) => bottlesFor(props.data, key)}
+        onSelect={setCardMaterial}
+        onDraft={setDraft}
+        warning={warning}
+        onQuickMaterial={() => setDialog({ kind: "quick" })}
+        onFormulaAsMaterial={() => setDialog({ kind: "formulaAsMaterial" })}
+        pendingFormulas={pourable.filter((f) => !f.material).map((f) => ({ id: f.id, name: f.name, place: f.place }))}
+        onUseFormula={useFormulaAsMaterial}
+        formulaPlace={(key) => placeOfFrozen.get(key)}
+        onCreateProvisional={createProvisional}
+        orbOf={orbOf(24)}
+        {...(props.onNewBottle
+          ? {
+              onNewBottle: (key: string) => {
+                flushTyped();
+                props.onNewBottle!(key);
+              },
+            }
+          : {})}
+        insight={
+          <MaterialCard
+            inline
+            material={cardMaterial}
+            entry={cardMaterial ? entryByKey.get(cardMaterial.key) : undefined}
+            composition={view.composition}
+            ifra={cardIfra}
+            band={bandOf(cardMaterial ? entryByKey.get(cardMaterial.key)?.usage : undefined)}
+            draft={preview}
+            data={ifra}
+            onOpenSheet={cardMaterial && props.onOpenMaterial && entryByKey.has(cardMaterial.key) ? () => props.onOpenMaterial!(cardMaterial.key) : undefined}
+          />
+        }
+      />
+      {view.error && (
+        <p className="compute-error">
+          {texts.bench.computeError}: {view.error}
+        </p>
+      )}
+
+      <div className="bench-grid">
+        <div className="bench-col">
+          <CompositionCard
+            composition={view.composition}
+            lines={view.lines}
+            adds={adds}
+            report={view.report}
+            ifra={ifra}
+            {...(lineIfra ? { lineIfra } : {})}
+            {...(ifraBase ? { ifraBase } : {})}
+            iconOf={(key) => icons.get(key)}
+            orbOf={orbOf(28)}
+            chemicalOf={(key) => chemical.get(key)}
+            glossaryNameOf={(key) => byKey.get(key)?.name}
+            familyOf={familyOf}
+            onAgain={(m) => addBar.current?.select(m)}
+          />
+          <IfraPanel report={view.report} empty={empty} {...(ifraBase ? { base: ifraBase } : {})} onBase={setChosenBase} specifications={specifications} assumptions={assumptions} />
+        </div>
+        {/* The side holds the verdict and the charts only (V3-73), with room for the odour map. */}
+        <aside className="side">
+          <IfraSummary report={view.report} empty={empty} {...(ifraBase ? { base: ifraBase } : {})} />
+          <RepartoCard composition={view.composition} familyOf={familyOf} />
+          <ProjectionCard />
+          <OdourMapPlaceholder />
+        </aside>
       </div>
 
       <HistoryDock
@@ -674,6 +721,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
         onFrame={setFrame}
         onTogglePlay={() => setPlaying(!playing)}
         iconOf={(key) => icons.get(key)}
+        orbOf={orbOf(28)}
         familyOf={familyOf}
       />
 

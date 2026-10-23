@@ -14,7 +14,7 @@ export interface BottlePart {
  */
 const LABEL_ROOM = 84;
 
-export function BottleFrame(props: { name: string; fill: number | null; aromatic: BottlePart | null; solvents: readonly BottlePart[]; onBack: () => void }) {
+export function BottleFrame(props: { name: string; fill: number | null; aromatic: BottlePart | null; solvents: readonly BottlePart[]; onBack?: () => void }) {
   const fill = props.fill === null ? 0 : Math.max(0, Math.min(1, props.fill));
   const offset = (1 - fill) * 156;
   const label = props.name.length > 12 ? `${props.name.slice(0, 11)}…` : props.name;
@@ -81,11 +81,13 @@ export function BottleFrame(props: { name: string; fill: number | null; aromatic
           </span>
         )}
       </div>
+      {props.onBack && (
       <button type="button" className="back" aria-label={texts.bench.back} title={texts.bench.back} onClick={props.onBack}>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <path d="M10 3L5 8l5 5" />
         </svg>
       </button>
+      )}
     </div>
   );
 }

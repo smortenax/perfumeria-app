@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { contourOf, lookKey, NEUTRAL, NEUTRAL_COLOR, percentileScale, uniformsOf } from "./orbParams";
+import { contourOf, lookKey, NEUTRAL, NEUTRAL_COLOR, parseColor, percentileScale, smallLook, uniformsOf } from "./orbParams";
 
 describe("orb params", () => {
   it("draws a material without data as neutral, never as zero intensity", () => {
@@ -34,5 +34,21 @@ describe("orb params", () => {
     const a = { families: [{ color: "#923002", share: 1 }], intensity: 0.4 };
     expect(lookKey(a, 96)).toBe(lookKey({ ...a }, 96));
     expect(lookKey(a, 96)).not.toBe(lookKey({ ...a, intensity: 0.5 }, 96));
+  });
+
+  it("reads a minified short hex as the same colour, not as blue (#fff was read as 0,0.06,1)", () => {
+    expect(parseColor("#fff")).toEqual([1, 1, 1]);
+    expect(parseColor("#ffffff")).toEqual([1, 1, 1]);
+    expect(parseColor(" #2B2830 ")).toEqual(parseColor("#2b2830"));
+    expect(parseColor("rgb(255, 0, 0)")).toEqual([1, 0, 0]);
+    expect(parseColor("rgba(0 0 255 / 0.5)")).toEqual([0, 0, 1]);
+    expect(parseColor("var(--panel)")).toBeNull();
+  });
+
+  it("draws a small orb denser and with less inner light, and leaves a large one as it is", () => {
+    const look = { families: [{ color: "#d22c50", share: 1 }], intensity: 0.3, luminosity: 0.6 };
+    expect(smallLook(look, 24)).toEqual({ ...look, intensity: 0.75, luminosity: 0.6 * 0.4 });
+    expect(smallLook(look, 72)).toBe(look);
+    expect(smallLook({ families: [] }, 24).luminosity).toBeUndefined();
   });
 });

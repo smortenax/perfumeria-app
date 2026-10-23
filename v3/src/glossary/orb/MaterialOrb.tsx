@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import type { OrbLook } from "./orbParams";
-import { uniformsOf } from "./orbParams";
+import { smallLook, uniformsOf } from "./orbParams";
 import { drawStill, paintOrb } from "./orbRenderer";
 import "./materialOrb.css";
 
@@ -13,6 +13,8 @@ interface MaterialOrbProps {
   /** Varies the marbling between materials with the same look (for example a hash of the material id). */
   seed?: number;
   className?: string;
+  /** The family colour its data asks for, for the visual QA pass (data-qa-expect-color, designVault 80-checks). */
+  expectColor?: string;
   /** Called with the canvas each time a still is painted (to measure it, e.g. for letters over it). */
   onPaint?: (canvas: HTMLCanvasElement) => void;
 }
@@ -27,7 +29,7 @@ function frameColor(el: Element): string {
  * - still: painted once when it nears the screen, then served from the shared cache.
  * - live: animates while on screen and the tab is visible; still under reduced motion.
  */
-export function MaterialOrb({ look, size, mode = "still", seed = 0, className, onPaint }: MaterialOrbProps) {
+export function MaterialOrb({ look, size, mode = "still", seed = 0, className, expectColor, onPaint }: MaterialOrbProps) {
   const ref = useRef<HTMLCanvasElement>(null);
   const lookRef = useRef(look);
   lookRef.current = look;
@@ -45,7 +47,7 @@ export function MaterialOrb({ look, size, mode = "still", seed = 0, className, o
     let last = 0;
 
     const drawStillNow = () => {
-      drawStill(canvas, lookRef.current, frameColor(canvas), seed);
+      drawStill(canvas, smallLook(lookRef.current, size), frameColor(canvas), seed);
       onPaintRef.current?.(canvas);
     };
     const tick = (now: number) => {
@@ -86,6 +88,7 @@ export function MaterialOrb({ look, size, mode = "still", seed = 0, className, o
       height={size * 2}
       style={{ width: size, height: size }}
       aria-hidden="true"
+      data-qa-expect-color={expectColor}
     />
   );
 }

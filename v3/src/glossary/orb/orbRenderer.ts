@@ -1,5 +1,5 @@
 import { ORB_FRAGMENT, ORB_VERTEX } from "./orbShader";
-import { lookKey, uniformsOf, type OrbLook } from "./orbParams";
+import { lookKey, NEUTRAL_COLOR, parseColor, uniformsOf, type OrbLook } from "./orbParams";
 
 /**
  * One renderer for the whole app: a single WebGL context and one program draw every orb.
@@ -54,9 +54,9 @@ export function canRenderOrbs(): boolean {
   return setup() !== null;
 }
 
-function rgb(hex: string): [number, number, number] {
-  const v = parseInt(hex.replace("#", "").slice(0, 6), 16);
-  return [((v >> 16) & 255) / 255, ((v >> 8) & 255) / 255, (v & 255) / 255];
+/** A colour as 0-1 RGB; what cannot be read falls back to the neutral grey, never to a guess. */
+function rgb(css: string): [number, number, number] {
+  return parseColor(css) ?? parseColor(NEUTRAL_COLOR)!;
 }
 
 /** Paints one frame of a look into `target` (a 2D canvas). `frame` is the frame colour as hex. */
