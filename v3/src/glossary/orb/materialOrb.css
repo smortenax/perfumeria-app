@@ -2,6 +2,9 @@
 :root {
   --orb-frame: #2b2830;
   --orb-frame-line: #3d3944;
+  /* The letters written over an orb (orbInk.ts picks one). */
+  --orb-ink-dark: #000;
+  --orb-ink-light: #fff;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {

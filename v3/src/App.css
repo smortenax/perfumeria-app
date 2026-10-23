@@ -1021,12 +1021,74 @@ form.add label {
   padding-top: calc(var(--app-nav-h) + 1.5rem);
 }
 
-/* The material orb (prototype, picks 2026-10-22 §4): a still in a tile's corner; live at the head of the sheet. */
-.tile-orb {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  border-radius: 8px;
+/* The material orb (prototype, V3-72): in a tile, a still in the icon's place with the abbreviation
+   written over it (owner, 2026-10-23); live at the head of the sheet. The ink comes from orb/orbInk.ts. */
+.tile-orb-mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+
+/* In a tile the orb sits on the card itself: its frame is the panel, so it reads as written on paper. */
+.tile-orb-mark .material-orb {
+  --orb-frame: var(--panel);
+  grid-area: 1 / 1;
+  border-radius: 50%;
+  background: var(--panel);
+  box-shadow: none;
+  /* Only the sphere (radius 0.72 of the half; a natural's wobble loses its outer edge): no plate on hover. */
+  clip-path: circle(36.5%);
+}
+
+/* You have it: a ring in the family's colour (neutral without one), where the tint used to be. The
+   app is light only for now, so the family's light colour. */
+.tile-orb-mark.have {
+  outline: 2px solid var(--ink-2);
+  outline-offset: -6px;
+}
+
+.tile-orb-mark.fam.have {
+  outline-color: var(--fam-light);
+}
+
+.orb-letters {
+  /* Positioned, so it paints over the clipped canvas (clip-path makes a stacking context). */
+  position: relative;
+  grid-area: 1 / 1;
+  white-space: nowrap;
+  font-weight: 700;
+  font-size: var(--text-xl);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.orb-letters.long {
+  font-size: var(--text-md);
+}
+
+.orb-letters.initials {
+  font-style: italic;
+  font-weight: 600;
+}
+
+.orb-letters.ink-dark {
+  color: var(--orb-ink-dark);
+}
+
+.orb-letters.ink-light {
+  color: var(--orb-ink-light);
+}
+
+/* Where neither ink reads on all of the orb under it, a soft edge in the other one. */
+.orb-letters.ink-dark.halo {
+  text-shadow: 0 0 3px var(--orb-ink-light), 0 0 2px var(--orb-ink-light);
+}
+
+.orb-letters.ink-light.halo {
+  text-shadow: 0 0 3px var(--orb-ink-dark), 0 0 2px var(--orb-ink-dark);
 }
 
 .tile-traits {

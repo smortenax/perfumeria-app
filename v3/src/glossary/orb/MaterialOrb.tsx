@@ -13,6 +13,8 @@ interface MaterialOrbProps {
   /** Varies the marbling between materials with the same look (for example a hash of the material id). */
   seed?: number;
   className?: string;
+  /** Called with the canvas each time a still is painted (to measure it, e.g. for letters over it). */
+  onPaint?: (canvas: HTMLCanvasElement) => void;
 }
 
 function frameColor(el: Element): string {
@@ -25,10 +27,12 @@ function frameColor(el: Element): string {
  * - still: painted once when it nears the screen, then served from the shared cache.
  * - live: animates while on screen and the tab is visible; still under reduced motion.
  */
-export function MaterialOrb({ look, size, mode = "still", seed = 0, className }: MaterialOrbProps) {
+export function MaterialOrb({ look, size, mode = "still", seed = 0, className, onPaint }: MaterialOrbProps) {
   const ref = useRef<HTMLCanvasElement>(null);
   const lookRef = useRef(look);
   lookRef.current = look;
+  const onPaintRef = useRef(onPaint);
+  onPaintRef.current = onPaint;
   const key = JSON.stringify(look);
 
   useEffect(() => {
@@ -40,7 +44,10 @@ export function MaterialOrb({ look, size, mode = "still", seed = 0, className }:
     let clock = 0;
     let last = 0;
 
-    const drawStillNow = () => drawStill(canvas, lookRef.current, frameColor(canvas), seed);
+    const drawStillNow = () => {
+      drawStill(canvas, lookRef.current, frameColor(canvas), seed);
+      onPaintRef.current?.(canvas);
+    };
     const tick = (now: number) => {
       raf = 0;
       if (!visible || document.hidden || reduce.matches) return;

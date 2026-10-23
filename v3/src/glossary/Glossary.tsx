@@ -3,9 +3,11 @@ import { type CatalogMaterial, MATERIAL_KINDS, type MaterialKind } from "../db/c
 import { normalize } from "../db/search";
 import type { FormulaMarker, FormulaRecord } from "../db/formulas";
 import { listAll, search } from "../db/search";
-import { coloursOf, familyOf, textColourOf } from "../families/palette";
+import { coloursOf, familyOf } from "../families/palette";
 import { orbLookOf, type OrbScales, orbScalesOf, seedOf } from "./orb/fromCatalog";
+import type { OrbLook } from "./orb/orbParams";
 import { MaterialOrb } from "./orb/MaterialOrb";
+import { type Ink, inkOf } from "./orb/orbInk";
 import { paletteMarkdown, paletteOf } from "./palette-export";
 import { texts } from "../i18n/en";
 import { type Filters, type IfraState, keepOf, NO_FILTERS } from "./browse";
@@ -249,7 +251,7 @@ export function Glossary({
   );
 }
 
-/** The letters of a material without an abbreviation: its initials, shown as such (dashed). */
+/** The letters of a material without an abbreviation: its initials, shown as such (in italics). */
 const initials = (name: string) =>
   name
     .split(/[\s,()-]+/)
@@ -276,15 +278,15 @@ function Tile({ material, data, scales, onOpen, marking, mark }: { material: Cat
       : ([material.supplier, material.product].filter((x) => x)[0] ?? texts.kinds[material.kind]);
   const content = (
     <>
-      <span
-        className={`icon${abbreviation ? "" : " no-abbr"}${have ? " have" : ""}${colours ? " fam" : ""}`}
-        style={colours ? ({ "--fam-light": colours.light, "--fam-dark": colours.dark, "--fam-text": textColourOf(colours.light) } as CSSProperties) : undefined}
-        aria-hidden="true"
-      >
-        {abbreviation ?? initials(material.name)}
-      </span>
-      {/* The material's orb, a still in the corner (prototype, picks §4); what it draws is said in words below. */}
-      <MaterialOrb className="tile-orb" look={orbLookOf(data.catalog, material, scales)} size={32} seed={seedOf(material.id)} />
+      {/* The material's orb, with its abbreviation written over it (owner, 2026-10-23; prototype, V3-72). */}
+      <TileOrb
+        look={orbLookOf(data.catalog, material, scales)}
+        seed={seedOf(material.id)}
+        letters={abbreviation ?? initials(material.name)}
+        isInitials={!abbreviation}
+        have={have}
+        colours={colours}
+      />
       <span className="tile-name">{material.name}</span>
       {traits && <span className="tile-traits">{traits}</span>}
       {detail && <span className="tile-detail">{detail}</span>}
@@ -305,6 +307,24 @@ function Tile({ material, data, scales, onOpen, marking, mark }: { material: Cat
     <button type="button" className="tile" onClick={() => onOpen(material.id)} aria-label={`${material.name}${have ? `, ${t.haveMark}` : ""}`}>
       {content}
     </button>
+  );
+}
+
+/**
+ * A material's orb in its tile, its letters over it: black where the orb is light enough, else white
+ * (orb/orbInk.ts). A ring in the family's colour says you have it; initials, not an abbreviation, lean.
+ */
+function TileOrb({ look, seed, letters, isInitials, have, colours }: { look: OrbLook; seed: number; letters: string; isInitials: boolean; have: boolean; colours: { light: string; dark: string } | null }) {
+  const [ink, setInk] = useState<Ink | null>(null);
+  return (
+    <span
+      className={`tile-orb-mark${have ? " have" : ""}${colours ? " fam" : ""}`}
+      style={colours ? ({ "--fam-light": colours.light } as CSSProperties) : undefined}
+      aria-hidden="true"
+    >
+      <MaterialOrb look={look} size={96} seed={seed} onPaint={(canvas) => setInk(inkOf(canvas))} />
+      <span className={`orb-letters ink-${ink?.ink ?? "dark"}${ink?.halo ? " halo" : ""}${isInitials ? " initials" : ""}${letters.length > 4 ? " long" : ""}`}>{letters}</span>
+    </span>
   );
 }
 
