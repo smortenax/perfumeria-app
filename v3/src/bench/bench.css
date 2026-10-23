@@ -2476,6 +2476,34 @@
     font-size: var(--text-md);
   }
 
+  .picker-list {
+    max-height: min(50vh, 420px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .picker-group {
+    border: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .picker-group legend {
+    font-size: var(--text-sm);
+    color: var(--muted);
+    padding: 0 0 2px;
+  }
+
+  .picker-group .radio {
+    min-height: 32px;
+    align-items: center;
+  }
+
   .modal-actions {
     display: flex;
     justify-content: flex-end;

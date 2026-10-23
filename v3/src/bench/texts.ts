@@ -553,8 +553,10 @@ export const texts = {
     massLabel: "Weighed mass (mg)",
     formulaAsMaterialTitle: "Formula as material",
     formulaAsMaterialHelp:
-      "The formulas of this bench and the accords of the others. One not yet saved as a material is saved when chosen, as it is now, and stays chosen in the bar to weigh it.",
-    formulaAsMaterialNone: "No formulas to use here: no others in this bench and no accords marked in the others.",
+      "Every formula in Formulación, by bench (this one first). One not yet saved as a material is saved when chosen, as it is now, and stays chosen in the bar to weigh it.",
+    formulaAsMaterialNone: "No other formulas in Formulación yet.",
+    formulaPickerSearch: "Search by formula or bench",
+    formulaPickerNoMatch: "No formula matches.",
     keptNow: "saved now",
     keptAs: (name: string) => `saved as «${name}»`,
     reweighTitle: "Reweigh the bottle",

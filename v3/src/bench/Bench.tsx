@@ -18,7 +18,7 @@ import { BottleFrame } from "./Bottle";
 import { OdourMapPlaceholder, ProjectionCard, RepartoCard } from "./Charts";
 import { ifraOfLines } from "./composition-ifra";
 import { CompositionCard } from "./CompositionList";
-import { ChoiceDialog, ConfirmDialog, PromptDialog, ReweighDialog, SaveAsDialog, type SaveAsChoice, UseFormulaDialog } from "./Dialogs";
+import { ChoiceDialog, ConfirmDialog, FormulaPickerDialog, PromptDialog, ReweighDialog, SaveAsDialog, type SaveAsChoice, UseFormulaDialog } from "./Dialogs";
 import { dilutionText } from "./format";
 import { ownConcentration } from "./use-formula";
 import { GramsCard, IntentionCard, NameCard } from "./Header";
@@ -157,6 +157,37 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
       .map((f) => ({ id: f.id, name: f.name, place: benchName.get(f.workbenchId) ?? "", material: frozenOf.get(f.id) ?? null }))
       .sort((a, b) => a.name.localeCompare(b.name, "es"));
   }, [props.data, props.frozen, props.record.workbenchId, formulaId]);
+  /**
+   * Every formula of every bench, for the «Formula as material» window (V3-74, 2026-10-23): the user
+   * picks from Formulación, not only from this bench and the accords. The bar's search keeps V3-19.
+   */
+  const importable = useMemo(() => {
+    const benchName = new Map(props.data.workbenches.map((w) => [w.id, w.name]));
+    const frozenOf = new Map<string, Material>();
+    for (const m of props.frozen) {
+      const source = props.data.catalog.materials.get(m.key)?.source?.formulaId;
+      if (source) frozenOf.set(source, m);
+    }
+    return props.data.formulas
+      .filter((f) => f.id !== formulaId)
+      .map((f) => ({ id: f.id, name: f.name, workbenchId: f.workbenchId, place: benchName.get(f.workbenchId) ?? "", material: frozenOf.get(f.id) ?? null }))
+      .sort((a, b) => a.name.localeCompare(b.name, "es"));
+  }, [props.data, props.frozen, formulaId]);
+  const importGroups = useMemo(() => {
+    const here = props.record.workbenchId;
+    const benches = [...new Set(importable.map((f) => f.workbenchId))].sort((a, b) =>
+      a === here ? -1 : b === here ? 1 : (importable.find((f) => f.workbenchId === a)?.place ?? "").localeCompare(importable.find((f) => f.workbenchId === b)?.place ?? "", "es"),
+    );
+    return benches.map((w) => ({
+      name: importable.find((f) => f.workbenchId === w)?.place || "—",
+      options: importable
+        .filter((f) => f.workbenchId === w)
+        .map((f) => ({
+          id: f.id,
+          label: `${f.name}${!f.material ? ` (${texts.dialogs.keptNow})` : f.material.name !== f.name ? ` (${texts.dialogs.keptAs(f.material.name)})` : ""}`,
+        })),
+    }));
+  }, [importable, props.record.workbenchId]);
   /** Where each formula kept as a material comes from: its workbench. */
   const placeOfFrozen = useMemo(() => {
     const benchName = new Map(props.data.workbenches.map((w) => [w.id, w.name]));
@@ -462,7 +493,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
 
   /** Pours a formula as a material (2026-10-19): the one it is kept as, or kept now, as «Guardar como material» does. */
   const useFormulaAsMaterial = (id: string) => {
-    const f = pourable.find((x) => x.id === id);
+    const f = importable.find((x) => x.id === id);
     if (!f) return;
     if (f.material) {
       addBar.current?.select(f.material);
@@ -843,14 +874,10 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
         <ConfirmDialog title={texts.dialogs.deleteTitle} text={texts.dialogs.deleteText(formula.header.name, formula.history.length)} onConfirm={() => void remove()} onClose={() => setDialog(null)} />
       )}
       {dialog?.kind === "formulaAsMaterial" && (
-        <ChoiceDialog
+        <FormulaPickerDialog
           title={texts.dialogs.formulaAsMaterialTitle}
-          help={pourable.length ? texts.dialogs.formulaAsMaterialHelp : texts.dialogs.formulaAsMaterialNone}
-          options={pourable.map((f) => ({
-            id: f.id,
-            label: `${f.name} · ${f.place}${!f.material ? ` (${texts.dialogs.keptNow})` : f.material.name !== f.name ? ` (${texts.dialogs.keptAs(f.material.name)})` : ""}`,
-          }))}
-          initial={null}
+          help={importable.length ? texts.dialogs.formulaAsMaterialHelp : texts.dialogs.formulaAsMaterialNone}
+          groups={importGroups}
           onDone={useFormulaAsMaterial}
           onClose={() => setDialog(null)}
         />
