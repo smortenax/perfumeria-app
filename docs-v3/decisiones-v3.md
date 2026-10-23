@@ -1340,6 +1340,42 @@ Y, recogido en la hoja de elecciones de la auditoría (designVault, `00-inbox/re
 - **Abierto, para el usuario:** cómo se reparten las 24 familias de PerfuMate entre los nueve colores (V3-71 las guarda como las da la fuente) y de dónde sale la luminosidad (una marca de descriptor, como limpio, almizclado o aldehídico, o un valor tuyo por material). Hasta entonces el orbe no dibuja luminosidad ni difusión (la difusión de hoy es texto libre).
 - **El orbe en la tarjeta, al revés (2026-10-23).** Palabras literales del usuario: «for the orb i think the other way around works better the orb in big size and on the corner overlapping hte orb the abreviation, or maybe even inside the orb on black letter the abrebiation as if it were written over the orb». Hecho, a prueba: el orbe ocupa el sitio del icono (96 px, sobre el blanco de la tarjeta, sin marco oscuro) y la abreviatura va escrita encima. Las letras son negras donde el orbe es lo bastante claro para 4,5:1; si no, blancas, y con un borde suave cuando ninguna llega en todo el orbe (`orb/orbInk.ts`, medido sobre la imagen pintada). En el glosario de prueba, 57 de 60 salen negras sin borde. «Lo tengo» pasa a ser un anillo del color de la familia; las iniciales (sin abreviatura), en cursiva. La otra opción, la abreviatura en una etiqueta en la esquina del orbe, se enseñó en captura y no se construyó.
 - **No se construye más allá del prototipo** hasta que confirmes esta decisión.
+- **Cambiado por V3-73 (2026-10-23):** las letras encima del orbe se quitan; el orbe va enmarcado, con el texto al lado.
+
+## V3-73 · El rediseño «Molecule poster»: tokens, barra lateral, el orbe enmarcado y el banco en una sola página (decidida por el usuario el 2026-10-23)
+
+**Palabras literales del usuario** (2026-10-23):
+
+Sobre la barra de añadir (02:17):
+
+> en la parte de las diluciones registradas claramente no son usables las pestañas estan mal puestas y creo que la mejor solucion es que apareciaran en botones al seleccionar los materiales de manera clara las diluciones en las que esta el materialcon la opcion solo de puro y la de escoger la dilucion con numeros aqui por ejmplo los principos de diseño se caen deberia estar a la derechel numero del peso 10% y debajo puro, a la derecha de eso para selecionar dos botones de las diluciones que tienes si hay mas un desplegable, un + a la derecha que te mande a crear una nueva dilucion si quieres hacer una nueva, a la derecha de eso el selector de diluyentes con opciones que permitan añadir la cantidadd de diluyentes que tiene la mezcla, y luego a la derecha el boton de agrgar, el tema de la estrella quizas ya sobra porque se dan de alta las diluciones que tienes que ya es un sistema mejor que la estrella... todo esto son cosas que con uso de referentes y principios de diseño en el vault la auditoria deberia cazar para temas de usabilidad....
+
+Lo elegido en el prototipo del rediseño (03:20):
+
+> Direction: Molecule poster · Type: Atkinson Hyperlegible Next · Navigation: Sidebar · Density: Comfortable · Orb on cards: Framed, text beside
+> lo unico es que el verde de este formato no me acaba de gustar pero esta bien de mometno esto si es un upgrade drastico lo del color se puede dejar pasar y albunos otros upgrades tambien pueden venir pero de momento subit esto a todo mejoraria mucho
+> […]
+> las letras encima al menos por ahora no quedan bien asi que se queda marco
+> luz por descriptores me gusta al final hay algunos que claramente les pega la luz y otros que no por ejemplo si es difusivo y algo como ethylin brassylate pues me cuadra que la tenga, aldehidico quizas tambien,,, hay que ver que parametro cuadra mas, dicho esto son las cosas mas nitpicking en realidad yo diria que prioridad es navegacion distribucion de espacios como se ve usabilidad... es lo que prima ahora
+
+El banco (03:59):
+
+> history si que quiero conservar el feature de antes donde salen los agregadosa abajo, en cuanto a composicion hay cosas que no se pueden perder aunque cambie la distribucion como el boton de añarid un material que ya esta en la composicion […]
+> lo de usual use y material y demas creo que deberia quedarse solo en lo que adjunto tercera captura y vivir debajo del selector de materiales peara ver el usual use mientras agregas incluso en el movil, entoces la fila de history ocmo hasta ahora y en el movil se queda flotando en la parte de debajo de la pantalla aun cuando scrolleas, la parte de history se quita de lo azul y va a lo rojo la de los porcentajes de materiales debajo de la tabla de busqueda para que cuando pones la cantidad veas como se ajusta al uso y la parte de material en general sobra asi que lo azul queda solo charts y futuramente pondre el odor map que diseñe
+
+Las familias (04:01): «lo de las familias on hold se resuelve mas adelante».
+
+Portarlo (10:21): «seria ideal si puedes de momento portar todo el prototipo del revamp a la app y luego si hay mas cambios o retoques se llevan, esto ya seria un upggrade que ya queiro tener y todo lo nuevo se acabara haciendo a futuro».
+
+**Lectura** (la sesión, para que la confirmes):
+
+- **Estilo:** dirección «Molecule poster», letra Atkinson Hyperlegible Next (las cifras, en Geist Mono), navegación en barra lateral, densidad cómoda. Los valores salen de la bóveda de diseño (designVault, `50-tokens/products/perfumeria.json`, D-0005) y la v3 tiene su copia en `src/theme/tokens.css`. **El verde del acento es provisional.**
+- **El orbe va enmarcado, con el texto al lado:** cambia V3-72 (se quitan las letras encima del orbe; `orbInk.ts` desaparece). La luz por descriptores gusta; qué parámetro la da sigue abierto.
+- **Las familias, en espera** (cómo van las de las fuentes en los colores).
+- **La barra de añadir**, de izquierda a derecha: material; cantidad; el % de la dilución con «Puro» debajo; tus diluciones del material como dos botones y «Más» si hay más; un «+» para una dilución nueva; los diluyentes, con «+ Diluyente» para los que tenga la mezcla; «Añadir». **Sin estrella.**
+- **El banco:** el historial sigue abajo, como estaba, y en el móvil flota abajo al desplazarse. La composición conserva «añadir otra vez» y lo demás. Lo que lleva la fórmula del material, su margen IFRA y su uso habitual viven bajo el selector de material, en vivo mientras se escribe la cantidad, también en el móvil. La tarjeta del material sale; la columna lateral, solo gráficos (con el veredicto de IFRA) y un hueco para tu mapa olfativo.
+- **Hecho** (rama `claude/revamp-molecule-poster`, sin fusionar ni publicar): tokens y letra; barra lateral (se pliega; plegada en el banco) y, en el teléfono, la barra de abajo de F-03; Inicio con cifras grandes; Materiales con el orbe enmarcado y filtros en píldoras; la ficha con el orbe vivo y cuatro datos (familia, fuerza, duración en tira, nota); Formulación con la lista de bancos y el banco abierto al lado; Diluciones con la lista y el frasco al lado; Catas a todo el ancho; el banco en una sola página (cabecera, frasco y gramos en una fila, barra de añadir, composición y detalle de IFRA al lado del veredicto y los gráficos, historial fijo abajo) y los orbes en la composición, el historial y la barra.
+- **Propuesta de la sesión:** el «+» de dilución abre «Diluciones · nueva» con el material elegido; el frasco y sus gramos, en una fila bajo la cabecera (el prototipo no los tenía); el detalle de IFRA, bajo la composición. En el teléfono se queda la barra de abajo de la auditoría (F-03), no la del prototipo.
 
 ---
 
