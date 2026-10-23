@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type { MaterialFamily } from "./data/catalog";
 import { familyLook } from "./family";
 import { IconText, iconLength } from "./Icon";
@@ -25,10 +26,10 @@ export function FamilyIcon(props: { icon: IconOf; family: MaterialFamily | undef
 }
 
 /** A material as one piece: its icon and its whole name, which wraps rather than being cut (audit F-04). */
-export function MaterialChip(props: { name: string; icon: IconOf; family: MaterialFamily | undefined; className?: string }) {
+export function MaterialChip(props: { name: string; icon: IconOf; family: MaterialFamily | undefined; className?: string; orb?: ReactNode }) {
   return (
     <span className={`material-chip${props.className ? ` ${props.className}` : ""}`}>
-      <FamilyIcon icon={props.icon} family={props.family} />
+      {props.orb ?? <FamilyIcon icon={props.icon} family={props.family} />}
       <span className="material-chip-name">{props.name}</span>
     </span>
   );

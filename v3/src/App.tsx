@@ -241,6 +241,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
                 onExit={() => back({ view: "library" })}
                 onOpen={(id) => go({ view: "formula", id }, true)}
                 onOpenMaterial={(id) => go({ view: "sheet", id })}
+                onNewBottle={(materialId) => go({ view: "newBottle", materialId })}
               />
             </div>
           )}

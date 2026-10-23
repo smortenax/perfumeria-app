@@ -6,6 +6,16 @@ import { texts } from "./texts";
 
 const c = texts.charts;
 
+/** Room for the odour map the user designed (V3-73: «futuramente pondré el odor map que diseñé»). */
+export function OdourMapPlaceholder() {
+  return (
+    <div className="card odour-map">
+      <span className="chart-title">{c.odourMap}</span>
+      <span className="muted small">{c.odourMapNote}</span>
+    </div>
+  );
+}
+
 /**
  * The perfume's visualizer, the app's signature (P23), kept for the AOM: until it is designed (P33) it
  * holds one line, not a third of the bench (audit F-05).

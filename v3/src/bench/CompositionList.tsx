@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import type { Composition, Line, Part } from "../core/compose";
 import { formatPercent } from "../core/display";
 import type { IfraBase, IfraData, IfraReport } from "../core/ifra";
@@ -49,6 +49,8 @@ export function CompositionCard(props: {
   ifraBase?: IfraBase;
   /** The icon of a material, as the search shows it; without it, the initials of its name (P57). */
   iconOf?: (key: string) => { text: string; mark?: string; type?: string } | undefined;
+  /** The material's orb, as everywhere else in the app (V3-73); without one, its icon. */
+  orbOf?: (key: string) => ReactNode;
   /** The chemical name of a material named by its trade name (P38). */
   chemicalOf?: (key: string) => string | undefined;
   /** The glossary's name, said when the user knows the material by another (P56). */
@@ -210,7 +212,7 @@ export function CompositionCard(props: {
                     </button>
                   )}
                   <button type="button" className="row" aria-expanded={isOpen} title={share.exact} onClick={() => toggle(part.material.key)}>
-                    <FamilyIcon icon={icon} family={family} />
+                    {props.orbOf?.(part.material.key) ?? <FamilyIcon icon={icon} family={family} />}
                     <span className="row-main">
                       <span className="row-name" title={part.material.name}>
                         {part.material.name}

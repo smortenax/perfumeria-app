@@ -1,4 +1,4 @@
-import { useEffect, useImperativeHandle, useMemo, useRef, useState, type KeyboardEvent, type Ref, type RefObject } from "react";
+import { useEffect, useImperativeHandle, useMemo, useRef, useState, type KeyboardEvent, type ReactNode, type Ref } from "react";
 import { Ratio } from "../core/arith/ratio";
 import { parseMass, parsePercent, type MassUnit } from "../core/arith/units";
 import type { Change, SecondDiluent } from "../core/model/formula";
@@ -13,7 +13,6 @@ import {
   diluentOptions,
   isPure,
   knownMix,
-  mixOf,
   ownDiluents,
   ownName as userNameOf,
   percentOptions,
@@ -21,8 +20,6 @@ import {
   rememberLast,
   rememberName,
   sameDilution,
-  singleFavorites,
-  toggleFavorite,
   type DiluentId,
   type Dilution,
   type MaterialPrefs,
@@ -85,10 +82,6 @@ type Result =
 type MaterialResult = Extract<Result, { kind: "material" }>;
 
 const samePercent = (a: string, b: string) => a.replace(",", ".") === b.replace(",", ".");
-
-function uniquePercents(items: readonly string[]): string[] {
-  return items.filter((p, i) => items.findIndex((q) => samePercent(p, q)) === i);
-}
 
 /**
  * A mixture of two diluents in the bar, while its switch is on (2026-10-08), as its cells say it:
@@ -311,6 +304,12 @@ export function AddBar(props: {
   onDraft?: (pour: Pour | null) => void;
   /** What adding the draft would break in IFRA, to say beside the bar; null when nothing. */
   warning?: string | null;
+  /** What the formula carries of the chosen material, its margin and its usual use: under the material (V3-73). */
+  insight?: ReactNode;
+  /** The material's orb, as everywhere else in the app (V3-73); without one, its icon. */
+  orbOf?: (key: string) => ReactNode;
+  /** Opens a new dilution of the material in Dilutions (V3-73: «un +»); without it, the «+» is off. */
+  onNewBottle?: (materialKey: string) => void;
 }) {
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<Material | null>(null);
@@ -324,35 +323,29 @@ export function AddBar(props: {
   const [assumed, setAssumed] = useState<Weighing | null>(null);
   const entryOf = useMemo(() => new Map(props.entries.map((e) => [e.material.key, e])), [props.entries]);
   const [percent, setPercent] = useState("10");
-  /** The cell being written in, and what it says so far. */
-  const [editing, setEditing] = useState<{ at: number; text: string } | null>(null);
   const [diluent, setDiluent] = useState<DiluentId>("dpg");
   const [mix, setMix] = useState<Mix | null>(null);
   /** The diluents of a mixture beyond the two (V3-67, «añadir diluyente»). */
   const [extras, setExtras] = useState<Extra[]>([]);
-  /** The bottle whose tab was pressed last: the pour says it came from it while it still is it. */
+  /** The bottle of yours pressed last: the pour says it came from it while it still is it. */
   const [bottle, setBottle] = useState<BottleChoice | null>(null);
-  const [bottleMenu, setBottleMenu] = useState(false);
-  const [extrasOpen, setExtrasOpen] = useState(false);
-  /** In a mixture, the diluent the menu of other diluents replaces: 0 the upper one, 1 the lower. */
-  const [mixSlot, setMixSlot] = useState<0 | 1>(1);
-  const [focusMix, setFocusMix] = useState<0 | 1 | null>(null);
-  const [customAt, setCustomAt] = useState(0);
   const [mine, setMine] = useState(true);
   const [formulas, setFormulas] = useState(true);
   const [onlyHave, setOnlyHave] = useState(false);
   const [menu, setMenu] = useState(false);
-  const [otherOpen, setOtherOpen] = useState(false);
+  /** The slot whose diluent menu is open (0 the top one, 1 the bottom one, 2 + i the extra i), or null. */
+  const [otherOpen, setOtherOpen] = useState<number | null>(null);
+  const [moreOpen, setMoreOpen] = useState(false);
+  /** The last % written, for when «Neat» is let go. */
+  const [lastPercent, setLastPercent] = useState("10");
   const [ownName, setOwnName] = useState("");
   const [error, setError] = useState<string | null>(null);
 
   const searchRef = useRef<HTMLInputElement>(null);
   const quantityRef = useRef<HTMLInputElement>(null);
-  const percentRefs = [useRef<HTMLButtonElement>(null), useRef<HTMLButtonElement>(null)];
-  const pureRef = useRef<HTMLButtonElement>(null);
-  const diluentRefs = [useRef<HTMLButtonElement>(null), useRef<HTMLButtonElement>(null)];
-  const mixRefs = [useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null)];
+  const percentRef = useRef<HTMLInputElement>(null);
   const otherRef = useRef<HTMLDivElement>(null);
+  const moreRef = useRef<HTMLDivElement>(null);
 
   const byKey = useMemo(() => new Map(props.entries.map((e) => [e.material.key, e])), [props.entries]);
   // The forms of every plant, in chip order (P54).
@@ -360,149 +353,107 @@ export function AddBar(props: {
   // The manufacturers' products of each general material (P62).
   const makers = useMemo(() => makerIndex(props.entries), [props.entries]);
 
-  // Two cells of % side by side and a wide «Puro» under them (P53): favourites first, then
-  // the last one used, then 10 % and 50 %; DPG and alcohol (§4).
-  const percentPool = uniquePercents(percentOptions(prefs)).slice(0, 2);
-  const pure = isPure(percent);
-  const cells = [...percentPool];
-  if (!pure && !percentPool.some((p) => samePercent(p, percent))) {
-    // A % written by hand stays in the cell where it was written.
-    cells[Math.min(customAt, cells.length)] = percent;
-  }
-  // -1 is «Puro».
-  const checkedCell = pure ? -1 : Math.max(0, cells.findIndex((p) => samePercent(p, percent)));
-  const focusPercent = () => (mix ? mixRefs[0] : checkedCell < 0 ? pureRef : percentRefs[checkedCell]).current?.focus();
-
-  /** What was written in a cell takes that cell's place; 100 is «Puro». */
-  const commitEdit = (): string | null => {
-    const typed = editing?.text.trim() ?? "";
-    if (editing !== null && typed !== "") {
-      setPercent(typed);
-      setCustomAt(editing.at);
-    }
-    setEditing(null);
-    return typed === "" ? null : typed;
-  };
-
-  // The arrows move among the three: the two cells side by side, «Puro» under them (P53).
-  const percentKeys = (e: KeyboardEvent, at: number) => {
-    const go = (percentText: string, ref: RefObject<HTMLButtonElement | null>) => {
-      e.preventDefault();
-      setPercent(percentText);
-      ref.current?.focus();
-    };
-    if (e.key === "ArrowLeft" && at === 1) {
-      go(cells[0], percentRefs[0]);
-    } else if (e.key === "ArrowRight" && at === 0 && cells[1] !== undefined) {
-      go(cells[1], percentRefs[1]);
-    } else if (e.key === "ArrowRight") {
-      e.preventDefault();
-      diluentRefs[checkedDiluent].current?.focus();
-    } else if (e.key === "ArrowDown" && at >= 0) {
-      go("100", pureRef);
-    } else if (e.key === "ArrowUp" && at < 0 && cells[0] !== undefined) {
-      go(cells[0], percentRefs[0]);
-    } else if (e.key === "Enter") {
-      e.preventDefault();
-      add();
-    } else if (e.key === "F2") {
-      e.preventDefault();
-      setEditing({ at: Math.max(0, at), text: at < 0 ? "" : cells[at] });
-    } else if (/^[0-9.,]$/.test(e.key)) {
-      e.preventDefault();
-      setEditing({ at: Math.max(0, at), text: e.key });
-    }
-  };
-  // Another diluent chosen from the menu takes the second place while it is chosen (§4).
-  const top = diluentOptions(prefs).slice(0, 2);
-  const diluents = top.includes(diluent) ? top : [top[0], diluent];
-  const checkedDiluent = Math.max(0, diluents.indexOf(diluent));
-  // In a mixture both are taken, the upper one first; the arrows and the menu go to the one in hand.
-  const shown = mix ? [mix.first, mix.second] : diluents;
-  const diluentAt = mix ? mixSlot : checkedDiluent;
-  const others: Array<{ id: DiluentId; name: string; own: boolean }> = [
-    ...APP_DILUENTS.map((id) => ({ id, name: diluentMaterial(id)?.name ?? id, own: false })),
-    ...ownDiluents().map((d) => ({ id: d.id, name: d.name, own: true })),
-  ].filter((d) => !shown.includes(d.id));
-
-  const [focusDiluent, setFocusDiluent] = useState(false);
-  const pickDiluent = (id: DiluentId) => {
-    if (mix) {
-      setMix(mixSlot === 0 ? { ...mix, first: id } : { ...mix, second: id });
-    } else {
-      setDiluent(id);
-    }
-    setOtherOpen(false);
-    setOwnName("");
-    setFocusDiluent(true);
-  };
-
-  // The chosen one sits in its place once drawn: focus it, so the arrows go on from there.
-  useEffect(() => {
-    if (focusDiluent) {
-      diluentRefs[diluentAt].current?.focus();
-      setFocusDiluent(false);
-    }
-  }, [focusDiluent, diluentAt, diluentRefs]);
-
-  /** Opens the menu of other diluents; in a mixture, for the diluent of that place (the lower one by default). */
-  const openOther = (slot: 0 | 1 = 1) => {
-    setMixSlot(slot);
-    setOtherOpen(true);
-  };
-
-  /**
-   * The switch of two diluents (2026-10-08). On, it starts from the material's last mixture or its
-   * newest favourite one; else from the % in the bar, if it is not «Puro», and the two diluents as
-   * they stand, the upper one first. The % of the upper diluent is left to be written.
-   */
-  const turnMix = (on: boolean) => {
+  // One field for the material's % and «Neat» under it (V3-73: the add bar the user drew).
+  const pure = !mix && isPure(percent);
+  const percentText = mix ? mix.percent : pure ? "" : percent;
+  const focusPercent = () => percentRef.current?.focus();
+  /** Whatever the user changes by hand, the pour is no longer exactly one of their bottles. */
+  const edited = () => {
+    setBottle(null);
     setError(null);
-    setEditing(null);
-    setOtherOpen(false);
-    if (!on) {
-      setMix(null);
-      setExtras([]);
+  };
+  const typePercent = (text: string) => {
+    edited();
+    if (mix) {
+      setMix({ ...mix, percent: text });
+    } else {
+      setPercent(text);
+      if (!isPure(text)) setLastPercent(text);
+    }
+  };
+  const toggleNeat = () => {
+    edited();
+    if (pure) {
+      setPercent(lastPercent || percentOptions(prefs).find((p) => !isPure(p)) || "10");
       return;
     }
-    const from = mixOf(prefs);
-    const next = (from && mixFrom(from)) ?? {
-      percent: pure ? "" : percent,
-      firstPercent: "",
-      first: diluents[0],
-      second: diluents[1] ?? APP_DILUENTS.find((d) => d !== diluents[0]) ?? "alcohol",
-    };
-    setMix(next);
-    setFocusMix(next.percent === "" ? 0 : 1);
+    if (mix) setLastPercent(mix.percent || lastPercent);
+    setMix(null);
+    setExtras([]);
+    setPercent("100");
   };
 
-  // The cell to write in, once the mixture is drawn.
-  useEffect(() => {
-    if (focusMix !== null) {
-      mixRefs[focusMix].current?.focus();
-      setFocusMix(null);
-    }
-  }, [focusMix, mixRefs]);
+  // The diluents as chips (V3-73): one; or, with more, the top one and the extras with their %, the
+  // bottom one taking the rest (2026-10-08, V3-67). A slot is 0 for the top one, 1 for the bottom
+  // one and 2 + i for the extra i.
+  const diluentChips: Array<{ slot: number; id: DiluentId; percent: string | null }> = mix
+    ? [{ slot: 0, id: mix.first, percent: mix.firstPercent }, ...extras.map((x, i) => ({ slot: 2 + i, id: x.id, percent: x.percent })), { slot: 1, id: mix.second, percent: null }]
+    : [{ slot: 0, id: diluent, percent: null }];
+  const inUse = diluentChips.map((c) => c.id);
+  const allDiluents: Array<{ id: DiluentId; name: string; own: boolean }> = [
+    ...APP_DILUENTS.map((id) => ({ id: id as DiluentId, name: diluentMaterial(id)?.name ?? id, own: false })),
+    ...ownDiluents().map((d) => ({ id: d.id, name: d.name, own: true })),
+  ];
+  const others = allDiluents.filter((d) => !inUse.includes(d.id));
+  const nameOf = (id: DiluentId) => diluentMaterial(id)?.name ?? id;
 
-  // The menu takes the focus when it opens, so the arrows go on inside it.
-  useEffect(() => {
-    if (otherOpen) {
-      otherRef.current?.querySelector<HTMLElement>("button, input")?.focus();
+  const typeChip = (slot: number, text: string) => {
+    edited();
+    if (!mix) return;
+    if (slot === 0) setMix({ ...mix, firstPercent: text });
+    else setExtras(extras.map((x, i) => (i === slot - 2 ? { ...x, percent: text } : x)));
+  };
+  const addDiluent = () => {
+    edited();
+    const next = others[0]?.id;
+    if (!next) return;
+    if (!mix) {
+      setMix({ percent: percentText, firstPercent: "", first: diluent, second: next });
+    } else {
+      setExtras([...extras, { id: next, percent: "" }]);
     }
+  };
+  const removeChip = (slot: number) => {
+    edited();
+    if (!mix) return;
+    if (extras.length === 0) {
+      setDiluent(slot === 0 ? mix.second : mix.first);
+      setPercent(mix.percent || lastPercent || "10");
+      setMix(null);
+    } else if (slot >= 2) {
+      setExtras(extras.filter((_, i) => i !== slot - 2));
+    } else if (slot === 0) {
+      setMix({ ...mix, first: extras[0].id, firstPercent: extras[0].percent });
+      setExtras(extras.slice(1));
+    } else {
+      setMix({ ...mix, second: extras[extras.length - 1].id });
+      setExtras(extras.slice(0, -1));
+    }
+  };
+  const pickDiluent = (id: DiluentId) => {
+    edited();
+    const slot = otherOpen;
+    if (slot === null) return;
+    if (!mix) setDiluent(id);
+    else if (slot === 0) setMix({ ...mix, first: id });
+    else if (slot === 1) setMix({ ...mix, second: id });
+    else setExtras(extras.map((x, i) => (i === slot - 2 ? { ...x, id } : x)));
+    setOtherOpen(null);
+    setOwnName("");
+  };
+
+  // A menu takes the focus when it opens, so the arrows go on inside it.
+  useEffect(() => {
+    if (otherOpen !== null) otherRef.current?.querySelector<HTMLElement>("button, input")?.focus();
   }, [otherOpen]);
+  useEffect(() => {
+    if (moreOpen) moreRef.current?.querySelector<HTMLElement>("button")?.focus();
+  }, [moreOpen]);
+
   const current: Dilution = mix ? mixDilution(mix) : { percent, diluent };
-  // A mixture says where it comes from only when it is the whole of a favourite or of the last one.
-  const source = mix
-    ? prefs.favorites.some((f) => sameDilution(f, current))
-      ? "favorite"
-      : prefs.last && sameDilution(prefs.last, current)
-        ? "last"
-        : null
-    : singleFavorites(prefs).some((f) => samePercent(f.percent, percent))
-      ? "favorite"
-      : prefs.last && samePercent(prefs.last.percent, percent)
-        ? "last"
-        : "base";
+  // The bar says when the dilution is the one used last with this material.
+  const isLast = prefs.last !== undefined && (mix ? sameDilution(prefs.last, current) : samePercent(prefs.last.percent, percent));
+
 
   const results: Result[] = useMemo(() => {
     // Spaces as the provisional key takes them: «sandalmysore  core» is «Sandalmysore Core» (P44).
@@ -617,20 +568,22 @@ export function AddBar(props: {
     setOpen(false);
     setHighlight(0);
     setError(null);
-    setEditing(null);
     setPrefs(p);
     // What the user chose last wins; without it, the product says what it is weighed at (D12), and the bar says it assumed it.
     const weighing = proposedWeighing(entryOf.get(material.key), material.solvent, p.last !== undefined);
     setAssumed(weighing ?? null);
     // A solvent goes pure; so does a formula the first time, since it already carries its diluent (§3.6).
-    setPercent(material.solvent ? "100" : (weighing?.percent ?? p.last?.percent ?? (material.kind === "formula" ? "100" : percentOptions(p)[0])));
+    const proposed = material.solvent ? "100" : (weighing?.percent ?? p.last?.percent ?? (material.kind === "formula" ? "100" : percentOptions(p)[0]));
+    setPercent(proposed);
+    setLastPercent(isPure(proposed) ? (percentOptions(p).find((x) => !isPure(x)) ?? "10") : proposed);
     setDiluent(weighing?.diluent || (p.last?.diluent ?? diluentOptions(p)[0]));
     // Last used in a mixture, it opens in the mixture (2026-10-08).
     const lastMix = knownMix(p.last);
     setMix(lastMix && mixFrom(lastMix));
     setExtras([]);
     setBottle(null);
-    setOtherOpen(false);
+    setOtherOpen(null);
+    setMoreOpen(false);
     props.onSelect?.(material);
   };
 
@@ -638,22 +591,20 @@ export function AddBar(props: {
   const bottles = selected && props.bottles ? props.bottles(selected.key) : [];
   const useBottle = (b: BottleChoice) => {
     setError(null);
-    setEditing(null);
-    setOtherOpen(false);
+    setOtherOpen(null);
+    setMoreOpen(false);
     setBottle(b);
     const [first, second, ...more] = b.diluents;
     if (!second) {
       setMix(null);
       setExtras([]);
       setPercent(percentCell(b.fraction));
-      setCustomAt(0);
       setDiluent(first.id);
       return;
     }
     // The upper diluent and the extra ones carry their %; the lower one takes the rest, which is its share.
     setMix({ percent: percentCell(b.fraction), firstPercent: percentCell(first.share), first: first.id, second: second.id });
     setExtras(more.map((d) => ({ id: d.id, percent: percentCell(d.share) })));
-    setExtrasOpen(more.length > 0);
   };
 
   useImperativeHandle(props.ref, () => ({
@@ -724,9 +675,7 @@ export function AddBar(props: {
       const read = readMix(mix, extras);
       if ("error" in read) {
         setError(read.error);
-        if (read.at !== undefined) {
-          mixRefs[read.at].current?.focus();
-        }
+        focusPercent();
         return;
       }
       ({ fraction, diluent: diluentUsed, secondDiluent, moreDiluents } = read);
@@ -766,7 +715,6 @@ export function AddBar(props: {
     setSelected(null);
     setQuery("");
     setQuantity("");
-    setEditing(null);
     setError(null);
     searchRef.current?.focus();
   };
@@ -796,30 +744,34 @@ export function AddBar(props: {
     // Only when the pour changes: the key stands for all of it.
   }, [draftKey]);
 
-  const isFavorite = prefs.favorites.some((f) => sameDilution(f, current));
   const rest = mix ? restOf(mix, extras) : null;
-  const firstName = mix ? (diluentMaterial(mix.first)?.name ?? mix.first) : "";
-  const secondName = mix ? (diluentMaterial(mix.second)?.name ?? mix.second) : "";
-  /** The keys of a cell of the mixture: Intro goes on to the next cell, and from the last one adds; Ctrl+Intro adds. */
-  const mixKeys = (e: KeyboardEvent<HTMLInputElement>, at: 0 | 1) => {
-    const input = e.currentTarget;
-    const atEnd = input.selectionStart === input.value.length && input.selectionEnd === input.value.length;
+  const chosenEntry = selected ? byKey.get(selected.key) : undefined;
+  /** Enter adds from any field of the dilution. */
+  const addOnEnter = (e: KeyboardEvent) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      if (at === 0 && !e.ctrlKey) {
-        mixRefs[1].current?.focus();
-      } else {
-        add();
-      }
-    } else if (e.key === "ArrowRight" && atEnd) {
-      e.preventDefault();
-      (at === 0 ? mixRefs[1] : diluentRefs[0]).current?.focus();
-    } else if (e.key === "ArrowLeft" && at === 1 && input.selectionStart === 0 && input.selectionEnd === 0) {
-      e.preventDefault();
-      mixRefs[0].current?.focus();
+      add();
     }
   };
-  const chosenEntry = selected ? byKey.get(selected.key) : undefined;
+  const bottleButton = (b: BottleChoice) => (
+    <button
+      key={b.id}
+      type="button"
+      className="bottle-choice"
+      aria-pressed={bottle?.id === b.id}
+      title={t.bottleHelp(`${percentCell(b.fraction)} %`, b.diluents.map((d) => nameOf(d.id)).join(" + "))}
+      onClick={() => {
+        setMoreOpen(false);
+        if (bottle?.id === b.id) setBottle(null);
+        else useBottle(b);
+      }}
+    >
+      <b>{b.label}</b>
+      <small className="num">
+        {percentCell(b.fraction)} % · {b.diluents.map((d) => nameOf(d.id)).join(" + ")}
+      </small>
+    </button>
+  );
 
   return (
     <div className="card add-form">
@@ -828,13 +780,22 @@ export function AddBar(props: {
           <label htmlFor="add-material">{t.material}</label>
           {/* A small «+» beside the label: a new material or a formula as one (P49). */}
           <span className="more">
-            <button type="button" className="tool plus" title={t.more} aria-label={t.more} tabIndex={-1} onClick={() => setMenu(!menu)}>
+            <button type="button" className="tool plus" title={t.more} aria-label={t.more} aria-expanded={menu} onClick={() => setMenu(!menu)}>
               <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
                 <path d="M8 3v10M3 8h10" />
               </svg>
             </button>
             {menu && (
-              <span className="menu-pop" onMouseLeave={() => setMenu(false)}>
+              <span
+                className="menu-pop"
+                onMouseLeave={() => setMenu(false)}
+                onKeyDown={(e) => {
+                  if (e.key === "Escape") {
+                    e.preventDefault();
+                    setMenu(false);
+                  }
+                }}
+              >
                 <button
                   type="button"
                   className="menuitem"
@@ -912,13 +873,14 @@ export function AddBar(props: {
           {selected && (
             <MaterialChip
               className="chosen-chip"
+              orb={props.orbOf?.(selected.key)}
               name={selected.name}
               icon={chosenEntry ? { text: chosenEntry.icon, mark: chosenEntry.iconMark, type: chosenEntry.iconType } : { text: initials(selected.name) }}
               family={chosenEntry?.family}
             />
           )}
           {selected && (
-            <button type="button" className="release" tabIndex={-1} aria-label={t.release} title={t.release} onClick={release}>
+            <button type="button" className="release" aria-label={t.release} title={t.release} onClick={release}>
               <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
                 <path d="M3.5 3.5l7 7M10.5 3.5l-7 7" />
               </svg>
@@ -1005,6 +967,9 @@ export function AddBar(props: {
             })}
           </ul>
         )}
+        {/* Under the material, live while the amount is typed: what the formula carries of it, its IFRA
+            margin and its usual use (V3-73: «debajo del selector de materiales… incluso en el móvil»). */}
+        {props.insight}
       </div>
 
       <div className="quantity">
@@ -1017,6 +982,7 @@ export function AddBar(props: {
             ref={quantityRef}
             className="num"
             value={quantity}
+            placeholder="0"
             inputMode="decimal"
             autoComplete="off"
             onChange={(e) => setQuantity(e.target.value)}
@@ -1030,336 +996,201 @@ export function AddBar(props: {
               }
             }}
           />
-          <button type="button" className="unit num" tabIndex={-1} title={t.changeUnit} onClick={() => setUnit(unit === "mg" ? "g" : "mg")}>
+          <button type="button" className="unit num" title={t.changeUnit} aria-label={`${t.changeUnit}: ${unit}`} onClick={() => setUnit(unit === "mg" ? "g" : "mg")}>
             {unit}
           </button>
         </div>
       </div>
 
       <div className="dilution">
-        <div className="field-label">
-          <span>{t.dilution}</span>
-          <Switch checked={mix !== null} label={t.mix} title={t.mixHelp} className="mix-switch" onChange={turnMix} />
-          {bottles.length > 0 && (
-            // Your bottles of this material (V3-67): the bench's cards keep their size, so they open from here.
-            <button
-              type="button"
-              className={bottle ? "tool bottle-btn on" : "tool bottle-btn"}
-              tabIndex={-1}
-              aria-expanded={bottleMenu}
-              title={t.bottlesHelp}
-              onClick={() => setBottleMenu(!bottleMenu)}
-            >
-              {bottle ? bottle.label : t.bottlesButton(bottles.length)}
-            </button>
-          )}
-          {mix && (
-            <button type="button" className="tool extra-btn" tabIndex={-1} aria-expanded={extrasOpen} title={t.extrasHelp} onClick={() => setExtrasOpen(!extrasOpen)}>
-              {extras.length ? `+${extras.length}` : "+"}
-            </button>
-          )}
-          {source && !bottle && <span className="hint">{t.src[source]}</span>}
+        <label className="field-label" htmlFor="add-percent">
+          {t.dilution}
+          {isLast && !bottle && <span className="hint">{t.src.last}</span>}
+        </label>
+        <div className={pure ? "field percent-field off" : "field percent-field"}>
+          <input
+            id="add-percent"
+            ref={percentRef}
+            className="num"
+            value={percentText}
+            placeholder="–"
+            inputMode="decimal"
+            autoComplete="off"
+            aria-describedby={!mix && assumed && samePercent(assumed.percent, percent) ? "add-assumed" : undefined}
+            onChange={(e) => typePercent(e.target.value)}
+            onKeyDown={addOnEnter}
+          />
+          <span className="unit-label">%</span>
         </div>
-        {bottleMenu && bottles.length > 0 && (
-          <div className="menu-pop bottle-menu" role="menu" aria-label={t.bottles} onMouseLeave={() => setBottleMenu(false)}>
-            {bottles.map((b) => (
-              <button
-                key={b.id}
-                type="button"
-                role="menuitem"
-                className={bottle?.id === b.id ? "menuitem checked" : "menuitem"}
-                onClick={() => {
-                  useBottle(b);
-                  setBottleMenu(false);
-                }}
-              >
-                {b.label}
-                <span className="muted tiny"> · {t.bottleHelp(`${percentCell(b.fraction)} %`, b.diluents.map((d) => diluentMaterial(d.id)?.name ?? d.id).join(" + "))}</span>
-              </button>
-            ))}
-          </div>
-        )}
+        <button type="button" className="neat-toggle" aria-pressed={pure} onClick={toggleNeat}>
+          {t.pureButton}
+        </button>
         {!mix && assumed && samePercent(assumed.percent, percent) && (
-          <div className="dilution-note muted tiny" title={`${t.assumedHelp} ${assumed.source}`}>
+          <span id="add-assumed" className="dilution-note muted tiny" title={`${t.assumedHelp} ${assumed.source}`}>
             {t.assumed(assumed.percent.replace(".", ","), assumed.why, assumed.diluent.toUpperCase())}
-          </div>
-        )}
-        <div className="dilution-group" role="group" aria-label={t.dilution}>
-          {mix ? (
-            <div className="percent-grid mix-grid" role="group" aria-label={t.percentGroup}>
-              {([0, 1] as const).map((at) => (
-                <label key={at} className="cell mix-cell num" title={at === 0 ? t.mixMaterialPercent : t.mixFirstPercent(firstName)}>
-                  <input
-                    ref={mixRefs[at]}
-                    value={at === 0 ? mix.percent : mix.firstPercent}
-                    inputMode="decimal"
-                    autoComplete="off"
-                    aria-label={at === 0 ? t.mixMaterialPercent : t.mixFirstPercent(firstName)}
-                    onChange={(e) => setMix(at === 0 ? { ...mix, percent: e.target.value } : { ...mix, firstPercent: e.target.value })}
-                    onKeyDown={(e) => mixKeys(e, at)}
-                  />
-                  %
-                </label>
-              ))}
-              <span className={rest !== null && rest.sign() <= 0 ? "cell pure mix-rest over" : "cell pure mix-rest"} title={t.mixRestHelp(secondName)}>
-                {rest === null ? t.mixRestUnknown : t.mixRest(rest.sign() > 0 ? dilutionText(rest) : "0 %")}
-              </span>
-            </div>
-          ) : (
-          <div className="percent-grid" role="radiogroup" aria-label={t.percentGroup}>
-            {cells.map((p, i) =>
-              editing !== null && editing.at === i ? (
-                <input
-                  key={`edit-${i}`}
-                  className="cell-input num"
-                  autoFocus
-                  value={editing.text}
-                  aria-label={t.customPercent}
-                  onChange={(e) => setEditing({ at: i, text: e.target.value })}
-                  onBlur={() => commitEdit()}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      e.preventDefault();
-                      const typed = commitEdit();
-                      if (typed !== null) {
-                        add(typed);
-                      }
-                    } else if (e.key === "Escape") {
-                      setEditing(null);
-                    }
-                  }}
-                />
-              ) : (
-                <button
-                  key={`${i}-${p}`}
-                  type="button"
-                  ref={percentRefs[i]}
-                  role="radio"
-                  aria-checked={i === checkedCell}
-                  tabIndex={i === checkedCell ? 0 : -1}
-                  className={i === checkedCell ? "cell num checked" : "cell num"}
-                  title={t.customPercent}
-                  onClick={() => setPercent(p)}
-                  onDoubleClick={() => setEditing({ at: i, text: p })}
-                  onKeyDown={(e) => percentKeys(e, i)}
-                >
-                  {p} %
-                </button>
-              ),
-            )}
-            <button
-              type="button"
-              ref={pureRef}
-              role="radio"
-              aria-checked={pure}
-              tabIndex={pure ? 0 : -1}
-              className={pure ? "cell pure checked" : "cell pure"}
-              onClick={() => setPercent("100")}
-              onKeyDown={(e) => percentKeys(e, -1)}
-            >
-              {t.pureButton}
-            </button>
-          </div>
-          )}
-          {mix ? (
-            // In a mixture both diluents are taken: a click, or →, changes the one pressed (2026-10-08).
-            <div className="radio-col diluent-col" role="group" aria-label={t.diluentGroup}>
-              {shown.map((d, i) => (
-                <button
-                  key={d}
-                  type="button"
-                  ref={diluentRefs[i]}
-                  tabIndex={i === 0 ? 0 : -1}
-                  className="cell checked"
-                  title={t.changeDiluent}
-                  onClick={() => (otherOpen && mixSlot === i ? setOtherOpen(false) : openOther(i as 0 | 1))}
-                  onKeyDown={(e) => {
-                    if (e.key === "ArrowDown" || e.key === "ArrowUp") {
-                      e.preventDefault();
-                      diluentRefs[1 - i].current?.focus();
-                    } else if (e.key === "ArrowLeft") {
-                      e.preventDefault();
-                      mixRefs[1].current?.focus();
-                    } else if (e.key === "ArrowRight") {
-                      e.preventDefault();
-                      openOther(i as 0 | 1);
-                    } else if (e.key === "Enter") {
-                      e.preventDefault();
-                      add();
-                    }
-                  }}
-                >
-                  {diluentMaterial(d)?.name ?? d}
-                </button>
-              ))}
-            </div>
-          ) : (
-          <div className="radio-col diluent-col" role="radiogroup" aria-label={t.diluentGroup}>
-            {diluents.map((d, i) => (
-              <button
-                key={d}
-                type="button"
-                ref={diluentRefs[i]}
-                role="radio"
-                aria-checked={i === checkedDiluent}
-                tabIndex={i === checkedDiluent ? 0 : -1}
-                className={i === checkedDiluent ? "cell checked" : "cell"}
-                onClick={() => setDiluent(d)}
-                onKeyDown={(e) => {
-                  if (e.key === "ArrowDown" || e.key === "ArrowUp") {
-                    e.preventDefault();
-                    const other = 1 - i;
-                    if (diluents[other] !== undefined) {
-                      setDiluent(diluents[other]);
-                      diluentRefs[other].current?.focus();
-                    }
-                  } else if (e.key === "ArrowLeft") {
-                    e.preventDefault();
-                    focusPercent();
-                  } else if (e.key === "ArrowRight") {
-                    e.preventDefault();
-                    openOther();
-                  } else if (e.key === "Enter") {
-                    e.preventDefault();
-                    add();
-                  }
-                }}
-              >
-                {diluentMaterial(d)?.name ?? d}
-              </button>
-            ))}
-          </div>
-          )}
-          <div className="other-wrap">
-            <button
-              type="button"
-              className="other"
-              title={t.otherDiluent}
-              aria-label={t.otherDiluent}
-              aria-expanded={otherOpen}
-              tabIndex={-1}
-              onClick={() => (otherOpen ? setOtherOpen(false) : openOther())}
-            >
-              <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
-                <circle cx="2.5" cy="6" r="1.1" fill="currentColor" />
-                <circle cx="6" cy="6" r="1.1" fill="currentColor" />
-                <circle cx="9.5" cy="6" r="1.1" fill="currentColor" />
-              </svg>
-            </button>
-            {otherOpen && (
-              <div
-                className="menu-pop diluent-menu"
-                ref={otherRef}
-                role="menu"
-                aria-label={t.otherDiluent}
-                onKeyDown={(e) => {
-                  const items = [...(otherRef.current?.querySelectorAll<HTMLElement>("button, input") ?? [])];
-                  const at = items.indexOf(document.activeElement as HTMLElement);
-                  if (e.key === "Escape" || (e.key === "ArrowLeft" && (e.target as HTMLElement).tagName !== "INPUT")) {
-                    e.preventDefault();
-                    setOtherOpen(false);
-                    diluentRefs[diluentAt].current?.focus();
-                  } else if (e.key === "ArrowDown" || e.key === "ArrowUp") {
-                    e.preventDefault();
-                    items[(at + (e.key === "ArrowDown" ? 1 : items.length - 1)) % items.length]?.focus();
-                  }
-                }}
-              >
-                {others.map((d) => (
-                  <button key={d.id} type="button" className="menuitem" role="menuitem" onClick={() => pickDiluent(d.id)}>
-                    {d.name}
-                    {d.own && <span className="muted tiny"> · {t.provisionalDiluent}</span>}
-                  </button>
-                ))}
-                <input
-                  className="own-diluent"
-                  value={ownName}
-                  placeholder={t.ownDiluent}
-                  aria-label={t.ownDiluent}
-                  onChange={(e) => setOwnName(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" && ownName.trim() !== "") {
-                      e.preventDefault();
-                      pickDiluent(addOwnDiluent(ownName));
-                    }
-                  }}
-                />
-              </div>
-            )}
-          </div>
-        </div>
-        {mix && (
-          // The diluents beyond the two (V3-67): each with its %; the lower one still takes the rest.
-          <div className="menu-pop mix-extras" hidden={!extrasOpen}>
-            {extras.map((x, i) => (
-              <div key={i} className="mix-extra">
-                <select
-                  value={x.id}
-                  aria-label={t.extraDiluent}
-                  onChange={(e) => setExtras(extras.map((y, j) => (j === i ? { ...y, id: e.target.value as DiluentId } : y)))}
-                >
-                  {[...APP_DILUENTS.map((id) => ({ id: id as DiluentId, name: diluentMaterial(id)?.name ?? id })), ...ownDiluents().map((d) => ({ id: d.id, name: d.name }))].map((d) => (
-                    <option key={d.id} value={d.id}>
-                      {d.name}
-                    </option>
-                  ))}
-                </select>
-                <label className="cell mix-cell num">
-                  <input
-                    value={x.percent}
-                    inputMode="decimal"
-                    autoComplete="off"
-                    aria-label={t.mixFirstPercent(diluentMaterial(x.id)?.name ?? x.id)}
-                    onChange={(e) => setExtras(extras.map((y, j) => (j === i ? { ...y, percent: e.target.value } : y)))}
-                  />
-                  %
-                </label>
-                <button type="button" className="link" tabIndex={-1} onClick={() => setExtras(extras.filter((_, j) => j !== i))}>
-                  {t.removeExtra}
-                </button>
-              </div>
-            ))}
-            <button
-              type="button"
-              className="link"
-              tabIndex={-1}
-              onClick={() =>
-                setExtras([
-                  ...extras,
-                  { id: APP_DILUENTS.find((d) => ![mix.first, mix.second, ...extras.map((x) => x.id)].includes(d)) ?? "ipm", percent: "" },
-                ])
-              }
-            >
-              {t.addExtra}
-            </button>
-          </div>
+          </span>
         )}
       </div>
 
-      <button type="button" className="add-btn" onClick={() => add()}>
-        {t.add}
-      </button>
-      <button
-        type="button"
-        className={isFavorite ? "tool star on" : "tool star"}
-        title={isFavorite ? t.unfavorite : t.favorite}
-        aria-label={isFavorite ? t.unfavorite : t.favorite}
-        aria-pressed={isFavorite}
-        disabled={!selected}
-        tabIndex={-1}
-        onClick={() => selected && setPrefs(toggleFavorite(selected.key, current))}
-      >
-        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
-          <path
-            d="M8 1.8l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 11.6l-3.8 2 .7-4.3-3.1-3 4.3-.6z"
-            fill={isFavorite ? "currentColor" : "none"}
-            stroke="currentColor"
-            strokeWidth="1.3"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </button>
-      {error ? <span className="add-error">{error}</span> : props.warning && <span className="add-error add-warning" role="status">{props.warning}</span>}
+      <div className="bottles-col">
+        <span className="field-label">{t.yourBottles}</span>
+        <div className="bottle-row-choices">
+          {!selected ? (
+            <span className="muted small bottle-none">{t.chooseFirst}</span>
+          ) : bottles.length === 0 ? (
+            <span className="muted small bottle-none">{t.noBottles}</span>
+          ) : (
+            bottles.slice(0, 2).map(bottleButton)
+          )}
+          {bottles.length > 2 && (
+            <span className="more-bottles">
+              <button
+                type="button"
+                className={bottles.slice(2).some((b) => b.id === bottle?.id) ? "more-btn on" : "more-btn"}
+                aria-expanded={moreOpen}
+                onClick={() => setMoreOpen(!moreOpen)}
+              >
+                {t.moreBottles(bottles.length - 2)}
+              </button>
+              {moreOpen && (
+                <div
+                  ref={moreRef}
+                  className="menu-pop bottle-menu"
+                  role="group"
+                  aria-label={t.bottles}
+                  onKeyDown={(e) => {
+                    if (e.key === "Escape") {
+                      e.preventDefault();
+                      setMoreOpen(false);
+                    }
+                  }}
+                >
+                  {bottles.slice(2).map(bottleButton)}
+                </div>
+              )}
+            </span>
+          )}
+          <button
+            type="button"
+            className="tool new-bottle"
+            aria-label={t.newBottle}
+            title={t.newBottle}
+            disabled={!selected || !props.onNewBottle}
+            onClick={() => selected && props.onNewBottle?.(selected.key)}
+          >
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+              <path d="M8 3v10M3 8h10" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div className="diluents-col">
+        <span className="field-label">{bottle ? t.diluentsFromBottle : t.diluents}</span>
+        <div className="diluent-chips" role="group" aria-label={t.diluentGroup}>
+          {pure ? (
+            <span className="muted small diluent-none">{t.neatNoDiluent}</span>
+          ) : (
+            <>
+              {diluentChips.map((c) => (
+                <span key={c.slot} className="diluent-chip">
+                  <span className="other-wrap">
+                    <button
+                      type="button"
+                      className="diluent-name"
+                      title={t.changeDiluent}
+                      aria-expanded={otherOpen === c.slot}
+                      onClick={() => setOtherOpen(otherOpen === c.slot ? null : c.slot)}
+                    >
+                      {nameOf(c.id)}
+                      <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
+                        <path d="M2 4l3 3 3-3" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </button>
+                    {otherOpen === c.slot && (
+                      <div
+                        className="menu-pop diluent-menu"
+                        ref={otherRef}
+                        role="menu"
+                        aria-label={t.otherDiluent}
+                        onKeyDown={(e) => {
+                          const items = [...(otherRef.current?.querySelectorAll<HTMLElement>("button, input") ?? [])];
+                          const at = items.indexOf(document.activeElement as HTMLElement);
+                          if (e.key === "Escape") {
+                            e.preventDefault();
+                            setOtherOpen(null);
+                          } else if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+                            e.preventDefault();
+                            items[(at + (e.key === "ArrowDown" ? 1 : items.length - 1)) % items.length]?.focus();
+                          }
+                        }}
+                      >
+                        {others.map((d) => (
+                          <button key={d.id} type="button" className="menuitem" role="menuitem" onClick={() => pickDiluent(d.id)}>
+                            {d.name}
+                            {d.own && <span className="muted tiny"> · {t.provisionalDiluent}</span>}
+                          </button>
+                        ))}
+                        <input
+                          className="own-diluent"
+                          value={ownName}
+                          placeholder={t.ownDiluent}
+                          aria-label={t.ownDiluent}
+                          onChange={(e) => setOwnName(e.target.value)}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" && ownName.trim() !== "") {
+                              e.preventDefault();
+                              pickDiluent(addOwnDiluent(ownName));
+                            }
+                          }}
+                        />
+                      </div>
+                    )}
+                  </span>
+                  {mix &&
+                    (c.percent !== null ? (
+                      <label className="diluent-percent num">
+                        <input
+                          value={c.percent}
+                          inputMode="decimal"
+                          autoComplete="off"
+                          placeholder="–"
+                          aria-label={t.mixFirstPercent(nameOf(c.id))}
+                          onChange={(e) => typeChip(c.slot, e.target.value)}
+                          onKeyDown={addOnEnter}
+                        />
+                        %
+                      </label>
+                    ) : (
+                      <span className={rest !== null && rest.sign() <= 0 ? "diluent-rest over" : "diluent-rest"} title={t.mixRestHelp(nameOf(c.id))}>
+                        {rest === null ? t.theRest : t.mixRest(rest.sign() > 0 ? dilutionText(rest) : "0 %")}
+                      </span>
+                    ))}
+                  {mix && (
+                    <button type="button" className="diluent-remove" aria-label={t.removeDiluent(nameOf(c.id))} title={t.removeDiluent(nameOf(c.id))} onClick={() => removeChip(c.slot)}>
+                      <svg width="10" height="10" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+                        <path d="M3.5 3.5l7 7M10.5 3.5l-7 7" />
+                      </svg>
+                    </button>
+                  )}
+                </span>
+              ))}
+              {others.length > 0 && (
+                <button type="button" className="add-diluent" onClick={addDiluent}>
+                  {t.addDiluent}
+                </button>
+              )}
+            </>
+          )}
+        </div>
+      </div>
+
+      <div className="add-go">
+        <button type="button" className="add-btn" onClick={() => add()}>
+          {t.add}
+        </button>
+      </div>
+      {error ? <span className="add-error" role="alert">{error}</span> : props.warning && <span className="add-error add-warning" role="status">{props.warning}</span>}
     </div>
   );
 }
