@@ -161,10 +161,27 @@
     padding: 16px 12px;
     border-bottom: 0;
     border-right: 1px solid var(--line);
+    overflow-y: auto;
   }
 
+  /* With large text the names wrap inside the sidebar instead of running into the page. */
   .app-name {
     margin: 0 6px 12px;
+    flex-wrap: wrap;
+    white-space: normal;
+  }
+
+  .app-link {
+    white-space: normal;
+  }
+
+  .app-link .nav-label {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .nav-badge {
+    flex: none;
   }
 
   .app-links {
@@ -300,6 +317,14 @@
     border-radius: 0;
     font-size: var(--text-sm);
     text-align: center;
+    /* With large text a long name breaks inside its own tab rather than running into the next. */
+    white-space: normal;
+    overflow-wrap: anywhere;
+    line-height: 1.15;
+  }
+
+  .app-nav .app-link .nav-label {
+    min-width: 0;
   }
 
   .app-nav .app-link[aria-current="page"] {

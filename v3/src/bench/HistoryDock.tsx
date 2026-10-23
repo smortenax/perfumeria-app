@@ -13,8 +13,9 @@ const t = texts.history;
 
 type Add = Extract<Change, { kind: "add" }>;
 
-/** Each change takes a slot wider than its 28 px chip, so its amount can sit under it (audit F-06). */
-const SLOT = 52;
+/** Each change takes a slot wider than its 28 px chip, so its amount can sit under it (audit F-06): 3.25rem, so it still fits with larger text. */
+const SLOT_REM = 3.25;
+const remPx = () => parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
 const GAP = 4;
 
 function describe(change: Change, adds: ReadonlyMap<string, Add>): { title: string; sub: string } {
@@ -65,12 +66,14 @@ export function HistoryDock(props: {
   const box = useRef<HTMLDivElement>(null);
   const area = useRef<HTMLDivElement>(null);
   const [areaWidth, setAreaWidth] = useState(1000);
+  const [slot, setSlot] = useState(() => SLOT_REM * remPx());
   const [pointer, setPointer] = useState<number | null>(null);
   const [scroll, setScroll] = useState(0);
 
   useLayoutEffect(() => {
     const observer = new ResizeObserver(() => {
       setAreaWidth(area.current?.clientWidth ?? 1000);
+      setSlot(SLOT_REM * remPx());
     });
     if (box.current) {
       observer.observe(box.current);
@@ -79,16 +82,16 @@ export function HistoryDock(props: {
   }, []);
 
   const n = props.history.length;
-  const content = n * (SLOT + GAP);
+  const content = n * (slot + GAP);
   const maxScroll = Math.max(0, content - areaWidth + 24);
   // A new change comes into view.
   useEffect(() => setScroll(maxScroll), [n, maxScroll]);
 
   const adds = new Map(props.history.filter((c): c is Add => c.kind === "add").map((c) => [c.id, c]));
   const end = props.frame ?? n;
-  const centre = (i: number) => i * (SLOT + GAP) + SLOT / 2 - scroll;
+  const centre = (i: number) => i * (slot + GAP) + slot / 2 - scroll;
   const scaleOf = (i: number) => (pointer === null ? 1 : 1 + 0.8 * Math.max(0, 1 - Math.abs(centre(i) - pointer) / 84));
-  const hovered = pointer === null ? null : props.history.findIndex((_, i) => Math.abs(centre(i) - pointer) <= (SLOT + GAP) / 2);
+  const hovered = pointer === null ? null : props.history.findIndex((_, i) => Math.abs(centre(i) - pointer) <= (slot + GAP) / 2);
   const tip = hovered !== null && hovered >= 0 ? describe(props.history[hovered], adds) : null;
 
   return (
@@ -172,8 +175,8 @@ export function HistoryDock(props: {
               })}
             </div>
           </div>
-          {scroll > 0 && <button type="button" className="shade left" tabIndex={-1} aria-label={t.goStart} onClick={() => setScroll(0)} />}
-          {scroll < maxScroll && <button type="button" className="shade right" tabIndex={-1} aria-label={t.goEnd} onClick={() => setScroll(maxScroll)} />}
+          {scroll > 0 && <button type="button" className="shade left" aria-label={t.goStart} onClick={() => setScroll(0)} />}
+          {scroll < maxScroll && <button type="button" className="shade right" aria-label={t.goEnd} onClick={() => setScroll(maxScroll)} />}
           {tip && hovered !== null && hovered >= 0 && (
             <div className="dock-tip" style={{ left: centre(hovered) }}>
               <span className="tip-title">{tip.title}</span>

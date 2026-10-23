@@ -86,9 +86,9 @@ export function SheetHero({ catalog, material, name, chips, actions }: { catalog
                 <span className="dur" role="img" aria-label={h.durationOn(h.duration(hours))}>
                   <span className="track" />
                   <span className="fill" style={{ width: `${durationAt(hours)}%` }} />
-                  <span className="tick start" style={{ left: 0 }}>1 h</span>
+                  <span className="tick first" style={{ left: 0 }}>1 h</span>
                   <span className="tick" style={{ left: `${durationAt(24)}%` }}>1 day</span>
-                  <span className="tick" style={{ left: `${durationAt(168)}%` }}>1 week</span>
+                  <span className="tick later" style={{ left: `${durationAt(168)}%` }}>1 week</span>
                 </span>
                 <span className="dur-cap">{h.logScale}</span>
               </>

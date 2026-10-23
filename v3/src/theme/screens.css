@@ -9,11 +9,13 @@
 .start .page-title {
   margin: 0;
   font-family: var(--font-body);
-  font-size: var(--text-2xl);
+  /* Never wider than a phone allows, even with large text. */
+  font-size: min(var(--text-2xl), 9vw);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.03em;
   text-wrap: balance;
+  overflow-wrap: anywhere;
 }
 
 .title-bar {
@@ -113,7 +115,7 @@
 .launch-number {
   font-size: var(--size-text-number);
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.15;
   letter-spacing: -0.03em;
 }
 
@@ -256,7 +258,7 @@
 /* The materials: cards, the orb framed with its text beside it. */
 .glossary .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
   gap: var(--space-gap);
   padding: 0;
   list-style: none;
@@ -304,12 +306,19 @@
 .tile-abbr {
   font-size: 1.375rem;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.25;
   letter-spacing: -0.02em;
 }
 
 .tile-abbr i {
   font-weight: 500;
+}
+
+/* The whole name and detail, never clamped: the row of tiles grows to the longest (visual QA, 200 % text). */
+.start .tile-name,
+.start .tile-detail {
+  display: block;
+  overflow: visible;
 }
 
 .start .tile-name {
@@ -369,6 +378,10 @@
 }
 
 /* A material's sheet: the orb hero, four facts, then its sections as panels. */
+.crumb button {
+  min-height: 24px;
+}
+
 .crumb {
   display: flex;
   flex-wrap: wrap;
@@ -443,7 +456,8 @@
 
 .glance {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* Four facts, as many to a row as fit at 11rem each, so larger text gives each one more room. */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
   gap: 1px;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -451,11 +465,6 @@
   background: var(--line);
 }
 
-@media (min-width: 1180px) {
-  .glance {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
 
 .glance > div {
   display: grid;
@@ -501,8 +510,11 @@
 .dur {
   position: relative;
   display: block;
-  height: 30px;
+  /* The bar and a line of ticks under it, in the ticks' own size, so larger text keeps them apart. */
+  height: calc(14px + 1.6em);
   margin: 0 10px;
+  font-size: var(--text-xs);
+  container-type: inline-size;
 }
 
 .dur .track,
@@ -527,12 +539,19 @@
   position: absolute;
   top: 14px;
   color: var(--muted);
-  font-size: var(--text-xs);
+  line-height: 1.4;
   white-space: nowrap;
   transform: translateX(-50%);
 }
 
-.dur .tick.start {
+/* On a narrow bar (a phone, or large text) the week's tick gives way to the day's. */
+@container (max-width: 18em) {
+  .dur .tick.later {
+    display: none;
+  }
+}
+
+.dur .tick.first {
   transform: none;
 }
 

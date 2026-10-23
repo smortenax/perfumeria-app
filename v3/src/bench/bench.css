@@ -2204,7 +2204,7 @@
 
   /* A change and, under its chip, its amount (audit F-06): the chip grows under the pointer, the amount stays. */
   .chip-slot {
-    width: 52px;
+    width: 3.25rem;
     flex: none;
     display: flex;
     flex-direction: column;
@@ -2215,7 +2215,7 @@
   .chip-amount {
     transition: transform 70ms linear;
     font-size: var(--text-xs);
-    line-height: 14px;
+    line-height: 1.2;
     font-variant-numeric: tabular-nums;
     color: var(--muted);
     white-space: nowrap;
@@ -2694,13 +2694,17 @@
     background: none;
   }
 
+  /* The name is edited in place: a dashed line under it says it is a field (WCAG 1.4.11). */
   .formula-head .formula-name {
+    min-height: var(--size-target);
+    border-bottom: 1px dashed var(--line-strong);
     font-size: var(--text-2xl);
     font-weight: 700;
     letter-spacing: -0.02em;
   }
 
   .formula-head .intention-card {
+    border-color: var(--line-strong);
     flex: 2 1 280px;
     min-width: 0;
     min-height: var(--size-target);
