@@ -330,7 +330,7 @@ export const texts = {
     synthesis: { synthetic: "synthetic", natural: "natural", semisynthetic: "semi-synthetic" },
     families: {
       citrus: "Citrus", green: "Green", ozonic: "Ozonic", floral: "Floral", fruity: "Fruity",
-      spicy: "Spicy", woody: "Woody", animal: "Animalic", transformed: "Transformed",
+      spicy: "Spicy", woody: "Woody", animal: "Animalic", transformed: "Transformed", gourmand: "Gourmand",
     },
     tiers: { top: "Top", top_heart: "Top-heart", heart: "Heart", heart_base: "Heart-base", base: "Base" },
     strengths: { low: "low", medium: "medium", high: "high", very_high: "very high" },
@@ -510,7 +510,7 @@ export const texts = {
     },
     app: {
       citrus: "Citrus", green: "Green", ozonic: "Ozonic", floral: "Floral", fruity: "Fruity", spicy: "Spicy", woody: "Woody", animal: "Animalic",
-      transformed: "Transformed",
+      transformed: "Transformed", gourmand: "Gourmand",
     },
     battery: {
       metallic: "Metallic", soapy: "Soapy", green: "Green", floral: "Floral", sweet: "Sweet", smoky: "Smoky / burnt", animalic: "Animalic",

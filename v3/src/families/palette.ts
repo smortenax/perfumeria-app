@@ -4,10 +4,11 @@ import { FAMILIES } from "../db/catalog";
 import { mix, readableOn } from "./contrast";
 
 /**
- * The palette of the families (V3-38): each closed family of P48 with its colour for a light and a
- * dark theme, from datos/family_palette.csv (batch 15, the lab's piece 11). It is read when the app
- * is built and travels with it, so it works without network. Without the file (before its batch is
- * approved) the palette is empty and every material is neutral: never a colour made up.
+ * The palette of the families (V3-38): each closed family (P48, and Gourmand by V3-76) with its colour
+ * for a light and a dark theme, from datos/family_palette.csv (batch 15, the lab's piece 11, and batch
+ * 22 for Gourmand). It is read when the app is built and travels with it, so it works without
+ * network. Without the file (before its batch is approved) the palette is empty and every material is
+ * neutral: never a colour made up; a family the file lacks, the same.
  */
 export interface FamilyColour {
   readonly family: Family;

@@ -22,8 +22,9 @@ const bare = material("bare");
 const catalog = { materials: new Map([rose, mine, fixed, bare].map((m) => [m.id, m])) } as unknown as Catalog;
 
 describe("the palette of the families (V3-38)", () => {
-  it("has the nine families of P48, each with a light and a dark colour", () => {
-    expect([...PALETTE.keys()].sort()).toEqual([...FAMILIES].sort());
+  it("has the nine families of P48, and Gourmand once batch 22 is approved (V3-76), each with a light and a dark colour", () => {
+    const expected = PALETTE.has("gourmand") ? FAMILIES : FAMILIES.filter((f) => f !== "gourmand");
+    expect([...PALETTE.keys()].sort()).toEqual([...expected].sort());
     expect(PALETTE.get("floral")).toMatchObject({ name: "Floral", colourName: "rosa malva", light: "#c475aa", dark: "#975482" });
     expect(PALETTE.get("transformed")?.short).toBe("Transf");
   });
