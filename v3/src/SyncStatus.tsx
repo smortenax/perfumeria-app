@@ -28,6 +28,11 @@ export function SyncStatus({ local }: { local: LocalDatabase }) {
   // does not expose the probe (404…) leaves it to the SDK.
   const [reachable, setReachable] = useState(true);
   const [lastSynced, setLastSynced] = useState<Date | undefined>(powerSync.currentStatus.lastSyncedAt);
+  const errorOf = () => {
+    const e = powerSync.currentStatus.dataFlowStatus.downloadError ?? powerSync.currentStatus.dataFlowStatus.uploadError;
+    return e ? e.message || String(e) : null;
+  };
+  const [syncError, setSyncError] = useState<string | null>(errorOf);
   const [pending, setPending] = useState(0);
   const [rejected, setRejected] = useState(0);
   const [counts, setCounts] = useState<Counts>({ common: 0, own: 0, dataCommit: null });
@@ -57,6 +62,7 @@ export function SyncStatus({ local }: { local: LocalDatabase }) {
     const refresh = () => {
       setConnected(healthy());
       setLastSynced(powerSync.currentStatus.lastSyncedAt);
+      setSyncError(errorOf());
       void powerSync.getUploadQueueStats().then((s) => setPending(s.count));
     };
     refresh();
@@ -90,6 +96,9 @@ export function SyncStatus({ local }: { local: LocalDatabase }) {
       <p className="status">{counts.dataCommit ? t.data(counts.dataCommit.slice(0, 7)) : t.noData}</p>
       <p className="status">{t.pending(pending)}</p>
       {rejected > 0 && <p className="status error">{t.rejected(rejected)}</p>}
+      {/* What to read out when a device shows an empty copy (the iPhone, 2026-10-23). */}
+      <p className="status">{t.storage(local.storage)}</p>
+      {syncError && <p className="status error">{t.syncError(syncError)}</p>}
     </section>
   );
 }

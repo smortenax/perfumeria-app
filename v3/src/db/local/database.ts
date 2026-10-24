@@ -1,8 +1,9 @@
 import { wrapPowerSyncWithDrizzle } from "@powersync/drizzle-driver";
-import { PowerSyncDatabase } from "@powersync/web";
+import { PowerSyncDatabase, WASQLiteVFS } from "@powersync/web";
 import { supabase } from "../client";
 import { powerSyncEndpoint, SupabaseConnector } from "../connector";
 import { AppSchema, tables } from "./schema";
+import { browserStorage } from "./storage";
 
 /**
  * The browser's copy for one user (V3-9): a SQLite file of their own, so two people in the
@@ -10,13 +11,18 @@ import { AppSchema, tables } from "./schema";
  * with Supabase whenever there is network.
  */
 function open(userId: string) {
+  // On Safari and iOS, OPFS: there IndexedDB left the copy empty (storage.ts).
+  const storage = browserStorage();
   const powerSync = new PowerSyncDatabase({
     schema: AppSchema,
-    database: { dbFilename: `perfumeria-${userId}.sqlite` },
+    database: {
+      dbFilename: `perfumeria-${userId}.sqlite`,
+      ...(storage === "opfs" ? { vfs: WASQLiteVFS.OPFSCoopSyncVFS } : {}),
+    },
   });
   const db = wrapPowerSyncWithDrizzle(powerSync, { schema: tables });
   void powerSync.connect(new SupabaseConnector(supabase, () => powerSyncEndpoint()));
-  return { userId, powerSync, db };
+  return { userId, powerSync, db, storage };
 }
 
 export type LocalDatabase = ReturnType<typeof open>;
