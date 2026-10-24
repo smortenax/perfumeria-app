@@ -505,6 +505,9 @@ export const texts = {
   history: {
     title: "History",
     count: (n: number) => `${n} ${n === 1 ? "change" : "changes"}`,
+    /** The words after the big number in the count box: «9 changes», «4 of 9». */
+    changes: (n: number) => (n === 1 ? "change" : "changes"),
+    ofCount: (of: number) => `of ${of}`,
     frame: (n: number, of: number) => `frame ${n} of ${of}`,
     toEnd: "at the end",
     play: "Play the history",

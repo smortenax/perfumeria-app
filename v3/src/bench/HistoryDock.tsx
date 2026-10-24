@@ -46,7 +46,9 @@ function amountOf(change: Change): string | null {
 /**
  * The history as a dock (§10.1): every change in its order, even when a
  * material repeats; on hover it grows and says material and quantity; notes are
- * marks in it; the play at its end. Docked at the bottom of the window while the bench scrolls (V3-73).
+ * marks in it. Docked at the bottom of the window while the bench scrolls (V3-73).
+ * One row (the user, 2026-10-24): the play first, the changes on one line with a dot under each
+ * (filled up to the frame looked at, hollow after it), and the count in a box at the right.
  */
 export function HistoryDock(props: {
   history: readonly Change[];
@@ -96,20 +98,26 @@ export function HistoryDock(props: {
 
   return (
     <div className="dock" ref={box}>
+      <button
+        type="button"
+        className="play"
+        aria-label={props.playing ? t.pause : t.play}
+        title={props.playing ? t.pause : t.play}
+        disabled={n === 0}
+        onClick={props.onTogglePlay}
+      >
+        {props.playing ? (
+          <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+            <rect x="2" y="1.5" width="3" height="9" rx="1" fill="currentColor" />
+            <rect x="7" y="1.5" width="3" height="9" rx="1" fill="currentColor" />
+          </svg>
+        ) : (
+          <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+            <path d="M3.5 1.8v8.4L10.2 6z" fill="currentColor" />
+          </svg>
+        )}
+      </button>
       <div className="dock-inner">
-        <div className="dock-label">
-          <span className="dock-title">{t.title}</span>
-          {props.frame === null ? (
-            <span className="muted small">{t.count(n)}</span>
-          ) : (
-            <span className="frame small">
-              {t.frame(props.frame, n)} ·{" "}
-              <button type="button" className="link" onClick={() => props.onFrame(null)}>
-                {t.toEnd}
-              </button>
-            </span>
-          )}
-        </div>
         <div
           className="dock-area"
           ref={area}
@@ -140,7 +148,7 @@ export function HistoryDock(props: {
                 ];
                 const amount = amountOf(change);
                 return (
-                  <div key={change.id} className={`chip-slot${i >= end ? " future" : ""}`}>
+                  <div key={change.id} className={`chip-slot${i >= end ? " future" : " done"}${i === end - 1 ? " last" : ""}`}>
                   <button
                     type="button"
                     className={classes.join(" ")}
@@ -165,6 +173,9 @@ export function HistoryDock(props: {
                       "±"
                     )}
                   </button>
+                  <span className="chip-tick" aria-hidden="true">
+                    <i />
+                  </span>
                   {amount && (
                     <span className="chip-amount" aria-hidden="true" style={{ transform: `translateX(${shift}px)` }}>
                       {amount}
@@ -185,25 +196,21 @@ export function HistoryDock(props: {
           )}
         </div>
       </div>
-      <button
-        type="button"
-        className="play"
-        aria-label={props.playing ? t.pause : t.play}
-        title={props.playing ? t.pause : t.play}
-        disabled={n === 0}
-        onClick={props.onTogglePlay}
-      >
-        {props.playing ? (
-          <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
-            <rect x="2" y="1.5" width="3" height="9" rx="1" fill="currentColor" />
-            <rect x="7" y="1.5" width="3" height="9" rx="1" fill="currentColor" />
-          </svg>
+      <div className="dock-count">
+        <span className="dock-title">{t.title}</span>
+        {props.frame === null ? (
+          <span className="small">
+            <span className="num dock-n">{n}</span> {t.changes(n)}
+          </span>
         ) : (
-          <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
-            <path d="M3.5 1.8v8.4L10.2 6z" fill="currentColor" />
-          </svg>
+          <span className="small">
+            <span className="num dock-n">{props.frame}</span> {t.ofCount(n)} ·{" "}
+            <button type="button" className="link" onClick={() => props.onFrame(null)}>
+              {t.toEnd}
+            </button>
+          </span>
         )}
-      </button>
+      </div>
     </div>
   );
 }
