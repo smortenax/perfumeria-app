@@ -406,6 +406,8 @@ export const texts = {
     pending: (n: number) => (n === 1 ? "1 change waiting to upload" : `${n} changes waiting to upload`),
     rejected: (n: number) =>
       n === 1 ? "1 change rejected by Supabase, kept here" : `${n} changes rejected by Supabase, kept here`,
+    storage: (kind: "opfs" | "indexeddb") => `Stored in: ${kind === "opfs" ? "OPFS (Safari and iPhone)" : "IndexedDB"}`,
+    syncError: (message: string) => `Sync error: ${message}`,
   },
   tasting: {
     title: "Evaluations",
