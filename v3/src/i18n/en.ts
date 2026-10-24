@@ -530,6 +530,7 @@ export const texts = {
     changed: (blocks: string) => `Changed: ${blocks}`,
     unchanged: "Nothing with data changed.",
     closing: "Closing",
+    momentTabs: "Moments of the strip",
     closeHint: "Answered when the series is closed, once per strip.",
     close: "Close the series",
     closeAsk: "Close this strip's series? Then the comparison opens.",

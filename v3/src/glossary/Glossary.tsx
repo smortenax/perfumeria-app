@@ -9,6 +9,7 @@ import { MaterialOrb } from "./orb/MaterialOrb";
 import { paletteMarkdown, paletteOf } from "./palette-export";
 import { texts } from "../i18n/en";
 import { Pills } from "../Pills";
+import { tabAfterKey } from "../tabs";
 import { type Filters, type IfraState, keepOf, NO_FILTERS } from "./browse";
 import type { GlossaryData } from "./useGlossary";
 
@@ -83,8 +84,7 @@ export function Glossary({
   };
   // The tabs answer the keyboard as ARIA's pattern asks: arrows, Home and End.
   const onTabKey = (e: KeyboardEvent<HTMLButtonElement>) => {
-    const at = TABS.indexOf(tab);
-    const next = e.key === "ArrowRight" ? (at + 1) % TABS.length : e.key === "ArrowLeft" ? (at + TABS.length - 1) % TABS.length : e.key === "Home" ? 0 : e.key === "End" ? TABS.length - 1 : null;
+    const next = tabAfterKey(e.key, TABS.indexOf(tab), TABS.length);
     if (next === null) return;
     e.preventDefault();
     choose(TABS[next], true);
