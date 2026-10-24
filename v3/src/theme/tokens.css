@@ -36,6 +36,8 @@
   --size-text-xl: 1.25rem;
   --size-text-2xl: 2.1875rem;
   --size-text-number: 2.5rem;
+  /* The body of a reading view (P-TYPE-02; vault pass 2026-10-24, pick D5): the sheet and the notes read at 16 px, while lists, tables and the bench stay at --size-text-md. A proposal for the token picker. */
+  --size-body-read: 1rem;
 
   /* Space, radius, sizes */
   --space-inset: 1rem;

@@ -426,7 +426,7 @@ function StripView({
           {t.addT15}
         </button>
       )}
-      <div className="tab-panel" role="tabpanel">
+      <div className="tab-panel reading" role="tabpanel">
         {tab === "t0" ? (
           <Opening local={local} strip={strip} moment={moments.find((m) => m.moment === "t0")} run={run} />
         ) : tab === "closing" ? (

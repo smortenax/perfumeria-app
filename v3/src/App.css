@@ -31,6 +31,20 @@ body {
   color: var(--text);
 }
 
+/* A reading view (the material sheet, a tasting's notes) moves every size one step up; its tables stay dense (vault pass D5). */
+.reading {
+  --text-xs: var(--size-text-sm);
+  --text-sm: var(--size-text-md);
+  --text-md: var(--size-body-read);
+  font-size: var(--text-md);
+}
+
+.reading table {
+  --text-xs: var(--size-text-xs);
+  --text-sm: var(--size-text-sm);
+  --text-md: var(--size-text-md);
+}
+
 .start {
   max-width: 40rem;
   margin: 0 auto;
