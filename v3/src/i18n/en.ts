@@ -7,6 +7,7 @@ export const texts = {
     signOut: "Sign out",
     signedInAs: (email: string) => `Signed in as ${email}`,
     dismiss: "Close",
+    undo: "Undo",
   },
   signIn: {
     devMe: "Sign in as you, without a password",
@@ -630,6 +631,7 @@ export const texts = {
     cancel: "Cancel",
     archive: "Archive (used up)",
     unarchive: "Take out of the archive",
+    archivedToast: (name: string) => `Archived the bottle of ${name}.`,
     correctHint: "Correcting the weights changes the figure from now on; the formulas and evaluations that already used it keep theirs.",
     sheetTitle: "Dilutions",
     sheetNone: "No bottles recorded.",

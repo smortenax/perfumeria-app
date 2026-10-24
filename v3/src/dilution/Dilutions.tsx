@@ -6,6 +6,8 @@ import type { LocalDatabase } from "../db/local/database";
 import { percent } from "../glossary/format";
 import type { GlossaryData } from "../glossary/useGlossary";
 import { texts } from "../i18n/en";
+import { FailureNote } from "../FailureNote";
+import { Toast } from "../Toast";
 import { bottleOf, plan, storedBottle } from "./calc";
 import { coloursOf } from "../families/palette";
 import { orbLookOf, orbScalesOf, seedOf } from "../glossary/orb/fromCatalog";
@@ -75,12 +77,22 @@ export function Dilutions({
     [data],
   );
   const found = bottleId ? all.find((x) => x.d.id === bottleId) : undefined;
+  // Archiving says so, with Undo (vault pass 2026-10-24, F-03); it stays until closed or undone.
+  const [archived, setArchived] = useState<{ id: string; text: string } | null>(null);
+  const [failure, setFailure] = useState<string | null>(null);
+  const onArchived = (d: Dilution) =>
+    setArchived({ id: d.id, text: t.archivedToast(`${data.catalog.materials.get(all.find((x) => x.d.id === d.id)?.materialId ?? "")?.name ?? "—"} (${bottleText(data, d)})`) });
+  const unarchive = () => {
+    if (!archived) return;
+    setArchived(null);
+    void archiveBottle(local.db, local.userId, archived.id, false).catch((e: unknown) => setFailure(t.failed(String(e))));
+  };
   const editor =
     newFor !== null ? (
       <BottleEditor key={`new:${newFor}`} data={data} local={local} materialId={newFor || null} onDone={onOpen} onCancel={onBack} />
     ) : bottleId ? (
       found ? (
-        <BottleEditor key={bottleId} data={data} local={local} materialId={found.materialId} bottle={found.d} onDone={() => onBack()} onCancel={onBack} />
+        <BottleEditor key={bottleId} data={data} local={local} materialId={found.materialId} bottle={found.d} onDone={() => onBack()} onCancel={onBack} onArchived={onArchived} />
       ) : (
         <p>{texts.glossary.missing}</p>
       )
@@ -90,6 +102,8 @@ export function Dilutions({
     <div className={`dilutions-page${editor ? " with-editor" : ""}`}>
       <BottleList data={data} all={all} selected={bottleId} onOpen={onOpen} onNew={() => onNew()} />
       {editor && <div className="bottle-pane">{editor}</div>}
+      <Toast message={archived?.text ?? null} onUndo={unarchive} onClose={() => setArchived(null)} />
+      <FailureNote message={failure} onClose={() => setFailure(null)} floating />
     </div>
   );
 }
@@ -179,6 +193,7 @@ function BottleEditor({
   bottle,
   onDone,
   onCancel,
+  onArchived,
 }: {
   data: GlossaryData;
   local: LocalDatabase;
@@ -186,6 +201,8 @@ function BottleEditor({
   bottle?: Dilution;
   onDone: (id: string) => void;
   onCancel: () => void;
+  /** Said after archiving, with Undo (not after taking a bottle out of the archive). */
+  onArchived?: (bottle: Dilution) => void;
 }) {
   const diluents = useMemo(() => diluentsOf(data), [data]);
   const name = (id: string) => data.catalog.materials.get(id)?.name ?? "—";
@@ -422,7 +439,15 @@ function BottleEditor({
               <button
                 type="button"
                 className="secondary"
-                onClick={() => void archiveBottle(local.db, local.userId, bottle.id, !bottle.archivedAt).then(onCancel, (e: unknown) => setError(t.failed(String(e))))}
+                onClick={() =>
+                  void archiveBottle(local.db, local.userId, bottle.id, !bottle.archivedAt).then(
+                    () => {
+                      if (!bottle.archivedAt) onArchived?.(bottle);
+                      onCancel();
+                    },
+                    (e: unknown) => setError(t.failed(String(e))),
+                  )
+                }
               >
                 {bottle.archivedAt ? t.unarchive : t.archive}
               </button>

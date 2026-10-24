@@ -57,6 +57,7 @@ export const texts = {
     moved: (bench: string, n: number) => (n === 1 ? `moved to «${bench}»` : `moved to «${bench}», with its ${n - 1} versions`),
     unmarkedAccord: "no longer an accord: used only in its bench",
     writeError: "Could not save the last step",
+    removed: (material: string, formula: string) => `Removed ${material} from ${formula}.`,
     exportJson: "Export as a file (.json)",
     cannotUndo: {
       empty: "Nothing to undo.",

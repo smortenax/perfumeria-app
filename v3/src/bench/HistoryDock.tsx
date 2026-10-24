@@ -64,6 +64,8 @@ export function HistoryDock(props: {
   orbOf?: (key: string) => ReactNode;
   /** Each addition shows the family of its material (P48). */
   familyOf?: (key: string) => MaterialFamily | undefined;
+  /** What rides just above the history: the bench's toast (vault pass F-03). */
+  children?: ReactNode;
 }) {
   const box = useRef<HTMLDivElement>(null);
   const area = useRef<HTMLDivElement>(null);
@@ -211,6 +213,7 @@ export function HistoryDock(props: {
           </span>
         )}
       </div>
+      {props.children}
     </div>
   );
 }
