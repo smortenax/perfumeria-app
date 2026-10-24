@@ -1,0 +1,11 @@
+family,order,name,short,colour_name,light,dark,covers,source
+citrus,1,Cítrico,Cítrico,amarillo,#c3b503,#a19500,cítricos,"laboratorio, pieza 11 (P48), en la v2: datos/fuente/pieza-11-paleta.csv (commit c877be8)"
+green,2,Verde,Verde,verde menta,#43cd99,#4aa781,"verde, herbal, aromático, alcanforado, mentolado","laboratorio, pieza 11 (P48), en la v2: datos/fuente/pieza-11-paleta.csv (commit c877be8)"
+ozonic,3,Ozónico,Ozónico,azul cielo,#2db9f3,#237da9,"ozónico, marino, acuoso, aldehídico, limpio, metálico","laboratorio, pieza 11 (P48), en la v2: datos/fuente/pieza-11-paleta.csv (commit c877be8)"
+floral,4,Floral,Floral,rosa malva,#c475aa,#975482,"floral, miel, atalcado","laboratorio, pieza 11 (P48), en la v2: datos/fuente/pieza-11-paleta.csv (commit c877be8)"
+fruity,5,Frutal,Frutal,violeta,#896ffb,#915fd8,frutal,"laboratorio, pieza 11 (P48), en la v2: datos/fuente/pieza-11-paleta.csv (commit c877be8); qué entra, cambiado por V3-76 (el usuario, 2026-10-24: «Families: Ten families (Gourmand)»)"
+spicy,6,Especiado,Especiado,naranja,#d86f0d,#bb704e,"especiado, anisado","laboratorio, pieza 11 (P48), en la v2: datos/fuente/pieza-11-paleta.csv (commit c877be8); qué entra, cambiado por V3-76 (el usuario, 2026-10-24: «Families: Ten families (Gourmand)»)"
+woody,7,Amaderado,Amaderado,marrón,#923002,#944e00,"maderas, terroso, ahumado, tabaco","laboratorio, pieza 11 (P48), en la v2: datos/fuente/pieza-11-paleta.csv (commit c877be8)"
+animal,8,Animal,Animal,rojo,#d22c50,#ca224a,"animal, almizcle, cuero, ámbar","laboratorio, pieza 11 (P48), en la v2: datos/fuente/pieza-11-paleta.csv (commit c877be8); qué entra, cambiado por V3-76 (el usuario, 2026-10-24: «Families: Ten families (Gourmand)»)"
+transformed,9,Transformado,Transf,gris,#8a8a8a,#8a8a8a,"tostados (pirazinas), ácidos, azufrados: olores de calor, fermentación o corte","laboratorio, pieza 11 (P48), en la v2: datos/fuente/pieza-11-paleta.csv (commit c877be8)"
+gourmand,10,Gourmand,Gourmand,caramelo,#d4a373,#b8875a,"vainilla, caramelo, balsámico, cremoso, azucarado","V3-76 (el usuario, 2026-10-24: «Families: Ten families (Gourmand)»); el color, de la maqueta del rediseño (designVault, 00-inbox/research/kit/revamp-prototype.html, opción A)"
