@@ -3,7 +3,8 @@
  * copied from the design vault (designVault, 50-tokens/products/perfumeria.json, D-0005). v3 keeps
  * its own copy and imports nothing from the vault. Every colour pair below keeps the contrast the
  * vault checks: text 4.5:1 on every surface, the accent 4.5:1, focus and field edges 3:1.
- * The accent is provisional (the user: the green doesn't quite convince yet).
+ * The accent is the direction's ink (vault pass 2026-10-24, pick D6; designVault D-0008): hue is kept
+ * for the olfactory families, and controls, selection, focus and errors use ink.
  */
 :root {
   /* Surfaces */
@@ -18,9 +19,9 @@
   /* Lines: subtle between groups; control is the edge of a field (3:1) */
   --border-subtle: #c8d0d9;
   --border-control: #7b8591;
-  /* The one accent: the main action per view, the selected option, the current state */
-  --accent-default: #23704d;
-  --accent-focus: #23704d;
+  /* The one accent: the main action per view, the selected option, the current state; ink, not a hue */
+  --accent-default: var(--text-default);
+  --accent-focus: var(--text-default);
   /* Behind every material orb */
   --orb-frame: #2a2d34;
   --orb-frame-line: #3d414a;
