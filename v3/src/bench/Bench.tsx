@@ -12,6 +12,7 @@ import type { LocalDatabase } from "../db/local/database";
 import { createMaterial } from "../db/materials";
 import type { GlossaryData } from "../glossary/useGlossary";
 import { casForm } from "./data/catalog";
+import { Toast } from "../Toast";
 import { texts } from "./texts";
 import { AddBar, type AddBarHandle } from "./AddBar";
 import { BottleFrame } from "./Bottle";
@@ -325,14 +326,25 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
     if (Object.keys(changes).length > 0) write(() => updateFormula(local.db, owner, formulaId, changes));
   };
   /** Every change is an event, written at once (plan 8.2). */
-  const change = (c: Change, dilutionId?: string | null) => {
+  const change = (c: Change, dilutionId?: string | null, eventId?: string) => {
     setNotice(null);
+    setRemoved(null);
     setPlaying(false);
     setFrame(null);
     setSelectedId(null);
     redoable.current = [];
     // A pour that is exactly one of your bottles says which (V3-67).
-    write(() => addEvent(local.db, owner, formulaId, { ...eventOf(c, v3IdOf(props.data)), ...(dilutionId && c.kind === "add" ? { dilutionId } : {}) }));
+    write(() => addEvent(local.db, owner, formulaId, { ...eventOf(c, v3IdOf(props.data)), ...(dilutionId && c.kind === "add" ? { dilutionId } : {}) }, eventId));
+  };
+  /**
+   * Taking a line away says so, with Undo (vault pass 2026-10-24, F-03). The toast lasts while that
+   * removal is the last change: Undo then takes back exactly it, and any other change (or Ctrl+Z) ends it.
+   */
+  const [removed, setRemoved] = useState<{ eventId: string; text: string } | null>(null);
+  const removeLine = (line: Add) => {
+    const eventId = newId();
+    change({ kind: "remove", id: newId(), target: line.id }, null, eventId);
+    setRemoved({ eventId, text: texts.bench.removed(line.material.name, formula.header.name || texts.bench.untitled) });
   };
   /** Undo adds the opposite event; what has none is said (undo.ts). */
   const undo = () => {
@@ -723,7 +735,14 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
         iconOf={(key) => icons.get(key)}
         orbOf={orbOf(28)}
         familyOf={familyOf}
-      />
+      >
+        <Toast
+          docked
+          message={removed && removed.eventId === lastId ? removed.text : null}
+          onUndo={undo}
+          onClose={() => setRemoved(null)}
+        />
+      </HistoryDock>
 
       {selected && (
         <ChangeDetail
@@ -732,7 +751,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
           history={formula.history}
           current={view.current}
           onEditMass={(line) => setDialog({ kind: "mass", line })}
-          onRemove={(line) => change({ kind: "remove", id: newId(), target: line.id })}
+          onRemove={removeLine}
           onFrame={setFrame}
           onClose={() => setSelectedId(null)}
         />

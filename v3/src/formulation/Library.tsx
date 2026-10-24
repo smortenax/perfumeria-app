@@ -4,6 +4,7 @@ import { normalize } from "../db/search";
 import { byVersions, Formulas } from "../glossary/Glossary";
 import type { GlossaryData } from "../glossary/useGlossary";
 import { texts } from "../i18n/en";
+import { tabAfterKey } from "../tabs";
 
 /** The library's tabs (V3-19): your workbenches, and the general folders of the markers. */
 const TABS = ["benches", "accords", "finished"] as const;
@@ -34,8 +35,7 @@ export function Library({
   const [query, setQuery] = useState("");
   const refs = useRef<Array<HTMLButtonElement | null>>([]);
   const onKey = (e: KeyboardEvent<HTMLButtonElement>) => {
-    const at = TABS.indexOf(tab);
-    const next = e.key === "ArrowRight" ? (at + 1) % TABS.length : e.key === "ArrowLeft" ? (at + TABS.length - 1) % TABS.length : e.key === "Home" ? 0 : e.key === "End" ? TABS.length - 1 : null;
+    const next = tabAfterKey(e.key, TABS.indexOf(tab), TABS.length);
     if (next === null) return;
     e.preventDefault();
     setTab(TABS[next]);

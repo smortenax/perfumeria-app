@@ -8,7 +8,7 @@ import type { Ratio } from "../core/arith/ratio";
 
 export type MaterialKind = "molecule" | "natural" | "composition" | "provisional" | "frozen";
 export type Authority = "lot" | "product" | "ifra" | "literature" | "consensus";
-export type Family = "citrus" | "green" | "ozonic" | "floral" | "fruity" | "spicy" | "woody" | "animal" | "transformed";
+export type Family = "citrus" | "green" | "ozonic" | "floral" | "fruity" | "spicy" | "woody" | "animal" | "transformed" | "gourmand";
 export type Tier = "top" | "top_heart" | "heart" | "heart_base" | "base";
 export type Strength = "low" | "medium" | "high" | "very_high";
 export type Confidence = "high" | "medium" | "low";
@@ -16,7 +16,7 @@ export type DoseBasis = "concentrate" | "finished_product" | "undeclared";
 
 export const MATERIAL_KINDS: readonly MaterialKind[] = ["molecule", "natural", "composition", "provisional", "frozen"];
 export const AUTHORITIES: readonly Authority[] = ["lot", "product", "ifra", "literature", "consensus"];
-export const FAMILIES: readonly Family[] = ["citrus", "green", "ozonic", "floral", "fruity", "spicy", "woody", "animal", "transformed"];
+export const FAMILIES: readonly Family[] = ["citrus", "green", "ozonic", "floral", "fruity", "spicy", "woody", "animal", "transformed", "gourmand"];
 export const TIERS: readonly Tier[] = ["top", "top_heart", "heart", "heart_base", "base"];
 export const STRENGTHS: readonly Strength[] = ["low", "medium", "high", "very_high"];
 export const CONFIDENCES: readonly Confidence[] = ["high", "medium", "low"];

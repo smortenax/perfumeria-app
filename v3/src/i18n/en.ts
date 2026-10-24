@@ -7,6 +7,7 @@ export const texts = {
     signOut: "Sign out",
     signedInAs: (email: string) => `Signed in as ${email}`,
     dismiss: "Close",
+    undo: "Undo",
   },
   signIn: {
     devMe: "Sign in as you, without a password",
@@ -329,7 +330,7 @@ export const texts = {
     synthesis: { synthetic: "synthetic", natural: "natural", semisynthetic: "semi-synthetic" },
     families: {
       citrus: "Citrus", green: "Green", ozonic: "Ozonic", floral: "Floral", fruity: "Fruity",
-      spicy: "Spicy", woody: "Woody", animal: "Animalic", transformed: "Transformed",
+      spicy: "Spicy", woody: "Woody", animal: "Animalic", transformed: "Transformed", gourmand: "Gourmand",
     },
     tiers: { top: "Top", top_heart: "Top-heart", heart: "Heart", heart_base: "Heart-base", base: "Base" },
     strengths: { low: "low", medium: "medium", high: "high", very_high: "very high" },
@@ -509,7 +510,7 @@ export const texts = {
     },
     app: {
       citrus: "Citrus", green: "Green", ozonic: "Ozonic", floral: "Floral", fruity: "Fruity", spicy: "Spicy", woody: "Woody", animal: "Animalic",
-      transformed: "Transformed",
+      transformed: "Transformed", gourmand: "Gourmand",
     },
     battery: {
       metallic: "Metallic", soapy: "Soapy", green: "Green", floral: "Floral", sweet: "Sweet", smoky: "Smoky / burnt", animalic: "Animalic",
@@ -530,6 +531,7 @@ export const texts = {
     changed: (blocks: string) => `Changed: ${blocks}`,
     unchanged: "Nothing with data changed.",
     closing: "Closing",
+    momentTabs: "Moments of the strip",
     closeHint: "Answered when the series is closed, once per strip.",
     close: "Close the series",
     closeAsk: "Close this strip's series? Then the comparison opens.",
@@ -629,6 +631,7 @@ export const texts = {
     cancel: "Cancel",
     archive: "Archive (used up)",
     unarchive: "Take out of the archive",
+    archivedToast: (name: string) => `Archived the bottle of ${name}.`,
     correctHint: "Correcting the weights changes the figure from now on; the formulas and evaluations that already used it keep theirs.",
     sheetTitle: "Dilutions",
     sheetNone: "No bottles recorded.",

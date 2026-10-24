@@ -35,8 +35,8 @@ export const CALKIN_FAMILIES = [
 /** A2 · Ellena's nine groups. */
 export const ELLENA_GROUPS = ["flowers", "fruits", "woods", "herbs", "spices", "sweets", "animals", "marine", "minerals"] as const;
 
-/** The app's nine families (P48), the same codes as materials.family. */
-export const APP_FAMILIES = ["citrus", "green", "ozonic", "floral", "fruity", "spicy", "woody", "animal", "transformed"] as const;
+/** The app's ten families (P48, and Gourmand by V3-76), the same codes as materials.family. */
+export const APP_FAMILIES = ["citrus", "green", "ozonic", "floral", "fruity", "spicy", "woody", "animal", "transformed", "gourmand"] as const;
 
 /** Which list a perceived family comes from. */
 export const FAMILY_SCHEMES = ["calkin", "ellena", "app"] as const;

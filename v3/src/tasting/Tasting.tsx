@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect, useMemo, useRef, useState } from "react";
+import { type KeyboardEvent, type ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { Ratio } from "../core/arith/ratio";
 import type { LocalDatabase } from "../db/local/database";
 import {
@@ -12,6 +12,7 @@ import { texts } from "../i18n/en";
 import { blockState, buildQueue, tastable, changedBlocks, countdown, dueMoments, latestDilution, legacyTasted, nextWaiting, tenacity } from "./logic";
 import { tasteMaterial } from "./start";
 import { FailureNote } from "../FailureNote";
+import { tabAfterKey } from "../tabs";
 import { useNow } from "./useTastings";
 import {
   BATTERY_AXES, BATTERY_STATES, BIASES, type Block, COMPLEXITY, CURVE_LEVELS, CURVE_SEGMENTS, DECAY, DEFAULT_MOMENTS, EFFECT_ENERGY, EFFECT_RICHNESS,
@@ -95,6 +96,15 @@ export function Tasting({
 }) {
   const setTab = onTab;
   const setStripId = onOpenStrip;
+  const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  // The tabs answer the keyboard as ARIA's pattern asks: arrows, Home and End (vault pass F-09).
+  const onTabKey = (e: KeyboardEvent<HTMLButtonElement>) => {
+    const next = tabAfterKey(e.key, TABS.indexOf(tab), TABS.length);
+    if (next === null) return;
+    e.preventDefault();
+    setTab(TABS[next]);
+    tabRefs.current[next]?.focus();
+  };
   const [failure, setFailure] = useState<string | null>(null);
   const fail = (e: unknown) => setFailure(t.failed(e instanceof Error ? e.message : String(e)));
   const run = (p: Promise<unknown>) => void p.catch(fail);
@@ -129,13 +139,27 @@ export function Tasting({
             <h2 className="page-title">{t.title}</h2>
           </div>
           <div className="tabs" role="tablist" aria-label={t.title}>
-            {TABS.map((x) => (
-              <button key={x} type="button" role="tab" className="tab" aria-selected={tab === x} onClick={() => setTab(x)}>
+            {TABS.map((x, i) => (
+              <button
+                key={x}
+                ref={(el) => {
+                  tabRefs.current[i] = el;
+                }}
+                type="button"
+                role="tab"
+                id={`tasting-tab-${x}`}
+                aria-selected={tab === x}
+                aria-controls="tasting-panel"
+                tabIndex={tab === x ? 0 : -1}
+                className="tab"
+                onClick={() => setTab(x)}
+                onKeyDown={onTabKey}
+              >
                 {t.tabs[x]}
               </button>
             ))}
           </div>
-          <div className="tab-panel" role="tabpanel">
+          <div className="tab-panel" role="tabpanel" id="tasting-panel" aria-labelledby={`tasting-tab-${tab}`}>
             {tab === "session" && (
               <SessionView data={data} local={local} tastings={tastings} now={now} onOpenStrip={setStripId} run={run} />
             )}
@@ -383,6 +407,29 @@ function StripView({
   const due = dueMoments(strip, written, shown, now);
   const first = due.find((d) => d.state === "due")?.moment ?? (written.includes("t0") ? (written.includes("t5") ? written[written.length - 1] : "t5") : "t0");
   const [tab, setTab] = useState<Moment | "closing">(first);
+  const keys: Array<Moment | "closing"> = [...due.map((d) => d.moment), "closing"];
+  const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const onTabKey = (e: KeyboardEvent<HTMLButtonElement>) => {
+    const next = tabAfterKey(e.key, keys.indexOf(tab), keys.length);
+    if (next === null) return;
+    e.preventDefault();
+    setTab(keys[next]!);
+    tabRefs.current[next]?.focus();
+  };
+  // Every tab of the list, selected or not, says which one it is, for the keyboard and screen readers.
+  const tabProps = (key: Moment | "closing", i: number) => ({
+    ref: (el: HTMLButtonElement | null) => {
+      tabRefs.current[i] = el;
+    },
+    type: "button" as const,
+    role: "tab",
+    id: `moment-tab-${key}`,
+    "aria-selected": tab === key,
+    "aria-controls": "moment-panel",
+    tabIndex: tab === key ? 0 : -1,
+    onClick: () => setTab(key),
+    onKeyDown: onTabKey,
+  });
   const closure = tastings.closures.find((c) => c.stripId === strip.id);
   const ten = tenacity(strip, moments);
   const session = tastings.sessions.find((s) => s.id === strip.sessionId);
@@ -410,14 +457,14 @@ function StripView({
           onChange={(key) => run(setStripBottle(local.db, local.userId, strip.id, bottleOfKey(key)))}
         />
       )}
-      <div className="tabs moment-tabs" role="tablist">
-        {due.map((d) => (
-          <button key={d.moment} type="button" role="tab" className={`tab ${d.state}`} aria-selected={tab === d.moment} onClick={() => setTab(d.moment)}>
+      <div className="tabs moment-tabs" role="tablist" aria-label={t.momentTabs}>
+        {due.map((d, i) => (
+          <button key={d.moment} {...tabProps(d.moment, i)} className={`tab ${d.state}`}>
             {t.moments[d.moment]}
             {d.state === "waiting" && d.moment !== "t0" && <small> {countdown(d.dueAt - now)}</small>}
           </button>
         ))}
-        <button type="button" role="tab" className="tab" aria-selected={tab === "closing"} onClick={() => setTab("closing")}>
+        <button {...tabProps("closing", due.length)} className="tab">
           {t.closing}
         </button>
       </div>
@@ -426,7 +473,7 @@ function StripView({
           {t.addT15}
         </button>
       )}
-      <div className="tab-panel" role="tabpanel">
+      <div className="tab-panel reading" role="tabpanel" id="moment-panel" aria-labelledby={`moment-tab-${tab}`}>
         {tab === "t0" ? (
           <Opening local={local} strip={strip} moment={moments.find((m) => m.moment === "t0")} run={run} />
         ) : tab === "closing" ? (

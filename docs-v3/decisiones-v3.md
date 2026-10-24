@@ -805,6 +805,8 @@ La tanda les ponía el techo a todos sus miembros. ¿Cómo entra cada uno?
 
 **Por qué** (la recomendación de la sesión que elegiste): un color por tema sale de la paleta sin convertir nada, y un cambio de paleta llega a todos los que no fijaste.
 
+- **Cambiado por V3-76 (2026-10-24):** las familias cerradas son diez; la paleta gana Gourmand.
+
 ## V3-39 · Lo que declara el certificado de tu producto va a tu versión (decidida por el usuario el 2026-10-14)
 
 **Pregunta** (tarjeta del hilo; la abre V3-34): ¿dónde va lo que declara el certificado de tu producto? Solo 9 de tus materiales tienen composición sacada de un documento de su propio producto: 62 filas, todas de certificados IFRA del fabricante (`datos/v2/composicion.csv`, autoridad «producto»). La pregunta incluye los topes del fabricante. El resto de la composición de sus parejas viene del anexo de IFRA, que es de la capa de IFRA (V3-35).
@@ -1369,13 +1371,61 @@ Portarlo (10:21): «seria ideal si puedes de momento portar todo el prototipo de
 
 **Lectura** (la sesión, para que la confirmes):
 
-- **Estilo:** dirección «Molecule poster», letra Atkinson Hyperlegible Next (las cifras, en Geist Mono), navegación en barra lateral, densidad cómoda. Los valores salen de la bóveda de diseño (designVault, `50-tokens/products/perfumeria.json`, D-0005) y la v3 tiene su copia en `src/theme/tokens.css`. **El verde del acento es provisional.**
+- **Estilo:** dirección «Molecule poster», letra Atkinson Hyperlegible Next (las cifras, en Geist Mono), navegación en barra lateral, densidad cómoda. Los valores salen de la bóveda de diseño (designVault, `50-tokens/products/perfumeria.json`, D-0010; antes D-0005) y la v3 tiene su copia en `src/theme/tokens.css`. **El verde del acento es provisional.**
 - **El orbe va enmarcado, con el texto al lado:** cambia V3-72 (se quitan las letras encima del orbe; `orbInk.ts` desaparece). La luz por descriptores gusta; qué parámetro la da sigue abierto.
 - **Las familias, en espera** (cómo van las de las fuentes en los colores).
 - **La barra de añadir**, de izquierda a derecha: material; cantidad; el % de la dilución con «Puro» debajo; tus diluciones del material como dos botones y «Más» si hay más; un «+» para una dilución nueva; los diluyentes, con «+ Diluyente» para los que tenga la mezcla; «Añadir». **Sin estrella.**
 - **El banco:** el historial sigue abajo, como estaba, y en el móvil flota abajo al desplazarse. La composición conserva «añadir otra vez» y lo demás. Lo que lleva la fórmula del material, su margen IFRA y su uso habitual viven bajo el selector de material, en vivo mientras se escribe la cantidad, también en el móvil. La tarjeta del material sale; la columna lateral, solo gráficos (con el veredicto de IFRA) y un hueco para tu mapa olfativo.
 - **Hecho** (rama `claude/revamp-molecule-poster`, sin fusionar ni publicar): tokens y letra; barra lateral (se pliega; plegada en el banco) y, en el teléfono, la barra de abajo de F-03; Inicio con cifras grandes; Materiales con el orbe enmarcado y filtros en píldoras; la ficha con el orbe vivo y cuatro datos (familia, fuerza, duración en tira, nota); Formulación con la lista de bancos y el banco abierto al lado; Diluciones con la lista y el frasco al lado; Catas a todo el ancho; el banco en una sola página (cabecera, frasco y gramos en una fila, barra de añadir, composición y detalle de IFRA al lado del veredicto y los gráficos, historial fijo abajo) y los orbes en la composición, el historial y la barra.
 - **Propuesta de la sesión:** el «+» de dilución abre «Diluciones · nueva» con el material elegido; el frasco y sus gramos, en una fila bajo la cabecera (el prototipo no los tenía); el detalle de IFRA, bajo la composición. En el teléfono se queda la barra de abajo de la auditoría (F-03), no la del prototipo.
+- **Cambiado por V3-75 (2026-10-24):** el acento ya no es el verde provisional: es la tinta, y el color queda para las familias.
+- **Cambiado por V3-76 (2026-10-24):** las familias dejan de estar en espera: son diez, con Gourmand.
+
+## V3-75 · La pasada de la bóveda del 2026-10-24: tus elecciones sobre la v3 publicada (decidida por el usuario el 2026-10-24)
+
+**Palabras literales del usuario** (2026-10-24, en el hilo de la bóveda de diseño):
+
+Lo elegido en la maqueta de decisiones (19:27):
+
+> D1-pad · D2-button · D3-toast · D4-skeleton · D5-read16 · D6-ink · D7-wheel · D8-strip | fixes: tabs, play | look: mol/atk/side/comfy/ten
+
+El historial (19:30):
+
+> solo que para history hay que buscar 2 cosas por un lado que verticalmente ocupe menos y por otro lado que se vea mas unido como uuna lineaya sea por puntos abajo o algo asi, toma referencia el espacio y la distribucion de como estaba en la app v2 para lo que al espacio y donde estan los materiales se refiere history puede ir ala altura de materiales el play tambien y el recuento de cambios en un cuadrito a la derecha de manera que todo ocupe lo mismo que el espacio en vvertical que ocupan el propio hsitorial
+
+Llevarlo a la app (19:46), tras preguntarle si aceptaba la regla del color (designVault D-0008):
+
+> si acepto de momento el revamp puedes llevarlo a cabo ya? empezarlo
+
+**Lectura** (la sesión, para que la confirmes). El informe es `design-audits/2026-10-24-perfumate-v3-vault-pass.md` del proyecto; la maqueta construida, claude.ai/artifact/5TiLmWrmfj7YcJ9Z9133Cx.
+
+- **El historial del banco, en una fila** (D1 y tu mensaje de las 19:30): 72 px de alto; ▶ a la izquierda; los pasos unidos por una línea, con un punto debajo de cada uno, relleno hasta el paso que miras y hueco después; el recuento en un cuadrito a la derecha. El foco del teclado ya no queda debajo del historial.
+- **El acento es la tinta** (D6): el color queda para las familias, y botones, selección, foco y errores van en tinta (designVault D-0008, aceptada). Cierra «el verde del acento es provisional» de V3-73.
+- **Leer a 16 px** (D5): la ficha del material y las notas de una cata.
+- **Los cuatro recuentos de Inicio, en una franja** (D8): un panel con líneas finas entre ellos.
+- **Quitar una línea del banco y archivar un frasco lo dicen, con «Undo»** (D3): el aviso se queda hasta cerrarlo; en el banco dura mientras quitar esa línea sea el último cambio, y en Diluciones saca el frasco del archivo.
+- **Las pestañas de Catas responden a las flechas, Inicio y Fin** (arreglo «tabs»), como ya hacían Materiales y la biblioteca.
+- **Sin cambio en la app:** D2 (la fila de la composición ya se abre con un botón), «play» (▶ ya mide 44 px en la app) y D7 (el orden de las familias en los filtros sigue el de la paleta, V3-38). El aspecto («look») es el de V3-73. «ten» (diez familias en la maqueta) se leyó aquí como «en espera»; lo cambia V3-76.
+- **Siguiente:** D4, los estados de carga (esqueleto), primer uso y error de cada pantalla, en otra PR. Los errores irán en tinta con icono y palabras (D-0008); hoy son rojos.
+- **Propuesta de la sesión:** el aviso es un componente propio (`src/Toast.tsx`), no el de React Aria que dice el borrador de la bóveda: añadir esa dependencia sería una decisión nueva. Las teclas de las pestañas son una función con pruebas (`src/tabs.ts`) que comparten las tres pantallas.
+
+## V3-76 · Diez familias: Gourmand, la décima (decidida por el usuario el 2026-10-24)
+
+**Palabras literales del usuario** (2026-10-24, en el hilo de la bóveda de diseño), lo elegido en la maqueta del rediseño (21:06):
+
+> Direction: Molecule poster · Type: Atkinson Hyperlegible Next · Navigation: Sidebar · Density: Comfortable · Families: Ten families (Gourmand)
+
+Lo había marcado a las 19:27 («look: mol/atk/side/comfy/ten», V3-75). La maqueta y sus opciones están en la bóveda de diseño (`00-inbox/research/2026-10-23-perfumeria-revamp.md`, §9, «Families, v2»), con las notas que dio el usuario el 2026-10-23, traducidas al inglés: el ámbar, a Animal; Gourmand y Sweet en Frutal le sonaban raros; Especiado no casa con el ámbar ni con lo resinoso.
+
+**Lectura** (la sesión, para que la confirmes):
+
+- **Las familias cerradas son diez:** las nueve de P48 y **Gourmand**, la última. Es la opción A de la maqueta. Cierra «las familias, en espera» de V3-73.
+- **Qué entra en cada una** cambia en tres: Frutal deja «gourmand»; Especiado deja balsámico y ámbar (le quedan especiado y anisado); Animal gana el ámbar. Gourmand cubre vainilla, caramelo, balsámico, cremoso y azucarado.
+- **Su color, el de la maqueta:** `#d4a373` en claro y `#b8875a` en oscuro. Sus letras se oscurecen hasta 4,5:1, como las de las otras familias (`textColourOf`).
+- **La app ya admite la décima familia:** la lista de familias, las de las catas, sus nombres y la base de datos (migración `20261024211431_ten_families.sql`, que hay que aplicar en local y en la nube).
+- **La tanda 22** (`migracion-v3/tanda-22-diez-familias.ts`) añade Gourmand a la paleta y cambia de familia 14 materiales comunes de Frutal y Especiado, por lo que dice su matiz (`family_detail`): 7 a Gourmand, 4 a Animal, 2 a Transformado y el olíbano a Amaderado. Tu versión de cada uno hereda la familia nueva. Cuatro de otras familias cuyo matiz dice gourmand o cumarínico (cacao, miel, Vinyl Sulfurol y haba tonka) no cambian: son para que decidas tú.
+- **Aprobada** (2026-10-24, en la tarjeta del hilo: «Aprobar», a «¿Apruebo la tanda 22, con Gourmand en la paleta y los 14 cambios de familia?»): la paleta de `v3/datos/` tiene diez familias, y los 14 materiales, su familia nueva.
+- **Propuesta de la sesión:** el nombre del color, «caramelo»; la regla de la tanda 22 (lo tostado, a Transformado; el incienso, a Amaderado, como en la maqueta), y que no toque los materiales de las otras siete familias.
 
 ---
 

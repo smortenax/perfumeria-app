@@ -79,7 +79,7 @@ export const materials = pgTable(
     synthesis: text("synthesis"),
     isomers: text("isomers"),
     // The core of the card (V3-14), empty when unknown.
-    /** One of the nine families of P48 (V3-18); the user's own words go in family_detail. */
+    /** One of the ten families (P48, and Gourmand by V3-76; V3-18); the user's own words go in family_detail. */
     family: text("family"),
     /** Fixed by somebody (V3-38), «#rrggbb»; empty, it is its family's colour in the palette. */
     color: text("color"),
@@ -143,7 +143,7 @@ export const materials = pgTable(
     check("materials_purity", sql`${t.purity} is null or (${t.purity} > 0 and ${t.purity} <= 1)`),
     check(
       "materials_family",
-      sql`${t.family} is null or ${t.family} in ('citrus', 'green', 'ozonic', 'floral', 'fruity', 'spicy', 'woody', 'animal', 'transformed')`,
+      sql`${t.family} is null or ${t.family} in ('citrus', 'green', 'ozonic', 'floral', 'fruity', 'spicy', 'woody', 'animal', 'transformed', 'gourmand')`,
     ),
     check("materials_tier", sql`${t.tier} is null or ${t.tier} in ('top', 'top_heart', 'heart', 'heart_base', 'base')`),
     check("materials_strength", sql`${t.strength} is null or ${t.strength} in ('low', 'medium', 'high', 'very_high')`),

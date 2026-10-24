@@ -57,6 +57,7 @@ export const texts = {
     moved: (bench: string, n: number) => (n === 1 ? `moved to «${bench}»` : `moved to «${bench}», with its ${n - 1} versions`),
     unmarkedAccord: "no longer an accord: used only in its bench",
     writeError: "Could not save the last step",
+    removed: (material: string, formula: string) => `Removed ${material} from ${formula}.`,
     exportJson: "Export as a file (.json)",
     cannotUndo: {
       empty: "Nothing to undo.",
@@ -505,6 +506,9 @@ export const texts = {
   history: {
     title: "History",
     count: (n: number) => `${n} ${n === 1 ? "change" : "changes"}`,
+    /** The words after the big number in the count box: «9 changes», «4 of 9». */
+    changes: (n: number) => (n === 1 ? "change" : "changes"),
+    ofCount: (of: number) => `of ${of}`,
     frame: (n: number, of: number) => `frame ${n} of ${of}`,
     toEnd: "at the end",
     play: "Play the history",

@@ -41,3 +41,5 @@ tanda,fecha,aprobacion,archivo,sha256
 16-mercaptano,2026-10-15,"el usuario: «y apruebo 16»",material_categories.csv,cccfe1bb5eeb0b41ce4e0df81221d920c839b6a7f426f405d848ff333373a316
 16-mercaptano,2026-10-15,"el usuario: «y apruebo 16»",material_descriptors.csv,5b13b2d5e122521608371ee15ab894ce0b221a91727d310d1f0d12b6a738c4a2
 16-mercaptano,2026-10-15,"el usuario: «y apruebo 16»",materials.csv,676a1a94ef9d7194fae6b63171f7e3fc103c0741dcf03a4df031688f0328a5a2
+22-diez-familias,2026-10-24,"orko kill, 2026-10-24, en la tarjeta del hilo: «Aprobar» (a «¿Apruebo la tanda 22, con Gourmand en la paleta y los 14 cambios de familia?»)",family_palette.csv,4209e8f7b9e884a7a98234fe248feb5f55b66167c41d104582f6a3ae8368b400
+22-diez-familias,2026-10-24,"orko kill, 2026-10-24, en la tarjeta del hilo: «Aprobar» (a «¿Apruebo la tanda 22, con Gourmand en la paleta y los 14 cambios de familia?»)",materials.csv,9aecf0969d925c00d9468d349f354df1fe9097325d177937350be769ade56fbc

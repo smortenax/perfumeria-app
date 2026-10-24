@@ -95,7 +95,7 @@ export function MaterialSheet({
             </p>
           )}
           {links && <div className="sheet-links">{links}</div>}
-          <div className="sheet-sections">
+          <div className="sheet-sections reading">
           {sheet.sections.map((section) => (
             <section key={section.key} className={`sheet-section${section.tables.some((x) => x.rows.length > 0) || section.key === "notes" ? " wide" : ""}`}>
               <h3>
