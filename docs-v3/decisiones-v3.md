@@ -1369,7 +1369,7 @@ Portarlo (10:21): «seria ideal si puedes de momento portar todo el prototipo de
 
 **Lectura** (la sesión, para que la confirmes):
 
-- **Estilo:** dirección «Molecule poster», letra Atkinson Hyperlegible Next (las cifras, en Geist Mono), navegación en barra lateral, densidad cómoda. Los valores salen de la bóveda de diseño (designVault, `50-tokens/products/perfumeria.json`, D-0005) y la v3 tiene su copia en `src/theme/tokens.css`. **El verde del acento es provisional.**
+- **Estilo:** dirección «Molecule poster», letra Atkinson Hyperlegible Next (las cifras, en Geist Mono), navegación en barra lateral, densidad cómoda. Los valores salen de la bóveda de diseño (designVault, `50-tokens/products/perfumeria.json`, D-0010; antes D-0005) y la v3 tiene su copia en `src/theme/tokens.css`. **El verde del acento es provisional.**
 - **El orbe va enmarcado, con el texto al lado:** cambia V3-72 (se quitan las letras encima del orbe; `orbInk.ts` desaparece). La luz por descriptores gusta; qué parámetro la da sigue abierto.
 - **Las familias, en espera** (cómo van las de las fuentes en los colores).
 - **La barra de añadir**, de izquierda a derecha: material; cantidad; el % de la dilución con «Puro» debajo; tus diluciones del material como dos botones y «Más» si hay más; un «+» para una dilución nueva; los diluyentes, con «+ Diluyente» para los que tenga la mezcla; «Añadir». **Sin estrella.**
