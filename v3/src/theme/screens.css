@@ -104,12 +104,33 @@
   font-weight: 700;
 }
 
+/* The four counts share one panel, with thin rules between them (vault pass 2026-10-24, pick D8): one group, not four boxes. */
 .launch {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: var(--space-gap);
+  gap: 0;
   padding: 0;
   list-style: none;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-panel);
+  background: var(--panel);
+  overflow: hidden;
+}
+
+.launch .launch-card {
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+  box-shadow: -1px 0 0 var(--line), 0 -1px 0 var(--line);
+}
+
+.launch .launch-card:hover {
+  background: var(--fill);
+}
+
+/* Inside the panel's clipped edge, the focus ring is drawn inward. */
+.launch .launch-card:focus-visible {
+  outline-offset: -4px;
 }
 
 .launch-number {
