@@ -36,6 +36,7 @@ import { bandOf, ifraOfMaterial, pourKey, previewPour, type Pour } from "./usage
 import { repositoryOfV3, v3IdOf } from "./v3-repository";
 import { orbLookOf, orbScalesOf, seedOf } from "../glossary/orb/fromCatalog";
 import { MaterialOrb } from "../glossary/orb/MaterialOrb";
+import { DilutionPopup } from "../dilution/DilutionPopup";
 import "./bench.css";
 
 type Add = Extract<Change, { kind: "add" }>;
@@ -78,8 +79,6 @@ interface BenchProps {
   readonly active?: boolean;
   /** A material's sheet, in Materials. */
   readonly onOpenMaterial?: (id: string) => void;
-  /** A new dilution of a material, in Dilutions (V3-73). */
-  readonly onNewBottle?: (materialId: string) => void;
 }
 
 /**
@@ -181,6 +180,8 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
   const [selectedId, setSelectedId] = useState<string | null>(null);
   // Reopening no longer asks to weigh (V3-57): «Repesar…» is in the menu, for when you used some.
   const [dialog, setDialog] = useState<Dialog | null>(null);
+  // «New dilution» from the add bar's «+» (V3-79): a pop-up over the bench, of this material.
+  const [bottleFor, setBottleFor] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [playing, setPlaying] = useState(false);
@@ -668,14 +669,10 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
         formulaPlace={(key) => placeOfFrozen.get(key)}
         onCreateProvisional={createProvisional}
         orbOf={orbOf(24)}
-        {...(props.onNewBottle
-          ? {
-              onNewBottle: (key: string) => {
-                flushTyped();
-                props.onNewBottle!(key);
-              },
-            }
-          : {})}
+        onNewBottle={(key: string) => {
+          flushTyped();
+          setBottleFor(key);
+        }}
         insight={
           <MaterialCard
             inline
@@ -757,6 +754,21 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
         />
       )}
 
+      {bottleFor !== null && (
+        <DilutionPopup
+          data={props.data}
+          local={props.local}
+          materialId={bottleFor}
+          onDone={(id) => {
+            setBottleFor(null);
+            addBar.current?.pickBottle(id);
+          }}
+          onClose={() => {
+            setBottleFor(null);
+            addBar.current?.focus();
+          }}
+        />
+      )}
       {dialog?.kind === "mass" && (
         <PromptDialog
           title={texts.dialogs.massTitle(dialog.line.material.name)}

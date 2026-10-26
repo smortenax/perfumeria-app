@@ -211,12 +211,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
                     if (tastings) void tasteMaterial(data, local, tastings, route.id, "sheet").then((id) => go({ view: "strip", id }), fail);
                   }}
                 />
-                <MaterialDilutions
-                  data={data}
-                  materialId={route.id}
-                  onOpen={(id) => go({ view: "bottle", id })}
-                  onNew={() => go({ view: "newBottle", materialId: route.id })}
-                />
+                <MaterialDilutions data={data} local={local} materialId={route.id} onOpen={(id) => go({ view: "bottle", id })} />
                 </>
               }
             />
@@ -241,7 +236,6 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
                 onExit={() => back({ view: "library" })}
                 onOpen={(id) => go({ view: "formula", id }, true)}
                 onOpenMaterial={(id) => go({ view: "sheet", id })}
-                onNewBottle={(materialId) => go({ view: "newBottle", materialId })}
               />
             </div>
           )}

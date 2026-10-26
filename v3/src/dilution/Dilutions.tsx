@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Ratio } from "../core/arith/ratio";
 import type { Dilution } from "../db/catalog";
 import { archiveBottle, type BottleInput, createBottle, describeBottle, updateBottle } from "../db/dilutions";
@@ -12,6 +12,7 @@ import { bottleOf, plan, storedBottle } from "./calc";
 import { coloursOf } from "../families/palette";
 import { orbLookOf, orbScalesOf, seedOf } from "../glossary/orb/fromCatalog";
 import { MaterialOrb } from "../glossary/orb/MaterialOrb";
+import { DilutionPopup } from "./DilutionPopup";
 import { cardsOf } from "./grid";
 import { NewDilution } from "./NewDilution";
 import "./dilutions.css";
@@ -442,8 +443,14 @@ function BottleEditor({
   );
 }
 
-/** A material's bottles, on its sheet: links only (V3-67, as V3-64 for the tastings). */
-export function MaterialDilutions({ data, materialId, onOpen, onNew }: { data: GlossaryData; materialId: string; onOpen: (id: string) => void; onNew: () => void }) {
+/** A material's bottles, on its sheet: links only (V3-67, as V3-64 for the tastings); a new one in a pop-up (V3-79). */
+export function MaterialDilutions({ data, local, materialId, onOpen }: { data: GlossaryData; local: LocalDatabase; materialId: string; onOpen: (id: string) => void }) {
+  const [adding, setAdding] = useState(false);
+  const newButton = useRef<HTMLButtonElement>(null);
+  const close = () => {
+    setAdding(false);
+    newButton.current?.focus();
+  };
   const list = [...(data.catalog.dilutions.get(materialId) ?? [])].sort((a, b) => (a.archivedAt ? 1 : 0) - (b.archivedAt ? 1 : 0) || (b.madeOn ?? "").localeCompare(a.madeOn ?? ""));
   return (
     <section className="sheet-section material-dilutions">
@@ -461,9 +468,10 @@ export function MaterialDilutions({ data, materialId, onOpen, onNew }: { data: G
           ))}
         </ul>
       )}
-      <button type="button" onClick={onNew}>
+      <button ref={newButton} type="button" onClick={() => setAdding(true)}>
         {t.newBottle}
       </button>
+      {adding && <DilutionPopup data={data} local={local} materialId={materialId} onDone={close} onClose={close} />}
     </section>
   );
 }

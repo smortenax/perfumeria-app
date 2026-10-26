@@ -38,6 +38,8 @@ const t = texts.addBar;
 export interface AddBarHandle {
   select(material: Material): void;
   focus(): void;
+  /** A bottle just made in the pop-up (V3-79): put it in the bar once it is in the list, and go back to the «+». */
+  pickBottle(id: string): void;
 }
 
 type Result =
@@ -607,7 +609,23 @@ export function AddBar(props: {
     setExtras(more.map((d) => ({ id: d.id, percent: percentCell(d.share) })));
   };
 
+  // The bottle made in the pop-up arrives with the next catalog: until then it waits here.
+  const pendingBottle = useRef<string | null>(null);
+  const newBottleRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    const id = pendingBottle.current;
+    const b = id ? bottles.find((x) => x.id === id) : undefined;
+    if (!b) return;
+    pendingBottle.current = null;
+    useBottle(b);
+    newBottleRef.current?.focus();
+  });
+
   useImperativeHandle(props.ref, () => ({
+    pickBottle(id: string) {
+      pendingBottle.current = id;
+      newBottleRef.current?.focus();
+    },
     select(material: Material) {
       select(material);
       quantityRef.current?.focus();
@@ -1071,6 +1089,7 @@ export function AddBar(props: {
             </span>
           )}
           <button
+            ref={newBottleRef}
             type="button"
             className="tool new-bottle"
             aria-label={t.newBottle}
