@@ -187,3 +187,17 @@
   background: var(--panel);
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
 }
+
+/* The shopping list (V3-79). */
+.shopping-line {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+.shopping-line .bottle-name {
+  justify-self: start;
+}
+.shopping-line .actions {
+  margin: 0.25rem 0 0;
+}

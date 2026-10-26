@@ -288,6 +288,20 @@
       "when": 1793031856449,
       "tag": "20261026162416_specification",
       "breakpoints": true
+    },
+    {
+      "idx": 41,
+      "version": "7",
+      "when": 1793032365565,
+      "tag": "20261026163245_shopping",
+      "breakpoints": true
+    },
+    {
+      "idx": 42,
+      "version": "7",
+      "when": 1793032366796,
+      "tag": "20261026163246_shopping_rls",
+      "breakpoints": true
     }
   ]
 }

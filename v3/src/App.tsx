@@ -15,6 +15,7 @@ import { SignIn } from "./SignIn";
 import { SyncStatus } from "./SyncStatus";
 import { FailureNote } from "./FailureNote";
 import { Dilutions, MaterialDilutions } from "./dilution/Dilutions";
+import { ShoppingList } from "./shopping/ShoppingList";
 import { MaterialTastings } from "./tasting/MaterialTastings";
 import { tasteMaterial } from "./tasting/start";
 import { type Tab as TastingTab, Tasting } from "./tasting/Tasting";
@@ -122,6 +123,10 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
           <span className="avatar" aria-hidden="true">{user.email.slice(0, 1).toUpperCase()}</span>
           <span className="who-text">
             <span className="who-mail">{user.email}</span> ·{" "}
+            <button type="button" className="link" aria-current={route.view === "shopping" ? "page" : undefined} onClick={() => go({ view: "shopping" })}>
+              {texts.shopping.nav}
+            </button>{" "}
+            ·{" "}
             <button type="button" className="link" onClick={() => void leave()}>{texts.app.signOut}</button>
           </span>
         </span>
@@ -240,6 +245,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
               />
             </div>
           )}
+          {route.view === "shopping" && <ShoppingList data={data} local={local} onOpenMaterial={(id) => go({ view: "sheet", id })} />}
           {route.view === "new" && <NewMaterial local={local} onCreated={(id) => go({ view: "edit", id }, true)} onCancel={() => back({ view: "materials" })} />}
         </>
       )}
@@ -253,7 +259,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
 }
 
 type Route =
-  | { readonly view: "home" | "materials" | "library" | "new" | "dilutions" }
+  | { readonly view: "home" | "materials" | "library" | "new" | "dilutions" | "shopping" }
   | { readonly view: "bottle"; readonly id: string }
   | { readonly view: "newBottle"; readonly materialId: string }
   | { readonly view: "tasting"; readonly tab: TastingTab }
@@ -276,16 +282,18 @@ function parseRoute(hash: string): Route {
   const newBottle = /^#diluciones\/nueva(?:\/([^/]+))?$/.exec(hash);
   if (newBottle) return { view: "newBottle", materialId: newBottle[1] ?? "" };
   if (hash === "#diluciones") return { view: "dilutions" };
+  if (hash === "#compra") return { view: "shopping" };
   const strip = /^#cata\/([^/]+)$/.exec(hash);
   if (strip) return { view: "strip", id: strip[1] };
   return { view: "home" };
 }
-const HASH: Record<"home" | "materials" | "library" | "new" | "dilutions", string> = {
+const HASH: Record<"home" | "materials" | "library" | "new" | "dilutions" | "shopping", string> = {
   home: "",
   materials: "#materiales",
   library: "#formulacion",
   new: "#nuevo",
   dilutions: "#diluciones",
+  shopping: "#compra",
 };
 /** «Catas» in the address: its tabs, and one tasting (the user, 2026-10-19: a material links to it). */
 const TASTING_TAB_OF: Record<string, TastingTab> = { cola: "queue", catadas: "history", legado: "legacy" };

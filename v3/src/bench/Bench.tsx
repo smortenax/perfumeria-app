@@ -37,6 +37,8 @@ import { repositoryOfV3, v3IdOf } from "./v3-repository";
 import { orbLookOf, orbScalesOf, seedOf } from "../glossary/orb/fromCatalog";
 import { MaterialOrb } from "../glossary/orb/MaterialOrb";
 import { DilutionPopup } from "../dilution/DilutionPopup";
+import { addToShopping, missingOf, removeFromShopping } from "../db/shopping";
+import { texts as appTexts } from "../i18n/en";
 import "./bench.css";
 
 type Add = Extract<Change, { kind: "add" }>;
@@ -188,6 +190,8 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
   const [frame, setFrame] = useState<number | null>(null);
   const [pending, setPending] = useState(0);
   const [notice, setNotice] = useState<string | null>(null);
+  // Using the recipe writes down what you do not have on the shopping list, and says so with Undo (V3-79).
+  const [shoppingNote, setShoppingNote] = useState<{ text: string; ids: string[] } | null>(null);
   const addBar = useRef<AddBarHandle>(null);
   const frameRef = useRef(frame);
   frameRef.current = frame;
@@ -474,6 +478,16 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
     });
 
   /** Pours a formula as a material (2026-10-19): the one it is kept as, or kept now, as «Guardar como material» does. */
+  const noteMissing = () => {
+    const keys = (view.composition?.lines ?? []).map((l) => l.material.key).filter((k) => props.data.catalog.materials.has(k));
+    const missing = missingOf(keys, props.data.catalog);
+    if (missing.length === 0) return;
+    void Promise.all(missing.map((materialId) => addToShopping(local.db, owner, { materialId, formulaId }))).then((results) => {
+      const added = results.flatMap((r, i) => (r.added ? [{ id: r.id, name: props.data.catalog.materials.get(missing[i])?.name ?? "—" }] : []));
+      if (added.length > 0) setShoppingNote({ text: appTexts.shopping.missingAdded(added.map((a) => a.name).join(", ")), ids: added.map((a) => a.id) });
+    }, (e: unknown) => setError(String(e)));
+  };
+
   const useFormulaAsMaterial = (id: string) => {
     const f = pourable.find((x) => x.id === id);
     if (!f) return;
@@ -598,7 +612,10 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
             <span>{texts.bench.exportJson}</span>
           </button>
           <div className="menu-sep" />
-          <button type="button" className="menuitem" disabled={empty} onClick={menuAction(() => setDialog({ kind: "useFormula" }))}>
+          <button type="button" className="menuitem" disabled={empty} onClick={menuAction(() => {
+            setDialog({ kind: "useFormula" });
+            noteMissing();
+          })}>
             <span>{texts.menu.useFormula}</span>
           </button>
           <button type="button" className="menuitem" onClick={menuAction(startReweigh)}>
@@ -754,6 +771,15 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
         />
       )}
 
+      <Toast
+        message={shoppingNote?.text ?? null}
+        onUndo={() => {
+          const ids = shoppingNote?.ids ?? [];
+          setShoppingNote(null);
+          void Promise.all(ids.map((id) => removeFromShopping(local.db, owner, id))).catch((e: unknown) => setError(String(e)));
+        }}
+        onClose={() => setShoppingNote(null)}
+      />
       {bottleFor !== null && (
         <DilutionPopup
           data={props.data}

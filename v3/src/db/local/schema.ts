@@ -194,6 +194,19 @@ export const labDilutions = sqliteTable("lab_dilutions", {
   ...timestamps,
 });
 
+export const shoppingItems = sqliteTable("shopping_items", {
+  id: text("id").primaryKey(),
+  userId: text("user_id"),
+  materialId: text("material_id"),
+  product: text("product"),
+  shop: text("shop"),
+  note: text("note"),
+  formulaId: text("formula_id"),
+  resolvedAt: text("resolved_at"),
+  specificationId: text("specification_id"),
+  ...timestamps,
+});
+
 export const labDilutionDiluents = sqliteTable("lab_dilution_diluents", {
   id: text("id").primaryKey(),
   dilutionId: text("dilution_id"),
@@ -518,6 +531,7 @@ export const tables = {
   labMaterials,
   labDilutions,
   labDilutionDiluents,
+  shoppingItems,
   labEvaluations,
   labAxes,
   ifraStandards,
@@ -555,6 +569,7 @@ export const AppSchema = new DrizzleAppSchema({
   labMaterials,
   labDilutions,
   labDilutionDiluents,
+  shoppingItems,
   labEvaluations,
   labAxes,
   ifraStandards,

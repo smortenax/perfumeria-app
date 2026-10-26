@@ -513,3 +513,27 @@ export const dataVersion = pgTable(
   },
   (t) => [check("data_version_single", sql`${t.single}`)],
 );
+
+/**
+ * Your shopping list (V3-79): a material of the glossary you want to buy, with the product or the
+ * shop and a note if you like; when it is missing for a recipe, the formula it came from. «I have it
+ * now» makes it your specification and resolves it. Only yours (migration shopping_rls).
+ */
+export const shoppingItems = pgTable(
+  "shopping_items",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: labUser(),
+    materialId: labMaterial(),
+    product: text("product"),
+    shop: text("shop"),
+    note: text("note"),
+    formulaId: uuid("formula_id").references(() => formulas.id, { onDelete: "set null" }),
+    /** When you got it («I have it now») or took it off; null while it is to buy. */
+    resolvedAt: timestamp("resolved_at", { withTimezone: true }),
+    /** The specification it became, when you got it. */
+    specificationId: uuid("specification_id").references((): AnyPgColumn => materials.id, { onDelete: "set null" }),
+    ...timestamps,
+  },
+  (t) => [index("shopping_items_user_idx").on(t.userId)],
+);
