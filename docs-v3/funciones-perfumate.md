@@ -21,11 +21,11 @@ Estados: **entra** (tal cual), **matizada** (entra con los matices de abajo), **
 | F10 | Árbol de versiones: ramas, «hecha», renombrar, numerar, borrar, instantánea con nombre | entra | árbol sí (V3-77); el resto, por comprobar |
 | F11 | Estantería (lo que tengo) frente a catálogo | entra | sí (lo que tengo) |
 | F12 | Ficha de material | matizada | hoja de datos (V3-47) |
-| F13 | Constituyentes y alérgenos del material | matizada | va con el sistema de frascos |
-| F14 | Documentos del material con estado de verificación | matizada | va con el sistema de frascos |
-| F15 | Frascos por material | matizada | va con el sistema de frascos |
-| F16 | Stock | matizada | no |
-| F17 | Ventana de dilución | matizada | calculadora en Diluciones (V3-67) |
+| F13 | Constituyentes y alérgenos del material | decidida | diseño en V3-79 |
+| F14 | Documentos del material con estado de verificación | decidida | diseño en V3-79 |
+| F15 | Frascos por material | decidida | diseño en V3-79 |
+| F16 | Stock | decidida | diseño en V3-79 |
+| F17 | Ventana de dilución | decidida | diseño en V3-79 |
 | F18 | «Usado en»: en qué fórmulas está un material | entra | parcial (acordes) |
 | F19 | Importar: hoja de cálculo, kits de inicio, alta a mano | pendiente | por tandas |
 | F20 | Aviso de IFRA en Inicio y etiqueta IFRA por fórmula | entra | panel por fórmula |
@@ -45,7 +45,7 @@ Estados: **entra** (tal cual), **matizada** (entra con los matices de abajo), **
 - **F4.** Sin tarta. El perfil se ve en los orbes (V3-72, V3-73), que hay que iterar para que
   además de atractivos se lean.
 - **F12.** A la ficha le faltan el impacto y las horas en tira, cada cifra con su fuente.
-- **F13, F14 y F15.** Antes hay que diseñar el sistema de frascos y diluciones: qué va al
+- **F13, F14 y F15** (decididas en V3-79: especificación y dilución). Antes hay que diseñar el sistema de frascos y diluciones: qué va al
   material y qué al frasco. Propuesta del usuario, en dos niveles:
   1. **Material**, con lo general (ligado al CAS y sacado del glosario) y la **especificación**
      (procedencia, fabricante, alérgenos cambiados o añadidos y, si corresponde, la composición o

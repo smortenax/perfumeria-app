@@ -1460,6 +1460,31 @@ Sobre los casos de la dilución: «puede convivir tambien las dos que propones, 
 - **La lista de la compra, discreta:** en un apartado de usuario, como «Consultar la lista de la compra». Desde ella se exporta, o se pasa un material a «tuyo» cuando ya lo has comprado.
 - **Prioridad:** primero, los frascos y las diluciones (el sistema de F13–F15 y la ventana de F17), con la interfaz del registro de diluciones mejorada; el perfil olfativo (F4), lo último: mejora algo que ya existe.
 
+## V3-79 · Tu material y tus diluciones: dos niveles, la lista de la compra, la ventana de dilución y el registro en rejilla (decidida por el usuario el 2026-10-26; desarrolla V3-78, cambia V3-67 en la ventana y el registro)
+
+**Palabras del usuario** (2026-10-26). Las cuatro primeras, eligiendo una opción en las tarjetas de la sesión:
+
+1. A «Cuando algo cambia (otro fabricante, otra procedencia u otro lote con un GC-MS distinto), ¿dónde va?», eligió **«Especificación nueva (Recomendada)»**.
+2. A «¿Qué se apunta en la lista de la compra y cómo pasa a ser tuyo?», eligió **«Material del glosario (Recomendada)»**.
+3. A los campos de la especificación sin stock ni precio, eligió **«Así (Recomendada)»**.
+4. A la ventana «Nueva dilución» con los cuatro casos de F17 juntos, eligió **«Así (Recomendada)»**, con el esquema que se le enseñó.
+
+Sobre el registro de diluciones, con tres capturas (la lista de «Diluciones», la rejilla de Materiales y los frascos de PerfuMate):
+
+> yo pondria que directmante desde el menu se pueda hacer la dilucion, ya esta el panel del pop up docked en este UI, a la derecha parte de arriba, por otro lado lo de buscar sigue ahi y los materiales asi en lista se ven ilegibles totalmennte yo diria que quizas con un grid quedaria mejor se puede sacar la distribucion del de los materiales pero sin necesidad de poner tanta informacion, con que salga los nombres la visualizacin del material luego las diluciones como en este ejemplo, eso si no hace falta que salga neat
+> repetir dilucion? no hay stock son informacion no material, no se acaba
+> la ventana que se abre en otros paneles en diluciones existe pero dockeada en la parte superior derecha
+
+**Lectura** (la sesión, para que la confirmes):
+
+- **Dos niveles.** Tu **especificación** de un material del glosario, y sus **diluciones**. Cada variación (otro fabricante, otra procedencia, otro lote con otro GC-MS) es otra especificación del mismo material, y «hacer otra a partir de esta» la copia. El lote es un campo.
+- **La especificación** lleva: material y producto del glosario, nombre, abreviatura, procedencia (país y región), proveedor, url de la tienda, lote, fecha de compra, pureza y estado (en uso, se acaba, agotado, archivado). Encima, tus alérgenos y tu composición, tus documentos (GC-MS, certificado IFRA, ficha de seguridad) y tus topes. **Sin cantidad ni precio** (V3-78: sin stock y sin coste). Es la tabla `mis_materiales` de la radiografía sin esos dos campos (propuesta de la sesión, sobre la radiografía de V3-70).
+- **La dilución** guarda solo lo de V3-67: de qué especificación sale, sus diluyentes (cada uno un material), lo pesado (de donde sale la cifra exacta) y, si sale de otra, cuál. Es información, no un material: no se acaba ni se repite.
+- **La lista de la compra** apunta materiales del glosario, con producto o tienda y una nota si quieres. Si te falta un material mientras usas una receta, se apunta solo y dice de qué fórmula sale. «Ya lo tengo» crea tu especificación con eso relleno y lo quita de la lista. «No lo tengo» deja de ser un estado. Va discreta, en un apartado de usuario (V3-78).
+- **La ventana «Nueva dilución»:** material (tu especificación); desde (puro o una dilución dada de alta); % objetivo; diluyentes con «+ diluyente»; pesos de ejemplo en gris (1 g y 10 g); «material pesado» o «total», y cada uno calcula el otro; lo pesado de verdad, opcional, da la cifra exacta; «Guardar sin pesos» y «Guardar con lo pesado».
+- **En «Diluciones»**, la ventana va anclada arriba a la derecha y se diluye desde ahí; en los demás paneles, emergente. El buscador se queda. **La lista pasa a rejilla**, con la distribución de la de Materiales y menos datos: el orbe, el nombre y debajo una pastilla por dilución («10 % in DPG»). Sin pastilla de «puro».
+- **Por preguntar:** qué hace la pastilla al tocarla (abrir la dilución para corregir sus pesos o archivarla, V3-67).
+
 ---
 
 ## Pendientes
