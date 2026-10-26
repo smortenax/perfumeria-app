@@ -108,6 +108,8 @@ export const texts = {
     markMode: "Mark what I have",
     copyPalette: "Copy palette",
     downloadPalette: "Download palette (.md)",
+    exportData: "Export data (.csv)",
+    dataExported: "Downloaded: your materials and your dilutions, two .csv tables.",
     paletteCopied: (n: number) => `Palette copied: ${n === 1 ? "1 material of yours" : `${n} materials of yours`}, one per line, in Markdown.`,
     paletteDownloaded: (n: number) => `Palette downloaded: ${n === 1 ? "1 material of yours" : `${n} materials of yours`}.`,
     paletteNoClipboard: "This browser does not allow copying here: use «Download palette (.md)».",

@@ -24,7 +24,7 @@ Lo que ya existe y se reutiliza (todo en `v3/`):
 - **Tus fórmulas:** `src/bench/use-formula.ts`, con `recipe` (la receta al miligramo), y
   `src/core/io/formula-json.ts`.
 - **El CSV:**
-  - `src/data/csv.ts` lee CSV con comillas;
+  - `src/bench/data/csv.ts` lee CSV con comillas;
   - escribirlo se hace como en `shoppingCsv` (`src/db/shopping.ts`);
   - las descargas, como la paleta (`Glossary.tsx`).
 - **Los PDF, sin dependencias nuevas** (propuesta de la sesión): una vista de impresión con

@@ -1,4 +1,5 @@
 import { type KeyboardEvent, type ReactNode, useMemo, useRef, useState } from "react";
+import { dilutionsCsv, materialsCsv } from "../export/tables";
 import { type CatalogMaterial, MATERIAL_KINDS, type MaterialKind } from "../db/catalog";
 import { normalize } from "../db/search";
 import type { FormulaMarker, FormulaRecord } from "../db/formulas";
@@ -60,6 +61,19 @@ export function Glossary({
     // Where the clipboard API is not allowed (some embedded browsers), the old way: a selected text.
     const done = copied || copyBySelection(text);
     setPaletteNote(done ? t.paletteCopied(paletteOf(data.catalog).length) : t.paletteNoClipboard);
+  };
+  // «Export data» (V3-80): your materials and your dilutions, two plain tables.
+  const exportData = () => {
+    const day = new Date().toISOString().slice(0, 10);
+    for (const [name, text] of [
+      [`my-materials-${day}.csv`, materialsCsv(data.catalog)],
+      [`my-dilutions-${day}.csv`, dilutionsCsv(data.catalog)],
+    ] as const) {
+      const url = URL.createObjectURL(new Blob([text], { type: "text/csv;charset=utf-8" }));
+      Object.assign(document.createElement("a"), { href: url, download: name }).click();
+      URL.revokeObjectURL(url);
+    }
+    setPaletteNote(t.dataExported);
   };
   const downloadPalette = () => {
     const url = URL.createObjectURL(new Blob([palette()], { type: "text/markdown;charset=utf-8" }));
@@ -129,6 +143,9 @@ export function Glossary({
           </button>
           <button type="button" className="secondary" hidden={tab !== "own"} onClick={downloadPalette}>
             {t.downloadPalette}
+          </button>
+          <button type="button" className="secondary" hidden={tab !== "own"} onClick={exportData}>
+            {t.exportData}
           </button>
           <button type="button" onClick={onNew}>
             {texts.editor.newMaterial}
