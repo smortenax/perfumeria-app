@@ -1453,6 +1453,13 @@ Sobre los casos de la dilución: «puede convivir tambien las dos que propones, 
 - **F17:** una ventana emergente rápida que no resta de ningún stock, con cuatro maneras: dar de alta una dilución hecha; desde lo pesado de material (con pesos de ejemplo en gris); partiendo de puro o de una dilución dada de alta; y desde la cantidad total.
 - **Pendientes de matizar:** F19 (importar), F22 (asistente) y F23 (exportar).
 
+**Más del usuario** (2026-10-26), sobre la lista de la compra y el orden:
+
+> este ultimo featuer no tiene que ser extremadamente visible o opacante solo en un apartado de Usuaraio o algo asi tienes una opcion que es consultar shopping list y ahi estan todos los que quieres comprar desde la propia sopping list puedes exportarlos o ya añadirlos como material tuyo si los has comprado ya. lo de perfil olfativo es lo mas bajo de prioridad es upgrade de sistema o visuales que ya esxiste lo de frascos y dilucion lo mas util de entrada, mejorar la interfaz con el registro de diluciones tambien es una parte importante
+
+- **La lista de la compra, discreta:** en un apartado de usuario, como «Consultar la lista de la compra». Desde ella se exporta, o se pasa un material a «tuyo» cuando ya lo has comprado.
+- **Prioridad:** primero, los frascos y las diluciones (el sistema de F13–F15 y la ventana de F17), con la interfaz del registro de diluciones mejorada; el perfil olfativo (F4), lo último: mejora algo que ya existe.
+
 ---
 
 ## Pendientes

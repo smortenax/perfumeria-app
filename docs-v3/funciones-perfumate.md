@@ -33,6 +33,13 @@ Estados: **entra** (tal cual), **matizada** (entra con los matices de abajo), **
 | F22 | Asistente: describes un olor y propone una fórmula con tus materiales | pendiente | no |
 | F23 | Exportar, sugerencias y contribuir documentos | pendiente | .json y hoja de pesada (V3-55) |
 
+## Prioridad
+
+1. Frascos y diluciones: el sistema (F13–F15), la ventana de dilución (F17) y una interfaz
+   mejor para el registro de diluciones.
+2. El resto.
+3. Lo último, el perfil olfativo (F4): mejora algo que ya existe.
+
 ## Matices
 
 - **F4.** Sin tarta. El perfil se ve en los orbes (V3-72, V3-73), que hay que iterar para que
@@ -49,7 +56,9 @@ Estados: **entra** (tal cual), **matizada** (entra con los matices de abajo), **
   frasco.
 - **F16.** No hay stock general enlazado a todo. A cambio, marcar a mano un material como «se
   acaba», y una lista de la compra con materiales que tienes o no tienes. Lo que falta para una
-  receta mientras la usas queda apuntado en ella.
+  receta mientras la usas queda apuntado en ella. La lista va discreta, en un apartado de
+  usuario («Consultar la lista de la compra»), y desde ella se exporta o se pasa un material a
+  «tuyo» cuando ya lo has comprado.
 - **F17.** Una ventana emergente rápida, sin tocar ningún stock, donde conviven cuatro maneras:
   1. **Dar de alta una dilución ya hecha:** material, %, disolvente, y listo.
   2. **Desde lo pesado:** tras elegir material y %, salen en gris pesos de ejemplo (al 10 %:
