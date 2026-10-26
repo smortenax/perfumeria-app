@@ -117,3 +117,53 @@
 .material-dilutions li {
   padding: 0.25rem 0;
 }
+
+/* «New dilution» (V3-79): the four ways in one window. */
+.new-dilution .nd-from {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+.new-dilution .nd-label {
+  min-width: 4rem;
+}
+.new-dilution .nd-target input {
+  max-width: 8rem;
+}
+.new-dilution .nd-add-diluent {
+  margin: 0.25rem 0 0.5rem;
+}
+.new-dilution .nd-examples {
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0 0.75rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.new-dilution .nd-amounts {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+.new-dilution .nd-amounts .field {
+  flex: 1;
+}
+.new-dilution .nd-or {
+  padding-bottom: 1.1rem;
+  color: var(--muted);
+}
+.new-dilution .nd-plan {
+  margin: 0.25rem 0 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+.new-dilution .nd-weights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0 0.75rem;
+}
+.new-dilution .pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0 0.75rem;
+}

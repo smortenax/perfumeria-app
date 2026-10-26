@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Ratio } from "../core/arith/ratio";
-import type { CatalogMaterial, Dilution } from "../db/catalog";
+import type { Dilution } from "../db/catalog";
 import { archiveBottle, type BottleInput, createBottle, describeBottle, updateBottle } from "../db/dilutions";
 import type { LocalDatabase } from "../db/local/database";
 import { percent } from "../glossary/format";
@@ -12,6 +12,7 @@ import { bottleOf, plan, storedBottle } from "./calc";
 import { coloursOf } from "../families/palette";
 import { orbLookOf, orbScalesOf, seedOf } from "../glossary/orb/fromCatalog";
 import { MaterialOrb } from "../glossary/orb/MaterialOrb";
+import { NewDilution } from "./NewDilution";
 import "./dilutions.css";
 
 const t = texts.dilutions;
@@ -89,7 +90,7 @@ export function Dilutions({
   };
   const editor =
     newFor !== null ? (
-      <BottleEditor key={`new:${newFor}`} data={data} local={local} materialId={newFor || null} onDone={onOpen} onCancel={onBack} />
+      <NewDilution key={`new:${newFor}`} data={data} local={local} materialId={newFor || null} onDone={onOpen} onCancel={onBack} />
     ) : bottleId ? (
       found ? (
         <BottleEditor key={bottleId} data={data} local={local} materialId={found.materialId} bottle={found.d} onDone={() => onBack()} onCancel={onBack} onArchived={onArchived} />
@@ -185,11 +186,11 @@ interface Row {
   readonly grams: string;
 }
 
-/** A bottle's sheet: new, or yours to correct (V3-67). The calculator says what to weigh; what you weighed makes the figure. */
+/** A bottle of yours to correct (V3-67): its weights, its name, date and note, or the archive. A new one is NewDilution (V3-79). */
 function BottleEditor({
   data,
   local,
-  materialId: initialMaterial,
+  materialId,
   bottle,
   onDone,
   onCancel,
@@ -197,8 +198,8 @@ function BottleEditor({
 }: {
   data: GlossaryData;
   local: LocalDatabase;
-  materialId: string | null;
-  bottle?: Dilution;
+  materialId: string;
+  bottle: Dilution;
   onDone: (id: string) => void;
   onCancel: () => void;
   /** Said after archiving, with Undo (not after taking a bottle out of the archive). */
@@ -206,8 +207,6 @@ function BottleEditor({
 }) {
   const diluents = useMemo(() => diluentsOf(data), [data]);
   const name = (id: string) => data.catalog.materials.get(id)?.name ?? "—";
-  const [materialId, setMaterialId] = useState<string | null>(initialMaterial);
-  const [query, setQuery] = useState("");
   const [label, setLabel] = useState(bottle?.label ?? "");
   const [sourceId, setSourceId] = useState<string | null>(bottle?.sourceDilutionId ?? null);
   const [target, setTarget] = useState("10");
@@ -233,10 +232,6 @@ function BottleEditor({
   const sources = materialId ? (data.catalog.dilutions.get(materialId) ?? []).filter((d) => d.id !== bottle?.id && d.diluents.length > 0) : [];
   const source = sources.find((d) => d.id === sourceId);
   const sourceBottle = source ? { fraction: source.fraction, diluents: source.diluents.map((d) => ({ diluentId: d.diluentId, fraction: d.fraction })) } : undefined;
-  const materials = useMemo(
-    () => [...data.catalog.materials.values()].filter((m: CatalogMaterial) => m.ownerId !== null && !m.solvent).sort((a, b) => a.name.localeCompare(b.name, "es")),
-    [data],
-  );
 
   const setRow = (i: number, change: Partial<Row>) => setRows(rows.map((r, j) => (j === i ? { ...r, ...change } : r)));
   const calculate = () => {
@@ -295,35 +290,9 @@ function BottleEditor({
         <h2 className="page-title">{bottle ? `${name(materialId ?? "")} · ${bottle.label ?? percent(bottle.fraction, 2)}` : t.newBottle}</h2>
       </div>
 
-      {materialId ? (
-        <p>
-          {t.material}: <strong>{name(materialId)}</strong>{" "}
-          {!bottle && (
-            <button type="button" className="link" onClick={() => setMaterialId(null)}>
-              {t.change}
-            </button>
-          )}
-        </p>
-      ) : (
-        <div className="field">
-          <label className="field">
-            {t.material}
-            <input type="search" value={query} placeholder={t.pickMaterial} onChange={(e) => setQuery(e.target.value)} />
-          </label>
-          <ul className="pick-list">
-            {materials
-              .filter((m) => m.name.toLowerCase().includes(query.trim().toLowerCase()))
-              .slice(0, 30)
-              .map((m) => (
-                <li key={m.id}>
-                  <button type="button" onClick={() => setMaterialId(m.id)}>
-                    {m.name}
-                  </button>
-                </li>
-              ))}
-          </ul>
-        </div>
-      )}
+      <p>
+        {t.material}: <strong>{name(materialId)}</strong>
+      </p>
 
       {materialId && (
         <>

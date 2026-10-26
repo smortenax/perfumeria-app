@@ -132,6 +132,31 @@ export function bottleOf(w: Weighed): Bottle {
   };
 }
 
+/** What a bottle is made of, as shares of it: its pure matter and each diluent. */
+export type Shares = Omit<Bottle, "totalUg">;
+
+/**
+ * A bottle saved without weights (V3-79, «Guardar sin pesos»): what you aimed at, exactly. Each
+ * diluent with a share keeps it; the one without share takes the rest. From another bottle, its own
+ * diluents come with what is taken of it (target ÷ its fraction), as in `plan()`.
+ */
+export function nominalBottle(target: Ratio, diluents: readonly PlannedDiluent[], source?: SourceBottle): Shares {
+  if (target.num <= 0n || target.cmp(Ratio.ONE) >= 0) throw new RangeError("a dilution is above 0 % and below 100 %");
+  if (diluents.length === 0) throw new Error("a dilution has at least one diluent");
+  if (diluents.filter((d) => d.share === null).length > 1) throw new Error("only one diluent takes the rest");
+  if (new Set(diluents.map((d) => d.diluentId)).size !== diluents.length) throw new Error("a diluent is listed once");
+  if (source && target.cmp(source.fraction) >= 0) throw new RangeError("from a bottle you only dilute further");
+  const taken = source ? target.div(source.fraction) : target;
+  const fixed = diluents.reduce((sum, d) => (d.share ? sum.add(d.share) : sum), Ratio.ZERO);
+  const left = Ratio.ONE.sub(taken).sub(fixed);
+  const rest = diluents.some((d) => d.share === null);
+  if (rest ? left.sign() <= 0 : !left.isZero()) throw new RangeError("the shares of the diluents do not add up to the bottle");
+  const shares = new Map<string, Ratio>();
+  for (const d of source?.diluents ?? []) shares.set(d.diluentId, taken.mul(d.fraction));
+  for (const d of diluents) shares.set(d.diluentId, (shares.get(d.diluentId) ?? Ratio.ZERO).add(d.share ?? left));
+  return { fraction: target, diluents: [...shares].map(([diluentId, fraction]) => ({ diluentId, fraction, massUg: null })) };
+}
+
 /** A fraction to six decimals, half up (STORED_PLACES). */
 export function stored(value: Ratio): Ratio {
   const scale = 10n ** BigInt(STORED_PLACES);
@@ -143,11 +168,11 @@ export function stored(value: Ratio): Ratio {
  * The bottle as it is kept: every share to six decimals, adding up to exactly 1. What rounding moves
  * goes to the largest diluent, where it weighs least.
  */
-export function storedBottle(b: Bottle): Bottle {
+export function storedBottle<B extends Shares>(b: B): B {
   const fraction = stored(b.fraction);
   const diluents = b.diluents.map((d) => ({ ...d, fraction: stored(d.fraction) }));
   const sum = diluents.reduce((s, d) => s.add(d.fraction), fraction);
   const largest = diluents.reduce((at, d, i) => (d.fraction.gt(diluents[at].fraction) ? i : at), 0);
   diluents[largest] = { ...diluents[largest], fraction: diluents[largest].fraction.add(Ratio.ONE.sub(sum)) };
-  return { ...b, fraction, diluents };
+  return { ...b, fraction, diluents } as B;
 }
