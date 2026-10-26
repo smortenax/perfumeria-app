@@ -62,6 +62,9 @@ export const texts = {
     newBenchName: "Name of the workbench",
     tabs: { benches: "Benches", accords: "Accords", finished: "Finished perfumes" },
     formulasCount: (n: number) => (n === 1 ? "1 formula" : `${n} formulas`),
+    versions: "Versions",
+    versionsHint: "Each formula is a node, and each version hangs from the formula it was saved from. Point at one to light up where it comes from.",
+    versionTree: (bench: string) => `Versions in «${bench}»`,
   },
   glossary: {
     title: "Materials glossary",
