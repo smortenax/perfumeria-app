@@ -1,10 +1,11 @@
-import { type KeyboardEvent, useRef, useState } from "react";
+import { type CSSProperties, type KeyboardEvent, useRef, useState } from "react";
 import type { FormulaRecord } from "../db/formulas";
 import { normalize } from "../db/search";
 import { byVersions, Formulas } from "../glossary/Glossary";
 import type { GlossaryData } from "../glossary/useGlossary";
 import { texts } from "../i18n/en";
 import { tabAfterKey } from "../tabs";
+import { VersionTree } from "./VersionTree";
 
 /** The library's tabs (V3-19): your workbenches, and the general folders of the markers. */
 const TABS = ["benches", "accords", "finished"] as const;
@@ -98,7 +99,8 @@ export function Library({
 /**
  * The workbenches as a list, the chosen one open beside it with its formulas and their versions in
  * rows (V3-73, after the revamp prototype): the width is used, and «New formula» sits in the open
- * bench's head instead of on every folder's corner.
+ * bench's head instead of on every folder's corner. Beside the rows, or under them where there is no
+ * room, the bench's version tree (V3-77); a row and its node light up together.
  */
 function Benches({
   data,
@@ -115,6 +117,7 @@ function Benches({
 }) {
   const t = texts.glossary;
   const [chosen, setChosen] = useState<string | null>(null);
+  const [active, setActive] = useState<string | null>(null);
   const words = normalize(query).split(/\s+/).filter((w) => w);
   const benchName = new Map(data.workbenches.map((b) => [b.id, b.name]));
   const shown = data.formulas.filter((f) => words.every((w) => normalize(`${f.name} ${benchName.get(f.workbenchId) ?? ""}`).includes(w)));
@@ -165,29 +168,49 @@ function Benches({
         {inside.length === 0 ? (
           <p className="hint">{words.length ? t.noFormulas : t.noFormulasYet(true)}</p>
         ) : (
-          <ul className="formula-rows">
-            {inside.map((f) => {
-              const parent = f.parentId ? data.formulas.find((x) => x.id === f.parentId) : undefined;
-              return (
-                <li key={f.id}>
-                  <button type="button" className="formula-row" style={{ paddingLeft: `calc(var(--space-inset) + ${depth(f) * 1.25}rem)` }} onClick={() => onOpen(f.id)}>
-                    <span className="formula-main">
-                      <span className="formula-name">{f.name}</span>
-                      {(parent || f.role) && <span className="formula-detail">{[parent ? t.versionFrom(parent.name) : null, f.role].filter((x) => x).join(" · ")}</span>}
-                    </span>
-                    {f.markers.map((m) => (
-                      <span key={m} className="chip">
-                        {t.markers[m]}
+          <div className="bench-body">
+            <ul className="formula-rows">
+              {inside.map((f) => {
+                const parent = f.parentId ? data.formulas.find((x) => x.id === f.parentId) : undefined;
+                return (
+                  <li key={f.id}>
+                    <button
+                      type="button"
+                      className={`formula-row${active === f.id ? " active" : ""}`}
+                      style={{ "--depth": depth(f) } as CSSProperties}
+                      onClick={() => onOpen(f.id)}
+                      onMouseEnter={() => setActive(f.id)}
+                      onMouseLeave={() => setActive(null)}
+                      onFocus={() => setActive(f.id)}
+                      onBlur={() => setActive(null)}
+                    >
+                      <span className="formula-main">
+                        <span className="formula-name">{f.name}</span>
+                        {(parent || f.role) && (
+                          <span className="formula-detail">{[parent ? t.versionFrom(parent.name) : null, f.role].filter((x) => x).join(" · ")}</span>
+                        )}
                       </span>
-                    ))}
-                    <span className="formula-open" aria-hidden="true">
-                      →
-                    </span>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
+                      {f.markers.map((m) => (
+                        <span key={m} className="chip">
+                          {t.markers[m]}
+                        </span>
+                      ))}
+                      <span className="formula-open" aria-hidden="true">
+                        →
+                      </span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+            <section className="version-panel" aria-labelledby="version-panel-title">
+              <h4 className="version-title" id="version-panel-title">
+                {texts.library.versions}
+              </h4>
+              <p className="hint">{texts.library.versionsHint}</p>
+              <VersionTree formulas={inside} bench={current.name} active={active} onActive={setActive} onOpen={onOpen} />
+            </section>
+          </div>
         )}
       </section>
     </div>
