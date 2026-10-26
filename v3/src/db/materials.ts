@@ -24,6 +24,7 @@ import {
   type NewMaterial,
   type Regulation,
   type RegulationKind,
+  SPEC_STATUSES,
 } from "./catalog";
 import { bigintFromText, numericFromRatio, ratioFromNumeric } from "./exact";
 import * as local from "./local/schema";
@@ -97,6 +98,10 @@ function fieldsOf(row: typeof local.materials.$inferSelect): MaterialFields {
     supplier: row.supplier,
     product: row.product,
     productUrl: row.productUrl,
+    lot: row.lot,
+    purchasedOn: row.purchasedOn,
+    originRegion: row.originRegion,
+    status: optionalOf(row.status, SPEC_STATUSES, "status"),
     purity: ratioFromNumeric(row.purity),
     house: row.house,
     code: row.code,
@@ -297,6 +302,8 @@ function checkFields(fields: Partial<MaterialFields>): void {
   if (fields.evolution) for (const e of fields.evolution) evolutionOf(e);
   if (fields.physical?.density && fields.physical.density.num <= 0n) throw new RangeError("a density is above 0");
   if (fields.physical?.molecularWeight && fields.physical.molecularWeight.num <= 0n) throw new RangeError("a molecular weight is above 0");
+  if (fields.status) oneOf(fields.status, SPEC_STATUSES, "status");
+  if (fields.purchasedOn && !/^\d{4}-\d{2}-\d{2}$/.test(fields.purchasedOn)) throw new RangeError("a date is 2026-10-26");
 }
 
 /** A user creates any kind but a frozen formula: that one comes from freezing a formula (phase 8). */
@@ -415,6 +422,22 @@ export async function createVersion(db: LocalDb, ownerId: string, baseId: string
   const base = await visibleMaterial(db, ownerId, baseId);
   if (base.kind === "frozen") throw new Error("a frozen formula has no versions: it is a formula");
   return createMaterial(db, ownerId, { name: base.name ?? "", kind: oneOf(base.kind, MATERIAL_KINDS, "material kind"), basedOnId: baseId });
+}
+
+/**
+ * «Make another from this» (V3-79): another specification of yours of the same material (another lot,
+ * shop or origin), a copy of this one with its composition, to change. Its dilutions are not copied:
+ * they are of the bottle you made them from.
+ */
+export async function copySpecification(db: LocalDb, ownerId: string, id: string): Promise<string> {
+  const row = await ownMaterial(db, ownerId, id);
+  if (row.kind === "frozen") throw new Error("a frozen formula is not a specification");
+  const copy = crypto.randomUUID();
+  const stamp = now();
+  await db.insert(local.materials).values({ ...row, id: copy, status: row.status === "in_use" ? row.status : null, createdAt: stamp, updatedAt: stamp });
+  const components = await db.select().from(local.materialComponents).where(eq(local.materialComponents.materialId, id));
+  for (const c of components) await db.insert(local.materialComponents).values({ ...c, id: crypto.randomUUID(), materialId: copy });
+  return copy;
 }
 
 /** Changes one of the user's materials. A frozen formula stays one, and nothing becomes one. */

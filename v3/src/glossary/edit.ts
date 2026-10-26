@@ -7,6 +7,7 @@ import {
   type MaterialChanges,
   type MaterialKind,
   type Physical,
+  SPEC_STATUSES,
   STRENGTHS,
   TIERS,
 } from "../db/catalog";
@@ -77,6 +78,10 @@ export const EDIT_SECTIONS: readonly EditSection[] = [
       field("productUrl", f.productUrl, "text"),
       field("grade", f.grade, "text"),
       field("purity", f.purity, "percent", { unit: "%" }),
+      field("lot", f.lot, "text"),
+      field("purchasedOn", f.purchasedOn, "text"),
+      field("originRegion", f.originRegion, "text"),
+      field("status", f.status, "choice", { options: choices(SPEC_STATUSES, s.statuses) }),
     ],
   },
   {

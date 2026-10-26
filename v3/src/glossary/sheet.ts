@@ -117,6 +117,10 @@ function fieldsOf(catalog: Catalog): Readonly<Record<"identity" | "bottle" | "sm
       { label: f.productUrl, get: (m) => known(m.productUrl) },
       { label: f.grade, get: (m) => known(m.grade) },
       { label: f.purity, get: (m) => (m.purity ? percent(m.purity) : null) },
+      { label: f.lot, get: (m) => known(m.lot) },
+      { label: f.purchasedOn, get: (m) => known(m.purchasedOn) },
+      { label: f.originRegion, get: (m) => known(m.originRegion) },
+      { label: f.status, get: (m) => (m.status ? t.statuses[m.status] : null) },
     ],
     smell: [
       { label: f.family, get: (m) => (m.family ? t.families[m.family] : null), column: "family" },

@@ -289,3 +289,27 @@ it("PowerSync answers for both users", async () => {
   expect((await download(a.token)).size).toBeGreaterThan(0);
   expect((await download(b.token)).size).toBeGreaterThan(0);
 });
+
+describe("your specification (V3-79): lot, purchase date, region and status", () => {
+  it("A keeps them on its own and they come down through the sync", async () => {
+    const { id } = await insertAs(a, "materials", {
+      name: `${TAG} spec`,
+      kind: "molecule",
+      owner_id: a.id,
+      based_on_id: commonMolecule,
+      lot: "L-118",
+      purchased_on: "2026-10-18",
+      origin_region: "Grasse",
+      status: "running_low",
+    });
+    expect(id).toBeTruthy();
+    const synced = await downloadWhen(a.token, (s) => has(s, "materials", id!));
+    const row = synced.get("materials")?.get(id!);
+    expect([row?.lot, row?.purchased_on, row?.origin_region, row?.status]).toEqual(["L-118", "2026-10-18", "Grasse", "running_low"]);
+  });
+
+  it("refuses a status outside the list, and any status on a common material", async () => {
+    expect((await insertAs(a, "materials", { name: `${TAG} bad status`, kind: "molecule", owner_id: a.id, status: "no_tengo" })).code).toBe("23514");
+    await expect(admin`insert into materials (name, kind, status) values (${`${TAG} common with status`}, 'molecule', 'in_use')`).rejects.toThrow(/materials_status/);
+  });
+});

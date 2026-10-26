@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { currentUser, signOut, supabase, type SignedInUser } from "./db/client";
 import { closeLocalDatabase, localDatabaseFor } from "./db/local/database";
 import { createFormula, createWorkbench, deleteWorkbench } from "./db/formulas";
-import { createVersion, setHave, setHaveMany } from "./db/materials";
+import { copySpecification, createVersion, setHave, setHaveMany } from "./db/materials";
 import { Bench } from "./bench/Bench";
 import { Glossary } from "./glossary/Glossary";
 import { Library } from "./formulation/Library";
@@ -199,6 +199,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
               onOpen={(id) => go({ view: "sheet", id })}
               onHave={(have) => void setHave(local.db, local.userId, route.id, have).catch(fail)}
               onMakeVersion={() => void createVersion(local.db, local.userId, route.id).then((id) => go({ view: "edit", id }), fail)}
+              onCopySpec={() => void copySpecification(local.db, local.userId, route.id).then((id) => go({ view: "edit", id }), fail)}
               links={
                 <>
                 <MaterialTastings

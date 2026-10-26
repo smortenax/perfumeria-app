@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { type AnyPgColumn, bigint, boolean, check, index, numeric, pgTable, smallint, text, timestamp, unique, uniqueIndex, uuid } from "drizzle-orm/pg-core";
+import { type AnyPgColumn, bigint, boolean, check, date, index, numeric, pgTable, smallint, text, timestamp, unique, uniqueIndex, uuid } from "drizzle-orm/pg-core";
 import { authUsers } from "drizzle-orm/supabase";
 import { formulaEvents, formulas } from "./formulas";
 
@@ -70,6 +70,11 @@ export const materials = pgTable(
     /** A version's bottle (V3-36): the product as the shop names it, and its page. */
     product: text("product"),
     productUrl: text("product_url"),
+    /** Your specification (V3-79): the lot, when you bought it, the region it comes from and how it stands. */
+    lot: text("lot"),
+    purchasedOn: date("purchased_on"),
+    originRegion: text("origin_region"),
+    status: text("status"),
     /** As the bottle says it, informative: what is known of the rest goes in the composition. */
     purity: numeric("purity"),
     // What belongs to each kind (V3-14): a molecule's house, synthesis and isomers; a composition's house, code and target.
@@ -151,6 +156,8 @@ export const materials = pgTable(
     check("materials_confidence", sql`${t.confidence} is null or ${t.confidence} in ('high', 'medium', 'low')`),
     check("materials_abbreviation_origin", sql`${t.abbreviationOrigin} is null or ${t.abbreviationOrigin} in ('user', 'generated')`),
     check("materials_color", sql`${t.color} is null or ${t.color} ~ '^#[0-9a-f]{6}$'`),
+    // Your specification (V3-79): how it stands, only on your rows; never «I do not have it» (that is the shopping list).
+    check("materials_status", sql`${t.status} is null or (${t.status} in ('in_use', 'running_low', 'depleted', 'archived') and ${t.ownerId} is not null)`),
     check("materials_tenacity_hours", sql`${t.tenacityHours} is null or ${t.tenacityHours} > 0`),
     check(
       "materials_evolution",

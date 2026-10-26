@@ -97,10 +97,10 @@ export function Glossary({
   }, [data, query, filters, limit]);
   const materials = rows.flatMap((r) => r.members.map((m) => m.material));
   // «Nothing yet» and «no matches» are two states (audit F-08): only the second offers to clear.
-  const searching = query.trim() !== "" || filters.kind !== null || filters.ifra !== null || filters.haveOnly;
+  const searching = query.trim() !== "" || filters.kind !== null || filters.ifra !== null || filters.haveOnly || !!filters.runningLow;
   const clear = () => {
     setQuery("");
-    set({ kind: null, ifra: null, haveOnly: false });
+    set({ kind: null, ifra: null, haveOnly: false, runningLow: false });
   };
   const markShown = (have: boolean) =>
     void mark(materials.map((m) => m.id), have).then(
@@ -169,6 +169,9 @@ export function Glossary({
               <span className="pills">
                 <button type="button" className="pill" aria-pressed={filters.haveOnly} onClick={() => set({ haveOnly: !filters.haveOnly })}>
                   {t.haveOnly}
+                </button>
+                <button type="button" className="pill" aria-pressed={!!filters.runningLow} onClick={() => set({ runningLow: !filters.runningLow })}>
+                  {t.runningLow}
                 </button>
               </span>
             </div>
@@ -293,6 +296,7 @@ function Tile({ material, data, scales, onOpen, marking, mark }: { material: Cat
           {texts.ifraState[state]}
         </span>
         {have && <span className="have-chip">{t.haveMark}</span>}
+        {material.status && material.status !== "in_use" && <span className="status-chip">{texts.sheet.statuses[material.status]}</span>}
       </span>
     </>
   );

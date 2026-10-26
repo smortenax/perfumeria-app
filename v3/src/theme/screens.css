@@ -1071,3 +1071,12 @@ details.unstated[open] dl {
   color: var(--text-on-accent);
   font-weight: 700;
 }
+
+/* How a specification of yours stands (V3-79): quiet, beside «I have it». */
+.status-chip {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  border: 1px dashed var(--line-strong);
+  border-radius: 999px;
+  padding: 0 8px;
+}
