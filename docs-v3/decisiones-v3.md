@@ -1427,6 +1427,32 @@ Lo había marcado a las 19:27 («look: mol/atk/side/comfy/ten», V3-75). La maqu
 - **Aprobada** (2026-10-24, en la tarjeta del hilo: «Aprobar», a «¿Apruebo la tanda 22, con Gourmand en la paleta y los 14 cambios de familia?»): la paleta de `v3/datos/` tiene diez familias, y los 14 materiales, su familia nueva.
 - **Propuesta de la sesión:** el nombre del color, «caramelo»; la regla de la tanda 22 (lo tostado, a Transformado; el incienso, a Amaderado, como en la maqueta), y que no toque los materiales de las otras siete familias.
 
+## V3-78 · Las funciones de PerfuMate: qué entra y con qué matices (decidida por el usuario el 2026-10-26)
+
+**Palabras literales del usuario** (2026-10-26), sobre el vídeo que grabó recorriendo PerfuMate:
+
+> visualmente: casi nada, es lo que mas discrepo con la app simplemente no me gusta nada visualmente, es identificar key features de la app y yo te digo si me gustan para la mia o no
+
+Sobre la lista F1–F23 (`funciones-perfumate.md`): «todas las mencionadas a continuacion ahora las matizamos, el resto pasan» (F4, F9, F12–F17, F19, F22, F23), y a la pregunta de qué es «pasan», «Entran tal cual».
+
+> el mapa visual en todo caso seria mejorar lo que hacen ahora los orbes hay que iterar para que sean no solo visualmente atractivos sino mas legibles, no quieroun mapa de tarta pero si quiero que sea legible
+> lo de coste por linea simplement no
+> ficha falta impactyo y horas
+> todo lo que tiene que ver con frascos hay que establecer un sistema de frascos y diluciones diferentes establecer que informacion va al frasco y que informacion va al material [...] tambien se pueden separar en 2 niveles materiales (general vinculado a CAS y extaido del glosario), (especificaciones) procedencia fabricante y la capacidad de cambiar los alergenos o añadir uno nuevo si es necesario, y por otro nivel diluciones, ahi solo convivven datos de % de material y de % de solvente/solventes...
+> la dilucion lo bueno de esa calculadora no es que se ponga en el stock sino que es muy practicaporque es un pop up
+
+Sobre los casos de la dilución: «puede convivir tambien las dos que propones, la de que haya una opcion de partir con un material diluido (desde neat a cada una de las diluciones ya dadas de alta para el material seleccionado), y que tambien puedas poner la cantidad total si prefieres contarlo del reves». Sobre el stock: «no me gusta que haya un stock general todo vinculado simplemente se que estara fallando todo el rato y habra muchas coasa que no se tengan en cuenta, lo que si que me gusta es poder dar de alta materiales como Running low, o incluso hacer una "shopping list " de materiales que tienes o que no tienes, de manera que si te faltan para alguna receta durante el momento de uso se queden guardados.»
+
+**Lectura** (la sesión, para que la confirmes):
+
+- **Lo visual de PerfuMate no se toma.** Entran tal cual F1, F2, F3, F5, F6, F7, F8, F10, F11, F18, F20 y F21. **F9, el coste por línea, no entra.**
+- **F4:** sin tarta; el perfil se ve en los orbes (V3-72, V3-73), que hay que iterar para que se lean.
+- **F12:** la ficha gana el impacto y las horas en tira, con su fuente.
+- **F13–F15:** primero, el sistema de frascos y diluciones. Dos niveles: el material (lo general, por CAS y del glosario, y su especificación: procedencia, fabricante, alérgenos cambiados o añadidos) y la dilución (solo % de material y de cada disolvente). Abierto: si un cambio de composición, origen o fabricante es otra especificación o va en un frasco. Toca V3-67 y V3-70.
+- **F16:** sin stock general. Sí: «se acaba» a mano y una lista de la compra, que guarda lo que falta para una receta al usarla.
+- **F17:** una ventana emergente rápida que no resta de ningún stock, con cuatro maneras: dar de alta una dilución hecha; desde lo pesado de material (con pesos de ejemplo en gris); partiendo de puro o de una dilución dada de alta; y desde la cantidad total.
+- **Pendientes de matizar:** F19 (importar), F22 (asistente) y F23 (exportar).
+
 ---
 
 ## Pendientes
