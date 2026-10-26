@@ -5,6 +5,7 @@ import { byVersions, Formulas } from "../glossary/Glossary";
 import type { GlossaryData } from "../glossary/useGlossary";
 import { texts } from "../i18n/en";
 import { tabAfterKey } from "../tabs";
+import { VersionTree } from "./VersionTree";
 
 /** The library's tabs (V3-19): your workbenches, and the general folders of the markers. */
 const TABS = ["benches", "accords", "finished"] as const;
@@ -115,6 +116,8 @@ function Benches({
 }) {
   const t = texts.glossary;
   const [chosen, setChosen] = useState<string | null>(null);
+  // The formula pointed at, in the list or in the tree: both light it up (V3-77).
+  const [pointed, setPointed] = useState<string | null>(null);
   const words = normalize(query).split(/\s+/).filter((w) => w);
   const benchName = new Map(data.workbenches.map((b) => [b.id, b.name]));
   const shown = data.formulas.filter((f) => words.every((w) => normalize(`${f.name} ${benchName.get(f.workbenchId) ?? ""}`).includes(w)));
@@ -165,29 +168,41 @@ function Benches({
         {inside.length === 0 ? (
           <p className="hint">{words.length ? t.noFormulas : t.noFormulasYet(true)}</p>
         ) : (
-          <ul className="formula-rows">
-            {inside.map((f) => {
-              const parent = f.parentId ? data.formulas.find((x) => x.id === f.parentId) : undefined;
-              return (
-                <li key={f.id}>
-                  <button type="button" className="formula-row" style={{ paddingLeft: `calc(var(--space-inset) + ${depth(f) * 1.25}rem)` }} onClick={() => onOpen(f.id)}>
-                    <span className="formula-main">
-                      <span className="formula-name">{f.name}</span>
-                      {(parent || f.role) && <span className="formula-detail">{[parent ? t.versionFrom(parent.name) : null, f.role].filter((x) => x).join(" · ")}</span>}
-                    </span>
-                    {f.markers.map((m) => (
-                      <span key={m} className="chip">
-                        {t.markers[m]}
+          <div className="bench-body">
+            <ul className="formula-rows">
+              {inside.map((f) => {
+                const parent = f.parentId ? data.formulas.find((x) => x.id === f.parentId) : undefined;
+                return (
+                  <li key={f.id}>
+                    <button
+                      type="button"
+                      className={`formula-row${f.id === pointed ? " pointed" : ""}`}
+                      style={{ paddingLeft: `calc(var(--space-inset) + ${depth(f) * 1.25}rem)` }}
+                      onClick={() => onOpen(f.id)}
+                      onMouseEnter={() => setPointed(f.id)}
+                      onMouseLeave={() => setPointed(null)}
+                      onFocus={() => setPointed(f.id)}
+                      onBlur={() => setPointed(null)}
+                    >
+                      <span className="formula-main">
+                        <span className="formula-name">{f.name}</span>
+                        {(parent || f.role) && <span className="formula-detail">{[parent ? t.versionFrom(parent.name) : null, f.role].filter((x) => x).join(" · ")}</span>}
                       </span>
-                    ))}
-                    <span className="formula-open" aria-hidden="true">
-                      →
-                    </span>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
+                      {f.markers.map((m) => (
+                        <span key={m} className="chip">
+                          {t.markers[m]}
+                        </span>
+                      ))}
+                      <span className="formula-open" aria-hidden="true">
+                        →
+                      </span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+            <VersionTree formulas={inside} pointed={pointed} onPoint={setPointed} onOpen={onOpen} />
+          </div>
         )}
       </section>
     </div>

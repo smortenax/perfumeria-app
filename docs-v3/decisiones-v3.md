@@ -1427,6 +1427,21 @@ Lo había marcado a las 19:27 («look: mol/atk/side/comfy/ten», V3-75). La maqu
 - **Aprobada** (2026-10-24, en la tarjeta del hilo: «Aprobar», a «¿Apruebo la tanda 22, con Gourmand en la paleta y los 14 cambios de familia?»): la paleta de `v3/datos/` tiene diez familias, y los 14 materiales, su familia nueva.
 - **Propuesta de la sesión:** el nombre del color, «caramelo»; la regla de la tanda 22 (lo tostado, a Transformado; el incienso, a Amaderado, como en la maqueta), y que no toque los materiales de las otras siete familias.
 
+## V3-77 · El árbol de versiones de cada banco, a la derecha de sus fórmulas (pedida por el usuario el 2026-10-26; la forma, propuesta de la sesión, sin confirmar)
+
+**Palabras literales del usuario** (2026-10-26, en el hilo del proyecto, con una captura de Formulación y el hueco a la derecha de la lista marcado en azul):
+
+> ahora hay una cosa que quiero hacer para el control de versiones de las formulas en la parte de la derecha hay un espacio que viene bien para hacer la parte de control de versiones lo ideal seria que funcionara de la siguiente manera, al crear una formormula sale un nodo, si se quiere versionar te sale unos nodos a raiz del nodo del que se versiono, entnves en el espacio de la derecha tiene que haber un sistema en el que se vea cada formula como un nodo y se pueda ver de donde heredan cada una asi tienes el historail de como has ido haiendo los cambios entre formulas
+
+**Lectura** (la sesión, para que la confirmes):
+
+- **Al lado de la lista de fórmulas del banco abierto, un panel «Versions»:** cada fórmula es un nodo, y cada versión cuelga del nodo de la fórmula de la que se hizo (`formulas.parent_id`, P44). No cambia el modelo: «Guardar como» versión ya escribía de quién sale cada una.
+- **Una fórmula hecha desde cero es una raíz** (punto relleno); una versión, un círculo hueco. Varias raíces van una al lado de otra. De izquierda a derecha, de la más antigua a la más nueva; la madre, centrada sobre sus versiones.
+- **Señalar una fórmula, en la lista o en el árbol, ilumina su línea** hasta la fórmula de la que sale todo. Pulsar un nodo abre la fórmula en el banco.
+- **Una versión cuya madre se borró o está en otro banco** empieza su propio árbol: no se esconde.
+- **Por debajo de 1200 px de ancho**, el árbol va debajo de la lista; si no cabe, se desplaza de lado dentro de su panel (la página no).
+- **Propuesta de la sesión:** los nombres largos se cortan en el nodo (el nombre entero, al señalarlo); el árbol se reduce hasta un 80 % antes de desplazarse; código en `v3/src/formulation/version-tree.ts` (con pruebas) y `VersionTree.tsx`.
+
 ---
 
 ## Pendientes
