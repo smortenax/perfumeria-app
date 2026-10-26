@@ -959,10 +959,59 @@ details.unstated[open] dl {
   }
 }
 
+@media (min-width: 1100px) {
+  .dilutions-page .bottle-pane {
+    position: sticky;
+    top: var(--space-gap);
+  }
+}
+
 @media (max-width: 1099px) {
-  .dilutions-page.with-editor > .dilutions:first-child {
+  .dilutions-page.with-editor:not(.docked-new) > .dilutions:first-child {
     display: none;
   }
+  /* On a narrow screen the docked window waits for «New dilution»: the grid comes first. */
+  .dilutions-page.docked-new > .bottle-pane {
+    display: none;
+  }
+}
+
+/* The grid of «Dilutions» (V3-79): a card per material, a chip per dilution. */
+.bottle-grid {
+  list-style: none;
+  margin: 0.5rem 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-gap);
+}
+
+.bottle-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: var(--space-inset);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-panel);
+  background: var(--panel);
+  min-width: 0;
+}
+
+.bottle-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.bottle-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.bottle-chip.archived {
+  opacity: 0.6;
 }
 
 /* Evaluations: the full width; the strips as cards side by side; what is due in the accent. */

@@ -12,6 +12,7 @@ import { bottleOf, plan, storedBottle } from "./calc";
 import { coloursOf } from "../families/palette";
 import { orbLookOf, orbScalesOf, seedOf } from "../glossary/orb/fromCatalog";
 import { MaterialOrb } from "../glossary/orb/MaterialOrb";
+import { cardsOf } from "./grid";
 import { NewDilution } from "./NewDilution";
 import "./dilutions.css";
 
@@ -97,10 +98,14 @@ export function Dilutions({
       ) : (
         <p>{texts.glossary.missing}</p>
       )
-    ) : null;
-  // The bottles as a list, the open one (or the calculator) beside it on a wide screen (V3-73); on a narrow one, one at a time.
+    ) : (
+      <NewDilution key="new:docked" data={data} local={local} materialId={null} onDone={onOpen} onCancel={onBack} />
+    );
+  // The bottles as a grid, the window docked beside it on a wide screen (V3-79): «New dilution» unless a
+  // chip opened a bottle. On a narrow one, the grid; the window when asked for, or a bottle when picked.
+  const docked = newFor === null && !bottleId;
   return (
-    <div className={`dilutions-page${editor ? " with-editor" : ""}`}>
+    <div className={`dilutions-page with-editor${docked ? " docked-new" : ""}`}>
       <BottleList data={data} all={all} selected={bottleId} onOpen={onOpen} onNew={() => onNew()} />
       {editor && <div className="bottle-pane">{editor}</div>}
       <Toast message={archived?.text ?? null} onUndo={unarchive} onClose={() => setArchived(null)} />
@@ -125,12 +130,7 @@ function BottleList({
   const scales = useMemo(() => orbScalesOf(data.catalog), [data]);
   const [query, setQuery] = useState("");
   const [archived, setArchived] = useState(false);
-  const q = query.trim().toLowerCase();
-  const shown = all
-    .filter((x) => archived || !x.d.archivedAt)
-    .map((x) => ({ ...x, name: data.catalog.materials.get(x.materialId)?.name ?? "—" }))
-    .filter((x) => !q || x.name.toLowerCase().includes(q) || (x.d.label ?? "").toLowerCase().includes(q))
-    .sort((a, b) => a.name.localeCompare(b.name, "es") || (b.d.madeOn ?? "").localeCompare(a.d.madeOn ?? ""));
+  const cards = cardsOf(all, { archived, query, nameOf: (id) => data.catalog.materials.get(id)?.name ?? "—" });
   return (
     <section className="dilutions">
       <div className="title-bar">
@@ -153,29 +153,43 @@ function BottleList({
         </span>
       </div>
       {all.length === 0 && <p className="hint">{t.empty}</p>}
-      <ul className="bottle-list">
-        {shown.map(({ d, name, materialId }) => {
+      <ul className="bottle-grid">
+        {cards.map(({ materialId, name, bottles }) => {
           const material = data.catalog.materials.get(materialId);
           const colours = material ? coloursOf(data.catalog, material) : null;
           return (
-            <li key={d.id}>
-              <button type="button" className="bottle-row" aria-current={d.id === selected ? "true" : undefined} onClick={() => onOpen(d.id)}>
-                {material && <MaterialOrb look={orbLookOf(data.catalog, material, scales)} size={32} seed={seedOf(material.id)} expectColor={colours?.light} />}
-                <span className="bottle-main">
-                  <span className="bottle-name">{name}</span>
-                  <span className="bottle-detail">
-                    {bottleText(data, d)}
-                    {d.madeOn ? ` · ${d.madeOn}` : ""}
-                    {d.archivedAt ? ` · ${t.archived}` : ""}
-                  </span>
-                </span>
-              </button>
+            <li key={materialId} className="bottle-card">
+              <div className="bottle-card-head">
+                {material && <MaterialOrb look={orbLookOf(data.catalog, material, scales)} size={40} seed={seedOf(material.id)} expectColor={colours?.light} />}
+                <span className="bottle-name">{name}</span>
+              </div>
+              <span className="bottle-chips">
+                {bottles.map((d) => (
+                  <button
+                    key={d.id}
+                    type="button"
+                    className={`pill bottle-chip${d.archivedAt ? " archived" : ""}`}
+                    aria-current={d.id === selected ? "true" : undefined}
+                    title={[d.label, d.madeOn, d.archivedAt ? t.archived : null].filter(Boolean).join(" · ")}
+                    onClick={() => onOpen(d.id)}
+                  >
+                    {chipText(data, d)}
+                  </button>
+                ))}
+              </span>
             </li>
           );
         })}
       </ul>
     </section>
   );
+}
+
+/** A chip of the grid: «10 % in DPG», «40 % in DPG + Ethanol» (no chip for pure, V3-79). */
+export function chipText(data: GlossaryData, d: Dilution): string {
+  const name = (id: string) => data.catalog.materials.get(id)?.name ?? "—";
+  const diluents = d.diluents.length > 0 ? d.diluents.map((x) => name(x.diluentId)).join(" + ") : d.solvent;
+  return diluents ? t.chip(percent(d.fraction, 2), diluents) : percent(d.fraction, 2);
 }
 
 interface Row {
