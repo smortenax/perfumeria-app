@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { Ratio } from "../core/arith/ratio";
-import { bottleOf, plan, stored, storedBottle } from "./calc";
+import { bottleOf, examples, plan, planFromMaterial, stored, storedBottle } from "./calc";
 
 const pct = (p: string) => Ratio.fromDecimal(p).div(Ratio.of(100n));
 const g = (grams: string) => BigInt(Ratio.fromDecimal(grams).mul(Ratio.of(1_000_000n)).toFixed(0));
@@ -35,6 +35,52 @@ describe("what to weigh (V3-67, the calculator)", () => {
     expect(() => plan(pct("100"), g("10"), [{ diluentId: "dpg", share: null }])).toThrow();
     expect(() => plan(pct("10"), g("10"), [])).toThrow();
     expect(() => plan(pct("50"), g("10"), [{ diluentId: "eth", share: pct("80") }, { diluentId: "dpg", share: null }])).toThrow(/add up/);
+  });
+});
+
+describe("the window's other ways round (V3-79)", () => {
+  const dpg = [{ diluentId: "dpg", share: null }];
+
+  it("the user's example: 0,800 g of material at 10 % in DPG asks for 7,200 g of DPG, an 8 g bottle", () => {
+    expect(planFromMaterial(pct("10"), g("0.8"), dpg)).toEqual({ totalUg: g("8"), materialUg: g("0.8"), diluents: [{ diluentId: "dpg", massUg: g("7.2") }] });
+  });
+
+  it("from the total: 8 g at 10 % is 0,800 g and 7,200 g, the same bottle", () => {
+    expect(plan(pct("10"), g("8"), dpg)).toEqual({ materialUg: g("0.8"), diluents: [{ diluentId: "dpg", massUg: g("7.2") }] });
+  });
+
+  it("from a 10 % bottle to a 1 %: 0,500 g taken from it asks for 4,500 g more", () => {
+    const source = { fraction: pct("10"), diluents: [{ diluentId: "dpg", fraction: pct("90") }] };
+    const p = planFromMaterial(pct("1"), g("0.5"), dpg, source);
+    expect(p).toEqual({ totalUg: g("5"), materialUg: g("0.5"), diluents: [{ diluentId: "dpg", massUg: g("4.5") }] });
+    expect(bottleOf({ materialUg: p.materialUg, diluents: p.diluents, source }).fraction.eq(pct("1"))).toBe(true);
+    expect(() => planFromMaterial(pct("20"), g("1"), dpg, source)).toThrow(/further/);
+  });
+
+  it("two diluents: 30 % of ethanol and the rest DPG fill the bottle to the milligram", () => {
+    const p = planFromMaterial(pct("10"), g("0.803"), [{ diluentId: "eth", share: pct("30") }, { diluentId: "dpg", share: null }]);
+    expect(p.totalUg).toBe(g("8.03"));
+    expect(p.diluents).toEqual([{ diluentId: "eth", massUg: g("2.409") }, { diluentId: "dpg", massUg: g("4.818") }]);
+    expect(p.materialUg + p.diluents.reduce((s, d) => s + d.massUg, 0n)).toBe(p.totalUg);
+  });
+
+  it("a total that is not a whole milligram rounds to the scale, and the bottle still adds up", () => {
+    const p = planFromMaterial(pct("3"), g("0.1"), dpg);
+    expect(p.totalUg).toBe(g("3.333"));
+    expect(p.materialUg + p.diluents[0].massUg).toBe(p.totalUg);
+  });
+
+  it("the examples in grey: 1 g and 10 g of a 10 % in DPG", () => {
+    expect(examples(pct("10"), dpg).map((e) => [e.totalUg, e.plan.materialUg, e.plan.diluents[0].massUg])).toEqual([
+      [g("1"), g("0.1"), g("0.9")],
+      [g("10"), g("1"), g("9")],
+    ]);
+  });
+
+  it("refuses what cannot be: no material, 0 % or 100 %, no diluent", () => {
+    expect(() => planFromMaterial(pct("10"), 0n, dpg)).toThrow();
+    expect(() => planFromMaterial(pct("100"), g("1"), dpg)).toThrow();
+    expect(() => planFromMaterial(pct("10"), g("1"), [])).toThrow();
   });
 });
 

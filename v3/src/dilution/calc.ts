@@ -60,6 +60,42 @@ export function plan(target: Ratio, totalUg: bigint, diluents: readonly PlannedD
   return { materialUg, diluents: masses.filter((d) => d.massUg > 0n) };
 }
 
+/** A plan read the other way round (V3-79): the bottle and its diluents for the material already weighed. */
+export interface PlanFromMaterial extends Plan {
+  readonly totalUg: bigint;
+}
+
+/**
+ * What to add to `materialUg` already weighed (or, from another bottle, taken from it) to reach
+ * `target` (V3-79, «material pesado»). The same rules as `plan()`: each diluent its share of the
+ * bottle, the one without share the rest. The bottle is exact; each diluent, to the milligram.
+ */
+export function planFromMaterial(target: Ratio, materialUg: bigint, diluents: readonly PlannedDiluent[], source?: SourceBottle): PlanFromMaterial {
+  if (target.num <= 0n || target.cmp(Ratio.ONE) >= 0) throw new RangeError("a dilution is above 0 % and below 100 %");
+  if (materialUg <= 0n) throw new RangeError("the material weighs above 0");
+  if (diluents.length === 0) throw new Error("a dilution has at least one diluent");
+  if (diluents.filter((d) => d.share === null).length > 1) throw new Error("only one diluent takes the rest");
+  if (source && target.cmp(source.fraction) >= 0) throw new RangeError("from a bottle you only dilute further");
+  const pure = source ? Ratio.of(materialUg).mul(source.fraction) : Ratio.of(materialUg);
+  const totalUg = roundTo(pure.div(target), SCALE_UG);
+  const total = Ratio.of(totalUg);
+  const fixed = diluents.map((d) => (d.share === null ? null : roundTo(total.mul(d.share), SCALE_UG)));
+  const left = totalUg - materialUg - fixed.reduce<bigint>((sum, m) => sum + (m ?? 0n), 0n);
+  const rest = diluents.some((d) => d.share === null);
+  const slack = SCALE_UG * BigInt(diluents.length);
+  if (rest ? left < 0n : left > slack || left < -slack) throw new RangeError("the shares of the diluents do not add up to the bottle");
+  const masses = diluents.map((d, i) => ({ diluentId: d.diluentId, massUg: fixed[i] ?? left }));
+  if (!rest) masses[masses.length - 1] = { ...masses[masses.length - 1], massUg: masses[masses.length - 1].massUg + left };
+  return { totalUg, materialUg, diluents: masses.filter((d) => d.massUg > 0n) };
+}
+
+/** The examples in grey under the window (V3-79): what to weigh for 1 g and for 10 g of the bottle. */
+export const EXAMPLE_TOTALS_UG: readonly bigint[] = [1_000_000n, 10_000_000n];
+
+export function examples(target: Ratio, diluents: readonly PlannedDiluent[], source?: SourceBottle): { readonly totalUg: bigint; readonly plan: Plan }[] {
+  return EXAMPLE_TOTALS_UG.map((totalUg) => ({ totalUg, plan: plan(target, totalUg, diluents, source) }));
+}
+
 export interface Weighed {
   /** The material weighed in, or, from another bottle, how much of that bottle. */
   readonly materialUg: bigint;
