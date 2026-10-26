@@ -27,11 +27,11 @@ Estados: **entra** (tal cual), **matizada** (entra con los matices de abajo), **
 | F16 | Stock | decidida | diseño en V3-79 |
 | F17 | Ventana de dilución | decidida | diseño en V3-79 |
 | F18 | «Usado en»: en qué fórmulas está un material | entra | parcial (acordes) |
-| F19 | Importar: hoja de cálculo, kits de inicio, alta a mano | pendiente | por tandas |
+| F19 | Importar: hoja de cálculo, kits de inicio, alta a mano | matizada | por tandas |
 | F20 | Aviso de IFRA en Inicio y etiqueta IFRA por fórmula | entra | panel por fórmula |
 | F21 | Inicio con recientes, estantería, diario de maceración y libreta | entra | parcial (recuentos) |
-| F22 | Asistente: describes un olor y propone una fórmula con tus materiales | pendiente | no |
-| F23 | Exportar, sugerencias y contribuir documentos | pendiente | .json y hoja de pesada (V3-55) |
+| F22 | Asistente: describes un olor y propone una fórmula con tus materiales | no entra | no |
+| F23 | Exportar, sugerencias y contribuir documentos | matizada | .json y hoja de pesada (V3-55) |
 
 ## Prioridad
 
@@ -67,3 +67,6 @@ Estados: **entra** (tal cual), **matizada** (entra con los matices de abajo), **
   3. **Partir de lo ya diluido:** el origen se elige entre puro y las diluciones dadas de alta de
      ese material.
   4. **Desde el total:** dices cuánta dilución quieres y te da qué pesar de cada cosa.
+- **F19** (V3-80). Solo una hoja de cálculo: cada fila, a una lista para revisar con lo encontrado en el glosario, y tú confirmas lo que pasa a tus materiales con «lo tengo».
+- **F22** (V3-80). No entra, y tampoco las sugerencias por ahora: se hablará cuando la app esté acabada.
+- **F23** (V3-80). Exportar tus fórmulas legibles y tus materiales: un PDF del glosario como se ve en la app (orbe, información principal y diluciones) y una tabla solo con los datos. Sin sugerir correcciones ni contribuir documentos.

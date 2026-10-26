@@ -1485,6 +1485,29 @@ Sobre el registro de diluciones, con tres capturas (la lista de «Diluciones», 
 - **En «Diluciones»**, la ventana va anclada arriba a la derecha y se diluye desde ahí; en los demás paneles, emergente. El buscador se queda. **La lista pasa a rejilla**, con la distribución de la de Materiales y menos datos: el orbe, el nombre y debajo una pastilla por dilución («10 % in DPG»). Sin pastilla de «puro».
 - **Por preguntar:** qué hace la pastilla al tocarla (abrir la dilución para corregir sus pesos o archivarla, V3-67).
 
+## V3-80 · Las funciones de PerfuMate que faltaban: importar, el asistente y exportar (decidida por el usuario el 2026-10-26; cierra V3-78)
+
+**Palabras literales del usuario** (2026-10-26):
+
+F19, importar: «basicamente una hoja de calculo que te deja en un list», y a la pregunta de si es una lista para revisar o la lista de la compra: «la 1, una lista para revisar y confirmar».
+
+F22, el asistente:
+
+> de momento no me gusta la idea del asistente porque lo veo como gimmivky i en general el recibimineto de una ia rara ajena a tu app de formulacion no parece prometedor, mientras si que valoro la idea de que sugerimientos podrian ir bien de momento dejamos todo esto fuera cuando la app este acabada se puede hablar de estas commodities
+
+F23, exportar, a las opciones (1 fórmulas legibles, 2 tus materiales, 3 sugerir correcciones, 4 más adelante):
+
+> la 1 y la 2 de momento, quizas estaria bien dos posibilidades exportar glossario que te lo exporte mas elegante como si vieses todos tus materiales en la app y te genere un pdf de todoos los materiales con su icono y info principal y diluciones (que ocupe mas o menos como en la app), y luego otro que sea una tabla con entradas para los materiales las diluciones el fabricante... toda la info relevante de los materiales pero mas low level solo datos
+
+**Lectura** (la sesión, para que la confirmes):
+
+- **F19, importar: solo una hoja de cálculo.** Pegas o subes un CSV con tus materiales; cada fila queda en una **lista para revisar**, con lo que la app encuentra en el glosario («encontrado», «dudoso», «no está»), y tú confirmas cuáles pasan a tus materiales con «lo tengo». Sin kits de inicio, sin adelantar el alta a mano (V3-70 la deja para después del sistema de datos) y sin importar fórmulas.
+- **F22, el asistente: no entra.** Tampoco las sugerencias por ahora, aunque se valoran; se hablará de estos extras cuando la app esté acabada (en `docs/a-futuro.md`).
+- **F23, exportar: tus fórmulas y tus materiales.**
+  - **Tus fórmulas, legibles:** propuesta de la sesión, una fórmula en CSV o PDF con material, gramos, % y diluciones, y la hoja de pesada de V3-55.
+  - **Tus materiales, de dos maneras:** un **PDF del glosario «elegante»**, como se ven en la app (el orbe, la información principal y las diluciones de cada material, ocupando más o menos lo que en la app), y una **tabla «solo datos»** con los materiales, sus diluciones, el fabricante y el resto de lo relevante.
+  - **No entran:** sugerir correcciones al glosario ni contribuir documentos.
+
 ---
 
 ## Pendientes
