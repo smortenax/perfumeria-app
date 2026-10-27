@@ -8,6 +8,8 @@ import { coloursOf, familyOf } from "../families/palette";
 import { orbLookOf, type OrbScales, orbScalesOf, seedOf } from "./orb/fromCatalog";
 import { MaterialOrb } from "./orb/MaterialOrb";
 import { paletteMarkdown, paletteOf } from "./palette-export";
+import { initials } from "./initials";
+import { PrintGlossary } from "../export/PrintGlossary";
 import { texts } from "../i18n/en";
 import { Pills } from "../Pills";
 import { tabAfterKey } from "../tabs";
@@ -85,6 +87,8 @@ export function Glossary({
     setPaletteNote(t.paletteDownloaded(paletteOf(data.catalog).length));
   };
   const [marking, setMarking] = useState(false);
+  // «Print or save as PDF» (V3-80): your materials as the grid shows them, only while printing.
+  const [printing, setPrinting] = useState(false);
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const set = (change: Partial<Filters>) => {
     setFilters((f) => ({ ...f, ...change }));
@@ -151,12 +155,16 @@ export function Glossary({
           <button type="button" className="secondary" hidden={tab !== "own"} onClick={exportData}>
             {t.exportData}
           </button>
+          <button type="button" className="secondary" hidden={tab !== "own"} onClick={() => setPrinting(true)}>
+            {t.printGlossary}
+          </button>
           <button type="button" onClick={onNew}>
             {texts.editor.newMaterial}
           </button>
         </span>
       </div>
       {paletteNote && tab === "own" && <p className="hint">{paletteNote}</p>}
+      {printing && <PrintGlossary data={data} onDone={() => setPrinting(false)} />}
       <div className="tools">
         <label className="search">
           {t.search}
@@ -264,14 +272,6 @@ export function Glossary({
   );
 }
 
-/** The letters of a material without an abbreviation: its initials, shown as such (in italics). */
-const initials = (name: string) =>
-  name
-    .split(/[\s,()-]+/)
-    .filter((w) => /\p{L}|\d/u.test(w))
-    .slice(0, 3)
-    .map((w) => w[0].toUpperCase())
-    .join("");
 
 /** One material's tile: its icon with its abbreviation, its name under it, and what tells it apart (V3-11). */
 function Tile({ material, data, scales, onOpen, marking, mark }: { material: CatalogMaterial; data: GlossaryData; scales: OrbScales; onOpen: (id: string) => void; marking: boolean; mark: Mark }) {

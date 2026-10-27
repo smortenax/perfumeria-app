@@ -47,6 +47,61 @@
   .print-sheet .tick {
     width: 14pt;
   }
+  /* The glossary (V3-80): two cards a row, never cut; colours print as they are. */
+  .print-glossary {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .print-cards {
+    list-style: none;
+    margin: 8pt 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6pt;
+  }
+  .print-card {
+    break-inside: avoid;
+    display: flex;
+    gap: 8pt;
+    border: 0.5pt solid #999;
+    border-radius: 4pt;
+    padding: 6pt;
+    font-size: 9pt;
+  }
+  .print-card img {
+    flex: none;
+    border-radius: 4pt;
+  }
+  .print-card p {
+    margin: 0 0 1.5pt;
+  }
+  .print-abbr {
+    font-size: 13pt;
+    font-weight: 700;
+  }
+  .print-name {
+    font-weight: 600;
+  }
+  .print-dot {
+    display: inline-block;
+    width: 6pt;
+    height: 6pt;
+    border-radius: 50%;
+    margin-right: 3pt;
+  }
+  .print-chips span {
+    display: inline-block;
+    border: 0.5pt solid #777;
+    border-radius: 8pt;
+    padding: 0 4pt;
+    margin: 2pt 3pt 0 0;
+  }
+  .print-chips .print-none {
+    border: none;
+    padding: 0;
+    color: #555;
+  }
   @page {
     size: A4;
     margin: 14mm;

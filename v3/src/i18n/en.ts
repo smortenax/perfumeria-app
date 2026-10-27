@@ -109,6 +109,7 @@ export const texts = {
     copyPalette: "Copy palette",
     downloadPalette: "Download palette (.md)",
     importSheet: "Import a sheet",
+    printGlossary: "Print or save as PDF",
     exportData: "Export data (.csv)",
     dataExported: "Downloaded: your materials and your dilutions, two .csv tables.",
     paletteCopied: (n: number) => `Palette copied: ${n === 1 ? "1 material of yours" : `${n} materials of yours`}, one per line, in Markdown.`,
@@ -712,6 +713,14 @@ export const texts = {
     already: (name: string) => `${name} was already on the list.`,
     missingAdded: (names: string) => `Not in what you have, written on the shopping list: ${names}.`,
     failed: (message: string) => `Could not save: ${message}`,
+  },
+  printGlossary: {
+    title: "My materials",
+    summary: (n: number, day: string) => `${n} materials · ${day}`,
+    house: "Made by",
+    shop: "Shop",
+    dilutions: "Dilutions",
+    noDilutions: "No dilutions",
   },
   importSheet: {
     title: "Import a sheet",

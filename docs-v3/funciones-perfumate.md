@@ -31,7 +31,7 @@ Estados: **entra** (tal cual), **matizada** (entra con los matices de abajo), **
 | F20 | Aviso de IFRA en Inicio y etiqueta IFRA por fórmula | entra | panel por fórmula |
 | F21 | Inicio con recientes, estantería, diario de maceración y libreta | entra | parcial (recuentos) |
 | F22 | Asistente: describes un olor y propone una fórmula con tus materiales | no entra | no |
-| F23 | Exportar, sugerencias y contribuir documentos | matizada | .json y hoja de pesada (V3-55) |
+| F23 | Exportar, sugerencias y contribuir documentos | matizada | hecho (V3-80): fórmulas en CSV y PDF; materiales en tabla y PDF |
 
 ## Prioridad
 
