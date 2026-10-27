@@ -27,7 +27,7 @@ Estados: **entra** (tal cual), **matizada** (entra con los matices de abajo), **
 | F16 | Stock | decidida | diseño en V3-79 |
 | F17 | Ventana de dilución | decidida | diseño en V3-79 |
 | F18 | «Usado en»: en qué fórmulas está un material | entra | parcial (acordes) |
-| F19 | Importar: hoja de cálculo, kits de inicio, alta a mano | matizada | por tandas |
+| F19 | Importar: hoja de cálculo, kits de inicio, alta a mano | matizada | hoja de cálculo hecha (V3-80) |
 | F20 | Aviso de IFRA en Inicio y etiqueta IFRA por fórmula | entra | panel por fórmula |
 | F21 | Inicio con recientes, estantería, diario de maceración y libreta | entra | parcial (recuentos) |
 | F22 | Asistente: describes un olor y propone una fórmula con tus materiales | no entra | no |

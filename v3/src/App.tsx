@@ -16,6 +16,7 @@ import { SyncStatus } from "./SyncStatus";
 import { FailureNote } from "./FailureNote";
 import { Dilutions, MaterialDilutions } from "./dilution/Dilutions";
 import { ShoppingList } from "./shopping/ShoppingList";
+import { ImportSheet } from "./import/ImportSheet";
 import { MaterialTastings } from "./tasting/MaterialTastings";
 import { tasteMaterial } from "./tasting/start";
 import { type Tab as TastingTab, Tasting } from "./tasting/Tasting";
@@ -155,6 +156,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
               data={data}
               onOpen={(id) => go({ view: "sheet", id })}
               onNew={() => go({ view: "new" })}
+              onImport={() => go({ view: "import" })}
               mark={(ids, have) => setHaveMany(local.db, local.userId, ids, have)}
               onOpenFormula={(id) => go({ view: "formula", id })}
             />
@@ -245,6 +247,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
               />
             </div>
           )}
+          {route.view === "import" && <ImportSheet data={data} local={local} onDone={() => go({ view: "materials" })} onCancel={() => back({ view: "materials" })} />}
           {route.view === "shopping" && <ShoppingList data={data} local={local} onOpenMaterial={(id) => go({ view: "sheet", id })} />}
           {route.view === "new" && <NewMaterial local={local} onCreated={(id) => go({ view: "edit", id }, true)} onCancel={() => back({ view: "materials" })} />}
         </>
@@ -259,7 +262,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
 }
 
 type Route =
-  | { readonly view: "home" | "materials" | "library" | "new" | "dilutions" | "shopping" }
+  | { readonly view: "home" | "materials" | "library" | "new" | "dilutions" | "shopping" | "import" }
   | { readonly view: "bottle"; readonly id: string }
   | { readonly view: "newBottle"; readonly materialId: string }
   | { readonly view: "tasting"; readonly tab: TastingTab }
@@ -283,17 +286,19 @@ function parseRoute(hash: string): Route {
   if (newBottle) return { view: "newBottle", materialId: newBottle[1] ?? "" };
   if (hash === "#diluciones") return { view: "dilutions" };
   if (hash === "#compra") return { view: "shopping" };
+  if (hash === "#importar") return { view: "import" };
   const strip = /^#cata\/([^/]+)$/.exec(hash);
   if (strip) return { view: "strip", id: strip[1] };
   return { view: "home" };
 }
-const HASH: Record<"home" | "materials" | "library" | "new" | "dilutions" | "shopping", string> = {
+const HASH: Record<"home" | "materials" | "library" | "new" | "dilutions" | "shopping" | "import", string> = {
   home: "",
   materials: "#materiales",
   library: "#formulacion",
   new: "#nuevo",
   dilutions: "#diluciones",
   shopping: "#compra",
+  import: "#importar",
 };
 /** «Catas» in the address: its tabs, and one tasting (the user, 2026-10-19: a material links to it). */
 const TASTING_TAB_OF: Record<string, TastingTab> = { cola: "queue", catadas: "history", legado: "legacy" };

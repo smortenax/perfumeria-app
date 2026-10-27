@@ -34,12 +34,14 @@ export function Glossary({
   data,
   onOpen,
   onNew,
+  onImport,
   mark,
   onOpenFormula,
 }: {
   data: GlossaryData;
   onOpen: (id: string) => void;
   onNew: () => void;
+  onImport?: () => void;
   mark: Mark;
   onOpenFormula?: (id: string) => void;
 }) {
@@ -142,6 +144,9 @@ export function Glossary({
           </button>
           <button type="button" className="secondary" hidden={tab !== "own"} onClick={downloadPalette}>
             {t.downloadPalette}
+          </button>
+          <button type="button" className="secondary" hidden={tab !== "own" || !onImport} onClick={onImport}>
+            {t.importSheet}
           </button>
           <button type="button" className="secondary" hidden={tab !== "own"} onClick={exportData}>
             {t.exportData}

@@ -201,3 +201,10 @@
 .shopping-line .actions {
   margin: 0.25rem 0 0;
 }
+
+/* «Import a sheet» (V3-80): the list to review. */
+.import-list { width: 100%; border-collapse: collapse; margin: 0.5rem 0; }
+.import-list th, .import-list td { text-align: left; padding: 0.35rem 0.5rem; border-bottom: 1px solid var(--line, #ddd); vertical-align: top; }
+.import-list select { display: block; margin-top: 0.25rem; max-width: 100%; }
+.import-sheet textarea { width: 100%; font-family: monospace; }
+.status-chip.import-missing { opacity: 0.7; }
