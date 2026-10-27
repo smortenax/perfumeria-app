@@ -90,3 +90,11 @@ retirada-1-a-4,2026-10-14,"orko kill, 2026-10-14 (V3-34): «no sirven materiales
 19-frascos,2026-10-19,"el usuario: «si adelante» (tanda 19)",lab_dilutions.csv,a5c5c15f6a4baf82efd090a1b8654e823fe41cd3d77c0accff42811ca8edcab6
 22-diez-familias,2026-10-24,"orko kill, 2026-10-24, en la tarjeta del hilo: «Aprobar» (a «¿Apruebo la tanda 22, con Gourmand en la paleta y los 14 cambios de familia?»)",family_palette.csv,4209e8f7b9e884a7a98234fe248feb5f55b66167c41d104582f6a3ae8368b400
 22-diez-familias,2026-10-24,"orko kill, 2026-10-24, en la tarjeta del hilo: «Aprobar» (a «¿Apruebo la tanda 22, con Gourmand en la paleta y los 14 cambios de familia?»)",materials.csv,9aecf0969d925c00d9468d349f354df1fe9097325d177937350be769ade56fbc
+23-altas-26-oct,2026-10-27,"orko kill, 2026-10-27, en el hilo: «listo las puedes pasar» (a las tandas 23 y 24)",material_categories.csv,e2832ae5cda719f2ee75044fb3aadb0df35c92b148b4dcb41cbfefe03816fdad
+23-altas-26-oct,2026-10-27,"orko kill, 2026-10-27, en el hilo: «listo las puedes pasar» (a las tandas 23 y 24)",material_descriptors.csv,6fd93ec59ffebce2ccf0d116017d3e19435f72c43e9aa535ec7fc7ef7c104488
+23-altas-26-oct,2026-10-27,"orko kill, 2026-10-27, en el hilo: «listo las puedes pasar» (a las tandas 23 y 24)",material_doses.csv,6c39e5300de64c3d35fd0409c6313a5b40f0ac1d4d41b874fde3191836fe0607
+23-altas-26-oct,2026-10-27,"orko kill, 2026-10-27, en el hilo: «listo las puedes pasar» (a las tandas 23 y 24)",materials.csv,9c34056ac0373d7ff35094c4d87ed74cec43de9c6673e9c9a145d8fb25d484ff
+24-tus-altas-26-oct,2026-10-27,"orko kill, 2026-10-27, en el hilo: «listo las puedes pasar» (a las tandas 23 y 24)",lab_dilution_diluents.csv,b3ff887faa25a8e3b062c379928ea895b6068946f8d620c91d3ce73c07742436
+24-tus-altas-26-oct,2026-10-27,"orko kill, 2026-10-27, en el hilo: «listo las puedes pasar» (a las tandas 23 y 24)",lab_dilutions.csv,5c81184c907659103f7867835a86cf6180aea436489876ae3f0be2e1620dd133
+24-tus-altas-26-oct,2026-10-27,"orko kill, 2026-10-27, en el hilo: «listo las puedes pasar» (a las tandas 23 y 24)",lab_materials.csv,4e713e2fd16c3ed73199282a707e3c1333964f6684ea446ddbbea79feccdb9a0
+24-tus-altas-26-oct,2026-10-27,"orko kill, 2026-10-27, en el hilo: «listo las puedes pasar» (a las tandas 23 y 24)",materials.csv,30d4ccad70145bb7fd1d23d70d090023f9058017d05c5e19ad3b146595853945

@@ -43,3 +43,7 @@ tanda,fecha,aprobacion,archivo,sha256
 16-mercaptano,2026-10-15,"el usuario: «y apruebo 16»",materials.csv,676a1a94ef9d7194fae6b63171f7e3fc103c0741dcf03a4df031688f0328a5a2
 22-diez-familias,2026-10-24,"orko kill, 2026-10-24, en la tarjeta del hilo: «Aprobar» (a «¿Apruebo la tanda 22, con Gourmand en la paleta y los 14 cambios de familia?»)",family_palette.csv,4209e8f7b9e884a7a98234fe248feb5f55b66167c41d104582f6a3ae8368b400
 22-diez-familias,2026-10-24,"orko kill, 2026-10-24, en la tarjeta del hilo: «Aprobar» (a «¿Apruebo la tanda 22, con Gourmand en la paleta y los 14 cambios de familia?»)",materials.csv,9aecf0969d925c00d9468d349f354df1fe9097325d177937350be769ade56fbc
+23-altas-26-oct,2026-10-27,"orko kill, 2026-10-27, en el hilo: «listo las puedes pasar» (a las tandas 23 y 24)",material_categories.csv,e2832ae5cda719f2ee75044fb3aadb0df35c92b148b4dcb41cbfefe03816fdad
+23-altas-26-oct,2026-10-27,"orko kill, 2026-10-27, en el hilo: «listo las puedes pasar» (a las tandas 23 y 24)",material_descriptors.csv,6fd93ec59ffebce2ccf0d116017d3e19435f72c43e9aa535ec7fc7ef7c104488
+23-altas-26-oct,2026-10-27,"orko kill, 2026-10-27, en el hilo: «listo las puedes pasar» (a las tandas 23 y 24)",material_doses.csv,6c39e5300de64c3d35fd0409c6313a5b40f0ac1d4d41b874fde3191836fe0607
+23-altas-26-oct,2026-10-27,"orko kill, 2026-10-27, en el hilo: «listo las puedes pasar» (a las tandas 23 y 24)",materials.csv,9c34056ac0373d7ff35094c4d87ed74cec43de9c6673e9c9a145d8fb25d484ff
