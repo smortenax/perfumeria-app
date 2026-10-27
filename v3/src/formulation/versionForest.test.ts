@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { lineage, nodeAfterKey, TREE_GAP_X, TREE_GAP_Y, type TreeFormula, versionForest } from "./versionTree";
+import { lineage, nodeAfterKey, TREE_GAP_X, TREE_GAP_Y, type TreeFormula, versionForest } from "./versionForest";
 
 /** V3-77: each formula a node, each version under the formula it was saved from. */
 

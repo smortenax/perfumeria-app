@@ -33,3 +33,6 @@ migracion-v3/biblioteca/archivos/
 # La tanda 10 lleva tus fórmulas enteras: fuera de Git, como la biblioteca (su informe sí entra)
 migracion-v3/tandas/10-formulas/*
 !migracion-v3/tandas/10-formulas/informe.md
+
+# Lo que compara migracion-v3/subir-cuenta.ts: tus datos, no van a Git
+migracion-v3/subir-cuenta/
