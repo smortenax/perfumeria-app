@@ -1,7 +1,7 @@
 import { type CSSProperties, type KeyboardEvent, useLayoutEffect, useRef, useState } from "react";
 import type { FormulaRecord } from "../db/formulas";
 import { texts } from "../i18n/en";
-import { lineage, nodeAfterKey, versionForest } from "./versionTree";
+import { lineage, nodeAfterKey, versionForest } from "./versionForest";
 
 /** The geometry, in rem: a node, and the slot and level it takes with the space around it. */
 const NODE_W = 10.5;
