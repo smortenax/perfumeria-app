@@ -101,3 +101,4 @@ retirada-1-a-4,2026-10-14,"orko kill, 2026-10-14 (V3-34): «no sirven materiales
 25-frascos-pendientes,2026-10-27,"el usuario, 2026-10-27, en el hilo: «si, apruébala»",lab_dilution_diluents.csv,2b68d8bd99cc42a0701d61a96c3989a491a79bda070c8272f4986735a30ff1a0
 25-frascos-pendientes,2026-10-27,"el usuario, 2026-10-27, en el hilo: «si, apruébala»",lab_dilutions.csv,b5f0a9075aebb56f11825ad99a26b1544a5c165737cca908601aeec588912203
 26-fuente-fuerza,2026-10-27,"el usuario, 2026-10-27, en el hilo: «puedes seguir si la apruebo» (a «¿Apruebas la tanda 26?»)",materials.csv,023fba27ed9912c0d8219d2d18bd952ceaee16b1f79356ecb0ac29b204bd2e85
+26-fuente-fuerza,2026-10-27,"el usuario, 2026-10-27, en el hilo: «adelante con apruebo» (a «¿Apruebas la tanda 26 rehecha?», 119 fuerzas sobre la tanda 23)",materials.csv,ce47938e32609ae80e56001d4c0eff2f74de4d15aff43f105e51a97282485dcd
