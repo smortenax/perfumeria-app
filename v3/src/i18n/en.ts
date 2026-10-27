@@ -725,6 +725,10 @@ export const texts = {
     dilutions: "Dilutions",
     noDilutions: "No dilutions",
   },
+  usedIn: {
+    title: "Used in",
+    none: "Not in any formula of yours yet.",
+  },
   importSheet: {
     title: "Import a sheet",
     button: "Import a sheet",

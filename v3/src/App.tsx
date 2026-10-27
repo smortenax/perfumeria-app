@@ -18,6 +18,7 @@ import { Dilutions, MaterialDilutions } from "./dilution/Dilutions";
 import { ShoppingList } from "./shopping/ShoppingList";
 import { ImportSheet } from "./import/ImportSheet";
 import { MaterialTastings } from "./tasting/MaterialTastings";
+import { MaterialUses } from "./glossary/MaterialUses";
 import { tasteMaterial } from "./tasting/start";
 import { type Tab as TastingTab, Tasting } from "./tasting/Tasting";
 import { useTastings } from "./tasting/useTastings";
@@ -220,6 +221,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
                   }}
                 />
                 <MaterialDilutions data={data} local={local} materialId={route.id} onOpen={(id) => go({ view: "bottle", id })} />
+                <MaterialUses data={data} local={local} materialId={route.id} onOpen={(id) => go({ view: "formula", id })} />
                 </>
               }
             />

@@ -1519,6 +1519,17 @@ F23, exportar, a las opciones (1 fórmulas legibles, 2 tus materiales, 3 sugerir
 - **El impacto es la fuerza** que ya tiene el material (low, medium, high, very high). No se añade otra cifra.
 - **La fuerza y las horas en tira llevan su fuente** en la cabecera de la ficha. La fuerza gana la columna `strength_source`, como `tenacity_source`; la rellena una tanda con el origen citado de cada valor (el laboratorio o la web). Sin fuente, la cifra se sigue enseñando y la fuente dice «no lo dice».
 
+## V3-82 · Lo extraído de PerfuMate no se corrige con el laboratorio: el laboratorio solo completa lo que falta (decidida por el usuario el 2026-10-27)
+
+**Literal del usuario** (2026-10-27, tras aprobar la tanda 26): «pero no hay que corregit lo extraido de perfumate con lo del laboratorio solo completar si falta».
+
+**Lectura** (la sesión, para que la confirmes):
+
+- **Al cribar los datos para el sistema nuevo (V3-70), lo que trae PerfuMate se queda como lo trae.** Un dato del laboratorio no lo sustituye ni lo corrige.
+- **El laboratorio solo rellena huecos:** un campo que PerfuMate no da se completa con el del laboratorio, con su fuente citada.
+- **Otra base de datos grande, en el futuro, sí podría reescribir.** Literal (2026-10-27, a continuación): «en todo caso se si coge otra base de datos grande a futuro ahi si se pasaria por reescriptura». Lectura: si más adelante entra otra fuente grande, sus datos podrían sustituir a los que hay, con un script y por tandas que apruebas; el laboratorio sigue siendo solo para completar.
+- **La tanda 26 no lo toca:** solo añadió `strength_source` a los 127 comunes que hoy usa la app (los del laboratorio, `v3/datos/materials.csv`) sin cambiar ningún valor; las tandas 20 y 21 (PerfuMate, `datos/comun/`) siguen sin aprobar y sin cambios.
+
 ---
 
 ## Pendientes
