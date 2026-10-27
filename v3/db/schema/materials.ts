@@ -101,6 +101,8 @@ export const materials = pgTable(
     evolutionTo24h: smallint("evolution_to_24h"),
     evolutionBeyond24h: smallint("evolution_beyond_24h"),
     strength: text("strength"),
+    /** Where the strength comes from (V3-81): the lab, a web page…; null when nobody says. */
+    strengthSource: text("strength_source"),
     threshold: text("threshold"),
     diffusion: text("diffusion"),
     blendEffect: text("blend_effect"),

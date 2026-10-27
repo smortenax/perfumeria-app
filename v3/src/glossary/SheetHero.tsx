@@ -4,6 +4,7 @@ import { coloursOf, familyOf } from "../families/palette";
 import { texts } from "../i18n/en";
 import { orbLookOf, orbScalesOf, seedOf } from "./orb/fromCatalog";
 import { MaterialOrb } from "./orb/MaterialOrb";
+import { figureSources } from "./sheet";
 
 /** A duration on a blotter on a log scale, 1 hour to 30 days. */
 const MAX_HOURS = 24 * 30;
@@ -27,6 +28,8 @@ export function SheetHero({ catalog, material, name, chips, actions }: { catalog
   const tier = material.tier ?? base?.tier ?? null;
   const kind = material.ownerId !== null && base ? base.kind : material.kind;
   const hours = look.durationHours;
+  const sources = figureSources(material, base);
+  const sourceLine = (source: string | null) => <span className={source ? "fig-source" : "fig-source unknown"}>{source ? h.source(source) : h.noSource}</span>;
   const facts: Array<[string, string | null]> = [
     [t.family, family ? texts.sheet.families[family] : null],
     [t.intensity, strength ? `${texts.sheet.strengths[strength]} (${t.byRank})` : null],
@@ -73,6 +76,7 @@ export function SheetHero({ catalog, material, name, chips, actions }: { catalog
                     <i key={s} className={i <= STRENGTHS.indexOf(strength) ? "on" : ""} />
                   ))}
                 </span>
+                {sourceLine(sources.strength)}
               </>
             ) : (
               <span className="unknown">{texts.sheet.unknown}</span>
@@ -91,6 +95,7 @@ export function SheetHero({ catalog, material, name, chips, actions }: { catalog
                   <span className="tick later" style={{ left: `${durationAt(168)}%` }}>1 week</span>
                 </span>
                 <span className="dur-cap">{h.logScale}</span>
+                {sourceLine(sources.hours)}
               </>
             ) : (
               <span className="unknown">{texts.sheet.unknown}</span>

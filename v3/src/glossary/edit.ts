@@ -97,6 +97,7 @@ export const EDIT_SECTIONS: readonly EditSection[] = [
       field("tenacitySource", texts.editor.tenacitySource, "text"),
       field("evolution", f.evolution, "evolution"),
       field("strength", f.strength, "choice", { options: choices(STRENGTHS, s.strengths) }),
+      field("strengthSource", texts.editor.strengthSource, "text"),
       field("threshold", f.threshold, "text"),
       field("diffusion", f.diffusion, "long"),
       field("blendEffect", f.blendEffect, "long"),

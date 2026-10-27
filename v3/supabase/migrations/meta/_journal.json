@@ -302,6 +302,13 @@
       "when": 1793032366796,
       "tag": "20261026163246_shopping_rls",
       "breakpoints": true
+    },
+    {
+      "idx": 43,
+      "version": "7",
+      "when": 1793108718609,
+      "tag": "20261027134518_strength_source",
+      "breakpoints": true
     }
   ]
 }

@@ -147,6 +147,8 @@ export interface MaterialFields {
   /** Intensity 0–3 in five stretches (V3-42): to 15 min, to 2 h, to 8 h, to 24 h, beyond. */
   readonly evolution: readonly [Evolution, Evolution, Evolution, Evolution, Evolution];
   readonly strength: Strength | null;
+  /** Where the strength comes from (V3-81). */
+  readonly strengthSource: string | null;
   readonly threshold: string | null;
   readonly diffusion: string | null;
   readonly blendEffect: string | null;

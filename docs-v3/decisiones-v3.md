@@ -1508,6 +1508,17 @@ F23, exportar, a las opciones (1 fórmulas legibles, 2 tus materiales, 3 sugerir
   - **Tus materiales, de dos maneras:** un **PDF del glosario «elegante»**, como se ven en la app (el orbe, la información principal y las diluciones de cada material, ocupando más o menos lo que en la app), y una **tabla «solo datos»** con los materiales, sus diluciones, el fabricante y el resto de lo relevante.
   - **No entran:** sugerir correcciones al glosario ni contribuir documentos.
 
+## V3-81 · F12, la ficha: el impacto es la fuerza, y cada cifra lleva su fuente (decidida por el usuario el 2026-10-27)
+
+**Pregunta de la sesión** (2026-10-27): la cabecera de la ficha (V3-73) ya enseña la fuerza y la duración en tira en horas; lo que no enseña es la fuente al lado de cada cifra, y la fuerza no tiene columna de fuente. Cuando dijiste «ficha falta impacto y horas» (V3-78), ¿a qué te referías? Opciones: faltaba la fuente; el impacto es otra cifra (1–10, como PerfuMate); el impacto a lo largo del tiempo (la evolución); no lo veía en tu app.
+
+**Respuesta literal del usuario:** «Faltaba la fuente».
+
+**Lectura** (la sesión, para que la confirmes):
+
+- **El impacto es la fuerza** que ya tiene el material (low, medium, high, very high). No se añade otra cifra.
+- **La fuerza y las horas en tira llevan su fuente** en la cabecera de la ficha. La fuerza gana la columna `strength_source`, como `tenacity_source`; la rellena una tanda con el origen citado de cada valor (el laboratorio o la web). Sin fuente, la cifra se sigue enseñando y la fuente dice «no lo dice».
+
 ---
 
 ## Pendientes

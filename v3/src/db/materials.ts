@@ -123,6 +123,7 @@ function fieldsOf(row: typeof local.materials.$inferSelect): MaterialFields {
       evolutionOf(row.evolutionBeyond24h),
     ],
     strength: optionalOf(row.strength, STRENGTHS, "strength"),
+    strengthSource: row.strengthSource,
     threshold: row.threshold,
     diffusion: row.diffusion,
     blendEffect: row.blendEffect,

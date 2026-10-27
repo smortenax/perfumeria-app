@@ -4,9 +4,10 @@ import { type Catalog, type CatalogMaterial, type Component, type MaterialFields
 import type { IfraLayer, IfraStandard } from "../db/ifra-layer";
 import { indexCatalog, listAll } from "../db/search";
 import { toIfra } from "../db/to-ifra";
+import { texts } from "../i18n/en";
 import { type IfraState, keepOf, NO_FILTERS } from "./browse";
 import { decimal, percent } from "./format";
-import { type Sheet, sheetOf } from "./sheet";
+import { figureSources, type Sheet, sheetOf } from "./sheet";
 
 /**
  * Plan v3, steps 6.1 and 6.2 (V3-47): the sheet of a material as a plain data sheet, and the
@@ -19,7 +20,7 @@ const FIELDS: MaterialFields = {
   solvent: false, aliases: [], cas: null, otherCas: [], species: null, part: null, process: null, chemotype: null, inci: null,
   origin: null, abbreviation: null, abbreviationOrigin: null, categoryId: null, form: null, basedOnId: null, grade: null, supplier: null,
   product: null, productUrl: null, lot: null, purchasedOn: null, originRegion: null, status: null, purity: null, house: null, code: null, odorTarget: null, synthesis: null, isomers: null, family: null,
-  color: null, familyDetail: null, facets: null, tier: null, tenacityHours: null, tenacitySource: null, evolution: NO_EVOLUTION,
+  color: null, familyDetail: null, facets: null, tier: null, tenacityHours: null, tenacitySource: null, strengthSource: null, evolution: NO_EVOLUTION,
   strength: null, threshold: null, diffusion: null, blendEffect: null, role: null, recommendedDilution: null, cost: null, handling: null,
   physical: NO_PHYSICAL, notes: null, sources: null, confidence: null, disputedFields: [], ifraUnverified: null,
 };
@@ -190,5 +191,26 @@ describe("a workbench's formulas with their versions together (8.1)", () => {
     });
     const list = [f("c", "GuiAaa con pirazinas", "b2"), f("z", "protoguidev3"), f("b2", "GuiAaa sin pirazinas", "a"), f("a", "GuiAaa"), f("g", "guia")];
     expect(byVersions(list).map((x) => x.id)).toEqual(["g", "a", "b2", "c", "z"]);
+  });
+});
+
+describe("the source under each figure of the head (V3-81)", () => {
+  const common = material("c", { strength: "high", strengthSource: "lab: materiales.sqlite", tenacityHours: Ratio.of(48n), tenacitySource: "TGSC" });
+  it("your version's own, else its common material's; the hours with theirs", () => {
+    const yours = material("y", { ownerId: ME, basedOnId: "c", strength: "medium", strengthSource: "my notebook" });
+    expect(figureSources(yours, common)).toEqual({ strength: "my notebook", hours: "TGSC" });
+    expect(figureSources(material("y2", { ownerId: ME, basedOnId: "c" }), common)).toEqual({ strength: "lab: materiales.sqlite", hours: "TGSC" });
+  });
+  it("a figure without a source still shows, and its source is not stated", () => {
+    const bare = material("b", { strength: "low" });
+    expect(figureSources(bare, undefined)).toEqual({ strength: null, hours: null });
+    const only: Catalog = { ...catalog, materials: new Map([[bare.id, bare]]), have: new Set(), dilutions: new Map(), evaluations: new Map(), axes: new Map() };
+    const strength = row(sheetOf(only, layer, toIfra(only, layer), "b"), "smell", texts.sheet.fields.strength);
+    expect([strength.text, strength.notes]).toEqual([texts.sheet.strengths.low, []]);
+  });
+  it("the sheet's strength row says its source, as the tenacity does", () => {
+    const withSource = { ...common, strengthSource: "lab: materiales.sqlite" };
+    const only: Catalog = { ...catalog, materials: new Map([[withSource.id, withSource]]), have: new Set(), dilutions: new Map(), evaluations: new Map(), axes: new Map() };
+    expect(row(sheetOf(only, layer, toIfra(only, layer), "c"), "smell", texts.sheet.fields.strength).notes).toEqual([texts.sheet.from("lab: materiales.sqlite")]);
   });
 });

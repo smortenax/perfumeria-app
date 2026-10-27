@@ -576,6 +576,15 @@
   transform: none;
 }
 
+/* The source under a figure of the sheet's head (V3-81). */
+.fig-source {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--muted, #666);
+  overflow-wrap: anywhere;
+}
 .dur-cap {
   color: var(--muted);
   font-size: var(--text-xs);
