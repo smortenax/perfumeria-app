@@ -1,0 +1,21 @@
+id,nombre,producto_tienda,proveedor,formato,pista
+MAT-filbertone,Filbertone,Filbertone 1% (TEC),Perfumiarz,5 g,"molécula; viene al 1 % en TEC"
+MAT-isobutavan,Isobutavan,Isobutavan,Perfumiarz,10 g,molécula de marca
+MAT-ambrarome,Ambrarome,Ambrarome 50% (DPG),Perfumiarz,5 g,"viene al 50 % en DPG; comprobar si es molécula, base o absoluto"
+MAT-luminide,Luminide,Luminide™ 25% (DPG),Perfumiarz,10 g,"molécula de marca; viene al 25 % en DPG"
+MAT-operanide,Operanide,Operanide,Perfumiarz,5 g,molécula de marca
+MAT-mirra-aceite-esencial,"Mirra, aceite esencial",Myrrh Oil,Perfumiarz,10 g,aceite esencial (Commiphora)
+MAT-shangralide,Shangralide,Shangralide Oliffac 0712,Perfumiarz,5 g,"de marca (código Oliffac 0712); comprobar si es molécula o base"
+MAT-prunella,Prunella,Prunella® 975617,Perfumiarz,5 g,base de marca (código 975617)
+MAT-para-cresol,Para-cresol,Para Cresol 10% (IPM),Perfumiarz,20 g,"molécula (p-cresol); viene al 10 % en IPM"
+MAT-orris-givco,Orris Givco,Orris Givco® 204/2/20,Perfumiarz,5 g,"base de marca (código 204/2/20)"
+MAT-clearwood,Clearwood,Clearwood,por confirmar,,"de marca; comprobar casa y si es natural o molécula"
+MAT-ambreta-tintura,"Ambreta, tintura",Tintura de ambreta (ambretta),Maese Lab,,tintura de semillas de ambreta (Abelmoschus moschatus)
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",Aceite Esencial de Opoponax - 100% natural,Maese Lab,,"aceite esencial por arrastre de vapor de la resina; INCI de la tienda: Commiphora Erythrea Glabrescens Gum Oil; CAS de la tienda: 93686-00-1 / 100084-96-6"
+MAT-cardamomo-verde-tintura,"Cardamomo verde, tintura",Tintura de cardamomo verde,Maese Lab,,tintura de cardamomo verde (Elettaria cardamomum)
+MAT-cardamomo-villoso-tintura,"Cardamomo villoso, tintura",Tintura de cardamomo villoso,Maese Lab,,tintura de cardamomo villoso (Amomum villosum)
+MAT-exaltolide-total,Exaltolide Total,Exaltolide Total,Maese Lab,,molécula de marca (pentadecanolida)
+MAT-indol,Indol,Indol,por confirmar,,molécula
+MAT-etil-vainillina,Etil vainillina,Ethyl vanillin,por confirmar,,molécula
+MAT-veramoss,Veramoss,Veramoss (Evernyl),Maese Lab,,"molécula de marca; en Lab figuraba como «Evernyl (Veramoss)»"
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",Aceite Esencial de Gálbano - 100% Natural,Maese Lab,,"aceite esencial por arrastre de vapor de la resina; origen Turquía; INCI de la tienda: Ferula Galbaniflua Resin Oil; CAS de la tienda: 93165-40-3 / 8023-91-4"

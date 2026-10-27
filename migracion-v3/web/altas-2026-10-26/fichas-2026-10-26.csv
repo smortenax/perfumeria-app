@@ -1,0 +1,587 @@
+material_id,material,campo,valor,url,frase,origen
+MAT-filbertone,Filbertone,aliases,Filbertone 1%,https://fraterworks.com/products/filbertone,Filbertone 1%,Fraterworks
+MAT-filbertone,Filbertone,aliases,(2E)-5-Methyl-2-hepten-4-one,https://en.wikipedia.org/wiki/Filbertone,(2E)-5-Methyl-2-hepten-4-one,Wikipedia
+MAT-filbertone,Filbertone,aliases,trans-filbertone,https://thegoodscentscompany.com/data/rw1548231.html,"(E)-filbertone, trans-filbertone, (E)-hazeltone, trans-hazeltone, 5-methyl-(E)-2-hepten-4-one",TGSC
+MAT-filbertone,Filbertone,aliases,(E)-hazeltone,https://thegoodscentscompany.com/data/rw1548231.html,"(E)-filbertone, trans-filbertone, (E)-hazeltone, trans-hazeltone, 5-methyl-(E)-2-hepten-4-one",TGSC
+MAT-filbertone,Filbertone,aliases,5-methyl-(E)-2-hepten-4-one,https://thegoodscentscompany.com/data/rw1548231.html,"(E)-filbertone, trans-filbertone, (E)-hazeltone, trans-hazeltone, 5-methyl-(E)-2-hepten-4-one",TGSC
+MAT-filbertone,Filbertone,cas,81925-81-7,https://fraterworks.com/products/filbertone,CAS: 81925-81-7,Fraterworks
+MAT-filbertone,Filbertone,other_cas,102322-83-8,https://thegoodscentscompany.com/data/rw1548231.html,CAS 102322-83-8,TGSC (isómero E)
+MAT-filbertone,Filbertone,other_cas,135910-94-0 (R),https://en.wikipedia.org/wiki/Filbertone,135910-94-0 (R),Wikipedia
+MAT-filbertone,Filbertone,other_cas,122440-59-9 (S),https://en.wikipedia.org/wiki/Filbertone,122440-59-9 (S),Wikipedia
+MAT-filbertone,Filbertone,house,Symrise,https://fraterworks.com/products/filbertone,Fraterworks is strictly a reseller; manufacturer listed as Symrise,Fraterworks
+MAT-filbertone,Filbertone,form,molécula,https://fraterworks.com/products/filbertone,"Offered at 1% in DPG, or as 100% pure",Fraterworks
+MAT-filbertone,Filbertone,isomers,"Wikipedia: Mezcla de ambos enantiómeros (+)-(E,S) y (-)-(E,R); la composición varía según la fuente · TGSC: Assay: 98.00 to 100.00 sum of isomers",https://en.wikipedia.org/wiki/Filbertone,The natural compound is a mixture of both enantiomers | 98.00 to 100.00 sum of isomers,Wikipedia + TGSC
+MAT-filbertone,Filbertone,descriptor,Odor Type (Fraterworks): Gourmand,https://fraterworks.com/products/filbertone,odour family: Gourmand,Fraterworks
+MAT-filbertone,Filbertone,descriptor,Odor Type (TGSC): nutty,https://thegoodscentscompany.com/data/rw1548231.html,Odor Type: nutty,TGSC
+MAT-filbertone,Filbertone,family,gourmand,https://fraterworks.com/products/filbertone,odour family: Gourmand,Fraterworks
+MAT-filbertone,Filbertone,descriptor,"Fraterworks: a rich, warm hazelnut scent with creamy, toasted nuances, with subtle woody undertones",https://fraterworks.com/products/filbertone,"a rich, warm hazelnut scent with creamy, toasted nuances",Fraterworks
+MAT-filbertone,Filbertone,descriptor,"Wikipedia (racemato): hazelnut, nutty",https://en.wikipedia.org/wiki/Filbertone,"hazelnut, nutty",Wikipedia
+MAT-filbertone,Filbertone,descriptor,"Wikipedia ((+)-(E,S)): hazelnut, metallic, fatty, nutty",https://en.wikipedia.org/wiki/Filbertone,"hazelnut, metallic, fatty, nutty",Wikipedia
+MAT-filbertone,Filbertone,descriptor,"Wikipedia ((-)-(E,R)): hazelnut, soft, buttery, chocolate, metallic, nutty",https://en.wikipedia.org/wiki/Filbertone,"hazelnut, soft, buttery, chocolate, metallic, nutty",Wikipedia
+MAT-filbertone,Filbertone,descriptor,TGSC (al 10 % en DPG): hazelnut nutty,https://thegoodscentscompany.com/data/rw1548231.html,at 10.00 % in dipropylene glycol. hazelnut nutty,TGSC
+MAT-filbertone,Filbertone,facets,"avellana, tostada, cremosa, mantecosa, metálica, achocolatada",,,propuesta de la sesión
+MAT-filbertone,Filbertone,recommended_dilution,1% en DPG (o puro al 100%),https://fraterworks.com/products/filbertone,"Offered at 1% in DPG, or as 100% pure",Fraterworks
+MAT-filbertone,Filbertone,dose_min,0.000005,https://fraterworks.com/products/filbertone,observed use ranging from 0.0005% to 0.005%,Fraterworks
+MAT-filbertone,Filbertone,dose_typical,0.0000275,https://fraterworks.com/products/filbertone,median of 0.00275% of the concentrate,Fraterworks
+MAT-filbertone,Filbertone,dose_max,0.008,https://thegoodscentscompany.com/data/rw1548231.html,0.8000 % in the fragrance concentrate.,TGSC
+MAT-filbertone,Filbertone,notes,Uso observado sin base declarada (no entra como dosis): Fraterworks da «0.00005».,https://fraterworks.com/products/filbertone,observed use ranging from 0.0005% to 0.005%,Fraterworks
+MAT-filbertone,Filbertone,handling,"Fraterworks: Debe usarse con precisión extrema en cantidades mínimas; no aplicar sin diluir sobre la piel; solo para el comercio de perfumería · TGSC: Xi - Irritant; R 10 inflamable, R 38 irrita la piel; GHS: none found; punto de inflamación 52.78 °C (127 °F TCC)",https://fraterworks.com/products/filbertone,Must be used with extreme precision in minute quantities | Xi - Irritant; R 10 - Flammable. R 38 - Irritating to skin.; Flash Point 127.00 °F. TCC ( 52.78 °C. ),Fraterworks + TGSC
+MAT-filbertone,Filbertone,appearance,Fraterworks: Colourless liquid · TGSC: colorless to pale yellow clear liquid (est),https://fraterworks.com/products/filbertone,Colourless liquid | colorless to pale yellow clear liquid (est),Fraterworks + TGSC
+MAT-filbertone,Filbertone,physical_state,Líquido,https://thegoodscentscompany.com/data/rw1548231.html,colorless to pale yellow clear liquid (est),TGSC
+MAT-filbertone,Filbertone,formula,C8 H14 O,https://thegoodscentscompany.com/data/rw1548231.html,C8 H14 O,TGSC
+MAT-filbertone,Filbertone,molecular_weight,126.19878,https://thegoodscentscompany.com/data/rw1548231.html,126.19878000,TGSC
+MAT-filbertone,Filbertone,synthesis,natural,https://en.wikipedia.org/wiki/Filbertone,the principal flavor compound of hazelnuts,Wikipedia
+MAT-filbertone,Filbertone,notes,Fraterworks da una permanencia de ~2 horas en tira (no aclara si puro o al 1%): 'Longevity is about 2 hours on a smelling strip'. Wikipedia: componente principal del sabor de la avellana; presente en aceite de avellana. Dos CAS distintos entre fuentes (81925-81-7 vs 102322-83-8 sin estereodescriptor).,https://fraterworks.com/products/filbertone,Longevity is about 2 hours on a smelling strip,Fraterworks
+MAT-filbertone,Filbertone,density,0.84800,https://thegoodscentscompany.com/data/rw1548231.html,0.84800 to 0.85800 @ 25.00 °C.,TGSC
+MAT-filbertone,Filbertone,vapor_pressure,1.247000 mmHg @ 25.00 °C (est),https://thegoodscentscompany.com/data/rw1548231.html,1.247000 mmHg @ 25.00 °C. (est),TGSC
+MAT-filbertone,Filbertone,solubility,"Soluble in alcohol; slightly soluble in water (1208 mg/L @ 25 °C, est)",https://thegoodscentscompany.com/data/rw1548231.html,"water, 1208 mg/L @ 25 °C (est)",TGSC
+MAT-isobutavan,Isobutavan,aliases,Vanillyl Isobutyrate,https://fraterworks.com/products/isobutavan,"Synonyms: Vanillyl Isobutyrate, Isobutyl Lignate",Fraterworks
+MAT-isobutavan,Isobutavan,aliases,Isobutyl Lignate,https://fraterworks.com/products/isobutavan,"Synonyms: Vanillyl Isobutyrate, Isobutyl Lignate",Fraterworks
+MAT-isobutavan,Isobutavan,aliases,4-Formyl-2-methoxyphenyl 2-methylpropanoate,https://www.givaudan.com/print/1314451,Chemical name: 4-Formyl-2-methoxyphenyl 2-methylpropanoate,Givaudan
+MAT-isobutavan,Isobutavan,cas,20665-85-4,https://thegoodscentscompany.com/data/rw1024071.html,CAS 20665-85-4,TGSC
+MAT-isobutavan,Isobutavan,house,Givaudan,https://thegoodscentscompany.com/data/rw1024071.html,isobutavan (Givaudan),TGSC
+MAT-isobutavan,Isobutavan,code,1465543,https://www.givaudan.com/print/1314451,Isobutavan (Givaudan Code 1465543),Givaudan
+MAT-isobutavan,Isobutavan,form,molécula,https://www.givaudan.com/print/1314451,Chemical name: 4-Formyl-2-methoxyphenyl 2-methylpropanoate,propuesta de la sesión
+MAT-isobutavan,Isobutavan,descriptor,Odor Type (Fraterworks): Gourmand,https://fraterworks.com/products/isobutavan,Odour family: Gourmand,Fraterworks
+MAT-isobutavan,Isobutavan,descriptor,Odor Type (TGSC): vanilla,https://thegoodscentscompany.com/data/rw1024071.html,Has a vanilla type odor and an vanilla type flavor.,TGSC
+MAT-isobutavan,Isobutavan,family,gourmand,https://fraterworks.com/products/isobutavan,Odour family: Gourmand,Fraterworks
+MAT-isobutavan,Isobutavan,family_detail,"gourmand (vainilla, chocolate blanco)",,,propuesta de la sesión
+MAT-isobutavan,Isobutavan,descriptor,"Givaudan: sweet and creamy vanillic character reminiscent of white chocolate, cream soda with a soft apricot feeling",https://www.givaudan.com/print/1314451,"sweet and creamy vanillic character reminiscent of white chocolate, cream soda with a soft apricot feeling",Givaudan
+MAT-isobutavan,Isobutavan,descriptor,"Fraterworks: sweet, creamy vanillic aroma with distinctive white chocolate facets, soft apricot fruitiness, and cream soda nuances",https://fraterworks.com/products/isobutavan,"sweet, creamy vanillic aroma with distinctive white chocolate facets, soft apricot fruitiness, and cream soda nuances",Fraterworks
+MAT-isobutavan,Isobutavan,facets,"vainilla, cremosa, chocolate blanco, albaricoque, refresco de nata, dulce",,,propuesta de la sesión
+MAT-isobutavan,Isobutavan,notes,"Tenacidad: «>400» h, sin cifra exacta.",https://fraterworks.com/products/isobutavan,Lasts > 400 hours on a smelling strip.,Fraterworks
+MAT-isobutavan,Isobutavan,blend_effect,Menos pulverulento que la vainillina y con efecto más cremoso/espesante en las mezclas,https://www.givaudan.com/print/1314451,less powdery than vanillin and has a more creamy effect,Givaudan
+MAT-isobutavan,Isobutavan,role,modifier,,,propuesta de la sesión
+MAT-isobutavan,Isobutavan,tier,base,,,propuesta de la sesión
+MAT-isobutavan,Isobutavan,recommended_dilution,10% (dilución habitual),https://fraterworks.com/products/isobutavan,Common dilution: 10%,Fraterworks
+MAT-isobutavan,Isobutavan,dose_min,0.000111,https://fraterworks.com/products/isobutavan,Minimum: 0.0111%,Fraterworks
+MAT-isobutavan,Isobutavan,dose_typical,0.00315,https://fraterworks.com/products/isobutavan,Median: 0.315%,Fraterworks
+MAT-isobutavan,Isobutavan,dose_max,0.028,https://fraterworks.com/products/isobutavan,Maximum: 2.8%,Fraterworks
+MAT-isobutavan,Isobutavan,handling,No aplicar sin diluir sobre la piel; solo para el comercio de perfumería,https://fraterworks.com/products/isobutavan,they are not to be applied to the skin undiluted,Fraterworks
+MAT-isobutavan,Isobutavan,physical_state,Líquido,https://www.givaudan.com/print/1314451,Appearance: colourless liquid,Givaudan
+MAT-isobutavan,Isobutavan,appearance,Colourless liquid,https://www.givaudan.com/print/1314451,colourless liquid,Givaudan
+MAT-isobutavan,Isobutavan,formula,C12 H14 O4,https://thegoodscentscompany.com/data/rw1024071.html,C12 H14 O4,TGSC
+MAT-isobutavan,Isobutavan,molecular_weight,222.24038,https://thegoodscentscompany.com/data/rw1024071.html,222.24038000,TGSC
+MAT-isobutavan,Isobutavan,vapor_pressure,>0.0013 hPa (temperatura no indicada),https://www.givaudan.com/print/1314451,Vapour pressure: >0.0013 hPa,Givaudan
+MAT-isobutavan,Isobutavan,stability,"Buena (5/5) en champú y jabón; media (3/5) en limpiador ácido, suavizante, antitranspirante, APC, detergente en polvo; mala (1/5) en detergente líquido y lejía líquida",https://www.givaudan.com/print/1314451,Stability rated good (5/5) in shampoo and soap,Givaudan
+MAT-isobutavan,Isobutavan,notes,"Givaudan: tenacidad en tira 'several months'; uso hasta 2% (incl. jabón de tocador); menos decoloración que vainillina y etilvainillina; punto de ebullición 300 C; FEMA 3754; Log Pow 2. Fraterworks: alternativa que no decolora a la vainillina. Dosis de Fraterworks: de su análisis de fórmulas, base concentrado.",https://www.givaudan.com/print/1314451,Use level up to 2%,Givaudan
+MAT-ambrarome,Ambrarome,aliases,Ambrarome Absolute,https://fraterworks.com/products/ambrarome-absolute,Ambrarome (also known as Ambrarome Absolute),Fraterworks
+MAT-ambrarome,Ambrarome,aliases,"ethyl-esterification product derived from the resin extract of the labdanum, cistus cyprius, cistaceae",https://fraterworks.com/products/ambrarome-absolute,"ethyl-esterification product derived from the resin extract of the labdanum, cistus cyprius, cistaceae",Fraterworks
+MAT-ambrarome,Ambrarome,form,base (se vende como absoluto),https://fraterworks.com/products/ambrarome-absolute,Ambrarome (also known as Ambrarome Absolute),Fraterworks
+MAT-ambrarome,Ambrarome,house,Synarome,https://fraterworks.com/products/ambrarome-absolute,Fraterworks is a reseller and is not affiliated with Synarome,Fraterworks
+MAT-ambrarome,Ambrarome,synthesis,semisynthetic,https://fraterworks.com/products/ambrarome-absolute,ethyl-esterification product derived from the resin extract of the labdanum,propuesta de la sesión
+MAT-ambrarome,Ambrarome,species,"Cistus ladanifer (labdanum; la fuente escribe 'cistus cyprius, cistaceae')",https://fraterworks.com/products/ambrarome-absolute,"resin extract of the labdanum, cistus cyprius, cistaceae",Fraterworks
+MAT-ambrarome,Ambrarome,descriptor,Odor Type (Fraterworks): Animalic,https://fraterworks.com/products/ambrarome-absolute,Odour family: Animalic,Fraterworks
+MAT-ambrarome,Ambrarome,family,animal,https://fraterworks.com/products/ambrarome-absolute,Odour family: Animalic,propuesta de la sesión
+MAT-ambrarome,Ambrarome,family_detail,"animal (ámbar gris, labdanum)",,,propuesta de la sesión
+MAT-ambrarome,Ambrarome,descriptor,"Fraterworks: powerful, animalic aroma with rich ambergris-like character (también dulzor de labdanum y notas de cuero)",https://fraterworks.com/products/ambrarome-absolute,"powerful, animalic aroma with rich ambergris-like character",Fraterworks
+MAT-ambrarome,Ambrarome,facets,"animal, ámbar gris, labdanum dulce, cuero",,,propuesta de la sesión
+MAT-ambrarome,Ambrarome,strength,high,https://fraterworks.com/products/ambrarome-absolute,"powerful, animalic aroma",propuesta de la sesión
+MAT-ambrarome,Ambrarome,tier,base,,,propuesta de la sesión
+MAT-ambrarome,Ambrarome,notes,"Tenacidad: «>400» h, sin cifra exacta.",https://fraterworks.com/products/ambrarome-absolute,Lasts > 400 hours on a smelling strip.,Fraterworks
+MAT-ambrarome,Ambrarome,role,fixative,,,propuesta de la sesión
+MAT-ambrarome,Ambrarome,recommended_dilution,10% (dilución habitual); se vende al 50% en TEC o puro,https://fraterworks.com/products/ambrarome-absolute,Sold at 50% in TEC or 100% pure; Common dilution: 10%,Fraterworks
+MAT-ambrarome,Ambrarome,dose_min,0.0004,https://fraterworks.com/products/ambrarome-absolute,Minimum 0.04%,Fraterworks
+MAT-ambrarome,Ambrarome,dose_typical,0.00438,https://fraterworks.com/products/ambrarome-absolute,median 0.438%,Fraterworks
+MAT-ambrarome,Ambrarome,dose_max,0.008,https://fraterworks.com/products/ambrarome-absolute,maximum 0.8%,Fraterworks
+MAT-ambrarome,Ambrarome,handling,No aplicar sin diluir sobre la piel; solo para el comercio de perfumería,https://fraterworks.com/products/ambrarome-absolute,These raw materials are for use by the perfumery trade only,Fraterworks
+MAT-ambrarome,Ambrarome,appearance,Dark brown liquid,https://fraterworks.com/products/ambrarome-absolute,Dark brown liquid,Fraterworks
+MAT-ambrarome,Ambrarome,physical_state,Líquido,https://fraterworks.com/products/ambrarome-absolute,Dark brown liquid,Fraterworks
+MAT-ambrarome,Ambrarome,notes,Fraterworks: creado en 1926 por Hubert Fraysse; primer producto de especialidad para replicar el ámbar gris. Dosis: del análisis de fórmulas de Fraterworks (base concentrado).,https://fraterworks.com/products/ambrarome-absolute,first speciality product designed to replicate the then-expensive ambergris,Fraterworks
+MAT-luminide,Luminide,aliases,Luminide™,https://www.iff.com/?p=37851,Luminide™,IFF
+MAT-luminide,Luminide,cas,1392321-41-3,https://www.iff.com/?p=37851,CAS number 1392321-41-3,IFF
+MAT-luminide,Luminide,house,IFF,https://www.iff.com/?p=37851,International Flavors & Fragrances (IFF) Fragrance Ingredients Compendium,IFF
+MAT-luminide,Luminide,form,molécula,https://www.iff.com/?p=37851,Luminide™ (IFF compendium),propuesta de la sesión
+MAT-luminide,Luminide,descriptor,Odor Type (IFF): musk,https://www.iff.com/?p=37851,"A clean, powdery musk",IFF
+MAT-luminide,Luminide,family_detail,almizcle limpio y empolvado,,,propuesta de la sesión
+MAT-luminide,Luminide,descriptor,"IFF: A clean, powdery musk, soft with a sweet and warm top note and pleasant hedonic profile.",https://www.iff.com/?p=37851,"A clean, powdery musk, soft with a sweet and warm top note and pleasant hedonic profile.",IFF
+MAT-luminide,Luminide,facets,"almizcle, empolvado, limpio, suave, dulce, cálido, cremoso",,,propuesta de la sesión
+MAT-luminide,Luminide,tier,heart_base,,,propuesta de la sesión
+MAT-luminide,Luminide,blend_effect,"IFF: suaviza los blancos florales; va bien con florales, muguet, frutales, maderas, ámbar, almizcles y especias (combinaciones: Ambermor, Iso E Super, Ylanganate)",https://www.iff.com/?p=37851,softens white florals,IFF
+MAT-luminide,Luminide,role,modifier,,,propuesta de la sesión
+MAT-luminide,Luminide,dose_max,0.03,https://www.iff.com/?p=37851,Typical use level is up to 3%,IFF
+MAT-luminide,Luminide,stability,Good en todos los productos listados,https://www.iff.com/?p=37851,Stability is Good across all listed products,IFF
+MAT-luminide,Luminide,notes,"IFF: sustantividad '>7 days' (dilución no indicada); impacto de nota medio en salida, corazón y fondo; rendimiento Very Good en perfumería fina, champú y velas, Good en suavizante y jabón; renovable y apto vegano, no biodegradable. Dosis 'up to 3%' sin base declarada. El resumen de la página lo hizo la herramienta de lectura; las citas literales no se han comprobado una a una.",https://www.iff.com/?p=37851,Substantivity >7 days,IFF
+MAT-operanide,Operanide,cas,823178-41-2,https://www.iff.com/?p=7791,Operanide CAS 823178-41-2,IFF
+MAT-operanide,Operanide,house,IFF,https://fraterworks.com/products/operanide,The page lists IFF as manufacturer; Fraterworks is a reseller,Fraterworks
+MAT-operanide,Operanide,form,molécula,,,propuesta de la sesión
+MAT-operanide,Operanide,code,IPC 151575,https://www.iff.com/?p=7791,IPC number: 151575,IFF
+MAT-operanide,Operanide,descriptor,Odor Type (Fraterworks): Amber,https://fraterworks.com/products/operanide,Odour family: Amber,Fraterworks
+MAT-operanide,Operanide,family,woody,https://fraterworks.com/products/operanide,a sophisticated creamy amber-woody character,propuesta de la sesión
+MAT-operanide,Operanide,family_detail,"ambarada amaderada (musgo, cachemirán)",,,propuesta de la sesión
+MAT-operanide,Operanide,descriptor,IFF: A creamy soft powdery amber note with gourmand nuances.,https://www.iff.com/?p=7791,A creamy soft powdery amber note with gourmand nuances.,IFF
+MAT-operanide,Operanide,descriptor,Fraterworks: Operanide delivers a sophisticated creamy amber-woody character with distinctive mossy undertones (con notas gourmand sutiles; empieza tipo Cashmeran y seca a cedro),https://fraterworks.com/products/operanide,Operanide delivers a sophisticated creamy amber-woody character with distinctive mossy undertones,Fraterworks
+MAT-operanide,Operanide,facets,"ámbar, amaderada, cremosa, empolvada, musgosa, gourmand suave, cedro",,,propuesta de la sesión
+MAT-operanide,Operanide,tier,heart_base,https://www.iff.com/?p=7791,"Note impact: Heart Medium, Base Medium",IFF
+MAT-operanide,Operanide,notes,"Tenacidad: «>72» h, sin cifra exacta.",https://fraterworks.com/products/operanide,Lasts > 72 hours on a smelling strip.,Fraterworks
+MAT-operanide,Operanide,role,modifier,,,propuesta de la sesión
+MAT-operanide,Operanide,dose_min,0.0007,https://fraterworks.com/products/operanide,Minimum: 0.07%,Fraterworks
+MAT-operanide,Operanide,dose_typical,0.0135,https://fraterworks.com/products/operanide,Median: 1.35%,Fraterworks
+MAT-operanide,Operanide,dose_max,0.02,https://fraterworks.com/products/operanide,Maximum: 2%,Fraterworks
+MAT-operanide,Operanide,handling,Solo uso profesional; no aplicar sin diluir sobre la piel,https://fraterworks.com/products/operanide,they are not to be applied to the skin undiluted,Fraterworks
+MAT-operanide,Operanide,physical_state,Líquido,https://fraterworks.com/products/operanide,Colourless liquid,Fraterworks
+MAT-operanide,Operanide,appearance,Colourless liquid,https://fraterworks.com/products/operanide,Colourless liquid,Fraterworks
+MAT-operanide,Operanide,formula,C17H28O2,https://www.iff.com/?p=7791,Chemical formula: C17H28O2,IFF
+MAT-operanide,Operanide,molecular_weight,264,https://www.iff.com/?p=7791,Molecular weight: 264,IFF
+MAT-operanide,Operanide,vapor_pressure,0.003438 mm Hg a 23 C,https://www.iff.com/?p=7791,Vapor pressure: 0.003438 mm Hg @ 23C,IFF
+MAT-operanide,Operanide,stability,IFF (rendimiento/estabilidad): perfumería fina Very Good/Very Good; champú Very Good/Very Good; detergente líquido Good/Very Good; velas Good/Very Good; limpiador ácido Moderate/Moderate; lejía Poor/Poor,https://www.iff.com/?p=7791,Bleach: Poor / Poor,IFF
+MAT-operanide,Operanide,notes,"IFF: uso hasta 5.0% (base no declarada), sustantividad >72 horas, Log P 6.05, vegano, no biodegradable. Las dosis min/mediana/max son de Fraterworks (% del concentrado, de fórmulas analizadas). Las citas se resumieron con la herramienta de lectura.",https://www.iff.com/?p=7791,Use level: Up to 5.0%,IFF
+MAT-mirra-aceite-esencial,"Mirra, aceite esencial",cas,8016-37-3,https://thegoodscentscompany.com/data/es1002061.html,"Myrrh oil (Commiphora myrrha oil), CAS 8016-37-3",TGSC
+MAT-mirra-aceite-esencial,"Mirra, aceite esencial",species,Commiphora myrrha,https://thegoodscentscompany.com/data/es1002061.html,Botanical name: Commiphora myrrha,TGSC
+MAT-mirra-aceite-esencial,"Mirra, aceite esencial",part,Oleorresina del tronco,https://ams.prod.usda.gov/sites/default/files/media/Myrrh%20Oil.pdf,"The trunk exudes a natural oleoresin, which is collected and steam distilled","USDA AMS (petición, MSDS)"
+MAT-mirra-aceite-esencial,"Mirra, aceite esencial",process,Destilación por vapor,https://ams.prod.usda.gov/sites/default/files/media/Myrrh%20Oil.pdf,collected and steam distilled,"USDA AMS (petición, MSDS)"
+MAT-mirra-aceite-esencial,"Mirra, aceite esencial",form,aceite esencial,https://ams.prod.usda.gov/sites/default/files/media/Myrrh%20Oil.pdf,steam distilled into essential oil,"USDA AMS (petición, MSDS)"
+MAT-mirra-aceite-esencial,"Mirra, aceite esencial",origin,"Noreste de África y suroeste de Asia (Yemen, Etiopía, Somalia)",https://ams.prod.usda.gov/sites/default/files/media/Myrrh%20Oil.pdf,Grows wild as a shrub in northeast Africa and southwest Asia,"USDA AMS (petición, MSDS)"
+MAT-mirra-aceite-esencial,"Mirra, aceite esencial",synthesis,natural,,,propuesta de la sesión
+MAT-mirra-aceite-esencial,"Mirra, aceite esencial",descriptor,"MSDS (USDA AMS): Warm, spicy, balsamic",https://ams.prod.usda.gov/sites/default/files/media/Myrrh%20Oil.pdf,"Warm, spicy, balsamic","USDA AMS (petición, MSDS)"
+MAT-mirra-aceite-esencial,"Mirra, aceite esencial",descriptor,"Wikipedia (citada en la petición USDA): sharp, pleasant, somewhat bitter",https://ams.prod.usda.gov/sites/default/files/media/Myrrh%20Oil.pdf,"sharp, pleasant, somewhat bitter","USDA AMS (petición, MSDS)"
+MAT-mirra-aceite-esencial,"Mirra, aceite esencial",descriptor,Firmenich (en TGSC): a deep balsamic and ambery facet with a typical liquorice effect,https://thegoodscentscompany.com/data/es1002061.html,a deep balsamic and ambery facet with a typical liquorice effect,TGSC
+MAT-mirra-aceite-esencial,"Mirra, aceite esencial",handling,"El producto sin diluir puede irritar piel y ojos; guardar en envases cerrados, lugar fresco y seco, lejos de fuentes de ignición, calor y luz solar; evitar oxidantes fuertes; punto de inflamación 212 F",https://ams.prod.usda.gov/sites/default/files/media/Myrrh%20Oil.pdf,Flash point is 212F,"USDA AMS (petición, MSDS)"
+MAT-mirra-aceite-esencial,"Mirra, aceite esencial",physical_state,Líquido,https://ams.prod.usda.gov/sites/default/files/media/Myrrh%20Oil.pdf,Brown-red liquid,"USDA AMS (petición, MSDS)"
+MAT-mirra-aceite-esencial,"Mirra, aceite esencial",appearance,Brown-red liquid,https://ams.prod.usda.gov/sites/default/files/media/Myrrh%20Oil.pdf,Brown-red liquid,"USDA AMS (petición, MSDS)"
+MAT-mirra-aceite-esencial,"Mirra, aceite esencial",density,1.0100,https://ams.prod.usda.gov/sites/default/files/media/Myrrh%20Oil.pdf,Specific gravity 1.0100 to 1.0350 (water = 1.0),"USDA AMS (petición, MSDS)"
+MAT-mirra-aceite-esencial,"Mirra, aceite esencial",solubility,No soluble en agua,https://ams.prod.usda.gov/sites/default/files/media/Myrrh%20Oil.pdf,Not soluble in water,"USDA AMS (petición, MSDS)"
+MAT-mirra-aceite-esencial,"Mirra, aceite esencial",incompatibilities,Materiales fuertemente oxidantes,https://ams.prod.usda.gov/sites/default/files/media/Myrrh%20Oil.pdf,Avoid strong oxidizing materials,"USDA AMS (petición, MSDS)"
+MAT-mirra-aceite-esencial,"Mirra, aceite esencial",notes,"Solo hay una fuente (petición/MSDS del USDA AMS, no de perfumería): no hay datos de tenacidad ni dosis. Perfumiarz no consultado.",https://ams.prod.usda.gov/sites/default/files/media/Myrrh%20Oil.pdf,,"USDA AMS (petición, MSDS)"
+MAT-mirra-aceite-esencial,"Mirra, aceite esencial",aliases,Commiphora myrrha oil,https://thegoodscentscompany.com/data/es1002061.html,Commiphora myrrha oil,TGSC
+MAT-mirra-aceite-esencial,"Mirra, aceite esencial",descriptor,Odor Type (TGSC): balsamic,https://thegoodscentscompany.com/data/es1002061.html,Has a balsamic type odor and an balsamic type flavor.,TGSC
+MAT-shangralide,Shangralide,aliases,Shangralide Oliffac 0712,https://www.scentspiracy.com/bases/p/shangralide,Shangralide® (also listed as Shangralide Oliffac 0712),Scentspiracy
+MAT-shangralide,Shangralide,aliases,Shangralide Oliffac,https://www.thegoodscentscompany.com/data/pb1052301.html,Shangralide Oliffac (Pell Wall Perfumes),TGSC
+MAT-shangralide,Shangralide,code,Oliffac 0712,https://fraterworks.com/products/shangralide,"Shangralide Oliffac (code 0712, from the SDS filename)",Fraterworks
+MAT-shangralide,Shangralide,house,IFF,https://www.thegoodscentscompany.com/data/pb1052301.html,shangralide (IFF),TGSC
+MAT-shangralide,Shangralide,form,base,https://www.scentspiracy.com/bases/p/shangralide,"Proprietary musk base, Fragrance Bases category",Scentspiracy
+MAT-shangralide,Shangralide,cas,Mixture (sin CAS),https://fraterworks.com/products/shangralide,CAS: Mixture,Fraterworks
+MAT-shangralide,Shangralide,synthesis,synthetic,,,propuesta de la sesión
+MAT-shangralide,Shangralide,descriptor,Odor Type (Fraterworks): Musky,https://fraterworks.com/products/shangralide,Odour family: Musky,Fraterworks
+MAT-shangralide,Shangralide,descriptor,Odor Type (TGSC): musk,https://www.thegoodscentscompany.com/data/pb1052301.html,Odor Type: musk,TGSC
+MAT-shangralide,Shangralide,family,animal,,,propuesta de la sesión
+MAT-shangralide,Shangralide,family_detail,"animal (almizcle de ciervo, cuero)",,,propuesta de la sesión
+MAT-shangralide,Shangralide,descriptor,"Fraterworks: opens with a feral, leathery-animalic top, moves to a honeyed, powdery musk heart, and dries down creamy and skin-like, similar to natural deer musk tincture",https://fraterworks.com/products/shangralide,"feral, leathery-animalic top, moves to a honeyed, powdery musk heart",Fraterworks
+MAT-shangralide,Shangralide,descriptor,"Fraterworks (puro): smells phenolic, like wet animal hide",https://fraterworks.com/products/shangralide,"Neat, it smells phenolic, like wet animal hide",Fraterworks
+MAT-shangralide,Shangralide,descriptor,"Scentspiracy: sensual, sweet deer-musk analogue with leathery, slightly dirty nuances",https://www.scentspiracy.com/bases/p/shangralide,"sensual, sweet deer-musk analogue with leathery, slightly dirty nuances",Scentspiracy
+MAT-shangralide,Shangralide,descriptor,TGSC (al 100 %): musk,https://www.thegoodscentscompany.com/data/pb1052301.html,at 100.00 %. musk,TGSC
+MAT-shangralide,Shangralide,descriptor,"Pell Wall Perfumes (en TGSC): musk, animalic, leathery, sweet. Basado en Galaxolide, ajustado para ser más animálico",https://www.thegoodscentscompany.com/data/pb1052301.html,"musk, animalic, leathery, sweet",TGSC
+MAT-shangralide,Shangralide,descriptor,"Perfumer Supply House (en TGSC): sensual sweet, musk, animalic with a leather nuance",https://www.thegoodscentscompany.com/data/pb1052301.html,"sensual sweet, musk, animalic with a leather nuance",TGSC
+MAT-shangralide,Shangralide,descriptor,"Perfumery Laboratory (en TGSC): warm musk, animalistic, leathery, sweet",https://www.thegoodscentscompany.com/data/pb1052301.html,"warm musk, animalistic, leathery, sweet",TGSC
+MAT-shangralide,Shangralide,descriptor,"Ventos (en TGSC): musk, animal, leather",https://www.thegoodscentscompany.com/data/pb1052301.html,"musk, animal, leather",TGSC
+MAT-shangralide,Shangralide,facets,"almizcle, animal, cuero, miel, empolvada, cremosa, fenólica",,,propuesta de la sesión
+MAT-shangralide,Shangralide,tier,base,https://fraterworks.com/products/shangralide,Base Note,Fraterworks
+MAT-shangralide,Shangralide,notes,"Tenacidad: «>260» h, sin cifra exacta.",https://fraterworks.com/products/shangralide,Lasts > 260 hours on a smelling strip,Fraterworks
+MAT-shangralide,Shangralide,strength,high,https://www.scentspiracy.com/bases/p/shangralide,odor strength is listed as strong,Scentspiracy
+MAT-shangralide,Shangralide,blend_effect,"Fraterworks: fijador de almizcle animal para chypre, cuero y orientales, y para redondear florales ásperos y bases amaderadas; 'seductive and intimate below one percent'",https://fraterworks.com/products/shangralide,seductive and intimate below one percent,Fraterworks
+MAT-shangralide,Shangralide,role,fixative,https://www.scentspiracy.com/bases/p/shangralide,marketed as a strong fixative,Scentspiracy
+MAT-shangralide,Shangralide,handling,"Solo uso profesional; no aplicar sin diluir sobre la piel; UN 3082; macerar alcohólicos hasta un mes, enfriar y filtrar",https://fraterworks.com/products/shangralide,UN 3082,Fraterworks
+MAT-shangralide,Shangralide,physical_state,Líquido,https://www.thegoodscentscompany.com/data/pb1052301.html,colorless to amber yellow clear liquid (est),TGSC
+MAT-shangralide,Shangralide,appearance,Scentspiracy: Colourless liquid (Fraterworks); colourless-pale-yellow clear liquid (Scentspiracy) · TGSC: colorless to amber yellow clear liquid (est),https://www.scentspiracy.com/bases/p/shangralide,colourless-pale-yellow clear liquid | colorless to amber yellow clear liquid (est),Scentspiracy + TGSC
+MAT-shangralide,Shangralide,stability,Alta estabilidad oxidativa,https://www.scentspiracy.com/bases/p/shangralide,high oxidative stability,Scentspiracy
+MAT-shangralide,Shangralide,notes,"Composición: Fraterworks 'built on a Galaxolide skeleton, with trace phenylacetic acid and other animalic modifiers'; Scentspiracy 'approximately 55% hexamethyl-indanopyran (HHCB, also called Galaxolide), dissolved in dipropylene glycol'. Ninguna fuente da dosis min/tipica/max. Resumen hecho con la herramienta de lectura.",https://www.scentspiracy.com/bases/p/shangralide,Approximately 55% hexamethyl-indanopyran,Scentspiracy
+MAT-shangralide,Shangralide,notes,TGSC: not for flavor use,https://www.thegoodscentscompany.com/data/pb1052301.html,not for flavor use,TGSC
+MAT-shangralide,Shangralide,density,0.98000,https://www.thegoodscentscompany.com/data/pb1052301.html,0.98000 to 1.05600 @ 25.00 °C.,TGSC
+MAT-shangralide,Shangralide,solubility,Soluble in alcohol; insoluble in water,https://www.thegoodscentscompany.com/data/pb1052301.html,Soluble in alcohol; insoluble in water,TGSC
+MAT-prunella,Prunella,aliases,Prunella®,https://fraterworks.com/products/prunella,Prunella®,Fraterworks
+MAT-prunella,Prunella,aliases,Prune Fleuressence (PerfumersWorld),https://www.thegoodscentscompany.com/data/pb1055021.html,Prune Fleuressence (PerfumersWorld),TGSC
+MAT-prunella,Prunella,aliases,Prunella Augaflor 26 (Augustus),https://www.thegoodscentscompany.com/data/pb1055021.html,Prunella Augaflor 26 (Augustus),TGSC
+MAT-prunella,Prunella,aliases,Prunellarome,https://www.thegoodscentscompany.com/data/pb1055021.html,Prunellarome,TGSC
+MAT-prunella,Prunella,aliases,Prunellor,https://www.thegoodscentscompany.com/data/pb1055021.html,Prunellor,TGSC
+MAT-prunella,Prunella,aliases,Prunol N DB10027,https://www.thegoodscentscompany.com/data/pb1055021.html,Prunol N DB10027,TGSC
+MAT-prunella,Prunella,code,975617,https://www.thegoodscentscompany.com/data/pb1055021.html,"Prunella (Firmenich), code 975617",TGSC
+MAT-prunella,Prunella,house,Firmenich,https://www.thegoodscentscompany.com/data/pb1055021.html,"Prunella (Firmenich), code 975617",TGSC
+MAT-prunella,Prunella,form,base (TGSC: 'prune specialty'),https://www.thegoodscentscompany.com/data/pb1055021.html,prune specialty,TGSC
+MAT-prunella,Prunella,synthesis,synthetic,https://studio.dsm-firmenich.com/product/prunellar-pe-975617,Technology: Synthetic Base,dsm-firmenich
+MAT-prunella,Prunella,descriptor,Odor Type (dsm-firmenich): Fruity,https://studio.dsm-firmenich.com/product/prunellar-pe-975617,Olfactive family: Fruity,dsm-firmenich
+MAT-prunella,Prunella,descriptor,Odor Type (TGSC): fruity,https://www.thegoodscentscompany.com/data/pb1055021.html,Odor Type: Fruity,TGSC
+MAT-prunella,Prunella,family,fruity,https://studio.dsm-firmenich.com/product/prunellar-pe-975617,Olfactive family: Fruity,dsm-firmenich
+MAT-prunella,Prunella,family_detail,"frutal (ciruela madura, fruta seca)",,,propuesta de la sesión
+MAT-prunella,Prunella,descriptor,"dsm-firmenich: Fruity, dried-fruits, coconut. A powerful and complex note reminiscent of the odor of ripe plums",https://studio.dsm-firmenich.com/product/prunellar-pe-975617,A powerful and complex note reminiscent of the odor of ripe plums,dsm-firmenich
+MAT-prunella,Prunella,descriptor,"Fraterworks: powerful, complex note of ripe plums with dried fruit sweetness",https://fraterworks.com/products/prunella,"powerful, complex note of ripe plums with dried fruit sweetness",Fraterworks
+MAT-prunella,Prunella,descriptor,TGSC (al 100 %): ripe plum prune,https://www.thegoodscentscompany.com/data/pb1055021.html,ripe plum prune,TGSC
+MAT-prunella,Prunella,descriptor,"Firmenich (en TGSC): Fruity, dried-fruits, coconut",https://www.thegoodscentscompany.com/data/pb1055021.html,"Fruity, dried-fruits, coconut",TGSC
+MAT-prunella,Prunella,descriptor,Firmenich (en TGSC): It brings fruity aspect just in between peach and plum with a smooth velvety effect.,https://www.thegoodscentscompany.com/data/pb1055021.html,It brings fruity aspect just in between peach and plum with a smooth velvety effect.,TGSC
+MAT-prunella,Prunella,descriptor,PerfumersWorld (en TGSC): Prune deep dark rich sweet fruity wet,https://www.thegoodscentscompany.com/data/pb1055021.html,Prune deep dark rich sweet fruity wet,TGSC
+MAT-prunella,Prunella,descriptor,"Ventos (en TGSC): POWERFUL, RIPE PLUMS",https://www.thegoodscentscompany.com/data/pb1055021.html,"POWERFUL, RIPE PLUMS",TGSC
+MAT-prunella,Prunella,descriptor,Perfumery Laboratory (en TGSC): Bright aromas of ripe plum fruit with a hint of prunes,https://www.thegoodscentscompany.com/data/pb1055021.html,Bright aromas of ripe plum fruit with a hint of prunes,TGSC
+MAT-prunella,Prunella,descriptor,"Augustus (en TGSC): A useful, long lasting odour with fruity undertones",https://www.thegoodscentscompany.com/data/pb1055021.html,"A useful, long lasting odour with fruity undertones",TGSC
+MAT-prunella,Prunella,facets,"ciruela madura, fruta seca, coco, melocotón, aterciopelada",,,propuesta de la sesión
+MAT-prunella,Prunella,tier,heart,https://fraterworks.com/products/prunella,classified as a heart note,Fraterworks
+MAT-prunella,Prunella,notes,"Tenacidad: «>24» h, sin cifra exacta.",https://fraterworks.com/products/prunella,Lasts > 24 hours on a smelling strip.,Fraterworks
+MAT-prunella,Prunella,strength,high,https://fraterworks.com/products/prunella,"powerful, complex note of ripe plums",propuesta de la sesión
+MAT-prunella,Prunella,diffusion,The impact is direct,https://studio.dsm-firmenich.com/product/prunellar-pe-975617,The impact is direct,dsm-firmenich
+MAT-prunella,Prunella,blend_effect,"dsm-firmenich: entre melocotón y ciruela, con efecto suave aterciopelado: just in between peach and plum with a smooth velvety effect",https://studio.dsm-firmenich.com/product/prunellar-pe-975617,just in between peach and plum with a smooth velvety effect,dsm-firmenich
+MAT-prunella,Prunella,role,modifier,,,propuesta de la sesión
+MAT-prunella,Prunella,dose_min,0.0003,https://fraterworks.com/products/prunella,Minimum 0.03%,Fraterworks
+MAT-prunella,Prunella,dose_typical,0.008,https://fraterworks.com/products/prunella,median 0.8%,Fraterworks
+MAT-prunella,Prunella,dose_max,0.015,https://fraterworks.com/products/prunella,maximum 1.5%,Fraterworks
+MAT-prunella,Prunella,handling,Flash point 100 C / 212 F; solo uso profesional; no aplicar sin diluir sobre la piel,https://studio.dsm-firmenich.com/product/prunellar-pe-975617,Flashpoint is 100 C / 212 F,dsm-firmenich
+MAT-prunella,Prunella,physical_state,Líquido,https://www.thegoodscentscompany.com/data/pb1055021.html,Colorless to pale yellow clear liquid (estimated),TGSC
+MAT-prunella,Prunella,appearance,Fraterworks: Clear liquid · TGSC: colorless to pale yellow clear liquid (est),https://fraterworks.com/products/prunella,Clear liquid | colorless to pale yellow clear liquid (est),Fraterworks + TGSC
+MAT-prunella,Prunella,notes,"dsm-firmenich da 'Tenacity: 9' (sin unidad ni escala) y lo llama 'Molecule' con tecnología 'Synthetic Base'; certificado Kosher y Halal. Dosis: Fraterworks, % del concentrado en perfumes analizados. Identidad: ambas páginas llevan el código 975617 y 'Prunella'. Resúmenes hechos con la herramienta de lectura.",https://studio.dsm-firmenich.com/product/prunellar-pe-975617,Tenacity: 9,dsm-firmenich
+MAT-prunella,Prunella,density,1.01000,https://www.thegoodscentscompany.com/data/pb1055021.html,1.01000 to 1.03000 at 25.00 °C,TGSC
+MAT-prunella,Prunella,solubility,Soluble in alcohol; insoluble in water,https://www.thegoodscentscompany.com/data/pb1055021.html,Soluble in alcohol. Insoluble in water.,TGSC
+MAT-para-cresol,Para-cresol,aliases,4-Methylphenol,https://en.wikipedia.org/wiki/P-Cresol,4-Methylphenol (preferred IUPAC name); para-Cresol; p-Cresol,Wikipedia
+MAT-para-cresol,Para-cresol,aliases,p-Cresol,https://en.wikipedia.org/wiki/P-Cresol,para-Cresol; p-Cresol,Wikipedia
+MAT-para-cresol,Para-cresol,aliases,4-hydroxytoluene,https://www.thegoodscentscompany.com/data/rw1003851.html,"4-hydroxytoluene, p-cresol, 4-cresol",TGSC
+MAT-para-cresol,Para-cresol,cas,106-44-5,https://www.thegoodscentscompany.com/data/rw1003851.html,"para-cresol, 106-44-5",TGSC
+MAT-para-cresol,Para-cresol,form,molécula,https://www.scentspiracy.com/fragrance-ingredients/p/paracresol,"Paracresol (CAS 106-44-5), chemically identified as 4-methylphenol",Scentspiracy
+MAT-para-cresol,Para-cresol,house,Multiple producers,https://www.scentspiracy.com/fragrance-ingredients/p/paracresol,Multiple producers,Scentspiracy
+MAT-para-cresol,Para-cresol,descriptor,"Odor Type (Scentspiracy): Phenolic, animalic-floral with medicinal and leathery facets",https://www.scentspiracy.com/fragrance-ingredients/p/paracresol,"Phenolic, animalic-floral with medicinal and leathery facets",Scentspiracy
+MAT-para-cresol,Para-cresol,descriptor,Odor Type (TGSC): phenolic,https://www.thegoodscentscompany.com/data/rw1003851.html,Odor Type: phenolic,TGSC
+MAT-para-cresol,Para-cresol,family,animal,,,propuesta de la sesión
+MAT-para-cresol,Para-cresol,family_detail,"animal (fenólica, cuero, medicinal)",,,propuesta de la sesión
+MAT-para-cresol,Para-cresol,descriptor,"Scentspiracy (alta concentración): intensely phenolic, animalic, and medicinal",https://www.scentspiracy.com/fragrance-ingredients/p/paracresol,"intensely phenolic, animalic, and medicinal",Scentspiracy
+MAT-para-cresol,Para-cresol,descriptor,"Scentspiracy (dilución extrema, <0.05%): delicate notes of narcissus, mimosa, ylang-ylang, and jasmine",https://www.scentspiracy.com/fragrance-ingredients/p/paracresol,"delicate notes of narcissus, mimosa, ylang-ylang, and jasmine",Scentspiracy
+MAT-para-cresol,Para-cresol,descriptor,Wikipedia: intense odour imparts an animalic character,https://en.wikipedia.org/wiki/P-Cresol,intense odour imparts an animalic character,Wikipedia
+MAT-para-cresol,Para-cresol,descriptor,"TGSC (al 0,10 % en DPG): phenolic narcissus animal mimosa",https://www.thegoodscentscompany.com/data/rw1003851.html,at 0.10 % in dipropylene glycol. phenolic narcissus animal mimosa,TGSC
+MAT-para-cresol,Para-cresol,descriptor,"Prodasynth (en TGSC): PHENOL, ANIMALIC, NARCISSUS, MIMOSA",https://www.thegoodscentscompany.com/data/rw1003851.html,"PHENOL, ANIMALIC, NARCISSUS, MIMOSA",TGSC
+MAT-para-cresol,Para-cresol,descriptor,"Moellhausen (en TGSC): powerful phenolic, on dilution floral, somewhat daffodil-like",https://www.thegoodscentscompany.com/data/rw1003851.html,"powerful phenolic, on dilution floral, somewhat daffodil-like",TGSC
+MAT-para-cresol,Para-cresol,descriptor,"Vigon (en TGSC): TARRY-SMOKY, MEDICINAL, PHENOLIC",https://www.thegoodscentscompany.com/data/rw1003851.html,"TARRY-SMOKY, MEDICINAL, PHENOLIC",TGSC
+MAT-para-cresol,Para-cresol,descriptor,Sigma-Aldrich (en TGSC): Odor: medicinal,https://www.thegoodscentscompany.com/data/rw1003851.html,Odor: medicinal,TGSC
+MAT-para-cresol,Para-cresol,facets,"fenólica, animal, medicinal, cuero, narciso, mimosa, ylang-ylang",,,propuesta de la sesión
+MAT-para-cresol,Para-cresol,notes,"Tenacidad: «>400» h, sin cifra exacta.",https://www.scentspiracy.com/fragrance-ingredients/p/paracresol,persisting on blotters for over 400 hours,Scentspiracy
+MAT-para-cresol,Para-cresol,strength,high,https://www.thegoodscentscompany.com/data/rw1003851.html,"high , recommend smelling in a 0.10 % solution or less",TGSC
+MAT-para-cresol,Para-cresol,role,trace,,,propuesta de la sesión
+MAT-para-cresol,Para-cresol,recommended_dilution,Scentspiracy: 1-10% en dipropilenglicol o miristato de isopropilo · TGSC: 0.10 % o menos,https://www.scentspiracy.com/fragrance-ingredients/p/paracresol,typically 1-10% in dipropylene glycol or isopropyl myristate | recommend smelling in a 0.10 % solution or less,Scentspiracy + TGSC
+MAT-para-cresol,Para-cresol,dose_min,0.00001,https://www.scentspiracy.com/fragrance-ingredients/p/paracresol,Typical usage ranges from 0.001% to 0.05%,Scentspiracy
+MAT-para-cresol,Para-cresol,dose_max,0.0005,https://www.thegoodscentscompany.com/data/rw1003851.html,0.0500 % in the fragrance concentrate.,TGSC
+MAT-para-cresol,Para-cresol,handling,"Wikipedia: Wikipedia: Danger; GHS05, GHS06, GHS08; H311, H314, H351, H370, H372, H373; flash point 86.1 C. Scentspiracy: guantes resistentes a químicos, gafas, bata; envases de vidrio ámbar bien cerrados; corrosivo concentrado, usar ventilación o campana · TGSC: Danger; H301 y H311 (tóxico por ingestión y contacto con la piel, cat. 3), H314 (corrosión cutánea 1B), H401/H411 (acuático); flash point 89.44 °C (193 °F TCC)",https://en.wikipedia.org/wiki/P-Cresol,"May be fatal if swallowed, inhaled, or absorbed through skin. | Flash Point: 193.00 °F. TCC ( 89.44 °C. )",Wikipedia + TGSC
+MAT-para-cresol,Para-cresol,physical_state,Sólido,https://www.thegoodscentscompany.com/data/rw1003851.html,white crystals (est),TGSC
+MAT-para-cresol,Para-cresol,appearance,Wikipedia: colorless prismatic crystals (Wikipedia); White to pale yellow crystals or colorless to light yellow liquid (Scentspiracy) · TGSC: white crystals (est),https://en.wikipedia.org/wiki/P-Cresol,colorless prismatic crystals | white crystals (est),Wikipedia + TGSC
+MAT-para-cresol,Para-cresol,solubility,Wikipedia: Agua: 2.4 g/100 mL a 40 C; 5.3 g/100 mL a 100 C; etanol y dietil éter: miscible · TGSC: Soluble in alcohol; water 2.15E+04 mg/L @ 25 °C (exp),https://en.wikipedia.org/wiki/P-Cresol,"Ethanol and diethyl ether: miscible | water, 2.15E+04 mg/L @ 25 °C (exp)",Wikipedia + TGSC
+MAT-para-cresol,Para-cresol,density,1.0347,https://en.wikipedia.org/wiki/P-Cresol,Density 1.0347 g/mL,Wikipedia
+MAT-para-cresol,Para-cresol,melting_point_c,32.00,https://www.thegoodscentscompany.com/data/rw1003851.html,32.00 to 35.00 °C. @ 760.00 mm Hg,TGSC
+MAT-para-cresol,Para-cresol,notes,melting_point_c: Wikipedia da «35.5».,https://en.wikipedia.org/wiki/P-Cresol,Melting point 35.5 C,Wikipedia
+MAT-para-cresol,Para-cresol,formula,C7 H8 O,https://www.thegoodscentscompany.com/data/rw1003851.html,C7 H8 O,TGSC
+MAT-para-cresol,Para-cresol,molecular_weight,108.13996,https://www.thegoodscentscompany.com/data/rw1003851.html,108.13996000,TGSC
+MAT-para-cresol,Para-cresol,vapor_pressure,0.110000 mmHg @ 25.00 °C,https://www.thegoodscentscompany.com/data/rw1003851.html,0.110000 mmHg @ 25.00 °C.,TGSC
+MAT-para-cresol,Para-cresol,stability,"Muy estable en soluciones alcohólicas, aceites de perfume y bases funcionales",https://www.scentspiracy.com/fragrance-ingredients/p/paracresol,"highly stable in alcoholic solutions, perfume oils, and functional bases",Scentspiracy
+MAT-para-cresol,Para-cresol,notes,Scentspiracy da punto de fusión 31-35 C y dosis 'typical usage' en perfume terminado (no es dosis del concentrado explícita). Punto de ebullición Wikipedia 201.8 C. Perfumiarz no consultado; la dilución en IPM de la lista no se ha contrastado.,https://www.scentspiracy.com/fragrance-ingredients/p/paracresol,melting point 31-35C,Scentspiracy
+MAT-para-cresol,Para-cresol,notes,Substantivity en TGSC: 400 h al 10 % en DPG (no es del material puro),https://www.thegoodscentscompany.com/data/rw1003851.html,400 hour(s) at 10.00 % in dipropylene glycol,TGSC
+MAT-para-cresol,Para-cresol,blend_effect,"PerfumersWorld (en TGSC): blends well with Cananga, Castoreum",https://www.thegoodscentscompany.com/data/rw1003851.html,Blends-well-with - +Cananga +Castoreum,TGSC
+MAT-orris-givco,Orris Givco,aliases,Orris Givco 204/2/20 - Givaudan,https://thefragrancefoundry.com/products/orris-givco-204-2-20-givaudan,Orris Givco 204/2/20 - Givaudan,The Fragrance Foundry
+MAT-orris-givco,Orris Givco,code,204/2/20,https://thefragrancefoundry.com/products/orris-givco-204-2-20-givaudan,Code 204/2/20,The Fragrance Foundry
+MAT-orris-givco,Orris Givco,house,Givaudan,https://thefragrancefoundry.com/products/orris-givco-204-2-20-givaudan,Givaudan Base,The Fragrance Foundry
+MAT-orris-givco,Orris Givco,form,base,https://thefragrancefoundry.com/products/orris-givco-204-2-20-givaudan,Givaudan Base,The Fragrance Foundry
+MAT-orris-givco,Orris Givco,synthesis,synthetic,https://thefragrancefoundry.com/products/orris-givco-204-2-20-givaudan,contains captive Givaudan molecules,propuesta de la sesión
+MAT-orris-givco,Orris Givco,descriptor,The Fragrance Foundry: recreates natural orris and captures the woody-ionone character of orris well with a hyper-palatable execution,https://thefragrancefoundry.com/products/orris-givco-204-2-20-givaudan,captures the woody-ionone character of orris well with a hyper-palatable execution,The Fragrance Foundry
+MAT-orris-givco,Orris Givco,family,floral,,,propuesta de la sesión
+MAT-orris-givco,Orris Givco,family_detail,"iris (ionona, amaderada)",,,propuesta de la sesión
+MAT-orris-givco,Orris Givco,facets,"iris, ionona, amaderada, polvo, raíz",,,propuesta de la sesión
+MAT-orris-givco,Orris Givco,tier,heart_base,https://thefragrancefoundry.com/products/orris-givco-204-2-20-givaudan,Mid / Base Note,The Fragrance Foundry
+MAT-orris-givco,Orris Givco,role,structure,,,propuesta de la sesión
+MAT-orris-givco,Orris Givco,handling,"May cause an allergic skin reaction. Toxic to aquatic life with long lasting effects; evitar vapores y niebla, guantes; solo uso de perfumista; no ingerir",https://thefragrancefoundry.com/products/orris-givco-204-2-20-givaudan,May cause an allergic skin reaction. Toxic to aquatic life with long lasting effects.,The Fragrance Foundry
+MAT-orris-givco,Orris Givco,physical_state,Líquido,https://thefragrancefoundry.com/products/orris-givco-204-2-20-givaudan,Liquid,The Fragrance Foundry
+MAT-orris-givco,Orris Givco,notes,"Una sola fuente (tienda reseller no oficial). CAS ilegible en la página; sin dosis ni tenacidad en horas. 'Contains captive Givaudan molecules, making it difficult to replace.' Resumen con herramienta de lectura.",https://thefragrancefoundry.com/products/orris-givco-204-2-20-givaudan,"contains captive Givaudan molecules, making it difficult to replace",The Fragrance Foundry
+MAT-clearwood,Clearwood,aliases,Clearwood®,https://fraterworks.com/products/clearwood,Clearwood®,Fraterworks
+MAT-clearwood,Clearwood,aliases,clearwood (Firmenich),https://www.thegoodscentscompany.com/data/rw1085861.html,clearwood (Firmenich),TGSC
+MAT-clearwood,Clearwood,cas,1450625-49-6,https://www.thegoodscentscompany.com/data/rw1085861.html,"clearwood (Firmenich), CAS 1450625-49-6",TGSC
+MAT-clearwood,Clearwood,other_cas,84238-39-1 (EU/China/Taiwan; el 1450625-49-6 para US/CA/KR/AU/PH),https://scentspiracy.com/fragrance-ingredients/p/clearwood,84238-39-1 (EU/China/Taiwan); 1450625-49-6 (US/CA/KR/AU/PH),Scentspiracy
+MAT-clearwood,Clearwood,other_cas,84238-39-1,https://www.thegoodscentscompany.com/data/es1093311.html,"Pogostemon cablin leaf oil (trade name CLEARWOOD, Firmenich), CAS 84238-39-1",TGSC
+MAT-clearwood,Clearwood,house,Firmenich,https://www.thegoodscentscompany.com/data/rw1085861.html,clearwood (Firmenich),TGSC
+MAT-clearwood,Clearwood,form,aislado natural (base de patchoulol); ingrediente biotecnológico no monocompuesto,https://fraterworks.com/products/clearwood,Natural Isolate; classification: Base Note,Fraterworks
+MAT-clearwood,Clearwood,notes,"Natural o sintético, sin decidir: Fraterworks lo llama aislado natural y Scentspiracy sintético; las dos dicen que sale por fermentación (biotecnología).",https://fraterworks.com/products/clearwood,,propuesta de la sesión
+MAT-clearwood,Clearwood,origin,Suiza,https://fraterworks.com/products/clearwood,Country of origin Switzerland,Fraterworks
+MAT-clearwood,Clearwood,process,Biotecnología blanca / fermentación de materias primas azucaradas,https://scentspiracy.com/fragrance-ingredients/p/clearwood,produced via fermentation of sugar feedstocks,Scentspiracy
+MAT-clearwood,Clearwood,isomers,No es compuesto único (sin nombre IUPAC); rico en patchoulol; mezcla natural de moléculas del pachulí. Aprox. la mitad de fuerza que Patchoulol Crystals PA99,https://fraterworks.com/products/clearwood,a natural blend of a selection of the preferred molecules found in natural patchouli,Fraterworks
+MAT-clearwood,Clearwood,descriptor,Odor Type (Fraterworks): Woody,https://fraterworks.com/products/clearwood,Odour family: Woody,Fraterworks
+MAT-clearwood,Clearwood,descriptor,Odor Type (TGSC): woody,https://www.thegoodscentscompany.com/data/rw1085861.html,Odor Type: woody,TGSC
+MAT-clearwood,Clearwood,family,woody,https://fraterworks.com/products/clearwood,Odour family: Woody,Fraterworks
+MAT-clearwood,Clearwood,family_detail,"amaderada (pachulí suave, ámbar)",,,propuesta de la sesión
+MAT-clearwood,Clearwood,descriptor,"Fraterworks: rich, warm woody scent with creamy patchouli-like notes and a subtle amber sweetness",https://fraterworks.com/products/clearwood,"rich, warm woody scent with creamy patchouli-like notes and a subtle amber sweetness",Fraterworks
+MAT-clearwood,Clearwood,descriptor,"Scentspiracy: Woody, amber, musky; soft patchouli nuance; clean, transparent, long-lasting",https://scentspiracy.com/fragrance-ingredients/p/clearwood,"Woody, amber, musky; soft patchouli nuance; clean, transparent, long-lasting",Scentspiracy
+MAT-clearwood,Clearwood,descriptor,TGSC (al 100 %): patchouli woody clean creamy amber,https://www.thegoodscentscompany.com/data/rw1085861.html,at 100.00 %. patchouli woody clean creamy amber,TGSC
+MAT-clearwood,Clearwood,descriptor,"Firmenich (en TGSC): Soft, clean version of patchouli without the earthy, leathery and rubbery",https://www.thegoodscentscompany.com/data/rw1085861.html,"Soft, clean version of patchouli without the earthy, leathery and rubbery",TGSC
+MAT-clearwood,Clearwood,descriptor,"Pell Wall Perfumes (en TGSC, ficha del aceite de pachuli Clearwood): un 'clean' smelling natural facsimile of patchouli",https://www.thegoodscentscompany.com/data/es1093311.html,clean smelling natural facsimile of patchouli,TGSC
+MAT-clearwood,Clearwood,descriptor,"Perfumery Laboratory (en TGSC, ficha del aceite de pachuli Clearwood): bright, mild patchouli aroma, slightly earthy and leathery",https://www.thegoodscentscompany.com/data/es1093311.html,"bright mild patchouli aroma, slightly earthy and leathery",TGSC
+MAT-clearwood,Clearwood,facets,"amaderada, pachulí suave, ámbar, almizclada, cremosa, limpia, transparente",,,propuesta de la sesión
+MAT-clearwood,Clearwood,tier,base,https://fraterworks.com/products/clearwood,Base Note,Fraterworks
+MAT-clearwood,Clearwood,tenacity_hours,168,https://www.thegoodscentscompany.com/data/rw1085861.html,168 hour(s) at 100.00 %,TGSC
+MAT-clearwood,Clearwood,notes,tenacity_hours: Fraterworks da «>180».,https://fraterworks.com/products/clearwood,Lasts > 180 hours on a smelling strip.,Fraterworks
+MAT-clearwood,Clearwood,blend_effect,Fraterworks: Fraterworks: Use it in traces up to overdose · TGSC: Firmenich (en TGSC): can be used like patchouli or as a new woody building block at higher dosages,https://fraterworks.com/products/clearwood,Use it in traces up to overdose | can be used like patchouli or as a new woody building block at higher dosages.,Fraterworks + TGSC
+MAT-clearwood,Clearwood,role,structure,,,propuesta de la sesión
+MAT-clearwood,Clearwood,dose_min,0.001,https://fraterworks.com/products/clearwood,Minimum observed: 0.1%,Fraterworks
+MAT-clearwood,Clearwood,dose_typical,0.0015,https://fraterworks.com/products/clearwood,Median in formula: 0.15%,Fraterworks
+MAT-clearwood,Clearwood,dose_max,0.002,https://fraterworks.com/products/clearwood,Maximum observed: 0.2%,Fraterworks
+MAT-clearwood,Clearwood,handling,"Solo uso profesional; no aplicar sin diluir sobre la piel. Scentspiracy: punto de inflamación >100 C, no clasificado como inflamable",https://scentspiracy.com/fragrance-ingredients/p/clearwood,"Flashpoint above 100 C, not classed as flammable",Scentspiracy
+MAT-clearwood,Clearwood,physical_state,Líquido,https://fraterworks.com/products/clearwood,Colourless liquid,Fraterworks
+MAT-clearwood,Clearwood,appearance,Scentspiracy: Colourless liquid (Fraterworks); pale yellow to yellow liquid (Scentspiracy) · TGSC: colorless to pale yellow clear liquid (est) (ficha del aceite de pachuli Clearwood),https://scentspiracy.com/fragrance-ingredients/p/clearwood,Pale yellow to yellow liquid | colorless to pale yellow clear liquid (est),Scentspiracy + TGSC
+MAT-clearwood,Clearwood,stability,Alta estabilidad de color; baja coloración y buena solubilidad en perfumería funcional,https://scentspiracy.com/fragrance-ingredients/p/clearwood,low coloration and good solubility,Scentspiracy
+MAT-clearwood,Clearwood,notes,"Contradicción entre fuentes: Fraterworks 'all-natural / Natural Isolate / white biotechnology'; Scentspiracy 'Synthetic, biotech-derived'. Contiene 0.05% de tocoferol como conservante (Fraterworks). Scentspiracy: tenacidad 'up to 7 days on strip'; dosis recomendada fina 1-5%, cuidado capilar/corporal 0.3-1%, funcional 0.5-3% (base no declarada). Fraterworks dosis de fórmulas analizadas, % del concentrado.",https://scentspiracy.com/fragrance-ingredients/p/clearwood,Medium to high (up to 7 days on strip),Scentspiracy
+MAT-clearwood,Clearwood,notes,TGSC: not for flavor use; ocurrencia 'not found in nature',https://www.thegoodscentscompany.com/data/rw1085861.html,not for flavor use.,TGSC
+MAT-clearwood,Clearwood,strength,medium,https://www.thegoodscentscompany.com/data/rw1085861.html,medium,TGSC
+MAT-clearwood,Clearwood,solubility,Soluble in alcohol; insoluble in water (ficha del aceite de pachuli Clearwood),https://www.thegoodscentscompany.com/data/es1093311.html,Soluble in alcohol; insoluble in water,TGSC
+MAT-ambreta-tintura,"Ambreta, tintura",aliases,Ambrette Extract - Tincture (Extracto de Ambreta - Tintura),https://maeselab.com/en/extracto-de-ambreta-tintura/,Ambrette Extract - Tincture,Maese Lab
+MAT-ambreta-tintura,"Ambreta, tintura",species,Abelmoschus moschatus,https://maeselab.com/en/extracto-de-ambreta-tintura/,Abelmoschus moschatus,Maese Lab
+MAT-ambreta-tintura,"Ambreta, tintura",part,Semilla,https://maeselab.com/en/extracto-de-ambreta-tintura/,Part Used: Seed,Maese Lab
+MAT-ambreta-tintura,"Ambreta, tintura",process,"Maceración de las semillas en alcohol, filtrado y desgomado; alcohol 96",https://maeselab.com/en/extracto-de-ambreta-tintura/,Graduation: 96,Maese Lab
+MAT-ambreta-tintura,"Ambreta, tintura",form,tintura,http://www.thegoodscentscompany.com/data/ex1005181.html,"ambrette seed tincture, 977017-78-9",TGSC
+MAT-ambreta-tintura,"Ambreta, tintura",origin,India (materia prima); producido en España,https://maeselab.com/en/extracto-de-ambreta-tintura/,Origin: INDIA,Maese Lab
+MAT-ambreta-tintura,"Ambreta, tintura",inci,alcohol (and) abelmoschus moschatus seed extract,https://maeselab.com/en/extracto-de-ambreta-tintura/,alcohol (and) abelmoschus moschatus seed extract,Maese Lab
+MAT-ambreta-tintura,"Ambreta, tintura",cas,977017-78-9,http://www.thegoodscentscompany.com/data/ex1005181.html,"ambrette seed tincture, 977017-78-9",TGSC
+MAT-ambreta-tintura,"Ambreta, tintura",other_cas,84455-19-6,https://maeselab.com/en/extracto-de-ambreta-tintura/,CAS: 64-17-5 (and) 84455-19-6,Maese Lab (CAS de la semilla)
+MAT-ambreta-tintura,"Ambreta, tintura",synthesis,natural,,,propuesta de la sesión
+MAT-ambreta-tintura,"Ambreta, tintura",descriptor,Odor Type (Maese Lab): Musky,https://maeselab.com/en/extracto-de-ambreta-tintura/,Odor: Musky,Maese Lab
+MAT-ambreta-tintura,"Ambreta, tintura",family,animal,,,propuesta de la sesión
+MAT-ambreta-tintura,"Ambreta, tintura",family_detail,"almizcle vegetal (empolvado, tipo orris, ámbar)",,,propuesta de la sesión
+MAT-ambreta-tintura,"Ambreta, tintura",descriptor,"Maese Lab (reseñas): powdery musk, similar to orris, and an amber-musk note",https://maeselab.com/en/extracto-de-ambreta-tintura/,"powdery musk, similar to orris",Maese Lab
+MAT-ambreta-tintura,"Ambreta, tintura",descriptor,"Labo Hevea (tintura BIO Hibiscus abelmoschus, Ecuador): She brings a sweet note to perfumes",https://store.labo-hevea.com/A00733/hibiscus_abelmoschus_ambrette_bio,She brings a sweet note to perfumes,Labo Hevea
+MAT-ambreta-tintura,"Ambreta, tintura",facets,"almizcle, empolvada, iris, ámbar, dulce",,,propuesta de la sesión
+MAT-ambreta-tintura,"Ambreta, tintura",handling,"Not suitable for internal use; evitar ojos y mucosas; guardar en lugar fresco, lejos de la luz directa y bien cerrado; no exponer al sol justo tras aplicación tópica",https://maeselab.com/en/extracto-de-ambreta-tintura/,Not suitable for internal use.,Maese Lab
+MAT-ambreta-tintura,"Ambreta, tintura",notes,"Maese Lab: 'Suitable for Perfumery: Yes', 'Suitable for Cosmetics: No'. Sin dilución, dosis, aspecto ni solubilidad. Labo Hevea vende un producto distinto (BIO, Ecuador, alcohol + Hibiscus Abelmoschus); solo se usa para el descriptor. Resúmenes con herramienta de lectura.",https://maeselab.com/en/extracto-de-ambreta-tintura/,Suitable for Perfumery: Yes,Maese Lab
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",aliases,Opoponax Essential Oil - 100% Natural,https://maeselab.com/en/aceite-esencial-de-opoponax-100-natural/,Opoponax Essential Oil - 100% Natural (Aceite Esencial de Opoponax),Maese Lab
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",aliases,"Opoponax oil (Robertet, code 99020141)",https://matieres-premieres.robertet.com/opoponax-oil,Opoponax oil (Code 99020141),Robertet
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",aliases,opoponax EO,https://www.thegoodscentscompany.com/data/es1069471.html,opoponax EO,TGSC
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",aliases,opoponax essential oil,https://www.thegoodscentscompany.com/data/es1069471.html,opoponax essential oil,TGSC
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",aliases,opoponax oil somalia,https://www.thegoodscentscompany.com/data/es1069471.html,opoponax oil somalia,TGSC
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",cas,93686-00-1,https://maeselab.com/en/aceite-esencial-de-opoponax-100-natural/,CAS: 93686-00-1 / 100084-96-6,Maese Lab
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",other_cas,100084-96-6,https://maeselab.com/en/aceite-esencial-de-opoponax-100-natural/,CAS: 93686-00-1 / 100084-96-6,Maese Lab
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",other_cas,8021-36-1,https://www.thegoodscentscompany.com/data/es1069471.html,CAS 8021-36-1,TGSC
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",other_cas,8021-36-1 (Robertet),https://matieres-premieres.robertet.com/opoponax-oil,CAS: 8021-36-1,Robertet
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",inci,Commiphora Erythrea Glabrescens Gum Oil,https://maeselab.com/en/aceite-esencial-de-opoponax-100-natural/,Commiphora Erythrea Glabrescens Gum Oil,Maese Lab
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",species,Commiphora erythraea var. glabrescens Engle,https://www.thegoodscentscompany.com/data/es1069471.html,commiphora erythraea var. glabrescens engle oil,TGSC
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",part,Resina / goma (exudado),https://matieres-premieres.robertet.com/opoponax-oil,Gum (exudate),Robertet
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",process,Destilación por vapor (arrastre de vapor) · Maese Lab: destilación por arrastre de vapor de la resina,https://matieres-premieres.robertet.com/opoponax-oil,Steam distillation | Arrastre de Vapor,Robertet + Maese Lab
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",form,aceite esencial (volatile oil),https://www.thegoodscentscompany.com/data/es1069471.html,volatile oil obtained from commiphora erythrea or related species,TGSC
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",origin,Somalia,https://matieres-premieres.robertet.com/opoponax-oil,Origin: Somalia,Robertet
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",synthesis,natural,https://matieres-premieres.robertet.com/opoponax-oil,100% Pure & Natural,Robertet
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",descriptor,Odor Type (Robertet): Ambery/Vanillic,https://matieres-premieres.robertet.com/opoponax-oil,Olfactive family: Ambery/Vanillic,Robertet
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",descriptor,Odor Type (TGSC): balsamic,https://www.thegoodscentscompany.com/data/es1069471.html,Odor Type: balsamic,TGSC
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",family,spicy,,,propuesta de la sesión
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",family_detail,"ambarada balsámica (caramelo, resinosa)",,,propuesta de la sesión
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",descriptor,"Maese Lab: warm, caramelized, balsamic and woody aroma with spicy notes",https://maeselab.com/en/aceite-esencial-de-opoponax-100-natural/,"warm, caramelized, balsamic and woody aroma with spicy notes",Maese Lab
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",descriptor,"Robertet: Ambery/vanillic, typical milky/buttery, turpentine, mushroom odour",https://matieres-premieres.robertet.com/opoponax-oil,"Ambery/vanillic, typical milky/buttery, turpentine, mushroom odour",Robertet
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",descriptor,"TGSC (100 %, Luebke 1986): sweet balsam spicy warm animal",https://www.thegoodscentscompany.com/data/es1069471.html,sweet balsam spicy warm animal,TGSC
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",descriptor,"Robertet (en TGSC): Ambery/vanillic, typical milky/buttery, turpentine, mushroom",https://www.thegoodscentscompany.com/data/es1069471.html,"Ambery/vanillic, typical milky/buttery, turpentine, mushroom",TGSC
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",descriptor,PerfumersWorld (en TGSC): sweet-balsamic amber-spicy vine-fruit,https://www.thegoodscentscompany.com/data/es1069471.html,sweet-balsamic amber-spicy vine-fruit,TGSC
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",descriptor,"Firmenich (en TGSC, grado fragancia): Sweet, earthy, slightly liqueur-like and mushroom, with a spicy profile",https://www.thegoodscentscompany.com/data/es1069471.html,"Sweet, earthy, slightly liqueur-like and mushroom, with a spicy profile",TGSC
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",descriptor,Mane (en TGSC): Woody Cedar Mushroom,https://www.thegoodscentscompany.com/data/es1069471.html,Woody Cedar Mushroom,TGSC
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",descriptor,"Indukern (en TGSC): MUSHROOM, SPICY, WOODY",https://www.thegoodscentscompany.com/data/es1069471.html,"MUSHROOM, SPICY, WOODY",TGSC
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",descriptor,"Hermitage Oils (en TGSC, Etiopía): strong resinous, terpene, paint fume smell (neat)",https://www.thegoodscentscompany.com/data/es1069471.html,"strong resinous, terpene, paint fume smell",TGSC
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",facets,"ambarada, balsámica, caramelizada, resinosa, láctea, amaderada, especiada",,,propuesta de la sesión
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",tier,base,,,propuesta de la sesión
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",role,fixative,,,propuesta de la sesión
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",recommended_dilution,Maese Lab: Always dilute in a medium according to treatment (uso tópico en aceites portadores; se refiere a aromaterapia),https://maeselab.com/en/aceite-esencial-de-opoponax-100-natural/,Always dilute in a medium according to treatment,Maese Lab
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",handling,"Maese Lab: Evitar ojos y mucosas; no ingerir; no usar en embarazo ni lactancia; evitar en asma, hipertensión, enfermedad renal, trastornos neurológicos o coronarios; no aplicar a menores de 3 años; guardar bien cerrado, fresco y sin luz directa. Robertet: punto de inflamación 73 C · TGSC: GHS: none found; toxicidad oral, dérmica e inhalatoria no determinada",https://maeselab.com/en/aceite-esencial-de-opoponax-100-natural/,"Always store essential oils in tightly closed containers, in cool environments and avoid direct light | None found.",Maese Lab + TGSC
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",physical_state,Líquido,https://maeselab.com/en/aceite-esencial-de-opoponax-100-natural/,Appearance: Liquid,Maese Lab
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",notes,"Estado según TGSC, estimado: TGSC da «Semisólido».",https://www.thegoodscentscompany.com/data/es1069471.html,amber brown semi-solid (est),TGSC
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",stability,Robertet: vida útil 12 meses,https://matieres-premieres.robertet.com/opoponax-oil,Shelf life: 12 months,Robertet
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",notes,"Maese Lab da como componentes principales furanodieno, furanogermacreno, aromadendreno y a-gurjuneno; especie 'Commiphora erythraea' con INCI 'Erythrea Glabrescens'; proceso escrito 'Steam Trawling' (error evidente por steam distillation, valor de proceso tomado de Robertet). El CAS de Robertet (8021-36-1) difiere de los de la tienda. Resúmenes con herramienta de lectura.",https://maeselab.com/en/aceite-esencial-de-opoponax-100-natural/,"Components: Furanodiene, Furanogermacrene, Aromadendrene, a-Gurjunene",Maese Lab
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",appearance,amber brown semi-solid (est),https://www.thegoodscentscompany.com/data/es1069471.html,amber brown semi-solid (est),TGSC
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",density,0.86500,https://www.thegoodscentscompany.com/data/es1069471.html,0.86500 to 0.93200 @ 25.00 °C.,TGSC
+MAT-opoponax-aceite-esencial,"Opopónax, aceite esencial",solubility,Soluble in alcohol; water 6.923 mg/L @ 25 °C (est),https://www.thegoodscentscompany.com/data/es1069471.html,"water, 6.923 mg/L @ 25 °C (est)",TGSC
+MAT-cardamomo-verde-tintura,"Cardamomo verde, tintura",aliases,Green Cardamom Extract - Tincture (Extracto de Cardamomo Verde - Tintura),https://maeselab.com/en/extracto-de-cardamomo-verde-tintura,Green Cardamom Extract - Tincture,Maese Lab
+MAT-cardamomo-verde-tintura,"Cardamomo verde, tintura",aliases,cardamom tincture,https://www.thegoodscentscompany.com/data/ex1675661.html,cardamom tincture,TGSC
+MAT-cardamomo-verde-tintura,"Cardamomo verde, tintura",aliases,cardamomum officinale tincture,https://www.thegoodscentscompany.com/data/ex1675661.html,cardamomum officinale tincture,TGSC
+MAT-cardamomo-verde-tintura,"Cardamomo verde, tintura",aliases,amomum cardamomum tincture,https://www.thegoodscentscompany.com/data/ex1675661.html,amomum cardamomum tincture,TGSC
+MAT-cardamomo-verde-tintura,"Cardamomo verde, tintura",species,Elettaria cardamomum L.,https://www.thegoodscentscompany.com/data/ex1675661.html,Elettaria cardamomum L.,TGSC
+MAT-cardamomo-verde-tintura,"Cardamomo verde, tintura",part,Fruto (vainas),https://maeselab.com/en/extracto-de-cardamomo-verde-tintura,cardamomo verde (vainas),Maese Lab
+MAT-cardamomo-verde-tintura,"Cardamomo verde, tintura",process,"Maese Lab: Inmersión en alcohol, filtrado, desgomado y calentado a baja presión en atmósfera controlada; alcohol 80, 4 cargas · TGSC: tintura",https://maeselab.com/en/extracto-de-cardamomo-verde-tintura,Graduation 80 | Elettaria cardamomum tincture,Maese Lab + TGSC
+MAT-cardamomo-verde-tintura,"Cardamomo verde, tintura",form,tintura,https://www.thegoodscentscompany.com/data/ex1675661.html,Elettaria cardamomum tincture,TGSC
+MAT-cardamomo-verde-tintura,"Cardamomo verde, tintura",origin,Sri Lanka (producido en España),https://maeselab.com/en/extracto-de-cardamomo-verde-tintura,Origin: Sri Lanka,Maese Lab
+MAT-cardamomo-verde-tintura,"Cardamomo verde, tintura",inci,"alcohol, aqua (and) elettaria cardamomum seed extract",https://maeselab.com/en/extracto-de-cardamomo-verde-tintura,"alcohol, aqua (and) elettaria cardamomum seed extract",Maese Lab
+MAT-cardamomo-verde-tintura,"Cardamomo verde, tintura",cas,85940-32-5,https://www.thegoodscentscompany.com/data/ex1675661.html,"Elettaria cardamomum tincture, CAS 85940-32-5",TGSC
+MAT-cardamomo-verde-tintura,"Cardamomo verde, tintura",synthesis,natural,,,propuesta de la sesión
+MAT-cardamomo-verde-tintura,"Cardamomo verde, tintura",family,spicy,,,propuesta de la sesión
+MAT-cardamomo-verde-tintura,"Cardamomo verde, tintura",family_detail,"especiada (cardamomo fresco, cítrico)",,,propuesta de la sesión
+MAT-cardamomo-verde-tintura,"Cardamomo verde, tintura",descriptor,"Maese Lab: aroma especiado, fresco y ligeramente cítrico, con matices dulces y terrosos",https://maeselab.com/en/extracto-de-cardamomo-verde-tintura,"aroma especiado, fresco y ligeramente cítrico, con matices dulces y terrosos",Maese Lab
+MAT-cardamomo-verde-tintura,"Cardamomo verde, tintura",facets,"especiada, fresca, cítrica, dulce, terrosa",,,propuesta de la sesión
+MAT-cardamomo-verde-tintura,"Cardamomo verde, tintura",handling,"No para uso interno ni alimentario; evitar ojos y mucosas; no usar en piel sensible, embarazo ni lactancia; no aplicar a menores de 3 años; no exponer la piel al sol justo después; guardar en lugar fresco sin luz directa",https://maeselab.com/en/extracto-de-cardamomo-verde-tintura,"Store the tinctures in cool places, avoiding direct light",Maese Lab
+MAT-cardamomo-verde-tintura,"Cardamomo verde, tintura",notes,"Sin dilución, dosis, aspecto ni solubilidad en la página. La reseña 'muy verde y profundo' no es descripción oficial. Resumen con herramienta de lectura.",https://maeselab.com/en/extracto-de-cardamomo-verde-tintura,,Maese Lab
+MAT-cardamomo-verde-tintura,"Cardamomo verde, tintura",notes,La ficha no da descripción de olor (sección organoléptica vacía); TGSC: not for flavor use,https://www.thegoodscentscompany.com/data/ex1675661.html,not for flavor use.,TGSC
+MAT-cardamomo-verde-tintura,"Cardamomo verde, tintura",appearance,colorless to pale yellow liquid (est),https://www.thegoodscentscompany.com/data/ex1675661.html,colorless to pale yellow liquid (est),TGSC
+MAT-cardamomo-verde-tintura,"Cardamomo verde, tintura",physical_state,Líquido,https://www.thegoodscentscompany.com/data/ex1675661.html,colorless to pale yellow liquid (est),TGSC
+MAT-cardamomo-verde-tintura,"Cardamomo verde, tintura",stability,"Shelf life 6 meses o más bien almacenada; guardar en lugar fresco y seco, envase cerrado, protegido del calor y la luz",https://www.thegoodscentscompany.com/data/ex1675661.html,Shelf life: 6.00 month(s) or longer if stored properly.,TGSC
+MAT-cardamomo-villoso-tintura,"Cardamomo villoso, tintura",aliases,Cardamomo Villoso (semilla) - Perfumería,https://maeselab.com/cardamomo-villoso-semilla-perfumeria/,Cardamomo Villoso (semilla) - Perfumería,Maese Lab
+MAT-cardamomo-villoso-tintura,"Cardamomo villoso, tintura",aliases,Amomum villosum,https://en.wikipedia.org/wiki/Wurfbainia_villosa,Amomum villosum Lour.,Wikipedia
+MAT-cardamomo-villoso-tintura,"Cardamomo villoso, tintura",aliases,Sha Ren (砂仁),https://en.wikipedia.org/wiki/Wurfbainia_villosa,砂仁 (shārén),Wikipedia
+MAT-cardamomo-villoso-tintura,"Cardamomo villoso, tintura",species,Amomum villosum,https://maeselab.com/cardamomo-villoso-semilla-perfumeria/,"alcohol, Amomum Villosum Seed Extract, aqua",Maese Lab
+MAT-cardamomo-villoso-tintura,"Cardamomo villoso, tintura",part,semilla,https://maeselab.com/cardamomo-villoso-semilla-perfumeria/,Parte Utilizada: Semilla,Maese Lab
+MAT-cardamomo-villoso-tintura,"Cardamomo villoso, tintura",process,"tintura (extracto hidroalcohólico, alcohol de 96°)",https://maeselab.com/cardamomo-villoso-semilla-perfumeria/,Precauciones y recomendaciones de uso de las Tinturas o Extractos Hidro-Alcohólicos.,Maese Lab
+MAT-cardamomo-villoso-tintura,"Cardamomo villoso, tintura",inci,"alcohol, Amomum Villosum Seed Extract, aqua",https://maeselab.com/cardamomo-villoso-semilla-perfumeria/,"alcohol, Amomum Villosum Seed Extract, aqua",Maese Lab
+MAT-cardamomo-villoso-tintura,"Cardamomo villoso, tintura",form,tintura,https://maeselab.com/cardamomo-villoso-semilla-perfumeria/,Precauciones y recomendaciones de uso de las Tinturas o Extractos Hidro-Alcohólicos.,Maese Lab
+MAT-cardamomo-villoso-tintura,"Cardamomo villoso, tintura",origin,Java,https://maeselab.com/cardamomo-villoso-semilla-perfumeria/,Origen: JAVA,Maese Lab
+MAT-cardamomo-villoso-tintura,"Cardamomo villoso, tintura",synthesis,natural,https://maeselab.com/cardamomo-villoso-semilla-perfumeria/,Amomum Villosum Seed Extract,Maese Lab
+MAT-cardamomo-villoso-tintura,"Cardamomo villoso, tintura",handling,Maese Lab: no apto para uso interno ni cosmética; no aplicar en ojos ni mucosas; evitar el sol tras aplicar en piel.,https://maeselab.com/cardamomo-villoso-semilla-perfumeria/,No aplicar las tinturas en la zona de los ojos ni mucosas.,Maese Lab
+MAT-cardamomo-villoso-tintura,"Cardamomo villoso, tintura",notes,"Los CAS que da la tienda (64-17-5, -, 7732-18-5) son del alcohol y del agua; el extracto no tiene CAS. «Cantidad de Cargas: 3» sin explicar. Sin descripción de olor ni dosis en la página.",https://maeselab.com/cardamomo-villoso-semilla-perfumeria/,"CAS: 64-17-5, -, 7732-18-5",Maese Lab
+MAT-cardamomo-villoso-tintura,"Cardamomo villoso, tintura",notes,"Aceite esencial de la semilla, según Useful Tropical Plants: alcanfor, borneol y acetato de bornilo; también limoneno, alfa-pineno, felandreno, metoxicinamato de etilo, nerolidol y linalol. Sin proporciones. Es la composición del aceite, no de la tintura.",https://tropical.theferns.info/viewtropical.php?id=Amomum+villosum,"An essential oil from the seeds consists of delta-camphor, delta-borneol, delta-bornyl acetate",Useful Tropical Plants
+MAT-cardamomo-villoso-tintura,"Cardamomo villoso, tintura",descriptor,"Wikipedia: strongly aromatic seeds; taste acrid, fresh, slightly bitter",https://en.wikipedia.org/wiki/Wurfbainia_villosa,strongly aromatic,Wikipedia
+MAT-cardamomo-villoso-tintura,"Cardamomo villoso, tintura",descriptor,"Ferwer: much more intense and robust than green cardamom, smoky, almost menthol-like note",https://www.ferwer.com/lexicon/substance/black-cardamom-amomum-villosum,"smoky, almost menthol-like note",Ferwer
+MAT-exaltolide-total,Exaltolide Total,aliases,Exaltolide® Total,https://fraterworks.com/products/exaltolide-total,Exaltolide® Total,Fraterworks
+MAT-exaltolide-total,Exaltolide Total,aliases,Pentadecanolide (pentadecalactone),https://fraterworks.com/products/exaltolide-total,Composition: Pentadecanolide (pentadecalactone),Fraterworks
+MAT-exaltolide-total,Exaltolide Total,aliases,Macrolide,https://fraterworks.com/products/exaltolide-total,Synonyms include Macrolide and Omega-Pentadecalactone,Fraterworks
+MAT-exaltolide-total,Exaltolide Total,aliases,Omega-Pentadecalactone,https://fraterworks.com/products/exaltolide-total,Synonyms include Macrolide and Omega-Pentadecalactone,Fraterworks
+MAT-exaltolide-total,Exaltolide Total,aliases,Oxacyclohexadecan-2-one,https://fraterworks.com/products/exaltolide-total,IUPAC name: Oxacyclohexadecan-2-one,Fraterworks
+MAT-exaltolide-total,Exaltolide Total,aliases,"1,15-Pentadecanolide",https://www.scentspiracy.com/fragrance-ingredients/p/exaltolide,"1,15-Pentadecanolide; 15-Hydroxypentadecanoic acid lactone",Scentspiracy
+MAT-exaltolide-total,Exaltolide Total,aliases,cyclopentadecanolide,https://thegoodscentscompany.com/data/rw1004211.html,cyclopentadecanolide,TGSC
+MAT-exaltolide-total,Exaltolide Total,aliases,"pentadecano-1,15-lactone",https://thegoodscentscompany.com/data/rw1004211.html,"pentadecano-1,15-lactone",TGSC
+MAT-exaltolide-total,Exaltolide Total,aliases,16-oxacyclohexadecan-1-one,https://thegoodscentscompany.com/data/rw1004211.html,16-oxacyclohexadecan-1-one,TGSC
+MAT-exaltolide-total,Exaltolide Total,cas,106-02-5,https://thegoodscentscompany.com/data/rw1004211.html,CAS Number: 106-02-5,TGSC
+MAT-exaltolide-total,Exaltolide Total,house,Firmenich,https://thegoodscentscompany.com/data/rw1004211.html,Exaltolide (Firmenich product codes 935985 'Exaltolide Total' and 941962 'Exaltolide'),TGSC
+MAT-exaltolide-total,Exaltolide Total,form,molécula,https://www.scentspiracy.com/fragrance-ingredients/p/exaltolide,macrocyclic lactone (macrolide class),Scentspiracy
+MAT-exaltolide-total,Exaltolide Total,isomers,Exaltolide Total puede usarse a purezas menores (~92%) según la aplicación (Scentspiracy),https://www.scentspiracy.com/fragrance-ingredients/p/exaltolide,Exaltolide Total may be used at lower purities (~92%),Scentspiracy
+MAT-exaltolide-total,Exaltolide Total,descriptor,Odor Type (Fraterworks): Musky,https://fraterworks.com/products/exaltolide-total,Odour family: Musky,Fraterworks
+MAT-exaltolide-total,Exaltolide Total,descriptor,Odor Type (TGSC): musk,https://thegoodscentscompany.com/data/rw1004211.html,musk type odor,TGSC
+MAT-exaltolide-total,Exaltolide Total,family,animal,,,propuesta de la sesión
+MAT-exaltolide-total,Exaltolide Total,family_detail,"almizcle (empolvado, animal suave)",,,propuesta de la sesión
+MAT-exaltolide-total,Exaltolide Total,descriptor,"Fraterworks: powdery, soft, animal (deer), tobacco, natural",https://fraterworks.com/products/exaltolide-total,"powdery, soft, animal (deer), tobacco, natural",Fraterworks
+MAT-exaltolide-total,Exaltolide Total,descriptor,"Scentspiracy (Exaltolide): Intense, sweet, soft, skin-like, ambrette, floral, musky with cosmetic diffusion",https://www.scentspiracy.com/fragrance-ingredients/p/exaltolide,"Intense, sweet, soft, skin-like, ambrette, floral, musky with cosmetic diffusion",Scentspiracy
+MAT-exaltolide-total,Exaltolide Total,descriptor,"Firmenich (en TGSC, Exaltolide): It has an especially sensual effect on skin.",https://thegoodscentscompany.com/data/rw1004211.html,It has an especially sensual effect on skin.,TGSC
+MAT-exaltolide-total,Exaltolide Total,facets,"almizcle, empolvada, suave, animal (ciervo), tabaco, piel, ambreta",,,propuesta de la sesión
+MAT-exaltolide-total,Exaltolide Total,tier,base,,,propuesta de la sesión
+MAT-exaltolide-total,Exaltolide Total,notes,"Tenacidad: «>400» h, sin cifra exacta.",https://fraterworks.com/products/exaltolide-total,Lasts > 400 hours on a smelling strip.,Fraterworks
+MAT-exaltolide-total,Exaltolide Total,strength,medium,https://www.scentspiracy.com/fragrance-ingredients/p/exaltolide,Strength is listed as medium,Scentspiracy
+MAT-exaltolide-total,Exaltolide Total,diffusion,musky with cosmetic diffusion,https://www.scentspiracy.com/fragrance-ingredients/p/exaltolide,musky with cosmetic diffusion,Scentspiracy
+MAT-exaltolide-total,Exaltolide Total,role,fixative,,,propuesta de la sesión
+MAT-exaltolide-total,Exaltolide Total,recommended_dilution,10% o 50% (diluciones habituales); Scentspiracy: usar hasta 5%,https://fraterworks.com/products/exaltolide-total,"Common dilutions: 10%, 50%",Fraterworks
+MAT-exaltolide-total,Exaltolide Total,dose_min,0.00006,https://fraterworks.com/products/exaltolide-total,Minimum observed: 0.006%,Fraterworks
+MAT-exaltolide-total,Exaltolide Total,dose_typical,0.01,https://fraterworks.com/products/exaltolide-total,Median: 1%,Fraterworks
+MAT-exaltolide-total,Exaltolide Total,dose_max,0.0932,https://fraterworks.com/products/exaltolide-total,Maximum observed: 9.32%,Fraterworks
+MAT-exaltolide-total,Exaltolide Total,handling,Solo uso profesional; no aplicar sin diluir sobre la piel. Scentspiracy: guardar en envases cerrados y en seco,https://fraterworks.com/products/exaltolide-total,not to be applied to the skin undiluted,Fraterworks
+MAT-exaltolide-total,Exaltolide Total,physical_state,Sólido,https://fraterworks.com/products/exaltolide-total,Colourless solid,Fraterworks
+MAT-exaltolide-total,Exaltolide Total,appearance,Colourless solid (Fraterworks); white crystalline solid at 20 C (Scentspiracy),https://www.scentspiracy.com/fragrance-ingredients/p/exaltolide,White crystalline solid at 20 C,Scentspiracy
+MAT-exaltolide-total,Exaltolide Total,solubility,Insoluble in water,https://www.scentspiracy.com/fragrance-ingredients/p/exaltolide,Insoluble in water,Scentspiracy
+MAT-exaltolide-total,Exaltolide Total,notes,"Fraterworks: 'most often found in doses below 1%', eficaz 'at up to 8% and beyond'; dosis de su análisis de datos GCMS publicados, % de la fórmula. Scentspiracy: tenacidad 'up to two weeks on paper', impactante incluso por debajo de 1%. Resumen con herramienta de lectura.",https://fraterworks.com/products/exaltolide-total,most often found in doses below 1%,Fraterworks
+MAT-exaltolide-total,Exaltolide Total,other_cas,81031-90-5 (marcado como CASRN eliminado),https://thegoodscentscompany.com/data/rw1004211.html,Other (deleted CASRN): 81031-90-5,TGSC
+MAT-exaltolide-total,Exaltolide Total,code,935985,https://thegoodscentscompany.com/data/rw1004211.html,Firmenich product codes 935985 'Exaltolide Total',TGSC
+MAT-exaltolide-total,Exaltolide Total,formula,C15 H28 O2,https://thegoodscentscompany.com/data/rw1004211.html,C15 H28 O2,TGSC
+MAT-exaltolide-total,Exaltolide Total,molecular_weight,240.38656,https://thegoodscentscompany.com/data/rw1004211.html,240.38656000,TGSC
+MAT-indol,Indol,aliases,Indole,https://fraterworks.com/products/indole,Indole,Fraterworks
+MAT-indol,Indol,aliases,Benzopyrrole,https://www.scentspiracy.com/fragrance-ingredients/indol,Benzopyrrole,Scentspiracy
+MAT-indol,Indol,aliases,1-benzo(b)pyrrole,https://www.thegoodscentscompany.com/data/rw1006511.html,indole; 1-benzo(b)pyrrole,TGSC
+MAT-indol,Indol,cas,120-72-9,https://www.thegoodscentscompany.com/data/rw1006511.html,"indole, 120-72-9",TGSC
+MAT-indol,Indol,form,molécula,https://www.scentspiracy.com/fragrance-ingredients/indol,aromatic heterocyclic organic compound,Scentspiracy
+MAT-indol,Indol,house,"Givaudan (según Scentspiracy, 'listed as manufacturer'); Fraterworks lo vende como Frater Perfumes Ltd",https://www.scentspiracy.com/fragrance-ingredients/indol,Givaudan (listed as manufacturer),Scentspiracy
+MAT-indol,Indol,synthesis,synthetic,,,propuesta de la sesión
+MAT-indol,Indol,descriptor,Odor Type (Fraterworks): Animalic,https://fraterworks.com/products/indole,Odour family: Animalic,Fraterworks
+MAT-indol,Indol,descriptor,Odor Type (TGSC): animal,https://www.thegoodscentscompany.com/data/rw1006511.html,Odor Type: Animal (meta: animal type odor and an animal type flavor),TGSC
+MAT-indol,Indol,family,animal,https://fraterworks.com/products/indole,Odour family: Animalic,propuesta de la sesión
+MAT-indol,Indol,family_detail,"animal (fecal, floral blanca a dilución)",,,propuesta de la sesión
+MAT-indol,Indol,descriptor,Fraterworks (alta concentración): intensely fecal and naphthalenic (mothball-like) at high concentrations,https://fraterworks.com/products/indole,intensely fecal and naphthalenic (mothball-like) at high concentrations,Fraterworks
+MAT-indol,Indol,descriptor,"Fraterworks (alta dilución): radiant, narcotic floral notes reminiscent of jasmine and orange blossom",https://fraterworks.com/products/indole,"radiant, narcotic floral notes reminiscent of jasmine and orange blossom",Fraterworks
+MAT-indol,Indol,descriptor,"Scentspiracy: Pungent, floral, mothball-like with fecal-animalic character and naphthalene notes",https://www.scentspiracy.com/fragrance-ingredients/indol,"Pungent, floral, mothball-like with fecal-animalic character and naphthalene notes",Scentspiracy
+MAT-indol,Indol,descriptor,Wikipedia: concentrado 'has an intense fecal odor'; diluido 'it has a flowery smell',https://en.wikipedia.org/wiki/Indole,has an intense fecal odor,Wikipedia
+MAT-indol,Indol,facets,"fecal, naftalina, jazmín, azahar, narcótica, animal",,,propuesta de la sesión
+MAT-indol,Indol,tier,base,https://fraterworks.com/products/indole,Base Note,Fraterworks
+MAT-indol,Indol,notes,"Tenacidad: «>400» h, sin cifra exacta.",https://fraterworks.com/products/indole,Lasts > 400 hours on a smelling strip.,Fraterworks
+MAT-indol,Indol,role,trace,,,propuesta de la sesión
+MAT-indol,Indol,recommended_dilution,10% o 1% (Fraterworks); 10% en DEP para principiantes (Scentspiracy),https://www.scentspiracy.com/fragrance-ingredients/indol,typically 10% in DEP,Scentspiracy
+MAT-indol,Indol,dose_min,0.000018,https://fraterworks.com/products/indole,Minimum: 0.0018%,Fraterworks
+MAT-indol,Indol,dose_typical,0.000383,https://fraterworks.com/products/indole,Median: 0.0383%,Fraterworks
+MAT-indol,Indol,dose_max,0.0233,https://fraterworks.com/products/indole,Maximum: 2.33%,Fraterworks
+MAT-indol,Indol,handling,"Wikipedia: Danger; sensibilizante cutáneo; H302, H311; GHS06, GHS07; punto de inflamación 121 C. Fraterworks: no aplicar sin diluir sobre la piel. Scentspiracy: evitar cristales sólidos en el laboratorio por contaminación de olor; guardar en vidrio ámbar o bidones forrados, lejos de metales y aire",https://en.wikipedia.org/wiki/Indole,Skin sensitising,Wikipedia
+MAT-indol,Indol,physical_state,Sólido,https://en.wikipedia.org/wiki/Indole,White solid,Wikipedia
+MAT-indol,Indol,appearance,White solid (Wikipedia); pale cream crystals (Fraterworks); white to beige solid (Scentspiracy),https://fraterworks.com/products/indole,Pale cream crystals,Fraterworks
+MAT-indol,Indol,solubility,"Agua 0.19 g/100 mL a 20 C, soluble en agua caliente (Wikipedia); soluble en alcohol y glicoles (Scentspiracy)",https://en.wikipedia.org/wiki/Indole,0.19 g/100 mL at 20 C,Wikipedia
+MAT-indol,Indol,density,1.1747,https://en.wikipedia.org/wiki/Indole,Density 1.1747 g/cm3 (solid),Wikipedia
+MAT-indol,Indol,melting_point_c,53,https://en.wikipedia.org/wiki/Indole,Melting point 52 to 54 C,Wikipedia
+MAT-indol,Indol,formula,C8H7N,https://en.wikipedia.org/wiki/Indole,C8H7N,Wikipedia
+MAT-indol,Indol,molecular_weight,117.151,https://en.wikipedia.org/wiki/Indole,Molar mass 117.151 g/mol,Wikipedia
+MAT-indol,Indol,stability,"Puede decolorarse con aldehídos (p. ej. heliotropina), iones metálicos (Fe3+) y luz; en jabón blanco puede volverse marrón",https://www.scentspiracy.com/fragrance-ingredients/indol,"Can discolor on exposure to aldehydes (e.g., heliotropin), metal ions (Fe3+), and light",Scentspiracy
+MAT-indol,Indol,incompatibilities,"Aldehídos (heliotropina), iones Fe3+",https://www.scentspiracy.com/fragrance-ingredients/indol,"Can discolor on exposure to aldehydes (e.g., heliotropin), metal ions (Fe3+), and light",Scentspiracy
+MAT-indol,Indol,notes,"Punto de ebullición Wikipedia 253-254 C. Presente de forma natural en heces humanas, alquitrán de hulla, cannabis (Wikipedia). Scentspiracy: uso 'typically below 0.1% in finished formulations'; tenacidad alta, semanas en tira. Fraterworks: se vende en polvo. Perfumiarz no consultado. Resúmenes con herramienta de lectura.",https://www.scentspiracy.com/fragrance-ingredients/indol,Typically below 0.1% in finished formulations,Scentspiracy
+MAT-indol,Indol,notes,"WebFetch solo devolvió identidad, tipo de olor y sinónimos de esta página; el resto de campos (descripción, físico, uso) no se pudo leer.",https://www.thegoodscentscompany.com/data/rw1006511.html,"Indole (1-benzo(b)pyrrole), CAS 120-72-9",TGSC
+MAT-etil-vainillina,Etil vainillina,aliases,Ethyl vanillin,https://eng.hekserij.nl/shop/perfume-fragrance/aroma-chemicals/ethyl-vanillin,Ethyl vanillin,Hekserij
+MAT-etil-vainillina,Etil vainillina,aliases,Bourbonal,https://scent.vn/en/products/ethyl-vanillin-aroma-chemical,Bourbonal; ethylvanillin,Scent.vn
+MAT-etil-vainillina,Etil vainillina,aliases,3-ethoxy-4-hydroxybenzaldehyde,https://scent.vn/en/products/ethyl-vanillin-aroma-chemical,Chemical name: 3-ethoxy-4-hydroxybenzaldehyde,Scent.vn
+MAT-etil-vainillina,Etil vainillina,aliases,4-hydroxy-3-ethoxybenzaldehyde,https://thegoodscentscompany.com/data/rw1002652.html,4-hydroxy-3-ethoxybenzaldehyde,TGSC
+MAT-etil-vainillina,Etil vainillina,cas,121-32-4,https://thegoodscentscompany.com/data/rw1002652.html,Ethyl vanillin (CAS 121-32-4),TGSC
+MAT-etil-vainillina,Etil vainillina,inci,ETHYL VANILLIN,https://eng.hekserij.nl/shop/perfume-fragrance/aroma-chemicals/ethyl-vanillin,INCI: ETHYL VANILLIN,Hekserij
+MAT-etil-vainillina,Etil vainillina,form,molécula,https://scent.vn/en/products/ethyl-vanillin-aroma-chemical,Ethyl Vanillin Aroma Chemical,Scent.vn
+MAT-etil-vainillina,Etil vainillina,synthesis,synthetic,,,propuesta de la sesión
+MAT-etil-vainillina,Etil vainillina,descriptor,Odor Type (Scent.vn): Gourmand; also described as balsamic resinous,https://scent.vn/en/products/ethyl-vanillin-aroma-chemical,Family: Gourmand (listed); also described as balsamic resinous,Scent.vn
+MAT-etil-vainillina,Etil vainillina,descriptor,Odor Type (TGSC): vanilla,https://thegoodscentscompany.com/data/rw1002652.html,Has a vanilla type odor and an vanilla type flavor.,TGSC
+MAT-etil-vainillina,Etil vainillina,family,gourmand,https://scent.vn/en/products/ethyl-vanillin-aroma-chemical,Family: Gourmand,Scent.vn
+MAT-etil-vainillina,Etil vainillina,family_detail,gourmand (vainilla intensa),,,propuesta de la sesión
+MAT-etil-vainillina,Etil vainillina,descriptor,Hekserij: sweet vanilla scent (unas cinco veces más dulce e intensa que la vainillina),https://eng.hekserij.nl/shop/perfume-fragrance/aroma-chemicals/ethyl-vanillin,sweet vanilla scent,Hekserij
+MAT-etil-vainillina,Etil vainillina,descriptor,"Scent.vn: intensely vanilla-rich, very sweet and creamy, with a powdery nuance and a slight chocolate impression",https://scent.vn/en/products/ethyl-vanillin-aroma-chemical,"intensely vanilla-rich, very sweet and creamy, with a powdery nuance and a slight chocolate impression",Scent.vn
+MAT-etil-vainillina,Etil vainillina,facets,"vainilla, dulce, cremosa, empolvada, chocolate, especiada, fenólica",,,propuesta de la sesión
+MAT-etil-vainillina,Etil vainillina,tier,base,https://eng.hekserij.nl/shop/perfume-fragrance/aroma-chemicals/ethyl-vanillin,In perfumes it is mainly a base note,Hekserij
+MAT-etil-vainillina,Etil vainillina,strength,medium,https://scent.vn/en/products/ethyl-vanillin-aroma-chemical,Odor impact: medium (est.),Scent.vn
+MAT-etil-vainillina,Etil vainillina,role,modifier,,,propuesta de la sesión
+MAT-etil-vainillina,Etil vainillina,recommended_dilution,"25% en DPG o alcohol 96% (Hekserij); 10% o 20% en etanol, DPG o DEP (Scent.vn)",https://scent.vn/en/products/ethyl-vanillin-aroma-chemical,"typically in solvents such as ethanol, DPG, or DEP at 10% or 20%",Scent.vn
+MAT-etil-vainillina,Etil vainillina,dose_min,0.001,https://eng.hekserij.nl/shop/perfume-fragrance/aroma-chemicals/ethyl-vanillin,Typically 0.1% to 10% of the fragrance composition,Hekserij
+MAT-etil-vainillina,Etil vainillina,dose_max,0.1,https://eng.hekserij.nl/shop/perfume-fragrance/aroma-chemicals/ethyl-vanillin,Typically 0.1% to 10% of the fragrance composition,Hekserij
+MAT-etil-vainillina,Etil vainillina,handling,"Hekserij: guardar fresco, seco y oscuro; no usar sin diluir en la piel; H319 (irritación ocular grave). Scent.vn: guardar seco, lejos de luz y aire; evitar recipientes o herramientas de hierro",https://eng.hekserij.nl/shop/perfume-fragrance/aroma-chemicals/ethyl-vanillin,H319,Hekserij
+MAT-etil-vainillina,Etil vainillina,physical_state,Sólido,https://eng.hekserij.nl/shop/perfume-fragrance/aroma-chemicals/ethyl-vanillin,white to light yellow fine crystal powder,Hekserij
+MAT-etil-vainillina,Etil vainillina,appearance,"white to light yellow fine crystal powder (Hekserij); needle-shaped crystals or crystalline powder, white to off-white (Scent.vn)",https://eng.hekserij.nl/shop/perfume-fragrance/aroma-chemicals/ethyl-vanillin,white to light yellow fine crystal powder,Hekserij
+MAT-etil-vainillina,Etil vainillina,solubility,"Se disuelve bien en DPG y alcohol 96%, mucho peor en IPM (Hekserij); a 25 C: agua 1.32 g/L, etanol 583.12 g/L, acetona 1396.56 g/L (Scent.vn)",https://scent.vn/en/products/ethyl-vanillin-aroma-chemical,"water 1.32 g/L, ethanol 583.12 g/L, acetone 1396.56 g/L",Scent.vn
+MAT-etil-vainillina,Etil vainillina,melting_point_c,76,https://scent.vn/en/products/ethyl-vanillin-aroma-chemical,76.0-78.0 C (spec range); lot EV2602021 result: 77.3 C,Scent.vn
+MAT-etil-vainillina,Etil vainillina,notes,Punto de fusión: especificación 76–78 °C (se guarda el mínimo); otra fuente da 65 °C.,https://scent.vn/en/products/ethyl-vanillin-aroma-chemical,76.0-78.0 C (spec range); lot EV2602021 result: 77.3 C,Scent.vn
+MAT-etil-vainillina,Etil vainillina,stability,Contiene aldehído y fenol: puede decolorarse; con el tiempo vira a marrón oscuro o rosa-violeta,https://scent.vn/en/products/ethyl-vanillin-aroma-chemical,leading over time to a dark brown or pink-purple color shift,Scent.vn
+MAT-etil-vainillina,Etil vainillina,incompatibilities,Recipientes o herramientas de hierro (provocan decoloración),https://scent.vn/en/products/ethyl-vanillin-aroma-chemical,"avoid iron containers/tools, which can trigger discoloration reactions",Scent.vn
+MAT-etil-vainillina,Etil vainillina,notes,"Los dos puntos de fusión de las fuentes no coinciden (65 vs 76-78 C). Scent.vn: tenacidad 'among the most persistent fixatives', evaporación ultra lenta, punto de inflamación 130.72 C (est.); dosis 0.5-5% en perfumería fina (base no declarada). Dosis de Hekserij: % de la composición de fragancia. Sin casa fabricante en las fuentes. Resúmenes con herramienta de lectura.",https://scent.vn/en/products/ethyl-vanillin-aroma-chemical,often around 0.5% to 5% in fine fragrance,Scent.vn
+MAT-etil-vainillina,Etil vainillina,notes,"WebFetch solo devolvió identidad, tipo de olor y sinónimo de esta página; el resto de campos no se pudo leer.",https://thegoodscentscompany.com/data/rw1002652.html,Ethyl vanillin (CAS 121-32-4),TGSC
+MAT-veramoss,Veramoss,aliases,Evernyl,https://fraterworks.com/products/veramoss,"Synonyms: Evernyl, Methyl Atratate",Fraterworks
+MAT-veramoss,Veramoss,aliases,Methyl atratate,https://fraterworks.com/products/veramoss,"Evernyl, Methyl Atratate",Fraterworks
+MAT-veramoss,Veramoss,aliases,"Methyl 2,4-dihydroxy-3,6-dimethylbenzoate",https://www.iff.com/scent/ingredients-compendium/veramoss/,"Methyl 2,4-dihydroxy-3,6-dimethylbenzoate",IFF
+MAT-veramoss,Veramoss,aliases,Atraric acid methyl ester; Oakmoss synthetic,https://www.scentspiracy.com/fragrance-ingredients/p/veramoss-iff,"Atraric Acid methyl ester, Oakmoss synthetic, Methyl atrarate",Scentspiracy
+MAT-veramoss,Veramoss,aliases,evernyl (Givaudan),https://www.thegoodscentscompany.com/data/rw1023372.html,evernyl (Givaudan),TGSC
+MAT-veramoss,Veramoss,aliases,verymoss,https://www.thegoodscentscompany.com/data/rw1023372.html,verymoss,TGSC
+MAT-veramoss,Veramoss,aliases,atraric acid,https://www.thegoodscentscompany.com/data/rw1023372.html,atraric acid,TGSC
+MAT-veramoss,Veramoss,aliases,"methyl 3,6-dimethyl resorcylate",https://www.thegoodscentscompany.com/data/rw1023372.html,"methyl 3,6-dimethyl resorcylate",TGSC
+MAT-veramoss,Veramoss,cas,4707-47-5,https://www.thegoodscentscompany.com/data/rw1023372.html,"veramoss (IFF), CAS 4707-47-5",TGSC
+MAT-veramoss,Veramoss,house,IFF,https://www.thegoodscentscompany.com/data/rw1023372.html,veramoss (IFF) evernyl (Givaudan),TGSC
+MAT-veramoss,Veramoss,form,molécula,,,propuesta de la sesión
+MAT-veramoss,Veramoss,synthesis,synthetic,https://www.scentspiracy.com/fragrance-ingredients/p/veramoss-iff,Oakmoss synthetic,Scentspiracy
+MAT-veramoss,Veramoss,descriptor,Odor Type (Fraterworks): Mossy,https://fraterworks.com/products/veramoss,Odour family: Mossy,Fraterworks
+MAT-veramoss,Veramoss,descriptor,Odor Type (TGSC): mossy,https://www.thegoodscentscompany.com/data/rw1023372.html,Odor Type: mossy,TGSC
+MAT-veramoss,Veramoss,family,green,,,propuesta de la sesión
+MAT-veramoss,Veramoss,family_detail,"musgo de roble (terrosa, amaderada)",,,propuesta de la sesión
+MAT-veramoss,Veramoss,descriptor,"IFF: Oakmoss, soft woody, phenolic, earthy.",https://www.iff.com/scent/ingredients-compendium/veramoss/,"Oakmoss, soft woody, phenolic, earthy.",IFF
+MAT-veramoss,Veramoss,descriptor,"Fraterworks: Dry, woody-earthy aroma with clean mossy character.",https://fraterworks.com/products/veramoss,"Dry, woody-earthy aroma with clean mossy character.",Fraterworks
+MAT-veramoss,Veramoss,descriptor,"Scentspiracy: Dry oakmoss, phenolic, earthy, woody, powdery, clean mossy character",https://www.scentspiracy.com/fragrance-ingredients/p/veramoss-iff,"Dry oakmoss, phenolic, earthy, woody, powdery, clean mossy character",Scentspiracy
+MAT-veramoss,Veramoss,descriptor,TGSC (dilución no indicada): mossy oakmoss woody phenolic earthy,https://www.thegoodscentscompany.com/data/rw1023372.html,Odor Description: mossy oakmoss woody phenolic earthy,TGSC
+MAT-veramoss,Veramoss,facets,"musgo de roble, terrosa, amaderada, fenólica, empolvada, limpia",,,propuesta de la sesión
+MAT-veramoss,Veramoss,tier,base,,,propuesta de la sesión
+MAT-veramoss,Veramoss,notes,"Tenacidad: «>360» h, sin cifra exacta.",https://fraterworks.com/products/veramoss,Lasts > 360 hours on a smelling strip.,Fraterworks
+MAT-veramoss,Veramoss,strength,high,https://www.thegoodscentscompany.com/data/rw1023372.html,"high, recommend smelling in a 10.00 % solution or less",TGSC
+MAT-veramoss,Veramoss,descriptor,Fraterworks: a relatively subtle scent,https://fraterworks.com/products/veramoss,a relatively subtle scent,Fraterworks
+MAT-veramoss,Veramoss,blend_effect,Fraterworks: olor propio sutil pero impacto fuerte en mezclas; Scentspiracy: subtle when smelled directly from the bottle but highly impactful in blends,https://fraterworks.com/products/veramoss,a relatively subtle scent,Fraterworks
+MAT-veramoss,Veramoss,role,structure,,,propuesta de la sesión
+MAT-veramoss,Veramoss,recommended_dilution,Scentspiracy: 10% (habitual; disolver previamente en DPG o IPM por ser cristalino) · TGSC: 10 % o menos,https://www.scentspiracy.com/fragrance-ingredients/p/veramoss-iff,"Pre-dissolve it, for example at 10% in DPG or IPM | recommend smelling in a 10.00 % solution or less",Scentspiracy + TGSC
+MAT-veramoss,Veramoss,dose_min,0.0002,https://fraterworks.com/products/veramoss,Minimum 0.02%,Fraterworks
+MAT-veramoss,Veramoss,dose_typical,0.0025,https://fraterworks.com/products/veramoss,median 0.25%,Fraterworks
+MAT-veramoss,Veramoss,dose_max,0.1,https://fraterworks.com/products/veramoss,maximum 10%,Fraterworks
+MAT-veramoss,Veramoss,handling,Fraterworks: Material cristalino; añadir directamente a la mezcla o predisolver; no aplicar sin diluir sobre la piel; solo uso profesional · TGSC: Punto de inflamación 182.78 °C (361 °F TCC); GHS no leído,https://fraterworks.com/products/veramoss,not to be applied to the skin undiluted | 361.00 °F. TCC ( 182.78 °C. ),Fraterworks + TGSC
+MAT-veramoss,Veramoss,physical_state,Sólido,https://www.thegoodscentscompany.com/data/rw1023372.html,white to pinkish yellow crystalline powder (est),TGSC
+MAT-veramoss,Veramoss,appearance,Fraterworks: Fine off white powder (Fraterworks); white to off-white crystalline powder (Scentspiracy) · TGSC: white to pinkish yellow crystalline powder (est),https://fraterworks.com/products/veramoss,Fine off white powder | white to pinkish yellow crystalline powder (est),Fraterworks + TGSC
+MAT-veramoss,Veramoss,solubility,"Scentspiracy: Soluble en DPG, IPM y alcohol; poco soluble en agua · TGSC: alcohol; isopropyl myristate; water 310.6 mg/L @ 25 °C (est)",https://www.scentspiracy.com/fragrance-ingredients/p/veramoss-iff,"Soluble in DPG, IPM, and alcohol. Poorly soluble in water. | alcohol; isopropyl myristate; water, 310.6 mg/L @ 25 °C (est)",Scentspiracy + TGSC
+MAT-veramoss,Veramoss,melting_point_c,143.00,https://www.thegoodscentscompany.com/data/rw1023372.html,143.00 °C. @ 760.00 mm Hg,TGSC
+MAT-veramoss,Veramoss,formula,C10 H12 O4,https://www.thegoodscentscompany.com/data/rw1023372.html,C10 H12 O4,TGSC
+MAT-veramoss,Veramoss,molecular_weight,196.20244,https://www.thegoodscentscompany.com/data/rw1023372.html,196.20244000,TGSC
+MAT-veramoss,Veramoss,vapor_pressure,0.000018 mmHg @ 23 °C,https://www.iff.com/scent/ingredients-compendium/veramoss/,Vapor pressure: 0.000018 mm Hg @ 23 C,IFF
+MAT-veramoss,Veramoss,notes,Presión de vapor estimada: TGSC da «0.000010 mmHg @ 25.00 °C (est)».,https://www.thegoodscentscompany.com/data/rw1023372.html,0.000010 mmHg @ 25.00 °C. (est),TGSC
+MAT-veramoss,Veramoss,stability,IFF: IFF: perfumería fina Excellent/Excellent; jabón Very Good/Excellent; AP deo Very Good/Excellent; lejía Poor/Poor. Scentspiracy: excelente estabilidad química en jabones alcalinos y bases agresivas · TGSC: TGSC lista 'soap' en la lista de estabilidad,https://www.iff.com/scent/ingredients-compendium/veramoss/,Bleach: Poor / Poor | Stability: soap,IFF + TGSC
+MAT-veramoss,Veramoss,notes,"IFF: uso hasta 10% (base no declarada), sustantividad >72 h; Log P 3.6. Scentspiracy dosis recomendada: chipre moderno 0.1-2.0%, fougere 0.1-1.0%, floral empolvado 0.05-0.5% (base no declarada). Fraterworks: tenacidad 360 h. Dosis min/mediana/max de Fraterworks (formulas analizadas, base concentrado). Resúmenes con herramienta de lectura.",https://www.scentspiracy.com/fragrance-ingredients/p/veramoss-iff,Modern Chypre: 0.1-2.0%,Scentspiracy
+MAT-veramoss,Veramoss,notes,Substantivity en TGSC: 400 h al 10 % en DPG (no es del material puro),https://www.thegoodscentscompany.com/data/rw1023372.html,400 hour(s) at 10.00 % in dipropylene glycol,TGSC
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",aliases,Galbanum oil; Persian galbanum; Ferula gummosa oil; galbanum resin oil,https://bioshop.pk/products/galbanum,"Galbanum oil, Persian galbanum, Ferula gummosa oil, galbanum resin oil",Bio Shop Pakistan
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",aliases,ferula galbaniflua resin oil,https://www.thegoodscentscompany.com/data/es1005331.html,ferula galbaniflua resin oil,TGSC
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",cas,8023-91-4,https://www.thegoodscentscompany.com/data/es1005331.html,Galbanum oil (CAS 8023-91-4),TGSC
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",species,Ferula galbaniflua,https://www.thegoodscentscompany.com/data/es1005331.html,ferula galbaniflua resin oil,TGSC
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",part,Resina (goma-resina),https://www.ventdesaromes.com/gb/essential-oils-from-abroad/272-organic-galbanum-essential-oil.html,Distilled part of the plant: resin,Vent des Aromes
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",process,Destilación por vapor · Maese Lab: destilación por arrastre de vapor de la resina,https://www.ventdesaromes.com/gb/essential-oils-from-abroad/272-organic-galbanum-essential-oil.html,steam distillation | Arrastre de Vapor,Vent des Aromes + Maese Lab
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",form,aceite esencial (resin oil),https://www.thegoodscentscompany.com/data/es1005331.html,ferula galbaniflua resin oil,TGSC
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",origin,Turquía,https://maeselab.com/aceite-esencial-de-galbano-100-natural/,origin: Turkey (ficha técnica de la tienda),Maese Lab
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",notes,"Origen: el frasco es de Turquía (Maese Lab). Las demás fuentes hablan de otros aceites (Francia, norte de Irán): sus datos son del gálbano en general, no de este producto.",https://maeselab.com/aceite-esencial-de-galbano-100-natural/,,propuesta de la sesión
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",synthesis,natural,,,propuesta de la sesión
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",descriptor,"Odor Type (Bio Shop Pakistan): Green, Woody, Resinous/Balsamic",https://bioshop.pk/products/galbanum,"Family: Green, Woody, Resinous/Balsamic",Bio Shop Pakistan
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",descriptor,Odor Type (TGSC): green,https://www.thegoodscentscompany.com/data/es1005331.html,Has a green type odor and an green type flavor.,TGSC
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",family,green,https://bioshop.pk/products/galbanum,"Family: Green, Woody, Resinous/Balsamic",Bio Shop Pakistan
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",family_detail,"verde (hoja amarga, resinosa, balsámica)",,,propuesta de la sesión
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",descriptor,"Bio Shop Pakistan: Intense, bitter, resinous 'green' leaf note; abre agudo y de pino, seca cálido, balsámico y terroso",https://bioshop.pk/products/galbanum,"Intense, bitter, resinous 'green' leaf note",Bio Shop Pakistan
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",descriptor,"Vent des Aromes: Terebentine, balsamic and green",https://www.ventdesaromes.com/gb/essential-oils-from-abroad/272-organic-galbanum-essential-oil.html,"Terebentine, balsamic and green",Vent des Aromes
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",descriptor,"Wikipedia (resina cruda): an intense green scent, con apertura amarga y acre",https://en.wikipedia.org/wiki/Galbanum,an intense green scent,Wikipedia
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",descriptor,"Hermitage Oils (en TGSC): The smell is green, leafy, cool, fresh and uber refreshing in my opinion.",https://www.thegoodscentscompany.com/data/es1005331.html,"The smell is green, leafy, cool, fresh and uber refreshing in my opinion.",TGSC
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",descriptor,"The Perfumery (en TGSC): Galbanum oil has a green, spicy, herbal aroma that is sometimes compared to green peppers or salad.",https://www.thegoodscentscompany.com/data/es1005331.html,"Galbanum oil has a green, spicy, herbal aroma that is sometimes compared to green peppers or salad.",TGSC
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",facets,"verde, resinosa, balsámica, trementina, pino, terrosa, amarga",,,propuesta de la sesión
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",tier,top_heart,,,propuesta de la sesión
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",blend_effect,"Wikipedia: Wikipedia: nota base verde natural; usada en chipre verde, floral verde, chipre conífera, fougère amaderada y fougère acuática; origen de la familia 'Green' (Vent Vert, 1945) · TGSC: Firmenich (en TGSC): enters into the composition of many perfumes because of its power to fix odor and enhance longlastingness",https://en.wikipedia.org/wiki/Galbanum,one of a few natural green base notes | enters into the composition of many perfumes because of its power to fix odor and enhance longlastingness,Wikipedia + TGSC
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",role,modifier,,,propuesta de la sesión
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",recommended_dilution,10% en IPM o DPG antes de usar (Bio Shop),https://bioshop.pk/products/galbanum,diluting to 10% in IPM or DPG before use,Bio Shop Pakistan
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",handling,"Bio Shop Pakistan: Bio Shop: posible sensibilizante; posible fototoxicidad por trazas de furanocumarinas; combustible, punto de inflamación aprox. 50-55 C; guardar fresco y oscuro en vidrio ámbar bien cerrado. Vent des Aromes: guardar lejos de luz, calor y aire; no ingerir; evitar en menores de 6 años, embarazo y lactancia · TGSC: Punto de inflamación 40.00 °C (104 °F TCC)",https://bioshop.pk/products/galbanum,"Combustible, flash point approx. 50-55 C | 104.00 °F. TCC ( 40.00 °C. )",Bio Shop Pakistan + TGSC
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",physical_state,Líquido,https://www.thegoodscentscompany.com/data/es1005331.html,colorless to yellowish brown clear liquid (est),TGSC
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",appearance,"Bio Shop Pakistan: Pale yellow to amber, slightly viscous liquid (Bio Shop); colourless to pale yellow liquid (Vent des Aromes) · TGSC: colorless to yellowish brown clear liquid (est); Hermitage Oils: clear in colour and 100% pourable with a consistency similar to water",https://bioshop.pk/products/galbanum,"Pale yellow to amber, slightly viscous liquid | colorless to yellowish brown clear liquid (est)",Bio Shop Pakistan + TGSC
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",density,0.86700,https://www.thegoodscentscompany.com/data/es1005331.html,0.86700 to 0.91600 @ 25.00 °C.,TGSC
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",stability,Vida útil 2-3 años; calentar suavemente si espesa por resinificación,https://bioshop.pk/products/galbanum,Shelf life 2-3 years,Bio Shop Pakistan
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",notes,"Bio Shop: tenacidad alta, 'roughly 8 to 12 hours on skin' (no en tira pura); dosis orientativas 'green modifier 0.1-0.5%', 'structural mid-base 1-3%' (base no declarada). Constituyentes principales (Vent des Aromes): beta-pineno 40-88%, alfa-pineno 4-21%, delta-3-careno hasta 16%, limoneno hasta 7%; quimiotipo no indicado. El producto de Maese Lab (origen Turquía) no se pudo contrastar; Vent des Aromes es aceite ecológico de origen Francia. Resúmenes con herramienta de lectura.",https://bioshop.pk/products/galbanum,Potential sensitizer,Bio Shop Pakistan
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",solubility,Soluble in alcohol; water 0.8331 mg/L @ 25 °C (est),https://www.thegoodscentscompany.com/data/es1005331.html,"water, 0.8331 mg/L @ 25 °C (est)",TGSC
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",inci,Ferula Galbaniflua Resin Oil,https://maeselab.com/aceite-esencial-de-galbano-100-natural/,INCI: Ferula Galbaniflua Resin Oil,Maese Lab
+MAT-galbano-aceite-esencial,"Gálbano, aceite esencial",other_cas,93165-40-3,https://maeselab.com/aceite-esencial-de-galbano-100-natural/,CAS: 93165-40-3 / 8023-91-4,Maese Lab
