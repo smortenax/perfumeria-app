@@ -456,6 +456,8 @@ export const texts = {
 
   composition: {
     title: "Composition",
+    byNote: "By note",
+    notes: { top: "Top", heart: "Heart", base: "Base", unknown: "No note stated", diluents: "Diluents" } as Record<string, string>,
     count: (n: number) => `${n} ${n === 1 ? "material" : "materials"}`,
     /** The base of the column, said with the switch (§1.1, P57): every number goes with its base. */
     baseAromatic: "mg neat · % of the aromatic matter",

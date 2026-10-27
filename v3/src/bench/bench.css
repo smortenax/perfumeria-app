@@ -3229,3 +3229,30 @@
   border-radius: 8px;
   background: var(--panel);
 }
+
+/* The composition by notes (F3): a switch in the head, and each group with its subtotal. */
+.composition-head .by-note {
+  min-height: 28px;
+  padding: 2px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: transparent;
+  font-size: var(--text-sm, 13px);
+}
+.composition-head .by-note.on {
+  background: var(--ink);
+  color: var(--panel);
+}
+.note-head {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px 4px;
+  font-size: var(--text-sm, 13px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-top: 1px solid var(--line);
+}
+.note-group:first-child .note-head {
+  border-top: none;
+}

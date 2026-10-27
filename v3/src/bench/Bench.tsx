@@ -274,6 +274,11 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
     return m ? <MaterialOrb look={orbLookOf(props.data.catalog, m, scales)} size={size} seed={seedOf(m.id)} /> : undefined;
   };
   const familyOf = (key: string) => families.get(key);
+  // Its tier, or that of the common material it is based on (V3-5), for the list by notes (F3).
+  const tierOf = (key: string) => {
+    const m = props.data.catalog.materials.get(key);
+    return m?.tier ?? (m?.basedOnId ? props.data.catalog.materials.get(m.basedOnId)?.tier : null) ?? null;
+  };
   const chemical = useMemo(() => new Map(repository.entries.filter((e) => e.tradeName).map((e) => [e.material.key, e.chemicalName])), [repository]);
   const known = useMemo(() => [...props.frozen, ...session], [props.frozen, session]);
 
@@ -759,6 +764,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
             chemicalOf={(key) => chemical.get(key)}
             glossaryNameOf={(key) => byKey.get(key)?.name}
             familyOf={familyOf}
+            tierOf={tierOf}
             onAgain={(m) => addBar.current?.select(m)}
           />
           <IfraPanel report={view.report} empty={empty} {...(ifraBase ? { base: ifraBase } : {})} onBase={setChosenBase} specifications={specifications} assumptions={assumptions} />
