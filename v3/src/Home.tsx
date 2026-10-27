@@ -2,6 +2,7 @@ import type { LocalDatabase } from "./db/local/database";
 import type { Tastings } from "./db/tastings";
 import { WARN } from "./formulation/ifra-label";
 import { useFormulaChecks } from "./formulation/useFormulaChecks";
+import { readRecent } from "./recent";
 import type { GlossaryData } from "./glossary/useGlossary";
 import { buildQueue, countdown, dueMoments } from "./tasting/logic";
 import { useNow } from "./tasting/useTastings";
@@ -25,6 +26,7 @@ export function Home({
   onQueue,
   onDilutions,
   onOpenFormula,
+  onOpenMaterial,
   onSignOut,
 }: {
   data: GlossaryData | null;
@@ -39,6 +41,7 @@ export function Home({
   onQueue: () => void;
   onDilutions: () => void;
   onOpenFormula: (id: string) => void;
+  onOpenMaterial: (id: string) => void;
   onSignOut: () => void;
 }) {
   const t = texts.home;
@@ -76,6 +79,28 @@ export function Home({
     .map((f) => ({ f, label: checks.get(f.id)?.ifra }))
     .filter((x): x is { f: (typeof x)["f"]; label: (typeof WARN)[number] } => x.label !== undefined && WARN.includes(x.label))
     .sort((a, b) => WARN.indexOf(a.label) - WARN.indexOf(b.label) || a.f.name.localeCompare(b.f.name, "es"));
+
+  // Recent (F21): what you opened last that still exists, up to six.
+  const recent = data
+    ? readRecent()
+        .map((r) =>
+          r.kind === "formula"
+            ? (() => {
+                const f = data.formulas.find((x) => x.id === r.id);
+                return f ? { ...r, name: f.name, detail: t.formulaIn(data.workbenches.find((b) => b.id === f.workbenchId)?.name ?? "—") } : null;
+              })()
+            : (() => {
+                const m = data.catalog.materials.get(r.id);
+                return m ? { ...r, name: m.name, detail: m.ownerId === null ? t.common : t.yours } : null;
+              })(),
+        )
+        .filter((x) => x !== null)
+        .slice(0, 6)
+    : [];
+  // The shelf (F21): what you have, and what is running low (V3-79).
+  const mine = data ? [...data.catalog.materials.values()].filter((m) => m.ownerId !== null && m.kind !== "frozen") : [];
+  const have = data ? data.catalog.have.size : 0;
+  const low = mine.filter((m) => m.status === "running_low").sort((a, b) => a.name.localeCompare(b.name, "es"));
 
   const pending = queue?.pending ?? 0;
   const dilutionCount = data ? [...data.catalog.dilutions.values()].reduce((n, l) => n + l.filter((d) => !d.archivedAt).length, 0) : null;
@@ -118,6 +143,41 @@ export function Home({
             </ul>
           ) : (
             <p className="hint">{t.nothing}</p>
+          )}
+        </section>
+      )}
+      {recent.length > 0 && (
+        <section className="continue home-recent" aria-labelledby="home-recent-title">
+          <h3 id="home-recent-title">{t.recent}</h3>
+          <ul className="continue-list">
+            {recent.map((r) => (
+              <li key={`${r.kind}:${r.id}`}>
+                <button type="button" className="continue-item" onClick={() => (r.kind === "formula" ? onOpenFormula(r.id) : onOpenMaterial(r.id))}>
+                  <span className="continue-kind">{r.kind === "formula" ? t.recentFormula : t.recentMaterial}</span>
+                  <span className="continue-name">{r.name}</span>
+                  <span className="continue-detail">{r.detail}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+      {data && (
+        <section className="continue home-shelf" aria-labelledby="home-shelf-title">
+          <h3 id="home-shelf-title">{t.shelf}</h3>
+          <p className="hint">{t.shelfDetail(have, low.length)}</p>
+          {low.length > 0 && (
+            <ul className="continue-list">
+              {low.map((m) => (
+                <li key={m.id}>
+                  <button type="button" className="continue-item" onClick={() => onOpenMaterial(m.id)}>
+                    <span className="continue-kind">{texts.sheet.statuses.running_low}</span>
+                    <span className="continue-name">{m.name}</span>
+                    {(m.supplier || m.product) && <span className="continue-detail">{[m.supplier, m.product].filter((x) => x).join(" · ")}</span>}
+                  </button>
+                </li>
+              ))}
+            </ul>
           )}
         </section>
       )}

@@ -25,6 +25,7 @@ import { useTastings } from "./tasting/useTastings";
 import { useDueCount } from "./tasting/useDue";
 import { NavIcon, type NavIconName } from "./NavIcon";
 import { texts } from "./i18n/en";
+import { noteRecent } from "./recent";
 
 /**
  * Who is using the app decides what opens (plan step 1.7): without a session, signing in;
@@ -146,6 +147,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
           onQueue={() => go({ view: "tasting", tab: "queue" })}
           onDilutions={() => go({ view: "dilutions" })}
           onOpenFormula={(id) => go({ view: "formula", id })}
+          onOpenMaterial={(id) => go({ view: "sheet", id })}
           onSignOut={() => void leave()}
         />
       )}
@@ -329,6 +331,9 @@ function useRoute(): [Route, (r: Route, replace?: boolean) => void, (fallback: R
     const changed = () => {
       const next = parseRoute(window.location.hash);
       setRoute(next);
+      // What you open goes to «Recent» on Home (F21).
+      if (next.view === "formula") noteRecent("formula", next.id);
+      if (next.view === "sheet") noteRecent("material", next.id);
       // A sheet opens at its top; a list, where it was left.
       requestAnimationFrame(() => window.scrollTo(0, scrolls.current.get(hashOf(next)) ?? 0));
     };
