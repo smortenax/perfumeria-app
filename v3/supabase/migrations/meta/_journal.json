@@ -309,6 +309,13 @@
       "when": 1793108718609,
       "tag": "20261027134518_strength_source",
       "breakpoints": true
+    },
+    {
+      "idx": 44,
+      "version": "7",
+      "when": 1793109811197,
+      "tag": "20261027140331_formula_notes",
+      "breakpoints": true
     }
   ]
 }

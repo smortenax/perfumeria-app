@@ -1,0 +1,1 @@
+ALTER TABLE "formulas" ADD COLUMN "notes" text DEFAULT '' NOT NULL;

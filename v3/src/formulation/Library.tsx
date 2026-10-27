@@ -174,6 +174,10 @@ function Benches({
                     <span className="formula-main">
                       <span className="formula-name">{f.name}</span>
                       {(parent || f.role) && <span className="formula-detail">{[parent ? t.versionFrom(parent.name) : null, f.role].filter((x) => x).join(" · ")}</span>}
+                      {/* Its intention and its notes (F7), the first line of each. */}
+                      {(f.intention.trim() || f.notes.trim()) && (
+                        <span className="formula-detail formula-notes">{[f.intention, f.notes].map((x) => x.trim().split("\n")[0]).filter((x) => x).join(" · ")}</span>
+                      )}
                     </span>
                     {f.markers.map((m) => (
                       <span key={m} className="chip">

@@ -254,6 +254,7 @@ export const formulas = sqliteTable("formulas", {
   parentId: text("parent_id"),
   name: text("name"),
   intention: text("intention"),
+  notes: text("notes"),
   containerCapacityMl: text("container_capacity_ml"),
   containerTareUg: text("container_tare_ug"),
   workBatchUg: text("work_batch_ug"),

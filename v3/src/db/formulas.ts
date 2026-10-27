@@ -31,6 +31,8 @@ export interface FormulaRecord {
   readonly parentId: string | null;
   readonly name: string;
   readonly intention: string;
+  /** Free notes (F7). */
+  readonly notes: string;
   readonly containerCapacityMl: Ratio | null;
   readonly containerTareUg: bigint | null;
   readonly workBatchUg: bigint | null;
@@ -46,6 +48,7 @@ export interface NewFormula {
   readonly workbenchId?: string;
   readonly parentId?: string | null;
   readonly intention?: string;
+  readonly notes?: string;
   readonly containerCapacityMl?: Ratio | null;
   readonly containerTareUg?: bigint | null;
   readonly workBatchUg?: bigint | null;
@@ -134,6 +137,7 @@ export async function createFormula(db: LocalDb, ownerId: string, input: NewForm
     parentId: input.parentId ?? null,
     name: nonEmpty(input.name, "a formula"),
     intention: input.intention ?? "",
+    notes: input.notes ?? "",
     containerCapacityMl: input.containerCapacityMl ? numericFromRatio(input.containerCapacityMl) : null,
     containerTareUg: text(input.containerTareUg),
     workBatchUg: text(input.workBatchUg),
@@ -150,6 +154,7 @@ export async function createFormula(db: LocalDb, ownerId: string, input: NewForm
 export interface FormulaHeaderChanges {
   readonly name?: string;
   readonly intention?: string;
+  readonly notes?: string;
   readonly containerCapacityMl?: Ratio | null;
   readonly containerTareUg?: bigint | null;
   readonly workBatchUg?: bigint | null;
@@ -174,6 +179,7 @@ export async function updateFormula(db: LocalDb, ownerId: string, id: string, ch
     .set({
       ...(changes.name !== undefined ? { name: nonEmpty(changes.name, "a formula") } : {}),
       ...(changes.intention !== undefined ? { intention: changes.intention } : {}),
+      ...(changes.notes !== undefined ? { notes: changes.notes } : {}),
       ...(changes.containerCapacityMl !== undefined ? { containerCapacityMl: changes.containerCapacityMl ? numericFromRatio(changes.containerCapacityMl) : null } : {}),
       ...(changes.containerTareUg !== undefined ? { containerTareUg: text(changes.containerTareUg) } : {}),
       ...(changes.workBatchUg !== undefined ? { workBatchUg: text(changes.workBatchUg) } : {}),
@@ -202,6 +208,7 @@ export async function copyFormula(
     workbenchId: source.workbenchId,
     parentId: input.asVersion ? source.id : null,
     intention: source.intention,
+    notes: source.notes,
     containerCapacityMl: input.containerCapacityMl !== undefined ? input.containerCapacityMl : source.containerCapacityMl,
     containerTareUg: input.containerTareUg !== undefined ? input.containerTareUg : source.containerTareUg,
     workBatchUg: source.workBatchUg,
@@ -319,6 +326,7 @@ export async function loadFormulas(db: LocalDb, ownerId: string): Promise<Formul
     parentId: f.parentId,
     name: f.name ?? "",
     intention: f.intention ?? "",
+    notes: f.notes ?? "",
     containerCapacityMl: ratioFromNumeric(f.containerCapacityMl),
     containerTareUg: f.containerTareUg ? bigintFromText(f.containerTareUg) : null,
     workBatchUg: f.workBatchUg ? bigintFromText(f.workBatchUg) : null,

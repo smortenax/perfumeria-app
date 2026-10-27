@@ -22,7 +22,7 @@ import { CompositionCard } from "./CompositionList";
 import { ChoiceDialog, ConfirmDialog, PromptDialog, ReweighDialog, SaveAsDialog, type SaveAsChoice, UseFormulaDialog } from "./Dialogs";
 import { dilutionText } from "./format";
 import { ownConcentration, recipe } from "./use-formula";
-import { GramsCard, IntentionCard, NameCard } from "./Header";
+import { GramsCard, IntentionCard, NameCard, NotesCard } from "./Header";
 import { ChangeDetail, HistoryDock } from "./HistoryDock";
 import { IfraPanel, IfraSummary } from "./IfraBox";
 import { assumptionsOf } from "./assumptions";
@@ -576,6 +576,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
         </button>
         <NameCard header={shownHeader} status={status} statusIsError={error !== null} onChange={typeHeader} onDone={doneTyping} />
         <IntentionCard header={shownHeader} onChange={typeHeader} onDone={doneTyping} />
+        <NotesCard notes={props.record.notes} onSave={(notes) => write(() => updateFormula(local.db, owner, formulaId, { notes }))} />
         <div className="head-actions">
           <button type="button" className="tool" aria-label={texts.menu.undo} title={`${texts.menu.undo} (Ctrl+Z)`} disabled={formula.history.length === 0} onClick={undo}>
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

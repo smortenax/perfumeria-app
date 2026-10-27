@@ -51,6 +51,8 @@ export const formulas = pgTable(
     name: text("name").notNull(),
     /** What it is for, in free text (P23). */
     intention: text("intention").notNull().default(""),
+    /** Free notes on the formula (F7, V3-78): what you think of it, what to try next. */
+    notes: text("notes").notNull().default(""),
     /** The container: its capacity, and its tare once weighed (unknown until then, §1.2). */
     containerCapacityMl: numeric("container_capacity_ml"),
     containerTareUg: bigint("container_tare_ug", { mode: "bigint" }),

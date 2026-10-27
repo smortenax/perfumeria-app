@@ -35,6 +35,8 @@ export const texts = {
     namePlaceholder: "Name of the formula",
     intention: "Intention",
     intentionPlaceholder: "What this formula is for",
+    notes: "Notes",
+    notesPlaceholder: "What you think of it, what to try next",
     unsaved: "not saved",
     savesOnAdd: "saves itself in the library when you add",
     saving: "saving…",
