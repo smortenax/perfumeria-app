@@ -5,7 +5,12 @@
  *
  * - batch 14 (fichas de los nuevos): the TGSC page and sentence of migracion-v3/web/fichas-13.csv;
  * - batch 12 (huecos desde la web): the «intensidad: …» part of the material's own `sources`;
- * - batch 7 (the lab's materials): the lab's library, materials.strength, at the commit batch 7 read.
+ * - batch 7 (the lab's materials): the lab's library, materials.strength, at the commit batch 7 read;
+ * - batch 23 (the arrivals of 2026-10-26): the page and sentence of
+ *   migracion-v3/web/altas-2026-10-26/fichas-2026-10-26.csv.
+ *
+ * Redone on 2026-10-27 over batch 23 (merged from claude/project-thread-vjbhbo), so that its 20
+ * materials have their source too.
  *
  * Who brought it is read from the approved tables of each batch, in order: the first that has the
  * value as it is today. A strength no batch explains is left without a source and listed. Made from
@@ -19,7 +24,7 @@ import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
 import { type Cell, writeTable } from "./lib/csv.ts";
 
-const BASE = "2d856d7";
+const BASE = "1d0ed4f";
 const OUT = "migracion-v3/tandas/26-fuente-fuerza";
 const DECISION = "V3-81 (el usuario, 2026-10-27: «Faltaba la fuente»)";
 /** The lab commit batch 7 read (its informe.md: «commit `c0e81e3` del laboratorio, sin cambios locales»). */
@@ -34,8 +39,10 @@ const batch = (name: string) => new Map((parseCsvRecords(show(`migracion-v3/tand
 const b7 = batch("7-materiales");
 const b12 = batch("12-huecos-web");
 const fichas = parseCsvRecords(readFileSync("migracion-v3/web/fichas-13.csv", "utf8")).filter((r) => r.campo === "strength");
+const b23 = batch("23-altas-26-oct");
+const fichas23 = parseCsvRecords(readFileSync("migracion-v3/web/altas-2026-10-26/fichas-2026-10-26.csv", "utf8")).filter((r) => r.campo === "strength");
 
-type Why = "lab" | "web12" | "web14" | "none";
+type Why = "lab" | "web12" | "web14" | "web23" | "none";
 const found: { name: string; strength: string; why: Why; source: string | null }[] = [];
 const sourceOf = (r: Rec): { why: Why; source: string | null } => {
   const strength = String(r.strength);
@@ -47,6 +54,10 @@ const sourceOf = (r: Rec): { why: Why; source: string | null } => {
   }
   const ficha = fichas.find((f) => f.material === r.name && f.valor === strength);
   if (ficha) return { why: "web14", source: `web: TGSC, ${ficha.url}: «${ficha.frase}», por la tanda 14` };
+  if (b23.get(id)?.strength === strength) {
+    const f23 = fichas23.find((f) => f.material === r.name && f.valor === strength);
+    if (f23) return { why: "web23", source: `web: ${f23.origen}, ${f23.url}: «${f23.frase}», por la tanda 23` };
+  }
   return { why: "none", source: null };
 };
 const newMaterials = materials.map((r) => {
@@ -75,13 +86,14 @@ writeFileSync(
 | El laboratorio (tanda 7: \`biblioteca/materiales.sqlite\`, \`materials.strength\`, commit \`${LAB_COMMIT}\`) | ${count("lab")} |
 | La web, por la tanda 12 (\`respuestas/huecos-web.csv\`, la parte «intensidad» de sus fuentes) | ${count("web12")} |
 | La web, por la tanda 14 (\`web/fichas-13.csv\`: la página de TGSC y su frase) | ${count("web14")} |
+| La web, por la tanda 23 (\`web/altas-2026-10-26/fichas-2026-10-26.csv\`: la página y su frase) | ${count("web23")} |
 | Sin encontrar (quedan sin fuente) | ${count("none")} |
 
 ## Los que vienen de la web
 
 | Material | Fuerza | Fuente |
 |---|---|---|
-${found.filter((f) => f.why === "web12" || f.why === "web14").sort(byName).map((f) => `| ${f.name} | ${f.strength} | ${cell(f.source!)} |`).join("\n")}
+${found.filter((f) => f.why === "web12" || f.why === "web14" || f.why === "web23").sort(byName).map((f) => `| ${f.name} | ${f.strength} | ${cell(f.source!)} |`).join("\n")}
 
 ## Sin encontrar
 
@@ -91,4 +103,4 @@ Tus versiones no cambian: heredan la fuente del común junto con su fuerza.
 `,
   "utf8",
 );
-console.log(`Tanda 26: ${found.length} fuerzas; laboratorio ${count("lab")}, web 12 ${count("web12")}, web 14 ${count("web14")}, sin encontrar ${count("none")}. ${OUT}/informe.md`);
+console.log(`Tanda 26: ${found.length} fuerzas; laboratorio ${count("lab")}, web 12 ${count("web12")}, web 14 ${count("web14")}, web 23 ${count("web23")}, sin encontrar ${count("none")}. ${OUT}/informe.md`);
