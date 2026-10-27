@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Ratio } from "../core/arith/ratio";
 import { parseMass } from "../core/arith/units";
 import { compose, replay, type Composition, type Line } from "../core/compose";
@@ -21,7 +21,7 @@ import { ifraOfLines } from "./composition-ifra";
 import { CompositionCard } from "./CompositionList";
 import { ChoiceDialog, ConfirmDialog, PromptDialog, ReweighDialog, SaveAsDialog, type SaveAsChoice, UseFormulaDialog } from "./Dialogs";
 import { dilutionText } from "./format";
-import { ownConcentration } from "./use-formula";
+import { ownConcentration, recipe } from "./use-formula";
 import { GramsCard, IntentionCard, NameCard } from "./Header";
 import { ChangeDetail, HistoryDock } from "./HistoryDock";
 import { IfraPanel, IfraSummary } from "./IfraBox";
@@ -37,6 +37,8 @@ import { repositoryOfV3, v3IdOf } from "./v3-repository";
 import { orbLookOf, orbScalesOf, seedOf } from "../glossary/orb/fromCatalog";
 import { MaterialOrb } from "../glossary/orb/MaterialOrb";
 import { DilutionPopup } from "../dilution/DilutionPopup";
+import { formulaCsv, formulaFileName } from "../export/formula";
+import { PrintFormula } from "../export/PrintFormula";
 import { addToShopping, missingOf, removeFromShopping } from "../db/shopping";
 import { texts as appTexts } from "../i18n/en";
 import "./bench.css";
@@ -379,6 +381,14 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
   };
 
   const exportJson = () => download(fileNameFor(formula.header.name), formulaToJson(formula));
+  // «Export as CSV» and «Print or save as PDF» (V3-80): the whole formula, whatever step is being looked at.
+  const exportCsv = () => {
+    const url = URL.createObjectURL(new Blob([formulaCsv(compose(formula))], { type: "text/csv;charset=utf-8" }));
+    Object.assign(document.createElement("a"), { href: url, download: formulaFileName(formula.header.name || "formula", new Date().toISOString().slice(0, 10), "csv") }).click();
+    URL.revokeObjectURL(url);
+  };
+  const [printing, setPrinting] = useState(false);
+  const stopPrinting = useCallback(() => setPrinting(false), []);
 
   // The play (§3.4): from nothing, change by change, to the end.
   useEffect(() => {
@@ -611,6 +621,12 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
           <button type="button" className="menuitem" onClick={menuAction(exportJson)}>
             <span>{texts.bench.exportJson}</span>
           </button>
+          <button type="button" className="menuitem" disabled={empty} onClick={menuAction(exportCsv)}>
+            <span>{texts.bench.exportCsv}</span>
+          </button>
+          <button type="button" className="menuitem" disabled={empty} onClick={menuAction(() => setPrinting(true))}>
+            <span>{texts.bench.print}</span>
+          </button>
           <div className="menu-sep" />
           <button type="button" className="menuitem" disabled={empty} onClick={menuAction(() => {
             setDialog({ kind: "useFormula" });
@@ -780,6 +796,23 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
         }}
         onClose={() => setShoppingNote(null)}
       />
+      {printing && !empty && (
+        <PrintFormula
+          name={formula.header.name}
+          bench={props.data.workbenches.find((w) => w.id === props.record.workbenchId)?.name ?? null}
+          composition={compose(formula)}
+          weighing={(() => {
+            const own = ownConcentration(formula.header.workBatchUg, formula.header.finalBatchUg);
+            if (!own || !formula.header.finalBatchUg) return null;
+            try {
+              return recipe(compose(formula), formula.header.finalBatchUg, own);
+            } catch {
+              return null;
+            }
+          })()}
+          onDone={stopPrinting}
+        />
+      )}
       {bottleFor !== null && (
         <DilutionPopup
           data={props.data}

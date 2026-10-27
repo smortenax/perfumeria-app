@@ -1,0 +1,54 @@
+/* The formula to print (V3-80): only the sheet prints; on screen it is not shown. */
+.print-sheet {
+  display: none;
+}
+
+@media print {
+  html,
+  body {
+    background: #fff !important;
+  }
+  body > *:not(.print-sheet) {
+    display: none !important;
+  }
+  .print-sheet {
+    display: block;
+    color: #000;
+    background: #fff;
+    font-size: 10.5pt;
+  }
+  .print-sheet h1 {
+    font-size: 16pt;
+    margin: 0 0 2pt;
+  }
+  .print-sheet h2 {
+    font-size: 12pt;
+    margin: 12pt 0 4pt;
+  }
+  .print-sheet table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .print-sheet th,
+  .print-sheet td {
+    border-bottom: 0.5pt solid #999;
+    padding: 2pt 4pt;
+    text-align: left;
+    vertical-align: top;
+  }
+  .print-sheet tr {
+    break-inside: avoid;
+  }
+  .print-sheet .num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .print-sheet .tick {
+    width: 14pt;
+  }
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+}

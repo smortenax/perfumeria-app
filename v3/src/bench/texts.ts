@@ -59,6 +59,8 @@ export const texts = {
     writeError: "Could not save the last step",
     removed: (material: string, formula: string) => `Removed ${material} from ${formula}.`,
     exportJson: "Export as a file (.json)",
+    exportCsv: "Export as CSV",
+    print: "Print or save as PDF",
     cannotUndo: {
       empty: "Nothing to undo.",
       reweigh: "A reweighing cannot be undone: what evaporated does not come back. Correct it with a note or a mass.",
