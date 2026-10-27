@@ -438,6 +438,9 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
     });
   // Marked «perfume acabado», it shows in that general folder too (V3-19, plan 8.1b).
   const finished = props.record.markers.includes("finished");
+  // Favorite and locked (F1): a locked formula takes no new step until it is unlocked.
+  const favorite = props.record.markers.includes("favorite");
+  const locked = props.record.markers.includes("locked");
   const toggleMarker = (marker: FormulaMarker, on: boolean, notice: string) =>
     write(async () => {
       const markers = on ? [...props.record.markers, marker] : props.record.markers.filter((m) => m !== marker);
@@ -610,6 +613,12 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
           <button type="button" className="menuitem" onClick={menuAction(() => toggleMarker("finished", !finished, finished ? texts.bench.unmarkedFinished : texts.bench.markedFinished))}>
             <span>{finished ? texts.menu.unmarkFinished : texts.menu.markFinished}</span>
           </button>
+          <button type="button" className="menuitem" onClick={menuAction(() => toggleMarker("favorite", !favorite, favorite ? texts.bench.unmarkedFavorite : texts.bench.markedFavorite))}>
+            <span>{favorite ? texts.menu.unmarkFavorite : texts.menu.markFavorite}</span>
+          </button>
+          <button type="button" className="menuitem" onClick={menuAction(() => toggleMarker("locked", !locked, locked ? texts.bench.unlocked : texts.bench.lockedNow))}>
+            <span>{locked ? texts.menu.unlock : texts.menu.lock}</span>
+          </button>
           <button type="button" className="menuitem" disabled={props.data.workbenches.length < 2} onClick={menuAction(() => setDialog({ kind: "move" }))}>
             <span>{texts.menu.move}</span>
           </button>
@@ -671,6 +680,14 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
           </span>
         </div>
       </header>
+      {locked && (
+        <p className="locked-note" role="status">
+          {texts.bench.lockedNote}{" "}
+          <button type="button" className="link" onClick={() => toggleMarker("locked", false, texts.bench.unlocked)}>
+            {texts.menu.unlock}
+          </button>
+        </p>
+      )}
 
       <div className="card weigh-row">
         <BottleFrame

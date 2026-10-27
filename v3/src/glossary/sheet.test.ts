@@ -187,7 +187,7 @@ describe("a workbench's formulas with their versions together (8.1)", () => {
   it("each mother, then the versions that come from it, along the chain", async () => {
     const { byVersions } = await import("./Glossary");
     const f = (id: string, name: string, parentId: string | null = null) => ({
-      id, name, parentId, workbenchId: "b", intention: "", notes: "", containerCapacityMl: null, containerTareUg: null, workBatchUg: null, finalBatchUg: null, markers: [], role: null, createdAt: null,
+      id, name, parentId, workbenchId: "b", intention: "", notes: "", containerCapacityMl: null, containerTareUg: null, workBatchUg: null, finalBatchUg: null, markers: [], role: null, createdAt: null, updatedAt: null,
     });
     const list = [f("c", "GuiAaa con pirazinas", "b2"), f("z", "protoguidev3"), f("b2", "GuiAaa sin pirazinas", "a"), f("a", "GuiAaa"), f("g", "guia")];
     expect(byVersions(list).map((x) => x.id)).toEqual(["g", "a", "b2", "c", "z"]);

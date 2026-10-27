@@ -1,10 +1,15 @@
-import { type KeyboardEvent, useRef, useState } from "react";
+import { type KeyboardEvent, useEffect, useMemo, useRef, useState } from "react";
+import { Ratio } from "../core/arith/ratio";
+import { formatGrams } from "../core/display";
 import type { FormulaRecord } from "../db/formulas";
+import type { LocalDatabase } from "../db/local/database";
 import { normalize } from "../db/search";
 import { byVersions, Formulas } from "../glossary/Glossary";
 import type { GlossaryData } from "../glossary/useGlossary";
 import { texts } from "../i18n/en";
+import { Pills } from "../Pills";
 import { tabAfterKey } from "../tabs";
+import { type EventRow, type Preview, previewsOf, type Sort, SORTS, sortFormulas } from "./preview";
 
 /** The library's tabs (V3-19): your workbenches, and the general folders of the markers. */
 const TABS = ["benches", "accords", "finished"] as const;
@@ -19,18 +24,33 @@ const MARKER = { benches: null, accords: "accord", finished: "finished" } as con
  */
 export function Library({
   data,
+  local,
   onOpen,
   onNew,
   onNewBench,
   onDeleteBench,
 }: {
   data: GlossaryData;
+  local: LocalDatabase;
   onOpen: (id: string) => void;
   onNew: (workbenchId: string) => void;
   onNewBench: (name: string) => void;
   onDeleteBench: (workbenchId: string) => void;
 }) {
   const t = texts.library;
+  // The steps of every formula, live, for what each row says (F1).
+  const [events, setEvents] = useState<EventRow[]>([]);
+  useEffect(() => {
+    const abort = new AbortController();
+    local.powerSync.watch(
+      "SELECT id, formula_id AS formulaId, kind, material_id AS materialId, target, created_at AS createdAt FROM formula_events",
+      [],
+      { onResult: (r) => setEvents((r.rows?._array ?? []) as EventRow[]) },
+      { signal: abort.signal },
+    );
+    return () => abort.abort();
+  }, [local]);
+  const previews = useMemo(() => previewsOf(data.formulas, events), [data.formulas, events]);
   const [tab, setTab] = useState<Tab>("benches");
   const [query, setQuery] = useState("");
   const refs = useRef<Array<HTMLButtonElement | null>>([]);
@@ -86,7 +106,7 @@ export function Library({
       </div>
       <div className="tab-panel" role="tabpanel" id="library-panel" aria-labelledby={`library-tab-${tab}`}>
         {tab === "benches" ? (
-          <Benches data={data} query={query} onOpen={onOpen} onNew={onNew} onDeleteBench={onDeleteBench} />
+          <Benches data={data} previews={previews} query={query} onOpen={onOpen} onNew={onNew} onDeleteBench={onDeleteBench} />
         ) : (
           <Formulas data={data} query={query} marker={MARKER[tab]} onOpen={onOpen} />
         )}
@@ -102,19 +122,24 @@ export function Library({
  */
 function Benches({
   data,
+  previews,
   query,
   onOpen,
   onNew,
   onDeleteBench,
 }: {
   data: GlossaryData;
+  previews: ReadonlyMap<string, Preview>;
   query: string;
   onOpen: (id: string) => void;
   onNew: (workbenchId: string) => void;
   onDeleteBench: (workbenchId: string) => void;
 }) {
   const t = texts.glossary;
+  const l = texts.library;
   const [chosen, setChosen] = useState<string | null>(null);
+  const [sort, setSort] = useState<Sort>("versions");
+  const [favoritesOnly, setFavoritesOnly] = useState(false);
   const words = normalize(query).split(/\s+/).filter((w) => w);
   const benchName = new Map(data.workbenches.map((b) => [b.id, b.name]));
   const shown = data.formulas.filter((f) => words.every((w) => normalize(`${f.name} ${benchName.get(f.workbenchId) ?? ""}`).includes(w)));
@@ -125,7 +150,11 @@ function Benches({
   // Open first: the one you chose, else the first that has formulas.
   const current = benches.find((b) => b.id === chosen) ?? benches.find((b) => shown.some((f) => f.workbenchId === b.id)) ?? benches[0] ?? null;
   if (!current) return <p className="hint">{words.length ? t.noFormulas : t.noFormulasYet(false)}</p>;
-  const inside = byVersions(shown.filter((f) => f.workbenchId === current.id));
+  const inside = sortFormulas(
+    byVersions(shown.filter((f) => f.workbenchId === current.id && (!favoritesOnly || f.markers.includes("favorite")))),
+    sort,
+    previews,
+  );
   const all = data.formulas.filter((f) => f.workbenchId === current.id).length;
   const depth = (f: FormulaRecord) => {
     let d = 0;
@@ -162,6 +191,14 @@ function Benches({
             </button>
           </span>
         </div>
+        <div className="list-tools">
+          <Pills label={l.sortBy} value={sort} options={SORTS.map((x) => ({ value: x, label: l.sorts[x] }))} onChange={(v) => setSort(v ?? "versions")} />
+          <span className="pills">
+            <button type="button" className="pill" aria-pressed={favoritesOnly} onClick={() => setFavoritesOnly(!favoritesOnly)}>
+              {l.favoritesOnly}
+            </button>
+          </span>
+        </div>
         {inside.length === 0 ? (
           <p className="hint">{words.length ? t.noFormulas : t.noFormulasYet(true)}</p>
         ) : (
@@ -174,12 +211,13 @@ function Benches({
                     <span className="formula-main">
                       <span className="formula-name">{f.name}</span>
                       {(parent || f.role) && <span className="formula-detail">{[parent ? t.versionFrom(parent.name) : null, f.role].filter((x) => x).join(" · ")}</span>}
+                      <span className="formula-detail formula-preview">{previewText(f, previews.get(f.id))}</span>
                       {/* Its intention and its notes (F7), the first line of each. */}
                       {(f.intention.trim() || f.notes.trim()) && (
                         <span className="formula-detail formula-notes">{[f.intention, f.notes].map((x) => x.trim().split("\n")[0]).filter((x) => x).join(" · ")}</span>
                       )}
                     </span>
-                    {f.markers.map((m) => (
+                    {[...f.markers].sort((a, b) => MARKER_ORDER.indexOf(a) - MARKER_ORDER.indexOf(b)).map((m) => (
                       <span key={m} className="chip">
                         {t.markers[m]}
                       </span>
@@ -196,4 +234,15 @@ function Benches({
       </section>
     </div>
   );
+}
+
+const MARKER_ORDER = ["favorite", "locked", "accord", "finished"];
+
+/** «3 materials · final batch 3,000 g · changed 27 Oct 2026» (F1). */
+function previewText(f: FormulaRecord, p: Preview | undefined): string {
+  const l = texts.library;
+  const batch = f.finalBatchUg ? l.finalBatch(formatGrams(Ratio.of(f.finalBatchUg))) : f.workBatchUg ? l.workBatch(formatGrams(Ratio.of(f.workBatchUg))) : null;
+  const day = p?.lastChange ? new Date(p.lastChange) : null;
+  const when = day && !Number.isNaN(day.getTime()) ? l.changed(day.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })) : null;
+  return [l.materialsCount(p?.materials ?? 0), batch, when].filter((x) => x).join(" · ");
 }

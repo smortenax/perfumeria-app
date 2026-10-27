@@ -316,6 +316,13 @@
       "when": 1793109811197,
       "tag": "20261027140331_formula_notes",
       "breakpoints": true
+    },
+    {
+      "idx": 45,
+      "version": "7",
+      "when": 1793110358508,
+      "tag": "20261027141238_formula_favorite_locked",
+      "breakpoints": true
     }
   ]
 }

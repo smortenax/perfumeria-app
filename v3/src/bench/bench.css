@@ -3220,3 +3220,12 @@
   font-weight: 600;
   border-top: 1px solid var(--line);
 }
+
+/* A locked formula (F1) says so over the bench, with the way out. */
+.locked-note {
+  margin: 0 0 12px;
+  padding: 8px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--panel);
+}

@@ -1,0 +1,2 @@
+ALTER TABLE "formulas" DROP CONSTRAINT "formulas_markers";--> statement-breakpoint
+ALTER TABLE "formulas" ADD CONSTRAINT "formulas_markers" CHECK ("formulas"."markers" <@ array['accord', 'finished', 'favorite', 'locked']::text[]);

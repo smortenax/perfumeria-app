@@ -69,7 +69,7 @@ export const formulas = pgTable(
     index("formulas_workbench_idx").on(t.workbenchId),
     index("formulas_parent_idx").on(t.parentId),
     check("formulas_name", sql`length(trim(${t.name})) > 0`),
-    check("formulas_markers", sql`${t.markers} <@ array['accord', 'finished']::text[]`),
+    check("formulas_markers", sql`${t.markers} <@ array['accord', 'finished', 'favorite', 'locked']::text[]`),
     check("formulas_not_own_parent", sql`${t.parentId} is null or ${t.parentId} <> ${t.id}`),
     check("formulas_capacity", sql`${t.containerCapacityMl} is null or ${t.containerCapacityMl} > 0`),
     check("formulas_tare", sql`${t.containerTareUg} is null or ${t.containerTareUg} >= 0`),

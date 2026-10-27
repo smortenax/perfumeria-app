@@ -1089,3 +1089,12 @@ details.unstated[open] dl {
   border-radius: 999px;
   padding: 0 8px;
 }
+
+/* The list of formulas (F1): its order and «only favorites», over the rows. */
+.list-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 8px 16px;
+  margin: 0 0 8px;
+}

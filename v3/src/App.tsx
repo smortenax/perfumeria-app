@@ -165,6 +165,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
           <div hidden={route.view !== "library"}>
             <Library
               data={data}
+              local={local}
               onOpen={(id) => go({ view: "formula", id })}
               onNewBench={(name) => void createWorkbench(local.db, local.userId, { name }).catch(fail)}
               onDeleteBench={(id) => void deleteWorkbench(local.db, local.userId, id).catch(fail)}

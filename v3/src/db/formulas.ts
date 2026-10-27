@@ -16,7 +16,8 @@ import { uuidv7 } from "./uuid7";
  * (db/schema/formulas.ts and the migration formulas_rls), so it never waits in the queue to fail.
  */
 
-export const FORMULA_MARKERS = ["accord", "finished"] as const;
+/** accord and finished are folders (V3-19); favorite and locked, the list of formulas (F1): a locked one takes no new step. */
+export const FORMULA_MARKERS = ["accord", "finished", "favorite", "locked"] as const;
 export type FormulaMarker = (typeof FORMULA_MARKERS)[number];
 
 export interface Workbench {
@@ -40,6 +41,8 @@ export interface FormulaRecord {
   readonly markers: readonly FormulaMarker[];
   readonly role: string | null;
   readonly createdAt: string | null;
+  /** When its header last changed (its steps say when they were made). */
+  readonly updatedAt: string | null;
 }
 
 export interface NewFormula {
@@ -235,7 +238,8 @@ const isFraction = (r: Ratio) => r.num > 0n && r.cmp(Ratio.ONE) <= 0;
  * A history is only added to: undoing adds the opposite event (plan 8.2).
  */
 export async function addEvent(db: LocalDb, ownerId: string, formulaId: string, event: NewEvent, id: string = uuidv7()): Promise<string> {
-  await ownFormula(db, ownerId, formulaId);
+  const formula = await ownFormula(db, ownerId, formulaId);
+  if ((formula.markers ?? []).includes("locked")) throw new FormulaLocked();
   const row: typeof local.formulaEvents.$inferInsert = { id, formulaId, ownerId, kind: event.kind, createdAt: now() };
   switch (event.kind) {
     case "add": {
@@ -334,6 +338,7 @@ export async function loadFormulas(db: LocalDb, ownerId: string): Promise<Formul
     markers: (f.markers ?? []) as FormulaMarker[],
     role: f.role,
     createdAt: f.createdAt,
+    updatedAt: f.updatedAt,
   }));
 }
 
@@ -573,6 +578,13 @@ export async function deleteFormula(db: LocalDb, catalog: Catalog, ownerId: stri
 }
 
 /** A formula saved as a material, which therefore is not deleted. */
+/** A locked formula (F1) takes no new step: unlock it first. */
+export class FormulaLocked extends Error {
+  constructor() {
+    super("the formula is locked: unlock it to change it");
+  }
+}
+
 export class FormulaInUse extends Error {
   readonly materials: readonly string[];
   constructor(materials: readonly string[]) {
