@@ -1381,6 +1381,18 @@ Portarlo (10:21): «seria ideal si puedes de momento portar todo el prototipo de
 - **Cambiado por V3-75 (2026-10-24):** el acento ya no es el verde provisional: es la tinta, y el color queda para las familias.
 - **Cambiado por V3-76 (2026-10-24):** las familias dejan de estar en espera: son diez, con Gourmand.
 
+## V3-74 · «Fórmula como material» abre una ventana con todas las fórmulas de Formulación (decidida por el usuario el 2026-10-23)
+
+**Respuesta literal** (2026-10-23, al no encontrar su acorde de fondo de Wangan desde el banco de Guidance):
+
+> no sepor que no va bien lo de importar no me deja importar aFondo mira para que el boton de imoratar te deje seleccionar desde una ventana que te abra lo de formulacion
+
+**Lectura** (de la sesión):
+
+1. El fondo no salía porque V3-19 (punto 3) solo deja usar las fórmulas del propio banco y los acordes marcados de los demás, y el fondo vive sin marcar en el banco de Wangan.
+2. **La ventana de «Fórmula como material…» enseña todas las fórmulas de todos los bancos**, agrupadas por banco (el actual primero), con un buscador por fórmula o banco. Elegir una sin guardar como material la guarda tal como está, como hasta ahora.
+3. **Propuesta de la sesión:** la búsqueda de la barra de añadir sigue como dice V3-19 (su banco y los acordes), para que los bancos no hagan ruido al pesar. La ventana es la puerta explícita a lo de los demás. Cambia V3-19, punto 3, solo para esa ventana.
+
 ## V3-75 · La pasada de la bóveda del 2026-10-24: tus elecciones sobre la v3 publicada (decidida por el usuario el 2026-10-24)
 
 **Palabras literales del usuario** (2026-10-24, en el hilo de la bóveda de diseño):
