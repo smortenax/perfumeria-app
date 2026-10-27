@@ -1542,6 +1542,14 @@ F23, exportar, a las opciones (1 fórmulas legibles, 2 tus materiales, 3 sugerir
 - **Inicio enseña lo que macera:** cada fórmula con su día de maceración y la próxima revisión (días 7, 14 y 28, propuesta de la sesión); al llegar una, se avisa.
 - **Las notas de cada revisión van a las notas de la fórmula (F7)**, con su día y su fecha. No hay stock ni frascos nuevos: es una fecha de inicio y, si quieres, de fin.
 
+## V3-84 · F21, la libreta: no entra (decidida por el usuario el 2026-10-27)
+
+**Pregunta de la sesión:** la libreta de notas sueltas de PerfuMate; en la app ya hay notas por fórmula (F7), por material y por cata. Opciones: no, ya basta (recomendada); una libreta sencilla en Inicio; notas del banco.
+
+**Respuesta del usuario** (2026-10-27, en la tarjeta): «No, ya basta (Recomendada)».
+
+**Lectura:** no hay libreta general. Las ideas van en las notas de la fórmula, del material o de la cata; si más adelante falta un sitio, se añade.
+
 ---
 
 ## Pendientes
