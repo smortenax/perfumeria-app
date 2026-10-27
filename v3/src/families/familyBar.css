@@ -1,0 +1,17 @@
+/* A formula's families (F2): one thin bar, a segment per family. */
+.family-bar {
+  display: flex;
+  gap: 1px;
+  height: 6px;
+  min-width: 48px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.family-bar i {
+  display: block;
+  flex-basis: 0;
+  min-width: 2px;
+}
+.family-bar i.none {
+  background: #d9d7cf;
+}

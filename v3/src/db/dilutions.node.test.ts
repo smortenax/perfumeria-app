@@ -5,7 +5,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterAll, beforeAll, expect, it } from "vitest";
 import { Ratio } from "../core/arith/ratio";
-import { archiveBottle, createBottle, describeBottle, updateBottle } from "./dilutions";
+import { archiveBottle, createBottle, createUnweighedBottle, describeBottle, updateBottle } from "./dilutions";
 import { AppSchema, tables } from "./local/schema";
 import { loadCatalog, type LocalDb } from "./materials";
 
@@ -82,4 +82,25 @@ it("a bottle's name, date and note change without touching what it holds", async
   const b = (await loadCatalog(db, ME)).dilutions.get(LABDANUM)!.find((d) => d.id === id)!;
   expect([b.label, b.madeOn, b.description, b.fraction.toString(), b.diluents.length]).toEqual(["al 10 % (nuevo)", "2026-10-19", "frasco ámbar", pct("9.97").toString(), 1]);
   await expect(describeBottle(db, ME, id, { madeOn: "19/10" })).rejects.toThrow(/date/);
+});
+
+it("a bottle you already have, saved without weights (V3-79): the figure you aimed at, no masses", async () => {
+  const id = await createUnweighedBottle(db, ME, {
+    materialId: LABDANUM,
+    label: "al 50 %",
+    target: pct("50"),
+    diluents: [{ diluentId: ETH, share: pct("30") }, { diluentId: DPG, share: null }],
+  });
+  const b = (await loadCatalog(db, ME)).dilutions.get(LABDANUM)!.find((d) => d.id === id)!;
+  expect(b.fraction.eq(pct("50"))).toBe(true);
+  expect(b.materialMassUg).toBeNull();
+  expect(b.diluents.map((d) => [d.diluentId, d.fraction.toString(), d.massUg])).toEqual([
+    [ETH, pct("30").toString(), null],
+    [DPG, pct("20").toString(), null],
+  ]);
+  // From it, a 10 % in DPG without weights: its ethanol comes along.
+  const ten = await createUnweighedBottle(db, ME, { materialId: LABDANUM, target: pct("10"), sourceDilutionId: id, diluents: [{ diluentId: DPG, share: null }] });
+  const c = (await loadCatalog(db, ME)).dilutions.get(LABDANUM)!.find((d) => d.id === ten)!;
+  expect(Object.fromEntries(c.diluents.map((d) => [d.diluentId, d.fraction.toString()]))).toEqual({ [ETH]: pct("6").toString(), [DPG]: pct("84").toString() });
+  await expect(createUnweighedBottle(db, ME, { materialId: LABDANUM, target: pct("10"), diluents: [{ diluentId: LABDANUM, share: null }] })).rejects.toThrow(/not a diluent/);
 });

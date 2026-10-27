@@ -41,6 +41,33 @@ export function IntentionCard(props: { header: FormulaHeader; onChange: (header:
   );
 }
 
+/**
+ * Free notes on the formula (F7): what you think of it, what to try next. Kept apart from the
+ * engine's header: written when you leave the field, never into the history.
+ */
+export function NotesCard(props: { notes: string; onSave: (notes: string) => void }) {
+  const [text, setText] = useState(props.notes);
+  const saved = useRef(props.notes);
+  // Another device or a version changed them: show those, unless you are typing over them.
+  useEffect(() => {
+    setText((t) => (t === saved.current ? props.notes : t));
+    saved.current = props.notes;
+  }, [props.notes]);
+  return (
+    <label className="card intention-card notes-card">
+      <span className="label">{texts.bench.notes}</span>
+      <textarea
+        value={text}
+        placeholder={texts.bench.notesPlaceholder}
+        onChange={(e) => setText(e.target.value)}
+        onBlur={() => {
+          if (text !== saved.current) props.onSave(text);
+        }}
+      />
+    </label>
+  );
+}
+
 /** A figure in grams that becomes a field when pressed; Enter or leaving it takes it. */
 function EditableGrams(props: { value: bigint | null; empty: string; emptyClass?: string; onCommit: (value: bigint | null) => void }) {
   const [editing, setEditing] = useState(false);

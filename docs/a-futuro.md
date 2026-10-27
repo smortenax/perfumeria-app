@@ -81,6 +81,7 @@ Cada fila: **qué**, **de dónde** (pregunta o fecha) y **qué no hay que cerrar
 
 | Qué | De dónde | Qué no hay que cerrar ahora |
 |---|---|---|
+| **Sugerencias y un asistente** (lo de PerfuMate: describes un olor y propone): fuera hasta que la app esté acabada. El asistente no convence; las sugerencias sí se valoran | Usuario, 2026-10-26 (V3-80 de `docs-v3/decisiones-v3.md`): «valoro la idea de que sugerimientos podrian ir bien de momento dejamos todo esto fuera cuando la app este acabada se puede hablar de estas commodities» | Que familias, descriptores, tenacidad y uso habitual sigan por fuente y por material, para poder sugerir sin inventar cifras; nada de IFRA lo decidiría una sugerencia |
 | **Móvil**, Android e iOS, con la misma base | P14, P21, P22 | Cada pantalla se piensa para ancho estrecho y **sin hover**: lo que hoy sale al pasar el ratón tiene que poder salir con un toque |
 | **Producto**: publicar y **licencias de los datos** antes de distribuir. No solo IFRA y el FIG: también lo leído de TGSC, PerfumersWorld y las búsquedas (U-002 a U-005) | P21, §8 | Cada cifra guarda su fuente, para poder quitar una fuente entera si su licencia no lo permite |
 | **La versión *high-end***: información general para quien empieza, y exacta, con sus documentos, para quien ajusta a su proveedor | P60 | |

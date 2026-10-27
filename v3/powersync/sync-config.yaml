@@ -41,6 +41,7 @@ streams:
       - SELECT * FROM lab_materials WHERE user_id = auth.user_id()
       - SELECT * FROM lab_dilutions WHERE user_id = auth.user_id()
       - SELECT * FROM lab_dilution_diluents WHERE user_id = auth.user_id()
+      - SELECT * FROM shopping_items WHERE user_id = auth.user_id()
       - SELECT * FROM lab_evaluations WHERE user_id = auth.user_id()
       - SELECT * FROM lab_axes WHERE user_id = auth.user_id()
       # Your formulas (phase 7): workbenches, formulas and their history; the events carry their formula's owner.
@@ -48,6 +49,7 @@ streams:
       - SELECT * FROM formulas WHERE owner_id = auth.user_id()
       - SELECT * FROM formula_events WHERE owner_id = auth.user_id()
       - SELECT * FROM formula_event_diluents WHERE owner_id = auth.user_id()
+      - SELECT * FROM macerations WHERE owner_id = auth.user_id()
       # Your tastings (V3-62): every row carries its owner, so no JOIN.
       - SELECT * FROM tasting_sessions WHERE user_id = auth.user_id()
       - SELECT * FROM tasting_strips WHERE user_id = auth.user_id()

@@ -97,6 +97,10 @@ export const NO_PHYSICAL: Physical = {
 };
 
 /** The fields a material carries besides its identity and its tables (all of them may be unknown). */
+/** How a specification of yours stands (V3-79): no «I do not have it», that is the shopping list. */
+export const SPEC_STATUSES = ["in_use", "running_low", "depleted", "archived"] as const;
+export type SpecStatus = (typeof SPEC_STATUSES)[number];
+
 export interface MaterialFields {
   readonly solvent: boolean;
   readonly aliases: readonly string[];
@@ -120,6 +124,11 @@ export interface MaterialFields {
   /** A version's bottle (V3-36): the product as the shop names it, and its page. */
   readonly product: string | null;
   readonly productUrl: string | null;
+  /** Your specification (V3-79): its lot, the day you bought it (2026-10-26), its region, how it stands. */
+  readonly lot: string | null;
+  readonly purchasedOn: string | null;
+  readonly originRegion: string | null;
+  readonly status: SpecStatus | null;
   readonly purity: Ratio | null;
   readonly house: string | null;
   readonly code: string | null;
@@ -138,6 +147,8 @@ export interface MaterialFields {
   /** Intensity 0–3 in five stretches (V3-42): to 15 min, to 2 h, to 8 h, to 24 h, beyond. */
   readonly evolution: readonly [Evolution, Evolution, Evolution, Evolution, Evolution];
   readonly strength: Strength | null;
+  /** Where the strength comes from (V3-81). */
+  readonly strengthSource: string | null;
   readonly threshold: string | null;
   readonly diffusion: string | null;
   readonly blendEffect: string | null;

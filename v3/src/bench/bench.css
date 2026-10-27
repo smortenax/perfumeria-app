@@ -2541,6 +2541,34 @@
     font-size: var(--text-md);
   }
 
+  .picker-list {
+    max-height: min(50vh, 420px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .picker-group {
+    border: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .picker-group legend {
+    font-size: var(--text-sm);
+    color: var(--muted);
+    padding: 0 0 2px;
+  }
+
+  .picker-group .radio {
+    min-height: 32px;
+    align-items: center;
+  }
+
   .modal-actions {
     display: flex;
     justify-content: flex-end;
@@ -3219,4 +3247,51 @@
 .bench-root .recipe tr.sum td {
   font-weight: 600;
   border-top: 1px solid var(--line);
+}
+
+/* A locked formula (F1) says so over the bench, with the way out. */
+.locked-note {
+  margin: 0 0 12px;
+  padding: 8px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+/* The composition by notes (F3): a switch in the head, and each group with its subtotal. */
+.composition-head .by-note {
+  min-height: 28px;
+  padding: 2px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: transparent;
+  font-size: var(--text-sm, 13px);
+}
+.composition-head .by-note.on {
+  background: var(--ink);
+  color: var(--panel);
+}
+.note-head {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px 4px;
+  font-size: var(--text-sm, 13px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-top: 1px solid var(--line);
+}
+.note-group:first-child .note-head {
+  border-top: none;
+}
+
+/* The formula's families (F2), under the head of the bench. */
+.bench-families {
+  margin: -4px 0 12px;
+}
+
+/* Macerating (V3-83): its day and its check, under the head of the bench. */
+.maceration-note {
+  margin: 0 0 12px;
+  font-size: var(--text-sm, 13px);
 }

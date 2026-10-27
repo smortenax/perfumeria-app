@@ -44,6 +44,10 @@ export const materials = sqliteTable("materials", {
   supplier: text("supplier"),
   product: text("product"),
   productUrl: text("product_url"),
+  lot: text("lot"),
+  purchasedOn: text("purchased_on"),
+  originRegion: text("origin_region"),
+  status: text("status"),
   purity: text("purity"),
   house: text("house"),
   code: text("code"),
@@ -63,6 +67,7 @@ export const materials = sqliteTable("materials", {
   evolutionTo24h: integer("evolution_to_24h"),
   evolutionBeyond24h: integer("evolution_beyond_24h"),
   strength: text("strength"),
+  strengthSource: text("strength_source"),
   threshold: text("threshold"),
   diffusion: text("diffusion"),
   blendEffect: text("blend_effect"),
@@ -190,6 +195,19 @@ export const labDilutions = sqliteTable("lab_dilutions", {
   ...timestamps,
 });
 
+export const shoppingItems = sqliteTable("shopping_items", {
+  id: text("id").primaryKey(),
+  userId: text("user_id"),
+  materialId: text("material_id"),
+  product: text("product"),
+  shop: text("shop"),
+  note: text("note"),
+  formulaId: text("formula_id"),
+  resolvedAt: text("resolved_at"),
+  specificationId: text("specification_id"),
+  ...timestamps,
+});
+
 export const labDilutionDiluents = sqliteTable("lab_dilution_diluents", {
   id: text("id").primaryKey(),
   dilutionId: text("dilution_id"),
@@ -236,6 +254,7 @@ export const formulas = sqliteTable("formulas", {
   parentId: text("parent_id"),
   name: text("name"),
   intention: text("intention"),
+  notes: text("notes"),
   containerCapacityMl: text("container_capacity_ml"),
   containerTareUg: text("container_tare_ug"),
   workBatchUg: text("work_batch_ug"),
@@ -262,6 +281,17 @@ export const formulaEvents = sqliteTable("formula_events", {
   text: text("text"),
   dilutionId: text("dilution_id"),
   createdAt: text("created_at"),
+});
+
+/** A formula macerating (V3-83). */
+export const macerations = sqliteTable("macerations", {
+  id: text("id").primaryKey(),
+  ownerId: text("owner_id"),
+  formulaId: text("formula_id"),
+  startedOn: text("started_on"),
+  endedOn: text("ended_on"),
+  checked: text("checked", { mode: "json" }).$type<number[]>(),
+  ...timestamps,
 });
 
 /** The third diluent of a pour and on (V3-67). */
@@ -514,6 +544,8 @@ export const tables = {
   labMaterials,
   labDilutions,
   labDilutionDiluents,
+  shoppingItems,
+  macerations,
   labEvaluations,
   labAxes,
   ifraStandards,
@@ -551,6 +583,8 @@ export const AppSchema = new DrizzleAppSchema({
   labMaterials,
   labDilutions,
   labDilutionDiluents,
+  shoppingItems,
+  macerations,
   labEvaluations,
   labAxes,
   ifraStandards,

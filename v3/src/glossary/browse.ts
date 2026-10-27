@@ -13,6 +13,8 @@ export interface Filters {
   readonly kind: MaterialKind | null;
   readonly owner: "common" | "own" | null;
   readonly haveOnly: boolean;
+  /** Only your specifications marked «running low» (V3-79). */
+  readonly runningLow?: boolean;
   readonly ifra: IfraState | null;
 }
 
@@ -23,5 +25,6 @@ export function keepOf(filters: Filters, have: ReadonlySet<string>, ifraOf: (id:
     (filters.kind === null || m.kind === filters.kind) &&
     (filters.owner === null || (filters.owner === "own") === (m.ownerId !== null)) &&
     (!filters.haveOnly || have.has(m.id)) &&
+    (!filters.runningLow || m.status === "running_low") &&
     (filters.ifra === null || ifraOf(m.id) === filters.ifra);
 }

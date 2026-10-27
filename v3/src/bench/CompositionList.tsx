@@ -10,6 +10,7 @@ import { describeLineIfra, detailOfLineIfra, type LineIfra } from "./composition
 import { familyText } from "./family";
 import { amountText, initials, partsText, pouredText, pureText, shareText, weighingWarning } from "./format";
 import { FamilyIcon } from "./FamilyIcon";
+import { byNote } from "./notes";
 
 const t = texts.composition;
 
@@ -23,6 +24,8 @@ type View = "aromatic" | "bottle" | "parts";
  * view of the smell (P49).
  */
 let rememberedView: View = "aromatic";
+/** Grouped by notes (F3), remembered the same way. */
+let rememberedByNote = false;
 
 /**
  * The composition column (§10.1): a list ordered by %, product and % (P23),
@@ -59,7 +62,14 @@ export function CompositionCard(props: {
   familyOf?: (key: string) => MaterialFamily | undefined;
   /** Takes the material to the add bar, to add it again. */
   onAgain?: (material: Material) => void;
+  /** The tier of a material (V3-41), for the list by notes (F3); without it, there is no such list. */
+  tierOf?: (key: string) => string | null | undefined;
 }) {
+  const [grouped, setGroupedState] = useState(rememberedByNote);
+  const setGrouped = (next: boolean) => {
+    rememberedByNote = next;
+    setGroupedState(next);
+  };
   const [open, setOpen] = useState<ReadonlySet<string>>(new Set());
   const [view, setViewState] = useState<View>(rememberedView);
   const setView = (next: View) => {
@@ -160,6 +170,74 @@ export function CompositionCard(props: {
     return { flags, lines };
   };
 
+  const row = (part: Part) => {
+    if (baseUg === null) return null;
+    const { flags, lines } = describe(part);
+    const share = shareText(part.massUg, baseUg);
+    const isOpen = open.has(part.material.key);
+    const family = props.familyOf?.(part.material.key);
+    // A material outside the glossary has no abbreviation: its initials, as in the history dock.
+    const icon = props.iconOf?.(part.material.key) ?? { text: initials(part.material.name) };
+    const ifra = describeLineIfra(props.lineIfra?.get(part.material.key));
+    return (
+      <div key={part.material.key}>
+        <div className="row-line">
+          {props.onAgain && (
+            <button
+              type="button"
+              className="again"
+              title={t.again(part.material.name)}
+              aria-label={t.again(part.material.name)}
+              onClick={() => props.onAgain?.(part.material)}
+            >
+              <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                <path d="M8 3v10M3 8h10" />
+              </svg>
+            </button>
+          )}
+          <button type="button" className="row" aria-expanded={isOpen} title={share.exact} onClick={() => toggle(part.material.key)}>
+            {props.orbOf?.(part.material.key) ?? <FamilyIcon icon={icon} family={family} />}
+            <span className="row-main">
+              <span className="row-name" title={part.material.name}>
+                {part.material.name}
+              </span>
+              {flags.map((f) => (
+                <span key={f.text} className={`flag ${f.tone}`}>
+                  {f.text}
+                </span>
+              ))}
+            </span>
+            <span className="num row-amount" title={t.amountHelp}>
+              {amountText(part.massUg)}
+            </span>
+            <span className="num row-share">{view === "parts" ? partsText(part.massUg, baseUg) : share.text}</span>
+            {ifra && (
+              <span className={`row-ifra ${ifra.tone}`} title={ifra.title}>
+                {ifra.share && (
+                  <span className="num">
+                    {t.ifraShort} {ifra.share}
+                  </span>
+                )}
+                {ifra.share && ifra.room && " · "}
+                {ifra.room && <span className="num">{ifra.room}</span>}
+              </span>
+            )}
+          </button>
+        </div>
+        {isOpen && (
+          <div className="row-detail">
+            {lines.map(([k, v]) => (
+              <div key={k} className="detail-line">
+                <span className="detail-key">{k}</span>
+                <span className="detail-value">{v}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  };
+
   return (
     <div className="card composition">
       <div className="composition-head">
@@ -180,6 +258,11 @@ export function CompositionCard(props: {
             </button>
           ))}
         </span>
+        {props.tierOf && (
+          <button type="button" className={grouped ? "by-note on" : "by-note"} aria-pressed={grouped} onClick={() => setGrouped(!grouped)}>
+            {t.byNote}
+          </button>
+        )}
         {/* Every number goes with its base (§1.1): the head says the one the list is in. */}
         <span className="composition-base muted tiny">{view === "aromatic" ? t.baseAromatic : view === "bottle" ? t.baseBottle : t.baseParts}</span>
       </div>
@@ -187,72 +270,17 @@ export function CompositionCard(props: {
         {!comp || baseUg === null || shown.length === 0 ? (
           <p className="muted small empty">{t.empty}</p>
         ) : (
-          shown.map((part) => {
-            const { flags, lines } = describe(part);
-            const share = shareText(part.massUg, baseUg);
-            const isOpen = open.has(part.material.key);
-            const family = props.familyOf?.(part.material.key);
-            // A material outside the glossary has no abbreviation: its initials, as in the history dock.
-            const icon = props.iconOf?.(part.material.key) ?? { text: initials(part.material.name) };
-            const ifra = describeLineIfra(props.lineIfra?.get(part.material.key));
-            return (
-              <div key={part.material.key}>
-                <div className="row-line">
-                  {props.onAgain && (
-                    <button
-                      type="button"
-                      className="again"
-                      title={t.again(part.material.name)}
-                      aria-label={t.again(part.material.name)}
-                      onClick={() => props.onAgain?.(part.material)}
-                    >
-                      <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-                        <path d="M8 3v10M3 8h10" />
-                      </svg>
-                    </button>
-                  )}
-                  <button type="button" className="row" aria-expanded={isOpen} title={share.exact} onClick={() => toggle(part.material.key)}>
-                    {props.orbOf?.(part.material.key) ?? <FamilyIcon icon={icon} family={family} />}
-                    <span className="row-main">
-                      <span className="row-name" title={part.material.name}>
-                        {part.material.name}
-                      </span>
-                      {flags.map((f) => (
-                        <span key={f.text} className={`flag ${f.tone}`}>
-                          {f.text}
-                        </span>
-                      ))}
-                    </span>
-                    <span className="num row-amount" title={t.amountHelp}>
-                      {amountText(part.massUg)}
-                    </span>
-                    <span className="num row-share">{view === "parts" ? partsText(part.massUg, baseUg) : share.text}</span>
-                    {ifra && (
-                      <span className={`row-ifra ${ifra.tone}`} title={ifra.title}>
-                        {ifra.share && (
-                          <span className="num">
-                            {t.ifraShort} {ifra.share}
-                          </span>
-                        )}
-                        {ifra.share && ifra.room && " · "}
-                        {ifra.room && <span className="num">{ifra.room}</span>}
-                      </span>
-                    )}
-                  </button>
-                </div>
-                {isOpen && (
-                  <div className="row-detail">
-                    {lines.map(([k, v]) => (
-                      <div key={k} className="detail-line">
-                        <span className="detail-key">{k}</span>
-                        <span className="detail-value">{v}</span>
-                      </div>
-                    ))}
+          grouped && props.tierOf
+            ? byNote(shown, props.tierOf, baseUg).map((g) => (
+                <div key={g.note} className="note-group">
+                  <div className="note-head">
+                    <span>{t.notes[g.note]}</span>
+                    <span className="num">{g.share === null ? "" : view === "parts" ? partsText(g.massUg, baseUg) : shareText(g.massUg, baseUg).text}</span>
                   </div>
-                )}
-              </div>
-            );
-          })
+                  {g.parts.map(row)}
+                </div>
+              ))
+            : shown.map(row)
         )}
       </div>
     </div>

@@ -117,6 +117,10 @@ function fieldsOf(catalog: Catalog): Readonly<Record<"identity" | "bottle" | "sm
       { label: f.productUrl, get: (m) => known(m.productUrl) },
       { label: f.grade, get: (m) => known(m.grade) },
       { label: f.purity, get: (m) => (m.purity ? percent(m.purity) : null) },
+      { label: f.lot, get: (m) => known(m.lot) },
+      { label: f.purchasedOn, get: (m) => known(m.purchasedOn) },
+      { label: f.originRegion, get: (m) => known(m.originRegion) },
+      { label: f.status, get: (m) => (m.status ? t.statuses[m.status] : null) },
     ],
     smell: [
       { label: f.family, get: (m) => (m.family ? t.families[m.family] : null), column: "family" },
@@ -143,7 +147,12 @@ function fieldsOf(catalog: Catalog): Readonly<Record<"identity" | "bottle" | "sm
         label: f.evolution,
         get: (m) => (m.evolution.some((e) => e !== null) ? m.evolution.map((e, i) => `${t.evolution[i]}: ${e ?? "?"}`).join(" · ") : null),
       },
-      { label: f.strength, get: (m) => (m.strength ? t.strengths[m.strength] : null), column: "strength" },
+      {
+        label: f.strength,
+        get: (m) => (m.strength ? t.strengths[m.strength] : null),
+        column: "strength",
+        notes: (m) => [m.strengthSource ? t.from(m.strengthSource) : null],
+      },
       { label: f.threshold, get: (m) => known(m.threshold), column: "threshold" },
       { label: f.diffusion, get: (m) => known(m.diffusion) },
       { label: f.blendEffect, get: (m) => known(m.blendEffect) },
@@ -179,6 +188,17 @@ function standardLabel(layer: IfraLayer, key: string): string {
   const group = key.replace(/^std:/, "").replace(/@.*$/, "");
   const named = [...layer.standards.values()].filter((s) => s.groupKey === group || s.code === group);
   return named.length ? named.map((s) => `STD ${s.code.split("_").pop()} ${s.name}`).join(" / ") : group;
+}
+
+/**
+ * The source under each figure of the sheet's head (V3-81): the strength's and the hours on a
+ * blotter's, each from the nearest of the chain that has the figure (your version, else its common
+ * material). A figure without a source still shows; only its source reads «not stated».
+ */
+export function figureSources(material: CatalogMaterial, base: CatalogMaterial | undefined): { strength: string | null; hours: string | null } {
+  const strengthFrom = material.strength ? material : base?.strength ? base : undefined;
+  const hoursFrom = material.tenacityHours ? material : base?.tenacityHours ? base : undefined;
+  return { strength: strengthFrom?.strengthSource ?? null, hours: hoursFrom?.tenacitySource ?? null };
 }
 
 export function sheetOf(catalog: Catalog, layer: IfraLayer, ifra: IfraData, id: string): Sheet {

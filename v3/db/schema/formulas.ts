@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { type AnyPgColumn, bigint, check, index, numeric, pgTable, smallint, text, timestamp, unique, uuid } from "drizzle-orm/pg-core";
+import { type AnyPgColumn, bigint, check, date, index, numeric, pgTable, smallint, text, timestamp, unique, uuid } from "drizzle-orm/pg-core";
 import { authUsers } from "drizzle-orm/supabase";
 import { labDilutions, materials } from "./materials";
 
@@ -35,7 +35,7 @@ export const workbenches = pgTable(
 );
 
 /** The markers that take a formula out to a general folder (V3-19, V3-20): a closed list. */
-export const FORMULA_MARKERS = ["accord", "finished"] as const;
+export const FORMULA_MARKERS = ["accord", "finished", "favorite", "locked"] as const;
 
 export const formulas = pgTable(
   "formulas",
@@ -51,6 +51,8 @@ export const formulas = pgTable(
     name: text("name").notNull(),
     /** What it is for, in free text (P23). */
     intention: text("intention").notNull().default(""),
+    /** Free notes on the formula (F7, V3-78): what you think of it, what to try next. */
+    notes: text("notes").notNull().default(""),
     /** The container: its capacity, and its tare once weighed (unknown until then, §1.2). */
     containerCapacityMl: numeric("container_capacity_ml"),
     containerTareUg: bigint("container_tare_ug", { mode: "bigint" }),
@@ -67,7 +69,7 @@ export const formulas = pgTable(
     index("formulas_workbench_idx").on(t.workbenchId),
     index("formulas_parent_idx").on(t.parentId),
     check("formulas_name", sql`length(trim(${t.name})) > 0`),
-    check("formulas_markers", sql`${t.markers} <@ array['accord', 'finished']::text[]`),
+    check("formulas_markers", sql`${t.markers} <@ array['accord', 'finished', 'favorite', 'locked']::text[]`),
     check("formulas_not_own_parent", sql`${t.parentId} is null or ${t.parentId} <> ${t.id}`),
     check("formulas_capacity", sql`${t.containerCapacityMl} is null or ${t.containerCapacityMl} > 0`),
     check("formulas_tare", sql`${t.containerTareUg} is null or ${t.containerTareUg} >= 0`),
@@ -165,5 +167,30 @@ export const formulaEventDiluents = pgTable(
     unique("formula_event_diluents_once").on(t.eventId, t.position),
     check("formula_event_diluents_position", sql`${t.position} >= 3`),
     check("formula_event_diluents_fraction", sql`${t.fraction} > 0 and ${t.fraction} < 1`),
+  ],
+);
+
+/**
+ * A formula macerating (V3-83, F21): optional, from the day you start it; Home shows its days and its
+ * checks (7, 14 and 28 days). The notes of each check go to the formula's notes. Ended when you say so.
+ */
+export const macerations = pgTable(
+  "macerations",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    ownerId: owner(),
+    formulaId: uuid("formula_id")
+      .notNull()
+      .references(() => formulas.id, { onDelete: "cascade" }),
+    startedOn: date("started_on").notNull(),
+    endedOn: date("ended_on"),
+    /** The checks already noted (7, 14, 28): a check reached and not noted is the one Home asks for. */
+    checked: smallint("checked").array().notNull().default(sql`'{}'::smallint[]`),
+    ...timestamps,
+  },
+  (t) => [
+    index("macerations_owner_idx").on(t.ownerId),
+    index("macerations_formula_idx").on(t.formulaId),
+    check("macerations_dates", sql`${t.endedOn} is null or ${t.endedOn} >= ${t.startedOn}`),
   ],
 );

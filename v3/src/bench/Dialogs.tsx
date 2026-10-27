@@ -134,6 +134,59 @@ export function ChoiceDialog(props: {
   );
 }
 
+/**
+ * Choosing a formula from Formulación (V3-74, 2026-10-23): every formula of every bench, grouped by
+ * bench (this one first), with a search over names and benches.
+ */
+export function FormulaPickerDialog(props: {
+  title: string;
+  help?: string;
+  groups: ReadonlyArray<{ readonly name: string; readonly options: ReadonlyArray<{ readonly id: string; readonly label: string }> }>;
+  onDone: (id: string) => void;
+  onClose: () => void;
+}) {
+  const [chosen, setChosen] = useState<string | null>(null);
+  const [query, setQuery] = useState("");
+  const input = useRef<HTMLInputElement>(null);
+  useEffect(() => input.current?.focus(), []);
+  const fold = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  const q = fold(query.trim());
+  const groups = props.groups
+    .map((g) => ({ name: g.name, options: !q || fold(g.name).includes(q) ? g.options : g.options.filter((o) => fold(o.label).includes(q)) }))
+    .filter((g) => g.options.length > 0);
+  return (
+    <Modal
+      title={props.title}
+      error={null}
+      onCancel={props.onClose}
+      onAccept={() => {
+        if (chosen) props.onDone(chosen);
+        props.onClose();
+      }}
+    >
+      {props.help && <p className="help">{props.help}</p>}
+      <label className="field">
+        <span>{t.formulaPickerSearch}</span>
+        <input ref={input} value={query} onChange={(e) => setQuery(e.target.value)} />
+      </label>
+      <div className="picker-list">
+        {groups.length === 0 && <p className="help">{t.formulaPickerNoMatch}</p>}
+        {groups.map((g) => (
+          <fieldset key={g.name} className="picker-group">
+            <legend>{g.name}</legend>
+            {g.options.map((o) => (
+              <label key={o.id} className="radio">
+                <input type="radio" checked={chosen === o.id} onChange={() => setChosen(o.id)} onDoubleClick={() => (props.onDone(o.id), props.onClose())} />
+                <span>{o.label}</span>
+              </label>
+            ))}
+          </fieldset>
+        ))}
+      </div>
+    </Modal>
+  );
+}
+
 export interface SaveAsChoice {
   /** A new version of this formula, or a new formula of its own (P44). */
   readonly kind: "version" | "new";

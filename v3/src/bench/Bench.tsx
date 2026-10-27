@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Ratio } from "../core/arith/ratio";
 import { parseMass } from "../core/arith/units";
 import { compose, replay, type Composition, type Line } from "../core/compose";
@@ -19,10 +19,14 @@ import { BottleFrame } from "./Bottle";
 import { OdourMapPlaceholder, ProjectionCard, RepartoCard } from "./Charts";
 import { ifraOfLines } from "./composition-ifra";
 import { CompositionCard } from "./CompositionList";
-import { ChoiceDialog, ConfirmDialog, PromptDialog, ReweighDialog, SaveAsDialog, type SaveAsChoice, UseFormulaDialog } from "./Dialogs";
+import { ChoiceDialog, ConfirmDialog, FormulaPickerDialog, PromptDialog, ReweighDialog, SaveAsDialog, type SaveAsChoice, UseFormulaDialog } from "./Dialogs";
 import { dilutionText } from "./format";
-import { ownConcentration } from "./use-formula";
-import { GramsCard, IntentionCard, NameCard } from "./Header";
+import { ownConcentration, recipe } from "./use-formula";
+import { GramsCard, IntentionCard, NameCard, NotesCard } from "./Header";
+import { familyShares } from "../families/bar";
+import { FamilyBar } from "../families/FamilyBar";
+import { endMaceration, macerationState, noteCheck, startMaceration, todayIso } from "../db/macerations";
+import { useMacerations } from "../formulation/useMacerations";
 import { ChangeDetail, HistoryDock } from "./HistoryDock";
 import { IfraPanel, IfraSummary } from "./IfraBox";
 import { assumptionsOf } from "./assumptions";
@@ -36,6 +40,11 @@ import { bandOf, ifraOfMaterial, pourKey, previewPour, type Pour } from "./usage
 import { repositoryOfV3, v3IdOf } from "./v3-repository";
 import { orbLookOf, orbScalesOf, seedOf } from "../glossary/orb/fromCatalog";
 import { MaterialOrb } from "../glossary/orb/MaterialOrb";
+import { DilutionPopup } from "../dilution/DilutionPopup";
+import { formulaCsv, formulaFileName } from "../export/formula";
+import { PrintFormula } from "../export/PrintFormula";
+import { addToShopping, missingOf, removeFromShopping } from "../db/shopping";
+import { texts as appTexts } from "../i18n/en";
 import "./bench.css";
 
 type Add = Extract<Change, { kind: "add" }>;
@@ -78,8 +87,6 @@ interface BenchProps {
   readonly active?: boolean;
   /** A material's sheet, in Materials. */
   readonly onOpenMaterial?: (id: string) => void;
-  /** A new dilution of a material, in Dilutions (V3-73). */
-  readonly onNewBottle?: (materialId: string) => void;
 }
 
 /**
@@ -158,6 +165,37 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
       .map((f) => ({ id: f.id, name: f.name, place: benchName.get(f.workbenchId) ?? "", material: frozenOf.get(f.id) ?? null }))
       .sort((a, b) => a.name.localeCompare(b.name, "es"));
   }, [props.data, props.frozen, props.record.workbenchId, formulaId]);
+  /**
+   * Every formula of every bench, for the «Formula as material» window (V3-74, 2026-10-23): the user
+   * picks from Formulación, not only from this bench and the accords. The bar's search keeps V3-19.
+   */
+  const importable = useMemo(() => {
+    const benchName = new Map(props.data.workbenches.map((w) => [w.id, w.name]));
+    const frozenOf = new Map<string, Material>();
+    for (const m of props.frozen) {
+      const source = props.data.catalog.materials.get(m.key)?.source?.formulaId;
+      if (source) frozenOf.set(source, m);
+    }
+    return props.data.formulas
+      .filter((f) => f.id !== formulaId)
+      .map((f) => ({ id: f.id, name: f.name, workbenchId: f.workbenchId, place: benchName.get(f.workbenchId) ?? "", material: frozenOf.get(f.id) ?? null }))
+      .sort((a, b) => a.name.localeCompare(b.name, "es"));
+  }, [props.data, props.frozen, formulaId]);
+  const importGroups = useMemo(() => {
+    const here = props.record.workbenchId;
+    const benches = [...new Set(importable.map((f) => f.workbenchId))].sort((a, b) =>
+      a === here ? -1 : b === here ? 1 : (importable.find((f) => f.workbenchId === a)?.place ?? "").localeCompare(importable.find((f) => f.workbenchId === b)?.place ?? "", "es"),
+    );
+    return benches.map((w) => ({
+      name: importable.find((f) => f.workbenchId === w)?.place || "—",
+      options: importable
+        .filter((f) => f.workbenchId === w)
+        .map((f) => ({
+          id: f.id,
+          label: `${f.name}${!f.material ? ` (${texts.dialogs.keptNow})` : f.material.name !== f.name ? ` (${texts.dialogs.keptAs(f.material.name)})` : ""}`,
+        })),
+    }));
+  }, [importable, props.record.workbenchId]);
   /** Where each formula kept as a material comes from: its workbench. */
   const placeOfFrozen = useMemo(() => {
     const benchName = new Map(props.data.workbenches.map((w) => [w.id, w.name]));
@@ -181,12 +219,16 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
   const [selectedId, setSelectedId] = useState<string | null>(null);
   // Reopening no longer asks to weigh (V3-57): «Repesar…» is in the menu, for when you used some.
   const [dialog, setDialog] = useState<Dialog | null>(null);
+  // «New dilution» from the add bar's «+» (V3-79): a pop-up over the bench, of this material.
+  const [bottleFor, setBottleFor] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [frame, setFrame] = useState<number | null>(null);
   const [pending, setPending] = useState(0);
   const [notice, setNotice] = useState<string | null>(null);
+  // Using the recipe writes down what you do not have on the shopping list, and says so with Undo (V3-79).
+  const [shoppingNote, setShoppingNote] = useState<{ text: string; ids: string[] } | null>(null);
   const addBar = useRef<AddBarHandle>(null);
   const frameRef = useRef(frame);
   frameRef.current = frame;
@@ -267,6 +309,11 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
     return m ? <MaterialOrb look={orbLookOf(props.data.catalog, m, scales)} size={size} seed={seedOf(m.id)} /> : undefined;
   };
   const familyOf = (key: string) => families.get(key);
+  // Its tier, or that of the common material it is based on (V3-5), for the list by notes (F3).
+  const tierOf = (key: string) => {
+    const m = props.data.catalog.materials.get(key);
+    return m?.tier ?? (m?.basedOnId ? props.data.catalog.materials.get(m.basedOnId)?.tier : null) ?? null;
+  };
   const chemical = useMemo(() => new Map(repository.entries.filter((e) => e.tradeName).map((e) => [e.material.key, e.chemicalName])), [repository]);
   const known = useMemo(() => [...props.frozen, ...session], [props.frozen, session]);
 
@@ -374,6 +421,14 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
   };
 
   const exportJson = () => download(fileNameFor(formula.header.name), formulaToJson(formula));
+  // «Export as CSV» and «Print or save as PDF» (V3-80): the whole formula, whatever step is being looked at.
+  const exportCsv = () => {
+    const url = URL.createObjectURL(new Blob([formulaCsv(compose(formula))], { type: "text/csv;charset=utf-8" }));
+    Object.assign(document.createElement("a"), { href: url, download: formulaFileName(formula.header.name || "formula", new Date().toISOString().slice(0, 10), "csv") }).click();
+    URL.revokeObjectURL(url);
+  };
+  const [printing, setPrinting] = useState(false);
+  const stopPrinting = useCallback(() => setPrinting(false), []);
 
   // The play (§3.4): from nothing, change by change, to the end.
   useEffect(() => {
@@ -423,6 +478,12 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
     });
   // Marked «perfume acabado», it shows in that general folder too (V3-19, plan 8.1b).
   const finished = props.record.markers.includes("finished");
+  // Macerating (V3-83): optional, started from here or from the list; its day under the head.
+  const maceration = useMacerations(local).find((m) => m.formulaId === formulaId);
+  const macerating = maceration ? macerationState(maceration, todayIso()) : null;
+  // Favorite and locked (F1): a locked formula takes no new step until it is unlocked.
+  const favorite = props.record.markers.includes("favorite");
+  const locked = props.record.markers.includes("locked");
   const toggleMarker = (marker: FormulaMarker, on: boolean, notice: string) =>
     write(async () => {
       const markers = on ? [...props.record.markers, marker] : props.record.markers.filter((m) => m !== marker);
@@ -473,8 +534,18 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
     });
 
   /** Pours a formula as a material (2026-10-19): the one it is kept as, or kept now, as «Guardar como material» does. */
+  const noteMissing = () => {
+    const keys = (view.composition?.lines ?? []).map((l) => l.material.key).filter((k) => props.data.catalog.materials.has(k));
+    const missing = missingOf(keys, props.data.catalog);
+    if (missing.length === 0) return;
+    void Promise.all(missing.map((materialId) => addToShopping(local.db, owner, { materialId, formulaId }))).then((results) => {
+      const added = results.flatMap((r, i) => (r.added ? [{ id: r.id, name: props.data.catalog.materials.get(missing[i])?.name ?? "—" }] : []));
+      if (added.length > 0) setShoppingNote({ text: appTexts.shopping.missingAdded(added.map((a) => a.name).join(", ")), ids: added.map((a) => a.id) });
+    }, (e: unknown) => setError(String(e)));
+  };
+
   const useFormulaAsMaterial = (id: string) => {
-    const f = pourable.find((x) => x.id === id);
+    const f = importable.find((x) => x.id === id);
     if (!f) return;
     if (f.material) {
       addBar.current?.select(f.material);
@@ -551,6 +622,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
         </button>
         <NameCard header={shownHeader} status={status} statusIsError={error !== null} onChange={typeHeader} onDone={doneTyping} />
         <IntentionCard header={shownHeader} onChange={typeHeader} onDone={doneTyping} />
+        <NotesCard notes={props.record.notes} onSave={(notes) => write(() => updateFormula(local.db, owner, formulaId, { notes }))} />
         <div className="head-actions">
           <button type="button" className="tool" aria-label={texts.menu.undo} title={`${texts.menu.undo} (Ctrl+Z)`} disabled={formula.history.length === 0} onClick={undo}>
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -584,6 +656,19 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
           <button type="button" className="menuitem" onClick={menuAction(() => toggleMarker("finished", !finished, finished ? texts.bench.unmarkedFinished : texts.bench.markedFinished))}>
             <span>{finished ? texts.menu.unmarkFinished : texts.menu.markFinished}</span>
           </button>
+          <button type="button" className="menuitem" onClick={menuAction(() => toggleMarker("favorite", !favorite, favorite ? texts.bench.unmarkedFavorite : texts.bench.markedFavorite))}>
+            <span>{favorite ? texts.menu.unmarkFavorite : texts.menu.markFavorite}</span>
+          </button>
+          <button type="button" className="menuitem" onClick={menuAction(() => toggleMarker("locked", !locked, locked ? texts.bench.unlocked : texts.bench.lockedNow))}>
+            <span>{locked ? texts.menu.unlock : texts.menu.lock}</span>
+          </button>
+          <button
+            type="button"
+            className="menuitem"
+            onClick={menuAction(() => write(() => (maceration ? endMaceration(local.db, owner, maceration.id) : startMaceration(local.db, owner, formulaId))))}
+          >
+            <span>{maceration ? appTexts.maceration.stop : appTexts.maceration.start}</span>
+          </button>
           <button type="button" className="menuitem" disabled={props.data.workbenches.length < 2} onClick={menuAction(() => setDialog({ kind: "move" }))}>
             <span>{texts.menu.move}</span>
           </button>
@@ -596,8 +681,17 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
           <button type="button" className="menuitem" onClick={menuAction(exportJson)}>
             <span>{texts.bench.exportJson}</span>
           </button>
+          <button type="button" className="menuitem" disabled={empty} onClick={menuAction(exportCsv)}>
+            <span>{texts.bench.exportCsv}</span>
+          </button>
+          <button type="button" className="menuitem" disabled={empty} onClick={menuAction(() => setPrinting(true))}>
+            <span>{texts.bench.print}</span>
+          </button>
           <div className="menu-sep" />
-          <button type="button" className="menuitem" disabled={empty} onClick={menuAction(() => setDialog({ kind: "useFormula" }))}>
+          <button type="button" className="menuitem" disabled={empty} onClick={menuAction(() => {
+            setDialog({ kind: "useFormula" });
+            noteMissing();
+          })}>
             <span>{texts.menu.useFormula}</span>
           </button>
           <button type="button" className="menuitem" onClick={menuAction(startReweigh)}>
@@ -636,6 +730,36 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
           </span>
         </div>
       </header>
+      <FamilyBar className="bench-families" shares={familyShares(view.composition?.parts ?? [], props.data.catalog)} />
+      {maceration && macerating && (
+        <p className="maceration-note">
+          ⏱ {appTexts.maceration.title} · {appTexts.maceration.day(macerating.day)} ·{" "}
+          {macerating.due !== null ? appTexts.maceration.due(macerating.due) : macerating.next !== null ? appTexts.maceration.next(macerating.next) : appTexts.maceration.since(maceration.startedOn)}
+          {macerating.due !== null && (
+            <>
+              {" "}
+              <button
+                type="button"
+                className="link"
+                onClick={() => {
+                  const text = window.prompt(appTexts.maceration.ask(macerating.due!));
+                  if (text !== null) write(() => noteCheck(local.db, owner, maceration.id, macerating.due!, text));
+                }}
+              >
+                {appTexts.maceration.note(macerating.due)}
+              </button>
+            </>
+          )}
+        </p>
+      )}
+      {locked && (
+        <p className="locked-note" role="status">
+          {texts.bench.lockedNote}{" "}
+          <button type="button" className="link" onClick={() => toggleMarker("locked", false, texts.bench.unlocked)}>
+            {texts.menu.unlock}
+          </button>
+        </p>
+      )}
 
       <div className="card weigh-row">
         <BottleFrame
@@ -668,14 +792,10 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
         formulaPlace={(key) => placeOfFrozen.get(key)}
         onCreateProvisional={createProvisional}
         orbOf={orbOf(24)}
-        {...(props.onNewBottle
-          ? {
-              onNewBottle: (key: string) => {
-                flushTyped();
-                props.onNewBottle!(key);
-              },
-            }
-          : {})}
+        onNewBottle={(key: string) => {
+          flushTyped();
+          setBottleFor(key);
+        }}
         insight={
           <MaterialCard
             inline
@@ -711,6 +831,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
             chemicalOf={(key) => chemical.get(key)}
             glossaryNameOf={(key) => byKey.get(key)?.name}
             familyOf={familyOf}
+            tierOf={tierOf}
             onAgain={(m) => addBar.current?.select(m)}
           />
           <IfraPanel report={view.report} empty={empty} {...(ifraBase ? { base: ifraBase } : {})} onBase={setChosenBase} specifications={specifications} assumptions={assumptions} />
@@ -757,6 +878,47 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
         />
       )}
 
+      <Toast
+        message={shoppingNote?.text ?? null}
+        onUndo={() => {
+          const ids = shoppingNote?.ids ?? [];
+          setShoppingNote(null);
+          void Promise.all(ids.map((id) => removeFromShopping(local.db, owner, id))).catch((e: unknown) => setError(String(e)));
+        }}
+        onClose={() => setShoppingNote(null)}
+      />
+      {printing && !empty && (
+        <PrintFormula
+          name={formula.header.name}
+          bench={props.data.workbenches.find((w) => w.id === props.record.workbenchId)?.name ?? null}
+          composition={compose(formula)}
+          weighing={(() => {
+            const own = ownConcentration(formula.header.workBatchUg, formula.header.finalBatchUg);
+            if (!own || !formula.header.finalBatchUg) return null;
+            try {
+              return recipe(compose(formula), formula.header.finalBatchUg, own);
+            } catch {
+              return null;
+            }
+          })()}
+          onDone={stopPrinting}
+        />
+      )}
+      {bottleFor !== null && (
+        <DilutionPopup
+          data={props.data}
+          local={props.local}
+          materialId={bottleFor}
+          onDone={(id) => {
+            setBottleFor(null);
+            addBar.current?.pickBottle(id);
+          }}
+          onClose={() => {
+            setBottleFor(null);
+            addBar.current?.focus();
+          }}
+        />
+      )}
       {dialog?.kind === "mass" && (
         <PromptDialog
           title={texts.dialogs.massTitle(dialog.line.material.name)}
@@ -862,14 +1024,10 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
         <ConfirmDialog title={texts.dialogs.deleteTitle} text={texts.dialogs.deleteText(formula.header.name, formula.history.length)} onConfirm={() => void remove()} onClose={() => setDialog(null)} />
       )}
       {dialog?.kind === "formulaAsMaterial" && (
-        <ChoiceDialog
+        <FormulaPickerDialog
           title={texts.dialogs.formulaAsMaterialTitle}
-          help={pourable.length ? texts.dialogs.formulaAsMaterialHelp : texts.dialogs.formulaAsMaterialNone}
-          options={pourable.map((f) => ({
-            id: f.id,
-            label: `${f.name} · ${f.place}${!f.material ? ` (${texts.dialogs.keptNow})` : f.material.name !== f.name ? ` (${texts.dialogs.keptAs(f.material.name)})` : ""}`,
-          }))}
-          initial={null}
+          help={importable.length ? texts.dialogs.formulaAsMaterialHelp : texts.dialogs.formulaAsMaterialNone}
+          groups={importGroups}
           onDone={useFormulaAsMaterial}
           onClose={() => setDialog(null)}
         />

@@ -1,5 +1,6 @@
 import { and, eq } from "drizzle-orm";
-import { bottleOf, storedBottle, type SourceBottle } from "../dilution/calc";
+import { Ratio } from "../core/arith/ratio";
+import { bottleOf, nominalBottle, storedBottle, type PlannedDiluent, type Shares, type SourceBottle } from "../dilution/calc";
 import { numericFromRatio, ratioFromNumeric } from "./exact";
 import * as local from "./local/schema";
 import type { LocalDb } from "./materials";
@@ -52,18 +53,23 @@ async function sourceOf(db: LocalDb, userId: string, sourceId: string, materialI
   };
 }
 
-async function check(db: LocalDb, userId: string, input: BottleInput) {
+/** What every bottle must be, weighed or not: your material, real diluents, a date, a source of the same material. */
+async function checkParts(db: LocalDb, userId: string, input: Omit<BottleInput, "materialUg" | "diluents"> & { readonly diluents: readonly { readonly diluentId: string }[] }) {
   await visible(db, userId, input.materialId, "a bottle's material");
   for (const d of input.diluents) {
     const row = await visible(db, userId, d.diluentId, "a diluent");
     if (!row.solvent) throw new Error(`${row.name} is not a diluent`);
   }
   if (input.madeOn && !DATE.test(input.madeOn)) throw new Error("a date is 2026-10-19");
-  const source = input.sourceDilutionId ? await sourceOf(db, userId, input.sourceDilutionId, input.materialId) : undefined;
+  return input.sourceDilutionId ? await sourceOf(db, userId, input.sourceDilutionId, input.materialId) : undefined;
+}
+
+async function check(db: LocalDb, userId: string, input: BottleInput) {
+  const source = await checkParts(db, userId, input);
   return storedBottle(bottleOf({ materialUg: input.materialUg, diluents: input.diluents, source }));
 }
 
-async function writeDiluents(db: LocalDb, userId: string, dilutionId: string, bottle: ReturnType<typeof storedBottle>) {
+async function writeDiluents(db: LocalDb, userId: string, dilutionId: string, bottle: Shares) {
   await db.delete(local.labDilutionDiluents).where(eq(local.labDilutionDiluents.dilutionId, dilutionId));
   let position = 0;
   for (const d of bottle.diluents) {
@@ -95,6 +101,38 @@ export async function createBottle(db: LocalDb, userId: string, input: BottleInp
     description: clean(input.description),
     label: clean(input.label),
     materialMassUg: input.materialUg.toString(),
+    sourceDilutionId: input.sourceDilutionId ?? null,
+    archivedAt: null,
+    createdAt: stamp,
+    updatedAt: stamp,
+  });
+  await writeDiluents(db, userId, id, bottle);
+  return id;
+}
+
+/** A bottle you already have, given a place without its weights (V3-79): what you aimed at. */
+export interface UnweighedBottleInput extends Omit<BottleInput, "materialUg" | "diluents"> {
+  readonly target: Ratio;
+  /** Each diluent with its share of the bottle, or null for the rest. */
+  readonly diluents: readonly PlannedDiluent[];
+}
+
+/** «Guardar sin pesos» (V3-79): the bottle's figure is the one you aimed at, until you write what you weighed. */
+export async function createUnweighedBottle(db: LocalDb, userId: string, input: UnweighedBottleInput): Promise<string> {
+  const source = await checkParts(db, userId, input);
+  const bottle = storedBottle(nominalBottle(input.target, input.diluents, source));
+  const id = crypto.randomUUID();
+  const stamp = now();
+  await db.insert(local.labDilutions).values({
+    id,
+    userId,
+    materialId: input.materialId,
+    fraction: numericFromRatio(bottle.fraction),
+    solvent: null,
+    madeOn: clean(input.madeOn),
+    description: clean(input.description),
+    label: clean(input.label),
+    materialMassUg: null,
     sourceDilutionId: input.sourceDilutionId ?? null,
     archivedAt: null,
     createdAt: stamp,

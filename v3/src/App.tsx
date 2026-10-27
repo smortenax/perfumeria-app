@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { currentUser, signOut, supabase, type SignedInUser } from "./db/client";
 import { closeLocalDatabase, localDatabaseFor } from "./db/local/database";
 import { createFormula, createWorkbench, deleteWorkbench } from "./db/formulas";
-import { createVersion, setHave, setHaveMany } from "./db/materials";
+import { copySpecification, createVersion, setHave, setHaveMany } from "./db/materials";
 import { Bench } from "./bench/Bench";
 import { Glossary } from "./glossary/Glossary";
 import { Library } from "./formulation/Library";
@@ -15,13 +15,17 @@ import { SignIn } from "./SignIn";
 import { SyncStatus } from "./SyncStatus";
 import { FailureNote } from "./FailureNote";
 import { Dilutions, MaterialDilutions } from "./dilution/Dilutions";
+import { ShoppingList } from "./shopping/ShoppingList";
+import { ImportSheet } from "./import/ImportSheet";
 import { MaterialTastings } from "./tasting/MaterialTastings";
+import { MaterialUses } from "./glossary/MaterialUses";
 import { tasteMaterial } from "./tasting/start";
 import { type Tab as TastingTab, Tasting } from "./tasting/Tasting";
 import { useTastings } from "./tasting/useTastings";
 import { useDueCount } from "./tasting/useDue";
 import { NavIcon, type NavIconName } from "./NavIcon";
 import { texts } from "./i18n/en";
+import { noteRecent } from "./recent";
 
 /**
  * Who is using the app decides what opens (plan step 1.7): without a session, signing in;
@@ -122,6 +126,10 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
           <span className="avatar" aria-hidden="true">{user.email.slice(0, 1).toUpperCase()}</span>
           <span className="who-text">
             <span className="who-mail">{user.email}</span> ·{" "}
+            <button type="button" className="link" aria-current={route.view === "shopping" ? "page" : undefined} onClick={() => go({ view: "shopping" })}>
+              {texts.shopping.nav}
+            </button>{" "}
+            ·{" "}
             <button type="button" className="link" onClick={() => void leave()}>{texts.app.signOut}</button>
           </span>
         </span>
@@ -129,6 +137,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
       {route.view === "home" && (
         <Home
           data={data}
+          local={local}
           tastings={tastings}
           email={user.email}
           lastFormulaId={lastFormula}
@@ -138,6 +147,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
           onQueue={() => go({ view: "tasting", tab: "queue" })}
           onDilutions={() => go({ view: "dilutions" })}
           onOpenFormula={(id) => go({ view: "formula", id })}
+          onOpenMaterial={(id) => go({ view: "sheet", id })}
           onSignOut={() => void leave()}
         />
       )}
@@ -150,6 +160,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
               data={data}
               onOpen={(id) => go({ view: "sheet", id })}
               onNew={() => go({ view: "new" })}
+              onImport={() => go({ view: "import" })}
               mark={(ids, have) => setHaveMany(local.db, local.userId, ids, have)}
               onOpenFormula={(id) => go({ view: "formula", id })}
             />
@@ -157,6 +168,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
           <div hidden={route.view !== "library"}>
             <Library
               data={data}
+              local={local}
               onOpen={(id) => go({ view: "formula", id })}
               onNewBench={(name) => void createWorkbench(local.db, local.userId, { name }).catch(fail)}
               onDeleteBench={(id) => void deleteWorkbench(local.db, local.userId, id).catch(fail)}
@@ -199,6 +211,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
               onOpen={(id) => go({ view: "sheet", id })}
               onHave={(have) => void setHave(local.db, local.userId, route.id, have).catch(fail)}
               onMakeVersion={() => void createVersion(local.db, local.userId, route.id).then((id) => go({ view: "edit", id }), fail)}
+              onCopySpec={() => void copySpecification(local.db, local.userId, route.id).then((id) => go({ view: "edit", id }), fail)}
               links={
                 <>
                 <MaterialTastings
@@ -211,12 +224,8 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
                     if (tastings) void tasteMaterial(data, local, tastings, route.id, "sheet").then((id) => go({ view: "strip", id }), fail);
                   }}
                 />
-                <MaterialDilutions
-                  data={data}
-                  materialId={route.id}
-                  onOpen={(id) => go({ view: "bottle", id })}
-                  onNew={() => go({ view: "newBottle", materialId: route.id })}
-                />
+                <MaterialDilutions data={data} local={local} materialId={route.id} onOpen={(id) => go({ view: "bottle", id })} />
+                <MaterialUses data={data} local={local} materialId={route.id} onOpen={(id) => go({ view: "formula", id })} />
                 </>
               }
             />
@@ -241,10 +250,11 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
                 onExit={() => back({ view: "library" })}
                 onOpen={(id) => go({ view: "formula", id }, true)}
                 onOpenMaterial={(id) => go({ view: "sheet", id })}
-                onNewBottle={(materialId) => go({ view: "newBottle", materialId })}
               />
             </div>
           )}
+          {route.view === "import" && <ImportSheet data={data} local={local} onDone={() => go({ view: "materials" })} onCancel={() => back({ view: "materials" })} />}
+          {route.view === "shopping" && <ShoppingList data={data} local={local} onOpenMaterial={(id) => go({ view: "sheet", id })} />}
           {route.view === "new" && <NewMaterial local={local} onCreated={(id) => go({ view: "edit", id }, true)} onCancel={() => back({ view: "materials" })} />}
         </>
       )}
@@ -258,7 +268,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
 }
 
 type Route =
-  | { readonly view: "home" | "materials" | "library" | "new" | "dilutions" }
+  | { readonly view: "home" | "materials" | "library" | "new" | "dilutions" | "shopping" | "import" }
   | { readonly view: "bottle"; readonly id: string }
   | { readonly view: "newBottle"; readonly materialId: string }
   | { readonly view: "tasting"; readonly tab: TastingTab }
@@ -281,16 +291,20 @@ function parseRoute(hash: string): Route {
   const newBottle = /^#diluciones\/nueva(?:\/([^/]+))?$/.exec(hash);
   if (newBottle) return { view: "newBottle", materialId: newBottle[1] ?? "" };
   if (hash === "#diluciones") return { view: "dilutions" };
+  if (hash === "#compra") return { view: "shopping" };
+  if (hash === "#importar") return { view: "import" };
   const strip = /^#cata\/([^/]+)$/.exec(hash);
   if (strip) return { view: "strip", id: strip[1] };
   return { view: "home" };
 }
-const HASH: Record<"home" | "materials" | "library" | "new" | "dilutions", string> = {
+const HASH: Record<"home" | "materials" | "library" | "new" | "dilutions" | "shopping" | "import", string> = {
   home: "",
   materials: "#materiales",
   library: "#formulacion",
   new: "#nuevo",
   dilutions: "#diluciones",
+  shopping: "#compra",
+  import: "#importar",
 };
 /** «Catas» in the address: its tabs, and one tasting (the user, 2026-10-19: a material links to it). */
 const TASTING_TAB_OF: Record<string, TastingTab> = { cola: "queue", catadas: "history", legado: "legacy" };
@@ -317,6 +331,9 @@ function useRoute(): [Route, (r: Route, replace?: boolean) => void, (fallback: R
     const changed = () => {
       const next = parseRoute(window.location.hash);
       setRoute(next);
+      // What you open goes to «Recent» on Home (F21).
+      if (next.view === "formula") noteRecent("formula", next.id);
+      if (next.view === "sheet") noteRecent("material", next.id);
       // A sheet opens at its top; a list, where it was left.
       requestAnimationFrame(() => window.scrollTo(0, scrolls.current.get(hashOf(next)) ?? 0));
     };

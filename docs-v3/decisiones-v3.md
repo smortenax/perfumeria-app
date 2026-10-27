@@ -1381,6 +1381,18 @@ Portarlo (10:21): «seria ideal si puedes de momento portar todo el prototipo de
 - **Cambiado por V3-75 (2026-10-24):** el acento ya no es el verde provisional: es la tinta, y el color queda para las familias.
 - **Cambiado por V3-76 (2026-10-24):** las familias dejan de estar en espera: son diez, con Gourmand.
 
+## V3-74 · «Fórmula como material» abre una ventana con todas las fórmulas de Formulación (decidida por el usuario el 2026-10-23)
+
+**Respuesta literal** (2026-10-23, al no encontrar su acorde de fondo de Wangan desde el banco de Guidance):
+
+> no sepor que no va bien lo de importar no me deja importar aFondo mira para que el boton de imoratar te deje seleccionar desde una ventana que te abra lo de formulacion
+
+**Lectura** (de la sesión):
+
+1. El fondo no salía porque V3-19 (punto 3) solo deja usar las fórmulas del propio banco y los acordes marcados de los demás, y el fondo vive sin marcar en el banco de Wangan.
+2. **La ventana de «Fórmula como material…» enseña todas las fórmulas de todos los bancos**, agrupadas por banco (el actual primero), con un buscador por fórmula o banco. Elegir una sin guardar como material la guarda tal como está, como hasta ahora.
+3. **Propuesta de la sesión:** la búsqueda de la barra de añadir sigue como dice V3-19 (su banco y los acordes), para que los bancos no hagan ruido al pesar. La ventana es la puerta explícita a lo de los demás. Cambia V3-19, punto 3, solo para esa ventana.
+
 ## V3-75 · La pasada de la bóveda del 2026-10-24: tus elecciones sobre la v3 publicada (decidida por el usuario el 2026-10-24)
 
 **Palabras literales del usuario** (2026-10-24, en el hilo de la bóveda de diseño):
@@ -1426,6 +1438,146 @@ Lo había marcado a las 19:27 («look: mol/atk/side/comfy/ten», V3-75). La maqu
 - **La tanda 22** (`migracion-v3/tanda-22-diez-familias.ts`) añade Gourmand a la paleta y cambia de familia 14 materiales comunes de Frutal y Especiado, por lo que dice su matiz (`family_detail`): 7 a Gourmand, 4 a Animal, 2 a Transformado y el olíbano a Amaderado. Tu versión de cada uno hereda la familia nueva. Cuatro de otras familias cuyo matiz dice gourmand o cumarínico (cacao, miel, Vinyl Sulfurol y haba tonka) no cambian: son para que decidas tú.
 - **Aprobada** (2026-10-24, en la tarjeta del hilo: «Aprobar», a «¿Apruebo la tanda 22, con Gourmand en la paleta y los 14 cambios de familia?»): la paleta de `v3/datos/` tiene diez familias, y los 14 materiales, su familia nueva.
 - **Propuesta de la sesión:** el nombre del color, «caramelo»; la regla de la tanda 22 (lo tostado, a Transformado; el incienso, a Amaderado, como en la maqueta), y que no toque los materiales de las otras siete familias.
+
+## V3-77 · El árbol de versiones de cada banco, a la derecha de sus fórmulas (pedida por el usuario el 2026-10-26; la forma, propuesta de la sesión, sin confirmar)
+
+**Palabras literales del usuario** (2026-10-26, en el hilo del proyecto, con una captura de Formulación y el hueco a la derecha de la lista de fórmulas marcado en azul):
+
+> ahora hay una cosa que quiero hacer para el control de versiones de las formulas en la parte de la derecha hay un espacio que viene bien para hacer la parte de control de versiones lo ideal seria que funcionara de la siguiente manera, al crear una formormula sale un nodo, si se quiere versionar te sale unos nodos a raiz del nodo del que se versiono, entnves en el espacio de la derecha tiene que haber un sistema en el que se vea cada formula como un nodo y se pueda ver de donde heredan cada una asi tienes el historail de como has ido haiendo los cambios entre formulas
+
+**Lectura** (la sesión, para que la confirmes):
+
+- **Al lado de las fórmulas del banco abierto, un panel «Versions»:** cada fórmula es un nodo, y cada versión cuelga del nodo de la fórmula de la que se guardó (`formulas.parent_id`, P44). No cambia el modelo: «Guardar como» → «una versión nueva de esta fórmula» ya apuntaba de cuál sale cada una (V3-19: nace en el banco de su madre).
+- **Cada árbol crece hacia abajo**, de la primera fórmula a sus últimas versiones; las hermanas, de izquierda a derecha por fecha (la más antigua primero), porque el árbol es la historia. La madre, centrada sobre sus versiones, y las ramas tan juntas como dejan sus niveles, para que una historia larga no ensanche el árbol. Cada nodo dice el nombre, la fecha y sus marcadores (acorde, perfume acabado).
+- **Los árboles del banco, uno al lado de otro, en filas tan anchas como el panel**, en el orden de la lista (por nombre); uno más ancho que el panel va solo en su fila y se desplaza de lado dentro del panel, nunca la página.
+- **Señalar una fórmula, en la lista o en el árbol, ilumina su línea** hasta la primera; su fila y su nodo se marcan juntos. Pulsar un nodo, o Intro, abre la fórmula en el banco, como su fila.
+- **Con el teclado**, el árbol es uno solo (patrón «tree view» de ARIA): abajo y arriba recorren los nodos en orden de lectura, derecha va a la primera versión, izquierda a la madre, Inicio y Fin a los extremos.
+- **Una versión cuya madre no está en la lista** (borrada, en otro banco o fuera de la búsqueda) empieza su propio árbol: no se esconde.
+- **Donde no cabe al lado** (un banco de menos de 46 rem de ancho: el portátil estrecho y el móvil), el árbol va debajo de la lista.
+- **Propuesta de la sesión:** con el árbol al lado, la lista sangra las versiones un solo paso (el árbol ya enseña las generaciones; debajo, la lista sangra como antes); los nombres largos se cortan en el nodo (entero al señalarlo y en la lista). Código: `v3/src/formulation/versionTree.ts` (la disposición, con pruebas) y `VersionTree.tsx`. Una primera prueba hecha en tu PC (rama `claude/project-thread-3v0ial`) queda sustituida por esta.
+
+## V3-78 · Las funciones de PerfuMate: qué entra y con qué matices (decidida por el usuario el 2026-10-26)
+
+**Palabras literales del usuario** (2026-10-26), sobre el vídeo que grabó recorriendo PerfuMate:
+
+> visualmente: casi nada, es lo que mas discrepo con la app simplemente no me gusta nada visualmente, es identificar key features de la app y yo te digo si me gustan para la mia o no
+
+Sobre la lista F1–F23 (`funciones-perfumate.md`): «todas las mencionadas a continuacion ahora las matizamos, el resto pasan» (F4, F9, F12–F17, F19, F22, F23), y a la pregunta de qué es «pasan», «Entran tal cual».
+
+> el mapa visual en todo caso seria mejorar lo que hacen ahora los orbes hay que iterar para que sean no solo visualmente atractivos sino mas legibles, no quieroun mapa de tarta pero si quiero que sea legible
+> lo de coste por linea simplement no
+> ficha falta impactyo y horas
+> todo lo que tiene que ver con frascos hay que establecer un sistema de frascos y diluciones diferentes establecer que informacion va al frasco y que informacion va al material [...] tambien se pueden separar en 2 niveles materiales (general vinculado a CAS y extaido del glosario), (especificaciones) procedencia fabricante y la capacidad de cambiar los alergenos o añadir uno nuevo si es necesario, y por otro nivel diluciones, ahi solo convivven datos de % de material y de % de solvente/solventes...
+> la dilucion lo bueno de esa calculadora no es que se ponga en el stock sino que es muy practicaporque es un pop up
+
+Sobre los casos de la dilución: «puede convivir tambien las dos que propones, la de que haya una opcion de partir con un material diluido (desde neat a cada una de las diluciones ya dadas de alta para el material seleccionado), y que tambien puedas poner la cantidad total si prefieres contarlo del reves». Sobre el stock: «no me gusta que haya un stock general todo vinculado simplemente se que estara fallando todo el rato y habra muchas coasa que no se tengan en cuenta, lo que si que me gusta es poder dar de alta materiales como Running low, o incluso hacer una "shopping list " de materiales que tienes o que no tienes, de manera que si te faltan para alguna receta durante el momento de uso se queden guardados.»
+
+**Lectura** (la sesión, para que la confirmes):
+
+- **Lo visual de PerfuMate no se toma.** Entran tal cual F1, F2, F3, F5, F6, F7, F8, F10, F11, F18, F20 y F21. **F9, el coste por línea, no entra.**
+- **F4:** sin tarta; el perfil se ve en los orbes (V3-72, V3-73), que hay que iterar para que se lean.
+- **F12:** la ficha gana el impacto y las horas en tira, con su fuente.
+- **F13–F15:** primero, el sistema de frascos y diluciones. Dos niveles: el material (lo general, por CAS y del glosario, y su especificación: procedencia, fabricante, alérgenos cambiados o añadidos) y la dilución (solo % de material y de cada disolvente). Abierto: si un cambio de composición, origen o fabricante es otra especificación o va en un frasco. Toca V3-67 y V3-70.
+- **F16:** sin stock general. Sí: «se acaba» a mano y una lista de la compra, que guarda lo que falta para una receta al usarla.
+- **F17:** una ventana emergente rápida que no resta de ningún stock, con cuatro maneras: dar de alta una dilución hecha; desde lo pesado de material (con pesos de ejemplo en gris); partiendo de puro o de una dilución dada de alta; y desde la cantidad total.
+- **Pendientes de matizar:** F19 (importar), F22 (asistente) y F23 (exportar).
+
+**Más del usuario** (2026-10-26), sobre la lista de la compra y el orden:
+
+> este ultimo featuer no tiene que ser extremadamente visible o opacante solo en un apartado de Usuaraio o algo asi tienes una opcion que es consultar shopping list y ahi estan todos los que quieres comprar desde la propia sopping list puedes exportarlos o ya añadirlos como material tuyo si los has comprado ya. lo de perfil olfativo es lo mas bajo de prioridad es upgrade de sistema o visuales que ya esxiste lo de frascos y dilucion lo mas util de entrada, mejorar la interfaz con el registro de diluciones tambien es una parte importante
+
+- **La lista de la compra, discreta:** en un apartado de usuario, como «Consultar la lista de la compra». Desde ella se exporta, o se pasa un material a «tuyo» cuando ya lo has comprado.
+- **Prioridad:** primero, los frascos y las diluciones (el sistema de F13–F15 y la ventana de F17), con la interfaz del registro de diluciones mejorada; el perfil olfativo (F4), lo último: mejora algo que ya existe.
+
+## V3-79 · Tu material y tus diluciones: dos niveles, la lista de la compra, la ventana de dilución y el registro en rejilla (decidida por el usuario el 2026-10-26; desarrolla V3-78, cambia V3-67 en la ventana y el registro)
+
+**Palabras del usuario** (2026-10-26). Las cuatro primeras, eligiendo una opción en las tarjetas de la sesión:
+
+1. A «Cuando algo cambia (otro fabricante, otra procedencia u otro lote con un GC-MS distinto), ¿dónde va?», eligió **«Especificación nueva (Recomendada)»**.
+2. A «¿Qué se apunta en la lista de la compra y cómo pasa a ser tuyo?», eligió **«Material del glosario (Recomendada)»**.
+3. A los campos de la especificación sin stock ni precio, eligió **«Así (Recomendada)»**.
+4. A la ventana «Nueva dilución» con los cuatro casos de F17 juntos, eligió **«Así (Recomendada)»**, con el esquema que se le enseñó.
+
+Sobre el registro de diluciones, con tres capturas (la lista de «Diluciones», la rejilla de Materiales y los frascos de PerfuMate):
+
+> yo pondria que directmante desde el menu se pueda hacer la dilucion, ya esta el panel del pop up docked en este UI, a la derecha parte de arriba, por otro lado lo de buscar sigue ahi y los materiales asi en lista se ven ilegibles totalmennte yo diria que quizas con un grid quedaria mejor se puede sacar la distribucion del de los materiales pero sin necesidad de poner tanta informacion, con que salga los nombres la visualizacin del material luego las diluciones como en este ejemplo, eso si no hace falta que salga neat
+> repetir dilucion? no hay stock son informacion no material, no se acaba
+> la ventana que se abre en otros paneles en diluciones existe pero dockeada en la parte superior derecha
+
+**Lectura** (la sesión, para que la confirmes):
+
+- **Dos niveles.** Tu **especificación** de un material del glosario, y sus **diluciones**. Cada variación (otro fabricante, otra procedencia, otro lote con otro GC-MS) es otra especificación del mismo material, y «hacer otra a partir de esta» la copia. El lote es un campo.
+- **La especificación** lleva: material y producto del glosario, nombre, abreviatura, procedencia (país y región), proveedor, url de la tienda, lote, fecha de compra, pureza y estado (en uso, se acaba, agotado, archivado). Encima, tus alérgenos y tu composición, tus documentos (GC-MS, certificado IFRA, ficha de seguridad) y tus topes. **Sin cantidad ni precio** (V3-78: sin stock y sin coste). Es la tabla `mis_materiales` de la radiografía sin esos dos campos (propuesta de la sesión, sobre la radiografía de V3-70).
+- **La dilución** guarda solo lo de V3-67: de qué especificación sale, sus diluyentes (cada uno un material), lo pesado (de donde sale la cifra exacta) y, si sale de otra, cuál. Es información, no un material: no se acaba ni se repite.
+- **La lista de la compra** apunta materiales del glosario, con producto o tienda y una nota si quieres. Si te falta un material mientras usas una receta, se apunta solo y dice de qué fórmula sale. «Ya lo tengo» crea tu especificación con eso relleno y lo quita de la lista. «No lo tengo» deja de ser un estado. Va discreta, en un apartado de usuario (V3-78).
+- **La ventana «Nueva dilución»:** material (tu especificación); desde (puro o una dilución dada de alta); % objetivo; diluyentes con «+ diluyente»; pesos de ejemplo en gris (1 g y 10 g); «material pesado» o «total», y cada uno calcula el otro; lo pesado de verdad, opcional, da la cifra exacta; «Guardar sin pesos» y «Guardar con lo pesado».
+- **En «Diluciones»**, la ventana va anclada arriba a la derecha y se diluye desde ahí; en los demás paneles, emergente. El buscador se queda. **La lista pasa a rejilla**, con la distribución de la de Materiales y menos datos: el orbe, el nombre y debajo una pastilla por dilución («10 % in DPG»). Sin pastilla de «puro».
+- **Por preguntar:** qué hace la pastilla al tocarla (abrir la dilución para corregir sus pesos o archivarla, V3-67).
+
+## V3-80 · Las funciones de PerfuMate que faltaban: importar, el asistente y exportar (decidida por el usuario el 2026-10-26; cierra V3-78)
+
+**Palabras literales del usuario** (2026-10-26):
+
+F19, importar: «basicamente una hoja de calculo que te deja en un list», y a la pregunta de si es una lista para revisar o la lista de la compra: «la 1, una lista para revisar y confirmar».
+
+F22, el asistente:
+
+> de momento no me gusta la idea del asistente porque lo veo como gimmivky i en general el recibimineto de una ia rara ajena a tu app de formulacion no parece prometedor, mientras si que valoro la idea de que sugerimientos podrian ir bien de momento dejamos todo esto fuera cuando la app este acabada se puede hablar de estas commodities
+
+F23, exportar, a las opciones (1 fórmulas legibles, 2 tus materiales, 3 sugerir correcciones, 4 más adelante):
+
+> la 1 y la 2 de momento, quizas estaria bien dos posibilidades exportar glossario que te lo exporte mas elegante como si vieses todos tus materiales en la app y te genere un pdf de todoos los materiales con su icono y info principal y diluciones (que ocupe mas o menos como en la app), y luego otro que sea una tabla con entradas para los materiales las diluciones el fabricante... toda la info relevante de los materiales pero mas low level solo datos
+
+**Lectura** (la sesión, para que la confirmes):
+
+- **F19, importar: solo una hoja de cálculo.** Pegas o subes un CSV con tus materiales; cada fila queda en una **lista para revisar**, con lo que la app encuentra en el glosario («encontrado», «dudoso», «no está»), y tú confirmas cuáles pasan a tus materiales con «lo tengo». Sin kits de inicio, sin adelantar el alta a mano (V3-70 la deja para después del sistema de datos) y sin importar fórmulas.
+- **F22, el asistente: no entra.** Tampoco las sugerencias por ahora, aunque se valoran; se hablará de estos extras cuando la app esté acabada (en `docs/a-futuro.md`).
+- **F23, exportar: tus fórmulas y tus materiales.**
+  - **Tus fórmulas, legibles:** propuesta de la sesión, una fórmula en CSV o PDF con material, gramos, % y diluciones, y la hoja de pesada de V3-55.
+  - **Tus materiales, de dos maneras:** un **PDF del glosario «elegante»**, como se ven en la app (el orbe, la información principal y las diluciones de cada material, ocupando más o menos lo que en la app), y una **tabla «solo datos»** con los materiales, sus diluciones, el fabricante y el resto de lo relevante.
+  - **No entran:** sugerir correcciones al glosario ni contribuir documentos.
+
+## V3-81 · F12, la ficha: el impacto es la fuerza, y cada cifra lleva su fuente (decidida por el usuario el 2026-10-27)
+
+**Pregunta de la sesión** (2026-10-27): la cabecera de la ficha (V3-73) ya enseña la fuerza y la duración en tira en horas; lo que no enseña es la fuente al lado de cada cifra, y la fuerza no tiene columna de fuente. Cuando dijiste «ficha falta impacto y horas» (V3-78), ¿a qué te referías? Opciones: faltaba la fuente; el impacto es otra cifra (1–10, como PerfuMate); el impacto a lo largo del tiempo (la evolución); no lo veía en tu app.
+
+**Respuesta literal del usuario:** «Faltaba la fuente».
+
+**Lectura** (la sesión, para que la confirmes):
+
+- **El impacto es la fuerza** que ya tiene el material (low, medium, high, very high). No se añade otra cifra.
+- **La fuerza y las horas en tira llevan su fuente** en la cabecera de la ficha. La fuerza gana la columna `strength_source`, como `tenacity_source`; la rellena una tanda con el origen citado de cada valor (el laboratorio o la web). Sin fuente, la cifra se sigue enseñando y la fuente dice «no lo dice».
+
+## V3-82 · Lo extraído de PerfuMate no se corrige con el laboratorio: el laboratorio solo completa lo que falta (decidida por el usuario el 2026-10-27)
+
+**Literal del usuario** (2026-10-27, tras aprobar la tanda 26): «pero no hay que corregit lo extraido de perfumate con lo del laboratorio solo completar si falta».
+
+**Lectura** (la sesión, para que la confirmes):
+
+- **Al cribar los datos para el sistema nuevo (V3-70), lo que trae PerfuMate se queda como lo trae.** Un dato del laboratorio no lo sustituye ni lo corrige.
+- **El laboratorio solo rellena huecos:** un campo que PerfuMate no da se completa con el del laboratorio, con su fuente citada.
+- **Otra base de datos grande, en el futuro, sí podría reescribir.** Literal (2026-10-27, a continuación): «en todo caso se si coge otra base de datos grande a futuro ahi si se pasaria por reescriptura». Lectura: si más adelante entra otra fuente grande, sus datos podrían sustituir a los que hay, con un script y por tandas que apruebas; el laboratorio sigue siendo solo para completar.
+- **La tanda 26 no lo toca:** solo añadió `strength_source` a los 127 comunes que hoy usa la app (los del laboratorio, `v3/datos/materials.csv`) sin cambiar ningún valor; las tandas 20 y 21 (PerfuMate, `datos/comun/`) siguen sin aprobar y sin cambios.
+
+## V3-83 · F21, la maceración: opcional, desde la fórmula, y en Inicio lo que macera (decidida por el usuario el 2026-10-27)
+
+**Pregunta de la sesión:** el diario de maceración de PerfuMate (Inicio enseña los frascos que maceran y sus días) no existe en la app; opciones: en la fórmula, con revisiones a los 7, 14 y 28 días cuyas notas van a la fórmula (recomendada); un diario aparte; solo los días; fuera de momento.
+
+**Respuesta literal del usuario** (2026-10-27): «como la uno que sea opcional puedes darle al boton de empezar a macerar en la formula o durante el mismo branching de la formula un icono con un reloj o algo que sea empezar la maceracion, luego en la home page que salga lo que se esta macerando».
+
+**Lectura** (la sesión, para que la confirmes):
+
+- **Opcional:** una fórmula macera solo si le das a «empezar a macerar». Se puede desde el banco (su menú) o desde la lista de versiones de Formulación, con un icono de reloj en cada fórmula.
+- **Inicio enseña lo que macera:** cada fórmula con su día de maceración y la próxima revisión (días 7, 14 y 28, propuesta de la sesión); al llegar una, se avisa.
+- **Las notas de cada revisión van a las notas de la fórmula (F7)**, con su día y su fecha. No hay stock ni frascos nuevos: es una fecha de inicio y, si quieres, de fin.
+
+## V3-84 · F21, la libreta: no entra (decidida por el usuario el 2026-10-27)
+
+**Pregunta de la sesión:** la libreta de notas sueltas de PerfuMate; en la app ya hay notas por fórmula (F7), por material y por cata. Opciones: no, ya basta (recomendada); una libreta sencilla en Inicio; notas del banco.
+
+**Respuesta del usuario** (2026-10-27, en la tarjeta): «No, ya basta (Recomendada)».
+
+**Lectura:** no hay libreta general. Las ideas van en las notas de la fórmula, del material o de la cata; si más adelante falta un sitio, se añade.
 
 ---
 

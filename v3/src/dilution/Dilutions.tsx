@@ -1,6 +1,6 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Ratio } from "../core/arith/ratio";
-import type { CatalogMaterial, Dilution } from "../db/catalog";
+import type { Dilution } from "../db/catalog";
 import { archiveBottle, type BottleInput, createBottle, describeBottle, updateBottle } from "../db/dilutions";
 import type { LocalDatabase } from "../db/local/database";
 import { percent } from "../glossary/format";
@@ -12,6 +12,9 @@ import { bottleOf, plan, storedBottle } from "./calc";
 import { coloursOf } from "../families/palette";
 import { orbLookOf, orbScalesOf, seedOf } from "../glossary/orb/fromCatalog";
 import { MaterialOrb } from "../glossary/orb/MaterialOrb";
+import { DilutionPopup } from "./DilutionPopup";
+import { cardsOf } from "./grid";
+import { NewDilution } from "./NewDilution";
 import "./dilutions.css";
 
 const t = texts.dilutions;
@@ -89,17 +92,21 @@ export function Dilutions({
   };
   const editor =
     newFor !== null ? (
-      <BottleEditor key={`new:${newFor}`} data={data} local={local} materialId={newFor || null} onDone={onOpen} onCancel={onBack} />
+      <NewDilution key={`new:${newFor}`} data={data} local={local} materialId={newFor || null} onDone={onOpen} onCancel={onBack} />
     ) : bottleId ? (
       found ? (
         <BottleEditor key={bottleId} data={data} local={local} materialId={found.materialId} bottle={found.d} onDone={() => onBack()} onCancel={onBack} onArchived={onArchived} />
       ) : (
         <p>{texts.glossary.missing}</p>
       )
-    ) : null;
-  // The bottles as a list, the open one (or the calculator) beside it on a wide screen (V3-73); on a narrow one, one at a time.
+    ) : (
+      <NewDilution key="new:docked" data={data} local={local} materialId={null} onDone={onOpen} onCancel={onBack} />
+    );
+  // The bottles as a grid, the window docked beside it on a wide screen (V3-79): «New dilution» unless a
+  // chip opened a bottle. On a narrow one, the grid; the window when asked for, or a bottle when picked.
+  const docked = newFor === null && !bottleId;
   return (
-    <div className={`dilutions-page${editor ? " with-editor" : ""}`}>
+    <div className={`dilutions-page with-editor${docked ? " docked-new" : ""}`}>
       <BottleList data={data} all={all} selected={bottleId} onOpen={onOpen} onNew={() => onNew()} />
       {editor && <div className="bottle-pane">{editor}</div>}
       <Toast message={archived?.text ?? null} onUndo={unarchive} onClose={() => setArchived(null)} />
@@ -124,12 +131,7 @@ function BottleList({
   const scales = useMemo(() => orbScalesOf(data.catalog), [data]);
   const [query, setQuery] = useState("");
   const [archived, setArchived] = useState(false);
-  const q = query.trim().toLowerCase();
-  const shown = all
-    .filter((x) => archived || !x.d.archivedAt)
-    .map((x) => ({ ...x, name: data.catalog.materials.get(x.materialId)?.name ?? "—" }))
-    .filter((x) => !q || x.name.toLowerCase().includes(q) || (x.d.label ?? "").toLowerCase().includes(q))
-    .sort((a, b) => a.name.localeCompare(b.name, "es") || (b.d.madeOn ?? "").localeCompare(a.d.madeOn ?? ""));
+  const cards = cardsOf(all, { archived, query, nameOf: (id) => data.catalog.materials.get(id)?.name ?? "—" });
   return (
     <section className="dilutions">
       <div className="title-bar">
@@ -152,29 +154,43 @@ function BottleList({
         </span>
       </div>
       {all.length === 0 && <p className="hint">{t.empty}</p>}
-      <ul className="bottle-list">
-        {shown.map(({ d, name, materialId }) => {
+      <ul className="bottle-grid">
+        {cards.map(({ materialId, name, bottles }) => {
           const material = data.catalog.materials.get(materialId);
           const colours = material ? coloursOf(data.catalog, material) : null;
           return (
-            <li key={d.id}>
-              <button type="button" className="bottle-row" aria-current={d.id === selected ? "true" : undefined} onClick={() => onOpen(d.id)}>
-                {material && <MaterialOrb look={orbLookOf(data.catalog, material, scales)} size={32} seed={seedOf(material.id)} expectColor={colours?.light} />}
-                <span className="bottle-main">
-                  <span className="bottle-name">{name}</span>
-                  <span className="bottle-detail">
-                    {bottleText(data, d)}
-                    {d.madeOn ? ` · ${d.madeOn}` : ""}
-                    {d.archivedAt ? ` · ${t.archived}` : ""}
-                  </span>
-                </span>
-              </button>
+            <li key={materialId} className="bottle-card">
+              <div className="bottle-card-head">
+                {material && <MaterialOrb look={orbLookOf(data.catalog, material, scales)} size={40} seed={seedOf(material.id)} expectColor={colours?.light} />}
+                <span className="bottle-name">{name}</span>
+              </div>
+              <span className="bottle-chips">
+                {bottles.map((d) => (
+                  <button
+                    key={d.id}
+                    type="button"
+                    className={`pill bottle-chip${d.archivedAt ? " archived" : ""}`}
+                    aria-current={d.id === selected ? "true" : undefined}
+                    title={[d.label, d.madeOn, d.archivedAt ? t.archived : null].filter(Boolean).join(" · ")}
+                    onClick={() => onOpen(d.id)}
+                  >
+                    {chipText(data, d)}
+                  </button>
+                ))}
+              </span>
             </li>
           );
         })}
       </ul>
     </section>
   );
+}
+
+/** A chip of the grid: «10 % in DPG», «40 % in DPG + Ethanol» (no chip for pure, V3-79). */
+export function chipText(data: GlossaryData, d: Dilution): string {
+  const name = (id: string) => data.catalog.materials.get(id)?.name ?? "—";
+  const diluents = d.diluents.length > 0 ? d.diluents.map((x) => name(x.diluentId)).join(" + ") : d.solvent;
+  return diluents ? t.chip(percent(d.fraction, 2), diluents) : percent(d.fraction, 2);
 }
 
 interface Row {
@@ -185,11 +201,11 @@ interface Row {
   readonly grams: string;
 }
 
-/** A bottle's sheet: new, or yours to correct (V3-67). The calculator says what to weigh; what you weighed makes the figure. */
+/** A bottle of yours to correct (V3-67): its weights, its name, date and note, or the archive. A new one is NewDilution (V3-79). */
 function BottleEditor({
   data,
   local,
-  materialId: initialMaterial,
+  materialId,
   bottle,
   onDone,
   onCancel,
@@ -197,8 +213,8 @@ function BottleEditor({
 }: {
   data: GlossaryData;
   local: LocalDatabase;
-  materialId: string | null;
-  bottle?: Dilution;
+  materialId: string;
+  bottle: Dilution;
   onDone: (id: string) => void;
   onCancel: () => void;
   /** Said after archiving, with Undo (not after taking a bottle out of the archive). */
@@ -206,8 +222,6 @@ function BottleEditor({
 }) {
   const diluents = useMemo(() => diluentsOf(data), [data]);
   const name = (id: string) => data.catalog.materials.get(id)?.name ?? "—";
-  const [materialId, setMaterialId] = useState<string | null>(initialMaterial);
-  const [query, setQuery] = useState("");
   const [label, setLabel] = useState(bottle?.label ?? "");
   const [sourceId, setSourceId] = useState<string | null>(bottle?.sourceDilutionId ?? null);
   const [target, setTarget] = useState("10");
@@ -233,10 +247,6 @@ function BottleEditor({
   const sources = materialId ? (data.catalog.dilutions.get(materialId) ?? []).filter((d) => d.id !== bottle?.id && d.diluents.length > 0) : [];
   const source = sources.find((d) => d.id === sourceId);
   const sourceBottle = source ? { fraction: source.fraction, diluents: source.diluents.map((d) => ({ diluentId: d.diluentId, fraction: d.fraction })) } : undefined;
-  const materials = useMemo(
-    () => [...data.catalog.materials.values()].filter((m: CatalogMaterial) => m.ownerId !== null && !m.solvent).sort((a, b) => a.name.localeCompare(b.name, "es")),
-    [data],
-  );
 
   const setRow = (i: number, change: Partial<Row>) => setRows(rows.map((r, j) => (j === i ? { ...r, ...change } : r)));
   const calculate = () => {
@@ -295,35 +305,9 @@ function BottleEditor({
         <h2 className="page-title">{bottle ? `${name(materialId ?? "")} · ${bottle.label ?? percent(bottle.fraction, 2)}` : t.newBottle}</h2>
       </div>
 
-      {materialId ? (
-        <p>
-          {t.material}: <strong>{name(materialId)}</strong>{" "}
-          {!bottle && (
-            <button type="button" className="link" onClick={() => setMaterialId(null)}>
-              {t.change}
-            </button>
-          )}
-        </p>
-      ) : (
-        <div className="field">
-          <label className="field">
-            {t.material}
-            <input type="search" value={query} placeholder={t.pickMaterial} onChange={(e) => setQuery(e.target.value)} />
-          </label>
-          <ul className="pick-list">
-            {materials
-              .filter((m) => m.name.toLowerCase().includes(query.trim().toLowerCase()))
-              .slice(0, 30)
-              .map((m) => (
-                <li key={m.id}>
-                  <button type="button" onClick={() => setMaterialId(m.id)}>
-                    {m.name}
-                  </button>
-                </li>
-              ))}
-          </ul>
-        </div>
-      )}
+      <p>
+        {t.material}: <strong>{name(materialId)}</strong>
+      </p>
 
       {materialId && (
         <>
@@ -459,8 +443,14 @@ function BottleEditor({
   );
 }
 
-/** A material's bottles, on its sheet: links only (V3-67, as V3-64 for the tastings). */
-export function MaterialDilutions({ data, materialId, onOpen, onNew }: { data: GlossaryData; materialId: string; onOpen: (id: string) => void; onNew: () => void }) {
+/** A material's bottles, on its sheet: links only (V3-67, as V3-64 for the tastings); a new one in a pop-up (V3-79). */
+export function MaterialDilutions({ data, local, materialId, onOpen }: { data: GlossaryData; local: LocalDatabase; materialId: string; onOpen: (id: string) => void }) {
+  const [adding, setAdding] = useState(false);
+  const newButton = useRef<HTMLButtonElement>(null);
+  const close = () => {
+    setAdding(false);
+    newButton.current?.focus();
+  };
   const list = [...(data.catalog.dilutions.get(materialId) ?? [])].sort((a, b) => (a.archivedAt ? 1 : 0) - (b.archivedAt ? 1 : 0) || (b.madeOn ?? "").localeCompare(a.madeOn ?? ""));
   return (
     <section className="sheet-section material-dilutions">
@@ -478,9 +468,10 @@ export function MaterialDilutions({ data, materialId, onOpen, onNew }: { data: G
           ))}
         </ul>
       )}
-      <button type="button" onClick={onNew}>
+      <button ref={newButton} type="button" onClick={() => setAdding(true)}>
         {t.newBottle}
       </button>
+      {adding && <DilutionPopup data={data} local={local} materialId={materialId} onDone={close} onClose={close} />}
     </section>
   );
 }

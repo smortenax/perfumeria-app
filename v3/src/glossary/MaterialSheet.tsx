@@ -15,6 +15,7 @@ export function MaterialSheet({
   onEdit,
   onOpen,
   onMakeVersion,
+  onCopySpec,
   onHave,
   links,
 }: {
@@ -24,6 +25,8 @@ export function MaterialSheet({
   onEdit: () => void;
   onOpen: (id: string) => void;
   onMakeVersion: () => void;
+  /** «Make another from this» (V3-79), on a specification of yours. */
+  onCopySpec?: () => void;
   /** Little by little (step 6.5): this one, marked or not. */
   onHave: (have: boolean) => void;
   /** Its tastings and its bottles, as links to «Catas» and «Diluciones» (V3-64, V3-67): they live there, not in the sheet. */
@@ -65,9 +68,16 @@ export function MaterialSheet({
             actions={
               <>
                 {sheet.own ? (
-                  <button type="button" onClick={onEdit}>
-                    {texts.editor.edit}
-                  </button>
+                  <>
+                    <button type="button" onClick={onEdit}>
+                      {texts.editor.edit}
+                    </button>
+                    {onCopySpec && material!.kind !== "frozen" && (
+                      <button type="button" className="secondary" title={texts.editor.copySpecHint} onClick={onCopySpec}>
+                        {texts.editor.copySpec}
+                      </button>
+                    )}
+                  </>
                 ) : (
                   <button type="button" onClick={onMakeVersion}>
                     {texts.editor.makeVersion}

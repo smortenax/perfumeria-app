@@ -1,4 +1,5 @@
 import { type KeyboardEvent, type ReactNode, useMemo, useRef, useState } from "react";
+import { dilutionsCsv, materialsCsv } from "../export/tables";
 import { type CatalogMaterial, MATERIAL_KINDS, type MaterialKind } from "../db/catalog";
 import { normalize } from "../db/search";
 import type { FormulaMarker, FormulaRecord } from "../db/formulas";
@@ -7,13 +8,16 @@ import { coloursOf, familyOf } from "../families/palette";
 import { orbLookOf, type OrbScales, orbScalesOf, seedOf } from "./orb/fromCatalog";
 import { MaterialOrb } from "./orb/MaterialOrb";
 import { paletteMarkdown, paletteOf } from "./palette-export";
+import { initials } from "./initials";
+import { PrintGlossary } from "../export/PrintGlossary";
 import { texts } from "../i18n/en";
 import { Pills } from "../Pills";
 import { tabAfterKey } from "../tabs";
 import { type Filters, type IfraState, keepOf, NO_FILTERS } from "./browse";
 import type { GlossaryData } from "./useGlossary";
 
-const PAGE = 60;
+/** Every material that passes the filters is shown: a few hundred tiles paint fast enough (measured 2026-10-27). */
+const ALL = Number.MAX_SAFE_INTEGER;
 const IFRA_STATES = Object.keys(texts.ifraState) as IfraState[];
 /** The tabs (V3-50): your materials, the general ones (each a filter of «whose»), and your formulas, apart so nothing mixes. */
 const TABS = ["own", "common", "formulas", "accords"] as const;
@@ -32,12 +36,14 @@ export function Glossary({
   data,
   onOpen,
   onNew,
+  onImport,
   mark,
   onOpenFormula,
 }: {
   data: GlossaryData;
   onOpen: (id: string) => void;
   onNew: () => void;
+  onImport?: () => void;
   mark: Mark;
   onOpenFormula?: (id: string) => void;
 }) {
@@ -46,7 +52,6 @@ export function Glossary({
   // A new account opens on the common materials: an empty «Own» tab is not a first screen (audit F-08).
   const [first] = useState<"own" | "common">(() => ([...data.catalog.materials.values()].some((m) => m.ownerId !== null) ? "own" : "common"));
   const [filters, setFilters] = useState<Filters>({ ...NO_FILTERS, owner: first });
-  const [limit, setLimit] = useState(PAGE);
   const [message, setMessage] = useState<string | null>(null);
   // «Exportar paleta»: your materials by their names, copied or as a Markdown file.
   const [paletteNote, setPaletteNote] = useState<string | null>(null);
@@ -61,6 +66,19 @@ export function Glossary({
     const done = copied || copyBySelection(text);
     setPaletteNote(done ? t.paletteCopied(paletteOf(data.catalog).length) : t.paletteNoClipboard);
   };
+  // «Export data» (V3-80): your materials and your dilutions, two plain tables.
+  const exportData = () => {
+    const day = new Date().toISOString().slice(0, 10);
+    for (const [name, text] of [
+      [`my-materials-${day}.csv`, materialsCsv(data.catalog)],
+      [`my-dilutions-${day}.csv`, dilutionsCsv(data.catalog)],
+    ] as const) {
+      const url = URL.createObjectURL(new Blob([text], { type: "text/csv;charset=utf-8" }));
+      Object.assign(document.createElement("a"), { href: url, download: name }).click();
+      URL.revokeObjectURL(url);
+    }
+    setPaletteNote(t.dataExported);
+  };
   const downloadPalette = () => {
     const url = URL.createObjectURL(new Blob([palette()], { type: "text/markdown;charset=utf-8" }));
     const a = Object.assign(document.createElement("a"), { href: url, download: `my-palette-${new Date().toISOString().slice(0, 10)}.md` });
@@ -69,10 +87,11 @@ export function Glossary({
     setPaletteNote(t.paletteDownloaded(paletteOf(data.catalog).length));
   };
   const [marking, setMarking] = useState(false);
+  // «Print or save as PDF» (V3-80): your materials as the grid shows them, only while printing.
+  const [printing, setPrinting] = useState(false);
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const set = (change: Partial<Filters>) => {
     setFilters((f) => ({ ...f, ...change }));
-    setLimit(PAGE);
     setMessage(null);
   };
   const [tab, setTab] = useState<Tab>(first);
@@ -93,14 +112,14 @@ export function Glossary({
   const scales = useMemo(() => orbScalesOf(data.catalog), [data.catalog]);
   const rows = useMemo(() => {
     const keep = keepOf(filters, data.catalog.have, (id) => data.ifraStates.get(id)?.state ?? "no-data");
-    return query.trim() ? search(data.index, query, limit, keep) : listAll(data.index, limit, keep);
-  }, [data, query, filters, limit]);
+    return query.trim() ? search(data.index, query, ALL, keep) : listAll(data.index, ALL, keep);
+  }, [data, query, filters]);
   const materials = rows.flatMap((r) => r.members.map((m) => m.material));
   // «Nothing yet» and «no matches» are two states (audit F-08): only the second offers to clear.
-  const searching = query.trim() !== "" || filters.kind !== null || filters.ifra !== null || filters.haveOnly;
+  const searching = query.trim() !== "" || filters.kind !== null || filters.ifra !== null || filters.haveOnly || !!filters.runningLow;
   const clear = () => {
     setQuery("");
-    set({ kind: null, ifra: null, haveOnly: false });
+    set({ kind: null, ifra: null, haveOnly: false, runningLow: false });
   };
   const markShown = (have: boolean) =>
     void mark(materials.map((m) => m.id), have).then(
@@ -130,12 +149,22 @@ export function Glossary({
           <button type="button" className="secondary" hidden={tab !== "own"} onClick={downloadPalette}>
             {t.downloadPalette}
           </button>
+          <button type="button" className="secondary" hidden={tab !== "own" || !onImport} onClick={onImport}>
+            {t.importSheet}
+          </button>
+          <button type="button" className="secondary" hidden={tab !== "own"} onClick={exportData}>
+            {t.exportData}
+          </button>
+          <button type="button" className="secondary" hidden={tab !== "own"} onClick={() => setPrinting(true)}>
+            {t.printGlossary}
+          </button>
           <button type="button" onClick={onNew}>
             {texts.editor.newMaterial}
           </button>
         </span>
       </div>
       {paletteNote && tab === "own" && <p className="hint">{paletteNote}</p>}
+      {printing && <PrintGlossary data={data} onDone={() => setPrinting(false)} />}
       <div className="tools">
         <label className="search">
           {t.search}
@@ -145,7 +174,6 @@ export function Glossary({
             placeholder={tab === "formulas" || tab === "accords" ? t.formulasSearchHint : t.searchHint}
             onChange={(e) => {
               setQuery(e.target.value);
-              setLimit(PAGE);
               setMessage(null);
             }}
           />
@@ -169,6 +197,9 @@ export function Glossary({
               <span className="pills">
                 <button type="button" className="pill" aria-pressed={filters.haveOnly} onClick={() => set({ haveOnly: !filters.haveOnly })}>
                   {t.haveOnly}
+                </button>
+                <button type="button" className="pill" aria-pressed={!!filters.runningLow} onClick={() => set({ runningLow: !filters.runningLow })}>
+                  {t.runningLow}
                 </button>
               </span>
             </div>
@@ -234,11 +265,6 @@ export function Glossary({
             </li>
           ))}
         </ul>
-        {rows.length === limit && (
-          <button type="button" onClick={() => setLimit((l) => l + PAGE)}>
-            {t.more}
-          </button>
-        )}
         </>
         )}
       </div>
@@ -246,14 +272,6 @@ export function Glossary({
   );
 }
 
-/** The letters of a material without an abbreviation: its initials, shown as such (in italics). */
-const initials = (name: string) =>
-  name
-    .split(/[\s,()-]+/)
-    .filter((w) => /\p{L}|\d/u.test(w))
-    .slice(0, 3)
-    .map((w) => w[0].toUpperCase())
-    .join("");
 
 /** One material's tile: its icon with its abbreviation, its name under it, and what tells it apart (V3-11). */
 function Tile({ material, data, scales, onOpen, marking, mark }: { material: CatalogMaterial; data: GlossaryData; scales: OrbScales; onOpen: (id: string) => void; marking: boolean; mark: Mark }) {
@@ -293,6 +311,7 @@ function Tile({ material, data, scales, onOpen, marking, mark }: { material: Cat
           {texts.ifraState[state]}
         </span>
         {have && <span className="have-chip">{t.haveMark}</span>}
+        {material.status && material.status !== "in_use" && <span className="status-chip">{texts.sheet.statuses[material.status]}</span>}
       </span>
     </>
   );

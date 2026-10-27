@@ -11,6 +11,7 @@ import {
   addComponent,
   addDose,
   addRegulation,
+  copySpecification,
   createMaterial,
   createVersion,
   deleteMaterial,
@@ -267,5 +268,29 @@ describe("plan v3, step 6.5: what you have, marked at once or little by little",
 
   it("nobody marks what they cannot see", async () => {
     await expect(setHaveMany(db, ME, [SOMEONE_S], true)).rejects.toThrow();
+  });
+});
+
+describe("your specification (V3-79)", () => {
+  it("keeps its lot, purchase date, region and status, and refuses what is not one", async () => {
+    const id = await createVersion(db, ME, COMMON);
+    await updateMaterial(db, ME, id, { lot: "L-2026-118", purchasedOn: "2026-10-18", originRegion: "Grasse", status: "running_low" });
+    const m = (await loadCatalog(db, ME)).materials.get(id)!;
+    expect([m.lot, m.purchasedOn, m.originRegion, m.status]).toEqual(["L-2026-118", "2026-10-18", "Grasse", "running_low"]);
+    await expect(updateMaterial(db, ME, id, { status: "no_tengo" as never })).rejects.toThrow(/status/);
+    await expect(updateMaterial(db, ME, id, { purchasedOn: "18/10/2026" })).rejects.toThrow(/date/);
+  });
+
+  it("«Make another from this»: a copy of yours, with its composition, based on the same common one", async () => {
+    const id = await createVersion(db, ME, COMMON);
+    await updateMaterial(db, ME, id, { supplier: "Maese Lab", lot: "A1", status: "running_low" });
+    await addComponent(db, ME, id, COMMON, { kind: "exact", value: pct("98") }, "lot", "CoA A1");
+    const copyId = await copySpecification(db, ME, id);
+    const catalog = await loadCatalog(db, ME);
+    const made = catalog.materials.get(copyId)!;
+    expect([made.basedOnId, made.supplier, made.lot, made.status, made.ownerId]).toEqual([COMMON, "Maese Lab", "A1", null, ME]);
+    expect(made.components).toHaveLength(1);
+    expect(catalog.materials.get(id)!.status).toBe("running_low");
+    await expect(copySpecification(db, SOMEONE, id)).rejects.toThrow(/not one of your materials/);
   });
 });

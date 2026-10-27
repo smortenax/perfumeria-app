@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { type AnyPgColumn, bigint, boolean, check, index, numeric, pgTable, smallint, text, timestamp, unique, uniqueIndex, uuid } from "drizzle-orm/pg-core";
+import { type AnyPgColumn, bigint, boolean, check, date, index, numeric, pgTable, smallint, text, timestamp, unique, uniqueIndex, uuid } from "drizzle-orm/pg-core";
 import { authUsers } from "drizzle-orm/supabase";
 import { formulaEvents, formulas } from "./formulas";
 
@@ -70,6 +70,11 @@ export const materials = pgTable(
     /** A version's bottle (V3-36): the product as the shop names it, and its page. */
     product: text("product"),
     productUrl: text("product_url"),
+    /** Your specification (V3-79): the lot, when you bought it, the region it comes from and how it stands. */
+    lot: text("lot"),
+    purchasedOn: date("purchased_on"),
+    originRegion: text("origin_region"),
+    status: text("status"),
     /** As the bottle says it, informative: what is known of the rest goes in the composition. */
     purity: numeric("purity"),
     // What belongs to each kind (V3-14): a molecule's house, synthesis and isomers; a composition's house, code and target.
@@ -96,6 +101,8 @@ export const materials = pgTable(
     evolutionTo24h: smallint("evolution_to_24h"),
     evolutionBeyond24h: smallint("evolution_beyond_24h"),
     strength: text("strength"),
+    /** Where the strength comes from (V3-81): the lab, a web page…; null when nobody says. */
+    strengthSource: text("strength_source"),
     threshold: text("threshold"),
     diffusion: text("diffusion"),
     blendEffect: text("blend_effect"),
@@ -151,6 +158,8 @@ export const materials = pgTable(
     check("materials_confidence", sql`${t.confidence} is null or ${t.confidence} in ('high', 'medium', 'low')`),
     check("materials_abbreviation_origin", sql`${t.abbreviationOrigin} is null or ${t.abbreviationOrigin} in ('user', 'generated')`),
     check("materials_color", sql`${t.color} is null or ${t.color} ~ '^#[0-9a-f]{6}$'`),
+    // Your specification (V3-79): how it stands, only on your rows; never «I do not have it» (that is the shopping list).
+    check("materials_status", sql`${t.status} is null or (${t.status} in ('in_use', 'running_low', 'depleted', 'archived') and ${t.ownerId} is not null)`),
     check("materials_tenacity_hours", sql`${t.tenacityHours} is null or ${t.tenacityHours} > 0`),
     check(
       "materials_evolution",
@@ -505,4 +514,28 @@ export const dataVersion = pgTable(
     loadedAt: timestamp("loaded_at", { withTimezone: true }).notNull().defaultNow(),
   },
   (t) => [check("data_version_single", sql`${t.single}`)],
+);
+
+/**
+ * Your shopping list (V3-79): a material of the glossary you want to buy, with the product or the
+ * shop and a note if you like; when it is missing for a recipe, the formula it came from. «I have it
+ * now» makes it your specification and resolves it. Only yours (migration shopping_rls).
+ */
+export const shoppingItems = pgTable(
+  "shopping_items",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: labUser(),
+    materialId: labMaterial(),
+    product: text("product"),
+    shop: text("shop"),
+    note: text("note"),
+    formulaId: uuid("formula_id").references(() => formulas.id, { onDelete: "set null" }),
+    /** When you got it («I have it now») or took it off; null while it is to buy. */
+    resolvedAt: timestamp("resolved_at", { withTimezone: true }),
+    /** The specification it became, when you got it. */
+    specificationId: uuid("specification_id").references((): AnyPgColumn => materials.id, { onDelete: "set null" }),
+    ...timestamps,
+  },
+  (t) => [index("shopping_items_user_idx").on(t.userId)],
 );

@@ -16,7 +16,8 @@ import { uuidv7 } from "./uuid7";
  * (db/schema/formulas.ts and the migration formulas_rls), so it never waits in the queue to fail.
  */
 
-export const FORMULA_MARKERS = ["accord", "finished"] as const;
+/** accord and finished are folders (V3-19); favorite and locked, the list of formulas (F1): a locked one takes no new step. */
+export const FORMULA_MARKERS = ["accord", "finished", "favorite", "locked"] as const;
 export type FormulaMarker = (typeof FORMULA_MARKERS)[number];
 
 export interface Workbench {
@@ -31,6 +32,8 @@ export interface FormulaRecord {
   readonly parentId: string | null;
   readonly name: string;
   readonly intention: string;
+  /** Free notes (F7). */
+  readonly notes: string;
   readonly containerCapacityMl: Ratio | null;
   readonly containerTareUg: bigint | null;
   readonly workBatchUg: bigint | null;
@@ -38,6 +41,8 @@ export interface FormulaRecord {
   readonly markers: readonly FormulaMarker[];
   readonly role: string | null;
   readonly createdAt: string | null;
+  /** When its header last changed (its steps say when they were made). */
+  readonly updatedAt: string | null;
 }
 
 export interface NewFormula {
@@ -46,6 +51,7 @@ export interface NewFormula {
   readonly workbenchId?: string;
   readonly parentId?: string | null;
   readonly intention?: string;
+  readonly notes?: string;
   readonly containerCapacityMl?: Ratio | null;
   readonly containerTareUg?: bigint | null;
   readonly workBatchUg?: bigint | null;
@@ -134,6 +140,7 @@ export async function createFormula(db: LocalDb, ownerId: string, input: NewForm
     parentId: input.parentId ?? null,
     name: nonEmpty(input.name, "a formula"),
     intention: input.intention ?? "",
+    notes: input.notes ?? "",
     containerCapacityMl: input.containerCapacityMl ? numericFromRatio(input.containerCapacityMl) : null,
     containerTareUg: text(input.containerTareUg),
     workBatchUg: text(input.workBatchUg),
@@ -150,6 +157,7 @@ export async function createFormula(db: LocalDb, ownerId: string, input: NewForm
 export interface FormulaHeaderChanges {
   readonly name?: string;
   readonly intention?: string;
+  readonly notes?: string;
   readonly containerCapacityMl?: Ratio | null;
   readonly containerTareUg?: bigint | null;
   readonly workBatchUg?: bigint | null;
@@ -174,6 +182,7 @@ export async function updateFormula(db: LocalDb, ownerId: string, id: string, ch
     .set({
       ...(changes.name !== undefined ? { name: nonEmpty(changes.name, "a formula") } : {}),
       ...(changes.intention !== undefined ? { intention: changes.intention } : {}),
+      ...(changes.notes !== undefined ? { notes: changes.notes } : {}),
       ...(changes.containerCapacityMl !== undefined ? { containerCapacityMl: changes.containerCapacityMl ? numericFromRatio(changes.containerCapacityMl) : null } : {}),
       ...(changes.containerTareUg !== undefined ? { containerTareUg: text(changes.containerTareUg) } : {}),
       ...(changes.workBatchUg !== undefined ? { workBatchUg: text(changes.workBatchUg) } : {}),
@@ -202,6 +211,7 @@ export async function copyFormula(
     workbenchId: source.workbenchId,
     parentId: input.asVersion ? source.id : null,
     intention: source.intention,
+    notes: source.notes,
     containerCapacityMl: input.containerCapacityMl !== undefined ? input.containerCapacityMl : source.containerCapacityMl,
     containerTareUg: input.containerTareUg !== undefined ? input.containerTareUg : source.containerTareUg,
     workBatchUg: source.workBatchUg,
@@ -228,7 +238,8 @@ const isFraction = (r: Ratio) => r.num > 0n && r.cmp(Ratio.ONE) <= 0;
  * A history is only added to: undoing adds the opposite event (plan 8.2).
  */
 export async function addEvent(db: LocalDb, ownerId: string, formulaId: string, event: NewEvent, id: string = uuidv7()): Promise<string> {
-  await ownFormula(db, ownerId, formulaId);
+  const formula = await ownFormula(db, ownerId, formulaId);
+  if ((formula.markers ?? []).includes("locked")) throw new FormulaLocked();
   const row: typeof local.formulaEvents.$inferInsert = { id, formulaId, ownerId, kind: event.kind, createdAt: now() };
   switch (event.kind) {
     case "add": {
@@ -319,6 +330,7 @@ export async function loadFormulas(db: LocalDb, ownerId: string): Promise<Formul
     parentId: f.parentId,
     name: f.name ?? "",
     intention: f.intention ?? "",
+    notes: f.notes ?? "",
     containerCapacityMl: ratioFromNumeric(f.containerCapacityMl),
     containerTareUg: f.containerTareUg ? bigintFromText(f.containerTareUg) : null,
     workBatchUg: f.workBatchUg ? bigintFromText(f.workBatchUg) : null,
@@ -326,6 +338,7 @@ export async function loadFormulas(db: LocalDb, ownerId: string): Promise<Formul
     markers: (f.markers ?? []) as FormulaMarker[],
     role: f.role,
     createdAt: f.createdAt,
+    updatedAt: f.updatedAt,
   }));
 }
 
@@ -565,6 +578,13 @@ export async function deleteFormula(db: LocalDb, catalog: Catalog, ownerId: stri
 }
 
 /** A formula saved as a material, which therefore is not deleted. */
+/** A locked formula (F1) takes no new step: unlock it first. */
+export class FormulaLocked extends Error {
+  constructor() {
+    super("the formula is locked: unlock it to change it");
+  }
+}
+
 export class FormulaInUse extends Error {
   readonly materials: readonly string[];
   constructor(materials: readonly string[]) {

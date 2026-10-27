@@ -1,3 +1,4 @@
+import { eq } from "drizzle-orm";
 import { wrapPowerSyncWithDrizzle } from "@powersync/drizzle-driver";
 import { PowerSyncDatabase } from "@powersync/node";
 import { mkdtempSync, rmSync } from "node:fs";
@@ -6,7 +7,7 @@ import { join } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { Ratio } from "../core/arith/ratio";
 import { compose } from "../core/compose";
-import { addEvent, createFormula, createWorkbench, loadFormula, loadFormulas } from "./formulas";
+import { addEvent, copyFormula, createFormula, createWorkbench, FormulaLocked, loadFormula, loadFormulas, updateFormula } from "./formulas";
 import { AppSchema, tables } from "./local/schema";
 import { createMaterial, loadCatalog, type LocalDb } from "./materials";
 import { timeOf, uuidv7 } from "./uuid7";
@@ -131,5 +132,30 @@ describe("a frozen formula comes from its formula, up to the event it was frozen
     const parts = compose(await loadFormula(db, await loadCatalog(db, ME), ME, perfume)).parts.map((p) => [p.material.key, p.massUg.toString()]);
     // 900 mg of an accord that was 1/4 linalool and 3/4 DPG.
     expect(parts).toEqual([[DPG, (675n * MG).toString()], [LINALOOL, (225n * MG).toString()]]);
+  });
+});
+
+describe("free notes on a formula (F7)", () => {
+  it("are written apart from the history, and a version takes them", async () => {
+    const bench = await createWorkbench(db, ME, { name: "Notes" });
+    const f = await createFormula(db, ME, { name: "With notes", workbenchId: bench });
+    expect((await loadFormulas(db, ME)).find((x) => x.id === f)?.notes).toBe("");
+    await updateFormula(db, ME, f, { notes: "Too sweet.\nTry less vanillin." });
+    const version = await copyFormula(db, ME, f, { name: "With notes v2", asVersion: true });
+    const all = await loadFormulas(db, ME);
+    expect([all.find((x) => x.id === f)?.notes, all.find((x) => x.id === version)?.notes]).toEqual(["Too sweet.\nTry less vanillin.", "Too sweet.\nTry less vanillin."]);
+    expect(await db.select().from(tables.formulaEvents).where(eq(tables.formulaEvents.formulaId, f))).toEqual([]);
+  });
+});
+
+describe("a locked formula (F1)", () => {
+  it("takes no new step until it is unlocked; its header still changes", async () => {
+    const bench = await createWorkbench(db, ME, { name: "Locks" });
+    const f = await createFormula(db, ME, { name: "Locked", workbenchId: bench, markers: ["locked", "favorite"] });
+    const pour = { kind: "add", materialId: LINALOOL, massUg: MG, fraction: Ratio.ONE, diluentId: null } as const;
+    await expect(addEvent(db, ME, f, pour)).rejects.toBeInstanceOf(FormulaLocked);
+    await updateFormula(db, ME, f, { notes: "kept as it is" });
+    await updateFormula(db, ME, f, { markers: ["favorite"] });
+    await expect(addEvent(db, ME, f, pour)).resolves.toBeTypeOf("string");
   });
 });
