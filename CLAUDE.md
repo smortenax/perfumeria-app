@@ -23,6 +23,28 @@ documentos de origen no pasan a la v3.
 - **Lo del laboratorio entra en la cuenta del usuario, no en lo común** (V3-15, cambia P37). El
   script lo lee de `../Perfumery` y no escribe allí.
 
+### Ramas y publicación (2026-10-27)
+
+El usuario, 2026-10-27, tras ver que el trabajo de una semana no estaba en su app: «hay
+conflictos con trabajar varias repos o no hay pautas claras». Varias sesiones trabajaban en
+paralelo, cada una en su rama, y ninguna llegaba a `main` ni a la web. Desde la PR #9, que juntó
+las ramas pendientes, se trabaja así:
+
+- **Al empezar, mirar qué ramas tienen commits que `main` no tiene**
+  (`git fetch` y `git rev-list --count origin/main..<rama>`) y decírselo al usuario antes de
+  trabajar. Si hay trabajo pendiente en otra rama, se trae o se fusiona primero, con su permiso.
+- **Una sola rama de trabajo a la vez**, creada desde el `main` actual. Las tandas se numeran
+  mirando `migracion-v3/tandas/` en `main` y en las ramas abiertas, para que dos sesiones no usen
+  el mismo número.
+- **Cada sesión termina con una PR a `main`**, no con una rama suelta. La fusiona el usuario, o
+  la sesión cuando él lo pide.
+- **Fusionado no es publicado.** En `docs-v3/estado.md` queda qué falta para publicar (migraciones
+  en la nube, `sync-config.yaml` en PowerSync Cloud, `npm run datos:cargar`, tandas de la cuenta,
+  `npm run build` y `npx wrangler deploy`). Lo hace quien tenga las claves: hoy, el chat del PC. El
+  entorno en la nube no las tiene.
+- **Lo que el usuario ve es lo publicado.** Antes de decirle que algo «está hecho», se dice si
+  está en una rama, en `main` o en la web.
+
 ## Trabajo en la v2 (desde 2026-10)
 
 **Para cualquier tarea de la v2, la autoridad es `docs/v2/`**: `decisiones-v2.md` y
