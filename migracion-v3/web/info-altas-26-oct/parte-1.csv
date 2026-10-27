@@ -1,0 +1,71 @@
+material_id,material,campo,valor,cas,cantidad,url,pagina,frase,confianza,origen
+MAT-prunella,Prunella® 975617,identidad_cas,no lo dice,,,https://fraterworks.com/products/prunella,,no lo dice,media,Fraterworks
+MAT-prunella,Prunella® 975617,identidad_casa,Firmenich,,,https://fraterworks.com/products/prunella,,"Prunella® (Firmenich, REF 975617)",media,Fraterworks
+MAT-prunella,Prunella® 975617,identidad_codigo,975617,,,https://fraterworks.com/products/prunella,,"Prunella® (Firmenich, REF 975617)",media,Fraterworks
+MAT-prunella,Prunella® 975617,identidad_nota,base; construida sobre fenoxietil isobutirato (sin porcentajes),,,https://fraterworks.com/products/prunella,,Built around an overdose of phenoxyethyl isobutyrate.,media,Fraterworks
+MAT-prunella,Prunella® 975617,constituyente,phenoxyethyl isobutyrate,,no lo dice (sobredosis),https://fraterworks.com/products/prunella,,Built around an overdose of phenoxyethyl isobutyrate.,media,Fraterworks
+MAT-prunella,Prunella® 975617,uso_min,0.03,,,https://fraterworks.com/products/prunella,,Minimum observed: tr. (0.03% in bases); página no da cifra en perfumes,media,Fraterworks
+MAT-prunella,Prunella® 975617,uso_tipico,0.8,,,https://fraterworks.com/products/prunella,,Median: 0.8% of concentrate,media,Fraterworks
+MAT-prunella,Prunella® 975617,uso_nota,media 0.976 % del concentrado; aparece en 1 % de los perfumes analizados,,,https://fraterworks.com/products/prunella,,Average: 0.976% (0.609% in bases),media,Fraterworks
+MAT-prunella,Prunella® 975617,uso_max,4,,,https://fraterworks.com/products/prunella,,Maximum observed: 4% (2% in bases),media,Fraterworks
+MAT-prunella,Prunella® 975617,ifra_pista,cat. 4: sin restricción (IFRA 51: 100 %),,,https://fraterworks.com/products/prunella,,No restriction for category 4.,media,Fraterworks
+MAT-prunella,Prunella® 975617,documento,SDS,,,https://fraterworks.com/products/prunella,,SDS,media,Fraterworks
+MAT-prunella,Prunella® 975617,documento,certificado IFRA 51,,,https://fraterworks.com/products/prunella,,IFRA 51,media,Fraterworks
+MAT-prunella,Prunella® 975617,documento,declaración alérgenos UE,,,https://fraterworks.com/products/prunella,,EU Allergens,media,Fraterworks
+MAT-prunella,Prunella® 975617,alergeno,no lo dice (solo enlace al documento),,,https://fraterworks.com/products/prunella,,no lo dice,media,Fraterworks
+MAT-prunella,Prunella® 975617,identidad_nota,"Foro: mayoritariamente phenoxyethyl isobutyrate con DMBCB y lactonas (especulación de aficionado, no verificada)",,,https://basenotes.com/threads/plum-note-suggestions.551919/post-6102612,,reconstrucción de foro citada por buscador; frase literal no leída,baja,Basenotes
+MAT-prunella,Prunella® 975617,no_encontrado,Ficha de dsm-firmenich studio y TGSC no accesibles (dominios bloqueados en la sesión); no se leyó CAS/composición/uso de la casa,,,https://studio.dsm-firmenich.com/product/prunellar-pe-975617,,no lo dice,baja,dsm-firmenich
+MAT-prunella,Prunella® 975617,no_encontrado,Ficha TGSC no accesible (dominio bloqueado),,,https://thegoodscentscompany.com/data/pb1055021.html,,no lo dice,baja,TGSC
+MAT-shangralide,Shangralide Oliffac 0712,identidad_cas,Mixture (sin CAS),,,https://fraterworks.com/products/shangralide,,CAS: Mixture,media,Fraterworks
+MAT-shangralide,Shangralide Oliffac 0712,identidad_casa,IFF (Oliffac),,,https://fraterworks.com/products/shangralide,,This IFF specialty base is built on a Galaxolide skeleton but bears almost no resemblance to standard white musks.,media,Fraterworks
+MAT-shangralide,Shangralide Oliffac 0712,identidad_codigo,0712,,,https://fraterworks.com/products/shangralide,,SHANGRALIDE-OLIFFAC-0712-GHS-SDS,media,Fraterworks
+MAT-shangralide,Shangralide Oliffac 0712,identidad_codigo,"0712 existe: figura como 'Shangralide®, Shangralide Oliffac 0712' y SDS IFF 2020",,,https://www.scentspiracy.com/bases/p/shangralide,,International Flavors & Fragrances (IFF). (2020). Safety Data Sheet: Shangralide Oliffac 0712.,media,Scentspiracy
+MAT-shangralide,Shangralide Oliffac 0712,identidad_nota,base de almizcle sobre esqueleto de Galaxolide; mezcla,,,https://fraterworks.com/products/shangralide,,This IFF specialty base is built on a Galaxolide skeleton but bears almost no resemblance to standard white musks.,media,Fraterworks
+MAT-shangralide,Shangralide Oliffac 0712,constituyente,"Hexamethyl-indanopyran (HHCB, Galaxolide)",1222-05-5 (CAS conocido de HHCB; la página no lo da),≈ 55 %,https://www.scentspiracy.com/bases/p/shangralide,,Mixture (principal constituent ≈ 55 % hexamethyl-indanopyran / Galaxolide),media,Scentspiracy
+MAT-shangralide,Shangralide Oliffac 0712,constituyente,Dipropylene glycol (disolvente),,no lo dice,https://www.scentspiracy.com/bases/p/shangralide,,dissolved in dipropylene glycol plus trace auxiliaries,media,Scentspiracy
+MAT-shangralide,Shangralide Oliffac 0712,uso_max,5,,,https://www.thegoodscentscompany.com/data/pb1052301.html,,Fragrance: 5.0000 % in the fragrance concentrate.,media,TGSC
+MAT-shangralide,Shangralide Oliffac 0712,uso_nota,'becomes seductive and intimate below one percent'; sin estadísticas de uso,,,https://fraterworks.com/products/shangralide,,becomes seductive and intimate below one percent.,media,Fraterworks
+MAT-shangralide,Shangralide Oliffac 0712,uso_min,no lo dice,,,https://fraterworks.com/products/shangralide,,no lo dice,media,Fraterworks
+MAT-shangralide,Shangralide Oliffac 0712,uso_tipico,no lo dice,,,https://fraterworks.com/products/shangralide,,no lo dice,media,Fraterworks
+MAT-shangralide,Shangralide Oliffac 0712,alergeno,no lo dice (solo enlace al documento),,,https://fraterworks.com/products/shangralide,,no lo dice,media,Fraterworks
+MAT-shangralide,Shangralide Oliffac 0712,ifra_pista,IFRA 51: Coming Soon (sin valor),,,https://fraterworks.com/products/shangralide,,IFRA 51: Coming Soon,media,Fraterworks
+MAT-shangralide,Shangralide Oliffac 0712,documento,SDS (GHS),,,https://fraterworks.com/products/shangralide,,SDS (GHS),media,Fraterworks
+MAT-shangralide,Shangralide Oliffac 0712,documento,certificado IFRA 51 (pendiente),,,https://fraterworks.com/products/shangralide,,IFRA 51,media,Fraterworks
+MAT-shangralide,Shangralide Oliffac 0712,documento,declaración alérgenos UE,,,https://fraterworks.com/products/shangralide,,EU Allergens,media,Fraterworks
+MAT-shangralide,Shangralide Oliffac 0712,identidad_nota,TGSC: sin CAS; GHS 'None found'; sinónimo 'shangralide (IFF)',,,https://www.thegoodscentscompany.com/data/pb1052301.html,,Fragrance: 5.0000 % in the fragrance concentrate.,media,TGSC
+MAT-orris-givco,Orris Givco® 204/2/20,identidad_cas,no lo dice,,,https://fraterworks.com/products/orris-givco,,no lo dice,media,Fraterworks
+MAT-orris-givco,Orris Givco® 204/2/20,identidad_casa,Givaudan,,,https://fraterworks.com/products/orris-givco,,Manufacturer: Givaudan,media,Fraterworks
+MAT-orris-givco,Orris Givco® 204/2/20,identidad_codigo,"204/20 (Fraterworks) — la compra dice 204/2/20, que coincide con el título de The Fragrance Foundry",,,https://thefragrancefoundry.com/products/orris-givco-204-2-20-givaudan,,orris givco 204 2 20 givaudan,media,Fragrance Foundry
+MAT-orris-givco,Orris Givco® 204/2/20,identidad_nota,base moderna de iris/orris; imita absoluto y manteca de orris; sin composición declarada,,,https://fraterworks.com/products/orris-givco,,was designed to mimic orris absolute and orris butter,media,Fraterworks
+MAT-orris-givco,Orris Givco® 204/2/20,uso_min,0.8,,,https://fraterworks.com/products/orris-givco,,Minimum observed: 0.8%,media,Fraterworks
+MAT-orris-givco,Orris Givco® 204/2/20,uso_tipico,1,,,https://fraterworks.com/products/orris-givco,,Orris Givco® 204/20 is used at a median of 1% of the concentrate in the formulas we have analysed.,media,Fraterworks
+MAT-orris-givco,Orris Givco® 204/2/20,uso_nota,media 1.2 %,,,https://fraterworks.com/products/orris-givco,,Average: 1.2%,media,Fraterworks
+MAT-orris-givco,Orris Givco® 204/2/20,uso_max,1.8,,,https://fraterworks.com/products/orris-givco,,Maximum observed: 1.8%,media,Fraterworks
+MAT-orris-givco,Orris Givco® 204/2/20,alergeno,no lo dice (solo enlace; sensibilizante cutáneo según CLP),,,https://thefragrancefoundry.com/products/orris-givco-204-2-20-givaudan,,May cause an allergic skin reaction.,media,Fragrance Foundry
+MAT-orris-givco,Orris Givco® 204/2/20,constituyente,no lo dice,,,https://fraterworks.com/products/orris-givco,,no lo dice,media,Fraterworks
+MAT-orris-givco,Orris Givco® 204/2/20,ifra_pista,"cat. 4: 25.7 % (IFRA 49, Fraterworks)",,,https://fraterworks.com/products/orris-givco,,IFRA 49 limit: 25.7% in finished product (Cat. 4),media,Fraterworks
+MAT-orris-givco,Orris Givco® 204/2/20,ifra_pista,"cat. 4: 40.08 % (IFRA 51, Fragrance Foundry)",,,https://thefragrancefoundry.com/products/orris-givco-204-2-20-givaudan,,"IFRA Limit (51st Amendment, Category 4): 40.0800%",media,Fragrance Foundry
+MAT-orris-givco,Orris Givco® 204/2/20,documento,SDS,,,https://cdn.shopify.com/s/files/1/0682/1448/9400/files/OrrisGivco204220SDS.pdf?v=1726954418,,SDS (enlace en https://fraterworks.com/products/orris-givco),media,Fraterworks
+MAT-orris-givco,Orris Givco® 204/2/20,documento,certificado IFRA 51 (Givaudan),,,https://cdn.shopify.com/s/files/1/0682/1448/9400/files/Orris_Givco_204-20_Givaudan_IFRA.pdf?v=1780954146,,IFRA 51 (enlace en https://fraterworks.com/products/orris-givco),media,Fraterworks
+MAT-orris-givco,Orris Givco® 204/2/20,documento,declaración alérgenos UE (Vigon),,,https://cdn.shopify.com/s/files/1/0682/1448/9400/files/Orris_Givco_204-20_Vigon_Allergens.pdf?v=1780954148,,EU Allergens (enlace en https://fraterworks.com/products/orris-givco),media,Fraterworks
+MAT-orris-givco,Orris Givco® 204/2/20,documento,"SDS, TDS, certificado IFRA y alérgenos UE por correo",,,https://thefragrancefoundry.com/products/orris-givco-204-2-20-givaudan,,"For the SDS, TDS, IFRA certificate & EU allergen certificate, email us at info@thefragrancefoundry.com and quote your order number.",media,Fragrance Foundry
+MAT-orris-givco,Orris Givco® 204/2/20,no_encontrado,Página de Givaudan y TGSC no consultadas/accesibles,,,https://thegoodscentscompany.com,,no lo dice,baja,TGSC
+MAT-ambrarome,Ambrarome 50% (DPG),identidad_cas,no lo dice,,,https://fraterworks.com/products/ambrarome-absolute,,no lo dice,media,Fraterworks
+MAT-ambrarome,Ambrarome 50% (DPG),identidad_casa,Synarome,,,https://fraterworks.com/products/ambrarome-absolute,,Manufacturer: Synarome,media,Fraterworks
+MAT-ambrarome,Ambrarome 50% (DPG),identidad_codigo,Fraterworks Ref 601900 (código propio de la tienda),,,https://fraterworks.com/products/ambrarome-absolute,,Ref: 601900,media,Fraterworks
+MAT-ambrarome,Ambrarome 50% (DPG),identidad_nota,NO es molécula: producto de esterificación etílica del extracto de resina de láudano (Cistus ladaniferus/cyprius); base animálica tipo ámbar gris,,,https://fraterworks.com/products/ambrarome-absolute,,"ethyl-esterification product derived from the resin extract of the labdanum, cistus cyprius, cistaceae",media,Fraterworks
+MAT-ambrarome,Ambrarome 50% (DPG),identidad_nota,Descripción,,,https://fraterworks.com/products/ambrarome-absolute,,Ambrarome is an intensely animalic base with a strong character of ambergris,media,Fraterworks
+MAT-ambrarome,Ambrarome 50% (DPG),identidad_nota,Hekserij: mezcla de varias sustancias basada en láudano procesado químicamente (resumen del buscador; frase literal no leída),,,https://www.hekserij.nl/wp-content/uploads/2026/02/1Doc-25012-Ambrarome-Syn-2025-12.pdf,,no leído el PDF,media,Hekserij
+MAT-ambrarome,Ambrarome 50% (DPG),identidad_nota,Dilución de Fraterworks: 50 % en TEC (no DPG); la dilución en DPG de Perfumiarz no se pudo confirmar (ficha de Perfumiarz no localizada),,,https://fraterworks.com/products/ambrarome-absolute,,Concentration: 50% TEC,media,Fraterworks
+MAT-ambrarome,Ambrarome 50% (DPG),constituyente,labdanum gum extract ethyl esters,,no lo dice,https://fraterworks.com/products/ambrarome-absolute,,labdanum gum extract ethyl ester,media,Fraterworks
+MAT-ambrarome,Ambrarome 50% (DPG),uso_tipico,0.05,,,https://fraterworks.com/products/ambrarome-absolute,,"Ambrarome® appears in 3% of the perfumes we have analysed, at a median of 0.05% of the concentrate.",media,Fraterworks
+MAT-ambrarome,Ambrarome 50% (DPG),uso_min,tr. (traza),,,https://fraterworks.com/products/ambrarome-absolute,,Minimum: tr. in perfumes,media,Fraterworks
+MAT-ambrarome,Ambrarome 50% (DPG),uso_nota,media 0.335 % en perfumes (0.352 % en bases); cifras dudosas según la lectura de la página,,,https://fraterworks.com/products/ambrarome-absolute,,Average: 0.335% in perfumes,media,Fraterworks
+MAT-ambrarome,Ambrarome 50% (DPG),uso_max,50,,,https://fraterworks.com/products/ambrarome-absolute,,Maximum: 50% in perfumes; 3% in bases,media,Fraterworks
+MAT-ambrarome,Ambrarome 50% (DPG),alergeno,no lo dice (solo enlace al documento),,,https://fraterworks.com/products/ambrarome-absolute,,no lo dice,media,Fraterworks
+MAT-ambrarome,Ambrarome 50% (DPG),ifra_pista,cat. 4: 5 % (IFRA 51),,,https://fraterworks.com/products/ambrarome-absolute,,5% in finished product (Cat. 4),media,Fraterworks
+MAT-ambrarome,Ambrarome 50% (DPG),documento,SDS,,,https://fraterworks.com/products/ambrarome-absolute,,SDS,media,Fraterworks
+MAT-ambrarome,Ambrarome 50% (DPG),documento,certificado IFRA 51,,,https://fraterworks.com/products/ambrarome-absolute,,IFRA 51,media,Fraterworks
+MAT-ambrarome,Ambrarome 50% (DPG),documento,declaración alérgenos UE,,,https://fraterworks.com/products/ambrarome-absolute,,EU Allergens,media,Fraterworks
+MAT-ambrarome,Ambrarome 50% (DPG),documento,SDS Hekserij Ambrarome (Syn),,,https://www.hekserij.nl/wp-content/uploads/2026/02/1Doc-25012-Ambrarome-Syn-2025-12.pdf,,no leído,media,Hekserij
+MAT-ambrarome,Ambrarome 50% (DPG),no_encontrado,"Premiere Peau (presenta Ambrarome como molécula), Synarome, Perfumiarz y TGSC no accesibles/no localizados",,,https://premierepeau.com/pages/glossary-terms/ambrarome,,no lo dice,baja,Première Peau
