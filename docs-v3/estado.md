@@ -1,6 +1,8 @@
 # Estado de la v3
 
 *Actualizado el 2026-10-27. Como máximo 30 líneas: qué está hecho y qué sigue.*
+
+**Todo junto en `claude/gracious-bell-day7am` (2026-10-27, a petición del usuario):** esta rama lleva ya lo de las ramas `claude/project-thread-vjbhbo` (tandas 23 y 24), `claude/formula-picker` (V3-74) y el árbol de `claude/project-thread-aaribl` (V3-77). Nada de esto está en `main` ni publicado: falta la PR a `main` y publicar desde el PC. **Tanda 26 rehecha sobre la 23 (119 fuerzas con fuente), por aprobar de nuevo.**
 ## Hecho
 
 - Decisiones V3-1 a V3-53 (`decisiones-v3.md`). **El giro del 2026-10-14 es V3-34:** la v3 no hereda el glosario de la v2; empieza con tus materiales del laboratorio, completos, con lo general en lo común y lo tuyo en tu versión (V3-36). IFRA, capa aparte y privada (V3-35); abreviatura del glosario (V3-37); color de la familia, ajustable (V3-38); certificados de tus productos, a tu versión (V3-39); voces, por la biblioteca, después (V3-40); un atributo por columna (V3-41); tenacidad en horas (V3-42); lo de tu material concreto, a tu versión (V3-43); un estándar de clase toma los miembros de la v2 (V3-44); los otros códigos de la v1 no entran y las abreviaturas se revisarán (V3-45); los huecos del glosario, aceptados de momento, a una ficha de mejoras (V3-46); la ficha de un material, de momento una hoja de datos normal, y la diseñada, con el AOM (V3-47).
