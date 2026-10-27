@@ -1098,3 +1098,7 @@ details.unstated[open] dl {
   gap: 8px 16px;
   margin: 0 0 8px;
 }
+.formula-row .formula-families {
+  width: min(160px, 100%);
+  margin: 4px 0 2px;
+}

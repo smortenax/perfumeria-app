@@ -1,7 +1,10 @@
 import { type KeyboardEvent, useEffect, useMemo, useRef, useState } from "react";
 import { Ratio } from "../core/arith/ratio";
 import { formatGrams } from "../core/display";
-import type { FormulaRecord } from "../db/formulas";
+import { compose } from "../core/compose";
+import { type FormulaRecord, loadFormula } from "../db/formulas";
+import { type FamilyShare, familyShares } from "../families/bar";
+import { FamilyBar } from "../families/FamilyBar";
 import type { LocalDatabase } from "../db/local/database";
 import { normalize } from "../db/search";
 import { byVersions, Formulas } from "../glossary/Glossary";
@@ -106,7 +109,7 @@ export function Library({
       </div>
       <div className="tab-panel" role="tabpanel" id="library-panel" aria-labelledby={`library-tab-${tab}`}>
         {tab === "benches" ? (
-          <Benches data={data} previews={previews} query={query} onOpen={onOpen} onNew={onNew} onDeleteBench={onDeleteBench} />
+          <Benches data={data} local={local} events={events} previews={previews} query={query} onOpen={onOpen} onNew={onNew} onDeleteBench={onDeleteBench} />
         ) : (
           <Formulas data={data} query={query} marker={MARKER[tab]} onOpen={onOpen} />
         )}
@@ -122,6 +125,8 @@ export function Library({
  */
 function Benches({
   data,
+  local,
+  events,
   previews,
   query,
   onOpen,
@@ -129,6 +134,8 @@ function Benches({
   onDeleteBench,
 }: {
   data: GlossaryData;
+  local: LocalDatabase;
+  events: readonly EventRow[];
   previews: ReadonlyMap<string, Preview>;
   query: string;
   onOpen: (id: string) => void;
@@ -149,13 +156,35 @@ function Benches({
     .sort((a, b) => a.name.localeCompare(b.name, "es"));
   // Open first: the one you chose, else the first that has formulas.
   const current = benches.find((b) => b.id === chosen) ?? benches.find((b) => shown.some((f) => f.workbenchId === b.id)) ?? benches[0] ?? null;
-  if (!current) return <p className="hint">{words.length ? t.noFormulas : t.noFormulasYet(false)}</p>;
   const inside = sortFormulas(
-    byVersions(shown.filter((f) => f.workbenchId === current.id && (!favoritesOnly || f.markers.includes("favorite")))),
+    byVersions(shown.filter((f) => f.workbenchId === current?.id && (!favoritesOnly || f.markers.includes("favorite")))),
     sort,
     previews,
   );
-  const all = data.formulas.filter((f) => f.workbenchId === current.id).length;
+  const all = data.formulas.filter((f) => f.workbenchId === current?.id).length;
+  // Each formula of the open bench by families (F2), composed as the bench composes it.
+  const [bars, setBars] = useState<ReadonlyMap<string, FamilyShare[]>>(new Map());
+  const ids = inside.map((f) => f.id).join(",");
+  useEffect(() => {
+    let live = true;
+    void Promise.all(
+      ids
+        .split(",")
+        .filter((id) => id)
+        .map((id) =>
+          loadFormula(local.db, data.catalog, local.userId, id).then(
+            (formula) => [id, familyShares(compose(formula).parts, data.catalog)] as const,
+            () => [id, [] as FamilyShare[]] as const,
+          ),
+        ),
+    ).then((all) => {
+      if (live) setBars(new Map(all));
+    });
+    return () => {
+      live = false;
+    };
+  }, [ids, events, local, data.catalog]);
+  if (!current) return <p className="hint">{words.length ? t.noFormulas : t.noFormulasYet(false)}</p>;
   const depth = (f: FormulaRecord) => {
     let d = 0;
     for (let p = f.parentId; p && d < 8; d++) p = data.formulas.find((x) => x.id === p)?.parentId ?? null;
@@ -212,6 +241,7 @@ function Benches({
                       <span className="formula-name">{f.name}</span>
                       {(parent || f.role) && <span className="formula-detail">{[parent ? t.versionFrom(parent.name) : null, f.role].filter((x) => x).join(" · ")}</span>}
                       <span className="formula-detail formula-preview">{previewText(f, previews.get(f.id))}</span>
+                      <FamilyBar className="formula-families" shares={bars.get(f.id) ?? []} />
                       {/* Its intention and its notes (F7), the first line of each. */}
                       {(f.intention.trim() || f.notes.trim()) && (
                         <span className="formula-detail formula-notes">{[f.intention, f.notes].map((x) => x.trim().split("\n")[0]).filter((x) => x).join(" · ")}</span>

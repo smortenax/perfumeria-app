@@ -732,6 +732,10 @@ export const texts = {
     dilutions: "Dilutions",
     noDilutions: "No dilutions",
   },
+  familyBar: {
+    label: (words: string) => `Families of the aromatic matter: ${words}`,
+    none: "no family",
+  },
   usedIn: {
     title: "Used in",
     none: "Not in any formula of yours yet.",

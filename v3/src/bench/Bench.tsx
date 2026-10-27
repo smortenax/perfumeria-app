@@ -23,6 +23,8 @@ import { ChoiceDialog, ConfirmDialog, PromptDialog, ReweighDialog, SaveAsDialog,
 import { dilutionText } from "./format";
 import { ownConcentration, recipe } from "./use-formula";
 import { GramsCard, IntentionCard, NameCard, NotesCard } from "./Header";
+import { familyShares } from "../families/bar";
+import { FamilyBar } from "../families/FamilyBar";
 import { ChangeDetail, HistoryDock } from "./HistoryDock";
 import { IfraPanel, IfraSummary } from "./IfraBox";
 import { assumptionsOf } from "./assumptions";
@@ -685,6 +687,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
           </span>
         </div>
       </header>
+      <FamilyBar className="bench-families" shares={familyShares(view.composition?.parts ?? [], props.data.catalog)} />
       {locked && (
         <p className="locked-note" role="status">
           {texts.bench.lockedNote}{" "}

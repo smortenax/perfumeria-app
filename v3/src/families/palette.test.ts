@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { type Catalog, type CatalogMaterial, FAMILIES, type MaterialFields, NO_EVOLUTION, NO_PHYSICAL } from "../db/catalog";
+import { Ratio } from "../core/arith/ratio";
+import { familyShares } from "./bar";
 import { coloursOf, familyOf, PALETTE } from "./palette";
 
 /** V3-38: a material's colour is its family's, light or dark, unless one is fixed; without a family, none. */
@@ -38,5 +40,20 @@ describe("the palette of the families (V3-38)", () => {
 
   it("without a family, no colour: neutral, never made up", () => {
     expect(coloursOf(catalog, bare)).toBeNull();
+  });
+});
+
+describe("a formula by families (F2)", () => {
+  const part = (key: string, mg: bigint, solvent = false) => ({ material: { key, kind: "base" as const, name: key, ...(solvent ? { solvent: true } : {}) }, massUg: Ratio.of(mg * 1000n) });
+  it("each family's share of the aromatic matter, exact; yours counts as its common's family; no family goes apart, last", () => {
+    const shares = familyShares([part("rose", 30n), part("mine", 10n), part("bare", 60n), part("dpg", 900n, true)], catalog);
+    expect(shares.map((s) => [s.family, s.colour, s.share.toFixed(2)])).toEqual([
+      ["floral", PALETTE.get("floral")!.light, "0.40"],
+      [null, null, "0.60"],
+    ]);
+    expect(Ratio.sum(shares.map((s) => s.share)).eq(Ratio.ONE)).toBe(true);
+  });
+  it("nothing aromatic, nothing to show", () => {
+    expect(familyShares([part("dpg", 5n, true)], catalog)).toEqual([]);
   });
 });

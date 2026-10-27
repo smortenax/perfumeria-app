@@ -3256,3 +3256,8 @@
 .note-group:first-child .note-head {
   border-top: none;
 }
+
+/* The formula's families (F2), under the head of the bench. */
+.bench-families {
+  margin: -4px 0 12px;
+}
