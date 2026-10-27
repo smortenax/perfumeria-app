@@ -1,0 +1,1 @@
+ALTER TABLE "macerations" ADD COLUMN "checked" smallint[] DEFAULT '{}'::smallint[] NOT NULL;

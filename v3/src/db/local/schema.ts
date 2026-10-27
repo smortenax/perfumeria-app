@@ -283,6 +283,17 @@ export const formulaEvents = sqliteTable("formula_events", {
   createdAt: text("created_at"),
 });
 
+/** A formula macerating (V3-83). */
+export const macerations = sqliteTable("macerations", {
+  id: text("id").primaryKey(),
+  ownerId: text("owner_id"),
+  formulaId: text("formula_id"),
+  startedOn: text("started_on"),
+  endedOn: text("ended_on"),
+  checked: text("checked", { mode: "json" }).$type<number[]>(),
+  ...timestamps,
+});
+
 /** The third diluent of a pour and on (V3-67). */
 export const formulaEventDiluents = sqliteTable("formula_event_diluents", {
   id: text("id").primaryKey(),
@@ -534,6 +545,7 @@ export const tables = {
   labDilutions,
   labDilutionDiluents,
   shoppingItems,
+  macerations,
   labEvaluations,
   labAxes,
   ifraStandards,
@@ -572,6 +584,7 @@ export const AppSchema = new DrizzleAppSchema({
   labDilutions,
   labDilutionDiluents,
   shoppingItems,
+  macerations,
   labEvaluations,
   labAxes,
   ifraStandards,

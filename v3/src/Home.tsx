@@ -3,6 +3,8 @@ import type { Tastings } from "./db/tastings";
 import { WARN } from "./formulation/ifra-label";
 import { useFormulaChecks } from "./formulation/useFormulaChecks";
 import { readRecent } from "./recent";
+import { macerationState, noteCheck, todayIso } from "./db/macerations";
+import { useMacerations } from "./formulation/useMacerations";
 import type { GlossaryData } from "./glossary/useGlossary";
 import { buildQueue, countdown, dueMoments } from "./tasting/logic";
 import { useNow } from "./tasting/useTastings";
@@ -80,6 +82,19 @@ export function Home({
     .filter((x): x is { f: (typeof x)["f"]; label: (typeof WARN)[number] } => x.label !== undefined && WARN.includes(x.label))
     .sort((a, b) => WARN.indexOf(a.label) - WARN.indexOf(b.label) || a.f.name.localeCompare(b.f.name, "es"));
 
+  // What is macerating (V3-83): its day, and the check it is due for.
+  const macerations = useMacerations(local);
+  const today = todayIso();
+  const macerating = data
+    ? macerations
+        .map((m) => ({ m, f: data.formulas.find((f) => f.id === m.formulaId), s: macerationState(m, today) }))
+        .filter((x) => x.f !== undefined)
+        .sort((a, b) => Number(b.s.due !== null) - Number(a.s.due !== null) || b.s.day - a.s.day)
+    : [];
+  const note = (id: string, check: number) => {
+    const text = window.prompt(texts.maceration.ask(check));
+    if (text !== null) void noteCheck(local.db, local.userId, id, check, text);
+  };
   // Recent (F21): what you opened last that still exists, up to six.
   const recent = data
     ? readRecent()
@@ -144,6 +159,27 @@ export function Home({
           ) : (
             <p className="hint">{t.nothing}</p>
           )}
+        </section>
+      )}
+      {macerating.length > 0 && (
+        <section className="continue home-macerating" aria-labelledby="home-macerating-title">
+          <h3 id="home-macerating-title">{texts.maceration.title}</h3>
+          <ul className="continue-list">
+            {macerating.map(({ m, f, s }) => (
+              <li key={m.id} className="macerating-item">
+                <button type="button" className={`continue-item${s.due !== null ? " due" : ""}`} onClick={() => onOpenFormula(f!.id)}>
+                  <span className="continue-kind">{texts.maceration.day(s.day)}</span>
+                  <span className="continue-name">{f!.name}</span>
+                  <span className="continue-detail">{s.due !== null ? texts.maceration.due(s.due) : s.next !== null ? texts.maceration.next(s.next) : texts.maceration.since(m.startedOn)}</span>
+                </button>
+                {s.due !== null && (
+                  <button type="button" className="secondary note-check" onClick={() => note(m.id, s.due!)}>
+                    {texts.maceration.note(s.due)}
+                  </button>
+                )}
+              </li>
+            ))}
+          </ul>
         </section>
       )}
       {recent.length > 0 && (

@@ -1121,3 +1121,30 @@ details.unstated[open] dl {
   width: fit-content;
   align-self: flex-start;
 }
+
+/* Macerating (V3-83): a clock beside each formula of the list starts it; its day, in the row. */
+.formula-row-wrap {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.formula-row-wrap .formula-row {
+  flex: 1;
+  min-width: 0;
+}
+.formula-row-wrap .macerate {
+  flex: none;
+  width: var(--size-target, 44px);
+  height: var(--size-target, 44px);
+  border: none;
+  background: transparent;
+  color: var(--muted, #666);
+}
+.macerating-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.macerating-item .note-check {
+  align-self: flex-start;
+}

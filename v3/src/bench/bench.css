@@ -3261,3 +3261,9 @@
 .bench-families {
   margin: -4px 0 12px;
 }
+
+/* Macerating (V3-83): its day and its check, under the head of the bench. */
+.maceration-note {
+  margin: 0 0 12px;
+  font-size: var(--text-sm, 13px);
+}

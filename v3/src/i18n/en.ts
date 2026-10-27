@@ -742,6 +742,18 @@ export const texts = {
     noDilutions: "No dilutions",
   },
   ifraLabel: { exceeds: "IFRA: over", partial: "IFRA: partial", bounded: "IFRA: within at worst", within: "IFRA: within", empty: "" } as Record<string, string>,
+  maceration: {
+    start: "Start macerating",
+    startTitle: (name: string) => `Start macerating «${name}» today`,
+    stop: "Stop macerating",
+    title: "Macerating",
+    day: (n: number) => (n === 1 ? "day 1" : `day ${n}`),
+    next: (n: number) => `next check, day ${n}`,
+    due: (n: number) => `day ${n} check: how does it smell?`,
+    note: (n: number) => `Note day ${n}`,
+    ask: (n: number) => `Day ${n}: how does it smell? (it goes to the formula's notes; empty marks it seen)`,
+    since: (day: string) => `macerating since ${day}`,
+  },
   familyBar: {
     label: (words: string) => `Families of the aromatic matter: ${words}`,
     none: "no family",

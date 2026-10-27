@@ -25,6 +25,8 @@ import { ownConcentration, recipe } from "./use-formula";
 import { GramsCard, IntentionCard, NameCard, NotesCard } from "./Header";
 import { familyShares } from "../families/bar";
 import { FamilyBar } from "../families/FamilyBar";
+import { endMaceration, macerationState, noteCheck, startMaceration, todayIso } from "../db/macerations";
+import { useMacerations } from "../formulation/useMacerations";
 import { ChangeDetail, HistoryDock } from "./HistoryDock";
 import { IfraPanel, IfraSummary } from "./IfraBox";
 import { assumptionsOf } from "./assumptions";
@@ -445,6 +447,9 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
     });
   // Marked «perfume acabado», it shows in that general folder too (V3-19, plan 8.1b).
   const finished = props.record.markers.includes("finished");
+  // Macerating (V3-83): optional, started from here or from the list; its day under the head.
+  const maceration = useMacerations(local).find((m) => m.formulaId === formulaId);
+  const macerating = maceration ? macerationState(maceration, todayIso()) : null;
   // Favorite and locked (F1): a locked formula takes no new step until it is unlocked.
   const favorite = props.record.markers.includes("favorite");
   const locked = props.record.markers.includes("locked");
@@ -626,6 +631,13 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
           <button type="button" className="menuitem" onClick={menuAction(() => toggleMarker("locked", !locked, locked ? texts.bench.unlocked : texts.bench.lockedNow))}>
             <span>{locked ? texts.menu.unlock : texts.menu.lock}</span>
           </button>
+          <button
+            type="button"
+            className="menuitem"
+            onClick={menuAction(() => write(() => (maceration ? endMaceration(local.db, owner, maceration.id) : startMaceration(local.db, owner, formulaId))))}
+          >
+            <span>{maceration ? appTexts.maceration.stop : appTexts.maceration.start}</span>
+          </button>
           <button type="button" className="menuitem" disabled={props.data.workbenches.length < 2} onClick={menuAction(() => setDialog({ kind: "move" }))}>
             <span>{texts.menu.move}</span>
           </button>
@@ -688,6 +700,27 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
         </div>
       </header>
       <FamilyBar className="bench-families" shares={familyShares(view.composition?.parts ?? [], props.data.catalog)} />
+      {maceration && macerating && (
+        <p className="maceration-note">
+          ⏱ {appTexts.maceration.title} · {appTexts.maceration.day(macerating.day)} ·{" "}
+          {macerating.due !== null ? appTexts.maceration.due(macerating.due) : macerating.next !== null ? appTexts.maceration.next(macerating.next) : appTexts.maceration.since(maceration.startedOn)}
+          {macerating.due !== null && (
+            <>
+              {" "}
+              <button
+                type="button"
+                className="link"
+                onClick={() => {
+                  const text = window.prompt(appTexts.maceration.ask(macerating.due!));
+                  if (text !== null) write(() => noteCheck(local.db, owner, maceration.id, macerating.due!, text));
+                }}
+              >
+                {appTexts.maceration.note(macerating.due)}
+              </button>
+            </>
+          )}
+        </p>
+      )}
       {locked && (
         <p className="locked-note" role="status">
           {texts.bench.lockedNote}{" "}

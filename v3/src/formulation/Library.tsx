@@ -12,6 +12,8 @@ import { Pills } from "../Pills";
 import { tabAfterKey } from "../tabs";
 import { type EventRow, type Preview, previewsOf, type Sort, SORTS, sortFormulas } from "./preview";
 import { useFormulaChecks } from "./useFormulaChecks";
+import { useMacerations } from "./useMacerations";
+import { macerationState, startMaceration, todayIso } from "../db/macerations";
 
 /** The library's tabs (V3-19): your workbenches, and the general folders of the markers. */
 const TABS = ["benches", "accords", "finished"] as const;
@@ -161,6 +163,9 @@ function Benches({
   const all = data.formulas.filter((f) => f.workbenchId === current?.id).length;
   // Each formula of the open bench by families (F2) and its IFRA (F20), as the bench reads them.
   const checks = useFormulaChecks(local, data, inside.map((f) => f.id));
+  // What is macerating (V3-83), with its day.
+  const macerations = useMacerations(local);
+  const macerating = new Map(macerations.map((m) => [m.formulaId, macerationState(m, todayIso()).day]));
   if (!current) return <p className="hint">{words.length ? t.noFormulas : t.noFormulasYet(false)}</p>;
   const depth = (f: FormulaRecord) => {
     let d = 0;
@@ -212,7 +217,7 @@ function Benches({
             {inside.map((f) => {
               const parent = f.parentId ? data.formulas.find((x) => x.id === f.parentId) : undefined;
               return (
-                <li key={f.id}>
+                <li key={f.id} className="formula-row-wrap">
                   <button type="button" className="formula-row" style={{ paddingLeft: `calc(var(--space-inset) + ${depth(f) * 1.25}rem)` }} onClick={() => onOpen(f.id)}>
                     <span className="formula-main">
                       <span className="formula-name">{f.name}</span>
@@ -232,10 +237,26 @@ function Benches({
                         {t.markers[m]}
                       </span>
                     ))}
+                    {macerating.has(f.id) && <span className="chip macerating-chip">⏱ {texts.maceration.day(macerating.get(f.id)!)}</span>}
                     <span className="formula-open" aria-hidden="true">
                       →
                     </span>
                   </button>
+                  {/* Start macerating it (V3-83): optional, a clock on each formula of the list. */}
+                  {!macerating.has(f.id) && (
+                    <button
+                      type="button"
+                      className="tool macerate"
+                      title={texts.maceration.startTitle(f.name)}
+                      aria-label={texts.maceration.startTitle(f.name)}
+                      onClick={() => void startMaceration(local.db, local.userId, f.id)}
+                    >
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
+                        <circle cx="8" cy="8" r="6" />
+                        <path d="M8 4.5V8l2.5 1.5" />
+                      </svg>
+                    </button>
+                  )}
                 </li>
               );
             })}

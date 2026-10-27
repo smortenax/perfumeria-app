@@ -10,6 +10,7 @@ export const LIST_COLUMNS: Readonly<Record<string, readonly string[]>> = {
   ifra_substances: ["synonyms"],
   ifra_annex: ["natural_other_cas"],
   formulas: ["markers"],
+  macerations: ["checked"],
   tasting_moments: ["reviewed"],
   tasting_closures: ["biases"],
 };

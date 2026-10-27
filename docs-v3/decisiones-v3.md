@@ -1530,6 +1530,18 @@ F23, exportar, a las opciones (1 fórmulas legibles, 2 tus materiales, 3 sugerir
 - **Otra base de datos grande, en el futuro, sí podría reescribir.** Literal (2026-10-27, a continuación): «en todo caso se si coge otra base de datos grande a futuro ahi si se pasaria por reescriptura». Lectura: si más adelante entra otra fuente grande, sus datos podrían sustituir a los que hay, con un script y por tandas que apruebas; el laboratorio sigue siendo solo para completar.
 - **La tanda 26 no lo toca:** solo añadió `strength_source` a los 127 comunes que hoy usa la app (los del laboratorio, `v3/datos/materials.csv`) sin cambiar ningún valor; las tandas 20 y 21 (PerfuMate, `datos/comun/`) siguen sin aprobar y sin cambios.
 
+## V3-83 · F21, la maceración: opcional, desde la fórmula, y en Inicio lo que macera (decidida por el usuario el 2026-10-27)
+
+**Pregunta de la sesión:** el diario de maceración de PerfuMate (Inicio enseña los frascos que maceran y sus días) no existe en la app; opciones: en la fórmula, con revisiones a los 7, 14 y 28 días cuyas notas van a la fórmula (recomendada); un diario aparte; solo los días; fuera de momento.
+
+**Respuesta literal del usuario** (2026-10-27): «como la uno que sea opcional puedes darle al boton de empezar a macerar en la formula o durante el mismo branching de la formula un icono con un reloj o algo que sea empezar la maceracion, luego en la home page que salga lo que se esta macerando».
+
+**Lectura** (la sesión, para que la confirmes):
+
+- **Opcional:** una fórmula macera solo si le das a «empezar a macerar». Se puede desde el banco (su menú) o desde la lista de versiones de Formulación, con un icono de reloj en cada fórmula.
+- **Inicio enseña lo que macera:** cada fórmula con su día de maceración y la próxima revisión (días 7, 14 y 28, propuesta de la sesión); al llegar una, se avisa.
+- **Las notas de cada revisión van a las notas de la fórmula (F7)**, con su día y su fecha. No hay stock ni frascos nuevos: es una fecha de inicio y, si quieres, de fin.
+
 ---
 
 ## Pendientes
