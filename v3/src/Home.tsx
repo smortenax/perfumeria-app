@@ -1,4 +1,7 @@
+import type { LocalDatabase } from "./db/local/database";
 import type { Tastings } from "./db/tastings";
+import { WARN } from "./formulation/ifra-label";
+import { useFormulaChecks } from "./formulation/useFormulaChecks";
 import type { GlossaryData } from "./glossary/useGlossary";
 import { buildQueue, countdown, dueMoments } from "./tasting/logic";
 import { useNow } from "./tasting/useTastings";
@@ -12,6 +15,7 @@ import { texts } from "./i18n/en";
  */
 export function Home({
   data,
+  local,
   tastings,
   email,
   lastFormulaId,
@@ -24,6 +28,7 @@ export function Home({
   onSignOut,
 }: {
   data: GlossaryData | null;
+  local: LocalDatabase;
   tastings: Tastings | null;
   email: string;
   /** The formula open behind, if any; else the last one made is offered. */
@@ -64,6 +69,13 @@ export function Home({
   const next = timers.filter((d) => d.state === "waiting").sort((a, b) => a.dueAt - b.dueAt)[0];
   const moment = texts.tasting.moments;
   const timerText = due ? t.dueNow(due.label, moment[due.moment]) : next ? t.nextTimer(next.label, moment[next.moment], countdown(next.dueAt - now)) : t.noTimer;
+
+  // IFRA (F20): the formulas over or partial, worst first, so they are seen without opening them.
+  const checks = useFormulaChecks(local, data ?? EMPTY, data ? data.formulas.map((f) => f.id) : []);
+  const warned = (data?.formulas ?? [])
+    .map((f) => ({ f, label: checks.get(f.id)?.ifra }))
+    .filter((x): x is { f: (typeof x)["f"]; label: (typeof WARN)[number] } => x.label !== undefined && WARN.includes(x.label))
+    .sort((a, b) => WARN.indexOf(a.label) - WARN.indexOf(b.label) || a.f.name.localeCompare(b.f.name, "es"));
 
   const pending = queue?.pending ?? 0;
   const dilutionCount = data ? [...data.catalog.dilutions.values()].reduce((n, l) => n + l.filter((d) => !d.archivedAt).length, 0) : null;
@@ -109,6 +121,23 @@ export function Home({
           )}
         </section>
       )}
+      {warned.length > 0 && (
+        <section className="continue home-ifra" aria-labelledby="home-ifra-title">
+          <h3 id="home-ifra-title">{t.ifraTitle}</h3>
+          <p className="hint">{t.ifraHint}</p>
+          <ul className="continue-list">
+            {warned.map(({ f, label }) => (
+              <li key={f.id}>
+                <button type="button" className="continue-item" onClick={() => onOpenFormula(f.id)}>
+                  <span className={`continue-kind ifra-label ifra-label-${label}`}>{texts.ifraLabel[label]}</span>
+                  <span className="continue-name">{f.name}</span>
+                  <span className="continue-detail">{t.formulaIn(data?.workbenches.find((b) => b.id === f.workbenchId)?.name ?? "—")}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
       <h3 className="launch-title">{t.sections}</h3>
       <ul className="launch">
         <li>
@@ -150,3 +179,6 @@ export function Home({
     </section>
   );
 }
+
+/** Nothing to check before the glossary is loaded. */
+const EMPTY = { catalog: { materials: new Map() }, formulas: [], workbenches: [] } as unknown as GlossaryData;

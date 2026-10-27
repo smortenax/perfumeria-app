@@ -136,6 +136,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
       {route.view === "home" && (
         <Home
           data={data}
+          local={local}
           tastings={tastings}
           email={user.email}
           lastFormulaId={lastFormula}

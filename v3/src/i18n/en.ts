@@ -54,6 +54,8 @@ export const texts = {
     queue: "Queue",
     queueDetail: (n: number) => (n === 1 ? "1 material to evaluate" : `${n} materials to evaluate`),
     nothing: "Nothing in progress yet: open a section below to start.",
+    ifraTitle: "IFRA to look at",
+    ifraHint: "Your formulas over a limit, or that cannot be fully checked (a material or constituent without data). Opened, the bench says why.",
     sections: "Sections",
   },
   library: {
@@ -732,6 +734,7 @@ export const texts = {
     dilutions: "Dilutions",
     noDilutions: "No dilutions",
   },
+  ifraLabel: { exceeds: "IFRA: over", partial: "IFRA: partial", bounded: "IFRA: within at worst", within: "IFRA: within", empty: "" } as Record<string, string>,
   familyBar: {
     label: (words: string) => `Families of the aromatic matter: ${words}`,
     none: "no family",

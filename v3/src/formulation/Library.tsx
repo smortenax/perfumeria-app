@@ -1,9 +1,7 @@
 import { type KeyboardEvent, useEffect, useMemo, useRef, useState } from "react";
 import { Ratio } from "../core/arith/ratio";
 import { formatGrams } from "../core/display";
-import { compose } from "../core/compose";
-import { type FormulaRecord, loadFormula } from "../db/formulas";
-import { type FamilyShare, familyShares } from "../families/bar";
+import type { FormulaRecord } from "../db/formulas";
 import { FamilyBar } from "../families/FamilyBar";
 import type { LocalDatabase } from "../db/local/database";
 import { normalize } from "../db/search";
@@ -13,6 +11,7 @@ import { texts } from "../i18n/en";
 import { Pills } from "../Pills";
 import { tabAfterKey } from "../tabs";
 import { type EventRow, type Preview, previewsOf, type Sort, SORTS, sortFormulas } from "./preview";
+import { useFormulaChecks } from "./useFormulaChecks";
 
 /** The library's tabs (V3-19): your workbenches, and the general folders of the markers. */
 const TABS = ["benches", "accords", "finished"] as const;
@@ -109,7 +108,7 @@ export function Library({
       </div>
       <div className="tab-panel" role="tabpanel" id="library-panel" aria-labelledby={`library-tab-${tab}`}>
         {tab === "benches" ? (
-          <Benches data={data} local={local} events={events} previews={previews} query={query} onOpen={onOpen} onNew={onNew} onDeleteBench={onDeleteBench} />
+          <Benches data={data} local={local} previews={previews} query={query} onOpen={onOpen} onNew={onNew} onDeleteBench={onDeleteBench} />
         ) : (
           <Formulas data={data} query={query} marker={MARKER[tab]} onOpen={onOpen} />
         )}
@@ -126,7 +125,6 @@ export function Library({
 function Benches({
   data,
   local,
-  events,
   previews,
   query,
   onOpen,
@@ -135,7 +133,6 @@ function Benches({
 }: {
   data: GlossaryData;
   local: LocalDatabase;
-  events: readonly EventRow[];
   previews: ReadonlyMap<string, Preview>;
   query: string;
   onOpen: (id: string) => void;
@@ -162,28 +159,8 @@ function Benches({
     previews,
   );
   const all = data.formulas.filter((f) => f.workbenchId === current?.id).length;
-  // Each formula of the open bench by families (F2), composed as the bench composes it.
-  const [bars, setBars] = useState<ReadonlyMap<string, FamilyShare[]>>(new Map());
-  const ids = inside.map((f) => f.id).join(",");
-  useEffect(() => {
-    let live = true;
-    void Promise.all(
-      ids
-        .split(",")
-        .filter((id) => id)
-        .map((id) =>
-          loadFormula(local.db, data.catalog, local.userId, id).then(
-            (formula) => [id, familyShares(compose(formula).parts, data.catalog)] as const,
-            () => [id, [] as FamilyShare[]] as const,
-          ),
-        ),
-    ).then((all) => {
-      if (live) setBars(new Map(all));
-    });
-    return () => {
-      live = false;
-    };
-  }, [ids, events, local, data.catalog]);
+  // Each formula of the open bench by families (F2) and its IFRA (F20), as the bench reads them.
+  const checks = useFormulaChecks(local, data, inside.map((f) => f.id));
   if (!current) return <p className="hint">{words.length ? t.noFormulas : t.noFormulasYet(false)}</p>;
   const depth = (f: FormulaRecord) => {
     let d = 0;
@@ -241,12 +218,15 @@ function Benches({
                       <span className="formula-name">{f.name}</span>
                       {(parent || f.role) && <span className="formula-detail">{[parent ? t.versionFrom(parent.name) : null, f.role].filter((x) => x).join(" · ")}</span>}
                       <span className="formula-detail formula-preview">{previewText(f, previews.get(f.id))}</span>
-                      <FamilyBar className="formula-families" shares={bars.get(f.id) ?? []} />
+                      <FamilyBar className="formula-families" shares={checks.get(f.id)?.families ?? []} />
                       {/* Its intention and its notes (F7), the first line of each. */}
                       {(f.intention.trim() || f.notes.trim()) && (
                         <span className="formula-detail formula-notes">{[f.intention, f.notes].map((x) => x.trim().split("\n")[0]).filter((x) => x).join(" · ")}</span>
                       )}
                     </span>
+                    {checks.get(f.id) && checks.get(f.id)!.ifra !== "empty" && (
+                      <span className={`ifra-label ifra-label-${checks.get(f.id)!.ifra}`}>{texts.ifraLabel[checks.get(f.id)!.ifra]}</span>
+                    )}
                     {[...f.markers].sort((a, b) => MARKER_ORDER.indexOf(a) - MARKER_ORDER.indexOf(b)).map((m) => (
                       <span key={m} className="chip">
                         {t.markers[m]}

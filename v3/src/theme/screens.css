@@ -1102,3 +1102,22 @@ details.unstated[open] dl {
   width: min(160px, 100%);
   margin: 4px 0 2px;
 }
+
+/* A formula's IFRA as one label (F20): over in red, partial and within-at-worst in amber, within in green. */
+.ifra-label {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+}
+.ifra-label-exceeds { color: var(--red, #b3261e); }
+.ifra-label-partial,
+.ifra-label-bounded { color: var(--amber, #9a6700); }
+.ifra-label-within { color: var(--green, #2e7d32); }
+.continue-item .ifra-label {
+  width: fit-content;
+  align-self: flex-start;
+}
