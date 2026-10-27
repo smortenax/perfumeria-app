@@ -1,6 +1,6 @@
-# Tanda 23: los frascos que faltaban, con los de Harrison Joseph
+# Tanda 25: los frascos que faltaban, con los de Harrison Joseph
 
-*Generada por `migracion-v3/tanda-23-frascos-pendientes.ts` (2026-10-27) desde el laboratorio, commit `7c7fe20`. El usuario, 2026-10-27: «darme de alta todas las diluciones que había pendientes, las de harrisonjoseph no estaban». Va a tu cuenta, no a lo común.*
+*Generada por `migracion-v3/tanda-25-frascos-pendientes.ts` (2026-10-27) desde el laboratorio, commit `7c7fe20`. El usuario, 2026-10-27: «darme de alta todas las diluciones que había pendientes, las de harrisonjoseph no estaban». Va a tu cuenta, no a lo común.*
 
 - **29 frascos del laboratorio** (nº 41 a 69 de `operaciones/diluciones.md`): los de la tanda 19 acababan en el nº 40.
 - **7 frascos de fábrica** de Harrison Joseph que usas tal cual (`operaciones/compras/2026-10-16-altas-harrison-joseph.csv`); los que vienen puros no son un frasco (V3-67).

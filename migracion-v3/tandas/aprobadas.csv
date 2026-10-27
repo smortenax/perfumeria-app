@@ -90,3 +90,5 @@ retirada-1-a-4,2026-10-14,"orko kill, 2026-10-14 (V3-34): «no sirven materiales
 19-frascos,2026-10-19,"el usuario: «si adelante» (tanda 19)",lab_dilutions.csv,a5c5c15f6a4baf82efd090a1b8654e823fe41cd3d77c0accff42811ca8edcab6
 22-diez-familias,2026-10-24,"orko kill, 2026-10-24, en la tarjeta del hilo: «Aprobar» (a «¿Apruebo la tanda 22, con Gourmand en la paleta y los 14 cambios de familia?»)",family_palette.csv,4209e8f7b9e884a7a98234fe248feb5f55b66167c41d104582f6a3ae8368b400
 22-diez-familias,2026-10-24,"orko kill, 2026-10-24, en la tarjeta del hilo: «Aprobar» (a «¿Apruebo la tanda 22, con Gourmand en la paleta y los 14 cambios de familia?»)",materials.csv,9aecf0969d925c00d9468d349f354df1fe9097325d177937350be769ade56fbc
+25-frascos-pendientes,2026-10-27,"el usuario, 2026-10-27, en el hilo: «si, apruébala»",lab_dilution_diluents.csv,2b68d8bd99cc42a0701d61a96c3989a491a79bda070c8272f4986735a30ff1a0
+25-frascos-pendientes,2026-10-27,"el usuario, 2026-10-27, en el hilo: «si, apruébala»",lab_dilutions.csv,b5f0a9075aebb56f11825ad99a26b1544a5c165737cca908601aeec588912203

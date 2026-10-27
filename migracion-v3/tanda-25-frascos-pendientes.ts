@@ -1,5 +1,5 @@
 /**
- * Batch 23 (2026-10-27): the bottles of your lab that the app still lacks, into YOUR ACCOUNT, in the
+ * Batch 25 (2026-10-27; 23 and 24 are those of 2026-10-26, on another branch): the bottles of your lab that the app still lacks, into YOUR ACCOUNT, in the
  * shape of V3-67 and V3-79. The user, 2026-10-27: «un tema pendiente de la app era también darme de
  * alta todas las diluciones que había pendientes, las de harrisonjoseph no estaban». Batch 19 brought
  * bottles 1 to 40; this one brings 41 to 69 of `operaciones/diluciones.md` (16 of the Maese Lab and
@@ -13,9 +13,9 @@
  * of the app it is its own diluent; when it is a mix without its split («PG/etanol») or unknown,
  * it stays inside the heading's diluent and the report says so. Nothing is invented: what the lab
  * does not say is «no consta». Approved with `aprobar.ts --cuenta`, loaded with
- * `cargar-laboratorio.ts <your email> --tanda=23-frascos-pendientes`.
+ * `cargar-laboratorio.ts <your email> --tanda=25-frascos-pendientes`.
  *
- *   node migracion-v3/tanda-23-frascos-pendientes.ts [path to the lab, default ../Perfumery]
+ *   node migracion-v3/tanda-25-frascos-pendientes.ts [path to the lab, default ../Perfumery]
  */
 import { execFileSync } from "node:child_process";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
@@ -25,7 +25,7 @@ import { type Cell, writeTable } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
 const LAB = process.argv[2] ?? "../Perfumery";
-const OUT = "migracion-v3/tandas/23-frascos-pendientes";
+const OUT = "migracion-v3/tandas/25-frascos-pendientes";
 const FIRST = 41; // batch 19 ends at bottle 40
 type Rec = Record<string, Cell>;
 
@@ -366,9 +366,9 @@ const row = (b: Bottle) =>
   `| ${b.n || "fábrica"} | ${b.material.name} | ${pct(b.fraction)} | ${b.diluents.map((d) => `${d.name} ${pct(d.share)}`).join(" + ") || "—"} | ${b.sourceText ?? (b.n ? "puro" : "—")} | ${b.materialUg !== null ? "sí" : "no"} | ${b.notes.join("; ") || ""} |`;
 writeFileSync(
   join(OUT, "informe.md"),
-  `# Tanda 23: los frascos que faltaban, con los de Harrison Joseph
+  `# Tanda 25: los frascos que faltaban, con los de Harrison Joseph
 
-*Generada por \`migracion-v3/tanda-23-frascos-pendientes.ts\` (2026-10-27) desde el laboratorio, commit \`${labCommit}\`. El usuario, 2026-10-27: «darme de alta todas las diluciones que había pendientes, las de harrisonjoseph no estaban». Va a tu cuenta, no a lo común.*
+*Generada por \`migracion-v3/tanda-25-frascos-pendientes.ts\` (2026-10-27) desde el laboratorio, commit \`${labCommit}\`. El usuario, 2026-10-27: «darme de alta todas las diluciones que había pendientes, las de harrisonjoseph no estaban». Va a tu cuenta, no a lo común.*
 
 - **${bottles.size} frascos del laboratorio** (nº ${FIRST} a ${Math.max(...bottles.keys())} de \`${FILE}\`): los de la tanda 19 acababan en el nº 40.
 - **${factoryBottles.length} frascos de fábrica** de Harrison Joseph que usas tal cual (\`${ALTAS}\`); los que vienen puros no son un frasco (V3-67).
@@ -389,4 +389,4 @@ ${[...bottles.values()].map(row).join("\n")}
 `,
   "utf8",
 );
-console.log(`Tanda 23: ${bottles.size} frascos del laboratorio, ${factoryBottles.length} de fábrica, ${outDiluents.length} diluyentes. ${OUT}/informe.md`);
+console.log(`Tanda 25: ${bottles.size} frascos del laboratorio, ${factoryBottles.length} de fábrica, ${outDiluents.length} diluyentes. ${OUT}/informe.md`);
