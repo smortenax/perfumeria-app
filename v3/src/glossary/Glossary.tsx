@@ -14,7 +14,8 @@ import { tabAfterKey } from "../tabs";
 import { type Filters, type IfraState, keepOf, NO_FILTERS } from "./browse";
 import type { GlossaryData } from "./useGlossary";
 
-const PAGE = 60;
+/** Every material that passes the filters is shown: a few hundred tiles paint fast enough (measured 2026-10-27). */
+const ALL = Number.MAX_SAFE_INTEGER;
 const IFRA_STATES = Object.keys(texts.ifraState) as IfraState[];
 /** The tabs (V3-50): your materials, the general ones (each a filter of «whose»), and your formulas, apart so nothing mixes. */
 const TABS = ["own", "common", "formulas", "accords"] as const;
@@ -47,7 +48,6 @@ export function Glossary({
   // A new account opens on the common materials: an empty «Own» tab is not a first screen (audit F-08).
   const [first] = useState<"own" | "common">(() => ([...data.catalog.materials.values()].some((m) => m.ownerId !== null) ? "own" : "common"));
   const [filters, setFilters] = useState<Filters>({ ...NO_FILTERS, owner: first });
-  const [limit, setLimit] = useState(PAGE);
   const [message, setMessage] = useState<string | null>(null);
   // «Exportar paleta»: your materials by their names, copied or as a Markdown file.
   const [paletteNote, setPaletteNote] = useState<string | null>(null);
@@ -86,7 +86,6 @@ export function Glossary({
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const set = (change: Partial<Filters>) => {
     setFilters((f) => ({ ...f, ...change }));
-    setLimit(PAGE);
     setMessage(null);
   };
   const [tab, setTab] = useState<Tab>(first);
@@ -107,8 +106,8 @@ export function Glossary({
   const scales = useMemo(() => orbScalesOf(data.catalog), [data.catalog]);
   const rows = useMemo(() => {
     const keep = keepOf(filters, data.catalog.have, (id) => data.ifraStates.get(id)?.state ?? "no-data");
-    return query.trim() ? search(data.index, query, limit, keep) : listAll(data.index, limit, keep);
-  }, [data, query, filters, limit]);
+    return query.trim() ? search(data.index, query, ALL, keep) : listAll(data.index, ALL, keep);
+  }, [data, query, filters]);
   const materials = rows.flatMap((r) => r.members.map((m) => m.material));
   // «Nothing yet» and «no matches» are two states (audit F-08): only the second offers to clear.
   const searching = query.trim() !== "" || filters.kind !== null || filters.ifra !== null || filters.haveOnly || !!filters.runningLow;
@@ -162,7 +161,6 @@ export function Glossary({
             placeholder={tab === "formulas" || tab === "accords" ? t.formulasSearchHint : t.searchHint}
             onChange={(e) => {
               setQuery(e.target.value);
-              setLimit(PAGE);
               setMessage(null);
             }}
           />
@@ -254,11 +252,6 @@ export function Glossary({
             </li>
           ))}
         </ul>
-        {rows.length === limit && (
-          <button type="button" onClick={() => setLimit((l) => l + PAGE)}>
-            {t.more}
-          </button>
-        )}
         </>
         )}
       </div>
