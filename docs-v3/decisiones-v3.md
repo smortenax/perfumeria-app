@@ -1427,6 +1427,23 @@ Lo había marcado a las 19:27 («look: mol/atk/side/comfy/ten», V3-75). La maqu
 - **Aprobada** (2026-10-24, en la tarjeta del hilo: «Aprobar», a «¿Apruebo la tanda 22, con Gourmand en la paleta y los 14 cambios de familia?»): la paleta de `v3/datos/` tiene diez familias, y los 14 materiales, su familia nueva.
 - **Propuesta de la sesión:** el nombre del color, «caramelo»; la regla de la tanda 22 (lo tostado, a Transformado; el incienso, a Amaderado, como en la maqueta), y que no toque los materiales de las otras siete familias.
 
+## V3-77 · El árbol de versiones de cada banco, a la derecha de sus fórmulas (pedida por el usuario el 2026-10-26; la forma, propuesta de la sesión, sin confirmar)
+
+**Palabras literales del usuario** (2026-10-26, en el hilo del proyecto, con una captura de Formulación y el hueco a la derecha de la lista de fórmulas marcado en azul):
+
+> ahora hay una cosa que quiero hacer para el control de versiones de las formulas en la parte de la derecha hay un espacio que viene bien para hacer la parte de control de versiones lo ideal seria que funcionara de la siguiente manera, al crear una formormula sale un nodo, si se quiere versionar te sale unos nodos a raiz del nodo del que se versiono, entnves en el espacio de la derecha tiene que haber un sistema en el que se vea cada formula como un nodo y se pueda ver de donde heredan cada una asi tienes el historail de como has ido haiendo los cambios entre formulas
+
+**Lectura** (la sesión, para que la confirmes):
+
+- **Al lado de las fórmulas del banco abierto, un panel «Versions»:** cada fórmula es un nodo, y cada versión cuelga del nodo de la fórmula de la que se guardó (`formulas.parent_id`, P44). No cambia el modelo: «Guardar como» → «una versión nueva de esta fórmula» ya apuntaba de cuál sale cada una (V3-19: nace en el banco de su madre).
+- **Cada árbol crece hacia abajo**, de la primera fórmula a sus últimas versiones; las hermanas, de izquierda a derecha por fecha (la más antigua primero), porque el árbol es la historia. La madre, centrada sobre sus versiones, y las ramas tan juntas como dejan sus niveles, para que una historia larga no ensanche el árbol. Cada nodo dice el nombre, la fecha y sus marcadores (acorde, perfume acabado).
+- **Los árboles del banco, uno al lado de otro, en filas tan anchas como el panel**, en el orden de la lista (por nombre); uno más ancho que el panel va solo en su fila y se desplaza de lado dentro del panel, nunca la página.
+- **Señalar una fórmula, en la lista o en el árbol, ilumina su línea** hasta la primera; su fila y su nodo se marcan juntos. Pulsar un nodo, o Intro, abre la fórmula en el banco, como su fila.
+- **Con el teclado**, el árbol es uno solo (patrón «tree view» de ARIA): abajo y arriba recorren los nodos en orden de lectura, derecha va a la primera versión, izquierda a la madre, Inicio y Fin a los extremos.
+- **Una versión cuya madre no está en la lista** (borrada, en otro banco o fuera de la búsqueda) empieza su propio árbol: no se esconde.
+- **Donde no cabe al lado** (un banco de menos de 46 rem de ancho: el portátil estrecho y el móvil), el árbol va debajo de la lista.
+- **Propuesta de la sesión:** con el árbol al lado, la lista sangra las versiones un solo paso (el árbol ya enseña las generaciones; debajo, la lista sangra como antes); los nombres largos se cortan en el nodo (entero al señalarlo y en la lista). Código: `v3/src/formulation/versionTree.ts` (la disposición, con pruebas) y `VersionTree.tsx`. Una primera prueba hecha en tu PC (rama `claude/project-thread-3v0ial`) queda sustituida por esta.
+
 ## V3-78 · Las funciones de PerfuMate: qué entra y con qué matices (decidida por el usuario el 2026-10-26)
 
 **Palabras literales del usuario** (2026-10-26), sobre el vídeo que grabó recorriendo PerfuMate:

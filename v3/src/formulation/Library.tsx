@@ -1,4 +1,4 @@
-import { type KeyboardEvent, useEffect, useMemo, useRef, useState } from "react";
+import { type CSSProperties, type KeyboardEvent, useEffect, useMemo, useRef, useState } from "react";
 import { Ratio } from "../core/arith/ratio";
 import { formatGrams } from "../core/display";
 import type { FormulaRecord } from "../db/formulas";
@@ -13,6 +13,7 @@ import { tabAfterKey } from "../tabs";
 import { type EventRow, type Preview, previewsOf, type Sort, SORTS, sortFormulas } from "./preview";
 import { useFormulaChecks } from "./useFormulaChecks";
 import { useMacerations } from "./useMacerations";
+import { VersionTree } from "./VersionTree";
 import { macerationState, startMaceration, todayIso } from "../db/macerations";
 
 /** The library's tabs (V3-19): your workbenches, and the general folders of the markers. */
@@ -144,6 +145,8 @@ function Benches({
   const t = texts.glossary;
   const l = texts.library;
   const [chosen, setChosen] = useState<string | null>(null);
+  // The formula pointed at, in the rows or in the version tree (V3-77): both light up together.
+  const [active, setActive] = useState<string | null>(null);
   const [sort, setSort] = useState<Sort>("versions");
   const [favoritesOnly, setFavoritesOnly] = useState(false);
   const words = normalize(query).split(/\s+/).filter((w) => w);
@@ -213,12 +216,22 @@ function Benches({
         {inside.length === 0 ? (
           <p className="hint">{words.length ? t.noFormulas : t.noFormulasYet(true)}</p>
         ) : (
+          <div className="bench-body">
           <ul className="formula-rows">
             {inside.map((f) => {
               const parent = f.parentId ? data.formulas.find((x) => x.id === f.parentId) : undefined;
               return (
                 <li key={f.id} className="formula-row-wrap">
-                  <button type="button" className="formula-row" style={{ paddingLeft: `calc(var(--space-inset) + ${depth(f) * 1.25}rem)` }} onClick={() => onOpen(f.id)}>
+                  <button
+                    type="button"
+                    className={`formula-row${active === f.id ? " active" : ""}`}
+                    style={{ "--depth": depth(f) } as CSSProperties}
+                    onClick={() => onOpen(f.id)}
+                    onMouseEnter={() => setActive(f.id)}
+                    onMouseLeave={() => setActive(null)}
+                    onFocus={() => setActive(f.id)}
+                    onBlur={() => setActive(null)}
+                  >
                     <span className="formula-main">
                       <span className="formula-name">{f.name}</span>
                       {(parent || f.role) && <span className="formula-detail">{[parent ? t.versionFrom(parent.name) : null, f.role].filter((x) => x).join(" · ")}</span>}
@@ -261,6 +274,14 @@ function Benches({
               );
             })}
           </ul>
+          <section className="version-panel" aria-labelledby="version-panel-title">
+            <h4 className="version-title" id="version-panel-title">
+              {texts.library.versions}
+            </h4>
+            <p className="hint">{texts.library.versionsHint}</p>
+            <VersionTree formulas={inside} bench={current.name} active={active} onActive={setActive} onOpen={onOpen} />
+          </section>
+          </div>
         )}
       </section>
     </div>

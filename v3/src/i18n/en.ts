@@ -78,6 +78,9 @@ export const texts = {
     finalBatch: (g: string) => `final batch ${g}`,
     workBatch: (g: string) => `working batch ${g}`,
     changed: (day: string) => `changed ${day}`,
+    versions: "Versions",
+    versionsHint: "Each formula is a node, and each version hangs from the formula it was saved from. Point at one to light up where it comes from.",
+    versionTree: (bench: string) => `Versions in «${bench}»`,
   },
   glossary: {
     title: "Materials glossary",

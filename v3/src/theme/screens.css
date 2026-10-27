@@ -880,6 +880,136 @@ details.unstated[open] dl {
   color: var(--muted);
 }
 
+/* The version tree of the open bench (V3-77): beside the rows where the bench is wide, under them where it is not. */
+.bench-view {
+  container-type: inline-size;
+}
+
+.bench-body {
+  display: grid;
+  gap: var(--space-gap);
+  align-items: start;
+  min-width: 0;
+}
+
+/* A version sits under the formula it came from, one step in per generation. */
+.start .bench-body .formula-row {
+  padding-left: calc(var(--space-inset) + var(--depth, 0) * 1.25rem);
+}
+
+@container (min-width: 46rem) {
+  .bench-body {
+    grid-template-columns: minmax(16rem, 2fr) minmax(0, 3fr);
+  }
+
+  /* With the tree beside them, the rows step in once: the tree shows the generations. */
+  .start .bench-body .formula-row {
+    padding-left: calc(var(--space-inset) + min(var(--depth, 0), 1) * 1.25rem);
+  }
+}
+
+.start .formula-row.active {
+  background: var(--fill);
+}
+
+.version-panel {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  padding: var(--space-inset);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-panel);
+  background: var(--panel);
+}
+
+.start .version-title {
+  margin: 0;
+  color: var(--text);
+  font-size: var(--text-md);
+  font-weight: 700;
+}
+
+.version-panel .hint {
+  margin: 0;
+}
+
+/* Wide trees scroll inside the panel; the padding leaves room for the focus ring. */
+.version-scroll {
+  overflow: auto;
+  padding: 6px;
+  margin: 2px -6px -6px;
+}
+
+.version-tree {
+  position: relative;
+}
+
+.version-lines {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.version-lines path {
+  fill: none;
+  stroke: var(--line-strong);
+  stroke-width: 1.5;
+}
+
+.version-lines path.on-path {
+  stroke: var(--text);
+  stroke-width: 2.5;
+}
+
+.tree-node {
+  position: absolute;
+  display: grid;
+  align-content: center;
+  gap: 2px;
+  box-sizing: border-box;
+  padding: 6px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-control);
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.tree-node:hover {
+  background: var(--fill);
+}
+
+.tree-node.on-path {
+  border-color: var(--text);
+}
+
+.tree-node.active {
+  background: var(--fill);
+  box-shadow: inset 0 0 0 1px var(--text);
+}
+
+.tree-node:focus-visible {
+  outline: 2px solid var(--accent-focus);
+  outline-offset: 2px;
+}
+
+.tree-node-name {
+  overflow: hidden;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tree-node-detail {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: var(--text-xs);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 @media (max-width: 860px) {
   .split {
     grid-template-columns: 1fr;
