@@ -27,8 +27,9 @@ import { parseCsvRecords } from "../src/data/csv.ts";
 import { type Cell, writeTable } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
-// The common data with batch 27 approved (3674ea0, on claude/info-altas-26-oct).
-const BASE = "3674ea0";
+// The common data on main (6b00bcd); doses and components as batch 27 leaves them (its files), so that
+// approving 27 and then 29 keeps both.
+const BASE = "6b00bcd";
 const WEB = "migracion-v3/web/info-altas-26-oct";
 const OUT_ACCOUNT = "migracion-v3/tandas/28-documentos-tus-botes";
 const OUT_COMMON = "migracion-v3/tandas/29-documentos-comun";
@@ -39,8 +40,9 @@ const read = (path: string) => {
   return { header: text.slice(0, text.indexOf("\n")).split(","), rows: parseCsvRecords(text) as Rec[] };
 };
 const materials = read("v3/datos/materials.csv").rows;
-const doses = read("v3/datos/material_doses.csv");
-const components = read("v3/datos/material_components.csv");
+const fromFile = (path: string) => { const text = readFileSync(path, "utf8"); return { header: text.slice(0, text.indexOf("\n")).split(","), rows: parseCsvRecords(text) as Rec[] }; };
+const doses = fromFile("migracion-v3/tandas/27-info-altas/material_doses.csv");
+const components = fromFile("migracion-v3/tandas/27-info-altas/material_components.csv");
 const local = (file: string) => parseCsvRecords(readFileSync(join(WEB, file), "utf8"));
 const yours = [
   ...(parseCsvRecords(execSync(`git show ${BASE}:migracion-v3/tandas/24-tus-altas-26-oct/materials.csv`, { encoding: "utf8" })) as Rec[]),
@@ -255,7 +257,7 @@ writeFileSync(
   join(OUT_COMMON, "informe.md"),
   `# Tanda 29 · Documentos de otros proveedores y los conflictos de uso
 
-*Generada por \`migracion-v3/tanda-28-documentos.ts\` (sobre \`${BASE}\`). Escribe \`v3/datos/material_doses.csv\` y \`v3/datos/material_components.csv\` enteros. Sin aprobar.*
+*Generada por \`migracion-v3/tanda-28-documentos.ts\` (sobre \`${BASE}\` y las dosis y los constituyentes de la tanda 27: **apruébala después de la 27**). Escribe \`v3/datos/material_doses.csv\` y \`v3/datos/material_components.csv\` enteros. Sin aprobar.*
 
 ## Constituyentes de literatura (${commonComponents.rows.length})
 

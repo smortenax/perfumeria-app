@@ -1,6 +1,6 @@
 # Tanda 27 · La información clave de los botes del 2026-10-26
 
-*Generada por `migracion-v3/tanda-27-info-altas.ts` sobre lo común de `main` (commit `0114379`), con la búsqueda en `migracion-v3/web/info-altas-26-oct/` y el certificado de Auranone del laboratorio (commit `7c7fe20`). Escribe `v3/datos/material_doses.csv` y `v3/datos/material_components.csv` enteros, con lo nuevo añadido: no cambia ni borra nada de lo que hay. Sin aprobar.*
+*Generada por `migracion-v3/tanda-27-info-altas.ts` sobre lo común de `main` (commit `6b00bcd`), con la búsqueda en `migracion-v3/web/info-altas-26-oct/` y el certificado de Auranone del laboratorio (commit `7c7fe20`). Escribe `v3/datos/material_doses.csv` y `v3/datos/material_components.csv` enteros, con lo nuevo añadido: no cambia ni borra nada de lo que hay. Sin aprobar.*
 
 **Qué entra:** 5 dosis de uso (de páginas que la sesión releyó) y 27 constituyentes con su CAS y su cifra (composiciones publicadas que recoge Fraterworks y el certificado de otro proveedor de Auranone: literatura, no el lote comprado). Ninguna cifra de IFRA: esas salen solo de los archivos de IFRA, por el CAS. Lo demás de la búsqueda (identidad, pistas de IFRA de las tiendas, documentos, lo que no se encontró) está en la tarea `docs-v3/tareas/2026-10-27-info-altas.md`.
 

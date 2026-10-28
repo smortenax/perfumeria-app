@@ -27,8 +27,8 @@ import { parseCsvRecords } from "../src/data/csv.ts";
 import { type Cell, writeTable } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
-// The common data as main had it on 2026-10-27 (0114379; datos last changed by batch 26, 2799b2d).
-const BASE = "0114379";
+// The common data as main has it on 2026-10-28 (6b00bcd: with batches 32 and 33 of the other session).
+const BASE = "6b00bcd";
 const OUT = "migracion-v3/tandas/27-info-altas";
 const WEB = "migracion-v3/web/info-altas-26-oct";
 const LAB = "/home/user/perfumeria-lab";
