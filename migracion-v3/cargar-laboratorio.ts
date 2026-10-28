@@ -8,6 +8,7 @@
  *
  *   node migracion-v3/cargar-laboratorio.ts <the email of your account>                (the local Supabase)
  *   node migracion-v3/cargar-laboratorio.ts <email> --prueba                           (loads and undoes it: a check)
+ *   node migracion-v3/cargar-laboratorio.ts <email> --nube                             (the cloud: DATABASE_URL_CLOUD of v3/.env.local)
  *   DATABASE_URL=… node migracion-v3/cargar-laboratorio.ts <the email of your account> (another one)
  *   node migracion-v3/cargar-laboratorio.ts <email> --tanda=17-tus-nuevos              (another batch of yours)
  *
@@ -85,7 +86,17 @@ class DryRun extends Error {
   }
 }
 
-const sql = postgres(process.env.DATABASE_URL ?? "postgresql://postgres:postgres@127.0.0.1:55322/postgres", { max: 1, onnotice: () => {} });
+/** The cloud (--nube): its address stays in v3/.env.local, so the command carries no key and is always the same. */
+function cloudUrl(): string {
+  const line = readFileSync("v3/.env.local", "utf8").split(/\r?\n/).find((l) => l.startsWith("DATABASE_URL_CLOUD="));
+  if (!line) throw new Error("v3/.env.local no tiene DATABASE_URL_CLOUD: no se carga nada.");
+  return line.slice("DATABASE_URL_CLOUD=".length).trim().replace(/^"(.*)"$/, "$1");
+}
+
+const url = process.argv.includes("--nube")
+  ? cloudUrl()
+  : (process.env.DATABASE_URL ?? "postgresql://postgres:postgres@127.0.0.1:55322/postgres");
+const sql = postgres(url, { max: 1, onnotice: () => {} });
 try {
   const users = await sql`select id from auth.users where lower(email) = lower(${email})`;
   if (users.length !== 1) throw new Error(`No hay ninguna cuenta con el correo ${email} en esa base: créala tú y vuelve a cargar.`);

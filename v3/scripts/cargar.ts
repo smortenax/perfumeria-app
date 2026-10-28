@@ -7,7 +7,8 @@
  * with the commit of the data (V3-26), which must be committed first.
  *
  *   npm run datos:cargar                      (the local Supabase)
- *   DATABASE_URL=… npm run datos:cargar       (another one: the cloud, when the user asks)
+ *   npm run datos:cargar:nube                 (the cloud: DATABASE_URL_CLOUD of .env.local, when the user asks)
+ *   DATABASE_URL=… npm run datos:cargar       (another one)
  */
 import { execSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
@@ -45,7 +46,16 @@ const tables = new Map<string, PgTable>(
     .map((t) => [getTableName(t), t]),
 );
 
-const url = process.env.DATABASE_URL ?? "postgresql://postgres:postgres@127.0.0.1:55322/postgres";
+/** The cloud (--nube): its address stays in .env.local, so the command carries no key and is always the same. */
+function cloudUrl(): string {
+  const line = readFileSync(".env.local", "utf8").split(/\r?\n/).find((l) => l.startsWith("DATABASE_URL_CLOUD="));
+  if (!line) throw new Error(".env.local no tiene DATABASE_URL_CLOUD: no se carga nada.");
+  return line.slice("DATABASE_URL_CLOUD=".length).trim().replace(/^"(.*)"$/, "$1");
+}
+
+const url = process.argv.includes("--nube")
+  ? cloudUrl()
+  : (process.env.DATABASE_URL ?? "postgresql://postgres:postgres@127.0.0.1:55322/postgres");
 const sql = postgres(url, { max: 1, onnotice: () => {} });
 
 type Value = string | boolean | null | string[];
