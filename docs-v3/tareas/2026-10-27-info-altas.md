@@ -96,23 +96,24 @@ el de maese no tiene y es mucho mas dulce».
   SDS: CAS 8008-93-3, «Artemisia oil (Absinthium oil, Wormwood oil)». Certificado IFRA 51 (14-03-2025):
   «Thujone … 546-80-5 … 60,00000 %», **cat. 4: 2,333333 %**. Alérgenos: beta-cariofileno 10 %, linalol 4 %,
   pineno 2,5 %, limoneno 2 %… El beta-cariofileno puede explicar lo amaderado. Es tu versión actual del ajenjo común.
-- **Maese Lab:** la única ficha que da su web al buscar «ajenjo» es el **«Aceite Esencial de Artemisa Annua»**:
-  «Parte Utilizada: Hoja», «Origen: ESPAÑA», «INCI: Artemisia Annua Herb Oil», «Nº CAS: 84775-74-6»,
-  «Componentes / Quimiotipo: Camphor, 1,8-Cineol, D-Germacrene, a-Humulene», «también conocida como Ajenjo
-  Dulce o Chino». **No es la misma especie** (*A. annua*, no *A. absinthium*): la diferencia no es de la parte
-  de la planta, sino de la especie. Hay que confirmarlo con la etiqueta o la factura del bote.
+- **Maese Lab:** la etiqueta del bote dice *Artemisia vulgaris* (el usuario, 2026-10-28: «artemisa vulgaris
+  oil»). Es su «Aceite Esencial de Artemisa - 100% Natural» (https://maeselab.com/aceite-esencial-de-artemisa-100-natural/):
+  «Parte Utilizada: Planta», «Origen: FRANCIA», «INCI: Artemisia Vulgaris Oil», «Nº CAS: 84775-45-1»,
+  «Componentes / Quimiotipo: a-Thujene, Lyratol, 1,8-Cineol, Camphor». **Es otra especie** (*A. vulgaris*,
+  artemisa común, no *A. absinthium*): la diferencia no está en la parte de la planta. La primera hipótesis
+  de esta sesión, el «Aceite Esencial de Artemisa Annua» de la misma tienda, era errónea.
 - **Cómo está hoy:** el frasco nº 17 de la tanda 24 («Ajenjo AE», al 10 %) cuelga del ajenjo común
-  (*A. absinthium*), así que la app le aplica la tuyona (anexo: estándar 102). *A. annua* no está en el
-  anexo ni tiene estándar por su CAS en los archivos de IFRA.
+  (*A. absinthium*), así que la app le aplica el tope de ese material.
 - **Decidido por el usuario (2026-10-28), «Por identidad (Recomendada)»:** otra especie, parte, proceso,
   tratamiento o quimiotipo es otro material del glosario; otro proveedor, origen o lote es otra
   especificación tuya; la categoría solo agrupa en el buscador. **Propuesta para `decisiones-v3.md` como
   V3-85** (esta sesión no toca ese archivo).
-- **Tanda 30 (común, sin aprobar):** «Artemisa annua (ajenjo dulce), aceite esencial», con lo que dice la
-  ficha de Maese Lab citado, en la categoría del ajenjo (que gana «ajenjo dulce» y «artemisa annua» como
-  otros nombres); al ajenjo común, una nota para no confundirlos. Se aprueba después de la 29.
-- **Tanda 31 (tu cuenta, sin aprobar):** tu especificación de Maese Lab, con «lo tengo», y el frasco nº 17
-  movido a ella (misma fila, mismos pesos). **Antes de aprobarla, confirma la etiqueta o la factura.**
+- **El glosario ya tiene esa especie:** «Artemisa (Artemisia vulgaris), aceite esencial», con 84775-45-1 entre
+  sus CAS y su línea del anexo de IFRA (Armoise vulgaris oil: tuyonas, geraniol y eugenol). No hace falta
+  material nuevo; la annua del borrador se quita (el usuario: «Quitarla (Recomendada)»).
+- **Tanda 30 (común, sin aprobar):** solo una nota en el ajenjo y otra en la artemisa para no confundirlos.
+- **Tanda 31 (tu cuenta, sin aprobar):** tu especificación de Maese Lab de la artemisa, con «lo tengo» y los
+  cuatro componentes de la ficha sin cifra, y el frasco nº 17 movido a ella (misma fila, mismos pesos).
 - **Tu ajenjo de Perfumiarz** gana en la tanda 28 lo de PCW: tope de 2,333333 % en cat. 4, tuyona 60 % y
   sus alérgenos, con autoridad «producto».
 
@@ -161,8 +162,7 @@ Ambrarome, Clearwood, Filbertone y Exaltolide Total: son de *su* lote y servirí
 >
 > - Aceite Esencial de Opoponax - 100% natural
 > - Aceite Esencial de Gálbano - 100% Natural
-> - Aceite Esencial de Artemisa Annua - 100% Natural (¿podéis confirmar que el que me enviasteis es
->   Artemisia annua y no Artemisia absinthium?)
+> - Aceite Esencial de Artemisa - 100% Natural (Artemisia vulgaris)
 > - Exaltolide Total (y qué lleva además de la pentadecanolida)
 > - Veramoss (Evernyl)
 > - Clearwood
