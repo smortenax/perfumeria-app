@@ -1579,6 +1579,19 @@ F23, exportar, a las opciones (1 fórmulas legibles, 2 tus materiales, 3 sugerir
 
 **Lectura:** no hay libreta general. Las ideas van en las notas de la fórmula, del material o de la cata; si más adelante falta un sitio, se añade.
 
+## V3-85 · Material u otra especificación: por identidad (decidida por el usuario el 2026-10-28; escribe la regla de la v2, V3-13, V3-70 y V3-79)
+
+**Pregunta de la sesión:** los dos «ajenjos» del usuario huelen muy distinto (Perfumiarz: *Artemisia absinthium*; Maese Lab: *Artemisia vulgaris*). ¿Las variaciones de un natural (especie, variedad, parte, proceso, quimiotipo; bergamotas, ouds, rosas) son materiales distintos del glosario, o especificaciones y subcategorías de uno? Opciones: por identidad (recomendada); el origen también separa (un origen que cambia el olor de forma reconocida, como oud de Camboya frente a India, sería otro material); todo en especificaciones de un solo material por nombre (no recomendada: el ajenjo dulce heredaría la tuyona del otro).
+
+**Respuesta del usuario** (2026-10-28, en la tarjeta): «Por identidad (Recomendada)». Después, al leer la etiqueta del bote de Maese Lab: «artemisa vulgaris oil», y sobre la annua del borrador: «Quitarla (Recomendada)».
+
+**Lectura** (la sesión):
+
+- **Otro material del glosario** cuando cambia lo que define el natural: especie, parte, proceso, tratamiento o quimiotipo declarado. Cada uno lleva su CAS, su IFRA y su perfil.
+- **Otra especificación tuya** cuando solo cambia el proveedor, el origen o el lote: el mismo material, con su certificado y sus cifras de producto.
+- **La categoría solo agrupa** en el buscador y puede juntar especies cercanas por su nombre común (el ajenjo y la artemisa, las rosas); no decide IFRA ni composición.
+- Aplicada en las tandas 30 y 31: el «Ajenjo AE» de Maese Lab es tu especificación de la artemisa (*A. vulgaris*), no del ajenjo.
+
 ---
 
 ## Pendientes

@@ -1,0 +1,5 @@
+id,material_id,component_id,component_cas,component_name,amount_kind,value,min,max,authority,source
+86d390bc-056f-5e4a-ba2f-bfae0f1970b5,bdc4ce59-deae-5aa1-9a32-5d090ac9b1d4,,,Camphor,unknown,,,,literature,"Maese Lab, https://maeselab.com/aceite-esencial-de-artemisa-100-natural/: «Componentes / Quimiotipo: a-Thujene, Lyratol, 1,8-Cineol, Camphor»"
+93c01a3f-e95c-5c11-9e4f-45931673d48f,bdc4ce59-deae-5aa1-9a32-5d090ac9b1d4,,,Lyratol,unknown,,,,literature,"Maese Lab, https://maeselab.com/aceite-esencial-de-artemisa-100-natural/: «Componentes / Quimiotipo: a-Thujene, Lyratol, 1,8-Cineol, Camphor»"
+b26659cc-c62a-5209-9d54-e680cf6b9a40,bdc4ce59-deae-5aa1-9a32-5d090ac9b1d4,,,"1,8-Cineol",unknown,,,,literature,"Maese Lab, https://maeselab.com/aceite-esencial-de-artemisa-100-natural/: «Componentes / Quimiotipo: a-Thujene, Lyratol, 1,8-Cineol, Camphor»"
+db52c5dc-e160-51b7-815a-a1c439ae30f1,bdc4ce59-deae-5aa1-9a32-5d090ac9b1d4,,,a-Thujene,unknown,,,,literature,"Maese Lab, https://maeselab.com/aceite-esencial-de-artemisa-100-natural/: «Componentes / Quimiotipo: a-Thujene, Lyratol, 1,8-Cineol, Camphor»"
