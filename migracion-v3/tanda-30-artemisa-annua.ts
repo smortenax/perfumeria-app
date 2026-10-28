@@ -25,7 +25,7 @@ import { parseCsvRecords } from "../src/data/csv.ts";
 import { type Cell, writeTable } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
-const BASE = "cf672b6";
+const BASE = "3674ea0";
 const OUT_COMMON = "migracion-v3/tandas/30-artemisa-annua";
 const OUT_ACCOUNT = "migracion-v3/tandas/31-tu-artemisa-annua";
 const URL = "https://maeselab.com/aceite-esencial-de-artemisa-annua-100-natural/";

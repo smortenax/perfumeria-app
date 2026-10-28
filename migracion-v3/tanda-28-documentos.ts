@@ -27,8 +27,8 @@ import { parseCsvRecords } from "../src/data/csv.ts";
 import { type Cell, writeTable } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
-// The common data with batch 27 approved (cf672b6, on claude/info-altas-26-oct).
-const BASE = "cf672b6";
+// The common data with batch 27 approved (3674ea0, on claude/info-altas-26-oct).
+const BASE = "3674ea0";
 const WEB = "migracion-v3/web/info-altas-26-oct";
 const OUT_ACCOUNT = "migracion-v3/tandas/28-documentos-tus-botes";
 const OUT_COMMON = "migracion-v3/tandas/29-documentos-comun";

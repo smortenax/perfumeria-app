@@ -1,6 +1,6 @@
 # Tanda 30 · La artemisa annua (ajenjo dulce), otro material
 
-*Generada por `migracion-v3/tanda-30-artemisa-annua.ts` sobre `cf672b6` y los componentes de la tanda 29 (**apruébala después de la 29**). Escribe `v3/datos/materials.csv`, `material_categories.csv` y `material_components.csv` enteros. Sin aprobar.*
+*Generada por `migracion-v3/tanda-30-artemisa-annua.ts` sobre `3674ea0` y los componentes de la tanda 29 (**apruébala después de la 29**). Escribe `v3/datos/materials.csv`, `material_categories.csv` y `material_components.csv` enteros. Sin aprobar.*
 
 **Por qué:** el usuario, 2026-10-28: «Por identidad (Recomendada)» (otra especie, otro material del glosario). Tu ajenjo de Perfumiarz es *Artemisia absinthium* (PCW «Absinthe Essence»: tuyona 60 %, beta-cariofileno 10 %, tope de 2,33 % en cat. 4); el de Maese Lab, según la única ficha de su web, es *Artemisia annua*.
 

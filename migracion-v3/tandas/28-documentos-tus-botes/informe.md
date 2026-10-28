@@ -1,6 +1,6 @@
 # Tanda 28 · Lo que dicen los documentos de tus botes de Perfumiarz
 
-*Generada por `migracion-v3/tanda-28-documentos.ts` (sobre `cf672b6`) desde `migracion-v3/web/info-altas-26-oct/documentos-perfumiarz.csv`: la SDS, el certificado IFRA y los alérgenos que Perfumiarz publica en cada producto, leídos por un subagente línea a línea (cada fila, con su página y su frase) y comprobados por la sesión. Es de tu cuenta (V3-39): va a tu versión de cada material, con autoridad `product`. Se aprueba con `--cuenta` y se carga con `cargar-laboratorio.ts <correo> --tanda=28-documentos-tus-botes`. Sin aprobar.*
+*Generada por `migracion-v3/tanda-28-documentos.ts` (sobre `3674ea0`) desde `migracion-v3/web/info-altas-26-oct/documentos-perfumiarz.csv`: la SDS, el certificado IFRA y los alérgenos que Perfumiarz publica en cada producto, leídos por un subagente línea a línea (cada fila, con su página y su frase) y comprobados por la sesión. Es de tu cuenta (V3-39): va a tu versión de cada material, con autoridad `product`. Se aprueba con `--cuenta` y se carga con `cargar-laboratorio.ts <correo> --tanda=28-documentos-tus-botes`. Sin aprobar.*
 
 ## Topes del fabricante en la categoría 4 (4)
 

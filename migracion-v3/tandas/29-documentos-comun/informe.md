@@ -1,6 +1,6 @@
 # Tanda 29 · Documentos de otros proveedores y los conflictos de uso
 
-*Generada por `migracion-v3/tanda-28-documentos.ts` (sobre `cf672b6`). Escribe `v3/datos/material_doses.csv` y `v3/datos/material_components.csv` enteros. Sin aprobar.*
+*Generada por `migracion-v3/tanda-28-documentos.ts` (sobre `3674ea0`). Escribe `v3/datos/material_doses.csv` y `v3/datos/material_components.csv` enteros. Sin aprobar.*
 
 ## Constituyentes de literatura (30)
 
