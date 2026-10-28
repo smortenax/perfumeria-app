@@ -57,7 +57,59 @@ literal)» en sus filas y **no entran en los datos**.
 | Polysantol | estándar 211: 1,1 % (Fraterworks da lo mismo) | — | **mín. 0,01 · mediana 0,6 · máx. 54,2 (Fraterworks, entra: la cita que faltaba)** | Firmenich |
 | Sandalmysore Core | sin estándar por su CAS | — | la cita sigue faltando: Fraterworks da 404; Kao, de un resumen: 1–15 % | **la casa es Kao, no Givaudan** (de un resumen; chemical.kao.com no carga): **revisar** |
 
+## Los documentos de los fabricantes (2026-10-28, tandas 28 y 29, sin aprobar)
+
+**Perfumiarz publica la SDS, el certificado IFRA y los alérgenos de cada producto** (enlaces en su ficha; el
+entorno en la nube los baja con `curl` aunque WebFetch no llegue). Leídos línea a línea a
+`migracion-v3/web/info-altas-26-oct/documentos-perfumiarz.csv` (cada fila con su archivo, su página y su
+frase) y comprobados por la sesión. Van a **tu versión** de cada material (V3-39), autoridad «producto»:
+tanda **28** (de tu cuenta).
+
+| Tu bote (Perfumiarz) | Tope del fabricante, cat. 4 | Alérgenos / constituyentes del documento | Identidad que da el documento |
+|---|---|---|---|
+| Prunella 975617 | «No Restriction» (IFRA 51; escaneo leído como imagen) | 2 alérgenos (cumarina 0,0100 %…) | Firmenich; código de Perfumiarz W16120 |
+| Shangralide Oliffac 0712 | el certificado de IFF no da tabla: conforme con la 51; benzoato de bencilo e hidroxicitronelal < 0,1 % | Galaxolide (hexametilindanopirano) 55 %… | IFF, sales number 30R31963 |
+| Orris Givco 204/2/20 | **40,08 %** (IFRA 51, Givaudan, 03-10-2023) | 14 alérgenos y la SDS (beta-ionona 50–70 %…) | Givaudan, sales no. 21000663 |
+| Ambrarome 50 % (DPG) | **1,63 %** (certificado de Synarome para «Ambrarome Absolu», ref. 102869; lleva p-cresol 0,3066 %) | 8 alérgenos | Synarome 102869 |
+| Auranone | **49,6072 %** (IFRA 51, Firmenich) | metil ionona 0,0020 %, la SDS (oxaciclohexadecenona 7,5–10 %…) | **Firmenich 911383** (ficha técnica y certificado de análisis del lote 63038) |
+| Myrrh Oil | «No Restriction» | 9 alérgenos | — |
+| Isobutavan | «no safety limits have been established» | vainillina 0,060 % | Givaudan 1465543 |
+| Luminide, Filbertone, Para-cresol, Operanide | sin certificado (solo SDS) | — | la SDS de para-cresol es de p-cresol puro de Sigma-Aldrich, no del 10 % en IPM |
+
+**De Maese Lab no hay documentos en su web.** Para sus productos, la tanda **29** (de lo común) lee los que
+Fraterworks publica para **su** lote (`documentos-fraterworks.csv`): alérgenos del opopónax (Payan Bertrand) y del
+gálbano, la composición de Clearwood (patchoulol 30–40 %…), la pentadecanolida de Exaltolide Total (96,4 %, del
+certificado de Firmenich) y el tolueno de Veramoss. Son literatura, no tus botes.
+
+**Los dos conflictos de uso:** la cifra de la tanda 23 se queda y pasa a «en disputa»; entran las de hoy de
+Fraterworks y, para Clearwood, un tercer referente (Scentspiracy: «Typical usage levels: Fine fragrance:
+1–5%»). Para Ambrarome no se encontró tercer referente (Hekserij, Perfumer's Apprentice, Scentspiracy,
+Synarome: no lo dicen). **Corrección:** la tanda 23 sí sacó la dosis de Ambrarome de la misma página
+(`/products/ambrarome-absolute`); la nota de la 27 que decía «de /products/ambrarome, que da 404» estaba mal.
+
+## El ajenjo: dos especies distintas (2026-10-28)
+
+El usuario: «el ajenjo de perfumiarz es significativamente diferente del de maese … tiene algo amaderado que
+el de maese no tiene y es mucho mas dulce».
+
+- **Perfumiarz, «Wormwood Oil (artemisia absinthium)»:** es «ABSINTHE ESSENCE» de PCW (Grasse), código ABS-1.
+  SDS: CAS 8008-93-3, «Artemisia oil (Absinthium oil, Wormwood oil)». Certificado IFRA 51 (14-03-2025):
+  «Thujone … 546-80-5 … 60,00000 %», **cat. 4: 2,333333 %**. Alérgenos: beta-cariofileno 10 %, linalol 4 %,
+  pineno 2,5 %, limoneno 2 %… El beta-cariofileno puede explicar lo amaderado. Es tu versión actual del ajenjo común.
+- **Maese Lab:** la única ficha que da su web al buscar «ajenjo» es el **«Aceite Esencial de Artemisa Annua»**:
+  «Parte Utilizada: Hoja», «Origen: ESPAÑA», «INCI: Artemisia Annua Herb Oil», «Nº CAS: 84775-74-6»,
+  «Componentes / Quimiotipo: Camphor, 1,8-Cineol, D-Germacrene, a-Humulene», «también conocida como Ajenjo
+  Dulce o Chino». **No es la misma especie** (*A. annua*, no *A. absinthium*): la diferencia no es de la parte
+  de la planta, sino de la especie. Hay que confirmarlo con la etiqueta o la factura del bote.
+- **Cómo está hoy:** el frasco nº 17 de la tanda 24 («Ajenjo AE», al 10 %) cuelga del ajenjo común
+  (*A. absinthium*), así que la app le aplica la tuyona (anexo: estándar 102). *A. annua* no está en el
+  anexo ni tiene estándar por su CAS en los archivos de IFRA.
+- **Pendiente de una decisión del usuario:** cómo registrarlo (otro material común de *A. annua*, tu versión
+  de Maese Lab y el frasco 17 movido a ella). No se ha tocado nada.
+
 ## Para descargar (tú)
+
+**Actualizado el 2026-10-28:** los de Perfumiarz ya están (Perfumiarz los publica). Falta lo de Maese Lab y lo que Perfumiarz no publica (IFRA y alérgenos de Luminide, Filbertone, Para-cresol y Operanide).
 
 Son los únicos documentos que responden a IFRA y a los alérgenos de *tu* bote. Déjalos en el
 laboratorio (`materias-primas/_datos/certificados-ifra/`) y otra tanda los lee.
