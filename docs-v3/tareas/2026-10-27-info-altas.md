@@ -142,6 +142,17 @@ laboratorio (`materias-primas/_datos/certificados-ifra/`) y otra tanda los lee.
 Si no los dan, Fraterworks publica la SDS, el IFRA 51 y los alérgenos de Prunella, Shangralide, Orris Givco,
 Ambrarome, Clearwood, Filbertone y Exaltolide Total: son de *su* lote y servirían de pista.
 
+## Lo que sigue sin cifra (búsqueda del 2026-10-28, `parte-5.csv`; no entra en ninguna tanda)
+
+- **Auranone, uso:** ninguna fuente seria (TGSC, Perfumer's Apprentice, Pell Wall, Scentspiracy, Fraterworks);
+  solo un blog (glooshi.com, «hasta 5 %», confianza baja).
+- **Luminide, mediana:** no lo dice nadie; IFF «hasta 3 %» solo por el resumen del buscador (su web da 403).
+- **Tinturas de ambreta y de cardamomo verde, uso:** TGSC y Fraterworks no dan dosis de la tintura. Como
+  referencia de otras formas: el aceite de ambreta «up to 0.5 %» (TGSC es1024691), el aceite de cardamomo
+  12 % y el CO2 6 % (TGSC es1618841 y es1052481). No son de la tintura.
+- **Exaltolide Total:** nadie nombra lo que lleva además de la pentadecanolida; solo la pureza (Vigon «PURITY
+  % 92 - 100»; Scentspiracy «~92%»), que encaja con el 96,4 % del certificado de Firmenich.
+
 ## Para pedir a Maese Lab (correo listo para copiar)
 
 > Hola: compré el 26 de octubre los productos de abajo y necesito, de cada uno, la ficha de datos de
