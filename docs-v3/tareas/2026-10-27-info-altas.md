@@ -104,8 +104,17 @@ el de maese no tiene y es mucho mas dulce».
 - **Cómo está hoy:** el frasco nº 17 de la tanda 24 («Ajenjo AE», al 10 %) cuelga del ajenjo común
   (*A. absinthium*), así que la app le aplica la tuyona (anexo: estándar 102). *A. annua* no está en el
   anexo ni tiene estándar por su CAS en los archivos de IFRA.
-- **Pendiente de una decisión del usuario:** cómo registrarlo (otro material común de *A. annua*, tu versión
-  de Maese Lab y el frasco 17 movido a ella). No se ha tocado nada.
+- **Decidido por el usuario (2026-10-28), «Por identidad (Recomendada)»:** otra especie, parte, proceso,
+  tratamiento o quimiotipo es otro material del glosario; otro proveedor, origen o lote es otra
+  especificación tuya; la categoría solo agrupa en el buscador. **Propuesta para `decisiones-v3.md` como
+  V3-85** (esta sesión no toca ese archivo).
+- **Tanda 30 (común, sin aprobar):** «Artemisa annua (ajenjo dulce), aceite esencial», con lo que dice la
+  ficha de Maese Lab citado, en la categoría del ajenjo (que gana «ajenjo dulce» y «artemisa annua» como
+  otros nombres); al ajenjo común, una nota para no confundirlos. Se aprueba después de la 29.
+- **Tanda 31 (tu cuenta, sin aprobar):** tu especificación de Maese Lab, con «lo tengo», y el frasco nº 17
+  movido a ella (misma fila, mismos pesos). **Antes de aprobarla, confirma la etiqueta o la factura.**
+- **Tu ajenjo de Perfumiarz** gana en la tanda 28 lo de PCW: tope de 2,333333 % en cat. 4, tuyona 60 % y
+  sus alérgenos, con autoridad «producto».
 
 ## Para descargar (tú)
 

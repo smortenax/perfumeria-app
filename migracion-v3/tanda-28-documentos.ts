@@ -48,7 +48,7 @@ const yours = [
 ];
 
 // Each «MAT-…» as the common material: batch 23's by its key, the older ones by name.
-const BY_NAME: Record<string, string> = { "MAT-polysantol": "Polysantol", "MAT-auranone": "Auranone" };
+const BY_NAME: Record<string, string> = { "MAT-polysantol": "Polysantol", "MAT-auranone": "Auranone", "MAT-ajenjo": "Ajenjo, aceite esencial" };
 const commonId = (key: string): string => {
   const m = BY_NAME[key] ? materials.find((x) => !x.owner_id && x.name === BY_NAME[key]) : materials.find((x) => x.id === uuidFor(`comun:tanda23:${key}`));
   if (!m) throw new Error(`${key}: no está en lo común`);
@@ -58,7 +58,8 @@ const nameOf = (id: string) => String(materials.find((m) => m.id === id)?.name ?
 /** Your version of a common material, bought at Perfumiarz (batch 24, or batch 8 for Auranone). */
 const yourVersion = (key: string): string => {
   const base = commonId(key);
-  const v = yours.find((m) => m.based_on_id === base && m.supplier === "Perfumiarz");
+  // «Perfumiarz (muestra)» counts: the wormwood of batch 8 was a sample from there.
+  const v = yours.find((m) => m.based_on_id === base && String(m.supplier).startsWith("Perfumiarz"));
   if (!v) throw new Error(`${key}: no tienes versión de Perfumiarz`);
   return String(v.id);
 };
@@ -122,7 +123,8 @@ function componentsOf(lines: Record<string, string>[], materialOf: (key: string)
 }
 
 // Batch 28: your bottles from Perfumiarz.
-const perfumiarz = local("documentos-perfumiarz.csv");
+// The wormwood's (PCW «Absinthe Essence», 2026-10-28) read by script into its own file.
+const perfumiarz = [...local("documentos-perfumiarz.csv"), ...local("documentos-ajenjo-perfumiarz.csv")];
 const docSource = (shop: string) => (l: Record<string, string>) => `${shop}, ${TIPO[l.tipo] ?? l.tipo} (${l.archivo}), ${l.url}, página ${l.pagina}: «${l.frase}»`;
 const accountComponents = componentsOf(perfumiarz, yourVersion, "product", docSource("Perfumiarz"), () => false);
 const ceilings: Rec[] = [];

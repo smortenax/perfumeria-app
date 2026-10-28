@@ -2,7 +2,7 @@
 
 *Generada por `migracion-v3/tanda-28-documentos.ts` (sobre `cf672b6`) desde `migracion-v3/web/info-altas-26-oct/documentos-perfumiarz.csv`: la SDS, el certificado IFRA y los alérgenos que Perfumiarz publica en cada producto, leídos por un subagente línea a línea (cada fila, con su página y su frase) y comprobados por la sesión. Es de tu cuenta (V3-39): va a tu versión de cada material, con autoridad `product`. Se aprueba con `--cuenta` y se carga con `cargar-laboratorio.ts <correo> --tanda=28-documentos-tus-botes`. Sin aprobar.*
 
-## Topes del fabricante en la categoría 4 (3)
+## Topes del fabricante en la categoría 4 (4)
 
 Son del producto, no de IFRA (V3-35, V3-39): la app los suma con IFRA y manda el más estricto.
 
@@ -11,13 +11,15 @@ Son del producto, no de IFRA (V3-35, V3-39): la app los suma con IFRA y manda el
 | Orris Givco | 0.4008 | Perfumiarz, certificado IFRA (21000663_ORRIS_GIVCO_204220_IFRA_51_Certificate_20250603.pdf), https://perfumiarz.pl/cdn/shop/files/21000663_ORRIS_GIVCO_204220_IF |
 | Ambrarome | 0.0163 | Perfumiarz, certificado IFRA (I01410_IFRA_10-23.pdf), https://perfumiarz.pl/cdn/shop/files/I01410_IFRA_10-23.pdf, página 2: «CLASS 4 - limited to : 1.63%» |
 | Auranone | 0.496072 | Perfumiarz, certificado IFRA (W01900_IFRA_10-23.pdf), https://perfumiarz.pl/cdn/shop/files/W01900_IFRA_10-23.pdf, página 1: «4 Products related to fine fragranc |
+| Ajenjo, aceite esencial | 0.02333333 | Perfumiarz, certificado IFRA (ABS1R_IFRA51.pdf), https://perfumiarz.pl/cdn/shop/files/ABS1R_IFRA51.pdf, página 2: «Hydroalcoholic and non-hydroalcoholic fine fr |
 
 Sin tope numérico: Mirra, aceite esencial: «No Restriction» (W13900_IFRA_10-23.pdf, página 1); Isobutavan: «no safety limits have been established» (1465543_ISOBUTAVAN_IFRA_51_Certificate_20231019.pdf, página 1); Prunella: «No Restriction» (W16120_IFRA_07-25.pdf, página 1). Sin certificado IFRA en Perfumiarz: Luminide, Filbertone, Para-cresol y Operanide (solo SDS).
 
-## Constituyentes de tus botes (71)
+## Constituyentes de tus botes (83)
 
 | Material | Constituyentes |
 |---|---|
+| Ajenjo, aceite esencial | 12 |
 | Ambrarome | 11 |
 | Auranone | 12 |
 | Isobutavan | 1 |
@@ -43,6 +45,16 @@ Sin tope numérico: Mirra, aceite esencial: «No Restriction» (W13900_IFRA_10-2
 | Orris Givco | TERPINEOL | — | 0.00002 |
 | Orris Givco | TERPINOLENE | 586-62-9 | 0.00002 |
 | Orris Givco | VANILLIN | 121-33-5 | 0.00027 |
+| Ajenjo, aceite esencial | Beta-Carophyllene | — | 0.1 |
+| Ajenjo, aceite esencial | Linalool | 78-70-6 | 0.04 |
+| Ajenjo, aceite esencial | Pinene | — | 0.025 |
+| Ajenjo, aceite esencial | Limonene | 5989-27-5 | 0.02 |
+| Ajenjo, aceite esencial | Citral | — | 0.006 |
+| Ajenjo, aceite esencial | Citronellol | 106-22-9 | 0.004 |
+| Ajenjo, aceite esencial | Geraniol | 106-24-1 | 0.002 |
+| Ajenjo, aceite esencial | alpha-Terpinene | 99-86-5 | 0.0015 |
+| Ajenjo, aceite esencial | Terpinolene | — | 0.0015 |
+| Ajenjo, aceite esencial | Eugenol | 97-53-0 | 0.001 |
 | Shangralide | Hexamethylindanopyran | 1222-05-5 | 0.55 |
 | Shangralide | Hydroxycitronellal | 107-75-5 | 0.00018 |
 | Shangralide | Benzyl Benzoate | 120-51-4 | 0.00031 |
@@ -72,6 +84,8 @@ Sin tope numérico: Mirra, aceite esencial: «No Restriction» (W13900_IFRA_10-2
 | Orris Givco | CITRONELLOL ISOMERS | — | 0.00003 |
 | Orris Givco | CUMINYL ALCOHOL | 536-60-7 | 0.00003 |
 | Orris Givco | ISOPENTYLCYCLOHEXANONE | 16587-71-6 | 0.00359 |
+| Ajenjo, aceite esencial | Thujone | 546-80-5 | 0.6 |
+| Ajenjo, aceite esencial | Estragole Natural (Methyl chavicol) (car. 2) (mut. 2) | 140-67-0 | 0.003 |
 | Ambrarome | Anisaldehyde (p-Methoxybenzaldehyde) | 123-11-5 | 0.003938 |
 | Ambrarome | p-Cresol | 106-44-5 | 0.003066 |
 | Ambrarome | l-Carvone | 6485-40-1 | 0.000495 |
