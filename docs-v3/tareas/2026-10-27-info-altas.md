@@ -142,15 +142,35 @@ laboratorio (`materias-primas/_datos/certificados-ifra/`) y otra tanda los lee.
 Si no los dan, Fraterworks publica la SDS, el IFRA 51 y los alérgenos de Prunella, Shangralide, Orris Givco,
 Ambrarome, Clearwood, Filbertone y Exaltolide Total: son de *su* lote y servirían de pista.
 
+## Para pedir a Maese Lab (correo listo para copiar)
+
+> Hola: compré el 26 de octubre los productos de abajo y necesito, de cada uno, la ficha de datos de
+> seguridad (SDS), el certificado IFRA (enmienda 51) y la declaración de alérgenos de la UE (Reglamento
+> 2023/1545), del lote que me enviasteis:
+>
+> - Aceite Esencial de Opoponax - 100% natural
+> - Aceite Esencial de Gálbano - 100% Natural
+> - Aceite Esencial de Artemisa Annua - 100% Natural (¿podéis confirmar que el que me enviasteis es
+>   Artemisia annua y no Artemisia absinthium?)
+> - Exaltolide Total (y qué lleva además de la pentadecanolida)
+> - Veramoss (Evernyl)
+> - Clearwood
+> - Indol y Etil vainillina
+> - Tinturas de ambreta, de cardamomo verde y de cardamomo «villoso» (y, de las tres, la especie, la
+>   parte de la planta, el disolvente y el porcentaje de planta)
+>
+> Muchas gracias.
+
 ## Para que lo veas (no se ha hecho nada)
 
 - **Conflictos de uso:** Fraterworks ha cambiado sus estadísticas desde el 26-oct. Ambrarome y Clearwood
   chocan con la tanda 23 (en el informe de la tanda 27); Prunella, Filbertone y Exaltolide Total también
   difieren y no se han releído.
-- **Constituyentes de literatura y la app:** los de Auranone (ciclopentadecanolida, estándar 26) y del
-  gálbano (geraniol, estándar 37) los verá IFRA. Son de otro proveedor o de análisis publicados, no de tu
-  lote: según la regla de la v2, una cifra de literatura nunca da «dentro», como mucho «acotado». Hay que
-  comprobar que la v3 los trata así antes de aprobar (es de la app, no de esta tarea).
+- **Constituyentes de literatura y la app (comprobado leyendo, 2026-10-28):** `v3/src/db/to-ifra.ts` ya trata
+  una cifra de literatura o de consenso como no sabida, con su máximo como cota (línea 67): da «acotado»,
+  nunca «dentro». Para un mismo CAS manda la fila de más autoridad (lote, producto, IFRA, literatura; línea
+  270), así que el certificado de tu bote manda sobre la literatura. Un constituyente sin CAS se guarda
+  aparte (`rest`) y no cruza con IFRA. No hace falta tocar la app.
 - **Cambios de la app o del esquema:** ninguno hace falta para esta tanda. Una «pista de IFRA» de una
   tienda no tiene sitio en el esquema; aquí queda solo en la tarea.
 
