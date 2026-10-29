@@ -19,6 +19,7 @@ import {
   FAMILY_CODES, FAMILY_SCHEMES, INTENSITY_MAX, INTENSITY_MIN, type Moment, MOMENTS, PUFF, R1, R2, R3, ROLES, THING_OR_PLACE, VERSATILITY,
 } from "./vocabulary";
 import "./tasting.css";
+import { EmptyState } from "../EmptyState";
 
 const t = texts.tasting;
 export const TABS = ["session", "queue", "history", "legacy"] as const;
@@ -875,7 +876,8 @@ function QueueView({
     <div className="queue">
       <p>{t.queueProgress(queue.tasted, total)}</p>
       <progress max={total || 1} value={queue.tasted} />
-      {queue.pending === 0 && <p className="hint">{t.queueEmpty}</p>}
+      {/* With nothing marked «I have it», the queue is empty for another reason than having tasted it all. */}
+      {queue.pending === 0 && (total === 0 ? <EmptyState title={t.queueNothingHad} text={t.queueNothingHadText} /> : <EmptyState title={t.queueEmpty} text={t.queueEmptyText} />)}
       {queue.marked.length > 0 && (
         <section>
           <h3>{t.queueMarked}</h3>
@@ -894,7 +896,7 @@ function QueueView({
 
 function HistoryView({ data, tastings, onOpenStrip }: { data: GlossaryData; tastings: Tastings; onOpenStrip: (id: string) => void }) {
   const strips = tastings.strips.filter((s) => s.closedAt || tastings.sessions.find((x) => x.id === s.sessionId)?.endedAt);
-  if (strips.length === 0) return <p className="hint">{t.historyEmpty}</p>;
+  if (strips.length === 0) return <EmptyState title={t.historyEmpty} text={t.historyEmptyText} />;
   return (
     <ul className="queue-list">
       {[...strips]

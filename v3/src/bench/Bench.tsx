@@ -7,12 +7,13 @@ import { checkIfra, type IfraBase, type IfraReport } from "../core/ifra";
 import { formulaToJson as toJsonWith } from "../core/io/formula-json";
 import type { Change, Formula, FormulaHeader } from "../core/model/formula";
 import type { Material } from "../core/model/material";
-import { addEvent, copyFormula, deleteFormula, freezeFormula, FormulaInUse, type FormulaMarker, type FormulaRecord, loadFormula, loadFormulas, loadFrozen, moveFormula, renameWorkbench, updateFormula, usableFrozen, usesOfFormula } from "../db/formulas";
+import { addEvent, copyFormula, deleteFormula, freezeFormula, FormulaInUse, type FormulaMarker, type FormulaRecord, loadFormula, loadFormulas, loadFrozen, moveFormula, NotInCopy, renameWorkbench, updateFormula, usableFrozen, usesOfFormula } from "../db/formulas";
 import type { LocalDatabase } from "../db/local/database";
 import { createMaterial } from "../db/materials";
 import type { GlossaryData } from "../glossary/useGlossary";
 import { casForm } from "./data/catalog";
 import { Toast } from "../Toast";
+import { LoadError, Loading } from "../ScreenState";
 import { texts } from "./texts";
 import { AddBar, type AddBarHandle } from "./AddBar";
 import { BottleFrame } from "./Bottle";
@@ -72,6 +73,8 @@ interface View {
 }
 
 const message = (e: unknown) => (e instanceof Error ? e.message : String(e));
+/** How long a formula may be missing from the copy before it is said: a sync brings it well within. */
+const MISSING_FOR_MS = 8000;
 const newId = (): string => crypto.randomUUID();
 
 /** Where this formula is used as a material (plan 8.1b). */
@@ -108,29 +111,60 @@ export function Bench(props: BenchProps) {
   // The formula, read from the copy, again whenever its data changes (an event, its header, a sync).
   const [loaded, setLoaded] = useState<{ formula: Formula; record: FormulaRecord; frozen: readonly Material[]; uses: Uses } | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
+  // What the copy does not hold yet (the formula, or a material of its pours) may still come: the
+  // glossary is read apart from the formula, and after a sync one can be ahead of the other. It is
+  // read again on the next change; only a miss that lasts is an error.
+  const [missing, setMissing] = useState<NotInCopy["what"] | null>(null);
+  // Another formula opened in this bench starts clean: what the last one lacked is not its.
+  useEffect(() => {
+    setMissing(null);
+    setLoadError(null);
+  }, [formulaId]);
   useEffect(() => {
     let live = true;
     Promise.all([loadFormula(local.db, data.catalog, local.userId, formulaId), loadFormulas(local.db, local.userId)])
       .then(async ([formula, records]) => {
         const record = records.find((r) => r.id === formulaId);
-        if (!record) throw new Error("not one of your formulas");
+        if (!record) throw new NotInCopy("formula", "not one of your formulas");
         const { materials } = await loadFrozen(local.db, data.catalog, local.userId, usableFrozen(data.catalog, records, local.userId, formulaId));
         const uses = await usesOfFormula(local.db, data.catalog, local.userId, formulaId);
-        if (live) setLoaded({ formula, record, frozen: materials, uses });
+        if (!live) return;
+        setLoaded({ formula, record, frozen: materials, uses });
+        setMissing(null);
       })
       .catch((e: unknown) => {
+        if (!live) return;
+        if (e instanceof NotInCopy) {
+          setMissing(e.what);
+          return;
+        }
         console.error(e);
-        if (live) setLoadError(message(e));
+        setLoadError(message(e));
       });
     return () => {
       live = false;
     };
   }, [data, formulaId, local, tick]);
+  useEffect(() => {
+    if (!missing) return;
+    const timer = setTimeout(() => setLoadError(missing === "formula" ? appTexts.states.formulaMissing : appTexts.states.materialMissing), MISSING_FOR_MS);
+    return () => clearTimeout(timer);
+  }, [missing]);
 
   if (!loaded) {
+    const s = appTexts.states;
+    // In the page, not over it as the bench is: what is there is the app's, with its way back.
     return (
-      <div className="bench-root">
-        <p className="compute-error">{loadError ?? texts.bench.loading}</p>
+      <div className="bench-pending">
+        {loadError ? (
+          <LoadError title={s.formulaFailed} text={loadError}>
+            <button type="button" onClick={props.onExit}>
+              {s.toFormulation}
+            </button>
+          </LoadError>
+        ) : (
+          <Loading what={s.thisFormula} shape="bench" />
+        )}
       </div>
     );
   }

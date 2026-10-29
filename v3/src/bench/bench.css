@@ -97,7 +97,7 @@
   }
 
   .error {
-    color: var(--red);
+    color: var(--ink);
   }
 
   .label {
@@ -434,7 +434,7 @@
   }
 
   .status.error {
-    color: var(--red);
+    color: var(--ink);
   }
 
   .intention-card {
@@ -1442,7 +1442,7 @@
 
   .compute-error {
     margin: 0;
-    color: var(--red);
+    color: var(--ink);
     font-size: var(--text-sm);
   }
 

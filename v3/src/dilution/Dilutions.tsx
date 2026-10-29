@@ -16,6 +16,7 @@ import { DilutionPopup } from "./DilutionPopup";
 import { cardsOf } from "./grid";
 import { NewDilution } from "./NewDilution";
 import "./dilutions.css";
+import { EmptyState } from "../EmptyState";
 
 const t = texts.dilutions;
 const UG_PER_G = 1_000_000n;
@@ -153,7 +154,7 @@ function BottleList({
           </button>
         </span>
       </div>
-      {all.length === 0 && <p className="hint">{t.empty}</p>}
+      {all.length === 0 && <EmptyState title={t.empty} text={t.emptyText} />}
       <ul className="bottle-grid">
         {cards.map(({ materialId, name, bottles }) => {
           const material = data.catalog.materials.get(materialId);

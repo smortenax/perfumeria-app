@@ -11,6 +11,8 @@ import { Home } from "./Home";
 import { MaterialSheet } from "./glossary/MaterialSheet";
 import { NewMaterial } from "./glossary/NewMaterial";
 import { useGlossary } from "./glossary/useGlossary";
+import { useFirstSync } from "./db/first-sync";
+import { LoadError, Loading, type SkeletonShape } from "./ScreenState";
 import { SignIn } from "./SignIn";
 import { SyncStatus } from "./SyncStatus";
 import { FailureNote } from "./FailureNote";
@@ -55,7 +57,10 @@ export default function App() {
 
 function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => void }) {
   const local = localDatabaseFor(user.id);
-  const data = useGlossary(local);
+  // Nothing of the copy is shown until it has synced once: before, it is empty, not yours (D4).
+  const firstSync = useFirstSync(local);
+  const read = useGlossary(local);
+  const data = firstSync.synced === true ? read : null;
   const tastings = useTastings(local);
   const [route, go, back] = useRoute();
   const leave = async () => {
@@ -134,7 +139,17 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
           </span>
         </span>
       </nav>
-      {route.view === "home" && (
+      {!data &&
+        (firstSync.error ? (
+          <LoadError title={texts.states.downloadFailed} text={texts.states.downloadFailedText(firstSync.error)}>
+            <button type="button" onClick={() => window.location.reload()}>
+              {texts.states.tryAgain}
+            </button>
+          </LoadError>
+        ) : (
+          <Loading what={texts.states.yourData} shape={shapeOf(route)} note={firstSync.synced === false ? texts.states.firstDownload : undefined} />
+        ))}
+      {route.view === "home" && data && (
         <Home
           data={data}
           local={local}
@@ -151,7 +166,6 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
           onSignOut={() => void leave()}
         />
       )}
-      {route.view !== "home" && !data && <p>{texts.glossary.loading}</p>}
       {data && (
         <>
           {/* The glossary stays mounted while a sheet is open: back, it keeps its search and its filters. */}
@@ -266,6 +280,10 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
     </main>
   );
 }
+
+/** The skeleton of the screen that is coming. */
+const shapeOf = (r: Route): SkeletonShape =>
+  r.view === "home" ? "home" : r.view === "materials" ? "grid" : r.view === "formula" ? "bench" : "list";
 
 type Route =
   | { readonly view: "home" | "materials" | "library" | "new" | "dilutions" | "shopping" | "import" }

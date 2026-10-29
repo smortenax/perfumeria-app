@@ -82,6 +82,19 @@ export type NewEvent =
 const now = () => new Date().toISOString();
 const text = (value: bigint | null | undefined) => (value === null || value === undefined ? null : value.toString());
 
+/**
+ * What the copy does not hold, or not yet: a formula, or a material one of its pours uses. A sync may
+ * still bring it (the bench waits for it before saying so).
+ */
+export class NotInCopy extends Error {
+  constructor(
+    readonly what: "formula" | "material",
+    message: string,
+  ) {
+    super(message);
+  }
+}
+
 async function ownWorkbench(db: LocalDb, ownerId: string, id: string) {
   const [row] = await db.select().from(local.workbenches).where(and(eq(local.workbenches.id, id), eq(local.workbenches.ownerId, ownerId)));
   if (!row) throw new Error("not one of your workbenches");
@@ -388,7 +401,7 @@ async function loaderOf(db: LocalDb, catalog: Catalog, ownerId: string) {
 
   async function material(materialId: string | null, inside: readonly string[]): Promise<Material> {
     const m = materialId ? catalog.materials.get(materialId) : undefined;
-    if (!m) throw new Error(`a formula's material is not in the copy: ${materialId}`);
+    if (!m) throw new NotInCopy("material", `a formula's material is not in the copy: ${materialId}`);
     if (m.kind !== "frozen") return engineMaterial(m);
     const known = frozen.get(m.id);
     if (known) return known;
@@ -407,7 +420,7 @@ async function loaderOf(db: LocalDb, catalog: Catalog, ownerId: string) {
     const done = built.get(formulaId);
     if (done) return done;
     const record = records.get(formulaId);
-    if (!record) throw new Error("not one of your formulas");
+    if (!record) throw new NotInCopy("formula", "not one of your formulas");
     const path = [...inside, formulaId];
     const events = (await db.select().from(local.formulaEvents).where(eq(local.formulaEvents.formulaId, formulaId))).sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
     const extra = events.length

@@ -5,6 +5,7 @@ import type { GlossaryData } from "../glossary/useGlossary";
 import { texts } from "../i18n/en";
 import { FailureNote } from "../FailureNote";
 import "../dilution/dilutions.css";
+import { EmptyState } from "../EmptyState";
 
 const t = texts.shopping;
 
@@ -97,7 +98,7 @@ export function ShoppingList({ data, local, onOpenMaterial }: { data: GlossaryDa
       )}
 
       {items.length === 0 ? (
-        <p className="hint">{t.empty}</p>
+        <EmptyState title={t.empty} text={t.emptyText} />
       ) : (
         <ul className="bottle-list shopping-list">
           {items.map((i) => (
