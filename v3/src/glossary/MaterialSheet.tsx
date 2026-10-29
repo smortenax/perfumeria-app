@@ -1,4 +1,4 @@
-import { type ReactNode, useMemo } from "react";
+import { type ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { texts } from "../i18n/en";
 import { SheetHero } from "./SheetHero";
 import { type SheetValue, sheetOf } from "./sheet";
@@ -39,6 +39,19 @@ export function MaterialSheet({
   const material = data.catalog.materials.get(id);
   const base = material?.basedOnId ? data.catalog.materials.get(material.basedOnId) : undefined;
   const abbreviation = material?.abbreviation ?? base?.abbreviation ?? null;
+  // The sources, folded at the end (V3-86): a figure's mark opens them at its line.
+  const [sourcesOpen, setSourcesOpen] = useState(false);
+  const sourcesRef = useRef<HTMLDetailsElement>(null);
+  useEffect(() => setSourcesOpen(false), [id]);
+  const show = (mark: number) => {
+    setSourcesOpen(true);
+    requestAnimationFrame(() => {
+      const line = sourcesRef.current?.querySelector<HTMLElement>(`[data-mark="${mark}"]`);
+      line?.scrollIntoView({ block: "center" });
+      line?.focus();
+    });
+  };
+  const markOf = (mark: number) => <Mark key={mark} mark={mark} onShow={show} />;
   return (
     <article className="sheet">
       <nav className="crumb" aria-label={t.crumb}>
@@ -56,6 +69,8 @@ export function MaterialSheet({
             catalog={data.catalog}
             material={material!}
             name={sheet.name}
+            marks={sheet.figures}
+            markOf={markOf}
             chips={
               <>
                 <span className="chip">{texts.kinds[material!.kind]}</span>
@@ -108,10 +123,10 @@ export function MaterialSheet({
           {links && <div className="sheet-links">{links}</div>}
           <div className="sheet-sections reading">
           {sheet.sections.map((section) => (
-            <section key={section.key} className={`sheet-section${section.tables.some((x) => x.rows.length > 0) || section.key === "notes" ? " wide" : ""}`}>
+            <section key={section.key} className={`sheet-section${section.tables.some((x) => x.rows.length > 0) || section.key === "yourNotes" ? " wide" : ""}`}>
               <h3>
                 {section.title}
-                {section.disputed && <span className="disputed">{t.disputed}</span>}
+                {section.mark && markOf(section.mark)}
               </h3>
               {section.rows.some((row) => row.value.text !== null) && (
                 <dl>
@@ -168,6 +183,7 @@ export function MaterialSheet({
                             {cells.map((cell, c) => (
                               <td key={c} data-label={table.columns[c]}>
                                 {cell}
+                                {c === table.markAt && table.marks?.[r] !== undefined && markOf(table.marks[r])}
                               </td>
                             ))}
                           </tr>
@@ -180,22 +196,42 @@ export function MaterialSheet({
             </section>
           ))}
           </div>
+          {sheet.sources.length > 0 && (
+            <details ref={sourcesRef} className="sheet-sources reading" open={sourcesOpen} onToggle={(e) => setSourcesOpen(e.currentTarget.open)}>
+              <summary>{t.sources(sheet.sources.length)}</summary>
+              <ol>
+                {sheet.sources.map((s) => (
+                  <li key={s.mark} value={s.mark} data-mark={s.mark} tabIndex={-1}>
+                    <span className="source-what">{t.sourceOf(s.what)}</span> {s.text ?? <span className="unknown">{t.unknown}</span>}
+                    {s.authority && <span className="source-meta"> · {s.authority}</span>}
+                    {s.yours && <span className="source-meta"> · {t.yours}</span>}
+                    {s.disputed && <span className="source-meta"> · {t.disputedLong}</span>}
+                    {s.note && <span className="source-note"> {s.note}</span>}
+                  </li>
+                ))}
+              </ol>
+            </details>
+          )}
         </>
       )}
     </article>
   );
 }
 
+/** A figure's mark: a small number that opens «Sources» at its line (V3-86). */
+function Mark({ mark, onShow }: { mark: number; onShow: (mark: number) => void }) {
+  const label = texts.sheet.sourceMark(mark);
+  return (
+    <button type="button" className="src-mark" aria-label={label} title={label} onClick={() => onShow(mark)}>
+      {mark}
+    </button>
+  );
+}
+
+/** A value, and what goes with it; whether the sources disagree on it is said in «Sources» (V3-86). */
 function Value({ value }: { value: SheetValue }) {
   const t = texts.sheet;
-  if (value.text === null) {
-    return (
-      <span className="unknown">
-        {t.unknown}
-        {value.disputed && <span className="disputed">{t.disputed}</span>}
-      </span>
-    );
-  }
+  if (value.text === null) return <span className="unknown">{t.unknown}</span>;
   return (
     <>
       {value.link ? (
@@ -206,7 +242,6 @@ function Value({ value }: { value: SheetValue }) {
         <span className="value">{value.text}</span>
       )}
       {value.notes.length > 0 && <span className="notes"> ({value.notes.join("; ")})</span>}
-      {value.disputed && <span className="disputed">{t.disputed}</span>}
     </>
   );
 }

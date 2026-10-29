@@ -45,6 +45,9 @@ export interface SheetTable {
   readonly rows: ReadonlyArray<readonly string[]>;
   /** What it says when it has no rows. */
   readonly empty: string;
+  /** Each row's mark in «Sources» (V3-86), shown after its cell in column `markAt`. */
+  readonly marks?: readonly number[];
+  readonly markAt?: number;
 }
 
 export interface SheetSection {
@@ -54,6 +57,27 @@ export interface SheetSection {
   readonly disputed: boolean;
   readonly rows: readonly SheetRow[];
   readonly tables: readonly SheetTable[];
+  /** The mark of a source for the whole section (the physical data's), in «Sources». */
+  readonly mark?: number;
+}
+
+/**
+ * Where a figure or a row comes from (V3-86): listed together at the end of the sheet, folded, each
+ * with the mark that its figure carries. In the order the sheet reads.
+ */
+export interface SheetSource {
+  readonly mark: number;
+  /** What it backs: «Strength», «Composition · Coumarin». */
+  readonly what: string;
+  /** The source in its own words; null when nobody says it. */
+  readonly text: string | null;
+  /** Who stands behind the figure (lot, product, literature…). */
+  readonly authority?: string;
+  /** V3-17: the sources disagree on it. */
+  readonly disputed?: boolean;
+  readonly note?: string;
+  /** It comes from your version. */
+  readonly yours?: boolean;
 }
 
 export interface Sheet {
@@ -62,6 +86,9 @@ export interface Sheet {
   readonly own: boolean;
   readonly ifra: IfraCardState;
   readonly sections: readonly SheetSection[];
+  /** The marks of the head's figures, or null when the figure has no source (it says so there). */
+  readonly figures: { readonly strength: number | null; readonly hours: number | null };
+  readonly sources: readonly SheetSource[];
 }
 
 const t = texts.sheet;
@@ -76,6 +103,8 @@ interface Field {
 
 const known = (text: string | null | undefined): string | null => (text === null || text === undefined || text.trim() === "" ? null : text);
 const list = (items: readonly string[]): string | null => (items.length ? items.join(" · ") : null);
+/** A long text cut to name its line in «Sources»: the table shows it whole. */
+const clip = (text: string, max = 48): string => (text.length > max ? `${text.slice(0, max).trimEnd()}…` : text);
 const amountText = (a: Amount): string => {
   switch (a.kind) {
     case "exact":
@@ -90,7 +119,7 @@ const amountText = (a: Amount): string => {
 };
 
 /** The fields of each section, in order: the list the designed card will read too. */
-function fieldsOf(catalog: Catalog): Readonly<Record<"identity" | "bottle" | "smell" | "physical" | "notes", readonly Field[]>> {
+function fieldsOf(catalog: Catalog): Readonly<Record<"identity" | "bottle" | "smell" | "physical", readonly Field[]>> {
   const f = t.fields;
   return {
     identity: [
@@ -149,12 +178,6 @@ function fieldsOf(catalog: Catalog): Readonly<Record<"identity" | "bottle" | "sm
       { label: f.vaporPressure, get: (m) => known(m.physical.vaporPressure) },
       { label: f.stability, get: (m) => known(m.physical.stability) },
       { label: f.incompatibilities, get: (m) => known(m.physical.incompatibilities) },
-      { label: f.physicalSources, get: (m) => known(m.physical.sources) },
-    ],
-    notes: [
-      { label: f.notes, get: (m) => known(m.notes) },
-      { label: f.sources, get: (m) => known(m.sources) },
-      { label: f.confidence, get: (m) => (m.confidence ? t.confidences[m.confidence] : null) },
     ],
   };
 }
@@ -167,7 +190,7 @@ function standardLabel(layer: IfraLayer, key: string): string {
 }
 
 /**
- * The source under each figure of the sheet's head (V3-81): the strength's and the hours on a
+ * The source of each figure of the sheet's head (V3-81, V3-86): the strength's and the hours on a
  * blotter's, each from the nearest of the chain that has the figure (your version, else its common
  * material). A figure without a source still shows; only its source reads «not stated».
  */
@@ -183,6 +206,14 @@ export function sheetOf(catalog: Catalog, layer: IfraLayer, ifra: IfraData, id: 
   const version = own && material.basedOnId !== null;
   const yours = (m: CatalogMaterial) => version && m === material;
   const disputedIn = (m: CatalogMaterial, column: string | undefined) => column !== undefined && m.disputedFields.includes(column);
+  const anyDisputed = (key: string) => chain.some((m) => m.disputedFields.includes(key));
+
+  // The sources, numbered as the sheet reads (V3-86): each figure carries its mark.
+  const sources: SheetSource[] = [];
+  const cite = (source: Omit<SheetSource, "mark">): number => {
+    sources.push({ ...source, mark: sources.length + 1 });
+    return sources.length;
+  };
 
   const valueOf = (field: Field): SheetValue => {
     const values = chain.map((m) => field.get(m));
@@ -195,35 +226,75 @@ export function sheetOf(catalog: Catalog, layer: IfraLayer, ifra: IfraData, id: 
     return { text: values[at], notes: mine ? [...notes, t.yours] : notes, yours: mine, disputed: disputedIn(m, field.column) };
   };
   const rowsOf = (fields: readonly Field[]): SheetRow[] => fields.map((field) => ({ label: field.label, value: valueOf(field) }));
-  /** The rows of a list along the chain, the version's marked as yours in their last column. */
-  const alongChain = <T>(get: (m: CatalogMaterial) => readonly T[], row: (item: T) => string[]): string[][] =>
-    chain.flatMap((m) => get(m).map((item) => {
-      const cells = row(item);
-      return yours(m) ? [...cells.slice(0, -1), `${cells[cells.length - 1]} (${t.yours})`] : cells;
-    }));
-  const anyDisputed = (key: string) => chain.some((m) => m.disputedFields.includes(key));
+  /**
+   * A list along the chain as a table: each row, the version's marked as yours in its last column,
+   * and its source in «Sources» with the row's mark after column `markAt`.
+   */
+  const listTable = <T>(
+    get: (m: CatalogMaterial) => readonly T[],
+    columns: readonly string[],
+    row: (item: T) => string[],
+    source: (item: T) => Omit<SheetSource, "mark" | "yours">,
+    markAt: number,
+    empty: string,
+    caption?: string,
+  ): SheetTable => {
+    const rows: string[][] = [];
+    const marks: number[] = [];
+    for (const m of chain) {
+      for (const item of get(m)) {
+        const cells = row(item);
+        rows.push(yours(m) ? [...cells.slice(0, -1), `${cells[cells.length - 1]} (${t.yours})`] : cells);
+        marks.push(cite({ ...source(item), yours: yours(m) }));
+      }
+    }
+    return { caption, columns, rows, marks, markAt, empty };
+  };
   const fields = fieldsOf(catalog);
   const c = t.columns;
-  const section = (key: SheetSection["key"], rows: SheetRow[], tables: SheetTable[] = [], disputed = false): SheetSection => ({
+  const section = (key: SheetSection["key"], rows: SheetRow[], tables: SheetTable[] = [], disputed = false, mark?: number): SheetSection => ({
     key,
     title: t.sections[key],
     disputed,
     rows,
     tables,
+    ...(mark ? { mark } : {}),
   });
 
-  // ------------------------------------------------------------ identity
-  const base = version ? catalog.materials.get(material.basedOnId!) : undefined;
+  // ------------------------------------------------------------ the head's figures
+  const base = material.basedOnId ? catalog.materials.get(material.basedOnId) : undefined;
+  const h = texts.glossary.hero;
+  const figureText = figureSources(material, base);
+  const figures = {
+    strength: figureText.strength ? cite({ what: h.strength, text: figureText.strength, disputed: anyDisputed("strength") }) : null,
+    hours: figureText.hours ? cite({ what: h.strip, text: figureText.hours, disputed: anyDisputed("tenacity_hours") }) : null,
+  };
+
+  // ------------------------------------------------------------ identity, your bottle, odour and use
   const identity = section(
     "identity",
     [
       // Whose it is, only on yours: a common material is the rule.
-      ...(own ? [{ label: t.fields.whose, value: { text: base ? texts.glossary.versionOf(base.name) : t.whose.own, notes: [], yours: false, disputed: false } }] : []),
+      ...(own ? [{ label: t.fields.whose, value: { text: version && base ? texts.glossary.versionOf(base.name) : t.whose.own, notes: [], yours: false, disputed: false } }] : []),
       // The category only when it says more than the name: most are named as their material.
       ...rowsOf(fields.identity).filter((r) => !(r.label === t.fields.category && r.value.text?.trim().toLowerCase() === material.name.trim().toLowerCase())),
     ],
     [],
     anyDisputed("identity"),
+  );
+  const bottle = own
+    ? [section("bottle", rowsOf(fields.bottle).map((r) => (r.label === t.fields.productUrl && r.value.text ? { ...r, value: { ...r.value, link: r.value.text } } : r)))]
+    : [];
+  const smell = section("smell", rowsOf(fields.smell));
+
+  // ------------------------------------------------------------ physical: one source for the section
+  const physicalSource = valueOf({ label: t.fields.physicalSources, get: (m) => known(m.physical.sources) });
+  const physical = section(
+    "physical",
+    rowsOf(fields.physical),
+    [],
+    false,
+    physicalSource.text ? cite({ what: t.sections.physical, text: physicalSource.text, yours: physicalSource.yours }) : undefined,
   );
 
   // ------------------------------------------------------------ composition and IFRA
@@ -234,8 +305,10 @@ export function sheetOf(catalog: Catalog, layer: IfraLayer, ifra: IfraData, id: 
     [],
     [
       {
-        columns: [c.component, c.amount, c.authority, c.source],
-        rows: components.map((x) => [componentName(x), amountText(x.amount), t.authority[x.authority], x.source]),
+        columns: [c.component, c.amount],
+        rows: components.map((x) => [componentName(x), amountText(x.amount)]),
+        marks: components.map((x) => cite({ what: `${t.sections.composition} · ${componentName(x)}`, text: x.source, authority: t.authority[x.authority] })),
+        markAt: 1,
         empty: t.noComponents,
       },
     ],
@@ -261,16 +334,6 @@ export function sheetOf(catalog: Catalog, layer: IfraLayer, ifra: IfraData, id: 
     const label = s.key.startsWith("std:") ? standardLabel(layer, s.key) : (substance?.name ?? s.key);
     return [label, inside, substance?.combined ? `${limit}; ${t.combined}` : limit];
   });
-  const manufacturer = alongChain(
-    (m) => m.regulations,
-    (r) => [
-      r.regime === "ifra" ? "IFRA" : t.manufacturer,
-      r.category ?? t.allCategories,
-      r.kind === "max" && r.maxValue ? t.regulationKind.max(percent(r.maxValue)) : r.kind === "prohibited" ? t.regulationKind.prohibited : t.regulationKind.requirement(r.requirement ?? ""),
-      t.authority[r.authority],
-      r.source,
-    ],
-  );
   const ifraSection = section(
     "ifra",
     [
@@ -283,54 +346,70 @@ export function sheetOf(catalog: Catalog, layer: IfraLayer, ifra: IfraData, id: 
     ],
     [
       { columns: [c.standard, c.inMaterial, c.limit], rows: substanceRows, empty: texts.ifraStateHelp[card.state] },
-      { caption: t.manufacturer, columns: [c.regime, c.category, c.rule, c.authority, c.source], rows: manufacturer, empty: t.noRows },
+      listTable(
+        (m) => m.regulations,
+        [c.regime, c.category, c.rule],
+        (r) => [
+          r.regime === "ifra" ? "IFRA" : t.manufacturer,
+          r.category ?? t.allCategories,
+          r.kind === "max" && r.maxValue ? t.regulationKind.max(percent(r.maxValue)) : r.kind === "prohibited" ? t.regulationKind.prohibited : t.regulationKind.requirement(r.requirement ?? ""),
+        ],
+        (r) => ({ what: `${t.manufacturer} · ${r.category ?? t.allCategories}`, text: r.source, authority: t.authority[r.authority] }),
+        2,
+        t.noRows,
+        t.manufacturer,
+      ),
     ],
   );
 
   // ------------------------------------------------------------ the lists
   const doses = section("doses", [], [
-    {
-      columns: [c.min, c.typical, c.max, c.basis, c.authority, c.disputed, c.notes, c.source],
-      rows: alongChain(
-        (m) => m.doses,
-        (d) => [
-          d.min ? percent(d.min) : "—",
-          d.typical ? percent(d.typical) : "—",
-          d.max ? percent(d.max) : "—",
-          t.basis[d.basis],
-          t.authority[d.authority],
-          d.disputed ? t.disputed : "",
-          d.notes ?? "",
-          d.source,
-        ],
-      ),
-      empty: t.noRows,
-    },
+    listTable(
+      (m) => m.doses,
+      [c.min, c.typical, c.max, c.basis],
+      (d) => [d.min ? percent(d.min) : "—", d.typical ? percent(d.typical) : "—", d.max ? percent(d.max) : "—", t.basis[d.basis]],
+      (d) => ({
+        what: `${t.sections.doses} · ${[d.min, d.typical, d.max].map((x) => (x ? percent(x) : "—")).join(" / ")}`,
+        text: d.source,
+        authority: t.authority[d.authority],
+        disputed: d.disputed,
+        ...(d.notes ? { note: d.notes } : {}),
+      }),
+      2,
+      t.noRows,
+    ),
   ]);
   const descriptors = section("descriptors", [], [
-    { columns: [c.text, c.source], rows: alongChain((m) => m.descriptors, (d) => [d.text, d.source]), empty: t.noRows },
+    listTable((m) => m.descriptors, [c.text], (d) => [d.text], (d) => ({ what: clip(d.text), text: d.source }), 0, t.noRows),
   ]);
+  const otherOf = (r: CatalogMaterial["relations"][number]) => (r.otherId ? (catalog.materials.get(r.otherId)?.name ?? r.otherText ?? "") : (r.otherText ?? ""));
   const relations = section("relations", [], [
-    {
-      columns: [c.kind, c.other, c.note, c.source],
-      rows: alongChain(
-        (m) => m.relations,
-        (r) => [t.relationKind[r.kind], r.otherId ? (catalog.materials.get(r.otherId)?.name ?? r.otherText ?? "") : (r.otherText ?? ""), r.note ?? "", r.sources ?? ""],
-      ),
-      empty: t.noRows,
-    },
+    listTable(
+      (m) => m.relations,
+      [c.kind, c.other, c.note],
+      (r) => [t.relationKind[r.kind], otherOf(r), r.note ?? ""],
+      (r) => ({ what: `${t.relationKind[r.kind]} ${otherOf(r)}`, text: r.sources ?? null }),
+      1,
+      t.noRows,
+    ),
   ]);
   const references = section("references", [], [
-    { columns: [c.perfume, c.house, c.note, c.source], rows: alongChain((m) => m.references, (r) => [r.perfume, r.house ?? "", r.note ?? "", r.sources ?? ""]), empty: t.noRows },
+    listTable(
+      (m) => m.references,
+      [c.perfume, c.house, c.note],
+      (r) => [r.perfume, r.house ?? "", r.note ?? ""],
+      (r) => ({ what: r.perfume, text: r.sources ?? null }),
+      0,
+      t.noRows,
+    ),
   ]);
 
-  // ------------------------------------------------------------ yours: the bottle and the lab
-  const mine: SheetSection[] = [];
+  // ------------------------------------------------------------ yours: the lab
+  const lab: SheetSection[] = [];
   if (own) {
-    mine.push(section("bottle", rowsOf(fields.bottle).map((r) => (r.label === t.fields.productUrl && r.value.text ? { ...r, value: { ...r.value, link: r.value.text } } : r))));
     const evaluation = catalog.evaluations.get(id);
     const plain = (label: string, text: string | null | undefined): SheetRow => ({ label, value: { text: known(text), notes: [], yours: true, disputed: false } });
-    mine.push(
+    lab.push(
       section(
         "lab",
         [
@@ -352,24 +431,33 @@ export function sheetOf(catalog: Catalog, layer: IfraLayer, ifra: IfraData, id: 
     );
   }
 
+  // ------------------------------------------------------------ the record's own: your notes stay; the rest, to «Sources»
+  const notes = valueOf({ label: t.fields.notes, get: (m) => known(m.notes) });
+  const notesFrom = chain.find((m) => known(m.notes) !== null);
+  const yourNotes = notesFrom !== undefined && notesFrom.ownerId !== null;
+  const recordSources = valueOf({ label: t.fields.sources, get: (m) => known(m.sources) });
+  if (recordSources.text) cite({ what: t.fields.sources, text: recordSources.text, yours: recordSources.yours });
+  const confidence = valueOf({ label: t.fields.confidence, get: (m) => (m.confidence ? t.confidences[m.confidence] : null) });
+  if (confidence.text) cite({ what: t.fields.confidence, text: confidence.text, yours: confidence.yours });
+  // A common material's notes are its research diary: where each datum was looked for.
+  if (notes.text && !yourNotes) cite({ what: t.researchNotes, text: notes.text });
+
+  const sections = [identity, ...bottle, smell, physical, composition, ifraSection, doses, descriptors, relations, references, ...lab];
+  // What the sources disagree on (V3-17), said once, with the sources: the head's figures, the rows and whole sections.
+  const head: Array<[string, string]> = [["family", h.family], ["strength", h.strength], ["tenacity_hours", h.strip], ["tier", h.note]];
+  const disputed = [
+    ...head.filter(([column]) => anyDisputed(column)).map(([, label]) => label),
+    ...sections.flatMap((x) => [...(x.disputed ? [x.title] : []), ...x.rows.filter((r) => r.value.disputed).map((r) => r.label)]),
+  ];
+  if (disputed.length) cite({ what: t.inDispute, text: disputed.join(" · ") });
+
   return {
     id,
     name: material.name,
     own,
     ifra: card,
-    sections: [
-      identity,
-      ...mine.filter((s) => s.key === "bottle"),
-      section("smell", rowsOf(fields.smell)),
-      section("physical", rowsOf(fields.physical)),
-      composition,
-      ifraSection,
-      doses,
-      descriptors,
-      relations,
-      references,
-      ...mine.filter((s) => s.key === "lab"),
-      section("notes", rowsOf(fields.notes)),
-    ],
+    sections: [...sections, ...(yourNotes ? [section("yourNotes", [{ label: t.fields.notes, value: notes }])] : [])],
+    figures,
+    sources,
   };
 }

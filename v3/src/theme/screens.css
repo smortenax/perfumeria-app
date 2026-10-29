@@ -556,7 +556,65 @@
   transform: none;
 }
 
-/* The source under a figure of the sheet's head (V3-81). */
+/* A figure's mark: a small number that opens «Sources» at its line (V3-86). */
+.src-mark {
+  display: inline-block;
+  min-width: 0;
+  min-height: 0;
+  margin-left: 2px;
+  padding: 0 2px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 0.6em;
+  font-weight: 600;
+  line-height: 1;
+  vertical-align: super;
+  cursor: pointer;
+}
+.src-mark:hover,
+.src-mark:focus-visible {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+/* The sources, at the end of the sheet and folded (V3-86). */
+.sheet-sources {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+.sheet-sources summary {
+  padding: 12px 0;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text);
+}
+.sheet-sources ol {
+  display: grid;
+  gap: 6px;
+  margin: 8px 0 0;
+  padding-left: 2.2em;
+}
+.sheet-sources li {
+  overflow-wrap: anywhere;
+}
+.sheet-sources li:focus {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+.sheet-sources .source-what {
+  color: var(--text);
+  font-weight: 600;
+}
+.sheet-sources .source-meta {
+  font-style: italic;
+}
+.sheet-sources .source-note {
+  display: block;
+}
+
+/* «Source: not stated» under a figure of the sheet's head (V3-81). */
 .fig-source {
   display: block;
   margin-top: 4px;

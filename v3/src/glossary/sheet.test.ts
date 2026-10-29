@@ -109,7 +109,7 @@ describe("the sheet of a common material (6.2)", () => {
   const s = sheet("cou");
 
   it("its sections, in order, the same for every material", () => {
-    expect(s.sections.map((x) => x.key)).toEqual(["identity", "smell", "physical", "composition", "ifra", "doses", "descriptors", "relations", "references", "notes"]);
+    expect(s.sections.map((x) => x.key)).toEqual(["identity", "smell", "physical", "composition", "ifra", "doses", "descriptors", "relations", "references"]);
   });
 
   it("each value; what nobody says is null, never empty or zero", () => {
@@ -152,17 +152,40 @@ describe("the sheet of a common material (6.2)", () => {
     expect(table.rows[0][2]).toMatch(/^1,6 % of the finished product/);
   });
 
-  it("its doses, with their base and authority", () => {
-    expect(s.sections.find((x) => x.key === "doses")!.tables[0].rows).toEqual([["0,5 %", "—", "10 %", "% of the concentrate", "literature", "", "", "Arctander"]]);
+  it("its doses, with their base; who says them, under their mark in «Sources» (V3-86)", () => {
+    const doses = s.sections.find((x) => x.key === "doses")!.tables[0];
+    expect(doses.rows).toEqual([["0,5 %", "—", "10 %", "% of the concentrate"]]);
+    expect(s.sources[doses.marks![0] - 1]).toMatchObject({ text: "Arctander", authority: "literature", disputed: false });
+  });
+
+  it("the sources, at the end in the order the sheet reads; each figure with its mark (V3-86)", () => {
+    // Asked by the user (2026-10-29): the sources leave the values and the tables for one list at the end.
+    expect(s.figures).toEqual({ strength: null, hours: 1 });
+    expect(s.sources[0]).toMatchObject({ mark: 1, what: texts.glossary.hero.strip, text: "TGSC", disputed: true });
+    expect(s.sources.map((x) => x.mark)).toEqual(s.sources.map((_, i) => i + 1));
+    // What the sources disagree on, said once among them: the head's figures and the rows.
+    expect(s.sources[s.sources.length - 1]).toMatchObject({ what: texts.sheet.inDispute, text: "Strength · On a blotter · Isomers · Threshold" });
+    const physical = material("p", { physical: { ...NO_PHYSICAL, density: Ratio.of(1n), sources: "TGSC" }, notes: "Se buscó en TGSC." });
+    const only: Catalog = { ...catalog, materials: new Map([[physical.id, physical]]), have: new Set(), dilutions: new Map(), evaluations: new Map(), axes: new Map() };
+    const p = sheetOf(only, layer, toIfra(only, layer), "p");
+    // One source for the physical data, on its section; a common material's notes are its research diary.
+    expect(p.sources[p.sections.find((x) => x.key === "physical")!.mark! - 1]).toMatchObject({ what: "Physical", text: "TGSC" });
+    expect(p.sources.find((x) => x.what === texts.sheet.researchNotes)?.text).toBe("Se buscó en TGSC.");
+    expect(p.sections.some((x) => x.key === "yourNotes")).toBe(false);
   });
 });
 
 describe("the composition says how much and who says it", () => {
   it("a range, a figure unknown; and a material without one says so", () => {
-    const table = sheet("ton").sections.find((x) => x.key === "composition")!.tables[0];
+    const ton = sheet("ton");
+    const table = ton.sections.find((x) => x.key === "composition")!.tables[0];
     expect(table.rows).toEqual([
-      ["Coumarin · 91-64-5", "20 % – 40 %", "product", "certificado"],
-      ["Dihydrocoumarin · 119-84-6", "contains it, no figure", "product", "certificado"],
+      ["Coumarin · 91-64-5", "20 % – 40 %"],
+      ["Dihydrocoumarin · 119-84-6", "contains it, no figure"],
+    ]);
+    expect(table.marks!.map((mark) => ton.sources[mark - 1])).toMatchObject([
+      { what: "Composition · Coumarin · 91-64-5", text: "certificado", authority: "product" },
+      { what: "Composition · Dihydrocoumarin · 119-84-6", text: "certificado", authority: "product" },
     ]);
     const empty = sheet("cou").sections.find((x) => x.key === "composition")!.tables[0];
     expect([empty.rows, empty.empty]).toEqual([[], "Its record gives no composition (what IFRA's annex says goes under IFRA)."]);
@@ -174,7 +197,7 @@ describe("your version (V3-5): the common material's record with yours over it",
 
   it("says whose it is, and adds your bottle and your lab", () => {
     expect(row(s, "identity", "Whose").text).toBe("your version of «Cumarina»");
-    expect(s.sections.map((x) => x.key)).toEqual(["identity", "bottle", "smell", "physical", "composition", "ifra", "doses", "descriptors", "relations", "references", "lab", "notes"]);
+    expect(s.sections.map((x) => x.key)).toEqual(["identity", "bottle", "smell", "physical", "composition", "ifra", "doses", "descriptors", "relations", "references", "lab", "yourNotes"]);
     expect(row(s, "bottle", "Page")).toMatchObject({ text: "https://example.test/coumarin", link: "https://example.test/coumarin" });
     expect(row(s, "lab", "Axes").text).toBe("dulce · heno");
     expect(s.sections.find((x) => x.key === "lab")!.tables[0].rows).toEqual([["10 %", "DPG", "2026-09-01", ""]]);
@@ -184,7 +207,8 @@ describe("your version (V3-5): the common material's record with yours over it",
     expect(row(s, "identity", "CAS")).toMatchObject({ text: "91-64-5", yours: false });
     // The same value as its common material's is inherited, not yours.
     expect(row(s, "identity", "INCI")).toMatchObject({ text: "COUMARIN", yours: false, notes: [] });
-    expect(row(s, "notes", "Notes")).toMatchObject({ text: "Comprada en 2026.", yours: true, notes: ["yours"] });
+    // Your notes are yours to read, not a source: they stay in the sheet.
+    expect(row(s, "yourNotes", "Notes")).toMatchObject({ text: "Comprada en 2026.", yours: true, notes: ["yours"] });
     expect(s.sections.find((x) => x.key === "doses")!.tables[0].rows).toHaveLength(1);
     expect(s.ifra.state).toBe("ceiling");
   });
