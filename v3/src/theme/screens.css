@@ -431,26 +431,6 @@
   width: 220px;
 }
 
-.hero-orb .orb-facts {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 3px 10px;
-  margin: 0;
-  font-size: var(--text-xs);
-}
-
-.hero-orb .orb-facts div {
-  display: contents;
-}
-
-.hero-orb .orb-facts dt {
-  color: var(--muted);
-}
-
-.hero-orb .orb-facts dd {
-  margin: 0;
-}
-
 .hero-info {
   display: grid;
   gap: 14px;

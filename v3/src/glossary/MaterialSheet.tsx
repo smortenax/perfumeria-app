@@ -60,6 +60,7 @@ export function MaterialSheet({
               <>
                 <span className="chip">{texts.kinds[material!.kind]}</span>
                 {abbreviation && <span className="chip">{abbreviation}</span>}
+                {(material!.solvent || base?.solvent) && <span className="chip">{t.fields.solvent}</span>}
                 <span className={`ifra ifra-${sheet.ifra.state}`} title={texts.ifraStateHelp[sheet.ifra.state]}>
                   {texts.ifraState[sheet.ifra.state]}
                 </span>

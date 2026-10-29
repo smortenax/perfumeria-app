@@ -1,4 +1,3 @@
-import { PALETTE } from "../families/palette";
 import type { IfraData } from "../core/ifra";
 import type { Amount, Catalog, CatalogMaterial, Component } from "../db/catalog";
 import type { IfraLayer } from "../db/ifra-layer";
@@ -14,6 +13,12 @@ import { decimal, percent } from "./format";
  *
  * A version (V3-5) shows the common material's record with its own over it: each value comes from
  * the nearest of the chain that has it, and the version's own are marked as yours.
+ *
+ * The sheet shows what the material is and how it is used (the user, 2026-10-29: the colour and its
+ * codes «debería estar entre los datos del material pero interno»). What the head already says
+ * (name, type, abbreviation, family, strength, note, hours on a blotter) is not repeated below it, and
+ * what is the app's own (the family's colour, the fixed colour, where the abbreviation came from, the
+ * solvent mark, a category named as the material) stays in the record and in the editor.
  */
 
 /** A value of the sheet: its text, or null when nobody says it; and what goes with it. */
@@ -90,11 +95,6 @@ function fieldsOf(catalog: Catalog): Readonly<Record<"identity" | "bottle" | "sm
   return {
     identity: [
       { label: f.aliases, get: (m) => list(m.aliases) },
-      {
-        label: f.abbreviation,
-        get: (m) => known(m.abbreviation),
-        notes: (m) => [m.abbreviationOrigin ? t.abbreviationOrigin[m.abbreviationOrigin] : null],
-      },
       { label: f.cas, get: (m) => known(m.cas), column: "cas" },
       { label: f.otherCas, get: (m) => list(m.otherCas), column: "other_cas" },
       { label: f.species, get: (m) => known(m.species), column: "species" },
@@ -109,7 +109,6 @@ function fieldsOf(catalog: Catalog): Readonly<Record<"identity" | "bottle" | "sm
       { label: f.synthesis, get: (m) => (m.synthesis ? t.synthesis[m.synthesis] : null) },
       { label: f.isomers, get: (m) => known(m.isomers), column: "isomers" },
       { label: f.category, get: (m) => (m.categoryId ? (catalog.categories.get(m.categoryId)?.name ?? null) : null) },
-      { label: f.solvent, get: (m) => (m.solvent ? t.yes : null) },
     ],
     bottle: [
       { label: f.supplier, get: (m) => known(m.supplier) },
@@ -123,40 +122,17 @@ function fieldsOf(catalog: Catalog): Readonly<Record<"identity" | "bottle" | "sm
       { label: f.status, get: (m) => (m.status ? t.statuses[m.status] : null) },
     ],
     smell: [
-      { label: f.family, get: (m) => (m.family ? t.families[m.family] : null), column: "family" },
-      {
-        label: f.familyColour,
-        // The colour it is drawn in (V3-38), from the palette; «Color fijado», below, overrides it.
-        get: (m) => {
-          const c = m.family ? PALETTE.get(m.family) : undefined;
-          return c ? t.familyColour(c.colourName, c.light, c.dark) : null;
-        },
-      },
-      { label: f.color, get: (m) => known(m.color) },
       { label: f.familyDetail, get: (m) => known(m.familyDetail), column: "family_detail" },
       { label: f.facets, get: (m) => known(m.facets) },
       { label: f.odorTarget, get: (m) => known(m.odorTarget) },
-      { label: f.tier, get: (m) => (m.tier ? t.tiers[m.tier] : null), column: "tier" },
-      {
-        label: f.tenacity,
-        get: (m) => (m.tenacityHours ? t.hours(decimal(m.tenacityHours, 1)) : null),
-        column: "tenacity_hours",
-        notes: (m) => [m.tenacitySource ? t.from(m.tenacitySource) : null],
-      },
       {
         label: f.evolution,
         get: (m) => (m.evolution.some((e) => e !== null) ? m.evolution.map((e, i) => `${t.evolution[i]}: ${e ?? "?"}`).join(" · ") : null),
       },
-      {
-        label: f.strength,
-        get: (m) => (m.strength ? t.strengths[m.strength] : null),
-        column: "strength",
-        notes: (m) => [m.strengthSource ? t.from(m.strengthSource) : null],
-      },
       { label: f.threshold, get: (m) => known(m.threshold), column: "threshold" },
       { label: f.diffusion, get: (m) => known(m.diffusion) },
       { label: f.blendEffect, get: (m) => known(m.blendEffect) },
-      { label: f.role, get: (m) => known(m.role) },
+      { label: f.role, get: (m) => (known(m.role) ? (t.roles[m.role as keyof typeof t.roles] ?? m.role) : null) },
       { label: f.recommendedDilution, get: (m) => known(m.recommendedDilution) },
       { label: f.cost, get: (m) => known(m.cost) },
       { label: f.handling, get: (m) => known(m.handling) },
@@ -241,13 +217,10 @@ export function sheetOf(catalog: Catalog, layer: IfraLayer, ifra: IfraData, id: 
   const identity = section(
     "identity",
     [
-      { label: t.fields.name, value: { text: material.name, notes: [], yours: false, disputed: false } },
-      { label: t.fields.kind, value: { text: texts.kinds[material.kind], notes: [], yours: false, disputed: false } },
-      {
-        label: t.fields.whose,
-        value: { text: own ? (base ? texts.glossary.versionOf(base.name) : t.whose.own) : t.whose.common, notes: [], yours: false, disputed: false },
-      },
-      ...rowsOf(fields.identity),
+      // Whose it is, only on yours: a common material is the rule.
+      ...(own ? [{ label: t.fields.whose, value: { text: base ? texts.glossary.versionOf(base.name) : t.whose.own, notes: [], yours: false, disputed: false } }] : []),
+      // The category only when it says more than the name: most are named as their material.
+      ...rowsOf(fields.identity).filter((r) => !(r.label === t.fields.category && r.value.text?.trim().toLowerCase() === material.name.trim().toLowerCase())),
     ],
     [],
     anyDisputed("identity"),
@@ -305,7 +278,8 @@ export function sheetOf(catalog: Catalog, layer: IfraLayer, ifra: IfraData, id: 
       ...(engine?.conditions.length ? [{ label: t.conditions, value: { text: engine.conditions.join(" · "), notes: [], yours: false, disputed: false } }] : []),
       ...(engine?.assumed?.length ? [{ label: t.assumed, value: { text: engine.assumed.join(" · "), notes: [], yours: false, disputed: false } }] : []),
       ...(engine?.pending?.length ? [{ label: t.pending, value: { text: engine.pending.join(" · "), notes: [], yours: false, disputed: false } }] : []),
-      ...rowsOf([{ label: t.fields.ifraUnverified, get: (m) => known(m.ifraUnverified), column: "ifra_unverified" }]),
+      // Only when someone says it: empty in every common material.
+      ...rowsOf([{ label: t.fields.ifraUnverified, get: (m) => known(m.ifraUnverified), column: "ifra_unverified" }]).filter((r) => r.value.text !== null),
     ],
     [
       { columns: [c.standard, c.inMaterial, c.limit], rows: substanceRows, empty: texts.ifraStateHelp[card.state] },

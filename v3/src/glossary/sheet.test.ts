@@ -48,13 +48,18 @@ const layer: IfraLayer = {
 const coumarin = material("cou", {
   name: "Cumarina",
   cas: "91-64-5",
+  inci: "COUMARIN",
+  isomers: "ninguno",
   abbreviation: "Cou",
   abbreviationOrigin: "user",
+  categoryId: "cat-cou",
   family: "transformed",
+  color: "#aa5500",
+  role: "fixative",
   tenacityHours: Ratio.of(400n),
   tenacitySource: "TGSC",
   physical: { ...NO_PHYSICAL, state: "sólido", density: Ratio.fromDecimal("0.935") },
-  disputedFields: ["tenacity_hours", "strength"],
+  disputedFields: ["tenacity_hours", "strength", "isomers", "threshold"],
   doses: [{ id: "d1", min: pct("0.5"), typical: null, max: pct("10"), basis: "concentrate", authority: "literature", source: "Arctander", disputed: false, notes: null }],
 });
 const tonka = material("ton", {
@@ -69,6 +74,7 @@ const mine = material("my-cou", {
   name: "Cumarina",
   ownerId: ME,
   basedOnId: "cou",
+  inci: "COUMARIN",
   abbreviation: "Cou",
   abbreviationOrigin: "user",
   supplier: "Perfumiarz",
@@ -78,7 +84,7 @@ const mine = material("my-cou", {
 });
 const catalog: Catalog = {
   materials: new Map([coumarin, tonka, mine].map((m) => [m.id, m])),
-  categories: new Map(),
+  categories: new Map([["cat-cou", { id: "cat-cou", name: "cumarina", aliases: [] }]]),
   have: new Set(["my-cou"]),
   dilutions: new Map([["my-cou", [{ id: "dl1", fraction: pct("10"), solvent: "DPG", madeOn: "2026-09-01", description: null, label: null, materialMassUg: null, sourceDilutionId: null, archivedAt: null, diluents: [] }]]]),
   evaluations: new Map([["my-cou", { id: "e1", status: "catado", smellingTip: null, reading: "heno dulce", sheet: null }]]),
@@ -106,18 +112,35 @@ describe("the sheet of a common material (6.2)", () => {
     expect(s.sections.map((x) => x.key)).toEqual(["identity", "smell", "physical", "composition", "ifra", "doses", "descriptors", "relations", "references", "notes"]);
   });
 
-  it("each value with its notes; what nobody says is null, never empty or zero", () => {
-    expect(row(s, "identity", "Abbreviation")).toMatchObject({ text: "Cou", notes: ["yours"] });
-    expect(row(s, "smell", "Tenacity")).toMatchObject({ text: "400 h on paper, neat", notes: ["according to TGSC"] });
+  it("each value; what nobody says is null, never empty or zero", () => {
+    expect(row(s, "identity", "INCI").text).toBe("COUMARIN");
     expect(row(s, "physical", "Density").text).toBe("0,935 g/ml");
-    expect(row(s, "identity", "INCI").text).toBeNull();
-    expect(row(s, "smell", "Family").text).toBe("Transformed");
+    expect(row(s, "identity", "Species").text).toBeNull();
+    // A role in words, not its code.
+    expect(row(s, "smell", "Role").text).toBe(texts.sheet.roles.fixative);
+  });
+
+  it("shows what the material is, not what the head says nor the app's own (the user, 2026-10-29)", () => {
+    // Asked by the user, not a wrong result before: the colour and its codes are internal; name,
+    // type, abbreviation, family, strength, note and hours are in the head; the abbreviation's
+    // origin, the solvent mark and a category named as the material are the app's own.
+    const labels = s.sections.flatMap((x) => x.rows.map((r) => r.label));
+    const f = texts.sheet.fields;
+    for (const gone of [f.name, f.kind, f.whose, f.abbreviation, f.category, f.solvent, f.family, f.color, f.tier, f.tenacity, f.strength, f.ifraUnverified]) {
+      expect(labels).not.toContain(gone);
+    }
+    expect(labels.some((l) => /colou?r/i.test(l))).toBe(false);
+  });
+
+  it("a category that says more than the name stays", () => {
+    const other: Catalog = { ...catalog, categories: new Map([["cat-cou", { id: "cat-cou", name: "Lactonas", aliases: [] }]]) };
+    expect(row(sheetOf(other, layer, toIfra(other, layer), "cou"), "identity", "Category").text).toBe("Lactonas");
   });
 
   it("a datum in dispute says so, also when it is not known (V3-17)", () => {
-    expect(row(s, "smell", "Tenacity").disputed).toBe(true);
-    expect(row(s, "smell", "Strength")).toMatchObject({ text: null, disputed: true });
-    expect(row(s, "smell", "Tier").disputed).toBe(false);
+    expect(row(s, "identity", "Isomers")).toMatchObject({ text: "ninguno", disputed: true });
+    expect(row(s, "smell", "Threshold")).toMatchObject({ text: null, disputed: true });
+    expect(row(s, "identity", "INCI").disputed).toBe(false);
   });
 
   it("its IFRA: its own state and its standard with the limit of category 4", () => {
@@ -160,7 +183,7 @@ describe("your version (V3-5): the common material's record with yours over it",
   it("inherits what it does not say, and marks what is yours", () => {
     expect(row(s, "identity", "CAS")).toMatchObject({ text: "91-64-5", yours: false });
     // The same value as its common material's is inherited, not yours.
-    expect(row(s, "identity", "Abbreviation")).toMatchObject({ text: "Cou", yours: false, notes: ["yours"] });
+    expect(row(s, "identity", "INCI")).toMatchObject({ text: "COUMARIN", yours: false, notes: [] });
     expect(row(s, "notes", "Notes")).toMatchObject({ text: "Comprada en 2026.", yours: true, notes: ["yours"] });
     expect(s.sections.find((x) => x.key === "doses")!.tables[0].rows).toHaveLength(1);
     expect(s.ifra.state).toBe("ceiling");
@@ -201,16 +224,7 @@ describe("the source under each figure of the head (V3-81)", () => {
     expect(figureSources(yours, common)).toEqual({ strength: "my notebook", hours: "TGSC" });
     expect(figureSources(material("y2", { ownerId: ME, basedOnId: "c" }), common)).toEqual({ strength: "lab: materiales.sqlite", hours: "TGSC" });
   });
-  it("a figure without a source still shows, and its source is not stated", () => {
-    const bare = material("b", { strength: "low" });
-    expect(figureSources(bare, undefined)).toEqual({ strength: null, hours: null });
-    const only: Catalog = { ...catalog, materials: new Map([[bare.id, bare]]), have: new Set(), dilutions: new Map(), evaluations: new Map(), axes: new Map() };
-    const strength = row(sheetOf(only, layer, toIfra(only, layer), "b"), "smell", texts.sheet.fields.strength);
-    expect([strength.text, strength.notes]).toEqual([texts.sheet.strengths.low, []]);
-  });
-  it("the sheet's strength row says its source, as the tenacity does", () => {
-    const withSource = { ...common, strengthSource: "lab: materiales.sqlite" };
-    const only: Catalog = { ...catalog, materials: new Map([[withSource.id, withSource]]), have: new Set(), dilutions: new Map(), evaluations: new Map(), axes: new Map() };
-    expect(row(sheetOf(only, layer, toIfra(only, layer), "c"), "smell", texts.sheet.fields.strength).notes).toEqual([texts.sheet.from("lab: materiales.sqlite")]);
+  it("a figure without a source has none to show", () => {
+    expect(figureSources(material("b", { strength: "low" }), undefined)).toEqual({ strength: null, hours: null });
   });
 });
