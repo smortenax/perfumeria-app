@@ -9,6 +9,20 @@ export const texts = {
     dismiss: "Close",
     undo: "Undo",
   },
+  /** What a screen says while it loads and when it cannot (V3-75, D4). */
+  states: {
+    loading: (what: string) => `Loading ${what}`,
+    yourData: "your data",
+    firstDownload: "Your data is coming down to this browser for the first time; after that it opens without waiting, and without network.",
+    downloadFailed: "Couldn't download your data.",
+    downloadFailedText: (error: string) => `This browser has none of it yet, and the connection to the server failed: ${error}. Check the network, then try again.`,
+    tryAgain: "Try again",
+    thisFormula: "this formula",
+    formulaFailed: "Couldn't open this formula.",
+    formulaMissing: "It isn't among your formulas in this browser: it may have been deleted, or the link may be from another account.",
+    materialMissing: "One of the materials it uses isn't in this browser's copy. Check the connection in «The data in this browser», below.",
+    toFormulation: "Go to Formulation",
+  },
   signIn: {
     devMe: "Sign in as you, without a password",
     devTest: "Sign in as test A (test account, without your data)",
@@ -104,6 +118,8 @@ export const texts = {
     noFormulasYet: (hasBench: boolean) =>
       hasBench ? "No formulas yet: open a bench and make the first one with «New formula»." : "No formulas yet: make a bench with «New bench», then «New formula» in it.",
     noMarked: "No formula has this marker yet: you mark a formula in the workbench.",
+    noBenches: "No benches yet",
+    noBenchesText: "A bench holds every version of one idea, from the first try to the finished perfume.",
     emptyBench: "This bench is empty",
     emptyBenchText: "Make its first formula here, or delete the bench (above) if you no longer need it.",
     noFavorites: "No favorites in this bench",
@@ -609,6 +625,8 @@ export const texts = {
     queueNoDilution: "No dilution recorded",
     queueEmpty: "You have no materials left to evaluate.",
     queueEmptyText: "Every material you have has an evaluation. A new one you mark as «I have it» comes here.",
+    queueNothingHad: "Nothing to evaluate yet",
+    queueNothingHadText: "The queue holds the materials you have. Mark them with «I have it» in Materials, and they come here.",
     queueAdd: "To the session",
     mark: "Mark",
     markAsk: "Why are you marking it? (e.g. «order 2026-10-18»)",

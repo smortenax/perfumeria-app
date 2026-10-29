@@ -67,18 +67,16 @@ export function Library({
     setTab(TABS[next]);
     refs.current[next]?.focus();
   };
+  const newBench = () => {
+    const name = window.prompt(t.newBenchName)?.trim();
+    if (name) onNewBench(name);
+  };
   return (
     <section className="glossary library">
       <div className="title-bar">
         <h2 className="page-title">{t.title}</h2>
         <span className="buttons">
-          <button
-            type="button"
-            onClick={() => {
-              const name = window.prompt(t.newBenchName)?.trim();
-              if (name) onNewBench(name);
-            }}
-          >
+          <button type="button" onClick={newBench}>
             {t.newBench}
           </button>
         </span>
@@ -112,7 +110,7 @@ export function Library({
       </div>
       <div className="tab-panel" role="tabpanel" id="library-panel" aria-labelledby={`library-tab-${tab}`}>
         {tab === "benches" ? (
-          <Benches data={data} local={local} previews={previews} query={query} onOpen={onOpen} onNew={onNew} onDeleteBench={onDeleteBench} />
+          <Benches data={data} local={local} previews={previews} query={query} onOpen={onOpen} onNew={onNew} onNewBench={newBench} onDeleteBench={onDeleteBench} />
         ) : (
           <Formulas data={data} query={query} marker={MARKER[tab]} onOpen={onOpen} />
         )}
@@ -133,6 +131,7 @@ function Benches({
   query,
   onOpen,
   onNew,
+  onNewBench,
   onDeleteBench,
 }: {
   data: GlossaryData;
@@ -141,6 +140,7 @@ function Benches({
   query: string;
   onOpen: (id: string) => void;
   onNew: (workbenchId: string) => void;
+  onNewBench: () => void;
   onDeleteBench: (workbenchId: string) => void;
 }) {
   const t = texts.glossary;
@@ -170,7 +170,16 @@ function Benches({
   // What is macerating (V3-83), with its day.
   const macerations = useMacerations(local);
   const macerating = new Map(macerations.map((m) => [m.formulaId, macerationState(m, todayIso()).day]));
-  if (!current) return <p className="hint">{words.length ? t.noFormulas : t.noFormulasYet(false)}</p>;
+  if (!current)
+    return words.length ? (
+      <p className="hint">{t.noFormulas}</p>
+    ) : (
+      <EmptyState title={t.noBenches} text={t.noBenchesText}>
+        <button type="button" onClick={onNewBench}>
+          {texts.library.newBench}
+        </button>
+      </EmptyState>
+    );
   const depth = (f: FormulaRecord) => {
     let d = 0;
     for (let p = f.parentId; p && d < 8; d++) p = data.formulas.find((x) => x.id === p)?.parentId ?? null;

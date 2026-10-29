@@ -876,7 +876,8 @@ function QueueView({
     <div className="queue">
       <p>{t.queueProgress(queue.tasted, total)}</p>
       <progress max={total || 1} value={queue.tasted} />
-      {queue.pending === 0 && <EmptyState title={t.queueEmpty} text={t.queueEmptyText} />}
+      {/* With nothing marked «I have it», the queue is empty for another reason than having tasted it all. */}
+      {queue.pending === 0 && (total === 0 ? <EmptyState title={t.queueNothingHad} text={t.queueNothingHadText} /> : <EmptyState title={t.queueEmpty} text={t.queueEmptyText} />)}
       {queue.marked.length > 0 && (
         <section>
           <h3>{t.queueMarked}</h3>

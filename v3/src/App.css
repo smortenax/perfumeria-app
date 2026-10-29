@@ -1412,3 +1412,155 @@ button:focus-visible {
 .empty-title {
   font-weight: 600;
 }
+
+/* What a screen shows while it loads (ScreenState.tsx, V3-75 D4): grey blocks shaped like it. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.screen-loading {
+  display: grid;
+  gap: var(--space-gap);
+}
+.skeleton {
+  display: grid;
+  gap: var(--space-gap);
+}
+.sk {
+  display: block;
+  border-radius: 6px;
+  background: var(--surface-chip);
+}
+.sk-card {
+  display: grid;
+  gap: 10px;
+  padding: var(--space-inset);
+  background: var(--surface-raised);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-panel);
+}
+.sk-block {
+  min-height: 110px;
+  align-content: start;
+}
+.sk-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.sk-lines {
+  display: grid;
+  gap: 6px;
+  flex: 1;
+}
+.sk-orb {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-orb-frame);
+  flex: none;
+}
+.sk-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  flex: none;
+}
+.sk-push {
+  display: contents;
+}
+.sk-push .sk {
+  margin-left: auto;
+}
+.sk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(212px, 1fr));
+  gap: var(--space-gap);
+}
+.sk-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-gap);
+}
+.sk-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--size-bench-side);
+  gap: var(--space-gap);
+  align-items: start;
+}
+.sk-side {
+  display: grid;
+  gap: var(--space-gap);
+}
+@media (max-width: 1000px) {
+  .sk-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*
+ * Errors in ink, with a «!» and words (V3-75, D4; designVault D-0008): red is the colour of a family.
+ * IFRA's «prohibited» and «over» stay as they are: they are a material's data, not a failure.
+ */
+.load-error {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: var(--space-inset);
+  background: var(--surface-raised);
+  border: 1px solid var(--text-default);
+  border-radius: var(--radius-panel);
+  box-shadow: inset 4px 0 0 var(--text-default);
+}
+.load-error-body {
+  display: grid;
+  gap: 0.5rem;
+  justify-items: start;
+  min-width: 0;
+}
+.load-error-body p {
+  margin: 0;
+}
+.load-error-mark,
+.error::before,
+.compute-error::before,
+.failure::before {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 1.375rem;
+  height: 1.375rem;
+  border-radius: 50%;
+  background: var(--text-default);
+  color: var(--surface-raised);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  line-height: 1;
+}
+.error::before,
+.compute-error::before,
+.failure::before {
+  content: "!";
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-right: 0.5rem;
+  font-size: 0.6875rem;
+  vertical-align: 0.0625rem;
+}
+.error,
+.compute-error {
+  color: var(--text-default);
+  font-weight: 600;
+}
+.failure {
+  color: var(--text-default);
+  background: var(--surface-raised);
+  border-color: var(--text-default);
+  box-shadow: inset 4px 0 0 var(--text-default);
+}
+.failure .link {
+  color: var(--text-default);
+}

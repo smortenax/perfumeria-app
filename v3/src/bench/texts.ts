@@ -44,7 +44,6 @@ export const texts = {
     fillOf: (pct: string) => `${pct} of the working batch`,
     noWorkBatch: "no working batch",
     computeError: "The formula cannot be computed",
-    loading: "Opening the formula…",
     yourVersion: "your version",
     savedLive: "saved · each step as it happens",
     frozen: (name: string) => `saved as material «${name}»`,
