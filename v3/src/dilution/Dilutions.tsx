@@ -47,7 +47,9 @@ export function bottleText(data: GlossaryData, d: Dilution): string {
         ? t.inWords(d.solvent)
         : ""
       : `in ${d.diluents.map((x, i) => (d.diluents.length > 1 && i < d.diluents.length - 1 ? `${name(x.diluentId)} ${percent(x.fraction, 2)}` : name(x.diluentId))).join(" and ")}`;
-  return [d.label, exact, diluents].filter((x) => x).join(" · ");
+  // A label that is only its percentage («at 10 %») says less than the exact figure: not repeated (audit F-04).
+  const label = d.label && !/^(at |al )?[\d.,]+\s*%$/i.test(d.label.trim()) ? d.label : "";
+  return [label, `${exact}${diluents ? ` ${diluents}` : ""}`].filter((x) => x).join(" · ");
 }
 
 const diluentsOf = (data: GlossaryData) =>
