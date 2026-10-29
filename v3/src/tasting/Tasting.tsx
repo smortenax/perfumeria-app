@@ -294,7 +294,7 @@ function SessionView({
         </button>
         <button
           type="button"
-          className="danger"
+          className="secondary delete-session"
           onClick={() => {
             if (window.confirm(t.deleteSessionAsk)) run(deleteSession(local.db, local.userId, open.id));
           }}
