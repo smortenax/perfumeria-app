@@ -119,6 +119,9 @@ export function Bench(props: BenchProps) {
         if (live) setLoaded({ formula, record, frozen: materials, uses });
       })
       .catch((e: unknown) => {
+        // Before the first sync the copy may not have the formula or its materials yet: it keeps
+        // opening, and the first sync (or its data) reads it again.
+        if (!local.powerSync.currentStatus.hasSynced) return;
         console.error(e);
         if (live) setLoadError(message(e));
       });
@@ -126,6 +129,16 @@ export function Bench(props: BenchProps) {
       live = false;
     };
   }, [data, formulaId, local, tick]);
+  // The first sync ending reads the formula again, even when it brought none of its events.
+  useEffect(() => {
+    let synced = local.powerSync.currentStatus.hasSynced === true;
+    return local.powerSync.registerListener({
+      statusChanged: (s) => {
+        if (s.hasSynced && !synced) setTick((t) => t + 1);
+        synced = s.hasSynced === true;
+      },
+    });
+  }, [local]);
 
   if (!loaded) {
     return (
