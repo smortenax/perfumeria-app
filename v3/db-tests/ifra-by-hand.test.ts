@@ -134,7 +134,7 @@ describe("the two readings agree with the reckoning by hand (8.4)", () => {
     expect(report.asIs).toBe("yes");
     // 0,025 × 310 / 30 = 7,75/30 = 31/120.
     expect(report.maxUse.eq(Ratio.of(31n, 120n))).toBe(true);
-    expect(panel(report)).toEqual({ asIs: "Sí", maxUse: "25,83 %" });
+    expect(panel(report)).toEqual({ asIs: "Yes", maxUse: "25,83 %" });
   });
 
   it("case 3, half of a 1 g work batch for 10 g: fine as it is now, over once completed; up to 7,5 %", async () => {
