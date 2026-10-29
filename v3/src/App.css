@@ -1396,3 +1396,19 @@ button:focus-visible {
     height: 40px;
   }
 }
+
+/* An empty list (EmptyState.tsx): title, one sentence and its action. */
+.empty-state {
+  border: 1px dashed var(--border-subtle);
+  border-radius: var(--radius-panel);
+  padding: var(--space-inset);
+  display: grid;
+  gap: 0.5rem;
+  justify-items: start;
+}
+.empty-state p {
+  margin: 0;
+}
+.empty-title {
+  font-weight: 600;
+}

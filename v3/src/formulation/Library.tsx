@@ -15,6 +15,7 @@ import { useFormulaChecks } from "./useFormulaChecks";
 import { useMacerations } from "./useMacerations";
 import { VersionTree } from "./VersionTree";
 import { macerationState, startMaceration, todayIso } from "../db/macerations";
+import { EmptyState } from "../EmptyState";
 
 /** The library's tabs (V3-19): your workbenches, and the general folders of the markers. */
 const TABS = ["benches", "accords", "finished"] as const;
@@ -214,7 +215,21 @@ function Benches({
           </span>
         </div>
         {inside.length === 0 ? (
-          <p className="hint">{words.length ? t.noFormulas : t.noFormulasYet(true)}</p>
+          words.length ? (
+            <p className="hint">{t.noFormulas}</p>
+          ) : favoritesOnly && all > 0 ? (
+            <EmptyState title={t.noFavorites} text={t.noFavoritesText}>
+              <button type="button" className="secondary" onClick={() => setFavoritesOnly(false)}>
+                {t.showAll}
+              </button>
+            </EmptyState>
+          ) : (
+            <EmptyState title={t.emptyBench} text={t.emptyBenchText}>
+              <button type="button" onClick={() => onNew(current.id)}>
+                {t.newFormula}
+              </button>
+            </EmptyState>
+          )
         ) : (
           <div className="bench-body">
           <ul className="formula-rows">
