@@ -257,6 +257,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
   const [bottleFor, setBottleFor] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const optionsButton = useRef<HTMLButtonElement>(null);
   const [playing, setPlaying] = useState(false);
   const [frame, setFrame] = useState<number | null>(null);
   const [pending, setPending] = useState(0);
@@ -617,8 +618,10 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
     return () => window.removeEventListener("keydown", onKey);
   });
 
+  // Focus goes back to «Options» as the menu closes, so a dialog opened from it returns there (audit F-13).
   const menuAction = (action: () => void) => () => {
     setMenuOpen(false);
+    optionsButton.current?.focus();
     action();
   };
 
@@ -671,7 +674,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
             </svg>
           </button>
           <span className="options-wrap">
-            <button type="button" className="tool menu-btn" aria-label={texts.menu.options} title={texts.menu.options} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
+            <button ref={optionsButton} type="button" className="tool menu-btn" aria-label={texts.menu.options} title={texts.menu.options} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
                 <path d="M3 5h12M3 9h12M3 13h12" />
               </svg>

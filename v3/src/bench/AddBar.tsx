@@ -348,6 +348,8 @@ export function AddBar(props: {
   const percentRef = useRef<HTMLInputElement>(null);
   const otherRef = useRef<HTMLDivElement>(null);
   const moreRef = useRef<HTMLDivElement>(null);
+  // Focus goes back to «+» as its menu closes, so a dialog opened from it returns there (audit F-13).
+  const plusRef = useRef<HTMLButtonElement>(null);
 
   const byKey = useMemo(() => new Map(props.entries.map((e) => [e.material.key, e])), [props.entries]);
   // The forms of every plant, in chip order (P54).
@@ -798,7 +800,7 @@ export function AddBar(props: {
           <label htmlFor="add-material">{t.material}</label>
           {/* A small «+» beside the label: a new material or a formula as one (P49). */}
           <span className="more">
-            <button type="button" className="tool plus" title={t.more} aria-label={t.more} aria-expanded={menu} onClick={() => setMenu(!menu)}>
+            <button ref={plusRef} type="button" className="tool plus" title={t.more} aria-label={t.more} aria-expanded={menu} onClick={() => setMenu(!menu)}>
               <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
                 <path d="M8 3v10M3 8h10" />
               </svg>
@@ -819,6 +821,7 @@ export function AddBar(props: {
                   className="menuitem"
                   onClick={() => {
                     setMenu(false);
+                    plusRef.current?.focus();
                     props.onQuickMaterial();
                   }}
                 >
@@ -830,6 +833,7 @@ export function AddBar(props: {
                     className="menuitem"
                     onClick={() => {
                       setMenu(false);
+                      plusRef.current?.focus();
                       props.onFormulaAsMaterial?.();
                     }}
                   >
