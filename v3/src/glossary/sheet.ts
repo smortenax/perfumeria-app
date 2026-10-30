@@ -32,6 +32,14 @@ export interface SheetValue {
   readonly disputed: boolean;
   /** A web address, shown as a link. */
   readonly link?: string;
+  /** A list read in one line («chypre, lemon, fougère»), each with its source's mark. */
+  readonly items?: readonly SheetLine[];
+}
+
+/** One line of a list (a dose, a descriptor, a perfume) or one item of a row, with its source's mark (V3-86). */
+export interface SheetLine {
+  readonly text: string;
+  readonly mark?: number;
 }
 
 export interface SheetRow {
@@ -59,6 +67,10 @@ export interface SheetSection {
   readonly tables: readonly SheetTable[];
   /** The mark of a source for the whole section (the physical data's), in «Sources». */
   readonly mark?: number;
+  /** A list, one line each (the user, 2026-10-30: «en general más de una línea es ilegible»). */
+  readonly lines?: readonly SheetLine[];
+  /** What it says when it has nothing to show. */
+  readonly empty?: string;
 }
 
 /**
@@ -363,46 +375,41 @@ export function sheetOf(catalog: Catalog, layer: IfraLayer, ifra: IfraData, id: 
   );
 
   // ------------------------------------------------------------ the lists
-  const doses = section("doses", [], [
-    listTable(
-      (m) => m.doses,
-      [c.min, c.typical, c.max, c.basis],
-      (d) => [d.min ? percent(d.min) : "—", d.typical ? percent(d.typical) : "—", d.max ? percent(d.max) : "—", t.basis[d.basis]],
-      (d) => ({
-        what: `${t.sections.doses} · ${[d.min, d.typical, d.max].map((x) => (x ? percent(x) : "—")).join(" / ")}`,
-        text: d.source,
-        authority: t.authority[d.authority],
-        disputed: d.disputed,
-        ...(d.notes ? { note: d.notes } : {}),
-      }),
-      2,
-      t.noRows,
-    ),
-  ]);
-  const descriptors = section("descriptors", [], [
-    listTable((m) => m.descriptors, [c.text], (d) => [d.text], (d) => ({ what: clip(d.text), text: d.source }), 0, t.noRows),
-  ]);
+  // ------------------------------------------------------------ the lists, one line each (the user, 2026-10-30)
+  /** A list along the chain, one line per item, the version's marked as yours, each with its source's mark. */
+  const linesOf = <T>(get: (m: CatalogMaterial) => readonly T[], text: (item: T) => string, source: (item: T) => Omit<SheetSource, "mark" | "yours">): SheetLine[] =>
+    chain.flatMap((m) => get(m).map((item) => ({ text: yours(m) ? `${text(item)} (${t.yours})` : text(item), mark: cite({ ...source(item), yours: yours(m) }) })));
+  const listSection = (key: SheetSection["key"], rows: SheetRow[], lines: SheetLine[]): SheetSection => ({ ...section(key, rows), lines, empty: t.noRows });
+
+  // A dose as it reads: «0,5 % – 10 % of the concentrate, typically 5 %».
+  const doseText = (d: CatalogMaterial["doses"][number]) => {
+    const range = d.min && d.max ? t.amount.range(percent(d.min), percent(d.max)) : d.max ? t.amount.max(percent(d.max)) : d.min ? t.atLeast(percent(d.min)) : null;
+    const typical = d.typical ? (range ? t.typically(percent(d.typical)) : percent(d.typical)) : null;
+    return [[range, typical].filter((x) => x).join(", "), t.doseBasis[d.basis]].filter((x) => x).join(" ");
+  };
+  const doses = listSection("doses", [], linesOf((m) => m.doses, doseText, (d) => ({
+    what: `${t.sections.doses} · ${doseText(d)}`,
+    text: d.source,
+    authority: t.authority[d.authority],
+    disputed: d.disputed,
+    ...(d.notes ? { note: d.notes } : {}),
+  })));
+  const descriptors = listSection("descriptors", [], linesOf((m) => m.descriptors, (d) => d.text, (d) => ({ what: clip(d.text), text: d.source })));
+  // What it goes with, one row per kind: «Blends with: chypre, lemon, fougère» (the user, 2026-10-30); a note goes with its source.
   const otherOf = (r: CatalogMaterial["relations"][number]) => (r.otherId ? (catalog.materials.get(r.otherId)?.name ?? r.otherText ?? "") : (r.otherText ?? ""));
-  const relations = section("relations", [], [
-    listTable(
-      (m) => m.relations,
-      [c.kind, c.other, c.note],
-      (r) => [t.relationKind[r.kind], otherOf(r), r.note ?? ""],
-      (r) => ({ what: `${t.relationKind[r.kind]} ${otherOf(r)}`, text: r.sources ?? null }),
-      1,
-      t.noRows,
-    ),
-  ]);
-  const references = section("references", [], [
-    listTable(
-      (m) => m.references,
-      [c.perfume, c.house, c.note],
-      (r) => [r.perfume, r.house ?? "", r.note ?? ""],
-      (r) => ({ what: r.perfume, text: r.sources ?? null }),
-      0,
-      t.noRows,
-    ),
-  ]);
+  const relationItems = new Map<CatalogMaterial["relations"][number]["kind"], SheetLine[]>();
+  for (const m of chain) {
+    for (const r of m.relations) {
+      const item = { text: yours(m) ? `${otherOf(r)} (${t.yours})` : otherOf(r), mark: cite({ what: `${t.relationKind[r.kind]} ${otherOf(r)}`, text: r.sources ?? null, yours: yours(m), ...(r.note ? { note: r.note } : {}) }) };
+      relationItems.set(r.kind, [...(relationItems.get(r.kind) ?? []), item]);
+    }
+  }
+  const relations = listSection(
+    "relations",
+    [...relationItems].map(([kind, items]) => ({ label: t.relationRows[kind], value: { text: items.map((x) => x.text).join(", "), items, notes: [], yours: false, disputed: false } })),
+    [],
+  );
+  const references = listSection("references", [], linesOf((m) => m.references, (r) => [r.perfume, r.house].filter((x) => x).join(" · ") + (r.note ? ` — ${r.note}` : ""), (r) => ({ what: r.perfume, text: r.sources ?? null })));
 
   // ------------------------------------------------------------ yours: the lab
   const lab: SheetSection[] = [];

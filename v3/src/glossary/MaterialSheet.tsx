@@ -1,7 +1,7 @@
-import { type ReactNode, useEffect, useMemo, useRef, useState } from "react";
+import { type ReactNode, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { texts } from "../i18n/en";
 import { SheetHero } from "./SheetHero";
-import { type SheetValue, sheetOf } from "./sheet";
+import { type SheetLine, type SheetValue, sheetOf } from "./sheet";
 import type { GlossaryData } from "./useGlossary";
 
 /**
@@ -123,7 +123,10 @@ export function MaterialSheet({
           {links && <div className="sheet-links">{links}</div>}
           <div className="sheet-sections reading">
           {sheet.sections.map((section) => (
-            <section key={section.key} className={`sheet-section${section.tables.some((x) => x.rows.length > 0) || section.key === "yourNotes" ? " wide" : ""}`}>
+            <section
+              key={section.key}
+              className={`sheet-section${section.tables.some((x) => x.rows.length > 0) || (section.lines?.length ?? 0) > 0 || section.key === "yourNotes" ? " wide" : ""}`}
+            >
               <h3>
                 {section.title}
                 {section.mark && markOf(section.mark)}
@@ -136,12 +139,23 @@ export function MaterialSheet({
                       <div key={row.label} className="field">
                         <dt>{row.label}</dt>
                         <dd>
-                          <Value value={row.value} />
+                          <Value value={row.value} markOf={markOf} />
                         </dd>
                       </div>
                     ))}
                 </dl>
               )}
+              {section.lines && section.lines.length > 0 && (
+                <ul className="sheet-lines">
+                  {section.lines.map((line, i) => (
+                    <li key={i}>
+                      <Clamp>{line.text}</Clamp>
+                      {line.mark && markOf(line.mark)}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {section.empty && section.rows.length === 0 && section.tables.length === 0 && !section.lines?.length && <p className="unknown">{section.empty}</p>}
               {/* What nobody says, folded under one line (V3-73): still there, not a wall of «not stated». */}
               {section.rows.some((row) => row.value.text === null) && (
                 <details className="unstated">
@@ -153,7 +167,7 @@ export function MaterialSheet({
                         <div key={row.label} className="field">
                           <dt>{row.label}</dt>
                           <dd>
-                            <Value value={row.value} />
+                            <Value value={row.value} markOf={markOf} />
                           </dd>
                         </div>
                       ))}
@@ -228,20 +242,68 @@ function Mark({ mark, onShow }: { mark: number; onShow: (mark: number) => void }
   );
 }
 
+/**
+ * A text in one line, with «more» to read the rest when it does not fit (the user, 2026-10-30: «en
+ * general más de una línea es ilegible»). The button shows only when there is more to read.
+ */
+function Clamp({ children }: { children: ReactNode }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const [open, setOpen] = useState(false);
+  const [more, setMore] = useState(false);
+  useLayoutEffect(() => {
+    const line = ref.current;
+    if (!line || open) return;
+    const measure = () => setMore(line.scrollHeight > line.clientHeight + 1 || line.scrollWidth > line.clientWidth + 1);
+    measure();
+    const watch = new ResizeObserver(measure);
+    watch.observe(line);
+    return () => watch.disconnect();
+  }, [open]);
+  return (
+    <span className="clamp-wrap">
+      <span ref={ref} className={open ? "clamp open" : "clamp"}>
+        {children}
+      </span>
+      {(more || open) && (
+        <button type="button" className="clamp-toggle" aria-expanded={open} onClick={() => setOpen(!open)}>
+          {open ? texts.sheet.less : texts.sheet.more}
+        </button>
+      )}
+    </span>
+  );
+}
+
+/** A row's list in one line, each item with its source's mark. */
+function Items({ items, markOf }: { items: readonly SheetLine[]; markOf: (mark: number) => ReactNode }) {
+  return (
+    <Clamp>
+      {items.map((item, i) => (
+        <span key={i}>
+          {i > 0 && ", "}
+          {item.text}
+          {item.mark && markOf(item.mark)}
+        </span>
+      ))}
+    </Clamp>
+  );
+}
+
 /** A value, and what goes with it; whether the sources disagree on it is said in «Sources» (V3-86). */
-function Value({ value }: { value: SheetValue }) {
+function Value({ value, markOf }: { value: SheetValue; markOf: (mark: number) => ReactNode }) {
   const t = texts.sheet;
   if (value.text === null) return <span className="unknown">{t.unknown}</span>;
+  if (value.items) return <Items items={value.items} markOf={markOf} />;
+  if (value.link) {
+    return (
+      <a href={value.link} target="_blank" rel="noreferrer">
+        {value.text}
+      </a>
+    );
+  }
   return (
-    <>
-      {value.link ? (
-        <a href={value.link} target="_blank" rel="noreferrer">
-          {value.text}
-        </a>
-      ) : (
-        <span className="value">{value.text}</span>
-      )}
+    <Clamp>
+      <span className="value">{value.text}</span>
       {value.notes.length > 0 && <span className="notes"> ({value.notes.join("; ")})</span>}
-    </>
+    </Clamp>
   );
 }

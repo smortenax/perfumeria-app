@@ -448,6 +448,13 @@ export const texts = {
     regulationKind: { max: (p: string) => `max. ${p}`, prohibited: "prohibited", requirement: (r: string) => r },
     basis: { concentrate: "% of the concentrate", finished_product: "% of the finished product", undeclared: "not declared" },
     relationKind: { combines: "blends with", substitute: "substitutes", clashes: "clashes" },
+    relationRows: { combines: "Blends with", substitute: "Substitutes", clashes: "Clashes with" },
+    /** A dose's basis after its figures: «0,5 % – 10 % of the concentrate». */
+    doseBasis: { concentrate: "of the concentrate", finished_product: "of the finished product", undeclared: "(basis not declared)" },
+    atLeast: (p: string) => `≥ ${p}`,
+    typically: (p: string) => `typically ${p}`,
+    more: "more",
+    less: "less",
   },
   status: {
     title: "The data in this browser",

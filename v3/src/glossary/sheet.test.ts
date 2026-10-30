@@ -152,10 +152,27 @@ describe("the sheet of a common material (6.2)", () => {
     expect(table.rows[0][2]).toMatch(/^1,6 % of the finished product/);
   });
 
-  it("its doses, with their base; who says them, under their mark in «Sources» (V3-86)", () => {
-    const doses = s.sections.find((x) => x.key === "doses")!.tables[0];
-    expect(doses.rows).toEqual([["0,5 %", "—", "10 %", "% of the concentrate"]]);
-    expect(s.sources[doses.marks![0] - 1]).toMatchObject({ text: "Arctander", authority: "literature", disputed: false });
+  it("its doses, one line each with their base; who says them, under their mark in «Sources» (V3-86)", () => {
+    // One line each, not a table of eight columns (the user, 2026-10-30: legibility).
+    const doses = s.sections.find((x) => x.key === "doses")!.lines!;
+    expect(doses.map((x) => x.text)).toEqual(["0,5 % – 10 % of the concentrate"]);
+    expect(s.sources[doses[0].mark! - 1]).toMatchObject({ text: "Arctander", authority: "literature", disputed: false });
+  });
+
+  it("what it goes with, one row per kind: «Blends with: chypre, lemon» (the user, 2026-10-30)", () => {
+    const withRelations = material("r", {
+      relations: [
+        { id: "r1", kind: "combines", otherId: null, otherText: "chypre", note: null, sources: "Fraterworks" },
+        { id: "r2", kind: "combines", otherId: null, otherText: "lemon", note: "fresh opening", sources: "Eden Botanicals" },
+        { id: "r3", kind: "substitute", otherId: "cou", otherText: null, note: null, sources: null },
+      ],
+    });
+    const only: Catalog = { ...catalog, materials: new Map([[withRelations.id, withRelations], [coumarin.id, coumarin]]), have: new Set(), dilutions: new Map(), evaluations: new Map(), axes: new Map() };
+    const r = sheetOf(only, layer, toIfra(only, layer), "r");
+    const rows = r.sections.find((x) => x.key === "relations")!.rows;
+    expect(rows.map((x) => [x.label, x.value.text])).toEqual([["Blends with", "chypre, lemon"], ["Substitutes", "Cumarina"]]);
+    // The note goes with its source.
+    expect(r.sources[rows[0].value.items![1].mark! - 1]).toMatchObject({ text: "Eden Botanicals", note: "fresh opening" });
   });
 
   it("the sources, at the end in the order the sheet reads; each figure with its mark (V3-86)", () => {
@@ -209,7 +226,7 @@ describe("your version (V3-5): the common material's record with yours over it",
     expect(row(s, "identity", "INCI")).toMatchObject({ text: "COUMARIN", yours: false, notes: [] });
     // Your notes are yours to read, not a source: they stay in the sheet.
     expect(row(s, "yourNotes", "Notes")).toMatchObject({ text: "Comprada en 2026.", yours: true, notes: ["yours"] });
-    expect(s.sections.find((x) => x.key === "doses")!.tables[0].rows).toHaveLength(1);
+    expect(s.sections.find((x) => x.key === "doses")!.lines).toHaveLength(1);
     expect(s.ifra.state).toBe("ceiling");
   });
 });
