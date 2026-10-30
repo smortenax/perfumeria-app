@@ -1,0 +1,714 @@
+@@ 07ba27e8de · material_descriptors.text
+Ernesto Ventós (Santaliff, IFF): SANDALWOOD
+@@ 346d3a587e · material_descriptors.text
+Ernesto Ventós (Styrax Firmenich 983834): SWEET, BALSAMIC, FLORAL, SPICY
+@@ a3e42b10f0 · material_descriptors.text
+Ernesto Ventós (Suederal LT 0710 IFF): LEATHER
+@@ 4f79f912ae · material_descriptors.text
+Ernesto Ventós (TOLU RESINOID FIRMENICH 988054): FRUITY, FLORAL, SPICY, BALSAM-LIKE
+@@ 586181f2e5 · material_descriptors.text
+Ernesto Ventós: CLEAN, WET, FRESH, OCEANIC
+@@ b8eb336bfb · material_descriptors.text
+Ernesto Ventós: COCOA, CHOCOLATE, ALMOND, BEAN
+@@ c00b40a323 · material_descriptors.text
+Ernesto Ventós: DIFFUSIVE, ETHEREAL, RUM, FRUITY
+@@ ec74fbaf2a · material_descriptors.text
+Ernesto Ventós: FLORAL, AMBER.
+@@ eb48361a58 · material_descriptors.text
+Ernesto Ventós: FRESH, CAMPHORACEOUS
+@@ 984c1c1f84 · material_descriptors.text
+Ernesto Ventós: FRESH, CITRAL-LIKE
+@@ 9b37a1420f · material_descriptors.text
+Ernesto Ventós: FRESH, CITRUS, GRAPEFRUIT PEEL-LIKE
+@@ ea2a2bb1a1 · material_descriptors.text
+Ernesto Ventós: FRUITY, CITRIC, SWEET
+@@ 71e25924cb · material_descriptors.text
+Ernesto Ventós: MUSHROOM, HERBAL, EARTHY
+@@ fbe774afcf · material_descriptors.text
+Ernesto Ventós: POWERFUL, CLEAN MUSK
+@@ 3e48261ab5 · material_descriptors.text
+Ernesto Ventós: STRONG, CAMPHORACEOUS, BALSAMIC
+@@ 134fed500a · material_descriptors.text
+Ernesto Ventós: SWEET, BALSAMIC, WOODY (Firmenich 118594 y 953418); BALSAMIC, WOODY, ANIMAL (Light); AMBER-LIKE (1465)
+@@ 85e5a5ba31 · material_descriptors.text
+Ernesto Ventós: SWEET, FLORAL
+@@ 06eefff6b8 · material_descriptors.text
+Ernesto Ventós: SWEET, TENACIOUS, WOODY
+@@ a352c385e7 · material_descriptors.text
+Ernesto Ventós: TOBACCO-LIKE, FLOWERY, LEATHER-LIKE
+@@ fd9a117bab · material_descriptors.text
+Ernesto Ventós: WOODY, SANDALWOOD, POTENT
+@@ efd6fe543a · material_descriptors.text
+Esans: sweetish scent somewhere between freshly cut dry hay, dusty straw, and a hint of almond-vanilla
+@@ fff9c6dde1 · material_descriptors.text
+Escardo (vía buscador): soft, woody and has a long lasting tea-rose character
+@@ 477599755d · material_descriptors.text
+FCI SAS: rubber barbecue
+@@ 4010119d7f · material_descriptors.text
+Firmenich (COCOA DECOL PG, para fragancia): gourmand dark chocolate profile
+@@ 4ad02926ce · material_descriptors.text
+Firmenich (en TGSC, Exaltolide): It has an especially sensual effect on skin.
+@@ 7967dd456f · material_descriptors.text
+Firmenich (en TGSC, grado fragancia): Sweet, earthy, slightly liqueur-like and mushroom, with a spicy profile
+@@ d96ac79316 · material_descriptors.text
+Firmenich (en TGSC): a deep balsamic and ambery facet with a typical liquorice effect
+@@ 751f8eb071 · material_descriptors.text
+Firmenich (en TGSC): Fruity, dried-fruits, coconut
+@@ 90f0bfcf4a · material_descriptors.text
+Firmenich (en TGSC): It brings fruity aspect just in between peach and plum with a smooth velvety effect.
+@@ 13a3396004 · material_descriptors.text
+Firmenich (en TGSC): Soft, clean version of patchouli without the earthy, leathery and rubbery
+@@ 1848888096 · material_descriptors.text
+Firmenich (ENCENS HE / ENCENS HE RECT) — ficha genérica 8016-36-2 (otro CAS): With a sweet, woody and balsamic undertone, Olibanum offers a green, terpenic, citrusy, peppery and resinous profile
+@@ 15a7b61225 · material_descriptors.text
+Firmenich (ex gousse 95, para fragancia): Sweet, rich, powdery
+@@ 33bd103b4e · material_descriptors.text
+Firmenich (MAYOL), en ambas fichas (la lectura de la ficha cis la dio cortada): Fresh soft and clean floral odour that recalls the fragrance associated with the white petals and blossoms
+@@ 0442d46641 · material_descriptors.text
+Firmenich (TOLU BAUME RES TYPE, para fragancia): Sweet, balsamic, vanilla-like, cinnamic, phenolic. It brings a warm and sweet effect.
+@@ aa65818157 · material_descriptors.text
+Firmenich (TOLU RES TYPE NAT, para fragancia): Sweet, balsamic, vanilla-like, cinnamic, phenolic. Among the ambery and spicy scents, it offers sweet, vanilla-like notes.
+@@ 4a9624004c · material_descriptors.text
+Firmenich: Green, Floral, Fruity
+@@ 8e688bef7d · material_descriptors.text
+Fisher Scientific (SDS): phenolic
+@@ 10afb71e70 · material_descriptors.text
+Floral elegante y transparente, jazmín con frescor cítrico
+@@ 4ff1503479 · material_descriptors.text
+Floral, Aromatic, Fresh
+@@ 31e986a50b · material_descriptors.text
+Floral, Bergamot, Lavender
+@@ 83cbcb51f4 · material_descriptors.text
+Floral, Fresh, Jasmin
+@@ e6bab84273 · material_descriptors.text
+Floral, Fresh, Lavender
+@@ df190f18f1 · material_descriptors.text
+Floral, Green, Cyclamen
+@@ 805fcd6efb · material_descriptors.text
+Floral, Muguet, Aldehydic
+@@ e27cfca1d9 · material_descriptors.text
+Floral, Muguet, Fresh
+@@ db8b50eaea · material_descriptors.text
+Floral, Muguet, Soft
+@@ 21ddcad78d · material_descriptors.text
+Floral, Neroli, Fruity
+@@ 3ae1603fe7 · material_descriptors.text
+Floral, Rose, Fruity
+@@ dbcbb39f08 · material_descriptors.text
+Floral, Rose, Geranium
+@@ 6d8b332133 · material_descriptors.text
+Floral, Rose, Honey
+@@ 7ae148a850 · material_descriptors.text
+Floral, Sweet, Green
+@@ 74e90f79ea · material_descriptors.text
+Floral, Violet, Fruity
+@@ 937a6e2813 · material_descriptors.text
+Floral, Violet, Woody
+@@ e1b369dcf9 · material_descriptors.text
+Foreverest (Geraniol Natural 98% y Synthetic 97%): mild, sweet rose smell, taste bitter
+@@ bd8549a395 · material_descriptors.text
+Foreverest Resources: fresh lime-like, citrusy-floral and sweet odor with little or no terpenic undertones
+@@ 5b210037d4 · material_descriptors.text
+fragmento de proveedor: colorless liquids with a fresh bergamot-lavender odor
+@@ 08d350624a · material_descriptors.text
+fragmento de proveedor: juicy pineapple with sharp, metallic galbanum-like greenness and subtle sulfurous undertones
+@@ f60c3cba86 · material_descriptors.text
+fragmento de proveedor: rich, authentic coconut aroma with pronounced creamy and milky aspects, complemented by waxy, fatty undertones and subtle fruity nuances reminiscent of peach
+@@ d568340091 · material_descriptors.text
+Fraterworks (alta concentración): intensely fecal and naphthalenic (mothball-like) at high concentrations
+@@ 148cb7b1dd · material_descriptors.text
+Fraterworks (alta dilución): radiant, narcotic floral notes reminiscent of jasmine and orange blossom
+@@ ec91448ac6 · material_descriptors.text
+Fraterworks (Castoreum Synth 184004D): smoky-phenolic intensity — warm leather, birch-tar depth
+@@ ece385ed88 · material_descriptors.text
+Fraterworks (grado MD): sweet hay-like warmth with caramel richness, dried fruit nuances, leather undertones and honeyed depth
+@@ 3693f58850 · material_descriptors.text
+Fraterworks (puro): smells phenolic, like wet animal hide
+@@ 2305cf51ae · material_descriptors.text
+Fraterworks (reseña de un cliente): fresh sweet lemon popsicle like scent
+@@ 8b093ae04a · material_descriptors.text
+Fraterworks (tintura al 2 %): complex sweet, earthy, marine, and musky character with animalic undertones
+@@ ef3c7cb16c · material_descriptors.text
+Fraterworks (vía buscador): bright, fresh, and universally appealing citrus burst with juicy sweetness
+@@ 217fe55303 · material_descriptors.text
+Fraterworks: a relatively subtle scent
+@@ 1bc718cfb2 · material_descriptors.text
+Fraterworks: Fantasy fruit sophistication without saccharine sweetness
+@@ dae40ea593 · material_descriptors.text
+Fraterworks: Operanide delivers a sophisticated creamy amber-woody character with distinctive mossy undertones (con notas gourmand sutiles; empieza tipo Cashmeran y seca a cedro)
+@@ 439612636f · material_descriptors.text
+Fraterworks: powdery, soft, animal (deer), tobacco, natural
+@@ fe2f16e79d · material_descriptors.text
+Fraterworks: powerful, animalic aroma with rich ambergris-like character (también dulzor de labdanum y notas de cuero)
+@@ 391203693a · material_descriptors.text
+Fresco y floral de una ligereza excepcional; en tira, débil, recuerda al té de jazmín
+@@ e0094e70cb · material_descriptors.text
+Frey + Lau: Sweet, narcotic, balsamic
+@@ f484846d60 · material_descriptors.text
+Fruity, Apple, Melon
+@@ 772b4ccbb1 · material_descriptors.text
+Fruity, Apple, Woody
+@@ 6f8a8e6312 · material_descriptors.text
+Fruity, Cherry, Almond
+@@ 7d1d69dd4e · material_descriptors.text
+Fruity, Creamy, Coconut
+@@ ebb204b80b · material_descriptors.text
+Fruity, Dry, Brandy
+@@ 1f33b29b80 · material_descriptors.text
+Fruity, Earthy, Soft
+@@ 5ed6179434 · material_descriptors.text
+Fruity, Floral, Jasmin
+@@ 0cafc1bc3e · material_descriptors.text
+Fruity, Green, Pineapple
+@@ ee9f127747 · material_descriptors.text
+Fruity, Oily, Peach
+@@ 968b6518bd · material_descriptors.text
+Fruity, Tropical-Fruit, Grapefruit
+@@ b69f22280a · material_descriptors.text
+Givaudan (citado por Pell Wall): Odor: Tropical Fruity, Guava, Grapefruit, Rhubarb, Cassis.
+@@ 781fdb1d23 · material_descriptors.text
+Givaudan (descripción comercial): Safraleine has a very unique warm and vibrant character offering a new alternative to existing spicy odorants.
+@@ a2dff2d8b7 · material_descriptors.text
+Givaudan (DEWFRUIT TEC AB 2927R): berries
+@@ 9dbde5c1cb · material_descriptors.text
+Givaudan (Ebanol®): Sandalwood, Musk aspect, Powerful
+@@ 08e7d96d5f · material_descriptors.text
+Givaudan (muestra; Mosciano, Gerard, P&F 21, No. 1, 33, 1996): Citrus, orange, floral, terpy, waxy and rose
+@@ 976e450b43 · material_descriptors.text
+Givaudan: Aldehydic, Dry, Amber, Warm
+@@ 3fc0a207ea · material_descriptors.text
+Givaudan: Floral, Neroli, Warm, Sweet
+@@ b46205c95d · material_descriptors.text
+Givaudan: Green, Natural, Leafy, Fresh
+@@ d5c28d4a14 · material_descriptors.text
+Givaudan: Leathery, Spicy, Woody, Warm
+@@ ae75724aec · material_descriptors.text
+Givaudan: Powerful, Waxy, Aldehydic, Orange, Citrus peel
+@@ 4c00eec192 · material_descriptors.text
+Givaudan: Spicy, Cumin, Green.
+@@ c34838f7c2 · material_descriptors.text
+Givaudan: Woody, Ambery, Tobacco, Rich
+@@ d7d2437888 · material_descriptors.text
+Gourmand, Buttery, Popcorn
+@@ 2bef183470 · material_descriptors.text
+Gourmand, Sweet, Caramel
+@@ fd0b7136f3 · material_descriptors.text
+Gourmand, Vanilla, Powdery
+@@ 966ee79a76 · material_descriptors.text
+Green, Fruity, Rhubarb
+@@ 0844e53d5f · material_descriptors.text
+Green, Grassy, Fresh
+@@ d9250357d3 · material_descriptors.text
+Green, Leafy, Pungent
+@@ f7070c1387 · material_descriptors.text
+Guía de perfumería (vía buscador): woody, dry, warm, with balsamic and slightly sweet notes; creamier and warmer than Virginia cedarwood
+@@ afa9bbf27f · material_descriptors.text
+Hekserij: sweet vanilla scent (unas cinco veces más dulce e intensa que la vainillina)
+@@ 6ad0f43267 · material_descriptors.text
+Herbal, Camphoraceous, Minty
+@@ 72c046aac2 · material_descriptors.text
+Herbal, Lavender, Floral
+@@ 0d37fb14d9 · material_descriptors.text
+Herbal, Lavender, Fresh
+@@ ea55f14808 · material_descriptors.text
+Herbal, Leathery, Smoky
+@@ 948d8c5919 · material_descriptors.text
+Herbal, Sage, Green
+@@ 23c214313c · material_descriptors.text
+Herbal, spicy, Camphoraceous
+@@ 7f4953cd5f · material_descriptors.text
+Hermitage Oils (Cade Wood Rectified): characteristic
+@@ b0f69660f5 · material_descriptors.text
+Hermitage Oils (en TGSC, Etiopía): strong resinous, terpene, paint fume smell (neat)
+@@ 8f8ac56f62 · material_descriptors.text
+Hermitage Oils (en TGSC): The smell is green, leafy, cool, fresh and uber refreshing in my opinion.
+@@ 0b91c034d5 · material_descriptors.text
+Hermitage Oils (listado): characteristic
+@@ 4690766ac7 · material_descriptors.text
+Hermitage Oils: Odor: characteristic
+@@ 081ebb1c95 · material_descriptors.text
+IFF (Ambermor y Ambermor-Ex): Strong woody amber, sweet earthy, musky odor with a delicate animalic tonality
+@@ 4c4709540f · material_descriptors.text
+IFF (Ambrinol 95), en la ficha alpha-ambrinol rw1052421: Possesses the elegant tonalities of aged natural ambergris tincture.
+@@ e2ff721aff · material_descriptors.text
+IFF (Helional®): Green, floral (cyclamen) with top notes of ozone and new mown hay
+@@ aaf695a513 · material_descriptors.text
+IFF (Maritima), resumido por la herramienta de lectura, no literal: tono potente, limpio, húmedo, de aire fresco, que sugiere brisas oceánicas; funciona bien en muchos medios
+@@ 8f935ca0c7 · material_descriptors.text
+IFF (Meijiff), en ambas fichas: Clean floral muguet, soft white magnolia
+@@ c0d4402aa3 · material_descriptors.text
+IFF (Meth Ionone Gamma A Tocopherol) (ficha del 50 %): Woody, tobacco, floral (orris and violet). Powdery tone. Great strength as both top and body notes.
+@@ 9e8a0f81d4 · material_descriptors.text
+IFF (Meth Ionone Gamma Coeur) (ficha del 50 %): Woody, tobacco, floral (orris and violet). Powdery tone
+@@ a6b91db4be · material_descriptors.text
+IFF (Olibanum Oil) — ficha genérica 8016-36-2 (otro CAS): Peppery and terpenic with mandarin like and resinous incense like finish
+@@ e3922ac0ff · material_descriptors.text
+IFF (Prismantol); la misma frase en Fine Fragrances Pvt Ltd y Moellhausen: Soft herbaceous pine with spicy hints of ginger and Indian cardamom, followed by smooth natural woods
+@@ 72cc7a6348 · material_descriptors.text
+IFF (Terpinyl Acetate Extra y Jax): Sweet, herbaceous, floral with fresh lavender nuances
+@@ 2cb1d9a062 · material_descriptors.text
+IFF (Undecalactone Gamma Coeur): Creamy, fruity, peach, coconut, lactonic
+@@ 16a5a4c61d · material_descriptors.text
+IFF (vía buscador): Intensely powerful substantive musk odor with depth and richness. Floralcy and red fruit sweetness also imparted.
+@@ 16d91f180e · material_descriptors.text
+IFF (vía buscador): Musk, Floral, Woody, Clean
+@@ 22e07b0997 · material_descriptors.text
+IFF: coconut-like, sweet, fatty, fruity
+@@ db90f5ec6b · material_descriptors.text
+IFF: sweet balsamic vanilla character
+@@ dbe7e29376 · material_descriptors.text
+Indukern (en TGSC): MUSHROOM, SPICY, WOODY
+@@ 421264a469 · material_descriptors.text
+Indukern F&F (Crude): smoky, phenolic, medicinal, tarry
+@@ a91d2fcc4c · material_descriptors.text
+Indukern F&F (Gamma-Methyl Ionone) (ficha del 70 %): WOODY, SMOOTH, VIOLET
+@@ 65b93dd606 · material_descriptors.text
+Indukern F&F (Isobutyl Quinoline Pure): LEATHER, TOBACCO, EARTHY, ANIMAL
+@@ 098b432291 · material_descriptors.text
+Indukern F&F (Meijiff) (ficha cis+trans, 5502-75-0): FRESH, FLORAL, MUGUET
+@@ 3e1c967028 · material_descriptors.text
+Indukern F&F (Rectified): phenolic, medicinal, smoky
+@@ a72b9a4871 · material_descriptors.text
+Indukern F&F: BALSAMIC, WOODY, ANIMAL
+@@ 5b5fc71bfb · material_descriptors.text
+Indukern F&F: GREEN, FRESH, LEAF, HERBAL
+@@ e7e6f25f15 · material_descriptors.text
+Indukern F&F: MUSK, SWEET, FLORAL
+@@ 1c17854d09 · material_descriptors.text
+Indukern F&F: POWERFUL, CITRUS, FATTY, ALDEHYDIC
+@@ db1741db33 · material_descriptors.text
+Indukern F&F: SANDALWOOD
+@@ 816dc3393c · material_descriptors.text
+Indukern F&F: SWEET, BALSAMIC
+@@ 9882bfedc3 · material_descriptors.text
+Indukern F&F: TOBACCO, SWEET, WOODY, HAY
+@@ e23b869288 · material_descriptors.text
+Indukern F&F: VANILLA, SWEET, BALSAMIC
+@@ f1ed3038a4 · material_descriptors.text
+Indukern F&F: WOODY, EARTHY, LEATHER
+@@ b31147a661 · material_descriptors.text
+Indukern: CITRUS, FRESH, SWEET, GREEN
+@@ 727fbf9217 · material_descriptors.text
+Indukern: CITRUS, HERBAL, LAVENDER
+@@ 9399f20555 · material_descriptors.text
+Indukern: floral, rose, green, sweet
+@@ 3c231186af · material_descriptors.text
+Indukern: FLORAL, VIOLET, FRUITY, WOODY
+@@ 5cf27963cb · material_descriptors.text
+Indukern: MANDARIN, CITRUS
+@@ 963976674b · material_descriptors.text
+Indukern: SWEET, VANILLA
+@@ 47351448c1 · material_descriptors.text
+Kao Corporation (Sandalmysore Core): tipo sándalo de Mysore; según la página, de olor más potente y difusivo que el sándalo de Mysore natural, dulce, leñoso y muy tenaz (resumido por la herramienta de lectura, no literal)
+@@ 388b86ec7e · material_descriptors.text
+Kun Shan P&A (ficha 94333-88-7): WOODY, SPICY, ROSY
+@@ 9d86e5ba64 · material_descriptors.text
+Lebermuth: Fresh, mandarin
+@@ a37b0ee834 · material_descriptors.text
+Lebermuth: Harsh lemon
+@@ ca8da8e7ee · material_descriptors.text
+Lebermuth: Spicy, warm, bitter
+@@ 277ae483d2 · material_descriptors.text
+listado de Ernesto Ventós / ALDAMBRE SYNAROME (la página no atribuye con claridad): WOODY, AMBER, DRY, MUSKY
+@@ 01f1d0a6cb · material_descriptors.text
+Lluch Essence (60/20): HERBACEOUS, LAVENDER, LIME
+@@ 531c56aa81 · material_descriptors.text
+Luebke, William (TGSC, 1981), al 10 % en dipropilenglicol: sweet aldehydic waxy orange peel citrus floral
+@@ 069c3f6538 · material_descriptors.text
+Luebke, William (TGSC, 1982), al 10 % en dipropilenglicol: strong sharp sweet bitter almond cherry
+@@ ad4649ca6d · material_descriptors.text
+Luebke, William (TGSC, 1982), al 100 %: fruity grape orangeflower neroli
+@@ 5f031e2fb9 · material_descriptors.text
+Luebke, William (TGSC, 1984), al 1 % en dipropilenglicol: fresh amber aldehydic moss citrus tuberose metallic waxy coumarinic
+@@ 2c01db7d8e · material_descriptors.text
+Luebke, William (TGSC, 1985), al 100 %: sweet fruity apple green tropical plum woody
+@@ 36787cfac1 · material_descriptors.text
+Luebke, William (TGSC, 1987), al 100 %, muestra de Dragoco: dry sawdust woody powdery amber sandalwood
+@@ 7f8c447052 · material_descriptors.text
+Luebke, William (TGSC, 1988), al 10 % en dipropilenglicol: sweet spicy aromatic fruity aldehydic cinnamyl honey resinous woody
+@@ 9ae0ed1e92 · material_descriptors.text
+Luebke, William (TGSC, 1988), al 100 %, muestra de Fragrance Resources Inc.: woody, burnt, musty, cedar
+@@ 71af7f5383 · material_descriptors.text
+Luebke, William (TGSC, 1995), al 1 % en dipropilenglicol: green red rose spicy fresh geranium
+@@ d10977416b · material_descriptors.text
+Luebke, William (TGSC, 1996), al 1 % en dipropilenglicol, muestra de Charabot & Co.: fresh cedarleaf minty camphor sage herbal bitter-sweet
+@@ d5fd23c324 · material_descriptors.text
+Luebke, William (TGSC, 1996), al 1 % en dipropilenglicol: phenolic smoke spice vanilla woody
+@@ 1dbadc6760 · material_descriptors.text
+Luebke, William (TGSC, 2007), al 10 % en dipropilenglicol: tonka coumarin coconut toasted nutty celery burnt
+@@ d5e4c8585c · material_descriptors.text
+Luebke, William, TGSC, 1981 (al 100 %): floral rose dried rose flower rose water
+@@ 82108f30c0 · material_descriptors.text
+Luebke, William, TGSC, 1981 (al 100 %): fruity peach creamy fatty lactonic apricot ketonic coconut
+@@ eb56c9bff0 · material_descriptors.text
+Luebke, William, TGSC, 1981 (al 100 %): sweet floral fruity jasmin fresh
+@@ 9dde7ffbc7 · material_descriptors.text
+Luebke, William, TGSC, 1981 (al 100 %): sweet floral oily fruity herbal jasmin
+@@ 0e1b604f7f · material_descriptors.text
+Luebke, William, TGSC, 1982 (al 10 % en DPG): green, leafy, gardenia, rhubarb, musty
+@@ 6c88f3a1ba · material_descriptors.text
+Luebke, William, TGSC, 1982 (al 100 %, muestra de Berje): sweet green citrus bergamot lavender woody
+@@ b89c653ca9 · material_descriptors.text
+Luebke, William, TGSC, 1982 (al 100 %): coconut, creamy, waxy, sweet, buttery, oily
+@@ 90ba157f3a · material_descriptors.text
+Luebke, William, TGSC, 1982 (al 100 %): floral rose lavender green waxy
+@@ acf073c9e2 · material_descriptors.text
+Luebke, William, TGSC, 1985 (al 1,00 % en dipropilenglicol): powerful fresh dry citrus waxy watery
+@@ 124f82acd3 · material_descriptors.text
+Luebke, William, TGSC, 1996 (al 0,10 % en propilenglicol): popcorn nutty corn chip bread crust chocolate hazelnut coffee
+@@ 4ea35deee3 · material_descriptors.text
+Luebke, William, TGSC, 2000 (al 10,00 % en dipropilenglicol): fruity green galbanum pineapple fusel
+@@ 49ce82e930 · material_descriptors.text
+Maese Lab (reseñas): powdery musk, similar to orris, and an amber-musk note
+@@ 3d32680e3e · material_descriptors.text
+Maese Lab: aroma especiado, fresco y ligeramente cítrico, con matices dulces y terrosos
+@@ 54fd03c5d3 · material_descriptors.text
+Maese Lab: aroma herbal y especiado, con notas de pimienta verde que evocan la mejorana
+@@ d52f42305c · material_descriptors.text
+Maese Lab: aroma herbal, balsámico y amaderado, con matices frescos y notas alcanforadas
+@@ ccc218feae · material_descriptors.text
+Maese Lab: Dulce, amaderado, oriental, cálido
+@@ 58eda8f76d · material_descriptors.text
+Mane (en TGSC): Woody Cedar Mushroom
+@@ da196a256c · material_descriptors.text
+Mane (Styrax Alcoholic Resinoid): Balsamic Resinous Gourmand
+@@ 6e501bd54c · material_descriptors.text
+Mane: Aromatic Camphorous Licorice
+@@ f130e7c19e · material_descriptors.text
+Mane: Balsamic Resinous Gourmand
+@@ 32cc2bf625 · material_descriptors.text
+Mane: Gourmand Herbaceous Balsamic
+@@ b8583a1c35 · material_descriptors.text
+Mane: Zesty Juicy Albedo
+@@ 6baab041e5 · material_descriptors.text
+Marine, Fresh, Clean
+@@ a7092f5c66 · material_descriptors.text
+Marine, Watery, Fresh
+@@ 66ca5713f2 · material_descriptors.text
+Moellhausen (70% y 90%): floreal, cedar wood, in dilution violet and orris note
+@@ d8a6c3e01e · material_descriptors.text
+Moellhausen (Cade EO Rectified): phenolic, medicinal, smoke
+@@ 533109b764 · material_descriptors.text
+Moellhausen (en TGSC): powerful phenolic, on dilution floral, somewhat daffodil-like
+@@ fd7b52500b · material_descriptors.text
+Moellhausen (EUGENOL Natural): spicy, clove leaf
+@@ d9244a6077 · material_descriptors.text
+Moellhausen (ficha 94333-88-7): aromatic, slightly phenolic-fruity
+@@ fa7a30af2a · material_descriptors.text
+Moellhausen (gamma-Methyl Ionone 70) (ficha del 70 %): floreal, woody, in dilution of violet
+@@ b3f3b7d171 · material_descriptors.text
+Moellhausen (LAVENDER EO CHINA): balsamic, dry, spicy
+@@ 7a007d4d13 · material_descriptors.text
+Moellhausen (MAYOL) (ficha cis+trans, 5502-75-0): fresh, herbal-floral, slightly spicy-note
+@@ 7af30f93eb · material_descriptors.text
+Moellhausen (Piperonal): sweet, vanilla
+@@ f1f02740b6 · material_descriptors.text
+Moellhausen (Sandalmiscoeur): powerful sandalwood
+@@ c41eedfbf1 · material_descriptors.text
+Moellhausen (Supersantol): powerful sandalwood-character
+@@ d148a95ce0 · material_descriptors.text
+Moellhausen: aromatic, floreal
+@@ e70fa80431 · material_descriptors.text
+Moellhausen: chocolate, coffee, nut, popcorn
+@@ 198749e0ec · material_descriptors.text
+Moellhausen: floreal, rose
+@@ b83cd30c6d · material_descriptors.text
+Moellhausen: fresh, green, rhubarb
+@@ 6c4d66ff98 · material_descriptors.text
+Moellhausen: herbaceous, citrus, lemon
+@@ 167c921ecd · material_descriptors.text
+Moellhausen: honey, amberwoody note
+@@ f5ae5ce177 · material_descriptors.text
+Moellhausen: strong, sweet, vanilla
+@@ ca16c5b261 · material_descriptors.text
+Moellhausen: sweet, balsamic, aromatic
+@@ fdce3e49f7 · material_descriptors.text
+Moellhausen: sweet, cinnamomum
+@@ c612d56e8f · material_descriptors.text
+Moellhausen: sweet, fresh, aromatic
+@@ 209c95cc77 · material_descriptors.text
+Moellhausen: terpeny, coniferous, pinewoody
+@@ 4ac08559fa · material_descriptors.text
+Mosciano (al 0,1 % en triacetina): intense earthy, metallic, mushroom-like with vegetative nuances of cabbage and broccoli
+@@ 3d7b0448e9 · material_descriptors.text
+Mosciano, Gerard (P&F 16, No. 6, 43, 1991): Green, herbaceous, sweet, citrus-Iike with a woody aldehydic nuance
+@@ ac9134c886 · material_descriptors.text
+Mosciano, Gerard (P&F 18, No. 2, 38, 1993): Fruity, concord grape, musty with a floral powdery nuance
+@@ 86c8ad3c6b · material_descriptors.text
+Mosciano, Gerard (P&F 18, No. 5, 39, 1993): Brown, tobacco, sweet hay-like, leafy, herbal with a dried fruit nuance
+@@ cfba79f32a · material_descriptors.text
+Mosciano, Gerard (P&F 19, No. 2, 1994): Gassy, diffusive, metallic, waxy, with coumarin and citrus nuances
+@@ 859ccab02e · material_descriptors.text
+Mosciano, Gerard (P&F 19, No. 2, 55, 1994): Sweet, cinnamic, spicy warm, woody and aromatic
+@@ 033faac0ef · material_descriptors.text
+Mosciano, Gerard (P&F 19, No. 5, 79, 1994): almond, fruity, powdery, nutty and benzaldehyde-like
+@@ 2477e09f00 · material_descriptors.text
+Mosciano, Gerard (P&F 20, No. 4, 23, 1995): Sweet, aldehydic, orange, waxy and citrus rind
+@@ f4cdf9b7d5 · material_descriptors.text
+Mosciano, Gerard (P&F 21, No. 2, 47, 1996): Fresh ground black pepper, spicy, woody and pungent with an herbal nuance
+@@ 581f9a612e · material_descriptors.text
+Mosciano, Gerard (P&F 22, No. 2, 69, 1997): Coumarinic, coconut, Iactonic, woody, maple and lovage with a slightly toasted, nutty nuance
+@@ c0c52bdb0c · material_descriptors.text
+Mosciano, Gerard (P&F 22, No. 3, 47, 1997): Phenolic, smoky, spicy, medicinal, vanilla and savory meaty with a woody nuance
+@@ b9e5f22009 · material_descriptors.text
+Mosciano, Gerard (P&F 22, No. 4, 75, 1997): Green, herbal, woody, mossy, seaweed, earthy, hay and tobacco-like
+@@ 0cfebcd8da · material_descriptors.text
+Mosciano, Gerard (P&F 23, No. 2, 43, 1998): Citrus, floral, sweet, spicy, green and orange peely, with lemon, lime and ginger nuances
+@@ 9501ab800f · material_descriptors.text
+Mosciano, Gerard, P&F 15, No. 2, 69 (1990): Sweet floral perfume-like notes with green citrus and melon undertones
+@@ c84056cfaa · material_descriptors.text
+Mosciano, Gerard, P&F 16, No. 1, 31 (1991): Sweet sugary, caramellic, jammy, strawberry-like
+@@ bfac75121b · material_descriptors.text
+Mosciano, Gerard, P&F 16, No. 2, 49, 1991: Medicinal, spicy cinnamon-wintergreen like cooling note
+@@ 74e1bb1d64 · material_descriptors.text
+Mosciano, Gerard, P&F 16, No. 4, 45 (1991): Sweet, fruity, woody, berry-like with floral and seedy nuances
+@@ 5a75f6cd1b · material_descriptors.text
+Mosciano, Gerard, P&F 17, No. 1, 41 (1992): Sweet, soapy, perfume-like with a heavy fruity undertone
+@@ c47f7d5cb2 · material_descriptors.text
+Mosciano, Gerard, P&F 17, No. 1, 41, 1992: sweet, creamy, coconut, fatty, with oily and buttery nuances
+@@ f4b5bd7995 · material_descriptors.text
+Mosciano, Gerard, P&F 18, No. 4, 51, 1993: Green, grassy, melon rind-like with a pungent freshness
+@@ 51022d8eea · material_descriptors.text
+Mosciano, Gerard, P&F 18, No. 4, 51, 1993: Sweet, floral, fresh and bready with a rosey honey nuance
+@@ 031621ecce · material_descriptors.text
+Mosciano, Gerard, P&F 20, No. 5, 49, 1995: Sweet, green, floral and spicy with a clean, woody, terpy and citrus nuance.
+@@ 05fdc13296 · material_descriptors.text
+Mosciano, Gerard, P&F 21, No. 1, 33, 1996: Sweet, vanilla, vanillin, creamy and phenolic
+@@ d6f08621c5 · material_descriptors.text
+Mosciano, Gerard, P&F 21, No. 5, 49 (1996) (muestra de Berje Inc.): Cherry, vanilla, sweet cherry pit notes and creamy with cinnamic nuances
+@@ 8e990bbd80 · material_descriptors.text
+Mosciano, Gerard, P&F 22, No. 6, 41 (1997), al 2.00 %: floral, sweet, rosey, fruity, and citronella-like with a citrus nuance
+@@ 81c5967c16 · material_descriptors.text
+Mosciano, Gerard, P&F 23, No. 2, 43, 1998: Creamy, fatty, fruity, coconut, peach, lactonic, ketonic and fruity
+@@ 5d38d05664 · material_descriptors.text
+Mosciano, Gerard, P&F 23, No. 3, 55 (1998), al 1.00 %: Smoke, phenolic, creosote and savory
+@@ 688d00ecda · material_descriptors.text
+Mosciano, Gerard, P&F 23, No. 3, 55, 1998 (al 5 %): Floral, rosy, waxy, herbal and green with a slight cooling nuance
+@@ 477db69797 · material_descriptors.text
+Mosciano, Gerard, P&F 26, No. 3, 80 (2001), al 1.00 %: Sweet, spicy, clove like, woody, with phenolic savory ham and bacon notes and cinnamon and allspice nuances
+@@ ee367795bb · material_descriptors.text
+Mosciano: dulce, frutal, floral, cítrico de limón y pomelo, con matices de jazmín leñoso y verdes
+@@ 01d0ced03d · material_descriptors.text
+MSDS (USDA AMS): Warm, spicy, balsamic
+@@ 6c585db863 · material_descriptors.text
+Musk like, Floral, Woody
+@@ 7a5e922926 · material_descriptors.text
+Musk like, Soft, Floral
+@@ 00a508a77d · material_descriptors.text
+Musk like, Warm, Powdery
+@@ d12ca73b74 · material_descriptors.text
+Odor Type (dsm-firmenich): Fruity
+@@ 04d8a64281 · material_descriptors.text
+Odor Type (Fraterworks): Amber
+@@ 1c52796dd0 · material_descriptors.text
+Odor Type (Fraterworks): Animalic
+@@ 6773f50a8e · material_descriptors.text
+Odor Type (Fraterworks): Gourmand
+@@ 1174364361 · material_descriptors.text
+Odor Type (Fraterworks): Mossy
+@@ 36277c4717 · material_descriptors.text
+Odor Type (Fraterworks): Musky
+@@ ff8332c63d · material_descriptors.text
+Odor Type (Fraterworks): Woody
+@@ 6345266230 · material_descriptors.text
+Odor Type (IFF): musk
+@@ 501e202289 · material_descriptors.text
+Odor Type (Maese Lab): Musky
+@@ 707e860da9 · material_descriptors.text
+Odor Type (Robertet): Ambery/Vanillic
+@@ 4e3ee95596 · material_descriptors.text
+Odor Type (TGSC): animal
+@@ b39961be66 · material_descriptors.text
+Odor Type (TGSC): balsamic
+@@ a770f2fabf · material_descriptors.text
+Odor Type (TGSC): fruity
+@@ 73d9ae7a38 · material_descriptors.text
+Odor Type (TGSC): green
+@@ 24042a7a7b · material_descriptors.text
+Odor Type (TGSC): mossy
+@@ 8c719ca4f2 · material_descriptors.text
+Odor Type (TGSC): musk
+@@ 19e20f7bf0 · material_descriptors.text
+Odor Type (TGSC): nutty
+@@ 486bcf717b · material_descriptors.text
+Odor Type (TGSC): phenolic
+@@ cfbcdf5444 · material_descriptors.text
+Odor Type (TGSC): vanilla
+@@ 0604b76077 · material_descriptors.text
+Odor Type (TGSC): woody
+@@ ce39bd1740 · material_descriptors.text
+Olfactorian, citando a Arctander (vía Pell Wall): a dark brown, semi-solid mass of strong, almost repulsive odor
+@@ 9bbbb01dd7 · material_descriptors.text
+Olfactorian, citando a Indukern: Tobacco, sweet, woody, hay
+@@ d20ef7390c · material_descriptors.text
+Olfactorian: Delivers a rich, earthy tobacco character with sweet hay-like nuances
+@@ bf85d79440 · material_descriptors.text
+Olfastory (haba tonka, en general): the raw beans are toasted and almondy, recalling caramel or dried hay; after processing, powdery
+@@ 463b526733 · material_descriptors.text
+Pell Wall (al 1 % en TEC, vía buscador): smoky, phenolic, castoreum, leather, animal, barnyard, oud
+@@ 50b937b12a · material_descriptors.text
+Pell Wall (citando a Bedoukian, vía buscador): perhaps the most 'animal' note of them all
+@@ c0a5938a5a · material_descriptors.text
+Pell Wall (vía buscador): Dry, floral-neroli, grapes, Orangeblossom
+@@ 74d92a20a0 · material_descriptors.text
+Pell Wall (vía buscador): musk, powdery, sweet, floral, ambrette-like, with woody, spicy and vanilla nuances
+@@ e21dda57dd · material_descriptors.text
+Pell Wall (vía buscador): por sí solo no huele a whisky; sugiere combinarlo con davana, alquitrán de abedul y succinato de dietilo para sugerir whisky
+@@ 2b64733c28 · material_descriptors.text
+Pell Wall / Perfume Extract (vía buscador): sharp, sweet, bitter-almond, cherry
+@@ 7f3a66fd60 · material_descriptors.text
+Pell Wall Perfumes (Butyl Quinoline Secondary): earthy, shap-leather, rooty nutty oakmoss vetiver
+@@ f0312a0f93 · material_descriptors.text
+Pell Wall Perfumes (Cade Oil Rectified): smoky, phenolic, bonfire
+@@ 0cf2720b7c · material_descriptors.text
+Pell Wall Perfumes (Cassis Base 345B): Fruity-Cassis, blackcurrant, box. Powerful
+@@ 6eee599840 · material_descriptors.text
+Pell Wall Perfumes (Dartanol): Sandalwood, creamy, floral-rose, cedarwood
+@@ b03c081ab9 · material_descriptors.text
+Pell Wall Perfumes (en TGSC, ficha del aceite de pachuli Clearwood): un 'clean' smelling natural facsimile of patchouli
+@@ 813ee6e829 · material_descriptors.text
+Pell Wall Perfumes (en TGSC): musk, animalic, leathery, sweet. Basado en Galaxolide, ajustado para ser más animálico
+@@ 9207e751ef · material_descriptors.text
+Pell Wall Perfumes (Escocia, 2 %) — ficha 8038-65-1: Ambergris , animalic, marine
+@@ 2a4717253f · material_descriptors.text
+Pell Wall Perfumes (Helional): Fresh, watery, green, floral-cyclamen, ozone, hay, new-mown-hay
+@@ 0a6d642849 · material_descriptors.text
+Pell Wall Perfumes (Meijiff) (ficha cis+trans, 5502-75-0): Floral-muguet, clean, green-grass, soft. Good blender
+@@ 4ec1b60ea0 · material_descriptors.text
+Pell Wall Perfumes (Methyl ionone iso super) (ficha del 50 %): floral-violet, fruity, powdery, woody, tea-like
+@@ 0310accb52 · material_descriptors.text
+Pell Wall Perfumes (Norlimbanol): Dry-wood, driftwood, animal, amber
+@@ 7f04105a1e · material_descriptors.text
+Pell Wall Perfumes (Nueva Zelanda, 2 %) — ficha 8038-65-1: Ambergris, light, clean
+@@ 2408819820 · material_descriptors.text
+Pell Wall Perfumes: coconut, creamy, lactonic, coumarin
+@@ af438d1443 · material_descriptors.text
+Pell Wall Perfumes: Dry, floral-neroli, grapes, Orangeblossom. Tenacious
+@@ 5d14171182 · material_descriptors.text
+Pell Wall Perfumes: Fruity-peach, creamy, fatty, lactonic, powerful
+@@ 8d67f3e4ec · material_descriptors.text
+Pell Wall Perfumes: Mild, floral-rose, balsamic
+@@ 95f75310ac · material_descriptors.text
+Pell Wall Perfumes: Musk-like, spicy, floral, fruity, rich, musty Solvent
+@@ 086d3f48f8 · material_descriptors.text
+Pell Wall Perfumes: Sweet, hay, tonka, new-mown-hay
+@@ 337f726fde · material_descriptors.text
+Pell Wall Perfumes: Warm-tobacco, sweet, hay-like, moss woody
+@@ 1a584dfa3f · material_descriptors.text
+Pell Wall: Popcorn, sweet, nutty, bread, chocolate, roasted, rich (0,1 % en TEC: potente, nota de palomita con matices de chocolate y frutos secos)
+@@ 400d7d9577 · material_descriptors.text
+Perfumer Supply House (en TGSC): sensual sweet, musk, animalic with a leather nuance
+@@ f4cda73815 · material_descriptors.text
+Perfumer Supply House (ficha hermana 134-28-1): A delicate, woody, fatty, green tea aroma
+@@ 03f711fde4 · material_descriptors.text
+Perfumer Supply House (Hydrocarboresine): rich, smooth, resinous smoky incense impression
+@@ 68b9496588 · material_descriptors.text
+Perfumer Supply House (N. rustica): Tobacco, Leather
+@@ ccf149cdef · material_descriptors.text
+Perfumer Supply House: Mossy, woody (pine), herbaceous, earthy, hay-like, tobacco, seaweed with good tenacity
+@@ 6fccb58f67 · material_descriptors.text
+Perfumer's Apprentice (vía buscador): Cedar, woody, burnt, musty.
+@@ cd198e7fdb · material_descriptors.text
+Perfumer's Apprentice: Eucalyptus, Camphor, Mint, Herbal
+@@ ad107584b2 · material_descriptors.text
+Perfumer's Apprentice: Herbal, Spicy, Camphoraceous
+@@ 08d18c5be7 · material_descriptors.text
+Perfumer's Apprentice: Musk, Floral, Animalic
+@@ 355a06ba16 · material_descriptors.text
+Perfumer's Apprentice: Powerful fruity balsamic, dilution - strawberry
+@@ cd634dfec5 · material_descriptors.text
+Perfumer's Apprentice: Tropical fruity, Guava, Grapefruit, Rhubarb, Cassis
+@@ 57d976e175 · material_descriptors.text
+Perfumers Apprentice: Ionone Beta has a particularly intense freesia character.
+@@ 7e439f3bf0 · material_descriptors.text
+PerfumersWorld (en TGSC): Prune deep dark rich sweet fruity wet
+@@ d3af9f6693 · material_descriptors.text
+PerfumersWorld (en TGSC): sweet-balsamic amber-spicy vine-fruit
+@@ 5fe1f4967e · material_descriptors.text
+PerfumersWorld (ficha de Hindinol, mismo CAS): An elegant, creamy, and remarkably powerful sandalwood note.
+@@ bc9159d1a6 · material_descriptors.text
+PerfumersWorld (isoButyl Quinoline): earthy rooty vetivert moss animalic damp
+@@ fa861174e2 · material_descriptors.text
+PerfumersWorld (Olibanum Oil) — ficha genérica 8016-36-2 (otro CAS): olibanum old wood fresh woody fresh terpeney warm sweet balsamic
+@@ 5688985408 · material_descriptors.text
+PerfumersWorld (vía buscador): sweet floral musk with a natural-musk character, close to ambrette seed
+@@ f82217af41 · material_descriptors.text
+PerfumersWorld (vía buscador): sweet green quinoline grassy marine forest oily woody earthy mossy rich leather
+@@ c6440752ca · material_descriptors.text
+PerfumersWorld: fresh floral woody petitgrain bois de rose bergamot
+@@ e2ac80a33b · material_descriptors.text
+PerfumersWorld: herbaceous citrusy lemon
+@@ 55c2916e38 · material_descriptors.text
+PerfumersWorld: jasmin oily aromatic mild oily-herbaceous oxidised rancid cinnamic benzaldehyde
+@@ 5cf37532d7 · material_descriptors.text
+PerfumersWorld: sweet musk waxy note
+@@ 96860fd4ef · material_descriptors.text
+Perfumery Laboratory (en TGSC, ficha del aceite de pachuli Clearwood): bright, mild patchouli aroma, slightly earthy and leathery
+@@ b405be3a52 · material_descriptors.text
+Perfumery Laboratory (en TGSC): Bright aromas of ripe plum fruit with a hint of prunes
+@@ 3983b531c8 · material_descriptors.text
+Perfumery Laboratory (en TGSC): warm musk, animalistic, leathery, sweet
+@@ 9de6508c94 · material_descriptors.text
+Perfumery Laboratory (primera entrada de CASTOREUM SYNTH): A warm, leathery, animalic aroma without castoreum
+@@ deb93d7363 · material_descriptors.text
+Perfumery Laboratory (segunda entrada de CASTOREUM SYNTH): Warm, leathery, animalistic aroma of castoreum
+@@ 47effda160 · material_descriptors.text
+Perfumery Laboratory (Stemon G 10 % en DPG): Peach tree leaves
+@@ 109bf93c94 · material_descriptors.text
+Perfumery Laboratory (SYUDERAL IFF / Suederal LT): A soft, yet strong Romat expensive tanned suede
+@@ 83ccbf3fb9 · material_descriptors.text
+Perfumiarz: spicy-leathery, tobacco, saffron, velvety, warm
+@@ 4c6ad4e43d · material_descriptors.text
+Powdery, Warm, Almond
+@@ 24fff85e75 · material_descriptors.text
+Premiere Peau, glosario (vía buscador): la impresión cítrica más suave y dulce de la paleta; carácter dulce-ácido y meloso atribuido al antranilato de metil-N-metilo
+@@ 0d0718df5f · material_descriptors.text
+Premiere Peau, glosario (vía buscador): más cercano al castóreo y al tabaco envejecido que a la confitería
+@@ 0ce1eb4ca7 · material_descriptors.text
+Privi: Fresh, lime-like, floral, sweet
+@@ 2be4291f4e · material_descriptors.text
+Prodasynth (en TGSC): PHENOL, ANIMALIC, NARCISSUS, MIMOSA
+@@ c16bd0b5b7 · material_descriptors.text
+Prodasynth (EUGENOL, NATURAL): STRONG, CLOVE-LIKE, SPICY
+@@ d4bf8c6685 · material_descriptors.text
+Prodasynth: HERBACEOUS, BERGAMOT, LAVENDER
+@@ e3017b032b · material_descriptors.text
+proveedor (fragmento del buscador): fruity nuances reminiscent of pears, with a touch of freshness
+@@ 93ea7b9855 · material_descriptors.text
+Proveedores (sección Odor de CASTOREUM SYNTH): Castoreum
+@@ 64452c4e8e · material_descriptors.text
+R C Treatt: popcorn; nutty, bread crust
+@@ 59397a01e1 · material_descriptors.text
+resumen del buscador (proveedores): clove-like and sweet-spicy, with woody, dry, and phenolic facets and cinnamon and allspice nuances
+@@ f8e3532057 · material_descriptors.text
+resumen del buscador (tiendas): clean, faintly green, and silky, con matices de linalool y un frescor ligero de té
+@@ 601a6485d8 · material_descriptors.text
+RIFM (vía buscador): Colorless liquid with a mild and sweet floral rose-type odor
+@@ cfa838be98 · material_descriptors.text
+Robertet (COCOA CLEAR CLAREXTRACT): Gourmand, powerful, cocoa powder effect
+@@ 26de2b0ba4 · material_descriptors.text
+Robertet (en TGSC): Ambery/vanillic, typical milky/buttery, turpentine, mushroom
+@@ 75badbb3c1 · material_descriptors.text
+Robertet (low atra): Woody, moss, marine
+@@ 36682e56bc · material_descriptors.text
+Robertet (Olibanum fraction oil) — ficha genérica 8016-36-2 (otro CAS): Ambery, vanillic, an olibanum base note
+@@ 7495555868 · material_descriptors.text
+Robertet y Charabot: Animal, ink, leathery, phenolic
+@@ dbe8626bc6 · material_descriptors.text
+Robertet: Woody, smoky
+@@ 1c3a9e316a · material_descriptors.text
+ScenTree (clasificación): Balsamic Ambery > Ambery Cistus > Animalic > Spicy
+@@ 21ed71fc5b · material_descriptors.text
+ScenTree (clasificación): Balsamic Ambery > Vanillic
+@@ de4a83af92 · material_descriptors.text
+ScenTree (clasificación): Floral > Fresh Flowers > Plastic > Aldehydes > Mushroom
+@@ eb1073627d · material_descriptors.text
+ScenTree (clasificación): Herbal > Lavender > Fresh Flowers
+@@ b885171034 · material_descriptors.text
+ScenTree (clasificación): Undergrowth > Mossy > Smoky Woods > Animalic
+@@ dc1a5930ce · material_descriptors.text
+ScenTree (ficha genérica de incense oil): Balsamic, smoky, green and oriental
+@@ 69cec45772 · material_descriptors.text
+ScenTree (hidroxicitronelal genérico): Floral > Light Flowers > Aldehydes > Fresh Flowers > Green
+@@ 9a6deade31 · material_descriptors.text
+ScenTree (mapa olfativo): Balsamic Ambery > Gourmand > Coumarinic > Animalic > Roasted

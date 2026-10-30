@@ -1,7 +1,7 @@
-import { type ReactNode, useMemo } from "react";
+import { type ReactNode, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { texts } from "../i18n/en";
 import { SheetHero } from "./SheetHero";
-import { type SheetValue, sheetOf } from "./sheet";
+import { type SheetLine, type SheetValue, sheetOf } from "./sheet";
 import type { GlossaryData } from "./useGlossary";
 
 /**
@@ -39,6 +39,19 @@ export function MaterialSheet({
   const material = data.catalog.materials.get(id);
   const base = material?.basedOnId ? data.catalog.materials.get(material.basedOnId) : undefined;
   const abbreviation = material?.abbreviation ?? base?.abbreviation ?? null;
+  // The sources, folded at the end (V3-86): a figure's mark opens them at its line.
+  const [sourcesOpen, setSourcesOpen] = useState(false);
+  const sourcesRef = useRef<HTMLDetailsElement>(null);
+  useEffect(() => setSourcesOpen(false), [id]);
+  const show = (mark: number) => {
+    setSourcesOpen(true);
+    requestAnimationFrame(() => {
+      const line = sourcesRef.current?.querySelector<HTMLElement>(`[data-mark="${mark}"]`);
+      line?.scrollIntoView({ block: "center" });
+      line?.focus();
+    });
+  };
+  const markOf = (mark: number) => <Mark key={mark} mark={mark} onShow={show} />;
   return (
     <article className="sheet">
       <nav className="crumb" aria-label={t.crumb}>
@@ -56,10 +69,13 @@ export function MaterialSheet({
             catalog={data.catalog}
             material={material!}
             name={sheet.name}
+            marks={sheet.figures}
+            markOf={markOf}
             chips={
               <>
                 <span className="chip">{texts.kinds[material!.kind]}</span>
                 {abbreviation && <span className="chip">{abbreviation}</span>}
+                {(material!.solvent || base?.solvent) && <span className="chip">{t.fields.solvent}</span>}
                 <span className={`ifra ifra-${sheet.ifra.state}`} title={texts.ifraStateHelp[sheet.ifra.state]}>
                   {texts.ifraState[sheet.ifra.state]}
                 </span>
@@ -107,10 +123,13 @@ export function MaterialSheet({
           {links && <div className="sheet-links">{links}</div>}
           <div className="sheet-sections reading">
           {sheet.sections.map((section) => (
-            <section key={section.key} className={`sheet-section${section.tables.some((x) => x.rows.length > 0) || section.key === "notes" ? " wide" : ""}`}>
+            <section
+              key={section.key}
+              className={`sheet-section${section.tables.some((x) => x.rows.length > 0) || (section.lines?.length ?? 0) > 0 || section.key === "yourNotes" ? " wide" : ""}`}
+            >
               <h3>
                 {section.title}
-                {section.disputed && <span className="disputed">{t.disputed}</span>}
+                {section.mark && markOf(section.mark)}
               </h3>
               {section.rows.some((row) => row.value.text !== null) && (
                 <dl>
@@ -120,12 +139,23 @@ export function MaterialSheet({
                       <div key={row.label} className="field">
                         <dt>{row.label}</dt>
                         <dd>
-                          <Value value={row.value} />
+                          <Value value={row.value} markOf={markOf} />
                         </dd>
                       </div>
                     ))}
                 </dl>
               )}
+              {section.lines && section.lines.length > 0 && (
+                <ul className="sheet-lines">
+                  {section.lines.map((line, i) => (
+                    <li key={i}>
+                      <Clamp>{line.text}</Clamp>
+                      {line.marks.map(markOf)}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {section.empty && section.rows.length === 0 && section.tables.length === 0 && !section.lines?.length && <p className="unknown">{section.empty}</p>}
               {/* What nobody says, folded under one line (V3-73): still there, not a wall of «not stated». */}
               {section.rows.some((row) => row.value.text === null) && (
                 <details className="unstated">
@@ -137,7 +167,7 @@ export function MaterialSheet({
                         <div key={row.label} className="field">
                           <dt>{row.label}</dt>
                           <dd>
-                            <Value value={row.value} />
+                            <Value value={row.value} markOf={markOf} />
                           </dd>
                         </div>
                       ))}
@@ -167,6 +197,7 @@ export function MaterialSheet({
                             {cells.map((cell, c) => (
                               <td key={c} data-label={table.columns[c]}>
                                 {cell}
+                                {c === table.markAt && table.marks?.[r] !== undefined && markOf(table.marks[r])}
                               </td>
                             ))}
                           </tr>
@@ -179,62 +210,106 @@ export function MaterialSheet({
             </section>
           ))}
           </div>
+          {sheet.sources.length > 0 && (
+            <details ref={sourcesRef} className="sheet-sources reading" open={sourcesOpen} onToggle={(e) => setSourcesOpen(e.currentTarget.open)}>
+              <summary>{t.sources(sheet.sources.length)}</summary>
+              <ol>
+                {sheet.sources.map((s) => (
+                  <li key={s.mark} value={s.mark} data-mark={s.mark} tabIndex={-1}>
+                    <span className="source-what">{t.sourceOf(s.what)}</span> {s.text ?? <span className="unknown">{t.unknown}</span>}
+                    {s.authority && <span className="source-meta"> · {s.authority}</span>}
+                    {s.yours && <span className="source-meta"> · {t.yours}</span>}
+                    {s.disputed && <span className="source-meta"> · {t.disputedLong}</span>}
+                    {s.note && <span className="source-note"> {s.note}</span>}
+                  </li>
+                ))}
+              </ol>
+            </details>
+          )}
         </>
       )}
     </article>
   );
 }
 
-/** Characters a value shows before it folds. */
-const LONG = 90;
+/** A figure's mark: a small number that opens «Sources» at its line (V3-86). */
+function Mark({ mark, onShow }: { mark: number; onShow: (mark: number) => void }) {
+  const label = texts.sheet.sourceMark(mark);
+  return (
+    <button type="button" className="src-mark" aria-label={label} title={label} onClick={() => onShow(mark)}>
+      {mark}
+    </button>
+  );
+}
 
-function Value({ value }: { value: SheetValue }) {
-  const t = texts.sheet;
-  if (value.text === null) {
-    return (
-      <span className="unknown">
-        {t.unknown}
-        {value.disputed && <span className="disputed">{t.disputed}</span>}
+/**
+ * A text in one line, with «more» to read the rest when it does not fit (the user, 2026-10-30: «en
+ * general más de una línea es ilegible»). The button shows only when there is more to read.
+ */
+function Clamp({ children }: { children: ReactNode }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const [open, setOpen] = useState(false);
+  const [more, setMore] = useState(false);
+  useLayoutEffect(() => {
+    const line = ref.current;
+    if (!line || open) return;
+    const measure = () => setMore(line.scrollHeight > line.clientHeight + 1 || line.scrollWidth > line.clientWidth + 1);
+    measure();
+    // Again when its box changes, and when the fonts arrive: the text widens, the box does not.
+    const watch = new ResizeObserver(measure);
+    watch.observe(line);
+    document.fonts?.addEventListener("loadingdone", measure);
+    void document.fonts?.ready.then(measure);
+    return () => {
+      watch.disconnect();
+      document.fonts?.removeEventListener("loadingdone", measure);
+    };
+  }, [open]);
+  return (
+    <span className="clamp-wrap">
+      <span ref={ref} className={open ? "clamp open" : "clamp"}>
+        {children}
       </span>
-    );
-  }
-  // More than a line is hard to read (2026-10-30): the first line, and the rest on opening it.
-  const full = value.text + (value.notes.length ? ` (${value.notes.join("; ")})` : "");
-  if (!value.link && full.length > LONG) {
-    // A list («a · b · c» or «a, b, c»): its first three and how many more; a text: its first words.
-    const sep = value.text.includes(" · ") ? " · " : ", ";
-    const items = value.text.split(sep);
-    const list = items.length > 3;
-    const short = list ? items.slice(0, 3).join(sep) : value.text.slice(0, LONG).replace(/\s+\S*$/, "");
-    const more = list ? t.more(items.length - 3) : "…";
+      {(more || open) && (
+        <button type="button" className="clamp-toggle" aria-expanded={open} onClick={() => setOpen(!open)}>
+          {open ? texts.sheet.less : texts.sheet.more}
+        </button>
+      )}
+    </span>
+  );
+}
+
+/** A row's list in one line, each item with its source's mark. */
+function Items({ items, markOf }: { items: readonly SheetLine[]; markOf: (mark: number) => ReactNode }) {
+  return (
+    <Clamp>
+      {items.map((item, i) => (
+        <span key={i}>
+          {i > 0 && ", "}
+          {item.text}
+          {item.marks.map(markOf)}
+        </span>
+      ))}
+    </Clamp>
+  );
+}
+
+/** A value, and what goes with it; whether the sources disagree on it is said in «Sources» (V3-86). */
+function Value({ value, markOf }: { value: SheetValue; markOf: (mark: number) => ReactNode }) {
+  const t = texts.sheet;
+  if (value.text === null) return <span className="unknown">{t.unknown}</span>;
+  if (value.items) return <Items items={value.items} markOf={markOf} />;
+  if (value.link) {
     return (
-      <details className="long-value">
-        <summary>
-          <span className="value">{short}</span> <span className="more">{more}</span>
-          {value.disputed && <span className="disputed">{t.disputed}</span>}
-        </summary>
-        <span className="value">{value.text}</span>
-        {value.notes.length > 0 && (
-          <ul className="value-notes">
-            {value.notes.map((n) => (
-              <li key={n}>{n}</li>
-            ))}
-          </ul>
-        )}
-      </details>
+      <a href={value.link} target="_blank" rel="noreferrer">
+        {value.text}
+      </a>
     );
   }
   return (
-    <>
-      {value.link ? (
-        <a href={value.link} target="_blank" rel="noreferrer">
-          {value.text}
-        </a>
-      ) : (
-        <span className="value">{value.text}</span>
-      )}
+    <Clamp>
+      <span className="value">{value.text}</span>
       {value.notes.length > 0 && <span className="notes"> ({value.notes.join("; ")})</span>}
-      {value.disputed && <span className="disputed">{t.disputed}</span>}
-    </>
+    </Clamp>
   );
 }

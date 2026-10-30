@@ -1,0 +1,512 @@
+@@ a014f8119c
+IFF (via search engine): Typical use level: up to 2% · confidence: medium
+@@ 6da4e30d48
+IFF, compendium (via search engine): Typical use level up to 20% · confidence: medium
+@@ 97f9d0b6ce
+IFF, 50 % grade (via search engine): Typical use of the 50 % grade up to 50 % (that would be up to ~25 % neat material; calculation by the summary, not by the source) · confidence: medium
+@@ 2d359d1320
+IFF: typical use level of up to 30 % · confidence: medium
+@@ 528c0bea1d
+Kao: Dosage 1~15% · confidence: medium
+@@ 385e4e0bf5
+Knowde: dosage table: 0.25 % in fine fragrance · confidence: medium
+@@ a8afc4241f
+Ambrinol 95 listing (via search engine, other grade): 0.2–1 % in final formulas; average of ≈0.25 % in a perfume compound · confidence: medium
+@@ 2184a7ca73
+Fraterworks lot (Persia), not the Maese Lab one (Turkey); the table «What Galbanum is made of» (six published studies) re-read in its first figures · confidence: medium · re-read by the session on 2026-10-27
+@@ e1c6d39c1a
+Recommended maximum: 30 % of the concentrate · confidence: medium
+@@ c27930986c
+median 0.3 % in the perfumes it analyses, of its rectified oil (CAS 8012-91-7). Observed or recommended use, not an IFRA limit.
+@@ 827bbcef3a
+median 0.07 %, minimum «tr.», maximum 1.5 % in perfumes; the table «What Opoponax is made of» is from Maradufu, Phytochem 21, 677-680 (1982); Commiphora erythraea var. glabrescens, Somalia · confidence: medium · re-read by the session on 2026-10-27
+@@ 526446a096
+minimum «tr.»; the table «What Myrrh gum is made of» (published analyses) re-read in its first figures; it is not the Perfumiarz lot · confidence: medium · re-read by the session on 2026-10-27
+@@ cec034a1ae
+minimum «tr.»; maximum 50 % in perfumes (3 % in bases) · re-read by the session on 2026-10-27 · no third use reference was found (Hekserij, Perfumer's Apprentice, Scentspiracy, Synarome: not stated) · disputed with the figure of batch 23
+@@ 81e13dabbe
+Olfactorian (community formulas): accent 0.3 % (0.0-2.7) in 20 formulas; enhance 0.4 %; modulate 0.1 %; build 0.6 % (0.0-1.3). Basis of the percentage: «% of formula» · confidence: medium
+@@ b1378dd0ae
+Olfactorian (community formulas): average of 0.9 % as accent and 4.7 % for building · confidence: medium
+@@ ec16600f96
+Olfactorian (search-engine summary): Average in the formulas it records: ~1.5 % as accent (6 formulas), ~2.2 % as enhancement (5 formulas) and ~26.9 % in a single structure formula · confidence: medium
+@@ f068ddc186
+Olfactorian, community formulas: Accent: 0.1 % (0.0–0.2), 8 formulas · confidence: medium
+@@ 9a662f2d68
+Olfactorian, community formulas: Build: 3.7 % (3.4–4.0), 2 formulas; Modulate: 1.2 %, 1 formula · confidence: medium
+@@ 9eda745be3
+Olfactorian, community formulas: Support: 0.8 %, 4 formulas · confidence: medium
+@@ 26336acc56
+Osmetheca: 0.1 to 1.5 percent of the formula, exceptionally 2 percent in signature aquatic compositions · confidence: medium
+@@ 5cce9a991d
+Other sources (via search engine): 1–5 % in perfume formulas; another source, 2 to 20 % in the finished fragrance · confidence: medium
+@@ 54562dbdc2
+another supplier (snippet): 0.25 % in a perfumery compound as typical · confidence: medium
+@@ 9763f48863
+another supplier (snippet): 2 to 7 % · confidence: medium
+@@ 83363c88a7
+Another supplier (via search engine): «From .100 – 15 %» · confidence: medium
+@@ e366fc0524
+Another supplier (via search engine): 0.5–3 % in fine fragrance; 0.1–2 % in soap and shampoo · confidence: medium
+@@ 966520b96a
+Another supplier (via search engine): from 1 % as enhancer and fixative up to 30–60 % as the main note · confidence: medium
+@@ 8479522ceb
+another supplier (via search engine): perfumes 0.5–5 %; soaps and detergents 0.1–1 % · confidence: medium
+@@ 850a3bef69
+patent (cited in snippet): it enters perfume compositions at the rate of 5-10-20 % or sometimes much more · confidence: medium
+@@ cc464be19b
+Pell Wall Perfumes (cited in TGSC; sentence summarised by the reading): may use the material «as much as 20%» of the finished product in some cases · confidence: medium
+@@ f05a316e9c
+Pell Wall Perfumes (citing Givaudan, Ambrofix; transcribed on the TGSC sheet): effective «from the smallest traces, through to 2% or even more» · confidence: medium
+@@ 1b3315d69d
+Pell Wall Perfumes (Hindinol), cited on the TGSC sheet, summarised by the reading tool: used as a fixative at 0.5–5 % of the concentrate · confidence: medium
+@@ a7e97989b4
+Pell Wall: working range of approximately 1 % to 30 % of the fragrance concentrate · confidence: medium
+@@ 0c22d50549
+Pellwall (via search engine): 0.5-5% of the concentrate will give effective fixation to most blends · confidence: medium
+@@ 1b81a9d40e
+Perfume Extract (via search engine): works from traces up to 30 % · confidence: medium
+@@ 9111e59cbb
+Perfume Extract (via search engine): Works from the smallest traces, through to 10% · confidence: medium
+@@ af96d060d5
+Perfume Extract: effective from the smallest traces, up to 2 % and at most 30 % of the fragrance concentrate · confidence: medium
+@@ 261fc6c7b5
+PerfumeLab (via search engine): 0.05 % to 2 % of the formula; 0.1–0.5 % most common; above 1 % it dominates easily · confidence: medium
+@@ da1c8780a7
+Perfumer's Apprentice (cited by Scentspiracy): fine fragrance concentrates 0.1–2 %; functional bases up to 12 % · confidence: medium
+@@ 2ee71642ba
+Perfumer's Apprentice (snippet): up to 10 % of the total fragrance concentrate · confidence: medium
+@@ 0384b5655a
+Perfumer's Apprentice (via search engine): Maximum use up to 1 % of the total concentrate · confidence: medium
+@@ 63bee5d4b2
+Perfumer's Apprentice (via search engine): racemic: up to 2 % of the total concentrate; laevo: «Traces - up to 2%» · confidence: medium
+@@ afb13877b9
+Perfumer's Apprentice / Perfume Extract (via search engine): from traces up to 10 %; evaluate as a 10 % solution or weaker · confidence: medium
+@@ cfe187161d
+Perfumer's Apprentice: 0.1% - 5% · confidence: medium
+@@ 7f79155d2d
+Perfumer's Apprentice: 20.0000 % in the fragrance concentrate · confidence: medium
+@@ 23f17e2df5
+Perfumer's Apprentice: Can use up to 10% in the fragrance concentrate · confidence: medium
+@@ 1618d004ee
+Perfumer's Apprentice: Can use up to 12% of total fragrance concentrate. · confidence: medium
+@@ 5a179dfd5e
+Perfumer's Apprentice: Can use up to 2% of total concentrate. · confidence: medium
+@@ afc3e5ba77
+Perfumer's Apprentice: Can use up to 8% of total concentrate. · confidence: medium
+@@ 546076a0bb
+Perfumer's Apprentice: Can use up to 8% of total concentrate. Can use up to 30 ppm in a flavor concentrate. · confidence: medium
+@@ 77e4ba8968
+Perfumer's Apprentice: up to 30 % in the fragrance concentrate · confidence: medium
+@@ ddea94b38b
+Perfumer's Apprentice: Recommended for use at up to 20% in the fragrance concentrate. · confidence: medium
+@@ f4122a8696
+Perfumer's Apprentice: Recommended for use at up to 50% of the fragrance concentrate for best olfactory representation (sheet of the neat material) · confidence: medium
+@@ 7cad5bab74
+Perfumer's Apprentice: Recommended use level: Up to 10% · confidence: medium
+@@ 2006851d73
+Perfumer's Apprentice: Up to 15%; can be overdosed in tropical fruit accords up to 20% · confidence: medium
+@@ be58fd21d1
+Perfumer's Apprentice: Up to 2% · confidence: medium
+@@ cf9fecd0f3
+Perfumer's Apprentice: up to 2% in the fragrance concentrate · confidence: medium
+@@ 1b3f5c6b2d
+Perfumer's Apprentice: Usage level: Traces to 5% · confidence: medium
+@@ ae067519a1
+Perfumer's Apprentice: Use level: 1-4% · confidence: medium
+@@ b102161762
+Perfumer's Apprentice: Use level: Traces to 2% · confidence: medium
+@@ 1f1272aa0b
+Perfumer's World: Typical usage in perfume compounds: 0.010% From, 0.100% Average, 0.500% Maximum · confidence: medium
+@@ ceca4b735e
+Perfumer's World: Typical usage in perfume compounds: 0.030% from, 0.300% average, 3.300% maximum · confidence: medium
+@@ f75fe878c3
+Perfumer's World: Typical usage in perfume compounds: 0.030% minimum, 0.300% average, 2.000% maximum · confidence: medium
+@@ bf3330e124
+Perfumer's World: Typical usage in perfume compounds: 0.060% minimum, 0.600% average, 4.000% maximum · confidence: medium
+@@ f543bcd450
+Perfumer's World: Typical usage in perfume compounds: 0.080% From, 0.800% Average, 6.400% Maximum · confidence: medium
+@@ 057a1dbdcb
+Perfumer's World: Typical usage in perfume compounds: 0.100% From, 3.000% Average, 25.000% Maximum · confidence: medium
+@@ fed0514f11
+Perfumer's World: Typical usage in perfume compounds: 0.100% minimum, 1.000% average, 10.000% maximum · confidence: medium
+@@ 0127947f86
+Perfumer's World: Typical usage in perfume compounds: 0.500% from, 5.000% average, 33.300% maximum · confidence: medium
+@@ 4749b9e139
+Perfumer's World: typical use in perfume compounds: 0.1 % minimum, 1 % average, 8 % maximum · confidence: medium
+@@ a03dd35d89
+Perfumers Apprentice: «Up to 10 %», basis not stated · confidence: medium
+@@ a63b09d589
+Perfumers Apprentice: «Up to 20 %» (for flavours, «up to 90 ppm»); basis not stated · confidence: medium
+@@ 30b2364d2d
+Perfumers Apprentice: «Up to 5 %» in fragrance (for flavours, «up to 50 ppm»); basis not stated · confidence: medium
+@@ 0905a63a11
+Perfumers World: Typical usage in perfume compounds: From 0.010%, Average 0.100%, Maximum 1.100% · confidence: medium
+@@ 7ced47a74e
+Perfumers World: Typical usage in perfume compounds: From 0.010%, Average 0.100%, Maximum 2.500% · confidence: medium
+@@ 60edee92a2
+Perfumers World: Typical usage in perfume compounds: From 0.014%, Average 0.100%, Maximum 1.000% · confidence: medium
+@@ b7cb8d9227
+Perfumers World: Typical usage in perfume compounds: From 0.020%, Average 0.200%, Maximum 1.600% · confidence: medium
+@@ 2af1f34f63
+Perfumers World: Typical usage in perfume compounds: From 0.020%, Average 0.200%, Maximum 2.900% · confidence: medium
+@@ e1a72920ee
+Perfumers World: Typical usage in perfume compounds: From 0.020%, Average 0.200%, Maximum 3.600% · confidence: medium
+@@ 528dfb806a
+Perfumers World: Typical usage in perfume compounds: From 0.050%, Average 0.500%, Maximum 5.000% · confidence: medium
+@@ 9cad1a8b97
+Perfumers World: Typical usage in perfume compounds: From 0.100%, Average 0.500%, Maximum 5.000% · confidence: medium
+@@ b91d507e21
+Perfumers World: Typical usage in perfume compounds: Minimum 0.070%, Average 0.700%, Maximum 5.300% · confidence: medium
+@@ e633852c00
+Perfumers World: Typical usage in perfume compounds: Minimum 0.100%, Average 2.000%, Maximum 10.000% · confidence: medium
+@@ d6927c2309
+PerfumersWorld (Hindinol sheet, same CAS): 0.050% (from), 0.500% (average), 5.000% (maximum) · confidence: medium
+@@ 071ddc5e8c
+PerfumersWorld (via search engine): 0.010% from; 0.100% average; 1.100% maximum in perfume compounds · confidence: medium
+@@ e94e921424
+PerfumersWorld (via search engine): 0.070 % minimum, 0.700 % average, 5.300 % maximum in perfume compounds · confidence: medium
+@@ 4246ccd5d3
+PerfumersWorld (via search engine): 0.1% minimum, 1% average and 8% maximum in perfume compounds · confidence: medium
+@@ 0873b48a65
+PerfumersWorld (via search engine): 0.100 % typical minimum, 0.700 % average, 2.000 % maximum · confidence: medium
+@@ 4fa335f66c
+PerfumersWorld (via search engine): In products with alcohol, 0.01 % or less to soften the odour of the alcohol · confidence: medium
+@@ 77433a7b8c
+PerfumersWorld (via search engine): Typical level of 0.100 % in perfume compounds · confidence: medium
+@@ 0cb82d218e
+PerfumersWorld (via search engine): typical range: from 0.2 %, 2 % average, 12 % maximum · confidence: medium
+@@ 4334c3f5d9
+PerfumersWorld (via search engine): Typical usage in perfume compounds: 0.010% From, 0.100% Average, 5.000% Maximum · confidence: medium
+@@ 0df8c90691
+PerfumersWorld (via search engine): Usage in perfume compounds: 0.150 % from, 2.500 % average, 4.500 % maximum · confidence: medium
+@@ 7fffd99304
+PerfumersWorld (via search engine): typical use from 0.100 %, average 1.000 %, maximum 12.000 % · confidence: medium
+@@ 30429fadb1
+PerfumersWorld: «Typical usage in perfume compounds»: from 0.050 %, average 0.100 %, maximum 1.200 %; the product text says 0.10–1.00 % and warns that it develops strongly on maturing, so it should be used sparingly · confidence: medium
+@@ d933ba58d9
+PerfumersWorld: 0.080% (from) to 6.200% (maximum) in perfume compounds; average 0.800% · confidence: medium
+@@ 6fd14ecb75
+PerfumersWorld: 0.100% (from), 1.000% (average), 8.000% (maximum) in perfume compounds · confidence: medium
+@@ 1bcc23992a
+PerfumersWorld: 0.110% (from), 1.100% (average), 11.900% (maximum) in perfume compounds · confidence: medium
+@@ 591214331d
+PerfumersWorld: from 0.090% to 7.300% in perfume compounds; average 0.900% · confidence: medium
+@@ 44c800ad3d
+PerfumersWorld: Typical usage levels: From 0.001%, Average 0.010%, Maximum 0.200% · confidence: medium
+@@ 2fa3c6db55
+PerfumersWorld: Typical usage levels: From 0.050%; Average 0.500%; Maximum 5.000% · confidence: medium
+@@ e4a4c5d058
+PerfumersWorld: Typical usage levels: From 0.100%, Average 0.500%, Maximum 5.000% · confidence: medium
+@@ c5f38f7bb8
+PerfumersWorld: Typical usage levels: From 0.220%, Average 2.200%, Maximum 13.800% · confidence: medium
+@@ 97ee43b9a6
+PerfumersWorld: Usage in perfume compounds: 0.110 % from, 1.100 % average, 8.900 % maximum · confidence: medium
+@@ bcdd68758b
+PerfumersWorld: Usage in perfume compounds: from 0.070 %, average 0.700 %, maximum 5.300 % · confidence: medium
+@@ 3c763a93d7
+PerfumersWorld: Usage levels in perfume compounds: Typical From 0.100 %, Typical Average 1.000 %, Typical Maximum 10.000 % · confidence: medium
+@@ 00dc4fb6b3
+PerfumersWorld: Usage levels in perfume compounds: Typical From 0.100 %, Typical Average 3.000 %, Typical Maximum 10.000 % · confidence: medium
+@@ dabd75b8f9
+Premiere Peau (via search engine): 0.5–2.5 % in a perfume compound · confidence: medium
+@@ 692a897792
+Premiere Peau / Glooshi (via search engine): fine fragrance: about 0.1 % and 2 % of the total concentrate; up to ~5 % in bar soap or candle (Glooshi) · confidence: medium
+@@ 734d6e9dee
+Premiere Peau glossary (via search engine): Fine fragrance: 0.05-0.5% in compound; Attar (DPG): 0.02-0.2%; Soap: 0.1-1.5%; Body care: 0.05-0.3% · confidence: medium
+@@ 24dfa30237
+Premiere Peau, glossary «Artemisia» (via search engine): practical dosages rarely exceed 1–2 % · confidence: medium
+@@ 2b6cbcbd07
+Premiere Peau, glossary «Tar» (via search engine): typical doses of 0.01–0.2 % · confidence: medium
+@@ 12cf3e1688
+Privi: TYPICAL USAGE LEVEL - min 0.12%, avg 1.2%, max 12% (elsewhere on the same page: «Up to 10% (fragrance)») · confidence: medium
+@@ 11d6673876
+Privi: Usage level: «Up to 40%»; table: minimum 0.75 %, average 5 %, maximum 7.5 % · confidence: medium
+@@ dd9fc21981
+supplier (search-engine snippet): working range from traces up to 1 % in a formula · confidence: medium
+@@ 65e138d48c
+supplier (snippet): 2 to 10 %, in exceptional cases up to 30–35 % · confidence: medium
+@@ cac91b3b9c
+supplier (snippet): recommended up to 1 % of the concentrate · confidence: medium
+@@ 8b9cbf00c2
+Unidentified supplier (via search engine): typical use of 0.1–3 % in fine fragrance concentrates · confidence: medium
+@@ 9da92bf6dd
+Supplier not identified in the search (via search engine): 1–10 % in the final perfume concentrate · confidence: medium
+@@ d7973f299a
+Unidentified supplier (via search engine): dosages between 0.5 and 5 % in the concentrate are usual · confidence: medium
+@@ 978dcd1638
+Search-engine suppliers (unidentified): 0.1–1 % with high impact (one); from the smallest traces up to 3 % (another); «typically below 1%» (a third) · confidence: medium
+@@ 2069a083f0
+Purenso: 0.1 % – 5 % in fragrance formulations depending on intensity and application · confidence: medium
+@@ b9f455158d
+Recommendation for pepper tree berry oil usage levels up to: 4.0000 % in the fragrance concentrate. Observed or recommended use, not an IFRA limit.
+@@ 7f04fbd74f
+re-read by the session on 2026-10-27 · disputed with the figure of batch 23
+@@ 997e1cb38f
+Customer review on Perfumer Supply House (N. rustica): more than 1 % of the formula can make it somewhat muddy; in small amounts it goes well with jasmine · confidence: medium
+@@ 66c6ebf740
+search-engine summary (another supplier): recommended use up to 5 % in the fragrance concentrate · confidence: medium
+@@ e1fd8472d0
+search-engine summary (a supplier): effective from traces up to 1 %, with a maximum of 2.5 % of the fragrance concentrate · confidence: medium
+@@ 1e780a6825
+Scent.vn (via search engine): 1% to 10% in fragrance concentrates · confidence: medium
+@@ 109f4c2fa3
+scent.vn: around 1 % to 10 % in fragrance compounds, more in soap perfumes · confidence: medium
+@@ c70dd1182d
+Scent.vn: typically used at very low levels, from trace amounts up to roughly 0.5-1% in the fragrance concentrate · confidence: medium
+@@ 34109c3f2d
+Scentfriends (Firmenich guide): 0.8-4% in fine fragrance (heart and base) · confidence: medium
+@@ 52def217f6
+Scentfriends (laboratory note): 0.1-1% in the finished fragrance · confidence: medium
+@@ c1ad1366b0
+Scentfriends (practical use): 0.1-1% as an accent; 0.5-5% in the finished fragrance per the lab notes · confidence: medium
+@@ 4cfb2c97cc
+Scentfriends (via search engine): 0.5–1.5 % of the formulation; in fragrances in general between 0.5 and 5 % · confidence: medium
+@@ 25ee406f40
+Scentfriends, laboratory notes: 0.5 to 5 % in the finished fragrance · confidence: medium
+@@ b16ce392db
+Scentfriends: 0.01-0.5% of the fragrance formulation, dosed as a 1% solution; in the finished fragrance 0.01-0.3% · confidence: medium
+@@ 534ee950a7
+Scentfriends: 0.5-3% of the fragrance formulation, up to 8% in leather fragrances · confidence: medium
+@@ ffc71dae6b
+Scentfriends: 0.5–3 % is usual, up to 10 % in oud-centred compositions · confidence: medium
+@@ 99e0b3d999
+Scentfriends: only in traces, «final concentrations in the parts-per-million range»; range in the finished fragrance 0.0001–0.001 % · confidence: medium
+@@ b37906f302
+ScenTree: Dosage between 0.5% and 5/6%. · confidence: medium
+@@ 9bf3808a48
+Scentspiracy (50 % DPG): Fine fragrance 1–5%; soaps and balms 0.5–2%; incense and bakhoor higher · confidence: medium
+@@ 46972447b6
+Scentspiracy (Ambroxide Crystals): Usage levels typically range from trace (0.01%) to 2% or more · confidence: medium
+@@ 431f7fa708
+Scentspiracy (generic hydroxycitronellal): perfumery: «1–30 % depending on application»; no basis declared · confidence: medium
+@@ 9cd54a1f89
+Scentspiracy (levels reported in specific perfumes): Halston for Women (1975) 25 %; Dior Fahrenheit (1988) 28–30 %; Abercrombie & Fitch Fierce ≈48 %; Terre d'Hermès (2006) ≈55 %; Lalique Perles ≈80 %; Molecule 01 100 % · confidence: medium
+@@ c20b90cb2f
+Scentspiracy (Timberlove, via search engine): 0.1–1% in fine fragrance concentrates; «ambrox bomb» compositions sometimes at 10 % or more · confidence: medium
+@@ c441eea240
+Scentspiracy, blog (via search engine): 0.05 – 0.30 % · confidence: medium
+@@ 29941c1086
+Scentspiracy: 0.01 % to 0.3 % in fine fragrance (no basis stated); in flavours 10–50 ppm · confidence: medium
+@@ bbbeb9f93b
+Scentspiracy: 0.05–0.5 % in fine fragrance concentrates; narrower effective range of 0.01–0.2 % in another section · confidence: medium
+@@ f0b41b8367
+Scentspiracy: 0.5–10 % in fine fragrance concentrates, up to an average of 2.5 % in finished perfumes; the page gives no basis for those figures · confidence: medium
+@@ 524d43378a
+Scentspiracy: 0.05%–1.5% in fine fragrance, lower in functional applications · confidence: medium
+@@ 25d5b286cb
+Scentspiracy: 0.1 % (lowest use in concentrates); 0.1–0.5 % subtle warmth; 1–3 % clear sandalwood signature; 3–5 % main base or core · confidence: medium
+@@ 680e1e6089
+Scentspiracy: 0.1–1% in finished concentrate; 0.05–0.1% for freshening; 0.5–1% for a distinct green signature · confidence: medium
+@@ b050c31225
+Scentspiracy: 0.1–3% in extrait de parfum · confidence: medium
+@@ fe4c76e8e0
+Scentspiracy: 0.5-5% in fine fragrance; 1-3% optimal for fixative effect; subtle warmth 0.5-2%, pronounced balsamic 2-5%; «generally kept below 5%» · confidence: medium
+@@ e355fd2e76
+Scentspiracy: 0.5–1% for subtle enhancement; up to 8% for a dominant woody-floral effect · confidence: medium
+@@ f84c62b9ce
+Scentspiracy: 0.5–3.0% in fragrance concentrates (Olfactory Profile); the introduction says «typically below 1%» · confidence: medium
+@@ de4ccea194
+Scentspiracy: 0.5–5% in alcohol-based perfumes · confidence: medium
+@@ b7fc5aedf8
+Scentspiracy: Fine fragrance 0.1–3%; colognes and aromatic fougères up to 5–8%; subtle complexity 0.05–0.2% · confidence: medium
+@@ 3c0a967ffd
+Scentspiracy: Fine fragrance: 0.1–1 % of the concentrate (minimum and typical not separated) · confidence: medium
+@@ 5d5943722c
+Scentspiracy: minimum 0.2 %; typical 0.5–3 %; «up to 10 %+» for specific effects; discernible impact below 1 %. Its IFRA section adds that it could theoretically reach 100 %, without reconciling it with the previous maximum. · confidence: medium
+@@ 8ad810e62d
+Scentspiracy: It gives no perfumery dose; it warns that concentrations «above 5–8% in finished products» can cause functional problems (colour changes, incompatibility in soap). Use in foods: 50 to 1000 ppm. · confidence: medium
+@@ 8671d39431
+Scentspiracy: Often ≤0.8% in fine fragrance. Aramis New West for Her used 1.2%. · confidence: medium
+@@ a72148f700
+Scentspiracy: Often under 1 % in fine fragrance (no basis stated) · confidence: medium
+@@ 1a338533bf
+Scentspiracy: Fine fragrance: traces up to «up to 10 %» of the concentrate; detergents 50–300 ppm · confidence: medium
+@@ cf610b3d94
+Scentspiracy: Typical use ≤0.5% for impact and compliance · confidence: medium
+@@ 0b8a71b512
+Scentspiracy: typical use level in fine fragrance compositions ranges around 2%; Dans Tes Bras and Duro use it at «approximately 25% concentration» · confidence: medium
+@@ dd25cae606
+Scentspiracy: Typically 0.5 % to 7 % in finished fragrances; IFRA category 4 limit of 7.0 % · confidence: medium
+@@ a068f7f7af
+Scentspiracy: Typically 0.5% to 5% in fine fragrance; delicate floral structures 0.5–2 %; oriental and woody-spicy up to 5 % · confidence: medium
+@@ 176419d7a1
+Scentspiracy: Typically from 0.15% in fine fragrance compounds. Some formulations need 0.5% or less. · confidence: medium
+@@ 4c9bb230ee
+Scentspiracy: Up to 10% in solid perfumes and specialized oriental bases · confidence: medium
+@@ 58d455ca91
+no published consensus · confidence: low
+@@ 9498e24364
+Symrise, technical sheet (via search engine): recommended use level: traces up to 1 % · confidence: medium
+@@ bf7cb1b963
+Symrise: recommended use level: 0.1 – 4 % · confidence: medium
+@@ f764cd3603
+Symrise: recommended use level: traces up to 2 % · confidence: medium
+@@ e7f44ceb52
+Takasago (via search engine): typical use level below 10 % · confidence: medium
+@@ e9fc0db4b0
+Takasago: TYPICAL USE LEVEL <25 %, without context · confidence: medium
+@@ 8f29867a0e
+third reference; read by the session on 2026-10-28 · disputed with the figure of batch 23
+@@ d0e37b739a
+TGSC (alpha-ambrinol sheet, rw1052421): Recommendation for alpha-ambrinol usage levels up to: 1.0000 % in the fragrance concentrate. · confidence: medium
+@@ bfc6764a1d
+TGSC (ambergris naphthol / ambrinol S sheet, rw1039181): 5.0000 % in the fragrance concentrate. · confidence: medium
+@@ 2295048b24
+TGSC (use levels in formulas, as the page lists them): soap 0.05%, detergent 0.005%, creams/lotions 0.05%, perfume 0.15% · confidence: medium
+@@ b13de17529
+TGSC (use levels on the page, under «Stability»): APC, candle, detergent, fine fragrances, shampoo, shower gel, soap: 0.5 - 5% (softener: blank) · confidence: medium
+@@ 6576a2b8e9
+TGSC (use levels on the page): APC: 0.5 - 5%; candle: 0.5 - 5%; detergent: 0.5 - 5%; soap: 0.5 - 5%; softener: 0.5 - 5% · confidence: medium
+@@ 85bd07715d
+TGSC (use levels on the page): fine fragrances: 1 - 10% · confidence: medium
+@@ d53a7b9db4
+TGSC (use levels on the page): shampoo: 1 - 5%; shower gel: 1 - 5% · confidence: medium
+@@ 55b1968afa
+TGSC, sheet «ambergris tincture, 8038-65-1» (a different CAS from the one in the list): Recommendation for ambergris tincture usage levels up to: 30.0000 % in the fragrance concentrate. · confidence: medium
+@@ af26bfcc87
+TGSC, cis sheet (13828-37-0): table of use ranges by application (the reading gave no author); the same table appears on the cis+trans sheet (5502-75-0): fine fragrances: 0.5 - 5%; candle: 0.5 - 5%; shampoo: 0.5 - 5%; also detergent, shower gel, soap and fabric softener: 0.5 - 5%; APC: traces - 0.5% · confidence: medium
+@@ aff7593487
+TGSC, generic sheet «agarwood specialty» (not for Black Agar specifically): Recommendation for agarwood specialty usage levels up to: 5.0000 % in the fragrance concentrate. · confidence: medium
+@@ 0323bc166f
+TGSC, generic sheet «cassis specialty» (not for the 345 B specifically): Recommendation for cassis specialty usage levels up to: 10.0000 % in the fragrance concentrate. · confidence: medium
+@@ 5b5f9b1d37
+TGSC, generic sheet «castoreum absolute replacer» (not for the Synth specifically): Recommendation for castoreum absolute replacer usage levels up to: 3.0000 % in the fragrance concentrate. · confidence: medium
+@@ def2beca44
+TGSC, generic sheet «frankincense oil, 8016-36-2» (another CAS); the exact sheet 89957-98-2 gives no recommended use: Recommendation for frankincense oil usage levels up to: 8.0000 % in the fragrance concentrate. · confidence: medium
+@@ 66f73212fb
+TGSC, generic sheet «fruit specialty» (not for Dewfruit TEC specifically): Recommendation for fruit specialty usage levels up to: 8.0000 % in the fragrance concentrate. · confidence: medium
+@@ 1abe3f6766
+TGSC, generic sheet «musk specialty» (not for Auranone specifically): Recommendation for musk specialty usage levels up to: 5.0000 % in the fragrance concentrate. · confidence: medium
+@@ 16abe4e91c
+TGSC, sister sheet guaiyl acetate 134-28-1: 10.0000 % in the fragrance concentrate. · confidence: medium
+@@ 34b9298d9a
+TGSC, table of use ranges by application (in the stability section of the page, no author given by the reading): fine fragrances: traces - 2%; the rest of the applications (APC, candle, detergent, shampoo, shower gel, soap, fabric softener), traces - 0.5% for the most part · confidence: medium
+@@ ddb684bbcb
+TGSC: «Recommendation for usage levels up to: 0.0500 % in the fragrance concentrate.» It is a use recommendation, not an IFRA limit.
+@@ 4c32f760a0
+TGSC: «Recommendation for usage levels up to: 0.5000 % in the fragrance concentrate.» It is a use recommendation, not an IFRA limit.
+@@ 024ffbc29c
+TGSC: «Recommendation for usage levels up to: 0.8000 % in the fragrance concentrate.» It is a use recommendation, not an IFRA limit.
+@@ db40b28f94
+TGSC: «Recommendation for usage levels up to: 1.0000 % in the fragrance concentrate.» It is a use recommendation, not an IFRA limit.
+@@ bb27da70cd
+TGSC: «Recommendation for usage levels up to: 4.0000 % in the fragrance concentrate.» It is a use recommendation, not an IFRA limit.
+@@ 2c5c282c9e
+TGSC: «Recommendation for usage levels up to: 5.0000 % in the fragrance concentrate.» It is a use recommendation, not an IFRA limit.
+@@ f1bb56aa38
+TGSC: 0.0500 % in the fragrance concentrate. · confidence: medium
+@@ 53c55240bf
+TGSC: 0.5000 % in the fragrance concentrate. · confidence: medium
+@@ f3cc9c9089
+TGSC: 1.0000 % in the fragrance concentrate. · confidence: medium
+@@ 5d1b5a2de9
+TGSC: 10.0000 % in the fragrance concentrate. · confidence: medium
+@@ d1ad962eae
+TGSC: 2.0000 % in the fragrance concentrate. · confidence: medium
+@@ 42b2caeae0
+TGSC: 30.0000 % in the fragrance concentrate. · confidence: medium
+@@ ca13d21573
+TGSC: 4.0000 % in the fragrance concentrate. · confidence: medium
+@@ de7620ec6d
+TGSC: 5.0000 % in the fragrance concentrate. · confidence: medium
+@@ 38d217a523
+TGSC: 6.0000 % in the fragrance concentrate. · confidence: medium
+@@ 449b6182be
+TGSC: Recommendation for (E)-12-musk decenone usage levels up to: 10.0000 % in the fragrance concentrate. · confidence: medium
+@@ f7cd66b9b8
+TGSC: Recommendation for (E)-beta-ionone usage levels up to: 10.0000 % in the fragrance concentrate. · confidence: medium
+@@ b99110efc3
+TGSC: Recommendation for (Z)-3-hexen-1-ol usage levels up to: 8.0000 % in the fragrance concentrate. · confidence: medium
+@@ 4c8e33048d
+TGSC: Recommendation for 1,8-cineole usage levels up to: 20.0000 % in the fragrance concentrate. · confidence: medium
+@@ 1841256aba
+TGSC: Recommendation for 2-methyl decanal (aldehyde C-11 MOA) usage levels up to: 1.0000 % in the fragrance concentrate. · confidence: medium
+@@ 470f01eee3
+TGSC: Recommendation for 4-ethyl phenol usage levels up to: 0.0500 % in the fragrance concentrate. · confidence: medium
+@@ e7516d5e43
+TGSC: Recommendation for allyl amyl glycolate usage levels up to: 1.0000 % in the fragrance concentrate. · confidence: medium
+@@ 37fe304a79
+TGSC: Recommendation for alpha-ionone usage levels up to: 15.0000 % in the fragrance concentrate. · confidence: medium
+@@ 9da04043c8
+TGSC: Recommendation for ambrettolide usage levels up to: 5.0000 % in the fragrance concentrate. · confidence: medium
+@@ ed42c2766c
+TGSC: Recommendation for ambroxan usage levels up to: 1.0000 % in the fragrance concentrate. · confidence: medium
+@@ 857cdc2e65
+TGSC: Recommendation for black pepper absolute usage levels up to: 0.5000 % in the fragrance concentrate. · confidence: medium
+@@ 1f134867dd
+TGSC: Recommendation for castoreum absolute usage levels up to: 5.0000 % in the fragrance concentrate. · confidence: medium
+@@ fee4016d05
+TGSC: Recommendation for cedrol methyl ether usage levels up to: 2.0000 % in the fragrance concentrate. · confidence: medium
+@@ b7fdc9a1b1
+TGSC: Recommendation for cocoa absolute usage levels up to: 2.0000 % in the fragrance concentrate. · confidence: medium
+@@ f084dface2
+TGSC: Recommendation for dihydromyrcenol usage levels up to: 75.0000 % in the fragrance concentrate. · confidence: medium
+@@ f7c2ef6463
+TGSC: Recommendation for floral pyranol usage levels up to: 5.0000 % in the fragrance concentrate. · confidence: medium
+@@ b16a735e67
+TGSC: Recommendation for gamma-nonalactone (aldehyde C-18 (so-called)) usage levels up to: 10.0000 % in the fragrance concentrate. · confidence: medium
+@@ d99a772ff3
+TGSC: Recommendation for gamma-undecalactone (aldehyde C-14 (so-called)) usage levels up to: 10.0000 % in the fragrance concentrate. · confidence: medium
+@@ 4497af2a6e
+TGSC: Recommendation for geosmin usage levels up to: 0.0500 % in the fragrance concentrate. · confidence: medium
+@@ ba821494dd
+TGSC: Recommendation for geranyl acetate usage levels up to: 12.0000 % in the fragrance concentrate. · confidence: medium
+@@ 31b8dd2f88
+TGSC: Recommendation for grapefruit acetal usage levels up to: 10.0000 % in the fragrance concentrate. · confidence: medium
+@@ d634f86f78
+TGSC: Recommendation for heliotropin usage levels up to: 8.0000 % in the fragrance concentrate. · confidence: medium
+@@ c1448bcdfd
+TGSC: Recommendation for isobutyl quinoline usage levels up to: 2.0000 % in the fragrance concentrate. · confidence: medium
+@@ 2b136011c6
+TGSC: Recommendation for labdanum absolute usage levels up to: 4.0000 % in the fragrance concentrate. · confidence: medium
+@@ d40638f20e
+TGSC: Recommendation for leafy oxime usage levels up to: 5.0000 % in the fragrance concentrate. · confidence: medium
+@@ 1bbf449628
+TGSC: Recommendation for linalool usage levels up to: 12.0000 % in the fragrance concentrate. · confidence: medium
+@@ 903f0a42de
+TGSC: Recommendation for linalyl acetate usage levels up to: 15.0000 % in the fragrance concentrate. · confidence: medium
+@@ 61eb14b78e
+TGSC: Recommendation for mandarin oil usage levels up to: 8.0000 % in the fragrance concentrate. · confidence: medium
+@@ 6175581bba
+TGSC: Recommendation for methyl cinnamate usage levels up to: 8.0000 % in the fragrance concentrate. · confidence: medium
+@@ 3064226594
+TGSC: Recommendation for methyl methylene tricyclodecanol usage levels up to: 20.0000 % in the fragrance concentrate. · confidence: medium
+@@ 9a0fb2dc9c
+TGSC: Recommendation for musk gx 100% usage levels up to: 10.0000 % in the fragrance concentrate. · confidence: medium
+@@ 314bcef8f9
+TGSC: Recommendation for patchouli oil usage levels up to: 10.0000 % in the fragrance concentrate. · confidence: medium
+@@ bd77f5b177
+TGSC: Recommendation for phenethyl alcohol usage levels up to: 40.0000 % in the fragrance concentrate. · confidence: medium
+@@ e9c5a814f5
+TGSC: Recommendation for saffron indenone usage levels up to: 3.0000 % in the fragrance concentrate. · confidence: medium
+@@ 626c244517
+TGSC: Recommendation for sage oil dalmatian usage levels up to: 4.0000 % in the fragrance concentrate. · confidence: medium
+@@ d59cf383ab
+TGSC: Recommendation for sandal butenol usage levels up to: 5.0000 % in the fragrance concentrate. · confidence: medium
+@@ 6396aafe61
+TGSC: Recommendation for sandal pentenol usage levels up to: 5.0000 % in the fragrance concentrate. · confidence: medium
+@@ 226ae3c247
+TGSC: Recommendation for sandalrome usage levels up to: 10.0000 % in the fragrance concentrate. · confidence: medium
+@@ 641fd2d28f
+TGSC: Recommendation for siam benzoin resinoid usage levels up to: 8.0000 % in the fragrance concentrate. · confidence: medium
+@@ 063f59fa1c
+TGSC: Recommendation for styralyl acetate usage levels up to: 5.0000 % in the fragrance concentrate. · confidence: medium
+@@ 4732afaa44
+TGSC: Recommendation for sweet orange peel oil usage levels up to: 10.0000 % in the fragrance concentrate. · confidence: medium
+@@ a9c9babce7
+TGSC: Recommendation for terpineol acetate usage levels up to: 30.0000 % in the fragrance concentrate. · confidence: medium
+@@ 23bab1908d
+TGSC: Recommendation for tolu balsam resinoid usage levels up to: 5.0000 % in the fragrance concentrate. · confidence: medium
+@@ 19049f6362
+TGSC: Recommendation for vanillin usage levels up to: 8.0000 % in the fragrance concentrate. · confidence: medium
+@@ 0320cf85d6
+TGSC: Recommendation for vetiveria zizanioides root oil usage levels up to: 12.0000 % in the fragrance concentrate. · confidence: medium
+@@ 509ade081d
+TGSC: Recommendation for watermelon ketone usage levels up to: 0.5000 % in the fragrance concentrate. · confidence: medium
+@@ f627a83dd8
+TGSC: Recommendation for woody acetate usage levels up to: 20.0000 % in the fragrance concentrate. · confidence: medium
+@@ 4f7a47ee24
+TGSC: Recommendation for wormwood oil america usage levels up to: 1.0000 % in the fragrance concentrate. · confidence: medium
+@@ a859a85f2f
+TGSC: up to 1.0000 % in the fragrance concentrate · confidence: medium

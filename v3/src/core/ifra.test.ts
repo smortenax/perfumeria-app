@@ -26,7 +26,7 @@ describe("IFRA on F-001-v1", () => {
 
   it("keeps every known ceiling, with the % of the notebook", () => {
     expect(check("Polysantol")?.verdict).toBe("within");
-    expect(formatPercent(check("Polysantol")?.knownUg.div(report.finalUg) ?? Ratio.ZERO)).toBe("0,271 %");
+    expect(formatPercent(check("Polysantol")?.knownUg.div(report.finalUg) ?? Ratio.ZERO)).toBe("0.271 %");
     for (const name of ["Iso E Super", "Cashmeran", "Mayol", "Resinoide estírax"]) {
       expect(check(name)?.verdict, name).toBe("within");
     }
@@ -36,7 +36,7 @@ describe("IFRA on F-001-v1", () => {
     const coumarin = check("Cumarina");
     expect(coumarin?.verdict).toBe("bounded");
     expect(coumarin?.knownUg.isZero()).toBe(true);
-    expect(formatPercent(coumarin?.worstUg.div(report.finalUg) ?? Ratio.ZERO)).toBe("0,188 %");
+    expect(formatPercent(coumarin?.worstUg.div(report.finalUg) ?? Ratio.ZERO)).toBe("0.188 %");
     expect(coumarin?.unknownFrom).toEqual(["Haba tonka (tintura)"]);
   });
 
@@ -77,12 +77,12 @@ describe("IFRA: the unknown is never green (§1.2)", () => {
     };
     const report = checkIfra(formula, data);
     const coumarin = report.checks[0];
-    expect(formatPercent(coumarin.knownUg.div(report.finalUg))).toBe("1,350 %");
-    expect(formatPercent(coumarin.worstUg.div(report.finalUg))).toBe("1,850 %");
+    expect(formatPercent(coumarin.knownUg.div(report.finalUg))).toBe("1.350 %");
+    expect(formatPercent(coumarin.worstUg.div(report.finalUg))).toBe("1.850 %");
     expect(coumarin.verdict).toBe("unknown");
     expect(report.asIs).toBe("unknown");
     // Reading 2 is the worst case; hover gives the range up to what the known alone would allow (P31).
-    expect(formatPercent(report.maxUse, 2)).toBe("81,08 %");
+    expect(formatPercent(report.maxUse, 2)).toBe("81.08 %");
     expect(report.maxUseKnown.eq(Ratio.ONE)).toBe(true);
   });
 
@@ -95,7 +95,7 @@ describe("IFRA: the unknown is never green (§1.2)", () => {
     const report = checkIfra(formula, data);
     const coumarin = report.checks[0];
     expect(coumarin.knownUg.isZero()).toBe(true);
-    expect(formatPercent(coumarin.worstUg.div(report.finalUg), 2)).toBe("0,75 %");
+    expect(formatPercent(coumarin.worstUg.div(report.finalUg), 2)).toBe("0.75 %");
     expect(coumarin.verdict).toBe("bounded");
     expect(coumarin.unknownFrom).toEqual(["Haba tonka (tintura)"]);
     expect(report.asIs).toBe("yes");
@@ -146,7 +146,7 @@ describe("IFRA on the final batch (T9 of the background docs)", () => {
       history: [add("x", x, 8n * G), add("y", filler, 92n * G)],
     };
     const report = checkIfra(formula, data);
-    expect(formatPercent(report.checks[0].knownUg.div(report.finalUg), 1)).toBe("1,6 %");
+    expect(formatPercent(report.checks[0].knownUg.div(report.finalUg), 1)).toBe("1.6 %");
     expect(report.checks[0].verdict).toBe("within");
     expect(report.asIs).toBe("yes");
     expect(report.maxUse.toString()).toBe("1/4");
@@ -162,7 +162,7 @@ describe("IFRA on the final batch (T9 of the background docs)", () => {
     const report = checkIfra({ header, history: [add("x", x, 3n * G), add("a", DILUENTS.alcohol, 97n * G)] }, data);
     expect(report.checks[0].verdict).toBe("exceeds");
     expect(report.asIs).toBe("no");
-    expect(formatPercent(report.maxUse, 2)).toBe("66,67 %");
+    expect(formatPercent(report.maxUse, 2)).toBe("66.67 %");
     // Nothing unknown: the range closes on one number.
     expect(report.maxUseKnown.eq(report.maxUse)).toBe(true);
   });
@@ -188,14 +188,14 @@ describe("IFRA after reweighing (P57): what is lost goes out in proportion", () 
 
   it("with a work batch, both readings stay: the first one is the batch once completed", () => {
     const planned = { ...header, workBatchUg: 1n * G, finalBatchUg: 10n * G };
-    expect(share({ header: planned, history: poured })).toEqual(["1,000 %", "15,000 %"]);
-    expect(share({ header: planned, history: spilled })).toEqual(["1,000 %", "15,000 %"]);
+    expect(share({ header: planned, history: poured })).toEqual(["1.000 %", "15.000 %"]);
+    expect(share({ header: planned, history: spilled })).toEqual(["1.000 %", "15.000 %"]);
   });
 
   it("without a work batch, the first reading is what is in the bottle now, taken to the final batch", () => {
     const onlyFinal = { ...header, finalBatchUg: 10n * G };
-    expect(share({ header: onlyFinal, history: poured })).toEqual(["1,000 %", "15,000 %"]);
-    expect(share({ header: onlyFinal, history: spilled })).toEqual(["0,500 %", "15,000 %"]);
+    expect(share({ header: onlyFinal, history: poured })).toEqual(["1.000 %", "15.000 %"]);
+    expect(share({ header: onlyFinal, history: spilled })).toEqual(["0.500 %", "15.000 %"]);
   });
 });
 
@@ -291,8 +291,8 @@ describe("IFRA: substances summed against their ceilings (STD 089 and the photot
     expect(group.verdict).toBe("exceeds");
     expect(report.asIs).toBe("no");
     // Reading 2: 1 / 1,2 of what is poured.
-    expect(formatPercent(group.maxUse)).toBe("83,333 %");
-    expect(formatPercent(report.maxUse)).toBe("83,333 %");
+    expect(formatPercent(group.maxUse)).toBe("83.333 %");
+    expect(formatPercent(report.maxUse)).toBe("83.333 %");
   });
 
   it("(b) at 40 % + 40 % the group is within at 80 %, and could take 125 % of this", () => {
@@ -300,7 +300,7 @@ describe("IFRA: substances summed against their ceilings (STD 089 and the photot
     const group = report.combinedChecks[0];
     expect(group.verdict).toBe("within");
     expect(group.worstShare.eq(pct("80"))).toBe(true);
-    expect(formatPercent(group.maxUse)).toBe("125,000 %");
+    expect(formatPercent(group.maxUse)).toBe("125.000 %");
     expect(report.asIs).toBe("yes");
   });
 

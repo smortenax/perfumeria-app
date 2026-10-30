@@ -48,13 +48,13 @@ describe("your bottles in the add bar (V3-67)", () => {
   });
 
   it("writes a figure as a cell of the bar does", () => {
-    expect(percentCell(pct("9.97"))).toBe("9,97");
+    expect(percentCell(pct("9.97"))).toBe("9.97");
     expect(percentCell(pct("10"))).toBe("10");
-    expect(percentCell(pct("50.1744"))).toBe("50,1744");
+    expect(percentCell(pct("50.1744"))).toBe("50.1744");
   });
 
   it("says a pour in three diluents with each one's share", () => {
     const text = pouredText(Ratio.of(1_000_000n), pct("10"), "DPG", { material: DILUENTS.alcohol, fraction: pct("30") }, [{ material: DILUENTS.ipm, fraction: pct("20") }]);
-    expect(text).toBe("1,000 g at 10 % in DPG 40 % + Alcohol 30 % + IPM 20 %");
+    expect(text).toBe("1.000 g at 10 % in DPG 40 % + Alcohol 30 % + IPM 20 %");
   });
 });

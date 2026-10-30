@@ -1,0 +1,1002 @@
+@@ cf8dd60693 · material_relations.other_text
+opopónax
+@@ 56ff637489 · material_relations.other_text
+Orcanox (Mane)
+@@ 67553f599f · material_relations.other_text
+orégano
+@@ a63747ab70 · material_relations.other_text
+oriental
+@@ d834026f7e · material_relations.other_text
+osmanto
+@@ 5a8b304294 · material_relations.other_text
+otras frutas pegajosas
+@@ 4898d7a7a0 · material_relations.other_text
+Otras lactonas (gamma-decalactona
+@@ ffcd891cd6 · material_relations.other_text
+otras maderas de cedro
+@@ e4ae57b73f · material_relations.other_text
+otras resinas clásicas de perfumería
+@@ 49b742f165 · material_relations.other_text
+otros aldehídos florales
+@@ 14091bff90 · material_relations.other_text
+otros almizcles
+@@ c0eb17a42a · material_relations.other_text
+otros fenólicos
+@@ 2509ea8293 · material_relations.other_text
+otros florales
+@@ 284e8e9d32 · material_relations.other_text
+oud
+@@ 412bddadf0 · material_relations.other_text
+Oud
+@@ ebd76f06c0 · material_relations.other_text
+Oud Intense
+@@ 9198432169 · material_relations.other_text
+Oud Synth 184007
+@@ 8411bb4788 · material_relations.other_text
+oxidantes fuertes
+@@ a51a5747ad · material_relations.other_text
+p-Tolualdehído
+@@ d528338da2 · material_relations.other_text
+pachuli
+@@ 095e9c460b · material_relations.other_text
+pachulí
+@@ 1683eabd2a · material_relations.other_text
+Pachulí
+@@ 11330280bf · material_relations.other_text
+pachulí (aceite esencial MD Indonesia) y Corps Racine
+@@ ad868d2b8d · material_relations.other_text
+pachulí crudo
+@@ 7846f7ee0d · material_relations.other_text
+pachulí verde
+@@ 048b90936b · material_relations.other_text
+palmarosa
+@@ 26dd315b3e · material_relations.other_text
+palo de rosa
+@@ 704444c0d9 · material_relations.other_text
+Palorosa (rosewood)
+@@ bc63210439 · material_relations.other_text
+Patchouli hexanol (Patchone)
+@@ f4f1ee9a83 · material_relations.other_text
+petitgrain
+@@ a8588653a6 · material_relations.other_text
+Petitgrain
+@@ 2c197bbd82 · material_relations.other_text
+phenethyl alcohol
+@@ c003091914 · material_relations.other_text
+Piconia
+@@ 6c3e2fb059 · material_relations.other_text
+pimienta de Jamaica
+@@ 0b30cdae9a · material_relations.other_text
+pimienta negra
+@@ 16c4025d21 · material_relations.other_text
+Pimienta negra
+@@ beb13b0de4 · material_relations.other_text
+pino
+@@ 48ad01da55 · material_relations.other_text
+piña
+@@ f5636ee6e2 · material_relations.other_text
+plumeria)
+@@ 6c08f98eb1 · material_relations.other_text
+Polysantol (Firmenich)
+@@ a3a5fb13a9 · material_relations.other_text
+pomelo
+@@ 7a0aa521b4 · material_relations.other_text
+productos de cedro
+@@ 263009b791 · material_relations.other_text
+Propionato de bencilo
+@@ 5d4d9414ce · material_relations.other_text
+PRUNE F-TEC
+@@ 61ad15a9ad · material_relations.other_text
+Prune Fleuressence
+@@ b06c9e8b85 · material_relations.other_text
+quinoleínas
+@@ f68095276b · material_relations.other_text
+resinas
+@@ 50d0bfa672 · material_relations.other_text
+resinoide de gálbano Super
+@@ 4385a077be · material_relations.other_text
+resinoide de mirra
+@@ 37e98756c4 · material_relations.other_text
+Resinoide de olíbano
+@@ 0060465b72 · material_relations.other_text
+retama
+@@ 778524d728 · material_relations.other_text
+Rhubafuran
+@@ f82abd1c80 · material_relations.other_text
+Rodinol de geranio Bourbon
+@@ 96b0eaa2d7 · material_relations.other_text
+romero
+@@ e4db45e571 · material_relations.other_text
+Romero
+@@ b18419544b · material_relations.other_text
+romero o lavandín
+@@ 5efc86ca88 · material_relations.other_text
+rosa
+@@ 95e85a821b · material_relations.other_text
+rosa (damascona / ionona)
+@@ 277a1507c7 · material_relations.other_text
+Rose crystals
+@@ 58afa12615 · material_relations.other_text
+Rosetone
+@@ 43543a426f · material_relations.other_text
+Royal Leather
+@@ 24840ff073 · material_relations.other_text
+salicilato de bencilo
+@@ 424987a596 · material_relations.other_text
+salicilatos
+@@ cf77576543 · material_relations.other_text
+Salicilatos
+@@ 4575386d03 · material_relations.other_text
+salvia
+@@ a44df5cded · material_relations.other_text
+salvia esclarea
+@@ b95a87ac21 · material_relations.other_text
+Salvia esclarea
+@@ 424af4a241 · material_relations.other_text
+sándalo
+@@ 35f598dcbf · material_relations.other_text
+Sándalo
+@@ 7f766d842e · material_relations.other_text
+sándalo natural (Santalum album)
+@@ 1fc0360496 · material_relations.other_text
+sándalo natural o acorde de sándalo
+@@ fd63ae337f · material_relations.other_text
+Sandexol
+@@ 2d527049ca · material_relations.other_text
+Santaliff (IFF)
+@@ 569b3758aa · material_relations.other_text
+Scentolide
+@@ 963acfff4a · material_relations.other_text
+sobre todo dulce
+@@ 35a39dedc5 · material_relations.other_text
+sobre todo muguet
+@@ eff0738392 · material_relations.other_text
+sotolona
+@@ b8ae08feaf · material_relations.other_text
+Spirogalbanone Pure
+@@ f525392d9b · material_relations.other_text
+Styrax Resinoid Vulcain / alquitrán de abedul
+@@ 72e5246406 · material_relations.other_text
+succinato de dietilo
+@@ d4b3e461fe · material_relations.other_text
+Suede Leather Base
+@@ f6513538ce · material_relations.other_text
+sus derivados
+@@ f6babc2b68 · material_relations.other_text
+sus sustitutos
+@@ d2bfa873c9 · material_relations.other_text
+Sweet Orange Oil terpeneless / 10 fold
+@@ 5631c6bb6d · material_relations.other_text
+tabaco
+@@ 696830b0d0 · material_relations.other_text
+Tabanona
+@@ 623d77ea64 · material_relations.other_text
+Tabanone
+@@ 890136d52f · material_relations.other_text
+terpenos de vetiver
+@@ 84158fc41a · material_relations.other_text
+terpineol
+@@ 320d9d84ee · material_relations.other_text
+tetrametil naftalenona
+@@ d27441220b · material_relations.other_text
+Thujopsene
+@@ b44ea11597 · material_relations.other_text
+Timbersilk
+@@ f7274f03b3 · material_relations.other_text
+Timbersoft (Symrise)
+@@ 8729a6688d · material_relations.other_text
+Tobacarol (IFF)
+@@ 144cf0bab1 · material_relations.other_text
+Tolu reconstitution (Firmenich)
+@@ 13f20098aa · material_relations.other_text
+tomate
+@@ aa3c34ce89 · material_relations.other_text
+tomillo
+@@ 5ac24e8273 · material_relations.other_text
+Tonalide
+@@ 82f65d14a8 · material_relations.other_text
+tonka
+@@ 0078361c3f · material_relations.other_text
+trazas de hierro
+@@ 8c0fee66e1 · material_relations.other_text
+Triplal
+@@ f4bfdc123f · material_relations.other_text
+tuberosa
+@@ baf2226479 · material_relations.other_text
+tuberosa absoluta
+@@ e9c7f00eca · material_relations.other_text
+Undecanólido (aldehído C-14)
+@@ e167825400 · material_relations.other_text
+uso en exceso (por encima del 5 %)
+@@ 3a5ccc2369 · material_relations.other_text
+vainilla
+@@ 643c636e8e · material_relations.other_text
+Vainilla / vainillina
+@@ f4e0cc6d4d · material_relations.other_text
+veratraldehído
+@@ 4acb782a65 · material_relations.other_text
+verbena
+@@ f9d20fbd7c · material_relations.other_text
+verdantol
+@@ e03aa43543 · material_relations.other_text
+Vertofix
+@@ 530ea5a8db · material_relations.other_text
+vetiver Java
+@@ 9950f302e0 · material_relations.other_text
+Vetiver Uruguay (tipo Bourbon)
+@@ 7296b46405 · material_relations.other_text
+violeta
+@@ 1131da3cbe · material_relations.other_text
+Wardia (base de rosa de dsm-firmenich)
+@@ eb50ecc8ec · material_relations.other_text
+Wardia (Firmenich)
+@@ 7c1ea27952 · material_relations.other_text
+yema de clavo
+@@ 8e5796ef16 · material_relations.other_text
+ylang exótico
+@@ f0f2b6085c · material_relations.other_text
+ylang ylang
+@@ 27784c4def · material_relations.other_text
+ylang-ylang
+@@ 0bf3126268 · material_relations.other_text
+Zenolide
+@@ cc2a67caac · material_relations.other_text
+zinc (contaminación metálica)
+@@ a646793055 · material_relations.other_text
+zingerona
+@@ abd765a03b · material_components.component_name
+1,6-Methanonaphthalen-1(2h)-Ol, Octahydro-4,8a,9,9-Tetramethyl-, [1r-(1.Alpha.,4.Beta.,4a.Alpha.,6.Beta.,8a.Alpha.)]-
+@@ 4710e1aaf1 · material_components.component_name
+4-(4-Hydroxyphenyl)butan-2-one
+@@ 50966d0e67 · material_components.component_name
+4-allylanisole
+@@ 702b4acf35 · material_components.component_name
+4-Isopropylbenzaldehyde
+@@ d0cc88515f · material_components.component_name
+alpha-Bergamotene
+@@ 7efcf00dfc · material_components.component_name
+alpha-Bergamotene (total isomers)
+@@ c5182cd410 · material_components.component_name
+alpha-Copaene
+@@ 4f7dbc88a0 · material_components.component_name
+alpha-Pinene
+@@ fc654112a1 · material_components.component_name
+alpha-Santalene
+@@ 9a4b4780e1 · material_components.component_name
+ALPHA-TERPINENE – III/131
+@@ 0b81b1ffa3 · material_components.component_name
+Azulene, 1,2,3,4,5,6,7,8-Octahydro-1,4-Dimethyl-7-(1-Methylethenyl)-, [1s-(1.Alpha.,4.Alpha.,7.Alpha.)]-
+@@ 1ac5f6832b · material_components.component_name
+Azulene, 1,2,3,5,6,7,8,8a-Octahydro-1,4-Dimethyl-7-(1-Methylethenyl)-, (1s,7r,8as)-
+@@ e89b88732c · material_components.component_name
+Benzene
+@@ 47489d9bdd · material_components.component_name
+BENZYL BENZOATE – III/85
+@@ 03b5ffa81e · material_components.component_name
+BENZYL SALICYLATE – III/75
+@@ bc19ca0099 · material_components.component_name
+beta-Bisabolene
+@@ 4f6ef0821e · material_components.component_name
+beta-Caryophyllene
+@@ 0bbcbb8549 · material_components.component_name
+BETA-CARYOPHYLLENE* – III/332
+@@ 8f7a6045ea · material_components.component_name
+beta-Elemene
+@@ b37b447d33 · material_components.component_name
+beta-Ocimene (total isomers)
+@@ 5f18978571 · material_components.component_name
+beta-Pinene
+@@ 4596d955c5 · material_components.component_name
+CARVONE – III/333
+@@ bde2ce0856 · material_components.component_name
+Caryophyllene
+@@ f52cfcc593 · material_components.component_name
+Cedrene
+@@ b1e865bd07 · material_components.component_name
+cis-Chrysanthenyl acetate
+@@ 8cc63ab8ed · material_components.component_name
+CITRAL – III/70
+@@ 1225d62f58 · material_components.component_name
+CITRONELLOL – III/86
+@@ f5b8409819 · material_components.component_name
+Curzerene
+@@ 21e22c43fe · material_components.component_name
+Cyclopentadecanolide
+@@ 77ca75fe00 · material_components.component_name
+delta-3-Carene
+@@ 0217c15c90 · material_components.component_name
+delta-Cadinene
+@@ 09be263417 · material_components.component_name
+delta-Elemene
+@@ 910f496ccc · material_components.component_name
+Farnesol
+@@ a4a65109b5 · material_components.component_name
+Furanodien-6-one
+@@ a92ec499c6 · material_components.component_name
+Geraniol
+@@ d2293dbfbd · material_components.component_name
+GERANIOL – III/78
+@@ 5199266bd7 · material_components.component_name
+Limonene
+@@ a99dd82dc0 · material_components.component_name
+LIMONENE – III/88
+@@ d08a66cae8 · material_components.component_name
+LINALOOL – III/84
+@@ 38262a3076 · material_components.component_name
+LINALYL ACETATE – III/337
+@@ 8e5e9c11e7 · material_components.component_name
+Lindestrene
+@@ 0da1619825 · material_components.component_name
+Methyl ionone, mixed isomers
+@@ 152dc64569 · material_components.component_name
+Methyleugenol
+@@ 43e1e4ea25 · material_components.component_name
+Myrcene
+@@ a3eac3389c · material_components.component_name
+PINENE – III/371
+@@ 23f3b01c29 · material_components.component_name
+TERPINEOL – III/343
+@@ e16882b550 · material_components.component_name
+TERPINOLENE – III/133
+@@ a7136aa478 · material_components.component_name
+Toluene
+@@ 257fbd043b · materials.family_detail
+acuática / metálica
+@@ e9b5d66d42 · materials.family_detail
+ahumada / fenólica
+@@ 4a8c6318ef · materials.family_detail
+ahumado / empireumática
+@@ aafc4066db · materials.family_detail
+aldehídica
+@@ 7a9f5ef91b · materials.family_detail
+aldehídica ambarada
+@@ 9d933feed2 · materials.family_detail
+aldehídica-cítrica
+@@ a8400bce5e · materials.family_detail
+almendra amarga / cereza
+@@ aa4fe0853c · materials.family_detail
+almizclada
+@@ b7e8f9402e · materials.family_detail
+almizclada / amaderada especiada
+@@ 5e7999a584 · materials.family_detail
+almizcle (empolvado, animal suave)
+@@ 4d27922564 · materials.family_detail
+almizcle limpio y empolvado
+@@ bf3b956f73 · materials.family_detail
+almizcle vegetal (empolvado, tipo orris, ámbar)
+@@ c810a18884 · materials.family_detail
+amaderada
+@@ ba4b85d164 · materials.family_detail
+amaderada (pachulí suave, ámbar)
+@@ 7301bb1df3 · materials.family_detail
+amaderada (sándalo)
+@@ 2a66ec3022 · materials.family_detail
+amaderada / ámbar
+@@ 207eb7b7a9 · materials.family_detail
+amaderada / floral (iris)
+@@ 227dface61 · materials.family_detail
+amaderada / tabaco
+@@ e545c29e6a · materials.family_detail
+amaderada / terrosa
+@@ 87fb26618a · materials.family_detail
+amaderada dulce (guayaco)
+@@ 72b1456eb7 · materials.family_detail
+amaderada seca
+@@ 9d9cfabb04 · materials.family_detail
+amaderada-ambarada seca
+@@ 44dac5d789 · materials.family_detail
+ámbar (ambróxido)
+@@ 5ed50150c4 · materials.family_detail
+ámbar / gourmand
+@@ ec26f37356 · materials.family_detail
+ámbar / resina
+@@ 4f1220f3a3 · materials.family_detail
+ámbar gris / animálica
+@@ 3f495df8a3 · materials.family_detail
+ambarada / fougère
+@@ f44388c432 · materials.family_detail
+ambarada amaderada (musgo, cachemirán)
+@@ 5cf7ae91f9 · materials.family_detail
+ambarada balsámica (caramelo, resinosa)
+@@ c01fb632d1 · materials.family_detail
+animal (almizcle de ciervo, cuero)
+@@ 177d422256 · materials.family_detail
+animal (ámbar gris, labdanum)
+@@ 6e7a928bc6 · materials.family_detail
+animal (fecal, floral blanca a dilución)
+@@ 9d5fa603f3 · materials.family_detail
+animal (fenólica, cuero, medicinal)
+@@ 649c69648f · materials.family_detail
+animálica
+@@ 1367b717eb · materials.family_detail
+animálica / ámbar (por confirmar)
+@@ bee13a2d86 · materials.family_detail
+animálica / fenólica
+@@ 2c5b8e6113 · materials.family_detail
+aromática
+@@ ac20d61593 · materials.family_detail
+aromática fresca
+@@ e8068f22f9 · materials.family_detail
+atalcada / almendra
+@@ 6b5c10d06d · materials.family_detail
+azufrada / tostada
+@@ 1d020c2e6e · materials.family_detail
+balsámica
+@@ 587f5b52bf · materials.family_detail
+balsámica / frutal
+@@ 2a1783c875 · materials.family_detail
+cítrica
+@@ 8ee2e28863 · materials.family_detail
+cítrica (hespéride)
+@@ 53a1884701 · materials.family_detail
+cítrica / frutal
+@@ 0a21622b28 · materials.family_detail
+cítrica / linalool
+@@ 67ecf337ee · materials.family_detail
+cuero / oud
+@@ 602b260dc9 · materials.family_detail
+dulce / balsámica
+@@ 14dd27f861 · materials.family_detail
+dulce / cumarínica (por confirmar)
+@@ cbcdb091a4 · materials.family_detail
+dulce / gourmand
+@@ 6f9f47d11c · materials.family_detail
+especiada
+@@ 7e6a396bbf · materials.family_detail
+especiada (canela)
+@@ 942c0c3f69 · materials.family_detail
+especiada (cardamomo fresco, cítrico)
+@@ 074b0fb256 · materials.family_detail
+especiada (clavo)
+@@ 914c2f48d3 · materials.family_detail
+especiada (comino)
+@@ 5e145e35d3 · materials.family_detail
+especiada fresca
+@@ 6c62fd8f91 · materials.family_detail
+especiado-cuero
+@@ 8ea5638d5e · materials.family_detail
+floral
+@@ fe5d1b3fb1 · materials.family_detail
+floral (geranio-rosa)
+@@ c0aebdd8b1 · materials.family_detail
+floral (jazmín)
+@@ af767a287f · materials.family_detail
+floral (muguet)
+@@ 3150fba0d9 · materials.family_detail
+floral (muguet/magnolia)
+@@ af01e3daae · materials.family_detail
+floral (narciso) / frutal (cereza)
+@@ 7dd5d65b47 · materials.family_detail
+floral (rosa, geranio)
+@@ 1698d51363 · materials.family_detail
+floral (rosa)
+@@ 9b08ed8ed1 · materials.family_detail
+floral (rosa) / balsámica
+@@ e42538a320 · materials.family_detail
+floral (violeta / iris)
+@@ 233b62a4cd · materials.family_detail
+floral (violeta)
+@@ fffbda5056 · materials.family_detail
+floral / linalool
+@@ 8c59e0a4c7 · materials.family_detail
+floral atalcado (iris, violeta)
+@@ b0397c4e7d · materials.family_detail
+floral rosa verde-metálica
+@@ 711efadf60 · materials.family_detail
+floral-frutal (uva / azahar)
+@@ f9bed677a8 · materials.family_detail
+frutal (ciruela madura, fruta seca)
+@@ 9589ce6255 · materials.family_detail
+frutal (coñac, uva) / cerosa
+@@ 13ca13a391 · materials.family_detail
+frutal (lichi, grosella, frambuesa)
+@@ 72fb1f4d17 · materials.family_detail
+frutal (manzana verde / piña)
+@@ c66317ae1e · materials.family_detail
+frutal (plátano, pera) / etérea
+@@ 33e61fafc3 · materials.family_detail
+frutal seca (dátil, pasa, ciruela)
+@@ 50739c9cb2 · materials.family_detail
+frutal tropical
+@@ dc275547fe · materials.family_detail
+frutal-verde
+@@ e2f4687dcf · materials.family_detail
+gourmand (cacao, fruto seco)
+@@ 67445924d5 · materials.family_detail
+gourmand (chocolate)
+@@ 87777704a4 · materials.family_detail
+gourmand (miel)
+@@ 9ef6905908 · materials.family_detail
+gourmand (vainilla intensa)
+@@ 23ce7482b5 · materials.family_detail
+gourmand (vainilla, chocolate blanco)
+@@ 804ac0d99f · materials.family_detail
+herbal / aromática
+@@ e1501048e7 · materials.family_detail
+herbal amarga (absenta)
+@@ 608ebfb7fd · materials.family_detail
+herbal amarga / alcanforada
+@@ 2c80489021 · materials.family_detail
+herbal-cítrica
+@@ 3339c16bb9 · materials.family_detail
+iris (ionona, amaderada)
+@@ b8054ac418 · materials.family_detail
+lactona (coco, lácteo)
+@@ 12214d803c · materials.family_detail
+lactona frutal (melocotón)
+@@ 68ed2a2627 · materials.family_detail
+lactónica amaderada
+@@ 92e49669cf · materials.family_detail
+marina / ozónica
+@@ ffc094e849 · materials.family_detail
+metálica / amaderada
+@@ eb5dbf9696 · materials.family_detail
+musgo
+@@ 365786fa38 · materials.family_detail
+musgo de roble (terrosa, amaderada)
+@@ 9305f4d21d · materials.family_detail
+ozónica / acuosa
+@@ cbc1dec1e4 · materials.family_detail
+resinosa / incienso
+@@ f793ab9630 · materials.family_detail
+terrosa
+@@ 7e78f05531 · materials.family_detail
+terrosa (seta)
+@@ 802319939d · materials.family_detail
+terroso
+@@ 0a6ea3510a · materials.family_detail
+tostada (pan, palomitas)
+@@ 1c50bb20fb · materials.family_detail
+tostada / almendra
+@@ 395c045d99 · materials.family_detail
+tostada / cárnica
+@@ 2030abee0f · materials.family_detail
+verde
+@@ d399298015 · materials.family_detail
+verde (hoja amarga, resinosa, balsámica)
+@@ 4c140caeb3 · materials.family_detail
+verde / frutal
+@@ 4e10b2c540 · materials.facets
+acuático-melón, floral verde (muguet/heliotropo), heno recién cortado, almendra-anís suave
+@@ cbee2a5f28 · materials.facets
+acuoso, aire húmedo, frío, metálico, mineral (concha de ostra)
+@@ 7335f8ef80 · materials.facets
+ahumado, alquitranado, cuero, madera seca, fenólico
+@@ 4a5214db5f · materials.facets
+ahumado, cuero, animal / castóreo
+@@ 126b476646 · materials.facets
+alcanforado fresco, verde amargo-dulce, salvia-romero
+@@ 2982260669 · materials.facets
+alcanforado, tuyónico, herbáceo-verde, cineólico, cálido-especiado
+@@ d0e487ae62 · materials.facets
+algodón de azúcar, caramelo, fresa y confitura
+@@ 1845d99248 · materials.facets
+almendra amarga, cereza, marzapán
+@@ 5eb97f33c2 · materials.facets
+almendra-alforfón tostado, dulce-especiado, cumarínico
+@@ d7cc74d757 · materials.facets
+almizclado cálido, amaderado, especiado floral, polvoriento, aterciopelado
+@@ 7b2a2e3b97 · materials.facets
+almizcle blanco limpio, polvoso, metálico «hot iron» / ropa planchada
+@@ d44584512f · materials.facets
+almizcle dulce y limpio, polvoriento-floral, vainillado (notas de bayas/ambrette sutiles)
+@@ c4add7fb6f · materials.facets
+almizcle limpio, floral, amaderado
+@@ 66f8d8f1dc · materials.facets
+almizcle suave, cálido, de piel, ligeramente polvoriento, floral delicado, algo animálico, sándalo
+@@ 477b2f5e08 · materials.facets
+almizcle, animal, cuero, miel, empolvada, cremosa, fenólica
+@@ 2d44a2b19d · materials.facets
+almizcle, empolvada, iris, ámbar, dulce
+@@ 124dadbecc · materials.facets
+almizcle, empolvada, suave, animal (ciervo), tabaco, piel, ambreta
+@@ 9e783ea7a9 · materials.facets
+almizcle, empolvado, limpio, suave, dulce, cálido, cremoso
+@@ 165a39034c · materials.facets
+amaderada, pachulí suave, ámbar, almizclada, cremosa, limpia, transparente
+@@ a1cc554adb · materials.facets
+amaderado cálido, balsámico, ligeramente dulce, alcanforado, terroso
+@@ 2fa979e78f · materials.facets
+amaderado-metálico, hierro caliente, almizclado
+@@ c10c4c78d2 · materials.facets
+amaderado-terroso rico, dulce, balsámico, ahumado, herbáceo
+@@ 8271f78dc6 · materials.facets
+amaderado-terroso, ahumado, cítrico de pomelo, raíz y nuez, húmedo, floral y afrutado
+@@ 5bdca26104 · materials.facets
+amaderado, ambarado, marino, mineral, terroso, almizclado y dulce
+@@ ec75d24eb8 · materials.facets
+amaderado, ambarado, seco, cedro, labdanum, té
+@@ 2b16072024 · materials.facets
+amargo, verde, canfórico, absenta, dulce-herbal
+@@ 00ce8dc384 · materials.facets
+ámbar gris animálico, húmedo, terroso, mineral, almizclado
+@@ b6dd08ca73 · materials.facets
+ámbar gris aterciopelado, cedro seco y transparente, violeta/floral suave
+@@ 17df89ccab · materials.facets
+ámbar, amaderada, cremosa, empolvada, musgosa, gourmand suave, cedro
+@@ 43d165b724 · materials.facets
+ámbar, ambargris, cuero, animálico, resinoso dulce, terroso
+@@ e9732dc5dd · materials.facets
+ambarada, balsámica, caramelizada, resinosa, láctea, amaderada, especiada
+@@ 1d9cc875cb · materials.facets
+animal, ámbar gris, labdanum dulce, cuero
+@@ d969b7d8b8 · materials.facets
+ante (suede) suave, animálico tipo castóreo, fenólico ahumado, tabaco
+@@ 38d22c94d4 · materials.facets
+avellana, tostada, cremosa, mantecosa, metálica, achocolatada
+@@ d2e43c5f33 · materials.facets
+azufrado, avellana, carne asada, terroso
+@@ f9cd2e3086 · materials.facets
+bergamota-lavanda, herbal dulce, pino / cítrico
+@@ 8d707572b5 · materials.facets
+bergamota, lavanda, verde-amaderado
+@@ 2f7df04427 · materials.facets
+cacao, chocolate, balsámico, ámbar, tostado, frutos secos
+@@ 909ff04c62 · materials.facets
+canela cinámica cálida, dulce balsámico, seco, polvoriento-cálido
+@@ 42089a207c · materials.facets
+cáscara de naranja, ceroso, graso
+@@ 919fb3df17 · materials.facets
+castóreo, piel animal, cuero, ahumado-fenólico, alquitrán de abedul, almizcle, fruta seca tipo ciruela
+@@ 3b320a38fe · materials.facets
+caucho, azufrado, barbacoa, tostado
+@@ 0b156da582 · materials.facets
+cedro seco y ahumado, viejo, polvoriento, especiado agudo
+@@ 0a78cd132a · materials.facets
+cedro seco, ámbar gris, pachulí y vetiver
+@@ 10ad86da04 · materials.facets
+ceroso, frutal, manzana, uva, coñac, aceitoso
+@@ 7f6aa7526d · materials.facets
+ciruela madura, fruta seca, coco, melocotón, aterciopelada
+@@ b9ba713010 · materials.facets
+cítrica, verde, transparente
+@@ 8b576e27c5 · materials.facets
+cítrico brillante, afrutado-dulce, verde, fresco, floral ligero
+@@ 2b5432b82e · materials.facets
+clavo, especiado dulce, fenólico seco
+@@ 3f57828f23 · materials.facets
+coco cremoso, lactónico, cumarínico
+@@ 75e73c816e · materials.facets
+coco tostado, tonka-cumarina y arce, madera de roble / barrica
+@@ 25a4d8cada · materials.facets
+comino, especiado cálido, verde, seco, alcaravea
+@@ 2ecfed51fd · materials.facets
+cuero quemado, curtido, musgoso, terroso (raíz, vetiver), verde, avellanado
+@@ dedc16f2bd · materials.facets
+cuero, animal, ligeramente ahumado, resinoso, balsámico
+@@ 24bb063a13 · materials.facets
+cuero, azafrán, tabaco
+@@ ebef89c58b · materials.facets
+dulce-especiado, resinoso, vainilla, canela / cinámico, fenólico
+@@ ddee7925e6 · materials.facets
+dulce, avainillado, balsámico, cálido, ceroso, cremoso
+@@ 0c398a5170 · materials.facets
+dulce, balsámico, cinámico, vainilla, cuero, ahumado y animálico sutiles
+@@ 588153c481 · materials.facets
+dulce, intenso, profundo, de fruto de trufa, lácteo, setas y madera húmeda
+@@ 37b32f6b84 · materials.facets
+dulce, polvoriento, almendrado-cereza, vainilla suave y anisado, balsámico, avellanado
+@@ 9d23283a92 · materials.facets
+dulce, suave, cálido, afrutado, verde, ligeramente ácido
+@@ 1ed2b52169 · materials.facets
+especiada, fresca, cítrica, dulce, terrosa
+@@ ff5751d2fd · materials.facets
+especiado-amaderado, mate y seco, ligeramente ahumado, notas de cuero
+@@ 37f5ba2d37 · materials.facets
+etéreo, plátano, pera, manzana, ron
+@@ 0367fb058e · materials.facets
+eucalipto, alcanforado, menta / refrescante
+@@ 0eed57310e · materials.facets
+fecal, naftalina, jazmín, azahar, narcótica, animal
+@@ 1c011e5a81 · materials.facets
+fenólica, animal, medicinal, cuero, narciso, mimosa, ylang-ylang
+@@ 5a23c865b5 · materials.facets
+fenólico, medicinal
+@@ 58550db96f · materials.facets
+floral fresco, cítrico ligero, ligeramente amaderado
+@@ 711ccbb786 · materials.facets
+floral herbal, fresco, agreste, dulce, ligeramente amaderado
+@@ 386d8e767f · materials.facets
+fresa y cereza, balsámico, canela cálida
+@@ 5bc0fa0af1 · materials.facets
+fresco-aldehídico metálico/ceroso, ámbar, musgo y cítrico, tuberosa al diluir
+@@ 2c1c86e738 · materials.facets
+frutas tropicales (guayaba), pomelo, ruibarbo, grosella negra
+@@ 8ec882951c · materials.facets
+fruto seco, cacao, chocolate, mohoso, tubérculo
+@@ c18fedad3a · materials.facets
+frutos secos (dátil, higo, pasa), ciruela y uva, brandy, licoroso
+@@ 0b5e20c988 · materials.facets
+geranio, rosa, floral, metálico, fenólico
+@@ fb583aa012 · materials.facets
+grosella negra jugosa y ácida, verde, hoja machacada, floral (rosa), mentolado
+@@ 2aa7e8fcf5 · materials.facets
+heno dulce, almendra amarga, vainilla, tonka
+@@ 4aa864d6d4 · materials.facets
+heno dulce, fruta seca, cuero
+@@ dfdcffcf60 · materials.facets
+hierba recién cortada, hoja verde triturada, herbal
+@@ 6394c3f125 · materials.facets
+hoja de higuera, vegetal, hojoso, tallo de tomate / brote de grosella negra
+@@ 90f7413305 · materials.facets
+humo de hoguera, clavo y vainilla, medicinal / creosota
+@@ 192ab6ebfc · materials.facets
+iris / orris, madera de cedro, floral empolvado
+@@ eabe401d32 · materials.facets
+iris, ionona, amaderada, polvo, raíz
+@@ d2b5b3ca88 · materials.facets
+jazmín suave, oleoso-herbáceo, frutal tropical (melocotón)
+@@ feca4fd6ae · materials.facets
+jazmín, frutal (pera, plátano), dulce
+@@ b86ae0645a · materials.facets
+lichi, grosella negra, frambuesa, floral-frutal exótico, toques verdes herbales
+@@ 1d24d2a9f5 · materials.facets
+lima, lavanda, floral fresco, limpio, colonia
+@@ 97f8de7a75 · materials.facets
+limón fresco, ácido, aldehídico, ligeramente picante
+@@ f0878d409b · materials.facets
+limón intenso, citral, afrutado, dulce, amaderado-floral ligero
+@@ 5748c2b9e5 · materials.facets
+madera seca / ámbar, animálico seco, pachulí
+@@ 73d87dae30 · materials.facets
+madera suave ahumada-balsámica, té-rosa, vetiver y pimienta
+@@ 2274844ccc · materials.facets
+manzana-piña, fresa, vinoso / fruta fermentada
+@@ ad803ce403 · materials.facets
+medicinal, fenólico, cuero / alquitrán / castóreo / oud
+@@ 20ecb9bdd5 · materials.facets
+melocotón cremoso, lactónico graso, albaricoque / coco
+@@ 48993fc185 · materials.facets
+miel, néctar de abejas, cálido y suave, untuoso
+@@ 582a9d4926 · materials.facets
+muguet (lirio de los valles), magnolia, limpio / transparente
+@@ b8760994ae · materials.facets
+muguet dulce y delicado, verde, cítrico-lima, melón-acuoso
+@@ 762ce15bec · materials.facets
+muguet, verde suave, fresco / cítrico
+@@ 3d05712b00 · materials.facets
+musgo de roble, terrosa, amaderada, fenólica, empolvada, limpia
+@@ 8586471652 · materials.facets
+musgo, bosque húmedo, terroso, algas, marino, cuero ahumado
+@@ 28faf6e1e2 · materials.facets
+naranja / cítrico, acuático-marino, ceroso
+@@ 32429792ab · materials.facets
+naranja dulce, jugosa, aldehídico, cáscara, ceroso
+@@ 68c7a6fc77 · materials.facets
+narciso, cereza, heno, atalcado, metálico, animálico
+@@ c7527837de · materials.facets
+oud, agar, cuero, ahumado, alquitranado, ámbar, resinoso-balsámico
+@@ 60771b9705 · materials.facets
+ozónico, brisa de mar, melón y sandía, algas, yodado
+@@ 406f49fca3 · materials.facets
+palomitas de maíz, frutos secos tostados, chocolate
+@@ 4423c86de7 · materials.facets
+picante-amaderado (pimienta), floral dulce, caramelizado, balsámico
+@@ 2838690c0b · materials.facets
+pino herbáceo suave, jengibre, cardamomo, maderas suaves
+@@ fff0d886be · materials.facets
+piña, galbano verde, piel de manzana
+@@ 5d7b15fb79 · materials.facets
+pomelo (cáscara), amargo, verde, ligeramente amaderado
+@@ e36bf809a2 · materials.facets
+resinoso, terroso, cálido, dulce, balsámico, cítrico-pinoso de salida
+@@ 1b81904e68 · materials.facets
+rosa pesada, atalcado, balsámico, jabonoso
+@@ 2cc6944028 · materials.facets
+rosa suave, rosa-miel, verde
+@@ 7b58765a9e · materials.facets
+rosa, geranio, cítrico
+@@ 356df18746 · materials.facets
+rosado, frutal-pera verde, lavanda / cítrico
+@@ 82a817d116 · materials.facets
+sándalo cremoso, cedro ligero, rosado, lácteo, suave
+@@ 2d1f629bfc · materials.facets
+sándalo cremoso, difusivo, potente, herbal / frutal tropical leve
+@@ 88fcbcf75c · materials.facets
+sándalo de Mysore, dulce, cálido, cremoso
+@@ 7a14316732 · materials.facets
+sándalo rico y cremoso, ámbar y almizcle, lactónico, nuez en el fondo
+@@ cf638cac64 · materials.facets
+semilla de ambrette, fruta roja, jabonoso, cálido
+@@ ce63e8bb67 · materials.facets
+seta, tierra húmeda, herbal, metálico, rancio
+@@ 79a0b7fb77 · materials.facets
+tabaco, ámbar, hierbas / cardamomo
+@@ b04da6ebe5 · materials.facets
+terroso, seco, especiado, pachulí, vetiver, cuero, ahumado
+@@ 06da66aed7 · materials.facets
+tierra húmeda, remolacha, fresco / lluvia
+@@ 9e4dbe88aa · materials.facets
+uva Concord, azahar y neroli, naftalina («closet-like»)
+@@ fff728567a · materials.facets
+vainilla cremosa dulce, empolvado, fenólico-quemado
+@@ cb43a5d1ab · materials.facets
+vainilla, almendra, especiado, ligeramente amaderado
+@@ 980c54baf8 · materials.facets
+vainilla, cremosa, chocolate blanco, albaricoque, refresco de nata, dulce
+@@ 7ade66a3b4 · materials.facets
+vainilla, dulce, cremosa, empolvada, chocolate, especiada, fenólica
+@@ d3f3544707 · materials.facets
+verde frutal, ruibarbo, gardenia
+@@ 5645c3edd0 · materials.facets
+verde gaseoso / metálico, tallo de rosa recién cortado, geranio
+@@ f0e4227284 · materials.facets
+verde, resinosa, balsámica, trementina, pino, terrosa, amarga
+@@ 0e39c410fe · materials.facets
+violeta empolvada, iris / orris, amaderado
+@@ e2982ca003 · materials.facets
+violeta y fresia, frambuesa y frutos rojos, terroso-amaderado
+@@ ec9835757d · materials.facets
+violeta/iris polvoriento, baya, frambuesa, ligeramente afrutado, amaderado suave y cálido
+@@ 16cca2ab32 · material_descriptors.text
+Adam Michael (Hermitage Oils, tintura de Irlanda, sin dilución) — ficha 8038-65-1: The aroma is sweet, gently animalic, clean, with breezy salty ocean water notes throughout.
+@@ 0a9f946cf1 · material_descriptors.text
+Agan Aroma: Powerful, clean, Persistent Musk
+@@ 9e802c1694 · material_descriptors.text
+Albert Vieille (benjuí Siam n.º 3): sweet, milky, vanilla-like smell is reminiscent of vanilla beans
+@@ 6c1b94d06f · material_descriptors.text
+Albert Vieille (benjuí Siam n.º 5): sweet, vanilla-like, very popular in gourmand perfume compositions
+@@ d408eddab1 · material_descriptors.text
+Aldehydic, Citrus, Floral
+@@ ad37c11819 · material_descriptors.text
+Aldehydic, Orange, Citrus
+@@ f84cb164d3 · material_descriptors.text
+Aldehydic, Orange, Green
+@@ 13e6f9e77c · material_descriptors.text
+Alfa Chemistry (vía buscador): powerful woody-phenolic, medicinal, yet rather sweet odour
+@@ 900091e654 · material_descriptors.text
+Alfrebro (natural): Apple, Apricot, Peach, Spice
+@@ 339b01579c · material_descriptors.text
+Alfrebro: sweet, floral, rose, fruity
+@@ 41ebd3304e · material_descriptors.text
+Amber, Woody, Animal Like
+@@ 1d8f828fcf · material_descriptors.text
+Amber, Woody, Aromatic
+@@ f8e199356a · material_descriptors.text
+Amber, Woody, Dry
+@@ 12b1307d4a · material_descriptors.text
+Amber, Woody, Herbal
+@@ 170fb4c535 · material_descriptors.text
+Anhui Haibei: Citrus-lemon /lemongrass
+@@ 22ac26a7d4 · material_descriptors.text
+Anhui Haibei: Floral orange mandarin citrus
+@@ 3f160bf76e · material_descriptors.text
+Anhui Haibei: smoky, birch tar, burnt, grilled, leather
+@@ 539628192a · material_descriptors.text
+Anhui Suzhou Jinli Aromatic Chemicals: irritative roast
+@@ a1d05558f1 · material_descriptors.text
+Animal like, Leathery, Phenolic
+@@ a2a7eb8aa1 · material_descriptors.text
+Anisic, Floral, Powdery
+@@ 1e93c8c01c · material_descriptors.text
+Anthea: Fresh lime-like, citrusy-floral and sweet odor with little or no terpenic undertones.
+@@ a8efea7e4c · material_descriptors.text
+Arcadi Boix Camps (1978), citado en la página: A product with a fresh melon fruity odor, it is endowed with a great fixing power.
+@@ 933ad086ea · material_descriptors.text
+Arcadi Boix Camps, 1978 (ficha cis+trans, 5502-75-0), resumido por la herramienta de lectura, no literal: olor floral suave algo herbáceo que sugiere frescura; más interesante que el hidroxicitronelal
+@@ e0e1a5cf01 · material_descriptors.text
+Arcadi Boix Camps, citado por Pell Wall Perfumes: extraordinary and has a bright quality between amber and patchouli
+@@ 005f770dfa · material_descriptors.text
+Arctander (citado en la ficha): Sweet, herbaceous-warm, somewhat spicy odor, in extreme dilution more haylike, nut- Iike, tobacco-like…
+@@ 4a8ec746a9 · material_descriptors.text
+Arctander (citado por Enfleurage): powerful, fresh-camphoraceous, somewhat green and bitter-sweet, with a cedarleaf-like topnote and a rosemary-sage-like bodynote
+@@ 421c830d1e · material_descriptors.text
+Arctander (citado por Enfleurage): The drydown is very pleasant, sweet-herbaceous and tealike.
+@@ 5cdc637906 · material_descriptors.text
+Arctander (citado por Pell Wall): of sweet, floral-herbaceous refreshing odor with a pleasant, balsamic-woody undertone.
+@@ 703f79a775 · material_descriptors.text
+Arctander (citado por Pell Wall): Sweet-floral, at first delicate and refreshingly mild
+@@ bd2315fecd · material_descriptors.text
+Arctander (citado por un proveedor): mostly reminiscent of jasmine, gardenia and tuberose; very mild, oily-herbaceous and somewhat floral
+@@ 10567b0a5a · material_descriptors.text
+Arctander (citado vía buscador): la semejanza con el geranio aparece solo al diluirlo, y mejor dentro de una composición
+@@ 43f7ed9cce · material_descriptors.text
+Arctander 1969, citado en la revisión de seguridad de fragancias (vía buscador): sweet musk-like odor of considerable tenacity
+@@ a43f3ff949 · material_descriptors.text
+Arctander, citado en el listado de Hermitage Oils: Powerful smoke-like, somewhat medicinal odor, sweeter than the prototype phenolic odor
+@@ 7fdde4e805 · material_descriptors.text
+Arctander, citado en la página: Widely used in perfumery along with the Ionone, Cedarwood products, floral and non-floral perfume chemicals
+@@ 74a95c44f8 · material_descriptors.text
+Arctander, citado por Pell Wall Perfumes: Powerful sweet odor, reminiscent of freshly crushed bitter Almonds.
+@@ 53c2a74814 · material_descriptors.text
+Arctander, citado por Pell Wall: Traces of cis-3-Hexenol are used in refreshing topnotes in delicate floral fragrance types, such as Muguet and Lilac
+@@ eadc87b100 · material_descriptors.text
+Arctander, citado por un proveedor (vía buscador): woody-earthy-mossy, slightly spicy, with a resemblance to oakmoss and cardamom
+@@ 6cd3fce3f2 · material_descriptors.text
+Aromology (61789-17-1, vía buscador): warm, elegant character with smoky, spicy facets and a vibrant rose nuance
+@@ ed32172a62 · material_descriptors.text
+Augustus (en TGSC): A useful, long lasting odour with fruity undertones
+@@ fd7d482450 · material_descriptors.text
+Augustus Oils (vía buscador): dry powdery-dusty, but warm, uniform and lasting dryout note
+@@ ac43e1c424 · material_descriptors.text
+Balsamic, Amber, Floral
+@@ 1d7eafa604 · material_descriptors.text
+Balsamic, Amber, Leathery
+@@ 59d3e51685 · material_descriptors.text
+Balsamic, Sweet, Milky
+@@ 989d226e31 · material_descriptors.text
+BASF: Floral, deep, warm rose note
+@@ 0d25acc652 · material_descriptors.text
+BC Fragrance (vía buscador): The winey-'fermented-fruit-like' undertones resemble the odor of Strawberry preserve
+@@ 218f1054a2 · material_descriptors.text
+Bedoukian Research (Lilytol ≥96.0 %) (ficha cis+trans, 5502-75-0): Fresh, floral, magnolia, muguet
+@@ e143ec0725 · material_descriptors.text
+Bedoukian Research: Characteristic concord grape, orange blossom aroma
+@@ ecd785e9ac · material_descriptors.text
+Bio Shop Pakistan: Intense, bitter, resinous 'green' leaf note; abre agudo y de pino, seca cálido, balsámico y terroso
+@@ fa160463a1 · material_descriptors.text
+Biolandes (absoluto de tabaco de Marruecos): bottom-note / tobacco, characteristic, chocolate
+@@ 22f7567f62 · material_descriptors.text
+Biolandes Parfumerie (absoluto de Costa de Marfil y orgánico de Tanzania): Pyrogenic/cocoa bitter, powdery, milky, liqueur like
+@@ ac7d62e731 · material_descriptors.text
+Biolandes: balsamic-vanilla family, cinnamic, almond, amber
+@@ c330f31a14 · material_descriptors.text
+Camden-Grey: characteristic
+@@ a8b1c2a837 · material_descriptors.text
+Caperfume (vía buscador): menos refinado, aroma más agudo y parecido a la trementina; sobre todo industrial
+@@ 51c3e7f909 · material_descriptors.text
+Chandler Burr (citado por Perfumer's Apprentice): the smell of extreme dryness, absolute desiccation
+@@ ee30c527cc · material_descriptors.text
+Charabot: Citrus, zesty, bitter
+@@ 83683876a3 · material_descriptors.text
+Charabot: Woody, resinous, warm
+@@ a9bd48f296 · material_descriptors.text
+ChemicalBook (vía buscador): fresh citrus lime floral clean cologne weedy
+@@ 79b65db30a · material_descriptors.text
+ChemicalBook: slightly smoky, earthy
+@@ 89eb5c8755 · material_descriptors.text
+Citrus, Fresh, Floral
+@@ 2d3dd85ca6 · material_descriptors.text
+Citrus, Fresh, Lemon
+@@ 6b4fa992a7 · material_descriptors.text
+Citrus, Fresh, Sharp
+@@ 1919f911ba · material_descriptors.text
+Citrus, Grapefruit, Green
+@@ e67bbb5eb0 · material_descriptors.text
+Citrus, Lemon, Fruity
+@@ 5ae1361195 · material_descriptors.text
+Citrus, Orange, Fruity
+@@ 966364303c · material_descriptors.text
+Citrus, Sweet, Orange
+@@ 85626d2c27 · material_descriptors.text
+Creatingperfume.com (ficha hermana 134-28-1): Delicately sweet,woody, soft, warm, green patchouli like tea rose
+@@ 2918b5eff4 · material_descriptors.text
+Creatingperfume.com (Suederal LT): Super strong leather
+@@ 30c08b2844 · material_descriptors.text
+Creatingperfume.com: Deep, smoky, earthy aroma
+@@ 751a049b78 · material_descriptors.text
+Creatingperfume.com: Tropical Fruity, Guava, Grapefruit, Rhubarb, Cassis
+@@ 3f327fd13c · material_descriptors.text
+Darren Alan Perfumes (vía buscador): creamy, sweet, vanilla-almond floral nuance
+@@ 32a5524c42 · material_descriptors.text
+distribuidor (vía buscador): Musky, Sweet, Fresh, Powdery, Clean, Hot Iron
+@@ df97616dc9 · material_descriptors.text
+Eden Botanicals (vía buscador): powerful, deep, rich, sweet balsamic aroma with a faint herbaceous nuance and a persistent ambergris-like backnote
+@@ e48565f277 · material_descriptors.text
+Emerald Kalama (Florosol S y Florosol): Lily of the valley, rose, cyclamen, lilac
+@@ f14b01d285 · material_descriptors.text
+Ernesto Ventós (345 B): GREEN, FRUITY, FLORAL
+@@ 9a73926f8e · material_descriptors.text
+Ernesto Ventós (Cade Oil, Crude): tarry, faintly aromatic
+@@ 37348dbc94 · material_descriptors.text
+Ernesto Ventós (Cade Oil, Rectified): smoky, tarry, stinky
+@@ 416c2d3580 · material_descriptors.text
+Ernesto Ventós (COCOA ABSOLUTE, COLORLESS): CHOCOLATE
+@@ 4443746c95 · material_descriptors.text
+Ernesto Ventós (FLORIFFOL IFF): FLORAL, MUGUET, HYACINTH, FREESIA
+@@ 8a04763125 · material_descriptors.text
+Ernesto Ventós (Green Musk Absolute): WOODY, EARTHY, MUSHROOMS, SEAWEED
+@@ dbb9c200ab · material_descriptors.text
+Ernesto Ventós (HELIONAL IFF): FRESH,FLORAL,MELON,OZONE,MARINE
+@@ 4606be8251 · material_descriptors.text
+Ernesto Ventós (Isonaline 70 DSM) (ficha del 70 %): WOODY, VIOLET, FRUITY
+@@ 89aa34a246 · material_descriptors.text
+Ernesto Ventós (Lavender Oil Firmenich 118604): SWEET, FLORAL, HERBACEOUS
+@@ 47eef6fb5d · material_descriptors.text
+Ernesto Ventós (Mayol Firmenich 957230) (ficha cis+trans, 5502-75-0): FRESH, FLORAL, MAGNOLIA, MUGUET
+@@ 67961a0324 · material_descriptors.text
+Ernesto Ventós (Methylionone Coeur Gamma IFF) (ficha del 70 %): WOODY, FLORAL, VIOLET
+@@ ca877343db · material_descriptors.text
+Ernesto Ventós (Oakmoss Absolute): WOODY, FOREST, SEASHORE-LIKE
+@@ 73c7dc21ce · material_descriptors.text
+Ernesto Ventós (Sandal Core): POWERFUL, SANDALWOOD-LIKE, SWEET

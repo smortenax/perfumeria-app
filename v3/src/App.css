@@ -340,16 +340,6 @@ button.member:focus-visible {
   font-size: var(--text-md);
 }
 
-.disputed {
-  margin-left: 0.5rem;
-  font-size: var(--text-sm);
-  color: #b3261e;
-  border: 1px solid #b3261e;
-  border-radius: 999px;
-  padding: 0 0.375rem;
-  font-style: normal;
-}
-
 .table-wrap {
   overflow-x: auto;
   margin: 0.5rem 0;
@@ -1563,28 +1553,4 @@ button:focus-visible {
 }
 .failure .link {
   color: var(--text-default);
-}
-
-/* A long value of the sheet, one line until opened (2026-10-30). */
-.long-value > summary {
-  cursor: pointer;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.long-value > summary .more {
-  color: var(--muted);
-}
-.long-value[open] > summary .value,
-.long-value[open] > summary .more {
-  display: none;
-}
-.long-value[open] > summary::after {
-  content: "";
-}
-.value-notes {
-  margin: 0.25rem 0 0;
-  padding-inline-start: 1.1rem;
-  color: var(--muted);
-  font-size: var(--text-sm, 0.9em);
 }

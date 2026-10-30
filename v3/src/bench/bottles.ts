@@ -18,13 +18,12 @@ export interface BottleChoice {
   readonly diluents: readonly { readonly id: keyof typeof DILUENTS; readonly share: Ratio }[];
 }
 
-/** A percent as a cell of the bar writes it: «9,97», without trailing zeros. */
+/** A percent as a cell of the bar writes it: «9.97», without trailing zeros. */
 export function percentCell(fraction: Ratio): string {
   return fraction
     .mul(Ratio.of(100n))
     .toFixed(4)
-    .replace(/\.?0+$/, "")
-    .replace(".", ",");
+    .replace(/\.?0+$/, "");
 }
 
 export function bottlesFor(data: Pick<GlossaryData, "catalog">, materialKey: string): BottleChoice[] {

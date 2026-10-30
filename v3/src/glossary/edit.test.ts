@@ -27,7 +27,7 @@ describe("the editor's form (6.3)", () => {
     const form = formOf(mine);
     expect(form.aliases).toBe("MB");
     expect(form.purity).toBe("98");
-    expect(form["physical.density"]).toBe("0,935");
+    expect(form["physical.density"]).toBe("0.935");
     expect(form.family).toBe("");
   });
 

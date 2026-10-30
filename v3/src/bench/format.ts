@@ -57,7 +57,7 @@ export function partsText(part: Ratio, total: Ratio): string {
 
 /** A fraction as a percent without trailing zeros: 1/10 is "10 %", 1/200 is "0,5 %". */
 export function dilutionText(fraction: Ratio): string {
-  const text = formatDecimal(fraction.mul(Ratio.of(100)), 3).replace(/,?0+$/, "");
+  const text = formatDecimal(fraction.mul(Ratio.of(100)), 3).replace(/\.?0+$/, "");
   return `${text} %`;
 }
 

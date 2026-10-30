@@ -431,26 +431,6 @@
   width: 220px;
 }
 
-.hero-orb .orb-facts {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 3px 10px;
-  margin: 0;
-  font-size: var(--text-xs);
-}
-
-.hero-orb .orb-facts div {
-  display: contents;
-}
-
-.hero-orb .orb-facts dt {
-  color: var(--muted);
-}
-
-.hero-orb .orb-facts dd {
-  margin: 0;
-}
-
 .hero-info {
   display: grid;
   gap: 14px;
@@ -576,7 +556,113 @@
   transform: none;
 }
 
-/* The source under a figure of the sheet's head (V3-81). */
+/* A text in one line, «more» to read the rest (the user, 2026-10-30). */
+.clamp-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  min-width: 0;
+}
+.clamp {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.clamp.open {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.clamp-toggle {
+  flex: none;
+  min-height: 24px;
+  padding: 0 4px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.sheet-lines {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sheet-lines li {
+  display: flex;
+  align-items: baseline;
+  min-width: 0;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.sheet-lines li > .clamp-wrap {
+  flex: 0 1 auto;
+}
+
+/* A figure's mark: a small number that opens «Sources» at its line (V3-86). */
+.src-mark {
+  display: inline-block;
+  min-width: 0;
+  min-height: 0;
+  margin-left: 2px;
+  padding: 0 2px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 0.6em;
+  font-weight: 600;
+  line-height: 1;
+  vertical-align: super;
+  cursor: pointer;
+}
+.src-mark:hover,
+.src-mark:focus-visible {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+/* The sources, at the end of the sheet and folded (V3-86). */
+.sheet-sources {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+.sheet-sources summary {
+  padding: 12px 0;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text);
+}
+.sheet-sources ol {
+  display: grid;
+  gap: 6px;
+  margin: 8px 0 0;
+  padding-left: 2.2em;
+}
+.sheet-sources li {
+  overflow-wrap: anywhere;
+}
+.sheet-sources li:focus {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+.sheet-sources .source-what {
+  color: var(--text);
+  font-weight: 600;
+}
+.sheet-sources .source-meta {
+  font-style: italic;
+}
+.sheet-sources .source-note {
+  display: block;
+}
+
+/* «Source: not stated» under a figure of the sheet's head (V3-81). */
 .fig-source {
   display: block;
   margin-top: 4px;

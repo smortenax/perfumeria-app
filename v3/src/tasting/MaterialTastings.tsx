@@ -45,7 +45,7 @@ export function MaterialTastings({
                 <button type="button" className="link" onClick={() => onOpenStrip(s.id)}>
                   {t.materialTasting(when(s.appliedAt), s.closedAt !== null)}
                 </button>
-                {ten && <span className="hint"> · {t.tenacity.toLowerCase()} {ten.atLeast ? "≥ " : ""}{ten.hours.toFixed(1).replace(".", ",")} h</span>}
+                {ten && <span className="hint"> · {t.tenacity.toLowerCase()} {ten.atLeast ? "≥ " : ""}{ten.hours.toFixed(1)} h</span>}
               </li>
             );
           })}

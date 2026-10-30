@@ -1,0 +1,598 @@
+@@ afac5abae1 · materials.code
+000345 B (Fraterworks: «Ref: 000345B»; Perfumer Supply House: nombre del IFRA enlazado); Perfumiarz: documentos con el prefijo W03040
+@@ efaddfc8ea · materials.code
+1465543
+@@ 003b1bc1ec · materials.code
+204/2/20
+@@ 322548be2f · materials.code
+296985 (documentos enlazados por Perfumiarz con el prefijo W02033; dsm-firmenich: «BLACK AGAR PE 296985» en la dirección de la ficha)
+@@ 0fd8b68faf · materials.code
+935985
+@@ 18ee27c0bc · materials.code
+975617
+@@ f022d68193 · materials.code
+AB 2927R/3 (Perfumiarz; documentos «2927R2»); ABQ2977 (código Quest, Fraterworks); artículo 25010 (Hekserij)
+@@ c4d0692f2b · materials.code
+IPC 151575
+@@ 4c56f16d84 · materials.code
+Oliffac 0712
+@@ 670bd889b2 · materials.code
+PE 911383 (solo como parte de la dirección de la ficha de dsm-firmenich studio, vía buscador; la página dio 404). Perfumiarz no da código.
+@@ f0cdc2bdd8 · materials.code
+Perfumiarz: sin código en el texto, documentos con referencia W03063; Castoreum Synth 184004 D en dsm-firmenich y Fraterworks («REF: 184004D»), si es el mismo producto
+@@ 3447c156aa · materials.code
+Suederal LT (grado actual, 0710 en algunos distribuidores); sin CAS, «BASE»
+@@ e145c630f1 · materials.species
+Abelmoschus moschatus
+@@ ce45c74161 · materials.species
+Amomum villosum
+@@ 22ad131bf4 · materials.species
+Artemisia absinthium
+@@ a267440f06 · materials.species
+Artemisia vulgaris L.
+@@ ca6bf6a025 · materials.species
+Boswellia sacra Flueck. (Fraterworks). Maese Lab no nombra la especie en el texto, solo el INCI «Boswellia Sacra Gum Oil» y «el árbol de Boswellia»; ScenTree (ficha genérica de incense oil) nombra B. carteri en los listados de proveedores y describe aparte el quimiotipo de B. sacra.
+@@ 206f47664e · materials.species
+Bulnesia sarmientoi (Fraterworks y Perfumiarz lo dan solo por el INCI «Bulnesia Sarmientoi Extract Acetate»; Harrison Joseph: de Bulnesia sarmientoi)
+@@ 53dae0f4d3 · materials.species
+Castor canadensis Kuhl (ScenTree); Hermitage Oils pone «Castor faber» (castor europeo); Maese Lab no indica especie
+@@ 809697d372 · materials.species
+Cedrus atlantica (Endl.) Manetti ex Carrière
+@@ fdb3b511ea · materials.species
+Chrysopogon zizanioides (L.) (Fraterworks y Scentspiracy); PerfumersWorld lo escribe «vetiveria zizaniodes Stapf.»
+@@ 4c4c365352 · materials.species
+Cinnamomum zeylanicum Blume / Cinnamomum verum J.Presl (Lauraceae)
+@@ d8de9e0934 · materials.species
+Cistus ladanifer (labdanum; la fuente escribe 'cistus cyprius, cistaceae')
+@@ 1130d80156 · materials.species
+Cistus ladanifer L. / Cistus ladaniferus (ScenTree, Scentspiracy; Maese Lab lo infiere solo del INCI «Cistus Ladaniferus Leaf Extract»). Scentspiracy añade C. creticus.
+@@ 0e1fb126a8 · materials.species
+Citrus bergamia Risso et Poiteau (Fraterworks); Citrus aurantium bergamia / var. bergamia (Darren Alan, Eden Botanicals)
+@@ d5b5b6cfb5 · materials.species
+Citrus limon (L.) Osbeck (Eden Botanicals); Olfatorium: «Citrus lemon», «Citrus Limón Risso»
+@@ 55b6a81ab6 · materials.species
+Citrus reticulata Blanco (Olfatorium); PerfumersWorld lo da como «Citrus reticula(blanco ?)»
+@@ df6d2e5de6 · materials.species
+Citrus sinensis (L.) Persoon (ScenTree). La lista la da como Citrus aurantium var. dulcis, que no aparece en ninguna fuente leída.
+@@ dab449f333 · materials.species
+Commiphora erythraea var. glabrescens Engle
+@@ 85e6bdff41 · materials.species
+Commiphora myrrha
+@@ 16cc0eae6e · materials.species
+Coriandrum sativum L. (Apiaceae)
+@@ c67b6ac896 · materials.species
+Cupressus funebris Endl. (ScenTree, Scent.vn). Un artículo (J. Essential Oil Res. 2008, vía buscador) cuestiona que el aceite comercial «chino» sea solo de esa especie: probablemente es una mezcla de varias Cupresáceas, con marcadores β-biotol y β-biotona que sugieren madera de Platycladus orientalis.
+@@ 004faec4c4 · materials.species
+Cyperus scariosus
+@@ ef9bd7c0e7 · materials.species
+Dipteryx odorata (según la descripción de Maese Lab)
+@@ bcecd5809e · materials.species
+Elettaria cardamomum L.
+@@ 8439976b07 · materials.species
+Evernia prunastri (L.) Ach.
+@@ ec6ed9768c · materials.species
+Ferula galbaniflua
+@@ c03b07254b · materials.species
+Juniperus communis
+@@ 23153ddc17 · materials.species
+Juniperus oxycedrus L.
+@@ 67750bb038 · materials.species
+Lavandula angustifolia Mill.
+@@ 5d028fddc7 · materials.species
+Liquidambar styraciflua L. (Fraterworks, y el abastecimiento de Honduras en ScenTree y Scentspiracy). La cabecera botánica de ScenTree dice Liquidambar orientalis Mill.
+@@ 7d85bb962b · materials.species
+Litsea cubeba (Lour.) Pers. (sinónimos: L. citrata, May Chang)
+@@ 84ee9da027 · materials.species
+Myroxylon balsamum var. balsamum (Scentspiracy, Fraterworks; Perfumiarz: «Myroxylon balsamum tree, same family as Peru balsam»). Una referencia del buscador cita también la variedad «toluifera» o «genuinum».
+@@ a0e2bac543 · materials.species
+Nicotiana tabacum (Fraterworks, INCI «Nicotiana tabacum leaf extract»; Olfactorian lo da como «Nicotiana Spp.»)
+@@ 08246b0d76 · materials.species
+Physeter macrocephalus (cachalote) (Premiere Peau); Maese Lab no nombra al animal, solo «Parte Utilizada: Secreción Orgánica»
+@@ 7cc1d5929a · materials.species
+Piper nigrum
+@@ 61d25bb07e · materials.species
+Pogostemon cablin Benth. (Fraterworks)
+@@ e2e4634a63 · materials.species
+Procavia capensis
+@@ 29ffa38e92 · materials.species
+Salvia officinalis L.
+@@ 30efe0acf3 · materials.species
+Schinus molle
+@@ ff7b7ba8dc · materials.species
+Styrax tonkinensis (Pierre) Craib ex Hartwich (benjuí de Siam, el que corresponde al CAS 9000-72-0). Perfumiarz también vende benjuí de Sumatra (Styrax benzoin).
+@@ 11925269f9 · materials.species
+Theobroma cacao L. (ScenTree, Rae Dunphy); la ficha de Maese Lab no da la especie
+@@ ea1e327501 · materials.process
+Acetilación (con anhídrido acético) del aceite de madera de guayaco o de fracciones suyas: los alcoholes (guaiol, bulnesol) pasan a acetatos. ScenTree: el aceite de guayaco «is sometimes acetylated» y el acetato de guayilo pasa a ser el compuesto principal. Fraterworks: «an acetylation of fractions of natural guaiacwood oil», derivado sobre todo de guaiol y bulnesol.
+@@ 7bdc54b63a · materials.process
+arrastre de vapor
+@@ b45ea5d198 · materials.process
+Biotecnología blanca / fermentación de materias primas azucaradas
+@@ a8853ac800 · materials.process
+Corteza seca, destilada por arrastre de vapor y decantada en vaso florentino (ScenTree); Fraterworks: destilación al vapor en origen. ScenTree también cita la oleorresina con etanol (rendimiento 10-12 %).
+@@ ddc7ff5bdc · materials.process
+destilación al vapor (arrastre de vapor); Scentspiracy: de los frutos triturados justo antes de destilar
+@@ d680fb91e8 · materials.process
+destilación al vapor (Olfatorium, Augustus Oils); ScenTree: proceso tradicional (la planta se seca al sol antes de destilar) o «green» (se destila justo tras cortar); rendimiento 40 kg de aceite por hectárea
+@@ e283d2ae2a · materials.process
+destilación al vapor (Premiere Peau, Essential Oils Pedia); Perfumiarz no lo dice
+@@ dbfd9676bb · materials.process
+destilación al vapor de los frutos (Olfatorium: «arrastre de vapor de los frutos»; Fraterworks: «Steam distillation at source»); PerfumersWorld no lo dice
+@@ b7c7b30caf · materials.process
+destilación al vapor del tronco cortado y molido (ScenTree); rendimiento de hasta un 5 %
+@@ 29cb798848 · materials.process
+destilación por arrastre de vapor (Maese Lab y Fraterworks); ScenTree: hidrodestilación
+@@ 124356e22c · materials.process
+Destilación por arrastre de vapor (Premiere Peau, Enfleurage), recolectada hacia el inicio de la floración; rendimiento 0,1-0,5 % de planta semiseca (Premiere Peau). La bibliografía analítica suele usar hidrodestilación de partes aéreas secas.
+@@ 49059a8dad · materials.process
+Destilación por arrastre de vapor, a presión y durante varias horas; el aceite se recoge por decantación en esenciero (ScenTree).
+@@ 758c480532 · materials.process
+destilación por arrastre de vapor, rendimiento 0,5–1,0 % de hojas parcialmente secas (Scentspiracy)
+@@ 5bc62088d0 · materials.process
+destilación por arrastre de vapor; el grado «dark» de Fraterworks se destila en equipos de hierro y el «light» en acero inoxidable. Fuentes vía buscador: las hojas se secan a la sombra y se fermentan parcialmente de 2 a 8 días.
+@@ 94f93eb723 · materials.process
+destilación por arrastre de vapor; Premiere Peau (vía buscador): raíces lavadas y secas, rendimiento 1,0–1,5 %
+@@ f19100fd89 · materials.process
+Destilación por vapor
+@@ 26a8cc65e0 · materials.process
+Destilación por vapor · Maese Lab: destilación por arrastre de vapor de la resina
+@@ b0ab933d3f · materials.process
+Destilación por vapor (arrastre de vapor) · Maese Lab: destilación por arrastre de vapor de la resina
+@@ 11bad6ffe5 · materials.process
+expresión en frío de la cáscara (Olfatorium, Eden Botanicals); rendimiento aproximado del 4 % sobre el peso del fruto (resumen del buscador)
+@@ 179e9a1f6d · materials.process
+expresión en frío de la cáscara (Olfatorium)
+@@ c36635dd1f · materials.process
+expresión en frío en sfumatrice (se pincha la cáscara; el aceite se arrastra con agua y se centrifuga). La destilación fraccionada del aceite da un aceite terpénico y otro desterpenado (ScenTree).
+@@ 6c93fd2212 · materials.process
+extracción con disolvente (absoluto)
+@@ 865be718bb · materials.process
+extracción con disolvente (deducido de que es un absoluto; Perfumiarz no lo dice. Premiere Peau, vía buscador: la extracción con disolvente da el absoluto de pimienta, más oscuro y completo que el aceite destilado)
+@@ 857558efed · materials.process
+extracción con disolvente: resumen del buscador, hojas extraídas con éter de petróleo o hexano para el concreto y luego con etanol para el absoluto. Grado MD: además destilación al vacío / molecular para quitar el color.
+@@ 25040094b3 · materials.process
+extracción con disolvente. ScenTree: las habas se maceran en cajas de madera unos días y se secan al sol; se tuestan entre 100 y 140 °C y se muelen; se extraen con un disolvente volátil como ciclohexano; el concreto se disuelve en alcohol y se enfría para precipitar las ceras, y queda el absoluto. Puede decolorarse por destilación con poco efecto en el olor. Maese Lab solo dice «proceso de extracción con solventes».
+@@ e907fc9c62 · materials.process
+Fraterworks: extracción en frío que elimina las furocumarinas «without damaging the oil». Darren Alan: «Cold Pressed & Vacuum Distilled». Eden Botanicals: «Cold pressed», con el furanocumarino retirado. Resumen del buscador: otros proveedores hablan de destilación al vacío o destilación molecular, y Fraterworks dice que la mayoría de FCF de otros usa un proceso químico con sosa cáustica (afirmación del propio proveedor sobre competidores).
+@@ 4625f5acb3 · materials.process
+Hemisíntesis: un extracto natural (colofonia, ácidos resínicos) se hidrogena y se hace reaccionar con metanol para dar los ésteres metílicos (ScenTree: «obtained on an hemisynthetic way, by reacting a natural extract with a synthetic molecule»).
+@@ b06a96ad0d · materials.process
+Maceración de las semillas en alcohol, filtrado y desgomado; alcohol 96
+@@ 5df95e49c5 · materials.process
+Maese Lab: «ABSOLUTO». ScenTree: ramas cortadas en julio, la goma se trata en sosa (3–5 %), se acidula, la pasta se destila para secarla y se trata con alcohol y se filtra: «labdanum alcohol resinoid»; el absoluto puede rectificarse para quitar insolubles o color, sin efecto olfativo. Scentspiracy: extracción con disolvente de la goma (resinoide) con alcohol o hidrocarburos, o de concreto de planta fresca con alcohol; no da el proceso de este lote.
+@@ 99bf012a8e · materials.process
+Maese Lab: arrastre de vapor. Fraterworks: quemado, destilación y rectificación. Scentspiracy: destilación destructiva (pirólisis) en retortas cerradas a 400–600 °C, y luego rectificación por destilación fraccionada, lavado con disolvente o neutralización química y arrastre al vacío.
+@@ d6ff982bba · materials.process
+Maese Lab: Inmersión en alcohol, filtrado, desgomado y calentado a baja presión en atmósfera controlada; alcohol 80, 4 cargas · TGSC: tintura
+@@ c6f5b02c62 · materials.process
+ScenTree: la bolsa se seca uno o dos años, se muele y se macera en alcohol (unas 20 partes de alcohol en peso; a veces algo de potasa); rinde un 45–75 % soluble en alcohol. El secado sobre fuego de leña da un olor más ahumado y áspero, cercano al alquitrán de abedul. Hermitage Oils: extracción con benceno que da un concreto, lavado con alcohol; «by definition an absolute-resinoid». Maese Lab: «Absoluto».
+@@ 03297af87e · materials.process
+ScenTree: la resina se seca un mes en el árbol, se macera en alcohol, se enfría de 60 °C a 0 °C para precipitar las ceras y, tras filtrar y evaporar el alcohol, queda el resinoide. Fraterworks: extracción con alcohol caliente a 30 °C del bálsamo de árboles silvestres, fabricado en Francia.
+@@ a611f7149e · materials.process
+ScenTree: se corta la corteza, la resina se endurece al aire, se rascan las lágrimas (4–6 kg por árbol al año), la goma se extrae con etanol y se enfría y filtra para obtener el resinoide; puede destilarse para decolorarlo. Scentspiracy: extraído con dipropilenglicol (DPG), resinoide soluble en alcohol.
+@@ ea5166e08d · materials.process
+ScenTree: se maceran en agua a temperatura ambiente de uno a tres días y se trituran; tres lavados sucesivos con mezcla de ciclohexano e isopropanol; el concreto se extrae con alcohol; las ceras se precipitan enfriando; rendimiento 1,5–4 %; el color se quita con carbón activado o casi del todo con destilación molecular. Fraterworks: «Extraction in Grasse». Perfumiarz no dice el método.
+@@ 2a51f56387 · materials.process
+Scentspiracy: extracción con disolvente (benceno, etanol, acetona o cloruro de metileno), desparafinado y neutralización opcional; el rendimiento con alcohol es del 65–90 %. Fraterworks: el bálsamo crudo se lava con un disolvente no alcohólico (benceno o similar) para hacer el resinoide, y luego se mezcla con citrato de trietilo natural. Perfumiarz no dice el método.
+@@ 6858a74e99 · materials.process
+tintura (extracto hidroalcohólico, alcohol de 96°)
+@@ 67c642f668 · materials.process
+tintura en alcohol de 96°, «cantidad de cargas: 2»; método de obtención no indicado. Olfastory (haba tonka en general): las habas se secan, se maceran 24 h en ron y se vuelven a secar; sobre ellas afloran cristales de cumarina «en grandes cantidades».
+@@ 6a070e5331 · materials.process
+tintura: maceración del ámbar gris en etanol (Maese Lab: «RED. TINTURA», purificado, diluido al 10 % en bioetanol de 96º; Premiere Peau: disuelto en etanol durante varias semanas)
+@@ 72277eb08e · materials.chemotype
+Aceite de corteza rico en cinamaldehído (tipo corteza), no el de hoja rico en eugenol (Perfumers World lista «Cinnamon Leaf (oil)» como sinónimo, lo que contradice el nombre).
+@@ 425215b09e · materials.chemotype
+Aceite tipo cedreno-tuyopseno; los lotes comerciales varían muchísimo (rangos del artículo de 2008, vía buscador).
+@@ a453ebc8ae · materials.chemotype
+El buscador cita dos quimiotipos de aceite de cáscara: limoneno, y limoneno/gamma-terpineno. Olfatorium no dice si la mandarina es verde, amarilla o roja; el buscador avisa de que el olor cambia con eso.
+@@ b6c3f751c0 · materials.chemotype
+limoneno
+@@ c79e294d42 · materials.chemotype
+Muy variable según origen y estadio (fuentes científicas vía buscador): tipo tuyona (Vietnam, Nilgiri), tipo davanona (13,8-45,5 % en muestras de Lituania), tipo artemisia-cetona (29,38 % en una muestra de Uttarakhand, India, con α-tuyona solo 3,10 %).
+@@ ea4b84ce28 · materials.chemotype
+no declarado. Los estudios de GC-MS que cita el buscador muestran que la composición varía mucho con el origen; una muestra de la zona de Lituania era rica en acetato de trans-sabinilo (55,2 %) y sin tuyonas.
+@@ b873bef415 · materials.chemotype
+ScenTree cita las variedades albiflorus, maculatos y stenoiphyllus como productoras de resina.
+@@ d166e886b3 · materials.chemotype
+ScenTree: B. sacra es de quimiotipo incensil acetato; B. papyrifera (Eritrea, Etiopía) es de octil acetato (≈50 %)
+@@ f0afd1dabb · materials.chemotype
+ScenTree: la especie americana (styraciflua) exuda sola y es más rica en beta-cariofileno; la oriental (orientalis, Turquía) exige golpear la corteza.
+@@ 55069abd1a · materials.chemotype
+ScenTree: oil principalmente de himachalenos, con ≈2 % de cedreno; no contiene cedrol
+@@ 36075f6053 · materials.chemotype
+tuyónico (alfa-tuyona > alcanfor > 1,8-cineol, el quimiotipo más común según una revisión de 185 aceites, vía buscador); el tipo dálmata con más 1,8-cineol y borneol (estudio vía buscador)
+@@ 0e6cf00316 · materials.chemotype
+un grado de Europa del Este es «hybrida Lavender» con lavandín (The Perfumery); grados 40/42 % de acetato de linalilo (Camden-Grey)
+@@ a2b681248e · materials.chemotype
+variedades nombradas por Hermitage Oils: Burley, Oriental, Virginia
+@@ d8bc7b4c99 · materials.odor_target
+ante y cuero suave (suede/leather); Scentfriends: lado suave del cuero, frente al cuero ahumado y duro de alquitrán de abedul, isobutilquinoleína y castóreo
+@@ 852813929d · materials.odor_target
+Aroma de trufa: dulce, intenso y profundo, con matices lácteos, de setas y madera húmeda. Uso como base en perfumes profesionales y colonias, cosmética (cremas, champús, geles, talcos, aceites), jabones, sales y bombas de baño, velas y ambientadores.
+@@ 39532284f3 · materials.odor_target
+Base de almizcles: almizcle suave, cálido y de piel, algo polvoriento, con matices animálicos, florales delicados y de sándalo.
+@@ c07ea96107 · materials.odor_target
+Fruta de fantasía: lichi, frambuesa y grosella negra jugosos con matices verdes, sin dulzor azucarado.
+@@ d268095b64 · materials.odor_target
+Grosella negra realista (fruta y hoja): yemas de cassis verdes y afrutadas con frescura de boj.
+@@ 027fb2d857 · materials.odor_target
+miel (néctar de abejas). Presentación: «Parfum Pureza 100%, concentrado»; INCI «Fragrance»; la ficha dice «elaborada con ingredientes naturales seleccionados por su calidad y pureza». Usos: jabones, bálsamos labiales, cremas, lociones, productos de baño, perfumes sólidos y cuidado intensivo de la piel; la imagen del producto cita también perfumes profesionales y colonias. Formatos: 10, 30, 50, 100, 250, 500 y 1000 ml.
+@@ fe84543ac7 · materials.odor_target
+Oud / agar oscuro: cuero alquitranado, ahumado, amaderado-ámbar, con carácter de agar fuerte y persistente.
+@@ e9d2b3e8f5 · materials.odor_target
+Reproducir el castóreo natural sin material animal: cuero, piel, almizcle y fenólico ahumado.
+@@ 97af20dbcb · materials.cost
+barata; se usa en volumen
+@@ a7cdee57d4 · materials.threshold
+~3 ppb (una tienda, vía buscador)
+@@ a18c01cb04 · materials.threshold
+≈0.21 ng/L en aire (Scentspiracy)
+@@ b31baf505d · materials.threshold
+≈0.3 ppb (un proveedor, vía el buscador; sin método ni fuente citados)
+@@ bfdc885e29 · materials.threshold
+0,003 mg/m³ en aire; 1,2 mg/L en agua (scent.vn)
+@@ ab160e9505 · materials.threshold
+0.1 ppm (un proveedor, vía buscador); 100 ppbv según Leonardos et al. (1969), citado por el mismo buscador
+@@ 3c950f2aa0 · materials.threshold
+0.5 ppb (isómero cis, según Foreverest citado en la página)
+@@ e7813c3996 · materials.threshold
+1 ppm (0,0001 %) según ScenTree, que lo señala como relativamente alto
+@@ f4d62cdded · materials.threshold
+2 y 270 ppb (0,000027 %) según ScenTree
+@@ 1e21ae126b · materials.threshold
+30 ppb (0,000003 %) según ScenTree
+@@ 4c84fd83e3 · materials.threshold
+de 9 ppb a 460 ppb (ScenTree)
+@@ d44cb3e136 · materials.threshold
+Fragmento del buscador sobre ScenTree: «Detection Threshold: de l'ordre de 70 ppb (0,000007%)». Dos fichas de seguridad consultadas por el buscador: umbral de olor no disponible.
+@@ 4c3b753ecc · materials.threshold
+ScenTree: «29 ppb à 1,6 ppm (0,00016%)» según la persona; umbral de reconocimiento «d'environ 4 ppm».
+@@ b1bfa2da4e · materials.threshold
+ScenTree: «4 à 75 ppb» (0,0000075 %), detección, según personas
+@@ 030400b7f2 · materials.threshold
+ScenTree: «6 et 100 ppb (0,00001%)»
+@@ 7346d015fe · materials.threshold
+ScenTree: «62 ppb et 1 ppm (0,0001%)» (dos valores en la misma línea).
+@@ fc60afe6c2 · materials.threshold
+ScenTree: «Detection Threshold: 6 ppb (0,0000006%)»
+@@ b5abcf60e9 · materials.threshold
+ScenTree: «Donnée indisponible» (dato no disponible).
+@@ 554781cde1 · materials.threshold
+ScenTree: «Donnée indisponible» (sin dato).
+@@ e852c855e8 · materials.threshold
+ScenTree: (-) 0,0095 ppb; (+) 0,0780 ppb. Wikipedia (vía buscador): 0,006 a 0,01 µg/L en agua. Una recopilación (vía buscador) cita valores de 0,002 a 360 ppb en la literatura.
+@@ 63be844595 · materials.threshold
+ScenTree: 0,6 a 10 ppb
+@@ 184c8cdb5a · materials.threshold
+ScenTree: 1,2 ng/l de aire (umbral de detección)
+@@ 87190ff048 · materials.threshold
+ScenTree: dato no disponible
+@@ 0aa49282b9 · materials.threshold
+Scentspiracy: «a low odor threshold», sin cifra. ScenTree: «Donnée indisponible».
+@@ fbb46368ce · materials.threshold
+Scentspiracy: estimado en el rango de nanogramos por litro bajo, con la salvedad de que varía según la fuente. ScenTree: dato no disponible.
+@@ ee1657c852 · materials.threshold
+Symrise: «Threshold in Air 0.0063 g/l» (unidad tal como sale del PDF; sin más contexto); ScenTree: no disponible
+@@ 5b89944be4 · materials.vapor_pressure
+<0,001 mmHg a 20 °C (Scentspiracy); ScenTree: no disponible
+@@ cd8c53bf51 · materials.vapor_pressure
+>0.0013 hPa (temperatura no indicada)
+@@ 712f43bf04 · materials.vapor_pressure
+0,00006 Pa a 20 °C (dsm-firmenich); 0,01 Pa a 20 °C (Perfumer's Apprentice)
+@@ 465b9e2858 · materials.vapor_pressure
+0,000134 mmHg a 25 °C (est.)
+@@ 164b8d8b34 · materials.vapor_pressure
+0,000469 mmHg a 25 °C (est.)
+@@ 8cbe4a800a · materials.vapor_pressure
+0,001 mmHg a 25 °C (estimada)
+@@ 44002d8cd9 · materials.vapor_pressure
+0,0038 hPa a 20 °C (Perfumer's Apprentice)
+@@ 4ffc18cd19 · materials.vapor_pressure
+0,008 mmHg a 20 °C (ScenTree)
+@@ b56f81bed0 · materials.vapor_pressure
+0,016 mmHg a 25 °C (est.)
+@@ b2b8e92f01 · materials.vapor_pressure
+0,027 mmHg a 25 °C (est.)
+@@ f80072c580 · materials.vapor_pressure
+0,067 mmHg (ScenTree, sin temperatura)
+@@ 3fa94b8393 · materials.vapor_pressure
+0,179 mmHg a 25 °C (est.)
+@@ 10a94ac655 · materials.vapor_pressure
+0,207 mmHg a 25 °C (est.)
+@@ e6746d42ae · materials.vapor_pressure
+0,219 mmHg a 25 °C (est.)
+@@ 0344cdca6d · materials.vapor_pressure
+0,551 mmHg a 25 °C (est.)
+@@ a8e73259de · materials.vapor_pressure
+0.000004 mmHg @ 25.00 °C. (est)
+@@ cfa9ec1ec2 · materials.vapor_pressure
+0.000016 mmHg @ 25.00 °C. (est)
+@@ 4cda7df073 · materials.vapor_pressure
+0.000018 mmHg @ 23 °C
+@@ 2676ed4345 · materials.vapor_pressure
+0.000042 mmHg @ 25.00 °C. (est)
+@@ 40fee68514 · materials.vapor_pressure
+0.000107 mmHg @ 25.00 °C. (est)
+@@ 0957a77581 · materials.vapor_pressure
+0.000220 mmHg @ 25.00 °C. (est)
+@@ f07ea2c310 · materials.vapor_pressure
+0.000280 mmHg @ 25.00 °C. (est)
+@@ ad0dbb082e · materials.vapor_pressure
+0.000281 mmHg @ 25.00 °C. (est)
+@@ 1db1c80d47 · materials.vapor_pressure
+0.000414 mmHg @ 25.00 °C. (est)
+@@ 1f3d3ed4c1 · materials.vapor_pressure
+0.000460 mmHg @ 25.00 °C. (est)
+@@ a6631bc98a · materials.vapor_pressure
+0.001000 mmHg @ 25.00 °C. (est)
+@@ ed7a760502 · materials.vapor_pressure
+0.001300 mmHg @ 20.00 °C.
+@@ ffd11d7078 · materials.vapor_pressure
+0.002000 mmHg @ 25.00 °C. (est)
+@@ 244a38deda · materials.vapor_pressure
+0.003000 mmHg @ 25.00 °C.
+@@ 69fb299c3d · materials.vapor_pressure
+0.003000 mmHg @ 25.00 °C. (est)
+@@ 6061cf4147 · materials.vapor_pressure
+0.003438 mm Hg a 23 C
+@@ 15ae65e5e1 · materials.vapor_pressure
+0.004000 mmHg @ 25.00 °C. (est)
+@@ 3a130587b7 · materials.vapor_pressure
+0.006000 mmHg @ 20.00 °C. (ficha del 50 %)
+@@ 3067a69a41 · materials.vapor_pressure
+0.006000 mmHg @ 25.00 °C. (est)
+@@ e591313abb · materials.vapor_pressure
+0.007000 mmHg @ 25.00 °C. (est)
+@@ e1bb2c176a · materials.vapor_pressure
+0.009000 mmHg @ 25.00 °C. (est)
+@@ e83a43577f · materials.vapor_pressure
+0.010000 mmHg @ 25.00 °C. (est)
+@@ 362752fb32 · materials.vapor_pressure
+0.011000 mmHg @ 25.00 °C. (est)
+@@ ce9c50d2ce · materials.vapor_pressure
+0.012000 mmHg @ 25.00 °C. (est)
+@@ 15fa03998a · materials.vapor_pressure
+0.013000 mmHg @ 25.00 °C. (est)
+@@ 4f4138cdf5 · materials.vapor_pressure
+0.014000 mmHg @ 25.00 °C. (est)
+@@ 55c9fd56bb · materials.vapor_pressure
+0.016000 mmHg @ 25.00 °C.
+@@ c17524a96b · materials.vapor_pressure
+0.019000 mmHg @ 25.00 °C. (est)
+@@ f898b27b74 · materials.vapor_pressure
+0.021000 mmHg @ 25.00 °C.
+@@ 48a3f96a74 · materials.vapor_pressure
+0.022000 mmHg @ 25.00 °C. (est)
+@@ 08df807d9d · materials.vapor_pressure
+0.026000 mmHg @ 25.00 °C. (est)
+@@ e364f46b40 · materials.vapor_pressure
+0.034000 mmHg @ 25.00 °C. (est)
+@@ 4ce7dff3a2 · materials.vapor_pressure
+0.038000 mmHg @ 25.00 °C. (est)
+@@ 79e48ffccc · materials.vapor_pressure
+0.040000 mmHg @ 25.00 °C. (est)
+@@ f433c24e32 · materials.vapor_pressure
+0.041000 mmHg @ 25.00 °C. (est)
+@@ a9aadd097d · materials.vapor_pressure
+0.053000 mmHg @ 25.00 °C. (est)
+@@ 4103cf25c5 · materials.vapor_pressure
+0.058000 mmHg @ 25.00 °C. (est)
+@@ 7138346880 · materials.vapor_pressure
+0.062000 mmHg @ 25.00 °C. (est)
+@@ 1f6c2f36cd · materials.vapor_pressure
+0.083000 mmHg @ 25.00 °C. (est)
+@@ bb97d9de17 · materials.vapor_pressure
+0.086800 mmHg @ 25.00 °C.
+@@ 0edbb7f603 · materials.vapor_pressure
+0.100000 mmHg @ 20.00 °C.
+@@ 2e00960cd0 · materials.vapor_pressure
+0.102000 mmHg @ 25.00 °C. (est)
+@@ 307dd9ff19 · materials.vapor_pressure
+0.103000 mmHg @ 25.00 °C. (est)
+@@ df8f34d18c · materials.vapor_pressure
+0.110000 mmHg @ 25.00 °C
+@@ 1fbb96dc1d · materials.vapor_pressure
+0.116000 mmHg @ 25.00 °C. (est)
+@@ afbb21808f · materials.vapor_pressure
+0.166000 mmHg @ 25.00 °C. (est)
+@@ 36505489ed · materials.vapor_pressure
+0.177000 mmHg @ 25.00 °C.
+@@ 2546eb2f0c · materials.vapor_pressure
+0.188000 mmHg @ 25.00 °C.
+@@ a042bff1b7 · materials.vapor_pressure
+0.203000 mmHg @ 25.00 °C (est)
+@@ 7201ab47d3 · materials.vapor_pressure
+0.214000 mmHg @ 25.00 °C. (est)
+@@ e6cd506ce2 · materials.vapor_pressure
+0.238000 mmHg @ 25.00 °C. (est)
+@@ 23284055b7 · materials.vapor_pressure
+0.329000 mmHg @ 25.00 °C. (est)
+@@ 924e0a8cd9 · materials.vapor_pressure
+0.520000 mm/Hg @ 25.00 °C
+@@ 4af5a6f0d8 · materials.vapor_pressure
+0.950000 mmHg @ 25.00 °C.
+@@ f108329fc0 · materials.vapor_pressure
+0.962000 mmHg @ 25.00 °C. (est)
+@@ 7aedbf1b9d · materials.vapor_pressure
+0.970000 mmHg @ 25.00 °C
+@@ 20756683f7 · materials.vapor_pressure
+1,27 mmHg a 25 °C
+@@ 6c7ad35fd7 · materials.vapor_pressure
+1,428 mmHg a 25 °C (est.)
+@@ 500c1b6b70 · materials.vapor_pressure
+1.039000 mmHg @ 25.00 °C. (est)
+@@ 6f304cb762 · materials.vapor_pressure
+1.063000 mmHg @ 25.00 °C. (est)
+@@ af9afcb92a · materials.vapor_pressure
+1.247000 mmHg @ 25.00 °C (est)
+@@ d4512e85d5 · materials.vapor_pressure
+1.900000 mmHg @ 25.00 °C.
+@@ 5a8beb9f14 · materials.vapor_pressure
+13 Pa (Hekserij, sin temperatura)
+@@ 100511cc1c · materials.vapor_pressure
+17.800000 mmHg @ 25.00 °C.
+@@ f431f5f9d9 · materials.vapor_pressure
+IFF (vía buscador): 0.000158 mm Hg a 23 °C; Givaudan: <1.0000 hPa
+@@ 32a61c1753 · materials.vapor_pressure
+ScenTree: 0,097 mmHg a 20 °C
+@@ 7081ccb6dd · materials.solubility
+[ficha genérica «agarwood specialty»] Soluble in: alcohol. Insoluble in: water
+@@ b8d539f994 · materials.solubility
+[ficha genérica «cassis specialty»] Soluble in: alcohol. Insoluble in: water
+@@ 52c7480c44 · materials.solubility
+[ficha genérica «castoreum absolute replacer»] Soluble in: alcohol. Insoluble in: water
+@@ 6f72ad2cf0 · materials.solubility
+[ficha genérica «fruit specialty»] Soluble in: alcohol. Insoluble in: water
+@@ 0f318b6a51 · materials.solubility
+[ficha genérica «musk specialty»] Soluble in: alcohol. Insoluble in: water
+@@ 8738a6e187 · materials.solubility
+[ficha genérica 8016-36-2, otro CAS] Soluble in: alcohol; water, 4.581 mg/L @ 25 °C (est). Insoluble in: water
+@@ c70913ddf7 · materials.solubility
+Agua 0.19 g/100 mL a 20 C, soluble en agua caliente (Wikipedia); soluble en alcohol y glicoles (Scentspiracy)
+@@ 806964dcf8 · materials.solubility
+Es una tintura en alcohol de 96° con agua (INCI).
+@@ fea5a5bebb · materials.solubility
+Ficha 8038-65-1: Soluble in: alcohol; water, 6.895e-007 mg/L @ 25 °C (est). La ficha clasifica la oferta de Hermitage entre las «Ethanol Tinctures»
+@@ a7ac7df0dc · materials.solubility
+Insoluble in water
+@@ cc1c7d4d2b · materials.solubility
+No soluble en agua
+@@ b4490828db · materials.solubility
+Scentspiracy: Soluble en DPG, IPM y alcohol; poco soluble en agua · TGSC: alcohol; isopropyl myristate; water 310.6 mg/L @ 25 °C (est)
+@@ bd69d87155 · materials.solubility
+Se disuelve bien en DPG y alcohol 96%, mucho peor en IPM (Hekserij); a 25 C: agua 1.32 g/L, etanol 583.12 g/L, acetona 1396.56 g/L (Scent.vn)
+@@ 516774b55c · materials.solubility
+Soluble en alcohol, dipropilenglicol, aceites fijos y aceite de parafina; agua 5,372 mg/L a 25 °C (est.). Insoluble en agua y glicerina.
+@@ 7dbaf2faf1 · materials.solubility
+Soluble en alcohol, dipropilenglicol, aceites fijos y propilenglicol; agua 2850 mg/L a 25 °C (exp). Insoluble en aceite de parafina y glicerina.
+@@ cbc0a3edab · materials.solubility
+Soluble en alcohol, dipropilenglicol, aceites fijos y propilenglicol; agua 43,52 mg/L a 25 °C (est.). Insoluble en glicerina.
+@@ e26270c1a8 · materials.solubility
+soluble en alcohol, IPM y propilenglicol; en agua, muy poco. DPG: sin dato
+@@ c90fd72f77 · materials.solubility
+Soluble en alcohol; agua 0,0908 mg/L a 25 °C (est.). Insoluble en agua.
+@@ 5681d26f7e · materials.solubility
+Soluble en alcohol; agua 1,149 mg/L a 25 °C (est.). La página no da lista de «insoluble en».
+@@ f936110758 · materials.solubility
+Soluble en alcohol; agua 100 mg/L a 20 °C (exp). Insoluble en aceite de parafina.
+@@ 3531cac0af · materials.solubility
+Soluble en alcohol; agua 1387 mg/L a 25 °C (est.). La página lista también «Insoluble in: water».
+@@ 0d987a3b8e · materials.solubility
+Soluble en alcohol; agua 2150 mg/L a 25 °C (est.). Insoluble en agua.
+@@ b8f6ec5fb7 · materials.solubility
+Soluble en alcohol; agua 407,7 mg/L a 25 °C (est.). Insoluble en agua.
+@@ 7312044161 · materials.solubility
+Soluble en alcohol; agua 7226 mg/L a 25 °C (est.) y 1,87E+04 mg/L a 15 °C (exp). La página no da lista de «insoluble en».
+@@ 5898daaf48 · materials.solubility
+Soluble en alcohol; agua 764 mg/L a 20 °C (exp). La página lista también «Insoluble in: water».
+@@ e406c6f1d5 · materials.solubility
+Soluble en alcohol. Insoluble en agua.
+@@ fa12164e92 · materials.solubility
+Soluble en éter, etanol (por ejemplo 1:8 en alcohol al 50 %), queroseno, aceite de parafina; agua 6570 mg/L a 25 °C (exp). La página no da lista de «insoluble en».
+@@ 6119e0ddb6 · materials.solubility
+Soluble in alcohol; insoluble in water
+@@ ddd96aa6a1 · materials.solubility
+Soluble in alcohol; insoluble in water (ficha del aceite de pachuli Clearwood)
+@@ 5435fb7098 · materials.solubility
+Soluble in: alcohol etílico (4 vol. de alcohol al 70 %); queroseno; aceite de parafina; agua, muy poco soluble; «water at 3.552 mg/L @ 25 °C (est.)». Sin entrada de insoluble
+@@ 528bec61c6 · materials.solubility
+Soluble in: alcohol; «water, 1.099e-019 mg/L @ 25 °C (est)» (cifra tal cual la da la página). Insoluble in: water
+@@ 8040fbcaff · materials.solubility
+Soluble in: alcohol; «water, 1014 mg/L @ 20 °C (exp)». Sin entrada de insoluble
+@@ cf8136b276 · materials.solubility
+Soluble in: alcohol; «water, 1e+006 mg/L @ 25 °C (est)» (cifra tal cual la da la página). Insoluble in: no figura
+@@ d5e0fce769 · materials.solubility
+Soluble in: alcohol; «water, 2.711 mg/L @ 25 °C (est)». Sin entrada de insoluble
+@@ 09e2d84bb6 · materials.solubility
+Soluble in: alcohol; «water, 258.2 mg/L @ 25 °C (est)». Sin entrada de insoluble
+@@ ae24a70255 · materials.solubility
+Soluble in: alcohol; «water, 261 mg/L @ 20 °C (exp)». No hay entrada de insoluble
+@@ 5c449e1b40 · materials.solubility
+Soluble in: alcohol; «water, 46.43 mg/L @ 25 °C (est)». Sin entrada de insoluble
+@@ 0be54f3820 · materials.solubility
+Soluble in: alcohol; «water, 66 mg/L @ 20 °C (exp)». Sin entrada de insoluble
+@@ 8950bd43b8 · materials.solubility
+Soluble in: alcohol; aceites fijos; propilenglicol; «water 1.6e+004 mg/L @ 25 °C (est)». Sin entrada de insoluble
+@@ 1cc81f0b69 · materials.solubility
+Soluble in: alcohol; dipropylene glycol; «water, 20.12 mg/L @ 25 °C (est)». Insoluble in: water (la página lista a la vez una cifra de solubilidad en agua y «insoluble in water»)
+@@ ab8f434d61 · materials.solubility
+Soluble in: alcohol; dipropylene glycol; fixed oils; paraffin oil; «water, 1.00E+06 mg/L @ 25 °C (exp)» (cifra tal cual la da la página; incoherente con un logP de 3.995). Insoluble in: glycerin
+@@ 17e8791ebc · materials.solubility
+Soluble in: alcohol; dipropylene glycol; paraffin oil; «water, 2.98 mg/L @ 25 °C (est)». Sin entrada de insoluble (ficha del 50 %)
+@@ f916e54aea · materials.solubility
+Soluble in: alcohol; fixed oils; water, 332.1 mg/L @ 25 °C (est); water, 3500 mg/L @ 21C (exp). Insoluble in: no figura
+@@ 4e5d2e1907 · materials.solubility
+Soluble in: alcohol; water, 1.077 mg/L @ 25 °C (est). Insoluble in: no figura
+@@ ad85a57758 · materials.solubility
+Soluble in: alcohol; water, 1.859 mg/L @ 25 °C (est). Insoluble in: no figura
+@@ 1b378cdf5e · materials.solubility
+Soluble in: alcohol; water, 101 mg/L @ 20 °C (exp). Insoluble in: no figura
+@@ 14f924153a · materials.solubility
+Soluble in: alcohol; water, 11.61 mg/L @ 25 °C (est). Insoluble in: water. Los proveedores citan versiones diluidas del resinoide en DPG, DEP, PG, MPG y TEC (50 % DPG, 50 % DEP, 50 % PG, 70.5 % TEC)
+@@ 2c24007e96 · materials.solubility
+Soluble in: alcohol; water, 2773 mg/L @ 25 °C (est). Insoluble in: no figura
+@@ 6d9f168501 · materials.solubility
+Soluble in: alcohol; water, 342.6 mg/L @ 25 °C (est). Insoluble in: no figura
+@@ 365217685b · materials.solubility
+Soluble in: alcohol; water, 4668 mg/L @ 25 °C (est); water, 4760 mg/L @ 25 °C (exp). Insoluble in: water (la página lista el agua en ambos apartados)
+@@ 201b804f8f · materials.solubility
+Soluble in: alcohol. Agua: estimada en 5.123 mg/L @ 25 °C; la página también la lista como insoluble en agua
+@@ b1e4f468dd · materials.solubility
+Soluble in: alcohol. Insoluble in: water
+@@ 6a7954eca1 · materials.solubility
+Soluble in: benzyl alcohol; dipropylene glycol; ethyl alcohol (1:2 in 60% alcohol; 1:5 in 50% alcohol); fixed oils; paraffin oil; propylene glycol; water, 1201 mg/L @ 25 °C (est). Insoluble in: no figura
+@@ 6be2ebb198 · materials.solubility
+Soluble in: cloroformo; dipropilenglicol; éter; alcohol etílico (1:2 en alcohol al 95 %; 1:3 en alcohol al 70 %; 4 partes en alcohol al 50 %); glicerol (1:20); ligroína caliente; miristato de isopropilo; agua (1:125; 1 g en 100 ml; «6875 mg/L @ 25 °C (est)»). Insoluble in: aceite de parafina
+@@ 75cfa0231d · materials.solubility
+Soluble in: ethyl alcohol, fixed oils, kerosene, paraffin oil, propylene glycol y mezclas agua-alcohol; water, 3100 mg/L @ 25 °C (exp). Insoluble in: glycerin
+@@ c2944fe468 · materials.solubility
+Soluble in: fixed oils; kerosene; paraffin oil (slightly soluble in warm paraffin oil); water, 754 mg/L @ 25 °C (est); water, 2460 mg/L @ 25 °C (exp). Insoluble in: no figura
+@@ b9248851df · materials.solubility
+Soluble in: water, 2346 mg/L @ 25 °C (est); water, 4900 mg/L @ 25 °C (exp). Insoluble in: no figura
+@@ 30feaba879 · materials.solubility
+Wikipedia: Agua: 2.4 g/100 mL a 40 C; 5.3 g/100 mL a 100 C; etanol y dietil éter: miscible · TGSC: Soluble in alcohol; water 2.15E+04 mg/L @ 25 °C (exp)
+@@ f7c873b66b · materials.stability
+«non-discoloring in most media»; la página lo lista para bath foam, cream, hair spray, powder, shampoo. Shelf Life y Storage: no figuran
+@@ a7eeb8472a · materials.stability
+[ficha genérica 8016-36-2, otro CAS] Shelf Life: 24.00 month(s) or longer if stored properly. Storage: «store in cool, dry place in tightly sealed containers, protected from heat and light.»
+@@ d31d8c6194 · materials.stability
+Alta estabilidad de color; baja coloración y buena solubilidad en perfumería funcional
+@@ 375bec4d1a · materials.stability
+Alta estabilidad oxidativa
+@@ 3984030121 · materials.stability
+Buena (5/5) en champú y jabón; media (3/5) en limpiador ácido, suavizante, antitranspirante, APC, detergente en polvo; mala (1/5) en detergente líquido y lejía líquida
+@@ 43c9563055 · materials.stability
+Contiene aldehído y fenol: puede decolorarse; con el tiempo vira a marrón oscuro o rosa-violeta
+@@ 0919346111 · materials.stability
+Eden Botanicals: guardar en lugar fresco y oscuro; para los aceites ricos en linalol, IFRA aconseja mantener los peróxidos al mínimo; refrigerar o añadir antioxidante para guardarlo más tiempo.
+@@ 983011ff5d · materials.stability
+Estabilidad que lista la página: alcoholic - good; liquid bleach - poor; APC (pH = 10) - moderate. Shelf Life y Storage: no figuran
+@@ 41cd76278a · materials.stability
+Ficha 8038-65-1: Stability en: hair spray; «non-discoloring in most media»; powder. Shelf Life y Storage: no figuran
+@@ 0cc332c62a · materials.stability
+Ficha del 50 %: Shelf Life «36.00 month(s) or longer if stored properly»; Storage «store in cool, dry place in tightly sealed containers, protected from heat and light». Ficha del 70 %: Shelf Life «24.00 month(s) or longer if stored properly», mismo Storage
+@@ e2250eecfe · materials.stability
+Fraterworks: producto sin filtrar, pueden aparecer partículas o turbidez; para perfumes de alcohol, macerar hasta un mes, enfriar y filtrar.
+@@ 4b3fd7aa99 · materials.stability
+Fraterworks: producto sin filtrar; para perfumes de alcohol, macerar hasta un mes, enfriar una noche y filtrar fino.
+@@ 16f5c21561 · materials.stability
+Givaudan (estrellas): muy buena en suavizante (pH 3), champú (pH 6), APC (pH 9), detergente líquido (pH 9), jabón (pH 10) y detergente en polvo (pH 10.5); mala en limpiador ácido (pH 2), antitranspirante (pH 3.5) y lejía líquida (pH 11). PerfumersWorld (vía buscador): buena a muy buena en loción, champú y jabón; mala en lejía.
+@@ 8eeec3d47e · materials.stability
+Glooshi (fragmento): estable en jabones, detergentes y velas.
+@@ ab28cdc9f3 · materials.stability
+Good en todos los productos listados
+@@ 06edfeab5d · materials.stability
+Hekserij: vida útil razonablemente larga; guardar fresco, seco y oscuro; productos agresivos como jabón y desodorante pueden alterar en parte el olor.
+@@ 88f8b3d356 · materials.stability
+IFF (rendimiento/estabilidad): perfumería fina Very Good/Very Good; champú Very Good/Very Good; detergente líquido Good/Very Good; velas Good/Very Good; limpiador ácido Moderate/Moderate; lejía Poor/Poor
+@@ 0361b6a702 · materials.stability
+IFF: IFF: perfumería fina Excellent/Excellent; jabón Very Good/Excellent; AP deo Very Good/Excellent; lejía Poor/Poor. Scentspiracy: excelente estabilidad química en jabones alcalinos y bases agresivas · TGSC: TGSC lista 'soap' en la lista de estabilidad
+@@ 5a9db010f4 · materials.stability
+La ficha cis no da Shelf Life ni Storage. Ficha cis+trans (5502-75-0): Shelf Life «36.00 month(s) or longer if stored properly»; Storage «store in cool, dry place in tightly sealed containers, protected from heat and light»
+@@ 9ce7df7a49 · materials.stability
+Muy estable en soluciones alcohólicas, aceites de perfume y bases funcionales
+@@ dabe14a338 · materials.stability
+Perfumers World, escala 0-9: 9 en perfume alcohólico, desodorantes, cremas, talco, jabones, champú, gel de baño, amoníaco, cloro, detergentes, suavizante, popurrí e incienso; 6 en limpiador ácido y velas; 5 en permanente en frío.
+@@ 529f817df4 · materials.stability
+Perfumers World, escala 0-9: 9 en perfume alcohólico, jabones, champú, gel de baño; 8 en acondicionador; 7 en detergente líquido y suavizante; 6 en cremas; 5 en desodorantes, talco, detergente en polvo, popurrí e incienso; 4 en amoníaco y velas; 3 en cloro; 1 en permanente en frío. Refractive index 1,47.

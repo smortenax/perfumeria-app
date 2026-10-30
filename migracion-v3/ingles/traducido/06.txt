@@ -1,0 +1,375 @@
+@@ 0eae0c2253
+Perfumers World, 0-9 scale: 9 in alcoholic perfume, talc, soaps, shampoo, bath gel; 8 in conditioner, pot pourri and incense; 7 in liquid detergent and fabric softener; 6 in creams and powder detergent; 5 in deodorants; 4 in ammonia and candles; 3 in chlorine; 1 in cold perm.
+@@ 177f48984a
+May discolour with aldehydes (e.g. heliotropin), metal ions (Fe3+) and light; in white soap it can turn brown
+@@ 339f9ff821
+Robertet: shelf life 12 months
+@@ ec86838d85
+Scentfriends: «colours strongly», stains brown; it has to be warmed before weighing. dsm-firmenich: 73 % biodegradable, with recycled ingredients; Kosher and Halal certified.
+@@ f4a0d2b805
+ScenTree: «Stable in perfumes and diverse functional bases». PerfumersWorld (rating out of 9): alcoholic perfume 9, creams and lotions 9, liquid soap 9, candles 9, incense 9, antiperspirants 8, pot pourri 7, powder detergent and fabric softener 6, ammonia 5; «Major problems» (1) in cold perm, acid cleaner and chlorine.
+@@ 56fa635da8
+ScenTree: «The terpenes identified in this raw material can polymerize when they are oxidized». Scent.vn: shelf life «more than 5 years» (lot of June 2026, expires June 2028); store in aluminium or dark glass, 0-20 °C.
+@@ 16fdc4abca
+ScenTree: aldehydes can form diethyl acetals in perfumes with alcohol, «sin efecto real en su olor»; compounds with a benzene ring tend to discolour over time.
+@@ 05a0d25a57
+ScenTree: terpenes can polymerise when they oxidise. Scentspiracy: keep closed, away from light and heat.
+@@ aa3f0adbda
+ScenTree: no data.
+@@ f44ff7c087
+Scentspiracy: alcoholic solutions are acidic to litmus because of free cinnamic and benzoic acids.
+@@ 128e52aa89
+Shelf life 6 months or more if well stored; keep in a cool, dry place, closed container, protected from heat and light
+@@ 837d6dad63
+Shelf Life and Storage: not listed
+@@ 2e004d1131
+Shelf Life and Storage: not listed. Stability by medium, according to the page: alcoholic, good; soap, good; antiperspirant spray, poor; liquid bleach, poor
+@@ fea47be780
+Shelf Life: 12.00 month(s) or longer if stored properly. Storage: «store in cool, dry place in tightly sealed containers, protected from heat and light.» Stable and non-discolouring in most media (bath foam, cream, detergent, hair spray, lipstick, lotion, powder, shampoo)
+@@ 538e05a4bf
+Shelf Life: 12.00 month(s) or longer if stored properly. Storage: store in cool, dry place in tightly sealed containers, protected from heat and light. Stability by medium, according to the page: alcoholic, good; candles, good; soap, good; toiletries, good; powder detergent, good; APC (pH = 10), moderate; pH = 2, moderate; powder detergent with activator, moderate; antiperspirant spray, poor; wet fabric, poor; dry fabric, poor; liquid bleach, poor. Symrise (Amarocit): «Stable in: body lotion (good), shampoo (very good)»
+@@ be98cdb90d
+Shelf Life: 12.00 month(s) or longer if stored properly. Storage: store under nitrogen; refrigerate in tightly sealed containers. Arctander (cited on the page): «ACA is very susceptible to oxidation unless properly treated with an antioxidant»; «Old or oxidized ACA has [an] objectionable, rancid-fatty odor.» List of applications under «Stability»: alcoholic lotion, alkalis, antiperspirant, deo stick, detergent perborate, fabric softener, hair spray, hard surface cleaner, shampoo, soap.
+@@ 3559cc3965
+Shelf Life: 24 months or longer if stored properly. Storage: store in cool, dry place in tightly sealed containers, protected from heat and light. Stable (according to the page) in alcoholic lotion, antiperspirant, deo stick, detergent, fabric softener, hard surface cleaner, shampoo, soap and across the whole pH range 2–11
+@@ d2f6f01227 =
+@@ ff6ff7911f
+Shelf Life: 24.00 month(s) or longer if stored properly. Storage: «store in cool, dry place in tightly sealed containers, protected from heat and light.» Stable in bath salts, cream, hair spray, lipstick, lotion, powder, shampoo, soap
+@@ b35d0ff312
+Shelf Life: 24.00 month(s) or longer if stored properly. Storage: cool, dry place in tightly sealed containers, protected from heat and light; store under nitrogen. Symrise (Sandranol®): «Stable in: body lotion (good), shampoo (good), soap (good), ap roll-on (poor)…»; bleach: poor. Usage ranges by application given by the page: fine fragrances «traces - 10%»; detergent «0.5 - 5%»; candle «0.5 - 10%»
+@@ 0ecf329d46
+Shelf Life: 24.00 month(s) or longer if stored properly. Storage: refrigerate in tightly sealed containers. Does not discolour in most media (acid cleaner, alcoholic lotion, antiperspirant, deo stick, detergent perborate, fabric softener, hard surface cleaner, liquid detergent, shampoo, soap)
+@@ 9615ff2d1b
+Shelf Life: 24.00 month(s) or longer if stored properly. Storage: store in cool, dry place in tightly sealed containers, protected from heat and light. Stability listed for cream, hair spray, lotion and powder, with no discolouration note in that section. Pell Wall Perfumes, cited on the page: «though discolouration can still occur where higher amounts are involved»
+@@ 107298e49b
+Shelf Life: 24.00 month(s) or longer if stored properly. Storage: store in cool, dry place in tightly sealed containers, protected from heat and light. The page lists stability (without rating) in: acid cleaner, alcoholic lotion, antiperspirant, bleach, deo stick, detergent, fabric softener, hard surface cleaner, shampoo, soap
+@@ 760514cb95
+Shelf Life: 24.00 month(s) or longer if stored properly. Storage: store in cool, dry place in tightly sealed containers, protected from heat and light. List of applications under «Stability»: antiperspirant, deo stick, detergent perborate, fabric softener, hard surface cleaner, shampoo, soap.
+@@ 74c969181f
+Shelf Life: 24.00 month(s) or longer if stored properly. Storage: store in cool, dry place in tightly sealed containers, protected from heat and light. store under nitrogen. Stable (according to the TGSC list) in alcoholic lotion, antiperspirant, deo stick, detergent, fabric softener, hard surface cleaner, shampoo and soap
+@@ bf8187cff3
+Shelf Life: 24.00 month(s) or longer if stored properly. Storage: store in cool, dry place in tightly sealed containers, protected from heat and light. store under nitrogen. Does not discolour in most media (bath foam, hair spray, shampoo, soap)
+@@ 18be5175ca
+Shelf Life: 24.00 month(s) or longer if stored properly. Storage: stored in a cool, dry place in tightly sealed containers, protected from heat and light. Does not discolour in most media (alcoholic lotion, antiperspirant, deo stick, fabric softener, hair spray, shampoo, soap, among others)
+@@ 6546c4c3fd
+Shelf Life: 36 months or longer if stored properly. Storage: «store in cool, dry place in tightly sealed containers, protected from heat and light.» Also: «store under nitrogen»
+@@ b8513ccc78 =
+@@ 194025ca65
+Shelf Life: 36.00 month(s) or longer if stored properly. Storage: store in cool, dry place in tightly sealed containers, protected from heat and light. Stability, as the page lists it: «APC: traces - 0.5%»; candle, detergent, fine fragrances, shampoo, shower gel, soap, softener: traces - 0.5%
+@@ 68e64e6a46
+Shelf Life: 48.00 month(s) or longer if stored properly. Storage: store in cool, dry place in tightly sealed containers, protected from heat and light. Symrise (Ambroxide cryst.): stability «very good» to «good» in body lotion, shampoo, soap, roll-on, powder and various cleaners and bleach
+@@ 82d7a402f9
+Stability: alkali (exactly as it appears on the page; no further detail). Shelf Life: not listed
+@@ ec3ce66d14
+Symrise (via TGSC): «Stable in: body lotion (good), shampoo (good), soap (good), ap roll-on (poor), powder (good), cleaner citric (poor), cleaner apc (good), bleach (poor).» Shelf Life and Storage: not listed.
+@@ 68f2aa79b7
+Symrise: «Stable in: body lotion (good), shampoo (very good), soap (very good)»; cleaner citric (poor); bleach (poor). Shelf Life and Storage are not listed in this sheet; the alpha-ambrinol sheet says «18.00 month(s) or longer if stored properly.» and «store in cool, dry place in tightly sealed containers, protected from heat and light.»
+@@ bf90be3472
+Symrise: body lotion (good), shampoo (very good), soap (very good), ap roll-on (good), powder (very good), cleaner citric (good), cleaner apc (very good), bleach (poor). Shelf Life and Storage: not listed
+@@ f02f081c37
+Shelf life 2-3 years; warm gently if it thickens through resinification
+@@ a4e806e849
+shelf life of 36 months or more if well stored
+@@ c6f9e19bdd
+Shelf life: 12 months or more if stored properly. Store in a cool, dry place, in tightly closed containers, protected from heat and light, and under nitrogen.
+@@ 1e2390153f
+Shelf life: 12 months or more if stored properly. Store in a cool, dry place, in tightly closed containers, protected from heat and light.
+@@ 13f469e0f6
+Shelf life: 18 months or more if stored properly. Store in a cool, dry place, in tightly closed containers, protected from heat and light, and under nitrogen.
+@@ eb5a9d6d87
+Shelf life: 24 months or more if stored properly (sheet 94333-88-7). Store in a cool, dry place, in tightly closed containers, protected from heat and light.
+@@ 18c911e294
+Shelf life: 24 months or more if stored properly. Store in a cool, dry place, in tightly closed containers, protected from heat and light, and under nitrogen.
+@@ ac33e3b9b5
+Shelf life: 24 months or more if stored properly. Store in a cool, dry place, in tightly closed containers, protected from heat and light.
+@@ baddf0f5ba
+Shelf life: 36 months or more if stored properly. Store in a cool, dry place, in tightly closed containers, protected from heat and light.
+@@ 912148b5cc
+Water and alcohol with water (phase separation).
+@@ d2e1932036
+Aldehydes (heliotropin), Fe3+ ions
+@@ 9296bcb5af
+Methyl anthranilate (Schiff base, precursor of Aurantiol) and shower gel bases, which it liquefies (ScenTree).
+@@ acd5c54c30
+Methyl anthranilate: forms a Schiff base that colours with time (ScenTree, Scentspiracy).
+@@ 0808b3cc0d
+Chlorine and cold perm products (Perfumers World).
+@@ d304d6516a
+Dark complexes with iron (Scentfriends); serious problems with chlorine (Perfumers World, 1/9).
+@@ d3c8c9136d
+Forms Schiff bases with certain materials (Fraterworks; aldehydes according to Wikipedia). Discolours in antiperspirants, talc, soaps, shampoo and fabric softener (Perfumers World).
+@@ 6f8ff01f5b
+Snippet (patent): glycolates are generally not stable in alkali, acid or oxidising media.
+@@ c2d38018fe
+Strongly oxidising materials
+@@ b1f9bfa374
+PerfumersWorld: stability problems with ammonia, chlorine, powder detergent, talc (2), and serious ones in cold perm and acid cleaners (1).
+@@ 3f9eec7f81
+Cold perm (1/9) and chlorine (3/9) in Perfumers World.
+@@ a0cc6075b8
+Cold perm (serious problems, 1/9 in Perfumers World).
+@@ 4abfb06439
+Stability problems in detergents (Perfumers World, 1/9).
+@@ 2c343df224
+Iron containers or tools (they cause discolouration)
+@@ ac46a2b76f
+Search-engine summary (ChemicalBook): flammable and incompatible with acids, bases and strong oxidants.
+@@ c5fe5f7c8a
+ScenTree: forms Schiff bases with methyl anthranilate or indole.
+@@ 8a97218576
+ScenTree: not stable in acid cleaners, antiperspirants or highly alkaline detergents (contradicted regarding alkalis by Fraterworks; see notes).
+@@ 3e9e708761
+Scentspiracy: strong alkalis.
+@@ 1ce8bc113d
+Scentspiracy: antiperspirants and liquid soap, where it recommends specific compatibility tests.
+@@ 47fc02d288
+Scentspiracy: anthranilates, indoles, traces of iron and iron-containing formulations. ScenTree: not suitable in candle or shower gel bases.
+@@ 4cc63b528d
+Scentspiracy: avoid contamination with iron or zinc and strongly alkaline media.
+@@ 0d4f5adac5
+Scentspiracy: avoid bleach and strong oxidants.
+@@ fcda2311ee
+Scentspiracy: strong oxidants and alkaline media.
+@@ 475b595273
+high
+@@ fd6be77211
+Augustus Oils (via search engine): «remarkable diffusion and radiance».
+@@ 2cf129542b
+dsm-firmenich: sandalwood note «deep and diffusive». Vapour pressure: 0.00006 Pa at 20 °C (dsm-firmenich) versus 0.01 Pa at 20 °C (Perfumer's Apprentice).
+@@ d59b4260c0
+Eden Botanicals: aroma «diffusive».
+@@ 4df6807b66
+FCI SAS (according to the page): foliage odour «powerful and diffusive»
+@@ 0e825734a1
+Fraterworks: lychee and raspberry in the opening, cassis heart and light green-herbal base.
+@@ 6805558054
+Givaudan: exceptional diffusion; its influence on the composition is perceived at all levels of evaporation. PerfumersWorld: the effect is noticeable at all stages of evaporation.
+@@ cd356e9475
+Kao: «Enhancing diffusion and tenacity across various fragrance types through a elegant sandalwood character»; vapour pressure <0.000238 mmHg at 25 °C.
+@@ 63cd01c0ee =
+@@ 3ac8c9c344
+Very diffusive (Perfumers World: «diffusive»; Olfactorian: «powerfully diffusive»); Fraterworks: gives «lift, bloom, and sparkle».
+@@ 2f1450e94c
+Pell Wall Perfumes: «Very diffusive and powerful» (at 10 %); «traces can greatly increase diffusion» (according to the page)
+@@ 235e4d7e75
+Perfume Extract titles it «Powerful & diffusive» (via search engine).
+@@ 96bca5140c
+Perfumer's Apprentice (citing IFF): «very diffusive».
+@@ f2586cefda
+Perfumer's Apprentice (IFF): «Diffusive»; Scentspiracy: «Strong, diffusive, long-lasting».
+@@ db89b693ba
+Perfumer's Apprentice: vapour pressure 0.000086 mmHg.
+@@ 40ac2130c5
+Perfumer's Apprentice: vapour pressure 0.0038 hPa at 20 °C. Pellwall (via search engine, rating by a perfumer from 2009): «very diffusive».
+@@ 30ea479454
+Perfumer's Apprentice: wet and dry substantivity «Very Good»; burner effectiveness moderate.
+@@ e61cff4dec
+Perfumers World: «diffusive and penetrating»; gives «immense lift/diffusiveness especially in a rose fragrance».
+@@ ada2f360c9 =
+@@ 3e2ed7c746
+Premiere Peau (via search engine): radiates outwards and creates a trail. Givaudan: burning effectiveness 5 out of 5 stars; wet and dry substantivity 3 out of 5.
+@@ 7125654ad8
+Vapour pressure 0.0427 hPa (Givaudan, Scentspiracy; Perfumer's Apprentice gives it at 20 °C).
+@@ 681efc6175
+Search-engine summary: adds floral diffusion without changing the character of the fragrance.
+@@ 277f3d72e6
+scent.vn: evaporation rate «Moderately slow»; Sigma-Aldrich (via search engine): vapour pressure 0.13 mmHg at 20 °C
+@@ 0806fd7e0b
+ScenTree: low vapour pressure, 0.003 mmHg at 23 °C.
+@@ af143eca5d
+ScenTree: soft, sensual and silky facet, «with good trail». Scentspiracy: vapour pressure <0.001 mmHg at 20 °C. Perceptible impact below 1 % (Scentspiracy).
+@@ e6c53aec09
+ScenTree: vapour pressure 0.00097 mmHg at 20 °C and 0.0142 mmHg at 25 °C. Perfumers Apprentice: 0.002211 mmHg (labelled at 23 °C in one place and at 20 °C in another).
+@@ 1a5c436b68
+ScenTree: vapour pressure 0.00097 mmHg at 20 °C.
+@@ 5c989f8c19
+ScenTree: vapour pressure 0.0015 mmHg at 23 °C. Perfumers Apprentice: 0.001735 mmHg (labelled at 23 °C and at 20 °C in different places). Scentspiracy: low volatility.
+@@ 52be995c63
+ScenTree: vapour pressure 0.0042 mmHg at 20 °C. Perfumers Apprentice: 0.0056 hPa at 20 °C (the same pressure in other units).
+@@ fe5f1660c0
+ScenTree: vapour pressure 0.008 mmHg at 20 °C.
+@@ 0ccd05787b
+ScenTree: vapour pressure 0.0105 mmHg at 25 °C.
+@@ a26ed4729a
+ScenTree: vapour pressure 0.6713 mmHg at 20 °C. Fraterworks (via search engine): creates lift and softness in floral compositions and improves the diffusion of woody notes.
+@@ 9c4b4bc276
+Scentspiracy (via search engine): strong initial diffusion with little tenacity. ScenTree: vapour pressure 0.225 mmHg at 20 °C.
+@@ 7a12172301
+Scentspiracy: «Can dominate compositions even at low concentrations»; Osmetheca: perceived at a few parts per million.
+@@ 2bd980698a
+Scentspiracy: high substantivity and low volatility (from the search engine)
+@@ 4fbfc14f90
+Scentspiracy: persistence rises in blends; high purity = elegance and diffusion. The Perfumers PopUp Shop (via search engine): more diffusion than normal hydroxycitronellal.
+@@ b42b99edf7
+Scentspiracy: very diffusive; a fresh sample can smell weak up close but fills a room.
+@@ 3e66700699
+Scentspiracy: volatile and diffusive; best handled in dilution.
+@@ c293ec268d
+Scentspiracy: volatility «extremely low».
+@@ 6d0fe2e412
+No diffusion data. ScenTree: used «in cologne perfumes in particular, and at the top of all types of perfumes».
+@@ f59c33fb54
+Symrise (according to TGSC): «strong, radiant ... not tenacious.»
+@@ 830e785bdd =
+@@ f744aaca45
+Anthea: used mainly in soap fragrances and as a powerful supporting note in citrus and lime perfumes. ScenTree (via search engine): in citrus and fougère accords and to give a fresh nuance to fruity notes.
+@@ a6cf05107d
+Gives smokiness and warm woody depth (leather, tobacco, mineral smoke, bonfire accords). Above 1 % the burnt phenolic side dominates (Glooshi). The low volatility gives lasting depth in fine fragrance and in soap.
+@@ 0594d049e0
+Gives aged-barrel character and woody complexity to gourmands and orientals, and to coconut accords (Fraterworks). Serves as a building block for whisky, does not smell of whisky on its own (Pell Wall).
+@@ 03f901e4cd
+Gives the marine-ozonic effect; at high doses it becomes «invasive» and drags towards a 90s shampoo register (Osmetheca). With Galaxolide its sharp ozonic tone is softened (Scentspiracy).
+@@ 54f3e678a6
+Gives freshness and warmth to lavender colognes, chypres, fougères and pine notes (via search engine, commercial references). Premiere Peau: sharpens lavender, sage and rosemary accords; bitter-herbal structures with wormwood, tarragon and basil; absinthe-type and apothecary accords.
+@@ d6b3df5c1b
+Arctander (in TGSC): «has found wide application in perfume compositions as a fixative in Rose and Geranium compounds, soap fragrances». PerfumersWorld: «Blends-well-with - +Aldehyde C11 undecylenic».
+@@ 2e393c17a7
+Booster and top-note modifier (Scent.vn). Gives a clean citrus peak and aldehydic brightness to colognes, aldehydic florals (freesia, peony, iris, gardenia) and chypres; good alkaline stability, useful in bar soap to mask the odour of the base.
+@@ 74b54ccdcc
+Warmth and depth in orientals, ambers and chypres; supports warm woody and amber notes; useful in Christmas collections (ScenTree). Fraterworks: with sticky fruits (especially plum), resins and balsams. Scentspiracy (via search engine): the Ceylon one is preferable to cassia for fine fragrance because of its nuance.
+@@ 61def58cb2
+Gives realism, brightness and a metallic-green edge to rose, geranium and cyclamen; lifts florals. Overdosed it becomes harsh and dominates instead of enhancing (Fraterworks).
+@@ 18e93f0207
+Gives woody-amber dryness with an animalic and dusty load; without sweetness (Scentfriends). Patchouli direction. High impact in a blend despite moderate direct strength (Fraterworks).
+@@ 36949dc07a
+Gives volume, transparency and radiance to the whole. It is not judged by smelling it on its own.
+@@ e19f80ff9f
+Darren Alan: gives lift and openness; key structure in chypres and fougères. Eden Botanicals: top note in colognes; with neroli and lemon it gives the fresh initial impression.
+@@ 6dd4abc17d
+dsm-firmenich: between peach and plum, with a soft velvety effect: just in between peach and plum with a smooth velvety effect
+@@ 2cba97d333
+dsm-firmenich: ideal for woody, musky and milk accords, and for sandalwood notes in woody perfumes; can give a defined cosmetic note. Fraterworks: Creed Original Santal contains 0.85 % and forms the whole sandalwood note.
+@@ 926fa69dac
+Eden Botanicals, citing Rhind (2014): «Lemon is often found with bergamot in top notes». Search-engine summary: citral, although a minor component, gives the «limón verdadero» note.
+@@ b55e7198b1
+Lifts and gives brightness/transparency to aldehydic compositions; at ~0.01 % it acts as a transparency enhancer and at 1 % or more it becomes acrid and animalic (a shop, via search engine). Perfumers World lists it with fixatives: clary sage, frankincense, labdanum, oakmoss and musks.
+@@ 07d0f830d3
+In traces it gives richness to chocolate accords and other sweet gourmands; at somewhat higher doses it gives a popcorn element of its own; modifier for pandan leaf, corn on the cob, popcorn and jasmine rice effects (Pell Wall, Perfumer's World).
+@@ 5fd3931d62
+Essentialoil.com: anchors florals and softens citrus edges. ScenTree: little used in perfumery because its note is hard to integrate and it is expensive; being cedrol-free, its odour differs greatly from other cedars.
+@@ 1ae0bb1fd9
+Soft woody fixative. Fraterworks: «a perfect material for extending and fixing rose bases (especially tea rose)»; it presents it as an alternative to vetiveryl acetate, «quite restricted in use under IFRA 51». Aromology (61789-17-1): base fixative.
+@@ 57e8b58553
+Long-lasting fixative and base note for amber, wood, leather and oriental; Fraterworks recalls that historically it was used at ≈10 % in a classic fixative base and today it is often the central wood/amber of many fragrances.
+@@ eb715f26e7
+Fraterworks (Coeur): base for violet and iris reconstructions and a bridge between heart and base notes; «adds tenacity». PerfumersWorld: iris 70 %, wood 30 %.
+@@ 8f9e649522
+Fraterworks: «Blend terpinyl acetate with linalyl acetate for authentic bergamot reconstruction»; superior stability where linalyl acetate fails (hydrolysis in alkaline media).
+@@ 80e36a99e9
+Fraterworks: «blends wonderfully with the other classic perfumery resins». Perfumiarz (Vulcain, via search engine): typical fixative of chypres and orientals. ScenTree: used to give an animalic note.
+@@ 7577213d68
+Fraterworks: «Essential base note providing exceptional fixation and longevity»; stands out in fine fragrance, floral accords and clean or fresh compositions.
+@@ f33c0aa100
+Fraterworks: «Essential for muguet and lilac accords». Search-engine summary: general floralising agent; reinforces floral notes without masking them; very stable and substantive; can replace less stable floral aldehydes.
+@@ 6444a52354
+Fraterworks: «This heart-note musk bridges top and base beautifully»; removes the earthiness from vetiver and patchouli; at higher doses it becomes a «statement» material for conceptual fragrances. Premiere Peau (snippet): bridge between the musk and amber families.
+@@ ed1d7d6bec
+Fraterworks: at 0.1 % it gives a damp texture to white florals or green notes; at higher doses it creates dominant marine effects. Dimethyl Sulfide adds «naturalness» (suggestion from Fraterworks).
+@@ d7d8d5c81c
+Fraterworks: sharpens lavender accords, gives bite to citrus colognes and builds fougères, colognes, masculines and herbal accords; to be used in traces. Scentspiracy: adds subtle complexity and herbaceous fixation.
+@@ 5e0969ecf6
+Fraterworks: gives bright freshness and lift in citrus, floral and gourmand compositions.
+@@ 011570502e
+Fraterworks: chypre base, fougère cornerstone, fixative, enhances the natural and harmonises the edges of the synthetic. ScenTree: useful in fougère and chypre with bergamot, cistus oil, labdanum, green patchouli and perhaps lavender.
+@@ 65ce8d991c
+Fraterworks: builds green leather with isobutylquinoline and balsamic amber with labdanum and benzoin.
+@@ bf23a3f073
+Fraterworks: in traces it appears in many modern department-store perfumes.
+@@ 80ffe0a3f5
+Fraterworks: animal musk fixative for chypre, leather and orientals, and for rounding off harsh florals and woody bases; 'seductive and intimate below one percent'
+@@ 0e799445c2
+Fraterworks: base fixative in oriental and amber accords and warmth modifier; gives richness to tuberose and hyacinth bases. Scentspiracy: optimal fixative effect at 1–3 %.
+@@ 8e31ebec9e
+Fraterworks: Fraterworks: Use it in traces up to overdose · TGSC: Firmenich (in TGSC): can be used like patchouli or as a new woody building block at higher dosages
+@@ db36cc6f74
+Fraterworks: top and heart modifier, and base fixative in orientals, woody and incense accords. ScenTree (generic sheet): used in conifer, spicy, woody, amber and floral notes.
+@@ d8853e2f5d
+Fraterworks: subtle odour of its own but strong impact in blends; Scentspiracy: subtle when smelled directly from the bottle but highly impactful in blends
+@@ 79dec14b21
+Fraterworks: blends with all citrus and is a good lemon enhancer; according to the search engine, it serves to bring lemon into the heart of the fragrance. PerfumersWorld: combines with cananga, galbanum, lavender, rosemary, black pepper, allspice and other spices.
+@@ 9182e298c0
+Fraterworks: transforms rose, violet and cassia accords with fruity brightness; suitable for chypres, gourmands and modern abstract designs. Hekserij: blended with other materials because on its own it can smell dull or unpleasant.
+@@ 687ff49025
+Givaudan: gives a natural, fresh nuance to lily of the valley, narcissus, mandarin, fig leaves, grapefruit, blackcurrant and tomato. Pellwall (via search engine): in traces it gives a fresh, lifting effect; in larger amounts (0.5–1 %) a marked green note that can turn metallic depending on what it is mixed with.
+@@ b8c48678d4
+Glooshi: at 0.1 % it gives a slight metallic brightness, towards 1 % the green-stem effect is noticeable and above 3 % it dominates. Fraterworks: advises ≈1 % to avoid harshness.
+@@ e0905bcaed
+Hekserij: «It goes with just about anything», intended for blending with other fragrances; works in fougère, chypre, citrus, green, floral and woody. Scentspiracy: at 0.5–1 % it subtly enhances; up to 8 % it gives a dominant woody-floral effect; in Fidji (1966) it acted as a transition note.
+@@ 4d366009d3
+Hekserij: combines well with fruity aromas, such as red and tropical fruit.
+@@ 11237ef283
+Hekserij: traditional use in gardenia accords, more through perfumer's tradition than resemblance to the flower.
+@@ 6319aecc37
+IFF: softens white florals; goes well with florals, muguet, fruity notes, woods, amber, musks and spices (combinations: Ambermor, Iso E Super, Ylanganate)
+@@ f76d84239e
+Kao: improves diffusion and tenacity in different types of fragrance. Maese Lab: «aroma penetrante y duradero mejora la fijación de las fragancias». A search-engine snippet attributes to Pellwall that it is more useful as a fixative and that he does not recommend using it on its own, but with natural sandalwood or a sandalwood accord.
+@@ 9a321886ef
+Less powdery than vanillin and with a creamier/thickening effect in blends
+@@ 7023a46319
+Fruit modifier in top/heart notes (BC Fragrance, ScenTree). Enhances jasmine, tuberose and gardenia bases (Fraterworks). Overdosed, a fermented facet appears (via search engine).
+@@ e4057eeb03
+Top or trace modifier in florals and gourmands (lilac, heliotrope, violet, cherry, amaretto, marzipan). Scentspiracy: fixation improves by anchoring it to long-lasting sweet or lactonic materials. For cherry, with p-tolualdehyde (4:1 or 5:1) or overdosing acetophenone; for marzipan, with vanillin and some maltol (Fraterworks).
+@@ 9a7b6c1f4a
+Floral modifier, rose reconstructor and softener of aldehydic or herbaceous accords (supplier snippet). Scentspiracy: «rosy mid-note builder». Patents: one of the most widely used perfumery products for its low cost, versatility, olfactory acceptance and excellent stability, despite being a relatively weak odorant.
+@@ 91ebcc8988
+Olfactorian (citing Arctander): combines well with sandalwood, castoreum, labdanum, clary sage, vetiver and bergamot (also methyl ionones and cedar derivatives). Fraterworks: adds warmth to gourmand, animalic, amber, orientals and aldehydic bases.
+@@ b204684f22
+Perfumers Apprentice: gives fullness and subtle strength; calls it a floralizer for fine fragrance and soaps. ScenTree: woody base in masculine, woody and ambery notes; gives a light violet flower note to woody accords. Scentspiracy: enhances the complexity and persistence of accords. One source (via search engine): used from 1 % as an enhancer and fixative, or up to 30–60 % as the main note in minimalist woody constructions.
+@@ c2b82c3f4e
+PerfumersWorld (in TGSC): blends well with Cananga, Castoreum
+@@ 1c55524107
+PerfumersWorld describes it as an excellent fixative that lifts top notes. In alcohol, at 0.01 % or less it softens the odour of the alcohol (PerfumersWorld). If overused, it can suppress top notes.
+@@ 32ecc39141
+PerfumersWorld lists it as a vanillin modifier and for vanilla, strawberry, pineapple, milk, caramel, toffee and chocolate. Fraterworks: for fruity and floral notes and gourmand, oriental and berry accords. Via search engine: sweetener and fixative of floral and fruity bases; in excess it becomes burnt or like cough syrup.
+@@ 1b3e829e8f
+PerfumersWorld: lists it for bases and as a fixative; the odour «improves generally with age». Fraterworks: «Essential in oriental, chypre, and woody compositions»; a customer review says that it «anchors the oakmoss and labdanum beautifully» in chypres.
+@@ 9f1bb68faa
+PerfumersWorld: top note; for colognes and fresh top notes; combines with Hedione, Iso E Super and bergamot.
+@@ 158d6b7a27
+Perfumiarz: «It serves as a great binder for stronger substances» and «indispensable for jasmine accords!». Supplier snippets: gives warm, sweet and diffusive floral tones instead of indolic character; essential component of almost every jasmine reconstruction; widely used in soap perfumes because of its alkaline stability, substantivity and low cost.
+@@ 8bff8660b7
+Perfumiarz: «used in small amounts» because of its potency; for green, fruity, marine, fougère, fresh and floral notes. Perfumer's World: in top-note traces (0.1 %) it especially softens harsh notes. Snippets: top modifier, pineapple accords, fougères and modern chypres and masculine perfumes.
+@@ cf5549f8a0
+Perfumiarz: classic ingredient for leather, tobacco, chypre and fougère accords. ScenTree: used in chypre and leather, gives character and power and lends character to floral accords in small amounts. PerfumersWorld: tends to develop strongly during maturation. Arctander (via search engine): traces together with tenacious high-boiling-point fixatives such as vetiver, patchouli or oakmoss.
+@@ 792e06c13b
+Premiere Peau: combines with anise, fennel and dry woods. Essential Oils Pedia: gives a dry, herbal-green note in masculine or fougère compositions.
+@@ bd44e37a9f
+Premiere Peau: ambergris is dry and mineral on first contact and then takes on a woody-musky warmth; the ambroxide formed by photo-oxidation of ambrein is responsible for the amber-marine odour.
+@@ 08339fe637
+Enhances neroli, jasmine and tuberose; gives a sweet orange-blossom base in «cashmere bouquet» types, orientals, heavy florals or sweet-woody (Arctander cited by Pell Wall, summarised). It reacts with aldehydes and forms Schiff bases (with hydroxycitronellal it gives Aurantiol, a jasmine-type accord); it can be added together with the aldehyde so that the Schiff base forms during maturation (Wikipedia, via search engine).
+@@ b52c9d03a4
+scent.vn: modulates clove, wood and smoke notes in candles, perfumery and tobacco products
+@@ 2f2bed718e
+Scentfriends: in small amounts it acts as a velvety fixative; in larger amounts it shapes the fragrance («More turns the glove into a tar bucket»). With saffron and rose it gives an oriental leather; with iris, a powdery glove leather. ScenTree: accompanies some floral and woody notes.
+@@ 95ac9b43ff
+Scentfriends: overdosed it smells mouldy and «ruins a formula».
+@@ d72257c4ad
+ScenTree: «gives richness and naturalness to floral notes» and «one of the most widely used molecules in perfumery». Perfumer's Apprentice: «good general builder», present in compositions from floral to citrus.
+@@ 9d45ca4934
+ScenTree: «harmonize» white and pink floral notes (muguet, lilac, syringa, tuberose, jasmine); enhances citrus; softens and improves the diffusive character of woody ones. Fraterworks (via search engine): bridge between citrus tops and floral hearts.
+@@ 99b52d0413
+ScenTree: adds a floral aspect and a juicy effect to fruity notes; recommended in shampoo and shower gel.
+@@ 1eb2847a80
+ScenTree: gives freshness to chypres and to orientals. Generally a modifier and blender; strong synergy with citronellol and geraniol (snippet from suppliers).
+@@ cbaa688cc7
+ScenTree: suitable for grapefruit notes, adds naturalness to grapefruit accords and reinforces the top in fougère, chypre and fruity accords. Fraterworks (via search engine): citrus nuancer at low doses and top accent at high doses. Scentspiracy: «mainly a top-note enhancer».
+@@ d791155817
+ScenTree: forms Schiff bases with methyl anthranilate or with indole and is the main precursor in coumarin synthesis.
+@@ 075a3c15b1
+ScenTree: used in rose and geranium accords for its fresh rosy facet, to add facets to fruity notes and to give freshness to top notes. Scentspiracy: the balance between softness and persistence allows controlled use in very different structures.
+@@ 2c8f21af08
+ScenTree: used in marine and juicy fruit accords, or for a light, ozonic note; gives volume to a perfume or accord; widely used in functional perfumery. One source (via search engine): the classic marine effect comes from combining it with Calone, and Helional softens and naturalises the accord. Esans (via search engine): above 2 % some noses detect a medicinal/metallic edge.
+@@ 2fb6f3a6a3
+ScenTree: used in ambery, vanilla-like, carnation, rose and spicy notes. Search-engine summary: gives spice and vanilla-like warmth to florals.
+@@ 1464ef9b94
+ScenTree: used in carnation, mimosa, tuberose, frangipani, amber and fougère notes.
+@@ 24f12184bf
+ScenTree: used in chocolate gourmand notes, to accompany amber and floral notes and give them sensuality and a gourmand facet. Rae Dunphy: combines with vanilla, sandalwood and patchouli.
+@@ 4f3228fa03
+ScenTree: used in violet flower reproductions and in floral and fruity notes such as blackcurrant and blackberry; gives a dusty effect and a «retro» image to feminine perfumes; the search engine summarises that it acts as a very good binder. Perfumers Apprentice: useful in boronia formulation and «indispensable in violet compositions».
+@@ 94522d4878
+ScenTree: used in all kinds of accords and fragrances; it is known for its vanilla-like note compared with other musks. Fraterworks (via search engine): serves for aromas that need a soft vanilla-like note in the base. Scentspiracy: «white musk» type.
+@@ 29a7b2f84a
+ScenTree: used in traces in dry woody notes and in masculine perfumes to give a dry, smoky effect. Scent.vn: «adds depth to fragrance accords and improves the longevity of woody notes». ScenTree: «considered a poor quality cedar because of its smoky note» and «one of the cheapest cedars as it contains very little cedrol».
+@@ 070e26b2ce
+ScenTree: used to reproduce the odour of natural ambergris, with a fixative effect. Scentspiracy (via search engine): improves persistence in amber and woody-amber accords.

@@ -1539,6 +1539,8 @@ F23, exportar, a las opciones (1 fórmulas legibles, 2 tus materiales, 3 sugerir
 
 ## V3-81 · F12, la ficha: el impacto es la fuerza, y cada cifra lleva su fuente (decidida por el usuario el 2026-10-27)
 
+**Cambiada por V3-86** (2026-10-29): la fuente de cada cifra se lee al final de la ficha, plegada, por la marca que lleva la cifra.
+
 **Pregunta de la sesión** (2026-10-27): la cabecera de la ficha (V3-73) ya enseña la fuerza y la duración en tira en horas; lo que no enseña es la fuente al lado de cada cifra, y la fuerza no tiene columna de fuente. Cuando dijiste «ficha falta impacto y horas» (V3-78), ¿a qué te referías? Opciones: faltaba la fuente; el impacto es otra cifra (1–10, como PerfuMate); el impacto a lo largo del tiempo (la evolución); no lo veía en tu app.
 
 **Respuesta literal del usuario:** «Faltaba la fuente».
@@ -1593,6 +1595,30 @@ F23, exportar, a las opciones (1 fórmulas legibles, 2 tus materiales, 3 sugerir
 - Aplicada en las tandas 30 y 31: el «Ajenjo AE» de Maese Lab es tu especificación de la artemisa (*A. vulgaris*), no del ajenjo.
 
 ---
+
+## V3-86 · La ficha de material enseña el material: lo interno, fuera de la vista, y las fuentes, al final y plegadas (decidida por el usuario el 2026-10-29; cambia V3-81 en dónde se lee la fuente)
+
+**Palabras literales del usuario** (2026-10-29, en el proyecto):
+
+> Otra cosa que he recordado de la app revisa la hoja de materiales no está necesariamente mal como tal pero audítala porque hay muchas cosas que sobran en la ficha por ejemplo pone el color y código de colores eso debería estar entre los datos del material pero interno no showcase en el material
+
+> No ss solo esto así que haz full audit con las cosas a corregir y se pasa a la main que está corrigiendo arreglos de la app
+
+> Por ejemplo lo de las fuentes no se si deberían estar así como están en todo caso al final abajo las fuentes con un botón que las revel pero sino se ve la descripción muy artificial
+
+En la tarjeta del hilo de arreglos, a «¿Paso las fuentes de la ficha de material al final, plegadas tras «Ver fuentes»?», eligió **«Al final, con marca»**: «Las fuentes van juntas al final y plegadas; junto a cada cifra queda una marca pequeña que lleva a su fuente, y «sin fuente» cuando no la hay».
+
+La revisión: `/mnt/project-files/auditoria-ficha/2026-10-29-ficha-material.md` (del proyecto, no del repo).
+
+**Lectura** (la sesión, para que la confirmes):
+
+- **La ficha enseña qué es el material y cómo se usa.** Lo interno sigue en el registro y en el editor, pero no en la vista: el color de la familia con sus códigos, el color fijado, la leyenda del orbe (explica el dibujo, no el material), el origen de la abreviatura, la marca de disolvente (pasa a un chip «Solvent» en la cabecera) y una categoría que se llama como el material (128 de 150).
+- **Lo que dice la cabecera no se repite debajo:** nombre, tipo, abreviatura, familia, nota, fuerza y horas en tira. «Whose», solo en los tuyos; «Second-hand IFRA», solo si tiene valor.
+- **Las fuentes, al final:** «See the sources (N)», plegado. Cada cifra o fila lleva un número pequeño que abre la lista en su línea: la fuerza y las horas de la cabecera, los datos físicos (una fuente para la sección), cada componente, cada regla del fabricante, cada dosis, cada descriptor, relación y perfume. Una cifra de la cabecera sin fuente sigue diciendo «Source: not stated». En la lista van también la autoridad, las notas de cada dosis, las fuentes del registro, la confianza, el diario de investigación de los comunes y en qué discrepan las fuentes (V3-17), que ya no se marca en rojo junto al valor.
+- **Cambia V3-81** solo en dónde se lee la fuente: cada cifra sigue llevando la suya, por su marca.
+- **Tus notas** (las de un material tuyo) no son una fuente: siguen a la vista, en «Your notes».
+- **Propuesta de la sesión:** «Role» con una glosa corta («fixative · holds the rest»), no con su código.
+- **Pendiente (datos, con V3-70):** los textos guardados que llevan la fuente dentro («Fraterworks: …») o un «no lo dice» como valor (§3 de la revisión) no se arreglan en la vista: se separan por script al pasar a `common`.
 
 ## Pendientes
 

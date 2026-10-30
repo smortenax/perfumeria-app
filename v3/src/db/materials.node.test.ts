@@ -214,7 +214,7 @@ describe("plan v3, step 6.4: your version of a common material", () => {
     const before = (await loadCatalog(db, ME)).materials.get(LAVENDER)!;
 
     const mine = await createVersion(db, ME, LAVENDER);
-    await updateMaterial(db, ME, mine, { supplier: "Maese Lab", product: "Lavanda Fina 100 %", tier: "top_heart" });
+    await updateMaterial(db, ME, mine, { supplier: "Maese Lab", product: "Lavanda Fina 100 %", tier: "top_heart", process: "destilación al vapor" });
     await addDose(db, ME, mine, { max: pct("10"), basis: "concentrate", authority: "product", source: "ficha de Maese Lab" });
 
     const catalog = await loadCatalog(db, ME);
@@ -229,10 +229,13 @@ describe("plan v3, step 6.4: your version of a common material", () => {
     const value = (section: string, label: string) => sheet.sections.find((x) => x.key === section)!.rows.find((r) => r.label === label)!.value;
     expect(value("identity", "CAS")).toMatchObject({ text: "8000-28-0", yours: false });
     expect(value("identity", "Species")).toMatchObject({ text: "Lavandula angustifolia", yours: false });
-    expect(value("smell", "Family")).toMatchObject({ text: "Floral", yours: false });
-    expect(value("smell", "Tier")).toMatchObject({ text: "Top-heart", yours: true });
+    // Family and note go in the sheet's head, not in its rows (the user, 2026-10-29).
+    expect(value("identity", "Process")).toMatchObject({ text: "destilación al vapor", yours: true });
     expect(value("bottle", "Shop")).toMatchObject({ text: "Maese Lab", yours: true });
-    expect(sheet.sections.find((x) => x.key === "doses")!.tables[0].rows.map((r) => r[r.length - 1])).toEqual(["ficha de Maese Lab (yours)", "Arctander"]);
+    // Each dose's source, in «Sources» under its mark (V3-86).
+    const doses = sheet.sections.find((x) => x.key === "doses")!.lines!;
+    expect(doses.map((x) => x.text)).toEqual(["≤ 10 % of the concentrate (yours)", "5 % of the concentrate"]);
+    expect(doses.map((x) => sheet.sources[x.marks[0] - 1]).map((s) => [s.text, s.yours])).toEqual([["ficha de Maese Lab", true], ["Arctander", false]]);
 
     // Both show, in one row: yours first.
     const rows = search(indexCatalog(catalog), "lavanda");

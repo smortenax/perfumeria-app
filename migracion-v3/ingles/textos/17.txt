@@ -1,0 +1,76 @@
+@@ ee35ee67e4 · family_palette.name, family_palette.short
+Amaderado
+@@ 7389b3b752 · family_palette.name, family_palette.short
+Animal
+@@ ee6c083459 · family_palette.name, family_palette.short
+Cítrico
+@@ c00eeb08f3 · family_palette.name, family_palette.short
+Especiado
+@@ cecd9ef83e · family_palette.name, family_palette.short
+Floral
+@@ b3b90753c9 · family_palette.name, family_palette.short
+Frutal
+@@ e4a50fcc00 · family_palette.name, family_palette.short
+Gourmand
+@@ 1915ba8320 · family_palette.name, family_palette.short
+Ozónico
+@@ 288c15eb5b · family_palette.name
+Transformado
+@@ daba544d2b · family_palette.name, family_palette.short
+Verde
+@@ 370a381faa · family_palette.short
+Transf
+@@ 56815506e7 · family_palette.colour_name
+amarillo
+@@ 7472c8c856 · family_palette.colour_name
+azul cielo
+@@ 28c94237bc · family_palette.colour_name
+gris
+@@ 512ade2d63 · family_palette.colour_name
+marrón
+@@ 3cf3494082 · family_palette.colour_name
+naranja
+@@ af6c1a0ca2 · family_palette.colour_name
+rojo
+@@ cf809078b0 · family_palette.colour_name
+rosa malva
+@@ 219fa7020d · family_palette.colour_name
+verde menta
+@@ df1335a117 · family_palette.covers
+animal, almizcle, cuero, ámbar
+@@ dcd9803be9 · family_palette.covers
+especiado, anisado
+@@ fbaafe2a62 · family_palette.covers
+floral, miel, atalcado
+@@ 28fdca07ce · family_palette.covers
+frutal
+@@ d597ea3965 · family_palette.covers
+maderas, terroso, ahumado, tabaco
+@@ 35c0284b5a · family_palette.covers
+ozónico, marino, acuoso, aldehídico, limpio, metálico
+@@ 8e929ee7b1 · family_palette.covers
+tostados (pirazinas), ácidos, azufrados: olores de calor, fermentación o corte
+@@ 4d85871dd3 · family_palette.covers
+vainilla, caramelo, balsámico, cremoso, azucarado
+@@ b8c2f6a6f5 · family_palette.covers
+verde, herbal, aromático, alcanforado, mentolado
+@@ c850d8922b · family_palette.source
+laboratorio, pieza 11 (P48), en la v2: datos/fuente/pieza-11-paleta.csv (commit c877be8)
+@@ 5a768cd0d5 · family_palette.source
+laboratorio, pieza 11 (P48), en la v2: datos/fuente/pieza-11-paleta.csv (commit c877be8); qué entra, cambiado por V3-76 (el usuario, 2026-10-24: «Families: Ten families (Gourmand)»)
+@@ 6c188f9fc5 · family_palette.source
+V3-76 (el usuario, 2026-10-24: «Families: Ten families (Gourmand)»); el color, de la maqueta del rediseño (designVault, 00-inbox/research/kit/revamp-prototype.html, opción A)
+@@ 7f53a68d32 · ifra_substances.subgroup
+e.g.
+@@ 969b7edb3e · ifra_substances.subgroup
+miembro por nombre, según la v2 (V3-44)
+@@ ac768bc033 · ifra_substances.subgroup
+Prohibition of Savin oil
+@@ 94fcaf9ee6 · ifra_substances.subgroup
+Prohibition of Tagetes erecta
+@@ ef519a4827 · ifra_substances.subgroup
+Specification of Savin oil
+@@ 94efd0e01c · ifra_annex.notice
+IFRA escribe «0..3»; se lee 0.3
+@@ b5bdebfac2 · ifra_spec_exclusions.note
+datos/v2/exclusiones.csv: IFRA 51, STD 078: «Styrax oil obtained through pyrolysis shall be rectified…»; la especificación de PAH es del aceite de pirólisis, no de un resinoide (el usuario, 2026-10-03: solo el resinoide). El 2026-10-04 se quitaron «absoluto», «extracto» y «extracción con disolvente», que se añadieron el 2026-10-03 sin decisión del usuario.

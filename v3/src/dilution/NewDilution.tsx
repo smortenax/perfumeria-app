@@ -11,7 +11,7 @@ import "./dilutions.css";
 const t = texts.dilutions;
 const w = t.window;
 const UG_PER_G = 1_000_000n;
-const grams = (ug: bigint) => Ratio.of(ug, UG_PER_G).toFixed(3).replace(".", ",");
+const grams = (ug: bigint) => Ratio.of(ug, UG_PER_G).toFixed(3);
 
 /**
  * «New dilution» (V3-79): one window for the four ways — a bottle you already have (no weights), from

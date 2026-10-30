@@ -325,7 +325,7 @@ function Benches({
 
 const MARKER_ORDER = ["favorite", "locked", "accord", "finished"];
 
-/** «3 materials · final batch 3,000 g · changed 27 Oct 2026» (F1). */
+/** «3 materials · final batch 3.000 g · changed 27 Oct 2026» (F1). */
 function previewText(f: FormulaRecord, p: Preview | undefined): string {
   const l = texts.library;
   const batch = f.finalBatchUg ? l.finalBatch(formatGrams(Ratio.of(f.finalBatchUg))) : f.workBatchUg ? l.workBatch(formatGrams(Ratio.of(f.workBatchUg))) : null;

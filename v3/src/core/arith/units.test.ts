@@ -38,8 +38,8 @@ describe("parsePercent", () => {
 
 describe("display", () => {
   it("rounds only when shown, with a decimal comma", () => {
-    expect(formatGrams(Ratio.of(8_745_000))).toBe("8,745 g");
+    expect(formatGrams(Ratio.of(8_745_000))).toBe("8.745 g");
     expect(formatMilligrams(Ratio.of(619_000))).toBe("619 mg");
-    expect(formatPercent(Ratio.of(619_000, 8_745_000))).toBe("7,078 %");
+    expect(formatPercent(Ratio.of(619_000, 8_745_000))).toBe("7.078 %");
   });
 });

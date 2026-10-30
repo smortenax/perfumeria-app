@@ -1,0 +1,714 @@
+@@ 8294417843
+TGSC: usage levels up to: 0.5000 % in the fragrance concentrate. · confidence: medium
+@@ 4c834e7fae
+TGSC: usage levels up to: 1.0000 % in the fragrance concentrate. · confidence: medium
+@@ bc4c402019
+TGSC: usage levels up to: 15.0000 % in the fragrance concentrate · confidence: medium
+@@ 56ff79f5b1
+TGSC: usage levels up to: 16.0000 % in the fragrance concentrate. · confidence: medium
+@@ 3d1af5a473
+TGSC: usage levels up to: 30.0000 % in the fragrance concentrate. · confidence: medium
+@@ 5b0b64eee9
+TGSC: usage levels up to: 5.0000 % in the fragrance concentrate · confidence: medium
+@@ 85ca435562
+TGSC: usage levels up to: 8.0000 % in the fragrance concentrate · confidence: medium
+@@ 8e426e3d4b
+TGSC: usage levels up to: 8.0000 % in the fragrance concentrate. · confidence: medium
+@@ 46011fbaba
+TGSC: usage levels up to: 9.0000 % in the fragrance concentrate. · confidence: medium
+@@ 71c491bc6a
+A supplier (via search engine, 50 % solution): 1–10 % of the formula, up to 20 % in amber bases · confidence: medium
+@@ f42618d6a9
+A supplier (via search engine): 0.5 % to 2.0 % in EDP and 0.3 % to 1.5 % in EDT, much less in lotions · confidence: medium
+@@ 6eb2134210
+A supplier (via search engine): effective from the smallest traces up to 1 % · confidence: medium
+@@ b715350ede
+A supplier (via search engine): effective from the smallest traces up to 0.5 %; suggests evaluating it at 10 % or more dilute · confidence: medium
+@@ 75353ec5e4
+a supplier (via search engine): fine fragrance 0.50–5.00 %; body care 0.20–3.00 %; home 0.30–4.00 %; candles 0.50–5.00 % · confidence: medium
+@@ 2c9afa9848
+a site (via search engine): typical use in perfumery compounds of 0.050 to 5 % · confidence: medium
+@@ 89b3cbcadc
+a site attributing it to Firmenich (via search engine): in fine fragrance Firmenich recommends 4–13 % for heart and base · confidence: medium
+@@ 45eba1f94e
+A seller (via search engine): from traces up to 5 % of the concentrate · confidence: medium
+@@ 9755d89f4d
+A perfumery guide (via search engine, castoreum in general): 0.05–0.2 % in fine fragrance · confidence: medium
+@@ c90a41435f
+A seller's page (via search engine): usage levels of 2% to 20% in the concentrate; the same page says it is very effective at 1–3 % in finished product · confidence: medium
+@@ e398ee28d7
+A historical reference (via search engine): 10–30 % in sandalwood accords, with a cited formula at 24 % · confidence: medium
+@@ c0e335e692
+a shop (search-engine summary): it can be used up to 10 % of the total concentrate · confidence: medium
+@@ cb8cf43190
+Unguentarius, 161 public formulas (via search engine): average 1.3 %; typical range 0.50–2.5 %; extremes 0.050–15 % · confidence: medium
+@@ 1d69816e6c
+typical use in perfume compounds: from 0.050 %, average 0.500 %, maximum 4.000 %. Observed or recommended use, not an IFRA limit.
+@@ 9cb4f97dab =
+@@ 818cdad478 =
+@@ a773661fba =
+@@ 606ece8170 =
+@@ eb386e2656 =
+@@ 0204715745 =
+@@ 2360145d5b =
+@@ 3441c657ea =
+@@ 52ee6e1dab =
+@@ 36a5573bde =
+@@ 1b0fb03ab0 =
+@@ 7d55c83136 =
+@@ a12ded8c23 =
+@@ f29c81eca6 =
+@@ 3a9494acfe =
+@@ d3b4e283ed =
+@@ 2d9ef206f5 =
+@@ c9cb77ffff =
+@@ 310bd5ecb0 =
+@@ b60b52ee01 =
+@@ 060f5c13e6 =
+@@ 2b01a0b31f =
+@@ 309d4ac0cd =
+@@ 03a710db54 =
+@@ d0de343295 =
+@@ 4380ca6b97 =
+@@ d8e8950c27 =
+@@ 674b5fff85 =
+@@ 8402ec0848 =
+@@ c37d7e0c83
+fig accord
+@@ 0931cfa795
+tea accord
+@@ 14528159b4
+alternatives that PerfumersWorld suggests when Datilat is out of stock
+@@ ff969d50c6
+Arcadi Boix Camps (1978), cited by TGSC: ditto
+@@ 11515dd304
+Arcadi Boix Camps (1978), cited by TGSC: blends with cis-jasmone, dihydrojasmone and the C-9, C-10 and C-11 alcohols are «very important»
+@@ c52ebc21ac
+Arctander (via Pell Wall) and Perfumers World
+@@ 0491ee0d02
+Arctander cited by Enfleurage
+@@ 5c18ce5b0c
+Arctander cited by Olfactorian
+@@ 9c9c091c81
+Arctander cited by a supplier (via search engine): tenacious fixatives that accompany its traces
+@@ e7ee42be5f
+Arctander, cited on the page: widely used together with them
+@@ 7f4a09557e
+Arctander, cited on the page: traces to freshen the top note
+@@ c7256d0a70
+Arctander, cited by Hermitage Oils
+@@ 61c0dcdc66
+Bedoukian and Givaudan: used in rose bases
+@@ 11622d36f5
+Bedoukian; cis-rich version of Mayol (described by the search engine as fresh, clean, floral, magnolia, hydroxycitronellal, cumin, grassy)
+@@ 0acb1eb66b
+Boix Camps (1985), cited on the sheet: enhances it
+@@ e032644ad1
+contexts of use that Scentspiracy cites
+@@ 022bfa60de =
+@@ 9358e1108b
+dsm-firmenich: Dartanol is softer and more cosmetic than Polysantol
+@@ b6ea40e696 =
+@@ 9d6a97284e
+Eden Botanicals (Rhind): they usually go together in the top notes
+@@ 9a05a3dd09
+Eden Botanicals, on the bergamot sheet: with neroli and lemon it gives the fresh initial impression
+@@ 126a738287
+Eden Botanicals: coriander has a balsamic background reminiscent of rosewood
+@@ 0580c4d8c6
+Eden Botanicals: fresh initial impression
+@@ dba1095fde
+Olfastory examples on tonka bean in general
+@@ 6ff6ad0493
+in a 4:1 or 5:1 ratio with benzaldehyde it gives the sweetness of maraschino cherry
+@@ 2ccc44d472 =
+@@ b5aaa1d929
+Esans: causes turbidity (louching)
+@@ 204c41cb4d
+Esans: sweetish «plastic-hay» tone
+@@ 17427b7eb5 =
+@@ 785c7115a8 =
+@@ fe16ef8352
+Firmenich, according to TGSC
+@@ dd70be7eda
+Firmenich: Dartanol is «Softer and more cosmetic than POLYSANTOL®, but less strong»
+@@ dc0c72d817
+snippet (patent): glycolates are usually unstable in those media; Scentspiracy: in soap bases it may need anchoring
+@@ b8d40aafc6
+supplier snippet: complements other jasmine reconstructions
+@@ aa7229f7d7
+Fragrantica and Perfume Extract (via search engine): as an enhancer
+@@ 972e836f26 =
+@@ bb9f327e45
+Fraterworks («supreme») and dsm-firmenich: it is often used in combination
+@@ 03cfdf6c42
+Fraterworks (Coeur): «finest and sweetest all round iris / violet chemical», more premium; it does not explicitly call it a substitute
+@@ b108ccfe33
+Fraterworks proposes it as an alternative because the vetiver one is heavily restricted in IFRA 51
+@@ 028bc947ee
+Fraterworks suggests a «Mellis» accord with them
+@@ 4650a06c56
+Fraterworks and dsm-firmenich
+@@ 27a53900ad
+Fraterworks and PerfumersWorld
+@@ 0ea05cc5b3
+Fraterworks and ScenTree: it softens them and improves their diffusion
+@@ a286ed22fe
+Fraterworks and via search engine: ethyl maltol is much more potent; they are not interchangeable in dose
+@@ e0dcbd826f
+Fraterworks, customer review: in chypre accords
+@@ 105c912824
+Fraterworks: «a replacement (alone or in an accord) for Lilial which is now banned in the EU»; also «The elegant alternative to traditional muguet aldehydes»
+@@ 6882ce9b7a
+Fraterworks: «frequently touted as such, but that does have its differences»; scent.vn treats it as another name for the same material
+@@ d24c057035 =
+@@ 224178df57 =
+@@ 7e5e55b07e
+Fraterworks: traditional rose alcohols; Perfumers World lists geraniol
+@@ 7aeda4e901
+Fraterworks: amplifies the mineral facets
+@@ 0ce699b1bf
+Fraterworks: animalic
+@@ 8feb54025d
+Fraterworks: they appear alongside Habanolide (25 %) in the Silver Mist formula, a Fraterworks reconstruction
+@@ bb87ef9aa8
+Fraterworks: gives freshness and lift in citrus, floral and gourmand compositions
+@@ 9135c39f03
+Fraterworks: blends well
+@@ 56407c72c0
+Fraterworks: blends well; ScenTree: compared with vanillin it has a characteristic anisic and almond note
+@@ bbfbaf073b
+Fraterworks: classic combination
+@@ 88956dabf3
+Fraterworks: strawberry effects
+@@ 38b14601f5
+Fraterworks: extends and fixes
+@@ 507157dc0c
+Fraterworks: classic florals and greens
+@@ fdde00c56d
+Fraterworks: raspberry
+@@ 318593e41d
+Fraterworks: gourmand
+@@ c88a44be97
+Fraterworks: enhances them
+@@ fe7e1f889a
+Fraterworks: airy lightness
+@@ 615d2f10a8
+Fraterworks: replaces it one for one; Perfumer's Apprentice: same CAS but different isomer distribution
+@@ b6f6c44c3d
+Fraterworks: lifts them; ScenTree: enhances citrus
+@@ 3da9a8e635
+Fraterworks: bolder, orris, leather, beeswax, very tenacious; carries more of the strong alpha-methylionone isomer
+@@ 99cd212868
+Fraterworks: more premium
+@@ c53b187998
+Fraterworks: same nuances but more persistent (more than 30 h the 10 fold; more than 200 h the terpeneless)
+@@ 00aa5cdd17
+Fraterworks: for hot stone accords
+@@ d0d552282e
+Fraterworks: for novel accords
+@@ ccd9279c6e
+Fraterworks: to rebuild an authentic bergamot
+@@ 4306462f75
+Fraterworks: for a hot metal accord
+@@ 2a292cb5aa
+Fraterworks: for a balsamic amber
+@@ 7b50bf91ae
+Fraterworks: for a green leather chypre
+@@ 025976785f
+Fraterworks: removes the earthiness
+@@ 85c7b40718
+Fraterworks: woody radiance
+@@ 3e5c60ac1d
+Fraterworks: jam-like richness
+@@ cc78bbd4bc
+Fraterworks: synergistic, to give naturalness
+@@ 3dcb70c38a
+Fraterworks: overdosed for a cherry accord
+@@ 82bf929c45
+Fraterworks: a pinch with vanillin for marzipan
+@@ 61ac9f1e0d
+Givaudan and Perfumer's Apprentice: 20 % Stemone + 80 % Spirogalbanone, «The perfect balance to design a new Vetiveryl Acetate effect»
+@@ 722c051329
+Givaudan, according to the page
+@@ 5b8c832ed2
+Givaudan, according to the page: gives a natural, fresh nuance
+@@ 794bdcaf59
+Givaudan, according to the page: blends them well
+@@ e038fcdcd0
+Givaudan, according to the page: can reinforce them
+@@ af182ad124
+Givaudan, according to the page: used in small amounts to enhance them
+@@ 34ec2a35cc
+Hekserij and Pell Wall: traditional use
+@@ 7215410bc4
+Ditto
+@@ fc27ae48bb
+IFF: blends well and enriches the quality of the odour
+@@ c4155fe613
+The search links the sheet «ambergris tincture replacer» (ex1000571); it was not read
+@@ a7ad1dfc99
+The search links the sheet «pogostemon cablin leaf oil clearwood (Firmenich)» (es1093311); it was not read
+@@ f73aaaba04
+the 50 % sheet lists them as materials it potentially blends with; no comment
+@@ d4c75d281a
+the same review used it as a musky accent
+@@ 1b1fbe6351
+The page lists «Tolu reconstitution made from other natural extract» among the Firmenich products
+@@ 1e36c4c83e
+The page cites this sheet and «oakmoss absolute color reduced» among the related materials; they have not been read
+@@ a72ba10151
+the cis page lists it among the materials it blends with; no comment
+@@ 90c6ba94eb
+The page links «lemongrass oil replacer» (es1131261) and the search engine returned the note that it is sometimes used in place of lemongrass; it has not been read
+@@ d262377a58
+The page lists it among the possible blending partners / related products; it has not been read
+@@ 33bf24dfd1
+the page lists them as materials it potentially blends with; no proportions or comment
+@@ de65bd8d18
+the dsm-firmenich page itself recommends it; Scentfriends too
+@@ ff692936ff
+Eden Botanicals list
+@@ c998669bd1
+PerfumersWorld list («blends well with»)
+@@ 9ab0f2b8f2
+Maese Lab, review: «Aroma parecido al Santalum Album Oil, aunque en un aspecto menos profundo»
+@@ ce3a68349d
+Maese Lab, review: believes it to be analogous; PerfumersWorld lists it as a synonym with the same CAS
+@@ 9e49cee3db
+blending partners that the page suggests
+@@ 1d2ce647d2
+same molecule with more cis: more potent, towards magnolia
+@@ 1afca961e3
+same chemistry (6790-58-5) under another trade name
+@@ 5c07c839b3
+same chemistry under another trade name
+@@ e299bbfb4d
+same chemistry under another trade name (Fraterworks)
+@@ 0bb48680ff
+same CAS; different isomer ratio according to a reviewer (via search engine)
+@@ 297e3a88d0
+page note: for florals
+@@ 0092c9470a
+page note: for freshness
+@@ 88d9683993
+Olfactorian and Fraterworks (via search engine): some luxury houses prefer the BASF version to Cyclosia, so the grades are not interchangeable in all formulas
+@@ 1629f90ac4 =
+@@ 11fe9775e3
+Osmetheca: softer floral-aqueous variant from Firmenich, for transparent feminine compositions
+@@ 796f688fa3
+another shop listing: blends well with them
+@@ cf0e76e213
+another product, resinous base with frankincense notes; a Basenotes user (via search engine) says the Firmenich version is greener and more synthetic and the Givaudan one sweeter
+@@ 1dcb0916e9
+Pell Wall (via search engine): to suggest whisky
+@@ 39e09e8200
+Pell Wall (via search engine): its use is limited above all by its reactivity with other materials; it forms Schiff bases, which darken over time
+@@ 9e0cf1df31
+Pell Wall (via search engine): substitute with a similar odour and less reactive
+@@ eb01b022d8
+Pell Wall Perfumes, cited on the page
+@@ 0de9030546 =
+@@ 9c112cf5a6
+Pell Wall Perfumes: works well alongside stronger ambers such as Ambrofix or Fixateur 505
+@@ 47eda20501
+Pell Wall Perfumes: works well alongside it
+@@ abe0859ab2
+Pell Wall Perfumes: used «in conjunction with vanilla notes»
+@@ ae0254ccd6
+Pell Wall: the use level can be higher in its presence
+@@ b420af8ddf
+Pell Wall: jasmine reconstructions
+@@ efa138a938
+Pell Wall: jasmine reconstructions together with benzyl alcohol and methyl anthranilate
+@@ cdeb9ed4fc
+Pell Wall: its main use is as part of a chocolate accord or other sweet gourmand
+@@ dc34c34dad
+Pell Wall: useful for reinforcing them
+@@ 4dfe15233d
+Pellwall (via search engine): to support it, not to be used alone
+@@ ef0637e786
+PerfuMate: builder of praline and roasted hazelnut at trace level in nut gourmands
+@@ 1a0be4d016
+Perfumer's Apprentice mentions them as other comparable white musks, not as synonyms
+@@ b8bd141076 =
+@@ 141c52b779 =
+@@ 600340a942
+Perfumers World gives it as «often used with»
+@@ f28cb56a23
+Perfumers World lists it as «blends well with»
+@@ 842966353d
+Perfumers World; almond and pastry accords (Scentspiracy)
+@@ 49f79ed3df
+Perfumers World; marzipan and pastry accords (Scentspiracy)
+@@ 55d02ade2f
+Perfumers World; gives creamy vanilla-cherry warmth
+@@ 69009fe5ca =
+@@ 64aed18e22 =
+@@ 5863f1d40a
+Perfumers World: fixative for this aldehyde
+@@ bbc4fed5be
+Perfumers World: often used with them
+@@ 679fefe3b6 =
+@@ cfee7a4fd0 =
+@@ 024946b2c6 =
+@@ 088fa49313 =
+@@ eea3b37a88 =
+@@ 78b3b330c1 =
+@@ 96e61ce28c
+PerfumersWorld gives it as a compatible blend
+@@ 3c6eadd517
+PerfumersWorld and Fraterworks
+@@ 8500a7140d
+PerfumersWorld, cited on the page as blending partners
+@@ adeb1b9ae5
+PerfumersWorld, cited on the page: «Blends-well-with»
+@@ c920687ce6 =
+@@ 61496ad5d1 =
+@@ 1952ac07c9 =
+@@ 1d40c0496e =
+@@ 49f60a27dd
+PerfumersWorld: blends well
+@@ 02f975eae3
+PerfumersWorld: blends well (according to the reading of the page)
+@@ 107180bc77
+PerfumersWorld: ditto
+@@ 9195dad6a5
+PerfumersWorld: sweeter and less tenacious than lemongrass. Berje (via search engine): lacks the fatty or herbaceous notes of similar oils such as lemongrass.
+@@ 1d2a2e16ed
+Perfumiarz and ScenTree
+@@ aff3c56762
+Perfumiarz: the amyl is softer and somewhat fresher. Snippets: the amyl is fresher, more oily, with a more natural air and lasts somewhat less; the hexyl is sweeter, more floral, somewhat more fruity and green-tropical and longer-lasting (more than 400 h on a smelling strip according to a supplier); structurally the hexyl has one more carbon in the chain; many perfumers use both.
+@@ 35cac9148d =
+@@ 7cc54d58f1
+Premiere Peau (via search engine): birch is sharper; cade, warmer and more resinous. Scentspiracy links it as a related product, together with syringol.
+@@ d720c0bc4b
+Premiere Peau: sharper accords
+@@ c4fcd1ec9a
+Premiere Peau: the ambroxide formed by oxidation of ambrein is responsible for the amber-marine odour; traces of ambroxan alter a composition
+@@ 27de83c028
+Premiere Peau: bitter-herbal structures
+@@ 3a77ed8a54 =
+@@ a672f3232b
+customer review on Fraterworks
+@@ a5d6248686
+customer review on Perfumer Supply House
+@@ d1e050ab55
+perfumer review via search engine: its floral nuances complement them without masking them
+@@ 783c89fdb9
+review on Fraterworks
+@@ 8e18e65d65
+review on Perfumer Supply House, in small amounts
+@@ 6e25ffc68f
+search-engine summary (supplier): used in fresh and herbal accords and opens compositions with brightness
+@@ f8b02ade39
+search-engine summary: usual combination
+@@ f032154040
+search-engine summary: it is a structural isomer and has largely replaced it in modern perfumery
+@@ 97cc4ef513
+search-engine summary: it is one of the components of synthetic castoreum bases alongside these materials; this is the general composition of the base, not a specific formula
+@@ f2b732aba0 =
+@@ 055efc0f17
+Scentfriends and ScenTree: it clouds and separates into phases in ethanol; ScenTree calls it the source of many solubility problems in alcohol
+@@ 6bd87069d5
+Scentfriends, as a related material
+@@ 321ffe941d
+Scentfriends, as similar
+@@ c12ec6b10b
+Scentfriends, as similar; Olfactiveaesthetics (via search engine): classic leather accords use birch tar, isobutylquinoline and castoreum (smokier and harsher), whereas Suederal points to the soft side
+@@ b3f56b9e20
+Scentfriends; oriental, leather and woody-smoky accords
+@@ f9861c231a
+Scentfriends: Black Agar is «heavier and more unvarnished» than the first and «considerably less fruity and soft» than the second
+@@ 8b2ce9dc45
+Scentfriends: oriental leather with saffron and rose; powdery glove leather with iris
+@@ 8f277b8736
+Scentfriends: enriched and more potent variant
+@@ 123ffcf884 =
+@@ ca5db5ecb2
+ScenTree (generic sheet): the oil is used less than the resinoid, which is warmer, rounder, balsamic and resinous but less fresh, camphoraceous and spicy
+@@ b716800266
+ScenTree (via search engine): gives them a fresh nuance
+@@ 1bb76a7220
+ScenTree names them as derivatives of cistus-labdanum (pyrogenation and cracking)
+@@ 3d8578aa2b
+ScenTree and Scentspiracy: forms a Schiff base that «colors through time»; ScenTree calls it «Corps Oranger»
+@@ 97acaea638 =
+@@ 03c395963b
+ScenTree: 20/80; Perfumer's Apprentice: 20 % Paradisamide with 80 % Methyl Laitone at 10 % in DPG, «Welcome to the jungle!»
+@@ 4010511bad
+ScenTree: fairly woody and resinous
+@@ 9c0c7738fa
+ScenTree: comparable; it is also a constitutional isomer
+@@ 92da185ed9
+ScenTree: it forms a Schiff base with it (precursor of Aurantiol)
+@@ 6d181d6990
+ScenTree: warm, enveloping effect
+@@ 0c8eff3367
+ScenTree: Helional is less fruity than it
+@@ 91e3a3dfa0
+ScenTree: Helional is less aldehydic than it
+@@ 91d6179266
+ScenTree: Helional is less marine than it; Scentspiracy cites Calone 1951 and Aquaflor as historical successors
+@@ 7fd8c39ae8
+ScenTree: the active isomer, 10,000 times more potent
+@@ d65b77a074
+ScenTree: the MOA is fruitier, deeper and agrestic
+@@ 2e561a6fc1
+ScenTree: the MOA is much fresher and «zesty»
+@@ aedef9f5bc
+ScenTree: nerol is more metallic and less citrus than geraniol
+@@ 671aa5238c
+ScenTree: in chypres
+@@ 9525225e29
+ScenTree: in orientals
+@@ 43c766b302
+ScenTree: «tea» scheme
+@@ ae9da5b48c
+ScenTree: forms Schiff bases with them (reaction, not a blending recommendation)
+@@ 43b74128cd
+ScenTree: fougère
+@@ e569eb1298
+ScenTree: fougère and chypre, «for a rich and warm addition»
+@@ 82b8b4f2b1
+ScenTree: unregulated constitutional isomer that «tends to replace Hydroxycitronellal in formulas»
+@@ f3255ce6d3
+ScenTree: constitutional isomer, more floral, jasmine and pear
+@@ 91f3b19bc3
+ScenTree: constitutional isomer, more rosy and honeyed
+@@ 619b85436a
+ScenTree: constitutional isomer, reminiscent of bergamot
+@@ ea1e6b63a9
+ScenTree: Z isomer, lighter, terpenic odour
+@@ ad3c75b897
+ScenTree: positional isomers that smell of cooked apple, not violet
+@@ 301ae25988
+ScenTree: it is gradually replacing it because heliotropin is regulated on import
+@@ 6b7e92efbe
+ScenTree: gives them character in small amounts
+@@ 50a0da6d48
+ScenTree: gives them sensuality and a gourmand facet
+@@ cd5275e0b5
+ScenTree: fruitier and more floral-violet; the beta is woodier
+@@ 669aa014f8
+ScenTree: woodier and less sweet; Scentspiracy: the alpha is «less woody and more floral»
+@@ 1dd9bf065e
+ScenTree: cannot be used in them
+@@ e1d85f9f2e
+ScenTree: do not use it in candle bases
+@@ 4a9d95361c
+ScenTree: for a «tea» scheme together with Hedione and beta-damascone
+@@ 82be7db0bf
+ScenTree: it is compared with it; heliotropin gives an anisic and almond note
+@@ c772968af3
+ScenTree: they are used as a replacement because oakmoss is «strongly regulated by the IFRA»
+@@ be84d8f4d6
+ScenTree: suggests 50/50
+@@ 21accc4368 =
+@@ 053e3c95e0
+Scentspiracy (via search engine): richer in cinnamaldehyde and without the nuance of the Ceylon one
+@@ b1b016a488
+Scentspiracy (via search engine): reinforces persistence
+@@ 3a2b892a92
+Scentspiracy calls it «cost-effective alternative to natural ambergris derivatives»
+@@ 56c998d927
+Scentspiracy calls it a substitute («replacer») for sandalwood oil; about four times stronger
+@@ 97cc61385f
+Scentspiracy cites them as blending partners, not as substitutes
+@@ 3350a0e36b
+Scentspiracy compares them but does not call them substitutes
+@@ 67c3268731
+Scentspiracy and snippet: in heavy florals
+@@ 777dac71e2
+Scentspiracy and supplier snippets
+@@ 8c92d778b5
+Scentspiracy and Fraterworks
+@@ 75d6d15a19
+Scentspiracy and Pell Wall: in jasmine reconstructions
+@@ 93e11df0e4
+Scentspiracy and Perfumer's World
+@@ bcbc95925b
+Scentspiracy, for the Vulcain grade
+@@ 22a8a0f440
+Scentspiracy, according to Arcadi Boix Camps
+@@ f0140f6f36
+Scentspiracy, according to IFF documentation
+@@ 029f9fbd9b
+Scentspiracy; bergamot and lavender accords according to ScenTree
+@@ 5a1ab25ac6
+Scentspiracy; Perfumer's World (vanillin, ethyl maltol)
+@@ 389dc33c3e
+Scentspiracy; modifier synergy according to suppliers
+@@ 822e61f273 =
+@@ 686e6d16c9 =
+@@ f8fdf14338 =
+@@ 96700d0015
+Scentspiracy: «REM» accord
+@@ b112c1de07
+Scentspiracy: fig leaf accord
+@@ 388b2c7b3c
+Scentspiracy: leather accords
+@@ 4a207d897d
+Scentspiracy: tobacco accords
+@@ d706f5bad9
+Scentspiracy: suggested accords
+@@ a3d90dfcd1
+Scentspiracy: complementary aldehyde
+@@ a6e9fc3a6b
+Scentspiracy: alternative macrocyclic musk
+@@ fed2e86efd
+Scentspiracy: new-generation alternative
+@@ 90b949f9e4
+Scentspiracy: woody and oriental
+@@ 4fa96bf7fc
+Scentspiracy: classic chypre bases
+@@ 05a3e23f06
+Scentspiracy: fougère bases
+@@ 1a03cb2b9e
+Scentspiracy: they catalyse darkening; in strong alkali it may change
+@@ c9f55ba57d
+Scentspiracy: chypre
+@@ e3c65a385f
+Scentspiracy: citrus and florals
+@@ 90effb5ec6
+Scentspiracy: blends well
+@@ 8a62132b54
+Scentspiracy: blend well
+@@ 692d9bc62f
+Scentspiracy: general compatibility
+@@ 728a343190
+Scentspiracy: new-generation compound, «better solubility and environmental performance»
+@@ 7d55fa10b8
+Scentspiracy: leather and fougère
+@@ 3a097f5a3b
+Scentspiracy: modern suede effects
+@@ e1accebbb7
+Scentspiracy: dusty-floral effects
+@@ 8450be3655
+Scentspiracy: hexenol is substantially stronger
+@@ eec1b1c85c
+Scentspiracy: labdanum is appreciated for its resemblance to these animalic materials, now restricted or unavailable
+@@ 470f5ab9c9
+Scentspiracy: Vulcain is presented as an «alternativa o realce» of birch tar; it is another grade, more leather and smoky
+@@ 6af8b5b9cb
+Scentspiracy: in floral accords
+@@ e3d2ea1e2b
+Scentspiracy: in oriental florals
+@@ 71a1df578f
+Scentspiracy: balances herbal notes
+@@ 7636babc0e
+Scentspiracy: florals
+@@ ce7db38567
+Scentspiracy: unstable in alkaline medium and incompatible with strong oxidants
+@@ c8e98d962c
+Scentspiracy: poor behaviour in alkaline medium; limits its use in soap unless heavily fixed
+@@ 8af7f396a3
+Scentspiracy: green mandarin
+@@ 3ff886bfaa
+Scentspiracy: blends well
+@@ a00578d091
+Scentspiracy: natural narcissus
+@@ 36af4e61fa
+Scentspiracy: orientals
+@@ 04caef1044
+Scentspiracy: other musks that blend well
+@@ d0abae7823
+Scentspiracy: above ~5 % it can mask them
+@@ e1cf62b045
+Scentspiracy: can become «metallic» if overused or paired with certain synthetic musks
+@@ 8ce91dc191
+Scentspiracy: jasmine reconstructions
+@@ 678c6f28c9
+Scentspiracy: exotic floral richness
+@@ 50c5614066
+Scentspiracy: synergistic; one source (via search engine): Helional softens and naturalises the marine accord made with Calone
+@@ e45bfbe033
+Scentspiracy: softens the sharp ozonic tone of Calone
+@@ f63b6e8ae5
+Scentspiracy: also vanilla and balsamic or ambery materials
+@@ 5ba339781e
+Scentspiracy: floral-woody transparency
+@@ 8638746c07
+Scentspiracy: premium version
+@@ 8a8e70e058
+according to Laborammeer (via search engine), racemic, creamier and muskier than the enantiopure
+@@ b1c4c0b0df
+TGSC (notes): «grape enhancer - methyl anthranilate and phenethyl alcohol»
+@@ 8ffa4f669f
+TGSC (notes): «To reduce the irritating affects of the oil blend with Eugenol (Clove oil) 50/50.»
+@@ 3fc30c01e6
+TGSC has a separate sheet (es1604821) that has not been read
+@@ ff577f8f39 =
+@@ 2c0dce7d70 =
+@@ dea3fa1956 =
+@@ 6745cabda6 =
+@@ 8a60912f6b =
+@@ 09c174f38c =
+@@ 4e207bfac6
+The Perfumery, cited on the page
+@@ e39fa9f8fa
+The Perfumery, cited on the page: «dark brown and viscous», blends well with these
+@@ 664a851156
+a customer review on Fraterworks: mixed with it gives drier aromatics
+@@ dc060ac03d
+typical use according to the search engine
+@@ 6fb06c4548
+via search engine: gives a modern fougère
+@@ cdab405c0f
+via search engine: gives a cologne
+@@ e93d97e574
+via search engine: greener and more acidic than B; Firmenich also makes a cheaper F
+@@ 84e2206947
+via search engine: another product, with no trace of natural castoreum; the Synth version is darker and richer, with dried fruit
+@@ f1415ced31
+Wikipedia: 4-ethylphenol is a component of natural castoreum (it also appears in castoreum absolute according to the search-engine summary)
+@@ 1809605a2c
+Arcadi Boix Camps (1978), cited by TGSC
+@@ 436e42a682
+Givaudan interview on Fragrantica, via search engine: possibly the first perfume to use it
+@@ 0381c6277d
+Esans (first notable use it cites)
+@@ 423f2d3e36
+Fraterworks (0.05 %)
+@@ e87ff29331
+Fraterworks (0.17 %)
+@@ 853c5faae9
+Fraterworks (0.45 %)
+@@ 4667dd0342
+Fraterworks (0.65 %)
+@@ 4929c95c1a
+Fraterworks (0.8 %)
+@@ bea6d32fb9
+Fraterworks (0.85 %, forms the whole sandalwood note)
+@@ 26560452b1
+Fraterworks (1 %)
+@@ dd6cb44a8f
+Fraterworks (1.4 %)
+@@ d61cde12ff
+Fraterworks (2 % modifying 9.5 % of lyral)
+@@ 80e128495e
+Fraterworks (2 %)
+@@ 0449bbb16a
+Fraterworks (2.2 %)
+@@ 9e8a0bfe0d
+Fraterworks (9.5 %, overdose)
+@@ 644e1aeee3
+Fraterworks (cites a 5.3 % overdose)
+@@ 56897f6792
+Fraterworks (dose comparison, 2 %)
+@@ 74b7b44498
+Fraterworks (linked demonstration formula; it does not declare that it contains this absolute)
+@@ 58e909d0ae
+Fraterworks (linked demonstration formula)
+@@ d60672333b
+Fraterworks (own reconstruction of the formula, with Habanolide at 25 %)
+@@ 9d8e609e45
+Fraterworks and Perfumiarz (at ≈0.5 %, alongside patchouli)
+@@ eb69d865cf
+Fraterworks, cited for the blend with anisic aldehyde; it does not say it contains heliotropin
+@@ 26a1cb2974
+Fraterworks, on the Cyclosia sheet
+@@ 940cbf0627
+Fraterworks: the base is part of a green mango accord
+@@ c2387b32fb
+Fraterworks: the fruity top note is attributed to Dewfruit

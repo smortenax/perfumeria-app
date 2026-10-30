@@ -1,0 +1,505 @@
+@@ afac5abae1
+000345 B (Fraterworks: «Ref: 000345B»; Perfumer Supply House: name of the linked IFRA); Perfumiarz: documents with the prefix W03040
+@@ efaddfc8ea =
+@@ 003b1bc1ec =
+@@ 322548be2f
+296985 (documents linked by Perfumiarz with the prefix W02033; dsm-firmenich: «BLACK AGAR PE 296985» in the address of the sheet)
+@@ 0fd8b68faf =
+@@ 18ee27c0bc =
+@@ f022d68193
+AB 2927R/3 (Perfumiarz; documents «2927R2»); ABQ2977 (Quest code, Fraterworks); item 25010 (Hekserij)
+@@ c4d0692f2b =
+@@ 4c56f16d84 =
+@@ 670bd889b2
+PE 911383 (only as part of the address of the dsm-firmenich studio sheet, via search engine; the page returned 404). Perfumiarz gives no code.
+@@ f0cdc2bdd8
+Perfumiarz: no code in the text, documents with reference W03063; Castoreum Synth 184004 D at dsm-firmenich and Fraterworks («REF: 184004D»), if it is the same product
+@@ 3447c156aa
+Suederal LT (current grade, 0710 at some distributors); no CAS, «BASE»
+@@ e145c630f1 =
+@@ ce45c74161 =
+@@ 22ad131bf4 =
+@@ a267440f06 =
+@@ ca6bf6a025
+Boswellia sacra Flueck. (Fraterworks). Maese Lab does not name the species in the text, only the INCI «Boswellia Sacra Gum Oil» and «el árbol de Boswellia»; ScenTree (generic incense oil sheet) names B. carteri in the supplier listings and separately describes the B. sacra chemotype.
+@@ 206f47664e
+Bulnesia sarmientoi (Fraterworks and Perfumiarz give it only by the INCI «Bulnesia Sarmientoi Extract Acetate»; Harrison Joseph: from Bulnesia sarmientoi)
+@@ 53dae0f4d3
+Castor canadensis Kuhl (ScenTree); Hermitage Oils puts «Castor faber» (European beaver); Maese Lab gives no species
+@@ 809697d372 =
+@@ fdb3b511ea
+Chrysopogon zizanioides (L.) (Fraterworks and Scentspiracy); PerfumersWorld writes it «vetiveria zizaniodes Stapf.»
+@@ 4c4c365352 =
+@@ d8de9e0934
+Cistus ladanifer (labdanum; the source writes 'cistus cyprius, cistaceae')
+@@ 1130d80156
+Cistus ladanifer L. / Cistus ladaniferus (ScenTree, Scentspiracy; Maese Lab infers it only from the INCI «Cistus Ladaniferus Leaf Extract»). Scentspiracy adds C. creticus.
+@@ 0e1fb126a8 =
+@@ d5b5b6cfb5 =
+@@ 55b6a81ab6
+Citrus reticulata Blanco (Olfatorium); PerfumersWorld gives it as «Citrus reticula(blanco ?)»
+@@ df6d2e5de6
+Citrus sinensis (L.) Persoon (ScenTree). The list gives it as Citrus aurantium var. dulcis, which does not appear in any source read.
+@@ dab449f333 =
+@@ 85e6bdff41 =
+@@ 16cc0eae6e =
+@@ c67b6ac896
+Cupressus funebris Endl. (ScenTree, Scent.vn). An article (J. Essential Oil Res. 2008, via search engine) questions that the commercial «chino» oil is solely from that species: it is probably a mixture of several Cupressaceae, with β-biotol and β-biotone markers that suggest Platycladus orientalis wood.
+@@ 004faec4c4 =
+@@ ef9bd7c0e7
+Dipteryx odorata (according to the Maese Lab description)
+@@ bcecd5809e =
+@@ 8439976b07 =
+@@ ec6ed9768c =
+@@ c03b07254b =
+@@ 23153ddc17 =
+@@ 67750bb038 =
+@@ 5d028fddc7
+Liquidambar styraciflua L. (Fraterworks, and the Honduras supply in ScenTree and Scentspiracy). The botanical header of ScenTree says Liquidambar orientalis Mill.
+@@ 7d85bb962b
+Litsea cubeba (Lour.) Pers. (synonyms: L. citrata, May Chang)
+@@ 84ee9da027
+Myroxylon balsamum var. balsamum (Scentspiracy, Fraterworks; Perfumiarz: «Myroxylon balsamum tree, same family as Peru balsam»). A search-engine reference also cites the variety «toluifera» or «genuinum».
+@@ a0e2bac543
+Nicotiana tabacum (Fraterworks, INCI «Nicotiana tabacum leaf extract»; Olfactorian gives it as «Nicotiana Spp.»)
+@@ 08246b0d76
+Physeter macrocephalus (sperm whale) (Premiere Peau); Maese Lab does not name the animal, only «Parte Utilizada: Secreción Orgánica»
+@@ 7cc1d5929a =
+@@ 61d25bb07e =
+@@ e2e4634a63 =
+@@ 29ffa38e92 =
+@@ 30efe0acf3 =
+@@ ff7b7ba8dc
+Styrax tonkinensis (Pierre) Craib ex Hartwich (Siam benzoin, the one corresponding to CAS 9000-72-0). Perfumiarz also sells Sumatra benzoin (Styrax benzoin).
+@@ 11925269f9
+Theobroma cacao L. (ScenTree, Rae Dunphy); the Maese Lab sheet does not give the species
+@@ ea1e327501
+Acetylation (with acetic anhydride) of guaiacwood oil or of fractions of it: the alcohols (guaiol, bulnesol) are converted to acetates. ScenTree: guaiacwood oil «is sometimes acetylated» and guaiyl acetate becomes the main compound. Fraterworks: «an acetylation of fractions of natural guaiacwood oil», derived mainly from guaiol and bulnesol.
+@@ 7bdc54b63a
+steam distillation
+@@ b45ea5d198
+White biotechnology / fermentation of sugary raw materials
+@@ a8853ac800
+Dried bark, steam distilled and decanted in a Florentine flask (ScenTree); Fraterworks: steam distillation at source. ScenTree also cites the oleoresin with ethanol (yield 10-12 %).
+@@ ddc7ff5bdc
+steam distillation; Scentspiracy: from the fruits crushed just before distilling
+@@ d680fb91e8
+steam distillation (Olfatorium, Augustus Oils); ScenTree: traditional process (the plant is dried in the sun before distilling) or «green» (distilled just after cutting); yield 40 kg of oil per hectare
+@@ e283d2ae2a
+steam distillation (Premiere Peau, Essential Oils Pedia); Perfumiarz does not state it
+@@ dbfd9676bb
+steam distillation of the fruits (Olfatorium: «arrastre de vapor de los frutos»; Fraterworks: «Steam distillation at source»); PerfumersWorld does not state it
+@@ b7c7b30caf
+steam distillation of the cut and ground trunk (ScenTree); yield of up to 5 %
+@@ 29cb798848
+steam distillation (Maese Lab and Fraterworks); ScenTree: hydrodistillation
+@@ 124356e22c
+Steam distillation (Premiere Peau, Enfleurage), harvested near the start of flowering; yield 0.1-0.5 % of semi-dried plant (Premiere Peau). The analytical literature usually uses hydrodistillation of dried aerial parts.
+@@ 49059a8dad
+Steam distillation, under pressure and for several hours; the oil is collected by decantation in an oil separator (ScenTree).
+@@ 758c480532
+steam distillation, yield 0.5–1.0 % of partially dried leaves (Scentspiracy)
+@@ 5bc62088d0
+steam distillation; the «dark» grade from Fraterworks is distilled in iron equipment and the «light» in stainless steel. Sources via search engine: the leaves are dried in the shade and partially fermented for 2 to 8 days.
+@@ 94f93eb723
+steam distillation; Premiere Peau (via search engine): washed and dried roots, yield 1.0–1.5 %
+@@ f19100fd89
+Steam distillation
+@@ 26a8cc65e0
+Steam distillation · Maese Lab: steam distillation of the resin
+@@ b0ab933d3f
+Steam distillation · Maese Lab: steam distillation of the resin
+@@ 11bad6ffe5
+cold expression of the peel (Olfatorium, Eden Botanicals); approximate yield of 4 % on the weight of the fruit (search-engine summary)
+@@ 179e9a1f6d
+cold expression of the peel (Olfatorium)
+@@ c36635dd1f
+cold expression in sfumatrice (the peel is pricked; the oil is carried off with water and centrifuged). Fractional distillation of the oil gives a terpenic oil and a terpeneless one (ScenTree).
+@@ 6c93fd2212
+solvent extraction (absolute)
+@@ 865be718bb
+solvent extraction (deduced from its being an absolute; Perfumiarz does not state it. Premiere Peau, via search engine: solvent extraction gives pepper absolute, darker and fuller than the distilled oil)
+@@ 857558efed
+solvent extraction: search-engine summary, leaves extracted with petroleum ether or hexane for the concrete and then with ethanol for the absolute. MD grade: also vacuum / molecular distillation to remove the colour.
+@@ 25040094b3
+solvent extraction. ScenTree: the beans are macerated in wooden boxes for a few days and dried in the sun; they are roasted at between 100 and 140 °C and ground; they are extracted with a volatile solvent such as cyclohexane; the concrete is dissolved in alcohol and cooled to precipitate the waxes, leaving the absolute. It can be decolourised by distillation with little effect on the odour. Maese Lab only says «proceso de extracción con solventes».
+@@ e907fc9c62
+Fraterworks: cold extraction that removes the furocoumarins «without damaging the oil». Darren Alan: «Cold Pressed & Vacuum Distilled». Eden Botanicals: «Cold pressed», with the furanocoumarin removed. Search-engine summary: other suppliers speak of vacuum distillation or molecular distillation, and Fraterworks says that most FCF from others uses a chemical process with caustic soda (the supplier's own claim about competitors).
+@@ 4625f5acb3
+Hemisynthesis: a natural extract (rosin, resin acids) is hydrogenated and reacted with methanol to give the methyl esters (ScenTree: «obtained on an hemisynthetic way, by reacting a natural extract with a synthetic molecule»).
+@@ b06a96ad0d
+Maceration of the seeds in alcohol, filtered and degummed; alcohol 96
+@@ 5df95e49c5
+Maese Lab: «ABSOLUTO». ScenTree: branches cut in July, the gum is treated with soda (3–5 %), acidified, the paste is distilled to dry it and treated with alcohol and filtered: «labdanum alcohol resinoid»; the absolute can be rectified to remove insolubles or colour, with no olfactory effect. Scentspiracy: solvent extraction of the gum (resinoid) with alcohol or hydrocarbons, or of concrete from fresh plant with alcohol; it does not give the process for this lot.
+@@ 99bf012a8e
+Maese Lab: steam distillation. Fraterworks: burning, distillation and rectification. Scentspiracy: destructive distillation (pyrolysis) in closed retorts at 400–600 °C, and then rectification by fractional distillation, solvent washing or chemical neutralisation, and vacuum stripping.
+@@ d6ff982bba
+Maese Lab: Immersion in alcohol, filtered, degummed and heated at low pressure in a controlled atmosphere; alcohol 80, 4 charges · TGSC: tincture
+@@ c6f5b02c62
+ScenTree: the pouch is dried for one or two years, ground and macerated in alcohol (about 20 parts of alcohol by weight; sometimes some potash); it yields 45–75 % soluble in alcohol. Drying over a wood fire gives a smokier and harsher odour, close to birch tar. Hermitage Oils: benzene extraction that gives a concrete, washed with alcohol; «by definition an absolute-resinoid». Maese Lab: «Absoluto».
+@@ 03297af87e
+ScenTree: the resin is dried for a month on the tree, macerated in alcohol, cooled from 60 °C to 0 °C to precipitate the waxes and, after filtering and evaporating the alcohol, the resinoid remains. Fraterworks: extraction with hot alcohol at 30 °C of the balsam from wild trees, made in France.
+@@ a611f7149e
+ScenTree: the bark is cut, the resin hardens in the air, the tears are scraped off (4–6 kg per tree per year), the gum is extracted with ethanol and cooled and filtered to obtain the resinoid; it can be distilled to decolourise it. Scentspiracy: extracted with dipropylene glycol (DPG), alcohol-soluble resinoid.
+@@ ea5166e08d
+ScenTree: they are macerated in water at room temperature for one to three days and crushed; three successive washes with a mixture of cyclohexane and isopropanol; the concrete is extracted with alcohol; the waxes are precipitated by cooling; yield 1.5–4 %; the colour is removed with activated carbon or almost entirely with molecular distillation. Fraterworks: «Extraction in Grasse». Perfumiarz does not state the method.
+@@ 2a51f56387
+Scentspiracy: solvent extraction (benzene, ethanol, acetone or methylene chloride), dewaxing and optional neutralisation; the yield with alcohol is 65–90 %. Fraterworks: the crude balsam is washed with a non-alcoholic solvent (benzene or similar) to make the resinoid, and then mixed with natural triethyl citrate. Perfumiarz does not state the method.
+@@ 6858a74e99
+tincture (hydroalcoholic extract, 96° alcohol)
+@@ 67c642f668
+tincture in 96° alcohol, «cantidad de cargas: 2»; method of obtaining not stated. Olfastory (tonka bean in general): the beans are dried, macerated for 24 h in rum and dried again; coumarin crystals appear on them «en grandes cantidades».
+@@ 6a070e5331
+tincture: maceration of ambergris in ethanol (Maese Lab: «RED. TINTURA», purified, diluted to 10 % in 96º bioethanol; Premiere Peau: dissolved in ethanol for several weeks)
+@@ 72277eb08e
+Bark oil rich in cinnamaldehyde (bark type), not the eugenol-rich leaf oil (Perfumers World lists «Cinnamon Leaf (oil)» as a synonym, which contradicts the name).
+@@ 425215b09e
+Cedrene-thujopsene type oil; commercial lots vary enormously (ranges from the 2008 article, via search engine).
+@@ a453ebc8ae
+The search engine cites two peel oil chemotypes: limonene, and limonene/gamma-terpinene. Olfatorium does not say whether the mandarin is green, yellow or red; the search engine warns that the odour changes with that.
+@@ b6c3f751c0
+limonene
+@@ c79e294d42
+Highly variable depending on origin and stage (scientific sources via search engine): thujone type (Vietnam, Nilgiri), davanone type (13.8-45.5 % in samples from Lithuania), artemisia-ketone type (29.38 % in a sample from Uttarakhand, India, with α-thujone only 3.10 %).
+@@ ea4b84ce28
+not stated. The GC-MS studies that the search engine cites show that the composition varies greatly with origin; a sample from the Lithuania area was rich in trans-sabinyl acetate (55.2 %) and without thujones.
+@@ b873bef415
+ScenTree cites the varieties albiflorus, maculatos and stenoiphyllus as resin producers.
+@@ d166e886b3
+ScenTree: B. sacra is of the incensyl acetate chemotype; B. papyrifera (Eritrea, Ethiopia) is of octyl acetate (≈50 %)
+@@ f0afd1dabb
+ScenTree: the American species (styraciflua) exudes on its own and is richer in beta-caryophyllene; the oriental one (orientalis, Turkey) requires striking the bark.
+@@ 55069abd1a
+ScenTree: oil mainly of himachalenes, with ≈2 % cedrene; contains no cedrol
+@@ 36075f6053
+thujonic (alpha-thujone > camphor > 1,8-cineole, the most common chemotype according to a review of 185 oils, via search engine); the Dalmatian type with more 1,8-cineole and borneol (study via search engine)
+@@ 0e6cf00316
+an Eastern European grade is «hybrida Lavender» with lavandin (The Perfumery); grades 40/42 % linalyl acetate (Camden-Grey)
+@@ a2b681248e
+varieties named by Hermitage Oils: Burley, Oriental, Virginia
+@@ d8bc7b4c99
+suede and soft leather (suede/leather); Scentfriends: soft side of leather, as opposed to the smoky, hard leather of birch tar, isobutylquinoline and castoreum
+@@ 852813929d
+Truffle aroma: sweet, intense and deep, with milky, mushroom and damp wood nuances. Use as a base in professional perfumes and colognes, cosmetics (creams, shampoos, gels, talcs, oils), soaps, bath salts and bath bombs, candles and air fresheners.
+@@ 39532284f3
+Musk base: soft, warm, skin-like musk, somewhat dusty, with animalic, delicate floral and sandalwood nuances.
+@@ c07ea96107
+Fantasy fruit: juicy lychee, raspberry and blackcurrant with green nuances, without sugary sweetness.
+@@ d268095b64
+Realistic blackcurrant (fruit and leaf): green and fruity cassis buds with boxwood freshness.
+@@ 027fb2d857
+honey (bee nectar). Presentation: «Parfum Pureza 100%, concentrado»; INCI «Fragrance»; the sheet says «elaborada con ingredientes naturales seleccionados por su calidad y pureza». Uses: soaps, lip balms, creams, lotions, bath products, solid perfumes and intensive skin care; the product image also cites professional perfumes and colognes. Formats: 10, 30, 50, 100, 250, 500 and 1000 ml.
+@@ fe84543ac7
+Oud / dark agar: tarry leather, smoky, woody-amber, with a strong and persistent agar character.
+@@ e9d2b3e8f5
+Reproduce natural castoreum without animal material: leather, skin, musk and smoky phenolic.
+@@ 97af20dbcb
+cheap; used in volume
+@@ a7cdee57d4
+~3 ppb (a shop, via search engine)
+@@ a18c01cb04
+≈0.21 ng/L in air (Scentspiracy)
+@@ b31baf505d
+≈0.3 ppb (a supplier, via the search engine; no method or source cited)
+@@ bfdc885e29
+0.003 mg/m³ in air; 1.2 mg/L in water (scent.vn)
+@@ ab160e9505
+0.1 ppm (a supplier, via search engine); 100 ppbv according to Leonardos et al. (1969), cited by the same search engine
+@@ 3c950f2aa0
+0.5 ppb (cis isomer, according to Foreverest cited on the page)
+@@ e7813c3996
+1 ppm (0.0001 %) according to ScenTree, which flags it as relatively high
+@@ f4d62cdded
+2 and 270 ppb (0.000027 %) according to ScenTree
+@@ 1e21ae126b
+30 ppb (0.000003 %) according to ScenTree
+@@ 4c84fd83e3
+from 9 ppb to 460 ppb (ScenTree)
+@@ d44cb3e136
+Search-engine snippet on ScenTree: «Detection Threshold: de l'ordre de 70 ppb (0,000007%)». Two safety data sheets consulted by the search engine: odour threshold not available.
+@@ 4c3b753ecc
+ScenTree: «29 ppb à 1,6 ppm (0,00016%)» according to the person; recognition threshold «d'environ 4 ppm».
+@@ b1bfa2da4e
+ScenTree: «4 à 75 ppb» (0.0000075 %), detection, according to people
+@@ 030400b7f2 =
+@@ 7346d015fe
+ScenTree: «62 ppb et 1 ppm (0,0001%)» (two values on the same line).
+@@ fc60afe6c2 =
+@@ b5abcf60e9
+ScenTree: «Donnée indisponible» (data not available).
+@@ 554781cde1
+ScenTree: «Donnée indisponible» (no data).
+@@ e852c855e8
+ScenTree: (-) 0.0095 ppb; (+) 0.0780 ppb. Wikipedia (via search engine): 0.006 to 0.01 µg/L in water. A compilation (via search engine) cites values from 0.002 to 360 ppb in the literature.
+@@ 63be844595
+ScenTree: 0.6 to 10 ppb
+@@ 184c8cdb5a
+ScenTree: 1.2 ng/l of air (detection threshold)
+@@ 87190ff048
+ScenTree: data not available
+@@ 0aa49282b9
+Scentspiracy: «a low odor threshold», no figure. ScenTree: «Donnée indisponible».
+@@ fbb46368ce
+Scentspiracy: estimated in the low nanograms-per-litre range, with the caveat that it varies by source. ScenTree: data not available.
+@@ ee1657c852
+Symrise: «Threshold in Air 0.0063 g/l» (unit as it appears in the PDF; without further context); ScenTree: not available
+@@ 5b89944be4
+<0.001 mmHg at 20 °C (Scentspiracy); ScenTree: not available
+@@ cd8c53bf51
+>0.0013 hPa (temperature not stated)
+@@ 712f43bf04
+0.00006 Pa at 20 °C (dsm-firmenich); 0.01 Pa at 20 °C (Perfumer's Apprentice)
+@@ 465b9e2858
+0.000134 mmHg at 25 °C (est.)
+@@ 164b8d8b34
+0.000469 mmHg at 25 °C (est.)
+@@ 8cbe4a800a
+0.001 mmHg at 25 °C (estimated)
+@@ 44002d8cd9
+0.0038 hPa at 20 °C (Perfumer's Apprentice)
+@@ 4ffc18cd19
+0.008 mmHg at 20 °C (ScenTree)
+@@ b56f81bed0
+0.016 mmHg at 25 °C (est.)
+@@ b2b8e92f01
+0.027 mmHg at 25 °C (est.)
+@@ f80072c580
+0.067 mmHg (ScenTree, no temperature)
+@@ 3fa94b8393
+0.179 mmHg at 25 °C (est.)
+@@ 10a94ac655
+0.207 mmHg at 25 °C (est.)
+@@ e6746d42ae
+0.219 mmHg at 25 °C (est.)
+@@ 0344cdca6d
+0.551 mmHg at 25 °C (est.)
+@@ a8e73259de =
+@@ cfa9ec1ec2 =
+@@ 4cda7df073 =
+@@ 2676ed4345 =
+@@ 40fee68514 =
+@@ 0957a77581 =
+@@ f07ea2c310 =
+@@ ad0dbb082e =
+@@ 1db1c80d47 =
+@@ 1f3d3ed4c1 =
+@@ a6631bc98a =
+@@ ed7a760502 =
+@@ ffd11d7078 =
+@@ 244a38deda =
+@@ 69fb299c3d =
+@@ 6061cf4147
+0.003438 mm Hg at 23 C
+@@ 15ae65e5e1 =
+@@ 3a130587b7
+0.006000 mmHg @ 20.00 °C. (50 % sheet)
+@@ 3067a69a41 =
+@@ e591313abb =
+@@ e1bb2c176a =
+@@ e83a43577f =
+@@ 362752fb32 =
+@@ ce9c50d2ce =
+@@ 15fa03998a =
+@@ 4f4138cdf5 =
+@@ 55c9fd56bb =
+@@ c17524a96b =
+@@ f898b27b74 =
+@@ 48a3f96a74 =
+@@ 08df807d9d =
+@@ e364f46b40 =
+@@ 4ce7dff3a2 =
+@@ 79e48ffccc =
+@@ f433c24e32 =
+@@ a9aadd097d =
+@@ 4103cf25c5 =
+@@ 7138346880 =
+@@ 1f6c2f36cd =
+@@ bb97d9de17 =
+@@ 0edbb7f603 =
+@@ 2e00960cd0 =
+@@ 307dd9ff19 =
+@@ df8f34d18c =
+@@ 1fbb96dc1d =
+@@ afbb21808f =
+@@ 36505489ed =
+@@ 2546eb2f0c =
+@@ a042bff1b7 =
+@@ 7201ab47d3 =
+@@ e6cd506ce2 =
+@@ 23284055b7 =
+@@ 924e0a8cd9 =
+@@ 4af5a6f0d8 =
+@@ f108329fc0 =
+@@ 7aedbf1b9d =
+@@ 20756683f7
+1.27 mmHg at 25 °C
+@@ 6c7ad35fd7
+1.428 mmHg at 25 °C (est.)
+@@ 500c1b6b70 =
+@@ 6f304cb762 =
+@@ af9afcb92a =
+@@ d4512e85d5 =
+@@ 5a8beb9f14
+13 Pa (Hekserij, no temperature)
+@@ 100511cc1c =
+@@ f431f5f9d9
+IFF (via search engine): 0.000158 mm Hg at 23 °C; Givaudan: <1.0000 hPa
+@@ 32a61c1753
+ScenTree: 0.097 mmHg at 20 °C
+@@ 7081ccb6dd
+[generic sheet «agarwood specialty»] Soluble in: alcohol. Insoluble in: water
+@@ b8d539f994
+[generic sheet «cassis specialty»] Soluble in: alcohol. Insoluble in: water
+@@ 52c7480c44
+[generic sheet «castoreum absolute replacer»] Soluble in: alcohol. Insoluble in: water
+@@ 6f72ad2cf0
+[generic sheet «fruit specialty»] Soluble in: alcohol. Insoluble in: water
+@@ 0f318b6a51
+[generic sheet «musk specialty»] Soluble in: alcohol. Insoluble in: water
+@@ 8738a6e187
+[generic sheet 8016-36-2, different CAS] Soluble in: alcohol; water, 4.581 mg/L @ 25 °C (est). Insoluble in: water
+@@ c70913ddf7
+Water 0.19 g/100 mL at 20 C, soluble in hot water (Wikipedia); soluble in alcohol and glycols (Scentspiracy)
+@@ 806964dcf8
+It is a tincture in 96° alcohol with water (INCI).
+@@ fea5a5bebb
+Sheet 8038-65-1: Soluble in: alcohol; water, 6.895e-007 mg/L @ 25 °C (est). The sheet classifies the Hermitage offering among the «Ethanol Tinctures»
+@@ a7ac7df0dc =
+@@ cc1c7d4d2b
+Not soluble in water
+@@ b4490828db
+Scentspiracy: Soluble in DPG, IPM and alcohol; slightly soluble in water · TGSC: alcohol; isopropyl myristate; water 310.6 mg/L @ 25 °C (est)
+@@ bd69d87155
+Dissolves well in DPG and 96% alcohol, much worse in IPM (Hekserij); at 25 C: water 1.32 g/L, ethanol 583.12 g/L, acetone 1396.56 g/L (Scent.vn)
+@@ 516774b55c
+Soluble in alcohol, dipropylene glycol, fixed oils and paraffin oil; water 5.372 mg/L at 25 °C (est.). Insoluble in water and glycerin.
+@@ 7dbaf2faf1
+Soluble in alcohol, dipropylene glycol, fixed oils and propylene glycol; water 2850 mg/L at 25 °C (exp). Insoluble in paraffin oil and glycerin.
+@@ cbc0a3edab
+Soluble in alcohol, dipropylene glycol, fixed oils and propylene glycol; water 43.52 mg/L at 25 °C (est.). Insoluble in glycerin.
+@@ e26270c1a8
+soluble in alcohol, IPM and propylene glycol; in water, very little. DPG: no data
+@@ c90fd72f77
+Soluble in alcohol; water 0.0908 mg/L at 25 °C (est.). Insoluble in water.
+@@ 5681d26f7e
+Soluble in alcohol; water 1.149 mg/L at 25 °C (est.). The page gives no list of «insoluble en».
+@@ f936110758
+Soluble in alcohol; water 100 mg/L at 20 °C (exp). Insoluble in paraffin oil.
+@@ 3531cac0af
+Soluble in alcohol; water 1387 mg/L at 25 °C (est.). The page also lists «Insoluble in: water».
+@@ 0d987a3b8e
+Soluble in alcohol; water 2150 mg/L at 25 °C (est.). Insoluble in water.
+@@ b8f6ec5fb7
+Soluble in alcohol; water 407.7 mg/L at 25 °C (est.). Insoluble in water.
+@@ 7312044161
+Soluble in alcohol; water 7226 mg/L at 25 °C (est.) and 1.87E+04 mg/L at 15 °C (exp). The page gives no list of «insoluble en».
+@@ 5898daaf48
+Soluble in alcohol; water 764 mg/L at 20 °C (exp). The page also lists «Insoluble in: water».
+@@ e406c6f1d5
+Soluble in alcohol. Insoluble in water.
+@@ fa12164e92
+Soluble in ether, ethanol (for example 1:8 in 50 % alcohol), kerosene, paraffin oil; water 6570 mg/L at 25 °C (exp). The page gives no list of «insoluble en».
+@@ 6119e0ddb6 =
+@@ ddd96aa6a1
+Soluble in alcohol; insoluble in water (Clearwood patchouli oil sheet)
+@@ 5435fb7098
+Soluble in: ethyl alcohol (4 vol. of 70 % alcohol); kerosene; paraffin oil; water, very slightly soluble; «water at 3.552 mg/L @ 25 °C (est.)». No insoluble entry
+@@ 528bec61c6
+Soluble in: alcohol; «water, 1.099e-019 mg/L @ 25 °C (est)» (figure exactly as the page gives it). Insoluble in: water
+@@ 8040fbcaff
+Soluble in: alcohol; «water, 1014 mg/L @ 20 °C (exp)». No insoluble entry
+@@ cf8136b276
+Soluble in: alcohol; «water, 1e+006 mg/L @ 25 °C (est)» (figure exactly as the page gives it). Insoluble in: not listed
+@@ d5e0fce769
+Soluble in: alcohol; «water, 2.711 mg/L @ 25 °C (est)». No insoluble entry
+@@ 09e2d84bb6
+Soluble in: alcohol; «water, 258.2 mg/L @ 25 °C (est)». No insoluble entry
+@@ ae24a70255
+Soluble in: alcohol; «water, 261 mg/L @ 20 °C (exp)». There is no insoluble entry
+@@ 5c449e1b40
+Soluble in: alcohol; «water, 46.43 mg/L @ 25 °C (est)». No insoluble entry
+@@ 0be54f3820
+Soluble in: alcohol; «water, 66 mg/L @ 20 °C (exp)». No insoluble entry
+@@ 8950bd43b8
+Soluble in: alcohol; fixed oils; propylene glycol; «water 1.6e+004 mg/L @ 25 °C (est)». No insoluble entry
+@@ 1cc81f0b69
+Soluble in: alcohol; dipropylene glycol; «water, 20.12 mg/L @ 25 °C (est)». Insoluble in: water (the page lists both a water solubility figure and «insoluble in water» at the same time)
+@@ ab8f434d61
+Soluble in: alcohol; dipropylene glycol; fixed oils; paraffin oil; «water, 1.00E+06 mg/L @ 25 °C (exp)» (figure exactly as the page gives it; inconsistent with a logP of 3.995). Insoluble in: glycerin
+@@ 17e8791ebc
+Soluble in: alcohol; dipropylene glycol; paraffin oil; «water, 2.98 mg/L @ 25 °C (est)». No insoluble entry (50 % sheet)
+@@ f916e54aea
+Soluble in: alcohol; fixed oils; water, 332.1 mg/L @ 25 °C (est); water, 3500 mg/L @ 21C (exp). Insoluble in: not listed
+@@ 4e5d2e1907
+Soluble in: alcohol; water, 1.077 mg/L @ 25 °C (est). Insoluble in: not listed
+@@ ad85a57758
+Soluble in: alcohol; water, 1.859 mg/L @ 25 °C (est). Insoluble in: not listed
+@@ 1b378cdf5e
+Soluble in: alcohol; water, 101 mg/L @ 20 °C (exp). Insoluble in: not listed
+@@ 14f924153a
+Soluble in: alcohol; water, 11.61 mg/L @ 25 °C (est). Insoluble in: water. Suppliers cite diluted versions of the resinoid in DPG, DEP, PG, MPG and TEC (50 % DPG, 50 % DEP, 50 % PG, 70.5 % TEC)
+@@ 2c24007e96
+Soluble in: alcohol; water, 2773 mg/L @ 25 °C (est). Insoluble in: not listed
+@@ 6d9f168501
+Soluble in: alcohol; water, 342.6 mg/L @ 25 °C (est). Insoluble in: not listed
+@@ 365217685b
+Soluble in: alcohol; water, 4668 mg/L @ 25 °C (est); water, 4760 mg/L @ 25 °C (exp). Insoluble in: water (the page lists water in both sections)
+@@ 201b804f8f
+Soluble in: alcohol. Water: estimated at 5.123 mg/L @ 25 °C; the page also lists it as insoluble in water
+@@ b1e4f468dd =
+@@ 6a7954eca1
+Soluble in: benzyl alcohol; dipropylene glycol; ethyl alcohol (1:2 in 60% alcohol; 1:5 in 50% alcohol); fixed oils; paraffin oil; propylene glycol; water, 1201 mg/L @ 25 °C (est). Insoluble in: not listed
+@@ 6be2ebb198
+Soluble in: chloroform; dipropylene glycol; ether; ethyl alcohol (1:2 in 95 % alcohol; 1:3 in 70 % alcohol; 4 parts in 50 % alcohol); glycerol (1:20); hot ligroin; isopropyl myristate; water (1:125; 1 g in 100 ml; «6875 mg/L @ 25 °C (est)»). Insoluble in: paraffin oil
+@@ 75cfa0231d
+Soluble in: ethyl alcohol, fixed oils, kerosene, paraffin oil, propylene glycol and water-alcohol mixtures; water, 3100 mg/L @ 25 °C (exp). Insoluble in: glycerin
+@@ c2944fe468
+Soluble in: fixed oils; kerosene; paraffin oil (slightly soluble in warm paraffin oil); water, 754 mg/L @ 25 °C (est); water, 2460 mg/L @ 25 °C (exp). Insoluble in: not listed
+@@ b9248851df
+Soluble in: water, 2346 mg/L @ 25 °C (est); water, 4900 mg/L @ 25 °C (exp). Insoluble in: not listed
+@@ 30feaba879
+Wikipedia: Water: 2.4 g/100 mL at 40 C; 5.3 g/100 mL at 100 C; ethanol and diethyl ether: miscible · TGSC: Soluble in alcohol; water 2.15E+04 mg/L @ 25 °C (exp)
+@@ f7c873b66b
+«non-discoloring in most media»; the page lists it for bath foam, cream, hair spray, powder, shampoo. Shelf Life and Storage: not listed
+@@ a7eeb8472a
+[generic sheet 8016-36-2, different CAS] Shelf Life: 24.00 month(s) or longer if stored properly. Storage: «store in cool, dry place in tightly sealed containers, protected from heat and light.»
+@@ d31d8c6194
+High colour stability; low colouration and good solubility in functional perfumery
+@@ 375bec4d1a
+High oxidative stability
+@@ 3984030121
+Good (5/5) in shampoo and soap; moderate (3/5) in acid cleaner, fabric softener, antiperspirant, APC, powder detergent; poor (1/5) in liquid detergent and liquid bleach
+@@ 43c9563055
+Contains aldehyde and phenol: may discolour; over time it turns dark brown or pink-violet
+@@ 0919346111
+Eden Botanicals: store in a cool, dark place; for linalool-rich oils, IFRA advises keeping peroxides to a minimum; refrigerate or add antioxidant to store it for longer.
+@@ 983011ff5d
+Stability as listed by the page: alcoholic - good; liquid bleach - poor; APC (pH = 10) - moderate. Shelf Life and Storage: not listed
+@@ 41cd76278a
+Sheet 8038-65-1: Stability in: hair spray; «non-discoloring in most media»; powder. Shelf Life and Storage: not listed
+@@ 0cc332c62a
+50 % sheet: Shelf Life «36.00 month(s) or longer if stored properly»; Storage «store in cool, dry place in tightly sealed containers, protected from heat and light». 70 % sheet: Shelf Life «24.00 month(s) or longer if stored properly», same Storage
+@@ e2250eecfe
+Fraterworks: unfiltered product, particles or turbidity may appear; for alcohol perfumes, macerate for up to a month, chill and filter.
+@@ 4b3fd7aa99
+Fraterworks: unfiltered product; for alcohol perfumes, macerate for up to a month, chill overnight and filter finely.
+@@ 16f5c21561
+Givaudan (stars): very good in fabric softener (pH 3), shampoo (pH 6), APC (pH 9), liquid detergent (pH 9), soap (pH 10) and powder detergent (pH 10.5); poor in acid cleaner (pH 2), antiperspirant (pH 3.5) and liquid bleach (pH 11). PerfumersWorld (via search engine): good to very good in lotion, shampoo and soap; poor in bleach.
+@@ 8eeec3d47e
+Glooshi (snippet): stable in soaps, detergents and candles.
+@@ ab28cdc9f3
+Good in all the products listed
+@@ 06edfeab5d
+Hekserij: reasonably long shelf life; store cool, dry and dark; aggressive products such as soap and deodorant can partly alter the odour.
+@@ 88f8b3d356
+IFF (performance/stability): fine fragrance Very Good/Very Good; shampoo Very Good/Very Good; liquid detergent Good/Very Good; candles Good/Very Good; acid cleaner Moderate/Moderate; bleach Poor/Poor
+@@ 0361b6a702
+IFF: IFF: fine fragrance Excellent/Excellent; soap Very Good/Excellent; AP deo Very Good/Excellent; bleach Poor/Poor. Scentspiracy: excellent chemical stability in alkaline soaps and aggressive bases · TGSC: TGSC lists 'soap' in the stability list
+@@ 5a9db010f4
+The cis sheet gives no Shelf Life or Storage. cis+trans sheet (5502-75-0): Shelf Life «36.00 month(s) or longer if stored properly»; Storage «store in cool, dry place in tightly sealed containers, protected from heat and light»
+@@ 9ce7df7a49
+Very stable in alcoholic solutions, perfume oils and functional bases
+@@ dabe14a338
+Perfumers World, 0-9 scale: 9 in alcoholic perfume, deodorants, creams, talc, soaps, shampoo, bath gel, ammonia, chlorine, detergents, fabric softener, potpourri and incense; 6 in acid cleaner and candles; 5 in cold perm.
+@@ 529f817df4
+Perfumers World, 0-9 scale: 9 in alcoholic perfume, soaps, shampoo, bath gel; 8 in conditioner; 7 in liquid detergent and fabric softener; 6 in creams; 5 in deodorants, talc, powder detergent, potpourri and incense; 4 in ammonia and candles; 3 in chlorine; 1 in cold perm. Refractive index 1.47.

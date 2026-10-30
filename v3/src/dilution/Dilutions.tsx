@@ -21,8 +21,8 @@ import { EmptyState } from "../EmptyState";
 const t = texts.dilutions;
 const UG_PER_G = 1_000_000n;
 
-/** Grams as the scale shows them: «1,030». */
-export const gramsText = (ug: bigint) => Ratio.of(ug, UG_PER_G).toFixed(3).replace(".", ",");
+/** Grams as the scale shows them: «1.030». */
+export const gramsText = (ug: bigint) => Ratio.of(ug, UG_PER_G).toFixed(3);
 /** «1,03» or «1.03» → micrograms, to the milligram; null while it is not a weight. */
 export function gramsOf(text: string): bigint | null {
   const clean = text.trim().replace(",", ".");
@@ -37,7 +37,7 @@ export function percentOf(text: string): Ratio | null {
   return Ratio.fromDecimal(clean).div(Ratio.of(100n));
 }
 
-/** How a bottle reads: «al 10 % · 9,97 % en DPG» or with several diluents «… en etanol 30 % y DPG». */
+/** How a bottle reads: «9.97 % in DPG», a name before it when it has one, or with several diluents «… in ethanol 30 % and DPG». */
 export function bottleText(data: GlossaryData, d: Dilution): string {
   const name = (id: string) => data.catalog.materials.get(id)?.name ?? "—";
   const exact = percent(d.fraction, 4);
