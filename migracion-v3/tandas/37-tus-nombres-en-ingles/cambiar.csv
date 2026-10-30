@@ -1,0 +1,77 @@
+table,id,column,before,after
+materials,,name,2-Acetilpirazina,2-Acetylpyrazine
+materials,,name,2-Hidroxibenzaldehído,2-Hydroxybenzaldehyde
+materials,,name,"3,4-Xilenol","3,4-Xylenol"
+materials,,name,Absoluto de Tabaco,Tobacco absolute
+materials,,name,Aceite de cade (enebro),Cade oil (juniper)
+materials,,name,Acetato de bencilo,Benzyl acetate
+materials,,name,Acetato de estiralilo,Styrallyl acetate
+materials,,name,Acetato de geranilo,Geranyl acetate
+materials,,name,Acetato de guayilo (palo santo acetilado),Guaiyl acetate (acetylated palo santo)
+materials,,name,Acetato de linalilo,Linalyl acetate
+materials,,name,Acetato de terpinilo,Terpinyl acetate
+materials,,name,"Ajenjo, aceite esencial","Wormwood, essential oil"
+materials,,name,Alcohol Feniletílico,Phenylethyl alcohol
+materials,,name,Aldehído alfa-amil cinámico,Alpha-amyl cinnamic aldehyde
+materials,,name,Aldehído alfa-hexil cinámico,Alpha-hexyl cinnamic aldehyde
+materials,,name,Aldehído benzoico (benzaldehído),Benzoic aldehyde (benzaldehyde)
+materials,,name,Aldehído C10 (decanal),Aldehyde C10 (decanal)
+materials,,name,Aldehído C11 MOA,Aldehyde C11 MOA
+materials,,name,Aldehído C12 MNA,Aldehyde C12 MNA
+materials,,name,Aldehído C14 (gamma-undecalactona),Aldehyde C14 (gamma-undecalactone)
+materials,,name,Aldehído C18 (gamma-nonalactona),Aldehyde C18 (gamma-nonalactone)
+materials,,name,"Ámbar gris, tintura comercial (purificado)","Ambergris, commercial tincture (purified)"
+materials,,name,"Ambreta, tintura","Ambrette, tincture"
+materials,,name,Antranilato de metilo,Methyl anthranilate
+materials,,name,"Artemisa (Artemisia vulgaris), aceite esencial","Mugwort (Artemisia vulgaris), essential oil"
+materials,,name,"Bálsamo de Tolú, resinoide","Tolu balsam, resinoid"
+materials,,name,Benzoato de bencilo,Benzyl benzoate
+materials,,name,Bergamota sin bergaptenos,"Bergamot, bergapten-free"
+materials,,name,"Cacao, absoluto","Cocoa, absolute"
+materials,,name,"Canela de Ceilán, aceite esencial de corteza","Ceylon cinnamon, bark essential oil"
+materials,,name,"Cardamomo verde, tintura","Green cardamom, tincture"
+materials,,name,"Cardamomo villoso, tintura","Villous cardamom, tincture"
+materials,,name,Castóreo sintético,Synthetic castoreum
+materials,,name,Cedro Atlas,Atlas cedarwood
+materials,,name,"Cedro chino, aceite esencial","Chinese cedarwood, essential oil"
+materials,,name,Cinamato de metilo,Methyl cinnamate
+materials,,name,Cumarina natural,Natural coumarin
+materials,,name,DPG (dipropilenglicol),DPG (dipropylene glycol)
+materials,,name,"Enebro (bayas), aceite esencial","Juniper (berries), essential oil"
+materials,,name,Esencia de trufa,Truffle essence
+materials,,name,Etanol,Ethanol
+materials,,name,Etil vainillina,Ethyl vanillin
+materials,,name,Etil-4-fenol,Ethyl-4-phenol
+materials,,name,Eucaliptol,Eucalyptol
+materials,,name,"Gálbano, aceite esencial","Galbanum, essential oil"
+materials,,name,Geosmina,Geosmin
+materials,,name,"Haba tonka (semillas), tintura comercial","Tonka bean (seeds), commercial tincture"
+materials,,name,Heliotropina,Heliotropin
+materials,,name,Hidroxicitronelal (Cyclosia),Hydroxycitronellal (Cyclosia)
+materials,,name,"Hyraceum (piedra de África), absoluto","Hyraceum (Africa stone), absolute"
+materials,,name,Indol,Indole
+materials,,name,Ionona Alpha,Alpha ionone
+materials,,name,Ionona beta,Beta ionone
+materials,,name,IPM (miristato de isopropilo),IPM (isopropyl myristate)
+materials,,name,Isobutilquinoleína (IBQ),Isobutylquinoline (IBQ)
+materials,,name,Láudano de jara,Rockrose labdanum
+materials,,name,Lavanda,Lavender
+materials,,name,Limón,Lemon
+materials,,name,Linalol,Linalool
+materials,,name,Mandarina,Mandarin
+materials,,name,Metil ionona gamma,Gamma methyl ionone
+materials,,name,"Miel, esencia aromática","Honey, aromatic essence"
+materials,,name,"Mirra, aceite esencial","Myrrh, essential oil"
+materials,,name,"Musgo de roble, absoluto","Oakmoss, absolute"
+materials,,name,Naranja dulce,Sweet orange
+materials,,name,"Olíbano (Boswellia sacra), aceite esencial","Frankincense (Boswellia sacra), essential oil"
+materials,,name,"Opopónax, aceite esencial","Opopanax, essential oil"
+materials,,name,Óxido de rosa,Rose oxide
+materials,,name,"Pimienta negra, absoluto","Black pepper, absolute"
+materials,,name,"Pimienta rosa (Schinus molle), aceite esencial","Pink pepper (Schinus molle), essential oil"
+materials,,name,Resinoide de benjuí,Benzoin resinoid
+materials,,name,Resinoide de estírax (estoraque),Styrax resinoid (storax)
+materials,,name,Triacetina,Triacetin
+materials,,name,Vainillina,Vanillin
+materials,,name,Whisky lactona,Whisky lactone
+lab_dilutions,1e4abe54-d61b-5761-97de-4a12a4555bcd,solvent,no consta,unstated solvent

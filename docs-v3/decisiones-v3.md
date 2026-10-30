@@ -1633,6 +1633,17 @@ La revisión: `/mnt/project-files/auditoria-ficha/2026-10-29-ficha-material.md` 
 - **Los diluyentes, cortos** («DPG», «IPM»), con el nombre completo al pasar el ratón.
 - **Las pastillas no se salen de su cuadro:** si una no cabe, se corta con «…» y se lee entera al pasar el ratón.
 
+## V3-88 · Tus versiones que copiaban el nombre común pasan al inglés (decidida por el usuario el 2026-10-30; matiza V3-71 en tu cuenta)
+
+**Literal** (orko kill, 2026-10-30, en la tarjeta «¿Paso al inglés los nombres de tus versiones que copian el nombre común?»):
+
+> Sí, esos
+
+**Lectura** (de la sesión, para que la confirmes):
+
+- **Una versión toma el nombre del común al crearse.** Las que se crearon antes de la tanda 36 lo tomaron en español. Las que aún se llaman exactamente como el común antiguo pasan a su nombre en inglés, y el español queda entre sus otros nombres, para que el buscador las siga encontrando (tanda 37).
+- **Lo que escribiste tú no se toca:** una versión que renombraste, un material tuyo que no es versión, tus notas, etiquetas y descripciones (V3-71).
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
