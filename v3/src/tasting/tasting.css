@@ -433,3 +433,8 @@
 .material-tastings li {
   padding: 0.25rem 0;
 }
+
+/* Deleting the session sits apart from ending it, in outline (audit F-11; errors and danger use ink). */
+button.delete-session {
+  margin-inline-start: auto;
+}

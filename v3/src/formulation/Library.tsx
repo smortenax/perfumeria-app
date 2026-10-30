@@ -35,6 +35,7 @@ export function Library({
   onNew,
   onNewBench,
   onDeleteBench,
+  openBench,
 }: {
   data: GlossaryData;
   local: LocalDatabase;
@@ -42,6 +43,8 @@ export function Library({
   onNew: (workbenchId: string) => void;
   onNewBench: (name: string) => void;
   onDeleteBench: (workbenchId: string) => void;
+  /** The bench of the formula last open in the workbench: back from it, that bench is open (audit F-02). */
+  openBench?: string;
 }) {
   const t = texts.library;
   // The steps of every formula, live, for what each row says (F1).
@@ -58,6 +61,9 @@ export function Library({
   }, [local]);
   const previews = useMemo(() => previewsOf(data.formulas, events), [data.formulas, events]);
   const [tab, setTab] = useState<Tab>("benches");
+  useEffect(() => {
+    if (openBench) setTab("benches");
+  }, [openBench]);
   const [query, setQuery] = useState("");
   const refs = useRef<Array<HTMLButtonElement | null>>([]);
   const onKey = (e: KeyboardEvent<HTMLButtonElement>) => {
@@ -110,7 +116,7 @@ export function Library({
       </div>
       <div className="tab-panel" role="tabpanel" id="library-panel" aria-labelledby={`library-tab-${tab}`}>
         {tab === "benches" ? (
-          <Benches data={data} local={local} previews={previews} query={query} onOpen={onOpen} onNew={onNew} onNewBench={newBench} onDeleteBench={onDeleteBench} />
+          <Benches data={data} local={local} previews={previews} query={query} onOpen={onOpen} onNew={onNew} onNewBench={newBench} onDeleteBench={onDeleteBench} openBench={openBench} />
         ) : (
           <Formulas data={data} query={query} marker={MARKER[tab]} onOpen={onOpen} />
         )}
@@ -133,6 +139,7 @@ function Benches({
   onNew,
   onNewBench,
   onDeleteBench,
+  openBench,
 }: {
   data: GlossaryData;
   local: LocalDatabase;
@@ -142,10 +149,14 @@ function Benches({
   onNew: (workbenchId: string) => void;
   onNewBench: () => void;
   onDeleteBench: (workbenchId: string) => void;
+  openBench?: string;
 }) {
   const t = texts.glossary;
   const l = texts.library;
-  const [chosen, setChosen] = useState<string | null>(null);
+  const [chosen, setChosen] = useState<string | null>(openBench ?? null);
+  useEffect(() => {
+    if (openBench) setChosen(openBench);
+  }, [openBench]);
   // The formula pointed at, in the rows or in the version tree (V3-77): both light up together.
   const [active, setActive] = useState<string | null>(null);
   const [sort, setSort] = useState<Sort>("versions");

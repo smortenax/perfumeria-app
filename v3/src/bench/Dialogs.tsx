@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useId, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 import { Ratio } from "../core/arith/ratio";
 import { parseMass } from "../core/arith/units";
 import type { Composition, Line } from "../core/compose";
@@ -16,10 +16,41 @@ function Modal(props: {
   onCancel: () => void;
   onAccept: () => void;
 }) {
+  // A dialog (audit F-13): focus goes in, to its first field, stays in with Tab, and goes back to
+  // what opened it when it closes.
+  const titleId = useId();
+  const form = useRef<HTMLFormElement>(null);
+  // Read while rendering: a field's own focus (its effect runs first) would hide the opener.
+  const [opener] = useState(() => (document.activeElement instanceof HTMLElement ? document.activeElement : null));
+  useEffect(() => {
+    if (!form.current?.contains(document.activeElement)) {
+      const first = form.current?.querySelector<HTMLElement>("input, select, textarea, button");
+      (first ?? form.current)?.focus();
+    }
+    return () => opener?.focus();
+  }, [opener]);
+  const keepFocus = (e: KeyboardEvent<HTMLFormElement>) => {
+    if (e.key !== "Tab" || !form.current) return;
+    const all = [...form.current.querySelectorAll<HTMLElement>("input, select, textarea, button, [href], [tabindex]:not([tabindex='-1'])")].filter((x) => !x.hasAttribute("disabled"));
+    if (all.length === 0) return;
+    const [first, last] = [all[0], all[all.length - 1]];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  };
   return (
     <div className="modal-backdrop" onMouseDown={props.onCancel}>
       <form
+        ref={form}
         className="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        tabIndex={-1}
         onMouseDown={(e) => e.stopPropagation()}
         onSubmit={(e) => {
           e.preventDefault();
@@ -29,9 +60,10 @@ function Modal(props: {
           if (e.key === "Escape") {
             props.onCancel();
           }
+          keepFocus(e);
         }}
       >
-        <h2>{props.title}</h2>
+        <h2 id={titleId}>{props.title}</h2>
         {props.children}
         {props.error && <p className="error">{props.error}</p>}
         <div className="modal-actions">

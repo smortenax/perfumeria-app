@@ -186,6 +186,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
               onOpen={(id) => go({ view: "formula", id })}
               onNewBench={(name) => void createWorkbench(local.db, local.userId, { name }).catch(fail)}
               onDeleteBench={(id) => void deleteWorkbench(local.db, local.userId, id).catch(fail)}
+              openBench={data.formulas.find((f) => f.id === lastFormula)?.workbenchId}
               onNew={(workbenchId) =>
                 void createFormula(local.db, local.userId, { name: texts.glossary.newFormulaName, workbenchId }).then((id) => go({ view: "formula", id }), fail)
               }

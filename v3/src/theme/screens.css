@@ -1198,10 +1198,13 @@ details.unstated[open] dl {
   border-color: var(--border-control);
 }
 
+/* Done: a tick on a soft fill, not struck through (struck reads as «cancelled»; audit F-16). */
 .moment-dot.done {
   background: var(--surface-chip);
   color: var(--muted);
-  text-decoration: line-through;
+}
+.moment-dot.done::before {
+  content: "✓ ";
 }
 
 .moment-dot.due {
