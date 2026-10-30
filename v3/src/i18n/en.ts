@@ -176,7 +176,7 @@ export const texts = {
       strengthOf: (s: string) => `Strength: ${s}`,
       strip: "On a blotter",
       duration: (h: number) =>
-        (h < 24 ? `${Number(h.toFixed(1))} h` : h < 24 * 7 ? `${Number((h / 24).toFixed(1))} days` : `${Number((h / 168).toFixed(1))} weeks`).replace(".", ","),
+        (h < 24 ? `${Number(h.toFixed(1))} h` : h < 24 * 7 ? `${Number((h / 24).toFixed(1))} days` : `${Number((h / 168).toFixed(1))} weeks`),
       durationOn: (d: string) => `Duration on a blotter: ${d}`,
       logScale: "Log scale, 1 hour to 30 days",
       noSource: "Source: not stated",
@@ -449,7 +449,7 @@ export const texts = {
     basis: { concentrate: "% of the concentrate", finished_product: "% of the finished product", undeclared: "not declared" },
     relationKind: { combines: "blends with", substitute: "substitutes", clashes: "clashes" },
     relationRows: { combines: "Blends with", substitute: "Substitutes", clashes: "Clashes with" },
-    /** A dose's basis after its figures: «0,5 % – 10 % of the concentrate». */
+    /** A dose's basis after its figures: «0.5 % – 10 % of the concentrate». */
     doseBasis: { concentrate: "of the concentrate", finished_product: "of the finished product", undeclared: "(basis not declared)" },
     atLeast: (p: string) => `≥ ${p}`,
     typically: (p: string) => `typically ${p}`,

@@ -31,7 +31,7 @@ export function assumptionsOf(formula: Formula, entryOf: (key: string) => Catalo
       continue;
     }
     if (change.fraction.eq(Ratio.fromDecimal(weighing.percent).div(Ratio.of(100)))) {
-      found.set(change.material.key, { material: change.material.name, text: `weighed at ${weighing.percent.replace(".", ",")} %: ${weighing.why}.` });
+      found.set(change.material.key, { material: change.material.name, text: `weighed at ${weighing.percent} %: ${weighing.why}.` });
     }
   }
   return [...found.values()];

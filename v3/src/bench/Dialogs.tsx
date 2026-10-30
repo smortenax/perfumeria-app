@@ -354,7 +354,7 @@ export function ReweighDialog(props: { tareUg: bigint | null; totalUg: Ratio | n
       <p className="help">{props.help}</p>
       <label className="radio">
         <input type="radio" checked={mode === "withBottle"} disabled={props.tareUg === null} onChange={() => setMode("withBottle")} />
-        <span>{props.tareUg === null ? t.reweighWithBottleNoTare : t.reweighWithBottle(Ratio.of(props.tareUg).div(Ratio.of(1_000_000n)).toFixed(3).replace(".", ","))}</span>
+        <span>{props.tareUg === null ? t.reweighWithBottleNoTare : t.reweighWithBottle(Ratio.of(props.tareUg).div(Ratio.of(1_000_000n)).toFixed(3))}</span>
       </label>
       <label className="radio">
         <input type="radio" checked={mode === "tared"} onChange={() => setMode("tared")} />

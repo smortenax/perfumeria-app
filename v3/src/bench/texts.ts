@@ -240,7 +240,7 @@ export const texts = {
     draftWorsens: (names: string) => `${names}: already past its ceiling and it would increase it`,
     draftUnchecked: "What you will add cannot be checked against IFRA",
     /** The ends of the strip, and between them the base its percentages are counted on (§1.1). */
-    usageFrom: "0,001",
+    usageFrom: "0.001",
     usageTo: "100",
     usageBase: "% of the aromatic matter",
     holds: (share: string) => `The formula has ${share} of the aromatic matter`,
@@ -489,8 +489,8 @@ export const texts = {
     /** The line of each material in the composition (P57): how much of its ceiling it carries, and how much more fits. */
     ifraShort: "IFRA",
     ifraBases: { now: "now", completed: "when complete", bottle: "the bottle as it is" },
-    ifraTrace: "< 0,1 %",
-    ifraLessThanTenthMg: "< 0,1 mg",
+    ifraTrace: "< 0.1 %",
+    ifraLessThanTenthMg: "< 0.1 mg",
     ifraProhibitedShort: "prohibited",
     ifraNoCeiling: "no ceiling",
     ifraNoRoom: "no margin",

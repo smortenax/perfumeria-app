@@ -141,7 +141,7 @@ export function RepartoCard(props: { composition: Composition | null; familyOf?:
                 {hovered.name.length > 18 ? `${hovered.name.slice(0, 17)}…` : hovered.name}
               </text>
               <text x="80" y="90" textAnchor="middle" fontSize="12" fill="#1D1D1B" className="num">
-                {`${(hovered.share * 100).toFixed(1).replace(".", ",")} %`}
+                {`${(hovered.share * 100).toFixed(1)} %`}
               </text>
               <text x="80" y="105" textAnchor="middle" fontSize="11" fill="#57564F">
                 {c.ofAromatic}
@@ -170,7 +170,7 @@ export function RepartoCard(props: { composition: Composition | null; familyOf?:
               <li key={f.family}>
                 <span className="swatch" style={{ background: f.color }} aria-hidden="true" />
                 <span className="legend-name">{f.family}</span>
-                <span className="num">{`${(f.share * 100).toFixed(1).replace(".", ",")} %`}</span>
+                <span className="num">{`${(f.share * 100).toFixed(1)} %`}</span>
               </li>
             ))}
           </ul>

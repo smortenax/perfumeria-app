@@ -67,7 +67,7 @@ export function PrintFormula({
                 <td>{line.material.name}</td>
                 <td className="num">{formatGrams(line.massUg)}</td>
                 <td className="num">{line.fraction.eq(Ratio.ONE) ? t.neat : formatPercent(line.fraction, 2)}</td>
-                <td>{diluentsOf(line).replace(/ (\d+(?:\.\d+)?)/g, (_, p: string) => ` ${p.replace(".", ",")} %`)}</td>
+                <td>{diluentsOf(line).replace(/ (\d+(?:\.\d+)?)/g, (_, p: string) => ` ${p} %`)}</td>
                 <td className="num">{formatGrams(pure)}</td>
                 <td className="num">{line.material.solvent || aromatic.isZero() ? "" : formatPercent(pure.div(aromatic), 2)}</td>
               </tr>

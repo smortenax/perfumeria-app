@@ -61,7 +61,7 @@ describe("formula JSON", () => {
   it("carries a readable composition for anyone without the app", () => {
     const doc = JSON.parse(formulaToJson(f001()));
     const hedione = doc.composition.find((entry: { key: string }) => entry.key === "lab:MAT-hedione");
-    expect(hedione).toEqual({ material: "Hedione", key: "lab:MAT-hedione", massUg: "619000", ofBottle: "7,078 %" });
+    expect(hedione).toEqual({ material: "Hedione", key: "lab:MAT-hedione", massUg: "619000", ofBottle: "7.078 %" });
     // Largest first: the alcohol, then the DPG carried by the dilutions.
     expect(doc.composition.slice(0, 2).map((entry: { material: string }) => entry.material)).toEqual(["Alcohol", "DPG"]);
   });

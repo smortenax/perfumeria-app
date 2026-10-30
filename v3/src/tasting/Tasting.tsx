@@ -58,8 +58,8 @@ function BottleSelect({ data, materialId, value, onChange }: { data: GlossaryDat
     </label>
   );
 }
-/** A tenacity in hours (V3-42), shown in minutes under an hour: «al menos 25 min», «1,5 h». */
-const hoursText = (h: Ratio) => (h.lt(Ratio.ONE) ? `${h.mul(Ratio.of(60n)).toFixed(0)} min` : `${h.toFixed(1).replace(".", ",")} h`);
+/** A tenacity in hours (V3-42), shown in minutes under an hour: «at least 25 min», «1.5 h». */
+const hoursText = (h: Ratio) => (h.lt(Ratio.ONE) ? `${h.mul(Ratio.of(60n)).toFixed(0)} min` : `${h.toFixed(1)} h`);
 const nameOf = (data: GlossaryData, id: string) => data.catalog.materials.get(id)?.name ?? "—";
 
 /** The moments a strip shows: the default ones, and t15 once written. */

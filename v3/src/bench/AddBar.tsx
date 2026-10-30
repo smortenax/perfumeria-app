@@ -1049,7 +1049,7 @@ export function AddBar(props: {
         </button>
         {!mix && assumed && samePercent(assumed.percent, percent) && (
           <span id="add-assumed" className="dilution-note muted tiny" title={`${t.assumedHelp} ${assumed.source}`}>
-            {t.assumed(assumed.percent.replace(".", ","), assumed.why, assumed.diluent.toUpperCase())}
+            {t.assumed(assumed.percent, assumed.why, assumed.diluent.toUpperCase())}
           </span>
         )}
       </div>

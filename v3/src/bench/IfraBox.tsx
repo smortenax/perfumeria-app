@@ -135,7 +135,7 @@ function SubstanceItem(props: { row: SubstanceRow; partial: boolean }) {
   );
 }
 
-const quotientText = (q: Ratio) => q.toFixed(2).replace(".", ",");
+const quotientText = (q: Ratio) => q.toFixed(2);
 
 /**
  * Why a «no» or a «no se sabe» (Phase 5): the substances over their ceiling with the materials that bring them, the group of

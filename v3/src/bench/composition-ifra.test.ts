@@ -79,7 +79,7 @@ describe("The IFRA of a line: how much of its ceiling it carries, and how much m
       expect(line.margin).toMatchObject({ kind: "bounded", limitedBy: COUMARIN.key, limitedByName: "Cumarina" });
       expect(line.margin.kind === "bounded" && line.margin.pouredUg.toString()).toBe("580000");
     }
-    expect(viewOf(lines, tincture)).toMatchObject({ share: "3,3 %", room: "580 mg left", tone: "neutral" });
+    expect(viewOf(lines, tincture)).toMatchObject({ share: "3.3 %", room: "580 mg left", tone: "neutral" });
   });
 
   it("the share is that of the whole substance, wherever it comes from, and the room shrinks with it (§5.3)", () => {
@@ -131,7 +131,7 @@ describe("The IFRA of a line: how much of its ceiling it carries, and how much m
   it("with no ceiling on the pour: «no ceiling», with the share it carries", () => {
     // 100 000 µg of the weak material: S = 1 000 µg; in the bottle base a = 0,01 < L: it can only dilute. share = 0,001 / 0,015 = 2/30.
     const lines = linesOf(formulaOf("bottle", add("w", weak, 100_000n), add("n", neutral, 900_000n)));
-    expect(viewOf(lines, weak)).toMatchObject({ share: "6,7 %", room: "no ceiling", tone: "neutral" });
+    expect(viewOf(lines, weak)).toMatchObject({ share: "6.7 %", room: "no ceiling", tone: "neutral" });
   });
 
   it("the figures could be optimistic: bounds, in amber, and the title says why", () => {
@@ -139,11 +139,11 @@ describe("The IFRA of a line: how much of its ceiling it carries, and how much m
     // 10 000 µg: share = 10 000 / 1,5·10⁵ = 1/15; room = 150 000 − 10 000 = 140 000 µg.
     const pending = linesOf(formulaOf("now", add("p", pendingMaterial, 10_000n), add("n", neutral, 990_000n)));
     const view = viewOf(pending, pendingMaterial);
-    expect(view).toMatchObject({ share: "≥ 6,7 %", room: "≤ 140 mg left", tone: "amber" });
+    expect(view).toMatchObject({ share: "≥ 6.7 %", room: "≤ 140 mg left", tone: "amber" });
     expect(view?.title).toContain("optimistic");
     // Another material that cannot be checked also leaves the bottle's report partial.
     const other = linesOf(formulaOf("now", add("c", coumarin, 10_000n), add("u", unchecked, 5_000n), add("n", neutral, 985_000n)));
-    expect(viewOf(other, coumarin)).toMatchObject({ share: "≥ 6,7 %", tone: "amber" });
+    expect(viewOf(other, coumarin)).toMatchObject({ share: "≥ 6.7 %", tone: "amber" });
   });
 
   it("no data is no figure: provisional and unchecked materials say nothing, and are not zero (§1.2)", () => {
@@ -183,17 +183,17 @@ describe("The IFRA of a line: how much of its ceiling it carries, and how much m
 describe("Saying it (P57)", () => {
   it("a share of a ceiling: whole from 10 %, a decimal below, and a trace is a trace, never a rounded zero", () => {
     expect(usedText(Ratio.of(1, 2))).toBe("50 %");
-    expect(usedText(Ratio.of(1, 30))).toBe("3,3 %");
+    expect(usedText(Ratio.of(1, 30))).toBe("3.3 %");
     expect(usedText(Ratio.of(1, 10))).toBe("10 %");
     expect(usedText(Ratio.of(4, 3))).toBe("133 %");
-    expect(usedText(Ratio.of(1, 2_000))).toBe("< 0,1 %");
+    expect(usedText(Ratio.of(1, 2_000))).toBe("< 0.1 %");
   });
 
   it("a room: grams from 1 g, milligrams below, and what is left but does not weigh", () => {
     expect(roomText(Ratio.of(145_000))).toBe("145 mg");
-    expect(roomText(Ratio.of(2_500_000))).toBe("2,500 g");
-    expect(roomText(Ratio.of(4_500))).toBe("4,5 mg");
-    expect(roomText(Ratio.of(50))).toBe("< 0,1 mg");
+    expect(roomText(Ratio.of(2_500_000))).toBe("2.500 g");
+    expect(roomText(Ratio.of(4_500))).toBe("4.5 mg");
+    expect(roomText(Ratio.of(50))).toBe("< 0.1 mg");
     // An exact ratio is only rounded here, when shown.
     expect(roomText(Ratio.of(3_000_000, 37))).toBe("81 mg");
   });
@@ -201,7 +201,7 @@ describe("Saying it (P57)", () => {
   it("the detail says the closest ceiling and the room, with the substance that limits and the base", () => {
     const lines = linesOf(formulaOf("now", add("t", tincture, 20_000n), add("n", neutral, 980_000n)));
     expect(detailOfLineIfra(lines.get(tincture.key))).toEqual([
-      ["Closest to the ceiling", "Cumarina: 3,3 % of 1,5 %"],
+      ["Closest to the ceiling", "Cumarina: 3.3 % of 1.5 %"],
       ["Margin", "580 mg neat left before the ceiling of Cumarina, on the basis «now»"],
     ]);
     expect(detailOfLineIfra(lines.get(neutral.key))).toEqual([]);
@@ -211,7 +211,7 @@ describe("Saying it (P57)", () => {
   it("the title names the substance, its ceiling and the base", () => {
     const lines = linesOf(formulaOf("now", add("t", tincture, 20_000n), add("n", neutral, 980_000n)));
     expect(viewOf(lines, tincture)?.title).toBe(
-      "It carries 3,3 % of the ceiling of Cumarina (1,5 % of the product), on the basis «now». 580 mg more of this material, neat, fit before the ceiling of Cumarina.",
+      "It carries 3.3 % of the ceiling of Cumarina (1.5 % of the product), on the basis «now». 580 mg more of this material, neat, fit before the ceiling of Cumarina.",
     );
   });
 });

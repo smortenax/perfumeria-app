@@ -960,7 +960,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
         <PromptDialog
           title={texts.dialogs.massTitle(dialog.line.material.name)}
           label={texts.dialogs.massLabel}
-          initial={formatDecimal(Ratio.of(dialog.line.massUg).div(Ratio.of(1_000)), 3).replace(/,?0+$/, "")}
+          initial={formatDecimal(Ratio.of(dialog.line.massUg).div(Ratio.of(1_000)), 3).replace(/\.?0+$/, "")}
           submit={(value) => {
             try {
               change({ kind: "set-mass", id: newId(), target: dialog.line.id, massUg: parseMass(value, "mg") });

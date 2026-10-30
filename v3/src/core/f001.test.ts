@@ -14,7 +14,7 @@ describe("F-001-v1, Lejía", () => {
   it("weighs 8,745 g in total, 2,4519 g of them aromatic matter", () => {
     expect(c.totalUg.eq(Ratio.of(8_745_000))).toBe(true);
     expect(c.aromaticUg.eq(Ratio.of(2_451_900))).toBe(true);
-    expect(formatPercent(c.aromaticUg.div(c.totalUg), 2)).toBe("28,04 %");
+    expect(formatPercent(c.aromaticUg.div(c.totalUg), 2)).toBe("28.04 %");
   });
 
   it("gives every material exactly the pure matter of the notebook", () => {
@@ -33,18 +33,19 @@ describe("F-001-v1, Lejía", () => {
         continue;
       }
       const fraction = partOf(f001Material(labId, name).key).div(c.totalUg);
-      expect(formatPercent(fraction), name).toBe(`${percent} %`);
+      // The notebook writes a decimal comma; the app shows a point (the user, 2026-10-30). Same figures.
+      expect(formatPercent(fraction), name).toBe(`${percent.replace(",", ".")} %`);
     }
   });
 
   it("carries 8,29 % of DPG and 63,68 % of alcohol", () => {
     expect(partOf(DILUENTS.dpg.key).eq(Ratio.of(724_600))).toBe(true);
-    expect(formatPercent(partOf(DILUENTS.dpg.key).div(c.totalUg), 2)).toBe("8,29 %");
+    expect(formatPercent(partOf(DILUENTS.dpg.key).div(c.totalUg), 2)).toBe("8.29 %");
     // The notebook says 63,67 % because it rounded the alcohol to 5,568 g before
     // dividing. The exact mass is 5,5685 g: 5,060 g poured plus the alcohol of the
     // three dilutions in alcohol (0,234 + 0,1476 + 0,1269 g). Divided exactly, 63,68 %.
     expect(partOf(DILUENTS.alcohol.key).eq(Ratio.of(5_568_500))).toBe(true);
-    expect(formatPercent(partOf(DILUENTS.alcohol.key).div(c.totalUg), 2)).toBe("63,68 %");
+    expect(formatPercent(partOf(DILUENTS.alcohol.key).div(c.totalUg), 2)).toBe("63.68 %");
   });
 
   it("scaled ×3 and back to ×1/3 by reweighing, returns to the original to the microgram", () => {

@@ -3,7 +3,6 @@ import { texts } from "./texts";
 import type { DocRef, Provenance } from "./data/provenance";
 
 const t = texts.provenance;
-const comma = (value: string) => value.replace(".", ",");
 
 function Doc(props: { document: DocRef | null }) {
   const { document } = props;
@@ -52,7 +51,7 @@ export function ProvenanceButton(props: { provenance: Provenance | undefined }) 
                 {f.cas && <span className="num cas"> {f.cas}</span>}
               </span>
               <span className="num prov-value" title={`${t.from[f.from]}: ${t.base[f.base]}`}>
-                {comma(f.value)}
+                {f.value}
               </span>
               <span className="prov-auth">
                 {t.authority[f.authority as keyof typeof t.authority] ?? f.authority}
@@ -78,7 +77,7 @@ export function ProvenanceButton(props: { provenance: Provenance | undefined }) 
           {provenance.ceilings.length > 0 && <div className="prov-section">{t.ceiling}</div>}
           {provenance.ceilings.map((c, i) => (
             <div className="prov-row" key={i}>
-              <span className="prov-what">{t.ceilingText(c.maker, c.category, comma(c.maxPct))}</span>
+              <span className="prov-what">{t.ceilingText(c.maker, c.category, c.maxPct)}</span>
               <Doc document={c.document} />
               <span className="muted tiny">{t.ceilingNote}</span>
             </div>

@@ -97,10 +97,10 @@ const row = (s: Sheet, section: string, label: string) => s.sections.find((x) =>
 
 describe("numbers for people", () => {
   it("comma decimals, no trailing zeros, and a small value never shows as zero (§1.2)", () => {
-    expect(percent(pct("0.3"))).toBe("0,3 %");
-    expect(percent(pct("1.6"))).toBe("1,6 %");
+    expect(percent(pct("0.3"))).toBe("0.3 %");
+    expect(percent(pct("1.6"))).toBe("1.6 %");
     // Rounded to its first figure: 0,0000082 % shows as 0,00001 %, not as 0.
-    expect(percent(pct("0.0000082"))).toBe("0,00001 %");
+    expect(percent(pct("0.0000082"))).toBe("0.00001 %");
     expect(decimal(Ratio.of(400n), 1)).toBe("400");
   });
 });
@@ -114,7 +114,7 @@ describe("the sheet of a common material (6.2)", () => {
 
   it("each value; what nobody says is null, never empty or zero", () => {
     expect(row(s, "identity", "INCI").text).toBe("COUMARIN");
-    expect(row(s, "physical", "Density").text).toBe("0,935 g/ml");
+    expect(row(s, "physical", "Density").text).toBe("0.935 g/ml");
     expect(row(s, "identity", "Species").text).toBeNull();
     // A role in words, not its code.
     expect(row(s, "smell", "Role").text).toBe(texts.sheet.roles.fixative);
@@ -149,13 +149,13 @@ describe("the sheet of a common material (6.2)", () => {
     expect(table.rows).toHaveLength(1);
     expect(table.rows[0][0]).toBe("STD 051 Coumarin");
     expect(table.rows[0][1]).toBe("100 %");
-    expect(table.rows[0][2]).toMatch(/^1,6 % of the finished product/);
+    expect(table.rows[0][2]).toMatch(/^1.6 % of the finished product/);
   });
 
   it("its doses, one line each with their base; who says them, under their mark in «Sources» (V3-86)", () => {
     // One line each, not a table of eight columns (the user, 2026-10-30: legibility).
     const doses = s.sections.find((x) => x.key === "doses")!.lines!;
-    expect(doses.map((x) => x.text)).toEqual(["0,5 % – 10 % of the concentrate"]);
+    expect(doses.map((x) => x.text)).toEqual(["0.5 % – 10 % of the concentrate"]);
     expect(s.sources[doses[0].marks[0] - 1]).toMatchObject({ text: "Arctander", authority: "literature", disputed: false });
   });
 

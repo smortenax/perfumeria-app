@@ -381,7 +381,7 @@ export function sheetOf(catalog: Catalog, layer: IfraLayer, ifra: IfraData, id: 
     chain.flatMap((m) => get(m).map((item) => ({ text: yours(m) ? `${text(item)} (${t.yours})` : text(item), marks: [cite({ ...source(item), yours: yours(m) })] })));
   const listSection = (key: SheetSection["key"], rows: SheetRow[], lines: SheetLine[]): SheetSection => ({ ...section(key, rows), lines, empty: t.noRows });
 
-  // A dose as it reads: «0,5 % – 10 % of the concentrate, typically 5 %».
+  // A dose as it reads: «0.5 % – 10 % of the concentrate, typically 5 %».
   const doseText = (d: CatalogMaterial["doses"][number]) => {
     const range = d.min && d.max ? t.amount.range(percent(d.min), percent(d.max)) : d.max ? t.amount.max(percent(d.max)) : d.min ? t.atLeast(percent(d.min)) : null;
     const typical = d.typical ? (range ? t.typically(percent(d.typical)) : percent(d.typical)) : null;
