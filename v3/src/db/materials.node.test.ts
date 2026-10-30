@@ -235,7 +235,7 @@ describe("plan v3, step 6.4: your version of a common material", () => {
     // Each dose's source, in «Sources» under its mark (V3-86).
     const doses = sheet.sections.find((x) => x.key === "doses")!.lines!;
     expect(doses.map((x) => x.text)).toEqual(["≤ 10 % of the concentrate (yours)", "5 % of the concentrate"]);
-    expect(doses.map((x) => sheet.sources[x.mark! - 1]).map((s) => [s.text, s.yours])).toEqual([["ficha de Maese Lab", true], ["Arctander", false]]);
+    expect(doses.map((x) => sheet.sources[x.marks[0] - 1]).map((s) => [s.text, s.yours])).toEqual([["ficha de Maese Lab", true], ["Arctander", false]]);
 
     // Both show, in one row: yours first.
     const rows = search(indexCatalog(catalog), "lavanda");

@@ -601,7 +601,7 @@
   border-bottom: 1px solid var(--border-subtle);
 }
 .sheet-lines li > .clamp-wrap {
-  flex: 1 1 auto;
+  flex: 0 1 auto;
 }
 
 /* A figure's mark: a small number that opens «Sources» at its line (V3-86). */

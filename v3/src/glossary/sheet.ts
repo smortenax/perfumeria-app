@@ -36,10 +36,10 @@ export interface SheetValue {
   readonly items?: readonly SheetLine[];
 }
 
-/** One line of a list (a dose, a descriptor, a perfume) or one item of a row, with its source's mark (V3-86). */
+/** One line of a list (a dose, a descriptor, a perfume) or one item of a row, with its sources' marks (V3-86). */
 export interface SheetLine {
   readonly text: string;
-  readonly mark?: number;
+  readonly marks: readonly number[];
 }
 
 export interface SheetRow {
@@ -378,7 +378,7 @@ export function sheetOf(catalog: Catalog, layer: IfraLayer, ifra: IfraData, id: 
   // ------------------------------------------------------------ the lists, one line each (the user, 2026-10-30)
   /** A list along the chain, one line per item, the version's marked as yours, each with its source's mark. */
   const linesOf = <T>(get: (m: CatalogMaterial) => readonly T[], text: (item: T) => string, source: (item: T) => Omit<SheetSource, "mark" | "yours">): SheetLine[] =>
-    chain.flatMap((m) => get(m).map((item) => ({ text: yours(m) ? `${text(item)} (${t.yours})` : text(item), mark: cite({ ...source(item), yours: yours(m) }) })));
+    chain.flatMap((m) => get(m).map((item) => ({ text: yours(m) ? `${text(item)} (${t.yours})` : text(item), marks: [cite({ ...source(item), yours: yours(m) })] })));
   const listSection = (key: SheetSection["key"], rows: SheetRow[], lines: SheetLine[]): SheetSection => ({ ...section(key, rows), lines, empty: t.noRows });
 
   // A dose as it reads: «0,5 % – 10 % of the concentrate, typically 5 %».
@@ -395,13 +395,17 @@ export function sheetOf(catalog: Catalog, layer: IfraLayer, ifra: IfraData, id: 
     ...(d.notes ? { note: d.notes } : {}),
   })));
   const descriptors = listSection("descriptors", [], linesOf((m) => m.descriptors, (d) => d.text, (d) => ({ what: clip(d.text), text: d.source })));
-  // What it goes with, one row per kind: «Blends with: chypre, lemon, fougère» (the user, 2026-10-30); a note goes with its source.
+  // What it goes with, one row per kind: «Blends with: chypre, lemon, fougère» (the user, 2026-10-30), each
+  // name once, with the marks of every source that says it; a note goes with its source.
   const otherOf = (r: CatalogMaterial["relations"][number]) => (r.otherId ? (catalog.materials.get(r.otherId)?.name ?? r.otherText ?? "") : (r.otherText ?? ""));
   const relationItems = new Map<CatalogMaterial["relations"][number]["kind"], SheetLine[]>();
   for (const m of chain) {
     for (const r of m.relations) {
-      const item = { text: yours(m) ? `${otherOf(r)} (${t.yours})` : otherOf(r), mark: cite({ what: `${t.relationKind[r.kind]} ${otherOf(r)}`, text: r.sources ?? null, yours: yours(m), ...(r.note ? { note: r.note } : {}) }) };
-      relationItems.set(r.kind, [...(relationItems.get(r.kind) ?? []), item]);
+      const mark = cite({ what: `${t.relationKind[r.kind]} ${otherOf(r)}`, text: r.sources ?? null, yours: yours(m), ...(r.note ? { note: r.note } : {}) });
+      const text = yours(m) ? `${otherOf(r)} (${t.yours})` : otherOf(r);
+      const items = relationItems.get(r.kind) ?? [];
+      const same = items.findIndex((x) => x.text.trim().toLowerCase() === text.trim().toLowerCase());
+      relationItems.set(r.kind, same < 0 ? [...items, { text, marks: [mark] }] : items.map((x, i) => (i === same ? { ...x, marks: [...x.marks, mark] } : x)));
     }
   }
   const relations = listSection(

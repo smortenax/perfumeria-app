@@ -150,7 +150,7 @@ export function MaterialSheet({
                   {section.lines.map((line, i) => (
                     <li key={i}>
                       <Clamp>{line.text}</Clamp>
-                      {line.mark && markOf(line.mark)}
+                      {line.marks.map(markOf)}
                     </li>
                   ))}
                 </ul>
@@ -255,9 +255,15 @@ function Clamp({ children }: { children: ReactNode }) {
     if (!line || open) return;
     const measure = () => setMore(line.scrollHeight > line.clientHeight + 1 || line.scrollWidth > line.clientWidth + 1);
     measure();
+    // Again when its box changes, and when the fonts arrive: the text widens, the box does not.
     const watch = new ResizeObserver(measure);
     watch.observe(line);
-    return () => watch.disconnect();
+    document.fonts?.addEventListener("loadingdone", measure);
+    void document.fonts?.ready.then(measure);
+    return () => {
+      watch.disconnect();
+      document.fonts?.removeEventListener("loadingdone", measure);
+    };
   }, [open]);
   return (
     <span className="clamp-wrap">
@@ -281,7 +287,7 @@ function Items({ items, markOf }: { items: readonly SheetLine[]; markOf: (mark: 
         <span key={i}>
           {i > 0 && ", "}
           {item.text}
-          {item.mark && markOf(item.mark)}
+          {item.marks.map(markOf)}
         </span>
       ))}
     </Clamp>

@@ -156,7 +156,7 @@ describe("the sheet of a common material (6.2)", () => {
     // One line each, not a table of eight columns (the user, 2026-10-30: legibility).
     const doses = s.sections.find((x) => x.key === "doses")!.lines!;
     expect(doses.map((x) => x.text)).toEqual(["0,5 % – 10 % of the concentrate"]);
-    expect(s.sources[doses[0].mark! - 1]).toMatchObject({ text: "Arctander", authority: "literature", disputed: false });
+    expect(s.sources[doses[0].marks[0] - 1]).toMatchObject({ text: "Arctander", authority: "literature", disputed: false });
   });
 
   it("what it goes with, one row per kind: «Blends with: chypre, lemon» (the user, 2026-10-30)", () => {
@@ -164,6 +164,7 @@ describe("the sheet of a common material (6.2)", () => {
       relations: [
         { id: "r1", kind: "combines", otherId: null, otherText: "chypre", note: null, sources: "Fraterworks" },
         { id: "r2", kind: "combines", otherId: null, otherText: "lemon", note: "fresh opening", sources: "Eden Botanicals" },
+        { id: "r4", kind: "combines", otherId: null, otherText: "Chypre", note: null, sources: "Darren Alan" },
         { id: "r3", kind: "substitute", otherId: "cou", otherText: null, note: null, sources: null },
       ],
     });
@@ -172,7 +173,9 @@ describe("the sheet of a common material (6.2)", () => {
     const rows = r.sections.find((x) => x.key === "relations")!.rows;
     expect(rows.map((x) => [x.label, x.value.text])).toEqual([["Blends with", "chypre, lemon"], ["Substitutes", "Cumarina"]]);
     // The note goes with its source.
-    expect(r.sources[rows[0].value.items![1].mark! - 1]).toMatchObject({ text: "Eden Botanicals", note: "fresh opening" });
+    expect(r.sources[rows[0].value.items![1].marks[0] - 1]).toMatchObject({ text: "Eden Botanicals", note: "fresh opening" });
+    // A name said by two sources, once, with both marks.
+    expect(rows[0].value.items![0].marks.map((m) => r.sources[m - 1].text)).toEqual(["Fraterworks", "Darren Alan"]);
   });
 
   it("the sources, at the end in the order the sheet reads; each figure with its mark (V3-86)", () => {
