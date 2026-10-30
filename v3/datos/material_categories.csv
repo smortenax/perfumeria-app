@@ -14,9 +14,11 @@ id,name,aliases
 19c3a9c0-1489-5ec3-8a5c-bb40d596b480,Cilantro,[]
 1ad50386-ea77-5730-b59f-056abdb9e05e,"Oakmoss, absolute","[""Musgo de roble, absoluto""]"
 1b8de9f4-9bec-53a3-a284-80a73cacc146,Calone,[]
+1be7781b-c51c-5466-aa1b-d0d04b09279e,Magnolan,[]
 1e32a19b-5839-5648-8d34-70eb6759da97,Ethanol,"[""Etanol""]"
 1f5964c2-8182-5075-846a-dab2b1de6b8b,Heliotropin,"[""Heliotropina""]"
 1fd9bb50-10a2-5765-8925-802df027dbda,Patchouli,[]
+217aef95-132f-501d-945a-3b49da2d4b88,Manzanate,[]
 220ec870-c93c-5262-b685-de14d6ef4bf0,Vetiver,[]
 232b8524-4d4a-5527-bbab-9eee56c9f14d,"Hyraceum (Africa stone), absolute","[""Hyraceum (piedra de África), absoluto""]"
 2560aa52-08ab-588f-ad3d-f7657d600f75,"Opopanax, essential oil","[""Opopónax, aceite esencial""]"
@@ -57,6 +59,8 @@ id,name,aliases
 4e85200e-eb55-59a0-84a7-389569d9cd54,Mayol,[]
 4edcf9fa-0706-56da-97d1-4bf3f6a93249,Phenylethyl alcohol,"[""Alcohol Feniletílico""]"
 4ee3f909-4365-5b42-890f-729844975142,Dewfruit TEC,[]
+4f30d341-df98-5e01-8ad2-ff92f4a121fb,Benzyl salicylate,[]
+513bbb89-8d8a-5eb0-8e3d-e618448f3dac,Aurantiol,[]
 5261cac1-1608-501d-8638-4e81cf63db2b,Thialdine,[]
 5353eb28-5347-50e7-8247-9bd96779215a,Benzyl benzoate,"[""Benzoato de bencilo""]"
 55decd07-6f9e-54ec-936b-acd118433018,Suederal,[]
@@ -70,6 +74,7 @@ id,name,aliases
 5b82e5da-7f72-55bc-b919-160128712874,1-Octen-3-one Stabilised,[]
 65f5c31c-7485-5f43-aa03-43c769f432ef,"Tonka bean (seeds), commercial tincture","[""Haba tonka (semillas), tintura comercial""]"
 6685c0dc-9e7f-5aae-85a8-0b177d9f7fb4,Eucalyptol,"[""Eucaliptol""]"
+6b23804c-3874-5057-9b36-386859922926,Raspberry ketone,[]
 704deb18-1e5a-5e19-a70e-b6eab109d8a4,Synthetic castoreum,"[""Castóreo sintético""]"
 71342ad5-392e-5fc5-bab1-c6d7c367a7f0,Hydroxycitronellal (Cyclosia),"[""Hidroxicitronelal (Cyclosia)""]"
 750d3a9b-12de-5667-975a-03a45b02053e,"Cocoa, absolute","[""Cacao, absoluto""]"
@@ -106,14 +111,18 @@ acf52285-f363-5f2e-a6e7-cd85eecfcdd3,Geraniol 98%,[]
 af3aa44b-94c1-57cd-9152-d5a462312d59,Vinyl Sulfurol,[]
 af9b1b5a-5c39-5606-9ac7-ea847a72c301,Narcisse Oxyacetate,[]
 b123c349-7383-5cb0-a2da-ec618d049511,Florosa,[]
+b21763f1-73c2-5629-ab27-2c67800d56dc,Aldehyde C12 lauric (dodecanal),[]
 b27df845-f041-5cd2-a525-9bb13390158e,"Frankincense (Boswellia sacra), essential oil","[""Olíbano (Boswellia sacra), aceite esencial""]"
+b3eeeff8-9963-5e58-8ba0-bc27c6284d38,Amyl salicylate,[]
 b51be3b9-e46b-535b-962d-db3ce59ebe2b,Aldehyde C11 MOA,"[""Aldehído C11 MOA""]"
+b636229b-ce1c-5f93-a424-4a400615378a,Javanol,[]
 b733c04c-e7f2-5d02-b596-3d19441bcf91,Cassis Base 345 B,[]
 b91bfee8-d99f-59d7-8f7d-81417c950328,2-Hydroxybenzaldehyde,"[""2-Hidroxibenzaldehído""]"
 bb74755f-42c0-543a-9f6d-7a19210f4cea,Isobutylquinoline (IBQ),"[""Isobutilquinoleína (IBQ)""]"
 bcd55148-45a5-555d-81e8-ef0d856bc758,Vertenex (PTBCHA),[]
 bce2b4d7-5c59-585d-9016-98b1de87aa16,Hedione,[]
 be375425-01e0-5092-9e35-80657235dee1,Phenylethyl Mercaptan,[]
+bf776937-893c-5fda-baba-5ef90218805f,Phenethyl acetate,[]
 c14d9893-826c-5b37-a585-5a9e442a86ca,Prunella,[]
 c1fc1f37-eaba-5eb4-a3b3-29c3dc928844,Mandarin,"[""Mandarina""]"
 c59258da-242c-5df6-a54e-e73b52808b42,"Myrrh, essential oil","[""Mirra, aceite esencial""]"
@@ -135,6 +144,7 @@ dd7b1cd6-d042-5213-90f0-14684c8f237a,Helional,[]
 e591023e-8e57-58fc-94ab-48edef81a325,cis-3-Hexenol,[]
 e796fe45-66c6-5188-ae1b-9433277f4ea4,Luminide,[]
 e7b18e85-6bdb-583a-b098-4b801583d961,Benzoin resinoid,"[""Resinoide de benjuí""]"
+ea466d73-83e0-5982-a65f-d2599a8b62d1,Boisambrene Forte,[]
 ee5d32d2-2408-51fb-ada8-a099f1ed08e5,Methyl anthranilate,"[""Antranilato de metilo""]"
 efdfd157-51e1-585b-9e1e-354deb4c4edb,Paradisamide,[]
 f02443f9-1d92-536c-a94f-1834d1b87b0c,"Tolu balsam, resinoid","[""Bálsamo de Tolú, resinoide""]"
