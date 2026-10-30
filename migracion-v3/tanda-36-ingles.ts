@@ -69,6 +69,8 @@ const english = new Map<string, string>();
 const problems: string[] = [];
 const spanishLeft: { key: string; en: string }[] = [];
 const decimalComma: { key: string; en: string }[] = [];
+/** English runs a little shorter than Spanish; much shorter, and something may have been dropped. */
+const shorter: { key: string; es: number; en: number }[] = [];
 const seen = new Set<string>();
 for (const file of files("traducido")) {
   for (const b of blocks(readFileSync(join(DIR, "traducido", file), "utf8"))) {
@@ -95,6 +97,7 @@ for (const file of files("traducido")) {
     if (digits(es) !== digits(en)) problems.push(`${key}: los números no son los mismos («${digits(es)}» frente a «${digits(en)}»)`);
     if (SPANISH_LEFT.test(outsideQuotes(en))) spanishLeft.push({ key, en });
     if (DECIMAL_COMMA.test(outsideQuotes(en))) decimalComma.push({ key, en });
+    if (es.length > 200 && en.length < 0.7 * es.length) shorter.push({ key, es: es.length, en: en.length });
     if (en !== es) english.set(es, en);
   }
 }
@@ -296,11 +299,13 @@ ${spanishLeft.length === 0 ? "Ningún texto traducido conserva, fuera de las cit
 
 ${decimalComma.length === 0 ? "Ningún número con coma decimal fuera de las citas." : `${decimalComma.length} textos conservan, fuera de las citas, algo que parece una coma decimal:\n\n${decimalComma.map((x) => `- \`${x.key}\`: ${cell(x.en).slice(0, 160)}`).join("\n")}`}
 
+${shorter.length === 0 ? "Ningún texto largo queda mucho más corto en inglés (menos del 70 %)." : `${shorter.length} textos largos quedan mucho más cortos en inglés (menos del 70 %), revisados uno a uno:\n\n${shorter.map((x) => `- \`${x.key}\`: ${x.es} → ${x.en} caracteres`).join("\n")}`}
+
 Tablas que escribe: ${written.map((w) => `\`${w}.csv\``).join(", ")}.
 `,
   "utf8",
 );
 console.log(
   `Tanda 36: ${english.size} textos cambian (${total} celdas); ${materialsRenamed.length} materiales cambian de nombre; ${newRules.length} reglas y ${newExclusions.length} exclusiones de IFRA en inglés; ` +
-    `IFRA igual en ${ifraChecked} estándares de comunes y ${annexChecked} entradas del anexo. Para mirar: ${spanishLeft.length} con algo de español, ${decimalComma.length} con coma decimal. ${OUT}/informe.md`,
+    `IFRA igual en ${ifraChecked} estándares de comunes y ${annexChecked} entradas del anexo. Para mirar: ${spanishLeft.length} con algo de español, ${decimalComma.length} con coma decimal, ${shorter.length} mucho más cortos. ${OUT}/informe.md`,
 );
