@@ -1367,3 +1367,14 @@ details.unstated[open] dl {
 .macerating-item .note-check {
   align-self: flex-start;
 }
+
+/* A chip never spills out of its card (2026-10-30): it shortens, and says the rest on hover. */
+.bottle-card {
+  min-width: 0;
+}
+.bottle-chip {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

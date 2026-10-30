@@ -13,7 +13,7 @@ import { coloursOf } from "../families/palette";
 import { orbLookOf, orbScalesOf, seedOf } from "../glossary/orb/fromCatalog";
 import { MaterialOrb } from "../glossary/orb/MaterialOrb";
 import { DilutionPopup } from "./DilutionPopup";
-import { cardsOf } from "./grid";
+import { cardsOf, nominalPercent, shortName } from "./grid";
 import { NewDilution } from "./NewDilution";
 import "./dilutions.css";
 import { EmptyState } from "../EmptyState";
@@ -37,10 +37,10 @@ export function percentOf(text: string): Ratio | null {
   return Ratio.fromDecimal(clean).div(Ratio.of(100n));
 }
 
-/** How a bottle reads: «9.97 % in DPG», a name before it when it has one, or with several diluents «… in ethanol 30 % and DPG». */
+/** How a bottle reads: «10 % in DPG» (its strength as you know it; the exact figure, in its editor), a name before it when it has one, or with several diluents «… in ethanol 30 % and DPG». */
 export function bottleText(data: GlossaryData, d: Dilution): string {
-  const name = (id: string) => data.catalog.materials.get(id)?.name ?? "—";
-  const exact = percent(d.fraction, 4);
+  const name = (id: string) => shortName(data.catalog.materials.get(id));
+  const exact = nominalPercent(d.fraction, d.label);
   const diluents =
     d.diluents.length === 0
       ? d.solvent
@@ -174,7 +174,7 @@ function BottleList({
                     type="button"
                     className={`pill bottle-chip${d.archivedAt ? " archived" : ""}`}
                     aria-current={d.id === selected ? "true" : undefined}
-                    title={[d.label, d.madeOn, d.archivedAt ? t.archived : null].filter(Boolean).join(" · ")}
+                    title={[chipTitle(data, d), d.archivedAt ? t.archived : null].filter(Boolean).join(" · ")}
                     onClick={() => onOpen(d.id)}
                   >
                     {chipText(data, d)}
@@ -189,11 +189,19 @@ function BottleList({
   );
 }
 
-/** A chip of the grid: «10 % in DPG», «40 % in DPG + Ethanol» (no chip for pure, V3-79). */
+/** A chip of the grid: «10 % in DPG», «40 % in DPG + Ethanol» (no chip for pure, V3-79): its strength as you know it, the diluents by their short name. */
 export function chipText(data: GlossaryData, d: Dilution): string {
+  const name = (id: string) => shortName(data.catalog.materials.get(id));
+  const diluents = d.diluents.length > 0 ? d.diluents.map((x) => name(x.diluentId)).join(" + ") : d.solvent;
+  const pct = nominalPercent(d.fraction, d.label);
+  return diluents ? t.chip(pct, diluents) : pct;
+}
+
+/** What a chip says on hover: the exact figure and the diluents' full names. */
+export function chipTitle(data: GlossaryData, d: Dilution): string {
   const name = (id: string) => data.catalog.materials.get(id)?.name ?? "—";
   const diluents = d.diluents.length > 0 ? d.diluents.map((x) => name(x.diluentId)).join(" + ") : d.solvent;
-  return diluents ? t.chip(percent(d.fraction, 2), diluents) : percent(d.fraction, 2);
+  return [t.chip(percent(d.fraction, 4), diluents ?? "—"), d.label, d.madeOn].filter(Boolean).join(" · ");
 }
 
 interface Row {
