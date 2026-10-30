@@ -1,0 +1,494 @@
+@@ 8b7ace8b3e
+ScenTree: used in vanilla reconstitutions, oriental perfumes and gourmand notes, and to give a sweet, milky effect to fruity, floral, spicy or woody compositions.
+@@ 627240ec7f
+ScenTree: useful in orientals, chypres and leather; gives strength, power and tenacity; blends with certain flowers such as tuberose absolute.
+@@ c9a3b465f3
+Scentspiracy: «bridge molecule» that «harmonizes musk softness with woody structure»; gives volume and warmth in feminine and masculine fragrances. Perfumer's Apprentice: «Useful in creating spicy carnation florals, amber musk notes and wood accords».
+@@ 8e960f424d
+Scentspiracy: «persistent drydown impact». Via search engine: valued as a fixative; a supplier warns that it can dominate compositions and leave them flat or dull if not balanced, and a cited perfumery reference speaks of a marked odour-depressant effect.
+@@ 693737045b
+Scentspiracy: «the benchmark quality for vetiver in perfumery». Fraterworks: uses it in woody, chypre, fougère and oriental compositions. A supplier (via search engine) says it is a fixative and signature note in chypres, fougères, amber and aldehydic bases.
+@@ 0f036c826d
+Scentspiracy: leather and birch accords, fougères, tobacco/smoky/incense themes, fireplace, and traces in amber and woody-animalic. Fraterworks: leather, smoky fougères, incense, tobacco, woody-animalic effects.
+@@ b9e38eb4c7
+Scentspiracy: adds volume and diffusion, supports fixation and rounds off fruity and floral accords without dominating the top and heart notes. Givaudan: volume and elegance in woody accords.
+@@ 0eac9975b5
+Scentspiracy: gives volume rather than fixation. Pell Wall (cites Arctander): it is almost always the largest component in jasmine and gardenia fragrances; its weakness is tenacity and it is corrected by combining it with higher esters of benzyl alcohol and with fixatives. ScenTree: used in floral reconstructions, above all jasmine, ylang-ylang and monoï.
+@@ cc36d0ebce
+Scentspiracy: transition fixative that softens sharp herbal top notes and prolongs sweetness into the base.
+@@ 10fed5e997
+Scentspiracy: fixative that anchors citrus, aromatics and florals and gives woody-amber warmth and radiance; low-volatility base note.
+@@ 2e05a5761a
+Scentspiracy: persistence and ambery warmth; historically used to replace castoreum and civet; useful in leather and fougère with birch tar, castoreum, lavender and coumarin. ScenTree: orientals, amber, spicy and chypre; accompanies flowers in small amounts to enhance them. Eden Botanicals (via search engine): excellent fixative value.
+@@ 137cde5a93
+Scentspiracy: heart note with gentle fixative action. ScenTree: used in raspberry notes and floral notes of violet, orris root, rose or carnation, giving a floral-fruity and dusty facet; more violet-floral and sweeter than the beta, which is woodier.
+@@ 20b251331e
+Scentspiracy: top to heart note; linalool gives top-note behaviour and the floral-balsamic facet gives heart. Eden Botanicals: in perfumery it adds a masculine note; top note, heart note and fixative.
+@@ 813c0a4aa4
+Scentspiracy: middle note with base persistence; bridges top and heart and acts as a fixative; above ~0.2 % it can overwhelm the blend with an oily heaviness. Fraterworks: at 1 % dilution it gives a soft, gourmand effect, and at higher doses the peach character clearly appears.
+@@ 8850dc9d3b
+Scentspiracy: above ~5 % it can mask delicate floral tea facets; compatible with esters, alcohols, aldehydes, lactones and nitriles. IFF positions the DEP version as a fixative that lengthens duration, and the IPM version as improving absorption and performance in cosmetics (via search engine).
+@@ 33551c3563
+Scentspiracy: enhances the fruity top and is a long-lasting base material; creates realistic coconut accords, gives creaminess to white florals, reinforces tropical and gourmand compositions and acts as a fixative. In excessive doses it becomes cloying and heavy (lactonic).
+@@ d9fa5a643d
+Scentspiracy: presented as an alternative to traditional saffron and birch tar materials; «middle to base note contributor».
+@@ d5809d7c73
+Scentspiracy: easy to overdose, «can dominate compositions»; it cites it alongside galbanum oil in Vent Vert. A search-engine snippet: gives lift to floral and fruity notes.
+@@ 1fb43aed9c
+Symrise: top-note booster; shines in fresh and citrus accords, above all orange-type; reinforces a tenacious clean-laundry freshness, especially in laundry care; useful in marine notes. ScenTree: used in coriander leaf notes, sparkling liqueurs, eaux fraîches and «zesty» notes, giving an agrestic background.
+@@ d7edc3e6ea
+A search-engine summary (unidentified perfumery source, about tonka bean in general) says that depending on the amount the aroma goes from sweet almond to tobacco or green grass, that it has good fixative properties and that it is widely used in fougère and gourmand.
+@@ 03f0a618e8
+Wikipedia: Wikipedia: natural green base note; used in green chypre, green floral, conifer chypre, woody fougère and aquatic fougère; origin of the 'Green' family (Vent Vert, 1945) · TGSC: Firmenich (in TGSC): enters into the composition of many perfumes because of its power to fix odor and enhance longlastingness
+@@ 274dc4b5c3
+≤10 % in DPG («Best used diluted in DPG or as part of a pre-dosed base», Scentspiracy). Fraterworks: do not apply to the skin undiluted. · TGSC: Smell in a 1.00 % solution or less (TGSC does not state the solvent; Luebke's odour evaluation is at 1.00 % in DPG)
+@@ 9a548352de
+1% in DPG (or neat at 100%)
+@@ 882eec4dcd
+10% (usual dilution)
+@@ ba4533bb51
+10% (usual dilution); sold at 50% in TEC or neat
+@@ 5b45558b91
+10% in IPM or DPG before use (Bio Shop)
+@@ b72a804a39
+10% or 1% (Fraterworks); 10% in DEP for beginners (Scentspiracy)
+@@ 3f0f83e831
+10% or 50% (usual dilutions); Scentspiracy: use up to 5%
+@@ e26138380e
+25% in DPG or 96% alcohol (Hekserij); 10% or 20% in ethanol, DPG or DEP (Scent.vn)
+@@ e53c9522fc
+Eden Botanicals: «Dilute before using», add drop by drop. A supplier (via search engine) recommends diluting to 20 % in vegetable oil for use on the skin.
+@@ cf01c643f7
+Eden Botanicals: dilute before use and add drop by drop.
+@@ 0f0ed064c2
+Fraterworks (snippet): at 1 % dilution it gives a soft, gourmand effect.
+@@ 56f4fbd1b5
+Fraterworks: dilute in alcohol (ethanol, phenylethyl alcohol or benzyl alcohol) as soon as it is received; mature in alcohol for a week before evaluating; do not apply neat to the skin. Pell Wall: if working with 10 % dilutions, try 1 % or even 0.1 %. · TGSC: recommend smelling in a 1.00 % solution or less
+@@ 1272bcaaff
+Fraterworks: do not apply to the skin undiluted.
+@@ b1298460b9
+Fraterworks: do not apply to the skin undiluted. · TGSC: Only on the generic sheet 8016-36-2 (another CAS): smell in a 10.00 % solution or less (Luebke's description is «at 10.00 % in dipropylene glycol»)
+@@ 871d263cb1
+Fraterworks: do not apply to the skin undiluted. No percentage or solvent recommended for smelling. Scentspiracy (Vulcain): compatible with DPG, IPM and isopropyl myristate and good in ethanol bases; «Solubility should be tested in finished product».
+@@ 3ddd5ba2f9
+Fraterworks: do not apply it to the skin undiluted («not to be applied to the skin undiluted»). No percentage or solvent recommended.
+@@ 4770e45e20
+Fraterworks: no dilution level is given; its products are not applied to the skin undiluted.
+@@ b6256b4ed0
+Fraterworks: offers 100 %, 10 % and 50 % in natural TEC. No working dilution recommended by any sheet.
+@@ c4dc051da9
+Fraterworks: sold at 20 % in DPG (formerly 50 %) because it is restricted; the neat one only with an import licence. PCW at 50 % in DPG or 50 % in TEC (ScenTree). No source recommends a use percentage other than that.
+@@ a641194773
+Hekserij: «undiluted use is usual» in perfume compositions; «Do not use undiluted on the skin».
+@@ a1b454bf3d
+Hekserij: smelling undiluted is usual in aroma work, but do not apply it neat to the skin. Fraterworks: do not apply to the skin undiluted.
+@@ 1e1dc408a9
+Hermitage Oils: the neat material is solid and needs «quite a lot of time and heat» to liquefy. · TGSC: Smelling in a 10.00 % solution or less (Luebke's description is «at 10.00 % in diethyl phthalate»)
+@@ d777809d92
+Knowde: smell at 10 % or less. Perfumers World: «Delute With 10% Benzyl Or Phenethyl Alcohol For Best Topnotes». Shops sell dilutions at 50 % in DPG (Fraterworks), 50 % in benzyl benzoate (Perfumer's Apprentice) and 10 % in DPG or TEC (Perfumers World). · TGSC: recommend smelling in a 10.00 % solution or less
+@@ 5a9b5f6e37
+The tincture already comes in 96° alcohol (drug/alcohol ratio not declared).
+@@ e6f9a23fd7
+Maese Lab: Always dilute in a medium according to treatment (topical use in carrier oils; refers to aromatherapy)
+@@ 3bbd27a559
+None of the sheets read states it. Also offered at 50 % in IPM (use 0.5–10 %) and at 10 % in IPM (via search engine). · TGSC: Smell in a 10.00 % solution or less (TGSC does not state the solvent; Luebke's odour evaluation is at 10 % in DPG)
+@@ 439e43cbd2
+No sheet declares it. A review on Fraterworks uses it at 5 % in small quantities (anecdotal). · TGSC: Smelling in a 1.00 % solution or less (Luebke's description is «at 1.00 % in dipropylene glycol»)
+@@ 1434e2034b
+No sheet states it. Eden Botanicals: dilute before use and add drop by drop. Fraterworks: do not apply to the skin undiluted.
+@@ 5c2ff85dbb
+No sheet recommends it. Hekserij: «undiluted use is usual» but «Do not use undiluted on the skin».
+@@ b3185af2cf
+No sheet recommends any other working dilution.
+@@ de8b9c1b39
+No source gives a dilution for smelling. Perfumer's Apprentice: «Please purchase the smallest size if you are unfamiliar with the scent». Fraterworks: do not apply to the skin undiluted.
+@@ 7fe9811054
+No source gives a percentage or solvent. Fraterworks: do not apply to the skin undiluted. Scentspiracy: «use aged samples to reduce potential top-note reactivity».
+@@ cd12f2bdd2
+No source gives a percentage or solvent. Fraterworks: do not apply to the skin undiluted. Scentspiracy: dilution is required for topical use. · TGSC: Smell in a 10.00 % solution or less (Luebke's description is «at 10.00 % in dipropylene glycol»)
+@@ 44368ea8f1
+No source gives a percentage. Fraterworks: do not apply to the skin undiluted.
+@@ 015486b7e4
+No source gives a percentage. Perfumer Supply House (reviews): one user uses it diluted and another warns that undiluted it can quickly become «very scented candle-like». Fraterworks: do not apply to the skin undiluted.
+@@ dc9fa2af23
+No source read gives an explicit recommendation. It is sold and evaluated at 1 % (Pell Wall: 1 % in TEC; ChemicalBook, via search engine: odour at 1 % in DPG: phenolic, castoreum, smoke, guaiacol). · TGSC: Smelling in a 1.00 % solution or less (Luebke's odour description is «at 1.00 % in dipropylene glycol»)
+@@ ee3d4fc697
+none: used neat
+@@ 9ac9443d9e
+It gives no other dilution recommendation.
+@@ ceaf6b34b8
+It gives no other recommendation. A supplier of aroma chemicals says it is used at very low doses in fine fragrance and air fresheners (no figure).
+@@ d4aa0ba4e3
+It does not recommend any other dilution. Fraterworks: do not apply to the skin undiluted.
+@@ a9d9ec3597
+Perfume Extract (snippet): smell at 10 % or less.
+@@ 4dc3b356de
+Perfume Extract (via search engine): smell as a 10 % solution or weaker. · TGSC: recommend smelling in a 10.00 % solution or less
+@@ 11e476bccf
+Perfume Extract (via search engine): try a 10 % solution or less.
+@@ c579a1baf3
+Perfume Extract: smell at 10 % or less.
+@@ b5c17a53e8
+Perfumer's Apprentice: it can be used neat or made into a dilution so as not to have to reheat it every time (no proportion given). Scentspiracy offers a 50 % dilution in DPG for precise dosing.
+@@ eec99403de
+Perfumer's World: use it in a 1 % or 10 % solution («a very powerful chemical!»; solvent not stated in that sentence; it also sells the 1 % in DPG). Pell Wall evaluates it at 0.1 % in TEC. · TGSC: Smell in a 0.10 % solution or less (TGSC does not state the solvent in that recommendation; the odour descriptions are made at 0.10 % in propylene glycol).
+@@ 8eddb7a631
+Perfumers World and Perfumer's Apprentice sell it at 10 % in TEC and 50 % in benzyl benzoate; Fraterworks only sells it neat («100% pure only»).
+@@ 9048828d37
+Perfumers World: «GUAIACOL IS BEST USED IN 1% DILUTION OR LESS. Make a 1% dilution of before using.» Scentfriends: ethanol or DPG; working solution at 1 %, and 0.1 % for smelling. · TGSC: recommend smelling in a 1.00 % solution or less
+@@ b356a329a1
+Perfumiarz: «Dilution before use is essential!» (no concentration or solvent). · TGSC: Smell in a 10.00 % solution or less (Luebke's description is at 10 % in dipropylene glycol).
+@@ a0d713d87a
+Perfumiarz: «it should be well diluted (e.g., to 1%)». A supplier (via search engine): smell at 10 % or less in solution. · TGSC: Smelling in a 10.00 % solution or less (Luebke's description is «at 10% in DPG»)
+@@ 36b6019c41
+Perfumiarz: «Optimal dilution is between 1-5%». Perfumer's Apprentice (via search engine): dissolve at 10 % in alcohol or propylene glycol with a little heat. Perfumer Supply House (via search engine): add 1–5 % to warm DPG and check that it does not crystallise on cooling («stubborn crystal, difficult to solubilize»). · TGSC: Smell in a 5.00 % solution or less (TGSC does not state the solvent; Luebke's odour evaluation is at 5.00 % in benzyl alcohol)
+@@ e3a084fb2a
+Rae Dunphy: thick and viscous, «requires warming before use».
+@@ e52e79f74a
+Scent.vn: pre-dilute to 10 % or 1 % in ethanol or DPG before composing; smells clean below 1 %. · TGSC: recommend smelling in a 1.00 % solution or less
+@@ da583ae073
+Scentfriends: working dilution at 10 % in ethanol, DPG or IPM; smell at 1 % (at 10 % it becomes harsh and aggressive); it is viscous, warm it a little before pipetting; evaluate after hours, not minutes. Fragrance University and a Basenotes user (via search engine): used at 10 %, start at 5 % or 2 % because it is potent. · TGSC: recommend smelling in a 10.00 % solution or less
+@@ 1ffceafe6e
+Scentfriends: working dilution at 10 % and at 1 % for smelling; it dissolves in ethanol (add it to the concentrate first), TEC, benzyl benzoate and IPM.
+@@ 972839b538
+Scentfriends: 10 % working solution in triethyl citrate (TEC) or benzyl benzoate; ethanol only if anhydrous. It does not tolerate water: in 96° alcohol it clouds within minutes and then separates into two phases. Mix it first with the perfume concentrate and add the alcohol afterwards. ScenTree: «Very insoluble in alcohol: brings a phase shift».
+@@ c3a685efe0
+Scentfriends: work with very dilute solutions, «usually 0.1 % or 0.01 %», in ethanol or DPG, with its own pipette. Pell Wall Perfumes (10 % product): «We recommend you dilute to 0.1% or even less for blending.» The John D. Walsh Company sells «Geosmin DPG (0.1%)»
+@@ 41f267b0c5
+Scentspiracy advises diluting it in ethanol or DPG soon after opening, only for storage stability; via search engine: being viscous and potent it is usually diluted in DPG or ethanol for better dosing. · TGSC: Smell in a 10.00 % solution or less (TGSC does not state the solvent; Luebke's odour evaluation is at 10.00 % in DPG)
+@@ 3685e9de82
+Scentspiracy sells it at 50 % in DPG. Via search engine: A forum user recommends a 10 % solution in ethanol; another supplier offers a 5 % for precise dosing.
+@@ 48d0a7fc35
+Scentspiracy: «50% in DPG is a common commercial dilution»; warm to 30–40 °C to pour and dose.
+@@ 64b8112467
+Scentspiracy: 1-10% in dipropylene glycol or isopropyl myristate · TGSC: 0.10 % or less
+@@ 5aad853252
+Scentspiracy: 10% (usual; pre-dissolve in DPG or IPM because it is crystalline) · TGSC: 10 % or less
+@@ 531d1bae61
+Scentspiracy: evaluate at 10 % or less. A search-engine listing suggests 1 % as a working solution. · TGSC: Smelling in a 10.00 % solution or less (Luebke's description and the substantivity are «at 10.00 % in dipropylene glycol»)
+@@ 5475627133
+Scentspiracy: evaluate it at 10 %. Esans: «For beginners, a 10% or 20% stock is the most practical»; above 50 % the crystal «may reprecipitate on cooling». Via search engine: pre-dissolve, e.g. at 10 % in ethanol. · TGSC: Smell in a 10.00 % solution or less (TGSC does not state the solvent; the sheet's tenacity is measured at 10 % in DPG)
+@@ d631adeb22
+It does link SDS, IFRA and EU allergens). Essential Oils Pedia, topical use in aromatherapy: «Use only up to 0.25–0.5% dilution». · TGSC: Smelling in a 1.00 % solution or less (Luebke's description is «at 1.00 % in dipropylene glycol»)
+@@ 2a9ecebca1
+It only warns not to apply it directly to the skin.
+@@ e3fced6002
+TGSC: Smell in a 1.00 % solution or less (Luebke's description is at 1.00 % in dipropylene glycol).
+@@ a8ab5323ad
+TGSC: Smell in a 10.00 % solution or less (the sentence does not state the solvent; Luebke's description is at 10 % in DPG).
+@@ 7a11eb14d5
+TGSC: Smell in a 10.00 % solution or less (TGSC does not state the solvent; Luebke's odour evaluation is at 10 % in DPG)
+@@ 3edbd4257d
+TGSC: Smell in a 10.00 % solution or less (TGSC does not state the solvent; Luebke's odour evaluation is at 10.00 % in DPG). The Perfumers Apprentice (on the sheet): «dilute to 10%, green note»
+@@ b054aefc05
+TGSC: Smelling in a 10.00 % solution or less (Luebke's description is «10.00 % in dipropylene glycol»)
+@@ a18dc24b25
+TGSC: Smelling in a 10.00 % solution or less (Luebke's description is «at 10.00 % in dipropylene glycol»)
+@@ 3678991545
+TGSC: Smelling in a 10.00 % solution or less (Luebke's descriptions are «at 10.00 % in dipropylene glycol»)
+@@ b7ab00349b
+«0.0500 % in the fragrance concentrate.» Observed or recommended use, not an IFRA limit.
+@@ f47d67e043
+«0.8000 % in the fragrance concentrate.» Observed or recommended use, not an IFRA limit.
+@@ 546f5252b6
+«Minimum 0.02%» «median 0.25%» «maximum 10%» Observed or recommended use, not an IFRA limit.
+@@ 5a5f28ad6f
+«Minimum 0.03%» «median 0.8%» «maximum 1.5%» Observed or recommended use, not an IFRA limit.
+@@ 15f5e1014a
+«Minimum 0.04%» «median 0.438%» «maximum 0.8%» Observed or recommended use, not an IFRA limit. · disputed (batch 29): the Fraterworks page now gives other figures
+@@ f1bc6dfc1b
+«Minimum observed: 0.006%» «Median: 1%» «Maximum observed: 9.32%» Observed or recommended use, not an IFRA limit.
+@@ f4d8ca2e03
+«Minimum observed: 0.1%» «Median in formula: 0.15%» «Maximum observed: 0.2%» Observed or recommended use, not an IFRA limit. · disputed (batch 29): the Fraterworks page now gives other figures
+@@ c500bb5fb4
+«Minimum: 0.0018%» «Median: 0.0383%» «Maximum: 2.33%» Observed or recommended use, not an IFRA limit.
+@@ 590c982ef8
+«Minimum: 0.0111%» «Median: 0.315%» «Maximum: 2.8%» Observed or recommended use, not an IFRA limit.
+@@ 0d7202f59e
+«Minimum: 0.07%» «Median: 1.35%» «Maximum: 2%» Observed or recommended use, not an IFRA limit.
+@@ 8350deed12
+«observed use ranging from 0.0005% to 0.005%» «median of 0.00275% of the concentrate» Observed or recommended use, not an IFRA limit.
+@@ 7296a8159a
+«Typical usage ranges from 0.001% to 0.05%» Observed or recommended use, not an IFRA limit.
+@@ d8088af871
+«Typical use level is up to 3%» Observed or recommended use, not an IFRA limit.
+@@ b7097c8610
+«Typically 0.1% to 10% of the fragrance composition» «Typically 0.1% to 10% of the fragrance composition» Observed or recommended use, not an IFRA limit.
+@@ 612ad26567
+0.001–0.05 % · confidence: medium
+@@ 1762ebde43
+0.01–0.5 % · supplier 0.001–0.03 % · confidence: medium
+@@ 8153749b8c
+0.01–0.5 % · supplier up to 1 % · confidence: high
+@@ 3d2b777cb4
+0.05–0.5 % · confidence: medium
+@@ bc8f1da7a2
+0.05–1 % · confidence: high
+@@ d8c5194fcb
+0.1–1 % · confidence: low
+@@ ffa4cc4710
+0.1–1 % · confidence: medium
+@@ 23ed3df509
+0.1–1 % · supplier 0.02–0.80 % · confidence: medium
+@@ dfe1649869
+0.1–1 % · supplier 0.1–10 % · confidence: medium
+@@ f3014c3b5d
+0.1–1 % · supplier 0.1–5 % · confidence: medium
+@@ bee4dd4183
+0.1–1 % · supplier 0.20–3.00 % · confidence: medium
+@@ c3087bf8fe
+0.1–1 % (up to 2 %) · confidence: high
+@@ f6c9c4d31d
+0.1–1 % of neat IBQ · supplier 0.01–0.30 % · confidence: medium
+@@ 488d948c13
+0.1–1 % of the product · supplier traces–0.50 % · confidence: low
+@@ c0bfbeec9c
+0.1–2 % · confidence: high
+@@ c4061ff074
+0.1–7 % (up to 20 % in niche) · confidence: high
+@@ f2206e3b33
+0.5–1 % · confidence: high
+@@ 2139a8926d
+0.5–3 % · confidence: high
+@@ 6d146bd58c
+0.5–3 % · confidence: low
+@@ 29baf5cc25
+0.5–3 % · supplier 0.10–2.50 % · confidence: medium
+@@ 41f92ba4b7
+0.5–3 % · supplier up to 10 % · confidence: high
+@@ 312908da90
+0.5–3 % (up to 10 % gourmand) · confidence: high
+@@ 0c978da47b
+0.5–5 % · confidence: medium
+@@ 8c6ff21d97
+0.5–5 % · supplier 1.00–8.00 % · confidence: medium
+@@ 78aa14e3c0
+0.5–5 % · supplier up to 15 % · confidence: high
+@@ 8f0bac0d5a
+1–10 % · confidence: high
+@@ 24c8e730a7
+1–10 % · confidence: medium
+@@ 2003b751fc
+1–10 % · supplier 0.50–6.00 % · confidence: medium
+@@ 11ea3e7d42
+1–10 % · supplier up to 20 % · confidence: high
+@@ 081630dcbe
+1–10 % · supplier up to 20 % · confidence: medium
+@@ bbfa846ef7
+1–10 % · supplier up to 75 % · confidence: high
+@@ 5b924d1c25
+1–20 % · confidence: high
+@@ 4385a8350b
+1–4 % · supplier up to 2 % · confidence: high
+@@ 4762b7f458
+1–5 % · confidence: high
+@@ cd502b4c3b
+1–5 % of the tincture · confidence: low
+@@ 3698097dbf
+2–10 % · confidence: high
+@@ 444e468b8b
+2–10 % (up to 30 %) · confidence: high
+@@ 89625bc516
+2–15 % · confidence: medium
+@@ c04314a4ea
+3–10 % · confidence: medium
+@@ 0edf7f82ee
+5–30 % · confidence: high
+@@ 6e63c443f3
+5–30 % · supplier up to 50 % · confidence: high
+@@ 136dae27cb
+Arctander (cited by Pell Wall in TGSC): concentration «may vary from about 1%» and reaches «up to 30 or 40% in straight floral types» · confidence: medium
+@@ 2f5f4825d5
+Arctander (cited by Scentspiracy): rose compositions: 0.5–2 % of the concentrate · confidence: medium
+@@ 2930889973
+Arctander via Pell Wall (via search engine): perceptible below 1 % in the perfume base; normal use concentration ≈ 0.5 to 3.0 % · confidence: medium
+@@ c668d2586c
+Arctander, via a supplier (via search engine): effective concentrations below 0.1 % in the total perfume concentrate; traces frequent in compositions · confidence: medium
+@@ 190c83ac9f
+Aromology (61789-17-1, via search engine): The recommended usage is up to 8% · confidence: medium
+@@ d5562bbb24
+Augustus Oils (via search engine): often below 1 % in finished compositions · confidence: medium
+@@ 75ef223914
+Basenotes, a perfumer's guide (via search engine): 0.1 % as a modifier, 1 % as an accent in wood accords, ≈7 % with sweet florals, 12.5–15 % in oud/wood bases, 20 %+ in perfumes dominated by Cashmeran · confidence: medium
+@@ 4777fb34f9
+BASF (via search engine): Typical Use Level up to 50% (BASF technical sheet, according to the search engine) · confidence: medium
+@@ a7d9f02839
+BASF, Beta-Ionone R technical sheet (via search engine): up to 20 % in fine fragrance, which BASF gives as the typical use level · confidence: medium
+@@ c0fb956e17
+BC Fragrance (via search engine): typical perfume-compound range of .010% to .800% · confidence: medium
+@@ d7b548c989
+BC Fragrance (via search engine): typical range «.130 – 10%» (ambiguous text); «Can use up to 30% of total concentrate» · confidence: medium
+@@ 52a41543df
+BC Fragrance (via search engine): Use Level: 0.010% to 5% · confidence: medium
+@@ 3be76bc18f
+BC Fragrance, Calone 10 % DPG (via search engine): up to 5 % of the total fragrance concentrate (for the 10 % dilution in DPG) · confidence: medium
+@@ 2cbde320f4
+BC Fragrance: same range as Perfumer's World; it can be used up to 12 % of the total concentrate · confidence: medium
+@@ b7a31ef571
+BC Fragrance: use level 0.020% to 3.6% · confidence: medium
+@@ 7515ebcdcd
+Benscents (via search engine): 5–25 % in fine fragrance concentrates · confidence: medium
+@@ 07452e2ad2
+BenScents (via search engine): even 0.1–0.5 % has a strong influence; ≈1.0 % at most for category 4 · confidence: medium
+@@ 72f9e0aa1a
+Bioshop.pk (via search engine): effective at 0.1% to 0.5% in fine fragrance · confidence: medium
+@@ 40c5f4c411
+Caper Perfume (snippet, peach note): typical levels for the peach note below 2 %; more is overwhelming or waxy · confidence: medium
+@@ 62be8d8103
+Caper Perfume (via search engine): 3–10 % within an accord (the search engine itself notes that it looks like a heliotrope accord and not the material alone) · confidence: medium
+@@ b1a9367b29
+Caper Perfume (via search engine): typical level of 5–30 % in modern compositions · confidence: medium
+@@ 9d43bba1aa
+Caperfume (via search engine, black pepper in general): 0.1–2 % in compositions; it does not refer to the absolute · confidence: medium
+@@ 1953d7f7b8
+Caperfume (via search engine): 0.1–1.6 % in fine fragrance formulas · confidence: medium
+@@ 65f0415b49
+Caperfume (via search engine): generic range of 0.5–3 % in fine fragrance · confidence: medium
+@@ b32a2facf8
+Caperfume: typically used at 0.1-1% of a fragrance formula · confidence: medium
+@@ a087c4e640
+Creating Perfume (snippet): 5 % in the fragrance concentrate · confidence: medium
+@@ c8ae7e51eb
+De Kruiderie (via search engine): 0.1 % to 10 % in fragrance compositions · confidence: medium
+@@ 8efb7065a5
+Typical dose of 2 to 15 %; it can be used at 35 % or more · confidence: medium · basis: not declared (read as % of the concentrate)
+@@ c6e147a799
+Eden Botanicals (dermal use): Maximum dermal use level: 2.0% · confidence: medium
+@@ 09462d70b6
+the maximum, 54.2 %, is an extreme case in its statistics; IFRA 51 cat. 4: 1.1 %, same as standard 211 · confidence: medium · re-read by the session on 2026-10-27
+@@ e9091f6f49
+Esans (via search engine): 0.1–0.5 % as a trace; 0.5–1.5 % for a defined marine/floral character; 1.5–3 % as the main theme · confidence: medium
+@@ 46a287badf
+Esans: 0.3–1 % softening touch; 1–3 % classic fougère base; 3–5 % tonka/gourmand character; above 5 %, «caution»; typical rate 0.5–5 % · confidence: medium
+@@ 5338927f66
+Escardo (via search engine): Recommended use level 0.5 - 5% · confidence: medium
+@@ f28f5da346
+Essentialoil.com (IFRA certificate it claims to have): Cat. 4 Fine Fragrance Rollerballs: 15.0–25.0 % · confidence: medium
+@@ 2dc5a436c9
+Evocative Perfumes (via search engine): up to 12 % of the concentrate · confidence: medium
+@@ 9813622699
+Evocative Perfumes (via search engine): up to 4 % of the concentrate, although it warns that it easily dominates · confidence: medium
+@@ 7d218271f0
+Evocative Perfumes (via search engine): up to 15% in the perfume concentrate · confidence: medium
+@@ 57731b6015
+Evocative Perfumes: recommends up to 1 % in the perfume concentrate · confidence: medium
+@@ daf81404da
+Fraterworks (Coeur): Average use is 5% in a perfume compound; IFRA maximum 30% in finished product (Category 4) · confidence: medium
+@@ 99967794fd
+Fraterworks (snippet): Average Use: 0.25 % in a perfume compound · confidence: medium
+@@ 2fa049ac0b
+Fraterworks (snippet): Average Use: 0.5 % in a perfume compound · confidence: medium
+@@ 0af36f99fa
+Fraterworks (50 % TEC grade): Average use: 2% in a perfume compound · confidence: medium
+@@ 1a85d5a2a2
+Fraterworks (MD grade): Use it sparingly at 0.1-1% · confidence: medium
+@@ a4a1006ebc
+Fraterworks (IFRA 51, Cat. 4): Maximum: 66.666667% in finished product · confidence: medium
+@@ 76e0c76ee5
+Fraterworks (IFRA, cat. 4): Maximum (IFRA): 0.1% in finished product (Cat. 4) · confidence: medium
+@@ b7b655f194
+Fraterworks (2 % tincture): we recommend around 1% – 3% of the total weight in alcohol · confidence: medium
+@@ 139546ce6d
+Fraterworks (via search engine): Average Use: 0.5% in a perfume compound · confidence: medium
+@@ 02635f02ba
+Fraterworks (via search engine): Average Use: 2.8% in a perfume compound · confidence: medium
+@@ ef7885ada3
+Fraterworks (via search engine): average use of 4.5 % in a perfume compound · confidence: medium
+@@ 65954f0f47
+Fraterworks calls it 204/20; the purchase says 204/2/20 · confidence: medium · re-read by the session on 2026-10-27
+@@ 9a990d1b46
+Fraterworks: 0.5–2 % to abstract woody bases; «at higher doses, it becomes a statement material for conceptual fragrances» · confidence: medium
+@@ 43c58a8b40
+Fraterworks: 0.32% in a perfume compound (average use) · confidence: medium
+@@ c308a9ac20
+Fraterworks: 0.97% in a perfume compound (average use) · confidence: medium
+@@ 708e65155f
+Fraterworks: 1.3% in a perfume compound (average use) · confidence: medium
+@@ 5292c00106
+Fraterworks: 1.7% in a perfume compound · confidence: medium
+@@ 30f14c49d9
+Fraterworks: 2.1% in a perfume compound · confidence: medium
+@@ 50484566f3
+Fraterworks: 3% in a perfume compound (average use) · confidence: medium
+@@ 4dcc09674a
+Fraterworks: Average use 0.45% in a perfume compound; «more commonly found in quantities up to and beyond» the 2 % of Baccarat Rouge 540 · confidence: medium
+@@ 2ff47df725
+Fraterworks: Average use 0.63% in a perfume compound · confidence: medium
+@@ 8ff33403ec
+Fraterworks: Average use 1.5% in a perfume compound; examples: 2 % (modifying 9.5 % of lyral) in Tuscan Leather, 0.05 % in Opus XIV · confidence: medium
+@@ b14c01ee41
+Fraterworks: Average use 2.5% in a perfume compound; range 1–5% · confidence: medium
+@@ f7b5d16398
+Fraterworks: Average use is 0.0075% in a perfume compound; «Use it at 0.1%» to give a wet texture to white florals or green notes · confidence: medium
+@@ 1ea9033f9f
+Fraterworks: Average use is 0.1% in a perfume compound · confidence: medium
+@@ e2a7369d32
+Fraterworks: Average use is 0.63% in a perfume compound; «around 1%, to avoid harshness» is advised · confidence: medium
+@@ 0454e9fb25
+Fraterworks: Average use is 2.5% in a perfume compound; typical range 2–5% of the total formula; can be overdosed comfortably · confidence: medium
+@@ e3f225be53
+Fraterworks: Average use of 0.5% in a perfume compound; fine fragrance 0.5–5%; functional products below 0.2% · confidence: medium
+@@ 44b06b605d
+Fraterworks: Average Use: 0.25% in a perfume compound · confidence: medium
+@@ c43b57dc1d
+Fraterworks: Average Use: 0.25% in a perfume compound; the author uses «an overdose of 0.3%» in Porthos · confidence: medium
+@@ 21b2a76efb
+Fraterworks: Average Use: 0.38% in a perfume compound · confidence: medium
+@@ e2bdeafde3
+Fraterworks: Average Use: 0.5% in a perfume compound · confidence: medium
+@@ 0c426e327b
+Fraterworks: Average use: 0.6% in a perfume compound · confidence: medium
+@@ b827d69c5b
+Fraterworks: Average Use: 1.3 % in a perfume compound (basis not stated) · confidence: medium
+@@ 14281a6715
+Fraterworks: Average Use: 1.8% in a perfume compound · confidence: medium
+@@ 84e57cfcf6
+Fraterworks: Average use: 1% in a perfume compound; no range · confidence: medium
+@@ 6fd38d8909
+Fraterworks: Average use: 2% in a perfume compound · confidence: medium
+@@ d7a867c5a0
+Fraterworks: Average Use: 4 % in a perfume compound (basis not stated) · confidence: medium
+@@ 2a4e138971
+Fraterworks: Average use: 5% in a perfume compound · confidence: medium
+@@ 4cf366c261
+Fraterworks: Average: 0.5% in a perfume compound; IFRA 51, 52 (draft) and 49: 1.1% in finished product (Cat. 4) · confidence: medium
+@@ 01a641fca9
+Fraterworks: up to 0.1 % for a subtle nuance and a light fruity touch; larger amounts give an unmistakable blackcurrant note · confidence: medium
+@@ 2095eada5b
+Fraterworks: recommends using it «at 1-30%»; «30% usage potential» · confidence: medium
+@@ a3812b9ad9
+Fraterworks: Use Dewfruit between 0.1% and 5% in your compositions. · confidence: medium
+@@ deb2cb49e7
+Fraterworks: Working concentrations rarely exceed 1% in your concentrate, with trace amounts often sufficient · confidence: medium
+@@ 2512e36037
+Unidentified source (search-engine summary): typical use levels of 0.2–2% in gourmand and woody-amber compositions · confidence: medium
+@@ 315f865937
+Unidentified source (via search engine): 0.1–0.5% in fine fragrance concentrates (more in aquatics, less in other families) · confidence: medium
+@@ 8ddb2dce6d
+GetChem (via search engine): 0.1 %–0.5 % in the essence for a fresh and powerful effect; 3–5 % in soap, detergent and flavours · confidence: medium
+@@ 0c5af06cd7
+Givaudan: Use level: 0.1% - 5% · confidence: medium
+@@ 2d108b6bf9
+Givaudan: Use level: 0.5% - 5% · confidence: medium
+@@ 132a7002ab
+Givaudan: Use level: 1% - 8% · confidence: medium
+@@ cd09cfce4f
+Givaudan: Use level: Traces - 2% · confidence: medium
+@@ 5584df97bc
+Glooshi (via search engine): From traces to ≈5 % of the concentrate; above 3 % it dominates · confidence: medium
+@@ 2af0740f3f
+General mugwort guide (via search engine): typical use in finished fragrance of ~0.1 % to 1 %, referring to mugwort in general and not to armoise specifically · confidence: medium
+@@ c67f660411
+Perfumery guide (via search engine, Caperfume): typically used at 1–3% of a fragrance formula · confidence: medium
+@@ 6af26f2333
+Perfumery guide (via search engine, unconfirmed): typically used at concentrations of less than 3% in formulations · confidence: medium
+@@ 1652877f63
+Hekserij: Typically 0.1% to 5% of the fragrance composition · confidence: medium
+@@ c6492b8168
+Hekserij: usually between 0.1% and 3% of this material in the fragrance composition · confidence: medium
+@@ ee89c96281
+Hekserij: You usually use between 0.1% and 30% of this substance in the fragrance composition. · confidence: medium
+@@ 632f3ddc95
+Hekserij: You usually use between 0.1% and 5% of this substance in the fragrance composition. · confidence: medium
+@@ 7a39afbedc
+IFF (via search engine): Typical Use Level: Traces to 2% · confidence: medium
