@@ -1,0 +1,699 @@
+@@ 9362d76295 =
+@@ 4cadae035d =
+@@ 5d8dedca6d =
+@@ 1e493bc44f =
+@@ 2e4c2a47f4 =
+@@ 3285518719 =
+@@ 42c54840a0 =
+@@ c32d1d4097
+ScenTree: Floral > White Flowers > Solar > Benzyl (classification, no description)
+@@ 26a89478ee =
+@@ e4311f95af =
+@@ 1d4eac46d5 =
+@@ 19528cfecf
+ScenTree: Spicy > Warm Spices > Eugenol (no description in text)
+@@ 46c3bbded9
+Scentspiracy (high concentration): intensely phenolic, animalic, and medicinal
+@@ 034a3a74a9
+Scentspiracy (citing IFF 2025): Fresh watery-melon top; sweet heliotrope/cyclamen heart; new-mown-hay & soft almond-anisic facets
+@@ 478525c8d5
+Scentspiracy (extreme dilution, <0.05%): delicate notes of narcissus, mimosa, ylang-ylang, and jasmine
+@@ 09834b32fd
+Scentspiracy (generic hydroxycitronellal): Sweet, floral, light, and clean with muguet character; tenacity increases in blends
+@@ 93e1846aa2 =
+@@ a09a1e9b51 =
+@@ 7c787029a8 =
+@@ bd2905e38a
+Sigma-Aldrich (in TGSC): Odor: medicinal
+@@ 8627659850
+Sigma-Aldrich (fragrance grade, via search engine): smoky; phenolic
+@@ 441043e65d
+Sigma-Aldrich (odour sample): alcohol; medicinal
+@@ 8ebffd7a37 =
+@@ 6c3ee5ddc8 =
+@@ 1af05ee0d7
+unattributed (page note): Pungent, earthy and quite different from the oil produced from the ripe Coriander Seeds
+@@ b21645b142 =
+@@ 78f7858ff9 =
+@@ 5444767ca4 =
+@@ 0053f5019c =
+@@ 8c4fa10691 =
+@@ db17844d20 =
+@@ 8d927ca844 =
+@@ 0e720e5467 =
+@@ 5d488da7b9 =
+@@ 47202fd63f =
+@@ 9fdcb7ef32 =
+@@ a0ad68962c =
+@@ a1bbb89894
+Symrise, technical sheet (via search engine): Animalic, Ambergris, Musk, Earthy, Violet
+@@ d43ba208bf
+Symrise, technical sheet (via search engine): fruity, dried fruit, and brandy; underlines damascone-like aspects
+@@ d78c2abff5 =
+@@ 5dfd98ad33 =
+@@ 057ed48b90 =
+@@ f9f207afe9 =
+@@ 8aa7ebad66 =
+@@ 2feb8b918f
+Takasago (Geranyl Acetate Extra, 98 % or more): Sweet, fruity-floral, rosy, somewhat green and remotely Lavender-like
+@@ 9aee352b24 =
+@@ ab894c5596 =
+@@ 5b11dd4f4f =
+@@ 41e2ef42ab
+Taytonn ASCC (sheet 94333-88-7): Balsamic, Powder/ Powdery, Tea Rose, Vetivert, Woody
+@@ fdd8c7400e
+TGSC (at 0.1 % in DPG): musty nutty root vegetable cocoa
+@@ 068eef6357
+TGSC (at 0.1 % in PG): medicinal phenolic
+@@ 9d4be13a78
+TGSC (at 0.1 % in PG): rubber sulfurous
+@@ fc15f2b867
+TGSC (at 0.1 % in PG): sulfurous nutty hazelnut corn meaty earthy clam
+@@ ac2261d6a2
+TGSC (at 0.10 % in DPG): phenolic narcissus animal mimosa
+@@ 187a76f635
+TGSC (at 1 % in DPG): animal warm phenolic
+@@ 4a21e20c7c
+TGSC (at 1 % in DPG): herbal mushroom earthy musty dirty
+@@ 1de34f2c9a
+TGSC (at 1 % in DPG): spicy cumin dry green
+@@ 2febce163e
+TGSC (at 10 % in DPG): fruity cherry hay powdery
+@@ 5f1ce8c352
+TGSC (at 10 % in DPG): hazelnut nutty
+@@ ec73813eb4
+TGSC (at 10 % in DPG): heavy deep rose floral powdery balsamic soapy
+@@ 4fe6c16b45
+TGSC (at 10 % in DPG): sweet fruity ethereal banana tropical
+@@ a02179fa6c
+TGSC (at 10.00 % in dipropylene glycol; author not stated): medical spicy cinnamon wintergreen cooling
+@@ 830a6d1845
+TGSC (at 100 %, no author): sweet herbal bergamot pine lavender floral
+@@ 456e03c717
+TGSC (at 100 %): musk
+@@ 0dfa1246b7
+TGSC (at 100 %): patchouli woody clean creamy amber
+@@ a04e9e7cbf
+TGSC (at 100 %): ripe plum prune
+@@ 5f615fcff7
+TGSC (general description): The odor of Geosmin is best described as the smell of the air after rain falls on dry soil
+@@ fa29c42b52
+TGSC (dilution not stated): mossy oakmoss woody phenolic earthy
+@@ 88e0ce2d48
+TGSC (tincture sheet, no author), at 100.00 %: tonka coumarinic
+@@ ab66f4d131
+TGSC (generic sheet «leather specialty», no author), at 10 % in dipropylene glycol: leather
+@@ 95aafaae46
+TGSC (Luebke, William, 1981), at 10 % in dipropylene glycol (sample from Berjé Inc.): sweet vanilla creamy chocolate
+@@ 402957d526
+TGSC (Luebke, William, 1981), at 100 % (sample from Berje Inc.): sweet floral fruity rose waxy citrus
+@@ 2ab0878fef
+TGSC (Luebke, William, 1982; sample from Givaudan Corporation): sweet hay tonka new mown hay
+@@ 9fde05ecc4
+TGSC (Luebke, William, 1982), at 100 % (sample from Givaudan Corporation): floral lily sweet green waxy tropical melon
+@@ 8ff5d11974
+TGSC (Luebke, William, 1982), at 100 %: heliotrope flower sweet powdery coconut vanilla
+@@ 79f7c9c513
+TGSC (Luebke, William, 1982), at 100 %: sweet, vanilla, balsam, woody
+@@ a1ba5eec1a
+TGSC (Luebke, William, 1982), at 100.00 % (sample from Berje Inc.): herbal floral spicy aromatic camphoreous balsamic eucalyptus woody
+@@ bdd923096a
+TGSC (Luebke, William, 1983), at 10.00 % in DPG: geranium leaf green phenolic
+@@ f48f04b374
+TGSC (Luebke, William, 1983), at 10.00 % in dipropylene glycol (sample from Givaudan Corporation): sweet woody floral violet orris tropical fruity
+@@ 6eb2da9849
+TGSC (Luebke, William, 1983), at 10.00 % in diethyl phthalate (sample from Charabot & Co., Inc.): leathery smoky animal phenolic old wood burnt resinous
+@@ ec2c3828f6
+TGSC (Luebke, William, 1983), at 100 %: citrus floral sweet bois de rose woody green blueberry
+@@ 5ae0ee94ed
+TGSC (Luebke, William, 1983), at 100.00 %: sweet balsam strawberry cherry cinnamon
+@@ 1f41b8ba1f
+TGSC (Luebke, William, 1983), at 100.00 % (sample from Charabot & Co., Inc.): sweet balsam cinnamyl woody
+@@ e693476d1f
+TGSC (Luebke, William, 1984), at 10.00 % in dipropylene glycol (sample from Givaudan Corporation): sweet spicy clove woody
+@@ 5530829dde
+TGSC (Luebke, William, 1984), at 100 % (sample from Charabot & Co., Inc.): citrus, floral, woody, orange, linalyl acetate
+@@ 7099495c8e
+TGSC (Luebke, William, 1985; sample from Dragoco Inc.), at 10.00 % in DPG: amber musk animal old wood earthy
+@@ cad33f904b
+TGSC (Luebke, William, 1985), at 1.00 % in dipropylene glycol (sample from Berje Inc.): sweet herbal green coffee davana horehound candy
+@@ 74a248e7c1
+TGSC (Luebke, William, 1985), at 10 % in dipropylene glycol (50 % min. sheet): violet sweet orris powdery floral woody
+@@ ef54753438
+TGSC (Luebke, William, 1985), at 10 % in dipropylene glycol, sample from Union Camp Corporation (70 % min. sheet): woody orris violet floral
+@@ a978a49364
+TGSC (Luebke, William, 1985), at 100.00 %: woody dry cedar ambergris earthy vetiver
+@@ fe250ca1ca
+TGSC (Luebke, William, 1986; sample from CAL/Pfizer), at 10.00 % in DPG: fresh watery clean melon green marine ozone phenolic
+@@ 52a6335e89
+TGSC (Luebke, William, 1986), at 10 % in DPG: castoreum leather earthy oakmoss vetiver
+@@ f39958187f
+TGSC (Luebke, William, 1986), at 100 % (sample from Givaudan Corporation): galbanum fig leaf green weedy cortex
+@@ 005acd3b55
+TGSC (Luebke, William, 1987; sample from Emery Chemicals), at 100.00 %: powdery sweet floral ambrette musk woody
+@@ 4501aeaf8b
+TGSC (Luebke, William, 1987), at 1.00 % in DPG: ambergris old paper sweet labdanum dry
+@@ 15204ef007
+TGSC (Luebke, William, 1987), at 10.00 % in DPG: sandalwood woody musk
+@@ e8aad3b925
+TGSC (Luebke, William, 1987), at 10.00 % in dipropylene glycol — generic sheet «frankincense oil, 8016-36-2» (different CAS): terpenic incense peppery spicy old wood woody pine resinous
+@@ 389b378714
+TGSC (Luebke, William, 1987), at 100 % (sample from Roure Bertrand Dupont Inc.): woody old wood amber tobacco hot herbal
+@@ ddec505f48
+TGSC (Luebke, William, 1988), at 100 % (sample from IFF): woody cedar floral oily herbal balsam green fruity
+@@ f7cd15c69f
+TGSC (Luebke, William, 1988), at 100 %: fresh citrus lime floral clean cologne weedy
+@@ 0bc8428f46
+TGSC (Luebke, William, 1989; sample from Harrmann & Reimer Corporation), at 100 %: waxy fruity green date fig prune grape skin
+@@ e5425da8c8
+TGSC (Luebke, William, 1989), at 1.00 % in dipropylene glycol (sample from Ungerer & Company, Inc.): smoky, birch tar, burnt, grilled, leather, resinous
+@@ dcc559acf5
+TGSC (Luebke, William, 1989), at 10 % in dipropylene glycol: fresh green cut grass foliage vegetable herbal oily
+@@ 82d295d0bc
+TGSC (Luebke, William, 1989), at 100 % (sample from IFF): woody dry ambergris cedar old wood ketonic phenolic
+@@ 76b6af4241
+TGSC (Luebke, William, 1989), at 100 %: fresh clean soft natural floral muguet linalool
+@@ 8f4233f32f
+TGSC (Luebke, William, 1989), at 100.00 % (sample from Charabot & Co., Inc.): green woody earthy musty mossy oily wood
+@@ 0fa7b4180e
+TGSC (Luebke, William, 1991), at 100 % (sample from Kao Corporation): sandalwood creamy woody milky waxy greasy musk
+@@ 56c86c05a6
+TGSC (Luebke, William, 1992), at 10 % in DPG: woody sandalwood greasy oily waxy
+@@ edb5cad40d
+TGSC (Luebke, William, 1992), at 10.00 % in dipropylene glycol (sample from Charabot & Co., Inc.): dry woody spicy old wood cistus
+@@ ddc238d821
+TGSC (Luebke, William, 1995), at 1.00 % in dipropylene glycol (sample from Bush Boake Allen Inc.): freshly plowed soil earthy
+@@ e86d1b679b
+TGSC (Luebke, William, 1995), at 10.00 % in dipropylene glycol: eucalyptus herbal camphor medicinal
+@@ d990a0793b
+TGSC (Luebke, William, 1995), at 100 % (sample from Charabot & Co., Inc.): sweet balsamic styrene woody amber
+@@ c2ddc6f601
+TGSC (Luebke, William, 1995), at 100 %, sample from Firmenich Inc. (cis+trans sheet, 5502-75-0): fresh clean floral magnolia hydroxycitronellal cumin grassy
+@@ bc093414f3
+TGSC (Luebke, William, 1996), at 10 % in DPG: rich spicy musk woody clean
+@@ 8e54b91cbe
+TGSC (Luebke, William, 1996), at 10.00 % in dipropylene glycol (sample from CA Aromatics Company Inc.): thujone eucalyptus rosemary sage
+@@ 09e02796cd
+TGSC (Luebke, William, 1996), at 5.00 % in benzyl alcohol: sweet caramel jam strawberry cotton candy
+@@ 4bf0337d4c
+TGSC (Luebke, William, 1997), at 10 % in dipropylene glycol (sample from Firmenich Inc.): woody sandalwood herbal tropical
+@@ d88073d26e
+TGSC (Luebke, William, 1997), at 100 % (sample from International Flavors & Fragrances Inc.): watery fresh green ozone cyclamen hay
+@@ 94309cf35f
+TGSC (Luebke, William, 1997), at 100.00 % (sample from CA Aromatics Company Inc.): sweet fresh lemon citral green grassy
+@@ 218bc358c7
+TGSC (Luebke, William, 1998), at 10.00 % in dipropylene glycol (sample from BASF Corporation): dry powdery floral woody orris berry seedy
+@@ a42d5cc78d
+TGSC (Luebke, William, 2003), at 100 % (sample from Penta International Corporation): fresh citrus grapefruit peel soapy woody green violet
+@@ 9de8c21669
+TGSC (Luebke, William, 2006), at 1.00 % in dipropylene glycol: phenolic castoreum smoke guaiacol
+@@ e3faec7bf2
+TGSC (Luebke, William, 2007), at 10 % in dipropylene glycol (sample from IFF): fresh air watery buttery clean wet costus metallic
+@@ 0b9fe79a7d
+TGSC (Luebke, William, 2007), at 10 % in dipropylene glycol: herbal leather saffron iodine phenolic tobacco woody
+@@ c60cabbca7
+TGSC (Luebke, William, 2016), at 100 % (sample from Firmenich Inc.): sweet musk waxy dry powdery laundered cloth metallic animal tropical
+@@ 24569bf3bb
+TGSC (Luebke, William, 2016), at 100.00 %: sweet hay tobacco moss leafy herbal old wood dried fruit tea honey
+@@ 82065d1710
+TGSC (Luebke, William, 2017), at 100 % (sample from CA Aromatics Company Inc.): woody, old wood, dry, earthy, weedy, balsamic, spicy, minty
+@@ adc23b4e3f
+TGSC (Luebke, William, 2017), at 100 %, sample from Firmenich Inc. (cis sheet, 13828-37-0): fresh clean floral magnolia hydroxycitronellal cumin grassy
+@@ 1ab2401b5b
+TGSC (Luebke, William, 2017), at 100.00 % (sample from CA Aromatics Company Inc.): citrus floral mandarin orange
+@@ b2943d6973
+TGSC (Luebke, William, 2021), at 100.00 % (sample from Robertet, Inc.): chocolate dark chocolate cocoa powdery milk chocolate
+@@ 99a086aae6
+TGSC (Mosciano, Gerard, P&F 24, 1999), at 1.00 % — generic sheet 8016-36-2 (different CAS): Green, pungent, peppery, spicy, woody terpy and piney, with a resinous nuance
+@@ 8d1dc364d9
+TGSC (no author named), at 100 %: strong diffusive sweet floral musk
+@@ c939f5b39f
+TGSC (no author), at 10.00 % in DPG: sweet soapy musk amber fruity berry
+@@ cba31b5616
+TGSC (no author), at 100 % — sheet «ambergris tincture, 8038-65-1» (a different CAS from the one on the list): ambergris sweet dry amber woody mossy
+@@ 87489f617d
+TGSC (no author), at 100 %: woody earthy rooty balsam amber
+@@ 4dde5987bb
+TGSC (no author), at 100.00 %: fresh ground black pepper
+@@ 5be9c257bf
+TGSC (no author), at 100.00 %: fresh lemon peel sweet citrus aldehydic
+@@ f72d7c9958
+TGSC (no author), at 100.00 %: orange fresh juicy sweet
+@@ 4bb1cfab82
+TGSC (no author): musty; animal
+@@ a7c105508f
+TGSC, at 100 %: bitter tropical grapefruit rhubarb guava
+@@ 6aba0c9577
+TGSC, at 100 %: woody spicy ginger cardamom
+@@ a115718cbe
+TGSC, at 100.00 %: amber ambergris woody old wood sweet musty gourmand
+@@ ad26da5582
+TGSC, sheet «boswellia carterii gum oil, 89957-98-2» (descriptors with no author or dilution): frankincense, woody
+@@ c6ff530c91
+TGSC, sheet 94333-88-7 (no author), at 100 %: woody vetiver balsamic tea rose
+@@ e30d0f6319
+TGSC, generic sheet «agarwood specialty», at 100 % (not specifically for Black Agar): woody vetiver sweet balsamic animal earthy amber spicy smoky
+@@ 1f0932a6fc
+TGSC, generic sheet «cassis specialty», at 100 %: cassis
+@@ ca23e5b6d6
+TGSC, generic sheet «castoreum absolute replacer», at 1.00 % in dipropylene glycol (not specifically for the Synth): leathery smoky animal phenolic old wood burnt resinous
+@@ 1846820f4b
+TGSC, generic sheet «fruit specialty», at 100 %: fruity
+@@ 11831684e1
+TGSC, generic sheet «musk specialty», at 100 % (not specifically for Auranone): musk
+@@ 19282d3e29
+The Fragrance Foundry, attributed to Givaudan (via search engine): Alone it possess a violet smell with raspberry and woody nuances
+@@ 2a0b672c33
+The Perfumers Apprentice (Frankincense Somalia) — generic sheet 8016-36-2 (different CAS): old wood incense spicy terpene woody
+@@ 80264e444f =
+@@ aac963df84 =
+@@ cbf8452477
+The Perfumery (in TGSC): Galbanum oil has a green, spicy, herbal aroma that is sometimes compared to green peppers or salad.
+@@ fee8e658f9 =
+@@ fd1a455214 =
+@@ 576706e4a4
+a retailer (search-engine summary): earthy, damp soil, fresh, beetroot, rain, vegetal
+@@ 49cc758883
+Ventos (in TGSC): musk, animal, leather
+@@ 2333e7f4e3
+Ventos (in TGSC): POWERFUL, RIPE PLUMS
+@@ e5b686fb9e
+Ventos (technical sheet, via search engine): Woody, mild, sweet
+@@ b40ed369e1
+Vigon (in TGSC): TARRY-SMOKY, MEDICINAL, PHENOLIC
+@@ ca80223d2f =
+@@ e021173942 =
+@@ 851efb2b69 =
+@@ ad887b662f =
+@@ adaea89bae
+Wikipedia (cited in the USDA petition): sharp, pleasant, somewhat bitter
+@@ 18baa52842
+Wikipedia (racemate): hazelnut, nutty
+@@ 778a0d000d
+Wikipedia (crude resin): an intense green scent, with a bitter and acrid opening
+@@ da65e87995 =
+@@ ab36a0d1fe =
+@@ 55f80764fb =
+@@ f3fe2e67f9 =
+@@ 2257ec33a1 =
+@@ 5a130c900e =
+@@ 02d907c88e =
+@@ 44b253716f =
+@@ 4bf35d2f2c =
+@@ 36452824f9 =
+@@ 140715de8f =
+@@ 91294f2460 =
+@@ bc2f760c80 =
+@@ 243f1b5ce2
+absolute
+@@ 4f6b2ba7ff
+essential oil
+@@ 1405df66cb =
+@@ 8ecb090039
+compound essence
+@@ 758b2fc6c4
+resinoid
+@@ c398ad09a2
+semi-synthetic
+@@ 6734681e18
+tincture
+@@ 22f15fd759
+balsam (pathological oleoresin exuded through incisions in the bark)
+@@ 393fc143e1
+fruit peel (zest)
+@@ dab60eb3f4
+bark (Fraterworks: «Bark only»); ScenTree adds that the root smells more camphoraceous, earthy and floral
+@@ cb5bf16ce5
+fruit rind (peel)
+@@ 34d00c0fd7
+heartwood / wood (guaiacwood oil is distilled from the wood and the sawdust; Osmetheca and supplier sources)
+@@ 81aa3c7cac
+excretion
+@@ 6041acf9db
+exudate (gum resin) from the bark
+@@ e80070f3ea
+flowers and leaves / flowering tops (Olfatorium, ScenTree); Augustus Oils: flower spikes
+@@ 7725817df4
+fruit
+@@ 8bc767f3c6
+fruit (deduced from the INCI «Piper Nigrum (Pepper) Fruit Extract»; Perfumiarz does not state it)
+@@ 85a9e10f62
+Fruit (pods)
+@@ 7a4bc211a8
+fruits (berries)
+@@ 46dd50d7f5
+dried, ripe fruits, called seeds (Olfatorium: «Semillas»)
+@@ 664c2b6575
+cured leaf
+@@ c983dd2632
+leaves (PerfumersWorld: dried fermented leaves)
+@@ 74d1fe54f5
+leaves, dried before distillation (Scentspiracy); Fraterworks does not state it
+@@ 76387fd14a
+wood (Maese Lab); heartwood and roots (Scentspiracy); branches and twigs (Fraterworks)
+@@ aee45ba5bd
+wood (trunk)
+@@ 4ed2134933
+wood / stem (Scent.vn: «Stem»); ScenTree does not specify it
+@@ 575e005425
+Maese Lab: «Flor» (although its INCI says «Leaf Extract»); ScenTree: viscous gum secreted by the new branches; Scentspiracy: crude gum (from boiled twigs and leaves) or fresh aerial parts (leaves and branches)
+@@ add7b56a09
+whole moss (lichen); ScenTree clarifies that botanically it is a lichen (symbiosis of fungus and alga)
+@@ 96f506d2dd
+Oleoresin from the trunk
+@@ f6f51554d7
+dried aerial parts: leaves, stems and flowering tops (Premiere Peau); «hojas y ramitas» (Perfumers World)
+@@ bea34b6e92
+aerial parts: leaves and flowering tops (Premiere Peau, Essential Oils Pedia); Perfumiarz does not state it
+@@ a2612f7cf6
+skin (fruit peel)
+@@ 2d0d9fe569
+roots (Scentspiracy: aged roots)
+@@ 0074fd62cc
+Resin (gum resin)
+@@ 2a4e7b200f
+resin (Maese Lab); Fraterworks: «pathological exudate from bark»; ScenTree: gum resin
+@@ 91b3d081de
+Resin / gum (exudate)
+@@ 16eeec439b
+resin/exudate from the trunk (balsam from bark and sapwood)
+@@ 9bcc506d3b
+resins/rosin: «hydrogenated resin acid methyl esters from rosin fractions» (Scentfriends); ScenTree says «a natural extract» without specifying
+@@ f48fe65608
+secretion from the glands / pouches of the beaver, male and female (the animal must die to obtain them, according to ScenTree); Maese Lab: «Glandulas»
+@@ 3fb7faf2cd
+organic secretion; Premiere Peau: pathological concretion from the intestine of the sperm whale
+@@ 4d5e7bd75d
+seed
+@@ 1d7f97fac6
+Seed
+@@ 357b731749
+seed / roasted bean (ScenTree, Rae Dunphy); Maese Lab says «fruto»
+@@ 64bab6e468
+Aceh, Indonesia (Fraterworks); Indonesia (Perfumer's Apprentice, title)
+@@ 9642f95962
+Ceylon / Sri Lanka (Fraterworks). ScenTree lists suppliers with oil from Madagascar and says that Sri Lanka produced 90 % of Ceylon cinnamon in 2006.
+@@ d2eaf2aa15 =
+@@ 9ff4a7c8e4
+Colombia and Venezuela as main sources, also wild Cuban (Scentspiracy)
+@@ c550ad2676
+Dalmatia (Fraterworks); Scentspiracy: native to the Mediterranean, with Croatia (Dalmatia), Albania, France, Bulgaria, Morocco and Spain as producers
+@@ c812607841
+Guaiacwood oil comes mainly from Paraguay (Gran Chaco), according to suppliers and Osmetheca (via search engine).
+@@ 49847ba4ac
+France (Rae Dunphy); ScenTree lists origins from other houses: Indonesia, West Africa, Peru, Dominican Republic and Tanzania.
+@@ 14702e6f12
+Fraterworks, for its 2 % tincture: France, with local harvesters from New Caledonia
+@@ 60fd2cb767
+Haiti (the three pages read; Scentspiracy: mountains of Haiti, distillers in Artibonite and Les Cayes). Origin of the bottle bought: not stated.
+@@ 57194f08dd
+Hermitage Oils: glands of various provenances assembled in France
+@@ 5aa588714a =
+@@ eeff7e8ff3
+India (raw material); produced in Spain
+@@ 03d71b3bcc
+Indonesia (Fraterworks, Payan Bertrand)
+@@ a1dce4c774
+Italy (Calabria, according to Fraterworks)
+@@ c80b099b6d
+Italy (Eden Botanicals, organic grade)
+@@ 0907b28617
+Italy (Fraterworks); Mexico, Brazil and Italy among ScenTree's suppliers, which says the harvest is mainly from Brazil and Florida.
+@@ e027e57610 =
+@@ 4aaab4cb88
+The sheet does not give the origin of the absolute
+@@ 6ef215dc76
+Laos (ScenTree; some suppliers cite Cambodia, Thailand and Vietnam); Scentspiracy: Laos, Thailand, Vietnam, Cambodia
+@@ db8825ac62
+Macedonia and Morocco (Biolandes listings in ScenTree); «handmade in Yugoslavia for the most part» (ScenTree). Fraterworks: Macedonia as the origin and France as the country of origin.
+@@ 4d8cd5b1ef
+Morocco (ScenTree, Essentialoil.com, Helpac)
+@@ 65ea772de2
+Mexico (bean); produced in Spain
+@@ 299228c8dc
+not declared in the sheets read; search-engine summary: Virginia types the most widely used, also Burley, Oriental and Latakia.
+@@ 067cea1209
+North-east Africa and south-west Asia (Yemen, Ethiopia, Somalia)
+@@ 663496e27d
+Oman (Fraterworks); ScenTree (generic sheet): Somalia and Oman, and the sacra chemotype «sheehaz» from Yemen and Oman at over 1000 m
+@@ a106c8e602
+Premiere Peau: Morocco, France, China and India; origin of the plant, Eastern Europe and the Near East (Enfleurage). Enfleurage sells oil from Nepal.
+@@ f2400d3f8f
+Search-engine summary: commercial production mainly in Morocco, China, India and Bulgaria. Premiere Peau: France, Morocco, Spain and the United States.
+@@ b4f3c02bc2
+ScenTree: Spain, France and Bulgaria in the supplier listings
+@@ 8be25486f2
+Scentspiracy labels «Spain»). ScenTree: cultivation in Salamanca and southern Spain, Portugal and Andalusia, without stating the origin of this absolute.
+@@ 8c6c5f8802 =
+@@ ed551a7437
+Scentspiracy: distillation mainly in Eastern Europe and India, with fruits imported from India and Morocco.
+@@ 4dfdf195ec =
+@@ b719f4b5b2
+Sri Lanka (produced in Spain)
+@@ 0216985bc0
+Switzerland
+@@ 85be6fce66
+Turkey
+@@ e5e97b5adf =
+@@ 508f045d82 =
+@@ d27a508e18 =
+@@ ec0bb56faf =
+@@ be538b870d =
+@@ 52d49dbe41 =
+@@ a553649f23
+liquid
+@@ bf39a246d2
+Liquid
+@@ 420122b587
+liquid (diluted)
+@@ 96f252f70e
+Liquid (melts at 21–22 °C)
+@@ d4e69bf522
+Liquid *(colourless oil, according to the monograph)*
+@@ 71d922e14f
+colourless liquid
+@@ c6fe036569
+colourless liquid; the base already comes in TEC
+@@ 1eb0c0a40e
+pale brown liquid
+@@ 19f3405b7e
+dark green liquid
+@@ 2e1d3be4e9
+Viscous liquid, deep yellow
+@@ 80e3962ad5
+Liquid, as given by the supplier's sheet
+@@ 8427ef5969
+Liquid, in DPG solution
+@@ dddf1edb3b
+Liquid, or colourless crystalline solid below 25–27 °C
+@@ 29eacafbbf
+Liquid, according to the supplier; very thick when pipetting
+@@ a38e685a8e
+Liquid; steam distillation of the resin
+@@ eb4aa22a0a
+Liquid: diluted absolute
+@@ b2c1fd5c82
+Liquid: absolute diluted in DPG. *Neat, it is a dark brown semi-solid mass*
+@@ 14fa8f5565
+Liquid: essential oil
+@@ 466b459379
+Liquid: essential oil, steam distillation of the dried leaves
+@@ 2a575d9fff
+Liquid: essential oil, steam distillation of the seeds
+@@ 9c62ade567
+Liquid: essential oil, cold expression of the peel according to the monograph
+@@ 3e4c478ccf
+Liquid: 10 % solution in alcohol
+@@ 089cb45e8b
+Liquid: 10 % solution in DPG
+@@ 08391f967b
+Liquid: 50 % solution in DPG
+@@ c4eb554198
+Liquid: solution in DPG
+@@ 7e068ebca0
+Liquid: tincture
+@@ 8a17c30c8b
+Liquid: alcoholic tincture
+@@ e147cb1034 =
+@@ 5c1f81145f =
+@@ af82e80c15
+resinous semi-solid (according to a shop review)
+@@ 65900c4f6a
+Not recorded *(weighed and diluted in DPG on 2026-09-23)*
+@@ b93e1ba592
+Solid
+@@ a60107a0f9
+crystalline solid
+@@ cc01053d66
+Crystalline solid
+@@ b105d06f5b
+Crystalline solid — not pipetted
+@@ 0026621fc2
+Solid: crystalline powder
+@@ 0811623dfc
+Solid: white crystalline powder or granules
+@@ f1b2c28622 =
+@@ d3be7d966d
+[generic sheet «agarwood specialty»] colorless to amber brown clear liquid (est)
+@@ 30450da6a2
+[generic sheet «cassis specialty»] colorless to greenish yellow clear liquid (est)
+@@ 80898479b2
+[generic sheet «castoreum absolute replacer»] pale brown to dark brown liquid to semi-solid (est)
+@@ a8f39220ae
+[generic sheet «fruit specialty»] colorless to dark brown clear liquid (est)
+@@ 44a85c5c4d
+[generic sheet «musk specialty»] colorless to amber yellow clear liquid (est)
+@@ d7dfd87954
+[generic sheet 8016-36-2, different CAS] colorless to pale yellow clear liquid (est)
+@@ 3c5b78f73f
+yellow (est.)
+@@ 7e1c094bd9
+yellow to dark reddish amber, clear (est)
+@@ 3c408e7a2d
+yellow to dark brown, clear (est)
+@@ 755b04d54c
+yellow to dark orange, clear (est)
+@@ abf186a08f
+orange-yellow to deep orange, clear (est)
+@@ 21adb25aae
+yellow-brown, clear viscous liquid (est): «yellow brown clear viscous liquid (est)»
+@@ 0da395f7d3
+dark yellow, clear oily liquid (est.)
+@@ b2310e2f1f
+pale yellow to yellow (est.)
+@@ dfba363fac
+pale yellow to dark yellow, clear (est.)
+@@ 3da2948cc5
+pale yellow to dark yellow, clear (est)
+@@ dccc708ae7
+pale yellow to greenish yellow, clear (est): «pale yellow to greenish yellow clear liquid (est)»
+@@ f1554c1061
+pale yellow to yellow, clear oily liquid (est)
+@@ f62bece8d3
+pale yellow to yellow, clear (est.)
+@@ df9f48736a
+pale yellow to yellow, clear (est)
+@@ b8c52c6ad7
+pale yellow to dark brown (est.)
+@@ 2c20a3d4b3
+pale yellow to pale brown, clear (est)
+@@ ec79fee140
+pale yellow to brown, clear (est) (tincture sheet)
+@@ dfeaea0938
+pale yellow, liquid (est.)
+@@ 3d0160b581
+pale yellow, clear (est)
+@@ d902b05801
+pale yellow, clear (est): «pale yellow clear liquid (est)» (sheet 8038-65-1)
+@@ fb4c33f0b3
+amber to amber brown, semi-liquid (est): «amber to amber brown semi-liquid (est)»
+@@ 1763b8fd6b
+yellowish amber to orange-brown, clear (est)
+@@ f319cb9177
+amber brown to dark brown, semi-solid to solid (est): «amber brown to dark brown semi-solid to solid (est)»
+@@ 998859814d
+pale amber, clear (est)
+@@ 56adf16bc6
+amber, crystalline solid (est)
+@@ 50518b56d8 =
+@@ b357adf4f8
+white (est)
+@@ 50fd2f2154
+white (white crystalline fused (est))
+@@ edb2b93101
+white (white crystalline powder (est))
+@@ 8ce2a4f2f7
+white (white crystals (est))
+@@ 2e352d4d56
+white (white powder crystals (est))
+@@ a97b1cef76
+white to yellow (est)
+@@ 2d756c1dd8
+white to pale yellow (est.)
+@@ f49f0c471d
+white to off-white, crystalline powder (est)
+@@ fee749ff5d =
+@@ 774a7ff794 =
+@@ 2c59f672f6
+pale brownish-yellow crystals (est)
+@@ 28b54ecf6d =
+@@ ba5db4ebe7
+colourless
+@@ 9cd361fb7f
+colourless (colorless solid (est))
+@@ dd16582ce4
+colourless (est.)
+@@ 834f920d01
+colourless to pale yellow
+@@ a6cc488503
+colourless to pale yellow (est.)
+@@ 8f3ae2b5b4
+colourless to pale yellow (est)
+@@ 7e723eb1f4
+colourless to pale yellow amber, clear (est.)
+@@ 24d07b91f2
+colourless to pale yellow, clear oily liquid (est)
+@@ b7f3693c72
+colourless to pale yellow, clear viscous liquid (est.)
+@@ 7c7f4e56dd
+colourless to pale yellow, clear viscous liquid (est)
+@@ c54e72dd6f
+colourless to pale yellow, clear (colorless to pale yellow clear oily liquid (est))
+@@ 8381e2c913
+colourless to pale yellow, clear (est.)
+@@ b001ba2d24
+colourless to pale yellow, clear (est)
+@@ 320fedd6aa
+colourless to pale greenish yellow, clear (est)
+@@ e18460da75
+colourless to yellow, clear oily liquid (est) (50 % sheet)
+@@ e2b00a38a6
+colourless, clear oily liquid (est)
+@@ 0a77f5723a
+colourless, clear (est.)
+@@ 6f4a7a23e6
+colourless, clear (est)
+@@ 21ab4d927c
+reddish orange-brown, clear oily liquid (est): «brownish orange reddish clear oily liquid (est)»
+@@ d4bc72006a
+dark brown (est)
+@@ 6481b42ccf
+dark brown, semi-solid to solid (est)
+@@ caf6b383e2
+reddish brown (est). Hermitage Oils: «dark greenish brown to black-brown»
+@@ 836402d68e
+dark orange (est.)
+@@ 6b4717bb29
+white crystalline powder (est)
+@@ a1fff97cc6
+Scentspiracy: Colourless liquid (Fraterworks); pale yellow to yellow liquid (Scentspiracy) · TGSC: colorless to pale yellow clear liquid (est) (Clearwood patchouli oil sheet)
+@@ 5df4452e0d
+dark green, clear (est)
+@@ a35fffb71e
+pale green, clear (est)
+@@ 2be5387d77
+dark brownish green, semi-solid (est)
+@@ da82f746f2 =
+@@ a40af31070
+Firmenich (original house; now generic)
+@@ d955dced13
+Firmenich (dsm-firmenich), code 974656
+@@ 62cd325c5a =
+@@ 7f594b6e3b
+Givaudan (Dewfruit base TEC AB 2927R/3; of Quest origin)
+@@ eac13e5740
+Givaudan (code Giv 6378003)
+@@ 7510460a19
+Givaudan (code Giv 9023501)
+@@ a14eb7650c =
+@@ 9148dbf690
+Givaudan (pyralone (Givaudan) appears as a synonym)
+@@ 90389414d1 =
+@@ b25135264f
+Givaudan (according to Scentspiracy, 'listed as manufacturer'); Fraterworks sells it as Frater Perfumes Ltd
+@@ ee185df16a =
+@@ be6130b7ad =
+@@ c8ecfa9d2b =
+@@ 2bac7d8aba =
+@@ 1bd2591106 =
+@@ d97cf1162b =
