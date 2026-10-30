@@ -1,0 +1,341 @@
+@@ e80a94e1c8
+Scentspiracy: skin sensitiser (H317); contains guaiacol, cresols and phenols; not phototoxic; only rectified, IFRA-compliant grades. Fraterworks: «not to be applied to the skin undiluted»; rectification removes «potential allergens and harmful chemicals». Search-engine summary: the main concern is polycyclic aromatic hydrocarbons (PAHs).
+@@ ba80492744
+Scentspiracy: no handling instructions; classification H412 (chronic aquatic 3).
+@@ 17a3743166
+Scentspiracy: no significant acute toxicity; possible contact sensitisation at high concentrations, above all in leave-on products; recommends a patch test in leave-on products above 2 %. Fraterworks: professional use only, do not apply undiluted to the skin.
+@@ 328ab93b7b
+can be smelled neat
+@@ 28a9faf5b9
+Dermal sensitiser and declarable allergen among the 26 (ScenTree; H317 and H319).
+@@ 2ea0c4c234
+No handling warnings on the pages read.
+@@ c8b8d15712
+Professional use only; do not apply undiluted to the skin
+@@ 33ea4fe7aa
+Professional use only; do not apply undiluted to the skin; UN 3082; macerate alcoholic ones for up to a month, chill and filter
+@@ f1c69e5a55
+Professional use only; do not apply undiluted to the skin. Scentspiracy: store in closed, dry containers
+@@ 636ccd5752
+Professional use only; do not apply undiluted to the skin. Scentspiracy: flash point >100 C, not classified as flammable
+@@ 0e565ecf61
+TCI (via search engine): store refrigerated. The neat material is crystalline.
+@@ 5325a6232f
+TGSC: «not for fragrance use.» It is a flavouring (sulphurous, rubber, barbecue); its doses are food doses (ppm). GHS «None found.»; flash point 195 °F (90.56 °C).
+@@ ae64a5d94e
+TGSC: «not for fragrance use.» It is a flavouring (roast meat); its doses are food doses (ppm). GHS «None found.»
+@@ 23f5805d09 =
+@@ 8d18744d2e
+TGSC: GHS «None found.» It is a chlorinated compound.
+@@ 02ce9c10d0
+TGSC: GHS «None found.» It oxidises in air: store cold and under nitrogen.
+@@ fcb475663c
+TGSC: GHS «None found.»; old EU phrases «R 10 - Flammable.», «R 22 - Harmful if swallowed.», «R 36/38 - Irritating to skin and eyes.»; flash point 125 °F (51.67 °C).
+@@ f9229e37bd
+TGSC: GHS «None found.»; flash point 159 °F (70.56 °C).
+@@ 883399cd8f
+TGSC: GHS «None found.»; flash point 200 °F (93.33 °C).
+@@ 730475dfd5
+TGSC: GHS «None found.»; flash point 60 °F (15.56 °C): highly flammable. An old European source gives it as an irritant and highly flammable.
+@@ 14a03e0c21
+Wikipedia: Danger; skin sensitiser; H302, H311; GHS06, GHS07; flash point 121 C. Fraterworks: do not apply undiluted to the skin. Scentspiracy: avoid solid crystals in the laboratory because of odour contamination; store in amber glass or lined drums, away from metals and air
+@@ 880a3e21d0
+Wikipedia: Wikipedia: Danger; GHS05, GHS06, GHS08; H311, H314, H351, H370, H372, H373; flash point 86.1 C. Scentspiracy: chemical-resistant gloves, goggles, lab coat; tightly closed amber glass containers; corrosive when concentrated, use ventilation or a fume hood · TGSC: Danger; H301 and H311 (toxic if swallowed and in contact with skin, cat. 3), H314 (skin corrosion 1B), H401/H411 (aquatic); flash point 89.44 °C (193 °F TCC)
+@@ 5b6fda3be0
+«LT» is the current, standardised grade (Scentfriends). Other grades exist: HT, LTS and S (names listed by ScenTree and Perfumers World).
+@@ 67d2e0cb0b
+Some sellers call it iso-ambrettolide and the IUPAC name usually refers to the (Z) isomer. A patent on cis-isoambrettolide (via search engine) describes it as much more potent than the trans.
+@@ e3d8da45f5
+Assay «90.00 to 100.00 sum of isomers». No further isomer notes
+@@ 1d0a16c32d
+Assay «92.00 to 100.00 sum of isomers». Stereodescriptors in the IUPAC names; no further isomer notes
+@@ 8963a9ca53
+Doubt about identity, see disagreements. ScenTree describes «6-isobutylquinoline» (and at the same time lists the synonym «6-butan-2-ylquinoline», which is sec-butyl) with CAS 68198-80-1 and names butylquinoline as a positional isomer little used in perfumery. A forum thread (Basenotes, via search engine) states that Pyralone is a mixture of 6-sec-butylquinoline and 8-tert-butylquinoline and that CAS 93-19-6 is 2-isobutylquinoline, with a different odour («animal leather woody»); this could not be checked. No open source speaks of purity grades.
+@@ fdaf2e4266
+IDENTITY DOUBT: CAS 28219-60-5 is shared by Sandalmysore Core (Kao), Santaliff (IFF) and Hindinol (Takasago). PerfumersWorld, on the Hindinol sheet, lists as synonyms «sandalmysore core», «santaliff» and «sandalmiscoeur», and notes «Santaliff(tm) 92pc to 98pc (sum of isomers)». A search-engine snippet attributes to a reviewer that the isomer proportion differs between Hindinol and Sandalmysore Core. Kao does not declare the chemical name or the isomer proportion. Maese Lab (another shop) sells it as «Sandal Mysore Core», purity 100 %, without naming a manufacturer.
+@@ ce1d5d683a
+EFSA/JECFA: «Racemate.»
+@@ 27230e4cde
+The search engine warns that it must not be confused with mandarin leaf oil (petitgrain), which is very different (≈43–52 % or more of methyl N-methylanthranilate according to the study).
+@@ 26f575749e
+CAS 9000-72-0 is that of Siam benzoin (Styrax tonkinensis) in ScenTree and Scentspiracy; ScenTree gives a different CAS to the Sumatra one, 9000-05-9 (Styrax benzoin), more spicy and less vanilla-like. Resinoids are often sold diluted to 50 % (in DPG, TEC, alcohol or benzyl benzoate)
+@@ 7bde842c38
+The chemical name specifies the (E) configuration of the but-2-enoate; no further isomer notes
+@@ 3b12b9f274
+It is a «vegan» base Another Firmenich product, Castoreum Firbest, according to the dsm-firmenich page (via search engine) carries no trace of natural castoreum and is different from this Synth, which uses synthetic captive molecules.
+@@ 44962e9b12
+It is a mixture. ScenTree: «more than 20 isomeric molecules»; it is synthesised as Iso E Super and Arborone «in 95/5 proportions» and the commercial product carries Arborone «between 2 and 5 %»; Arborone is «10 000 times more powerful than Iso E Super»; pure isocyclemone «almost no smell». Scentspiracy: Arborone «a minor constituent (~5 %)» that gives the olfactory character. PCW (ScenTree) sells Iso Myrcetone (HAM-1) and Iso Myrcetone Gamma (ISG-2) of 90–100 % purity. Perfumers Apprentice: its grade is «richer in the gamma isomer than isocyclemone». A source (via search engine) says that the gamma isomer is the active one and that purity is ≥90 % «gamma isomer dominant». CAS: ScenTree only gives 54464-57-2; Perfumers Apprentice lists 54464-57-2, 68155-66-8 and 68155-67-9 (the list in the brief adds 54464-59-4 from the IFRA index).
+@@ 6359c471ff
+It is a tincture, not the absolute nor the bean: INCI «alcohol, dipteryx odorata seed extract, aqua»; strength 96°; «cantidad de cargas: 2». The sheet does not give the drug/alcohol ratio. Haba Tonka» (absolute, from Mexico), a different product.
+@@ 39b1a55273
+Standard: mixture of isomers, around 90/10 trans/cis. The HC version carries more than 75 % cis.
+@@ 48113f880f
+Exaltolide Total can be used at lower purities (~92%) depending on the application (Scentspiracy)
+@@ dcbaaea8d9
+FCF (furocoumarin-free) and molecular-distillation grades exist (search-engine summary), different from the expressed one.
+@@ 9d1d0acef9
+Fraterworks (racemate): ~75 % cis mixed with trans; «High Cis» (cis >90 %) and «Laevo» (pure laevo cis isomer, ~100 times stronger than the racemic) exist. Scentspiracy: mixture of cis/trans and dextro/laevo stereoisomers that are hard to separate; laevo-cis sweeter, greener and softer; dextro-cis more spicy, herbaceous and somewhat gaseous; trans sharper and less diffusive. Perfumer's Apprentice sells racemic and laevo separately.
+@@ 4c50403fcc
+Fraterworks gives the IUPAC name with an (E) double bond. No mention of isomer mixture or grade. dsm-firmenich classifies it as a synthetic molecule and lists it under «Botanical: Pinus pinaster», because it is made from turpentine recovered from the paper industry (recycling: it is fractionated to recover alpha- and beta-pinene).
+@@ 1db33af352
+Fraterworks gives the IUPAC name with a 3E double bond. It does not explicitly state whether it comes diluted); Fraterworks offers 10 % in DPG and 100 % neat.
+@@ 2274764a5d
+Fraterworks: «Firmenich premium grade with exceptional radiance» and «Cyclosia is hydroxycitronellal… in 3D!»; ScenTree lists Cyclosia® and «Cyclosia Base®» among the trade names of the same CAS. The Perfumers PopUp Shop (via search engine): very pure version made by Firmenich, with more diffusion than the normal material; Ceres Lab (via search engine): refined version introduced by Firmenich around 1908. Scentspiracy distinguishes pure grades (elegance and diffusion) from industrial grades (for soap) without citing Cyclosia. ScenTree: a molecule with one asymmetric carbon, two enantiomers of «similar» odour, both used in muguet reconstructions. Supplier grades: PCW HY-1 99–100 % purity; BASF and BASF BMBcert.
+@@ 4c2a39324a
+Fraterworks: it is the laevorotatory form of Bacdanol («Laevo Bacdanol»); Perfumer's Apprentice: «similar to Bacdanol, sharing the same CAS but differing in isomer distribution». IUPAC name according to Fraterworks: (E)-2-ethyl-4-(2,2,3-trimethyl-1-cyclopent-3-enyl)but-2-en-1-ol. Vigon (via search engine) also sells it with a sum-of-isomers assay of 95–100 %.
+@@ e1de761327
+Givaudan gives the chemical name «4-(1-Ethoxyvinyl)-3,3,5,5-tetramethyl-cyclohexan-1-one (main component)», that is, the CAS corresponds to the main component of a commercial product. Inference from its Know How section, not explicitly stated).
+@@ fa1673f9f2
+COMMERCIAL GRADE: The shop's Know How states that diluted materials «always state both their concentration and the solvent used»). Perfumer's Apprentice sells the material undiluted, as a white solid. No mention of isomer mixture.
+@@ b764180d54
+FCF grade (furocoumarin-free, bergapten-free). The sheets say it is obtained by an operation after cold expression; the method varies by supplier (see natural.process). Whole bergamot oil (non-FCF) carries bergapten and is phototoxic.
+@@ 53ed37f8c2
+Grade: rectified (Fraterworks and Scentspiracy: «Cade Oil Rectified»). Scentspiracy warns that crude cade is dark brown/black and is not recommended because of potentially carcinogenic impurities (PAHs).
+@@ 3fb35bfc2c
+Grades cited: neat (viscous liquid, sometimes it has to be warmed to liquefy it again); Galaxolide 50 % in IPM (50 % Galaxolide + 50 % isopropyl myristate, CAS 110-27-0); 50 % in DEP; 50 % in BB (benzyl benzoate) (IFF, via search engine); 50 % in DPG (Scentspiracy). The sources do not cite the HHCB isomers.
+@@ 12eb1b125a
+Different commercial grades: classic absolute (very coloured, dark brown semisolid mass) and absolute decolourised by molecular distillation (Payan Bertrand, «Tobacco Absolute MD», nicotine < 0.03 %). Perfumer Supply House sells a «Tobacco Absolute» of Nicotiana rustica with another CAS (84961-66-0) and ~9 % nicotine: it is not the same material.
+@@ 80f0d27482
+Grades: Scentspiracy: semisolid mass) and resinoid diluted to 50 % in triethyl citrate (Fraterworks, «Tolu Balsam Resinoid 50% TEC»). Scentspiracy says it is often sold pre-diluted to 50 % in ethanol or DPG.
+@@ 80a0897bb2
+There are other commercial versions: «Dewfruit R» (Fraterworks, Perfumer Supply House) and «Dewfruit ABQ2977» (Quest code); the sources do not explain how they differ from the TEC version.
+@@ ababcb8d86
+Z (cis) isomer of 3-hexen-1-ol. Inference from its Know How, not explicit). Perfumer's Apprentice also has a separate «natural» version (not opened).
+@@ 865ec7d688
+The sheet does not say whether the aroma is of natural or synthetic truffle.
+@@ 48423bcc5c
+The page lists «methyl (E)-cinnamate» and «methyl (Z)-cinnamate» as related entries (in «Also (can) Contains»)
+@@ e389db9d0e
+The page lists commercial grades: 40/42 % (linalyl acetate), 48/52 Barrême, 30/32 %, 35 %, «Coumarine free», «Lavender Oil MT», organic ones; an Eastern European grade is «a commercial grade, hybrida Lavender» with lavandin
+@@ 64b3cfa04d
+The page also lists commercial variants: phenethyl alcohol natural, phenyl ethyl alcohol extra, FCC, USP 24, USP/NF.
+@@ e2bc40ec69
+The sheets for the (S) and (R) enantiomers are separate on TGSC (according to the search results: (S)-gamma-undecalactone with its own page; (R) with CAS 74568-06-2); this sheet is for the material with no enantiomer specified.
+@@ 671a3fa18d
+The sheets for the enantiomers are separate on TGSC ((R)-gamma-nonalactone CAS 63357-96-0 and (S) CAS 63357-97-1, according to the search results); this sheet is for the material with no enantiomer specified.
+@@ 007476bcf4
+The sources distinguish grades: Fraterworks sells «Patchouli Dark PA30» (distilled in iron, Aceh, Indonesia) and «Patchouli Light Aceh PA38»; Perfumer's Apprentice, «Patchouli (Dark) Indonesia»; there are also patchoulol fractions and crystals (different products).
+@@ 70b9d6f5e2
+The three pages read are for Haitian vetiver. The sources distinguish origins: Haiti (dry, woody, earthy, smoky and with grapefruit citrus, according to Givaudan via search engine), Java (smokier) and the Bourbon type (Madagascar). The old botanical name (Vetiveria zizanioides) is still in use in several shops; Premiere Peau (via search engine) gives the current one, Chrysopogon zizanioides.
+@@ 426c3ba99d
+The CAS numbers differ: Fraterworks and ScenTree use 8016-36-2 (generic olibanum/frankincense).
+@@ b4fcd6c903
+The two CAS numbers are not explained the same way in the sources (see disagreements). Wikipedia gives 6790-58-5 as the main CAS and 3738-00-9 as unspecified stereochemistry; Laborammeer assigns 6790-58-5 to enantiopure ambroxide (drier and woodier) and 3738-00-9 to racemic Cetalox (creamier and more musky); ChemicalBook lists 3738-00-9 as «AMBROX DL», with Ambermor among the synonyms, and describes it as a mixture of ≈30 % Cachalox and ≈70 % Cetalox (9-epi-Ambrox).
+@@ d65ee53874
+Mixture (base), liquid. Search-engine results warn that Bulkaroma lists «Black Agar (Firmenich)» as an alias of Givco, which contradicts Firmenich's official page.
+@@ aff986ec26
+House mixture, not a molecule. There are variants: 345 F (greener and more acidic than the B; Firmenich, via search engine) and 345 BB (slightly sulphurous green-fruity base; not confirmed to be the same material). Fraterworks lists it as «Third Party Base» and warns that the product is not filtered: particles or cloudiness may appear.
+@@ 9fc1f1cb23
+Mixture, not a molecule: Perfumer's Apprentice puts «Mixture» under CAS.
+@@ b7c181d7be
+Not applicable. ScenTree distinguishes natural versions (natural vanillin ex clove oil, ex clove) and synthetic ones.
+@@ 48d9e8fbba
+Not a single compound (no IUPAC name); rich in patchoulol; natural mixture of patchouli molecules. Approx. half the strength of Patchoulol Crystals PA99
+@@ 827d8c145b
+It is not the pure absolute. ScenTree describes the «low atranol & chloratranol» (CAS 9000-50-4) and also offers it at 50 % in TEC (Biolandes). Fraterworks offers the absolute 100 % neat and at 10 % and 50 % in natural TEC, «tweaked to remove the banned material atranol».
+@@ ae851d0d47
+No mention of isomer mixture or commercial grade. It is an oxime (5-methyl-3-heptanone oxime); no open source speaks of the E/Z form.
+@@ 300b53a122
+No mention of isomer mixture or grade. Inference from its Know How section, not explicitly stated).
+@@ 077b965718
+No mention of isomer mixture or grade. Perfumiarz sells it with no declared dilution (the name carries no % or solvent; inference from its Know How). There are search-engine listings with 1 % versions in DPG (Perfume Extract), not opened.
+@@ 7f02478299
+Other houses: Hermitage Oils sells retail at 20 % in ethanol and wholesale as a neat solid; Fraterworks sells a «Signature Absolute 50%» (one lot with triethyl citrate and then with benzyl benzoate, according to the search engine); PCW, «Castoreum Abs 80% Alc Benz» (ScenTree).
+@@ af2f117a6c
+Parchem: 8007-35-0 is a mixture of acetic esters of alpha, beta and gamma terpineol; ECHA registers it as «Terpineol, acetate» (EINECS 232-357-5). 80-26-2 is the alpha isomer specifically (EINECS 201-265-7); Guidechem adds that commercial terpinyl acetate is mostly alpha but carries other isomers. Many suppliers list both CAS numbers together. Pell Wall (citing Arctander): the pine nuances depend on the grade of the ester. Purity: Foreverest sells 95 % and 98 % grades; Parchem specifies 99 % minimum.
+@@ 2e97c695b1
+Perfumers World sells it as «98pc min. (mixed isomers) synthetic». Scent.vn lists trans / (E) names and a «mixture of isomers» variant, and its text also mentions «cis-3-methyl-4-octanolide»; the page does not resolve it. A patent (via search engine) says the four stereoisomers smell different: one of sweet, fresh coconut, another earthy and mouldy, another spicy and celery-like.
+@@ f500e111de
+PerfumersWorld gives it as an (E+Z) mixture of tetrahydro-2-isobutyl-4-methylpyran-4-ol.
+@@ 3397b65a0f
+PerfumersWorld: also cites 1335-46-2 «para comparar» and says that the odour of this isomer is considered more attractive than that of any other methylionone. A search-engine snippet from a supplier gives two CAS numbers (127-51-5 and 127-42-4) for the gamma product.
+@@ 3ee1ff15b7
+Search-engine summary: one supplier describes it as an E/Z mixture of pentadec-12-enolide and another as predominantly the E isomer; sellers name it as the (12E).
+@@ 276bf0dbfa
+ScenTree gives CAS 8046-19-3 / 94891-28-8. Three things must be distinguished: (1) the alcohol-extraction resinoid (Fraterworks, ScenTree), which is the one that applies; (2) the pyrogenated grade «Vulcain» (Firmenich, Perfumiarz and Scentspiracy), with the same CAS but darker, leather and smoky, with PAH limits; (3) styrax oil, a different material (Perfumiarz: CAS 8024-01-9). Fraterworks warns that most extracts on the market «suffer from a pronounced styrene note».
+@@ c02c1053cb
+ScenTree and Fraterworks give only 8008-57-9; 8028-48-6 from the list does not appear in any of the sources read. The sources distinguish grades: cold-pressed oil (with almost pure limonene), «decolourised» oil (Fraterworks), «10 fold» (more than 30 h on a smelling strip) and «terpeneless/desterpenado» (classified as a base, more than 200 h on a smelling strip).
+@@ 565b8bd8b0
+ScenTree: «No isomer used in perfumery». Commercial grades: PCW EB-1 of 97.5–100 % purity (ScenTree); Takasago, 93 % minimum by GC (via search engine). Scentspiracy: poor grades develop fatty-rancid castor-oil-type notes over time.
+@@ 3c7a6ceda0
+ScenTree: alpha-ambrinol is the most used form; beta-ambrinol exists but «much less used». The molecule has one asymmetric carbon and a mixture of enantiomers is used. It is a constitutional isomer of dihydro-beta-ionone. According to the search engine, the Symrise technical sheet names two chemicals together (an octahydro-trimethylnaphthol and a cyclohexenyl butanone), which suggests that Ambrinol S is a mixture and not pure alpha-ambrinol; SpecialChem pairs it with «Parfum».
+@@ f72433ab2b
+ScenTree: CAS 79-77-6 is the (E) isomer; separately there is a «Béta-ionone» page with CAS 14901-07-6 (beta isomer unspecified, according to the search engine) and The Fragrance Foundry (via search engine) lists it together with the mixed-ionone CAS 8013-90-9: it is advisable to confirm which one the supplier sells. Industrial purity of ≈92 % (ScenTree); PCW 97–100 %. ScenTree: present naturally in sweet acacia and in osmanthus absolute, but the synthetic one is almost always used. Compared with alpha: «more woody than alpha-Ionone».
+@@ 0bd316ee32
+ScenTree: the laevorotatory one (licareol) is «woodier» and is found up to ~85 % in camphor wood oil and ~80 % in rosewood; the dextrorotatory one (coriandrol) up to ~70 % in coriander seed. «The racemic mixture is used in perfumery» in most cases and the odour difference between enantiomers is «quite small». ScenTree lists synthetic suppliers (PCW 98.0 % min., Quosentis, BASF, Tilley) and also a natural version (Tilley).
+@@ 2f2825ebf6
+ScenTree: PCW's product «Ionone Alpha 80 %» has a purity of 77–84 %; an industrial purity of ≈85 % is reached (obtained by cyclising pseudoionone, ≈80 % yield in favour of alpha). Beta is woodier and gamma «quite woody and resinous»; alpha and beta damascone are positional isomers that smell of cooked apple, not violet. Perfumers Apprentice labels the chemical name «(isomers)» and calls its grade «A fine quality of alpha ionone». There is a synthetic version and another labelled «natural» (Tilley, ScenTree).
+@@ bb0d3636d7
+ScenTree: stereoisomer; the isopropyl can be cis or trans and its entry (13828-37-0) is the cis form; on the sheet it is titled (Z)-Mayol. Fraterworks and DirectPCW associate it with CAS 5502-75-0 (the general one for p-menthan-7-ol; DirectPCW gives both CAS numbers). A perfumery study cited by the search engine: the more cis, the more the odour shifts from a soft white muguet to a green, powerful and tenacious lily of the valley. Exact cis/trans composition of commercial Mayol: not declared.
+@@ 44ad7bd7cf
+ScenTree: constitutional isomer of undecylic C-11 aldehyde (linear).
+@@ e16054db76
+ScenTree: used in perfumery as a racemic mixture of (R) and (S) enantiomers, which smell alike. Constitutional isomers: geranyl and neryl acetate (suggest pear and rose), terpenyl and isobornyl (pine). Scentspiracy: the semisynthetic material, obtained by acetylation of lavender or petitgrain bigarade oils rich in linalool, has according to one supplier a cleaner and less complex odour than acetates made with natural linalool.
+@@ e0c1e4618b
+ScenTree: sold synthetic and «natural» (PCW Heliotropin Natural 50 % TEC; Tilley Heliotropine natural/Piperonal); purity not stated. Traces in Bourbon vanilla absolute. Fraterworks: its heliotropin is synthetic «high purity food grade quality». ScenTree: it tends to be gradually replaced by the Heliotropex® base because it is regulated on import.
+@@ 0704778f20
+ScenTree: its constitutional isomer is isononyl acetate and it has no olfactory similarity with it. No mention of isomer mixture or commercial grade. Fraterworks gives the alternative name 1,1-dimethoxy-2,2,5-trimethyl-4-hexene (the IUPAC name of both ends of the chain).
+@@ b5ce228738
+ScenTree: it has one asymmetric carbon and the racemic mixture is mostly used; the (R) isomer smells of «fairly sweet aldehyde lily of the valley» and the (S) is «more ozonic, green and fruity». Suppliers: PCW (HEL-1) 98.0–100.0 % purity; Synarome sells «Schiff Helional» (Schiff base with methyl anthranilate) as a separate product.
+@@ 85d2d16003
+ScenTree: it has one asymmetric carbon; only the racemic mixture is used in perfumery. The (R) enantiomer smells floral-jasmine, close to gardenia; the (S), more of strawberry, green and fresh. Constitutional isomers: phenylethyl acetate (rosier and honeyed) and benzyl propionate (more floral, jasmine and pear). Some suppliers also list a second CAS, 1335-75-7, associated with a mixture of ortho, para and meta isomers of methylbenzyl acetate.
+@@ cf2689ee9e
+Scentspiracy also gives CAS 84776-73-8 as a second number for the same oil (8022-56-8 / 84776-73-8). Fraterworks sells it made by Payan Bertrand. Two sources warn not to confuse it with clary sage (Salvia sclarea, rich in linalyl acetate and sclareol), a different material; Spanish sage oil (another species) appears in the search results but has not been read.
+@@ 9bacd3bff2
+Scentspiracy sells the «Fine 98 %» grade and names nerol as an isomer (geraniol is the trans). (natural), with «pureza 100 %» on the sheet. Search-engine summary: other shops sell Geraniol 95 and 97 %.
+@@ 8fe3b20ba7
+Scentspiracy and snippets: some listings pair 67634-00-8 with 67634-01-9.
+@@ 9f29ea01ab
+Scentspiracy: the commercial material normally carries 1–2 % of neryl acetate (cis isomer), which gives a metallic nuance; in lemon compositions it is often used with neryl acetate in equal parts. ScenTree: neryl acetate (Z diastereomer) smells lighter and terpenic; constitutional isomers are linalyl acetate and terpenyl acetate (recall bergamot) and isobornyl acetate (recalls pine).
+@@ 6c1472e09c
+Scentspiracy: mixture of cis and trans isomers; the cis contributes the «softer, more floral-powdery» qualities and the trans the «classic cedar-like woody depth». Hekserij and Perfumer's Apprentice do not discuss isomers. COMMERCIAL GRADE: Hekserij sells the «Vertenex type» (generic) material, not the original from IFF.
+@@ 5a67e7d02a
+Scentspiracy: mixture of cis and trans isomers; the trans (E) predominates in the commercial product and has a better odour; the cis (Z) is a minority.
+@@ c00a263d43
+Scentspiracy: diastereomeric (E/Z) mixture of four secondary alcohols with three asymmetric carbons.
+@@ d0aaf70a38
+According to ScenTree, commercial cocoa absolutes from other houses usually come in ethanol or MPG (e.g. PCW «COCOA ABS (30% ETH)»; Biolandes «CACAO 30%/ETH»).
+@@ 572397bf18
+It has two enantiomers; the laevorotatory (-) one is much more potent in odour (search-engine summary). Thresholds: (-) 0.0095 ppb and (+) 0.0780 ppb (ScenTree); (-) 0.0082–0.018 ppb and (+) 0.066–0.090 ppb (Leffingwell, via search engine). Perfumer's Apprentice at 1 % in TEC and PerfumersWorld at 1 % in DPG (via search engine).
+@@ dea9e0c764
+A patent (via search engine) describes commercial Timberol as a mixture of ~70 % cis, ~20 % trans and other isomers. Fraterworks and Scentfriends also sell «Norlimbanol Dextro» (Firmenich), enriched in the dextro (3R) isomer, described as «the purest form of the desirable dextro isomer» and more potent; Fraterworks compares it to paradisone with respect to hedione. The trans content affects the patchouli and animalic facets (via search engine).
+@@ d2593ec75c
+Wikipedia: Mixture of both enantiomers (+)-(E,S) and (-)-(E,R); the composition varies by source · TGSC: Assay: 98.00 to 100.00 sum of isomers
+@@ 8ebe3a9ffb
+lab: hours on a smelling strip, neat material, TGSC scale
+@@ 72d4137778
+web (V3-54, TGSC): https://www.thegoodscentscompany.com/data/es1003771.html; hours on a smelling strip, neat material (TGSC scale)
+@@ 985028e7e4
+web (V3-54, TGSC): https://www.thegoodscentscompany.com/data/rw1005971.html; hours on a smelling strip, neat material (TGSC scale)
+@@ 4b7c7aee94
+lab: biblioteca/materiales.sqlite, materials.strength (commit c0e81e3), by batch 7
+@@ dd61187aaf
+session proposal: Fraterworks (https://fraterworks.com/products/hyraceum-signature-absolute) gives «moderate strength (6/10)» to its absolute at 40 % in DPG; Maese Lab's is neat («Pureza 100%»), by batch 32
+@@ 7df6f7ec42
+web (V3-54, TGSC): https://www.thegoodscentscompany.com/data/rw1005971.html, by batch 12
+@@ 0764299fbc
+web: session proposal, https://fraterworks.com/products/ambrarome-absolute: «powerful, animalic aroma», by batch 23
+@@ d30e19582a
+web: session proposal, https://fraterworks.com/products/prunella: «powerful, complex note of ripe plums», by batch 23
+@@ 8ae5857c16
+web: Scent.vn, https://scent.vn/en/products/ethyl-vanillin-aroma-chemical: «Odor impact: medium (est.)», by batch 23
+@@ b4b0a9f161
+web: Scentspiracy, https://www.scentspiracy.com/bases/p/shangralide: «odor strength is listed as strong», by batch 23
+@@ 2573628828
+web: Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/exaltolide: «Strength is listed as medium», by batch 23
+@@ 6a7cf89bc5
+web: Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/juniperberriesoil: «Medium to strong; persistent with good tenacity», by batch 32 (read as «medium»: session proposal)
+@@ 2a36fd7f3a
+web: TGSC, https://www.thegoodscentscompany.com/data/es1034621.html: «Odor Strength:medium», by batch 32
+@@ e46303e240
+web: TGSC, https://www.thegoodscentscompany.com/data/rw1002671.html: «medium , recommend smelling in a 10.00 % solution or less», by batch 14
+@@ c2212b271b
+web: TGSC, https://www.thegoodscentscompany.com/data/rw1003851.html: «high , recommend smelling in a 0.10 % solution or less», by batch 23
+@@ 7af823d62a
+web: TGSC, https://www.thegoodscentscompany.com/data/rw1013631.html: «medium , recommend smelling in a 10.00 % solution or less», by batch 14
+@@ 09d6efe308
+web: TGSC, https://www.thegoodscentscompany.com/data/rw1015411.html: «medium», by batch 14
+@@ 3030e5ca48
+web: TGSC, https://www.thegoodscentscompany.com/data/rw1016811.html: «medium , recommend smelling in a 1.00 % solution or less», by batch 14
+@@ c50c2de744
+web: TGSC, https://www.thegoodscentscompany.com/data/rw1023372.html: «high, recommend smelling in a 10.00 % solution or less», by batch 23
+@@ c5dac3d1a5
+web: TGSC, https://www.thegoodscentscompany.com/data/rw1027981.html: «high , recommend smelling in a 1.00 % solution or less», by batch 14
+@@ feb5495715
+web: TGSC, https://www.thegoodscentscompany.com/data/rw1085861.html: «medium», by batch 23
+@@ c2aaddd8c2 =
+@@ e455c7c4b0 =
+@@ f12ce5b6b4 =
+@@ 6ae6ee6a3d =
+@@ c3705b6290 =
+@@ 6bb0c91445 =
+@@ ff60801cf0 =
+@@ d0b6784680 =
+@@ eec67f33f3 =
+@@ f7d1b0bc16 =
+@@ 087d532077 =
+@@ 3dfcc8b7e9 =
+@@ 9d49d2a533 =
+@@ 304f7c495f =
+@@ d1b6ec279a =
+@@ 3044cf1880
+v2 app: bench diluents (src/data/catalog.ts, DILUENT_DATA; commit 2a5d98c)
+@@ a822d32e0e
+the user, from their sample (645-56-7); Spectrum Chemical, https://www.spectrumchemical.com/cas/645-56-7 (4-Propylphenol); accessed 2026-10-15 · web: The Good Scents Company (batch 14)
+@@ d091c5c2bf
+the user, from their sample (7361-80-0); LookChem, https://www.lookchem.com/ProductWholeProperty_LCPL63750.htm (7361-80-0, the 9Z,12Z,15Z isomer), and NIH MeSH C047376 (301-00-8 without isomer, 7361-80-0 related); accessed 2026-10-15 · web: The Good Scents Company (batch 14)
+@@ 69350c0c76 =
+@@ 2e2bedb437
+lab: gen; physical_state: web (V3-54, TGSC): https://www.thegoodscentscompany.com/data/rw1000511.html
+@@ 75ff96f905
+lab: gen; physical_state: web (V3-54, TGSC): https://www.thegoodscentscompany.com/data/rw1019331.html
+@@ 240fdaa849 =
+@@ 716a1b0c27 =
+@@ f8c28fe8d0
+lab: repo web TG; physical_state: web (V3-54, TGSC): https://www.thegoodscentscompany.com/data/es1032591.html
+@@ 8ab8ed5b56
+lab: repo web TG; family: web (V3-54, manufacturer): https://studio.dsm-firmenich.com/product/black-agar-pe-296985
+@@ 352e4d6491
+lab: repo web TG; family: web (V3-54, manufacturer): https://www.firmenich.com/product/200093356
+@@ 4e7f3957a3
+lab: repo web TG; family: web (V3-54, manufacturer): https://www.firmenich.com/product/auranone-pe-911383-0
+@@ db17aa1e54
+lab: repo web TG; family: web (V3-54, other): https://www.thegoodscentscompany.com/data/pb1131971.html
+@@ 22c8589355
+lab: repo web TG; family: web (V3-54, TGSC): https://thegoodscentscompany.com/data/ab1092811.html
+@@ 5fe531e77f
+lab: repo web TG; family: web (V3-54, TGSC): https://thegoodscentscompany.com/data/rs1051041.html
+@@ 09f78152ad
+lab: repo web TG; family: web (V3-54, shop): https://fraterworks.com/products/aldambre
+@@ cd32017245
+lab: repo web TG; tenacity_hours: web (V3-54, TGSC): https://www.thegoodscentscompany.com/data/es1003771.html
+@@ 243d529f80
+lab: repo web; family: web (V3-54, other): https://thegoodscentscompany.com/data/pb1059221.html
+@@ c2e68ef4ea
+lab: repo; tenacity_hours: web (V3-54, TGSC): https://www.thegoodscentscompany.com/data/rw1005971.html; intensity: web (V3-54, TGSC): https://www.thegoodscentscompany.com/data/rw1005971.html; descriptors: web (V3-54, TGSC): https://www.thegoodscentscompany.com/data/rw1005971.html; physical_state: web (V3-54, TGSC): https://www.thegoodscentscompany.com/data/rw1005971.html
+@@ 1b8b0c4765
+laboratory, biblioteca/investigaciones/2026-10-26-altas (commit eef4193): Bio Shop Pakistan, Bio Shop Pakistan + TGSC, Maese Lab, TGSC, Vent des Aromes, Vent des Aromes + Maese Lab, Wikipedia, Wikipedia + TGSC
+@@ 6c443819a4
+laboratory, biblioteca/investigaciones/2026-10-26-altas (commit eef4193): Ferwer, Maese Lab, Useful Tropical Plants, Wikipedia
+@@ 682d42e023
+laboratory, biblioteca/investigaciones/2026-10-26-altas (commit eef4193): Fraterworks
+@@ 32c8476a93
+laboratory, biblioteca/investigaciones/2026-10-26-altas (commit eef4193): Fraterworks, Fraterworks + TGSC, IFF, IFF + TGSC, Scentspiracy, Scentspiracy + TGSC, TGSC
+@@ 19201b0008
+laboratory, biblioteca/investigaciones/2026-10-26-altas (commit eef4193): Fraterworks, Fraterworks + TGSC, Scentspiracy, Scentspiracy + TGSC, TGSC
+@@ 17873f90cd
+laboratory, biblioteca/investigaciones/2026-10-26-altas (commit eef4193): Fraterworks, Fraterworks + TGSC, TGSC, dsm-firmenich
+@@ 4a39f5b82f
+laboratory, biblioteca/investigaciones/2026-10-26-altas (commit eef4193): Fraterworks, Fraterworks + TGSC, TGSC, Wikipedia, Wikipedia + TGSC
+@@ 0982e49d4d
+laboratory, biblioteca/investigaciones/2026-10-26-altas (commit eef4193): Fraterworks, Givaudan, TGSC
+@@ 87a0731bf8
+laboratory, biblioteca/investigaciones/2026-10-26-altas (commit eef4193): Fraterworks, IFF
+@@ a5aa1b53c5
+laboratory, biblioteca/investigaciones/2026-10-26-altas (commit eef4193): Fraterworks, Scentspiracy, Scentspiracy + TGSC, TGSC
+@@ d10f62243f
+laboratory, biblioteca/investigaciones/2026-10-26-altas (commit eef4193): Fraterworks, Scentspiracy, TGSC
+@@ fff77d8f65
+laboratory, biblioteca/investigaciones/2026-10-26-altas (commit eef4193): Fraterworks, Scentspiracy, TGSC, Wikipedia
+@@ d09dcd1a0f
+laboratory, biblioteca/investigaciones/2026-10-26-altas (commit eef4193): Hekserij, Scent.vn, TGSC
+@@ a5269c3528
+laboratory, biblioteca/investigaciones/2026-10-26-altas (commit eef4193): IFF
+@@ 11514365fd
+laboratory, biblioteca/investigaciones/2026-10-26-altas (commit eef4193): Labo Hevea, Maese Lab, TGSC
+@@ 3f8e86bd70
+laboratory, biblioteca/investigaciones/2026-10-26-altas (commit eef4193): Maese Lab, Maese Lab + TGSC, Robertet, Robertet + Maese Lab, TGSC
+@@ 9494068fb0
+laboratory, biblioteca/investigaciones/2026-10-26-altas (commit eef4193): Maese Lab, Maese Lab + TGSC, TGSC
+@@ c5442174ef
+laboratory, biblioteca/investigaciones/2026-10-26-altas (commit eef4193): Scentspiracy, Scentspiracy + TGSC, TGSC, Wikipedia, Wikipedia + TGSC
+@@ 2dfc07ce46
+laboratory, biblioteca/investigaciones/2026-10-26-altas (commit eef4193): TGSC, USDA AMS
+@@ 105b779761
+laboratory, biblioteca/investigaciones/2026-10-26-altas (commit eef4193): The Fragrance Foundry
+@@ 240d577a30
+laboratory, conocimiento/lenguaje/fig/glosario-fig.csv (FIG glossary): «110-19-0,Isobutyl acetate» · web: The Good Scents Company (batch 14)
+@@ 6788281f6f
+laboratory, conocimiento/lenguaje/fig/glosario-fig.csv (FIG glossary): «110-38-3,Ethyl decanoate»; the user gives the same CAS · web: The Good Scents Company (batch 14)
+@@ f3df53dc55
+laboratory, conocimiento/lenguaje/fig/glosario-fig.csv (FIG glossary): «13816-33-6,Cuminyl nitrile» · web: The Good Scents Company (batch 14)
