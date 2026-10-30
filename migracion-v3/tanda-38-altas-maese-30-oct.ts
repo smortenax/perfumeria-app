@@ -73,6 +73,8 @@ type New = {
   tgscOdor?: string;
   notes?: string[];
   component?: { cas: string; name: string; max: string; source: string };
+  /** Already yours, twice: no third version in batch 39. */
+  notInAccount?: string;
 };
 
 const fresh: New[] = [
@@ -90,6 +92,8 @@ const fresh: New[] = [
     purityText: "PUREZA 100%",
     odor: "Salicilato dulce-floral, especiado, balsámico, ligeramente fenólico, picante",
     tgscUrl: tg("rw1001792"),
+    notInAccount:
+      "the user, 2026-10-30, of the two benzyl salicylates already in the account: «si me acabe llevando dos botes peoro bueno no cuento el stock asi que da igual»",
   },
   {
     key: "phenethyl-acetate",
@@ -352,6 +356,7 @@ for (const item of fresh) {
       source: item.component.source,
     });
   // Batch 39: your specification of it, from Maese Lab, with «I have it».
+  if (item.notInAccount) continue;
   versions.push({
     ...Object.fromEntries(materials.header.map((h) => [h, null])),
     id: uuidFor(`tuya:tanda39:${id}`),
@@ -432,7 +437,7 @@ ${why
 );
 writeFileSync(
   join(OUT_ACCOUNT, "informe.md"),
-  `# Tanda 39 · Tus diez de Maese Lab, en tu cuenta
+  `# Tanda 39 · Tus nueve de Maese Lab, en tu cuenta
 
 *Generada por \`migracion-v3/tanda-38-altas-maese-30-oct.ts\`. De tu cuenta: se aprueba con \`--cuenta\` y se carga con \`cargar-laboratorio.ts <correo> --tanda=39-tus-altas-maese-30-oct\` **después de cargar la tanda 38**. Sin aprobar.*
 
@@ -442,7 +447,9 @@ ${SAID}.
 |---|---|---|---|
 ${versions.map((v) => `| ${v.name} | ${v.supplier} | ${v.product} | ${v.purity ? `${Number(v.purity) * 100} %` : "no la dice"} |`).join("\n")}
 
-Las diez con «lo tengo», tal como las vende Maese Lab: sin frasco. Si diluyes alguna (el C12, por ejemplo, al 1 %), el frasco se añade en Diluciones.
+Nueve con «lo tengo», tal como las vende Maese Lab. El salicilato de bencilo no: ya lo tienes dos veces en tu cuenta (${fresh.find((i) => i.notInAccount)!.notInAccount}).
+
+Todas van sin frasco. Si diluyes alguna (el C12, por ejemplo, al 1 %), el frasco se añade en Diluciones.
 `,
   "utf8",
 );
