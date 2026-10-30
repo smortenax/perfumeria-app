@@ -1620,6 +1620,19 @@ La revisión: `/mnt/project-files/auditoria-ficha/2026-10-29-ficha-material.md` 
 - **Propuesta de la sesión:** «Role» con una glosa corta («fixative · holds the rest»), no con su código.
 - **Pendiente (datos, con V3-70):** los textos guardados que llevan la fuente dentro («Fraterworks: …») o un «no lo dice» como valor (§3 de la revisión) no se arreglan en la vista: se separan por script al pasar a `common`.
 
+## V3-87 · Una dilución se llama por la cifra que pusiste; lo pesado, para los cálculos (decidida por el usuario el 2026-10-30; desarrolla V3-67)
+
+**Literal** (orko kill, 2026-10-30, con una captura de «Dilutions»):
+
+> error aqui de los cuadros, ademas las diluciones que se registren con el numero entero mas cercano al real, para las que yo he dado de alta, como norma general de la app se registara lo que ponga el usuario, para los diluyentes DPG es suficiente n o hace falta nombre completo en todo caso que salga en el hover de DPG
+
+**Lectura** (de la sesión, para que la confirmes):
+
+- **Cada dilución se ve con la cifra que pusiste** al darla de alta («al 10 %» → «10 %»). Si no pusiste ninguna, o la que pusiste no se parece a lo pesado, se ve lo pesado redondeado al entero más cercano (9,94 → 10 %). Por debajo de 0,5 % se usa la primera cifra (0,1 %, 0,01 %), para que nunca salga 0.
+- **Lo pesado sigue mandando en los cálculos y en IFRA**, como dice V3-67 («el 10% es 9,97»): la cifra exacta se ve al pasar el ratón.
+- **Los diluyentes, cortos** («DPG», «IPM»), con el nombre completo al pasar el ratón.
+- **Las pastillas no se salen de su cuadro:** si una no cabe, se corta con «…» y se lee entera al pasar el ratón.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
