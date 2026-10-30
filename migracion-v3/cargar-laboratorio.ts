@@ -4,7 +4,9 @@
  * the hash written down in migracion-v3/tandas/aprobadas.csv for 8-tu-version. Every row gets
  * your id as its owner; one transaction, so a refused row leaves nothing half loaded. Run again,
  * it changes no row. It deletes only what a batch lists in its borrar.csv (table, id), approved as
- * the rest, and only rows of your account: what you add in the app stays yours.
+ * the rest, and only rows of your account: what you add in the app stays yours. It changes single
+ * cells with its cambiar.csv (table, id, column, before, after), only where the cell still says
+ * `before`: what you changed in the app since stays as you left it.
  *
  *   node migracion-v3/cargar-laboratorio.ts <the email of your account>                (the local Supabase)
  *   node migracion-v3/cargar-laboratorio.ts <email> --prueba                           (loads and undoes it: a check)
@@ -77,6 +79,28 @@ const removals = (() => {
   return rows;
 })();
 
+/**
+ * What the batch changes cell by cell (batch 37), approved as the rest: a cell of your account that
+ * still says `before` says `after`. A row without id is for the names of your versions (materials
+ * based on another): each of yours named exactly `before`, wherever it came from, the batches or the
+ * app. A name that changes keeps the old one among the other names, so search still finds it.
+ */
+const changes = (() => {
+  const file = join(FOLDER, "cambiar.csv");
+  if (!existsSync(file)) return [];
+  const text = readFileSync(file, "utf8");
+  const hash = createHash("sha256").update(text, "utf8").digest("hex");
+  if (!dryRun && approved.filter((r) => r.archivo === "cambiar.csv").at(-1)?.sha256 !== hash) {
+    throw new Error(`${FOLDER}/cambiar.csv no es el que aprobaste (aprobadas.csv): no se carga nada.`);
+  }
+  const rows = parseCsvRecords(text);
+  for (const r of rows) {
+    if (!(r.table in OWNER) || ["id", OWNER[r.table]].includes(r.column)) throw new Error(`cambiar.csv: ${r.table}.${r.column} no se cambia así.`);
+    if (!r.id && !(r.table === "materials" && r.column === "name")) throw new Error(`cambiar.csv: ${r.table}.${r.column} sin id; solo los nombres de tus versiones van sin id.`);
+  }
+  return rows;
+})();
+
 /** Thrown at the end of a check (--prueba), to undo the transaction and keep its report. */
 class DryRun extends Error {
   readonly lines: string[];
@@ -128,6 +152,27 @@ try {
         for (const r of result) (r.inserted ? inserted++ : updated++);
       }
       out.push(`${table}: ${records.length} filas; ${inserted} nuevas, ${updated} cambiadas, ${records.length - inserted - updated} iguales.`);
+    }
+    let found = 0;
+    for (const { table, id, column, before, after } of changes) {
+      const owned = OWNER[table];
+      const changed =
+        table === "materials" && column === "name"
+          ? await db`
+              update materials set name = ${after},
+                aliases = case when ${before} = any(aliases) then aliases else array_append(aliases, ${before}) end
+              where owner_id = ${owner} and name = ${before} and ${id ? db`id = ${id}::uuid` : db`based_on_id is not null`}
+              returning id`
+          : await db`
+              update ${db(table)} set ${db(column)} = ${after}
+              where id = ${id}::uuid and ${db(owned)} = ${owner} and ${db(column)} = ${before}
+              returning id`;
+      if (changed.length === 0) continue;
+      found++;
+      out.push(`${table}.${column}: «${before}» → «${after}» en ${changed.length} ${changed.length === 1 ? "fila" : "filas"}.`);
+    }
+    if (changes.length > 0) {
+      out.push(`cambiar.csv: ${changes.length} cambios; ${found} encontraron algo que cambiar, ${changes.length - found} no (ya cambiado, o no lo tienes).`);
     }
     for (const table of ORDER.filter((t) => removals.some((r) => r.table === t)).reverse()) {
       const ids = removals.filter((r) => r.table === table).map((r) => r.id);
