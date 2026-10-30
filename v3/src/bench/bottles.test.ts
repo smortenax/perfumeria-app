@@ -47,6 +47,14 @@ describe("your bottles in the add bar (V3-67)", () => {
     expect(bottlesFor({ catalog }, "nothing")).toEqual([]);
   });
 
+  it("finds the bar's diluents by their English names too (batch 36, V3-71)", () => {
+    const english = {
+      materials: new Map([["dpg", mat("dpg", "DPG (dipropylene glycol)")], ["eth", mat("eth", "Ethanol")]]),
+      dilutions: new Map([["labdanum", [bottle("b50", "50", [["eth", "30"], ["dpg", "20"]])]]]),
+    } as unknown as Catalog;
+    expect(bottlesFor({ catalog: english }, "labdanum").map((b) => b.diluents.map((d) => d.id))).toEqual([["alcohol", "dpg"]]);
+  });
+
   it("writes a figure as a cell of the bar does", () => {
     expect(percentCell(pct("9.97"))).toBe("9.97");
     expect(percentCell(pct("10"))).toBe("10");

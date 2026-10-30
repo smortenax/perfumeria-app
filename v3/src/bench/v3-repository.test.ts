@@ -1,8 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { type Catalog, type CatalogMaterial, type MaterialFields, NO_EVOLUTION, NO_PHYSICAL } from "../db/catalog";
 import type { GlossaryData } from "../glossary/useGlossary";
+import { parseCsvRecords } from "./data/csv";
 import { makerIndex } from "./data/plants";
-import { repositoryOfV3, v3IdOf } from "./v3-repository";
+import { DILUENT_NAMES, repositoryOfV3, v3IdOf } from "./v3-repository";
 
 /** Plan v3, step 8.2: the workbench's bar over the v3's catalog. Each case says the rule it checks. */
 
@@ -59,5 +60,15 @@ describe("the v3's catalog in the bar (8.2)", () => {
     expect(idOf("solv:alcohol")).toBe("eth-id");
     expect(idOf("hed")).toBe("hed");
     expect(() => idOf("solv:tec")).toThrow(/not one/);
+  });
+
+  it("each diluent of the bar is one common diluent of the data as it is, in English since batch 36 (V3-71)", () => {
+    const files = import.meta.glob("../../datos/materials.csv", { query: "?raw", import: "default", eager: true }) as Record<string, string>;
+    const rows = parseCsvRecords(Object.values(files)[0] ?? "").filter((r) => !r.owner_id && r.solvent === "true");
+    const idOf = v3IdOf({ catalog: catalogOf(rows.map((r) => material(r.id, r.name, { solvent: true }))) });
+    for (const key of Object.keys(DILUENT_NAMES)) expect(rows.find((r) => r.id === idOf(key))?.name, key).toBeTruthy();
+    // The Spanish names of before still work: a copy loaded before batch 36 has them.
+    const old = v3IdOf({ catalog: catalogOf([material("e", "Etanol", { solvent: true }), material("t", "Triacetina", { solvent: true }), material("b", "Benzoato de bencilo", { solvent: true })]) });
+    expect(["solv:alcohol", "solv:triacetina", "solv:bb"].map(old)).toEqual(["e", "t", "b"]);
   });
 });
