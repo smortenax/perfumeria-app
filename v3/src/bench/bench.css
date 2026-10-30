@@ -2467,25 +2467,30 @@
 
   /* Dialogs */
 
-  .modal-backdrop {
-    position: fixed;
-    inset: 0;
-    z-index: 60;
-    display: grid;
-    place-items: center;
+  /* A native <dialog> (audit F-13 L2): in the top layer, over everything, with the bench inert. */
+  .modal {
+    width: min(460px, calc(100vw - 32px));
+    max-height: calc(100dvh - 32px);
+    margin: auto;
+    padding: 0;
+    overflow-y: auto;
+    background: var(--panel);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
+  }
+
+  .modal::backdrop {
     background: rgba(29, 29, 27, 0.28);
   }
 
-  .modal {
-    width: min(460px, calc(100vw - 32px));
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 12px;
+  /* The padding is the body's: a press on the dialog itself is a press on the backdrop. */
+  .modal-body {
     padding: 16px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
   }
 
   .modal h2 {
@@ -2533,12 +2538,77 @@
     border: 1.5px solid var(--ink);
   }
 
-  .radio {
+  /* Options as rows to press (audit F-08 L2); each holds a real radio, hidden. */
+  .choices {
     display: flex;
-    gap: 6px;
-    align-items: baseline;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .choice {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    min-height: 40px;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--panel);
     color: var(--ink);
     font-size: var(--text-md);
+    cursor: pointer;
+  }
+
+  .choice input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* The dot: a ring, filled when chosen. */
+  .choice::before {
+    content: "";
+    flex: none;
+    box-sizing: border-box;
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--line-strong);
+    border-radius: 50%;
+  }
+
+  .choice:hover {
+    background: var(--fill);
+  }
+
+  .choice:has(input:checked) {
+    border-color: var(--ink);
+    background: var(--surface-chip);
+    font-weight: 700;
+  }
+
+  .choice:has(input:checked)::before {
+    border: 5px solid var(--ink);
+  }
+
+  .choice:has(input:focus-visible) {
+    outline: 2px solid var(--ink);
+    outline-offset: 1px;
+  }
+
+  .choice:has(input:disabled) {
+    opacity: 0.5;
+    cursor: default;
+    background: var(--panel);
+  }
+
+  .choice-label {
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 
   .picker-list {
@@ -2564,10 +2634,6 @@
     padding: 0 0 2px;
   }
 
-  .picker-group .radio {
-    min-height: 32px;
-    align-items: center;
-  }
 
   .modal-actions {
     display: flex;

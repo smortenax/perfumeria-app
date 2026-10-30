@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
+import { useEffect, useId, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { Ratio } from "../core/arith/ratio";
 import { parseMass } from "../core/arith/units";
 import type { Composition, Line } from "../core/compose";
@@ -19,51 +19,50 @@ function Modal(props: {
   /** What it accepts deletes: the button says so (audit F-11). */
   danger?: boolean;
 }) {
-  // A dialog (audit F-13): focus goes in, to its first field, stays in with Tab, and goes back to
-  // what opened it when it closes.
+  // A native dialog (audit F-13 L2): showModal() takes the focus in, to its first field, keeps it in and
+  // makes the bench behind inert; Escape asks to cancel. The focus goes back to what opened it.
   const titleId = useId();
-  const form = useRef<HTMLFormElement>(null);
+  const dialog = useRef<HTMLDialogElement>(null);
   // Read while rendering: a field's own focus (its effect runs first) would hide the opener.
   const [opener] = useState(() => (document.activeElement instanceof HTMLElement ? document.activeElement : null));
-  useEffect(() => {
-    if (!form.current?.contains(document.activeElement)) {
-      const first = form.current?.querySelector<HTMLElement>("input, select, textarea, button");
-      (first ?? form.current)?.focus();
-    }
-    return () => opener?.focus();
+  // Closed by this component, not by the browser: then its «close» is not a cancel.
+  const leaving = useRef(false);
+  // A layout effect, so that it is open before the fields' own effects focus them.
+  useLayoutEffect(() => {
+    const d = dialog.current;
+    if (d && !d.open) d.showModal();
+    return () => {
+      leaving.current = true;
+      if (d?.open) d.close();
+      opener?.focus();
+    };
   }, [opener]);
-  const keepFocus = (e: KeyboardEvent<HTMLFormElement>) => {
-    if (e.key !== "Tab" || !form.current) return;
-    const all = [...form.current.querySelectorAll<HTMLElement>("input, select, textarea, button, [href], [tabindex]:not([tabindex='-1'])")].filter((x) => !x.hasAttribute("disabled"));
-    if (all.length === 0) return;
-    const [first, last] = [all[0], all[all.length - 1]];
-    if (e.shiftKey && document.activeElement === first) {
-      e.preventDefault();
-      last.focus();
-    } else if (!e.shiftKey && document.activeElement === last) {
-      e.preventDefault();
-      first.focus();
-    }
-  };
   return (
-    <div className="modal-backdrop" onMouseDown={props.onCancel}>
+    <dialog
+      ref={dialog}
+      className="modal"
+      aria-labelledby={titleId}
+      onCancel={(e) => {
+        e.preventDefault();
+        props.onCancel();
+      }}
+      // A browser may close it without asking (Escape pressed twice): that is a cancel too.
+      onClose={() => {
+        if (!leaving.current) props.onCancel();
+      }}
+      // A press on the backdrop lands on the dialog itself, outside its body. Its default would take the
+      // focus to the page under it, away from the opener it has just gone back to.
+      onMouseDown={(e) => {
+        if (e.target !== e.currentTarget) return;
+        e.preventDefault();
+        props.onCancel();
+      }}
+    >
       <form
-        ref={form}
-        className="modal"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby={titleId}
-        tabIndex={-1}
-        onMouseDown={(e) => e.stopPropagation()}
+        className="modal-body"
         onSubmit={(e) => {
           e.preventDefault();
           props.onAccept();
-        }}
-        onKeyDown={(e) => {
-          if (e.key === "Escape") {
-            props.onCancel();
-          }
-          keepFocus(e);
         }}
       >
         <h2 id={titleId}>{props.title}</h2>
@@ -78,6 +77,30 @@ function Modal(props: {
           </Button>
         </div>
       </form>
+    </dialog>
+  );
+}
+
+/**
+ * One of a few, as rows to press (audit F-08 L2), like the bottles of the add bar. Each row is a real
+ * radio, hidden, so that the arrows, Space and a screen reader work as with any radio.
+ */
+function Choices<T extends string>(props: {
+  value: T | null;
+  options: ReadonlyArray<{ readonly value: T; readonly label: ReactNode; readonly disabled?: boolean }>;
+  onChange: (value: T) => void;
+  /** A double press chooses and accepts. */
+  onPick?: (value: T) => void;
+}) {
+  const name = useId();
+  return (
+    <div className="choices">
+      {props.options.map((o) => (
+        <label key={o.value} className="choice" onDoubleClick={props.onPick && !o.disabled ? () => props.onPick!(o.value) : undefined}>
+          <input type="radio" name={name} checked={props.value === o.value} disabled={o.disabled} onChange={() => props.onChange(o.value)} />
+          <span className="choice-label">{o.label}</span>
+        </label>
+      ))}
     </div>
   );
 }
@@ -160,12 +183,7 @@ export function ChoiceDialog(props: {
       }}
     >
       {props.help && <p className="help">{props.help}</p>}
-      {props.options.map((o) => (
-        <label key={o.id} className="radio">
-          <input type="radio" checked={chosen === o.id} onChange={() => setChosen(o.id)} />
-          <span>{o.label}</span>
-        </label>
-      ))}
+      <Choices value={chosen} options={props.options.map((o) => ({ value: o.id, label: o.label }))} onChange={setChosen} />
     </Modal>
   );
 }
@@ -210,12 +228,12 @@ export function FormulaPickerDialog(props: {
         {groups.map((g) => (
           <fieldset key={g.name} className="picker-group">
             <legend>{g.name}</legend>
-            {g.options.map((o) => (
-              <label key={o.id} className="radio">
-                <input type="radio" checked={chosen === o.id} onChange={() => setChosen(o.id)} onDoubleClick={() => (props.onDone(o.id), props.onClose())} />
-                <span>{o.label}</span>
-              </label>
-            ))}
+            <Choices
+              value={chosen}
+              options={g.options.map((o) => ({ value: o.id, label: o.label }))}
+              onChange={setChosen}
+              onPick={(id) => (props.onDone(id), props.onClose())}
+            />
           </fieldset>
         ))}
       </div>
@@ -285,14 +303,14 @@ export function SaveAsDialog(props: {
     <Modal title={t.saveAsTitle} error={error} onCancel={props.onClose} onAccept={accept}>
       <fieldset className="field">
         <legend>{t.saveAsKind}</legend>
-        <label className="radio">
-          <input type="radio" checked={kind === "version"} onChange={() => setKind("version")} />
-          {t.kindVersion}
-        </label>
-        <label className="radio">
-          <input type="radio" checked={kind === "new"} onChange={() => setKind("new")} />
-          {t.kindNew}
-        </label>
+        <Choices
+          value={kind}
+          options={[
+            { value: "version", label: t.kindVersion },
+            { value: "new", label: t.kindNew },
+          ]}
+          onChange={setKind}
+        />
         <p className="help">{kind === "version" ? t.kindVersionHelp : t.kindNewHelp}</p>
       </fieldset>
       <label className="field">
@@ -302,14 +320,14 @@ export function SaveAsDialog(props: {
       {props.hasVial && (
         <fieldset className="field">
           <legend>{t.saveAsSameVial}</legend>
-          <label className="radio">
-            <input type="radio" checked={sameVial} onChange={() => setSameVial(true)} />
-            {t.sameVialYes}
-          </label>
-          <label className="radio">
-            <input type="radio" checked={!sameVial} onChange={() => setSameVial(false)} />
-            {t.sameVialNo}
-          </label>
+          <Choices
+            value={sameVial ? "yes" : "no"}
+            options={[
+              { value: "yes", label: t.sameVialYes },
+              { value: "no", label: t.sameVialNo },
+            ]}
+            onChange={(v) => setSameVial(v === "yes")}
+          />
           {!sameVial && (
             <>
               <label className="field">
@@ -356,14 +374,18 @@ export function ReweighDialog(props: { tareUg: bigint | null; totalUg: Ratio | n
       }}
     >
       <p className="help">{props.help}</p>
-      <label className="radio">
-        <input type="radio" checked={mode === "withBottle"} disabled={props.tareUg === null} onChange={() => setMode("withBottle")} />
-        <span>{props.tareUg === null ? t.reweighWithBottleNoTare : t.reweighWithBottle(Ratio.of(props.tareUg).div(Ratio.of(1_000_000n)).toFixed(3))}</span>
-      </label>
-      <label className="radio">
-        <input type="radio" checked={mode === "tared"} onChange={() => setMode("tared")} />
-        <span>{t.reweighTared}</span>
-      </label>
+      <Choices
+        value={mode}
+        options={[
+          {
+            value: "withBottle",
+            label: props.tareUg === null ? t.reweighWithBottleNoTare : t.reweighWithBottle(Ratio.of(props.tareUg).div(Ratio.of(1_000_000n)).toFixed(3)),
+            disabled: props.tareUg === null,
+          },
+          { value: "tared", label: t.reweighTared },
+        ]}
+        onChange={setMode}
+      />
       <label className="field">
         <span>{mode === "withBottle" ? t.grossLabel : t.netLabel}</span>
         <input ref={input} inputMode="decimal" value={value} onChange={(e) => setValue(e.target.value)} />
@@ -402,14 +424,14 @@ export function UseFormulaDialog(props: {
   return (
     <Modal title={u.title} error={null} onCancel={props.onClose} onAccept={props.onClose}>
       <p className="help">{u.help}</p>
-      <label className="radio">
-        <input type="radio" checked={mode === "asIs"} disabled={!props.own} onChange={() => setMode("asIs")} />
-        <span>{props.own ? u.asIs(formatPercent(props.own, 2)) : u.asIsUnknown}</span>
-      </label>
-      <label className="radio">
-        <input type="radio" checked={mode === "required"} onChange={() => setMode("required")} />
-        <span>{u.required}</span>
-      </label>
+      <Choices
+        value={mode}
+        options={[
+          { value: "asIs", label: props.own ? u.asIs(formatPercent(props.own, 2)) : u.asIsUnknown, disabled: !props.own },
+          { value: "required", label: u.required },
+        ]}
+        onChange={setMode}
+      />
       {mode === "required" && (
         <label className="field">
           <span>{u.concentration}</span>
