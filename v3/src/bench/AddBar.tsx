@@ -32,6 +32,7 @@ import { FamilyIcon, MaterialChip } from "./FamilyIcon";
 import { newId } from "./state";
 import { pourKey, type Pour } from "./usage-bar";
 import { type BottleChoice, percentCell } from "./bottles";
+import { shortName } from "../dilution/grid";
 
 const t = texts.addBar;
 
@@ -788,7 +789,7 @@ export function AddBar(props: {
     >
       <b>{b.label}</b>
       <small className="num">
-        {percentCell(b.fraction)} % · {b.diluents.map((d) => nameOf(d.id)).join(" + ")}
+        {percentCell(b.fraction)} % · {b.diluents.map((d) => shortName({ name: nameOf(d.id), abbreviation: null })).join(" + ")}
       </small>
     </button>
   );
