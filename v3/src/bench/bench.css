@@ -2778,6 +2778,115 @@
     flex: none;
   }
 
+  /* «Bench ▾ / Formula ▾» (audit F-02 L2): beside «←», on a row of its own above the name. */
+  .bench-crumbs {
+    --switcher-step: 1rem;
+    position: relative;
+    flex: 1 1 calc(100% - var(--size-target) - 12px);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .crumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    max-width: 22rem;
+    min-height: var(--size-target);
+    padding: 0 10px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--muted);
+    font-size: var(--text-md);
+  }
+
+  .crumb:last-of-type {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .crumb:hover,
+  .crumb[aria-expanded="true"] {
+    border-color: var(--line);
+    background: var(--panel);
+  }
+
+  .crumb-text {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .crumb svg {
+    flex: none;
+  }
+
+  .crumb-sep {
+    color: var(--muted);
+  }
+
+  .menu-pop.switcher {
+    top: calc(100% + 4px);
+    left: 0;
+    width: min(24rem, calc(100vw - 24px));
+    max-height: min(28rem, 70vh);
+    gap: 4px;
+  }
+
+  .switcher-search {
+    min-height: 36px;
+    flex: none;
+  }
+
+  .switcher-head {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 4px;
+  }
+
+  .switcher-head .menu-note {
+    padding-top: 2px;
+    font-weight: 700;
+    color: var(--ink);
+    font-size: var(--text-sm);
+  }
+
+  .switcher-list {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    min-height: 0;
+  }
+
+  .switcher-list .menuitem {
+    flex: none;
+    height: auto;
+    min-height: 36px;
+  }
+
+  .switcher-list .menuitem[aria-current] {
+    background: var(--surface-chip);
+    font-weight: 700;
+  }
+
+  .switcher-name {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .switcher-branch,
+  .switcher-star {
+    flex: none;
+    color: var(--muted);
+    white-space: pre;
+  }
+
   .formula-head .name-card {
     flex: 1 1 240px;
     min-width: 0;
@@ -3180,6 +3289,11 @@
 
     .head-actions {
       margin-left: 0;
+    }
+
+    /* Under «←» too, so that it fits the phone's width. */
+    .menu-pop.switcher {
+      left: calc(-1 * (var(--size-target) + 12px));
     }
 
     .quantity,
