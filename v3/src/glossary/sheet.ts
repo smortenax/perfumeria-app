@@ -69,6 +69,20 @@ interface Field {
   readonly notes?: (m: CatalogMaterial) => readonly (string | null)[];
 }
 
+/** Each once, in the order first seen; the same word in another case counts once. */
+const unique = (items: readonly string[]): string[] => {
+  const seen = new Set<string>();
+  return items.filter((x) => {
+    const k = x.trim().toLocaleLowerCase();
+    if (!k || seen.has(k)) return false;
+    seen.add(k);
+    return true;
+  });
+};
+const doseText = (min: string | null, typical: string | null, max: string | null): string => {
+  const range = min && max ? t.amount.range(min, max) : max ? t.amount.max(max) : min ? `≥ ${min}` : "";
+  return [range, typical ? t.typicalDose(typical) : ""].filter((x) => x).join(", ") || "—";
+};
 const known = (text: string | null | undefined): string | null => (text === null || text === undefined || text.trim() === "" ? null : text);
 const list = (items: readonly string[]): string | null => (items.length ? items.join(" · ") : null);
 const amountText = (a: Amount): string => {
@@ -314,38 +328,51 @@ export function sheetOf(catalog: Catalog, layer: IfraLayer, ifra: IfraData, id: 
   );
 
   // ------------------------------------------------------------ the lists
+  // Legibility (2026-10-30): a dose in one cell («0,5 % – 10 %, typical 2 %»), its base and who says it in another.
   const doses = section("doses", [], [
     {
-      columns: [c.min, c.typical, c.max, c.basis, c.authority, c.disputed, c.notes, c.source],
+      columns: [c.dose, c.basis, c.source],
       rows: alongChain(
         (m) => m.doses,
         (d) => [
-          d.min ? percent(d.min) : "—",
-          d.typical ? percent(d.typical) : "—",
-          d.max ? percent(d.max) : "—",
-          t.basis[d.basis],
-          t.authority[d.authority],
-          d.disputed ? t.disputed : "",
-          d.notes ?? "",
+          [doseText(d.min ? percent(d.min) : null, d.typical ? percent(d.typical) : null, d.max ? percent(d.max) : null), d.disputed ? t.disputed : "", d.notes ?? ""]
+            .filter((x) => x)
+            .join(" · "),
+          `${t.basis[d.basis]} · ${t.authority[d.authority]}`,
           d.source,
         ],
       ),
       empty: t.noRows,
     },
   ]);
-  const descriptors = section("descriptors", [], [
-    { columns: [c.text, c.source], rows: alongChain((m) => m.descriptors, (d) => [d.text, d.source]), empty: t.noRows },
-  ]);
-  const relations = section("relations", [], [
-    {
-      columns: [c.kind, c.other, c.note, c.source],
-      rows: alongChain(
-        (m) => m.relations,
-        (r) => [t.relationKind[r.kind], r.otherId ? (catalog.materials.get(r.otherId)?.name ?? r.otherText ?? "") : (r.otherText ?? ""), r.note ?? "", r.sources ?? ""],
+  // One line of words, not a table of one word per row; who says each, folded under it.
+  const plainRow = (label: string, text: string | null, notes: readonly string[] = []): SheetRow => ({
+    label,
+    value: { text, notes, yours: false, disputed: false },
+  });
+  const allDescriptors = chain.flatMap((m) => m.descriptors);
+  const descriptors = section(
+    "descriptors",
+    allDescriptors.length ? [plainRow(t.fields.descriptors, unique(allDescriptors.map((d) => d.text)).join(", "), unique(allDescriptors.map((d) => d.source)))] : [],
+    allDescriptors.length ? [] : [{ columns: [], rows: [], empty: t.noRows }],
+  );
+  // «Blends with: chypre, lemon, fougère…», one line per kind; its notes and sources, folded.
+  const allRelations = chain.flatMap((m) => m.relations);
+  const otherName = (r: (typeof allRelations)[number]) => (r.otherId ? (catalog.materials.get(r.otherId)?.name ?? r.otherText ?? "") : (r.otherText ?? ""));
+  const relations = section(
+    "relations",
+    (["combines", "substitute", "clashes"] as const)
+      .map((kind) => allRelations.filter((r) => r.kind === kind))
+      .filter((rs) => rs.length > 0)
+      .map((rs) =>
+        plainRow(
+          t.relationLabel[rs[0].kind],
+          unique(rs.map(otherName).filter((x) => x)).join(", "),
+          unique(rs.flatMap((r) => [r.note ? `${otherName(r)}: ${r.note}` : "", r.sources ?? ""]).filter((x) => x)),
+        ),
       ),
-      empty: t.noRows,
-    },
-  ]);
+    allRelations.length ? [] : [{ columns: [], rows: [], empty: t.noRows }],
+  );
   const references = section("references", [], [
     { columns: [c.perfume, c.house, c.note, c.source], rows: alongChain((m) => m.references, (r) => [r.perfume, r.house ?? "", r.note ?? "", r.sources ?? ""]), empty: t.noRows },
   ]);

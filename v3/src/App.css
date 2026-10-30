@@ -1564,3 +1564,27 @@ button:focus-visible {
 .failure .link {
   color: var(--text-default);
 }
+
+/* A long value of the sheet, one line until opened (2026-10-30). */
+.long-value > summary {
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.long-value > summary .more {
+  color: var(--muted);
+}
+.long-value[open] > summary .value,
+.long-value[open] > summary .more {
+  display: none;
+}
+.long-value[open] > summary::after {
+  content: "";
+}
+.value-notes {
+  margin: 0.25rem 0 0;
+  padding-inline-start: 1.1rem;
+  color: var(--muted);
+  font-size: var(--text-sm, 0.9em);
+}

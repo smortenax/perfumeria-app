@@ -185,6 +185,9 @@ export function MaterialSheet({
   );
 }
 
+/** Characters a value shows before it folds. */
+const LONG = 90;
+
 function Value({ value }: { value: SheetValue }) {
   const t = texts.sheet;
   if (value.text === null) {
@@ -193,6 +196,32 @@ function Value({ value }: { value: SheetValue }) {
         {t.unknown}
         {value.disputed && <span className="disputed">{t.disputed}</span>}
       </span>
+    );
+  }
+  // More than a line is hard to read (2026-10-30): the first line, and the rest on opening it.
+  const full = value.text + (value.notes.length ? ` (${value.notes.join("; ")})` : "");
+  if (!value.link && full.length > LONG) {
+    // A list («a · b · c» or «a, b, c»): its first three and how many more; a text: its first words.
+    const sep = value.text.includes(" · ") ? " · " : ", ";
+    const items = value.text.split(sep);
+    const list = items.length > 3;
+    const short = list ? items.slice(0, 3).join(sep) : value.text.slice(0, LONG).replace(/\s+\S*$/, "");
+    const more = list ? t.more(items.length - 3) : "…";
+    return (
+      <details className="long-value">
+        <summary>
+          <span className="value">{short}</span> <span className="more">{more}</span>
+          {value.disputed && <span className="disputed">{t.disputed}</span>}
+        </summary>
+        <span className="value">{value.text}</span>
+        {value.notes.length > 0 && (
+          <ul className="value-notes">
+            {value.notes.map((n) => (
+              <li key={n}>{n}</li>
+            ))}
+          </ul>
+        )}
+      </details>
     );
   }
   return (

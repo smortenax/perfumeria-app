@@ -130,7 +130,7 @@ describe("the sheet of a common material (6.2)", () => {
   });
 
   it("its doses, with their base and authority", () => {
-    expect(s.sections.find((x) => x.key === "doses")!.tables[0].rows).toEqual([["0,5 %", "—", "10 %", "% of the concentrate", "literature", "", "", "Arctander"]]);
+    expect(s.sections.find((x) => x.key === "doses")!.tables[0].rows).toEqual([["0,5 % – 10 %", "% of the concentrate · literature", "Arctander"]]);
   });
 });
 
