@@ -1,0 +1,1220 @@
+@@ 5023be0f8d · materials.name, material_categories.name
+1-Octen-3-one Stabilised
+@@ 4068c3d46f · materials.name, material_categories.name
+2-Acetilpirazina
+@@ d2bd1ee108 · materials.name, material_categories.name
+2-Hidroxibenzaldehído
+@@ 36ae4b9ae8 · materials.name, material_categories.name
+3,4-Xilenol
+@@ 66137a7b4d · materials.name, material_categories.name
+4-Propylphenol
+@@ 16ccbb49c2 · materials.name, material_categories.name
+Absoluto de Tabaco
+@@ 04de424196 · materials.name, material_categories.name
+Aceite de cade (enebro)
+@@ 386a69234f · materials.name, material_categories.name
+Acetato de bencilo
+@@ fc510c8735 · materials.name, material_categories.name
+Acetato de estiralilo
+@@ 3fc1640096 · materials.name, material_categories.name
+Acetato de geranilo
+@@ 5f055fd2fe · materials.name, material_categories.name
+Acetato de guayilo (palo santo acetilado)
+@@ 0b65c0d0e4 · materials.name, material_categories.name
+Acetato de linalilo
+@@ b4cd9f9815 · materials.name, material_categories.name
+Acetato de terpinilo
+@@ b8bcb43794 · materials.name, material_categories.name
+Ajenjo, aceite esencial
+@@ 0171fc43a4 · materials.name, material_categories.name
+Alcohol Feniletílico
+@@ 8ef94ca824 · materials.name, material_categories.name
+Aldambre
+@@ d7b171005c · materials.name, material_categories.name
+Aldehído alfa-amil cinámico
+@@ 247a67f70e · materials.name, material_categories.name
+Aldehído alfa-hexil cinámico
+@@ 7445d3fd0d · materials.name, material_categories.name
+Aldehído benzoico (benzaldehído)
+@@ dd315fb6cd · materials.name, material_categories.name
+Aldehído C10 (decanal)
+@@ 458c50b785 · materials.name, material_categories.name
+Aldehído C11 MOA
+@@ 5f37660324 · materials.name, material_categories.name
+Aldehído C12 MNA
+@@ 79393d89bc · materials.name, material_categories.name
+Aldehído C14 (gamma-undecalactona)
+@@ c09bd40c83 · materials.name, material_categories.name
+Aldehído C18 (gamma-nonalactona)
+@@ 82ce8c8ea6 · materials.name, material_categories.name
+Allyl Amyl Glycolate
+@@ 66a20f08e8 · materials.name, material_categories.name
+Ámbar gris, tintura comercial (purificado)
+@@ 291e01b281 · materials.name, material_categories.name
+Ambermor
+@@ c69224e0bf · materials.name, material_categories.name
+Ambrarome
+@@ fbb18e4e61 · materials.name, material_categories.name
+Ambreta, tintura
+@@ 995370c32b · materials.name, material_categories.name
+Ambrettolide
+@@ e64afab967 · materials.name, material_categories.name
+Ambrinol S
+@@ f8736c3509 · materials.name, material_categories.name
+Antranilato de metilo
+@@ fc72542221 · materials.name, material_categories.name
+Artemisa (Artemisia vulgaris), aceite esencial
+@@ cd04d96bc4 · materials.name, material_categories.name
+Auranone
+@@ 3a67883ce7 · materials.name, material_categories.name
+Bálsamo de Tolú, resinoide
+@@ 3d240e0ef1 · materials.name, material_categories.name
+Benzoato de bencilo
+@@ aabbe6bcd2 · materials.name, material_categories.name
+Bergamota sin bergaptenos
+@@ 95be658557 · materials.name, material_categories.name
+Black Agar 296985
+@@ 2aba685655 · materials.name, material_categories.name
+Cacao, absoluto
+@@ 1544c72e1e · materials.name, material_categories.name
+Calone
+@@ 3e5edeab01 · materials.name, material_categories.name
+Canela de Ceilán, aceite esencial de corteza
+@@ 6faaefc30c · materials.name, material_categories.name
+Cardamomo verde, tintura
+@@ 8ae3daaf06 · materials.name, material_categories.name
+Cardamomo villoso, tintura
+@@ 4b40075cbd · materials.name, material_categories.name
+Cashmeran
+@@ b36494eb9d · materials.name, material_categories.name
+Cassis Base 345 B
+@@ d98abad426 · materials.name, material_categories.name
+Castóreo sintético
+@@ 36389d2f47 · materials.name, material_categories.name
+Castoreum
+@@ fa46777021 · materials.name, material_categories.name
+Cedramber
+@@ 7af779efbb · materials.name, material_categories.name
+Cedro Atlas
+@@ ebfe0c14e4 · materials.name, material_categories.name
+Cedro chino, aceite esencial
+@@ 86fd6b3381 · materials.name, material_categories.name
+Cilantro
+@@ 8cb6190db1 · materials.name, material_categories.name
+Cinamato de metilo
+@@ ebf600e91f · materials.name, material_categories.name
+cis-3-Hexenol
+@@ a527e7225a · materials.name, material_categories.name
+Clearwood
+@@ 99d5088d51 · materials.name, material_categories.name
+Cumarina natural
+@@ 1bd39cafbe · materials.name, material_categories.name
+Cumin Nitrile
+@@ 61f0f56242 · materials.name, material_categories.name
+Cypriol / Nagarmotha EO
+@@ 26a9d71ec5 · materials.name, material_categories.name
+Dartanol
+@@ 63eff87e7d · materials.name, material_categories.name
+Datilat
+@@ 6ea506f5a5 · materials.name, material_categories.name
+DEP
+@@ ac92cf68a7 · materials.name, material_categories.name
+Dewfruit TEC
+@@ f220599765 · materials.name, material_categories.name
+Dihydromyrcenol
+@@ 638521efa4 · materials.name, material_categories.name
+Diphenyl Oxide
+@@ a125ca7ad8 · materials.name, material_categories.name
+DPG (dipropilenglicol)
+@@ ca70744339 · materials.name, material_categories.name
+Ebanol
+@@ bdbacd511f · materials.name, material_categories.name
+Enebro (bayas), aceite esencial
+@@ a87d09783d · materials.name, material_categories.name
+Esencia de trufa
+@@ 8df8522aa1 · materials.name, material_categories.name
+Etanol
+@@ 0d12bd48c9 · materials.name, material_categories.name
+Ethyl decanoate
+@@ 383ca0453c · materials.name, material_categories.name
+Ethyl Maltol
+@@ 8ac28fd9c8 · materials.name, material_categories.name
+Ethylene Brassylate
+@@ bdfc0a3fdb · materials.name, material_categories.name
+Etil vainillina
+@@ 3238577772 · materials.name, material_categories.name
+Etil-4-fenol
+@@ 281c734c14 · materials.name, material_categories.name
+Eucaliptol
+@@ 5d7f3a4026 · materials.name, material_categories.name
+Eugenol 98%
+@@ 6380879e4b · materials.name, material_categories.name
+Exaltolide Total
+@@ 32be1d0761 · materials.name, material_categories.name
+Filbertone
+@@ b68521e4c9 · materials.name, material_categories.name
+Florosa
+@@ 0ec34d5673 · materials.name, material_categories.name
+Fructone
+@@ 7df82465a4 · materials.name, material_categories.name
+Galaxolide
+@@ 15c59ab5d8 · materials.name, material_categories.name
+Gálbano, aceite esencial
+@@ 7fd4f9d06e · materials.name, material_categories.name
+Geosmina
+@@ b4439f7986 · materials.name, material_categories.name
+Geraniol 98%
+@@ 6792e8b84c · materials.name, material_categories.name
+Guaiacol
+@@ 865105fe19 · materials.name, material_categories.name
+Haba tonka (semillas), tintura comercial
+@@ 3ec224d5bc · materials.name, material_categories.name
+Habanolide
+@@ 8cbee0af2b · materials.name, material_categories.name
+Hedione
+@@ f7895a6fc4 · materials.name, material_categories.name
+Helional
+@@ 27105e1611 · materials.name, material_categories.name
+Heliotropina
+@@ a9e5b80ac3 · materials.name, material_categories.name
+Hidroxicitronelal (Cyclosia)
+@@ e82cae5fc2 · materials.name, material_categories.name
+Hyraceum (piedra de África), absoluto
+@@ 883c87e319 · materials.name, material_categories.name, material_relations.other_text
+Indol
+@@ 125eae66a3 · materials.name, material_categories.name
+Ionona Alpha
+@@ e7b60b64cd · materials.name, material_categories.name
+Ionona beta
+@@ 369fcf32b1 · materials.name, material_categories.name
+IPM (miristato de isopropilo)
+@@ 156d5bb734 · materials.name, material_categories.name
+Iso E Super
+@@ c6ab2d33ef · materials.name, material_categories.name
+Isobutavan
+@@ 64009f5b22 · materials.name, material_categories.name
+Isobutilquinoleína (IBQ)
+@@ 8c3066b157 · materials.name, material_categories.name
+Isobutyl acetate
+@@ b7e7e86d93 · materials.name, material_categories.name
+Kephalis
+@@ 0191594b88 · materials.name, material_categories.name
+Láudano de jara
+@@ ab5899907d · materials.name, material_categories.name
+Lavanda
+@@ 45627a75b2 · materials.name, material_categories.name
+Limón
+@@ 65171630f5 · materials.name, material_categories.name
+Linalol
+@@ dc028c9e42 · materials.name, material_categories.name
+Litsea Cubeba
+@@ d03c9479da · materials.name, material_categories.name
+Luminide
+@@ 0cde27e4bd · materials.name, material_categories.name
+Mandarina
+@@ 4c04e9f45a · materials.name, material_categories.name
+Maritima
+@@ 0235918e10 · materials.name, material_categories.name
+Mayol
+@@ 8c40337d2a · materials.name, material_categories.name
+Methyl linolenate
+@@ 1d7705165f · materials.name, material_categories.name
+Methyl Pamplemousse
+@@ 67fa6c0a57 · materials.name, material_categories.name
+Metil ionona gamma
+@@ e7aade270e · materials.name, material_categories.name
+Miel, esencia aromática
+@@ 672dbdc403 · materials.name, material_categories.name
+Mirra, aceite esencial
+@@ c8f3298890 · materials.name, material_categories.name
+Musgo de roble, absoluto
+@@ 8e85dbb942 · materials.name, material_categories.name
+Naranja dulce
+@@ 58a746475a · materials.name, material_categories.name
+Narcisse Oxyacetate
+@@ d123673222 · materials.name, material_categories.name
+Norlimbanol
+@@ bf041b8c77 · materials.name, material_categories.name
+Olíbano (Boswellia sacra), aceite esencial
+@@ b9d8946369 · materials.name, material_categories.name, material_relations.other_text
+Operanide
+@@ bc07133df5 · materials.name, material_categories.name
+Opopónax, aceite esencial
+@@ 53e8914c68 · materials.name, material_categories.name, material_relations.other_text
+Orris Givco
+@@ 1f372f0051 · materials.name, material_categories.name
+Óxido de rosa
+@@ 8440d21d1a · materials.name, material_categories.name
+Para-cresol
+@@ 6d8b1a4d14 · materials.name, material_categories.name
+Paradisamide
+@@ e7c243f38c · materials.name, material_categories.name
+Patchouli
+@@ 56ab364cfa · materials.name, material_categories.name
+Phenylethyl Mercaptan
+@@ 39be72adf5 · materials.name, material_categories.name
+Pimienta negra, absoluto
+@@ 14c91afd28 · materials.name, material_categories.name
+Pimienta rosa (Schinus molle), aceite esencial
+@@ 6691fe2fc9 · materials.name, material_categories.name
+Polysantol
+@@ 7e7f108531 · materials.name, material_categories.name
+Prismantol
+@@ bdd019b9a1 · materials.name, material_categories.name
+Prunella
+@@ 9624e6c20a · materials.name, material_categories.name
+Resinoide de benjuí
+@@ d170cc4b03 · materials.name, material_categories.name
+Resinoide de estírax (estoraque)
+@@ 8317b1ac26 · materials.name, material_categories.name
+Rose Crystals
+@@ fbdc25c4ba · materials.name, material_categories.name
+Safraleine
+@@ 55459b17ac · materials.name, material_categories.name
+Salvia Officinalis
+@@ ecbba229a2 · materials.name, material_categories.name
+Sandalmysore Core
+@@ f7590c8fcc · materials.name, material_categories.name
+Shangralide
+@@ 64e54ba7e5 · materials.name, material_categories.name
+Stemone
+@@ df840ed983 · materials.name, material_categories.name
+Suederal
+@@ 13e47666ae · materials.name, material_categories.name
+TEC
+@@ d865d31f46 · materials.name, material_categories.name
+Thialdine
+@@ c46a40fa1b · materials.name, material_categories.name
+Triacetina
+@@ a6b2b3a932 · materials.name, material_categories.name
+Vainillina
+@@ 7f644af8f9 · materials.name, material_categories.name
+Veramoss
+@@ ba228be8ad · materials.name, material_categories.name
+Vertenex (PTBCHA)
+@@ 7a362b1aa6 · materials.name, material_categories.name
+Vetiver
+@@ 800b5191e8 · materials.name, material_categories.name
+Vinyl Sulfurol
+@@ f2b20cd97a · materials.name, material_categories.name
+Whisky lactona
+@@ 5be7247194 · material_relations.other_text
+(E)-alpha-methyl ionone (44-50%)
+@@ 87edc36aff · material_relations.other_text
+(E)-alpha-methyl ionone (50-60%)
+@@ a3432b0161 · material_relations.other_text
+absoluto de cera de abeja, salvia esclarea, clavo, casia
+@@ 8f8166c637 · material_relations.other_text
+absoluto de haba tonka
+@@ 0675110872 · material_relations.other_text
+absoluto de hiedra
+@@ 7d3729e1b5 · material_relations.other_text
+absoluto de labdanum
+@@ 23931cd2ef · material_relations.other_text
+absoluto de mate
+@@ dba5ba5b6f · material_relations.other_text
+absoluto de nardo
+@@ f7d9e894dc · material_relations.other_text
+absoluto de rosa
+@@ 20fd983bdb · material_relations.other_text
+absolutos de flor naturales
+@@ b19c175705 · material_relations.other_text
+absolutos de rosa
+@@ 5969755056 · material_relations.other_text
+Aceite de aguja de pino
+@@ 281ba34f4b · material_relations.other_text
+aceite de alquitrán de abedul
+@@ 1ae414c7f5 · material_relations.other_text
+Aceite de casia
+@@ eb59a50bd9 · material_relations.other_text
+aceite de geranio
+@@ 2e364473b5 · material_relations.other_text
+aceite de mandarina
+@@ 998335f579 · material_relations.other_text
+aceite de naranja amarga
+@@ 00c5a6fc7f · material_relations.other_text
+aceite de sándalo
+@@ fb3aa97fab · material_relations.other_text
+aceite de sándalo natural
+@@ 0edda28c3e · material_relations.other_text
+aceite esencial de cistus
+@@ e0f9252a1c · material_relations.other_text
+aceites cítricos
+@@ 4624067f40 · material_relations.other_text
+aceites de menta
+@@ ca2edeb255 · material_relations.other_text
+Acetato de bencilo / cítricos
+@@ 83f7d7891f · material_relations.other_text
+acetato de cedrilo
+@@ 9781b75074 · material_relations.other_text
+acetato de cinamilo
+@@ 519e34a962 · material_relations.other_text
+Acetato de feniletilo
+@@ b394279807 · material_relations.other_text
+Acetato de nerilo
+@@ adb455d306 · material_relations.other_text
+acetato de vetiverilo
+@@ 170857f536 · material_relations.other_text
+Acetato de vetiverilo
+@@ ff72d12b47 · material_relations.other_text
+acetofenona
+@@ 7bedeae30f · material_relations.other_text
+Acetofenona
+@@ e4d7459476 · material_relations.other_text
+ácido benzoico
+@@ 0880b310ff · material_relations.other_text
+ácidos u oxidantes
+@@ a9af52cf44 · material_relations.other_text
+acordes amaderados
+@@ 73cf1c2f93 · material_relations.other_text
+acordes ámbar
+@@ 30796e35a9 · material_relations.other_text
+acordes cítricos
+@@ 8ff291915a · material_relations.other_text
+acordes de ámbar
+@@ c6a71a56cd · material_relations.other_text
+acordes de clavel
+@@ cbbe9a53fc · material_relations.other_text
+acordes de cuero
+@@ 70d3755a25 · material_relations.other_text
+Acordes de cuero
+@@ 5e4ed8fb37 · material_relations.other_text
+acordes de fruta
+@@ b56cf6459e · material_relations.other_text
+acordes de gardenia
+@@ 4d03ea6a5c · material_relations.other_text
+acordes de lavanda
+@@ e786e359f1 · material_relations.other_text
+acordes de rosa
+@@ 41edb922a5 · material_relations.other_text
+Acordes de rosa
+@@ dae17c1db6 · material_relations.other_text
+acordes de vetiver
+@@ 7fd4f834da · material_relations.other_text
+Acordes de violeta
+@@ 2a0134f6a6 · material_relations.other_text
+acordes dulces
+@@ 758fbf91f0 · material_relations.other_text
+acordes florales
+@@ 61f4ddc6d9 · material_relations.other_text
+Acordes florales
+@@ 9cdc6c56fe · material_relations.other_text
+acordes frescos
+@@ 381c975d31 · material_relations.other_text
+acordes marinos
+@@ 0c81d1d9ad · material_relations.other_text
+acordes oriental
+@@ 11897f7ab8 · material_relations.other_text
+acordes orientales
+@@ d2c7a02f17 · material_relations.other_text
+afrutados
+@@ e624ee5da4 · material_relations.other_text
+Agua
+@@ caa654af90 · material_relations.other_text
+agua en el producto final
+@@ 0dc92de0ae · material_relations.other_text
+aguja de pino
+@@ 92f3bd9744 · material_relations.other_text
+Ajenjo
+@@ c60f645a9e · material_relations.other_text
+albahaca
+@@ 2c1bd67efc · material_relations.other_text
+alcohol bencílico
+@@ 83d00bc992 · material_relations.other_text
+Alcohol bencílico
+@@ 38b0ff8ea8 · material_relations.other_text
+alcohol cinámico
+@@ b94dbfb689 · material_relations.other_text
+alcohol cinamílico
+@@ d0033024d4 · material_relations.other_text
+alcohol hidratado
+@@ 0f0336091d · material_relations.other_text
+alcoholes
+@@ 60c456f4f4 · material_relations.other_text
+alcoholes C-9
+@@ 9afe82d042 · material_relations.other_text
+alcoholes de tipo linalol
+@@ aa21e3848d · material_relations.other_text
+Aldehído anísico
+@@ cc79b8853c · material_relations.other_text
+Aldehído C-11 undecílico
+@@ 504bfe6e95 · material_relations.other_text
+Aldehído C-12 MNA
+@@ 3bf0fd6143 · material_relations.other_text
+Aldehído C-18 (gamma-nonalactona)
+@@ 83fd242089 · material_relations.other_text
+aldehídos
+@@ 5cff01a711 · material_relations.other_text
+Aldehídos (y otros materiales reactivos)
+@@ d3a91b276e · material_relations.other_text
+Aldehídos C-8 a C-12
+@@ 9b3c4b8a53 · material_relations.other_text
+aldehídos cítricos
+@@ 2f6e5c8704 · material_relations.other_text
+aldehídos frescos
+@@ e8f79d06d1 · material_relations.other_text
+aldehídos muguet (Bourgeonal
+@@ abc08dc54a · material_relations.other_text
+Aldehyde C10
+@@ 54f90f7707 · material_relations.other_text
+alfa-Ionona
+@@ 0e2c1bc75e · material_relations.other_text
+Alfa-ionona
+@@ 597dc7dbd6 · material_relations.other_text
+Alfa/beta damascona
+@@ 14a4e23718 · material_relations.other_text
+Algenone
+@@ 7f871b4e4e · material_relations.other_text
+almizclados
+@@ 1cdafbc4c8 · material_relations.other_text, materials.family_detail
+almizcle
+@@ f8203555af · material_relations.other_text
+almizcles
+@@ f82d181535 · material_relations.other_text
+Almizcles
+@@ f18ebc56e0 · material_relations.other_text
+Almizcles (sobre todo policíclicos
+@@ 8132c70f03 · material_relations.other_text
+almizcles modernos
+@@ ca169edfdc · material_relations.other_text
+almizcles nitro
+@@ 635d07480a · material_relations.other_text
+almizcles sintéticos
+@@ 6bb5341075 · material_relations.other_text
+almizcles sintéticos concretos
+@@ 6c94f5ffe6 · material_relations.other_text
+alpha-methyl ionone
+@@ a466dadc50 · material_relations.other_text
+alquitrán de abedul
+@@ a4ae2fd382 · material_relations.other_text
+Alquitrán de abedul (1 % en EtOH)
+@@ 96872ce090 · material_relations.other_text
+Alquitrán de abedul (aceite esencial, 1 % en EtOH)
+@@ c9bf90c14e · material_relations.other_text
+alquitrán de abedul (trazas)
+@@ 2278f19806 · material_relations.other_text
+alquitrán de abedul rectificado
+@@ b2a8b848c0 · material_relations.other_text
+amaderado-ámbar
+@@ 143d815b63 · material_relations.other_text
+amaderados
+@@ c1f9f051e0 · material_relations.other_text
+ámbar
+@@ 248bd7dbae · material_relations.other_text
+ámbar gris (ambergris)
+@@ 5af3e9dd0e · material_relations.other_text
+ámbar gris natural
+@@ 1cdd577bcb · material_relations.other_text
+Ambargris
+@@ 8bc6ecb682 · material_relations.other_text
+amber carane
+@@ d04837196f · material_relations.other_text
+ambergris tincture replacer
+@@ c4aa3073f6 · material_relations.other_text
+Ambrarome Absolute
+@@ 239e7e4efb · material_relations.other_text
+Ambre Royal
+@@ 0f1b7eddac · material_relations.other_text
+Ambrein
+@@ 2472afa6b8 · material_relations.other_text
+ámbreta
+@@ 1d5fccc822 · material_relations.other_text
+Ambrexol
+@@ 696be3f3c1 · material_relations.other_text
+ambrinol, ambroxan, castoreum absolute, copaiba balsam (entre otros materiales ámbar, amaderados, balsámicos y cuero)
+@@ d6e8ab1c49 · material_relations.other_text
+Ambrocenide
+@@ 2a73821b81 · material_relations.other_text
+Ambrofix
+@@ f56d0088ea · material_relations.other_text
+Ambrofix (Givaudan)
+@@ ded847d2dc · material_relations.other_text
+Ambrox Super
+@@ f1ff559798 · material_relations.other_text
+Ambrox Super (Firmenich)
+@@ f5cd2fdd14 · material_relations.other_text
+Ambroxan / Ambroxide
+@@ c7103612d8 · material_relations.other_text
+amerinal
+@@ 3685f6362f · material_relations.other_text
+animales
+@@ a9ffccb2b7 · material_relations.other_text
+Animalis 1745-03 (Synarome)
+@@ cabdda55a5 · material_relations.other_text
+anís
+@@ dec15e1556 · material_relations.other_text
+Anisaldehído
+@@ 8afceed937 · material_relations.other_text
+Anthocephalus cadamba
+@@ b28034b629 · material_relations.other_text
+antranilato de metilo / indol
+@@ 9975f0a726 · material_relations.other_text
+antranilatos
+@@ 65aba3a70e · material_relations.other_text
+árbol del té
+@@ 55e1ba5985 · material_relations.other_text
+Arborone
+@@ d731bd8ea1 · material_relations.other_text
+aromaquímicos florales
+@@ 78ae171b94 · material_relations.other_text
+aromáticos de rosa
+@@ 80c709cd93 · material_relations.other_text
+avellana / praliné
+@@ 6d249085dc · material_relations.other_text
+azafrán
+@@ 34a6d79cc3 · material_relations.other_text
+azahar
+@@ d75668e1d7 · material_relations.other_text
+Bacdanol
+@@ 2bb085b80b · material_relations.other_text
+Bacdanol (IFF)
+@@ 7dd282b200 · material_relations.other_text
+bálsamo de gurjún
+@@ 2fd9608005 · material_relations.other_text
+bálsamo del Perú
+@@ 4c9c983b6a · material_relations.other_text
+bálsamos
+@@ 7159368cf1 · material_relations.other_text
+bases alcalinas (jabón)
+@@ e49682dc16 · material_relations.other_text
+bases amaderadas
+@@ 301c208d88 · material_relations.other_text
+bases amaderado-ámbar
+@@ 04afb93f1b · material_relations.other_text
+bases ambaradas
+@@ 8d9d114dc4 · material_relations.other_text
+bases cítricas
+@@ 509448f4fb · material_relations.other_text
+Bases de gel de ducha
+@@ 4fcfc6c0a4 · material_relations.other_text
+Bases de jazmín
+@@ d378ca7e26 · material_relations.other_text
+bases de muguet
+@@ 97aa9ed002 · material_relations.other_text
+bases de rosa
+@@ c35b6af562 · material_relations.other_text
+Bases de rosa (sobre todo té-rosa)
+@@ a992c0917f · material_relations.other_text
+bases de vela
+@@ 1a52515bba · material_relations.other_text
+bases de velas
+@@ afada8ee89 · material_relations.other_text
+bases medicinales
+@@ 4a2b9dc727 · material_relations.other_text
+bases orientales
+@@ 4f39a43b6a · material_relations.other_text
+bayas de enebro
+@@ f6e9e29558 · material_relations.other_text
+Benzaldehído
+@@ bca3f08ee2 · material_relations.other_text
+benzoato de metilo
+@@ 99b574cf49 · material_relations.other_text
+Benzofenona
+@@ c5b2cfce55 · material_relations.other_text
+Benzyl Cinnamate
+@@ 080e76db1c · material_relations.other_text
+Benzyl salicylate
+@@ b7ba96317a · material_relations.other_text
+Benzyl Salicylate Balsams
+@@ 41288c2fc9 · material_relations.other_text
+bergamota
+@@ 1806822586 · material_relations.other_text
+Bergamota
+@@ e187d60e3a · material_relations.other_text
+Bergamota (aceite esencial)
+@@ e7bfd8167d · material_relations.other_text
+bergamota (entre otros)
+@@ 9459344af5 · material_relations.other_text
+Beta-damascona
+@@ a5744cbe88 · material_relations.other_text
+beta-ionona
+@@ 82b863e7c9 · material_relations.other_text
+Beta-ionona
+@@ 03e6ece041 · material_relations.other_text
+Birch tar oil
+@@ 0e90aa80da · material_relations.other_text
+Black Agar Givco 215 (Givaudan)
+@@ 37e2fee31f · material_relations.other_text
+brasilato de etileno
+@@ cb8606e9fb · material_relations.other_text
+Butirato de etilo
+@@ 0c1f2f34e2 · material_relations.other_text
+Butyl Quinoline Secondary
+@@ 4e3335bfb6 · material_relations.other_text
+C-10
+@@ 278b289061 · material_relations.other_text
+C-11
+@@ 24f6c913ac · material_relations.other_text
+cade oil replacer
+@@ 125b3b40af · material_relations.other_text
+cálamo
+@@ a91029c5f2 · material_relations.other_text
+cananga
+@@ 415fe6be8b · material_relations.other_text
+canela
+@@ 466c09f562 · material_relations.other_text
+canela de Ceilán
+@@ e76c6ac6ed · material_relations.other_text
+caproato de alilo
+@@ 2e3c65a31e · material_relations.other_text
+caramelo
+@@ a5c5ea59b8 · material_relations.other_text
+cardamomo
+@@ 43cfc46063 · material_relations.other_text
+Cascalone
+@@ 8832d18ff7 · material_relations.other_text
+casia
+@@ 912dedc34f · material_relations.other_text
+Cassis Base 345 F
+@@ 67980f8d0c · material_relations.other_text
+Cassis Base 345B
+@@ 56b3095591 · material_relations.other_text
+castoreum absolute replacer
+@@ e3f35a3464 · material_relations.other_text
+castoreum extract
+@@ 02c0636915 · material_relations.other_text
+Castoreum Firbest (Firmenich)
+@@ 474e407b7e · material_relations.other_text
+cedro
+@@ 3f9ad4ed05 · material_relations.other_text
+Cedro
+@@ baec99bc08 · material_relations.other_text
+cedro (para endulzar)
+@@ 6d17ba300a · material_relations.other_text
+cedro del Atlas
+@@ b4ccfc0ea5 · material_relations.other_text
+Cedro del Atlas (aceite esencial)
+@@ 982113c4a1 · material_relations.other_text
+cereza silvestre
+@@ 2045ace2eb · material_relations.other_text
+Cetalox
+@@ 5075f8e62e · material_relations.other_text
+Cetonal
+@@ 1ec474b270 · material_relations.other_text
+Cetonas de rosa
+@@ 7fa74b117a · material_relations.other_text
+chipre
+@@ 891c5feef1 · material_relations.other_text
+chocolate
+@@ 6f14845303 · material_relations.other_text
+chocolate / acordes gourmand dulces
+@@ 5f5c36a473 · material_relations.other_text
+chypres
+@@ 10d2aa77bd · material_relations.other_text
+ciclamal
+@@ f163bfa207 · material_relations.other_text
+ciclamen
+@@ 9a48d08236 · material_relations.other_text
+cinamato de bencilo
+@@ 0a8c8ad885 · material_relations.other_text
+cinamatos
+@@ f4e507c749 · material_relations.other_text
+Cinnamyl Acetate
+@@ 519f29dd34 · material_relations.other_text
+Cinnamyl Alcohol
+@@ 8695246965 · material_relations.other_text
+ciprés
+@@ 091274dffb · material_relations.other_text
+ciruela
+@@ c66106fd06 · material_relations.other_text
+Ciruela
+@@ 1e46656ec5 · material_relations.other_text
+cis-3-hexenal
+@@ ee64c0946e · material_relations.other_text
+cis-jasmona
+@@ 357ef44a43 · material_relations.other_text
+cis-Jasmona
+@@ 1e423bc328 · material_relations.other_text
+cis-Jasmone
+@@ 33890bb2e2 · material_relations.other_text
+cisto
+@@ de2bfdd696 · material_relations.other_text
+cistus
+@@ 49b45600d0 · material_relations.other_text
+citral
+@@ 1e58a743b5 · material_relations.other_text
+cítricas
+@@ d64fe78c71 · material_relations.other_text
+cítricos
+@@ 300636510a · material_relations.other_text
+cítricos (especialmente limón)
+@@ f6e769f281 · material_relations.other_text
+cítricos de salida
+@@ 69ba9e9af8 · material_relations.other_text
+citronelol
+@@ c7737bdc08 · material_relations.other_text
+Citronelol
+@@ 13b8b12c12 · material_relations.other_text
+citrus
+@@ f819c7651b · material_relations.other_text
+clavo
+@@ a81cea9627 · material_relations.other_text
+clavo (capullo)
+@@ fa599db2d9 · material_relations.other_text
+Clearwood (Firmenich)
+@@ e005ce6cf3 · material_relations.other_text
+colonias
+@@ ac07b98072 · material_relations.other_text
+colonias cítricas
+@@ 521d4087ea · material_relations.other_text
+composiciones cítricas
+@@ 2bb621e3a5 · material_relations.other_text
+compuestos de ámbar gris
+@@ f7410fa6a8 · material_relations.other_text
+copaiba
+@@ ecb0759643 · material_relations.other_text
+Copaiba
+@@ 9707ee4dfb · material_relations.other_text
+creosol
+@@ d7f8fbc8fc · material_relations.other_text
+cubeba
+@@ 7f759497f3 · material_relations.other_text, materials.family_detail
+cuero
+@@ 3dbdefcd3b · material_relations.other_text
+Cuero, oud y acordes amaderados secos / ámbar masculinos
+@@ d2c2906b77 · material_relations.other_text
+Cuir Vitessence 2021 (Symrise)
+@@ 72c827be1e · material_relations.other_text
+cumarina
+@@ 34fb6401db · material_relations.other_text
+Cumarina
+@@ 24b3008b56 · material_relations.other_text
+Cyclamen Aldehyde
+@@ 6af0ebd629 · material_relations.other_text
+Damascenona
+@@ 69a703dd21 · material_relations.other_text
+damasconas
+@@ 8437b8f7e1 · material_relations.other_text
+damascones
+@@ 900abd0311 · material_relations.other_text
+Damascones
+@@ 69ca183ee9 · material_relations.other_text
+Davana
+@@ ea312b6d2f · material_relations.other_text
+de frutos secos
+@@ 65e0f0edc3 · material_relations.other_text
+de gel de ducha
+@@ 5315c66329 · material_relations.other_text
+de leche
+@@ eb8632158d · material_relations.other_text
+de naranja
+@@ 4b673c342a · material_relations.other_text
+de tabaco
+@@ 95aadd2f91 · material_relations.other_text
+Decanal Topnote Pusher
+@@ 5e8920892c · material_relations.other_text
+delta damascona
+@@ 27b9aea24a · material_relations.other_text
+delta-decalactona
+@@ ba3a2502b1 · material_relations.other_text
+delta-dodecalactona)
+@@ 01a0848d43 · material_relations.other_text
+derivados de cedro
+@@ d33fd610c0 · material_relations.other_text
+derivados del cis-3-hexenol
+@@ f3779703e7 · material_relations.other_text
+derivados del sándalo
+@@ c82f6f9343 · material_relations.other_text
+Dextramber (Takasago)
+@@ 0e8896f3ef · material_relations.other_text
+dihidrojasmona
+@@ 77b077a1f5 · material_relations.other_text
+Dihydro-beta-ionone
+@@ ea426de8bc · material_relations.other_text
+Dimethyl Sulfide
+@@ 9b0b97cb59 · material_relations.other_text
+Dimetiloctanol
+@@ 786cc94272 · material_relations.other_text
+Dupical)
+@@ 6ba2b30344 · material_relations.other_text
+Dynamone
+@@ c85aabd60c · material_relations.other_text
+eaux fraîches
+@@ 657f3c57a9 · material_relations.other_text
+en particular bergamota
+@@ b77e88378f · material_relations.other_text
+enebro
+@@ de0ce67405 · material_relations.other_text
+esencias artificiales (artificial ess. oils), gálbano, musgo de roble
+@@ f08aaa18e1 · material_relations.other_text
+especias
+@@ 7cab141a25 · material_relations.other_text
+ésteres de geraniol
+@@ 18db43afe4 · material_relations.other_text
+estoraque
+@@ f4704c9ba0 · material_relations.other_text
+estragón
+@@ 4d59b3de14 · material_relations.other_text
+estructuras de cuero
+@@ 23d849258c · material_relations.other_text
+Ethyl linalool
+@@ da0a686c01 · material_relations.other_text
+etil maltol
+@@ 1b88e91398 · material_relations.other_text
+Etil maltol
+@@ a8b12ee1f5 · material_relations.other_text
+eucalipto
+@@ 3ae8727db5 · material_relations.other_text
+eugenol (aceite de clavo)
+@@ 20447f123c · material_relations.other_text
+Evernyl
+@@ d7ec575af5 · material_relations.other_text
+Exaltolide
+@@ 663588d2e7 · material_relations.other_text
+Exaltone
+@@ c4b3acf378 · material_relations.other_text
+exclusivo)
+@@ 229e491716 · material_relations.other_text
+facetas florales delicadas de té
+@@ d7895fdff2 · material_relations.other_text
+familias de pimienta negra
+@@ 36b4244185 · material_relations.other_text
+Firsantol
+@@ f4e8885a76 · material_relations.other_text
+Fixateur 505
+@@ 8b98e9dc67 · material_relations.other_text
+Flor de naranjo (orangeflower)
+@@ f8631a013b · material_relations.other_text
+florales
+@@ afac7f62e0 · material_relations.other_text
+Florales
+@@ 3169445f07 · material_relations.other_text
+Florales aldehídicos
+@@ 76b41cdd51 · material_relations.other_text
+Florales blancos (gardenia
+@@ f2b207a27a · material_relations.other_text
+Floralozone
+@@ bdae8686e6 · material_relations.other_text
+Florantone T
+@@ 0e0f3cc6a9 · material_relations.other_text
+Florhydral
+@@ 0b7d5b7ddb · material_relations.other_text
+Florol (Florosa)
+@@ 3b99d3633c · material_relations.other_text
+formiato de citronelilo
+@@ 9bedd081fb · material_relations.other_text
+fougère
+@@ e3aaa76e5b · material_relations.other_text
+fougère masculina
+@@ 2c8587d111 · material_relations.other_text
+fougères
+@@ 7c4dff6031 · material_relations.other_text
+fouve
+@@ b4a2538d0b · material_relations.other_text
+frambinona
+@@ 95dd21c93d · material_relations.other_text
+Frambinona
+@@ 490913fb97 · material_relations.other_text
+fructona
+@@ ef83218607 · material_relations.other_text
+fruta roja
+@@ 7abe438c21 · material_relations.other_text
+fruta tropical
+@@ cb79bf2ef9 · material_relations.other_text
+frutas tipo frambuesa
+@@ 7120b3ede3 · material_relations.other_text
+frutos rojos
+@@ d5fe33fb5d · material_relations.other_text
+gálbano
+@@ a60e193d15 · material_relations.other_text
+galbanum
+@@ 858e9bb962 · material_relations.other_text
+Gamma-ionona
+@@ 582148df6f · material_relations.other_text
+gamma-octalactona
+@@ 795b7a7668 · material_relations.other_text
+gardenia
+@@ f29d36024b · material_relations.other_text
+Georgywood (Givaudan
+@@ 2edff19293 · material_relations.other_text
+geranil acetato
+@@ 59cfc7338f · material_relations.other_text
+geranio
+@@ 145430b833 · material_relations.other_text
+Globalide (Symrise)
+@@ 85f5413f9f · material_relations.other_text
+gomas
+@@ 719609de2d · material_relations.other_text
+Gomas de palo de rosa
+@@ ae34469198 · material_relations.other_text
+gourmand
+@@ 6f43934ed3 · material_relations.other_text
+GRAPE F-TEC
+@@ afa1e4f49f · material_relations.other_text
+Grape Fleuressence
+@@ 48cd0ae9bb · material_relations.other_text
+guayaco
+@@ 188e91533b · material_relations.other_text
+guayacol
+@@ 0a49ee49cb · material_relations.other_text
+haba tonka
+@@ 4918199b78 · material_relations.other_text
+Hedione HC
+@@ 4f063094f1 · material_relations.other_text
+Heliotropex (base)
+@@ be67066d0b · material_relations.other_text
+heno
+@@ 49438be3bd · material_relations.other_text
+heno recién cortado (New Mown Hay)
+@@ f672f1a680 · material_relations.other_text
+heno recién segado
+@@ fad8b1fffc · material_relations.other_text
+herbales
+@@ 74db344c7a · material_relations.other_text
+hidrocarburos
+@@ ad8f3c31b8 · material_relations.other_text
+hidroxicitronelal
+@@ bd526239d5 · material_relations.other_text
+Hidroxicitronelal
+@@ 81dac7312c · material_relations.other_text
+Hidroxicitronelal BASF
+@@ d8987ab59f · material_relations.other_text
+Hierba limón (lemongrass)
+@@ 3da77b953b · material_relations.other_text
+hierro
+@@ ffc552c0f0 · material_relations.other_text
+Hindinol (Takasago)
+@@ dc109c807f · material_relations.other_text
+hinojo
+@@ a771e797aa · material_relations.other_text
+hoja de cilantro
+@@ 89ae03cdea · material_relations.other_text
+hoja de violeta
+@@ 0a1f99ac0d · material_relations.other_text
+indol
+@@ bdd606f8f3 · material_relations.other_text
+indol (trazas)
+@@ 87150aa073 · material_relations.other_text
+indol, escatol o trazas de cresol
+@@ 97be64542c · material_relations.other_text
+indoles
+@@ 76465bb9b8 · material_relations.other_text
+Indoles
+@@ b804665f87 · material_relations.other_text
+ionona
+@@ 5ab02b796b · material_relations.other_text
+iononas
+@@ 6f59463845 · material_relations.other_text
+Iononas
+@@ b7b24dd033 · material_relations.other_text
+Ionone Balsams
+@@ 1cd8cbb899 · material_relations.other_text
+Ionones verdes
+@@ fe2a6aaf4e · material_relations.other_text
+Iralia
+@@ 3e9afe235a · material_relations.other_text
+iris
+@@ 422505a418 · material_relations.other_text
+Iris
+@@ a4ca83fab9 · material_relations.other_text
+Iso Cyclo Citral
+@@ e1bbd92f95 · material_relations.other_text
+Iso Gamma (IFF)
+@@ 04860ab7ab · material_relations.other_text
+isobutilquinoleína
+@@ d008b6d3ed · material_relations.other_text
+Isobutilquinoleína
+@@ dbc2a8815d · material_relations.other_text
+isobutilquinolina
+@@ 04f47bca1d · material_relations.other_text
+isobutirato de mirtenilo
+@@ 11b4e3df9c · material_relations.other_text
+isociclocitral
+@@ 75d9643e35 · material_relations.other_text
+isoeugenil etil acetal
+@@ 48c0addaa5 · material_relations.other_text
+isoeugenol
+@@ a18292bb92 · material_relations.other_text
+Isoraldeine Cetone Alpha
+@@ 684fc93d50 · material_relations.other_text
+jacinto
+@@ 53662aa0ee · material_relations.other_text
+Javanol
+@@ c80cb88822 · material_relations.other_text
+jazmín
+@@ 95e287425c · material_relations.other_text
+jazmín sambac
+@@ 7bbd23ebde · material_relations.other_text
+jengibre
+@@ ea20a28864 · material_relations.other_text
+Kephalis (almizcles)
+@@ 462eb17266 · material_relations.other_text
+labdano
+@@ 815d81ede3 · material_relations.other_text
+láudano
+@@ d699cb5c8d · material_relations.other_text
+lavandín
+@@ 50af3ba466 · material_relations.other_text
+Leather Oud
+@@ 508a1c3d98 · material_relations.other_text
+lemongrass
+@@ ace8171150 · material_relations.other_text
+leñoso-aldehídicos
+@@ e45d4d8e0a · material_relations.other_text
+levulinato de etilo
+@@ 0ed9a8e852 · material_relations.other_text
+licores espumosos
+@@ 6101d347fe · material_relations.other_text
+lila
+@@ 4772410173 · material_relations.other_text
+lila (florales delicados)
+@@ 415d4145ad · material_relations.other_text
+Lilial
+@@ 5ffbf2d096 · material_relations.other_text
+Lilytol
+@@ 0c1a4b1f89 · material_relations.other_text
+lima
+@@ b70d0e9d77 · material_relations.other_text
+linalol sintético
+@@ 0b76a8168d · material_relations.other_text
+linalool-acetato de linalilo
+@@ 020b9857e9 · material_relations.other_text
+Lindenol (terpineol)
+@@ 87c3f97e96 · material_relations.other_text
+lirio
+@@ 5296094365 · material_relations.other_text
+lirio de los valles
+@@ 0052fd3176 · material_relations.other_text
+Lorysia (Firmenich)
+@@ 4e2a823d28 · material_relations.other_text
+macrocíclicos)
+@@ 3edf150ba7 · material_relations.other_text
+madera
+@@ 3cee99a13f · material_relations.other_text
+Madera de guayaco
+@@ 2fc55ac720 · material_relations.other_text
+maderas
+@@ 6cd215022d · material_relations.other_text
+maderas secas
+@@ 4d50b3c9f2 · material_relations.other_text
+madreselva
+@@ c1a530b821 · material_relations.other_text
+maltol
+@@ 6aa49a3103 · material_relations.other_text
+Maltol
+@@ 2321dc2f1a · material_relations.other_text
+manzanilla
+@@ 60aeee3fa5 · material_relations.other_text
+manzanilla marroquí
+@@ 38191dfb24 · material_relations.other_text
+materiales amaderado-ámbar
+@@ 7e06f763b3 · material_relations.other_text
+materiales de sándalo
+@@ cebf66707d · material_relations.other_text
+MCK (Vertofix
+@@ ec99380b1b · material_relations.other_text
+medios alcalinos
+@@ d8bc349c16 · material_relations.other_text
+medios muy alcalinos
+@@ 6599791160 · material_relations.other_text
+melisa
+@@ 8a5faae478 · material_relations.other_text
+melocotón
+@@ 08022c3b0e · material_relations.other_text
+Melonal
+@@ ee49c3d5da · material_relations.other_text
+Metal Oxazole
+@@ e15bb90c2d · material_relations.other_text
+methyl cedryl ketone)
+@@ 93a65d1c4e · material_relations.other_text
+methyl ionone (90% min.)
+@@ c0d1864443 · material_relations.other_text
+Methyl Ionone Alpha Extra
+@@ a0f96c36b3 · material_relations.other_text
+Methyl Laitone
+@@ 16c77bae46 · material_relations.other_text
+Metil ionona
+@@ 1b1736d2a6 · material_relations.other_text
+metilionona
+@@ 50a580c84d · material_relations.other_text
+Mezclas orientales
+@@ 627090cb28 · material_relations.other_text
+mimosa
+@@ dc4fa176a5 · material_relations.other_text
+mirra
+@@ 0aa7c3d905 · material_relations.other_text
+modernos
+@@ 8f117c3ab0 · material_relations.other_text
+Modificadores de bajo punto de ebullición
+@@ 42d44d951a · material_relations.other_text
+mora
+@@ c6d23f7f0d · material_relations.other_text
+muchos ésteres afrutados
+@@ f3573fd16b · material_relations.other_text
+muguet
+@@ a4923d395a · material_relations.other_text
+muguet carbinol
+@@ e63c28e45f · material_relations.other_text
+musgo de árbol
+@@ 570e7d8601 · material_relations.other_text
+musgo de roble
+@@ 4d772571bb · material_relations.other_text
+Musgo de roble
+@@ 8a76278382 · material_relations.other_text
+musk indenofuran
+@@ 2f2f8958ce · material_relations.other_text
+N-metil ionona
+@@ 2ac7694229 · material_relations.other_text
+Naranja
+@@ 5083e85988 · material_relations.other_text
+narciso
+@@ 46443d229f · material_relations.other_text
+nardo
+@@ 04dc632e0c · material_relations.other_text
+neral
+@@ b98f20e189 · material_relations.other_text
+nerol
+@@ daf1e35e3f · material_relations.other_text
+neroli
+@@ 7ae6b71359 · material_relations.other_text
+NewMownHay
+@@ 8634ad0503 · material_relations.other_text
+nicotinato de metilo
+@@ f74826045b · material_relations.other_text
+Nonanal dimetil acetal
+@@ 6a1231210b · material_relations.other_text
+Nonanal Topnote Pusher
+@@ 5043deafac · material_relations.other_text
+Nootkatone
+@@ 772a957e38 · material_relations.other_text
+Norlimbanol Dextro (Firmenich)
+@@ 2e1027dc23 · material_relations.other_text
+notas amaderadas
+@@ cdb41b2394 · material_relations.other_text
+notas amaderadas modernas
+@@ 0dbeed90cd · material_relations.other_text
+Notas balsámicas
+@@ 435708521c · material_relations.other_text
+notas cítricas
+@@ 7ceb8d1698 · material_relations.other_text
+notas cítricas (linalool)
+@@ ce573de0b1 · material_relations.other_text
+notas de ámbar
+@@ 7eeff10d80 · material_relations.other_text
+notas de hierba verde
+@@ c2234d598b · material_relations.other_text
+notas de melocotón
+@@ 979b0eac5b · material_relations.other_text
+notas de musgo
+@@ a17c07d02c · material_relations.other_text
+notas de salida florales
+@@ 65ca0c8860 · material_relations.other_text
+notas de vainilla
+@@ b61dae367b · material_relations.other_text
+notas florales
+@@ 566045f460 · material_relations.other_text
+notas frutales
+@@ 60a99e4721 · material_relations.other_text
+notas herbáceas
+@@ 4fef21f658 · material_relations.other_text
+notas leñosas
+@@ f2eef8d45d · material_relations.other_text
+notas marinas
+@@ 6811f6cf98 · material_relations.other_text
+Oak Moss Olifak
+@@ 342b18d652 · material_relations.other_text
+oakmoss
+@@ e4026e4f1b · material_relations.other_text
+oakmoss absolute replacer
+@@ 1f772cd4bd · material_relations.other_text
+opopónaco

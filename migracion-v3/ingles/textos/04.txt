@@ -1,0 +1,784 @@
+@@ 9362d76295 · material_descriptors.text
+ScenTree: Balsamic Ambery > Balsamic > Animalic > Vanillic > Leather
+@@ 4cadae035d · material_descriptors.text
+ScenTree: Balsamic Ambery > Balsamic > Vanillic > Warm Woods > Waxy
+@@ 5d8dedca6d · material_descriptors.text
+ScenTree: Balsamic Ambery > Vanillic > Anisic > Almondy
+@@ 1e493bc44f · material_descriptors.text
+ScenTree: Citrus > Zesty > Bergamot > Agrestic > Lavender
+@@ 2e4c2a47f4 · material_descriptors.text
+ScenTree: Citrus > Zesty > Orange
+@@ 3285518719 · material_descriptors.text
+ScenTree: Floral > Powdery Flowers > Violet Flower > Berries
+@@ 42c54840a0 · material_descriptors.text
+ScenTree: Floral > Powdery Flowers > Violet Flower > Earthy
+@@ c32d1d4097 · material_descriptors.text
+ScenTree: Floral > White Flowers > Solar > Benzyl (clasificación, sin descripción)
+@@ 26a89478ee · material_descriptors.text
+ScenTree: Marine > Ozonic > Juicy Fruits
+@@ e4311f95af · material_descriptors.text
+ScenTree: Musky > Berries > Vanillic
+@@ 1d4eac46d5 · material_descriptors.text
+ScenTree: Spicy > Warm Spices > Cinnamic > Eugenol > Zesty
+@@ 19528cfecf · material_descriptors.text
+ScenTree: Spicy > Warm Spices > Eugenol (sin descripción en texto)
+@@ 46c3bbded9 · material_descriptors.text
+Scentspiracy (alta concentración): intensely phenolic, animalic, and medicinal
+@@ 034a3a74a9 · material_descriptors.text
+Scentspiracy (cita a IFF 2025): Fresh watery-melon top; sweet heliotrope/cyclamen heart; new-mown-hay & soft almond-anisic facets
+@@ 478525c8d5 · material_descriptors.text
+Scentspiracy (dilución extrema, <0.05%): delicate notes of narcissus, mimosa, ylang-ylang, and jasmine
+@@ 09834b32fd · material_descriptors.text
+Scentspiracy (hidroxicitronelal genérico): Sweet, floral, light, and clean with muguet character; tenacity increases in blends
+@@ 93e1846aa2 · material_descriptors.text
+Scentspiracy: Mild, warm, rose-honey floral
+@@ a09a1e9b51 · material_descriptors.text
+Scentspiracy: sweet, almondy-hay scent with herbaceous and powdery nuances
+@@ 7c787029a8 · material_descriptors.text
+Sensient: Fresh, eucalyptus-like, cold
+@@ bd2905e38a · material_descriptors.text
+Sigma-Aldrich (en TGSC): Odor: medicinal
+@@ 8627659850 · material_descriptors.text
+Sigma-Aldrich (grado fragancia, vía buscador): smoky; phenolic
+@@ 441043e65d · material_descriptors.text
+Sigma-Aldrich (muestra de olor): alcohol; medicinal
+@@ 8ebffd7a37 · material_descriptors.text
+Sigma-Aldrich: creamy; woody; sweet
+@@ 6c3ee5ddc8 · material_descriptors.text
+Sigma-Aldrich: cucumber; mushroom; vegetable; earthy
+@@ 1af05ee0d7 · material_descriptors.text
+sin atribuir (nota de la página): Pungent, earthy and quite different from the oil produced from the ripe Coriander Seeds
+@@ b21645b142 · material_descriptors.text
+Smoky, Leathery, Warm
+@@ 78f7858ff9 · material_descriptors.text
+Smoky, Phenolic, Leathery
+@@ 5444767ca4 · material_descriptors.text
+Smoky, Roasted, Earthy
+@@ 0053f5019c · material_descriptors.text
+Spicy, Balsamic, Cinnamon
+@@ 8c4fa10691 · material_descriptors.text
+Spicy, Clove, Floral
+@@ db17844d20 · material_descriptors.text
+Spicy, Herbal, Camphoraceous
+@@ 8d927ca844 · material_descriptors.text
+Spicy, Medicinal, Cinnamon
+@@ 0e720e5467 · material_descriptors.text
+Spicy, Peppery, Warm
+@@ 5d488da7b9 · material_descriptors.text
+Spicy, Smoky, Animal Like
+@@ 47202fd63f · material_descriptors.text
+Spicy, Warm, Leathery
+@@ 9fdcb7ef32 · material_descriptors.text
+SRS Aromatics: Fresh, Citrus, Dry, Peely
+@@ a0ad68962c · material_descriptors.text
+Symrise (Isobutyl Quinoline 54): powerful, earthy, mossy, leathery
+@@ a1bbb89894 · material_descriptors.text
+Symrise, hoja técnica (vía buscador): Animalic, Ambergris, Musk, Earthy, Violet
+@@ d43ba208bf · material_descriptors.text
+Symrise, hoja técnica (vía buscador): fruity, dried fruit, and brandy; underlines damascone-like aspects
+@@ d78c2abff5 · material_descriptors.text
+Symrise: Aldehydic, Orange, Peely, Marine
+@@ 5dfd98ad33 · material_descriptors.text
+Symrise: Citrus, Bergamot, Lavender, Herbal
+@@ 057ed48b90 · material_descriptors.text
+Symrise: floral, like rose
+@@ f9f207afe9 · material_descriptors.text
+Symrise: sweet dry vanilla chocolate
+@@ 8aa7ebad66 · material_descriptors.text
+Tadimety Aromatics: Fruity, Floral, Narcissus, cresolic hyacinth
+@@ 2feb8b918f · material_descriptors.text
+Takasago (Geranyl Acetate Extra, 98 % o más): Sweet, fruity-floral, rosy, somewhat green and remotely Lavender-like
+@@ 9aee352b24 · material_descriptors.text
+Takasago (Hindinol Biobased 81%): Sandal, mysol, core, santalinol
+@@ ab894c5596 · material_descriptors.text
+Takasago (l-Laurinal): Sweet-floral
+@@ 5b11dd4f4f · material_descriptors.text
+Takasago: Sweet-musky, somewhat oily
+@@ 41e2ef42ab · material_descriptors.text
+Taytonn ASCC (ficha 94333-88-7): Balsamic, Powder/ Powdery, Tea Rose, Vetivert, Woody
+@@ fdd8c7400e · material_descriptors.text
+TGSC (al 0,1 % en DPG): musty nutty root vegetable cocoa
+@@ 068eef6357 · material_descriptors.text
+TGSC (al 0,1 % en PG): medicinal phenolic
+@@ 9d4be13a78 · material_descriptors.text
+TGSC (al 0,1 % en PG): rubber sulfurous
+@@ fc15f2b867 · material_descriptors.text
+TGSC (al 0,1 % en PG): sulfurous nutty hazelnut corn meaty earthy clam
+@@ ac2261d6a2 · material_descriptors.text
+TGSC (al 0,10 % en DPG): phenolic narcissus animal mimosa
+@@ 187a76f635 · material_descriptors.text
+TGSC (al 1 % en DPG): animal warm phenolic
+@@ 4a21e20c7c · material_descriptors.text
+TGSC (al 1 % en DPG): herbal mushroom earthy musty dirty
+@@ 1de34f2c9a · material_descriptors.text
+TGSC (al 1 % en DPG): spicy cumin dry green
+@@ 2febce163e · material_descriptors.text
+TGSC (al 10 % en DPG): fruity cherry hay powdery
+@@ 5f1ce8c352 · material_descriptors.text
+TGSC (al 10 % en DPG): hazelnut nutty
+@@ ec73813eb4 · material_descriptors.text
+TGSC (al 10 % en DPG): heavy deep rose floral powdery balsamic soapy
+@@ 4fe6c16b45 · material_descriptors.text
+TGSC (al 10 % en DPG): sweet fruity ethereal banana tropical
+@@ a02179fa6c · material_descriptors.text
+TGSC (al 10,00 % en dipropilenglicol; autor no indicado): medical spicy cinnamon wintergreen cooling
+@@ 830a6d1845 · material_descriptors.text
+TGSC (al 100 %, sin autor): sweet herbal bergamot pine lavender floral
+@@ 456e03c717 · material_descriptors.text
+TGSC (al 100 %): musk
+@@ 0dfa1246b7 · material_descriptors.text
+TGSC (al 100 %): patchouli woody clean creamy amber
+@@ a04e9e7cbf · material_descriptors.text
+TGSC (al 100 %): ripe plum prune
+@@ 5f615fcff7 · material_descriptors.text
+TGSC (descripción general): The odor of Geosmin is best described as the smell of the air after rain falls on dry soil
+@@ fa29c42b52 · material_descriptors.text
+TGSC (dilución no indicada): mossy oakmoss woody phenolic earthy
+@@ 88e0ce2d48 · material_descriptors.text
+TGSC (ficha de la tintura, sin autor), al 100.00 %: tonka coumarinic
+@@ ab66f4d131 · material_descriptors.text
+TGSC (ficha genérica «leather specialty», sin autor), al 10 % en dipropilenglicol: leather
+@@ 95aafaae46 · material_descriptors.text
+TGSC (Luebke, William, 1981), al 10 % en dipropilenglicol (muestra de Berjé Inc.): sweet vanilla creamy chocolate
+@@ 402957d526 · material_descriptors.text
+TGSC (Luebke, William, 1981), al 100 % (muestra de Berje Inc.): sweet floral fruity rose waxy citrus
+@@ 2ab0878fef · material_descriptors.text
+TGSC (Luebke, William, 1982; muestra de Givaudan Corporation): sweet hay tonka new mown hay
+@@ 9fde05ecc4 · material_descriptors.text
+TGSC (Luebke, William, 1982), al 100 % (muestra de Givaudan Corporation): floral lily sweet green waxy tropical melon
+@@ 8ff5d11974 · material_descriptors.text
+TGSC (Luebke, William, 1982), al 100 %: heliotrope flower sweet powdery coconut vanilla
+@@ 79f7c9c513 · material_descriptors.text
+TGSC (Luebke, William, 1982), al 100 %: sweet, vanilla, balsam, woody
+@@ a1ba5eec1a · material_descriptors.text
+TGSC (Luebke, William, 1982), al 100.00 % (muestra de Berje Inc.): herbal floral spicy aromatic camphoreous balsamic eucalyptus woody
+@@ bdd923096a · material_descriptors.text
+TGSC (Luebke, William, 1983), al 10,00 % en DPG: geranium leaf green phenolic
+@@ f48f04b374 · material_descriptors.text
+TGSC (Luebke, William, 1983), al 10.00 % en dipropilenglicol (muestra de Givaudan Corporation): sweet woody floral violet orris tropical fruity
+@@ 6eb2da9849 · material_descriptors.text
+TGSC (Luebke, William, 1983), al 10.00 % en ftalato de dietilo (muestra de Charabot & Co., Inc.): leathery smoky animal phenolic old wood burnt resinous
+@@ ec2c3828f6 · material_descriptors.text
+TGSC (Luebke, William, 1983), al 100 %: citrus floral sweet bois de rose woody green blueberry
+@@ 5ae0ee94ed · material_descriptors.text
+TGSC (Luebke, William, 1983), al 100,00 %: sweet balsam strawberry cherry cinnamon
+@@ 1f41b8ba1f · material_descriptors.text
+TGSC (Luebke, William, 1983), al 100.00 % (muestra de Charabot & Co., Inc.): sweet balsam cinnamyl woody
+@@ e693476d1f · material_descriptors.text
+TGSC (Luebke, William, 1984), al 10.00 % en dipropilenglicol (muestra de Givaudan Corporation): sweet spicy clove woody
+@@ 5530829dde · material_descriptors.text
+TGSC (Luebke, William, 1984), al 100 % (muestra de Charabot & Co., Inc.): citrus, floral, woody, orange, linalyl acetate
+@@ 7099495c8e · material_descriptors.text
+TGSC (Luebke, William, 1985; muestra de Dragoco Inc.), al 10,00 % en DPG: amber musk animal old wood earthy
+@@ cad33f904b · material_descriptors.text
+TGSC (Luebke, William, 1985), al 1.00 % en dipropilenglicol (muestra de Berje Inc.): sweet herbal green coffee davana horehound candy
+@@ 74a248e7c1 · material_descriptors.text
+TGSC (Luebke, William, 1985), al 10 % en dipropilenglicol (ficha del 50 % min.): violet sweet orris powdery floral woody
+@@ ef54753438 · material_descriptors.text
+TGSC (Luebke, William, 1985), al 10 % en dipropilenglicol, muestra de Union Camp Corporation (ficha del 70 % min.): woody orris violet floral
+@@ a978a49364 · material_descriptors.text
+TGSC (Luebke, William, 1985), al 100,00 %: woody dry cedar ambergris earthy vetiver
+@@ fe250ca1ca · material_descriptors.text
+TGSC (Luebke, William, 1986; muestra de CAL/Pfizer), al 10,00 % en DPG: fresh watery clean melon green marine ozone phenolic
+@@ 52a6335e89 · material_descriptors.text
+TGSC (Luebke, William, 1986), al 10 % en DPG: castoreum leather earthy oakmoss vetiver
+@@ f39958187f · material_descriptors.text
+TGSC (Luebke, William, 1986), al 100 % (muestra de Givaudan Corporation): galbanum fig leaf green weedy cortex
+@@ 005acd3b55 · material_descriptors.text
+TGSC (Luebke, William, 1987; muestra de Emery Chemicals), al 100,00 %: powdery sweet floral ambrette musk woody
+@@ 4501aeaf8b · material_descriptors.text
+TGSC (Luebke, William, 1987), al 1,00 % en DPG: ambergris old paper sweet labdanum dry
+@@ 15204ef007 · material_descriptors.text
+TGSC (Luebke, William, 1987), al 10,00 % en DPG: sandalwood woody musk
+@@ e8aad3b925 · material_descriptors.text
+TGSC (Luebke, William, 1987), al 10.00 % en dipropilenglicol — ficha genérica «frankincense oil, 8016-36-2» (otro CAS): terpenic incense peppery spicy old wood woody pine resinous
+@@ 389b378714 · material_descriptors.text
+TGSC (Luebke, William, 1987), al 100 % (muestra de Roure Bertrand Dupont Inc.): woody old wood amber tobacco hot herbal
+@@ ddec505f48 · material_descriptors.text
+TGSC (Luebke, William, 1988), al 100 % (muestra de IFF): woody cedar floral oily herbal balsam green fruity
+@@ f7cd15c69f · material_descriptors.text
+TGSC (Luebke, William, 1988), al 100 %: fresh citrus lime floral clean cologne weedy
+@@ 0bc8428f46 · material_descriptors.text
+TGSC (Luebke, William, 1989; muestra de Harrmann & Reimer Corporation), al 100 %: waxy fruity green date fig prune grape skin
+@@ e5425da8c8 · material_descriptors.text
+TGSC (Luebke, William, 1989), al 1.00 % en dipropilenglicol (muestra de Ungerer & Company, Inc.): smoky, birch tar, burnt, grilled, leather, resinous
+@@ dcc559acf5 · material_descriptors.text
+TGSC (Luebke, William, 1989), al 10 % en dipropilenglicol: fresh green cut grass foliage vegetable herbal oily
+@@ 82d295d0bc · material_descriptors.text
+TGSC (Luebke, William, 1989), al 100 % (muestra de IFF): woody dry ambergris cedar old wood ketonic phenolic
+@@ 76b6af4241 · material_descriptors.text
+TGSC (Luebke, William, 1989), al 100 %: fresh clean soft natural floral muguet linalool
+@@ 8f4233f32f · material_descriptors.text
+TGSC (Luebke, William, 1989), al 100.00 % (muestra de Charabot & Co., Inc.): green woody earthy musty mossy oily wood
+@@ 0fa7b4180e · material_descriptors.text
+TGSC (Luebke, William, 1991), al 100 % (muestra de Kao Corporation): sandalwood creamy woody milky waxy greasy musk
+@@ 56c86c05a6 · material_descriptors.text
+TGSC (Luebke, William, 1992), al 10 % en DPG: woody sandalwood greasy oily waxy
+@@ edb5cad40d · material_descriptors.text
+TGSC (Luebke, William, 1992), al 10.00 % en dipropilenglicol (muestra de Charabot & Co., Inc.): dry woody spicy old wood cistus
+@@ ddc238d821 · material_descriptors.text
+TGSC (Luebke, William, 1995), al 1.00 % en dipropilenglicol (muestra de Bush Boake Allen Inc.): freshly plowed soil earthy
+@@ e86d1b679b · material_descriptors.text
+TGSC (Luebke, William, 1995), al 10.00 % en dipropilenglicol: eucalyptus herbal camphor medicinal
+@@ d990a0793b · material_descriptors.text
+TGSC (Luebke, William, 1995), al 100 % (muestra de Charabot & Co., Inc.): sweet balsamic styrene woody amber
+@@ c2ddc6f601 · material_descriptors.text
+TGSC (Luebke, William, 1995), al 100 %, muestra de Firmenich Inc. (ficha cis+trans, 5502-75-0): fresh clean floral magnolia hydroxycitronellal cumin grassy
+@@ bc093414f3 · material_descriptors.text
+TGSC (Luebke, William, 1996), al 10 % en DPG: rich spicy musk woody clean
+@@ 8e54b91cbe · material_descriptors.text
+TGSC (Luebke, William, 1996), al 10.00 % en dipropilenglicol (muestra de CA Aromatics Company Inc.): thujone eucalyptus rosemary sage
+@@ 09e02796cd · material_descriptors.text
+TGSC (Luebke, William, 1996), al 5,00 % en alcohol bencílico: sweet caramel jam strawberry cotton candy
+@@ 4bf0337d4c · material_descriptors.text
+TGSC (Luebke, William, 1997), al 10 % en dipropilenglicol (muestra de Firmenich Inc.): woody sandalwood herbal tropical
+@@ d88073d26e · material_descriptors.text
+TGSC (Luebke, William, 1997), al 100 % (muestra de International Flavors & Fragrances Inc.): watery fresh green ozone cyclamen hay
+@@ 94309cf35f · material_descriptors.text
+TGSC (Luebke, William, 1997), al 100.00 % (muestra de CA Aromatics Company Inc.): sweet fresh lemon citral green grassy
+@@ 218bc358c7 · material_descriptors.text
+TGSC (Luebke, William, 1998), al 10.00 % en dipropilenglicol (muestra de BASF Corporation): dry powdery floral woody orris berry seedy
+@@ a42d5cc78d · material_descriptors.text
+TGSC (Luebke, William, 2003), al 100 % (muestra de Penta International Corporation): fresh citrus grapefruit peel soapy woody green violet
+@@ 9de8c21669 · material_descriptors.text
+TGSC (Luebke, William, 2006), al 1.00 % en dipropilenglicol: phenolic castoreum smoke guaiacol
+@@ e3faec7bf2 · material_descriptors.text
+TGSC (Luebke, William, 2007), al 10 % en dipropilenglicol (muestra de IFF): fresh air watery buttery clean wet costus metallic
+@@ 0b9fe79a7d · material_descriptors.text
+TGSC (Luebke, William, 2007), al 10 % en dipropilenglicol: herbal leather saffron iodine phenolic tobacco woody
+@@ c60cabbca7 · material_descriptors.text
+TGSC (Luebke, William, 2016), al 100 % (muestra de Firmenich Inc.): sweet musk waxy dry powdery laundered cloth metallic animal tropical
+@@ 24569bf3bb · material_descriptors.text
+TGSC (Luebke, William, 2016), al 100.00 %: sweet hay tobacco moss leafy herbal old wood dried fruit tea honey
+@@ 82065d1710 · material_descriptors.text
+TGSC (Luebke, William, 2017), al 100 % (muestra de CA Aromatics Company Inc.): woody, old wood, dry, earthy, weedy, balsamic, spicy, minty
+@@ adc23b4e3f · material_descriptors.text
+TGSC (Luebke, William, 2017), al 100 %, muestra de Firmenich Inc. (ficha cis, 13828-37-0): fresh clean floral magnolia hydroxycitronellal cumin grassy
+@@ 1ab2401b5b · material_descriptors.text
+TGSC (Luebke, William, 2017), al 100.00 % (muestra de CA Aromatics Company Inc.): citrus floral mandarin orange
+@@ b2943d6973 · material_descriptors.text
+TGSC (Luebke, William, 2021), al 100.00 % (muestra de Robertet, Inc.): chocolate dark chocolate cocoa powdery milk chocolate
+@@ 99a086aae6 · material_descriptors.text
+TGSC (Mosciano, Gerard, P&F 24, 1999), al 1.00 % — ficha genérica 8016-36-2 (otro CAS): Green, pungent, peppery, spicy, woody terpy and piney, with a resinous nuance
+@@ 8d1dc364d9 · material_descriptors.text
+TGSC (sin autor nombrado), al 100 %: strong diffusive sweet floral musk
+@@ c939f5b39f · material_descriptors.text
+TGSC (sin autor), al 10,00 % en DPG: sweet soapy musk amber fruity berry
+@@ cba31b5616 · material_descriptors.text
+TGSC (sin autor), al 100 % — ficha «ambergris tincture, 8038-65-1» (otro CAS que el de la lista): ambergris sweet dry amber woody mossy
+@@ 87489f617d · material_descriptors.text
+TGSC (sin autor), al 100 %: woody earthy rooty balsam amber
+@@ 4dde5987bb · material_descriptors.text
+TGSC (sin autor), al 100.00 %: fresh ground black pepper
+@@ 5be9c257bf · material_descriptors.text
+TGSC (sin autor), al 100.00 %: fresh lemon peel sweet citrus aldehydic
+@@ f72d7c9958 · material_descriptors.text
+TGSC (sin autor), al 100.00 %: orange fresh juicy sweet
+@@ 4bb1cfab82 · material_descriptors.text
+TGSC (sin autor): musty; animal
+@@ a7c105508f · material_descriptors.text
+TGSC, al 100 %: bitter tropical grapefruit rhubarb guava
+@@ 6aba0c9577 · material_descriptors.text
+TGSC, al 100 %: woody spicy ginger cardamom
+@@ a115718cbe · material_descriptors.text
+TGSC, al 100.00 %: amber ambergris woody old wood sweet musty gourmand
+@@ ad26da5582 · material_descriptors.text
+TGSC, ficha «boswellia carterii gum oil, 89957-98-2» (descriptores sin autor ni dilución): frankincense, woody
+@@ c6ff530c91 · material_descriptors.text
+TGSC, ficha 94333-88-7 (sin autor), al 100 %: woody vetiver balsamic tea rose
+@@ e30d0f6319 · material_descriptors.text
+TGSC, ficha genérica «agarwood specialty», al 100 % (no es de Black Agar en concreto): woody vetiver sweet balsamic animal earthy amber spicy smoky
+@@ 1f0932a6fc · material_descriptors.text
+TGSC, ficha genérica «cassis specialty», al 100 %: cassis
+@@ ca23e5b6d6 · material_descriptors.text
+TGSC, ficha genérica «castoreum absolute replacer», al 1.00 % en dipropilenglicol (no es del Synth en concreto): leathery smoky animal phenolic old wood burnt resinous
+@@ 1846820f4b · material_descriptors.text
+TGSC, ficha genérica «fruit specialty», al 100 %: fruity
+@@ 11831684e1 · material_descriptors.text
+TGSC, ficha genérica «musk specialty», al 100 % (no es de Auranone en concreto): musk
+@@ 19282d3e29 · material_descriptors.text
+The Fragrance Foundry, atribuido a Givaudan (vía buscador): Alone it possess a violet smell with raspberry and woody nuances
+@@ 2a0b672c33 · material_descriptors.text
+The Perfumers Apprentice (Frankincense Somalia) — ficha genérica 8016-36-2 (otro CAS): old wood incense spicy terpene woody
+@@ 80264e444f · material_descriptors.text
+The Perfumers Apprentice (Helional (I)): Sweet harsh hay like with top notes of ozone and new mown hay
+@@ aac963df84 · material_descriptors.text
+The Perfumers Apprentice: musk
+@@ cbf8452477 · material_descriptors.text
+The Perfumery (en TGSC): Galbanum oil has a green, spicy, herbal aroma that is sometimes compared to green peppers or salad.
+@@ fee8e658f9 · material_descriptors.text
+Tobacco like, Smoky, Warm
+@@ fd1a455214 · material_descriptors.text
+Tobacco like, Woody, Lovage
+@@ 576706e4a4 · material_descriptors.text
+un minorista (resumen del buscador): earthy, damp soil, fresh, beetroot, rain, vegetal
+@@ 49cc758883 · material_descriptors.text
+Ventos (en TGSC): musk, animal, leather
+@@ 2333e7f4e3 · material_descriptors.text
+Ventos (en TGSC): POWERFUL, RIPE PLUMS
+@@ e5b686fb9e · material_descriptors.text
+Ventos (ficha técnica, vía buscador): Woody, mild, sweet
+@@ b40ed369e1 · material_descriptors.text
+Vigon (en TGSC): TARRY-SMOKY, MEDICINAL, PHENOLIC
+@@ ca80223d2f · material_descriptors.text
+Vigon International: PERSISTENT, POWERFUL MUSK
+@@ e021173942 · material_descriptors.text
+Vigon: SWEET, FLORAL, LILY-LIKE
+@@ 851efb2b69 · material_descriptors.text
+Wikipedia ((-)-(E,R)): hazelnut, soft, buttery, chocolate, metallic, nutty
+@@ ad887b662f · material_descriptors.text
+Wikipedia ((+)-(E,S)): hazelnut, metallic, fatty, nutty
+@@ adaea89bae · material_descriptors.text
+Wikipedia (citada en la petición USDA): sharp, pleasant, somewhat bitter
+@@ 18baa52842 · material_descriptors.text
+Wikipedia (racemato): hazelnut, nutty
+@@ 778a0d000d · material_descriptors.text
+Wikipedia (resina cruda): an intense green scent, con apertura amarga y acre
+@@ da65e87995 · material_descriptors.text
+Wikipedia: leather-like
+@@ ab36a0d1fe · material_descriptors.text
+Woody, Amber, Dry
+@@ 55f80764fb · material_descriptors.text
+Woody, Amber, Tobacco
+@@ f3fe2e67f9 · material_descriptors.text
+Woody, Dry, Amber
+@@ 2257ec33a1 · material_descriptors.text
+Woody, Earthy, Nutty
+@@ 5a130c900e · material_descriptors.text
+Woody, Floral, Amber
+@@ 02d907c88e · material_descriptors.text
+Woody, Rose, Tea
+@@ 44b253716f · material_descriptors.text
+Woody, Sandalwood, Creamy
+@@ 4bf35d2f2c · material_descriptors.text
+Woody, Sandalwood, Floral
+@@ 36452824f9 · material_descriptors.text
+Woody, Sandalwood, Milky
+@@ 140715de8f · material_descriptors.text
+Woody, Sweet, Milky
+@@ 91294f2460 · material_descriptors.text
+Woody, Vetiver, Cedarwood
+@@ bc2f760c80 · material_descriptors.text
+Zanos: Powerful, clean, , persistent musk
+@@ 243f1b5ce2 · materials.form
+absoluto
+@@ 4f6b2ba7ff · materials.form
+aceite esencial
+@@ 1405df66cb · materials.form
+base
+@@ 8ecb090039 · materials.form
+esencia compuesta
+@@ 758b2fc6c4 · materials.form
+resinoide
+@@ c398ad09a2 · materials.form
+semisintético
+@@ 6734681e18 · materials.form
+tintura
+@@ 22f15fd759 · materials.part
+bálsamo (oleorresina patológica exudada por incisiones en la corteza)
+@@ 393fc143e1 · materials.part
+cáscara del fruto (zeste)
+@@ dab60eb3f4 · materials.part
+corteza (Fraterworks: «Bark only»); ScenTree añade que la raíz huele más alcanforada, terrosa y floral
+@@ cb5bf16ce5 · materials.part
+corteza del fruto (cáscara)
+@@ 34d00c0fd7 · materials.part
+duramen / madera (el aceite de guayaco se destila de la madera y el serrín; Osmetheca y fuentes de proveedores)
+@@ 81aa3c7cac · materials.part
+excreción
+@@ 6041acf9db · materials.part
+exudado (goma-resina) de la corteza
+@@ e80070f3ea · materials.part
+flores y hojas / sumidades floridas (Olfatorium, ScenTree); Augustus Oils: espigas florales
+@@ 7725817df4 · materials.part
+fruto
+@@ 8bc767f3c6 · materials.part
+fruto (deducido del INCI «Piper Nigrum (Pepper) Fruit Extract»; Perfumiarz no lo dice)
+@@ 85a9e10f62 · materials.part
+Fruto (vainas)
+@@ 7a4bc211a8 · materials.part
+frutos (bayas)
+@@ 46dd50d7f5 · materials.part
+frutos secos y maduros, llamados semillas (Olfatorium: «Semillas»)
+@@ 664c2b6575 · materials.part
+hoja curada
+@@ c983dd2632 · materials.part
+hojas (PerfumersWorld: hojas secas fermentadas)
+@@ 74d1fe54f5 · materials.part
+hojas, secadas antes de destilar (Scentspiracy); Fraterworks no lo dice
+@@ 76387fd14a · materials.part
+madera (Maese Lab); duramen y raíces (Scentspiracy); ramas y ramillas (Fraterworks)
+@@ aee45ba5bd · materials.part
+madera (tronco)
+@@ 4ed2134933 · materials.part
+madera / tallo (Scent.vn: «Stem»); ScenTree no lo especifica
+@@ 575e005425 · materials.part
+Maese Lab: «Flor» (aunque su INCI dice «Leaf Extract»); ScenTree: goma viscosa secretada por las ramas nuevas; Scentspiracy: goma cruda (de ramillas y hojas hervidas) o partes aéreas frescas (hojas y ramas)
+@@ add7b56a09 · materials.part
+musgo (liquen) entero; ScenTree aclara que botánicamente es un liquen (simbiosis de hongo y alga)
+@@ 96f506d2dd · materials.part
+Oleorresina del tronco
+@@ f6f51554d7 · materials.part
+partes aéreas secas: hojas, tallos y sumidades florales (Premiere Peau); «hojas y ramitas» (Perfumers World)
+@@ bea34b6e92 · materials.part
+partes aéreas: hojas y sumidades floridas (Premiere Peau, Essential Oils Pedia); Perfumiarz no lo dice
+@@ a2612f7cf6 · materials.part
+piel (cáscara del fruto)
+@@ 2d0d9fe569 · materials.part
+raíces (Scentspiracy: raíces envejecidas)
+@@ 0074fd62cc · materials.part
+Resina (goma-resina)
+@@ 2a4e7b200f · materials.part
+resina (Maese Lab); Fraterworks: «pathological exudate from bark»; ScenTree: gum resin
+@@ 91b3d081de · materials.part
+Resina / goma (exudado)
+@@ 16eeec439b · materials.part
+resina/exudado del tronco (bálsamo de corteza y albura)
+@@ 9bcc506d3b · materials.part
+resinas/colofonia (rosin): «hydrogenated resin acid methyl esters from rosin fractions» (Scentfriends); ScenTree dice «a natural extract» sin precisar
+@@ f48fe65608 · materials.part
+secreción de las glándulas / bolsas del castor, de macho y hembra (el animal debe morir para obtenerlas, según ScenTree); Maese Lab: «Glandulas»
+@@ 3fb7faf2cd · materials.part
+secreción orgánica; Premiere Peau: concreción patológica del intestino del cachalote
+@@ 4d5e7bd75d · materials.part
+semilla
+@@ 1d7f97fac6 · materials.part
+Semilla
+@@ 357b731749 · materials.part
+semilla / haba tostada (ScenTree, Rae Dunphy); Maese Lab dice «fruto»
+@@ 64bab6e468 · materials.origin
+Aceh, Indonesia (Fraterworks); Indonesia (Perfumer's Apprentice, título)
+@@ 9642f95962 · materials.origin
+Ceilán / Sri Lanka (Fraterworks). ScenTree lista proveedores con aceite de Madagascar y dice que Sri Lanka producía el 90 % de la canela de Ceilán en 2006.
+@@ d2eaf2aa15 · materials.origin
+China
+@@ 9ff4a7c8e4 · materials.origin
+Colombia y Venezuela como fuentes principales, también Cuba silvestre (Scentspiracy)
+@@ c550ad2676 · materials.origin
+Dalmacia (Fraterworks); Scentspiracy: nativa del Mediterráneo, con Croacia (Dalmacia), Albania, Francia, Bulgaria, Marruecos y España como productores
+@@ c812607841 · materials.origin
+El aceite de guayaco procede sobre todo de Paraguay (Gran Chaco), según proveedores y Osmetheca (vía buscador).
+@@ 49847ba4ac · materials.origin
+Francia (Rae Dunphy); ScenTree lista orígenes de otras casas: Indonesia, África occidental, Perú, República Dominicana y Tanzania.
+@@ 14702e6f12 · materials.origin
+Fraterworks, para su tintura al 2 %: Francia, con recolectores locales de Nueva Caledonia
+@@ 60fd2cb767 · materials.origin
+Haití (las tres páginas leídas; Scentspiracy: montañas de Haití, destiladores en Artibonite y Les Cayes). Origen del frasco comprado: no consta.
+@@ 57194f08dd · materials.origin
+Hermitage Oils: glándulas de varias procedencias ensambladas en Francia
+@@ 5aa588714a · materials.origin
+Honduras
+@@ eeff7e8ff3 · materials.origin
+India (materia prima); producido en España
+@@ 03d71b3bcc · materials.origin
+Indonesia (Fraterworks, Payan Bertrand)
+@@ a1dce4c774 · materials.origin
+Italia (Calabria, según Fraterworks)
+@@ c80b099b6d · materials.origin
+Italia (Eden Botanicals, grado orgánico)
+@@ 0907b28617 · materials.origin
+Italia (Fraterworks); México, Brasil e Italia entre los proveedores de ScenTree, que dice que la cosecha es sobre todo de Brasil y Florida.
+@@ e027e57610 · materials.origin
+Java
+@@ 4aaab4cb88 · materials.origin
+La ficha no da el origen del absoluto
+@@ 6ef215dc76 · materials.origin
+Laos (ScenTree; algunos proveedores citan Camboya, Tailandia y Vietnam); Scentspiracy: Laos, Tailandia, Vietnam, Camboya
+@@ db8825ac62 · materials.origin
+Macedonia y Marruecos (listados de Biolandes en ScenTree); «handmade in Yugoslavia for the most part» (ScenTree). Fraterworks: Macedonia como origen y Francia como país de origen.
+@@ 4d8cd5b1ef · materials.origin
+Marruecos (ScenTree, Essentialoil.com, Helpac)
+@@ 65ea772de2 · materials.origin
+México (haba); producida en España
+@@ 299228c8dc · materials.origin
+no declarado en las fichas leídas; resumen del buscador: tipos Virginia los más usados, también Burley, Oriental y Latakia.
+@@ 067cea1209 · materials.origin
+Noreste de África y suroeste de Asia (Yemen, Etiopía, Somalia)
+@@ 663496e27d · materials.origin
+Omán (Fraterworks); ScenTree (ficha genérica): Somalia y Omán, y el quimiotipo sacra «sheehaz» de Yemen y Omán a más de 1000 m
+@@ a106c8e602 · materials.origin
+Premiere Peau: Marruecos, Francia, China e India; origen de la planta, Europa oriental y Próximo Oriente (Enfleurage). Enfleurage vende aceite de Nepal.
+@@ f2400d3f8f · materials.origin
+Resumen del buscador: producción comercial sobre todo en Marruecos, China, India y Bulgaria. Premiere Peau: Francia, Marruecos, España y Estados Unidos.
+@@ b4f3c02bc2 · materials.origin
+ScenTree: España, Francia y Bulgaria en los listados de proveedores
+@@ 8be25486f2 · materials.origin
+Scentspiracy etiqueta «Spain»). ScenTree: cultivo en Salamanca y sur de España, Portugal y Andalucía, sin decir el origen de este absoluto.
+@@ 8c6c5f8802 · materials.origin
+Scentspiracy: «Various (France, Morocco, Spain)»
+@@ ed551a7437 · materials.origin
+Scentspiracy: destilación sobre todo en Europa del Este e India, con frutos importados de India y Marruecos.
+@@ 4dfdf195ec · materials.origin
+Somalia
+@@ b719f4b5b2 · materials.origin
+Sri Lanka (producido en España)
+@@ 0216985bc0 · materials.origin
+Suiza
+@@ 85be6fce66 · materials.origin
+Turquía
+@@ e5e97b5adf · materials.physical_state
+Brown paste
+@@ 508f045d82 · materials.physical_state
+Brown solid
+@@ d27a508e18 · materials.physical_state
+colorless clear liquid (est)
+@@ ec0bb56faf · materials.physical_state
+colorless clear oily liquid (est)
+@@ be538b870d · materials.physical_state, materials.appearance
+Colourless liquid
+@@ 52d49dbe41 · materials.physical_state
+Dark green-brown liquid
+@@ a553649f23 · materials.physical_state
+líquido
+@@ bf39a246d2 · materials.physical_state
+Líquido
+@@ 420122b587 · materials.physical_state
+líquido (diluido)
+@@ 96f252f70e · materials.physical_state
+Líquido (funde a 21–22 °C)
+@@ d4e69bf522 · materials.physical_state
+Líquido *(aceite incoloro, según la monografía)*
+@@ 71d922e14f · materials.physical_state
+líquido incoloro
+@@ c6fe036569 · materials.physical_state
+líquido incoloro; la base ya viene en TEC
+@@ 1eb0c0a40e · materials.physical_state
+líquido marrón pálido
+@@ 19f3405b7e · materials.physical_state
+líquido verde oscuro
+@@ 2e1d3be4e9 · materials.physical_state
+Líquido viscoso, amarillo intenso
+@@ 80e3962ad5 · materials.physical_state
+Líquido, como da la ficha del proveedor
+@@ 8427ef5969 · materials.physical_state
+Líquido, en solución de DPG
+@@ dddf1edb3b · materials.physical_state
+Líquido, o sólido cristalino incoloro por debajo de 25–27 °C
+@@ 29eacafbbf · materials.physical_state
+Líquido, según el proveedor; muy espeso al pipetearlo
+@@ a38e685a8e · materials.physical_state
+Líquido; arrastre de vapor de la resina
+@@ eb4aa22a0a · materials.physical_state
+Líquido: absoluto diluido
+@@ b2c1fd5c82 · materials.physical_state
+Líquido: absoluto diluido en DPG. *Puro es una masa semisólida marrón oscura*
+@@ 14fa8f5565 · materials.physical_state
+Líquido: aceite esencial
+@@ 466b459379 · materials.physical_state
+Líquido: aceite esencial, destilación al vapor de las hojas secas
+@@ 2a575d9fff · materials.physical_state
+Líquido: aceite esencial, destilación al vapor de las semillas
+@@ 9c62ade567 · materials.physical_state
+Líquido: aceite esencial, expresado en frío de la cáscara según la monografía
+@@ 3e4c478ccf · materials.physical_state
+Líquido: solución al 10 % en alcohol
+@@ 089cb45e8b · materials.physical_state
+Líquido: solución al 10 % en DPG
+@@ 08391f967b · materials.physical_state
+Líquido: solución al 50 % en DPG
+@@ c4eb554198 · materials.physical_state
+Líquido: solución en DPG
+@@ 7e068ebca0 · materials.physical_state
+Líquido: tintura
+@@ 8a17c30c8b · materials.physical_state
+Líquido: tintura alcohólica
+@@ e147cb1034 · materials.physical_state
+Pale brown liquid
+@@ 5c1f81145f · materials.physical_state
+Pale yellow liquid
+@@ af82e80c15 · materials.physical_state
+semisólido resinoso (según una reseña de la tienda)
+@@ 65900c4f6a · materials.physical_state
+Sin anotar *(se pesó y se diluyó en DPG el 2026-09-23)*
+@@ b93e1ba592 · materials.physical_state
+Sólido
+@@ a60107a0f9 · materials.physical_state
+sólido cristalino
+@@ cc01053d66 · materials.physical_state
+Sólido cristalino
+@@ b105d06f5b · materials.physical_state
+Sólido cristalino — no se pipetea
+@@ 0026621fc2 · materials.physical_state
+Sólido: polvo cristalino
+@@ 0811623dfc · materials.physical_state
+Sólido: polvo o gránulos cristalinos blancos
+@@ f1b2c28622 · materials.physical_state
+White powder
+@@ d3be7d966d · materials.appearance
+[ficha genérica «agarwood specialty»] colorless to amber brown clear liquid (est)
+@@ 30450da6a2 · materials.appearance
+[ficha genérica «cassis specialty»] colorless to greenish yellow clear liquid (est)
+@@ 80898479b2 · materials.appearance
+[ficha genérica «castoreum absolute replacer»] pale brown to dark brown liquid to semi-solid (est)
+@@ a8f39220ae · materials.appearance
+[ficha genérica «fruit specialty»] colorless to dark brown clear liquid (est)
+@@ 44a85c5c4d · materials.appearance
+[ficha genérica «musk specialty»] colorless to amber yellow clear liquid (est)
+@@ d7dfd87954 · materials.appearance
+[ficha genérica 8016-36-2, otro CAS] colorless to pale yellow clear liquid (est)
+@@ 3c5b78f73f · materials.appearance
+amarillo (est.)
+@@ 7e1c094bd9 · materials.appearance
+amarillo a ámbar rojizo oscuro, transparente (est)
+@@ 3c408e7a2d · materials.appearance
+amarillo a marrón oscuro, transparente (est)
+@@ 755b04d54c · materials.appearance
+amarillo a naranja oscuro, transparente (est)
+@@ abf186a08f · materials.appearance
+amarillo anaranjado a naranja intenso, transparente (est)
+@@ 21adb25aae · materials.appearance
+amarillo marrón, líquido viscoso transparente (est): «yellow brown clear viscous liquid (est)»
+@@ 0da395f7d3 · materials.appearance
+amarillo oscuro, líquido oleoso transparente (est.)
+@@ b2310e2f1f · materials.appearance
+amarillo pálido a amarillo (est.)
+@@ dfba363fac · materials.appearance
+amarillo pálido a amarillo oscuro, transparente (est.)
+@@ 3da2948cc5 · materials.appearance
+amarillo pálido a amarillo oscuro, transparente (est)
+@@ dccc708ae7 · materials.appearance
+amarillo pálido a amarillo verdoso, transparente (est): «pale yellow to greenish yellow clear liquid (est)»
+@@ f1554c1061 · materials.appearance
+amarillo pálido a amarillo, líquido oleoso transparente (est)
+@@ f62bece8d3 · materials.appearance
+amarillo pálido a amarillo, transparente (est.)
+@@ df9f48736a · materials.appearance
+amarillo pálido a amarillo, transparente (est)
+@@ b8c52c6ad7 · materials.appearance
+amarillo pálido a marrón oscuro (est.)
+@@ 2c20a3d4b3 · materials.appearance
+amarillo pálido a marrón pálido, transparente (est)
+@@ ec79fee140 · materials.appearance
+amarillo pálido a marrón, transparente (est) (ficha de la tintura)
+@@ dfeaea0938 · materials.appearance
+amarillo pálido, líquido (est.)
+@@ 3d0160b581 · materials.appearance
+amarillo pálido, transparente (est)
+@@ d902b05801 · materials.appearance
+amarillo pálido, transparente (est): «pale yellow clear liquid (est)» (ficha 8038-65-1)
+@@ fb4c33f0b3 · materials.appearance
+ámbar a ámbar marrón, semilíquido (est): «amber to amber brown semi-liquid (est)»
+@@ 1763b8fd6b · materials.appearance
+ámbar amarillento a marrón anaranjado, transparente (est)
+@@ f319cb9177 · materials.appearance
+ámbar marrón a marrón oscuro, semisólido a sólido (est): «amber brown to dark brown semi-solid to solid (est)»
+@@ 998859814d · materials.appearance
+ámbar pálido, transparente (est)
+@@ 56adf16bc6 · materials.appearance
+ámbar, sólido cristalino (est)
+@@ 50518b56d8 · materials.appearance
+amber brown semi-solid (est)
+@@ b357adf4f8 · materials.appearance
+blanco (est)
+@@ 50fd2f2154 · materials.appearance
+blanco (white crystalline fused (est))
+@@ edb2b93101 · materials.appearance
+blanco (white crystalline powder (est))
+@@ 8ce2a4f2f7 · materials.appearance
+blanco (white crystals (est))
+@@ 2e352d4d56 · materials.appearance
+blanco (white powder crystals (est))
+@@ a97b1cef76 · materials.appearance
+blanco a amarillo (est)
+@@ 2d756c1dd8 · materials.appearance
+blanco a amarillo pálido (est.)
+@@ f49f0c471d · materials.appearance
+blanco a blanquecino, polvo cristalino (est)
+@@ fee749ff5d · materials.appearance
+Brown-red liquid
+@@ 774a7ff794 · materials.appearance
+colorless to pale yellow liquid (est)
+@@ 2c59f672f6 · materials.appearance
+cristales amarillo parduzco pálido (est)
+@@ 28b54ecf6d · materials.appearance
+Dark brown liquid
+@@ ba5db4ebe7 · materials.appearance
+incoloro
+@@ 9cd361fb7f · materials.appearance
+incoloro (colorless solid (est))
+@@ dd16582ce4 · materials.appearance
+incoloro (est.)
+@@ 834f920d01 · materials.appearance
+incoloro a amarillo pálido
+@@ a6cc488503 · materials.appearance
+incoloro a amarillo pálido (est.)
+@@ 8f3ae2b5b4 · materials.appearance
+incoloro a amarillo pálido (est)
+@@ 7e723eb1f4 · materials.appearance
+incoloro a amarillo pálido ámbar, transparente (est.)
+@@ 24d07b91f2 · materials.appearance
+incoloro a amarillo pálido, líquido oleoso transparente (est)
+@@ b7f3693c72 · materials.appearance
+incoloro a amarillo pálido, líquido viscoso transparente (est.)
+@@ 7c7f4e56dd · materials.appearance
+incoloro a amarillo pálido, líquido viscoso transparente (est)
+@@ c54e72dd6f · materials.appearance
+incoloro a amarillo pálido, transparente (colorless to pale yellow clear oily liquid (est))
+@@ 8381e2c913 · materials.appearance
+incoloro a amarillo pálido, transparente (est.)
+@@ b001ba2d24 · materials.appearance
+incoloro a amarillo pálido, transparente (est)
+@@ 320fedd6aa · materials.appearance
+incoloro a amarillo verdoso pálido, transparente (est)
+@@ e18460da75 · materials.appearance
+incoloro a amarillo, líquido oleoso transparente (est) (ficha del 50 %)
+@@ e2b00a38a6 · materials.appearance
+incoloro, líquido oleoso transparente (est)
+@@ 0a77f5723a · materials.appearance
+incoloro, transparente (est.)
+@@ 6f4a7a23e6 · materials.appearance
+incoloro, transparente (est)
+@@ 21ab4d927c · materials.appearance
+marrón anaranjado rojizo, líquido aceitoso transparente (est): «brownish orange reddish clear oily liquid (est)»
+@@ d4bc72006a · materials.appearance
+marrón oscuro (est)
+@@ 6481b42ccf · materials.appearance
+marrón oscuro, semisólido a sólido (est)
+@@ caf6b383e2 · materials.appearance
+marrón rojizo (est). Hermitage Oils: «dark greenish brown to black-brown»
+@@ 836402d68e · materials.appearance
+naranja oscuro (est.)
+@@ 6b4717bb29 · materials.appearance
+polvo cristalino blanco (est)
+@@ a1fff97cc6 · materials.appearance
+Scentspiracy: Colourless liquid (Fraterworks); pale yellow to yellow liquid (Scentspiracy) · TGSC: colorless to pale yellow clear liquid (est) (ficha del aceite de pachuli Clearwood)
+@@ 5df4452e0d · materials.appearance
+verde oscuro, transparente (est)
+@@ a35fffb71e · materials.appearance
+verde pálido, transparente (est)
+@@ 2be5387d77 · materials.appearance
+verde pardo oscuro, semisólido (est)
+@@ da82f746f2 · materials.house
+Firmenich
+@@ a40af31070 · materials.house
+Firmenich (casa original; hoy genérica)
+@@ d955dced13 · materials.house
+Firmenich (dsm-firmenich), código 974656
+@@ 62cd325c5a · materials.house
+Givaudan
+@@ 7f594b6e3b · materials.house
+Givaudan (base Dewfruit TEC AB 2927R/3; de origen Quest)
+@@ eac13e5740 · materials.house
+Givaudan (código Giv 6378003)
+@@ 7510460a19 · materials.house
+Givaudan (código Giv 9023501)
+@@ a14eb7650c · materials.house
+Givaudan (Paradisamide)
+@@ 9148dbf690 · materials.house
+Givaudan (pyralone (Givaudan) figura como sinónimo)
+@@ 90389414d1 · materials.house
+Givaudan (Safraleine)
+@@ b25135264f · materials.house
+Givaudan (según Scentspiracy, 'listed as manufacturer'); Fraterworks lo vende como Frater Perfumes Ltd
+@@ ee185df16a · materials.house
+IFF
+@@ be6130b7ad · materials.house
+IFF (Fructone)
+@@ c8ecfa9d2b · materials.house
+IFF (helional (IFF))
+@@ 2bac7d8aba · materials.house
+Multiple producers
+@@ 1bd2591106 · materials.house, material_relations.note
+Symrise
+@@ d97cf1162b · materials.house
+Synarome

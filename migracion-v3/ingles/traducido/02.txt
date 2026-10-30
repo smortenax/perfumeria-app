@@ -1,0 +1,858 @@
+@@ cf8dd60693
+opopanax
+@@ 56ff637489 =
+@@ 67553f599f
+oregano
+@@ a63747ab70 =
+@@ d834026f7e
+osmanthus
+@@ 5a8b304294
+other sticky fruits
+@@ 4898d7a7a0
+Other lactones (gamma-decalactone
+@@ ffcd891cd6
+other cedarwoods
+@@ e4ae57b73f
+other classic perfumery resins
+@@ 49b742f165
+other floral aldehydes
+@@ 14091bff90
+other musks
+@@ c0eb17a42a
+other phenolics
+@@ 2509ea8293
+other florals
+@@ 284e8e9d32 =
+@@ 412bddadf0 =
+@@ ebd76f06c0 =
+@@ 9198432169 =
+@@ 8411bb4788
+strong oxidants
+@@ a51a5747ad
+p-Tolualdehyde
+@@ d528338da2
+patchouli
+@@ 095e9c460b
+patchouli
+@@ 1683eabd2a
+Patchouli
+@@ 11330280bf
+patchouli (MD Indonesia essential oil) and Corps Racine
+@@ ad868d2b8d
+crude patchouli
+@@ 7846f7ee0d
+green patchouli
+@@ 048b90936b =
+@@ 26dd315b3e
+rosewood
+@@ 704444c0d9 =
+@@ bc63210439 =
+@@ f4f1ee9a83 =
+@@ a8588653a6 =
+@@ 2c197bbd82 =
+@@ c003091914 =
+@@ 6c3e2fb059
+allspice
+@@ 0b30cdae9a
+black pepper
+@@ 16c4025d21
+Black pepper
+@@ beb13b0de4
+pine
+@@ 48ad01da55
+pineapple
+@@ f5636ee6e2 =
+@@ 6c08f98eb1 =
+@@ a3a5fb13a9
+grapefruit
+@@ 7a0aa521b4
+cedarwood products
+@@ 263009b791
+Benzyl propionate
+@@ 5d4d9414ce =
+@@ 61ad15a9ad =
+@@ b06c9e8b85
+quinolines
+@@ f68095276b
+resins
+@@ 50d0bfa672
+galbanum resinoid Super
+@@ 4385a077be
+myrrh resinoid
+@@ 37e98756c4
+Frankincense resinoid
+@@ 0060465b72
+broom
+@@ 778524d728 =
+@@ f82abd1c80
+Bourbon geranium rhodinol
+@@ 96b0eaa2d7
+rosemary
+@@ e4db45e571
+Rosemary
+@@ b18419544b
+rosemary or lavandin
+@@ 5efc86ca88
+rose
+@@ 95e85a821b
+rose (damascone / ionone)
+@@ 277a1507c7 =
+@@ 58afa12615 =
+@@ 43543a426f =
+@@ 24840ff073
+benzyl salicylate
+@@ 424987a596
+salicylates
+@@ cf77576543
+Salicylates
+@@ 4575386d03
+sage
+@@ a44df5cded
+clary sage
+@@ b95a87ac21
+Clary sage
+@@ 424af4a241
+sandalwood
+@@ 35f598dcbf
+Sandalwood
+@@ 7f766d842e
+natural sandalwood (Santalum album)
+@@ 1fc0360496
+natural sandalwood or sandalwood accord
+@@ fd63ae337f =
+@@ 2d527049ca =
+@@ 569b3758aa =
+@@ 963acfff4a
+especially sweet
+@@ 35a39dedc5
+especially muguet
+@@ eff0738392
+sotolone
+@@ b8ae08feaf =
+@@ f525392d9b
+Styrax Resinoid Vulcain / birch tar
+@@ 72e5246406
+diethyl succinate
+@@ d4b3e461fe =
+@@ f6513538ce
+its derivatives
+@@ f6babc2b68
+its substitutes
+@@ d2bfa873c9 =
+@@ 5631c6bb6d
+tobacco
+@@ 696830b0d0
+Tabanone
+@@ 623d77ea64 =
+@@ 890136d52f
+vetiver terpenes
+@@ 84158fc41a =
+@@ 320d9d84ee
+tetramethyl naphthalenone
+@@ d27441220b =
+@@ b44ea11597 =
+@@ f7274f03b3 =
+@@ 8729a6688d =
+@@ 144cf0bab1 =
+@@ 13f20098aa
+tomato
+@@ aa3c34ce89
+thyme
+@@ 5ac24e8273 =
+@@ 82f65d14a8 =
+@@ 0078361c3f
+traces of iron
+@@ 8c0fee66e1 =
+@@ f4bfdc123f
+tuberose
+@@ baf2226479
+tuberose absolute
+@@ e9c7f00eca
+Undecanolide (aldehyde C-14)
+@@ e167825400
+overuse (above 5 %)
+@@ 3a5ccc2369
+vanilla
+@@ 643c636e8e
+Vanilla / vanillin
+@@ f4e0cc6d4d
+veratraldehyde
+@@ 4acb782a65 =
+@@ f9d20fbd7c =
+@@ e03aa43543 =
+@@ 530ea5a8db
+Java vetiver
+@@ 9950f302e0
+Uruguay vetiver (Bourbon type)
+@@ 7296b46405
+violet
+@@ 1131da3cbe
+Wardia (dsm-firmenich rose base)
+@@ eb50ecc8ec =
+@@ 7c1ea27952
+clove bud
+@@ 8e5796ef16
+exotic ylang
+@@ f0f2b6085c =
+@@ 27784c4def =
+@@ 0bf3126268 =
+@@ cc2a67caac
+zinc (metallic contamination)
+@@ a646793055
+zingerone
+@@ abd765a03b =
+@@ 4710e1aaf1 =
+@@ 50966d0e67 =
+@@ 702b4acf35 =
+@@ d0cc88515f =
+@@ 7efcf00dfc =
+@@ c5182cd410 =
+@@ 4f7dbc88a0 =
+@@ fc654112a1 =
+@@ 9a4b4780e1 =
+@@ 0b81b1ffa3 =
+@@ 1ac5f6832b =
+@@ e89b88732c =
+@@ 47489d9bdd =
+@@ 03b5ffa81e =
+@@ bc19ca0099 =
+@@ 4f6ef0821e =
+@@ 0bbcbb8549 =
+@@ 8f7a6045ea =
+@@ b37b447d33 =
+@@ 5f18978571 =
+@@ 4596d955c5 =
+@@ bde2ce0856 =
+@@ f52cfcc593 =
+@@ b1e865bd07 =
+@@ 8cc63ab8ed =
+@@ 1225d62f58 =
+@@ f5b8409819 =
+@@ 21e22c43fe =
+@@ 77ca75fe00 =
+@@ 0217c15c90 =
+@@ 09be263417 =
+@@ 910f496ccc =
+@@ a4a65109b5 =
+@@ a92ec499c6 =
+@@ d2293dbfbd =
+@@ 5199266bd7 =
+@@ a99dd82dc0 =
+@@ d08a66cae8 =
+@@ 38262a3076 =
+@@ 8e5e9c11e7 =
+@@ 0da1619825 =
+@@ 152dc64569 =
+@@ 43e1e4ea25 =
+@@ a3eac3389c =
+@@ 23f3b01c29 =
+@@ e16882b550 =
+@@ a7136aa478 =
+@@ 257fbd043b
+aquatic / metallic
+@@ e9b5d66d42
+smoky / phenolic
+@@ 4a8c6318ef
+smoky / empyreumatic
+@@ aafc4066db
+aldehydic
+@@ 7a9f5ef91b
+aldehydic ambery
+@@ 9d933feed2
+aldehydic-citrus
+@@ a8400bce5e
+bitter almond / cherry
+@@ aa4fe0853c
+musky
+@@ b7e8f9402e
+musky / woody spicy
+@@ 5e7999a584
+musk (powdery, soft animal)
+@@ 4d27922564
+clean powdery musk
+@@ bf3b956f73
+vegetal musk (powdery, orris-type, amber)
+@@ c810a18884
+woody
+@@ ba4b85d164
+woody (soft patchouli, amber)
+@@ 7301bb1df3
+woody (sandalwood)
+@@ 2a66ec3022
+woody / amber
+@@ 207eb7b7a9
+woody / floral (iris)
+@@ 227dface61
+woody / tobacco
+@@ e545c29e6a
+woody / earthy
+@@ 87fb26618a
+sweet woody (guaiac)
+@@ 72b1456eb7
+dry woody
+@@ 9d9cfabb04
+dry woody-ambery
+@@ 44dac5d789
+amber (ambroxide)
+@@ 5ed50150c4
+amber / gourmand
+@@ ec26f37356
+amber / resin
+@@ 4f1220f3a3
+ambergris / animalic
+@@ 3f495df8a3
+ambery / fougère
+@@ f44388c432
+woody ambery (moss, cashmeran)
+@@ 5cf7ae91f9
+balsamic ambery (caramel, resinous)
+@@ c01fb632d1
+animal (deer musk, leather)
+@@ 177d422256
+animal (ambergris, labdanum)
+@@ 6e7a928bc6
+animal (faecal, white floral on dilution)
+@@ 9d5fa603f3
+animal (phenolic, leather, medicinal)
+@@ 649c69648f
+animalic
+@@ 1367b717eb
+animalic / amber (to be confirmed)
+@@ bee13a2d86
+animalic / phenolic
+@@ 2c5b8e6113
+aromatic
+@@ ac20d61593
+fresh aromatic
+@@ e8068f22f9
+talcy / almond
+@@ 6b5c10d06d
+sulphurous / roasted
+@@ 1d020c2e6e
+balsamic
+@@ 587f5b52bf
+balsamic / fruity
+@@ 2a1783c875
+citrus
+@@ 8ee2e28863
+citrus (hesperidic)
+@@ 53a1884701
+citrus / fruity
+@@ 0a21622b28
+citrus / linalool
+@@ 67ecf337ee
+leather / oud
+@@ 602b260dc9
+sweet / balsamic
+@@ 14dd27f861
+sweet / coumarinic (to be confirmed)
+@@ cbcdb091a4
+sweet / gourmand
+@@ 6f9f47d11c
+spicy
+@@ 7e6a396bbf
+spicy (cinnamon)
+@@ 942c0c3f69
+spicy (fresh cardamom, citrus)
+@@ 074b0fb256
+spicy (clove)
+@@ 914c2f48d3
+spicy (cumin)
+@@ 5e145e35d3
+fresh spicy
+@@ 6c62fd8f91
+spicy-leather
+@@ 8ea5638d5e =
+@@ fe5d1b3fb1
+floral (geranium-rose)
+@@ c0aebdd8b1
+floral (jasmine)
+@@ af767a287f =
+@@ 3150fba0d9 =
+@@ af01e3daae
+floral (narcissus) / fruity (cherry)
+@@ 7dd5d65b47
+floral (rose, geranium)
+@@ 1698d51363
+floral (rose)
+@@ 9b08ed8ed1
+floral (rose) / balsamic
+@@ e42538a320
+floral (violet / iris)
+@@ 233b62a4cd
+floral (violet)
+@@ fffbda5056 =
+@@ 8c59e0a4c7
+talcy floral (iris, violet)
+@@ b0397c4e7d
+green-metallic rose floral
+@@ 711efadf60
+floral-fruity (grape / orange blossom)
+@@ f9bed677a8
+fruity (ripe plum, dried fruit)
+@@ 9589ce6255
+fruity (cognac, grape) / waxy
+@@ 13ca13a391
+fruity (lychee, currant, raspberry)
+@@ 72fb1f4d17
+fruity (green apple / pineapple)
+@@ c66317ae1e
+fruity (banana, pear) / ethereal
+@@ 33e61fafc3
+dried fruity (date, raisin, plum)
+@@ 50739c9cb2
+tropical fruity
+@@ dc275547fe
+fruity-green
+@@ e2f4687dcf
+gourmand (cocoa, nut)
+@@ 67445924d5
+gourmand (chocolate)
+@@ 87777704a4
+gourmand (honey)
+@@ 9ef6905908
+gourmand (intense vanilla)
+@@ 23ce7482b5
+gourmand (vanilla, white chocolate)
+@@ 804ac0d99f
+herbal / aromatic
+@@ e1501048e7
+bitter herbal (absinthe)
+@@ 608ebfb7fd
+bitter herbal / camphoraceous
+@@ 2c80489021
+herbal-citrus
+@@ 3339c16bb9
+iris (ionone, woody)
+@@ b8054ac418
+lactone (coconut, milky)
+@@ 12214d803c
+fruity lactone (peach)
+@@ 68ed2a2627
+woody lactonic
+@@ 92e49669cf
+marine / ozonic
+@@ ffc094e849
+metallic / woody
+@@ eb5dbf9696
+moss
+@@ 365786fa38
+oakmoss (earthy, woody)
+@@ 9305f4d21d
+ozonic / aqueous
+@@ cbc1dec1e4
+resinous / incense
+@@ f793ab9630
+earthy
+@@ 7e78f05531
+earthy (mushroom)
+@@ 802319939d
+earthy
+@@ 0a6ea3510a
+roasted (bread, popcorn)
+@@ 1c50bb20fb
+roasted / almond
+@@ 395c045d99
+roasted / meaty
+@@ 2030abee0f
+green
+@@ d399298015
+green (bitter leaf, resinous, balsamic)
+@@ 4c140caeb3
+green / fruity
+@@ 4e10b2c540
+aquatic-melon, green floral (muguet/heliotrope), freshly cut hay, soft almond-anise
+@@ cbee2a5f28
+aqueous, humid air, cold, metallic, mineral (oyster shell)
+@@ 7335f8ef80
+smoky, tarry, leather, dry wood, phenolic
+@@ 4a5214db5f
+smoky, leather, animal / castoreum
+@@ 126b476646
+fresh camphoraceous, bitter-sweet green, sage-rosemary
+@@ 2982260669
+camphoraceous, thujonic, herbaceous-green, cineolic, warm-spicy
+@@ d0e487ae62
+candy floss, caramel, strawberry and jam
+@@ 1845d99248
+bitter almond, cherry, marzipan
+@@ 5eb97f33c2
+roasted almond-buckwheat, sweet-spicy, coumarinic
+@@ d7cc74d757
+warm musky, woody, floral spicy, dusty, velvety
+@@ 7b2a2e3b97
+clean white musk, powdery, metallic «hot iron» / ironed clothes
+@@ d44584512f
+sweet clean musk, dusty-floral, vanilla-like (subtle berry/ambrette notes)
+@@ c4add7fb6f
+clean musk, floral, woody
+@@ 66f8d8f1dc
+soft musk, warm, skin-like, slightly dusty, delicate floral, somewhat animalic, sandalwood
+@@ 477b2f5e08
+musk, animal, leather, honey, powdery, creamy, phenolic
+@@ 2d44a2b19d
+musk, powdery, iris, amber, sweet
+@@ 124dadbecc
+musk, powdery, soft, animal (deer), tobacco, skin, ambrette
+@@ 9e783ea7a9
+musk, powdery, clean, soft, sweet, warm, creamy
+@@ 165a39034c
+woody, soft patchouli, amber, musky, creamy, clean, transparent
+@@ a1cc554adb
+warm woody, balsamic, slightly sweet, camphoraceous, earthy
+@@ 2fa979e78f
+woody-metallic, hot iron, musky
+@@ c10c4c78d2
+rich woody-earthy, sweet, balsamic, smoky, herbaceous
+@@ 8271f78dc6
+woody-earthy, smoky, grapefruit citrus, root and nut, damp, floral and fruity
+@@ 5bdca26104
+woody, ambery, marine, mineral, earthy, musky and sweet
+@@ ec75d24eb8
+woody, ambery, dry, cedarwood, labdanum, tea
+@@ 2b16072024
+bitter, green, camphoric, absinthe, sweet-herbal
+@@ 00ce8dc384
+animalic ambergris, damp, earthy, mineral, musky
+@@ b6dd08ca73
+velvety ambergris, dry transparent cedarwood, violet/soft floral
+@@ 17df89ccab
+amber, woody, creamy, powdery, mossy, soft gourmand, cedarwood
+@@ 43d165b724
+amber, ambergris, leather, animalic, sweet resinous, earthy
+@@ e9732dc5dd
+ambery, balsamic, caramelised, resinous, milky, woody, spicy
+@@ 1d9cc875cb
+animal, ambergris, sweet labdanum, leather
+@@ d969b7d8b8
+soft suede, castoreum-like animalic, smoky phenolic, tobacco
+@@ 38d22c94d4
+hazelnut, roasted, creamy, buttery, metallic, chocolatey
+@@ d2e43c5f33
+sulphurous, hazelnut, roast meat, earthy
+@@ f9cd2e3086
+bergamot-lavender, sweet herbal, pine / citrus
+@@ 8d707572b5
+bergamot, lavender, green-woody
+@@ 2f7df04427
+cocoa, chocolate, balsamic, amber, roasted, nuts
+@@ 909ff04c62
+warm cinnamic cinnamon, sweet balsamic, dry, dusty-warm
+@@ 42089a207c
+orange peel, waxy, fatty
+@@ 919fb3df17
+castoreum, animal skin, leather, smoky-phenolic, birch tar, musk, plum-like dried fruit
+@@ 3b320a38fe
+rubber, sulphurous, barbecue, roasted
+@@ 0b156da582
+dry smoky cedarwood, old, dusty, sharp spicy
+@@ 0a78cd132a
+dry cedarwood, ambergris, patchouli and vetiver
+@@ 10ad86da04
+waxy, fruity, apple, grape, cognac, oily
+@@ 7f6aa7526d
+ripe plum, dried fruit, coconut, peach, velvety
+@@ b9ba713010
+citrus, green, transparent
+@@ 8b576e27c5
+bright citrus, sweet-fruity, green, fresh, light floral
+@@ 2b5432b82e
+clove, sweet spicy, dry phenolic
+@@ 3f57828f23
+creamy coconut, lactonic, coumarinic
+@@ 75e73c816e
+roasted coconut, tonka-coumarin and maple, oak wood / barrel
+@@ 25a4d8cada
+cumin, warm spicy, green, dry, caraway
+@@ 2ecfed51fd
+burnt leather, tanned, mossy, earthy (root, vetiver), green, hazelnut-like
+@@ dedc16f2bd
+leather, animal, slightly smoky, resinous, balsamic
+@@ 24bb063a13
+leather, saffron, tobacco
+@@ ebef89c58b
+sweet-spicy, resinous, vanilla, cinnamon / cinnamic, phenolic
+@@ ddee7925e6
+sweet, vanilla-like, balsamic, warm, waxy, creamy
+@@ 0c398a5170
+sweet, balsamic, cinnamic, vanilla, subtle leather, smoky and animalic
+@@ 588153c481
+sweet, intense, deep, of truffle fruit, milky, mushrooms and damp wood
+@@ 37b32f6b84
+sweet, dusty, almond-cherry, soft vanilla and anise-like, balsamic, hazelnut-like
+@@ 9d23283a92
+sweet, soft, warm, fruity, green, slightly acidic
+@@ 1ed2b52169
+spicy, fresh, citrus, sweet, earthy
+@@ ff5751d2fd
+spicy-woody, matt and dry, slightly smoky, leather notes
+@@ 37f5ba2d37
+ethereal, banana, pear, apple, rum
+@@ 0367fb058e
+eucalyptus, camphoraceous, mint / refreshing
+@@ 0eed57310e
+faecal, mothballs, jasmine, orange blossom, narcotic, animal
+@@ 1c011e5a81
+phenolic, animal, medicinal, leather, narcissus, mimosa, ylang-ylang
+@@ 5a23c865b5
+phenolic, medicinal
+@@ 58550db96f
+fresh floral, light citrus, slightly woody
+@@ 711ccbb786
+herbal floral, fresh, rustic, sweet, slightly woody
+@@ 386d8e767f
+strawberry and cherry, balsamic, warm cinnamon
+@@ 5bc0fa0af1
+fresh-aldehydic metallic/waxy, amber, moss and citrus, tuberose on dilution
+@@ 2c1c86e738
+tropical fruits (guava), grapefruit, rhubarb, blackcurrant
+@@ 8ec882951c
+nut, cocoa, chocolate, mouldy, tuber
+@@ c18fedad3a
+dried fruits (date, fig, raisin), plum and grape, brandy, liqueur-like
+@@ 0b5e20c988
+geranium, rose, floral, metallic, phenolic
+@@ fb583aa012
+juicy tart blackcurrant, green, crushed leaf, floral (rose), minty
+@@ 2aa7e8fcf5
+sweet hay, bitter almond, vanilla, tonka
+@@ 4aa864d6d4
+sweet hay, dried fruit, leather
+@@ dfdcffcf60
+freshly cut grass, crushed green leaf, herbal
+@@ 6394c3f125
+fig leaf, vegetal, leafy, tomato stem / blackcurrant bud
+@@ 90f7413305
+bonfire smoke, clove and vanilla, medicinal / creosote
+@@ 192ab6ebfc
+iris / orris, cedar wood, powdery floral
+@@ eabe401d32
+iris, ionone, woody, powder, root
+@@ d2b5b3ca88
+soft jasmine, oily-herbaceous, tropical fruity (peach)
+@@ feca4fd6ae
+jasmine, fruity (pear, banana), sweet
+@@ b86ae0645a
+lychee, blackcurrant, raspberry, exotic floral-fruity, green herbal touches
+@@ 1d24d2a9f5
+lime, lavender, fresh floral, clean, cologne
+@@ 97f8de7a75
+fresh lemon, acidic, aldehydic, slightly pungent
+@@ f0878d409b
+intense lemon, citral, fruity, sweet, light woody-floral
+@@ 5748c2b9e5
+dry wood / amber, dry animalic, patchouli
+@@ 73d87dae30
+soft smoky-balsamic wood, tea-rose, vetiver and pepper
+@@ 2274844ccc
+apple-pineapple, strawberry, winey / fermented fruit
+@@ ad803ce403
+medicinal, phenolic, leather / tar / castoreum / oud
+@@ 20ecb9bdd5
+creamy peach, fatty lactonic, apricot / coconut
+@@ 48993fc185
+honey, bee nectar, warm and soft, unctuous
+@@ 582a9d4926
+muguet (lily of the valley), magnolia, clean / transparent
+@@ b8760994ae
+sweet delicate muguet, green, citrus-lime, melon-aqueous
+@@ 762ce15bec
+muguet, soft green, fresh / citrus
+@@ 3d05712b00
+oakmoss, earthy, woody, phenolic, powdery, clean
+@@ 8586471652
+moss, damp forest, earthy, seaweed, marine, smoky leather
+@@ 28faf6e1e2
+orange / citrus, aquatic-marine, waxy
+@@ 32429792ab
+sweet orange, juicy, aldehydic, peel, waxy
+@@ 68c7a6fc77
+narcissus, cherry, hay, talcy, metallic, animalic
+@@ c7527837de
+oud, agar, leather, smoky, tarry, amber, resinous-balsamic
+@@ 60771b9705
+ozonic, sea breeze, melon and watermelon, seaweed, iodine-like
+@@ 406f49fca3
+popcorn, roasted nuts, chocolate
+@@ 4423c86de7
+pungent-woody (pepper), sweet floral, caramelised, balsamic
+@@ 2838690c0b
+soft herbaceous pine, ginger, cardamom, soft woods
+@@ fff0d886be
+pineapple, green galbanum, apple skin
+@@ 5d7b15fb79
+grapefruit (peel), bitter, green, slightly woody
+@@ e36bf809a2
+resinous, earthy, warm, sweet, balsamic, citrus-pine top note
+@@ 1b81904e68
+heavy rose, talcy, balsamic, soapy
+@@ 2cc6944028
+soft rose, rose-honey, green
+@@ 7b58765a9e
+rose, geranium, citrus
+@@ 356df18746
+rosy, fruity-green pear, lavender / citrus
+@@ 82a817d116
+creamy sandalwood, light cedarwood, rosy, milky, soft
+@@ 2d1f629bfc
+creamy sandalwood, diffusive, powerful, herbal / slight tropical fruity
+@@ 88fcbcf75c
+Mysore sandalwood, sweet, warm, creamy
+@@ 7a14316732
+rich creamy sandalwood, amber and musk, lactonic, nut in the base
+@@ cf638cac64
+ambrette seed, red fruit, soapy, warm
+@@ ce63e8bb67
+mushroom, damp earth, herbal, metallic, rancid
+@@ 79a0b7fb77
+tobacco, amber, herbs / cardamom
+@@ b04da6ebe5
+earthy, dry, spicy, patchouli, vetiver, leather, smoky
+@@ 06da66aed7
+damp earth, beetroot, fresh / rain
+@@ 9e4dbe88aa
+Concord grape, orange blossom and neroli, mothballs («closet-like»)
+@@ fff728567a
+sweet creamy vanilla, powdery, phenolic-burnt
+@@ cb43a5d1ab
+vanilla, almond, spicy, slightly woody
+@@ 980c54baf8
+vanilla, creamy, white chocolate, apricot, cream soda, sweet
+@@ 7ade66a3b4
+vanilla, sweet, creamy, powdery, chocolate, spicy, phenolic
+@@ d3f3544707
+fruity green, rhubarb, gardenia
+@@ 5645c3edd0
+gaseous / metallic green, freshly cut rose stem, geranium
+@@ f0e4227284
+green, resinous, balsamic, turpentine, pine, earthy, bitter
+@@ 0e39c410fe
+powdery violet, iris / orris, woody
+@@ e2982ca003
+violet and freesia, raspberry and red fruits, earthy-woody
+@@ ec9835757d
+dusty violet/iris, berry, raspberry, slightly fruity, soft warm woody
+@@ 16cca2ab32
+Adam Michael (Hermitage Oils, tincture from Ireland, undiluted) — sheet 8038-65-1: The aroma is sweet, gently animalic, clean, with breezy salty ocean water notes throughout.
+@@ 0a9f946cf1 =
+@@ 9e802c1694
+Albert Vieille (Siam benzoin no. 3): sweet, milky, vanilla-like smell is reminiscent of vanilla beans
+@@ 6c1b94d06f
+Albert Vieille (Siam benzoin no. 5): sweet, vanilla-like, very popular in gourmand perfume compositions
+@@ d408eddab1 =
+@@ ad37c11819 =
+@@ f84cb164d3 =
+@@ 13e6f9e77c
+Alfa Chemistry (via search engine): powerful woody-phenolic, medicinal, yet rather sweet odour
+@@ 900091e654 =
+@@ 339b01579c =
+@@ 41ebd3304e =
+@@ 1d8f828fcf =
+@@ f8e199356a =
+@@ 12b1307d4a =
+@@ 170fb4c535 =
+@@ 22ac26a7d4 =
+@@ 3f160bf76e =
+@@ 539628192a =
+@@ a1d05558f1 =
+@@ a2a7eb8aa1 =
+@@ 1e93c8c01c =
+@@ a8efea7e4c
+Arcadi Boix Camps (1978), cited on the page: A product with a fresh melon fruity odor, it is endowed with a great fixing power.
+@@ 933ad086ea
+Arcadi Boix Camps, 1978 (cis+trans sheet, 5502-75-0), summarised by the reading tool, not verbatim: soft floral odour, somewhat herbaceous, suggesting freshness; more interesting than hydroxycitronellal
+@@ e0e1a5cf01
+Arcadi Boix Camps, cited by Pell Wall Perfumes: extraordinary and has a bright quality between amber and patchouli
+@@ 005f770dfa
+Arctander (cited in the sheet): Sweet, herbaceous-warm, somewhat spicy odor, in extreme dilution more haylike, nut- Iike, tobacco-like…
+@@ 4a8ec746a9
+Arctander (cited by Enfleurage): powerful, fresh-camphoraceous, somewhat green and bitter-sweet, with a cedarleaf-like topnote and a rosemary-sage-like bodynote
+@@ 421c830d1e
+Arctander (cited by Enfleurage): The drydown is very pleasant, sweet-herbaceous and tealike.
+@@ 5cdc637906
+Arctander (cited by Pell Wall): of sweet, floral-herbaceous refreshing odor with a pleasant, balsamic-woody undertone.
+@@ 703f79a775
+Arctander (cited by Pell Wall): Sweet-floral, at first delicate and refreshingly mild
+@@ bd2315fecd
+Arctander (cited by a supplier): mostly reminiscent of jasmine, gardenia and tuberose; very mild, oily-herbaceous and somewhat floral
+@@ 10567b0a5a
+Arctander (cited via search engine): the resemblance to geranium appears only on dilution, and better within a composition
+@@ 43f7ed9cce
+Arctander 1969, cited in the fragrance safety review (via search engine): sweet musk-like odor of considerable tenacity
+@@ a43f3ff949
+Arctander, cited in the Hermitage Oils listing: Powerful smoke-like, somewhat medicinal odor, sweeter than the prototype phenolic odor
+@@ 7fdde4e805
+Arctander, cited on the page: Widely used in perfumery along with the Ionone, Cedarwood products, floral and non-floral perfume chemicals
+@@ 74a95c44f8
+Arctander, cited by Pell Wall Perfumes: Powerful sweet odor, reminiscent of freshly crushed bitter Almonds.
+@@ 53c2a74814
+Arctander, cited by Pell Wall: Traces of cis-3-Hexenol are used in refreshing topnotes in delicate floral fragrance types, such as Muguet and Lilac
+@@ eadc87b100
+Arctander, cited by a supplier (via search engine): woody-earthy-mossy, slightly spicy, with a resemblance to oakmoss and cardamom
+@@ 6cd3fce3f2
+Aromology (61789-17-1, via search engine): warm, elegant character with smoky, spicy facets and a vibrant rose nuance
+@@ ed32172a62
+Augustus (in TGSC): A useful, long lasting odour with fruity undertones
+@@ fd7d482450
+Augustus Oils (via search engine): dry powdery-dusty, but warm, uniform and lasting dryout note
+@@ ac43e1c424 =
+@@ 1d7eafa604 =
+@@ 59d3e51685 =
+@@ 989d226e31 =
+@@ 0d25acc652
+BC Fragrance (via search engine): The winey-'fermented-fruit-like' undertones resemble the odor of Strawberry preserve
+@@ 218f1054a2
+Bedoukian Research (Lilytol ≥96.0 %) (cis+trans sheet, 5502-75-0): Fresh, floral, magnolia, muguet
+@@ e143ec0725 =
+@@ ecd785e9ac
+Bio Shop Pakistan: Intense, bitter, resinous 'green' leaf note; opens sharp and piney, dries down warm, balsamic and earthy
+@@ fa160463a1
+Biolandes (Moroccan tobacco absolute): bottom-note / tobacco, characteristic, chocolate
+@@ 22f7567f62
+Biolandes Parfumerie (Ivory Coast absolute and Tanzanian organic): Pyrogenic/cocoa bitter, powdery, milky, liqueur like
+@@ ac7d62e731 =
+@@ c330f31a14 =
+@@ a8b1c2a837
+Caperfume (via search engine): less refined, sharper aroma resembling turpentine; mainly industrial
+@@ 51c3e7f909
+Chandler Burr (cited by Perfumer's Apprentice): the smell of extreme dryness, absolute desiccation
+@@ ee30c527cc =
+@@ 83683876a3 =
+@@ a9bd48f296
+ChemicalBook (via search engine): fresh citrus lime floral clean cologne weedy
+@@ 79b65db30a =
+@@ 89eb5c8755 =
+@@ 2d3dd85ca6 =
+@@ 6b4fa992a7 =
+@@ 1919f911ba =
+@@ e67bbb5eb0 =
+@@ 5ae1361195 =
+@@ 966364303c =
+@@ 85626d2c27
+Creatingperfume.com (sister sheet 134-28-1): Delicately sweet,woody, soft, warm, green patchouli like tea rose
+@@ 2918b5eff4 =
+@@ 30c08b2844 =
+@@ 751a049b78 =
+@@ 3f327fd13c
+Darren Alan Perfumes (via search engine): creamy, sweet, vanilla-almond floral nuance
+@@ 32a5524c42
+distributor (via search engine): Musky, Sweet, Fresh, Powdery, Clean, Hot Iron
+@@ df97616dc9
+Eden Botanicals (via search engine): powerful, deep, rich, sweet balsamic aroma with a faint herbaceous nuance and a persistent ambergris-like backnote
+@@ e48565f277 =
+@@ f14b01d285 =
+@@ 9a73926f8e =
+@@ 37348dbc94 =
+@@ 416c2d3580 =
+@@ 4443746c95 =
+@@ 8a04763125 =
+@@ dbb9c200ab =
+@@ 4606be8251
+Ernesto Ventós (Isonaline 70 DSM) (70 % sheet): WOODY, VIOLET, FRUITY
+@@ 89aa34a246 =
+@@ 47eef6fb5d
+Ernesto Ventós (Mayol Firmenich 957230) (cis+trans sheet, 5502-75-0): FRESH, FLORAL, MAGNOLIA, MUGUET
+@@ 67961a0324
+Ernesto Ventós (Methylionone Coeur Gamma IFF) (70 % sheet): WOODY, FLORAL, VIOLET
+@@ ca877343db =
+@@ 73c7dc21ce =

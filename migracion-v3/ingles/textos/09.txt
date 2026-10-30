@@ -1,0 +1,782 @@
+@@ 8294417843 · material_doses.notes
+TGSC: usage levels up to: 0.5000 % in the fragrance concentrate. · confianza: media
+@@ 4c834e7fae · material_doses.notes
+TGSC: usage levels up to: 1.0000 % in the fragrance concentrate. · confianza: media
+@@ bc4c402019 · material_doses.notes
+TGSC: usage levels up to: 15.0000 % in the fragrance concentrate · confianza: media
+@@ 56ff79f5b1 · material_doses.notes
+TGSC: usage levels up to: 16.0000 % in the fragrance concentrate. · confianza: media
+@@ 3d1af5a473 · material_doses.notes
+TGSC: usage levels up to: 30.0000 % in the fragrance concentrate. · confianza: media
+@@ 5b0b64eee9 · material_doses.notes
+TGSC: usage levels up to: 5.0000 % in the fragrance concentrate · confianza: media
+@@ 85ca435562 · material_doses.notes
+TGSC: usage levels up to: 8.0000 % in the fragrance concentrate · confianza: media
+@@ 8e426e3d4b · material_doses.notes
+TGSC: usage levels up to: 8.0000 % in the fragrance concentrate. · confianza: media
+@@ 46011fbaba · material_doses.notes
+TGSC: usage levels up to: 9.0000 % in the fragrance concentrate. · confianza: media
+@@ 71c491bc6a · material_doses.notes
+Un proveedor (vía buscador, solución al 50 %): 1–10 % de la fórmula, hasta 20 % en bases ámbar · confianza: media
+@@ f42618d6a9 · material_doses.notes
+Un proveedor (vía buscador): 0.5 % a 2.0 % en EDP y 0.3 % a 1.5 % en EDT, mucho menos en lociones · confianza: media
+@@ 6eb2134210 · material_doses.notes
+Un proveedor (vía buscador): efectivo desde las trazas más pequeñas hasta el 1 % · confianza: media
+@@ b715350ede · material_doses.notes
+Un proveedor (vía buscador): eficaz desde las mínimas trazas hasta 0.5 %; sugiere evaluarlo al 10 % o más diluido · confianza: media
+@@ 75353ec5e4 · material_doses.notes
+un proveedor (vía buscador): perfumería fina 0,50–5,00 %; cuidado corporal 0,20–3,00 %; hogar 0,30–4,00 %; velas 0,50–5,00 % · confianza: media
+@@ 2c9afa9848 · material_doses.notes
+un sitio (vía buscador): uso típico en compuestos de perfumería de 0,050 a 5 % · confianza: media
+@@ 89b3cbcadc · material_doses.notes
+un sitio atribuyéndolo a Firmenich (vía buscador): en perfumería fina Firmenich recomienda 4–13 % para corazón y fondo · confianza: media
+@@ 45eba1f94e · material_doses.notes
+Un vendedor (vía buscador): de trazas hasta 5 % del concentrado · confianza: media
+@@ 9755d89f4d · material_doses.notes
+Una guía de perfumería (vía buscador, castóreo en general): 0,05–0,2 % en perfumería fina · confianza: media
+@@ c90a41435f · material_doses.notes
+Una página de vendedor (vía buscador): usage levels of 2% to 20% in the concentrate; la misma página dice que es muy eficaz a 1–3 % en producto acabado · confianza: media
+@@ e398ee28d7 · material_doses.notes
+Una referencia histórica (vía buscador): 10–30 % en acordes de sándalo, con una fórmula citada al 24 % · confianza: media
+@@ c0e335e692 · material_doses.notes
+una tienda (resumen del buscador): se puede usar hasta el 10 % del concentrado total · confianza: media
+@@ cb8cf43190 · material_doses.notes
+Unguentarius, 161 fórmulas públicas (vía buscador): media 1,3 %; rango típico 0,50–2,5 %; extremos 0,050–15 % · confianza: media
+@@ 1d69816e6c · material_doses.notes
+uso típico en compuestos de perfume: desde 0,050 %, media 0,500 %, máximo 4,000 %. Uso observado o recomendado, no un límite de IFRA.
+@@ 9cb4f97dab · material_doses.source
+lab: Fi
+@@ 818cdad478 · material_doses.source
+lab: repo
+@@ a773661fba · material_doses.source
+lab: TG
+@@ 606ece8170 · material_doses.source
+lab: web
+@@ eb386e2656 · material_doses.source, materials.physical_sources
+web: Fraterworks, https://fraterworks.com/products/ambrarome-absolute
+@@ 0204715745 · material_doses.source, materials.physical_sources
+web: Fraterworks, https://fraterworks.com/products/clearwood
+@@ 2360145d5b · material_doses.source, materials.physical_sources
+web: Fraterworks, https://fraterworks.com/products/exaltolide-total
+@@ 3441c657ea · material_doses.source
+web: Fraterworks, https://fraterworks.com/products/filbertone
+@@ 52ee6e1dab · material_doses.source
+web: Fraterworks, https://fraterworks.com/products/indole
+@@ 36a5573bde · material_doses.source
+web: Fraterworks, https://fraterworks.com/products/isobutavan
+@@ 1b0fb03ab0 · material_doses.source
+web: Fraterworks, https://fraterworks.com/products/juniper-berry
+@@ 7d55c83136 · material_doses.source, materials.physical_sources
+web: Fraterworks, https://fraterworks.com/products/operanide
+@@ a12ded8c23 · material_doses.source
+web: Fraterworks, https://fraterworks.com/products/prunella
+@@ f29c81eca6 · material_doses.source
+web: Fraterworks, https://fraterworks.com/products/veramoss
+@@ 3a9494acfe · material_doses.source, materials.physical_sources
+web: Hekserij, https://eng.hekserij.nl/shop/perfume-fragrance/aroma-chemicals/ethyl-vanillin
+@@ d3b4e283ed · material_doses.source
+web: IFF, https://www.iff.com/?p=37851
+@@ 2d9ef206f5 · material_doses.source
+web: PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7KH00262
+@@ c9cb77ffff · material_doses.source
+web: Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/clearwood: «Typical usage levels: Fine fragrance: 1–5%»
+@@ 310bd5ecb0 · material_doses.source
+web: Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/paracresol
+@@ b60b52ee01 · material_doses.source
+web: TGSC, https://thegoodscentscompany.com/data/rw1548231.html
+@@ 060f5c13e6 · material_doses.source
+web: TGSC, https://www.thegoodscentscompany.com/data/es1034621.html
+@@ 2b01a0b31f · material_doses.source, materials.physical_sources
+web: TGSC, https://www.thegoodscentscompany.com/data/rw1002671.html
+@@ 309d4ac0cd · material_doses.source, materials.physical_sources
+web: TGSC, https://www.thegoodscentscompany.com/data/rw1003851.html
+@@ 03a710db54 · material_doses.source, materials.physical_sources
+web: TGSC, https://www.thegoodscentscompany.com/data/rw1013631.html
+@@ d0de343295 · material_doses.source, materials.physical_sources
+web: TGSC, https://www.thegoodscentscompany.com/data/rw1015411.html
+@@ 4380ca6b97 · material_doses.source, materials.physical_sources
+web: TGSC, https://www.thegoodscentscompany.com/data/rw1016811.html
+@@ d8e8950c27 · material_doses.source, materials.physical_sources
+web: TGSC, https://www.thegoodscentscompany.com/data/rw1023241.html
+@@ 674b5fff85 · material_doses.source, materials.physical_sources
+web: TGSC, https://www.thegoodscentscompany.com/data/rw1027981.html
+@@ 8402ec0848 · material_doses.source, materials.physical_sources
+web: TGSC, https://www.thegoodscentscompany.com/data/rw1028541.html
+@@ c37d7e0c83 · material_relations.note
+acorde de higuera
+@@ 0931cfa795 · material_relations.note
+acorde de té
+@@ 14528159b4 · material_relations.note
+alternativas que sugiere PerfumersWorld cuando Datilat está agotado
+@@ ff969d50c6 · material_relations.note
+Arcadi Boix Camps (1978), citado por TGSC: ídem
+@@ 11515dd304 · material_relations.note
+Arcadi Boix Camps (1978), citado por TGSC: las mezclas con cis-jasmone, dihydrojasmone y los alcoholes C-9, C-10 y C-11 son «very important»
+@@ c52ebc21ac · material_relations.note
+Arctander (vía Pell Wall) y Perfumers World
+@@ 0491ee0d02 · material_relations.note
+Arctander citado por Enfleurage
+@@ 5c18ce5b0c · material_relations.note
+Arctander citado por Olfactorian
+@@ 9c9c091c81 · material_relations.note
+Arctander citado por un proveedor (vía buscador): fijadores tenaces que acompañan sus trazas
+@@ e7ee42be5f · material_relations.note
+Arctander, citado en la página: de uso amplio junto a ellos
+@@ 7f4a09557e · material_relations.note
+Arctander, citado en la página: trazas para refrescar la nota de salida
+@@ c7256d0a70 · material_relations.note
+Arctander, citado por Hermitage Oils
+@@ 61c0dcdc66 · material_relations.note
+Bedoukian y Givaudan: usado en bases de rosa
+@@ 11622d36f5 · material_relations.note
+Bedoukian; versión rica en cis de Mayol (descrita por el buscador como fresh, clean, floral, magnolia, hydroxycitronellal, cumin, grassy)
+@@ 0acb1eb66b · material_relations.note
+Boix Camps (1985), citado en la ficha: lo realza
+@@ e032644ad1 · material_relations.note
+contextos de uso que cita Scentspiracy
+@@ 022bfa60de · material_relations.note
+dsm-firmenich
+@@ 9358e1108b · material_relations.note
+dsm-firmenich: Dartanol es más suave y más cosmético que el Polysantol
+@@ b6ea40e696 · material_relations.note
+Eden Botanicals
+@@ 9d6a97284e · material_relations.note
+Eden Botanicals (Rhind): suelen ir juntos en las notas de salida
+@@ 9a05a3dd09 · material_relations.note
+Eden Botanicals, en la ficha de bergamota: con neroli y limón da la impresión fresca inicial
+@@ 126a738287 · material_relations.note
+Eden Botanicals: el cilantro tiene un fondo balsámico que recuerda al palorosa
+@@ 0580c4d8c6 · material_relations.note
+Eden Botanicals: impresión fresca inicial
+@@ dba1095fde · material_relations.note
+ejemplos de Olfastory sobre el haba tonka en general
+@@ 6ff6ad0493 · material_relations.note
+en proporción 4:1 o 5:1 con benzaldehído da el dulzor de cereza marrasquino
+@@ 2ccc44d472 · material_relations.note
+Esans
+@@ b5aaa1d929 · material_relations.note
+Esans: provoca turbidez (louching)
+@@ 204c41cb4d · material_relations.note
+Esans: tono dulzón de «plastic-hay»
+@@ 17427b7eb5 · material_relations.note
+Essential Oils Pedia
+@@ 785c7115a8 · material_relations.note
+Essentialoil.com
+@@ fe16ef8352 · material_relations.note
+Firmenich, según TGSC
+@@ dd70be7eda · material_relations.note
+Firmenich: Dartanol es «Softer and more cosmetic than POLYSANTOL®, but less strong»
+@@ dc0c72d817 · material_relations.note
+fragmento (patente): los glicolatos suelen ser inestables en esos medios; Scentspiracy: en bases de jabón puede necesitar anclaje
+@@ b8d40aafc6 · material_relations.note
+fragmento de proveedor: complementa otras reconstrucciones de jazmín
+@@ aa7229f7d7 · material_relations.note
+Fragrantica y Perfume Extract (vía buscador): como potenciador
+@@ 972e836f26 · material_relations.note, material_references.note
+Fraterworks
+@@ bb9f327e45 · material_relations.note
+Fraterworks («supreme») y dsm-firmenich: se usa a menudo en combinación
+@@ 03cfdf6c42 · material_relations.note
+Fraterworks (Coeur): «finest and sweetest all round iris / violet chemical», más premium; no lo llama sustituto explícitamente
+@@ b108ccfe33 · material_relations.note
+Fraterworks lo propone como alternativa porque el de vetiver está muy restringido en IFRA 51
+@@ 028bc947ee · material_relations.note
+Fraterworks sugiere un acorde «Mellis» con ellos
+@@ 4650a06c56 · material_relations.note
+Fraterworks y dsm-firmenich
+@@ 27a53900ad · material_relations.note
+Fraterworks y PerfumersWorld
+@@ 0ea05cc5b3 · material_relations.note
+Fraterworks y ScenTree: las suaviza y mejora su difusión
+@@ a286ed22fe · material_relations.note
+Fraterworks y vía buscador: el etil maltol es mucho más potente; no son intercambiables en dosis
+@@ e0dcbd826f · material_relations.note
+Fraterworks, reseña de cliente: en acordes chypre
+@@ 105c912824 · material_relations.note
+Fraterworks: «a replacement (alone or in an accord) for Lilial which is now banned in the EU»; también «The elegant alternative to traditional muguet aldehydes»
+@@ 6882ce9b7a · material_relations.note
+Fraterworks: «frequently touted as such, but that does have its differences»; scent.vn lo trata como otro nombre del mismo material
+@@ d24c057035 · material_relations.note
+Fraterworks: «outstanding»
+@@ 224178df57 · material_relations.note
+Fraterworks: «synergistic materials»
+@@ 7e5e55b07e · material_relations.note
+Fraterworks: alcoholes de rosa tradicionales; Perfumers World lista geraniol
+@@ 7aeda4e901 · material_relations.note
+Fraterworks: amplifica las facetas minerales
+@@ 0ce699b1bf · material_relations.note
+Fraterworks: animálico
+@@ 8feb54025d · material_relations.note
+Fraterworks: aparecen junto al Habanolide (25 %) en la fórmula de Silver Mist, reconstrucción de Fraterworks
+@@ bb87ef9aa8 · material_relations.note
+Fraterworks: aporta frescura y elevación en composiciones cítricas, florales y gourmand
+@@ 9135c39f03 · material_relations.note
+Fraterworks: combina bien
+@@ 56407c72c0 · material_relations.note
+Fraterworks: combina bien; ScenTree: frente a la vainillina tiene una nota anisada y almendrada característica
+@@ bbfbaf073b · material_relations.note
+Fraterworks: combinación clásica
+@@ 88956dabf3 · material_relations.note
+Fraterworks: efectos de fresa
+@@ 38b14601f5 · material_relations.note
+Fraterworks: extiende y fija
+@@ 507157dc0c · material_relations.note
+Fraterworks: florales clásicos y verdes
+@@ fdde00c56d · material_relations.note
+Fraterworks: frambuesa
+@@ 318593e41d · material_relations.note
+Fraterworks: gourmand
+@@ c88a44be97 · material_relations.note
+Fraterworks: las realza
+@@ fe7e1f889a · material_relations.note
+Fraterworks: ligereza aérea
+@@ 615d2f10a8 · material_relations.note
+Fraterworks: lo sustituye uno por uno; Perfumer's Apprentice: mismo CAS pero distinta distribución de isómeros
+@@ b6f6c44c3d · material_relations.note
+Fraterworks: los eleva; ScenTree: realza los cítricos
+@@ 3da9a8e635 · material_relations.note
+Fraterworks: más atrevida, orris, cuero, cera de abeja, muy tenaz; lleva más del isómero alfa-metilionona fuerte
+@@ 99cd212868 · material_relations.note
+Fraterworks: más premium
+@@ c53b187998 · material_relations.note
+Fraterworks: mismos matices pero más persistentes (más de 30 h el 10 fold; más de 200 h el desterpenado)
+@@ 00aa5cdd17 · material_relations.note
+Fraterworks: para acordes de piedra caliente
+@@ d0d552282e · material_relations.note
+Fraterworks: para acordes novedosos
+@@ ccd9279c6e · material_relations.note
+Fraterworks: para reconstruir una bergamota auténtica
+@@ 4306462f75 · material_relations.note
+Fraterworks: para un acorde de metal caliente
+@@ 2a292cb5aa · material_relations.note
+Fraterworks: para un ámbar balsámico
+@@ 7b50bf91ae · material_relations.note
+Fraterworks: para un chypre de cuero verde
+@@ 025976785f · material_relations.note
+Fraterworks: quita la terrosidad
+@@ 85c7b40718 · material_relations.note
+Fraterworks: radiancia amaderada
+@@ 3e5c60ac1d · material_relations.note
+Fraterworks: riqueza de mermelada
+@@ cc78bbd4bc · material_relations.note
+Fraterworks: sinérgico, para dar naturalidad
+@@ 3dcb70c38a · material_relations.note
+Fraterworks: sobredosificada para acorde de cereza
+@@ 82bf929c45 · material_relations.note
+Fraterworks: una pizca con vainillina para mazapán
+@@ 61ac9f1e0d · material_relations.note
+Givaudan y Perfumer's Apprentice: 20 % Stemone + 80 % Spirogalbanone, «The perfect balance to design a new Vetiveryl Acetate effect»
+@@ 722c051329 · material_relations.note
+Givaudan, según la página
+@@ 5b8c832ed2 · material_relations.note
+Givaudan, según la página: aporta un matiz natural y fresco
+@@ 794bdcaf59 · material_relations.note
+Givaudan, según la página: los combina bien
+@@ e038fcdcd0 · material_relations.note
+Givaudan, según la página: puede reforzarlos
+@@ af182ad124 · material_relations.note
+Givaudan, según la página: se usa en pequeñas cantidades para realzarlos
+@@ 34ec2a35cc · material_relations.note
+Hekserij y Pell Wall: uso tradicional
+@@ 7215410bc4 · material_relations.note
+Ídem
+@@ fc27ae48bb · material_relations.note
+IFF: combina bien y enriquece la calidad del olor
+@@ c4155fe613 · material_relations.note
+La búsqueda enlaza la ficha «ambergris tincture replacer» (ex1000571); no se leyó
+@@ a7ad1dfc99 · material_relations.note
+La búsqueda enlaza la ficha «pogostemon cablin leaf oil clearwood (Firmenich)» (es1093311); no se leyó
+@@ f73aaaba04 · material_relations.note
+la ficha del 50 % los lista como materiales con los que potencialmente se mezcla; sin comentario
+@@ d4c75d281a · material_relations.note
+la misma reseña la usó como acento almizclado
+@@ 1b1fbe6351 · material_relations.note
+La página cita «Tolu reconstitution made from other natural extract» entre los productos de Firmenich
+@@ 1e36c4c83e · material_relations.note
+La página cita esta ficha y «oakmoss absolute color reduced» entre los materiales relacionados; no se han leído
+@@ a72ba10151 · material_relations.note
+la página del cis lo lista entre los materiales con los que se mezcla; sin comentario
+@@ 90c6ba94eb · material_relations.note
+La página enlaza «lemongrass oil replacer» (es1131261) y el buscador devolvió la nota de que se usa a veces en lugar de lemongrass; no se ha leído
+@@ d262377a58 · material_relations.note
+La página lo cita entre los posibles mezclables / productos relacionados; no se ha leído
+@@ 33bf24dfd1 · material_relations.note
+la página los lista como materiales con los que potencialmente se mezcla; sin proporciones ni comentario
+@@ de65bd8d18 · material_relations.note
+la propia página de dsm-firmenich lo recomienda; Scentfriends también
+@@ ff692936ff · material_relations.note
+lista de Eden Botanicals
+@@ c998669bd1 · material_relations.note
+lista de PerfumersWorld («blends well with»)
+@@ 9ab0f2b8f2 · material_relations.note
+Maese Lab, reseña: «Aroma parecido al Santalum Album Oil, aunque en un aspecto menos profundo»
+@@ ce3a68349d · material_relations.note
+Maese Lab, reseña: lo cree análogo; PerfumersWorld lo lista como sinónimo con el mismo CAS
+@@ 9e49cee3db · material_relations.note
+mezclables que sugiere la página
+@@ 1d2ce647d2 · material_relations.note
+misma molécula con más cis: más potente, hacia la magnolia
+@@ 1afca961e3 · material_relations.note
+misma química (6790-58-5) con otro nombre comercial
+@@ 5c07c839b3 · material_relations.note
+misma química con otro nombre comercial
+@@ e299bbfb4d · material_relations.note
+misma química con otro nombre comercial (Fraterworks)
+@@ 0bb48680ff · material_relations.note
+mismo CAS; proporción de isómeros distinta según un reseñador (vía buscador)
+@@ 297e3a88d0 · material_relations.note
+nota de la página: para florales
+@@ 0092c9470a · material_relations.note
+nota de la página: para frescor
+@@ 88d9683993 · material_relations.note
+Olfactorian y Fraterworks (vía buscador): algunas casas de lujo prefieren la versión de BASF a Cyclosia, así que los grados no son intercambiables en todas las fórmulas
+@@ 1629f90ac4 · material_relations.note, material_references.note
+Osmetheca
+@@ 11fe9775e3 · material_relations.note
+Osmetheca: variante floral-acuosa más suave de Firmenich, para composiciones femeninas transparentes
+@@ 796f688fa3 · material_relations.note
+otro listado de tienda: se mezcla bien con ellos
+@@ cf0e76e213 · material_relations.note
+otro producto, base resinosa con notas de olíbano; un usuario de Basenotes (vía buscador) dice que la versión Firmenich es más verde y sintética y la de Givaudan más dulce
+@@ 1dcb0916e9 · material_relations.note
+Pell Wall (vía buscador): para sugerir whisky
+@@ 39e09e8200 · material_relations.note
+Pell Wall (vía buscador): su uso está limitado sobre todo por su reactividad con otros materiales; forma bases de Schiff, que oscurecen con el tiempo
+@@ 9e0cf1df31 · material_relations.note
+Pell Wall (vía buscador): sustituto de olor parecido y menos reactivo
+@@ eb01b022d8 · material_relations.note
+Pell Wall Perfumes, citado en la página
+@@ 0de9030546 · material_relations.note
+Pell Wall Perfumes: «great combinations»
+@@ 9c112cf5a6 · material_relations.note
+Pell Wall Perfumes: funciona bien junto a ámbares más fuertes como Ambrofix o Fixateur 505
+@@ 47eda20501 · material_relations.note
+Pell Wall Perfumes: funciona bien junto a él
+@@ abe0859ab2 · material_relations.note
+Pell Wall Perfumes: se usa «in conjunction with vanilla notes»
+@@ ae0254ccd6 · material_relations.note
+Pell Wall: el nivel de uso puede ser mayor en su presencia
+@@ b420af8ddf · material_relations.note
+Pell Wall: reconstrucciones de jazmín
+@@ efa138a938 · material_relations.note
+Pell Wall: reconstrucciones de jazmín junto con alcohol bencílico y antranilato de metilo
+@@ cdeb9ed4fc · material_relations.note
+Pell Wall: su uso principal es como parte de un acorde de chocolate u otro gourmand dulce
+@@ dc34c34dad · material_relations.note
+Pell Wall: útil para reforzarlos
+@@ 4dfe15233d · material_relations.note
+Pellwall (vía buscador): para apoyarlo, no usarlo solo
+@@ ef0637e786 · material_relations.note
+PerfuMate: constructor de praliné y avellana tostada a nivel de trazas en gourmands de frutos secos
+@@ 1a0be4d016 · material_relations.note
+Perfumer's Apprentice los menciona como otros almizcles blancos comparables, no como sinónimos
+@@ b8bd141076 · material_relations.note
+Perfumer's World
+@@ 141c52b779 · material_relations.note
+Perfumers World
+@@ 600340a942 · material_relations.note
+Perfumers World lo da como «often used with»
+@@ f28cb56a23 · material_relations.note
+Perfumers World lo lista como «blends well with»
+@@ 842966353d · material_relations.note
+Perfumers World; acordes almendrados y de pastelería (Scentspiracy)
+@@ 49f79ed3df · material_relations.note
+Perfumers World; acordes de mazapán y pastelería (Scentspiracy)
+@@ 55d02ade2f · material_relations.note
+Perfumers World; da calidez cremosa de vainilla-cereza
+@@ 69009fe5ca · material_relations.note
+Perfumers World: «blends well with»
+@@ 64aed18e22 · material_relations.note
+Perfumers World: «often used with»
+@@ 5863f1d40a · material_relations.note
+Perfumers World: fijador para este aldehído
+@@ bbc4fed5be · material_relations.note
+Perfumers World: se usa a menudo con ellos
+@@ 679fefe3b6 · material_relations.note
+PerfumersWorld
+@@ cfee7a4fd0 · material_relations.note
+PerfumersWorld (Bacdanol): «+Cubeb»
+@@ 024946b2c6 · material_relations.note
+PerfumersWorld (Bacdanol): «+Guaiacwood»
+@@ 088fa49313 · material_relations.note
+PerfumersWorld (Bacdanol): «+Gurjun Balsam»
+@@ eea3b37a88 · material_relations.note
+PerfumersWorld (Bacdanol): «+Labdanum»
+@@ 78b3b330c1 · material_relations.note
+PerfumersWorld (Bacdanol): «+Sandalwood»
+@@ 96e61ce28c · material_relations.note
+PerfumersWorld lo da como mezcla afín
+@@ 3c6eadd517 · material_relations.note
+PerfumersWorld y Fraterworks
+@@ 8500a7140d · material_relations.note
+PerfumersWorld, citado en la página como compañeros de mezcla
+@@ adeb1b9ae5 · material_relations.note
+PerfumersWorld, citado en la página: «Blends-well-with»
+@@ c920687ce6 · material_relations.note
+PerfumersWorld: «Blends well with»
+@@ 61496ad5d1 · material_relations.note
+PerfumersWorld: «Blends-well-with - Herbaceous-notes Hay Oakmoss»
+@@ 1952ac07c9 · material_relations.note
+PerfumersWorld: «Blends-well-with»
+@@ 1d40c0496e · material_relations.note
+PerfumersWorld: «Often Used With»
+@@ 49f60a27dd · material_relations.note
+PerfumersWorld: combina bien
+@@ 02f975eae3 · material_relations.note
+PerfumersWorld: combina bien (según la lectura de la página)
+@@ 107180bc77 · material_relations.note
+PerfumersWorld: ídem
+@@ 9195dad6a5 · material_relations.note
+PerfumersWorld: más dulce y menos tenaz que la hierba limón. Berje (vía buscador): carece de las notas grasas o herbáceas de aceites similares como la hierba limón.
+@@ 1d2a2e16ed · material_relations.note
+Perfumiarz y ScenTree
+@@ aff3c56762 · material_relations.note
+Perfumiarz: el amil es más suave y algo más fresco. Fragmentos: el amil es más fresco, más oleoso, de aire más natural y dura algo menos; el hexil es más dulce, más floral, algo más frutal y verde-tropical y más duradero (más de 400 h en tira según un proveedor); estructuralmente el hexil tiene un carbono más en la cadena; muchos perfumistas usan ambos.
+@@ 35cac9148d · material_relations.note
+Premiere Peau
+@@ 7cc54d58f1 · material_relations.note
+Premiere Peau (vía buscador): el abedul es más agudo; el cade, más cálido y resinoso. Scentspiracy lo enlaza como producto relacionado, junto con siringol.
+@@ d720c0bc4b · material_relations.note
+Premiere Peau: acordes más afilados
+@@ c4fcd1ec9a · material_relations.note
+Premiere Peau: el ambroxido formado por oxidación de la ambreína es el responsable del olor ámbar-marino; trazas de ambroxan alteran una composición
+@@ 27de83c028 · material_relations.note
+Premiere Peau: estructuras amargo-herbales
+@@ 3a77ed8a54 · material_relations.note
+Rae Dunphy
+@@ a672f3232b · material_relations.note
+reseña de cliente en Fraterworks
+@@ a5d6248686 · material_relations.note
+reseña de cliente en Perfumer Supply House
+@@ d1e050ab55 · material_relations.note
+reseña de perfumista vía buscador: sus matices florales los complementan sin taparlos
+@@ 783c89fdb9 · material_relations.note
+reseña en Fraterworks
+@@ 8e18e65d65 · material_relations.note
+reseña en Perfumer Supply House, en pequeñas cantidades
+@@ 6e25ffc68f · material_relations.note
+resumen del buscador (proveedor): se usa en acordes frescos y herbales y abre las composiciones con brillo
+@@ f8b02ade39 · material_relations.note
+resumen del buscador: combinación habitual
+@@ f032154040 · material_relations.note
+resumen del buscador: es un isómero estructural y lo ha sustituido en gran parte en la perfumería moderna
+@@ 97cc4ef513 · material_relations.note
+resumen del buscador: es una de las piezas de las bases de castóreo sintético junto a estos materiales; es composición general de la base, no una fórmula concreta
+@@ f2b732aba0 · material_relations.note
+Scentfriends
+@@ 055efc0f17 · material_relations.note
+Scentfriends y ScenTree: se enturbia y se separa en fases en etanol; ScenTree lo llama origen de muchos problemas de solubilidad en alcohol
+@@ 6bd87069d5 · material_relations.note
+Scentfriends, como material relacionado
+@@ 321ffe941d · material_relations.note
+Scentfriends, como similar
+@@ c12ec6b10b · material_relations.note
+Scentfriends, como similar; Olfactiveaesthetics (vía buscador): los acordes de cuero clásicos usan alquitrán de abedul, isobutilquinoleína y castóreo (más ahumado y duro), mientras que Suederal apunta al lado suave
+@@ b3f56b9e20 · material_relations.note
+Scentfriends; acordes orientales, de cuero y amaderado-ahumados
+@@ f9861c231a · material_relations.note
+Scentfriends: Black Agar es «heavier and more unvarnished» que el primero y «considerably less fruity and soft» que el segundo
+@@ 8b2ce9dc45 · material_relations.note
+Scentfriends: cuero oriental con azafrán y rosa; cuero de guante empolvado con iris
+@@ 8f277b8736 · material_relations.note
+Scentfriends: variante enriquecida y más potente
+@@ 123ffcf884 · material_relations.note
+ScenTree
+@@ ca5db5ecb2 · material_relations.note
+ScenTree (ficha genérica): el aceite se usa menos que el resinoide, que es más cálido, redondo, balsámico y resinoso pero menos fresco, alcanforado y especiado
+@@ b716800266 · material_relations.note
+ScenTree (vía buscador): les da un matiz fresco
+@@ 1bb76a7220 · material_relations.note
+ScenTree los nombra como derivados del cistus-labdanum (pirogenación y craqueo)
+@@ 3d8578aa2b · material_relations.note
+ScenTree y Scentspiracy: forma una base de Schiff que «colors through time»; ScenTree la llama «Corps Oranger»
+@@ 97acaea638 · material_relations.note
+ScenTree: «Liquefies shower gel bases»
+@@ 03c395963b · material_relations.note
+ScenTree: 20/80; Perfumer's Apprentice: 20 % Paradisamide con 80 % Methyl Laitone al 10 % en DPG, «Welcome to the jungle!»
+@@ 4010511bad · material_relations.note
+ScenTree: bastante amaderada y resinosa
+@@ 9c0c7738fa · material_relations.note
+ScenTree: comparable; además es isómero constitucional
+@@ 92da185ed9 · material_relations.note
+ScenTree: con él forma una base de Schiff (precursor de Aurantiol)
+@@ 6d181d6990 · material_relations.note
+ScenTree: efecto cálido y envolvente
+@@ 0c8eff3367 · material_relations.note
+ScenTree: el Helional es menos afrutado que él
+@@ 91e3a3dfa0 · material_relations.note
+ScenTree: el Helional es menos aldehídico que él
+@@ 91d6179266 · material_relations.note
+ScenTree: el Helional es menos marino que él; Scentspiracy cita Calone 1951 y Aquaflor como sucesores históricos
+@@ 7fd8c39ae8 · material_relations.note
+ScenTree: el isómero activo, 10 000 veces más potente
+@@ d65b77a074 · material_relations.note
+ScenTree: el MOA es más frutal, más profundo y agrestic
+@@ 2e561a6fc1 · material_relations.note
+ScenTree: el MOA es mucho más fresco y «zesty»
+@@ aedef9f5bc · material_relations.note
+ScenTree: el nerol es más metálico y menos cítrico que el geraniol
+@@ 671aa5238c · material_relations.note
+ScenTree: en chipres
+@@ 9525225e29 · material_relations.note
+ScenTree: en orientales
+@@ 43c766b302 · material_relations.note
+ScenTree: esquema «tea»
+@@ ae9da5b48c · material_relations.note
+ScenTree: forma bases de Schiff con ellos (reacción, no recomendación de mezcla)
+@@ 43b74128cd · material_relations.note
+ScenTree: fougère
+@@ e569eb1298 · material_relations.note
+ScenTree: fougère y chipre, «for a rich and warm addition»
+@@ 82b8b4f2b1 · material_relations.note
+ScenTree: isómero constitucional no regulado que «tends to replace Hydroxycitronellal in formulas»
+@@ f3255ce6d3 · material_relations.note
+ScenTree: isómero de constitución, más floral, jazmín y pera
+@@ 91f3b19bc3 · material_relations.note
+ScenTree: isómero de constitución, más rosado y meloso
+@@ 619b85436a · material_relations.note
+ScenTree: isómero de constitución, recuerda a la bergamota
+@@ ea1e6b63a9 · material_relations.note
+ScenTree: isómero Z, olor más ligero y terpénico
+@@ ad3c75b897 · material_relations.note
+ScenTree: isómeros de posición que huelen a manzana cocida, no a violeta
+@@ 301ae25988 · material_relations.note
+ScenTree: la va sustituyendo poco a poco porque la heliotropina está regulada en la importación
+@@ 6b7e92efbe · material_relations.note
+ScenTree: les da carácter en pequeñas cantidades
+@@ 50a0da6d48 · material_relations.note
+ScenTree: les da sensualidad y faceta golosa
+@@ cd5275e0b5 · material_relations.note
+ScenTree: más afrutada y más floral-violeta; la beta es más amaderada
+@@ 669aa014f8 · material_relations.note
+ScenTree: más amaderada y menos dulce; Scentspiracy: la alfa es «less woody and more floral»
+@@ 1dd9bf065e · material_relations.note
+ScenTree: no se puede usar en ellas
+@@ e1d85f9f2e · material_relations.note
+ScenTree: no usarlo en bases de velas
+@@ 4a9d95361c · material_relations.note
+ScenTree: para un esquema «tea» junto con Hedione y beta-damascona
+@@ 82be7db0bf · material_relations.note
+ScenTree: se compara con ella; la heliotropina aporta nota anisada y almendrada
+@@ c772968af3 · material_relations.note
+ScenTree: se usan como reemplazo porque el musgo de roble está «strongly regulated by the IFRA»
+@@ be84d8f4d6 · material_relations.note
+ScenTree: sugiere 50/50
+@@ 21accc4368 · material_relations.note, material_references.note
+Scentspiracy
+@@ 053e3c95e0 · material_relations.note
+Scentspiracy (vía buscador): más rico en cinamaldehído y sin el matiz del de Ceilán
+@@ b1b016a488 · material_relations.note
+Scentspiracy (vía buscador): refuerza la persistencia
+@@ 3a2b892a92 · material_relations.note
+Scentspiracy lo llama «cost-effective alternative to natural ambergris derivatives»
+@@ 56c998d927 · material_relations.note
+Scentspiracy lo llama sustituto («replacer») del aceite de sándalo; unas cuatro veces más fuerte
+@@ 97cc61385f · material_relations.note
+Scentspiracy los cita como compañeros de mezcla, no como sustitutos
+@@ 3350a0e36b · material_relations.note
+Scentspiracy los compara pero no los llama sustitutos
+@@ 67c3268731 · material_relations.note
+Scentspiracy y fragmento: en florales pesados
+@@ 777dac71e2 · material_relations.note
+Scentspiracy y fragmentos de proveedores
+@@ 8c92d778b5 · material_relations.note
+Scentspiracy y Fraterworks
+@@ 75d6d15a19 · material_relations.note
+Scentspiracy y Pell Wall: en reconstrucciones de jazmín
+@@ 93e11df0e4 · material_relations.note
+Scentspiracy y Perfumer's World
+@@ bcbc95925b · material_relations.note
+Scentspiracy, para el grado Vulcain
+@@ 22a8a0f440 · material_relations.note
+Scentspiracy, según Arcadi Boix Camps
+@@ f0140f6f36 · material_relations.note
+Scentspiracy, según documentación de IFF
+@@ 029f9fbd9b · material_relations.note
+Scentspiracy; acordes de bergamota y lavanda según ScenTree
+@@ 5a1ab25ac6 · material_relations.note
+Scentspiracy; Perfumer's World (vainillina, etil maltol)
+@@ 389dc33c3e · material_relations.note
+Scentspiracy; sinergia de modificador según proveedores
+@@ 822e61f273 · material_relations.note
+Scentspiracy: «excellent with musks»
+@@ 686e6d16c9 · material_relations.note
+Scentspiracy: «harmonizes particularly well»
+@@ f8fdf14338 · material_relations.note
+Scentspiracy: «Low-boiling modifiers»
+@@ 96700d0015 · material_relations.note
+Scentspiracy: acorde «REM»
+@@ b112c1de07 · material_relations.note
+Scentspiracy: acorde de hoja de higuera
+@@ 388b2c7b3c · material_relations.note
+Scentspiracy: acordes de cuero
+@@ 4a207d897d · material_relations.note
+Scentspiracy: acordes de tabaco
+@@ d706f5bad9 · material_relations.note
+Scentspiracy: acordes sugeridos
+@@ a3d90dfcd1 · material_relations.note
+Scentspiracy: aldehído complementario
+@@ a6e9fc3a6b · material_relations.note
+Scentspiracy: almizcle macrocíclico alternativo
+@@ fed2e86efd · material_relations.note
+Scentspiracy: alternativa de nueva generación
+@@ 90b949f9e4 · material_relations.note
+Scentspiracy: amaderados y orientales
+@@ 4fa96bf7fc · material_relations.note
+Scentspiracy: bases chipre clásicas
+@@ 05a3e23f06 · material_relations.note
+Scentspiracy: bases fougère
+@@ 1a03cb2b9e · material_relations.note
+Scentspiracy: catalizan el oscurecimiento; en álcali fuerte puede cambiar
+@@ c9f55ba57d · material_relations.note
+Scentspiracy: chipre
+@@ e3c65a385f · material_relations.note
+Scentspiracy: cítricos y florales
+@@ 90effb5ec6 · material_relations.note
+Scentspiracy: combina bien
+@@ 8a62132b54 · material_relations.note
+Scentspiracy: combinan bien
+@@ 692d9bc62f · material_relations.note
+Scentspiracy: compatibilidad general
+@@ 728a343190 · material_relations.note
+Scentspiracy: compuesto de nueva generación, «better solubility and environmental performance»
+@@ 7d55fa10b8 · material_relations.note
+Scentspiracy: cuero y fougère
+@@ 3a097f5a3b · material_relations.note
+Scentspiracy: efectos de ante moderno
+@@ e1accebbb7 · material_relations.note
+Scentspiracy: efectos polvorientos-florales
+@@ 8450be3655 · material_relations.note
+Scentspiracy: el hexenol es sustancialmente más fuerte
+@@ eec1b1c85c · material_relations.note
+Scentspiracy: el labdanum se aprecia por su parecido con estos materiales animálicos, hoy restringidos o no disponibles
+@@ 470f5ab9c9 · material_relations.note
+Scentspiracy: el Vulcain se presenta como «alternativa o realce» del alquitrán de abedul; es otro grado, más cuero y ahumado
+@@ 6af8b5b9cb · material_relations.note
+Scentspiracy: en acordes florales
+@@ e3d2ea1e2b · material_relations.note
+Scentspiracy: en florales orientales
+@@ 71a1df578f · material_relations.note
+Scentspiracy: equilibra notas herbales
+@@ 7636babc0e · material_relations.note
+Scentspiracy: florales
+@@ ce7db38567 · material_relations.note
+Scentspiracy: inestable en medio alcalino e incompatible con oxidantes fuertes
+@@ c8e98d962c · material_relations.note
+Scentspiracy: mal comportamiento en medio alcalino; limita su uso en jabón salvo que esté muy fijado
+@@ 8af7f396a3 · material_relations.note
+Scentspiracy: mandarina verde
+@@ 3ff886bfaa · material_relations.note
+Scentspiracy: mezcla bien
+@@ a00578d091 · material_relations.note
+Scentspiracy: narciso natural
+@@ 36af4e61fa · material_relations.note
+Scentspiracy: orientales
+@@ 04caef1044 · material_relations.note
+Scentspiracy: otros almizcles que combinan bien
+@@ d0abae7823 · material_relations.note
+Scentspiracy: por encima de ~5 % las puede tapar
+@@ e1cf62b045 · material_relations.note
+Scentspiracy: puede volverse «metallic» si se abusa de él o se empareja con ciertos almizcles sintéticos
+@@ 8ce91dc191 · material_relations.note
+Scentspiracy: reconstrucciones de jazmín
+@@ 678c6f28c9 · material_relations.note
+Scentspiracy: riqueza floral exótica
+@@ 50c5614066 · material_relations.note
+Scentspiracy: sinérgico; una fuente (vía buscador): el Helional suaviza y naturaliza el acorde marino hecho con Calone
+@@ e45bfbe033 · material_relations.note
+Scentspiracy: suaviza el tono ozónico agudo del Calone
+@@ f63b6e8ae5 · material_relations.note
+Scentspiracy: también vainilla y materias balsámicas o ambaradas
+@@ 5ba339781e · material_relations.note
+Scentspiracy: transparencia floral-amaderada
+@@ 8638746c07 · material_relations.note
+Scentspiracy: versión premium
+@@ 8a8e70e058 · material_relations.note
+según Laborammeer (vía buscador), racémico, más cremoso y almizclado que el enantiopuro
+@@ b1c4c0b0df · material_relations.note
+TGSC (notas): «grape enhancer - methyl anthranilate and phenethyl alcohol»
+@@ 8ffa4f669f · material_relations.note
+TGSC (notas): «To reduce the irritating affects of the oil blend with Eugenol (Clove oil) 50/50.»
+@@ 3fc30c01e6 · material_relations.note
+TGSC tiene una ficha aparte (es1604821) que no se ha leído
+@@ ff577f8f39 · material_relations.note
+TGSC: «Ambergris substitute»
+@@ 2c0dce7d70 · material_relations.note
+TGSC: «Blends well with damascones.»
+@@ dea3fa1956 · material_relations.note
+TGSC: «Blends well with isocyclocitral»
+@@ 6745cabda6 · material_relations.note
+TGSC: «Blends well with quinolines.»
+@@ 8a60912f6b · material_relations.note
+TGSC: «Blends well with woody notes»
+@@ 09c174f38c · material_relations.note
+TGSC: «Lime replacer»
+@@ 4e207bfac6 · material_relations.note
+The Perfumery, citado en la página
+@@ e39fa9f8fa · material_relations.note
+The Perfumery, citado en la página: «dark brown and viscous», mezcla bien con estos
+@@ 664a851156 · material_relations.note
+una reseña de cliente en Fraterworks: mezclado con él da aromáticos más secos
+@@ dc060ac03d · material_relations.note
+uso típico según el buscador
+@@ 6fb06c4548 · material_relations.note
+vía buscador: da un fougère moderno
+@@ cdab405c0f · material_relations.note
+vía buscador: da una colonia
+@@ e93d97e574 · material_relations.note
+vía buscador: más verde y ácida que la B; Firmenich hace también una F más barata
+@@ 84e2206947 · material_relations.note
+vía buscador: otro producto, sin rastro de castóreo natural; la versión Synth es más oscura y rica, con fruta seca
+@@ f1415ced31 · material_relations.note
+Wikipedia: el 4-etilfenol es un componente del castóreo natural (también aparece en la absoluta de castóreo según el resumen del buscador)
+@@ 1809605a2c · material_references.note
+Arcadi Boix Camps (1978), citado por TGSC
+@@ 436e42a682 · material_references.note
+entrevista de Givaudan en Fragrantica, vía buscador: posiblemente el primer perfume que lo usó
+@@ 0381c6277d · material_references.note
+Esans (primer uso notable que cita)
+@@ 423f2d3e36 · material_references.note
+Fraterworks (0,05 %)
+@@ e87ff29331 · material_references.note
+Fraterworks (0,17 %)
+@@ 853c5faae9 · material_references.note
+Fraterworks (0,45 %)
+@@ 4667dd0342 · material_references.note
+Fraterworks (0,65 %)
+@@ 4929c95c1a · material_references.note
+Fraterworks (0,8 %)
+@@ bea6d32fb9 · material_references.note
+Fraterworks (0,85 %, forma toda la nota de sándalo)
+@@ 26560452b1 · material_references.note
+Fraterworks (1 %)
+@@ dd6cb44a8f · material_references.note
+Fraterworks (1,4 %)
+@@ d61cde12ff · material_references.note
+Fraterworks (2 % modificando 9,5 % de lyral)
+@@ 80e128495e · material_references.note
+Fraterworks (2 %)
+@@ 0449bbb16a · material_references.note
+Fraterworks (2,2 %)
+@@ 9e8a0bfe0d · material_references.note
+Fraterworks (9,5 %, sobredosis)
+@@ 644e1aeee3 · material_references.note
+Fraterworks (cita un 5,3 % de sobredosis)
+@@ 56897f6792 · material_references.note
+Fraterworks (comparación de dosis, 2 %)
+@@ 74b7b44498 · material_references.note
+Fraterworks (fórmula de demostración enlazada, no declara que contenga este absoluto)
+@@ 58e909d0ae · material_references.note
+Fraterworks (fórmula de demostración enlazada)
+@@ d60672333b · material_references.note
+Fraterworks (reconstrucción propia de la fórmula, con Habanolide al 25 %)
+@@ 9d8e609e45 · material_references.note
+Fraterworks y Perfumiarz (a ≈0.5 %, junto al pachulí)
+@@ eb69d865cf · material_references.note
+Fraterworks, citado por la mezcla con aldehído anísico; no dice que lleve heliotropina
+@@ 26a1cb2974 · material_references.note
+Fraterworks, en la ficha de Cyclosia
+@@ 940cbf0627 · material_references.note
+Fraterworks: la base forma parte de un acorde verde de mango
+@@ c2387b32fb · material_references.note
+Fraterworks: la nota afrutada de salida se atribuye a Dewfruit

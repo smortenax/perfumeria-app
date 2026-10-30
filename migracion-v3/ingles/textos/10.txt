@@ -1,0 +1,342 @@
+@@ 1ffc2cd394 · material_references.note
+Hermitage Oils (vía TGSC): «has a long history of use including in Mitsouko»
+@@ 2e693fd780 · material_references.note
+Olfactorian (fórmula de la comunidad)
+@@ 54bf7379b0 · material_references.note
+Olfastory (haba tonka en general)
+@@ cdc771e0c0 · material_references.note
+Osmetheca / Scentspiracy
+@@ 8ba44dc742 · material_references.note
+parte sustancial de la estructura
+@@ 2fad01ecf8 · material_references.note
+Pell Wall (dice que Jean Carles usa al menos un 4 % en Ma Griffe; la casa no figura en el fragmento)
+@@ 7ed8676c5b · material_references.note
+Pell Wall Perfumes (en la ficha de TGSC): Alessandro Gualtieri lo usó
+@@ f6d31ac298 · material_references.note
+Pell Wall Perfumes (en la ficha de TGSC): Maurice Roucel lo usó a alrededor del 25 %
+@@ b4137b91c9 · material_references.note
+Premiere Peau (la propia casa de la página)
+@@ 06c61d8107 · material_references.note
+ScenTree: bases en las que se usa
+@@ 76233621f1 · material_references.note
+ScenTree: primer uso de la ionona en perfumería
+@@ 80de33dd85 · material_references.note
+ScenTree: primer uso de las ionones en perfumería
+@@ 2098183a53 · material_references.note
+ScenTree: primer uso del hidroxicitronelal, 1912
+@@ 9effb508ed · material_references.note
+ScenTree: primer uso del material
+@@ cdcd97c806 · material_references.note
+Scentspiracy (1988); también lo cita el buscador
+@@ bfb153cd59 · material_references.note
+Scentspiracy (1991); también lo cita el buscador
+@@ aa2b4e36f2 · material_references.note
+Scentspiracy (cita a Sell, 2019): uso en trazas documentado
+@@ 53fd62ded9 · material_references.note
+Scentspiracy (hidroxicitronelal genérico), citado por su papel de posguerra
+@@ d1ad9f9d20 · material_references.note
+Scentspiracy, ≈48 %
+@@ 761cf26d0a · material_references.note
+Scentspiracy, ≈55 %
+@@ 8ac5a6f2b7 · material_references.note
+Scentspiracy, ≈80 %
+@@ fb97ef9319 · material_references.note
+Scentspiracy, 100 %
+@@ 2d45c70b61 · material_references.note
+Scentspiracy, 28–30 %
+@@ 5db59eae6d · material_references.note
+Scentspiracy, al 25 %
+@@ b89d27cf95 · material_references.note
+Scentspiracy: André Fraysse lo añadió hacia 1934 (uso histórico, no referencia declarada); una página de glosario (vía buscador) lo sitúa en la base de Arpège de 1927
+@@ c1b15e2ff0 · material_references.note
+Scentspiracy: ayuda a establecer el contraste melocotón-musgo
+@@ e1cbdc852f · material_references.note
+Scentspiracy: ejemplo histórico de violeta con ionones sintéticas
+@@ c49892cd0a · material_references.note
+Scentspiracy: junto con aceite de gálbano
+@@ 6dd2de18c3 · material_references.note
+Scentspiracy: nota de transición (la fuente no nombra la casa)
+@@ a3d9334178 · material_references.note
+vía buscador (estructura fougère)
+@@ 29f8c9f17d · material_components.source
+Fraterworks, certificado IFRA (galbanum-oil-iran-wild--IFRA51_GALBANUM_OIL_EXTRA_E2870_b5a9edbd-034a-439f-9dfd-709c29d148af.pdf), https://fraterworks.com/products/galbanum-oil-iran-wild, página 2: «4-allylanisole CAS# 140-67-0 (0.010%)» (documento de su lote, no del bote comprado)
+@@ c35efd77e4 · material_components.source
+Fraterworks, certificado IFRA (galbanum-oil-iran-wild--IFRA51_GALBANUM_OIL_EXTRA_E2870_b5a9edbd-034a-439f-9dfd-709c29d148af.pdf), https://fraterworks.com/products/galbanum-oil-iran-wild, página 2: «4-Isopropylbenzaldehyde CAS# 122-03-2 (0.040%)» (documento de su lote, no del bote comprado)
+@@ 7203e89cb1 · material_components.source
+Fraterworks, certificado IFRA (galbanum-oil-iran-wild--IFRA51_GALBANUM_OIL_EXTRA_E2870_b5a9edbd-034a-439f-9dfd-709c29d148af.pdf), https://fraterworks.com/products/galbanum-oil-iran-wild, página 2: «Benzene CAS# 71-43-2 (0.001%)» (documento de su lote, no del bote comprado)
+@@ 52790b6288 · material_components.source
+Fraterworks, certificado IFRA (galbanum-oil-iran-wild--IFRA51_GALBANUM_OIL_EXTRA_E2870_b5a9edbd-034a-439f-9dfd-709c29d148af.pdf), https://fraterworks.com/products/galbanum-oil-iran-wild, página 2: «Cedrene CAS# (0.090%)» (documento de su lote, no del bote comprado)
+@@ f8fdef0a6f · material_components.source
+Fraterworks, certificado IFRA (galbanum-oil-iran-wild--IFRA51_GALBANUM_OIL_EXTRA_E2870_b5a9edbd-034a-439f-9dfd-709c29d148af.pdf), https://fraterworks.com/products/galbanum-oil-iran-wild, página 2: «Methyleugenol CAS# 93-15-2 (0.008%)» (documento de su lote, no del bote comprado)
+@@ a446d4eaa2 · material_components.source
+Fraterworks, certificado IFRA (galbanum-oil-iran-wild--IFRA51_GALBANUM_OIL_EXTRA_E2870_b5a9edbd-034a-439f-9dfd-709c29d148af.pdf), https://fraterworks.com/products/galbanum-oil-iran-wild, página 2: «Toluene CAS# 108-88-3 (0.010%)» (documento de su lote, no del bote comprado)
+@@ e930cd7390 · material_components.source
+Fraterworks, certificado IFRA (veramoss--Veramoss_IFF_IFRA.pdf), https://fraterworks.com/products/veramoss, página 1: «Toluene 108-88-3 0.005» (documento de su lote, no del bote comprado)
+@@ c7afb9a28a · material_components.source
+Fraterworks, declaración de alérgenos (clearwood--Clearwood_Firmenich_Allergens.pdf), https://fraterworks.com/products/clearwood, página 1: «Farnesol - 0.2000% - 0.2000% CAS# 4602-84-0» (documento de su lote, no del bote comprado)
+@@ 37b8949679 · material_components.source
+Fraterworks, declaración de alérgenos (galbanum-oil-iran-wild--All_LE_GALBANUM_OIL_EXTRA_E2870_a4fa432c-21b0-4370-bff2-e205f3737b3c.pdf), https://fraterworks.com/products/galbanum-oil-iran-wild, página 1: «BENZYL BENZOATE – III/85 120-51-4 0.025» (documento de su lote, no del bote comprado)
+@@ d2b924afe6 · material_components.source
+Fraterworks, declaración de alérgenos (galbanum-oil-iran-wild--All_LE_GALBANUM_OIL_EXTRA_E2870_a4fa432c-21b0-4370-bff2-e205f3737b3c.pdf), https://fraterworks.com/products/galbanum-oil-iran-wild, página 1: «BENZYL SALICYLATE – III/75 118-58-1 0.008» (documento de su lote, no del bote comprado)
+@@ 51d667ce14 · material_components.source
+Fraterworks, declaración de alérgenos (galbanum-oil-iran-wild--All_LE_GALBANUM_OIL_EXTRA_E2870_a4fa432c-21b0-4370-bff2-e205f3737b3c.pdf), https://fraterworks.com/products/galbanum-oil-iran-wild, página 1: «LINALOOL – III/84 78-70-6 0.250» (documento de su lote, no del bote comprado)
+@@ 1d647591b8 · material_components.source
+Fraterworks, declaración de alérgenos (galbanum-oil-iran-wild--All_LE_GALBANUM_OIL_EXTRA_E2870_a4fa432c-21b0-4370-bff2-e205f3737b3c.pdf), https://fraterworks.com/products/galbanum-oil-iran-wild, página 2: «ALPHA-TERPINENE – III/131 99-86-5 0.050» (documento de su lote, no del bote comprado)
+@@ 802388f537 · material_components.source
+Fraterworks, declaración de alérgenos (galbanum-oil-iran-wild--All_LE_GALBANUM_OIL_EXTRA_E2870_a4fa432c-21b0-4370-bff2-e205f3737b3c.pdf), https://fraterworks.com/products/galbanum-oil-iran-wild, página 2: «CITRONELLOL – III/86 0.050» (documento de su lote, no del bote comprado)
+@@ b322cfb5db · material_components.source
+Fraterworks, declaración de alérgenos (galbanum-oil-iran-wild--All_LE_GALBANUM_OIL_EXTRA_E2870_a4fa432c-21b0-4370-bff2-e205f3737b3c.pdf), https://fraterworks.com/products/galbanum-oil-iran-wild, página 2: «LIMONENE – III/88 10.000» (documento de su lote, no del bote comprado)
+@@ efedb0a25a · material_components.source
+Fraterworks, declaración de alérgenos (galbanum-oil-iran-wild--All_LE_GALBANUM_OIL_EXTRA_E2870_a4fa432c-21b0-4370-bff2-e205f3737b3c.pdf), https://fraterworks.com/products/galbanum-oil-iran-wild, página 2: «TERPINOLENE – III/133 586-62-9 0.750» (documento de su lote, no del bote comprado)
+@@ a3851ff07d · material_components.source
+Fraterworks, declaración de alérgenos (galbanum-oil-iran-wild--All_LE_GALBANUM_OIL_EXTRA_E2870_a4fa432c-21b0-4370-bff2-e205f3737b3c.pdf), https://fraterworks.com/products/galbanum-oil-iran-wild, página 3: «87-44-5 0.100» (documento de su lote, no del bote comprado)
+@@ e0e5a7cfa9 · material_components.source
+Fraterworks, declaración de alérgenos (galbanum-oil-iran-wild--All_LE_GALBANUM_OIL_EXTRA_E2870_a4fa432c-21b0-4370-bff2-e205f3737b3c.pdf), https://fraterworks.com/products/galbanum-oil-iran-wild, página 3: «CARVONE – III/333 0.027» (documento de su lote, no del bote comprado)
+@@ 6d43f7648e · material_components.source
+Fraterworks, declaración de alérgenos (galbanum-oil-iran-wild--All_LE_GALBANUM_OIL_EXTRA_E2870_a4fa432c-21b0-4370-bff2-e205f3737b3c.pdf), https://fraterworks.com/products/galbanum-oil-iran-wild, página 3: «LINALYL ACETATE – III/337 115-95-7 0.165» (documento de su lote, no del bote comprado)
+@@ 4a3fdcd72b · material_components.source
+Fraterworks, declaración de alérgenos (galbanum-oil-iran-wild--All_LE_GALBANUM_OIL_EXTRA_E2870_a4fa432c-21b0-4370-bff2-e205f3737b3c.pdf), https://fraterworks.com/products/galbanum-oil-iran-wild, página 3: «TERPINEOL – III/343 0.250» (documento de su lote, no del bote comprado)
+@@ 903383266a · material_components.source
+Fraterworks, declaración de alérgenos (galbanum-oil-iran-wild--All_LE_GALBANUM_OIL_EXTRA_E2870_a4fa432c-21b0-4370-bff2-e205f3737b3c.pdf), https://fraterworks.com/products/galbanum-oil-iran-wild, página 5: «PINENE – III/371 74.000» (documento de su lote, no del bote comprado)
+@@ b8052184e7 · material_components.source
+Fraterworks, declaración de alérgenos (opoponax-oil-1--Opoponax_Oil_Payan_Bertrand_Allergens.pdf), https://fraterworks.com/products/opoponax-oil-1, página 1: «BENZYL BENZOATE – III/85 120-51-4 0.060» (documento de su lote, no del bote comprado)
+@@ 3dc3e88eab · material_components.source
+Fraterworks, declaración de alérgenos (opoponax-oil-1--Opoponax_Oil_Payan_Bertrand_Allergens.pdf), https://fraterworks.com/products/opoponax-oil-1, página 1: «CITRAL – III/70 0.035» (documento de su lote, no del bote comprado)
+@@ c37864f096 · material_components.source
+Fraterworks, declaración de alérgenos (opoponax-oil-1--Opoponax_Oil_Payan_Bertrand_Allergens.pdf), https://fraterworks.com/products/opoponax-oil-1, página 1: «GERANIOL – III/78 106-24-1 0.002» (documento de su lote, no del bote comprado)
+@@ 1f4e3d3fee · material_components.source
+Fraterworks, declaración de alérgenos (opoponax-oil-1--Opoponax_Oil_Payan_Bertrand_Allergens.pdf), https://fraterworks.com/products/opoponax-oil-1, página 1: «LINALOOL – III/84 78-70-6 0.007» (documento de su lote, no del bote comprado)
+@@ dc4be62608 · material_components.source
+Fraterworks, declaración de alérgenos (opoponax-oil-1--Opoponax_Oil_Payan_Bertrand_Allergens.pdf), https://fraterworks.com/products/opoponax-oil-1, página 2: «LIMONENE – III/88 0.050» (documento de su lote, no del bote comprado)
+@@ 26bd479169 · material_components.source
+Fraterworks, declaración de alérgenos (opoponax-oil-1--Opoponax_Oil_Payan_Bertrand_Allergens.pdf), https://fraterworks.com/products/opoponax-oil-1, página 3: «CARVONE – III/333 0.015» (documento de su lote, no del bote comprado)
+@@ 0ebc9fe9aa · material_components.source
+Fraterworks, SDS (clearwood--Safety_Data_Sheet_b49f006a-34ab-4e2b-9658-ec4087ba2c3c.pdf), https://fraterworks.com/products/clearwood, página 3: «>= 10.0 < 15.0% Aspiration Hazard - Cat. 1 [H304]» (documento de su lote, no del bote comprado)
+@@ 5cf171ad70 · material_components.source
+Fraterworks, SDS (clearwood--Safety_Data_Sheet_b49f006a-34ab-4e2b-9658-ec4087ba2c3c.pdf), https://fraterworks.com/products/clearwood, página 3: «>= 15.0 < 20.0% Aspiration Hazard - Cat. 1 [H304]» (documento de su lote, no del bote comprado)
+@@ c7ab83edcd · material_components.source
+Fraterworks, SDS (clearwood--Safety_Data_Sheet_b49f006a-34ab-4e2b-9658-ec4087ba2c3c.pdf), https://fraterworks.com/products/clearwood, página 3: «>= 30.0 < 40.0% Environmental Hazard (chronic) - Cat. 2 [H411]» (documento de su lote, no del bote comprado)
+@@ c714c31e3c · material_components.source
+Fraterworks, SDS (clearwood--Safety_Data_Sheet_b49f006a-34ab-4e2b-9658-ec4087ba2c3c.pdf), https://fraterworks.com/products/clearwood, página 3: «>= 5.0 < 7.5% Aspiration Hazard - Cat. 1 [H304]» (documento de su lote, no del bote comprado)
+@@ 6988f721b8 · material_components.source
+laboratorio, materias-primas/_datos/certificados-ifra/auranone-perfumers-apprentice-ifra51-2024-02-23.pdf (commit 7c7fe20), página 2: certificado IFRA 51 de Perfumer's Apprentice, 2024-02-23 («Materials with an IFRA limit»); de otro proveedor, no del bote de Perfumiarz
+@@ 944f8b377d · material_components.source
+web: Fraterworks, https://fraterworks.com/products/galbanum-oil-iran-wild: tabla «What Galbanum is made of» (análisis publicados, no el lote comprado)
+@@ 47230dbfd2 · material_components.source
+web: Fraterworks, https://fraterworks.com/products/myrrh-oil: tabla «What Myrrh gum is made of» (análisis publicados, no el lote comprado)
+@@ c0cdf304e8 · material_components.source
+web: Fraterworks, https://fraterworks.com/products/opoponax-oil-1: tabla «What Opoponax is made of» (análisis publicados, no el lote comprado)
+@@ a4896f5f0c · materials.handling
+Bio Shop Pakistan: Bio Shop: posible sensibilizante; posible fototoxicidad por trazas de furanocumarinas; combustible, punto de inflamación aprox. 50-55 C; guardar fresco y oscuro en vidrio ámbar bien cerrado. Vent des Aromes: guardar lejos de luz, calor y aire; no ingerir; evitar en menores de 6 años, embarazo y lactancia · TGSC: Punto de inflamación 40.00 °C (104 °F TCC)
+@@ 142a51bd0b · materials.handling
+Corrosivo (GHS05, H314: causa quemaduras graves en piel y ojos, según Wikipedia y scent.vn).
+@@ b3f8ae26f9 · materials.handling
+Eden Botanicals: fotosensibilizante, riesgo bajo; si se supera el nivel dérmico máximo, evitar sol y camas solares durante 12 horas; los cítricos prensados en frío tienen más riesgo de fototoxicidad que los destilados al vapor; prueba de parche en piel sensible. Resumen del buscador: la fototoxicidad viene de las furocumarinas (sobre todo bergapteno).
+@@ e59bf278bd · materials.handling
+El producto sin diluir puede irritar piel y ojos; guardar en envases cerrados, lugar fresco y seco, lejos de fuentes de ignición, calor y luz solar; evitar oxidantes fuertes; punto de inflamación 212 F
+@@ 3cacd89019 · materials.handling
+Enfleurage: no ingerir; patch test si hay sospecha de sensibilidad; evitar ojos y mucosas. La tuyona es neurotóxica a concentraciones altas (guía de bienestar, vía buscador).
+@@ 957d6e635a · materials.handling
+Esans: no es un ingrediente alimentario y no debe ingerirse; guantes, protección ocular y ventilación; calentar suavemente a 35–40 °C para disolver. RIFM (vía buscador): sensibilizante cutáneo débil.
+@@ 04a6b1b01b · materials.handling
+Essentialoil.com: puede dar sensibilidad cutánea; diluir antes de aplicar sobre la piel; consultar al médico en embarazo y lactancia. ScenTree: palabra «Danger», H304, H317, H400, H410, H411, EUH208; especie catalogada como amenazada por la UICN.
+@@ 9665fd55f9 · materials.handling
+Flash point 100 C / 212 F; solo uso profesional; no aplicar sin diluir sobre la piel
+@@ f4b34e8a51 · materials.handling
+Fraterworks: «Dose carefully»; solo comercio de perfumería; no aplicar sobre la piel sin diluir; UN 3082.
+@@ cf8e41eaf4 · materials.handling
+Fraterworks: «not to be applied to the skin undiluted»; nicotina < 0,03 % en el grado MD. Resumen del buscador: el grado de perfumería suele estar desnicotinizado (una fuente cita < 800 ppm). Perfumer Supply House, sobre su absoluto de N. rustica: «contains ~9% nicotine, handle with care».
+@@ 8fd10ac49e · materials.handling
+Fraterworks: «not to be applied to the skin undiluted»; solo para uso profesional («trade use only»).
+@@ a5428fa44b · materials.handling
+Fraterworks: Debe usarse con precisión extrema en cantidades mínimas; no aplicar sin diluir sobre la piel; solo para el comercio de perfumería · TGSC: Xi - Irritant; R 10 inflamable, R 38 irrita la piel; GHS: none found; punto de inflamación 52.78 °C (127 °F TCC)
+@@ 6391935bf6 · materials.handling
+Fraterworks: Material cristalino; añadir directamente a la mezcla o predisolver; no aplicar sin diluir sobre la piel; solo uso profesional · TGSC: Punto de inflamación 182.78 °C (361 °F TCC); GHS no leído
+@@ 067ea20f0c · materials.handling
+Fraterworks: no aplicar sin diluir sobre la piel; sin filtrar puede dar partículas o ligero enturbiamiento (macerar, enfriar una noche y filtrar). Scent.vn lo etiqueta como irritante (GHS07).
+@@ ee0fe5adaf · materials.handling
+Fraterworks: no aplicar sin diluir sobre la piel; solo comercio de perfumería. La hoja de seguridad del 94333-88-7 (vía buscador) lo clasifica como sensibilizante cutáneo categoría 1B (H317).
+@@ 7bfe9849f5 · materials.handling
+Fraterworks: no aplicar sin diluir sobre la piel; solo para el comercio de perfumería. Perfumiarz: avisos generales y SDS enlazada.
+@@ af44bebbf6 · materials.handling
+Fraterworks: no aplicar sin diluir sobre la piel; solo para el comercio de perfumería. Scentspiracy: no apto para alimentación.
+@@ 77035d26be · materials.handling
+Fraterworks: no aplicar sin diluir sobre la piel; solo para el comercio.
+@@ ff4294e01a · materials.handling
+Fraterworks: no aplicar sin diluir sobre la piel; UN 2810; sin filtrar puede enturbiar (macerar, enfriar y filtrar). ScenTree: señal «Danger», H315, H317, H319, H350 y H412; alérgeno declarable según el Reglamento (UE) 2023/1545 (umbrales 0,001 % en sin aclarado y 0,01 % con aclarado). Tisserand Institute (vía buscador): el cinamaldehído es irritante y alérgeno potencial.
+@@ dc0a77961b · materials.handling
+Fraterworks: no aplicar sin diluir sobre la piel; uso solo para el comercio de perfumería; macerar los perfumes alcohólicos hasta un mes. Pell Wall: fácil de sobredosificar. Huele metálico, sudoroso y acre puro.
+@@ 13afa3af79 · materials.handling
+Fraterworks: no aplicar sin diluir sobre la piel; uso solo para el comercio. Scentfriends: GHS07, Skin Irrit. 2 (H315) y Skin Sens. 1 (H317); no sobredosificar. Perfumer's Apprentice: «Most odor descriptions come from the manufacturer and are subjective».
+@@ a69fa4123d · materials.handling
+Fraterworks: no aplicar sobre la piel sin diluir; solo comercio de perfumería; UN 3082. Scentspiracy: alérgenos traza farnesol, linalol y limoneno; «Well tolerated at conventional inclusion levels». Un proveedor (vía buscador) cita H315 (irrita la piel).
+@@ cc22c33382 · materials.handling
+Fraterworks: no aplicar sobre la piel sin diluir; solo para el comercio de perfumería. ChemicalBook (fragmento): código de peligro H411 (acuático).
+@@ 2cc3495187 · materials.handling
+Fraterworks: no aplicar sobre la piel sin diluir; UN 3082. Perfumer's Apprentice enlaza SDS y certificado de origen vegetal sin resumirlos. Sin avisos de sensibilización o fototoxicidad en las páginas leídas.
+@@ 2a71c36f4e · materials.handling
+Fraterworks: puede resultar agudo sin diluir; su carácter metálico «requires careful handling in fragrance creation». Vía buscador: indicaciones H319 (irritación ocular grave) y H400 (muy tóxico para la vida acuática).
+@@ 9c89f1c400 · materials.handling
+Fraterworks: sin furocumarinas, presentado como seguro para la piel; solo uso profesional; no aplicar sin diluir sobre la piel. Eden Botanicals: sin peligros conocidos; evitar el aceite oxidado; diluir y probar en parche. El grado FCF no se presenta como fotosensibilizante.
+@@ 9f616f27e0 · materials.handling
+Fraterworks: solo comercio de perfumería; no aplicar sobre la piel sin diluir. Etiquetas de Perfumer Supply House: «sulfur, sulphur».
+@@ 91ca968b0f · materials.handling
+Fraterworks: solo comercio de perfumería; UN 1993. Legal (Premiere Peau): CITES lo clasifica como excreción y no lo regula; EE. UU. prohíbe poseerlo y comerciarlo (Ley de Especies en Peligro de 1973); Australia lo restringe; en la UE y el Reino Unido la recolección y venta son legales.
+@@ 11eda62ace · materials.handling
+Fraterworks: solo para el comercio de perfumería; no aplicar sin diluir sobre la piel.
+@@ 628610156d · materials.handling
+Fraterworks: solo para el comercio de perfumería; no aplicar sin diluir sobre la piel. Si se hace en alcohol, macerar hasta un mes y enfriar antes de filtrar para eliminar la turbidez, porque el proveedor no lo filtra. Perfumer's Apprentice: sin avisos de peligro en la página; SDS enlazada. Resumen del buscador: fácilmente biodegradable (scent.vn: hasta 97 %; Scentfriends).
+@@ 35e16cbfd4 · materials.handling
+Fraterworks: solo para el comercio, no aplicar sin diluir en piel. Scentspiracy: sensibilización mínima, prudencia en productos de contacto con la piel a dosis altas.
+@@ 25ab8843f4 · materials.handling
+Fraterworks: solo para uso profesional de perfumería, UN 1993. ScenTree (genérico): D-limonene como alérgeno; «Danger»; H226, H302, H304, H315, H317, H319, H410.
+@@ 51e051d04c · materials.handling
+Fraterworks: solo uso profesional; no aplicar sin diluir sobre la piel.
+@@ f48fe07b15 · materials.handling
+Fraterworks: usar con extrema contención; no aplicar sin diluir sobre la piel; solo para el comercio. Scentspiracy: conviene ensayar en la formulación por la complejidad de los estereoisómeros; no está entre los 26 alérgenos declarables de la UE.
+@@ 5b8320d6ff · materials.handling
+Fraterworks: uso profesional, no aplicar sin diluir; para perfume alcohólico, macerar hasta un mes, enfriar una noche y filtrar (el material no se filtra, puede dar turbidez).
+@@ b5e838648d · materials.handling
+Fraterworks: uso profesional; «not to be applied to the skin undiluted». dsm-firmenich: certificado kosher y halal; «Eco Ingredient Compass»: parcialmente biodegradable.
+@@ 0f3d5c3b45 · materials.handling
+Fraterworks: uso profesional; «not to be applied to the skin undiluted». ScenTree: palabra de aviso «Warning»; H315 (irrita la piel) y H412 (nocivo para organismos acuáticos con efectos duraderos); no contiene alérgenos listados. Scentspiracy: «Generally not classified as hazardous» y remite a la SDS.
+@@ 1caa5df150 · materials.handling
+Fraterworks: uso profesional; «not to be applied to the skin undiluted». ScenTree: palabra de aviso «Warning»; H317 (puede provocar reacción alérgica cutánea); P261, P272, P280, P302+P352, P333+P313, P363. ScenTree: sintetizado a partir de beta-pineno o de aldehído cumínico; no se encuentra en la naturaleza; descubierto en 1939; en la colección Beyond Muguet de Firmenich desde 2018.
+@@ 79467c5eae · materials.handling
+Fraterworks: venta solo para el comercio; no aplicar sobre la piel sin diluir.
+@@ f369caf412 · materials.handling
+Fraterworks: venta solo para uso profesional («trade use only»); «not to be applied to the skin undiluted». Número UN 3082 (Fraterworks). Givaudan: ecotoxicidad «Toxic», no biodegradable.
+@@ d48489e6cd · materials.handling
+Hekserij: «DANGER»; H315, H317, H318 (daño ocular grave) y H411; alérgenos citronelol, geraniol, limoneno y linalol; UN 3082. Fraterworks: solo comercio de perfumería; no aplicar sobre la piel sin diluir.
+@@ 5d4265cf32 · materials.handling
+Hekserij: «Keep cool, dry, dark and out of the reach of children»; «Do not use undiluted on the skin»; no para alimentos, vapeo ni uso interno.
+@@ 2275e3eb72 · materials.handling
+Hekserij: el uso sin diluir normalmente no da problemas. Fraterworks: sus productos no deben aplicarse sobre la piel sin diluir. ScenTree: sin palabra de advertencia ni peligros indicados.
+@@ 91966e0c77 · materials.handling
+Hekserij: guardar fresco, seco y oscuro; no usar sin diluir en la piel; H319 (irritación ocular grave). Scent.vn: guardar seco, lejos de luz y aire; evitar recipientes o herramientas de hierro
+@@ c86733c7b7 · materials.handling
+Hekserij: no usar sin diluir sobre la piel; no apto para alimentos, líquidos de vapeo ni uso interno; H317 (puede provocar reacción alérgica cutánea); guardar lejos de niños. Scentspiracy: H317 y H411 (tóxico para organismos acuáticos con efectos duraderos); combustible pero no muy inflamable.
+@@ 93feb564c3 · materials.handling
+Hermitage Oils: no se envía a Australia ni a América.
+@@ 0265306074 · materials.handling
+La tuyona es la preocupación principal de toxicidad (resumen del buscador). Essential Oils Pedia: «Not for internal use — toxic in even small oral doses», contraindicado en embarazo, lactancia y niños; no fototóxico.
+@@ 88b8b784ff · materials.handling
+Maese Lab: Evitar ojos y mucosas; no ingerir; no usar en embarazo ni lactancia; evitar en asma, hipertensión, enfermedad renal, trastornos neurológicos o coronarios; no aplicar a menores de 3 años; guardar bien cerrado, fresco y sin luz directa. Robertet: punto de inflamación 73 C · TGSC: GHS: none found; toxicidad oral, dérmica e inhalatoria no determinada
+@@ c550a207a5 · materials.handling
+Maese Lab: no aplicar directamente sobre la piel, evitar ojos y mucosas, no usar en embarazo o lactancia, mantener lejos de niños; conservar en lugar fresco, sin luz directa y con el envase cerrado.
+@@ 92634c758b · materials.handling
+Maese Lab: no apto para uso interno ni cosmética; no aplicar en ojos ni mucosas; evitar el sol tras aplicar en piel.
+@@ 39ba05592f · materials.handling
+May cause an allergic skin reaction. Toxic to aquatic life with long lasting effects; evitar vapores y niebla, guantes; solo uso de perfumista; no ingerir
+@@ f48dc78fd0 · materials.handling
+Muchas personas son anósmicas al ambrettolide (no lo huelen).
+@@ 246949ae53 · materials.handling
+No aplicar sin diluir sobre la piel; solo para el comercio de perfumería
+@@ 0decc014cc · materials.handling
+No hay avisos de manejo en el texto.
+@@ ba000c7ced · materials.handling
+No hay avisos en el texto.
+@@ 52027d34a5 · materials.handling
+No para uso interno ni alimentario; evitar ojos y mucosas; no usar en piel sensible, embarazo ni lactancia; no aplicar a menores de 3 años; no exponer la piel al sol justo después; guardar en lugar fresco sin luz directa
+@@ 0594a7b63c · materials.handling
+Not suitable for internal use; evitar ojos y mucosas; guardar en lugar fresco, lejos de la luz directa y bien cerrado; no exponer al sol justo tras aplicación tópica
+@@ 21f3173783 · materials.handling
+Perfumer Supply House: «NON HAZARDOUS VIA AIR». Anthea: guardar en lugar fresco y ventilado, envase bien cerrado, lejos de fuentes de ignición.
+@@ 792fd315c5 · materials.handling
+Perfumer's Apprentice: «May Limit International Shipping».
+@@ df1e169ba2 · materials.handling
+Perfumer's Apprentice: enlaza una SDS y avisa de que el envío internacional puede estar limitado.
+@@ 5f4d741c04 · materials.handling
+Perfumer's Apprentice: líquido grueso a temperatura ambiente; se aconseja calentar el frasco con la tapa floja al baño maría o en placa para licuarlo. Resumen del buscador (un proveedor): clasificado como Aquatic Acute 1 y Aquatic Chronic 1; otra página menciona una propuesta francesa (ANSES) de clasificarlo como reprotóxico 1B, sin verificar.
+@@ 17c78c19c1 · materials.handling
+Perfumer's Apprentice: material peligroso para el transporte (no admitido por USPS). Hay fichas SDS e IFRA enlazadas en las tiendas, pero su contenido no se ha podido leer.
+@@ cb1a678422 · materials.handling
+Perfumer's World: material muy potente, usarlo diluido.
+@@ 9bd9c1c3f6 · materials.handling
+Perfumiarz: dilución antes de usar imprescindible; sin otros avisos propios, remite a SDS. Scentspiracy: usar concentraciones bajas por riesgo de sensibilización a dosis altas.
+@@ 97d664453e · materials.handling
+Puro es áspero, picante y algo «rancio» (sebo/vela quemada); se aprecia diluido por debajo del 1 %. Se oxida al aire a ácido decanoico: frasco lleno y cerrado.
+@@ 297dbb2609 · materials.handling
+Rae Dunphy: evitar si hay alergia conocida al cacao o al chocolate.
+@@ ffd4e572cc · materials.handling
+Resumen del buscador: el aceite de mandarina prensado en frío es fototóxico por las furocumarinas; IFRA limita su uso en productos sin aclarado salvo que sea FCF. PerfumersWorld: sin datos de seguridad (SDS a petición).
+@@ c9cc0883a1 · materials.handling
+scent.vn y el resumen de las fuentes: clasificado como corrosivo, de toxicidad aguda (oral y dérmica) y peligroso para el medio ambiente; otra fuente lo describe como muy tóxico por inhalación, ingestión o absorción cutánea y corrosivo para los tejidos. RIFM: sin genotoxicidad esperada; NOAEL de dosis repetidas 33 mg/kg/día.
+@@ 5eaf2a33f9 · materials.handling
+Scentfriends: «Danger»; H315, H317, H318 («Causes serious eye damage»), H361 y H411; pictogramas GHS05, GHS07, GHS08 y GHS09.
+@@ a6a461b2d1 · materials.handling
+Scentfriends: clasificado Skin Irrit. 2 (H315) y Eye Irrit. 2 (H319); usar guantes y protección ocular, lavarse las manos, guardar fresco y en recipiente bien cerrado con su propia pipeta; la sobredosis huele a moho.
+@@ 36b879ec1a · materials.handling
+Scentfriends: GHS Warning, H317 (puede causar reacción alérgica cutánea) y H412 (nocivo para la vida acuática, efectos duraderos). Viscoso: conviene diluirlo al 10 % para pesarlo.
+@@ ec74f4d282 · materials.handling
+Scentfriends: pictograma GHS07, H315 (irrita la piel) y H319 (irrita gravemente los ojos); usar pipeta dedicada. Perfumers World: usar al 1 % o menos.
+@@ 5efe2df557 · materials.handling
+ScenTree: «Warning», H412 (nocivo para los organismos acuáticos con efectos duraderos), P273. Scentspiracy: irritante ocular categoría 2; DL50 oral (rata) 2490 mg/kg.
+@@ b98794ddfa · materials.handling
+ScenTree: «Warning»; H315 (irrita la piel), H317 (puede provocar reacción alérgica cutánea), H411 (tóxico para organismos acuáticos con efectos duraderos). Fraterworks y Tilley (fragmento): bloque de construcción de perfumería, no aplicar sobre la piel sin diluir.
+@@ b41fd14a09 · materials.handling
+ScenTree: «Warning»; H317 (puede provocar reacción alérgica en la piel), H412; «Oak Moss Absolute is an allergenic ingredient alone». Fraterworks: no aplicar sin diluir sobre la piel; solo uso profesional. Buscador: el atranol y el cloroatranol son alérgenos de contacto formados en la fabricación; un estudio da niveles típicos sin tratar de 2,4–2,9 % de atranol y 0,9–1,4 % de cloroatranol.
+@@ 75e7177a0b · materials.handling
+ScenTree: advertencia H302 (nocivo por ingestión); sin alérgenos declarados. Fraterworks: solo para el comercio; no aplicar sin diluir sobre la piel; el material sin filtrar puede mostrar partículas o enturbiamiento (macerar, enfriar una noche y filtrar).
+@@ b1399c792b · materials.handling
+ScenTree: alérgeno (alcohol cinamílico y cinamatos); «Warning», H317 (puede provocar reacción alérgica cutánea). Scentspiracy: no clasificado como peligroso por ECHA, «skin sensitization possible in high concentrations».
+@@ 94b4b7d1a3 · materials.handling
+ScenTree: alérgenos alcohol cinamílico, cinamaldehído y benzoato de cinamilo; «Warning», H317 (puede provocar reacción alérgica cutánea). Scentspiracy (Vulcain): puede causar sensibilización cutánea. Fraterworks: no aplicar sobre la piel sin diluir; solo comercio de perfumería.
+@@ 344e400cbd · materials.handling
+ScenTree: clasificación «Danger»; frases H226, H304, H315, H317 y H410. Alérgeno de declaración en la UE (Reglamento 2023/1545): obligatorio por encima de 0,001 % en productos sin aclarado y 0,01 % con aclarado. Fraterworks lo vende como «Non-phototoxic citrus» sin más aviso. Fichas de tiendas de aromaterapia (vía buscador) discrepan sobre la fotosensibilidad (véase disagreements).
+@@ ce7d43fadc · materials.handling
+ScenTree: H315, H317 y H318 (irritante cutáneo, sensibilizante, daño ocular grave), señal «Danger». Scentspiracy: posible irritación dérmica a altas concentraciones; las formas oxidadas son más alergénicas; es uno de los 26 alérgenos que la UE obliga a declarar.
+@@ 40a77fe7bf · materials.handling
+ScenTree: palabra «Danger»; H304, H315, H317, H412; alérgeno según el Reglamento UE 2023/1545.
+@@ 6af0892bf7 · materials.handling
+ScenTree: palabra de advertencia «Warning», H315 (provoca irritación cutánea); alérgenos: ninguno reportado. Scentspiracy: líquido a temperatura ambiente, se incorpora sin calentar ni preparación especial.
+@@ d4825e78ea · materials.handling
+ScenTree: palabra de advertencia «Warning»; H302 (nocivo por ingestión); P264, P270, P301+P312, P330, P501; alérgenos: ninguno. Perfumiarz: enlaza SDS, IFRA y alérgenos UE y aporta solo la guía general de la tienda (ventilación, evitar contacto con piel y ojos con materiales concentrados, probar diluido). PerfumersWorld: SDS bajo petición.
+@@ b083d95fdb · materials.handling
+ScenTree: palabra de advertencia «Warning»; H315, H317 (reacción alérgica cutánea) y H410 (muy tóxico para la vida acuática); P261, P273, P280, P333+P313, P391, P501; alérgeno declarable según el Reglamento (UE) 2023/1545 (de 26-08-2023): por encima de 0,001 % en productos sin aclarado y 0,01 % con aclarado. Scentspiracy: no es alérgeno declarable en 1223/2009, registrado REACH, «Not classified as hazardous» (ECHA), no fototóxico, no sensibilizante. Perfumers Apprentice: enlaza SDS y avisa de un posible límite al envío internacional por riesgo ambiental.
+@@ 7b04a9168b · materials.handling
+ScenTree: palabra de advertencia «Warning»; H315, H319, H335 (irritación de piel, ojos y vías respiratorias); alérgenos: ninguno; «Heliotropin is stored in lockers, as it is a precursor for the synthesis of MDA». Fraterworks: no aplicar sin diluir sobre la piel; solo para el sector perfumero. Premierepeau y Darren Alan (vía buscador): el piperonal está en la lista I de la DEA por poderse usar en la síntesis de MDMA, por eso se vende diluido. Opinión preliminar del SCCS de la UE (abril de 2026, vía buscador): segura en perfumería fina para adultos hasta el 1,8 %, con preocupaciones CMR aún en consulta.
+@@ 4d81f47a01 · materials.handling
+ScenTree: palabra de advertencia «Warning»; H317 (puede provocar una reacción alérgica cutánea) y H411 (tóxico para la vida acuática con efectos duraderos); «This ingredient does not contain any allergen». Scentspiracy: Skin Sens. 1 (H317), Repr. 2 (H361f), Aquatic Chronic 2 (H411); sin instrucciones de manejo; transporte no peligroso (ADR/IATA) hasta 1 L.
+@@ 66571e2406 · materials.handling
+ScenTree: palabra de advertencia «Warning»; H317 y H319; marcado también como uno de los 26 alérgenos de perfumería (ver discrepancias). Scentspiracy: alérgeno de la lista del Reglamento UE 1223/2009, sensibilizante débil según RIFM; almacenar cuidando oxidación y polimerización. Fraterworks: no aplicar sin diluir sobre la piel; solo para el sector perfumero; sugiere macerar el perfume alcohólico terminado hasta un mes y luego enfriar y filtrar.
+@@ 6ebe445e63 · materials.handling
+ScenTree: palabra de advertencia «Warning»; H411 (tóxico para la vida acuática con efectos duraderos), P273, P391, P501; alérgenos: ninguno.
+@@ 788060bd77 · materials.handling
+ScenTree: palabra de advertencia «Warning»; H412 (nocivo para la vida acuática con efectos duraderos), P273, P501; alérgenos: ninguno. Perfumers Apprentice enlaza SDS e IFRA 51 sin resumirlos. Un proveedor y una base química (vía buscador) discrepan en la clasificación de sensibilización (ver discrepancias).
+@@ cddf7aebb7 · materials.handling
+ScenTree: palabra de advertencia «Warning»; muy inflamable, nocivo por ingestión, irritante de piel y ojos, posible alergia cutánea, irritante respiratorio, tóxico para organismos acuáticos; conservar en lugar fresco y ventilado con el envase bien cerrado.
+@@ 9d93d7ccc3 · materials.handling
+ScenTree: palabra de aviso «Warning»; H302 (nocivo por ingestión), H315 (irrita la piel), H317 (puede provocar reacción alérgica cutánea), H319 (irritación ocular grave), H411 (tóxico para organismos acuáticos con efectos duraderos); no contiene alérgenos listados. Un fragmento del buscador sobre una SDS antigua de Vigon señala toxicidad en órganos por exposición repetida (NOEL en rata 15 mg/kg); no se abrió.
+@@ efedd42458 · materials.handling
+ScenTree: palabra de aviso «Warning»; H315 (irrita la piel), H319 (irritación ocular grave); consejos P302+P352, P305+P351+P338, P332+P313, P362. Scentspiracy lista H317 (puede provocar reacción alérgica cutánea). ScenTree: usar solo con el nivel de (hidro)peróxidos lo más bajo posible; añadir 0,1 % de BHT o alfa-tocoferol se cita como eficaz. ScenTree: es uno de los 26 alérgenos de perfumería.
+@@ f91547a6ba · materials.handling
+ScenTree: palabra de aviso «Warning»; H317 (puede provocar reacción alérgica cutánea); P261, P272, P280, P302, P333, P363, P501. Scentspiracy: consultar la SDS y el certificado IFRA; umbral de declaración de alérgeno en la UE (Anexo III) de 0,001 % en productos sin aclarado y 0,01 % con aclarado.
+@@ b437e059a9 · materials.handling
+ScenTree: señal «Danger», H304 (puede ser mortal por aspiración), H314 (quemaduras graves en piel y ojos), H317 y H411; sin alérgenos declarables.
+@@ 83131d791c · materials.handling
+Scentspiracy: «Careful dosage is essential due to its tenacious character»; un comprador avisa de que es muy fácil pasarse.
+@@ b737564b05 · materials.handling
+Scentspiracy: algo irritante para la piel y potencialmente sensibilizante; recomienda prueba de parche en productos sin aclarado; contraindicación tradicional en embarazo a dosis dietéticas altas. Fraterworks: no aplicar sobre la piel sin diluir; solo comercio de perfumería. Restricción por tuyona (neurotóxica según las fuentes).
+@@ 6a70236869 · materials.handling
+Scentspiracy: clasificación GHS de sensibilizante cutáneo (categoría 1); usar equipo de protección durante la formulación.
+@@ c2e9cf578f · materials.handling
+Scentspiracy: conservar a 2–8 °C, bien cerrado, protegido de luz y aire; H317 (sensibilización cutánea) y H411 (toxicidad acuática); evitar piel dañada o inflamada. Fragmento: alérgeno reconocido, componente de la «fragrance mix» y obligatorio de nombrar en cosméticos de la UE.
+@@ 0b866afe34 · materials.handling
+Scentspiracy: conservar fresco, oscuro y bien cerrado; EPI con concentrados. ScenTree: «Warning»; guantes de protección y evitar el vertido al medio ambiente.
+@@ 17dd092c0a · materials.handling
+Scentspiracy: ECHA lo clasifica como irritante y posible sensibilizante cutáneo; dosificar con prudencia en productos de contacto con la piel. El benzaldehído natural de almendra amarga procede de amigdalina, que libera cianuro de hidrógeno (resumen de buscador).
+@@ ded6b7ea1e · materials.handling
+Scentspiracy: envases cerrados y frescos para evitar oxidación y malos olores; EPI y ventilación con material concentrado.
+@@ a50e0b9871 · materials.handling
+Scentspiracy: la alta intensidad exige diluir bien; punto de inflamación de 120 °C, precauciones moderadas de inflamabilidad.
+@@ 38b0adc703 · materials.handling
+Scentspiracy: líquido combustible; irritante cutáneo cat. 2, sensibilizante cutáneo cat. 1, tóxico acuático crónico cat. 3; EPI con el material puro y zona ventilada. ScenTree: «Warning», H411, P273/P391/P501.
+@@ ed317121ee · materials.handling
+Scentspiracy: líquido inflamable categoría 3 (H226); usar con protocolos de seguridad adecuados. Perfumer's Apprentice: mercancía peligrosa para el transporte, con recargos de envío y sin USPS.
+@@ d98d48bda6 · materials.handling
+Scentspiracy: moderadamente tóxico por ingestión en forma concentrada; irritante cutáneo; evitar contacto directo sin diluir; ventilar; el linalol es alérgeno UE declarable (0,001 % sin aclarado, 0,01 % con aclarado). Eden Botanicals: «No known safety concerns» (Tisserand y Young, 2014); prueba de parche en piel sensible.
+@@ 173ec4bbe5 · materials.handling
+Scentspiracy: posible sensibilización cutánea, sobre todo en personas sensibles a materiales balsámicos o fenólicos; «Not classified as phototoxic»; alérgenos naturales: alcohol cinámico, eugenol, alcohol bencílico. ScenTree: «Danger»; H226, H304, H315, H317, H411; alérgenos D-limoneno y eugenol.
+@@ e9d85425aa · materials.handling
+Scentspiracy: seguir BPF, usar EPI con el material concentrado, guardar en envases cerrados lejos del calor y de oxidantes; baja irritación cutánea, no sensibilizante a las concentraciones de uso, sin fototoxicidad conocida, no clasificado como peligroso según CLP, sin aviso específico de oximas.
