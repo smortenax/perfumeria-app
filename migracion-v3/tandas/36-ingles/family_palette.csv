@@ -1,0 +1,11 @@
+family,order,name,short,colour_name,light,dark,covers,source
+citrus,1,Citrus,Citrus,yellow,#c3b503,#a19500,citrus,"lab, piece 11 (P48), in the v2: datos/fuente/pieza-11-paleta.csv (commit c877be8)"
+green,2,Green,Green,mint green,#43cd99,#4aa781,"green, herbal, aromatic, camphoraceous, minty","lab, piece 11 (P48), in the v2: datos/fuente/pieza-11-paleta.csv (commit c877be8)"
+ozonic,3,Ozonic,Ozonic,sky blue,#2db9f3,#237da9,"ozonic, marine, aquatic, aldehydic, clean, metallic","lab, piece 11 (P48), in the v2: datos/fuente/pieza-11-paleta.csv (commit c877be8)"
+floral,4,Floral,Floral,mauve pink,#c475aa,#975482,"floral, honey, powdery","lab, piece 11 (P48), in the v2: datos/fuente/pieza-11-paleta.csv (commit c877be8)"
+fruity,5,Fruity,Fruity,violet,#896ffb,#915fd8,fruity,"lab, piece 11 (P48), in the v2: datos/fuente/pieza-11-paleta.csv (commit c877be8); what goes in, changed by V3-76 (the user, 2026-10-24: «Families: Ten families (Gourmand)»)"
+spicy,6,Spicy,Spicy,orange,#d86f0d,#bb704e,"spicy, anisic","lab, piece 11 (P48), in the v2: datos/fuente/pieza-11-paleta.csv (commit c877be8); what goes in, changed by V3-76 (the user, 2026-10-24: «Families: Ten families (Gourmand)»)"
+woody,7,Woody,Woody,brown,#923002,#944e00,"woods, earthy, smoky, tobacco","lab, piece 11 (P48), in the v2: datos/fuente/pieza-11-paleta.csv (commit c877be8)"
+animal,8,Animal,Animal,red,#d22c50,#ca224a,"animalic, musk, leather, amber","lab, piece 11 (P48), in the v2: datos/fuente/pieza-11-paleta.csv (commit c877be8); what goes in, changed by V3-76 (the user, 2026-10-24: «Families: Ten families (Gourmand)»)"
+transformed,9,Transformed,Transf,grey,#8a8a8a,#8a8a8a,"roasted (pyrazines), acidic, sulphurous: smells of heat, fermentation or cutting","lab, piece 11 (P48), in the v2: datos/fuente/pieza-11-paleta.csv (commit c877be8)"
+gourmand,10,Gourmand,Gourmand,caramel,#d4a373,#b8875a,"vanilla, caramel, balsamic, creamy, sugary","V3-76 (the user, 2026-10-24: «Families: Ten families (Gourmand)»); the colour, from the redesign mock-up (designVault, 00-inbox/research/kit/revamp-prototype.html, option A)"
