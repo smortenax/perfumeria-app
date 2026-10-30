@@ -6,6 +6,7 @@ import { texts } from "../i18n/en";
 import { FailureNote } from "../FailureNote";
 import "../dilution/dilutions.css";
 import { EmptyState } from "../EmptyState";
+import { Button } from "../Button";
 
 const t = texts.shopping;
 
@@ -82,12 +83,12 @@ export function ShoppingList({ data, local, onOpenMaterial }: { data: GlossaryDa
       <div className="title-bar">
         <h2 className="page-title">{t.title}</h2>
         <span className="buttons">
-          <button type="button" className="secondary" disabled={items.length === 0} onClick={copy}>
+          <Button variant="secondary" disabled={items.length === 0} onClick={copy}>
             {t.copy}
-          </button>
-          <button type="button" className="secondary" disabled={items.length === 0} onClick={download}>
+          </Button>
+          <Button variant="secondary" disabled={items.length === 0} onClick={download}>
             {t.download}
-          </button>
+          </Button>
         </span>
       </div>
       <p className="hint">{t.hint}</p>
@@ -110,12 +111,12 @@ export function ShoppingList({ data, local, onOpenMaterial }: { data: GlossaryDa
                 {[i.product, i.shop, i.note, i.formulaId ? t.forFormula(formulaNames.get(i.formulaId) ?? "—") : null].filter((x) => x).join(" · ")}
               </span>
               <span className="actions">
-                <button type="button" onClick={() => void haveItNow(local.db, local.userId, i.id).then((id) => setMessage(t.haveNow(name(i.materialId), id === i.materialId)), fail)}>
+                <Button variant="primary" onClick={() => void haveItNow(local.db, local.userId, i.id).then((id) => setMessage(t.haveNow(name(i.materialId), id === i.materialId)), fail)}>
                   {t.haveIt}
-                </button>
-                <button type="button" className="secondary" onClick={() => void removeFromShopping(local.db, local.userId, i.id).catch(fail)}>
+                </Button>
+                <Button variant="secondary" onClick={() => void removeFromShopping(local.db, local.userId, i.id).catch(fail)}>
                   {t.remove}
-                </button>
+                </Button>
               </span>
             </li>
           ))}
@@ -168,9 +169,9 @@ export function ShoppingList({ data, local, onOpenMaterial }: { data: GlossaryDa
           <input value={note} onChange={(e) => setNote(e.target.value)} />
         </label>
         <div className="actions">
-          <button type="button" disabled={!materialId} onClick={add}>
+          <Button variant="primary" disabled={!materialId} onClick={add}>
             {t.add}
-          </button>
+          </Button>
         </div>
       </fieldset>
       <FailureNote message={failure} onClose={() => setFailure(null)} floating />

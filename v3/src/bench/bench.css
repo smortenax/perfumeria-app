@@ -2575,19 +2575,10 @@
     gap: 8px;
   }
 
-  .modal-actions button {
+  /* Its look is the app's (theme/buttons.css, audit F-11 L2); only its size is the dialog's. */
+  .modal-actions .btn {
+    min-height: 34px;
     height: 34px;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    background: var(--panel);
-    padding: 0 14px;
-  }
-
-  .modal-actions .primary {
-    background: var(--ink);
-    border-color: var(--ink);
-    color: #ffffff;
-    font-weight: 500;
   }
 
   /* What limits the formula, on one line: a long IFRA name is cut, and says itself on hover. */

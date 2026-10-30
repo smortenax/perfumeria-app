@@ -6,6 +6,7 @@ import { formatGrams, formatPercent } from "../core/display";
 import { readReweigh, type Reweigh, type ReweighMode } from "./reweigh";
 import { maxUseWarning, recipe } from "./use-formula";
 import { texts } from "./texts";
+import { Button } from "../Button";
 
 const t = texts.dialogs;
 
@@ -15,6 +16,8 @@ function Modal(props: {
   error: string | null;
   onCancel: () => void;
   onAccept: () => void;
+  /** What it accepts deletes: the button says so (audit F-11). */
+  danger?: boolean;
 }) {
   // A dialog (audit F-13): focus goes in, to its first field, stays in with Tab, and goes back to
   // what opened it when it closes.
@@ -67,12 +70,12 @@ function Modal(props: {
         {props.children}
         {props.error && <p className="error">{props.error}</p>}
         <div className="modal-actions">
-          <button type="button" onClick={props.onCancel}>
+          <Button variant="secondary" onClick={props.onCancel}>
             {t.cancel}
-          </button>
-          <button type="submit" className="primary">
+          </Button>
+          <Button type="submit" variant={props.danger ? "danger" : "primary"}>
             {t.accept}
-          </button>
+          </Button>
         </div>
       </form>
     </div>
@@ -119,10 +122,11 @@ export function PromptDialog(props: {
 }
 
 /** Asking before something that cannot be undone (deleting a formula). */
-export function ConfirmDialog(props: { title: string; text: string; onConfirm: () => void; onClose: () => void }) {
+export function ConfirmDialog(props: { title: string; text: string; danger?: boolean; onConfirm: () => void; onClose: () => void }) {
   return (
     <Modal
       title={props.title}
+      danger={props.danger}
       error={null}
       onCancel={props.onClose}
       onAccept={() => {

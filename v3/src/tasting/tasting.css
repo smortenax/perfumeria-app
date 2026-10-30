@@ -9,7 +9,7 @@
   color: var(--muted);
 }
 
-.tasting button:not(.link):not(.chip):not(.strip-card):not(.curve-cell):not(.tab):not(.tasting-notice):not(.primary) {
+.tasting button:not(.btn):not(.link):not(.chip):not(.strip-card):not(.curve-cell):not(.tab):not(.tasting-notice):not(.primary) {
   background: var(--panel);
   color: var(--text);
   border: 1px solid var(--line-strong);
@@ -434,7 +434,7 @@
   padding: 0.25rem 0;
 }
 
-/* Deleting the session sits apart from ending it, in outline (audit F-11; errors and danger use ink). */
+/* Deleting the session sits apart from ending it, as the danger button (audit F-11 L2, theme/buttons.css). */
 button.delete-session {
   margin-inline-start: auto;
 }

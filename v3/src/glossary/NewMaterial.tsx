@@ -4,6 +4,7 @@ import type { LocalDatabase } from "../db/local/database";
 import { createMaterial } from "../db/materials";
 import { texts } from "../i18n/en";
 import { CREATABLE_KINDS } from "./edit";
+import { Button } from "../Button";
 
 /**
  * A new material of yours (plan v3, step 6.3): a name and a kind, of any kind but a frozen formula.
@@ -48,7 +49,7 @@ export function NewMaterial({ local, onCreated, onCancel }: { local: LocalDataba
             ))}
           </select>
         </label>
-        <button type="submit">{t.create}</button>
+        <Button variant="primary" type="submit">{t.create}</Button>
         {error && <p className="error">{error}</p>}
       </form>
     </article>

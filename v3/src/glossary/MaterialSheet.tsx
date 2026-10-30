@@ -3,6 +3,7 @@ import { texts } from "../i18n/en";
 import { SheetHero } from "./SheetHero";
 import { type SheetLine, type SheetValue, sheetOf } from "./sheet";
 import type { GlossaryData } from "./useGlossary";
+import { Button } from "../Button";
 
 /**
  * A material's sheet as a plain data sheet (plan v3, step 6.2; V3-47): its sections, each with
@@ -85,19 +86,19 @@ export function MaterialSheet({
               <>
                 {sheet.own ? (
                   <>
-                    <button type="button" onClick={onEdit}>
+                    <Button variant="primary" onClick={onEdit}>
                       {texts.editor.edit}
-                    </button>
+                    </Button>
                     {onCopySpec && material!.kind !== "frozen" && (
-                      <button type="button" className="secondary" title={texts.editor.copySpecHint} onClick={onCopySpec}>
+                      <Button variant="secondary" title={texts.editor.copySpecHint} onClick={onCopySpec}>
                         {texts.editor.copySpec}
-                      </button>
+                      </Button>
                     )}
                   </>
                 ) : (
-                  <button type="button" onClick={onMakeVersion}>
+                  <Button variant="primary" onClick={onMakeVersion}>
                     {texts.editor.makeVersion}
-                  </button>
+                  </Button>
                 )}
                 <button type="button" className="pill" aria-pressed={data.catalog.have.has(id)} onClick={() => onHave(!data.catalog.have.has(id))}>
                   {texts.glossary.haveToggle}
