@@ -1658,6 +1658,19 @@ La revisión: `/mnt/project-files/auditoria-ficha/2026-10-29-ficha-material.md` 
 - **Propuesta de la sesión: la confianza.** Es la menor de las dos coberturas (cuánta masa aromática tiene familia y cuánta tiene nota): alta desde el 90 %, media desde el 60 %, baja por debajo. «Baja» va en ámbar; ninguna va en verde. Una nota «manda» solo si pesa más que cada una de las otras y las notas se conocen para al menos la mitad de la masa.
 - **No cierra la puerta** a un texto en prosa más adelante: podría escribirse sobre este mismo resumen.
 
+## V3-90 · F5, el deslizador de evaporación, con las horas en tira (decidida por el usuario el 2026-10-31)
+
+**Literal** (2026-10-31, en la pregunta «F5, el deslizador de evaporación: la evolución por tramos está vacía en los 160 materiales comunes. ¿Con qué dato lo hago?», entre «Horas en tira», «Solo por notas» y «Esperar a la evolución»):
+
+> Horas en tira (Recommended)
+
+**Lectura** (de la sesión, para que la confirmes):
+
+- **El dato es `tenacity_hours`** (V3-42: horas en tira, material puro, escala TGSC), el de tu versión o, si no lo tiene, el del común en que se basa; hoy lo tienen 103 de los 160 comunes. La evolución por tramos (V3-42) sigue vacía y no se usa.
+- **El banco lo enseña como orientación** (V3-42): en su columna lateral, en el sitio del hueco «Projection by hours», un deslizador de «Just applied» a 600 h. Un material cuenta mientras no han pasado sus horas; a sus horas justas, ya no está. Moverlo no cambia la fórmula.
+- **Dice:** cuántos materiales quedan y qué parte de la materia aromática eran; sus familias, sobre lo que queda; lo que ya no está, el primero en irse primero; y lo que no tiene horas, aparte, nunca dado por ido ni por presente.
+- **Propuesta de la sesión:** las paradas del deslizador (0, 15 min, 30 min, 1, 2, 4, 8, 12, 24, 48, 72, 120, 168, 300 y 600 h) y el aviso, debajo, de que en una mezcla duran distinto y se apagan, no desaparecen de golpe. La tarjeta de la proyección por horas se queda en el código para cuando haya evolución.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).

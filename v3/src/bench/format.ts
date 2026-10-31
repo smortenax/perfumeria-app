@@ -109,3 +109,18 @@ export function initials(name: string): string {
 export function weighSummary(totalUg: Ratio, tareUg: bigint | null): string {
   return texts.grams.summary(formatGrams(totalUg, 3), tareUg === null ? null : formatGrams(Ratio.of(tareUg), 3));
 }
+
+const ONE_PERCENT = Ratio.of(1, 100);
+const ALMOST_ALL = Ratio.of(99, 100);
+/** From here a share would round to 100 %. */
+const ROUNDS_TO_ALL = Ratio.of(199, 200);
+/**
+ * A share to read, whole. One that is there but under 1 % reads «<1 %», never «0 %»; one short of all,
+ * «>99 %», never «100 %»: what is missing is never rounded away.
+ */
+export const wholeShareText = (r: Ratio): string =>
+  !r.isZero() && r.lt(ONE_PERCENT)
+    ? `<${formatPercent(ONE_PERCENT, 0)}`
+    : r.lt(Ratio.ONE) && !r.lt(ROUNDS_TO_ALL)
+      ? `>${formatPercent(ALMOST_ALL, 0)}`
+      : formatPercent(r, 0);
