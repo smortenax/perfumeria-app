@@ -2,7 +2,8 @@ import type { ReactNode } from "react";
 import { type Catalog, type CatalogMaterial, STRENGTHS, TIERS } from "../db/catalog";
 import { coloursOf, familyOf } from "../families/palette";
 import { texts } from "../i18n/en";
-import { orbLookOf, orbScalesOf, seedOf } from "./orb/fromCatalog";
+import { orbLookOf, orbMarksOf, orbScalesOf, seedOf } from "./orb/fromCatalog";
+import { FramedOrb } from "./orb/FramedOrb";
 import { MaterialOrb } from "./orb/MaterialOrb";
 
 /** A duration on a blotter on a log scale, 1 hour to 30 days. */
@@ -47,7 +48,9 @@ export function SheetHero({
   return (
     <section className="sheet-hero">
       <div className="hero-orb">
-        <MaterialOrb look={look} size={220} mode="live" seed={seedOf(material.id)} expectColor={colours?.light} />
+        <FramedOrb marks={orbMarksOf(catalog, material)} size={220}>
+          <MaterialOrb look={look} size={220} mode="live" seed={seedOf(material.id)} expectColor={colours?.light} />
+        </FramedOrb>
       </div>
       <div className="hero-info">
         <h2 className="page-title">{name}</h2>

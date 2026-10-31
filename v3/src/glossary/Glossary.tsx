@@ -5,7 +5,8 @@ import { normalize } from "../db/search";
 import type { FormulaMarker, FormulaRecord } from "../db/formulas";
 import { listAll, search } from "../db/search";
 import { coloursOf, familyOf } from "../families/palette";
-import { orbLookOf, type OrbScales, orbScalesOf, seedOf } from "./orb/fromCatalog";
+import { orbLookOf, orbMarksOf, type OrbScales, orbScalesOf, seedOf } from "./orb/fromCatalog";
+import { FramedOrb } from "./orb/FramedOrb";
 import { MaterialOrb } from "./orb/MaterialOrb";
 import { paletteMarkdown, paletteOf } from "./palette-export";
 import { initials } from "./initials";
@@ -294,7 +295,9 @@ function Tile({ material, data, scales, onOpen, marking, mark }: { material: Cat
     <>
       {/* The orb in its frame, the text beside it (V3-73: the letters over the orb of V3-72 are dropped). */}
       <span className="tile-top">
-        <MaterialOrb look={orbLookOf(data.catalog, material, scales)} size={72} seed={seedOf(material.id)} expectColor={colours?.light} />
+        <FramedOrb marks={orbMarksOf(data.catalog, material)} size={72}>
+          <MaterialOrb look={orbLookOf(data.catalog, material, scales)} size={72} seed={seedOf(material.id)} expectColor={colours?.light} />
+        </FramedOrb>
         <span className="tile-ttl">
           <span className="tile-abbr">{abbreviation ?? <i>{initials(material.name)}</i>}</span>
           <span className="tile-name">{material.name}</span>

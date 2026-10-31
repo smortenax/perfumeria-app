@@ -1,0 +1,118 @@
+/* The orb's frame with its marks (F4, V3-91). The frame is the orb's own (--orb-frame); the marks are
+   light on it, as the orb's glow. Sizes follow the orb's, so the 72 px tile and the 220 px sheet read alike. */
+.orb-framed {
+  --mark: rgba(255, 255, 255, 0.88);
+  --mark-dim: rgba(255, 255, 255, 0.22);
+  --mark-gap: calc(var(--orb-size) * 0.03);
+  display: inline-flex;
+  flex: none;
+  flex-direction: column;
+  width: var(--orb-size);
+  border-radius: var(--radius-orb-frame);
+  background: var(--orb-frame);
+  box-shadow: inset 0 0 0 1px var(--orb-frame-line);
+  overflow: hidden;
+}
+
+.orb-framed .material-orb {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.orb-body {
+  position: relative;
+  display: block;
+}
+
+/* The notes on the right edge, top to base: three short lines, its own lit and longer. */
+.orb-notes {
+  position: absolute;
+  top: 18%;
+  bottom: 18%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.orb-notes i {
+  position: relative;
+  display: block;
+  width: calc(var(--orb-size) * 0.06);
+  height: max(2px, calc(var(--orb-size) * 0.02));
+  border-radius: 1px 0 0 1px;
+  background: var(--mark-dim);
+}
+
+.orb-notes i.on {
+  width: calc(var(--orb-size) * 0.12);
+  background: var(--mark);
+}
+
+.orb-notes.unknown i {
+  background: none;
+  border-top: 1px dashed var(--mark-dim);
+}
+
+/* The band under the orb: the strength's segments, then the hours' bar. */
+.orb-band {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mark-gap);
+  padding: var(--mark-gap) calc(var(--orb-size) * 0.08) calc(var(--mark-gap) * 1.6);
+}
+
+.orb-strength,
+.orb-hours {
+  display: flex;
+  align-items: center;
+  gap: var(--mark-gap);
+  min-height: max(3px, calc(var(--orb-size) * 0.035));
+}
+
+.orb-strength i {
+  flex: 1;
+  height: max(3px, calc(var(--orb-size) * 0.035));
+  border-radius: 1px;
+  background: var(--mark-dim);
+}
+
+.orb-strength i.on {
+  background: var(--mark);
+}
+
+.orb-strength.unknown i,
+.orb-hours.unknown .orb-hours-track {
+  background: none;
+  border: 1px dashed var(--mark-dim);
+}
+
+.orb-hours-track {
+  position: relative;
+  flex: 1;
+  height: max(3px, calc(var(--orb-size) * 0.035));
+  border-radius: 1px;
+  background: var(--mark-dim);
+}
+
+.orb-hours-track i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: 1px;
+  background: var(--mark);
+}
+
+/* Named on the large orb: a word beside each mark. */
+.orb-mark-label {
+  flex: none;
+  min-width: 5.5em;
+  color: var(--mark);
+  font-size: var(--text-xs);
+  line-height: 1;
+  text-align: right;
+}
+
+.orb-mark-label {
+  font-style: normal;
+}
