@@ -5,6 +5,7 @@ import type { IfraData } from "../core/ifra";
 import type { Material } from "../core/model/material";
 import type { CatalogEntry } from "./data/catalog";
 import { texts } from "./texts";
+import { useExplain } from "./Explain";
 import { familyLook } from "./family";
 import { roomText } from "./composition-ifra";
 import { amountText, initials, massText, shareText } from "./format";
@@ -34,6 +35,11 @@ function Identity(props: { material: Material; entry: CatalogEntry | undefined; 
     .filter((name): name is string => name !== undefined)
     .join(" · ");
   const cas = entry?.cas ?? material.cas;
+  const explain = useExplain(texts.explain.labels, [
+    entry?.pureByConvention && `${t.pureByConvention}: ${t.pureByConventionHelp}`,
+    entry?.state && `${search.state[entry.state]}: ${entry.ifraNote ?? search.stateHelp[entry.state]}`,
+    entry?.unreviewed && `${search.unreviewed}: ${search.unreviewedHelp}`,
+  ]);
   const tag = material.kind === "formula" ? t.kind.formula : material.kind === "provisional" ? t.kind.provisional : entry?.group === "diluent" ? t.kind.diluent : null;
   return (
     <div className="mc-identity">
@@ -66,7 +72,9 @@ function Identity(props: { material: Material; entry: CatalogEntry | undefined; 
             </span>
           )}
           <ProvenanceButton provenance={entry?.provenance} />
+          {explain.button}
         </span>
+        {explain.panel}
         {/* Under the names, its own line: beside them it took the room the name needs (audit F-04). */}
         {props.onOpenSheet && (
           <button type="button" className="mc-sheet link" onClick={props.onOpenSheet}>
@@ -89,6 +97,12 @@ type Tone = "neutral" | "amber" | "red";
  */
 function MarginBox(props: { ifra: MaterialIfra | null }) {
   const { ifra } = props;
+  const ok = ifra?.status === "ok" ? ifra : null;
+  const explain = useExplain(texts.explain.margin, [
+    ifra?.status === "unknown" && t.uncheckedHelp,
+    ok && t.marginHelp(ifraT.ifraBases[ok.base]),
+    ok?.partial && t.partialCap,
+  ]);
   if (!ifra) {
     return (
       <div className="mc-box" title={t.noData}>
@@ -101,8 +115,11 @@ function MarginBox(props: { ifra: MaterialIfra | null }) {
   if (ifra.status === "unknown") {
     return (
       <div className="mc-box filled tone-amber" title={t.uncheckedHelp}>
-        <span className="mc-box-label">{t.margin}</span>
+        <span className="mc-box-label">
+          {t.margin} {explain.button}
+        </span>
         <span className="mc-box-value small">{t.unchecked}</span>
+        {explain.panel}
       </div>
     );
   }
@@ -113,9 +130,12 @@ function MarginBox(props: { ifra: MaterialIfra | null }) {
     ifra.marginUg === null ? t.marginNoCeiling : none ? t.marginNone : t.marginRoom(`${ifra.partial ? "≤ " : ""}${roomText(ifra.marginUg)}`);
   return (
     <div className={`mc-box filled tone-${tone}`} title={[t.marginHelp(base), ifra.partial ? t.partialCap : null].filter(Boolean).join(". ")}>
-      <span className="mc-box-label">{t.margin}</span>
+      <span className="mc-box-label">
+        {t.margin} {explain.button}
+      </span>
       <span className="num mc-box-value small">{value}</span>
       <span className="mc-box-note">{base}</span>
+      {explain.panel}
     </div>
   );
 }
@@ -187,10 +207,24 @@ function UsageBox(props: {
   const ceilingTitle = band?.ceiling ? t.ceilingTitle(formatPercent(band.ceiling.value, 3), band.ceiling.fuente) : null;
   const overIfra = bandOverIfra(band, ifra);
   const label = [t.usage, bandTitle ?? t.noData, overIfra ? t.overIfra : null, ceilingTitle, solo?.title, all?.title, holds?.title, draft?.title].filter(Boolean).join(". ");
+  // Each mark says what it is only on hover: a press away too, one line each (plan 8.6).
+  const explain = useExplain(texts.explain.usage, [
+    t.usageHelp,
+    bandTitle ?? t.noData,
+    overIfra && t.overIfra,
+    ifra?.status === "unknown" && t.uncheckedHelp,
+    ceilingTitle,
+    solo?.title,
+    all?.title,
+    holds?.title,
+    draft?.title,
+  ]);
   return (
     <div className="mc-box usage" title={t.usageHelp}>
       <span className="mc-box-head">
-        <span className="mc-box-label">{t.usage}</span>
+        <span className="mc-box-label">
+          {t.usage} {explain.button}
+        </span>
         <span className={overIfra ? "mc-box-note over-ifra" : "mc-box-note"} title={overIfra ? `${t.overIfra} ${bandTitle ?? ""}` : (bandTitle ?? undefined)}>
           {overIfra ? "⚑ " : ""}
           {bandText ?? t.noData}
@@ -259,6 +293,7 @@ function UsageBox(props: {
           </>
         )}
       </span>
+      {explain.panel}
     </div>
   );
 }
