@@ -3,6 +3,7 @@ import { Ratio } from "../core/arith/ratio";
 import { formatGrams, formatPercent } from "../core/display";
 import type { IfraBase, IfraReport } from "../core/ifra";
 import { texts } from "./texts";
+import { useExplain } from "./Explain";
 import { roomText, usedText } from "./composition-ifra";
 import { groupRows, splitPending, whyOf, type GroupRow } from "./ifra-explain";
 import { materialRows, readingIn, substanceRows, supplierRows, type MaterialRow, type SubstanceRow } from "./ifra-panel";
@@ -32,6 +33,7 @@ export function IfraSummary(props: { report: IfraReport | null; empty: boolean; 
     : [];
   const range =
     hasData && !report.maxUseKnown.eq(report.maxUse) ? t.range(formatPercent(report.maxUse, 2), formatPercent(report.maxUseKnown, 2)) : undefined;
+  const explain = useExplain(texts.explain.reading, [reading && t.baseHelp[reading.base], range, overSupplier.length > 0 && t.suppliersHelp]);
   return (
     <div className={limiting ? "card ifra-summary with-limit" : "card ifra-summary"}>
       <span className="ifra-head">
@@ -49,6 +51,7 @@ export function IfraSummary(props: { report: IfraReport | null; empty: boolean; 
           </span>
         )}
         {hasData && !report.partial && bounded && <span className="status-pill blue">{t.bounded}</span>}
+        {explain.button}
       </span>
       <span className="ifra-line">
         <span className="question">{t.asIsQuestion}</span>
@@ -68,6 +71,7 @@ export function IfraSummary(props: { report: IfraReport | null; empty: boolean; 
           {t.supplierOver(overSupplier.join(", "))}
         </span>
       )}
+      {explain.panel}
     </div>
   );
 }
@@ -121,9 +125,13 @@ function SubstanceItem(props: { row: SubstanceRow; partial: boolean }) {
   if (!row.worstShare.eq(row.knownShare)) {
     help.push(t.range(`${pctOf(row.knownShare)} %`, `${pctOf(row.worstShare)} %`));
   }
+  // Its name first: on a narrow screen the row cuts it.
+  const explain = useExplain(texts.explain.substance(row.name), [row.name, ...help]);
   return (
     <div className="ceiling-row" title={help.join("\n")}>
-      <span className="ceiling-name">{row.name}</span>
+      <span className="ceiling-name">
+        {explain.button} {row.name}
+      </span>
       <span className="num ceiling-value">{t.of(value, limitText(row.limit))}</span>
       <span className="ceiling-bar">
         <span className={`fill ${row.verdict}`} style={{ width: `${widthOf(row.used)}%` }} />
@@ -131,6 +139,7 @@ function SubstanceItem(props: { row: SubstanceRow; partial: boolean }) {
       <span className={`num ceiling-use ${row.verdict}`}>{row.used ? usedText(row.used) : "—"}</span>
       <span className="ceiling-cas muted tiny num">{row.cas.length > 0 ? t.casLine(row.cas.join(", ")) : ""}</span>
       <span className={`num ceiling-room tiny ${exhausted ? "exceeds" : "muted"}`}>{room}</span>
+      {explain.panel}
     </div>
   );
 }

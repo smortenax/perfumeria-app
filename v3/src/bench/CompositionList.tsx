@@ -172,8 +172,10 @@ export function CompositionCard(props: {
 
   const row = (part: Part) => {
     if (baseUg === null) return null;
-    const { flags, lines } = describe(part);
+    const { flags, lines: described } = describe(part);
     const share = shareText(part.massUg, baseUg);
+    // The exact share was only on hover of the row: in its detail too (plan 8.6).
+    const lines: Array<[string, string]> = [...described, [t.exactShare, share.exact]];
     const isOpen = open.has(part.material.key);
     const family = props.familyOf?.(part.material.key);
     // A material outside the glossary has no abbreviation: its initials, as in the history dock.

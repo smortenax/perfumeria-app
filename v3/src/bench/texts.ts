@@ -251,6 +251,14 @@ export const texts = {
     noData: "no data",
   },
 
+  /** «Explain» (plan 8.6): what was said only on hover, a press away. */
+  explain: {
+    labels: "What these labels mean",
+    margin: "About the IFRA margin",
+    usage: "About the usual use and its marks",
+    reading: "About this reading",
+    substance: (name: string) => `Where ${name} comes from`,
+  },
   provenance: {
     button: "Provenance",
     buttonHelp: "Where each figure of this material comes from: its authority and its document",
@@ -503,6 +511,7 @@ export const texts = {
     viewAromaticHelp: "Each % of the aromatic matter, without solvents: the view of the smell",
     viewBottleHelp: "Each % of the whole bottle, with the solvents",
     amountHelp: "Neat material in the bottle, without the diluent",
+    exactShare: "Exact share",
     again: (name: string) => `Add ${name} again`,
     empty: "Nothing in the bottle yet.",
     aromatic: "Aromatic matter",
