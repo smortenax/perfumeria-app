@@ -48,3 +48,26 @@ describe("the orb from the glossary's fields", () => {
     expect(look(mine)).toEqual(look(hedione));
   });
 });
+
+describe("the marks of the orb's frame (F4, V3-91)", () => {
+  it("reads the strength in segments, the tier as a note and the hours on a log bar, from the material it is based on too", async () => {
+    const { orbMarksOf } = await import("./fromCatalog");
+    expect(orbMarksOf(catalog, hedione)).toEqual({ strength: { level: 2, of: 4 }, note: "heart", hours: { value: 400, at: Math.log10(400) / Math.log10(600) } });
+    expect(orbMarksOf(catalog, mine)).toEqual(orbMarksOf(catalog, hedione));
+    expect(orbMarksOf(catalog, strong).strength).toEqual({ level: 4, of: 4 });
+    expect(orbMarksOf(catalog, oil).note).toBe("top");
+  });
+
+  it("leaves unsaid what the data does not say: never a zero", async () => {
+    const { orbMarksOf } = await import("./fromCatalog");
+    expect(orbMarksOf(catalog, bare)).toEqual({ strength: null, note: null, hours: null });
+  });
+
+  it("puts the hours on a log bar: under an hour a sliver, 600 h and more the end", async () => {
+    const { hoursAt } = await import("./fromCatalog");
+    expect(hoursAt(0.5)).toBe(0.04);
+    expect(hoursAt(600)).toBe(1);
+    expect(hoursAt(1000)).toBe(1);
+    expect(hoursAt(24)).toBeLessThan(hoursAt(48));
+  });
+});

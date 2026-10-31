@@ -70,3 +70,38 @@ export function seedOf(id: string): number {
   for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) | 0;
   return (Math.abs(h) % 1000) / 100;
 }
+
+/**
+ * What the orb's frame marks so it can be read without a key (F4, V3-91): the strength in segments, the
+ * note in a notch, the hours on a blotter in a bar. Each is null when the data does not say it: the frame
+ * then draws it dashed, never as a zero.
+ */
+export interface OrbMarks {
+  /** 1 to `of` (low to very high). */
+  readonly strength: { readonly level: number; readonly of: number } | null;
+  readonly note: Note | null;
+  /** Its hours on a blotter, and where they fall on the bar, 0 to 1, on a log scale up to 600 h. */
+  readonly hours: { readonly value: number; readonly at: number } | null;
+}
+
+/** The top of the hours bar: the TGSC scale's 600 h. */
+export const HOURS_TOP = 600;
+/** Under an hour still shows a sliver: it is there, not unknown. */
+const HOURS_FLOOR = 0.04;
+
+export function hoursAt(hours: number): number {
+  if (hours <= 1) return HOURS_FLOOR;
+  return Math.min(1, Math.max(HOURS_FLOOR, Math.log10(hours) / Math.log10(HOURS_TOP)));
+}
+
+export function orbMarksOf(catalog: Catalog, material: CatalogMaterial): OrbMarks {
+  const strength = inherited(catalog, material, "strength");
+  const tier = inherited(catalog, material, "tier");
+  const tenacity = inherited(catalog, material, "tenacityHours");
+  const value = tenacity ? Number(tenacity.toFixed(2)) : null;
+  return {
+    strength: strength ? { level: rankOf(strength) + 1, of: STRENGTHS.length } : null,
+    note: tier ? NOTE_OF[tier] : null,
+    hours: value !== null ? { value, at: hoursAt(value) } : null,
+  };
+}

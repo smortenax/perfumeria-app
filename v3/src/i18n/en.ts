@@ -168,6 +168,13 @@ export const texts = {
       strength: (s: string) => `${s} strength`,
       notYet: "not drawn yet",
       prototype: "Prototype: the orb draws what the glossary says today; it will read the new material sheets (V3-70).",
+      /** Its frame's marks (F4, V3-91), named on the large orb. */
+      marks: {
+        strength: "strength",
+        notes: { top: "top", heart: "heart", base: "base" } as Record<string, string>,
+        hours: (h: string) => `${h} h`,
+        unknown: "?",
+      },
     },
     /** The four facts at the head of a sheet (V3-73). */
     hero: {

@@ -1671,6 +1671,22 @@ La revisión: `/mnt/project-files/auditoria-ficha/2026-10-29-ficha-material.md` 
 - **Dice:** cuántos materiales quedan y qué parte de la materia aromática eran; sus familias, sobre lo que queda; lo que ya no está, el primero en irse primero; y lo que no tiene horas, aparte, nunca dado por ido ni por presente.
 - **Propuesta de la sesión:** las paradas del deslizador (0, 15 min, 30 min, 1, 2, 4, 8, 12, 24, 48, 72, 120, 168, 300 y 600 h) y el aviso, debajo, de que en una mezcla duran distinto y se apagan, no desaparecen de golpe. La tarjeta de la proyección por horas se queda en el código para cuando haya evolución.
 
+## V3-91 · F4, los orbes legibles con marcas en el marco (decidida por el usuario el 2026-10-31)
+
+**Literal** (2026-10-31, en la pregunta «F4, los orbes "más legibles": hoy el orbe guarda familia, fuerza, nota, tipo y horas, pero solo se adivinan. ¿Cómo los hago legibles?», entre «Marcas en el marco», «Canales más marcados» y «Clave en palabras al lado»):
+
+> Marcas en el marco (Recommended)
+
+Viene de V3-78 («hay que iterar para que sean no solo visualmente atractivos sino más legibles, no quiero un mapa de tarta pero si quiero que sea legible»).
+
+**Lectura** (de la sesión, para que la confirmes):
+
+- **El orbe no cambia por dentro; su marco lleva marcas fijas:** en el borde derecho, las tres notas de arriba abajo (salida, corazón, fondo), con la suya encendida y más larga; en una franja del marco bajo el orbe, la fuerza en segmentos y las horas en tira en una barra.
+- **La fuerza tiene cuatro segmentos**, no los cinco de la maqueta: son los cuatro niveles de la base (low, medium, high, very high).
+- **Las horas, en escala logarítmica hasta 600 h** (la cima de TGSC): por debajo de una hora, una astilla, para que no parezca desconocido.
+- **Lo que no se sabe, en discontinuo**: ni encendido ni vacío como si fuera cero.
+- **Propuesta de la sesión:** las marcas solo en los orbes grandes, la ficha (220 px) y Materiales (72 px); a 40 px o menos (Diluciones y el banco) no se leerían, y allí el texto de al lado ya lo dice. En la ficha, cada marca lleva su palabra y la nota tiene además su fila en la franja.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
