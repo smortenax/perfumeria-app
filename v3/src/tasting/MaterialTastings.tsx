@@ -2,6 +2,7 @@ import type { Tastings } from "../db/tastings";
 import type { GlossaryData } from "../glossary/useGlossary";
 import { texts } from "../i18n/en";
 import { legacyTasted, tenacity } from "./logic";
+import { Button } from "../Button";
 
 const t = texts.tasting;
 const when = (iso: string) => {
@@ -58,9 +59,9 @@ export function MaterialTastings({
           </button>
         </p>
       )}
-      <button type="button" onClick={onNew}>
+      <Button variant="primary" onClick={onNew}>
         {t.newTasting}
-      </button>
+      </Button>
     </section>
   );
 }

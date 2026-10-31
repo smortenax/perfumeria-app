@@ -7,6 +7,7 @@ import { confirmImport } from "./confirm";
 import { matchSheet, targetOf } from "./match";
 import { FIELDS, guessColumns, readSheet, rowsOf, type Columns, type Field } from "./read";
 import "../dilution/dilutions.css";
+import { Button } from "../Button";
 
 const t = texts.importSheet;
 
@@ -62,9 +63,9 @@ export function ImportSheet({ data, local, onDone, onCancel }: { data: GlossaryD
       <div className="title-bar">
         <h2 className="page-title">{t.title}</h2>
         <span className="buttons">
-          <button type="button" className="secondary" onClick={message ? onDone : onCancel}>
+          <Button variant="secondary" onClick={message ? onDone : onCancel}>
             {t.cancel}
-          </button>
+          </Button>
         </span>
       </div>
       <p className="hint">{t.hint}</p>
@@ -157,9 +158,9 @@ export function ImportSheet({ data, local, onDone, onCancel }: { data: GlossaryD
           </table>
           {matches.some((m) => m.status === "missing") && <p className="hint">{t.missingNote}</p>}
           <div className="actions">
-            <button type="button" disabled={saving !== null || picks.length === 0} onClick={confirm}>
+            <Button variant="primary" disabled={saving !== null || picks.length === 0} onClick={confirm}>
               {t.confirm}
-            </button>
+            </Button>
             {saving && (
               <span className="hint" role="status">
                 {t.saving(saving.done, saving.total)}

@@ -15,6 +15,7 @@ import { Pills } from "../Pills";
 import { tabAfterKey } from "../tabs";
 import { type Filters, type IfraState, keepOf, NO_FILTERS } from "./browse";
 import type { GlossaryData } from "./useGlossary";
+import { Button } from "../Button";
 
 /** Every material that passes the filters is shown: a few hundred tiles paint fast enough (measured 2026-10-27). */
 const ALL = Number.MAX_SAFE_INTEGER;
@@ -143,21 +144,21 @@ export function Glossary({
           >
             {marking ? t.markDone : t.markMode}
           </button>
-          <button type="button" className="secondary" hidden={tab !== "own"} onClick={() => void copyPalette()}>
+          <Button variant="secondary" hidden={tab !== "own"} onClick={() => void copyPalette()}>
             {t.copyPalette}
-          </button>
+          </Button>
           <button type="button" className="secondary" hidden={tab !== "own"} onClick={downloadPalette}>
             {t.downloadPalette}
           </button>
-          <button type="button" className="secondary" hidden={tab !== "own" || !onImport} onClick={onImport}>
+          <Button variant="secondary" hidden={tab !== "own" || !onImport} onClick={onImport}>
             {t.importSheet}
-          </button>
+          </Button>
           <button type="button" className="secondary" hidden={tab !== "own"} onClick={exportData}>
             {t.exportData}
           </button>
-          <button type="button" className="secondary" hidden={tab !== "own"} onClick={() => setPrinting(true)}>
+          <Button variant="secondary" hidden={tab !== "own"} onClick={() => setPrinting(true)}>
             {t.printGlossary}
-          </button>
+          </Button>
           <button type="button" onClick={onNew}>
             {texts.editor.newMaterial}
           </button>
@@ -248,12 +249,12 @@ export function Glossary({
           <div className="marking">
             <p className="hint">{t.markHint}</p>
             <span className="buttons">
-              <button type="button" disabled={materials.length === 0} onClick={() => markShown(true)}>
+              <Button variant="primary" disabled={materials.length === 0} onClick={() => markShown(true)}>
                 {t.markAll(materials.length)}
-              </button>
-              <button type="button" className="secondary" disabled={materials.length === 0} onClick={() => markShown(false)}>
+              </Button>
+              <Button variant="secondary" disabled={materials.length === 0} onClick={() => markShown(false)}>
                 {t.unmarkAll(materials.length)}
-              </button>
+              </Button>
             </span>
             {message && <p className="hint">{message}</p>}
           </div>

@@ -19,6 +19,7 @@ import { changesOf, EDIT_SECTIONS, type Form, formOf, FormError, inheritedForm, 
 import { percent } from "./format";
 import { FailureNote } from "../FailureNote";
 import type { GlossaryData } from "./useGlossary";
+import { Button } from "../Button";
 
 /** The authorities a user writes with: IFRA's word lives in its layer (V3-35). */
 const AUTHORITIES_OF_YOURS: readonly Exclude<Authority, "ifra">[] = ["lot", "product", "literature", "consensus"];
@@ -55,8 +56,8 @@ export function MaterialEditor({ data, local, id, onDone, onDeleted }: { data: G
       <Regulations material={material} data={data} local={local} bases={bases} />
       <Doses material={material} local={local} bases={bases} />
       <section className="sheet-section danger">
-        <button
-          type="button"
+        <Button
+          variant="danger"
           onClick={() => {
             if (!window.confirm(t.confirmDelete(material.name))) return;
             setDeleteError(null);
@@ -64,7 +65,7 @@ export function MaterialEditor({ data, local, id, onDone, onDeleted }: { data: G
           }}
         >
           {t.delete}
-        </button>
+        </Button>
         <FailureNote message={deleteError} onClose={() => setDeleteError(null)} />
       </section>
     </article>
@@ -139,9 +140,9 @@ function RecordForm({ material, local, inherited }: { material: CatalogMaterial;
         </fieldset>
       ))}
       <div className="actions">
-        <button type="submit" disabled={state.kind === "saving"}>
+        <Button variant="primary" type="submit" disabled={state.kind === "saving"}>
           {state.kind === "saving" ? t.saving : t.save}
-        </button>
+        </Button>
         {state.kind === "saved" && <span className="hint">{t.saved}</span>}
         {state.kind === "error" && <span className="error">{state.message}</span>}
       </div>
@@ -300,7 +301,7 @@ function Composition({ material, data, local, bases }: { material: CatalogMateri
           </label>
         )}
         <SourceFields authority={authority} source={source} onAuthority={setAuthority} onSource={setSource} />
-        <button type="submit">{t.add}</button>
+        <Button variant="primary" type="submit">{t.add}</Button>
         {error && <p className="error">{error}</p>}
       </form>
     </section>
@@ -410,7 +411,7 @@ function Regulations({ material, data, local, bases }: { material: CatalogMateri
           </label>
         )}
         <SourceFields authority={authority} source={source} onAuthority={setAuthority} onSource={setSource} />
-        <button type="submit">{t.add}</button>
+        <Button variant="primary" type="submit">{t.add}</Button>
         {error && <p className="error">{error}</p>}
       </form>
     </section>
@@ -486,7 +487,7 @@ function Doses({ material, local, bases }: { material: CatalogMaterial; local: L
           <input type="text" value={notes} onChange={(e) => setNotes(e.target.value)} />
         </label>
         <SourceFields authority={authority} source={source} onAuthority={setAuthority} onSource={setSource} />
-        <button type="submit">{t.add}</button>
+        <Button variant="primary" type="submit">{t.add}</Button>
         {error && <p className="error">{error}</p>}
       </form>
     </section>

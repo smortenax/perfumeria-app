@@ -48,6 +48,7 @@ import { PrintFormula } from "../export/PrintFormula";
 import { addToShopping, missingOf, removeFromShopping } from "../db/shopping";
 import { texts as appTexts } from "../i18n/en";
 import "./bench.css";
+import { Button } from "../Button";
 
 type Add = Extract<Change, { kind: "add" }>;
 
@@ -159,9 +160,9 @@ export function Bench(props: BenchProps) {
       <div className="bench-pending">
         {loadError ? (
           <LoadError title={s.formulaFailed} text={loadError}>
-            <button type="button" onClick={props.onExit}>
+            <Button variant="primary" onClick={props.onExit}>
               {s.toFormulation}
-            </button>
+            </Button>
           </LoadError>
         ) : (
           <Loading what={s.thisFormula} shape="bench" />
@@ -1070,7 +1071,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
         />
       )}
       {dialog?.kind === "delete" && (
-        <ConfirmDialog title={texts.dialogs.deleteTitle} text={texts.dialogs.deleteText(formula.header.name, formula.history.length)} onConfirm={() => void remove()} onClose={() => setDialog(null)} />
+        <ConfirmDialog danger title={texts.dialogs.deleteTitle} text={texts.dialogs.deleteText(formula.header.name, formula.history.length)} onConfirm={() => void remove()} onClose={() => setDialog(null)} />
       )}
       {dialog?.kind === "formulaAsMaterial" && (
         <FormulaPickerDialog
