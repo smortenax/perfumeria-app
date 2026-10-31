@@ -50,6 +50,31 @@ const version: Rec = {
   sources: `${SAID}. Maese Lab, ${URL}: «PUREZA 100%»`,
 };
 writeTable(join(OUT, "materials.csv"), header, [version]);
+// What sets it apart from Iso E Super, as Fraterworks gives it. The user, 2026-10-31: «se tiene que dar
+// de alta como variante de iso e super pero con los matices de constituyentes qeu tenga acuerdate que
+// tenia amber xtrme». Fraterworks names them without a CAS, so they go by name: literature, not its lot.
+const FW = "https://fraterworks.com/products/timbersilk";
+const FW_SAID =
+  "«Iso E Super has 4.8% Arborone and 11.7% Iso Gamma, while Timbersilk has 8.5% Arborone and 13.5% Iso Gamma making it stronger in scent and power. Timbersilk is also boosted with 0.07% of AmberXtreme.»";
+const components: Rec[] = [
+  ["Arborone (OTNE isomer)", "0.085"],
+  ["Iso gamma (OTNE isomer)", "0.135"],
+  ["Amber Xtreme", "0.0007"],
+].map(([name, value]) => ({
+  id: uuidFor(`comp:tanda40:timbersilk:${name}`),
+  material_id: version.id,
+  owner_id: null,
+  component_id: null,
+  component_cas: null,
+  component_name: name,
+  amount_kind: "exact",
+  value,
+  min: null,
+  max: null,
+  authority: "literature",
+  source: `Fraterworks, ${FW}: ${FW_SAID} (the product Timbersilk, not the bottle bought)`,
+}));
+writeTable(join(OUT, "material_components.csv"), ["id", "material_id", "owner_id", "component_id", "component_cas", "component_name", "amount_kind", "value", "min", "max", "authority", "source"], components);
 writeTable(join(OUT, "lab_materials.csv"), ["id", "user_id", "material_id"], [{ id: uuidFor(`tengo:tanda40:${version.id}`), user_id: null, material_id: version.id }]);
 writeFileSync(
   join(OUT, "informe.md"),
@@ -63,8 +88,16 @@ ${SAID}.
 |---|---|---|---|---|
 | Timbersilk | Iso E Super (común) | Maese Lab | [Timbersilk](${URL}) | 100 % («PUREZA 100%») |
 
-Con «lo tengo» y sin frasco. No es un material común nuevo: el Timbersilk es OTNE, la molécula del Iso E Super, con otra proporción de isómeros, y lo común ya lo tiene como sinónimo del Iso E Super. Va junto a tu Iso E Super, que no cambia.
+Con «lo tengo» y sin frasco, y con lo que lo distingue del Iso E Super, según [Fraterworks](https://fraterworks.com/products/timbersilk) (literatura, no tu bote):
+
+| Constituyente | Timbersilk | Iso E Super |
+|---|---|---|
+| Arborone (isómero de OTNE) | 8,5 % | 4,8 % |
+| Iso gamma (isómero de OTNE) | 13,5 % | 11,7 % |
+| Amber Xtreme | 0,07 % | — |
+
+No es un material común nuevo: el Timbersilk es OTNE, la molécula del Iso E Super, con otra proporción de isómeros, y lo común ya lo tiene como sinónimo del Iso E Super. Va junto a tu Iso E Super, que no cambia.
 `,
   "utf8",
 );
-console.log(`Tanda 40: 1 especificación (Timbersilk, sobre Iso E Super ${iso.id}) con «lo tengo». ${OUT}/informe.md`);
+console.log(`Tanda 40: 1 especificación con 3 constituyentes (Timbersilk, sobre Iso E Super ${iso.id}) con «lo tengo». ${OUT}/informe.md`);
