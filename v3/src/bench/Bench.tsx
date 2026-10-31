@@ -17,7 +17,9 @@ import { LoadError, Loading } from "../ScreenState";
 import { texts } from "./texts";
 import { AddBar, type AddBarHandle } from "./AddBar";
 import { BottleFrame } from "./Bottle";
-import { OdourMapPlaceholder, ProjectionCard, RepartoCard } from "./Charts";
+import { OdourMapPlaceholder, RepartoCard } from "./Charts";
+import { EvaporationCard } from "./EvaporationCard";
+import { evaporation } from "./evaporation";
 import { ifraOfLines } from "./composition-ifra";
 import { CompositionCard } from "./CompositionList";
 import { ChoiceDialog, ConfirmDialog, FormulaPickerDialog, PromptDialog, ReweighDialog, SaveAsDialog, type SaveAsChoice, UseFormulaDialog } from "./Dialogs";
@@ -373,6 +375,21 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [view.composition, props.data],
   );
+  // What is left on the blotter at a time (F5, V3-90): by each material's hours on a blotter, or those of
+  // the common material it is based on (V3-5), as the orb reads them.
+  const hoursOf = (key: string) => {
+    let m = props.data.catalog.materials.get(key);
+    for (let i = 0; m && i < 10; i++) {
+      if (m.tenacityHours) return m.tenacityHours;
+      m = m.basedOnId ? props.data.catalog.materials.get(m.basedOnId) : undefined;
+    }
+    return null;
+  };
+  const evaporationAt = (hours: Ratio) =>
+    evaporation(view.composition?.parts ?? [], hours, hoursOf, (key) => {
+      const m = props.data.catalog.materials.get(key);
+      return m ? paletteFamilyOf(props.data.catalog, m) : null;
+    });
   const chemical = useMemo(() => new Map(repository.entries.filter((e) => e.tradeName).map((e) => [e.material.key, e.chemicalName])), [repository]);
   const known = useMemo(() => [...props.frozen, ...session], [props.frozen, session]);
 
@@ -931,7 +948,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
           <IfraSummary report={view.report} empty={empty} {...(ifraBase ? { base: ifraBase } : {})} />
           <SummaryCard summary={summary} />
           <RepartoCard composition={view.composition} familyOf={familyOf} />
-          <ProjectionCard />
+          <EvaporationCard at={evaporationAt} />
           <OdourMapPlaceholder />
         </aside>
       </div>

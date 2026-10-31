@@ -1612,6 +1612,53 @@
     min-width: 0;
   }
 
+  /* What is left on the blotter (F5, V3-90): the slider, the scale and what is there. */
+  .evaporation-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px var(--space-inset);
+  }
+
+  .evaporation-card p {
+    margin: 0;
+  }
+
+  .evaporation-slider {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .evaporation-slider input {
+    width: 100%;
+    min-height: var(--size-target);
+    accent-color: var(--ink);
+  }
+
+  .evaporation-scale {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: var(--text-xs);
+    color: var(--muted);
+  }
+
+  .evaporation-scale strong {
+    color: var(--ink);
+    font-size: var(--text-sm);
+  }
+
+  .evaporation-now {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .evaporation-unknown {
+    color: var(--amber);
+  }
+
   /* The formula summed up (F6, V3-89), under the IFRA verdict. */
   .summary-card {
     display: flex;

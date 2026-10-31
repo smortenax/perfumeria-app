@@ -1,24 +1,11 @@
 import { Ratio } from "../core/arith/ratio";
-import { formatPercent } from "../core/display";
 import { texts as appTexts } from "../i18n/en";
 import type { FormulaSummary } from "./summary";
+import { wholeShareText } from "./format";
 import { texts } from "./texts";
 
 const t = texts.summary;
-const ONE_PERCENT = Ratio.of(1, 100);
-const ALMOST_ALL = Ratio.of(99, 100);
-/** From here a share would round to 100 %. */
-const ROUNDS_TO_ALL = Ratio.of(199, 200);
-/**
- * A share to read, whole. One that is there but under 1 % reads «<1 %», never «0 %»; one short of all,
- * «>99 %», never «100 %»: what is missing is never rounded away.
- */
-const pct = (r: Ratio) =>
-  !r.isZero() && r.lt(ONE_PERCENT)
-    ? `<${formatPercent(ONE_PERCENT, 0)}`
-    : r.lt(Ratio.ONE) && !r.lt(ROUNDS_TO_ALL)
-      ? `>${formatPercent(ALMOST_ALL, 0)}`
-      : formatPercent(r, 0);
+const pct = wholeShareText;
 /** The materials named under the confidence; the rest, counted. */
 const NAMED = 4;
 
