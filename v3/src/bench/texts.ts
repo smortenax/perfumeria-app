@@ -419,6 +419,18 @@ export const texts = {
     pure: "neat",
     diluted: (percent: string, diluents: string) => `at ${percent} in ${diluents}`,
   },
+  switcher: {
+    label: "Where you are",
+    bench: (name: string) => `Workbench ${name}: change workbench`,
+    formula: (name: string) => `Formula ${name}: change formula or version`,
+    search: "Search",
+    allBenches: "All workbenches",
+    formulas: (n: number) => (n === 1 ? "1 formula" : `${n} formulas`),
+    noBenches: "No workbench by that name.",
+    noFormulas: "No formula by that name.",
+    emptyBench: "This workbench has no formulas yet.",
+    current: "open now",
+  },
   menu: {
     options: "Options",
     useFormula: "Use the formula…",
