@@ -24,6 +24,7 @@ import { ChoiceDialog, ConfirmDialog, FormulaPickerDialog, PromptDialog, Reweigh
 import { dilutionText } from "./format";
 import { ownConcentration, recipe } from "./use-formula";
 import { GramsCard, IntentionCard, NameCard, NotesCard } from "./Header";
+import { BenchSwitcher } from "./BenchSwitcher";
 import { familyShares } from "../families/bar";
 import { FamilyBar } from "../families/FamilyBar";
 import { endMaceration, macerationState, noteCheck, startMaceration, todayIso } from "../db/macerations";
@@ -658,6 +659,17 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
             <path d="M10 3L5 8l5 5" />
           </svg>
         </button>
+        <BenchSwitcher
+          workbenches={props.data.workbenches}
+          formulas={props.data.formulas}
+          formulaId={formulaId}
+          benchId={props.record.workbenchId}
+          name={shownHeader.name.trim() || texts.bench.untitled}
+          onOpen={(id) => {
+            flushTyped();
+            props.onOpen(id);
+          }}
+        />
         <NameCard header={shownHeader} status={status} statusIsError={error !== null} onChange={typeHeader} onDone={doneTyping} />
         <IntentionCard header={shownHeader} onChange={typeHeader} onDone={doneTyping} />
         <NotesCard notes={props.record.notes} onSave={(notes) => write(() => updateFormula(local.db, owner, formulaId, { notes }))} />
