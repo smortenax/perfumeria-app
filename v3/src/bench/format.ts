@@ -104,3 +104,8 @@ export function initials(name: string): string {
   }
   return words[0][0].toUpperCase() + words[0][1];
 }
+
+/** The bottle and its grams in one line, for a phone (audit F-06 L2): what it holds and its tare. */
+export function weighSummary(totalUg: Ratio, tareUg: bigint | null): string {
+  return texts.grams.summary(formatGrams(totalUg, 3), tareUg === null ? null : formatGrams(Ratio.of(tareUg), 3));
+}

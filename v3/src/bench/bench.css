@@ -2992,6 +2992,41 @@
     display: flex;
   }
 
+  /* On a phone, the bottle and its grams fold into one line under the add bar (audit F-06 L2). */
+  .weigh-fold {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .weigh-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    min-height: var(--size-target);
+    padding: 0 var(--space-inset);
+    color: var(--ink);
+    font-size: var(--text-md);
+    text-align: left;
+  }
+
+  .weigh-toggle svg {
+    flex: none;
+    transition: transform 0.15s;
+  }
+
+  .weigh-toggle[aria-expanded="true"] svg {
+    transform: rotate(90deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .weigh-toggle svg {
+      transition: none;
+    }
+  }
+
   /* The bottle small, beside its grams in a row. */
   .weigh-row {
     display: flex;
@@ -3344,8 +3379,49 @@
       font-size: var(--text-xl);
     }
 
+    /* The head in two rows (audit F-06 L2): «←», the name, undo, redo and Options; under them the
+       intention and the notes, one line each until you write in them. */
+    .formula-head .back {
+      order: 0;
+    }
+
+    .formula-head .name-card {
+      order: 1;
+      flex: 1 1 0;
+    }
+
     .head-actions {
+      order: 2;
       margin-left: 0;
+      gap: 4px;
+    }
+
+    .formula-head .intention-card {
+      order: 3;
+      flex: 1 1 100%;
+      flex-direction: row;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .formula-head .intention-card:not(:focus-within) textarea {
+      height: 1.5em;
+      overflow: hidden;
+    }
+
+    .formula-head .intention-card:focus-within {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .formula-head .intention-card:focus-within textarea {
+      min-height: 4.5em;
+    }
+
+    /* With no hover to show it whole, what limits IFRA takes the lines it needs. */
+    .ifra-limit {
+      white-space: normal;
+      overflow-wrap: anywhere;
     }
 
     /* Under «←» too, so that it fits the phone's width. */

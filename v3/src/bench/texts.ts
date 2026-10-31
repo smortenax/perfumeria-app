@@ -89,6 +89,9 @@ export const texts = {
     none: "—",
     edit: "Click to write, in grams",
     invalid: "Invalid figure",
+    /** The bottle and its grams, folded into one line on a phone (audit F-06 L2). */
+    summary: (inBottle: string, tare: string | null) => `${inBottle} in the bottle · ${tare === null ? "bottle not weighed" : `tare ${tare}`}`,
+    showWeights: "The bottle and its grams",
   },
 
   /** The kinds of natural, by the letter of their icon (P40). */
