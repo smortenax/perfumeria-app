@@ -1644,6 +1644,20 @@ La revisión: `/mnt/project-files/auditoria-ficha/2026-10-29-ficha-material.md` 
 - **Una versión toma el nombre del común al crearse.** Las que se crearon antes de la tanda 36 lo tomaron en español. Las que aún se llaman exactamente como el común antiguo pasan a su nombre en inglés, y el español queda entre sus otros nombres, para que el buscador las siga encontrando (tanda 37).
 - **Lo que escribiste tú no se toca:** una versión que renombraste, un material tuyo que no es versión, tus notas, etiquetas y descripciones (V3-71).
 
+## V3-89 · F6, el resumen de la fórmula, lo calcula la app con sus datos (decidida por el usuario el 2026-10-31)
+
+**Literal** (2026-10-31, en la pregunta «F6, el resumen automático de la fórmula, está "por matizar al llegar". ¿De dónde sale el resumen?», entre «Calculado», «Escrito por una IA» y «Dejarla para más tarde»):
+
+> Calculado (Recommended)
+
+**Lectura** (de la sesión, para que la confirmes):
+
+- **El resumen sale de los datos de la fórmula, no de un modelo:** funciona sin red, y cada cifra lleva su base. Va en el banco, en la columna de al lado, debajo del veredicto de IFRA, que por eso no repite.
+- **Dice:** las familias (las tres mayores, «and N more» y lo que no tiene familia), qué nota pesa más (salida, corazón o fondo, por el `tier` de cada material, como la lista por notas de F3) y lo que no tiene nota. Todo, en partes de la materia aromática: los diluyentes no son familia ni nota.
+- **Lo que un material no dice no se reparte:** se cuenta aparte y se nombra («3 materials without data: …», el más pesado primero). Una parte pequeña se lee «<1 %», nunca «0 %», y lo que no llega al total, «>99 %», nunca «100 %».
+- **Propuesta de la sesión: la confianza.** Es la menor de las dos coberturas (cuánta masa aromática tiene familia y cuánta tiene nota): alta desde el 90 %, media desde el 60 %, baja por debajo. «Baja» va en ámbar; ninguna va en verde. Una nota «manda» solo si pesa más que cada una de las otras y las notas se conocen para al menos la mitad de la masa.
+- **No cierra la puerta** a un texto en prosa más adelante: podría escribirse sobre este mismo resumen.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).

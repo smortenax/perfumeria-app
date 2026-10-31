@@ -27,6 +27,9 @@ import { ownConcentration, recipe } from "./use-formula";
 import { GramsCard, IntentionCard, NameCard, NotesCard } from "./Header";
 import { BenchSwitcher } from "./BenchSwitcher";
 import { familyShares } from "../families/bar";
+import { familyOf as paletteFamilyOf } from "../families/palette";
+import { formulaSummary } from "./summary";
+import { SummaryCard } from "./SummaryCard";
 import { FamilyBar } from "../families/FamilyBar";
 import { endMaceration, macerationState, noteCheck, startMaceration, todayIso } from "../db/macerations";
 import { useMacerations } from "../formulation/useMacerations";
@@ -355,6 +358,21 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
     const m = props.data.catalog.materials.get(key);
     return m?.tier ?? (m?.basedOnId ? props.data.catalog.materials.get(m.basedOnId)?.tier : null) ?? null;
   };
+  // The formula summed up (F6, V3-89): by the palette's families, as the family bar, and by its notes.
+  const summary = useMemo(
+    () =>
+      formulaSummary(
+        view.composition?.parts ?? [],
+        (key) => {
+          const m = props.data.catalog.materials.get(key);
+          return m ? paletteFamilyOf(props.data.catalog, m) : null;
+        },
+        tierOf,
+      ),
+    // tierOf reads the catalogue only.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [view.composition, props.data],
+  );
   const chemical = useMemo(() => new Map(repository.entries.filter((e) => e.tradeName).map((e) => [e.material.key, e.chemicalName])), [repository]);
   const known = useMemo(() => [...props.frozen, ...session], [props.frozen, session]);
 
@@ -911,6 +929,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
         {/* The side holds the verdict and the charts only (V3-73), with room for the odour map. */}
         <aside className="side">
           <IfraSummary report={view.report} empty={empty} {...(ifraBase ? { base: ifraBase } : {})} />
+          <SummaryCard summary={summary} />
           <RepartoCard composition={view.composition} familyOf={familyOf} />
           <ProjectionCard />
           <OdourMapPlaceholder />
