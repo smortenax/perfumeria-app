@@ -1612,6 +1612,44 @@
     min-width: 0;
   }
 
+  /* The formula summed up (F6, V3-89), under the IFRA verdict. */
+  .summary-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px var(--space-inset);
+  }
+
+  .summary-card p {
+    margin: 0;
+  }
+
+  .summary-line {
+    font-size: var(--text-md);
+    overflow-wrap: anywhere;
+  }
+
+  .summary-confidence {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 4px;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+    font-size: var(--text-sm);
+  }
+
+  .summary-confidence ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--muted);
+  }
+
+  /* Low confidence says so in words and in the amber of «unknown»; never green when it is high. */
+  .summary-confidence.confidence-low strong {
+    color: var(--amber);
+  }
+
   .ifra-summary {
     min-width: 0;
     text-align: left;
