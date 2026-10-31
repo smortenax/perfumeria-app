@@ -89,6 +89,9 @@ export const texts = {
     none: "—",
     edit: "Click to write, in grams",
     invalid: "Invalid figure",
+    /** The bottle and its grams, folded into one line on a phone (audit F-06 L2). */
+    summary: (inBottle: string, tare: string | null) => `${inBottle} in the bottle · ${tare === null ? "bottle not weighed" : `tare ${tare}`}`,
+    showWeights: "The bottle and its grams",
   },
 
   /** The kinds of natural, by the letter of their icon (P40). */
@@ -436,6 +439,18 @@ export const texts = {
     partial: "This formula's IFRA data are partial: no concentration can be taken as good.",
     pure: "neat",
     diluted: (percent: string, diluents: string) => `at ${percent} in ${diluents}`,
+  },
+  switcher: {
+    label: "Where you are",
+    bench: (name: string) => `Workbench ${name}: change workbench`,
+    formula: (name: string) => `Formula ${name}: change formula or version`,
+    search: "Search",
+    allBenches: "All workbenches",
+    formulas: (n: number) => (n === 1 ? "1 formula" : `${n} formulas`),
+    noBenches: "No workbench by that name.",
+    noFormulas: "No formula by that name.",
+    emptyBench: "This workbench has no formulas yet.",
+    current: "open now",
   },
   menu: {
     options: "Options",

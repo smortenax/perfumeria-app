@@ -20,6 +20,7 @@ import {
 } from "./vocabulary";
 import "./tasting.css";
 import { EmptyState } from "../EmptyState";
+import { Button } from "../Button";
 
 const t = texts.tasting;
 export const TABS = ["session", "queue", "history", "legacy"] as const;
@@ -229,9 +230,9 @@ function SessionView({
     return (
       <div className="tasting-empty">
         <p>{t.noSession}</p>
-        <button type="button" className="primary" onClick={() => run(createSession(local.db, local.userId))}>
+        <Button variant="primary" onClick={() => run(createSession(local.db, local.userId))}>
           {t.newSession}
-        </button>
+        </Button>
       </div>
     );
   }
@@ -274,33 +275,33 @@ function SessionView({
         adding ? (
           <AddStrip data={data} tastings={tastings} onCancel={() => setAdding(false)} onAdd={(input) => run(addStrip(local.db, local.userId, open.id, input).then(() => setAdding(false)))} />
         ) : (
-          <button type="button" className="primary" onClick={() => setAdding(true)}>
+          <Button variant="primary" onClick={() => setAdding(true)}>
             {t.addStrip}
-          </button>
+          </Button>
         )
       ) : (
         <p className="hint">{t.full}</p>
       )}
       <div className="tasting-actions">
         {permission !== "granted" && permission !== "denied" ? (
-          <button type="button" onClick={() => void Notification.requestPermission().then(setPermission)}>
+          <Button variant="secondary" onClick={() => void Notification.requestPermission().then(setPermission)}>
             {t.notice}
-          </button>
+          </Button>
         ) : (
           <span className="hint">{permission === "granted" ? t.noticeOn : t.noticeHint}</span>
         )}
-        <button type="button" onClick={() => run(endSession(local.db, local.userId, open.id))}>
+        <Button variant="secondary" onClick={() => run(endSession(local.db, local.userId, open.id))}>
           {t.endSession}
-        </button>
-        <button
-          type="button"
-          className="secondary delete-session"
+        </Button>
+        <Button
+          variant="danger"
+          className="delete-session"
           onClick={() => {
             if (window.confirm(t.deleteSessionAsk)) run(deleteSession(local.db, local.userId, open.id));
           }}
         >
           {t.deleteSession}
-        </button>
+        </Button>
       </div>
     </div>
   );
@@ -373,12 +374,12 @@ function AddStrip({
         </>
       )}
       <div className="tasting-actions">
-        <button type="button" className="primary" disabled={!materialId} onClick={() => materialId && onAdd({ materialId, ...bottleOfKey(bottle), dose })}>
+        <Button variant="primary" disabled={!materialId} onClick={() => materialId && onAdd({ materialId, ...bottleOfKey(bottle), dose })}>
           {t.add}
-        </button>
-        <button type="button" onClick={onCancel}>
+        </Button>
+        <Button variant="secondary" onClick={onCancel}>
           {t.cancel}
-        </button>
+        </Button>
       </div>
     </div>
   );
@@ -487,9 +488,9 @@ function StripView({
       </div>
       {!strip.revealedAt && (
         <div className="tasting-actions">
-          <button type="button" disabled={!written.includes("t5")} onClick={() => run(revealStrip(local.db, local.userId, strip.id))}>
+          <Button variant="secondary" disabled={!written.includes("t5")} onClick={() => run(revealStrip(local.db, local.userId, strip.id))}>
             {t.reveal}
-          </button>
+          </Button>
           {!written.includes("t5") && <span className="hint">{t.revealNeedsT5}</span>}
         </div>
       )}
@@ -519,9 +520,9 @@ function Opening({ local, strip, moment, run }: { local: LocalDatabase; strip: T
       <textarea rows={6} value={text} onChange={(e) => setText(e.target.value)} aria-label={t.momentTitle.t0} />
       <p className="hint">{t.dictateHint}</p>
       {strip.fraction === null && <p className="hint">{t.bottleFirst}</p>}
-      <button type="button" className="primary" disabled={!text.trim() || strip.fraction === null} onClick={() => run(writeOpening(local.db, local.userId, strip.id, text))}>
+      <Button variant="primary" disabled={!text.trim() || strip.fraction === null} onClick={() => run(writeOpening(local.db, local.userId, strip.id, text))}>
         {t.t0Save}
-      </button>
+      </Button>
     </div>
   );
 }
@@ -824,15 +825,14 @@ function Closing({
       ) : (
         <>
           <p className="hint">{t.comparisonLocked}</p>
-          <button
-            type="button"
-            className="primary"
+          <Button
+            variant="primary"
             onClick={() => {
               if (window.confirm(t.closeAsk)) run(closeStrip(local.db, local.userId, strip.id));
             }}
           >
             {t.close}
-          </button>
+          </Button>
         </>
       )}
     </div>
@@ -866,9 +866,9 @@ function QueueView({
         <button type="button" className="link" onClick={() => run(setMark(local.db, local.userId, i.materialId, i.mark ? null : (window.prompt(t.markAsk, t.markDefault) ?? null)))}>
           {i.mark ? t.unmark : t.mark}
         </button>
-        <button type="button" disabled={inSession.has(i.materialId)} onClick={() => onAdd(i.materialId)}>
+        <Button variant="secondary" disabled={inSession.has(i.materialId)} onClick={() => onAdd(i.materialId)}>
           {t.queueAdd}
-        </button>
+        </Button>
       </span>
     </li>
   );
@@ -914,9 +914,9 @@ function HistoryView({ data, tastings, onOpenStrip }: { data: GlossaryData; tast
                   {s.closedAt ? "" : ` · ${t.closing.toLowerCase()} —`}
                 </small>
               </span>
-              <button type="button" onClick={() => onOpenStrip(s.id)}>
+              <Button variant="secondary" onClick={() => onOpenStrip(s.id)}>
                 {t.open}
-              </button>
+              </Button>
             </li>
           );
         })}

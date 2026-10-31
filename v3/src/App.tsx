@@ -28,6 +28,7 @@ import { useDueCount } from "./tasting/useDue";
 import { NavIcon, type NavIconName } from "./NavIcon";
 import { texts } from "./i18n/en";
 import { noteRecent } from "./recent";
+import { Button } from "./Button";
 
 /**
  * Who is using the app decides what opens (plan step 1.7): without a session, signing in;
@@ -142,9 +143,9 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
       {!data &&
         (firstSync.error ? (
           <LoadError title={texts.states.downloadFailed} text={texts.states.downloadFailedText(firstSync.error)}>
-            <button type="button" onClick={() => window.location.reload()}>
+            <Button variant="primary" onClick={() => window.location.reload()}>
               {texts.states.tryAgain}
-            </button>
+            </Button>
           </LoadError>
         ) : (
           <Loading what={texts.states.yourData} shape={shapeOf(route)} note={firstSync.synced === false ? texts.states.firstDownload : undefined} />

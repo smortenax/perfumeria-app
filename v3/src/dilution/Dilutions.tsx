@@ -17,6 +17,7 @@ import { cardsOf, nominalPercent, shortName } from "./grid";
 import { NewDilution } from "./NewDilution";
 import "./dilutions.css";
 import { EmptyState } from "../EmptyState";
+import { Button } from "../Button";
 
 const t = texts.dilutions;
 const UG_PER_G = 1_000_000n;
@@ -140,9 +141,9 @@ function BottleList({
       <div className="title-bar">
         <h2 className="page-title">{t.title}</h2>
         <span className="buttons">
-          <button type="button" onClick={onNew}>
+          <Button variant="primary" onClick={onNew}>
             {t.newBottle}
-          </button>
+          </Button>
         </span>
       </div>
       <div className="tools">
@@ -374,16 +375,15 @@ function BottleEditor({
               </div>
             ))}
             <div className="actions">
-              <button
-                type="button"
-                className="secondary"
+              <Button
+                variant="secondary"
                 onClick={() => setRows([...rows, { diluentId: diluents.find((d) => !rows.some((r) => r.diluentId === d.id))?.id ?? firstDpg, share: "", grams: "" }])}
               >
                 {t.addDiluent}
-              </button>
-              <button type="button" onClick={calculate}>
+              </Button>
+              <Button variant="primary" onClick={calculate}>
                 {t.calculate}
-              </button>
+              </Button>
             </div>
           </fieldset>
 
@@ -424,16 +424,15 @@ function BottleEditor({
           </label>
           {error && <p className="error">{error}</p>}
           <div className="actions">
-            <button type="button" disabled={!weighed && !onlyWords} onClick={save}>
+            <Button variant="primary" disabled={!weighed && !onlyWords} onClick={save}>
               {t.save}
-            </button>
+            </Button>
             <button type="button" className="secondary" onClick={onCancel}>
               {t.cancel}
             </button>
             {bottle && (
-              <button
-                type="button"
-                className="secondary"
+              <Button
+                variant="secondary"
                 onClick={() =>
                   void archiveBottle(local.db, local.userId, bottle.id, !bottle.archivedAt).then(
                     () => {
@@ -445,7 +444,7 @@ function BottleEditor({
                 }
               >
                 {bottle.archivedAt ? t.unarchive : t.archive}
-              </button>
+              </Button>
             )}
           </div>
         </>
@@ -479,9 +478,9 @@ export function MaterialDilutions({ data, local, materialId, onOpen }: { data: G
           ))}
         </ul>
       )}
-      <button ref={newButton} type="button" onClick={() => setAdding(true)}>
+      <Button variant="primary" ref={newButton} onClick={() => setAdding(true)}>
         {t.newBottle}
-      </button>
+      </Button>
       {adding && <DilutionPopup data={data} local={local} materialId={materialId} onDone={close} onClose={close} />}
     </section>
   );

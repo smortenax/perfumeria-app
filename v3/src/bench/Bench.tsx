@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
 import { Ratio } from "../core/arith/ratio";
 import { parseMass } from "../core/arith/units";
 import { compose, replay, type Composition, type Line } from "../core/compose";
@@ -21,9 +21,11 @@ import { OdourMapPlaceholder, ProjectionCard, RepartoCard } from "./Charts";
 import { ifraOfLines } from "./composition-ifra";
 import { CompositionCard } from "./CompositionList";
 import { ChoiceDialog, ConfirmDialog, FormulaPickerDialog, PromptDialog, ReweighDialog, SaveAsDialog, type SaveAsChoice, UseFormulaDialog } from "./Dialogs";
-import { dilutionText } from "./format";
+import { dilutionText, weighSummary } from "./format";
+import { NARROW, useMediaQuery } from "./narrow";
 import { ownConcentration, recipe } from "./use-formula";
 import { GramsCard, IntentionCard, NameCard, NotesCard } from "./Header";
+import { BenchSwitcher } from "./BenchSwitcher";
 import { familyShares } from "../families/bar";
 import { familyOf as paletteFamilyOf } from "../families/palette";
 import { formulaSummary } from "./summary";
@@ -50,6 +52,7 @@ import { PrintFormula } from "../export/PrintFormula";
 import { addToShopping, missingOf, removeFromShopping } from "../db/shopping";
 import { texts as appTexts } from "../i18n/en";
 import "./bench.css";
+import { Button } from "../Button";
 
 type Add = Extract<Change, { kind: "add" }>;
 
@@ -161,9 +164,9 @@ export function Bench(props: BenchProps) {
       <div className="bench-pending">
         {loadError ? (
           <LoadError title={s.formulaFailed} text={loadError}>
-            <button type="button" onClick={props.onExit}>
+            <Button variant="primary" onClick={props.onExit}>
               {s.toFormulation}
-            </button>
+            </Button>
           </LoadError>
         ) : (
           <Loading what={s.thisFormula} shape="bench" />
@@ -268,6 +271,9 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
   // Using the recipe writes down what you do not have on the shopping list, and says so with Undo (V3-79).
   const [shoppingNote, setShoppingNote] = useState<{ text: string; ids: string[] } | null>(null);
   const addBar = useRef<AddBarHandle>(null);
+  const narrow = useMediaQuery(NARROW);
+  const [weighOpen, setWeighOpen] = useState(false);
+  const weighId = useId();
   const frameRef = useRef(frame);
   frameRef.current = frame;
 
@@ -655,6 +661,35 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
   // What the bottle holds, as % of it, for under the bottle (P49).
   const bottleTotal = view.composition && !view.composition.totalUg.isZero() ? view.composition.totalUg : null;
 
+  // The bottle and its grams: in a row under the head; on a phone, folded into one line under the add
+  // bar, because adding is what is done there and the tare and batches are looked at seldom (audit F-06 L2).
+  const weighRow = (
+    <div id={weighId} className="card weigh-row">
+      <BottleFrame
+        name={shownHeader.name || texts.bench.untitled}
+        fill={fill}
+        aromatic={bottleTotal ? { name: texts.composition.aromatic, share: formatPercent(view.composition!.aromaticUg.div(bottleTotal), 2) } : null}
+        solvents={
+          bottleTotal
+            ? view.composition!.parts.filter((p) => p.material.solvent).map((p) => ({ name: p.material.name, share: formatPercent(p.massUg.div(bottleTotal), 2) }))
+            : []
+        }
+      />
+      <GramsCard header={shownHeader} totalUg={total} onChange={setHeader} />
+    </div>
+  );
+  const weighFold = (
+    <section className="weigh-fold" aria-label={texts.grams.showWeights}>
+      <button type="button" className="card weigh-toggle" aria-expanded={weighOpen} aria-controls={weighOpen ? weighId : undefined} onClick={() => setWeighOpen(!weighOpen)}>
+        <span>{weighSummary(total, tare)}</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M5 3l4 4-4 4" />
+        </svg>
+      </button>
+      {weighOpen && weighRow}
+    </section>
+  );
+
   return (
     <div className="bench">
       {/* The bench as one page that scrolls (V3-73): the head, the bottle and its grams, the add bar
@@ -675,6 +710,17 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
             <path d="M10 3L5 8l5 5" />
           </svg>
         </button>
+        <BenchSwitcher
+          workbenches={props.data.workbenches}
+          formulas={props.data.formulas}
+          formulaId={formulaId}
+          benchId={props.record.workbenchId}
+          name={shownHeader.name.trim() || texts.bench.untitled}
+          onOpen={(id) => {
+            flushTyped();
+            props.onOpen(id);
+          }}
+        />
         <NameCard header={shownHeader} status={status} statusIsError={error !== null} onChange={typeHeader} onDone={doneTyping} />
         <IntentionCard header={shownHeader} onChange={typeHeader} onDone={doneTyping} />
         <NotesCard notes={props.record.notes} onSave={(notes) => write(() => updateFormula(local.db, owner, formulaId, { notes }))} />
@@ -816,19 +862,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
         </p>
       )}
 
-      <div className="card weigh-row">
-        <BottleFrame
-          name={shownHeader.name || texts.bench.untitled}
-          fill={fill}
-          aromatic={bottleTotal ? { name: texts.composition.aromatic, share: formatPercent(view.composition!.aromaticUg.div(bottleTotal), 2) } : null}
-          solvents={
-            bottleTotal
-              ? view.composition!.parts.filter((p) => p.material.solvent).map((p) => ({ name: p.material.name, share: formatPercent(p.massUg.div(bottleTotal), 2) }))
-              : []
-          }
-        />
-        <GramsCard header={shownHeader} totalUg={total} onChange={setHeader} />
-      </div>
+      {!narrow && weighRow}
 
       <AddBar
         ref={addBar}
@@ -865,6 +899,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
           />
         }
       />
+      {narrow && weighFold}
       {view.error && (
         <p className="compute-error">
           {texts.bench.computeError}: {view.error}
@@ -1077,7 +1112,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
         />
       )}
       {dialog?.kind === "delete" && (
-        <ConfirmDialog title={texts.dialogs.deleteTitle} text={texts.dialogs.deleteText(formula.header.name, formula.history.length)} onConfirm={() => void remove()} onClose={() => setDialog(null)} />
+        <ConfirmDialog danger title={texts.dialogs.deleteTitle} text={texts.dialogs.deleteText(formula.header.name, formula.history.length)} onConfirm={() => void remove()} onClose={() => setDialog(null)} />
       )}
       {dialog?.kind === "formulaAsMaterial" && (
         <FormulaPickerDialog
