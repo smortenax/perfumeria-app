@@ -10,6 +10,7 @@ import { buildQueue, countdown, dueMoments } from "./tasting/logic";
 import { useNow } from "./tasting/useTastings";
 import { DEFAULT_MOMENTS } from "./tasting/vocabulary";
 import { texts } from "./i18n/en";
+import { Button } from "./Button";
 
 /**
  * The landing (plan v3, step 8.1): first «Continue», what is in progress, one tap back into it (audit
@@ -173,9 +174,9 @@ export function Home({
                   <span className="continue-detail">{s.due !== null ? texts.maceration.due(s.due) : s.next !== null ? texts.maceration.next(s.next) : texts.maceration.since(m.startedOn)}</span>
                 </button>
                 {s.due !== null && (
-                  <button type="button" className="secondary note-check" onClick={() => note(m.id, s.due!)}>
+                  <Button variant="secondary" className="note-check" onClick={() => note(m.id, s.due!)}>
                     {texts.maceration.note(s.due)}
-                  </button>
+                  </Button>
                 )}
               </li>
             ))}

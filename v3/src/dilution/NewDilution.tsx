@@ -7,6 +7,7 @@ import type { GlossaryData } from "../glossary/useGlossary";
 import { texts } from "../i18n/en";
 import { gramsToUg, percentToFraction, windowState, type WindowRow } from "./window";
 import "./dilutions.css";
+import { Button } from "../Button";
 
 const t = texts.dilutions;
 const w = t.window;
@@ -261,12 +262,12 @@ export function NewDilution({
           {state.problem && <p className="error">{w.problem[state.problem]}</p>}
           {error && <p className="error">{error}</p>}
           <div className="actions">
-            <button type="button" className="secondary" disabled={!state.aimed} onClick={saveUnweighed}>
+            <Button variant="secondary" disabled={!state.aimed} onClick={saveUnweighed}>
               {w.saveUnweighed}
-            </button>
-            <button type="button" disabled={!state.weighed} onClick={saveWeighed}>
+            </Button>
+            <Button variant="primary" disabled={!state.weighed} onClick={saveWeighed}>
               {w.saveWeighed}
-            </button>
+            </Button>
           </div>
         </>
       )}

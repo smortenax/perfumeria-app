@@ -16,6 +16,7 @@ import { useMacerations } from "./useMacerations";
 import { VersionTree } from "./VersionTree";
 import { macerationState, startMaceration, todayIso } from "../db/macerations";
 import { EmptyState } from "../EmptyState";
+import { Button } from "../Button";
 
 /** The library's tabs (V3-19): your workbenches, and the general folders of the markers. */
 const TABS = ["benches", "accords", "finished"] as const;
@@ -82,9 +83,9 @@ export function Library({
       <div className="title-bar">
         <h2 className="page-title">{t.title}</h2>
         <span className="buttons">
-          <button type="button" onClick={newBench}>
+          <Button variant="primary" onClick={newBench}>
             {t.newBench}
-          </button>
+          </Button>
         </span>
       </div>
       <div className="tools">
@@ -186,9 +187,9 @@ function Benches({
       <p className="hint">{t.noFormulas}</p>
     ) : (
       <EmptyState title={t.noBenches} text={t.noBenchesText}>
-        <button type="button" onClick={onNewBench}>
+        <Button variant="primary" onClick={onNewBench}>
           {texts.library.newBench}
-        </button>
+        </Button>
       </EmptyState>
     );
   const depth = (f: FormulaRecord) => {
@@ -217,13 +218,13 @@ function Benches({
           </div>
           <span className="buttons">
             {all === 0 && (
-              <button type="button" className="secondary" onClick={() => onDeleteBench(current.id)}>
+              <Button variant="danger" onClick={() => onDeleteBench(current.id)}>
                 {t.deleteBench}
-              </button>
+              </Button>
             )}
-            <button type="button" onClick={() => onNew(current.id)}>
+            <Button variant="primary" onClick={() => onNew(current.id)}>
               {t.newFormula}
-            </button>
+            </Button>
           </span>
         </div>
         <div className="list-tools">
@@ -239,15 +240,15 @@ function Benches({
             <p className="hint">{t.noFormulas}</p>
           ) : favoritesOnly && all > 0 ? (
             <EmptyState title={t.noFavorites} text={t.noFavoritesText}>
-              <button type="button" className="secondary" onClick={() => setFavoritesOnly(false)}>
+              <Button variant="secondary" onClick={() => setFavoritesOnly(false)}>
                 {t.showAll}
-              </button>
+              </Button>
             </EmptyState>
           ) : (
             <EmptyState title={t.emptyBench} text={t.emptyBenchText}>
-              <button type="button" onClick={() => onNew(current.id)}>
+              <Button variant="primary" onClick={() => onNew(current.id)}>
                 {t.newFormula}
-              </button>
+              </Button>
             </EmptyState>
           )
         ) : (

@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { signIn, signInForTesting, type SignedInUser } from "./db/client";
 import { texts } from "./i18n/en";
+import { Button } from "./Button";
 
 /** The one-click sign-in of the test phase (vite.config.ts); none where Vite did not define it. */
 // Yours on the address you use (localhost); the test account only on [::1], where the session tests:
@@ -48,18 +49,18 @@ export function SignIn({ onSignedIn }: { onSignedIn: (user: SignedInUser) => voi
           {t.password}
           <input type="password" autoComplete="current-password" required value={password} onChange={(e) => setPassword(e.target.value)} />
         </label>
-        <button type="submit" disabled={working}>
+        <Button variant="primary" type="submit" disabled={working}>
           {working ? t.working : t.submit}
-        </button>
+        </Button>
         {error && <p className="error">{error}</p>}
         <p className="hint">{t.closed}</p>
         {/* The test phase, in development only (vite.config.ts): one click, no password typed. */}
         {DEV_LOGINS.length > 0 && (
           <div className="dev-logins">
             {DEV_LOGINS.map((l) => (
-              <button key={l.who} type="button" className="secondary" disabled={working} onClick={() => void enter(() => signInForTesting(l.who))}>
+              <Button variant="secondary" key={l.who} disabled={working} onClick={() => void enter(() => signInForTesting(l.who))}>
                 {l.who === "me" ? t.devMe : t.devTest}
-              </button>
+              </Button>
             ))}
             <p className="hint">{t.devHint}</p>
           </div>

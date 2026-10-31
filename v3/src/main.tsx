@@ -8,6 +8,7 @@ import "./theme/tokens.css";
 import "./App.css";
 import "./theme/layout.css";
 import "./theme/screens.css";
+import "./theme/buttons.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>

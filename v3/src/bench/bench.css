@@ -2467,25 +2467,30 @@
 
   /* Dialogs */
 
-  .modal-backdrop {
-    position: fixed;
-    inset: 0;
-    z-index: 60;
-    display: grid;
-    place-items: center;
+  /* A native <dialog> (audit F-13 L2): in the top layer, over everything, with the bench inert. */
+  .modal {
+    width: min(460px, calc(100vw - 32px));
+    max-height: calc(100dvh - 32px);
+    margin: auto;
+    padding: 0;
+    overflow-y: auto;
+    background: var(--panel);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
+  }
+
+  .modal::backdrop {
     background: rgba(29, 29, 27, 0.28);
   }
 
-  .modal {
-    width: min(460px, calc(100vw - 32px));
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 12px;
+  /* The padding is the body's: a press on the dialog itself is a press on the backdrop. */
+  .modal-body {
     padding: 16px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
   }
 
   .modal h2 {
@@ -2533,12 +2538,77 @@
     border: 1.5px solid var(--ink);
   }
 
-  .radio {
+  /* Options as rows to press (audit F-08 L2); each holds a real radio, hidden. */
+  .choices {
     display: flex;
-    gap: 6px;
-    align-items: baseline;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .choice {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    min-height: 40px;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--panel);
     color: var(--ink);
     font-size: var(--text-md);
+    cursor: pointer;
+  }
+
+  .choice input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* The dot: a ring, filled when chosen. */
+  .choice::before {
+    content: "";
+    flex: none;
+    box-sizing: border-box;
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--line-strong);
+    border-radius: 50%;
+  }
+
+  .choice:hover {
+    background: var(--fill);
+  }
+
+  .choice:has(input:checked) {
+    border-color: var(--ink);
+    background: var(--surface-chip);
+    font-weight: 700;
+  }
+
+  .choice:has(input:checked)::before {
+    border: 5px solid var(--ink);
+  }
+
+  .choice:has(input:focus-visible) {
+    outline: 2px solid var(--ink);
+    outline-offset: 1px;
+  }
+
+  .choice:has(input:disabled) {
+    opacity: 0.5;
+    cursor: default;
+    background: var(--panel);
+  }
+
+  .choice-label {
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 
   .picker-list {
@@ -2564,10 +2634,6 @@
     padding: 0 0 2px;
   }
 
-  .picker-group .radio {
-    min-height: 32px;
-    align-items: center;
-  }
 
   .modal-actions {
     display: flex;
@@ -2575,19 +2641,10 @@
     gap: 8px;
   }
 
-  .modal-actions button {
+  /* Its look is the app's (theme/buttons.css, audit F-11 L2); only its size is the dialog's. */
+  .modal-actions .btn {
+    min-height: 34px;
     height: 34px;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    background: var(--panel);
-    padding: 0 14px;
-  }
-
-  .modal-actions .primary {
-    background: var(--ink);
-    border-color: var(--ink);
-    color: #ffffff;
-    font-weight: 500;
   }
 
   /* What limits the formula, on one line: a long IFRA name is cut, and says itself on hover. */
@@ -2776,6 +2833,115 @@
     width: var(--size-target);
     height: var(--size-target);
     flex: none;
+  }
+
+  /* «Bench ▾ / Formula ▾» (audit F-02 L2): beside «←», on a row of its own above the name. */
+  .bench-crumbs {
+    --switcher-step: 1rem;
+    position: relative;
+    flex: 1 1 calc(100% - var(--size-target) - 12px);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .crumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    max-width: 22rem;
+    min-height: var(--size-target);
+    padding: 0 10px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--muted);
+    font-size: var(--text-md);
+  }
+
+  .crumb:last-of-type {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .crumb:hover,
+  .crumb[aria-expanded="true"] {
+    border-color: var(--line);
+    background: var(--panel);
+  }
+
+  .crumb-text {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .crumb svg {
+    flex: none;
+  }
+
+  .crumb-sep {
+    color: var(--muted);
+  }
+
+  .menu-pop.switcher {
+    top: calc(100% + 4px);
+    left: 0;
+    width: min(24rem, calc(100vw - 24px));
+    max-height: min(28rem, 70vh);
+    gap: 4px;
+  }
+
+  .switcher-search {
+    min-height: 36px;
+    flex: none;
+  }
+
+  .switcher-head {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 4px;
+  }
+
+  .switcher-head .menu-note {
+    padding-top: 2px;
+    font-weight: 700;
+    color: var(--ink);
+    font-size: var(--text-sm);
+  }
+
+  .switcher-list {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    min-height: 0;
+  }
+
+  .switcher-list .menuitem {
+    flex: none;
+    height: auto;
+    min-height: 36px;
+  }
+
+  .switcher-list .menuitem[aria-current] {
+    background: var(--surface-chip);
+    font-weight: 700;
+  }
+
+  .switcher-name {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .switcher-branch,
+  .switcher-star {
+    flex: none;
+    color: var(--muted);
+    white-space: pre;
   }
 
   .formula-head .name-card {
@@ -3256,6 +3422,11 @@
     .ifra-limit {
       white-space: normal;
       overflow-wrap: anywhere;
+    }
+
+    /* Under «←» too, so that it fits the phone's width. */
+    .menu-pop.switcher {
+      left: calc(-1 * (var(--size-target) + 12px));
     }
 
     .quantity,
