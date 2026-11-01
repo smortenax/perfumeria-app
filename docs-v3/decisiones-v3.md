@@ -1687,6 +1687,24 @@ Viene de V3-78 («hay que iterar para que sean no solo visualmente atractivos si
 - **Lo que no se sabe, en discontinuo**: ni encendido ni vacío como si fuera cero.
 - **Propuesta de la sesión:** las marcas solo en los orbes grandes, la ficha (220 px) y Materiales (72 px); a 40 px o menos (Diluciones y el banco) no se leerían, y allí el texto de al lado ya lo dice. En la ficha, cada marca lleva su palabra y la nota tiene además su fila en la franja.
 
+## V3-92 · Lo que propuso la sesión en la auditoría y en F4–F6, confirmado (decidida por el usuario el 2026-11-01)
+
+**Literal** (2026-10-31 y 2026-11-01, una pregunta cada vez, en las tarjetas):
+
+- Los botones que borran (V3-75 y D-0008 los habían dejado en tinta): «Rojo, contorno (Recommended)».
+- Formulación, con «New workbench» y «New formula» en tinta: «New formula (Recommended)».
+- La ficha del material, «Edit» o «Make a version»: «Según la ficha (Recommended)».
+- La confianza del resumen (V3-89): «90 % y 60 % (Recommended)».
+- Las paradas del deslizador de evaporación (V3-90): «Dejarlas así (Recommended)».
+- Las marcas de los orbes (V3-91), solo en los grandes y con cuatro segmentos: «Dejarlo así (Recommended)».
+
+**Lectura** (de la sesión):
+
+- **Lo que borra va con contorno y texto rojos**, nunca relleno (`theme/buttons.css`). D-0008 («los errores, en tinta») no lo alcanza: borrar no es un error. El «Delete» del menú del banco y el «Remove» de Catas ya eran rojos.
+- **En Formulación, la principal es «New formula»**; «New workbench» de la barra de título pasa a secundaria. Sin ningún banco, «New workbench» del estado vacío sigue siendo la principal: es lo único que se puede hacer.
+- **La ficha ya lo hacía:** «Edit» (tuya) y «Make a version» (común) nunca salen juntos; la sesión había contado mal dos principales. Sin cambio.
+- **Quedan confirmadas tal como están** la regla de confianza de V3-89, las paradas de V3-90 y las marcas de V3-91.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).

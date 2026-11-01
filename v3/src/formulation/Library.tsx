@@ -83,7 +83,8 @@ export function Library({
       <div className="title-bar">
         <h2 className="page-title">{t.title}</h2>
         <span className="buttons">
-          <Button variant="primary" onClick={newBench}>
+          {/* Secondary: the main action of this view is «New formula» (V3-92); a new bench is seldom. */}
+          <Button variant="secondary" onClick={newBench}>
             {t.newBench}
           </Button>
         </span>
