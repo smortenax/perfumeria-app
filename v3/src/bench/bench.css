@@ -2759,13 +2759,42 @@
     overflow-wrap: anywhere;
   }
 
-  .picker-list {
-    max-height: min(50vh, 420px);
-    overflow-y: auto;
+  /* The bench picker (audit F-01 L2): benches beside their formulas, one over the other on a phone. */
+  .modal.wide {
+    width: min(720px, calc(100vw - 32px));
+  }
+
+  .bench-picker {
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
+
+  .picker-columns {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: 12px;
+  }
+
+  .picker-columns.one {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .picker-columns .picker-group {
+    max-height: min(46vh, 380px);
+    overflow-y: auto;
+  }
+
+  @media (max-width: 40rem) {
+    .picker-columns {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .picker-columns .picker-group {
+      max-height: 30vh;
+    }
+  }
+
 
   .picker-group {
     border: none;

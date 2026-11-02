@@ -22,7 +22,7 @@ import { EvaporationCard } from "./EvaporationCard";
 import { evaporation } from "./evaporation";
 import { ifraOfLines } from "./composition-ifra";
 import { CompositionCard } from "./CompositionList";
-import { ChoiceDialog, ConfirmDialog, FormulaPickerDialog, PromptDialog, ReweighDialog, SaveAsDialog, type SaveAsChoice, UseFormulaDialog } from "./Dialogs";
+import { BenchChoiceDialog, ConfirmDialog, FormulaPickerDialog, PromptDialog, ReweighDialog, SaveAsDialog, type SaveAsChoice, UseFormulaDialog } from "./Dialogs";
 import { dilutionText, weighSummary } from "./format";
 import { NARROW, useMediaQuery } from "./narrow";
 import { ownConcentration, recipe } from "./use-formula";
@@ -224,21 +224,11 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
       .map((f) => ({ id: f.id, name: f.name, workbenchId: f.workbenchId, place: benchName.get(f.workbenchId) ?? "", material: frozenOf.get(f.id) ?? null }))
       .sort((a, b) => a.name.localeCompare(b.name, "es"));
   }, [props.data, props.frozen, formulaId]);
-  const importGroups = useMemo(() => {
-    const here = props.record.workbenchId;
-    const benches = [...new Set(importable.map((f) => f.workbenchId))].sort((a, b) =>
-      a === here ? -1 : b === here ? 1 : (importable.find((f) => f.workbenchId === a)?.place ?? "").localeCompare(importable.find((f) => f.workbenchId === b)?.place ?? "", "es"),
-    );
-    return benches.map((w) => ({
-      name: importable.find((f) => f.workbenchId === w)?.place || "—",
-      options: importable
-        .filter((f) => f.workbenchId === w)
-        .map((f) => ({
-          id: f.id,
-          label: `${f.name}${!f.material ? ` (${texts.dialogs.keptNow})` : f.material.name !== f.name ? ` (${texts.dialogs.keptAs(f.material.name)})` : ""}`,
-        })),
-    }));
-  }, [importable, props.record.workbenchId]);
+  /** After each formula's name in the picker: whether choosing it saves it now, or as what it is kept. */
+  const importNote = (id: string) => {
+    const f = importable.find((x) => x.id === id);
+    return !f ? "" : !f.material ? texts.dialogs.keptNow : f.material.name !== f.name ? texts.dialogs.keptAs(f.material.name) : "";
+  };
   /** Where each formula kept as a material comes from: its workbench. */
   const placeOfFrozen = useMemo(() => {
     const benchName = new Map(props.data.workbenches.map((w) => [w.id, w.name]));
@@ -1140,17 +1130,22 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
         <FormulaPickerDialog
           title={texts.dialogs.formulaAsMaterialTitle}
           help={importable.length ? texts.dialogs.formulaAsMaterialHelp : texts.dialogs.formulaAsMaterialNone}
-          groups={importGroups}
+          workbenches={props.data.workbenches}
+          formulas={props.data.formulas}
+          benchId={props.record.workbenchId}
+          choosable={new Set(importable.map((f) => f.id))}
+          noteOf={importNote}
           onDone={useFormulaAsMaterial}
           onClose={() => setDialog(null)}
         />
       )}
       {dialog?.kind === "move" && (
-        <ChoiceDialog
+        <BenchChoiceDialog
           title={texts.dialogs.moveTitle}
           help={texts.dialogs.moveHelp}
-          options={props.data.workbenches.map((w) => ({ id: w.id, label: w.id === props.record.workbenchId ? `${w.name} ${texts.dialogs.current}` : w.name }))}
-          initial={props.record.workbenchId}
+          workbenches={props.data.workbenches}
+          formulas={props.data.formulas}
+          benchId={props.record.workbenchId}
           onDone={(id) => {
             if (id !== props.record.workbenchId) moveTo(id);
           }}
