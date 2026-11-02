@@ -27,6 +27,7 @@ import { dilutionText, weighSummary } from "./format";
 import { NARROW, useMediaQuery } from "./narrow";
 import { ownConcentration, recipe } from "./use-formula";
 import { GramsCard, IntentionCard, NameCard, NotesCard } from "./Header";
+import { HeadFigures } from "./HeadFigures";
 import { BenchSwitcher } from "./BenchSwitcher";
 import { familyShares } from "../families/bar";
 import { familyOf as paletteFamilyOf } from "../families/palette";
@@ -695,6 +696,8 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
       <GramsCard header={shownHeader} totalUg={total} onChange={setHeader} />
     </div>
   );
+  // The formula in four big figures over its grams (audit F-15 L2, V3-93); on a phone, under the add bar.
+  const figures = <HeadFigures composition={view.composition} totalUg={total} report={view.report} empty={empty} />;
   const weighFold = (
     <section className="weigh-fold" aria-label={texts.grams.showWeights}>
       <button type="button" className="card weigh-toggle" aria-expanded={weighOpen} aria-controls={weighOpen ? weighId : undefined} onClick={() => setWeighOpen(!weighOpen)}>
@@ -879,6 +882,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
         </p>
       )}
 
+      {!narrow && figures}
       {!narrow && weighRow}
 
       <AddBar
@@ -916,6 +920,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
           />
         }
       />
+      {narrow && figures}
       {narrow && weighFold}
       {view.error && (
         <p className="compute-error">

@@ -102,10 +102,44 @@
   font-size: var(--text-md);
 }
 
+/* The moments on a line of time (audit F-15 L2, F-16 L2): evenly in their order, the line behind
+   them filled up to now (--now, 0 to 1, from nowOnLine). */
 .strip-moments {
+  position: relative;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
   gap: 0.25rem;
+  margin: 0.25rem 0;
+}
+
+.strip-moments::before,
+.strip-moments::after {
+  content: "";
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  height: 2px;
+  margin-top: -1px;
+  border-radius: 1px;
+}
+
+.strip-moments::before {
+  right: 0.75rem;
+  background: var(--line);
+}
+
+.strip-moments::after {
+  width: calc((100% - 1.5rem) * var(--now, 0));
+  background: var(--text);
+}
+
+.strip-moments .moment-dot {
+  position: relative;
+  z-index: 1;
+  padding: 0.0625rem 0.3rem;
+  background: var(--panel);
+  font-size: var(--text-xs);
+  white-space: nowrap;
 }
 
 .moment-dot {

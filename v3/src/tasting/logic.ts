@@ -25,6 +25,22 @@ export function dueMoments(strip: Pick<TastingStrip, "appliedAt">, written: read
   });
 }
 
+/**
+ * Where «now» falls on a strip's line of moments (audit F-15 L2, F-16 L2), 0 to 1: the moments sit
+ * evenly along it in their order, so their names never crowd, and now is placed between the one
+ * before and the one after by the time between them. Before the first, 0; after the last, 1.
+ */
+export function nowOnLine(due: readonly Pick<DueMoment, "dueAt">[], nowMs: number): number {
+  const n = due.length;
+  if (n < 2) return n === 1 && nowMs >= due[0].dueAt ? 1 : 0;
+  if (nowMs <= due[0].dueAt) return 0;
+  for (let i = 0; i < n - 1; i++) {
+    const [a, b] = [due[i].dueAt, due[i + 1].dueAt];
+    if (nowMs < b) return (i + (b > a ? (nowMs - a) / (b - a) : 0)) / (n - 1);
+  }
+  return 1;
+}
+
 /** The next tab still to come of a strip, for its timer: null when none is waiting. */
 export function nextWaiting(due: readonly DueMoment[]): DueMoment | null {
   return due.filter((d) => d.state === "waiting").sort((a, b) => a.dueAt - b.dueAt)[0] ?? null;

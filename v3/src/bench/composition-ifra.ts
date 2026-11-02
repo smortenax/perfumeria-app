@@ -6,6 +6,7 @@ import type { Formula } from "../core/model/formula";
 import type { Material } from "../core/model/material";
 import { texts } from "./texts";
 import { dilutionText, massText } from "./format";
+import { lollipopOf } from "./bars";
 
 const t = texts.composition;
 
@@ -156,6 +157,8 @@ export interface LineIfraView {
   readonly room: string | null;
   readonly tone: IfraTone;
   readonly title: string;
+  /** Its closest ceiling as a lollipop (audit F-15 L2): null when it adds to none. `bound`: the dot is a bound (≥), hollow. */
+  readonly lollipop: { readonly at: number; readonly over: boolean; readonly bound: boolean } | null;
 }
 
 /**
@@ -195,7 +198,8 @@ export function describeLineIfra(line: LineIfra | undefined): LineIfraView | nul
   if (partial) {
     parts.push(t.ifraTitlePartial);
   }
-  return { share, room, tone, title: parts.join(" ") };
+  const lollipop = nearest === null ? null : { ...lollipopOf(nearest.used), bound: partial };
+  return { share, room, tone, title: parts.join(" "), lollipop };
 }
 
 /**

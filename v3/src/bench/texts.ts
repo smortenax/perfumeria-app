@@ -76,6 +76,15 @@ export const texts = {
     } as Record<"empty" | "reweigh" | "note" | "inexact" | "missing", string>,
   },
 
+  /** The bench's four big figures (audit F-15 L2, V3-93). */
+  figures: {
+    label: "The formula in four figures",
+    aromatic: "aromatic matter in the bottle",
+    inBottle: "in the bottle",
+    materials: "aromatic materials",
+    maxIfra: "max. use (IFRA)",
+    none: "—",
+  },
   grams: {
     frameWeight: "Bottle weight",
     tare: "Tare",

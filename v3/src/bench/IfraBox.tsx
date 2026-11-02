@@ -81,7 +81,7 @@ export function IfraSummary(props: { report: IfraReport | null; empty: boolean; 
  * unknown can only lower it, so «≤ X %»; and when nothing known bounds it, it cannot be said at all
  * («Sin comprobar»), never «100 %», which reads as free (2026-10-01, castoreum).
  */
-function maxUseText(report: IfraReport): string {
+export function maxUseText(report: IfraReport): string {
   const whole = report.maxUse.eq(Ratio.ONE);
   if (report.partial) {
     return whole ? t.unknown : `≤ ${formatPercent(report.maxUse, 2)}`;
