@@ -3140,6 +3140,47 @@
     display: flex;
   }
 
+  /* The formula in four big figures over its grams (audit F-15 L2, V3-93); two by two on a phone. */
+  .head-figures {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin: 0;
+  }
+
+  .head-figures div {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2px;
+    min-width: 0;
+    padding: 4px 0 0;
+    border-top: 2px solid var(--ink);
+  }
+
+  .head-figures dd {
+    margin: 0;
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    overflow-wrap: anywhere;
+  }
+
+  .head-figures dt {
+    color: var(--muted);
+    font-size: var(--text-xs);
+  }
+
+  @media (max-width: 40rem) {
+    .head-figures {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .head-figures dd {
+      font-size: var(--text-xl);
+    }
+  }
+
   /* On a phone, the bottle and its grams fold into one line under the add bar (audit F-06 L2). */
   .weigh-fold {
     display: flex;

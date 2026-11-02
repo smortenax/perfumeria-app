@@ -1705,6 +1705,32 @@ Viene de V3-78 («hay que iterar para que sean no solo visualmente atractivos si
 - **La ficha ya lo hacía:** «Edit» (tuya) y «Make a version» (común) nunca salen juntos; la sesión había contado mal dos principales. Sin cambio.
 - **Quedan confirmadas tal como están** la regla de confianza de V3-89, las paradas de V3-90 y las marcas de V3-91.
 
+## V3-93 · Los datos en barras: el banco y las catas (decidida por el usuario el 2026-11-02)
+
+**Literal** (2026-11-02): pidió «sigue con los datos en barras» (auditoría del 24-oct, F-15). A la pregunta de si la cabecera del banco lleva cuatro cifras grandes sobre los gramos:
+
+> Sí, encima de los gramos (Recommended)
+
+**Lectura** (de la sesión; F-15 L2, la recomendada de la auditoría):
+
+- **Cada línea de la composición** dibuja su masa como una barra contra la de la línea mayor, desde cero; la cifra exacta sigue al lado.
+- **El IFRA de cada línea** abre con una piruleta: la vara hasta lo que usa de su techo más cercano y el techo como raya; en el techo o pasado, o prohibida, el punto al final; si la cifra puede ser optimista, el punto hueco.
+- **Los momentos de cada tira** van sobre una línea de tiempo, en orden y repartidos igual (para que sus nombres no se pisen), rellena hasta ahora; hecho con ✓, toca en acento. Cierra F-16 L2.
+- **La cabecera del banco**, cuatro cifras grandes sobre la fila del frasco: la materia aromática del frasco, los gramos, los materiales aromáticos y el uso máximo por IFRA, leído como el veredicto («≤» con algo sin comprobar; «—» cuando no se puede decir). En el móvil, dos por dos bajo la barra de añadir.
+
+## V3-94 · La navegación de Materiales: filtrar y ordenar por familia, fuerza y duración (pedida por el usuario el 2026-11-02; por definir)
+
+**Literal** (2026-11-02, con una captura de los filtros de Materiales, «Type» e «IFRA»):
+
+> otra cosa no se si estaba contemplade en las reformas pero la navegacion: estos que se ven ahora deberian ser no los campos sino los selectores de los campos de navegacion/ filtros, deberias poder seleccionar o ordenar tanto por familia olfativa como por intensidad y por duracion basicamente esos son parametros mas importantes para los materiales, lo de ifra pude ser una opcion tambien pero es de baja prioridad, normalmente no buscas un material por el modelo de ifra sino por los otros parametros, para cuando toque este paso me ayudas a definir un setup para la barra y selectores y luego se llevara a cabo se mira que otras familias son intercompatibles para seleccionarlas separadas
+
+**Lectura** (de la sesión, para que la confirmes cuando toque):
+
+- **Los filtros de Materiales tienen que ser por familia olfativa, fuerza (intensidad) y duración**, para seleccionar y para ordenar. IFRA queda como opción de baja prioridad.
+- **Primero se define con el usuario** el diseño de la barra y de sus selectores; después se hace.
+- **Al definirlo se mira qué familias son compatibles entre sí**, para poder seleccionarlas por separado o juntas.
+- No está hecho: es el siguiente paso de la app cuando el usuario lo pida.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
