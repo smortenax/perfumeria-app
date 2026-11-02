@@ -30,7 +30,7 @@ import { GramsCard, IntentionCard, NameCard, NotesCard } from "./Header";
 import { HeadFigures } from "./HeadFigures";
 import { BenchSwitcher } from "./BenchSwitcher";
 import { familyShares } from "../families/bar";
-import { familyOf as paletteFamilyOf } from "../families/palette";
+import { coloursOf, familyOf as paletteFamilyOf } from "../families/palette";
 import { formulaSummary } from "./summary";
 import { SummaryCard } from "./SummaryCard";
 import { FamilyBar } from "../families/FamilyBar";
@@ -343,7 +343,8 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
   const scales = useMemo(() => orbScalesOf(props.data.catalog), [props.data]);
   const orbOf = (size: number) => (key: string) => {
     const m = props.data.catalog.materials.get(key);
-    return m ? <MaterialOrb look={orbLookOf(props.data.catalog, m, scales)} size={size} seed={seedOf(m.id)} /> : undefined;
+    // With the colour its data asks for, for the visual check, as in Materials (audit F-14).
+    return m ? <MaterialOrb look={orbLookOf(props.data.catalog, m, scales)} size={size} seed={seedOf(m.id)} expectColor={coloursOf(props.data.catalog, m)?.light} /> : undefined;
   };
   const familyOf = (key: string) => families.get(key);
   // Its tier, or that of the common material it is based on (V3-5), for the list by notes (F3).

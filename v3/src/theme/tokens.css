@@ -25,6 +25,22 @@
   /* Behind every material orb */
   --orb-frame: #2a2d34;
   --orb-frame-line: #3d414a;
+  /* States (audit F-10): what is wrong, what may be, what is known, what is done; never the accent.
+     Each with its soft background and the line that edges it. */
+  --status-red: #a32d2d;
+  --status-red-bg: #f7e1de;
+  --status-red-line: #f0c9c4;
+  --status-amber: #7a4e00;
+  --status-amber-bg: #f6ecd9;
+  --status-amber-line: #e3cda0;
+  --status-blue: #2f5d8a;
+  --status-blue-bg: #e3ebf3;
+  --status-green: #2f6b3f;
+  /* The use ceiling on the usual-use strip (a yellow diamond, apart from IFRA's marks) */
+  --mark-use: #f2c200;
+  --mark-use-line: #8a6d00;
+  /* A family not known yet, in the family bar: neutral, never a family's colour */
+  --family-none: #d9d7cf;
 
   /* Type */
   --font-body: "Atkinson Hyperlegible Next Variable", "Atkinson Hyperlegible Next", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -45,6 +61,9 @@
   --radius-panel: 4px;
   --radius-control: 8px;
   --radius-orb-frame: 10px;
+  /* Large cards and dialogs; and a pill, round at both ends (audit F-10). */
+  --radius-large: 10px;
+  --radius-pill: 999px;
   --size-target: 44px;
   --size-sidebar: 216px;
   --size-sidebar-mini: 64px;
