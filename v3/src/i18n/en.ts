@@ -48,7 +48,7 @@ export const texts = {
     groupWork: "Work",
     collapse: "Collapse the sidebar",
     expand: "Expand the sidebar",
-    due: (n: number) => (n === 1 ? "1 strip due" : `${n} strips due`),
+    due: (n: number) => (n === 1 ? "1 moment due" : `${n} moments due`),
   },
   home: {
     title: "Home",
@@ -504,6 +504,9 @@ export const texts = {
   tasting: {
     title: "Evaluations",
     homeDetail: (pending: number, open: number) => `${pending} to evaluate${open ? ` · ${open} open session` : ""}`,
+    /** Home's figure when something is due (audit F-05 L2): the moments, the same count as the badge. */
+    homeDue: (due: number, pending: number) => `${due === 1 ? "1 moment" : `${due} moments`} to smell now · ${pending} to evaluate`,
+    smellNow: (moments: string) => `Smell ${moments} now`,
     tabs: { session: "Session", queue: "Queue", history: "Evaluated", legacy: "Legacy" },
     newSession: "New session",
     endSession: "End the session",

@@ -1,7 +1,7 @@
 import { Ratio } from "../core/arith/ratio";
 import type { Catalog, Dilution } from "../db/catalog";
 import type { TastingMoment, TastingStrip, Tastings } from "../db/tastings";
-import { type Block, MOMENT_MINUTES, type Moment } from "./vocabulary";
+import { type Block, DEFAULT_MOMENTS, MOMENT_MINUTES, type Moment } from "./vocabulary";
 
 /**
  * What the tastings screen works out from your data (V3-61 to V3-63): when each tab is due, what a
@@ -23,6 +23,25 @@ export function dueMoments(strip: Pick<TastingStrip, "appliedAt">, written: read
     const dueAt = applied + MOMENT_MINUTES[moment] * 60_000;
     return { moment, dueAt, state: written.includes(moment) ? "done" : nowMs >= dueAt ? "due" : "waiting" };
   });
+}
+
+/**
+ * What is due now, one definition for every place that counts it (audit F-05 L2): the sidebar's badge,
+ * Home and Catas. A moment of a strip of the open session, not closed, from its opening (t0) on; one
+ * entry per moment, the strips in their order.
+ */
+export function dueNowOf(tastings: Pick<Tastings, "sessions" | "strips" | "moments">, nowMs: number): { readonly stripId: string; readonly label: string; readonly moment: Moment }[] {
+  const session = tastings.sessions.find((s) => !s.endedAt);
+  if (!session) return [];
+  return tastings.strips
+    .filter((s) => s.sessionId === session.id && !s.closedAt)
+    .flatMap((s) => {
+      const written = tastings.moments.filter((m) => m.stripId === s.id).map((m) => m.moment);
+      if (!written.includes("t0")) return [];
+      return dueMoments(s, written, DEFAULT_MOMENTS.filter((m) => m !== "t0"), nowMs)
+        .filter((d) => d.state === "due")
+        .map((d) => ({ stripId: s.id, label: s.blindLabel, moment: d.moment }));
+    });
 }
 
 /**

@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { Ratio } from "../core/arith/ratio";
 import type { Catalog, CatalogMaterial, Dilution } from "../db/catalog";
 import type { TastingMoment, TastingStrip } from "../db/tastings";
-import { blockState, buildQueue, nominalFraction, changedBlocks, countdown, dueMoments, legacyTasted, nextWaiting, nowOnLine, tenacity } from "./logic";
+import { blockState, buildQueue, nominalFraction, changedBlocks, countdown, dueMoments, dueNowOf, legacyTasted, nextWaiting, nowOnLine, tenacity } from "./logic";
 
 const APPLIED = "2026-10-18T10:00:00.000Z";
 const at = (minutes: number) => new Date(Date.parse(APPLIED) + minutes * 60_000).toISOString();
@@ -127,5 +127,23 @@ describe("now on a strip's line of moments (audit F-15 L2)", () => {
     expect(nowOnLine(at(5, 15), 0)).toBe(0);
     expect(nowOnLine(at(5), 0)).toBe(0);
     expect(nowOnLine(at(5), 6 * 60_000)).toBe(1);
+  });
+});
+
+describe("what is due now, counted alike everywhere (audit F-05 L2)", () => {
+  const min = 60_000;
+  const applied = Date.parse("2026-11-02T10:00:00Z");
+  const strip = (id: string, label: string, extra: object = {}) => ({ id, sessionId: "s", blindLabel: label, appliedAt: new Date(applied).toISOString(), closedAt: null, ...extra }) as unknown as TastingStrip;
+  const moment = (stripId: string, m: string) => ({ stripId, moment: m }) as unknown as TastingMoment;
+  const tastings = {
+    sessions: [{ id: "s", endedAt: null }] as never,
+    strips: [strip("a", "A"), strip("b", "B"), strip("c", "C", { closedAt: "2026-11-02T10:10:00Z" }), strip("d", "D")],
+    moments: [moment("a", "t0"), moment("b", "t0"), moment("b", "t5"), moment("c", "t0")],
+  };
+  it("one entry per moment due, from each strip's opening on; closed strips and those not opened, none", () => {
+    expect(dueNowOf(tastings, applied + 31 * min).map((d) => `${d.label} ${d.moment}`)).toEqual(["A t5", "A t30", "B t30"]);
+  });
+  it("nothing without an open session", () => {
+    expect(dueNowOf({ ...tastings, sessions: [{ id: "s", endedAt: "x" }] as never }, applied + 31 * min)).toEqual([]);
   });
 });

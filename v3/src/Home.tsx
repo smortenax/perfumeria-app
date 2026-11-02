@@ -8,6 +8,7 @@ import { useMacerations } from "./formulation/useMacerations";
 import type { GlossaryData } from "./glossary/useGlossary";
 import { buildQueue, countdown, dueMoments } from "./tasting/logic";
 import { useNow } from "./tasting/useTastings";
+import { useDueNow } from "./tasting/useDue";
 import { DEFAULT_MOMENTS } from "./tasting/vocabulary";
 import { texts } from "./i18n/en";
 import { Button } from "./Button";
@@ -52,6 +53,7 @@ export function Home({
   const common = data ? data.catalog.materials.size - (own ?? 0) : null;
   const queue = data && tastings ? buildQueue(data.catalog, tastings) : null;
   const openSessions = tastings ? tastings.sessions.filter((s) => !s.endedAt).length : 0;
+  const dueNow = useDueNow(tastings);
 
   const formula = data
     ? (data.formulas.find((f) => f.id === lastFormulaId) ??
@@ -253,9 +255,12 @@ export function Home({
         </li>
         <li>
           <button type="button" className="launch-card" onClick={onTasting}>
-            <span className="launch-number num" aria-hidden="true">{queue ? queue.pending : "–"}</span>
+            {/* With moments due, those in big: the badge's count, never a «0» while strips wait (audit F-05 L2). */}
+            <span className="launch-number num" aria-hidden="true">{dueNow.length > 0 ? dueNow.length : queue ? queue.pending : "–"}</span>
             <span className="launch-name">{texts.tasting.title}</span>
-            <span className="launch-detail">{queue ? texts.tasting.homeDetail(queue.pending, openSessions) : texts.glossary.loading}</span>
+            <span className="launch-detail">
+              {!queue ? texts.glossary.loading : dueNow.length > 0 ? texts.tasting.homeDue(dueNow.length, queue.pending) : texts.tasting.homeDetail(queue.pending, openSessions)}
+            </span>
           </button>
         </li>
         <li>
