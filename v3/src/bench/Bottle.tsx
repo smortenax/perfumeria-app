@@ -33,28 +33,28 @@ export function BottleFrame(props: { name: string; fill: number | null; aromatic
               <path d="M54 86 L86 86 C86 96 124 98 124 118 L124 240 Q124 256 108 256 L32 256 Q16 256 16 240 L16 118 C16 98 54 96 54 86 Z" />
             </clipPath>
           </defs>
-          <path d="M54 86 L86 86 C86 96 124 98 124 118 L124 240 Q124 256 108 256 L32 256 Q16 256 16 240 L16 118 C16 98 54 96 54 86 Z" fill="#ECEAE4" />
+          <path d="M54 86 L86 86 C86 96 124 98 124 118 L124 240 Q124 256 108 256 L32 256 Q16 256 16 240 L16 118 C16 98 54 96 54 86 Z" style={{ fill: "var(--bottle-glass)" }} />
           <g clipPath="url(#glass)">
-            <rect x="0" y="100" width="140" height="170" fill="#C8C3B4" style={{ transform: `translateY(${offset}px)`, transition: "transform 200ms ease" }} />
-            <line x1="0" y1="100" x2="140" y2="100" stroke="#A8A395" strokeWidth="1.6" style={{ transform: `translateY(${offset}px)`, transition: "transform 200ms ease" }} />
+            <rect x="0" y="100" width="140" height="170" style={{ fill: "var(--bottle-liquid)", transform: `translateY(${offset}px)`, transition: "transform 200ms ease" }} />
+            <line x1="0" y1="100" x2="140" y2="100" strokeWidth="1.6" style={{ stroke: "var(--bottle-line)", transform: `translateY(${offset}px)`, transition: "transform 200ms ease" }} />
           </g>
-          <rect x="65" y="80" width="10" height="150" rx="5" fill="none" stroke="#A8A395" strokeWidth="1.4" />
-          <line x1="26" y1="124" x2="26" y2="236" stroke="#FFFFFF" strokeWidth="4" strokeLinecap="round" strokeOpacity="0.7" />
-          <path d="M54 86 L86 86 C86 96 124 98 124 118 L124 240 Q124 256 108 256 L32 256 Q16 256 16 240 L16 118 C16 98 54 96 54 86 Z" fill="none" stroke="#8C8A82" strokeWidth="1.6" />
-          <rect x="54" y="72" width="32" height="15" fill="#ECEAE4" stroke="#8C8A82" strokeWidth="1.4" />
-          <rect x="44" y="42" width="52" height="31" rx="5" fill="#6B6A64" />
-          <line x1="48" y1="51" x2="92" y2="51" stroke="#57564F" strokeWidth="1.4" />
-          <line x1="48" y1="57" x2="92" y2="57" stroke="#57564F" strokeWidth="1.4" />
-          <line x1="48" y1="63" x2="92" y2="63" stroke="#57564F" strokeWidth="1.4" />
-          <rect x="50" y="2" width="40" height="44" rx="18" fill="#3F3E39" />
-          <rect x="22" y="148" width="96" height="60" rx="6" fill="#FFFFFF" stroke="#8C8A82" strokeWidth="1.4" />
+          <rect x="65" y="80" width="10" height="150" rx="5" fill="none" strokeWidth="1.4" style={{ stroke: "var(--bottle-line)" }} />
+          <line x1="26" y1="124" x2="26" y2="236" strokeWidth="4" strokeLinecap="round" strokeOpacity="0.7" style={{ stroke: "var(--bottle-shine)" }} />
+          <path d="M54 86 L86 86 C86 96 124 98 124 118 L124 240 Q124 256 108 256 L32 256 Q16 256 16 240 L16 118 C16 98 54 96 54 86 Z" fill="none" strokeWidth="1.6" style={{ stroke: "var(--bottle-edge)" }} />
+          <rect x="54" y="72" width="32" height="15" strokeWidth="1.4" style={{ fill: "var(--bottle-glass)", stroke: "var(--bottle-edge)" }} />
+          <rect x="44" y="42" width="52" height="31" rx="5" style={{ fill: "var(--bottle-cap)" }} />
+          <line x1="48" y1="51" x2="92" y2="51" strokeWidth="1.4" style={{ stroke: "var(--bottle-cap-line)" }} />
+          <line x1="48" y1="57" x2="92" y2="57" strokeWidth="1.4" style={{ stroke: "var(--bottle-cap-line)" }} />
+          <line x1="48" y1="63" x2="92" y2="63" strokeWidth="1.4" style={{ stroke: "var(--bottle-cap-line)" }} />
+          <rect x="50" y="2" width="40" height="44" rx="18" style={{ fill: "var(--bottle-bulb)" }} />
+          <rect x="22" y="148" width="96" height="60" rx="6" strokeWidth="1.4" style={{ fill: "var(--bottle-label)", stroke: "var(--bottle-edge)" }} />
           <text
             x="70"
             y={178 + fontSize / 3}
             textAnchor="middle"
             fontSize={fontSize}
             fontWeight="600"
-            fill="#1D1D1B"
+            style={{ fill: "var(--text-default)" }}
             {...(fits ? {} : { textLength: LABEL_ROOM, lengthAdjust: "spacingAndGlyphs" })}
           >
             {label}

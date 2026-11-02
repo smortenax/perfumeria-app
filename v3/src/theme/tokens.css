@@ -41,6 +41,20 @@
   --mark-use-line: #8a6d00;
   /* A family not known yet, in the family bar: neutral, never a family's colour */
   --family-none: #d9d7cf;
+  /* The bench's bottle, drawn (audit F-10 L2): its glass, what it holds, its lines and its dropper */
+  --bottle-glass: #eceae4;
+  --bottle-liquid: #c8c3b4;
+  --bottle-line: #a8a395;
+  --bottle-edge: #8c8a82;
+  --bottle-shine: #ffffff;
+  --bottle-cap: #6b6a64;
+  --bottle-cap-line: #57564f;
+  --bottle-bulb: #3f3e39;
+  --bottle-label: #ffffff;
+  /* The charts' track and their marks off and on */
+  --chart-track: #efeee9;
+  --chart-off: #e6e4dd;
+  --chart-on: #3f3e39;
 
   /* Type */
   --font-body: "Atkinson Hyperlegible Next Variable", "Atkinson Hyperlegible Next", system-ui, -apple-system, "Segoe UI", sans-serif;

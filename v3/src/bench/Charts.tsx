@@ -54,7 +54,7 @@ export function PyramidCard() {
           <div key={floor} className="pyramid-row" title={floor}>
             <svg width="24" height="20" viewBox="0 0 24 20" aria-hidden="true">
               {FLOOR_PATHS.map((d, j) => (
-                <path key={j} d={d} fill={j === i ? "#3F3E39" : "#E6E4DD"} />
+                <path key={j} d={d} style={{ fill: j === i ? "var(--chart-on)" : "var(--chart-off)" }} />
               ))}
             </svg>
             <span className="pyramid-bar" />
@@ -68,7 +68,7 @@ export function PyramidCard() {
 const RADIUS = 62;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 /** A material without a family: light and plain, never the grey of «Transformado» (P48). */
-const NO_FAMILY = "#D9D7CF";
+const NO_FAMILY = "var(--family-none)";
 /** The white between two slices, so two of one family still read as two materials. */
 const GAP = 1.2;
 
@@ -117,7 +117,7 @@ export function RepartoCard(props: { composition: Composition | null; familyOf?:
       </div>
       <div className="donut">
         <svg width="150" height="150" viewBox="0 0 160 160" role="img" aria-label={c.reparto} onPointerLeave={() => setHover(null)}>
-          <circle cx="80" cy="80" r={RADIUS} fill="none" stroke="#EFEEE9" strokeWidth="22" />
+          <circle cx="80" cy="80" r={RADIUS} fill="none" strokeWidth="22" style={{ stroke: "var(--chart-track)" }} />
           <g transform="rotate(-90 80 80)">
             {arcs.map((a, i) => (
               <circle
@@ -126,39 +126,39 @@ export function RepartoCard(props: { composition: Composition | null; familyOf?:
                 cy="80"
                 r={RADIUS}
                 fill="none"
-                stroke={a.color}
                 strokeWidth={hover === i ? 28 : 22}
                 strokeDasharray={`${a.dash} ${CIRCUMFERENCE}`}
                 strokeDashoffset={a.offset}
                 onPointerEnter={() => setHover(i)}
-                style={{ cursor: "pointer", transition: "stroke-width 120ms ease" }}
+                // In style, not as an attribute: a token (var()) only works there (audit F-10 L2).
+                style={{ stroke: a.color, cursor: "pointer", transition: "stroke-width 120ms ease" }}
               />
             ))}
           </g>
           {hovered ? (
             <>
-              <text x="80" y="73" textAnchor="middle" fontSize="12" fontWeight="600" fill="#1D1D1B">
+              <text x="80" y="73" textAnchor="middle" fontSize="12" fontWeight="600" style={{ fill: "var(--text-default)" }}>
                 {hovered.name.length > 18 ? `${hovered.name.slice(0, 17)}…` : hovered.name}
               </text>
-              <text x="80" y="90" textAnchor="middle" fontSize="12" fill="#1D1D1B" className="num">
+              <text x="80" y="90" textAnchor="middle" fontSize="12" className="num" style={{ fill: "var(--text-default)" }}>
                 {`${(hovered.share * 100).toFixed(1)} %`}
               </text>
-              <text x="80" y="105" textAnchor="middle" fontSize="11" fill="#57564F">
+              <text x="80" y="105" textAnchor="middle" fontSize="11" style={{ fill: "var(--text-muted)" }}>
                 {c.ofAromatic}
               </text>
-              <text x="80" y="119" textAnchor="middle" fontSize="11" fill="#57564F">
+              <text x="80" y="119" textAnchor="middle" fontSize="11" style={{ fill: "var(--text-muted)" }}>
                 {hovered.family}
               </text>
             </>
           ) : (
             <>
-              <text x="80" y="73" textAnchor="middle" fontSize="12" fontWeight="600" fill="#1D1D1B">
+              <text x="80" y="73" textAnchor="middle" fontSize="12" fontWeight="600" style={{ fill: "var(--text-default)" }}>
                 {arcs.length ? c.aromatic : c.empty}
               </text>
-              <text x="80" y="90" textAnchor="middle" fontSize="12" fill="#1D1D1B" className="num">
+              <text x="80" y="90" textAnchor="middle" fontSize="12" className="num" style={{ fill: "var(--text-default)" }}>
                 {aromaticOfBottle}
               </text>
-              <text x="80" y="105" textAnchor="middle" fontSize="11" fill="#57564F">
+              <text x="80" y="105" textAnchor="middle" fontSize="11" style={{ fill: "var(--text-muted)" }}>
                 {arcs.length ? c.ofBottle : ""}
               </text>
             </>
