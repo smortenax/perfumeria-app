@@ -1729,7 +1729,12 @@ Viene de V3-78 («hay que iterar para que sean no solo visualmente atractivos si
 - **Los filtros de Materiales tienen que ser por familia olfativa, fuerza (intensidad) y duración**, para seleccionar y para ordenar. IFRA queda como opción de baja prioridad.
 - **Primero se define con el usuario** el diseño de la barra y de sus selectores; después se hace.
 - **Al definirlo se mira qué familias son compatibles entre sí**, para poder seleccionarlas por separado o juntas.
-- No está hecho: es el siguiente paso de la app cuando el usuario lo pida.
+- **Definido el 2026-11-02**, una pregunta cada vez:
+  - La barra: «Tres selectores + ordenar (Recommended)». Familia, Fuerza y Duración siempre a la vista, «Sort by» (nombre, familia, fuerza, duración) y «Only what I have» al lado; Tipo, IFRA y «Running low» bajo «More filters». Lo activo, en etiquetas que se quitan con un toque, y «Clear all».
+  - Fuerza y duración: «Rango con dos extremos (Recommended)». Un toque elige un nivel; otro fuera del rango lo alarga hasta ahí; uno dentro vuelve a ese nivel solo. Con un rango, «No data» es su propia casilla: lo que no tiene dato no se esconde en silencio ni cuenta como cero.
+  - Las familias: «Varias a la vez + facetas (Recommended)». Se marcan una o varias (vale cualquiera de ellas) e «Include facets» suma los materiales cuya faceta nombra una familia elegida.
+- **Propuesta de la sesión:** los tramos de duración (salida, menos de 2 h; corazón, 2–24 h; fondo, 1–7 días; fijador, más de 7 días); que una faceta nombra una familia si dice una de las palabras que esa familia cubre en la paleta (`covers`, lo de antes de los dos puntos; «woods» encuentra «woody» y «animalic», «animal»); al ordenar, lo que no tiene dato va al final; y los datos de tu versión, heredados del común (V3-5).
+- **Hecho** (PR #44, fusionada en `main`): `v3/src/glossary/traits.ts` (7 pruebas) y `MaterialFilters.tsx`.
 
 ## Pendientes
 

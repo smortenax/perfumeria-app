@@ -1,10 +1,10 @@
 import { type KeyboardEvent, type ReactNode, useMemo, useRef, useState } from "react";
 import { dilutionsCsv, materialsCsv } from "../export/tables";
-import { type CatalogMaterial, MATERIAL_KINDS, type MaterialKind } from "../db/catalog";
+import { type CatalogMaterial, type Family, MATERIAL_KINDS, type MaterialKind } from "../db/catalog";
 import { normalize } from "../db/search";
 import type { FormulaMarker, FormulaRecord } from "../db/formulas";
 import { listAll, search } from "../db/search";
-import { coloursOf, familyOf } from "../families/palette";
+import { coloursOf, familyOf, PALETTE } from "../families/palette";
 import { orbLookOf, orbMarksOf, type OrbScales, orbScalesOf, seedOf } from "./orb/fromCatalog";
 import { FramedOrb } from "./orb/FramedOrb";
 import { MaterialOrb } from "./orb/MaterialOrb";
@@ -13,6 +13,8 @@ import { initials } from "./initials";
 import { PrintGlossary } from "../export/PrintGlossary";
 import { texts } from "../i18n/en";
 import { Pills } from "../Pills";
+import { MaterialFilters } from "./MaterialFilters";
+import { familyStems, keepsTraits, NO_TRAIT_FILTERS, sortByTraits, traitsOf, type Sort, type TraitFilters, type Traits } from "./traits";
 import { tabAfterKey } from "../tabs";
 import { type Filters, type IfraState, keepOf, NO_FILTERS } from "./browse";
 import type { GlossaryData } from "./useGlossary";
@@ -54,6 +56,8 @@ export function Glossary({
   // A new account opens on the common materials: an empty «Own» tab is not a first screen (audit F-08).
   const [first] = useState<"own" | "common">(() => ([...data.catalog.materials.values()].some((m) => m.ownerId !== null) ? "own" : "common"));
   const [filters, setFilters] = useState<Filters>({ ...NO_FILTERS, owner: first });
+  const [traitFilters, setTraitFilters] = useState<TraitFilters>(NO_TRAIT_FILTERS);
+  const [sort, setSort] = useState<Sort>("name");
   const [message, setMessage] = useState<string | null>(null);
   // «Exportar paleta»: your materials by their names, copied or as a Markdown file.
   const [paletteNote, setPaletteNote] = useState<string | null>(null);
@@ -116,12 +120,32 @@ export function Glossary({
     const keep = keepOf(filters, data.catalog.have, (id) => data.ifraStates.get(id)?.state ?? "no-data");
     return query.trim() ? search(data.index, query, ALL, keep) : listAll(data.index, ALL, keep);
   }, [data, query, filters]);
-  const materials = rows.flatMap((r) => r.members.map((m) => m.material));
+  // By family, strength and duration, and in the order chosen (V3-94).
+  const stems = useMemo(() => familyStems(PALETTE), []);
+  const traits = useMemo(() => {
+    const cache = new Map<string, Traits>();
+    return (m: CatalogMaterial) => {
+      let x = cache.get(m.id);
+      if (!x) cache.set(m.id, (x = traitsOf(data.catalog, m, stems)));
+      return x;
+    };
+  }, [data.catalog, stems]);
+  const found = rows.flatMap((r) => r.members.map((m) => m.material));
+  const materials = sortByTraits(
+    found.filter((m) => keepsTraits(traitFilters, traits(m))),
+    sort,
+    traits,
+    [...PALETTE.values()].sort((a, b) => a.order - b.order).map((p) => p.family),
+  );
+  // How many the facets bring beyond the families chosen.
+  const byFacet = traitFilters.facets && traitFilters.families.length ? materials.filter((m) => !traitFilters.families.includes(traits(m).family as Family)).length : 0;
   // «Nothing yet» and «no matches» are two states (audit F-08): only the second offers to clear.
-  const searching = query.trim() !== "" || filters.kind !== null || filters.ifra !== null || filters.haveOnly || !!filters.runningLow;
+  const searching =
+    query.trim() !== "" || filters.kind !== null || filters.ifra !== null || filters.haveOnly || !!filters.runningLow || traitFilters !== NO_TRAIT_FILTERS;
   const clear = () => {
     setQuery("");
     set({ kind: null, ifra: null, haveOnly: false, runningLow: false });
+    setTraitFilters(NO_TRAIT_FILTERS);
   };
   const markShown = (have: boolean) =>
     void mark(materials.map((m) => m.id), have).then(
@@ -181,31 +205,46 @@ export function Glossary({
           />
         </label>
         {(tab === "own" || tab === "common") && (
-          <>
-            <Pills
-              label={t.kind}
-              value={filters.kind}
-              options={[{ value: null, label: t.any }, ...MATERIAL_KINDS.map((k) => ({ value: k, label: texts.kinds[k] }))]}
-              onChange={(kind: MaterialKind | null) => set({ kind })}
-            />
-            <Pills
-              label={t.ifra}
-              value={filters.ifra}
-              options={[{ value: null, label: t.any }, ...IFRA_STATES.map((st) => ({ value: st, label: texts.ifraState[st] }))]}
-              onChange={(ifra: IfraState | null) => set({ ifra })}
-            />
-            <div className="pills-field" role="group" aria-label={t.haveOnly}>
-              <span className="field-label" aria-hidden="true">&nbsp;</span>
-              <span className="pills">
-                <button type="button" className="pill" aria-pressed={filters.haveOnly} onClick={() => set({ haveOnly: !filters.haveOnly })}>
-                  {t.haveOnly}
-                </button>
-                <button type="button" className="pill" aria-pressed={!!filters.runningLow} onClick={() => set({ runningLow: !filters.runningLow })}>
-                  {t.runningLow}
-                </button>
-              </span>
-            </div>
-          </>
+          <MaterialFilters
+            filters={traitFilters}
+            onFilters={setTraitFilters}
+            sort={sort}
+            onSort={setSort}
+            haveOnly={filters.haveOnly}
+            onHaveOnly={(haveOnly) => set({ haveOnly })}
+            byFacet={byFacet}
+            moreOn={(filters.kind ? 1 : 0) + (filters.ifra ? 1 : 0) + (filters.runningLow ? 1 : 0)}
+            moreChips={[
+              ...(filters.kind ? [{ label: texts.kinds[filters.kind], onRemove: () => set({ kind: null }) }] : []),
+              ...(filters.ifra ? [{ label: texts.ifraState[filters.ifra], onRemove: () => set({ ifra: null }) }] : []),
+              ...(filters.runningLow ? [{ label: t.runningLow, onRemove: () => set({ runningLow: false }) }] : []),
+            ]}
+            onClearAll={() => {
+              set({ kind: null, ifra: null, haveOnly: false, runningLow: false });
+              setTraitFilters(NO_TRAIT_FILTERS);
+            }}
+            more={
+              <>
+                <Pills
+                  label={t.kind}
+                  value={filters.kind}
+                  options={[{ value: null, label: t.any }, ...MATERIAL_KINDS.map((k) => ({ value: k, label: texts.kinds[k] }))]}
+                  onChange={(kind: MaterialKind | null) => set({ kind })}
+                />
+                <Pills
+                  label={t.ifra}
+                  value={filters.ifra}
+                  options={[{ value: null, label: t.any }, ...IFRA_STATES.map((st) => ({ value: st, label: texts.ifraState[st] }))]}
+                  onChange={(ifra: IfraState | null) => set({ ifra })}
+                />
+                <span className="pills">
+                  <button type="button" className="pill" aria-pressed={!!filters.runningLow} onClick={() => set({ runningLow: !filters.runningLow })}>
+                    {t.runningLow}
+                  </button>
+                </span>
+              </>
+            }
+          />
         )}
       </div>
       <div className="tabs" role="tablist" aria-label={t.owner}>
