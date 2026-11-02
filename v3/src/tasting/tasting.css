@@ -129,7 +129,7 @@
 .moment-dot {
   font-size: var(--text-sm);
   padding: 0.0625rem 0.375rem;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   border: 1px solid var(--line);
   color: var(--faint);
 }
@@ -186,7 +186,7 @@
   font-size: var(--text-lg);
   padding: 0.5rem;
   border: 1px solid var(--line-strong);
-  border-radius: 8px;
+  border-radius: var(--radius-control);
   background: var(--panel);
   color: var(--text);
 }
@@ -205,7 +205,7 @@
 
 .block {
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: var(--radius-large);
   padding: 0.5rem 0.75rem;
   margin: 0.75rem 0;
   background: var(--panel);
@@ -275,7 +275,7 @@
   background: var(--panel);
   color: var(--text);
   border: 1px solid var(--line-strong);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   padding: 0.25rem 0.75rem;
 }
 
@@ -327,7 +327,7 @@
 .tasting .curve-cell {
   background: var(--fill);
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: var(--radius-control);
   min-height: 2.75rem;
 }
 
@@ -396,7 +396,7 @@
   margin-left: 0.5rem;
   font-size: var(--text-sm);
   padding: 0.0625rem 0.375rem;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: var(--amber-bg);
   color: var(--amber);
 }
@@ -426,7 +426,7 @@
   font-size: var(--text-md);
   background: var(--panel);
   padding: 0.75rem;
-  border-radius: 8px;
+  border-radius: var(--radius-control);
 }
 
 .strip-view .title-bar h2 {

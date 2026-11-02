@@ -20,7 +20,7 @@
   font-size: var(--text-lg);
   padding: 0.5rem;
   border: 1px solid var(--line-strong);
-  border-radius: 8px;
+  border-radius: var(--radius-control);
   background: var(--panel);
   color: var(--text);
 }
@@ -72,7 +72,7 @@
 
 .dilutions fieldset {
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: var(--radius-large);
   padding: 0.5rem 0.75rem;
   margin: 0.75rem 0;
   background: var(--panel);
@@ -183,7 +183,7 @@
   width: min(560px, 100%);
   padding: var(--space-inset, 16px);
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: var(--radius-large);
   background: var(--panel);
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
 }
@@ -204,7 +204,7 @@
 
 /* «Import a sheet» (V3-80): the list to review. */
 .import-list { width: 100%; border-collapse: collapse; margin: 0.5rem 0; }
-.import-list th, .import-list td { text-align: left; padding: 0.35rem 0.5rem; border-bottom: 1px solid var(--line, #ddd); vertical-align: top; }
+.import-list th, .import-list td { text-align: left; padding: 0.35rem 0.5rem; border-bottom: 1px solid var(--line); vertical-align: top; }
 .import-list select { display: block; margin-top: 0.25rem; max-width: 100%; }
 .import-sheet textarea { width: 100%; font-family: monospace; }
 .status-chip.import-missing { opacity: 0.7; }

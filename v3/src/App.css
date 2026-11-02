@@ -87,7 +87,7 @@ body {
 }
 
 .error {
-  color: #b3261e;
+  color: var(--status-red);
 }
 
 label {
@@ -104,7 +104,7 @@ input:not([type="checkbox"], [type="radio"]) {
   color: var(--text);
   background: transparent;
   border: 1px solid var(--muted);
-  border-radius: 6px;
+  border-radius: var(--radius-control);
   padding: 0.5rem 0.625rem;
 }
 
@@ -125,7 +125,7 @@ button {
   font: inherit;
   cursor: pointer;
   border: none;
-  border-radius: 6px;
+  border-radius: var(--radius-control);
   padding: 0.5rem 1rem;
   background: var(--accent);
   color: var(--bg);
@@ -170,7 +170,7 @@ button.link {
 }
 
 .status-panel .status.ok {
-  color: #2e7d32;
+  color: var(--status-green);
 }
 
 .status-panel .status.off {
@@ -193,7 +193,7 @@ button.link {
   /* The words of a checkbox on the line of the selects' words (audit F-12). */
   align-items: last baseline;
   border: 1px solid color-mix(in srgb, var(--muted) 40%, transparent);
-  border-radius: 6px;
+  border-radius: var(--radius-control);
   margin: 0.75rem 0;
 }
 
@@ -212,7 +212,7 @@ select {
   color: var(--text);
   background: var(--bg);
   border: 1px solid var(--muted);
-  border-radius: 6px;
+  border-radius: var(--radius-control);
   padding: 0.375rem 0.5rem;
 }
 
@@ -278,14 +278,14 @@ button.member:focus-visible {
 .ifra {
   font-size: var(--text-sm);
   border: 1px solid var(--muted);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   padding: 0.125rem 0.5rem;
   white-space: nowrap;
 }
 
 .ifra-prohibited {
-  border-color: #b3261e;
-  color: #b3261e;
+  border-color: var(--status-red);
+  color: var(--status-red);
 }
 
 .ifra-ceiling,
@@ -422,7 +422,7 @@ textarea {
   color: var(--text);
   background: transparent;
   border: 1px solid var(--muted);
-  border-radius: 6px;
+  border-radius: var(--radius-control);
   padding: 0.5rem 0.625rem;
   resize: vertical;
 }
@@ -448,7 +448,7 @@ form.add {
   gap: 0.75rem 1rem;
   padding: 0.75rem;
   border: 1px dashed color-mix(in srgb, var(--muted) 50%, transparent);
-  border-radius: 6px;
+  border-radius: var(--radius-control);
 }
 
 form.add .wide {
@@ -632,7 +632,7 @@ form.add label {
   color: var(--accent);
   border: 2px solid var(--accent);
   border-bottom: none;
-  border-radius: 12px 12px 0 0;
+  border-radius: var(--radius-large) var(--radius-large) 0 0;
   padding: 0.375rem 1.25rem;
   margin-bottom: -2px;
 }
@@ -656,7 +656,7 @@ form.add label {
 .tab-panel {
   border: 2px solid var(--accent);
   border-top: none;
-  border-radius: 0 0 12px 12px;
+  border-radius: 0 0 var(--radius-large) var(--radius-large);
   padding: 0.75rem;
 }
 
@@ -687,7 +687,7 @@ form.add label {
   background: none;
   color: var(--text);
   border: 1px solid color-mix(in srgb, var(--muted) 25%, transparent);
-  border-radius: 12px;
+  border-radius: var(--radius-large);
   text-align: center;
   cursor: pointer;
 }
@@ -704,7 +704,7 @@ form.add label {
   width: 4.5rem;
   height: 4.5rem;
   border: 2px solid var(--accent);
-  border-radius: 14px;
+  border-radius: var(--radius-large);
   color: var(--accent);
   font-weight: 600;
   font-size: var(--text-xl);
@@ -786,7 +786,7 @@ form.add label {
 
 /* A workbench in the «Fórmulas» tab (V3-50): a folded tile; open, its formulas follow it. */
 .tile .bench-icon {
-  border-radius: 6px 14px 14px 14px;
+  border-radius: var(--radius-control) var(--radius-large) var(--radius-large) var(--radius-large);
   border-width: 3px;
   box-shadow: 4px 4px 0 -1px var(--bg), 4px 4px 0 1px var(--accent);
 }
@@ -812,7 +812,7 @@ form.add label {
   grid-template-rows: 1fr 1fr;
   gap: 0.25rem;
   border: 1px dashed color-mix(in srgb, var(--accent) 45%, transparent);
-  border-radius: 12px;
+  border-radius: var(--radius-large);
 }
 
 .tile.mini {
@@ -905,7 +905,7 @@ form.add label {
   background: none;
   color: var(--text);
   border: 2px solid var(--accent);
-  border-radius: 16px;
+  border-radius: var(--radius-large);
 }
 
 .launch-card:hover,
@@ -920,7 +920,7 @@ form.add label {
   width: 6rem;
   height: 6rem;
   border: 3px solid var(--accent);
-  border-radius: 18px;
+  border-radius: var(--radius-large);
   color: var(--accent);
   font-size: var(--text-2xl);
   font-weight: 700;
@@ -960,7 +960,7 @@ form.add label {
   color: var(--red);
   background: var(--red-bg);
   border: 1px solid var(--red);
-  border-radius: 10px;
+  border-radius: var(--radius-large);
 }
 
 .failure .link {
@@ -1105,7 +1105,7 @@ form.add label {
   background: var(--panel);
   color: var(--text);
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: var(--radius-large);
 }
 
 .continue-item:hover,
@@ -1171,13 +1171,13 @@ form.add label {
   /* Was #8c8a82 (3.46:1 on white, under the 4.5:1 floor): faint text is now the muted one. */
   --faint: var(--text-muted);
   --accent: var(--accent-default);
-  --blue: #2f5d8a;
-  --blue-bg: #e3ebf3;
-  --amber: #7a4e00;
-  --amber-bg: #f6ecd9;
-  --red: #a32d2d;
-  --red-bg: #f7e1de;
-  --green: #2f6b3f;
+  --blue: var(--status-blue);
+  --blue-bg: var(--status-blue-bg);
+  --amber: var(--status-amber);
+  --amber-bg: var(--status-amber-bg);
+  --red: var(--status-red);
+  --red-bg: var(--status-red-bg);
+  --green: var(--status-green);
   color-scheme: light;
 }
 
@@ -1216,7 +1216,7 @@ select,
 textarea {
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius-control);
   color: var(--text);
 }
 
@@ -1246,7 +1246,7 @@ button:focus-visible {
   color: var(--muted);
   border: 1px solid var(--line);
   border-bottom: none;
-  border-radius: 10px 10px 0 0;
+  border-radius: var(--radius-large) var(--radius-large) 0 0;
   margin-bottom: 0;
 }
 
@@ -1264,12 +1264,12 @@ button:focus-visible {
   background: var(--panel);
   border: 1px solid var(--line);
   border-top: none;
-  border-radius: 0 0 12px 12px;
+  border-radius: 0 0 var(--radius-large) var(--radius-large);
 }
 
 .filters {
   border-color: var(--line);
-  border-radius: 10px;
+  border-radius: var(--radius-large);
 }
 
 /* A material, a formula, a workbench: a card. Without a family, a neutral icon. */
@@ -1317,7 +1317,7 @@ button:focus-visible {
 .editor fieldset {
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: var(--radius-large);
   padding: 0.75rem 1rem;
 }
 
@@ -1342,7 +1342,7 @@ button:focus-visible {
 .launch-card {
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: var(--radius-large);
 }
 
 .launch-card:hover,
@@ -1369,7 +1369,7 @@ button:focus-visible {
   height: 32px;
   min-height: 32px;
   padding: 0;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   font-size: var(--text-xl);
   line-height: 1;
   background: var(--text);
@@ -1418,7 +1418,7 @@ button:focus-visible {
 }
 .sk {
   display: block;
-  border-radius: 6px;
+  border-radius: var(--radius-control);
   background: var(--surface-chip);
 }
 .sk-card {

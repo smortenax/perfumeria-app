@@ -219,7 +219,7 @@
   min-height: 36px;
   padding: 0 12px;
   border: 1px solid var(--border-control);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: var(--panel);
   color: var(--text);
   font: inherit;
@@ -386,7 +386,7 @@
   align-items: center;
   min-height: 22px;
   padding: 0 8px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: var(--surface-chip);
   color: var(--text);
   font-size: var(--text-xs);
@@ -449,7 +449,7 @@
   align-items: center;
   min-height: 26px;
   padding: 0 10px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: var(--surface-chip);
   font-size: var(--text-xs);
   font-weight: 700;
@@ -524,7 +524,7 @@
   top: 6px;
   left: 0;
   height: 6px;
-  border-radius: 3px;
+  border-radius: var(--radius-panel);
 }
 
 .dur .track {
@@ -668,7 +668,7 @@
   margin-top: 4px;
   font-size: 12px;
   line-height: 1.35;
-  color: var(--muted, #666);
+  color: var(--muted);
   overflow-wrap: anywhere;
 }
 .dur-cap {
@@ -685,7 +685,7 @@
 .notes-row span {
   flex: 1 1 auto;
   padding: 4px 6px;
-  border-radius: 6px;
+  border-radius: var(--radius-control);
   background: var(--surface-chip);
   color: var(--muted);
   font-size: var(--text-xs);
@@ -1301,7 +1301,7 @@ details.unstated[open] dl {
   font-size: var(--text-sm);
   color: var(--muted);
   border: 1px dashed var(--line-strong);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   padding: 0 8px;
 }
 
@@ -1322,16 +1322,16 @@ details.unstated[open] dl {
 .ifra-label {
   display: inline-block;
   padding: 1px 8px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   font-size: 12px;
   font-weight: 600;
   border: 1px solid currentColor;
   white-space: nowrap;
 }
-.ifra-label-exceeds { color: var(--red, #b3261e); }
+.ifra-label-exceeds { color: var(--red); }
 .ifra-label-partial,
-.ifra-label-bounded { color: var(--amber, #9a6700); }
-.ifra-label-within { color: var(--green, #2e7d32); }
+.ifra-label-bounded { color: var(--amber); }
+.ifra-label-within { color: var(--green); }
 .continue-item .ifra-label {
   width: fit-content;
   align-self: flex-start;
@@ -1353,7 +1353,7 @@ details.unstated[open] dl {
   height: var(--size-target, 44px);
   border: none;
   background: transparent;
-  color: var(--muted, #666);
+  color: var(--muted);
 }
 .macerating-item {
   display: flex;
@@ -1420,7 +1420,7 @@ details.unstated[open] dl {
 .filter-count {
   min-width: 1.25rem;
   padding: 0 0.3rem;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: var(--text-default);
   color: var(--surface-raised);
   font-size: var(--text-xs);
@@ -1469,7 +1469,7 @@ details.unstated[open] dl {
   min-height: 32px;
   padding: 0 0.625rem;
   border: 1px solid var(--border-control);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: var(--surface-chip);
   color: var(--text-default);
   font-size: var(--text-sm);

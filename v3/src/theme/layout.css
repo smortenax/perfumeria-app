@@ -93,7 +93,7 @@
   margin-left: auto;
   min-width: 20px;
   padding: 0 6px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: var(--accent-default);
   color: var(--text-on-accent);
   font-size: var(--text-xs);
@@ -340,7 +340,7 @@
     max-width: calc(100vw - 2rem);
     padding: 0 1rem;
     border: 1px solid var(--line-strong);
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     background: var(--panel);
     box-shadow: 0 4px 16px color-mix(in srgb, var(--text) 16%, transparent);
   }
