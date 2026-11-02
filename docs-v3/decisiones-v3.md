@@ -1734,7 +1734,7 @@ Viene de V3-78 («hay que iterar para que sean no solo visualmente atractivos si
   - Fuerza y duración: «Rango con dos extremos (Recommended)». Un toque elige un nivel; otro fuera del rango lo alarga hasta ahí; uno dentro vuelve a ese nivel solo. Con un rango, «No data» es su propia casilla: lo que no tiene dato no se esconde en silencio ni cuenta como cero.
   - Las familias: «Varias a la vez + facetas (Recommended)». Se marcan una o varias (vale cualquiera de ellas) e «Include facets» suma los materiales cuya faceta nombra una familia elegida.
 - **Propuesta de la sesión:** los tramos de duración (salida, menos de 2 h; corazón, 2–24 h; fondo, 1–7 días; fijador, más de 7 días); que una faceta nombra una familia si dice una de las palabras que esa familia cubre en la paleta (`covers`, lo de antes de los dos puntos; «woods» encuentra «woody» y «animalic», «animal»); al ordenar, lo que no tiene dato va al final; y los datos de tu versión, heredados del común (V3-5).
-- **Hecho** (rama `claude/ui-materials-filters`): `v3/src/glossary/traits.ts` (7 pruebas) y `MaterialFilters.tsx`.
+- **Hecho** (PR #44, fusionada en `main`): `v3/src/glossary/traits.ts` (7 pruebas) y `MaterialFilters.tsx`.
 
 ## Pendientes
 
