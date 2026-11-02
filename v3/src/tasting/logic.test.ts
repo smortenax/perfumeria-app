@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { Ratio } from "../core/arith/ratio";
 import type { Catalog, CatalogMaterial, Dilution } from "../db/catalog";
 import type { TastingMoment, TastingStrip } from "../db/tastings";
-import { blockState, buildQueue, nominalFraction, changedBlocks, countdown, dueMoments, legacyTasted, nextWaiting, tenacity } from "./logic";
+import { blockState, buildQueue, nominalFraction, changedBlocks, countdown, dueMoments, legacyTasted, nextWaiting, nowOnLine, tenacity } from "./logic";
 
 const APPLIED = "2026-10-18T10:00:00.000Z";
 const at = (minutes: number) => new Date(Date.parse(APPLIED) + minutes * 60_000).toISOString();
@@ -110,5 +110,22 @@ describe("the queue (V3-63)", () => {
     expect(legacyTasted("catado (serie parcial)")).toBe(true);
     expect(legacyTasted("sin catar")).toBe(false);
     expect(legacyTasted(null)).toBe(false);
+  });
+});
+
+describe("now on a strip's line of moments (audit F-15 L2)", () => {
+  const at = (...minutes: number[]) => minutes.map((m) => ({ dueAt: m * 60_000 }));
+  it("sits the moments evenly and now between the one before and the one after, by the time between them", () => {
+    const line = at(0, 5, 15, 30);
+    expect(nowOnLine(line, 0)).toBe(0);
+    expect(nowOnLine(line, 5 * 60_000)).toBeCloseTo(1 / 3);
+    expect(nowOnLine(line, 10 * 60_000)).toBeCloseTo(0.5);
+    expect(nowOnLine(line, 30 * 60_000)).toBe(1);
+    expect(nowOnLine(line, 99 * 60_000)).toBe(1);
+  });
+  it("before the first, at its start; with one moment, at its start or end", () => {
+    expect(nowOnLine(at(5, 15), 0)).toBe(0);
+    expect(nowOnLine(at(5), 0)).toBe(0);
+    expect(nowOnLine(at(5), 6 * 60_000)).toBe(1);
   });
 });

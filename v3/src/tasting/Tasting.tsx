@@ -9,7 +9,7 @@ import { bottleText } from "../dilution/Dilutions";
 import { percent } from "../glossary/format";
 import type { GlossaryData } from "../glossary/useGlossary";
 import { texts } from "../i18n/en";
-import { blockState, buildQueue, tastable, changedBlocks, countdown, dueMoments, latestDilution, legacyTasted, nextWaiting, tenacity } from "./logic";
+import { blockState, buildQueue, tastable, changedBlocks, countdown, dueMoments, latestDilution, legacyTasted, nextWaiting, nowOnLine, tenacity } from "./logic";
 import { tasteMaterial } from "./start";
 import { FailureNote } from "../FailureNote";
 import { tabAfterKey } from "../tabs";
@@ -255,7 +255,8 @@ function SessionView({
                   <span className="strip-detail">
                     {dilutionText(s)} · {t.applied(when(s.appliedAt))}
                   </span>
-                  <span className="strip-moments">
+                  {/* The moments on a line of time (audit F-15 L2, F-16 L2): filled up to now. */}
+                  <span className="strip-moments" style={{ ["--now" as string]: nowOnLine(due, now) }}>
                     {due.map((d) => (
                       <span key={d.moment} className={`moment-dot ${d.state}`}>
                         {t.moments[d.moment]}
