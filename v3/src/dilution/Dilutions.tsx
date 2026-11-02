@@ -18,6 +18,7 @@ import { NewDilution } from "./NewDilution";
 import "./dilutions.css";
 import { EmptyState } from "../EmptyState";
 import { Button } from "../Button";
+import { DiluentPicker } from "./DiluentPicker";
 
 const t = texts.dilutions;
 const UG_PER_G = 1_000_000n;
@@ -353,16 +354,10 @@ function BottleEditor({
             </div>
             {rows.map((r, i) => (
               <div key={i} className="diluent-row">
-                <label className="field">
-                  {t.diluent}
-                  <select value={r.diluentId} onChange={(e) => setRow(i, { diluentId: e.target.value })}>
-                    {diluents.map((d) => (
-                      <option key={d.id} value={d.id}>
-                        {d.name}
-                      </option>
-                    ))}
-                  </select>
-                </label>
+                <div className="field diluent-field">
+                  <span className="field-label">{t.diluent}</span>
+                  <DiluentPicker label={t.diluent} diluents={diluents} value={r.diluentId} onChange={(id) => setRow(i, { diluentId: id })} />
+                </div>
                 <label className="field share">
                   {t.share}
                   <input inputMode="decimal" value={r.share} placeholder={t.rest} onChange={(e) => setRow(i, { share: e.target.value })} />

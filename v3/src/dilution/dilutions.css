@@ -237,3 +237,15 @@
   cursor: pointer;
   font-weight: 700;
 }
+
+/* The diluent as chips (audit F-09 L2), the same gesture as in the bench. */
+.diluent-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.diluent-pills {
+  flex-wrap: wrap;
+}
