@@ -53,3 +53,22 @@ describe("the «New dilution» window (V3-79)", () => {
     expect(windowState({ ...base, weighedMaterial: "0,8" }).aimed).not.toBeNull();
   });
 });
+
+describe("the two ways in (audit F-03 L2)", () => {
+  it("a bottle you have saves as you say it is, or from its weights when written; one to calculate, only weighed", async () => {
+    const { saveKind } = await import("./window");
+    const aimed = windowState(base).aimed;
+    const weighed = windowState({ ...base, weighedMaterial: "1", rows: [{ diluentId: "dpg", share: "", weighed: "9" }] }).weighed;
+    expect(saveKind("have", { aimed, weighed: null })).toBe("unweighed");
+    expect(saveKind("have", { aimed, weighed })).toBe("weighed");
+    expect(saveKind("calculate", { aimed, weighed: null })).toBeNull();
+    expect(saveKind("calculate", { aimed, weighed })).toBe("weighed");
+    expect(saveKind("have", { aimed: null, weighed: null })).toBeNull();
+  });
+
+  it("«I've weighed it» writes what the plan said into the weights, to the milligram", async () => {
+    const { weighedFromPlan } = await import("./window");
+    const plan = windowState({ ...base, drive: "total", totalGrams: "10" }).plan!;
+    expect(weighedFromPlan(plan, base.rows)).toEqual({ material: "1.000", rows: [{ diluentId: "dpg", share: "", weighed: "9.000" }] });
+  });
+});

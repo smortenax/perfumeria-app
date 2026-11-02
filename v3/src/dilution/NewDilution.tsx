@@ -1,18 +1,16 @@
 import { useMemo, useState } from "react";
-import { Ratio } from "../core/arith/ratio";
 import { createBottle, createUnweighedBottle } from "../db/dilutions";
 import type { LocalDatabase } from "../db/local/database";
 import { percent } from "../glossary/format";
 import type { GlossaryData } from "../glossary/useGlossary";
 import { texts } from "../i18n/en";
-import { gramsToUg, percentToFraction, windowState, type WindowRow } from "./window";
+import { gramsText, gramsToUg, percentToFraction, saveKind, weighedFromPlan, windowState, type WindowMode, type WindowRow } from "./window";
 import "./dilutions.css";
 import { Button } from "../Button";
 
 const t = texts.dilutions;
 const w = t.window;
-const UG_PER_G = 1_000_000n;
-const grams = (ug: bigint) => Ratio.of(ug, UG_PER_G).toFixed(3);
+const grams = gramsText;
 
 /**
  * «New dilution» (V3-79): one window for the four ways — a bottle you already have (no weights), from
@@ -44,6 +42,8 @@ export function NewDilution({
   const firstDpg = diluents.find((d) => /dpg|dipropylene|dipropilen/i.test(d.name))?.id ?? diluents[0]?.id ?? "";
 
   const [materialId, setMaterialId] = useState<string | null>(initialMaterial);
+  // A bottle you have is the usual case (audit F-03): it comes first.
+  const [mode, setMode] = useState<WindowMode>("have");
   const [query, setQuery] = useState("");
   const [sourceId, setSourceId] = useState<string | null>(null);
   const [target, setTarget] = useState("10");
@@ -62,6 +62,7 @@ export function NewDilution({
   const sourceBottle = source ? { fraction: source.fraction, diluents: source.diluents.map((d) => ({ diluentId: d.diluentId, fraction: d.fraction })) } : undefined;
   const state = windowState({ target, source: sourceBottle, rows, drive, materialGrams, totalGrams, weighedMaterial });
   const sourceName = source ? percent(source.fraction, 2) : null;
+  const saving = saveKind(mode, state);
 
   const setRow = (i: number, change: Partial<WindowRow>) => setRows(rows.map((r, j) => (j === i ? { ...r, ...change } : r)));
   const diluentList = (list: readonly { diluentId: string; massUg: bigint }[]) => list.map((d) => w.diluentGrams(grams(d.massUg), name(d.diluentId))).join(" + ");
@@ -87,11 +88,14 @@ export function NewDilution({
 
   return (
     <section className="dilutions new-dilution" aria-label={t.newBottle}>
+      {/* The title on the left, «Cancel» a button to press (audit F-12). */}
       <div className="title-bar">
         <h2 className="page-title">{t.newBottle}</h2>
-        <button type="button" className="link" onClick={onCancel}>
-          {t.cancel}
-        </button>
+        <span className="buttons">
+          <Button variant="secondary" onClick={onCancel}>
+            {t.cancel}
+          </Button>
+        </span>
       </div>
 
       {materialId ? (
@@ -131,6 +135,16 @@ export function NewDilution({
 
       {materialId && (
         <>
+          <div className="field nd-mode" role="group" aria-label={w.modeLabel}>
+            <span className="pills">
+              {(["have", "calculate"] as const).map((m) => (
+                <button key={m} type="button" className="pill" aria-pressed={mode === m} onClick={() => setMode(m)}>
+                  {w.modes[m]}
+                </button>
+              ))}
+            </span>
+          </div>
+          {mode === "have" && <p className="hint">{w.haveHint}</p>}
           <div className="field nd-from" role="group" aria-label={w.from}>
             <span className="nd-label">{w.from}</span>
             <span className="pills">
@@ -146,7 +160,7 @@ export function NewDilution({
           </div>
 
           <label className="field nd-target">
-            {t.target}
+            {mode === "have" ? w.haveTarget : t.target}
             <input inputMode="decimal" value={target} onChange={(e) => setTarget(e.target.value)} />
           </label>
 
@@ -183,7 +197,7 @@ export function NewDilution({
             + {t.diluent}
           </button>
 
-          {state.examples.length > 0 && (
+          {mode === "calculate" && state.examples.length > 0 && (
             <ul className="nd-examples" aria-label={w.examples}>
               {state.examples.map((e) => (
                 <li key={e.totalUg.toString()}>{w.example(grams(e.totalUg), grams(e.plan.materialUg), diluentList(e.plan.diluents))}</li>
@@ -191,6 +205,7 @@ export function NewDilution({
             </ul>
           )}
 
+          {mode === "calculate" && (
           <div className="nd-amounts">
             <label className="field">
               {sourceName ? w.sourceWeighed(sourceName) : w.materialWeighed}
@@ -216,14 +231,29 @@ export function NewDilution({
               />
             </label>
           </div>
-          {state.plan && (
-            <p className="nd-plan" role="status">
-              {drive === "material" ? w.add(diluentList(state.plan.diluents)) : w.weigh(`${grams(state.plan.materialUg)} g ${sourceName ?? name(materialId)} + ${diluentList(state.plan.diluents)}`)}
-            </p>
+          )}
+          {mode === "calculate" && state.plan && (
+            <div className="nd-plan-row">
+              <p className="nd-plan" role="status">
+                {drive === "material" ? w.add(diluentList(state.plan.diluents)) : w.weigh(`${grams(state.plan.materialUg)} g ${sourceName ?? name(materialId)} + ${diluentList(state.plan.diluents)}`)}
+              </p>
+              <Button
+                variant="secondary"
+                title={w.fillWeighedHint}
+                onClick={() => {
+                  const filled = weighedFromPlan(state.plan!, rows);
+                  setWeighedMaterial(filled.material);
+                  setRows(filled.rows);
+                }}
+              >
+                {w.fillWeighed}
+              </Button>
+            </div>
           )}
 
-          <fieldset className="weighed">
-            <legend>{w.weighedReally}</legend>
+          {/* A bottle you have: its weights folded, optional; one to calculate: in view. */}
+          <details className="weighed" open={mode === "calculate" || undefined}>
+            <summary>{mode === "have" ? w.refine : w.weighedReally}</summary>
             <p className="hint">{w.weighedReallyHint}</p>
             <div className="nd-weights">
               <label className="field">
@@ -242,7 +272,7 @@ export function NewDilution({
                 {w.exactNow(percent(state.weighed.fraction, 4), grams(state.weighed.totalUg))}
               </p>
             )}
-          </fieldset>
+          </details>
 
           <label className="field">
             {t.label}
@@ -262,11 +292,13 @@ export function NewDilution({
           {state.problem && <p className="error">{w.problem[state.problem]}</p>}
           {error && <p className="error">{error}</p>}
           <div className="actions">
-            <Button variant="secondary" disabled={!state.aimed} onClick={saveUnweighed}>
-              {w.saveUnweighed}
-            </Button>
-            <Button variant="primary" disabled={!state.weighed} onClick={saveWeighed}>
-              {w.saveWeighed}
+            {mode === "calculate" && (
+              <Button variant="secondary" disabled={!state.aimed} onClick={saveUnweighed}>
+                {w.saveUnweighed}
+              </Button>
+            )}
+            <Button variant="primary" disabled={saving === null} onClick={saving === "weighed" ? saveWeighed : saveUnweighed}>
+              {mode === "have" ? w.save : w.saveWeighed}
             </Button>
           </div>
         </>
