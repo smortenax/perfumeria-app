@@ -6,6 +6,8 @@ import { formatGrams, formatPercent } from "../core/display";
 import { readReweigh, type Reweigh, type ReweighMode } from "./reweigh";
 import { maxUseWarning, recipe } from "./use-formula";
 import { texts } from "./texts";
+import type { FormulaRecord, Workbench } from "../db/formulas";
+import { switchBenches, switchFormulas } from "./switcher";
 import { Button } from "../Button";
 
 const t = texts.dialogs;
@@ -18,6 +20,8 @@ function Modal(props: {
   onAccept: () => void;
   /** What it accepts deletes: the button says so (audit F-11). */
   danger?: boolean;
+  /** Room for two columns: the bench picker (audit F-01). */
+  wide?: boolean;
 }) {
   // A native dialog (audit F-13 L2): showModal() takes the focus in, to its first field, keeps it in and
   // makes the bench behind inert; Escape asks to cancel. The focus goes back to what opened it.
@@ -40,7 +44,7 @@ function Modal(props: {
   return (
     <dialog
       ref={dialog}
-      className="modal"
+      className={props.wide ? "modal wide" : "modal"}
       aria-labelledby={titleId}
       onCancel={(e) => {
         e.preventDefault();
@@ -162,56 +166,109 @@ export function ConfirmDialog(props: { title: string; text: string; danger?: boo
   );
 }
 
-/** Choosing one of a few: the workbench a formula moves to (plan 8.1b). */
-export function ChoiceDialog(props: {
-  title: string;
-  help?: string;
-  options: ReadonlyArray<{ readonly id: string; readonly label: string }>;
-  initial: string | null;
-  onDone: (id: string) => void;
-  onClose: () => void;
+/**
+ * Benches on the left and, on the right, the formulas of the one chosen, each version under its mother,
+ * as Formulación shows them (audit F-01 L2); a search over both on top. To choose a bench only (moving a
+ * formula), without the right column. Two columns where there is room, one over the other on a phone.
+ */
+function BenchPicker(props: {
+  workbenches: readonly Workbench[];
+  formulas: readonly FormulaRecord[];
+  /** The bench to open on: the one you are in. */
+  benchId: string;
+  /** Only these formulas can be chosen; null, a bench and no formula. */
+  choosable: ReadonlySet<string> | null;
+  /** A word after a formula's name («saved now»). */
+  noteOf?: (id: string) => string;
+  bench: string | null;
+  onBench: (id: string) => void;
+  formula?: string | null;
+  onFormula?: (id: string) => void;
+  /** A double press on a formula chooses and accepts. */
+  onPick?: (id: string) => void;
 }) {
-  const [chosen, setChosen] = useState<string | null>(props.initial);
+  const [query, setQuery] = useState("");
+  const input = useRef<HTMLInputElement>(null);
+  useEffect(() => input.current?.focus(), []);
+  const choosable = props.choosable;
+  const usable = choosable ? props.formulas.filter((f) => choosable.has(f.id)) : props.formulas;
+  // A bench shows when its name matches or, choosing formulas, one of its formulas does.
+  const all = switchBenches(props.workbenches, usable, props.benchId);
+  const byName = new Set(switchBenches(props.workbenches, usable, props.benchId, query).map((b) => b.id));
+  const benches = all.filter((b) => byName.has(b.id) || (choosable !== null && query.trim() !== "" && switchFormulas(usable, b.id, "", query).length > 0));
+  const open = props.bench ?? props.benchId;
+  // In a bench found by its name, every formula; else only those the search finds.
+  const formulas = choosable === null ? [] : switchFormulas(usable, open, "", byName.has(open) ? "" : query);
   return (
-    <Modal
-      title={props.title}
-      error={null}
-      onCancel={props.onClose}
-      onAccept={() => {
-        if (chosen) props.onDone(chosen);
-        props.onClose();
-      }}
-    >
-      {props.help && <p className="help">{props.help}</p>}
-      <Choices value={chosen} options={props.options.map((o) => ({ value: o.id, label: o.label }))} onChange={setChosen} />
-    </Modal>
+    <div className="bench-picker">
+      <label className="field">
+        <span>{choosable ? t.formulaPickerSearch : t.benchPickerSearch}</span>
+        <input ref={input} type="search" value={query} onChange={(e) => setQuery(e.target.value)} />
+      </label>
+      <div className={choosable ? "picker-columns" : "picker-columns one"}>
+        <fieldset className="picker-group">
+          <legend>{t.benches}</legend>
+          {benches.length === 0 ? (
+            <p className="help">{t.formulaPickerNoMatch}</p>
+          ) : (
+            <Choices
+              value={open}
+              options={benches.map((b) => ({ value: b.id, label: `${b.name}${b.current ? ` ${t.current}` : ""} · ${t.formulasIn(b.count)}` }))}
+              onChange={props.onBench}
+            />
+          )}
+        </fieldset>
+        {choosable && (
+          <fieldset className="picker-group">
+            <legend>{props.workbenches.find((w) => w.id === open)?.name ?? "—"}</legend>
+            {formulas.length === 0 ? (
+              <p className="help">{t.noFormulasHere}</p>
+            ) : (
+              <Choices
+                value={props.formula ?? null}
+                options={formulas.map((f) => ({
+                  value: f.id,
+                  label: (
+                    <span className="picker-formula" style={{ paddingLeft: `${f.depth}rem` }}>
+                      {f.depth > 0 && <span aria-hidden="true">↳ </span>}
+                      {f.name}
+                      {props.noteOf?.(f.id) && <span className="muted"> ({props.noteOf(f.id)})</span>}
+                    </span>
+                  ),
+                }))}
+                onChange={(id) => props.onFormula?.(id)}
+                {...(props.onPick ? { onPick: props.onPick } : {})}
+              />
+            )}
+          </fieldset>
+        )}
+      </div>
+    </div>
   );
 }
 
 /**
- * Choosing a formula from Formulación (V3-74, 2026-10-23): every formula of every bench, grouped by
- * bench (this one first), with a search over names and benches.
+ * Choosing a formula from Formulación (V3-74, 2026-10-23): every formula of every bench, in the bench
+ * picker (audit F-01 L2), opening on this bench.
  */
 export function FormulaPickerDialog(props: {
   title: string;
   help?: string;
-  groups: ReadonlyArray<{ readonly name: string; readonly options: ReadonlyArray<{ readonly id: string; readonly label: string }> }>;
+  workbenches: readonly Workbench[];
+  formulas: readonly FormulaRecord[];
+  benchId: string;
+  choosable: ReadonlySet<string>;
+  noteOf: (id: string) => string;
   onDone: (id: string) => void;
   onClose: () => void;
 }) {
+  const [bench, setBench] = useState<string | null>(null);
   const [chosen, setChosen] = useState<string | null>(null);
-  const [query, setQuery] = useState("");
-  const input = useRef<HTMLInputElement>(null);
-  useEffect(() => input.current?.focus(), []);
-  const fold = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
-  const q = fold(query.trim());
-  const groups = props.groups
-    .map((g) => ({ name: g.name, options: !q || fold(g.name).includes(q) ? g.options : g.options.filter((o) => fold(o.label).includes(q)) }))
-    .filter((g) => g.options.length > 0);
   return (
     <Modal
       title={props.title}
       error={null}
+      wide
       onCancel={props.onClose}
       onAccept={() => {
         if (chosen) props.onDone(chosen);
@@ -219,24 +276,48 @@ export function FormulaPickerDialog(props: {
       }}
     >
       {props.help && <p className="help">{props.help}</p>}
-      <label className="field">
-        <span>{t.formulaPickerSearch}</span>
-        <input ref={input} value={query} onChange={(e) => setQuery(e.target.value)} />
-      </label>
-      <div className="picker-list">
-        {groups.length === 0 && <p className="help">{t.formulaPickerNoMatch}</p>}
-        {groups.map((g) => (
-          <fieldset key={g.name} className="picker-group">
-            <legend>{g.name}</legend>
-            <Choices
-              value={chosen}
-              options={g.options.map((o) => ({ value: o.id, label: o.label }))}
-              onChange={setChosen}
-              onPick={(id) => (props.onDone(id), props.onClose())}
-            />
-          </fieldset>
-        ))}
-      </div>
+      <BenchPicker
+        workbenches={props.workbenches}
+        formulas={props.formulas}
+        benchId={props.benchId}
+        choosable={props.choosable}
+        noteOf={props.noteOf}
+        bench={bench}
+        onBench={(id) => {
+          setBench(id);
+          setChosen(null);
+        }}
+        formula={chosen}
+        onFormula={setChosen}
+        onPick={(id) => (props.onDone(id), props.onClose())}
+      />
+    </Modal>
+  );
+}
+
+/** Choosing a bench, in the bench picker without formulas (audit F-01 L2): where a formula moves to. */
+export function BenchChoiceDialog(props: {
+  title: string;
+  help?: string;
+  workbenches: readonly Workbench[];
+  formulas: readonly FormulaRecord[];
+  benchId: string;
+  onDone: (id: string) => void;
+  onClose: () => void;
+}) {
+  const [bench, setBench] = useState<string | null>(null);
+  return (
+    <Modal
+      title={props.title}
+      error={null}
+      onCancel={props.onClose}
+      onAccept={() => {
+        if (bench) props.onDone(bench);
+        props.onClose();
+      }}
+    >
+      {props.help && <p className="help">{props.help}</p>}
+      <BenchPicker workbenches={props.workbenches} formulas={props.formulas} benchId={props.benchId} choosable={null} bench={bench} onBench={setBench} />
     </Modal>
   );
 }
