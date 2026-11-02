@@ -120,3 +120,32 @@ export function windowState(input: WindowInput): WindowState {
   }
   return { examples: shown, plan: planned, aimed, weighed, problem };
 }
+
+/**
+ * The two ways in (audit F-03 L2; the user: «arriba pones la dilución si ya está; si las vas a calcular
+ * seleccionas calcular»): a bottle you already have, its weights optional; or one to calculate.
+ */
+export type WindowMode = "have" | "calculate";
+
+/**
+ * What «Save» saves: with the weights written, the bottle from them (its exact figure, V3-67); a bottle
+ * you have, without them, as you say it is; one being calculated, only once weighed. null: not yet.
+ */
+export function saveKind(mode: WindowMode, state: Pick<WindowState, "aimed" | "weighed">): "weighed" | "unweighed" | null {
+  if (state.weighed) return "weighed";
+  return mode === "have" && state.aimed ? "unweighed" : null;
+}
+
+/** Grams to write in a field, to the milligram: «0.800». */
+export const gramsText = (ug: bigint): string => Ratio.of(ug, 1_000_000n).toFixed(3);
+
+/** «I've weighed it»: what the plan said to weigh, in the weights' fields, to correct with what the scale showed. */
+export function weighedFromPlan(plan: { readonly materialUg: bigint; readonly diluents: readonly { readonly diluentId: string; readonly massUg: bigint }[] }, rows: readonly WindowRow[]): { material: string; rows: WindowRow[] } {
+  return {
+    material: gramsText(plan.materialUg),
+    rows: rows.map((r) => {
+      const d = plan.diluents.find((x) => x.diluentId === r.diluentId);
+      return { ...r, weighed: d ? gramsText(d.massUg) : r.weighed };
+    }),
+  };
+}

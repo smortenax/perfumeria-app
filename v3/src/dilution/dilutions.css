@@ -208,3 +208,32 @@
 .import-list select { display: block; margin-top: 0.25rem; max-width: 100%; }
 .import-sheet textarea { width: 100%; font-family: monospace; }
 .status-chip.import-missing { opacity: 0.7; }
+
+/* The two ways in (audit F-03 L2): «I already have it» first, «Calculate it» beside it. */
+.new-dilution .nd-mode .pill {
+  min-height: 2.75rem;
+  padding: 0 1rem;
+  font-weight: 700;
+}
+
+.new-dilution .nd-plan-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+}
+
+/* The weights: folded and optional for a bottle you have, open for one you calculate. */
+.new-dilution details.weighed {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-control);
+  padding: 0.5rem 0.75rem;
+}
+
+.new-dilution details.weighed summary {
+  min-height: 2.75rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 700;
+}

@@ -750,6 +750,15 @@ export const texts = {
       exactNow: (pct: string, total: string) => `Exact: ${pct} · ${total} g`,
       saveUnweighed: "Save without weights",
       saveWeighed: "Save with what I weighed",
+      /** The two ways in (audit F-03 L2). */
+      modes: { have: "I already have it", calculate: "Calculate it" } as Record<string, string>,
+      modeLabel: "How you make it",
+      haveTarget: "Its %",
+      haveHint: "A bottle on your shelf: say its % and what it is in. The weights are optional.",
+      refine: "Refine with what I weighed (optional)",
+      fillWeighed: "I've weighed it",
+      fillWeighedHint: "Writes what to weigh into the weights, to correct with what the scale showed.",
+      save: "Save",
       problem: {
         target: "Write a % above 0 and below 100.",
         shares: "The shares of the diluents do not fit in the bottle.",
