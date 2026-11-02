@@ -11,6 +11,8 @@ import { familyText } from "./family";
 import { amountText, initials, partsText, pouredText, pureText, shareText, weighingWarning } from "./format";
 import { FamilyIcon } from "./FamilyIcon";
 import { byNote } from "./notes";
+import { barWidth } from "./bars";
+import { Ratio } from "../core/arith/ratio";
 
 const t = texts.composition;
 
@@ -82,6 +84,8 @@ export function CompositionCard(props: {
   // In parts (V3-58), the aromatic matter in 1000 parts, as the smell view.
   const shown = comp ? (view === "bottle" ? comp.parts : aromatic) : [];
   const baseUg = comp ? (view === "bottle" ? comp.totalUg : comp.aromaticUg) : null;
+  // Each line's bar is read against the largest shown (audit F-15 L2, ref-0081).
+  const largest = shown.reduce((max, p) => (max.lt(p.massUg) ? p.massUg : max), Ratio.ZERO);
 
   const toggle = (key: string) => {
     const next = new Set(open);
@@ -213,8 +217,17 @@ export function CompositionCard(props: {
               {amountText(part.massUg)}
             </span>
             <span className="num row-share">{view === "parts" ? partsText(part.massUg, baseUg) : share.text}</span>
+            <span className="row-bar" aria-hidden="true">
+              <i style={{ width: `${barWidth(part.massUg, largest) * 100}%` }} />
+            </span>
             {ifra && (
               <span className={`row-ifra ${ifra.tone}`} title={ifra.title}>
+                {ifra.lollipop && (
+                  <span className={`lollipop${ifra.lollipop.over ? " over" : ""}${ifra.lollipop.bound ? " bound" : ""}`} aria-hidden="true">
+                    <i className="stick" style={{ width: `${ifra.lollipop.at * 100}%` }} />
+                    <i className="dot" style={{ left: `${ifra.lollipop.at * 100}%` }} />
+                  </span>
+                )}
                 {ifra.share && (
                   <span className="num">
                     {t.ifraShort} {ifra.share}
