@@ -1245,10 +1245,6 @@ details.unstated[open] dl {
   margin: 0;
 }
 
-.tasting-notice {
-  border-radius: var(--radius-panel);
-  box-shadow: inset 4px 0 0 var(--amber);
-}
 
 .tasting .strip-cards {
   display: grid;

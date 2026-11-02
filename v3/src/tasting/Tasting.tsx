@@ -9,7 +9,7 @@ import { bottleText } from "../dilution/Dilutions";
 import { percent } from "../glossary/format";
 import type { GlossaryData } from "../glossary/useGlossary";
 import { texts } from "../i18n/en";
-import { blockState, buildQueue, tastable, changedBlocks, countdown, dueMoments, latestDilution, legacyTasted, nextWaiting, nowOnLine, tenacity } from "./logic";
+import { blockState, buildQueue, tastable, changedBlocks, countdown, dueMoments, dueNowOf, latestDilution, legacyTasted, nextWaiting, nowOnLine, tenacity } from "./logic";
 import { tasteMaterial } from "./start";
 import { FailureNote } from "../FailureNote";
 import { tabAfterKey } from "../tabs";
@@ -113,7 +113,8 @@ export function Tasting({
   const open = tastings.sessions.find((s) => !s.endedAt) ?? null;
   const openStrips = open ? tastings.strips.filter((s) => s.sessionId === open.id) : [];
   const now = useNow(openStrips.length > 0);
-  const notices = useDueNotices(openStrips, tastings.moments, now);
+  // The notices of what is due: from the browser and a buzz; on screen, the strip's card says it (audit F-05 L2).
+  useDueNotices(tastings, now);
 
   const addToSession = async (materialId: string) => {
     await tasteMaterial(data, local, tastings, materialId);
@@ -124,15 +125,6 @@ export function Tasting({
   return (
     <section className="tasting" hidden={!visible}>
       <FailureNote message={failure} onClose={() => setFailure(null)} floating />
-      {notices.length > 0 && (
-        <div className="tasting-notices" role="status">
-          {notices.map((n) => (
-            <button key={n.key} type="button" className="tasting-notice" onClick={() => setStripId(n.stripId)}>
-              {t.dueNow(n.label, t.moments[n.moment])}
-            </button>
-          ))}
-        </div>
-      )}
       {strip ? (
         <StripView data={data} local={local} tastings={tastings} strip={strip} now={now} onBack={onBack} run={run} />
       ) : (
@@ -175,16 +167,13 @@ export function Tasting({
   );
 }
 
-/** The notices of the timers (V3-63): in the app, and from the browser if you allowed it, while the app is open. */
-function useDueNotices(strips: readonly TastingStrip[], moments: readonly TastingMoment[], now: number) {
+/**
+ * The notices of the timers (V3-63), from the browser if you allowed it and a buzz, while the app is open.
+ * What is due is counted as everywhere else (dueNowOf); on screen it is the strip's card that says it.
+ */
+function useDueNotices(tastings: Tastings, now: number) {
   const seen = useRef<Set<string> | null>(null);
-  const due = strips.flatMap((s) => {
-    const written = moments.filter((m) => m.stripId === s.id).map((m) => m.moment);
-    if (!written.includes("t0")) return [];
-    return dueMoments(s, written, DEFAULT_MOMENTS.filter((m) => m !== "t0"), now)
-      .filter((d) => d.state === "due")
-      .map((d) => ({ key: `${s.id}:${d.moment}`, stripId: s.id, label: s.blindLabel, moment: d.moment }));
-  });
+  const due = dueNowOf(tastings, now).map((d) => ({ ...d, key: `${d.stripId}:${d.moment}` }));
   useEffect(() => {
     // What is already due when the app opens is shown, not announced again.
     if (seen.current === null) {
@@ -205,7 +194,6 @@ function useDueNotices(strips: readonly TastingStrip[], moments: readonly Tastin
       }
     }
   });
-  return due;
 }
 
 function SessionView({
@@ -248,7 +236,8 @@ function SessionView({
           const dueNow = due.filter((d) => d.state === "due");
           return (
             <li key={s.id}>
-              <button type="button" className="strip-card" onClick={() => onOpenStrip(s.id)}>
+              {/* What is due is said here, on its strip, with the action (audit F-05 L2). */}
+              <button type="button" className={dueNow.length > 0 && written.includes("t0") ? "strip-card due" : "strip-card"} onClick={() => onOpenStrip(s.id)}>
                 <span className="strip-label">{s.blindLabel}</span>
                 <span className="strip-body">
                   <span className="strip-name">{s.revealedAt ? nameOf(data, s.materialId) : t.hidden}</span>
@@ -265,7 +254,7 @@ function SessionView({
                   </span>
                 </span>
                 <span className="strip-timer">
-                  {!written.includes("t0") ? t.t0First : dueNow.length > 0 ? `${t.due} ${t.moments[dueNow[0].moment]}` : next ? `${t.moments[next.moment]} ${t.inTime(countdown(next.dueAt - now))}` : ""}
+                  {!written.includes("t0") ? t.t0First : dueNow.length > 0 ? t.smellNow(dueNow.map((d) => t.moments[d.moment]).join(", ")) : next ? `${t.moments[next.moment]} ${t.inTime(countdown(next.dueAt - now))}` : ""}
                 </span>
               </button>
             </li>

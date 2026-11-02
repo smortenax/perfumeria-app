@@ -9,7 +9,7 @@
   color: var(--muted);
 }
 
-.tasting button:not(.btn):not(.link):not(.chip):not(.strip-card):not(.curve-cell):not(.tab):not(.tasting-notice):not(.primary) {
+.tasting button:not(.btn):not(.link):not(.chip):not(.strip-card):not(.curve-cell):not(.tab):not(.primary) {
   background: var(--panel);
   color: var(--text);
   border: 1px solid var(--line-strong);
@@ -36,23 +36,7 @@
   padding: 1rem 0;
 }
 
-.tasting-notices {
-  position: sticky;
-  top: var(--app-nav-h, 3rem);
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  margin-bottom: 0.5rem;
-}
 
-.tasting-notice {
-  background: var(--amber-bg);
-  color: var(--amber);
-  border: 1px solid var(--amber);
-  text-align: left;
-  font-weight: 600;
-}
 
 .strip-cards,
 .queue-list,
@@ -471,4 +455,16 @@
 /* Deleting the session sits apart from ending it, as the danger button (audit F-11 L2, theme/buttons.css). */
 button.delete-session {
   margin-inline-start: auto;
+}
+
+/* A strip with a moment due says so on its card, with the action (audit F-05 L2): the accent's edge and
+   «Smell t60 now», instead of a banner for each moment over the page. */
+.strip-card.due {
+  border-color: var(--accent-default);
+  box-shadow: inset 0 0 0 1px var(--accent-default);
+}
+
+.strip-card.due .strip-timer {
+  font-weight: 700;
+  color: var(--text-default);
 }
