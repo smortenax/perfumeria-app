@@ -7,6 +7,7 @@ import { texts } from "../i18n/en";
 import { gramsText, gramsToUg, percentToFraction, saveKind, weighedFromPlan, windowState, type WindowMode, type WindowRow } from "./window";
 import "./dilutions.css";
 import { Button } from "../Button";
+import { DiluentPicker } from "./DiluentPicker";
 
 const t = texts.dilutions;
 const w = t.window;
@@ -166,16 +167,10 @@ export function NewDilution({
 
           {rows.map((r, i) => (
             <div key={i} className="diluent-row">
-              <label className="field">
-                {t.diluent}
-                <select value={r.diluentId} onChange={(e) => setRow(i, { diluentId: e.target.value })}>
-                  {diluents.map((d) => (
-                    <option key={d.id} value={d.id}>
-                      {d.name}
-                    </option>
-                  ))}
-                </select>
-              </label>
+              <div className="field diluent-field">
+                <span className="field-label">{t.diluent}</span>
+                <DiluentPicker label={t.diluent} diluents={diluents} value={r.diluentId} onChange={(id) => setRow(i, { diluentId: id })} />
+              </div>
               {rows.length > 1 && (
                 <label className="field share">
                   {t.share}

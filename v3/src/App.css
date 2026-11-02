@@ -1228,6 +1228,60 @@ button:focus-visible {
   outline-offset: 1px;
 }
 
+/* Selects, dates and progress bars in the house style (audit F-09 L1): a field's edge, the radius
+   token and an arrow drawn with tokens, the same in every browser. The pickers they open stay the
+   browser's own (on a phone, its wheel). */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  min-height: 40px;
+  padding: 0 2.25rem 0 0.75rem;
+  border-color: var(--border-control);
+  background-color: var(--surface-raised);
+  background-image: linear-gradient(45deg, transparent 50%, var(--text-muted) 50%), linear-gradient(135deg, var(--text-muted) 50%, transparent 50%);
+  background-position: calc(100% - 1.125rem) 50%, calc(100% - 0.8125rem) 50%;
+  background-size: 0.3125rem 0.3125rem;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+input[type="date"] {
+  min-height: 40px;
+  padding: 0 0.75rem;
+  border-color: var(--border-control);
+  background: var(--surface-raised);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+progress {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 0.5rem;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--surface-sunken);
+  overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+  background: var(--surface-sunken);
+  border-radius: var(--radius-pill);
+}
+
+progress::-webkit-progress-value {
+  background: var(--accent-default);
+  border-radius: var(--radius-pill);
+}
+
+progress::-moz-progress-bar {
+  background: var(--accent-default);
+  border-radius: var(--radius-pill);
+}
+
 /* Tabs and their panel: paper and lines, as the workbench's cards. On a phone the row scrolls inside
    itself instead of widening the page (audit F-02): the line under the tabs is an inset shadow, which
    the selected tab covers, because a border would be clipped by the scrolling row. */

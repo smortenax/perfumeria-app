@@ -183,7 +183,8 @@
   min-height: 40px;
   border: 1px solid var(--border-control);
   border-radius: var(--radius-control);
-  background: var(--surface-sunken);
+  /* The colour only: a select keeps its arrow, drawn as a background image (audit F-09 L1). */
+  background-color: var(--surface-sunken);
   color: var(--text);
   font: inherit;
 }
