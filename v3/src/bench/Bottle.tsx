@@ -65,9 +65,6 @@ export function BottleFrame(props: { name: string; fill: number | null; aromatic
         </span>
         {props.aromatic && (
           <span className="bottle-split">
-            <span className="aromatic">
-              {props.aromatic.name} <span className="num">{props.aromatic.share}</span>
-            </span>
             {props.solvents.length > 0 && (
               <span>
                 {props.solvents.map((s, i) => (

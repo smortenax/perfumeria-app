@@ -588,6 +588,8 @@ export const texts = {
     count: (n: number) => `${n} ${n === 1 ? "change" : "changes"}`,
     /** The words after the big number in the count box: «9 changes», «4 of 9». */
     changes: (n: number) => (n === 1 ? "change" : "changes"),
+    /** The history counts what was weighed, not what the bottle holds (F-08). */
+    asWeighed: " · as weighed",
     ofCount: (of: number) => `of ${of}`,
     frame: (n: number, of: number) => `frame ${n} of ${of}`,
     toEnd: "at the end",

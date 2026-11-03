@@ -203,6 +203,7 @@ export function HistoryDock(props: {
         {props.frame === null ? (
           <span className="small">
             <span className="num dock-n">{n}</span> {t.changes(n)}
+            <span>{t.asWeighed}</span>
           </span>
         ) : (
           <span className="small">
