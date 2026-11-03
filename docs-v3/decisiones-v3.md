@@ -1736,6 +1736,28 @@ Viene de V3-78 («hay que iterar para que sean no solo visualmente atractivos si
 - **Propuesta de la sesión:** los tramos de duración (salida, menos de 2 h; corazón, 2–24 h; fondo, 1–7 días; fijador, más de 7 días); que una faceta nombra una familia si dice una de las palabras que esa familia cubre en la paleta (`covers`, lo de antes de los dos puntos; «woods» encuentra «woody» y «animalic», «animal»); al ordenar, lo que no tiene dato va al final; y los datos de tu versión, heredados del común (V3-5).
 - **Hecho** (PR #44, fusionada en `main`): `v3/src/glossary/traits.ts` (7 pruebas) y `MaterialFilters.tsx`.
 
+## V3-95 · La auditoría de diseño del 2026-11-02: lo que elegiste sobre las maquetas (decidida por el usuario el 2026-11-02)
+
+**Literal** (2026-11-02), sobre las maquetas agrupadas de la auditoría (siete grupos, cada uno en A, como está, y B, con los cambios):
+
+> 6 de 7 · G1-B · G2-B · G3-B · G4-B · G5-B · G6-? · G7-B
+
+> g6 tambien la B
+
+Y, a la pregunta de si se pasaba a la app en una rama nueva: «Sí, una PR a main».
+
+**Lectura** (de la sesión, hallazgo por hallazgo; el informe está en la carpeta del proyecto, `design-audits/2026-11-02-perfumeria-v3-progress.md`):
+
+- **G1-B.** F-04: la búsqueda ordena por lo bien que casa el nombre antes que por de quién es, y lo que no tiene datos va detrás de su homónimo que sí. F-01 y F-03: las búsquedas de materiales son comboboxes (rol, `aria-expanded`, `aria-activedescendant`) y en todas Enter o Tab eligen el resaltado.
+- **G2-B.** F-05: «IFRA: partial» pasa a «IFRA: not checked». F-08: la cifra de lo que lleva la botella sale una vez, y el historial dice que cuenta lo pesado. F-12: en el móvil el nombre no se corta a media palabra. F-13: la marca «pending» pasa a «needs proof», y un texto pendiente largo dice qué falta, con las palabras del estándar bajo «Read the standard».
+- **G3-B.** F-06: la barra de duración de la ficha usa la escala del orbe, 600 h. F-09 (primer nivel): las marcas de fuente, de 11 px o más y con 24 × 24 px de área. F-15: la nota del material, como escala, no como botones. F-16: «New dilution» y «New evaluation», secundarios.
+- **G4-B.** F-11 (el primer ajuste; las filas compactas no): Materiales en el móvil, con «⋯» para las acciones y una hoja «Filters · Sort».
+- **G5-B.** F-02: los `prompt` y `confirm` del navegador pasan al diálogo de la app, con un botón que dice lo que hace. F-10: el botón de la barra lateral plegada tiene nombre.
+- **G6-B.** F-07: el nombre corto de un diluyente es su nombre, nunca el código de icono, y en el editor de frascos sale una ficha por diluyente.
+- **G7-B.** F-14: la portada cuenta en singular y plural y dice «Open one to see why».
+- **Propuesta de la sesión:** el combobox es un módulo propio (`v3/src/combobox.ts`, con pruebas), no el ComboBox de React Aria: añadir esa dependencia sería una decisión nueva, como el aviso de V3-75. El conmutador de bancos se deja como está: sus flechas mueven el foco de verdad, de opción en opción. La cola de Catas agrupa por el texto de diluyente guardado en cada tira, así que «DPG y alcohol 96°» sigue saliendo como se escribió.
+- **Hecho** en la rama `claude/project-thread-pkqf8f`, un commit por hallazgo, con su PR a `main`. Sin publicar.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
