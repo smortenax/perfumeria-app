@@ -21,6 +21,7 @@ import {
 import "./tasting.css";
 import { EmptyState } from "../EmptyState";
 import { Button } from "../Button";
+import { ConfirmDialog, PromptDialog } from "../bench/Dialogs";
 
 const t = texts.tasting;
 export const TABS = ["session", "queue", "history", "legacy"] as const;
@@ -213,6 +214,8 @@ function SessionView({
 }) {
   const open = tastings.sessions.find((s) => !s.endedAt) ?? null;
   const [adding, setAdding] = useState(false);
+  // The app's own dialogs, not the browser's (F-02, picked 2026-11-02).
+  const [askingDelete, setAskingDelete] = useState(false);
   const [permission, setPermission] = useState(() => ("Notification" in window ? Notification.permission : "denied"));
   if (!open) {
     return (
@@ -286,12 +289,20 @@ function SessionView({
         <Button
           variant="danger"
           className="delete-session"
-          onClick={() => {
-            if (window.confirm(t.deleteSessionAsk)) run(deleteSession(local.db, local.userId, open.id));
-          }}
+          onClick={() => setAskingDelete(true)}
         >
           {t.deleteSession}
         </Button>
+        {askingDelete && (
+          <ConfirmDialog
+            danger
+            title={t.deleteSessionTitle}
+            text={t.deleteSessionAsk}
+            acceptLabel={t.deleteConfirm}
+            onConfirm={() => run(deleteSession(local.db, local.userId, open.id))}
+            onClose={() => setAskingDelete(false)}
+          />
+        )}
       </div>
     </div>
   );
@@ -767,6 +778,7 @@ function Closing({
 }) {
   const save = (changes: Parameters<typeof saveClosure>[3]) => run(saveClosure(local.db, local.userId, strip.id, changes));
   const c = closure;
+  const [askingClose, setAskingClose] = useState(false);
   return (
     <div className="closing">
       <p className="hint">{t.closeHint}</p>
@@ -817,12 +829,19 @@ function Closing({
           <p className="hint">{t.comparisonLocked}</p>
           <Button
             variant="primary"
-            onClick={() => {
-              if (window.confirm(t.closeAsk)) run(closeStrip(local.db, local.userId, strip.id));
-            }}
+            onClick={() => setAskingClose(true)}
           >
             {t.close}
           </Button>
+          {askingClose && (
+            <ConfirmDialog
+              title={t.closeTitle}
+              text={t.closeAsk}
+              acceptLabel={t.closeConfirm}
+              onConfirm={() => run(closeStrip(local.db, local.userId, strip.id))}
+              onClose={() => setAskingClose(false)}
+            />
+          )}
         </>
       )}
     </div>
@@ -843,6 +862,7 @@ function QueueView({
   run: (p: Promise<unknown>) => void;
 }) {
   const queue = useMemo(() => buildQueue(data.catalog, tastings), [data, tastings]);
+  const [marking, setMarking] = useState<string | null>(null);
   const total = queue.tasted + queue.pending;
   const inSession = new Set(tastings.strips.filter((s) => tastings.sessions.find((x) => x.id === s.sessionId && !x.endedAt)).map((s) => s.materialId));
   const item = (i: (typeof queue.groups)[number]["items"][number]) => (
@@ -853,7 +873,7 @@ function QueueView({
         {i.mark && <span className="mark-badge">{i.mark}</span>}
       </span>
       <span className="queue-buttons">
-        <button type="button" className="link" onClick={() => run(setMark(local.db, local.userId, i.materialId, i.mark ? null : (window.prompt(t.markAsk, t.markDefault) ?? null)))}>
+        <button type="button" className="link" onClick={() => (i.mark ? run(setMark(local.db, local.userId, i.materialId, null)) : setMarking(i.materialId))}>
           {i.mark ? t.unmark : t.mark}
         </button>
         <Button variant="secondary" disabled={inSession.has(i.materialId)} onClick={() => onAdd(i.materialId)}>
@@ -864,6 +884,20 @@ function QueueView({
   );
   return (
     <div className="queue">
+      {marking && (
+        <PromptDialog
+          title={t.markTitle}
+          label={t.markLabel}
+          help={t.markHelp}
+          initial={t.markDefault}
+          acceptLabel={t.mark}
+          submit={(text) => {
+            run(setMark(local.db, local.userId, marking, text));
+            return null;
+          }}
+          onClose={() => setMarking(null)}
+        />
+      )}
       <p>{t.queueProgress(queue.tasted, total)}</p>
       <progress max={total || 1} value={queue.tasted} />
       {/* With nothing marked «I have it», the queue is empty for another reason than having tasted it all. */}

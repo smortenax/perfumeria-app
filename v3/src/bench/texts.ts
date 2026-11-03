@@ -627,6 +627,7 @@ export const texts = {
     renameBenchTitle: "Rename the bench",
     renameBenchLabel: "Name of the bench",
     deleteTitle: "Delete the formula",
+    deleteConfirm: "Delete",
     deleteText: (name: string, steps: number) =>
       `«${name}» is deleted with its history (${steps === 1 ? "1 step" : `${steps} steps`}). This cannot be undone. Its versions stay, without a parent.`,
     moveTitle: "Move to another bench",

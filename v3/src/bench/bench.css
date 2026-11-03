@@ -3835,3 +3835,8 @@
     flex: 1 0 100%;
   }
 }
+
+/* The host of a dialog opened outside the bench (F-02): it carries the bench's tokens and draws no box. */
+.bench-root.dialog-host {
+  display: contents;
+}

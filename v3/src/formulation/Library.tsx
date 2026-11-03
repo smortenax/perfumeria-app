@@ -17,6 +17,7 @@ import { VersionTree } from "./VersionTree";
 import { macerationState, startMaceration, todayIso } from "../db/macerations";
 import { EmptyState } from "../EmptyState";
 import { Button } from "../Button";
+import { PromptDialog } from "../bench/Dialogs";
 
 /** The library's tabs (V3-19): your workbenches, and the general folders of the markers. */
 const TABS = ["benches", "accords", "finished"] as const;
@@ -74,17 +75,30 @@ export function Library({
     setTab(TABS[next]);
     refs.current[next]?.focus();
   };
-  const newBench = () => {
-    const name = window.prompt(t.newBenchName)?.trim();
-    if (name) onNewBench(name);
-  };
+  // The app's own dialog, not the browser's (F-02, picked 2026-11-02).
+  const [askingName, setAskingName] = useState(false);
   return (
     <section className="glossary library">
+      {askingName && (
+        <PromptDialog
+          title={t.newBench}
+          label={t.newBenchName}
+          help={t.newBenchHelp}
+          acceptLabel={t.create}
+          submit={(v) => {
+            const name = v.trim();
+            if (name === "") return t.nameNeeded;
+            onNewBench(name);
+            return null;
+          }}
+          onClose={() => setAskingName(false)}
+        />
+      )}
       <div className="title-bar">
         <h2 className="page-title">{t.title}</h2>
         <span className="buttons">
           {/* Secondary: the main action of this view is «New formula» (V3-92); a new bench is seldom. */}
-          <Button variant="secondary" onClick={newBench}>
+          <Button variant="secondary" onClick={() => setAskingName(true)}>
             {t.newBench}
           </Button>
         </span>
@@ -118,7 +132,7 @@ export function Library({
       </div>
       <div className="tab-panel" role="tabpanel" id="library-panel" aria-labelledby={`library-tab-${tab}`}>
         {tab === "benches" ? (
-          <Benches data={data} local={local} previews={previews} query={query} onOpen={onOpen} onNew={onNew} onNewBench={newBench} onDeleteBench={onDeleteBench} openBench={openBench} />
+          <Benches data={data} local={local} previews={previews} query={query} onOpen={onOpen} onNew={onNew} onNewBench={() => setAskingName(true)} onDeleteBench={onDeleteBench} openBench={openBench} />
         ) : (
           <Formulas data={data} query={query} marker={MARKER[tab]} onOpen={onOpen} />
         )}

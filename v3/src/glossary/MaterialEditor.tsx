@@ -20,6 +20,7 @@ import { percent } from "./format";
 import { FailureNote } from "../FailureNote";
 import type { GlossaryData } from "./useGlossary";
 import { Button } from "../Button";
+import { ConfirmDialog } from "../bench/Dialogs";
 
 /** The authorities a user writes with: IFRA's word lives in its layer (V3-35). */
 const AUTHORITIES_OF_YOURS: readonly Exclude<Authority, "ifra">[] = ["lot", "product", "literature", "consensus"];
@@ -39,6 +40,8 @@ const pctOf = (text: string) => {
  */
 export function MaterialEditor({ data, local, id, onDone, onDeleted }: { data: GlossaryData; local: LocalDatabase; id: string; onDone: () => void; onDeleted: () => void }) {
   const [deleteError, setDeleteError] = useState<string | null>(null);
+  // The app's own dialog, not the browser's (F-02, picked 2026-11-02).
+  const [askingDelete, setAskingDelete] = useState(false);
   const material = data.catalog.materials.get(id);
   if (!material || material.ownerId === null) return <p>{texts.glossary.missing}</p>;
   // A version (V3-5) inherits from the materials it is based on: shown as hints and read-only rows, never written to it.
@@ -58,14 +61,23 @@ export function MaterialEditor({ data, local, id, onDone, onDeleted }: { data: G
       <section className="sheet-section danger">
         <Button
           variant="danger"
-          onClick={() => {
-            if (!window.confirm(t.confirmDelete(material.name))) return;
-            setDeleteError(null);
-            void deleteMaterial(local.db, local.userId, material.id).then(onDeleted, (e: unknown) => setDeleteError(messageOf(e)));
-          }}
+          onClick={() => setAskingDelete(true)}
         >
           {t.delete}
         </Button>
+        {askingDelete && (
+          <ConfirmDialog
+            danger
+            title={t.deleteTitle}
+            text={t.confirmDelete(material.name)}
+            acceptLabel={t.deleteConfirm}
+            onConfirm={() => {
+              setDeleteError(null);
+              void deleteMaterial(local.db, local.userId, material.id).then(onDeleted, (e: unknown) => setDeleteError(messageOf(e)));
+            }}
+            onClose={() => setAskingDelete(false)}
+          />
+        )}
         <FailureNote message={deleteError} onClose={() => setDeleteError(null)} />
       </section>
     </article>
