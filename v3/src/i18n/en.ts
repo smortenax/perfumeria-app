@@ -819,7 +819,7 @@ export const texts = {
     dilutions: "Dilutions",
     noDilutions: "No dilutions",
   },
-  ifraLabel: { exceeds: "IFRA: over", partial: "IFRA: partial", bounded: "IFRA: within at worst", within: "IFRA: within", empty: "" } as Record<string, string>,
+  ifraLabel: { exceeds: "IFRA: over", partial: "IFRA: not checked", bounded: "IFRA: within at worst", within: "IFRA: within", empty: "" } as Record<string, string>,
   maceration: {
     start: "Start macerating",
     startTitle: (name: string) => `Start macerating «${name}» today`,
