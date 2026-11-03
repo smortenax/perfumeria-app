@@ -169,23 +169,27 @@
 }
 
 /* The same window as a pop-up (V3-79): the sheet and the bench stay behind. */
-.dilution-popup-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 70;
-  display: grid;
-  place-items: start center;
-  overflow-y: auto;
-  padding: 24px 16px;
-  background: rgba(29, 29, 27, 0.28);
-}
+/* «New dilution» as a native dialog (audit F-03 L3, F-13): in the top layer, what is behind inert. */
 .dilution-popup {
-  width: min(560px, 100%);
-  padding: var(--space-inset, 16px);
+  width: min(560px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  overflow-y: auto;
   border: 1px solid var(--line);
   border-radius: var(--radius-large);
   background: var(--panel);
+  color: var(--text);
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
+}
+
+.dilution-popup::backdrop {
+  background: rgba(29, 29, 27, 0.28);
+}
+
+/* The padding is the body's: a press on the dialog itself is a press on the backdrop. */
+.dilution-popup-body {
+  padding: var(--space-inset);
 }
 
 /* The shopping list (V3-79). */
