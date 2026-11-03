@@ -124,7 +124,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
           {lastFormula && navItem("bench", "bench", n.bench(benchName ?? ""), () => go({ view: "formula", id: lastFormula }))}
           {navItem("tasting", "tasting", n.tasting, () => go({ view: "tasting", tab: "session" }), due > 0 ? n.due(due) : undefined, due)}
         </span>
-        <button type="button" className="nav-collapse" aria-expanded={!mini} onClick={() => setNavMini(!mini)}>
+        <button type="button" className="nav-collapse" aria-expanded={!mini} aria-label={mini ? n.expand : n.collapse} onClick={() => setNavMini(!mini)}>
           <span aria-hidden="true">{mini ? "»" : "«"}</span>
           <span className="nav-label">{mini ? n.expand : n.collapse}</span>
         </button>
