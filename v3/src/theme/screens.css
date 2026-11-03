@@ -689,25 +689,28 @@
   font-size: var(--text-xs);
 }
 
+/* The note as a scale, top to base, with its place marked under it: not a row of buttons it cannot be (F-15, picked 2026-11-02). */
 .notes-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
+  flex-wrap: nowrap;
+  border-bottom: 2px solid var(--border-subtle);
 }
 
 .notes-row span {
-  flex: 1 1 auto;
-  padding: 4px 6px;
-  border-radius: var(--radius-control);
-  background: var(--surface-chip);
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 4px 2px 6px;
+  margin-bottom: -3px;
+  border-bottom: 4px solid transparent;
   color: var(--muted);
   font-size: var(--text-xs);
+  line-height: 1.2;
   text-align: center;
 }
 
 .notes-row span.on {
-  background: var(--accent-default);
-  color: var(--text-on-accent);
+  color: var(--text-default);
+  border-bottom-color: var(--accent-default);
   font-weight: 700;
 }
 
