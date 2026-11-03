@@ -22,6 +22,8 @@ function Modal(props: {
   danger?: boolean;
   /** Room for two columns: the bench picker (audit F-01). */
   wide?: boolean;
+  /** What the accept button says («Create», «Delete»), not «OK» (F-02, picked 2026-11-02). */
+  acceptLabel?: string;
 }) {
   // A native dialog (audit F-13 L2): showModal() takes the focus in, to its first field, keeps it in and
   // makes the bench behind inert; Escape asks to cancel. The focus goes back to what opened it.
@@ -41,7 +43,9 @@ function Modal(props: {
       opener?.focus();
     };
   }, [opener]);
+  // The bench's styles hold the dialog's: outside the bench, a host that draws no box carries them (F-02).
   return (
+    <div className="bench-root dialog-host">
     <dialog
       ref={dialog}
       className={props.wide ? "modal wide" : "modal"}
@@ -77,11 +81,12 @@ function Modal(props: {
             {t.cancel}
           </Button>
           <Button type="submit" variant={props.danger ? "danger" : "primary"}>
-            {t.accept}
+            {props.acceptLabel ?? t.accept}
           </Button>
         </div>
       </form>
     </dialog>
+    </div>
   );
 }
 
@@ -115,6 +120,7 @@ export function PromptDialog(props: {
   label: string;
   help?: string;
   initial?: string;
+  acceptLabel?: string;
   submit: (value: string) => string | null;
   onClose: () => void;
 }) {
@@ -129,6 +135,7 @@ export function PromptDialog(props: {
     <Modal
       title={props.title}
       error={error}
+      acceptLabel={props.acceptLabel}
       onCancel={props.onClose}
       onAccept={() => {
         const problem = props.submit(value);
@@ -149,11 +156,12 @@ export function PromptDialog(props: {
 }
 
 /** Asking before something that cannot be undone (deleting a formula). */
-export function ConfirmDialog(props: { title: string; text: string; danger?: boolean; onConfirm: () => void; onClose: () => void }) {
+export function ConfirmDialog(props: { title: string; text: string; danger?: boolean; acceptLabel?: string; onConfirm: () => void; onClose: () => void }) {
   return (
     <Modal
       title={props.title}
       danger={props.danger}
+      acceptLabel={props.acceptLabel}
       error={null}
       onCancel={props.onClose}
       onAccept={() => {

@@ -52,8 +52,11 @@ export function nominalPercent(fraction: Ratio, label: string | null): string {
   return `${Number(real.toPrecision(1))} %`;
 }
 
-/** A diluent by its short name: its abbreviation, or its name without what goes in brackets («DPG (dipropylene glycol)» → «DPG»). */
+/**
+ * A diluent by its short name: its name without what goes in brackets («DPG (dipropylene glycol)» → «DPG»). Not its abbreviation:
+ * yours carry the glossary's icon codes («Dipr», «IsM»), which no perfumer says, and the common ones none (F-07, picked 2026-11-02).
+ */
 export function shortName(m: { readonly name: string; readonly abbreviation: string | null } | undefined): string {
   if (!m) return "—";
-  return m.abbreviation?.trim() || m.name.replace(/\s*\([^)]*\)\s*$/, "") || m.name;
+  return m.name.replace(/\s*\([^)]*\)\s*$/, "") || m.name;
 }

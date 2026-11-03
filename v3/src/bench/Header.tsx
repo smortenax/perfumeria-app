@@ -154,10 +154,6 @@ export function GramsCard(props: { header: FormulaHeader; totalUg: Ratio; onChan
         <EditableGrams value={header.workBatchUg} empty={g.none} onCommit={(v) => onChange({ ...header, workBatchUg: v })} />
       </div>
       <div className="grams-block">
-        <span className="label">{g.inBottle}</span>
-        <span className="value num strong">{formatGrams(props.totalUg, 3)}</span>
-      </div>
-      <div className="grams-block">
         <span className="label">{g.finalBatch}</span>
         <span className="grams-final">
           <EditableGrams value={header.finalBatchUg} empty={g.none} onCommit={(v) => onChange({ ...header, finalBatchUg: v })} />

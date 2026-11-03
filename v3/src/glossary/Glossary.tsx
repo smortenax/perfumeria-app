@@ -95,6 +95,9 @@ export function Glossary({
   const [marking, setMarking] = useState(false);
   // «Print or save as PDF» (V3-80): your materials as the grid shows them, only while printing.
   const [printing, setPrinting] = useState(false);
+  // On a phone (F-11, picked 2026-11-02): the header's other actions behind «⋯», the filters and sort in a sheet. Nothing is removed.
+  const [moreOpen, setMoreOpen] = useState(false);
+  const [filtersOpen, setFiltersOpen] = useState(false);
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const set = (change: Partial<Filters>) => {
     setFilters((f) => ({ ...f, ...change }));
@@ -153,8 +156,16 @@ export function Glossary({
       (e: unknown) => setMessage(texts.editor.failed(e instanceof Error ? e.message : String(e))),
     );
 
+  const activeFilters =
+    (traitFilters.families.length > 0 ? 1 : 0) +
+    (traitFilters.strength ? 1 : 0) +
+    (traitFilters.duration ? 1 : 0) +
+    (filters.haveOnly ? 1 : 0) +
+    (filters.kind ? 1 : 0) +
+    (filters.ifra ? 1 : 0) +
+    (filters.runningLow ? 1 : 0);
   return (
-    <section className="glossary">
+    <section className={`glossary${moreOpen ? " more-open" : ""}${filtersOpen ? " filters-open" : ""}`}>
       <div className="title-bar">
         <h2 className="page-title">{t.title}</h2>
         <span className="buttons">
@@ -184,8 +195,19 @@ export function Glossary({
           <Button variant="secondary" hidden={tab !== "own"} onClick={() => setPrinting(true)}>
             {t.printGlossary}
           </Button>
-          <button type="button" onClick={onNew}>
+          <button type="button" className="new-material" onClick={onNew}>
             {texts.editor.newMaterial}
+          </button>
+          <button
+            type="button"
+            className="secondary more-actions"
+            hidden={tab === "formulas" || tab === "accords"}
+            aria-expanded={moreOpen}
+            aria-label={t.moreActions}
+            title={t.moreActions}
+            onClick={() => setMoreOpen(!moreOpen)}
+          >
+            <span aria-hidden="true">⋯</span>
           </button>
         </span>
       </div>
@@ -205,6 +227,23 @@ export function Glossary({
           />
         </label>
         {(tab === "own" || tab === "common") && (
+          <button type="button" className="secondary filters-button" aria-expanded={filtersOpen} onClick={() => setFiltersOpen(!filtersOpen)}>
+            {t.filtersButton(activeFilters)}
+          </button>
+        )}
+        {(tab === "own" || tab === "common") && (
+          <div
+            className="filters-sheet"
+            onKeyDown={(e) => {
+              if (e.key === "Escape" && filtersOpen) setFiltersOpen(false);
+            }}
+          >
+            <div className="filters-sheet-head">
+              <strong>{t.filtersTitle}</strong>
+              <button type="button" onClick={() => setFiltersOpen(false)}>
+                {t.filtersDone}
+              </button>
+            </div>
           <MaterialFilters
             filters={traitFilters}
             onFilters={setTraitFilters}
@@ -245,6 +284,7 @@ export function Glossary({
               </>
             }
           />
+          </div>
         )}
       </div>
       <div className="tabs" role="tablist" aria-label={t.owner}>

@@ -55,6 +55,7 @@ import { PrintFormula } from "../export/PrintFormula";
 import { addToShopping, missingOf, removeFromShopping } from "../db/shopping";
 import { texts as appTexts } from "../i18n/en";
 import "./bench.css";
+import { MacerationNote } from "../formulation/MacerationNote";
 import { Button } from "../Button";
 
 type Add = Extract<Change, { kind: "add" }>;
@@ -252,6 +253,8 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
   const [selectedId, setSelectedId] = useState<string | null>(null);
   // Reopening no longer asks to weigh (V3-57): «Repesar…» is in the menu, for when you used some.
   const [dialog, setDialog] = useState<Dialog | null>(null);
+  // A maceration check's note (F-02): the check it is for, while its dialog is open.
+  const [notingCheck, setNotingCheck] = useState<number | null>(null);
   // «New dilution» from the add bar's «+» (V3-79): a pop-up over the bench, of this material.
   const [bottleFor, setBottleFor] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -843,6 +846,13 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
         </div>
       </header>
       <FamilyBar className="bench-families" shares={familyShares(view.composition?.parts ?? [], props.data.catalog)} />
+      {maceration && notingCheck !== null && (
+        <MacerationNote
+          check={notingCheck}
+          onSave={(text) => write(() => noteCheck(local.db, owner, maceration.id, notingCheck, text))}
+          onClose={() => setNotingCheck(null)}
+        />
+      )}
       {maceration && macerating && (
         <p className="maceration-note">
           ⏱ {appTexts.maceration.title} · {appTexts.maceration.day(macerating.day)} ·{" "}
@@ -853,10 +863,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
               <button
                 type="button"
                 className="link"
-                onClick={() => {
-                  const text = window.prompt(appTexts.maceration.ask(macerating.due!));
-                  if (text !== null) write(() => noteCheck(local.db, owner, maceration.id, macerating.due!, text));
-                }}
+                onClick={() => setNotingCheck(macerating.due)}
               >
                 {appTexts.maceration.note(macerating.due)}
               </button>
@@ -1125,7 +1132,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
         />
       )}
       {dialog?.kind === "delete" && (
-        <ConfirmDialog danger title={texts.dialogs.deleteTitle} text={texts.dialogs.deleteText(formula.header.name, formula.history.length)} onConfirm={() => void remove()} onClose={() => setDialog(null)} />
+        <ConfirmDialog danger acceptLabel={texts.dialogs.deleteConfirm} title={texts.dialogs.deleteTitle} text={texts.dialogs.deleteText(formula.header.name, formula.history.length)} onConfirm={() => void remove()} onClose={() => setDialog(null)} />
       )}
       {dialog?.kind === "formulaAsMaterial" && (
         <FormulaPickerDialog

@@ -3823,3 +3823,27 @@
 .bench-root .ceiling-row .explain-text {
   grid-column: 1 / -1;
 }
+
+/* On a narrow bench the name keeps its words whole and the flags go under it (F-12, picked 2026-11-02). */
+@media (max-width: 480px) {
+  .bench-root .row-main {
+    flex-wrap: wrap;
+    row-gap: 2px;
+  }
+  .bench-root .row-name {
+    overflow-wrap: normal;
+    flex: 1 0 100%;
+  }
+}
+
+/* The host of a dialog opened outside the bench (F-02): it carries the bench's tokens and draws no box. */
+.bench-root.dialog-host {
+  display: contents;
+}
+
+/* The add bar's results (F-01): the switches above, then the listbox, which keeps the rows' look. */
+.bench-root .results-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

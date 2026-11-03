@@ -12,6 +12,8 @@ import { useDueNow } from "./tasting/useDue";
 import { DEFAULT_MOMENTS } from "./tasting/vocabulary";
 import { texts } from "./i18n/en";
 import { Button } from "./Button";
+import { useState } from "react";
+import { MacerationNote } from "./formulation/MacerationNote";
 
 /**
  * The landing (plan v3, step 8.1): first «Continue», what is in progress, one tap back into it (audit
@@ -94,10 +96,8 @@ export function Home({
         .filter((x) => x.f !== undefined)
         .sort((a, b) => Number(b.s.due !== null) - Number(a.s.due !== null) || b.s.day - a.s.day)
     : [];
-  const note = (id: string, check: number) => {
-    const text = window.prompt(texts.maceration.ask(check));
-    if (text !== null) void noteCheck(local.db, local.userId, id, check, text);
-  };
+  const [noting, setNoting] = useState<{ id: string; check: number } | null>(null);
+  const note = (id: string, check: number) => setNoting({ id, check });
   // Recent (F21): what you opened last that still exists, up to six.
   const recent = data
     ? readRecent()
@@ -126,6 +126,13 @@ export function Home({
 
   return (
     <section className="home">
+      {noting && (
+        <MacerationNote
+          check={noting.check}
+          onSave={(text) => void noteCheck(local.db, local.userId, noting.id, noting.check, text)}
+          onClose={() => setNoting(null)}
+        />
+      )}
       <h2 className="page-title">{t.title}</h2>
       {data && (
         <section className="continue" aria-labelledby="continue-title">

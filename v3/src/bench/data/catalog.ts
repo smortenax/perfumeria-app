@@ -503,8 +503,10 @@ const SHORT_NAMES: Record<string, string> = { Transformado: "Transf" };
 
 /**
  * One search box (§4): every word must appear in the code, a name, a synonym
- * or the CAS. The diluents come first, then the base; within each, the code
- * as typed, then the names that start with the query, then the shortest. When
+ * or the CAS. How well the name matches comes first (the exact name, then the
+ * code as typed and the names that start with the query, then the name holding
+ * it as a phrase); within each, a material with data before one without, then
+ * yours, the diluents and the base, then the shortest. When
  * that finds too little, names written close to the query come after it: a
  * trade name and its chemical name are both valid, in either spelling (P38).
  */
@@ -542,7 +544,15 @@ export function searchCatalog(entries: readonly CatalogEntry[], typedQuery: stri
           : phrase(e)
             ? 3
             : 4;
-  const score = (e: CatalogEntry) => GROUP_ORDER[e.group] * 5 + match(e);
+  // How well the name matches comes before whose it is (F-04, picked 2026-11-02): «Coumarin» typed finds the common Coumarin before one
+  // of yours that only has the word in its notes. Within the same match, a material with no data goes after one that has it.
+  const nameHas = (e: CatalogEntry) => loose(` ${normalize(e.material.name)}`).includes(` ${looseHead}`);
+  const exactName = (e: CatalogEntry) => loose(normalize(e.material.name)) === looseHead;
+  const score = (e: CatalogEntry) => {
+    const m = match(e);
+    const quality = exactName(e) ? 0 : m <= 2 ? 1 : nameHas(e) ? 2 : m === 3 ? 3 : 4;
+    return quality * 20 + (e.state === "sin-dato" ? 10 : 0) + GROUP_ORDER[e.group] * 3 + Math.min(m, 2);
+  };
   const ranked = found
     .map((e, i) => ({ e, i, s: score(e) }))
     .sort((a, b) => a.s - b.s || a.e.material.name.length - b.e.material.name.length || a.i - b.i)

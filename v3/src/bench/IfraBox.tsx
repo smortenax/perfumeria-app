@@ -5,7 +5,7 @@ import type { IfraBase, IfraReport } from "../core/ifra";
 import { texts } from "./texts";
 import { useExplain } from "./Explain";
 import { roomText, usedText } from "./composition-ifra";
-import { groupRows, splitPending, whyOf, type GroupRow } from "./ifra-explain";
+import { groupRows, longRequirement, splitPending, whyOf, type GroupRow } from "./ifra-explain";
 import { materialRows, readingIn, substanceRows, supplierRows, type MaterialRow, type SubstanceRow } from "./ifra-panel";
 
 const t = texts.ifra;
@@ -367,11 +367,25 @@ export function IfraPanel(props: {
               <div className="section-title amber" title={t.pendingQuantitiesHelp}>
                 {t.pendingQuantities(pending.quantities.length)}
               </div>
-              {pending.quantities.map((p, i) => (
-                <div key={i} className="detail-item">
-                  <strong>{p.material}.</strong> {p.text}
-                </div>
-              ))}
+              {pending.quantities.map((p, i) => {
+                const long = longRequirement(p.text);
+                return (
+                  <div key={i} className="detail-item">
+                    <strong>{p.material}.</strong>{" "}
+                    {long ? (
+                      <>
+                        {t.requirement(long.unknown)}{" "}
+                        <details className="standard-text">
+                          <summary>{t.readStandard}</summary>
+                          {long.standard}
+                        </details>
+                      </>
+                    ) : (
+                      p.text
+                    )}
+                  </div>
+                );
+              })}
             </div>
           )}
           {pending.specifications.length > 0 && (

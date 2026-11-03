@@ -606,20 +606,32 @@
 }
 
 /* A figure's mark: a small number that opens «Sources» at its line (V3-86). */
+/* A source mark keeps its look, with readable type and a 24 px hit area around it (F-09, picked 2026-11-02; WCAG 2.5.8). */
 .src-mark {
+  position: relative;
   display: inline-block;
   min-width: 0;
   min-height: 0;
   margin-left: 2px;
-  padding: 0 2px;
+  padding: 0 3px;
   border: 0;
   background: none;
   color: var(--muted);
-  font-size: 0.6em;
+  font-size: max(0.7em, 11px);
   font-weight: 600;
   line-height: 1;
   vertical-align: super;
   cursor: pointer;
+}
+
+.src-mark::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  transform: translate(-50%, -50%);
 }
 .src-mark:hover,
 .src-mark:focus-visible {
@@ -677,25 +689,28 @@
   font-size: var(--text-xs);
 }
 
+/* The note as a scale, top to base, with its place marked under it: not a row of buttons it cannot be (F-15, picked 2026-11-02). */
 .notes-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
+  flex-wrap: nowrap;
+  border-bottom: 2px solid var(--border-subtle);
 }
 
 .notes-row span {
-  flex: 1 1 auto;
-  padding: 4px 6px;
-  border-radius: var(--radius-control);
-  background: var(--surface-chip);
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 4px 2px 6px;
+  margin-bottom: -3px;
+  border-bottom: 4px solid transparent;
   color: var(--muted);
   font-size: var(--text-xs);
+  line-height: 1.2;
   text-align: center;
 }
 
 .notes-row span.on {
-  background: var(--accent-default);
-  color: var(--text-on-accent);
+  color: var(--text-default);
+  border-bottom-color: var(--accent-default);
   font-weight: 700;
 }
 
@@ -1478,4 +1493,71 @@ details.unstated[open] dl {
 
 .filter-chip span {
   margin-left: 0.25rem;
+}
+
+/* Materials on a phone (F-11, picked 2026-11-02; P-LAYOUT-02): the header keeps «New material» and puts the other actions behind
+   «⋯»; the filters and sort open in a sheet from one button. On a wider screen the sheet is just its contents. */
+.glossary .more-actions,
+.glossary .filters-button,
+.glossary .filters-sheet-head {
+  display: none;
+}
+
+.glossary .filters-sheet {
+  display: contents;
+}
+
+@media (max-width: 600px) {
+  .glossary .title-bar .buttons > :not(.more-actions):not(.new-material) {
+    display: none;
+  }
+  .glossary.more-open .title-bar .buttons {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  .glossary.more-open .title-bar .buttons > :not([hidden]) {
+    display: inline-flex;
+    justify-content: flex-start;
+  }
+  .glossary .more-actions:not([hidden]) {
+    display: inline-flex;
+    justify-content: center;
+    min-width: var(--size-target);
+    font-weight: 700;
+  }
+  .glossary .tools {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 8px;
+  }
+  .glossary .filters-button {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--size-target);
+  }
+  .glossary .filters-sheet {
+    display: none;
+  }
+  .glossary.filters-open .filters-sheet {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 60;
+    max-height: 80vh;
+    overflow: auto;
+    padding: 16px;
+    background: var(--surface-raised);
+    border-top: 1px solid var(--border-control);
+    border-radius: var(--radius-large) var(--radius-large) 0 0;
+  }
+  .glossary .filters-sheet-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
 }

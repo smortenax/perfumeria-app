@@ -27,6 +27,7 @@ describe("a bottle's strength as you know it (2026-10-30)", () => {
   it("a diluent by its short name", () => {
     expect(shortName({ name: "DPG (dipropylene glycol)", abbreviation: null })).toBe("DPG");
     expect(shortName({ name: "Ethanol", abbreviation: null })).toBe("Ethanol");
-    expect(shortName({ name: "Isopropyl myristate", abbreviation: "IPM" })).toBe("IPM");
+    // The abbreviation is the glossary's icon code, not a name (F-07): «Dipr» was shown for dipropylene glycol.
+    expect(shortName({ name: "Dipropylene glycol", abbreviation: "Dipr" })).toBe("Dipropylene glycol");
   });
 });
