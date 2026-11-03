@@ -56,7 +56,7 @@ export const texts = {
     materials: "Materials",
     materialsDetail: (own: number, common: number) => `The glossary: ${own} yours and ${common} common`,
     formulation: "Formulation",
-    formulationDetail: (benches: number, formulas: number) => `Your workbenches: ${benches} benches, ${formulas} formulas`,
+    formulationDetail: (benches: number, formulas: number) => `Your workbenches: ${benches} ${benches === 1 ? "bench" : "benches"}, ${formulas} ${formulas === 1 ? "formula" : "formulas"}`,
     continue: "Continue",
     lastFormula: "Last formula",
     formulaIn: (bench: string) => `in «${bench}»`,
@@ -76,7 +76,7 @@ export const texts = {
     shelf: "Your shelf",
     shelfDetail: (have: number, low: number) => `${have === 1 ? "1 material" : `${have} materials`} you have${low > 0 ? ` · ${low} running low` : " · nothing running low"}.`,
     ifraTitle: "IFRA to look at",
-    ifraHint: "Your formulas over a limit, or that cannot be fully checked (a material or constituent without data). Opened, the bench says why.",
+    ifraHint: "Your formulas over a limit, or that IFRA cannot fully check (a material or constituent without data). Open one to see why.",
     sections: "Sections",
   },
   library: {
