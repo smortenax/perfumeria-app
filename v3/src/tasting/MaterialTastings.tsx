@@ -59,7 +59,7 @@ export function MaterialTastings({
           </button>
         </p>
       )}
-      <Button variant="primary" onClick={onNew}>
+      <Button variant="secondary" onClick={onNew}>
         {t.newTasting}
       </Button>
     </section>

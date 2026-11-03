@@ -473,7 +473,7 @@ export function MaterialDilutions({ data, local, materialId, onOpen }: { data: G
           ))}
         </ul>
       )}
-      <Button variant="primary" ref={newButton} onClick={() => setAdding(true)}>
+      <Button variant="secondary" ref={newButton} onClick={() => setAdding(true)}>
         {t.newBottle}
       </Button>
       {adding && <DilutionPopup data={data} local={local} materialId={materialId} onDone={close} onClose={close} />}
