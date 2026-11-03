@@ -40,6 +40,16 @@ export function splitPending(report: IfraReport, specifications: ReadonlySet<str
   return { quantities: report.pending.filter((p) => !isSpec(p)), specifications: report.pending.filter(isSpec) };
 }
 
+/**
+ * A pending text that quotes the standard at length (over 180 letters, «<the standard's words>: <what is unknown>»): the line
+ * says what is unknown, and the standard's words open on demand (F-13, picked 2026-11-02). Null for a text short enough to read.
+ */
+export function longRequirement(text: string): { readonly unknown: string; readonly standard: string } | null {
+  if (text.length <= 180) return null;
+  const match = /^(.*?): ([^:]*)$/s.exec(text);
+  return match ? { unknown: match[2].replace(/\.$/, ""), standard: match[1] } : null;
+}
+
 export interface GroupMember {
   readonly key: string;
   readonly name: string;

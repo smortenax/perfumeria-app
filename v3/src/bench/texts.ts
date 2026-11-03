@@ -434,6 +434,9 @@ export const texts = {
     whyUnchecked: (n: number) => `${n} material${n === 1 ? "" : "s"} not checked: not in the glossary or in the v2.`,
     whyQuantities: (n: number) => `${n} regulated constituent${n === 1 ? "" : "s"} with no known amount (ask for the lot's certificate or GC-MS).`,
     whySpecifications: (n: number) => `${n} IFRA specification${n === 1 ? "" : "s"} to be proven (ask for a signed statement from the supplier, not a figure).`,
+    /** A long pending text, shortened (F-13): what is unknown, with the standard's words behind «Read the standard». */
+    requirement: (unknown: string) => `A requirement of the standard, ${unknown}.`,
+    readStandard: "Read the standard",
     pendingQuantities: (n: number) => `Unknown by amounts · ${n}`,
     pendingQuantitiesHelp: "IFRA limits a substance this material may contain, and how much it contains is unknown. It closes with the product's certificate or its lot's GC-MS.",
     pendingSpecifications: (n: number) => `Specifications to be proven · ${n}`,
@@ -579,7 +582,7 @@ export const texts = {
     ifraProvisional: "not checked: provisional material",
     ifraDiluent: "diluent: nothing to check",
     weighing: "Weighing",
-    flags: { unchecked: "not checked", pending: "pending", noData: "no data", condition: "condition", unweighable: "unweighable" },
+    flags: { unchecked: "not checked", pending: "needs proof", noData: "no data", condition: "condition", unweighable: "unweighable" },
     ppm: "ppm",
   },
 
