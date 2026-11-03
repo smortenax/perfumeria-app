@@ -3840,3 +3840,10 @@
 .bench-root.dialog-host {
   display: contents;
 }
+
+/* The add bar's results (F-01): the switches above, then the listbox, which keeps the rows' look. */
+.bench-root .results-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

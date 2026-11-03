@@ -1,5 +1,6 @@
-import { useEffect, useImperativeHandle, useMemo, useRef, useState, type KeyboardEvent, type ReactNode, type Ref } from "react";
+import { useEffect, useId, useImperativeHandle, useMemo, useRef, useState, type KeyboardEvent, type ReactNode, type Ref } from "react";
 import { Ratio } from "../core/arith/ratio";
+import { comboFieldProps, optionId } from "../combobox";
 import { parseMass, parsePercent, type MassUnit } from "../core/arith/units";
 import type { Change, SecondDiluent } from "../core/model/formula";
 import type { Material } from "../core/model/material";
@@ -318,6 +319,8 @@ export function AddBar(props: {
   const [selected, setSelected] = useState<Material | null>(null);
   const [open, setOpen] = useState(false);
   const [highlight, setHighlight] = useState(0);
+  // The results are a listbox the field names its highlighted row in (F-01, picked 2026-11-02).
+  const resultsId = useId();
   /** The chip each plant's row is on, when the user moved it (P54): the index into its options. */
   const [chips, setChips] = useState<Record<string, number>>({});
   const [quantity, setQuantity] = useState("");
@@ -853,6 +856,7 @@ export function AddBar(props: {
             value={query}
             placeholder={t.search}
             autoComplete="off"
+            {...comboFieldProps(resultsId, open, results.length, highlight)}
             onChange={(e) => {
               setQuery(e.target.value);
               setSelected(null);
@@ -912,21 +916,26 @@ export function AddBar(props: {
           )}
         </div>
         {open && results.length > 0 && (
-          <ul className="results">
-            {/* What the search takes in, while searching (P49). Pressing a switch keeps the focus in the bar. */}
-            <li className="results-switches" onMouseDown={(e) => e.preventDefault()}>
+          <div className="results">
+            {/* What the search takes in, while searching (P49). Pressing a switch keeps the focus in the bar. Outside the
+                listbox, which holds only the results (F-01). */}
+            <div className="results-switches" onMouseDown={(e) => e.preventDefault()}>
               <span className="hint">{t.pickHint}</span>
               <span className="muted">{t.include}</span>
               <Switch checked={mine} label={t.mine} onChange={setMine} />
               <Switch checked={formulas} label={t.formulas} onChange={setFormulas} />
               {props.have && <Switch checked={onlyHave} label={t.have} onChange={setOnlyHave} />}
-            </li>
+            </div>
+            <ul className="results-list" role="listbox" id={resultsId} aria-label={t.material}>
             {results.map((row, i) => {
               const r = onChip(row);
               const plant = row.kind === "material" ? row.plant : undefined;
               return (
               <li
                 key={row.kind === "create" ? "create" : row.kind === "note" ? "note" : row.kind === "formula" ? `formula:${row.id}` : (plant?.key ?? row.material.key)}
+                id={optionId(resultsId, i)}
+                role="option"
+                aria-selected={i === highlight}
                 className={[i === highlight ? "active" : "", plant ? "plant-row" : ""].join(" ").trim() || undefined}
                 onMouseEnter={() => setHighlight(i)}
                 onMouseDown={(e) => {
@@ -989,7 +998,8 @@ export function AddBar(props: {
               </li>
               );
             })}
-          </ul>
+            </ul>
+          </div>
         )}
         {/* Under the material, live while the amount is typed: what the formula carries of it, its IFRA
             margin and its usual use (V3-73: «debajo del selector de materiales… incluso en el móvil»). */}

@@ -22,6 +22,7 @@ import "./tasting.css";
 import { EmptyState } from "../EmptyState";
 import { Button } from "../Button";
 import { ConfirmDialog, PromptDialog } from "../bench/Dialogs";
+import { MaterialPicker } from "../MaterialPicker";
 
 const t = texts.tasting;
 export const TABS = ["session", "queue", "history", "legacy"] as const;
@@ -327,11 +328,9 @@ function AddStrip({
       .filter(tastable)
       .sort((a, b) => (pending.has(a.id) ? 0 : 1) - (pending.has(b.id) ? 0 : 1) || a.name.localeCompare(b.name, "es"));
   }, [data, tastings]);
-  const [query, setQuery] = useState("");
   const [materialId, setMaterialId] = useState<string | null>(null);
   const [bottle, setBottle] = useState("");
   const [dose, setDose] = useState<string>(t.doseHint);
-  const shown = options.filter((m) => m.name.toLowerCase().includes(query.trim().toLowerCase())).slice(0, 30);
   return (
     <div className="add-strip">
       <p className="hint">{t.addStripHint}</p>
@@ -343,27 +342,15 @@ function AddStrip({
           </button>
         </p>
       ) : (
-        <>
-          <label className="field">
-            {t.material}
-            <input type="search" value={query} placeholder={t.pickMaterial} onChange={(e) => setQuery(e.target.value)} />
-          </label>
-          <ul className="pick-list">
-            {shown.map((m) => (
-              <li key={m.id}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setMaterialId(m.id);
-                    setBottle(latestDilution(data.catalog.dilutions.get(m.id))?.id ?? "");
-                  }}
-                >
-                  {m.name}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </>
+        <MaterialPicker
+          label={t.material}
+          placeholder={t.pickMaterial}
+          options={options}
+          onPick={(id) => {
+            setMaterialId(id);
+            setBottle(latestDilution(data.catalog.dilutions.get(id))?.id ?? "");
+          }}
+        />
       )}
       {materialId && (
         <>

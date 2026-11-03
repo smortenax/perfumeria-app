@@ -8,6 +8,7 @@ import { gramsText, gramsToUg, percentToFraction, saveKind, weighedFromPlan, win
 import "./dilutions.css";
 import { Button } from "../Button";
 import { DiluentPicker } from "./DiluentPicker";
+import { MaterialPicker } from "../MaterialPicker";
 
 const t = texts.dilutions;
 const w = t.window;
@@ -45,7 +46,6 @@ export function NewDilution({
   const [materialId, setMaterialId] = useState<string | null>(initialMaterial);
   // A bottle you have is the usual case (audit F-03): it comes first.
   const [mode, setMode] = useState<WindowMode>("have");
-  const [query, setQuery] = useState("");
   const [sourceId, setSourceId] = useState<string | null>(null);
   const [target, setTarget] = useState("10");
   const [rows, setRows] = useState<WindowRow[]>([{ diluentId: firstDpg, share: "", weighed: "" }]);
@@ -115,22 +115,7 @@ export function NewDilution({
         </p>
       ) : (
         <div className="field">
-          <label className="field">
-            {t.material}
-            <input type="search" value={query} placeholder={t.pickMaterial} onChange={(e) => setQuery(e.target.value)} />
-          </label>
-          <ul className="pick-list">
-            {materials
-              .filter((m) => m.name.toLowerCase().includes(query.trim().toLowerCase()))
-              .slice(0, 30)
-              .map((m) => (
-                <li key={m.id}>
-                  <button type="button" onClick={() => setMaterialId(m.id)}>
-                    {m.name}
-                  </button>
-                </li>
-              ))}
-          </ul>
+          <MaterialPicker label={t.material} placeholder={t.pickMaterial} options={materials} onPick={setMaterialId} />
         </div>
       )}
 
