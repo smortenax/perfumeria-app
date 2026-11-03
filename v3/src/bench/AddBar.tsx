@@ -553,7 +553,8 @@ export function AddBar(props: {
         break;
       }
     }
-    const all = [...session, ...pendingFormulas, ...found];
+    // The catalogue's ranking leads (F-04): a session or pending name does not push the exact common match down.
+    const all = [...found, ...session, ...pendingFormulas];
     const exact = all.some((r) => r.kind === "material" && normalize(r.material.name) === q);
     // A CAS is not a name: one the glossary does not have is not made a material (P56).
     if (/^\s*\d{2,7}-\d{2}-\d{1,2}\s*$/.test(query)) {
