@@ -168,6 +168,11 @@ export const texts = {
     haveMark: "I have it",
     haveToggle: "I have it",
     markMode: "Mark what I have",
+    // On a phone (F-11): the other actions behind one button, the filters and sort in a sheet.
+    moreActions: "More actions",
+    filtersButton: (active: number) => `Filters · Sort${active > 0 ? ` (${active})` : ""}`,
+    filtersTitle: "Filters and sort",
+    filtersDone: "Done",
     copyPalette: "Copy palette",
     downloadPalette: "Download palette (.md)",
     importSheet: "Import a sheet",
