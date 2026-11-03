@@ -207,7 +207,7 @@ export const texts = {
       duration: (h: number) =>
         (h < 24 ? `${Number(h.toFixed(1))} h` : h < 24 * 7 ? `${Number((h / 24).toFixed(1))} days` : `${Number((h / 168).toFixed(1))} weeks`),
       durationOn: (d: string) => `Duration on a blotter: ${d}`,
-      logScale: "Log scale, 1 hour to 30 days",
+      logScale: "Log scale, 1 hour to 600 h (25 days), as on the orb",
       noSource: "Source: not stated",
       note: "Note",
       hidden: (n: number) => (n === 1 ? "1 field not stated" : `${n} fields not stated`),

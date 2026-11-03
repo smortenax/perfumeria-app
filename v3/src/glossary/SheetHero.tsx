@@ -6,8 +6,8 @@ import { orbLookOf, orbMarksOf, orbScalesOf, seedOf } from "./orb/fromCatalog";
 import { FramedOrb } from "./orb/FramedOrb";
 import { MaterialOrb } from "./orb/MaterialOrb";
 
-/** A duration on a blotter on a log scale, 1 hour to 30 days. */
-const MAX_HOURS = 24 * 30;
+/** A duration on a blotter on a log scale, 1 hour to 600 h (25 days): the orb's scale, so the bar and the orb agree (F-06). */
+const MAX_HOURS = 600;
 const durationAt = (h: number) => Math.max(0, Math.min(1, Math.log(Math.max(h, 1)) / Math.log(MAX_HOURS))) * 100;
 
 /**
