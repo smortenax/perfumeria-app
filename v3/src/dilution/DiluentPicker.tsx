@@ -10,10 +10,11 @@ export function DiluentPicker(props: {
   value: string;
   onChange: (id: string) => void;
 }) {
-  if (props.diluents.length > CHIPS_UP_TO) {
+  const diluents = oneChipEach(props.diluents, props.value);
+  if (diluents.length > CHIPS_UP_TO) {
     return (
       <select aria-label={props.label} value={props.value} onChange={(e) => props.onChange(e.target.value)}>
-        {props.diluents.map((d) => (
+        {diluents.map((d) => (
           <option key={d.id} value={d.id}>
             {d.name}
           </option>
@@ -23,11 +24,24 @@ export function DiluentPicker(props: {
   }
   return (
     <span className="pills diluent-pills" role="group" aria-label={props.label}>
-      {props.diluents.map((d) => (
+      {diluents.map((d) => (
         <button key={d.id} type="button" className="pill" aria-pressed={props.value === d.id} aria-label={d.name} onClick={() => props.onChange(d.id)}>
           {chipName(d.name)}
         </button>
       ))}
     </span>
   );
+}
+
+/**
+ * One chip per name (F-07, picked 2026-11-02): your version of DPG and the common DPG were two chips that read the same. The one
+ * chosen stays; otherwise the first in the list.
+ */
+export function oneChipEach<D extends { readonly id: string; readonly name: string }>(diluents: readonly D[], chosen: string): D[] {
+  const seen = new Map<string, D>();
+  for (const d of diluents) {
+    const k = chipName(d.name);
+    if (!seen.has(k) || d.id === chosen) seen.set(k, d);
+  }
+  return [...seen.values()];
 }
