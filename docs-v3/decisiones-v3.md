@@ -1489,7 +1489,7 @@ Sobre los casos de la dilución: «puede convivir tambien las dos que propones, 
 - **La lista de la compra, discreta:** en un apartado de usuario, como «Consultar la lista de la compra». Desde ella se exporta, o se pasa un material a «tuyo» cuando ya lo has comprado.
 - **Prioridad:** primero, los frascos y las diluciones (el sistema de F13–F15 y la ventana de F17), con la interfaz del registro de diluciones mejorada; el perfil olfativo (F4), lo último: mejora algo que ya existe.
 
-## V3-79 · Tu material y tus diluciones: dos niveles, la lista de la compra, la ventana de dilución y el registro en rejilla (decidida por el usuario el 2026-10-26; desarrolla V3-78, cambia V3-67 en la ventana y el registro)
+## V3-79 · Tu material y tus diluciones: dos niveles, la lista de la compra, la ventana de dilución y el registro en rejilla (decidida por el usuario el 2026-10-26; desarrolla V3-78, cambia V3-67 en la ventana y el registro; **cambiada por V3-96** en la rejilla, el buscador y la ventana anclada de «Diluciones»)
 
 **Palabras del usuario** (2026-10-26). Las cuatro primeras, eligiendo una opción en las tarjetas de la sesión:
 
@@ -1757,6 +1757,27 @@ Y, a la pregunta de si se pasaba a la app en una rama nueva: «Sí, una PR a mai
 - **G7-B.** F-14: la portada cuenta en singular y plural y dice «Open one to see why».
 - **Propuesta de la sesión:** el combobox es un módulo propio (`v3/src/combobox.ts`, con pruebas), no el ComboBox de React Aria: añadir esa dependencia sería una decisión nueva, como el aviso de V3-75. El conmutador de bancos se deja como está: sus flechas mueven el foco de verdad, de opción en opción. La cola de Catas agrupa por el texto de diluyente guardado en cada tira, así que «DPG y alcohol 96°» sigue saliendo como se escribió.
 - **Hecho** en la rama `claude/project-thread-pkqf8f`, un commit por hallazgo, con su PR a `main`. Sin publicar.
+
+## V3-96 · Diluciones según la maqueta v5: buscador en gris, los frascos en tabla y «Add & weigh» para varios a la vez (decidida por el usuario el 2026-11-03 y 04, sobre la maqueta; cambia V3-79 en la rejilla, el buscador y la ventana anclada)
+
+**Literal** (orko kill, en el chat de evaluación de diseño; entradas BL-001 a BL-003 del backlog y encargo `encargo-diluciones-v5.md`; maqueta https://claude.ai/artifact/9UQh1BWrsNPZyZXRtrZiib, versión 5):
+
+- El buscador (BL-001, 2026-11-03): «El cambio fácil es hacer este buscador como un glosario en gris respetando reglas de diseño de legibilidad y demás».
+- La rejilla (BL-002, 2026-11-03): «para mirar diluciones es muy poco práctico si 4 materiales ya te llenan la pantalla».
+- Añadir y pesar (BL-003, 2026-11-03): «el funcionamiento actual no se corresponde con el uso normal de las soluciones en la App. La idea es que cuando activas las diluciones, que sea una opción o botón sobre la web de buscar, no un pop up […] un sistema de parámetros similar al que existe en la app pero en una simpleza parecida a la de los Excel donde doy yo las altas, los materiales con un + a la izquierda se agregan y tienen las mismas variables que la app pero más ordenadas e intuitivas como en el Excel, sin tanto texto y sin tanto barro visual; desde el propio modo ya puedes añadir varias materias para hacer una dilución en bulk.» Y después: «No tiene que verse propiamente como una hoja de cálculo pero tiene que funcionar como una tabla; es la manera más inteligible para la tarea y es el estándar».
+- El cálculo (2026-11-04): «La persona escoge el diluido, el diluyente y el porcentaje, es obligatorio. Si además pones el total, en el hueco mismo donde se escribe el real sale en gris lo que deberías poner; si no pones nada se queda esperando a que pongas tu tamaño y te calcula lo que falta del que no hayas puesto: si pones diluyente primero te dice cuánto producto para igualar, y al revés. El % de arriba es el deseado y el de abajo el real, y con el total en gramos igual […] Con esto se consigue que sea práctico dar altas que ya tienes hechas […] para cosas que ya vienen diluidas.» Objetivo: «que pase de ocupar media pantalla a 1/5 o así».
+- La disposición (2026-11-04): «sería mejor si está alineado horizontalmente el diluyente con la cantidad que pones de cada uno y la parte de "planear" debajo del material […] En azul diluyente y debajo si hay más se crean casillas horizontales; también tiene que crearse el porcentaje de los diluyentes a la izquierda de los mismos una vez hay más de uno. […] los casilleros en gris con lo que hay que poner, en verde los totales y debajo un pequeño visual de una línea que enseña el % total de diluido vs diluyentes.» Y: «el % y g creo que mejor a la derecha del nombre del material y debajo del nombre el botón de … el resto creo que está bien».
+- La aprobación (2026-11-04): «en general creo que así es intuitivo y práctico» y «vale puedes publicar esto de manera que pueda mandar al chat de ordenador que publica a subirlo».
+- Y al pedir que se implemente (2026-11-04): «Implementa en la v3 el rediseño de Diluciones tal como dice el encargo».
+
+**Lectura** (del encargo, que preparó el chat de evaluación; lo marcado como propuesta no lo decidió el usuario):
+
+- **Buscador (BL-001):** una barra baja en gris, sin panel con borde, con la lupa dentro; «Archived too» como casilla en la misma línea y el recuento a la derecha («134 bottles · 107 materials»). La etiqueta, como nombre accesible; el placeholder, «Material, diluent or %». Busca por material, diluyente y %.
+- **«Bottles» (BL-002), cambia la rejilla de V3-79:** una tabla, una fila por frasco, agrupada por material (orbe y nombre solo en la primera). Columnas: Material · Strength (V3-87) · Diluent · Exact · Material weighed · Made · etiquetas. A 640 px o menos de contenedor, Material, Strength y Diluent; la fila se abre debajo con el resto y «Correct weights», «Make another like this» y «Archive», con teclado y `aria-expanded`.
+- **«Add & weigh» (BL-003), cambia la ventana anclada de V3-79:** un interruptor «Bottles | Add & weigh» junto al título, en la misma pantalla. Cada frasco en la disposición D de la maqueta: nombre y «⋯»; % deseado y g total (opcional); el diluyente, y con más de uno su % a la izquierda; la báscula con lo que hay que poner en gris, que no desaparece al escribir; el resultado real; una raya de estado con palabras («weighed», «as is», «waiting») y una barra fina material frente a diluyentes.
+- **El cálculo** (p, el % deseado; s, la fracción del origen; T, el total opcional): el diluyente y el % son obligatorios. Con T y sin pesos, material = T·p/s y diluyentes = T − material por sus %. Sin T, espera al primer peso: desde el material m, diluyente = m·s/p − m; desde un diluyente d con su reparto r, material = (d/r)·p/(s − p). Todo pesado: % real = m·s / (m + Σd). Sin pesos, se guarda tal cual (V3-79, «sin pesos»). Con un solo peso, espera. Exacto, como V3-67.
+- **Guardar:** «Save N bottles» guarda las pesadas y las «as is»; las que esperan se quedan en la lista. Al pie, lo que falta por verter de cada diluyente y el recuento.
+- **Abiertas, para preguntar de una en una:** nombre, fecha y nota de cada frasco; si «New dilution» emergente sigue en el banco y la ficha; dos diluyentes a 390 px; valores por defecto del día.
 
 ## Pendientes
 
