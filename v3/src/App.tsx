@@ -214,7 +214,6 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
               bottleId={route.view === "bottle" ? route.id : null}
               newFor={route.view === "newBottle" ? route.materialId : null}
               onOpen={(id) => go({ view: "bottle", id }, route.view === "newBottle")}
-              onNew={(materialId) => go({ view: "newBottle", materialId: materialId ?? "" })}
               onBack={() => back({ view: "dilutions" })}
             />
           )}

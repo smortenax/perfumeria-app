@@ -15,13 +15,17 @@ export function MaterialPicker(props: {
   onPick: (id: string) => void;
   /** At most this many results (30). */
   limit?: number;
+  /** The list only once something is typed (the last row of «Add & weigh», V3-96). */
+  quietWhenEmpty?: boolean;
+  /** The label as the field's accessible name only. */
+  hideLabel?: boolean;
 }) {
   const [query, setQuery] = useState("");
   const [at, setAt] = useState(0);
   const listId = useId();
   const list = useRef<HTMLUListElement>(null);
   const q = query.trim().toLowerCase();
-  const shown = props.options.filter((m) => m.name.toLowerCase().includes(q)).slice(0, props.limit ?? 30);
+  const shown = props.quietWhenEmpty && !q ? [] : props.options.filter((m) => m.name.toLowerCase().includes(q)).slice(0, props.limit ?? 30);
   const active = Math.min(at, Math.max(shown.length - 1, 0));
   useEffect(() => {
     list.current?.querySelector(`[id="${optionId(listId, active)}"]`)?.scrollIntoView?.({ block: "nearest" });
@@ -29,7 +33,7 @@ export function MaterialPicker(props: {
   return (
     <div className="material-picker">
       <label className="field">
-        {props.label}
+        {props.hideLabel ? <span className="sr-only">{props.label}</span> : props.label}
         <input
           type="search"
           value={query}

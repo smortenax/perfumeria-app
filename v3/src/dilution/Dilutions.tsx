@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Ratio } from "../core/arith/ratio";
 import type { Dilution } from "../db/catalog";
 import { archiveBottle, type BottleInput, createBottle, describeBottle, updateBottle } from "../db/dilutions";
@@ -14,7 +14,8 @@ import { orbLookOf, orbScalesOf, seedOf } from "../glossary/orb/fromCatalog";
 import { MaterialOrb } from "../glossary/orb/MaterialOrb";
 import { DilutionPopup } from "./DilutionPopup";
 import { cardsOf, countOf, nominalPercent, shortName } from "./grid";
-import { NewDilution } from "./NewDilution";
+import { AddWeigh, rowFor } from "./AddWeigh";
+import type { WeighRow } from "./weigh";
 import "./dilutions.css";
 import { EmptyState } from "../EmptyState";
 import { Button } from "../Button";
@@ -67,7 +68,6 @@ export function Dilutions({
   bottleId,
   newFor,
   onOpen,
-  onNew,
   onBack,
 }: {
   data: GlossaryData;
@@ -77,7 +77,6 @@ export function Dilutions({
   /** A new bottle, of this material if one is given («» for none yet). */
   newFor: string | null;
   onOpen: (id: string) => void;
-  onNew: (materialId?: string) => void;
   onBack: () => void;
 }) {
   const all = useMemo(
@@ -95,39 +94,93 @@ export function Dilutions({
     setArchived(null);
     void archiveBottle(local.db, local.userId, archived.id, false).catch((e: unknown) => setFailure(t.failed(String(e))));
   };
-  const editor =
-    newFor !== null ? (
-      <NewDilution key={`new:${newFor}`} data={data} local={local} materialId={newFor || null} onDone={onOpen} onCancel={onBack} />
-    ) : bottleId ? (
-      found ? (
-        <BottleEditor key={bottleId} data={data} local={local} materialId={found.materialId} bottle={found.d} onDone={() => onBack()} onCancel={onBack} onArchived={onArchived} />
-      ) : (
-        <p>{texts.glossary.missing}</p>
-      )
-    ) : (
-      <NewDilution key="new:docked" data={data} local={local} materialId={null} onDone={onOpen} onCancel={onBack} />
+  // «Bottles | Add & weigh» (V3-96): one screen, no pop-up. The rows being weighed stay while you look at
+  // the bottles, and in this browser until saved or cleared (an unsent draft).
+  const [mode, setMode] = useState<"bottles" | "weigh">(newFor !== null ? "weigh" : "bottles");
+  const [rows, setRowsState] = useState<readonly WeighRow[]>(readDraft);
+  const setRows = (change: (rows: readonly WeighRow[]) => readonly WeighRow[]) =>
+    setRowsState((list) => {
+      const next = change(list);
+      writeDraft(next);
+      return next;
+    });
+  const [madeOn, setMadeOn] = useState(() => new Date().toISOString().slice(0, 10));
+  const [saved, setSaved] = useState<string | null>(null);
+  // «New dilution» from elsewhere (the address #diluciones/nueva/<material>): a row for it, in «Add & weigh».
+  useEffect(() => {
+    if (newFor === null) return;
+    setMode("weigh");
+    if (newFor && data.catalog.materials.has(newFor)) setRows((list) => (list.some((r) => r.materialId === newFor && !r.weighed && !r.target) ? list : [...list, rowFor(data, newFor)]));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [newFor]);
+
+  if (bottleId) {
+    return (
+      <div className="dilutions-page">
+        {found ? (
+          <BottleEditor key={bottleId} data={data} local={local} materialId={found.materialId} bottle={found.d} onDone={() => onBack()} onCancel={onBack} onArchived={onArchived} />
+        ) : (
+          <p>{texts.glossary.missing}</p>
+        )}
+        <Toast message={archived?.text ?? null} onUndo={unarchive} onClose={() => setArchived(null)} />
+        <FailureNote message={failure} onClose={() => setFailure(null)} floating />
+      </div>
     );
-  // The bottles as a grid, the window docked beside it on a wide screen (V3-79): «New dilution» unless a
-  // chip opened a bottle. On a narrow one, the grid; the window when asked for, or a bottle when picked.
-  const docked = newFor === null && !bottleId;
+  }
   return (
-    <div className={`dilutions-page with-editor${docked ? " docked-new" : ""}`}>
-      <BottleList
-        data={data}
-        local={local}
-        all={all}
-        selected={bottleId}
-        onOpen={onOpen}
-        onNew={() => onNew()}
-        onAnother={(materialId) => onNew(materialId)}
-        onArchived={onArchived}
-        onFailure={(message) => setFailure(message)}
-      />
-      {editor && <div className="bottle-pane">{editor}</div>}
-      <Toast message={archived?.text ?? null} onUndo={unarchive} onClose={() => setArchived(null)} />
+    <div className="dilutions-page">
+      <section className="dilutions">
+        <div className="title-bar">
+          <h2 className="page-title">{t.title}</h2>
+          <span className="mode-switch" role="group" aria-label={t.modesLabel}>
+            {(["bottles", "weigh"] as const).map((m) => (
+              <button key={m} type="button" aria-pressed={mode === m} onClick={() => setMode(m)}>
+                {t.modes[m]}
+              </button>
+            ))}
+          </span>
+        </div>
+        {mode === "bottles" ? (
+          <BottleList
+            data={data}
+            local={local}
+            all={all}
+            selected={bottleId}
+            onOpen={onOpen}
+            onAnother={(materialId, d) => {
+              setRows((list) => [...list, rowFor(data, materialId, d)]);
+              setMode("weigh");
+            }}
+            onArchived={onArchived}
+            onFailure={(message) => setFailure(message)}
+          />
+        ) : (
+          <AddWeigh data={data} local={local} rows={rows} setRows={setRows} madeOn={madeOn} setMadeOn={setMadeOn} onSaved={(n) => setSaved(t.savedToast(n))} />
+        )}
+      </section>
+      <Toast message={archived?.text ?? saved} onUndo={archived ? unarchive : undefined} onClose={() => (setArchived(null), setSaved(null))} />
       <FailureNote message={failure} onClose={() => setFailure(null)} floating />
     </div>
   );
+}
+
+const DRAFT = "perfumeria.dilutions.weigh.v1";
+function readDraft(): readonly WeighRow[] {
+  try {
+    const raw = localStorage.getItem(DRAFT);
+    const list: unknown = raw ? JSON.parse(raw) : [];
+    return Array.isArray(list) ? (list as WeighRow[]).filter((r) => r && typeof r.key === "string" && typeof r.materialId === "string" && Array.isArray(r.diluents)) : [];
+  } catch {
+    return [];
+  }
+}
+function writeDraft(rows: readonly WeighRow[]) {
+  try {
+    if (rows.length === 0) localStorage.removeItem(DRAFT);
+    else localStorage.setItem(DRAFT, JSON.stringify(rows));
+  } catch {
+    /* Without storage the rows live as long as the screen. */
+  }
 }
 
 function BottleList({
@@ -136,7 +189,6 @@ function BottleList({
   all,
   selected,
   onOpen,
-  onNew,
   onAnother,
   onArchived,
   onFailure,
@@ -146,7 +198,6 @@ function BottleList({
   all: { materialId: string; d: Dilution }[];
   selected: string | null;
   onOpen: (id: string) => void;
-  onNew: () => void;
   /** «Make another like this»: a new bottle of the material, the same diluents and %. */
   onAnother: (materialId: string, bottle: Dilution) => void;
   onArchived: (bottle: Dilution) => void;
@@ -158,15 +209,7 @@ function BottleList({
   const cards = cardsOf(all, { archived, query, nameOf: (id) => data.catalog.materials.get(id)?.name ?? "—", wordsOf: (d) => searchWords(data, d) });
   const count = countOf(cards);
   return (
-    <section className="dilutions">
-      <div className="title-bar">
-        <h2 className="page-title">{t.title}</h2>
-        <span className="buttons">
-          <Button variant="primary" onClick={onNew}>
-            {t.newBottle}
-          </Button>
-        </span>
-      </div>
+    <>
       {/* The search as a low grey bar, like the glossary's (V3-96, BL-001): the label as its accessible name. */}
       <div className="dil-search">
         <label className="dil-search-field">
@@ -190,7 +233,7 @@ function BottleList({
         <BottleTable data={data} local={local} cards={cards} scales={scales} selected={selected} onOpen={onOpen} onAnother={onAnother} onArchived={onArchived} onFailure={onFailure} />
       )}
       {all.length > 0 && cards.length === 0 && <p className="hint">{t.noMatch(query)}</p>}
-    </section>
+    </>
   );
 }
 
