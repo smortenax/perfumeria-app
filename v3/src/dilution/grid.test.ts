@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { Ratio } from "../core/arith/ratio";
 import type { Dilution } from "../db/catalog";
-import { cardsOf } from "./grid";
+import { cardsOf, countOf } from "./grid";
 
 const pct = (p: string) => Ratio.fromDecimal(p).div(Ratio.of(100n));
 const bottle = (id: string, p: string, extra: Partial<Dilution> = {}): Dilution => ({
@@ -47,5 +47,13 @@ describe("«Dilutions» as a grid (V3-79)", () => {
   it("the search finds by material or by the bottle's name", () => {
     expect(cardsOf(all, { archived: false, query: "labd", nameOf }).map((c) => c.name)).toEqual(["Labdanum"]);
     expect(cardsOf(all, { archived: false, query: "at 50", nameOf }).map((c) => [c.name, c.bottles.length])).toEqual([["Labdanum", 1]]);
+  });
+
+  it("the search finds by diluent and by % too, every word (V3-96, BL-001), and says how many", () => {
+    const wordsOf = (d: Dilution) => (d.id.startsWith("b") ? `DPG ${d.label}` : `Ethanol ${d.label}`);
+    expect(cardsOf(all, { archived: false, query: "dpg", nameOf, wordsOf }).map((c) => c.name)).toEqual(["Labdanum"]);
+    const tens = cardsOf(all, { archived: false, query: "dpg 10 %", nameOf, wordsOf });
+    expect(tens.map((c) => [c.name, c.bottles.map((b) => b.id)])).toEqual([["Labdanum", ["b1"]]]);
+    expect(countOf(cardsOf(all, { archived: false, query: "", nameOf, wordsOf }))).toEqual({ bottles: 5, materials: 3 });
   });
 });

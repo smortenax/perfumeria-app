@@ -707,8 +707,10 @@ export const texts = {
     homeDetail: (n: number) => (n === 1 ? "1 bottle of yours" : `${n} bottles of yours`),
     newBottle: "New dilution",
     search: "Search",
-    searchHint: "Material or name of the bottle",
-    showArchived: "Show archived ones too",
+    searchHint: "Material, diluent or %",
+    showArchived: "Archived too",
+    count: (bottles: number, materials: number) =>
+      `${bottles === 1 ? "1 bottle" : `${bottles} bottles`} · ${materials === 1 ? "1 material" : `${materials} materials`}`,
     empty: "No bottles yet",
     emptyText: "Add the first one with «New dilution»: with what you weighed, or without weights if it is already made.",
     exact: (pct: string) => `${pct} exact`,

@@ -253,3 +253,57 @@
 .diluent-pills {
   flex-wrap: wrap;
 }
+
+/* The search (V3-96, BL-001): a low grey bar, no panel of its own; «Archived too» and the count on its line. */
+.dil-search {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin-bottom: var(--space-gap);
+}
+.dil-search-field {
+  position: relative;
+  flex: 1 1 16rem;
+  min-width: 0;
+}
+.dil-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+.dilutions .dil-search-field input {
+  min-height: var(--size-target);
+  padding: 0 12px 0 36px;
+  border: 0;
+  border-bottom: 1px solid var(--border-control);
+  border-radius: var(--radius-panel) var(--radius-panel) 0 0;
+  background: var(--surface-sunken);
+  color: var(--text-default);
+  font: inherit;
+  font-size: var(--size-text-lg);
+}
+.dil-search-archived {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--size-target);
+  color: var(--text-muted);
+  font-size: var(--size-text-md);
+  cursor: pointer;
+}
+.dil-search-archived input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent-default);
+}
+.dil-search-count {
+  color: var(--text-muted);
+  font-size: var(--size-text-sm);
+  font-variant-numeric: tabular-nums;
+}

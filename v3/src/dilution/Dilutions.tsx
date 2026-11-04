@@ -13,7 +13,7 @@ import { coloursOf } from "../families/palette";
 import { orbLookOf, orbScalesOf, seedOf } from "../glossary/orb/fromCatalog";
 import { MaterialOrb } from "../glossary/orb/MaterialOrb";
 import { DilutionPopup } from "./DilutionPopup";
-import { cardsOf, nominalPercent, shortName } from "./grid";
+import { cardsOf, countOf, nominalPercent, shortName } from "./grid";
 import { NewDilution } from "./NewDilution";
 import "./dilutions.css";
 import { EmptyState } from "../EmptyState";
@@ -136,7 +136,8 @@ function BottleList({
   const scales = useMemo(() => orbScalesOf(data.catalog), [data]);
   const [query, setQuery] = useState("");
   const [archived, setArchived] = useState(false);
-  const cards = cardsOf(all, { archived, query, nameOf: (id) => data.catalog.materials.get(id)?.name ?? "—" });
+  const cards = cardsOf(all, { archived, query, nameOf: (id) => data.catalog.materials.get(id)?.name ?? "—", wordsOf: (d) => searchWords(data, d) });
+  const count = countOf(cards);
   return (
     <section className="dilutions">
       <div className="title-bar">
@@ -147,15 +148,22 @@ function BottleList({
           </Button>
         </span>
       </div>
-      <div className="tools">
-        <label className="search">
-          {t.search}
+      {/* The search as a low grey bar, like the glossary's (V3-96, BL-001): the label as its accessible name. */}
+      <div className="dil-search">
+        <label className="dil-search-field">
+          <span className="sr-only">{t.search}</span>
+          <svg className="dil-search-icon" viewBox="0 0 16 16" aria-hidden="true">
+            <circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" strokeWidth="1.5" />
+            <path d="M10.5 10.5 14 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+          </svg>
           <input type="search" value={query} placeholder={t.searchHint} onChange={(e) => setQuery(e.target.value)} />
         </label>
-        <span className="pills">
-          <button type="button" className="pill" aria-pressed={archived} onClick={() => setArchived((a) => !a)}>
-            {t.showArchived}
-          </button>
+        <label className="dil-search-archived">
+          <input type="checkbox" checked={archived} onChange={(e) => setArchived(e.target.checked)} />
+          {t.showArchived}
+        </label>
+        <span className="dil-search-count" role="status">
+          {t.count(count.bottles, count.materials)}
         </span>
       </div>
       {all.length === 0 && <EmptyState title={t.empty} text={t.emptyText} />}
@@ -189,6 +197,15 @@ function BottleList({
       </ul>
     </section>
   );
+}
+
+/** What a bottle is found by besides its material (V3-96, BL-001): its diluents, short and whole, and its %. */
+export function searchWords(data: GlossaryData, d: Dilution): string {
+  const diluents = d.diluents.flatMap((x) => {
+    const m = data.catalog.materials.get(x.diluentId);
+    return [shortName(m), m?.name ?? ""];
+  });
+  return [...diluents, d.solvent ?? "", nominalPercent(d.fraction, d.label), percent(d.fraction, 2)].join(" ");
 }
 
 /** A chip of the grid: «10 % in DPG», «40 % in DPG + Ethanol» (no chip for pure, V3-79): its strength as you know it, the diluents by their short name. */
