@@ -112,7 +112,17 @@ export function Dilutions({
   const docked = newFor === null && !bottleId;
   return (
     <div className={`dilutions-page with-editor${docked ? " docked-new" : ""}`}>
-      <BottleList data={data} all={all} selected={bottleId} onOpen={onOpen} onNew={() => onNew()} />
+      <BottleList
+        data={data}
+        local={local}
+        all={all}
+        selected={bottleId}
+        onOpen={onOpen}
+        onNew={() => onNew()}
+        onAnother={(materialId) => onNew(materialId)}
+        onArchived={onArchived}
+        onFailure={(message) => setFailure(message)}
+      />
       {editor && <div className="bottle-pane">{editor}</div>}
       <Toast message={archived?.text ?? null} onUndo={unarchive} onClose={() => setArchived(null)} />
       <FailureNote message={failure} onClose={() => setFailure(null)} floating />
@@ -122,16 +132,25 @@ export function Dilutions({
 
 function BottleList({
   data,
+  local,
   all,
   selected,
   onOpen,
   onNew,
+  onAnother,
+  onArchived,
+  onFailure,
 }: {
   data: GlossaryData;
+  local: LocalDatabase;
   all: { materialId: string; d: Dilution }[];
   selected: string | null;
   onOpen: (id: string) => void;
   onNew: () => void;
+  /** «Make another like this»: a new bottle of the material, the same diluents and %. */
+  onAnother: (materialId: string, bottle: Dilution) => void;
+  onArchived: (bottle: Dilution) => void;
+  onFailure: (message: string) => void;
 }) {
   const scales = useMemo(() => orbScalesOf(data.catalog), [data]);
   const [query, setQuery] = useState("");
@@ -167,35 +186,197 @@ function BottleList({
         </span>
       </div>
       {all.length === 0 && <EmptyState title={t.empty} text={t.emptyText} />}
-      <ul className="bottle-grid">
+      {cards.length > 0 && (
+        <BottleTable data={data} local={local} cards={cards} scales={scales} selected={selected} onOpen={onOpen} onAnother={onAnother} onArchived={onArchived} onFailure={onFailure} />
+      )}
+      {all.length > 0 && cards.length === 0 && <p className="hint">{t.noMatch(query)}</p>}
+    </section>
+  );
+}
+
+const madeText = (day: string | null): string => {
+  if (!day) return "—";
+  const d = new Date(`${day}T12:00:00`);
+  if (Number.isNaN(d.getTime())) return day;
+  const sameYear = d.getFullYear() === new Date().getFullYear();
+  return d.toLocaleDateString("en-GB", sameYear ? { day: "numeric", month: "short" } : { day: "numeric", month: "short", year: "numeric" });
+};
+
+/** A bottle that came made (batch 42, «de fábrica»): said by its name or its note. */
+const fromFactory = (d: Dilution) => /f[aá]brica|factory/i.test(`${d.label ?? ""} ${d.description ?? ""}`);
+
+/**
+ * «Bottles» as a table (V3-96, BL-002): one row per bottle, grouped by material (its orb and name only
+ * on the first). At 640 px of container or less, Material, Strength and Diluent; the row opens below
+ * with the rest and what can be done with it (P-LAYOUT-02: less room hides detail, never removes it).
+ */
+function BottleTable({
+  data,
+  local,
+  cards,
+  scales,
+  selected,
+  onOpen,
+  onAnother,
+  onArchived,
+  onFailure,
+}: {
+  data: GlossaryData;
+  local: LocalDatabase;
+  cards: ReturnType<typeof cardsOf>;
+  scales: ReturnType<typeof orbScalesOf>;
+  selected: string | null;
+  onOpen: (id: string) => void;
+  onAnother: (materialId: string, bottle: Dilution) => void;
+  onArchived: (bottle: Dilution) => void;
+  onFailure: (message: string) => void;
+}) {
+  const [open, setOpen] = useState<string | null>(selected);
+  const short = (id: string) => shortName(data.catalog.materials.get(id));
+  const full = (id: string) => data.catalog.materials.get(id)?.name ?? "—";
+  const diluentsText = (d: Dilution) => (d.diluents.length > 0 ? d.diluents.map((x) => short(x.diluentId)).join(" + ") : (d.solvent ?? null));
+  const diluentsTitle = (d: Dilution) => (d.diluents.length > 0 ? d.diluents.map((x) => full(x.diluentId)).join(" + ") : (d.solvent ?? undefined));
+  const archive = (d: Dilution) =>
+    void archiveBottle(local.db, local.userId, d.id, !d.archivedAt).then(
+      () => {
+        if (!d.archivedAt) onArchived(d);
+        setOpen(null);
+      },
+      (e: unknown) => onFailure(t.failed(String(e))),
+    );
+  return (
+    <div className="bottle-table-wrap">
+      <table className="bottle-table">
+        <thead>
+          <tr>
+            <th scope="col">{t.table.material}</th>
+            <th scope="col">{t.table.strength}</th>
+            <th scope="col">{t.table.diluent}</th>
+            <th scope="col" className="num wide">
+              {t.table.exact}
+            </th>
+            <th scope="col" className="num wide">
+              {t.table.materialWeighed}
+            </th>
+            <th scope="col" className="wide">
+              {t.table.made}
+            </th>
+            <th scope="col" className="wide">
+              <span className="sr-only">{t.table.tags}</span>
+            </th>
+            <th scope="col">
+              <span className="sr-only">{t.table.details}</span>
+            </th>
+          </tr>
+        </thead>
         {cards.map(({ materialId, name, bottles }) => {
           const material = data.catalog.materials.get(materialId);
           const colours = material ? coloursOf(data.catalog, material) : null;
           return (
-            <li key={materialId} className="bottle-card">
-              <div className="bottle-card-head">
-                {material && <MaterialOrb look={orbLookOf(data.catalog, material, scales)} size={40} seed={seedOf(material.id)} expectColor={colours?.light} />}
-                <span className="bottle-name">{name}</span>
-              </div>
-              <span className="bottle-chips">
-                {bottles.map((d) => (
-                  <button
-                    key={d.id}
-                    type="button"
-                    className={`pill bottle-chip${d.archivedAt ? " archived" : ""}`}
-                    aria-current={d.id === selected ? "true" : undefined}
-                    title={[chipTitle(data, d), d.archivedAt ? t.archived : null].filter(Boolean).join(" · ")}
-                    onClick={() => onOpen(d.id)}
-                  >
-                    {chipText(data, d)}
-                  </button>
-                ))}
-              </span>
-            </li>
+            <tbody key={materialId} className="bottle-group">
+              {bottles.map((d, i) => {
+                const expanded = open === d.id;
+                const strength = nominalPercent(d.fraction, d.label);
+                const diluents = diluentsText(d);
+                const tags: string[] = [fromFactory(d) ? t.table.factory : d.materialMassUg === null ? t.table.noWeights : null, d.archivedAt ? t.archived : null].filter((x) => x !== null);
+                const toggle = () => setOpen(expanded ? null : d.id);
+                return [
+                  <tr key={d.id} className={`bottle-row-t${i === 0 ? " first" : ""}${d.archivedAt ? " archived" : ""}`} aria-current={d.id === selected ? "true" : undefined} onClick={toggle}>
+                    <td className="mat">
+                      {i === 0 ? (
+                        <span className="mat-in">
+                          {material && <MaterialOrb look={orbLookOf(data.catalog, material, scales)} size={24} seed={seedOf(material.id)} expectColor={colours?.light} />}
+                          <span className="bottle-name">{name}</span>
+                        </span>
+                      ) : (
+                        <span className="sr-only">{name}</span>
+                      )}
+                    </td>
+                    <td className="num strength" title={t.chip(percent(d.fraction, 4), diluentsTitle(d) ?? "—")}>
+                      {strength}
+                    </td>
+                    <td title={diluentsTitle(d)}>{diluents ?? <span className="muted">—</span>}</td>
+                    <td className="num wide">{percent(d.fraction, 2)}</td>
+                    <td className="num wide">{d.materialMassUg !== null ? gramsText(d.materialMassUg) : <span className="muted">—</span>}</td>
+                    <td className="wide muted">{madeText(d.madeOn)}</td>
+                    <td className="wide">
+                      {tags.map((x) => (
+                        <span key={x} className="tag">
+                          {x}
+                        </span>
+                      ))}
+                    </td>
+                    <td className="chev">
+                      <button
+                        type="button"
+                        className="row-toggle"
+                        aria-expanded={expanded}
+                        aria-label={t.table.toggle(name, strength, diluents ?? "—")}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          toggle();
+                        }}
+                      >
+                        <span aria-hidden="true">{expanded ? "▴" : "▾"}</span>
+                      </button>
+                    </td>
+                  </tr>,
+                  expanded && (
+                    <tr key={`${d.id}:detail`} className="bottle-detail-row">
+                      <td colSpan={8}>
+                        <dl className="bottle-facts">
+                          <div>
+                            <dt>{t.table.exact}</dt>
+                            <dd className="num">{percent(d.fraction, 4)}</dd>
+                          </div>
+                          <div>
+                            <dt>{t.table.materialWeighed}</dt>
+                            <dd className="num">{d.materialMassUg !== null ? `${gramsText(d.materialMassUg)} g` : t.table.notRecorded}</dd>
+                          </div>
+                          {d.diluents.map((x) => (
+                            <div key={x.id}>
+                              <dt>{t.table.diluentWeighed(short(x.diluentId))}</dt>
+                              <dd className="num">{x.massUg !== null ? `${gramsText(x.massUg)} g` : t.table.notRecorded}</dd>
+                            </div>
+                          ))}
+                          <div>
+                            <dt>{t.table.made}</dt>
+                            <dd>{madeText(d.madeOn)}</dd>
+                          </div>
+                          {tags.length > 0 && (
+                            <div>
+                              <dt>{t.table.tags}</dt>
+                              <dd>{tags.join(" · ")}</dd>
+                            </div>
+                          )}
+                          {d.description && (
+                            <div className="wide-fact">
+                              <dt>{t.note}</dt>
+                              <dd>{d.description}</dd>
+                            </div>
+                          )}
+                        </dl>
+                        <div className="row-actions">
+                          <Button variant="secondary" onClick={() => onOpen(d.id)}>
+                            {t.table.correct}
+                          </Button>
+                          <Button variant="secondary" onClick={() => onAnother(materialId, d)}>
+                            {t.table.another}
+                          </Button>
+                          <Button variant="secondary" onClick={() => archive(d)}>
+                            {d.archivedAt ? t.unarchive : t.archive}
+                          </Button>
+                        </div>
+                      </td>
+                    </tr>
+                  ),
+                ];
+              })}
+            </tbody>
           );
         })}
-      </ul>
-    </section>
+      </table>
+    </div>
   );
 }
 

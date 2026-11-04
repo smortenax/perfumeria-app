@@ -262,7 +262,8 @@
   gap: 8px 16px;
   margin-bottom: var(--space-gap);
 }
-.dil-search-field {
+.dilutions .dil-search-field {
+  display: block;
   position: relative;
   flex: 1 1 16rem;
   min-width: 0;
@@ -277,7 +278,7 @@
   color: var(--text-muted);
   pointer-events: none;
 }
-.dilutions .dil-search-field input {
+.dilutions .dil-search .dil-search-field input[type="search"] {
   min-height: var(--size-target);
   padding: 0 12px 0 36px;
   border: 0;
@@ -288,8 +289,9 @@
   font: inherit;
   font-size: var(--size-text-lg);
 }
-.dil-search-archived {
+.dilutions .dil-search-archived {
   display: inline-flex;
+  flex-direction: row;
   align-items: center;
   gap: 8px;
   min-height: var(--size-target);
@@ -305,5 +307,136 @@
 .dil-search-count {
   color: var(--text-muted);
   font-size: var(--size-text-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+/* «Bottles» (V3-96, BL-002): a ruled table, one row per bottle, grouped by material. The container, not
+   the device, decides the columns: at 640 px or less, Material, Strength and Diluent. */
+.bottle-table-wrap {
+  container-type: inline-size;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-panel);
+  background: var(--surface-raised);
+}
+.bottle-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--size-text-md);
+}
+.bottle-table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border-control);
+  background: var(--surface-raised);
+  color: var(--text-muted);
+  font-size: var(--size-text-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-align: left;
+  text-transform: uppercase;
+}
+.bottle-table td {
+  padding: 6px 12px;
+  vertical-align: middle;
+}
+.bottle-table td.num,
+.bottle-table th.num {
+  font-family: var(--font-figures);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+.bottle-table td.strength {
+  font-weight: 700;
+}
+.bottle-table .muted {
+  color: var(--text-muted);
+}
+.bottle-group + .bottle-group .bottle-row-t.first td,
+.bottle-row-t + .bottle-row-t td {
+  border-top: 1px solid var(--border-subtle);
+}
+.bottle-row-t {
+  cursor: pointer;
+}
+.bottle-row-t:hover td,
+.bottle-row-t[aria-current="true"] td {
+  background: var(--surface-sunken);
+}
+.bottle-row-t.archived td:not(.chev) {
+  color: var(--text-muted);
+}
+.bottle-table .mat-in {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.bottle-table .mat-in .bottle-name {
+  font-weight: 700;
+}
+.bottle-table .tag {
+  display: inline-block;
+  margin-right: 4px;
+  padding: 1px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-chip);
+  color: var(--text-muted);
+  font-size: var(--size-text-xs);
+  white-space: nowrap;
+}
+.bottle-table td.chev {
+  width: var(--size-target);
+  padding: 0;
+  text-align: center;
+}
+.dilutions .row-toggle {
+  width: var(--size-target);
+  min-height: var(--size-target);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.bottle-detail-row td {
+  padding: 4px 12px 14px;
+  background: var(--surface-sunken);
+}
+.bottle-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+  gap: 8px 16px;
+  margin: 0 0 10px;
+}
+.bottle-facts dt {
+  color: var(--text-muted);
+  font-size: var(--size-text-xs);
+}
+.bottle-facts dd {
+  margin: 0;
+}
+.bottle-facts .wide-fact {
+  grid-column: 1 / -1;
+}
+.bottle-detail-row .row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+@container (max-width: 640px) {
+  .bottle-table .wide {
+    display: none;
+  }
+  .bottle-table th,
+  .bottle-table td {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+.bottle-facts dd.num {
+  font-family: var(--font-figures);
   font-variant-numeric: tabular-nums;
 }
