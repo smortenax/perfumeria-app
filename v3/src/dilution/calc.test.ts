@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { Ratio } from "../core/arith/ratio";
-import { bottleOf, examples, nominalBottle, plan, planFromMaterial, stored, storedBottle } from "./calc";
+import { bottleOf, examples, nominalBottle, plan, planFromDiluent, planFromMaterial, stored, storedBottle } from "./calc";
 
 const pct = (p: string) => Ratio.fromDecimal(p).div(Ratio.of(100n));
 const g = (grams: string) => BigInt(Ratio.fromDecimal(grams).mul(Ratio.of(1_000_000n)).toFixed(0));
@@ -148,5 +148,53 @@ describe("a bottle saved without weights (V3-79)", () => {
   it("kept to six decimals, it still adds up to 1", () => {
     const b = storedBottle(nominalBottle(Ratio.of(1n, 3n), [{ diluentId: "eth", share: Ratio.of(1n, 7n) }, { diluentId: "dpg", share: null }]));
     expect(b.diluents.reduce((s, d) => s.add(d.fraction), b.fraction).eq(Ratio.ONE)).toBe(true);
+  });
+});
+
+describe("from the diluent weighed first (V3-96, «si pones diluyente primero te dice cuánto producto para igualar»)", () => {
+  const dpg = [{ diluentId: "dpg", share: null }];
+
+  it("10 % with 9 g of DPG already in: 1 g of material, 10 g of bottle", () => {
+    expect(planFromDiluent(pct("10"), "dpg", g("9"), dpg)).toEqual({ totalUg: g("10"), materialUg: g("1"), diluents: [{ diluentId: "dpg", massUg: g("9") }] });
+  });
+
+  it("the rule (d/r)·p/(s − p): from the 50 % bottle, 8 g of DPG for a 10 % asks 2 g of that bottle", () => {
+    const source = { fraction: pct("50"), diluents: [{ diluentId: "dpg", fraction: pct("50") }] };
+    const p = planFromDiluent(pct("10"), "dpg", g("8"), dpg, source);
+    expect(p).toEqual({ totalUg: g("10"), materialUg: g("2"), diluents: [{ diluentId: "dpg", massUg: g("8") }] });
+    // And weighed so, the bottle is the 10 % asked for, exactly.
+    expect(bottleOf({ materialUg: p.materialUg, diluents: p.diluents, source }).fraction.eq(pct("10"))).toBe(true);
+  });
+
+  it("two diluents, 60 % DPG and 40 % ethanol of what is added to a 40 %: 3.6 g of DPG asks 4 g and 2.4 g of ethanol", () => {
+    // Of the bottle: DPG 0.6 × 60 % = 36 %, ethanol the rest (24 %).
+    const two = [{ diluentId: "dpg", share: pct("36") }, { diluentId: "eth", share: null }];
+    const expected = { totalUg: g("10"), materialUg: g("4"), diluents: [{ diluentId: "dpg", massUg: g("3.6") }, { diluentId: "eth", massUg: g("2.4") }] };
+    expect(planFromDiluent(pct("40"), "dpg", g("3.6"), two)).toEqual(expected);
+    // Starting from the one that takes the rest gives the same bottle.
+    expect(planFromDiluent(pct("40"), "eth", g("2.4"), two)).toEqual(expected);
+  });
+
+  it("the diluent weighed keeps its weight; the material goes to the milligram, and the bottle comes out within it", () => {
+    const p = planFromDiluent(pct("10"), "dpg", g("1.234"), dpg);
+    expect(p.diluents).toEqual([{ diluentId: "dpg", massUg: g("1.234") }]);
+    expect(p.materialUg).toBe(g("0.137")); // 1.234 × 10 / 90 = 0.13711…
+    expect(p.totalUg).toBe(g("1.371"));
+    const real = bottleOf({ materialUg: p.materialUg, diluents: p.diluents }).fraction;
+    expect(Math.abs(Number(real.toFixed(6)) - 0.1)).toBeLessThan(0.0005);
+  });
+
+  it("the same as planFromMaterial read backwards: what one says to add, the other says to weigh", () => {
+    const fromMaterial = planFromMaterial(pct("20"), g("3"), dpg);
+    expect(planFromDiluent(pct("20"), "dpg", fromMaterial.diluents[0].massUg, dpg).materialUg).toBe(g("3"));
+  });
+
+  it("refuses what is not a dilution: no weight, a % at or above the bottle's, a diluent that is not in it", () => {
+    expect(() => planFromDiluent(pct("10"), "dpg", 0n, dpg)).toThrow(RangeError);
+    expect(() => planFromDiluent(pct("100"), "dpg", g("1"), dpg)).toThrow(RangeError);
+    const source = { fraction: pct("10"), diluents: [{ diluentId: "dpg", fraction: pct("90") }] };
+    expect(() => planFromDiluent(pct("10"), "dpg", g("1"), dpg, source)).toThrow(/further/);
+    expect(() => planFromDiluent(pct("10"), "ipm", g("1"), dpg)).toThrow(/one of the bottle's/);
+    expect(() => planFromDiluent(pct("10"), "dpg", g("1"), [{ diluentId: "dpg", share: pct("95") }])).toThrow(/add up/);
   });
 });
