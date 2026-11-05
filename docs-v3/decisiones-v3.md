@@ -1779,7 +1779,8 @@ Y, a la pregunta de si se pasaba a la app en una rama nueva: «Sí, una PR a mai
 - **Guardar:** «Save N bottles» guarda las pesadas y las «as is»; las que esperan se quedan en la lista. Al pie, lo que falta por verter de cada diluyente y el recuento.
 - **Nombre, fecha y nota** (el usuario, 2026-11-04, en la tarjeta «¿Dónde van el nombre, la fecha y la nota de cada frasco en "Add & weigh"?», eligió **«Fecha arriba, nota en "⋯"»**): una fecha para toda la sesión, hoy y cambiable arriba; el nombre, el % que pones (V3-87); la nota, opcional, desde el «⋯» de cada fila.
 - **«New dilution» emergente** (el usuario, 2026-11-05, en la tarjeta «¿Sigue la ventana "New dilution" emergente en el "+" del banco y en la ficha?», eligió **«Sí, sin cambios»**): el banco y la ficha siguen con la ventana de un frasco; «Add & weigh» queda en Diluciones.
-- **Abiertas, para preguntar de una en una:** dos diluyentes a 390 px; valores por defecto del día.
+- **Dos diluyentes a 390 px** (el usuario, 2026-11-05, en la tarjeta «¿Cómo quieres los frascos con dos diluyentes en el móvil (390 px)?», eligió **«Compacto en una línea»**): en el móvil, la casilla del % de cada diluyente se estrecha, sin la unidad (la dice la cabecera), y el selector va en letra algo menor; la fila no crece.
+- **Valores por defecto del día** (el usuario, 2026-11-05, en la tarjeta «¿Quieres valores por defecto del día (diluyente, % y total) para todas las filas?», eligió **«No, cada fila lo suyo»**): cada fila trae el último diluyente que usaste para ese material; el % y el total los pones tú.
 
 ## Pendientes
 

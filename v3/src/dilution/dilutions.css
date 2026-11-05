@@ -894,8 +894,20 @@
   .weigh-unit::after {
     right: 5px;
   }
+  /* Two diluents or more (7 of 134 bottles): the share without its unit (the header says %), the
+     diluent in smaller letters, so «Ethanol» reads whole. */
   .weigh-dil .weigh-unit.share {
-    flex-basis: 3.25rem;
+    flex-basis: 2.5rem;
+  }
+  .weigh-dil .weigh-unit.share::after {
+    content: none;
+  }
+  .dilutions .weigh .weigh-dil .weigh-unit.share .weigh-cell {
+    padding: 0 4px;
+  }
+  .dilutions .weigh .weigh-dil:has(.share) select.weigh-cell {
+    padding: 0 2px;
+    font-size: var(--size-text-xs);
   }
   .weigh-dil {
     gap: 4px;
