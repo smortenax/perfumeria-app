@@ -1181,80 +1181,6 @@ details.unstated[open] dl {
   overflow-wrap: anywhere;
 }
 
-.bottle-pane {
-  min-width: 0;
-  padding: var(--space-inset);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-panel);
-  background: var(--panel);
-}
-
-.bottle-pane .page-title {
-  font-size: var(--text-xl);
-  letter-spacing: -0.01em;
-}
-
-@media (min-width: 1100px) {
-  .dilutions-page.with-editor {
-    grid-template-columns: minmax(0, 1fr) minmax(380px, 560px);
-  }
-}
-
-@media (min-width: 1100px) {
-  .dilutions-page .bottle-pane {
-    position: sticky;
-    top: var(--space-gap);
-  }
-}
-
-@media (max-width: 1099px) {
-  .dilutions-page.with-editor:not(.docked-new) > .dilutions:first-child {
-    display: none;
-  }
-  /* On a narrow screen the docked window waits for «New dilution»: the grid comes first. */
-  .dilutions-page.docked-new > .bottle-pane {
-    display: none;
-  }
-}
-
-/* The grid of «Dilutions» (V3-79): a card per material, a chip per dilution. */
-.bottle-grid {
-  list-style: none;
-  margin: 0.5rem 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: var(--space-gap);
-}
-
-.bottle-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: var(--space-inset);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-panel);
-  background: var(--panel);
-  min-width: 0;
-}
-
-.bottle-card-head {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 0;
-}
-
-.bottle-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.bottle-chip.archived {
-  opacity: 0.6;
-}
-
 /* Evaluations: the full width; the strips as cards side by side; what is due in the accent. */
 .start .tasting {
   max-width: none;
@@ -1378,17 +1304,6 @@ details.unstated[open] dl {
 }
 .macerating-item .note-check {
   align-self: flex-start;
-}
-
-/* A chip never spills out of its card (2026-10-30): it shortens, and says the rest on hover. */
-.bottle-card {
-  min-width: 0;
-}
-.bottle-chip {
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 /* The bar of Materials (V3-94): Family, Strength and Duration, the order and «Only what I have» in a

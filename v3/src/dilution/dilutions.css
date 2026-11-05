@@ -253,3 +253,671 @@
 .diluent-pills {
   flex-wrap: wrap;
 }
+
+/* The search (V3-96, BL-001): a low grey bar, no panel of its own; «Archived too» and the count on its line. */
+.dil-search {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin-bottom: var(--space-gap);
+}
+.dilutions .dil-search-field {
+  display: block;
+  position: relative;
+  flex: 1 1 16rem;
+  min-width: 0;
+}
+.dil-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+.dilutions .dil-search .dil-search-field input[type="search"] {
+  min-height: var(--size-target);
+  padding: 0 12px 0 36px;
+  border: 0;
+  border-bottom: 1px solid var(--border-control);
+  border-radius: var(--radius-panel) var(--radius-panel) 0 0;
+  background: var(--surface-sunken);
+  color: var(--text-default);
+  font: inherit;
+  font-size: var(--size-text-lg);
+}
+.dilutions .dil-search-archived {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--size-target);
+  color: var(--text-muted);
+  font-size: var(--size-text-md);
+  cursor: pointer;
+}
+.dil-search-archived input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent-default);
+}
+.dil-search-count {
+  color: var(--text-muted);
+  font-size: var(--size-text-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+/* «Bottles» (V3-96, BL-002): a ruled table, one row per bottle, grouped by material. The container, not
+   the device, decides the columns: at 640 px or less, Material, Strength and Diluent. */
+.bottle-table-wrap {
+  container-type: inline-size;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-panel);
+  background: var(--surface-raised);
+}
+.bottle-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--size-text-md);
+}
+.bottle-table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border-control);
+  background: var(--surface-raised);
+  color: var(--text-muted);
+  font-size: var(--size-text-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-align: left;
+  text-transform: uppercase;
+}
+.bottle-table td {
+  padding: 6px 12px;
+  vertical-align: middle;
+}
+.bottle-table td.num,
+.bottle-table th.num {
+  font-family: var(--font-figures);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+.bottle-table td.strength {
+  font-weight: 700;
+}
+.bottle-table .muted {
+  color: var(--text-muted);
+}
+.bottle-group + .bottle-group .bottle-row-t.first td,
+.bottle-row-t + .bottle-row-t td {
+  border-top: 1px solid var(--border-subtle);
+}
+.bottle-row-t {
+  cursor: pointer;
+}
+.bottle-row-t:hover td,
+.bottle-row-t[aria-current="true"] td {
+  background: var(--surface-sunken);
+}
+.bottle-row-t.archived td:not(.chev) {
+  color: var(--text-muted);
+}
+.bottle-table .mat-in {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.bottle-table .mat-in .bottle-name {
+  font-weight: 700;
+}
+.bottle-table .tag {
+  display: inline-block;
+  margin-right: 4px;
+  padding: 1px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-chip);
+  color: var(--text-muted);
+  font-size: var(--size-text-xs);
+  white-space: nowrap;
+}
+.bottle-table td.chev {
+  width: var(--size-target);
+  padding: 0;
+  text-align: center;
+}
+.dilutions .row-toggle {
+  width: var(--size-target);
+  min-height: var(--size-target);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.bottle-detail-row td {
+  padding: 4px 12px 14px;
+  background: var(--surface-sunken);
+}
+.bottle-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+  gap: 8px 16px;
+  margin: 0 0 10px;
+}
+.bottle-facts dt {
+  color: var(--text-muted);
+  font-size: var(--size-text-xs);
+}
+.bottle-facts dd {
+  margin: 0;
+}
+.bottle-facts .wide-fact {
+  grid-column: 1 / -1;
+}
+.bottle-detail-row .row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+@container (max-width: 640px) {
+  .bottle-table .wide {
+    display: none;
+  }
+  .bottle-table th,
+  .bottle-table td {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+.bottle-facts dd.num {
+  font-family: var(--font-figures);
+  font-variant-numeric: tabular-nums;
+}
+
+/* «Bottles | Add & weigh» (V3-96): two states beside the title, in the same screen. */
+.dilutions .mode-switch {
+  display: inline-flex;
+  border: 1px solid var(--border-control);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+.dilutions .mode-switch button {
+  min-height: var(--size-target);
+  padding: 0 16px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text-default);
+  font: inherit;
+  font-size: var(--size-text-md);
+  cursor: pointer;
+}
+.dilutions .mode-switch button[aria-pressed="true"] {
+  background: var(--accent-default);
+  color: var(--text-on-accent);
+  font-weight: 700;
+}
+
+/* «Add & weigh» (V3-96, BL-003), the user's layout D: four columns, fixed on a wide screen (about 760 px
+   at most) and fluid on the phone; a coloured stripe and words for each row's state, never colour alone. */
+.weigh {
+  --w-mat: minmax(7rem, 11rem);
+  --w-want: minmax(10rem, 13.5rem);
+  --w-scale: 7rem;
+  --w-result: minmax(5.5rem, 8rem);
+  container-type: inline-size;
+  max-width: 48rem;
+}
+.weigh-intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+.weigh-title {
+  margin: 0;
+  font-size: var(--size-text-lg);
+}
+.dilutions .weigh-date {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--size-text-sm);
+}
+.dilutions .weigh-date input {
+  width: auto;
+  min-height: var(--size-target);
+  padding: 0 8px;
+  font-size: var(--size-text-md);
+}
+.weigh-hint {
+  margin: 4px 0 10px;
+  color: var(--text-muted);
+  font-size: var(--size-text-sm);
+}
+.weigh-sheet {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-panel);
+  background: var(--surface-raised);
+}
+.weigh-head,
+.weigh-grid {
+  display: grid;
+  grid-template-columns: var(--w-mat) var(--w-want) var(--w-scale) var(--w-result);
+  column-gap: 8px;
+}
+.weigh-head {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 8px 12px 8px 16px;
+  border-bottom: 1px solid var(--border-control);
+  background: var(--surface-raised);
+  color: var(--text-muted);
+  font-size: var(--size-text-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.weigh-head small {
+  display: block;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.weigh .r {
+  text-align: right;
+}
+.weigh-rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.weigh-row {
+  padding: 8px 12px 8px 12px;
+  border-left: 4px solid var(--status-amber);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.weigh-row.weighed {
+  border-left-color: var(--status-green);
+}
+.weigh-row.asIs {
+  border-left-color: var(--status-blue);
+}
+.weigh-grid {
+  row-gap: 4px;
+  align-items: center;
+}
+.weigh-mat {
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.weigh-name {
+  display: grid;
+  min-width: 0;
+}
+.weigh-name .bottle-name {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: var(--size-text-md);
+  hyphens: auto;
+}
+.dilutions select.weigh-from {
+  min-height: 28px;
+  padding: 0 4px;
+  border-color: var(--border-subtle);
+  color: var(--text-muted);
+  font-size: var(--size-text-xs);
+}
+.weigh-want {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.weigh-unit {
+  position: relative;
+  display: block;
+  min-width: 0;
+}
+.weigh-unit::after {
+  content: attr(data-unit);
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: var(--size-text-sm);
+  pointer-events: none;
+}
+.dilutions .weigh .weigh-cell {
+  min-height: var(--size-target);
+  padding: 0 8px;
+  border: 1px solid var(--border-control);
+  border-radius: var(--radius-control);
+  /* The colour only: a select keeps its arrow, drawn as a background image (audit F-09 L1). */
+  background-color: var(--surface-raised);
+  color: var(--text-default);
+  font-size: var(--size-text-md);
+}
+.dilutions .weigh .weigh-cell.n {
+  font-family: var(--font-figures);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.dilutions .weigh .weigh-unit .weigh-cell {
+  padding-right: 24px;
+}
+.dilutions .weigh .weigh-cell::placeholder {
+  color: var(--text-muted);
+  opacity: 1;
+}
+.dilutions .weigh .weigh-cell.to-put {
+  border-style: dashed;
+  background-color: var(--surface-sunken);
+}
+.dilutions .weigh select.weigh-cell.missing {
+  border-color: var(--status-amber);
+  color: var(--status-amber);
+}
+.weigh-scale {
+  grid-column: 3;
+  position: relative;
+  display: block;
+}
+/* The figure to put stays, small, once you write (P-UX-04). */
+.weigh-goal {
+  position: absolute;
+  left: 7px;
+  top: 2px;
+  z-index: 1;
+  color: var(--text-muted);
+  font-family: var(--font-figures);
+  font-size: 10px;
+  line-height: 1.1;
+  pointer-events: none;
+}
+.weigh-scale:has(.weigh-goal) .weigh-cell {
+  padding-top: 10px;
+}
+.weigh-result {
+  grid-column: 4;
+  min-width: 0;
+  font-size: var(--size-text-md);
+  white-space: nowrap;
+}
+.weigh-result .fig,
+.weigh-pour .fig {
+  font-family: var(--font-figures);
+  font-variant-numeric: tabular-nums;
+}
+.weigh-state {
+  font-size: var(--size-text-sm);
+  font-weight: 700;
+}
+.weigh-state.weighed {
+  color: var(--status-green);
+}
+.weigh-state.asIs {
+  color: var(--status-blue);
+}
+.weigh-state.waiting {
+  color: var(--status-amber);
+}
+.weigh-why,
+.weigh .muted {
+  color: var(--text-muted);
+  font-size: var(--size-text-xs);
+}
+.weigh-menu {
+  grid-column: 1;
+  position: relative;
+}
+.dilutions .weigh-more {
+  width: var(--size-target);
+  min-height: var(--size-target);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-control);
+  background: transparent;
+  color: var(--text-default);
+  font-size: var(--size-text-lg);
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+.dilutions .weigh-more:hover,
+.dilutions .weigh-more[aria-expanded="true"] {
+  background: var(--surface-sunken);
+}
+.weigh-menu-list {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 2px);
+  z-index: 5;
+  display: grid;
+  min-width: 15rem;
+  padding: 4px;
+  border: 1px solid var(--border-control);
+  border-radius: var(--radius-control);
+  background: var(--surface-raised);
+}
+.dilutions .weigh-menu-list button {
+  min-height: var(--size-target);
+  padding: 0 12px;
+  border: 0;
+  border-radius: var(--radius-panel);
+  background: transparent;
+  color: var(--text-default);
+  font: inherit;
+  font-size: var(--size-text-md);
+  text-align: left;
+  cursor: pointer;
+}
+.dilutions .weigh-menu-list button:hover,
+.dilutions .weigh-menu-list button:focus-visible {
+  background: var(--surface-sunken);
+}
+.dilutions .weigh-menu-list button.danger {
+  color: var(--status-red);
+}
+.weigh-dil-line {
+  display: contents;
+}
+.weigh-dil {
+  grid-column: 2;
+  display: flex;
+  gap: 6px;
+  min-width: 0;
+}
+.weigh-dil .weigh-unit.share {
+  flex: 0 0 4.5rem;
+}
+.weigh-dil select {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.weigh-dil-line .weigh-scale {
+  grid-column: 3;
+}
+.weigh-dil-line .weigh-result {
+  grid-column: 4;
+}
+.dilutions .weigh-note {
+  grid-column: 2 / -1;
+  margin: 0;
+}
+.dilutions .weigh .weigh-note input {
+  min-height: var(--size-target);
+  font-size: var(--size-text-md);
+}
+/* The bar: the material in its family's colour, the diluents in greys; full once weighed, dashed while
+   only planned (not faded: 3:1, WCAG 1.4.11), each edged with --border-control. */
+.weigh-bar {
+  display: flex;
+  gap: 2px;
+  height: 6px;
+  margin-top: 8px;
+}
+.weigh-bar .seg {
+  min-width: 2px;
+  border-radius: 1px;
+  --seg: var(--family-none);
+}
+.weigh-bar .seg.diluent.d0 {
+  --seg: var(--border-control);
+}
+.weigh-bar .seg.diluent.d1 {
+  --seg: var(--text-muted);
+}
+.weigh-bar .seg.diluent.d2 {
+  --seg: var(--chart-on);
+}
+.weigh-bar .seg.weighed {
+  background: var(--seg);
+}
+.weigh-bar .seg.planned {
+  outline: 1px solid var(--border-control);
+  outline-offset: -1px;
+  background: repeating-linear-gradient(90deg, var(--seg) 0 4px, transparent 4px 7px);
+}
+.weigh-add {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px 10px 16px;
+}
+.weigh-add-plus {
+  display: grid;
+  place-items: center;
+  flex: 0 0 var(--size-target);
+  height: var(--size-target);
+  border: 1px solid var(--border-control);
+  border-radius: var(--radius-control);
+  font-size: var(--size-text-xl);
+}
+.weigh-add .material-picker {
+  flex: 1 1 auto;
+  max-width: 24rem;
+}
+.dilutions .weigh-add .field {
+  margin: 0;
+}
+.dilutions .weigh-add input {
+  min-height: var(--size-target);
+  font-size: var(--size-text-md);
+}
+.weigh-add .pick-list:empty {
+  display: none;
+}
+.weigh-foot {
+  margin-top: var(--space-gap);
+  padding: 12px var(--space-inset);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-panel);
+  background: var(--surface-raised);
+}
+.weigh-pour {
+  margin: 0 0 8px;
+  font-size: var(--size-text-md);
+}
+.weigh-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+  color: var(--text-muted);
+  font-size: var(--size-text-xs);
+}
+.weigh-legend li {
+  padding-left: 8px;
+  border-left: 4px solid var(--status-amber);
+}
+.weigh-legend .weighed {
+  border-left-color: var(--status-green);
+}
+.weigh-legend .asIs {
+  border-left-color: var(--status-blue);
+}
+.weigh-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+}
+.weigh-tally {
+  flex: 1 1 14rem;
+  margin: 0;
+  font-size: var(--size-text-sm);
+}
+/* The phone: fluid columns, each bottle about 120 px with 44 px boxes. */
+@container (max-width: 560px) {
+  .weigh-sheet {
+    --w-mat: minmax(5.5rem, 1fr);
+    --w-want: minmax(6.5rem, 1.15fr);
+    --w-scale: minmax(4.75rem, 0.9fr);
+    --w-result: minmax(3.75rem, 0.7fr);
+  }
+  .weigh-head,
+  .weigh-grid {
+    column-gap: 4px;
+  }
+  .weigh-row {
+    padding: 6px 6px 6px 6px;
+  }
+  .weigh-head {
+    padding: 6px 6px 6px 10px;
+  }
+  .weigh-want {
+    gap: 4px;
+  }
+  .dilutions .weigh .weigh-cell {
+    padding: 0 4px;
+  }
+  .dilutions .weigh .weigh-unit .weigh-cell {
+    padding-right: 18px;
+  }
+  .weigh-unit::after {
+    right: 5px;
+  }
+  /* Two diluents or more (7 of 134 bottles): the share without its unit (the header says %), the
+     diluent in smaller letters, so «Ethanol» reads whole. */
+  .weigh-dil .weigh-unit.share {
+    flex-basis: 2.5rem;
+  }
+  .weigh-dil .weigh-unit.share::after {
+    content: none;
+  }
+  .dilutions .weigh .weigh-dil .weigh-unit.share .weigh-cell {
+    padding: 0 4px;
+  }
+  .dilutions .weigh .weigh-dil:has(.share) select.weigh-cell {
+    padding: 0 2px;
+    font-size: var(--size-text-xs);
+  }
+  .weigh-dil {
+    gap: 4px;
+  }
+  .weigh-name .bottle-name,
+  .weigh-result {
+    font-size: var(--size-text-sm);
+  }
+  /* What a row waits for is in the word above and in its hover; the phone keeps the row short. */
+  .weigh-why {
+    display: none;
+  }
+}

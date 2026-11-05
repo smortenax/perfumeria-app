@@ -15,14 +15,21 @@ export interface Card {
 
 export function cardsOf(
   all: readonly { readonly materialId: string; readonly d: Dilution }[],
-  options: { readonly archived: boolean; readonly query: string; readonly nameOf: (materialId: string) => string },
+  options: {
+    readonly archived: boolean;
+    readonly query: string;
+    readonly nameOf: (materialId: string) => string;
+    /** What else a bottle is found by (V3-96, BL-001): its diluents and its %. */
+    readonly wordsOf?: (d: Dilution) => string;
+  },
 ): Card[] {
   const q = options.query.trim().toLowerCase();
   const byMaterial = new Map<string, Dilution[]>();
   for (const { materialId, d } of all) {
     if (d.archivedAt && !options.archived) continue;
     const name = options.nameOf(materialId);
-    if (q && !name.toLowerCase().includes(q) && !(d.label ?? "").toLowerCase().includes(q)) continue;
+    const words = [name, d.label ?? "", options.wordsOf?.(d) ?? ""].join(" ").toLowerCase();
+    if (q && !q.split(/\s+/).every((w) => words.includes(w))) continue;
     byMaterial.set(materialId, [...(byMaterial.get(materialId) ?? []), d]);
   }
   return [...byMaterial]
@@ -33,6 +40,11 @@ export function cardsOf(
       bottles: [...bottles].sort((a, b) => b.fraction.cmp(a.fraction) || (b.madeOn ?? "").localeCompare(a.madeOn ?? "")),
     }))
     .sort((a, b) => a.name.localeCompare(b.name, "es"));
+}
+
+/** «134 bottles · 107 materials» (V3-96, BL-001): what the search shows. */
+export function countOf(cards: readonly Card[]): { readonly bottles: number; readonly materials: number } {
+  return { bottles: cards.reduce((n, c) => n + c.bottles.length, 0), materials: cards.length };
 }
 
 /**

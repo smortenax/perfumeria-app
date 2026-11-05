@@ -89,6 +89,39 @@ export function planFromMaterial(target: Ratio, materialUg: bigint, diluents: re
   return { totalUg, materialUg, diluents: masses.filter((d) => d.massUg > 0n) };
 }
 
+/**
+ * What to weigh of the material once a diluent is weighed first (V3-96, the user, 2026-11-04: «si pones
+ * diluyente primero te dice cuánto producto para igualar»). The diluent's share of the bottle gives the
+ * bottle (`diluentUg` ÷ share), and the material is its part: (d/r)·p/(s − p) when r is the diluent's
+ * share of what is added. The one without share takes the rest, as in `plan()`; the diluent weighed
+ * keeps its weight exactly, the others and the material go to the milligram.
+ */
+export function planFromDiluent(target: Ratio, diluentId: string, diluentUg: bigint, diluents: readonly PlannedDiluent[], source?: SourceBottle): PlanFromMaterial {
+  if (target.num <= 0n || target.cmp(Ratio.ONE) >= 0) throw new RangeError("a dilution is above 0 % and below 100 %");
+  if (diluentUg <= 0n) throw new RangeError("a diluent weighs above 0");
+  if (diluents.length === 0) throw new Error("a dilution has at least one diluent");
+  if (diluents.filter((d) => d.share === null).length > 1) throw new Error("only one diluent takes the rest");
+  if (new Set(diluents.map((d) => d.diluentId)).size !== diluents.length) throw new Error("a diluent is listed once");
+  if (source && target.cmp(source.fraction) >= 0) throw new RangeError("from a bottle you only dilute further");
+  const weighed = diluents.find((d) => d.diluentId === diluentId);
+  if (!weighed) throw new Error("the diluent weighed is one of the bottle's");
+  // What the material takes of the bottle: the pure part, or from another bottle, that bottle's part.
+  const taken = source ? target.div(source.fraction) : target;
+  const fixed = diluents.reduce((sum, d) => (d.share ? sum.add(d.share) : sum), Ratio.ZERO);
+  const left = Ratio.ONE.sub(taken).sub(fixed);
+  const rest = diluents.some((d) => d.share === null);
+  if (rest ? left.sign() <= 0 : !left.isZero()) throw new RangeError("the shares of the diluents do not add up to the bottle");
+  const share = weighed.share ?? left;
+  if (share.sign() <= 0) throw new RangeError("the shares of the diluents do not add up to the bottle");
+  const total = Ratio.of(diluentUg).div(share);
+  const totalUg = roundTo(total, SCALE_UG);
+  const materialUg = roundTo(total.mul(taken), SCALE_UG);
+  const others = diluents.map((d) => (d.diluentId === diluentId ? diluentUg : d.share === null ? null : roundTo(total.mul(d.share), SCALE_UG)));
+  const restUg = totalUg - materialUg - others.reduce<bigint>((sum, m) => sum + (m ?? 0n), 0n);
+  const masses = diluents.map((d, i) => ({ diluentId: d.diluentId, massUg: others[i] ?? restUg }));
+  return { totalUg: materialUg + masses.reduce((sum, d) => sum + d.massUg, 0n), materialUg, diluents: masses.filter((d) => d.massUg > 0n) };
+}
+
 /** The examples in grey under the window (V3-79): what to weigh for 1 g and for 10 g of the bottle. */
 export const EXAMPLE_TOTALS_UG: readonly bigint[] = [1_000_000n, 10_000_000n];
 
