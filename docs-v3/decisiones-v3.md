@@ -1778,7 +1778,8 @@ Y, a la pregunta de si se pasaba a la app en una rama nueva: «Sí, una PR a mai
 - **El cálculo** (p, el % deseado; s, la fracción del origen; T, el total opcional): el diluyente y el % son obligatorios. Con T y sin pesos, material = T·p/s y diluyentes = T − material por sus %. Sin T, espera al primer peso: desde el material m, diluyente = m·s/p − m; desde un diluyente d con su reparto r, material = (d/r)·p/(s − p). Todo pesado: % real = m·s / (m + Σd). Sin pesos, se guarda tal cual (V3-79, «sin pesos»). Con un solo peso, espera. Exacto, como V3-67.
 - **Guardar:** «Save N bottles» guarda las pesadas y las «as is»; las que esperan se quedan en la lista. Al pie, lo que falta por verter de cada diluyente y el recuento.
 - **Nombre, fecha y nota** (el usuario, 2026-11-04, en la tarjeta «¿Dónde van el nombre, la fecha y la nota de cada frasco en "Add & weigh"?», eligió **«Fecha arriba, nota en "⋯"»**): una fecha para toda la sesión, hoy y cambiable arriba; el nombre, el % que pones (V3-87); la nota, opcional, desde el «⋯» de cada fila.
-- **Abiertas, para preguntar de una en una:** si «New dilution» emergente sigue en el banco y la ficha; dos diluyentes a 390 px; valores por defecto del día.
+- **«New dilution» emergente** (el usuario, 2026-11-05, en la tarjeta «¿Sigue la ventana "New dilution" emergente en el "+" del banco y en la ficha?», eligió **«Sí, sin cambios»**): el banco y la ficha siguen con la ventana de un frasco; «Add & weigh» queda en Diluciones.
+- **Abiertas, para preguntar de una en una:** dos diluyentes a 390 px; valores por defecto del día.
 
 ## Pendientes
 
