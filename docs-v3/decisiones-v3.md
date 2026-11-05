@@ -1777,7 +1777,8 @@ Y, a la pregunta de si se pasaba a la app en una rama nueva: «Sí, una PR a mai
 - **«Add & weigh» (BL-003), cambia la ventana anclada de V3-79:** un interruptor «Bottles | Add & weigh» junto al título, en la misma pantalla. Cada frasco en la disposición D de la maqueta: nombre y «⋯»; % deseado y g total (opcional); el diluyente, y con más de uno su % a la izquierda; la báscula con lo que hay que poner en gris, que no desaparece al escribir; el resultado real; una raya de estado con palabras («weighed», «as is», «waiting») y una barra fina material frente a diluyentes.
 - **El cálculo** (p, el % deseado; s, la fracción del origen; T, el total opcional): el diluyente y el % son obligatorios. Con T y sin pesos, material = T·p/s y diluyentes = T − material por sus %. Sin T, espera al primer peso: desde el material m, diluyente = m·s/p − m; desde un diluyente d con su reparto r, material = (d/r)·p/(s − p). Todo pesado: % real = m·s / (m + Σd). Sin pesos, se guarda tal cual (V3-79, «sin pesos»). Con un solo peso, espera. Exacto, como V3-67.
 - **Guardar:** «Save N bottles» guarda las pesadas y las «as is»; las que esperan se quedan en la lista. Al pie, lo que falta por verter de cada diluyente y el recuento.
-- **Abiertas, para preguntar de una en una:** nombre, fecha y nota de cada frasco; si «New dilution» emergente sigue en el banco y la ficha; dos diluyentes a 390 px; valores por defecto del día.
+- **Nombre, fecha y nota** (el usuario, 2026-11-04, en la tarjeta «¿Dónde van el nombre, la fecha y la nota de cada frasco en "Add & weigh"?», eligió **«Fecha arriba, nota en "⋯"»**): una fecha para toda la sesión, hoy y cambiable arriba; el nombre, el % que pones (V3-87); la nota, opcional, desde el «⋯» de cada fila.
+- **Abiertas, para preguntar de una en una:** si «New dilution» emergente sigue en el banco y la ficha; dos diluyentes a 390 px; valores por defecto del día.
 
 ## Pendientes
 
