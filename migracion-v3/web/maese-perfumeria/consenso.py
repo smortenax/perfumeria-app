@@ -76,7 +76,9 @@ def main():
     web = {}
     for name in sorted(os.listdir(HERE)):
         if name.startswith("segunda-fuente-") and name.endswith(".csv"):
-            web.update({r["n"]: r for r in read(name)})
+            for x in read(name):  # una fila sin dato no tapa a otra que lo tiene
+                if x["n"] not in web or x.get("fuerza") or x.get("impacto"):
+                    web[x["n"]] = x
     out = []
     for r in read("cruce.csv"):
         n, kind = r["n"], r["tipo"]
@@ -123,16 +125,29 @@ def main():
                 propuesto = diluted(int(w["impacto"]), fraction)
         # Consenso general, cuando no hay nada más (propuesta de la sesión): la mediana de PerfuMate del
         # mismo género botánico; si no, la del mismo proceso. Una tintura o una dilución, con la regla.
-        if propuesto is None and kind != "molecula" and not (w and w.get("fuerza")):
+        web_level = w.get("fuerza") if w else ""
+        if propuesto is None and (kind != "molecula" or web_level):
             words = [x for x in re.sub(r"[^a-z ]+", " ", r["inci"].lower()).split() if x not in NOT_GENUS and len(x) > 3]
             g = genus_of(words[0]) if words else None
-            if g:
+            if kind == "molecula":
+                lo, hi = STRENGTH_RANGE[web_level]
+                base_imp, src = round((lo + hi) / 2), "punto medio del nivel"
+            elif g:
                 base_imp, src = g[0], f"mediana de PerfuMate del género {words[0].capitalize()} ({len(g[1])}: {', '.join(g[1][:4])})"
             else:
                 key = "resinoide" if any(x in r["inci"].lower() for x in RESIN) else \
                     ("aceite esencial" if kind in ("tintura", "aceite esencial") else
                      ("co2" if kind == "co2" else "absoluto"))
                 base_imp, src = by_proc[key][0], f"mediana de PerfuMate de los naturales tipo {key} ({by_proc[key][1]})"
+            # La web (dos referentes que coinciden, o uno) da el nivel en palabras: la cifra se lleva dentro
+            # de ese nivel (propuesta de la sesión; V3-97 decía no convertir: lo decide el usuario).
+            if web_level:
+                lo, hi = STRENGTH_RANGE[web_level]
+                if not lo <= base_imp <= hi:
+                    src += f"; llevado a {min(max(base_imp, lo), hi)} por la fuerza «{web_level}» de la web"
+                    base_imp = min(max(base_imp, lo), hi)
+                else:
+                    src += f"; cuadra con la fuerza «{web_level}» de la web"
             if diluted_kind:
                 if fraction is None:
                     fraction, frac_note = TINCTURE_DEFAULT, "la web no da el porcentaje: se toma el 10 % (supuesto)"
@@ -140,7 +155,8 @@ def main():
                 regla = f"{base_imp} − 3·log10(1/{fraction:g}) = {propuesto}"
             else:
                 propuesto = base_imp
-            impacto_puro, rol, fuente = base_imp, "grupo", "consenso general: " + src
+            impacto_puro, fuente = base_imp, "consenso general: " + src
+            rol = "grupo+web" if web_level else "grupo"
         # Contraste con lo común de la v3 (mismo CAS)
         comun_imp = [x for x in r["comun_impacto"].split(" | ") if x and x != "—"]
         comun_str = [x for x in r["comun_fuerza"].split(" | ") if x and x != "—"]
@@ -164,6 +180,8 @@ def main():
             confianza = "alta"
         elif rol in ("mismo", "pariente", "web"):
             confianza = "media"
+        elif rol == "grupo+web":
+            confianza = "baja (web en palabras" + (", dos fuentes)" if w.get("acuerdo") == "si" else ", una fuente)")
         elif rol == "grupo":
             confianza = "muy baja (consenso general)"
         else:
@@ -184,6 +202,8 @@ def main():
             "impacto_propuesto": "" if propuesto is None else propuesto,
             "rol": rol, "impacto_material_puro": "" if impacto_puro is None else impacto_puro,
             "fuerza_en_palabras": palabras, "fuente_palabras": w["fuente"] if w and palabras else "",
+            "fuente_palabras_2": w.get("fuente2", "") if w and palabras else "",
+            "dilucion_uso_web": w.get("dilucion_uso", "") if w else "",
             "regla": regla, "fuente": fuente, "contraste": contraste, "confianza": confianza,
             "particularidades": "; ".join(particular),
             "comun": r["comun"], "comun_id": r["comun_id"],

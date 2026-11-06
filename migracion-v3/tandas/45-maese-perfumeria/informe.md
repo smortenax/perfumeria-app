@@ -36,33 +36,44 @@ oleomacerados (13).
      el 10 % y se dice.
 5. **El contraste**: con lo común de la v3 (129 productos coinciden por CAS con un común) y, para lo que
    PerfuMate no tiene, con la web (TGSC, Eden Botanicals; `segunda-fuente-*.csv`). La fuerza en palabras
-   de TGSC **no se convierte a número** (V3-97): va en su columna.
+   de la web va en su columna y, solo cuando no hay otra cifra, acota el consenso general (abajo).
 
 ## Resultado
 
-| Categoría | Productos | Alta | Media | Baja (estimada) | Muy baja (consenso general) | Solo en palabras | Sin dato |
+| Categoría | Productos | Alta | Media | Baja (estimada) | Baja (web en palabras) | Muy baja (consenso general) | Sin dato |
 |---|---|---|---|---|---|---|---|
-| Aroma chemicals | 151 | 133 | 14 | 0 | 0 | 1 | 3 |
-| Absolutos, CO2, resinoides | 74 | 21 | 17 | 19 | 17 | 0 | 0 |
-| Aceites esenciales | 194 | 107 | 64 | 3 | 16 | 4 | 0 |
-| Tinturas y extractos | 137 | 2 | 0 | 71 | 64 | 0 | 0 |
-| **Total** | **556** | **263** | **95** | **93** | **97** | **5** | **3** |
+| Aroma chemicals | 151 | 133 | 14 | 0 | 1 | 0 | 3 |
+| Absolutos, CO2, resinoides | 74 | 21 | 18 | 19 | 1 | 15 | 0 |
+| Aceites esenciales | 194 | 107 | 64 | 3 | 9 | 11 | 0 |
+| Tinturas y extractos | 137 | 2 | 0 | 71 | 7 | 57 | 0 |
+| **Total** | **556** | **263** | **96** | **93** | **18** | **83** | **3** |
 
 - **Alta**: el mismo material en PerfuMate (por CAS o por pareja a mano) y sin desacuerdo con lo común.
 - **Media**: por nombre o especie, un pariente, o PerfuMate y lo común no dicen lo mismo.
 - **Baja (estimada)**: tinturas y diluciones (también lo que la web vende diluido: castóreo al 20 %,
   resinoides al 50 % en propanodiol, pepino CO2 al 1 %), por la regla de arriba.
-- **Muy baja (consenso general)** (97; añadido el 2026-11-06 a petición del usuario: «Aunque sea
+- **Baja (web en palabras)** (18; 4 con dos referentes que coinciden, 14 con uno; añadido el 2026-11-06
+  a petición del usuario: «para lo que falta va a buscarlo a otros referentes de internet […] contrastar
+  los referentes ya que a veces la búsqueda cita malas fuentes»): PerfuMate no tiene el material, pero un
+  referente de la web dice su fuerza en palabras (TGSC «Odor Strength», Premiere Peau, Eden Botanicals,
+  Fraterworks). Se parte del consenso general (abajo) y la cifra se lleva dentro del nivel que dice la web
+  (low 1–3, medium 4–6, high 7–8, very high 9–10); en las tinturas, después, la regla de la dilución.
+  **Esto es propuesta de la sesión y choca con V3-97** («sin convertirla»): si no la quieres, esos 18
+  vuelven a «muy baja» y las palabras se quedan solo en su columna.
+- **Muy baja (consenso general)** (83; añadido el 2026-11-06 a petición del usuario: «Aunque sea
   consensos generales»): ni PerfuMate ni la web dicen la fuerza de ese material. Se toma la mediana de
   PerfuMate de su género botánico (por ejemplo, *Thymus*: 7; *Cupressus*: 5) y, si PerfuMate no tiene el
   género, la de su tipo (aceites esenciales 6, de 240; absolutos 7, de 97; CO2 7, de 21; resinoides 6,
   de 7). En las tinturas, después, la regla de la dilución. Es un relleno para que el planificador no
-  quede vacío, no un dato del material: el ajo y la cebolla, por ejemplo, salen 6 y casi seguro son más.
-- **Solo en palabras** (5): TGSC o Eden Botanicals dan la fuerza en palabras (V3-97: no se convierte).
+  quede vacío, no un dato del material: la cebolla, por ejemplo, sale 6 y casi seguro es más.
 - **Sin dato** (3): Avalone (sin CAS), lactato de butilo y estireno; TGSC no trae su fuerza.
-- La búsqueda web uno a uno se hizo para 42 de los que faltaban (TGSC no trae «Odor Strength» para ellos);
-  las tinturas de algas, hongos, resinas de pino y copales no se buscaron una a una: las primeras
-  búsquedas de ese tipo no dieron nada.
+- **Cómo se buscó en la web** (2026-11-06): los 105 que no tenían fuente directa, uno a uno, en tres
+  rondas (`segunda-fuente-r1.csv`, `-r2`, `-r3`). Para cada uno, la búsqueda general primero y después
+  la página del referente que cita, leída: solo vale lo que dice un proveedor o una base de datos de
+  perfumería (TGSC, Premiere Peau, Eden Botanicals, Fraterworks, Scentspiracy), no una reseña, una tienda
+  de aromaterapia ni el resumen del buscador. 19 dieron fuerza; en los demás, la columna `fuente` dice qué
+  se buscó y que no lo dice ninguna fuente consultada. Los hongos, las algas, los frutos y las raíces de
+  alimentación (plátano, maca, nigella…) no tienen material de perfumería conocido y no se buscaron.
 
 ## Para mirar antes de aprobar
 
