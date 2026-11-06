@@ -1792,6 +1792,7 @@ Y, a la pregunta de si se pasaba a la app en una rama nueva: «Sí, una PR a mai
 - **Lo que no tiene impacto sigue enseñando su fuerza en palabras**, sin convertirla a número: la fuerza de cuatro niveles (`strength`) se queda.
 - **Dónde se ve:** la cabecera de la ficha («7/10» y diez segmentos, con la fuente del impacto); los filtros y el orden de Materiales (V3-94), del 1 al 10, y lo que solo tiene la palabra cuenta como «sin dato»; el marco del orbe (V3-91), diez segmentos, o cuatro si solo hay palabra; la intensidad del orbe, por el impacto. En el editor, el impacto se elige de 1 a 10, con su fuente.
 - **Por qué** (la sesión, del cruce del 2026-11-06): el impacto cubre más comunes que la fuerza y distingue lo que ella junta. Entre los «medium» hay impactos del 2 al 9.
+- **Las tandas** (el usuario, 2026-11-06, en las tarjetas del hilo): la 43, «Apruebo la tanda 43» (136 comunes); la 44, «Los 6 propuestos» (los seis con varias entradas en PerfuMate toman la de su mismo producto o su misma parte de la planta). A los 11 que PerfuMate no tiene, «Dejarlos sin impacto»: siguen con su fuerza en palabras, o sin nada, y el impacto se pone a mano en la ficha.
 
 ## V3-98 · El planificador de perfil aromático: lo decidido hasta hoy (2026-11-05 y 06; sin código)
 
