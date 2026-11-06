@@ -33,7 +33,7 @@ La evolución por tramos (V3-42) no entra: sigue vacía en todos.
 | 47 | Maese Lab, aroma chemicals | 80 sin común: 75 altas (5 ya eran comunes) | hecha, sin aprobar; va sobre la 46 |
 | 48 | Maese Lab, aceites esenciales | 164 sin común: 159 altas (5 ya eran comunes o el mismo material) | hecha, sin aprobar; va sobre la 47 |
 | 49 | Maese Lab, absolutos, CO2 y resinoides | 63 sin común: 51 altas (12 ya eran comunes, o el mismo absoluto vendido diluido o de otro origen) | hecha, sin aprobar; va sobre la 48 |
-| 50 | Maese Lab, tinturas y extractos | 120 sin común | en curso |
+| 50 | Maese Lab, tinturas y extractos | 120 sin común: 117 altas (3 ya eran comunes o el mismo material) | hecha, sin aprobar; va sobre la 49. Casi ninguna tintura tiene referencia propia: llevan especie, parte, perfil de la tienda y la familia del material puro, y las cifras quedan vacías |
 
 129 productos de Maese ya coinciden por CAS con un común: no se duplican; se completan en su tanda.
 

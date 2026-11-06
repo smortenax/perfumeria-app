@@ -138,7 +138,7 @@ for n, c in consenso.items():
     name = (name[0].upper() + name[1:]) if name else clean_name(c["nombre_web"].split(" - ")[-1])
     inside = [p.strip(" )") for p in re.split(r"[(/;,]", full)[1:] if p.strip(" )")]
     cases = c["cas"].split()
-    w = re.findall(r"[A-Za-z]+", re.sub(r"\b(?:alcohol|and|ethanol|dipropylene glycol)\b", " ", c["inci"], flags=re.I))  # el disolvente no es la especie
+    w = re.findall(r"[A-Za-z]+", re.sub(r"\b(?:alcohol|and|ethanol|dipropylene glycol|propanediol|glycerin|aqua|water)\b", " ", c["inci"], flags=re.I))  # el disolvente no es la especie
     w = [x for x in w if x.lower() != "x"]
     especie = f"{w[0].capitalize()} {w[1].lower()}" if len(w) >= 2 and w[1].lower() not in SKIP_EPITHET else ""
     form = FORM.get(c["tipo"], "")
@@ -149,7 +149,7 @@ for n, c in consenso.items():
         parte = ficha.get(n, {}).get("parte", "")
         name = f"{common[0].upper() + common[1:]}, {form}" if common else (
             f"{especie} ({PART_EN.get(norm(parte), parte.lower())}), {form}" if especie else name)
-    all_cas = cases
+    all_cas = [k for k in cases if not k.startswith("7732-18-") and k != "26264-14-2"]  # el agua (7732-18-5, y Maese la escribe mal) y el propanodiol son el disolvente, no el material
     if form != "molecule":  # un natural: la especie y la forma deciden (el CAS lo comparten especies)
         cases = []
         dup = next((m for m in commons if especie and m["kind"] == "natural" and m["species"].lower().startswith(especie.lower())

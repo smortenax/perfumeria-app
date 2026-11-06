@@ -61,6 +61,9 @@ const QUALIFIER: Record<string, string> = {
   "320": "lavandin extra", "321": "lavandin grosso", "325": "furocoumarin-free", "354": "red", "355": "green",
   "375": "white", "378": "black", "379": "green", "382": "white", "383": "pink", "386": "ct. camphor", "387": "ct. cineole",
   "183": "white", "184": "pink",
+  "502": "var. florentina, in propanediol", "451": "fresh", "452": "roasted", "453": "dried",
+  "548": "pre-ambered resin", "549": "aged resin",
+  "544": "petrified resin", "545": "pre-ambered resin", "546": "pre-fossilised resin", "547": "aged resin",
   "411": "first distillation", "412": "second distillation", "413": "third distillation", "414": "complete", "415": "extra",
 };
 /** Same material as another product of the batch, only another grade, origin or dilution (V3-85): a specification. */
@@ -68,13 +71,21 @@ const SAME: Record<string, [string, string]> = {
   "298": ["297", "the same guaiacwood oil, sold at 50 % in DPG"],
   "389": ["388", "the same Rosa damascena flower oil; «Otto Bulgaria» and «Extra» are origin and grade"],
   "373": ["370", "the same Citrus aurantium amara leaf/twig oil; Paraguay is the origin (Maese wrote «Hojas» there and «Hoja» in 370)"],
+  "440": ["437", "the same Bursera jorullense resin tincture from Mexico; «blanco» and «mexicano» name the same copal"],
+  "483": ["482", "the same Liquidambar orientalis resin tincture; Indonesia and Turkey are origins"],
   "193": ["192", "the same Rosa damascena flower absolute; Bulgaria and India are origins"],
   "215": ["194", "tobacco absolute sold diluted in alcohol; the absolute is already a common"],
 };
 /** Names the references give badly (a house code, the bare genus): session reading of Maese Lab's title and INCI. */
 const NAME_FIX: Record<string, string> = {
   "181": "Jasmine grandiflorum, absolute", "182": "Jasmine sambac, absolute", "187": "Narcissus, absolute",
-  "192": "Rosa damascena (flower), absolute", "197": "Tuberose, absolute", "202": "Coffee, CO2 extract", "218": "Butter, CO2 extract",
+  "192": "Rosa damascena (flower), absolute",
+  "422": "Palmaria palmata (seaweed), tincture", "423": "Codium tomentosum (seaweed), tincture", "444": "Natural camphor, tincture",
+  "500": "Mastic (resin), tincture", "506": "Natural menthol, tincture", "519": "Propolis, tincture", "531": "Hyraceum, tincture", "197": "Tuberose, absolute", "202": "Coffee, CO2 extract", "218": "Butter, CO2 extract",
+};
+/** Where Maese Lab's «parte» is plainly wrong (a seed for a seaweed or a stone): the part the INCI and the title say. */
+const PART_FIX: Record<string, string> = {
+  "422": "whole seaweed", "423": "whole seaweed", "444": "crystals", "506": "crystals", "531": "petrified excretion",
 };
 const named = (name: string, q: string | undefined) => {
   if (!q) return name;
@@ -144,7 +155,7 @@ for (const p of proposal) {
     cas: p.cas || null,
     other_cas: JSON.parse(p.otros_cas || "[]") as string[],
     species: p.especie || null,
-    part: p.parte ? `${p.parte_en} (Maese Lab: «${p.parte}»)` : null,
+    part: PART_FIX[p.n] ? `${PART_FIX[p.n]} (Maese Lab says «${p.parte}», which the INCI contradicts)` : p.parte ? `${p.parte_en} (Maese Lab: «${p.parte}»)` : null,
     process: p.metodo ? `${method ?? p.metodo.toLowerCase()} (Maese Lab: «${p.metodo}»)` : null,
     chemotype: chemotype(p.otros_nombres) || null,
     inci: p.inci || null,
