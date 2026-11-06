@@ -1,0 +1,194 @@
+n,nombre,campo,valor,fuente,nota
+152,ABS. Alga Fucus,nombre,fucus vesiculosus extract,"TGSC, https://www.thegoodscentscompany.com/data/ex1069131.html: «fucas vesiculosus extract»",CAS 84696-13-9; Fucus vesiculosus L.
+152,ABS. Alga Fucus,nombre,seaweed fucus absolute,"Biolandes, https://biolandes.com/en/product/seaweed-fucus/: «Fucus vesiculosus L.»",vendido como Absolute
+152,ABS. Alga Fucus,casa,,"no lo dice ninguna fuente consultada: TGSC ex1069131, Biolandes seaweed-fucus",
+152,ABS. Alga Fucus,familia,Marine,"Biolandes, https://biolandes.com/en/product/seaweed-fucus/: «Olfactive family: Marine»",
+152,ABS. Alga Fucus,nivel,,"no lo dice ninguna fuente consultada: TGSC ex1069131, Biolandes seaweed-fucus",
+152,ABS. Alga Fucus,horas,,"no lo dice ninguna fuente consultada: TGSC ex1069131, Biolandes seaweed-fucus",
+152,ABS. Alga Fucus,fuerza,,"no lo dice ninguna fuente consultada: TGSC ex1069131, Biolandes seaweed-fucus",
+152,ABS. Alga Fucus,estado,,"no lo dice ninguna fuente consultada: TGSC ex1069131, Biolandes seaweed-fucus",
+152,ABS. Alga Fucus,dosis,not for fragrance use,"TGSC, https://www.thegoodscentscompany.com/data/ex1069131.html: «not for fragrance use.»","TGSC lista el extracto cosmético, no el absoluto de perfumería"
+152,ABS. Alga Fucus,olor,"slightly salty marine notes, progressing into odors of leather, licorice and dark tobacco","Biolandes, https://biolandes.com/en/product/seaweed-fucus/: «slightly salty marine notes, progressing into odors of leather, licorice and dark tobacco»",
+153,ABS. Calendula (Flor),nombre,calendula officinalis flower extract,"TGSC, https://www.thegoodscentscompany.com/data/ex1067301.html: «calendula officinalis flower extract»","CAS 84776-23-8; calendula officinalis l., compositae"
+153,ABS. Calendula (Flor),nombre,Calendula Flower CO2 ORGANIC,"Hermitage Oils, https://hermitageoils.com/?p=38373: «Calendula Flower CO2 ORGANIC»","otra variedad (CO2 total, no absoluto)"
+153,ABS. Calendula (Flor),casa,,"no lo dice ninguna fuente consultada: TGSC ex1067301, Hermitage Oils",
+153,ABS. Calendula (Flor),familia,herbal,"TGSC, https://www.thegoodscentscompany.com/data/ex1067301.html: «herbal»",Odor Type herbal; marigold
+153,ABS. Calendula (Flor),nivel,heart note,"Hermitage Oils, https://hermitageoils.com/?p=38373: «I would class this as a heart note.»","otra variedad (CO2, no absoluto)"
+153,ABS. Calendula (Flor),horas,,"no lo dice ninguna fuente consultada: TGSC ex1067301, Hermitage Oils",
+153,ABS. Calendula (Flor),fuerza,,"no lo dice ninguna fuente consultada: TGSC ex1067301, Hermitage Oils",
+153,ABS. Calendula (Flor),estado,"solid at room temperature, paste-like consistency","Hermitage Oils, https://hermitageoils.com/?p=38373: «solid at room temperature, with a paste like consistency»","otra variedad (CO2, no absoluto)"
+153,ABS. Calendula (Flor),dosis,,"no lo dice ninguna fuente consultada: TGSC ex1067301, Hermitage Oils",TGSC solo dice «not for flavor use.»
+153,ABS. Calendula (Flor),olor,marigold,"TGSC, https://www.thegoodscentscompany.com/data/ex1067301.html: «at 100.00 %. marigold»",
+153,ABS. Calendula (Flor),olor,"warm hay, chocolate, chamomile and marigold character with skin ripe black plum undertones","Hermitage Oils, https://hermitageoils.com/?p=38373: «warm hay, chocolate, chamomile and marigold character with skin ripe black plum undertones»","otra variedad (CO2, no absoluto)"
+154,ABS. Cassis - 100% PURO,nombre,black currant bud absolute,"TGSC, https://www.thegoodscentscompany.com/data/ab1017621.html: «ribes nigrum l. bud absolute»",CAS 97676-19-2 en TGSC; Ribes nigrum L.
+154,ABS. Cassis - 100% PURO,nombre,Black Currant Bud Absolute,"Eden Botanicals, https://edenbotanicals.com/black-currant-bud-absolute.html: «Ribes nigrum L.»",
+154,ABS. Cassis - 100% PURO,casa,,"no lo dice ninguna fuente consultada: TGSC ab1017621, Eden Botanicals",
+154,ABS. Cassis - 100% PURO,familia,spicy,"TGSC, https://www.thegoodscentscompany.com/data/ab1017621.html: «spicy»",Odor Type
+154,ABS. Cassis - 100% PURO,nivel,middle and base,"Eden Botanicals, https://edenbotanicals.com/black-currant-bud-absolute.html: «Middle and base»",
+154,ABS. Cassis - 100% PURO,horas,344,"TGSC, https://www.thegoodscentscompany.com/data/ab1017621.html: «344 Hour(s)»",Substantivity
+154,ABS. Cassis - 100% PURO,fuerza,powerful,"TGSC, https://www.thegoodscentscompany.com/data/ab1017621.html: «powerful green spicy herbal berry fruity blackberry jammy incense»","palabra en la descripción de olor (al 10 % en DPG), no campo Odor Strength"
+154,ABS. Cassis - 100% PURO,fuerza,intense,"Eden Botanicals, https://edenbotanicals.com/black-currant-bud-absolute.html: «Intense, dominant green/fruity»",palabra en la descripción de olor
+154,ABS. Cassis - 100% PURO,estado,yellow green to dark green crystalline paste to solid (est),"TGSC, https://www.thegoodscentscompany.com/data/ab1017621.html: «yellow green to dark green crystalline paste to solid (est)»",
+154,ABS. Cassis - 100% PURO,estado,"viscous, pourable to thick and paste-like","Eden Botanicals, https://edenbotanicals.com/black-currant-bud-absolute.html: «Dark green/brown, viscous material that ranges from pourable to thick and paste-like at room temperature.»",
+154,ABS. Cassis - 100% PURO,dosis,up to 1.0 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/ab1017621.html: «usage levels up to: 1.0000 % in the fragrance concentrate.»",
+154,ABS. Cassis - 100% PURO,olor,powerful green spicy herbal berry fruity blackberry jammy incense,"TGSC, https://www.thegoodscentscompany.com/data/ab1017621.html: «powerful green spicy herbal berry fruity blackberry jammy incense»",al 10 % en DPG
+154,ABS. Cassis - 100% PURO,olor,"Intense, dominant green/fruity, tangy, somewhat minty/citrus-like aroma with deep, warm, wine-like earthy undertones","Eden Botanicals, https://edenbotanicals.com/black-currant-bud-absolute.html: «Intense, dominant green/fruity, tangy, somewhat minty/citrus-like aroma with deep, warm, wine-like earthy undertones»",
+155,ABS. Champaca Roja,nombre,michelia champaca l. flower absolute,"TGSC, https://www.thegoodscentscompany.com/data/ab1040551.html: «michelia champaca l. flower absolute»",CAS 94333-99-0
+155,ABS. Champaca Roja,nombre,red champaca absolute,"Fraterworks, https://fraterworks.com/products/red-champaca-absolute: «Michelia Champaca»",India
+155,ABS. Champaca Roja,casa,,"no lo dice ninguna fuente consultada: TGSC ab1040551, Fraterworks red-champaca-absolute",
+155,ABS. Champaca Roja,familia,floral,"TGSC, https://www.thegoodscentscompany.com/data/ab1040551.html: «floral»",Odor Type
+155,ABS. Champaca Roja,nivel,base,"Fraterworks, https://fraterworks.com/products/red-champaca-absolute: «Base note»",
+155,ABS. Champaca Roja,horas,200,"Fraterworks, https://fraterworks.com/products/red-champaca-absolute: «Lasts > 200 hours on a smelling strip.»",más de 200 h
+155,ABS. Champaca Roja,horas,,no lo dice ninguna fuente consultada: TGSC ab1040551 (sin Substantivity),
+155,ABS. Champaca Roja,fuerza,low,"TGSC, https://www.thegoodscentscompany.com/data/ab1040551.html: «Odor Strength: low»",
+155,ABS. Champaca Roja,estado,dark olive yellow viscous liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/ab1040551.html: «dark olive yellow viscous liquid (est)»",
+155,ABS. Champaca Roja,estado,Red liquid,"Fraterworks, https://fraterworks.com/products/red-champaca-absolute: «Red liquid»",
+155,ABS. Champaca Roja,dosis,median 0.032 % of the concentrate; creative formulas 0.1-10 %,"Fraterworks, https://fraterworks.com/products/red-champaca-absolute: «0.032% of the concentrate»",mediana en fórmulas analizadas; dilución común 10 % o 100 %
+155,ABS. Champaca Roja,olor,dry tea orangeflower ylang carnation guaiacwood,"TGSC, https://www.thegoodscentscompany.com/data/ab1040551.html: «dry tea orangeflower ylang carnation guaiacwood»",
+155,ABS. Champaca Roja,olor,"deep, sultry floral aroma with warm dried apricot and raisin-like sweetness, spicy clove warmth","Fraterworks, https://fraterworks.com/products/red-champaca-absolute: «deep, sultry floral aroma with warm dried apricot and raisin-like sweetness, spicy clove warmth»",
+158,ABS. Frangipani Rojo - 100 % PURO,nombre,pink frangipani absolute,"TGSC, https://thegoodscentscompany.com/data/ab1062361.html: «plumeria rubra l. absolute pink»","CAS 223748-06-9; otra variedad (pink, no red)"
+158,ABS. Frangipani Rojo - 100 % PURO,nombre,Frangipani Absolute,"Hermitage Oils, https://hermitageoils.com/product/frangipani-absolute/: «Plumeria rubra»",origen Malasia; no precisa color
+158,ABS. Frangipani Rojo - 100 % PURO,casa,,"no lo dice ninguna fuente consultada: TGSC ab1062361, Hermitage Oils frangipani-absolute",
+158,ABS. Frangipani Rojo - 100 % PURO,familia,floral,"TGSC, https://thegoodscentscompany.com/data/ab1062361.html: «Odor Type: floral»",otra variedad (pink)
+158,ABS. Frangipani Rojo - 100 % PURO,nivel,,"no lo dice ninguna fuente consultada: TGSC ab1062361, Hermitage Oils frangipani-absolute",Hermitage no lo clasifica
+158,ABS. Frangipani Rojo - 100 % PURO,horas,,"no lo dice ninguna fuente consultada: TGSC ab1062361, Hermitage Oils frangipani-absolute","Hermitage solo: «It's long lasting in a composition» (reseña de cliente, sin cifra)"
+158,ABS. Frangipani Rojo - 100 % PURO,fuerza,,"no lo dice ninguna fuente consultada: TGSC ab1062361, Hermitage Oils frangipani-absolute",
+158,ABS. Frangipani Rojo - 100 % PURO,estado,"solid waxy mass, pourable with bain-marie","Hermitage Oils, https://hermitageoils.com/product/frangipani-absolute/: «Frangipani absolute is a solid waxy mass that with bain-marie will become pourable.»",
+158,ABS. Frangipani Rojo - 100 % PURO,dosis,up to 0.8 % in the fragrance concentrate,"TGSC, https://thegoodscentscompany.com/data/ab1062361.html: «up to 0.8000 % in the fragrance concentrate»",otra variedad (pink)
+158,ABS. Frangipani Rojo - 100 % PURO,olor,sweet gardenia floral orangeflower neroli,"TGSC, https://thegoodscentscompany.com/data/ab1062361.html: «sweet gardenia floral orangeflower neroli»",otra variedad (pink)
+158,ABS. Frangipani Rojo - 100 % PURO,olor,"sweet, warm, heady, exotic, floral, with full bodied fruit and super charged delicate spice notes","Hermitage Oils, https://hermitageoils.com/product/frangipani-absolute/: «sweet, warm, heady, exotic, floral, with full bodied fruit and super charged delicate spice notes»",
+159,ABS. Genista / Retama (100% puro),nombre,genista tinctoria flower/leaf/stem extract,"TGSC, https://thegoodscentscompany.com/data/ex1614381.html: «genista tinctoria flower/leaf/stem extract»",CAS 90045-29-7
+159,ABS. Genista / Retama (100% puro),nombre,broom absolute (Spartium junceum),"Biolandes, https://www.biolandes.com/en/product/broom: «Spartium junceum L.»","otra especie (Spartium junceum, no Genista tinctoria); sin otros datos"
+159,ABS. Genista / Retama (100% puro),casa,,"no lo dice ninguna fuente consultada: TGSC ex1614381, Biolandes broom",
+159,ABS. Genista / Retama (100% puro),familia,,"no lo dice ninguna fuente consultada: TGSC ex1614381, Biolandes broom",
+159,ABS. Genista / Retama (100% puro),nivel,,"no lo dice ninguna fuente consultada: TGSC ex1614381, Biolandes broom",
+159,ABS. Genista / Retama (100% puro),horas,,"no lo dice ninguna fuente consultada: TGSC ex1614381, Biolandes broom",
+159,ABS. Genista / Retama (100% puro),fuerza,,"no lo dice ninguna fuente consultada: TGSC ex1614381, Biolandes broom",
+159,ABS. Genista / Retama (100% puro),estado,,"no lo dice ninguna fuente consultada: TGSC ex1614381, Biolandes broom",
+159,ABS. Genista / Retama (100% puro),dosis,not for fragrance use,"TGSC, https://thegoodscentscompany.com/data/ex1614381.html: «not for fragrance use.»",extracto cosmético; sin porcentaje
+159,ABS. Genista / Retama (100% puro),olor,,"no lo dice ninguna fuente consultada: TGSC ex1614381, Biolandes broom",
+160,ABS. Geranio Búlgaro,nombre,geranium macrorrhizum l. herb extract,"TGSC, https://www.thegoodscentscompany.com/data/ex1395051.html: «geranium macrorrhizum l. herb extract»",CAS 92347-05-2
+160,ABS. Geranio Búlgaro,nombre,Zdravetz CO2 ORGANIC (TOTAL),"Hermitage Oils, https://hermitageoils.com/product/zdravetz-co2-organic-total/: «Geranium macrorrhizum»","otra variedad (CO2 total, no absoluto); Bulgaria"
+160,ABS. Geranio Búlgaro,casa,,"no lo dice ninguna fuente consultada: TGSC ex1395051, Hermitage Oils zdravetz-co2",
+160,ABS. Geranio Búlgaro,familia,,"no lo dice ninguna fuente consultada: TGSC ex1395051, Hermitage Oils zdravetz-co2",
+160,ABS. Geranio Búlgaro,nivel,,"no lo dice ninguna fuente consultada: TGSC ex1395051, Hermitage Oils zdravetz-co2",
+160,ABS. Geranio Búlgaro,horas,,"no lo dice ninguna fuente consultada: TGSC ex1395051, Hermitage Oils zdravetz-co2",Hermitage solo trae una reseña de cliente («7 days of persistence ... on the strip») sobre el CO2; no se registra
+160,ABS. Geranio Búlgaro,fuerza,,"no lo dice ninguna fuente consultada: TGSC ex1395051, Hermitage Oils zdravetz-co2",
+160,ABS. Geranio Búlgaro,estado,,"no lo dice ninguna fuente consultada: TGSC ex1395051, Hermitage Oils zdravetz-co2",
+160,ABS. Geranio Búlgaro,dosis,,"no lo dice ninguna fuente consultada: TGSC ex1395051, Hermitage Oils zdravetz-co2",
+160,ABS. Geranio Búlgaro,olor,intense richly charged resinous notes,"Hermitage Oils, https://hermitageoils.com/product/zdravetz-co2-organic-total/: «intense richly charged resinous notes»","otra variedad (CO2 total, no absoluto)"
+161,ABS. Haba Tonka,nombre,tonka bean absolute,"Eden Botanicals, https://edenbotanicals.com/tonka-bean-absolute.html: «Dipteryx odorata (Aubl.) Willd.»",
+161,ABS. Haba Tonka,nombre,tonka bean oil dipteryx odorata bean oil,"TGSC, https://thegoodscentscompany.com/data/es1376061.html: «tonka bean oil dipteryx odorata bean oil»","otra variedad (aceite, CAS 8024-04-2; la página TGSC del absoluto rs1060461 dio error)"
+161,ABS. Haba Tonka,casa,,"no lo dice ninguna fuente consultada: TGSC es1376061, Eden Botanicals tonka-bean-absolute",
+161,ABS. Haba Tonka,familia,coumarinic,"TGSC, https://thegoodscentscompany.com/data/es1376061.html: «coumarinic»","otra variedad (tonka bean oil, no absoluto)"
+161,ABS. Haba Tonka,nivel,"middle, base, and fixative","Eden Botanicals, https://edenbotanicals.com/tonka-bean-absolute.html: «Middle, base, and fixative»",
+161,ABS. Haba Tonka,horas,,"no lo dice ninguna fuente consultada: TGSC es1376061, Eden Botanicals tonka-bean-absolute",Eden: «very tenacious» (sin cifra)
+161,ABS. Haba Tonka,fuerza,,"no lo dice ninguna fuente consultada: TGSC es1376061, Eden Botanicals tonka-bean-absolute",
+161,ABS. Haba Tonka,estado,"off-white to brown, opaque, very thick paste-like mass, solid at room temperature","Eden Botanicals, https://edenbotanicals.com/tonka-bean-absolute.html: «Off-white to brown, opaque, very thick paste-like mass that is solid at room temperature»",
+161,ABS. Haba Tonka,dosis,,"no lo dice ninguna fuente consultada: TGSC es1376061, Eden Botanicals tonka-bean-absolute","Eden: «Dilute and add drop by drop», sin porcentaje; TGSC (aceite): «not for flavor use.»"
+161,ABS. Haba Tonka,olor,"Very rich, caramel-like, powdery-sweet aroma of new mown hay with a warm herbal and soft tobacco-like undertone","Eden Botanicals, https://edenbotanicals.com/tonka-bean-absolute.html: «Very rich, caramel-like, powdery-sweet aroma of new mown hay with a warm herbal and soft tobacco-like undertone»",
+161,ABS. Haba Tonka,olor,tonka coumarinic,"TGSC, https://thegoodscentscompany.com/data/es1376061.html: «at 100.00 %. tonka coumarinic»",otra variedad (aceite)
+162,ABS. Hyraceum (Piedra de África),nombre,"Hyraceum ""Signature"" Absolute","Fraterworks, https://www.fraterworks.com/products/hyraceum-signature-absolute: «fossilised urine and faeces of the Rock Hyrax (Procavia capensis)»",vendido al 40 % en DPG
+162,ABS. Hyraceum (Piedra de África),nombre,Hyraceum Absolute 40%,"Hermitage Oils, https://hermitageoils.com/product/hyraceum-absolute/: «Hyraceum Absolute 40%»",vendido al 40 % en DPG
+162,ABS. Hyraceum (Piedra de África),casa,,"no lo dice ninguna fuente consultada: Fraterworks hyraceum-signature-absolute, Hermitage Oils hyraceum-absolute",TGSC no consultada (sin página en la búsqueda)
+162,ABS. Hyraceum (Piedra de África),familia,"animalic, phenolic-urinous","Fraterworks, https://www.fraterworks.com/products/hyraceum-signature-absolute: «phenolic, urinous notes mingle with tarry leather and scorched earth»",familia deducible de la descripción de olor: no es campo explícito
+162,ABS. Hyraceum (Piedra de África),nivel,base,"Fraterworks, https://www.fraterworks.com/products/hyraceum-signature-absolute: «Base note»",al 40 % en DPG
+162,ABS. Hyraceum (Piedra de África),horas,400,"Fraterworks, https://www.fraterworks.com/products/hyraceum-signature-absolute: «Lasts > 400 hours on a smelling strip.»",más de 400 h; al 40 % en DPG
+162,ABS. Hyraceum (Piedra de África),fuerza,moderate,"Fraterworks, https://www.fraterworks.com/products/hyraceum-signature-absolute: «moderate strength (6/10)»",al 40 % en DPG
+162,ABS. Hyraceum (Piedra de África),estado,Dark brown liquid,"Fraterworks, https://www.fraterworks.com/products/hyraceum-signature-absolute: «Dark brown liquid.»",al 40 % en DPG
+162,ABS. Hyraceum (Piedra de África),dosis,1.28 % in finished product (Cat. 4),"Fraterworks, https://www.fraterworks.com/products/hyraceum-signature-absolute: «1.28% in finished product (Cat. 4).»","es el límite IFRA 51, no un uso habitual; al 40 % en DPG"
+162,ABS. Hyraceum (Piedra de África),olor,"phenolic, urinous notes mingle with tarry leather and scorched earth","Fraterworks, https://www.fraterworks.com/products/hyraceum-signature-absolute: «phenolic, urinous notes mingle with tarry leather and scorched earth»",al 40 % en DPG
+162,ABS. Hyraceum (Piedra de África),olor,"so very warm, dark, masculine, castoreum, leathery and real musk orientated","Hermitage Oils, https://hermitageoils.com/product/hyraceum-absolute/: «so very warm, dark, masculine, castoreum, leathery and real musk orientated»",reseña de cliente en la página; al 40 %
+163,ABS. Te de Montaña,nombre,Mountain Tea CO2 ORGANIC (SELECT),"Hermitage Oils, https://hermitageoils.com/product/mountain-tea-co2-select/: «Sideritis scardica»","otra variedad (CO2 Select, no absoluto)"
+163,ABS. Te de Montaña,nombre,sideritis syriaca oil bulgaria,"TGSC, https://thegoodscentscompany.com/data/es1592621.html: «sideritis syriaca oil bulgaria»",otra especie (S. syriaca) y otra variedad (aceite)
+163,ABS. Te de Montaña,casa,,"no lo dice ninguna fuente consultada: TGSC es1592621, Hermitage Oils mountain-tea-co2-select",
+163,ABS. Te de Montaña,familia,balsamic,"TGSC, https://thegoodscentscompany.com/data/es1592621.html: «Odor Type: balsamic»","otra especie (S. syriaca), aceite"
+163,ABS. Te de Montaña,nivel,top note,"Hermitage Oils, https://hermitageoils.com/product/mountain-tea-co2-select/: «this is a top note material»","otra variedad (CO2 Select, no absoluto); opinión de un reseñador en la página"
+163,ABS. Te de Montaña,horas,1-2,"Hermitage Oils, https://hermitageoils.com/product/mountain-tea-co2-select/: «only lasts an hour or two on the blotter»","otra variedad (CO2 Select, no absoluto)"
+163,ABS. Te de Montaña,fuerza,,"no lo dice ninguna fuente consultada: TGSC es1592621, Hermitage Oils mountain-tea-co2-select",
+163,ABS. Te de Montaña,estado,colorless to pale yellow clear liquid (est),"TGSC, https://thegoodscentscompany.com/data/es1592621.html: «colorless to pale yellow clear liquid (est)»","otra especie (S. syriaca), aceite"
+163,ABS. Te de Montaña,dosis,4.0 % in the fragrance concentrate,"TGSC, https://thegoodscentscompany.com/data/es1592621.html: «4.0000 % in the fragrance concentrate.»","otra especie (S. syriaca), aceite"
+163,ABS. Te de Montaña,olor,"a fresh, spicy tea aroma that includes intriguing aspects of tobacco, camphor and pepper","Hermitage Oils, https://hermitageoils.com/product/mountain-tea-co2-select/: «a fresh, spicy tea aroma that includes intriguing aspects of tobacco, camphor and pepper»",otra variedad (CO2 Select); reseña en la página
+163,ABS. Te de Montaña,olor,balsamic,"TGSC, https://thegoodscentscompany.com/data/es1592621.html: «at 100.00 %. balsamic»","otra especie (S. syriaca), aceite"
+164,ABS. Yerba Mate,nombre,ilex paraguariensis st. hil. leaf extract,"TGSC, https://thegoodscentscompany.com/data/ex1054831.html: «ilex paraguariensis st. hil. leaf extract»",CAS 73296-98-7
+164,ABS. Yerba Mate,nombre,mate absolute,"Biolandes, https://www.biolandes.com/en/?p=43954: «Ilex paraguariensis A.St.-Hil.»",Extract type Absolute
+164,ABS. Yerba Mate,casa,,"no lo dice ninguna fuente consultada: TGSC ex1054831, Biolandes p=43954",
+164,ABS. Yerba Mate,familia,herbal,"TGSC, https://thegoodscentscompany.com/data/ex1054831.html: «Odor Type: herbal»","extracto de hoja de TGSC, no necesariamente el absoluto"
+164,ABS. Yerba Mate,familia,Hay,"Biolandes, https://www.biolandes.com/en/?p=43954: «Olfactive family: Hay»",
+164,ABS. Yerba Mate,nivel,,"no lo dice ninguna fuente consultada: TGSC ex1054831, Biolandes p=43954",
+164,ABS. Yerba Mate,horas,,"no lo dice ninguna fuente consultada: TGSC ex1054831, Biolandes p=43954",Biolandes: «it is rather well tenacious» (sin cifra)
+164,ABS. Yerba Mate,fuerza,,"no lo dice ninguna fuente consultada: TGSC ex1054831, Biolandes p=43954",
+164,ABS. Yerba Mate,estado,,"no lo dice ninguna fuente consultada: TGSC ex1054831, Biolandes p=43954",
+164,ABS. Yerba Mate,dosis,,"no lo dice ninguna fuente consultada: TGSC ex1054831, Biolandes p=43954","TGSC solo da ppm en bebidas (sabor), no perfumería"
+164,ABS. Yerba Mate,olor,tea brown sweet leafy hay earthy vegetable,"TGSC, https://thegoodscentscompany.com/data/ex1054831.html: «at 100.00 %. tea brown sweet leafy hay earthy vegetable»",
+164,ABS. Yerba Mate,olor,notes of green tea evolving on tobacco tones,"Biolandes, https://www.biolandes.com/en/?p=43954: «notes of green tea evolving on tobacco tones»",
+165,Absoluto de Acacia (Cassie Flower) - EXTRA,nombre,acacia farnesiana flower/stem extract,"TGSC, https://www.thegoodscentscompany.com/data/ex1103981.html: «acacia farnesiana flower/stem extract»",CAS 89958-31-6
+165,Absoluto de Acacia (Cassie Flower) - EXTRA,nombre,Cassie absolute,"Hekserij, https://eng.hekserij.nl/shop/fragrance-raw-material/search-by-type/absolute/cassie-absolute/: «Acacia farnesiana (L.) Wild.»",Hekserij (tienda neerlandesa de materias primas) no está en la lista de fuentes de confianza
+165,Absoluto de Acacia (Cassie Flower) - EXTRA,casa,,"no lo dice ninguna fuente consultada: TGSC ex1103981, Hekserij cassie-absolute",
+165,Absoluto de Acacia (Cassie Flower) - EXTRA,familia,,"no lo dice ninguna fuente consultada: TGSC ex1103981, Hekserij cassie-absolute",Hekserij: «green spicy floral scent» (descripción de olor)
+165,Absoluto de Acacia (Cassie Flower) - EXTRA,nivel,base,"Hekserij, https://eng.hekserij.nl/shop/fragrance-raw-material/search-by-type/absolute/cassie-absolute/: «It is mainly a base note in perfumes»",
+165,Absoluto de Acacia (Cassie Flower) - EXTRA,horas,,"no lo dice ninguna fuente consultada: TGSC ex1103981, Hekserij cassie-absolute",
+165,Absoluto de Acacia (Cassie Flower) - EXTRA,fuerza,not very strong,"Hekserij, https://eng.hekserij.nl/shop/fragrance-raw-material/search-by-type/absolute/cassie-absolute/: «The smell is not very strong, so it can be used undiluted.»",
+165,Absoluto de Acacia (Cassie Flower) - EXTRA,estado,light yellow to green-brown liquid or solid at room temperature,"Hekserij, https://eng.hekserij.nl/shop/fragrance-raw-material/search-by-type/absolute/cassie-absolute/: «light yellow to green-brown liquid or solid at room temperature»",
+165,Absoluto de Acacia (Cassie Flower) - EXTRA,dosis,0.1 % to 5 % in the fragrance composition,"Hekserij, https://eng.hekserij.nl/shop/fragrance-raw-material/search-by-type/absolute/cassie-absolute/: «You usually use between 0,1% and 5% of this substance in the fragrance composition.»",
+165,Absoluto de Acacia (Cassie Flower) - EXTRA,olor,green spicy floral scent reminiscent of the blossoms of acacia and hawthorn,"Hekserij, https://eng.hekserij.nl/shop/fragrance-raw-material/search-by-type/absolute/cassie-absolute/: «green spicy floral scent reminiscent of the blossoms of acacia and hawthorn»",
+166,Absoluto de Alcachofa,nombre,artichoke absolute,"TGSC, https://thegoodscentscompany.com/data/ab1657321.html: «artichoke absolute»","otra especie (Cynara cardunculus, cardoon; CAS 93165-00-5, no 84012-14-6)"
+166,Absoluto de Alcachofa,nombre,Artichoke Absolute,"Hermitage Oils, https://hermitageoils.com/product/artichoke-absolute/: «Cynara cardunculus»","otra especie (C. cardunculus, no C. scolymus); origen Egipto"
+166,Absoluto de Alcachofa,casa,,"no lo dice ninguna fuente consultada: TGSC ab1657321, Hermitage Oils artichoke-absolute",
+166,Absoluto de Alcachofa,familia,green,"TGSC, https://thegoodscentscompany.com/data/ab1657321.html: «Odor Type: green»",otra especie (C. cardunculus)
+166,Absoluto de Alcachofa,nivel,,"no lo dice ninguna fuente consultada: TGSC ab1657321, Hermitage Oils artichoke-absolute",
+166,Absoluto de Alcachofa,horas,,"no lo dice ninguna fuente consultada: TGSC ab1657321, Hermitage Oils artichoke-absolute",Hermitage: «very good tenacity» (sin cifra)
+166,Absoluto de Alcachofa,fuerza,,"no lo dice ninguna fuente consultada: TGSC ab1657321, Hermitage Oils artichoke-absolute",
+166,Absoluto de Alcachofa,estado,"dark orange in colour, of pourable viscosity","Hermitage Oils, https://hermitageoils.com/product/artichoke-absolute/: «This material is dark orange in colour, of pourable viscosity.»",otra especie (C. cardunculus)
+166,Absoluto de Alcachofa,dosis,,"no lo dice ninguna fuente consultada: TGSC ab1657321, Hermitage Oils artichoke-absolute",TGSC: «not for flavor use.»; Hermitage solo dice «low dosage» sin cifra
+166,Absoluto de Alcachofa,olor,green artichoke vegetable resinous earthy,"TGSC, https://thegoodscentscompany.com/data/ab1657321.html: «green artichoke vegetable resinous earthy»",otra especie (C. cardunculus)
+166,Absoluto de Alcachofa,olor,a bitter vegetative note (cynaropicrin) that resembles the artichoke leaf perfectly,"Hermitage Oils, https://hermitageoils.com/product/artichoke-absolute/: «a bitter vegetative note (cynaropicrin) that resembles the artichoke leaf perfectly»",otra especie (C. cardunculus)
+172,Absoluto de Cera de Abeja,nombre,white beeswax absolute,"TGSC, https://www.thegoodscentscompany.com/data/ab1006701.html: «white beeswax absolute»",CAS 8012-89-3; absoluto de cera blanqueada
+172,Absoluto de Cera de Abeja,nombre,beeswax absolute,"Hekserij, https://eng.hekserij.nl/shop/fragrance-raw-material/search-by-type/absolute/beeswax-absolute/: «The scent of beeswax is sweet with aspects of tobacco, wax, honey and hay.»",Hekserij no está en la lista de fuentes de confianza; Knowde (Albert Vieille) devolvió página vacía
+172,Absoluto de Cera de Abeja,casa,,"no lo dice ninguna fuente consultada: TGSC ab1006701, Hekserij beeswax-absolute",
+172,Absoluto de Cera de Abeja,familia,hay,"TGSC, https://www.thegoodscentscompany.com/data/ab1006701.html: «Odor Type: hay»",
+172,Absoluto de Cera de Abeja,nivel,base,"Hekserij, https://eng.hekserij.nl/shop/fragrance-raw-material/search-by-type/absolute/beeswax-absolute/: «It is mainly a base note.»",
+172,Absoluto de Cera de Abeja,horas,,"no lo dice ninguna fuente consultada: TGSC ab1006701, Hekserij beeswax-absolute",
+172,Absoluto de Cera de Abeja,fuerza,low,"TGSC, https://www.thegoodscentscompany.com/data/ab1006701.html: «Odor Strength: low»",
+172,Absoluto de Cera de Abeja,estado,brown moist solid (est),"TGSC, https://www.thegoodscentscompany.com/data/ab1006701.html: «brown moist solid (est)»",
+172,Absoluto de Cera de Abeja,estado,a yellow to dark brown substance on the edge of solid and liquid (at room temperature),"Hekserij, https://eng.hekserij.nl/shop/fragrance-raw-material/search-by-type/absolute/beeswax-absolute/: «a yellow to dark brown substance on the edge of solid and liquid (at room temperature).»",
+172,Absoluto de Cera de Abeja,dosis,,"no lo dice ninguna fuente consultada: TGSC ab1006701, Hekserij beeswax-absolute","TGSC solo da ppm FEMA para sabor; Hekserij: «A dilution can be useful», sin cifra"
+172,Absoluto de Cera de Abeja,olor,sweet oily waxy hay tobacco,"TGSC, https://www.thegoodscentscompany.com/data/ab1006701.html: «sweet oily waxy hay tobacco»",
+172,Absoluto de Cera de Abeja,olor,"sweet with aspects of tobacco, wax, honey and hay","Hekserij, https://eng.hekserij.nl/shop/fragrance-raw-material/search-by-type/absolute/beeswax-absolute/: «The scent of beeswax is sweet with aspects of tobacco, wax, honey and hay.»",
+174,Absoluto de Civet - EXTRA,nombre,civet absolute,"TGSC, https://thegoodscentscompany.com/data/ab1019061.html: «civet absolute»",CAS 68916-26-7; Viverra civetta / V. zibetha
+174,Absoluto de Civet - EXTRA,nombre,"Civet ""Supreme"" Absolute","Fraterworks, https://fraterworks.com/products/civet-gold-absolute-p-n: «Viverra civetta»",CAS 68916-26-7; la URL es civet-gold-absolute-p-n
+174,Absoluto de Civet - EXTRA,casa,,"no lo dice ninguna fuente consultada: TGSC ab1019061, Fraterworks civet-gold-absolute-p-n",
+174,Absoluto de Civet - EXTRA,familia,animal,"TGSC, https://thegoodscentscompany.com/data/ab1019061.html: «Odor Type: animal»",
+174,Absoluto de Civet - EXTRA,nivel,base,"Fraterworks, https://fraterworks.com/products/civet-gold-absolute-p-n: «Base Note»",
+174,Absoluto de Civet - EXTRA,horas,400,"TGSC, https://thegoodscentscompany.com/data/ab1019061.html: «400 hour(s) at 100.00 %»",
+174,Absoluto de Civet - EXTRA,horas,400,"Fraterworks, https://fraterworks.com/products/civet-gold-absolute-p-n: «Lasts > 400 hours on a smelling strip.»",más de 400 h
+174,Absoluto de Civet - EXTRA,fuerza,high,"TGSC, https://thegoodscentscompany.com/data/ab1019061.html: «Odor Strength: high»",
+174,Absoluto de Civet - EXTRA,fuerza,moderate (7/10),"Fraterworks, https://fraterworks.com/products/civet-gold-absolute-p-n: «moderate strength (7/10)»",
+174,Absoluto de Civet - EXTRA,estado,amber to dark amber semi-solid to solid (est),"TGSC, https://thegoodscentscompany.com/data/ab1019061.html: «amber to dark amber semi-solid to solid (est)»",
+174,Absoluto de Civet - EXTRA,estado,Dark straw liquid (light straw solid in low temperatures),"Fraterworks, https://fraterworks.com/products/civet-gold-absolute-p-n: «Dark straw liquid (light straw solid in low temperatures).»",
+174,Absoluto de Civet - EXTRA,dosis,up to 4.0 % in the fragrance concentrate,"TGSC, https://thegoodscentscompany.com/data/ab1019061.html: «4.0000 % in the fragrance concentrate.»",límite IFRA según TGSC
+174,Absoluto de Civet - EXTRA,dosis,median 0.013 % in perfumes; typically 1-10 % when diluted,"Fraterworks, https://fraterworks.com/products/civet-gold-absolute-p-n: «0.013% Median use in perfumes»",mediana en fórmulas analizadas; las diluciones de uso son 10 % y 2 %
+174,Absoluto de Civet - EXTRA,olor,animal urine honey fecal balsamic powdery fatty resinous,"TGSC, https://thegoodscentscompany.com/data/ab1019061.html: «animal urine honey fecal balsamic powdery fatty resinous»",
+174,Absoluto de Civet - EXTRA,olor,"intensely animal-sweet, musky character with warm, smoky undertones","Fraterworks, https://fraterworks.com/products/civet-gold-absolute-p-n: «intensely animal-sweet, musky character with warm, smoky undertones»",
+175,Absoluto de Clavel - EXTRA,nombre,Carnation Absolute,"TGSC, https://thegoodscentscompany.com/data/ab1014511.html: «Carnation Absolute is produced by extraction of the flowers of Dianthus Caryophyllus»",CAS 8021-43-0 en TGSC (Maese: 89958-29-2); misma especie
+175,Absoluto de Clavel - EXTRA,nombre,carnation signature absolute,"Fraterworks, https://fraterworks.com/products/carnation-signature-absolute: «Dianthus caryophillus L.»",CAS 8021-43-0
+175,Absoluto de Clavel - EXTRA,casa,,"no lo dice ninguna fuente consultada: TGSC ab1014511, Fraterworks carnation-signature-absolute",TGSC cita a IFF solo como descripción de olor
+175,Absoluto de Clavel - EXTRA,familia,spicy,"TGSC, https://thegoodscentscompany.com/data/ab1014511.html: «Odor Type: spicy»",
+175,Absoluto de Clavel - EXTRA,nivel,heart,"Fraterworks, https://fraterworks.com/products/carnation-signature-absolute: «Heart Note»",
+175,Absoluto de Clavel - EXTRA,horas,24,"Fraterworks, https://fraterworks.com/products/carnation-signature-absolute: «24 hours on a smelling strip»",
+175,Absoluto de Clavel - EXTRA,horas,,no lo dice ninguna fuente consultada: TGSC ab1014511 (sin Substantivity),
+175,Absoluto de Clavel - EXTRA,fuerza,,"no lo dice ninguna fuente consultada: TGSC ab1014511, Fraterworks carnation-signature-absolute",
+175,Absoluto de Clavel - EXTRA,estado,olive green viscous liquid (est),"TGSC, https://thegoodscentscompany.com/data/ab1014511.html: «olive green viscous liquid (est)»",
+175,Absoluto de Clavel - EXTRA,estado,Orange viscous liquid,"Fraterworks, https://fraterworks.com/products/carnation-signature-absolute: «Orange viscous liquid»",
+175,Absoluto de Clavel - EXTRA,dosis,up to 0.5 % in the fragrance concentrate,"TGSC, https://thegoodscentscompany.com/data/ab1014511.html: «up to: 0.5000 % in the fragrance concentrate.»",
+175,Absoluto de Clavel - EXTRA,dosis,median 3 % in analysed formulas,"Fraterworks, https://fraterworks.com/products/carnation-signature-absolute: «Median use in analysed formulas: 3%»",mediana en fórmulas analizadas; límite IFRA 51: 16.6 % en producto final (Cat. 4)
+175,Absoluto de Clavel - EXTRA,olor,sweet spicy honey herbal heavy floral,"TGSC, https://thegoodscentscompany.com/data/ab1014511.html: «sweet spicy honey herbal heavy floral»",
+175,Absoluto de Clavel - EXTRA,olor,A warm powdery floral note that has a spicy clove-like body,"Fraterworks, https://fraterworks.com/products/carnation-signature-absolute: «A warm powdery floral note that has a spicy clove-like body»",cita LMR
+176,Absoluto de Fenogreco,nombre,trigonella foenum graecum l. absolute,"TGSC, https://thegoodscentscompany.com/data/ab1023801.html: «trigonella foenum graecum l. absolute»",CAS 68990-15-8 en TGSC (Maese: 84625-40-1); misma especie; segunda referencia no buscada (cupo)
+176,Absoluto de Fenogreco,casa,,no lo dice ninguna fuente consultada: TGSC ab1023801,segunda referencia no buscada (cupo)
+176,Absoluto de Fenogreco,familia,caramellic,"TGSC, https://thegoodscentscompany.com/data/ab1023801.html: «Odor Type: caramellic»",
+176,Absoluto de Fenogreco,horas,400,"TGSC, https://thegoodscentscompany.com/data/ab1023801.html: «400 Hour(s)»",Substantivity
+176,Absoluto de Fenogreco,fuerza,,no lo dice ninguna fuente consultada: TGSC ab1023801,segunda referencia no buscada (cupo)
+176,Absoluto de Fenogreco,estado,dark brown liquid (est),"TGSC, https://thegoodscentscompany.com/data/ab1023801.html: «dark brown liquid (est)»",
+176,Absoluto de Fenogreco,dosis,2.0 % in the fragrance concentrate,"TGSC, https://thegoodscentscompany.com/data/ab1023801.html: «2.0000 % in the fragrance concentrate.»",
+176,Absoluto de Fenogreco,olor,sweet maple celery spicy coumarin balsam,"TGSC, https://thegoodscentscompany.com/data/ab1023801.html: «sweet maple celery spicy coumarin balsam»",

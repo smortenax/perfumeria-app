@@ -1,0 +1,25 @@
+n,nombre,campo,valor,fuente,nota
+39,2-Hydroxybenzaldehyde,horas,,"no lo dice ninguna fuente consultada: TGSC https://www.thegoodscentscompany.com/data/rw1028641.html, ScenTree https://www.scentree.co/en/Salicylic_aldehyde.html",
+40,Aldambre,horas,,"no lo dice ninguna fuente consultada: Fraterworks https://fraterworks.com/products/aldambre, Premiere Peau https://premierepeau.com/pages/glossary-terms/aldambre, TGSC (sin ficha propia hallada)","Fraterworks solo dice «radiating outward during the crucial 1-4 hour window» (no es tenacidad sobre tira)"
+41,Alpha-hexyl cinnamic aldehyde,dosis,,"no lo dice ninguna fuente consultada: TGSC https://www.thegoodscentscompany.com/data/rw1005972.html, Fraterworks https://fraterworks.com/products/hexyl-cinnamic-aldehyde","TGSC solo da límites IFRA del producto final. Fraterworks: «appears in 34% of the perfumes we have analysed, at a median of 1.93% of the concentrate» (uso observado, no recomendación)"
+42,Ambrarome,horas,>400,"Fraterworks, https://fraterworks.com/products/ambrarome-absolute: «Lasts > 400 hours on a smelling strip»","Ambrarome Absolute (Synarome); el producto se vende diluido al 50% en TEC, no está claro a qué dilución se refiere la cifra"
+42,Ambrarome,horas,>200,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/ambrarome: «>200 hours · 8 days» (Tenacity on blotter)",
+43,Ambrettolide,horas,172,"Fraterworks, https://fraterworks.com/products/ambrettolide: «Lasts > 172 hours on a smelling strip»","valor mínimo (>172); CAS de esa ficha no verificado"
+43,Ambrettolide,horas,248,"TGSC, https://thegoodscentscompany.com/data/rw1026271.html: «248 hour(s) at 100.00 %»","OJO: esa ficha TGSC es CAS 28645-51-4, no 63286-42-0; verificar identidad"
+44,Auranone,horas,,"no lo dice ninguna fuente consultada: Firmenich https://www.firmenich.com/product/auranone-pe-911383-0, Premiere Peau https://premierepeau.com/pages/glossary-terms/auranone (no cargó)","Fraterworks y TGSC: sin ficha hallada"
+45,Black Agar 296985,horas,,"no lo dice ninguna fuente consultada: dsm-firmenich https://studio.dsm-firmenich.com/product/black-agar-pe-296985, TGSC https://www.thegoodscentscompany.com/data/pb1114411.html","dsm-firmenich solo dice «brings tenacity and unforgettable dark character» (sin horas)"
+46,"Black pepper, absolute",horas,>40,"Fraterworks, https://fraterworks.com/products/black-pepper-absolute: «> 40 hours on a smelling strip»","valor mínimo (>40)"
+46,"Black pepper, absolute",horas,,"no lo dice TGSC, https://www.thegoodscentscompany.com/data/ab1093011.html: solo «a warm long-lasting black pepper signature» (Firmenich, sin horas)",
+47,"Chinese cedarwood, essential oil",dosis,,"no lo dice ninguna fuente consultada: Perflavory https://www.perflavory.com/docs/doc1007241.html (primeros 100000 caracteres), TGSC gca https://thegoodscentscompany.com/gca/gc1007241.html","No se halló la ficha TGSC de 85085-29-6; las fichas TGSC de otros cedros (terpenes 10 %, deodara 5 %) no son este material y no se registran"
+48,Cumin Nitrile,horas,<4,"TGSC, https://thegoodscentscompany.com/data/rw1016811.html: «< 4 hour(s) at 100.00 %»","cuminyl nitrile; sin segunda referencia (Fraterworks no cargó)"
+49,Dewfruit TEC,horas,,"no lo dice ninguna fuente consultada: Givaudan ficha vía Hekserij https://www.hekserij.nl/wp-content/uploads/2026/03/1Doc-25010-Dewfruit-TEC-Giv-2026-02.pdf, Fraterworks https://fraterworks.com/products/dewfruit-r (es Dewfruit R, otro producto)",
+50,Ethyl vanillin,horas,400,"TGSC, https://thegoodscentscompany.com/data/rw1002652.html: «400 hour(s) at 20.00 % in dipropylene glycol»","figura a 20 % en DPG, no al 100 %"
+50,Ethyl vanillin,horas,>1 month,"Fraterworks, https://fraterworks.com/products/ethyl-vanillin: «Lasts > 1 month on a smelling strip»","no da horas; >1 mes"
+51,Exaltolide Total,horas,400,"TGSC, https://thegoodscentscompany.com/data/rw1004211.html: «400 hour(s) at 10.00 % in dipropylene glycol»","ficha de exaltolide (Firmenich), CAS 106-02-5; figura al 10 % en DPG"
+51,Exaltolide Total,horas,>400,"Fraterworks, https://fraterworks.com/products/exaltolide-total: «Lasts > 400 hours on a smelling strip»","valor mínimo"
+52,Isobutyl acetate,horas,,"no lo dice ninguna fuente consultada: TGSC https://www.thegoodscentscompany.com/data/rw1013631.html; Fraterworks sin ficha accesible",
+53,Prunella,horas,>24,"Fraterworks, https://fraterworks.com/products/prunella: «Lasts > 24 hours on a smelling strip»","valor mínimo; Prunella® de Firmenich"
+54,Rose Crystals,horas,,no buscado (cupo),
+55,Synthetic castoreum,horas,,no buscado (cupo),
+56,"Tonka bean (seeds), commercial tincture",horas,,no buscado (cupo),
+57,Veramoss,horas,,no buscado (cupo),

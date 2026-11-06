@@ -1,0 +1,58 @@
+id,nombre,tipo,cas,especie,falta,n_huecos,impacto,pm_como,pm_nombres,pm_url,pm_familia,pm_horas,pm_horas_texto,pm_dilucion
+0df7a786-5996-512d-bb47-f5369bc0b603,"Villous cardamom, tincture",natural,,Amomum villosum,"familia, nivel, horas, fuerza, estado, dosis",6,,,,,,,,
+5ae9ba7b-91c0-513a-91f9-6fd96d157693,Aldehyde C12 lauric (dodecanal),molecule,112-54-9,,"nivel, horas, fuerza, estado, dosis",5,8,cas,Aldehyde C-12 Lauric (Dodecanal),https://perfumate.app/material/aldehyde-c-12-lauric-dodecanal,Waxy aldehydic,79.19999999999999,3.3 days on a blotter,Neat or 10%
+7345c296-c9d6-552a-938e-9a4cd7295776,"Ambrette, tincture",natural,977017-78-9,Abelmoschus moschatus,"nivel, horas, fuerza, estado, dosis",5,7,cas,Ambrette Seed Absolute,https://perfumate.app/material/ambrette-seed-absolute,Powdery musk,336.0,14 days on a blotter,Neat or 10%
+c8aad349-54c1-5c52-8ae1-756aa9603c4f,Amyl salicylate,molecule,2050-08-0,,"nivel, horas, fuerza, estado, dosis",5,4,cas,Amyl Salicylate,https://perfumate.app/material/amyl-salicylate,Green floral,124.80000000000001,5.2 days on a blotter,Neat or 50%
+4e08728b-6ff8-51d7-a6b0-a4b132984a33,Benzyl salicylate,molecule,118-58-1,,"nivel, horas, fuerza, estado, dosis",5,2,cas,Benzyl Salicylate,https://perfumate.app/material/benzyl-salicylate,White floral,384.0,16 days on a blotter,Neat
+2af343c4-8fcb-54b8-9686-55d59df82860,Manzanate,molecule,39255-32-8,,"nivel, horas, fuerza, estado, dosis",5,8,cas,Manzanate,https://perfumate.app/material/manzanate,Orchard fruit,,,Neat or 10%
+88b33f5f-bc67-58d8-a0c2-c0be338762b0,Methyl linolenate,molecule,7361-80-0,,"familia, nivel, horas, fuerza, dosis",5,,,,,,,,
+269bdf87-b064-5833-822d-0abc7a861cb1,Phenethyl acetate,molecule,103-45-7,,"nivel, horas, fuerza, estado, dosis",5,5,cas,Phenethyl Acetate,https://perfumate.app/material/phenethyl-acetate,Rosy floral,16.0,16 hours on a blotter,Neat or 10%
+22845271-91e5-51d8-818e-1bb6c4c4094f,"Green cardamom, tincture",natural,85940-32-5,Elettaria cardamomum L.,"nivel, horas, fuerza, dosis",4,8,cas,Cardamom CO2 Extract,https://perfumate.app/material/cardamom-co2-extract,Warm spice,,,Neat or 10%
+7e8265a2-c890-5476-a722-23ed3282820f,"Hyraceum (Africa stone), absolute",natural,1005328-84-6,Procavia capensis,"nivel, horas, estado, dosis",4,8,cas,Hyraceum Absolute,https://perfumate.app/material/hyraceum-absolute,Civet musky,,,5%
+f27ddd72-0e08-5b24-9c62-09589aeffdf7,Luminide,molecule,1392321-41-3,,"familia, horas, fuerza, estado",4,7,cas,Luminide,https://perfumate.app/material/luminide,Clean powdery musk,,,Neat or 10%
+7c27cec2-aaf6-510f-a49f-7e94fd626f20,"Myrrh, essential oil",natural,8016-37-3,Commiphora myrrha,"familia, nivel, horas, fuerza",4,6,cas,Myrrh Essential Oil,https://perfumate.app/material/myrrh-essential-oil,Balsamic,408.0,17 days on a blotter,Neat or 10%
+f8611ea1-022b-57ff-b63c-3261640023da,Raspberry ketone,molecule,5471-51-2,,"nivel, horas, fuerza, dosis",4,3,cas,Frambinone,https://perfumate.app/material/frambinone,Berry,408.0,17 days on a blotter,Neat or 10%
+bead932d-eeb3-539d-bdb0-bfea834b56ac,4-Propylphenol,molecule,645-56-7,,"horas, fuerza, dosis",3,,,,,,,,
+f5d717d2-a948-5705-8b66-1a9b62450fe7,Cypriol / Nagarmotha EO,natural,68916-60-9,Cyperus scariosus,"horas, fuerza, dosis",3,6,cas,Cypriol Essential Oil,https://perfumate.app/material/cypriol-essential-oil,Smoky woody,,,Neat or 10%
+76f0d086-01d7-533e-bdf5-d3be8dccc36c,Filbertone,molecule,81925-81-7,,"nivel, horas, fuerza",3,9,cas,Filbertone,https://perfumate.app/material/filbertone,Nutty,2.0,2.0 hours on a blotter,0.1%
+dc039041-25a9-5729-8e46-5ddf03fae94d,"Honey, aromatic essence",composition,,,"horas, fuerza, dosis",3,,,,,,,,
+3a4efae9-c9e4-501f-a7d2-6a39fa2b801e,"Juniper (berries), essential oil",natural,8002-68-4,Juniperus communis,"nivel, horas, estado",3,6,cas,Juniper Berry Pure Jungle Essence | Juniper Wood Oil,https://perfumate.app/material/juniper-berry-pure-jungle-essence | https://perfumate.app/material/juniper-wood-oil,Dry woody | Fresh berry,,,Neat or 10%
+f230705a-08bd-53a3-ab61-d4bcebc6d9ab,Magnolan,molecule,27606-09-3,,"nivel, estado, dosis",3,5,cas,Magnolan,https://perfumate.app/material/magnolan,Aquatic floral,312.0,13 days on a blotter,Neat or 10%
+4352551b-fca9-5d6a-8bf5-c175015da6e3,Phenylethyl Mercaptan,molecule,4410-99-5,,"horas, fuerza, dosis",3,9,cas,2-Phenylethanethiol,https://perfumate.app/material/2-phenylethanethiol,Rosy floral,,,1%
+e8146902-46ac-59a2-8513-18567b6a1e55,Thialdine,molecule,638-17-5,,"horas, fuerza, dosis",3,,,,,,,,
+41a1db79-71d5-5a84-8732-4334c81fb21e,Truffle essence,composition,,,"familia, horas, fuerza",3,,,,,,,,
+f7a96966-533f-5a38-9500-d49e5be6a93d,"3,4-Xylenol",molecule,95-65-8,,"horas, dosis",2,,,,,,,,
+7895fb8e-fe78-569a-8124-d65513c5d50b,Aurantiol,molecule,89-43-0,,"nivel, estado",2,5,cas,Aurantiol,https://perfumate.app/material/aurantiol,Honeyed floral,120.0,5.0 days on a blotter,Neat or 10%
+e9d1a6f5-8677-5c11-a5d6-fec95c4dd043,Boisambrene Forte,molecule,58567-11-6,,"nivel, estado",2,5,cas,Amber Decane | Boisambrene Forte,https://perfumate.app/material/amber-decane | https://perfumate.app/material/boisambrene-forte,Dry amber | Warm amber,168.0,7.0 days on a blotter,Neat or 10%
+fad2e266-92d9-5b6c-8543-6c879feb8d3f,"Galbanum, essential oil",natural,8023-91-4,Ferula galbaniflua,"horas, fuerza",2,9,cas,Galbanum Essential Oil,https://perfumate.app/material/galbanum-essential-oil,Galbanum green,72.0,3.0 days on a blotter,Neat or 10%
+5c8591db-77ed-57d8-8905-74a806b2c562,Indole,molecule,120-72-9,,"horas, fuerza",2,8,cas,Indole,https://perfumate.app/material/indole,Indolic,408.0,17 days on a blotter,1%
+1120f7cf-11c0-57f6-9de8-331bc4ac12a7,Isobutavan,molecule,20665-85-4,,"horas, fuerza",2,5,cas,Vanillin Isobutyrate,https://perfumate.app/material/vanillin-isobutyrate,Vanillic,,,Neat or 10%
+3d4629e8-cd57-51e9-9d33-3f7dcf8173e3,Javanol,molecule,198404-98-7,,"nivel, estado",2,9,cas,Javanol,https://perfumate.app/material/javanol,Sandalwood,408.0,17 days on a blotter,1%
+8de08292-2c2d-59c5-859e-2090f26df287,Narcisse Oxyacetate,molecule,67028-40-4,,"horas, fuerza",2,,,,,,,,
+05e2b376-cda5-5983-981c-79a1a1f23007,Operanide,molecule,823178-41-2,,"horas, fuerza",2,7,cas,Operanide,https://perfumate.app/material/operanide,Ambery woody,,,Neat or 10%
+f508019d-d671-5b65-8cd0-45df69026eae,"Opopanax, essential oil",natural,93686-00-1,Commiphora erythraea var. glabrescens Engle,"horas, fuerza",2,6,cas,Opoponax Essential Oil,https://perfumate.app/material/opoponax-essential-oil,Balsamic,,,Neat or 10%
+1d34571f-3db7-5d74-8563-941ae683219b,Orris Givco,composition,,,"horas, fuerza",2,,,,,,,,
+a192269c-2933-5883-a243-63d37eefee8c,Para-cresol,molecule,106-44-5,,"nivel, horas",2,9,cas,p-Cresol,https://perfumate.app/material/p-cresol,Smoky phenolic,20.0,20 hours on a blotter,1%
+7cdb990c-f772-5f51-a6d3-c2acbd9b7c03,"Pink pepper (Schinus molle), essential oil",natural,68917-52-2,Schinus molle,"nivel, estado",2,6,cas,Pink Pepper Essential Oil,https://perfumate.app/material/pink-pepper-essential-oil,Seedy spice,10.0,10 hours on a blotter,Neat or 10%
+c6123c69-30e9-56db-b0ae-abe74150427f,Shangralide,composition,,,"horas, dosis",2,5,nombre,Shangralide | Shangralide Oliffac 0712,https://perfumate.app/material/shangralide | https://perfumate.app/material/shangralide-oliffac-0712,Animalic deer musk | Animalic musk,,,Neat or 10%
+b29f1fc2-79ee-5894-9276-40c2d1796884,Vinyl Sulfurol,molecule,1759-28-0,,"horas, fuerza",2,8,cas,4-Methyl-5-vinylthiazole,https://perfumate.app/material/4-methyl-5-vinylthiazole,Nutty,,,1%
+5da0738b-c7ba-54a5-af01-386a3f8e0e0f,1-Octen-3-one Stabilised,molecule,4312-99-6,,horas,1,,,,,,,,
+aa83f1f1-92a9-5f1d-b9a8-83f3dca795bc,2-Hydroxybenzaldehyde,molecule,90-02-8,,horas,1,7,cas,Salicylaldehyde,https://perfumate.app/material/salicylaldehyde,Medicinal herb,,,Neat or 10%
+c1a357df-e7de-54cf-bdfb-9b3c79000814,Aldambre,molecule,1725-03-7,,horas,1,6,nombre,Aldambre,https://perfumate.app/material/aldambre,Dry woody amber,,,Neat or 10%
+c833332c-de03-50d6-9703-c7c8eddbb59e,Alpha-hexyl cinnamic aldehyde,molecule,101-86-0,,dosis,1,4,cas,Hexyl Cinnamic Aldehyde,https://perfumate.app/material/hexyl-cinnamic-aldehyde,White floral,,,Neat or 50%
+c3da0773-7b86-5a25-967d-70878f526a18,Ambrarome,composition,,"Cistus ladanifer (labdanum; the source writes 'cistus cyprius, cistaceae')",horas,1,8,nombre,Ambrarome Absolue,https://perfumate.app/material/ambrarome-absolue,Civet musky,,,1%
+e4d36415-6b7e-513b-9d8b-65d0e4373e62,Ambrettolide,molecule,63286-42-0,,horas,1,5,cas,Ambrettolide,https://perfumate.app/material/ambrettolide,Clean musk,240.0,10 days on a blotter,Neat or 10%
+e885d87e-90c3-5be4-bf02-87abf93d2fc9,Auranone,composition,,,horas,1,3,nombre,Auranone,https://perfumate.app/material/auranone,Clean musk,,,Neat or 10%
+eba059ae-a78a-53ba-9364-490848cf0f2a,Black Agar 296985,composition,,,horas,1,8,nombre,Black Agar Givco 215/2,https://perfumate.app/material/black-agar-givco-215-2,Ambery woody,,,1%
+49ea9a32-0751-5759-9f43-9811d76b4d54,"Black pepper, absolute",natural,8006-82-4,Piper nigrum,horas,1,6,cas,Black Pepper Absolute | Black Pepper Essential Oil,https://perfumate.app/material/black-pepper-absolute | https://perfumate.app/material/black-pepper-essential-oil,Dark pepper spice | Seedy spice,48.0,2.0 days on a blotter,Neat or 10%
+924d227f-c444-58f1-9d4a-229a950e2476,"Chinese cedarwood, essential oil",natural,85085-29-6,"Cupressus funebris Endl. (ScenTree, Scent.vn). An article (J. Essential Oil Res. 2008, via search engine) questions that the commercial «chino» oil is solely from that species: it is probably a mixture of several Cupressaceae, with β-biotol and β-biotone markers that suggest Platycladus orientalis wood.",dosis,1,5,cas,Cedarwood Essential Oil Chinese,https://perfumate.app/material/cedarwood-essential-oil-chinese,Cedar,408.0,17 days on a blotter,Neat or 10%
+740512a1-0aed-5035-912c-2dcdb89a9291,Cumin Nitrile,molecule,13816-33-6,,horas,1,,,,,,,,
+e035f8a6-1eb5-5d37-ac18-e207ba77750e,Dewfruit TEC,composition,,,horas,1,5,nombre,Dewfruit ABQ2977,https://perfumate.app/material/dewfruit-abq2977,Red fruit cassis,,,Neat or 10%
+96d723c1-3334-5960-a545-dc17ab203dae,Ethyl vanillin,molecule,121-32-4,,horas,1,9,cas,Ethyl vanillin,https://perfumate.app/material/ethyl-vanillin,Vanillic,408.0,17 days on a blotter,1%
+99cbb5b1-4ef4-5255-9c75-5e89d8a32279,Exaltolide Total,molecule,106-02-5,,horas,1,3,cas,Exaltolide | Macrolide,https://perfumate.app/material/exaltolide | https://perfumate.app/material/macrolide,Animalic musk | Clean musk,504.0,21 days on a blotter,Neat or 10%
+5ba9489c-e34e-5ef4-a6f2-d9ea79edc81b,Isobutyl acetate,molecule,110-19-0,,horas,1,5,cas,Isobutyl Acetate,https://perfumate.app/material/isobutyl-acetate,Tropical fruit,4.0,4.0 hours on a blotter,Neat or 10%
+32b2d283-5e18-5609-aa85-e73c813388cf,Prunella,composition,,,horas,1,7,nombre,Prunella,https://perfumate.app/material/prunella,Dried plum,,,Neat or 10%
+e3577dfe-1f2c-5929-90c7-ee935c2b88d4,Rose Crystals,molecule,90-17-5,,horas,1,6,cas,Rosacetol,https://perfumate.app/material/rosacetol,Rosy floral,,,Neat or 10%
+06e5196c-ccf7-5807-abb3-b336912764ff,Synthetic castoreum,composition,,,horas,1,7,nombre,Castoreum Synthetic,https://perfumate.app/material/castoreum-synthetic,Leathery animalic,79.19999999999999,3.3 days on a blotter,Neat or 10%
+bd30c4f7-e2fd-5091-9fad-bd8e9fd565b6,"Tonka bean (seeds), commercial tincture",natural,90028-06-1,Dipteryx odorata (according to the Maese Lab description),horas,1,7,cas,Tonka Bean CO2 Extract,https://perfumate.app/material/tonka-bean-co2-extract,Vanillic,,,Neat or 10%
+02a466c2-feeb-50eb-9dd7-e544e8335d00,Veramoss,molecule,4707-47-5,,horas,1,6,cas,Evernyl,https://perfumate.app/material/evernyl,Foliage,240.0,10 days on a blotter,Neat or 10%

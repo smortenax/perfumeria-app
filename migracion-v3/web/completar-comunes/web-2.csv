@@ -1,0 +1,51 @@
+n,nombre,campo,valor,fuente,nota
+20,Phenylethyl Mercaptan,horas,,no lo dice ninguna fuente consultada: TGSC rw1049141 (campos vacíos),
+20,Phenylethyl Mercaptan,fuerza,,no lo dice ninguna fuente consultada: TGSC rw1049141 (campos vacíos),
+20,Phenylethyl Mercaptan,dosis,,no lo dice ninguna fuente consultada: TGSC rw1049141 (campos vacíos),
+21,Thialdine,horas,,no lo dice ninguna fuente consultada: TGSC rw1576841,
+21,Thialdine,fuerza,,no lo dice ninguna fuente consultada: TGSC rw1576841,
+21,Thialdine,dosis,not for fragrance use,"TGSC, https://www.thegoodscentscompany.com/data/rw1576841.html: «Recommendation for thialdine usage levels up to: not for fragrance use.»",sin cifra de perfumería; solo tabla de ppm en alimentos
+23,"3,4-Xylenol",horas,,no lo dice ninguna fuente consultada: TGSC rw1036991,
+23,"3,4-Xylenol",dosis,,no lo dice ninguna fuente consultada: TGSC rw1036991 (solo tabla GRAS de sabores sin columnas claras),
+22,Truffle essence,familia,,"no lo dice ninguna fuente consultada: PerfumersWorld Truffle Concentrate (TRU06028), producto distinto y sin familia explícita",composición sin CAS; no hay referencia identificable
+22,Truffle essence,horas,,no lo dice ninguna fuente consultada: PerfumersWorld TRU06028 (no se confirma que sea el mismo producto),
+22,Truffle essence,fuerza,,no lo dice ninguna fuente consultada: PerfumersWorld TRU06028 (no se confirma que sea el mismo producto),
+24,Aurantiol,nivel,base,"Fraterworks, https://fraterworks.com/products/aurantiol: «Classification: Base Note»",
+24,Aurantiol,estado,intensely yellow viscous liquid,"Fraterworks, https://fraterworks.com/products/aurantiol: «Intensely yellow viscous liquid»",espesa pero vertible si se calienta
+24,Aurantiol,estado,yellow viscous liquid,"Perfumer's Apprentice, https://shop.perfumersapprentice.com/p-10769-aurantiol-pure-givaudan.aspx: «Yellow Viscous Liquid»",Aurantiol Pure (Givaudan)
+25,Boisambrene Forte,nivel,base,"Fraterworks, https://fraterworks.com/products/boisambrene-forte: «Base Note»; «base note fixative»",TGSC rw1016091 sin datos
+25,Boisambrene Forte,estado,colourless liquid,"Fraterworks, https://fraterworks.com/products/boisambrene-forte: «Colourless liquid»",
+26,"Galbanum, essential oil",horas,72,"TGSC, https://www.thegoodscentscompany.com/data/es1005331.html: «Substantivity: 72 hour(s) at 100.00 %»",galbanum oil 8023-91-4
+26,"Galbanum, essential oil",horas,>70,"Fraterworks, https://fraterworks.com/products/galbanum-oil-wild: «Lasts > 70 hours on a smelling strip.»",Galbanum Signature Oil (Ferula galbaniflua)
+26,"Galbanum, essential oil",horas,7,"PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7GQ00200: «Odor Life (Smelling Strip) 7 hrs»",discrepa con TGSC y Fraterworks (7 vs 70+)
+26,"Galbanum, essential oil",fuerza,high,"TGSC, https://www.thegoodscentscompany.com/data/es1005331.html: «Odor Strength: high»",TGSC añade smell in a 1.00 % solution or less
+26,"Galbanum, essential oil",fuerza,powerful,"Fraterworks, https://fraterworks.com/products/galbanum-oil-wild: «Powerful green modifier for florals, chypres, and fougères»",palabra sobre su uso; sin campo de fuerza propio
+27,Indole,horas,400,"TGSC, https://www.thegoodscentscompany.com/data/rw1006511.html: «400 hour(s) at 50.00 % in dipropylene glycol»",referido a 50 % en DPG
+27,Indole,fuerza,high,"TGSC, https://www.thegoodscentscompany.com/data/rw1006511.html: «Odor Strength: high , recommend smelling in a 1.00 % solution or less»",
+28,Isobutavan,horas,>400,"TGSC, https://www.thegoodscentscompany.com/data/rw1024071.html: «> 400 hour(s) at 100.00 %»",
+28,Isobutavan,horas,>400,"Fraterworks, https://fraterworks.com/products/isobutavan: «Lasts > 400 hours on a smelling strip.»",
+28,Isobutavan,fuerza,medium,"TGSC, https://www.thegoodscentscompany.com/data/rw1024071.html: «Odor Strength: medium»",
+29,Javanol,nivel,base,"Fraterworks, https://fraterworks.com/products/sandal-cyclopropane: «Classification: Base Note»",Perfumer's Apprentice no lo dice
+29,Javanol,estado,colourless liquid,"Fraterworks, https://fraterworks.com/products/sandal-cyclopropane: «Colourless liquid»",
+29,Javanol,estado,colorless viscous liquid,"Perfumer's Apprentice, https://shop.perfumersapprentice.com/p-6135-javanol-givaudan.aspx: «Colorless viscous liquid»",Javanol (Givaudan); discrepa en viscosidad
+30,Narcisse Oxyacetate,horas,,no lo dice ninguna fuente consultada: TGSC rw1023241 (cherry oxyacetate); PerfumersWorld 1PF01952 resultó ser otro material,
+30,Narcisse Oxyacetate,fuerza,,no lo dice ninguna fuente consultada: TGSC rw1023241 (cherry oxyacetate),
+31,Operanide,horas,>72,"Fraterworks, https://fraterworks.com/products/operanide: «Lasts > 72 hours on a smelling strip.»",
+31,Operanide,horas,>72,"Perfumer's Apprentice, https://shop.perfumersapprentice.com/p-10755-operanide-iff.aspx: «Tenacity on blotter» >72 hours",
+31,Operanide,fuerza,,"no lo dice ninguna fuente consultada: Fraterworks operanide, Perfumer's Apprentice p-10755 (solo difusión/sustantividad); TGSC sin página encontrada",Fraterworks habla de difusión: «Exceptional diffusion»; no es fuerza explícita
+32,"Opopanax, essential oil",horas,>112,"Fraterworks, https://fraterworks.com/products/opoponax-oil-1: «Lasts > 112 hours on a smelling strip.»",CAS 8021-36-1 y Commiphora erythraea var. glabrescens
+32,"Opopanax, essential oil",horas,5,"PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7QC00336: «Odor Life (Smelling Strip) 5 hrs»",CAS 8021-36-1; discrepa con Fraterworks
+32,"Opopanax, essential oil",fuerza,moderate,"Fraterworks, https://fraterworks.com/products/opoponax-oil-1: «moderate strength (4/10)»",TGSC no consultado con éxito (ex1401031 error)
+33,Orris Givco,horas,>360,"Fraterworks, https://fraterworks.com/products/orris-givco: «Lasts > 360 hours on a smelling strip»",Orris Givco 204/20
+33,Orris Givco,fuerza,,"no lo dice ninguna fuente consultada: Fraterworks orris-givco, Perfumer's Apprentice p-9349 (solo «Very diffusive»)",
+34,Para-cresol,nivel,base,"Fraterworks, https://fraterworks.com/products/para-cresol: «Classification: Base Note»",TGSC no da nivel
+34,Para-cresol,horas,400,"TGSC, https://www.thegoodscentscompany.com/data/rw1003851.html: «400 hour(s) at 10.00 % in dipropylene glycol»",referido a 10 % en DPG
+34,Para-cresol,horas,>400,"Fraterworks, https://fraterworks.com/products/para-cresol: «Lasts > 400 hours on a smelling strip.»",
+35,"Pink pepper (Schinus molle), essential oil",nivel,base,"Fraterworks, https://fraterworks.com/products/pink-pepper-oil: «Classification: Base Note»",contradice el propio texto de la página: «a wonderfully piquant and fresh top note» y «as a top-to-middle note»; TGSC no da nivel
+35,"Pink pepper (Schinus molle), essential oil",estado,pale straw liquid,"Fraterworks, https://fraterworks.com/products/pink-pepper-oil: «Pale straw liquid»",Schinus molle L.
+35,"Pink pepper (Schinus molle), essential oil",estado,pale green clear oily liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/es1034621.html: «pale green clear oily liquid (est)»",estimado por TGSC
+36,Shangralide,horas,>260,"Fraterworks, https://fraterworks.com/products/shangralide: «Lasts > 260 hours on a smelling strip»",Shangralide Oliffac (IFF)
+36,Shangralide,dosis,,"no lo dice ninguna fuente consultada: Fraterworks shangralide (solo cualitativo: «what smells aggressive in the bottle becomes seductive and intimate below one percent»), Perfumer's Apprentice p-9168",sin cifra de uso
+37,Vinyl Sulfurol,horas,,no lo dice ninguna fuente consultada: TGSC rw1028541 (campos vacíos); Fraterworks sulfurol es otro material (CAS 137-00-8),
+37,Vinyl Sulfurol,fuerza,,no lo dice ninguna fuente consultada: TGSC rw1028541 (campos vacíos),
+38,1-Octen-3-one Stabilised,horas,,no lo dice ninguna fuente consultada: TGSC rw1027981 (página truncada por WebFetch; campo no localizado); sin otra referencia,TGSC cita un grado «stabilised 0.1% Tocopherol» (Endeavour) pero sin horas
