@@ -1814,6 +1814,17 @@ Y, a la pregunta de si se pasaba a la app en una rama nueva: «Sí, una PR a mai
 
 **Propuesta de la sesión, sin decidir:** la forma por defecto de cada material: resina o bálsamo por su forma o nombre, meseta; si no, por el piso (salida, fugaz; salida-corazón, salida; corazón, corazón; corazón-fondo, corazón por debajo de 100 h y lineal desde ahí; fondo, lineal); sin piso, por las horas. Se cambia en cada línea del plan. La maqueta, el cruce de datos y los dos informes de investigación están en la carpeta del proyecto, `planificador-perfil/`.
 
+## V3-99 · Publicar al fusionar en `main` (pedida por el usuario el 2026-11-06)
+
+**Literal** (orko kill, 2026-11-06, en el hilo del planificador): «la idea es que siempre se pueda hacer deploy desde el propio chat sino se puede guardar las claves en una carpeta separada fuera de la repo o algo pero que sea deploy automatico es lo mas comodo».
+
+**Lectura** (de la sesión):
+
+- **Fusionar una PR en `main` es publicar.** Lo hace la GitHub Action `.github/workflows/publicar-v3.yml` con cada cambio de `v3/`, en este orden: `tsc`, pruebas y build; si algo falla, no toca la nube. Después vienen las migraciones (`supabase db push`), los datos comunes (`npm run datos:cargar:nube`) y Cloudflare (`wrangler deploy`). También se puede lanzar a mano desde la pestaña Actions.
+- **Las claves son secretos del repositorio**, fuera de Git: `DATABASE_URL_CLOUD` (la del pooler de sesión de Supabase, porque GitHub no llega por IPv6), `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `VITE_POWERSYNC_URL`, `CLOUDFLARE_API_TOKEN` y `CLOUDFLARE_ACCOUNT_ID`.
+- **Quedan a mano:** el `sync-config.yaml` en el panel de PowerSync Cloud (la Action avisa cuando cambia) y las tandas de la cuenta, que llevan tu correo.
+- Cambia la regla «Fusionado no es publicado» de `CLAUDE.md` (2026-10-27).
+
 ## V3-100 · El catálogo de Maese Lab entra en lo común, y las altas se completan (pedida por el usuario el 2026-11-06; por definir cómo)
 
 **Literal** (orko kill, 2026-11-06, en el hilo de la tanda 45): «yo no los tengo pero los quiero dar de alta dentro de los generales, como siempre en los estandares de la app pero creo que es clave tener todo el glosario de maese dentro de la app, en parte es personal porque pronto hare un workshop y creo que la mayoria de materiales que usare son de maese pero aun asi creo que tener un glosario entero de un vendedor importante ya es mucha ampliacion en los recursos de los materiales, por otro lado a futuro podria hacer lo mismo con otras plataformas de venta y que estas esten bajo algun filtro que no enturbie el banco de materiales por ejemplo la posibilidad de desactivar materiales de proveedores concretos por casas...». Y después: «y lo importante es que se contraste las altas de referencia y se mire que falta para estos materiales y para otros que se quedaron con una "alta rapida" y no estan completos y que en ambos casos se complete el alta».

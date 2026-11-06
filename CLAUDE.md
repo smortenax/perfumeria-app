@@ -38,10 +38,13 @@ las ramas pendientes, se trabaja así:
   el mismo número.
 - **Cada sesión termina con una PR a `main`**, no con una rama suelta. La fusiona el usuario, o
   la sesión cuando él lo pide.
-- **Fusionado no es publicado.** En `docs-v3/estado.md` queda qué falta para publicar (migraciones
-  en la nube, `sync-config.yaml` en PowerSync Cloud, `npm run datos:cargar`, tandas de la cuenta,
-  `npm run build` y `npx wrangler deploy`). Lo hace quien tenga las claves: hoy, el chat del PC. El
-  entorno en la nube no las tiene.
+- **Fusionar en `main` es publicar (V3-99, 2026-11-06).** La GitHub Action
+  `.github/workflows/publicar-v3.yml` corre con cada cambio de `v3/` en `main`: `tsc`, pruebas y
+  build; las migraciones en la nube (`supabase db push`), `npm run datos:cargar:nube` y
+  `wrangler deploy`. Las claves son secretos del repositorio. **No hace dos cosas:** el
+  `sync-config.yaml` en PowerSync Cloud (en su panel; la Action avisa si cambia) y las tandas de la
+  cuenta (`cargar-laboratorio.ts`, desde el PC). Tras fusionar, se mira que la Action acabe en verde
+  antes de decir que algo está en la web.
 - **Lo que el usuario ve es lo publicado.** Antes de decirle que algo «está hecho», se dice si
   está en una rama, en `main` o en la web.
 
