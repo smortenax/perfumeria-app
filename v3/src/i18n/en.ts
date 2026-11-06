@@ -211,6 +211,9 @@ export const texts = {
       family: "Family",
       strength: "Strength",
       strengthOf: (s: string) => `Strength: ${s}`,
+      /** The impact, 1 to 10 (V3-97): the strength the head shows when the material has one. */
+      impact: (n: number) => `${n}/10`,
+      impactOf: (n: number) => `Strength: impact ${n} out of 10`,
       strip: "On a blotter",
       duration: (h: number) =>
         (h < 24 ? `${Number(h.toFixed(1))} h` : h < 24 * 7 ? `${Number((h / 24).toFixed(1))} days` : `${Number((h / 168).toFixed(1))} weeks`),
@@ -250,6 +253,7 @@ export const texts = {
     inheritedRows: "From the common material: your version inherits it (it is not changed here)",
     tenacitySource: "Source of the tenacity",
     strengthSource: "Source of the strength",
+    impactSource: "Source of the impact",
     nameRequired: "The material needs a name.",
     notANumber: (text: string) => `«${text}» is not a number.`,
     notACas: (text: string) => `«${text}» is not a CAS (like 91-64-5).`,
@@ -382,6 +386,7 @@ export const texts = {
       tier: "Tier",
       tenacity: "Tenacity",
       evolution: "Evolution (0 to 3)",
+      impact: "Impact (1–10)",
       strength: "Strength",
       threshold: "Threshold",
       diffusion: "Diffusion",

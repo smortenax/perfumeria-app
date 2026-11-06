@@ -103,6 +103,11 @@ export const materials = pgTable(
     strength: text("strength"),
     /** Where the strength comes from (V3-81): the lab, a web page…; null when nobody says. */
     strengthSource: text("strength_source"),
+    /** Its impact, 1 to 10 (V3-97): the strength the app shows, ranks, filters and weighs by; PerfuMate's
+     *  scale, kept as it comes. The four-level `strength` stays for what has no impact, never converted. */
+    impact: smallint("impact"),
+    /** Where the impact comes from: PerfuMate's page, the lab…; null when nobody says. */
+    impactSource: text("impact_source"),
     threshold: text("threshold"),
     diffusion: text("diffusion"),
     blendEffect: text("blend_effect"),
@@ -154,6 +159,7 @@ export const materials = pgTable(
     ),
     check("materials_tier", sql`${t.tier} is null or ${t.tier} in ('top', 'top_heart', 'heart', 'heart_base', 'base')`),
     check("materials_strength", sql`${t.strength} is null or ${t.strength} in ('low', 'medium', 'high', 'very_high')`),
+    check("materials_impact", sql`${t.impact} is null or ${t.impact} between 1 and 10`),
     check("materials_synthesis", sql`${t.synthesis} is null or ${t.synthesis} in ('synthetic', 'natural', 'semisynthetic')`),
     check("materials_confidence", sql`${t.confidence} is null or ${t.confidence} in ('high', 'medium', 'low')`),
     check("materials_abbreviation_origin", sql`${t.abbreviationOrigin} is null or ${t.abbreviationOrigin} in ('user', 'generated')`),

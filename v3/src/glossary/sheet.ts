@@ -207,9 +207,11 @@ function standardLabel(layer: IfraLayer, key: string): string {
  * material). A figure without a source still shows; only its source reads «not stated».
  */
 export function figureSources(material: CatalogMaterial, base: CatalogMaterial | undefined): { strength: string | null; hours: string | null } {
-  const strengthFrom = material.strength ? material : base?.strength ? base : undefined;
+  // The impact is the strength the head shows (V3-97); without one, the four-level strength.
+  const impactFrom = material.impact !== null ? material : base && base.impact !== null ? base : undefined;
+  const strengthFrom = impactFrom ? undefined : material.strength ? material : base?.strength ? base : undefined;
   const hoursFrom = material.tenacityHours ? material : base?.tenacityHours ? base : undefined;
-  return { strength: strengthFrom?.strengthSource ?? null, hours: hoursFrom?.tenacitySource ?? null };
+  return { strength: impactFrom ? impactFrom.impactSource : (strengthFrom?.strengthSource ?? null), hours: hoursFrom?.tenacitySource ?? null };
 }
 
 export function sheetOf(catalog: Catalog, layer: IfraLayer, ifra: IfraData, id: string): Sheet {
@@ -278,7 +280,7 @@ export function sheetOf(catalog: Catalog, layer: IfraLayer, ifra: IfraData, id: 
   const h = texts.glossary.hero;
   const figureText = figureSources(material, base);
   const figures = {
-    strength: figureText.strength ? cite({ what: h.strength, text: figureText.strength, disputed: anyDisputed("strength") }) : null,
+    strength: figureText.strength ? cite({ what: h.strength, text: figureText.strength, disputed: anyDisputed("strength") || anyDisputed("impact") }) : null,
     hours: figureText.hours ? cite({ what: h.strip, text: figureText.hours, disputed: anyDisputed("tenacity_hours") }) : null,
   };
 

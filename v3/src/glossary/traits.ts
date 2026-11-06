@@ -1,5 +1,4 @@
 import type { Catalog, CatalogMaterial, Family } from "../db/catalog";
-import { STRENGTHS } from "../db/catalog";
 import { familyOf } from "../families/palette";
 
 /**
@@ -69,17 +68,17 @@ export function facetFamiliesOf(facets: string | null, own: Family | null, stems
 
 export function traitsOf(catalog: Catalog, material: CatalogMaterial, stems: ReadonlyMap<Family, readonly string[]>): Traits {
   const family = familyOf(catalog, material);
-  const strength = inherited(catalog, material, "strength");
+  const impact = inherited(catalog, material, "impact");
   const hours = inherited(catalog, material, "tenacityHours");
   return {
     family,
     facetFamilies: facetFamiliesOf(inherited(catalog, material, "facets"), family, stems),
-    strength: strength ? STRENGTHS.indexOf(strength) : null,
+    strength: impact !== null ? impact - 1 : null,
     hours: hours ? Number(hours.toFixed(2)) : null,
   };
 }
 
-/** A range of steps, both ends included: strength levels 0 to 3, or duration bands 0 to 3. */
+/** A range of steps, both ends included: impacts 1 to 10 as steps 0 to 9 (V3-97), or duration bands 0 to 3. */
 export interface StepRange {
   readonly from: number;
   readonly to: number;

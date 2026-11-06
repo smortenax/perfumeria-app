@@ -68,6 +68,8 @@ export const materials = sqliteTable("materials", {
   evolutionBeyond24h: integer("evolution_beyond_24h"),
   strength: text("strength"),
   strengthSource: text("strength_source"),
+  impact: integer("impact"),
+  impactSource: text("impact_source"),
   threshold: text("threshold"),
   diffusion: text("diffusion"),
   blendEffect: text("blend_effect"),

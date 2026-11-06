@@ -4,6 +4,7 @@ import {
   CONFIDENCES,
   type Evolution,
   FAMILIES,
+  IMPACT_TOP,
   type MaterialChanges,
   type MaterialKind,
   type Physical,
@@ -44,6 +45,8 @@ export const CREATABLE_KINDS: readonly MaterialKind[] = ["molecule", "natural", 
 const f = texts.sheet.fields;
 const s = texts.sheet;
 const field = (key: string, label: string, input: InputKind, extra: Partial<EditField> = {}): EditField => ({ key, label, input, ...extra });
+/** The impact's steps, 1 to 10 (V3-97), as the form's choice holds them. */
+const IMPACTS = Array.from({ length: IMPACT_TOP }, (_, i) => String(i + 1));
 const choices = <T extends string>(values: readonly T[], labels: Readonly<Record<T, string>>) => values.map((v) => [v, labels[v]] as const);
 
 export const EDIT_SECTIONS: readonly EditSection[] = [
@@ -96,6 +99,8 @@ export const EDIT_SECTIONS: readonly EditSection[] = [
       field("tenacityHours", f.tenacity, "number", { unit: "h" }),
       field("tenacitySource", texts.editor.tenacitySource, "text"),
       field("evolution", f.evolution, "evolution"),
+      field("impact", f.impact, "choice", { options: IMPACTS.map((n) => [n, n] as const) }),
+      field("impactSource", texts.editor.impactSource, "text"),
       field("strength", f.strength, "choice", { options: choices(STRENGTHS, s.strengths) }),
       field("strengthSource", texts.editor.strengthSource, "text"),
       field("threshold", f.threshold, "text"),
@@ -159,7 +164,7 @@ export function formOf(m: CatalogMaterial): Form {
     } else if (x.input === "number") {
       out[x.key] = value ? decimal(value as Ratio, 12) : "";
     } else {
-      out[x.key] = (value as string | null) ?? "";
+      out[x.key] = value === null || value === undefined ? "" : String(value);
     }
   }
   return out;
@@ -223,6 +228,8 @@ export function changesOf(form: Form, m: CatalogMaterial): MaterialChanges & { r
     else out[x.key] = value;
   }
   if (out.name === null) throw new FormError(texts.editor.nameRequired);
+  // The impact is chosen as text, 1 to 10, and kept as a number (V3-97).
+  out.impact = typeof out.impact === "string" ? Number(out.impact) : null;
   if (typeof out.cas === "string" && !/^\d{2,7}-\d{2}-\d$/.test(out.cas)) throw new FormError(texts.editor.notACas(out.cas));
   for (const c of out.otherCas as string[]) if (!/^\d{2,7}-\d{2}-\d$/.test(c)) throw new FormError(texts.editor.notACas(c));
   if (typeof out.color === "string" && !/^#[0-9a-f]{6}$/.test(out.color)) throw new FormError(texts.editor.notAColor(out.color));

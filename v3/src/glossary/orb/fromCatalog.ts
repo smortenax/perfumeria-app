@@ -1,5 +1,5 @@
 import type { Catalog, CatalogMaterial, Strength, Tier } from "../../db/catalog";
-import { STRENGTHS } from "../../db/catalog";
+import { IMPACT_TOP, STRENGTHS } from "../../db/catalog";
 import { coloursOf } from "../../families/palette";
 import { contourOf, type Note, type OrbLook, percentileScale } from "./orbParams";
 
@@ -8,7 +8,7 @@ import { contourOf, type Note, type OrbLook, percentileScale } from "./orbParams
  * sheets (families with their %, potency, diffusion as numbers). This is the one place to switch then.
  * What the data does not say stays undefined, so the orb draws it neutral: unknown never counts as zero.
  * - families: the material's colour (its family's, or the one fixed for it, V3-38), one stop for now.
- * - intensity: its strength, by rank among the catalogue's (the potency scale is still open).
+ * - intensity: its impact, 1 to 10 (V3-97), by rank among the catalogue's; without an impact, none.
  * - diffusion: not yet, the glossary holds it as free text; no glow.
  * - luminosity: not yet, its source is the owner's call; no inner light.
  * - contour: from its kind (molecule, natural and its process, composition).
@@ -20,7 +20,7 @@ export interface OrbScales {
 }
 
 export function orbScalesOf(catalog: Catalog): OrbScales {
-  const ranks = [...catalog.materials.values()].flatMap((m) => (m.strength ? [rankOf(m.strength)] : []));
+  const ranks = [...catalog.materials.values()].flatMap((m) => (m.impact !== null ? [m.impact] : []));
   return { intensity: percentileScale(ranks) };
 }
 
@@ -44,7 +44,7 @@ function inherited<K extends keyof CatalogMaterial>(catalog: Catalog, material: 
 export function orbLookOf(catalog: Catalog, material: CatalogMaterial, scales: OrbScales): OrbLook {
   const colours = coloursOf(catalog, material);
   const kind = inherited(catalog, material, "kind");
-  const strength = inherited(catalog, material, "strength");
+  const impact = inherited(catalog, material, "impact");
   const tier = inherited(catalog, material, "tier");
   const tenacity = inherited(catalog, material, "tenacityHours");
   const contour =
@@ -56,7 +56,7 @@ export function orbLookOf(catalog: Catalog, material: CatalogMaterial, scales: O
           ? contourOf("blend")
           : undefined;
   const look: { -readonly [K in keyof OrbLook]: OrbLook[K] } = { families: colours ? [{ color: colours.light, share: 1 }] : [] };
-  const intensity = scales.intensity(strength ? rankOf(strength) : undefined);
+  const intensity = scales.intensity(impact ?? undefined);
   if (intensity !== undefined) look.intensity = intensity;
   if (contour !== undefined) look.contour = contour;
   if (tier) look.note = NOTE_OF[tier];
@@ -77,7 +77,7 @@ export function seedOf(id: string): number {
  * then draws it dashed, never as a zero.
  */
 export interface OrbMarks {
-  /** 1 to `of` (low to very high). */
+  /** 1 to `of`: the impact out of 10 (V3-97) or, without one, the strength out of 4 (low to very high). */
   readonly strength: { readonly level: number; readonly of: number } | null;
   readonly note: Note | null;
   /** Its hours on a blotter, and where they fall on the bar, 0 to 1, on a log scale up to 600 h. */
@@ -95,12 +95,13 @@ export function hoursAt(hours: number): number {
 }
 
 export function orbMarksOf(catalog: Catalog, material: CatalogMaterial): OrbMarks {
+  const impact = inherited(catalog, material, "impact");
   const strength = inherited(catalog, material, "strength");
   const tier = inherited(catalog, material, "tier");
   const tenacity = inherited(catalog, material, "tenacityHours");
   const value = tenacity ? Number(tenacity.toFixed(2)) : null;
   return {
-    strength: strength ? { level: rankOf(strength) + 1, of: STRENGTHS.length } : null,
+    strength: impact !== null ? { level: impact, of: IMPACT_TOP } : strength ? { level: rankOf(strength) + 1, of: STRENGTHS.length } : null,
     note: tier ? NOTE_OF[tier] : null,
     hours: value !== null ? { value, at: hoursAt(value) } : null,
   };

@@ -509,6 +509,15 @@
   background: var(--accent-default);
 }
 
+/* The impact, 1 to 10 (V3-97): ten narrower segments in the width of the four. */
+.meter-10 {
+  gap: 2px;
+}
+
+.meter-10 i {
+  width: 7px;
+}
+
 .dur {
   position: relative;
   display: block;

@@ -1782,6 +1782,31 @@ Y, a la pregunta de si se pasaba a la app en una rama nueva: «Sí, una PR a mai
 - **Dos diluyentes a 390 px** (el usuario, 2026-11-05, en la tarjeta «¿Cómo quieres los frascos con dos diluyentes en el móvil (390 px)?», eligió **«Compacto en una línea»**): en el móvil, la casilla del % de cada diluyente se estrecha, sin la unidad (la dice la cabecera), y el selector va en letra algo menor; la fila no crece.
 - **Valores por defecto del día** (el usuario, 2026-11-05, en la tarjeta «¿Quieres valores por defecto del día (diluyente, % y total) para todas las filas?», eligió **«No, cada fila lo suyo»**): cada fila trae el último diluyente que usaste para ese material; el % y el total los pones tú.
 
+## V3-97 · La fuerza vuelve a la escala de 1 a 10: el impacto de PerfuMate (pedida por el usuario el 2026-11-06; cambia V3-81)
+
+**Literal** (orko kill, 2026-11-06, en el hilo del planificador de perfil): «Creo que fue un error simplificar la escala del 1 al 10 de perfúmate y que tenerla en 4 eslabones es objetivamente peor para la app habría que devolverlo a los valores de 10 puntos a mi parecer». Y, a la pregunta de dónde hacerlo: «puedes hacerlo aqui que es la planificacion del propio perfil».
+
+**Lectura** (de la sesión, para que la confirmes):
+
+- **El impacto, de 1 a 10, es la fuerza que enseña la app**: `materials.impact` (entero de 1 a 10) con `impact_source`. Sale tal cual de PerfuMate (V3-82: no se corrige), por la tanda 43. Cambia V3-81 («El impacto es la fuerza que ya tiene el material (low, medium, high, very high). No se añade otra cifra»).
+- **Lo que no tiene impacto sigue enseñando su fuerza en palabras**, sin convertirla a número: la fuerza de cuatro niveles (`strength`) se queda.
+- **Dónde se ve:** la cabecera de la ficha («7/10» y diez segmentos, con la fuente del impacto); los filtros y el orden de Materiales (V3-94), del 1 al 10, y lo que solo tiene la palabra cuenta como «sin dato»; el marco del orbe (V3-91), diez segmentos, o cuatro si solo hay palabra; la intensidad del orbe, por el impacto. En el editor, el impacto se elige de 1 a 10, con su fuente.
+- **Por qué** (la sesión, del cruce del 2026-11-06): el impacto cubre más comunes que la fuerza y distingue lo que ella junta. Entre los «medium» hay impactos del 2 al 9.
+
+## V3-98 · El planificador de perfil aromático: lo decidido hasta hoy (2026-11-05 y 06; sin código)
+
+**Qué es** (el usuario, 2026-11-05): una función para «planear el perfume», en la que se ve «el total de materia aromática en absoluto de manera que cuanto más mezcla de materiales haya más se tienen que repartir el espacio», con una «ponderación por cantidad que se pondrá el material, y por intensidad del material en sí mismo», y un «timeline de la duración de cada material todos empiezan al principio pero que se atenúen y desaparezcan», para «evaluar cuántos materiales compiten por el olor en cada parte del perfume». Lo que la hace funcionar (2026-11-05): «odor value: valor del material ponderado por el umbral de olor / multiplicativo con la cantidad en la que esta el material / repàrtido entre los materiales que comparten espacio / y lo mas dificil, que tengan en cuenta una curva o una supuesta curva de la fuerza del material».
+
+**Decidido en las tarjetas del hilo** (literal de cada opción elegida):
+
+- La cantidad: «Partes libres + botones rápidos».
+- La curva sin evolución medida: «Meseta y caída, marcada estimada»; y después, a mano: «tiene que ser estandar formas tipo seguro en todo caso luego cada usuario puede sobrescribir a placer».
+- Dónde vive: «Plantilla de la fórmula».
+- La potencia sin umbrales: «Impacto 1–10 de PerfuMate»; del impacto al peso: «Lineal: peso = impacto». Sustituyen a «Doble por nivel: ×1 ×2 ×4 ×8».
+- Qué es competir: «≥ 1/3 del líder + aviso de 3–4». Sustituye a «≥ 5 % y, al lado, "equivale a"».
+
+**Propuesta de la sesión, sin decidir:** las cinco formas tipo (fugaz, salida, corazón, meseta, lineal), con sus puntos en horas y en tiempo logarítmico, estiradas hasta las horas en tira de cada material; la forma por defecto, por el piso y el nombre. La maqueta, el cruce de datos y los dos informes de investigación están en la carpeta del proyecto, `planificador-perfil/`.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).

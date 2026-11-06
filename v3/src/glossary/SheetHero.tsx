@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { type Catalog, type CatalogMaterial, STRENGTHS, TIERS } from "../db/catalog";
+import { type Catalog, type CatalogMaterial, IMPACT_TOP, STRENGTHS, TIERS } from "../db/catalog";
 import { coloursOf, familyOf } from "../families/palette";
 import { texts } from "../i18n/en";
 import { orbLookOf, orbMarksOf, orbScalesOf, seedOf } from "./orb/fromCatalog";
@@ -40,6 +40,8 @@ export function SheetHero({
   const base = material.basedOnId ? catalog.materials.get(material.basedOnId) : undefined;
   const family = familyOf(catalog, material);
   const colours = coloursOf(catalog, material);
+  // The strength is the impact, 1 to 10 (V3-97); without one, the four-level word, never turned into a number.
+  const impact = material.impact ?? base?.impact ?? null;
   const strength = material.strength ?? base?.strength ?? null;
   const tier = material.tier ?? base?.tier ?? null;
   const hours = look.durationHours;
@@ -68,7 +70,20 @@ export function SheetHero({
           </div>
           <div>
             <h3>{h.strength}</h3>
-            {strength ? (
+            {impact !== null ? (
+              <>
+                <span className="big num">
+                  {h.impact(impact)}
+                  {marks.strength && markOf(marks.strength)}
+                </span>
+                <span className="meter meter-10" role="img" aria-label={h.impactOf(impact)}>
+                  {Array.from({ length: IMPACT_TOP }, (_, i) => (
+                    <i key={i} className={i < impact ? "on" : ""} />
+                  ))}
+                </span>
+                {!marks.strength && noSource}
+              </>
+            ) : strength ? (
               <>
                 <span className="big">
                   {texts.sheet.strengths[strength]}
