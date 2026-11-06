@@ -1,12 +1,12 @@
 # Tanda 46 · Completar los comunes que entraron a medias
 
-*Generada por `migracion-v3/tanda-46-completar-comunes.ts` sobre lo común de `075af30`, desde `migracion-v3/web/completar-comunes/propuesta.csv`. Escribe `v3/datos/materials.csv` y `material_doses.csv` enteros: solo llena campos vacíos; nada que ya tuviera valor cambia. Sin aprobar.*
+*Generada por `migracion-v3/tanda-46-completar-comunes.ts` sobre lo común de `2112c74`, desde `migracion-v3/web/completar-comunes/propuesta.csv`. Escribe `v3/datos/materials.csv` y `material_doses.csv` enteros: solo llena campos vacíos; nada que ya tuviera valor cambia. Sin aprobar.*
 
 **Por qué** (V3-99): el usuario, 2026-11-06: «lo importante es que se contraste las altas de referencia y se mire que falta para estos materiales y para otros que se quedaron con una "alta rapida" y no estan completos y que en ambos casos se complete el alta».
 
 **Cómo:** `migracion-v3/web/completar-comunes/huecos.py` lista los 57 comunes con algún hueco (familia, nivel, horas en tira, fuerza, estado físico, uso). Para cada uno se leyeron en la web hasta tres páginas de referencia (`web-*.csv`, con la frase literal) y se miró PerfuMate en local. `consolidar.py` normaliza al vocabulario de la app y elige por este orden: TGSC, la casa, Fraterworks, Perfumer's Apprentice, ScenTree, Scentspiracy, PerfumersWorld, Premiere Peau, PerfuMate. Premiere Peau copia a menudo las cifras de TGSC: cuando coinciden, no cuenta como segunda referencia. Lo que habla de otro producto (el aceite puro para una tintura, el producto diluido) no se usa.
 
-**Resultado:** 78 campos llenos (6 usos habituales); 13 disputados (las referencias no coinciden: va la primera y el campo queda marcado); 60 siguen vacíos porque ninguna referencia los dice.
+**Resultado:** 79 campos llenos (6 usos habituales); 13 disputados (las referencias no coinciden: va la primera y el campo queda marcado); 59 siguen vacíos porque ninguna referencia los dice.
 
 **Para mirar antes de aprobar:**
 
@@ -38,12 +38,13 @@
 | Material | Campos |
 |---|---|
 | Aldehyde C12 lauric (dodecanal) | tier = heart; tenacity_hours = 368 (disputado); strength = high; physical_state = colorless to pale yellow clear liquid (est); dose = 0.02 concentrate |
-| Ambrette, tincture | physical_state = solid at room temperature |
+| Ambrette, tincture | tier = base |
 | Amyl salicylate | tier = heart; tenacity_hours = 124; strength = medium; physical_state = colorless to pale yellow clear liquid (est); dose = 0.1 concentrate |
 | Benzyl salicylate | tier = base; tenacity_hours = 384; strength = low; physical_state = colorless to pale yellow clear oily liquid to solid (est) (disputado) |
 | Manzanate | tier = top; tenacity_hours = 90; strength = medium; physical_state = colourless liquid |
 | Methyl linolenate | strength = low; dose = 0.2 concentrate |
 | Phenethyl acetate | tenacity_hours = 16; strength = medium; physical_state = colorless clear liquid (est); dose = 0.5 concentrate |
+| Green cardamom, tincture | tier = top_heart |
 | Hyraceum (Africa stone), absolute | tier = base; physical_state = dark brown to black petrified solid (raw); amber-brown liquid (tincture) |
 | Luminide | family = floral; tenacity_hours = 168 |
 | Myrrh, essential oil | family = gourmand; tier = base; tenacity_hours = 400; strength = medium (disputado) |
@@ -80,12 +81,12 @@
 | Material | Campos |
 |---|---|
 | Villous cardamom, tincture | family, tier, tenacity_hours, strength, physical_state, dose |
-| Ambrette, tincture | tier, tenacity_hours, strength, dose |
+| Ambrette, tincture | tenacity_hours, strength, physical_state, dose |
 | Benzyl salicylate | dose |
 | Manzanate | dose |
 | Methyl linolenate | family, tier, tenacity_hours |
 | Phenethyl acetate | tier |
-| Green cardamom, tincture | tier, tenacity_hours, strength, dose |
+| Green cardamom, tincture | tenacity_hours, strength, dose |
 | Hyraceum (Africa stone), absolute | tenacity_hours, dose |
 | Luminide | strength, physical_state |
 | 4-Propylphenol | tenacity_hours, strength, dose |

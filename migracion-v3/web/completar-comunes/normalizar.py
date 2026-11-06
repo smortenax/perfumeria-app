@@ -17,8 +17,9 @@ FAMILY_WORDS = [  # palabra de la referencia → familia de la app (family_palet
     ("phenolic", "transformed"), ("vanill", "gourmand"), ("caramel", "gourmand"), ("balsam", "gourmand"),
     ("creamy", "gourmand"), ("sugary", "gourmand"), ("resin", "gourmand"),
 ]
-NOT_THIS = re.compile(r"no tintura|material puro|no puro|diluido|otro producto|different product|no es un 'up to|"
-                      r"incoheren|honey replacer|al \d+ % en|\d+ % en dpg|verificar identidad", re.I)
+NOT_THIS = re.compile(r"otro producto|different product|no es un 'up to|incoheren|honey replacer|verificar identidad", re.I)
+# Otra concentración del mismo material: no vale para cifras (horas, fuerza, uso, estado), sí para la familia, el nivel o el olor.
+OTHER_STRENGTH = re.compile(r"no (?:la |es )?tintura|material puro|absoluto puro|aceite puro|no puro|diluido|al \d+ % en|\d+ % en dpg", re.I)
 
 
 def rank(fuente):
@@ -96,7 +97,7 @@ def choose(campo, reads, tincture=False):
     for r in reads:
         if not r["valor"].strip():
             continue
-        if NOT_THIS.search(r["nota"]) or (tincture and campo in ("horas", "fuerza", "dosis") and "tintura" not in r["nota"].lower() + r["fuente"].lower()):
+        if NOT_THIS.search(r["nota"]) or (campo in ("horas", "fuerza", "dosis", "estado") and OTHER_STRENGTH.search(r["nota"])) or (tincture and campo in ("horas", "fuerza", "dosis", "estado") and not (re.search(r"tintura|tincture", r["nota"] + r["fuente"], re.I) and not OTHER_STRENGTH.search(r["nota"]))):
             dropped.append(f"{site(r['fuente'])}: {r['valor']} ({r['nota'] or 'no es este producto'})")
             continue
         v = NORM[campo](r["valor"])
