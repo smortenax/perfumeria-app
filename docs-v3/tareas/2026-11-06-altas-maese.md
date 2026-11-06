@@ -1,6 +1,6 @@
-# Altas completas: el catálogo de Maese Lab y los comunes a medias (V3-99)
+# Altas completas: el catálogo de Maese Lab y los comunes a medias (V3-100)
 
-*Plan de la sesión, 2026-11-06. Lo pidió el usuario en el hilo de la tanda 45 (literal en V3-99). Nada
+*Plan de la sesión, 2026-11-06. Lo pidió el usuario en el hilo de la tanda 45 (literal en V3-100). Nada
 se carga sin su aprobación: cada lote es una tanda que escribe `v3/datos/` y que él aprueba.*
 
 ## Qué es un alta completa
