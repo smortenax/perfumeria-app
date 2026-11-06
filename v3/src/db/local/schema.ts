@@ -296,6 +296,18 @@ export const macerations = sqliteTable("macerations", {
   ...timestamps,
 });
 
+/** The plan of a formula (V3-98): its materials in relative parts, and the shape the user picked. */
+export const formulaPlanLines = sqliteTable("formula_plan_lines", {
+  id: text("id").primaryKey(),
+  ownerId: text("owner_id"),
+  formulaId: text("formula_id"),
+  materialId: text("material_id"),
+  parts: text("parts"),
+  shape: text("shape"),
+  position: integer("position"),
+  ...timestamps,
+});
+
 /** The third diluent of a pour and on (V3-67). */
 export const formulaEventDiluents = sqliteTable("formula_event_diluents", {
   id: text("id").primaryKey(),
@@ -548,6 +560,7 @@ export const tables = {
   labDilutionDiluents,
   shoppingItems,
   macerations,
+  formulaPlanLines,
   labEvaluations,
   labAxes,
   ifraStandards,
@@ -587,6 +600,7 @@ export const AppSchema = new DrizzleAppSchema({
   labDilutionDiluents,
   shoppingItems,
   macerations,
+  formulaPlanLines,
   labEvaluations,
   labAxes,
   ifraStandards,

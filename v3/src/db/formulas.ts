@@ -8,6 +8,7 @@ import type { Catalog, CatalogMaterial } from "./catalog";
 import { bigintFromText, numericFromRatio, ratioFromNumeric } from "./exact";
 import * as local from "./local/schema";
 import type { LocalDb } from "./materials";
+import { copyPlan } from "./plans";
 import { uuidv7 } from "./uuid7";
 
 /**
@@ -241,6 +242,7 @@ export async function copyFormula(
       await db.insert(local.formulaEventDiluents).values({ ...d, id: uuidv7(), eventId: newId, ownerId, createdAt: now() });
     }
   }
+  await copyPlan(db, ownerId, sourceId, id);
   return id;
 }
 
@@ -588,6 +590,7 @@ export async function deleteFormula(db: LocalDb, catalog: Catalog, ownerId: stri
   await db.update(local.formulas).set({ parentId: null, updatedAt: now() }).where(eq(local.formulas.parentId, id));
   await db.delete(local.formulas).where(eq(local.formulas.id, id));
   await db.delete(local.formulaEvents).where(eq(local.formulaEvents.formulaId, id));
+  await db.delete(local.formulaPlanLines).where(eq(local.formulaPlanLines.formulaId, id));
 }
 
 /** A formula saved as a material, which therefore is not deleted. */
