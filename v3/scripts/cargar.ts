@@ -46,8 +46,14 @@ const tables = new Map<string, PgTable>(
     .map((t) => [getTableName(t), t]),
 );
 
-/** The cloud (--nube): its address stays in .env.local, so the command carries no key and is always the same. */
+/**
+ * The cloud (--nube): its address stays out of the command, so the command carries no key and is
+ * always the same. Publishing on GitHub (.github/workflows/publicar-v3.yml) gives it as the secret
+ * DATABASE_URL_CLOUD; on the PC, it is in .env.local.
+ */
 function cloudUrl(): string {
+  if (process.env.DATABASE_URL_CLOUD) return process.env.DATABASE_URL_CLOUD;
+  if (!existsSync(".env.local")) throw new Error("Sin DATABASE_URL_CLOUD (ni en el entorno ni en .env.local): no se carga nada.");
   const line = readFileSync(".env.local", "utf8").split(/\r?\n/).find((l) => l.startsWith("DATABASE_URL_CLOUD="));
   if (!line) throw new Error(".env.local no tiene DATABASE_URL_CLOUD: no se carga nada.");
   return line.slice("DATABASE_URL_CLOUD=".length).trim().replace(/^"(.*)"$/, "$1");
