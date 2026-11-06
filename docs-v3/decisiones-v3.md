@@ -1804,6 +1804,7 @@ Y, a la pregunta de si se pasaba a la app en una rama nueva: «Sí, una PR a mai
 - Dónde vive: «Plantilla de la fórmula».
 - La potencia sin umbrales: «Impacto 1–10 de PerfuMate»; del impacto al peso: «Lineal: peso = impacto». Sustituyen a «Doble por nivel: ×1 ×2 ×4 ×8».
 - Qué es competir: «≥ 1/3 del líder + aviso de 3–4». Sustituye a «≥ 5 % y, al lado, "equivale a"».
+- La intensidad, que no crece lineal: «Índice + vista percibida (n=0,25)». Por defecto, el índice cantidad × impacto; un botón cambia a la intensidad percibida (índice^0,25), con el exponente rotulado como supuesto y editable (Stevens: 0,15 a 0,3 en Cain 1969, Berglund 1971, Doty 1975).
 
 **Propuesta de la sesión, sin decidir:** las cinco formas tipo (fugaz, salida, corazón, meseta, lineal), con sus puntos en horas y en tiempo logarítmico, estiradas hasta las horas en tira de cada material; la forma por defecto, por el piso y el nombre. La maqueta, el cruce de datos y los dos informes de investigación están en la carpeta del proyecto, `planificador-perfil/`.
 
