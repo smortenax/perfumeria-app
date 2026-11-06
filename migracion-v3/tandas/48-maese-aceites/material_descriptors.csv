@@ -95,6 +95,7 @@ id,material_id,owner_id,source,text
 121561ec-b0ad-5f62-9054-36df9de24804,f499981b-c7ef-53c5-bc9f-20e24218a042,,TG,"Moellhausen (beta-IONONE): floreal, woody, in dilution violet, orris note"
 1223d3d3-d1be-518d-801c-59f75fb12003,7327f0ce-5f21-5213-bdf1-a1335ece2061,,TG,"IFF (Cedramber®): A dry, very diffusive, true ambergris note that also has rich woody cedarwood, dry aspects"
 126e3d5e-911b-5589-a5ac-ef33752512f1,8d028700-a88e-571a-acff-86dd5993a896,,TG,"IFF: Fresh even fruity top note opening up on the pungent, powdery sweet and lasting spicy note of the bark"
+127b35b9-01c8-54a1-824a-afcf524147ef,b835ed37-3c05-5a00-9628-7ca6f9d765e9,,web,"Eden Botanicals: pleasant, warm, creamy, woody-balsamic, opopanax/cedar-like aroma"
 1290233b-6dcf-5135-9128-eb74c7c362f8,496bed70-8061-5983-9aea-354c6ebec56a,,TG,"Luebke, William, TGSC, 1982 (at 10 % in DPG): green, leafy, gardenia, rhubarb, musty"
 12a84e5e-f29a-5f6d-9557-de02f28af8f7,beb2bf23-02ba-5bb0-b23c-52e53350b648,,FIG,"Amber, Woody, Dry"
 12ab86a7-380f-59d4-bf2b-d74f6921d6dd,1663de2f-aba6-52d3-b28c-d92ce1288f26,,TG,"TGSC: intense herbaceous, a little sweet and spicy with notable dried sage and thyme leaf qualities"
@@ -129,6 +130,7 @@ id,material_id,owner_id,source,text
 1868335f-c52f-59a0-938f-956fdbefba69,d7d171a5-b8d2-5e94-b75b-3629fba7669b,,TG,"Perfumery Laboratory: A rich, diffuse spicy musk with shades of fresh wood and floral"
 1869aa9a-eeeb-5889-a1ee-397fae865186,4b077177-b545-5f0f-8b44-fd0c72c22db3,,TG,"Pell Wall Perfumes: Fruity, pineapple note with aspects of apple and galbanum"
 187542d8-44ef-5fc9-9bb3-86bb7638e98c,ff37315b-9a1f-57c8-90e1-eb9d23911346,,TG,"Mosciano, Gerard (P&F 20, 1995): Green, vegetative, floral, herbal and slightly camphoreous with a spicy nuance"
+18bfe43d-8903-5826-a7c6-b3aaa53c5d2b,6e302f4c-430b-54c4-bae6-d197d807d5b7,,web,"Eden Botanicals: fresh, leafy-green, lightly floral, citrus aroma with light bitter/dry notes and rich, sweet undertones"
 1915ec8f-7e0b-5837-b924-d7415def43b6,ff37315b-9a1f-57c8-90e1-eb9d23911346,,web,"Fraterworks: sharp, gassy-green character delivers the unmistakable scent of rose stems being snapped in half"
 191bccfe-3bd6-5faa-858e-3680d5eaf385,c0bcc866-20e7-5f2a-8a3a-2c4fc79ded81,,TG,"Firmenich: A powerful aldehydic, citrus note that brings fresh, ozonic and watery characters to fragrances"
 193dbf9a-5c60-5206-8b97-608f3f1fc769,b29f1fc2-79ee-5894-9276-40c2d1796884,,TG,Citrus and Allied Essences: burnt meat base with a fruity topnote
@@ -144,6 +146,7 @@ id,material_id,owner_id,source,text
 1a161650-cfb9-54c9-b488-e97977057f3f,18b23b93-1173-596e-8e9d-e039d23d4673,,TG,"Mosciano, Gerard (P&F 19, No. 5, 79, 1994): almond, fruity, powdery, nutty and benzaldehyde-like"
 1a1c8052-8a35-50ff-a8d1-64583731b04e,5a5e618f-26d5-563c-b6c0-26b2c1f9a8cf,,TG,"Moellhausen: Leathery, Spicy, Woody, Warm"
 1a5d5da9-05fa-5a5c-a338-4a3c81f14d32,39a3f1c3-9551-5a9b-b307-3bc3c196042c,,web,"Perfumer's Apprentice: Citrus, terpenic, slightly green, black pepper-like"
+1a91618a-cd96-5ee8-8da5-8686b07213eb,d6a258fc-412f-5548-8a27-f0a312ddc9a2,,TG,TGSC: fresh floral sweet orangflower woody herbal
 1aa3ef6d-3067-5eef-bab7-eeaf9f705fb4,1d9073a2-fcaa-5a64-a4d4-ad2650250d82,,web,Premiere Peau: Crushed lemon-scented leaves with a soft herbal undertone
 1aa5743f-4eb4-5348-99b7-0b6e0e644bcb,32b2d283-5e18-5609-aa85-e73c813388cf,,TG,TGSC (at 100 %): ripe plum prune
 1ab68bbc-c0e9-5f20-b052-24c549d1d9e9,7e985a26-3d02-5715-b8e8-59215a279e9e,,web,PerfumersWorld: violet sweet orris powdery floral woody amber chypre mimosa reseda iris cyclamen
@@ -246,6 +249,7 @@ id,material_id,owner_id,source,text
 28f2d26a-94c4-58fa-829c-7b8b462ba33e,b3cde9d2-a12b-51f4-8c04-64f9fd83bd64,,TG,"BASF: Floral, deep, warm rose note"
 28f36527-3c66-5dff-ae0c-a34a097f055d,b3cde9d2-a12b-51f4-8c04-64f9fd83bd64,,TG,"Foreverest (Geraniol Natural 98% and Synthetic 97%): mild, sweet rose smell, taste bitter"
 294a039e-1371-594a-916c-6f31cb978cb7,a71f837b-fc28-597b-8ce6-61cc56e52496,,TG,TGSC: fresh pine woody earthy olibanum dry spicy cedar
+297a968f-d113-55e7-ad31-d0370cb3c1d8,6e302f4c-430b-54c4-bae6-d197d807d5b7,,TG,TGSC: fresh floral sweet orangflower woody herbal
 29950111-a026-5eac-bbd4-0bf6d0cc04f9,742b89fe-f78a-504f-bae1-c36a35629daa,,TG,"TGSC (Luebke, William, 1995), at 10.00 % in dipropylene glycol: eucalyptus herbal camphor medicinal"
 2998a79d-6965-5791-bdfc-6b642ce2b1d8,edbc453b-fcdf-5c8b-9537-41ef2a62f206,,TG,PerfumersWorld: pungent spicy clove warm spicy clove Powerful warm-spicy rather dry and almost sharp
 29ca4b51-c9bd-57da-8d1c-1d03e964fdae,f21e4c27-d9ed-5a70-8919-555bb2e15963,,TG,TGSC: floral green spicy red rose dill powdery
@@ -383,6 +387,7 @@ id,material_id,owner_id,source,text
 411540e4-110e-5aa6-b327-625add98354d,a21c3f03-679b-56bd-ac45-b4cc95d088cf,,web,"Scentspiracy: sweet-balsamic, cinnamic-warm, vanillic, woody, and faintly floral with hyacinth nuances"
 411a583f-7194-5b86-8a74-69fef07c730d,0c17dd22-7fa8-5463-80fb-ded460a5dd4a,,web,"Perfumers Apprentice: Minty, sulfuraceous, sweet with metallic buchu nuances"
 412c2148-c37e-503a-8080-75321e179585,70233a8d-4d59-5eb7-9a2f-ea7540d20032,,web,"PerfumersWorld (Hindinol sheet, same CAS): An elegant, creamy, and remarkably powerful sandalwood note."
+413980b0-86dc-55fa-8939-a50b61eeb651,6e302f4c-430b-54c4-bae6-d197d807d5b7,,TG,TGSC: fresh floral sweet orangflower woody herbal
 4146da1e-f7f3-5737-b2b1-7b1fb5c294d6,e4d36415-6b7e-513b-9d8b-65d0e4373e62,,TG,TGSC (no author): musty; animal
 414e4086-8e0b-50e3-84ac-eb9223b3c27b,84a3119f-a05b-5cae-a8c4-fa82119bbcac,,web,"Fraterworks: powerful, diffusive floral signature, dominant geranium-rose floralcy"
 41727cc5-1b63-5b55-be21-0843b483b7b6,a4c3d63b-a406-5761-888e-785cb9c707c5,,web,"Fraterworks: powerful, naturalistic warm woody sandalwood character, with creamy, milky, soft, subtly sweet qualities and floral, rose-like facets"
@@ -449,6 +454,7 @@ id,material_id,owner_id,source,text
 4971b2d0-53f8-528e-85b6-358ac1a9d389,00a2cbc3-f864-5113-ba58-3e11b89d4d7c,,TG,Moellhausen (Supersantol): powerful sandalwood-character
 49d38b13-f3bc-53e6-b544-a780b8f4f91d,09b9cadf-1311-5002-b027-5f0a0b77bfdb,,web,"Scentspiracy: Sweet, vanillic, soft, warm, delicate, slightly creamy"
 49eae844-7060-57e7-af67-56cad3fbe7da,e58dea4b-4eb9-5016-9170-b24862f8aaab,,web,"Premiere Peau, glossary (via search engine): closer to castoreum and aged tobacco than to confectionery"
+49fe4cd2-4351-509a-b8c6-f80c759742b7,bbae9f15-d26a-5dd8-a086-fd6bf66d2341,,TG,TGSC: warm woody spicy sweet green herbal
 4a18b5a8-9119-5924-88eb-c9d39f90c3a2,70233a8d-4d59-5eb7-9a2f-ea7540d20032,,TG,"Pell Wall Perfumes (Hindinol): Sandalwood, woody, milky, creamy"
 4a399c0a-2f52-5df6-bdf2-fa089cfaa44e,8e2e3c9e-0226-5ab1-8dc7-d9692f0b14ae,,web,Fraterworks: bright balsamic-pine freshness that quickly reveals its complex woody-violet heart
 4a7f09da-8bb2-5ba4-a008-6b446a317e2b,9117c547-e554-55c3-8945-c6819995ff49,,TG,"Tadimety Aromatics (Tremone): Green, Natural, Leafy, Fresh"
@@ -465,9 +471,11 @@ id,material_id,owner_id,source,text
 4d7a5480-4c42-529a-945c-af73fab5743f,3e4b382c-8994-57b0-a04c-dc19cd56f61f,,web,"PerfumersWorld: fresh, sweet, citrus-peel"
 4d83d0d2-3acd-5ee4-b429-21b1ba3b30cd,bf9b1fd3-43c9-5238-beb2-8919f377ec7f,,web,"Robertet: Spicy, woody, peppery, aromatic"
 4da58b6e-8867-59fd-8d93-9d739d1a0d3d,11bd6045-5a78-56b6-9402-caaf43983aa9,,TG,TGSC: green spicy camphoreous cedar woody
+4dc2efac-87c3-5908-b88c-a05c1e29aa8c,25e1db24-97cf-56fc-a0a3-671099889b6a,,TG,TGSC: woody earthy cinnamon olibanum dry spicy cedar
 4dd3fe91-f282-507d-9d36-feb310871eb1,7b0624e2-d76d-5ff1-9bce-a750fcbb3459,,web,"Pell Wall (at 1 % in TEC, via search engine): smoky, phenolic, castoreum, leather, animal, barnyard, oud"
 4dd8f51c-fe5f-5751-a375-378dba28c099,bcae9711-ebd5-5d5f-af71-8163cfd03c76,,TG,"Pell Wall Perfumes: Fruity-peach, creamy, fatty, lactonic, powerful"
 4dfa4c22-90aa-58fa-bf05-38636904f0ed,531e5ee3-62cb-57ac-852d-c0309f6d4516,,TG,Anhui Haibei: Citrus-lemon /lemongrass
+4dfb7d3c-d12d-569d-9add-67f8136e02ee,0d2f19d8-d3c2-56b1-a14f-6b7993fa1a5b,,TG,"TGSC: clean, citrus, sweet, woody aroma"
 4dfdfa66-6a16-551a-8ee6-c8be0c837919,c46ca31c-992a-5149-8fb8-d2c8893e16b5,,TG,"TGSC (Luebke, William, 1992), at 10.00 % in dipropylene glycol (sample from Charabot & Co., Inc.): dry woody spicy old wood cistus"
 4e5c894b-cf13-53f2-8bce-272f10ffd302,4d9accfd-7d27-511a-b416-70a4abb27543,,TG,TGSC: warm clove sweet fruity woody
 4e5c97de-b9fc-56e0-8ba9-3ee75fb7f218,09b9cadf-1311-5002-b027-5f0a0b77bfdb,,TG,"Albert Vieille (Siam benzoin no. 3): sweet, milky, vanilla-like smell is reminiscent of vanilla beans"
@@ -497,6 +505,7 @@ id,material_id,owner_id,source,text
 530b91bf-a240-53da-8f7d-221708df5d6e,7ef01436-3a9e-582a-9f90-c5a727f602ef,,web,"Maese Lab: Cítrico, floral, ceroso, avena, fresco"
 535001f9-218e-5fb3-9104-543f0ed9fb94,924d227f-c444-58f1-9d4a-229a950e2476,,TG,"Luebke, William (TGSC, 1988), at 100 %, sample from Fragrance Resources Inc.: woody, burnt, musty, cedar"
 535432b2-11ea-56e1-b831-71a39443f95f,798f4933-21c6-5840-a52b-8f4d4bf10c64,,TG,"Mosciano, Gerard (P&F 23, No. 2, 43, 1998): Citrus, floral, sweet, spicy, green and orange peely, with lemon, lime and ginger nuances"
+5392edb3-8eca-58a4-bc3a-18e1faf9a104,b64919c9-aa03-518d-b434-693bc1be9aea,,web,"Fraterworks: sweet, rosy-floral aroma with a fresh grassy-citrus lift, gentle metallic and herbaceous undertones"
 5397cf46-af9c-57db-b8dc-7a1728b49a99,a775bc0a-ac54-533c-9b3e-c767deb1417d,,web,"distributor (via search engine): Musky, Sweet, Fresh, Powdery, Clean, Hot Iron"
 542b3b6c-461f-5e69-99cf-ded8daa96813,798f4933-21c6-5840-a52b-8f4d4bf10c64,,web,"Darren Alan: Fresh, sparkling citrus with green, woody and light floral undertones."
 545af407-ef57-55ac-9b84-291f73e826bc,7e985a26-3d02-5715-b8e8-59215a279e9e,,TG,"Ernesto Ventós (Isonaline 70 DSM) (70 % sheet): WOODY, VIOLET, FRUITY"
@@ -518,6 +527,7 @@ id,material_id,owner_id,source,text
 55df739d-ca84-5a13-ad71-eb929c9aa180,dd7f46b0-6edc-5ef6-bfe2-3167b66f1308,,web,"Hermitage Oils, citando a Adam Michael: light and airy notes reminiscent of birch tar infused with aged vetiver"
 56b7e02c-24fb-541e-ad25-df5a9b9f5d7a,f508019d-d671-5b65-8cd0-45df69026eae,,TG,"Hermitage Oils (in TGSC, Ethiopia): strong resinous, terpene, paint fume smell (neat)"
 56f060b2-bbd3-5b32-aaa9-6e677d8245d1,c6123c69-30e9-56db-b0ae-abe74150427f,,TG,"Pell Wall Perfumes (in TGSC): musk, animalic, leathery, sweet. Based on Galaxolide, adjusted to be more animalic"
+56f5569c-34ef-505b-b25b-76ca252ef294,d6a258fc-412f-5548-8a27-f0a312ddc9a2,,web,"Eden Botanicals: fresh, leafy-green, lightly floral, citrus aroma with light bitter/dry notes and rich, sweet undertones"
 5723cd75-3e81-5f74-914d-fb8c5675ae8f,dbe5c994-22b2-54d2-950a-16dd2b8811a3,,web,"Perfumers World: strong armoise, artemisia, green herbal, cedarleaf, minty, camphor, sage, bitter-sweet, freshly-shaved cypress wood touches"
 57386aa1-e56a-5d41-bfc8-b81a9c16f68d,7c27cec2-aaf6-510f-a49f-7e94fd626f20,,TG,Odor Type (TGSC): balsamic
 574257f9-e451-57ea-8549-04e9a5db5f69,7177d7ca-ae99-5a1c-bac0-9a3ddeb34e77,,TG,TGSC: sharp warm resinous fresh pine
@@ -589,6 +599,7 @@ id,material_id,owner_id,source,text
 63ab9ffa-1eb8-5dad-ba70-073b17dcbb85,c46ca31c-992a-5149-8fb8-d2c8893e16b5,,web,"Helpac: woody, mild and pleasant, with sweet, woody, slightly acidic base notes"
 63b330ad-90ae-5531-957d-b6f7ba18f788,b3cde9d2-a12b-51f4-8c04-64f9fd83bd64,,TG,"IFF (Geraniol 980 Pure, 7030, 600): Rose note"
 63ec7016-b70f-574f-8d9b-ae8c662e7c72,c8896fa6-8958-575e-bd2b-ec417fce3bd3,,web,"Fraterworks: rich, warm woody-amber character with distinct tobacco facets"
+6441c48b-546b-5eb2-8609-7c2da80b24df,d6a258fc-412f-5548-8a27-f0a312ddc9a2,,TG,TGSC: fresh floral sweet orangflower woody herbal
 645466ac-506f-5d5d-90ab-15add787e17e,e1d782ce-6be8-5ab0-b644-91fbb4a8b186,,web,Odor Type (Fraterworks): Woody
 64841e38-dc7a-54e7-83f7-77e55d1b8bf7,71700310-e26a-5a86-8449-5e6881c6895f,,web,"Scent.vn: Smelled neat, it can be sharply pungent and slightly ""off,"" reminiscent of mutton fat or burning candle wax. But when diluted below 1%, it opens into a clean, sparkling, fresh sweet-orange peel effect."
 648a1962-bc19-5ac4-a19f-3a27d24c58df,18b23b93-1173-596e-8e9d-e039d23d4673,,TG,"Symrise (Benzaldehyde DD): strong sweet, bitter almond-like"
@@ -646,6 +657,7 @@ id,material_id,owner_id,source,text
 6cb768e9-817e-5247-a102-568a2df0cd0e,aed7c3f9-5e0d-569c-8846-03505f675bb8,,TG,"Symrise (Linalool Pure): Floral, Lily of the Valley, Coriander, Lavender"
 6cdc8851-f4bc-5256-82d2-39bc62d7902c,d7d171a5-b8d2-5e94-b75b-3629fba7669b,,FIG,"Amber, Woody, Aromatic"
 6cdff2db-52ba-5736-b03b-a4d67d55f2ac,96d723c1-3334-5960-a545-dc17ab203dae,,web,Odor Type (Scent.vn): Gourmand; also described as balsamic resinous
+6ce1cd80-e9be-5f48-893f-0d3bfde65c5f,3877d6ca-9d40-51ec-8656-655af72288c1,,web,"Fraterworks: Bitter orange oil has a fresh, tart citrus scent with green, floral undertones and a slightly bitter, peel-like character."
 6cec0dbe-2c66-5562-8f2c-aa6ee795e9ca,7b46db90-485c-5a1f-ac65-a944fb216beb,,web,ScenTree: a base reproducing the smell of suede and leather
 6ced2966-9bb1-5c38-bf84-f455a0d3aae0,81768544-f612-5a82-b792-f1becdf3d2d5,,TG,"Pell Wall Perfumes: Warm-tobacco, sweet, hay-like, moss woody"
 6d45dc8d-bb75-5f94-ab69-307c08f15b5c,29b4769b-b283-5865-bd88-a48ad780531c,,web,"Fraterworks: potent, fresh camphoraceous opening with pronounced eucalyptus-like sharpness"
@@ -766,6 +778,7 @@ id,material_id,owner_id,source,text
 7efd9a1d-3c2c-5d25-9adc-e586f8c920c4,09b9cadf-1311-5002-b027-5f0a0b77bfdb,,TG,"Firmenich (915058): sweet, vanilla-like with an almond facet"
 7efdbb55-533f-5a7f-8ef5-c1ef636f5cfd,4a38ef36-dcd6-5472-8868-a621348e926b,,web,"Fraterworks: exotic heady-floral aroma with soft peachy-creamy character, sweet orange blossom facets"
 7f0a9155-1156-5834-9349-90a74c9cf075,45003ce6-9ba5-5f5d-9423-660a0fbb408f,,web,"Fraterworks: intensely sweet, fruity aroma that distinctly evokes strawberry"
+7f2d680b-6c66-5f80-929e-d99633a93c7d,6fdc8bd5-9e9c-5f07-b8de-5b890788dbe2,,web,"Eden Botanicals: Fresh, strong, highly diffusive, cineolic aroma."
 7f301502-ae50-5136-8d51-86dfbd9994ab,ff37315b-9a1f-57c8-90e1-eb9d23911346,,TG,Symrise (rose oxide): a compound with an intensive note of roses
 7f9deddb-1081-5638-b591-e09898e079ef,1a22c914-3740-5aac-a952-a92dd2d1c7bc,,web,Fraterworks: a deep woody aroma with distinctive smoky and earthy tones
 7ff27f38-330d-5e88-94d7-569439ab3dc6,7895fb8e-fe78-569a-8124-d65513c5d50b,,web,"Maese Lab: Floral (orange blossom), nectarous, honeyed, sweet citrus, subtle herbal"
@@ -773,6 +786,7 @@ id,material_id,owner_id,source,text
 8034c0b5-d780-5f65-955f-38534ffc0e60,32878c3d-1325-5e6c-a953-99127c2ecb86,,TG,"TGSC (Luebke, William, 1986; sample from CAL/Pfizer), at 10.00 % in DPG: fresh watery clean melon green marine ozone phenolic"
 803b1584-d01f-52ff-be6f-e3a02565e25c,e1d782ce-6be8-5ab0-b644-91fbb4a8b186,,TG,TGSC (at 100 %): patchouli woody clean creamy amber
 807ff185-3c61-5a15-b201-d2e6f2ce0956,2ac4454b-e1cb-550a-ac3c-5a40e85e01d3,,web,Hermitage Oils: sticky sweet resinous
+809ca863-5ec4-5977-a421-d84d14fe305a,0ab3988f-ea2b-564a-9a90-b32315fd5d75,,TG,TGSC: spicy woody nutmeg powdery terpene
 80a6aa40-9743-50b9-874d-7f469e2ef26c,40467aee-1425-530e-96b7-644290b0ebc2,,TG,Mane (Styrax Alcoholic Resinoid): Balsamic Resinous Gourmand
 80e1f541-cc62-5a5c-8fb9-4ce4f8ac3fff,6fa3d19a-60bb-59c1-8a40-430e25d4e197,,web,"Darren Alan Perfumes (via search engine): creamy, sweet, vanilla-almond floral nuance"
 80f00552-08b1-57b6-9e03-0a29661d43cb,e1d782ce-6be8-5ab0-b644-91fbb4a8b186,,TG,"Firmenich (in TGSC): Soft, clean version of patchouli without the earthy, leathery and rubbery"
@@ -820,6 +834,7 @@ id,material_id,owner_id,source,text
 86ed43f1-8595-5b04-9996-e5a67fee5d1c,fc4dbb8f-859f-537d-a317-a852e9c7c7f7,,TG,"Perfumery Laboratory: Sweet, mealy with notes of seeds of ambretts and vanilla"
 8702db16-e585-5bd2-bcf4-ebeb56504bdf,93a692cc-1d14-5e88-9df7-b59b7a4ef958,,TG,"Luebke, William (TGSC, 1987), at 100 %, sample from Dragoco: dry sawdust woody powdery amber sandalwood"
 8773c6c0-4e4f-5a0f-952c-41f6fbdf71a0,81768544-f612-5a82-b792-f1becdf3d2d5,,TG,"Biolandes (Moroccan tobacco absolute): bottom-note / tobacco, characteristic, chocolate"
+8794cfb0-605f-5a7f-a435-cfc5a0e94a21,7d2b1784-574b-53c2-a4b5-b9bc5e2b8cdf,,web,Hermitage Oils: resinous and zappy freshness throughout with tonalities comparable to fresh runner bean skins
 88493fe2-0abb-5704-a69c-b413bfe5010b,32b2d283-5e18-5609-aa85-e73c813388cf,,TG,Perfumery Laboratory (in TGSC): Bright aromas of ripe plum fruit with a hint of prunes
 88c1a2af-51b8-5113-a434-6da31245b09d,32b2d283-5e18-5609-aa85-e73c813388cf,,TG,Firmenich (in TGSC): It brings fruity aspect just in between peach and plum with a smooth velvety effect.
 89037c5f-6bf7-5b37-8af8-210b36321034,54b91bc4-e0b7-5b89-bc53-da87c5312a00,,TG,"Moellhausen (PTBCHA): floral, fruity, woody"
@@ -873,6 +888,7 @@ id,material_id,owner_id,source,text
 8fa5560f-d374-549f-912c-6b537896abb1,19f5072c-dcc5-5f96-a226-269c5b413c6d,,web,"Premiere Peau, glossary (via search engine): the softest, sweetest citrus impression of the palette; sweet-acidic, honeyed character attributed to methyl N-methylanthranilate"
 8fd85c53-96b7-59e3-9000-75aa00b3b4ae,7e985a26-3d02-5715-b8e8-59215a279e9e,,TG,"IFF (Meth Ionone Gamma Coeur) (50 % sheet): Woody, tobacco, floral (orris and violet). Powdery tone"
 8ffd57e2-716f-5ad0-b3c6-d4e63d0ab3a6,99cbb5b1-4ef4-5255-9c75-5e89d8a32279,,TG,Odor Type (TGSC): musk
+90156c6e-b28f-5650-9a1b-cc28a316e050,3877d6ca-9d40-51ec-8656-655af72288c1,,TG,TGSC: citrus orange dry woody mandarin cognac terpenic aromatic
 906b82dd-2004-5c0a-85ed-9d7032517214,8232e6ac-5912-5bdd-8f3a-4a95ce336a1d,,web,"Perfumer's Apprentice: Soft herbaceous pine with spicy hints of ginger and Indian cardamom, followed by smooth natural woods"
 9084fa7d-62a6-5266-a466-1ee3375b8ef5,06e5196c-ccf7-5807-abb3-b336912764ff,,TG,"Perfumery Laboratory (first entry for CASTOREUM SYNTH): A warm, leathery, animalic aroma without castoreum"
 90b70d1b-5171-5c87-ac50-6ed13e7704d1,5da0738b-c7ba-54a5-af01-386a3f8e0e0f,,TG,TGSC (at 1 % in DPG): herbal mushroom earthy musty dirty
@@ -923,10 +939,12 @@ id,material_id,owner_id,source,text
 979b6711-1db5-5247-abe6-16e4b02a7bef,32b2d283-5e18-5609-aa85-e73c813388cf,,web,"dsm-firmenich: Fruity, dried-fruits, coconut. A powerful and complex note reminiscent of the odor of ripe plums"
 97a2f7c3-5cb0-5c20-b58b-eac7c6ec5e66,ff37315b-9a1f-57c8-90e1-eb9d23911346,,TG,"Bedoukian Research: A rose, geranium odor with an earthy undertone"
 97a6871b-16ec-56bd-aba9-ccafbfdc5dd5,39632117-efe9-524c-a588-50164c5cf266,,web,"Maese Lab: Tomillo, herbal"
+97b2f750-3dc2-5161-a0d6-8bb2428b1b13,6e302f4c-430b-54c4-bae6-d197d807d5b7,,web,"Eden Botanicals: fresh, leafy-green, lightly floral, citrus aroma with light bitter/dry notes and rich, sweet undertones"
 97f610d5-0480-5d3e-bf6b-487a2bc41bc5,bd30c4f7-e2fd-5091-9fad-bd8e9fd565b6,,web,"Olfastory (tonka bean, in general): the raw beans are toasted and almondy, recalling caramel or dried hay; after processing, powdery"
 983c3b57-dd81-5805-82ba-a513918c131f,32878c3d-1325-5e6c-a953-99127c2ecb86,,TG,PerfumersWorld (Calone): marine moss ozone floral heliotrope melon green fresh
 98acf6cd-11c4-51a3-ae4c-0c5880ca5e48,fdda03d2-9c1b-5f4c-ba1d-51a018a13791,,TG,Firmenich: Used in large quantities in fragrances for rose compositions and other blossom notes
 98e929a8-33ce-50ba-87c5-6640ba487f66,a02cf405-03b2-522a-8f12-9b67f6fc4e0a,,TG,"Pell Wall Perfumes (Helional): Fresh, watery, green, floral-cyclamen, ozone, hay, new-mown-hay"
+98ec99fe-3553-542b-8e22-5aaf4ef9eaa7,b64919c9-aa03-518d-b434-693bc1be9aea,,TG,"TGSC: the smell is fresh grassy, lemony, with geranium rose and ocean breeze qualities"
 994858b4-9753-5994-b072-e19127e2a20d,18b23b93-1173-596e-8e9d-e039d23d4673,,web,"Knowde: Strong, sharp sweet-bitter almond cherry. Fruity, Powdery, Nutty"
 9952cd41-b387-51de-b8fa-ce11a9e97681,fdda03d2-9c1b-5f4c-ba1d-51a018a13791,,web,"Scentspiracy: Mild, warm, rose-honey floral"
 995583fb-2ba5-5035-b135-937366fa80ac,79621969-354b-5249-8298-cb677885811c,,web,Perfumers World: Musty-fruity and somewhat dry-floral odor reminiscent of Concord grapes
@@ -951,12 +969,14 @@ id,material_id,owner_id,source,text
 9d42d926-cb90-58fc-9e1e-498bb7a6d6c1,a74ddb25-b205-5f9d-b9d5-910f5d9e9751,,web,"Maese Lab: Dulce e intenso Ambar gris, Especiado Amaderado, Marino difuso"
 9d885cbb-e996-570e-b615-234d2a70451b,f7a96966-533f-5a38-9500-d49e5be6a93d,,web,"scent.vn (perfil predicho): Phenolic (79.63%), Medicinal, Leathery, Woody, Smoky, Animal"
 9d9ebe2c-770c-5895-b213-bc01ed4e3622,790c6acc-ef9a-5e2d-a209-e46177a4af35,,TG,"Pell Wall Perfumes: Balsamic, sweet, fruity-strawberry, fresh. Powerful"
+9e038275-9794-539d-ab5f-734458e9f1da,6fdc8bd5-9e9c-5f07-b8de-5b890788dbe2,,TG,TGSC: eucalyptus camphoreous medicinal
 9e092a0f-e057-5443-896c-4d8d1a483cdc,00acd9d3-9918-55cd-ba14-e0621469a8f1,,TG,"Perfumer Supply House: Sweet, cotton candy, caramel, raspberry jam, strawberry jam"
 9e44723a-3e26-5585-ae76-76feba4230b6,bcae9711-ebd5-5d5f-af71-8163cfd03c76,,FIG,"Fruity, Oily, Peach"
 9e922652-928e-5d72-8f3e-cc0fc7cb6081,19f5072c-dcc5-5f96-a226-269c5b413c6d,,TG,PerfumersWorld: fresh floral-citrus terpene sweet
 9f253c2c-a928-59a8-8a16-c7ddb745109a,32878c3d-1325-5e6c-a953-99127c2ecb86,,FIG,"Marine, Watery, Fresh"
 9f4b3cf2-5b2c-5152-917e-b011839c8981,583b62ee-9507-5c67-bbf3-0b9d1d5b63cc,,TG,"Moellhausen: fresh, floreal, bergamot, petitgrain, lime"
 9f548bfd-6297-5e30-ab43-1a46e759a4e4,262021a5-ccf4-55b6-9ff4-0d0783a8c9fa,,TG,TGSC: sweet anise spice licorice woody basil
+9f73ba56-ebf1-5fd4-a1f5-8cfab9c46f06,0d2f19d8-d3c2-56b1-a14f-6b7993fa1a5b,,web,"Aftelier: Similar in aroma to palo santo wood, but fresher and cleaner and full of fruity facets"
 9f8d3ca1-b2c3-5751-a5c6-0c10a75f6c19,5b667d33-88cc-57ef-b266-9c2f68238683,,TG,"Indukern F&F: BALSAMIC, WOODY, ANIMAL"
 9fcc7f9e-913f-5565-8d1a-2ba2c2fb6cf3,7e985a26-3d02-5715-b8e8-59215a279e9e,,TG,"Moellhausen (gamma-Methyl Ionone 70) (70 % sheet): floreal, woody, in dilution of violet"
 9fce1276-a191-5e86-ac98-a669808f6d24,4b077177-b545-5f0f-8b44-fd0c72c22db3,,TG,"Organica Aromatics: Strong, fruity, pineapple note with green galbanum nuances."
@@ -986,6 +1006,7 @@ a369248a-9b5a-572e-a1dc-be4d15ed0e17,bce96d26-a651-56fd-beba-3cf582d6b5be,,FIG,"
 a3743bae-e0e5-502c-b856-1e5f70692f8c,1ca12435-3d23-55bb-ac20-32566ccf4679,,web,"Maese Lab: Seco, amaderado, terroso, pino, pachuli, duradero."
 a389fb55-a3c7-564b-854c-6cefe973f4dd,0247ccac-d36a-5448-ab5d-c4fadf0b3c40,,TG,"IFF (Terpinyl Acetate Extra and Jax): Sweet, herbaceous, floral with fresh lavender nuances"
 a3b170fc-e628-54fb-a91f-7131faa01bc6,19f5072c-dcc5-5f96-a226-269c5b413c6d,,TG,"Pell Wall Perfumes (Mandarin, green): Floral-neroli, citrus-mandarin, sweet, sharp, orange"
+a3bf8192-2677-5539-9d23-b4057e48b9e3,7d2b1784-574b-53c2-a4b5-b9bc5e2b8cdf,,TG,TGSC: green leafy geranium pine resinous fruity jammy vegetable
 a41c6054-1215-57ba-a1fd-c5754153c4b1,1120f7cf-11c0-57f6-9de8-331bc4ac12a7,,TG,Odor Type (TGSC): vanilla
 a41d7820-c038-558d-9724-d54a03096437,bce96d26-a651-56fd-beba-3cf582d6b5be,,TG,"The Perfumers Apprentice: Fresh, Citrus, Grapefruit peel like, with a Vetiveryl Acetate aspect."
 a4517418-ace0-5da7-bcfc-2aa01475041e,a775bc0a-ac54-533c-9b3e-c767deb1417d,,web,"Perfumer's Apprentice: Elegant, Substantive, Warm, Slightly woody"
@@ -1026,6 +1047,7 @@ a93dedf1-3094-5a36-82c3-421081d0ec8d,72de017f-71b8-5fc7-87c4-034c2f3cb2f1,,web,"
 a945f6b1-8ecc-5b58-b9b6-d3e3d70f6a5b,81768544-f612-5a82-b792-f1becdf3d2d5,,TG,"Mosciano, Gerard (P&F 18, No. 5, 39, 1993): Brown, tobacco, sweet hay-like, leafy, herbal with a dried fruit nuance"
 a97c4c55-76df-50cd-b0d3-d922dd0ac42c,e035f8a6-1eb5-5d37-ac18-e207ba77750e,,TG,"The Perfumers Apprentice (Dewfruit Q): Product formulated by 'Quest: ABQ2977,' an exotic fruit, lichee, raspberry..."
 a98bdae9-d1a0-5c4a-bb22-06f83e973e90,4b92b472-dea7-5138-a2fa-8de78181afa5,,web,ChemicalBook (via search engine): fresh citrus lime floral clean cologne weedy
+a9addb8c-58a6-565e-bc41-890b6016221b,b715a1d0-3b13-538a-9ce9-731aed49885e,,TG,TGSC: fresh fruity spicy allspice camphoreous floral herbal
 a9bcecaf-4b4e-569d-ba2e-6a463b845b8e,8e2e3c9e-0226-5ab1-8dc7-d9692f0b14ae,,TG,TGSC: woody floral pine balsam violet methyl ionone
 a9ce5f16-6064-57c8-93bb-53a4bafe4c3b,79621969-354b-5249-8298-cb677885811c,,TG,"Bedoukian Research: Characteristic concord grape, orange blossom aroma"
 aa41d8b2-c1d0-5010-8ff3-cfe9a6e0e18d,f508019d-d671-5b65-8cd0-45df69026eae,,web,"Maese Lab: warm, caramelized, balsamic and woody aroma with spicy notes"
@@ -1039,6 +1061,8 @@ ab4fb1c3-86d3-5b9f-a6f7-b07cbbdc77f3,c46ca31c-992a-5149-8fb8-d2c8893e16b5,,TG,"P
 abfab941-8572-5eb5-9f6b-de0f33a3d672,70233a8d-4d59-5eb7-9a2f-ea7540d20032,,TG,"IFF (Santaliff): Sandalwood, woody, milky, creamy. To give increased substantivity and sandalwood character to fragrances"
 ac3c8209-3a7f-5db0-a598-bd42ccf93613,f508019d-d671-5b65-8cd0-45df69026eae,,web,"Robertet: Ambery/vanillic, typical milky/buttery, turpentine, mushroom odour"
 ac884fe3-60ef-5d9d-bac2-2e2f1244a42b,cbfea3e7-46a4-55ff-9243-c1b58788ab60,,web,"Eden Botanicals: Sweet, fresh, green-herbaceous, with a woody, somewhat camphoraceous note that becomes sweeter in the dry down"
+acecbd47-9d8b-53fc-9e0c-973c629d13ad,7d2b1784-574b-53c2-a4b5-b9bc5e2b8cdf,,TG,TGSC: green leafy geranium pine resinous fruity jammy vegetable
+ad20ca2c-7c4e-547c-9789-46058254ba64,c94476ba-254b-5145-b156-067801299e50,,TG,TGSC: peppery
 ad3bcfa0-03b8-598a-af21-d7100049dd5a,c1a357df-e7de-54cf-bdfb-9b3c79000814,,web,"Aether Parfums / Creating Perfume (fragmento): a very strong aldehydic note that smells of a hot iron that moves into a dry, woody character with a slight amber undertone"
 ad61dbe3-cad4-5044-9ca3-cdbd5f41c1b8,9936992a-d945-506e-8f79-20d54b56384d,,TG,Hermitage Oils (Cade Wood Rectified): characteristic
 ad87ea91-08fb-501b-91bb-e4b329482f88,9117c547-e554-55c3-8945-c6819995ff49,,TG,"Moellhausen: herbaceous, citrus, lemon"
@@ -1047,12 +1071,14 @@ ae05f9a9-2733-5f36-af60-aa12ce4cdd86,c811f0e8-c0e4-5a40-9d87-f7cb3bdba3eb,,TG,IF
 ae537b8a-58a7-57ce-ba6b-9923c2f65d34,806c29dc-7e0e-52d4-a0db-82f669ec7131,,TG,"FCI SAS: Powerful and diffusive foliage green odor with typical cutted grass, fresh top note"
 ae652922-81f9-5b0e-9581-a721b1d39586,00acd9d3-9918-55cd-ba14-e0621469a8f1,,TG,"Perfumery Laboratory: Sweet, sugar candy, caramel, raspberry jam, strawberry jam"
 ae69b235-58cb-5c45-bcd5-4603536089ef,a775bc0a-ac54-533c-9b3e-c767deb1417d,,TG,"Pell Wall Perfumes: Musk, sweet, powdery, hot-iron"
+aebb23f5-c6cc-56fb-a4db-295445606697,a40b37d5-ed1e-5b9d-b63e-9294b9841c03,,TG,TGSC: lemon
 af00ae2f-3df1-510e-95c2-4d6de8c667c5,5c8591db-77ed-57d8-8905-74a806b2c562,,TG,Odor Type (TGSC): animal
 af300653-a535-5c5d-b5e1-e9d19664e8b2,ab0a582f-c9ff-5355-a9fe-b9bf9c8bb45d,,web,The Good Scents Company: fresh spearmint carvone
 afa192d7-2361-52c6-b5bb-893f5d11ddcf,21315025-6548-5fea-a15f-4c9be0198109,,web,"Symrise, technical sheet (via search engine): Animalic, Ambergris, Musk, Earthy, Violet"
 afc248fa-1a01-508e-b23f-2df2cdd071f0,68c3cb33-18a7-5acf-8c22-99170def7d0f,,web,"Scentspiracy: Fresh, penetrating, sharp herbaceous-green opening with pronounced thujonic character (top); warm-spicy, camphoraceous-cineolic heart; sweet-herbaceous, dry-woody base"
 afc36fe9-bad0-5c0e-9c7a-5604f7a21625,5b667d33-88cc-57ef-b266-9c2f68238683,,TG,"Pell Wall Perfumes: Sweet-resinous, old wood, amber, ambergris, dry"
 b02b62a2-1556-5884-a1a3-fbdc4ea272a0,e212c9e2-cd71-530c-9dff-5098c0d3fa19,,TG,"TGSC (Luebke, William, 1989), at 100 % (sample from IFF): woody dry ambergris cedar old wood ketonic phenolic"
+b049f975-5191-5b76-93d2-cc110454c3fb,7b61d8d3-f820-5730-9f13-582c68a4fb2b,,TG,TGSC: sweet floral bois de rose herbal citrus rose terpenic balsamic waxy woody
 b09ca922-fbd3-5fef-af29-8a9bf144627b,740512a1-0aed-5035-912c-2dcdb89a9291,,TG,"Synarome: powerful natural note mixing cumin, caraway, cinnamon, woody and fur notes"
 b0c3ebcd-53fa-57e6-b222-1ee33f830195,88219b7d-2adb-58a6-b6ae-59879ec1edcb,,TG,"TGSC, sheet 94333-88-7 (no author), at 100 %: woody vetiver balsamic tea rose"
 b16e3dfb-739c-5518-bdb7-0f3320b78e61,40f89c9f-8ef5-5f92-87a9-31d9454a3194,,TG,Hermitage Oils: Odor: characteristic
@@ -1119,6 +1145,7 @@ baf95a3a-b5e7-561d-a4fb-8dcc62617b18,c1a357df-e7de-54cf-bdfb-9b3c79000814,,web,"
 bb165e0e-bb97-581a-8120-1501395b1211,3144dd0d-c122-5e48-beef-c5dffbe6cd65,,TG,"TGSC (Luebke, William, 1986), at 10 % in DPG: castoreum leather earthy oakmoss vetiver"
 bb618e59-ca1b-54ba-84f0-9645c9d22ea6,4e08728b-6ff8-51d7-a6b0-a4b132984a33,,web,"Maese Lab: Salicilato dulce-floral, especiado, balsámico, ligeramente fenólico, picante"
 bb774548-f6f1-5ceb-820f-41bbc9b6583a,e212c9e2-cd71-530c-9dff-5098c0d3fa19,,TG,"Takasago (Orbitone® biobased 74%): Woody, Ambergris, Floral, Violet"
+bc3e277f-929b-5910-ae36-e23ce4f90097,7d2b1784-574b-53c2-a4b5-b9bc5e2b8cdf,,web,Hermitage Oils: resinous and zappy freshness throughout with tonalities comparable to fresh runner bean skins
 bc49ee66-34e6-5ab3-986a-ac04c252a37e,93a692cc-1d14-5e88-9df7-b59b7a4ef958,,TG,"Pell Wall Perfumes (Norlimbanol): Dry-wood, driftwood, animal, amber"
 bcf82759-5624-507c-ba0e-28a10be902fc,84a3119f-a05b-5cae-a8c4-fa82119bbcac,,TG,TGSC: floral geranium grapefruit fresh
 bd385622-bfef-5857-91e9-e477413e8fa2,0cdb7271-5a6c-593b-8073-836ad051cbae,,TG,TGSC: spicy ginger citrus woody terpenic camphoreous earthy
@@ -1141,6 +1168,7 @@ c046a4e6-4bdb-57a5-9c1c-cbc85e6308c8,54b91bc4-e0b7-5b89-bc53-da87c5312a00,,TG,Si
 c0a3ae81-eb46-5eb1-81e1-9fa3c9f2841d,5a5e618f-26d5-563c-b6c0-26b2c1f9a8cf,,TG,"Indukern F&F: SPICY, LEATHER, WOODY, WARM"
 c0a449e8-0d46-5d24-b7a4-2a00df98c80a,c811f0e8-c0e4-5a40-9d87-f7cb3bdba3eb,,TG,"Perfumer Supply House: Mossy, woody (pine), herbaceous, earthy, hay-like, tobacco, seaweed with good tenacity"
 c0b4884e-cada-50bb-9262-671e7731a412,e1d782ce-6be8-5ab0-b644-91fbb4a8b186,,web,"Scentspiracy: Woody, amber, musky; soft patchouli nuance; clean, transparent, long-lasting"
+c0e5ef7b-2219-5e3c-bfe7-545131a020b7,b835ed37-3c05-5a00-9628-7ca6f9d765e9,,TG,TGSC: woody balsam opoponax cedar floral
 c0ed72da-3d4b-5886-8764-cf981f56c30a,f98d26ea-d252-5ddc-8602-956e39c4185c,,web,"ScenTree: used in fruity-pear, rose, lavender, lily of the valley, apple and verbena notes among others"
 c137e7e6-88d3-5805-b05f-225ca64e53ba,c75cde43-44c0-5d83-b4bb-60d4376c425d,,web,The Good Scents Company: peppermint
 c188c375-cd22-5075-9479-e38605f45261,18b23b93-1173-596e-8e9d-e039d23d4673,,TG,"Luebke, William (TGSC, 1982), at 10 % in dipropylene glycol: strong sharp sweet bitter almond cherry"
@@ -1166,11 +1194,13 @@ c5a8b4c0-7ab3-53da-b2a8-24d28f7528e5,e4d36415-6b7e-513b-9d8b-65d0e4373e62,,web,I
 c5b62061-d0e5-55c2-8fed-503d0325be08,a367b36a-7424-5591-8baa-b245b6b56d52,,TG,"Firmenich: Fresh, aromatic, sweet, floral, herbaceous and slightly fruity"
 c5cd6b43-cbd6-59ac-a40f-86886ede376b,9936992a-d945-506e-8f79-20d54b56384d,,web,"Fraterworks: intensely smoky, leathery aroma with pronounced tar-like, dry woody, and phenolic characteristics"
 c5ee4df7-6ae7-58e2-a4ce-a1921bb42db6,00a2cbc3-f864-5113-ba58-3e11b89d4d7c,,web,dsm-firmenich: A highly substantive material with a deep and diffusive sandalwood note
+c60c5502-5dc8-5849-9e69-296a892552dd,2913b248-122b-53ff-901e-c652e91a3e22,,TG,"TGSC: herbal, peppery, earthy, and warm"
 c6a6a88c-811c-5ea7-a70f-13bf31648c93,a5898f66-c8af-5ab6-aec9-21d6c7f873fb,,FIG,"Aldehydic, Orange, Citrus"
 c6d5693c-df69-5bd0-bed5-5d253df1e95b,ae1cab23-77cc-54c6-b509-3a1aed02a4ac,,web,"Scentspiracy: sweet, almondy-hay scent with herbaceous and powdery nuances"
 c7307e27-1023-5405-84c6-b6ac863a3505,af613a1d-6887-55d9-8826-d5b140f4c586,,TG,"Vigon: SWEET, FLORAL, LILY-LIKE"
 c7758f0e-d631-5ae7-8acc-176a7c435a8a,bf546832-255d-502b-ac7d-cb76f3a8be74,,TG,PerfumersWorld: strong diffusive sweet floral musk powerful clean
 c78b4ef9-cb90-517d-b1cf-01ccf0706b51,aa8f4d4e-fb07-5325-912c-b0c313f58187,,TG,TGSC: menthol cool fresh qualities
+c7a306bf-bffa-55f5-a2e8-a94fa2a472e4,2913b248-122b-53ff-901e-c652e91a3e22,,web,"Eden Botanicals: Very fresh, vibrant, warm, with a pungent, spicy/herbaceous, mildly woody undertone."
 c7c8afde-fc00-5b5c-8b4b-2db1a0168b50,bcae9711-ebd5-5d5f-af71-8163cfd03c76,,TG,"IFF (Undecalactone Gamma Coeur): Creamy, fruity, peach, coconut, lactonic"
 c82abbbe-ff1f-5f3d-94c7-e2ad35ea04e9,e68657a9-dc12-5455-bd2e-7d2cac47288f,,TG,TGSC: earthy woody mahogany orris dry amber
 c84e128f-d6d6-5764-a031-b5844fa402e8,938af120-bbee-5d76-a974-269d0b64decf,,TG,"TGSC, at 100 %: bitter tropical grapefruit rhubarb guava"
@@ -1183,6 +1213,7 @@ c92fbf8f-6b14-5c2d-a3f3-1fff2441c71a,a367b36a-7424-5591-8baa-b245b6b56d52,,TG,"M
 c93521a0-887e-5be5-bbe6-4502738936dd,6fa3d19a-60bb-59c1-8a40-430e25d4e197,,web,"Fraterworks: sweet, powdery floral aroma with distinctive almond-cherry facets, subtle vanilla undertones"
 c93bc5ec-b6f1-503b-849a-3909ffd9dc74,f651a9e1-1f05-579f-8a87-5c9b717fe203,,web,"Premiere Peau: Dry and mineral at first contact — warm sea stone, bleached wood, the faintest trace of tobacco leaf"
 c95a3518-d527-547f-a240-63dfbce19695,14edcb90-06fd-51e0-9194-56778ab5abc7,,TG,"Firmenich (ENCENS HE / ENCENS HE RECT) — generic sheet 8016-36-2 (different CAS): With a sweet, woody and balsamic undertone, Olibanum offers a green, terpenic, citrusy, peppery and resinous profile"
+c989ea9c-fde7-57a0-9759-125b6e972b5e,a6d57961-5bee-5921-817e-3d8cc970dc78,,TG,TGSC: fresh spicy bois de rose herbal peppery orange bitter orange woody minty smoky
 c9ee4ded-06f5-5d21-92dc-7c33cdfeed64,bcae9711-ebd5-5d5f-af71-8163cfd03c76,,TG,"Mosciano, Gerard, P&F 23, No. 2, 43, 1998: Creamy, fatty, fruity, coconut, peach, lactonic, ketonic and fruity"
 ca02c50c-1058-5840-82b2-8a76d88e759b,742b89fe-f78a-504f-bae1-c36a35629daa,,TG,"Moellhausen (EUCALYPTOL Natural): ice, fresh, camphoraceous"
 ca114775-3144-58fb-85a9-05cc3955e95d,99cbb5b1-4ef4-5255-9c75-5e89d8a32279,,TG,"Firmenich (in TGSC, Exaltolide): It has an especially sensual effect on skin."
@@ -1277,6 +1308,7 @@ d7d3dc7c-b303-52bc-bc3d-ca08f3984fe8,ecb2cccb-82b4-55de-a7b6-823366b4bf62,,TG,TG
 d7dfe6e7-6ebd-5b31-8930-84897d5dba48,acb39471-8a8e-5c5a-9689-cce2ea98fac7,,web,"Premiere Peau: warm, fruity, apple-like, with a herbaceous hay undertone"
 d80c4a6f-76a5-5029-89b3-09f35fffa879,af613a1d-6887-55d9-8826-d5b140f4c586,,web,"Scentspiracy (generic hydroxycitronellal): Sweet, floral, light, and clean with muguet character; tenacity increases in blends"
 d81fb0e0-abd6-5d5c-a4c3-3fa137ce1186,5c8591db-77ed-57d8-8905-74a806b2c562,,web,Fraterworks (high concentration): intensely fecal and naphthalenic (mothball-like) at high concentrations
+d82194a2-b9c6-554f-9764-86f95fd0a5cd,7b61d8d3-f820-5730-9f13-582c68a4fb2b,,web,"Fraterworks: sweet, refreshing, and softly floral-woody"
 d891a481-0165-5fd5-b7aa-b2a6fa4beb66,dd7f46b0-6edc-5ef6-bfe2-3167b66f1308,,web,"Hermitage Oils, citando a Arctander: Its warm, animal, leather-like sweet odour makes it an interesting item in “men’s perfumes”."
 d8f95a23-93d9-5221-a8e6-1172f90a06e0,71700310-e26a-5a86-8449-5e6881c6895f,,TG,"Mosciano, Gerard (P&F 20, No. 4, 23, 1995): Sweet, aldehydic, orange, waxy and citrus rind"
 d916c070-fbf0-521b-9bfd-311e1fbc8c70,a02cf405-03b2-522a-8f12-9b67f6fc4e0a,,TG,"Moellhausen (HELIONAL): fresh, floreal, lily of valley, cyclamen"
@@ -1310,6 +1342,7 @@ df2a9a85-a8df-5992-a46a-7ed172d4bb06,8d028700-a88e-571a-acff-86dd5993a896,,web,"
 df45c9be-a5c5-52b3-825c-11defdfc3f5d,ff5374f3-1b5c-5633-8db9-fbdeb7376aa1,,FIG,"Fruity, Floral, Jasmin"
 df4c3357-f233-5f76-b6f4-80c017330083,09d4506c-71cf-5427-888e-39bdf6ccde55,,web,"Fraterworks: Bright, fruity-sweet citrus without phototoxic components."
 df8e4926-7157-566f-9c2d-3465fc8ba0eb,e212c9e2-cd71-530c-9dff-5098c0d3fa19,,web,"Scentspiracy: velvety, transparent dry woody aroma with hints of cedar, ambergris, and violet leaf."
+df908ebc-8420-53a7-95fb-38a427e4938e,d6a258fc-412f-5548-8a27-f0a312ddc9a2,,web,"Eden Botanicals: fresh, leafy-green, lightly floral, citrus aroma with light bitter/dry notes and rich, sweet undertones"
 df917063-7b74-5883-859f-07a965192547,15271dd5-2bab-5ed0-a742-f86d66485282,,web,"Fraterworks: a green, fruity, floral character of blackcurrant buds combined with the distinctive freshness of boxwood shrub"
 dfe4e732-d0ff-5531-9145-ad43e6affbaf,ff37315b-9a1f-57c8-90e1-eb9d23911346,,web,"Scentspiracy: Rosy, metallic, green, iron-like, with dusty-medicinal facets and a pea-skin nuance"
 e06ed037-1090-5da4-b953-90f19a484cd1,a21c3f03-679b-56bd-ac45-b4cc95d088cf,,TG,"TGSC (Luebke, William, 1983), at 100.00 % (sample from Charabot & Co., Inc.): sweet balsam cinnamyl woody"
@@ -1334,6 +1367,7 @@ e24239ea-9744-52ba-a5c4-04b0c587bdfb,10f05920-6464-5cf4-9812-2af8e37fa73d,,web,"
 e27dc2c6-b2b5-5c63-ad9c-90ed2d6c1c6b,88219b7d-2adb-58a6-b6ae-59879ec1edcb,,TG,"Taytonn ASCC (sheet 94333-88-7): Balsamic, Powder/ Powdery, Tea Rose, Vetivert, Woody"
 e31ed4df-4995-5ee9-af7f-79bc8ca02587,a6792a1c-cfa5-58ed-9eb4-9651c2987e68,,TG,Mane: Zesty Juicy Albedo
 e324ea3f-b9fb-5f08-a524-2d8500918431,79621969-354b-5249-8298-cb677885811c,,web,"Scentspiracy: Grape, orange blossom, neroli, sweet, musky, with naphthalene and medicinal facets"
+e34af5d0-2b20-55c2-9030-4c2663e32a93,0ab3988f-ea2b-564a-9a90-b32315fd5d75,,web,"Scentspiracy: Light, fresh, warm-spicy and aromatic with distinctly terpenic top note"
 e3763b8b-3cc2-5077-8cf0-009393849eca,7b46db90-485c-5a1f-ac65-a944fb216beb,,web,"Scentfriends: Leathery and animalic, with castoreum-like warmth, a hint of tobacco, a slightly phenolic, smoky trace, and an earthy-resinous base"
 e3775fd1-0d81-5ee9-a861-35cbc8c3c0a0,bcae9711-ebd5-5d5f-af71-8163cfd03c76,,TG,"Bedoukian Research: A fruity, peachy character with a melon rind undertone"
 e3848d7c-cda7-50ea-a9e5-f36d0ac9940f,a367b36a-7424-5591-8baa-b245b6b56d52,,TG,"TGSC (Luebke, William, 1982), at 100.00 % (sample from Berje Inc.): herbal floral spicy aromatic camphoreous balsamic eucalyptus woody"
@@ -1423,6 +1457,7 @@ edce6081-29ae-5fc5-bbe1-342f774b569c,71700310-e26a-5a86-8449-5e6881c6895f,,TG,"G
 ede0b862-7882-5671-8374-fbc5c07925b6,5b667d33-88cc-57ef-b266-9c2f68238683,,TG,Mane: Balsamic Resinous Gourmand
 ee205aca-4ef9-5fec-9591-d4404da7c68a,b6777ea2-2761-5ff0-9d81-27a2afffa94c,,web,"Maese Lab: Aroma a azufre, almendras dulces, aroma cianúrico alto, sulfúrico."
 ee24da3a-578f-5a61-ba8f-2f7d3cd17c31,40f89c9f-8ef5-5f92-87a9-31d9454a3194,,web,"Essential Oils Pedia: intensely herbaceous, sharp, and camphoraceous"
+ee6a7bbe-03c7-55e0-a7ca-ffbb7dab7716,a6d57961-5bee-5921-817e-3d8cc970dc78,,web,"Premiere Peau: Warm, camphoraceous pepper with eucalyptus-like freshness."
 ee72629c-df12-518d-9793-a769d379714d,71700310-e26a-5a86-8449-5e6881c6895f,,FIG,"Aldehydic, Orange, Green"
 ee798d54-a065-5d13-ae49-910e65c06ccc,14edcb90-06fd-51e0-9194-56778ab5abc7,,TG,"TGSC, sheet «boswellia carterii gum oil, 89957-98-2» (descriptors with no author or dilution): frankincense, woody"
 ee9242c5-84a0-50f7-9792-21c49a9f400c,fc4dbb8f-859f-537d-a317-a852e9c7c7f7,,TG,"Mosciano, Gerard, P&F 23 (1998): Powdery, sweet, floral and ambrette-like with woody, spicy and vanilla nuances"
@@ -1470,8 +1505,10 @@ f558975e-9e30-5d1d-abaf-37270a3c475f,80cdabab-46a8-5844-b8a7-d55b2005a780,,TG,"T
 f58496ce-5952-52ca-8aae-15dcaab4dcdc,65a35d9a-bdf1-5e10-9a6d-10d1f134cb62,,web,"Fraterworks: softer, greener, woody-citrus pine aroma with dry spicy-balsamic undertones"
 f5887e1e-3fca-5365-9543-976da292aef9,a5898f66-c8af-5ab6-aec9-21d6c7f873fb,,web,"Olfactorian: powerfully diffusive aldehydic freshness with metallic-waxy facets, amber warmth, and distinctive gassy-citrus nuances"
 f62eb782-d170-5556-868d-28b66c8d71e8,f303cd6f-9e12-585b-b105-8e4a26385d29,,TG,TGSC: herbaceous and woody
+f63b4dfb-b0c8-5f04-b044-408f1165b28a,e731014c-7001-59ac-a9ae-c2f1c46c8a00,,web,"Hermitage Oils: sweet, woody, and vegetative with intensely tenacious leafy violet heart notes"
 f643220d-eb8c-517b-863c-fb0e891ac074,6fa3d19a-60bb-59c1-8a40-430e25d4e197,,TG,"Ernesto Ventós: SWEET, FLORAL"
 f67f7c57-820e-5bea-9ec7-9dec6e6feb18,f98d26ea-d252-5ddc-8602-956e39c4185c,,TG,"Bedoukian Research: A rose, green odor with lavender undertones"
+f69086e7-8e79-5e15-a99f-1d633daebc51,25e1db24-97cf-56fc-a0a3-671099889b6a,,web,"Eden Botanicals: Rich, persistent, woody, earthy, deep, somewhat peppery aroma with smoky notes of leather"
 f6a4c31a-07ab-52f9-89d2-f59550e3ba87,a367b36a-7424-5591-8baa-b245b6b56d52,,FIG,"Floral, Aromatic, Fresh"
 f6c8fbd9-bfa7-5bab-a5f3-7273f017ddc3,738ad555-c148-5d92-af13-cd0970c30c2f,,web,The Good Scents Company: mandarin
 f6e08eae-0bec-56ce-b2c7-b89fd978f95d,c46ca31c-992a-5149-8fb8-d2c8893e16b5,,web,"Essentialoil.com: Camphorous, earthy, woodsy, rich, and balsamic."

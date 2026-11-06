@@ -2,7 +2,7 @@ id,name,aliases
 007b23e6-ac07-563f-82d8-2e39f454e6d8,Musk dimethyl indane,[]
 00a17e1b-9240-5ea0-bef6-dda13b8cfdf9,"Backhousia citriodora (leaf), essential oil",[]
 0108d784-e011-5da9-aee6-46f32eef074f,Geosmin,"[""Geosmina""]"
-012c9631-b0ce-55df-b06b-c6d01c9baaec,"Myrtus communis (leaf, red), essential oil",[]
+012c9631-b0ce-55df-b06b-c6d01c9baaec,"Myrtle (red), essential oil",[]
 0165cd93-c461-5db0-8a77-ac543cd11be7,"Cuminum cyminum (seed), essential oil",[]
 01ce56a7-aea3-5069-8b99-e6e24c46556a,"Galbanum, essential oil","[""Gálbano, aceite esencial""]"
 02281651-bb6c-5976-a973-cdc87b5596ec,Veramoss,[]
@@ -27,13 +27,13 @@ id,name,aliases
 130e5f64-9f5d-5d9c-9572-a89966f49de4,"Piper nigrum (fruit, green), essential oil",[]
 131fa50c-b918-5534-9bdf-b455d3e32f17,"Magnolia grandiflora (flower), essential oil",[]
 13b39d80-7474-5d4f-b313-8aba4e463265,Clearwood,[]
-14598f3f-f909-5090-b8c7-f90cd70cbc07,"Bursera graveolens (fruit), essential oil",[]
+14598f3f-f909-5090-b8c7-f90cd70cbc07,"Palo Santo Fruit, essential oil",[]
 15b7705e-017f-5ad9-a7ba-415ecdb65ce5,Methyl linolenate,[]
 1832249f-7e89-5306-9b56-133929a3ec64,"Artemisia dracunculus (plant), essential oil",[]
 18e17419-4584-5f3a-9ed4-f65dbd10e209,"Commiphora mukul (resin), essential oil",[]
 18f5e3d8-2794-5842-8b5f-b60102ef5b7a,"Cananga odorata (flower, first distillation), essential oil",[]
 18fcaaed-6c9e-5799-8223-68079d42e9a1,"Apium graveolens (seed), essential oil",[]
-1934b15f-46c3-5642-9100-9a210b485f06,"Aniba rosaeodora (wood), essential oil",[]
+1934b15f-46c3-5642-9100-9a210b485f06,"Bois de rose, essential oil",[]
 19604867-d19e-5aca-b5ac-a0c01cc32d96,"Hyssopus officinalis (flowers and leaves), essential oil",[]
 19c3a9c0-1489-5ec3-8a5c-bb40d596b480,Cilantro,[]
 1ad50386-ea77-5730-b59f-056abdb9e05e,"Oakmoss, absolute","[""Musgo de roble, absoluto""]"
@@ -46,7 +46,7 @@ id,name,aliases
 1f5964c2-8182-5075-846a-dab2b1de6b8b,Heliotropin,"[""Heliotropina""]"
 1fd9bb50-10a2-5765-8925-802df027dbda,Patchouli,[]
 20514b4b-f7da-5527-84ca-0e91c8176d00,"Myristica fragrans (grain), essential oil",[]
-20ee2cc3-d163-5f80-8709-ca0a7e91e0d0,"Fokienia hodginsii (wood), essential oil",[]
+20ee2cc3-d163-5f80-8709-ca0a7e91e0d0,"Siam wood, essential oil",[]
 217aef95-132f-501d-945a-3b49da2d4b88,Manzanate,[]
 220ec870-c93c-5262-b685-de14d6ef4bf0,Vetiver,[]
 224df068-a69a-59cc-a065-0a9ae1c0a2e2,"Thymus vulgaris (flowers and leaves), essential oil",[]
@@ -196,7 +196,7 @@ id,name,aliases
 7c447ef5-0925-5566-ba4c-ce8c5d91fbb0,"Cedarwood, essential oil",[]
 7c464cc4-14f9-542d-ae99-1357f40d61f3,"Piper nigrum (fruit, black), essential oil",[]
 7da2923c-6525-5ec9-8f25-66739f315b7c,"Cassia bark, essential oil",[]
-7dc4a1d7-7bfa-5b29-b96d-ec355d1e8b46,"Melaleuca viridiflora (leaf), essential oil",[]
+7dc4a1d7-7bfa-5b29-b96d-ec355d1e8b46,"Niaouli - Melaleuca quinquenervia viridiflora ct cineole, essential oil",[]
 7e62d12d-b521-5221-b541-d9e2c09897d2,"Angelica archangelica (root), essential oil",[]
 7eb6e70f-fb68-5b42-af7b-e0f61ab29ba3,"3,4-Xylenol","[""3,4-Xilenol""]"
 7f7f9074-41e1-5876-892e-b7fc0a5f71a4,Fructone,[]
@@ -226,7 +226,7 @@ id,name,aliases
 8c9755da-4068-5bae-a518-d470e44fa78e,Truffle essence,"[""Esencia de trufa""]"
 8d6f6f79-1901-5fdc-bcfd-c32bc17b9d1e,Allyl hexanoate,[]
 8edee07e-f12e-532a-82dd-f7836209588e,"Laurus nobilis (leaf), essential oil",[]
-8f5c30c1-c475-5354-8470-ddf39445344f,"Citrus aurantium (leaves), essential oil",[]
+8f5c30c1-c475-5354-8470-ddf39445344f,"Petitgrain bigarade, essential oil",[]
 8f6c3682-1799-5cae-979c-ac45e3d8daa2,Aldehyde C18 (gamma-nonalactone),"[""Aldehído C18 (gamma-nonalactona)""]"
 8fafcef7-a899-55ed-a5e0-154fcb454220,"Eucalyptus globulus (leaf), essential oil",[]
 9008bfe8-ca3a-532b-a3ce-8013ecd57331,"Cedarwood, essential oil",[]
@@ -312,7 +312,7 @@ c59258da-242c-5df6-a54e-e73b52808b42,"Myrrh, essential oil","[""Mirra, aceite es
 c5b814dc-f42d-535f-8d4d-2d5fe9e9214b,"Amyris balsamifera (bark), essential oil",[]
 c5ca56c1-7e85-5d37-8fb9-33f818e0a628,Shangralide,[]
 c6109421-18af-561d-bc43-b6a69da450de,Eugenol 98%,[]
-c61b3e11-a3a8-5ffa-9c24-bd71e8226660,"Origanum vulgare (leaf), essential oil",[]
+c61b3e11-a3a8-5ffa-9c24-bd71e8226660,"Oregano - Organic EO, Origanum vulgare L., essential oil",[]
 c7983b8d-d81e-5862-924e-08e85764d87d,"Helichrysum gymnocephalum (flower), essential oil",[]
 c7a4ccee-ebc4-5045-924a-b88d3250407e,4-Propylphenol,[]
 c84f70d2-7bb8-562f-b3ff-d69a79e86472,"Lime, essential oil",[]
@@ -341,7 +341,7 @@ d85c1f15-2430-5188-8f01-1cd615f2ab82,"Winter savory, essential oil",[]
 d864cd22-c320-549c-b2a1-d831b575f2e2,Aldehyde C10 (decanal),"[""Aldehído C10 (decanal)""]"
 d8bcbdd5-b0bf-5ad0-91e0-b5161e5b0d04,Lemon,"[""Limón""]"
 da12c7f1-61fa-51d5-93e3-c0ca4529da02,Nerol,[]
-da96e22e-b737-5dbb-aaba-d943fce53ef7,"Cymbopogon martini (aerial parts), essential oil",[]
+da96e22e-b737-5dbb-aaba-d943fce53ef7,"Palmarosa, essential oil",[]
 db3f090c-e885-5931-ae8c-3ed2ac7fb097,Allyl cyclohexyl propionate,[]
 dd2b3fb5-f2f1-51d7-bc65-f76139e6a900,"Daucus carota (seed), essential oil",[]
 dd3323c1-c644-587a-9a5f-1ecc04714d67,Methyl Pamplemousse,[]
@@ -354,7 +354,7 @@ e1296514-6adb-50c2-ae15-098cfe943177,"Styrax benzoin (resin), dilution",[]
 e34965eb-8056-595f-b216-e15c99160d09,"Aquilaria crassna (wood), essential oil",[]
 e3bf723f-d491-5b1a-a5d7-4b2709ade8a1,"Matricaria recutita (flower), essential oil",[]
 e591023e-8e57-58fc-94ab-48edef81a325,cis-3-Hexenol,[]
-e65e0d52-9b50-5b9d-acaf-ceb8071edaa4,"Citrus aurantium (leaf), essential oil",[]
+e65e0d52-9b50-5b9d-acaf-ceb8071edaa4,"Petitgrain bigarade, essential oil",[]
 e796fe45-66c6-5188-ae1b-9433277f4ea4,Luminide,[]
 e7b18e85-6bdb-583a-b098-4b801583d961,Benzoin resinoid,"[""Resinoide de benjuí""]"
 e85a1f30-7312-56da-bfe7-23ad93be1cc7,"Barosma betulina (leaf), essential oil",[]
