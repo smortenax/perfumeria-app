@@ -1,11 +1,11 @@
-import { readFileSync } from "node:fs";
+import zaraFile from "./fixtures/zara-ide-pisos-v4.plan.json?raw";
 import { describe, expect, it } from "vitest";
 import { Ratio } from "../core/arith/ratio";
 import { PLAN_FORMAT, planFromJson, planToJson } from "./plan-json";
 
 /** The plan file, perfumeria/plan/1 (V3-100), with the real floor split of Zara Tobacco IDE v4. */
 
-const zara = readFileSync(new URL("./fixtures/zara-ide-pisos-v4.plan.json", import.meta.url), "utf8");
+const zara = zaraFile;
 const read = (doc: unknown) => planFromJson(JSON.stringify(doc));
 const line = (l: Record<string, unknown>) => read({ format: PLAN_FORMAT, lines: [l] });
 
