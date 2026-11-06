@@ -62,7 +62,11 @@ jobs:
           npm run build
 
       - name: Migraciones en la nube
-        run: npx supabase db push --yes --db-url "$DATABASE_URL_CLOUD"
+        # config.toml points at the local stack's signing key (ignored by Git). The push does not use
+        # it, but the CLI reads it when it loads the config: an empty list is enough, with no key in it.
+        run: |
+          test -f supabase/signing_key.json || echo '[]' > supabase/signing_key.json
+          npx supabase db push --yes --db-url "$DATABASE_URL_CLOUD"
 
       - name: Datos comunes en la nube
         run: npm run datos:cargar:nube
