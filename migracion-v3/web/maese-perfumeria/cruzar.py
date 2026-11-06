@@ -31,7 +31,8 @@ SOLVENT_CAS = {
     "120-51-4": "benzoato de bencilo", "56-81-5": "glicerina", "8042-47-5": "aceite mineral",
     "61789-91-1": "jojoba", "8001-21-6": "girasol", "73398-61-5": "MCT", "65381-09-1": "MCT",
 }
-CAS_RE = re.compile(r"\b(\d{2,7})-(\d{2})-(\d)\b")
+# Maese escribe a veces el dígito de control con un cero delante («1222-05-05»).
+CAS_RE = re.compile(r"\b(\d{2,7})-(\d{2})-0?(\d)\b")
 
 
 def norm(s: str) -> str:
@@ -202,8 +203,13 @@ def main():
                 if b and kind != "molecula":
                     bysp = [e for e in pm_entries if e["origin"] == "natural"
                             and any(b in n for n in e["names"] | {norm(e["name"])})]
-                    if bysp:
+                    bysp = [e for e in bysp if any(w in " " + norm(e["name"]) for w in words)]
+                    if bysp:  # por especie, solo si coincide también el proceso
                         how, cands = "especie", pick(bysp, words, names)
+        proc = ""
+        if cands and kind != "molecula" and words and not any(
+                w in " " + norm(e["name"]) for e in cands for w in words):
+            proc = "otro proceso"
         impacts = sorted({e["impact"] for e in cands if e["impact"] is not None})
         com = []
         for c in aroma_cas:
@@ -215,7 +221,7 @@ def main():
             "pureza": fi["pureza"], "pct_declarado": percent(" ".join([fi["h1"], fi["pureza"], fi["nota"]])),
             "cargas": fi["cargas"], "graduacion": fi["graduacion"], "apto": fi["apto"],
             "nota_web": fi["nota"],
-            "pm_como": how, "pm_n": len(cands),
+            "pm_como": how, "pm_proceso": proc, "pm_n": len(cands),
             "pm_nombres": " | ".join(f"{e['name']} ({e['impact']})" for e in cands[:6]),
             "pm_url": cands[0]["url"] if len(cands) == 1 else "",
             "pm_impacto": str(impacts[0]) if len(impacts) == 1 else "",
@@ -228,7 +234,7 @@ def main():
         out.append(row)
     cols = ["n", "categoria", "nombre_web", "url", "estado", "tipo", "h1", "inci", "cas_web", "cas",
             "cas_disolvente", "cas_check", "pureza", "pct_declarado", "cargas", "graduacion", "apto",
-            "nota_web", "pm_como", "pm_n", "pm_nombres", "pm_url", "pm_impacto", "pm_rango",
+            "nota_web", "pm_como", "pm_proceso", "pm_n", "pm_nombres", "pm_url", "pm_impacto", "pm_rango",
             "pm_dilucion", "pm_tira", "comun", "comun_impacto"]
     with open(os.path.join(HERE, "cruce.csv"), "w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, cols, lineterminator="\n")
