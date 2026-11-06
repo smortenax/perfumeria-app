@@ -203,8 +203,12 @@ def main():
                 if b and kind != "molecula":
                     bysp = [e for e in pm_entries if e["origin"] == "natural"
                             and any(b in n for n in e["names"] | {norm(e["name"])})]
-                    bysp = [e for e in bysp if any(w in " " + norm(e["name"]) for w in words)]
-                    if bysp:  # por especie, solo si coincide también el proceso
+                    same = [e for e in bysp if any(w in " " + norm(e["name"]) for w in words)]
+                    if same:  # por especie, solo si coincide también el proceso
+                        how, cands = "especie", pick(same, words, names)
+                    elif bysp and kind in ("tintura", "dilucion", "reduccion"):
+                        # Una tintura o una dilución se cruza con su material puro, de cualquier proceso:
+                        # es la base de la que sale su fuerza (la regla está en consenso.py).
                         how, cands = "especie", pick(bysp, words, names)
         proc = ""
         if cands and kind != "molecula" and words and not any(
