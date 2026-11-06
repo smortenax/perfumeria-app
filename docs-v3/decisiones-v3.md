@@ -1814,6 +1814,17 @@ Y, a la pregunta de si se pasaba a la app en una rama nueva: «Sí, una PR a mai
 
 **Propuesta de la sesión, sin decidir:** la forma por defecto de cada material: resina o bálsamo por su forma o nombre, meseta; si no, por el piso (salida, fugaz; salida-corazón, salida; corazón, corazón; corazón-fondo, corazón por debajo de 100 h y lineal desde ahí; fondo, lineal); sin piso, por las horas. Se cambia en cada línea del plan. La maqueta, el cruce de datos y los dos informes de investigación están en la carpeta del proyecto, `planificador-perfil/`.
 
+## V3-99 · Publicar al fusionar en `main` (pedida por el usuario el 2026-11-06)
+
+**Literal** (orko kill, 2026-11-06, en el hilo del planificador): «la idea es que siempre se pueda hacer deploy desde el propio chat sino se puede guardar las claves en una carpeta separada fuera de la repo o algo pero que sea deploy automatico es lo mas comodo».
+
+**Lectura** (de la sesión):
+
+- **Fusionar una PR en `main` es publicar.** Lo hace la GitHub Action `.github/workflows/publicar-v3.yml` con cada cambio de `v3/`, en este orden: `tsc`, pruebas y build; si algo falla, no toca la nube. Después vienen las migraciones (`supabase db push`), los datos comunes (`npm run datos:cargar:nube`) y Cloudflare (`wrangler deploy`). También se puede lanzar a mano desde la pestaña Actions.
+- **Las claves son secretos del repositorio**, fuera de Git: `DATABASE_URL_CLOUD` (la del pooler de sesión de Supabase, porque GitHub no llega por IPv6), `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `VITE_POWERSYNC_URL`, `CLOUDFLARE_API_TOKEN` y `CLOUDFLARE_ACCOUNT_ID`.
+- **Quedan a mano:** el `sync-config.yaml` en el panel de PowerSync Cloud (la Action avisa cuando cambia) y las tandas de la cuenta, que llevan tu correo.
+- Cambia la regla «Fusionado no es publicado» de `CLAUDE.md` (2026-10-27).
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
