@@ -150,7 +150,6 @@ id,material_id,owner_id,source,text
 1a161650-cfb9-54c9-b488-e97977057f3f,18b23b93-1173-596e-8e9d-e039d23d4673,,TG,"Mosciano, Gerard (P&F 19, No. 5, 79, 1994): almond, fruity, powdery, nutty and benzaldehyde-like"
 1a1c8052-8a35-50ff-a8d1-64583731b04e,5a5e618f-26d5-563c-b6c0-26b2c1f9a8cf,,TG,"Moellhausen: Leathery, Spicy, Woody, Warm"
 1a5d5da9-05fa-5a5c-a338-4a3c81f14d32,39a3f1c3-9551-5a9b-b307-3bc3c196042c,,web,"Perfumer's Apprentice: Citrus, terpenic, slightly green, black pepper-like"
-1a91618a-cd96-5ee8-8da5-8686b07213eb,d6a258fc-412f-5548-8a27-f0a312ddc9a2,,TG,TGSC: fresh floral sweet orangflower woody herbal
 1aa3ef6d-3067-5eef-bab7-eeaf9f705fb4,1d9073a2-fcaa-5a64-a4d4-ad2650250d82,,web,Premiere Peau: Crushed lemon-scented leaves with a soft herbal undertone
 1aa5743f-4eb4-5348-99b7-0b6e0e644bcb,32b2d283-5e18-5609-aa85-e73c813388cf,,TG,TGSC (at 100 %): ripe plum prune
 1ab68bbc-c0e9-5f20-b052-24c549d1d9e9,7e985a26-3d02-5715-b8e8-59215a279e9e,,web,PerfumersWorld: violet sweet orris powdery floral woody amber chypre mimosa reseda iris cyclamen
@@ -543,7 +542,6 @@ id,material_id,owner_id,source,text
 55df739d-ca84-5a13-ad71-eb929c9aa180,dd7f46b0-6edc-5ef6-bfe2-3167b66f1308,,web,"Hermitage Oils, citando a Adam Michael: light and airy notes reminiscent of birch tar infused with aged vetiver"
 56b7e02c-24fb-541e-ad25-df5a9b9f5d7a,f508019d-d671-5b65-8cd0-45df69026eae,,TG,"Hermitage Oils (in TGSC, Ethiopia): strong resinous, terpene, paint fume smell (neat)"
 56f060b2-bbd3-5b32-aaa9-6e677d8245d1,c6123c69-30e9-56db-b0ae-abe74150427f,,TG,"Pell Wall Perfumes (in TGSC): musk, animalic, leathery, sweet. Based on Galaxolide, adjusted to be more animalic"
-56f5569c-34ef-505b-b25b-76ca252ef294,d6a258fc-412f-5548-8a27-f0a312ddc9a2,,web,"Eden Botanicals: fresh, leafy-green, lightly floral, citrus aroma with light bitter/dry notes and rich, sweet undertones"
 5723cd75-3e81-5f74-914d-fb8c5675ae8f,dbe5c994-22b2-54d2-950a-16dd2b8811a3,,web,"Perfumers World: strong armoise, artemisia, green herbal, cedarleaf, minty, camphor, sage, bitter-sweet, freshly-shaved cypress wood touches"
 57386aa1-e56a-5d41-bfc8-b81a9c16f68d,7c27cec2-aaf6-510f-a49f-7e94fd626f20,,TG,Odor Type (TGSC): balsamic
 574257f9-e451-57ea-8549-04e9a5db5f69,7177d7ca-ae99-5a1c-bac0-9a3ddeb34e77,,TG,TGSC: sharp warm resinous fresh pine
@@ -617,7 +615,6 @@ id,material_id,owner_id,source,text
 63ab9ffa-1eb8-5dad-ba70-073b17dcbb85,c46ca31c-992a-5149-8fb8-d2c8893e16b5,,web,"Helpac: woody, mild and pleasant, with sweet, woody, slightly acidic base notes"
 63b330ad-90ae-5531-957d-b6f7ba18f788,b3cde9d2-a12b-51f4-8c04-64f9fd83bd64,,TG,"IFF (Geraniol 980 Pure, 7030, 600): Rose note"
 63ec7016-b70f-574f-8d9b-ae8c662e7c72,c8896fa6-8958-575e-bd2b-ec417fce3bd3,,web,"Fraterworks: rich, warm woody-amber character with distinct tobacco facets"
-6441c48b-546b-5eb2-8609-7c2da80b24df,d6a258fc-412f-5548-8a27-f0a312ddc9a2,,TG,TGSC: fresh floral sweet orangflower woody herbal
 645466ac-506f-5d5d-90ab-15add787e17e,e1d782ce-6be8-5ab0-b644-91fbb4a8b186,,web,Odor Type (Fraterworks): Woody
 64841e38-dc7a-54e7-83f7-77e55d1b8bf7,71700310-e26a-5a86-8449-5e6881c6895f,,web,"Scent.vn: Smelled neat, it can be sharply pungent and slightly ""off,"" reminiscent of mutton fat or burning candle wax. But when diluted below 1%, it opens into a clean, sparkling, fresh sweet-orange peel effect."
 648a1962-bc19-5ac4-a19f-3a27d24c58df,18b23b93-1173-596e-8e9d-e039d23d4673,,TG,"Symrise (Benzaldehyde DD): strong sweet, bitter almond-like"
@@ -1382,7 +1379,6 @@ df2a9a85-a8df-5992-a46a-7ed172d4bb06,8d028700-a88e-571a-acff-86dd5993a896,,web,"
 df45c9be-a5c5-52b3-825c-11defdfc3f5d,ff5374f3-1b5c-5633-8db9-fbdeb7376aa1,,FIG,"Fruity, Floral, Jasmin"
 df4c3357-f233-5f76-b6f4-80c017330083,09d4506c-71cf-5427-888e-39bdf6ccde55,,web,"Fraterworks: Bright, fruity-sweet citrus without phototoxic components."
 df8e4926-7157-566f-9c2d-3465fc8ba0eb,e212c9e2-cd71-530c-9dff-5098c0d3fa19,,web,"Scentspiracy: velvety, transparent dry woody aroma with hints of cedar, ambergris, and violet leaf."
-df908ebc-8420-53a7-95fb-38a427e4938e,d6a258fc-412f-5548-8a27-f0a312ddc9a2,,web,"Eden Botanicals: fresh, leafy-green, lightly floral, citrus aroma with light bitter/dry notes and rich, sweet undertones"
 df917063-7b74-5883-859f-07a965192547,15271dd5-2bab-5ed0-a742-f86d66485282,,web,"Fraterworks: a green, fruity, floral character of blackcurrant buds combined with the distinctive freshness of boxwood shrub"
 dfb5e5ad-ba6a-52b5-8fd8-defc2a3d3545,eff4f4bf-a089-5484-801d-b27170eac4f2,,web,"Fraterworks: Floral, spicy, lily, sweet, woody"
 dfe4e732-d0ff-5531-9145-ad43e6affbaf,ff37315b-9a1f-57c8-90e1-eb9d23911346,,web,"Scentspiracy: Rosy, metallic, green, iron-like, with dusty-medicinal facets and a pea-skin nuance"

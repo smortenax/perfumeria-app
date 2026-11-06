@@ -25,7 +25,7 @@ TANDA, CATEGORY = sys.argv[1], sys.argv[2]
 MAESE = HERE.parent / "maese-perfumeria"
 OUT = HERE / f"propuesta-{TANDA}.csv"
 OTHER_CAS = re.compile(r"CAS de (la|esa) (página|ficha) \S+,? no|no \d{2,7}-\d\d-\d|enanti|otro CAS|no coincide", re.I)
-OTHER_PLANT = re.compile(r"otra especie|otra parte|otra variedad|gen[eé]ric[oa] de", re.I)
+OTHER_PLANT = re.compile(r"otra especie|otra parte|otra variedad|gen[eé]ric[oa] de|otra forma", re.I)
 
 
 def norm(s):
@@ -138,7 +138,7 @@ for n, c in consenso.items():
     name = (name[0].upper() + name[1:]) if name else clean_name(c["nombre_web"].split(" - ")[-1])
     inside = [p.strip(" )") for p in re.split(r"[(/;,]", full)[1:] if p.strip(" )")]
     cases = c["cas"].split()
-    w = re.findall(r"[A-Za-z]+", c["inci"])
+    w = re.findall(r"[A-Za-z]+", re.sub(r"\b(?:alcohol|and|ethanol|dipropylene glycol)\b", " ", c["inci"], flags=re.I))  # el disolvente no es la especie
     w = [x for x in w if x.lower() != "x"]
     especie = f"{w[0].capitalize()} {w[1].lower()}" if len(w) >= 2 and w[1].lower() not in SKIP_EPITHET else ""
     form = FORM.get(c["tipo"], "")

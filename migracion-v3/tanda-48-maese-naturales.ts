@@ -60,12 +60,21 @@ const QUALIFIER: Record<string, string> = {
   "258": "cava / champagne", "410": "white wine", "295": "var. China", "296": "var. Egypt", "303": "var. picardii, Spain",
   "320": "lavandin extra", "321": "lavandin grosso", "325": "furocoumarin-free", "354": "red", "355": "green",
   "375": "white", "378": "black", "379": "green", "382": "white", "383": "pink", "386": "ct. camphor", "387": "ct. cineole",
+  "183": "white", "184": "pink",
   "411": "first distillation", "412": "second distillation", "413": "third distillation", "414": "complete", "415": "extra",
 };
 /** Same material as another product of the batch, only another grade, origin or dilution (V3-85): a specification. */
 const SAME: Record<string, [string, string]> = {
   "298": ["297", "the same guaiacwood oil, sold at 50 % in DPG"],
   "389": ["388", "the same Rosa damascena flower oil; «Otto Bulgaria» and «Extra» are origin and grade"],
+  "373": ["370", "the same Citrus aurantium amara leaf/twig oil; Paraguay is the origin (Maese wrote «Hojas» there and «Hoja» in 370)"],
+  "193": ["192", "the same Rosa damascena flower absolute; Bulgaria and India are origins"],
+  "215": ["194", "tobacco absolute sold diluted in alcohol; the absolute is already a common"],
+};
+/** Names the references give badly (a house code, the bare genus): session reading of Maese Lab's title and INCI. */
+const NAME_FIX: Record<string, string> = {
+  "181": "Jasmine grandiflorum, absolute", "182": "Jasmine sambac, absolute", "187": "Narcissus, absolute",
+  "192": "Rosa damascena (flower), absolute", "197": "Tuberose, absolute", "202": "Coffee, CO2 extract", "218": "Butter, CO2 extract",
 };
 const named = (name: string, q: string | undefined) => {
   if (!q) return name;
@@ -74,6 +83,7 @@ const named = (name: string, q: string | undefined) => {
 };
 const maese = (p: Record<string, string>, phrase: string) => `Maese Lab, ${p.url}: «${phrase}»`;
 const treatment = (t: string) => (t.match(/bergapt|furocoum|furanocum|fcf|ffc|\bfree\b|rectif|terpenel|desterpen|decolor|incolor/i) ?? [""])[0].toLowerCase();
+const partKey = (t: string) => t.toLowerCase().replace(/s\b/g, "");  // «Hoja» and «Hojas» are the same part
 const chemotype = (t: string) => (t.match(/\b(?:QT|CT|quimiotipo)\.?\s*([A-Za-zÁÉÍÓÚáéíóú-]+)/) ?? ["", ""])[1].toLowerCase();
 const newMaterials: Rec[] = [];
 const newCategories: Rec[] = [];
@@ -91,8 +101,16 @@ for (const p of proposal) {
     skipped.push(`| ${p.n} | ${p.nombre} | el mismo material que el n.º ${SAME[p.n][0]}: ${SAME[p.n][1]} (una especificación, V3-85) |`);
     continue;
   }
+  if (NAME_FIX[p.n]) p.nombre = NAME_FIX[p.n];
   p.nombre = named(p.nombre, QUALIFIER[p.n]);
-  const identity = [p.especie || p.nombre, p.parte.toLowerCase(), p.forma, treatment(`${p.otros_nombres} ${p.inci}`), chemotype(p.otros_nombres), QUALIFIER[p.n] ?? ""].join("|");
+  if (p.forma === "dilution") {  // an absolute sold diluted is that absolute (V3-85): a specification, not a material
+    const neat = seen.get([p.especie || p.nombre, partKey(p.parte), "absolute", treatment(`${p.otros_nombres} ${p.inci}`), chemotype(p.otros_nombres), QUALIFIER[p.n] ?? ""].join("|"));
+    if (neat) {
+      skipped.push(`| ${p.n} | ${p.nombre} | el mismo material que el n.º ${neat}, vendido diluido (una especificación, V3-85) |`);
+      continue;
+    }
+  }
+  const identity = [p.especie || p.nombre, partKey(p.parte), p.forma, treatment(`${p.otros_nombres} ${p.inci}`), chemotype(p.otros_nombres), QUALIFIER[p.n] ?? ""].join("|");
   if (seen.has(identity)) throw new Error(`${p.n} ${p.nombre}: la misma identidad que ${seen.get(identity)}; añádelo a QUALIFIER o a SAME`);
   seen.set(identity, p.n);
   const key = `maese:${p.n}`;

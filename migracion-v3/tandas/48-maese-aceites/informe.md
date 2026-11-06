@@ -1,12 +1,12 @@
 # Tanda 48 · Los aceites esenciales de Maese Lab que faltaban, en lo común
 
-*Generada por `migracion-v3/tanda-48-maese-naturales.ts 48` sobre lo común de `bdb4b40` **con las tandas 46 a 47** (se aprueba después de ellas), desde `migracion-v3/web/maese-altas/propuesta-48.csv`. Escribe `v3/datos/materials.csv`, `material_categories.csv`, `material_descriptors.csv` y `material_doses.csv` enteros, con estos añadidos: lo de antes no cambia. Sin aprobar.*
+*Generada por `migracion-v3/tanda-48-maese-naturales.ts 48` sobre lo común de `3f36993` **con las tandas 46 a 47** (se aprueba después de ellas), desde `migracion-v3/web/maese-altas/propuesta-48.csv`. Escribe `v3/datos/materials.csv`, `material_categories.csv`, `material_descriptors.csv` y `material_doses.csv` enteros, con estos añadidos: lo de antes no cambia. Sin aprobar.*
 
 **Por qué** (V3-99): el usuario, 2026-11-06: «creo que es clave tener todo el glosario de maese dentro de la app» y «lo importante es que se contraste las altas de referencia […] y que en ambos casos se complete el alta».
 
 **Cómo:** como la tanda 47. La ficha de Maese Lab (tanda 45: especie por el INCI, parte, método, origen, CAS, pureza y perfil, citados); hasta dos páginas de referencia por producto, de la misma especie y parte (`migracion-v3/web/maese-altas/web-48-*.csv`); PerfuMate en local. Una página de otra especie o parte no cuenta. Un material por identidad (V3-85): especie, parte, proceso, tratamiento y quimiotipo; dos productos que solo cambian de origen o de grado son el mismo material. El nombre, el común en inglés de la referencia o, si no lo hay, la especie y la parte.
 
-**Resultado:** 160 materiales nuevos; 4 no entran (ya son un común, o el mismo material que otro de la tanda). Con familia 127, impacto 124, fuerza en palabras 64, horas en tira 96, nivel 74; 38 usos habituales y 216 descriptores.
+**Resultado:** 159 materiales nuevos; 5 no entran (ya son un común, o el mismo material que otro de la tanda). Con familia 126, impacto 123, fuerza en palabras 64, horas en tira 96, nivel 74; 37 usos habituales y 212 descriptores.
 
 **Para mirar antes de aprobar:**
 
@@ -134,7 +134,6 @@
 | 368 | Palo Santo Fruit, essential oil | *Bursera graveolens* | woody | 6 | — | — | top | — |  |
 | 369 | Petroselinum crispum (seed), essential oil | *Petroselinum crispum* | green | 7 | — | — | — | — |  |
 | 370 | Petitgrain bigarade, essential oil | *Citrus aurantium* | floral | 5 | — | — | — | 15 % | family |
-| 373 | Petitgrain bigarade, essential oil | *Citrus aurantium* | floral | 5 | — | — | — | 15 % | family |
 | 374 | Picea mariana (aerial parts), essential oil | *Picea mariana* | green | 5 | — | — | top | 5 % | family |
 | 375 | Piper nigrum (fruit, white), essential oil | *Piper nigrum* | spicy | — | — | — | — | — |  |
 | 376 | Pimenta officinalis (leaf), essential oil | *Pimenta officinalis* | spicy | 7 | — | 115 h | — | — |  |
@@ -184,4 +183,5 @@
 | 249 | Citrus bergamia (peel), essential oil | ya es un común: Bergamot, bergapten-free (798f4933-21c6-5840-a52b-8f4d4bf10c64) |
 | 298 | Guaiacwood, essential oil | el mismo material que el n.º 297: the same guaiacwood oil, sold at 50 % in DPG (una especificación, V3-85) |
 | 352 | Myrrh, essential oil | ya es un común: Myrrh, essential oil (7c27cec2-aaf6-510f-a49f-7e94fd626f20) |
+| 373 | Petitgrain bigarade, essential oil | el mismo material que el n.º 370: the same Citrus aurantium amara leaf/twig oil; Paraguay is the origin (Maese wrote «Hojas» there and «Hoja» in 370) (una especificación, V3-85) |
 | 389 | Rosa damascena (flower), essential oil | el mismo material que el n.º 388: the same Rosa damascena flower oil; «Otto Bulgaria» and «Extra» are origin and grade (una especificación, V3-85) |
