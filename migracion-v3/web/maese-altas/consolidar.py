@@ -57,6 +57,21 @@ reads = {}
 for path in sorted(HERE.glob(f"web-{TANDA}-*.csv")):
     for r in csv.DictReader(open(path, encoding="utf-8")):
         reads.setdefault((r["n"], r["campo"]), []).append(r)
+# PerfuMate (local), la última referencia: familia y horas, solo cuando es el mismo material (rol «mismo» de la tanda 45).
+import sqlite3  # noqa: E402
+_db = sqlite3.connect(f"file:{ROOT / 'migracion-v3/perfumate/perfumate.sqlite3'}?mode=ro", uri=True)
+for n, c in consenso.items():
+    if c["categoria"] != CATEGORY or c["rol"] != "mismo":
+        continue
+    url = cruce[n]["pm_url"].split(" | ")[0]
+    row = _db.execute("SELECT primary_odor_category, substantivity_hours, substantivity_text FROM materials WHERE source_url = ?", (url,)).fetchone()
+    if not row:
+        continue
+    fam, hrs, htext = row
+    if fam:
+        reads.setdefault((n, "familia"), []).append({"valor": fam, "fuente": f"PerfuMate, {url}: «{fam}»", "nota": "", "campo": "familia"})
+    if hrs:
+        reads.setdefault((n, "horas"), []).append({"valor": f"{hrs:g} h", "fuente": f"PerfuMate, {url}: «{htext or f'{hrs:g} h'}»", "nota": "", "campo": "horas"})
 
 
 # CAS que Maese Lab escribe mal (no pasan el dígito de control; tanda 45): el bueno.

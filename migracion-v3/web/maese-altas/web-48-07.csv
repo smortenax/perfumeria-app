@@ -1,0 +1,164 @@
+n,nombre,campo,valor,fuente,nota
+400,Tomillo Blanco,nombre,"thyme oil white (Thymus vulgaris L., CAS 8007-46-3)","TGSC, https://thegoodscentscompany.com/data/es1034961.html: «thymus vulgaris l. oil white»",
+400,Tomillo Blanco,familia,herbal,"TGSC, https://thegoodscentscompany.com/data/es1034961.html: «Odor Type: herbal»",
+400,Tomillo Blanco,olor,thyme herbal camphoreous medicinal phenolic terpenic spicy,"TGSC, https://thegoodscentscompany.com/data/es1034961.html: «thyme herbal camphoreous medicinal phenolic terpenic spicy»",at 10% in dipropylene glycol
+400,Tomillo Blanco,fuerza,high,"TGSC, https://thegoodscentscompany.com/data/es1034961.html: «Odor Strength: high»",smell in 10% solution or less
+400,Tomillo Blanco,horas,83,"TGSC, https://thegoodscentscompany.com/data/es1034961.html: «Substantivity: 83 hour(s) at 100.00 %»",
+400,Tomillo Blanco,estado,colorless to pale yellow clear liquid (est),"TGSC, https://thegoodscentscompany.com/data/es1034961.html: «colorless to pale yellow clear liquid (est)»",
+400,Tomillo Blanco,dosis,up to 2.0 % in the fragrance concentrate,"TGSC, https://thegoodscentscompany.com/data/es1034961.html: «up to: 2.0000 % in the fragrance concentrate.»",
+400,Tomillo Blanco,nivel,,no lo dice ninguna fuente consultada: TGSC es1034961; Fraterworks thyme-oil-ct-linalool y Hermitage ?p=39585 son quimiotipo linalol (otra variedad),
+401,Tomillo Limonero,nombre,thymus hiemalis oil (winter thyme),"TGSC, https://thegoodscentscompany.com/data/es1051681.html: «essential oil steam distilled from the dried herb of Thymus Hiemalis»",nombre inglés no dado por la página como tal
+401,Tomillo Limonero,olor,somewhat similar to verbena oil,"TGSC, https://thegoodscentscompany.com/data/es1051681.html: «somewhat similar to verbena oil»",solo comparación
+401,Tomillo Limonero,familia,,no lo dice ninguna fuente consultada: TGSC es1051681 (T. hiemalis),
+401,Tomillo Limonero,nivel,,no lo dice ninguna fuente consultada: TGSC es1051681 (T. hiemalis),
+401,Tomillo Limonero,horas,,no lo dice ninguna fuente consultada: TGSC es1051681 (T. hiemalis),
+401,Tomillo Limonero,fuerza,,no lo dice ninguna fuente consultada: TGSC es1051681 (T. hiemalis),
+401,Tomillo Limonero,estado,,no lo dice ninguna fuente consultada: TGSC es1051681 (T. hiemalis),
+401,Tomillo Limonero,dosis,,no lo dice ninguna fuente consultada: TGSC es1051681 (T. hiemalis),
+402,Tomillo Mastichina,nombre,"Spanish marjoram flower oil (Thymus mastichina L., CAS 84837-14-9)","TGSC, https://www.thegoodscentscompany.com/data/es1801981.html: «volatile oil obtained from the flowers of the thyme, thymus mastichina l., lamiaceae»",otra parte (flor; el producto es hoja/hierba)
+402,Tomillo Mastichina,familia,herbal,"TGSC, https://www.thegoodscentscompany.com/data/es1801981.html: «Odor Type: herbal»",otra parte (flor)
+402,Tomillo Mastichina,olor,herbal aromatic camphoreous eucalyptus,"TGSC, https://www.thegoodscentscompany.com/data/es1801981.html: «herbal aromatic camphoreous eucalyptus»",otra parte (flor)
+402,Tomillo Mastichina,dosis,not for flavor use (sin nivel de uso en fragancia),"TGSC, https://www.thegoodscentscompany.com/data/es1801981.html: «not for flavor use.»",otra parte (flor)
+402,Tomillo Mastichina,nombre,wild marjoram oil (Thymus mastichina L.),"Fraterworks, https://fraterworks.com/products/wild-marjoram-oil: «Thymus mastichina L.»",CAS que da: 8016-33-9
+402,Tomillo Mastichina,nivel,middle (heart),"Fraterworks, https://fraterworks.com/products/wild-marjoram-oil: «Heart note»",
+402,Tomillo Mastichina,horas,more than 12,"Fraterworks, https://fraterworks.com/products/wild-marjoram-oil: «Lasts more than 12 hours on a smelling strip»",
+402,Tomillo Mastichina,olor,"strong camphoraceous, eucalyptus-like freshness, then warm, spicy-herbaceous heart notes with sweet undertones and a hint of nutmeg-like warmth","Fraterworks, https://fraterworks.com/products/wild-marjoram-oil: «strong camphoraceous, eucalyptus-like freshness»",
+402,Tomillo Mastichina,fuerza,5/10 (blend impact 6/10),"Fraterworks, https://fraterworks.com/products/wild-marjoram-oil: «5/10»",
+402,Tomillo Mastichina,estado,pale yellow liquid,"Fraterworks, https://fraterworks.com/products/wild-marjoram-oil: «Pale yellow liquid»",
+402,Tomillo Mastichina,dosis,few drops in fougères or colognes; IFRA 51 cap 14% finished product (Cat. 4),"Fraterworks, https://fraterworks.com/products/wild-marjoram-oil: «IFRA 51 caps it at 14% in finished product (Category 4)»",
+403,Tomillo Rojo,nombre,thymus zygis spp. gracillis herb oil (CAS 85085-75-2),"TGSC, https://thegoodscentscompany.com/data/es1802091.html: «volatile oil obtained from the whole plant, thymus zygis, lamiaceae»","planta entera, no flor"
+403,Tomillo Rojo,dosis,not for fragrance use,"TGSC, https://thegoodscentscompany.com/data/es1802091.html: «not for fragrance use.»",
+403,Tomillo Rojo,nombre,"red thyme oil (Thymus zygis, INCI Thymus Zygis Flower Oil, CAS 85085-75-2)","Fraterworks, https://fraterworks.com/products/red-thyme-oil: «THYMUS ZYGIS FLOWER OIL»",
+403,Tomillo Rojo,familia,aromatic,"Fraterworks, https://fraterworks.com/products/red-thyme-oil: «Aromatic»",
+403,Tomillo Rojo,horas,172,"Fraterworks, https://fraterworks.com/products/red-thyme-oil: «172 hours on a smelling strip»",
+403,Tomillo Rojo,olor,"Spicy, aromatic, phenolic, medicinal, herbal","Fraterworks, https://fraterworks.com/products/red-thyme-oil: «Spicy, aromatic, phenolic, medicinal, herbal»",
+403,Tomillo Rojo,fuerza,6/10 (moderate),"Fraterworks, https://fraterworks.com/products/red-thyme-oil: «6/10»",
+403,Tomillo Rojo,estado,pale straw liquid,"Fraterworks, https://fraterworks.com/products/red-thyme-oil: «Pale straw liquid»",
+403,Tomillo Rojo,dosis,"median 0.12% of the concentrate in perfumes, 0.233% in bases; IFRA 51 no restriction cat. 4","Fraterworks, https://fraterworks.com/products/red-thyme-oil: «Median use is 0.12% of the concentrate in perfumes»",
+403,Tomillo Rojo,nivel,,"no lo dice ninguna fuente consultada: TGSC es1802091, Fraterworks red-thyme-oil (no asigna nota)",
+403,Tomillo Rojo,fuerza,,no lo dice ninguna fuente consultada: TGSC es1802091,
+403,Tomillo Rojo,horas,,no lo dice ninguna fuente consultada: TGSC es1802091,
+404,Trementina,nombre,"turpentine oil (turpentine spirits, CAS 8006-64-2)","TGSC, https://thegoodscentscompany.com/data/es1035111.html: «turpentine oil»",
+404,Trementina,familia,terpenic,"TGSC, https://thegoodscentscompany.com/data/es1035111.html: «Odor Type: terpenic»",
+404,Trementina,olor,fresh balsam woody terpene,"TGSC, https://thegoodscentscompany.com/data/es1035111.html: «at 100.00 %. fresh balsam woody terpene»",
+404,Trementina,estado,colorless to pale yellow clear liquid (est),"TGSC, https://thegoodscentscompany.com/data/es1035111.html: «colorless to pale yellow clear liquid (est)»",
+404,Trementina,dosis,0.6 % in the fragrance concentrate,"TGSC, https://thegoodscentscompany.com/data/es1035111.html: «0.6000 % in the fragrance concentrate.»",
+404,Trementina,nivel,,no lo dice ninguna fuente consultada: TGSC es1035111; búsqueda de segunda referencia sin página fiable,
+404,Trementina,horas,,no lo dice ninguna fuente consultada: TGSC es1035111,
+404,Trementina,fuerza,,no lo dice ninguna fuente consultada: TGSC es1035111,
+405,Tsuga de Canadá,nombre,"spruce oil canada (Tsuga canadensis L. leaf oil, CAS 8008-80-8)","TGSC, https://thegoodscentscompany.com/data/es1020211.html: «tsuga canadensis l. leaf oil»",
+405,Tsuga de Canadá,familia,woody,"TGSC, https://thegoodscentscompany.com/data/es1020211.html: «Odor Type: woody»",
+405,Tsuga de Canadá,olor,fir needle woody thujone herbal terpene,"TGSC, https://thegoodscentscompany.com/data/es1020211.html: «fir needle woody thujone herbal terpene»",at 100%
+405,Tsuga de Canadá,fuerza,medium,"TGSC, https://thegoodscentscompany.com/data/es1020211.html: «Odor Strength: medium»",
+405,Tsuga de Canadá,horas,24,"TGSC, https://thegoodscentscompany.com/data/es1020211.html: «Substantivity: 24 Hour(s)»",
+405,Tsuga de Canadá,estado,colorless clear liquid (est),"TGSC, https://thegoodscentscompany.com/data/es1020211.html: «colorless clear liquid (est)»",
+405,Tsuga de Canadá,dosis,up to 10 % in the fragrance concentrate,"TGSC, https://thegoodscentscompany.com/data/es1020211.html: «up to: 10.0000 % in the fragrance concentrate.»",
+405,Tsuga de Canadá,familia,woody · warm · balsamic,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/black-hemlock-or-tsuga: «woody · warm · balsamic»",Tsuga canadensis; CAS que da 8008-10-4; fuente no independiente de TGSC
+405,Tsuga de Canadá,nivel,base (heart-to-base),"Premiere Peau, https://premierepeau.com/pages/glossary-terms/black-hemlock-or-tsuga: «heart-to-base note»",
+405,Tsuga de Canadá,olor,"Soft, green-balsamic-resinous without the sharpness of pine or the sweetness of fir","Premiere Peau, https://premierepeau.com/pages/glossary-terms/black-hemlock-or-tsuga: «Soft, green-balsamic-resinous without the sharpness of pine or the sweetness of fir.»",
+405,Tsuga de Canadá,fuerza,3/5 (medium),"Premiere Peau, https://premierepeau.com/pages/glossary-terms/black-hemlock-or-tsuga: «3/5»",
+405,Tsuga de Canadá,estado,pale yellow to amber viscous liquid,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/black-hemlock-or-tsuga: «Pale yellow to amber viscous liquid»",
+405,Tsuga de Canadá,horas,,"no lo dice ninguna fuente consultada: Premiere Peau black-hemlock-or-tsuga (solo ""after a few days"")",
+406,Tuya de Canadá,nombre,"cedarleaf oil (Thuja occidentalis L. leaf oil, CAS 8007-20-3)","TGSC, https://www.thegoodscentscompany.com/data/es1002892.html: «thuja occidentalis l. leaf oil»",
+406,Tuya de Canadá,familia,woody,"TGSC, https://www.thegoodscentscompany.com/data/es1002892.html: «woody»",
+406,Tuya de Canadá,olor,sweet cedar woody spicy aromatic camphoreous thujonic herbal green hay,"TGSC, https://www.thegoodscentscompany.com/data/es1002892.html: «sweet cedar woody spicy aromatic camphoreous thujonic herbal green hay»",
+406,Tuya de Canadá,fuerza,high,"TGSC, https://www.thegoodscentscompany.com/data/es1002892.html: «high»",
+406,Tuya de Canadá,horas,8,"TGSC, https://www.thegoodscentscompany.com/data/es1002892.html: «8 hour(s) at 100.00 %»",
+406,Tuya de Canadá,estado,pale yellow clear liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/es1002892.html: «pale yellow clear liquid (est)»",
+406,Tuya de Canadá,dosis,0.8 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/es1002892.html: «0.8000 % in the fragrance concentrate»",
+406,Tuya de Canadá,nivel,,no lo dice ninguna fuente consultada: TGSC es1002892 y es1002891,
+407,Valeriana Raíz,nombre,"valerian rhizome oil (Valeriana officinalis L., CAS 8008-88-6)","TGSC, https://thegoodscentscompany.com/data/es1035141.html: «valeriana officinalis l. rhizome oil»",rizoma/raíz; CAS del producto Maese 97927-02-1
+407,Valeriana Raíz,familia,herbal,"TGSC, https://thegoodscentscompany.com/data/es1035141.html: «Odor Type: herbal»",
+407,Valeriana Raíz,olor,fresh green warm woody balsam rooty animal musk,"TGSC, https://thegoodscentscompany.com/data/es1035141.html: «at 100.00 %. fresh green warm woody balsam rooty animal musk»",
+407,Valeriana Raíz,estado,olive green clear liquid (est),"TGSC, https://thegoodscentscompany.com/data/es1035141.html: «olive green clear liquid (est)»",
+407,Valeriana Raíz,dosis,up to 1.0 % in the fragrance concentrate,"TGSC, https://thegoodscentscompany.com/data/es1035141.html: «usage levels up to: 1.0000 % in the fragrance concentrate.»",
+407,Valeriana Raíz,nivel,,no lo dice ninguna fuente consultada: TGSC es1035141; búsqueda sin segunda página de referencia fiable,
+407,Valeriana Raíz,horas,,no lo dice ninguna fuente consultada: TGSC es1035141,
+407,Valeriana Raíz,fuerza,,no lo dice ninguna fuente consultada: TGSC es1035141,
+410,Vino Blanco,nombre,"green cognac oil (wine lie oil green, Vitis vinifera L., CAS 8016-21-5)","TGSC, https://thegoodscentscompany.com/data/es1029111.html: «green vitis vinifera l. oil»","otra variedad: aceite verde de heces de vino/cognac, CAS distinto de 85594-37-2 / 84929-27-1; no es seguro que sea el producto"
+410,Vino Blanco,familia,green,"TGSC, https://thegoodscentscompany.com/data/es1029111.html: «Odor Type: green»",otra variedad (ver nombre)
+410,Vino Blanco,olor,fresh green fruity winey fusel fatty waxy lychee,"TGSC, https://thegoodscentscompany.com/data/es1029111.html: «fresh green fruity winey fusel fatty waxy lychee»",otra variedad (ver nombre)
+410,Vino Blanco,fuerza,medium,"TGSC, https://thegoodscentscompany.com/data/es1029111.html: «Odor Strength: medium»",otra variedad (ver nombre)
+410,Vino Blanco,horas,252,"TGSC, https://thegoodscentscompany.com/data/es1029111.html: «252 hour(s) at 100.00 %»",otra variedad (ver nombre)
+410,Vino Blanco,estado,yellow clear liquid (est),"TGSC, https://thegoodscentscompany.com/data/es1029111.html: «yellow clear liquid (est)»",otra variedad (ver nombre)
+410,Vino Blanco,dosis,up to 2.0 % in the fragrance concentrate,"TGSC, https://thegoodscentscompany.com/data/es1029111.html: «up to 2.0000 % in the fragrance concentrate.»",otra variedad (ver nombre)
+410,Vino Blanco,nivel,,"no lo dice ninguna fuente consultada: TGSC es1029111 y es1647041 (hoja de vid, otra parte)",
+411,Ylang Ylang I,nombre,Ylang Ylang I - Organic EO (Cananga odorata var. genuina),"Eden Botanicals, https://www.edenbotanicals.com/ylang-ylang-i-organic-sample.html: «Ylang Ylang I - Organic EO»",origen Madagascar (Maese: Comores)
+411,Ylang Ylang I,nivel,"top, middle, fixatives","Eden Botanicals, https://www.edenbotanicals.com/ylang-ylang-i-organic-sample.html: «top, middle, fixatives.»",
+411,Ylang Ylang I,olor,"Intensely sweet, candy-like floral, with smooth balsamic undertones","Eden Botanicals, https://www.edenbotanicals.com/ylang-ylang-i-organic-sample.html: «Intensely sweet, candy-like floral, with smooth balsamic undertones.»",
+411,Ylang Ylang I,estado,"colorless to pale yellow, transparent, slightly oily liquid","Eden Botanicals, https://www.edenbotanicals.com/ylang-ylang-i-organic-sample.html: «Colorless to pale yellow, transparent, slightly oily liquid.»",
+411,Ylang Ylang I,dosis,"0.5% up to about 5% of the perfume base (Arctander, citado)","Eden Botanicals, https://www.edenbotanicals.com/ylang-ylang-i-organic-sample.html: «0.5% up to about 5% of the perfume base»",
+411,Ylang Ylang I,familia,floral,"TGSC, https://www.thegoodscentscompany.com/data/es1114281.html: «Has a floral type odor»","página TGSC ""ylang ylang oil I"" (flower oil I)"
+411,Ylang Ylang I,fuerza,,no lo dice ninguna fuente consultada: Eden Botanicals ylang-ylang-i-organic-sample; TGSC es1114281 (truncada),
+411,Ylang Ylang I,horas,,no lo dice ninguna fuente consultada: Eden Botanicals ylang-ylang-i-organic-sample; TGSC es1114281,
+412,Ylang Ylang II,nombre,Ylang Ylang II - Organic EO (Cananga odorata var. genuina),"Eden Botanicals, https://www.edenbotanicals.com/ylang-ylang-ii-organic.html: «Ylang Ylang II - Organic EO»",origen Madagascar (Maese: Comores)
+412,Ylang Ylang II,nivel,"top, middle, fixatives","Eden Botanicals, https://www.edenbotanicals.com/ylang-ylang-ii-organic.html: «top, middle, fixatives.»",
+412,Ylang Ylang II,olor,"Sweet, very floral, mildly spicy; more pronounced balsamic undertones than Ylang Ylang I","Eden Botanicals, https://www.edenbotanicals.com/ylang-ylang-ii-organic.html: «Sweet, very floral, mildly spicy; has more pronounced balsamic undertones than Ylang Ylang I.»",
+412,Ylang Ylang II,estado,"colorless to pale yellow, transparent, slightly oily liquid","Eden Botanicals, https://www.edenbotanicals.com/ylang-ylang-ii-organic.html: «Colorless to pale yellow, transparent, slightly oily liquid.»",
+412,Ylang Ylang II,dosis,"0.5% up to about 5% of the perfume base (Arctander, citado)","Eden Botanicals, https://www.edenbotanicals.com/ylang-ylang-ii-organic.html: «0.5% up to about 5% of the perfume base»",
+412,Ylang Ylang II,familia,,no lo dice ninguna fuente consultada: Eden Botanicals ylang-ylang-ii-organic,
+412,Ylang Ylang II,fuerza,,no lo dice ninguna fuente consultada: Eden Botanicals ylang-ylang-ii-organic,
+412,Ylang Ylang II,horas,,no lo dice ninguna fuente consultada: Eden Botanicals ylang-ylang-ii-organic,
+413,Ylang Ylang III,nombre,"Ylang-Ylang III Oil, Org (Cananga odorata, CAS 8006-81-3)","Fraterworks, https://fraterworks.com/products/ylang-ylang-iii-oil: «Ylang-Ylang III Oil, Org»",origen Comoros
+413,Ylang Ylang III,nivel,base,"Fraterworks, https://fraterworks.com/products/ylang-ylang-iii-oil: «Base Note»",
+413,Ylang Ylang III,horas,>140,"Fraterworks, https://fraterworks.com/products/ylang-ylang-iii-oil: «Lasts > 140 hours on a smelling strip.»",
+413,Ylang Ylang III,olor,"Soft, sweet floral, with notable woody and balsamic undertones, less fruity and more grounded than earlier fractions","Fraterworks, https://fraterworks.com/products/ylang-ylang-iii-oil: «notable woody and balsamic undertones»",
+413,Ylang Ylang III,estado,pale straw liquid,"Fraterworks, https://fraterworks.com/products/ylang-ylang-iii-oil: «Pale straw liquid»",
+413,Ylang Ylang III,dosis,"median 5% in perfumes, 3% in bases; IFRA 51 0.73% finished product (Cat. 4)","Fraterworks, https://fraterworks.com/products/ylang-ylang-iii-oil: «Median of 5% in perfumes and 3% in bases»",
+413,Ylang Ylang III,familia,,no lo dice ninguna fuente consultada: Fraterworks ylang-ylang-iii-oil,
+413,Ylang Ylang III,fuerza,,no lo dice ninguna fuente consultada: Fraterworks ylang-ylang-iii-oil (solo límite IFRA),
+414,Ylang Ylang Completo,nombre,"Ylang-Ylang Complete Oil (Cananga odorata var. genuina, CAS 8006-81-3)","Fraterworks, https://fraterworks.com/products/ylang-ylang-complete: «Ylang-Ylang Complete Oil»",origen Comoros
+414,Ylang Ylang Completo,familia,floral,"Fraterworks, https://fraterworks.com/products/ylang-ylang-complete: «Floral»",
+414,Ylang Ylang Completo,nivel,base,"Fraterworks, https://fraterworks.com/products/ylang-ylang-complete: «base note»",
+414,Ylang Ylang Completo,horas,>140,"Fraterworks, https://fraterworks.com/products/ylang-ylang-complete: «Lasts > 140 hours on a smelling strip.»",
+414,Ylang Ylang Completo,olor,"Floral, spicy, lily, sweet, woody","Fraterworks, https://fraterworks.com/products/ylang-ylang-complete: «Floral, spicy, lily, sweet, woody»",
+414,Ylang Ylang Completo,estado,pale straw liquid,"Fraterworks, https://fraterworks.com/products/ylang-ylang-complete: «Pale straw liquid»",
+414,Ylang Ylang Completo,dosis,"median 0.175% in perfumes, 0.675% in bases","Fraterworks, https://fraterworks.com/products/ylang-ylang-complete: «Median of 0.175% in perfumes and 0.675% in bases»",
+414,Ylang Ylang Completo,fuerza,medium,"TGSC, https://www.thegoodscentscompany.com/data/es1012151.html: «Odor Strength: medium»",página genérica ylang ylang flower oil (no distingue grado)
+414,Ylang Ylang Completo,horas,140,"TGSC, https://www.thegoodscentscompany.com/data/es1012151.html: «Substantivity: 140 Hour(s)»",página genérica (no distingue grado)
+414,Ylang Ylang Completo,olor,floral flower petal neroli lily sweet,"TGSC, https://www.thegoodscentscompany.com/data/es1012151.html: «floral flower petal neroli lily sweet»",página genérica (no distingue grado)
+415,Ylang Ylang Extra,nombre,"Ylang-Ylang Extra Oil, Comoros (Cananga odorata, CAS 8006-81-3)","Fraterworks, https://fraterworks.com/products/ylang-ylang-extra-oil-comoros: «Ylang-Ylang Extra Oil, Comoros»",
+415,Ylang Ylang Extra,nivel,base,"Fraterworks, https://fraterworks.com/products/ylang-ylang-extra-oil-comoros: «Base Note»",
+415,Ylang Ylang Extra,horas,>140,"Fraterworks, https://fraterworks.com/products/ylang-ylang-extra-oil-comoros: «Lasts > 140 hours on a smelling strip.»",
+415,Ylang Ylang Extra,olor,"Floral, spicy, lily, sweet, woody; bright floral opening with fruity-banana lift, creamy white floral heart","Fraterworks, https://fraterworks.com/products/ylang-ylang-extra-oil-comoros: «Floral, spicy, lily, sweet, woody»",
+415,Ylang Ylang Extra,estado,pale straw liquid,"Fraterworks, https://fraterworks.com/products/ylang-ylang-extra-oil-comoros: «Pale straw liquid»",
+415,Ylang Ylang Extra,dosis,median 0.451% of the concentrate in analyzed perfumes (average 1.05%),"Fraterworks, https://fraterworks.com/products/ylang-ylang-extra-oil-comoros: «Median of 0.451% of the concentrate»",
+415,Ylang Ylang Extra,familia,,no lo dice ninguna fuente consultada: Fraterworks ylang-ylang-extra-oil-comoros,
+415,Ylang Ylang Extra,fuerza,,no lo dice ninguna fuente consultada: Fraterworks ylang-ylang-extra-oil-comoros (solo límite IFRA),
+416,Yuzu Extra,nombre,yuzu peel oil (Citrus junos Sieb. ex Tanaka),"TGSC, https://www.thegoodscentscompany.com/data/es1051851.html: «citrus junos sieb var. tanaka»",CAS no dado por la página
+416,Yuzu Extra,familia,citrus,"TGSC, https://www.thegoodscentscompany.com/data/es1051851.html: «Odor Type: citrus»",
+416,Yuzu Extra,olor,tany citrus,"TGSC, https://www.thegoodscentscompany.com/data/es1051851.html: «tany citrus»",at 100%; texto tal cual
+416,Yuzu Extra,estado,colorless to pale yellow clear liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/es1051851.html: «colorless to pale yellow clear liquid (est)»",
+416,Yuzu Extra,dosis,5.0 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/es1051851.html: «5.0000 % in the fragrance concentrate»",
+416,Yuzu Extra,familia,fresh · fruity,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/yuzu: «fresh · fruity»",
+416,Yuzu Extra,nivel,top,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/yuzu: «Top»",
+416,Yuzu Extra,horas,24,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/yuzu: «24 hours»","página genérica (cold-pressed, steam, CO2)"
+416,Yuzu Extra,fuerza,High (4/5),"Premiere Peau, https://premierepeau.com/pages/glossary-terms/yuzu: «4/5»",
+416,Yuzu Extra,olor,"Tart, angular, green-bitter","Premiere Peau, https://premierepeau.com/pages/glossary-terms/yuzu: «Tart, angular, green-bitter.»",
+416,Yuzu Extra,estado,colorless to yellow clear liquid,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/yuzu: «colorless to yellow clear liquid»",
+417,Zanahoria,nombre,"carrot seed oil (Daucus carota L. fruit oil, CAS 8015-88-1)","TGSC, https://www.thegoodscentscompany.com/data/es1024731.html: «daucus carota l. fruit oil»",
+417,Zanahoria,familia,herbal,"TGSC, https://www.thegoodscentscompany.com/data/es1024731.html: «Odor Type: herbal»",
+417,Zanahoria,olor,sweet fresh herbal cumin carrot green spicy,"TGSC, https://www.thegoodscentscompany.com/data/es1024731.html: «sweet fresh herbal cumin carrot green spicy»",at 10% in dipropylene glycol
+417,Zanahoria,fuerza,high,"TGSC, https://www.thegoodscentscompany.com/data/es1024731.html: «high , recommend smelling in a 10.00 % solution or less»",
+417,Zanahoria,horas,96,"TGSC, https://www.thegoodscentscompany.com/data/es1024731.html: «96 Hour(s)»",
+417,Zanahoria,estado,pale yellow clear liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/es1024731.html: «pale yellow clear liquid (est)»",
+417,Zanahoria,dosis,up to 4.0 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/es1024731.html: «up to: 4.0000 % in the fragrance concentrate.»",
+417,Zanahoria,familia,earthy woody powdery,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/carrot-seed-oil: «EARTHY WOODY POWDERY»",
+417,Zanahoria,nivel,middle (heart),"Premiere Peau, https://premierepeau.com/pages/glossary-terms/carrot-seed-oil: «Heart»",
+417,Zanahoria,horas,96,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/carrot-seed-oil: «96 hours»","igual que TGSC, posible copia"
+417,Zanahoria,olor,"Dry, earthy-woody with a subtle sweet-violet quality","Premiere Peau, https://premierepeau.com/pages/glossary-terms/carrot-seed-oil: «Dry, earthy-woody with a subtle sweet-violet quality.»",
+417,Zanahoria,estado,pale yellow to amber liquid,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/carrot-seed-oil: «Pale yellow to amber liquid»",
+417,Zanahoria,dosis,typically 1-5 %,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/carrot-seed-oil: «Used at moderate dosages — typically 1-5%»",base no indicada
+417,Zanahoria,fuerza,,no lo dice ninguna fuente consultada: Premiere Peau carrot-seed-oil (segunda fuente),
+418,Resinoide Benjuí Sumatra,nombre,"styrax benzoin dryander resin (Sumatra benzoin, CAS 9000-05-9)","TGSC, https://www.thegoodscentscompany.com/data/rs1068041.html: «styrax benzoin dryander»","resina cruda, no resinoide diluido"
+418,Resinoide Benjuí Sumatra,familia,balsamic,"TGSC, https://www.thegoodscentscompany.com/data/rs1068041.html: «Odor Type: balsamic»",resina cruda
+418,Resinoide Benjuí Sumatra,olor,sweet spicy vanilla balsam,"TGSC, https://www.thegoodscentscompany.com/data/rs1068041.html: «sweet spicy vanilla balsam»",resina cruda; at 100%
+418,Resinoide Benjuí Sumatra,estado,dark brown semi-solid (est),"TGSC, https://www.thegoodscentscompany.com/data/rs1068041.html: «dark brown semi-solid (est)»",resina cruda
+418,Resinoide Benjuí Sumatra,dosis,up to 6.0 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/rs1068041.html: «Up to 6.0000% in the fragrance concentrate»",resina cruda
+418,Resinoide Benjuí Sumatra,nombre,Benzoin Sumatra Resinoid 50% TEC (CAS 9000-05-9),"Fraterworks, https://fraterworks.com/products/benzoin-sumatra-resinoid-50-tec: «Benzoin Sumatra Resinoid 50% TEC»","diluido 50% en TEC, no en propanediol"
+418,Resinoide Benjuí Sumatra,nivel,base,"Fraterworks, https://fraterworks.com/products/benzoin-sumatra-resinoid-50-tec: «Base Note»",dilución 50% TEC
+418,Resinoide Benjuí Sumatra,horas,>400,"Fraterworks, https://fraterworks.com/products/benzoin-sumatra-resinoid-50-tec: «> 400 hours on a smelling strip»",dilución 50% TEC
+418,Resinoide Benjuí Sumatra,olor,"Sweet, vanilla-balsamic with warm, spicy nuances","Fraterworks, https://fraterworks.com/products/benzoin-sumatra-resinoid-50-tec: «Sweet, vanilla-balsamic with warm, spicy nuances.»",dilución 50% TEC
+418,Resinoide Benjuí Sumatra,fuerza,Strength 4 · Impact 3 (4/10),"Fraterworks, https://fraterworks.com/products/benzoin-sumatra-resinoid-50-tec: «Strength 4 · Impact 3»",dilución 50% TEC
+418,Resinoide Benjuí Sumatra,estado,thick brown mass,"Fraterworks, https://fraterworks.com/products/benzoin-sumatra-resinoid-50-tec: «thick brown mass»",dilución 50% TEC
+418,Resinoide Benjuí Sumatra,dosis,median 0.225% in perfumes; IFRA 51 100% permitted,"Fraterworks, https://fraterworks.com/products/benzoin-sumatra-resinoid-50-tec: «0.225% Median use in perfumes»",dilución 50% TEC
