@@ -4,6 +4,7 @@ import { closeLocalDatabase, localDatabaseFor } from "./db/local/database";
 import { createFormula, createWorkbench, deleteWorkbench } from "./db/formulas";
 import { copySpecification, createVersion, setHave, setHaveMany } from "./db/materials";
 import { Bench } from "./bench/Bench";
+import { Planner } from "./planner/Planner";
 import { Glossary } from "./glossary/Glossary";
 import { Library } from "./formulation/Library";
 import { MaterialEditor } from "./glossary/MaterialEditor";
@@ -98,7 +99,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
       )}
     </button>
   );
-  const section = route.view === "home" ? "home" : route.view === "library" ? "library" : route.view === "tasting" || route.view === "strip" ? "tasting" : route.view === "dilutions" || route.view === "bottle" || route.view === "newBottle" ? "dilutions" : route.view === "formula" ? "bench" : "materials";
+  const section = route.view === "home" ? "home" : route.view === "library" ? "library" : route.view === "tasting" || route.view === "strip" ? "tasting" : route.view === "dilutions" || route.view === "bottle" || route.view === "newBottle" ? "dilutions" : route.view === "formula" || route.view === "plan" ? "bench" : "materials";
   const n = texts.nav;
 
   return (
@@ -265,9 +266,11 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
                 onExit={() => back({ view: "library" })}
                 onOpen={(id) => go({ view: "formula", id }, true)}
                 onOpenMaterial={(id) => go({ view: "sheet", id })}
+                onPlan={() => go({ view: "plan", id: lastFormula })}
               />
             </div>
           )}
+          {route.view === "plan" && <Planner data={data} local={local} formulaId={route.id} onBack={() => back({ view: "formula", id: route.id })} />}
           {route.view === "import" && <ImportSheet data={data} local={local} onDone={() => go({ view: "materials" })} onCancel={() => back({ view: "materials" })} />}
           {route.view === "shopping" && <ShoppingList data={data} local={local} onOpenMaterial={(id) => go({ view: "sheet", id })} />}
           {route.view === "new" && <NewMaterial local={local} onCreated={(id) => go({ view: "edit", id }, true)} onCancel={() => back({ view: "materials" })} />}
@@ -292,7 +295,7 @@ type Route =
   | { readonly view: "newBottle"; readonly materialId: string }
   | { readonly view: "tasting"; readonly tab: TastingTab }
   | { readonly view: "strip"; readonly id: string }
-  | { readonly view: "sheet" | "edit" | "formula"; readonly id: string };
+  | { readonly view: "sheet" | "edit" | "formula" | "plan"; readonly id: string };
 
 /** Where the app is lives in the address, so the browser's back works: «#materiales», «#formulacion», «#material/<id>»… */
 function parseRoute(hash: string): Route {
@@ -300,6 +303,8 @@ function parseRoute(hash: string): Route {
   if (m) return { view: m[2] ? "edit" : "sheet", id: m[1] };
   const f = /^#formula\/([^/]+)$/.exec(hash);
   if (f) return { view: "formula", id: f[1] };
+  const plan = /^#plan\/([^/]+)$/.exec(hash);
+  if (plan) return { view: "plan", id: plan[1] };
   if (hash === "#nuevo") return { view: "new" };
   if (hash === "#materiales") return { view: "materials" };
   if (hash === "#formulacion") return { view: "library" };
@@ -331,7 +336,9 @@ const TASTING_SLUG: Record<TastingTab, string> = { session: "", queue: "/cola", 
 const hashOf = (r: Route) =>
   r.view === "formula"
     ? `#formula/${r.id}`
-    : r.view === "bottle"
+    : r.view === "plan"
+      ? `#plan/${r.id}`
+      : r.view === "bottle"
       ? `#dilucion/${r.id}`
       : r.view === "newBottle"
         ? `#diluciones/nueva${r.materialId ? `/${r.materialId}` : ""}`

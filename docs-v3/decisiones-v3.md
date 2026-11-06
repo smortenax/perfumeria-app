@@ -1794,7 +1794,7 @@ Y, a la pregunta de si se pasaba a la app en una rama nueva: «Sí, una PR a mai
 - **Por qué** (la sesión, del cruce del 2026-11-06): el impacto cubre más comunes que la fuerza y distingue lo que ella junta. Entre los «medium» hay impactos del 2 al 9.
 - **Las tandas** (el usuario, 2026-11-06, en las tarjetas del hilo): la 43, «Apruebo la tanda 43» (136 comunes); la 44, «Los 6 propuestos» (los seis con varias entradas en PerfuMate toman la de su mismo producto o su misma parte de la planta). A los 11 que PerfuMate no tiene, «Dejarlos sin impacto»: siguen con su fuerza en palabras, o sin nada, y el impacto se pone a mano en la ficha.
 
-## V3-98 · El planificador de perfil aromático: lo decidido hasta hoy (2026-11-05 y 06; sin código)
+## V3-98 · El planificador de perfil aromático: lo decidido hasta hoy (2026-11-05 y 06)
 
 **Qué es** (el usuario, 2026-11-05): una función para «planear el perfume», en la que se ve «el total de materia aromática en absoluto de manera que cuanto más mezcla de materiales haya más se tienen que repartir el espacio», con una «ponderación por cantidad que se pondrá el material, y por intensidad del material en sí mismo», y un «timeline de la duración de cada material todos empiezan al principio pero que se atenúen y desaparezcan», para «evaluar cuántos materiales compiten por el olor en cada parte del perfume». Lo que la hace funcionar (2026-11-05): «odor value: valor del material ponderado por el umbral de olor / multiplicativo con la cantidad en la que esta el material / repàrtido entre los materiales que comparten espacio / y lo mas dificil, que tengan en cuenta una curva o una supuesta curva de la fuerza del material».
 
@@ -1810,7 +1810,9 @@ Y, a la pregunta de si se pasaba a la app en una rama nueva: «Sí, una PR a mai
 - Las formas tipo: «Puntos + meseta en 2 exponenciales». Las cinco formas (fugaz, salida, corazón, meseta, lineal) son puntos en tiempo logarítmico estirados a las horas en tira de cada material; la meseta es la suma de una parte rápida y otra lenta de ~1/3 (la observación del usuario sobre las resinas; Kasting 2003 midió una o dos exponenciales en piel), editable.
 - Los datos físicos predichos (OPERA: presión de vapor, ebullición, logKow) y que la duración dependa de la cantidad: «Primero la fase 1». El planificador se hace con impacto, cantidad y horas en tira; OPERA se decide cuando el usuario lo haya usado. Comprobación de la sesión: en los 8 comunes con umbral de Abraham, el impacto sigue al umbral (r = 0,79 con −log10 del umbral).
 
-**Propuesta de la sesión, sin decidir:** la forma por defecto de cada material, por el piso y el nombre. La maqueta, el cruce de datos y los dos informes de investigación están en la carpeta del proyecto, `planificador-perfil/`.
+- Empezar a programarlo: «Fusiona la #56 y empieza». La fase 1 vive en `v3/src/planner/` y en la tabla `formula_plan_lines` (el plan es de la fórmula; una versión nueva copia el de su madre).
+
+**Propuesta de la sesión, sin decidir:** la forma por defecto de cada material: resina o bálsamo por su forma o nombre, meseta; si no, por el piso (salida, fugaz; salida-corazón, salida; corazón, corazón; corazón-fondo, corazón por debajo de 100 h y lineal desde ahí; fondo, lineal); sin piso, por las horas. Se cambia en cada línea del plan. La maqueta, el cruce de datos y los dos informes de investigación están en la carpeta del proyecto, `planificador-perfil/`.
 
 ## Pendientes
 

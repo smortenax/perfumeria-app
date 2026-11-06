@@ -19,6 +19,9 @@ import { AddBar, type AddBarHandle } from "./AddBar";
 import { BottleFrame } from "./Bottle";
 import { OdourMapPlaceholder, RepartoCard } from "./Charts";
 import { EvaporationCard } from "./EvaporationCard";
+import { AgainstPlanCard } from "../planner/AgainstPlanCard";
+import { againstPlan } from "../planner/lines";
+import { usePlan } from "../planner/Planner";
 import { evaporation } from "./evaporation";
 import { ifraOfLines } from "./composition-ifra";
 import { CompositionCard } from "./CompositionList";
@@ -100,6 +103,8 @@ interface BenchProps {
   readonly active?: boolean;
   /** A material's sheet, in Materials. */
   readonly onOpenMaterial?: (id: string) => void;
+  /** The formula's profile plan (V3-98). */
+  readonly onPlan?: () => void;
 }
 
 /**
@@ -385,6 +390,16 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
       const m = props.data.catalog.materials.get(key);
       return m ? paletteFamilyOf(props.data.catalog, m) : null;
     });
+  // The plan, against what is weighed (V3-98): only when the formula has one.
+  const plan = usePlan(local, formulaId);
+  const against = useMemo(() => {
+    if (plan.length === 0) return [];
+    const nameOf = (id: string) => props.data.catalog.materials.get(id)?.name ?? "—";
+    return againstPlan(
+      plan.map((r) => ({ key: r.materialId, name: nameOf(r.materialId), parts: r.parts })),
+      (view.composition?.parts ?? []).map((p) => ({ key: p.material.key, name: p.material.name, massUg: p.massUg, solvent: p.material.solvent === true })),
+    );
+  }, [plan, view.composition, props.data.catalog]);
   const chemical = useMemo(() => new Map(repository.entries.filter((e) => e.tradeName).map((e) => [e.material.key, e.chemicalName])), [repository]);
   const known = useMemo(() => [...props.frozen, ...session], [props.frozen, session]);
 
@@ -759,6 +774,11 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
             </button>
       {menuOpen && (
         <div className="menu-pop options">
+          {props.onPlan && (
+            <button type="button" className="menuitem" onClick={menuAction(props.onPlan)}>
+              <span>{appTexts.planner.open}</span>
+            </button>
+          )}
           <button type="button" className="menuitem" onClick={menuAction(() => setDialog({ kind: "saveAs" }))}>
             <span>{texts.menu.saveAs}</span>
           </button>
@@ -952,6 +972,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
           <SummaryCard summary={summary} />
           <RepartoCard composition={view.composition} familyOf={familyOf} />
           <EvaporationCard at={evaporationAt} />
+          {props.onPlan && <AgainstPlanCard rows={against} onOpen={props.onPlan} />}
           <OdourMapPlaceholder />
         </aside>
       </div>
