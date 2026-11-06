@@ -1,0 +1,126 @@
+n,nombre,campo,valor,fuente,nota
+1,"Villous cardamom, tincture",familia,,"no lo dice ninguna fuente consultada: TGSC odor/cardamom.html (sin entrada de Amomum villosum), TGSC es1101861 (no se pudo leer), resultados de busqueda sobre Elettaria",
+1,"Villous cardamom, tincture",nivel,,"no lo dice ninguna fuente consultada: TGSC odor/cardamom.html (sin entrada de Amomum villosum), TGSC es1101861 (no se pudo leer), resultados de busqueda sobre Elettaria",
+1,"Villous cardamom, tincture",horas,,"no lo dice ninguna fuente consultada: TGSC odor/cardamom.html (sin entrada de Amomum villosum), TGSC es1101861 (no se pudo leer), resultados de busqueda sobre Elettaria",
+1,"Villous cardamom, tincture",fuerza,,"no lo dice ninguna fuente consultada: TGSC odor/cardamom.html (sin entrada de Amomum villosum), TGSC es1101861 (no se pudo leer), resultados de busqueda sobre Elettaria",
+1,"Villous cardamom, tincture",estado,,"no lo dice ninguna fuente consultada: TGSC odor/cardamom.html (sin entrada de Amomum villosum), TGSC es1101861 (no se pudo leer), resultados de busqueda sobre Elettaria",
+1,"Villous cardamom, tincture",dosis,,"no lo dice ninguna fuente consultada: TGSC odor/cardamom.html (sin entrada de Amomum villosum), TGSC es1101861 (no se pudo leer), resultados de busqueda sobre Elettaria",
+2,Aldehyde C12 lauric (dodecanal),nivel,heart,"Premiere Peau, https://premierepeau.com/fr/pages/glossary-terms/dodecanal: «utilisés dans les positions de la tête au cœur»; listed as heart note",la pagina dice tete a coeur
+2,Aldehyde C12 lauric (dodecanal),nivel,,"TGSC, https://www.thegoodscentscompany.com/data/rw1000371.html: no da nota",TGSC no lo dice
+2,Aldehyde C12 lauric (dodecanal),horas,368,"TGSC, https://www.thegoodscentscompany.com/data/rw1000371.html: «Substantivity:368 hour(s) at 100.00 %»",
+2,Aldehyde C12 lauric (dodecanal),horas,368,"Premiere Peau, https://premierepeau.com/fr/pages/glossary-terms/dodecanal: «368 heures · 15 jours»",en tira
+2,Aldehyde C12 lauric (dodecanal),fuerza,high,"TGSC, https://www.thegoodscentscompany.com/data/rw1000371.html: «Odor Strength:high»",recomienda oler al 10 % o menos
+2,Aldehyde C12 lauric (dodecanal),fuerza,forte puissance olfactive (4/5),"Premiere Peau, https://premierepeau.com/fr/pages/glossary-terms/dodecanal: «Forte puissance olfactive»",
+2,Aldehyde C12 lauric (dodecanal),estado,colorless to pale yellow clear liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/rw1000371.html: «Appearance:colorless to pale yellow clear liquid (est)»",
+2,Aldehyde C12 lauric (dodecanal),estado,liquide clair incolore a jaune pale,"Premiere Peau, https://premierepeau.com/fr/pages/glossary-terms/dodecanal: «liquide clair incolore à jaune pâle»",
+2,Aldehyde C12 lauric (dodecanal),dosis,up to 2.0000 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/rw1000371.html: «Recommendation for dodecanal (aldehyde C-12 lauric) usage levels up to: 2.0000 % in the fragrance concentrate»",TGSC lo atribuye a IFRA
+3,"Ambrette, tincture",nivel,base,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/ambrette: pagina de ambrette (semillas de Abelmoschus moschatus), pone la nota en la base",sin referencia de tintura: se investigo el material puro; la pagina no especifica aceite/absoluto
+3,"Ambrette, tincture",nivel,base,"dsm-firmenich, https://studio.dsm-firmenich.com/product/ambrette-abs-pe-908840: «a light musk bottom note for delicate florals»","Ambrette abs (material puro), no tintura"
+3,"Ambrette, tincture",horas,,"no lo dice ninguna fuente consultada: Premiere Peau ambrette (campo vacio), dsm-firmenich Ambrette abs PE (solo «a good tenacity», sin horas)",material puro
+3,"Ambrette, tincture",fuerza,,"no lo dice ninguna fuente consultada: Premiere Peau ambrette (campo vacio), dsm-firmenich Ambrette abs PE (sin valoracion)",
+3,"Ambrette, tincture",estado,solid at room temperature,"dsm-firmenich, https://studio.dsm-firmenich.com/product/ambrette-abs-pe-908840: «The oil is solid at room temperature»","absoluto puro, no la tintura (que seria liquida; no lo dice ninguna fuente)"
+3,"Ambrette, tincture",dosis,,"no lo dice ninguna fuente consultada: Premiere Peau ambrette, dsm-firmenich Ambrette abs PE",
+4,Amyl salicylate,nivel,,no lo dice ninguna fuente consultada en TGSC https://www.thegoodscentscompany.com/data/rw1012551.html (no clasifica nota),TGSC no lo dice
+4,Amyl salicylate,nivel,heart,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/amyl-salicylate: «Heart»",
+4,Amyl salicylate,horas,124,"TGSC, https://www.thegoodscentscompany.com/data/rw1012551.html: «Substantivity: 124 hour(s) at 100.00 %»",
+4,Amyl salicylate,horas,124,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/amyl-salicylate: «124 hours at 100.00%»",en tira
+4,Amyl salicylate,fuerza,medium,"TGSC, https://www.thegoodscentscompany.com/data/rw1012551.html: «Odor Strength: medium»",
+4,Amyl salicylate,fuerza,Medium,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/amyl-salicylate: «Medium»",
+4,Amyl salicylate,estado,colorless to pale yellow clear liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/rw1012551.html: «colorless to pale yellow clear liquid (est)»",
+4,Amyl salicylate,estado,colorless to pale yellow clear liquid,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/amyl-salicylate: «colorless to pale yellow clear liquid»",
+4,Amyl salicylate,dosis,up to 10 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/rw1012551.html: «Recommendation for amyl salicylate usage levels up to: 10.0000 % in the fragrance concentrate»",el mismo TGSC lista IFRA fine fragrance 2.98 %
+4,Amyl salicylate,dosis,2-8 % in fragrance concentrate,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/amyl-salicylate: «typical use levels run 2-8% in fragrance concentrate»",
+5,Benzyl salicylate,nivel,,no lo dice ninguna fuente consultada en TGSC https://thegoodscentscompany.com/data/rw1001791.html (solo «Fixative in perfumes and flavourings»),TGSC no lo dice
+5,Benzyl salicylate,nivel,base,"Premiere Peau (AR), https://premierepeau.com/ar/pages/glossary-terms/benzyl-salicylate: «قاعدية» (basica)","pagina en arabe, traducido"
+5,Benzyl salicylate,horas,384,"TGSC, https://thegoodscentscompany.com/data/rw1001791.html: «Substantivity: 384 hour(s) at 100.00 %»",
+5,Benzyl salicylate,horas,384,"Premiere Peau (AR), https://premierepeau.com/ar/pages/glossary-terms/benzyl-salicylate: «384 ساعة»",en tira
+5,Benzyl salicylate,fuerza,low,"TGSC, https://thegoodscentscompany.com/data/rw1001791.html: «Odor Strength: low»",
+5,Benzyl salicylate,fuerza,weak (2/5),"Premiere Peau (AR), https://premierepeau.com/ar/pages/glossary-terms/benzyl-salicylate: «ضعيفة» 2/5",
+5,Benzyl salicylate,estado,colorless to pale yellow clear oily liquid to solid (est),"TGSC, https://thegoodscentscompany.com/data/rw1001791.html: «colorless to pale yellow clear oily liquid to solid (est)»",
+5,Benzyl salicylate,estado,"viscous colorless to pale yellow liquid, melts near room temperature","Premiere Peau (AR), https://premierepeau.com/ar/pages/glossary-terms/benzyl-salicylate: «سائل لزج عديم اللون إلى أصفر فاتح»",traducido
+5,Benzyl salicylate,dosis,15.79 % (cosmetics formulae),"TGSC, https://thegoodscentscompany.com/data/rw1001791.html: «use level in formulae for use in cosmetics: 15.7900 %»",no es un 'up to % in the fragrance concentrate'; es uso en cosmetica
+5,Benzyl salicylate,dosis,5-15 % of formula weight,"Premiere Peau (AR), https://premierepeau.com/ar/pages/glossary-terms/benzyl-salicylate: «يُستخدم بنسبة 5-15% من وزن التركيبة»",traducido; a veces mas alto
+6,Manzanate,nivel,base (listing) / top (description),"Fraterworks, https://fraterworks.com/products/manzanate: listing «Base Note» pero descripcion «A wonderful bright top note material»",la propia pagina es incoherente
+6,Manzanate,nivel,top,"Scentspiracy, https://scentspiracy.com/fragrance-ingredients/p/manzanate: «volatile top note of medium strength»",
+6,Manzanate,horas,> 90,"Fraterworks, https://fraterworks.com/products/manzanate: «Lasts > 90 hours on a smelling strip»",
+6,Manzanate,horas,,no lo dice ninguna fuente consultada: Scentspiracy manzanate (no da horas),segunda fuente sin dato
+6,Manzanate,fuerza,medium,"Scentspiracy, https://scentspiracy.com/fragrance-ingredients/p/manzanate: «Odor Strength: Medium»","Fraterworks no da valoracion (solo una resena: «it's crazy strong», no valida)"
+6,Manzanate,estado,colourless liquid,"Fraterworks, https://fraterworks.com/products/manzanate: «Colourless liquid»",
+6,Manzanate,estado,colorless to pale yellow liquid,"Scentspiracy, https://scentspiracy.com/fragrance-ingredients/p/manzanate: «Colorless to pale yellow liquid»",
+6,Manzanate,dosis,median 0.029 % of the concentrate; range trace to 10 %; common dilution 10 %,"Fraterworks, https://fraterworks.com/products/manzanate: «Median use ... 0.029%», «Common dilutions: 10%»","estadistica de uso observado en formulas, no recomendacion"
+6,Manzanate,dosis,fine fragrances 0.2-2 %; rinse-off up to 1.5 %; functional up to 3 %,"Scentspiracy, https://scentspiracy.com/fragrance-ingredients/p/manzanate: «Fine fragrances: 0.2–2%»",
+7,Methyl linolenate,familia,oily,"TGSC, https://www.thegoodscentscompany.com/data/rw1477771.html: «Odor Type: oily»",
+7,Methyl linolenate,nivel,,no lo dice ninguna fuente consultada: TGSC https://www.thegoodscentscompany.com/data/rw1477771.html (Notes: «None found»),
+7,Methyl linolenate,horas,,no lo dice ninguna fuente consultada: TGSC https://www.thegoodscentscompany.com/data/rw1477771.html (sin Substantivity),
+7,Methyl linolenate,fuerza,low,"TGSC, https://www.thegoodscentscompany.com/data/rw1477771.html: «Odor Strength:low»",
+7,Methyl linolenate,dosis,up to 20 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/rw1477771.html: «Recommendation for methyl linolenate usage levels up to: 20.0000 % in the fragrance concentrate»",
+8,Phenethyl acetate,nivel,,"no lo dice ninguna fuente consultada: TGSC https://www.thegoodscentscompany.com/data/rw1010032.html (solo «Modifier in hyacinth. Flavouring ingredient»), Premiere Peau (pagina vacia), Scentspiracy y Fraterworks (no se pudieron leer)",
+8,Phenethyl acetate,horas,16,"TGSC, https://www.thegoodscentscompany.com/data/rw1010032.html: «Substantivity: 16 hour(s) at 100.00 %»",
+8,Phenethyl acetate,fuerza,medium,"TGSC, https://www.thegoodscentscompany.com/data/rw1010032.html: «Odor Strength: medium»",
+8,Phenethyl acetate,estado,colorless clear liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/rw1010032.html: «Appearance: colorless clear liquid (est)»",
+8,Phenethyl acetate,dosis,up to 50 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/rw1010032.html: «Recommendation for phenethyl acetate usage levels up to: 50.0000 % in the fragrance concentrate»",
+9,"Green cardamom, tincture",nivel,top-to-heart,"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/cardamom-oil: «Top-to-heart note (bridging volatility class)»","aceite esencial de cardamomo (material puro), no tintura: no hay referencia de la tintura"
+9,"Green cardamom, tincture",horas,12+ (hasta 24-48),"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/cardamom-oil: «12+ hours with detectable presence extending to 24–48 hours»","aceite esencial de cardamomo (material puro), no tintura: no hay referencia de la tintura; en tira"
+9,"Green cardamom, tincture",fuerza,6-7 out of 10 (medium-to-strong),"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/cardamom-oil: «6–7 out of 10 (medium-to-strong)»","aceite esencial de cardamomo (material puro), no tintura: no hay referencia de la tintura"
+9,"Green cardamom, tincture",dosis,0.01-2.0 % in fine fragrance compounds,"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/cardamom-oil: «0.01–2.0% in fine fragrance compounds»","aceite esencial de cardamomo (material puro), no tintura: no hay referencia de la tintura"
+9,"Green cardamom, tincture",nivel,,"no lo dice ninguna fuente consultada: TGSC https://thegoodscentscompany.com/data/ex1091761.html (extracto de semilla CAS 85940-32-5, sin nota, substantividad, fuerza ni dosis)",TGSC
+10,"Hyraceum (Africa stone), absolute",nivel,base,"Fraterworks, https://fraterworks.com/products/hyraceum-signature-absolute: «Classification: Base Note»",Hyraceum Signature Absolute
+10,"Hyraceum (Africa stone), absolute",nivel,base,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/hyraceum: «Base-note fixative and animalic modifier.»",pagina del material en general
+10,"Hyraceum (Africa stone), absolute",horas,> 400,"Fraterworks, https://fraterworks.com/products/hyraceum-signature-absolute: «Lasts > 400 hours on a smelling strip»",producto diluido al 40 % en DPG
+10,"Hyraceum (Africa stone), absolute",horas,,no lo dice ninguna fuente consultada: Premiere Peau https://premierepeau.com/pages/glossary-terms/hyraceum (solo «clings to fabric for days»),segunda fuente sin horas
+10,"Hyraceum (Africa stone), absolute",estado,dark brown liquid,"Fraterworks, https://fraterworks.com/products/hyraceum-signature-absolute: «Dark brown liquid»",diluido al 40 % en DPG
+10,"Hyraceum (Africa stone), absolute",estado,dark brown to black petrified solid (raw); amber-brown liquid (tincture),"Premiere Peau, https://premierepeau.com/pages/glossary-terms/hyraceum: «Dark brown to black petrified solid (raw); amber-brown liquid (tincture).»","se refiere al crudo y a la tintura, no al absoluto"
+10,"Hyraceum (Africa stone), absolute",dosis,,no lo dice ninguna fuente consultada como uso habitual: Fraterworks https://fraterworks.com/products/hyraceum-signature-absolute solo da dilucion 40 % en DPG y limite IFRA 51 «1.28% in finished product (Cat. 4)»,el limite IFRA no es dosis de uso
+10,"Hyraceum (Africa stone), absolute",dosis,"0.1-0.5 % (naturaliser, sub-threshold)","Premiere Peau, https://premierepeau.com/pages/glossary-terms/hyraceum: «At sub-threshold doses (0.1–0.5%), it acts as a naturaliser.»",base del porcentaje no indicada
+11,Luminide,familia,musk (powdery),"IFF, https://www.iff.com/?p=37851: «A clean, powdery musk»",la pagina no tiene campo de familia; es la descripcion
+11,Luminide,horas,> 7 days (> 168 h),"IFF, https://www.iff.com/?p=37851: «Substantivity: >7 days»","la fuente da dias, no horas"
+11,Luminide,fuerza,,"no lo dice ninguna fuente consultada: IFF https://www.iff.com/?p=37851 (solo impacto «medium» en cada nivel de nota, sin valoracion de fuerza); busquedas en TGSC/Fraterworks sin pagina de Luminide",
+11,Luminide,estado,,no lo dice ninguna fuente consultada: IFF https://www.iff.com/?p=37851 (estado fisico no especificado),
+12,"Myrrh, essential oil",familia,balsamic,"TGSC, https://thegoodscentscompany.com/data/es1002061.html: «Odor Type: balsamic»",
+12,"Myrrh, essential oil",familia,resins & balsams,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/myrrh-oil: «RESINS & BALSAMS»",encabezado de categoria
+12,"Myrrh, essential oil",nivel,,no lo dice TGSC https://thegoodscentscompany.com/data/es1002061.html (sin nota),TGSC no lo dice
+12,"Myrrh, essential oil",nivel,base,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/myrrh-oil: posicion «Base» de la piramide",
+12,"Myrrh, essential oil",horas,400,"TGSC, https://thegoodscentscompany.com/data/es1002061.html: «Substantivity: 400 hour(s) at 100.00 %»",
+12,"Myrrh, essential oil",horas,400,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/myrrh-oil: «400hours · 17 days»",en tira
+12,"Myrrh, essential oil",fuerza,medium,"TGSC, https://thegoodscentscompany.com/data/es1002061.html: «Odor Strength: medium»",contradice a Premiere Peau
+12,"Myrrh, essential oil",fuerza,low (2/5),"Premiere Peau, https://premierepeau.com/pages/glossary-terms/myrrh-oil: «Low»",contradice a TGSC
+13,Raspberry ketone,nivel,middle-to-base,"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/raspberry-ketone: «A middle-to-base register ingredient»",
+13,Raspberry ketone,nivel,heart,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/raspberry: «functions as a heart note with base-note tenacity»",
+13,Raspberry ketone,horas,400,"TGSC, https://www.thegoodscentscompany.com/data/rw1020772.html: «Substantivity: 400 hour(s) at 20.00 % in dipropylene glycol»","la cifra es al 20 % en DPG, no puro"
+13,Raspberry ketone,horas,,no lo dice en horas: Scentspiracy (https://www.scentspiracy.com/fragrance-ingredients/p/raspberry-ketone: «Excellent persistence; long-lasting on blotter and skin») ni Premiere Peau (https://premierepeau.com/pages/glossary-terms/raspberry: «remains perceptible for weeks»),
+13,Raspberry ketone,fuerza,medium,"TGSC, https://www.thegoodscentscompany.com/data/rw1020772.html: «Odor Strength: medium»",recomienda oler al 10 % o menos
+13,Raspberry ketone,fuerza,high,"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/raspberry-ketone: «High impact at low concentrations»",
+13,Raspberry ketone,fuerza,High (4/5),"Premiere Peau, https://premierepeau.com/pages/glossary-terms/raspberry: «High»",contradice a TGSC
+13,Raspberry ketone,dosis,up to 8 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/rw1020772.html: «8.0000 % in the fragrance concentrate»",cita truncada del 'usage levels up to'
+13,Raspberry ketone,dosis,fine fragrance 0.1-2 %; body care 0.5-3 %; functional up to 5 %,"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/raspberry-ketone: «usage levels in fine fragrance typically range from 0.1 to 2%»",
+13,Raspberry ketone,dosis,0.05-0.50 % fine fragrance; 0.02-0.30 % body care,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/raspberry: «Typical use levels: 0.05–0.50% in fine fragrance, 0.02–0.30% in body care.»",aconseja diluir al 10 % en DPG
+14,4-Propylphenol,horas,,"no lo dice ninguna fuente consultada: TGSC https://www.thegoodscentscompany.com/data/rw1037241.html (sin substantividad, fuerza ni recomendacion; solo tabla FEMA en ppm); busqueda en Fraterworks/Premiere Peau/Scentspiracy/PerfumersWorld sin pagina de 4-propylphenol",
+14,4-Propylphenol,fuerza,,"no lo dice ninguna fuente consultada: TGSC https://www.thegoodscentscompany.com/data/rw1037241.html (sin substantividad, fuerza ni recomendacion; solo tabla FEMA en ppm); busqueda en Fraterworks/Premiere Peau/Scentspiracy/PerfumersWorld sin pagina de 4-propylphenol",
+14,4-Propylphenol,dosis,,"no lo dice ninguna fuente consultada: TGSC https://www.thegoodscentscompany.com/data/rw1037241.html (sin substantividad, fuerza ni recomendacion; solo tabla FEMA en ppm); busqueda en Fraterworks/Premiere Peau/Scentspiracy/PerfumersWorld sin pagina de 4-propylphenol","TGSC solo tiene niveles FEMA de uso alimentario en ppm, columnas ilegibles"
+15,Cypriol / Nagarmotha EO,horas,,"no lo dice ninguna fuente consultada: TGSC https://thegoodscentscompany.com/data/es1385381.html (sin substantividad; solo Hermitage Oils «remarkable tenacity»), Scentspiracy https://www.scentspiracy.com/fragrance-ingredients/p/cypriol (cualitativo: «Exceptional»), Premiere Peau https://premierepeau.com/pages/glossary-terms/cypriol-oil-or-nagarmotha (campo vacio)",
+15,Cypriol / Nagarmotha EO,fuerza,"Strong, highly diffusive / Strong to very strong","Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/cypriol: «Strong, highly diffusive»",
+15,Cypriol / Nagarmotha EO,fuerza,Medium (3/5),"Premiere Peau, https://premierepeau.com/pages/glossary-terms/cypriol-oil-or-nagarmotha: «Medium»",contradice a Scentspiracy; TGSC no la da
+15,Cypriol / Nagarmotha EO,dosis,0.5-3 % as fixative and blender; 3-10 % when prominent,"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/cypriol: «typical usage ranges from 0.5% to 3% when used as a fixative and blender»",fine fragrance
+15,Cypriol / Nagarmotha EO,dosis,,"no lo dice TGSC https://thegoodscentscompany.com/data/es1385381.html («not for flavor use», sin nivel de fragancia) ni Premiere Peau https://premierepeau.com/pages/glossary-terms/cypriol-oil-or-nagarmotha",
+16,Filbertone,nivel,top,"Fraterworks, https://fraterworks.com/products/filbertone: «Classification: Top Note»",
+16,Filbertone,nivel,top,"Premiere Peau (IT), https://premierepeau.com/it/pages/glossary-terms/filbertone: «Testa»",
+16,Filbertone,horas,2,"Fraterworks, https://fraterworks.com/products/filbertone: «Lasts 2 hours on a smelling strip»",
+16,Filbertone,horas,2,"Premiere Peau (IT), https://premierepeau.com/it/pages/glossary-terms/filbertone: «2 ore»",en tira
+16,Filbertone,fuerza,"8/10 strength, 9/10 impact","Fraterworks, https://fraterworks.com/products/filbertone: «exceptionally potent, with both high odour strength (8/10) and dominant impact in blends (9/10)»",escala de la propia web
+16,Filbertone,fuerza,high (4/5),"Premiere Peau (IT), https://premierepeau.com/it/pages/glossary-terms/filbertone: «Alta intensità olfattiva»",TGSC https://www.thegoodscentscompany.com/data/rw1337381.html no da fuerza ni substantividad
+17,"Honey, aromatic essence",horas,,"no lo dice ninguna fuente consultada: TGSC https://thegoodscentscompany.com/data/pb1059221.html (sin substantividad), Premiere Peau https://premierepeau.com/en-dk/pages/glossary-terms/honey (sin horas; solo «Volatility: Low to Medium»)",
+17,"Honey, aromatic essence",fuerza,,no lo dice ninguna fuente consultada: TGSC pb1059221 y Premiere Peau honey,
+17,"Honey, aromatic essence",dosis,,"no lo dice ninguna fuente consultada para este material: TGSC pb1059221 es un sustituto de miel (Honey miel Oliffac / Nectarol SA) con «up to 2.0000 % in the fragrance concentrate», pero es otro producto; Premiere Peau honey no da %",valor 2 % descartado por no ser demostrable que sea el mismo material
+18,"Juniper (berries), essential oil",nivel,heart,"Fraterworks, https://fraterworks.com/products/juniper-berry: «Heart Note»","Juniper Berry Oil, Rectified"
+18,"Juniper (berries), essential oil",nivel,top (extends into middle),"Scentspiracy, https://scentspiracy.com/fragrance-ingredients/p/juniperberriesoil: «Juniper berry oil functions primarily as a top note contributor»",contradice a Fraterworks
+18,"Juniper (berries), essential oil",horas,> 24,"Fraterworks, https://fraterworks.com/products/juniper-berry: «Lasts > 24 hours on a smelling strip.»",
+18,"Juniper (berries), essential oil",horas,24+,"Scentspiracy, https://scentspiracy.com/fragrance-ingredients/p/juniperberriesoil: «can persist for 24+ hours on a blotter»",
+18,"Juniper (berries), essential oil",estado,clear liquid,"Fraterworks, https://fraterworks.com/products/juniper-berry: «Clear liquid»",
+18,"Juniper (berries), essential oil",estado,water-white to pale yellow or pale greenish mobile liquid,"Scentspiracy, https://scentspiracy.com/fragrance-ingredients/p/juniperberriesoil: «Water-white to pale yellow or pale greenish mobile liquid»",
+18,"Juniper (berries), essential oil",estado,pale yellow clear liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/es1029741.html: «Appearance:pale yellow clear liquid (est)»","pagina TGSC de Juniperus communis fruit oil con CAS 8012-91-7, no 8002-68-4; no da nota ni substantividad"
+19,Magnolan,nivel,,no lo dice TGSC https://www.thegoodscentscompany.com/data/rw1007991.html (sin nota),TGSC no lo dice
+19,Magnolan,nivel,base with middle aspects,"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/magnolan: «Functions primarily as a base note with middle note aspects»",su otra seccion dice «Primarily performs in middle to base notes»
+19,Magnolan,estado,colorless to pale yellow clear liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/rw1007991.html: «colorless to pale yellow clear liquid (est)»",
+19,Magnolan,estado,clear colorless to pale yellow liquid,"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/magnolan: «Clear colorless to pale yellow liquid»",
+19,Magnolan,dosis,up to 8 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/rw1007991.html: «8.0000 % in the fragrance concentrate»",cita truncada del 'usage levels up to'
+19,Magnolan,dosis,0.5-20 % depending on application; fine fragrance typical 2-8 %,"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/magnolan: «Recommended usage levels range from 0.5% to 20% depending on application»",la propia pagina es inconsistente (0.5-8 % en otra seccion)
