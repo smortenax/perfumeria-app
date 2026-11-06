@@ -85,6 +85,10 @@ def clean_natural(v):
     return v
 
 
+# Productos que comparten especie y forma con un común pero son otro material (lectura de la sesión).
+NOT_SAME = {"337": "tangor (C. reticulata × C. sinensis), no la mandarina"}
+
+
 FORM = {"molecula": "molecule", "aceite esencial": "essential oil", "absoluto": "absolute", "co2": "CO2 extract",
         "resinoide": "resinoid", "tintura": "tincture", "dilucion": "dilution", "reduccion": "reduction"}
 
@@ -140,7 +144,10 @@ for n, c in consenso.items():
     dup = dup or next((by_cas[k] for k in cases if k in by_cas), None) or next(
         (by_name[k] for k in (norm(name), norm(c["nombre_web"]), norm(x["h1"])) if k in by_name), None) or next(
         (m for m in commons if norm(m["name"]).replace(" ", "") in {norm(c["nombre_web"]).replace(" ", ""), norm(name).replace(" ", "")}), None) or next(
-        (by_cas[m] for r in reads.get((n, "nombre"), []) for m in re.findall(r"\d{2,7}-\d\d-\d", r["nota"] + r["valor"]) if m in by_cas), None)
+        (by_cas[m] for r in reads.get((n, "nombre"), []) for m in re.findall(r"\d{2,7}-\d\d-\d", r["nota"] + r["valor"])
+         if m in by_cas and form == "molecule"), None)
+    if n in NOT_SAME:
+        dup = None
     casa = next((r for r in sorted(rows["casa"], key=lambda r: rank(r["fuente"])) if r["valor"].strip()), None)
     row = {
         "n": n, "nombre": name, "nombre_fuente": names[0]["fuente"] if names else f"Maese Lab, {c['url']}: «{c['nombre_web']}»",

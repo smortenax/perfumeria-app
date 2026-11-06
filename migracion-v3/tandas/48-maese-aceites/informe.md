@@ -1,12 +1,12 @@
 # Tanda 48 · Los aceites esenciales de Maese Lab que faltaban, en lo común
 
-*Generada por `migracion-v3/tanda-48-maese-naturales.ts 48` sobre lo común de `b937db8` **con las tandas 46 a 47** (se aprueba después de ellas), desde `migracion-v3/web/maese-altas/propuesta-48.csv`. Escribe `v3/datos/materials.csv`, `material_categories.csv`, `material_descriptors.csv` y `material_doses.csv` enteros, con estos añadidos: lo de antes no cambia. Sin aprobar.*
+*Generada por `migracion-v3/tanda-48-maese-naturales.ts 48` sobre lo común de `17e0b5f` **con las tandas 46 a 47** (se aprueba después de ellas), desde `migracion-v3/web/maese-altas/propuesta-48.csv`. Escribe `v3/datos/materials.csv`, `material_categories.csv`, `material_descriptors.csv` y `material_doses.csv` enteros, con estos añadidos: lo de antes no cambia. Sin aprobar.*
 
 **Por qué** (V3-99): el usuario, 2026-11-06: «creo que es clave tener todo el glosario de maese dentro de la app» y «lo importante es que se contraste las altas de referencia […] y que en ambos casos se complete el alta».
 
 **Cómo:** como la tanda 47. La ficha de Maese Lab (tanda 45: especie por el INCI, parte, método, origen, CAS, pureza y perfil, citados); hasta dos páginas de referencia por producto, de la misma especie y parte (`migracion-v3/web/maese-altas/web-48-*.csv`); PerfuMate en local. Una página de otra especie o parte no cuenta. Un material por identidad (V3-85): especie, parte, proceso, tratamiento y quimiotipo; dos productos que solo cambian de origen o de grado son el mismo material. El nombre, el común en inglés de la referencia o, si no lo hay, la especie y la parte.
 
-**Resultado:** 158 materiales nuevos; 6 no entran (ya son un común, o el mismo material que otro de la tanda). Con familia 70, impacto 122, fuerza en palabras 41, horas en tira 54, nivel 38; 22 usos habituales y 129 descriptores.
+**Resultado:** 160 materiales nuevos; 4 no entran (ya son un común, o el mismo material que otro de la tanda). Con familia 70, impacto 124, fuerza en palabras 42, horas en tira 55, nivel 39; 22 usos habituales y 130 descriptores.
 
 **Para mirar antes de aprobar:**
 
@@ -84,6 +84,7 @@
 | 306 | Hyssop, essential oil | *Hyssopus officinalis* | green | 7 | medium | 92 h | base | — | strength |
 | 307 | Hyssopus officinalis (flowers and leaves), essential oil | *Hyssopus officinalis* | — | 7 | — | — | heart | — |  |
 | 309 | Boswellia serrata (resin), essential oil | *Boswellia serrata* | woody | 6 | — | — | — | — |  |
+| 311 | Nardostachys jatamansi (root), essential oil | *Nardostachys jatamansi* | — | 6 | medium | 240 h | base | — |  |
 | 312 | Ginger root, essential oil | *Zingiber officinale* | spicy | 7 | medium | 292 h | — | 8 % | tenacity_hours |
 | 313 | Zingiber cassumunar (root), essential oil | *Zingiber cassumunar* | — | 5 | — | 20 h | — | — |  |
 | 314 | Cedrelopsis grevei (bark), essential oil | *Cedrelopsis grevei* | woody | 5 | — | 72 h | base | — |  |
@@ -105,6 +106,7 @@
 | 333 | Michelia alba dc. leaf, essential oil | *Magnolia alba* | green | 4 | — | 5 h | heart | — |  |
 | 334 | Magnolia grandiflora (flower), essential oil | *Magnolia grandiflora* | green | — | — | — | top_heart | — |  |
 | 336 | Clementine mandarin peel, essential oil | *Citrus clementina* | citrus | 6 | — | 6 h | — | 10 % |  |
+| 337 | Tangor murcote peel, essential oil | *Citrus reticulata* | — | 5 | — | — | — | — |  |
 | 339 | Leptospermum scoparium (leaf), essential oil | *Leptospermum scoparium* | woody | 6 | — | — | top_heart | — |  |
 | 340 | Matricaria recutita (flower), essential oil | *Matricaria recutita* | green | 7 | — | — | — | — | physical_state |
 | 341 | Ormenis multicaulis (aerial parts), essential oil | *Ormenis multicaulis* | green | — | — | — | — | — |  |
@@ -181,7 +183,5 @@
 |---|---|---|
 | 249 | Citrus bergamia (peel), essential oil | ya es un común: Bergamot, bergapten-free (798f4933-21c6-5840-a52b-8f4d4bf10c64) |
 | 298 | Guaiacwood, essential oil | el mismo material que el n.º 297: the same guaiacwood oil, sold at 50 % in DPG (una especificación, V3-85) |
-| 311 | Nardostachys jatamansi (root), essential oil | ya es un común: Lavender (a367b36a-7424-5591-8baa-b245b6b56d52) |
-| 337 | Tangor murcote peel, essential oil | ya es un común: Mandarin (19f5072c-dcc5-5f96-a226-269c5b413c6d) |
 | 352 | Commiphora myrrha (resin), essential oil | ya es un común: Myrrh, essential oil (7c27cec2-aaf6-510f-a49f-7e94fd626f20) |
 | 389 | Rosa damascena (flower), essential oil | el mismo material que el n.º 388: the same Rosa damascena flower oil; «Otto Bulgaria» and «Extra» are origin and grade (una especificación, V3-85) |
