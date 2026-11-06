@@ -17,7 +17,7 @@ FAMILY_WORDS = [  # palabra de la referencia → familia de la app (family_palet
     ("phenolic", "transformed"), ("vanill", "gourmand"), ("caramel", "gourmand"), ("balsam", "gourmand"),
     ("creamy", "gourmand"), ("sugary", "gourmand"), ("resin", "gourmand"),
 ]
-NOT_THIS = re.compile(r"otro producto|different product|no es un 'up to|incoheren|honey replacer|verificar identidad", re.I)
+NOT_THIS = re.compile(r"otro producto|different product|no es un 'up to|incoheren|honey replacer|verificar identidad|inferid", re.I)
 # Otra concentración del mismo material: no vale para cifras (horas, fuerza, uso, estado), sí para la familia, el nivel o el olor.
 OTHER_STRENGTH = re.compile(r"no (?:la |es )?tintura|material puro|absoluto puro|aceite puro|no puro|diluido|al \d+ % en|\d+ % en dpg", re.I)
 
