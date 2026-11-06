@@ -1,5 +1,5 @@
 import { useId, useState, type ReactNode } from "react";
-import { FAMILIES, STRENGTHS, type Family } from "../db/catalog";
+import { FAMILIES, IMPACT_TOP, type Family } from "../db/catalog";
 import { PALETTE } from "../families/palette";
 import { texts } from "../i18n/en";
 import { Pills } from "../Pills";
@@ -59,7 +59,8 @@ export function MaterialFilters(props: {
   const id = useId();
   const f = props.filters;
   const set = (change: Partial<TraitFilters>) => props.onFilters({ ...f, ...change });
-  const strengths = STRENGTHS.map((s) => texts.sheet.strengths[s]);
+  // The strength is the impact, 1 to 10 (V3-97): what has only the four-level strength is «no data» here.
+  const strengths = Array.from({ length: IMPACT_TOP }, (_, i) => String(i + 1));
   const bands = DURATION_BANDS.map((d) => b.bands[d.key]);
   const familyName = (x: Family) => texts.sheet.families[x];
   const toggle = (p: Panel) => setOpen(open === p ? null : p);

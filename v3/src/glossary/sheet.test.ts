@@ -20,7 +20,7 @@ const FIELDS: MaterialFields = {
   solvent: false, aliases: [], cas: null, otherCas: [], species: null, part: null, process: null, chemotype: null, inci: null,
   origin: null, abbreviation: null, abbreviationOrigin: null, categoryId: null, form: null, basedOnId: null, grade: null, supplier: null,
   product: null, productUrl: null, lot: null, purchasedOn: null, originRegion: null, status: null, purity: null, house: null, code: null, odorTarget: null, synthesis: null, isomers: null, family: null,
-  color: null, familyDetail: null, facets: null, tier: null, tenacityHours: null, tenacitySource: null, strengthSource: null, evolution: NO_EVOLUTION,
+  color: null, familyDetail: null, facets: null, tier: null, tenacityHours: null, tenacitySource: null, strengthSource: null, impact: null, impactSource: null, evolution: NO_EVOLUTION,
   strength: null, threshold: null, diffusion: null, blendEffect: null, role: null, recommendedDilution: null, cost: null, handling: null,
   physical: NO_PHYSICAL, notes: null, sources: null, confidence: null, disputedFields: [], ifraUnverified: null,
 };
@@ -270,5 +270,11 @@ describe("the source under each figure of the head (V3-81)", () => {
   });
   it("a figure without a source has none to show", () => {
     expect(figureSources(material("b", { strength: "low" }), undefined)).toEqual({ strength: null, hours: null });
+  });
+  it("with an impact (V3-97), the strength's source is the impact's, yours or the common one's", () => {
+    const rated = material("r", { strength: "high", strengthSource: "TGSC", impact: 8, impactSource: "PerfuMate" });
+    expect(figureSources(rated, undefined).strength).toBe("PerfuMate");
+    expect(figureSources(material("y3", { ownerId: ME, basedOnId: "r" }), rated).strength).toBe("PerfuMate");
+    expect(figureSources(material("y4", { ownerId: ME, basedOnId: "r", impact: 6, impactSource: "my bench" }), rated).strength).toBe("my bench");
   });
 });

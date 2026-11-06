@@ -18,6 +18,8 @@ export const MATERIAL_KINDS: readonly MaterialKind[] = ["molecule", "natural", "
 export const AUTHORITIES: readonly Authority[] = ["lot", "product", "ifra", "literature", "consensus"];
 export const FAMILIES: readonly Family[] = ["citrus", "green", "ozonic", "floral", "fruity", "spicy", "woody", "animal", "transformed", "gourmand"];
 export const TIERS: readonly Tier[] = ["top", "top_heart", "heart", "heart_base", "base"];
+/** The top of the impact scale (V3-97): PerfuMate's 1 to 10. */
+export const IMPACT_TOP = 10;
 export const STRENGTHS: readonly Strength[] = ["low", "medium", "high", "very_high"];
 export const CONFIDENCES: readonly Confidence[] = ["high", "medium", "low"];
 export const DOSE_BASES: readonly DoseBasis[] = ["concentrate", "finished_product", "undeclared"];
@@ -149,6 +151,10 @@ export interface MaterialFields {
   readonly strength: Strength | null;
   /** Where the strength comes from (V3-81). */
   readonly strengthSource: string | null;
+  /** Its impact, 1 to 10 (V3-97): what the app shows and weighs as strength; null when unknown. */
+  readonly impact: number | null;
+  /** Where the impact comes from. */
+  readonly impactSource: string | null;
   readonly threshold: string | null;
   readonly diffusion: string | null;
   readonly blendEffect: string | null;

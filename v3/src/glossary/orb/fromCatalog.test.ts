@@ -9,28 +9,31 @@ const FIELDS: MaterialFields = {
   solvent: false, aliases: [], cas: null, otherCas: [], species: null, part: null, process: null, chemotype: null, inci: null,
   origin: null, abbreviation: null, abbreviationOrigin: null, categoryId: null, form: null, basedOnId: null, grade: null, supplier: null,
   product: null, productUrl: null, lot: null, purchasedOn: null, originRegion: null, status: null, purity: null, house: null, code: null, odorTarget: null, synthesis: null, isomers: null, family: null,
-  color: null, familyDetail: null, facets: null, tier: null, tenacityHours: null, tenacitySource: null, strengthSource: null, evolution: NO_EVOLUTION,
+  color: null, familyDetail: null, facets: null, tier: null, tenacityHours: null, tenacitySource: null, strengthSource: null, impact: null, impactSource: null, evolution: NO_EVOLUTION,
   strength: null, threshold: null, diffusion: null, blendEffect: null, role: null, recommendedDilution: null, cost: null, handling: null,
   physical: NO_PHYSICAL, notes: null, sources: null, confidence: null, disputedFields: [], ifraUnverified: null,
 };
 const material = (id: string, extra: Partial<CatalogMaterial> = {}): CatalogMaterial => ({
   ...FIELDS, id, ownerId: null, name: id, kind: "molecule", components: [], regulations: [], doses: [], descriptors: [], relations: [], references: [], ...extra,
 });
-const hedione = material("hedione", { family: "floral", strength: "medium", tier: "heart", tenacityHours: Ratio.of(400) });
-const strong = material("strong", { family: "woody", strength: "very_high", tier: "base" });
+const hedione = material("hedione", { family: "floral", strength: "medium", impact: 2, tier: "heart", tenacityHours: Ratio.of(400) });
+const strong = material("strong", { family: "woody", strength: "very_high", impact: 9, tier: "base" });
+/** Only the four-level strength, no impact (V3-97): the frame marks it out of 4; the orb draws no intensity. */
+const wordOnly = material("wordOnly", { family: "spicy", strength: "high" });
 const absolute = material("absolute", { kind: "natural", form: "absoluto", family: "animal" });
 const oil = material("oil", { kind: "natural", form: "aceite esencial", family: "citrus", tier: "top" });
 const bare = material("bare", { kind: "provisional" });
 const mine = material("mine", { ownerId: "me", basedOnId: "hedione", kind: "molecule" });
-const catalog = { materials: new Map([hedione, strong, absolute, oil, bare, mine].map((m) => [m.id, m])) } as unknown as Catalog;
+const catalog = { materials: new Map([hedione, strong, wordOnly, absolute, oil, bare, mine].map((m) => [m.id, m])) } as unknown as Catalog;
 const scales = orbScalesOf(catalog);
 const look = (m: CatalogMaterial) => orbLookOf(catalog, m, scales);
 
 describe("the orb from the glossary's fields", () => {
-  it("takes the family's colour, the strength by rank, the tier as note and the tenacity", () => {
+  it("takes the family's colour, the impact by rank (V3-97), the tier as note and the tenacity", () => {
     expect(look(hedione)).toEqual({ families: [{ color: "#c475aa", share: 1 }], intensity: 0, contour: 0, note: "heart", durationHours: 400 });
     expect(look(strong).intensity).toBe(1);
     expect(look(strong).note).toBe("base");
+    expect(look(wordOnly).intensity).toBeUndefined();
   });
 
   it("gives a molecule a sphere, an absolute more wobble than an oil", () => {
@@ -52,9 +55,10 @@ describe("the orb from the glossary's fields", () => {
 describe("the marks of the orb's frame (F4, V3-91)", () => {
   it("reads the strength in segments, the tier as a note and the hours on a log bar, from the material it is based on too", async () => {
     const { orbMarksOf } = await import("./fromCatalog");
-    expect(orbMarksOf(catalog, hedione)).toEqual({ strength: { level: 2, of: 4 }, note: "heart", hours: { value: 400, at: Math.log10(400) / Math.log10(600) } });
+    expect(orbMarksOf(catalog, hedione)).toEqual({ strength: { level: 2, of: 10 }, note: "heart", hours: { value: 400, at: Math.log10(400) / Math.log10(600) } });
     expect(orbMarksOf(catalog, mine)).toEqual(orbMarksOf(catalog, hedione));
-    expect(orbMarksOf(catalog, strong).strength).toEqual({ level: 4, of: 4 });
+    expect(orbMarksOf(catalog, strong).strength).toEqual({ level: 9, of: 10 });
+    expect(orbMarksOf(catalog, wordOnly).strength).toEqual({ level: 3, of: 4 });
     expect(orbMarksOf(catalog, oil).note).toBe("top");
   });
 

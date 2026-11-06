@@ -77,6 +77,13 @@ function evolutionOf(value: number | null): Evolution {
   throw new RangeError(`An evolution is 0 to 3: ${value}`);
 }
 
+/** An impact is a whole number from 1 to 10 (V3-97), or unknown. */
+function impactOf(value: number | null): number | null {
+  if (value === null) return null;
+  if (Number.isInteger(value) && value >= 1 && value <= 10) return value;
+  throw new RangeError(`An impact is 1 to 10: ${value}`);
+}
+
 function fieldsOf(row: typeof local.materials.$inferSelect): MaterialFields {
   return {
     solvent: row.solvent ?? false,
@@ -124,6 +131,8 @@ function fieldsOf(row: typeof local.materials.$inferSelect): MaterialFields {
     ],
     strength: optionalOf(row.strength, STRENGTHS, "strength"),
     strengthSource: row.strengthSource,
+    impact: impactOf(row.impact),
+    impactSource: row.impactSource,
     threshold: row.threshold,
     diffusion: row.diffusion,
     blendEffect: row.blendEffect,
@@ -296,6 +305,7 @@ function checkFields(fields: Partial<MaterialFields>): void {
   if (fields.family) oneOf(fields.family, FAMILIES, "family");
   if (fields.tier) oneOf(fields.tier, TIERS, "tier");
   if (fields.strength) oneOf(fields.strength, STRENGTHS, "strength");
+  if (fields.impact != null && !(Number.isInteger(fields.impact) && fields.impact >= 1 && fields.impact <= 10)) throw new RangeError("an impact is a whole number from 1 to 10");
   if (fields.confidence) oneOf(fields.confidence, CONFIDENCES, "confidence");
   if (fields.abbreviationOrigin) oneOf(fields.abbreviationOrigin, ["user", "generated"] as const, "abbreviation origin");
   if (fields.color && !/^#[0-9a-f]{6}$/.test(fields.color)) throw new RangeError("a colour is «#rrggbb», in lower case");
