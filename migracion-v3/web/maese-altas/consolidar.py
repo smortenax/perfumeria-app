@@ -24,21 +24,26 @@ from normalizar import FIELD, choose, site, rank  # noqa: E402
 TANDA, CATEGORY = sys.argv[1], sys.argv[2]
 MAESE = HERE.parent / "maese-perfumeria"
 OUT = HERE / f"propuesta-{TANDA}.csv"
-OTHER_CAS = re.compile(r"CAS de (la|esa) (página|ficha) \S+,? no|no \d{2,7}-\d\d-\d|enanti|otro CAS|no coincide", re.I)
+OTHER_CAS = re.compile(r"CAS de (la|esa) (página|ficha) \S+,? no|no \d{2,7}-\d\d-\d|enanti|otro CAS|no coincide|otra especie|otra parte", re.I)
 
 
 def norm(s):
-    return re.sub(r"[^a-z0-9]+", " ", unicodedata.normalize("NFKD", s.lower())).strip()
+    s = "".join(ch for ch in unicodedata.normalize("NFKD", s.lower()) if not unicodedata.combining(ch))
+    return re.sub(r"[^a-z0-9]+", " ", s).strip()
+
+
+TREATMENT = re.compile(r"bergapt|furocoum|fcf|\bfree\b|rectif|terpenel|desterpen|decolor|decolour|incolor", re.I)
 
 
 consenso = {r["n"]: r for r in csv.DictReader(open(MAESE / "consenso.csv", encoding="utf-8"))}
 cruce = {r["n"]: r for r in csv.DictReader(open(MAESE / "cruce.csv", encoding="utf-8"))}
-perfil = {}
+perfil, ficha = {}, {}
 for path in sorted((MAESE / "fichas").glob("lote*.txt")):
     for line in open(path, encoding="utf-8"):
         parts = [p.strip() for p in line.split("¦")]
         if len(parts) >= 13 and parts[0].isdigit():
             perfil[parts[0]] = "" if parts[12] in ("—", "") else parts[12]
+            ficha[parts[0]] = {"metodo": parts[3], "parte": parts[4], "origen": parts[5]}
 commons = [r for r in csv.DictReader(open(ROOT / "v3/datos/materials.csv", encoding="utf-8")) if not r["owner_id"]]
 by_cas, by_name = {}, {}
 for m in commons:
@@ -55,6 +60,32 @@ for path in sorted(HERE.glob(f"web-{TANDA}-*.csv")):
 
 # CAS que Maese Lab escribe mal (no pasan el dígito de control; tanda 45): el bueno.
 CAS_FIX = {"4940-97-3": "101-97-3"}
+
+
+SKIP_EPITHET = {"oil", "extract", "leaf", "flower", "root", "bark", "seed", "fruit", "peel", "wood", "resin", "absolute"}
+PART_EN = {"corteza": "bark", "aguja": "needles", "agujas": "needles", "madera": "wood", "hoja": "leaf", "hojas": "leaves",
+           "flor": "flower", "flores": "flowers", "semilla": "seed", "semillas": "seeds", "fruto": "fruit", "frutos": "fruits",
+           "raiz": "root", "raices": "roots", "rizoma": "rhizome", "resina": "resin", "balsamo": "balsam", "piel": "peel",
+           "bulbo": "bulb", "baya": "berry", "bayas": "berries", "planta entera": "whole plant", "ramas": "branches",
+           "tallos hojas flores": "stems, leaves and flowers", "sumidades floridas": "flowering tops", "parte aerea": "aerial parts",
+           "hierba": "herb", "goma": "gum", "liquen": "lichen", "capullo": "bud", "capullos": "buds", "brotes": "buds",
+           "planta": "plant", "piel de fruto": "peel", "vainas": "pods", "petalos": "petals", "excrecion": "excretion",
+           "flor y hojas": "flowers and leaves", "flores y hojas": "flowers and leaves", "cera": "wax", "yemas": "buds",
+           "grano": "grain", "brotes y hojas": "buds and leaves", "duramen": "heartwood", "pinas": "cones",
+           "glandulas": "glands", "frutos setas": "fruiting bodies (mushroom)", "mineral": "mineral", "parte entera": "whole plant",
+           "arilo": "aril", "corteza y resina": "bark and resin", "secrecion animal": "animal secretion",
+           "secrecion organica": "organic secretion", "materia grasa anhidra": "anhydrous fat", "propoleo": "propolis",
+           "algas": "seaweed", "resinoide solida disuelta en propanediol 50": "resin"}
+
+
+def clean_natural(v):
+    v = clean_name(v)
+    v = re.sub(r"\b(essential oil|oil|absolute|co2 extract|extract|resinoid|tincture)\b.*$", "", v, flags=re.I).strip(" ,-")
+    return v
+
+
+FORM = {"molecula": "molecule", "aceite esencial": "essential oil", "absoluto": "absolute", "co2": "CO2 extract",
+        "resinoide": "resinoid", "tintura": "tincture", "dilucion": "dilution", "reduccion": "reduction"}
 
 
 def page_cas_ok(r, cas=""):
@@ -84,7 +115,25 @@ for n, c in consenso.items():
     name = (name[0].upper() + name[1:]) if name else clean_name(c["nombre_web"].split(" - ")[-1])
     inside = [p.strip(" )") for p in re.split(r"[(/;,]", full)[1:] if p.strip(" )")]
     cases = c["cas"].split()
-    dup = next((by_cas[k] for k in cases if k in by_cas), None) or next(
+    w = re.findall(r"[A-Za-z]+", c["inci"])
+    w = [x for x in w if x.lower() != "x"]
+    especie = f"{w[0].capitalize()} {w[1].lower()}" if len(w) >= 2 and w[1].lower() not in SKIP_EPITHET else ""
+    form = FORM.get(c["tipo"], "")
+    if form != "molecule":  # el nombre de un natural: el común en inglés, o la especie y la parte
+        genus = especie.split()[0].lower() if especie else "@"
+        common = next((clean_natural(r["valor"]) for r in names if not norm(r["valor"]).startswith(genus)
+                       and clean_natural(r["valor"]) and not re.search(r"natural|extra|%", r["valor"], re.I)), "")
+        parte = ficha.get(n, {}).get("parte", "")
+        name = f"{common[0].upper() + common[1:]}, {form}" if common else (
+            f"{especie} ({PART_EN.get(norm(parte), parte.lower())}), {form}" if especie else name)
+    all_cas = cases
+    if form != "molecule":  # un natural: la especie y la forma deciden (el CAS lo comparten especies)
+        cases = []
+        dup = next((m for m in commons if especie and m["kind"] == "natural" and m["species"].lower().startswith(especie.lower())
+                    and m["form"] == form and bool(TREATMENT.search(m["name"])) == bool(TREATMENT.search(c["nombre_web"] + " " + c["inci"]))), None)
+    else:
+        dup = None
+    dup = dup or next((by_cas[k] for k in cases if k in by_cas), None) or next(
         (by_name[k] for k in (norm(name), norm(c["nombre_web"]), norm(x["h1"])) if k in by_name), None) or next(
         (m for m in commons if norm(m["name"]).replace(" ", "") in {norm(c["nombre_web"]).replace(" ", ""), norm(name).replace(" ", "")}), None) or next(
         (by_cas[m] for r in reads.get((n, "nombre"), []) for m in re.findall(r"\d{2,7}-\d\d-\d", r["nota"] + r["valor"]) if m in by_cas), None)
@@ -92,10 +141,12 @@ for n, c in consenso.items():
     row = {
         "n": n, "nombre": name, "nombre_fuente": names[0]["fuente"] if names else f"Maese Lab, {c['url']}: «{c['nombre_web']}»",
         "otros_nombres": json.dumps(sorted({c["nombre_web"], x["h1"], *inside, *[clean_name(r["valor"]) for r in names[1:]]} - {name, ""}), ensure_ascii=False),
-        "cas": cases[0] if cases else "", "otros_cas": json.dumps(cases[1:]), "inci": c["inci"], "url": c["url"], "pureza": x["pureza"], "perfil_maese": perfil.get(n, ""),
+        "cas": all_cas[0] if all_cas else "", "otros_cas": json.dumps(all_cas[1:]), "inci": c["inci"], "url": c["url"], "pureza": x["pureza"], "perfil_maese": perfil.get(n, ""),
         "casa": casa["valor"].strip() if casa else "", "casa_fuente": casa["fuente"] if casa else "",
         "impacto": c["impacto_propuesto"] if c["rol"] == "mismo" else "", "impacto_fuente": c["fuente"] if c["rol"] == "mismo" else "",
         "ya_comun": f"{dup['name']} ({dup['id']})" if dup else "",
+        "tipo": c["tipo"], "forma": form, "especie": especie or "",
+        "metodo": ficha.get(n, {}).get("metodo", ""), "parte": ficha.get(n, {}).get("parte", ""), "parte_en": PART_EN.get(norm(ficha.get(n, {}).get("parte", "")), ficha.get(n, {}).get("parte", "").lower()), "origen": ficha.get(n, {}).get("origen", ""),
     }
     for campo in ("familia", "nivel", "horas", "fuerza", "estado", "dosis"):
         value, first, disputed, otras, regla = choose(campo, rows[campo])

@@ -1,6 +1,6 @@
 # Tanda 47 · Las moléculas de Maese Lab que faltaban, en lo común
 
-*Generada por `migracion-v3/tanda-47-maese-moleculas.ts` sobre lo común de `531234a` **con la tanda 46** (se aprueba después de ella), desde `migracion-v3/web/maese-altas/propuesta-47.csv`. Escribe `v3/datos/materials.csv`, `material_categories.csv`, `material_descriptors.csv` y `material_doses.csv` enteros, con estos añadidos: lo de antes no cambia. En inglés, como lo común desde la tanda 36. Sin aprobar.*
+*Generada por `migracion-v3/tanda-47-maese-moleculas.ts` sobre lo común de `1a4c502` **con la tanda 46** (se aprueba después de ella), desde `migracion-v3/web/maese-altas/propuesta-47.csv`. Escribe `v3/datos/materials.csv`, `material_categories.csv`, `material_descriptors.csv` y `material_doses.csv` enteros, con estos añadidos: lo de antes no cambia. En inglés, como lo común desde la tanda 36. Sin aprobar.*
 
 **Por qué** (V3-99): el usuario, 2026-11-06: «creo que es clave tener todo el glosario de maese dentro de la app» y «lo importante es que se contraste las altas de referencia […] y que en ambos casos se complete el alta».
 
