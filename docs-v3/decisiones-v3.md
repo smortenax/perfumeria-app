@@ -1839,6 +1839,12 @@ Y, a la pregunta de si se pasaba a la app en una rama nueva: «Sí, una PR a mai
 - **Importar un plan** escribe en una fórmula: una nueva con el nombre del plan, o una que ya exista.
 - Fuera: el plan del banco (D) y el espacio propio (C).
 
+**El formato de archivo** (el usuario, 2026-11-06, a la pregunta de la sesión sobre los nombres de los campos, dónde van `name`, `created` y `source` y si `group` lleva migración: «sí, visto bueno a todo, con la (a)»):
+
+- `perfumeria/plan/1`, con los campos de la propuesta del 6-nov: `format`, `name`, `created`, `source`, `partsBasis` y, por línea, `material`, `materialId`, `cas`, `parts` (texto decimal exacto), `shape` y `group`. Un formato desconocido se rechaza entero.
+- `name` da nombre a una fórmula nueva; en las notas de la fórmula queda una línea con de dónde viene el plan.
+- `group` se guarda en `formula_plan_lines.group_name` (migración `20261106201729_plan_group`) y se enseña; el peso de cada grupo sigue sin decidir.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
