@@ -29,9 +29,9 @@ La evolución por tramos (V3-42) no entra: sigue vacía en todos.
 
 | Tanda | Qué | Cuántos | Estado |
 |---|---|---|---|
-| 46 | Completar los comunes de antes con huecos («altas rápidas») | 36 con 4 huecos o más; en total, 50 sin horas, 27 sin intensidad, 21 sin dosis, 20 sin nivel, 19 sin estado, 5 sin familia | en curso |
-| 47 | Maese Lab, aroma chemicals | 151 (menos los que ya son comunes) | pendiente |
-| 48 | Maese Lab, aceites esenciales | 194 (ídem) | pendiente |
+| 46 | Completar los comunes de antes con huecos («altas rápidas») | 36 con 4 huecos o más; en total, 50 sin horas, 27 sin intensidad, 21 sin dosis, 20 sin nivel, 19 sin estado, 5 sin familia | hecha, sin aprobar: 78 campos, 13 disputados |
+| 47 | Maese Lab, aroma chemicals | 80 sin común: 75 altas (5 ya eran comunes) | hecha, sin aprobar; va sobre la 46 |
+| 48 | Maese Lab, aceites esenciales | 164 sin común | en curso |
 | 49 | Maese Lab, absolutos, CO2 y resinoides | 74 (ídem) | pendiente |
 | 50 | Maese Lab, tinturas y extractos | 137 (ídem) | pendiente |
 
