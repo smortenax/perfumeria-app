@@ -40,20 +40,29 @@ oleomacerados (13).
 
 ## Resultado
 
-| Categoría | Productos | Alta | Media | Baja (estimada) | Solo en palabras | Sin dato |
-|---|---|---|---|---|---|---|
-| Aroma chemicals | 151 | 133 | 14 | 0 | 1 | 3 |
-| Absolutos, CO2, resinoides | 74 | 23 | 18 | 16 | 0 | 17 |
-| Aceites esenciales | 194 | 107 | 64 | 3 | 4 | 16 |
-| Tinturas y extractos | 137 | 2 | 0 | 71 | 0 | 64 |
-| **Total** | **556** | **265** | **96** | **90** | **5** | **100** |
+| Categoría | Productos | Alta | Media | Baja (estimada) | Muy baja (consenso general) | Solo en palabras | Sin dato |
+|---|---|---|---|---|---|---|---|
+| Aroma chemicals | 151 | 133 | 14 | 0 | 0 | 1 | 3 |
+| Absolutos, CO2, resinoides | 74 | 21 | 17 | 19 | 17 | 0 | 0 |
+| Aceites esenciales | 194 | 107 | 64 | 3 | 16 | 4 | 0 |
+| Tinturas y extractos | 137 | 2 | 0 | 71 | 64 | 0 | 0 |
+| **Total** | **556** | **263** | **95** | **93** | **97** | **5** | **3** |
 
 - **Alta**: el mismo material en PerfuMate (por CAS o por pareja a mano) y sin desacuerdo con lo común.
 - **Media**: por nombre o especie, un pariente, o PerfuMate y lo común no dicen lo mismo.
-- **Baja (estimada)**: tinturas y diluciones, por la regla de arriba.
-- **Sin dato** (100): PerfuMate no lo tiene y la web no lo dice. 42 se buscaron a mano (TGSC no trae
-  «Odor Strength» para ellos); 58, sobre todo tinturas de algas, hongos, resinas de pino y copales, **no
-  se buscaron uno a uno**: las primeras búsquedas de ese tipo no dieron nada. Quedan vacíos, no a cero.
+- **Baja (estimada)**: tinturas y diluciones (también lo que la web vende diluido: castóreo al 20 %,
+  resinoides al 50 % en propanodiol, pepino CO2 al 1 %), por la regla de arriba.
+- **Muy baja (consenso general)** (97; añadido el 2026-11-06 a petición del usuario: «Aunque sea
+  consensos generales»): ni PerfuMate ni la web dicen la fuerza de ese material. Se toma la mediana de
+  PerfuMate de su género botánico (por ejemplo, *Thymus*: 7; *Cupressus*: 5) y, si PerfuMate no tiene el
+  género, la de su tipo (aceites esenciales 6, de 240; absolutos 7, de 97; CO2 7, de 21; resinoides 6,
+  de 7). En las tinturas, después, la regla de la dilución. Es un relleno para que el planificador no
+  quede vacío, no un dato del material: el ajo y la cebolla, por ejemplo, salen 6 y casi seguro son más.
+- **Solo en palabras** (5): TGSC o Eden Botanicals dan la fuerza en palabras (V3-97: no se convierte).
+- **Sin dato** (3): Avalone (sin CAS), lactato de butilo y estireno; TGSC no trae su fuerza.
+- La búsqueda web uno a uno se hizo para 42 de los que faltaban (TGSC no trae «Odor Strength» para ellos);
+  las tinturas de algas, hongos, resinas de pino y copales no se buscaron una a una: las primeras
+  búsquedas de ese tipo no dieron nada.
 
 ## Para mirar antes de aprobar
 
@@ -71,6 +80,10 @@ oleomacerados (13).
   cassumunar*), y va con el impacto del plai.
 - **Lo que no es evidencia**: la fuerza de Maese en sus textos («muy fuerte, diluir al 1 %») se copia en
   `nota_web` de `cruce.csv`, pero no decide nada.
+- **Los CO2**: ninguna fuente da cuánto más fuertes son que el aceite o el absoluto. Premiere Peau
+  (https://premierepeau.com/pages/glossary-terms/co2-extracts) y From Nature With Love los describen como
+  más completos y fieles («richer and more complete than rose otto»), no como más concentrados; por eso un
+  CO2 puro va con el impacto de PerfuMate o, si no está, con la mediana de los CO2 (7).
 
 ## Qué falta para que llegue a la app
 

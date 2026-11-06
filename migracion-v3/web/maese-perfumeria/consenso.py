@@ -18,6 +18,7 @@ Reglas (propuesta de la sesión, sin decidir):
 """
 import csv
 import math
+import re
 import os
 import sqlite3
 
@@ -41,8 +42,34 @@ def diluted(impact: int, fraction: float) -> int:
     return max(1, round(impact - STEP_PER_DECADE * math.log10(1 / fraction)))
 
 
+NOT_GENUS = {"alcohol", "aqua", "and", "extract", "oil", "essential", "absolute", "natural", "white", "black",
+             "red", "green", "sweet", "wild", "none", "assigned", "butter"}
+RESIN = ("resin", "gum", "resina")
+
+
+def group_medians(db):
+    """Medianas de PerfuMate de los naturales: por género (palabra entera en nombre o sinónimos) y por proceso."""
+    import json
+    import re
+    import statistics
+    rows = [(n, i, " " + re.sub(r"[^a-z0-9]+", " ", (n + " " + " ".join(json.loads(s or "[]"))).lower()) + " ")
+            for n, i, s in db.execute(
+                "SELECT name, impact, synonyms_json FROM materials WHERE origin = 'natural' AND impact IS NOT NULL")]
+
+    def genus(g):
+        v = [(n, i) for n, i, t in rows if f" {g} " in t]
+        return (round(statistics.median(i for _, i in v)), [n for n, _ in v]) if v else None
+
+    def proc(word):
+        v = [i for n, i, t in rows if word in n.lower()]
+        return round(statistics.median(v)), len(v)
+    return genus, {"aceite esencial": proc("essential oil"), "absoluto": proc("absolute"), "co2": proc("co2"),
+                   "resinoide": proc("resinoid")}
+
+
 def main():
     db = sqlite3.connect(PM)
+    genus_of, by_proc = group_medians(db)
     pm = {n: (i, u, d) for n, i, u, d in db.execute(
         "SELECT name, impact, source_url, working_dilution FROM materials")}
     eq = {r["n"]: r for r in read("equivalencias.csv")}
@@ -53,7 +80,13 @@ def main():
     out = []
     for r in read("cruce.csv"):
         n, kind = r["n"], r["tipo"]
-        diluted_kind = kind in ("tintura", "dilucion", "reduccion")
+        pct0 = r["pct_declarado"]
+        if not pct0:  # «GUAYACO PALO /GAÏAC - 50% DPG»: un porcentaje suelto en el nombre
+            m = re.search(r"(\d+(?:[.,]\d+)?)\s*%", r["h1"])
+            pct0 = m.group(1).replace(",", ".") if m and float(m.group(1).replace(",", ".")) < 100 else ""
+        # Un natural que la web vende diluido (castóreo al 20 %, pepino CO2 al 1 %) cuenta como dilución.
+        diluted_kind = kind in ("tintura", "dilucion", "reduccion") or (
+            kind != "molecula" and bool(pct0) and 0 < float(pct0) < 100)
         rol, fuente, impacto_puro, pm_nombre, pm_url, como = "", "", None, "", "", ""
         if n in eq:
             e = eq[n]
@@ -68,7 +101,7 @@ def main():
         if impacto_puro is not None:
             fuente = f"PerfuMate, {pm_url or pm_nombre}: «impact {impacto_puro}» ({pm_nombre}; {como})"
         # Fracción aromática declarada por la web
-        pct = r["pct_declarado"]
+        pct = pct0
         fraction = float(pct) / 100 if pct and diluted_kind and 0 < float(pct) < 100 else None
         frac_note = f"{pct} % según la web" if fraction else ""
         if rol == "base" and fraction is None:
@@ -88,6 +121,26 @@ def main():
             if w.get("base") == "si" and fraction:
                 regla = f"{w['impacto']} del material puro − 3·log10(1/{fraction:g})"
                 propuesto = diluted(int(w["impacto"]), fraction)
+        # Consenso general, cuando no hay nada más (propuesta de la sesión): la mediana de PerfuMate del
+        # mismo género botánico; si no, la del mismo proceso. Una tintura o una dilución, con la regla.
+        if propuesto is None and kind != "molecula" and not (w and w.get("fuerza")):
+            words = [x for x in re.sub(r"[^a-z ]+", " ", r["inci"].lower()).split() if x not in NOT_GENUS and len(x) > 3]
+            g = genus_of(words[0]) if words else None
+            if g:
+                base_imp, src = g[0], f"mediana de PerfuMate del género {words[0].capitalize()} ({len(g[1])}: {', '.join(g[1][:4])})"
+            else:
+                key = "resinoide" if any(x in r["inci"].lower() for x in RESIN) else \
+                    ("aceite esencial" if kind in ("tintura", "aceite esencial") else
+                     ("co2" if kind == "co2" else "absoluto"))
+                base_imp, src = by_proc[key][0], f"mediana de PerfuMate de los naturales tipo {key} ({by_proc[key][1]})"
+            if diluted_kind:
+                if fraction is None:
+                    fraction, frac_note = TINCTURE_DEFAULT, "la web no da el porcentaje: se toma el 10 % (supuesto)"
+                propuesto = diluted(base_imp, fraction)
+                regla = f"{base_imp} − 3·log10(1/{fraction:g}) = {propuesto}"
+            else:
+                propuesto = base_imp
+            impacto_puro, rol, fuente = base_imp, "grupo", "consenso general: " + src
         # Contraste con lo común de la v3 (mismo CAS)
         comun_imp = [x for x in r["comun_impacto"].split(" | ") if x and x != "—"]
         comun_str = [x for x in r["comun_fuerza"].split(" | ") if x and x != "—"]
@@ -111,6 +164,8 @@ def main():
             confianza = "alta"
         elif rol in ("mismo", "pariente", "web"):
             confianza = "media"
+        elif rol == "grupo":
+            confianza = "muy baja (consenso general)"
         else:
             confianza = "baja (estimada)"
         particular = []
