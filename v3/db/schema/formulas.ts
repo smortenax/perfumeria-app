@@ -194,3 +194,39 @@ export const macerations = pgTable(
     check("macerations_dates", sql`${t.endedOn} is null or ${t.endedOn} >= ${t.startedOn}`),
   ],
 );
+
+/** The shapes a plan line can fade along (V3-98): the planner's five. */
+export const PLAN_SHAPES = ["fleeting", "top", "heart", "plateau", "linear"] as const;
+
+/**
+ * The plan of a formula (V3-98, «Plantilla de la fórmula»): what it will carry and how much of each,
+ * in relative parts, without grams, before weighing. The planner draws how they share the space as the
+ * hours pass; the bench compares what is weighed with it. `shape` is the user's pick; null takes the
+ * material's default.
+ */
+export const formulaPlanLines = pgTable(
+  "formula_plan_lines",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    ownerId: owner(),
+    formulaId: uuid("formula_id")
+      .notNull()
+      .references(() => formulas.id, { onDelete: "cascade" }),
+    materialId: uuid("material_id")
+      .notNull()
+      .references(() => materials.id, { onDelete: "restrict" }),
+    /** Relative parts, exact: 20 and 10 is the same as 2 and 1. */
+    parts: numeric("parts").notNull(),
+    shape: text("shape"),
+    /** The order the user wrote them in. */
+    position: smallint("position").notNull().default(0),
+    ...timestamps,
+  },
+  (t) => [
+    index("formula_plan_lines_owner_idx").on(t.ownerId),
+    index("formula_plan_lines_formula_idx").on(t.formulaId),
+    unique("formula_plan_lines_material").on(t.formulaId, t.materialId),
+    check("formula_plan_lines_parts", sql`${t.parts} >= 0`),
+    check("formula_plan_lines_shape", sql`${t.shape} is null or ${t.shape} in ('fleeting', 'top', 'heart', 'plateau', 'linear')`),
+  ],
+);

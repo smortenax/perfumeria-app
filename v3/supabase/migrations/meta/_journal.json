@@ -351,6 +351,20 @@
       "when": 1793927591948,
       "tag": "20261106011311_impact",
       "breakpoints": true
+    },
+    {
+      "idx": 50,
+      "version": "7",
+      "when": 1793929131169,
+      "tag": "20261106013851_formula_plan_lines",
+      "breakpoints": true
+    },
+    {
+      "idx": 51,
+      "version": "7",
+      "when": 1793929132322,
+      "tag": "20261106013852_formula_plan_lines_rls",
+      "breakpoints": true
     }
   ]
 }
