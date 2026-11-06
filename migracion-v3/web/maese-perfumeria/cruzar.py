@@ -182,7 +182,7 @@ def main():
         kind = kind_of(p["categoria"], fi["h1"], fi["pureza"], fi["metodo"])
         all_cas = cas_list(fi["cas"])
         # Una molécula sola es lo que es aunque sirva de disolvente (benzoato de bencilo).
-        solo = kind == "molecula" or len(all_cas) == 1
+        solo = kind == "molecula"
         aroma_cas = all_cas if solo else [c for c in all_cas if c not in SOLVENT_CAS]
         solvents = [] if solo else [SOLVENT_CAS[c] for c in all_cas if c in SOLVENT_CAS]
         bad = [c for c in all_cas if not cas_ok(c)]

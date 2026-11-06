@@ -1,7 +1,7 @@
 """La fuerza de cada producto de perfumería de Maese Lab, de 1 a 10 (la escala de impacto de PerfuMate, V3-97).
 
 Lee cruce.csv (cruzar.py), equivalencias.csv (las parejas que la sesión eligió a mano cuando el cruce
-automático no encontró nada o encontró otro proceso) y segunda-fuente.csv (lo leído en la web para lo
+automático no encontró nada o encontró otro proceso) y segunda-fuente-*.csv (lo leído en la web para lo
 que PerfuMate no tiene). Escribe consenso.csv. Determinista.
 
 Reglas (propuesta de la sesión, sin decidir):
@@ -46,7 +46,10 @@ def main():
     pm = {n: (i, u, d) for n, i, u, d in db.execute(
         "SELECT name, impact, source_url, working_dilution FROM materials")}
     eq = {r["n"]: r for r in read("equivalencias.csv")}
-    web = {r["n"]: r for r in read("segunda-fuente.csv")}
+    web = {}
+    for name in sorted(os.listdir(HERE)):
+        if name.startswith("segunda-fuente-") and name.endswith(".csv"):
+            web.update({r["n"]: r for r in read(name)})
     out = []
     for r in read("cruce.csv"):
         n, kind = r["n"], r["tipo"]
@@ -98,8 +101,12 @@ def main():
                              else f"no cuadra con la fuerza «{comun_str[0]}» de lo común")
         if w and w.get("impacto") and fuente and not fuente.startswith(w.get("fuente", "")[:20]):
             contraste += ("; " if contraste else "") + f"web: {w['fuente']}"
+        # La fuerza en palabras (TGSC y otras) no se convierte a número (V3-97).
+        palabras = ""
+        if w and w.get("fuerza"):
+            palabras = w["fuerza"] + (" (del material puro)" if w.get("base") == "si" else "")
         if propuesto is None:
-            confianza = "sin dato"
+            confianza = "solo en palabras" if palabras else "sin dato"
         elif rol == "mismo" and (r["pm_como"] == "cas" or n in eq) and "no cuadra" not in contraste and "lo común dice" not in contraste:
             confianza = "alta"
         elif rol in ("mismo", "pariente", "web"):
@@ -121,6 +128,7 @@ def main():
             "tipo": kind, "cas": r["cas"], "inci": r["inci"],
             "impacto_propuesto": "" if propuesto is None else propuesto,
             "rol": rol, "impacto_material_puro": "" if impacto_puro is None else impacto_puro,
+            "fuerza_en_palabras": palabras, "fuente_palabras": w["fuente"] if w and palabras else "",
             "regla": regla, "fuente": fuente, "contraste": contraste, "confianza": confianza,
             "particularidades": "; ".join(particular),
             "comun": r["comun"], "comun_id": r["comun_id"],
