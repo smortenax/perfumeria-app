@@ -19,9 +19,9 @@ id,name,aliases
 0c17b454-56ad-5b8d-a8c3-3ff82a24ecdf,Cedryl acetate,[]
 0cea8867-048f-500a-83ec-52d15b91c449,Limonene,[]
 0d5ea852-1b6b-58e5-b930-d4572d0d048c,"Citrus hystrix (peel), essential oil",[]
-0f74f1f9-2fcb-5082-9c4a-fc36aca4145c,"Guaiacum officinale (wood), essential oil",[]
+0f74f1f9-2fcb-5082-9c4a-fc36aca4145c,"Guaiacwood, essential oil",[]
 10836ff2-872e-51b1-9a0b-9b102855435d,"Cananga odorata (flower, third distillation), essential oil",[]
-10b19b2b-96ae-53da-a079-6052d4247fad,"Lavandula hybrida (aerial parts), essential oil",[]
+10b19b2b-96ae-53da-a079-6052d4247fad,"Lavandin abrialis, essential oil",[]
 10f03778-b524-5ab7-938e-8887cd39f583,"Gaultheria fragrantissima (leaf), essential oil",[]
 118ec120-3bb1-54f1-8186-9520856bb6e6,DPG (dipropylene glycol),"[""DPG (dipropilenglicol)""]"
 130e5f64-9f5d-5d9c-9572-a89966f49de4,"Piper nigrum (fruit, green), essential oil",[]
@@ -40,7 +40,7 @@ id,name,aliases
 1b8de9f4-9bec-53a3-a284-80a73cacc146,Calone,[]
 1be7781b-c51c-5466-aa1b-d0d04b09279e,Magnolan,[]
 1bee2735-0881-5f03-b513-b38dcb672d90,"Mentha spicata (leaf), essential oil",[]
-1c0f3c4b-685b-511c-8442-24164eaebbc0,"Mentha citrata (leaf), essential oil",[]
+1c0f3c4b-685b-511c-8442-24164eaebbc0,"Bergamot mint herb, essential oil",[]
 1e32a19b-5839-5648-8d34-70eb6759da97,Ethanol,"[""Etanol""]"
 1f09dc66-ca18-53f9-ba91-0ad8c173fea4,(R)-(+)-pulegone,[]
 1f5964c2-8182-5075-846a-dab2b1de6b8b,Heliotropin,"[""Heliotropina""]"
@@ -53,7 +53,7 @@ id,name,aliases
 232b8524-4d4a-5527-bbab-9eee56c9f14d,"Hyraceum (Africa stone), absolute","[""Hyraceum (piedra de África), absoluto""]"
 240cc977-8ed8-553d-a9a6-8d2487110dba,"Ormenis multicaulis (aerial parts), essential oil",[]
 24afa58d-68b6-5816-aca4-abf9d8142151,Terpinolene,[]
-24ec02bf-fe01-5bfa-967c-e395ea473885,"Plumeria alba (flower), essential oil",[]
+24ec02bf-fe01-5bfa-967c-e395ea473885,"Frangipani, essential oil",[]
 2560aa52-08ab-588f-ad3d-f7657d600f75,"Opopanax, essential oil","[""Opopónax, aceite esencial""]"
 25885bd0-6af8-55ea-a98e-291f15bc831c,"Green cardamom, tincture","[""Cardamomo verde, tintura""]"
 25e36ed6-f8a3-59b6-8316-7b672e50329d,Sandalmysore Core,[]
@@ -64,7 +64,7 @@ id,name,aliases
 2dc921e5-52e8-526f-b94b-e4ee6c1ae2dd,"Chinese cedarwood, essential oil","[""Cedro chino, aceite esencial""]"
 2ef9c620-5a6d-5317-8676-66d1e59adfb0,Ethyl Maltol,[]
 311eb977-db61-5258-a13c-685a85b0a821,"Pinus sibirica (needles), essential oil",[]
-31267cbb-bb4f-5ac8-89e4-fb8c7d8cbbc4,"Citrus aurantifolia (peel, furocoumarin-free), essential oil",[]
+31267cbb-bb4f-5ac8-89e4-fb8c7d8cbbc4,"Lime (furocoumarin-free), essential oil",[]
 3133cd20-d606-5e85-9ff6-4011b593e790,Cypriol / Nagarmotha EO,[]
 31c1ecc8-4938-5e60-9959-d8b5ec37c9cb,Alpha-hexyl cinnamic aldehyde,"[""Aldehído alfa-hexil cinámico""]"
 31f4fe56-e751-5ea6-8974-1e8e797aa1a6,Tobacco absolute,"[""Absoluto de Tabaco""]"
@@ -75,7 +75,7 @@ id,name,aliases
 34d9596d-6cd9-50ec-9ccb-4d104a61bf37,"Neroli, reduction",[]
 34e8676e-e4f1-5e98-a03e-31cd7d515c19,IPM (isopropyl myristate),"[""IPM (miristato de isopropilo)""]"
 35357e52-c518-5219-a886-884ef2bb9b7d,Prismantol,[]
-355745bf-28c6-5463-97b2-2f6cd1102caf,"Lavandula latifolia (flower), essential oil",[]
+355745bf-28c6-5463-97b2-2f6cd1102caf,"Spike lavender, essential oil",[]
 361d0f0f-7ea2-53d8-9b72-72f894ffd8f5,"Picea mariana (aerial parts), essential oil",[]
 3680a51c-02b6-57cb-8f82-60fb3917e9a8,Kephalis,[]
 368ac165-501a-549f-9922-8ab12629659a,Tonalide,[]
@@ -125,8 +125,7 @@ id,name,aliases
 4fc58af2-894f-55fb-899d-c0ffffed91dc,"Ravensara aromatica (leaf), essential oil",[]
 513bbb89-8d8a-5eb0-8e3d-e618448f3dac,Aurantiol,[]
 515faf36-6f33-56c7-8b07-665ac360b3f2,"Eucalyptus radiata (leaf), essential oil",[]
-5168d4e5-3e4d-56d0-a827-11cbc20a2553,"Nardostachys jatamansi (root), essential oil",[]
-51f74cd6-670a-5f28-8e91-3ea4a93a3a11,"Cinnamomum camphora (wood), essential oil",[]
+51f74cd6-670a-5f28-8e91-3ea4a93a3a11,"Ho Wood, essential oil",[]
 525be1ef-2312-5038-aa09-ce1cbcc61d6d,2-(2-methylphenyl)ethanol,[]
 5261cac1-1608-501d-8638-4e81cf63db2b,Thialdine,[]
 5296976d-4a08-53bd-aed5-bb391f3fee1b,Styrene,[]
@@ -148,12 +147,12 @@ id,name,aliases
 59280c08-1ea2-50ae-858c-10af76d27dde,Guaiacol,[]
 5a0390ad-f0db-5837-a3fd-e8d547b82fe2,"Achillea millefolium (flowering tops), essential oil",[]
 5a86a243-fe6b-5d88-affe-b310a19711be,Indole,"[""Indol""]"
-5ac99ede-a2b6-58e4-9b55-3c8cb5a980df,"Pelargonium graveolens (aerial parts, var. China), essential oil",[]
+5ac99ede-a2b6-58e4-9b55-3c8cb5a980df,"Geranium (var. China), essential oil",[]
 5ad2d17c-d66d-5dc6-ac8d-06ec4c643787,Maritima,[]
 5b30803a-ff12-55ad-bcc7-7dc359e8c05d,"Cyperus scariosus (root), essential oil",[]
 5b82e5da-7f72-55bc-b919-160128712874,1-Octen-3-one Stabilised,[]
 5e88d527-47c0-5741-a59e-3d06c2f11739,"Vitis vinifera (fruits, cava / champagne), essential oil",[]
-5f382b45-2250-504e-96ee-5fb870b8ccba,"Eugenia caryophyllus (flower), essential oil",[]
+5f382b45-2250-504e-96ee-5fb870b8ccba,"Syzygium aromaticum l. bud, essential oil",[]
 5fbb4e9e-38f9-5ee2-8f3a-00f2eb4fc92c,"Tea tree, essential oil",[]
 6102cd5c-a873-57ba-930d-119d2247c9f8,"Salvia apiana (leaf), essential oil",[]
 6132091e-e8d8-5536-8a73-c8472bd7fba4,"Petroselinum crispum (seed), essential oil",[]
@@ -163,10 +162,10 @@ id,name,aliases
 63d2e09c-b94d-5899-8309-9c2ef73ea599,Carvacrol,[]
 65f5c31c-7485-5f43-aa03-43c769f432ef,"Tonka bean (seeds), commercial tincture","[""Haba tonka (semillas), tintura comercial""]"
 6685c0dc-9e7f-5aae-85a8-0b177d9f7fb4,Eucalyptol,"[""Eucaliptol""]"
-671e4ab1-8f4a-588d-ab42-2f4fd6b57935,"Cupressus sempervirens (leaves), essential oil",[]
+671e4ab1-8f4a-588d-ab42-2f4fd6b57935,"Cypress leaf, essential oil",[]
 67c93cf3-d15e-5962-897b-4d22bd9204eb,Rose absolute pentanol,[]
 68a27650-ffc1-5dce-ac40-b4afdaf067e7,"Cananga odorata (flower, second distillation), essential oil",[]
-68a5cf51-932d-5ad5-aee5-e156602a7271,"Hyssopus officinalis (plant), essential oil",[]
+68a5cf51-932d-5ad5-aee5-e156602a7271,"Hyssop, essential oil",[]
 69d9d295-c22d-5388-aa7b-100abd7e4b1a,Gardenia pentyl acetate,[]
 6b23804c-3874-5057-9b36-386859922926,Raspberry ketone,[]
 6bad9acb-e839-5e80-9355-7966089d711d,Sandalore,[]
@@ -192,7 +191,7 @@ id,name,aliases
 79e36eda-bae2-5729-a74d-92ec298216ef,Polysantol,[]
 7b40dc9f-3b3c-552f-8f76-98f06f9c4287,Vanillin,"[""Vainillina""]"
 7b8c0f1c-4f1d-5b39-83a2-e1480dee77d1,"Bergamot, bergapten-free","[""Bergamota sin bergaptenos""]"
-7c447ef5-0925-5566-ba4c-ce8c5d91fbb0,"Juniperus virginiana (wood), essential oil",[]
+7c447ef5-0925-5566-ba4c-ce8c5d91fbb0,"Cedarwood, essential oil",[]
 7c464cc4-14f9-542d-ae99-1357f40d61f3,"Piper nigrum (fruit, black), essential oil",[]
 7da2923c-6525-5ec9-8f25-66739f315b7c,"Cassia bark, essential oil",[]
 7dc4a1d7-7bfa-5b29-b96d-ec355d1e8b46,"Melaleuca viridiflora (leaf), essential oil",[]
@@ -216,11 +215,11 @@ id,name,aliases
 89a95c09-de5a-5874-9d39-2fe3dcb0a82b,Safraleine,[]
 89edfda4-e31a-5ab8-8e3e-3fa7f31bf6cd,3-phenyl propyl alcohol,[]
 8a3b0fc0-94b5-5d7c-9001-2af48dfbdd03,Norlimbanol,[]
-8a929d88-35c5-5302-9558-c52eb4e933be,"Cymbopogon citratus (leaf), essential oil",[]
+8a929d88-35c5-5302-9558-c52eb4e933be,"Lemongrass, essential oil",[]
 8b198a12-c2ab-5439-944e-21a52d0f9096,"Onion, essential oil",[]
 8b6720d7-299a-50df-b726-f3f3ed33dbd0,"Canarium luzonicum (resin), essential oil",[]
 8b7acd7e-76db-5ac6-bed7-00f3d66a197a,Rose oxide,"[""Óxido de rosa""]"
-8c2cd42f-84ef-586a-9bae-0994062716d6,"Pelargonium graveolens (flower), essential oil",[]
+8c2cd42f-84ef-586a-9bae-0994062716d6,"Geranium, essential oil",[]
 8c7bf853-a419-593f-b9d5-35d3759dbbbe,"Turpentine essential (resin), essential oil",[]
 8c9755da-4068-5bae-a518-d470e44fa78e,Truffle essence,"[""Esencia de trufa""]"
 8d6f6f79-1901-5fdc-bcfd-c32bc17b9d1e,Allyl hexanoate,[]
@@ -232,7 +231,7 @@ id,name,aliases
 905841d4-5c5e-56ba-89d5-9321b1984d97,Sweet orange,"[""Naranja dulce""]"
 9119f6b0-1278-5e4d-ba9a-fba5a1911036,Dartanol,[]
 91283d94-9ab9-51a0-a78a-a75f4becbf00,Habanolide,[]
-939152f5-1107-5598-a734-100d4e29c339,"Citrus aurantifolia (peel), essential oil",[]
+939152f5-1107-5598-a734-100d4e29c339,"Lime, essential oil",[]
 9456bfb4-3711-56cb-9be6-318fd8ef8bbb,"Murraya koenigii (leaf), essential oil",[]
 946edc22-1422-566c-836b-9fc3e36d901b,Para-cresol,[]
 95faeeb4-f319-549c-9b49-fc864efb3b76,"Anethum graveolens (leaf), essential oil",[]
@@ -240,7 +239,7 @@ id,name,aliases
 96046c5b-738c-5d25-9119-baca92dbae3e,Black Agar 296985,[]
 975a592e-b4ed-52f2-bad1-55a76e13f3bf,Styralyl Alcohol,[]
 986418b6-066e-54ff-8d20-ed6ae0bc1da7,"Artemisia annua (leaf), essential oil",[]
-99266b46-4206-5eb1-923b-6108293f0f0a,"Eugenia caryophyllus (leaf), essential oil",[]
+99266b46-4206-5eb1-923b-6108293f0f0a,"Syzygium aromaticum l. leaf, essential oil",[]
 9957c46e-4330-5ac3-9226-d974bd38ac85,Cashmeran,[]
 9974dca9-b370-5f72-814c-18ef7fe378de,Beta-caryophyllene,[]
 9a1e12a2-8ca9-52bd-aafd-6eb4dd812263,"Santalum album (heartwood), essential oil",[]
@@ -253,7 +252,7 @@ id,name,aliases
 9f90b2e6-f678-546d-9f6d-faac288bdbf2,Hexyl benzoate,[]
 a027f37e-e879-535b-b10c-0d251171d65d,Styrax resinoid (storax),"[""Resinoide de estírax (estoraque)""]"
 a19538b9-ff51-5b78-aa70-7d6704f22f50,"Valeriana officinalis (root), essential oil",[]
-a24192df-18eb-55e8-9588-50bf803b383d,"Magnolia alba (leaf), essential oil",[]
+a24192df-18eb-55e8-9588-50bf803b383d,"Michelia alba dc. leaf, essential oil",[]
 a44abe05-a15b-527c-9475-aef6f679ad73,"Cananga odorata (flower, complete), essential oil",[]
 a520df99-14f5-5dcc-9638-48c7dedc0d54,Alpha ionone,"[""Ionona Alpha""]"
 a5e97f11-4116-5546-833b-3c7ac2743693,Citronellol,[]
@@ -290,7 +289,7 @@ b8ad8feb-a535-5502-a05c-28740d31cfc8,Farnesol,[]
 b91bfee8-d99f-59d7-8f7d-81417c950328,2-Hydroxybenzaldehyde,"[""2-Hidroxibenzaldehído""]"
 ba83a9b8-e8c6-5def-a74a-ee78df73367f,"Cinnamomum camphora (leaf), essential oil",[]
 bb74755f-42c0-543a-9f6d-7a19210f4cea,Isobutylquinoline (IBQ),"[""Isobutilquinoleína (IBQ)""]"
-bb7bb501-c219-5fb1-9514-e359a6738430,"Cedrus deodara (wood), essential oil",[]
+bb7bb501-c219-5fb1-9514-e359a6738430,"Cedarwood, essential oil",[]
 bb9722a1-1e0b-5793-8dea-565a7e7a0a97,Musk indenofuran,[]
 bcd55148-45a5-555d-81e8-ef0d856bc758,Vertenex (PTBCHA),[]
 bce2b4d7-5c59-585d-9016-98b1de87aa16,Hedione,[]
@@ -314,7 +313,7 @@ c6109421-18af-561d-bc43-b6a69da450de,Eugenol 98%,[]
 c61b3e11-a3a8-5ffa-9c24-bd71e8226660,"Origanum vulgare (leaf), essential oil",[]
 c7983b8d-d81e-5862-924e-08e85764d87d,"Helichrysum gymnocephalum (flower), essential oil",[]
 c7a4ccee-ebc4-5045-924a-b88d3250407e,4-Propylphenol,[]
-c84f70d2-7bb8-562f-b3ff-d69a79e86472,"Citrus aurantifolia (peel), essential oil",[]
+c84f70d2-7bb8-562f-b3ff-d69a79e86472,"Lime, essential oil",[]
 c8c3be45-64ad-5296-b406-94b75ce853c3,Avalone,[]
 c8fbbf67-0c66-5efe-9991-a678d4cf7c65,Filbertone,[]
 c96b48f1-364a-5e32-8285-d2189bae1d04,"Ruta graveolens (buds and leaves), essential oil",[]
@@ -325,7 +324,7 @@ cba4c2a1-91e4-59ca-b3f4-dc086b993a03,"Vitis vinifera (fruits, white wine), essen
 cc28cbbd-301a-565e-bb36-0d168dc3fdce,"Melissa officinalis (aerial parts), essential oil",[]
 cd04c4cf-f3c7-5dc4-b308-dc87a8abf589,Whisky lactone,"[""Whisky lactona""]"
 cf043b7a-0458-5618-a53a-60601ccb97f0,Ethyl-4-phenol,"[""Etil-4-fenol""]"
-cf81df81-ecc9-593e-8f59-9e3130e1012f,"Foeniculum vulgare (seeds), essential oil",[]
+cf81df81-ecc9-593e-8f59-9e3130e1012f,"Sweet fennel seed, essential oil",[]
 d09da614-435e-5322-9cfd-bab00d8cf940,Beta ionone,"[""Ionona beta""]"
 d23941f2-406a-5b27-b218-912a95d75f9b,"Boswellia serrata (resin), essential oil",[]
 d2b5308f-34f3-536b-a4ca-9621167853f6,"Pinus sylvestris (needles), essential oil",[]
@@ -347,7 +346,7 @@ dd3323c1-c644-587a-9a5f-1ecc04714d67,Methyl Pamplemousse,[]
 dd7b1cd6-d042-5213-90f0-14684c8f237a,Helional,[]
 ddcfa121-551d-53b2-8b26-99468139e977,Animalis,[]
 ddeb41dd-2634-5d3d-8aa5-c2c78ac467a1,"Citrus paradisi (peel, pink), essential oil",[]
-dfaf1ac1-b46f-50ed-9e10-cbe78100f827,"Callitris intratropica (wood), essential oil",[]
+dfaf1ac1-b46f-50ed-9e10-cbe78100f827,"Blue Cypress, essential oil",[]
 e0ce82d1-dd18-5d8c-809a-3418d1893eeb,"Hedychium spicatum (flower), essential oil",[]
 e1296514-6adb-50c2-ae15-098cfe943177,"Styrax benzoin (resin), dilution",[]
 e34965eb-8056-595f-b216-e15c99160d09,"Aquilaria crassna (wood), essential oil",[]
@@ -357,11 +356,11 @@ e65e0d52-9b50-5b9d-acaf-ceb8071edaa4,"Citrus aurantium (leaf), essential oil",[]
 e796fe45-66c6-5188-ae1b-9433277f4ea4,Luminide,[]
 e7b18e85-6bdb-583a-b098-4b801583d961,Benzoin resinoid,"[""Resinoide de benjuí""]"
 e85a1f30-7312-56da-bfe7-23ad93be1cc7,"Barosma betulina (leaf), essential oil",[]
-e8d06697-d1b8-5f12-8f4a-ee748645e20d,"Zingiber officinale (root), essential oil",[]
+e8d06697-d1b8-5f12-8f4a-ee748645e20d,"Ginger root, essential oil",[]
 ea466d73-83e0-5982-a65f-d2599a8b62d1,Boisambrene Forte,[]
 ea49cd1f-5022-5c76-94e0-8555f1325515,Violet decenol,[]
-ebd0ac9a-891e-59ce-abec-1198baa8d386,"Lavandula hybrida (flower, lavandin grosso), essential oil",[]
-ec2c1188-c52c-577e-a940-0f4417b4e86a,"Anethum graveolens (seed), essential oil",[]
+ebd0ac9a-891e-59ce-abec-1198baa8d386,"Grosso lavandin (lavandin grosso), essential oil",[]
+ec2c1188-c52c-577e-a940-0f4417b4e86a,"Dill seed, essential oil",[]
 ec4d5fb0-8c30-55f5-bffc-68ba5918fbb9,"Foeniculum vulgare (whole plant), essential oil",[]
 ed6fea7a-5ba6-5b7e-b8e8-98547fa36976,"Dextro,laevo-borneol",[]
 ee3ea655-2b4b-55cb-be19-bb60473db569,Ozone propanal,[]
@@ -388,7 +387,7 @@ f85d2861-d336-556e-8a1b-8a3800a75fe7,"Ceylon cinnamon, bark essential oil","[""C
 f91ed16d-236e-59a7-8c18-41a1240550d7,"Siberian fir, essential oil",[]
 f935bc3c-f1bc-5bde-bcfe-398f64077bd8,"Piper nigrum (fruit, white), essential oil",[]
 f95993e7-32b8-557b-9c6d-68ca6eaa8cbf,"Mentha arvensis (leaf), essential oil",[]
-fbfbebcb-3741-5e3f-920c-7a13d0ac6be9,"Citrus clementina (peel), essential oil",[]
+fbfbebcb-3741-5e3f-920c-7a13d0ac6be9,"Clementine mandarin peel, essential oil",[]
 fc65407f-01a6-55ee-b74d-5efbf57933e3,Ambrinol S,[]
 fcfb8ef9-32dd-5f39-a74c-a05dcf203491,"Ambergris, commercial tincture (purified)","[""Ámbar gris, tintura comercial (purificado)""]"
 fd800b3c-8a6d-5129-a25d-5d1f69780476,Ambrettolide,[]

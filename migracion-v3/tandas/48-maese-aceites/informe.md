@@ -1,12 +1,12 @@
 # Tanda 48 · Los aceites esenciales de Maese Lab que faltaban, en lo común
 
-*Generada por `migracion-v3/tanda-48-maese-naturales.ts 48` sobre lo común de `1a4c502` **con las tandas 46 a 47** (se aprueba después de ellas), desde `migracion-v3/web/maese-altas/propuesta-48.csv`. Escribe `v3/datos/materials.csv`, `material_categories.csv`, `material_descriptors.csv` y `material_doses.csv` enteros, con estos añadidos: lo de antes no cambia. Sin aprobar.*
+*Generada por `migracion-v3/tanda-48-maese-naturales.ts 48` sobre lo común de `b937db8` **con las tandas 46 a 47** (se aprueba después de ellas), desde `migracion-v3/web/maese-altas/propuesta-48.csv`. Escribe `v3/datos/materials.csv`, `material_categories.csv`, `material_descriptors.csv` y `material_doses.csv` enteros, con estos añadidos: lo de antes no cambia. Sin aprobar.*
 
 **Por qué** (V3-99): el usuario, 2026-11-06: «creo que es clave tener todo el glosario de maese dentro de la app» y «lo importante es que se contraste las altas de referencia […] y que en ambos casos se complete el alta».
 
 **Cómo:** como la tanda 47. La ficha de Maese Lab (tanda 45: especie por el INCI, parte, método, origen, CAS, pureza y perfil, citados); hasta dos páginas de referencia por producto, de la misma especie y parte (`migracion-v3/web/maese-altas/web-48-*.csv`); PerfuMate en local. Una página de otra especie o parte no cuenta. Un material por identidad (V3-85): especie, parte, proceso, tratamiento y quimiotipo; dos productos que solo cambian de origen o de grado son el mismo material. El nombre, el común en inglés de la referencia o, si no lo hay, la especie y la parte.
 
-**Resultado:** 159 materiales nuevos; 5 no entran (ya son un común, o el mismo material que otro de la tanda). Con familia 21, impacto 123, fuerza en palabras 11, horas en tira 15, nivel 8; 9 usos habituales y 31 descriptores.
+**Resultado:** 158 materiales nuevos; 6 no entran (ya son un común, o el mismo material que otro de la tanda). Con familia 70, impacto 122, fuerza en palabras 41, horas en tira 54, nivel 38; 22 usos habituales y 129 descriptores.
 
 **Para mirar antes de aprobar:**
 
@@ -32,7 +32,7 @@
 | 240 | Pimpinella anisum (seed), essential oil | *Pimpinella anisum* | spicy | 7 | medium | 68 h | — | 8 % |  |
 | 241 | Tea tree, essential oil | *Melaleuca alternifolia* | spicy | 6 | — | — | — | — |  |
 | 243 | Artemisia annua (leaf), essential oil | *Artemisia annua* | green | — | — | — | — | — |  |
-| 244 | Neroli, reduction | *Citrus aurantium* | — | — | — | — | — | — |  |
+| 244 | Neroli, reduction | *Citrus aurantium* | floral | — | — | — | — | — |  |
 | 245 | Copaiba balsam, essential oil | *Copaifera officinalis* | woody | 4 | — | — | — | — |  |
 | 246 | Dipterocarpus turbinatus (resin), essential oil | *Dipterocarpus turbinatus* | woody | 4 | medium | 400 h | — | 20 % |  |
 | 248 | Myroxylon pereirae (balsam), essential oil | *Myroxylon pereirae* | gourmand | 7 | medium | 400 h | — | — |  |
@@ -46,78 +46,77 @@
 | 260 | Onion, essential oil | *Allium cepa* | transformed | — | — | — | — | — |  |
 | 263 | Cedrus libani (bark), essential oil | *Cedrus libani* | — | — | — | — | — | — |  |
 | 264 | Cedarwood, essential oil | *Juniperus mexicana* | woody | 5 | — | 16 h | base | — | tenacity_hours |
-| 265 | Juniperus virginiana (wood), essential oil | *Juniperus virginiana* | — | 5 | — | — | — | — |  |
-| 266 | Cedrus deodara (wood), essential oil | *Cedrus deodara* | — | 5 | — | — | — | — |  |
-| 268 | Cupressus sempervirens (leaves), essential oil | *Cupressus sempervirens* | — | 5 | — | — | — | — |  |
-| 269 | Callitris intratropica (wood), essential oil | *Callitris intratropica* | — | 5 | — | — | — | — |  |
-| 271 | Cymbopogon citratus (leaf), essential oil | *Cymbopogon citratus* | — | — | — | — | — | — |  |
+| 265 | Cedarwood, essential oil | *Juniperus virginiana* | woody | 5 | — | 380 h | base | — |  |
+| 266 | Cedarwood, essential oil | *Cedrus deodara* | woody | 5 | medium | 400 h | — | 5 % |  |
+| 268 | Cypress leaf, essential oil | *Cupressus sempervirens* | — | 5 | medium | 44 h | — | 2 % |  |
+| 269 | Blue Cypress, essential oil | *Callitris intratropica* | woody | 5 | medium | 120 h | base | — |  |
+| 271 | Lemongrass, essential oil | *Cymbopogon citratus* | citrus | — | medium | 92 h | — | 4 % |  |
 | 272 | Cymbopogon nardus (herb), essential oil | *Cymbopogon nardus* | — | 7 | — | — | — | — |  |
-| 273 | Eugenia caryophyllus (flower), essential oil | *Eugenia caryophyllus* | — | 8 | — | — | — | — |  |
-| 274 | Eugenia caryophyllus (leaf), essential oil | *Eugenia caryophyllus* | — | 8 | — | — | — | — |  |
-| 275 | Cuminum cyminum (seed), essential oil | *Cuminum cyminum* | — | 8 | — | — | — | — |  |
-| 276 | Curcuma longa (root), essential oil | *Curcuma longa* | — | 6 | — | — | — | — |  |
-| 277 | Murraya koenigii (leaf), essential oil | *Murraya koenigii* | — | 7 | — | — | — | — |  |
+| 273 | Syzygium aromaticum l. bud, essential oil | *Eugenia caryophyllus* | spicy | 8 | medium | 188 h | heart_base | — | family, strength |
+| 274 | Syzygium aromaticum l. leaf, essential oil | *Eugenia caryophyllus* | spicy | 8 | medium | 116 h | — | — |  |
+| 275 | Cuminum cyminum (seed), essential oil | *Cuminum cyminum* | spicy | 8 | high | 408 h | — | — |  |
+| 276 | Curcuma longa (root), essential oil | *Curcuma longa* | spicy | 6 | — | — | — | — |  |
+| 277 | Murraya koenigii (leaf), essential oil | *Murraya koenigii* | green | 7 | — | — | — | — |  |
 | 278 | Canarium luzonicum (resin), essential oil | *Canarium luzonicum* | — | 5 | — | — | — | — |  |
-| 281 | Anethum graveolens (leaf), essential oil | *Anethum graveolens* | — | 6 | — | — | — | — |  |
-| 282 | Anethum graveolens (seed), essential oil | *Anethum graveolens* | — | 7 | — | — | — | — |  |
-| 283 | Artemisia dracunculus (plant), essential oil | *Artemisia dracunculus* | — | 7 | — | — | — | — |  |
-| 284 | Eucalyptus citriodora (leaf), essential oil | *Eucalyptus citriodora* | — | 7 | — | — | — | — |  |
-| 285 | Eucalyptus dives (leaf), essential oil | *Eucalyptus dives* | — | — | — | — | — | — |  |
-| 286 | Eucalyptus globulus (leaf), essential oil | *Eucalyptus globulus* | — | 7 | — | — | — | — |  |
-| 287 | Eucalyptus radiata (leaf), essential oil | *Eucalyptus radiata* | — | — | — | — | — | — |  |
+| 281 | Anethum graveolens (leaf), essential oil | *Anethum graveolens* | green | 6 | — | — | — | — |  |
+| 282 | Dill seed, essential oil | *Anethum graveolens* | green | 7 | — | — | — | — |  |
+| 283 | Artemisia dracunculus (plant), essential oil | *Artemisia dracunculus* | spicy | 7 | medium | 12 h | — | — |  |
+| 284 | Eucalyptus citriodora (leaf), essential oil | *Eucalyptus citriodora* | green | 7 | — | — | — | — |  |
+| 285 | Eucalyptus dives (leaf), essential oil | *Eucalyptus dives* | spicy | — | — | — | — | — |  |
+| 286 | Eucalyptus globulus (leaf), essential oil | *Eucalyptus globulus* | green | 7 | high | 4 h | — | — |  |
+| 287 | Eucalyptus radiata (leaf), essential oil | *Eucalyptus radiata* | green | — | medium | 7 h | — | — |  |
 | 288 | Eucalyptus smithii (leaf), essential oil | *Eucalyptus smithii* | — | — | — | — | — | — |  |
-| 289 | Eucalyptus staigeriana (leaf), essential oil | *Eucalyptus staigeriana* | — | — | — | — | — | — |  |
+| 289 | Eucalyptus staigeriana (leaf), essential oil | *Eucalyptus staigeriana* | fruity | — | — | — | — | — |  |
 | 290 | Hedychium spicatum (flower), essential oil | *Hedychium spicatum* | — | 6 | — | — | — | — |  |
-| 291 | Plumeria alba (flower), essential oil | *Plumeria alba* | — | — | — | — | — | — |  |
+| 291 | Frangipani, essential oil | *Plumeria alba* | — | — | medium | 50 h | base | — |  |
 | 293 | Gaultheria fragrantissima (leaf), essential oil | *Gaultheria fragrantissima* | — | 8 | — | — | — | — |  |
-| 294 | Pelargonium graveolens (flower), essential oil | *Pelargonium graveolens* | — | 7 | — | — | — | — |  |
-| 295 | Pelargonium graveolens (aerial parts, var. China), essential oil | *Pelargonium graveolens* | — | 7 | — | — | — | — |  |
-| 296 | Pelargonium graveolens (aerial parts, var. Egypt), essential oil | *Pelargonium graveolens* | — | 6 | — | — | — | — |  |
-| 297 | Guaiacum officinale (wood), essential oil | *Guaiacum officinale* | — | 4 | — | — | — | — |  |
+| 294 | Geranium, essential oil | *Pelargonium graveolens* | floral | 7 | medium | 28 h | heart | — |  |
+| 295 | Geranium (var. China), essential oil | *Pelargonium graveolens* | floral | 7 | — | — | — | — |  |
+| 296 | Pelargonium graveolens (aerial parts, var. Egypt), essential oil | *Pelargonium graveolens* | floral | 6 | medium | 28 h | — | — |  |
+| 297 | Guaiacwood, essential oil | *Guaiacum officinale* | woody | 4 | medium | 400 h | — | 10 % |  |
 | 299 | Commiphora mukul (resin), essential oil | *Commiphora mukul* | — | — | — | — | — | — |  |
 | 300 | Hamamelis virginiana (leaf), essential oil | *Hamamelis virginiana* | — | — | — | — | — | — |  |
-| 301 | Helichrysum italicum (flower), essential oil | *Helichrysum italicum* | — | 7 | — | — | — | — |  |
+| 301 | Helichrysum italicum (flower), essential oil | *Helichrysum italicum* | green | 7 | — | — | — | — |  |
 | 302 | Helichrysum gymnocephalum (flower), essential oil | *Helichrysum gymnocephalum* | — | — | — | — | — | — |  |
 | 303 | Helichrysum italicum (flower, var. picardii, Spain), essential oil | *Helichrysum italicum* | — | 7 | — | — | — | — |  |
 | 304 | Foeniculum vulgare (whole plant), essential oil | *Foeniculum vulgare* | — | 7 | — | — | — | — |  |
-| 305 | Foeniculum vulgare (seeds), essential oil | *Foeniculum vulgare* | — | 7 | — | — | — | — |  |
-| 306 | Hyssopus officinalis (plant), essential oil | *Hyssopus officinalis* | — | 7 | — | — | — | — |  |
-| 307 | Hyssopus officinalis (flowers and leaves), essential oil | *Hyssopus officinalis* | — | 7 | — | — | — | — |  |
-| 309 | Boswellia serrata (resin), essential oil | *Boswellia serrata* | — | 6 | — | — | — | — |  |
-| 311 | Nardostachys jatamansi (root), essential oil | *Nardostachys jatamansi* | — | 6 | — | — | — | — |  |
-| 312 | Zingiber officinale (root), essential oil | *Zingiber officinale* | — | 7 | — | — | — | — |  |
-| 313 | Zingiber cassumunar (root), essential oil | *Zingiber cassumunar* | — | 5 | — | — | — | — |  |
-| 314 | Cedrelopsis grevei (bark), essential oil | *Cedrelopsis grevei* | — | 5 | — | — | — | — |  |
-| 315 | Laurus nobilis (leaf), essential oil | *Laurus nobilis* | — | 7 | — | — | — | — |  |
-| 317 | Lavandula latifolia (flower), essential oil | *Lavandula latifolia* | — | 6 | — | — | — | — |  |
-| 319 | Lavandula hybrida (aerial parts), essential oil | *Lavandula hybrida* | — | 6 | — | — | — | — |  |
-| 320 | Lavandula hybrida (flower, lavandin extra), essential oil | *Lavandula hybrida* | — | 6 | — | — | — | — |  |
-| 321 | Lavandula hybrida (flower, lavandin grosso), essential oil | *Lavandula hybrida* | — | 6 | — | — | — | — |  |
-| 322 | Cymbopogon flexuosus (plant), essential oil | *Cymbopogon flexuosus* | — | 7 | — | — | — | — |  |
+| 305 | Sweet fennel seed, essential oil | *Foeniculum vulgare* | spicy | 7 | medium | 24 h | heart | 5 % |  |
+| 306 | Hyssop, essential oil | *Hyssopus officinalis* | green | 7 | medium | 92 h | base | — | strength |
+| 307 | Hyssopus officinalis (flowers and leaves), essential oil | *Hyssopus officinalis* | — | 7 | — | — | heart | — |  |
+| 309 | Boswellia serrata (resin), essential oil | *Boswellia serrata* | woody | 6 | — | — | — | — |  |
+| 312 | Ginger root, essential oil | *Zingiber officinale* | spicy | 7 | medium | 292 h | — | 8 % | tenacity_hours |
+| 313 | Zingiber cassumunar (root), essential oil | *Zingiber cassumunar* | — | 5 | — | 20 h | — | — |  |
+| 314 | Cedrelopsis grevei (bark), essential oil | *Cedrelopsis grevei* | woody | 5 | — | 72 h | base | — |  |
+| 315 | Laurus nobilis (leaf), essential oil | *Laurus nobilis* | — | 7 | medium | 117 h | base | — |  |
+| 317 | Spike lavender, essential oil | *Lavandula latifolia* | green | 6 | medium | 184 h | top | 0.2 % | tier |
+| 319 | Lavandin abrialis, essential oil | *Lavandula hybrida* | floral | 6 | — | 4 h | top | — |  |
+| 320 | Lavandula hybrida (flower, lavandin extra), essential oil | *Lavandula hybrida* | — | 6 | — | 20 h | — | — |  |
+| 321 | Grosso lavandin (lavandin grosso), essential oil | *Lavandula hybrida* | floral | 6 | high | 4 h | top | — |  |
+| 322 | Cymbopogon flexuosus (plant), essential oil | *Cymbopogon flexuosus* | citrus | 7 | — | 11 h | — | — |  |
 | 323 | Pistacia lentiscus (resin), essential oil | *Pistacia lentiscus* | — | 5 | — | — | — | — |  |
-| 324 | Levisticum officinale (root), essential oil | *Levisticum officinale* | — | 9 | — | — | — | — |  |
-| 325 | Citrus aurantifolia (peel, furocoumarin-free), essential oil | *Citrus aurantifolia* | — | 6 | — | — | — | — |  |
-| 326 | Citrus aurantifolia (peel), essential oil | *Citrus aurantifolia* | — | 6 | — | — | — | — |  |
-| 327 | Citrus hystrix (peel), essential oil | *Citrus hystrix* | — | 7 | — | — | — | — |  |
-| 328 | Citrus aurantifolia (peel), essential oil | *Citrus aurantifolia* | — | 6 | — | — | — | — |  |
-| 330 | Thujopsis dolabrata (wood), essential oil | *Thujopsis dolabrata* | — | 5 | — | — | — | — |  |
-| 331 | Cinnamomum camphora (wood), essential oil | *Cinnamomum camphora* | — | 5 | — | — | — | — |  |
-| 332 | Aquilaria crassna (wood), essential oil | *Aquilaria crassna* | — | 8 | — | — | — | — |  |
-| 333 | Magnolia alba (leaf), essential oil | *Magnolia alba* | — | 4 | — | — | — | — |  |
-| 334 | Magnolia grandiflora (flower), essential oil | *Magnolia grandiflora* | — | — | — | — | — | — |  |
-| 336 | Citrus clementina (peel), essential oil | *Citrus clementina* | — | 6 | — | — | — | — |  |
-| 339 | Leptospermum scoparium (leaf), essential oil | *Leptospermum scoparium* | — | 6 | — | — | — | — |  |
-| 340 | Matricaria recutita (flower), essential oil | *Matricaria recutita* | — | 7 | — | — | — | — |  |
-| 341 | Ormenis multicaulis (aerial parts), essential oil | *Ormenis multicaulis* | — | — | — | — | — | — |  |
-| 342 | Anthemis nobilis (flower), essential oil | *Anthemis nobilis* | — | 7 | — | — | — | — |  |
-| 343 | Origanum majorana (flower), essential oil | *Origanum majorana* | — | 6 | — | — | — | — |  |
-| 344 | Melissa officinalis (aerial parts), essential oil | *Melissa officinalis* | — | 7 | — | — | — | — |  |
-| 345 | Mentha arvensis (leaf), essential oil | *Mentha arvensis* | — | 7 | — | — | — | — |  |
-| 346 | Mentha citrata (leaf), essential oil | *Mentha citrata* | — | 6 | — | — | — | — |  |
-| 347 | Mentha piperita (leaf), essential oil | *Mentha piperita* | — | 7 | — | — | — | — |  |
-| 348 | Mentha polegium (leaf), essential oil | *Mentha polegium* | — | — | — | — | — | — |  |
-| 349 | Mentha spicata (leaf), essential oil | *Mentha spicata* | — | 7 | — | — | — | — |  |
-| 350 | Achillea millefolium (flowering tops), essential oil | *Achillea millefolium* | — | 6 | — | — | — | — |  |
+| 324 | Levisticum officinale (root), essential oil | *Levisticum officinale* | — | 9 | very_high | 240 h | base | — | strength |
+| 325 | Lime (furocoumarin-free), essential oil | *Citrus aurantifolia* | — | 6 | — | — | — | — |  |
+| 326 | Lime, essential oil | *Citrus aurantifolia* | citrus | 6 | medium | 20 h | top_heart | 15 % | tenacity_hours |
+| 327 | Citrus hystrix (peel), essential oil | *Citrus hystrix* | citrus | 7 | — | — | — | — |  |
+| 328 | Lime, essential oil | *Citrus aurantifolia* | — | 6 | — | — | — | — |  |
+| 330 | Thujopsis dolabrata (wood), essential oil | *Thujopsis dolabrata* | woody | 5 | medium | 100 h | heart_base | — |  |
+| 331 | Ho Wood, essential oil | *Cinnamomum camphora* | — | 5 | — | — | top | — |  |
+| 332 | Aquilaria crassna (wood), essential oil | *Aquilaria crassna* | woody | 8 | — | — | base | — |  |
+| 333 | Michelia alba dc. leaf, essential oil | *Magnolia alba* | green | 4 | — | 5 h | heart | — |  |
+| 334 | Magnolia grandiflora (flower), essential oil | *Magnolia grandiflora* | green | — | — | — | top_heart | — |  |
+| 336 | Clementine mandarin peel, essential oil | *Citrus clementina* | citrus | 6 | — | 6 h | — | 10 % |  |
+| 339 | Leptospermum scoparium (leaf), essential oil | *Leptospermum scoparium* | woody | 6 | — | — | top_heart | — |  |
+| 340 | Matricaria recutita (flower), essential oil | *Matricaria recutita* | green | 7 | — | — | — | — | physical_state |
+| 341 | Ormenis multicaulis (aerial parts), essential oil | *Ormenis multicaulis* | green | — | — | — | — | — |  |
+| 342 | Anthemis nobilis (flower), essential oil | *Anthemis nobilis* | green | 7 | high | 4 h | heart | — | physical_state |
+| 343 | Origanum majorana (flower), essential oil | *Origanum majorana* | — | 6 | — | 12 h | heart | — |  |
+| 344 | Melissa officinalis (aerial parts), essential oil | *Melissa officinalis* | citrus | 7 | medium | 120 h | top_heart | — |  |
+| 345 | Mentha arvensis (leaf), essential oil | *Mentha arvensis* | — | 7 | high | 16 h | heart | 8 % |  |
+| 346 | Bergamot mint herb, essential oil | *Mentha citrata* | green | 6 | — | — | top | — |  |
+| 347 | Mentha piperita (leaf), essential oil | *Mentha piperita* | green | 7 | medium | 16 h | top | 6 % |  |
+| 348 | Mentha polegium (leaf), essential oil | *Mentha polegium* | green | — | medium | 168 h | top | 1 % |  |
+| 349 | Mentha spicata (leaf), essential oil | *Mentha spicata* | green | 7 | medium | 36 h | top_heart | 8 % |  |
+| 350 | Achillea millefolium (flowering tops), essential oil | *Achillea millefolium* | green | 6 | medium | 396 h | top_heart | — |  |
 | 351 | Acacia decurrens (flowers), essential oil | *Acacia decurrens* | — | — | — | — | — | — |  |
 | 353 | Backhousia citriodora (leaf), essential oil | *Backhousia citriodora* | — | 8 | — | — | — | — |  |
 | 354 | Myrtus communis (leaf, red), essential oil | *Myrtus communis* | — | 6 | — | — | — | — |  |
@@ -181,7 +180,8 @@
 | n | Producto | Por qué |
 |---|---|---|
 | 249 | Citrus bergamia (peel), essential oil | ya es un común: Bergamot, bergapten-free (798f4933-21c6-5840-a52b-8f4d4bf10c64) |
-| 298 | Guaiacum officinale (wood), essential oil | el mismo material que el n.º 297: the same guaiacwood oil, sold at 50 % in DPG (una especificación, V3-85) |
-| 337 | Citrus reticulata (peel), essential oil | ya es un común: Mandarin (19f5072c-dcc5-5f96-a226-269c5b413c6d) |
+| 298 | Guaiacwood, essential oil | el mismo material que el n.º 297: the same guaiacwood oil, sold at 50 % in DPG (una especificación, V3-85) |
+| 311 | Nardostachys jatamansi (root), essential oil | ya es un común: Lavender (a367b36a-7424-5591-8baa-b245b6b56d52) |
+| 337 | Tangor murcote peel, essential oil | ya es un común: Mandarin (19f5072c-dcc5-5f96-a226-269c5b413c6d) |
 | 352 | Commiphora myrrha (resin), essential oil | ya es un común: Myrrh, essential oil (7c27cec2-aaf6-510f-a49f-7e94fd626f20) |
 | 389 | Rosa damascena (flower), essential oil | el mismo material que el n.º 388: the same Rosa damascena flower oil; «Otto Bulgaria» and «Extra» are origin and grade (una especificación, V3-85) |

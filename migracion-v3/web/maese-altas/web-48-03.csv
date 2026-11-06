@@ -15,3 +15,186 @@ n,nombre,campo,valor,fuente,nota
 303,Helicriso España Rabujera,fuerza,,"no lo dice ninguna fuente consultada: TGSC es1649511, es1032911",
 303,Helicriso España Rabujera,estado,,"no lo dice ninguna fuente consultada: TGSC es1649511, es1032911",
 303,Helicriso España Rabujera,dosis,,"no lo dice ninguna fuente consultada: TGSC es1649511, es1032911",
+304,Hinojo amargo hojas,nombre,"bitter fennel essential oil (Foeniculum vulgare, seeds)","PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7SB00188: «Foenculum Vulgare - seeds»","otra parte: PerfumersWorld es de semillas, Maese es hojas/parte entera"
+304,Hinojo amargo hojas,familia,sweet warm aromatic anise camphoraceous peppery earthy fougere spice,"PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7SB00188: «sweet warm aromatic anise camphoraceous peppery earthy fougere spice»",otra parte: semillas
+304,Hinojo amargo hojas,nivel,top / middle (heart),"PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7SB00188: «Top: spice, herb... Heart: spice, herb»","otra parte: semillas, variedad amara"
+304,Hinojo amargo hojas,horas,20,"PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7SB00188: «20 hours on a smelling strip»",otra parte: semillas
+304,Hinojo amargo hojas,estado,pale yellow liquid,"PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7SB00188: «Pale yellow liquid»",otra parte: semillas
+304,Hinojo amargo hojas,dosis,"0.06 % from, 0.6 % average, 4.4 % maximum","PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7SB00188: «0.06% (from) ... 0.6% (average) ... 4.4% (maximum)»",base no precisada en el extracto leído; otra parte: semillas
+304,Hinojo amargo hojas,fuerza,,"no lo dice ninguna fuente consultada en palabras (PerfumersWorld solo da «odor impact 180»): PerfumersWorld 7SB00188, TGSC es1028301, es1028302",
+304,Hinojo amargo hojas,olor,sweet earthy anise green spicy,"TGSC, https://www.thegoodscentscompany.com/data/es1028301.html: «sweet earthy anise green spicy»","otra parte/otra variedad: TGSC es aceite de semilla dulce, no de hoja amarga"
+305,Hinojo dulce,nombre,sweet fennel seed oil (foeniculum vulgare),"TGSC, https://www.thegoodscentscompany.com/data/es1028301.html: «sweet fennel seed oil»",especie y parte coinciden
+305,Hinojo dulce,familia,anise,"TGSC, https://www.thegoodscentscompany.com/data/es1028301.html: «Odor Type: anise»",
+305,Hinojo dulce,olor,sweet earthy anise green spicy,"TGSC, https://www.thegoodscentscompany.com/data/es1028301.html: «sweet earthy anise green spicy»",
+305,Hinojo dulce,horas,24,"TGSC, https://www.thegoodscentscompany.com/data/es1028301.html: «Substantivity: 24 Hour(s)»",
+305,Hinojo dulce,horas,24,"Fraterworks, https://fraterworks.com/products/fennel-oil: «Lasts 24 hours on a smelling strip.»",la página no dice si es variedad dulce o amarga
+305,Hinojo dulce,fuerza,medium,"TGSC, https://www.thegoodscentscompany.com/data/es1028301.html: «Odor Strength: medium»",
+305,Hinojo dulce,fuerza,moderate strength (6/10),"Fraterworks, https://fraterworks.com/products/fennel-oil: «moderate strength (6/10)»",variedad no precisada
+305,Hinojo dulce,nivel,heart,"Fraterworks, https://fraterworks.com/products/fennel-oil: «Classification: Heart Note.»",variedad no precisada; la misma página dice «top to middle notes»
+305,Hinojo dulce,estado,colorless to pale yellow clear liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/es1028301.html: «colorless to pale yellow clear liquid (est)»",
+305,Hinojo dulce,estado,colourless liquid,"Fraterworks, https://fraterworks.com/products/fennel-oil: «Colourless liquid.»",
+305,Hinojo dulce,dosis,up to 5.0 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/es1028301.html: «usage levels up to: 5.0000 % in the fragrance concentrate»",
+305,Hinojo dulce,dosis,0.06-4.4 %,"Fraterworks, https://fraterworks.com/products/fennel-oil: «The sweet variety is suggested at 0.06-4.4%.»",base no precisada; mediana de uso 0.5 % del concentrado
+309,Incienso serrata,nombre,frankincense oil CO2 extract (boswellia serrata),"TGSC, https://www.thegoodscentscompany.com/data/es1667961.html: «frankincense oil CO2 extract (boswellia serrata)»","especie coincide; es extracto CO2, no destilado (otro proceso); CAS 97952-72-2"
+309,Incienso serrata,familia,woody,"TGSC, https://www.thegoodscentscompany.com/data/es1667961.html: «Odor Type: woody»",extracto CO2
+309,Incienso serrata,olor,frankincense,"TGSC, https://www.thegoodscentscompany.com/data/es1667961.html: «at 10.00 % in dipropylene glycol. frankincense»",extracto CO2
+309,Incienso serrata,olor,"rich resinous, pine cone, dry woody, dry pine, with a lemony finish","Hermitage Oils, https://hermitageoils.com/product/frankincense-serrata-essential-oil/: «rich resinous, pine cone, dry woody, dry pine, with a lemony finish»","aceite esencial B. serrata, India"
+309,Incienso serrata,estado,pale yellow to orange clear liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/es1667961.html: «pale yellow to orange clear liquid (est)»",extracto CO2
+309,Incienso serrata,nivel,,"no lo dice ninguna fuente consultada: TGSC es1667961, Hermitage Oils",
+309,Incienso serrata,horas,,"no lo dice ninguna fuente consultada: TGSC es1667961, Hermitage Oils",
+309,Incienso serrata,fuerza,,"no lo dice ninguna fuente consultada: TGSC es1667961, Hermitage Oils (solo una reseña dice «very strong»)",
+309,Incienso serrata,dosis,,"no lo dice ninguna fuente consultada: TGSC es1667961, Hermitage Oils",
+306,Hisopo cineol,nombre,hyssop oil (hyssopus officinalis l. herb oil),"TGSC, https://www.thegoodscentscompany.com/data/es1015451.html: «hyssopus officinalis l. herb oil»",especie coincide; TGSC da CAS 8006-83-5 y no distingue quimiotipo cineol
+306,Hisopo cineol,familia,herbal,"TGSC, https://www.thegoodscentscompany.com/data/es1015451.html: «Odor Type: herbal»",
+306,Hisopo cineol,olor,"herbal, tea-like, spicy, sweet aroma","TGSC, https://www.thegoodscentscompany.com/data/es1015451.html: «herbal, tea-like, spicy, sweet aroma»",cita de un proveedor dentro de la página TGSC
+306,Hisopo cineol,olor,"powerful, sharp but sweet-camphoraceous odour","Fraterworks, https://fraterworks.com/products/hyssop-oil: «powerful, sharp but sweet-camphoraceous odour»","hoja, Francia"
+306,Hisopo cineol,horas,92,"TGSC, https://www.thegoodscentscompany.com/data/es1015451.html: «92 hour(s) at 100.00 %»",
+306,Hisopo cineol,horas,92,"Fraterworks, https://fraterworks.com/products/hyssop-oil: «Lasts 92 hours on a smelling strip.»",
+306,Hisopo cineol,fuerza,medium,"TGSC, https://www.thegoodscentscompany.com/data/es1015451.html: «Odor Strength: medium»",
+306,Hisopo cineol,fuerza,strong,"Fraterworks, https://fraterworks.com/products/hyssop-oil: «a little goes a long way»","la página aconseja trazas; «strong» es lectura de la página, sin palabra literal"
+306,Hisopo cineol,nivel,base,"Fraterworks, https://fraterworks.com/products/hyssop-oil: «Classification: Base Note»",
+306,Hisopo cineol,estado,pale yellow clear liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/es1015451.html: «pale yellow clear liquid (est)»",
+306,Hisopo cineol,estado,pale yellow liquid,"Fraterworks, https://fraterworks.com/products/hyssop-oil: «Pale yellow liquid.»",
+306,Hisopo cineol,dosis,0.5 % median of the concentrate; IFRA 51 limit 7 % in finished product (Cat. 4),"Fraterworks, https://fraterworks.com/products/hyssop-oil: «median use is 0.5% of the concentrate»","mediana de uso en perfumes analizados, no recomendación"
+306,Hisopo cineol,dosis,,"no lo dice ninguna fuente consultada (TGSC): TGSC es1015451 (página truncada, sin nivel de uso)",
+307,Hisopo decumbens,nombre,Hyssopus officinalis var. decumbens,"Eden Botanicals, https://www.edenbotanicals.com/hyssop-decumbens.html: «Hyssopus officinalis var. decumbens (synonym of Hyssopus officinalis L.)»",TGSC solo tiene hyssop oil genérico (es1015451)
+307,Hisopo decumbens,familia,"fresh, herbaceous","Eden Botanicals, https://www.edenbotanicals.com/hyssop-decumbens.html: «fresh, herbaceous»",
+307,Hisopo decumbens,olor,"Powerful, fresh, cool woody, lavender- and eucalyptus-like moderately sharp aroma with a spicy, warm undertone","Eden Botanicals, https://www.edenbotanicals.com/hyssop-decumbens.html: «Powerful, fresh, cool woody, lavender- and eucalyptus-like moderately sharp aroma with a spicy, warm undertone.»",
+307,Hisopo decumbens,nivel,middle,"Eden Botanicals, https://www.edenbotanicals.com/hyssop-decumbens.html: «Note Level: middle»",
+307,Hisopo decumbens,estado,"colorless to very pale yellow, transparent, mobile liquid","Eden Botanicals, https://www.edenbotanicals.com/hyssop-decumbens.html: «Colorless to very pale yellow, transparent, mobile liquid.»",
+307,Hisopo decumbens,dosis,,no lo dice ninguna fuente consultada: Eden Botanicals solo dice «Dilute well and add drop by drop»; TGSC es1015451 no tiene nivel,sin porcentaje
+307,Hisopo decumbens,horas,,"no lo dice ninguna fuente consultada: Eden Botanicals hyssop-decumbens (92 h de Fraterworks es de H. officinalis genérico, no se asigna)",
+307,Hisopo decumbens,fuerza,,"no lo dice ninguna fuente consultada: Eden Botanicals solo dice «powerful», sin valoración",
+311,Jatamansi,nombre,nardostachys jatamansi herb oil,"TGSC, https://www.thegoodscentscompany.com/data/es1614051.html: «nardostachys jatamansi herb oil»","especie coincide; CAS TGSC 97722-12-8 (Maese 90064-28-1); TGSC lista parte «herb», Maese raíz"
+311,Jatamansi,nivel,base,"Fraterworks, https://fraterworks.com/products/spikenard-oil: «Classification: Base Note»","raíz, hidrodestilación"
+311,Jatamansi,horas,240,"Fraterworks, https://fraterworks.com/products/spikenard-oil: «Lasts > 240 hours on a smelling strip.»",más de 240
+311,Jatamansi,fuerza,moderate (5/10),"Fraterworks, https://fraterworks.com/products/spikenard-oil: «moderate strength (5/10)»",
+311,Jatamansi,olor,"heavy, sweet-woody, spicy-animalic character with deep earth, damp forest floor","Fraterworks, https://fraterworks.com/products/spikenard-oil: «heavy, sweet-woody, spicy-animalic character with deep earth, damp forest floor»",
+311,Jatamansi,estado,colorless to pale yellow clear liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/es1614051.html: «colorless to pale yellow clear liquid (est)»",
+311,Jatamansi,estado,pale yellow liquid,"Fraterworks, https://fraterworks.com/products/spikenard-oil: «Pale yellow liquid»",
+311,Jatamansi,dosis,0.455 % median use in perfumes (average 1.41 %),"Fraterworks, https://fraterworks.com/products/spikenard-oil: «0.455% Median use in perfumes»",mediana en perfumes analizados; IFRA 51: 100 %
+311,Jatamansi,familia,,"no lo dice ninguna fuente consultada: TGSC es1614051 (sin descriptores), Fraterworks spikenard-oil",
+312,Jengibre,nombre,ginger root oil china (zingiber officinale rosc. root oil),"TGSC, https://www.thegoodscentscompany.com/data/es1101231.html: «zingiber officinale rosc. root oil»",especie y parte coinciden
+312,Jengibre,familia,spicy,"TGSC, https://www.thegoodscentscompany.com/data/es1101231.html: «Odor Type: spicy»",
+312,Jengibre,olor,spicy ginger citrus woody terpenic camphoreous earthy,"TGSC, https://www.thegoodscentscompany.com/data/es1101231.html: «at 100.00 %. spicy ginger citrus woody terpenic camphoreous earthy»",
+312,Jengibre,olor,"fresh spicy sweet terpene ginger hot warm, slightly green, fresh, woody-spicy scent","PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7SC00209: «fresh spicy sweet terpene ginger hot warm, slightly green, fresh, woody-spicy scent»",
+312,Jengibre,horas,292,"TGSC, https://www.thegoodscentscompany.com/data/es1101231.html: «292 hour(s) at 100.00 %»",
+312,Jengibre,horas,14,"PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7SC00209: «14 hrs»",odor life en tira; contrasta mucho con TGSC
+312,Jengibre,fuerza,medium,"TGSC, https://www.thegoodscentscompany.com/data/es1101231.html: «Odor Strength: medium»",
+312,Jengibre,estado,yellow clear liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/es1101231.html: «yellow clear liquid (est)»",
+312,Jengibre,estado,colourless liquid,"PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7SC00209: «Colourless liquid»",
+312,Jengibre,dosis,up to 8 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/es1101231.html: «usage levels up to: 8.0000 % in the fragrance concentrate»",
+312,Jengibre,dosis,"0.1 % minimum, 1 % average, 10 % maximum","PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7SC00209: «0.100% ... 1.000% ... 10.000%»",base no precisada en el extracto
+312,Jengibre,nivel,"top: spice, green; heart: linalool, spice, wood; base: wood","PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7SC00209: «Top notes are spice and green. Heart notes are linalool, spice, and wood. The base note is wood»",sin nivel único
+313,Jengibre fresco (plai),nombre,zingiber cassumunar root oil,"TGSC, https://www.thegoodscentscompany.com/data/es1807861.html: «zingiber cassumunar root oil»",especie y parte coinciden (plai)
+313,Jengibre fresco (plai),familia,characteristic,"TGSC, https://www.thegoodscentscompany.com/data/es1807861.html: «Odor type: characteristic»",
+313,Jengibre fresco (plai),olor,"A close relative to Ginger, Plai oil's aroma is similar to Eucalyptus with spicy, peppery notes","TGSC, https://www.thegoodscentscompany.com/data/es1807861.html: «A close relative to Ginger, Plai oil's aroma is similar to Eucalyptus with spicy, peppery notes.»",cita de proveedor
+313,Jengibre fresco (plai),olor,"herb, camphor, faint spicy and bitter green leaf","PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7HS07556: «herb, camphor, faint spicy and bitter green leaf»",Plai Siam; la página da CAS 8016-63-5 y no nombra parte
+313,Jengibre fresco (plai),dosis,not for fragrance use,"TGSC, https://www.thegoodscentscompany.com/data/es1807861.html: «not for fragrance use.»",sin nivel
+313,Jengibre fresco (plai),dosis,"0.1 % from, 1 % average, 4 % maximum","PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7HS07556: «0.100% ... 1.000% ... 4.000%»",en compuestos de perfume
+313,Jengibre fresco (plai),horas,20,"PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7HS07556: «20 hours on a smelling strip»",
+313,Jengibre fresco (plai),nivel,"top: herb, spice, green; heart: herb, spice, wood; base: wood","PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7HS07556: «Top: Herb, Spice, Green... Heart: Herb, Spice, Wood... Base: Wood»",sin nivel único
+313,Jengibre fresco (plai),estado,colorless to pale straw-green liquid,"PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7HS07556: «CLESS TO PALE STRAW-GREEN LIQUID»",«CLESS» parece errata de «colorless»
+313,Jengibre fresco (plai),fuerza,,"no lo dice ninguna fuente consultada en palabras: TGSC es1807861, PerfumersWorld 7HS07556 (solo «impact 125»)",
+314,Katrafay,nombre,cedrelopsis grevei bark oil (katrafay bark oil),"TGSC, https://www.thegoodscentscompany.com/data/es1671011.html: «cedrelopsis grevei bark oil»",especie y parte coinciden; TGSC sin CAS
+314,Katrafay,familia,woody,"TGSC, https://www.thegoodscentscompany.com/data/es1671011.html: «Odor Type: woody»",
+314,Katrafay,olor,woody dry green balsamic,"TGSC, https://www.thegoodscentscompany.com/data/es1671011.html: «at 100.00 %. woody dry green balsamic»",
+314,Katrafay,olor,dry woody-pencil shavings character balanced with damp earthy mineralic facets,"Fraterworks, https://fraterworks.com/products/katafray-oil: «dry woody-pencil shavings character balanced with damp earthy mineralic facets»",
+314,Katrafay,nivel,base,"Fraterworks, https://fraterworks.com/products/katafray-oil: «Base note»",
+314,Katrafay,horas,72,"Fraterworks, https://fraterworks.com/products/katafray-oil: «Lasts > 72 hours on a smelling strip.»",más de 72
+314,Katrafay,estado,colorless to pale yellow clear liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/es1671011.html: «colorless to pale yellow clear liquid (est)»",
+314,Katrafay,estado,pale straw liquid,"Fraterworks, https://fraterworks.com/products/katafray-oil: «Pale straw liquid»",
+314,Katrafay,dosis,1 % median of the concentrate,"Fraterworks, https://fraterworks.com/products/katafray-oil: «used at a median of 1% of the concentrate in the formulas we have analysed»",mediana en fórmulas analizadas; IFRA 51: 100 %
+314,Katrafay,fuerza,,"no lo dice ninguna fuente consultada: TGSC es1671011, Fraterworks katafray-oil",
+315,Laurel,nombre,Laurus nobilis leaf oil,"Fraterworks, https://fraterworks.com/products/laurel-noble-oil: «LAURUS NOBILIS LEAF OIL»",especie y parte coinciden; la página TGSC es1030061 solo agrega citas de proveedores (CAS 8002-41-3)
+315,Laurel,olor,"fresh, sweet medicinal, slightly spicy, chewy, eucalyptol aroma","TGSC, https://www.thegoodscentscompany.com/data/es1030061.html: «delightfully fresh, sweet medicinal, slightly spicy, chewy, eucalyptol aroma»",cita de Hermitage Oils reproducida en la página TGSC; sin descriptores propios de TGSC
+315,Laurel,olor,"potent, fresh camphoraceous opening with pronounced eucalyptus-like sharpness","Fraterworks, https://fraterworks.com/products/laurel-noble-oil: «potent, fresh camphoraceous opening with pronounced eucalyptus-like sharpness»",
+315,Laurel,nivel,base,"Fraterworks, https://fraterworks.com/products/laurel-noble-oil: «Base Note»",
+315,Laurel,horas,117,"Fraterworks, https://fraterworks.com/products/laurel-noble-oil: «Lasts 117 hours on a smelling strip.»",
+315,Laurel,fuerza,moderate (4/10),"Fraterworks, https://fraterworks.com/products/laurel-noble-oil: «Rated 4/10 when smelled directly»",3/10 en mezclas
+315,Laurel,estado,clear yellow liquid,"Fraterworks, https://fraterworks.com/products/laurel-noble-oil: «Clear yellow liquid»",
+315,Laurel,dosis,"below 0.5 % for a subtle lift, 1-5 % for a dominant effect","Fraterworks, https://fraterworks.com/products/laurel-noble-oil: «below 0.5% for a subtle lift, or use at 1–5% for a dominant effect»",base no precisada; IFRA 51 0.22 % en producto final (cat. 4)
+315,Laurel,familia,,"no lo dice ninguna fuente consultada: TGSC es1030061, Fraterworks laurel-noble-oil",
+317,Lavanda latifolia,nombre,"spike lavender oil (lavandula latifolia, syn. lavandula spica)","TGSC, https://www.thegoodscentscompany.com/data/es1029951.html: «spike lavender oil»",especie coincide; TGSC CAS 8016-78-2 (Maese 84837-04-7)
+317,Lavanda latifolia,familia,herbal,"TGSC, https://www.thegoodscentscompany.com/data/es1029951.html: «Odor Type: herbal»",
+317,Lavanda latifolia,olor,camphoreous eucalyptus fresh herbal lavandin rosemary woody floral,"TGSC, https://www.thegoodscentscompany.com/data/es1029951.html: «camphoreous eucalyptus fresh herbal lavandin rosemary woody floral»",Luebke 1983
+317,Lavanda latifolia,olor,"Fresh, sharp, lavender-like, camphoraceous aroma with a dry herbal/woody undertone","Eden Botanicals, https://www.edenbotanicals.com/lavender-spike-organic.html: «Fresh, sharp, lavender-like, camphoraceous aroma with a dry herbal/woody undertone.»",flor y hoja
+317,Lavanda latifolia,nivel,top,"TGSC, https://www.thegoodscentscompany.com/data/es1029951.html: «Used in perfumes for top note and radiance.»",cita Takasago
+317,Lavanda latifolia,nivel,"top, middle","Eden Botanicals, https://www.edenbotanicals.com/lavender-spike-organic.html: «top, middle.»",
+317,Lavanda latifolia,horas,184,"TGSC, https://www.thegoodscentscompany.com/data/es1029951.html: «184 hour(s) at 100.00 %»",
+317,Lavanda latifolia,fuerza,medium,"TGSC, https://www.thegoodscentscompany.com/data/es1029951.html: «Odor Strength: medium»",
+317,Lavanda latifolia,estado,colorless to pale yellow clear liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/es1029951.html: «colorless to pale yellow clear liquid (est)»",
+317,Lavanda latifolia,estado,"colorless, transparent, mobile liquid","Eden Botanicals, https://www.edenbotanicals.com/lavender-spike-organic.html: «Colorless, transparent, mobile liquid.»",
+317,Lavanda latifolia,dosis,up to 0.2 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/es1029951.html: «usage levels up to: 0.2000 % in the fragrance concentrate»",
+319,Lavandin Abrialis,nombre,lavandin abrialis oil (lavandula hybrida),"TGSC, https://www.thegoodscentscompany.com/data/es1029931.html: «Lavandin Abrialis Essential Oil France 100% Pure and Natural»",especie coincide; página TGSC con CAS 8022-15-9 en el título de búsqueda
+319,Lavandin Abrialis,olor,"Floral, fresh, herbal, sweet, aromatic","Fraterworks, https://fraterworks.com/products/lavandin-oil-abrialis: «Floral, fresh, herbal, sweet, aromatic.»",flores
+319,Lavandin Abrialis,familia,floral,"Fraterworks, https://fraterworks.com/products/lavandin-oil-abrialis: «The family is listed as Floral»",
+319,Lavandin Abrialis,nivel,top,"Fraterworks, https://fraterworks.com/products/lavandin-oil-abrialis: «Top Note»",
+319,Lavandin Abrialis,horas,4,"Fraterworks, https://fraterworks.com/products/lavandin-oil-abrialis: «Lasts 4 hours on a smelling strip.»",
+319,Lavandin Abrialis,estado,clear liquid,"Fraterworks, https://fraterworks.com/products/lavandin-oil-abrialis: «Clear liquid.»","sin filtrar, puede tener partículas"
+319,Lavandin Abrialis,dosis,1.5 % median of the concentrate (perfumes); 2.45 % median in bases,"Fraterworks, https://fraterworks.com/products/lavandin-oil-abrialis: «the median is 1.5% of the concentrate»",mediana en perfumes analizados; IFRA 51 86.956 % (cat. 4)
+319,Lavandin Abrialis,fuerza,,"no lo dice ninguna fuente consultada en palabras: TGSC es1029931 (sin datos), Fraterworks lavandin-oil-abrialis",
+320,Lavandin Extra,nombre,lavandula x intermedia / lavandula hybrida (flowering tops),"PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7HB07675: «Lavandula x Intermedia - flowering tops»","PerfumersWorld lo titula Lavandin Grosso, no Extra; TGSC es1614021 no se pudo leer (error del sitio)"
+320,Lavandin Extra,olor,"fresh camphoraceous-lavender. The camphor effect is mild and very inviting, not overwhelming","PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7HB07675: «fresh camphoraceous-lavender. The camphor effect is mild and very inviting, not overwhelming.»","Grosso, no Extra"
+320,Lavandin Extra,nivel,"top: herb; heart: herb, linalool, wood; base: wood","PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7HB07675: «Top: Herb, Iceberg; Heart: Herb, Linalool, Wood; Base: Wood»","Grosso, no Extra; sin nivel único"
+320,Lavandin Extra,horas,20,"PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7HB07675: «20 hrs»","Grosso, no Extra"
+320,Lavandin Extra,estado,clear to pale straw liquid,"PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7HB07675: «CLESS TO PALE STRAW LIQUID»",«CLESS» parece errata; Grosso
+320,Lavandin Extra,dosis,"0.09 % from, 0.9 % average, 8.3 % maximum","PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7HB07675: «0.090% ... 0.900% ... 8.300%»",en compuestos de perfume; Grosso
+320,Lavandin Extra,familia,,"no lo dice ninguna fuente consultada: PerfumersWorld 7HB07675, TGSC es1614021 (ilegible)",
+320,Lavandin Extra,fuerza,,no lo dice ninguna fuente consultada en palabras: PerfumersWorld 7HB07675 (solo «impact 110»),
+321,Lavandin Grosso,nombre,grosso lavandin oil (lavandula hybrida grosso),"TGSC, https://www.thegoodscentscompany.com/data/es1101731.html: «LAVANDIN GROSSO ESSENTIAL OIL»",especie y variedad coinciden
+321,Lavandin Grosso,olor,"Lavandin Grosso oil is sweeter, less floral, and features camphor body notes compared to that of Lavender","TGSC, https://www.thegoodscentscompany.com/data/es1101731.html: «Lavandin Grosso oil is sweeter, less floral, and features camphor body notes compared to that of Lavender.»",cita de proveedor
+321,Lavandin Grosso,olor,"Floral, fresh, herbal, sweet, aromatic","Fraterworks, https://fraterworks.com/products/lavandin-grosso: «Floral, fresh, herbal, sweet, aromatic.»",
+321,Lavandin Grosso,nivel,top,"Fraterworks, https://fraterworks.com/products/lavandin-grosso: «Top Note»",la misma página dice «Top to middle note»
+321,Lavandin Grosso,horas,4,"Fraterworks, https://fraterworks.com/products/lavandin-grosso: «Lasts 4 hours on a smelling strip.»",
+321,Lavandin Grosso,fuerza,potent,"Fraterworks, https://fraterworks.com/products/lavandin-grosso: «Powerful fresh lavender with clean camphor lift.»",sin valoración numérica
+321,Lavandin Grosso,estado,clear liquid,"Fraterworks, https://fraterworks.com/products/lavandin-grosso: «Clear liquid.»",
+321,Lavandin Grosso,dosis,1.5 % median of the concentrate (perfumes); 2.21 % median in bases,"Fraterworks, https://fraterworks.com/products/lavandin-grosso: «the median is 1.5% of the concentrate»",mediana en perfumes analizados; IFRA 51 sin restricción cat. 4
+321,Lavandin Grosso,familia,floral,"Fraterworks, https://fraterworks.com/products/lavandin-grosso: «Floral»",
+322,Lemongrass Cochin,nombre,cymbopogon flexuosus herb oil,"TGSC, http://www.thegoodscentscompany.com/data/es1695841.html: «cymbopogon flexuosus herb oil»","especie coincide, CAS 91844-92-7"
+322,Lemongrass Cochin,familia,citrus,"TGSC, http://www.thegoodscentscompany.com/data/es1695841.html: «Odor Type: citrus»",también «lemongrass»
+322,Lemongrass Cochin,olor,lemongrass,"TGSC, http://www.thegoodscentscompany.com/data/es1695841.html: «at 100.00 %. lemongrass»",
+322,Lemongrass Cochin,olor,"sweet, lemon-grassy, fresh citrus with an earthy undertone","PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7CC00272: «an earthy undertone»",resumen; la página mezcla C. citratus y C. flexuosus; sin parte
+322,Lemongrass Cochin,nivel,"top: citrus, green; heart: linalool, citrus; base: yeasty-mossy","PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7CC00272: «Top: citrus, green... Heart: linalool, citrus»",C. citratus y flexuosus mezclados; sin nivel único
+322,Lemongrass Cochin,horas,11,"PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7CC00272: «11 hrs on a smelling strip»",C. citratus y flexuosus mezclados
+322,Lemongrass Cochin,estado,yellow to amber mobile oil,"PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7CC00272: «YELLOW TO AMBER MOBILE OIL»",C. citratus y flexuosus mezclados
+322,Lemongrass Cochin,dosis,"0.07 % minimum, 0.7 % average, 5.3 % maximum","PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7CC00272: «0.070% ... 0.700% ... 5.300%»",en compuestos de perfume
+322,Lemongrass Cochin,fuerza,,"no lo dice ninguna fuente consultada en palabras: TGSC es1695841, PerfumersWorld 7CC00272 (solo «impact 150»)",
+323,Lentisco resina,nombre,pistacia lentiscus gum oil,"TGSC, http://www.thegoodscentscompany.com/data/es1771611.html: «pistacia lentiscus l. gum oil»",especie y parte (resina) coinciden; CAS 61789-92-2
+323,Lentisco resina,olor,"Opens as a radiant, sparkling terpenic green opening reminiscent of sun-warmed pine needles, then a balsamic-woody heart","Fraterworks, https://fraterworks.com/products/mastique-lentisque-oil: «radiant, sparkling terpenic green opening reminiscent of sun-warmed pine needles»",otra parte: hoja (PISTACIA LENTISCUS LEAF OIL)
+323,Lentisco resina,nivel,heart,"Fraterworks, https://fraterworks.com/products/mastique-lentisque-oil: «Classification: Heart Note»",otra parte: hoja; la misma página dice «top note herbaceous oil»
+323,Lentisco resina,horas,14,"Fraterworks, https://fraterworks.com/products/mastique-lentisque-oil: «Lasts 14 hours on a smelling strip.»",otra parte: hoja
+323,Lentisco resina,estado,colourless liquid,"Fraterworks, https://fraterworks.com/products/mastique-lentisque-oil: «Colourless liquid»",otra parte: hoja
+323,Lentisco resina,dosis,0.05 % median in perfumes; 1.34 % median in bases,"Fraterworks, https://fraterworks.com/products/mastique-lentisque-oil: «Median of 0.05% in perfumes and 1.34% in bases»",otra parte: hoja; IFRA 51 15.5 % (cat. 4)
+323,Lentisco resina,familia,,"no lo dice ninguna fuente consultada: TGSC es1771611 (sin descriptores), Fraterworks mastique-lentisque-oil",
+323,Lentisco resina,fuerza,,"no lo dice ninguna fuente consultada: TGSC es1771611, Fraterworks",
+324,Levistico,nombre,levisticum officinale root oil,"Fraterworks, https://fraterworks.com/products/lovage-root-oil: «LEVISTICUM OFFICINALE ROOT OIL»",especie y raíz coinciden; TGSC es1015771 es «Lovage Root Essential Oil» sin CAS ni datos organolépticos
+324,Levistico,fuerza,extremely potent,"TGSC, https://www.thegoodscentscompany.com/data/es1015771.html: «extremely potent material»",
+324,Levistico,fuerza,ranks among the strongest-smelling natural materials in existence,"Fraterworks, https://fraterworks.com/products/lovage-root-oil: «it ranks among the strongest-smelling natural materials in existence.»",
+324,Levistico,olor,"warm celery, angelica, and liquorice - spicy, sweet, earthy, and almost savoury","Fraterworks, https://fraterworks.com/products/lovage-root-oil: «warm celery, angelica, and liquorice - spicy, sweet, earthy, and almost savoury»",
+324,Levistico,nivel,base,"Fraterworks, https://fraterworks.com/products/lovage-root-oil: «Base Note»",
+324,Levistico,horas,240,"Fraterworks, https://fraterworks.com/products/lovage-root-oil: «Lasts > 240 hours on a smelling strip.»",más de 240
+324,Levistico,estado,pale gold liquid,"Fraterworks, https://fraterworks.com/products/lovage-root-oil: «Pale gold liquid»",
+324,Levistico,dosis,0.25 % median of the concentrate,"Fraterworks, https://fraterworks.com/products/lovage-root-oil: «0.25% of the concentrate»",mediana en fórmulas analizadas; IFRA 51 0.5 % (cat. 4); dilución habitual 10 %
+324,Levistico,familia,,"no lo dice ninguna fuente consultada: TGSC es1015771, Fraterworks lovage-root-oil",
+325,Lima FFC,nombre,lime oil expressed (citrus aurantifolia),"TGSC, https://www.thegoodscentscompany.com/data/es1618901.html: «Lime Oil Expressed»",especie coincide según TSCA («citrus aurantifolia»); TGSC no da datos organolépticos
+325,Lima FFC,nombre,Persian lime oil FCF (Citrus x latifolia),"Fraterworks, https://fraterworks.com/products/persian-lime-oil-fcf: «Variety: Citrus x latifolia»","otra especie (Citrus x latifolia, lima persa); prensado en frío"
+325,Lima FFC,olor,"bright, zesty citrus scent with pronounced terpenic notes","Fraterworks, https://fraterworks.com/products/persian-lime-oil-fcf: «bright, zesty citrus scent with pronounced terpenic notes»",otra especie (C. x latifolia)
+325,Lima FFC,nivel,heart,"Fraterworks, https://fraterworks.com/products/persian-lime-oil-fcf: «Classification: Heart Note»",otra especie; la misma página dice «Vibrant top note»
+325,Lima FFC,horas,8,"Fraterworks, https://fraterworks.com/products/persian-lime-oil-fcf: «8 hours on a smelling strip»",otra especie
+325,Lima FFC,estado,pale green liquid,"Fraterworks, https://fraterworks.com/products/persian-lime-oil-fcf: «Pale green liquid»",otra especie
+325,Lima FFC,dosis,0.4 % median of the concentrate,"Fraterworks, https://fraterworks.com/products/persian-lime-oil-fcf: «0.4% Median use in perfumes»",otra especie; IFRA 51 14.8 % (cat. 4)
+325,Lima FFC,familia,,"no lo dice ninguna fuente consultada: TGSC es1618901, Fraterworks persian-lime-oil-fcf",
+325,Lima FFC,fuerza,,"no lo dice ninguna fuente consultada: TGSC es1618901, Fraterworks persian-lime-oil-fcf",
+326,Lima destilada,nombre,lime oil distilled (citrus aurantifolia),"TGSC, https://www.thegoodscentscompany.com/data/es1618891.html: «lime oil distilled»",especie y proceso coinciden; CAS 8008-26-2
+326,Lima destilada,familia,citrus,"TGSC, https://www.thegoodscentscompany.com/data/es1618891.html: «Odor Type: citrus»",
+326,Lima destilada,olor,fresh lime sweet terpene,"TGSC, https://www.thegoodscentscompany.com/data/es1618891.html: «at 100.00 %. fresh lime sweet terpene»",
+326,Lima destilada,olor,"fresh, sweet, citrus-peel","PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7CK00274: «fresh, sweet, citrus-peel»",
+326,Lima destilada,horas,20,"TGSC, https://www.thegoodscentscompany.com/data/es1618891.html: «20 hour(s) at 100.00 %»",
+326,Lima destilada,horas,1.2,"PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7CK00274: «Odor Life (Smelling Strip) 1.2 hrs»",contrasta mucho con TGSC
+326,Lima destilada,fuerza,medium,"TGSC, https://www.thegoodscentscompany.com/data/es1618891.html: «Odor Strength: medium»",
+326,Lima destilada,nivel,"top: citrus, balsamic; heart: citrus, konifer","PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7CK00274: «Top notes are citrus and balsamic. Heart notes are citrus and konifer»",sin nivel único; TGSC no lo dice
+326,Lima destilada,estado,pale yellow to greenish yellow clear liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/es1618891.html: «pale yellow to greenish yellow clear liquid (est)»",
+326,Lima destilada,estado,colourless to pale yellow mobile liquid,"PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7CK00274: «Colourless to pale yellow mobile liquid»",
+326,Lima destilada,dosis,up to 15 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/es1618891.html: «usage levels up to: 15.0000 % in the fragrance concentrate»",
+326,Lima destilada,dosis,"0.08 % minimum, 0.8 % average, 4.7 % maximum","PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=7CK00274: «0.080% ... 0.800% ... 4.700%»",en compuestos de perfume

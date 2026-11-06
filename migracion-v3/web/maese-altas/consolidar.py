@@ -24,7 +24,8 @@ from normalizar import FIELD, choose, site, rank  # noqa: E402
 TANDA, CATEGORY = sys.argv[1], sys.argv[2]
 MAESE = HERE.parent / "maese-perfumeria"
 OUT = HERE / f"propuesta-{TANDA}.csv"
-OTHER_CAS = re.compile(r"CAS de (la|esa) (página|ficha) \S+,? no|no \d{2,7}-\d\d-\d|enanti|otro CAS|no coincide|otra especie|otra parte", re.I)
+OTHER_CAS = re.compile(r"CAS de (la|esa) (página|ficha) \S+,? no|no \d{2,7}-\d\d-\d|enanti|otro CAS|no coincide", re.I)
+OTHER_PLANT = re.compile(r"otra especie|otra parte|otra variedad|gen[eé]ric[oa] de", re.I)
 
 
 def norm(s):
@@ -88,8 +89,11 @@ FORM = {"molecula": "molecule", "aceite esencial": "essential oil", "absoluto": 
         "resinoide": "resinoid", "tintura": "tincture", "dilucion": "dilution", "reduccion": "reduction"}
 
 
-def page_cas_ok(r, cas=""):
-    """Una página de otro CAS no cuenta, salvo que sea el CAS bueno de uno que Maese escribe mal."""
+def page_cas_ok(r, cas="", natural=False):
+    """Una página de otro CAS no cuenta (en un natural, de otra especie, parte o variedad: el CAS lo comparten especies),
+    salvo que sea el CAS bueno de uno que Maese escribe mal."""
+    if natural:
+        return not OTHER_PLANT.search(r["nota"])
     good = CAS_FIX.get(cas)
     return not OTHER_CAS.search(r["nota"]) or bool(good and re.search(rf"(da|dan|gives?) {good}|{good},? (no|NO)", r["nota"]))
 
@@ -105,7 +109,7 @@ for n, c in consenso.items():
     if c["categoria"] != CATEGORY or c["comun"]:
         continue
     x = cruce[n]
-    rows = {campo: [r for r in reads.get((n, campo), []) if page_cas_ok(r, c["cas"])] for campo in
+    rows = {campo: [r for r in reads.get((n, campo), []) if page_cas_ok(r, c["cas"], c["tipo"] != "molecula")] for campo in
             ("nombre", "casa", "familia", "nivel", "horas", "fuerza", "estado", "dosis", "olor")}
     names = sorted([r for r in rows["nombre"] if r["valor"].strip()], key=lambda r: rank(r["fuente"]))
     full = names[0]["valor"].strip() if names else ""
@@ -155,7 +159,7 @@ for n, c in consenso.items():
         row[f + "_disputado"] = "si" if value and disputed else ""
         row[f + "_otras"] = otras
     row["olores"] = json.dumps([[site(r["fuente"]), r["valor"].strip(), r["fuente"]] for r in rows["olor"] if r["valor"].strip()], ensure_ascii=False)
-    row["sin_cas_bueno"] = "; ".join(f"{r['campo']}: {site(r['fuente'])} ({r['nota']})" for k, v in reads.items() if k[0] == n for r in v if not page_cas_ok(r, c["cas"]))
+    row["sin_cas_bueno"] = "; ".join(f"{r['campo']}: {site(r['fuente'])} ({r['nota']})" for k, v in reads.items() if k[0] == n for r in v if not page_cas_ok(r, c["cas"], c["tipo"] != "molecula"))
     out.append(row)
 
 with open(OUT, "w", encoding="utf-8", newline="") as f:
