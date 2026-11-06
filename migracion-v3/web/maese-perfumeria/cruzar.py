@@ -230,12 +230,14 @@ def main():
             "pm_tira": cands[0]["subst"] if len(cands) == 1 else "",
             "comun": " | ".join(r["name"] for r in com[:3]),
             "comun_impacto": " | ".join(r["impact"] or "—" for r in com[:3]),
+            "comun_fuerza": " | ".join(r["strength"] or "—" for r in com[:3]),
+            "comun_id": " | ".join(r["id"] for r in com[:3]),
         })
         out.append(row)
     cols = ["n", "categoria", "nombre_web", "url", "estado", "tipo", "h1", "inci", "cas_web", "cas",
             "cas_disolvente", "cas_check", "pureza", "pct_declarado", "cargas", "graduacion", "apto",
             "nota_web", "pm_como", "pm_proceso", "pm_n", "pm_nombres", "pm_url", "pm_impacto", "pm_rango",
-            "pm_dilucion", "pm_tira", "comun", "comun_impacto"]
+            "pm_dilucion", "pm_tira", "comun", "comun_id", "comun_impacto", "comun_fuerza"]
     with open(os.path.join(HERE, "cruce.csv"), "w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, cols, lineterminator="\n")
         w.writeheader()
