@@ -1814,6 +1814,17 @@ Y, a la pregunta de si se pasaba a la app en una rama nueva: «Sí, una PR a mai
 
 **Propuesta de la sesión, sin decidir:** la forma por defecto de cada material: resina o bálsamo por su forma o nombre, meseta; si no, por el piso (salida, fugaz; salida-corazón, salida; corazón, corazón; corazón-fondo, corazón por debajo de 100 h y lineal desde ahí; fondo, lineal); sin piso, por las horas. Se cambia en cada línea del plan. La maqueta, el cruce de datos y los dos informes de investigación están en la carpeta del proyecto, `planificador-perfil/`.
 
+## V3-99 · El catálogo de Maese Lab entra en lo común, y las altas se completan (pedida por el usuario el 2026-11-06; por definir cómo)
+
+**Literal** (orko kill, 2026-11-06, en el hilo de la tanda 45): «yo no los tengo pero los quiero dar de alta dentro de los generales, como siempre en los estandares de la app pero creo que es clave tener todo el glosario de maese dentro de la app, en parte es personal porque pronto hare un workshop y creo que la mayoria de materiales que usare son de maese pero aun asi creo que tener un glosario entero de un vendedor importante ya es mucha ampliacion en los recursos de los materiales, por otro lado a futuro podria hacer lo mismo con otras plataformas de venta y que estas esten bajo algun filtro que no enturbie el banco de materiales por ejemplo la posibilidad de desactivar materiales de proveedores concretos por casas...». Y después: «y lo importante es que se contraste las altas de referencia y se mire que falta para estos materiales y para otros que se quedaron con una "alta rapida" y no estan completos y que en ambos casos se complete el alta».
+
+**Lectura** (de la sesión, para que la confirmes):
+
+- Los 556 de la tanda 45 entran en lo común con el estándar de siempre (nombre en inglés, familia, fuerza con su fuente, horas en tira, uso, IFRA por CAS, descriptores, datos físicos), contrastados con las fuentes de referencia (PerfuMate, TGSC, la casa, Fraterworks, Scentspiracy…).
+- Los comunes de antes que entraron con un «alta rápida» se completan con el mismo estándar.
+- **Por decidir:** cómo se guarda el catálogo de una tienda (tarjeta del hilo) y qué pasa con la fuerza que solo es estimada (V3-97).
+- **A futuro:** otras tiendas igual, y un filtro para apagar los materiales de un proveedor (o por casas) sin que enturbien el banco. Anotado en `docs/a-futuro.md`.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
