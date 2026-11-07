@@ -47,10 +47,8 @@ k,material,constituyente,cas_constituyente,valor,tipo,fuente,nota
 27,"Boswellia sacra (resin), resinoid",,,,,no lo dice ninguna fuente consultada: búsqueda «Boswellia sacra frankincense resinoid absolute allergen declaration SDS»; solo SDS de aceite esencial de otras especies,
 28,"Boswellia sacra (resin), tincture",,,,,no lo dice ninguna fuente consultada: misma búsqueda que k27; sin documento de tintura,
 2,"White beeswax, absolute",Ethanol,64-17-5,1-5,rango,"Hermitage Oils, https://hermitageoils.com/wp-content/uploads/2015/10/BEESWAX-ABSOLUTE-EN-2021_10_11.pdf, SDS Beeswax Absolute sección 3.1: «Ethanol 64-17-5 1.0% ≤C≤ 5.0%»","disolvente residual; SDS 2021-09-27, sin lote; el SDS no nombra Cera alba"
-1,"Butter, CO2 extract",,,,,no lo dice ninguna fuente consultada: sin especie ni proveedor en la lista; no buscado más,
 3,Suederal,,,,,"no lo dice ninguna fuente consultada: búsqueda «Suederal hydrogenated resin acid methyl esters SDS composition»; sin SDS de Suederal (Dragoco/Symrise), solo genéricos de otros productos",
 5,"Propolis, tincture",,,,,no lo dice ninguna fuente consultada: búsqueda «propolis tincture perfumery allergen declaration SDS»; solo literatura dermatológica,
-4,"Hyraceum, tincture",,,,,no lo dice ninguna fuente consultada: sin especie en la lista; no buscado,
 6,"Beeswax, tincture",,,,,"no lo dice ninguna fuente consultada: Hermitage y Eden leídos son de absoluto de cera, no de tintura; sin documento de tintura (el absoluto está en k2)",
 31,Guaiyl acetate (acetylated palo santo),"Bulnesia sarmienti, ext., acetate",94333-88-7,90-100,rango,"Perfumiarz, https://perfumiarz.com/cdn/shop/files/H01120_FDSu_02-24.pdf, FDS H01120 Acetate Gaiol sección 3: «BULNESIA SARMIENTI, EXT., ACETATE 94333-88-7 90-100»","SDS v10.1 2024-02-20; los rangos de la sección 3 suman 120-150%, verificar"
 31,Guaiyl acetate (acetylated palo santo),Guaiyl acetate,134-28-1,30-50,rango,"Perfumiarz, https://perfumiarz.com/cdn/shop/files/H01120_FDSu_02-24.pdf, FDS H01120 Acetate Gaiol sección 3: «GUAIYL ACETATE 134-28-1 30-50»","SDS v10.1 2024-02-20; los rangos de la sección 3 suman 120-150%, verificar"
@@ -59,13 +57,3 @@ k,material,constituyente,cas_constituyente,valor,tipo,fuente,nota
 14,"Amomum subulatum (fruit), tincture",,,,,no lo dice ninguna fuente consultada: búsqueda genérica «Aloe succotrina / Amomum / Angelica tincture extract allergen declaration SDS perfumery»; sin documento de esta especie y parte,
 16,"Villous cardamom, tincture",,,,,no lo dice ninguna fuente consultada: búsqueda genérica «Aloe succotrina / Amomum / Angelica tincture extract allergen declaration SDS perfumery»; sin documento de esta especie y parte,
 18,"Angelica polymorpha (root), tincture",,,,,no lo dice ninguna fuente consultada: búsqueda genérica «Aloe succotrina / Amomum / Angelica tincture extract allergen declaration SDS perfumery»; sin documento de esta especie y parte,
-8,"Agrocybe aegerita (fruit), tincture",,,,,no lo dice ninguna fuente consultada: no buscado individualmente: tintura de especie sin proveedor conocido; la búsqueda genérica de tinturas no halló nada,
-13,"Alpinia katsumadai (seed), tincture",,,,,no lo dice ninguna fuente consultada: no buscado individualmente: tintura de especie sin proveedor conocido; la búsqueda genérica de tinturas no halló nada,
-15,"Amomum verum (seed), tincture",,,,,no lo dice ninguna fuente consultada: no buscado individualmente: tintura de especie sin proveedor conocido; la búsqueda genérica de tinturas no halló nada,
-22,"Arctium lappa (leaf), tincture",,,,,no lo dice ninguna fuente consultada: no buscado individualmente: tintura de especie sin proveedor conocido; la búsqueda genérica de tinturas no halló nada,
-24,"Artemisia maritima (aerial parts), tincture",,,,,no lo dice ninguna fuente consultada: no buscado individualmente: tintura de especie sin proveedor conocido; la búsqueda genérica de tinturas no halló nada,
-29,"Brassica nigra (leaf), tincture",,,,,no lo dice ninguna fuente consultada: no buscado individualmente: tintura de especie sin proveedor conocido; la búsqueda genérica de tinturas no halló nada,
-30,"Brassica rapa (root), tincture",,,,,no lo dice ninguna fuente consultada: no buscado individualmente: tintura de especie sin proveedor conocido; la búsqueda genérica de tinturas no halló nada,
-32,"Bursera bipinnata (resin), tincture",,,,,no lo dice ninguna fuente consultada: no buscado individualmente: tintura de especie sin proveedor conocido; la búsqueda genérica de tinturas no halló nada,
-33,"Bursera excelsa (resin), tincture",,,,,no lo dice ninguna fuente consultada: no buscado individualmente: tintura de especie sin proveedor conocido; la búsqueda genérica de tinturas no halló nada,
-36,"Bursera jorullense (resin), tincture",,,,,no lo dice ninguna fuente consultada: no buscado individualmente: tintura de especie sin proveedor conocido; la búsqueda genérica de tinturas no halló nada,
