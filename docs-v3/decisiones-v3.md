@@ -1802,7 +1802,7 @@ Y, a la pregunta de si se pasaba a la app en una rama nueva: «Sí, una PR a mai
 
 - La cantidad: «Partes libres + botones rápidos».
 - La curva sin evolución medida: «Meseta y caída, marcada estimada»; y después, a mano: «tiene que ser estandar formas tipo seguro en todo caso luego cada usuario puede sobrescribir a placer».
-- Dónde vive: «Plantilla de la fórmula».
+- Dónde vive: «Plantilla de la fórmula». [Confirmado y ampliado por V3-100 (2026-11-06): el plan sigue siendo de cada fórmula, y se llega a él desde la cabecera del banco y desde Formulation.]
 - La potencia sin umbrales: «Impacto 1–10 de PerfuMate»; del impacto al peso: «Lineal: peso = impacto». Sustituyen a «Doble por nivel: ×1 ×2 ×4 ×8».
 - Qué es competir: «≥ 1/3 del líder + aviso de 3–4». Sustituye a «≥ 5 % y, al lado, "equivale a"».
 - La intensidad, que no crece lineal: «Índice + vista percibida (n=0,25)». Por defecto, el índice cantidad × impacto; un botón cambia a la intensidad percibida (índice^0,25), con el exponente rotulado como supuesto y editable (Stevens: 0,15 a 0,3 en Cain 1969, Berglund 1971, Doty 1975).
@@ -1824,6 +1824,26 @@ Y, a la pregunta de si se pasaba a la app en una rama nueva: «Sí, una PR a mai
 - **Las claves son secretos del repositorio**, fuera de Git: `DATABASE_URL_CLOUD` (la del pooler de sesión de Supabase, porque GitHub no llega por IPv6), `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `VITE_POWERSYNC_URL`, `CLOUDFLARE_API_TOKEN` y `CLOUDFLARE_ACCOUNT_ID`.
 - **Quedan a mano:** el `sync-config.yaml` en el panel de PowerSync Cloud (la Action avisa cuando cambia) y las tandas de la cuenta, que llevan tu correo.
 - Cambia la regla «Fusionado no es publicado» de `CLAUDE.md` (2026-10-27).
+
+## V3-100 · El plan es de cada fórmula, con una entrada a la vista (decidida por el usuario el 2026-11-06; confirma y amplía V3-98)
+
+**Pregunta** (BL-004, maqueta https://claude.ai/artifact/Y97SXpYfHsEL48Ze6WbYLd): ¿el plan sigue siendo una capa de la fórmula (A), pasa a ser un paso visible de la fórmula (B), un espacio propio (C) o un plan del banco (D, que proponía la sesión)?
+
+**Respuesta literal** (orko kill, 2026-11-06): «a ver pero de entrada esto es significativamente diferente a lo que hay ahora viviendo en la app, si es solo para el planteamiento esta mejor pero el estado de antes era mucho mejor con el grafico de antes, que hay ahora viviendo en la app, en lo que respecta al plan para todo el banco no tiene sentido cada formula puede, aunque no deba, puede tener su plan propio». Y, sobre la lectura de la sesión: «sí, confirmo, con la B».
+
+**Lectura** (de la sesión, confirmada):
+
+- **El plan es de la fórmula**, como en V3-98: `formula_plan_lines` no cambia y no hay migración. Una versión nueva copia el plan de su madre y desde ahí va por su cuenta.
+- **El planificador no cambia:** su línea de tiempo y sus gráficos se quedan como están publicados.
+- **B, la entrada a la vista:** un botón «Plan» en la cabecera del banco, y en Formulation una marca en las fórmulas que tienen plan. Sigue «Options ▾ → Plan the profile» y la tarjeta «Weighed against the plan».
+- **Importar un plan** escribe en una fórmula: una nueva con el nombre del plan, o una que ya exista.
+- Fuera: el plan del banco (D) y el espacio propio (C).
+
+**El formato de archivo** (el usuario, 2026-11-06, a la pregunta de la sesión sobre los nombres de los campos, dónde van `name`, `created` y `source` y si `group` lleva migración: «sí, visto bueno a todo, con la (a)»):
+
+- `perfumeria/plan/1`, con los campos de la propuesta del 6-nov: `format`, `name`, `created`, `source`, `partsBasis` y, por línea, `material`, `materialId`, `cas`, `parts` (texto decimal exacto), `shape` y `group`. Un formato desconocido se rechaza entero.
+- `name` da nombre a una fórmula nueva; en las notas de la fórmula queda una línea con de dónde viene el plan.
+- `group` se guarda en `formula_plan_lines.group_name` (migración `20261106201729_plan_group`) y se enseña; el peso de cada grupo sigue sin decidir.
 
 ## Pendientes
 

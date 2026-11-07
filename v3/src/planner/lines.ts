@@ -19,6 +19,8 @@ export interface ShownLine extends PlanLine {
   readonly rowId: string;
   readonly picked: ShapeId | null;
   readonly fallback: ShapeId | null;
+  /** The group an imported plan put it in (V3-100): only shown. */
+  readonly group: string | null;
 }
 
 /** The plan's rows with their materials' data. A material not in the copy keeps its line, with nothing known. */
@@ -41,6 +43,7 @@ export function planLinesOf(catalog: Catalog, rows: readonly PlanRow[]): ShownLi
       shape: r.shape ?? fallback,
       picked: r.shape,
       fallback,
+      group: r.groupName,
     };
   });
 }

@@ -7,11 +7,40 @@ import { PALETTE } from "../families/palette";
 import type { GlossaryData } from "../glossary/useGlossary";
 import { texts } from "../i18n/en";
 import { MaterialPicker } from "../MaterialPicker";
+import { Button } from "../Button";
+import type { Catalog } from "../db/catalog";
+import { planToJson } from "./plan-json";
 import { planLinesOf, type ShownLine } from "./lines";
+import { partsText } from "./parts-text";
 import { indexAt, level, MOMENTS, PERCEIVED_EXPONENT, PLATEAU_SLOW, profileAt, SHAPE_IDS, type ShapeId } from "./profile";
 import "./planner.css";
 
 const t = texts.planner;
+
+/** The plan as a perfumeria/plan/1 file (V3-100): each line with its id, its CAS and the shape you picked. */
+export function planFile(catalog: Catalog, name: string, rows: readonly PlanRow[]): string {
+  const casOf = (id: string) => {
+    let m = catalog.materials.get(id);
+    for (let i = 0; m && i < 10; i++) {
+      if (m.cas) return m.cas;
+      m = m.basedOnId ? catalog.materials.get(m.basedOnId) : undefined;
+    }
+    return null;
+  };
+  return planToJson({
+    name,
+    created: new Date().toISOString().slice(0, 10),
+    lines: rows.map((r) => ({ material: catalog.materials.get(r.materialId)?.name ?? "—", materialId: r.materialId, cas: casOf(r.materialId), parts: r.parts, shape: r.shape, group: r.groupName })),
+  });
+}
+
+function downloadPlan(name: string, text: string) {
+  const url = URL.createObjectURL(new Blob([text], { type: "application/json;charset=utf-8" }));
+  const slug = name.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "plan";
+  const a = Object.assign(document.createElement("a"), { href: url, download: `${slug}.plan.json` });
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
 
 /** The plan of a formula, live from the copy. */
 export function usePlan(local: LocalDatabase, formulaId: string): readonly PlanRow[] {
@@ -42,15 +71,13 @@ const pct = (x: number) => `${(x * 100).toFixed(x < 0.1 ? 1 : 0)} %`;
 const when = (h: number) => (h === 0 ? t.justApplied : h < 1 ? `${Math.round(h * 60)} min` : h < 48 ? `${h} h` : `${Math.round(h / 24)} days`);
 const hoursOf = (l: ShownLine) => (l.hours ? Number(l.hours.num) / Number(l.hours.den) : null);
 const shortName = (name: string) => name.split(",")[0];
-/** Parts as written: «18», «0.5», never «0.500». */
-const partsText = (parts: Ratio) => formatDecimal(parts, parts.isInteger() ? 0 : 3).replace(/(\.\d*?)0+$/, "$1").replace(/\.$/, "");
 
 /**
  * The aromatic profile planner (V3-98), the formula's template: the materials it will carry in parts,
  * how they share the space by parts × impact, how each fades on a blotter, and how many compete at
  * each moment. Nothing here weighs: the bench compares what is weighed with it.
  */
-export function Planner(props: { data: GlossaryData; local: LocalDatabase; formulaId: string; onBack: () => void }) {
+export function Planner(props: { data: GlossaryData; local: LocalDatabase; formulaId: string; onBack: () => void; onImport?: () => void }) {
   const { data, local, formulaId } = props;
   const rows = usePlan(local, formulaId);
   const lines = useMemo(() => planLinesOf(data.catalog, rows), [data.catalog, rows]);
@@ -74,6 +101,8 @@ export function Planner(props: { data: GlossaryData; local: LocalDatabase; formu
       options={options}
       error={error}
       onBack={props.onBack}
+      onImport={props.onImport}
+      onExport={rows.length > 0 ? () => downloadPlan(name, planFile(data.catalog, name, rows)) : undefined}
       onAdd={(id) => write(() => setPlanParts(local.db, local.userId, formulaId, id, Ratio.ONE))}
       onParts={(l, parts) => write(() => setPlanParts(local.db, local.userId, formulaId, l.key, parts))}
       onShape={(l, shape) => write(() => setPlanShape(local.db, local.userId, l.rowId, shape))}
@@ -89,6 +118,9 @@ export function PlannerView(props: {
   options: readonly { readonly id: string; readonly name: string }[];
   error: string | null;
   onBack: () => void;
+  /** «Import plan» and «Export plan» (V3-100); without them, the head shows neither. */
+  onImport?: () => void;
+  onExport?: () => void;
   onAdd: (materialId: string) => void;
   onParts: (line: ShownLine, parts: Ratio) => void;
   onShape: (line: ShownLine, shape: ShapeId | null) => void;
@@ -125,6 +157,20 @@ export function PlannerView(props: {
         </button>
         <h1>{t.of(name)}</h1>
         <span className="planner-tag">{t.onBlotter}</span>
+        {(props.onImport || props.onExport) && (
+          <span className="planner-io">
+            {props.onImport && (
+              <Button variant="secondary" onClick={props.onImport}>
+                {texts.importPlan.button}
+              </Button>
+            )}
+            {props.onExport && (
+              <Button variant="secondary" onClick={props.onExport}>
+                {texts.importPlan.export}
+              </Button>
+            )}
+          </span>
+        )}
       </header>
       <p className="planner-intro">{t.intro}</p>
       {error && (
@@ -269,6 +315,7 @@ function PlanLineRow(props: { line: ShownLine; onParts: (parts: Ratio) => void; 
       <span className="planner-dot" style={{ background: colour(l) }} aria-hidden="true" />
       <span className="planner-name">
         {l.name}
+        {l.group && <small className="planner-group">{l.group}</small>}
         <small>
           {l.impact !== null ? t.impact(l.impact) : <span className="planner-unknown">{t.noImpact}</span>} ·{" "}
           {hours !== null ? t.hours(formatDecimal(l.hours!, l.hours!.isInteger() ? 0 : 1)) : <span className="planner-unknown">{t.noHours}</span>} ·{" "}

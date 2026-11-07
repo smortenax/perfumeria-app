@@ -5,6 +5,7 @@ import { createFormula, createWorkbench, deleteWorkbench } from "./db/formulas";
 import { copySpecification, createVersion, setHave, setHaveMany } from "./db/materials";
 import { Bench } from "./bench/Bench";
 import { Planner } from "./planner/Planner";
+import { ImportPlan } from "./planner/ImportPlan";
 import { Glossary } from "./glossary/Glossary";
 import { Library } from "./formulation/Library";
 import { MaterialEditor } from "./glossary/MaterialEditor";
@@ -99,7 +100,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
       )}
     </button>
   );
-  const section = route.view === "home" ? "home" : route.view === "library" ? "library" : route.view === "tasting" || route.view === "strip" ? "tasting" : route.view === "dilutions" || route.view === "bottle" || route.view === "newBottle" ? "dilutions" : route.view === "formula" || route.view === "plan" ? "bench" : "materials";
+  const section = route.view === "home" ? "home" : route.view === "library" ? "library" : route.view === "tasting" || route.view === "strip" ? "tasting" : route.view === "dilutions" || route.view === "bottle" || route.view === "newBottle" ? "dilutions" : route.view === "formula" || route.view === "plan" || (route.view === "importPlan" && route.from === "formula") ? "bench" : route.view === "importPlan" ? "library" : "materials";
   const n = texts.nav;
 
   return (
@@ -189,6 +190,7 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
               onNewBench={(name) => void createWorkbench(local.db, local.userId, { name }).catch(fail)}
               onDeleteBench={(id) => void deleteWorkbench(local.db, local.userId, id).catch(fail)}
               openBench={data.formulas.find((f) => f.id === lastFormula)?.workbenchId}
+              onImportPlan={(workbenchId) => go({ view: "importPlan", from: "bench", id: workbenchId })}
               onNew={(workbenchId) =>
                 void createFormula(local.db, local.userId, { name: texts.glossary.newFormulaName, workbenchId }).then((id) => go({ view: "formula", id }), fail)
               }
@@ -270,7 +272,26 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
               />
             </div>
           )}
-          {route.view === "plan" && <Planner data={data} local={local} formulaId={route.id} onBack={() => back({ view: "formula", id: route.id })} />}
+          {route.view === "plan" && (
+            <Planner
+              data={data}
+              local={local}
+              formulaId={route.id}
+              onBack={() => back({ view: "formula", id: route.id })}
+              onImport={() => go({ view: "importPlan", from: "formula", id: route.id })}
+            />
+          )}
+          {route.view === "importPlan" && (
+            <ImportPlan
+              key={`${route.from}/${route.id}`}
+              data={data}
+              local={local}
+              formulaId={route.from === "formula" ? route.id : undefined}
+              workbenchId={route.from === "bench" ? route.id : undefined}
+              onDone={(id) => go({ view: "plan", id }, true)}
+              onCancel={() => back(route.from === "formula" ? { view: "plan", id: route.id } : { view: "library" })}
+            />
+          )}
           {route.view === "import" && <ImportSheet data={data} local={local} onDone={() => go({ view: "materials" })} onCancel={() => back({ view: "materials" })} />}
           {route.view === "shopping" && <ShoppingList data={data} local={local} onOpenMaterial={(id) => go({ view: "sheet", id })} />}
           {route.view === "new" && <NewMaterial local={local} onCreated={(id) => go({ view: "edit", id }, true)} onCancel={() => back({ view: "materials" })} />}
@@ -295,7 +316,9 @@ type Route =
   | { readonly view: "newBottle"; readonly materialId: string }
   | { readonly view: "tasting"; readonly tab: TastingTab }
   | { readonly view: "strip"; readonly id: string }
-  | { readonly view: "sheet" | "edit" | "formula" | "plan"; readonly id: string };
+  | { readonly view: "sheet" | "edit" | "formula" | "plan"; readonly id: string }
+  /** «Import a plan» (V3-100): from a formula's planner, or from a bench in Formulation. */
+  | { readonly view: "importPlan"; readonly from: "formula" | "bench"; readonly id: string };
 
 /** Where the app is lives in the address, so the browser's back works: «#materiales», «#formulacion», «#material/<id>»… */
 function parseRoute(hash: string): Route {
@@ -305,6 +328,8 @@ function parseRoute(hash: string): Route {
   if (f) return { view: "formula", id: f[1] };
   const plan = /^#plan\/([^/]+)$/.exec(hash);
   if (plan) return { view: "plan", id: plan[1] };
+  const importPlan = /^#importar-plan\/(formula|banco)\/([^/]+)$/.exec(hash);
+  if (importPlan) return { view: "importPlan", from: importPlan[1] === "formula" ? "formula" : "bench", id: importPlan[2] };
   if (hash === "#nuevo") return { view: "new" };
   if (hash === "#materiales") return { view: "materials" };
   if (hash === "#formulacion") return { view: "library" };
@@ -338,6 +363,8 @@ const hashOf = (r: Route) =>
     ? `#formula/${r.id}`
     : r.view === "plan"
       ? `#plan/${r.id}`
+      : r.view === "importPlan"
+        ? `#importar-plan/${r.from === "formula" ? "formula" : "banco"}/${r.id}`
       : r.view === "bottle"
       ? `#dilucion/${r.id}`
       : r.view === "newBottle"

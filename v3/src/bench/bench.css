@@ -3164,6 +3164,14 @@
     color: var(--ink);
   }
 
+  /* The plan's door (V3-100): a word, not an icon, so it is found without remembering it. */
+  .head-actions .tool.plan-door {
+    width: auto;
+    padding: 0 14px;
+    font: inherit;
+    font-weight: 700;
+  }
+
   .options-wrap {
     position: relative;
     display: flex;

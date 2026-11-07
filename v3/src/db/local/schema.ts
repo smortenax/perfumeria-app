@@ -305,6 +305,7 @@ export const formulaPlanLines = sqliteTable("formula_plan_lines", {
   parts: text("parts"),
   shape: text("shape"),
   position: integer("position"),
+  groupName: text("group_name"),
   ...timestamps,
 });
 
