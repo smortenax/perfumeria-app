@@ -1,0 +1,201 @@
+{
+  "format": "perfumeria/plan/1",
+  "name": "Zara Tobacco IDE · reparto áureo por pisos v4",
+  "created": "2026-11-06",
+  "source": "perfumeria-lab: formulaciones/ff/no-encargos/zara-tobacco/intense-dark-exclusive/documentos/2026-11-06-reparto-aureo-pisos-v4.md",
+  "partsBasis": "pure material, relative",
+  "lines": [
+    {
+      "material": "Bergamot, bergapten-free",
+      "materialId": "798f4933-21c6-5840-a52b-8f4d4bf10c64",
+      "cas": "68648-33-9",
+      "parts": "2.42",
+      "group": "Salida · Cítrico-ácido"
+    },
+    {
+      "material": "Linalool",
+      "materialId": "aed7c3f9-5e0d-569c-8846-03505f675bb8",
+      "cas": "78-70-6",
+      "parts": "1.49",
+      "group": "Salida · Cítrico-ácido"
+    },
+    {
+      "material": "Dihydromyrcenol",
+      "materialId": "4b92b472-dea7-5138-a2fa-8de78181afa5",
+      "cas": "18479-58-8",
+      "parts": "0.79",
+      "group": "Salida · Cítrico-ácido"
+    },
+    {
+      "material": "Wormwood, essential oil",
+      "materialId": "40f89c9f-8ef5-5f92-87a9-31d9454a3194",
+      "cas": "8008-93-3",
+      "parts": "0.43",
+      "group": "Salida · Cítrico-ácido"
+    },
+    {
+      "material": "Manzanate",
+      "materialId": "2af343c4-8fcb-54b8-9686-55d59df82860",
+      "cas": "39255-32-8",
+      "parts": "3.25",
+      "group": "Salida-corazón · Manzana y cassis"
+    },
+    {
+      "material": "Allyl Amyl Glycolate",
+      "materialId": "4b077177-b545-5f0f-8b44-fd0c72c22db3",
+      "cas": "67634-00-8",
+      "parts": "2.00",
+      "group": "Salida-corazón · Manzana y cassis"
+    },
+    {
+      "material": "Cassis Base 345 B",
+      "materialId": "15271dd5-2bab-5ed0-a742-f86d66485282",
+      "parts": "1.24",
+      "group": "Salida-corazón · Manzana y cassis"
+    },
+    {
+      "material": "Black pepper, absolute",
+      "materialId": "49ea9a32-0751-5759-9f43-9811d76b4d54",
+      "cas": "8006-82-4",
+      "parts": "7.03",
+      "group": "Corazón · Pimienta y frescor"
+    },
+    {
+      "material": "Mayol",
+      "materialId": "80cdabab-46a8-5844-b8a7-d55b2005a780",
+      "cas": "13828-37-0",
+      "parts": "6.52",
+      "group": "Corazón · Pimienta y frescor"
+    },
+    {
+      "material": "Prunella",
+      "materialId": "32b2d283-5e18-5609-aa85-e73c813388cf",
+      "parts": "2.30",
+      "group": "Corazón · Pimienta y frescor"
+    },
+    {
+      "material": "Kephalis",
+      "materialId": "c8896fa6-8958-575e-bd2b-ec417fce3bd3",
+      "cas": "36306-87-3",
+      "parts": "13.63",
+      "group": "Corazón-fondo · Madera de corazón"
+    },
+    {
+      "material": "Vertenex (PTBCHA)",
+      "materialId": "54b91bc4-e0b7-5b89-bc53-da87c5312a00",
+      "cas": "32210-23-4",
+      "parts": "8.42",
+      "group": "Corazón-fondo · Madera de corazón"
+    },
+    {
+      "material": "Aldehyde C18 (gamma-nonalactone)",
+      "materialId": "11281cd2-4341-5e1b-9e49-cc2c367de10c",
+      "cas": "104-61-0",
+      "parts": "3.72",
+      "group": "Corazón-fondo · Madera de corazón"
+    },
+    {
+      "material": "Natural coumarin",
+      "materialId": "ae1cab23-77cc-54c6-b509-3a1aed02a4ac",
+      "cas": "91-64-5",
+      "parts": "5.06",
+      "group": "Fondo · Dulce"
+    },
+    {
+      "material": "Ethyl vanillin",
+      "materialId": "96d723c1-3334-5960-a545-dc17ab203dae",
+      "cas": "121-32-4",
+      "parts": "2.43",
+      "group": "Fondo · Dulce"
+    },
+    {
+      "material": "Tonka bean (seeds), commercial tincture",
+      "materialId": "bd30c4f7-e2fd-5091-9fad-bd8e9fd565b6",
+      "cas": "90028-06-1",
+      "parts": "1.93",
+      "group": "Fondo · Dulce"
+    },
+    {
+      "material": "Benzoin resinoid",
+      "materialId": "09b9cadf-1311-5002-b027-5f0a0b77bfdb",
+      "cas": "9000-72-0",
+      "parts": "1.67",
+      "group": "Fondo · Dulce"
+    },
+    {
+      "material": "Ethyl Maltol",
+      "materialId": "00acd9d3-9918-55cd-ba14-e0621469a8f1",
+      "cas": "4940-11-8",
+      "parts": "0.65",
+      "group": "Fondo · Dulce"
+    },
+    {
+      "material": "Timbersilk",
+      "parts": "4.65",
+      "group": "Fondo · Madera de fondo"
+    },
+    {
+      "material": "Iso E Super",
+      "materialId": "e212c9e2-cd71-530c-9dff-5098c0d3fa19",
+      "cas": "54464-57-2",
+      "parts": "7.17",
+      "group": "Fondo · Madera de fondo"
+    },
+    {
+      "material": "Cashmeran",
+      "materialId": "d7d171a5-b8d2-5e94-b75b-3629fba7669b",
+      "cas": "33704-61-9",
+      "parts": "1.48",
+      "group": "Fondo · Madera de fondo"
+    },
+    {
+      "material": "Ambermor",
+      "materialId": "beb2bf23-02ba-5bb0-b23c-52e53350b648",
+      "cas": "6790-58-5",
+      "parts": "0.68",
+      "group": "Fondo · Madera de fondo"
+    },
+    {
+      "material": "Habanolide",
+      "materialId": "a775bc0a-ac54-533c-9b3e-c767deb1417d",
+      "cas": "111879-80-2",
+      "parts": "7.74",
+      "group": "Fondo · Almizcles"
+    },
+    {
+      "material": "Galaxolide",
+      "materialId": "bf546832-255d-502b-ac7d-cb76f3a8be74",
+      "cas": "1222-05-5",
+      "parts": "4.78",
+      "group": "Fondo · Almizcles"
+    },
+    {
+      "material": "Ambrettolide",
+      "materialId": "e4d36415-6b7e-513b-9d8b-65d0e4373e62",
+      "cas": "63286-42-0",
+      "parts": "1.78",
+      "group": "Fondo · Almizcles"
+    },
+    {
+      "material": "Raspberry ketone",
+      "materialId": "f8611ea1-022b-57ff-b63c-3261640023da",
+      "cas": "5471-51-2",
+      "parts": "1.82",
+      "group": "Fondo · Almizcles"
+    },
+    {
+      "material": "Veramoss",
+      "materialId": "02a466c2-feeb-50eb-9dd7-e544e8335d00",
+      "cas": "4707-47-5",
+      "parts": "3.34",
+      "group": "Fondo · Oscuro"
+    },
+    {
+      "material": "Castoreum",
+      "materialId": "dd7f46b0-6edc-5ef6-bfe2-3167b66f1308",
+      "cas": "8023-83-4",
+      "parts": "1.55",
+      "group": "Fondo · Oscuro"
+    }
+  ]
+}

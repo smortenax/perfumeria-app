@@ -439,3 +439,51 @@
 .bench-root .against-plan .link {
   align-self: flex-start;
 }
+
+/* «Import plan» and «Export plan» (V3-100), at the end of the head. */
+.planner-io {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-left: auto;
+}
+
+/* «Import a plan»: the review. A line that is not imported is grey, and says why. */
+.import-plan-table {
+  overflow-x: auto;
+}
+.import-plan .import-list .num {
+  text-align: right;
+  font-family: var(--font-figures);
+  font-variant-numeric: tabular-nums;
+}
+.import-plan .import-off td {
+  color: var(--text-muted);
+  background: var(--surface-sunken);
+}
+.import-plan .import-problem {
+  color: var(--status-amber);
+}
+.import-plan-where {
+  display: grid;
+  gap: 8px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-panel);
+  padding: 12px;
+}
+.import-plan-where label.check {
+  min-height: var(--size-target);
+}
+.import-plan-mode {
+  display: grid;
+  gap: 4px;
+}
+.planner-group {
+  color: var(--text-muted);
+}
+.import-plan .import-list td:last-child {
+  min-width: 10rem;
+}
+.import-plan .import-plan-where input[type="radio"] {
+  width: auto;
+}

@@ -1,0 +1,1 @@
+ALTER TABLE "formula_plan_lines" ADD COLUMN "group_name" text;

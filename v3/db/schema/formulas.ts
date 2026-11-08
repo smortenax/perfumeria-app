@@ -220,6 +220,11 @@ export const formulaPlanLines = pgTable(
     shape: text("shape"),
     /** The order the user wrote them in. */
     position: smallint("position").notNull().default(0),
+    /**
+     * The block, link or floor the line belongs to, as the imported plan names it (V3-100). Only kept
+     * and shown: the weight of a group is still to be decided (the proposal's point 4).
+     */
+    groupName: text("group_name"),
     ...timestamps,
   },
   (t) => [
