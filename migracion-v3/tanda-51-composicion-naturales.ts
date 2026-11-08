@@ -1,5 +1,5 @@
 /**
- * Batch 51 (V3-100): what published documents say a natural contains, for the naturals that IFRA's annex
+ * Batch 51 (V3-101): what published documents say a natural contains, for the naturals that IFRA's annex
  * does not cover. The user, 2026-11-07: «Lo más importante es lo que falta de restricciones de ifra» and
  * «Todo lo que son tinturas y c02 o extracciones naturales se agrupan y se buscan en algún referente online
  * donde estén publicados».
@@ -103,7 +103,7 @@ writeFileSync(
 
 *Generada por \`migracion-v3/tanda-51-composicion-naturales.ts\` sobre \`${BASE}\`, desde \`${WEB}/\`. Escribe \`v3/datos/material_components.csv\` entero, con estas filas añadidas; las de antes no cambian. Va con las tandas 46 a 50 (sus materiales). Sin aprobar.*
 
-**Por qué** (V3-100): el usuario, 2026-11-07: «Lo más importante es lo que falta de restricciones de ifra» y «Todo lo que son tinturas y c02 o extracciones naturales se agrupan y se buscan en algún referente online donde estén publicados».
+**Por qué** (V3-101): el usuario, 2026-11-07: «Lo más importante es lo que falta de restricciones de ifra» y «Todo lo que son tinturas y c02 o extracciones naturales se agrupan y se buscan en algún referente online donde estén publicados».
 
 **Cómo:** de los 562 comunes tras las tandas 46 a 50, ${list.length} naturales no se podían comprobar contra IFRA 51: ni están en su anexo por CAS ni tienen composición (\`/mnt/project-files/maese/ifra-por-material.csv\`). Se agruparon por especie y se buscó cada uno en la web: declaración de alérgenos, certificado IFRA, ficha de seguridad o análisis publicado de la misma especie, parte y forma (\`${WEB}/ifra-*.csv\`, con la línea literal). Las cifras son lo que el material lleva, no límites de IFRA (V3-35). Son de un documento del proveedor o de la literatura, no del frasco comprado: autoridad «literature», así que la app dirá «acotado», nunca «dentro».
 

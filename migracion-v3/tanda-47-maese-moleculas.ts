@@ -1,5 +1,5 @@
 /**
- * Batch 47 (V3-100): Maese Lab's aroma chemicals that are not yet common, as common materials with a full
+ * Batch 47 (V3-101): Maese Lab's aroma chemicals that are not yet common, as common materials with a full
  * sheet. The user, 2026-11-06: «creo que es clave tener todo el glosario de maese dentro de la app» and
  * «lo importante es que se contraste las altas de referencia […] y que en ambos casos se complete el alta».
  *
@@ -144,7 +144,7 @@ writeFileSync(
 
 *Generada por \`migracion-v3/tanda-47-maese-moleculas.ts\` sobre lo común de \`${BASE}\` **con la tanda 46** (se aprueba después de ella), desde \`${PROPOSAL}\`. Escribe \`v3/datos/materials.csv\`, \`material_categories.csv\`, \`material_descriptors.csv\` y \`material_doses.csv\` enteros, con estos añadidos: lo de antes no cambia. En inglés, como lo común desde la tanda 36. Sin aprobar.*
 
-**Por qué** (V3-100): el usuario, 2026-11-06: «creo que es clave tener todo el glosario de maese dentro de la app» y «lo importante es que se contraste las altas de referencia […] y que en ambos casos se complete el alta».
+**Por qué** (V3-101): el usuario, 2026-11-06: «creo que es clave tener todo el glosario de maese dentro de la app» y «lo importante es que se contraste las altas de referencia […] y que en ambos casos se complete el alta».
 
 **Cómo:** la ficha de Maese Lab de la tanda 45 (nombre, CAS comprobado, INCI, pureza y perfil, citados); para cada producto se leyeron hasta dos páginas de referencia (TGSC primero, y una independiente: Fraterworks, la casa, Perfumer's Apprentice…; \`migracion-v3/web/maese-altas/web-${TANDA}-*.csv\`, con la frase literal) y PerfuMate en local. Una página de otro CAS no cuenta. \`consolidar.py\` elige con las mismas reglas que la tanda 46: orden de referencias, y si no coinciden, va la primera y el campo queda disputado. El impacto, solo de PerfuMate y cuando es el mismo material (V3-97); la fuerza en palabras va aparte, en \`strength\`.
 
