@@ -1912,6 +1912,28 @@ Boceto: «El taller» (artifact privado del usuario). Lo que el usuario fue pidi
 
 **Regla que sale de aquí** (del usuario): lo visual se define y se evalúa sobre imágenes, en tablones, no con texto. Los tablones («Tablones de Perfumería», artifact privado del usuario) guardan su veredicto por imagen (sí, algo, no), qué le gusta y sus notas; de lo que marque sale el perfil de estilo. El inventario de funciones del banco y el boceto del órgano están en el artifact «El taller».
 
+### Los tablones, puntuados (2026-11-09)
+
+El usuario puntuó las 87 imágenes: 36 sí, 20 algo, 31 no. Sus veredictos y notas están en la base de datos del artifact «Tablones de Perfumería». **Literal** (orko kill, 2026-11-09):
+
+> que la app se sienta como un espacio artistico, rudimental, acogedor, con realismo en tema de los perfumes pero con una capa de misticismo que te transmita la sensacion de estar haciendo alquimia.
+> * las ilustracioens botanicas son buen referente pero hay que ver una manera practica de implementarlas y que sea intercompatible con lo que no so nmaterias primas naturales [...] no se si es pragamatico hacerlo a gran escala para todos los naturales.
+> * biseles bordes y detalles que en linea del estilo visual adornen la app pero siempre con sentido
+> * diario de formualas o materiales vivos donde se hace practico pasar por los productos no estas mirando entre carpetas parece que estas navegando realmetne entre algo real.
+> * hay ventajas por encima del mundo real [...] un boton de ordenar que te reparta los materiales en una especie de plano que los separa por olores como en un plano circular por ejemplo por familias, por lo tanto la libreria de materiales te pasa a ser una especie de menu donde los materiales se distribuyen por la familia a la que pertenecen y cuanto les identifica la familia [...] se podria hacer una manera de ordenar asi tambien para la duracion en horas o para la intensidad
+
+Notas suyas en los tablones, literales: sobre Potion Craft, «no me acaba de convencer el estilo de sombreado de lineas [...] pero por el resto tiene muchas coas rescatables»; «el recetario me gustaria explorarlo como concepto, quizas algo donde puedas ver las recetas de los perfumes ya acabados [...] tambien es un buen sitio para que sea el lugar principal dodnde se pesan los perfumes es decir que esta parte te guarde las porciones de los ingredientes y al ponerlos alla te de la receta para ml especificados»; sobre la guía de Monster Hunter, «me imagino mensajes como pop up saliendo de la ficha de un material»; «marco de madera como fondo si»; sobre Hades, «me gusta el concepto de que haya un fondo para cuando la pantalla no se ocupa entera, tambien los pop ups de notas para los mensajes contextuales»; sobre The Witcher, «los marcos aqui son bastante buena referencia»; sobre Book of Hours, «la parte mistica me llama pero los colores mas sobrios»; sobre Clair Obscur, «la textura paytron de fondo puede ser algo a exporar»; sobre la hoja de Disco Elysium, «buena distribucion [...] para previsualizar los bancos»; sobre los herbarios, «todo el tema de herbolario y de imaginario de hierbas o dibujos de herbolario cuadra».
+
+**Lectura de los veredictos** (de la sesión, propuesta):
+
+- **Papel, madera y objetos de verdad, sí; interfaces oscuras de juego, no.** Todas las pantallas negras (The Witcher, Hades, Hollow Knight, Dishonored, Darkest Dungeon, Inscryption) tienen «No». Ninguna imagen del tablón de noche tiene «Sí». **Esto corrige el boceto del órgano**, que era oscuro: la noche no es un tema negro.
+- **Imprenta de botica de los siglos XVI a XVIII, sí** (portadas de farmacopea, herbarios, tarjeta de químico); el manuscrito medieval de Pentiment, no.
+- **La lámina botánica como retrato del material.** En los datos hay 41 naturales de 39 especies, 108 moléculas y 12 composiciones: la lámina es abarcable para los naturales; hace falta un equivalente para lo demás.
+- **Casillas, cajones y estuches**: cada cosa en su compartimento (botiquines, botica, órgano).
+- **Adorno con oficio**: terciopelo y oro, grutescos, marcos; como textura y como marco, con sentido.
+- **Misticismo como una capa**, con colores sobrios: lo alquímico y la vela se quedan en «Algo».
+- **Ideas de función que salen de aquí**: el plano de materiales (por familia, duración o intensidad), que es el «Odour map» que estaba reservado; el recetario de perfumes terminados con su pesada a escala; las notas emergentes que salen de la ficha.
+
 **Lectura** (de la sesión, propuesta): la ficha queda en banda del nombre con la presencia del material (Codex, Bottles, Strips, Dilutions, Formulas, Perfumes, cada uno un enlace a su sitio), la entrada en una franja tipo ex-libris (categoría arriba, icono en medio, lectura debajo), el carácter con notas al margen firmadas y las notas en un cuaderno con pestañas. El menú es un riel de iconos y las etiquetas van en letra normal, sin versalitas. Los iconos de nota, impacto, fuerza y duración están por elegir en el estudio de iconos del boceto; la silueta por familia y la esfera, en `docs/a-futuro.md`.
 
 ## Pendientes
