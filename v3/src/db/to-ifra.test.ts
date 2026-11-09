@@ -323,6 +323,11 @@ describe("a limit expressed as a constituent (V3-27: STD 089, 5-MOP)", () => {
     const mine = material("my-bergamot", "natural", { ownerId: ME, basedOnId: "bergamot", components: [substance("484-20-8", "5-MOP", exact("0.001"))] });
     expect(substancesOf(catalogOf(bergamot, mine), layer, "my-bergamot")).toEqual([["std:furocumarinas", "1/100000", null]]);
   });
+
+  it("a figure of the literature also takes the place of the unknown amount: bounded by it, not by the whole (V3-103)", () => {
+    const fcf = material("fcf", "natural", { cas: "8007-75-8", components: [substance("484-20-8", "5-MOP", max("0.0005"), "literature")] });
+    expect(substancesOf(catalogOf(fcf), layer, "fcf")).toEqual([["std:furocumarinas", null, "1/200000"]]);
+  });
 });
 
 describe("what IFRA's annex says a natural brings (V3-23, V3-28, V3-39)", () => {
