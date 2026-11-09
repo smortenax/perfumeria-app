@@ -54,6 +54,8 @@ Cada fila: **qué**, **de dónde** (pregunta o fecha) y **qué no hay que cerrar
 | **El visualizador sinestésico** y el baremo de uso como variable | P34 | |
 | **Cómo estimula cada olor el cerebro** | P32, frente 7 | Se investiga antes de enseñar nada |
 | **Recuperar un punto del historial** | §3.4, §8 | |
+| **Una silueta propia para cada una de las diez familias**, además de su color, para la entrada del códice y donde salga la familia | V3-104, vueltas del boceto (2026-11-09): «para animal creo que aparte del color hay que hacer una silueta caracteristica para cada una de las familias de la app, esto se puede dejar como pendeinte pero apuntado» | El color de la familia sigue siendo el dato; la silueta se suma, no lo sustituye. Las diez familias de V3-76 |
+| **La esfera (el orbe) se redefine** como otra cosa | V3-104, 2026-11-09: «ahora la esfere esta por redefinirse a otra cosa» | En los bocetos queda un hueco reservado («symbol to come») en la banda del nombre |
 
 ## 3 · Las fórmulas
 

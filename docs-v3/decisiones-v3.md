@@ -1898,6 +1898,17 @@ Y, a la pregunta de si se pasaba a la app en una rama nueva: «Sí, una PR a mai
 - **Cuidado:** se toma del juego la mecánica (el códice que se llena) y de la película el mundo (el taller del XVIII), nunca su arte.
 - **Siguiente:** bocetos sobre pantallas reales (la ficha del láudano y el banco con Juancuir) con las opciones a la vista (D-0007 de la bóveda); de lo que elijas sale el perfil de estilo.
 
+### Vueltas del boceto (2026-11-09)
+
+Boceto: «El taller» (artifact privado del usuario). Lo que el usuario fue pidiendo, literal:
+
+1. «la esfere esta por redefinirse a otra cosa, el problema principal de esta imagen es que claramente se ve que no esta diseñado, le faltan separacion [...] puedes aplicar a esta version los principios de diseño como las leyes de gestalt y otros de los benchmark de diseño que tenemos» y «si entre cirreo los ojos todo se ve como un cuadrado blanco con letra borrosa, eso es un error de diseño».
+2. «la parte de la izquierda quita mucho espacio y la de la derecha un poco tambien [...] la legibilidade es dificil porque la letra forma mucha parte de la informacion creo que deberia estar enccabaezada con iconos al menos la primera parte de entrada».
+3. «el espacio de la categoria tiene que ir separado de la catagoria en si misma [...] separado icono en el medio con mas protagonismo [...] las aclaraciones y el texto equivalente al icono debajo del icono» y «la parte de notas creo que estaria mejor si fuera una especie de tabs tipo libreta».
+4. «la parte de ex libris quedaria bien para lo de familia nota impact strenght, la parte de yours creo que podria estar ligera de letras con los iconos en la parte de arriba [...] como si fuera una especie de checklist o de seguimiento de como usas o donde esta presente el material, tambien tiene sentido que ahi mismo haya hipervinculos para el sitio [...] si estas en formula y haces click a codex durante una formulacion te trae aqui». La tira, con la silueta de la foto que mandó («su silueta es mas reconocible la actual da a confusion con lapiz»); «en "on a strip" [...] lo que se pone es la duracion como tal»; «impact note and strenght tambien creo que hay que buscar una mejor manera».
+
+**Lectura** (de la sesión, propuesta): la ficha queda en banda del nombre con la presencia del material (Codex, Bottles, Strips, Dilutions, Formulas, Perfumes, cada uno un enlace a su sitio), la entrada en una franja tipo ex-libris (categoría arriba, icono en medio, lectura debajo), el carácter con notas al margen firmadas y las notas en un cuaderno con pestañas. El menú es un riel de iconos y las etiquetas van en letra normal, sin versalitas. Los iconos de nota, impacto, fuerza y duración están por elegir en el estudio de iconos del boceto; la silueta por familia y la esfera, en `docs/a-futuro.md`.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
