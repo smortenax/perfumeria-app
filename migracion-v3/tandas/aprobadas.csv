@@ -154,3 +154,5 @@ retirada-1-a-4,2026-10-14,"orko kill, 2026-10-14 (V3-34): «no sirven materiales
 52-tinturas,2026-11-09,"el usuario, 2026-11-09: «Si adelante»",material_components.csv,5638d3df1d9e0d2525589f98807bf0d050ba5cb3c91d5c4c8aa58fba1f5d332d
 52-tinturas,2026-11-09,"el usuario, 2026-11-09: «Si adelante»",materials.csv,ae5ba12948dfb2265c4e728e795b489cd16a0373138b6b7074fc777bc7cda928
 53-tu-ambar-gris,2026-11-09,"el usuario, 2026-11-09: «Si adelante»",cambiar.csv,5eaa7f60289dd61522b02feb0bd7bdea655d67143cd061afc65546eaeb9a66d7
+52-tinturas,2026-11-09,"corrección de formato de la sesión, 2026-11-09: la cifra «max» va en value, como pide material_components_amount; el contenido es el que aprobó el usuario («Si adelante»)",material_components.csv,af8c7aba2c2b602ddbd7a0c06a21a002e16e671be58f4a2448f853c947e40fe3
+52-tinturas,2026-11-09,"corrección de formato de la sesión, 2026-11-09: la cifra «max» va en value, como pide material_components_amount; el contenido es el que aprobó el usuario («Si adelante»)",materials.csv,ae5ba12948dfb2265c4e728e795b489cd16a0373138b6b7074fc777bc7cda928

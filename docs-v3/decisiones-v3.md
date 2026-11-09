@@ -1859,6 +1859,17 @@ Y, a la pregunta de si se pasaba a la app en una rama nueva: «Sí, una PR a mai
 - **El ámbar gris (opción A):** tu material es el ámbar gris puro, y el 10 % está solo en el frasco, como dijiste el 2026-10-31 («si en el futuro los tengo puros es poco practico»).
 - **Las tinturas de la tanda 50** (rama de Maese, sin aprobar) siguen la misma regla antes de aprobarse.
 
+## V3-103 · La bergamota sin bergaptenos: su 5-MOP deja de contar como el aceite entero (pedida por el usuario el 2026-11-09; tanda 54 sin aprobar)
+
+**Literal** (orko kill, 2026-11-09): «La bergamota simplemente da números muy fuera de lo esperado de la orden de 5000% por encima de lo normal con una gota de Ae sobre 2g de mezcla».
+
+**Lectura** (de la sesión, propuesta):
+
+- **La causa:** la bergamota sin bergaptenos es miembro del estándar 089, cuyo límite es de 5-MOP. Sin ninguna cifra de 5-MOP, la app lo contaba en el peor caso, como si todo el aceite fuera 5-MOP (V3-27).
+- **El código:** el 5-MOP «de cantidad desconocida» de V3-27 espera una cifra. Cualquier cifra del constituyente, de la autoridad que sea, ocupa su lugar; antes, al ser de autoridad IFRA, mandaba sobre la literatura.
+- **Los datos (tanda 54):** la composición que certifica Opella para su bergamota sin bergaptenos (IFRA 49, producto E1004, los mismos dos CAS), con el bergapteno ≤ 0,0005 %. Es literatura: cuenta su máximo y nunca da «dentro»; el certificado de tu frasco manda sobre ella (V3-39).
+- **A futuro** (`docs/a-futuro.md`): un valor de referencia del 5-MOP para los demás cítricos.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).

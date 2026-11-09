@@ -274,7 +274,9 @@ function nodes(catalog: Catalog, layer: IfraLayer) {
         continue;
       }
       const before = byCas.get(cas);
-      if (!before || RANK[c.authority] < RANK[before.authority]) byCas.set(cas, c);
+      // V3-27's constituent of unknown amount waits for a figure: any figure of it, of any authority, takes its place (V3-103).
+      const waiting = (x: Component) => x.id.startsWith("limit:") && x.amount.kind === "unknown";
+      if (!before || (waiting(before) && !waiting(c)) || (!waiting(c) && RANK[c.authority] < RANK[before.authority])) byCas.set(cas, c);
     }
     for (const c of extra) if (c.componentCas && c.componentName && !names.has(c.componentCas)) names.set(c.componentCas, c.componentName);
     for (const c of components) if (c.componentCas && c.componentName && !names.has(c.componentCas)) names.set(c.componentCas, c.componentName);
