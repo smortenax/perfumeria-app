@@ -75,3 +75,5 @@ tanda,fecha,aprobacion,archivo,sha256
 38-altas-maese-30-oct,2026-10-30,"orko kill, 2026-10-30, en la tarjeta «¿Apruebas las tandas 38 y 39 para cargarlas en la app?»: «Apruebo 38 y 39»",material_descriptors.csv,e6f9d4feda59b7c35d1feb28f5760f4bd9fc7fd3b648fb5dc2ff6ae7f7119e25
 38-altas-maese-30-oct,2026-10-30,"orko kill, 2026-10-30, en la tarjeta «¿Apruebas las tandas 38 y 39 para cargarlas en la app?»: «Apruebo 38 y 39»",material_doses.csv,6973670d204de0a5d78dc218bab7d5408c73a27b30248b3bf97f20d6977a50f1
 38-altas-maese-30-oct,2026-10-30,"orko kill, 2026-10-30, en la tarjeta «¿Apruebas las tandas 38 y 39 para cargarlas en la app?»: «Apruebo 38 y 39»",materials.csv,521fd504043d36b37430acfe46bca7d1e83a867fb2ca9bdc237f5cf1020db31c
+52-tinturas,2026-11-09,"el usuario, 2026-11-09: «Si adelante»",material_components.csv,5638d3df1d9e0d2525589f98807bf0d050ba5cb3c91d5c4c8aa58fba1f5d332d
+52-tinturas,2026-11-09,"el usuario, 2026-11-09: «Si adelante»",materials.csv,ae5ba12948dfb2265c4e728e795b489cd16a0373138b6b7074fc777bc7cda928

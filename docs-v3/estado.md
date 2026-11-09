@@ -1,6 +1,8 @@
 # Estado de la v3
 
-*Actualizado el 2026-11-08. Como máximo 30 líneas: qué está hecho y qué sigue.*
+*Actualizado el 2026-11-09. Como máximo 30 líneas: qué está hecho y qué sigue.*
+
+**Las tinturas, con su parte de materia estimada (V3-102; tandas 52 y 53 aprobadas el 2026-11-09, «Si adelante»):** una tintura ya no toma del anexo de IFRA lo de otra forma de su planta (`to-ifra.ts`). La tintura de tonka lleva cumarina hasta 11,354 % y dihidrocumarina hasta 0,37 % (estimación, consenso) y fuerza 4; entra el ámbar gris puro (común, sin CAS). **Falta, desde el PC:** cargar la 53 en tu cuenta (`cargar-laboratorio.ts <correo> --nube --tanda=53-tu-ambar-gris`), después de que la 52 esté en la nube. **Las tandas 46 a 51 de la rama de Maese** hay que regenerarlas sobre esto antes de aprobarlas (escriben las tablas enteras), con sus tinturas por la misma regla.
 
 **Dónde vive el plan, e importar y exportar planes (V3-100, BL-004; PR #63, fusionada en `main` (`5e95341`) y publicada el 2026-11-07 por la Action «Publicar v3», en verde: migración aplicada en la nube y Cloudflare):** el plan sigue siendo de cada fórmula (opción B: «Plan» en la cabecera del banco y la marca «Plan» en Formulation). Formato `perfumeria/plan/1` aprobado; «Import plan» (planificador y cada banco de Formulation): empareja por id, CAS y nombre, prefiriendo tu versión; lo no encontrado, en gris y sin importar; destino, fórmula nueva o tuya (sustituir o añadir); «Export plan». Migración `20261106201729_plan_group` (`formula_plan_lines.group_name`; `sync-config.yaml` no cambia, es `SELECT *`). `src/planner/plan-json.ts`, `src/import/plan-match.ts`, `src/planner/ImportPlan.tsx`, `replacePlan` en `src/db/plans.ts`. Comprobado: `tsc`, 592 pruebas, build y la pantalla de importar con Zara v4 en Playwright (sin Supabase); el botón del banco, no. **Falta:** probarlo con tu cuenta (importar Zara v4 desde un banco).
 
