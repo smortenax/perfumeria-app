@@ -151,3 +151,6 @@ retirada-1-a-4,2026-10-14,"orko kill, 2026-10-14 (V3-34): «no sirven materiales
 42-frascos-de-fabrica,2026-10-31,"el usuario, 2026-10-31, en el hilo: «si cargame las diluciones de los que ya venian diluidos dalos como el % y fabrica pero no cambies el material a solo ser posible en 10% si en el futuro los tengo puros es poco practico»",lab_dilutions.csv,fa4ed52ad1f31f63ea1368567451429d3960e480118720ab6d086d5dc5991df2
 43-impacto,2026-11-06,"el usuario, 2026-11-06, en la tarjeta del hilo: «Apruebo la tanda 43»",materials.csv,348462fb9b8dba6dc307e452c8e961cd52b96df0564922569a92fcd43bb90683
 44-impacto-elegido,2026-11-06,"el usuario, 2026-11-06, en la tarjeta del hilo «¿Qué impacto doy a los 6 comunes con fichas distintas?»: «Los 6 propuestos»",materials.csv,8c40ef13003ea7ec81bf6d139edc58ce8f18ef848e2287af563205ccdf423437
+52-tinturas,2026-11-09,"el usuario, 2026-11-09: «Si adelante»",material_components.csv,5638d3df1d9e0d2525589f98807bf0d050ba5cb3c91d5c4c8aa58fba1f5d332d
+52-tinturas,2026-11-09,"el usuario, 2026-11-09: «Si adelante»",materials.csv,ae5ba12948dfb2265c4e728e795b489cd16a0373138b6b7074fc777bc7cda928
+53-tu-ambar-gris,2026-11-09,"el usuario, 2026-11-09: «Si adelante»",cambiar.csv,5eaa7f60289dd61522b02feb0bd7bdea655d67143cd061afc65546eaeb9a66d7
