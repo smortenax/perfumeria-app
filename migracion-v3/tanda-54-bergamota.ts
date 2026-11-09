@@ -47,9 +47,9 @@ const added: Rec[] = LINES.map(([name, cas, said, max]) => ({
   component_cas: cas,
   component_name: name,
   amount_kind: "max",
-  value: null,
+  value: max,
   min: null,
-  max,
+  max: null,
   authority: "literature",
   source: `${DOC}: ${name} ${cas} «${said}». ${SAID}. Another supplier's product, not the user's bottle.`,
 }));

@@ -67,9 +67,9 @@ const newComponents: Rec[] = absolute.map((a) => ({
   component_cas: a.constituent_cas,
   component_name: a.constituent_name,
   amount_kind: "max",
-  value: null,
+  value: scaled(String(a.concentration)),
   min: null,
-  max: scaled(String(a.concentration)),
+  max: null,
   authority: "consensus",
   source: `Estimate (${SAID}): IFRA ${a.amendment}, naturals annex, «Tonka Bean absolute»: ${a.constituent_name} ${String(a.concentration)} (a fraction), times the tincture's share of matter, which its sheet does not give, taken at its ceiling, ${CEILING.text}: ${SHARE_SOURCE}. Not of this product.`,
 }));
