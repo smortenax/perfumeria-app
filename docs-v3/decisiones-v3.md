@@ -1845,6 +1845,20 @@ Y, a la pregunta de si se pasaba a la app en una rama nueva: «Sí, una PR a mai
 - `name` da nombre a una fórmula nueva; en las notas de la fórmula queda una línea con de dónde viene el plan.
 - `group` se guarda en `formula_plan_lines.group_name` (migración `20261106201729_plan_group`) y se enseña; el peso de cada grupo sigue sin decidir.
 
+## V3-102 · Una tintura lleva su parte de materia, estimada si el producto no la dice (decidida por el usuario el 2026-11-09; cambia V3-28 para las tinturas)
+
+**Pregunta** (de la sesión): la tintura comercial de tonka toma del anexo de IFRA la cumarina del absoluto (hasta 56,77 %) y la fuerza del extracto CO2 (7/10); la de ámbar gris se diluye dos veces (tu versión es la tintura al 10 % de Maese y su frasco, «de fábrica, al 10 %»). ¿Cómo se registra una tintura?
+
+**Respuesta literal** (orko kill, 2026-11-09): sobre qué falla, «la (a), las tinturas de tonka y ámbar gris» (se calculan como el absoluto puro); después, «Ambas tinturas tienen que tener un valor estimado que haga de filler el batch de maese también seguro que hay valores para la mayoría de materiales en atinturas de las extracciones ya estimadas»; y a la lectura de la sesión (el 20 % como techo y la opción A para el ámbar gris): «Si adelante».
+
+**Lectura** (de la sesión, confirmada):
+
+- **Cada tintura lleva su parte de materia:** la que diga el producto o, si no la dice, una estimación con fuente, marcada como estimación. La fuente es la regla de la rama de Maese (`fuentes-tinturas.md`): Scentspiracy, citando a Arctander (1960, «between 3% and 20% by weight») y a Sell (2006, «10-15% by weight: standard ratio for strongly aromatic botanicals»).
+- **IFRA:** una tintura no toma lo que el anexo da a otra forma de su planta (cambia V3-28 para ellas). Lleva su propia composición: lo del anexo para esa planta por su parte de materia, como consenso. Una estimación cuenta su máximo, el 20 %: nunca da «dentro», como mucho «acotado». Sin composición, queda pendiente, nunca libre.
+- **La fuerza** de una tintura sin fuente propia sale de la regla de Maese: la del material puro − 3 · log10(1 / parte), con la parte estimada al 10 %.
+- **El ámbar gris (opción A):** tu material es el ámbar gris puro, y el 10 % está solo en el frasco, como dijiste el 2026-10-31 («si en el futuro los tengo puros es poco practico»).
+- **Las tinturas de la tanda 50** (rama de Maese, sin aprobar) siguen la misma regla antes de aprobarse.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
