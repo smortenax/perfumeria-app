@@ -1870,6 +1870,34 @@ Y, a la pregunta de si se pasaba a la app en una rama nueva: «Sí, una PR a mai
 - **Los datos (tanda 54):** la composición que certifica Opella para su bergamota sin bergaptenos (IFRA 49, producto E1004, los mismos dos CAS), con el bergapteno ≤ 0,0005 %. Es literatura: cuenta su máximo y nunca da «dentro»; el certificado de tu frasco manda sobre ella (V3-39).
 - **A futuro** (`docs/a-futuro.md`): un valor de referencia del 5-MOP para los demás cítricos.
 
+## V3-104 · La identidad visual: el taller del artesano de los olores (respuestas del usuario el 2026-11-09; la lectura es propuesta)
+
+**Contexto:** el diagnóstico del 2026-11-06 («El alma de Perfumería»: la app es correcta pero genérica, sin perfil de estilo) terminó en ocho preguntas. Estas son las respuestas.
+
+**Literal** (orko kill, 2026-11-09):
+
+> 1 la app es como un toolkit de todas las herramientas, tiene la parte del organo que seria la de formulacion tiene el glosario de todos los materiales y las diluciones que son como los cajones, tiene la parte de planificacion nueva que se ha incorporado para planear como sera el perfume es como el cuaderno donde diseñas el oolor
+> 2 la app tiene que hacerte sentir como una persona inspirada, tiene que dar lugar a lucidez sobriedad... las tres palabras: inspiracion, comfort y curiosidad. frustracion la que no. esta app me gustaria que te haga sentir como "artesano de los olores" antes que como un señor de un laboratorio
+> 3 es la parte conflictiva, la estaba haciendo generica pero por otro lado la uso muy a mi medida, los cambios esteticos que querria hacer tambien los estaba pensando a mi medida, yo diria que aunque haya la posibilidad de ser un producto quiero hacerla mia y con mis decisiones de gusto y de tema que me llama y luego si hace falta se adapta
+> 4 el banco  y todo lo que es formulaciond e noche y las evaluaciones de materiales y diluciones de dia
+> 5 creo que lo mas especial tendrai que ser la formulacion, la adicion de los materiales en la formula el cierre de una formula como perfume, las versiones... etc
+> 6 yo estaba pensando en esteticas mas barrocas o antiguas, los objetos como ropa muebles y joyas antiguos tienen alma. en los perfumes el alma que tieen la pelicula de el perfumista: historia de un asesino por ejemplo. en un ambito que controlo mas me venia a la cabeza un juego como el monster hunter cuando consultas el diario de monstruos que hay o de recetas, siento que ver los materiales que teiens deberia sentirse parecido, en cuanto a la app tambien pienso que deberia beber en cuanto a menus y demas de creatividad en los menus como en algunos videojuegos y no tan slop generico como todo el resto de apps
+> 7 esto no lo tengo tan claro
+> 8 la app entera en ingles, sobre la identidad, creo que ahora mismo es mixta y confusa un ejemplo los materiales, la informacion mas esencial de los materiales deberia estar evidente en una pagina de ordenador sin deslizar hacia abajo, y luego todo el resto de parametros, que son importantes para el material y incluso para la app pero no siempre tienen que ser evidentes para el usuario estan en notes: physical properties podria ser la nota con las variables fisicas que tiene el material registrado, luego todos los comentarios de fuentes  sobre el material podrian estar en side notes, con el comentario y la firma de la fuente al lado
+
+**Lectura** (de la sesión, propuesta, para que la confirmes):
+
+- **La app es un taller, no un laboratorio.** Cuatro muebles con nombre propio: **el órgano** (formular, el banco), **el códice** de materiales (el glosario, que se consulta y se va completando como el diario de monstruos de un juego), **los cajones** (las diluciones) y **el cuaderno** (el plan, donde se diseña el olor).
+- **Lo que se siente:** inspiración, confort y curiosidad; nunca frustración. Barroco en la materia (lo antiguo con alma: ropa, muebles, joyas, el taller de Baldini) y sobrio en la estructura (lucidez): el adorno nunca estorba una tarea.
+- **Es tuya primero.** Las decisiones de gusto son tuyas; si un día es producto, se adapta. Por eso el estilo vive en tokens y en un perfil, y no se cuela en la lógica.
+- **Dos luces:** de noche, el banco y la formulación; de día, las evaluaciones de materiales y diluciones. Por decidir: si la luz sigue a la tarea o al reloj.
+- **Los momentos que importan:** añadir un material, cerrar una fórmula como perfume y las versiones. Ahí va el cuidado especial; el resto, sobrio.
+- **La ficha de material:** lo esencial cabe en una pantalla de ordenador sin desplazarse. El resto, en **notas** con título (p. ej. «Notes: physical properties»), y lo que dice cada fuente, en **notas al margen** con la firma de la fuente al lado.
+- **Idioma:** la app entera en inglés (confirma V3-71).
+- **Lo que no puede estar** (pregunta 7): abierto.
+- **Cuidado:** se toma del juego la mecánica (el códice que se llena) y de la película el mundo (el taller del XVIII), nunca su arte.
+- **Siguiente:** bocetos sobre pantallas reales (la ficha del láudano y el banco con Juancuir) con las opciones a la vista (D-0007 de la bóveda); de lo que elijas sale el perfil de estilo.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
