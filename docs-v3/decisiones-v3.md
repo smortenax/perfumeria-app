@@ -1961,6 +1961,15 @@ Notas suyas en los tablones, literales: sobre Potion Craft, «no me acaba de con
 
 **Nueve conceptos** (orko kill, 2026-11-11, literal): «Saca 9 distribuciones y hazlas de otros apartados también conservando las funcionalidades diseñadas para cada uno de los apartados pero con libertad para cambiar drásticamente las distribuciones [...] esto es redesign así que se pueden proponer cambios más grandes como donde queda el menú de cambiar entre funcionalidades [...] basa cada una en innovaciones de los diferentes referentes seleccionados». Hechos: «Nueve conceptos» (artifact privado), cada uno con órgano, diluciones y códice: 1 mostrador de botica, 2 órgano de perfumista, 3 baúl de viaje, 4 banco de alquimista, 5 libro impreso, 6 hoja de personaje, 7 colección de láminas, 8 diario de mapa, 9 paneles con notas contextuales. Pendiente: que el usuario los evalúe.
 
+**Las maquetas de V3-104** (artifacts privados del usuario en claude.ai; las abre con su cuenta):
+- El alma de Perfumería, el diagnóstico: https://claude.ai/artifact/Ajkki1Fqs2wA4iV3pCrdhU
+- El taller, la ficha del códice y el órgano con el inventario de funciones del banco: https://claude.ai/artifact/LkK7FY49NPeaE3aGw7cm51
+- Tablones de Perfumería, los referentes puntuados: https://claude.ai/artifact/LDDT1yUVkkYzGtuWWFpFqF
+- El plano de materiales, primera vuelta: https://claude.ai/artifact/87WFEF2CGKdiikSF7HfdwG
+- El mapa de materiales, regiones por familia: https://claude.ai/artifact/P5sYnV2gFo9bkXky5x654Q
+- Tres órganos: https://claude.ai/artifact/6ef3mxncYMC8AFtfz1ucYE
+- Nueve conceptos: https://claude.ai/artifact/C3aFfERP33QgR5fBgqQkHj
+
 **Lectura** (de la sesión, propuesta): la ficha queda en banda del nombre con la presencia del material (Codex, Bottles, Strips, Dilutions, Formulas, Perfumes, cada uno un enlace a su sitio), la entrada en una franja tipo ex-libris (categoría arriba, icono en medio, lectura debajo), el carácter con notas al margen firmadas y las notas en un cuaderno con pestañas. El menú es un riel de iconos y las etiquetas van en letra normal, sin versalitas. Los iconos de nota, impacto, fuerza y duración están por elegir en el estudio de iconos del boceto; la silueta por familia y la esfera, en `docs/a-futuro.md`.
 
 ## Pendientes
