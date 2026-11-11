@@ -1,4 +1,4 @@
-"""Tandas 47 a 50 (V3-100): de la ficha de Maese Lab (tanda 45), lo leído en la web y PerfuMate, una propuesta de alta.
+"""Tandas 47 a 50 (V3-104): de la ficha de Maese Lab (tanda 45), lo leído en la web y PerfuMate, una propuesta de alta.
 
 Uso: python3 -I migracion-v3/web/maese-altas/consolidar.py 47 aroma-chemicals
 

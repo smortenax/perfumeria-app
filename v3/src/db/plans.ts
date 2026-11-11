@@ -18,6 +18,8 @@ export interface PlanRow {
   /** The user's pick; null takes the material's default. */
   readonly shape: ShapeId | null;
   readonly position: number;
+  /** The block, link or floor it belongs to, as an imported plan names it (V3-100); null without one. */
+  readonly groupName: string | null;
 }
 
 const stamp = () => new Date().toISOString();
@@ -35,7 +37,7 @@ export async function loadPlan(db: LocalDb, ownerId: string, formulaId: string):
     .from(local.formulaPlanLines)
     .where(and(eq(local.formulaPlanLines.formulaId, formulaId), eq(local.formulaPlanLines.ownerId, ownerId)));
   return rows
-    .map((r) => ({ id: r.id, materialId: r.materialId ?? "", parts: ratioFromNumeric(r.parts) ?? Ratio.ZERO, shape: isShape(r.shape) ? r.shape : null, position: r.position ?? 0 }))
+    .map((r) => ({ id: r.id, materialId: r.materialId ?? "", parts: ratioFromNumeric(r.parts) ?? Ratio.ZERO, shape: isShape(r.shape) ? r.shape : null, position: r.position ?? 0, groupName: r.groupName ?? null }))
     .sort((a, b) => a.position - b.position || a.id.localeCompare(b.id));
 }
 
@@ -85,8 +87,72 @@ export async function copyPlan(db: LocalDb, ownerId: string, fromId: string, toI
       parts: decimal(l.parts),
       shape: l.shape,
       position: l.position,
+      groupName: l.groupName,
       createdAt: stamp(),
       updatedAt: stamp(),
     });
   }
+}
+
+/** A line to write into a plan: its material, exact parts, its shape (null: the default) and its group. */
+export interface NewPlanLine {
+  readonly materialId: string;
+  readonly parts: Ratio;
+  readonly shape: ShapeId | null;
+  readonly groupName: string | null;
+}
+
+/**
+ * Writes an imported plan into one of your formulas, all at once or nothing (V3-100).
+ * «replace»: the plan becomes these lines, in this order. «add»: the lines it did not have go at the end,
+ * and those it had take the new parts (and the shape and group, when the new line says one); the rest stay.
+ */
+export async function replacePlan(
+  db: LocalDb,
+  ownerId: string,
+  formulaId: string,
+  lines: readonly NewPlanLine[],
+  mode: "replace" | "add" = "replace",
+): Promise<void> {
+  await ownFormula(db, ownerId, formulaId);
+  const seen = new Set<string>();
+  for (const l of lines) {
+    if (seen.has(l.materialId)) throw new Error("a material appears twice in the plan");
+    seen.add(l.materialId);
+    if (l.shape !== null && !isShape(l.shape)) throw new Error(`unknown shape: ${String(l.shape)}`);
+    decimal(l.parts);
+  }
+  const before = await loadPlan(db, ownerId, formulaId);
+  await db.transaction(async (tx) => {
+    const insert = (l: NewPlanLine, position: number) =>
+      tx.insert(local.formulaPlanLines).values({
+        id: crypto.randomUUID(),
+        ownerId,
+        formulaId,
+        materialId: l.materialId,
+        parts: decimal(l.parts),
+        shape: l.shape,
+        position,
+        groupName: l.groupName,
+        createdAt: stamp(),
+        updatedAt: stamp(),
+      });
+    if (mode === "replace") {
+      await tx.delete(local.formulaPlanLines).where(and(eq(local.formulaPlanLines.formulaId, formulaId), eq(local.formulaPlanLines.ownerId, ownerId)));
+      for (const [i, l] of lines.entries()) await insert(l, i);
+      return;
+    }
+    let next = before.reduce((max, l) => Math.max(max, l.position + 1), 0);
+    for (const l of lines) {
+      const there = before.find((b) => b.materialId === l.materialId);
+      if (!there) {
+        await insert(l, next++);
+        continue;
+      }
+      await tx
+        .update(local.formulaPlanLines)
+        .set({ parts: decimal(l.parts), ...(l.shape !== null ? { shape: l.shape } : {}), ...(l.groupName !== null ? { groupName: l.groupName } : {}), updatedAt: stamp() })
+        .where(eq(local.formulaPlanLines.id, there.id));
+    }
+  });
 }

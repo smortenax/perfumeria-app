@@ -1,4 +1,4 @@
-"""Tanda 46 (V3-100): lo que le falta a cada común y lo que PerfuMate (local) puede decir de ello.
+"""Tanda 46 (V3-104): lo que le falta a cada común y lo que PerfuMate (local) puede decir de ello.
 
 Lee v3/datos/ (lo aprobado) y migracion-v3/perfumate/perfumate.sqlite3. Escribe huecos.csv: un común
 por fila con los campos que le faltan y, de PerfuMate (por CAS; si no, por nombre o alias), la familia,

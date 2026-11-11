@@ -754,6 +754,12 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
         <IntentionCard header={shownHeader} onChange={typeHeader} onDone={doneTyping} />
         <NotesCard notes={props.record.notes} onSave={(notes) => write(() => updateFormula(local.db, owner, formulaId, { notes }))} />
         <div className="head-actions">
+          {/* The plan's own door (V3-100, option B): always in the head, not only in «Options». */}
+          {props.onPlan && (
+            <button type="button" className="tool plan-door" title={appTexts.planner.open} onClick={props.onPlan}>
+              {appTexts.planner.door}
+            </button>
+          )}
           <button type="button" className="tool" aria-label={texts.menu.undo} title={`${texts.menu.undo} (Ctrl+Z)`} disabled={formula.history.length === 0} onClick={undo}>
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M7 4L3 8l4 4" />

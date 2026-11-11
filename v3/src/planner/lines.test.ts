@@ -18,7 +18,7 @@ const benzoin = material("Benzoin resinoid", { family: "gourmand", tier: "base",
 const mine = material("My benzoin", { ownerId: "me", basedOnId: "Benzoin resinoid" });
 const bare = material("Bare", { kind: "provisional" });
 const catalog = { materials: new Map([benzoin, mine, bare].map((m) => [m.id, m])) } as unknown as Catalog;
-const row = (materialId: string, parts: number, shape: "heart" | null = null) => ({ id: `row-${materialId}`, materialId, parts: Ratio.of(parts), shape, position: 0 });
+const row = (materialId: string, parts: number, shape: "heart" | null = null) => ({ id: `row-${materialId}`, materialId, parts: Ratio.of(parts), shape, position: 0, groupName: null });
 
 describe("the plan's lines with their materials (V3-98)", () => {
   it("takes impact, hours, family and the default shape, from the material it is based on too", () => {

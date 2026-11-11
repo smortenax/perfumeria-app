@@ -1,5 +1,5 @@
 /**
- * Batches 48, 49 and 50 (V3-100): Maese Lab's naturals that are not yet common (essential oils; absolutes,
+ * Batches 48, 49 and 50 (V3-104): Maese Lab's naturals that are not yet common (essential oils; absolutes,
  * CO2 and resinoids; tinctures and extracts), as common materials with a full sheet. The user, 2026-11-06:
  * «creo que es clave tener todo el glosario de maese dentro de la app» and «lo importante es que se
  * contraste las altas de referencia […] y que en ambos casos se complete el alta».
@@ -210,7 +210,7 @@ writeFileSync(
 
 *Generada por \`migracion-v3/tanda-48-maese-naturales.ts ${TANDA}\` sobre lo común de \`${BASE}\` **con las tandas 46 a ${Number(TANDA) - 1}** (se aprueba después de ellas), desde \`${PROPOSAL}\`. Escribe \`v3/datos/materials.csv\`, \`material_categories.csv\`, \`material_descriptors.csv\` y \`material_doses.csv\` enteros, con estos añadidos: lo de antes no cambia. Sin aprobar.*
 
-**Por qué** (V3-100): el usuario, 2026-11-06: «creo que es clave tener todo el glosario de maese dentro de la app» y «lo importante es que se contraste las altas de referencia […] y que en ambos casos se complete el alta».
+**Por qué** (V3-104): el usuario, 2026-11-06: «creo que es clave tener todo el glosario de maese dentro de la app» y «lo importante es que se contraste las altas de referencia […] y que en ambos casos se complete el alta».
 
 **Cómo:** como la tanda 47. La ficha de Maese Lab (tanda 45: especie por el INCI, parte, método, origen, CAS, pureza y perfil, citados); hasta dos páginas de referencia por producto, de la misma especie y parte (\`migracion-v3/web/maese-altas/web-${TANDA}-*.csv\`); PerfuMate en local. Una página de otra especie o parte no cuenta. Un material por identidad (V3-85): especie, parte, proceso, tratamiento y quimiotipo; dos productos que solo cambian de origen o de grado son el mismo material. El nombre, el común en inglés de la referencia o, si no lo hay, la especie y la parte.
 

@@ -1802,7 +1802,7 @@ Y, a la pregunta de si se pasaba a la app en una rama nueva: «Sí, una PR a mai
 
 - La cantidad: «Partes libres + botones rápidos».
 - La curva sin evolución medida: «Meseta y caída, marcada estimada»; y después, a mano: «tiene que ser estandar formas tipo seguro en todo caso luego cada usuario puede sobrescribir a placer».
-- Dónde vive: «Plantilla de la fórmula».
+- Dónde vive: «Plantilla de la fórmula». [Confirmado y ampliado por V3-100 (2026-11-06): el plan sigue siendo de cada fórmula, y se llega a él desde la cabecera del banco y desde Formulation.]
 - La potencia sin umbrales: «Impacto 1–10 de PerfuMate»; del impacto al peso: «Lineal: peso = impacto». Sustituyen a «Doble por nivel: ×1 ×2 ×4 ×8».
 - Qué es competir: «≥ 1/3 del líder + aviso de 3–4». Sustituye a «≥ 5 % y, al lado, "equivale a"».
 - La intensidad, que no crece lineal: «Índice + vista percibida (n=0,25)». Por defecto, el índice cantidad × impacto; un botón cambia a la intensidad percibida (índice^0,25), con el exponente rotulado como supuesto y editable (Stevens: 0,15 a 0,3 en Cain 1969, Berglund 1971, Doty 1975).
@@ -1825,7 +1825,52 @@ Y, a la pregunta de si se pasaba a la app en una rama nueva: «Sí, una PR a mai
 - **Quedan a mano:** el `sync-config.yaml` en el panel de PowerSync Cloud (la Action avisa cuando cambia) y las tandas de la cuenta, que llevan tu correo.
 - Cambia la regla «Fusionado no es publicado» de `CLAUDE.md` (2026-10-27).
 
-## V3-100 · El catálogo de Maese Lab entra en lo común, y las altas se completan (pedida por el usuario el 2026-11-06; por definir cómo)
+## V3-100 · El plan es de cada fórmula, con una entrada a la vista (decidida por el usuario el 2026-11-06; confirma y amplía V3-98)
+
+**Pregunta** (BL-004, maqueta https://claude.ai/artifact/Y97SXpYfHsEL48Ze6WbYLd): ¿el plan sigue siendo una capa de la fórmula (A), pasa a ser un paso visible de la fórmula (B), un espacio propio (C) o un plan del banco (D, que proponía la sesión)?
+
+**Respuesta literal** (orko kill, 2026-11-06): «a ver pero de entrada esto es significativamente diferente a lo que hay ahora viviendo en la app, si es solo para el planteamiento esta mejor pero el estado de antes era mucho mejor con el grafico de antes, que hay ahora viviendo en la app, en lo que respecta al plan para todo el banco no tiene sentido cada formula puede, aunque no deba, puede tener su plan propio». Y, sobre la lectura de la sesión: «sí, confirmo, con la B».
+
+**Lectura** (de la sesión, confirmada):
+
+- **El plan es de la fórmula**, como en V3-98: `formula_plan_lines` no cambia y no hay migración. Una versión nueva copia el plan de su madre y desde ahí va por su cuenta.
+- **El planificador no cambia:** su línea de tiempo y sus gráficos se quedan como están publicados.
+- **B, la entrada a la vista:** un botón «Plan» en la cabecera del banco, y en Formulation una marca en las fórmulas que tienen plan. Sigue «Options ▾ → Plan the profile» y la tarjeta «Weighed against the plan».
+- **Importar un plan** escribe en una fórmula: una nueva con el nombre del plan, o una que ya exista.
+- Fuera: el plan del banco (D) y el espacio propio (C).
+
+**El formato de archivo** (el usuario, 2026-11-06, a la pregunta de la sesión sobre los nombres de los campos, dónde van `name`, `created` y `source` y si `group` lleva migración: «sí, visto bueno a todo, con la (a)»):
+
+- `perfumeria/plan/1`, con los campos de la propuesta del 6-nov: `format`, `name`, `created`, `source`, `partsBasis` y, por línea, `material`, `materialId`, `cas`, `parts` (texto decimal exacto), `shape` y `group`. Un formato desconocido se rechaza entero.
+- `name` da nombre a una fórmula nueva; en las notas de la fórmula queda una línea con de dónde viene el plan.
+- `group` se guarda en `formula_plan_lines.group_name` (migración `20261106201729_plan_group`) y se enseña; el peso de cada grupo sigue sin decidir.
+
+## V3-102 · Una tintura lleva su parte de materia, estimada si el producto no la dice (decidida por el usuario el 2026-11-09; cambia V3-28 para las tinturas)
+
+**Pregunta** (de la sesión): la tintura comercial de tonka toma del anexo de IFRA la cumarina del absoluto (hasta 56,77 %) y la fuerza del extracto CO2 (7/10); la de ámbar gris se diluye dos veces (tu versión es la tintura al 10 % de Maese y su frasco, «de fábrica, al 10 %»). ¿Cómo se registra una tintura?
+
+**Respuesta literal** (orko kill, 2026-11-09): sobre qué falla, «la (a), las tinturas de tonka y ámbar gris» (se calculan como el absoluto puro); después, «Ambas tinturas tienen que tener un valor estimado que haga de filler el batch de maese también seguro que hay valores para la mayoría de materiales en atinturas de las extracciones ya estimadas»; y a la lectura de la sesión (el 20 % como techo y la opción A para el ámbar gris): «Si adelante».
+
+**Lectura** (de la sesión, confirmada):
+
+- **Cada tintura lleva su parte de materia:** la que diga el producto o, si no la dice, una estimación con fuente, marcada como estimación. La fuente es la regla de la rama de Maese (`fuentes-tinturas.md`): Scentspiracy, citando a Arctander (1960, «between 3% and 20% by weight») y a Sell (2006, «10-15% by weight: standard ratio for strongly aromatic botanicals»).
+- **IFRA:** una tintura no toma lo que el anexo da a otra forma de su planta (cambia V3-28 para ellas). Lleva su propia composición: lo del anexo para esa planta por su parte de materia, como consenso. Una estimación cuenta su máximo, el 20 %: nunca da «dentro», como mucho «acotado». Sin composición, queda pendiente, nunca libre.
+- **La fuerza** de una tintura sin fuente propia sale de la regla de Maese: la del material puro − 3 · log10(1 / parte), con la parte estimada al 10 %.
+- **El ámbar gris (opción A):** tu material es el ámbar gris puro, y el 10 % está solo en el frasco, como dijiste el 2026-10-31 («si en el futuro los tengo puros es poco practico»).
+- **Las tinturas de la tanda 50** (rama de Maese, sin aprobar) siguen la misma regla antes de aprobarse.
+
+## V3-103 · La bergamota sin bergaptenos: su 5-MOP deja de contar como el aceite entero (pedida por el usuario el 2026-11-09; tanda 54 sin aprobar)
+
+**Literal** (orko kill, 2026-11-09): «La bergamota simplemente da números muy fuera de lo esperado de la orden de 5000% por encima de lo normal con una gota de Ae sobre 2g de mezcla».
+
+**Lectura** (de la sesión, propuesta):
+
+- **La causa:** la bergamota sin bergaptenos es miembro del estándar 089, cuyo límite es de 5-MOP. Sin ninguna cifra de 5-MOP, la app lo contaba en el peor caso, como si todo el aceite fuera 5-MOP (V3-27).
+- **El código:** el 5-MOP «de cantidad desconocida» de V3-27 espera una cifra. Cualquier cifra del constituyente, de la autoridad que sea, ocupa su lugar; antes, al ser de autoridad IFRA, mandaba sobre la literatura.
+- **Los datos (tanda 54):** la composición que certifica Opella para su bergamota sin bergaptenos (IFRA 49, producto E1004, los mismos dos CAS), con el bergapteno ≤ 0,0005 %. Es literatura: cuenta su máximo y nunca da «dentro»; el certificado de tu frasco manda sobre ella (V3-39).
+- **A futuro** (`docs/a-futuro.md`): un valor de referencia del 5-MOP para los demás cítricos.
+
+## V3-104 · El catálogo de Maese Lab entra en lo común, y las altas se completan (pedida por el usuario el 2026-11-06; por definir cómo)
 
 **Literal** (orko kill, 2026-11-06, en el hilo de la tanda 45): «yo no los tengo pero los quiero dar de alta dentro de los generales, como siempre en los estandares de la app pero creo que es clave tener todo el glosario de maese dentro de la app, en parte es personal porque pronto hare un workshop y creo que la mayoria de materiales que usare son de maese pero aun asi creo que tener un glosario entero de un vendedor importante ya es mucha ampliacion en los recursos de los materiales, por otro lado a futuro podria hacer lo mismo con otras plataformas de venta y que estas esten bajo algun filtro que no enturbie el banco de materiales por ejemplo la posibilidad de desactivar materiales de proveedores concretos por casas...». Y después: «y lo importante es que se contraste las altas de referencia y se mire que falta para estos materiales y para otros que se quedaron con una "alta rapida" y no estan completos y que en ambos casos se complete el alta».
 

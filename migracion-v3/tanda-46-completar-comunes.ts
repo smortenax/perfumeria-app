@@ -1,5 +1,5 @@
 /**
- * Batch 46 (V3-100): the common materials that went in with a «quick» sheet get the fields they lacked.
+ * Batch 46 (V3-104): the common materials that went in with a «quick» sheet get the fields they lacked.
  * The user, 2026-11-06: «lo importante es que se contraste las altas de referencia y se mire que falta
  * para estos materiales y para otros que se quedaron con una "alta rapida" y no estan completos y que
  * en ambos casos se complete el alta».
@@ -78,7 +78,7 @@ writeFileSync(
 
 *Generada por \`migracion-v3/tanda-46-completar-comunes.ts\` sobre lo común de \`${BASE}\`, desde \`${PROPOSAL}\`. Escribe \`v3/datos/materials.csv\` y \`material_doses.csv\` enteros: solo llena campos vacíos; nada que ya tuviera valor cambia. Sin aprobar.*
 
-**Por qué** (V3-100): el usuario, 2026-11-06: «lo importante es que se contraste las altas de referencia y se mire que falta para estos materiales y para otros que se quedaron con una "alta rapida" y no estan completos y que en ambos casos se complete el alta».
+**Por qué** (V3-104): el usuario, 2026-11-06: «lo importante es que se contraste las altas de referencia y se mire que falta para estos materiales y para otros que se quedaron con una "alta rapida" y no estan completos y que en ambos casos se complete el alta».
 
 **Cómo:** \`migracion-v3/web/completar-comunes/huecos.py\` lista los ${new Set(proposal.map((p) => p.id)).size} comunes con algún hueco (familia, nivel, horas en tira, fuerza, estado físico, uso). Para cada uno se leyeron en la web hasta tres páginas de referencia (\`web-*.csv\`, con la frase literal) y se miró PerfuMate en local. \`consolidar.py\` normaliza al vocabulario de la app y elige por este orden: TGSC, la casa, Fraterworks, Perfumer's Apprentice, ScenTree, Scentspiracy, PerfumersWorld, Premiere Peau, PerfuMate. Premiere Peau copia a menudo las cifras de TGSC: cuando coinciden, no cuenta como segunda referencia. Lo que habla de otro producto (el aceite puro para una tintura, el producto diluido) no se usa.
 

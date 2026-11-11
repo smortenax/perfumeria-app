@@ -11,6 +11,8 @@ import type { IfraLayer, IfraStandard } from "./ifra-layer";
  * - IFRA is a layer apart (V3-35): a material says what it is (its CAS, its species, its process)
  *   and what it carries; its IFRA comes from reading that against the layer. The material keeps
  *   only what is its own: a manufacturer's ceiling, and what its documents claim (V3-39).
+ * - A tincture (V3-102) does not borrow what the annex gives another form of its plant: it takes only an
+ *   entry with its own name, and otherwise its own composition (the estimate scaled by its share).
  * - A material's composition is opened recursively (plan §24): its components, which may be
  *   materials or substances known by their CAS (V3-36), and, in a natural, what IFRA's annex
  *   says it brings: its own entry if it has one, or the most any entry with its CAS gives, as
@@ -189,7 +191,7 @@ function ifraRegulations(layer: IfraLayer, identity: Identity): Regulation[] {
 }
 
 /** What IFRA's annex says a natural brings: its own entry, or the most any entry with its CAS gives, as literature. */
-function annexOf(layer: IfraLayer, identity: Identity): Component[] {
+function annexOf(layer: IfraLayer, identity: Identity, tincture = false): Component[] {
   const entries = layer.annex.filter((e) => (e.naturalCas !== null && identity.cas.includes(e.naturalCas)) || e.naturalOtherCas.some((c) => identity.cas.includes(c)));
   if (entries.length === 0) return [];
   const names = [...new Set(entries.map((e) => e.naturalName))];
@@ -210,6 +212,9 @@ function annexOf(layer: IfraLayer, identity: Identity): Component[] {
   if (own !== undefined) {
     return entries.filter((e) => e.naturalName === own).map((e) => component(e, "ifra", `IFRA, naturals annex: ${own}`));
   }
+  // V3-102: a tincture is mostly alcohol: what the annex gives another form (the absolute) is not borrowed whole.
+  // Its constituents come from its own composition (an estimate scaled by its share, as consensus); without one, it is unknown.
+  if (tincture) return [];
   // V3-28: borrowed from the other forms with its CAS, the most of each: literature, never «inside».
   const most = new Map<string, (typeof entries)[number]>();
   for (const e of entries) {
@@ -257,7 +262,9 @@ function nodes(catalog: Catalog, layer: IfraLayer) {
       names: [...new Set(chain.flatMap((m) => [m.name, ...m.aliases]))],
     };
     // Of two rows for one substance, the most authoritative; at the same authority, the material's own over IFRA's.
-    const extra = [...(material.kind === "natural" ? annexOf(layer, identity) : []), ...constituentsOf(layer, identity)];
+    const form = fold(chain.find((m) => m.form)?.form ?? "");
+    const tincture = form === "tincture" || form === "tintura";
+    const extra = [...(material.kind === "natural" ? annexOf(layer, identity, tincture) : []), ...constituentsOf(layer, identity)];
     const byCas = new Map<string, Component>();
     const rest: Component[] = [];
     for (const c of [...components, ...extra]) {
@@ -267,7 +274,9 @@ function nodes(catalog: Catalog, layer: IfraLayer) {
         continue;
       }
       const before = byCas.get(cas);
-      if (!before || RANK[c.authority] < RANK[before.authority]) byCas.set(cas, c);
+      // V3-27's constituent of unknown amount waits for a figure: any figure of it, of any authority, takes its place (V3-103).
+      const waiting = (x: Component) => x.id.startsWith("limit:") && x.amount.kind === "unknown";
+      if (!before || (waiting(before) && !waiting(c)) || (!waiting(c) && RANK[c.authority] < RANK[before.authority])) byCas.set(cas, c);
     }
     for (const c of extra) if (c.componentCas && c.componentName && !names.has(c.componentCas)) names.set(c.componentCas, c.componentName);
     for (const c of components) if (c.componentCas && c.componentName && !names.has(c.componentCas)) names.set(c.componentCas, c.componentName);

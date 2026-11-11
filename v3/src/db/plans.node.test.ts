@@ -8,7 +8,7 @@ import { Ratio } from "../core/arith/ratio";
 import { copyFormula, createFormula, createWorkbench } from "./formulas";
 import { AppSchema, tables } from "./local/schema";
 import type { LocalDb } from "./materials";
-import { loadPlan, removePlanLine, setPlanParts, setPlanShape } from "./plans";
+import { loadPlan, removePlanLine, replacePlan, setPlanParts, setPlanShape } from "./plans";
 
 /** The plan of a formula (V3-98), on the copy without network. */
 
@@ -66,5 +66,64 @@ describe("the plan of a formula (V3-98)", () => {
     expect((await loadPlan(db, ME, v2)).map((l) => [l.materialId, l.parts.toString(), l.shape])).toEqual([[HEDIONE, "3", "heart"]]);
     await expect(setPlanParts(db, OTHER, f, BERGAMOT, Ratio.of(1))).rejects.toThrow("not one of your formulas");
     await expect(setPlanParts(db, ME, f, BERGAMOT, Ratio.of(-1))).rejects.toThrow("negative");
+  });
+});
+
+describe("writing an imported plan at once (V3-100)", () => {
+  const CEDAR = "aaaaaaaa-0000-4000-8000-000000000003";
+  it("«replace» leaves exactly the file's lines, in its order, with shape and group", async () => {
+    const bench = await createWorkbench(db, ME, { name: "Import 1" });
+    const f = await createFormula(db, ME, { name: "Floors v4", workbenchId: bench });
+    await setPlanParts(db, ME, f, CEDAR, Ratio.of(9));
+    await replacePlan(db, ME, f, [
+      { materialId: HEDIONE, parts: Ratio.fromDecimal("13.63"), shape: null, groupName: "Heart" },
+      { materialId: BERGAMOT, parts: Ratio.fromDecimal("2.42"), shape: "top", groupName: "Top · Citrus" },
+    ]);
+    const plan = await loadPlan(db, ME, f);
+    expect(plan.map((l) => [l.materialId, l.parts.toString(), l.shape, l.groupName, l.position])).toEqual([
+      [HEDIONE, "1363/100", null, "Heart", 0],
+      [BERGAMOT, "121/50", "top", "Top · Citrus", 1],
+    ]);
+  });
+
+  it("«add» keeps what was there, updates the parts it shares and puts the new ones at the end", async () => {
+    const bench = await createWorkbench(db, ME, { name: "Import 2" });
+    const f = await createFormula(db, ME, { name: "Floors v5", workbenchId: bench });
+    const cedar = await setPlanParts(db, ME, f, CEDAR, Ratio.of(9));
+    await setPlanShape(db, ME, cedar, "linear");
+    await setPlanParts(db, ME, f, HEDIONE, Ratio.of(1));
+    await replacePlan(
+      db,
+      ME,
+      f,
+      [
+        { materialId: HEDIONE, parts: Ratio.of(4), shape: null, groupName: null },
+        { materialId: BERGAMOT, parts: Ratio.of(2), shape: null, groupName: "Top" },
+      ],
+      "add",
+    );
+    expect((await loadPlan(db, ME, f)).map((l) => [l.materialId, l.parts.toString(), l.shape, l.groupName])).toEqual([
+      [CEDAR, "9", "linear", null],
+      [HEDIONE, "4", null, null],
+      [BERGAMOT, "2", null, "Top"],
+    ]);
+  });
+
+  it("writes nothing when a line is wrong, and a version takes the groups too", async () => {
+    const bench = await createWorkbench(db, ME, { name: "Import 3" });
+    const f = await createFormula(db, ME, { name: "Floors v6", workbenchId: bench });
+    await setPlanParts(db, ME, f, CEDAR, Ratio.of(9));
+    await expect(
+      replacePlan(db, ME, f, [
+        { materialId: HEDIONE, parts: Ratio.of(1), shape: null, groupName: null },
+        { materialId: HEDIONE, parts: Ratio.of(2), shape: null, groupName: null },
+      ]),
+    ).rejects.toThrow("twice");
+    await expect(replacePlan(db, ME, f, [{ materialId: HEDIONE, parts: Ratio.of(-1), shape: null, groupName: null }])).rejects.toThrow("negative");
+    await expect(replacePlan(db, OTHER, f, [])).rejects.toThrow("not one of your formulas");
+    expect((await loadPlan(db, ME, f)).map((l) => l.materialId)).toEqual([CEDAR]);
+    await replacePlan(db, ME, f, [{ materialId: HEDIONE, parts: Ratio.of(1), shape: null, groupName: "Base · Musks" }]);
+    const v2 = await copyFormula(db, ME, f, { name: "Floors v6 · 2", asVersion: true });
+    expect((await loadPlan(db, ME, v2)).map((l) => l.groupName)).toEqual(["Base · Musks"]);
   });
 });

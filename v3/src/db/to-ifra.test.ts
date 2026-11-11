@@ -323,6 +323,11 @@ describe("a limit expressed as a constituent (V3-27: STD 089, 5-MOP)", () => {
     const mine = material("my-bergamot", "natural", { ownerId: ME, basedOnId: "bergamot", components: [substance("484-20-8", "5-MOP", exact("0.001"))] });
     expect(substancesOf(catalogOf(bergamot, mine), layer, "my-bergamot")).toEqual([["std:furocumarinas", "1/100000", null]]);
   });
+
+  it("a figure of the literature also takes the place of the unknown amount: bounded by it, not by the whole (V3-103)", () => {
+    const fcf = material("fcf", "natural", { cas: "8007-75-8", components: [substance("484-20-8", "5-MOP", max("0.0005"), "literature")] });
+    expect(substancesOf(catalogOf(fcf), layer, "fcf")).toEqual([["std:furocumarinas", null, "1/200000"]]);
+  });
 });
 
 describe("what IFRA's annex says a natural brings (V3-23, V3-28, V3-39)", () => {
@@ -362,6 +367,25 @@ describe("what IFRA's annex says a natural brings (V3-23, V3-28, V3-39)", () => 
     const one = layerOf(specs, [entry("90028-06-1", "Tonka Bean absolute", "5392-40-5", "Citral", "3")]);
     const tincture = material("tincture", "natural", { cas: "90028-06-1" });
     expect(substancesOf(catalogOf(tincture), one, "tincture")).toEqual([["std:STD_CIT", null, "3/100"]]);
+  });
+
+  it("a tincture does not borrow the absolute's entry (V3-102): without its own composition it is unknown, never free", () => {
+    const one = layerOf(specs, [entry("90028-06-1", "Tonka Bean absolute", "5392-40-5", "Citral", "56.77")]);
+    const tincture = material("tonka-t", "natural", { cas: "90028-06-1", form: "tincture" });
+    expect(substancesOf(catalogOf(tincture), one, "tonka-t")).toEqual([]);
+    expect(toIfra(catalogOf(tincture), one).materials.get("tonka-t")).toEqual({ status: "checked", substances: [], conditions: [], pending: [NO_DATA] });
+  });
+
+  it("a tincture counts its own estimate, scaled by its share, as consensus: bounded, never known (V3-102)", () => {
+    const one = layerOf(specs, [entry("90028-06-1", "Tonka Bean absolute", "5392-40-5", "Citral", "56.77")]);
+    const tincture = material("tonka-t", "natural", { cas: "90028-06-1", form: "tincture", components: [substance("5392-40-5", "Citral", max("11.354"), "consensus")] });
+    expect(substancesOf(catalogOf(tincture), one, "tonka-t")).toEqual([["std:STD_CIT", null, "5677/50000"]]);
+  });
+
+  it("a tincture that has its own entry in the annex keeps it", () => {
+    const own = layerOf(specs, [entry("84836-94-2", "Ambergris tincture", "5392-40-5", "Citral", "0.1")]);
+    const tincture = material("amb", "natural", { cas: "84836-94-2", form: "tincture", aliases: ["Ambergris tincture"] });
+    expect(substancesOf(catalogOf(tincture), own, "amb")).toEqual([["std:STD_CIT", "1/1000", null]]);
   });
 
   it("the certificate of your bottle rules over the annex for that constituent; the rest of the annex stays", () => {

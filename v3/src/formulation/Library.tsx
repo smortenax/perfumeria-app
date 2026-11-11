@@ -37,12 +37,15 @@ export function Library({
   onNew,
   onNewBench,
   onDeleteBench,
+  onImportPlan,
   openBench,
 }: {
   data: GlossaryData;
   local: LocalDatabase;
   onOpen: (id: string) => void;
   onNew: (workbenchId: string) => void;
+  /** «Import plan» into a new formula of this bench (V3-100). */
+  onImportPlan?: (workbenchId: string) => void;
   onNewBench: (name: string) => void;
   onDeleteBench: (workbenchId: string) => void;
   /** The bench of the formula last open in the workbench: back from it, that bench is open (audit F-02). */
@@ -132,7 +135,7 @@ export function Library({
       </div>
       <div className="tab-panel" role="tabpanel" id="library-panel" aria-labelledby={`library-tab-${tab}`}>
         {tab === "benches" ? (
-          <Benches data={data} local={local} previews={previews} query={query} onOpen={onOpen} onNew={onNew} onNewBench={() => setAskingName(true)} onDeleteBench={onDeleteBench} openBench={openBench} />
+          <Benches data={data} local={local} previews={previews} query={query} onOpen={onOpen} onNew={onNew} onNewBench={() => setAskingName(true)} onDeleteBench={onDeleteBench} onImportPlan={onImportPlan} openBench={openBench} />
         ) : (
           <Formulas data={data} query={query} marker={MARKER[tab]} onOpen={onOpen} />
         )}
@@ -155,6 +158,7 @@ function Benches({
   onNew,
   onNewBench,
   onDeleteBench,
+  onImportPlan,
   openBench,
 }: {
   data: GlossaryData;
@@ -163,6 +167,7 @@ function Benches({
   query: string;
   onOpen: (id: string) => void;
   onNew: (workbenchId: string) => void;
+  onImportPlan?: (workbenchId: string) => void;
   onNewBench: () => void;
   onDeleteBench: (workbenchId: string) => void;
   openBench?: string;
@@ -197,6 +202,8 @@ function Benches({
   // What is macerating (V3-83), with its day.
   const macerations = useMacerations(local);
   const macerating = new Map(macerations.map((m) => [m.formulaId, macerationState(m, todayIso()).day]));
+  // Which formulas have a profile plan, and of how many materials (V3-100: the mark in Formulation).
+  const planned = usePlanned(local);
   if (!current)
     return words.length ? (
       <p className="hint">{t.noFormulas}</p>
@@ -235,6 +242,11 @@ function Benches({
             {all === 0 && (
               <Button variant="danger" onClick={() => onDeleteBench(current.id)}>
                 {t.deleteBench}
+              </Button>
+            )}
+            {onImportPlan && (
+              <Button variant="secondary" onClick={() => onImportPlan(current.id)}>
+                {texts.importPlan.button}
               </Button>
             )}
             <Button variant="primary" onClick={() => onNew(current.id)}>
@@ -301,6 +313,11 @@ function Benches({
                         {t.markers[m]}
                       </span>
                     ))}
+                    {planned.has(f.id) && (
+                      <span className="chip plan-chip" title={texts.planner.hasPlanTitle(planned.get(f.id)!)}>
+                        {texts.planner.hasPlan}
+                      </span>
+                    )}
                     {macerating.has(f.id) && <span className="chip macerating-chip">⏱ {texts.maceration.day(macerating.get(f.id)!)}</span>}
                     <span className="formula-open" aria-hidden="true">
                       →
@@ -348,4 +365,20 @@ function previewText(f: FormulaRecord, p: Preview | undefined): string {
   const day = p?.lastChange ? new Date(p.lastChange) : null;
   const when = day && !Number.isNaN(day.getTime()) ? l.changed(day.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })) : null;
   return [l.materialsCount(p?.materials ?? 0), batch, when].filter((x) => x).join(" · ");
+}
+
+/** How many plan lines each of your formulas has, live (V3-100). */
+function usePlanned(local: LocalDatabase): ReadonlyMap<string, number> {
+  const [planned, setPlanned] = useState<ReadonlyMap<string, number>>(new Map());
+  useEffect(() => {
+    const abort = new AbortController();
+    local.powerSync.watch(
+      "SELECT formula_id AS formulaId, count(*) AS n FROM formula_plan_lines GROUP BY formula_id",
+      [],
+      { onResult: (r) => setPlanned(new Map(((r.rows?._array ?? []) as { formulaId: string; n: number }[]).map((x) => [x.formulaId, Number(x.n)]))) },
+      { signal: abort.signal },
+    );
+    return () => abort.abort();
+  }, [local]);
+  return planned;
 }
