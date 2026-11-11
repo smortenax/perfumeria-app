@@ -1,0 +1,228 @@
+n,nombre,campo,valor,fuente,nota
+353,Mirto limón,nombre,backhousia citriodora leaf oil,"TGSC, https://www.thegoodscentscompany.com/data/es1665551.html: «volatile oil obtained from the leaves of backhousia citriodora, myrtaceae»",CAS 84775-80-4 coincide; especie y parte coinciden
+353,Mirto limón,familia,citrus,"TGSC, https://www.thegoodscentscompany.com/data/es1665551.html: «Odor Type: citrus»",
+353,Mirto limón,olor,lemon,"TGSC, https://www.thegoodscentscompany.com/data/es1665551.html: «at 100.00 %. lemon»",TGSC también da «lemon fruity green herbal» como tipo
+353,Mirto limón,estado,colorless to pale yellow clear liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/es1665551.html: «colorless to pale yellow clear liquid (est)»",estimado por TGSC
+353,Mirto limón,estado,"deep yellow, pourable viscosity","Hermitage Oils, https://hermitageoils.com/?p=24202: «deep yellow in colour and of a pourable viscosity»",Backhousia citriodora
+353,Mirto limón,nivel,,"no lo dice ninguna fuente consultada: TGSC es1665551, Hermitage Oils p=24202",
+353,Mirto limón,horas,,"no lo dice ninguna fuente consultada: TGSC es1665551, Hermitage Oils p=24202","Hermitage solo cita una reseña: «surprisingly long-lasting», sin cifra"
+353,Mirto limón,fuerza,,"no lo dice ninguna fuente consultada: TGSC es1665551, Hermitage Oils p=24202",
+353,Mirto limón,dosis,,"no lo dice ninguna fuente consultada: TGSC es1665551, Hermitage Oils p=24202",TGSC solo dice «not for flavor use.»
+354,Mirto rojo,nombre,myrtle oil (myrtus communis leaf oil),"TGSC, https://thegoodscentscompany.com/data/es1047701.html: «myrtle oil» / «myrtus communis leaf oil»",CAS en TGSC 8008-46-6 (uno de los dos del producto)
+354,Mirto rojo,familia,herbal,"TGSC, https://thegoodscentscompany.com/data/es1047701.html: «Odor Type: herbal»",
+354,Mirto rojo,olor,fresh fruity spicy allspice camphoreous floral herbal,"TGSC, https://thegoodscentscompany.com/data/es1047701.html: «fresh fruity spicy allspice camphoreous floral herbal»",
+354,Mirto rojo,estado,pale amber clear liquid (est),"TGSC, https://thegoodscentscompany.com/data/es1047701.html: «pale amber clear liquid (est)»",estimado por TGSC
+354,Mirto rojo,nombre,myrtle oil rectified,"Fraterworks, https://fraterworks.com/products/myrtle-oil-rectified: «Variety: Myrtus Communis»","otra variedad (rectificado, no el aceite sin rectificar)"
+354,Mirto rojo,familia,Aromatic,"Fraterworks, https://fraterworks.com/products/myrtle-oil-rectified: «Odor family: Aromatic»",otra variedad (rectificado)
+354,Mirto rojo,nivel,heart,"Fraterworks, https://fraterworks.com/products/myrtle-oil-rectified: «Classification: Heart Note»",otra variedad (rectificado); la misma página dice también «a fresh herbal top note»
+354,Mirto rojo,horas,8,"Fraterworks, https://fraterworks.com/products/myrtle-oil-rectified: «Lasts > 8 hours on a smelling strip.»",otra variedad (rectificado); es «más de 8»
+354,Mirto rojo,fuerza,moderate (4/10),"Fraterworks, https://fraterworks.com/products/myrtle-oil-rectified: «moderate strength (4/10)»",otra variedad (rectificado)
+354,Mirto rojo,olor,"Allspice, camphoreous, floral, fruity, herbal","Fraterworks, https://fraterworks.com/products/myrtle-oil-rectified: «Allspice, camphoreous, floral, fruity, herbal»",otra variedad (rectificado)
+354,Mirto rojo,estado,pale straw liquid,"Fraterworks, https://fraterworks.com/products/myrtle-oil-rectified: «pale straw liquid»",otra variedad (rectificado)
+354,Mirto rojo,dosis,0.352 % median use in perfumes,"Fraterworks, https://fraterworks.com/products/myrtle-oil-rectified: «0.352% Median use in perfumes»","otra variedad (rectificado); es mediana en perfumes analizados, no recomendación; IFRA 51 2.4 % Cat. 4 aparte"
+354,Mirto rojo,fuerza,,no lo dice ninguna fuente consultada: TGSC es1047701,"TGSC no la da (Fraterworks sí, otra variedad)"
+354,Mirto rojo,dosis,,no lo dice ninguna fuente consultada: TGSC es1047701,
+356,Naranja amarga,nombre,bitter orange peel oil brazil (citrus aurantium l.),"TGSC, https://thegoodscentscompany.com/data/es1009381.html: «bitter orange peel oil brazil»","CAS 68916-04-1; especie y parte (piel) coinciden. Ojo: es1719701/ex1614491 son flor (neroli), otra parte"
+356,Naranja amarga,familia,citrus,"TGSC, https://thegoodscentscompany.com/data/es1009381.html: «Odor Type: citrus»",
+356,Naranja amarga,familia,Citrus,"Fraterworks, https://fraterworks.com/products/bitter-orange-oil: «Odor family: Citrus»",
+356,Naranja amarga,olor,citrus orange dry woody mandarin cognac terpenic aromatic,"TGSC, https://thegoodscentscompany.com/data/es1009381.html: «citrus orange dry woody mandarin cognac terpenic aromatic»",
+356,Naranja amarga,olor,"Bitter orange oil has a fresh, tart citrus scent with green, floral undertones and a slightly bitter, peel-like character.","Fraterworks, https://fraterworks.com/products/bitter-orange-oil: «Bitter orange oil has a fresh, tart citrus scent with green, floral undertones and a slightly bitter, peel-like character.»",
+356,Naranja amarga,fuerza,medium,"TGSC, https://thegoodscentscompany.com/data/es1009381.html: «Odor Strength: medium»",
+356,Naranja amarga,horas,32,"TGSC, https://thegoodscentscompany.com/data/es1009381.html: «Substantivity: 32 hour(s) at 100.00 %»",
+356,Naranja amarga,horas,6,"Fraterworks, https://fraterworks.com/products/bitter-orange-oil: «Lasts 6 hours on a smelling strip.»",contrasta con TGSC (32 h)
+356,Naranja amarga,nivel,heart,"Fraterworks, https://fraterworks.com/products/bitter-orange-oil: «Classification: Heart Note»",Cold pressed peel
+356,Naranja amarga,estado,pale yellow to yellow clear liquid (est),"TGSC, https://thegoodscentscompany.com/data/es1009381.html: «pale yellow to yellow clear liquid (est)»",
+356,Naranja amarga,estado,Pale yellow liquid,"Fraterworks, https://fraterworks.com/products/bitter-orange-oil: «Pale yellow liquid»",
+356,Naranja amarga,dosis,0.6 % of the concentrate (median in analyzed perfumes),"Fraterworks, https://fraterworks.com/products/bitter-orange-oil: «0.6% of the concentrate»",mediana de perfumes analizados; IFRA 51 3 % Cat. 4
+356,Naranja amarga,dosis,,no lo dice ninguna fuente consultada: TGSC es1009381,TGSC solo da límites IFRA 1.25 % y FEMA; no recomendación de uso en concentrado
+359,Nargamota,nombre,cyperus root oil (cyperus scariosus),"TGSC, https://thegoodscentscompany.com/data/es1018011.html: «cyperus scariosus l. root oil»",CAS 91771-62-9 coincide; TGSC dice rizomas/raíces
+359,Nargamota,familia,woody,"TGSC, https://thegoodscentscompany.com/data/es1018011.html: «Odor Type: woody»",
+359,Nargamota,familia,"earthy, smokey","Eden Botanicals, https://www.edenbotanicals.com/products/essential-oils-pure-therapeutic-grade/essential-oils-m-n/nagarmotha-cyperus.html: «earthy, smokey»","Cyperus scariosus R.Br., raíces"
+359,Nargamota,olor,woody earthy cinnamon olibanum dry spicy cedar,"TGSC, https://thegoodscentscompany.com/data/es1018011.html: «woody earthy cinnamon olibanum dry spicy cedar»",
+359,Nargamota,olor,"Rich, persistent, woody, earthy, deep, somewhat peppery aroma with smoky notes of leather","Eden Botanicals, https://www.edenbotanicals.com/products/essential-oils-pure-therapeutic-grade/essential-oils-m-n/nagarmotha-cyperus.html: «Rich, persistent, woody, earthy, deep, somewhat peppery aroma with smoky notes of leather»",
+359,Nargamota,nivel,"middle, base","Eden Botanicals, https://www.edenbotanicals.com/products/essential-oils-pure-therapeutic-grade/essential-oils-m-n/nagarmotha-cyperus.html: «middle, base»",
+359,Nargamota,estado,amber clear viscous liquid (est),"TGSC, https://thegoodscentscompany.com/data/es1018011.html: «amber clear viscous liquid (est)»",estimado por TGSC
+359,Nargamota,estado,"Light amber or brownish-yellow, transparent, slightly viscous liquid","Eden Botanicals, https://www.edenbotanicals.com/products/essential-oils-pure-therapeutic-grade/essential-oils-m-n/nagarmotha-cyperus.html: «Light amber or brownish-yellow, transparent, slightly viscous liquid.»",
+359,Nargamota,dosis,3.0 % in the fragrance concentrate,"TGSC, https://thegoodscentscompany.com/data/es1018011.html: «3.0000 % in the fragrance concentrate.»",
+359,Nargamota,horas,,"no lo dice ninguna fuente consultada: TGSC es1018011, Eden Botanicals nagarmotha-cyperus","Eden solo dice «displays great tenacity», sin horas"
+359,Nargamota,fuerza,,"no lo dice ninguna fuente consultada: TGSC es1018011, Eden Botanicals nagarmotha-cyperus",
+360,Niaouli,nombre,melaleuca viridiflora leaf oil,"TGSC, https://www.thegoodscentscompany.com/data/es1616121.html: «volatile oil obtained from the leaves of melaleuca viridiflora, myrtaceae»",CAS 132940-73-9 coincide; hoja
+360,Niaouli,nombre,Niaouli - Melaleuca quinquenervia viridiflora ct cineole (MQV),"Eden Botanicals, https://edenbotanicals.com/niaouli-organic.html: «Melaleuca quinquenervia viridiflora ct cineole (MQV) [synonym of Melaleuca quinquenervia (Cav.) S.T.Blake]»",orgánico; hojas
+360,Niaouli,familia,camphoreous,"TGSC, https://www.thegoodscentscompany.com/data/es1616121.html: «Odor Type: camphoreous»",
+360,Niaouli,familia,"cineolic, herbaceous","Eden Botanicals, https://edenbotanicals.com/niaouli-organic.html: «cineolic, herbaceous»",
+360,Niaouli,olor,eucalyptus camphoreous medicinal,"TGSC, https://www.thegoodscentscompany.com/data/es1616121.html: «at 100.00 %. eucalyptus camphoreous medicinal»",
+360,Niaouli,olor,"Fresh, strong, highly diffusive, cineolic aroma.","Eden Botanicals, https://edenbotanicals.com/niaouli-organic.html: «Fresh, strong, highly diffusive, cineolic aroma.»",
+360,Niaouli,nivel,top,"Eden Botanicals, https://edenbotanicals.com/niaouli-organic.html: «top.»",
+360,Niaouli,estado,"Colorless, transparent, mobile liquid","Eden Botanicals, https://edenbotanicals.com/niaouli-organic.html: «Colorless, transparent, mobile liquid.»",
+360,Niaouli,horas,,"no lo dice ninguna fuente consultada: TGSC es1616121, Eden Botanicals niaouli-organic",
+360,Niaouli,fuerza,,"no lo dice ninguna fuente consultada: TGSC es1616121, Eden Botanicals niaouli-organic","Eden solo usa «strong» dentro de la descripción de olor, no como campo de fuerza"
+360,Niaouli,dosis,,"no lo dice ninguna fuente consultada: TGSC es1616121, Eden Botanicals niaouli-organic","TGSC solo «not for flavor use»; Eden: «In trace amounts, Niaouli elevates top notes»"
+360,Niaouli,estado,,no lo dice ninguna fuente consultada: TGSC es1616121,TGSC no da apariencia (solo Eden)
+361,Nuez moscada,nombre,nutmeg oil (myristica fragrans houtt. fruit oil),"TGSC, https://www.thegoodscentscompany.com/data/es1009111.html: «nutmeg oil» / «myristica fragrans houtt. fruit oil»","CAS 8008-45-5 coincide; semilla/grano seco, destilación al vapor. Ojo: es1101611 es extracto CO2 (otra variedad), no usado"
+361,Nuez moscada,familia,spicy,"TGSC, https://www.thegoodscentscompany.com/data/es1009111.html: «Odor Type: spicy»",
+361,Nuez moscada,familia,Spicy-Aromatic,"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/nutmeg-oil: «Spicy-Aromatic»",
+361,Nuez moscada,olor,spicy woody nutmeg powdery terpene,"TGSC, https://www.thegoodscentscompany.com/data/es1009111.html: «at 100.00 %. spicy woody nutmeg powdery terpene»",
+361,Nuez moscada,olor,"Light, fresh, warm-spicy and aromatic with distinctly terpenic top note","Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/nutmeg-oil: «Light, fresh, warm-spicy and aromatic with distinctly terpenic top note»",
+361,Nuez moscada,nivel,top-to-middle,"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/nutmeg-oil: «top-to-middle note modifier»",
+361,Nuez moscada,horas,52,"TGSC, https://www.thegoodscentscompany.com/data/es1009111.html: «Substantivity: 52 hour(s) at 100.00 %»",
+361,Nuez moscada,fuerza,medium,"TGSC, https://www.thegoodscentscompany.com/data/es1009111.html: «Odor Strength: medium»",
+361,Nuez moscada,fuerza,Medium-high,"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/nutmeg-oil: «Medium-high»",contrasta con TGSC
+361,Nuez moscada,estado,pale yellow clear liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/es1009111.html: «pale yellow clear liquid (est)»",
+361,Nuez moscada,estado,Pale yellow to almost water-white mobile liquid,"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/nutmeg-oil: «Pale yellow to almost water-white mobile liquid»",
+361,Nuez moscada,dosis,up to 2.0 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/es1009111.html: «Recommendation for nutmeg oil usage levels up to: 2.0000 % in the fragrance concentrate.»",
+361,Nuez moscada,dosis,0.5-3 % in fine fragrance concentrates,"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/nutmeg-oil: «0.5-3% in fine fragrance concentrates»",
+363,Orégano,nombre,origanum vulgare oil,"TGSC, https://thegoodscentscompany.com/data/es1760151.html: «volatile oil obtained from the whole plant of the wild marjoram»",CAS 84012-24-8 coincide; TGSC dice planta entera (producto: hoja)
+363,Orégano,nombre,"Oregano - Organic EO, Origanum vulgare L.","Eden Botanicals, https://www.edenbotanicals.com/oregano-organic.html: «Origanum vulgare L.»",flor y hojas; orgánico
+363,Orégano,olor,"herbal, peppery, earthy, and warm","TGSC, https://thegoodscentscompany.com/data/es1760151.html: «Oregano oil as an aroma that is herbal, peppery, earthy, and warm.»","cita a un proveedor (The Perfumery) dentro de la página TGSC, no al propio TGSC"
+363,Orégano,olor,"Very fresh, vibrant, warm, with a pungent, spicy/herbaceous, mildly woody undertone.","Eden Botanicals, https://www.edenbotanicals.com/oregano-organic.html: «Very fresh, vibrant, warm, with a pungent, spicy/herbaceous, mildly woody undertone.»",
+363,Orégano,familia,herbaceous,"Eden Botanicals, https://www.edenbotanicals.com/oregano-organic.html: «herbaceous.»",
+363,Orégano,nivel,"top, middle","Eden Botanicals, https://www.edenbotanicals.com/oregano-organic.html: «top, middle.»",
+363,Orégano,estado,"Colorless to pale yellow, transparent, mobile liquid","Eden Botanicals, https://www.edenbotanicals.com/oregano-organic.html: «Colorless to pale yellow, transparent, mobile liquid.»",
+363,Orégano,dosis,maximum dermal use level is 1.1 %,"Eden Botanicals, https://www.edenbotanicals.com/oregano-organic.html: «maximum dermal use level is 1.1%.»","es límite dérmico de seguridad, no uso habitual en el concentrado"
+363,Orégano,familia,,no lo dice ninguna fuente consultada: TGSC es1760151,TGSC no da Odor Type (Eden sí)
+363,Orégano,horas,,"no lo dice ninguna fuente consultada: TGSC es1760151, Eden Botanicals oregano-organic",
+363,Orégano,fuerza,,"no lo dice ninguna fuente consultada: TGSC es1760151, Eden Botanicals oregano-organic","Eden solo dice «very potent», lenguaje promocional"
+365,Palmarosa,nombre,"palmarosa oil (cymbopogon martini, varietas motia)","TGSC, https://www.thegoodscentscompany.com/data/es1009591.html: «Cymbopogon Martini, varietas motia»",especie y parte (hierba) coinciden; la página TGSC no da CAS
+365,Palmarosa,nombre,palmarosa oil (Cymbopogon martinii var. motia),"Fraterworks, https://fraterworks.com/products/palmarosa-oil: «Cymbopogon martinii (Roxb.) Will. Watson var. motia»",
+365,Palmarosa,familia,Floral,"Fraterworks, https://fraterworks.com/products/palmarosa-oil: «Odor family: Floral»",
+365,Palmarosa,olor,"sweet, rosy-floral aroma with a fresh grassy-citrus lift, gentle metallic and herbaceous undertones","Fraterworks, https://fraterworks.com/products/palmarosa-oil: «sweet, rosy-floral aroma with a fresh grassy-citrus lift, gentle metallic and herbaceous undertones»",
+365,Palmarosa,olor,"the smell is fresh grassy, lemony, with geranium rose and ocean breeze qualities","TGSC, https://www.thegoodscentscompany.com/data/es1009591.html: «the smell is fresh grassy, lemony, with geranium rose and ocean breeze qualities.»",cita a Hermitage Oils dentro de la página TGSC
+365,Palmarosa,nivel,base,"Fraterworks, https://fraterworks.com/products/palmarosa-oil: «Classification: Base Note»",
+365,Palmarosa,horas,380,"Fraterworks, https://fraterworks.com/products/palmarosa-oil: «Lasts > 380 hours on a smelling strip.»","es «más de 380»; cifra llamativa, contrastar"
+365,Palmarosa,fuerza,moderate (4/10),"Fraterworks, https://fraterworks.com/products/palmarosa-oil: «moderate strength (4/10)»",
+365,Palmarosa,estado,Pale yellow liquid,"Fraterworks, https://fraterworks.com/products/palmarosa-oil: «Pale yellow liquid»",
+365,Palmarosa,dosis,0.221 % of the concentrate (median in analysed perfumes),"Fraterworks, https://fraterworks.com/products/palmarosa-oil: «at a median of 0.221% of the concentrate»","mediana de perfumes analizados; media 0.673 %, máximo observado 10.33 %"
+365,Palmarosa,familia,,no lo dice ninguna fuente consultada: TGSC es1009591,TGSC no da Odor Type en esta página
+365,Palmarosa,horas,,no lo dice ninguna fuente consultada: TGSC es1009591,
+365,Palmarosa,fuerza,,no lo dice ninguna fuente consultada: TGSC es1009591,
+366,Palo de rosa,nombre,bois de rose oil brazil (aniba rosaeodora var. amazonica),"TGSC, https://www.thegoodscentscompany.com/data/es1002051.html: «aniba rosaeodora var.amazonica, lauraceae, brazil»",CAS 8015-77-8 coincide; madera
+366,Palo de rosa,nombre,rosewood oil (derived from Aniba rosaeodora),"Fraterworks, https://fraterworks.com/products/rosewood-oil: «derived from Aniba rosaeodora»",aceite de madera
+366,Palo de rosa,familia,floral,"TGSC, https://www.thegoodscentscompany.com/data/es1002051.html: «Odor Type: floral»",
+366,Palo de rosa,familia,Woody,"Fraterworks, https://fraterworks.com/products/rosewood-oil: «Odor family: Woody»",contrasta con TGSC
+366,Palo de rosa,olor,sweet floral bois de rose herbal citrus rose terpenic balsamic waxy woody,"TGSC, https://www.thegoodscentscompany.com/data/es1002051.html: «sweet floral bois de rose herbal citrus rose terpenic balsamic waxy woody»",
+366,Palo de rosa,olor,"sweet, refreshing, and softly floral-woody","Fraterworks, https://fraterworks.com/products/rosewood-oil: «sweet, refreshing, and softly floral-woody»",
+366,Palo de rosa,nivel,heart,"Fraterworks, https://fraterworks.com/products/rosewood-oil: «Heart Note»",
+366,Palo de rosa,horas,12,"TGSC, https://www.thegoodscentscompany.com/data/es1002051.html: «Substantivity: 12 hour(s) at 100.00 %»",
+366,Palo de rosa,horas,12,"Fraterworks, https://fraterworks.com/products/rosewood-oil: «Lasts > 12 hours on a smelling strip.»",es «más de 12»
+366,Palo de rosa,fuerza,medium,"TGSC, https://www.thegoodscentscompany.com/data/es1002051.html: «Odor Strength: medium»",
+366,Palo de rosa,fuerza,moderate (4/10),"Fraterworks, https://fraterworks.com/products/rosewood-oil: «moderate strength (4/10)»",
+366,Palo de rosa,estado,colorless to pale yellow clear liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/es1002051.html: «colorless to pale yellow clear liquid (est)»",
+366,Palo de rosa,estado,Pale gold liquid,"Fraterworks, https://fraterworks.com/products/rosewood-oil: «Pale gold liquid»",
+366,Palo de rosa,dosis,up to 20 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/es1002051.html: «20.0000 % in the fragrance concentrate.»",
+366,Palo de rosa,dosis,0.7 % median use in perfumes,"Fraterworks, https://fraterworks.com/products/rosewood-oil: «0.7% Median use in perfumes»",mediana de perfumes analizados; media 1.23 %
+367,Palo de Siam,nombre,siam wood oil (fokienia hodginsii wood oil),"TGSC, https://thegoodscentscompany.com/data/es1050351.html: «fokiena hodginsii wood oil»",TGSC da CAS 8022-47-7; el producto no trae CAS
+367,Palo de Siam,nombre,Siam Wood EO (Fokienia hodginsii (Dunn) A.Henry & H.H.Thomas),"Eden Botanicals, https://edenbotanicals.com/siam-wood.html: «Fokienia hodginsii (Dunn) A.Henry & H.H.Thomas»",madera
+367,Palo de Siam,familia,woody,"TGSC, https://thegoodscentscompany.com/data/es1050351.html: «Odor Type: woody»",
+367,Palo de Siam,familia,"earthy, woody","Eden Botanicals, https://edenbotanicals.com/siam-wood.html: «earthy, woody»",
+367,Palo de Siam,olor,woody balsam opoponax cedar floral,"TGSC, https://thegoodscentscompany.com/data/es1050351.html: «woody balsam opoponax cedar floral»",
+367,Palo de Siam,olor,"pleasant, warm, creamy, woody-balsamic, opopanax/cedar-like aroma","Eden Botanicals, https://edenbotanicals.com/siam-wood.html: «Siam Wood essential oil has a pleasant, warm, creamy, woody-balsamic, opopanax/cedar-like aroma»",
+367,Palo de Siam,nivel,base,"Eden Botanicals, https://edenbotanicals.com/siam-wood.html: «base, fixatives»",
+367,Palo de Siam,estado,pale yellow viscous liquid (est),"TGSC, https://thegoodscentscompany.com/data/es1050351.html: «pale yellow viscous liquid (est)»",
+367,Palo de Siam,estado,"Light yellow, transparent, slightly viscous, mobile liquid","Eden Botanicals, https://edenbotanicals.com/siam-wood.html: «Light yellow, transparent, slightly viscous, mobile liquid.»",
+367,Palo de Siam,horas,,"no lo dice ninguna fuente consultada: TGSC es1050351, Eden Botanicals siam-wood","Eden solo: «a fine fixative for building base accords», sin horas"
+367,Palo de Siam,fuerza,,"no lo dice ninguna fuente consultada: TGSC es1050351, Eden Botanicals siam-wood",
+367,Palo de Siam,dosis,,"no lo dice ninguna fuente consultada: TGSC es1050351, Eden Botanicals siam-wood",TGSC solo «not for flavor use»
+368,Palo santo frutos,nombre,bursera graveolens fruit oil,"TGSC, https://thegoodscentscompany.com/data/es1613001.html: «volatile oil obtained from the fruit of bursera graveolens»","fruto, coincide; sin CAS en TGSC. La página es1613011 es de madera (otra parte), no usada"
+368,Palo santo frutos,olor,"clean, citrus, sweet, woody aroma","TGSC, https://thegoodscentscompany.com/data/es1613001.html: «clean, citrus, sweet, woody aroma»",
+368,Palo santo frutos,nombre,Palo Santo Fruit (Bursera graveolens from Ecuador),"Aftelier, https://aftelier.com/Palo-Santo-Fruit-p/bot-eo-palosantofruit.htm: «(Bursera graveolens from Ecuador)»",casa perfumista no incluida en la lista de fuentes de confianza; fruto
+368,Palo santo frutos,olor,"Similar in aroma to palo santo wood, but fresher and cleaner and full of fruity facets","Aftelier, https://aftelier.com/Palo-Santo-Fruit-p/bot-eo-palosantofruit.htm: «Similar in aroma to palo santo wood, but fresher and cleaner and full of fruity facets.»",casa perfumista no incluida en la lista de fuentes de confianza
+368,Palo santo frutos,familia,Rich Woody,"Aftelier, https://aftelier.com/Palo-Santo-Fruit-p/bot-eo-palosantofruit.htm: «Rich Woody»",casa perfumista no incluida en la lista de fuentes de confianza
+368,Palo santo frutos,nivel,top,"Aftelier, https://aftelier.com/Palo-Santo-Fruit-p/bot-eo-palosantofruit.htm: «brings a sweet uplifting aroma to the opening of a perfume»",casa perfumista no incluida en la lista de fuentes de confianza; deduce «top note» de la frase
+368,Palo santo frutos,familia,,no lo dice ninguna fuente consultada: TGSC es1613001,"TGSC: «Odor: characteristic», no una familia"
+368,Palo santo frutos,horas,,"no lo dice ninguna fuente consultada: TGSC es1613001, Aftelier palosantofruit",
+368,Palo santo frutos,fuerza,,"no lo dice ninguna fuente consultada: TGSC es1613001, Aftelier palosantofruit",
+368,Palo santo frutos,estado,,"no lo dice ninguna fuente consultada: TGSC es1613001, Aftelier palosantofruit",
+368,Palo santo frutos,dosis,,"no lo dice ninguna fuente consultada: TGSC es1613001, Aftelier palosantofruit",
+369,Perejil semillas,nombre,curled parsley seed oil (carum petroselinum l.),"TGSC, https://www.thegoodscentscompany.com/data/es1048631.html: «volatile oil obtained from the seeds of the parsley»","semilla coincide; CAS en TGSC 8000-68-8 (producto 84012-33-9). es1015491 es hoja (otra parte), no usada"
+369,Perejil semillas,familia,herbal,"TGSC, https://www.thegoodscentscompany.com/data/es1048631.html: «Has a herbal type odor and an herbal type flavor.»",
+369,Perejil semillas,olor,warm woody spicy sweet green herbal,"TGSC, https://www.thegoodscentscompany.com/data/es1048631.html: «warm woody spicy sweet green herbal»","medido al 10 % en dipropilenglicol (Luebke); otra cita: «Green, spicy, woody, celery and hay with herbal nuances» (Mosciano)"
+369,Perejil semillas,estado,colorless to amber brown clear liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/es1048631.html: «colorless to amber brown clear liquid (est)»",
+369,Perejil semillas,nivel,,no lo dice ninguna fuente consultada: TGSC es1048631,no se leyó segunda referencia (sin resultado útil en la búsqueda)
+369,Perejil semillas,horas,,no lo dice ninguna fuente consultada: TGSC es1048631,
+369,Perejil semillas,fuerza,,no lo dice ninguna fuente consultada: TGSC es1048631,
+369,Perejil semillas,dosis,,no lo dice ninguna fuente consultada: TGSC es1048631,la lectura de la página fue parcial (101k+ caracteres)
+370,Petitgrain bigarade,nombre,petitgrain bigarade oil (citrus aurantium l. leaf oil),"TGSC, https://thegoodscentscompany.com/data/es1033691.html: «essential oil obtained from the leaves of the sour orange»",TGSC da CAS 8014-17-3; el producto 68916-04-1 / 72968-50-4. Misma especie y parte (hoja/ramita); origen Italia no distinguido por las fuentes
+370,Petitgrain bigarade,familia,floral,"TGSC, https://thegoodscentscompany.com/data/es1033691.html: «Odor Type: floral»",
+370,Petitgrain bigarade,olor,fresh floral sweet orangflower woody herbal,"TGSC, https://thegoodscentscompany.com/data/es1033691.html: «at 100.00 %. fresh floral sweet orangflower woody herbal»",
+370,Petitgrain bigarade,olor,"fresh, leafy-green, lightly floral, citrus aroma with light bitter/dry notes and rich, sweet undertones","Eden Botanicals, https://edenbotanicals.com/petitgrain-bigarade-organic-3036.html: «fresh, leafy-green, lightly floral, citrus aroma with light bitter/dry notes and rich, sweet undertones»","orgánico, hojas y ramitas"
+370,Petitgrain bigarade,estado,pale yellow clear liquid (est),"TGSC, https://thegoodscentscompany.com/data/es1033691.html: «pale yellow clear liquid (est)»",
+370,Petitgrain bigarade,dosis,up to 15.0 % in the fragrance concentrate,"TGSC, https://thegoodscentscompany.com/data/es1033691.html: «15.0000 % in the fragrance concentrate.»",
+370,Petitgrain bigarade,nivel,,"no lo dice ninguna fuente consultada: TGSC es1033691, Eden Botanicals petitgrain-bigarade-organic-3036","Eden solo lo menciona en una reseña de cliente («Despite being listed as a top note»), no la página"
+370,Petitgrain bigarade,horas,,"no lo dice ninguna fuente consultada: TGSC es1033691, Eden Botanicals petitgrain-bigarade-organic-3036",Eden solo reseña de cliente: «good staying power»
+370,Petitgrain bigarade,fuerza,,"no lo dice ninguna fuente consultada: TGSC es1033691, Eden Botanicals petitgrain-bigarade-organic-3036",
+373,Petitgrain Paraguay,nombre,petitgrain bigarade oil (citrus aurantium l. leaf oil),"TGSC, https://thegoodscentscompany.com/data/es1033691.html: «essential oil obtained from the leaves of the sour orange»",TGSC da CAS 8014-17-3; el producto 68916-04-1 / 72968-50-4. Misma especie y parte (hoja/ramita); origen Paraguay no distinguido por las fuentes (mismas páginas que 370)
+373,Petitgrain Paraguay,familia,floral,"TGSC, https://thegoodscentscompany.com/data/es1033691.html: «Odor Type: floral»",
+373,Petitgrain Paraguay,olor,fresh floral sweet orangflower woody herbal,"TGSC, https://thegoodscentscompany.com/data/es1033691.html: «at 100.00 %. fresh floral sweet orangflower woody herbal»",
+373,Petitgrain Paraguay,olor,"fresh, leafy-green, lightly floral, citrus aroma with light bitter/dry notes and rich, sweet undertones","Eden Botanicals, https://edenbotanicals.com/petitgrain-bigarade-organic-3036.html: «fresh, leafy-green, lightly floral, citrus aroma with light bitter/dry notes and rich, sweet undertones»","orgánico, hojas y ramitas"
+373,Petitgrain Paraguay,estado,pale yellow clear liquid (est),"TGSC, https://thegoodscentscompany.com/data/es1033691.html: «pale yellow clear liquid (est)»",
+373,Petitgrain Paraguay,dosis,up to 15.0 % in the fragrance concentrate,"TGSC, https://thegoodscentscompany.com/data/es1033691.html: «15.0000 % in the fragrance concentrate.»",
+373,Petitgrain Paraguay,nivel,,"no lo dice ninguna fuente consultada: TGSC es1033691, Eden Botanicals petitgrain-bigarade-organic-3036","Eden solo lo menciona en una reseña de cliente («Despite being listed as a top note»), no la página"
+373,Petitgrain Paraguay,horas,,"no lo dice ninguna fuente consultada: TGSC es1033691, Eden Botanicals petitgrain-bigarade-organic-3036",Eden solo reseña de cliente: «good staying power»
+373,Petitgrain Paraguay,fuerza,,"no lo dice ninguna fuente consultada: TGSC es1033691, Eden Botanicals petitgrain-bigarade-organic-3036",
+374,Picea negra,nombre,picea mariana leaf oil,"TGSC, https://www.thegoodscentscompany.com/data/es1095471.html: «picea mariana leaf oil»",CAS 91722-19-9 coincide; hojas
+374,Picea negra,familia,green,"TGSC, https://www.thegoodscentscompany.com/data/es1095471.html: «Odor Type: green»",
+374,Picea negra,olor,green leafy geranium pine resinous fruity jammy vegetable,"TGSC, https://www.thegoodscentscompany.com/data/es1095471.html: «green leafy geranium pine resinous fruity jammy vegetable»",
+374,Picea negra,olor,resinous and zappy freshness throughout with tonalities comparable to fresh runner bean skins,"Hermitage Oils, https://hermitageoils.com/?p=25612: «resinous and zappy freshness throughout with tonalities comparable to fresh runner bean skins»","ramitas y agujas, Canadá"
+374,Picea negra,nivel,top,"Hermitage Oils, https://hermitageoils.com/?p=25612: «adds distinctive freshness to the top note in a wide range of accords»",
+370,Petitgrain bigarade,nombre,petitgrain bigarade oil (citrus aurantium l. leaf oil),"TGSC, https://thegoodscentscompany.com/data/es1033691.html: «essential oil obtained from the leaves of the sour orange»",TGSC da CAS 8014-17-3; el producto 68916-04-1 / 72968-50-4. Misma especie y parte (hoja/ramita); origen Italia no distinguido por las fuentes
+370,Petitgrain bigarade,familia,floral,"TGSC, https://thegoodscentscompany.com/data/es1033691.html: «Odor Type: floral»",
+370,Petitgrain bigarade,olor,fresh floral sweet orangflower woody herbal,"TGSC, https://thegoodscentscompany.com/data/es1033691.html: «at 100.00 %. fresh floral sweet orangflower woody herbal»",
+370,Petitgrain bigarade,olor,"fresh, leafy-green, lightly floral, citrus aroma with light bitter/dry notes and rich, sweet undertones","Eden Botanicals, https://edenbotanicals.com/petitgrain-bigarade-organic-3036.html: «fresh, leafy-green, lightly floral, citrus aroma with light bitter/dry notes and rich, sweet undertones»","orgánico, hojas y ramitas"
+370,Petitgrain bigarade,estado,pale yellow clear liquid (est),"TGSC, https://thegoodscentscompany.com/data/es1033691.html: «pale yellow clear liquid (est)»",
+370,Petitgrain bigarade,dosis,up to 15.0 % in the fragrance concentrate,"TGSC, https://thegoodscentscompany.com/data/es1033691.html: «15.0000 % in the fragrance concentrate.»",
+370,Petitgrain bigarade,nivel,,"no lo dice ninguna fuente consultada: TGSC es1033691, Eden Botanicals petitgrain-bigarade-organic-3036","Eden solo lo menciona en una reseña de cliente («Despite being listed as a top note»), no la página"
+370,Petitgrain bigarade,horas,,"no lo dice ninguna fuente consultada: TGSC es1033691, Eden Botanicals petitgrain-bigarade-organic-3036",Eden solo reseña de cliente: «good staying power»
+370,Petitgrain bigarade,fuerza,,"no lo dice ninguna fuente consultada: TGSC es1033691, Eden Botanicals petitgrain-bigarade-organic-3036",
+373,Petitgrain Paraguay,nombre,petitgrain bigarade oil (citrus aurantium l. leaf oil),"TGSC, https://thegoodscentscompany.com/data/es1033691.html: «essential oil obtained from the leaves of the sour orange»",TGSC da CAS 8014-17-3; el producto 68916-04-1 / 72968-50-4. Misma especie y parte (hoja/ramita); origen Paraguay no distinguido por las fuentes (mismas páginas que 370)
+373,Petitgrain Paraguay,familia,floral,"TGSC, https://thegoodscentscompany.com/data/es1033691.html: «Odor Type: floral»",
+373,Petitgrain Paraguay,olor,fresh floral sweet orangflower woody herbal,"TGSC, https://thegoodscentscompany.com/data/es1033691.html: «at 100.00 %. fresh floral sweet orangflower woody herbal»",
+373,Petitgrain Paraguay,olor,"fresh, leafy-green, lightly floral, citrus aroma with light bitter/dry notes and rich, sweet undertones","Eden Botanicals, https://edenbotanicals.com/petitgrain-bigarade-organic-3036.html: «fresh, leafy-green, lightly floral, citrus aroma with light bitter/dry notes and rich, sweet undertones»","orgánico, hojas y ramitas"
+373,Petitgrain Paraguay,estado,pale yellow clear liquid (est),"TGSC, https://thegoodscentscompany.com/data/es1033691.html: «pale yellow clear liquid (est)»",
+373,Petitgrain Paraguay,dosis,up to 15.0 % in the fragrance concentrate,"TGSC, https://thegoodscentscompany.com/data/es1033691.html: «15.0000 % in the fragrance concentrate.»",
+373,Petitgrain Paraguay,nivel,,"no lo dice ninguna fuente consultada: TGSC es1033691, Eden Botanicals petitgrain-bigarade-organic-3036","Eden solo lo menciona en una reseña de cliente («Despite being listed as a top note»), no la página"
+373,Petitgrain Paraguay,horas,,"no lo dice ninguna fuente consultada: TGSC es1033691, Eden Botanicals petitgrain-bigarade-organic-3036",Eden solo reseña de cliente: «good staying power»
+373,Petitgrain Paraguay,fuerza,,"no lo dice ninguna fuente consultada: TGSC es1033691, Eden Botanicals petitgrain-bigarade-organic-3036",
+374,Picea negra,nombre,picea mariana leaf oil,"TGSC, https://www.thegoodscentscompany.com/data/es1095471.html: «picea mariana leaf oil»",CAS 91722-19-9 coincide; hojas
+374,Picea negra,familia,green,"TGSC, https://www.thegoodscentscompany.com/data/es1095471.html: «Odor Type: green»",
+374,Picea negra,olor,green leafy geranium pine resinous fruity jammy vegetable,"TGSC, https://www.thegoodscentscompany.com/data/es1095471.html: «green leafy geranium pine resinous fruity jammy vegetable»",
+374,Picea negra,olor,resinous and zappy freshness throughout with tonalities comparable to fresh runner bean skins,"Hermitage Oils, https://hermitageoils.com/?p=25612: «resinous and zappy freshness throughout with tonalities comparable to fresh runner bean skins»","ramitas y agujas, Canadá"
+374,Picea negra,nivel,top,"Hermitage Oils, https://hermitageoils.com/?p=25612: «adds distinctive freshness to the top note in a wide range of accords»",
+374,Picea negra,horas,,"no lo dice ninguna fuente consultada: TGSC es1095471, Hermitage Oils p=25612","Hermitage solo dice «excellent tenacity», sin horas"
+374,Picea negra,estado,"Water white, pourable viscosity","Hermitage Oils, https://hermitageoils.com/?p=25612: «Water white in colour, of a pourable viscosity»",
+374,Picea negra,dosis,up to 5.0 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/es1095471.html: «5.0000 % in the fragrance concentrate.»",
+374,Picea negra,fuerza,,"no lo dice ninguna fuente consultada: TGSC es1095471, Hermitage Oils p=25612","Hermitage: reseña «decidedly intense», no la página"
+374,Picea negra,estado,,no lo dice ninguna fuente consultada: TGSC es1095471,TGSC no da apariencia (Hermitage sí)
+375,Pimienta blanca,nombre,piper nigrum l. fruit oil white (white pepper oil),"TGSC, https://www.thegoodscentscompany.com/data/es1033641.html: «white piper nigrum fruit oil»","fruto, pimienta blanca; TGSC da CAS 8006-82-4 (producto 84929-41-9)"
+375,Pimienta blanca,familia,spicy,"TGSC, https://www.thegoodscentscompany.com/data/es1033641.html: «Odor Type: spicy»",también «peppery»
+375,Pimienta blanca,olor,peppery,"TGSC, https://www.thegoodscentscompany.com/data/es1033641.html: «at 100.00 %. peppery»",
+375,Pimienta blanca,estado,colorless,"TGSC, https://www.thegoodscentscompany.com/data/es1033641.html: «PEPPER WHITE OIL COLORLESS»","entrada de proveedor Firmenich; solo color, no dice «líquido»"
+375,Pimienta blanca,nivel,,no lo dice ninguna fuente consultada: TGSC es1033641,no se encontró segunda referencia de pimienta blanca (la búsqueda dio solo pimienta negra)
+375,Pimienta blanca,horas,,no lo dice ninguna fuente consultada: TGSC es1033641,
+375,Pimienta blanca,fuerza,,no lo dice ninguna fuente consultada: TGSC es1033641,
+375,Pimienta blanca,dosis,,no lo dice ninguna fuente consultada: TGSC es1033641,solo tabla FEMA ilegible (baked goods 0.6)
+376,Pimienta de Jamaica hojas,nombre,allspice oil (pimenta officinalis lindl. oil),"TGSC, https://www.thegoodscentscompany.com/data/es1029371.html: «Allspice, also known as Pimento Berry, oil»",CAS 8006-77-7 coincide; parte no indicada y la cita apunta a fruto: posible otra parte (no hoja)
+376,Pimienta de Jamaica hojas,familia,spicy,"TGSC, https://www.thegoodscentscompany.com/data/es1029371.html: «Odor Type: spicy»",posible otra parte (fruto)
+376,Pimienta de Jamaica hojas,olor,sweet spicy clove warm spice cabinet deep,"TGSC, https://www.thegoodscentscompany.com/data/es1029371.html: «sweet spicy clove warm spice cabinet deep»",posible otra parte (fruto)
+376,Pimienta de Jamaica hojas,fuerza,medium,"TGSC, https://www.thegoodscentscompany.com/data/es1029371.html: «Odor Strength: medium»",posible otra parte (fruto)
+376,Pimienta de Jamaica hojas,horas,400,"TGSC, https://www.thegoodscentscompany.com/data/es1029371.html: «Substantivity: 400 hour(s) at 100.00 %»",posible otra parte (fruto)
+376,Pimienta de Jamaica hojas,dosis,up to 2.0 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/es1029371.html: «2.0000 % in the fragrance concentrate.»",posible otra parte (fruto)
+376,Pimienta de Jamaica hojas,nombre,"Pimento Berry Oil (Pimenta officinalis, dried berries)","Fraterworks, https://fraterworks.com/products/pimento-oil: «Part: Dried Berries»","otra parte (bayas, no hoja)"
+376,Pimienta de Jamaica hojas,familia,Spicy,"Fraterworks, https://fraterworks.com/products/pimento-oil: «Odor family: Spicy»",otra parte (bayas)
+376,Pimienta de Jamaica hojas,nivel,heart,"Fraterworks, https://fraterworks.com/products/pimento-oil: «Heart Note»",otra parte (bayas)
+376,Pimienta de Jamaica hojas,horas,24,"Fraterworks, https://fraterworks.com/products/pimento-oil: «Lasts > 24 hours on a smelling strip»",otra parte (bayas); es «más de 24»
+376,Pimienta de Jamaica hojas,olor,"Spicy, clove, sweet, dry, warm","Fraterworks, https://fraterworks.com/products/pimento-oil: «Spicy, clove, sweet, dry, warm»",otra parte (bayas)
+376,Pimienta de Jamaica hojas,estado,Colourless liquid,"Fraterworks, https://fraterworks.com/products/pimento-oil: «Colourless liquid»",otra parte (bayas)
+376,Pimienta de Jamaica hojas,dosis,0.174 % median use in perfumes,"Fraterworks, https://fraterworks.com/products/pimento-oil: «median use of 0.174% in perfumes»",otra parte (bayas); IFRA 0.22 % Cat. 4 aparte
+376,Pimienta de Jamaica hojas,estado,,no lo dice ninguna fuente consultada: TGSC es1029371,"TGSC no da apariencia; no se halló fuente específica de hoja (es1052591 es extracto CO2 de fruto, otra parte)"
+377,Pimienta de Java,nombre,piper cubeba fruit oil (cubeb oil),"TGSC, https://thegoodscentscompany.com/data/es1029591.html: «piper cubeba l., piperaceae»",fruto; TGSC da CAS 8007-87-2 (producto 90082-59-0)
+377,Pimienta de Java,familia,spicy,"TGSC, https://thegoodscentscompany.com/data/es1029591.html: «Odor Type: spicy»",
+377,Pimienta de Java,familia,spicy · woody · fresh,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/cubeb-or-tailed-pepper: «spicy · woody · fresh»","valores distintos de TGSC, no copia"
+377,Pimienta de Java,olor,fresh spicy bois de rose herbal peppery orange bitter orange woody minty smoky,"TGSC, https://thegoodscentscompany.com/data/es1029591.html: «fresh spicy bois de rose herbal peppery orange bitter orange woody minty smoky»",
+377,Pimienta de Java,olor,"Warm, camphoraceous pepper with eucalyptus-like freshness.","Premiere Peau, https://premierepeau.com/pages/glossary-terms/cubeb-or-tailed-pepper: «Warm, camphoraceous pepper with eucalyptus-like freshness.»",
+377,Pimienta de Java,nivel,heart,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/cubeb-or-tailed-pepper: «Heart Note»",
+377,Pimienta de Java,horas,268,"TGSC, https://thegoodscentscompany.com/data/es1029591.html: «Substantivity: 268 hour(s) at 100.00 %»",
+377,Pimienta de Java,fuerza,medium,"TGSC, https://thegoodscentscompany.com/data/es1029591.html: «Odor Strength: medium»",
+377,Pimienta de Java,fuerza,High,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/cubeb-or-tailed-pepper: «Odor strength: High»",contrasta con TGSC
+377,Pimienta de Java,estado,pale yellow to bluish green clear liquid (est),"TGSC, https://thegoodscentscompany.com/data/es1029591.html: «pale yellow to bluish green clear liquid (est)»",
+377,Pimienta de Java,estado,Yellow to amber liquid,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/cubeb-or-tailed-pepper: «Yellow to amber liquid»",
+377,Pimienta de Java,dosis,up to 1.0 % in the fragrance concentrate,"TGSC, https://thegoodscentscompany.com/data/es1029591.html: «1.0000 % in the fragrance concentrate.»",

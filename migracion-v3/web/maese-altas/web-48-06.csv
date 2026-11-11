@@ -1,0 +1,231 @@
+n,nombre,campo,valor,fuente,nota
+378,Pimienta negra,nombre,black pepper oil (Piper nigrum L.),"TGSC, https://thegoodscentscompany.com/data/es1009771.html: «Black pepper oil … Piper nigrum L.»",TGSC da CAS 8006-82-4 (el producto 84929-41-9); misma especie y parte (fruto)
+378,Pimienta negra,familia,spicy,"TGSC, https://thegoodscentscompany.com/data/es1009771.html: «Odor Type: spicy»",
+378,Pimienta negra,nivel,heart note,"Fraterworks, https://fraterworks.com/products/black-peppercorn: «Heart Note»",
+378,Pimienta negra,horas,48,"TGSC, https://thegoodscentscompany.com/data/es1009771.html: «Substantivity: 48 hour(s) at 100.00 %»",
+378,Pimienta negra,horas,over 40,"Fraterworks, https://fraterworks.com/products/black-peppercorn: «Over 40 hours» en tira",
+378,Pimienta negra,fuerza,medium,"TGSC, https://thegoodscentscompany.com/data/es1009771.html: «Odor Strength: medium»",
+378,Pimienta negra,dosis,up to 0.8 % in the fragrance concentrate,"TGSC, https://thegoodscentscompany.com/data/es1009771.html: «Up to 0.8000% in the fragrance concentrate»",límite IFRA citado por TGSC
+378,Pimienta negra,dosis,"concentrates: median 0.102 %, average 0.33 %, range trace–18 %; bases: median 1 %","Fraterworks, https://fraterworks.com/products/black-peppercorn: «In concentrates, the median is 0.102% and the average is 0.33%»","uso observado, no recomendación; base: concentrado/base"
+378,Pimienta negra,olor,warm spicy terpenic herbal peppery woody,"TGSC, https://thegoodscentscompany.com/data/es1009771.html: «warm spicy terpenic herbal peppery woody»",
+378,Pimienta negra,olor,"sharp, terpenic, fresh and zesty burst, then warm, dry-woody, subtly balsamic","Fraterworks, https://fraterworks.com/products/black-peppercorn: «sharp, terpenic, fresh and zesty burst, then becomes warm, dry-woody, and subtly balsamic»",
+378,Pimienta negra,estado,colorless to yellow clear oily liquid (est),"TGSC, https://thegoodscentscompany.com/data/es1009771.html: «Appearance: colorless to yellow clear oily liquid (est)»",
+379,Pimienta verde,nombre,"green pepper essential oil (Piper nigrum, unripe drupes)","Hermitage Oils, https://hermitageoils.com/?p=33298: «steam distilled from the unripe drupes of Piper nigrum»","TGSC solo tiene «green pepper oil» de Capsicum annuum (otra especie), no usado"
+379,Pimienta verde,nivel,top,"Hermitage Oils, https://hermitageoils.com/?p=33298: «Mainly a fresh spicy top note»",
+379,Pimienta verde,olor,"salty terpenic, watery-green yet fiery peppery fresh","Hermitage Oils, https://hermitageoils.com/?p=33298: «salty terpenic, watery-green yet fiery peppery fresh»",
+379,Pimienta verde,familia,,"no lo dice ninguna fuente consultada: TGSC es/1661231 (otra especie: Capsicum annuum, Odor Type green), Hermitage Oils p=33298",el «green» de TGSC es de Capsicum: otra especie
+379,Pimienta verde,horas,,"no lo dice ninguna fuente consultada: TGSC es1661231 (otra especie, Capsicum: 48 h, no válido), Hermitage Oils",
+379,Pimienta verde,fuerza,,"no lo dice ninguna fuente consultada: TGSC es1661231 (otra especie), Hermitage Oils",
+379,Pimienta verde,dosis,,"no lo dice ninguna fuente consultada: TGSC es1661231 (otra especie), Hermitage Oils",
+379,Pimienta verde,estado,,"no lo dice ninguna fuente consultada: TGSC es1661231 (otra especie), Hermitage Oils",
+380,Pino siberiano,nombre,"Pine Siberian oil / Siberian fir needle oil (Abies sibirica Ledeb.), CAS 8021-29-2","Givaudan, https://www.givaudan.com/print/2738666: «Pine Siberian Oil … Abies sibirica»","otra especie: la página es Abies sibirica (abeto siberiano), el INCI del producto dice Pinus sibirica; el nombre comercial «Siberian pine» suele ser Abies sibirica"
+380,Pino siberiano,familia,balsamic,"TGSC, https://thegoodscentscompany.com/data/es1005151.html: «Odor type: balsamic»","otra especie: la página es Abies sibirica (abeto siberiano), el INCI del producto dice Pinus sibirica; el nombre comercial «Siberian pine» suele ser Abies sibirica"
+380,Pino siberiano,familia,"woody (fresh, pine)","Givaudan, https://www.givaudan.com/print/2738666: «Woody, Fresh, and Pine»","otra especie: la página es Abies sibirica (abeto siberiano), el INCI del producto dice Pinus sibirica; el nombre comercial «Siberian pine» suele ser Abies sibirica"
+380,Pino siberiano,nivel,,"no lo dice ninguna fuente consultada: TGSC es1005151, Givaudan print/2738666",
+380,Pino siberiano,horas,16,"TGSC, https://thegoodscentscompany.com/data/es1005151.html: «Substantivity: 16 hour(s) at 100.00 %»","otra especie: la página es Abies sibirica (abeto siberiano), el INCI del producto dice Pinus sibirica; el nombre comercial «Siberian pine» suele ser Abies sibirica"
+380,Pino siberiano,fuerza,medium,"TGSC, https://thegoodscentscompany.com/data/es1005151.html: «Odor strength: medium»","otra especie: la página es Abies sibirica (abeto siberiano), el INCI del producto dice Pinus sibirica; el nombre comercial «Siberian pine» suele ser Abies sibirica"
+380,Pino siberiano,dosis,up to 12 % in the fragrance concentrate,"TGSC, https://thegoodscentscompany.com/data/es1005151.html: «Up to 12.0000 % in the fragrance concentrate»","otra especie: la página es Abies sibirica (abeto siberiano), el INCI del producto dice Pinus sibirica; el nombre comercial «Siberian pine» suele ser Abies sibirica"
+380,Pino siberiano,olor,fresh dry fir forest earthy woody,"TGSC, https://thegoodscentscompany.com/data/es1005151.html: «fresh dry fir forest earthy woody»","otra especie: la página es Abies sibirica (abeto siberiano), el INCI del producto dice Pinus sibirica; el nombre comercial «Siberian pine» suele ser Abies sibirica"
+380,Pino siberiano,olor,"Fresh and dry green conifer note with woody, earthy and resinous undertones","Givaudan, https://www.givaudan.com/print/2738666: «Fresh and dry green conifer note with woody, earthy and resinous undertones.»","otra especie: la página es Abies sibirica (abeto siberiano), el INCI del producto dice Pinus sibirica; el nombre comercial «Siberian pine» suele ser Abies sibirica"
+380,Pino siberiano,estado,pale yellow clear liquid (est),"TGSC, https://thegoodscentscompany.com/data/es1005151.html: «Appearance: pale yellow clear liquid (est)»","otra especie: la página es Abies sibirica (abeto siberiano), el INCI del producto dice Pinus sibirica; el nombre comercial «Siberian pine» suele ser Abies sibirica"
+381,Pino silvestre,nombre,"scotch pine needle oil (Pinus sylvestris L.), CAS 8023-99-2","TGSC, https://thegoodscentscompany.com/data/es1019031.html: «scotch pine needle oil»",
+381,Pino silvestre,familia,earthy,"TGSC, https://thegoodscentscompany.com/data/es1019031.html: «Odor Type: earthy»",
+381,Pino silvestre,familia,coniferous,"Fraterworks, https://fraterworks.com/products/pine-needle-oil-sylvestris: «coniferous family»",
+381,Pino silvestre,nivel,heart note,"Fraterworks, https://fraterworks.com/products/pine-needle-oil-sylvestris: «Heart note»",
+381,Pino silvestre,horas,16,"TGSC, https://thegoodscentscompany.com/data/es1019031.html: «Substantivity: 16 hour(s) at 100.00 %»",
+381,Pino silvestre,horas,about 16,"Fraterworks, https://fraterworks.com/products/pine-needle-oil-sylvestris: «About 16 hours on a smelling strip»",
+381,Pino silvestre,fuerza,medium,"TGSC, https://thegoodscentscompany.com/data/es1019031.html: «Odor Strength: medium»",
+381,Pino silvestre,fuerza,medium (diffusion),"Fraterworks, https://fraterworks.com/products/pine-needle-oil-sylvestris: «diffusion as medium; punches above its weight»","describe la difusión, sin escala explícita de fuerza"
+381,Pino silvestre,dosis,up to 10 % in the fragrance concentrate,"TGSC, https://thegoodscentscompany.com/data/es1019031.html: «usage levels up to: 10.0000 % in the fragrance concentrate»",
+381,Pino silvestre,dosis,IFRA 51 limit 7.333 % in finished product (cat. 4),"Fraterworks, https://fraterworks.com/products/pine-needle-oil-sylvestris: «IFRA 51 permits up to 7.333% in the finished product (Category 4)»","límite IFRA, no uso habitual"
+381,Pino silvestre,olor,earthy dry weedy green pine woody resinous,"TGSC, https://thegoodscentscompany.com/data/es1019031.html: «earthy dry weedy green pine woody resinous»",
+381,Pino silvestre,olor,"sharp, dry, turpentine-like opening with balsamic-resinous heart; dry, earthy, green, pine, weedy","Fraterworks, https://fraterworks.com/products/pine-needle-oil-sylvestris: «balsamic-resinous heart»",
+381,Pino silvestre,estado,colorless to pale yellow clear liquid (est),"TGSC, https://thegoodscentscompany.com/data/es1019031.html: «colorless to pale yellow clear liquid (estimated)»",
+381,Pino silvestre,estado,pale yellow liquid,"Fraterworks, https://fraterworks.com/products/pine-needle-oil-sylvestris: «Pale yellow liquid»",
+382,Pomelo blanco,nombre,"grapefruit oil white (Citrus paradisi Macf.), CAS 8016-20-4","Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/grapefruit-white-oil: «white grapefruit oil … Citrus paradisi Macfad.»",
+382,Pomelo blanco,familia,citrus,"TGSC, https://www.thegoodscentscompany.com/data/es1651151.html: «Odor Type: citrus»","página genérica de TGSC, no distingue blanco/rosado"
+382,Pomelo blanco,nivel,top,"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/grapefruit-white-oil: «a top note material in perfumery»",
+382,Pomelo blanco,horas,264,"TGSC, https://www.thegoodscentscompany.com/data/es1651151.html: «Substantivity: 264 hours at 100%»","página genérica de TGSC, no distingue blanco/rosado; cifra muy alta, dudosa"
+382,Pomelo blanco,horas,2-4,"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/grapefruit-white-oil: «Typically 2–4 hours in fragrance evaluation»",
+382,Pomelo blanco,fuerza,medium,"TGSC, https://www.thegoodscentscompany.com/data/es1651151.html: «Odor Strength: medium»","página genérica de TGSC, no distingue blanco/rosado"
+382,Pomelo blanco,fuerza,medium to strong,"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/grapefruit-white-oil: «Medium to strong»",
+382,Pomelo blanco,dosis,IFRA 091 limit 4.0 % in most skin-contact categories,"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/grapefruit-white-oil: «IFRA Standard 091 caps most skin-contact categories at 4.0%»","límite IFRA en producto final, no uso habitual; TGSC no da recomendación de uso"
+382,Pomelo blanco,olor,"fresh, zesty, and slightly bitter, herbaceous-green undertones","Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/grapefruit-white-oil: «fresh, zesty, and slightly bitter character»",
+382,Pomelo blanco,olor,sweet dry citrus bitter aldehydic terpenic fruity tropical orange,"TGSC, https://www.thegoodscentscompany.com/data/es1651151.html: «sweet dry citrus bitter aldehydic terpenic fruity tropical orange»","página genérica de TGSC, no distingue blanco/rosado"
+382,Pomelo blanco,estado,"greenish-yellow to pale orange-yellow liquid, may be slightly turbid","Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/grapefruit-white-oil: «greenish-yellow to pale orange-yellow liquid»",
+383,Pomelo rosado,nombre,grapefruit oil pink (Citrus paradisi Macfayden),"Fraterworks, https://fraterworks.com/products/grapefruit-oil-pink: «citrus paradisi Macf.»",
+383,Pomelo rosado,familia,citrus,"TGSC, https://www.thegoodscentscompany.com/data/es1651151.html: «Odor Type: citrus»","página genérica de TGSC, no distingue blanco/rosado"
+383,Pomelo rosado,nivel,heart note,"Fraterworks, https://fraterworks.com/products/grapefruit-oil-pink: «Heart Note»",la misma página también dice «a sparkling top note»: incoherente
+383,Pomelo rosado,horas,16,"Fraterworks, https://fraterworks.com/products/grapefruit-oil-pink: «Lasts 16 hours on a smelling strip»",
+383,Pomelo rosado,fuerza,5 on a 10-point scale (impact 4),"Fraterworks, https://fraterworks.com/products/grapefruit-oil-pink: «Strength: 5 (impact 4)»","escala numérica de 10, no palabras"
+383,Pomelo rosado,fuerza,medium,"TGSC, https://www.thegoodscentscompany.com/data/es1651151.html: «Odor Strength: medium»","página genérica de TGSC, no distingue blanco/rosado"
+383,Pomelo rosado,dosis,"median 0.875 % in perfumes, average 2.61 %, range 0.2-8.5 %","Fraterworks, https://fraterworks.com/products/grapefruit-oil-pink: «Median 0.875% in perfumes, average 2.61%»",uso observado en perfumes; IFRA 51 permite hasta 40 % (cat. 4) según la misma página
+383,Pomelo rosado,olor,"sweeter, juicier citrus than white grapefruit, soft berry-like undertone, clean sparkling freshness","Fraterworks, https://fraterworks.com/products/grapefruit-oil-pink: «a sweeter, juicier citrus character than white grapefruit»",
+383,Pomelo rosado,estado,clear liquid,"Fraterworks, https://fraterworks.com/products/grapefruit-oil-pink: «Clear liquid»",
+384,Ravensara,nombre,"ravensara aromatica leaf oil, CAS 91770-56-8","TGSC, https://www.thegoodscentscompany.com/data/es1585121.html: «distilled from the leaves of ravensara aromatica, lauraceae»",
+384,Ravensara,familia,herbal,"TGSC, https://www.thegoodscentscompany.com/data/es1585121.html: «Odor Type: herbal»",
+384,Ravensara,familia,woody,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/ravensara: «WOODS & MOSSES»",clasificación de glosario; la especie figura como Cryptocarya agathophylla (syn. Ravensara aromatica)
+384,Ravensara,nivel,heart,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/ravensara: «Note level: Heart»",
+384,Ravensara,horas,12,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/ravensara: «12 hours on blotter»",la tabla da también 6–12 h
+384,Ravensara,fuerza,medium (3/5),"Premiere Peau, https://premierepeau.com/pages/glossary-terms/ravensara: «Medium (3/5)»",
+384,Ravensara,fuerza,,no lo dice TGSC es1585121 (Odor Strength no listado),
+384,Ravensara,dosis,,"no lo dice ninguna fuente consultada: TGSC es1585121 (solo «heavily dilute the oil for finished products»; IFRA estragol máx 8 %, safrol 0.03 %), Premiere Peau ravensara",
+384,Ravensara,olor,herbal spicy terpenic camphoreous medicinal woody,"TGSC, https://www.thegoodscentscompany.com/data/es1585121.html: «herbal spicy terpenic camphoreous medicinal woody»",
+384,Ravensara,olor,"Camphorous-green, slightly anise-sweet, distinctly Madagascan","Premiere Peau, https://premierepeau.com/pages/glossary-terms/ravensara: «Camphorous-green, slightly anise-sweet, distinctly Madagascan.»",
+384,Ravensara,estado,pale yellow to amber viscous liquid,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/ravensara: «Pale yellow to amber viscous liquid»",
+384,Ravensara,estado,"pale yellow white, pourable viscosity","TGSC, https://www.thegoodscentscompany.com/data/es1585121.html: «pale yellow white in colour and of a pourable viscosity» (cita a Hermitage Oils)",
+385,Ravintsara,nombre,"ravintsara oil (Cinnamomum camphora (L.) J.Presl, cineole chemotype)","Premiere Peau, https://premierepeau.com/pages/glossary-terms/ravintsara: «Cinnamomum camphora (L.) J.Presl (1,8-cineole chemotype)»",TGSC solo tiene aceite de madera descanforizado (CAS 92201-50-8)
+385,Ravintsara,familia,"greens, herbs & fougeres (aromatic, cineolic, fresh, spicy)","Premiere Peau, https://premierepeau.com/pages/glossary-terms/ravintsara: «GREENS, HERBS & FOUGERES»",
+385,Ravintsara,familia,herbal,"TGSC, https://thegoodscentscompany.com/data/es1547291.html: «Odor Type: herbal»","otra parte: la página TGSC es aceite de madera descanforizado (wood oil decamphorised), no hoja"
+385,Ravintsara,nivel,top,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/ravintsara: «Note level: Top»",
+385,Ravintsara,horas,,"no lo dice ninguna fuente consultada: TGSC es1547291 (otra parte), Premiere Peau ravintsara («N/A — no published data»)",
+385,Ravintsara,fuerza,,"no lo dice ninguna fuente consultada: TGSC es1547291 (otra parte), Premiere Peau ravintsara",
+385,Ravintsara,dosis,,"no lo dice ninguna fuente consultada: TGSC es1547291 (otra parte), Premiere Peau ravintsara (solo límites de constituyentes, safrol 0.01 %)",
+385,Ravintsara,olor,"Fresh and cineolic, with a low spicy note","Premiere Peau, https://premierepeau.com/pages/glossary-terms/ravintsara: «Fresh and cineolic, with a low spicy note» (cita Perfumer & Flavorist)",
+385,Ravintsara,olor,herbal eucalyptus balsamic woody medicinal,"TGSC, https://thegoodscentscompany.com/data/es1547291.html: «herbal eucalyptus balsamic woody medicinal»","otra parte: la página TGSC es aceite de madera descanforizado (wood oil decamphorised), no hoja"
+385,Ravintsara,estado,"mobile liquid, colourless to pale yellow","Premiere Peau, https://premierepeau.com/pages/glossary-terms/ravintsara: «Mobile liquid, colourless to pale yellow»",
+386,Romero alcanfor,nombre,"rosemary oil Spain, Spanish camphor chemotype (Rosmarinus officinalis L.), CAS 8000-25-7","TGSC, https://www.thegoodscentscompany.com/data/es1001121.html: «the Spanish camphor chemotype»",
+386,Romero alcanfor,familia,herbal,"TGSC, https://www.thegoodscentscompany.com/data/es1001121.html: «Odor Type: herbal»",
+386,Romero alcanfor,nivel,,"no lo dice ninguna fuente consultada: TGSC es1001121, Hermitage Oils p=28072 (otra variedad: Túnez, quimiotipo no dicho)",
+386,Romero alcanfor,horas,4,"TGSC, https://www.thegoodscentscompany.com/data/es1001121.html: «Substantivity: 4 hour(s) at 100.00 %»",
+386,Romero alcanfor,fuerza,medium,"TGSC, https://www.thegoodscentscompany.com/data/es1001121.html: «Odor Strength: medium»",
+386,Romero alcanfor,dosis,10 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/es1001121.html: «IFRA usage level: 10.0000 % in the fragrance concentrate»",también «smell in a solution of 10.00 % or less» (evaluación)
+386,Romero alcanfor,olor,herbal camphoreous woody aromatic minty balsamic medicinal phenolic,"TGSC, https://www.thegoodscentscompany.com/data/es1001121.html: «herbal camphoreous woody aromatic minty balsamic medicinal phenolic»",
+386,Romero alcanfor,olor,"strong, fresh, woody-herbaceous, somewhat minty-forest like","Hermitage Oils, https://hermitageoils.com/?p=28072: «strong, fresh, woody-herbaceous, somewhat minty-forest like odor» (cita Arctander)","otra variedad: página de Túnez, quimiotipo no dicho"
+386,Romero alcanfor,estado,colorless to pale yellow clear liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/es1001121.html: «colorless to pale yellow clear liquid (est)»",
+387,Romero cineol,nombre,"rosemary oil Tunisia, cineole chemotype (Rosmarinus officinalis L.), CAS 8000-25-7","TGSC, https://thegoodscentscompany.com/data/es1584911.html: «rosmarinus officinalis l. oil … rosemary oil tunisian»",
+387,Romero cineol,familia,herbal,"TGSC, https://thegoodscentscompany.com/data/es1584911.html: «Odor Type: herbal»",otra variedad en origen: Túnez (el producto es de España); mismo quimiotipo cineol
+387,Romero cineol,nivel,top,"Fraterworks, https://fraterworks.com/products/rosemary-oil-ct-cineole: «Classification: Top Note»","página de Túnez, ct cineole"
+387,Romero cineol,horas,4,"TGSC, https://thegoodscentscompany.com/data/es1584911.html: «Substantivity: 4 hour(s) at 100.00 %»",origen Túnez
+387,Romero cineol,horas,4,"Fraterworks, https://fraterworks.com/products/rosemary-oil-ct-cineole: «Lasts 4 hours on a smelling strip»",
+387,Romero cineol,fuerza,medium,"TGSC, https://thegoodscentscompany.com/data/es1584911.html: «Odor Strength: medium»",origen Túnez
+387,Romero cineol,dosis,up to 10 % in the fragrance concentrate,"TGSC, https://thegoodscentscompany.com/data/es1584911.html: «up to 10.0000 % in the fragrance concentrate»",origen Túnez
+387,Romero cineol,dosis,"perfumes: median 0.5 %, average 0.95 % of concentrate, range trace-50 %","Fraterworks, https://fraterworks.com/products/rosemary-oil-ct-cineole: «Median 0.5% and average 0.95%»",uso observado
+387,Romero cineol,olor,fresh strong camphor woody balsamic herbal minty,"TGSC, https://thegoodscentscompany.com/data/es1584911.html: «fresh strong camphor woody balsamic herbal minty»",
+387,Romero cineol,olor,"Aromatic, fresh, woody, balsamic, herbal","Fraterworks, https://fraterworks.com/products/rosemary-oil-ct-cineole: «Aromatic, fresh, woody, balsamic, herbal»",
+387,Romero cineol,estado,colorless to pale yellow clear liquid (est),"TGSC, https://thegoodscentscompany.com/data/es1584911.html: «colorless to pale yellow clear liquid (est)»",
+387,Romero cineol,estado,pale yellow liquid,"Fraterworks, https://fraterworks.com/products/rosemary-oil-ct-cineole: «Pale yellow liquid»",
+388,Rosa damascena Extra,nombre,"rose oil / rose otto (Rosa damascena Mill.), CAS 8007-01-0","TGSC, https://www.thegoodscentscompany.com/data/es1024951.html: «rosa damascena mill. flower oil»","página TGSC genérica de rosa otto (CAS 8007-01-0), no distingue grados"
+388,Rosa damascena Extra,familia,floral,"TGSC, https://www.thegoodscentscompany.com/data/es1024951.html: «Odor Type: floral»","página TGSC genérica de rosa otto (CAS 8007-01-0), no distingue grados"
+388,Rosa damascena Extra,nivel,base,"Fraterworks, https://fraterworks.com/products/rose-oil-bulgaria: «Base Note»","grado Fraterworks «Select», no «Extra»: otra variedad/grado"
+388,Rosa damascena Extra,horas,168,"TGSC, https://www.thegoodscentscompany.com/data/es1024951.html: «Substantivity: 168 hours at 100%»","página TGSC genérica de rosa otto (CAS 8007-01-0), no distingue grados"
+388,Rosa damascena Extra,horas,over 170,"Fraterworks, https://fraterworks.com/products/rose-oil-bulgaria: «Lasts > 170 hours on a smelling strip»","grado Fraterworks «Select», no «Extra»: otra variedad/grado"
+388,Rosa damascena Extra,fuerza,medium,"TGSC, https://www.thegoodscentscompany.com/data/es1024951.html: «Odor Strength: Medium»","página TGSC genérica de rosa otto (CAS 8007-01-0), no distingue grados"
+388,Rosa damascena Extra,dosis,up to 4 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/es1024951.html: «Up to 4.0000% in the fragrance concentrate»","página TGSC genérica de rosa otto (CAS 8007-01-0), no distingue grados"
+388,Rosa damascena Extra,olor,floral rose spicy winey waxy honey green metallic artichoke,"TGSC, https://www.thegoodscentscompany.com/data/es1024951.html: «floral rose spicy winey waxy honey green metallic artichoke»","página TGSC genérica de rosa otto (CAS 8007-01-0), no distingue grados; evaluado al 10 % en DPG"
+388,Rosa damascena Extra,olor,"Floral, rose, spicy, green, fresh","Fraterworks, https://fraterworks.com/products/rose-oil-bulgaria: «Floral, rose, spicy, green, fresh»","grado Fraterworks «Select», no «Extra»: otra variedad/grado"
+388,Rosa damascena Extra,estado,colorless to pale yellow liquid to solid (est),"TGSC, https://www.thegoodscentscompany.com/data/es1024951.html: «colorless to pale yellow liquid to solid (est)»","página TGSC genérica de rosa otto (CAS 8007-01-0), no distingue grados"
+388,Rosa damascena Extra,estado,"clear liquid, solidifies in cool temperatures","Fraterworks, https://fraterworks.com/products/rose-oil-bulgaria: «Clear liquid, solidifies in cool temperatures»","grado Fraterworks «Select», no «Extra»: otra variedad/grado"
+389,Rosa damascena Otto Bulgaria,nombre,"rose oil / rose otto (Rosa damascena Mill.), CAS 8007-01-0","TGSC, https://www.thegoodscentscompany.com/data/es1024951.html: «rosa damascena mill. flower oil»","página TGSC genérica de rosa otto (CAS 8007-01-0), no distingue grados"
+389,Rosa damascena Otto Bulgaria,familia,floral,"TGSC, https://www.thegoodscentscompany.com/data/es1024951.html: «Odor Type: floral»","página TGSC genérica de rosa otto (CAS 8007-01-0), no distingue grados"
+389,Rosa damascena Otto Bulgaria,nivel,base,"Fraterworks, https://fraterworks.com/products/rose-otto-superior-bulgaria: «Base Note»",grado «Superior»
+389,Rosa damascena Otto Bulgaria,horas,168,"TGSC, https://www.thegoodscentscompany.com/data/es1024951.html: «Substantivity: 168 hours at 100%»","página TGSC genérica de rosa otto (CAS 8007-01-0), no distingue grados"
+389,Rosa damascena Otto Bulgaria,horas,over 170,"Fraterworks, https://fraterworks.com/products/rose-otto-superior-bulgaria: «Lasts > 170 hours on a smelling strip»",grado «Superior»
+389,Rosa damascena Otto Bulgaria,fuerza,medium,"TGSC, https://www.thegoodscentscompany.com/data/es1024951.html: «Odor Strength: Medium»","página TGSC genérica de rosa otto (CAS 8007-01-0), no distingue grados"
+389,Rosa damascena Otto Bulgaria,dosis,up to 4 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/es1024951.html: «Up to 4.0000% in the fragrance concentrate»","página TGSC genérica de rosa otto (CAS 8007-01-0), no distingue grados"
+389,Rosa damascena Otto Bulgaria,olor,floral rose spicy winey waxy honey green metallic artichoke,"TGSC, https://www.thegoodscentscompany.com/data/es1024951.html: «floral rose spicy winey waxy honey green metallic artichoke»","página TGSC genérica de rosa otto (CAS 8007-01-0), no distingue grados; evaluado al 10 % en DPG"
+389,Rosa damascena Otto Bulgaria,olor,"Floral, rose, spicy, green, fresh","Fraterworks, https://fraterworks.com/products/rose-otto-superior-bulgaria: «Floral, rose, spicy, green, fresh»",grado «Superior»
+389,Rosa damascena Otto Bulgaria,estado,colorless to pale yellow liquid to solid (est),"TGSC, https://www.thegoodscentscompany.com/data/es1024951.html: «colorless to pale yellow liquid to solid (est)»","página TGSC genérica de rosa otto (CAS 8007-01-0), no distingue grados"
+389,Rosa damascena Otto Bulgaria,estado,"clear liquid, solidifies in cool temperatures","Fraterworks, https://fraterworks.com/products/rose-otto-superior-bulgaria: «Clear liquid, solidifies in cool temperatures»",grado «Superior»
+388,Rosa damascena Extra,dosis,"perfumes: median 0.1 %, average 0.46 %, range trace-5 %","Fraterworks, https://fraterworks.com/products/rose-oil-bulgaria: «median use is 0.1% and the average is 0.46%»","grado «Select», no «Extra»: otra variedad/grado; uso observado"
+389,Rosa damascena Otto Bulgaria,dosis,IFRA 51 limit 0.6 % in finished product (cat. 4); perfumes median 0.034 %,"Fraterworks, https://fraterworks.com/products/rose-otto-superior-bulgaria: «0.6% in finished product (Cat. 4)»",grado «Superior»; el 4 % de TGSC es otro dato (concentrado)
+389,Rosa damascena Otto Bulgaria,fuerza,effective in traces,"Fraterworks, https://fraterworks.com/products/rose-otto-superior-bulgaria: «is effective in traces but can be overdosed»",no es escala; grado «Superior»
+390,Rosa geranio,nombre,"geranium oil Rwanda (Pelargonium graveolens), CAS 8000-46-2","TGSC, https://thegoodscentscompany.com/data/es1590861.html: «geranium oil rwanda»","otra especie: Pelargonium graveolens (el producto es P. capitatum, rosa geranio de Sudáfrica)"
+390,Rosa geranio,familia,floral,"TGSC, https://thegoodscentscompany.com/data/es1590861.html: «Odor Type: floral»","otra especie: Pelargonium graveolens (el producto es P. capitatum, rosa geranio de Sudáfrica)"
+390,Rosa geranio,nivel,heart,"Hermitage Oils, https://hermitageoils.com/?p=45338: «would class this aromatic as a heart note»","otra especie: Pelargonium graveolens (el producto es P. capitatum, rosa geranio de Sudáfrica); opinión de un reseñador, origen Egipto"
+390,Rosa geranio,horas,28,"TGSC, https://thegoodscentscompany.com/data/es1590861.html: «Substantivity: 28 hour(s) at 100.00 %»","otra especie: Pelargonium graveolens (el producto es P. capitatum, rosa geranio de Sudáfrica)"
+390,Rosa geranio,fuerza,medium,"TGSC, https://thegoodscentscompany.com/data/es1590861.html: «Odor Strength: medium»","otra especie: Pelargonium graveolens (el producto es P. capitatum, rosa geranio de Sudáfrica)"
+390,Rosa geranio,dosis,up to 8 % in the fragrance concentrate,"TGSC, https://thegoodscentscompany.com/data/es1590861.html: «up to 8.0000 % in the fragrance concentrate»","otra especie: Pelargonium graveolens (el producto es P. capitatum, rosa geranio de Sudáfrica)"
+390,Rosa geranio,olor,floral geranium,"TGSC, https://thegoodscentscompany.com/data/es1590861.html: «floral geranium»","otra especie: Pelargonium graveolens (el producto es P. capitatum, rosa geranio de Sudáfrica)"
+390,Rosa geranio,olor,fresh breezy soft geranium pastel green nuances over bright dewy rose otto,"Hermitage Oils, https://hermitageoils.com/?p=45338: «fresh breezy soft geranium pastel green nuances»","otra especie: Pelargonium graveolens (el producto es P. capitatum, rosa geranio de Sudáfrica) (Egipto, orgánico)"
+390,Rosa geranio,estado,yellow clear liquid (est),"TGSC, https://thegoodscentscompany.com/data/es1590861.html: «yellow clear liquid (est)»","otra especie: Pelargonium graveolens (el producto es P. capitatum, rosa geranio de Sudáfrica)"
+390,Rosa geranio,estado,pale water yellow,"Hermitage Oils, https://hermitageoils.com/?p=45338: «Pale water yellow in colour»","otra especie: Pelargonium graveolens (el producto es P. capitatum, rosa geranio de Sudáfrica)"
+391,Ruda,nombre,"rue oil (Ruta graveolens L.), CAS 8014-29-7","TGSC, https://thegoodscentscompany.com/data/es1034441.html: «rue oil … ruta graveolens l. oil»",TGSC da CAS 8014-29-7 (el producto 84929-47-5)
+391,Ruda,familia,herbal,"TGSC, https://thegoodscentscompany.com/data/es1034441.html: «Odor Type: herbal»",
+391,Ruda,familia,"green, herbs & fougeres","Premiere Peau, https://premierepeau.com/pages/glossary-terms/rue: «Green, herbs & fougères»",
+391,Ruda,nivel,heart,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/rue: «Heart note»",
+391,Ruda,horas,200,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/rue: «200 hours» on blotter","cifra de glosario, dudosa"
+391,Ruda,fuerza,,"no lo dice ninguna fuente consultada: TGSC es1034441, Premiere Peau rue",
+391,Ruda,dosis,"above 1-2 % overwhelms, below 0.5 % adds a bitter edge","Premiere Peau, https://premierepeau.com/pages/glossary-terms/rue: «Above 1–2% it overwhelms, and below 0.5% it adds a bitter edge»",base no dicha; TGSC solo da límite IFRA 0.15 % en producto final (la mayoría de categorías)
+391,Ruda,olor,sharp herbal fruity orange acrid,"TGSC, https://thegoodscentscompany.com/data/es1034441.html: «sharp herbal fruity orange acrid»",evaluado al 10 % en DPG
+391,Ruda,olor,a pungent herb known for its bitter green aroma,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/rue: «a pungent herb known for its bitter green aroma»",
+391,Ruda,estado,orange yellow clear liquid (est),"TGSC, https://thegoodscentscompany.com/data/es1034441.html: «orange yellow clear liquid (est)»",
+391,Ruda,estado,orange-yellow clear liquid,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/rue: «Orange-yellow clear liquid»",
+392,Salvia blanca,nombre,white sage essential oil (Salvia apiana Jeps.),"Eden Botanicals, https://www.edenbotanicals.com/white-sage.html: «Salvia apiana Jeps.»",
+392,Salvia blanca,familia,,no lo dice ninguna fuente consultada: Eden Botanicals white-sage (TGSC no tiene página de Salvia apiana en la búsqueda),
+392,Salvia blanca,nivel,"top, middle","Eden Botanicals, https://www.edenbotanicals.com/white-sage.html: «top, middle»",
+392,Salvia blanca,horas,,no lo dice ninguna fuente consultada: Eden Botanicals white-sage (TGSC no tiene página de Salvia apiana en la búsqueda),
+392,Salvia blanca,fuerza,,no lo dice ninguna fuente consultada: Eden Botanicals white-sage (TGSC no tiene página de Salvia apiana en la búsqueda),
+392,Salvia blanca,dosis,,no lo dice ninguna fuente consultada: Eden Botanicals white-sage (TGSC no tiene página de Salvia apiana en la búsqueda) (solo «Dilute and add drop by drop»),
+392,Salvia blanca,olor,"Fresh, cooling, somewhat powerful, strongly camphoraceous aroma, with a mild cineolic aroma reminiscent of Rosemary","Eden Botanicals, https://www.edenbotanicals.com/white-sage.html: «strongly camphoraceous aroma, with a mild cineolic aroma»",
+392,Salvia blanca,estado,"colorless, transparent, mobile liquid","Eden Botanicals, https://www.edenbotanicals.com/white-sage.html: «Colorless, transparent, mobile liquid.»",
+394,Salvia esclarea,nombre,clary sage oil (Salvia sclarea L.),"TGSC, https://www.thegoodscentscompany.com/data/es1018511.html: «salvia sclarea l. oil … clary sage oil france»",TGSC da CAS 8016-63-5 (el producto 84775-83-7); TGSC: flores y follaje
+394,Salvia esclarea,familia,herbal,"TGSC, https://www.thegoodscentscompany.com/data/es1018511.html: «Odor Type: herbal»",
+394,Salvia esclarea,nivel,heart note,"Fraterworks, https://fraterworks.com/products/clary-sage-france: «Heart Note»",la misma página dice también «top note oil» y «Middle note and fixative»
+394,Salvia esclarea,horas,36,"TGSC, https://www.thegoodscentscompany.com/data/es1018511.html: «Substantivity: 36 Hour(s)»",
+394,Salvia esclarea,horas,48,"Fraterworks, https://fraterworks.com/products/clary-sage-france: «Lasts 48 hours on a smelling strip»",
+394,Salvia esclarea,fuerza,medium,"TGSC, https://www.thegoodscentscompany.com/data/es1018511.html: «Odor Strength: medium»",
+394,Salvia esclarea,dosis,up to 15 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/es1018511.html: «up to: 15.0000 % in the fragrance concentrate»",
+394,Salvia esclarea,dosis,median 0.75 % of the concentrate; free formulas up to 3 %,"Fraterworks, https://fraterworks.com/products/clary-sage-france: «at a median of 0.75% of the concentrate»",uso observado
+394,Salvia esclarea,olor,fresh herbal tea weedy dry sage spicy,"TGSC, https://www.thegoodscentscompany.com/data/es1018511.html: «fresh herbal tea weedy dry sage spicy»",
+394,Salvia esclarea,olor,"Floral, fresh, lavender, green, hay; tea-like, warm amber, earthy musky","Fraterworks, https://fraterworks.com/products/clary-sage-france: «Floral, fresh, lavender, green, and hay»",
+394,Salvia esclarea,estado,colorless to brown yellow clear liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/es1018511.html: «colorless to brown yellow clear liquid (est)»",
+394,Salvia esclarea,estado,clear liquid,"Fraterworks, https://fraterworks.com/products/clary-sage-france: «Clear liquid»",
+395,Sándalo indio,nombre,"sandalwood oil (Santalum album L.), CAS 8006-87-9","TGSC, https://thegoodscentscompany.com/data/es1010871.html: «santalum album l. wood oil»",
+395,Sándalo indio,familia,woody,"TGSC, https://thegoodscentscompany.com/data/es1010871.html: «Odor Type: woody»",
+395,Sándalo indio,nivel,fixative and base modifier,"Scentspiracy, https://www.scentspiracy.com/naturals/sandalwood: «fixative and base modifier»",página genérica que mezcla S. album y S. spicatum según origen; no da etiqueta top/heart/base
+395,Sándalo indio,horas,400,"TGSC, https://thegoodscentscompany.com/data/es1010871.html: «Substantivity: 400 hour(s) at 100.00 %»",
+395,Sándalo indio,fuerza,medium,"TGSC, https://thegoodscentscompany.com/data/es1010871.html: «Odor Strength: medium»",
+395,Sándalo indio,fuerza,medium to high,"Scentspiracy, https://www.scentspiracy.com/naturals/sandalwood: «Medium to high»",página genérica que mezcla S. album y S. spicatum según origen
+395,Sándalo indio,dosis,10 % in the fragrance concentrate,"TGSC, https://thegoodscentscompany.com/data/es1010871.html: «10.0000 % in the fragrance concentrate»",
+395,Sándalo indio,olor,sweet woody balsamic cashew terpenic herbal spicy,"TGSC, https://thegoodscentscompany.com/data/es1010871.html: «sweet woody balsamic cashew terpenic herbal spicy»",
+395,Sándalo indio,olor,"Rich, woody, soft, creamy, sweet, lactonic; warm and persistent with subtle floral facets","Scentspiracy, https://www.scentspiracy.com/naturals/sandalwood: «Rich, woody, soft, creamy, sweet, lactonic.»",página genérica que mezcla S. album y S. spicatum según origen
+395,Sándalo indio,estado,pale yellow to yellow clear oily liquid (est),"TGSC, https://thegoodscentscompany.com/data/es1010871.html: «pale yellow to yellow clear oily liquid (est)»",
+395,Sándalo indio,estado,pale yellow to light amber viscous liquid,"Scentspiracy, https://www.scentspiracy.com/naturals/sandalwood: «Pale yellow to light amber viscous liquid»",página genérica que mezcla S. album y S. spicatum según origen
+396,Saro,nombre,cinnamosma fragrans leaf oil (saro),"TGSC, https://www.thegoodscentscompany.com/data/es1671791.html: «cinnamosma fragrans leaf oil»",
+396,Saro,familia,characteristic,"TGSC, https://www.thegoodscentscompany.com/data/es1671791.html: «Odor Type: characteristic»",
+396,Saro,nivel,,"no lo dice ninguna fuente consultada: TGSC es1671791, Aliksir saro",
+396,Saro,horas,,"no lo dice ninguna fuente consultada: TGSC es1671791, Aliksir saro",
+396,Saro,fuerza,,"no lo dice ninguna fuente consultada: TGSC es1671791, Aliksir saro",
+396,Saro,dosis,,"no lo dice ninguna fuente consultada: TGSC es1671791, Aliksir saro (TGSC: «not for flavor use»)",
+396,Saro,olor,"clean, medicinal, Ravintsara-like aroma","TGSC, https://www.thegoodscentscompany.com/data/es1671791.html: «clean, medicinal, Ravintsara-like aroma»",
+396,Saro,olor,"Pleasant, green and warm cineol smell","Aliksir, https://aliksir.com/en/saro-cinnamosma-fragrans-essential-oil.html: «Pleasant, green and warm cineol smell.»","Aliksir es proveedor, no figura en la lista de fuentes de confianza"
+396,Saro,estado,"clear and fluid liquid, colorless or pale yellow","Aliksir, https://aliksir.com/en/saro-cinnamosma-fragrans-essential-oil.html: «Clear and fluid liquid, colorless or pale yellow.»","Aliksir es proveedor, no figura en la lista de fuentes de confianza"
+397,Semillas de apio,nombre,"celery seed oil (Apium graveolens L.), CAS 8015-90-5","TGSC, https://www.thegoodscentscompany.com/data/es1003071.html: «apium graveolens l. seed oil»",TGSC da CAS 8015-90-5 (el producto 89997-35-3); origen India en el título
+397,Semillas de apio,familia,herbal,"TGSC, https://www.thegoodscentscompany.com/data/es1003071.html: «Odor Type: herbal»",
+397,Semillas de apio,nivel,heart note,"Fraterworks, https://fraterworks.com/products/celery-seed-oil: «Heart note»",
+397,Semillas de apio,horas,400,"TGSC, https://www.thegoodscentscompany.com/data/es1003071.html: «Substantivity: 400 hour(s) at 100.00%»",
+397,Semillas de apio,horas,over 24,"Fraterworks, https://fraterworks.com/products/celery-seed-oil: «Lasts > 24 hours on a smelling strip»",
+397,Semillas de apio,fuerza,medium,"TGSC, https://www.thegoodscentscompany.com/data/es1003071.html: «Odor Strength: medium»",
+397,Semillas de apio,fuerza,deceptively powerful,"Fraterworks, https://fraterworks.com/products/celery-seed-oil: «deceptively powerful and can overtake a blend quite easily»","descripción, sin escala"
+397,Semillas de apio,dosis,up to 4 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/es1003071.html: «usage levels up to: 4.0000 % in the fragrance concentrate»",
+397,Semillas de apio,dosis,"perfumes: median 0.1 %, average 0.177 %, range 0.03-0.4 %","Fraterworks, https://fraterworks.com/products/celery-seed-oil: «median 0.1%, average 0.177%»",uso observado en perfumes
+397,Semillas de apio,olor,fresh herbal green phenolic woody,"TGSC, https://www.thegoodscentscompany.com/data/es1003071.html: «fresh herbal green phenolic woody»",
+397,Semillas de apio,olor,"savory-spicy character with warm, soup-like gourmand facets","Fraterworks, https://fraterworks.com/products/celery-seed-oil: «savory-spicy character with warm, soup-like gourmand facets»",
+397,Semillas de apio,estado,yellowish to greenish brown clear liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/es1003071.html: «yellowish to greenish brown clear liquid (est)»",
+397,Semillas de apio,estado,pale yellow liquid,"Fraterworks, https://fraterworks.com/products/celery-seed-oil: «Pale yellow liquid»",
+398,Tagete,nombre,"tagetes oil (Tagetes minuta L.), CAS 8016-84-0","TGSC, https://thegoodscentscompany.com/data/es1034781.html: «tagetes minuta l. flower oil»",TGSC: Egipto; Givaudan «Tagetes Oil Extra»
+398,Tagete,casa,Givaudan (Tagetes Oil Extra),"Givaudan, https://www.givaudan.com/print/2745291: «Tagetes Oil Extra»",nombre comercial de la casa para el aceite de Tagetes minuta
+398,Tagete,familia,herbal,"TGSC, https://thegoodscentscompany.com/data/es1034781.html: «Odor Type: herbal»",
+398,Tagete,familia,"fruity, green, floral, fresh","Givaudan, https://www.givaudan.com/print/2745291: «Fruity, Green, Floral, Fresh»",
+398,Tagete,nivel,top (can be used as),"Givaudan, https://www.givaudan.com/print/2745291: «can easily be used as a top note»",no es una clasificación explícita
+398,Tagete,horas,,"no lo dice ninguna fuente consultada: TGSC es1034781, Givaudan print/2745291",
+398,Tagete,fuerza,,"no lo dice ninguna fuente consultada: TGSC es1034781, Givaudan print/2745291",
+398,Tagete,dosis,,"no lo dice ninguna fuente consultada: TGSC es1034781, Givaudan print/2745291 (TGSC: límite IFRA 0.010 % en producto final; «Do not use on any part of the body because of phototoxic effects»)",
+398,Tagete,olor,rancid fruity bitter apple chamomile,"TGSC, https://thegoodscentscompany.com/data/es1034781.html: «rancid fruity bitter apple chamomile»",evaluado al 10 % en DPG
+398,Tagete,olor,"a fruity, green scent with herbaceous and floral undertones","Givaudan, https://www.givaudan.com/print/2745291: «a fruity, green scent with herbaceous and floral undertones»",
+398,Tagete,estado,reddish yellow clear liquid (est),"TGSC, https://thegoodscentscompany.com/data/es1034781.html: «reddish yellow clear liquid (est)»",
+399,Tanaceto,nombre,"tansy oil (Tanacetum vulgare L.), CAS 8016-87-3","TGSC, https://www.thegoodscentscompany.com/data/es1028211.html: «tanacetum vulgare l. oil»",TGSC da CAS 8016-87-3 (el producto 84961-64-8)
+399,Tanaceto,familia,thujonic,"TGSC, https://www.thegoodscentscompany.com/data/es1028211.html: «Odor Type: thujonic»",
+399,Tanaceto,familia,"green, herbs & fougeres (green, floral, sweet)","Premiere Peau, https://premierepeau.com/pages/glossary-terms/tansy: «Greens, Herbs & Fougères»",
+399,Tanaceto,nivel,heart,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/tansy: «Note Level: Heart»",
+399,Tanaceto,horas,12,"TGSC, https://www.thegoodscentscompany.com/data/es1028211.html: «Substantivity: 12 hour(s) at 100.00 %»",
+399,Tanaceto,horas,12,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/tansy: «12 hours (tenacity on blotter, at 100%)»","igual que TGSC, posible copia"
+399,Tanaceto,fuerza,high,"TGSC, https://www.thegoodscentscompany.com/data/es1028211.html: «Odor Strength: high»",
+399,Tanaceto,fuerza,high (4/5),"Premiere Peau, https://premierepeau.com/pages/glossary-terms/tansy: «4/5 (listed as High)»","igual que TGSC, posible copia"
+399,Tanaceto,dosis,0.1 % in the fragrance concentrate,"TGSC, https://www.thegoodscentscompany.com/data/es1028211.html: «0.1000 % in the fragrance concentrate»",
+399,Tanaceto,dosis,"trace doses, a fraction of a percent","Premiere Peau, https://premierepeau.com/pages/glossary-terms/tansy: «Always used at very low doses due to thujone neurotoxicity.»",base no dicha
+399,Tanaceto,olor,wormwood thujonic herbal minty woody spicy,"TGSC, https://www.thegoodscentscompany.com/data/es1028211.html: «wormwood thujonic herbal minty woody spicy»",evaluado al 10 % en DPG
+399,Tanaceto,olor,"Bitter, camphoraceous, and faintly toxic-smelling","Premiere Peau, https://premierepeau.com/pages/glossary-terms/tansy: «Bitter, camphoraceous, and faintly toxic-smelling.»",
+399,Tanaceto,estado,yellow clear liquid (est),"TGSC, https://www.thegoodscentscompany.com/data/es1028211.html: «yellow clear liquid (est)»",
+399,Tanaceto,estado,yellow clear liquid,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/tansy: «yellow clear liquid»","igual que TGSC, posible copia"
