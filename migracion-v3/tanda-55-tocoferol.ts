@@ -4,13 +4,14 @@
  * asegurar los datos». Each value below was checked on the web (migracion-v3/web/tocoferol/lecturas.csv,
  * with the literal phrase); what no source confirms stays empty or is said in the notes.
  *
- * Goes on top of batch 50 (it rewrites materials.csv, material_categories.csv, material_descriptors.csv and
- * material_doses.csv whole).
+ * It stands alone on the common data of git HEAD, so it can be approved without batches 46 to 51; those
+ * are regenerated on top of it afterwards (they read v3/datos). It rewrites materials.csv,
+ * material_categories.csv, material_descriptors.csv and material_doses.csv whole.
  *
  *   node migracion-v3/tanda-55-tocoferol.ts
  */
 import { execSync } from "node:child_process";
-import { readFileSync, writeFileSync } from "node:fs";
+import { writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
 import { type Cell, writeTable } from "./lib/csv.ts";
@@ -18,10 +19,9 @@ import { uuidFor } from "./lib/ids.ts";
 
 const BASE = execSync("git rev-parse --short HEAD", { encoding: "utf8" }).trim();
 const OUT = "migracion-v3/tandas/55-tocoferol";
-const PREV = "migracion-v3/tandas/50-maese-tinturas";
 type Rec = Record<string, Cell>;
 const fromFile = (name: string) => {
-  const text = readFileSync(join(PREV, name), "utf8");
+  const text = execSync(`git show ${BASE}:v3/datos/${name}`, { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
   return { header: text.slice(0, text.indexOf("\n")).split(","), rows: parseCsvRecords(text) as Rec[] };
 };
 const materials = fromFile("materials.csv");
@@ -87,7 +87,7 @@ writeFileSync(
   join(OUT, "informe.md"),
   `# Tanda 55 · El tocoferol (vitamina E) de Maese Lab, en lo común
 
-*Generada por \`migracion-v3/tanda-55-tocoferol.ts\` sobre \`${BASE}\`, **con las tandas 46 a 50** (se aprueba después de ellas). Escribe \`v3/datos/materials.csv\`, \`material_categories.csv\`, \`material_descriptors.csv\` y \`material_doses.csv\` enteros, con este añadido. Sin aprobar.*
+*Generada por \`migracion-v3/tanda-55-tocoferol.ts\` sobre lo común de \`${BASE}\`, sola: se puede aprobar sin las tandas 46 a 51, que después se regeneran encima. Escribe \`v3/datos/materials.csv\`, \`material_categories.csv\`, \`material_descriptors.csv\` y \`material_doses.csv\` enteros, con este añadido. Sin aprobar.*
 
 **Por qué:** el usuario, 2026-11-11: «puedes dar de alta esto en la app no sin antes contrastar y asegurar los datos».
 

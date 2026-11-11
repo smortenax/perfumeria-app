@@ -1,6 +1,6 @@
 # Tanda 55 · El tocoferol (vitamina E) de Maese Lab, en lo común
 
-*Generada por `migracion-v3/tanda-55-tocoferol.ts` sobre `7fdd175`, **con las tandas 46 a 50** (se aprueba después de ellas). Escribe `v3/datos/materials.csv`, `material_categories.csv`, `material_descriptors.csv` y `material_doses.csv` enteros, con este añadido. Sin aprobar.*
+*Generada por `migracion-v3/tanda-55-tocoferol.ts` sobre lo común de `2018204`, sola: se puede aprobar sin las tandas 46 a 51, que después se regeneran encima. Escribe `v3/datos/materials.csv`, `material_categories.csv`, `material_descriptors.csv` y `material_doses.csv` enteros, con este añadido. Sin aprobar.*
 
 **Por qué:** el usuario, 2026-11-11: «puedes dar de alta esto en la app no sin antes contrastar y asegurar los datos».
 
