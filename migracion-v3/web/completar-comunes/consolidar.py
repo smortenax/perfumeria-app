@@ -1,4 +1,4 @@
-"""Tanda 46 (V3-104): de lo leído en la web (web-*.csv) y de PerfuMate (huecos.csv), una propuesta por hueco.
+"""Tanda 46 (V3-101): de lo leído en la web (web-*.csv) y de PerfuMate (huecos.csv), una propuesta por hueco.
 
 Para cada común y cada campo que le falta, junta lo que dice cada referencia, lo normaliza al vocabulario
 de la app y elige por este orden de referencias: TGSC, la casa (Givaudan, dsm-firmenich, IFF, Symrise…),
