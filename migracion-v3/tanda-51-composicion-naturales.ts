@@ -50,7 +50,7 @@ const num = (s: string) => {
 /** The figure as the document prints it, in % (or mg/kg), into a fraction of 1. */
 function amount(valor: string, tipo: string, nota: string): Pick<Rec, "amount_kind" | "value" | "min" | "max"> | null {
   const raw = valor.trim();
-  const scale = /mg\s*\/\s*kg/i.test(`${raw} ${nota}`) ? 1e-6 : 0.01;
+  const scale = /mg\s*\/\s*kg|ppm/i.test(`${raw} ${nota}`) ? 1e-6 : 0.01;
   const range = raw.match(/^([<≤]?\s*[\d.,]+)\s*%?\s*[-–]\s*([\d.,]+)\s*%?/);
   if (tipo === "rango" || (range && !/^[<≤]/.test(raw))) {
     if (!range) return null;
@@ -60,7 +60,7 @@ function amount(valor: string, tipo: string, nota: string): Pick<Rec, "amount_ki
   }
   const v = num(raw.split(/\s+/)[0] === "<" || raw.split(/\s+/)[0] === "≤" ? raw : raw.split(" ")[0]);
   if (v === null) return null;
-  if (tipo === "maximo" || /^[<≤]|max|up to|hasta/i.test(raw)) return { amount_kind: "max", value: null, min: null, max: round(v * scale) };
+  if (tipo === "maximo" || /^[<≤]|max|up to|hasta/i.test(raw)) return { amount_kind: "max", value: round(v * scale), min: null, max: null };
   return { amount_kind: "exact", value: round(v * scale), min: null, max: null };
 }
 const round = (v: number) => Number(v.toPrecision(6));
