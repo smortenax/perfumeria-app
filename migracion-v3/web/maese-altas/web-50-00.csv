@@ -1,0 +1,169 @@
+n,nombre,campo,valor,fuente,nota
+420,ajowan seed oil,nombre,"ajowan seed oil (trachyspermum ammi fruit oil), CAS 8001-99-8","TGSC, https://thegoodscentscompany.com/data/es1097041.html: «trachyspermum ammi fruit oil»",material puro; no hay referencia de tintura
+420,ajowan seed oil,familia,herbal,"TGSC, https://thegoodscentscompany.com/data/es1097041.html: «Odor type: herbal»",material puro
+420,ajowan seed oil,nivel,,no lo dice ninguna fuente consultada: TGSC es1097041,
+420,ajowan seed oil,horas,,no lo dice ninguna fuente consultada: TGSC es1097041,
+420,ajowan seed oil,fuerza,,no lo dice ninguna fuente consultada: TGSC es1097041,
+420,ajowan seed oil,dosis,,no lo dice ninguna fuente consultada: TGSC es1097041,no se informa dosis de tintura; la del material puro no se registra
+420,ajowan seed oil,olor,herbal thyme phenolic medicinal spicy,"TGSC, https://thegoodscentscompany.com/data/es1097041.html: «at 10.00 % in dipropylene glycol. herbal thyme phenolic medicinal spicy»",material puro
+421,caraway seed CO2 extract,nombre,"carum carvi l. seed oil CO2 extract, CAS 8000-42-8","TGSC, https://thegoodscentscompany.com/data/es1052631.html: «carum carvi l. seed oil CO2 extract»","material puro; otra forma (extracto CO2, no tintura)"
+421,caraway seed CO2 extract,familia,herbal,"TGSC, https://thegoodscentscompany.com/data/es1052631.html: «Odor type: herbal»",material puro; otra forma (CO2)
+421,caraway seed CO2 extract,nivel,,no lo dice ninguna fuente consultada: TGSC es1052631,
+421,caraway seed CO2 extract,horas,,no lo dice ninguna fuente consultada: TGSC es1052631,
+421,caraway seed CO2 extract,fuerza,,no lo dice ninguna fuente consultada: TGSC es1052631,
+421,caraway seed CO2 extract,dosis,,no lo dice ninguna fuente consultada: TGSC es1052631,TGSC solo da niveles FEMA de sabor
+421,caraway seed CO2 extract,olor,caraway,"TGSC, https://thegoodscentscompany.com/data/es1052631.html: «at 100.00 %. caraway»",material puro; otra forma (CO2)
+422,dulse (palmaria palmata extract),nombre,"extract of the alga, palmaria palmata","TGSC, https://www.thegoodscentscompany.com/data/ex1602571.html: «extract of the alga, palmaria palmata, rhodymeniaceae»",sin referencia de tintura; la página es de extractos de Mane/Symrise (otra forma)
+422,dulse (palmaria palmata extract),familia,Iodized Herbal Floral,"TGSC, https://www.thegoodscentscompany.com/data/ex1602571.html: «Mane: Odor: Iodized Herbal Floral»",extracto Mane 'Red Seaweed Pure Jungle Essence' (otra forma; no se confirma que sea la misma especie)
+422,dulse (palmaria palmata extract),nivel,,no lo dice ninguna fuente consultada: TGSC ex1602571,
+422,dulse (palmaria palmata extract),horas,,no lo dice ninguna fuente consultada: TGSC ex1602571,
+422,dulse (palmaria palmata extract),fuerza,,no lo dice ninguna fuente consultada: TGSC ex1602571,
+422,dulse (palmaria palmata extract),dosis,,no lo dice ninguna fuente consultada: TGSC ex1602571,TGSC: «not for fragrance use»
+422,dulse (palmaria palmata extract),olor,Iodized Herbal Floral,"TGSC, https://www.thegoodscentscompany.com/data/ex1602571.html: «Odor: Iodized Herbal Floral»",extracto Mane (otra forma)
+423,sea velvet horn (codium tomentosum extract),nombre,"extract of the alga, codium tomentosum","TGSC, https://thegoodscentscompany.com/data/ex1603121.html: «extract of the alga, codium tomentosum, codiaceae»",sin referencia de tintura; extracto cosmético (otra forma)
+423,sea velvet horn (codium tomentosum extract),familia,,no lo dice ninguna fuente consultada: TGSC ex1603121,
+423,sea velvet horn (codium tomentosum extract),nivel,,no lo dice ninguna fuente consultada: TGSC ex1603121,
+423,sea velvet horn (codium tomentosum extract),horas,,no lo dice ninguna fuente consultada: TGSC ex1603121,
+423,sea velvet horn (codium tomentosum extract),fuerza,,no lo dice ninguna fuente consultada: TGSC ex1603121,
+423,sea velvet horn (codium tomentosum extract),dosis,,no lo dice ninguna fuente consultada: TGSC ex1603121,TGSC: «not for fragrance use»
+423,sea velvet horn (codium tomentosum extract),olor,,no lo dice ninguna fuente consultada: TGSC ex1603121,
+425,angelica root oil,nombre,"angelica archangelica l. root oil, CAS 8015-64-3","TGSC, https://www.thegoodscentscompany.com/data/es1022791.html: «angelica archangelica l. root oil»",material puro; no se buscó referencia de tintura
+425,angelica root oil,familia,amber,"TGSC, https://www.thegoodscentscompany.com/data/es1022791.html: «Odor type: amber»",material puro
+425,angelica root oil,nivel,,no lo dice ninguna fuente consultada: TGSC es1022791,
+425,angelica root oil,horas,,no lo dice ninguna fuente consultada: TGSC es1022791,TGSC da 31 h para el material puro (no se registra para tintura)
+425,angelica root oil,fuerza,,no lo dice ninguna fuente consultada: TGSC es1022791,TGSC da 'medium' para el material puro (no se registra para tintura)
+425,angelica root oil,dosis,,no lo dice ninguna fuente consultada: TGSC es1022791,
+425,angelica root oil,olor,weedy amber terpenic incense ambrette musk celery spicy,"TGSC, https://www.thegoodscentscompany.com/data/es1022791.html: «weedy amber terpenic incense ambrette musk celery spicy»",material puro
+426,arnica flowers absolute,nombre,arnica flowers absolute (arnica spp.),"TGSC, https://thegoodscentscompany.com/data/ab1068191.html: «arnica flowers absolute (arnica spp.)»",material puro (absoluto); otra forma; no es confirmable arnica montana específicamente
+426,arnica flowers absolute,familia,herbal,"TGSC, https://thegoodscentscompany.com/data/ab1068191.html: «Odor type: herbal»",material puro (absoluto)
+426,arnica flowers absolute,nivel,,no lo dice ninguna fuente consultada: TGSC ab1068191,
+426,arnica flowers absolute,horas,,no lo dice ninguna fuente consultada: TGSC ab1068191,
+426,arnica flowers absolute,fuerza,,no lo dice ninguna fuente consultada: TGSC ab1068191,
+426,arnica flowers absolute,dosis,,no lo dice ninguna fuente consultada: TGSC ab1068191,
+426,arnica flowers absolute,olor,herbal sweet tea chamomile woody earthy,"TGSC, https://thegoodscentscompany.com/data/ab1068191.html: «herbal sweet tea chamomile woody earthy»",material puro (absoluto)
+427,burdock root extract,nombre,arctium lappa root extract,"TGSC, https://thegoodscentscompany.com/data/ex1068941.html: «extract of the roots of the burdock, arctium lappa l., asteraceae»",sin referencia aromática; la ficha de Maese dice parte Hoja pero el INCI y el título dicen raíz
+427,burdock root extract,familia,,no lo dice ninguna fuente consultada: TGSC ex1068941,
+427,burdock root extract,nivel,,no lo dice ninguna fuente consultada: TGSC ex1068941,
+427,burdock root extract,horas,,no lo dice ninguna fuente consultada: TGSC ex1068941,
+427,burdock root extract,fuerza,,no lo dice ninguna fuente consultada: TGSC ex1068941,
+427,burdock root extract,dosis,,no lo dice ninguna fuente consultada: TGSC ex1068941,TGSC: «not for fragrance use»
+427,burdock root extract,olor,characteristic,"TGSC, https://thegoodscentscompany.com/data/ex1068941.html: «Odor: characteristic»","entrada de proveedor NATpharma, extracto cosmético"
+428,white cardamom (Amomum verum),nombre,,"no lo dice ninguna fuente consultada: búsqueda web (Fraterworks, Scentspiracy solo tratan Elettaria cardamomum)",sin referencia de perfumería para Amomum verum; no se infiere de otra especie
+428,white cardamom (Amomum verum),familia,,"no lo dice ninguna fuente consultada: búsqueda web (Fraterworks, Scentspiracy solo tratan Elettaria cardamomum)",sin referencia de perfumería para Amomum verum; no se infiere de otra especie
+428,white cardamom (Amomum verum),nivel,,"no lo dice ninguna fuente consultada: búsqueda web (Fraterworks, Scentspiracy solo tratan Elettaria cardamomum)",sin referencia de perfumería para Amomum verum; no se infiere de otra especie
+428,white cardamom (Amomum verum),horas,,"no lo dice ninguna fuente consultada: búsqueda web (Fraterworks, Scentspiracy solo tratan Elettaria cardamomum)",sin referencia de perfumería para Amomum verum; no se infiere de otra especie
+428,white cardamom (Amomum verum),fuerza,,"no lo dice ninguna fuente consultada: búsqueda web (Fraterworks, Scentspiracy solo tratan Elettaria cardamomum)",sin referencia de perfumería para Amomum verum; no se infiere de otra especie
+428,white cardamom (Amomum verum),dosis,,"no lo dice ninguna fuente consultada: búsqueda web (Fraterworks, Scentspiracy solo tratan Elettaria cardamomum)",sin referencia de perfumería para Amomum verum; no se infiere de otra especie
+428,white cardamom (Amomum verum),olor,,"no lo dice ninguna fuente consultada: búsqueda web (Fraterworks, Scentspiracy solo tratan Elettaria cardamomum)",sin referencia de perfumería para Amomum verum; no se infiere de otra especie
+429,Amomum villosum seed,nombre,,no lo dice ninguna fuente consultada: búsqueda web sin página de perfumería de confianza,sin referencia de tintura ni de material puro en fuentes de la lista
+429,Amomum villosum seed,familia,,no lo dice ninguna fuente consultada: búsqueda web sin página de perfumería de confianza,sin referencia de tintura ni de material puro en fuentes de la lista
+429,Amomum villosum seed,nivel,,no lo dice ninguna fuente consultada: búsqueda web sin página de perfumería de confianza,sin referencia de tintura ni de material puro en fuentes de la lista
+429,Amomum villosum seed,horas,,no lo dice ninguna fuente consultada: búsqueda web sin página de perfumería de confianza,sin referencia de tintura ni de material puro en fuentes de la lista
+429,Amomum villosum seed,fuerza,,no lo dice ninguna fuente consultada: búsqueda web sin página de perfumería de confianza,sin referencia de tintura ni de material puro en fuentes de la lista
+429,Amomum villosum seed,dosis,,no lo dice ninguna fuente consultada: búsqueda web sin página de perfumería de confianza,sin referencia de tintura ni de material puro en fuentes de la lista
+429,Amomum villosum seed,olor,,no lo dice ninguna fuente consultada: búsqueda web sin página de perfumería de confianza,sin referencia de tintura ni de material puro en fuentes de la lista
+430,Alpinia katsumadai seed,nombre,,no lo dice ninguna fuente consultada: búsqueda web sin página de perfumería de confianza,sin referencia de tintura ni de material puro en fuentes de la lista
+430,Alpinia katsumadai seed,familia,,no lo dice ninguna fuente consultada: búsqueda web sin página de perfumería de confianza,sin referencia de tintura ni de material puro en fuentes de la lista
+430,Alpinia katsumadai seed,nivel,,no lo dice ninguna fuente consultada: búsqueda web sin página de perfumería de confianza,sin referencia de tintura ni de material puro en fuentes de la lista
+430,Alpinia katsumadai seed,horas,,no lo dice ninguna fuente consultada: búsqueda web sin página de perfumería de confianza,sin referencia de tintura ni de material puro en fuentes de la lista
+430,Alpinia katsumadai seed,fuerza,,no lo dice ninguna fuente consultada: búsqueda web sin página de perfumería de confianza,sin referencia de tintura ni de material puro en fuentes de la lista
+430,Alpinia katsumadai seed,dosis,,no lo dice ninguna fuente consultada: búsqueda web sin página de perfumería de confianza,sin referencia de tintura ni de material puro en fuentes de la lista
+430,Alpinia katsumadai seed,olor,,no lo dice ninguna fuente consultada: búsqueda web sin página de perfumería de confianza,sin referencia de tintura ni de material puro en fuentes de la lista
+431,Cupressus lusitanica resin,nombre,,"no lo dice ninguna fuente consultada: TGSC es1723951 (otra especie: cupressus sempervirens, planta entera), búsqueda web (Hermitage: aceite de rama/hoja, otra parte)",otra especie / otra parte; sin referencia de resina
+431,Cupressus lusitanica resin,familia,,"no lo dice ninguna fuente consultada: TGSC es1723951 (otra especie: cupressus sempervirens, planta entera), búsqueda web (Hermitage: aceite de rama/hoja, otra parte)",otra especie / otra parte; sin referencia de resina
+431,Cupressus lusitanica resin,nivel,,"no lo dice ninguna fuente consultada: TGSC es1723951 (otra especie: cupressus sempervirens, planta entera), búsqueda web (Hermitage: aceite de rama/hoja, otra parte)",otra especie / otra parte; sin referencia de resina
+431,Cupressus lusitanica resin,horas,,"no lo dice ninguna fuente consultada: TGSC es1723951 (otra especie: cupressus sempervirens, planta entera), búsqueda web (Hermitage: aceite de rama/hoja, otra parte)",otra especie / otra parte; sin referencia de resina
+431,Cupressus lusitanica resin,fuerza,,"no lo dice ninguna fuente consultada: TGSC es1723951 (otra especie: cupressus sempervirens, planta entera), búsqueda web (Hermitage: aceite de rama/hoja, otra parte)",otra especie / otra parte; sin referencia de resina
+431,Cupressus lusitanica resin,dosis,,"no lo dice ninguna fuente consultada: TGSC es1723951 (otra especie: cupressus sempervirens, planta entera), búsqueda web (Hermitage: aceite de rama/hoja, otra parte)",otra especie / otra parte; sin referencia de resina
+431,Cupressus lusitanica resin,olor,,"no lo dice ninguna fuente consultada: TGSC es1723951 (otra especie: cupressus sempervirens, planta entera), búsqueda web (Hermitage: aceite de rama/hoja, otra parte)",otra especie / otra parte; sin referencia de resina
+432,cypress oil,olor,"Long lasting and steady resin aromatic top note, slightly leafy, with an amber undertone","TGSC, https://www.thegoodscentscompany.com/data/es1723951.html: «Long lasting and steady resin aromatic top note, slightly leafy, with an amber undertone» (IFF)","material puro; otra parte: aceite de la planta entera (cupressus sempervirens), no madera"
+432,cypress oil,nombre,cypress oil (cupressus sempervirens l.),"TGSC, https://www.thegoodscentscompany.com/data/es1723951.html: «volatile oil obtained from the whole plant, the cypress, cupressus sempervirens l.»","material puro; otra parte (planta entera, no madera)"
+432,cypress oil,familia,,no lo dice ninguna fuente consultada: TGSC es1723951,
+432,cypress oil,nivel,,no lo dice ninguna fuente consultada: TGSC es1723951,
+432,cypress oil,horas,,no lo dice ninguna fuente consultada: TGSC es1723951,
+432,cypress oil,fuerza,,no lo dice ninguna fuente consultada: TGSC es1723951,
+432,cypress oil,dosis,,no lo dice ninguna fuente consultada: TGSC es1723951,
+433,Cupressus arizonica resin,nombre,,no lo dice ninguna fuente consultada: sin búsqueda (cupo de una búsqueda por producto; especie sin referencia de perfumería conocida),no buscado a fondo
+433,Cupressus arizonica resin,familia,,no lo dice ninguna fuente consultada: sin búsqueda (cupo de una búsqueda por producto; especie sin referencia de perfumería conocida),no buscado a fondo
+433,Cupressus arizonica resin,nivel,,no lo dice ninguna fuente consultada: sin búsqueda (cupo de una búsqueda por producto; especie sin referencia de perfumería conocida),no buscado a fondo
+433,Cupressus arizonica resin,horas,,no lo dice ninguna fuente consultada: sin búsqueda (cupo de una búsqueda por producto; especie sin referencia de perfumería conocida),no buscado a fondo
+433,Cupressus arizonica resin,fuerza,,no lo dice ninguna fuente consultada: sin búsqueda (cupo de una búsqueda por producto; especie sin referencia de perfumería conocida),no buscado a fondo
+433,Cupressus arizonica resin,dosis,,no lo dice ninguna fuente consultada: sin búsqueda (cupo de una búsqueda por producto; especie sin referencia de perfumería conocida),no buscado a fondo
+433,Cupressus arizonica resin,olor,,no lo dice ninguna fuente consultada: sin búsqueda (cupo de una búsqueda por producto; especie sin referencia de perfumería conocida),no buscado a fondo
+434,damiana leaf oil,nombre,turnera diffusa leaf oil (damiana oil),"TGSC, https://thegoodscentscompany.com/data/es1082131.html: «turnera diffusa leaf oil»",material puro (destilado de hoja); no se encontró referencia de tintura
+434,damiana leaf oil,familia,characteristic,"TGSC, https://thegoodscentscompany.com/data/es1082131.html: «Odor type: characteristic»",material puro
+434,damiana leaf oil,nivel,,no lo dice ninguna fuente consultada: TGSC es1082131,
+434,damiana leaf oil,horas,,no lo dice ninguna fuente consultada: TGSC es1082131,
+434,damiana leaf oil,fuerza,,no lo dice ninguna fuente consultada: TGSC es1082131,
+434,damiana leaf oil,dosis,,no lo dice ninguna fuente consultada: TGSC es1082131,
+434,damiana leaf oil,olor,"sweet, earthy, light aroma","TGSC, https://thegoodscentscompany.com/data/es1082131.html: «sweet, earthy, light aroma»",material puro
+435,dong quai root,nombre,,no lo dice ninguna fuente consultada: búsqueda web (sin página TGSC/Fraterworks/Perfumer's Apprentice de Angelica sinensis; TGSC odor/angelica.html no leída),sin referencia de tintura ni de material puro de la especie
+435,dong quai root,familia,,no lo dice ninguna fuente consultada: búsqueda web (sin página TGSC/Fraterworks/Perfumer's Apprentice de Angelica sinensis; TGSC odor/angelica.html no leída),sin referencia de tintura ni de material puro de la especie
+435,dong quai root,nivel,,no lo dice ninguna fuente consultada: búsqueda web (sin página TGSC/Fraterworks/Perfumer's Apprentice de Angelica sinensis; TGSC odor/angelica.html no leída),sin referencia de tintura ni de material puro de la especie
+435,dong quai root,horas,,no lo dice ninguna fuente consultada: búsqueda web (sin página TGSC/Fraterworks/Perfumer's Apprentice de Angelica sinensis; TGSC odor/angelica.html no leída),sin referencia de tintura ni de material puro de la especie
+435,dong quai root,fuerza,,no lo dice ninguna fuente consultada: búsqueda web (sin página TGSC/Fraterworks/Perfumer's Apprentice de Angelica sinensis; TGSC odor/angelica.html no leída),sin referencia de tintura ni de material puro de la especie
+435,dong quai root,dosis,,no lo dice ninguna fuente consultada: búsqueda web (sin página TGSC/Fraterworks/Perfumer's Apprentice de Angelica sinensis; TGSC odor/angelica.html no leída),sin referencia de tintura ni de material puro de la especie
+435,dong quai root,olor,,no lo dice ninguna fuente consultada: búsqueda web (sin página TGSC/Fraterworks/Perfumer's Apprentice de Angelica sinensis; TGSC odor/angelica.html no leída),sin referencia de tintura ni de material puro de la especie
+436,elemi oil,nombre,"canarium indicum l. oil (elemi), CAS 8023-89-0","TGSC, https://thegoodscentscompany.com/data/es1025511.html: «canarium indicum l. oil»",material puro (aceite destilado de la gomorresina de Canarium luzonicum); no se encontró referencia de tintura
+436,elemi oil,familia,herbal,"TGSC, https://thegoodscentscompany.com/data/es1025511.html: «Odor type: herbal»",material puro
+436,elemi oil,nivel,,no lo dice ninguna fuente consultada: TGSC es1025511,
+436,elemi oil,horas,,no lo dice ninguna fuente consultada para tintura: TGSC es1025511,TGSC da 20 h al 100 % para el material puro; no se registra para tintura
+436,elemi oil,fuerza,,no lo dice ninguna fuente consultada para tintura: TGSC es1025511,TGSC da 'medium' para el material puro; no se registra para tintura
+436,elemi oil,dosis,,no lo dice ninguna fuente consultada para tintura: TGSC es1025511,la dosis del material puro no se registra para tintura
+436,elemi oil,olor,fresh lemony peppery balsam green woody sweet spicy,"TGSC, https://thegoodscentscompany.com/data/es1025511.html: «fresh lemony peppery balsam green woody sweet spicy»",material puro
+439,white Mexican copal resin (Bursera bipinnata),nombre,White Mexican Copal Resin (Bursera bipinnata),"Hermitage Oils, https://hermitageoils.com/?p=38331: «White Mexican Copal Resin»","otra forma: resina cruda, no tintura ni aceite; Maese lo rotula 'Indonesia' pero la INCI es B. bipinnata"
+439,white Mexican copal resin (Bursera bipinnata),olor,"full of addictive spiced warmth and white floral qualities, soft pink peppery nuances, green notes","Hermitage Oils, https://hermitageoils.com/?p=38331: «full of addictive spiced warmth and white floral qualities»",otra forma: resina cruda; descripción de reseña de la casa
+439,white Mexican copal resin (Bursera bipinnata),familia,,no lo dice ninguna fuente consultada: Hermitage ?p=38331,
+439,white Mexican copal resin (Bursera bipinnata),nivel,,no lo dice ninguna fuente consultada: Hermitage ?p=38331,
+439,white Mexican copal resin (Bursera bipinnata),horas,,no lo dice ninguna fuente consultada: Hermitage ?p=38331,
+439,white Mexican copal resin (Bursera bipinnata),fuerza,,no lo dice ninguna fuente consultada: Hermitage ?p=38331,
+439,white Mexican copal resin (Bursera bipinnata),dosis,,no lo dice ninguna fuente consultada: Hermitage ?p=38331,Hermitage solo recomienda quemar en quemador
+437,copal blanco (Bursera jorullensis),nombre,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. jorullensis; otra especie en Hermitage
+437,copal blanco (Bursera jorullensis),familia,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. jorullensis; otra especie en Hermitage
+437,copal blanco (Bursera jorullensis),nivel,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. jorullensis; otra especie en Hermitage
+437,copal blanco (Bursera jorullensis),horas,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. jorullensis; otra especie en Hermitage
+437,copal blanco (Bursera jorullensis),fuerza,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. jorullensis; otra especie en Hermitage
+437,copal blanco (Bursera jorullensis),dosis,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. jorullensis; otra especie en Hermitage
+437,copal blanco (Bursera jorullensis),olor,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. jorullensis; otra especie en Hermitage
+438,copal (Bursera excelsa),nombre,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. excelsa; otra especie en Hermitage
+438,copal (Bursera excelsa),familia,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. excelsa; otra especie en Hermitage
+438,copal (Bursera excelsa),nivel,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. excelsa; otra especie en Hermitage
+438,copal (Bursera excelsa),horas,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. excelsa; otra especie en Hermitage
+438,copal (Bursera excelsa),fuerza,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. excelsa; otra especie en Hermitage
+438,copal (Bursera excelsa),dosis,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. excelsa; otra especie en Hermitage
+438,copal (Bursera excelsa),olor,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. excelsa; otra especie en Hermitage
+440,copal mexicano (Bursera jorullensis),nombre,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. jorullensis; otra especie en Hermitage
+440,copal mexicano (Bursera jorullensis),familia,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. jorullensis; otra especie en Hermitage
+440,copal mexicano (Bursera jorullensis),nivel,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. jorullensis; otra especie en Hermitage
+440,copal mexicano (Bursera jorullensis),horas,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. jorullensis; otra especie en Hermitage
+440,copal mexicano (Bursera jorullensis),fuerza,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. jorullensis; otra especie en Hermitage
+440,copal mexicano (Bursera jorullensis),dosis,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. jorullensis; otra especie en Hermitage
+440,copal mexicano (Bursera jorullensis),olor,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. jorullensis; otra especie en Hermitage
+441,copal negro (Bursera microphylla),nombre,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. microphylla; otra especie en Hermitage
+441,copal negro (Bursera microphylla),familia,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. microphylla; otra especie en Hermitage
+441,copal negro (Bursera microphylla),nivel,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. microphylla; otra especie en Hermitage
+441,copal negro (Bursera microphylla),horas,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. microphylla; otra especie en Hermitage
+441,copal negro (Bursera microphylla),fuerza,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. microphylla; otra especie en Hermitage
+441,copal negro (Bursera microphylla),dosis,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. microphylla; otra especie en Hermitage
+441,copal negro (Bursera microphylla),olor,,"no lo dice ninguna fuente consultada: búsqueda web, Hermitage ?p=38331 (otra especie: B. bipinnata)",sin referencia de B. microphylla; otra especie en Hermitage
+442,aloe succotrina resin,nombre,,no lo dice ninguna fuente consultada: búsqueda web (sin página de perfumería de confianza),sin referencia
+442,aloe succotrina resin,familia,,no lo dice ninguna fuente consultada: búsqueda web (sin página de perfumería de confianza),sin referencia
+442,aloe succotrina resin,nivel,,no lo dice ninguna fuente consultada: búsqueda web (sin página de perfumería de confianza),sin referencia
+442,aloe succotrina resin,horas,,no lo dice ninguna fuente consultada: búsqueda web (sin página de perfumería de confianza),sin referencia
+442,aloe succotrina resin,fuerza,,no lo dice ninguna fuente consultada: búsqueda web (sin página de perfumería de confianza),sin referencia
+442,aloe succotrina resin,dosis,,no lo dice ninguna fuente consultada: búsqueda web (sin página de perfumería de confianza),sin referencia
+442,aloe succotrina resin,olor,,no lo dice ninguna fuente consultada: búsqueda web (sin página de perfumería de confianza),sin referencia
+444,camphor natural crystals,nombre,,no lo dice ninguna fuente consultada: búsqueda web (sin página TGSC/Fraterworks/Perfumer's Apprentice localizada),no se leyó ninguna página de referencia; no inferido
+444,camphor natural crystals,familia,,no lo dice ninguna fuente consultada: búsqueda web (sin página TGSC/Fraterworks/Perfumer's Apprentice localizada),no se leyó ninguna página de referencia; no inferido
+444,camphor natural crystals,nivel,,no lo dice ninguna fuente consultada: búsqueda web (sin página TGSC/Fraterworks/Perfumer's Apprentice localizada),no se leyó ninguna página de referencia; no inferido
+444,camphor natural crystals,horas,,no lo dice ninguna fuente consultada: búsqueda web (sin página TGSC/Fraterworks/Perfumer's Apprentice localizada),no se leyó ninguna página de referencia; no inferido
+444,camphor natural crystals,fuerza,,no lo dice ninguna fuente consultada: búsqueda web (sin página TGSC/Fraterworks/Perfumer's Apprentice localizada),no se leyó ninguna página de referencia; no inferido
+444,camphor natural crystals,dosis,,no lo dice ninguna fuente consultada: búsqueda web (sin página TGSC/Fraterworks/Perfumer's Apprentice localizada),no se leyó ninguna página de referencia; no inferido
+444,camphor natural crystals,olor,,no lo dice ninguna fuente consultada: búsqueda web (sin página TGSC/Fraterworks/Perfumer's Apprentice localizada),no se leyó ninguna página de referencia; no inferido
+445,Callitris quadrivalvis cones,nombre,,no lo dice ninguna fuente consultada: búsqueda web (sin página de perfumería de confianza),sin referencia
+445,Callitris quadrivalvis cones,familia,,no lo dice ninguna fuente consultada: búsqueda web (sin página de perfumería de confianza),sin referencia
+445,Callitris quadrivalvis cones,nivel,,no lo dice ninguna fuente consultada: búsqueda web (sin página de perfumería de confianza),sin referencia
+445,Callitris quadrivalvis cones,horas,,no lo dice ninguna fuente consultada: búsqueda web (sin página de perfumería de confianza),sin referencia
+445,Callitris quadrivalvis cones,fuerza,,no lo dice ninguna fuente consultada: búsqueda web (sin página de perfumería de confianza),sin referencia
+445,Callitris quadrivalvis cones,dosis,,no lo dice ninguna fuente consultada: búsqueda web (sin página de perfumería de confianza),sin referencia
+445,Callitris quadrivalvis cones,olor,,no lo dice ninguna fuente consultada: búsqueda web (sin página de perfumería de confianza),sin referencia
