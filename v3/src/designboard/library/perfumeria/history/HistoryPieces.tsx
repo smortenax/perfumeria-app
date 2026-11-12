@@ -1,5 +1,7 @@
+// Copied from designboard 4aa3488 (src/library/perfumeria/history/HistoryPieces.tsx), runtime 1.0.
+// Do not edit here: change designboard and run `npm run copy-runtime` again.
 import type { CSSProperties, ReactNode } from "react";
-import { tokenVar } from "../../core/tokens";
+import { tokenVar } from "../../../core/tokens";
 import { useHistoryData } from "./HistoryContext";
 import type { HistoryItem } from "./history";
 import { useHistoryDock } from "./useHistoryDock";

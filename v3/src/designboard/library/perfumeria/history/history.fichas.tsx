@@ -1,4 +1,6 @@
-import type { ComponentDef, ComponentPreview } from "../../core/manifest";
+// Copied from designboard 4aa3488 (src/library/perfumeria/history/history.fichas.tsx), runtime 1.0.
+// Do not edit here: change designboard and run `npm run copy-runtime` again.
+import type { ComponentDef, ComponentPreview } from "../../../core/manifest";
 import { HistoryCount, HistoryPlay, HistoryTrack, type CountParams, type PlayParams, type TrackParams } from "./HistoryPieces";
 import { APP_GEOMETRY } from "./history";
 import { HistorySample, SAMPLES } from "./sample";

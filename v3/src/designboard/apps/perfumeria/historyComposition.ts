@@ -1,7 +1,9 @@
-import { FIXED, type Artboard, type ComponentNode, type Composition, type ContainerNode } from "./core/composition";
-import { defaultParams, type ComponentDef } from "./core/manifest";
-import { panel } from "./library/basic";
-import { historyCount, historyPlay, historyTrack } from "./library/history/history.fichas";
+// Copied from designboard 4aa3488 (src/apps/perfumeria/historyComposition.ts), runtime 1.0.
+// Do not edit here: change designboard and run `npm run copy-runtime` again.
+import { FIXED, type Artboard, type ComponentNode, type Composition, type ContainerNode } from "../../core/composition";
+import { defaultParams, type ComponentDef } from "../../core/manifest";
+import { panel } from "../../library/basic";
+import { historyCount, historyPlay, historyTrack } from "../../library/perfumeria/history/history.fichas";
 
 /**
  * The history dock as a composition: one screen per size, as the app reads it

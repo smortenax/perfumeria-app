@@ -1,4 +1,4 @@
-// Copied from designboard c0e1d34 (src/runtime/index.ts), runtime 1.0.
+// Copied from designboard 4aa3488 (src/runtime/index.ts), runtime 1.0.
 // Do not edit here: change designboard and run `npm run copy-runtime` again.
 /**
  * Everything an app needs to draw what the board composed. An app copies this folder and the core

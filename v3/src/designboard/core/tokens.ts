@@ -1,4 +1,4 @@
-// Copied from designboard c0e1d34 (src/core/tokens.ts), runtime 1.0.
+// Copied from designboard 4aa3488 (src/core/tokens.ts), runtime 1.0.
 // Do not edit here: change designboard and run `npm run copy-runtime` again.
 /**
  * Reads a design-token file in the W3C DTCG shape (the one the design vault uses in

@@ -1,5 +1,7 @@
+// Copied from designboard 4aa3488 (src/library/perfumeria/history/sample.tsx), runtime 1.0.
+// Do not edit here: change designboard and run `npm run copy-runtime` again.
 import type { ReactNode } from "react";
-import { MaterialOrb } from "../../../glossary/orb/MaterialOrb";
+import { MaterialOrb } from "../../orb/MaterialOrb";
 import { HistoryProvider } from "./HistoryContext";
 import type { HistoryData, HistoryItem, HistoryLabels } from "./history";
 

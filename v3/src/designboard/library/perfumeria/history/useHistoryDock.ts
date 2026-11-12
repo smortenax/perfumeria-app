@@ -1,3 +1,5 @@
+// Copied from designboard 4aa3488 (src/library/perfumeria/history/useHistoryDock.ts), runtime 1.0.
+// Do not edit here: change designboard and run `npm run copy-runtime` again.
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { centreOf, hoveredAt, maxScrollOf, scaleAt, shiftAt, slotOf, type DockGeometry } from "./history";
 

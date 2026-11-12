@@ -1,3 +1,5 @@
+// Copied from designboard 4aa3488 (src/library/perfumeria/history/history.ts), runtime 1.0.
+// Do not edit here: change designboard and run `npm run copy-runtime` again.
 /**
  * Perfumería's bench history (v3/src/bench/HistoryDock.tsx in smortenax/perfumeria-app, main at
  * 322e353, 2026-11-11), split as the plan for the board asks: what decides what is shown (which

@@ -1,4 +1,4 @@
-// Copied from designboard c0e1d34 (src/core/composition.ts), runtime 1.0.
+// Copied from designboard 4aa3488 (src/core/composition.ts), runtime 1.0.
 // Do not edit here: change designboard and run `npm run copy-runtime` again.
 import { clampStoredParams, type Library, type Params } from "./manifest";
 import { migrateV1, type CompositionV1 } from "./migrate";

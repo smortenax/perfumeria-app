@@ -1,4 +1,4 @@
-// Copied from designboard c0e1d34 (src/core/runtimeVersion.ts), runtime 1.0.
+// Copied from designboard 4aa3488 (src/core/runtimeVersion.ts), runtime 1.0.
 // Do not edit here: change designboard and run `npm run copy-runtime` again.
 /**
  * The version of the runtime an app copies (`npm run copy-runtime`): what `ComposedScreen` and

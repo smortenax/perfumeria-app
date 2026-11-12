@@ -1,3 +1,5 @@
+// Copied from designboard 4aa3488 (src/library/basic.tsx), runtime 1.0.
+// Do not edit here: change designboard and run `npm run copy-runtime` again.
 import type { CSSProperties } from "react";
 import type { ComponentDef } from "../core/manifest";
 import { tokenVar } from "../core/tokens";

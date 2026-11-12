@@ -1,4 +1,4 @@
-// Copied from designboard c0e1d34 (src/runtime/links.tsx), runtime 1.0.
+// Copied from designboard 4aa3488 (src/runtime/links.tsx), runtime 1.0.
 // Do not edit here: change designboard and run `npm run copy-runtime` again.
 import { createContext, useContext, useSyncExternalStore, type ReactNode } from "react";
 

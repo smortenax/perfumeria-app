@@ -1,19 +1,17 @@
 # Copia del runtime de Designboard
 
-Copia de [smortenax/designboard](https://github.com/smortenax/designboard) `main` en `c0e1d34`
-(2026-11-12, PR #37 y #38), porque la v3 no importa nada de fuera de su carpeta (V3-21).
+Copia de [smortenax/designboard](https://github.com/smortenax/designboard) `main` (hoy `4aa3488`),
+porque la v3 no importa nada de fuera de su carpeta (V3-21). La escribe, entera, este comando
+lanzado desde designboard:
 
-- **`core/` y `runtime/`** los escribe `npm run copy-runtime -- ../perfumeria-app/v3/src/designboard`
-  desde designboard. Cada archivo lleva una cabecera con el commit y la versión del runtime. No se
-  editan aquí: se cambia designboard y se vuelve a copiar. La app importa de `runtime/index`.
-- **`core/screenMap.ts`** y **`adapter/config.ts`** están copiados a mano, solo para que
-  `v3/designboard.config.ts` tenga tipos.
-- **`library/`** (el panel y las piezas del historial), **`historyComposition.ts`** (el inicio del
-  tablero y la reserva de la app), **`tokenNames.ts`** y **`perfumeria.tokens.json`** también
-  están copiados a mano, de `src/library/`, `src/apps/perfumeria/` y `src/tokens/`. Respecto al
-  original solo cambian las rutas de importación y el orbe de `library/history/sample.tsx`, que es
-  el de la app (`src/glossary/orb/`).
+    npm run copy-runtime -- ../perfumeria-app/v3/src/designboard src/apps/perfumeria
+
+Copia el runtime (`runtime/`, `core/`) y la config del tablero para Perfumería con todo lo que
+importa: las piezas del historial, el panel, el orbe, el inicio, los nombres de token y el archivo
+de tokens. Cada archivo lleva una cabecera con el commit y la versión del runtime. Aquí no se
+edita nada: se cambia en designboard y se vuelve a copiar. `v3/designboard.config.ts` solo
+reexporta `apps/perfumeria/designboard.config.ts`.
 
 La composición está en `v3/designboard.composition.json` y la escribe el tablero. Con
-`npm run dev`, `HistoryDock` la vuelve a leer cada segundo, así que lo que se guarda en el tablero
-se ve sin recargar.
+`npm run dev`, `HistoryDock` la relee cada segundo, así que lo que se guarda en el tablero se ve
+sin recargar.

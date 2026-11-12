@@ -1,3 +1,5 @@
+// Copied from designboard 4aa3488 (src/core/screenMap.ts), runtime 1.0.
+// Do not edit here: change designboard and run `npm run copy-runtime` again.
 import type { Artboard } from "./composition";
 
 /**

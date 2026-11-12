@@ -1,28 +1,9 @@
 /**
- * What Designboard (smortenax/designboard) needs to serve this app's history dock on the board
- * (task C4). Run the board from its own folder with
- *
- *   DESIGNBOARD_APP=../perfumeria-app/v3 npm run dev
- *
- * Everything it imports is inside v3/ (V3-21): the board's runtime is copied in src/designboard/.
- * The board writes v3/designboard.composition.json, which HistoryDock reads (and follows live
- * under `npm run dev`). Link this folder, v3/, in the board's desktop app.
+ * What Designboard (smortenax/designboard) serves on the board for this app: the history dock's
+ * pieces, Perfumería's tokens and naming rule, and the starter. The config itself is copied from
+ * designboard with `npm run copy-runtime -- ../perfumeria-app/v3/src/designboard src/apps/perfumeria`
+ * (V3-21: nothing here imports from outside v3/). Link this folder, v3/, in the board, or run it
+ * with `DESIGNBOARD_APP=../perfumeria-app/v3 npm run dev`. The board writes
+ * v3/designboard.composition.json, which HistoryDock reads (and follows live under `npm run dev`).
  */
-import { defineBoardConfig } from "./src/designboard/adapter/config";
-import type { ComponentDef } from "./src/designboard/core/manifest";
-import { panel } from "./src/designboard/library/basic";
-import { HISTORY_FICHAS } from "./src/designboard/library/history/history.fichas";
-import { perfumeriaCssVar } from "./src/designboard/tokenNames";
-import tokens from "./src/designboard/perfumeria.tokens.json";
-import { historyComposition } from "./src/designboard/historyComposition";
-
-export default defineBoardConfig({
-  app: "perfumeria-v3",
-  label: "Perfumería v3 · historial",
-  components: [panel, ...HISTORY_FICHAS] as unknown as ComponentDef[],
-  tokens,
-  cssVarOf: perfumeriaCssVar,
-  // The board opens on it when there is no file, and the app falls back to it (starterComposition).
-  starter: historyComposition,
-  background: "color.surface.base",
-});
+export { default } from "./src/designboard/apps/perfumeria/designboard.config";

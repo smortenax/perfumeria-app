@@ -10,8 +10,8 @@ import { initials, massText, pouredText, pureText, weighingWarning } from "./for
 import saved from "../../designboard.composition.json";
 import config from "../../designboard.config";
 import { ComposedScreen, makeLibrary, pickArtboard, setTokenNaming, starterComposition, useComposition } from "../designboard/runtime";
-import { HistoryProvider } from "../designboard/library/history/HistoryContext";
-import type { HistoryData, HistoryItem, HistoryLabels } from "../designboard/library/history/history";
+import { HistoryProvider } from "../designboard/library/perfumeria/history/HistoryContext";
+import type { HistoryData, HistoryItem, HistoryLabels } from "../designboard/library/perfumeria/history/history";
 
 const t = texts.history;
 

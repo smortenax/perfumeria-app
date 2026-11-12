@@ -1,3 +1,5 @@
+// Copied from designboard 4aa3488 (src/adapter/config.ts), runtime 1.0.
+// Do not edit here: change designboard and run `npm run copy-runtime` again.
 /**
  * The contract an app fills in to bring its own components to the board.
  *

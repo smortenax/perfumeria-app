@@ -1,4 +1,4 @@
-// Copied from designboard c0e1d34 (src/runtime/layers.tsx), runtime 1.0.
+// Copied from designboard 4aa3488 (src/runtime/layers.tsx), runtime 1.0.
 // Do not edit here: change designboard and run `npm run copy-runtime` again.
 import { useLayoutEffect, useRef, useState, type CSSProperties, type HTMLAttributes, type ReactNode } from "react";
 import { MIN_SIZE, type Align, type AxisSizing, type Frame, type GridLayout, type GridTrack, type LayerNode, type Layout } from "../core/composition";
