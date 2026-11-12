@@ -1,0 +1,389 @@
+{
+  "version": 2,
+  "name": "Historial del banco",
+  "tokens": "perfumeria",
+  "artboards": [
+    {
+      "id": "history-1440",
+      "name": "Historial · 1440",
+      "width": 1440,
+      "height": 72,
+      "x": 0,
+      "y": 0,
+      "background": "",
+      "clip": false,
+      "layout": {
+        "mode": "free"
+      },
+      "children": [
+        {
+          "kind": "component",
+          "id": "history-1440-panel",
+          "type": "panel",
+          "name": "Fondo de la barra",
+          "x": 0,
+          "y": 0,
+          "w": 1440,
+          "h": 72,
+          "anchor": {
+            "h": "stretch",
+            "v": "stretch"
+          },
+          "sizing": {
+            "w": {
+              "mode": "fixed"
+            },
+            "h": {
+              "mode": "fixed"
+            }
+          },
+          "params": {
+            "background": "color.surface.raised",
+            "radius": "",
+            "border": true,
+            "borderTop": true,
+            "borderRight": false,
+            "borderBottom": false,
+            "borderLeft": false,
+            "borderColor": "color.border.subtle",
+            "image": ""
+          }
+        },
+        {
+          "kind": "container",
+          "id": "history-1440-row",
+          "name": "Fila del historial",
+          "x": 16,
+          "y": 0,
+          "w": 1408,
+          "h": 72,
+          "anchor": {
+            "h": "stretch",
+            "v": "stretch"
+          },
+          "sizing": {
+            "w": {
+              "mode": "fixed"
+            },
+            "h": {
+              "mode": "fixed"
+            }
+          },
+          "layout": {
+            "mode": "flex",
+            "direction": "row",
+            "gap": "space.gap",
+            "padding": "",
+            "align": "center",
+            "justify": "start",
+            "wrap": false
+          },
+          "clip": false,
+          "children": [
+            {
+              "kind": "component",
+              "id": "history-1440-history-play",
+              "type": "history-play",
+              "name": "Reproducir",
+              "x": 0,
+              "y": 0,
+              "w": 44,
+              "h": 44,
+              "anchor": {
+                "h": "left",
+                "v": "center"
+              },
+              "sizing": {
+                "w": {
+                  "mode": "fixed"
+                },
+                "h": {
+                  "mode": "fixed"
+                }
+              },
+              "params": {
+                "background": "color.surface.raised",
+                "border": "color.border.control",
+                "radius": "radius.control",
+                "iconColor": "color.text.default",
+                "playIcon": "",
+                "pauseIcon": ""
+              }
+            },
+            {
+              "kind": "component",
+              "id": "history-1440-history-track",
+              "type": "history-track",
+              "name": "Tira",
+              "x": 0,
+              "y": 0,
+              "w": 1188,
+              "h": 72,
+              "anchor": {
+                "h": "stretch",
+                "v": "stretch"
+              },
+              "sizing": {
+                "w": {
+                  "mode": "fill"
+                },
+                "h": {
+                  "mode": "fill"
+                }
+              },
+              "params": {
+                "chip": 28,
+                "slot": 52,
+                "gap": 4,
+                "magnify": 1.8,
+                "reach": 84,
+                "mark": "orb",
+                "amounts": true,
+                "future": 0.35,
+                "radius": "radius.control",
+                "chipBackground": "color.surface.raised",
+                "chipBorder": "color.border.subtle",
+                "line": "color.border.subtle",
+                "lineDone": "color.text.default",
+                "selected": "color.accent.default",
+                "amountSize": "font.size.xs",
+                "amountColor": "color.text.muted",
+                "tipBackground": "color.text.default",
+                "tipText": "color.text.on-accent",
+                "shades": true,
+                "noteIcon": "",
+                "reweighIcon": "",
+                "removeIcon": "",
+                "setMassIcon": ""
+              }
+            },
+            {
+              "kind": "component",
+              "id": "history-1440-history-count",
+              "type": "history-count",
+              "name": "Recuento",
+              "x": 0,
+              "y": 0,
+              "w": 176,
+              "h": 44,
+              "anchor": {
+                "h": "right",
+                "v": "center"
+              },
+              "sizing": {
+                "w": {
+                  "mode": "fixed"
+                },
+                "h": {
+                  "mode": "fixed"
+                }
+              },
+              "params": {
+                "background": "color.surface.sunken",
+                "border": "color.border.subtle",
+                "radius": "radius.control",
+                "titleSize": "font.size.xs",
+                "numberSize": "font.size.md",
+                "numberFamily": "font.family.body",
+                "layout": "stacked",
+                "asWeighed": true
+              }
+            }
+          ]
+        }
+      ],
+      "minWidth": 641
+    },
+    {
+      "id": "history-390",
+      "name": "Historial · 390",
+      "width": 390,
+      "height": 72,
+      "x": 0,
+      "y": 120,
+      "background": "",
+      "clip": false,
+      "layout": {
+        "mode": "free"
+      },
+      "children": [
+        {
+          "kind": "component",
+          "id": "history-390-panel",
+          "type": "panel",
+          "name": "Fondo de la barra",
+          "x": 0,
+          "y": 0,
+          "w": 390,
+          "h": 72,
+          "anchor": {
+            "h": "stretch",
+            "v": "stretch"
+          },
+          "sizing": {
+            "w": {
+              "mode": "fixed"
+            },
+            "h": {
+              "mode": "fixed"
+            }
+          },
+          "params": {
+            "background": "color.surface.raised",
+            "radius": "",
+            "border": true,
+            "borderTop": true,
+            "borderRight": false,
+            "borderBottom": false,
+            "borderLeft": false,
+            "borderColor": "color.border.subtle",
+            "image": ""
+          }
+        },
+        {
+          "kind": "container",
+          "id": "history-390-row",
+          "name": "Fila del historial",
+          "x": 12,
+          "y": 0,
+          "w": 366,
+          "h": 72,
+          "anchor": {
+            "h": "stretch",
+            "v": "stretch"
+          },
+          "sizing": {
+            "w": {
+              "mode": "fixed"
+            },
+            "h": {
+              "mode": "fixed"
+            }
+          },
+          "layout": {
+            "mode": "flex",
+            "direction": "row",
+            "gap": "space.gap",
+            "padding": "",
+            "align": "center",
+            "justify": "start",
+            "wrap": false
+          },
+          "clip": false,
+          "children": [
+            {
+              "kind": "component",
+              "id": "history-390-history-play",
+              "type": "history-play",
+              "name": "Reproducir",
+              "x": 0,
+              "y": 0,
+              "w": 44,
+              "h": 44,
+              "anchor": {
+                "h": "left",
+                "v": "center"
+              },
+              "sizing": {
+                "w": {
+                  "mode": "fixed"
+                },
+                "h": {
+                  "mode": "fixed"
+                }
+              },
+              "params": {
+                "background": "color.surface.raised",
+                "border": "color.border.control",
+                "radius": "radius.control",
+                "iconColor": "color.text.default",
+                "playIcon": "",
+                "pauseIcon": ""
+              }
+            },
+            {
+              "kind": "component",
+              "id": "history-390-history-track",
+              "type": "history-track",
+              "name": "Tira",
+              "x": 0,
+              "y": 0,
+              "w": 146,
+              "h": 72,
+              "anchor": {
+                "h": "stretch",
+                "v": "stretch"
+              },
+              "sizing": {
+                "w": {
+                  "mode": "fill"
+                },
+                "h": {
+                  "mode": "fill"
+                }
+              },
+              "params": {
+                "chip": 28,
+                "slot": 52,
+                "gap": 4,
+                "magnify": 1.8,
+                "reach": 84,
+                "mark": "orb",
+                "amounts": true,
+                "future": 0.35,
+                "radius": "radius.control",
+                "chipBackground": "color.surface.raised",
+                "chipBorder": "color.border.subtle",
+                "line": "color.border.subtle",
+                "lineDone": "color.text.default",
+                "selected": "color.accent.default",
+                "amountSize": "font.size.xs",
+                "amountColor": "color.text.muted",
+                "tipBackground": "color.text.default",
+                "tipText": "color.text.on-accent",
+                "shades": true,
+                "noteIcon": "",
+                "reweighIcon": "",
+                "removeIcon": "",
+                "setMassIcon": ""
+              }
+            },
+            {
+              "kind": "component",
+              "id": "history-390-history-count",
+              "type": "history-count",
+              "name": "Recuento",
+              "x": 0,
+              "y": 0,
+              "w": 176,
+              "h": 44,
+              "anchor": {
+                "h": "right",
+                "v": "center"
+              },
+              "sizing": {
+                "w": {
+                  "mode": "fixed"
+                },
+                "h": {
+                  "mode": "fixed"
+                }
+              },
+              "params": {
+                "background": "color.surface.sunken",
+                "border": "color.border.subtle",
+                "radius": "radius.control",
+                "titleSize": "font.size.xs",
+                "numberSize": "font.size.md",
+                "numberFamily": "font.family.body",
+                "layout": "stacked",
+                "asWeighed": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "runtime": "1.0"
+}

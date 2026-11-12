@@ -1,6 +1,8 @@
 # Estado de la v3
 
-*Actualizado el 2026-11-11. Como máximo 30 líneas: qué está hecho y qué sigue.*
+*Actualizado el 2026-11-12. Como máximo 30 líneas: qué está hecho y qué sigue.*
+
+**El historial del banco, dibujado por Designboard (tarea C4, 2026-11-12; rama `claude/project-thread-dt9ev8`, PR #69 a `main` sin fusionar ni aprobar, porque cambia la app):** `HistoryDock` dibuja la barra a partir de `v3/designboard.composition.json` con `useComposition` y `ComposedScreen fit="width"`. Con `npm run dev` sigue el archivo en vivo; si el archivo falta, cae al inicio del tablero. `Bench.tsx` no cambia. El runtime y la config del tablero están copiados de Designboard `4aa3488` con `copy-runtime` en `v3/src/designboard/` (V3-21). `v3/designboard.config.ts` solo los reexporta (en el tablero se enlaza `v3/`). La barra es una fila flexible y solo tiene la línea de arriba. Se han quitado las reglas `.dock*` viejas. Comprobado con Playwright, sin Supabase, a 1440 y 390: guardar el archivo reordena las piezas sin recargar, y un chip a 10 px se queda en 24. **Sigue:** que el usuario lo vea y decida si se fusiona.
 
 **La identidad visual (V3-104, 2026-11-06 a 11; solo documentos y maquetas, la app no cambia):** las respuestas del usuario, los tablones de referentes puntuados (87 imágenes: 36 sí, 20 algo, 31 no), el mapa de materiales con los % de familia de PerfuMate y nueve conceptos de rediseño (órgano, diluciones y códice). Los enlaces a cada maqueta están al final de V3-104. Decidido: esqueleto primero y visuales después, en tandas de tres a nueve opciones. **Sigue:** que el usuario evalúe los nueve conceptos; meter en la app el reparto por familias de PerfuMate (`docs/a-futuro.md`).
 
