@@ -1,3 +1,5 @@
+// Copied from designboard c0e1d34 (src/core/migrate.ts), runtime 1.0.
+// Do not edit here: change designboard and run `npm run copy-runtime` again.
 import type { Align, AxisSizing, Artboard, ComponentNode, Composition, Layout } from "./composition";
 import type { Params } from "./manifest";
 

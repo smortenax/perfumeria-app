@@ -1,5 +1,3 @@
-// Before anything that draws a composition: the board's runtime names tokens as this app does.
-import "../designboard/naming";
 import { useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { Ratio } from "../core/arith/ratio";
 import type { Line } from "../core/compose";
@@ -9,13 +7,10 @@ import type { MaterialFamily } from "./data/catalog";
 import { texts } from "./texts";
 import { familyText } from "./family";
 import { initials, massText, pouredText, pureText, weighingWarning } from "./format";
-import composed from "../../designboard.composition.json";
-import { clampComposition, parseComposition, pickArtboard, type Artboard } from "../designboard/core/composition";
-import { defaultParams, makeLibrary, type ComponentDef } from "../designboard/core/manifest";
-import { ComposedScreen } from "../designboard/runtime/ComposedScreen";
-import { panel } from "../designboard/library/basic";
+import saved from "../../designboard.composition.json";
+import config from "../../designboard.config";
+import { ComposedScreen, makeLibrary, pickArtboard, setTokenNaming, starterComposition, useComposition } from "../designboard/runtime";
 import { HistoryProvider } from "../designboard/library/history/HistoryContext";
-import { HISTORY_FICHAS } from "../designboard/library/history/history.fichas";
 import type { HistoryData, HistoryItem, HistoryLabels } from "../designboard/library/history/history";
 
 const t = texts.history;
@@ -48,57 +43,12 @@ function amountOf(change: Change): string | null {
   return null;
 }
 
-/** The fichas the composition may use: the bar's ground and the three pieces (Designboard, task C2). */
-const LIBRARY = makeLibrary([panel, ...HISTORY_FICHAS] as unknown as ComponentDef[]);
+// The board's runtime names tokens as this app does (--surface-raised, --size-text-md), the same rule
+// the board uses for this config.
+setTokenNaming(config.cssVarOf);
 
-/**
- * The composition the board wrote (v3/designboard.composition.json), with every param inside its
- * ficha's limits. A file that cannot be read gives null, and the bar falls back to the fichas'
- * defaults (never an empty bar).
- */
-function readComposition() {
-  try {
-    return clampComposition(parseComposition(JSON.stringify(composed)), LIBRARY);
-  } catch (error) {
-    console.warn("designboard.composition.json could not be read; the history uses its defaults.", error);
-    return null;
-  }
-}
-const COMPOSITION = readComposition();
-
-/** The bar without a composition: play, track and count in a row, each with its ficha's defaults. */
-function fallbackBoard(width: number): Artboard {
-  const node = (type: string, x: number, y: number, w: number, h: number, anchor: { h: "left" | "right" | "stretch"; v: "center" | "stretch" }) => ({
-    kind: "component" as const,
-    id: `fallback-${type}`,
-    type,
-    name: type,
-    x,
-    y,
-    w,
-    h,
-    anchor,
-    sizing: { w: { mode: "fixed" as const }, h: { mode: "fixed" as const } },
-    params: defaultParams(LIBRARY.get(type)!),
-  });
-  return {
-    id: "fallback",
-    name: "History",
-    width,
-    height: 72,
-    x: 0,
-    y: 0,
-    background: "",
-    clip: false,
-    layout: { mode: "free" },
-    children: [
-      { ...node("panel", 0, 0, width, 72, { h: "stretch", v: "stretch" }), params: { ...defaultParams(panel as unknown as ComponentDef), background: "color.surface.raised", border: true, borderColor: "color.border.subtle" } },
-      node("history-play", 16, 14, 44, 44, { h: "left", v: "center" }),
-      node("history-track", 70, 0, width - 272, 72, { h: "stretch", v: "stretch" }),
-      node("history-count", width - 192, 14, 176, 44, { h: "right", v: "center" }),
-    ],
-  };
-}
+/** The fichas the composition may use, from the board's config: the bar's ground and the three pieces. */
+const LIBRARY = makeLibrary(config.components);
 
 const LABELS: HistoryLabels = {
   title: t.title,
@@ -189,20 +139,24 @@ export function HistoryDock(props: {
     labels: LABELS,
   };
 
-  const board = (COMPOSITION && pickArtboard(COMPOSITION, width)) ?? fallbackBoard(width);
+  // The file built in; under `npm run dev`, the same file followed live, so a save on the board shows here.
+  // Without a readable file, the board's starter (designboard.config.ts), never an empty bar.
+  const { composition } = useComposition(import.meta.env.DEV ? "/designboard.composition.json" : null, {
+    initial: saved,
+    fallback: () => starterComposition(config),
+    library: LIBRARY,
+  });
+  const board = (composition && pickArtboard(composition, width)) ?? pickArtboard(starterComposition(config), width)!;
 
   return (
     <div className="history-bar" ref={ref} style={{ "--dock-h": `${board.height}px` } as CSSProperties}>
       <HistoryProvider value={data}>
-        <ComposedScreen board={board} library={LIBRARY} tokens={EMPTY_TOKENS} fit="width" />
+        <ComposedScreen board={board} library={LIBRARY} fit="width" />
       </HistoryProvider>
       {props.children}
     </div>
   );
 }
-
-/** First sizes before the browser measures: the bar lays out in free mode, so none are needed. */
-const EMPTY_TOKENS: ReadonlyMap<string, string> = new Map();
 
 /** What one change is, and what can be done with it: over the dock. */
 export function ChangeDetail(props: {

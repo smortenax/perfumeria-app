@@ -1,3 +1,5 @@
+// Copied from designboard c0e1d34 (src/core/manifest.ts), runtime 1.0.
+// Do not edit here: change designboard and run `npm run copy-runtime` again.
 import type { ComponentType, ReactNode } from "react";
 
 /**
@@ -25,7 +27,15 @@ export type ParamDef =
       variant?: boolean;
     }
   /** A design token from the given groups, e.g. ["color.surface"]. Stores the token path, never a raw value. */
-  | { kind: "token"; label: string; groups: readonly string[]; default: string; help?: string }
+  | {
+      kind: "token";
+      label: string;
+      groups: readonly string[];
+      default: string;
+      help?: string;
+      /** Label of an empty choice (stored as ""), for a param that may have no token at all, such as a panel with square corners. */
+      none?: string;
+    }
   /**
    * A place for an image or vector the person supplies (a background, an icon, an illustration).
    * Stores a data URL or a path; empty shows a labelled placeholder.

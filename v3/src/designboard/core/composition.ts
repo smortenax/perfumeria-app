@@ -1,5 +1,8 @@
+// Copied from designboard c0e1d34 (src/core/composition.ts), runtime 1.0.
+// Do not edit here: change designboard and run `npm run copy-runtime` again.
 import { clampStoredParams, type Library, type Params } from "./manifest";
 import { migrateV1, type CompositionV1 } from "./migrate";
+import { RUNTIME_VERSION } from "./runtimeVersion";
 
 /**
  * The composition file: which component sits on which screen, inside which container, where,
@@ -172,6 +175,11 @@ export interface Composition {
   /** Which token set the paths refer to, e.g. "perfumeria". */
   tokens: string;
   artboards: Artboard[];
+  /**
+   * The runtime version (`RUNTIME_VERSION`) of the board that wrote the file. An app compares it
+   * with its own copy's (`runtimeMismatch`). Files from before it existed have none.
+   */
+  runtime?: string;
 }
 
 export interface Frame {
@@ -1024,12 +1032,15 @@ function cleanGuides(g: unknown): ArtboardGuides | undefined {
   return out.x.length || out.y.length ? out : undefined;
 }
 
-export function parseComposition(text: string): Composition {
-  let data: unknown;
-  try {
-    data = JSON.parse(text);
-  } catch {
-    throw new Error("El archivo no es JSON válido.");
+export function parseComposition(input: unknown): Composition {
+  let data: unknown = input;
+  // Text from a file or a fetch; an object from a JSON module (`import c from "./x.composition.json"`).
+  if (typeof input === "string") {
+    try {
+      data = JSON.parse(input);
+    } catch {
+      throw new Error("El archivo no es JSON válido.");
+    }
   }
   const raw = data as { version?: unknown; artboards?: unknown } | null;
   if (!raw || !Array.isArray(raw.artboards) || (raw.version !== 1 && raw.version !== 2)) {
@@ -1037,7 +1048,7 @@ export function parseComposition(text: string): Composition {
   }
   if (raw.version === 1) return migrateV1(raw as unknown as CompositionV1);
   const c = raw as unknown as Composition;
-  return {
+  const out: Composition = {
     ...c,
     artboards: c.artboards.map((b) => {
       if (typeof b.width !== "number" || typeof b.height !== "number") throw new Error(`La pantalla "${b.name ?? b.id}" no tiene tamaño.`);
@@ -1047,6 +1058,23 @@ export function parseComposition(text: string): Composition {
       return out;
     }),
   };
+  if (typeof out.runtime !== "string") delete out.runtime;
+  return out;
+}
+
+/** The file the board saves: the composition stamped with the runtime version that wrote it, as indented JSON. */
+export function serializeComposition(c: Composition): string {
+  return JSON.stringify({ ...c, runtime: RUNTIME_VERSION }, null, 2);
+}
+
+/**
+ * A warning when the file was written by a board whose runtime is not this copy's, or null when
+ * they match or the file does not say. The app's copy may lag behind the board (copy it again
+ * with `npm run copy-runtime`), or the file may come from an older board (save it again).
+ */
+export function runtimeMismatch(c: Pick<Composition, "runtime">, own: string = RUNTIME_VERSION): string | null {
+  if (!c.runtime || c.runtime === own) return null;
+  return `La composición se escribió con el runtime ${c.runtime} de Designboard y esta app lleva el ${own}. Copia el runtime otra vez (npm run copy-runtime) o vuelve a guardar desde el tablero.`;
 }
 
 /**

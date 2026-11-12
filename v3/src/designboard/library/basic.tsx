@@ -19,7 +19,33 @@ export function SlotView({ src, label, fit = "contain", radius }: { src: string;
   );
 }
 
-type PanelP = { background: string; radius: string; border: boolean; borderColor: string; image: string };
+type PanelP = {
+  background: string;
+  radius: string;
+  border: boolean;
+  borderTop: boolean;
+  borderRight: boolean;
+  borderBottom: boolean;
+  borderLeft: boolean;
+  borderColor: string;
+  image: string;
+};
+
+/** The inset shadows that draw a 1 px border on the chosen sides (an inset shadow takes no room, as the old all-round one did). */
+export function panelBorder(p: Pick<PanelP, "border" | "borderTop" | "borderRight" | "borderBottom" | "borderLeft">, color: string): string | undefined {
+  if (!p.border) return undefined;
+  const sides: [boolean, string][] = [
+    [p.borderTop, "0 1px"],
+    [p.borderRight, "-1px 0"],
+    [p.borderBottom, "0 -1px"],
+    [p.borderLeft, "1px 0"],
+  ];
+  const on = sides.filter(([shown]) => shown);
+  if (!on.length) return undefined;
+  if (on.length === 4) return `inset 0 0 0 1px ${color}`;
+  return on.map(([, offset]) => `inset ${offset} 0 0 ${color}`).join(", ");
+}
+
 export const panel: ComponentDef<PanelP> = {
   type: "panel",
   name: "Panel",
@@ -28,8 +54,12 @@ export const panel: ComponentDef<PanelP> = {
   defaultSize: { w: 320, h: 200 },
   params: {
     background: { kind: "token", label: "Fondo", groups: ["color.surface", "color.orb"], default: "color.surface.raised" },
-    radius: { kind: "token", label: "Radio", groups: ["radius"], default: "radius.panel" },
+    radius: { kind: "token", label: "Radio", groups: ["radius"], default: "radius.panel", none: "Sin radio (esquinas rectas)" },
     border: { kind: "boolean", label: "Borde", default: true },
+    borderTop: { kind: "boolean", label: "Borde arriba", default: true },
+    borderRight: { kind: "boolean", label: "Borde a la derecha", default: true },
+    borderBottom: { kind: "boolean", label: "Borde abajo", default: true },
+    borderLeft: { kind: "boolean", label: "Borde a la izquierda", default: true },
     borderColor: { kind: "token", label: "Color del borde", groups: ["color.border"], default: "color.border.subtle" },
     image: { kind: "slot", label: "Imagen de fondo", accept: "image", default: "", help: "Vacío = solo color. Suelta una imagen para usarla de fondo." },
   },
@@ -43,7 +73,7 @@ export const panel: ComponentDef<PanelP> = {
         backgroundSize: "cover",
         backgroundPosition: "center",
         borderRadius: tokenVar(params.radius, "0"),
-        boxShadow: params.border ? `inset 0 0 0 1px ${tokenVar(params.borderColor, "#ccc")}` : undefined,
+        boxShadow: panelBorder(params, tokenVar(params.borderColor, "#ccc")),
       }}
     />
   ),

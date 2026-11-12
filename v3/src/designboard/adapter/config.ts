@@ -12,6 +12,7 @@
 import type { Composition } from "../core/composition";
 import { makeLibrary, type ComponentDef, type Library } from "../core/manifest";
 import { extractHashRoutes, type RouteDef } from "../core/screenMap";
+import { blankComposition } from "../runtime/starter";
 import { BASE_MODE, flattenTokens, modesOf, setTokenNaming, tokensToCss, type CssVarOf, type Token } from "../core/tokens";
 
 export interface BoardConfig {
@@ -137,11 +138,5 @@ export function checkNaming(tokens: readonly Token[]): string[] {
   return out;
 }
 
-export function blankComposition(name: string, tokens: string, background: string): Composition {
-  return {
-    version: 2,
-    name,
-    tokens,
-    artboards: [{ id: "screen-1", name: "Pantalla · 1440", width: 1440, height: 900, x: 0, y: 0, background, layout: { mode: "free" }, children: [] }],
-  };
-}
+/** Kept here for the board's callers; the runtime owns it so an app's copy has it too. */
+export { blankComposition };

@@ -1,3 +1,5 @@
+// Copied from designboard c0e1d34 (src/core/tokens.ts), runtime 1.0.
+// Do not edit here: change designboard and run `npm run copy-runtime` again.
 /**
  * Reads a design-token file in the W3C DTCG shape (the one the design vault uses in
  * `50-tokens/products/*.json`) and turns it into a flat list the board can offer.
@@ -33,20 +35,35 @@ export type CssVarOf = (path: string) => string;
 
 export const defaultCssVarOf: CssVarOf = (path) => "--" + path.replace(/\./g, "-");
 
-let naming: CssVarOf = defaultCssVarOf;
+/**
+ * The naming rule lives on the page (`globalThis`), not in this module, so there is one rule per
+ * page however many copies of this file the page loads. An app keeps its own copy of the runtime
+ * (`npm run copy-runtime`); when the board loads that app's config, the board's `setTokenNaming`
+ * and the app's copy read and write the same rule.
+ */
+const NAMING = Symbol.for("designboard.tokenNaming");
+type NamingHolder = { rule: CssVarOf };
+
+function namingHolder(): NamingHolder {
+  const g = globalThis as unknown as Record<symbol, NamingHolder | undefined>;
+  return (g[NAMING] ??= { rule: defaultCssVarOf });
+}
 
 /**
  * Sets the naming rule `tokenVar` and `flattenTokens` use, for the whole page: the board calls it
  * once when it loads an app's config, and an app that draws compositions calls it once at start-up
  * with the same rule. Without an argument it goes back to the default.
+ *
+ * Components must call `tokenVar` while they render, never when their module loads: a value
+ * computed at load keeps whatever rule was in force then.
  */
 export function setTokenNaming(rule?: CssVarOf): void {
-  naming = rule ?? defaultCssVarOf;
+  namingHolder().rule = rule ?? defaultCssVarOf;
 }
 
 /** The custom property for a token path under the current naming rule. */
 export function cssVarName(path: string): string {
-  const name = naming(path);
+  const name = namingHolder().rule(path);
   return name.startsWith("--") ? name : "--" + name;
 }
 

@@ -1,7 +1,10 @@
-import { useLayoutEffect, useRef, useState, type CSSProperties } from "react";
+// Copied from designboard c0e1d34 (src/runtime/ComposedScreen.tsx), runtime 1.0.
+// Do not edit here: change designboard and run `npm run copy-runtime` again.
+import { useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { layoutTree, reflowChildren, type Artboard } from "../core/composition";
 import type { Library } from "../core/manifest";
 import { tokenVar } from "../core/tokens";
+import { cssLengthToPx, pxFromCss } from "./cssTokens";
 import { LayerTree, layoutStyle } from "./layers";
 import { LinkProvider, resolverFrom } from "./links";
 
@@ -11,11 +14,13 @@ import { LinkProvider, resolverFrom } from "./links";
  * writes the file; the app's components and their logic stay as they are.
  *
  * Containers are drawn with the browser's own CSS (see `layers.tsx`), the same code the board
- * uses. The app must declare the product's tokens as CSS custom properties (`tokensToCss`).
+ * uses. The app must declare the product's tokens as CSS custom properties (`tokensToCss`, or
+ * its own stylesheet under the same names, see `setTokenNaming`).
  */
 
+/** Token path → px from a token map (`tokenMapFor`); missing or non-length tokens read 0. */
 export function pxOf(tokens: ReadonlyMap<string, string>) {
-  return (path: string) => Number.parseFloat(tokens.get(path) ?? "0") || 0;
+  return (path: string) => cssLengthToPx(tokens.get(path) ?? "0");
 }
 
 /**
@@ -55,8 +60,12 @@ export function ComposedScreen({
 }: {
   board: Artboard;
   library: Library;
-  /** Token path → resolved CSS value, used for first sizes before the browser has measured. */
-  tokens: ReadonlyMap<string, string>;
+  /**
+   * Token path → resolved CSS value, used for first sizes before the browser has measured. Leave
+   * it out when the app's tokens are CSS: the sizes are then read from the custom properties the
+   * page declares on its root element (`pxFromCss`).
+   */
+  tokens?: ReadonlyMap<string, string>;
   style?: CSSProperties;
   /**
    * Turns a linked image's path (relative to the app's folder, "assets/vial.svg") into an
@@ -73,7 +82,8 @@ export function ComposedScreen({
   const fluid = fit === "width";
   const { ref, width } = useWidth(fluid, drawn.width);
   const board = fluid ? boardAtWidth(drawn, width) : drawn;
-  const estimate = layoutTree(board, pxOf(tokens));
+  const px = useMemo(() => (tokens ? pxOf(tokens) : pxFromCss()), [tokens]);
+  const estimate = layoutTree(board, px);
   const screen = (
     <div
       ref={ref}

@@ -11,8 +11,12 @@ import "./history.css";
  * beyond the track's hook. The words come from the app's texts through the context.
  */
 
-/** Tokens the pieces use but do not offer as params (the plan's split): states and quiet text. */
-const FIXED_VARS = {
+/**
+ * Tokens the pieces use but do not offer as params (the plan's split): states and quiet text.
+ * Computed while drawing, never when the module loads, so the app's token names apply even when
+ * `setTokenNaming` runs after this module is imported.
+ */
+const fixedVars = () => ({
   "--pfh-font": tokenVar("font.family.body", "system-ui"),
   "--pfh-ink": tokenVar("color.text.default", "#111418"),
   "--pfh-muted": tokenVar("color.text.muted", "#4c5662"),
@@ -25,7 +29,7 @@ const FIXED_VARS = {
   "--pfh-chip-text": tokenVar("font.size.xs", "12px"),
   "--pfh-empty-size": tokenVar("font.size.sm", "13px"),
   "--pfh-tip-size": tokenVar("font.size.sm", "13px"),
-} as CSSProperties;
+}) as CSSProperties;
 
 /** An SVG the owner gave, drawn in the current colour; empty gives the app's own glyph. */
 function Glyph({ src, fallback }: { src: string; fallback: ReactNode }) {
@@ -149,7 +153,7 @@ export function HistoryTrack({ params }: { params: TrackParams }) {
   const end = h.frame ?? n;
   const tip = dock.hovered >= 0 ? items[dock.hovered] : null;
   const vars = {
-    ...FIXED_VARS,
+    ...fixedVars(),
     "--pfh-chip": `${params.chip}px`,
     "--pfh-slot": `${dock.geometry.slot}px`,
     "--pfh-gap": `${params.gap}px`,
