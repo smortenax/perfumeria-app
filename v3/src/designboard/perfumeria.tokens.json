@@ -1,0 +1,171 @@
+{
+  "perfumeria": {
+    "$description": "Perfumery v3, direction 'Molecule poster' picked by the owner on 2026-10-23 in the revamp prototype (D-0010). Values come with the picked direction and density; the owner has not tuned them one by one in the token picker. The accent is ink since the owner's pick D6 on 2026-10-24 (D-0008); the status colours came from the app on 2026-11-12.",
+    "color": {
+      "$type": "color",
+      "palette": {
+        "greyblue-50": { "$value": "#f8f9fa", "$description": "Lightest grey-blue." },
+        "greyblue-100": { "$value": "#eef1f4", "$description": "Sunken fields." },
+        "greyblue-150": { "$value": "#e4e9ee", "$description": "The pale grey-blue ground (ref-0004)." },
+        "greyblue-200": { "$value": "#e2e8ee", "$description": "Chips and selected rows." },
+        "greyblue-300": { "$value": "#c8d0d9", "$description": "Hairlines between groups." },
+        "greyblue-500": { "$value": "#7b8591", "$description": "Field edges: 3:1 on the panel and the ground." },
+        "greyblue-700": { "$value": "#4c5662", "$description": "Secondary text." },
+        "ink-900": { "$value": "#111418", "$description": "Text, and the accent (D-0008)." },
+        "red-700": { "$value": "#a32d2d", "$description": "What is wrong (audit F-10)." },
+        "red-100": { "$value": "#f7e1de", "$description": "Soft ground behind what is wrong." },
+        "red-200": { "$value": "#f0c9c4", "$description": "Edge of what is wrong." },
+        "amber-800": { "$value": "#7a4e00", "$description": "What may be wrong (audit F-10)." },
+        "amber-100": { "$value": "#f6ecd9", "$description": "Soft ground behind what may be wrong." },
+        "amber-300": { "$value": "#e3cda0", "$description": "Edge of what may be wrong." },
+        "blue-700": { "$value": "#2f5d8a", "$description": "What is known (audit F-10)." },
+        "blue-100": { "$value": "#e3ebf3", "$description": "Soft ground behind what is known." },
+        "green-800": { "$value": "#2f6b3f", "$description": "What is done (audit F-10)." },
+        "white": { "$value": "#ffffff", "$description": "Text on the accent." },
+        "slate-900": { "$value": "#2a2d34", "$description": "The orb's frame: dark, not black." },
+        "slate-800": { "$value": "#3d414a", "$description": "The orb frame's inner edge." }
+      },
+      "surface": {
+        "base": { "$value": "{perfumeria.color.palette.greyblue-150}", "$description": "The app's ground." },
+        "raised": { "$value": "{perfumeria.color.palette.greyblue-50}", "$description": "Panels, cards, the sidebar." },
+        "sunken": { "$value": "{perfumeria.color.palette.greyblue-100}", "$description": "Inside text fields." },
+        "chip": { "$value": "{perfumeria.color.palette.greyblue-200}", "$description": "Chips, the current nav item, selected rows." }
+      },
+      "text": {
+        "default": {
+          "$value": "{perfumeria.color.palette.ink-900}",
+          "$description": "Body text and headings.",
+          "$extensions": { "vault": { "recorded_by": "owner", "contrast": [
+            { "on": "perfumeria.color.surface.base", "min": 4.5 },
+            { "on": "perfumeria.color.surface.raised", "min": 4.5 },
+            { "on": "perfumeria.color.surface.sunken", "min": 4.5 },
+            { "on": "perfumeria.color.surface.chip", "min": 4.5 } ] } }
+        },
+        "muted": {
+          "$value": "{perfumeria.color.palette.greyblue-700}",
+          "$description": "Labels, captions, secondary lines.",
+          "$extensions": { "vault": { "recorded_by": "owner", "contrast": [
+            { "on": "perfumeria.color.surface.base", "min": 4.5 },
+            { "on": "perfumeria.color.surface.raised", "min": 4.5 },
+            { "on": "perfumeria.color.surface.sunken", "min": 4.5 },
+            { "on": "perfumeria.color.surface.chip", "min": 4.5 } ] } }
+        },
+        "on-accent": {
+          "$value": "{perfumeria.color.palette.white}",
+          "$description": "Text on the accent fill.",
+          "$extensions": { "vault": { "recorded_by": "owner", "contrast": [ { "on": "perfumeria.color.accent.default", "min": 4.5 } ] } }
+        }
+      },
+      "border": {
+        "subtle": { "$value": "{perfumeria.color.palette.greyblue-300}", "$description": "Hairlines between groups and table rows; decorative, never the only edge of a control." },
+        "control": {
+          "$value": "{perfumeria.color.palette.greyblue-500}",
+          "$description": "The edge of text fields and other controls whose boundary must be seen (WCAG 1.4.11).",
+          "$extensions": { "vault": { "recorded_by": "ai-suggested", "contrast": [
+            { "on": "perfumeria.color.surface.raised", "min": 3 },
+            { "on": "perfumeria.color.surface.base", "min": 3 } ] } }
+        }
+      },
+      "accent": {
+        "default": {
+          "$value": "{perfumeria.color.palette.ink-900}",
+          "$description": "The one main action per view, the selected option, the current state: ink, not a hue (D-0008).",
+          "$extensions": { "vault": { "recorded_by": "owner", "contrast": [
+            { "on": "perfumeria.color.surface.raised", "min": 4.5 },
+            { "on": "perfumeria.color.surface.base", "min": 4.5 } ] } }
+        },
+        "focus": {
+          "$value": "{perfumeria.color.palette.ink-900}",
+          "$description": "Keyboard focus ring.",
+          "$extensions": { "vault": { "recorded_by": "owner", "contrast": [
+            { "on": "perfumeria.color.surface.raised", "min": 3 },
+            { "on": "perfumeria.color.surface.base", "min": 3 } ] } }
+        }
+      },
+      "status": {
+        "red": {
+          "default": {
+            "$value": "{perfumeria.color.palette.red-700}",
+            "$description": "What is wrong: error text and the edge of an unweighable amount. Never the accent.",
+            "$extensions": { "vault": { "recorded_by": "owner", "contrast": [
+              { "on": "perfumeria.color.surface.raised", "min": 4.5 },
+              { "on": "perfumeria.color.surface.base", "min": 4.5 },
+              { "on": "perfumeria.color.status.red.bg", "min": 4.5 } ] } }
+          },
+          "bg": { "$value": "{perfumeria.color.palette.red-100}", "$description": "Soft ground of an error note." },
+          "line": { "$value": "{perfumeria.color.palette.red-200}", "$description": "Edge of an error note; decorative, never the only cue." }
+        },
+        "amber": {
+          "default": {
+            "$value": "{perfumeria.color.palette.amber-800}",
+            "$description": "What may be wrong: warning text.",
+            "$extensions": { "vault": { "recorded_by": "owner", "contrast": [
+              { "on": "perfumeria.color.surface.raised", "min": 4.5 },
+              { "on": "perfumeria.color.surface.base", "min": 4.5 },
+              { "on": "perfumeria.color.status.amber.bg", "min": 4.5 } ] } }
+          },
+          "bg": { "$value": "{perfumeria.color.palette.amber-100}", "$description": "Soft ground of a warning." },
+          "line": { "$value": "{perfumeria.color.palette.amber-300}", "$description": "Edge of a warning, such as a doubtful weighing in the history; decorative, never the only cue." }
+        },
+        "blue": {
+          "default": {
+            "$value": "{perfumeria.color.palette.blue-700}",
+            "$description": "What is known: informative text.",
+            "$extensions": { "vault": { "recorded_by": "owner", "contrast": [
+              { "on": "perfumeria.color.surface.raised", "min": 4.5 },
+              { "on": "perfumeria.color.status.blue.bg", "min": 4.5 } ] } }
+          },
+          "bg": { "$value": "{perfumeria.color.palette.blue-100}", "$description": "Soft ground of a note." }
+        },
+        "green": {
+          "default": {
+            "$value": "{perfumeria.color.palette.green-800}",
+            "$description": "What is done: confirmation text.",
+            "$extensions": { "vault": { "recorded_by": "owner", "contrast": [
+              { "on": "perfumeria.color.surface.raised", "min": 4.5 },
+              { "on": "perfumeria.color.surface.base", "min": 4.5 } ] } }
+          }
+        }
+      },
+      "orb": {
+        "frame": { "$value": "{perfumeria.color.palette.slate-900}", "$description": "Background behind every material orb." },
+        "frame-line": { "$value": "{perfumeria.color.palette.slate-800}", "$description": "The orb frame's inner edge." }
+      }
+    },
+    "font": {
+      "family": {
+        "$type": "fontFamily",
+        "body": { "$value": ["Atkinson Hyperlegible Next", "system-ui", "sans-serif"], "$description": "Body, headings and controls (font-0005), the owner's pick.", "$extensions": { "vault": { "recorded_by": "owner" } } },
+        "figures": { "$value": ["Geist Mono", "ui-monospace", "monospace"], "$description": "Weights, percentages and other figures that line up in columns; came with the prototype, not picked separately." }
+      },
+      "size": {
+        "$type": "dimension",
+        "xs": { "$value": { "value": 12, "unit": "px" }, "$description": "Labels and captions; nothing smaller." },
+        "sm": { "$value": { "value": 13, "unit": "px" }, "$description": "Secondary lines, table cells." },
+        "md": { "$value": { "value": 14, "unit": "px" }, "$description": "Body." },
+        "lg": { "$value": { "value": 16, "unit": "px" }, "$description": "Card titles, verdicts." },
+        "xl": { "$value": { "value": 20, "unit": "px" }, "$description": "Section titles." },
+        "2xl": { "$value": { "value": 35, "unit": "px" }, "$description": "Page titles (the poster scale: 28 × 1.25)." },
+        "number": { "$value": { "value": 40, "unit": "px" }, "$description": "Big counts on Home." }
+      }
+    },
+    "space": {
+      "$type": "dimension",
+      "inset": { "$value": { "value": 16, "unit": "px" }, "$description": "Padding inside panels and cards (comfortable density)." },
+      "gap": { "$value": { "value": 16, "unit": "px" }, "$description": "Between sibling blocks." }
+    },
+    "radius": {
+      "$type": "dimension",
+      "panel": { "$value": { "value": 4, "unit": "px" }, "$description": "Panels and cards: the poster's square edge." },
+      "control": { "$value": { "value": 8, "unit": "px" }, "$description": "Buttons, fields, segmented controls." },
+      "orb-frame": { "$value": { "value": 10, "unit": "px" }, "$description": "The orb's frame." }
+    },
+    "size": {
+      "$type": "dimension",
+      "target": { "$value": { "value": 44, "unit": "px" }, "$description": "Touch targets on phones; 24 px is the floor elsewhere." },
+      "sidebar": { "$value": { "value": 216, "unit": "px" }, "$description": "The open sidebar (ref-0068)." },
+      "sidebar-mini": { "$value": { "value": 64, "unit": "px" }, "$description": "The sidebar collapsed to icons, the default on the workbench." },
+      "bench-side": { "$value": { "value": 360, "unit": "px" }, "$description": "The workbench's side column (IFRA verdict, material, charts, history)." }
+    }
+  }
+}

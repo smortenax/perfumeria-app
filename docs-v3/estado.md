@@ -1,6 +1,8 @@
 # Estado de la v3
 
-*Actualizado el 2026-11-11. Como máximo 30 líneas: qué está hecho y qué sigue.*
+*Actualizado el 2026-11-12. Como máximo 30 líneas: qué está hecho y qué sigue.*
+
+**El historial del banco, dibujado por Designboard (tarea C4, 2026-11-12; rama `claude/project-thread-dt9ev8`, PR a `main` sin fusionar, sin aprobar: cambia la app):** `HistoryDock` lee `v3/designboard.composition.json` y dibuja la barra con `ComposedScreen` (`fit="width"`, pantalla de 390 hasta 40 rem y de 1440 por encima); `Bench.tsx` no cambia. El runtime y las piezas del historial, copiados de Designboard (`0c340a5`) en `v3/src/designboard/` (V3-21); `v3/designboard.config.ts` sirve las piezas al tablero (`DESIGNBOARD_APP=../perfumeria-app/v3`). Comprobado con Playwright, sin Supabase: mover el recuento en el tablero y guardar lo mueve en la app; chip a 32 px mide 32, a 10 px se queda en 24. **Sigue:** que el usuario lo vea y decida si se fusiona.
 
 **La identidad visual (V3-104, 2026-11-06 a 11; solo documentos y maquetas, la app no cambia):** las respuestas del usuario, los tablones de referentes puntuados (87 imágenes: 36 sí, 20 algo, 31 no), el mapa de materiales con los % de familia de PerfuMate y nueve conceptos de rediseño (órgano, diluciones y códice). Los enlaces a cada maqueta están al final de V3-104. Decidido: esqueleto primero y visuales después, en tandas de tres a nueve opciones. **Sigue:** que el usuario evalúe los nueve conceptos; meter en la app el reparto por familias de PerfuMate (`docs/a-futuro.md`).
 

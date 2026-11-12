@@ -2281,6 +2281,19 @@
 
   /* History dock (§10.1): one row (the user, 2026-10-24): play, the changes on a line, the count in a box. */
 
+  /* The history as Designboard composes it (task C4): the bar keeps its place and shadow here; its
+     pieces, their sizes and colours come from designboard.composition.json. --dock-h is set by
+     HistoryDock from the composed screen's height. */
+  .history-bar {
+    position: sticky;
+    bottom: 0;
+    z-index: 20;
+    margin: 0 calc(-1 * var(--space-inset));
+    min-width: 0;
+    height: var(--dock-h);
+    box-shadow: 0 -6px 18px rgba(17, 20, 24, 0.08);
+  }
+
   .dock {
     position: sticky;
     bottom: 0;

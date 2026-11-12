@@ -1,22 +1,27 @@
-import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
+// Before anything that draws a composition: the board's runtime names tokens as this app does.
+import "../designboard/naming";
+import { useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { Ratio } from "../core/arith/ratio";
 import type { Line } from "../core/compose";
 import { formatGrams } from "../core/display";
 import type { Change } from "../core/model/formula";
 import type { MaterialFamily } from "./data/catalog";
 import { texts } from "./texts";
-import { familyLook } from "./family";
+import { familyText } from "./family";
 import { initials, massText, pouredText, pureText, weighingWarning } from "./format";
-import { IconText, iconLength } from "./Icon";
+import composed from "../../designboard.composition.json";
+import { clampComposition, parseComposition, pickArtboard, type Artboard } from "../designboard/core/composition";
+import { defaultParams, makeLibrary, type ComponentDef } from "../designboard/core/manifest";
+import { ComposedScreen } from "../designboard/runtime/ComposedScreen";
+import { panel } from "../designboard/library/basic";
+import { HistoryProvider } from "../designboard/library/history/HistoryContext";
+import { HISTORY_FICHAS } from "../designboard/library/history/history.fichas";
+import type { HistoryData, HistoryItem, HistoryLabels } from "../designboard/library/history/history";
 
 const t = texts.history;
 
 type Add = Extract<Change, { kind: "add" }>;
 
-/** Each change takes a slot wider than its 28 px chip, so its amount can sit under it (audit F-06): 3.25rem, so it still fits with larger text. */
-const SLOT_REM = 3.25;
-const remPx = () => parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
-const GAP = 4;
 
 function describe(change: Change, adds: ReadonlyMap<string, Add>): { title: string; sub: string } {
   switch (change.kind) {
@@ -43,12 +48,97 @@ function amountOf(change: Change): string | null {
   return null;
 }
 
+/** The fichas the composition may use: the bar's ground and the three pieces (Designboard, task C2). */
+const LIBRARY = makeLibrary([panel, ...HISTORY_FICHAS] as unknown as ComponentDef[]);
+
 /**
- * The history as a dock (§10.1): every change in its order, even when a
- * material repeats; on hover it grows and says material and quantity; notes are
- * marks in it. Docked at the bottom of the window while the bench scrolls (V3-73).
- * One row (the user, 2026-10-24): the play first, the changes on one line with a dot under each
- * (filled up to the frame looked at, hollow after it), and the count in a box at the right.
+ * The composition the board wrote (v3/designboard.composition.json), with every param inside its
+ * ficha's limits. A file that cannot be read gives null, and the bar falls back to the fichas'
+ * defaults (never an empty bar).
+ */
+function readComposition() {
+  try {
+    return clampComposition(parseComposition(JSON.stringify(composed)), LIBRARY);
+  } catch (error) {
+    console.warn("designboard.composition.json could not be read; the history uses its defaults.", error);
+    return null;
+  }
+}
+const COMPOSITION = readComposition();
+
+/** The bar without a composition: play, track and count in a row, each with its ficha's defaults. */
+function fallbackBoard(width: number): Artboard {
+  const node = (type: string, x: number, y: number, w: number, h: number, anchor: { h: "left" | "right" | "stretch"; v: "center" | "stretch" }) => ({
+    kind: "component" as const,
+    id: `fallback-${type}`,
+    type,
+    name: type,
+    x,
+    y,
+    w,
+    h,
+    anchor,
+    sizing: { w: { mode: "fixed" as const }, h: { mode: "fixed" as const } },
+    params: defaultParams(LIBRARY.get(type)!),
+  });
+  return {
+    id: "fallback",
+    name: "History",
+    width,
+    height: 72,
+    x: 0,
+    y: 0,
+    background: "",
+    clip: false,
+    layout: { mode: "free" },
+    children: [
+      { ...node("panel", 0, 0, width, 72, { h: "stretch", v: "stretch" }), params: { ...defaultParams(panel as unknown as ComponentDef), background: "color.surface.raised", border: true, borderColor: "color.border.subtle" } },
+      node("history-play", 16, 14, 44, 44, { h: "left", v: "center" }),
+      node("history-track", 70, 0, width - 272, 72, { h: "stretch", v: "stretch" }),
+      node("history-count", width - 192, 14, 176, 44, { h: "right", v: "center" }),
+    ],
+  };
+}
+
+const LABELS: HistoryLabels = {
+  title: t.title,
+  changes: t.changes,
+  asWeighed: t.asWeighed,
+  ofCount: t.ofCount,
+  toEnd: t.toEnd,
+  play: t.play,
+  pause: t.pause,
+  goStart: t.goStart,
+  goEnd: t.goEnd,
+  empty: t.empty,
+};
+
+/** The width the bar is given, kept up to date. */
+function useBoxWidth() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState(() => (typeof window === "undefined" ? 1440 : window.innerWidth));
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const read = () => setWidth(el.clientWidth || window.innerWidth);
+    read();
+    const observer = new ResizeObserver(read);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+  return { ref, width };
+}
+
+/**
+ * The history as a dock (§10.1): every change in its order, even when a material repeats; on
+ * hover it grows and says material and quantity; notes are marks in it. Docked at the bottom of
+ * the window while the bench scrolls (V3-73).
+ *
+ * Since task C4 its look comes from Designboard: the composition file places the play button,
+ * the track and the count, and sets their sizes and colours with the product's tokens. This
+ * wrapper keeps the same API as before (Bench.tsx does not change): it turns the history into
+ * the items the pieces read, provides them, picks the screen for the width (390 up to 40 rem,
+ * 1440 above) and draws it as wide as the bench.
  */
 export function HistoryDock(props: {
   history: readonly Change[];
@@ -67,157 +157,52 @@ export function HistoryDock(props: {
   /** What rides just above the history: the bench's toast (vault pass F-03). */
   children?: ReactNode;
 }) {
-  const box = useRef<HTMLDivElement>(null);
-  const area = useRef<HTMLDivElement>(null);
-  const [areaWidth, setAreaWidth] = useState(1000);
-  const [slot, setSlot] = useState(() => SLOT_REM * remPx());
-  const [pointer, setPointer] = useState<number | null>(null);
-  const [scroll, setScroll] = useState(0);
+  const { ref, width } = useBoxWidth();
+  const { history, iconOf, orbOf, familyOf } = props;
 
-  useLayoutEffect(() => {
-    const observer = new ResizeObserver(() => {
-      setAreaWidth(area.current?.clientWidth ?? 1000);
-      setSlot(SLOT_REM * remPx());
+  const items = useMemo<HistoryItem[]>(() => {
+    const adds = new Map(history.filter((c): c is Add => c.kind === "add").map((c) => [c.id, c]));
+    return history.map((change) => {
+      const info = describe(change, adds);
+      const item: HistoryItem = { id: change.id, kind: change.kind, title: info.title, sub: info.sub, amount: amountOf(change) };
+      if (change.kind === "add") {
+        item.warning = weighingWarning(change.massUg)?.kind ?? null;
+        item.icon = iconOf?.(change.material.key) ?? { text: initials(change.material.name) };
+        const orb = orbOf?.(change.material.key);
+        // The bench's orbs are drawn at the chip's size it asks for (orbOf(28)); the size the track offers is not used yet.
+        if (orb) item.orb = () => orb;
+        const family = familyOf?.(change.material.key);
+        if (family) item.family = { colour: family.family.colour, title: familyText(family) };
+      }
+      return item;
     });
-    if (box.current) {
-      observer.observe(box.current);
-    }
-    return () => observer.disconnect();
-  }, []);
+  }, [history, iconOf, orbOf, familyOf]);
 
-  const n = props.history.length;
-  const content = n * (slot + GAP);
-  const maxScroll = Math.max(0, content - areaWidth + 24);
-  // A new change comes into view.
-  useEffect(() => setScroll(maxScroll), [n, maxScroll]);
+  const data: HistoryData = {
+    items,
+    frame: props.frame,
+    selectedId: props.selectedId,
+    playing: props.playing,
+    onSelect: props.onSelect,
+    onFrame: props.onFrame,
+    onTogglePlay: props.onTogglePlay,
+    labels: LABELS,
+  };
 
-  const adds = new Map(props.history.filter((c): c is Add => c.kind === "add").map((c) => [c.id, c]));
-  const end = props.frame ?? n;
-  const centre = (i: number) => i * (slot + GAP) + slot / 2 - scroll;
-  const scaleOf = (i: number) => (pointer === null ? 1 : 1 + 0.8 * Math.max(0, 1 - Math.abs(centre(i) - pointer) / 84));
-  const hovered = pointer === null ? null : props.history.findIndex((_, i) => Math.abs(centre(i) - pointer) <= (slot + GAP) / 2);
-  const tip = hovered !== null && hovered >= 0 ? describe(props.history[hovered], adds) : null;
+  const board = (COMPOSITION && pickArtboard(COMPOSITION, width)) ?? fallbackBoard(width);
 
   return (
-    <div className="dock" ref={box}>
-      <button
-        type="button"
-        className="play"
-        aria-label={props.playing ? t.pause : t.play}
-        title={props.playing ? t.pause : t.play}
-        disabled={n === 0}
-        onClick={props.onTogglePlay}
-      >
-        {props.playing ? (
-          <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
-            <rect x="2" y="1.5" width="3" height="9" rx="1" fill="currentColor" />
-            <rect x="7" y="1.5" width="3" height="9" rx="1" fill="currentColor" />
-          </svg>
-        ) : (
-          <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
-            <path d="M3.5 1.8v8.4L10.2 6z" fill="currentColor" />
-          </svg>
-        )}
-      </button>
-      <div className="dock-inner">
-        <div
-          className="dock-area"
-          ref={area}
-          onPointerMove={(e) => setPointer(e.clientX - e.currentTarget.getBoundingClientRect().left)}
-          onPointerLeave={() => setPointer(null)}
-          onWheel={(e) => setScroll(Math.max(0, Math.min(maxScroll, scroll + e.deltaY + e.deltaX)))}
-        >
-          {n === 0 && <span className="muted small dock-empty">{t.empty}</span>}
-          <div className="dock-clip">
-            <div className="dock-row" style={{ transform: `translateX(${-scroll}px)` }}>
-              {props.history.map((change, i) => {
-                const s = scaleOf(i);
-                const shift = pointer === null ? 0 : (centre(i) - pointer) * (s - 1) * 0.35;
-                const warning = change.kind === "add" ? weighingWarning(change.massUg) : null;
-                const info = describe(change, adds);
-                const icon = change.kind === "add" ? (props.iconOf?.(change.material.key) ?? { text: initials(change.material.name) }) : { text: "" };
-                const orb = change.kind === "add" ? props.orbOf?.(change.material.key) : undefined;
-                const look = change.kind === "add" && !orb ? familyLook(props.familyOf?.(change.material.key)) : null;
-                const classes = [
-                  "chip",
-                  `chip-${change.kind}`,
-                  change.id === props.selectedId ? "selected" : "",
-                  i >= end ? "future" : "",
-                  warning ? `warn-${warning.kind}` : "",
-                  iconLength(icon.text, icon.mark) > 3 ? "chip-long" : "",
-                  orb ? "chip-orb" : "",
-                  look?.className ?? "",
-                ];
-                const amount = amountOf(change);
-                return (
-                  <div key={change.id} className={`chip-slot${i >= end ? " future" : " done"}${i === end - 1 ? " last" : ""}`}>
-                  <button
-                    type="button"
-                    className={classes.join(" ")}
-                    aria-label={`${info.title}, ${info.sub}`}
-                    title={look?.title}
-                    style={{ ...look?.style, transform: `translateX(${shift}px) scale(${s})` }}
-                    onClick={() => props.onSelect(change.id === props.selectedId ? null : change.id)}
-                  >
-                    {orb ? (
-                      orb
-                    ) : change.kind === "add" ? (
-                      <IconText text={icon.text} mark={icon.mark} type={"type" in icon ? icon.type : undefined} />
-                    ) : change.kind === "note" ? (
-                      <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                        <path d="M3 12.5V2M3 2.5h7l-1.6 2.6L10 7.7H3" />
-                      </svg>
-                    ) : change.kind === "reweigh" ? (
-                      "⚖"
-                    ) : change.kind === "remove" ? (
-                      "✕"
-                    ) : (
-                      "±"
-                    )}
-                  </button>
-                  <span className="chip-tick" aria-hidden="true">
-                    <i />
-                  </span>
-                  {amount && (
-                    <span className="chip-amount" aria-hidden="true" style={{ transform: `translateX(${shift}px)` }}>
-                      {amount}
-                    </span>
-                  )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-          {scroll > 0 && <button type="button" className="shade left" aria-label={t.goStart} onClick={() => setScroll(0)} />}
-          {scroll < maxScroll && <button type="button" className="shade right" aria-label={t.goEnd} onClick={() => setScroll(maxScroll)} />}
-          {tip && hovered !== null && hovered >= 0 && (
-            <div className="dock-tip" style={{ left: centre(hovered) }}>
-              <span className="tip-title">{tip.title}</span>
-              <span className="tip-sub">{tip.sub}</span>
-            </div>
-          )}
-        </div>
-      </div>
-      <div className="dock-count">
-        <span className="dock-title">{t.title}</span>
-        {props.frame === null ? (
-          <span className="small">
-            <span className="num dock-n">{n}</span> {t.changes(n)}
-            <span>{t.asWeighed}</span>
-          </span>
-        ) : (
-          <span className="small">
-            <span className="num dock-n">{props.frame}</span> {t.ofCount(n)} ·{" "}
-            <button type="button" className="link" onClick={() => props.onFrame(null)}>
-              {t.toEnd}
-            </button>
-          </span>
-        )}
-      </div>
+    <div className="history-bar" ref={ref} style={{ "--dock-h": `${board.height}px` } as CSSProperties}>
+      <HistoryProvider value={data}>
+        <ComposedScreen board={board} library={LIBRARY} tokens={EMPTY_TOKENS} fit="width" />
+      </HistoryProvider>
       {props.children}
     </div>
   );
 }
+
+/** First sizes before the browser measures: the bar lays out in free mode, so none are needed. */
+const EMPTY_TOKENS: ReadonlyMap<string, string> = new Map();
 
 /** What one change is, and what can be done with it: over the dock. */
 export function ChangeDetail(props: {

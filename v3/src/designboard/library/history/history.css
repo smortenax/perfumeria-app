@@ -1,0 +1,324 @@
+/*
+ * The history's pieces, from v3/src/bench/bench.css (lines 2282 to 2573 and 3685 to 3693 at
+ * 322e353) with the class names prefixed `pfh-`. Every value a ficha exposes arrives as a custom
+ * property the piece sets from its params (--pfh-*). What stays fixed here is what the plan keeps
+ * out of the board until the token file has it: the 8 px dot, the side shades and the durations.
+ */
+
+/* ── Track ─────────────────────────────────────────────────────────── */
+
+.pfh-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  touch-action: none;
+  font-family: var(--pfh-font);
+}
+
+.pfh-empty {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: var(--pfh-empty-size);
+  color: var(--pfh-muted);
+}
+
+/* Clips the row at the sides only: a chip grown under the pointer rises above the dock. */
+.pfh-clip {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(-48px 0 0 0);
+}
+
+.pfh-row {
+  position: absolute;
+  left: 0;
+  bottom: 6px;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--pfh-gap);
+  transition: transform 120ms ease-out;
+}
+
+/* A change, its dot on the line and its amount (audit F-06): the chip grows under the pointer, the line stays. */
+.pfh-slot {
+  width: var(--pfh-slot);
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+/* The line joins the changes: ink up to the frame looked at, then the plain line; a dot under each change. */
+.pfh-tick {
+  position: relative;
+  align-self: stretch;
+  height: 8px;
+}
+
+.pfh-tick::before,
+.pfh-tick::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  width: calc(50% + var(--pfh-gap) / 2);
+  height: 2px;
+  background: var(--pfh-line);
+}
+
+.pfh-tick::before {
+  left: calc(var(--pfh-gap) / -2);
+}
+
+.pfh-tick::after {
+  right: calc(var(--pfh-gap) / -2);
+}
+
+.pfh-slot:first-child .pfh-tick::before,
+.pfh-slot:last-child .pfh-tick::after {
+  visibility: hidden;
+}
+
+.pfh-slot.done .pfh-tick::before,
+.pfh-slot.done:not(.last) .pfh-tick::after {
+  background: var(--pfh-done);
+}
+
+.pfh-tick i {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  border-radius: 50%;
+  background: var(--pfh-done);
+}
+
+.pfh-slot.future .pfh-tick i {
+  background: var(--pfh-chip-bg);
+  box-shadow: inset 0 0 0 2px var(--pfh-line-strong);
+}
+
+.pfh-amount {
+  transition: transform 70ms linear;
+  font-size: var(--pfh-amount-size);
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+  color: var(--pfh-amount);
+  white-space: nowrap;
+}
+
+.pfh-chip {
+  width: var(--pfh-chip);
+  height: var(--pfh-chip);
+  flex: none;
+  box-sizing: border-box;
+  border-radius: var(--pfh-radius);
+  border: 1px solid var(--pfh-chip-line);
+  background: var(--pfh-chip-bg);
+  color: var(--pfh-ink);
+  font: inherit;
+  font-size: var(--pfh-chip-text);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: 50% 100%;
+  transition: transform 70ms linear;
+  padding: 0;
+  cursor: pointer;
+}
+
+.pfh-chip.long {
+  letter-spacing: -0.04em;
+}
+
+/* Before the states: being selected or a weighing warning still shows over the family. */
+.pfh-chip.fam {
+  background: color-mix(in srgb, var(--fam) 22%, var(--pfh-chip-bg));
+  border-color: var(--fam);
+  box-shadow: inset 3px 0 0 var(--fam);
+}
+
+/* The letter of the kind of natural, leaning back: a glyph, not a letter (P40). */
+.pfh-type-mark {
+  display: inline-block;
+  transform: skewX(16deg);
+  font-weight: 300;
+  margin-left: 1px;
+}
+
+/* The mark that tells apart the CAS sharing one abbreviation: ⁶IBQ, ²IBQ (P39). */
+.pfh-icon-mark {
+  font-size: max(0.72em, var(--pfh-chip-text));
+  line-height: 0;
+  vertical-align: 0.55em;
+  margin-right: 0.5px;
+  opacity: 0.8;
+}
+
+.pfh-chip.k-note {
+  background: var(--pfh-note-bg);
+  color: var(--pfh-muted);
+}
+
+.pfh-chip.k-reweigh,
+.pfh-chip.k-set-mass,
+.pfh-chip.k-remove {
+  background: var(--pfh-other-bg);
+  color: var(--pfh-muted);
+}
+
+/* A glyph the owner drew, in the chip's colour. */
+.pfh-glyph {
+  display: block;
+  width: 50%;
+  height: 50%;
+  background: currentColor;
+  -webkit-mask: var(--pfh-glyph) center / contain no-repeat;
+  mask: var(--pfh-glyph) center / contain no-repeat;
+}
+
+.pfh-chip.selected {
+  border: 1.5px solid var(--pfh-selected);
+}
+
+/* After the frame looked at: the chip fades, its amount keeps its contrast and its dot is hollow. */
+.pfh-chip.future {
+  opacity: var(--pfh-future);
+}
+
+.pfh-chip.warn-error {
+  border-color: var(--pfh-amber-line);
+}
+
+.pfh-chip.warn-unweighable {
+  border: 1.5px solid var(--pfh-red);
+}
+
+/* An addition shows its material's orb, without the chip's tint or edge (V3-73). */
+.pfh-chip.orb {
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+.pfh-chip.orb.selected {
+  outline: 2px solid var(--pfh-selected);
+  outline-offset: 1px;
+}
+
+.pfh-shade {
+  position: absolute;
+  top: 0;
+  width: 48px;
+  height: 100%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.pfh-shade.left {
+  left: 0;
+  background: linear-gradient(to right, rgba(29, 29, 27, 0.09), rgba(29, 29, 27, 0));
+}
+
+.pfh-shade.right {
+  right: 0;
+  background: linear-gradient(to left, rgba(29, 29, 27, 0.09), rgba(29, 29, 27, 0));
+}
+
+.pfh-tip {
+  position: absolute;
+  bottom: calc(100% + 20px);
+  transform: translateX(-50%);
+  z-index: 40;
+  background: var(--pfh-tip-bg);
+  color: var(--pfh-tip-text);
+  border-radius: var(--pfh-radius);
+  padding: 6px 10px;
+  white-space: nowrap;
+  font-size: var(--pfh-tip-size);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  pointer-events: none;
+}
+
+.pfh-tip-title {
+  font-weight: 600;
+}
+
+.pfh-tip-sub {
+  color: var(--pfh-tip-sub);
+}
+
+/* ── Play ──────────────────────────────────────────────────────────── */
+
+.pfh-play {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+}
+
+.pfh-play:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.pfh-play .pfh-glyph {
+  width: 12px;
+  height: 12px;
+}
+
+/* ── Count ─────────────────────────────────────────────────────────── */
+
+.pfh-count {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2px 10px;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.pfh-count.inline {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.pfh-count-title {
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.pfh-count-n {
+  font-weight: 700;
+}
+
+.pfh-link {
+  border: none;
+  background: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
