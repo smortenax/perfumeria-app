@@ -1,6 +1,6 @@
 # Tanda 50 · Las tinturas y extractos de Maese Lab que faltaban, en lo común
 
-*Generada por `migracion-v3/tanda-48-maese-naturales.ts 50` sobre lo común de `6937e57` **con las tandas 46 a 49** (se aprueba después de ellas), desde `migracion-v3/web/maese-altas/propuesta-50.csv`. Escribe `v3/datos/materials.csv`, `material_categories.csv`, `material_descriptors.csv` y `material_doses.csv` enteros, con estos añadidos: lo de antes no cambia. Sin aprobar.*
+*Generada por `migracion-v3/tanda-48-maese-naturales.ts 50` sobre lo común de `cc24d4d` **con las tandas 46 a 49** (se aprueba después de ellas), desde `migracion-v3/web/maese-altas/propuesta-50.csv`. Escribe `v3/datos/materials.csv`, `material_categories.csv`, `material_descriptors.csv` y `material_doses.csv` enteros, con estos añadidos: lo de antes no cambia. Sin aprobar.*
 
 **Por qué** (V3-101): el usuario, 2026-11-06: «creo que es clave tener todo el glosario de maese dentro de la app» y «lo importante es que se contraste las altas de referencia […] y que en ambos casos se complete el alta».
 

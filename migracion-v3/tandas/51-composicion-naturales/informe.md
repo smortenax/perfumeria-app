@@ -1,6 +1,6 @@
 # Tanda 51 · Lo que llevan los naturales que el anexo de IFRA no cubre
 
-*Generada por `migracion-v3/tanda-51-composicion-naturales.ts` sobre `036207a`, desde `migracion-v3/web/maese-ifra/`. Escribe `v3/datos/material_components.csv` entero, con estas filas añadidas; las de antes no cambian. Va con las tandas 46 a 50 (sus materiales). Sin aprobar.*
+*Generada por `migracion-v3/tanda-51-composicion-naturales.ts` sobre `cc24d4d`, desde `migracion-v3/web/maese-ifra/`. Escribe `v3/datos/material_components.csv` entero, con estas filas añadidas; las de antes no cambian. Va con las tandas 46 a 50 (sus materiales). Sin aprobar.*
 
 **Por qué** (V3-101): el usuario, 2026-11-07: «Lo más importante es lo que falta de restricciones de ifra» y «Todo lo que son tinturas y c02 o extracciones naturales se agrupan y se buscan en algún referente online donde estén publicados».
 

@@ -1,6 +1,6 @@
 # Tanda 46 · Completar los comunes que entraron a medias
 
-*Generada por `migracion-v3/tanda-46-completar-comunes.ts` sobre lo común de `6937e57`, desde `migracion-v3/web/completar-comunes/propuesta.csv`. Escribe `v3/datos/materials.csv` y `material_doses.csv` enteros: solo llena campos vacíos; nada que ya tuviera valor cambia. Sin aprobar.*
+*Generada por `migracion-v3/tanda-46-completar-comunes.ts` sobre lo común de `cc24d4d`, desde `migracion-v3/web/completar-comunes/propuesta.csv`. Escribe `v3/datos/materials.csv` y `material_doses.csv` enteros: solo llena campos vacíos; nada que ya tuviera valor cambia. Sin aprobar.*
 
 **Por qué** (V3-101): el usuario, 2026-11-06: «lo importante es que se contraste las altas de referencia y se mire que falta para estos materiales y para otros que se quedaron con una "alta rapida" y no estan completos y que en ambos casos se complete el alta».
 
