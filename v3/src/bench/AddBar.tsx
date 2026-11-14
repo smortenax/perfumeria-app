@@ -34,6 +34,7 @@ import { newId } from "./state";
 import { pourKey, type Pour } from "./usage-bar";
 import { type BottleChoice, percentCell } from "./bottles";
 import { shortName } from "../dilution/grid";
+import { inMyLibrary, LIBRARIES, type Library } from "./library";
 
 const t = texts.addBar;
 
@@ -68,6 +69,8 @@ type Result =
       bottleName?: string | null;
       /** The tick of P62: the material is documented by its manufacturer's certificate; the maker's name. */
       documented?: string;
+      /** From Maese Lab's catalogue (2026-11-14). */
+      maese?: true;
       /** A natural's form and variant, as its chip says them (P54). */
       form?: string;
       variant?: string;
@@ -273,12 +276,17 @@ function PlantChips(props: {
  * of diluent (P26). With the switch of two diluents on, the two cells are written in: the
  * material's % and the upper diluent's; the lower diluent takes the rest, shown where «Puro» was.
  */
+/** The library and the formulas switch as last set, while the app is open. */
+const remembered: { library: Library; formulas: boolean } = { library: "all", formulas: true };
+
 export function AddBar(props: {
   ref?: Ref<AddBarHandle>;
   entries: readonly CatalogEntry[];
   sessionMaterials: readonly Material[];
-  /** «Lo que tengo» (V3-3): with it, the switch «solo lo que tengo» (plan 8.2); without it, no switch. */
+  /** «Lo que tengo» (V3-3): with it, «My library» takes in what you have. */
   have?: ReadonlySet<string>;
+  /** The materials from Maese Lab's catalogue, marked as such in the results (2026-11-14). */
+  maese?: ReadonlySet<string>;
   /** A pour; with the bottle of yours it is exactly, when it is one (V3-67). */
   onAdd: (change: Change, dilutionId?: string | null) => void;
   /** Your bottles of a material (V3-67): a tab each above the dilution; none, no tabs. */
@@ -335,9 +343,11 @@ export function AddBar(props: {
   const [extras, setExtras] = useState<Extra[]>([]);
   /** The bottle of yours pressed last: the pour says it came from it while it still is it. */
   const [bottle, setBottle] = useState<BottleChoice | null>(null);
-  const [mine, setMine] = useState(true);
-  const [formulas, setFormulas] = useState(true);
-  const [onlyHave, setOnlyHave] = useState(false);
+  // Which library the search looks in, and whether formulas and accords come in: kept while the app is open.
+  const [library, setLibraryState] = useState<Library>(remembered.library);
+  const setLibrary = (next: Library) => setLibraryState((remembered.library = next));
+  const [formulas, setFormulasState] = useState(remembered.formulas);
+  const setFormulas = (next: boolean) => setFormulasState((remembered.formulas = next));
   const [menu, setMenu] = useState(false);
   /** The slot whose diluent menu is open (0 the top one, 1 the bottom one, 2 + i the extra i), or null. */
   const [otherOpen, setOtherOpen] = useState<number | null>(null);
@@ -469,11 +479,12 @@ export function AddBar(props: {
     if (selected || q === "") {
       return [];
     }
-    const had = onlyHave ? props.have : undefined;
-    const pool = (mine ? props.entries : props.entries.filter((e) => e.group !== "own")).filter((e) => !had || had.has(e.material.key) || e.group === "diluent");
-    // «Mis materiales» takes in the provisional ones too, remembered from the library (P44).
+    // «My library»: your versions, what you have and the diluents; «All materials», the whole catalogue (2026-11-14).
+    const inLibrary = (e: CatalogEntry) => library === "all" || inMyLibrary(e, props.have);
+    const pool = props.entries.filter(inLibrary);
+    // The provisional ones are yours, in both; the formulas and accords, with their switch.
     const session: Result[] = props.sessionMaterials
-      .filter((m) => (m.kind === "formula" ? formulas : mine) && normalize(m.name).includes(q))
+      .filter((m) => (m.kind === "formula" ? formulas : true) && normalize(m.name).includes(q))
       .map((m) => ({
         kind: "material",
         material: m,
@@ -515,6 +526,7 @@ export function AddBar(props: {
       ...(shopName(e) ? { shopName: shopName(e) } : {}),
       ...(e.plant ? { form: e.plant.form, variant: e.plant.variant } : {}),
       ...(e.documented ? { documented: e.maker?.name ?? "" } : {}),
+      ...(props.maese?.has(e.material.key) ? { maese: true } : {}),
     });
     // The naturals of one plant are one row, with a chip per form (P54); the rest, one row each.
     const used = (key: string) => props.sessionMaterials.some((m) => m.key === key) || prefsOf(key).last !== undefined;
@@ -524,7 +536,8 @@ export function AddBar(props: {
       // A general material and its manufacturers' products are one row, a chip per maker (P62); the
       // user's product goes first, since it is the one documented.
       const generalKey = e.maker?.general ?? (makers.has(e.material.key) ? e.material.key : undefined);
-      const made = generalKey && !e.plant ? makers.get(generalKey) : undefined;
+      // In «My library», only the chips of what is in it: the common you do not have stays out.
+      const made = generalKey && !e.plant ? makers.get(generalKey)?.filter(inLibrary) : undefined;
       if (made && generalKey) {
         const key = `maker:${generalKey}`;
         if (folded.has(key)) {
@@ -532,7 +545,7 @@ export function AddBar(props: {
         }
         folded.add(key);
         const options = made.map((o) => ({ ...toResult(o), form: o.maker ? o.maker.name : "general", variant: "" }));
-        const at = e.maker ? made.indexOf(e) : 1;
+        const at = Math.max(0, made.indexOf(e));
         const general = made[0];
         found.push({ ...options[at], plant: { key, name: userNameOf(general.material.key) ?? general.material.name, options, at } });
         if (found.length >= 10) {
@@ -540,7 +553,7 @@ export function AddBar(props: {
         }
         continue;
       }
-      const forms = e.plant ? plants.get(e.plant.key) : undefined;
+      const forms = e.plant ? plants.get(e.plant.key)?.filter(inLibrary) : undefined;
       if (forms && e.plant) {
         if (folded.has(e.plant.key)) {
           continue;
@@ -565,7 +578,7 @@ export function AddBar(props: {
       return all.length > 0 ? all : [{ kind: "note", text: cas ? t.casMissing(cas) : t.casInvalid(query.trim()) }];
     }
     return exact ? all : [...all, { kind: "create", name: query.trim() }];
-  }, [query, selected, mine, formulas, onlyHave, props.have, props.entries, props.sessionMaterials, props.pendingFormulas, plants]);
+  }, [query, selected, library, formulas, props.have, props.maese, props.entries, props.sessionMaterials, props.pendingFormulas, plants, makers]);
 
   /** What a row stands for now: a plant's row, the option its chip is on. */
   const onChip = (r: Result): Result => (r.kind === "material" && r.plant ? r.plant.options[chips[r.plant.key] ?? r.plant.at] : r);
@@ -921,10 +934,15 @@ export function AddBar(props: {
                 listbox, which holds only the results (F-01). */}
             <div className="results-switches" onMouseDown={(e) => e.preventDefault()}>
               <span className="hint">{t.pickHint}</span>
-              <span className="muted">{t.include}</span>
-              <Switch checked={mine} label={t.mine} onChange={setMine} />
+              <span className="muted">{t.library}</span>
+              <span className="pills library-pills" role="group" aria-label={t.library} title={t.libraryHelp}>
+                {LIBRARIES.map((l) => (
+                  <button key={l} type="button" className="pill" aria-pressed={library === l} onClick={() => setLibrary(l)}>
+                    {t.libraries[l]}
+                  </button>
+                ))}
+              </span>
               <Switch checked={formulas} label={t.formulas} onChange={setFormulas} />
-              {props.have && <Switch checked={onlyHave} label={t.have} onChange={setOnlyHave} />}
             </div>
             <ul className="results-list" role="listbox" id={resultsId} aria-label={t.material}>
             {results.map((row, i) => {
@@ -986,6 +1004,11 @@ export function AddBar(props: {
                       )}
                     </span>
                     {r.tag && <span className="pill">{r.tag}</span>}
+                    {r.kind === "material" && r.maese && (
+                      <span className="pill maese-pill" title={t.maeseHelp}>
+                        {t.maese}
+                      </span>
+                    )}
                     {r.state && (
                       <span className={`state state-${r.state}`} title={t.stateHelp[r.state]}>
                         {t.state[r.state]}

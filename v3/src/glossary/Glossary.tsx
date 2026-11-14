@@ -19,6 +19,7 @@ import { tabAfterKey } from "../tabs";
 import { type Filters, type IfraState, keepOf, NO_FILTERS } from "./browse";
 import type { GlossaryData } from "./useGlossary";
 import { Button } from "../Button";
+import { maeseKeys } from "../bench/library";
 
 /** Every material that passes the filters is shown: a few hundred tiles paint fast enough (measured 2026-10-27). */
 const ALL = Number.MAX_SAFE_INTEGER;
@@ -119,6 +120,8 @@ export function Glossary({
   };
 
   const scales = useMemo(() => orbScalesOf(data.catalog), [data.catalog]);
+  // What comes from Maese Lab's catalogue, marked on its tile (2026-11-14).
+  const maese = useMemo(() => maeseKeys(data.catalog.materials.values()), [data.catalog]);
   const rows = useMemo(() => {
     const keep = keepOf(filters, data.catalog.have, (id) => data.ifraStates.get(id)?.state ?? "no-data");
     return query.trim() ? search(data.index, query, ALL, keep) : listAll(data.index, ALL, keep);
@@ -342,7 +345,7 @@ export function Glossary({
         <ul className="grid">
           {materials.map((material) => (
             <li key={material.id}>
-              <Tile material={material} data={data} scales={scales} onOpen={onOpen} marking={marking} mark={mark} />
+              <Tile material={material} data={data} scales={scales} onOpen={onOpen} marking={marking} mark={mark} maese={maese.has(material.id)} />
             </li>
           ))}
         </ul>
@@ -355,7 +358,24 @@ export function Glossary({
 
 
 /** One material's tile: its icon with its abbreviation, its name under it, and what tells it apart (V3-11). */
-function Tile({ material, data, scales, onOpen, marking, mark }: { material: CatalogMaterial; data: GlossaryData; scales: OrbScales; onOpen: (id: string) => void; marking: boolean; mark: Mark }) {
+function Tile({
+  material,
+  data,
+  scales,
+  onOpen,
+  marking,
+  mark,
+  maese,
+}: {
+  material: CatalogMaterial;
+  data: GlossaryData;
+  scales: OrbScales;
+  onOpen: (id: string) => void;
+  marking: boolean;
+  mark: Mark;
+  /** From Maese Lab's catalogue (2026-11-14). */
+  maese: boolean;
+}) {
   const t = texts.glossary;
   const state = data.ifraStates.get(material.id)?.state ?? "no-data";
   const base = material.basedOnId ? data.catalog.materials.get(material.basedOnId) : undefined;
@@ -394,6 +414,11 @@ function Tile({ material, data, scales, onOpen, marking, mark }: { material: Cat
           {texts.ifraState[state]}
         </span>
         {have && <span className="have-chip">{t.haveMark}</span>}
+        {maese && (
+          <span className="have-chip maese-chip" title={texts.glossary.maeseHelp}>
+            {texts.glossary.maese}
+          </span>
+        )}
         {material.status && material.status !== "in_use" && <span className="status-chip">{texts.sheet.statuses[material.status]}</span>}
       </span>
     </>

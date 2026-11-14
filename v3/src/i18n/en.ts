@@ -146,6 +146,8 @@ export const texts = {
     own: "Yours",
     haveOnly: "Only what I have",
     runningLow: "Running low",
+    maese: "Maese",
+    maeseHelp: "From Maese Lab's catalogue",
     /** The bar of Materials (V3-94): family, strength, duration, sort; the rest under «More filters». */
     browse: {
       label: "Filters",

@@ -3581,3 +3581,22 @@
   margin: 0;
   padding: 0;
 }
+
+/* The add bar's search (2026-11-14): which library it looks in, and Maese Lab's materials marked. */
+.bench-root .library-pills .pill {
+  min-height: 32px;
+}
+
+.bench-root .maese-pill {
+  border-color: var(--border-control);
+  background: var(--surface-chip);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.bench-root .library-pills .pill[aria-pressed="true"] {
+  border-color: var(--accent-default);
+  background: var(--accent-default);
+  color: var(--text-on-accent);
+  font-weight: 700;
+}
