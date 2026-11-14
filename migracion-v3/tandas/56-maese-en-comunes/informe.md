@@ -1,6 +1,6 @@
 # Tanda 56 · Los comunes que también vende Maese Lab, marcados «Maese»
 
-*Generada por `migracion-v3/tanda-56-maese-en-comunes.ts` sobre lo común de `efa5d33`. Escribe `v3/datos/materials.csv` entero: solo añade a `sources` el producto de Maese Lab. Sin aprobar.*
+*Generada por `migracion-v3/tanda-56-maese-en-comunes.ts` sobre lo común de `ae1640d`. Escribe `v3/datos/materials.csv` entero: solo añade a `sources` el producto de Maese Lab. Sin aprobar.*
 
 **Por qué:** el usuario, 2026-11-14: «Materiales: salen los de Maese (p. ej. Cardamom CO2, Celestolide) con la etiqueta «Maese»». La tanda 45 emparejó 128 productos de Maese con un común que ya existía; esos comunes no citaban a Maese, así que no llevaban la etiqueta.
 
