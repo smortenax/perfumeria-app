@@ -60,6 +60,7 @@ import { texts as appTexts } from "../i18n/en";
 import "./bench.css";
 import { MacerationNote } from "../formulation/MacerationNote";
 import { Button } from "../Button";
+import { maeseKeys } from "./library";
 
 type Add = Extract<Change, { kind: "add" }>;
 
@@ -400,6 +401,8 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
       (view.composition?.parts ?? []).map((p) => ({ key: p.material.key, name: p.material.name, massUg: p.massUg, solvent: p.material.solvent === true })),
     );
   }, [plan, view.composition, props.data.catalog]);
+  // What comes from Maese Lab's catalogue, marked in the bar's results (2026-11-14).
+  const maese = useMemo(() => maeseKeys(props.data.catalog.materials.values()), [props.data.catalog]);
   const chemical = useMemo(() => new Map(repository.entries.filter((e) => e.tradeName).map((e) => [e.material.key, e.chemicalName])), [repository]);
   const known = useMemo(() => [...props.frozen, ...session], [props.frozen, session]);
 
@@ -914,6 +917,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
         entries={repository.entries}
         sessionMaterials={known}
         have={props.data.catalog.have}
+        maese={maese}
         onAdd={change}
         bottles={(key) => bottlesFor(props.data, key)}
         onSelect={setCardMaterial}
