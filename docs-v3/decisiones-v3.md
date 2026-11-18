@@ -1976,3 +1976,14 @@ Notas suyas en los tablones, literales: sobre Potion Craft, «no me acaba de con
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).
 - Después, la fase 0 del plan ejecutivo.
+
+## V3-105 · Etiquetas por lotes en la Marklife P15, desde la web y con QR (decidida por el usuario el 2026-11-18; desarrolla V3-55)
+
+**Literal** (orko kill, 2026-11-18): «las etiquetas son para que cada dilucion tenga una etiqueta del diluyente dilucion cas... pero ademas de eso estaba pensado en un sistema de qr que permitiese identificar cada material, para un paso futuro en el que pueda escanear cada bote con la app y automaticamente se me agregue el material... pero principalmente es establecer el sistema para crear etiquetas». En la tarjeta, la ruta: «Directa desde la web (Recomendada)».
+
+**Lectura** (de la sesión, propuesta):
+
+- **La ruta:** la app manda las etiquetas a la P15 por Web Bluetooth (Chrome, Edge u Opera en escritorio y Android; no Safari ni iPhone), con `@thermal-label/marklife-web` (MIT; la P15 figura «verified»: cabezal de 96 puntos a 203 ppp, unos 12 mm). Se descartó `marklife-label-printer-web-kit` porque su licencia prohíbe redistribuirlo (cerraría la puerta al producto), la importación de Excel de la app Marklife porque no se encontró prueba de que exista, y el emulador.
+- **La etiqueta de dilución:** material, CAS, % y diluyente, fecha y un QR. Apaisada: el QR a la izquierda y el texto a la derecha.
+- **El QR lleva un código corto, no un enlace:** `PF1:D:<id>` para un frasco y `PF1:M:<id>` para un material (el id sin guiones). Un enlace no cabe legible en 12 mm; el código cabe en un QR versión 2 (25 módulos, 3 puntos por módulo, unos 9 mm). Lo leerá el escáner de la app (paso futuro).
+- **La cinta:** se elige en la pantalla (12×40, 14×40, 15×30, 15×50 o continua de 15 mm).
