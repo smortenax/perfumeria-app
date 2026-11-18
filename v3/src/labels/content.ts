@@ -18,6 +18,9 @@ export interface LabelContent {
   readonly strength: string;
   /** «CAS 8007-75-8 · 2026-11-18»; what is unknown is left out, never guessed. */
   readonly footer: string;
+  /** Apart, for the spreadsheet: «8007-75-8» and «2026-11-18», or «» when unknown. */
+  readonly cas: string;
+  readonly date: string;
 }
 
 /** The label of one bottle of yours: material, its strength and diluents, CAS and the day it was made. */
@@ -35,5 +38,13 @@ export function dilutionLabel(
     title: material ? shortName(material) : "—",
     strength: pure ? "Pure" : diluents ? `${pct} in ${diluents}` : pct,
     footer: [material?.cas ? `CAS ${material.cas}` : null, d.madeOn].filter((x): x is string => !!x).join(" · "),
+    cas: material?.cas ?? "",
+    date: d.madeOn ?? "",
   };
+}
+
+/** The sheet for the Marklife app's Excel import: a header row, then one row per label (V3-105). */
+export const SHEET_HEADER = ["Material", "Strength", "CAS", "Date", "Code"] as const;
+export function labelSheet(labels: readonly LabelContent[]): string[][] {
+  return [[...SHEET_HEADER], ...labels.map((l) => [l.title, l.strength, l.cas, l.date, l.code])];
 }
