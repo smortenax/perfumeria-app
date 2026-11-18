@@ -20,6 +20,7 @@ import "./dilutions.css";
 import { EmptyState } from "../EmptyState";
 import { Button } from "../Button";
 import { DiluentPicker } from "./DiluentPicker";
+import { Labels } from "../labels/Labels";
 
 const t = texts.dilutions;
 const UG_PER_G = 1_000_000n;
@@ -96,7 +97,7 @@ export function Dilutions({
   };
   // «Bottles | Add & weigh» (V3-96): one screen, no pop-up. The rows being weighed stay while you look at
   // the bottles, and in this browser until saved or cleared (an unsent draft).
-  const [mode, setMode] = useState<"bottles" | "weigh">(newFor !== null ? "weigh" : "bottles");
+  const [mode, setMode] = useState<"bottles" | "weigh" | "labels">(newFor !== null ? "weigh" : "bottles");
   const [rows, setRowsState] = useState<readonly WeighRow[]>(readDraft);
   const setRows = (change: (rows: readonly WeighRow[]) => readonly WeighRow[]) =>
     setRowsState((list) => {
@@ -133,7 +134,7 @@ export function Dilutions({
         <div className="title-bar">
           <h2 className="page-title">{t.title}</h2>
           <span className="mode-switch" role="group" aria-label={t.modesLabel}>
-            {(["bottles", "weigh"] as const).map((m) => (
+            {(["bottles", "weigh", "labels"] as const).map((m) => (
               <button key={m} type="button" aria-pressed={mode === m} onClick={() => setMode(m)}>
                 {t.modes[m]}
               </button>
@@ -154,6 +155,8 @@ export function Dilutions({
             onArchived={onArchived}
             onFailure={(message) => setFailure(message)}
           />
+        ) : mode === "labels" ? (
+          <Labels data={data} all={all} />
         ) : (
           <AddWeigh data={data} local={local} rows={rows} setRows={setRows} madeOn={madeOn} setMadeOn={setMadeOn} onSaved={(n) => setSaved(t.savedToast(n))} />
         )}

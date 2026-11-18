@@ -1,0 +1,55 @@
+.labels-bar,
+.labels-pick {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-bottom: var(--space-gap);
+}
+.labels-flip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.labels-tape {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.labels-tape select {
+  min-height: var(--size-target);
+}
+.labels-pick input[type="search"] {
+  flex: 1 1 14rem;
+  min-width: 0;
+  min-height: var(--size-target);
+  padding: 0 12px;
+}
+.labels-status,
+.labels-printer {
+  color: var(--text-muted);
+}
+.labels-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+  gap: 8px 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.labels-list label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.label-preview {
+  /* 8 dots a millimetre on the printer; here, 2 px a dot, so a 40 mm label is 80 mm wide at most. */
+  width: min(100%, calc(var(--label-dots, 320) * 1px));
+  height: auto;
+  max-width: 100%;
+  border: 1px solid var(--border-control);
+  border-radius: 3px;
+  background: #fff;
+  image-rendering: pixelated;
+}
