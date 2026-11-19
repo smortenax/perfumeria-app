@@ -20,7 +20,7 @@ from normalizar import FIELD, choose, site, rank  # noqa: E402
 OUT = HERE / "propuesta-60.csv"
 OTHER = re.compile(r"otro CAS|CAS de la página \S+,? no|no coincide|otra especie|otro proceso|otra parte|otro grado|otro producto|parecido|no idéntic", re.I)
 # Lo que no es una frase copiada de la página: reconstruida, resumida o generada por IA (aviso del lector).
-NOT_LITERAL = re.compile(r"verificar|reconstruid|resumen|\bIA\b|generad[ao] por|generative|AI-generated", re.I)
+NOT_LITERAL = re.compile(r"verificar|reconstruid|resumen|\bIA\b|generad[ao] por|generative|AI-generated|WebFetch|^scent\.vn", re.I)
 
 
 def norm(s):
@@ -59,9 +59,11 @@ def perfumate(m, shop_name):
 
 out = []
 for x in lista:
-    n, m = x["n"], materials[x["id"]]
+    n = x["n"]
+    # Un alta nueva (Tropicalia, que la tanda 57 dejó en espera): aún no está en lo común.
+    m = materials.get(x["id"]) or {"name": x["nombre"], "kind": x["tipo"], "aliases": "[]", "house": "", "cas": "", "tier": "", "physical_state": ""}
     shop = fichas.get(n, {})
-    rows = {campo: [r for r in reads.get((n, campo), []) if not OTHER.search(r["nota"]) and not NOT_LITERAL.search(r["nota"] + " " + r["fuente"])] for campo in
+    rows = {campo: [r for r in reads.get((n, campo), []) if not OTHER.search(r["nota"]) and not NOT_LITERAL.search(r["nota"] + " " + r["fuente"]) and not r["fuente"].startswith("scent.vn")] for campo in
             ("familia", "nivel", "horas", "fuerza", "estado", "dosis", "olor", "casa", "cas", "tipo", "nombre")}
     pm, why = perfumate(m, shop.get("producto", ""))
     if pm:
@@ -79,7 +81,7 @@ for x in lista:
     for campo in ("familia", "nivel", "horas", "fuerza", "estado", "dosis"):
         value, first, disputed, otras, regla = choose(campo, rows[campo], tincture="tincture" in m["name"])
         f = FIELD[campo]
-        already = bool(m.get(f))
+        already = bool(m.get(f, ""))
         row[f] = "" if already else value or ""
         row[f + "_fuente"] = "" if already or not first else first["fuente"]
         row[f + "_disputado"] = "si" if value and disputed and not already else ""
@@ -92,6 +94,10 @@ for x in lista:
     cas = next((r for r in sorted(rows["cas"], key=lambda r: rank(r["fuente"])) if re.fullmatch(r"\d{2,7}-\d\d-\d", r["valor"].strip())), None)
     row["cas_nuevo"] = cas["valor"].strip() if cas and not m["cas"] else ""
     row["cas_fuente"] = cas["fuente"] if cas and not m["cas"] else ""
+    # Un natural se identifica por especie, parte y proceso: si la casa da otro CAS, queda en disputa (lo decide el usuario).
+    other_cas = sorted({c for r in reads.get((n, "nombre"), []) for c in re.findall(r"CAS de la página (\d{2,7}-\d\d-\d)", r["nota"]) if m["cas"] and c != m["cas"]})
+    row["cas_conflicto"] = "; ".join(f"{c} ({next(r['fuente'] for r in reads[(n, 'nombre')] if c in r['nota'])})" for c in other_cas) if m["kind"] != "molecule" else ""
+    row["alta"] = "si" if x["id"] not in materials else ""
     kinds = {r["valor"].strip().lower() for r in rows["tipo"] if r["valor"].strip()}
     row["tipo_web"] = " / ".join(sorted(kinds))
     olores = [[site(r["fuente"]), r["valor"].strip(), r["fuente"]] for r in rows["olor"] if r["valor"].strip()]

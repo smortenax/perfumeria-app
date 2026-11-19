@@ -17,5 +17,7 @@ const rows = [{ n: "maese-461", id: uuidFor("comun:tanda57:maese:461"), url: "ht
     const m = byId.get(r.id)!;
     return { n: r.n, id: r.id, nombre: m.name, tipo: m.kind, cas: m.cas, casa: m.house, especie: m.species, url: r.url, faltan: FIELDS.filter((f) => !m[f]).join(" ") };
   });
+// Tropicalia (Perfumiarz n 30): la tanda 57 la dejó en espera porque la tienda no tiene página; entra como alta.
+rows.push({ n: "30", id: uuidFor("comun:tanda60:perfumiarz:30"), nombre: "Tropicalia", tipo: "molecule", cas: "", casa: "", especie: "", url: "", faltan: "todo" });
 writeTable("migracion-v3/web/info-18-nov/lista.csv", ["n", "id", "nombre", "tipo", "cas", "casa", "especie", "url", "faltan"], rows);
 console.log(`${rows.length} comunes`);
