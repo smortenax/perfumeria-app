@@ -1,0 +1,107 @@
+n,nombre,campo,valor,fuente,nota
+14,Hot Milk Bold Base,nombre,,"no lo dice ninguna fuente consultada: TGSC (403); búsquedas web sin página de Moellhausen ni de distribuidor; Commodity «Milk+ Bold» salió en la búsqueda (otro producto, otra casa, no vale)",sin ninguna ficha localizada
+14,Hot Milk Bold Base,casa,,"no lo dice ninguna fuente consultada: TGSC (403); búsquedas web sin página de Moellhausen ni de distribuidor",
+14,Hot Milk Bold Base,familia,,"no lo dice ninguna fuente consultada: TGSC (403); búsquedas web sin página de Moellhausen ni de distribuidor",
+14,Hot Milk Bold Base,nivel,,"no lo dice ninguna fuente consultada: TGSC (403); búsquedas web sin página de Moellhausen ni de distribuidor",
+14,Hot Milk Bold Base,horas,,"no lo dice ninguna fuente consultada: TGSC (403); búsquedas web sin página de Moellhausen ni de distribuidor",
+14,Hot Milk Bold Base,fuerza,,"no lo dice ninguna fuente consultada: TGSC (403); búsquedas web sin página de Moellhausen ni de distribuidor",
+14,Hot Milk Bold Base,estado,,"no lo dice ninguna fuente consultada: TGSC (403); búsquedas web sin página de Moellhausen ni de distribuidor",
+14,Hot Milk Bold Base,dosis,,"no lo dice ninguna fuente consultada: TGSC (403); búsquedas web sin página de Moellhausen ni de distribuidor",
+14,Hot Milk Bold Base,olor,,"no lo dice ninguna fuente consultada: TGSC (403); búsquedas web sin página de Moellhausen ni de distribuidor",
+14,Hot Milk Bold Base,tgsc,,"no lo dice ninguna fuente consultada: TGSC no accesible (403)",sin TGSC
+15,Jasmal,nombre,Jasmal®,"Fraterworks, https://fraterworks.com/products/jasmal%C2%AE: «Jasmal®»",CAS coincide (18871-14-2)
+15,Jasmal,nombre,JASMAL IFF,"Ventos, https://ventos.com/index.php/en/producto/1711/JASMAL IFF: «JASMAL IFF»",CAS coincide (18871-14-2)
+15,Jasmal,casa,IFF,"Fraterworks, https://fraterworks.com/products/jasmal%C2%AE: «Jasmal (IFF, CAS 18871-14-2)»","Ventos no nombra fabricante, solo «IFF» en el nombre del producto"
+15,Jasmal,familia,Floral,"Fraterworks, https://fraterworks.com/products/jasmal%C2%AE: «Odour Family» «Floral»",
+15,Jasmal,nivel,Base Note,"Fraterworks, https://fraterworks.com/products/jasmal%C2%AE: «Classification: Base Note»",
+15,Jasmal,horas,> 350 hours,"Fraterworks, https://fraterworks.com/products/jasmal%C2%AE: «Lasts > 350 hours on a smelling strip.»",
+15,Jasmal,fuerza,moderate strength (4/10),"Fraterworks, https://fraterworks.com/products/jasmal%C2%AE: «moderate strength (4/10)»","la página también da «Strength 4 · Impact 4»"
+15,Jasmal,estado,Colourless liquid,"Fraterworks, https://fraterworks.com/products/jasmal%C2%AE: «Colourless liquid»",
+15,Jasmal,estado,Clear mobile liquid,"Ventos, https://ventos.com/index.php/en/producto/1711/JASMAL IFF: «Clear mobile liquid»",a 20 °C; color «Colorless»
+15,Jasmal,dosis,median 0.7% of the concentrate,"Fraterworks, https://fraterworks.com/products/jasmal%C2%AE: «Appears in 4% of the perfumes we have analysed, at a median of 0.7% of the concentrate.»","mediana de uso, no máximo recomendado"
+15,Jasmal,olor,"It opens oily and herbaceous, with a clear note of tea and a lavender-like edge","Fraterworks, https://fraterworks.com/products/jasmal%C2%AE: «It opens oily and herbaceous, with a clear note of tea and a lavender-like edge»",
+15,Jasmal,olor,"Floral,herbal,jasmin,mushroom","Ventos, https://ventos.com/index.php/en/producto/1711/JASMAL IFF: «Floral,herbal,jasmin,mushroom»",
+15,Jasmal,tgsc,,"no lo dice ninguna fuente consultada: TGSC no accesible (403)",sin TGSC
+18,Ambrostar,nombre,Ambrostar,"The Fragrance Foundry, https://thefragrancefoundry.com/products/ambrostar-symrise: «Ambrostar»",
+18,Ambrostar,cas,1357064-95-9,"The Fragrance Foundry, https://thefragrancefoundry.com/products/ambrostar-symrise: «1357064-95-9»",coincide con Premiere Peau (https://premierepeau.com/pages/glossary-terms/ambrostar: «1357064-95-9»); Premiere Peau no es de la lista del encargo
+18,Ambrostar,casa,Symrise,"The Fragrance Foundry, https://thefragrancefoundry.com/products/ambrostar-symrise: «Symrise - One of the largest fragrance chemical manufacturers in the world with roots stretching back to 1874»","Premiere Peau solo dice «Synthetic creation by fragrance house (proprietary captive molecule)», sin nombrar la casa"
+18,Ambrostar,familia,Amber & musk,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/ambrostar: «Amber & musk»","The Fragrance Foundry no da familia (solo «woody amber molecule»); Premiere Peau no es de la lista del encargo"
+18,Ambrostar,nivel,Mid / Base Note,"The Fragrance Foundry, https://thefragrancefoundry.com/products/ambrostar-symrise: «Mid / Base Note»","Premiere Peau dice «Base Note»"
+18,Ambrostar,horas,lasts for weeks on the blotter,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/ambrostar: «On the blotter it lasts for weeks»","no da horas; The Fragrance Foundry no da duración"
+18,Ambrostar,fuerza,Very powerful,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/ambrostar: «Very powerful»","The Fragrance Foundry: «It's said to be 20x more powerful than Ambrocenide»; sin escala numérica"
+18,Ambrostar,estado,Liquid,"The Fragrance Foundry, https://thefragrancefoundry.com/products/ambrostar-symrise: «Liquid»",
+18,Ambrostar,estado,Colourless to pale yellow liquid,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/ambrostar: «Colourless to pale yellow liquid»",
+18,Ambrostar,dosis,0.01 to 0.5 % in the finished fragrance,"Premiere Peau, https://premierepeau.com/pages/glossary-terms/ambrostar: «In the finished fragrance 0.01 to 0.5 % is enough»","The Fragrance Foundry, reseña de usuario: «I have found it useful below 0.1% of the concentrate.»"
+18,Ambrostar,olor,"extremely diffusive woody note with a cedarwood character and ambergris nuances","The Fragrance Foundry, https://thefragrancefoundry.com/products/ambrostar-symrise: «offers an extremely diffusive woody note with a cedarwood character and ambergris nuances.»",
+18,Ambrostar,olor,"ambery, mineral, dry, slightly salty, reminiscent of warm rocks by the sea","Premiere Peau, https://premierepeau.com/pages/glossary-terms/ambrostar: «ambery, mineral, dry, slightly salty, reminiscent of warm rocks by the sea.»",olor inicial; después madera y polvo según la página
+18,Ambrostar,tgsc,,"no lo dice ninguna fuente consultada: TGSC no accesible (403)",sin TGSC
+19,Edenolide,nombre,Edenolide,"Fraterworks, https://fraterworks.com/products/edenolide: «Edenolide»",CAS coincide (478695-70-4)
+19,Edenolide,nombre,EDENOLIDE IFF,"Ventos, https://ventos.com/index.php/en/producto/10201/EDENOLIDE IFF: «EDENOLIDE IFF»",CAS coincide (478695-70-4)
+19,Edenolide,casa,IFF,"Fraterworks, https://fraterworks.com/products/edenolide: «Fraterworks® is strictly a reseller of this product and is neither an agent nor official distributor for IFF»","la frase nombra a IFF como casa; Ventos no nombra fabricante, solo «IFF» en el nombre"
+19,Edenolide,familia,Musky,"Fraterworks, https://fraterworks.com/products/edenolide: «Musky»",
+19,Edenolide,nivel,Base Note,"Fraterworks, https://fraterworks.com/products/edenolide: «Classification: Base Note»",
+19,Edenolide,horas,> 148 hours,"Fraterworks, https://fraterworks.com/products/edenolide: «Lasts > 148 hours on a smelling strip.»",
+19,Edenolide,fuerza,Strength 3 · Impact 4,"Fraterworks, https://fraterworks.com/products/edenolide: «Strength 3 · Impact 4»","la página dice «3/10 strength» al evaluarlo directamente"
+19,Edenolide,estado,Colourless liquid,"Fraterworks, https://fraterworks.com/products/edenolide: «Colourless liquid»",
+19,Edenolide,estado,Clear mobile liquid,"Ventos, https://ventos.com/index.php/en/producto/10201/EDENOLIDE IFF: «Clear mobile liquid»",a 20 °C
+19,Edenolide,dosis,,"no lo dice ninguna fuente consultada: Fraterworks edenolide (solo uso general: «Top-note musk for linearity, fruity-floral accords, sheer musk effects, supporting citrus and floral compositions.»); Ventos 10201",
+19,Edenolide,olor,"powdery, creamy white musk with distinctive fresh apple-like fruitiness","Fraterworks, https://fraterworks.com/products/edenolide: «Edenolide delivers a powdery, creamy white musk with distinctive fresh apple-like fruitiness»",
+19,Edenolide,olor,"Musk, fruity, floral, apple","Ventos, https://ventos.com/index.php/en/producto/10201/EDENOLIDE IFF: «Musk, fruity, floral, apple»",
+19,Edenolide,tgsc,,"no lo dice ninguna fuente consultada: TGSC no accesible (403)",sin TGSC
+20,Scentolide,nombre,Scentolide (Synarome),"Perfumer Supply House, https://perfumersupplyhouse.com/product/scentolide-synarome: «CAS 28645-51-4»",CAS coincide; la página lo da como «cis-isoambrettolide»
+20,Scentolide,nombre,"Isoambrettolide, (Z)-","scent.vn, https://scent.vn/en/pages/compound/isoambrettolide-z-5355293: «Scentolide»",CAS coincide (28645-51-4); «Scentolide» aparece como sinónimo; scent.vn no es de la lista del encargo
+20,Scentolide,casa,Synarome,"Perfumer Supply House, https://perfumersupplyhouse.com/product/scentolide-synarome: «Scentolide (Synarome)»",la página no nombra fabricante aparte; lo lista en la categoría Synarome
+20,Scentolide,familia,,"no lo dice ninguna fuente consultada: Perfumer Supply House scentolide-synarome; scent.vn isoambrettolide-z-5355293 (solo descriptores de olor)",
+20,Scentolide,nivel,long-lasting base note,"scent.vn, https://scent.vn/en/pages/compound/isoambrettolide-z-5355293: «typically used as a long-lasting base note to fix, round off and extend fruity, floral and oriental accords»","texto atribuido por scent.vn a una IA generativa; poco fiable"
+20,Scentolide,horas,,"no lo dice ninguna fuente consultada: Perfumer Supply House scentolide-synarome; scent.vn isoambrettolide-z-5355293 (solo «excellent substantivity» sin cifra)",
+20,Scentolide,fuerza,High,"scent.vn, https://scent.vn/en/pages/compound/isoambrettolide-z-5355293: «Odor impact est.» «High»",estimación de scent.vn; Perfumer Supply House no da fuerza
+20,Scentolide,estado,,"no lo dice ninguna fuente consultada: Perfumer Supply House scentolide-synarome; scent.vn isoambrettolide-z-5355293",
+20,Scentolide,dosis,,"no lo dice ninguna fuente consultada: Perfumer Supply House scentolide-synarome; scent.vn isoambrettolide-z-5355293 (solo IFRA «No restriction»)","una reseña de PSH dice «Extremely useful as a fixative and also to pre-fix alcohol (at 0.01%or less).»; es reseña de usuario"
+20,Scentolide,olor,"Very elegant and diffusive musk with a blackberry and red berry undertones.","Perfumer Supply House, https://perfumersupplyhouse.com/product/scentolide-synarome: «Very elegant and diffusive musk with a blackberry and red berry undertones.»",
+20,Scentolide,olor,"a soft, warm, slightly sweet ambrette-ambergris odor","scent.vn, https://scent.vn/en/pages/compound/isoambrettolide-z-5355293: «a soft, warm, slightly sweet ambrette-ambergris odor»","texto atribuido por scent.vn a una IA generativa; poco fiable"
+20,Scentolide,tgsc,,"no lo dice ninguna fuente consultada: TGSC no accesible (403)",sin TGSC
+21,Delta-decalactone,nombre,Delta-Decalactone (CAS 705-86-2),"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/deltadecalactone: «CAS Number — 705-86-2»",CAS coincide
+21,Delta-decalactone,nombre,Delta Decalactone,"Perfumer Supply House, https://perfumersupplyhouse.com/product/delta-decalactone: «CAS# 705-86-2»",CAS coincide
+21,Delta-decalactone,casa,,"no lo dice ninguna fuente consultada: Scentspiracy deltadecalactone (no nombra fabricante); Perfumer Supply House delta-decalactone (Firmenich solo como categoría del sitio)",la casa Firmenich no consta en las páginas leídas
+21,Delta-decalactone,familia,Fruity-Lactonic (Coconut subfamily),"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/deltadecalactone: «Fruity-Lactonic (Coconut subfamily)»",
+21,Delta-decalactone,nivel,heart-to-base,"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/deltadecalactone: «Functions primarily as a heart-to-base note material»",
+21,Delta-decalactone,horas,well beyond 100 hours (4+ days),"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/deltadecalactone: «detectable presence extending well beyond 100 hours (4+ days)»","en papel secante y tela; en piel 24-48 h según la página"
+21,Delta-decalactone,fuerza,Very powerful and persistent,"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/deltadecalactone: «Very powerful and persistent; easily underestimated»",
+21,Delta-decalactone,estado,Colorless to pale yellow clear liquid,"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/deltadecalactone: «Colorless to pale yellow clear liquid»",
+21,Delta-decalactone,dosis,0.1-2% in fine fragrance,"Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/deltadecalactone: «most fine fragrance applications employ 0.1-2% for optimal balance.»","la página dice que podría llegar al 8 % en compuestos"
+21,Delta-decalactone,olor,"Intensely coconut-like with creamy, sweet, milky, and buttery nuances.","Scentspiracy, https://www.scentspiracy.com/fragrance-ingredients/p/deltadecalactone: «Intensely coconut-like with creamy, sweet, milky, and buttery nuances.»",
+21,Delta-decalactone,olor,"A creamy, milky, buttery coconut, peach-like odor (in dilution).","Perfumer Supply House, https://perfumersupplyhouse.com/product/delta-decalactone: «A creamy, milky, buttery coconut, peach-like odor (in dilution).»",la propia página lo dice en dilución
+21,Delta-decalactone,tgsc,,"no lo dice ninguna fuente consultada: TGSC no accesible (403)",sin TGSC
+23,Oxyoctaline formate,nombre,Oxyoctaline Formate,"Givaudan, https://givaudan.com/print/1314736: «Oxyoctaline Formate»",CAS coincide (65405-72-3); sinónimo «Amber formate» en The Fragrance Foundry
+23,Oxyoctaline formate,casa,Givaudan,"The Fragrance Foundry, https://thefragrancefoundry.com/uk/products/oxyoctaline-formate-givaudan-1: «Givaudan - One of the largest and most highly respected fragrance companies in the world.»",la propia ficha de Givaudan es la fuente del producto
+23,Oxyoctaline formate,familia,Woody,"Givaudan, https://givaudan.com/print/1314736: «Woody»",«Woody» y «Ambery» figuran como notas olfativas; la herramienta de lectura no dio la etiqueta literal del campo
+23,Oxyoctaline formate,nivel,Mid Note,"The Fragrance Foundry, https://thefragrancefoundry.com/uk/products/oxyoctaline-formate-givaudan-1: «Mid Note»",Givaudan no da nivel
+23,Oxyoctaline formate,horas,1 week on blotter,"Givaudan, https://givaudan.com/print/1314736: «Tenacity on blotter» «1 week»",frase literal reconstruida del resumen de lectura; verificar en la página
+23,Oxyoctaline formate,fuerza,Impactful,"Givaudan, https://givaudan.com/print/1314736: «Impactful»","es el «olfactive impact» de la sección de sostenibilidad, no una escala de fuerza; no hay otra"
+23,Oxyoctaline formate,estado,Liquid,"The Fragrance Foundry, https://thefragrancefoundry.com/uk/products/oxyoctaline-formate-givaudan-1: «Liquid»",forma física; sin color; Givaudan no da aspecto
+23,Oxyoctaline formate,dosis,0.5% to 10%,"Givaudan, https://givaudan.com/print/1314736: «Use level of 0.5% to 10%»",frase literal reconstruida del resumen de lectura; verificar en la página
+23,Oxyoctaline formate,olor,"original, ambery and long lasting character","Givaudan, https://givaudan.com/print/1314736: «original, ambery and long lasting character»","añade: se mezcla «very well with most woody notes» y da a naturales leñosos «an interesting olibanum effect»"
+23,Oxyoctaline formate,olor,Вона суха пилиста смолиста й трохи волога,"The Fragrance Foundry, https://thefragrancefoundry.com/uk/products/oxyoctaline-formate-givaudan-1: «Вона суха, пилиста, смолиста й трохи волога.»","página en ucraniano: «seca, polvorienta, resinosa y algo húmeda»"
+23,Oxyoctaline formate,tgsc,,"no lo dice ninguna fuente consultada: TGSC no accesible (403)",sin TGSC
+24,Hercolyn DW (methyl hydrogenated rosinate),nombre,Hercolyn® D,"Fraterworks, https://fraterworks.com/products/hercolyn-dw: «Hercolyn® D»","CAS coincide (8050-15-5); la página dice que «Hercolyn DW» era el nombre anterior de este producto"
+24,Hercolyn DW (methyl hydrogenated rosinate),nombre,Methyl hydrogenated rosinate,"Parchem, https://parchem.com/chemical-supplier-distributor/methyl-hydrogenated-rosinate-098006: «Methyl hydrogenated rosinate»","CAS «8050-13-3 8050-15-5» (incluye el 8050-15-5); «Hercolyn D» figura como sinónimo; Parchem es distribuidor"
+24,Hercolyn DW (methyl hydrogenated rosinate),casa,Firmenich,"Fraterworks, https://fraterworks.com/products/hercolyn-dw: «Firmenich»","la página declara Firmenich, no Ventos; no hay ficha de Ventos del material (la búsqueda no la dio)"
+24,Hercolyn DW (methyl hydrogenated rosinate),familia,Balsamic,"Fraterworks, https://fraterworks.com/products/hercolyn-dw: «Balsamic»",
+24,Hercolyn DW (methyl hydrogenated rosinate),nivel,Base Note,"Fraterworks, https://fraterworks.com/products/hercolyn-dw: «Base Note»",
+24,Hercolyn DW (methyl hydrogenated rosinate),horas,> 400 hours,"Fraterworks, https://fraterworks.com/products/hercolyn-dw: «Lasts > 400 hours on a smelling strip.»",
+24,Hercolyn DW (methyl hydrogenated rosinate),fuerza,,"no lo dice ninguna fuente consultada: Fraterworks hercolyn-dw; Parchem 098006",
+24,Hercolyn DW (methyl hydrogenated rosinate),estado,Pale yellow viscous liquid,"Fraterworks, https://fraterworks.com/products/hercolyn-dw: «Pale yellow viscous liquid»",
+24,Hercolyn DW (methyl hydrogenated rosinate),dosis,,"no lo dice ninguna fuente consultada: Fraterworks hercolyn-dw (solo uso: «Premium fixative and carrier for fragrance concentrates, extending longevity whilst maintaining olfactory neutrality.»); Parchem 098006",la página da una mediana de uso de 0.255 % del concentrado sin frase literal copiable
+24,Hercolyn DW (methyl hydrogenated rosinate),olor,"virtually odourless with an extremely faint balsamic, woody character","Fraterworks, https://fraterworks.com/products/hercolyn-dw: «virtually odourless with an extremely faint balsamic, woody character»",
+24,Hercolyn DW (methyl hydrogenated rosinate),olor,,"no lo dice ninguna fuente consultada: Parchem 098006",
+24,Hercolyn DW (methyl hydrogenated rosinate),tgsc,,"no lo dice ninguna fuente consultada: TGSC no accesible (403)",sin TGSC
+25,Cuir 17500,nombre,,"no lo dice ninguna fuente consultada: TGSC (403); búsquedas web: solo aparece una ficha de seguridad de Perfumiarz (no leída por encargo); Perfumer Supply House y Fraterworks listan otros cueros de Synarome (Cuir de Russie, Cuir HF), no valen",sin ficha de producto localizada
+25,Cuir 17500,casa,,"no lo dice ninguna fuente consultada: TGSC (403); búsquedas web sin ficha de producto de Synarome ni de distribuidor",
+25,Cuir 17500,familia,,"no lo dice ninguna fuente consultada: TGSC (403); búsquedas web sin ficha de producto de Synarome ni de distribuidor",
+25,Cuir 17500,nivel,,"no lo dice ninguna fuente consultada: TGSC (403); búsquedas web sin ficha de producto de Synarome ni de distribuidor",
+25,Cuir 17500,horas,,"no lo dice ninguna fuente consultada: TGSC (403); búsquedas web sin ficha de producto de Synarome ni de distribuidor",
+25,Cuir 17500,fuerza,,"no lo dice ninguna fuente consultada: TGSC (403); búsquedas web sin ficha de producto de Synarome ni de distribuidor",
+25,Cuir 17500,estado,,"no lo dice ninguna fuente consultada: TGSC (403); búsquedas web sin ficha de producto de Synarome ni de distribuidor",
+25,Cuir 17500,dosis,,"no lo dice ninguna fuente consultada: TGSC (403); búsquedas web sin ficha de producto de Synarome ni de distribuidor",
+25,Cuir 17500,olor,,"no lo dice ninguna fuente consultada: TGSC (403); búsquedas web sin ficha de producto de Synarome ni de distribuidor",
+25,Cuir 17500,tgsc,,"no lo dice ninguna fuente consultada: TGSC no accesible (403)",sin TGSC

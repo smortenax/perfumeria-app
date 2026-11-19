@@ -1,0 +1,93 @@
+n,nombre,campo,valor,fuente,nota
+maese-461,Ceylon cinnamon (bark) tincture,nombre,Cinnamon Ceylon Tincture 25%,"Fraterworks, https://fraterworks.com/products/cinnamon-ceylon-tincture: «Cinnamon Ceylon Tincture 25%»","Tintura, Cinnamomum verum, corteza seca; la página no da grado de alcohol; «25%» sin explicar"
+maese-461,Ceylon cinnamon (bark) tincture,casa,,"Fraterworks, https://fraterworks.com/products/cinnamon-ceylon-tincture: «Sourced directly from primary producers. Chosen for quality, character, and consistency.»",no nombra fabricante
+maese-461,Ceylon cinnamon (bark) tincture,familia,Spicy,"Fraterworks, https://fraterworks.com/products/cinnamon-ceylon-tincture: «Family: Spicy»",
+maese-461,Ceylon cinnamon (bark) tincture,nivel,Heart Note,"Fraterworks, https://fraterworks.com/products/cinnamon-ceylon-tincture: «Classification: Heart Note»",
+maese-461,Ceylon cinnamon (bark) tincture,horas,> 24 hours,"Fraterworks, https://fraterworks.com/products/cinnamon-ceylon-tincture: «Lasts > 24 hours on a smelling strip.»",tintura
+maese-461,Ceylon cinnamon (bark) tincture,fuerza,,"no lo dice ninguna fuente consultada: Fraterworks cinnamon-ceylon-tincture; TGSC no accesible (403)",
+maese-461,Ceylon cinnamon (bark) tincture,estado,Dark red liquid,"Fraterworks, https://fraterworks.com/products/cinnamon-ceylon-tincture: «Dark red liquid»",
+maese-461,Ceylon cinnamon (bark) tincture,dosis,median 0.05% of the concentrate,"Fraterworks, https://fraterworks.com/products/cinnamon-ceylon-tincture: «Cinnamon Ceylon Tincture 25% is used at a median of 0.05% of the concentrate in the formulas we have analysed.»","mediana de uso, no máximo recomendado"
+maese-461,Ceylon cinnamon (bark) tincture,olor,"Cinnamon, clove, spicy, woody","Fraterworks, https://fraterworks.com/products/cinnamon-ceylon-tincture: «Cinnamon, clove, spicy, woody.»",
+maese-461,Ceylon cinnamon (bark) tincture,tgsc,,"no lo dice ninguna fuente consultada: TGSC no tiene página de tintura localizada; las páginas de TGSC dan 403 a WebFetch",
+1,2-Methylpyrazine,nombre,2-methyl pyrazine,"Parchem, https://parchem.com/chemical-supplier-distributor/2-methyl-pyrazine-009151: «2-methyl pyrazine»",CAS coincide (109-08-0); Parchem es distribuidor
+1,2-Methylpyrazine,casa,,"no lo dice ninguna fuente consultada: Parchem 009151; scent.vn 2-methylpyrazine-2425; TGSC no accesible (403)",
+1,2-Methylpyrazine,familia,,"no lo dice ninguna fuente consultada: Parchem 009151; scent.vn 2-methylpyrazine-2425",
+1,2-Methylpyrazine,nivel,,"no lo dice ninguna fuente consultada: Parchem 009151; scent.vn 2-methylpyrazine-2425",
+1,2-Methylpyrazine,horas,,"no lo dice ninguna fuente consultada: Parchem 009151; scent.vn 2-methylpyrazine-2425 (solo «Ultra fast» de evaporación)",
+1,2-Methylpyrazine,fuerza,Odor impact est. High,"scent.vn, https://scent.vn/en/pages/compound/2-methylpyrazine-2425: «Odor impact est. High»",scent.vn no es de la lista del encargo; reproduce datos tipo TGSC
+1,2-Methylpyrazine,estado,colorless to pale yellow clear liquid,"Parchem, https://parchem.com/chemical-supplier-distributor/2-methyl-pyrazine-009151: «colorless to pale yellow clear liquid»",
+1,2-Methylpyrazine,dosis,,"no lo dice ninguna fuente consultada: Parchem 009151; scent.vn 2-methylpyrazine-2425 (solo IFRA «No restriction»)",
+1,2-Methylpyrazine,olor,"Nutty, brown, nut skin, musty, pyrazine and earthy with a slight roasted nuance","Parchem, https://parchem.com/chemical-supplier-distributor/2-methyl-pyrazine-009151: «Nutty, brown, nut skin, musty, pyrazine and earthy with a slight roasted nuance»",
+1,2-Methylpyrazine,tgsc,,"no lo dice ninguna fuente consultada: página TGSC no accesible (WebFetch 403)",sin TGSC
+2,Wool absolute (Ovis aries),nombre,WOOL,"Biolandes, https://biolandes.com/en/product/wool/: «CAS EINECS 91079-01-5»",CAS coincide
+2,Wool absolute (Ovis aries),nombre,Wool Absolute,"Fraterworks, https://fraterworks.com/products/wool-absolute: «Wool Absolute»",CAS coincide (91079-01-5); Fraterworks es revendedor
+2,Wool absolute (Ovis aries),casa,Biolandes,"Fraterworks, https://fraterworks.com/products/wool-absolute: «Biolandes»",listada como fabricante; la página de Biolandes dice «France» como origen
+2,Wool absolute (Ovis aries),familia,Animalic,"Biolandes, https://biolandes.com/en/product/wool/: «Animalic»",
+2,Wool absolute (Ovis aries),nivel,Base Note,"Fraterworks, https://fraterworks.com/products/wool-absolute: «Base Note»",
+2,Wool absolute (Ovis aries),horas,> 400 hours,"Fraterworks, https://fraterworks.com/products/wool-absolute: «Lasts > 400 hours on a smelling strip.»",
+2,Wool absolute (Ovis aries),fuerza,,"no lo dice ninguna fuente consultada: Biolandes wool; Fraterworks wool-absolute",
+2,Wool absolute (Ovis aries),estado,Brown coloured paste; heat gently to melt,"Fraterworks, https://fraterworks.com/products/wool-absolute: «Brown coloured paste; heat gently to melt»",
+2,Wool absolute (Ovis aries),dosis,,"no lo dice ninguna fuente consultada: Biolandes wool; Fraterworks wool-absolute (solo IFRA 51: 100%)",
+2,Wool absolute (Ovis aries),olor,A fruity note paired with an animalic scent.,"Biolandes, https://biolandes.com/en/product/wool/: «A fruity note paired with an animalic scent.»",
+2,Wool absolute (Ovis aries),olor,pure rich lanolin with nuances of booze and fruit,"Fraterworks, https://fraterworks.com/products/wool-absolute: «The scent of this musk is pure rich lanolin with nuances of booze and fruit.»",
+2,Wool absolute (Ovis aries),tgsc,,"no lo dice ninguna fuente consultada: TGSC no accesible (WebFetch 403)",sin TGSC
+3,Frangipani Bold Base,nombre,,"no lo dice ninguna fuente consultada: TGSC (403), Fraterworks (404), búsquedas web sin página de Moellhausen; Creative Formulas «Frangipani Base» (otra casa, no vale)",sin ninguna ficha; no existe en TGSC ni en la web consultada
+3,Frangipani Bold Base,casa,,"no lo dice ninguna fuente consultada: TGSC (403), Fraterworks (404), búsquedas web sin página de Moellhausen; Creative Formulas «Frangipani Base» (otra casa, no vale)",
+3,Frangipani Bold Base,familia,,"no lo dice ninguna fuente consultada: TGSC (403), Fraterworks (404), búsquedas web sin página de Moellhausen; Creative Formulas «Frangipani Base» (otra casa, no vale)",
+3,Frangipani Bold Base,nivel,,"no lo dice ninguna fuente consultada: TGSC (403), Fraterworks (404), búsquedas web sin página de Moellhausen; Creative Formulas «Frangipani Base» (otra casa, no vale)",
+3,Frangipani Bold Base,horas,,"no lo dice ninguna fuente consultada: TGSC (403), Fraterworks (404), búsquedas web sin página de Moellhausen; Creative Formulas «Frangipani Base» (otra casa, no vale)",
+3,Frangipani Bold Base,fuerza,,"no lo dice ninguna fuente consultada: TGSC (403), Fraterworks (404), búsquedas web sin página de Moellhausen; Creative Formulas «Frangipani Base» (otra casa, no vale)",
+3,Frangipani Bold Base,estado,,"no lo dice ninguna fuente consultada: TGSC (403), Fraterworks (404), búsquedas web sin página de Moellhausen; Creative Formulas «Frangipani Base» (otra casa, no vale)",
+3,Frangipani Bold Base,dosis,,"no lo dice ninguna fuente consultada: TGSC (403), Fraterworks (404), búsquedas web sin página de Moellhausen; Creative Formulas «Frangipani Base» (otra casa, no vale)",
+3,Frangipani Bold Base,olor,,"no lo dice ninguna fuente consultada: TGSC (403), Fraterworks (404), búsquedas web sin página de Moellhausen; Creative Formulas «Frangipani Base» (otra casa, no vale)",
+4,Fig Base,nombre,,"no lo dice ninguna fuente consultada: TGSC (403), Fraterworks (404), búsquedas web sin página de PCW; Fraterworks «Fig Signature» y Creative Formulas (otros productos, no valen)",sin ninguna ficha de PCW
+4,Fig Base,casa,,"no lo dice ninguna fuente consultada: TGSC (403), Fraterworks (404), búsquedas web sin página de PCW; Fraterworks «Fig Signature» y Creative Formulas (otros productos, no valen)",
+4,Fig Base,familia,,"no lo dice ninguna fuente consultada: TGSC (403), Fraterworks (404), búsquedas web sin página de PCW; Fraterworks «Fig Signature» y Creative Formulas (otros productos, no valen)",
+4,Fig Base,nivel,,"no lo dice ninguna fuente consultada: TGSC (403), Fraterworks (404), búsquedas web sin página de PCW; Fraterworks «Fig Signature» y Creative Formulas (otros productos, no valen)",
+4,Fig Base,horas,,"no lo dice ninguna fuente consultada: TGSC (403), Fraterworks (404), búsquedas web sin página de PCW; Fraterworks «Fig Signature» y Creative Formulas (otros productos, no valen)",
+4,Fig Base,fuerza,,"no lo dice ninguna fuente consultada: TGSC (403), Fraterworks (404), búsquedas web sin página de PCW; Fraterworks «Fig Signature» y Creative Formulas (otros productos, no valen)",
+4,Fig Base,estado,,"no lo dice ninguna fuente consultada: TGSC (403), Fraterworks (404), búsquedas web sin página de PCW; Fraterworks «Fig Signature» y Creative Formulas (otros productos, no valen)",
+4,Fig Base,dosis,,"no lo dice ninguna fuente consultada: TGSC (403), Fraterworks (404), búsquedas web sin página de PCW; Fraterworks «Fig Signature» y Creative Formulas (otros productos, no valen)",
+4,Fig Base,olor,,"no lo dice ninguna fuente consultada: TGSC (403), Fraterworks (404), búsquedas web sin página de PCW; Fraterworks «Fig Signature» y Creative Formulas (otros productos, no valen)",
+5,"Matcha Ketone (3-methyl-2,4-nonanedione)",nombre,"3-Methyl-2,4-nonanedione","scent.vn, https://scent.vn/en/pages/compound/3-methyl-24-nonanedione-529481: «3-Methyl-2,4-nonanedione»",CAS coincide (113486-29-6); scent.vn no es de la lista del encargo; TGSC no accesible (403)
+5,"Matcha Ketone (3-methyl-2,4-nonanedione)",nombre,methyl nonane dione,"Parchem, https://parchem.com/chemical-supplier-distributor/methyl-nonane-dione-010502: «methyl nonane dione»",CAS coincide; Parchem es distribuidor
+5,"Matcha Ketone (3-methyl-2,4-nonanedione)",casa,,no lo dice ninguna fuente consultada: Parchem 010502; scent.vn 529481,
+5,"Matcha Ketone (3-methyl-2,4-nonanedione)",familia,Fruity,"scent.vn, https://scent.vn/en/pages/compound/3-methyl-24-nonanedione-529481: «Fruity»","categoría de olor de scent.vn, no «Odor Type» de TGSC"
+5,"Matcha Ketone (3-methyl-2,4-nonanedione)",nivel,,no lo dice ninguna fuente consultada: Parchem 010502; scent.vn 529481 (solo «Moderately slow» de evaporación),
+5,"Matcha Ketone (3-methyl-2,4-nonanedione)",horas,,no lo dice ninguna fuente consultada: Parchem 010502; scent.vn 529481,
+5,"Matcha Ketone (3-methyl-2,4-nonanedione)",fuerza,Medium,"scent.vn, https://scent.vn/en/pages/compound/3-methyl-24-nonanedione-529481: «Odor impact est.» «Medium»",valor «Medium» tal como lo da scent.vn
+5,"Matcha Ketone (3-methyl-2,4-nonanedione)",estado,colorless to pale yellow clear liquid,"Parchem, https://parchem.com/chemical-supplier-distributor/methyl-nonane-dione-010502: «colorless to pale yellow clear liquid»",
+5,"Matcha Ketone (3-methyl-2,4-nonanedione)",dosis,,no lo dice ninguna fuente consultada: Parchem 010502; scent.vn 529481 (solo IFRA «No restriction»),
+5,"Matcha Ketone (3-methyl-2,4-nonanedione)",olor,fruity straw caramel burnt,"Parchem, https://parchem.com/chemical-supplier-distributor/methyl-nonane-dione-010502: «fruity straw caramel burnt»",
+5,"Matcha Ketone (3-methyl-2,4-nonanedione)",olor,"characteristic buttery, nutty aroma","scent.vn, https://scent.vn/en/pages/compound/3-methyl-24-nonanedione-529481: «characteristic buttery, nutty aroma»",scent.vn atribuye este texto a una IA generativa; poco fiable
+6,"Yuzu peel, distilled essential oil (Citrus junos)",nombre,"Yuzu, Distilled EO","Eden Botanicals, https://edenbotanicals.com/yuzu-distilled.html: «Yuzu, Distilled EO»","CAS coincide (233683-84-6); Citrus junos Sieb. ex Tanaka, cáscara, destilado al vacío"
+6,"Yuzu peel, distilled essential oil (Citrus junos)",casa,,no lo dice ninguna fuente consultada: Eden Botanicals yuzu-distilled (no nombra Oleolio); TGSC no accesible (403),Oleolio no aparece en ninguna página consultada
+6,"Yuzu peel, distilled essential oil (Citrus junos)",familia,citrus,"Eden Botanicals, https://edenbotanicals.com/yuzu-distilled.html: «citrus»",Aroma Family
+6,"Yuzu peel, distilled essential oil (Citrus junos)",nivel,top,"Eden Botanicals, https://edenbotanicals.com/yuzu-distilled.html: «top.»",
+6,"Yuzu peel, distilled essential oil (Citrus junos)",horas,,no lo dice ninguna fuente consultada: Eden Botanicals yuzu-distilled (solo «a unique citrus aroma that lasts longer than other citrus peel oils.»),
+6,"Yuzu peel, distilled essential oil (Citrus junos)",fuerza,,"no lo dice ninguna fuente consultada: Eden Botanicals yuzu-distilled (solo «Bright, strong» en la descripción)",
+6,"Yuzu peel, distilled essential oil (Citrus junos)",estado,"Colorless to very pale green, transparent, mobile liquid.","Eden Botanicals, https://edenbotanicals.com/yuzu-distilled.html: «Colorless to very pale green, transparent, mobile liquid.»",
+6,"Yuzu peel, distilled essential oil (Citrus junos)",dosis,,no lo dice ninguna fuente consultada: Eden Botanicals yuzu-distilled (solo «Dilute and add drop by drop to your blends until the desired effect is achieved.»),
+6,"Yuzu peel, distilled essential oil (Citrus junos)",olor,"Bright, strong, faintly floral, aromatic citrus in the manner of Bergamot or Grapefruit, with a zesty, green citrus/pith backnote that becomes a balsamic sweetness in the drydown","Eden Botanicals, https://edenbotanicals.com/yuzu-distilled.html: «Bright, strong, faintly floral, aromatic citrus in the manner of Bergamot or Grapefruit, with a zesty, green citrus/pith backnote that becomes a balsamic sweetness in the drydown»",
+7,Bornyl acetate,nombre,BORNYL ACETATE,"Ventos, https://ventos.com/index.php/en/producto/1631/BORNYL ACETATE: «BORNYL ACETATE»","Ventos da CAS «76-49-3 ; 5655-61-8» (incluye el 5655-61-8, isómero/otro CAS); coincide con 76-49-3"
+7,Bornyl acetate,nombre,Bornyl Acetate,"Parchem, https://parchem.com/api/get-pdf/bornyl-acetate-003555.pdf: «Bornyl Acetate»",CAS coincide; TGSC no accesible (403)
+7,Bornyl acetate,casa,ERNESTO VENTÓS S. A.,"Ventos, https://ventos.com/index.php/en/producto/1631/BORNYL ACETATE: «ERNESTO VENTÓS S. A.»",
+7,Bornyl acetate,familia,balsamic,"Parchem, https://parchem.com/api/get-pdf/bornyl-acetate-003555.pdf: «balsamic»",«Odor Type»; Parchem es distribuidor
+7,Bornyl acetate,nivel,,no lo dice ninguna fuente consultada: Ventos; Parchem 003555,
+7,Bornyl acetate,horas,,no lo dice ninguna fuente consultada: Ventos; Parchem 003555,
+7,Bornyl acetate,fuerza,,no lo dice ninguna fuente consultada: Ventos; Parchem 003555,
+7,Bornyl acetate,estado,Clear mobile liquid/solid,"Ventos, https://ventos.com/index.php/en/producto/1631/BORNYL ACETATE: «Clear mobile liquid/solid»",
+7,Bornyl acetate,estado,colorless clear liquid,"Parchem, https://parchem.com/api/get-pdf/bornyl-acetate-003555.pdf: «colorless clear liquid»",
+7,Bornyl acetate,dosis,,no lo dice ninguna fuente consultada: Ventos; Parchem 003555 (solo «Use: MASKING»),
+7,Bornyl acetate,olor,"Pine, camphoraceous, herbal, balsam","Ventos, https://ventos.com/index.php/en/producto/1631/BORNYL ACETATE: «Pine, camphoraceous, herbal, balsam»",
+7,Bornyl acetate,olor,"Woody, camphoreous, mentholic, cedar woody, spicy and gin-like","Parchem, https://parchem.com/api/get-pdf/bornyl-acetate-003555.pdf: «Woody, camphoreous, mentholic, cedar woody, spicy and gin-like»",
+12,Muscenone,nombre,Muscenone ® (Firmenich),"Perfumer Supply House, https://perfumersupplyhouse.com/?p=2852: «Muscenone ® (Firmenich)»",CAS coincide (82356-51-2)
+12,Muscenone,casa,Firmenich,"Perfumer Supply House, https://perfumersupplyhouse.com/?p=2852: «Firmenich»",la página lo lista en la categoría Firmenich
+12,Muscenone,familia,musk,"Parchem, https://parchem.com/chemical-supplier-distributor/muscenone-015144: «musk odor»",Perfumer Supply House: «A very elegant nitromusk type of odor.»
+12,Muscenone,nivel,,no lo dice ninguna fuente consultada: Perfumer Supply House; Parchem muscenone-015144,
+12,Muscenone,horas,,"no lo dice ninguna fuente consultada: Perfumer Supply House (solo «excellent substantivity on fabric, hair and skin»); Parchem muscenone-015144",
+12,Muscenone,fuerza,very powerful,"Perfumer Supply House, https://perfumersupplyhouse.com/?p=2852: «MUSCENONE® is a very powerful musk with two facets.»",
+12,Muscenone,estado,colourless to pale yellow clear liquid,"Parchem, https://parchem.com/chemical-supplier-distributor/muscenone-015144: «colourless to pale yellow clear liquid»",
+12,Muscenone,dosis,0.05 to 0.5% (fragrance enhancer),"Perfumer Supply House, https://perfumersupplyhouse.com/?p=2852: «At low dosages (0.05 to 0.5%), it is a fragrance enhancer.»","uso como potenciador; por encima, también por su carácter almizclado"
+12,Muscenone,olor,"reminiscent of Musk Ketone, with a slight animal but natural undertone","Perfumer Supply House, https://perfumersupplyhouse.com/?p=2852: «reminiscent of Musk Ketone, with a slight animal but natural undertone»",
+12,Muscenone,olor,"strong musk, slightly animal, civet-like","Parchem, https://parchem.com/chemical-supplier-distributor/muscenone-015144: «strong musk, slightly animal, civet-like»",

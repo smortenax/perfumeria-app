@@ -1,0 +1,109 @@
+n,nombre,campo,valor,fuente,nota
+37,Furfuryl mercaptan,nombre,Furfuryl Mercaptan,"Parchem, https://parchem.com/chemical-supplier-distributor/furfuryl-mercaptan-003406: «Furfuryl Mercaptan»",CAS coincide (98-02-2); Parchem es distribuidor
+37,Furfuryl mercaptan,nombre,FURFURYL MERCAPTAN,"Ventos, https://ventos.com/en/producto/5092/FURFURYL%20MERCAPTAN: «98-02-2»",CAS coincide; Ventos es distribuidor
+37,Furfuryl mercaptan,casa,,no lo dice ninguna fuente consultada: Parchem; Ventos 5092; TGSC no accesible (403),sin casa declarada
+37,Furfuryl mercaptan,familia,coffee,"Parchem, https://parchem.com/chemical-supplier-distributor/furfuryl-mercaptan-003406: «Odor Type coffee»",
+37,Furfuryl mercaptan,nivel,,no lo dice ninguna fuente consultada: Parchem furfuryl-mercaptan-003406; Ventos 5092; TGSC no accesible (403),
+37,Furfuryl mercaptan,horas,,no lo dice ninguna fuente consultada: Parchem furfuryl-mercaptan-003406; Ventos 5092; TGSC no accesible (403),
+37,Furfuryl mercaptan,fuerza,,no lo dice ninguna fuente consultada: Parchem furfuryl-mercaptan-003406; Ventos 5092; TGSC no accesible (403),
+37,Furfuryl mercaptan,dosis,,no lo dice ninguna fuente consultada: Parchem furfuryl-mercaptan-003406; Ventos 5092; TGSC no accesible (403),
+37,Furfuryl mercaptan,estado,colorless to pale yellow clear oily liquid,"Parchem, https://parchem.com/chemical-supplier-distributor/furfuryl-mercaptan-003406: «colorless to pale yellow clear oily liquid»",
+37,Furfuryl mercaptan,estado,Clear mobile liquid,"Ventos, https://ventos.com/en/producto/5092/FURFURYL%20MERCAPTAN: «Clear mobile liquid»",color «Colorless-pale yellow-pink-lilac»
+37,Furfuryl mercaptan,olor,"Roasted coffee, sulfurous, with a burnt match note","Parchem, https://parchem.com/chemical-supplier-distributor/furfuryl-mercaptan-003406: «Roasted coffee, sulfurous, with a burnt match note»",
+37,Furfuryl mercaptan,olor,"Roast burnt, coffee","Ventos, https://ventos.com/en/producto/5092/FURFURYL%20MERCAPTAN: «Roast burnt, coffee»",
+37,Furfuryl mercaptan,tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
+38,Fructalate,nombre,Fructalate - Firmenich,"The Fragrance Foundry, https://thefragrancefoundry.com/products/fructalate-firmenich: «Fructalate - Firmenich»",CAS coincide (72903-27-6); The Fragrance Foundry es revendedor no oficial. Solo una referencia: Fraterworks da 404; la ficha de Ventos (producto 6075) no carga en texto visible; scent.vn es generada por IA y la página de Scentspiracy mezcla el contenido de otro material (Nectarate): descartadas
+38,Fructalate,casa,Firmenich,"The Fragrance Foundry, https://thefragrancefoundry.com/products/fructalate-firmenich: «Firmenich - One of the largest flavour & fragrance companies in the world with over 125 of expertise.»",
+38,Fructalate,familia,,no lo dice ninguna fuente consultada: The Fragrance Foundry fructalate-firmenich; TGSC no accesible (403),
+38,Fructalate,nivel,Mid Note,"The Fragrance Foundry, https://thefragrancefoundry.com/products/fructalate-firmenich: «Mid Note»",la página lo pone en la fila «Longevity»
+38,Fructalate,horas,,no lo dice ninguna fuente consultada: The Fragrance Foundry fructalate-firmenich; Fraterworks 404; TGSC no accesible (403),
+38,Fructalate,fuerza,,no lo dice ninguna fuente consultada: The Fragrance Foundry fructalate-firmenich; Fraterworks 404; TGSC no accesible (403),
+38,Fructalate,dosis,,no lo dice ninguna fuente consultada: The Fragrance Foundry fructalate-firmenich; Fraterworks 404; TGSC no accesible (403),
+38,Fructalate,estado,Liquid,"The Fragrance Foundry, https://thefragrancefoundry.com/products/fructalate-firmenich: «Physical form Liquid»",
+38,Fructalate,olor,"a sweet-fruity neutral transparent blender, adding body and space to fruity accords","The Fragrance Foundry, https://thefragrancefoundry.com/products/fructalate-firmenich: «Fructalate acts as a sweet-fruity neutral transparent blender, adding body and space to fruity accords.»",
+38,Fructalate,tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
+39,Ethyl linalool,nombre,Ethyl Linalool,"Fraterworks, https://fraterworks.com/products/ethyl-linalool: «CAS: 10339-55-6»",CAS coincide; Fraterworks es revendedor
+39,Ethyl linalool,nombre,ETHYL LINALOOL BASF,"Ventos, https://www.ventos.com/index.php/en/producto/4972: «10339-55-6»",CAS coincide; Ventos es distribuidor
+39,Ethyl linalool,casa,Firmenich,"Fraterworks, https://fraterworks.com/products/ethyl-linalool: «Our supplier, Firmenich, is the premium supplier of ethyl linalool»",las dos páginas no coinciden: Ventos vende el grado BASF
+39,Ethyl linalool,casa,BASF,"Ventos, https://www.ventos.com/index.php/en/producto/4972: «ETHYL LINALOOL BASF»",la casa solo aparece en el nombre del producto; no es Givaudan ni DSM-Firmenich
+39,Ethyl linalool,familia,Floral,"Fraterworks, https://fraterworks.com/products/ethyl-linalool: «Odour Family Floral»",
+39,Ethyl linalool,nivel,Heart Note,"Fraterworks, https://fraterworks.com/products/ethyl-linalool: «Classification: Heart Note»",
+39,Ethyl linalool,horas,> 30 hours,"Fraterworks, https://fraterworks.com/products/ethyl-linalool: «Lasts > 30 hours on a smelling strip.»",
+39,Ethyl linalool,fuerza,,no lo dice ninguna fuente consultada: Fraterworks ethyl-linalool; Ventos 4972; TGSC no accesible (403),
+39,Ethyl linalool,estado,Colourless liquid,"Fraterworks, https://fraterworks.com/products/ethyl-linalool: «Colourless liquid»",
+39,Ethyl linalool,estado,Clear mobile liquid,"Ventos, https://www.ventos.com/index.php/en/producto/4972: «Clear mobile liquid»",color «Colorless to pale yellow»; es el grado BASF
+39,Ethyl linalool,dosis,,no lo dice ninguna fuente consultada: Fraterworks ethyl-linalool; Ventos 4972; TGSC no accesible (403),"Fraterworks solo da IFRA («IFRA 51: 100%»), que no es dosis recomendada"
+39,Ethyl linalool,olor,"a fresh, floral aroma reminiscent of bergamot and lavender, with subtle herbal, green, and waxy nuances","Fraterworks, https://fraterworks.com/products/ethyl-linalool: «Ethyl Linalool presents a fresh, floral aroma reminiscent of bergamot and lavender, with subtle herbal, green, and waxy nuances.»",
+39,Ethyl linalool,olor,"Floral, fresh, woody, rosewood","Ventos, https://www.ventos.com/index.php/en/producto/4972: «Floral, fresh, woody, rosewood»",grado BASF
+39,Ethyl linalool,tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
+40,Hydroxyambran,nombre,Hydroxyambran,"Fraterworks, https://fraterworks.com/products/hydroxyambran: «CAS: 118562-73-5»",CAS coincide (sinónimo en la página: Ambranextra); Fraterworks es revendedor
+40,Hydroxyambran,nombre,HYDROXYAMBRAN,"Ventos, https://www.ventos.com/index.php/en/producto/2073/HYDROXYAMBRAN: «118562-73-5»",CAS coincide; Ventos es distribuidor
+40,Hydroxyambran,casa,Miltitz,"Fraterworks, https://fraterworks.com/products/hydroxyambran: «Fraterworks® is strictly a reseller of this product and is neither an agent nor official distributor for Miltitz»",no es Ventos: la página de Ventos no nombra a la casa en el texto visible
+40,Hydroxyambran,familia,Woody,"Fraterworks, https://fraterworks.com/products/hydroxyambran: «Odour Family Woody»",
+40,Hydroxyambran,nivel,Base Note,"Fraterworks, https://fraterworks.com/products/hydroxyambran: «Classification: Base Note»",
+40,Hydroxyambran,horas,> 2 weeks,"Fraterworks, https://fraterworks.com/products/hydroxyambran: «Lasts > 2 weeks on a smelling strip.»",
+40,Hydroxyambran,fuerza,,no lo dice ninguna fuente consultada: Fraterworks hydroxyambran; Ventos 2073; TGSC no accesible (403),
+40,Hydroxyambran,estado,White waxy solid,"Fraterworks, https://fraterworks.com/products/hydroxyambran: «White waxy solid»",
+40,Hydroxyambran,estado,Liquid / solid,"Ventos, https://www.ventos.com/index.php/en/producto/2073/HYDROXYAMBRAN: «Liquid / solid»",color «White»
+40,Hydroxyambran,dosis,,no lo dice ninguna fuente consultada: Fraterworks hydroxyambran; Ventos 2073 (la dosis de la ficha técnica en español no se pudo leer en texto visible); TGSC no accesible (403),
+40,Hydroxyambran,olor,"a powerful woody-amber aroma with distinct musky undertones, complemented by subtle sweet, balsamic, and old wood facets that create a sophisticated and complex profile","Fraterworks, https://fraterworks.com/products/hydroxyambran: «Hydroxyambran presents a powerful woody-amber aroma with distinct musky undertones, complemented by subtle sweet, balsamic, and old wood facets that create a sophisticated and complex profile.»",
+40,Hydroxyambran,olor,"Woody, amber, musky","Ventos, https://www.ventos.com/index.php/en/producto/2073/HYDROXYAMBRAN: «Woody, amber, musky»",
+40,Hydroxyambran,tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
+41,Cinnamalva (cinnamyl nitrile),nombre,,"Ventos, https://ventos.com/en/producto/3403/CINNAMYL%20NITRILE%20INDIA: «CINNAMYL NITRILE INDIA»","otro grado: es el cinnamyl nitrile de India, no el Cinnamalva de IFF (CAS de la página: «4360-47-8 ; 1885-38-7»). La ficha de IFF da 403 y la de Ventos del Cinnamalva IFF (producto 3371) no carga en texto visible; no hay segunda referencia"
+41,Cinnamalva (cinnamyl nitrile),casa,,no lo dice ninguna fuente consultada: Ventos 3403 (otro grado: Cinnamyl nitrile India); IFF compendium 403; Ventos 3371 no carga; TGSC no accesible (403),
+41,Cinnamalva (cinnamyl nitrile),familia,,no lo dice ninguna fuente consultada: Ventos 3403 (otro grado: Cinnamyl nitrile India); IFF compendium 403; Ventos 3371 no carga; TGSC no accesible (403),
+41,Cinnamalva (cinnamyl nitrile),nivel,,no lo dice ninguna fuente consultada: Ventos 3403 (otro grado: Cinnamyl nitrile India); IFF compendium 403; Ventos 3371 no carga; TGSC no accesible (403),
+41,Cinnamalva (cinnamyl nitrile),horas,,no lo dice ninguna fuente consultada: Ventos 3403 (otro grado: Cinnamyl nitrile India); IFF compendium 403; Ventos 3371 no carga; TGSC no accesible (403),
+41,Cinnamalva (cinnamyl nitrile),fuerza,,no lo dice ninguna fuente consultada: Ventos 3403 (otro grado: Cinnamyl nitrile India); IFF compendium 403; Ventos 3371 no carga; TGSC no accesible (403),
+41,Cinnamalva (cinnamyl nitrile),estado,,no lo dice ninguna fuente consultada: Ventos 3403 (otro grado: Cinnamyl nitrile India); IFF compendium 403; Ventos 3371 no carga; TGSC no accesible (403),
+41,Cinnamalva (cinnamyl nitrile),dosis,,no lo dice ninguna fuente consultada: Ventos 3403 (otro grado: Cinnamyl nitrile India); IFF compendium 403; Ventos 3371 no carga; TGSC no accesible (403),
+41,Cinnamalva (cinnamyl nitrile),olor,,"Ventos, https://ventos.com/en/producto/3403/CINNAMYL%20NITRILE%20INDIA: «Warm, spicy, oily, floral»","otro grado: Cinnamyl nitrile India; indicativo, no vale como Cinnamalva IFF"
+41,Cinnamalva (cinnamyl nitrile),tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
+42,Ethyl pelargonate (ethyl nonanoate),nombre,ETHYL NONANOATE (PELARGONATE),"Ventos, https://www.ventos.com/index.php/en/producto/3487/ETHYL+NONANOATE+(PELARGONATE): «123-29-5»",CAS coincide; Ventos es distribuidor
+42,Ethyl pelargonate (ethyl nonanoate),nombre,Ethyl Pelargonate,"PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=3FY02032: «Ethyl Pelargonate»",la página no da el CAS (pone «CAS No. TBA»); PerfumersWorld es tienda
+42,Ethyl pelargonate (ethyl nonanoate),casa,,no lo dice ninguna fuente consultada: Ventos 3487; PerfumersWorld 3FY02032; TGSC no accesible (403),sin casa declarada
+42,Ethyl pelargonate (ethyl nonanoate),familia,,no lo dice ninguna fuente consultada: Ventos 3487; PerfumersWorld 3FY02032 (pone «TBA»); TGSC no accesible (403),
+42,Ethyl pelargonate (ethyl nonanoate),nivel,,no lo dice ninguna fuente consultada: Ventos 3487; PerfumersWorld 3FY02032 (pone «TBA»); TGSC no accesible (403),
+42,Ethyl pelargonate (ethyl nonanoate),horas,,no lo dice ninguna fuente consultada: Ventos 3487; PerfumersWorld 3FY02032 (pone «TBA»); TGSC no accesible (403),
+42,Ethyl pelargonate (ethyl nonanoate),fuerza,,no lo dice ninguna fuente consultada: Ventos 3487; PerfumersWorld 3FY02032 (pone «TBA»); TGSC no accesible (403),
+42,Ethyl pelargonate (ethyl nonanoate),dosis,,no lo dice ninguna fuente consultada: Ventos 3487; PerfumersWorld 3FY02032 (pone «TBA»); TGSC no accesible (403),
+42,Ethyl pelargonate (ethyl nonanoate),estado,Clear mobile liquid,"Ventos, https://www.ventos.com/index.php/en/producto/3487/ETHYL+NONANOATE+(PELARGONATE): «Clear mobile liquid»",color «Colorless»
+42,Ethyl pelargonate (ethyl nonanoate),olor,"Cognac reminiscent, rosy-fruity","Ventos, https://www.ventos.com/index.php/en/producto/3487/ETHYL+NONANOATE+(PELARGONATE): «Cognac reminiscent, rosy-fruity»",
+42,Ethyl pelargonate (ethyl nonanoate),olor,fruity rose waxy rum wine natural tropical,"PerfumersWorld, https://www.perfumersworld.com/view.php?pro_id=3FY02032: «Ethyl Pelargonate has a fruity rose waxy rum wine natural tropical: Fruity, Nutty : Fruity, Rose, Vinous, Waxy odour»",
+42,Ethyl pelargonate (ethyl nonanoate),tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
+43,Orionide,nombre,ORIONIDE™ OLIFFAC IFF,"Ventos, https://www.ventos.com/en/producto/18520/ORIONIDE%E2%84%A2+OLIFFAC+IFF/ORIONIDE%E2%84%A2+OLIFFAC+I: «ORIONIDE™ OLIFFAC IFF»",Ventos es distribuidor; solo una referencia (la ficha de IFF da 403)
+43,Orionide,cas,,"Ventos, https://www.ventos.com/en/producto/18520/ORIONIDE%E2%84%A2+OLIFFAC+IFF/ORIONIDE%E2%84%A2+OLIFFAC+I: «CAS: -»","la página no da CAS. Un resumen de búsqueda de la página de IFF (iff.com/?p=48656, no legible: 403) dice «Mixture», sin CAS; no verificado en texto literal"
+43,Orionide,casa,IFF,"Ventos, https://www.ventos.com/en/producto/18520/ORIONIDE%E2%84%A2+OLIFFAC+IFF/ORIONIDE%E2%84%A2+OLIFFAC+I: «ORIONIDE™ OLIFFAC IFF»",la casa solo aparece en el nombre del producto
+43,Orionide,tipo,,no lo dice ninguna fuente consultada: Ventos 18520; IFF 403; TGSC no accesible (403),molécula o base: la página no lo dice; el resumen de IFF sugiere mezcla (no verificado)
+43,Orionide,familia,,no lo dice ninguna fuente consultada: Ventos 18520; IFF 403; TGSC no accesible (403),
+43,Orionide,nivel,,no lo dice ninguna fuente consultada: Ventos 18520; IFF 403; TGSC no accesible (403),
+43,Orionide,horas,,no lo dice ninguna fuente consultada: Ventos 18520; IFF 403; TGSC no accesible (403),
+43,Orionide,fuerza,,no lo dice ninguna fuente consultada: Ventos 18520; IFF 403; TGSC no accesible (403),
+43,Orionide,dosis,,no lo dice ninguna fuente consultada: Ventos 18520; IFF 403; TGSC no accesible (403),
+43,Orionide,estado,Clear mobile liquid,"Ventos, https://www.ventos.com/en/producto/18520/ORIONIDE%E2%84%A2+OLIFFAC+IFF/ORIONIDE%E2%84%A2+OLIFFAC+I: «Clear mobile liquid»",color «Colorless to pale yellow.»
+43,Orionide,olor,"Musk, creamy, floral","Ventos, https://www.ventos.com/en/producto/18520/ORIONIDE%E2%84%A2+OLIFFAC+IFF/ORIONIDE%E2%84%A2+OLIFFAC+I: «Musk, creamy, floral»",
+43,Orionide,tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
+44,Isolongifolene,nombre,Isolongifolene,"Made-in-China (megawide, comerciante), https://megawidechem.en.made-in-china.com/product/LQyrwGtPOWcp/China-Isolongifolene-CAS-1135-66-6-for-Synthetic-Perfume.html: «Isolongifolene CAS 1135-66-6 for Synthetic Perfume»","CAS coincide; fuente débil (comerciante chino, no casa de perfumería); no hay segunda referencia"
+44,Isolongifolene,nombre,,"Ventos, https://www.ventos.com/en/producto/5152/ISOLONGIFOLANONE: «ISOLONGIFOLANONE»","otro CAS: 23787-90-8 (Ventos); isolongifolanone es otra molécula (cetona), no el isolongifolene (hidrocarburo, 1135-66-6)"
+44,Isolongifolene,casa,,no lo dice ninguna fuente consultada: Made-in-China megawide; Ventos 5152 (otro CAS); TGSC no accesible (403),
+44,Isolongifolene,familia,,no lo dice ninguna fuente consultada: Made-in-China megawide; Ventos 5152 (otro CAS); TGSC no accesible (403),
+44,Isolongifolene,nivel,,no lo dice ninguna fuente consultada: Made-in-China megawide; Ventos 5152 (otro CAS); TGSC no accesible (403),
+44,Isolongifolene,horas,,no lo dice ninguna fuente consultada: Made-in-China megawide; Ventos 5152 (otro CAS); TGSC no accesible (403),
+44,Isolongifolene,fuerza,,no lo dice ninguna fuente consultada: Made-in-China megawide; Ventos 5152 (otro CAS); TGSC no accesible (403),
+44,Isolongifolene,dosis,,no lo dice ninguna fuente consultada: Made-in-China megawide; Ventos 5152 (otro CAS); TGSC no accesible (403),
+44,Isolongifolene,estado,"colorless to light yellow, clear oily liquid","Made-in-China (megawide, comerciante), https://megawidechem.en.made-in-china.com/product/LQyrwGtPOWcp/China-Isolongifolene-CAS-1135-66-6-for-Synthetic-Perfume.html: «Transparent Oily Liquid: Features a clear, transparent oily liquid appearance ranging from colorless to light yellow.»",comerciante
+44,Isolongifolene,olor,Woody and Amber,"Made-in-China (megawide, comerciante), https://megawidechem.en.made-in-china.com/product/LQyrwGtPOWcp/China-Isolongifolene-CAS-1135-66-6-for-Synthetic-Perfume.html: «Woody and Amber Odor: Provides distinct woody and amber scents ideal for fragrances and cosmetics.»",comerciante
+44,Isolongifolene,olor,,"Ventos, https://www.ventos.com/en/producto/5152/ISOLONGIFOLANONE: «Dry,woody,earthy,patchouli,camphor»",otro CAS: isolongifolanone 23787-90-8; no vale para isolongifolene
+44,Isolongifolene,tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
+45,Ambrocenide,nombre,Ambrocenide Crystals,"Fraterworks, https://fraterworks.com/products/ambrocenide-10-dpg: «CAS: 211299-54-6»","CAS coincide; Fraterworks es revendedor (la URL es la del 10 % DPG, pero el texto describe los cristales)"
+45,Ambrocenide,nombre,AMBROCENIDE 10% DPG SYMRISE,"Ventos, https://www.ventos.com/index.php/en/producto/3655/AMBROCENIDE+10%25+DPG+SYMRISE: «211299-54-6»",CAS coincide; diluido al 10 % en DPG; Ventos es distribuidor
+45,Ambrocenide,casa,Symrise,"Ventos, https://www.ventos.com/index.php/en/producto/3655/AMBROCENIDE+10%25+DPG+SYMRISE: «AMBROCENIDE 10% DPG SYMRISE»","la casa solo aparece en el nombre del producto; Fraterworks nombra a Ventos como proveedor, no a Symrise"
+45,Ambrocenide,familia,Woody,"Fraterworks, https://fraterworks.com/products/ambrocenide-10-dpg: «Odour Family Woody»",
+45,Ambrocenide,nivel,Base Note,"Fraterworks, https://fraterworks.com/products/ambrocenide-10-dpg: «Classification: Base Note»",
+45,Ambrocenide,horas,> 400 hours,"Fraterworks, https://fraterworks.com/products/ambrocenide-10-dpg: «Lasts > 400 hours on a smelling strip.»",
+45,Ambrocenide,fuerza,,no lo dice ninguna fuente consultada: Fraterworks ambrocenide-10-dpg; Ventos 3655; TGSC no accesible (403),
+45,Ambrocenide,estado,White Crystals,"Fraterworks, https://fraterworks.com/products/ambrocenide-10-dpg: «White Crystals»",
+45,Ambrocenide,dosis,,no lo dice ninguna fuente consultada: Fraterworks ambrocenide-10-dpg; Ventos 3655; TGSC no accesible (403),
+45,Ambrocenide,olor,"an exceptionally powerful, radiant woody-amber signature with distinctive musky facets, dry ambergris-like character, and sparkling brightness","Fraterworks, https://fraterworks.com/products/ambrocenide-10-dpg: «Ambrocenide delivers an exceptionally powerful, radiant woody-amber signature with distinctive musky facets, dry ambergris-like character, and sparkling brightness that permeates from top to base like an ""elegant shimmering dagger.""»",
+45,Ambrocenide,olor,Amber,"Ventos, https://www.ventos.com/index.php/en/producto/3655/AMBROCENIDE+10%25+DPG+SYMRISE: «Amber»",diluido al 10 % en DPG
+45,Ambrocenide,tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
