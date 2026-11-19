@@ -1,0 +1,13 @@
+n,nombre,campo,valor,fuente,nota
+21,"Hyraceum (Africa stone), absolute",dosis,diluir al 5% o 1%,"Maese Lab, https://maeselab.com/abs-hyraceum-piedra-de-africa/: «Muy potente. Aconsejo diluir al 5% o 1% para dar un toque animal y sexual a las composiciones»",es una dilución recomendada para el absoluto; la frase no dice la base (% en el concentrado o en el acabado)
+21,"Hyraceum (Africa stone), absolute",horas,,"no lo dice ninguna fuente consultada: Maese Lab (abs-hyraceum-piedra-de-africa); Fraterworks hyraceum-signature-absolute (400 h, pero es otro producto: «This product is diluted to 40% in DPG»)","diluido al 40 % en DPG, no vale para horas"
+22,Isobutyl acetate,casa,,"no lo dice ninguna fuente consultada: búsqueda web (Brenntag, Parchem, Knowde/Jayshree, SRS, ChemicalBook) sin página de casa que declare fabricante",solo distribuidores; ninguno nombra a Givaudan ni IFF
+23,Suederal,cas,,"no lo dice ninguna fuente consultada: Olfatorium (suederal), Fraterworks (suederal)","la ficha de Olfatorium habla de una base de IFF dominada por ésteres metílicos de colofonia hidrogenada, pero no da CAS; no se deduce"
+23,Suederal,especie,,"no lo dice ninguna fuente consultada: Olfatorium (suederal), Fraterworks (suederal)",es base de IFF; la página no da especie
+24,2-Hydroxybenzaldehyde,horas,,no lo dice ninguna fuente consultada: Perfumiarz (2-hydroxybenzaldehyde); Fraterworks sin ficha de salicylaldehyde,la página de Perfumiarz es del 10 % en IPM y no da horas
+25,Aldambre,horas,,"no lo dice ninguna fuente consultada: Perfumiarz (aldambre), Fraterworks (aldambre), Premiere Peau (aldambre)","Fraterworks da fuerza 4/10 y Premiere Peau evolución, no horas"
+26,Auranone,horas,,no lo dice ninguna fuente consultada: Perfumiarz (auranone%C2%AE),"Perfumiarz da Firmenich como casa y fuerza 7/10, sin horas; no hay ficha de Fraterworks"
+27,Black Agar 296985,horas,,no lo dice ninguna fuente consultada: Perfumiarz (black-agar-296985),"otro producto: Fraterworks da más de 360 h para Black Agar Givco 215/2, de Givaudan; no vale para la base de Firmenich"
+28,"Chinese cedarwood, essential oil",dosis,,no lo dice ninguna fuente consultada: Maese Lab (aceite-esencial-de-cedro-chino-100-natural),la página solo da usos en difusor y precauciones
+29,Manzanate,dosis,median of 0.027% of the concentrate,"Fraterworks, https://fraterworks.com/products/manzanate: «analysed, at a median of 0.027% of the concentrate.»","Maese Lab (manzanate) no da dosis; mediana observada en perfumes analizados por Fraterworks, CAS 39255-32-8 coincide"
+30,Orris Givco,fuerza,8/10,"Perfumiarz, https://perfumiarz.com/products/orris-givco: «8/10»",la ficha es de «Orris Givco» (Givaudan) sin 204/2/20; Fraterworks da el 204/20 sin fuerza

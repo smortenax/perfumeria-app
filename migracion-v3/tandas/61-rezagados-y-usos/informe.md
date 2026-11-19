@@ -1,12 +1,12 @@
 # Tanda 61 · Los rezagados y el uso habitual de las altas del 18-nov
 
-*Generada por `migracion-v3/tanda-61-rezagados-y-usos.ts` sobre lo común de `bd37f86`, desde `migracion-v3/web/info-61/`. Reescribe `materials.csv`, `material_doses.csv` y `material_descriptors.csv` enteros: solo llena campos vacíos y añade filas; nada que ya tuviera valor cambia. Sin aprobar.*
+*Generada por `migracion-v3/tanda-61-rezagados-y-usos.ts` sobre lo común de `162ed8f`, desde `migracion-v3/web/info-61/`. Reescribe `materials.csv`, `material_doses.csv` y `material_descriptors.csv` enteros: solo llena campos vacíos y añade filas; nada que ya tuviera valor cambia. Sin aprobar.*
 
 **Por qué:** el usuario, 2026-11-19: «si sigue con la 2 y acepta las dosis de otras referencias» (V3-105).
 
 **Cómo:** lectores Sonnet de uno en uno, por lotes de 10, leyendo cada página con `pagina.py` (la página se guarda y se lee su texto, no un resumen). **`consolidar.py` comprueba que cada frase citada está en la página guardada:** la que no está no entra (lista en `no-usado-61.csv` y en las notas). Familia, horas y fuerza, con las reglas de las tandas 46 y 60 (orden de referencias; si no coinciden, va la primera y el campo queda disputado). El uso, por V3-105: una fila por referencia (como mucho tres), con su base si la frase la dice; un rango da mínimo y máximo, una mediana de Fraterworks da el típico. El uso de un material diluido o de otra tintura no cuenta.
 
-**Resultado:** 3 campos llenos en 12 de 77 materiales; 13 usos habituales en 10 materiales; 0 descriptores; 1 campos disputados; 4 lecturas no usadas.
+**Resultado:** 3 campos llenos en 13 de 77 materiales; 14 usos habituales en 11 materiales; 0 descriptores; 1 campos disputados; 5 lecturas no usadas.
 
 **Lo que no se buscó** (no aplica): el CAS de las bases (son mezclas) y la casa de las moléculas genéricas compradas en Maese Lab u Olfatorium, que no la nombran (bencilo, linalol, aldehídos…).
 
@@ -42,7 +42,7 @@
 | 26 | Auranone | horas | — |
 | 27 | Black Agar 296985 | horas | — |
 | 28 | Chinese cedarwood, essential oil | dosis | — |
-| 29 | Manzanate | dosis | — |
+| 29 | Manzanate | dosis | uso typical 0.027 % (concentrate) |
 | 30 | Orris Givco | fuerza | — |
 | 31 | Shangralide | dosis | — |
 | 32 | Tonka bean (seeds), commercial tincture | horas | — |
