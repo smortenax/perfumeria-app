@@ -1,12 +1,12 @@
 # Tanda 61 · Los rezagados y el uso habitual de las altas del 18-nov
 
-*Generada por `migracion-v3/tanda-61-rezagados-y-usos.ts` sobre lo común de `a91bc1a`, desde `migracion-v3/web/info-61/`. Reescribe `materials.csv`, `material_doses.csv` y `material_descriptors.csv` enteros: solo llena campos vacíos y añade filas; nada que ya tuviera valor cambia. Sin aprobar.*
+*Generada por `migracion-v3/tanda-61-rezagados-y-usos.ts` sobre lo común de `1bfc97a`, desde `migracion-v3/web/info-61/`. Reescribe `materials.csv`, `material_doses.csv` y `material_descriptors.csv` enteros: solo llena campos vacíos y añade filas; nada que ya tuviera valor cambia. Sin aprobar.*
 
 **Por qué:** el usuario, 2026-11-19: «si sigue con la 2 y acepta las dosis de otras referencias» (V3-105).
 
 **Cómo:** lectores Sonnet de uno en uno, por lotes de 10, leyendo cada página con `pagina.py` (la página se guarda y se lee su texto, no un resumen). **`consolidar.py` comprueba que cada frase citada está en la página guardada:** la que no está no entra (lista en `no-usado-61.csv` y en las notas). Familia, horas y fuerza, con las reglas de las tandas 46 y 60 (orden de referencias; si no coinciden, va la primera y el campo queda disputado). El uso, por V3-105: una fila por referencia (como mucho tres), con su base si la frase la dice; un rango da mínimo y máximo, una mediana de Fraterworks da el típico. El uso de un material diluido o de otra tintura no cuenta.
 
-**Resultado:** 3 campos llenos en 16 de 77 materiales; 18 usos habituales en 14 materiales; 0 descriptores; 1 campos disputados; 9 lecturas no usadas.
+**Resultado:** 3 campos llenos en 17 de 77 materiales; 19 usos habituales en 15 materiales; 0 descriptores; 1 campos disputados; 13 lecturas no usadas.
 
 **Lo que no se buscó** (no aplica): el CAS de las bases (son mezclas) y la casa de las moléculas genéricas compradas en Maese Lab u Olfatorium, que no la nombran (bencilo, linalol, aldehídos…).
 
@@ -59,7 +59,7 @@
 | 43 | 2-Methylpyrazine | dosis | — |
 | 44 | Gamma-valerolactone | dosis | — |
 | 45 | Hydroxyambran | dosis | — |
-| 46 | Thujopsene | dosis | — |
+| 46 | Thujopsene | dosis | uso typical 0.239 % (concentrate) |
 | 47 | Isolongifolene | dosis | — |
 | 48 | Wool, absolute | dosis | — |
 | 49 | Hercolyn DW (methyl hydrogenated rosinate) | dosis | — |

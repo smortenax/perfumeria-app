@@ -20,7 +20,7 @@ sys.path.insert(0, str(HERE))
 from normalizar import choose, rank, site  # noqa: E402
 from pagina import fetch, normal, text_of  # noqa: E402
 
-OTHER = re.compile(r"otro CAS|CAS de la página \S+,? no|no coincide|otra especie|otro proceso|otra parte|otro grado|otro producto|otra forma|parecido|no idéntic", re.I)
+OTHER = re.compile(r"otro CAS|CAS de la página \S+,? no|no coincide|otra especie|otro proceso|otra parte|otro grado|otro producto|otra forma|parecido|no idéntic|no DW", re.I)
 DILUTED = re.compile(r"diluid|al \d+ ?% en (dpg|ipm|tec|alcohol|etanol)|\d+ ?% en (dpg|ipm|tec|alcohol|etanol)|tintura al|tincture \d+ ?%|\d+ ?% tincture", re.I)
 QUOTE = re.compile(r"«(.+?)»", re.S)
 

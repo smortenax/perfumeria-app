@@ -44,7 +44,7 @@ n,id,nombre,buscar,family,family_fuente,family_disputado,family_otras,tenacity_h
 43,60324cfe-b04c-5a1c-9689-a96a91de13eb,2-Methylpyrazine,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
 44,6516cf5b-3df4-5266-af42-958e67aff470,Gamma-valerolactone,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
 45,6b56b04f-80b4-574f-b56b-e3dd88de9ff5,Hydroxyambran,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
-46,7f2906ae-e37c-58af-b4a5-250109cfded4,Thujopsene,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+46,7f2906ae-e37c-58af-b4a5-250109cfded4,Thujopsene,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
 47,811d294d-778b-5ab8-8bef-e6217220fa9f,Isolongifolene,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
 48,82060fb3-11cd-5397-b056-eb7ae2b01fec,"Wool, absolute",dosis,,,,,,,,,,,,,,,,,,,,,,[],0
 49,82d018be-8ddc-5d7a-91fa-c3160cc39cf5,Hercolyn DW (methyl hydrogenated rosinate),dosis,,,,,,,,,,,,,,,,,,,,,,[],0
