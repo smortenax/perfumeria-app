@@ -18,7 +18,7 @@ sys.path.insert(0, str(HERE.parent / "completar-comunes"))
 from normalizar import FIELD, choose, site, rank  # noqa: E402
 
 OUT = HERE / "propuesta-60.csv"
-OTHER = re.compile(r"otro CAS|CAS de la página \S+,? no|no coincide|otra especie|otro proceso|otra parte|otro grado|otro producto", re.I)
+OTHER = re.compile(r"otro CAS|CAS de la página \S+,? no|no coincide|otra especie|otro proceso|otra parte|otro grado|otro producto|parecido|no idéntic", re.I)
 # Lo que no es una frase copiada de la página: reconstruida, resumida o generada por IA (aviso del lector).
 NOT_LITERAL = re.compile(r"verificar|reconstruid|resumen|\bIA\b|generad[ao] por|generative|AI-generated", re.I)
 
