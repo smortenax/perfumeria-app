@@ -1,6 +1,6 @@
 # Tanda 60 · La línea de información de las altas del 18-nov
 
-*Generada por `migracion-v3/tanda-60-info-altas-18-nov.ts` sobre lo común de `5725fa3` (con la tanda 57 ya aprobada), desde `migracion-v3/web/info-18-nov/`. Escribe `v3/datos/materials.csv`, `material_doses.csv`, `material_descriptors.csv` y `material_components.csv` enteros: solo llena campos vacíos y añade filas; nada que ya tuviera valor cambia. Sin aprobar.*
+*Generada por `migracion-v3/tanda-60-info-altas-18-nov.ts` sobre lo común de `36558d0` (con la tanda 57 ya aprobada), desde `migracion-v3/web/info-18-nov/`. Escribe `v3/datos/materials.csv`, `material_doses.csv`, `material_descriptors.csv` y `material_components.csv` enteros: solo llena campos vacíos y añade filas; nada que ya tuviera valor cambia. Sin aprobar.*
 
 **Por qué:** el usuario, 2026-11-19: «Apruebo 57, 58 y 59, empieza la línea de información» y «empieza el thread separado de la info». Los 44 comunes de la tanda 57 entraron a medias (sin familia, duración, dosis, composición, descriptores ni impacto).
 
@@ -9,7 +9,7 @@
 - **La ficha:** para cada material se leyeron hasta tres páginas de referencia (TGSC primero y una independiente: la casa, Fraterworks, Perfumer's Apprentice…; `migracion-v3/web/info-18-nov/web-60-*.csv`, con la frase literal) y PerfuMate en local. `consolidar.py` elige con las reglas de las tandas 46 y 47: orden de referencias y, si no coinciden, va la primera y el campo queda disputado. Una página de otro CAS, otra especie u otro proceso no cuenta. **El impacto**, solo de PerfuMate y cuando es el mismo material (V3-97): una molécula por su CAS; un natural o una base, por nombre y casa. La descripción de olor de Perfumiarz («Zapach: …», en polaco) entra como descriptor, citada.
 - **La composición:** `bajar.py` baja los documentos del fabricante que enlaza cada página de Perfumiarz (SDS, IFRA, alérgenos, CoA; no se guardan en Git) y `extraer.py` lee sus cifras por script, con la página y la línea literal (`migracion-v3/web/info-18-nov/documentos.csv`). Entran como literatura (documento del fabricante, no del frasco comprado, como en las tandas 29 y 51): la app dirá «acotado», nunca «dentro». Si un alérgeno sale en la declaración y en la SDS, va la cifra de la declaración.
 
-**Resultado:** 93 campos llenos; 0 usos habituales; 75 descriptores; 60 constituyentes en 7 materiales; 7 campos disputados.
+**Resultado:** 97 campos llenos; 0 usos habituales; 88 descriptores; 60 constituyentes en 7 materiales; 13 campos disputados.
 
 **Para mirar antes de aprobar:**
 
@@ -30,12 +30,12 @@
 | 21 | Delta-decalactone | family = fruity; tenacity_hours = 100; strength = very_high; impact = 6 | — | — |
 | 51 | Trisamber | family = woody; impact = 8 | — | tenacity_hours, strength, cas |
 | 28 | Velvione | family = animal; tenacity_hours = 720 (disputado); impact = 5 | — | strength |
-| 45 | Ambrocenide | family = animal; impact = 10 | — | tenacity_hours, strength |
+| 45 | Ambrocenide | family = woody (disputado); tenacity_hours = 400; impact = 10 | — | strength |
 | 34 | Frankincense (Boswellia carterii), essential oil | family = spicy | — | tenacity_hours, strength, impact |
 | 3 | Frangipani Bold Base (Moellhausen) | — | 16 | family, tenacity_hours, strength, impact |
 | 1 | 2-Methylpyrazine | family = transformed; strength = high; impact = 6 | — | tenacity_hours |
 | 36 | Gamma-valerolactone | family = gourmand; impact = 4 | — | tenacity_hours, strength |
-| 40 | Hydroxyambran | family = animal; impact = 4 | — | tenacity_hours, strength |
+| 40 | Hydroxyambran | family = woody (disputado); tenacity_hours = 336; impact = 4 | — | strength |
 | 31 | Thujopsene | family = woody; tenacity_hours = 24; impact = 3 | 8 | strength |
 | 44 | Isolongifolene | — | — | family, tenacity_hours, strength, impact, house |
 | 27 | Veraspice | family = spicy; tenacity_hours = 48; impact = 7 | — | strength |
@@ -56,13 +56,13 @@
 | 7 | Bornyl acetate | family = green (disputado); tenacity_hours = 8; impact = 5 | — | strength |
 | 14 | Hot Milk Bold Base (Moellhausen) | — | — | family, tenacity_hours, strength, impact |
 | 23 | Oxyoctaline formate | family = woody; tenacity_hours = 360; impact = 6 | — | strength |
-| 39 | Ethyl linalool | family = green; tenacity_hours = 12; impact = 5 | 1 | strength |
+| 39 | Ethyl linalool | family = floral (disputado); tenacity_hours = 30 (disputado); impact = 5 | 1 | strength |
 | 20 | Scentolide | family = animal; tenacity_hours = 240; strength = high; impact = 5 (disputado) | — | — |
 | 41 | Cinnamalva (cinnamyl nitrile) | — | — | family, tenacity_hours, strength, impact |
 | 42 | Ethyl pelargonate | family = fruity; tenacity_hours = 12; impact = 4 | — | strength |
 | 50 | Ysamber K | family = animal; impact = 7 | — | tenacity_hours, strength |
 | 38 | Fructalate | family = fruity; impact = 5 | — | tenacity_hours, strength |
-| 43 | Orionide | family = animal; impact = 7 | — | tenacity_hours, strength, house, cas |
+| 43 | Orionide | family = animal; physical_state = Clear mobile liquid; impact = 7; house = IFF | — | tenacity_hours, strength, cas |
 | 49 | Cocoa thiazole (trimethylthiazole) | family = green; impact = 8 | — | tenacity_hours, strength |
 
 ## Disputados
@@ -70,11 +70,17 @@
 | Material | Campo | Va | Otras referencias |
 |---|---|---|---|
 | Velvione | tenacity_hours | 720 | PerfumersWorld: 200; PerfuMate: 199 |
+| Ambrocenide | family | woody | PerfuMate: animal |
+| Hydroxyambran | family | woody | PerfuMate: animal |
+| Hydroxyambran | house | Ventos (se queda) | Fraterworks, https://fraterworks.com/products/hydroxyambran: «Fraterworks® is strictly a reseller of this product and is neither an agent nor official distributor for Miltitz» (la tanda 57 puso «Ventos», de Perfumiarz) |
 | Hercolyn DW (methyl hydrogenated rosinate) | house | Ventos (se queda) | Fraterworks, https://fraterworks.com/products/hercolyn-dw: «Firmenich» (la tanda 57 puso «Ventos», de Perfumiarz) |
 | Jasmal | tenacity_hours | 350 | PerfuMate: 30 |
 | Ambrostar | family | animal | PerfuMate: woody |
 | Matcha Ketone | family | spicy | scent.vn: fruity |
 | Bornyl acetate | family | green | Parchem: gourmand |
+| Ethyl linalool | family | floral | PerfuMate: green |
+| Ethyl linalool | tenacity_hours | 30 | PerfuMate: 12 |
+| Ethyl linalool | house | Givaudan (se queda) | Ventos, https://www.ventos.com/index.php/en/producto/4972: «ETHYL LINALOOL BASF» (la tanda 57 puso «Givaudan», de Perfumiarz) |
 | Scentolide | impact | 5 | PerfuMate Sublimolide: 6 |
 
 ## Documentos que no se usan
