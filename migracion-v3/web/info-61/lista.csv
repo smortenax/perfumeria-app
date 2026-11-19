@@ -1,0 +1,70 @@
+n,material_id,nombre,tipo,forma,cas,especie,proveedor,producto,url_producto,buscar,parte
+1,bead932d-eeb3-539d-bdb0-bfea834b56ac,4-Propylphenol,molecule,,645-56-7,,Harrison Joseph,,,casa dosis horas fuerza,rezagado
+2,88b33f5f-bc67-58d8-a0c2-c0be338762b0,Methyl linolenate,molecule,,7361-80-0,,Harrison Joseph,,,familia casa horas olor,rezagado
+3,e8146902-46ac-59a2-8513-18567b6a1e55,Thialdine,molecule,,638-17-5,,Harrison Joseph,,,casa dosis horas fuerza,rezagado
+4,0df7a786-5996-512d-bb47-f5369bc0b603,"Villous cardamom, tincture",natural,tincture,,Amomum villosum,Maese Lab,Tintura de cardamomo villoso,,cas familia dosis horas fuerza,rezagado
+5,dc039041-25a9-5729-8e46-5ddf03fae94d,"Honey, aromatic essence",composition,compound essence,,,Maese Lab,Esencia Aromática de Miel (Miel Olimpus),https://maeselab.com/esencia-aromatica-de-miel/,dosis horas fuerza,rezagado
+6,8de08292-2c2d-59c5-859e-2090f26df287,Narcisse Oxyacetate,molecule,,67028-40-4,,Harrison Joseph,,,casa horas fuerza,rezagado
+7,4352551b-fca9-5d6a-8bf5-c175015da6e3,Phenylethyl Mercaptan,molecule,,4410-99-5,,Harrison Joseph,,,casa dosis horas,rezagado
+8,41a1db79-71d5-5a84-8732-4334c81fb21e,Truffle essence,composition,compound essence,,,Maese Lab,Esencia aromática de Trufa,https://maeselab.com/esencia-aromatica-de-trufa/,familia horas fuerza,rezagado
+9,5da0738b-c7ba-54a5-af01-386a3f8e0e0f,1-Octen-3-one Stabilised,molecule,,4312-99-6,,Harrison Joseph,,,casa horas,rezagado
+10,f651a9e1-1f05-579f-8a87-5c9b717fe203,"Ambergris, commercial tincture (purified)",natural,tincture,84836-94-2,"Physeter macrocephalus (sperm whale) (Premiere Peau); Maese Lab does not name the animal, only «Parte Utilizada: Secreción Orgánica»",Maese Lab,Tintura de ámbar gris purificada,,cas dosis horas,rezagado
+11,f5d717d2-a948-5705-8b66-1a9b62450fe7,Cypriol / Nagarmotha EO,natural,,68916-60-9,Cyperus scariosus,Harrison Joseph,,,dosis horas,rezagado
+12,e3577dfe-1f2c-5929-90c7-ee935c2b88d4,Rose Crystals,molecule,,90-17-5,,Harrison Joseph,,,casa horas,rezagado
+13,b29f1fc2-79ee-5894-9276-40c2d1796884,Vinyl Sulfurol,molecule,,1759-28-0,,Harrison Joseph,,,casa horas,rezagado
+14,f7a96966-533f-5a38-9500-d49e5be6a93d,"3,4-Xylenol",molecule,,95-65-8,,Perfumiarz,"3,4-Xylenol 10% (IPM)",https://perfumiarz.com/products/3-4-xylenol-10-ipm,dosis horas,rezagado
+15,c833332c-de03-50d6-9703-c7c8eddbb59e,Alpha-hexyl cinnamic aldehyde,molecule,,101-86-0,,Maese Lab,Aldehido alfa hexil cinamico,https://maeselab.com/aldehido-alfa-hexil-cinamico/,dosis,rezagado
+16,7345c296-c9d6-552a-938e-9a4cd7295776,"Ambrette, tincture",natural,tincture,977017-78-9,Abelmoschus moschatus,Maese Lab,Tintura de ambreta (ambretta),,dosis horas,rezagado
+17,740512a1-0aed-5035-912c-2dcdb89a9291,Cumin Nitrile,molecule,,13816-33-6,,Harrison Joseph,,,casa,rezagado
+18,e035f8a6-1eb5-5d37-ac18-e207ba77750e,Dewfruit TEC,composition,base,,,Perfumiarz (muestra),Dewfruit TEC AB 2927R/3,https://perfumiarz.com/products/dewfruit-tec-ab-2927r-3,horas,rezagado
+19,cf11e7c9-da38-556e-a70b-dde88eba5d29,Ethyl decanoate,molecule,,110-38-3,,Harrison Joseph,,,casa,rezagado
+20,22845271-91e5-51d8-818e-1bb6c4c4094f,"Green cardamom, tincture",natural,tincture,85940-32-5,Elettaria cardamomum L.,Maese Lab,Tintura de cardamomo verde,,dosis horas,rezagado
+21,7e8265a2-c890-5476-a722-23ed3282820f,"Hyraceum (Africa stone), absolute",natural,absolute,1005328-84-6,Procavia capensis,Maese Lab,ABS. Hyraceum (Piedra de África),https://maeselab.com/abs-hyraceum-piedra-de-africa/,dosis horas,rezagado
+22,5ba9489c-e34e-5ef4-a6f2-d9ea79edc81b,Isobutyl acetate,molecule,,110-19-0,,Harrison Joseph,,,casa,rezagado
+23,7b46db90-485c-5a1f-ac65-a944fb216beb,Suederal,natural,semi-synthetic,,,Olfatorium,Suederal,https://olfatorium.com/tienda/perfil-olfativo/cuero/suederal/,cas especie,rezagado
+24,aa83f1f1-92a9-5f1d-b9a8-83f3dca795bc,2-Hydroxybenzaldehyde,molecule,,90-02-8,,Perfumiarz,2-hydroxybenzaldehyde 10% (IPM),https://perfumiarz.com/products/2-hydroxybenzaldehyde,horas,rezagado
+25,c1a357df-e7de-54cf-bdfb-9b3c79000814,Aldambre,molecule,,1725-03-7,,Perfumiarz,Aldambre,https://perfumiarz.com/products/aldambre,horas,rezagado
+26,e885d87e-90c3-5be4-bf02-87abf93d2fc9,Auranone,composition,base,,,Perfumiarz,Auranone®,https://perfumiarz.com/products/auranone®,horas,rezagado
+27,eba059ae-a78a-53ba-9364-490848cf0f2a,Black Agar 296985,composition,base,,,Perfumiarz,Black Agar 296985,https://perfumiarz.com/products/black-agar-296985,horas,rezagado
+28,924d227f-c444-58f1-9d4a-229a950e2476,"Chinese cedarwood, essential oil",natural,essential oil,85085-29-6,"Cupressus funebris Endl. (ScenTree, Scent.vn). An article (J. Essential Oil Res. 2008, via search engine) questions that the commercial «chino» oil is solely from that species: it is probably a mixture of several Cupressaceae, with β-biotol and β-biotone markers that suggest Platycladus orientalis wood.",Maese Lab,Aceite Esencial de Cedro Chino - 100% natural,https://maeselab.com/aceite-esencial-de-cedro-chino-100-natural/,dosis,rezagado
+29,2af343c4-8fcb-54b8-9686-55d59df82860,Manzanate,molecule,,39255-32-8,,Maese Lab,MANZANATE,https://maeselab.com/manzanate/,dosis,rezagado
+30,1d34571f-3db7-5d74-8563-941ae683219b,Orris Givco,composition,base,,,Perfumiarz,Orris Givco® 204/2/20,,fuerza,rezagado
+31,c6123c69-30e9-56db-b0ae-abe74150427f,Shangralide,composition,base,,,Perfumiarz,Shangralide Oliffac 0712,,dosis,rezagado
+32,bd30c4f7-e2fd-5091-9fad-bd8e9fd565b6,"Tonka bean (seeds), commercial tincture",natural,tincture,90028-06-1,Dipteryx odorata (according to the Maese Lab description),Maese Lab,Haba tonka semillas Perfumería — capturas de su ficha: [ficha técnica](media/2026-09-18-haba-tonka-ficha-tecnica-maeselab.png) · [dosificación](media/2026-09-18-haba-tonka-dosificacion-maeselab.png),,horas,rezagado
+33,05a65be3-e5d1-5ff6-8c20-f4d27762c404,Jasmin Floraline 99 (Robertet),composition,base,,,Perfumiarz,,https://perfumiarz.pl/products/jasmin-floraline-99,dosis,dosis 57-60
+34,172c0617-e5e4-5d8f-99d8-b88ef60cd01d,Levistamel,molecule,,675-09-2,,Perfumiarz,,https://perfumiarz.pl/products/levistamel-25-tec,dosis,dosis 57-60
+35,260541db-b76a-5904-a59f-d19666a57626,Pear Bold Base (Moellhausen),composition,base,,,Perfumiarz,,https://perfumiarz.pl/products/pear-bold-base,dosis,dosis 57-60
+36,29456506-21fc-52e3-b7d9-048cd94fb741,Fig Base (PCW),composition,base,,,Perfumiarz,,https://perfumiarz.pl/products/fig-base,dosis,dosis 57-60
+37,300751b7-7572-578d-aee3-5d77dd36ee4f,"Oak wood (chips), CO2 extract",natural,CO2 extract,71011-28-4,,Perfumiarz,,https://perfumiarz.pl/products/oakwood-chip-sfe,dosis,dosis 57-60
+38,32f084b8-39ee-520e-ab28-e4004dee883e,Furfuryl mercaptan,molecule,,98-02-2,,Perfumiarz,,https://perfumiarz.pl/products/furfuryl-mercaptan-1-dpg,dosis,dosis 57-60
+39,409ece8e-4208-5c1a-ade7-f3d503aa6994,Trisamber,molecule,,338735-71-0,,Perfumiarz,,https://perfumiarz.pl/products/trisamber,dosis,dosis 57-60
+40,47577e82-302d-5628-8d47-7bf060a50913,Ambrocenide,molecule,,211299-54-6,,Perfumiarz,,https://perfumiarz.pl/products/ambrocenide-crystals,dosis,dosis 57-60
+41,5d8aa4ac-ec07-5d7f-8a42-8ce7e9b17ec9,"Frankincense (Boswellia carterii), essential oil",natural,essential oil,8016-36-2,Boswellia carterii,Perfumiarz,,https://perfumiarz.pl/products/olibanum-oil-oman,dosis,dosis 57-60
+42,5fdf16ee-32eb-5d24-9b16-116ae94490b2,Frangipani Bold Base (Moellhausen),composition,base,,,Perfumiarz,,https://perfumiarz.pl/products/frangipani-bold-base,dosis,dosis 57-60
+43,60324cfe-b04c-5a1c-9689-a96a91de13eb,2-Methylpyrazine,molecule,,109-08-0,,Perfumiarz,,https://perfumiarz.pl/products/2-methyl-pyrazine,dosis,dosis 57-60
+44,6516cf5b-3df4-5266-af42-958e67aff470,Gamma-valerolactone,molecule,,108-29-2,,Perfumiarz,,https://perfumiarz.pl/products/gamma-valerolactone,dosis,dosis 57-60
+45,6b56b04f-80b4-574f-b56b-e3dd88de9ff5,Hydroxyambran,molecule,,118562-73-5,,Perfumiarz,,https://perfumiarz.pl/products/hydroxyambran,dosis,dosis 57-60
+46,7f2906ae-e37c-58af-b4a5-250109cfded4,Thujopsene,molecule,,470-40-6,,Perfumiarz,,https://perfumiarz.pl/products/thujopsene-natural,dosis,dosis 57-60
+47,811d294d-778b-5ab8-8bef-e6217220fa9f,Isolongifolene,molecule,,1135-66-6,,Perfumiarz,,https://perfumiarz.pl/products/isolongifolene,dosis,dosis 57-60
+48,82060fb3-11cd-5397-b056-eb7ae2b01fec,"Wool, absolute",natural,absolute,91079-01-5,,Perfumiarz,,https://perfumiarz.pl/products/wool-absolute,dosis,dosis 57-60
+49,82d018be-8ddc-5d7a-91fa-c3160cc39cf5,Hercolyn DW (methyl hydrogenated rosinate),molecule,,8050-15-5,,Perfumiarz,,https://perfumiarz.pl/products/hercolyn-dw,dosis,dosis 57-60
+50,97d5ae22-1d38-5e63-87e0-6ef0638cab4e,Ultravanil,molecule,,2563-07-7,,Perfumiarz,,https://perfumiarz.pl/products/ultravanil,dosis,dosis 57-60
+51,a4ff5fda-3038-5073-8059-0869f8500daa,meta-Cresol,molecule,,108-39-4,,Perfumiarz,,https://perfumiarz.pl/products/meta-cresol-10,dosis,dosis 57-60
+52,a63be7f1-b001-561e-a3c6-eecb0c2d56f6,"Yuzu peel, distilled essential oil",natural,essential oil,233683-84-6,Citrus junos,Perfumiarz,,https://perfumiarz.pl/products/yuzu-distilled,dosis,dosis 57-60
+53,ab17b4c1-1997-5231-a6f1-498db99c2780,"Coffee, absolute",natural,absolute,84650-00-0,Coffea arabica,Perfumiarz,,https://perfumiarz.pl/products/coffee-absolute,dosis,dosis 57-60
+54,abb648e9-d683-5fbc-8d33-6c5d1efe2015,Edenolide,molecule,,478695-70-4,,Perfumiarz,,https://perfumiarz.pl/products/edenolide,dosis,dosis 57-60
+55,ad69af61-3863-58ac-9bfc-661e7e4b2cb6,"Ceylon cinnamon (bark), tincture",natural,tincture,84649-98-9,Cinnamomum verum,Maese Lab,,https://maeselab.com/extracto-de-canela-tintura/,dosis,dosis 57-60
+56,b258c5c2-ae73-5849-ae8b-426c01b8fc9b,Matcha Ketone,molecule,,113486-29-6,,Perfumiarz,,https://perfumiarz.pl/products/matcha-ketone-5-tec,dosis,dosis 57-60
+57,b265dcbf-9666-581a-8715-ca9b288e4b60,Muscone,molecule,,541-91-3,,Perfumiarz,,https://perfumiarz.pl/products/muscone,dosis,dosis 57-60
+58,b41c38bf-2ab7-5e93-b2f5-2814d49bbb57,Cuir 17500 (Synarome),composition,base,,,Perfumiarz,,https://perfumiarz.pl/products/cuir-17500,dosis,dosis 57-60
+59,b6807b63-f726-5206-aa22-87163fc2b5de,Bornyl acetate,molecule,,76-49-3,,Perfumiarz,,https://perfumiarz.pl/products/bornyl-acetate,dosis,dosis 57-60
+60,b7542bba-2644-5db2-b866-237c139fed3d,Hot Milk Bold Base (Moellhausen),composition,base,,,Perfumiarz,,https://perfumiarz.pl/products/hot-milk-bold-base,dosis,dosis 57-60
+61,bbddd037-673c-5479-82bf-d1e2e060b652,Oxyoctaline formate,molecule,,65405-72-3,,Perfumiarz,,https://perfumiarz.pl/products/oxyoctaline-formate,dosis,dosis 57-60
+62,c1527260-3df1-5271-9bc6-198192b06bb8,Ethyl linalool,molecule,,10339-55-6,,Perfumiarz,,https://perfumiarz.pl/products/ethyl-linalool,dosis,dosis 57-60
+63,c83db25c-7ab0-5890-a6fb-348251297e72,Scentolide,molecule,,28645-51-4,,Perfumiarz,,https://perfumiarz.pl/products/scentolide,dosis,dosis 57-60
+64,e0b7d24f-3165-5cb5-a37d-3d4f35c6e0a8,Cinnamalva (cinnamyl nitrile),molecule,,1885-38-7,,Perfumiarz,,https://perfumiarz.pl/products/cinnamalva,dosis,dosis 57-60
+65,e81b232b-2c22-56cf-b0d4-7434a5047a9f,Ethyl pelargonate,molecule,,123-29-5,,Perfumiarz,,https://perfumiarz.pl/products/ethyl-pelargonate-5-ml,dosis,dosis 57-60
+66,f131a5bb-c3b9-5de1-bed6-57f5a03352b8,Fructalate,molecule,,72903-27-6,,Perfumiarz,,https://perfumiarz.pl/products/fructalate,dosis,dosis 57-60
+67,f21f161d-c78b-5156-a45d-acdac1c23eed,Orionide,molecule,,,,Perfumiarz,,,dosis,dosis 57-60
+68,f8dded99-d24f-5c36-bcc1-d78fe7410498,Cocoa thiazole (trimethylthiazole),molecule,,13623-11-5,,Perfumiarz,,https://perfumiarz.pl/products/cocoa-thiazole-10-ipm,dosis,dosis 57-60
+69,ee24132e-4024-5efc-8420-9558ecdc672f,Tropicalia,molecule,,10138-32-6,,Perfumiarz,,,dosis,dosis 57-60
