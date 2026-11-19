@@ -19,6 +19,8 @@ from normalizar import FIELD, choose, site, rank  # noqa: E402
 
 OUT = HERE / "propuesta-60.csv"
 OTHER = re.compile(r"otro CAS|CAS de la página \S+,? no|no coincide|otra especie|otro proceso|otra parte|otro grado|otro producto", re.I)
+# Lo que no es una frase copiada de la página: reconstruida, resumida o generada por IA (aviso del lector).
+NOT_LITERAL = re.compile(r"verificar|reconstruid|resumen|\bIA\b|generad[ao] por|generative|AI-generated", re.I)
 
 
 def norm(s):
@@ -59,7 +61,7 @@ out = []
 for x in lista:
     n, m = x["n"], materials[x["id"]]
     shop = fichas.get(n, {})
-    rows = {campo: [r for r in reads.get((n, campo), []) if not OTHER.search(r["nota"])] for campo in
+    rows = {campo: [r for r in reads.get((n, campo), []) if not OTHER.search(r["nota"]) and not NOT_LITERAL.search(r["nota"] + " " + r["fuente"])] for campo in
             ("familia", "nivel", "horas", "fuerza", "estado", "dosis", "olor", "casa", "cas", "tipo", "nombre")}
     pm, why = perfumate(m, shop.get("producto", ""))
     if pm:
@@ -85,6 +87,7 @@ for x in lista:
         row[f + "_regla"] = "ya lo tenía (tanda 57)" if already else regla
     casa = next((r for r in sorted(rows["casa"], key=lambda r: rank(r["fuente"])) if r["valor"].strip()), None)
     row["casa"] = casa["valor"].strip() if casa and not m["house"] else ""
+    row["casa_conflicto"] = f"{casa['fuente']} (la tanda 57 puso «{m['house']}», de Perfumiarz)" if casa and m["house"] and norm(casa["valor"]).split()[0] not in norm(m["house"]) and norm(m["house"]).split()[0] not in norm(casa["valor"]) else ""
     row["casa_fuente"] = casa["fuente"] if casa and not m["house"] else ""
     cas = next((r for r in sorted(rows["cas"], key=lambda r: rank(r["fuente"])) if re.fullmatch(r"\d{2,7}-\d\d-\d", r["valor"].strip())), None)
     row["cas_nuevo"] = cas["valor"].strip() if cas and not m["cas"] else ""
@@ -96,7 +99,7 @@ for x in lista:
     if zap:
         olores.append(["Perfumiarz", zap.group(1).strip(), f"Perfumiarz, {shop['url']}: «Zapach: {zap.group(1).strip()}»"])
     row["olores"] = json.dumps(olores, ensure_ascii=False)
-    row["no_usado"] = "; ".join(f"{r['campo']}: {site(r['fuente'])} ({r['nota']})" for k, v in reads.items() if k[0] == n for r in v if OTHER.search(r["nota"]))
+    row["no_usado"] = "; ".join(f"{r['campo']}: {site(r['fuente'])} ({r['nota']})" for k, v in reads.items() if k[0] == n for r in v if r["valor"].strip() and (OTHER.search(r["nota"]) or NOT_LITERAL.search(r["nota"] + " " + r["fuente"])))
     out.append(row)
 
 with open(OUT, "w", encoding="utf-8", newline="") as f:

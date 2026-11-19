@@ -79,6 +79,12 @@ for (const p of proposal) {
   if (p.impacto) fill(m, p, "impact", p.impacto, p.impacto_fuente, p.impacto_disputado === "si", p.impacto_otras, "PerfuMate has more than one sheet of the same material");
   if (p.casa) fill(m, p, "house", p.casa, p.casa_fuente, false, "", "");
   if (p.cas_nuevo) fill(m, p, "cas", p.cas_nuevo, p.cas_fuente, false, "", "");
+  if (p.casa_conflicto) {
+    // Another reference names another house: the field keeps its value and goes to dispute (the user decides).
+    m.disputed_fields = [...new Set([...listOf(m.disputed_fields), "house"])];
+    m.notes = `${m.notes ? `${m.notes}\n` : ""}Batch ${TANDA}, house in dispute: ${p.casa_conflicto}.`;
+    disputedRows.push(`| ${cell(String(m.name))} | house | ${cell(String(m.house))} (se queda) | ${cell(p.casa_conflicto)} |`);
+  }
   if (p.dose) {
     const [max, basis] = p.dose.split("|");
     newDoses.push({
