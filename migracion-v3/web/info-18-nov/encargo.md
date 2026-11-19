@@ -32,6 +32,13 @@ Escribe el archivo **nada más terminar cada material** (añadiendo filas), no a
 - `olor`: la descripción olfativa, literal.
 - `tipo`: solo para Tropicalia: si es una molécula, una base (mezcla) o un natural.
 
+## Cómo leer una página para citarla literal
+
+WebFetch devuelve un resumen, no el texto: **no cites lo que devuelve WebFetch**. Úsalo, o WebSearch, solo
+para encontrar la URL. Para citar, baja la página con `curl -sL -A "Mozilla/5.0" <url>` y saca su texto
+visible con un script (quitando etiquetas), y copia de ahí la frase. Si una web bloquea curl, no la cites:
+pasa a otra. En la `nota` no hace falta decir cómo la leíste.
+
 ## Reglas (no negociables)
 
 - **La columna `fuente`** es `Sitio, URL: «frase literal copiada de la página»`. La frase entre «» se

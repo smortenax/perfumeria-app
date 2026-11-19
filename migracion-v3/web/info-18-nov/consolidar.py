@@ -21,7 +21,7 @@ from normalizar import FIELD, choose, site, rank  # noqa: E402
 TANDA = sys.argv[1] if len(sys.argv) > 1 else "60"
 DIR = Path(sys.argv[2]).resolve() if len(sys.argv) > 2 else HERE
 OUT = DIR / f"propuesta-{TANDA}.csv"
-OTHER = re.compile(r"otro CAS|CAS de la página \S+,? no|no coincide|otra especie|otro proceso|otra parte|otro grado|otro producto|parecido|no idéntic", re.I)
+OTHER = re.compile(r"otro CAS|CAS de la página \S+,? no|no coincide|otra especie|otro proceso|otra parte|otro grado|otro producto|parecido|no idéntic|orientativ", re.I)
 # Lo que no es una frase copiada de la página: reconstruida, resumida o generada por IA (aviso del lector).
 NOT_LITERAL = re.compile(r"verificar|reconstruid|resumen|\bIA\b|generad[ao] por|generative|AI-generated|WebFetch|^scent\.vn", re.I)
 
@@ -66,7 +66,10 @@ for x in lista:
     # Un alta nueva (Tropicalia, que la tanda 57 dejó en espera): aún no está en lo común.
     m = materials.get(x["id"]) or {"name": x["nombre"], "kind": x["tipo"], "aliases": "[]", "house": "", "cas": "", "tier": "", "physical_state": ""}
     shop = fichas.get(n, {})
-    rows = {campo: [r for r in reads.get((n, campo), []) if not OTHER.search(r["nota"]) and not NOT_LITERAL.search(r["nota"] + " " + r["fuente"]) and not r["fuente"].startswith("scent.vn")] for campo in
+    # En un natural, la especie, la parte y el proceso deciden: otro CAS no lo hace otro material (queda en disputa, abajo).
+    nat = m["kind"] != "molecule"
+    note = lambda r: re.sub(r"CAS de la página [\d-]+,? no coincide[^;)]*", "", r["nota"]) if nat else r["nota"]
+    rows = {campo: [r for r in reads.get((n, campo), []) if not OTHER.search(note(r)) and not NOT_LITERAL.search(r["nota"] + " " + r["fuente"]) and not r["fuente"].startswith("scent.vn")] for campo in
             ("familia", "nivel", "horas", "fuerza", "estado", "dosis", "olor", "casa", "cas", "tipo", "nombre")}
     pm, why = perfumate(m, shop.get("producto", ""))
     if pm:
@@ -98,8 +101,11 @@ for x in lista:
     row["cas_nuevo"] = cas["valor"].strip() if cas and not m["cas"] else ""
     row["cas_fuente"] = cas["fuente"] if cas and not m["cas"] else ""
     # Un natural se identifica por especie, parte y proceso: si la casa da otro CAS, queda en disputa (lo decide el usuario).
-    other_cas = sorted({c for r in reads.get((n, "nombre"), []) for c in re.findall(r"CAS de la página (\d{2,7}-\d\d-\d)", r["nota"]) if m["cas"] and c != m["cas"]})
-    row["cas_conflicto"] = "; ".join(f"{c} ({next(r['fuente'] for r in reads[(n, 'nombre')] if c in r['nota'])})" for c in other_cas) if m["kind"] != "molecule" else ""
+    # Un disolvente no es el CAS del material (etanol, agua, DPG, IPM, TEC, propanodiol).
+    SOLVENTS = {"64-17-5", "7732-18-5", "25265-71-8", "110-27-0", "77-93-0", "504-63-2", "26264-14-2"}
+    named = [r for k, v in reads.items() if k[0] == n for r in v]
+    other_cas = sorted({c for r in named for c in re.findall(r"CAS de la página (\d{2,7}-\d\d-\d)", r["nota"]) if m["cas"] and c != m["cas"] and c not in SOLVENTS})
+    row["cas_conflicto"] = "; ".join(f"{c} ({next(r['fuente'] for r in named if c in r['nota'])})" for c in other_cas) if nat else ""
     row["alta"] = "si" if x["id"] not in materials else ""
     kinds = {r["valor"].strip().lower() for r in rows["tipo"] if r["valor"].strip()}
     row["tipo_web"] = " / ".join(sorted(kinds))
@@ -108,7 +114,7 @@ for x in lista:
     if zap:
         olores.append(["Perfumiarz", zap.group(1).strip(), f"Perfumiarz, {shop['url']}: «Zapach: {zap.group(1).strip()}»"])
     row["olores"] = json.dumps(olores, ensure_ascii=False)
-    row["no_usado"] = "; ".join(f"{r['campo']}: {site(r['fuente'])} ({r['nota']})" for k, v in reads.items() if k[0] == n for r in v if r["valor"].strip() and (OTHER.search(r["nota"]) or NOT_LITERAL.search(r["nota"] + " " + r["fuente"])))
+    row["no_usado"] = "; ".join(f"{r['campo']}: {site(r['fuente'])} ({r['nota']})" for k, v in reads.items() if k[0] == n for r in v if r["valor"].strip() and (OTHER.search(note(r)) or NOT_LITERAL.search(r["nota"] + " " + r["fuente"])))
     out.append(row)
 
 with open(OUT, "w", encoding="utf-8", newline="") as f:
