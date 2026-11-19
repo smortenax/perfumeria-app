@@ -29,7 +29,7 @@ n,id,nombre,buscar,family,family_fuente,family_disputado,family_otras,tenacity_h
 28,924d227f-c444-58f1-9d4a-229a950e2476,"Chinese cedarwood, essential oil",dosis,,,,,,,,,,,,,,,,,,,,,,[],0
 29,2af343c4-8fcb-54b8-9686-55d59df82860,Manzanate,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
 30,1d34571f-3db7-5d74-8563-941ae683219b,Orris Givco,fuerza,,,,,,,,,,,,,,,,,,,,,,[],0
-31,c6123c69-30e9-56db-b0ae-abe74150427f,Shangralide,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+31,c6123c69-30e9-56db-b0ae-abe74150427f,Shangralide,dosis,,,,,,,,,,,,,,,,,,,,,,[],2
 32,bd30c4f7-e2fd-5091-9fad-bd8e9fd565b6,"Tonka bean (seeds), commercial tincture",horas,,,,,,,,,,,,,,,,,,,,,,[],0
 33,05a65be3-e5d1-5ff6-8c20-f4d27762c404,Jasmin Floraline 99 (Robertet),dosis,,,,,,,,,,,,,,,,,,,,,,[],0
 34,172c0617-e5e4-5d8f-99d8-b88ef60cd01d,Levistamel,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
@@ -37,8 +37,8 @@ n,id,nombre,buscar,family,family_fuente,family_disputado,family_otras,tenacity_h
 36,29456506-21fc-52e3-b7d9-048cd94fb741,Fig Base (PCW),dosis,,,,,,,,,,,,,,,,,,,,,,[],0
 37,300751b7-7572-578d-aee3-5d77dd36ee4f,"Oak wood (chips), CO2 extract",dosis,,,,,,,,,,,,,,,,,,,,,,[],0
 38,32f084b8-39ee-520e-ab28-e4004dee883e,Furfuryl mercaptan,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
-39,409ece8e-4208-5c1a-ade7-f3d503aa6994,Trisamber,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
-40,47577e82-302d-5628-8d47-7bf060a50913,Ambrocenide,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+39,409ece8e-4208-5c1a-ade7-f3d503aa6994,Trisamber,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
+40,47577e82-302d-5628-8d47-7bf060a50913,Ambrocenide,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
 41,5d8aa4ac-ec07-5d7f-8a42-8ce7e9b17ec9,"Frankincense (Boswellia carterii), essential oil",dosis,,,,,,,,,,,,,,,,,,,,,,[],0
 42,5fdf16ee-32eb-5d24-9b16-116ae94490b2,Frangipani Bold Base (Moellhausen),dosis,,,,,,,,,,,,,,,,,,,,,,[],0
 43,60324cfe-b04c-5a1c-9689-a96a91de13eb,2-Methylpyrazine,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
