@@ -2,6 +2,7 @@
 completar los 44 comunes de la tanda 57.
 
     python3 -I migracion-v3/web/info-18-nov/consolidar.py   → propuesta-60.csv
+    python3 -I migracion-v3/web/info-18-nov/consolidar.py 61 migracion-v3/web/rezagados   → rezagados/propuesta-61.csv
 
 Las mismas reglas que las tandas 46 y 47 (normalizar.choose): orden de referencias (TGSC, la casa,
 Fraterworks…, PerfuMate la última) y, si no coinciden, va la primera y el campo queda disputado. Una página
@@ -17,7 +18,9 @@ ROOT = HERE.parents[2]
 sys.path.insert(0, str(HERE.parent / "completar-comunes"))
 from normalizar import FIELD, choose, site, rank  # noqa: E402
 
-OUT = HERE / "propuesta-60.csv"
+TANDA = sys.argv[1] if len(sys.argv) > 1 else "60"
+DIR = Path(sys.argv[2]).resolve() if len(sys.argv) > 2 else HERE
+OUT = DIR / f"propuesta-{TANDA}.csv"
 OTHER = re.compile(r"otro CAS|CAS de la página \S+,? no|no coincide|otra especie|otro proceso|otra parte|otro grado|otro producto|parecido|no idéntic", re.I)
 # Lo que no es una frase copiada de la página: reconstruida, resumida o generada por IA (aviso del lector).
 NOT_LITERAL = re.compile(r"verificar|reconstruid|resumen|\bIA\b|generad[ao] por|generative|AI-generated|WebFetch|^scent\.vn", re.I)
@@ -28,11 +31,11 @@ def norm(s):
     return re.sub(r"[^a-z0-9]+", " ", re.sub(r"[®™]", "", s)).strip()
 
 
-lista = list(csv.DictReader(open(HERE / "lista.csv", encoding="utf-8")))
+lista = list(csv.DictReader(open(DIR / "lista.csv", encoding="utf-8")))
 fichas = {r["n"]: r for r in csv.DictReader(open(HERE.parent / "perfumiarz-pedido-18-nov/fichas.csv", encoding="utf-8"))}
 materials = {r["id"]: r for r in csv.DictReader(open(ROOT / "v3/datos/materials.csv", encoding="utf-8"))}
 reads = {}
-for path in sorted(HERE.glob("web-60-*.csv")):
+for path in sorted(DIR.glob(f"web-{TANDA}-*.csv")):
     for r in csv.DictReader(open(path, encoding="utf-8")):
         reads.setdefault((r["n"].strip(), r["campo"].strip()), []).append(r)
 
