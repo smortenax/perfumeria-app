@@ -121,3 +121,5 @@ tanda,fecha,aprobacion,archivo,sha256
 62-rezagados,2026-11-19,"el usuario, 2026-11-19: «Apruebo la 62, fusiona y publica»",material_descriptors.csv,b7751ac08742eb10c80c14c58a651e142f65b6585e6bc0a7f6ce536b6e996005
 62-rezagados,2026-11-19,"el usuario, 2026-11-19: «Apruebo la 62, fusiona y publica»",material_doses.csv,6769fe7fe08c859b2714e00fb53f24ebaccf8e98dedfca68952ac1a677aabbc9
 62-rezagados,2026-11-19,"el usuario, 2026-11-19: «Apruebo la 62, fusiona y publica»",materials.csv,2b0b42db871feecd8ef55bb8357c40fd3da867649e5e50c3dcc24ac52bc1175a
+63-tgsc-pyrfume,2026-11-19,"el usuario, 2026-11-19: «Apruebo la 63, fusiona y publica»",material_descriptors.csv,ebba7dcae19a0b4e8b27efc03bc6910a07b62b87319c94c44cdd6017d1aa25e1
+63-tgsc-pyrfume,2026-11-19,"el usuario, 2026-11-19: «Apruebo la 63, fusiona y publica»",materials.csv,b281f5fc0869e595f80c9fa83452b32c7c329d9d2b86de7dd0cde78c759d2f36
