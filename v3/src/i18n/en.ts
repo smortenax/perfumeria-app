@@ -782,6 +782,8 @@ export const texts = {
       exact: "Exact",
       materialWeighed: "Material weighed",
       made: "Made",
+      archiveColumn: "Archive",
+      archiveRow: (name: string, strength: string, made: string) => `Archive the bottle of ${name}, ${strength}, made ${made} (when it is used up)`,
       tags: "Tags",
       details: "Details",
       factory: "factory",
