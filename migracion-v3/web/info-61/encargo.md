@@ -8,6 +8,16 @@ Lee en la web lo que falta de cada material del lote y escribe **un CSV** en
 Una fila por campo y por referencia. `n` es el número del material en `lista.csv` (repítelo en cada fila).
 Escribe el archivo **nada más terminar cada material** (añadiendo filas), no al final de todo.
 
+## Cómo leer (obligatorio)
+
+- **Para encontrar direcciones**, WebSearch. **Para leer una página, nunca WebFetch** (resume y no deja
+  copiar): usa `python3 -I migracion-v3/web/info-61/pagina.py <url>`, que la baja, la guarda en caché y
+  imprime su texto; con palabras detrás (`pagina.py <url> dose use median`) imprime solo las líneas que
+  las llevan. Copia las frases **de esa salida**, carácter a carácter.
+- La consolidación comprueba que cada frase entre «» está en la página guardada: la que no esté, no
+  entra. Una frase que en la salida va partida en dos líneas se copia unida con un espacio.
+- La URL de la columna `fuente` es exactamente la que pasaste a `pagina.py`.
+
 ## Qué leer
 
 La columna `buscar` de `lista.csv` dice qué campos faltan de cada material: lee **solo esos**.
@@ -18,7 +28,10 @@ La columna `buscar` de `lista.csv` dice qué campos faltan de cada material: lee
    especie, parte y proceso de un natural) es el del material: Fraterworks (fraterworks.com/products/…),
    la página de la casa (Givaudan, Firmenich, IFF, Symrise, Moellhausen, Robertet, Synarome, PCW…),
    Perfumer's Apprentice, Scentspiracy, PerfumersWorld, Premiere Peau, Pell Wall.
-3. Como mucho tres páginas por material. Si una página no carga, prueba otra; no insistas.
+3. **Harrison Joseph:** WebSearch no indexa su web. Sus direcciones están en
+   `migracion-v3/web/info-61/harrison-joseph-urls.txt` (búscalas con `grep -i`); sus páginas dan el CAS y
+   el olor, no la casa, la dosis ni las horas: para eso, las otras referencias, buscando por CAS.
+4. Como mucho tres páginas por material. Si una página no carga, prueba otra; no insistas.
 
 ## Campos (columna `campo`)
 
