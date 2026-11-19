@@ -22,6 +22,8 @@ const chain = (id: string) => {
   return out;
 };
 const first = (c: Row[], k: string) => c.map((m) => (m[k] ?? "").trim()).find((v) => v && v !== "[]") ?? "";
+// The TGSC page number of each molecule, from Pyrfume (pyrfume-63.csv, batch 63): a direct link.
+const tgscId = new Map(read("migracion-v3/web/tgsc/pyrfume-63.csv").filter((r) => r.tgsc_id).map((r) => [r.cas, r.tgsc_id]));
 const LABEL: Record<string, string> = { tenacity: "horas", doses: "uso", strength: "fuerza", family: "familia" };
 const rows = read("migracion-v3/fichas-incompletas/fichas-incompletas.csv")
   .map((r) => ({ r, c: chain(r.material_id), gaps: Object.keys(LABEL).filter((k) => r[`lacks_${k}`] === "yes") }))
@@ -34,7 +36,7 @@ const rows = read("migracion-v3/fichas-incompletas/fichas-incompletas.csv")
     return {
       n: `t${String(i + 1).padStart(2, "0")}`, material_id: common.id, nombre: common.name, tipo: r.kind, cas, proveedor: r.supplier,
       faltan: gaps.map((g) => LABEL[g]).join(", "),
-      buscar_tgsc: `https://www.google.com/search?q=${encodeURIComponent(`site:thegoodscentscompany.com ${q}`)}`,
+      buscar_tgsc: tgscId.has(cas) ? `https://www.thegoodscentscompany.com/data/rw${tgscId.get(cas)}.html` : `https://www.google.com/search?q=${encodeURIComponent(`site:thegoodscentscompany.com ${q}`)}`,
       guardar_como: `paginas/t${String(i + 1).padStart(2, "0")}.html`,
     };
   });
@@ -46,7 +48,7 @@ writeFileSync(
 
 TGSC (The Good Scents Company) devuelve 403 a las lecturas automáticas. Para los ${rows.length} materiales que tienes a los que les falta algo que TGSC suele dar (horas en tira, uso habitual, fuerza o familia):
 
-1. Abre el enlace «buscar» (busca en TGSC por CAS o por nombre) y entra en la ficha de TGSC del material. **Comprueba que el CAS de la ficha es el de la tabla** (en una molécula); en un natural, que la especie y la forma (aceite, absoluto, tintura) son las mismas.
+1. Abre el enlace: «ficha» va directo a la ficha de TGSC (su número sale de Pyrfume, tanda 63); «buscar» busca en TGSC por CAS o por nombre, y de ahí entras en la ficha. **Comprueba que el CAS de la ficha es el de la tabla** (en una molécula); en un natural, que la especie y la forma (aceite, absoluto, tintura) son las mismas.
 2. Guarda la página con Ctrl+S, «Página web, solo HTML», con el nombre de la columna «guardar como» (\`t01.html\`…), en \`migracion-v3/web/tgsc/paginas/\`.
 3. Si TGSC no tiene ficha de ese material, no guardes nada: lo apunto como «TGSC no lo tiene».
 
@@ -54,7 +56,7 @@ Las moléculas van primero: es donde TGSC tiene ficha casi siempre. Las tinturas
 
 | n | Material | Tipo | CAS | Tienda | Falta | Buscar | Guardar como |
 |---|---|---|---|---|---|---|---|
-${rows.map((r) => `| ${r.n} | ${r.nombre} | ${r.tipo} | ${r.cas || "—"} | ${r.proveedor} | ${r.faltan} | [buscar](${r.buscar_tgsc}) | \`${r.guardar_como}\` |`).join("\n")}
+${rows.map((r) => `| ${r.n} | ${r.nombre} | ${r.tipo} | ${r.cas || "—"} | ${r.proveedor} | ${r.faltan} | [${r.buscar_tgsc.includes("/data/rw") ? "ficha" : "buscar"}](${r.buscar_tgsc}) | \`${r.guardar_como}\` |`).join("\n")}
 `,
   "utf8",
 );

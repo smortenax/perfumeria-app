@@ -2,7 +2,7 @@
 
 TGSC (The Good Scents Company) devuelve 403 a las lecturas automáticas. Para los 23 materiales que tienes a los que les falta algo que TGSC suele dar (horas en tira, uso habitual, fuerza o familia):
 
-1. Abre el enlace «buscar» (busca en TGSC por CAS o por nombre) y entra en la ficha de TGSC del material. **Comprueba que el CAS de la ficha es el de la tabla** (en una molécula); en un natural, que la especie y la forma (aceite, absoluto, tintura) son las mismas.
+1. Abre el enlace: «ficha» va directo a la ficha de TGSC (su número sale de Pyrfume, tanda 63); «buscar» busca en TGSC por CAS o por nombre, y de ahí entras en la ficha. **Comprueba que el CAS de la ficha es el de la tabla** (en una molécula); en un natural, que la especie y la forma (aceite, absoluto, tintura) son las mismas.
 2. Guarda la página con Ctrl+S, «Página web, solo HTML», con el nombre de la columna «guardar como» (`t01.html`…), en `migracion-v3/web/tgsc/paginas/`.
 3. Si TGSC no tiene ficha de ese material, no guardes nada: lo apunto como «TGSC no lo tiene».
 
@@ -10,16 +10,16 @@ Las moléculas van primero: es donde TGSC tiene ficha casi siempre. Las tinturas
 
 | n | Material | Tipo | CAS | Tienda | Falta | Buscar | Guardar como |
 |---|---|---|---|---|---|---|---|
-| t01 | 1-Octen-3-one Stabilised | molecule | 4312-99-6 | Harrison Joseph | horas | [buscar](https://www.google.com/search?q=site%3Athegoodscentscompany.com%204312-99-6) | `paginas/t01.html` |
-| t02 | 2-Hydroxybenzaldehyde | molecule | 90-02-8 | Perfumiarz | horas | [buscar](https://www.google.com/search?q=site%3Athegoodscentscompany.com%2090-02-8) | `paginas/t02.html` |
-| t03 | 3,4-Xylenol | molecule | 95-65-8 | Perfumiarz | horas, uso | [buscar](https://www.google.com/search?q=site%3Athegoodscentscompany.com%2095-65-8) | `paginas/t03.html` |
-| t04 | 4-Propylphenol | molecule | 645-56-7 | Harrison Joseph | horas, uso, fuerza | [buscar](https://www.google.com/search?q=site%3Athegoodscentscompany.com%20645-56-7) | `paginas/t04.html` |
+| t01 | 1-Octen-3-one Stabilised | molecule | 4312-99-6 | Harrison Joseph | horas | [ficha](https://www.thegoodscentscompany.com/data/rw1027981.html) | `paginas/t01.html` |
+| t02 | 2-Hydroxybenzaldehyde | molecule | 90-02-8 | Perfumiarz | horas | [ficha](https://www.thegoodscentscompany.com/data/rw1028641.html) | `paginas/t02.html` |
+| t03 | 3,4-Xylenol | molecule | 95-65-8 | Perfumiarz | horas, uso | [ficha](https://www.thegoodscentscompany.com/data/rw1036991.html) | `paginas/t03.html` |
+| t04 | 4-Propylphenol | molecule | 645-56-7 | Harrison Joseph | horas, uso, fuerza | [ficha](https://www.thegoodscentscompany.com/data/rw1037241.html) | `paginas/t04.html` |
 | t05 | Aldambre | molecule | 1725-03-7 | Perfumiarz | horas | [buscar](https://www.google.com/search?q=site%3Athegoodscentscompany.com%201725-03-7) | `paginas/t05.html` |
-| t06 | Methyl linolenate | molecule | 7361-80-0 | Harrison Joseph | horas, familia | [buscar](https://www.google.com/search?q=site%3Athegoodscentscompany.com%207361-80-0) | `paginas/t06.html` |
-| t07 | Narcisse Oxyacetate | molecule | 67028-40-4 | Harrison Joseph | horas, fuerza | [buscar](https://www.google.com/search?q=site%3Athegoodscentscompany.com%2067028-40-4) | `paginas/t07.html` |
-| t08 | Phenylethyl Mercaptan | molecule | 4410-99-5 | Harrison Joseph | horas, uso | [buscar](https://www.google.com/search?q=site%3Athegoodscentscompany.com%204410-99-5) | `paginas/t08.html` |
-| t09 | Thialdine | molecule | 638-17-5 | Harrison Joseph | horas, uso, fuerza | [buscar](https://www.google.com/search?q=site%3Athegoodscentscompany.com%20638-17-5) | `paginas/t09.html` |
-| t10 | Vinyl Sulfurol | molecule | 1759-28-0 | Harrison Joseph | horas | [buscar](https://www.google.com/search?q=site%3Athegoodscentscompany.com%201759-28-0) | `paginas/t10.html` |
+| t06 | Methyl linolenate | molecule | 7361-80-0 | Harrison Joseph | horas, familia | [ficha](https://www.thegoodscentscompany.com/data/rw1477771.html) | `paginas/t06.html` |
+| t07 | Narcisse Oxyacetate | molecule | 67028-40-4 | Harrison Joseph | horas, fuerza | [ficha](https://www.thegoodscentscompany.com/data/rw1023241.html) | `paginas/t07.html` |
+| t08 | Phenylethyl Mercaptan | molecule | 4410-99-5 | Harrison Joseph | horas, uso | [ficha](https://www.thegoodscentscompany.com/data/rw1049141.html) | `paginas/t08.html` |
+| t09 | Thialdine | molecule | 638-17-5 | Harrison Joseph | horas, uso, fuerza | [ficha](https://www.thegoodscentscompany.com/data/rw1576841.html) | `paginas/t09.html` |
+| t10 | Vinyl Sulfurol | molecule | 1759-28-0 | Harrison Joseph | horas | [ficha](https://www.thegoodscentscompany.com/data/rw1028541.html) | `paginas/t10.html` |
 | t11 | Ambergris, commercial tincture (purified) | natural | — | Maese Lab | horas, uso | [buscar](https://www.google.com/search?q=site%3Athegoodscentscompany.com%20Ambergris) | `paginas/t11.html` |
 | t12 | Ambrette, tincture | natural | — | Maese Lab | horas, uso | [buscar](https://www.google.com/search?q=site%3Athegoodscentscompany.com%20Ambrette) | `paginas/t12.html` |
 | t13 | Auranone | composition | — | Perfumiarz | horas | [buscar](https://www.google.com/search?q=site%3Athegoodscentscompany.com%20Auranone) | `paginas/t13.html` |

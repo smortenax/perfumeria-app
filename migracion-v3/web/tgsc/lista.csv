@@ -1,14 +1,14 @@
 n,material_id,nombre,tipo,cas,proveedor,faltan,buscar_tgsc,guardar_como
-t01,5da0738b-c7ba-54a5-af01-386a3f8e0e0f,1-Octen-3-one Stabilised,molecule,4312-99-6,Harrison Joseph,horas,https://www.google.com/search?q=site%3Athegoodscentscompany.com%204312-99-6,paginas/t01.html
-t02,aa83f1f1-92a9-5f1d-b9a8-83f3dca795bc,2-Hydroxybenzaldehyde,molecule,90-02-8,Perfumiarz,horas,https://www.google.com/search?q=site%3Athegoodscentscompany.com%2090-02-8,paginas/t02.html
-t03,f7a96966-533f-5a38-9500-d49e5be6a93d,"3,4-Xylenol",molecule,95-65-8,Perfumiarz,"horas, uso",https://www.google.com/search?q=site%3Athegoodscentscompany.com%2095-65-8,paginas/t03.html
-t04,bead932d-eeb3-539d-bdb0-bfea834b56ac,4-Propylphenol,molecule,645-56-7,Harrison Joseph,"horas, uso, fuerza",https://www.google.com/search?q=site%3Athegoodscentscompany.com%20645-56-7,paginas/t04.html
+t01,5da0738b-c7ba-54a5-af01-386a3f8e0e0f,1-Octen-3-one Stabilised,molecule,4312-99-6,Harrison Joseph,horas,https://www.thegoodscentscompany.com/data/rw1027981.html,paginas/t01.html
+t02,aa83f1f1-92a9-5f1d-b9a8-83f3dca795bc,2-Hydroxybenzaldehyde,molecule,90-02-8,Perfumiarz,horas,https://www.thegoodscentscompany.com/data/rw1028641.html,paginas/t02.html
+t03,f7a96966-533f-5a38-9500-d49e5be6a93d,"3,4-Xylenol",molecule,95-65-8,Perfumiarz,"horas, uso",https://www.thegoodscentscompany.com/data/rw1036991.html,paginas/t03.html
+t04,bead932d-eeb3-539d-bdb0-bfea834b56ac,4-Propylphenol,molecule,645-56-7,Harrison Joseph,"horas, uso, fuerza",https://www.thegoodscentscompany.com/data/rw1037241.html,paginas/t04.html
 t05,c1a357df-e7de-54cf-bdfb-9b3c79000814,Aldambre,molecule,1725-03-7,Perfumiarz,horas,https://www.google.com/search?q=site%3Athegoodscentscompany.com%201725-03-7,paginas/t05.html
-t06,88b33f5f-bc67-58d8-a0c2-c0be338762b0,Methyl linolenate,molecule,7361-80-0,Harrison Joseph,"horas, familia",https://www.google.com/search?q=site%3Athegoodscentscompany.com%207361-80-0,paginas/t06.html
-t07,8de08292-2c2d-59c5-859e-2090f26df287,Narcisse Oxyacetate,molecule,67028-40-4,Harrison Joseph,"horas, fuerza",https://www.google.com/search?q=site%3Athegoodscentscompany.com%2067028-40-4,paginas/t07.html
-t08,4352551b-fca9-5d6a-8bf5-c175015da6e3,Phenylethyl Mercaptan,molecule,4410-99-5,Harrison Joseph,"horas, uso",https://www.google.com/search?q=site%3Athegoodscentscompany.com%204410-99-5,paginas/t08.html
-t09,e8146902-46ac-59a2-8513-18567b6a1e55,Thialdine,molecule,638-17-5,Harrison Joseph,"horas, uso, fuerza",https://www.google.com/search?q=site%3Athegoodscentscompany.com%20638-17-5,paginas/t09.html
-t10,b29f1fc2-79ee-5894-9276-40c2d1796884,Vinyl Sulfurol,molecule,1759-28-0,Harrison Joseph,horas,https://www.google.com/search?q=site%3Athegoodscentscompany.com%201759-28-0,paginas/t10.html
+t06,88b33f5f-bc67-58d8-a0c2-c0be338762b0,Methyl linolenate,molecule,7361-80-0,Harrison Joseph,"horas, familia",https://www.thegoodscentscompany.com/data/rw1477771.html,paginas/t06.html
+t07,8de08292-2c2d-59c5-859e-2090f26df287,Narcisse Oxyacetate,molecule,67028-40-4,Harrison Joseph,"horas, fuerza",https://www.thegoodscentscompany.com/data/rw1023241.html,paginas/t07.html
+t08,4352551b-fca9-5d6a-8bf5-c175015da6e3,Phenylethyl Mercaptan,molecule,4410-99-5,Harrison Joseph,"horas, uso",https://www.thegoodscentscompany.com/data/rw1049141.html,paginas/t08.html
+t09,e8146902-46ac-59a2-8513-18567b6a1e55,Thialdine,molecule,638-17-5,Harrison Joseph,"horas, uso, fuerza",https://www.thegoodscentscompany.com/data/rw1576841.html,paginas/t09.html
+t10,b29f1fc2-79ee-5894-9276-40c2d1796884,Vinyl Sulfurol,molecule,1759-28-0,Harrison Joseph,horas,https://www.thegoodscentscompany.com/data/rw1028541.html,paginas/t10.html
 t11,f651a9e1-1f05-579f-8a87-5c9b717fe203,"Ambergris, commercial tincture (purified)",natural,,Maese Lab,"horas, uso",https://www.google.com/search?q=site%3Athegoodscentscompany.com%20Ambergris,paginas/t11.html
 t12,7345c296-c9d6-552a-938e-9a4cd7295776,"Ambrette, tincture",natural,,Maese Lab,"horas, uso",https://www.google.com/search?q=site%3Athegoodscentscompany.com%20Ambrette,paginas/t12.html
 t13,e885d87e-90c3-5be4-bf02-87abf93d2fc9,Auranone,composition,,Perfumiarz,horas,https://www.google.com/search?q=site%3Athegoodscentscompany.com%20Auranone,paginas/t13.html
