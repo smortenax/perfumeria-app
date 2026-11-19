@@ -1,0 +1,29 @@
+n,nombre,campo,valor,fuente,nota
+r10,1-Octen-3-one Stabilised,casa,,"no lo dice ninguna fuente consultada: Parchem 1-octen-3-one-008983 (CAS 4312-99-6 coincide); Fraterworks, Perfumiarz y Harrison Joseph sin ficha; TGSC no accesible (403)",Parchem es distribuidor; no declara fabricante
+r10,1-Octen-3-one Stabilised,horas,,"no lo dice ninguna fuente consultada: Parchem 1-octen-3-one-008983 (CAS 4312-99-6 coincide); Fraterworks, Perfumiarz y Harrison Joseph sin ficha; TGSC no accesible (403)",
+r10,1-Octen-3-one Stabilised,familia,mushroom,"Parchem, https://parchem.com/chemical-supplier-distributor/1-octen-3-one-008983: «Odor Type mushroom»",CAS coincide; Parchem es distribuidor
+r10,1-Octen-3-one Stabilised,olor,herbal mushroom earthy musty dirty,"Parchem, https://parchem.com/chemical-supplier-distributor/1-octen-3-one-008983: «Odor herbal mushroom earthy musty dirty»",
+r10,1-Octen-3-one Stabilised,tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
+r11,"3,4-Xylenol",dosis,,no lo dice ninguna fuente consultada: Perfumiarz 3-4-xylenol-10-ipm (CAS 95-65-8 coincide; es 10 % en IPM); Fraterworks y Parchem sin ficha; TGSC no accesible (403),
+r11,"3,4-Xylenol",horas,,no lo dice ninguna fuente consultada: Perfumiarz 3-4-xylenol-10-ipm (CAS 95-65-8 coincide; es 10 % en IPM); Fraterworks y Parchem sin ficha; TGSC no accesible (403),"la ficha de Perfumiarz es la dilución al 10 % (IPM); aunque lo dijera, no valdría para horas ni dosis"
+r11,"3,4-Xylenol",casa,Sigma Aldrich,"Perfumiarz, https://perfumiarz.com/products/3-4-xylenol-10-ipm: «MANUFACTURER: Sigma Aldrich»",CAS coincide; ficha de la dilución al 10 % (IPM); Sigma Aldrich es lo que declara la página
+r11,"3,4-Xylenol",tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
+r12,Alpha-hexyl cinnamic aldehyde,casa,KAO,"Perfumiarz, https://perfumiarz.com/products/alpha-hexyl-cinnmic-aldehyde-5-ml: «MANUFACTURER: KAO»",CAS 101-86-0 coincide; Perfumiarz es la tienda del usuario
+r12,Alpha-hexyl cinnamic aldehyde,dosis,,no lo dice ninguna fuente consultada: Fraterworks hexyl-cinnamic-aldehyde (CAS 101-86-0 coincide); Perfumiarz alpha-hexyl-cinnmic-aldehyde-5-ml; TGSC no accesible (403),"Fraterworks solo da estadística de uso («appears in 35% of the perfumes we have analysed, at a median of 1.93% of the concentrate»), no una dosis recomendada; no se usa. Fraterworks dice ser reseller de un producto de Ventos, no declara fabricante"
+r12,Alpha-hexyl cinnamic aldehyde,horas,> 400,"Fraterworks, https://fraterworks.com/products/hexyl-cinnamic-aldehyde: «Lasts > 400 hours on a smelling strip.»",CAS coincide; no se pidió pero se anota
+r12,Alpha-hexyl cinnamic aldehyde,tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
+r13,"Ambrette (seed), tincture",dosis,,no lo dice ninguna fuente consultada: Fraterworks ambrette-seed-tincture-20 (tintura al 20 %); Maese Lab sin ficha localizada; TGSC no accesible (403),no tintura: Fraterworks no da dosis para la tintura al 20 %
+r13,"Ambrette (seed), tincture",horas,> 400,"Fraterworks, https://fraterworks.com/products/ambrette-seed-tincture-20: «Lasts > 400 hours on a smelling strip.»","es la tintura al 20 % de Fraterworks (INCI HIBISCUS ABELMOSCHUS SEED EXTRACT, CAS de la página 977017-78-9); la concentración de la tintura de Maese Lab no consta, así que solo orientativo"
+r13,"Ambrette (seed), tincture",tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
+r14,Auranone,horas,,no lo dice ninguna fuente consultada: Perfumiarz auranone® (Firmenich); Fraterworks sin ficha; TGSC no accesible (403),
+r14,Auranone,tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
+r15,Black Agar 296985,horas,,"no lo dice ninguna fuente consultada: Perfumiarz black-agar-296985 (Firmenich); Fraterworks solo tiene Black Agar Givco® 215/2 (otro material, no vale); TGSC no accesible (403)",
+r15,Black Agar 296985,tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
+r16,Cypriol / Nagarmotha essential oil (Cyperus scariosus),dosis,,"no lo dice ninguna fuente consultada: Fraterworks cypriol-nagarmotha-oil (CAS de la página 91771-62-9, no coincide con 68916-60-9; misma especie Cyperus scariosus); Perfumiarz cypriol-oil (IFF, mismo CAS 91771-62-9); TGSC no accesible (403)",
+r16,Cypriol / Nagarmotha essential oil (Cyperus scariosus),horas,> 140,"Fraterworks, https://fraterworks.com/products/cypriol-nagarmotha-oil: «> 140 hours on a smelling strip.»","CAS de la página 91771-62-9, no coincide con 68916-60-9; misma especie (Variety: Cyperus Scariosus R.Br.), aceite de LMR; decide el usuario si vale"
+r16,Cypriol / Nagarmotha essential oil (Cyperus scariosus),tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
+r17,Dewfruit TEC,horas,,"no lo dice ninguna fuente consultada: Perfumiarz dewfruit-tec-ab-2927r-3 (Givaudan); Fraterworks dewfruit-r (ABQ2977, otro código, tampoco da horas); TGSC no accesible (403)",
+r17,Dewfruit TEC,tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
+r18,"Green cardamom, tincture",dosis,,"no lo dice ninguna fuente consultada: Maese Lab extracto-de-cardamomo-verde-tintura (Elettaria cardamomum, no da dosis ni horas); Fraterworks y Perfumiarz solo tienen aceites/absoluto/CO2; TGSC no accesible (403)",no tintura: las fichas de aceite no valen
+r18,"Green cardamom, tincture",horas,,"no lo dice ninguna fuente consultada: Maese Lab extracto-de-cardamomo-verde-tintura (Elettaria cardamomum, no da dosis ni horas); Fraterworks y Perfumiarz solo tienen aceites/absoluto/CO2; TGSC no accesible (403)",no tintura: las fichas de aceite no valen
+r18,"Green cardamom, tincture",tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
