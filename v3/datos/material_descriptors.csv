@@ -282,6 +282,7 @@ id,material_id,owner_id,source,text
 27c5d8d3-5f86-5258-b022-db72432f1fbf,c811f0e8-c0e4-5a40-9d87-f7cb3bdba3eb,,TG,"The Perfumery: heavy, musky, agrestic aroma"
 27c9584f-d66a-5ec2-b0f4-4dd78579b10c,e58dea4b-4eb9-5016-9170-b24862f8aaab,,TG,"Hermitage Oils (Cocoa Colourless Absolute, Adam Michael): Opening notes are intensely rich dark chocolate, roasted cocoa beans, wet and luscious."
 27d37ba1-dc18-5a40-8001-ac4ea375c35b,e58dea4b-4eb9-5016-9170-b24862f8aaab,,TG,"Ernesto Ventós (COCOA ABSOLUTE, COLORLESS): CHOCOLATE"
+27e8a3c3-1b75-51f0-b744-07c42d122b74,f651a9e1-1f05-579f-8a87-5c9b717fe203,,web,"Maese Lab: Woody, ambery aroma"
 27eae494-a97f-54b5-919d-e9b90d00e6b2,eba059ae-a78a-53ba-9364-490848cf0f2a,,web,"dsm-firmenich: Oud, leathery, Woody, ambery"
 2820adc5-c1aa-51f1-b625-937861196a35,a367b36a-7424-5591-8baa-b245b6b56d52,,TG,"The Lebermuth Company: Fresh and sweet, a beautiful floral"
 283ad023-22f9-5292-af09-4de1e9817988,ad12f677-be7b-5716-bb76-c9e25cc5aecc,,TG,"TGSC (Luebke, William, 2017), at 100 % (sample from CA Aromatics Company Inc.): woody, old wood, dry, earthy, weedy, balsamic, spicy, minty"
@@ -331,6 +332,7 @@ id,material_id,owner_id,source,text
 2dee44e6-6acc-502f-a4b6-94a959b5a462,bf546832-255d-502b-ac7d-cb76f3a8be74,,TG,"Indukern F&F: MUSK, SWEET, FLORAL"
 2dffb11f-6f63-59a5-9653-fa16b8edb555,fa154065-2cc6-57f3-851c-aa9a0e1472e3,,FIG,"Woody, Sandalwood, Milky"
 2e01c25f-885e-52f4-8d93-3275270d86b1,0f904c9a-7f89-575a-bdd0-36efc17cf7e4,,web,"Fraterworks: fresh, ripe pear and green apple — clean, ethereal, and bright"
+2e244cd5-e945-573c-a16d-437d103ecd36,dc039041-25a9-5729-8e46-5ddf03fae94d,,web,"Maese Lab: Sweet, unctuous and persistent"
 2e966063-b384-558d-b9c4-bf930bfee26d,938af120-bbee-5d76-a974-269d0b64decf,,TG,"Givaudan (cited by Pell Wall): Odor: Tropical Fruity, Guava, Grapefruit, Rhubarb, Cassis."
 2efbe7a4-0097-58ea-8eb5-16c13abbd0ec,ab0a582f-c9ff-5355-a9fe-b9bf9c8bb45d,,web,"Fraterworks: distinctly fresh, clean, and herbaceous mint aroma"
 2f10d2ca-de60-5d94-9112-d962108e1122,a21c3f03-679b-56bd-ac45-b4cc95d088cf,,TG,"Ernesto Ventós (TOLU RESINOID FIRMENICH 988054): FRUITY, FLORAL, SPICY, BALSAM-LIKE"
@@ -567,6 +569,7 @@ id,material_id,owner_id,source,text
 4f017939-3916-50b8-be68-268171f68b6d,02a5ec6b-2419-50b8-b837-faabab6b3b5e,,web,"Eden Botanicals: Fresh, cooling, somewhat powerful, strongly camphoraceous aroma, with a mild cineolic aroma reminiscent of Rosemary"
 4f1d95f5-7e08-5170-b3b6-18b64a846912,255254f4-4b68-55a8-aab9-24b39ba3c83a,,web,"Maese Lab: Anis, terroso, raíz"
 4f5215ea-8ab5-502f-a8d2-e87250dc5165,c4731b26-37f7-5031-a829-b31302e1b8a3,,TG,TGSC: at 100.00 %. fruity amber chocolate anise basil
+4f987a25-1aab-533a-9915-5e5d10d1fb1d,4352551b-fca9-5d6a-8bf5-c175015da6e3,,web,Parchem: rubber
 4f998a32-ae91-5695-a678-3b1186e07e70,93a692cc-1d14-5e88-9df7-b59b7a4ef958,,TG,"Symrise (Timberol): highly diffusive, powdery-woody, with notes of ambergris aroma chemical"
 4fa4eb71-76fa-5968-ae2a-e16af51ebef1,67558761-934e-5dda-bfc4-3ac075db3ca5,,TG,"TGSC (Luebke, William, 2007), at 10 % in dipropylene glycol (sample from IFF): fresh air watery buttery clean wet costus metallic"
 4fbd60c9-37c4-5884-ba87-df9fc98357e4,a21c3f03-679b-56bd-ac45-b4cc95d088cf,,TG,PerfumersWorld: sweet balsamic vanilla spicy plum sweet-floral scent peppery-undertone. rich balsamic-floral
@@ -799,6 +802,7 @@ id,material_id,owner_id,source,text
 713847e8-e6f2-54e2-9d18-5be244ac41ea,b265dcbf-9666-581a-8715-ca9b288e4b60,,web,"Perfumiarz: piżmowy, słodkawy, miękki, pudrowy"
 714151c5-2519-51b2-a67a-12a7fc8a3c28,88219b7d-2adb-58a6-b6ae-59879ec1edcb,,FIG,"Woody, Vetiver, Cedarwood"
 71529362-f0a7-5be2-b27c-2a3fd96ffc3b,fdda03d2-9c1b-5f4c-ba1d-51a018a13791,,web,Perfumer's World: soft fresh rose green phenolic muguet all-florals blender raspberry honey cantaloupe-melon caramel strawberry
+719473ab-78c9-5438-b3f4-bfdbf14880a5,88b33f5f-bc67-58d8-a0c2-c0be338762b0,,web,Parchem: bland
 71a7d176-6d1e-53e9-83b0-9cbae6f80643,6d46e3e0-4a43-5171-a05d-29bea8075a8b,,web,"Hermitage Oils: a real blast of porcini mushroom, followed with very intense dark chocolate qualities, saltiness"
 71bfc59d-e50d-5765-bb95-2456b894de7b,3898d63a-a529-5a88-ab47-f478cd2def46,,TG,"TGSC (Luebke, William, 1989; sample from Harrmann & Reimer Corporation), at 100 %: waxy fruity green date fig prune grape skin"
 71d06be4-a568-56a5-a5b8-87ffc7378458,bba79489-ceda-5484-995a-4d3b714ea6de,,web,"Fraterworks: intense, crisp green-floral character with watery freshness"
@@ -884,6 +888,7 @@ id,material_id,owner_id,source,text
 7c5ae5a0-7eb4-5535-ab26-efa060877fbe,15271dd5-2bab-5ed0-a742-f86d66485282,,TG,"TGSC, generic sheet «cassis specialty», at 100 %: cassis"
 7c77e426-2e32-57f6-86ff-88fe43d5f958,34e07538-b715-59ec-96eb-d922ecb3f2cc,,TG,Givaudan (Irisone Alpha): sweet floral violet raspberry
 7ce5eb2e-83bb-5f33-8d8f-2b21c1e30934,40467aee-1425-530e-96b7-644290b0ebc2,,TG,"Robertet (Styrax resinoid alcoholic): Leather, woody, animalic, balsamic, floral"
+7d491c75-cea0-5959-91a8-9090a0049a15,e8146902-46ac-59a2-8513-18567b6a1e55,,web,Parchem: roasted meaty beefy
 7d57710b-8274-5bc6-9805-72ad1497175b,4b92b472-dea7-5138-a2fa-8de78181afa5,,FIG,"Citrus, Fresh, Floral"
 7d6f2518-8f02-5976-bfa4-183536d751f9,b7e00f93-e3d0-5245-8130-5f0f96cfdbb4,,web,"Premiere Peau: fresh, green, earthy"
 7d7575c1-9c52-5558-ae4e-5970c2ba0f76,798f4933-21c6-5840-a52b-8f4d4bf10c64,,web,"Fraterworks (Capua 1880): Bright, fruity-sweet citrus without phototoxic components."
@@ -1788,6 +1793,7 @@ fa32a57b-efb4-56df-8f4f-dd6152a44100,300751b7-7572-578d-aee3-5d77dd36ee4f,,web,"
 fa39aaa5-27c9-53e9-b481-6a0b94cf3ea7,09b9cadf-1311-5002-b027-5f0a0b77bfdb,,TG,"Moellhausen: sweet, balsamic, aromatic"
 fa6271f0-2c70-55c7-8cd1-cf3fb1db9e98,5c8591db-77ed-57d8-8905-74a806b2c562,,web,Odor Type (Fraterworks): Animalic
 fa66f802-809e-5c81-b0bc-7f588531f863,c1a357df-e7de-54cf-bdfb-9b3c79000814,,TG,"Perfumery Laboratory (ALDAMBRE SYNAROME): Aldehyde, woody, musky aroma with a hint of amber"
+fa758d41-03e4-5e28-a32f-bf79c77622b5,41a1db79-71d5-5a84-8732-4334c81fb21e,,web,"Maese Lab: sweet, intense and reminiscent of the truffle fruit, deep"
 fad4f9ae-6f93-5690-91ec-3b47106eca13,6bc36ada-c555-51a6-bdb7-af0950d7adf5,,TG,"Mosciano: sweet, fruity, floral, lemon and grapefruit citrus, with woody jasmine and green nuances"
 fb4405ec-d1a8-5df9-b767-a73798dfe513,dda00385-0450-5cd3-ab34-bc43903879be,,web,"Maese Lab: Aroma fresco dulce, rosado, recuerda a hierba verde, cuero dulce suave."
 fb51bfae-0f5b-5880-b34d-1ca9f5f6b5ef,0f904c9a-7f89-575a-bdd0-36efc17cf7e4,,web,"Maese Lab: Etéreo, Frutal dulce, Mango, melón, melocotón, plátano"
