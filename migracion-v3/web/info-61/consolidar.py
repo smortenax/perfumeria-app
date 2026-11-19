@@ -121,7 +121,8 @@ for x in lista + [{"n": n, "material_id": n[3:], "nombre": materials[n[3:]]["nam
         row[field + "_disputado"] = "si" if value and disputed else ""
         row[field + "_otras"] = otras if value else ""
     for campo, field, pattern in (("casa", "house", None), ("cas", "cas", r"\d{2,7}-\d\d-\d"), ("especie", "species", None)):
-        good = sorted([r for r in keep(campo, False) if not pattern or re.fullmatch(pattern, r["valor"].strip())], key=lambda r: rank(r["fuente"]))
+        # A shop or distributor named as «supplier» is not the house that makes the material.
+        good = sorted([r for r in keep(campo, False) if (not pattern or re.fullmatch(pattern, r["valor"].strip())) and not (campo == "casa" and re.search(r"proveedor|supplier|distribu|no como fabricante|not .*manufacturer", r["nota"] + " " + r["fuente"], re.I))], key=lambda r: rank(r["fuente"]))
         values = {r["valor"].strip().lower() for r in good}
         row[field] = good[0]["valor"].strip() if good and campo in want and not m.get(field) else ""
         row[field + "_fuente"] = good[0]["fuente"] if row[field] else ""

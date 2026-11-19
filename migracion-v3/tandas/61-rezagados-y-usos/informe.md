@@ -1,12 +1,12 @@
 # Tanda 61 · Los rezagados y el uso habitual de las altas del 18-nov
 
-*Generada por `migracion-v3/tanda-61-rezagados-y-usos.ts` sobre lo común de `ba80692`, desde `migracion-v3/web/info-61/`. Reescribe `materials.csv`, `material_doses.csv` y `material_descriptors.csv` enteros: solo llena campos vacíos y añade filas; nada que ya tuviera valor cambia. Sin aprobar.*
+*Generada por `migracion-v3/tanda-61-rezagados-y-usos.ts` sobre lo común de `bd37f86`, desde `migracion-v3/web/info-61/`. Reescribe `materials.csv`, `material_doses.csv` y `material_descriptors.csv` enteros: solo llena campos vacíos y añade filas; nada que ya tuviera valor cambia. Sin aprobar.*
 
 **Por qué:** el usuario, 2026-11-19: «si sigue con la 2 y acepta las dosis de otras referencias» (V3-105).
 
 **Cómo:** lectores Sonnet de uno en uno, por lotes de 10, leyendo cada página con `pagina.py` (la página se guarda y se lee su texto, no un resumen). **`consolidar.py` comprueba que cada frase citada está en la página guardada:** la que no está no entra (lista en `no-usado-61.csv` y en las notas). Familia, horas y fuerza, con las reglas de las tandas 46 y 60 (orden de referencias; si no coinciden, va la primera y el campo queda disputado). El uso, por V3-105: una fila por referencia (como mucho tres), con su base si la frase la dice; un rango da mínimo y máximo, una mediana de Fraterworks da el típico. El uso de un material diluido o de otra tintura no cuenta.
 
-**Resultado:** 3 campos llenos en 11 de 77 materiales; 13 usos habituales en 10 materiales; 0 descriptores; 1 campos disputados; 4 lecturas no usadas.
+**Resultado:** 3 campos llenos en 12 de 77 materiales; 13 usos habituales en 10 materiales; 0 descriptores; 1 campos disputados; 4 lecturas no usadas.
 
 **Lo que no se buscó** (no aplica): el CAS de las bases (son mezclas) y la casa de las moléculas genéricas compradas en Maese Lab u Olfatorium, que no la nombran (bencilo, linalol, aldehídos…).
 
@@ -25,12 +25,12 @@
 | 9 | 1-Octen-3-one Stabilised | casa horas | — |
 | 10 | Ambergris, commercial tincture (purified) | cas dosis horas | — |
 | 11 | Cypriol / Nagarmotha EO | dosis horas | tenacity_hours = 140; uso typical 1.5 % (concentrate); uso from 0.5 %, up to 3 % (finished_product) |
-| 12 | Rose Crystals | casa horas | tenacity_hours = 400 (disputado); house = VENTOS |
+| 12 | Rose Crystals | casa horas | tenacity_hours = 400 (disputado) |
 | 13 | Vinyl Sulfurol | casa horas | — |
 | 14 | 3,4-Xylenol | dosis horas | — |
 | 15 | Alpha-hexyl cinnamic aldehyde | dosis | uso typical 1.93 % (concentrate); uso up to 10 % (concentrate) |
 | 16 | Ambrette, tincture | dosis horas | — |
-| 17 | Cumin Nitrile | casa | — |
+| 17 | Cumin Nitrile | casa | house = Synarome |
 | 18 | Dewfruit TEC | horas | — |
 | 19 | Ethyl decanoate | casa | — |
 | 20 | Green cardamom, tincture | dosis horas | — |

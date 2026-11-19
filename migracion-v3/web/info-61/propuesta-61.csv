@@ -10,12 +10,12 @@ n,id,nombre,buscar,family,family_fuente,family_disputado,family_otras,tenacity_h
 9,5da0738b-c7ba-54a5-af01-386a3f8e0e0f,1-Octen-3-one Stabilised,casa horas,,,,,,,,,,,,,,,,,,,,,,[],0
 10,f651a9e1-1f05-579f-8a87-5c9b717fe203,"Ambergris, commercial tincture (purified)",cas dosis horas,,,,,,,,,,,,,,,,,,,,,,[],0
 11,f5d717d2-a948-5705-8b66-1a9b62450fe7,Cypriol / Nagarmotha EO,dosis horas,,,,,140,"Fraterworks, https://fraterworks.com/products/cypriol-nagarmotha-oil: «> 140 hours on a smelling strip.»",,,,,,,,,,,,,,,,[],2
-12,e3577dfe-1f2c-5929-90c7-ee935c2b88d4,Rose Crystals,casa horas,,,,,400,"Fraterworks, https://fraterworks.com/products/rose-crystals: «Lasts > 400 hours on a smelling strip.»",si,PerfumersWorld: 300,,,,,VENTOS,"Fraterworks, https://fraterworks.com/products/rose-crystals: «agent nor official distributor for VENTOS, and is not affiliated with or endorsed by them.»",,,,,,,,[],0
+12,e3577dfe-1f2c-5929-90c7-ee935c2b88d4,Rose Crystals,casa horas,,,,,400,"Fraterworks, https://fraterworks.com/products/rose-crystals: «Lasts > 400 hours on a smelling strip.»",si,PerfumersWorld: 300,,,,,,,,,,,,,,[],0
 13,b29f1fc2-79ee-5894-9276-40c2d1796884,Vinyl Sulfurol,casa horas,,,,,,,,,,,,,,,,,,,,,,[],0
 14,f7a96966-533f-5a38-9500-d49e5be6a93d,"3,4-Xylenol",dosis horas,,,,,,,,,,,,,,,,,,,,,,[],0
 15,c833332c-de03-50d6-9703-c7c8eddbb59e,Alpha-hexyl cinnamic aldehyde,dosis,,,,,,,,,,,,,,,,,,,,,,[],2
 16,7345c296-c9d6-552a-938e-9a4cd7295776,"Ambrette, tincture",dosis horas,,,,,,,,,,,,,,,,,,,,,,[],0
-17,740512a1-0aed-5035-912c-2dcdb89a9291,Cumin Nitrile,casa,,,,,,,,,,,,,,,,,,,,,,[],0
+17,740512a1-0aed-5035-912c-2dcdb89a9291,Cumin Nitrile,casa,,,,,,,,,,,,,Synarome,"Associate Allied Chemicals, https://aacipl.com/products/cuminyl-nitrile: «Make: Synarome»",,,,,,,,[],0
 18,e035f8a6-1eb5-5d37-ac18-e207ba77750e,Dewfruit TEC,horas,,,,,,,,,,,,,,,,,,,,,,[],0
 19,cf11e7c9-da38-556e-a70b-dde88eba5d29,Ethyl decanoate,casa,,,,,,,,,,,,,,,,,,,,,,[],0
 20,22845271-91e5-51d8-818e-1bb6c4c4094f,"Green cardamom, tincture",dosis horas,,,,,,,,,,,,,,,,,,,,,,[],0
