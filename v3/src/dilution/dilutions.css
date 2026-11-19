@@ -921,3 +921,6 @@
     display: none;
   }
 }
+.bottle-table .made {
+  white-space: nowrap;
+}

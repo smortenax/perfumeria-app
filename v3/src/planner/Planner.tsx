@@ -1,4 +1,4 @@
-import { useEffect, useId, useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { Ratio } from "../core/arith/ratio";
 import { formatDecimal } from "../core/display";
 import type { LocalDatabase } from "../db/local/database";
@@ -11,7 +11,7 @@ import { Button } from "../Button";
 import type { Catalog } from "../db/catalog";
 import { planToJson } from "./plan-json";
 import { planLinesOf, type ShownLine } from "./lines";
-import { partsText } from "./parts-text";
+import { dropsOf, partsText, stepDrops } from "./parts-text";
 import { indexAt, level, MOMENTS, PERCEIVED_EXPONENT, PLATEAU_SLOW, profileAt, SHAPE_IDS, type ShapeId } from "./profile";
 import "./planner.css";
 
@@ -126,7 +126,7 @@ export function PlannerView(props: {
   onShape: (line: ShownLine, shape: ShapeId | null) => void;
   onRemove: (line: ShownLine) => void;
 }) {
-  const { lines, name, error } = props;
+  const { name, error } = props;
   const [perceived, setPerceived] = useState(false);
   const [exponent, setExponent] = useState(PERCEIVED_EXPONENT);
   const [slow, setSlow] = useState(PLATEAU_SLOW);
@@ -134,12 +134,31 @@ export function PlannerView(props: {
   const [relative, setRelative] = useState(false);
   const slowId = useId();
   const momentId = useId();
-  const setParts = (l: ShownLine, parts: Ratio) => props.onParts(l, parts);
-  const step = (l: ShownLine, by: number) => {
-    const now = l.parts;
-    const next = by < 0 ? (now.gt(Ratio.ONE) ? now.sub(Ratio.ONE) : Ratio.ZERO) : now.lt(Ratio.ONE) ? Ratio.ONE : now.add(Ratio.ONE);
-    setParts(l, next);
+  // The drops you are setting, shown and drawn at once; written to the plan a moment after you stop
+  // (bandeja del laboratorio, 2026-11-18: «ajustar en tiempo real el número de gotas»).
+  const [drafts, setDrafts] = useState<ReadonlyMap<string, Ratio>>(new Map());
+  const timers = useRef(new Map<string, ReturnType<typeof setTimeout>>());
+  useEffect(() => () => timers.current.forEach(clearTimeout), []);
+  // A draft goes once the plan says the same.
+  useEffect(() => {
+    setDrafts((now) => {
+      const left = new Map([...now].filter(([key, parts]) => !props.lines.some((l) => l.key === key && l.parts.eq(parts))));
+      return left.size === now.size ? now : left;
+    });
+  }, [props.lines]);
+  const lines = useMemo(() => props.lines.map((l) => (drafts.has(l.key) ? { ...l, parts: drafts.get(l.key)! } : l)), [props.lines, drafts]);
+  const setParts = (l: ShownLine, parts: Ratio, wait = 0) => {
+    setDrafts((now) => new Map(now).set(l.key, parts));
+    clearTimeout(timers.current.get(l.key));
+    timers.current.set(
+      l.key,
+      setTimeout(() => {
+        timers.current.delete(l.key);
+        props.onParts(l, parts);
+      }, wait),
+    );
   };
+  const step = (l: ShownLine, by: 1 | -1) => setParts(l, Ratio.of(stepDrops(l.parts, by)), 500);
 
   const options$ = { perceived: perceived ? exponent : null, slow };
   const view = (x: number) => (perceived ? Math.pow(Math.max(x, 0), exponent) : x);
@@ -187,7 +206,7 @@ export function PlannerView(props: {
           ) : (
             <ul className="planner-rows">
               {lines.map((l) => (
-                <PlanLineRow key={l.rowId} line={l} onParts={(p) => setParts(l, p)} onStep={(by) => step(l, by)} onShape={(s) => props.onShape(l, s)} onRemove={() => props.onRemove(l)} />
+                <PlanLineRow key={l.rowId} line={l} onParts={(p, wait) => setParts(l, p, wait)} onStep={(by) => step(l, by)} onShape={(s) => props.onShape(l, s)} onRemove={() => props.onRemove(l)} />
               ))}
             </ul>
           )}
@@ -296,18 +315,20 @@ export function PlannerView(props: {
   );
 }
 
-function PlanLineRow(props: { line: ShownLine; onParts: (parts: Ratio) => void; onStep: (by: number) => void; onShape: (shape: ShapeId | null) => void; onRemove: () => void }) {
+function PlanLineRow(props: { line: ShownLine; onParts: (parts: Ratio, wait: number) => void; onStep: (by: 1 | -1) => void; onShape: (shape: ShapeId | null) => void; onRemove: () => void }) {
   const l = props.line;
   const [typed, setTyped] = useState<string | null>(null);
   const hours = hoursOf(l);
+  // Whole drops count as you type; leaving the box writes what it says, or puts back what was there.
+  const type = (text: string) => {
+    setTyped(text);
+    const drops = dropsOf(text);
+    if (drops !== null) props.onParts(Ratio.of(drops), 800);
+  };
   const commit = () => {
     if (typed === null) return;
-    try {
-      const parts = Ratio.fromDecimal(typed);
-      if (parts.sign() >= 0) props.onParts(parts);
-    } catch {
-      // Not a number: what was there stays.
-    }
+    const drops = dropsOf(typed);
+    if (drops !== null) props.onParts(Ratio.of(drops), 0);
     setTyped(null);
   };
   return (
@@ -334,10 +355,11 @@ function PlanLineRow(props: { line: ShownLine; onParts: (parts: Ratio) => void; 
           −
         </button>
         <input
-          inputMode="decimal"
+          inputMode="numeric"
           aria-label={t.partsOf(l.name)}
+          aria-invalid={typed !== null && dropsOf(typed) === null}
           value={typed ?? partsText(l.parts)}
-          onChange={(e) => setTyped(e.target.value)}
+          onChange={(e) => type(e.target.value)}
           onBlur={commit}
           onKeyDown={(e) => {
             if (e.key === "Enter") e.currentTarget.blur();

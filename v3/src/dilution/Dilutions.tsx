@@ -301,11 +301,14 @@ function BottleTable({
             <th scope="col" className="num wide">
               {t.table.materialWeighed}
             </th>
-            <th scope="col" className="wide">
+            <th scope="col" className="made">
               {t.table.made}
             </th>
             <th scope="col" className="wide">
               <span className="sr-only">{t.table.tags}</span>
+            </th>
+            <th scope="col">
+              <span className="sr-only">{t.table.archiveColumn}</span>
             </th>
             <th scope="col">
               <span className="sr-only">{t.table.details}</span>
@@ -341,13 +344,34 @@ function BottleTable({
                     <td title={diluentsTitle(d)}>{diluents ?? <span className="muted">—</span>}</td>
                     <td className="num wide">{percent(d.fraction, 2)}</td>
                     <td className="num wide">{d.materialMassUg !== null ? gramsText(d.materialMassUg) : <span className="muted">—</span>}</td>
-                    <td className="wide muted">{madeText(d.madeOn)}</td>
+                    {/* Always shown, even narrow: two bottles of the same % are told apart by their date (bandeja del 18-nov). */}
+                    <td className="made muted">{madeText(d.madeOn)}</td>
                     <td className="wide">
                       {tags.map((x) => (
                         <span key={x} className="tag">
                           {x}
                         </span>
                       ))}
+                    </td>
+                    {/* A finished bottle goes to the archive from its row, with Undo (bandeja del 18-nov: «poder archivar o borrar un bote»). */}
+                    <td className="chev">
+                      {!d.archivedAt && (
+                        <button
+                          type="button"
+                          className="row-toggle row-archive"
+                          aria-label={t.table.archiveRow(name, strength, madeText(d.madeOn))}
+                          title={t.table.archiveRow(name, strength, madeText(d.madeOn))}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            archive(d);
+                          }}
+                        >
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" aria-hidden="true">
+                            <rect x="2" y="3" width="12" height="3" rx="0.5" />
+                            <path d="M3 6v7h10V6M6.5 8.5h3" strokeLinecap="round" />
+                          </svg>
+                        </button>
+                      )}
                     </td>
                     <td className="chev">
                       <button
@@ -366,7 +390,7 @@ function BottleTable({
                   </tr>,
                   expanded && (
                     <tr key={`${d.id}:detail`} className="bottle-detail-row">
-                      <td colSpan={8}>
+                      <td colSpan={9}>
                         <dl className="bottle-facts">
                           <div>
                             <dt>{t.table.exact}</dt>
