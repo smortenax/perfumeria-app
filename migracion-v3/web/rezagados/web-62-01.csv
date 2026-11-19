@@ -1,0 +1,61 @@
+n,nombre,campo,valor,fuente,nota
+r1,"Villous cardamom (Amomum villosum), tincture",nombre,,"Maese Lab, https://maeselab.com/en/extracto-de-cardamomo-negro-tintura/: «alcohol, aqua (and) amomum subulatum seed extract»","otra especie: la tintura de Maese Lab es de cardamomo negro (Amomum subulatum, Nepal), no de Amomum villosum; no vale"
+r1,"Villous cardamom (Amomum villosum), tincture",familia,,no lo dice ninguna fuente consultada: Maese Lab cardamomo-negro-tintura (otra especie: A. subulatum); búsquedas web sin tintura de A. villosum; TGSC no accesible (403),
+r1,"Villous cardamom (Amomum villosum), tincture",dosis,,no lo dice ninguna fuente consultada: Maese Lab cardamomo-negro-tintura (otra especie: A. subulatum); búsquedas web sin tintura de A. villosum; TGSC no accesible (403),
+r1,"Villous cardamom (Amomum villosum), tincture",horas,,no lo dice ninguna fuente consultada: Maese Lab cardamomo-negro-tintura (otra especie: A. subulatum); búsquedas web sin tintura de A. villosum; TGSC no accesible (403),
+r1,"Villous cardamom (Amomum villosum), tincture",fuerza,,no lo dice ninguna fuente consultada: Maese Lab cardamomo-negro-tintura (otra especie: A. subulatum); búsquedas web sin tintura de A. villosum; TGSC no accesible (403),
+r1,"Villous cardamom (Amomum villosum), tincture",tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
+r2,4-Propylphenol,nombre,4-propyl phenol,"Parchem, https://parchem.com/chemical-supplier-distributor/4-propyl-phenol-009393: «4-propyl phenol (Cas 645-56-7)»","CAS coincide; Parchem es distribuidor; solo una referencia (Fraterworks no lo vende; Ventos, Perfumer's Apprentice y Harrison Joseph sin página legible)"
+r2,4-Propylphenol,familia,phenolic,"Parchem, https://parchem.com/chemical-supplier-distributor/4-propyl-phenol-009393: «Odor Type phenolic»",
+r2,4-Propylphenol,olor,medicinal phenolic,"Parchem, https://parchem.com/chemical-supplier-distributor/4-propyl-phenol-009393: «Odor medicinal phenolic»",
+r2,4-Propylphenol,estado,colorless clear liquid,"Parchem, https://parchem.com/chemical-supplier-distributor/4-propyl-phenol-009393: «Appearence colorless clear liquid»",
+r2,4-Propylphenol,casa,,no lo dice ninguna fuente consultada: Parchem 4-propyl-phenol-009393; Fraterworks sin ficha; TGSC no accesible (403),
+r2,4-Propylphenol,dosis,,no lo dice ninguna fuente consultada: Parchem 4-propyl-phenol-009393; Fraterworks sin ficha; TGSC no accesible (403),
+r2,4-Propylphenol,horas,,no lo dice ninguna fuente consultada: Parchem 4-propyl-phenol-009393; Fraterworks sin ficha; TGSC no accesible (403),
+r2,4-Propylphenol,fuerza,,no lo dice ninguna fuente consultada: Parchem 4-propyl-phenol-009393; Fraterworks sin ficha; TGSC no accesible (403),
+r2,4-Propylphenol,tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
+r3,"Honey, aromatic essence",nombre,Pure Honey Aromatic Essence,"Maese Lab, https://maeselab.com/en/esencia-aromatica-de-miel/: «Pure Honey Aromatic Essence is a rich and enveloping fragrance»",Maese Lab es la casa y la tienda del usuario; sin CAS; INCI «Fragrance»
+r3,"Honey, aromatic essence",nivel,base,"Maese Lab, https://maeselab.com/en/esencia-aromatica-de-miel/: «It belongs to the base notes, with lasting influence on the olfactory profile.»",
+r3,"Honey, aromatic essence",olor,"Sweet, unctuous and persistent","Maese Lab, https://maeselab.com/en/esencia-aromatica-de-miel/: «Sweet, unctuous and persistent, this essence reproduces the natural complexity of bee nectar.»",
+r3,"Honey, aromatic essence",dosis,,no lo dice ninguna fuente consultada: Maese Lab esencia-aromatica-de-miel; búsqueda web sin otra ficha; TGSC no accesible (403),
+r3,"Honey, aromatic essence",horas,,no lo dice ninguna fuente consultada: Maese Lab esencia-aromatica-de-miel; búsqueda web sin otra ficha; TGSC no accesible (403),
+r3,"Honey, aromatic essence",fuerza,,no lo dice ninguna fuente consultada: Maese Lab esencia-aromatica-de-miel; búsqueda web sin otra ficha; TGSC no accesible (403),
+r3,"Honey, aromatic essence",tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
+r4,Methyl linolenate,nombre,methyl linolenate,"Parchem, https://parchem.com/chemical-supplier-distributor/methyl-linolenate-011456: «methyl linolenate (Cas 7361-80-0)»","CAS coincide; Parchem es distribuidor; solo una referencia (Fraterworks no lo vende; Ventos, Perfumer's Apprentice y Harrison Joseph sin página legible)"
+r4,Methyl linolenate,olor,bland,"Parchem, https://parchem.com/chemical-supplier-distributor/methyl-linolenate-011456: «Odor bland»",una sola palabra; otras fuentes dicen oily/fatty (no leídas en texto)
+r4,Methyl linolenate,familia,,no lo dice ninguna fuente consultada: Parchem methyl-linolenate-011456; Fraterworks sin ficha; TGSC no accesible (403),
+r4,Methyl linolenate,casa,,no lo dice ninguna fuente consultada: Parchem methyl-linolenate-011456; Fraterworks sin ficha; TGSC no accesible (403),
+r4,Methyl linolenate,horas,,no lo dice ninguna fuente consultada: Parchem methyl-linolenate-011456; Fraterworks sin ficha; TGSC no accesible (403),
+r4,Methyl linolenate,tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
+r5,Thialdine,nombre,thialdine,"Parchem, https://parchem.com/chemical-supplier-distributor/thialdine-010948: «thialdine (Cas 638-17-5)»","CAS coincide; Parchem es distribuidor; solo una referencia (Fraterworks no lo vende; Ventos, Perfumer's Apprentice y Harrison Joseph sin página legible)"
+r5,Thialdine,olor,roasted meaty beefy,"Parchem, https://parchem.com/chemical-supplier-distributor/thialdine-010948: «Odor roasted meaty beefy»",
+r5,Thialdine,estado,pale brownish yellow crystals,"Parchem, https://parchem.com/chemical-supplier-distributor/thialdine-010948: «Appearence pale brownish yellow crystals»",
+r5,Thialdine,casa,,no lo dice ninguna fuente consultada: Parchem thialdine-010948; Fraterworks sin ficha; TGSC no accesible (403),
+r5,Thialdine,dosis,,no lo dice ninguna fuente consultada: Parchem thialdine-010948; Fraterworks sin ficha; TGSC no accesible (403),material de uso en aromas (FEMA 4018); ninguna página lo da para perfumería
+r5,Thialdine,horas,,no lo dice ninguna fuente consultada: Parchem thialdine-010948; Fraterworks sin ficha; TGSC no accesible (403),
+r5,Thialdine,fuerza,,no lo dice ninguna fuente consultada: Parchem thialdine-010948; Fraterworks sin ficha; TGSC no accesible (403),
+r5,Thialdine,tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
+r6,Truffle essence,nombre,Truffle Aromatic Essence (TRUFA),"Maese Lab, https://maeselab.com/en/esencia-aromatica-de-trufa/: «Maese Lab's Truffle Chord»",Maese Lab es la casa y la tienda del usuario; sin CAS; INCI «Fragrance»
+r6,Truffle essence,nivel,base,"Maese Lab, https://maeselab.com/en/esencia-aromatica-de-trufa/: «It belongs to the group of base notes with influence on the middle notes.»",
+r6,Truffle essence,olor,"sweet, intense and reminiscent of the truffle fruit, deep","Maese Lab, https://maeselab.com/en/esencia-aromatica-de-trufa/: «Its aroma is sweet, intense and reminiscent of the truffle fruit, deep.»",
+r6,Truffle essence,familia,,no lo dice ninguna fuente consultada: Maese Lab esencia-aromatica-de-trufa; búsqueda web sin otra ficha; TGSC no accesible (403),
+r6,Truffle essence,horas,,no lo dice ninguna fuente consultada: Maese Lab esencia-aromatica-de-trufa; búsqueda web sin otra ficha; TGSC no accesible (403),
+r6,Truffle essence,fuerza,,no lo dice ninguna fuente consultada: Maese Lab esencia-aromatica-de-trufa; búsqueda web sin otra ficha; TGSC no accesible (403),
+r6,Truffle essence,tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
+r7,"Ambergris, commercial tincture (purified)",nombre,Ambergris Dilution (purified),"Maese Lab, https://maeselab.com/en/ambar-gris-tintura-al-10/: «AMBREIN - purity 80% - Purified Diluted 10% in Bioethanol 96º.»","Maese Lab es la casa y la tienda del usuario; CAS de la página 64-17-5, 84836-94-2"
+r7,"Ambergris, commercial tincture (purified)",olor,"Woody, ambery aroma","Maese Lab, https://maeselab.com/en/ambar-gris-tintura-al-10/: «Woody, ambery aroma.»",
+r7,"Ambergris, commercial tincture (purified)",dosis,,no lo dice ninguna fuente consultada: Maese Lab ambar-gris-tintura-al-10; TGSC no accesible (403),"Fraterworks ambergris-tincture es otra dilución (2 %, Biolandes, Nueva Caledonia, no purificada): su frase «we recommend around 1% – 3% of the total weight in alcohol» es de la tintura al 2 %; no vale para la del usuario (10 % purificada)"
+r7,"Ambergris, commercial tincture (purified)",horas,,no lo dice ninguna fuente consultada: Maese Lab ambar-gris-tintura-al-10; TGSC no accesible (403),"Fraterworks ambergris-tincture (tintura al 2 %, otra dilución y otra casa) dice «Lasts > 400 hours on a smelling strip.»: no vale como horas de la del usuario; solo orientativo"
+r7,"Ambergris, commercial tincture (purified)",tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
+r8,Narcisse Oxyacetate,casa,,"no lo dice ninguna fuente consultada: Parchem (narcissus-acetate-010558 es otro material, otro CAS); Fraterworks sin ficha; Ventos, Perfumer's Apprentice y Harrison Joseph sin página legible; TGSC no accesible (403)",CAS 67028-40-4 no aparece en ninguna página leída
+r8,Narcisse Oxyacetate,horas,,"no lo dice ninguna fuente consultada: Parchem (narcissus-acetate-010558 es otro material, otro CAS); Fraterworks sin ficha; Ventos, Perfumer's Apprentice y Harrison Joseph sin página legible; TGSC no accesible (403)",CAS 67028-40-4 no aparece en ninguna página leída
+r8,Narcisse Oxyacetate,fuerza,,"no lo dice ninguna fuente consultada: Parchem (narcissus-acetate-010558 es otro material, otro CAS); Fraterworks sin ficha; Ventos, Perfumer's Apprentice y Harrison Joseph sin página legible; TGSC no accesible (403)",CAS 67028-40-4 no aparece en ninguna página leída
+r8,Narcisse Oxyacetate,tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
+r9,Phenylethyl Mercaptan,nombre,2-phenethyl mercaptan,"Parchem, https://parchem.com/chemical-supplier-distributor/2-phenethyl-mercaptan-009199: «2-phenethyl mercaptan (Cas 4410-99-5)»","CAS coincide; Parchem es distribuidor; solo una referencia (Fraterworks no lo vende; Ventos, Perfumer's Apprentice y Harrison Joseph sin página legible)"
+r9,Phenylethyl Mercaptan,familia,rubbery,"Parchem, https://parchem.com/chemical-supplier-distributor/2-phenethyl-mercaptan-009199: «Odor Type rubbery»",
+r9,Phenylethyl Mercaptan,olor,rubber,"Parchem, https://parchem.com/chemical-supplier-distributor/2-phenethyl-mercaptan-009199: «Odor rubber»",
+r9,Phenylethyl Mercaptan,estado,colorless clear liquid,"Parchem, https://parchem.com/chemical-supplier-distributor/2-phenethyl-mercaptan-009199: «Appearence colorless clear liquid»",
+r9,Phenylethyl Mercaptan,casa,,no lo dice ninguna fuente consultada: Parchem 2-phenethyl-mercaptan-009199; Fraterworks sin ficha; TGSC no accesible (403),
+r9,Phenylethyl Mercaptan,dosis,,no lo dice ninguna fuente consultada: Parchem 2-phenethyl-mercaptan-009199; Fraterworks sin ficha; TGSC no accesible (403),
+r9,Phenylethyl Mercaptan,horas,,no lo dice ninguna fuente consultada: Parchem 2-phenethyl-mercaptan-009199; Fraterworks sin ficha; TGSC no accesible (403),
+r9,Phenylethyl Mercaptan,tgsc,,no lo dice ninguna fuente consultada: TGSC; TGSC no accesible (403),sin TGSC
