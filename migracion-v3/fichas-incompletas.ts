@@ -73,14 +73,25 @@ const chainOf = (id: string): Row[] => {
 const first = (chain: Row[], key: string) => chain.map((m) => (m[key] ?? "").trim()).find((v) => v !== "" && v !== "[]") ?? "";
 const any = (chain: Row[], by: Map<string, Row[]>, keep: (r: Row) => boolean = () => true) => chain.some((m) => (by.get(m.id) ?? []).some(keep));
 
+/** Its own name is a trade name: ® or ™ in the name, or an alias that is the same name with ® or ™ («Muscenone®»). */
+const tradeName = (chain: Row[]) =>
+  chain.some((m) => {
+    const base = (m.name ?? "").replace(/\s*\(.*\)$/, "").trim().toLowerCase();
+    const aliases = (m.aliases ?? "").startsWith("[") ? (JSON.parse(m.aliases) as string[]) : [];
+    return /[®™]/.test(m.name ?? "") || aliases.some((a) => /[®™]/.test(a) && a.replace(/[®™]/g, "").trim().toLowerCase() === base);
+  });
 /** What a sheet should say, and how to tell it lacks it. */
 const CHECKS: ReadonlyArray<{ key: string; label: string; lacks: (chain: Row[]) => boolean }> = [
-  { key: "cas", label: "CAS", lacks: (c) => !first(c, "cas") },
+  // The user, 2026-11-19 («haz las dos»): only what is really missing. A natural is its species, part and
+  // process (its CAS is an attribute) and a base has none: only a molecule lacks a CAS.
+  { key: "cas", label: "CAS", lacks: (c) => first(c, "kind") === "molecule" && !first(c, "cas") },
   { key: "species", label: "especie (natural)", lacks: (c) => first(c, "kind") === "natural" && !first(c, "species") },
   { key: "family", label: "familia", lacks: (c) => !first(c, "family") },
   { key: "supplier", label: "proveedor", lacks: (c) => !(c[0].supplier ?? "").trim() },
   { key: "product", label: "producto", lacks: (c) => !(c[0].product ?? "").trim() && !(c[0].product_url ?? "").trim() },
-  { key: "house", label: "fabricante", lacks: (c) => first(c, "kind") !== "natural" && !first(c, "house") },
+  // A base is one house's product; a molecule has one house only under a trade name (® or ™ in its name or
+  // aliases). A generic molecule (linalool, PTBCHA) is made by many: no house is missing.
+  { key: "house", label: "fabricante", lacks: (c) => !first(c, "house") && (first(c, "kind") === "composition" || (first(c, "kind") === "molecule" && tradeName(c))) },
   { key: "documents", label: "documentos", lacks: (c) => !any(c, components, (r) => r.authority === "product" || r.authority === "batch" || r.authority === "lote" || r.authority === "producto") },
   { key: "doses", label: "dosis", lacks: (c) => !any(c, doses) },
   { key: "tenacity", label: "duración", lacks: (c) => !first(c, "tenacity_hours") },
@@ -120,7 +131,7 @@ writeFileSync(
 
 *Generado por \`migracion-v3/fichas-incompletas.ts\`. Bandeja del laboratorio, 2026-11-18: «listar todas las fichas incompletas de los materiales que el usuario ya tiene». Solo lee: lo común de \`v3/datos/\` y tu cuenta tal como la dejaron las tandas ${ACCOUNT.map((b) => b.split("-")[0]).join(", ")}. **Lo que hayas dado de alta o cambiado a mano en la app no se ve aquí** (desde la nube no hay acceso a tu cuenta).*
 
-Un campo cuenta como lleno si lo tiene tu versión o el material en que se basa. Proveedor y producto se miran solo en tu versión (son de tu bote). Fabricante, solo en moléculas y bases. «Documentos» es composición de autoridad producto o lote (SDS, alérgenos, CoA del bote); lo común solo trae literatura. «Fuerza» es el impacto de 1 a 10 o la fuerza en palabras. Los diluyentes no se cuentan.
+Un campo cuenta como lleno si lo tiene tu versión o el material en que se basa. Proveedor y producto se miran solo en tu versión (son de tu bote). Fabricante, solo en bases y en moléculas con nombre comercial (® o ™ en su nombre); CAS, solo en moléculas (el usuario, 2026-11-19: «haz las dos»). «Documentos» es composición de autoridad producto o lote (SDS, alérgenos, CoA del bote); lo común solo trae literatura. «Fuerza» es el impacto de 1 a 10 o la fuerza en palabras. Los diluyentes no se cuentan.
 
 **${rows.length} materiales con «lo tengo»**${missingIds.length ? ` (y ${missingIds.length} «lo tengo» que apuntan a un material que no está: ${missingIds.join(", ")})` : ""}. ${rows.filter((r) => r.lacking.length === 0).length} completos.
 
