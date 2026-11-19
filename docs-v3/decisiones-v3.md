@@ -1972,6 +1972,19 @@ Notas suyas en los tablones, literales: sobre Potion Craft, «no me acaba de con
 
 **Lectura** (de la sesión, propuesta): la ficha queda en banda del nombre con la presencia del material (Codex, Bottles, Strips, Dilutions, Formulas, Perfumes, cada uno un enlace a su sitio), la entrada en una franja tipo ex-libris (categoría arriba, icono en medio, lectura debajo), el carácter con notas al margen firmadas y las notas en un cuaderno con pestañas. El menú es un riel de iconos y las etiquetas van en letra normal, sin versalitas. Los iconos de nota, impacto, fuerza y duración están por elegir en el estudio de iconos del boceto; la silueta por familia y la esfera, en `docs/a-futuro.md`.
 
+## V3-105 · El uso habitual también de otras referencias, no solo de TGSC (decidida por el usuario el 2026-11-19; cambia la regla de la tanda 46)
+
+**Pregunta** (de la sesión): la tanda 60 dejó sin uso habitual los 45 materiales nuevos porque solo contaba como uso la cifra de TGSC («up to X % in the fragrance concentrate», con su base), y TGSC no deja leer sus páginas a un script (403). Lo que dicen Fraterworks, Perfumer's Apprentice, la casa o Scentspiracy («use 0,1–2 %», la mediana de Fraterworks) quedó en las notas. ¿Se acepta como uso habitual?
+
+**Respuesta literal** (el usuario, 2026-11-19): «si sigue con la 2 y acepta las dosis de otras referencias».
+
+**Lectura** (de la sesión, propuesta):
+
+- **Cuenta como uso habitual la cifra de cualquier referencia de las que ya se leen** (la casa, Fraterworks, Perfumer's Apprentice, Scentspiracy, PerfumersWorld, Premiere Peau…), con su frase literal y su URL, como literatura. Nunca es un límite de IFRA.
+- **La base, la que diga la frase:** «of the concentrate» o «in the fragrance concentrate», concentrado; «in the finished fragrance» o «in fine fragrance», producto acabado; si no lo dice, «sin declarar».
+- **Un rango** («0,1–2 %», «traces to 1 %») da mínimo y máximo; **una mediana de uso** (Fraterworks) da el típico, no el máximo. Una frase sin cifra («dose in traces») no da uso.
+- **Lo que no se usa:** una frase reconstruida o resumida, sin copia literal; la dosis de una página del material diluido (su % es el de la dilución).
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).

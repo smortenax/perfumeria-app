@@ -1,0 +1,45 @@
+n,nombre,campo,valor,fuente,nota
+1,4-Propylphenol,casa,,no lo dice ninguna fuente consultada: Harrison Joseph no tiene página de este material en su lista; búsquedas web sin página de fabricante,
+1,4-Propylphenol,dosis,,no lo dice ninguna fuente consultada: búsquedas web por CAS 645-56-7 (solo catálogos químicos),
+1,4-Propylphenol,horas,,no lo dice ninguna fuente consultada: búsquedas web por CAS 645-56-7 (solo catálogos químicos),
+1,4-Propylphenol,fuerza,,no lo dice ninguna fuente consultada: búsquedas web por CAS 645-56-7 (solo catálogos químicos),
+2,Methyl linolenate,cas,7361-80-0,"Harrison Joseph, https://www.harrisonjoseph.co.uk/product-page/methyl-linolenate: «7361-80-0»",
+2,Methyl linolenate,olor,,"Harrison Joseph, https://www.harrisonjoseph.co.uk/product-page/methyl-linolenate: «If you know, you know.»",la página no describe el olor
+2,Methyl linolenate,familia,,no lo dice ninguna fuente consultada: Harrison Joseph methyl-linolenate; búsquedas web por CAS 7361-80-0,
+2,Methyl linolenate,casa,,no lo dice ninguna fuente consultada: Harrison Joseph methyl-linolenate; búsquedas web por CAS 7361-80-0,
+2,Methyl linolenate,horas,,no lo dice ninguna fuente consultada: Harrison Joseph methyl-linolenate; búsquedas web por CAS 7361-80-0,
+3,Thialdine,cas,638-17-5,"Harrison Joseph, https://www.harrisonjoseph.co.uk/product-page/thialdine-0-1: «CAS Number: 638-17-5»","página del 0,1 % diluido"
+3,Thialdine,olor,"cooked beef, roasted savory broth, earthy hazelnut","Harrison Joseph, https://www.harrisonjoseph.co.uk/product-page/thialdine-0-1: «The official description of this one is along the lines of cooked beef, roasted savory broth, earthy hazelnut.»",diluido al 0.1 %
+3,Thialdine,casa,,no lo dice ninguna fuente consultada: Harrison Joseph thialdine-0-1; búsquedas web por CAS 638-17-5,
+3,Thialdine,dosis,,no lo dice ninguna fuente consultada: Harrison Joseph thialdine-0-1; búsquedas web por CAS 638-17-5,
+3,Thialdine,horas,,no lo dice ninguna fuente consultada: Harrison Joseph thialdine-0-1; búsquedas web por CAS 638-17-5,
+3,Thialdine,fuerza,,no lo dice ninguna fuente consultada: Harrison Joseph thialdine-0-1; búsquedas web por CAS 638-17-5,
+4,"Villous cardamom, tincture",cas,,"no lo dice ninguna fuente consultada: búsqueda site:maeselab.com (sin página de cardamomo villoso; solo cardamomo verde, negro y blanco, otras especies)",
+4,"Villous cardamom, tincture",familia,,"no lo dice ninguna fuente consultada: búsqueda site:maeselab.com (sin página de cardamomo villoso; solo cardamomo verde, negro y blanco, otras especies)",
+4,"Villous cardamom, tincture",dosis,,"no lo dice ninguna fuente consultada: búsqueda site:maeselab.com (sin página de cardamomo villoso; solo cardamomo verde, negro y blanco, otras especies)",
+4,"Villous cardamom, tincture",horas,,"no lo dice ninguna fuente consultada: búsqueda site:maeselab.com (sin página de cardamomo villoso; solo cardamomo verde, negro y blanco, otras especies)",
+4,"Villous cardamom, tincture",fuerza,,"no lo dice ninguna fuente consultada: búsqueda site:maeselab.com (sin página de cardamomo villoso; solo cardamomo verde, negro y blanco, otras especies)",
+5,"Honey, aromatic essence",horas,,"Maese Lab, https://maeselab.com/esencia-aromatica-de-miel/: «Pertenece a las notas de fondo, con influencia duradera en el perfil olfativo.»",no da horas; solo «notas de fondo»
+5,"Honey, aromatic essence",olor,"Dulce, untuosa y persistente, esta esencia reproduce la complejidad natural del néctar de abejas.","Maese Lab, https://maeselab.com/esencia-aromatica-de-miel/: «Dulce, untuosa y persistente, esta esencia reproduce la complejidad natural del néctar de abejas.»",
+5,"Honey, aromatic essence",dosis,,no lo dice ninguna fuente consultada: Maese Lab esencia-aromatica-de-miel,
+5,"Honey, aromatic essence",fuerza,,no lo dice ninguna fuente consultada: Maese Lab esencia-aromatica-de-miel,
+6,Narcisse Oxyacetate,cas,67028-40-4,"Harrison Joseph, https://www.harrisonjoseph.co.uk/product-page/narcisse-oxyacetate: «67028-40-4»",
+6,Narcisse Oxyacetate,olor,"metallic, mineral, animalic and floral aspects","Harrison Joseph, https://www.harrisonjoseph.co.uk/product-page/narcisse-oxyacetate: «this molecule exhibits metallic, mineral, animalic and floral aspects.»",
+6,Narcisse Oxyacetate,casa,,no lo dice ninguna fuente consultada: Harrison Joseph narcisse-oxyacetate; búsquedas web por CAS 67028-40-4,
+6,Narcisse Oxyacetate,horas,,no lo dice ninguna fuente consultada: Harrison Joseph narcisse-oxyacetate; búsquedas web por CAS 67028-40-4,
+6,Narcisse Oxyacetate,fuerza,,no lo dice ninguna fuente consultada: Harrison Joseph narcisse-oxyacetate; búsquedas web por CAS 67028-40-4,
+7,Phenylethyl Mercaptan,olor,"burning rubber, complete and utter destruction. Upon dilution: gardenia","Harrison Joseph, https://www.harrisonjoseph.co.uk/product-page/phenylethyl-mercaptan-0-1: «Up close and personal: burning rubber, complete and utter destruction.»",diluido al 0.1 %; la segunda línea de la página: «Upon dilution: gardenia?!»
+7,Phenylethyl Mercaptan,dosis,at about 0.01% (uso observado por el vendedor: se parece a la rúcula),"Harrison Joseph, https://www.harrisonjoseph.co.uk/product-page/phenylethyl-mercaptan-0-1: «at about 0.01% this smells in some ways very close to Rocket»","dato de olor a 0,01 %, no recomendación de uso; base no dicha; diluido al 0.1 %"
+7,Phenylethyl Mercaptan,casa,,no lo dice ninguna fuente consultada: Harrison Joseph phenylethyl-mercaptan-0-1; búsquedas web por CAS 4410-99-5,
+7,Phenylethyl Mercaptan,horas,,no lo dice ninguna fuente consultada: Harrison Joseph phenylethyl-mercaptan-0-1; búsquedas web por CAS 4410-99-5,
+8,Truffle essence,olor,"De aroma dulce, intenso y que recuerda al fruto de trufa, profundo.","Maese Lab, https://maeselab.com/esencia-aromatica-de-trufa/: «De aroma dulce, intenso y que recuerda al fruto de trufa, profundo.»",
+8,Truffle essence,horas,,"Maese Lab, https://maeselab.com/esencia-aromatica-de-trufa/: «Pertenece al grupo de las notas de fondo con influencia en las notas medias.»",no da horas; solo «notas de fondo»
+8,Truffle essence,familia,,no lo dice ninguna fuente consultada: Maese Lab esencia-aromatica-de-trufa,
+8,Truffle essence,fuerza,,no lo dice ninguna fuente consultada: Maese Lab esencia-aromatica-de-trufa,
+9,1-Octen-3-one Stabilised,cas,,"Harrison Joseph, https://www.harrisonjoseph.co.uk/product-page/1-octen-3-one-10-stabilised: «1-octen-3-one»",la página no da el CAS; solo el nombre; CAS 4312-99-6 viene de la lista
+9,1-Octen-3-one Stabilised,olor,The literal smell of blood and metal.,"Harrison Joseph, https://www.harrisonjoseph.co.uk/product-page/1-octen-3-one-10-stabilised: «The literal smell of blood and metal.»","versión estabilizada (cetona y alcohol), diluida"
+9,1-Octen-3-one Stabilised,casa,,no lo dice ninguna fuente consultada: Harrison Joseph 1-octen-3-one-10-stabilised; búsquedas web por CAS 4312-99-6,
+9,1-Octen-3-one Stabilised,horas,,no lo dice ninguna fuente consultada: Harrison Joseph 1-octen-3-one-10-stabilised; búsquedas web por CAS 4312-99-6,
+10,"Ambergris, commercial tincture (purified)",cas,,"Maese Lab, https://maeselab.com/en/ambar-gris-tintura-al-10/: «CAS NO:»",el campo CAS NO sale vacío en la página
+10,"Ambergris, commercial tincture (purified)",dosis,,"Maese Lab, https://maeselab.com/en/ambar-gris-tintura-al-10/: «AMBREIN - purity 80% - Purified Diluted 10% in Bioethanol 96º.»",la página no da dosis; solo pureza y dilución
+10,"Ambergris, commercial tincture (purified)",horas,,no lo dice ninguna fuente consultada: Maese Lab ambar-gris-tintura-al-10,
