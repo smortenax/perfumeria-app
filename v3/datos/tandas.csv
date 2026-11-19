@@ -105,3 +105,8 @@ tanda,fecha,aprobacion,archivo,sha256
 56-maese-en-comunes,2026-11-14,"el usuario, 2026-11-14, en la tarjeta: «Aprobar la 56 y fusionar ya»",materials.csv,36f861410ab839a39eb60ebdb9b70675e3f357eda103985a4604b6a4fbe0b5b9
 57-altas-18-nov,2026-11-19,"el usuario, 2026-11-19, en el hilo: «Apruebo 57, 58 y 59, empieza la línea de información»",material_categories.csv,0062b040b888d5c4102a0910cd79b032725c167f36ebec945be53dd25a22b7e3
 57-altas-18-nov,2026-11-19,"el usuario, 2026-11-19, en el hilo: «Apruebo 57, 58 y 59, empieza la línea de información»",materials.csv,c115befbc4ab40a71a393346153d930f871d0f5247065d07fda92ea0a8a7e0ef
+60-info-altas-18-nov,2026-11-19,"el usuario, 2026-11-19: «Apruebo la 60»",material_categories.csv,90f9bbcd5320a2b27d1ca8a82ab54b3889e78517808d9e43f0778fdbea6782b3
+60-info-altas-18-nov,2026-11-19,"el usuario, 2026-11-19: «Apruebo la 60»",material_components.csv,f751d887b62dcf517056f2bc47163f9f7545f4b48a760fa33c47d0c8bf360292
+60-info-altas-18-nov,2026-11-19,"el usuario, 2026-11-19: «Apruebo la 60»",material_descriptors.csv,e57e70cc514e18f12d8458bbe1ecb5a9eb6fe82b352b269f2df9e99e8f06d5ff
+60-info-altas-18-nov,2026-11-19,"el usuario, 2026-11-19: «Apruebo la 60»",material_doses.csv,ff2faf5de514911f3392e07e78e216a530d8046c91b885ac633f298cd01f419a
+60-info-altas-18-nov,2026-11-19,"el usuario, 2026-11-19: «Apruebo la 60»",materials.csv,575f12e92dd06fe66eb22afa8abce3bf701f34ce8fc09b90f0d054e6af530f8d
