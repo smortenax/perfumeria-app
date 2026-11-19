@@ -27,7 +27,8 @@ import { type Cell, writeTable } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
 const TANDA = "60";
-const BASE = execSync("git rev-parse --short HEAD", { encoding: "utf8" }).trim();
+// BASE=<commit> regenerates the batch on the data it was made on (once approved, HEAD already holds it).
+const BASE = process.env.BASE ?? execSync("git rev-parse --short HEAD", { encoding: "utf8" }).trim();
 const OUT = "migracion-v3/tandas/60-info-altas-18-nov";
 const WEB = "migracion-v3/web/info-18-nov";
 type Rec = Record<string, Cell>;
@@ -170,6 +171,19 @@ const nameOfCas = (cas: string) =>
   materials.rows.find((m) => !m.owner_id && (m.cas === cas || listOf(m.other_cas).includes(cas)))?.name ??
   ifraNames.get(cas) ?? null;
 for (const c of newComponents) if (!c.component_name && c.component_cas) c.component_name = nameOfCas(String(c.component_cas)) as Cell;
+// Else the name the SDS line prints, between the CAS and the concentration and before the hazard class (the
+// cloud refuses a component without a name: material_components_what).
+const HAZARD = /\b(?:CAS:|EC:|Flam\.|Acute|Skin|Eye|Aquatic|Asp\.|Carc\.|Repr\.|STOT|Muta\.|Resp\.)/;
+const nameInLine = (line: string, cas: string) =>
+  line.replace(/^\*\s*/, "").replace(cas, " ").replace(/[≥>]?\s*\d+(?:[.,]\d+)?\s*%?\s*(?:-|–|;)\s*[<≤]?\s*\d+(?:[.,]\d+)?\s*%?/, " ")
+    .split(HAZARD)[0].replace(/\s+/g, " ").trim();
+for (const c of newComponents) {
+  if (c.component_name || !c.component_cas) continue;
+  const d = docs.find((x) => x.campo === "componente" && x.cas === c.component_cas && x.documento === "sds" && byId.get(String(c.material_id))?.id === proposalByN.get(x.n)?.id);
+  c.component_name = d ? nameInLine(d.frase, String(c.component_cas)) || null : null;
+}
+const unnamed = newComponents.filter((c) => !String(c.component_name ?? "").trim());
+if (unnamed.length) throw new Error(`Constituyentes sin nombre: ${unnamed.map((c) => c.component_cas).join(", ")}`);
 for (const [n, notes] of docNotes) {
   const m = byId.get(proposalByN.get(n)!.id)!;
   m.notes = `${m.notes ? `${m.notes}\n` : ""}Batch ${TANDA}, documents: ${notes.join("; ")}.`;

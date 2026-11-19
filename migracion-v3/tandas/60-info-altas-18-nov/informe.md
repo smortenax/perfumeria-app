@@ -1,6 +1,6 @@
 # Tanda 60 · La línea de información de las altas del 18-nov
 
-*Generada por `migracion-v3/tanda-60-info-altas-18-nov.ts` sobre lo común de `602a480` (con la tanda 57 ya aprobada), desde `migracion-v3/web/info-18-nov/`. Escribe `v3/datos/materials.csv`, `material_doses.csv`, `material_descriptors.csv`, `material_components.csv` y `material_categories.csv` enteros: solo llena campos vacíos y añade filas; nada que ya tuviera valor cambia. Sin aprobar.*
+*Generada por `migracion-v3/tanda-60-info-altas-18-nov.ts` sobre lo común de `89ee0ae` (con la tanda 57 ya aprobada), desde `migracion-v3/web/info-18-nov/`. Escribe `v3/datos/materials.csv`, `material_doses.csv`, `material_descriptors.csv`, `material_components.csv` y `material_categories.csv` enteros: solo llena campos vacíos y añade filas; nada que ya tuviera valor cambia. Sin aprobar.*
 
 **Por qué:** el usuario, 2026-11-19: «Apruebo 57, 58 y 59, empieza la línea de información» y «empieza el thread separado de la info». Los 44 comunes de la tanda 57 entraron a medias (sin familia, duración, dosis, composición, descriptores ni impacto).
 
