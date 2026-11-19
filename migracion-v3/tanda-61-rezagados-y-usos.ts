@@ -99,7 +99,7 @@ writeTable(join(OUT, "material_doses.csv"), doses.header, [...asCells(doses.rows
 writeTable(join(OUT, "material_descriptors.csv"), descriptors.header, [...asCells(descriptors.rows), ...newDescriptors]);
 
 const lines = proposal.map((p) => `| ${p.n} | ${cell(p.nombre)} | ${p.buscar} | ${cell((filledBy.get(p.id) ?? []).join("; ")) || "—"} |`);
-const extra = [...new Set(usos.filter((d) => !proposal.some((p) => p.id === d.id)).map((d) => d.id))].map((id) => `| ${cell(String(byId.get(id)?.name))} | ${cell((filledBy.get(id) ?? []).join("; "))} |`);
+const _extra = [...new Set(usos.filter((d) => !proposal.some((p) => p.id === d.id)).map((d) => d.id))].map((id) => `| ${cell(String(byId.get(id)?.name))} | ${cell((filledBy.get(id) ?? []).join("; "))} |`);
 writeFileSync(
   join(OUT, "informe.md"),
   `# Tanda 61 · Los rezagados y el uso habitual de las altas del 18-nov
@@ -114,17 +114,19 @@ writeFileSync(
 
 **Lo que no se buscó** (no aplica): el CAS de las bases (son mezclas) y la casa de las moléculas genéricas compradas en Maese Lab u Olfatorium, que no la nombran (bencilo, linalol, aldehídos…).
 
+## Para mirar antes de aprobar
+
+- **Casi todo lo que faltaba de los rezagados sigue faltando.** Para los de Harrison Joseph (4-propilfenol, Thialdine, Narcisse Oxyacetate…), las tinturas de Maese, la miel, la trufa y las bases de Perfumiarz no hay ninguna página que lo diga: Harrison Joseph solo da CAS y olor, y TGSC, la referencia que más dice, bloquea las lecturas (403). Queda «no lo dice».
+- **Acetato de bornilo, hasta 9 % en el concentrado:** es la frase de recomendación de uso de TGSC («usage levels up to: 9.0000 % in the fragrance concentrate»), copiada por Perflavory; el lector creyó que era un tope de IFRA. Es la frase que la tanda 46 ya aceptaba como uso.
+- **Rose Crystals:** 400 h (Fraterworks) frente a 300 h (PerfumersWorld): va la primera, disputado. Fraterworks nombra a VENTOS como proveedor, no como fabricante: la casa no se llena.
+- **Cumin Nitrile, casa Synarome:** de un distribuidor indio («Make: Synarome»); Perflavory lo lista también con Givaudan como proveedor.
+- **No entran:** los usos de la dilución (Levistamel 25 %, furfuril mercaptano 1 %, Ultravanil 80 %, Matcha Ketone 5 %), del Hercolyn D (no DW), del yuzu (su página no dice que sea destilado), de la tintura de canela al 25 % de Fraterworks y del Ambrettolide para el Scentolide; y las pautas de dilución («diluir al 5 % o 1 %»). Lista completa en \`no-usado-61.csv\`.
+
 ## Material por material
 
 | n | Material | Se buscaba | Lo que se llena |
 |---|---|---|---|
 ${lines.join("\n")}
-
-## Usos de la tanda 60 que ya estaban leídos (ahora entran)
-
-| Material | Uso |
-|---|---|
-${extra.join("\n") || "| — | — |"}
 
 ## Disputados
 

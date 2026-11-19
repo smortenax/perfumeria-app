@@ -20,7 +20,7 @@ sys.path.insert(0, str(HERE))
 from normalizar import choose, rank, site  # noqa: E402
 from pagina import fetch, normal, text_of  # noqa: E402
 
-OTHER = re.compile(r"otro CAS|CAS de la página \S+,? no|no coincide|otra especie|otro proceso|otra parte|otro grado|otro producto|otra forma|parecido|no idéntic|no DW|no dice que sea|tope (?:de )?ifra|l[ií]mite (?:de )?ifra|ifra limit", re.I)
+OTHER = re.compile(r"otro CAS|CAS de la página \S+,? no|no coincide|otra especie|otro proceso|otra parte|otro grado|otro producto|otra forma|parecido|no idéntic|no DW|pero producto|no dice que sea|tope (?:de )?ifra|l[ií]mite (?:de )?ifra|ifra limit", re.I)
 DILUTED = re.compile(r"diluid|al \d+ ?% en (dpg|ipm|tec|alcohol|etanol)|\d+ ?% en (dpg|ipm|tec|alcohol|etanol)|tintura al|tincture \d+ ?%|\d+ ?% tincture", re.I)
 QUOTE = re.compile(r"«(.+?)»", re.S)
 
@@ -79,12 +79,12 @@ def dose_of(text):
     med = re.search(r"median(?: of| use)?(?: at)?\s*" + NUM + r"\s*%", t)
     if med:
         return None, f(med.group(1)), None, basis
-    ranges = re.findall(NUM + r"\s*%?\s*(?:-|to|a|–)\s*" + NUM + r"\s*%", t)
+    ranges = re.findall(NUM + r"\s*%?\s*(?:-|to|a|–)\s*" + NUM + r"\s*%", t) + re.findall(r"between\s*" + NUM + r"\s*%?\s*and\s*" + NUM + r"\s*%", t)
     if ranges:
         lo = min(f(a) for a, _ in ranges)
         hi = max(f(b) for _, b in ranges)
         return (lo, None, hi, basis) if lo < hi else (None, None, hi, basis)
-    up = re.search(r"(?:up to|max(?:imum)?|traces? to|trace to|no more than|below|under)\s*" + NUM + r"\s*%", t)
+    up = re.search(r"(?:up ?to|max(?:imum)?|traces? to|trace to|no more than|below|under)\s*:?\s*" + NUM + r"\s*%", t)
     if up:
         return None, None, f(up.group(1)), basis
     one = re.findall(NUM + r"\s*%", t)

@@ -59,15 +59,15 @@ n,id,nombre,buscar,family,family_fuente,family_disputado,family_otras,tenacity_h
 58,b41c38bf-2ab7-5e93-b2f5-2814d49bbb57,Cuir 17500 (Synarome),dosis,,,,,,,,,,,,,,,,,,,,,,[],0
 59,b6807b63-f726-5206-aa22-87163fc2b5de,Bornyl acetate,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
 60,b7542bba-2644-5db2-b866-237c139fed3d,Hot Milk Bold Base (Moellhausen),dosis,,,,,,,,,,,,,,,,,,,,,,[],0
-61,bbddd037-673c-5479-82bf-d1e2e060b652,Oxyoctaline formate,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
-62,c1527260-3df1-5271-9bc6-198192b06bb8,Ethyl linalool,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
-63,c83db25c-7ab0-5890-a6fb-348251297e72,Scentolide,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
-64,e0b7d24f-3165-5cb5-a37d-3d4f35c6e0a8,Cinnamalva (cinnamyl nitrile),dosis,,,,,,,,,,,,,,,,,,,,,,[],0
-65,e81b232b-2c22-56cf-b0d4-7434a5047a9f,Ethyl pelargonate,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+61,bbddd037-673c-5479-82bf-d1e2e060b652,Oxyoctaline formate,dosis,,,,,,,,,,,,,,,,,,,,,,[],2
+62,c1527260-3df1-5271-9bc6-198192b06bb8,Ethyl linalool,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
+63,c83db25c-7ab0-5890-a6fb-348251297e72,Scentolide,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
+64,e0b7d24f-3165-5cb5-a37d-3d4f35c6e0a8,Cinnamalva (cinnamyl nitrile),dosis,,,,,,,,,,,,,,,,,,,,,,[],1
+65,e81b232b-2c22-56cf-b0d4-7434a5047a9f,Ethyl pelargonate,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
 66,f131a5bb-c3b9-5de1-bed6-57f5a03352b8,Fructalate,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
-67,f21f161d-c78b-5156-a45d-acdac1c23eed,Orionide,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+67,f21f161d-c78b-5156-a45d-acdac1c23eed,Orionide,dosis,,,,,,,,,,,,,,,,,,,,,,[],2
 68,f8dded99-d24f-5c36-bcc1-d78fe7410498,Cocoa thiazole (trimethylthiazole),dosis,,,,,,,,,,,,,,,,,,,,,,[],0
-69,ee24132e-4024-5efc-8420-9558ecdc672f,Tropicalia,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+69,ee24132e-4024-5efc-8420-9558ecdc672f,Tropicalia,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
 60:17af28d8-a8bb-548b-931f-198524658039,17af28d8-a8bb-548b-931f-198524658039,Muscenone,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
 60:38adcfe2-bf52-5770-87ac-e32b8f17453a,38adcfe2-bf52-5770-87ac-e32b8f17453a,Delta-decalactone,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
 60:448a5e1c-f5df-55cf-be37-e5f173680e7d,448a5e1c-f5df-55cf-be37-e5f173680e7d,Velvione,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
