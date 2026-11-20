@@ -1,4 +1,4 @@
-// Copied from designboard 4aa3488 (src/runtime/index.ts), runtime 1.0.
+// Copied from designboard 3f221ae (src/runtime/index.ts), runtime 1.15.
 // Do not edit here: change designboard and run `npm run copy-runtime` again.
 /**
  * Everything an app needs to draw what the board composed. An app copies this folder and the core
@@ -12,4 +12,9 @@ export { CompositionSource, readComposition, useComposition, type CompositionSta
 export { clampComposition, parseComposition, pickArtboard, runtimeMismatch, serializeComposition, type Artboard, type Composition } from "../core/composition";
 export { makeLibrary, type ComponentDef, type Library } from "../core/manifest";
 export { cssVarName, setTokenNaming, tokenVar, type CssVarOf } from "../core/tokens";
+export { actionOf, connectionTarget, leadsTo, screenLinks, triggerOf, type Connection, type ScreenLink } from "../core/connections";
+export type { Act } from "./navigate";
 export { RUNTIME_VERSION } from "../core/runtimeVersion";
+export { VariablesProvider, useVariables, type VariableStore } from "./variables";
+export { VariantProvider, variantCleaner, type VariantCleaner } from "./variantSwitch";
+export type { Condition, SetVariable, Variable } from "../core/variables";

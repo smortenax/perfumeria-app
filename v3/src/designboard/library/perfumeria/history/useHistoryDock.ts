@@ -1,7 +1,7 @@
-// Copied from designboard 4aa3488 (src/library/perfumeria/history/useHistoryDock.ts), runtime 1.0.
+// Copied from designboard 3f221ae (src/library/perfumeria/history/useHistoryDock.ts), runtime 1.15.
 // Do not edit here: change designboard and run `npm run copy-runtime` again.
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { centreOf, hoveredAt, maxScrollOf, scaleAt, shiftAt, slotOf, type DockGeometry } from "./history";
+import { centreOf, hoveredAt, maxScrollOf, scaleAt, shiftAt, slotOf, wheelStep, type DockGeometry } from "./history";
 
 /** The root's font size: the slot is set in px at 16 px and grows with larger text, as the app's 3.25rem did (audit F-06). */
 const remPx = () => (typeof document === "undefined" ? 16 : parseFloat(getComputedStyle(document.documentElement).fontSize) || 16);
@@ -37,6 +37,22 @@ export function useHistoryDock(count: number, params: DockGeometry, hoverIndex?:
   // A new change comes into view.
   useEffect(() => setScrollRaw(maxScroll), [count, maxScroll]);
   const setScroll = (v: number) => setScrollRaw(Math.max(0, Math.min(maxScroll, v)));
+
+  // The wheel over the track moves only the row, sideways, never the page. React's onWheel is
+  // passive and cannot stop the page, so the listener is a native one with passive: false.
+  const maxRef = useRef(maxScroll);
+  maxRef.current = maxScroll;
+  useEffect(() => {
+    const el = area.current;
+    if (!el) return;
+    const onWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      const step = wheelStep(e, el.clientWidth || 1000);
+      setScrollRaw((s) => Math.max(0, Math.min(maxRef.current, s + step)));
+    };
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, []);
 
   const pointer = pointerRaw ?? (hoverIndex !== undefined && hoverIndex >= 0 && hoverIndex < count ? centreOf(hoverIndex, g, scroll) : null);
   const centre = (i: number) => centreOf(i, g, scroll);

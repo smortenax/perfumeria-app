@@ -1,4 +1,4 @@
-// Copied from designboard 4aa3488 (src/library/orb/orbParams.ts), runtime 1.0.
+// Copied from designboard 3f221ae (src/library/orb/orbParams.ts), runtime 1.15.
 // Do not edit here: change designboard and run `npm run copy-runtime` again.
 /**
  * What a material orb shows, and how a material's data becomes it.

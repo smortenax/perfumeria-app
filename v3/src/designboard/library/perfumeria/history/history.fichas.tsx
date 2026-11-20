@@ -1,4 +1,4 @@
-// Copied from designboard 4aa3488 (src/library/perfumeria/history/history.fichas.tsx), runtime 1.0.
+// Copied from designboard 3f221ae (src/library/perfumeria/history/history.fichas.tsx), runtime 1.15.
 // Do not edit here: change designboard and run `npm run copy-runtime` again.
 import type { ComponentDef, ComponentPreview } from "../../../core/manifest";
 import { HistoryCount, HistoryPlay, HistoryTrack, type CountParams, type PlayParams, type TrackParams } from "./HistoryPieces";

@@ -1,12 +1,16 @@
-// Copied from designboard 4aa3488 (src/runtime/ComposedScreen.tsx), runtime 1.0.
+// Copied from designboard 3f221ae (src/runtime/ComposedScreen.tsx), runtime 1.15.
 // Do not edit here: change designboard and run `npm run copy-runtime` again.
 import { useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { layoutTree, reflowChildren, type Artboard } from "../core/composition";
 import type { Library } from "../core/manifest";
 import { tokenVar } from "../core/tokens";
 import { cssLengthToPx, pxFromCss } from "./cssTokens";
-import { LayerTree, layoutStyle } from "./layers";
+import { LayerTree, layoutStyle, overflowStyle, pinnedIn, ScrollingLayers } from "./layers";
 import { LinkProvider, resolverFrom } from "./links";
+import { ActProvider, actFromNavigate, type Act } from "./navigate";
+import { useVariantSwitcher, VariantProvider, variantCleaner } from "./variantSwitch";
+import { useVariables, VariablesProvider } from "./variables";
+import type { Variable } from "../core/variables";
 
 /**
  * What an app uses at start-up: it reads a composition file and draws a screen from it with
@@ -56,6 +60,9 @@ export function ComposedScreen({
   tokens,
   style,
   resolveLink,
+  onNavigate,
+  onAction,
+  variables,
   fit = "fixed",
 }: {
   board: Artboard;
@@ -74,6 +81,24 @@ export function ComposedScreen({
    */
   resolveLink?: (path: string) => string;
   /**
+   * Called with the target screen's id when someone clicks a layer connected to a screen on the
+   * board's screen map. `connectionTarget(composition, id)` gives the screen and its route; the
+   * app fills the route's params and navigates. Without it, connected layers are not clickable.
+   */
+  onNavigate?: (to: string) => void;
+  /**
+   * Called for every connection, with what starts it and what it does: a click, a hover (with
+   * "end" when the pointer leaves) or a delay; navigate, an overlay, back or close. It replaces
+   * `onNavigate` when given. The board's *Vista app* plays a prototype with it.
+   */
+  onAction?: Act;
+  /**
+   * The file's prototype variables (`composition.variables`), for connections that set or depend
+   * on one and layers that show or take a value by one. The screen keeps their values while it
+   * is drawn; several screens share them when the app wraps them in one `VariablesProvider`.
+   */
+  variables?: readonly Variable[];
+  /**
    * "fixed" draws the screen at the width it was drawn at. "width" takes the width of the box the
    * app puts it in and moves every layer by its anchors to fit (a bar as wide as the bench).
    */
@@ -84,6 +109,8 @@ export function ComposedScreen({
   const board = fluid ? boardAtWidth(drawn, width) : drawn;
   const px = useMemo(() => (tokens ? pxOf(tokens) : pxFromCss()), [tokens]);
   const estimate = layoutTree(board, px);
+  // A scrolling screen with fixed layers scrolls a viewport inside it and only clips itself.
+  const split = !!board.scroll && pinnedIn(board.layout, board.children).length > 0;
   const screen = (
     <div
       ref={ref}
@@ -95,13 +122,26 @@ export function ComposedScreen({
         height: board.height,
         // A screen with no ground lets the app's own show through.
         background: board.background ? tokenVar(board.background, "#fff") : "transparent",
-        overflow: board.clip === false ? "visible" : "hidden",
+        ...(split ? { overflow: "hidden", position: "relative" } : overflowStyle(board.clip !== false, board.scroll)),
         boxSizing: "border-box",
         ...style,
       }}
     >
-      <LayerTree layers={board.children} parent={board.layout} library={library} estimate={estimate} />
+      {split ? (
+        <ScrollingLayers layers={board.children} layout={board.layout} scroll={board.scroll!} library={library} estimate={estimate} />
+      ) : (
+        <LayerTree layers={board.children} parent={board.layout} library={library} estimate={estimate} />
+      )}
     </div>
   );
-  return resolveLink ? <LinkProvider resolver={resolverFrom(resolveLink)}>{screen}</LinkProvider> : screen;
+  const act = useMemo(() => onAction ?? (onNavigate ? actFromNavigate(onNavigate) : null), [onAction, onNavigate]);
+  // Variant changes ("change to") are kept by a provider around the screens when there is one, so
+  // they last from screen to screen; otherwise here, for as long as this screen is drawn.
+  const outerVariants = useVariantSwitcher();
+  const cleanVariant = useMemo(() => variantCleaner([drawn], library), [drawn, library]);
+  const withNav = act ? <ActProvider act={act}>{outerVariants ? screen : <VariantProvider clean={cleanVariant}>{screen}</VariantProvider>}</ActProvider> : screen;
+  // Variables kept by this screen, unless something around it already keeps them.
+  const shared = useVariables();
+  const withVars = variables && !shared ? <VariablesProvider variables={variables}>{withNav}</VariablesProvider> : withNav;
+  return resolveLink ? <LinkProvider resolver={resolverFrom(resolveLink)}>{withVars}</LinkProvider> : withVars;
 }

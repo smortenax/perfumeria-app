@@ -1,0 +1,3585 @@
+/* Copied from designboard 3f221ae (src/library/perfumeria/bench/bench.css), runtime 1.15.
+   Do not edit here: change designboard and run `npm run copy-runtime` again. */
+/*
+ * The workbench's styles, ported from the v2 (V3-52) as they were (src/App.css of the v2: the palette
+ * and measures of boceto 4, provisional). Nested inside .bench-root, so that they style the workbench
+ * and nothing else of the v3.
+ */
+.bench-root {
+  /* The palette and measures of the sketch (boceto 4). Light only, as the sketches; provisional. */
+  & {
+    /* The tokens of V3-73 (src/theme/tokens.css) under the workbench's own names. */
+    --bg: var(--surface-base);
+    --panel: var(--surface-raised);
+    --line: var(--border-subtle);
+    --line-strong: var(--border-control);
+    --line-soft: var(--border-subtle);
+    --ink: var(--text-default);
+    --ink-2: var(--text-muted);
+    --muted: var(--text-muted);
+    --faint: var(--text-muted);
+    --fill: var(--surface-sunken);
+    --fill-2: var(--surface-chip);
+    --amber: var(--status-amber);
+    --amber-bg: var(--status-amber-bg);
+    --blue: var(--status-blue);
+    --blue-bg: var(--status-blue-bg);
+    --red: var(--status-red);
+    --red-bg: var(--status-red-bg);
+    /* The history's height (one row, the user 2026-10-24); the bench keeps that much room under focus. */
+    --dock-h: 72px;
+    font-family: var(--font-sans);
+    font-size: var(--text-md);
+    line-height: 1.4;
+    color: var(--ink);
+    background: var(--bg);
+    color-scheme: light;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  & {
+    margin: 0;
+    background: var(--bg);
+    /* The workbench takes the whole window, as the v2's did: over the app, with its own way back. */
+    position: fixed;
+    inset: 0;
+    /* Below the app's top bar, beside its sidebar (theme/layout.css). */
+    top: var(--app-nav-h, 0);
+    /* Beside the sidebar on wide screens (V3-73). */
+    left: var(--app-nav-w, 0);
+    z-index: 10;
+    overflow: auto;
+    /* Focus never lands under the docked history (WCAG 2.4.11; vault pass 2026-10-24, F-01). */
+    scroll-padding-bottom: calc(var(--dock-h) + 16px);
+  }
+
+  button,
+  input,
+  textarea {
+    font: inherit;
+    color: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: default;
+    opacity: 0.45;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 1px;
+  }
+
+  .num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .muted {
+    color: var(--muted);
+  }
+
+  .small {
+    font-size: var(--text-sm);
+  }
+
+  .tiny {
+    font-size: var(--text-xs);
+  }
+
+  .right {
+    margin-left: auto;
+  }
+
+  .error {
+    color: var(--ink);
+  }
+
+  .label {
+    font-size: var(--text-xs);
+    color: var(--muted);
+  }
+
+  .pill {
+    flex: none;
+    font-size: var(--text-xs);
+    color: var(--muted);
+    background: var(--fill);
+    border-radius: var(--radius-pill);
+    padding: 2px 8px;
+    white-space: nowrap;
+  }
+
+  .link {
+    border: none;
+    background: none;
+    padding: 0;
+    color: var(--amber);
+    text-decoration: underline;
+  }
+
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-panel);
+  }
+
+  .tool {
+    flex: none;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-large);
+    background: var(--fill-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    color: var(--ink-2);
+  }
+
+  .menu-pop {
+    position: absolute;
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-large);
+    padding: 6px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
+  }
+
+  .menu-note {
+    display: block;
+    padding: 6px 12px 2px;
+    color: var(--faint);
+    font-size: var(--text-xs);
+  }
+
+  .menuitem.danger {
+    color: var(--red);
+  }
+
+  .menuitem {
+    height: 34px;
+    border: none;
+    background: transparent;
+    border-radius: var(--radius-control);
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    font-size: var(--text-md);
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .menuitem:hover:not(:disabled) {
+    background: var(--bg);
+  }
+
+  .menuitem .key {
+    margin-left: auto;
+    padding-left: 16px;
+    font-size: var(--text-xs);
+    color: var(--muted);
+  }
+
+  .menu-sep {
+    height: 1px;
+    background: var(--line-soft);
+    margin: 4px 6px;
+  }
+
+  /* Launcher */
+
+  .launcher {
+    max-width: 680px;
+    margin: 14vh auto 0;
+    padding: 0 24px;
+  }
+
+  .launcher h1 {
+    font-size: var(--text-2xl);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin: 0 0 4px;
+  }
+
+  .launcher .subtitle {
+    color: var(--muted);
+    margin: 0 0 28px;
+  }
+
+  .launcher-actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  button.big {
+    height: 48px;
+    padding: 0 22px;
+    font-size: var(--text-lg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-large);
+    background: var(--panel);
+  }
+
+  .add-btn.big {
+    width: auto;
+    height: 48px;
+    font-size: var(--text-lg);
+    border: none;
+    background: var(--ink);
+  }
+
+  .library {
+    margin-bottom: 28px;
+  }
+
+  .library h2 {
+    font-size: var(--text-md);
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+
+  .library-list {
+    list-style: none;
+    margin: 0 0 8px;
+    padding: 0;
+    max-height: 40vh;
+    overflow-y: auto;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-large);
+    background: var(--panel);
+  }
+
+  .library-list li + li {
+    border-top: 1px solid var(--line-soft);
+  }
+
+  .library-row {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .library-open {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 14px;
+    border: none;
+    background: none;
+    text-align: left;
+  }
+
+  .library-versions {
+    flex: none;
+    padding: 0 14px;
+    border: none;
+    border-left: 1px solid var(--line-soft);
+    background: none;
+    color: var(--muted);
+    font-size: var(--text-sm);
+  }
+
+  .library-open:hover,
+  .library-open:focus-visible,
+  .library-versions:hover,
+  .library-versions:focus-visible,
+  .library-versions[aria-expanded="true"] {
+    background: var(--fill-2);
+  }
+
+  .library-older {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 4px 18px;
+    border-top: 1px solid var(--line-soft);
+    background: var(--fill-2);
+  }
+
+  .library-older .library-open {
+    padding: 6px 14px;
+  }
+
+  .library-name {
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .launcher-notes p {
+    color: var(--muted);
+    font-size: var(--text-sm);
+    margin: 4px 0;
+  }
+
+  /* The bench (§10.1): one page that scrolls, at any width (V3-73). */
+
+  .bench {
+    position: relative;
+    min-height: 100%;
+    padding: var(--space-inset) var(--space-inset) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-gap);
+    background: var(--bg);
+  }
+
+  /* Bottle */
+
+  .bottle-frame {
+    position: relative;
+    width: 208px;
+    height: 284px;
+    flex: none;
+  }
+
+  .frame-shape {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .frame-shape path {
+    fill: var(--panel);
+    stroke: var(--line);
+    stroke-width: 1;
+  }
+
+  .bottle-inner {
+    position: absolute;
+    inset: 0;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .fill-note {
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+  }
+
+  /* What the bottle holds, under it (P49): the aromatic matter, then the solvents. */
+  .bottle-split {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+    text-align: center;
+  }
+
+  .bottle-split .aromatic {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .back {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-large);
+    background: var(--panel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  /* Name, intention, grams */
+
+  .name-card {
+    height: 88px;
+    flex: none;
+    padding: 14px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .formula-name {
+    border: none;
+    background: transparent;
+    padding: 0;
+    font-size: var(--text-xl);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    outline-offset: 2px;
+  }
+
+  .status {
+    font-size: var(--text-sm);
+    color: var(--muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .status.error {
+    color: var(--ink);
+  }
+
+  .intention-card {
+    flex: 1;
+    min-height: 0;
+    padding: 12px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .intention-card textarea {
+    flex: 1;
+    min-height: 0;
+    border: none;
+    background: transparent;
+    resize: none;
+    padding: 0;
+    font-size: var(--text-md);
+    line-height: 1.45;
+  }
+
+  .grams-card {
+    width: 168px;
+    flex: none;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .grams-sub {
+    font-size: var(--text-xs);
+    color: var(--muted);
+  }
+
+  /* A figure to fill in: a box, like a small search bar (P49). */
+  .gram-box {
+    width: 100%;
+    height: 28px;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-control);
+    background: var(--panel);
+    padding: 0 8px;
+    text-align: right;
+    font-size: var(--text-md);
+    font-weight: 500;
+  }
+
+  .gram-box.empty {
+    text-align: left;
+    font-family: inherit;
+    font-size: var(--text-sm);
+    font-weight: 400;
+    color: var(--faint);
+  }
+
+  .gram-box.empty.amber {
+    color: var(--amber);
+    border-color: var(--amber);
+  }
+
+  .gram-input {
+    border: 1.5px solid var(--ink);
+    outline: none;
+  }
+
+  .gram-input.bad {
+    border-color: var(--red);
+  }
+
+  .grams-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .grams-line {
+    display: flex;
+    align-items: baseline;
+    font-size: var(--text-sm);
+  }
+
+  .grams-line .value {
+    margin-left: auto;
+  }
+
+  .grams-final {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .grams-final .pill {
+    font-weight: 500;
+    border: 1px solid var(--line);
+    background: transparent;
+    padding: 0 6px;
+  }
+
+  button.value,
+  span.value {
+    border: none;
+    background: transparent;
+    padding: 0;
+    text-align: left;
+    font-size: var(--text-md);
+    font-weight: 500;
+  }
+
+  .grams-line .value {
+    font-size: var(--text-sm);
+    font-weight: 400;
+  }
+
+  button.value:hover {
+    text-decoration: underline dotted;
+  }
+
+  .value.empty {
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .value.empty.amber {
+    color: var(--amber);
+  }
+
+  .value.strong {
+    font-weight: 500;
+  }
+
+  /* Add bar (§4) */
+
+  .add-form {
+    position: relative;
+    padding: var(--space-inset);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 12px 14px;
+  }
+
+  .field-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    min-height: 20px;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .field-label .hint {
+    margin-left: auto;
+  }
+
+  .field {
+    min-height: var(--size-target);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-control);
+    display: flex;
+    align-items: center;
+    background: var(--panel);
+  }
+
+  .more {
+    position: relative;
+  }
+
+  .field-label .more {
+    margin-left: 6px;
+  }
+
+  /* 24 px to point at (audit F-15), in the room of the label's line: the margins give the space back. */
+  .plus {
+    width: 24px;
+    height: 24px;
+    margin: -4px -3px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-control);
+  }
+
+  .more .menu-pop {
+    top: 20px;
+    left: 0;
+    width: 230px;
+  }
+
+  .results-switches {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 2px 8px 8px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: var(--text-sm);
+    cursor: default;
+  }
+
+  .switch {
+    height: 24px;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0;
+    font-size: var(--text-xs);
+    color: var(--ink-2);
+  }
+
+  .track {
+    position: relative;
+    width: 28px;
+    height: 16px;
+    flex: none;
+    border-radius: var(--radius-pill);
+    background: var(--line-strong);
+    transition: background 120ms ease;
+  }
+
+  .track.on {
+    background: var(--ink);
+  }
+
+  .knob {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 12px;
+    height: 12px;
+    border-radius: var(--radius-pill);
+    background: var(--text-on-accent);
+    transition: transform 120ms ease;
+  }
+
+  .track.on .knob {
+    transform: translateX(12px);
+  }
+
+  .material {
+    position: relative;
+    flex: 2 1 300px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .material-field {
+    position: relative;
+    gap: 8px;
+    padding: 0 4px 0 10px;
+  }
+
+  /* The chosen material, whole, over the field (audit F-04): the text under it stays for the keyboard. */
+  .material-field.chosen input {
+    color: transparent;
+    caret-color: var(--ink);
+  }
+
+  .chosen-chip {
+    position: absolute;
+    left: 6px;
+    right: 36px;
+    top: 0;
+    bottom: 0;
+    pointer-events: none;
+  }
+
+  .material-chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .material-chip .code-chip {
+    flex: none;
+    min-width: 28px;
+    height: 28px;
+    padding: 0 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-control);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 500;
+  }
+
+  .material-chip .code-chip.fam {
+    border-color: var(--fam);
+  }
+
+  .material-chip-name {
+    min-width: 0;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    line-height: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+  }
+
+  /* The keys that choose, on their own line above the switches (audit F-04: it used to crowd the label). */
+  .results-switches {
+    flex-wrap: wrap;
+    row-gap: 4px;
+  }
+
+  .results-switches .hint {
+    flex-basis: 100%;
+    color: var(--muted);
+  }
+
+  .material-field input {
+    flex: 1;
+    width: 0;
+    min-width: 0;
+    align-self: stretch;
+    border: none;
+    background: transparent;
+    outline: none;
+    padding: 0;
+    font-size: var(--text-md);
+  }
+
+  .material-field.chosen input {
+    font-weight: 500;
+  }
+
+  .material-field:focus-within {
+    border: 1.5px solid var(--ink);
+  }
+
+  .material-field .cas,
+  .results .cas {
+    flex: none;
+    font-size: var(--text-xs);
+    color: var(--muted);
+  }
+
+  .release {
+    width: 30px;
+    height: 30px;
+    flex: none;
+    border: none;
+    background: transparent;
+    border-radius: var(--radius-control);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    color: var(--muted);
+  }
+
+  .results {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: max(100%, min(640px, 80vw));
+    z-index: 40;
+    list-style: none;
+    margin: 0;
+    padding: 6px;
+    max-height: 360px;
+    overflow: auto;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-large);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
+  }
+
+  .results li {
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    border-radius: var(--radius-control);
+    font-size: var(--text-md);
+    cursor: pointer;
+  }
+
+  .results li.active {
+    background: var(--bg);
+  }
+
+  .result-name {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .result-name .standard {
+    font-size: var(--text-xs);
+    color: var(--muted);
+  }
+
+  .result-name .primary {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .result-name .trade-code {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    color: var(--ink-2);
+  }
+
+  .result-name .chemical {
+    font-size: var(--text-xs);
+    color: var(--ink-2);
+  }
+
+  .results .code-chip {
+    flex: none;
+    min-width: 34px;
+    padding: 2px 5px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-control);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-align: center;
+  }
+
+  /* The family of a material (P48): its colour as a tint with a solid edge, and the
+     letters of the icon as the second cue. Without a family, the plain icon. */
+  .fam {
+    background: color-mix(in srgb, var(--fam) 22%, var(--panel));
+    box-shadow: inset 3px 0 0 var(--fam);
+  }
+
+  .results .code-chip.fam {
+    border-color: var(--fam);
+  }
+
+  /* The state against IFRA, in the search and in the card of the chosen material (P57). */
+  .results .state,
+  .material-card .state {
+    flex: none;
+    font-size: var(--text-xs);
+    padding: 1px 6px;
+    border-radius: var(--radius-pill);
+    color: var(--muted);
+    border: 1px solid var(--line);
+    white-space: nowrap;
+  }
+
+  .results .state-prohibido,
+  .material-card .state-prohibido {
+    color: var(--red);
+    background: var(--red-bg);
+    border-color: transparent;
+  }
+
+  .results .state-con-techo,
+  .results .state-condicion,
+  .results .state-por-constituyentes,
+  .results .state-sin-dato,
+  .material-card .state-con-techo,
+  .material-card .state-condicion,
+  .material-card .state-por-constituyentes,
+  .material-card .state-sin-dato {
+    color: var(--amber);
+    background: var(--amber-bg);
+    border-color: transparent;
+  }
+
+  .results .create {
+    color: var(--amber);
+  }
+
+  .quantity {
+    flex: 0 0 120px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .quantity-field {
+    padding: 0 4px 0 10px;
+    gap: 4px;
+  }
+
+  .quantity-field input {
+    flex: 1;
+    width: 0;
+    min-width: 0;
+    align-self: stretch;
+    border: none;
+    background: transparent;
+    outline: none;
+    padding: 0;
+    font-size: var(--text-md);
+    text-align: right;
+  }
+
+  .unit {
+    min-width: 36px;
+    min-height: 36px;
+    flex: none;
+    border: none;
+    border-radius: var(--radius-control);
+    background: var(--fill);
+    font-size: var(--text-xs);
+    padding: 0;
+  }
+
+  .dilution {
+    position: relative;
+    flex: 0 0 112px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .other-wrap {
+    position: relative;
+    display: flex;
+  }
+
+  /* The menu of other diluents (§4): the app's, the user's provisional ones, and a new one. */
+  .diluent-menu {
+    top: calc(100% + 4px);
+    left: 0;
+    width: 240px;
+  }
+
+  .own-diluent {
+    margin: 4px 6px 2px;
+    height: 28px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-control);
+    padding: 0 8px;
+    font: inherit;
+    font-size: var(--text-sm);
+    background: var(--panel);
+    color: var(--ink);
+  }
+
+  .add-btn {
+    min-width: 96px;
+    min-height: var(--size-target);
+    flex: none;
+    border: none;
+    border-radius: var(--radius-control);
+    background: var(--accent-default);
+    color: var(--text-on-accent);
+    font-size: var(--text-md);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .add-error {
+    flex: 1 0 100%;
+    font-size: var(--text-sm);
+    color: var(--red);
+    background: var(--panel);
+    border: 1px solid var(--red);
+    border-radius: var(--radius-control);
+    padding: 4px 8px;
+  }
+
+  /* The card of the chosen material (P57): under the add bar, where the recent ones were, and as
+     wide. Who it is, what the formula carries of it, and two boxes that stay marked holes until
+     their data comes: dashed edge and muted text, never a figure that looks like one (§1.2). */
+
+  .mc-sheet {
+    align-self: flex-start;
+    white-space: nowrap;
+    line-height: 16px;
+    padding: 0;
+    border: none;
+    background: none;
+    color: var(--blue);
+    font-size: var(--text-sm);
+    cursor: pointer;
+  }
+
+  .material-card {
+    position: relative;
+    flex: 1;
+    min-height: 92px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .material-card.idle {
+    justify-content: flex-start;
+  }
+
+  .mc-identity {
+    flex: 1 1 200px;
+    min-width: 160px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .material-card .code-chip {
+    flex: none;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-large);
+    font-family: var(--font-mono);
+    font-size: var(--text-md);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+
+  .material-card .code-chip.long {
+    font-size: var(--text-xs);
+  }
+
+  .material-card .code-chip.fam {
+    border-color: var(--fam);
+  }
+
+  .mc-names {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  /* The name wraps to a second line before it is cut (audit F-04). */
+  .mc-name {
+    font-size: var(--text-md);
+    font-weight: 600;
+    line-height: 16px;
+    overflow-wrap: anywhere;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .mc-sub {
+    font-size: var(--text-xs);
+    line-height: 14px;
+    color: var(--ink-2);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .mc-ids {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    line-height: 18px;
+  }
+
+  .material-card .cas {
+    flex: none;
+    font-size: var(--text-xs);
+    color: var(--muted);
+  }
+
+  /* Beside the CAS, which never gives way, a long tag or state is cut, and says itself on hover. */
+  .mc-ids .pill,
+  .mc-ids .state {
+    flex: 0 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Wide enough for the longest it says: «100,000 % de la aromática». */
+  .mc-carried {
+    flex: none;
+    width: 128px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .mc-mass {
+    font-size: var(--text-lg);
+    font-weight: 500;
+    line-height: 20px;
+  }
+
+  .mc-share {
+    font-size: var(--text-xs);
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .mc-box {
+    flex: none;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+    padding: 4px 10px;
+    border: 1px dashed var(--line-strong);
+    border-radius: var(--radius-control);
+    color: var(--muted);
+  }
+
+  .mc-box:not(.usage) {
+    width: 96px;
+  }
+
+  /* It gives way first, so the name keeps its room (audit F-04). */
+  .mc-box.usage {
+    flex: 0 1 212px;
+    min-width: 160px;
+  }
+
+  /* A box with data: solid edge. Amber when the figure could be optimistic, red with nothing left;
+     never green (§1.2). */
+  .mc-box.filled {
+    border-style: solid;
+    border-color: var(--line);
+    color: var(--ink-2);
+  }
+
+  .mc-box.filled.tone-amber {
+    color: var(--amber);
+    background: var(--amber-bg);
+    border-color: var(--status-amber-line);
+  }
+
+  .mc-box.filled.tone-red {
+    color: var(--red);
+    background: var(--red-bg);
+    border-color: var(--status-red-line);
+  }
+
+  .mc-box-value.small {
+    font-size: var(--text-sm);
+    line-height: 16px;
+    color: inherit;
+    white-space: nowrap;
+  }
+
+  .mc-box-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6px;
+  }
+
+  .mc-box-label,
+  .mc-box-note {
+    font-size: var(--text-xs);
+    line-height: 15px;
+    white-space: nowrap;
+  }
+
+  /* P60: the usual use goes past IFRA's ceiling of the material alone. IFRA rules: red. */
+  .mc-box-note.over-ifra {
+    color: var(--red);
+  }
+
+  .mc-box-value {
+    font-size: var(--text-lg);
+    line-height: 20px;
+    color: var(--faint);
+  }
+
+  /* The strip of the usual use, on a log scale from 0,001 % to 100 %: a tick each decade, and a
+     dark mark where the formula stands. The band of the usual use will fill it once there is data. */
+  .usage-strip {
+    position: relative;
+    height: 10px;
+    margin: 8px 0 7px;
+    border: 1px dashed var(--line-strong);
+    border-radius: var(--radius-panel);
+  }
+
+  .usage-strip.with-band {
+    border-style: solid;
+  }
+
+  /* The band of the recommended use: a soft yellow tint over the strip, from its lower end to its upper. */
+  .usage-band {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border-radius: var(--radius-panel);
+    background: var(--mark-use);
+    opacity: 0.35;
+  }
+
+  /* A band that one source alone recommends is fainter than a consensus: the tint says how sure it is. */
+  .usage-band.recommendation {
+    opacity: 0.18;
+  }
+
+  /* The use ceiling, the most anyone reports: a small diamond in the middle of the strip, apart from
+     IFRA's triangles, and never a limit. */
+  .usage-ceiling {
+    position: absolute;
+    top: 1px;
+    width: 6px;
+    height: 6px;
+    margin-left: -4.5px;
+    transform: rotate(45deg);
+    border: 1.5px solid var(--mark-use-line);
+    background: var(--mark-use);
+  }
+
+  .usage-tick {
+    position: absolute;
+    bottom: 0;
+    width: 1px;
+    height: 4px;
+    margin-left: -0.5px;
+    background: var(--line-strong);
+  }
+
+  /* What the formula carries: a dark bar across the strip. While typing, the same in outline is where
+     the pour would leave it. */
+  .usage-mark {
+    position: absolute;
+    top: -3px;
+    width: 3px;
+    height: 14px;
+    margin-left: -1.5px;
+    border-radius: 1.5px;
+    background: var(--ink);
+  }
+
+  .usage-mark.draft {
+    width: 5px;
+    margin-left: -2.5px;
+    background: var(--panel);
+    border: 1.5px solid var(--ink-2);
+    border-radius: 2px;
+  }
+
+  .usage-mark.draft.tone-amber {
+    border-color: var(--amber);
+  }
+
+  .usage-mark.draft.tone-red {
+    border-color: var(--red);
+    background: var(--red-bg);
+  }
+
+  /* The two IFRA ceilings as triangles: the material alone points down from above, the one with the
+     rest of the formula points up from below. Never green. */
+  .usage-cap {
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin-left: -5px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+  }
+
+  .usage-cap.solo {
+    top: -9px;
+    border-top: 7px solid var(--blue);
+  }
+
+  .usage-cap.all {
+    bottom: -9px;
+    border-bottom: 7px solid var(--ink-2);
+  }
+
+  .usage-cap.solo.tone-amber {
+    border-top-color: var(--amber);
+  }
+
+  .usage-cap.all.tone-amber {
+    border-bottom-color: var(--amber);
+  }
+
+  .usage-cap.solo.tone-red {
+    border-top-color: var(--red);
+  }
+
+  .usage-cap.all.tone-red {
+    border-bottom-color: var(--red);
+  }
+
+  /* The ends of the strip, and the base of its percentages between them (§1.1). */
+  .usage-scale {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4px;
+    margin-top: 4px;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    line-height: 12px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  /* At 11 px (audit F-10) the base gives way between the two ends, which never do. */
+  .usage-scale .usage-base {
+    font-family: inherit;
+    font-size: var(--text-xs);
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* The legend of the strip: only the marks that are drawn. */
+  .usage-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 8px;
+    margin-top: 1px;
+    font-size: var(--text-xs);
+    line-height: 12px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .usage-legend > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .usage-legend .legend-unchecked {
+    color: var(--amber);
+    font-weight: 600;
+  }
+
+  .usage-legend .sw {
+    display: inline-block;
+    flex: none;
+  }
+
+  .usage-legend .sw.solo {
+    border-left: 3.5px solid transparent;
+    border-right: 3.5px solid transparent;
+    border-top: 5px solid var(--blue);
+  }
+
+  .usage-legend .sw.all {
+    border-left: 3.5px solid transparent;
+    border-right: 3.5px solid transparent;
+    border-bottom: 5px solid var(--ink-2);
+  }
+
+  .usage-legend .sw.ceiling {
+    width: 6px;
+    height: 6px;
+    margin: 0 1px;
+    transform: rotate(45deg);
+    border: 1.5px solid var(--mark-use-line);
+    background: var(--mark-use);
+  }
+
+  .usage-legend .sw.holds {
+    width: 2px;
+    height: 9px;
+    background: var(--ink);
+  }
+
+  .usage-legend .sw.draft {
+    width: 4px;
+    height: 9px;
+    border: 1.2px solid var(--ink-2);
+    border-radius: 1.5px;
+  }
+
+  .usage-legend .sw.draft.tone-amber {
+    border-color: var(--amber);
+  }
+
+  .usage-legend .sw.draft.tone-red {
+    border-color: var(--red);
+  }
+
+  .add-error.add-warning {
+    border-color: var(--status-red-line);
+    background: var(--red-bg);
+    font-weight: 600;
+  }
+
+  .compute-error {
+    margin: 0;
+    color: var(--ink);
+    font-size: var(--text-sm);
+  }
+
+  /* A card without its data yet: one line, its title and what it waits for (audit F-05). */
+  .slot-line {
+    flex: none;
+    min-width: 0;
+    min-height: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 8px;
+    padding: 8px 14px 8px 6px;
+  }
+
+  .chart-card {
+    min-width: 0;
+    min-height: 0;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .chart-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .chart-title {
+    font-size: var(--text-md);
+    font-weight: 600;
+  }
+
+  .pyramid {
+    flex: 1.35;
+  }
+
+  .pyramid-rows {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .pyramid-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 26px;
+  }
+
+  .pyramid-bar {
+    flex: 1;
+    height: 14px;
+    background: var(--bg);
+    border-radius: var(--radius-panel);
+  }
+
+  .reparto {
+    flex: 1;
+  }
+
+  .donut {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  /* The families of the donut, named, with their share of the aromatic matter (audit F-07). */
+  .donut-legend {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    font-size: var(--text-sm);
+  }
+
+  .donut-legend li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .donut-legend .swatch {
+    width: 10px;
+    height: 10px;
+    flex: none;
+    border-radius: var(--radius-panel);
+  }
+
+  .donut-legend .legend-name {
+    color: var(--ink-2);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .donut-legend .num {
+    margin-left: auto;
+    padding-left: 8px;
+    color: var(--ink);
+  }
+
+  .projection {
+    flex: 1;
+  }
+
+  /* The axes of the projection: a plot area with room at its sides for the labels that hang on it. */
+  .projection-plot {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    margin: 2px 22px 0 18px;
+    font-size: var(--text-xs);
+    color: var(--muted);
+  }
+
+  .plot-axis-y,
+  .plot-axis-x {
+    position: absolute;
+    background: var(--line);
+  }
+
+  .plot-axis-y {
+    left: 0;
+    top: 4px;
+    bottom: 22px;
+    width: 1px;
+  }
+
+  .plot-axis-x {
+    left: 0;
+    right: 0;
+    bottom: 22px;
+    height: 1px;
+  }
+
+  .plot-title {
+    position: absolute;
+    left: 8px;
+    top: 0;
+  }
+
+  .plot-hour {
+    position: absolute;
+    bottom: 4px;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+
+  /* The side: the IFRA verdict and the charts (V3-73) */
+
+  .side {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-gap);
+    min-width: 0;
+  }
+
+  /* What is left on the blotter (F5, V3-90): the slider, the scale and what is there. */
+  .evaporation-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px var(--space-inset);
+  }
+
+  .evaporation-card p {
+    margin: 0;
+  }
+
+  .evaporation-slider {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .evaporation-slider input {
+    width: 100%;
+    min-height: var(--size-target);
+    accent-color: var(--ink);
+  }
+
+  .evaporation-scale {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: var(--text-xs);
+    color: var(--muted);
+  }
+
+  .evaporation-scale strong {
+    color: var(--ink);
+    font-size: var(--text-sm);
+  }
+
+  .evaporation-now {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .evaporation-unknown {
+    color: var(--amber);
+  }
+
+  /* The formula summed up (F6, V3-89), under the IFRA verdict. */
+  .summary-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px var(--space-inset);
+  }
+
+  .summary-card p {
+    margin: 0;
+  }
+
+  .summary-line {
+    font-size: var(--text-md);
+    overflow-wrap: anywhere;
+  }
+
+  .summary-confidence {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 4px;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+    font-size: var(--text-sm);
+  }
+
+  .summary-confidence ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--muted);
+  }
+
+  /* Low confidence says so in words and in the amber of «unknown»; never green when it is high. */
+  .summary-confidence.confidence-low strong {
+    color: var(--amber);
+  }
+
+  .ifra-summary {
+    min-width: 0;
+    text-align: left;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .ifra-head {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+  }
+
+  .ifra-title {
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+
+  .status-pill {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: var(--text-xs);
+    padding: 2px 8px;
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
+  }
+
+  .status-pill.amber {
+    color: var(--amber);
+    background: var(--amber-bg);
+  }
+
+  .status-pill.blue {
+    color: var(--blue);
+    background: var(--blue-bg);
+  }
+
+  .ifra-line {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    width: 100%;
+    font-size: var(--text-sm);
+  }
+
+  .ifra-line .question {
+    flex: 1;
+    min-width: 0;
+    color: var(--ink-2);
+  }
+
+  .ifra-line .answer {
+    font-weight: 600;
+    font-size: var(--text-md);
+  }
+
+  .answer.bad {
+    color: var(--red);
+  }
+
+  .answer.unknown {
+    color: var(--amber);
+  }
+
+  .answer.bounded {
+    color: var(--blue);
+  }
+
+  .menu-btn {
+    width: var(--size-target);
+    height: var(--size-target);
+    background: var(--panel);
+  }
+
+  .menu-pop.options {
+    top: calc(100% + 4px);
+    right: 0;
+    width: 240px;
+  }
+
+  /* The IFRA panel (P57), under the composition, as long as it needs. */
+  .ifra-panel {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .detail-head {
+    flex: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 1px 8px;
+    padding: 12px 14px 9px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .detail-title {
+    font-size: var(--text-md);
+    font-weight: 600;
+  }
+
+  .panel-body {
+    padding: 12px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .panel-empty {
+    margin: 0;
+    padding: 12px 14px;
+  }
+
+  .detail-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .section-title {
+    font-size: var(--text-xs);
+    color: var(--muted);
+  }
+
+  .section-title.amber {
+    color: var(--amber);
+  }
+
+  /* Two lines, so it reads in the width of the panel: the substance and how much of its ceiling
+     is used, over the bar and the figure of the ceiling. */
+  .ceiling-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "name use"
+      "bar value";
+    align-items: center;
+    gap: 3px 8px;
+    font-size: var(--text-sm);
+  }
+
+  .ceiling-name {
+    grid-area: name;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .ceiling-value {
+    grid-area: value;
+    color: var(--ink-2);
+    font-size: var(--text-xs);
+    white-space: nowrap;
+  }
+
+  .ceiling-bar {
+    grid-area: bar;
+    min-width: 0;
+    height: 6px;
+    background: var(--fill);
+    border-radius: var(--radius-panel);
+    overflow: hidden;
+    display: flex;
+  }
+
+  .ceiling-bar .fill {
+    background: var(--text-muted);
+  }
+
+  .ceiling-bar .fill.exceeds {
+    background: var(--red);
+  }
+
+  .ceiling-bar .fill.unknown {
+    background: var(--amber);
+  }
+
+  .ceiling-bar .fill.bounded {
+    background: var(--blue);
+  }
+
+  .ceiling-use {
+    grid-area: use;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .ceiling-use.exceeds {
+    color: var(--red);
+  }
+
+  /* E4: a third line, the CAS and what still fits of the substance (§10.3). */
+  .ceiling-row:has(.ceiling-room) {
+    grid-template-areas:
+      "name use"
+      "bar value"
+      "cas room";
+  }
+
+  .ceiling-cas {
+    grid-area: cas;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .ceiling-room {
+    grid-area: room;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .ceiling-room.exceeds {
+    color: var(--red);
+  }
+
+  /* By material: the name of the material, and under it one indented row per ceiling it loads. */
+  .material-ceilings {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .ceiling-material {
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+
+  .ceiling-row.sub {
+    padding-left: 10px;
+  }
+
+  .section-title.with-switch {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 8px;
+  }
+
+  .panel-base {
+    flex: none;
+    padding: 6px 14px 0;
+  }
+
+  .second-reading {
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .detail-item {
+    font-size: var(--text-sm);
+    line-height: 1.45;
+  }
+
+  .detail-source {
+    font-size: var(--text-xs);
+    color: var(--muted);
+    border-top: 1px solid var(--line-soft);
+    padding-top: 8px;
+  }
+
+  /* Composition */
+
+  .composition {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .composition-head {
+    padding: 12px 14px 9px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 2px 8px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  /* The base of the list, on a line of its own under the title and the switch (§1.1, P57). */
+  .composition-base {
+    flex-basis: 100%;
+  }
+
+  /* The switch between the aromatic matter and the bottle (P57): two options, one always on. */
+  .view-switch {
+    display: inline-flex;
+    align-self: center;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-control);
+    overflow: hidden;
+  }
+
+  .view-switch button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-size: var(--text-xs);
+    line-height: 24px;
+    padding: 0 8px;
+    white-space: nowrap;
+  }
+
+  .view-switch button + button {
+    border-left: 1px solid var(--line);
+  }
+
+  .view-switch button.on {
+    background: var(--fill);
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .composition-title {
+    font-size: var(--text-md);
+    font-weight: 600;
+  }
+
+  .composition-rows {
+    padding: 4px 6px;
+  }
+
+  .composition-rows .empty {
+    padding: 8px;
+  }
+
+  /* A line of the composition (P57): the icon in the colour of its family, on the left over two
+     rows; on the first, the name, the mg and the %; on the second, the IFRA it carries. */
+  .row {
+    width: 100%;
+    min-height: 40px;
+    border: none;
+    background: transparent;
+    display: grid;
+    grid-template-columns: 32px minmax(0, 1fr) auto auto;
+    align-content: center;
+    align-items: center;
+    column-gap: 8px;
+    padding: 4px 8px;
+    border-radius: var(--radius-control);
+    text-align: left;
+  }
+
+  .row:hover {
+    background: var(--bg);
+  }
+
+  .composition .code-chip {
+    grid-row: 1 / span 2;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-control);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .composition .code-chip.long {
+    font-size: var(--text-xs);
+  }
+
+  .composition .code-chip.fam {
+    border-color: var(--fam);
+  }
+
+  .row-main {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* A long name takes a second line instead of an ellipsis (audit F-04). */
+  .row-name {
+    font-size: var(--text-md);
+    line-height: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+    min-width: 0;
+  }
+
+  /* What the line carries of its IFRA ceiling and what still fits (P57). Never green (§1.2):
+     quiet grey, amber from 80 % or when it may be optimistic, red at the ceiling. */
+  .row-ifra {
+    grid-column: 2 / -1;
+    min-width: 0;
+    font-size: var(--text-xs);
+    line-height: 15px;
+    color: var(--muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Each line's mass as a bar, against the largest line's, from zero (audit F-15 L2, ref-0081). */
+  .row-bar {
+    grid-column: 2 / -1;
+    display: block;
+    height: 4px;
+    margin: 3px 0 2px;
+    border-radius: 2px;
+    background: var(--fill);
+    overflow: hidden;
+  }
+
+  .row-bar i {
+    display: block;
+    height: 100%;
+    border-radius: 2px;
+    background: var(--ink-2);
+  }
+
+  /* The IFRA of the line as a lollipop (ref-0082): the stick up to what it uses of its closest
+     ceiling, the ceiling a tick at the end. A bound (may be optimistic) is a hollow dot. */
+  .lollipop {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 8px;
+    margin-right: 6px;
+    vertical-align: -1px;
+  }
+
+  .lollipop::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 1.5px;
+    background: currentColor;
+  }
+
+  .lollipop .stick {
+    position: absolute;
+    left: 0;
+    top: 3.25px;
+    height: 1.5px;
+    background: currentColor;
+    opacity: 0.6;
+  }
+
+  .lollipop .dot {
+    position: absolute;
+    top: 1px;
+    width: 6px;
+    height: 6px;
+    margin-left: -3px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  .lollipop.bound .dot {
+    background: var(--panel);
+    border: 1.5px solid currentColor;
+  }
+
+  .row-ifra.amber {
+    color: var(--amber);
+  }
+
+  .row-ifra.red {
+    color: var(--red);
+    font-weight: 500;
+  }
+
+  .row-line {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .row-line .row {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* The «+» that takes a material to the add bar again: quiet until the row is under the pointer. */
+  .again {
+    flex: none;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: var(--radius-control);
+    background: transparent;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .row-line:hover .again {
+    border-color: var(--line);
+    background: var(--fill-2);
+    color: var(--ink-2);
+  }
+
+  .again:hover {
+    color: var(--ink);
+  }
+
+  .row-amount {
+    font-size: var(--text-sm);
+    color: var(--muted);
+    flex: none;
+    min-width: 56px;
+    text-align: right;
+  }
+
+  .row-share {
+    font-size: var(--text-sm);
+    flex: none;
+    min-width: 52px;
+    text-align: right;
+  }
+
+  .flag {
+    flex: none;
+    font-size: var(--text-xs);
+    line-height: 16px;
+    padding: 0 6px;
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
+  }
+
+  .flag.amber {
+    background: var(--amber-bg);
+    color: var(--amber);
+  }
+
+  .flag.grey {
+    background: var(--fill);
+    color: var(--text-muted);
+  }
+
+  .row-detail {
+    margin: 2px 8px 6px;
+    padding: 8px 10px;
+    background: var(--fill-2);
+    border-radius: var(--radius-control);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .detail-line {
+    font-size: var(--text-sm);
+    line-height: 1.4;
+    color: var(--ink-2);
+    display: flex;
+    gap: 8px;
+  }
+
+  .detail-key {
+    width: 84px;
+    flex: none;
+    color: var(--muted);
+  }
+
+  .detail-value {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* The history as Designboard composes it (task C4): the bar keeps its place and shadow here; its
+     pieces, their sizes and colours come from designboard.composition.json. --dock-h is set by
+     HistoryDock from the composed screen's height. */
+  .history-bar {
+    position: sticky;
+    bottom: 0;
+    z-index: 20;
+    margin: 0 calc(-1 * var(--space-inset));
+    min-width: 0;
+    height: var(--dock-h);
+    box-shadow: 0 -6px 18px rgba(17, 20, 24, 0.08);
+  }
+
+  /* The letter of the kind of natural, leaning back: a glyph, not a letter (P40). */
+  .type-mark {
+    display: inline-block;
+    transform: skewX(16deg);
+    font-weight: 300;
+    margin-left: 1px;
+  }
+
+  /* The mark that tells apart the CAS sharing one abbreviation: ⁶IBQ, ²IBQ (P39). */
+  .icon-mark {
+    font-size: max(0.72em, var(--text-xs));
+    line-height: 0;
+    vertical-align: 0.55em;
+    margin-right: 0.5px;
+    opacity: 0.8;
+  }
+
+  .change-detail {
+    position: fixed;
+    left: calc(var(--app-nav-w, 0px) + var(--space-inset));
+    bottom: 112px;
+    z-index: 30;
+    width: min(420px, calc(100vw - 2 * var(--space-inset)));
+    background: var(--panel);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-large);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
+    padding: 12px 14px;
+  }
+
+  .change-detail p {
+    margin: 0 0 4px;
+  }
+
+  .change-detail .warn-unweighable {
+    color: var(--red);
+  }
+
+  .change-detail .warn-error {
+    color: var(--amber);
+  }
+
+  .detail-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .detail-actions button:not(.link) {
+    height: 30px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-control);
+    background: var(--fill-2);
+    padding: 0 10px;
+    font-size: var(--text-sm);
+  }
+
+  /* Dialogs */
+
+  /* A native <dialog> (audit F-13 L2): in the top layer, over everything, with the bench inert. */
+  .modal {
+    width: min(460px, calc(100vw - 32px));
+    max-height: calc(100dvh - 32px);
+    margin: auto;
+    padding: 0;
+    overflow-y: auto;
+    background: var(--panel);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-large);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
+  }
+
+  .modal::backdrop {
+    background: rgba(29, 29, 27, 0.28);
+  }
+
+  /* The padding is the body's: a press on the dialog itself is a press on the backdrop. */
+  .modal-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .modal h2 {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .modal .help {
+    font-size: var(--text-sm);
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .modal .error {
+    margin: 0;
+    font-size: var(--text-sm);
+  }
+
+  .field-block,
+  .modal .field {
+    height: auto;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    font-size: var(--text-sm);
+    color: var(--muted);
+    padding: 0;
+    margin: 0;
+  }
+
+  .modal input:not([type="radio"]) {
+    height: 36px;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-control);
+    padding: 0 10px;
+    color: var(--ink);
+    background: var(--panel);
+  }
+
+  .modal input:not([type="radio"]):focus {
+    outline: none;
+    border: 1.5px solid var(--ink);
+  }
+
+  /* Options as rows to press (audit F-08 L2); each holds a real radio, hidden. */
+  .choices {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .choice {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    min-height: 40px;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-control);
+    background: var(--panel);
+    color: var(--ink);
+    font-size: var(--text-md);
+    cursor: pointer;
+  }
+
+  .choice input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* The dot: a ring, filled when chosen. */
+  .choice::before {
+    content: "";
+    flex: none;
+    box-sizing: border-box;
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--line-strong);
+    border-radius: 50%;
+  }
+
+  .choice:hover {
+    background: var(--fill);
+  }
+
+  .choice:has(input:checked) {
+    border-color: var(--ink);
+    background: var(--surface-chip);
+    font-weight: 700;
+  }
+
+  .choice:has(input:checked)::before {
+    border: 5px solid var(--ink);
+  }
+
+  .choice:has(input:focus-visible) {
+    outline: 2px solid var(--ink);
+    outline-offset: 1px;
+  }
+
+  .choice:has(input:disabled) {
+    opacity: 0.5;
+    cursor: default;
+    background: var(--panel);
+  }
+
+  .choice-label {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  /* The bench picker (audit F-01 L2): benches beside their formulas, one over the other on a phone. */
+  .modal.wide {
+    width: min(720px, calc(100vw - 32px));
+  }
+
+  .bench-picker {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .picker-columns {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: 12px;
+  }
+
+  .picker-columns.one {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .picker-columns .picker-group {
+    max-height: min(46vh, 380px);
+    overflow-y: auto;
+  }
+
+  @media (max-width: 40rem) {
+    .picker-columns {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .picker-columns .picker-group {
+      max-height: 30vh;
+    }
+  }
+
+
+  .picker-group {
+    border: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .picker-group legend {
+    font-size: var(--text-sm);
+    color: var(--muted);
+    padding: 0 0 2px;
+  }
+
+
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  /* Its look is the app's (theme/buttons.css, audit F-11 L2); only its size is the dialog's. */
+  .modal-actions .btn {
+    min-height: 34px;
+    height: 34px;
+  }
+
+  /* What limits the formula, on one line: a long IFRA name is cut, and says itself on hover. */
+  /* With the line of what limits, the box closes up to keep its height. */
+  .ifra-summary.with-limit {
+    padding: 8px 12px;
+    gap: 4px;
+  }
+
+  .ifra-limit {
+    display: block;
+    flex: none;
+    line-height: 14px;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+  }
+
+  /* The row of a plant (P54): under its name, its forms as chips, and under them, while it is the
+     active row, the variants of the form it is on. A form with no IFRA data has a dashed border. */
+  .results li.plant-row {
+    flex-wrap: wrap;
+  }
+
+  .plant-forms,
+  .plant-variants {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  /* Always on lines of their own, under the name, so the list keeps one shape at any width. */
+  .plant-forms,
+  .plant-variants {
+    flex-basis: 100%;
+    padding: 2px 0 2px 40px;
+  }
+
+  .form-chip {
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--muted);
+    border-radius: var(--radius-pill);
+    font-size: var(--text-xs);
+    line-height: 16px;
+    padding: 0 7px;
+    white-space: nowrap;
+  }
+
+  .form-chip.on {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--panel);
+  }
+
+  .form-chip.nodata {
+    border-style: dashed;
+  }
+
+  /* The tick of P62: a material documented by its manufacturer's certificate. */
+  .documented {
+    margin-left: 5px;
+    color: var(--blue);
+    font-size: var(--text-xs);
+    font-weight: 600;
+  }
+
+  /* A manufacturer's ceiling passed (P62): red, under IFRA's two readings and apart from them. */
+  .supplier-over {
+    color: var(--red);
+  }
+
+  /* «De dónde sale»: a popover of the material card (Phase 5). */
+  /* In the corner of the card, so the narrow identity line never hides it. */
+  .prov-button {
+    position: absolute;
+    top: 3px;
+    right: 8px;
+    font-size: var(--text-xs);
+  }
+  .prov-pop {
+    position: absolute;
+    z-index: 20;
+    left: 12px;
+    top: calc(100% + 4px);
+    width: min(720px, calc(100vw - 48px));
+    max-height: 60vh;
+    overflow: auto;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: var(--text-sm);
+    box-shadow: 0 6px 24px rgb(0 0 0 / 0.16);
+  }
+  .prov-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .prov-section {
+    margin-top: 6px;
+    font-size: var(--text-xs);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .prov-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 12px;
+    align-items: baseline;
+    padding: 2px 0;
+    border-top: 1px solid var(--line);
+  }
+  .prov-what {
+    flex: 1 1 220px;
+    min-width: 0;
+  }
+  .prov-value {
+    flex: none;
+    min-width: 70px;
+    text-align: right;
+  }
+  .prov-auth,
+  .prov-doc {
+    color: var(--ink-2);
+  }
+  .pill.amber {
+    color: var(--amber);
+    background: var(--amber-bg);
+  }
+  .state-pill.probada {
+    color: var(--status-green);
+  }
+  .state-pill.supuesta,
+  .state-pill.pendiente {
+    color: var(--amber);
+    background: var(--amber-bg);
+  }
+
+  /* What the migration did when a formula was opened (Phase 5). */
+  .migration-notice {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    align-items: baseline;
+    margin: 0 0 6px;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-control);
+    font-size: var(--text-sm);
+    background: var(--surface-raised);
+  }
+  .migration-notice.warn {
+    border-color: var(--status-amber-line);
+    background: var(--amber-bg);
+  }
+  .migration-head {
+    flex: 1 1 360px;
+  }
+  .migration-list {
+    flex-basis: 100%;
+    margin: 4px 0 0;
+    padding-left: 18px;
+    max-height: 160px;
+    overflow: auto;
+  }
+  .migration-list .amber {
+    color: var(--amber);
+  }
+
+  /* The bench as one page (V3-73): head, bottle, add bar, composition beside the charts, history. */
+
+  .formula-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+  }
+
+  .formula-head .back {
+    position: static;
+    width: var(--size-target);
+    height: var(--size-target);
+    flex: none;
+  }
+
+  /* «Bench ▾ / Formula ▾» (audit F-02 L2): beside «←», on a row of its own above the name. */
+  .bench-crumbs {
+    --switcher-step: 1rem;
+    position: relative;
+    flex: 1 1 calc(100% - var(--size-target) - 12px);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .crumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    max-width: 22rem;
+    min-height: var(--size-target);
+    padding: 0 10px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--muted);
+    font-size: var(--text-md);
+  }
+
+  .crumb:last-of-type {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .crumb:hover,
+  .crumb[aria-expanded="true"] {
+    border-color: var(--line);
+    background: var(--panel);
+  }
+
+  .crumb-text {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .crumb svg {
+    flex: none;
+  }
+
+  .crumb-sep {
+    color: var(--muted);
+  }
+
+  .menu-pop.switcher {
+    top: calc(100% + 4px);
+    left: 0;
+    width: min(24rem, calc(100vw - 24px));
+    max-height: min(28rem, 70vh);
+    gap: 4px;
+  }
+
+  .switcher-search {
+    min-height: 36px;
+    flex: none;
+  }
+
+  .switcher-head {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 4px;
+  }
+
+  .switcher-head .menu-note {
+    padding-top: 2px;
+    font-weight: 700;
+    color: var(--ink);
+    font-size: var(--text-sm);
+  }
+
+  .switcher-list {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    min-height: 0;
+  }
+
+  .switcher-list .menuitem {
+    flex: none;
+    height: auto;
+    min-height: 36px;
+  }
+
+  .switcher-list .menuitem[aria-current] {
+    background: var(--surface-chip);
+    font-weight: 700;
+  }
+
+  .switcher-name {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .switcher-branch,
+  .switcher-star {
+    flex: none;
+    color: var(--muted);
+    white-space: pre;
+  }
+
+  .formula-head .name-card {
+    flex: 1 1 240px;
+    min-width: 0;
+    height: auto;
+    padding: 0;
+    border: none;
+    background: none;
+  }
+
+  /* The name is edited in place: a dashed line under it says it is a field (WCAG 1.4.11). */
+  .formula-head .formula-name {
+    min-height: var(--size-target);
+    border-bottom: 1px dashed var(--line-strong);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .formula-head .intention-card {
+    border-color: var(--line-strong);
+    flex: 2 1 280px;
+    min-width: 0;
+    min-height: var(--size-target);
+    padding: 6px 12px;
+  }
+
+  .formula-head .intention-card textarea {
+    min-height: 1.5em;
+  }
+
+  .head-actions {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+  }
+
+  .head-actions .tool {
+    width: var(--size-target);
+    height: var(--size-target);
+    background: var(--panel);
+    color: var(--ink);
+  }
+
+  /* The plan's door (V3-100): a word, not an icon, so it is found without remembering it. */
+  .head-actions .tool.plan-door {
+    width: auto;
+    padding: 0 14px;
+    font: inherit;
+    font-weight: 700;
+  }
+
+  .options-wrap {
+    position: relative;
+    display: flex;
+  }
+
+  /* The formula in four big figures over its grams (audit F-15 L2, V3-93); two by two on a phone. */
+  .head-figures {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin: 0;
+  }
+
+  .head-figures div {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2px;
+    min-width: 0;
+    padding: 4px 0 0;
+    border-top: 2px solid var(--ink);
+  }
+
+  .head-figures dd {
+    margin: 0;
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    overflow-wrap: anywhere;
+  }
+
+  .head-figures dt {
+    color: var(--muted);
+    font-size: var(--text-xs);
+  }
+
+  @media (max-width: 40rem) {
+    .head-figures {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .head-figures dd {
+      font-size: var(--text-xl);
+    }
+  }
+
+  /* On a phone, the bottle and its grams fold into one line under the add bar (audit F-06 L2). */
+  .weigh-fold {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .weigh-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    min-height: var(--size-target);
+    padding: 0 var(--space-inset);
+    color: var(--ink);
+    font-size: var(--text-md);
+    text-align: left;
+  }
+
+  .weigh-toggle svg {
+    flex: none;
+    transition: transform 0.15s;
+  }
+
+  .weigh-toggle[aria-expanded="true"] svg {
+    transform: rotate(90deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .weigh-toggle svg {
+      transition: none;
+    }
+  }
+
+  /* The bottle small, beside its grams in a row. */
+  .weigh-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 24px;
+    padding: 12px var(--space-inset);
+  }
+
+  .weigh-row .bottle-frame {
+    width: auto;
+    height: auto;
+    flex: 0 1 auto;
+  }
+
+  .weigh-row .frame-shape {
+    display: none;
+  }
+
+  .weigh-row .bottle-inner {
+    position: static;
+    padding: 0;
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .weigh-row .bottle-inner > svg {
+    width: 40px;
+    height: 74px;
+  }
+
+  .weigh-row .bottle-split {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .weigh-row .grams-card {
+    width: auto;
+    flex: 1 1 520px;
+    padding: 0;
+    border: none;
+    background: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 12px 20px;
+  }
+
+  .weigh-row .grams-block {
+    flex: 1 1 120px;
+    min-width: 0;
+    gap: 4px;
+  }
+
+  .weigh-row .gram-box {
+    min-height: 36px;
+  }
+
+  /* The % of the material, one field, with «Neat» under it. */
+  .percent-field {
+    padding: 0 10px;
+    gap: 4px;
+  }
+
+  .percent-field input {
+    flex: 1;
+    width: 0;
+    min-width: 0;
+    align-self: stretch;
+    border: none;
+    background: transparent;
+    outline: none;
+    padding: 0;
+    font-size: var(--text-md);
+    text-align: right;
+  }
+
+  .percent-field.off {
+    background: var(--fill);
+  }
+
+  .unit-label {
+    font-size: var(--text-sm);
+    color: var(--muted);
+  }
+
+  .neat-toggle,
+  .add-diluent,
+  .more-btn {
+    min-height: 36px;
+    padding: 0 12px;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-control);
+    background: var(--panel);
+    font-size: var(--text-sm);
+    white-space: nowrap;
+  }
+
+  .neat-toggle[aria-pressed="true"],
+  .more-btn.on {
+    background: var(--accent-default);
+    border-color: var(--accent-default);
+    color: var(--text-on-accent);
+    font-weight: 700;
+  }
+
+  .dilution-note {
+    line-height: 1.3;
+  }
+
+  /* Your dilutions of the material (V3-67), two at hand and the rest under «More»; «+» makes a new one. */
+  .bottles-col,
+  .diluents-col {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .bottles-col {
+    flex: 0 1 auto;
+  }
+
+  .diluents-col {
+    flex: 1 1 200px;
+  }
+
+  .bottle-row-choices,
+  .diluent-chips {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    min-height: var(--size-target);
+  }
+
+  .bottle-choice {
+    display: grid;
+    min-height: var(--size-target);
+    padding: 4px 10px;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-control);
+    background: var(--panel);
+    text-align: left;
+    line-height: 1.25;
+  }
+
+  .bottle-choice b {
+    font-size: var(--text-sm);
+  }
+
+  .bottle-choice small {
+    font-size: var(--text-xs);
+    color: var(--muted);
+  }
+
+  .bottle-choice[aria-pressed="true"] {
+    border-color: var(--accent-default);
+    box-shadow: inset 0 0 0 1px var(--accent-default);
+    background: var(--surface-sunken);
+  }
+
+  .bottle-menu .bottle-choice {
+    width: 100%;
+  }
+
+  .more-bottles {
+    position: relative;
+    display: flex;
+  }
+
+  .more-btn {
+    min-height: var(--size-target);
+  }
+
+  .new-bottle {
+    width: var(--size-target);
+    height: var(--size-target);
+    background: var(--panel);
+    color: var(--ink);
+  }
+
+  .bottle-none,
+  .diluent-none {
+    padding: 0 2px;
+  }
+
+  /* The diluents as chips: each opens its menu to change it; with more than one, each but the last
+     takes its %, and the last takes the rest. */
+  .diluent-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    min-height: 40px;
+    padding: 0 4px 0 2px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-control);
+    background: var(--surface-sunken);
+  }
+
+  .diluent-name {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 36px;
+    padding: 0 8px;
+    border: none;
+    border-radius: var(--radius-control);
+    background: none;
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+
+  .diluent-percent {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2px;
+    font-size: var(--text-sm);
+  }
+
+  .diluent-percent input {
+    width: 3.5em;
+    min-height: 32px;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-control);
+    background: var(--panel);
+    padding: 0 6px;
+    text-align: right;
+  }
+
+  .diluent-rest {
+    font-size: var(--text-xs);
+    color: var(--muted);
+    padding: 0 4px;
+  }
+
+  .diluent-rest.over {
+    color: var(--red);
+  }
+
+  .diluent-remove {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: var(--radius-control);
+    background: none;
+    color: var(--muted);
+    padding: 0;
+  }
+
+  .add-diluent {
+    min-height: 40px;
+    border-style: dashed;
+  }
+
+  .add-go {
+    flex: none;
+    padding-top: 26px;
+  }
+
+  /* Under the material, what the formula carries of it, its margin and its usual use (V3-73). */
+  .material-card.insight {
+    min-height: 0;
+    padding: 8px 10px;
+    border-radius: var(--radius-control);
+    background: var(--surface-sunken);
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 8px 12px;
+  }
+
+  .material-card.insight.idle {
+    padding: 10px;
+  }
+
+  .insight-who {
+    flex: 1 0 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 2px 12px;
+    font-size: var(--text-sm);
+  }
+
+  .insight-name {
+    font-weight: 700;
+  }
+
+  .material-card.insight .mc-carried {
+    flex: 1 1 160px;
+    width: auto;
+    min-width: 0;
+  }
+
+  .material-card.insight .mc-box:not(.usage) {
+    flex: 1 1 120px;
+    width: auto;
+  }
+
+  .material-card.insight .mc-box.usage {
+    flex: 1 1 100%;
+  }
+
+  /* With its explanation open, the margin takes the card's whole width, so the text has room. */
+  .material-card.insight .mc-box:has(.explain-text) {
+    flex-basis: 100%;
+  }
+
+  /* The composition and the IFRA in detail, beside the verdict and the charts. */
+  .bench-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--size-bench-side);
+    align-items: start;
+    gap: var(--space-gap);
+  }
+
+  .bench-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-gap);
+    min-width: 0;
+  }
+
+  .odour-map {
+    display: grid;
+    place-items: center;
+    gap: 4px;
+    min-height: 160px;
+    padding: 12px;
+    border-style: dashed;
+    border-color: var(--line-strong);
+    text-align: center;
+  }
+
+  @media (max-width: 1100px) {
+    .bench-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .bench {
+      padding: 12px 12px 0;
+    }
+
+    .history-bar {
+      margin: 0 -12px;
+    }
+
+    .formula-head .formula-name {
+      font-size: var(--text-xl);
+    }
+
+    /* The head in two rows (audit F-06 L2): «←», the name, undo, redo and Options; under them the
+       intention and the notes, one line each until you write in them. */
+    .formula-head .back {
+      order: 0;
+    }
+
+    .formula-head .name-card {
+      order: 1;
+      flex: 1 1 0;
+    }
+
+    .head-actions {
+      order: 2;
+      margin-left: 0;
+      gap: 4px;
+    }
+
+    .formula-head .intention-card {
+      order: 3;
+      flex: 1 1 100%;
+      flex-direction: row;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .formula-head .intention-card:not(:focus-within) textarea {
+      height: 1.5em;
+      overflow: hidden;
+    }
+
+    .formula-head .intention-card:focus-within {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .formula-head .intention-card:focus-within textarea {
+      min-height: 4.5em;
+    }
+
+    /* With no hover to show it whole, what limits IFRA takes the lines it needs. */
+    .ifra-limit {
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+
+    /* Under «←» too, so that it fits the phone's width. */
+    .menu-pop.switcher {
+      left: calc(-1 * (var(--size-target) + 12px));
+    }
+
+    .quantity,
+    .dilution {
+      flex: 1 1 120px;
+    }
+
+    .neat-toggle,
+    .add-diluent,
+    .more-btn,
+    .diluent-chip {
+      min-height: var(--size-target);
+    }
+
+    .add-go,
+    .add-btn {
+      flex: 1 1 100%;
+      padding-top: 0;
+    }
+
+  }
+
+
+
+}
+
+/* Your bottles of the material (V3-67): the ones past two, in a menu under «More». */
+.bench-root .bottle-menu {
+  top: calc(100% + 4px);
+  left: 0;
+  min-width: 240px;
+  gap: 4px;
+}
+
+/* «Usar la fórmula» (V3-59): the recipe, one line per pour. */
+.bench-root .recipe {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0;
+  font-size: var(--text-md);
+}
+
+.bench-root .recipe td {
+  padding: 3px 4px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.bench-root .recipe td.num {
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.bench-root .recipe tr.sum td {
+  font-weight: 600;
+  border-top: 1px solid var(--line);
+}
+
+/* A locked formula (F1) says so over the bench, with the way out. */
+.locked-note {
+  margin: 0 0 12px;
+  padding: 8px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-control);
+  background: var(--panel);
+}
+
+/* The composition by notes (F3): a switch in the head, and each group with its subtotal. */
+.composition-head .by-note {
+  min-height: 28px;
+  padding: 2px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  font-size: var(--text-sm, 13px);
+}
+.composition-head .by-note.on {
+  background: var(--ink);
+  color: var(--panel);
+}
+.note-head {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px 4px;
+  font-size: var(--text-sm, 13px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-top: 1px solid var(--line);
+}
+.note-group:first-child .note-head {
+  border-top: none;
+}
+
+/* The formula's families (F2), under the head of the bench. */
+.bench-families {
+  margin: -4px 0 12px;
+}
+
+/* Macerating (V3-83): its day and its check, under the head of the bench. */
+.maceration-note {
+  margin: 0 0 12px;
+  font-size: var(--text-sm, 13px);
+}
+
+/* «Explain» (plan 8.6): what was said only on hover, a press away. 24 px to see, 44 px to press. */
+.bench-root .explain {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  margin: 0 2px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: var(--panel);
+  color: var(--muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.bench-root .explain::after {
+  content: "";
+  position: absolute;
+  inset: -11px;
+}
+
+.bench-root .explain[aria-expanded="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--panel);
+}
+
+.bench-root .explain-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 6px;
+  padding: 8px 10px;
+  border-left: 2px solid var(--line-strong);
+  border-radius: 0 var(--radius-control) var(--radius-control) 0;
+  background: var(--fill);
+  color: var(--ink);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: left;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* In the IFRA panel's grid, the text takes the row's whole width, under it. */
+.bench-root .ceiling-row .explain-text {
+  grid-column: 1 / -1;
+}
+
+/* On a narrow bench the name keeps its words whole and the flags go under it (F-12, picked 2026-11-02). */
+@media (max-width: 480px) {
+  .bench-root .row-main {
+    flex-wrap: wrap;
+    row-gap: 2px;
+  }
+  .bench-root .row-name {
+    overflow-wrap: normal;
+    flex: 1 0 100%;
+  }
+}
+
+/* The host of a dialog opened outside the bench (F-02): it carries the bench's tokens and draws no box. */
+.bench-root.dialog-host {
+  display: contents;
+}
+
+/* The add bar's results (F-01): the switches above, then the listbox, which keeps the rows' look. */
+.bench-root .results-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

@@ -1985,6 +1985,23 @@ Notas suyas en los tablones, literales: sobre Potion Craft, «no me acaba de con
 - **Un rango** («0,1–2 %», «traces to 1 %») da mínimo y máximo; **una mediana de uso** (Fraterworks) da el típico, no el máximo. Una frase sin cifra («dose in traces») no da uso.
 - **Lo que no se usa:** una frase reconstruida o resumida, sin copia literal; la dosis de una página del material diluido (su % es el de la dilución).
 
+## V3-106 · El Cuaderno es la evaluación en tiras; «Strips» deja de ser un área (decidida por el usuario el 2026-11-17)
+
+**Contexto:** el usuario evaluó los «Nueve conceptos» de V3-104 por piezas, no por concepto entero, con cuatro capturas: las hojas apiladas con lengüetas al lado (concepto 1, el panel de IFRA), las áreas como cartas numeradas (concepto 7), el códice como álbum de láminas con la banda de la familia, lo no encontrado en punteado y las diluciones apiladas detrás (concepto 7), y el libro abierto con lengüetas de cuero en el borde (concepto 8).
+
+**Literal** (orko kill, 2026-11-17): «Estos son algunos de los ejemplos pero no me hustan en el mismo concepto que estan aplicados sino para premisas concretas, el notebook me gustaria que fuese para contener los olores en una evaluacion, quizas diria que, sea la herramienta y la documentacion de cuando evaluas en tiras, cad vez que pasas pagina puedes crear un batch, en la izquierda añades los materiales y en la derecha todo lo que tienes por rellenar del material, las lenguas o tabs son para registrar cada tiempo dentro de la evaluacion, creo que es uno de estos casos que se hace una funcion practica relacionada con la tematica y verosimil.»
+
+Ante la pregunta de qué pasa con el área «Strips» y con el plan, que vivía en el Cuaderno, eligió la opción A: «A, y monta el selector con esos tokens».
+
+**Decisión:**
+- **El Cuaderno (Notebook) es la herramienta y el registro de la evaluación en tiras.** Cada doble página es una tanda: pasar página crea una tanda nueva. En la página izquierda se añaden los materiales de la tanda; en la derecha, lo que hay que rellenar de cada material. Las lengüetas del borde son los tiempos de la evaluación: cada una registra cómo huele la tira en ese momento.
+- **«Strips» deja de ser un área**: el Cuaderno la absorbe. Quedan cuatro áreas: Organ, Codex, Drawers y Notebook.
+- **El plan sigue dentro de cada fórmula, en el Órgano**, como ya decía V3-100.
+
+**Abierto, para el usuario:** qué tiempos lleva cada tanda (fijos o los que añade él) y qué se rellena de cada material. La maqueta del selector usa como ejemplo 0 min, 15 min, 1 h, 4 h y 24 h, e impresión, intensidad de 1 a 5, cambios desde el tiempo anterior y notas; son de la sesión, no decididos.
+
+**Los tokens** de estas piezas se eligen sobre imágenes en el selector «Tokens del taller» (artifact privado del usuario, https://claude.ai/artifact/SgfYSeCj2JKX3Xgbw4eCLf). Para cada grupo enseña el valor de las maquetas («conceptos»), el de D-0010 («actual») y alternativas de la sesión («propuesta»), con el contraste en vivo. Lo que guarde ahí irá al vault como decisión, porque cambia la dirección de color de D-0010.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).

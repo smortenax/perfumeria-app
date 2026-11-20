@@ -1,4 +1,4 @@
-// Copied from designboard 4aa3488 (src/library/orb/orb.tsx), runtime 1.0.
+// Copied from designboard 3f221ae (src/library/orb/orb.tsx), runtime 1.15.
 // Do not edit here: change designboard and run `npm run copy-runtime` again.
 import type { ComponentDef } from "../../core/manifest";
 import { MaterialOrb } from "./MaterialOrb";

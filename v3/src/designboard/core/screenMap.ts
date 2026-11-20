@@ -1,4 +1,4 @@
-// Copied from designboard 4aa3488 (src/core/screenMap.ts), runtime 1.0.
+// Copied from designboard 3f221ae (src/core/screenMap.ts), runtime 1.15.
 // Do not edit here: change designboard and run `npm run copy-runtime` again.
 import type { Artboard } from "./composition";
 
@@ -86,6 +86,8 @@ export interface MapOptions {
   /** Screens per row. */
   columns?: number;
   gap?: number;
+  /** Where the first row starts; below every existing screen when left out. */
+  startY?: number;
 }
 
 /** Artboards for the routes that have none yet (matched by the artboard's `route`). Existing screens are never touched. */
@@ -96,7 +98,7 @@ export function screenMapArtboards(routes: readonly RouteDef[], existing: readon
   const h = opts.height ?? 900;
   const cols = Math.max(1, opts.columns ?? 4);
   const gap = opts.gap ?? 120;
-  const startY = existing.length ? Math.max(...existing.map((b) => b.y + b.height)) + gap * 2 : 0;
+  const startY = opts.startY ?? (existing.length ? Math.max(...existing.map((b) => b.y + b.height)) + gap * 2 : 0);
   const ids = new Set(existing.map((b) => b.id));
   return missing.map((r, i) => {
     const base = routeId(r.path);

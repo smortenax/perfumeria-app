@@ -1,4 +1,4 @@
-// Copied from designboard 4aa3488 (src/library/basic.tsx), runtime 1.0.
+// Copied from designboard 3f221ae (src/library/basic.tsx), runtime 1.15.
 // Do not edit here: change designboard and run `npm run copy-runtime` again.
 import type { CSSProperties } from "react";
 import type { ComponentDef } from "../core/manifest";
@@ -86,6 +86,7 @@ export const text: ComponentDef<TextP> = {
   type: "text",
   name: "Texto",
   source: "designboard",
+  description: "Un rótulo o un párrafo con la familia, el tamaño y el color de los tokens, sin texto enriquecido (decisión D-0016 de la bóveda). El alto de línea es el de la raíz de la app.",
   defaultSize: { w: 240, h: 32 },
   params: {
     text: { kind: "text", label: "Texto", default: "Título", multiline: true },
@@ -105,7 +106,7 @@ export const text: ComponentDef<TextP> = {
         fontFamily: tokenVar(params.family, "system-ui"),
         fontWeight: Number(params.weight),
         textAlign: params.align as CSSProperties["textAlign"],
-        lineHeight: 1.3,
+        // The app root's line height (a config's `root`), as the app's own text would have.
         whiteSpace: "pre-wrap",
         overflow: "hidden",
       }}

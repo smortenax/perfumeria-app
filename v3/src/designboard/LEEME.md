@@ -1,6 +1,6 @@
 # Copia del runtime de Designboard
 
-Copia de [smortenax/designboard](https://github.com/smortenax/designboard) `main` (hoy `4aa3488`),
+Copia de [smortenax/designboard](https://github.com/smortenax/designboard) `main` (hoy `3f221ae`, runtime 1.15),
 porque la v3 no importa nada de fuera de su carpeta (V3-21). La escribe, entera, este comando
 lanzado desde designboard:
 

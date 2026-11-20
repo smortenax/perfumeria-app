@@ -1,4 +1,4 @@
-// Copied from designboard 4aa3488 (src/adapter/config.ts), runtime 1.0.
+// Copied from designboard 3f221ae (src/adapter/config.ts), runtime 1.15.
 // Do not edit here: change designboard and run `npm run copy-runtime` again.
 /**
  * The contract an app fills in to bring its own components to the board.
@@ -15,7 +15,7 @@ import type { Composition } from "../core/composition";
 import { makeLibrary, type ComponentDef, type Library } from "../core/manifest";
 import { extractHashRoutes, type RouteDef } from "../core/screenMap";
 import { blankComposition } from "../runtime/starter";
-import { BASE_MODE, flattenTokens, modesOf, setTokenNaming, tokensToCss, type CssVarOf, type Token } from "../core/tokens";
+import { BASE_MODE, flattenTokens, modesOf, setTokenNaming, tokensIn, tokenVar, tokensToCss, type CssVarOf, type Token } from "../core/tokens";
 
 export interface BoardConfig {
   /** Short id of the app, e.g. "perfumeria". Names the saved work so two apps never share it. */
@@ -46,6 +46,70 @@ export interface BoardConfig {
   screenSize?: { w: number; h: number };
   /** Colour token path for a blank screen's ground. Without one, the first colour token is used. */
   background?: string;
+  /**
+   * What the app's root (its `body`) gives every component by inheritance, so a component that
+   * sets no font, ink or line height of its own draws on the board as it does in the app. Without
+   * it, a screen starts from the browser's defaults, never from the editor's own look.
+   */
+  root?: AppRoot;
+  /**
+   * The app's fonts, so the board draws with the faces the app loads: each family name as the
+   * token file writes it, with the CSS that loads it, the same package the app imports (import its
+   * CSS with `?inline`, e.g. `import body from "@fontsource-variable/atkinson-hyperlegible-next?inline"`).
+   * The board declares those faces under the token's name, so a package's own name for them
+   * ("… Variable") does not matter. Exports embed what a layer uses.
+   */
+  fonts?: Readonly<Record<string, string>>;
+}
+
+/**
+ * The `@font-face` rules of each font's CSS with their family renamed to the token's family name.
+ * Only the `font-family` inside `@font-face` blocks changes; sources, weights and ranges stay.
+ */
+export function fontFaceCss(fonts: Readonly<Record<string, string>> | undefined): string {
+  if (!fonts) return "";
+  return Object.entries(fonts)
+    .map(([family, css]) => {
+      const name = `'${family.replace(/'/g, "\\'")}'`;
+      return css.replace(/@font-face\s*\{[^}]*\}/g, (block) => block.replace(/font-family\s*:[^;}]*/g, `font-family: ${name}`));
+    })
+    .join("\n");
+}
+
+/** The inherited text styles of an app's root: token paths, and the app's own line height. */
+export interface AppRoot {
+  /** Font family token, e.g. "font.family.body". */
+  font?: string;
+  /** Font size token. */
+  size?: string;
+  /** Text colour token, e.g. "color.text.default". */
+  color?: string;
+  /** The unitless line height the app's root sets (no token group exists for it yet). */
+  lineHeight?: number;
+}
+
+/**
+ * The element that stands for the app's body: a screen's content on the board and Vista app's
+ * screen carry it. The editor's element rules skip what is inside it (src/styles.css).
+ */
+export const APP_ROOT_ATTR = "data-app-root";
+
+/** CSS for the app's root styles, and the warnings for token paths the file lacks. */
+export function appRootCss(root: AppRoot | undefined, tokenMap: ReadonlyMap<string, string>): { css: string; warnings: string[] } {
+  if (!root) return { css: "", warnings: [] };
+  const warnings: string[] = [];
+  const decls: string[] = [];
+  const token = (prop: string, key: "font" | "size" | "color") => {
+    const path = root[key];
+    if (!path) return;
+    if (!tokenMap.has(path)) warnings.push(`La raíz de la app usa ${path}, que no está en el archivo de tokens.`);
+    else decls.push(`${prop}: ${tokenVar(path)};`);
+  };
+  token("font-family", "font");
+  token("font-size", "size");
+  token("color", "color");
+  if (root.lineHeight !== undefined) decls.push(`line-height: ${root.lineHeight};`);
+  return { css: decls.length ? `[${APP_ROOT_ATTR}] { ${decls.join(" ")} }` : "", warnings };
 }
 
 /** Identity function that gives an app's config file its type checking. */
@@ -84,11 +148,13 @@ export function loadConfig(config: BoardConfig): LoadedConfig {
   }
   if (!config.components?.length) throw new Error("designboard.config: \"components\" is empty; the board needs at least one ficha.");
 
-  const library = makeLibrary(config.components);
   setTokenNaming(config.cssVarOf);
   const tokens = flattenTokens(config.tokens);
   const tokenMap = new Map(tokens.map((t) => [t.path, t.css]));
-  const warnings = [...checkFichas(config.components, tokenMap), ...checkNaming(tokens)];
+  const components = config.components.map((def) => fitBoardDefaults(def, tokens));
+  const library = makeLibrary(components);
+  const root = appRootCss(config.root, tokenMap);
+  const warnings = [...checkFichas(components, tokenMap), ...checkNaming(tokens), ...tokens.flatMap((t) => (t.problem ? [t.problem] : [])), ...root.warnings];
 
   const background = config.background ?? tokens.find((t) => t.path.startsWith("color."))?.path;
   if (config.background && !tokenMap.has(config.background)) warnings.push(`El fondo "${config.background}" no está en el archivo de tokens.`);
@@ -105,8 +171,8 @@ export function loadConfig(config: BoardConfig): LoadedConfig {
     library,
     tokens,
     tokenMap,
-    modes: [BASE_MODE, ...modesOf(tokens)],
-    css: tokensToCss(tokens) + (config.css ? `\n${config.css}` : ""),
+    modes: [BASE_MODE, ...modesOf(tokens).filter((m) => m !== BASE_MODE)],
+    css: [fontFaceCss(config.fonts), tokensToCss(tokens), root.css, config.css ?? ""].filter(Boolean).join("\n"),
     storageKey: config.app === "designboard" ? LEGACY_STORAGE_KEY : `${LEGACY_STORAGE_KEY}:${config.app}`,
     starter: config.starter ?? (() => blankComposition(config.label ?? config.app, config.app, background ?? "")),
     routes,
@@ -115,14 +181,48 @@ export function loadConfig(config: BoardConfig): LoadedConfig {
   };
 }
 
-/** Token params whose default is not in the app's token file: the board would show them unset. */
+/**
+ * The board's own fichas (`source: "designboard"`, such as the Panel) serve every app, so their
+ * token defaults are only a guess at the app's names. One the app's file lacks becomes the first
+ * token of the param's groups, or the empty choice when the param has one and the groups are
+ * empty. An app's own fichas are left alone: a wrong default there is the ficha's mistake, and
+ * `checkFichas` reports it.
+ */
+export function fitBoardDefaults(def: ComponentDef, tokens: readonly Token[]): ComponentDef {
+  if (def.source !== "designboard") return def;
+  let changed = false;
+  const params = Object.fromEntries(
+    Object.entries(def.params).map(([key, p]) => {
+      if (p.kind !== "token" || !p.default || tokens.some((t) => t.path === p.default)) return [key, p];
+      const first = tokensIn(tokens, p.groups)[0]?.path;
+      const fallback = first ?? (p.none !== undefined ? "" : p.default);
+      if (fallback === p.default) return [key, p];
+      changed = true;
+      return [key, { ...p, default: fallback }];
+    }),
+  );
+  return changed ? { ...def, params } : def;
+}
+
+/**
+ * What a ficha gets wrong that the board can see from its params alone: token defaults missing from
+ * the file or outside their own groups, numbers outside their limits, selects without their default,
+ * slots that ship an image. The board shows these in its top bar; tests can assert none.
+ */
 export function checkFichas(defs: readonly ComponentDef[], tokenMap: ReadonlyMap<string, string>): string[] {
   const out: string[] = [];
   for (const def of defs) {
     for (const [key, p] of Object.entries(def.params)) {
-      if (p.kind === "token" && p.default && !tokenMap.has(p.default)) {
-        out.push(`${def.name} (${def.type}): el valor por defecto de «${key}», ${p.default}, no está en el archivo de tokens.`);
+      const where = `${def.name} (${def.type}): «${key}»`;
+      if (p.kind === "token") {
+        if (p.default && !tokenMap.has(p.default)) out.push(`${def.name} (${def.type}): el valor por defecto de «${key}», ${p.default}, no está en el archivo de tokens.`);
+        else if (p.default && !p.groups.some((g) => p.default === g || p.default.startsWith(g + "."))) out.push(`${where}: ${p.default} no está en sus grupos (${p.groups.join(", ")}).`);
+        if (!p.default && p.none === undefined) out.push(`${where}: sin valor por defecto y sin opción vacía.`);
       }
+      if (p.kind === "number" && !(p.min <= p.default && p.default <= p.max)) out.push(`${where}: ${p.default} está fuera de ${p.min}–${p.max}.`);
+      if (p.kind === "select" && !p.options.some((o) => o.value === p.default)) out.push(`${where}: ${p.default} no es una de sus opciones.`);
+      // An image or icon is the owner's: a ficha never ships one of its own (CLAUDE.md).
+      if (p.kind === "slot" && p.default) out.push(`${where}: un hueco empieza vacío; la imagen la pone el dueño.`);
     }
   }
   return out;

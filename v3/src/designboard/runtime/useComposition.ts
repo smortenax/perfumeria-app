@@ -1,4 +1,4 @@
-// Copied from designboard 4aa3488 (src/runtime/useComposition.ts), runtime 1.0.
+// Copied from designboard 3f221ae (src/runtime/useComposition.ts), runtime 1.15.
 // Do not edit here: change designboard and run `npm run copy-runtime` again.
 import { useEffect, useMemo, useRef, useSyncExternalStore } from "react";
 import { clampComposition, parseComposition, runtimeMismatch, type Composition } from "../core/composition";
