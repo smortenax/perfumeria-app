@@ -1,0 +1,22 @@
+n,id,version_id,nombre,tipo,cas,casa,especie,proveedor,faltan
+r1,0df7a786-5996-512d-bb47-f5369bc0b603,25dc2339-51c5-5ef1-8ca7-8661352fc6bd,"Villous cardamom, tincture",natural,,,Amomum villosum,Maese Lab,cas family doses tenacity strength
+r18,22845271-91e5-51d8-818e-1bb6c4c4094f,3c130508-3c20-5c88-ab04-36099476df34,"Green cardamom, tincture",natural,85940-32-5,,Elettaria cardamomum L.,Maese Lab,doses tenacity
+r6,41a1db79-71d5-5a84-8732-4334c81fb21e,580b0235-cbc8-569c-b8d3-34e168e66def,Truffle essence,composition,,"Maese Lab, fórmula propia: la categoría se describe como *«bases para perfumería profesional»*. Origen España *(la mezcla, no la trufa)*",,Maese Lab,cas family tenacity strength
+r9,4352551b-fca9-5d6a-8bf5-c175015da6e3,ab72ac42-5016-5e62-8b80-7c07f844e630,Phenylethyl Mercaptan,molecule,4410-99-5,,,Harrison Joseph,house doses tenacity
+r10,5da0738b-c7ba-54a5-af01-386a3f8e0e0f,06631b5e-dda8-5beb-b3f5-4d91f6757eee,1-Octen-3-one Stabilised,molecule,4312-99-6,,,Harrison Joseph,house tenacity
+r13,7345c296-c9d6-552a-938e-9a4cd7295776,bbb59262-3fc4-590c-9f4e-fd2f1a4e0135,"Ambrette, tincture",natural,977017-78-9,,Abelmoschus moschatus,Maese Lab,doses tenacity
+r4,88b33f5f-bc67-58d8-a0c2-c0be338762b0,d9f95d5c-865b-52e0-9651-dc04fad44d03,Methyl linolenate,molecule,7361-80-0,,,Harrison Joseph,family house tenacity descriptors
+r8,8de08292-2c2d-59c5-859e-2090f26df287,ef0e237d-8ae1-57a1-8567-d4bb5b956ae9,Narcisse Oxyacetate,molecule,67028-40-4,,,Harrison Joseph,house tenacity strength
+r2,bead932d-eeb3-539d-bdb0-bfea834b56ac,9af0bdcd-31c7-5796-9287-0563a7a28c35,4-Propylphenol,molecule,645-56-7,,,Harrison Joseph,house doses tenacity strength
+r12,c833332c-de03-50d6-9703-c7c8eddbb59e,3451a97c-bbf7-5b67-8a94-2b67f18551c6,Alpha-hexyl cinnamic aldehyde,molecule,101-86-0,,,Maese Lab,house doses
+r3,dc039041-25a9-5729-8e46-5ddf03fae94d,b9035207-b7e5-5c68-985e-22c945106f1b,"Honey, aromatic essence",composition,,"Maese Lab
+Maese Lab (España)",,Maese Lab,cas doses tenacity strength
+r17,e035f8a6-1eb5-5d37-ac18-e207ba77750e,f4bdbfa6-5d1c-5b6b-8871-d35f6f5533f2,Dewfruit TEC,composition,,Givaudan (Dewfruit base TEC AB 2927R/3; of Quest origin),,Perfumiarz (muestra),cas tenacity
+r5,e8146902-46ac-59a2-8513-18567b6a1e55,6aeab40e-7115-5799-bc1f-3ab0250d8a82,Thialdine,molecule,638-17-5,,,Harrison Joseph,house doses tenacity strength
+r14,e885d87e-90c3-5be4-bf02-87abf93d2fc9,a924f079-2a85-5628-b005-810d4822442a,Auranone,composition,,Firmenich,,Perfumiarz,cas tenacity
+r15,eba059ae-a78a-53ba-9364-490848cf0f2a,cbd44221-db2f-5df8-a17a-4a0d0fe65a62,Black Agar 296985,composition,,Firmenich,,Perfumiarz,cas tenacity
+r16,f5d717d2-a948-5705-8b66-1a9b62450fe7,32fb3fd8-cf73-5aeb-8ded-53c808e4b3d3,Cypriol / Nagarmotha EO,natural,68916-60-9,,Cyperus scariosus,Harrison Joseph,doses tenacity
+r7,f651a9e1-1f05-579f-8a87-5c9b717fe203,2d530f4c-8acd-549d-baa2-53e836c1e52d,"Ambergris, commercial tincture (purified)",natural,84836-94-2,"Maese Lab
+Maese Lab","Physeter macrocephalus (sperm whale) (Premiere Peau); Maese Lab does not name the animal, only «Parte Utilizada: Secreción Orgánica»",Maese Lab,cas doses tenacity
+r11,f7a96966-533f-5a38-9500-d49e5be6a93d,553caeb4-e292-51c3-a9d5-37006b8618d2,"3,4-Xylenol",molecule,95-65-8,"Sigma Aldrich
+Sigma Aldrich (fabricante según Perfumiarz)",,Perfumiarz,doses tenacity

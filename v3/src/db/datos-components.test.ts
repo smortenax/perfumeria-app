@@ -10,6 +10,13 @@ const rows = parseCsvRecords(Object.values(files)[0] ?? "");
 const num = (t: string) => (t === "" ? null : Number(t));
 
 describe("datos/material_components.csv keeps the server's checks", () => {
+  it("each row names what it is: a component material, or a name (material_components_what)", () => {
+    // Batch 60 broke the cloud load on 2026-11-19 with four SDS rows that had a CAS but no name.
+    const bad = rows.filter((r) =>
+      r.component_id ? r.component_cas !== "" || r.component_name !== "" : (r.component_name ?? "").trim() === "");
+    expect(bad.map((r) => r.id)).toEqual([]);
+  });
+
   it("each amount fills the columns its kind asks for, within 0 and 1", () => {
     const bad = rows.filter((r) => {
       const [v, lo, hi] = [num(r.value), num(r.min), num(r.max)];

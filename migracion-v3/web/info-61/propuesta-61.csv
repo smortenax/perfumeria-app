@@ -1,0 +1,78 @@
+n,id,nombre,buscar,family,family_fuente,family_disputado,family_otras,tenacity_hours,tenacity_hours_fuente,tenacity_hours_disputado,tenacity_hours_otras,strength,strength_fuente,strength_disputado,strength_otras,house,house_fuente,house_disputado,cas,cas_fuente,cas_disputado,species,species_fuente,species_disputado,olores,dosis
+1,bead932d-eeb3-539d-bdb0-bfea834b56ac,4-Propylphenol,casa dosis horas fuerza,,,,,,,,,,,,,,,,,,,,,,[],0
+2,88b33f5f-bc67-58d8-a0c2-c0be338762b0,Methyl linolenate,familia casa horas olor,,,,,,,,,,,,,,,,,,,,,,[],0
+3,e8146902-46ac-59a2-8513-18567b6a1e55,Thialdine,casa dosis horas fuerza,,,,,,,,,,,,,,,,,,,,,,[],0
+4,0df7a786-5996-512d-bb47-f5369bc0b603,"Villous cardamom, tincture",cas familia dosis horas fuerza,,,,,,,,,,,,,,,,,,,,,,[],0
+5,dc039041-25a9-5729-8e46-5ddf03fae94d,"Honey, aromatic essence",dosis horas fuerza,,,,,,,,,,,,,,,,,,,,,,[],0
+6,8de08292-2c2d-59c5-859e-2090f26df287,Narcisse Oxyacetate,casa horas fuerza,,,,,,,,,,,,,,,,,,,,,,[],0
+7,4352551b-fca9-5d6a-8bf5-c175015da6e3,Phenylethyl Mercaptan,casa dosis horas,,,,,,,,,,,,,,,,,,,,,,[],0
+8,41a1db79-71d5-5a84-8732-4334c81fb21e,Truffle essence,familia horas fuerza,,,,,,,,,,,,,,,,,,,,,,[],0
+9,5da0738b-c7ba-54a5-af01-386a3f8e0e0f,1-Octen-3-one Stabilised,casa horas,,,,,,,,,,,,,,,,,,,,,,[],0
+10,f651a9e1-1f05-579f-8a87-5c9b717fe203,"Ambergris, commercial tincture (purified)",cas dosis horas,,,,,,,,,,,,,,,,,,,,,,[],0
+11,f5d717d2-a948-5705-8b66-1a9b62450fe7,Cypriol / Nagarmotha EO,dosis horas,,,,,140,"Fraterworks, https://fraterworks.com/products/cypriol-nagarmotha-oil: «> 140 hours on a smelling strip.»",,,,,,,,,,,,,,,,[],2
+12,e3577dfe-1f2c-5929-90c7-ee935c2b88d4,Rose Crystals,casa horas,,,,,400,"Fraterworks, https://fraterworks.com/products/rose-crystals: «Lasts > 400 hours on a smelling strip.»",si,PerfumersWorld: 300,,,,,,,,,,,,,,[],0
+13,b29f1fc2-79ee-5894-9276-40c2d1796884,Vinyl Sulfurol,casa horas,,,,,,,,,,,,,,,,,,,,,,[],0
+14,f7a96966-533f-5a38-9500-d49e5be6a93d,"3,4-Xylenol",dosis horas,,,,,,,,,,,,,,,,,,,,,,[],0
+15,c833332c-de03-50d6-9703-c7c8eddbb59e,Alpha-hexyl cinnamic aldehyde,dosis,,,,,,,,,,,,,,,,,,,,,,[],2
+16,7345c296-c9d6-552a-938e-9a4cd7295776,"Ambrette, tincture",dosis horas,,,,,,,,,,,,,,,,,,,,,,[],0
+17,740512a1-0aed-5035-912c-2dcdb89a9291,Cumin Nitrile,casa,,,,,,,,,,,,,Synarome,"Associate Allied Chemicals, https://aacipl.com/products/cuminyl-nitrile: «Make: Synarome»",,,,,,,,[],0
+18,e035f8a6-1eb5-5d37-ac18-e207ba77750e,Dewfruit TEC,horas,,,,,,,,,,,,,,,,,,,,,,[],0
+19,cf11e7c9-da38-556e-a70b-dde88eba5d29,Ethyl decanoate,casa,,,,,,,,,,,,,,,,,,,,,,[],0
+20,22845271-91e5-51d8-818e-1bb6c4c4094f,"Green cardamom, tincture",dosis horas,,,,,,,,,,,,,,,,,,,,,,[],0
+21,7e8265a2-c890-5476-a722-23ed3282820f,"Hyraceum (Africa stone), absolute",dosis horas,,,,,,,,,,,,,,,,,,,,,,[],0
+22,5ba9489c-e34e-5ef4-a6f2-d9ea79edc81b,Isobutyl acetate,casa,,,,,,,,,,,,,,,,,,,,,,[],0
+23,7b46db90-485c-5a1f-ac65-a944fb216beb,Suederal,cas especie,,,,,,,,,,,,,,,,,,,,,,[],0
+24,aa83f1f1-92a9-5f1d-b9a8-83f3dca795bc,2-Hydroxybenzaldehyde,horas,,,,,,,,,,,,,,,,,,,,,,[],0
+25,c1a357df-e7de-54cf-bdfb-9b3c79000814,Aldambre,horas,,,,,,,,,,,,,,,,,,,,,,[],0
+26,e885d87e-90c3-5be4-bf02-87abf93d2fc9,Auranone,horas,,,,,,,,,,,,,,,,,,,,,,[],0
+27,eba059ae-a78a-53ba-9364-490848cf0f2a,Black Agar 296985,horas,,,,,,,,,,,,,,,,,,,,,,[],0
+28,924d227f-c444-58f1-9d4a-229a950e2476,"Chinese cedarwood, essential oil",dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+29,2af343c4-8fcb-54b8-9686-55d59df82860,Manzanate,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
+30,1d34571f-3db7-5d74-8563-941ae683219b,Orris Givco,fuerza,,,,,,,,,,,,,,,,,,,,,,[],0
+31,c6123c69-30e9-56db-b0ae-abe74150427f,Shangralide,dosis,,,,,,,,,,,,,,,,,,,,,,[],2
+32,bd30c4f7-e2fd-5091-9fad-bd8e9fd565b6,"Tonka bean (seeds), commercial tincture",horas,,,,,,,,,,,,,,,,,,,,,,[],0
+33,05a65be3-e5d1-5ff6-8c20-f4d27762c404,Jasmin Floraline 99 (Robertet),dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+34,172c0617-e5e4-5d8f-99d8-b88ef60cd01d,Levistamel,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+35,260541db-b76a-5904-a59f-d19666a57626,Pear Bold Base (Moellhausen),dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+36,29456506-21fc-52e3-b7d9-048cd94fb741,Fig Base (PCW),dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+37,300751b7-7572-578d-aee3-5d77dd36ee4f,"Oak wood (chips), CO2 extract",dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+38,32f084b8-39ee-520e-ab28-e4004dee883e,Furfuryl mercaptan,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+39,409ece8e-4208-5c1a-ade7-f3d503aa6994,Trisamber,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
+40,47577e82-302d-5628-8d47-7bf060a50913,Ambrocenide,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
+41,5d8aa4ac-ec07-5d7f-8a42-8ce7e9b17ec9,"Frankincense (Boswellia carterii), essential oil",dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+42,5fdf16ee-32eb-5d24-9b16-116ae94490b2,Frangipani Bold Base (Moellhausen),dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+43,60324cfe-b04c-5a1c-9689-a96a91de13eb,2-Methylpyrazine,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+44,6516cf5b-3df4-5266-af42-958e67aff470,Gamma-valerolactone,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+45,6b56b04f-80b4-574f-b56b-e3dd88de9ff5,Hydroxyambran,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+46,7f2906ae-e37c-58af-b4a5-250109cfded4,Thujopsene,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
+47,811d294d-778b-5ab8-8bef-e6217220fa9f,Isolongifolene,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+48,82060fb3-11cd-5397-b056-eb7ae2b01fec,"Wool, absolute",dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+49,82d018be-8ddc-5d7a-91fa-c3160cc39cf5,Hercolyn DW (methyl hydrogenated rosinate),dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+50,97d5ae22-1d38-5e63-87e0-6ef0638cab4e,Ultravanil,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+51,a4ff5fda-3038-5073-8059-0869f8500daa,meta-Cresol,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+52,a63be7f1-b001-561e-a3c6-eecb0c2d56f6,"Yuzu peel, distilled essential oil",dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+53,ab17b4c1-1997-5231-a6f1-498db99c2780,"Coffee, absolute",dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+54,abb648e9-d683-5fbc-8d33-6c5d1efe2015,Edenolide,dosis,,,,,,,,,,,,,,,,,,,,,,[],3
+55,ad69af61-3863-58ac-9bfc-661e7e4b2cb6,"Ceylon cinnamon (bark), tincture",dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+56,b258c5c2-ae73-5849-ae8b-426c01b8fc9b,Matcha Ketone,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+57,b265dcbf-9666-581a-8715-ca9b288e4b60,Muscone,dosis,,,,,,,,,,,,,,,,,,,,,,[],2
+58,b41c38bf-2ab7-5e93-b2f5-2814d49bbb57,Cuir 17500 (Synarome),dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+59,b6807b63-f726-5206-aa22-87163fc2b5de,Bornyl acetate,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
+60,b7542bba-2644-5db2-b866-237c139fed3d,Hot Milk Bold Base (Moellhausen),dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+61,bbddd037-673c-5479-82bf-d1e2e060b652,Oxyoctaline formate,dosis,,,,,,,,,,,,,,,,,,,,,,[],2
+62,c1527260-3df1-5271-9bc6-198192b06bb8,Ethyl linalool,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
+63,c83db25c-7ab0-5890-a6fb-348251297e72,Scentolide,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
+64,e0b7d24f-3165-5cb5-a37d-3d4f35c6e0a8,Cinnamalva (cinnamyl nitrile),dosis,,,,,,,,,,,,,,,,,,,,,,[],1
+65,e81b232b-2c22-56cf-b0d4-7434a5047a9f,Ethyl pelargonate,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
+66,f131a5bb-c3b9-5de1-bed6-57f5a03352b8,Fructalate,dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+67,f21f161d-c78b-5156-a45d-acdac1c23eed,Orionide,dosis,,,,,,,,,,,,,,,,,,,,,,[],2
+68,f8dded99-d24f-5c36-bcc1-d78fe7410498,Cocoa thiazole (trimethylthiazole),dosis,,,,,,,,,,,,,,,,,,,,,,[],0
+69,ee24132e-4024-5efc-8420-9558ecdc672f,Tropicalia,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
+60:17af28d8-a8bb-548b-931f-198524658039,17af28d8-a8bb-548b-931f-198524658039,Muscenone,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
+60:38adcfe2-bf52-5770-87ac-e32b8f17453a,38adcfe2-bf52-5770-87ac-e32b8f17453a,Delta-decalactone,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
+60:448a5e1c-f5df-55cf-be37-e5f173680e7d,448a5e1c-f5df-55cf-be37-e5f173680e7d,Velvione,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
+60:81a3a9ca-9bcb-5828-981b-f0b8afba81d3,81a3a9ca-9bcb-5828-981b-f0b8afba81d3,Veraspice,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
+60:960113a8-0768-5e7b-b89f-17bb42bb9549,960113a8-0768-5e7b-b89f-17bb42bb9549,Jasmal,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
+60:97eaf150-cea7-57f5-9af3-85c3b7343e29,97eaf150-cea7-57f5-9af3-85c3b7343e29,Ambrostar,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
+60:b3e2e7c7-7b43-55d5-8b81-c02f9b189e80,b3e2e7c7-7b43-55d5-8b81-c02f9b189e80,Ylanganate,dosis,,,,,,,,,,,,,,,,,,,,,,[],1
+60:eaea5ef7-3a53-5e4c-bd10-d9202611c4e4,eaea5ef7-3a53-5e4c-bd10-d9202611c4e4,Ysamber K,dosis,,,,,,,,,,,,,,,,,,,,,,[],2
