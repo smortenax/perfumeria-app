@@ -1,4 +1,4 @@
-// Copied from designboard 4aa3488 (src/apps/perfumeria/tokenNames.ts), runtime 1.0.
+// Copied from designboard 3f221ae (src/apps/perfumeria/tokenNames.ts), runtime 1.15.
 // Do not edit here: change designboard and run `npm run copy-runtime` again.
 /**
  * How Perfumería v3 names its tokens in CSS (v3/src/theme/tokens.css at 322e353), so the board

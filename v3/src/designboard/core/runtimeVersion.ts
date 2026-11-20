@@ -1,4 +1,4 @@
-// Copied from designboard 4aa3488 (src/core/runtimeVersion.ts), runtime 1.0.
+// Copied from designboard 3f221ae (src/core/runtimeVersion.ts), runtime 1.15.
 // Do not edit here: change designboard and run `npm run copy-runtime` again.
 /**
  * The version of the runtime an app copies (`npm run copy-runtime`): what `ComposedScreen` and
@@ -8,4 +8,4 @@
  * saves (`runtime`), and an app warns when its copy is not the one the file was written with
  * (`runtimeMismatch`).
  */
-export const RUNTIME_VERSION = "1.0";
+export const RUNTIME_VERSION = "1.15";

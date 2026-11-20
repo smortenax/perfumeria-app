@@ -1,4 +1,4 @@
-// Copied from designboard 4aa3488 (src/library/perfumeria/history/history.ts), runtime 1.0.
+// Copied from designboard 3f221ae (src/library/perfumeria/history/history.ts), runtime 1.15.
 // Do not edit here: change designboard and run `npm run copy-runtime` again.
 /**
  * Perfumería's bench history (v3/src/bench/HistoryDock.tsx in smortenax/perfumeria-app, main at
@@ -113,4 +113,13 @@ export function hoveredAt(count: number, pointer: number | null, g: DockGeometry
 /** How far the row can scroll in a track `width` wide. */
 export function maxScrollOf(count: number, g: DockGeometry, width: number): number {
   return Math.max(0, count * (slotOf(g) + g.gap) - width + 24);
+}
+
+/**
+ * How far one wheel step moves the row, in px. Both axes count, so a vertical wheel and a
+ * trackpad's sideways swipe both move it; line and page steps are turned into px.
+ */
+export function wheelStep(e: { deltaX: number; deltaY: number; deltaMode: number }, page: number): number {
+  const unit = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? page : 1;
+  return (e.deltaX + e.deltaY) * unit;
 }

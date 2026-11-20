@@ -1,6 +1,7 @@
-// Copied from designboard 4aa3488 (src/core/manifest.ts), runtime 1.0.
+// Copied from designboard 3f221ae (src/core/manifest.ts), runtime 1.15.
 // Do not edit here: change designboard and run `npm run copy-runtime` again.
 import type { ComponentType, ReactNode } from "react";
+import type { Connection } from "./composition";
 
 /**
  * The "ficha" of a component: what the board needs to place it and edit it without
@@ -68,8 +69,21 @@ export interface ComponentDef<P extends Params = Params> {
    * inside its own providers. `sample` is the example the board's top bar picks, one of `samples`.
    */
   preview?: ComponentPreview;
+  /**
+   * Parts of the component a person can click on their own, such as each tab of a notebook or each
+   * row of a list: part id → its label and, optionally, what a click on it does unless the layer
+   * says otherwise (a tab switching the component's own variant). The component marks each part's
+   * element with `data-part="<id>"`. A part's connection runs on a click only.
+   */
+  parts?: Readonly<Record<string, PartDef>>;
   /** The real component. It gets its params plus the size the board gives it. */
   render: ComponentType<{ params: P; width: number; height: number; /** The element's name, shown in empty slots. */ name?: string }>;
+}
+
+export interface PartDef {
+  label: string;
+  /** What a click on the part does by default; a layer can change it or turn it off (`ComponentNode.parts`). */
+  connection?: Connection;
 }
 
 export interface ComponentPreview {

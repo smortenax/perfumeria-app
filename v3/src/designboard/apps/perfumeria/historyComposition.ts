@@ -1,4 +1,4 @@
-// Copied from designboard 4aa3488 (src/apps/perfumeria/historyComposition.ts), runtime 1.0.
+// Copied from designboard 3f221ae (src/apps/perfumeria/historyComposition.ts), runtime 1.15.
 // Do not edit here: change designboard and run `npm run copy-runtime` again.
 import { FIXED, type Artboard, type ComponentNode, type Composition, type ContainerNode } from "../../core/composition";
 import { defaultParams, type ComponentDef } from "../../core/manifest";

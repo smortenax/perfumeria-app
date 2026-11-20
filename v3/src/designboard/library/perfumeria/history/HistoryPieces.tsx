@@ -1,4 +1,4 @@
-// Copied from designboard 4aa3488 (src/library/perfumeria/history/HistoryPieces.tsx), runtime 1.0.
+// Copied from designboard 3f221ae (src/library/perfumeria/history/HistoryPieces.tsx), runtime 1.15.
 // Do not edit here: change designboard and run `npm run copy-runtime` again.
 import type { CSSProperties, ReactNode } from "react";
 import { tokenVar } from "../../../core/tokens";
@@ -179,7 +179,6 @@ export function HistoryTrack({ params }: { params: TrackParams }) {
       style={vars}
       onPointerMove={(e) => dock.setPointer(e.clientX - e.currentTarget.getBoundingClientRect().left)}
       onPointerLeave={() => dock.setPointer(null)}
-      onWheel={(e) => dock.setScroll(dock.scroll + e.deltaY + e.deltaX)}
     >
       {n === 0 && <span className="pfh-empty">{h.labels.empty}</span>}
       <div className="pfh-clip">
