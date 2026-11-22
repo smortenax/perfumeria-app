@@ -54,13 +54,17 @@ def literal(r):
 
 
 def num(s):
-    m = re.search(r"\d+(?:\.\d+)?", s)
+    m = re.search(r"-?\d+(?:\.\d+)?", s)
     return m.group(0) if m else None
 
 
 props, doses, phys, odors, differ, dropped = [], [], [], [], [], []
+done = set()
 for x in lista:
     n, mid = x["n"], x["material_id"]
+    if mid in done:  # Ambrox DL, Ambroxan and Ambrox Super are all the common Ambermor (batch 57): once
+        continue
+    done.add(mid)
     m = materials[mid]
     got = {}
     for r in reads.get(n, []):

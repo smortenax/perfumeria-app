@@ -135,12 +135,15 @@ for (const d of [...docs].sort((a, b) => (a.documento === "alergenos" ? 0 : 1) -
   if (d.campo === "producto" && d.estado === "no coincide") dnote(x.material_id, `${label}: ${d.frase} — not the same product, not used`);
   if (!ok || ok.estado === "no coincide") continue;
   if (d.campo === "tope_cat4") {
-    const v = d.estado || `${d.valor} %`;
+    const v = d.estado || `${Number(d.valor.replace(",", "."))} %`;
     dnote(x.material_id, `${label}, category 4: ${v} (the product's ceiling: it goes to your version when you have the bottle, V3-39)`);
     ceilings.push(`| ${d.n} | ${cell(String(m.name))} | ${v} | ${cell(d.emisor)} |`);
   }
+  if (d.campo === "ninguna_restringida")
+    dnote(x.material_id, `${label}: «${d.frase}» — the certificate declares no IFRA-restricted material in the product (detection limit 0.001 %); the app has no way yet to keep «declares none», so IFRA still says unknown for it`);
   if (d.campo !== "componente" || m.kind === "molecule" || /\d\s*%/.test(d.producto_doc)) continue;
-  if (d.cas && d.cas === m.cas) continue;
+  // The material itself (Biolandes lists «Ylang ylang extracts 8006-81-3 100,000»): not a constituent.
+  if (d.cas && (d.cas === m.cas || listOf(m.other_cas).includes(d.cas) || Number(d.valor.replace(",", ".")) === 100)) continue;
   const key = `${m.id}:${d.cas || d.nombre.toLowerCase()}`;
   if (seen.has(key)) continue;
   seen.add(key);
@@ -153,17 +156,31 @@ for (const d of [...docs].sort((a, b) => (a.documento === "alergenos" ? 0 : 1) -
     source: `${label}, page ${d.pagina}: «${d.frase}»; a public document of the same product, not of the bottle bought; read by script (documentos.py); batch ${TANDA}`,
   });
 }
+// The name the SDS line prints, between the CAS and the concentration (as in batch 60); else, below.
+const HAZARD = /\b(?:CAS:|EC:|EC number|Flam\.|Acute|Skin|Eye|Aquatic|Asp\.|Carc\.|Repr\.|STOT|Muta\.|Resp\.)/;
+const nameInLine = (line: string, cas: string) =>
+  line.replace(/^\*\s*/, "").replace(cas, " ").replace(/[≥>]?\s*\d+(?:[.,]\d+)?\s*%?\s*(?:-|–|;)\s*[<≤]?\s*\d+(?:[.,]\d+)?\s*%?/, " ")
+    .split(HAZARD)[0].replace(/\s+/g, " ").trim();
+for (const c of newComponents) {
+  if (c.component_name || !c.component_cas) continue;
+  const d = docs.find((x) => x.campo === "componente" && x.cas === c.component_cas && x.documento === "sds" && byN.get(x.n)?.material_id === c.material_id);
+  c.component_name = d ? nameInLine(d.frase, String(c.component_cas)) || null : null;
+}
 const standardName = new Map(table("v3/datos/ifra_standards.csv").rows.map((r) => [String(r.id), String(r.name)]));
 const ifraNames = new Map(table("v3/datos/ifra_substances.csv").rows.map((r) => [String(r.cas), standardName.get(String(r.standard_id)) ?? ""]));
 for (const c of newComponents) {
   if (c.component_name || !c.component_cas) continue;
   const cas = String(c.component_cas);
-  c.component_name = (docs.find((d) => d.cas === cas && d.nombre)?.nombre ??
+  c.component_name = (docs.find((d) => d.cas === cas && d.nombre && byN.get(d.n)?.material_id === c.material_id)?.nombre ??
     materials.rows.find((m) => !m.owner_id && (m.cas === cas || listOf(m.other_cas).includes(cas)))?.name ?? ifraNames.get(cas) ?? null) as Cell;
 }
+// Capua prints its marks after the name («geranyl acetate* N L», «linalool* ÷ N L»): the name is what comes before.
+for (const c of newComponents) if (c.component_name) c.component_name = String(c.component_name).replace(/\s*[*÷].*$/, "").trim();
+const compNew = new Map<string, number>();
 const unnamed = newComponents.filter((c) => !String(c.component_name ?? "").trim());
 if (unnamed.length) throw new Error(`Constituyentes sin nombre: ${unnamed.map((c) => c.component_cas).join(", ")}`);
-for (const c of newComponents) tell(String(c.material_id), "constituyente");
+for (const c of newComponents) compNew.set(String(c.material_id), (compNew.get(String(c.material_id)) ?? 0) + 1);
+for (const [id, k] of compNew) tell(id, `${k} constituyentes`);
 for (const [id, notes] of docNotes) note(byId.get(id)!, `Batch ${TANDA}, documents from elsewhere: ${notes.join("; ")}.`);
 for (const u of unused) note(common(byN.get(u.n)!.material_id), `Batch ${TANDA}, TGSC read and not used: ${u.campo} «${u.valor}» (${u.motivo}).`);
 
@@ -199,6 +216,16 @@ writeFileSync(
 - **La intensidad (impacto, V3-97)** solo sale de PerfuMate (tanda 44 y 60): no hay más impactos que leer. Los que faltan siguen sin impacto.
 
 **Resultado:** ${filled} campos llenos; ${newDoses.length} usos; ${newDescriptors.length} descriptores; ${newComponents.length} constituyentes; ${disputedRows.length} campos disputados (TGSC dice otra cosa que la ficha); ${unused.length} lecturas no usadas.
+
+## Para mirar antes de aprobar
+
+- **Wool Absolute:** el certificado IFRA de Biolandes (F2915, que enlaza Fraterworks) dice «RESTRICTED MATERIAL(S) … None / Aucune» y la categoría 4 al 100 %; su declaración de alérgenos, «NONE» (límite 0,001 %). La app no tiene cómo guardar «declara ninguna»: IFRA sigue diciendo «desconocido» (lo desconocido no vale cero). **Decisión tuya:** si quieres un modo de apuntarlo (propuesta de la sesión: una marca «el certificado no declara restringidas», que dé «acotado», nunca «dentro»).
+- **Sin nada público de IFRA:** Fig Base (PCW), Hot Milk Bold Base y Pear Bold Base (Moellhausen): ni Perfumiarz ni otra web publican su certificado o su SDS. Su IFRA será el certificado que venga con tu frasco (pídelo a Perfumiarz). El de Jasmin Floraline 99 es un escaneo sin texto.
+- **Naturales con el documento de otro productor** (literatura, la app dirá «acotado»): patchouli (dossier de Youwish), ylang extra (certificado de un ylang extra orgánico de Comores de Biolandes; el de Perfumiarz no dice productor) y petitgrain bigarade (alérgenos de Capua 1880). El olíbano de Omán sí es el mismo producto: la SDS de Biolandes F1253 («OLIBANUM OMAN Oil»).
+- **Fichas de TGSC de naturales con otro CAS** (mismo nombre y forma, comprobado por el lector): petitgrain (8014-17-3), café (8001-67-0) y olíbano (*B. carterii*, 89957-98-2). De TGSC, en los naturales, solo entraron físicos y el uso del patchouli (sus horas y su fuerza ya estaban).
+- **Familias leídas por la sesión:** «melon» → fruity (Melonal) y «coffee» → transformed (furfuril mercaptano), por los «covers» de \`family_palette.csv\`.
+- **Los ${disputedRows.length} disputados** (abajo): TGSC dice otra cosa que la ficha; no cambia nada, solo se marca. Lo más llamativo: delta-decalactona (100 h frente a 336 h de TGSC) y Velvione (720 h frente a 400 h).
+- **Lo que sigue faltando** (ninguna fuente lo dice): impacto de las bases, del yuzu, del olíbano, del meta-cresol y del isolongifoleno; horas de las bases y de varios naturales; la fuerza de Wool, Veraspice, Orionide, Ambrostar y las bases.
 
 ## IFRA, producto por producto
 

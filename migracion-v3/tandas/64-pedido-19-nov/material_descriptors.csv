@@ -31,6 +31,7 @@ id,material_id,owner_id,source,text
 05f36649-f7bb-5679-bee3-7c6a12555220,c46ca31c-992a-5149-8fb8-d2c8893e16b5,,TG,"Ernesto Ventós: SWEET, TENACIOUS, WOODY"
 0625bab0-c0a6-5054-8dd9-c2bfad60a0d0,2af343c4-8fcb-54b8-9686-55d59df82860,,web,"Maese Lab: Cerosa, manzana arenosa. Intensa."
 062dd26a-0a9b-5c1e-a4f0-a63dacfff812,aed7c3f9-5e0d-569c-8846-03505f675bb8,,TG,PerfumersWorld: fresh floral woody petitgrain bois de rose bergamot
+06664a03-3ce4-5b4b-96a5-82ad0deb30f8,eaea5ef7-3a53-5e4c-bd10-d9202611c4e4,,TG,TGSC: dry woody vetiver amber powdery musk fruity
 0686d8f3-7523-56da-98bc-a59c5f3a6005,5d5e6db1-3b93-550b-a1ca-785d1821cbf1,,TG,TGSC: fresh melon note
 06bbb821-02ca-5e5d-a9ff-6cb5227295e7,7e985a26-3d02-5715-b8e8-59215a279e9e,,web,Fraterworks (grado Coeur): an elegant and sophisticated floral-woody character dominated by violet and orris (iris) notes
 06db065a-5b3a-5d4b-a139-6139d56bc330,996a8ba4-331c-5734-abe4-a999d24d34ed,,TG,TGSC: sweet fatty floral jasmin orangeflower tuberose
@@ -800,6 +801,7 @@ id,material_id,owner_id,source,text
 6f206ce0-45bc-5475-bf3a-b73bc67de945,10ec0a1f-5efc-5571-9bd4-cb0f4c962800,,web,"Premiere Peau: Bright, citrus-floral with a clean, almost lemony lift"
 6f214fbe-3deb-593c-86e8-2e90ce8f1aa9,798f4933-21c6-5840-a52b-8f4d4bf10c64,,TG,"TGSC (Luebke, William, 1984), at 100 % (sample from Charabot & Co., Inc.): citrus, floral, woody, orange, linalyl acetate"
 6f3131a2-0222-5367-affe-85d33884733c,938af120-bbee-5d76-a974-269d0b64decf,,web,"ScenTree: tropical fruits base note, reminiscent of guava, passion fruit, with grapefruit, rhubarb and blackcurrant nuances"
+6f370575-e14f-5c47-9f03-b1d4369f8fa7,409ece8e-4208-5c1a-ade7-f3d503aa6994,,TG,TGSC: dry dusty woody amber animal
 6f4bed7c-feeb-513b-aa08-39c42110a27a,bf546832-255d-502b-ac7d-cb76f3a8be74,,web,"Perfumer's Apprentice: Musk, Floral, Woody, Clean. A clean, powerful and versatile iso-chroman musk having exceptional persistence."
 6fa60724-6feb-5c01-ad16-980c08f40593,5b667d33-88cc-57ef-b266-9c2f68238683,,web,"Eden Botanicals (via search engine): powerful, deep, rich, sweet balsamic aroma with a faint herbaceous nuance and a persistent ambergris-like backnote"
 6feb9ed8-36bf-5391-822c-d960aa8f7bcb,eff4f4bf-a089-5484-801d-b27170eac4f2,,TG,TGSC: floral flower petal neroli lily sweet
@@ -1300,6 +1302,7 @@ b3ca99db-2fec-551b-a071-7bbc7fd550d4,40f89c9f-8ef5-5f92-87a9-31d9454a3194,,FIG,"
 b3cd9210-7301-52ff-b5c2-008bdd62fc4c,aa9d8f40-b486-5b29-bedd-91ee2a6a46d1,,web,"Eden Botanicals: Sweet, deep, mellow, antique Rose aroma"
 b3e3607d-13c0-54bc-8c85-2723c4dbc307,a21c3f03-679b-56bd-ac45-b4cc95d088cf,,TG,"Firmenich (TOLU BAUME RES TYPE, for fragrance): Sweet, balsamic, vanilla-like, cinnamic, phenolic. It brings a warm and sweet effect."
 b3ed897f-7272-5fe1-8eac-e067cfff7229,e58dea4b-4eb9-5016-9170-b24862f8aaab,,TG,"TGSC (Luebke, William, 2021), at 100.00 % (sample from Robertet, Inc.): chocolate dark chocolate cocoa powdery milk chocolate"
+b3edb5a2-5a75-5c1b-8bfd-e7fd36e43f95,ab17b4c1-1997-5231-a6f1-498db99c2780,,TG,TGSC: coffee
 b419473c-611a-5ab8-8c98-7e15bfb83968,ed4d439d-d37e-5840-a60b-c44a9c1cf8cf,,web,"Perfumer's Apprentice: Animalic, musk, warm"
 b44652f0-2a71-57c8-8ce5-7ccbc108b1e8,49ea9a32-0751-5759-9f43-9811d76b4d54,,TG,"Mosciano, Gerard (P&F 21, No. 2, 47, 1996): Fresh ground black pepper, spicy, woody and pungent with an herbal nuance"
 b480b166-a3cd-5971-a7f1-a8cf16977147,93a692cc-1d14-5e88-9df7-b59b7a4ef958,,TG,Firmenich (NORLIMBANOL): Extremely powerful woody and animal amber note. NORLIMBANOL has a dry woody note in the patchouli direction
@@ -1615,6 +1618,7 @@ e19ad62d-be07-5f74-a88f-1edb9f07498a,d7d171a5-b8d2-5e94-b75b-3629fba7669b,,TG,"I
 e1a3bd3b-bfef-5b52-8feb-f4988eceb909,b19e0779-c35e-5327-afa1-957b49cf4fdc,,web,"Eden Botanicals: Powerfully diffusive, fresh, spicy, herbaceous aroma with a distinctive tangy green sweetness"
 e1eb25d6-95b5-5954-8177-c9baf32c567d,5c8591db-77ed-57d8-8905-74a806b2c562,,web,Wikipedia: concentrado 'has an intense fecal odor'; diluido 'it has a flowery smell'
 e1ef322e-65b8-53e9-a9c9-2d2d1006f218,06a75c0a-7505-57f6-abfe-2548ad14cf73,,web,Fraterworks: dry cedar material with nuances of musk and leather
+e1f7c0c3-79ec-556d-a894-0a00e4346f13,82d018be-8ddc-5d7a-91fa-c3160cc39cf5,,TG,TGSC: balsamic woody amber peppery
 e1fd33e5-73d6-5037-a548-c54f0e78f3e8,e035f8a6-1eb5-5d37-ac18-e207ba77750e,,TG,Givaudan (DEWFRUIT TEC AB 2927R): berries
 e2340085-b1b9-5084-8cba-e27984bc4dba,3144dd0d-c122-5e48-beef-c5dffbe6cd65,,web,"PerfumersWorld: earthy, rooty, green, vetiver, mossy, animalic, damp note"
 e24239ea-9744-52ba-a5c4-04b0c587bdfb,10f05920-6464-5cf4-9812-2af8e37fa73d,,web,"Fraterworks: dry, dusty woodiness wrapped in warm clove spice"

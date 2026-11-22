@@ -1,2 +1,4 @@
 n,nombre,campo,valor,motivo,fuente
 12,Muscenone,horas,336,diluido al 10.00 %,"TGSC, https://www.thegoodscentscompany.com/data/rw1024781.html: «Substantivity: 336 hour(s) at 10.00 %»"
+51,Trisamber,horas,108,diluido al 10.00 %,"TGSC, https://www.thegoodscentscompany.com/data/rw1597971.html: «Substantivity: 108 hour(s) at 10.00 % in dipropylene glycol»"
+51,Trisamber,familia,dusty,no se lee en el vocabulario de la app,"TGSC, https://www.thegoodscentscompany.com/data/rw1597971.html: «Odor Type: dusty»"

@@ -120,7 +120,7 @@ def allergens(n, text, product):
                 tipo="max" if lt else "exact", valor="" if lt else v, max=v if lt else "", unidad=unit)
 
 
-RANGE = re.compile(rf"[≥>]\s*({NUM})\s*%?\s*(?:-|–|;)\s*[<≤]\s*({NUM})\s*%?|({NUM})\s*(?:-|–)\s*({NUM})\s*%|[<≤]\s*({NUM})\s*%|(\d+,\d\d)\s*-\s*(\d+,\d\d)(?!\S)")
+RANGE = re.compile(rf"[≥>]\s*({NUM})\s*%?\s*(?:-|–|;)\s*[<≤]\s*({NUM})\s*%?|({NUM})\s*(?:-|–)\s*({NUM})\s*%|[<≤]\s*({NUM})\s*%|(\d+,\d\d)\s*-\s*(\d+,\d\d)(?!\S)|(?<![\d,])(\d+,\d{{3}})\s*-\s*(\d+(?:,\d{{3}})?)(?!\S)")
 
 
 def sds(n, text, product):
@@ -149,20 +149,46 @@ def sds(n, text, product):
         if dist[0][0] > 2:
             state = "revisar"
         used.add(c)
-        lo, hi = next(((r.group(a), r.group(b)) for a, b in ((1, 2), (3, 4), (6, 7)) if r.group(a)), (None, r.group(5)))
+        lo, hi = next(((r.group(a), r.group(b)) for a, b in ((1, 2), (3, 4), (6, 7), (8, 9)) if r.group(a)), (None, r.group(5)))
         block = "  ".join(l.strip() for l in lines[min(i, j):max(i, j) + 1])
         page = page0 + "\f".join(lines[:i]).count("\f")
         add(n, "sds", page, product, block, campo="componente", cas=c, nombre="", tipo="range" if lo else "max",
             min=lo or "", max=hi, unidad="%", estado=state)
 
 
+def restricted(n, text, product):
+    """Biolandes: «RESTRICTED MATERIAL(S) …» then «Name   CAS   %» rows, up to «PROHIBITED MATERIAL(S)»."""
+    for page, p in pages(text):
+        on = False
+        for line in p.splitlines():
+            if "RESTRICTED MATERIAL(S)" in line:
+                on = True; continue
+            if "PROHIBITED MATERIAL(S)" in line:
+                on = False; continue
+            m = on and re.match(rf"\s*(\S.*?)\s{{2,}}((?:\d{{2,7}}-\d\d-\d)(?:\s*/\s*\d{{2,7}}-\d\d-\d)*)\s+({NUM})\s*$", line)
+            if m and cases(m.group(2)):
+                add(n, "ifra", page, product, line, campo="componente", cas=cases(m.group(2))[0], nombre=m.group(1).strip(), tipo="exact", valor=m.group(3), unidad="%")
+
+
 def ifra(n, text, product):
+    restricted(n, text, product)
+    for page, p in pages(text):
+        if re.search(r"RESTRICTED MATERIAL\(S\).*\n\s*None / Aucune", p):
+            add(n, "ifra", page, product, "RESTRICTED MATERIAL(S) / MATIERE(S) RESTREINTE(S) None / Aucune", campo="ninguna_restringida", estado="el certificado no declara sustancias restringidas")
+    """The category 4 line in the layouts of these certificates: «IFRA Category 4 … Not restricted» (Youwish),
+    «4  Products related to fine fragrance / … 0,730» (Biolandes, the figure at the end, in %), «4  No
+    Restriction» (Lluch); and IFF's «No substances to declare» (nothing restricted in the product)."""
     for page, p in pages(text):
         for line in p.splitlines():
-            m = re.match(r"\s*(?:Category\s+4|4)\s+(?:Products related to fine fragrance\s+|Hydroalcoholic.*?for\s+)?(No Restriction|Not restricted|({NUM})\s*%?)".replace("{NUM}", NUM), line)
+            m = (re.match(r"\s*(?:IFRA\s+)?Category\s+4\b.*?\s(No Restriction|Not restricted|({NUM})\s*%)\s*$".replace("{NUM}", NUM), line, re.I)
+                 or re.match(r"\s*4\s+(?:Products related to fine fragrance.*?\s)?(No Restriction|Not restricted|({NUM})\s*%?)\s*$".replace("{NUM}", NUM), line, re.I))
             if m:
-                add(n, "ifra", page, product, line, campo="tope_cat4", valor="" if not m.group(2) else m.group(2), unidad="%",
-                    estado="sin restricción" if not m.group(2) else "")
+                add(n, "ifra", page, product, line, campo="tope_cat4", valor=m.group(2) or "", unidad="%",
+                    estado="" if m.group(2) else "sin restricción")
+                return
+        for line in p.splitlines():
+            if re.match(r"\s*No substances to declare\s*$", line):
+                add(n, "ifra", page, product, line, campo="tope_cat4", valor="", unidad="%", estado="sin restricción (no declara sustancias restringidas)")
                 return
 
 
