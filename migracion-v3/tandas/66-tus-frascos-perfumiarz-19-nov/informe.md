@@ -1,12 +1,12 @@
 # Tanda 66 · Tus 55 frascos del pedido de Perfumiarz del 19-nov, en tu cuenta
 
-*Generada por `migracion-v3/tanda-66-tus-frascos-perfumiarz-19-nov.ts` sobre lo común de `e639787`. De tu cuenta: se aprueba con `--cuenta` y se carga desde tu PC con `cargar-laboratorio.ts <correo> --nube --tanda=66-tus-frascos-perfumiarz-19-nov`. Sin aprobar.*
+*Generada por `migracion-v3/tanda-66-tus-frascos-perfumiarz-19-nov.ts` sobre lo común de `6291ec3`. De tu cuenta: se aprueba con `--cuenta` y se carga desde tu PC con `cargar-laboratorio.ts <correo> --nube --tanda=66-tus-frascos-perfumiarz-19-nov`. Sin aprobar.*
 
 **Por qué:** el usuario, 2026-11-23: «ya me llego todo»; «el volumen o peso real no se da de alta porque no contamos stock entonces solo tienes que mirar a que % lo venden»; y el pedido que pegaste (producto y formato de cada línea).
 
 **Qué:** 55 versiones tuyas (proveedor Perfumiarz, el producto y su página), cada una con «lo tengo»; sin pesos (no se lleva stock). 9 frascos «de fábrica» para lo que Perfumiarz vende diluido (el material sigue siendo el puro, como en la tanda 42). 10 topes de categoría 4 del certificado del fabricante que Perfumiarz enlaza (V3-39): son del producto y no deciden las dos lecturas de IFRA; se ven aparte. La pureza solo la dice Ambrostar («100% pure»); en el resto queda vacía.
 
-**A mirar:** Ambrox DL, Ambroxan y Ambrox Super son tres frascos tuyos del mismo común, Ambermor (tanda 57). El tope de Ultravanil (0,12 %) es del producto al 80 % en DPG: no se usa en el puro. Wool Absolute no lleva nada propio: hereda la marca de la tanda 65 («no declara restringidas», supuesto); si en la caja vino el certificado de tu lote, pásamelo y queda acreditada.
+**A mirar:** Ambrox DL, Ambroxan y Ambrox Super son tres frascos tuyos del mismo común, Ambermor (tanda 57). El tope de Ultravanil (0,12 %) es del producto al 80 % en DPG: no se usa en el puro. Wool Absolute no lleva nada propio: hereda la marca de la tanda 65 («no declara restringidas», supuesto); no vino el de tu lote, y en los naturales vale el documento público (V3-109): se queda así.
 
 | n | Producto | Común | Formato | Pureza | Frasco | Tope cat. 4 |
 |---|---|---|---|---|---|---|

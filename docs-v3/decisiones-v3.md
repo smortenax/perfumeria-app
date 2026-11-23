@@ -2015,6 +2015,17 @@ Ante la pregunta de qué pasa con el área «Strips» y con el plan, que vivía 
 - Solo vale para un material sin constituyentes: si los tiene, mandan ellos.
 - Primera, tanda 65: Wool Absolute.
 
+## V3-109 · Los naturales, con un estándar holgado: basta el documento público del producto (dicha por el usuario el 2026-11-23)
+
+**Contexto:** tras la tanda 66, la sesión preguntó si con el pedido había llegado el certificado del lote de Wool Absolute (para que su marca de V3-108 pasara de «supuesto» a «acreditada») y de Fig, Hot Milk y Pear Bold Base.
+
+**Literal** (2026-11-23): «no venia nada del lote para wool y para cafe en general los naturales usamos un estandar un poco holgado esta es la manera de funcionar».
+
+**Lectura (de la sesión, para que la confirmes):**
+- En los naturales no se esperan ni se piden los documentos del lote: valen los públicos del mismo producto (los que enlaza la tienda, los de la casa o los de otra tienda que vende ese producto), y, si no hay, los de ese natural de otro productor, como literatura. Es lo que hicieron las tandas 60 y 64.
+- **La app no cambia:** lo que sale de esos documentos sigue siendo literatura y da «acotado», nunca «dentro» (V3-7, V3-108). «Holgado» es qué documentos se aceptan, no cómo se lee IFRA.
+- No se vuelve a preguntar por el lote de un natural; si algún día llega uno, entra como `lot` y manda (V3-39).
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).

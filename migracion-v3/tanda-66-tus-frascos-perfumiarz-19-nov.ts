@@ -119,7 +119,7 @@ writeFileSync(
 
 **Qué:** ${versions.length} versiones tuyas (proveedor Perfumiarz, el producto y su página), cada una con «lo tengo»; sin pesos (no se lleva stock). ${bottles.length} frascos «de fábrica» para lo que Perfumiarz vende diluido (el material sigue siendo el puro, como en la tanda 42). ${regulations.length} topes de categoría 4 del certificado del fabricante que Perfumiarz enlaza (V3-39): son del producto y no deciden las dos lecturas de IFRA; se ven aparte. La pureza solo la dice Ambrostar («100% pure»); en el resto queda vacía.
 
-**A mirar:** Ambrox DL, Ambroxan y Ambrox Super son tres frascos tuyos del mismo común, Ambermor (tanda 57). El tope de Ultravanil (0,12 %) es del producto al 80 % en DPG: no se usa en el puro. Wool Absolute no lleva nada propio: hereda la marca de la tanda 65 («no declara restringidas», supuesto); si en la caja vino el certificado de tu lote, pásamelo y queda acreditada.
+**A mirar:** Ambrox DL, Ambroxan y Ambrox Super son tres frascos tuyos del mismo común, Ambermor (tanda 57). El tope de Ultravanil (0,12 %) es del producto al 80 % en DPG: no se usa en el puro. Wool Absolute no lleva nada propio: hereda la marca de la tanda 65 («no declara restringidas», supuesto); no vino el de tu lote, y en los naturales vale el documento público (V3-109): se queda así.
 
 | n | Producto | Común | Formato | Pureza | Frasco | Tope cat. 4 |
 |---|---|---|---|---|---|---|
