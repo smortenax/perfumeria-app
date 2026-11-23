@@ -161,6 +161,12 @@ for n in sorted({k[0] for k in web}, key=lambda v: int(v) if v.isdigit() else 0)
             if not r["valor"].strip():
                 dropped.append({"n": n, "nombre": m["name"], "campo": campo, "valor": "", "motivo": r["nota"] or "no lo dice", "fuente": r["fuente"]}); continue
             ok, why = literal(r)
+            # scent.vn writes its text with AI (batch 60); the shop's «SCENT STRENGTH» goes only in the notes
+            # (V3-97, batch 57); a dose «of a 10 % solution» is not a dose of the material.
+            why = why or ("scent.vn: texto generado por IA" if "scent.vn" in r["fuente"] else
+                          "fuerza de la tienda (V3-97): solo en las notas" if campo == "fuerza" and "perfumiarz" in r["fuente"].lower() else
+                          "dosis de una solución, no del material" if campo == "dosis" and re.search(r"solution", r["fuente"], re.I) else "")
+            ok = ok and not why
             if not ok or OTHER.search(r["nota"]) or (cifra and DILUTED.search(r["nota"])):
                 dropped.append({"n": n, "nombre": m["name"], "campo": campo, "valor": r["valor"], "motivo": why or r["nota"], "fuente": r["fuente"]}); continue
             good.append(r)

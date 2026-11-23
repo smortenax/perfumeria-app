@@ -1,6 +1,6 @@
 # Tanda 64 · El pedido de Perfumiarz del 19-nov, preparado antes de que llegue
 
-*Generada por `migracion-v3/tanda-64-pedido-19-nov.ts` sobre lo común de `e3f546d`, desde `migracion-v3/web/info-64/`. Reescribe `materials.csv`, `material_doses.csv`, `material_descriptors.csv` y `material_components.csv` enteros: solo llena campos vacíos y añade filas; nada que ya tuviera valor cambia. Sin aprobar.*
+*Generada por `migracion-v3/tanda-64-pedido-19-nov.ts` sobre lo común de `f9e3a26`, desde `migracion-v3/web/info-64/`. Reescribe `materials.csv`, `material_doses.csv`, `material_descriptors.csv` y `material_components.csv` enteros: solo llena campos vacíos y añade filas; nada que ya tuviera valor cambia. Sin aprobar.*
 
 **Por qué:** el usuario, 2026-11-22: «Busca el último pedido de perfumiarz el que aún no está dado de alta que tiene entre los componentes whool absolute y resina de Oman. Puesto que ya llegará dentro de poco lo que quiero es que se prepare ya todos los datos para los materiales…». Es el pedido del 19-nov (laboratorio, rama `claude/perfumes-navidad`, `operaciones/compras/2026-11-19-pedido-perfumiarz.md`: 55 artículos, «Pendiente de llegar y de dar de alta»). Su «resina de Omán» es el **Olibanum Oil (Oman)** de Biolandes, el aceite esencial (el pedido no lleva resina ni resinoide). Lo común de los 55 ya entró en las tandas 57 y 60 a 63; esta tanda completa lo que faltaba. **Tus frascos (la cuenta) no entran aquí:** se dan de alta cuando lleguen, con su lote, y ahí van los topes de categoría 4 (V3-39).
 
@@ -9,7 +9,7 @@
 - **TGSC vuelve a responder** (2026-11-22; daba 403 en las tandas 60 a 62). `tgsc.py` lee la ficha de cada molécula por script (el id, de Pyrfume por CAS exacto; la ficha tiene que dar ese CAS) y la de los naturales que el lector comprobó (especie y forma). Tipo de olor → familia, «Odor Strength» → fuerza, «Substantivity … at 100.00 %» → horas en tira, «usage levels up to … in the fragrance concentrate» → uso (V3-105), aspecto, densidad, solubilidad, peso molecular, fórmula, presión de vapor; y la descripción de olor. `consolidar.py` comprueba que cada frase está en la página guardada.
 - **La intensidad (impacto, V3-97)** solo sale de PerfuMate (tanda 44 y 60): no hay más impactos que leer. Los que faltan siguen sin impacto.
 
-**Resultado:** 209 campos llenos; 29 usos; 29 descriptores; 40 constituyentes; 15 campos disputados (TGSC dice otra cosa que la ficha); 3 lecturas no usadas.
+**Resultado:** 225 campos llenos; 32 usos; 37 descriptores; 40 constituyentes; 15 campos disputados (TGSC dice otra cosa que la ficha); 49 lecturas no usadas.
 
 ## Para mirar antes de aprobar
 
@@ -19,7 +19,10 @@
 - **Fichas de TGSC de naturales con otro CAS** (mismo nombre y forma, comprobado por el lector): petitgrain (8014-17-3), café (8001-67-0) y olíbano (*B. carterii*, 89957-98-2). De TGSC, en los naturales, solo entraron físicos y el uso del patchouli (sus horas y su fuerza ya estaban).
 - **Familias leídas por la sesión:** «melon» → fruity (Melonal) y «coffee» → transformed (furfuril mercaptano), por los «covers» de `family_palette.csv`.
 - **Los 15 disputados** (abajo): TGSC dice otra cosa que la ficha; no cambia nada, solo se marca. Lo más llamativo: delta-decalactona (100 h frente a 336 h de TGSC) y Velvione (720 h frente a 400 h).
-- **Lo que sigue faltando** (ninguna fuente lo dice): impacto de las bases, del yuzu, del olíbano, del meta-cresol y del isolongifoleno; horas de las bases y de varios naturales; la fuerza de Wool, Veraspice, Orionide, Ambrostar y las bases.
+- **Segunda parte, otras fuentes** (el usuario, 2026-11-23: «Que se ha quedado fuera? Puedes buscar otras fuentes para eso?»): un lector Sonnet leyó la casa, Fraterworks, Eden Botanicals, Premiere Peau, Perfumer Supply House y la página inglesa de Perfumiarz (`web-64-2.csv`). **No entran:** scent.vn (texto generado por IA), la «SCENT STRENGTH» de Perfumiarz (fuerza de la tienda, V3-97), el «10 % solution at 1-2 %» del Ultravanil y las «semanas» de Ambrostar (sin cifra). iff.com y dsm-firmenich no cargan: nada de Orionide ni del roble CO2.
+- **El olíbano de Omán:** las horas (188 h) y el uso (mediana 0,438 %) son del «Frankincense Sacra Oil, Oman» de Fraterworks (*Boswellia sacra*, sinónimo de la *carterii* de Biolandes), no del mismo productor.
+- **Las bases** reciben su olor y su aspecto de la página inglesa de Perfumiarz; su familia no se deduce del olor (la familia sale de la palabra de familia de una referencia).
+- **Lo que sigue faltando** (ninguna fuente lo dice): en las bases, familia, horas, intensidad y uso; intensidad y horas del yuzu, el olíbano y el isolongifoleno; horas de la 2-metilpirazina, la Matcha Ketone, Ambrostar, el furfuril mercaptano, Orionide y el café; uso de Wool y del café; casi todo del roble CO2 y de Orionide.
 
 ## IFRA, producto por producto
 
@@ -118,39 +121,39 @@
 | n | Material | Faltaba | Lo que se llena |
 |---|---|---|---|
 | 1 | 2-Methylpyrazine | horas fuerza dosis fisico | físicos (appearance, density, molecular_weight, formula, vapor_pressure, melting_point_c, solubility); uso hasta 0.1 % (concentrate); olor (TGSC) |
-| 2 | Wool, absolute | fuerza dosis fisico | — |
-| 3 | Frangipani Bold Base (Moellhausen) | familia horas fuerza impacto dosis olor fisico | — |
-| 4 | Fig Base (PCW) | familia horas fuerza impacto dosis olor fisico | — |
+| 2 | Wool, absolute | fuerza dosis fisico | físicos (appearance) |
+| 3 | Frangipani Bold Base (Moellhausen) | familia horas fuerza impacto dosis olor fisico | físicos (appearance); olor (Perfumiarz) |
+| 4 | Fig Base (PCW) | familia horas fuerza impacto dosis olor fisico | físicos (appearance); olor (Perfumiarz) |
 | 5 | Matcha Ketone | horas fuerza dosis fisico | físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 2 % (concentrate); olor (TGSC) |
-| 6 | Yuzu peel, distilled essential oil | horas fuerza impacto dosis olor fisico | — |
+| 6 | Yuzu peel, distilled essential oil | horas fuerza impacto dosis olor fisico | físicos (appearance); olor (Eden Botanicals) |
 | 7 | Bornyl acetate | fuerza fisico | físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 9 % (concentrate); olor (TGSC) |
 | 8 | Ginger root, essential oil | fisico | físicos (appearance, solubility) |
 | 9 | Melon heptenal | familia fuerza dosis fisico | family = fruity; strength = high; físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 2 % (concentrate) |
 | 10 | Ambermor | — | uso hasta 1 % (concentrate) |
 | 11 | Hedione | — | uso hasta 30 % (concentrate) |
 | 12 | Muscenone | fisico | físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 5 % (concentrate); olor (TGSC) |
-| 13 | Musk indenofuran | dosis fisico | físicos (appearance, density, molecular_weight, formula, solubility) |
-| 14 | Hot Milk Bold Base (Moellhausen) | familia horas fuerza impacto dosis olor fisico | — |
+| 13 | Musk indenofuran | dosis fisico | físicos (appearance, density, molecular_weight, formula, solubility); uso típico 0.1 % (concentrate) |
+| 14 | Hot Milk Bold Base (Moellhausen) | familia horas fuerza impacto dosis olor fisico | físicos (appearance); olor (Perfumiarz) |
 | 15 | Jasmal | fisico | físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 5 % (concentrate); olor (TGSC) |
 | 16 | Patchouli | — | uso hasta 10 % (concentrate) |
-| 17 | Cananga odorata (flower, extra), essential oil | familia fuerza dosis olor fisico | 19 constituyentes |
-| 18 | Ambrostar | horas fisico | — |
+| 17 | Cananga odorata (flower, extra), essential oil | familia fuerza dosis olor fisico | family = floral; físicos (appearance); uso típico 0.45 % (concentrate); olor (Fraterworks); 19 constituyentes |
+| 18 | Ambrostar | horas fisico | físicos (appearance); físicos (solubility) |
 | 19 | Edenolide | fuerza fisico | strength = medium; físicos (molecular_weight, formula, solubility); uso hasta 30 % (concentrate); olor (TGSC) |
 | 20 | Scentolide | fuerza fisico | strength = medium; físicos (appearance, density, molecular_weight, formula, solubility); uso hasta 2 % (concentrate); olor (TGSC) |
 | 21 | Delta-decalactone | fisico | físicos (appearance, density, molecular_weight, formula, vapor_pressure, melting_point_c, solubility); uso hasta 8 % (concentrate); olor (TGSC) |
-| 22 | Petitgrain bigarade, essential oil | horas fuerza fisico | físicos (appearance, solubility); 14 constituyentes |
+| 22 | Petitgrain bigarade, essential oil | horas fuerza fisico | tenacity_hours = 4; físicos (appearance, solubility); 14 constituyentes |
 | 23 | Oxyoctaline formate | fuerza fisico | strength = medium; físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 10 % (concentrate); olor (TGSC) |
 | 24 | Hercolyn DW (methyl hydrogenated rosinate) | fuerza dosis fisico | strength = low; físicos (appearance, solubility); uso hasta 20 % (concentrate); olor (TGSC) |
-| 25 | Cuir 17500 (Synarome) | familia horas fuerza impacto dosis olor fisico | — |
+| 25 | Cuir 17500 (Synarome) | familia horas fuerza impacto dosis olor fisico | físicos (appearance); olor (Perfumiarz) |
 | 26 | Ylanganate | fuerza fisico | físicos (density, molecular_weight, formula, vapor_pressure, solubility); olor (TGSC) |
-| 27 | Veraspice | fuerza fisico | — |
+| 27 | Veraspice | fuerza fisico | físicos (appearance) |
 | 28 | Velvione | fuerza fisico | strength = medium; físicos (appearance, density, molecular_weight, formula, vapor_pressure, melting_point_c, solubility); uso hasta 4 % (concentrate); olor (TGSC) |
 | 29 | Ultravanil | horas fuerza dosis fisico | strength = medium; tenacity_hours = 400; físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); olor (TGSC) |
 | 30 | Tropicalia | fuerza fisico | físicos (molecular_weight, formula, vapor_pressure, solubility); olor (TGSC) |
 | 31 | Thujopsene | fuerza fisico | físicos (appearance, molecular_weight, formula, vapor_pressure, solubility) |
-| 32 | Pear Bold Base (Moellhausen) | familia horas fuerza impacto dosis olor fisico | — |
+| 32 | Pear Bold Base (Moellhausen) | familia horas fuerza impacto dosis olor fisico | físicos (appearance); olor (Perfumiarz) |
 | 33 | Paradisamide | — | uso hasta 15 % (concentrate) |
-| 34 | Frankincense (Boswellia carterii), essential oil | horas fuerza impacto dosis fisico | 7 constituyentes |
+| 34 | Frankincense (Boswellia carterii), essential oil | horas fuerza impacto dosis fisico | tenacity_hours = 188; físicos (appearance); uso típico 0.438 % (concentrate); 7 constituyentes |
 | 35 | meta-Cresol | horas fuerza impacto dosis fisico | strength = high; tenacity_hours = 43; físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 0.01 % (concentrate); olor (TGSC) |
 | 36 | Gamma-valerolactone | horas fuerza dosis fisico | strength = medium; tenacity_hours = 2; físicos (appearance, density, molecular_weight, formula, vapor_pressure, melting_point_c, solubility); uso hasta 10 % (concentrate); olor (TGSC) |
 | 37 | Furfuryl mercaptan | familia horas fuerza dosis fisico | family = transformed; físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 0.05 % (concentrate); olor (TGSC) |
@@ -170,5 +173,5 @@
 | 51 | Trisamber | fuerza fisico | strength = high; físicos (appearance, molecular_weight, formula, solubility); uso hasta 2 % (concentrate); olor (TGSC) |
 | 52 | Ambermor | — | uso hasta 1 % (concentrate) |
 | 53 | Coffee, absolute | horas fuerza dosis fisico | físicos (solubility); olor (TGSC) |
-| 54 | Jasmin Floraline 99 (Robertet) | familia horas fuerza impacto dosis olor fisico | — |
+| 54 | Jasmin Floraline 99 (Robertet) | familia horas fuerza impacto dosis olor fisico | físicos (appearance); olor (Perfumiarz) |
 | 55 | Muscone | fuerza fisico | strength = high; físicos (appearance, density, molecular_weight, formula, vapor_pressure, melting_point_c, solubility); uso hasta 2 % (concentrate); olor (TGSC) |

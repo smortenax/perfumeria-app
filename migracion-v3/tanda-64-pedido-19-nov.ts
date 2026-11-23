@@ -233,7 +233,10 @@ writeFileSync(
 - **Fichas de TGSC de naturales con otro CAS** (mismo nombre y forma, comprobado por el lector): petitgrain (8014-17-3), café (8001-67-0) y olíbano (*B. carterii*, 89957-98-2). De TGSC, en los naturales, solo entraron físicos y el uso del patchouli (sus horas y su fuerza ya estaban).
 - **Familias leídas por la sesión:** «melon» → fruity (Melonal) y «coffee» → transformed (furfuril mercaptano), por los «covers» de \`family_palette.csv\`.
 - **Los ${disputedRows.length} disputados** (abajo): TGSC dice otra cosa que la ficha; no cambia nada, solo se marca. Lo más llamativo: delta-decalactona (100 h frente a 336 h de TGSC) y Velvione (720 h frente a 400 h).
-- **Lo que sigue faltando** (ninguna fuente lo dice): impacto de las bases, del yuzu, del olíbano, del meta-cresol y del isolongifoleno; horas de las bases y de varios naturales; la fuerza de Wool, Veraspice, Orionide, Ambrostar y las bases.
+- **Segunda parte, otras fuentes** (el usuario, 2026-11-23: «Que se ha quedado fuera? Puedes buscar otras fuentes para eso?»): un lector Sonnet leyó la casa, Fraterworks, Eden Botanicals, Premiere Peau, Perfumer Supply House y la página inglesa de Perfumiarz (\`web-64-2.csv\`). **No entran:** scent.vn (texto generado por IA), la «SCENT STRENGTH» de Perfumiarz (fuerza de la tienda, V3-97), el «10 % solution at 1-2 %» del Ultravanil y las «semanas» de Ambrostar (sin cifra). iff.com y dsm-firmenich no cargan: nada de Orionide ni del roble CO2.
+- **El olíbano de Omán:** las horas (188 h) y el uso (mediana 0,438 %) son del «Frankincense Sacra Oil, Oman» de Fraterworks (*Boswellia sacra*, sinónimo de la *carterii* de Biolandes), no del mismo productor.
+- **Las bases** reciben su olor y su aspecto de la página inglesa de Perfumiarz; su familia no se deduce del olor (la familia sale de la palabra de familia de una referencia).
+- **Lo que sigue faltando** (ninguna fuente lo dice): en las bases, familia, horas, intensidad y uso; intensidad y horas del yuzu, el olíbano y el isolongifoleno; horas de la 2-metilpirazina, la Matcha Ketone, Ambrostar, el furfuril mercaptano, Orionide y el café; uso de Wool y del café; casi todo del roble CO2 y de Orionide.
 
 ## IFRA, producto por producto
 
