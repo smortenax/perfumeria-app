@@ -1,6 +1,6 @@
 # Tanda 66 · Tus 55 frascos del pedido de Perfumiarz del 19-nov, en tu cuenta
 
-*Generada por `migracion-v3/tanda-66-tus-frascos-perfumiarz-19-nov.ts` sobre lo común de `6291ec3`. De tu cuenta: se aprueba con `--cuenta` y se carga desde tu PC con `cargar-laboratorio.ts <correo> --nube --tanda=66-tus-frascos-perfumiarz-19-nov`. Sin aprobar.*
+*Generada por `migracion-v3/tanda-66-tus-frascos-perfumiarz-19-nov.ts` sobre lo común de `ae42147`. De tu cuenta: se aprueba con `--cuenta` y se carga desde tu PC con `cargar-laboratorio.ts <correo> --nube --tanda=66-tus-frascos-perfumiarz-19-nov`. Aprobada el 2026-11-23 («Apruebo la 66, fusiona»).*
 
 **Por qué:** el usuario, 2026-11-23: «ya me llego todo»; «el volumen o peso real no se da de alta porque no contamos stock entonces solo tienes que mirar a que % lo venden»; y el pedido que pegaste (producto y formato de cada línea).
 
