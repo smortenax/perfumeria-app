@@ -1,6 +1,6 @@
 # Tanda 64 · El pedido de Perfumiarz del 19-nov, preparado antes de que llegue
 
-*Generada por `migracion-v3/tanda-64-pedido-19-nov.ts` sobre lo común de `4859050`, desde `migracion-v3/web/info-64/`. Reescribe `materials.csv`, `material_doses.csv`, `material_descriptors.csv` y `material_components.csv` enteros: solo llena campos vacíos y añade filas; nada que ya tuviera valor cambia. Sin aprobar.*
+*Generada por `migracion-v3/tanda-64-pedido-19-nov.ts` sobre lo común de `e3f546d`, desde `migracion-v3/web/info-64/`. Reescribe `materials.csv`, `material_doses.csv`, `material_descriptors.csv` y `material_components.csv` enteros: solo llena campos vacíos y añade filas; nada que ya tuviera valor cambia. Sin aprobar.*
 
 **Por qué:** el usuario, 2026-11-22: «Busca el último pedido de perfumiarz el que aún no está dado de alta que tiene entre los componentes whool absolute y resina de Oman. Puesto que ya llegará dentro de poco lo que quiero es que se prepare ya todos los datos para los materiales…». Es el pedido del 19-nov (laboratorio, rama `claude/perfumes-navidad`, `operaciones/compras/2026-11-19-pedido-perfumiarz.md`: 55 artículos, «Pendiente de llegar y de dar de alta»). Su «resina de Omán» es el **Olibanum Oil (Oman)** de Biolandes, el aceite esencial (el pedido no lleva resina ni resinoide). Lo común de los 55 ya entró en las tandas 57 y 60 a 63; esta tanda completa lo que faltaba. **Tus frascos (la cuenta) no entran aquí:** se dan de alta cuando lleguen, con su lote, y ahí van los topes de categoría 4 (V3-39).
 
@@ -117,58 +117,58 @@
 
 | n | Material | Faltaba | Lo que se llena |
 |---|---|---|---|
-| 1 | 2-Methylpyrazine | horas fuerza dosis fisico | físicos (appearance, density, molecular_weight, formula, vapor_pressure, melting_point_c, solubility); uso hasta 0.1 % (concentrate); olor de TGSC |
+| 1 | 2-Methylpyrazine | horas fuerza dosis fisico | físicos (appearance, density, molecular_weight, formula, vapor_pressure, melting_point_c, solubility); uso hasta 0.1 % (concentrate); olor (TGSC) |
 | 2 | Wool, absolute | fuerza dosis fisico | — |
 | 3 | Frangipani Bold Base (Moellhausen) | familia horas fuerza impacto dosis olor fisico | — |
 | 4 | Fig Base (PCW) | familia horas fuerza impacto dosis olor fisico | — |
-| 5 | Matcha Ketone | horas fuerza dosis fisico | físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 2 % (concentrate); olor de TGSC |
+| 5 | Matcha Ketone | horas fuerza dosis fisico | físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 2 % (concentrate); olor (TGSC) |
 | 6 | Yuzu peel, distilled essential oil | horas fuerza impacto dosis olor fisico | — |
-| 7 | Bornyl acetate | fuerza fisico | físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 9 % (concentrate); olor de TGSC |
+| 7 | Bornyl acetate | fuerza fisico | físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 9 % (concentrate); olor (TGSC) |
 | 8 | Ginger root, essential oil | fisico | físicos (appearance, solubility) |
 | 9 | Melon heptenal | familia fuerza dosis fisico | family = fruity; strength = high; físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 2 % (concentrate) |
 | 10 | Ambermor | — | uso hasta 1 % (concentrate) |
 | 11 | Hedione | — | uso hasta 30 % (concentrate) |
-| 12 | Muscenone | fisico | físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 5 % (concentrate); olor de TGSC |
+| 12 | Muscenone | fisico | físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 5 % (concentrate); olor (TGSC) |
 | 13 | Musk indenofuran | dosis fisico | físicos (appearance, density, molecular_weight, formula, solubility) |
 | 14 | Hot Milk Bold Base (Moellhausen) | familia horas fuerza impacto dosis olor fisico | — |
-| 15 | Jasmal | fisico | físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 5 % (concentrate); olor de TGSC |
+| 15 | Jasmal | fisico | físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 5 % (concentrate); olor (TGSC) |
 | 16 | Patchouli | — | uso hasta 10 % (concentrate) |
 | 17 | Cananga odorata (flower, extra), essential oil | familia fuerza dosis olor fisico | 19 constituyentes |
 | 18 | Ambrostar | horas fisico | — |
-| 19 | Edenolide | fuerza fisico | strength = medium; físicos (molecular_weight, formula, solubility); uso hasta 30 % (concentrate); olor de TGSC |
-| 20 | Scentolide | fuerza fisico | strength = medium; físicos (appearance, density, molecular_weight, formula, solubility); uso hasta 2 % (concentrate); olor de TGSC |
-| 21 | Delta-decalactone | fisico | físicos (appearance, density, molecular_weight, formula, vapor_pressure, melting_point_c, solubility); uso hasta 8 % (concentrate); olor de TGSC |
+| 19 | Edenolide | fuerza fisico | strength = medium; físicos (molecular_weight, formula, solubility); uso hasta 30 % (concentrate); olor (TGSC) |
+| 20 | Scentolide | fuerza fisico | strength = medium; físicos (appearance, density, molecular_weight, formula, solubility); uso hasta 2 % (concentrate); olor (TGSC) |
+| 21 | Delta-decalactone | fisico | físicos (appearance, density, molecular_weight, formula, vapor_pressure, melting_point_c, solubility); uso hasta 8 % (concentrate); olor (TGSC) |
 | 22 | Petitgrain bigarade, essential oil | horas fuerza fisico | físicos (appearance, solubility); 14 constituyentes |
-| 23 | Oxyoctaline formate | fuerza fisico | strength = medium; físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 10 % (concentrate); olor de TGSC |
-| 24 | Hercolyn DW (methyl hydrogenated rosinate) | fuerza dosis fisico | strength = low; físicos (appearance, solubility); uso hasta 20 % (concentrate); olor de TGSC |
+| 23 | Oxyoctaline formate | fuerza fisico | strength = medium; físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 10 % (concentrate); olor (TGSC) |
+| 24 | Hercolyn DW (methyl hydrogenated rosinate) | fuerza dosis fisico | strength = low; físicos (appearance, solubility); uso hasta 20 % (concentrate); olor (TGSC) |
 | 25 | Cuir 17500 (Synarome) | familia horas fuerza impacto dosis olor fisico | — |
-| 26 | Ylanganate | fuerza fisico | físicos (density, molecular_weight, formula, vapor_pressure, solubility); olor de TGSC |
+| 26 | Ylanganate | fuerza fisico | físicos (density, molecular_weight, formula, vapor_pressure, solubility); olor (TGSC) |
 | 27 | Veraspice | fuerza fisico | — |
-| 28 | Velvione | fuerza fisico | strength = medium; físicos (appearance, density, molecular_weight, formula, vapor_pressure, melting_point_c, solubility); uso hasta 4 % (concentrate); olor de TGSC |
-| 29 | Ultravanil | horas fuerza dosis fisico | strength = medium; tenacity_hours = 400; físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); olor de TGSC |
-| 30 | Tropicalia | fuerza fisico | físicos (molecular_weight, formula, vapor_pressure, solubility); olor de TGSC |
+| 28 | Velvione | fuerza fisico | strength = medium; físicos (appearance, density, molecular_weight, formula, vapor_pressure, melting_point_c, solubility); uso hasta 4 % (concentrate); olor (TGSC) |
+| 29 | Ultravanil | horas fuerza dosis fisico | strength = medium; tenacity_hours = 400; físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); olor (TGSC) |
+| 30 | Tropicalia | fuerza fisico | físicos (molecular_weight, formula, vapor_pressure, solubility); olor (TGSC) |
 | 31 | Thujopsene | fuerza fisico | físicos (appearance, molecular_weight, formula, vapor_pressure, solubility) |
 | 32 | Pear Bold Base (Moellhausen) | familia horas fuerza impacto dosis olor fisico | — |
 | 33 | Paradisamide | — | uso hasta 15 % (concentrate) |
 | 34 | Frankincense (Boswellia carterii), essential oil | horas fuerza impacto dosis fisico | 7 constituyentes |
-| 35 | meta-Cresol | horas fuerza impacto dosis fisico | strength = high; tenacity_hours = 43; físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 0.01 % (concentrate); olor de TGSC |
-| 36 | Gamma-valerolactone | horas fuerza dosis fisico | strength = medium; tenacity_hours = 2; físicos (appearance, density, molecular_weight, formula, vapor_pressure, melting_point_c, solubility); uso hasta 10 % (concentrate); olor de TGSC |
-| 37 | Furfuryl mercaptan | familia horas fuerza dosis fisico | family = transformed; físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 0.05 % (concentrate); olor de TGSC |
-| 38 | Fructalate | horas fuerza dosis fisico | strength = medium; tenacity_hours = 48; físicos (appearance, molecular_weight, formula, vapor_pressure, solubility); uso hasta 10 % (concentrate); olor de TGSC |
-| 39 | Ethyl linalool | fuerza fisico | strength = medium; físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 40 % (concentrate); olor de TGSC |
-| 40 | Hydroxyambran | fuerza dosis fisico | físicos (appearance, molecular_weight, formula, melting_point_c, solubility); uso hasta 5 % (concentrate); olor de TGSC |
-| 41 | Cinnamalva (cinnamyl nitrile) | familia horas fuerza impacto olor fisico | family = spicy; strength = medium; tenacity_hours = 84; físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); olor de TGSC |
+| 35 | meta-Cresol | horas fuerza impacto dosis fisico | strength = high; tenacity_hours = 43; físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 0.01 % (concentrate); olor (TGSC) |
+| 36 | Gamma-valerolactone | horas fuerza dosis fisico | strength = medium; tenacity_hours = 2; físicos (appearance, density, molecular_weight, formula, vapor_pressure, melting_point_c, solubility); uso hasta 10 % (concentrate); olor (TGSC) |
+| 37 | Furfuryl mercaptan | familia horas fuerza dosis fisico | family = transformed; físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 0.05 % (concentrate); olor (TGSC) |
+| 38 | Fructalate | horas fuerza dosis fisico | strength = medium; tenacity_hours = 48; físicos (appearance, molecular_weight, formula, vapor_pressure, solubility); uso hasta 10 % (concentrate); olor (TGSC) |
+| 39 | Ethyl linalool | fuerza fisico | strength = medium; físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 40 % (concentrate); olor (TGSC) |
+| 40 | Hydroxyambran | fuerza dosis fisico | físicos (appearance, molecular_weight, formula, melting_point_c, solubility); uso hasta 5 % (concentrate); olor (TGSC) |
+| 41 | Cinnamalva (cinnamyl nitrile) | familia horas fuerza impacto olor fisico | family = spicy; strength = medium; tenacity_hours = 84; físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); olor (TGSC) |
 | 42 | Ethyl pelargonate | fuerza fisico | físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 8 % (concentrate) |
 | 43 | Orionide | horas fuerza olor fisico | — |
-| 44 | Isolongifolene | familia horas fuerza impacto dosis fisico | family = woody; físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 4 % (concentrate); olor de TGSC |
-| 45 | Ambrocenide | fuerza fisico | físicos (appearance, molecular_weight, formula, vapor_pressure, solubility); olor de TGSC |
-| 46 | Levistamel | fuerza dosis fisico | strength = medium; físicos (molecular_weight, formula, vapor_pressure, solubility); uso hasta 1 % (concentrate); olor de TGSC |
+| 44 | Isolongifolene | familia horas fuerza impacto dosis fisico | family = woody; físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 4 % (concentrate); olor (TGSC) |
+| 45 | Ambrocenide | fuerza fisico | físicos (appearance, molecular_weight, formula, vapor_pressure, solubility); olor (TGSC) |
+| 46 | Levistamel | fuerza dosis fisico | strength = medium; físicos (molecular_weight, formula, vapor_pressure, solubility); uso hasta 1 % (concentrate); olor (TGSC) |
 | 47 | Ambermor | — | uso hasta 1 % (concentrate) |
 | 48 | Oak wood (chips), CO2 extract | familia horas fuerza impacto dosis olor fisico | — |
-| 49 | Cocoa thiazole (trimethylthiazole) | horas fuerza dosis fisico | strength = high; tenacity_hours = 16; físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 0.5 % (concentrate); olor de TGSC |
-| 50 | Ysamber K | fuerza fisico | strength = medium; físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 10 % (concentrate); olor de TGSC |
-| 51 | Trisamber | fuerza fisico | strength = high; físicos (appearance, molecular_weight, formula, solubility); uso hasta 2 % (concentrate); olor de TGSC |
+| 49 | Cocoa thiazole (trimethylthiazole) | horas fuerza dosis fisico | strength = high; tenacity_hours = 16; físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 0.5 % (concentrate); olor (TGSC) |
+| 50 | Ysamber K | fuerza fisico | strength = medium; físicos (appearance, density, molecular_weight, formula, vapor_pressure, solubility); uso hasta 10 % (concentrate); olor (TGSC) |
+| 51 | Trisamber | fuerza fisico | strength = high; físicos (appearance, molecular_weight, formula, solubility); uso hasta 2 % (concentrate); olor (TGSC) |
 | 52 | Ambermor | — | uso hasta 1 % (concentrate) |
-| 53 | Coffee, absolute | horas fuerza dosis fisico | físicos (solubility); olor de TGSC |
+| 53 | Coffee, absolute | horas fuerza dosis fisico | físicos (solubility); olor (TGSC) |
 | 54 | Jasmin Floraline 99 (Robertet) | familia horas fuerza impacto dosis olor fisico | — |
-| 55 | Muscone | fuerza fisico | strength = high; físicos (appearance, density, molecular_weight, formula, vapor_pressure, melting_point_c, solubility); uso hasta 2 % (concentrate); olor de TGSC |
+| 55 | Muscone | fuerza fisico | strength = high; físicos (appearance, density, molecular_weight, formula, vapor_pressure, melting_point_c, solubility); uso hasta 2 % (concentrate); olor (TGSC) |

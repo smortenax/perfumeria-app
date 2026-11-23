@@ -90,7 +90,7 @@ for x in lista:
         hi = num(r["valor"])
         doses.append({"n": n, "id": mid, "nombre": m["name"], "min": "", "typical": "", "max": f"{float(hi) / 100:.6g}", "basis": "concentrate", "fuente": r["fuente"], "nota": "TGSC recommendation of use"})
     if (r := got.get("olor")) and mid not in tg_desc:
-        odors.append({"n": n, "id": mid, "nombre": m["name"], "texto": r["valor"], "fuente": r["fuente"]})
+        odors.append({"n": n, "id": mid, "nombre": m["name"], "texto": f"TGSC: {r['valor']}", "fuente": r["fuente"]})
     p = {"n": n, "id": mid, "nombre": m["name"]}
     for campo, field, conv in (("appearance", "appearance", lambda v: v), ("specific gravity", "density", num),
                                ("molecular weight", "molecular_weight", num), ("formula", "formula", lambda v: v.replace(" ", "")),
@@ -108,6 +108,93 @@ for x in lista:
     if any(p[k] for k in p if k not in ("n", "id", "nombre")):
         p["fuente"] = f"TGSC, {url}"
         phys.append(p)
+
+# Segunda parte (el usuario, 2026-11-23: «Que se ha quedado fuera? Puedes buscar otras fuentes para eso?»):
+# lo que un lector Sonnet copió de otras páginas (web-64-2.csv), con las reglas de la tanda 61: la frase tiene
+# que estar en la página guardada; otra forma, otro CAS o el diluido no valen para cifras; familia, horas y
+# fuerza por normalizar.choose (orden de referencias; si no coinciden, la primera y el campo disputado);
+# el uso, una fila por referencia (como mucho tres, V3-105).
+from normalizar import choose, rank, site  # noqa: E402
+
+OTHER = re.compile(r"otro CAS|no coincide|otra especie|otro proceso|otra parte|otro grado|otro producto|otra forma|otra casa|parecido|no idéntic|tope (?:de )?ifra|l[ií]mite (?:de )?ifra|ifra limit", re.I)
+DILUTED = re.compile(r"diluid|al \d+ ?% en (dpg|ipm|tec|alcohol|etanol)|\d+ ?% en (dpg|ipm|tec|alcohol|etanol)", re.I)
+NUMR = r"(\d+(?:[.,]\d+)?)"
+
+
+def dose_of(text):
+    """(min, typical, max, basis) as fractions, from a dose phrase (tanda 61, info-61/consolidar.py)."""
+    t = text.replace("–", "-").replace("—", "-").lower()
+    if not re.search(NUMR + r"\s*%", t):
+        return None
+    f = lambda v: float(v.replace(",", ".")) / 100
+    basis = ("concentrate" if re.search(r"concentrate|fragrance compound|compound|of the formula|in the formula|perfume oil|fragrance oil", t) else
+             "finished_product" if re.search(r"finished|fine fragrance|in the product|eau de|edp|edt|final product", t) else "undeclared")
+    med = re.search(r"median(?: of| use)?(?: at)?\s*" + NUMR + r"\s*%", t)
+    if med:
+        return None, f(med.group(1)), None, basis
+    ranges = re.findall(NUMR + r"\s*%?\s*(?:-|to|a)\s*" + NUMR + r"\s*%", t) + re.findall(r"between\s*" + NUMR + r"\s*%?\s*and\s*" + NUMR + r"\s*%", t)
+    if ranges:
+        lo, hi = min(f(a) for a, _ in ranges), max(f(b) for _, b in ranges)
+        return (lo, None, hi, basis) if lo < hi else (None, None, hi, basis)
+    up = re.search(r"(?:up ?to|max(?:imum)?|traces? to|no more than|below|under)\s*:?\s*" + NUMR + r"\s*%", t)
+    if up:
+        return None, None, f(up.group(1)), basis
+    one = re.findall(NUMR + r"\s*%", t)
+    return (None, f(one[0]), None, basis) if len(one) == 1 else None
+
+
+web = {}
+if (HERE / "web-64-2.csv").exists():
+    for r in rd(HERE / "web-64-2.csv"):
+        web.setdefault((r["n"].strip(), r["campo"].strip()), []).append(r)
+by_n = {x["n"]: x for x in lista}
+prop_of = {r["id"]: r for r in props}
+for r in props:
+    for f in ("family", "strength", "tenacity_hours"):
+        r.setdefault(f + "_disputado", ""); r.setdefault(f + "_otras", "")
+for n in sorted({k[0] for k in web}, key=lambda v: int(v) if v.isdigit() else 0):
+    mid = by_n[n]["material_id"]; m = materials[mid]; row = prop_of[mid]
+
+    def keep(campo, cifra):
+        good = []
+        for r in web.get((n, campo), []):
+            if not r["valor"].strip():
+                dropped.append({"n": n, "nombre": m["name"], "campo": campo, "valor": "", "motivo": r["nota"] or "no lo dice", "fuente": r["fuente"]}); continue
+            ok, why = literal(r)
+            if not ok or OTHER.search(r["nota"]) or (cifra and DILUTED.search(r["nota"])):
+                dropped.append({"n": n, "nombre": m["name"], "campo": campo, "valor": r["valor"], "motivo": why or r["nota"], "fuente": r["fuente"]}); continue
+            good.append(r)
+        return good
+
+    for campo, field in (("familia", "family"), ("horas", "tenacity_hours"), ("fuerza", "strength")):
+        if m[field] or row[field] or (field == "strength" and m["impact"]):
+            continue
+        value, first, disputed, otras, regla = choose(campo, keep(campo, campo != "familia"))
+        if value:
+            row[field], row[field + "_fuente"] = value, first["fuente"]
+            row[field + "_disputado"], row[field + "_otras"] = ("si" if disputed else ""), otras
+    sites = set()
+    for r in sorted(keep("dosis", True), key=lambda r: rank(r["fuente"])):
+        d = dose_of(" ".join(QUOTE.findall(r["fuente"])) or r["valor"])
+        if not d or site(r["fuente"]) in sites or len(sites) == 3:
+            if not d:
+                dropped.append({"n": n, "nombre": m["name"], "campo": "dosis", "valor": r["valor"], "motivo": "sin cifra que leer", "fuente": r["fuente"]})
+            continue
+        sites.add(site(r["fuente"]))
+        lo, typ, hi, basis = d
+        doses.append({"n": n, "id": mid, "nombre": m["name"], "min": "" if lo is None else f"{lo:.6g}", "typical": "" if typ is None else f"{typ:.6g}",
+                      "max": "" if hi is None else f"{hi:.6g}", "basis": basis, "fuente": r["fuente"], "nota": r["nota"]})
+    for r in keep("olor", False)[:2]:
+        odors.append({"n": n, "id": mid, "nombre": m["name"], "texto": f"{site(r['fuente'])}: {r['valor'].strip()}", "fuente": r["fuente"]})
+    taken = {f for q in phys if q["id"] == mid for f in ("appearance", "density", "solubility") if q.get(f)}
+    for campo, field, conv in (("aspecto", "appearance", lambda v: v.strip()), ("densidad", "density", num), ("solubilidad", "solubility", lambda v: v.strip())):
+        if m[field] or field in taken:
+            continue
+        good = sorted(keep(campo, False), key=lambda r: rank(r["fuente"]))
+        v = conv(good[0]["valor"]) if good else None
+        if v:
+            q = {"n": n, "id": mid, "nombre": m["name"], **{k: "" for k in ("appearance", "density", "molecular_weight", "formula", "vapor_pressure", "melting_point_c", "solubility")}, field: v, "fuente": good[0]["fuente"]}
+            phys.append(q); taken.add(field)
 
 for name, rows in (("propuesta-64.csv", props), ("dosis-64.csv", doses), ("fisico-64.csv", phys), ("olores-64.csv", odors), ("distintos-64.csv", differ), ("no-usado-64.csv", dropped)):
     cols = list(rows[0]) if rows else ["n"]

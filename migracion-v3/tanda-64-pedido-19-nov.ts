@@ -61,6 +61,7 @@ const common = (id: string) => {
 };
 let filled = 0;
 
+const disputedRows: string[] = [];
 // 1. Family, strength, hours: only where empty.
 for (const p of proposal) {
   const m = common(p.id);
@@ -71,12 +72,16 @@ for (const p of proposal) {
     if (field === "tenacity_hours") m.tenacity_source = said(p[`${field}_fuente`]);
     else if (field === "strength") m.strength_source = said(p[`${field}_fuente`]);
     else m.sources = `${m.sources ? `${m.sources} · ` : ""}family: ${said(p[`${field}_fuente`])}`;
-    tell(p.id, `${field} = ${p[field]}`);
+    if (p[`${field}_disputado`] === "si") {
+      m.disputed_fields = [...new Set([...listOf(m.disputed_fields), field])];
+      disputedRows.push(`| ${cell(String(m.name))} | ${field} | ${cell(p[field])} | ${cell(p[`${field}_otras`] || "otra referencia da otro valor")} |`);
+    }
+    if (p[`${field}_otras`]) note(m, `Batch ${TANDA}, ${field}: other references: ${p[`${field}_otras`]}.`);
+    tell(p.id, `${field} = ${p[field]}${p[`${field}_disputado`] === "si" ? " (disputado)" : ""}`);
     filled++;
   }
 }
 // Where TGSC says otherwise than what the sheet has: the value stays, the field is disputed.
-const disputedRows: string[] = [];
 for (const d of differ) {
   const m = common(byN.get(d.n)!.material_id);
   m.disputed_fields = [...new Set([...listOf(m.disputed_fields), d.campo])];
@@ -103,18 +108,21 @@ for (const p of phys) {
 // 3. Usual use (V3-105) and odour.
 const newDoses: Rec[] = usos.map((d, i) => {
   common(d.id);
-  tell(d.id, `uso hasta ${pct(d.max)} (${d.basis})`);
+  const range = [d.min && `desde ${pct(d.min)}`, d.typical && `típico ${pct(d.typical)}`, d.max && `hasta ${pct(d.max)}`].filter(Boolean).join(", ");
+  tell(d.id, `uso ${range} (${d.basis})`);
+  const tgsc = d.fuente.startsWith("TGSC");
   return {
-    id: uuidFor(`dose:v3:tanda${TANDA}:${d.id}:${i}`), material_id: d.id, owner_id: null, min: null, typical: null, max: d.max,
+    id: uuidFor(`dose:v3:tanda${TANDA}:${d.id}:${i}`), material_id: d.id, owner_id: null, min: d.min || null, typical: d.typical || null, max: d.max || null,
     basis: d.basis, authority: "literature", source: d.fuente, disputed: false,
-    notes: "TGSC's recommendation of use, not an IFRA limit (V3-105).",
+    notes: tgsc ? "TGSC's recommendation of use, not an IFRA limit (V3-105)." :
+      `Observed or recommended use, not an IFRA limit (V3-105: a reference other than TGSC).${d.typical && !d.min && !d.max ? " A median of use, not a maximum." : ""}${d.nota ? ` Reader's note: ${d.nota}.` : ""}`,
   };
 });
 const newDescriptors: Rec[] = odors.map((o) => {
   common(o.id);
-  return { id: uuidFor(`desc:v3:tanda${TANDA}:${o.id}`), material_id: o.id, owner_id: null, source: "TG", text: `TGSC: ${o.texto}` };
+  return { id: uuidFor(`desc:v3:tanda${TANDA}:${o.id}:${o.texto.slice(0, 40)}`), material_id: o.id, owner_id: null, source: o.texto.startsWith("TGSC") ? "TG" : "web", text: o.texto };
 });
-for (const o of odors) tell(o.id, "olor de TGSC");
+for (const o of odors) tell(o.id, `olor (${o.texto.split(":")[0]})`);
 
 // 4. The documents from elsewhere: constituents (literature) and the category 4 ceiling (for your version, V3-39).
 const DOC = { alergenos: "EU allergens declaration", sds: "SDS, section 3", ifra: "IFRA certificate" } as Record<string, string>;
