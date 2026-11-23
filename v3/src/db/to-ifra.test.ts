@@ -16,7 +16,7 @@ import {
   type Regulation,
 } from "./catalog";
 import type { IfraAnnexEntry, IfraLayer, IfraStandard, IfraVariantRule } from "./ifra-layer";
-import { effective, ifraCard, NO_DATA, toIfra } from "./to-ifra";
+import { DECLARES_NONE, effective, ifraCard, NO_DATA, toIfra } from "./to-ifra";
 
 /**
  * Plan v3, steps 3.3 and 4.3: from a catalog and an IFRA layer made by hand, without a database,
@@ -272,6 +272,50 @@ describe("prohibitions, requirements and a manufacturer's ceiling (V3-25, V3-30,
     const data = toIfra(catalogOf(ambrinol), layerOf([]));
     expect(data.materials.get("ambrinol")!.substances).toEqual([{ key: "tope:ambrinol", fraction: Ratio.ONE }]);
     expect(data.substances.get("tope:ambrinol")).toMatchObject({ supplier: "Symrise", name: "ambrinol (cap from Symrise)" });
+  });
+});
+
+describe("a document that declares no IFRA-restricted material (V3-108: Wool Absolute)", () => {
+  const none = (authority: Authority): Regulation => ({
+    id: `r${++n}`, regime: "manufacturer", category: null, kind: "requirement", maxValue: null, groupKey: DECLARES_NONE,
+    requirement: "declares no IFRA-restricted material", authority, source: "Biolandes, IFRA certificate F2915",
+  });
+  const layer = layerOf([{ code: "STD_COU", cas: ["91-64-5"], limit: "1.5" }]);
+  const wool = material("wool", "natural", { regulations: [none("literature")] });
+  const mine = material("mine", "natural", { ownerId: ME, basedOnId: "wool", regulations: [none("product")] });
+  const accord = material("accord", "composition", { components: [component("wool", exact("10"))] });
+  const catalog = catalogOf(wool, mine, accord);
+  const data = toIfra(catalog, layer);
+
+  it("from the literature it is not «no data»: an unknown load under a ceiling of 100 %, assumed, never within", () => {
+    expect(data.materials.get("wool")!.pending).toBeUndefined();
+    expect(data.materials.get("wool")!.substances).toEqual([{ key: "declarada:wool", fraction: null, upper: Ratio.ONE }]);
+    expect(data.substances.get("declarada:wool")!.limit.eq(Ratio.ONE)).toBe(true);
+    expect(data.materials.get("wool")!.assumed).toEqual(["declares no IFRA-restricted material (declares-none): assumed, not proven"]);
+    expect(ifraCard(catalog, layer, "wool")).toEqual({ state: "requirement", requirement: "assumed", what: "declares no IFRA-restricted material" });
+  });
+
+  it("inside an accord it carries its bound, and the accord is not «no data» either", () => {
+    expect(data.materials.get("accord")!.pending).toBeUndefined();
+    expect(substancesOf(catalog, layer, "accord")).toEqual([["declarada:wool", null, "1/10"]]);
+  });
+
+  it("from your bottle's own certificate it is accredited: a condition, no load", () => {
+    expect(data.materials.get("mine")!.substances).toEqual([]);
+    expect(data.materials.get("mine")!.pending).toBeUndefined();
+    expect(data.materials.get("mine")!.conditions).toContain("declares no IFRA-restricted material (declares-none)");
+  });
+
+  it("the engine: 1 g with 300 mg of it is bounded, never within", () => {
+    const woolMaterial: Material = { key: "wool", kind: "base", name: "Wool" };
+    const add = (id: string, m: Material, massUg: bigint): Change => ({ kind: "add", id, material: m, massUg, fraction: Ratio.ONE, diluent: null });
+    const formula: Formula = {
+      header: { name: "prueba", intention: "", container: null, workBatchUg: null, finalBatchUg: null },
+      history: [add("w", woolMaterial, 300_000n), add("a", DILUENTS.alcohol, 700_000n)],
+    };
+    const report = checkIfra(formula, data);
+    expect(report.pending).toEqual([]);
+    expect(report.checks.map((c) => [c.substance.key, c.verdict])).toEqual([["declarada:wool", "bounded"]]);
   });
 });
 

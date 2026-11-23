@@ -2002,6 +2002,19 @@ Ante la pregunta de qué pasa con el área «Strips» y con el plan, que vivía 
 
 **Los tokens** de estas piezas se eligen sobre imágenes en el selector «Tokens del taller» (artifact privado del usuario, https://claude.ai/artifact/SgfYSeCj2JKX3Xgbw4eCLf). Para cada grupo enseña el valor de las maquetas («conceptos»), el de D-0010 («actual») y alternativas de la sesión («propuesta»), con el contraste en vivo. Lo que guarde ahí irá al vault como decisión, porque cambia la dirección de color de D-0010.
 
+## V3-108 · «El certificado no declara sustancias restringidas»: una marca, acotado y nunca dentro (pedida por el usuario el 2026-11-23)
+
+**Contexto:** el certificado IFRA de Biolandes de su Wool Absolute (F2915, que publica Fraterworks) dice «RESTRICTED MATERIAL(S) / MATIERE(S) RESTREINTE(S) None / Aucune», con un límite de detección del 0,001 %. La app no tenía cómo guardarlo: un natural sin constituyentes es «sin datos» (§3.4, §5.3), y lo desconocido no vale cero. La sesión propuso «una marca "el certificado no declara restringidas", que dé "acotado", nunca "dentro"» (tanda 64).
+
+**Literal** (2026-11-23): «Sí, añade la marca para Wool ya me llego todo».
+
+**Decisión (lectura de la sesión, para que la confirmes):**
+- La marca es una afirmación del material (V3-39), en `regulations`: `kind` = `requirement`, `group_key` = `declares-none`, con el documento como fuente. No cambia el esquema ni el motor (`src/core/`): lo lee el adaptador, `src/db/to-ifra.ts`.
+- **Desde la literatura** (un documento público del mismo producto, no tu frasco): el material deja de ser «sin datos» y cuenta una carga desconocida bajo un techo del 100 %, así que la fórmula sale **acotada, nunca dentro**, y la ficha dice «supuesto, no probado». Dentro de un acorde lleva su parte.
+- **Desde el certificado de tu frasco** (autoridad `lot` o `product`): acreditada, como condición, sin carga.
+- Solo vale para un material sin constituyentes: si los tiene, mandan ellos.
+- Primera, tanda 65: Wool Absolute.
+
 ## Pendientes
 
 - **Las preguntas de «Antes de empezar» están cerradas** (V3-12 a V3-20), y la bandeja del laboratorio, llevada (V3-23 a V3-26).

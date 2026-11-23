@@ -36,6 +36,13 @@ import type { IfraLayer, IfraStandard } from "./ifra-layer";
  */
 
 export const NO_DATA = "No data on its constituents: it may contain substances with a ceiling.";
+/**
+ * V3-108: the group of a claim that a document declares no IFRA-restricted material in the product
+ * (Biolandes' certificate of its Wool Absolute: «RESTRICTED MATERIAL(S) … None»). A natural or a base
+ * that carries it and has no components is not «no data»: from the literature (a public document, not
+ * the bottle) it is bounded, never within; from the bottle's own document (lot, product), accredited.
+ */
+export const DECLARES_NONE = "declares-none";
 export const CATEGORY = "4";
 
 const RANK: Readonly<Record<Authority, number>> = { lot: 0, product: 1, ifra: 2, literature: 3, consensus: 4 };
@@ -315,6 +322,9 @@ function nodes(catalog: Catalog, layer: IfraLayer) {
   };
 }
 
+/** V3-108: a document declares that it carries no IFRA-restricted material. */
+const declaresNone = (n: Node) => n.regulations.some((r) => applies(r) && r.kind === "requirement" && r.groupKey === DECLARES_NONE);
+
 /**
  * The members a material carries (itself included when it has regulations), why its list may be
  * incomplete, and which members arrive somewhere other than inside a natural (V3-30).
@@ -333,7 +343,7 @@ function flatten(node: (id: string) => Node, rootId: string): { loads: Map<strin
       loads.set(id, before ? plus(before, load) : load);
     }
     if (n.components.length === 0) {
-      if (n.kind !== "molecule" && n.kind !== "substance") pending.add(NO_DATA);
+      if (n.kind !== "molecule" && n.kind !== "substance" && !declaresNone(n)) pending.add(NO_DATA);
       return;
     }
     for (const component of n.components) {
@@ -455,6 +465,19 @@ export function toIfra(catalog: Catalog, layer: IfraLayer): IfraData {
           }
           // V3-30: inside a natural, a substance prohibited as such counts against its standard's ceiling.
         }
+      }
+      // V3-108: «declares none» from the literature is not proven: an unknown load under a ceiling of 100 %, so the
+      // engine says bounded, never within; from the bottle's own document it is just a condition (below).
+      const none = requirementsByGroup.get(DECLARES_NONE);
+      if (none && member.components.length === 0 && requirementState(none) !== "accredited") {
+        const key = `declarada:${member.id}`;
+        substances.set(key, {
+          key,
+          name: `${member.name}: IFRA-restricted materials, none declared (${none[0].source})`,
+          limit: Ratio.ONE,
+          amendment: none[0].source,
+        });
+        entries.push({ key, fraction: null, upper: load.upper });
       }
       if (asItself) {
         for (const [group, rows] of requirementsByGroup) {
