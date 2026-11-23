@@ -123,3 +123,7 @@ tanda,fecha,aprobacion,archivo,sha256
 62-rezagados,2026-11-19,"el usuario, 2026-11-19: «Apruebo la 62, fusiona y publica»",materials.csv,2b0b42db871feecd8ef55bb8357c40fd3da867649e5e50c3dcc24ac52bc1175a
 63-tgsc-pyrfume,2026-11-19,"el usuario, 2026-11-19: «Apruebo la 63, fusiona y publica»",material_descriptors.csv,ebba7dcae19a0b4e8b27efc03bc6910a07b62b87319c94c44cdd6017d1aa25e1
 63-tgsc-pyrfume,2026-11-19,"el usuario, 2026-11-19: «Apruebo la 63, fusiona y publica»",materials.csv,b281f5fc0869e595f80c9fa83452b32c7c329d9d2b86de7dd0cde78c759d2f36
+64-pedido-19-nov,2026-11-23,"el usuario, 2026-11-23: «Apruebo la 64» (y antes: «puedes fusionar y publicar todo please»)",material_components.csv,3c3165cb6a99690d43e4a633b0e379e799f8af6e9b9ffaa99d3324fe318b1a0c
+64-pedido-19-nov,2026-11-23,"el usuario, 2026-11-23: «Apruebo la 64» (y antes: «puedes fusionar y publicar todo please»)",material_descriptors.csv,275869b0f7d858e05b6801c06f1e458bf245d64456c71bfcb15dea787fc14c05
+64-pedido-19-nov,2026-11-23,"el usuario, 2026-11-23: «Apruebo la 64» (y antes: «puedes fusionar y publicar todo please»)",material_doses.csv,3d7ea69fd0be0309a1804d81d3c407d411ceb2fb205046db70d7ec938193f6bc
+64-pedido-19-nov,2026-11-23,"el usuario, 2026-11-23: «Apruebo la 64» (y antes: «puedes fusionar y publicar todo please»)",materials.csv,1004fe59db17b056bb6c778636ee2e0cab67ce7228b3910492d3731b02c84eb1

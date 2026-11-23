@@ -1,6 +1,6 @@
 # Tanda 64 · El pedido de Perfumiarz del 19-nov, preparado antes de que llegue
 
-*Generada por `migracion-v3/tanda-64-pedido-19-nov.ts` sobre lo común de `f9e3a26`, desde `migracion-v3/web/info-64/`. Reescribe `materials.csv`, `material_doses.csv`, `material_descriptors.csv` y `material_components.csv` enteros: solo llena campos vacíos y añade filas; nada que ya tuviera valor cambia. Sin aprobar.*
+*Generada por `migracion-v3/tanda-64-pedido-19-nov.ts` sobre lo común de `d641d8d`, desde `migracion-v3/web/info-64/`. Reescribe `materials.csv`, `material_doses.csv`, `material_descriptors.csv` y `material_components.csv` enteros: solo llena campos vacíos y añade filas; nada que ya tuviera valor cambia. Aprobada el 2026-11-23 («Apruebo la 64»).*
 
 **Por qué:** el usuario, 2026-11-22: «Busca el último pedido de perfumiarz el que aún no está dado de alta que tiene entre los componentes whool absolute y resina de Oman. Puesto que ya llegará dentro de poco lo que quiero es que se prepare ya todos los datos para los materiales…». Es el pedido del 19-nov (laboratorio, rama `claude/perfumes-navidad`, `operaciones/compras/2026-11-19-pedido-perfumiarz.md`: 55 artículos, «Pendiente de llegar y de dar de alta»). Su «resina de Omán» es el **Olibanum Oil (Oman)** de Biolandes, el aceite esencial (el pedido no lleva resina ni resinoide). Lo común de los 55 ya entró en las tandas 57 y 60 a 63; esta tanda completa lo que faltaba. **Tus frascos (la cuenta) no entran aquí:** se dan de alta cuando lleguen, con su lote, y ahí van los topes de categoría 4 (V3-39).
 
