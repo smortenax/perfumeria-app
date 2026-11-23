@@ -1,0 +1,28 @@
+n,tipo,url,producto_doc,emisor,nota
+16,ifra,https://www.youwish.nl/wp-content/uploads/2021/12/Dossier_Patchouli-Essential-Oil-1.pdf,"Patchouli, Essential Oil (Pogostemon Cablin Leaf Oil; CAS 8014-09-3 / 84238-39-1)",Youwish,"Declaración IFRA 51 dentro del dossier del producto; patchouli destilado al vapor de Indonesia (no es el crudo de Madagascar de Perfumiarz): vale como natural de la misma especie y forma, de otro productor"
+17,ifra,https://cdn.shopify.com/s/files/1/0682/1448/9400/files/certificat-ifra-B3350_1.pdf,YLANG COMOROS EXTRA ORG OIL (código B3350),Biolandes S.A.S,"Certificado IFRA 51 (51.ª enmienda, junio 2023) de un ylang extra orgánico de Comores; natural de la misma especie y grado extra, de otro productor"
+34,sds,https://www.biolandes.com/wp-content/uploads/fiche-securite-F1253.pdf,OLIBANUM OMAN Oil (F1253; CAS 8016-36-2),Biolandes,"SDS del mismo producto de la misma casa (Boswellia carteri Birdw., syn. Boswellia sacra); el certificado IFRA de Biolandes exige cuenta y no es público"
+41,sds,https://perfumiarz.com/cdn/shop/files/H03180_FDSu_07-24.pdf,CINNAMALVA - H03180 (CAS 1885-38-7),IFF (Hangzhou) Co. Ltd.,SDS del producto puro de IFF; alojado en perfumiarz.com pero emitido por IFF; Perfumiarz vende el 50 % DPG
+25,sds,https://perfumiarz.com/cdn/shop/files/SDS_CUIR_17500_YSS_MR_SYNAROME.pdf,CUIR 17500 YSS MR SYNAROME,Synarome,"SDS de la base (versión 4.0, rev. 25-01-2023), alojado en perfumiarz.com; no es certificado IFRA"
+2,ifra,https://cdn.shopify.com/s/files/1/0682/1448/9400/files/Wool_Absolute_Biolandes_IFRA.pdf,WOOL ABSOLUTE (código F2915),Biolandes,"Certificado IFRA 51 (51.ª enmienda, junio 2023) del mismo producto y casa; alojado en fraterworks.com"
+2,alergenos,https://cdn.shopify.com/s/files/1/0682/1448/9400/files/Wool_Absolute_Biolandes_Allergens.pdf,WOOL ABSOLUTE (F2915),Biolandes,Ficha de alérgenos UE (Reg. 1223/2009) del mismo producto y casa; alojada en fraterworks.com
+30,ifra,https://cdn.shopify.com/s/files/1/0682/1448/9400/files/Tropicalia_IFF_IFRA.pdf,TROPICALIA (Sales Number 6340655),IFF,"IFRA 51 Ingredients, hasta la 51.ª enmienda, del mismo producto y casa (dirigido a Kallin (Guangzhou)); alojado en fraterworks.com"
+46,ifra,https://cdn.shopify.com/s/files/1/0682/1448/9400/files/Levistamel_25_TEC_Lluch_IFRA.pdf,LEVISTAMEL 25% TEC (CAS 675-09-2 / 77-93-0),Lluch Essence,"Certificado de conformidad IFRA de la 49.ª enmienda (no la 50.ª ni la 51.ª) del mismo producto diluido en TEC; el emisor es Lluch, distribuidor; alojado en fraterworks.com"
+10,sds,https://cdn.shopify.com/s/files/1/0682/1448/9400/files/Ambrox_DL_SDS_Firmenich_e30dcce7-75d4-4765-b234-6d39797732e5.pdf,AMBROX DL (909120; CAS 3738-00-9),dsm-firmenich,SDS del mismo producto y casa; el CAS del documento (3738-00-9) no es el de la tabla (6790-58-5); alojado en fraterworks.com
+10,alergenos,https://cdn.shopify.com/s/files/1/0682/1448/9400/files/Ambrox_DL_EUAllergens_Firmenich_a66dfc41-4f75-4486-813d-438a19aa1b69.pdf,AMBROX DL,dsm-firmenich,Ficha de alérgenos UE del mismo producto y casa; alojada en fraterworks.com
+22,alergenos,https://cdn.shopify.com/s/files/1/0682/1448/9400/files/Petitgrain_Bigarade_Oil_Capua_1880_Allergens.pdf,PETITGRAIN BIGARADE (Ref. 21311; CAS 72968-50-4 en su SDS),Capua 1880,Ficha de alérgenos UE (versión oct. 2025) de petitgrain bigarade de otro productor; su certificado IFRA es una imagen sin texto y no se pudo comprobar
+4,ifra,,,,"Fig Base (PCW): búsqueda de certificado IFRA/SDS de la base; solo salieron higos de otras casas, no el producto de PCW"
+5,ifra,,,,"Matcha Ketone 113486-29-6: ningún certificado IFRA, alérgenos ni SDS público del producto (solo mezclas de matcha de otras casas)"
+6,ifra,,,,Yuzu destilado (Oleolio): solo certificados de aceites de fragancia o mezclas (no es el aceite esencial); Biolandes y Fragrance Foundry exigen cuenta o correo
+7,ifra,,,,Bornyl acetate (Ventos) 76-49-3: la ficha de Ventos no enlaza certificado; solo fichas de Sigma/Cayman que dicen seguir IFRA
+14,ifra,,,,Hot Milk Bold Base (Moellhausen): sin certificado público de Moellhausen
+18,ifra,,,,Ambrostar (Symrise) 1357064-95-9: nada indexado con ese nombre ni CAS
+21,ifra,,,,"Delta decalactone (Firmenich) 705-86-2: solo la SDS de Ventos (otra casa) y fichas de Sigma; Fraterworks da el límite IFRA 51 como texto, sin PDF de Firmenich"
+32,ifra,,,,Pear Bold Base (Moellhausen): sin certificado público de Moellhausen
+35,ifra,,,,"meta-Cresol 108-39-4 (Sigma Aldrich): solo páginas de producto que dicen seguir IFRA, sin certificado"
+36,ifra,,,,"Gamma valerolactone 108-29-2 (Ventos): solo páginas de Sigma que dicen seguir IFRA, sin certificado"
+37,ifra,,,,"Furfuryl mercaptan 98-02-2: solo páginas de Sigma, SDS de ChemicalBook y especificación de Parchem; ningún certificado IFRA"
+42,ifra,,,,Ethyl pelargonate 123-29-5 (Ventos): solo fichas de Sigma/RIFM y una SDS de Lermond que no se pudo abrir; sin certificado
+43,ifra,,,,"Orionide Oliffac (IFF): nada con ese nombre (la SDS H19132 que salió es de Shangralide Oliffac, otro producto)"
+44,ifra,,,,Isolongifolene 1135-66-6: solo SDS de Sigma y ficha de TGSC; sin certificado IFRA del producto
+49,ifra,,,,"Cocoa thiazole / trimethylthiazole 13623-11-5 (Sigma Aldrich): solo páginas de Sigma que dicen seguir IFRA, sin certificado"
