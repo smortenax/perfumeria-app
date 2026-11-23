@@ -1,6 +1,6 @@
 # Tanda 65 · Wool Absolute: el certificado no declara sustancias restringidas (V3-108)
 
-*Generada por `migracion-v3/tanda-65-wool-declara-ninguna.ts` sobre lo común de `a444eca`. Reescribe `regulations.csv` entero (añade una fila). Sin aprobar.*
+*Generada por `migracion-v3/tanda-65-wool-declara-ninguna.ts` sobre lo común de `663a8a0`. Reescribe `regulations.csv` entero (añade una fila). Aprobada el 2026-11-23 («Apruebo la 65, fusiona y publica»).*
 
 **Por qué:** el usuario, 2026-11-23: «Sí, añade la marca para Wool».
 
