@@ -118,3 +118,61 @@ DATABASE_URL_CLOUD=…
 
 Antes de cada commit, `git status` no debe enseñarlo. Si alguna vez se sube una clave por error,
 borrarla en el commit siguiente **no basta**: hay que cambiarla en su panel.
+
+---
+
+## 7. Usar las claves desde el otro repo sin copiarlas (recomendado)
+
+Mejor que copiar valores: que el otro repo **lea los archivos de `perfumeria-app`**, que ya están
+en tu PC y ya los ignora Git. Así hay una sola copia de cada clave y, si cambia, cambia en un sitio.
+
+**La carpeta segura:** `C:\Users\SERGI\Claude\Projects\perfumeria-app\`
+
+| Archivo | Qué lleva |
+|---|---|
+| `v3\.env.local` | Lo local (Supabase y PowerSync en Docker), `DEV_LOGIN_EMAIL` y `DATABASE_URL_CLOUD` |
+| `v3\.env.production.local` | La nube que usa la app publicada (URL de Supabase, clave pública, URL de PowerSync) |
+| `credenciales.local.md` | Todo junto, más los huecos de contraseñas de paneles que rellenas tú |
+
+**Requisito:** los dos repos, uno al lado del otro en `C:\Users\SERGI\Claude\Projects\` (montaje A
+de la guía). Desde el otro repo, la carpeta es siempre `../perfumeria-app`.
+
+### 7.1. Formas de leerlas desde el otro repo
+
+- **Lo más simple: los comandos de la app se lanzan dentro de `perfumeria-app`.** `cd
+  ../perfumeria-app/v3 && npm run dev` (o `datos:cargar:nube`, o `cargar-laboratorio.ts`): ya
+  encuentran su `.env.local` sin hacer nada.
+- **Un script de Node del otro repo:**
+  ```bash
+  node --env-file=../perfumeria-app/v3/.env.local mi-script.ts
+  ```
+- **Una app con Vite en el otro repo:** en su `vite.config.ts`, `envDir: "../perfumeria-app/v3"`.
+- **Un enlace en vez de una copia** (PowerShell como administrador, o con el modo desarrollador de
+  Windows activado), dentro de la carpeta del otro repo:
+  ```powershell
+  New-Item -ItemType SymbolicLink -Path .env.local -Target ..\perfumeria-app\v3\.env.local
+  ```
+
+### 7.2. Antes de nada, en el otro repo
+
+Añade a su `.gitignore`, **antes del primer commit que toque claves**:
+
+```
+.env.local
+.env.*.local
+credenciales.local.md
+```
+
+y comprueba con `git check-ignore -v .env.local` que lo ignora. Un enlace simbólico que Git no
+ignora se sube como enlace (sin el contenido), pero mejor que no llegue a estar.
+
+### 7.3. Claude trabajando desde el otro repo
+
+- **Claude en tu PC (app de escritorio o Claude Code en local):** aprueba también la carpeta
+  `C:\Users\SERGI\Claude\Projects\perfumeria-app` en el proyecto del otro repo. Así lee los `.env`
+  en su sitio, sin que pasen por el chat.
+- **Claude en la nube:** no ve tu disco. Si el proyecto tiene tu PC conectado, lee esa carpeta por
+  el acceso a carpetas que apruebas tú; si no, trabaja sin las claves (código, datos por tanda,
+  PR), y lo que necesita claves (cargar tu cuenta en la nube) lo lanzas tú desde el PC.
+- **Nunca** se pegan las claves en un mensaje, ni en los archivos del proyecto de Claude, ni en un
+  issue o una PR.
