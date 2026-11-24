@@ -95,6 +95,9 @@ UTF-8.
 
 ### 3.2. Acceso a GitHub (elige una)
 
+Qué credencial va dónde, en [`credenciales-desde-otro-repo.md`](credenciales-desde-otro-repo.md).
+
+
 - **HTTPS con Git Credential Manager** (viene con Git para Windows): el primer `git push` abre el
   navegador para entrar en GitHub y se acuerda. Es lo más sencillo.
 - **`gh auth login`** (GitHub CLI): elige HTTPS y «Login with a web browser».

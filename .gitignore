@@ -36,3 +36,6 @@ migracion-v3/tandas/10-formulas/*
 
 # Lo que compara migracion-v3/subir-cuenta.ts: tus datos, no van a Git
 migracion-v3/subir-cuenta/
+
+# Tus credenciales con valores (docs-v3/credenciales-desde-otro-repo.md): solo en tu PC
+credenciales.local.md
