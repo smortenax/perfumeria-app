@@ -125,6 +125,11 @@ function Start({ user, onSignedOut }: { user: SignedInUser; onSignedOut: () => v
           {navItem("library", "library", n.library, () => go({ view: "library" }))}
           {lastFormula && navItem("bench", "bench", n.bench(benchName ?? ""), () => go({ view: "formula", id: lastFormula }))}
           {navItem("tasting", "tasting", n.tasting, () => go({ view: "tasting", tab: "session" }), due > 0 ? n.due(due) : undefined, due)}
+          {/* The label printing page (V3-110) is its own page, etiquetas.html, so a link and not a view. */}
+          <a className="app-link app-link-labels" href="/etiquetas.html" title={mini ? n.labels : undefined}>
+            <NavIcon name="labels" />
+            <span className="nav-label">{n.labels}</span>
+          </a>
         </span>
         <button type="button" className="nav-collapse" aria-expanded={!mini} aria-label={mini ? n.expand : n.collapse} onClick={() => setNavMini(!mini)}>
           <span aria-hidden="true">{mini ? "»" : "«"}</span>

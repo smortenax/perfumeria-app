@@ -80,6 +80,9 @@ export function LabelTest() {
 
   return (
     <main className="labels label-test">
+      <a className="label-test-back" href="/">
+        {u.back}
+      </a>
       <h1>{u.title}</h1>
       <p className="hint">{u.intro}</p>
       <label className="label-test-rows">

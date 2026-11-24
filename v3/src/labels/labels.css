@@ -55,6 +55,10 @@
 }
 
 /* The label test page (etiquetas.html). */
+.label-test-back {
+  display: inline-block;
+  margin-bottom: 8px;
+}
 .label-test {
   max-width: 60rem;
   margin: 0 auto;

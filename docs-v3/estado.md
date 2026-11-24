@@ -1,6 +1,8 @@
 # Estado de la v3
 
-*Actualizado el 2026-11-23. Como máximo 30 líneas: qué está hecho y qué sigue.*
+*Actualizado el 2026-11-24. Como máximo 30 líneas: qué está hecho y qué sigue.*
+
+**«Labels» en la navegación (2026-11-24; el usuario: «hacerle un espacio en la parte de navegacion para que se pueda acceder a la nueva funcion de impresiones»):** una entrada «Labels» con su icono, en el grupo «Work» del lateral y en la barra de abajo del móvil (ahora una columna por sección), que abre `etiquetas.html`; la página tiene «← Back to the app». `tsc`, pruebas y build en verde; no visto en el navegador (sin cuenta en la nube). Rama `claude/project-thread-3g0nig`, PR a `main` sin fusionar.
 
 **La página de prueba de etiquetas (V3-110, 2026-11-24; el usuario: «Sí, empieza con la página de prueba»; PR #90 fusionada y publicada, run 45380981166 en verde; primera prueba con la P15: imprime nítido y al derecho, pero en cinta continua a 70 mm sobre un rollo troquelado; arreglado en la PR #91 (el usuario: «Si exacto como esas nuevas mejor»): por defecto 12×40, 3 mm en cada extremo, la línea grande con todo el alto, en una o dos líneas, la que dé letra más grande (12×40: Wool 4,1 mm, Olibanum 3,4 mm, Muscone 4,6 mm)):** `v3/etiquetas.html` (`src/labels/LabelTest.tsx`): sin cuenta, una etiqueta por línea («grande | pequeña»), sin QR, cinta continua de 15 mm a 70 mm (línea grande ~4,5 mm, pequeña 2,5 mm), «Connect the P15» e «Print». La app Marklife no importa ni .xlsx ni .csv («Document format error»): descartada. 2 pruebas nuevas; `tsc`, 622 pruebas y build en verde; vista en Chromium sin errores (sin Bluetooth allí). **Sigue:** imprimir con la P15 real desde Chrome o Edge en el ordenador (sentido, márgenes, densidad, corte); después, el diseño de dos líneas en «Labels» de Dilutions.
 
