@@ -9,6 +9,7 @@ import "./labels.css";
 
 const t = texts.labels;
 const u = texts.labelTest;
+const TAPE_KEY = "perfumeria.labeltest.tape.v1";
 
 /** «big | small», one label a line; blank lines skipped. */
 export function parseRows(text: string): { big: string; small: string }[] {
@@ -30,7 +31,21 @@ export function parseRows(text: string): { big: string; small: string }[] {
  */
 export function LabelTest() {
   const [text, setText] = useState<string>(u.example);
-  const [tape, setTape] = useState<Tape>(() => tapeOf("CONTINUOUS_15MM_70"));
+  const [tape, setTape] = useState<Tape>(() => {
+    try {
+      return tapeOf(localStorage.getItem(TAPE_KEY) ?? "GAP_12X40");
+    } catch {
+      return tapeOf("GAP_12X40");
+    }
+  });
+  const pickTape = (id: string) => {
+    setTape(tapeOf(id));
+    try {
+      localStorage.setItem(TAPE_KEY, id);
+    } catch {
+      /* Chosen again next time. */
+    }
+  };
   const [flip, setFlip] = useState(false);
   const [printer, setPrinter] = useState<PrinterAdapter | null>(null);
   const [status, setStatus] = useState<string | null>(null);
@@ -74,7 +89,7 @@ export function LabelTest() {
       <div className="labels-bar">
         <label className="labels-tape">
           {t.tape}
-          <select value={tape.id} onChange={(e) => setTape(tapeOf(e.target.value))}>
+          <select value={tape.id} onChange={(e) => pickTape(e.target.value)}>
             {TAPES.map((x) => (
               <option key={x.id} value={x.id}>
                 {x.continuous ? t.continuous(x.width, x.length) : t.gap(x.width, x.length)}
