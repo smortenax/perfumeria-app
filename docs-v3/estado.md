@@ -96,5 +96,7 @@
 
 ## A tener en cuenta
 
+- **Editar desde otro repositorio:** `docs-v3/guia-git-desde-otro-repo.md` (montajes, ciclo de rama y PR, datos por tanda, conflictos, versiones y `git subtree`).
+
 - En desarrollo, PowerSync va por `/powersync` (proxy de Vite): el navegador integrado no deja a un SharedWorker pedir a otro origen. La API REST de Supabase da los `numeric` como número JSON (redondea): las cifras exactas se leen de PowerSync.
 - Mensajes de commit corregidos en el siguiente: 1424463 (30 s, no media hora), cf43779 (176 pruebas, no 179), 01c172f (el estado entró en el commit siguiente), 5bd5120 (10 estándares con prohibición y techos, no 3; en add5908). Además, `docs-v3/` aún cita `docs/a-futuro.md` y el laboratorio; el plan 8.2 aún dice «`seq` siguiente» (manda el UUID v7 de 7.2).
