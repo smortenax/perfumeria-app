@@ -48,8 +48,11 @@ export function drawLabel(content: LabelContent, tape: Tape, canvas: HTMLCanvasE
   return canvas;
 }
 
-/** Blank at each end of a label, where a die-cut gap may wander (1.5 mm), and above and below the text. */
-const END = 12;
+/**
+ * Blank at each end of a label, where a die-cut gap may wander: 3 mm. With 1.5 mm the first letter of
+ * each label came out cut on a real P15 with 12 × 40 mm labels (photo of the user, 2026-11-24).
+ */
+const END = 24;
 const EDGE = 6;
 
 /**
