@@ -80,12 +80,24 @@ export function drawTwoLines(
   const room = width - 2 * END;
   const lower = small ? fitText(small, room, 20, 12, measure(500)) : null;
   // The first line takes what the second leaves: the label's height less the second line and a gap.
-  const top = big ? fitText(big, room, Math.min(48, height - 2 * EDGE - (lower ? lower.size + 8 : 0)), 12, measure(700)) : null;
-  ctx.textBaseline = "top";
-  if (top) {
-    ctx.font = `700 ${top.size}px ${FONT}`;
-    ctx.fillText(top.text, END, lower ? EDGE : Math.round((height - top.size) / 2));
+  const free = height - 2 * EDGE - (lower ? lower.size + 6 : 0);
+  let tops = big ? [fitText(big, room, Math.min(48, free), 12, measure(700))] : [];
+  // On a short label one line would come out smaller than the CAS (40 mm: about 2 mm): if it is under
+  // 3.5 mm and the text has a « · », it goes on two big lines, the name and then the dilution.
+  const at = big.lastIndexOf(" · ");
+  if (tops.length && tops[0].size < 28 && at > 0) {
+    const each = Math.floor((free - 4) / 2);
+    const two = [big.slice(0, at), big.slice(at + 3)].map((x) => fitText(x, room, each, 12, measure(700)));
+    if (Math.min(...two.map((x) => x.size)) > tops[0].size) tops = two;
   }
+  ctx.textBaseline = "top";
+  let y = lower ? EDGE : Math.round((height - tops.reduce((s, x) => s + x.size, 0)) / 2);
+  for (const x of tops) {
+    ctx.font = `700 ${x.size}px ${FONT}`;
+    ctx.fillText(x.text, END, y);
+    y += x.size + 4;
+  }
+  const top = tops.length ? { size: Math.min(...tops.map((x) => x.size)), text: tops.map((x) => x.text).join(" · ") } : null;
   if (lower) {
     ctx.font = `500 ${lower.size}px ${FONT}`;
     ctx.fillText(lower.text, END, height - EDGE - lower.size);
