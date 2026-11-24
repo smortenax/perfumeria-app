@@ -69,6 +69,10 @@ export default defineConfig(({ command, mode }) => ({
   optimizeDeps: {
     exclude: ["@powersync/web"],
   },
+  // Two pages: the app, and the label test page (V3-110), which needs no account.
+  build: {
+    rollupOptions: { input: { main: "index.html", etiquetas: "etiquetas.html" } },
+  },
   // In development, the local PowerSync is reached through the app's own site (/powersync):
   // PowerSync syncs from a shared worker, and some browsers do not let it reach another
   // origin (see powerSyncEndpoint in src/db/connector.ts). `vite preview` uses the same.
@@ -113,6 +117,8 @@ export default defineConfig(({ command, mode }) => ({
         // app needs them kept to open without network.
         globPatterns: ["**/*.{js,css,html,svg,png,woff2,wasm}"],
         maximumFileSizeToCacheInBytes: 8 * 1024 * 1024,
+        // The label test page is its own page, not a route of the app.
+        navigateFallbackDenylist: [/^\/etiquetas/],
       },
     }),
   ],
