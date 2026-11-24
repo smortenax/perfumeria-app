@@ -743,6 +743,10 @@ export const texts = {
     all: (n: number) => `Select all ${n}`,
     none: "Select none",
     nothing: "No bottle to label. Make one in «Add & weigh».",
+    batches: "Saved batches",
+    batch: (day: string | null, savedAt: string, n: number) =>
+      `${day ?? "No date"} · saved ${new Date(savedAt).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })} · ${n === 1 ? "1 label" : `${n} labels`}`,
+    removeBatch: "Remove",
   },
   dilutions: {
     title: "Dilutions",
@@ -757,6 +761,7 @@ export const texts = {
     modes: { bottles: "Bottles", weigh: "Add & weigh", labels: "Labels" },
     modesLabel: "What to do",
     savedToast: (n: number) => (n === 1 ? "Saved 1 bottle." : `Saved ${n} bottles.`),
+    printBatch: "Print labels",
     weigh: {
       title: "Today's dilutions",
       madeOn: "Made on",

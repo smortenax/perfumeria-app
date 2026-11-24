@@ -84,3 +84,28 @@
 .label-test-list figure {
   margin: 0;
 }
+
+/* Each batch with its own «Print» (2026-11-24). */
+.labels-batches {
+  margin-bottom: var(--space-gap, 16px);
+}
+.labels-batches h3 {
+  margin: 0 0 6px;
+  font-size: var(--text-sm);
+}
+.labels-batches ul {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.labels-batches li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.labels-batch-name {
+  min-width: 12rem;
+}
