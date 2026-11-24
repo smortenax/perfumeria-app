@@ -42,6 +42,7 @@ export const texts = {
     library: "Formulation",
     tasting: "Evaluations",
     dilutions: "Dilutions",
+    labels: "Labels",
     bench: (name: string) => (name ? `Bench · ${name}` : "Bench"),
     /** The sidebar's groups and its fold (V3-73). */
     groupLibrary: "Library",
@@ -712,6 +713,7 @@ export const texts = {
   /** The label test page, etiquetas.html (V3-110): two lines, no QR, straight to the P15. */
   labelTest: {
     title: "Label test",
+    back: "← Back to the app",
     intro: "One label per line: the big line, then « | », then the small one. Nothing is saved; nothing needs your account.",
     rows: "Labels",
     example: "Wool Absolute · 10 % Ethanol | CAS 91079-01-5 · 2026-11-24\nOlibanum Oil (Oman) · 5 % DPG | CAS 8016-36-2 · 2026-11-24",
@@ -741,6 +743,10 @@ export const texts = {
     all: (n: number) => `Select all ${n}`,
     none: "Select none",
     nothing: "No bottle to label. Make one in «Add & weigh».",
+    batches: "Saved batches",
+    batch: (day: string | null, savedAt: string, n: number) =>
+      `${day ?? "No date"} · saved ${new Date(savedAt).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })} · ${n === 1 ? "1 label" : `${n} labels`}`,
+    removeBatch: "Remove",
   },
   dilutions: {
     title: "Dilutions",
@@ -755,6 +761,7 @@ export const texts = {
     modes: { bottles: "Bottles", weigh: "Add & weigh", labels: "Labels" },
     modesLabel: "What to do",
     savedToast: (n: number) => (n === 1 ? "Saved 1 bottle." : `Saved ${n} bottles.`),
+    printBatch: "Print labels",
     weigh: {
       title: "Today's dilutions",
       madeOn: "Made on",

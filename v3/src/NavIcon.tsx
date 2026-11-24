@@ -6,6 +6,7 @@ const PATHS = {
   bench: "M5 6h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zM7 10h6M7 14h10",
   tasting: "M12 3v18M7 6h10M8 21h8",
   dilutions: "M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z",
+  labels: "M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9zM7.5 7.5h.01",
 } as const;
 
 export type NavIconName = keyof typeof PATHS;

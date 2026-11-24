@@ -4,10 +4,11 @@ import type { Dilution } from "../db/catalog";
 import type { GlossaryData } from "../glossary/useGlossary";
 import { texts } from "../i18n/en";
 import { Button } from "../Button";
-import { dilutionLabel, labelSheet, type LabelContent } from "./content";
+import { dilutionLabel, labelSheet, linesOf, type LabelContent } from "./content";
 import { xlsxOf } from "./xlsx";
 import { tapeOf, TAPES } from "./media";
-import { drawLabel, pixelsOf } from "./render";
+import { drawTwoLines, pixelsOf } from "./render";
+import { readJobs, removeJob, type PrintJob, type PrintLine } from "./jobs";
 import { canReachPrinter, connectP15, printLabel } from "./printer";
 import "./labels.css";
 
@@ -23,10 +24,16 @@ const readTape = () => {
   }
 };
 
+const drawn = (l: LabelContent, tape: ReturnType<typeof tapeOf>, canvas?: HTMLCanvasElement) => {
+  const { big, small } = linesOf(l);
+  return drawTwoLines(big, small, tape, canvas).canvas;
+};
+
 /**
  * «Labels» in Dilutions (V3-110): pick bottles, see each label as it will print, and send them one
- * after another to a Marklife P15 by Bluetooth. Each label carries a QR with the bottle's code, for
- * the bench's scanner.
+ * after another to a Marklife P15 by Bluetooth. Each batch saved in «Add & weigh» has its own «Print»,
+ * from the print text kept apart when it was saved (jobs.ts; the user, 2026-11-24: «cada batch de
+ * diluciones tenga un boton que sea imprimir una vez finalizado el batch»).
  */
 export function Labels({ data, all }: { data: GlossaryData; all: readonly { materialId: string; d: Dilution }[] }) {
   const [tape, setTape] = useState(readTape);
@@ -39,6 +46,7 @@ export function Labels({ data, all }: { data: GlossaryData; all: readonly { mate
   });
   const [query, setQuery] = useState("");
   const [chosen, setChosen] = useState<ReadonlySet<string>>(new Set());
+  const [jobs, setJobs] = useState<PrintJob[]>(readJobs);
   const [printer, setPrinter] = useState<PrinterAdapter | null>(null);
   const [status, setStatus] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
@@ -94,29 +102,35 @@ export function Labels({ data, all }: { data: GlossaryData; all: readonly { mate
     setTimeout(() => URL.revokeObjectURL(url), 1000);
     setStatus(t.sheetSaved(list.length));
   };
-  const connect = async () => {
+  const connect = async (): Promise<PrinterAdapter | null> => {
     setStatus(null);
     try {
-      setPrinter(await connectP15());
+      const p = await connectP15();
+      setPrinter(p);
       setStatus(t.connected);
+      return p;
     } catch (e) {
       setStatus(t.failed(e instanceof Error ? e.message : String(e)));
+      return null;
     }
   };
-  const print = async () => {
-    if (!printer || picked.length === 0) return;
+  /** Prints these labels one after another; connects first when the printer is not yet. */
+  const print = async (list: readonly PrintLine[]) => {
+    if (list.length === 0) return;
+    const to = printer ?? (await connect());
+    if (!to) return;
     setBusy(true);
     stop.current = false;
     try {
-      for (const [i, x] of picked.entries()) {
+      for (const [i, x] of list.entries()) {
         if (stop.current) {
-          setStatus(t.stopped(i, picked.length));
+          setStatus(t.stopped(i, list.length));
           return;
         }
-        setStatus(t.printing(i + 1, picked.length));
-        await printLabel(printer, pixelsOf(drawLabel(x.label, tape)), tape, flip);
+        setStatus(t.printing(i + 1, list.length));
+        await printLabel(to, pixelsOf(drawTwoLines(x.big, x.small, tape).canvas), tape, flip);
       }
-      setStatus(t.printed(picked.length));
+      setStatus(t.printed(list.length));
     } catch (e) {
       setStatus(t.failed(e instanceof Error ? e.message : String(e)));
     } finally {
@@ -149,7 +163,7 @@ export function Labels({ data, all }: { data: GlossaryData; all: readonly { mate
             ) : (
               <Button onClick={() => void connect()}>{t.connect}</Button>
             )}
-            <Button variant="primary" disabled={!printer || busy || picked.length === 0} onClick={() => void print()}>
+            <Button variant="primary" disabled={!printer || busy || picked.length === 0} onClick={() => void print(picked.map((x) => linesOf(x.label)))}>
               {t.print(picked.length)}
             </Button>
             {busy && <Button onClick={() => (stop.current = true)}>{t.stop}</Button>}
@@ -166,6 +180,34 @@ export function Labels({ data, all }: { data: GlossaryData; all: readonly { mate
           </span>
         )}
       </div>
+
+      {jobs.length > 0 && (
+        <section className="labels-batches" aria-label={t.batches}>
+          <h3>{t.batches}</h3>
+          <ul>
+            {jobs.map((j) => (
+              <li key={j.id}>
+                <details>
+                  <summary className="labels-batch-name">{t.batch(j.day, j.savedAt, j.lines.length)}</summary>
+                  <ul className="labels-batch-lines">
+                    {j.lines.map((l, i) => (
+                      <li key={i}>
+                        <strong>{l.big}</strong> {l.small}
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+                {canReachPrinter() && (
+                  <Button variant="primary" disabled={busy} onClick={() => void print(j.lines)}>
+                    {t.print(j.lines.length)}
+                  </Button>
+                )}
+                <Button onClick={() => setJobs(removeJob(j.id))}>{t.removeBatch}</Button>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <div className="labels-pick">
         <input type="search" value={query} placeholder={t.searchHint} aria-label={t.search} onChange={(e) => setQuery(e.target.value)} />
@@ -199,7 +241,7 @@ function LabelPreview({ content, tape }: { content: LabelContent; tape: ReturnTy
   useEffect(() => {
     const canvas = ref.current;
     if (!canvas) return;
-    const draw = () => pixelsOf(drawLabel(content, tape, canvas));
+    const draw = () => pixelsOf(drawn(content, tape, canvas));
     draw();
     // The font may arrive after the first drawing: draw again once it has.
     void document.fonts?.ready.then(draw);

@@ -107,6 +107,8 @@ export function Dilutions({
     });
   const [madeOn, setMadeOn] = useState(() => new Date().toISOString().slice(0, 10));
   const [saved, setSaved] = useState<string | null>(null);
+  // A batch just saved with its print text: its labels can be printed straight away (the user, 2026-11-24).
+  const [savedJob, setSavedJob] = useState(false);
   // «New dilution» from elsewhere (the address #diluciones/nueva/<material>): a row for it, in «Add & weigh».
   useEffect(() => {
     if (newFor === null) return;
@@ -158,10 +160,25 @@ export function Dilutions({
         ) : mode === "labels" ? (
           <Labels data={data} all={all} />
         ) : (
-          <AddWeigh data={data} local={local} rows={rows} setRows={setRows} madeOn={madeOn} setMadeOn={setMadeOn} onSaved={(n) => setSaved(t.savedToast(n))} />
+          <AddWeigh data={data} local={local} rows={rows} setRows={setRows} madeOn={madeOn} setMadeOn={setMadeOn} onSaved={(n, job) => (setSaved(t.savedToast(n)), setSavedJob(job))} />
         )}
       </section>
-      <Toast message={archived?.text ?? saved} onUndo={archived ? unarchive : undefined} onClose={() => (setArchived(null), setSaved(null))} />
+      <Toast
+        message={archived?.text ?? saved}
+        onUndo={archived ? unarchive : undefined}
+        action={
+          !archived && saved && savedJob
+            ? {
+                label: t.printBatch,
+                run: () => {
+                  setMode("labels");
+                  setSaved(null);
+                },
+              }
+            : undefined
+        }
+        onClose={() => (setArchived(null), setSaved(null))}
+      />
       <FailureNote message={failure} onClose={() => setFailure(null)} floating />
     </div>
   );

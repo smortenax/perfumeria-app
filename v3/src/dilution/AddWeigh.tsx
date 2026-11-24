@@ -2,6 +2,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Ratio } from "../core/arith/ratio";
 import type { Dilution } from "../db/catalog";
 import { createBottle, createUnweighedBottle } from "../db/dilutions";
+import { dilutionLabel, linesOf } from "../labels/content";
+import { saveJob, type PrintLine } from "../labels/jobs";
 import type { LocalDatabase } from "../db/local/database";
 import { coloursOf } from "../families/palette";
 import { percent } from "../glossary/format";
@@ -78,7 +80,8 @@ export function AddWeigh({
   /** The date of the session's bottles: today, changeable above. */
   madeOn: string;
   setMadeOn: (day: string) => void;
-  onSaved: (count: number) => void;
+  /** How many bottles were saved, and whether their print text was kept too (labels/jobs.ts). */
+  onSaved: (count: number, job: boolean) => void;
 }) {
   const scales = useMemo(() => orbScalesOf(data.catalog), [data]);
   const diluents = useMemo(
@@ -107,6 +110,7 @@ export function AddWeigh({
     setSaving(true);
     const failed = new Map<string, string>();
     const saved: string[] = [];
+    const lines: PrintLine[] = [];
     for (const { row, state } of saveable) {
       const common = { materialId: row.materialId, label: labelOf(row.target), madeOn, description: row.note, sourceDilutionId: row.sourceId };
       try {
@@ -120,6 +124,12 @@ export function AddWeigh({
           await createUnweighedBottle(local.db, local.userId, { ...common, target: percentToFraction(row.target)!, diluents: state.planned! });
         }
         saved.push(row.key);
+        // Its label, from what was just saved (the same figures the bottle keeps).
+        const shares = state.real ?? state.aimed;
+        if (shares) {
+          const d = { id: "", fraction: shares.fraction, solvent: null, madeOn, description: null, label: common.label, materialMassUg: null, sourceDilutionId: null, archivedAt: null, diluents: shares.diluents.map((x) => ({ id: "", diluentId: x.diluentId, massUg: x.massUg, fraction: x.fraction })) };
+          lines.push(linesOf(dilutionLabel((id) => data.catalog.materials.get(id), row.materialId, d)));
+        }
       } catch (e) {
         failed.set(row.key, texts.dilutions.failed(e instanceof Error ? e.message : String(e)));
       }
@@ -127,7 +137,7 @@ export function AddWeigh({
     setRows((list) => list.filter((r) => !saved.includes(r.key)));
     setErrors(failed);
     setSaving(false);
-    if (saved.length > 0) onSaved(saved.length);
+    if (saved.length > 0) onSaved(saved.length, lines.length > 0 && saveJob({ id: crypto.randomUUID(), savedAt: new Date().toISOString(), day: madeOn || null, lines }));
   };
 
   return (

@@ -6,7 +6,20 @@ import { texts } from "./i18n/en";
  * the toast never takes focus; and since it carries an action it stays until it is closed, or until
  * whoever shows it takes it away. `docked`: inside the bench's history, just above it.
  */
-export function Toast({ message, onUndo, onClose, docked = false }: { message: string | null; onUndo?: () => void; onClose: () => void; docked?: boolean }) {
+export function Toast({
+  message,
+  onUndo,
+  onClose,
+  docked = false,
+  action,
+}: {
+  message: string | null;
+  onUndo?: () => void;
+  onClose: () => void;
+  docked?: boolean;
+  /** Another action than Undo, with its own name («Print labels»). */
+  action?: { readonly label: string; readonly run: () => void };
+}) {
   return (
     <div className={`toast-region${docked ? " docked" : ""}`} role="status">
       {message && (
@@ -15,6 +28,11 @@ export function Toast({ message, onUndo, onClose, docked = false }: { message: s
           {onUndo && (
             <button type="button" className="toast-action" onClick={onUndo}>
               {texts.app.undo}
+            </button>
+          )}
+          {action && (
+            <button type="button" className="toast-action" onClick={action.run}>
+              {action.label}
             </button>
           )}
           <button type="button" className="toast-close" aria-label={texts.app.dismiss} onClick={onClose}>
