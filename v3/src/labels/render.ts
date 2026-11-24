@@ -53,7 +53,7 @@ export function drawLabel(content: LabelContent, tape: Tape, canvas: HTMLCanvasE
  * each label came out cut on a real P15 with 12 × 40 mm labels (photo of the user, 2026-11-24).
  */
 const END = 24;
-const EDGE = 6;
+const EDGE = 3;
 
 /**
  * Two lines, no QR (the user, 2026-11-24: «nombre y dilución en grande en una línea, cas y fecha más
@@ -81,24 +81,33 @@ export function drawTwoLines(
     return ctx.measureText(text).width;
   };
   const room = width - 2 * END;
-  const lower = small ? fitText(small, room, 20, 12, measure(500)) : null;
-  // The first line takes what the second leaves: the label's height less the second line and a gap.
-  const free = height - 2 * EDGE - (lower ? lower.size + 6 : 0);
-  let tops = big ? [fitText(big, room, Math.min(48, free), 12, measure(700))] : [];
-  // On a short label one line would come out smaller than the CAS (40 mm: about 2 mm): if it is under
-  // 3.5 mm and the text has a « · », it goes on two big lines, the name and then the dilution.
+  const lower = small ? fitText(small, room, 18, 12, measure(500)) : null;
+  // The big text takes all the height the small line leaves. One line or two (the name, then the
+  // dilution, split at the last « · »): whichever lets the letters be bigger (the user, 2026-11-24:
+  // «la letra del producto quedaría mejor más grande siempre y cuando la longitud del nombre lo permita»).
+  const GAP = 3;
+  const free = height - 2 * EDGE - (lower ? lower.size + GAP : 0);
+  let tops = big ? [fitText(big, room, Math.min(64, free), 12, measure(700))] : [];
   const at = big.lastIndexOf(" · ");
-  if (tops.length && tops[0].size < 28 && at > 0) {
-    const each = Math.floor((free - 4) / 2);
-    const two = [big.slice(0, at), big.slice(at + 3)].map((x) => fitText(x, room, each, 12, measure(700)));
-    if (Math.min(...two.map((x) => x.size)) > tops[0].size) tops = two;
+  if (tops.length && at > 0) {
+    const each = Math.floor((free - GAP) / 2);
+    const parts = [big.slice(0, at), big.slice(at + 3)];
+    // Both lines at one size, the one the longer allows: a name and its dilution read as one thing.
+    const size = Math.min(...parts.map((x) => fitText(x, room, each, 12, measure(700)).size));
+    // …unless a very long name would drag the dilution down with it (under 2.5 mm): then each its own.
+    const two = parts.map((x) => fitText(x, room, size < 20 ? each : size, 12, measure(700)));
+    // Two lines also when one would be cut: the dilution must never be the part lost to «…».
+    if (size > tops[0].size || tops[0].text !== big) tops = two;
   }
   ctx.textBaseline = "top";
-  let y = lower ? EDGE : Math.round((height - tops.reduce((s, x) => s + x.size, 0)) / 2);
+  // The big lines fill the space above the small one, spread evenly.
+  const used = tops.reduce((sum, x) => sum + x.size, 0);
+  const spare = Math.max(0, free - used);
+  let y = EDGE + (tops.length > 1 ? Math.floor(spare / 3) : Math.floor(spare / 2));
   for (const x of tops) {
     ctx.font = `700 ${x.size}px ${FONT}`;
     ctx.fillText(x.text, END, y);
-    y += x.size + 4;
+    y += x.size + (tops.length > 1 ? Math.floor(spare / 3) : 0);
   }
   const top = tops.length ? { size: Math.min(...tops.map((x) => x.size)), text: tops.map((x) => x.text).join(" · ") } : null;
   if (lower) {
