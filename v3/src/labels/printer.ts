@@ -29,6 +29,16 @@ export async function printLabel(printer: PrinterAdapter, image: { width: number
 }
 
 /**
+ * Feeds the tape to the start of the next label without printing on it: one blank millimetre, then the
+ * printer's own feed to the gap. For when the tape has moved by hand, or a run came out shifted; it uses
+ * up the label under the head.
+ */
+export async function alignTape(printer: PrinterAdapter, tape: Tape): Promise<void> {
+  const long = 8;
+  await printLabel(printer, { width: long, height: 96, data: new Uint8Array(long * 96 * 4).fill(255) }, tape);
+}
+
+/**
  * How long the P15 takes to print a label after it has received it. The driver's `print` resolves once
  * the last packet is sent, not once the paper stops: the next label sent while the head still runs
  * came out cut in half (the user, 2026-11-25: «me he impreso una y se ha quedado a medias de la
