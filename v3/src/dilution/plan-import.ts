@@ -101,10 +101,13 @@ export interface PlanMatch {
 
 const keysOf = (m: Material) => [m.name, m.product ?? "", m.abbreviation ?? "", ...m.aliases].map(fold).filter((k) => k !== "");
 
-function indexBy(materials: readonly Material[]): Map<string, string[]> {
+/** A diluent also by its name without what is in brackets: «DPG (dipropylene glycol)» is «DPG». */
+const solventKeys = (m: Material) => [...keysOf(m), fold(m.name.replace(/\s*\(.*\)\s*$/, ""))].filter((k) => k !== "");
+
+function indexBy(materials: readonly Material[], keys = keysOf): Map<string, string[]> {
   const by = new Map<string, string[]>();
   for (const m of materials)
-    for (const k of new Set(keysOf(m))) {
+    for (const k of new Set(keys(m))) {
       const list = by.get(k) ?? [];
       list.push(m.id);
       by.set(k, list);
@@ -127,7 +130,7 @@ export function matchDilutionPlan(rows: readonly PlannedDilution[], catalog: Cat
   const mine = all.filter((m) => m.ownerId !== null && (userId === null || m.ownerId === userId) && !m.solvent);
   const solvents = all.filter((m) => m.solvent).sort((a, b) => (a.ownerId ? 1 : 0) - (b.ownerId ? 1 : 0));
   const byName = indexBy(mine);
-  const bySolvent = indexBy(solvents);
+  const bySolvent = indexBy(solvents, solventKeys);
   return rows.map((planned) => {
     const problems: PlanProblem[] = [];
     const found = byName.get(fold(planned.material)) ?? [];

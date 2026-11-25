@@ -545,11 +545,11 @@ function BottleWeights({ row, name, change }: { row: WeighRow; name: string; cha
       <span className="weigh-bottle-label">{t.bottleLine}</span>
       <label className="weigh-unit" data-unit="g">
         <span className="weigh-bottle-what">{t.tare}</span>
-        <input className="weigh-cell n" inputMode="decimal" value={row.tare ?? ""} placeholder="g" aria-label={t.bottleAria.tare(name)} onChange={(e) => change((r) => ({ ...r, tare: e.target.value }))} />
+        <input className="weigh-cell n" inputMode="decimal" value={row.tare ?? ""} aria-label={t.bottleAria.tare(name)} onChange={(e) => change((r) => ({ ...r, tare: e.target.value }))} />
       </label>
       <label className="weigh-unit" data-unit="g">
         <span className="weigh-bottle-what">{t.gross}</span>
-        <input className="weigh-cell n" inputMode="decimal" value={row.gross ?? ""} placeholder="g" aria-label={t.bottleAria.gross(name)} onChange={(e) => change((r) => ({ ...r, gross: e.target.value }))} />
+        <input className="weigh-cell n" inputMode="decimal" value={row.gross ?? ""} aria-label={t.bottleAria.gross(name)} onChange={(e) => change((r) => ({ ...r, gross: e.target.value }))} />
       </label>
       {offUg !== null && offUg !== 0n && <span className="weigh-why">{t.off(gramsText(offUg))}</span>}
       {row.plan && (row.plan.materialG || row.plan.diluentG) && <span className="muted">{t.planSays(row.plan.materialG || "—", row.plan.diluentG || "—")}</span>}

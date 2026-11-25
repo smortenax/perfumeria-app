@@ -181,6 +181,8 @@ export function rowState(row: WeighRow, source?: SourceBottle): RowState {
     }
     return { status: "weighed", need: null, goal, ...base, real, diff: real.fraction.sub(target), aimed, bar, toPour };
   }
+  // A row from an imported plan is a bottle still to make, never one «already made»: it waits for its weights.
+  if (none && row.plan) return { status: "waiting", need: "weights", goal, ...base, real: null, diff: null, aimed, bar, toPour };
   if (none) return { status: "asIs", need: null, goal, ...base, real: null, diff: null, aimed, bar, toPour };
   return { status: "waiting", need: "weights", goal, ...base, real: null, diff: null, aimed, bar, toPour };
 }

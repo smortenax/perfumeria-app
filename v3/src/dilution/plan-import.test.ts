@@ -32,8 +32,8 @@ const materials = [
   m("twin-a", "Ylang Ylang Extra"),
   m("twin-b", "Ylang Ylang Extra"),
   m("hers", "Castoreum", { ownerId: "someone else" }),
-  m("dpg", "Dipropylene glycol", { ownerId: null, solvent: true, abbreviation: "DPG" }),
-  m("ipm", "Isopropyl myristate", { ownerId: null, solvent: true, abbreviation: "IPM" }),
+  m("dpg", "DPG (dipropylene glycol)", { ownerId: null, solvent: true, abbreviation: "Dipr", aliases: ["Dipropylene glycol"] }),
+  m("ipm", "IPM (isopropyl myristate)", { ownerId: null, solvent: true, abbreviation: "IsM" }),
   m("eth", "Ethanol", { ownerId: null, solvent: true, aliases: ["Perfumer's alcohol"] }),
 ];
 const catalog = {
@@ -118,7 +118,9 @@ describe("the rows to weigh", () => {
     const wool = rows.find((r) => r.materialId === "wool")!;
     expect([wool.target, wool.total, wool.tare, wool.gross]).toEqual(["10", "20", "", ""]);
     const s = rowState(wool);
-    expect([s.status, s.goal.materialUg, s.goal.diluents[0]]).toEqual(["asIs", 2_000_000n, 18_000_000n]);
+    expect([s.status, s.goal.materialUg, s.goal.diluents[0]]).toEqual(["waiting", 2_000_000n, 18_000_000n]);
+    // A planned bottle is still to make: unweighed, it waits; it never saves «as it is».
+    expect(s.need).toBe("weights");
   });
 
   it("from the factory bottle at 10 %, 1 % of 10 g asks 1 g of the bottle and 9 g of IPM", () => {
