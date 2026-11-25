@@ -3,6 +3,7 @@ import { DILUENTS } from "../core/model/material";
 import type { GlossaryData } from "../db/useGlossary";
 import { DILUENT_NAMES } from "./v3-repository";
 import { fixedRatio } from "../format/numbers";
+import { isFactoryBottle } from "../db/factory";
 
 /**
  * Your bottles of a material, as the add bar offers them (V3-67): a tab each, above the dilution.
@@ -17,6 +18,8 @@ export interface BottleChoice {
   readonly fraction: Ratio;
   /** In order: the bar's diluent and its share of the bottle. */
   readonly diluents: readonly { readonly id: keyof typeof DILUENTS; readonly share: Ratio }[];
+  /** It came made (db/factory.ts): the material is poured from it by default. */
+  readonly factory: boolean;
 }
 
 /** A percent as a cell of the bar writes it: «9.97», without trailing zeros. */
@@ -36,7 +39,7 @@ export function bottlesFor(data: Pick<GlossaryData, "catalog">, materialKey: str
     .flatMap((d): BottleChoice[] => {
       const diluents = d.diluents.map((x) => ({ id: barIdOf(x.diluentId), share: x.fraction }));
       if (diluents.some((x) => x.id === null)) return [];
-      return [{ id: d.id, label: d.label ?? `${percentCell(d.fraction)} %`, fraction: d.fraction, diluents: diluents as BottleChoice["diluents"] }];
+      return [{ id: d.id, label: d.label ?? `${percentCell(d.fraction)} %`, fraction: d.fraction, diluents: diluents as BottleChoice["diluents"], factory: !d.sourceDilutionId && isFactoryBottle(d) }];
     })
     .sort((a, b) => a.fraction.cmp(b.fraction));
 }

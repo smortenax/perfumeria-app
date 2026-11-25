@@ -2056,3 +2056,23 @@ Ante la pregunta de qué pasa con el área «Strips» y con el plan, que vivía 
 - **La deuda de hoy es un trinquete:** `v3/src/rules.baseline.json` guarda la cifra de cada archivo. La prueba falla si sube (se ha roto la regla) y también si baja sin bajar el tope (para que la mejora no se pueda deshacer). Subir un tope pide el sí del usuario, citado en el commit.
 - **El peinado va por lotes**, uno detrás de otro porque tocan las mismas importaciones: cada lote es una PR a `main` desde la rama de la sesión, con un commit por cambio. El plan y la auditoría: el documento «Assessment de la app v3».
 - **Nada cambia en pantalla** en el peinado. Pasar a la base de datos lo que hoy vive en el navegador (preferencias por material, tandas de etiquetas) es otra decisión, del usuario.
+
+## V3-112 · Lo que viene diluido de fábrica se dice al dar de alta tu frasco (decidida por el usuario el 2026-11-25)
+
+**Literal** (2026-11-25):
+
+> ayudame a resolver 2 problemas primero el que se tenga en cuenta el diluyente en el que viene en las tablas, de diluciones podria estar en una de las columnas un diluyente diferente si es el caso de que el material de fabrica viene diluido y tambien mirar si el material en mi inventario esta hardcoded con el de fabrica o no, y como resolcerlo, el problema de estar hardcoded con el de fabrica es que se pierda la informacion del diluyente al hacer diluciones nuevas
+
+> creo que la mejor opcion es que al dar de alta el material se de la pureza asi cada vez que se seleccione entre los materiales que tienes se tiene en cuenta donde viene y al hacer diluciones lo que se hace es computar el estado del de fabrica con el estado de la dilucion, y el de fabrica sale de dar de alta un material del glosario y en algun sitio concreto matizar que viene diluido y con que esta diluido
+
+> lo digo al dar de alta tu frasco de entre los que hay si
+
+**Lectura:** el material sigue siendo el puro (como en las tandas 42 y 66); el estado en que llega
+(«al 10 % en IPM») se dice una vez, en la ficha de tu versión, apartado «Comes diluted», y se
+guarda como su frasco de fábrica (sin columna nueva: propuesta de la sesión). Cada vez que se elige
+el material (una fila de «Add & weigh», «New dilution», la importación, la barra del banco) parte de
+ese frasco, y la dilución nueva lleva su parte del diluyente de fábrica más lo añadido
+(`calc.ts`). La «Purity» del material queda para la pureza del grado (propuesta de la sesión). La
+tabla de diluciones puede decir el diluyente de fábrica (`from_diluent`, «Diluyente de fábrica»):
+elige tu frasco en ese diluyente y avisa si el tuyo está en otro. La importación no crea frascos de
+fábrica: si falta, avisa y se da de alta en la ficha.

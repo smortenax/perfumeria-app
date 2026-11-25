@@ -21,6 +21,7 @@ import { FailureNote } from "../FailureNote";
 import type { GlossaryData } from "../db/useGlossary";
 import { Button } from "../Button";
 import { ConfirmDialog } from "../ui/Dialog";
+import { FactoryState } from "./FactoryState";
 
 /** The authorities a user writes with: IFRA's word lives in its layer (V3-35). */
 const AUTHORITIES_OF_YOURS: readonly Exclude<Authority, "ifra">[] = ["lot", "product", "literature", "consensus"];
@@ -55,6 +56,7 @@ export function MaterialEditor({ data, local, id, onDone, onDeleted }: { data: G
       <h2 className="page-title">{t.editTitle(material.name)}</h2>
       {material.basedOnId && <p className="hint">{t.versionHint}</p>}
       <RecordForm key={material.id} material={material} local={local} inherited={inheritedForm(chain)} />
+      {!material.solvent && <FactoryState material={material} data={data} local={local} />}
       <Composition material={material} data={data} local={local} bases={bases} />
       <Regulations material={material} data={data} local={local} bases={bases} />
       <Doses material={material} local={local} bases={bases} />

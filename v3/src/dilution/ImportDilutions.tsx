@@ -132,7 +132,8 @@ export function ImportDilutions({ data, userId, newKey, onAdd, onCancel }: { dat
                           </select>
                         )}
                         {m.by === "similar" && <span className="hint"> {t.similar}</span>}
-                        {source && <span className="hint"> · {t.fromBottle(p.fromPct)}</span>}
+                        {source && <span className="hint"> · {t.fromBottle(p.fromPct)}{source.diluents.length > 0 && ` (${source.diluents.map((d) => shortName(data.catalog.materials.get(d.diluentId))).join(" + ")})`}</span>}
+                        {m.factoryHint && <span className="hint import-problem"> · {t.pureButFactory(bottleOf(m.factoryHint)?.label ?? "")}</span>}
                       </td>
                       <td className="num">{p.fractionPct} %</td>
                       <td className="num">{[p.bottleMl ? `${p.bottleMl} ml` : null, p.batchG ? `${p.batchG} g` : null].filter(Boolean).join(" · ") || "—"}</td>

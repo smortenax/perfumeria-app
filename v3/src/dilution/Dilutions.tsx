@@ -13,6 +13,7 @@ import { orbLookOf, orbScalesOf, seedOf } from "../ui/orb/fromCatalog";
 import { MaterialOrb } from "../ui/orb/MaterialOrb";
 import { DilutionPopup } from "./DilutionPopup";
 import { cardsOf, countOf, nominalPercent, shortName } from "./grid";
+import { isFactoryBottle } from "../db/factory";
 import { AddWeigh, rowFor } from "./AddWeigh";
 import type { WeighRow } from "./weigh";
 import "./dilutions.css";
@@ -241,8 +242,6 @@ const madeText = (day: string | null): string => {
   return d.toLocaleDateString("en-GB", sameYear ? { day: "numeric", month: "short" } : { day: "numeric", month: "short", year: "numeric" });
 };
 
-/** A bottle that came made (batch 42, «de fábrica»): said by its name or its note. */
-const fromFactory = (d: Dilution) => /f[aá]brica|factory/i.test(`${d.label ?? ""} ${d.description ?? ""}`);
 
 /**
  * «Bottles» as a table (V3-96, BL-002): one row per bottle, grouped by material (its orb and name only
@@ -320,7 +319,7 @@ function BottleTable({
                 const expanded = open === d.id;
                 const strength = nominalPercent(d.fraction, d.label);
                 const diluents = diluentsText(d);
-                const tags: string[] = [fromFactory(d) ? t.table.factory : d.materialMassUg === null ? t.table.noWeights : null, d.archivedAt ? t.archived : null].filter((x) => x !== null);
+                const tags: string[] = [isFactoryBottle(d) ? t.table.factory : d.materialMassUg === null ? t.table.noWeights : null, d.archivedAt ? t.archived : null].filter((x) => x !== null);
                 const toggle = () => setOpen(expanded ? null : d.id);
                 return [
                   <tr key={d.id} className={`bottle-row-t${i === 0 ? " first" : ""}${d.archivedAt ? " archived" : ""}`} aria-current={d.id === selected ? "true" : undefined} onClick={toggle}>

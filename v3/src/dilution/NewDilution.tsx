@@ -8,6 +8,7 @@ import { saveKind, weighedFromPlan, windowState, type WindowMode, type WindowRow
 import "./dilutions.css";
 import { Button } from "../Button";
 import { DiluentPicker } from "./DiluentPicker";
+import { factoryBottleOf } from "../db/factory";
 import { MaterialPicker } from "../MaterialPicker";
 import { percentToFraction } from "../format/percent";
 import { gramsText, gramsToUg } from "../format/mass";
@@ -45,10 +46,16 @@ export function NewDilution({
   );
   const firstDpg = diluents.find((d) => /dpg|dipropylene|dipropilen/i.test(d.name))?.id ?? diluents[0]?.id ?? "";
 
-  const [materialId, setMaterialId] = useState<string | null>(initialMaterial);
+  const [materialId, setMaterial] = useState<string | null>(initialMaterial);
+  // A material that came made starts from its factory bottle (batch 66), never from pure: see factory.ts.
+  const factoryOf = (id: string | null) => (id ? (factoryBottleOf(data.catalog, id)?.id ?? null) : null);
+  const setMaterialId = (id: string | null) => {
+    setMaterial(id);
+    setSourceId(factoryOf(id));
+  };
   // A bottle you have is the usual case (audit F-03): it comes first.
   const [mode, setMode] = useState<WindowMode>("have");
-  const [sourceId, setSourceId] = useState<string | null>(null);
+  const [sourceId, setSourceId] = useState<string | null>(() => factoryOf(initialMaterial));
   const [target, setTarget] = useState("10");
   const [rows, setRows] = useState<WindowRow[]>([{ diluentId: firstDpg, share: "", weighed: "" }]);
   const [drive, setDrive] = useState<"material" | "total" | null>(null);
@@ -146,6 +153,8 @@ export function NewDilution({
               ))}
             </span>
           </div>
+
+          {!sourceId && factoryOf(materialId) && <p className="hint" role="note">{w.pureButFactory}</p>}
 
           <label className="field nd-target">
             {mode === "have" ? w.haveTarget : t.target}
