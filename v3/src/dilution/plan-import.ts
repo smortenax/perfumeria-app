@@ -1,7 +1,7 @@
 import { Ratio } from "../core/arith/ratio";
 import type { Catalog, CatalogMaterial as Material } from "../db/catalog";
 import { fold } from "../db/search";
-import { parseCsvRecords } from "../lib/csv";
+import { parseCsv } from "../lib/csv";
 import { percentToFraction } from "../format/percent";
 import type { WeighRow } from "./weigh";
 
@@ -56,27 +56,73 @@ export const WEIGHED_COLUMNS = ["material_weighed_g", "diluent_weighed_g", "tare
 
 export type ReadPlan = { readonly ok: true; readonly rows: readonly PlannedDilution[] } | { readonly ok: false; readonly missing: readonly string[] };
 
-/** The decimal comma of a European sheet, as a point; spaces out. */
-const num = (x: string | undefined) => (x ?? "").trim().replace(",", ".");
+/** The decimal comma of a European sheet, as a point; spaces and a trailing «%» out («0,5 %» → «0.5»). */
+const num = (x: string | undefined) => (x ?? "").trim().replace(",", ".").replace(/\s*%$/, "");
 
-/** Reads the file (CSV with commas, or tabs as pasted from a sheet). */
+/** A bottle as a sheet writes it: «20 ml», «20ml», «20» → «20». */
+const ml = (x: string | undefined) => num(x).replace(/\s*ml$/i, "");
+
+/**
+ * The lab's own sheet writes its headers in Spanish (diluciones-25-nov.xlsx: «Material», «Frasco»,
+ * «Diluyente», «% del material de partida», «% objetivo», «Total objetivo (g)», «Material a pesar (g)»,
+ * «Material real (g)», «Diluyente a añadir (g)», «Diluyente real (g)», «Notas»). Each is read as its
+ * column; a header is compared without case, accents or spaces.
+ */
+const HEADER_ALIASES: Record<string, string> = {
+  material: "material",
+  "% objetivo": "fraction_pct",
+  "% final": "fraction_pct",
+  "% del material de partida": "from_pct",
+  "% de partida": "from_pct",
+  frasco: "bottle_ml",
+  "frasco (ml)": "bottle_ml",
+  "total objetivo (g)": "batch_g",
+  "material a pesar (g)": "material_g",
+  diluyente: "diluent",
+  "diluyente a anadir (g)": "diluent_g",
+  "material real (g)": "material_weighed_g",
+  "diluyente real (g)": "diluent_weighed_g",
+  "tara (g)": "tare_g",
+  tara: "tare_g",
+  "lleno (g)": "full_g",
+  "peso lleno (g)": "full_g",
+  notas: "note",
+  nota: "note",
+};
+const headerKey = (h: string): string => {
+  const clean = h.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/\s+/g, " ").trim();
+  return HEADER_ALIASES[clean] ?? clean;
+};
+
+/**
+ * Reads the file (CSV with commas, or tabs as pasted from a sheet, or the rows of an .xlsx). The header
+ * is the first row with the column «material»: the title and instructions a sheet has above it are
+ * skipped, and the table ends at its first blank row (below it, a sheet has its totals and notes).
+ */
 export function readDilutionPlan(text: string): ReadPlan {
-  const clean = text.replace(/^﻿/, "");
-  const firstLine = clean.split(/\r?\n/, 1)[0] ?? "";
-  const tabbed = firstLine.includes("\t") && !firstLine.includes(",");
-  const records = tabbed ? tabRecords(clean) : parseCsvRecords(clean);
-  const header = tabbed ? firstLine.split("\t").map((h) => h.trim()) : Object.keys(records[0] ?? {}).map((h) => h.trim());
+  return readDilutionRows(gridOf(text));
+}
+
+/** The same, from rows already split into cells (an .xlsx, lib/xlsx.ts). */
+export function readDilutionRows(grid: readonly (readonly string[])[]): ReadPlan {
+  const at = grid.findIndex((row) => row.some((c) => headerKey(c) === "material"));
+  if (at < 0) return { ok: false, missing: [...REQUIRED] };
+  const header = grid[at].map(headerKey);
   const missing = REQUIRED.filter((c) => !header.includes(c));
-  if (records.length === 0 && header.length <= 1) return { ok: false, missing: [...REQUIRED] };
   if (missing.length > 0) return { ok: false, missing };
-  const rows = records.map((r, i) => {
-    const get = (k: string) => (r[k] ?? r[` ${k}`] ?? "").trim();
+  const body = grid.slice(at + 1);
+  const blank = body.findIndex((row) => row.every((c) => c.trim() === ""));
+  const rows = (blank < 0 ? body : body.slice(0, blank)).map((cells, i) => {
+    const get = (k: string) => {
+      const col = header.indexOf(k);
+      return col < 0 ? "" : (cells[col] ?? "").trim();
+    };
     return {
-      line: i + 2,
+      line: at + i + 2,
       material: get("material"),
       fractionPct: num(get("fraction_pct")),
       fromPct: num(get("from_pct")),
-      bottleMl: num(get("bottle_ml")),
+      bottleMl: ml(get("bottle_ml")),
       batchG: num(get("batch_g")),
       materialG: num(get("material_g")),
       diluent: get("diluent"),
@@ -94,10 +140,12 @@ export function readDilutionPlan(text: string): ReadPlan {
   return { ok: true, rows: rows.filter((r) => r.material !== "") };
 }
 
-function tabRecords(text: string): Record<string, string>[] {
-  const [head = "", ...lines] = text.split(/\r?\n/);
-  const names = head.split("\t").map((h) => h.trim());
-  return lines.filter((l) => l.trim()).map((l) => Object.fromEntries(l.split("\t").map((v, i) => [names[i] ?? `c${i}`, v])));
+/** Text as rows of cells: by tabs when its lines have tabs and no commas (pasted from a sheet), else CSV. */
+function gridOf(text: string): string[][] {
+  const clean = text.replace(/^\uFEFF/, "");
+  const lines = clean.split(/\r?\n/);
+  const tabbed = lines.some((l) => l.includes("\t"));
+  return tabbed ? lines.map((l) => l.split("\t")) : parseCsv(clean);
 }
 
 /** What a row still needs before it can be weighed. */
@@ -175,7 +223,8 @@ export function matchDilutionPlan(rows: readonly PlannedDilution[], catalog: Cat
     const by = materialId ? (exact.length ? "name" : "similar") : null;
     if (found.length === 0) problems.push("material");
     if (found.length > 1) problems.push("materialTwice");
-    const diluentId = bySolvent.get(fold(planned.diluent))?.[0] ?? null;
+    // «Alcohol 96º», «Ethanol 96 %»: the diluent without its strength, if not by its whole name.
+    const diluentId = (bySolvent.get(fold(planned.diluent)) ?? bySolvent.get(fold(planned.diluent.replace(/\s*\d+([.,]\d+)?\s*(º|°|%)?\s*$/, ""))))?.[0] ?? null;
     if (!diluentId) problems.push("diluent");
     const target = fractionOf(planned.fractionPct);
     if (!target || target.cmp(Ratio.ONE) >= 0 || !from) problems.push("percent");
