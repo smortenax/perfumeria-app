@@ -8,7 +8,7 @@ import { dilutionLabel, linesOf, type LabelContent } from "./content";
 import { tapeOf, TAPES } from "./media";
 import { drawTwoLines, pixelsOf } from "./render";
 import { readJobs, removeJob, type PrintJob, type PrintLine } from "./jobs";
-import { canReachPrinter, connectP15, printLabel } from "./printer";
+import { canReachPrinter, connectP15, printRun } from "./printer";
 import "./labels.css";
 import { readStored, writeStored } from "../storage";
 
@@ -36,6 +36,8 @@ export function Labels({ data, all }: { data: GlossaryData; all: readonly { mate
   const [printer, setPrinter] = useState<PrinterAdapter | null>(null);
   const [status, setStatus] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  // The labels a run did not get to (stopped, or the link dropped): «Print the remaining N».
+  const [left, setLeft] = useState<readonly PrintLine[]>([]);
   const stop = useRef(false);
 
   const materialOf = (id: string) => data.catalog.materials.get(id);
@@ -80,28 +82,23 @@ export function Labels({ data, all }: { data: GlossaryData; all: readonly { mate
       return null;
     }
   };
-  /** Prints these labels one after another; connects first when the printer is not yet. */
+  /** Prints these labels one after another; connects first when the printer is not yet. What is left after a stop or a lost link can be printed later. */
   const print = async (list: readonly PrintLine[]) => {
     if (list.length === 0) return;
-    const to = printer ?? (await connect());
+    const to = printer?.connected ? printer : await connect();
     if (!to) return;
     setBusy(true);
+    setLeft([]);
     stop.current = false;
-    try {
-      for (const [i, x] of list.entries()) {
-        if (stop.current) {
-          setStatus(t.stopped(i, list.length));
-          return;
-        }
-        setStatus(t.printing(i + 1, list.length));
-        await printLabel(to, pixelsOf(drawTwoLines(x.big, x.small, tape).canvas), tape, flip);
-      }
-      setStatus(t.printed(list.length));
-    } catch (e) {
-      setStatus(t.failed(e instanceof Error ? e.message : String(e)));
-    } finally {
-      setBusy(false);
-    }
+    const end = await printRun(to, list.map((x) => () => pixelsOf(drawTwoLines(x.big, x.small, tape).canvas)), tape, flip, {
+      onLabel: (i) => setStatus(t.printing(i + 1, list.length)),
+      stopped: () => stop.current,
+    });
+    setBusy(false);
+    if (end.why === "ok") return setStatus(t.printed(list.length));
+    if (end.why === "lost") setPrinter(null);
+    setLeft(list.slice(end.done));
+    setStatus(end.why === "stopped" ? t.stopped(end.done, list.length) : end.why === "lost" ? t.lost(end.done, list.length) : t.failed(end.message ?? ""));
   };
   useEffect(() => () => void printer?.close(), [printer]);
 
@@ -133,6 +130,7 @@ export function Labels({ data, all }: { data: GlossaryData; all: readonly { mate
               {t.print(picked.length)}
             </Button>
             {busy && <Button onClick={() => (stop.current = true)}>{t.stop}</Button>}
+            {!busy && left.length > 0 && <Button onClick={() => void print(left)}>{t.remaining(left.length)}</Button>}
           </>
         ) : (
           <p className="hint">{t.noBluetooth}</p>

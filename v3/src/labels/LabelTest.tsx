@@ -4,7 +4,7 @@ import { texts } from "../i18n/en";
 import { Button } from "../Button";
 import { tapeOf, TAPES, type Tape } from "./media";
 import { drawTwoLines, pixelsOf } from "./render";
-import { canReachPrinter, connectP15, printLabel } from "./printer";
+import { canReachPrinter, connectP15, printRun } from "./printer";
 import "./labels.css";
 import { readStored, writeStored } from "../storage";
 import { fixedNumber } from "../format/numbers";
@@ -56,17 +56,11 @@ export function LabelTest() {
   const print = async () => {
     if (!printer || rows.length === 0) return;
     setBusy(true);
-    try {
-      for (const [i, r] of rows.entries()) {
-        setStatus(t.printing(i + 1, rows.length));
-        await printLabel(printer, pixelsOf(drawTwoLines(r.big, r.small, tape).canvas), tape, flip);
-      }
-      setStatus(t.printed(rows.length));
-    } catch (e) {
-      setStatus(t.failed(e instanceof Error ? e.message : String(e)));
-    } finally {
-      setBusy(false);
-    }
+    // One label at a time, each once the one before has come out (printer.ts, printRun).
+    const end = await printRun(printer, rows.map((r) => () => pixelsOf(drawTwoLines(r.big, r.small, tape).canvas)), tape, flip, { onLabel: (i) => setStatus(t.printing(i + 1, rows.length)) });
+    setBusy(false);
+    if (end.why === "lost") setPrinter(null);
+    setStatus(end.why === "ok" ? t.printed(rows.length) : end.why === "lost" ? t.lost(end.done, rows.length) : t.failed(end.message ?? ""));
   };
 
   return (
