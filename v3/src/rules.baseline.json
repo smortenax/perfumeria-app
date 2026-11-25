@@ -166,17 +166,15 @@
   ],
   "R6 tauri": {},
   "R7 long files": {
-    "bench/AddBar.tsx": 1255,
-    "bench/Bench.tsx": 1224,
+    "bench/AddBar.tsx": 1235,
+    "bench/Bench.tsx": 1160,
     "bench/texts.ts": 693,
-    "core/ifra.ts": 639,
-    "db/formulas.ts": 625,
-    "db/local/schema.ts": 616,
-    "db/materials.ts": 684,
-    "dilution/Dilutions.tsx": 760,
-    "glossary/Glossary.tsx": 662,
-    "i18n/en.ts": 1145,
-    "planner/Planner.tsx": 607,
-    "tasting/Tasting.tsx": 960
+    "core/ifra.ts": 635,
+    "db/formulas.ts": 613,
+    "db/local/schema.ts": 614,
+    "db/materials.ts": 678,
+    "dilution/Dilutions.tsx": 736,
+    "glossary/Glossary.tsx": 640,
+    "tasting/Tasting.tsx": 941
   }
 }

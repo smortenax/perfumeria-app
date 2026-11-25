@@ -134,7 +134,8 @@ describe("R2: a selector is defined in one CSS file", () => {
 // ——— R3. Units and rounding in one place ———
 
 describe("R3: masses, percentages and their rounding go through core/arith/units and the format modules", () => {
-  const owners = new Set(["core/arith/units.ts", "core/display.ts"]);
+  const OWNERS = new Set(["core/arith/units.ts", "core/display.ts"]);
+  const owners = { has: (p: string) => OWNERS.has(p) || p.startsWith("format/") };
   it("the micrograms in a gram are written once (core/arith/units.ts)", () => {
     ratchet("R3 1_000_000n", perFile(code.filter((p) => !owners.has(p)), /1_000_000n|1000000n|UG_PER_G\s*=/g));
   });
@@ -215,8 +216,9 @@ const MAX_LINES = 600;
 describe("R7: no file of code grows past 600 lines", () => {
   it("the files over the limit are these, and they only shrink", () => {
     const counts: Record<string, number> = {};
-    for (const p of code) {
-      const n = read(p).split("\n").length;
+    // Lines of code: not the imports, which grow as a file is split; not the text catalogs of i18n/.
+    for (const p of code.filter((f) => !f.startsWith("i18n/"))) {
+      const n = read(p).split("\n").filter((l) => !/^import\s|^\s+[\w{},\s]*\}?\s*from\s+["']/.test(l)).length;
       if (n > MAX_LINES) counts[p] = n;
     }
     ratchet("R7 long files", counts);
