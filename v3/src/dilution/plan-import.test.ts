@@ -37,7 +37,7 @@ const materials = [
   m("thujopsene", "Thujopsene natural"),
   m("dpg", "DPG (dipropylene glycol)", { ownerId: null, solvent: true, abbreviation: "Dipr", aliases: ["Dipropylene glycol"] }),
   m("ipm", "IPM (isopropyl myristate)", { ownerId: null, solvent: true, abbreviation: "IsM" }),
-  m("eth", "Ethanol", { ownerId: null, solvent: true, aliases: ["Perfumer's alcohol"] }),
+  m("eth", "Ethanol", { ownerId: null, solvent: true, aliases: ["Alcohol", "Perfumer's alcohol"] }),
 ];
 const catalog = {
   materials: new Map(materials.map((x) => [x.id, x])),
@@ -199,5 +199,33 @@ describe("a table with what is already weighed (the user, 2026-11-25: «agregar 
     const s = state("olibanum");
     expect([s.status, s.goal.diluents[0]]).toEqual(["waiting", 13_482_000n]);
     expect(state("cocoa").status).toBe("waiting");
+  });
+});
+
+describe("the lab's sheet pasted from Excel (2026-11-25)", () => {
+  const pasted = [
+    "Diluciones de la tanda · pedido de Perfumiarz del 19-nov",
+    "Cómo se usa:",
+    "Material\tFrasco\tDiluyente\t% del material de partida\t% objetivo\tTotal objetivo (g)\tMaterial a pesar (g)\tMaterial real (g)\tDiluyente a añadir (g)\tDiluyente real (g)\tTotal real (g)\t% exacto\tDiferencia con el objetivo\tNotas",
+    "Wool Absolute (Biolandes)\t20 ml\tAlcohol 96º\t100,0%\t10,0%\t15,000\t1,500\t\t\t\t\t\t\tpasta: alcohol en frío, agitando",
+    "Hydroxyambran (Ventos)\t20 ml\tAlcohol 96º\t50,0%\t10,0%\t15,000\t3,000\t\t\t\t\t\t\t",
+    "\t\t\t\t\t\t\t\t\t\t\t\t\t",
+    "Alcohol 96º\t\t\t\t\t\t\t\t\t\t\t\t\t",
+  ].join("\n");
+  const plan = readDilutionPlan(pasted);
+  const found = plan.ok ? matchDilutionPlan(plan.rows, catalog, "me") : [];
+
+  it("finds the Spanish header below the title, reads «20 ml» and «10,0%», and stops at the blank row", () => {
+    expect(plan.ok && plan.rows.map((r) => [r.line, r.material, r.bottleMl, r.fromPct, r.fractionPct, r.batchG, r.materialG, r.note])).toEqual([
+      [4, "Wool Absolute (Biolandes)", "20", "100.0", "10.0", "15.000", "1.500", "pasta: alcohol en frío, agitando"],
+      [5, "Hydroxyambran (Ventos)", "20", "50.0", "10.0", "15.000", "3.000", ""],
+    ]);
+  });
+
+  it("«Alcohol 96º» is the ethanol", () => {
+    expect(found.map((x) => [x.materialId, x.diluentId, x.sourceId, x.problems])).toEqual([
+      ["wool", "eth", null, []],
+      ["hydroxy", "eth", "hydroxy-50", []],
+    ]);
   });
 });

@@ -829,10 +829,11 @@ export const texts = {
     },
     importPlan: {
       title: "Import planned dilutions",
-      hint: "A table of the bottles to make, one row each (material, fraction_pct, from_pct, bottle_ml, batch_g, diluent…). What is already weighed comes in too (material_weighed_g, diluent_weighed_g, tare_g, full_g). Each row is matched with your materials; the rows found go to «Today's dilutions», grouped by bottle size. Nothing is saved until you press Save.",
-      file: "Open a .csv",
+      hint: "A table of the bottles to make, one row each (material, fraction_pct, from_pct, bottle_ml, batch_g, diluent…; or the lab's sheet in Spanish: Material, Frasco, Diluyente, % objetivo…). What is already weighed comes in too (material_weighed_g, diluent_weighed_g, tare_g, full_g). Each row is matched with your materials; the rows found go to «Today's dilutions», grouped by bottle size. Nothing is saved until you press Save.",
+      file: "Open an .xlsx or .csv",
       drop: "or drop the file here",
       paste: "Or paste the table",
+      unreadable: "This file is not read: it is not an .xlsx or a text table.",
       missingColumns: (cols: string) => `This table has no column ${cols}: it is not read.`,
       count: (rows: number, ready: number) => `${rows} rows · ${ready} ready to weigh`,
       col: { line: "Line", material: "Material", percent: "%", bottle: "Bottle", diluent: "Diluent", status: "" },

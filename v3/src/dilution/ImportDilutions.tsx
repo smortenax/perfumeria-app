@@ -5,6 +5,7 @@ import { texts } from "../i18n/en";
 import { shortName } from "./grid";
 import { matchDilutionPlan, readDilutionPlan, weighRowsOf, withChoice, type PlanMatch } from "./plan-import";
 import type { WeighRow } from "./weigh";
+import { readXlsxRows } from "../lib/xlsx";
 
 const t = texts.dilutions.importPlan;
 
@@ -34,6 +35,15 @@ export function ImportDilutions({ data, userId, newKey, onAdd, onCancel }: { dat
     setChoices(new Map());
     setSize("");
   };
+  const [fileProblem, setFileProblem] = useState(false);
+  // An .xlsx (the lab's sheet) is read here and shown as the table pasted, with tabs: what was read is in view.
+  const open = (file: File | undefined) => {
+    if (!file) return;
+    setFileProblem(false);
+    const xlsx = /\.xlsx$/i.test(file.name) || file.type === "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+    const reading = xlsx ? file.arrayBuffer().then(readXlsxRows).then((rows) => rows.map((r) => r.map((c) => c.replace(/[\t\r\n]+/g, " ")).join("\t")).join("\n")) : file.text();
+    reading.then(load, () => setFileProblem(true));
+  };
   const nameOf = (id: string | null) => (id ? (data.catalog.materials.get(id)?.name ?? "—") : null);
   const bottleOf = (id: string | null) => (id ? [...data.catalog.dilutions.values()].flat().find((d) => d.id === id) : undefined);
 
@@ -44,7 +54,7 @@ export function ImportDilutions({ data, userId, newKey, onAdd, onCancel }: { dat
       onDragOver={(e) => e.preventDefault()}
       onDrop={(e) => {
         e.preventDefault();
-        void e.dataTransfer.files[0]?.text().then(load);
+        open(e.dataTransfer.files[0]);
       }}
     >
       <h4 className="weigh-title">{t.title}</h4>
@@ -52,12 +62,17 @@ export function ImportDilutions({ data, userId, newKey, onAdd, onCancel }: { dat
       <label className="field" htmlFor={ids.file}>
         {t.file} <span className="hint">{t.drop}</span>
       </label>
-      <input id={ids.file} type="file" accept=".csv,.tsv,.txt,text/csv" onChange={(e) => void e.target.files?.[0]?.text().then(load)} />
+      <input id={ids.file} type="file" accept=".xlsx,.csv,.tsv,.txt,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" onChange={(e) => open(e.target.files?.[0])} />
       <label className="field" htmlFor={ids.paste}>
         {t.paste}
       </label>
       <textarea id={ids.paste} rows={3} value={text} onChange={(e) => load(e.target.value)} spellCheck={false} />
 
+      {fileProblem && (
+        <p className="import-problem" role="alert">
+          {t.unreadable}
+        </p>
+      )}
       {read && !read.ok && (
         <p className="import-problem" role="alert">
           {t.missingColumns(read.missing.join(", "))}
