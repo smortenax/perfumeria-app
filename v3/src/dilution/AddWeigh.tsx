@@ -15,7 +15,8 @@ import { MaterialPicker } from "../MaterialPicker";
 import { Button } from "../Button";
 import type { SourceBottle } from "./calc";
 import { nominalPercent, shortName } from "./grid";
-import { labelOf, rowState, shareText, stillToPour, tally, type RowState, type WeighDiluent, type WeighRow } from "./weigh";
+import { bottleCheck, describeRow, groupsOf, labelOf, rowState, shareText, stillToPour, tally, type RowState, type WeighDiluent, type WeighRow } from "./weigh";
+import { ImportDilutions } from "./ImportDilutions";
 import { percentToFraction } from "../format/percent";
 import { gramsText, gramsToUg } from "../format/mass";
 
@@ -96,6 +97,10 @@ export function AddWeigh({
   const [pickerKey, setPickerKey] = useState(0);
   const [saving, setSaving] = useState(false);
   const [errors, setErrors] = useState<ReadonlyMap<string, string>>(new Map());
+  const [importing, setImporting] = useState(false);
+  // The groups by bottle size, only when some row has a size (an imported plan).
+  const groups = rows.some((r) => r.bottleMl) ? groupsOf(rows) : [];
+  const groupStart = new Map(groups.map((g) => [g.keys[0], g]));
 
   const states = rows.map((row) => ({ row, state: rowState(row, sourceOf(row.sourceId ? bottleById.get(row.sourceId) : undefined)) }));
   const count = tally(states.map((s) => s.state));
@@ -113,7 +118,7 @@ export function AddWeigh({
     const saved: string[] = [];
     const lines: PrintLine[] = [];
     for (const { row, state } of saveable) {
-      const common = { materialId: row.materialId, label: labelOf(row.target), madeOn, description: row.note, sourceDilutionId: row.sourceId };
+      const common = { materialId: row.materialId, label: labelOf(row.target), madeOn, description: describeRow(row, madeOn), sourceDilutionId: row.sourceId };
       try {
         if (state.status === "weighed") {
           await createBottle(local.db, local.userId, {
@@ -129,7 +134,9 @@ export function AddWeigh({
         const shares = state.real ?? state.aimed;
         if (shares) {
           const d = { id: "", fraction: shares.fraction, solvent: null, madeOn, description: null, label: common.label, materialMassUg: null, sourceDilutionId: null, archivedAt: null, diluents: shares.diluents.map((x) => ({ id: "", diluentId: x.diluentId, massUg: x.massUg, fraction: x.fraction })) };
-          lines.push(linesOf(dilutionLabel((id) => data.catalog.materials.get(id), row.materialId, d)));
+          // With the full weight (and tare) weighed, the label carries them to reweigh the bottle (labels/content.ts).
+          const { grossUg, tareUg } = bottleCheck(row);
+          lines.push(linesOf(dilutionLabel((id) => data.catalog.materials.get(id), row.materialId, d, grossUg !== null ? { fullUg: grossUg, tareUg } : null)));
         }
       } catch (e) {
         failed.set(row.key, texts.dilutions.failed(e instanceof Error ? e.message : String(e)));
@@ -149,8 +156,25 @@ export function AddWeigh({
           {t.madeOn}
           <input type="date" value={madeOn} onChange={(e) => setMadeOn(e.target.value)} />
         </label>
+        {!importing && (
+          <button type="button" className="link" onClick={() => setImporting(true)}>
+            {t.importButton}
+          </button>
+        )}
       </div>
       <p className="weigh-hint">{t.hint}</p>
+      {importing && (
+        <ImportDilutions
+          data={data}
+          userId={local.userId}
+          newKey={newKey}
+          onAdd={(added) => {
+            setRows((list) => [...list, ...added]);
+            setImporting(false);
+          }}
+          onCancel={() => setImporting(false)}
+        />
+      )}
       <div className="weigh-sheet">
         <div className="weigh-head" aria-hidden="true">
           <span>{t.head.material}</span>
@@ -168,7 +192,12 @@ export function AddWeigh({
           </span>
         </div>
         <ol className="weigh-rows">
-          {states.map(({ row, state }) => (
+          {states.map(({ row, state }) => [
+            groupStart.has(row.key) && (
+              <li key={`g-${row.key}`} className="weigh-group">
+                {t.group(groupStart.get(row.key)!.ml, groupStart.get(row.key)!.keys.length)}
+              </li>
+            ),
             <WeighLine
               key={row.key}
               data={data}
@@ -187,8 +216,8 @@ export function AddWeigh({
               remove={() => setRows((list) => list.filter((r) => r.key !== row.key))}
               short={short}
               nameOf={nameOf}
-            />
-          ))}
+            />,
+          ])}
           <li className="weigh-add">
             <span className="weigh-add-plus" aria-hidden="true">
               +
@@ -415,6 +444,11 @@ function WeighLine({
                     {t.menu.removeDiluent(d.diluentId ? short(d.diluentId) : t.diluent)}
                   </button>
                 ))}
+              {row.tare === undefined && (
+                <button type="button" role="menuitem" onClick={act(() => change((r) => ({ ...r, tare: "", gross: "" })))}>
+                  {t.menuBottle}
+                </button>
+              )}
               {!noteOpen && (
                 <button type="button" role="menuitem" onClick={act(onNote)}>
                   {t.menu.note}
@@ -471,6 +505,7 @@ function WeighLine({
             </div>
           </div>
         ))}
+        {row.tare !== undefined && <BottleWeights row={row} name={name} change={change} />}
         {noteOpen && (
           <label className="weigh-note">
             <span className="sr-only">{t.aria.note(name)}</span>
@@ -497,6 +532,29 @@ function Bar({ state, colour, name, diluentNames }: { state: RowState; colour: s
           style={{ flexGrow: drawn(s.share, 6), ...(s.part === "material" && colour ? { ["--seg" as string]: colour } : {}) }}
         />
       ))}
+    </div>
+  );
+}
+
+/**
+ * The bottle itself on the scale (the user's inbox, 2026-11-25): the empty bottle and the full one,
+ * closed, kept with the bottle to reweigh it later; and how far the full weight is from tare + weights.
+ */
+function BottleWeights({ row, name, change }: { row: WeighRow; name: string; change: (update: (row: WeighRow) => WeighRow) => void }) {
+  const { offUg } = bottleCheck(row);
+  return (
+    <div className="weigh-bottle">
+      <span className="weigh-bottle-label">{t.bottleLine}</span>
+      <label className="weigh-unit" data-unit="g">
+        <span className="weigh-bottle-what">{t.tare}</span>
+        <input className="weigh-cell n" inputMode="decimal" value={row.tare ?? ""} aria-label={t.bottleAria.tare(name)} onChange={(e) => change((r) => ({ ...r, tare: e.target.value }))} />
+      </label>
+      <label className="weigh-unit" data-unit="g">
+        <span className="weigh-bottle-what">{t.gross}</span>
+        <input className="weigh-cell n" inputMode="decimal" value={row.gross ?? ""} aria-label={t.bottleAria.gross(name)} onChange={(e) => change((r) => ({ ...r, gross: e.target.value }))} />
+      </label>
+      {offUg !== null && offUg !== 0n && <span className="weigh-why">{t.off(gramsText(offUg))}</span>}
+      {row.plan && (row.plan.materialG || row.plan.diluentG) && <span className="muted">{t.planSays(row.plan.materialG || "—", row.plan.diluentG || "—")}</span>}
     </div>
   );
 }

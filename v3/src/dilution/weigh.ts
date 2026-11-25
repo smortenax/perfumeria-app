@@ -1,7 +1,7 @@
 import { Ratio } from "../core/arith/ratio";
 import { bottleOf, nominalBottle, plan, planFromDiluent, planFromMaterial, storedBottle, type PlannedDiluent, type Shares, type SourceBottle } from "./calc";
 import { percentToFraction } from "../format/percent";
-import { gramsToUg } from "../format/mass";
+import { gramsText, gramsToUg } from "../format/mass";
 import { fixedRatio } from "../format/numbers";
 
 /**
@@ -42,6 +42,14 @@ export interface WeighRow {
   readonly diluents: readonly WeighDiluent[];
   /** A note for the bottle, from the row's «⋯». */
   readonly note: string;
+  /** The bottle's size in ml, from an imported plan: the rows are grouped by it. */
+  readonly bottleMl?: string;
+  /** The empty bottle on the scale («12.345»), or «»; absent when the row does not record it. */
+  readonly tare?: string;
+  /** The full bottle, closed, for reweighing it later («27.380»), or «». */
+  readonly gross?: string;
+  /** What the imported plan said, only to compare: its grams and its typical use. */
+  readonly plan?: { readonly materialG: string; readonly diluentG: string; readonly typicalUsePct: string; readonly ifraCat4: string };
 }
 
 export type RowStatus = "weighed" | "asIs" | "waiting";
@@ -173,6 +181,8 @@ export function rowState(row: WeighRow, source?: SourceBottle): RowState {
     }
     return { status: "weighed", need: null, goal, ...base, real, diff: real.fraction.sub(target), aimed, bar, toPour };
   }
+  // A row from an imported plan is a bottle still to make, never one «already made»: it waits for its weights.
+  if (none && row.plan) return { status: "waiting", need: "weights", goal, ...base, real: null, diff: null, aimed, bar, toPour };
   if (none) return { status: "asIs", need: null, goal, ...base, real: null, diff: null, aimed, bar, toPour };
   return { status: "waiting", need: "weights", goal, ...base, real: null, diff: null, aimed, bar, toPour };
 }
@@ -209,3 +219,47 @@ export const shareText = (share: Ratio): string => {
   const p = share.mul(HUNDRED);
   return p.isInteger() ? p.num.toString() : fixedRatio(p, 1);
 };
+
+/**
+ * The bottle's own weights (the user's inbox, 2026-11-25: «tara, material, diluyente, peso lleno»): the
+ * tare and the full weight, and how far the full weight is from tare + what was weighed in (a drop
+ * lost, a misread). null where a figure is missing or is not grams.
+ */
+export function bottleCheck(row: WeighRow): { readonly tareUg: bigint | null; readonly grossUg: bigint | null; readonly offUg: bigint | null } {
+  const tareUg = row.tare?.trim() ? gramsToUg(row.tare) : null;
+  const grossUg = row.gross?.trim() ? gramsToUg(row.gross) : null;
+  const parts = [row.weighed, ...row.diluents.map((d) => d.weighed)].map((x) => (x.trim() ? gramsToUg(x) : null));
+  const inside = parts.every((x) => x !== null) ? parts.reduce<bigint>((a, x) => a + x!, 0n) : null;
+  const offUg = tareUg !== null && grossUg !== null && inside !== null ? grossUg - tareUg - inside : null;
+  return { tareUg, grossUg, offUg };
+}
+
+/**
+ * What the bottle keeps of its weights, in its description, so the full weight is there to reweigh it
+ * (propuesta de la sesión: the bottle has no column for them yet; text, the same in every device):
+ * «Bottle 15 ml · tare 12.345 g · full 27.380 g on 2026-11-25».
+ */
+export function bottleWeightsText(row: WeighRow, madeOn: string): string {
+  const { tareUg, grossUg } = bottleCheck(row);
+  const bits = [
+    row.bottleMl?.trim() ? `Bottle ${row.bottleMl.trim()} ml` : null,
+    tareUg !== null ? `tare ${gramsText(tareUg)} g` : null,
+    grossUg !== null ? `full ${gramsText(grossUg)} g${madeOn ? ` on ${madeOn}` : ""}` : null,
+  ].filter((x) => x !== null);
+  return bits.join(" · ");
+}
+
+/** The note a bottle saves with: the row's note and, on a line of its own, its weights. */
+export const describeRow = (row: WeighRow, madeOn: string): string => [row.note.trim(), bottleWeightsText(row, madeOn)].filter((x) => x).join("\n");
+
+/** The groups of rows by bottle size, in their order: «15» then «30»; rows without a size, «». */
+export function groupsOf(rows: readonly WeighRow[]): { readonly ml: string; readonly keys: readonly string[] }[] {
+  const out: { ml: string; keys: string[] }[] = [];
+  for (const r of rows) {
+    const ml = r.bottleMl?.trim() ?? "";
+    const last = out[out.length - 1];
+    if (last && last.ml === ml) last.keys.push(r.key);
+    else out.push({ ml, keys: [r.key] });
+  }
+  return out;
+}
