@@ -4,8 +4,7 @@ import type { Dilution } from "../db/catalog";
 import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
 import { Button } from "../Button";
-import { dilutionLabel, labelSheet, linesOf, type LabelContent } from "./content";
-import { xlsxOf } from "./xlsx";
+import { dilutionLabel, linesOf, type LabelContent } from "./content";
 import { tapeOf, TAPES } from "./media";
 import { drawTwoLines, pixelsOf } from "./render";
 import { readJobs, removeJob, type PrintJob, type PrintLine } from "./jobs";
@@ -68,18 +67,6 @@ export function Labels({ data, all }: { data: GlossaryData; all: readonly { mate
   const pickFlip = (on: boolean) => {
     setFlip(on);
     writeStored("labelFlip", on ? "1" : "0");
-  };
-  /** The chosen bottles (or, with none chosen, every one shown) as a sheet for the Marklife app's Excel import. */
-  const downloadSheet = () => {
-    const list = picked.length > 0 ? picked : rows;
-    const bytes = xlsxOf(labelSheet(list.map((x) => x.label)));
-    const url = URL.createObjectURL(new Blob([bytes as BlobPart], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }));
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `labels-${new Date().toISOString().slice(0, 10)}.xlsx`;
-    a.click();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-    setStatus(t.sheetSaved(list.length));
   };
   const connect = async (): Promise<PrinterAdapter | null> => {
     setStatus(null);
@@ -150,9 +137,6 @@ export function Labels({ data, all }: { data: GlossaryData; all: readonly { mate
         ) : (
           <p className="hint">{t.noBluetooth}</p>
         )}
-        <Button disabled={rows.length === 0} onClick={downloadSheet} title={t.sheetHint}>
-          {t.sheet(picked.length > 0 ? picked.length : rows.length)}
-        </Button>
         {status && (
           <span className="labels-status" role="status">
             {status}

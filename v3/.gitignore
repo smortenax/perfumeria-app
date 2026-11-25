@@ -17,3 +17,7 @@ Thumbs.db
 
 # Estado local de wrangler (publicar en Cloudflare)
 .wrangler
+
+# Lo que tsc -b emite de vite.config.ts: Vite leería el .js antes que el .ts
+vite.config.js
+vite.config.d.ts
