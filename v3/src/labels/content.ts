@@ -2,6 +2,7 @@ import type { Dilution } from "../db/catalog";
 import { decimal } from "../format/numbers";
 import { Ratio } from "../core/arith/ratio";
 import { shortName } from "../dilution/grid";
+import { gramsText } from "../format/mass";
 import { labelCode } from "./code";
 
 /** What a material lends a label. */
@@ -18,18 +19,33 @@ export interface LabelContent {
   readonly title: string;
   /** «10 % in DPG», «2 % in Ethanol + DPG», «Pure». */
   readonly strength: string;
-  /** «CAS 8007-75-8 · 2026-11-18»; what is unknown is left out, never guessed. */
+  /**
+   * «2026-11-25 · Full 23.456 g · Tare 12.345 g» when the bottle was weighed full, so it can be
+   * reweighed; otherwise «CAS 8007-75-8 · 2026-11-18». What is unknown is left out, never guessed.
+   */
   readonly footer: string;
-  /** Apart, for the spreadsheet: «8007-75-8» and «2026-11-18», or «» when unknown. */
+  /** Apart: «8007-75-8» and «2026-11-18», or «» when unknown. */
   readonly cas: string;
   readonly date: string;
 }
 
-/** The label of one bottle of yours: material, its strength and diluents, CAS and the day it was made. */
+/** A bottle weighed full on the bench: the whole bottle and its empty glass, in micrograms. */
+export interface BottleWeights {
+  readonly fullUg: bigint;
+  readonly tareUg: bigint | null;
+}
+
+/**
+ * The label of one bottle of yours (the lab inbox, 2026-11-25: «cada dilución pesada sale con su
+ * etiqueta (`MATERIAL · % · disolvente · fecha`, peso lleno y tara)»): material, its strength and
+ * diluents big; the day and, when known, the full weight and the tare small, to reweigh it later.
+ * Without weights, the small line keeps the CAS.
+ */
 export function dilutionLabel(
   materialOf: (id: string) => LabelMaterial | undefined,
   materialId: string,
   d: Dilution,
+  weights?: BottleWeights | null,
 ): LabelContent {
   const material = materialOf(materialId);
   const diluents = d.diluents.length > 0 ? d.diluents.map((x) => shortName(materialOf(x.diluentId))).join(" + ") : (d.solvent?.trim() ?? "");
@@ -39,7 +55,10 @@ export function dilutionLabel(
     code: labelCode("dilution", d.id),
     title: material ? shortName(material) : "—",
     strength: pure ? "Pure" : diluents ? `${pct} in ${diluents}` : pct,
-    footer: [material?.cas ? `CAS ${material.cas}` : null, d.madeOn].filter((x): x is string => !!x).join(" · "),
+    footer: (weights
+      ? [d.madeOn, `Full ${gramsText(weights.fullUg)} g`, weights.tareUg !== null ? `Tare ${gramsText(weights.tareUg)} g` : null]
+      : [material?.cas ? `CAS ${material.cas}` : null, d.madeOn]
+    ).filter((x): x is string => !!x).join(" · "),
     cas: material?.cas ?? "",
     date: d.madeOn ?? "",
   };
@@ -64,9 +83,3 @@ export function labelPercent(fraction: Ratio, label: string | null): string {
 
 /** A label's two lines, as the test page proved them on the P15 (2026-11-24): material and strength big, CAS and date small. */
 export const linesOf = (l: LabelContent): { big: string; small: string } => ({ big: `${l.title} · ${l.strength}`, small: l.footer });
-
-/** The sheet for the Marklife app's Excel import: a header row, then one row per label (V3-110). */
-export const SHEET_HEADER = ["Material", "Strength", "CAS", "Date", "Code"] as const;
-export function labelSheet(labels: readonly LabelContent[]): string[][] {
-  return [[...SHEET_HEADER], ...labels.map((l) => [l.title, l.strength, l.cas, l.date, l.code])];
-}
