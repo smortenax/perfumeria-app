@@ -6,8 +6,14 @@ import type { Catalog, Dilution } from "./catalog";
  * bottle keeps it (calc.ts bottleOf). Weighing it as if it were pure would lose it.
  */
 
-/** A bottle that came made (batch 42, «de fábrica»): said by its name or its note. */
-export const isFactoryBottle = (d: Dilution): boolean => /f[aá]brica|factory/i.test(`${d.label ?? ""} ${d.description ?? ""}`);
+/**
+ * A bottle that came made (batch 42, «de fábrica»): said by its name or its note. Not one made from it:
+ * batch 8 wrote those without their source, as «10 % en DPG — de cata, rebajado del de fábrica».
+ */
+export const isFactoryBottle = (d: Dilution): boolean => {
+  const text = `${d.label ?? ""} ${d.description ?? ""}`;
+  return /f[aá]brica|factory/i.test(text) && !/del de f[aá]brica|rebajad|from the factory/i.test(text);
+};
 
 /** The material's factory bottle, not archived, that says its diluents (the newest), or undefined. */
 export function factoryBottleOf(catalog: Catalog, materialId: string): Dilution | undefined {
