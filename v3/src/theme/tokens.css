@@ -70,6 +70,24 @@
   --size-body-read: 1rem;
 
   /* Space, radius, sizes */
+  /* The space scale (V3-111, rule R1): every gap, padding and margin of the app's CSS, in px, with
+     the values the CSS already used, so that nothing moves; the off-scale ones stay written by hand,
+     counted in src/rules.baseline.json, for the design pass to place. */
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-14: 14px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-28: 28px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
   --space-inset: 1rem;
   --space-gap: 1rem;
   --radius-panel: 4px;

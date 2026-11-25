@@ -45,7 +45,7 @@ citado en el commit.** Un archivo nuevo empieza con tope 0.
 
 - **R1 · Diseño, desde los tokens.** Colores, tipografía, espacios, radios y medidas salen de
   `src/theme/tokens.css`. Nada de valores sueltos en el CSS (hex, `rgb()`, px o rem en `gap`,
-  `padding` o `margin`) ni de `style={{…}}` con valores fijos: una medida que solo cambia en
+  `padding` o `margin`: la escala `--space-N`, en px) ni de `style={{…}}` con valores fijos: una medida que solo cambia en
   ejecución (un ancho calculado) va como variable CSS (`style={{ "--w": … }}`) y su regla, en el CSS.
 - **R2 · Un selector, un archivo.** Cada pantalla tiene su CSS en su carpeta; lo común, en `theme/`.
   Una pantalla no importa el CSS de otra.
