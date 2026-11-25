@@ -1,0 +1,40 @@
+# Comprueba cada PR que toca la v3 antes de fusionarla (V3-111, regla R9): fusionar en main publica
+# (V3-99), así que lo que falla tiene que verse aquí, en la PR, y no en la publicación. Lo mismo que
+# el paso «Comprobaciones» de publicar-v3.yml, sin claves ni nube: tsc, pruebas (con las reglas duras
+# de src/rules.node.test.ts) y build.
+name: Comprobar v3
+
+on:
+  pull_request:
+    paths: ["v3/**", ".github/workflows/comprobar-v3.yml", ".github/workflows/publicar-v3.yml"]
+  workflow_dispatch:
+
+concurrency:
+  group: comprobar-v3-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  comprobar:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: v3
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: v3/package-lock.json
+
+      - run: npm ci
+
+      - name: Tipos
+        run: npx tsc -b
+
+      - name: Pruebas y reglas duras
+        run: npm test
+
+      - name: Build
+        run: npm run build
