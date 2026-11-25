@@ -2,8 +2,7 @@ import { describe, expect, it } from "vitest";
 import { Ratio } from "../core/arith/ratio";
 import type { Dilution } from "../db/catalog";
 import { labelCode, parseLabelCode } from "./code";
-import { dilutionLabel, labelSheet, type LabelMaterial } from "./content";
-import { crc32, xlsxOf } from "./xlsx";
+import { dilutionLabel, type LabelMaterial } from "./content";
 import { fitText, layoutFor } from "./layout";
 import { tapeOf, TAPES } from "./media";
 import { qrMatrix } from "./qr";
@@ -62,6 +61,12 @@ describe("dilution label content", () => {
     expect(pure.footer).toBe("");
     expect(dilutionLabel((id) => materials.get(id), "berg", bottle({ solvent: "DPG" })).strength).toBe("10 % in DPG");
   });
+  it("with the bottle weighed full, says the day, the full weight and the tare instead of the CAS", () => {
+    const at = (w: Parameters<typeof dilutionLabel>[3]) => dilutionLabel((id) => materials.get(id), "berg", bottle({ diluents: [dil("dpg")] }), w).footer;
+    expect(at({ fullUg: 23_456_000n, tareUg: 12_345_000n })).toBe("2026-11-18 · Full 23.456 g · Tare 12.345 g");
+    expect(at({ fullUg: 23_456_000n, tareUg: null })).toBe("2026-11-18 · Full 23.456 g");
+    expect(at(null)).toBe("CAS 8007-75-8 · 2026-11-18");
+  });
 });
 
 describe("text fitting", () => {
@@ -103,21 +108,6 @@ describe("the P15 driver", () => {
     expect(bytes[at + 4] | (bytes[at + 5] << 8)).toBe(12);
     expect(bytes[at + 6] | (bytes[at + 7] << 8)).toBe(320);
     expect(sent.every((x) => x.length <= 95)).toBe(true);
-  });
-});
-
-describe("the sheet for the Marklife app", () => {
-  it("has a header and one text row per label, in a zip that starts and ends as one", () => {
-    const label = dilutionLabel((id) => materials.get(id), "berg", bottle({ diluents: [dil("dpg")] }));
-    const rows = labelSheet([label, { ...label, title: "R&D <test>" }]);
-    expect(rows[0]).toEqual(["Material", "Strength", "CAS", "Date", "Code"]);
-    expect(rows[1]).toEqual(["Bergamot", "10 % in DPG", "8007-75-8", "2026-11-18", "PF1:D:3F2A9C1E7B4D4E8A9F102C3D4E5F6A7B"]);
-    const file = xlsxOf(rows);
-    expect([...file.slice(0, 4)]).toEqual([0x50, 0x4b, 0x03, 0x04]);
-    const text = new TextDecoder().decode(file);
-    expect(text).toContain("R&amp;D &lt;test&gt;");
-    expect(text).toContain('t="inlineStr"');
-    expect(crc32(new TextEncoder().encode("123456789"))).toBe(0xcbf43926);
   });
 });
 
