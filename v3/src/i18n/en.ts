@@ -754,6 +754,8 @@ export const texts = {
     printed: (n: number) => (n === 1 ? "Printed 1 label." : `Printed ${n} labels.`),
     stopped: (done: number, n: number) => `Stopped after ${done} of ${n}.`,
     stop: "Stop",
+    lost: (done: number, n: number) => `The printer dropped the Bluetooth link after ${done} of ${n}. Bring it closer, connect again and print the rest.`,
+    remaining: (n: number) => (n === 1 ? "Print the remaining 1" : `Print the remaining ${n}`),
     failed: (why: string) => `The printer did not answer: ${why}`,
     noBluetooth: "This browser cannot reach the printer. Open the app in Chrome or Edge on a computer, or in Chrome on Android.",
     search: "Search bottles",
