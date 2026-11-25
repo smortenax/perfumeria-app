@@ -829,7 +829,7 @@ export const texts = {
     },
     importPlan: {
       title: "Import planned dilutions",
-      hint: "A table of the bottles to make, one row each (material, fraction_pct, from_pct, bottle_ml, batch_g, diluent…). Each row is matched with your materials; the rows found go to «Today's dilutions», grouped by bottle size. Nothing is saved until you weigh them.",
+      hint: "A table of the bottles to make, one row each (material, fraction_pct, from_pct, bottle_ml, batch_g, diluent…). What is already weighed comes in too (material_weighed_g, diluent_weighed_g, tare_g, full_g). Each row is matched with your materials; the rows found go to «Today's dilutions», grouped by bottle size. Nothing is saved until you press Save.",
       file: "Open a .csv",
       drop: "or drop the file here",
       paste: "Or paste the table",
@@ -845,6 +845,8 @@ export const texts = {
       allBatches: "All",
       batch: (ml: string, n: number) => `${ml} ml · ${n}`,
       ok: "ready",
+      weighed: "weighed",
+      halfWeighed: "part weighed",
       problem: {
         material: () => "not among your materials",
         materialTwice: () => "two of yours have this name: pick one",

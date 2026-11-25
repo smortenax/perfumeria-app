@@ -13,7 +13,8 @@ import type { WeighRow } from "./weigh";
  * the file's grams are kept only to compare.
  *
  * The columns (the lab's table): material, fraction_pct, from_pct, bottle_ml, batch_g, material_g,
- * diluent, diluent_g, typical_use_pct, typical_use_source, ifra_cat4, note. «from_pct» under 100 means
+ * diluent, diluent_g, typical_use_pct, typical_use_source, ifra_cat4, note; and, if something was
+ * already weighed, material_weighed_g, diluent_weighed_g, tare_g, full_g (empty where not yet). «from_pct» under 100 means
  * the material is weighed from a factory dilution of yours (V3-67), at that %.
  *
  * Nothing is guessed: a material is found by its name, its shop product name or another name of yours;
@@ -40,7 +41,18 @@ export interface PlannedDilution {
   readonly typicalUseSource: string;
   readonly ifraCat4: string;
   readonly note: string;
+  /** What was already weighed, if the sheet says it (optional columns): the material (or its bottle), the diluent, the empty and the full bottle, in grams. */
+  readonly materialWeighedG: string;
+  readonly diluentWeighedG: string;
+  readonly tareG: string;
+  readonly fullG: string;
 }
+
+/**
+ * The optional columns of what was already weighed (the user, 2026-11-25: «agregar automaticamente lo
+ * que ya se ha pesado o hacerlo mixto»): a row with them comes in weighed, or half weighed.
+ */
+export const WEIGHED_COLUMNS = ["material_weighed_g", "diluent_weighed_g", "tare_g", "full_g"] as const;
 
 export type ReadPlan = { readonly ok: true; readonly rows: readonly PlannedDilution[] } | { readonly ok: false; readonly missing: readonly string[] };
 
@@ -73,6 +85,10 @@ export function readDilutionPlan(text: string): ReadPlan {
       typicalUseSource: get("typical_use_source"),
       ifraCat4: num(get("ifra_cat4")),
       note: get("note"),
+      materialWeighedG: num(get("material_weighed_g")),
+      diluentWeighedG: num(get("diluent_weighed_g")),
+      tareG: num(get("tare_g")),
+      fullG: num(get("full_g")),
     };
   });
   return { ok: true, rows: rows.filter((r) => r.material !== "") };
@@ -205,12 +221,12 @@ export function weighRowsOf(matches: readonly PlanMatch[], key: () => string): W
       sourceId: m.sourceId,
       target: m.planned.fractionPct,
       total: m.planned.batchG,
-      weighed: "",
-      diluents: [{ diluentId: m.diluentId!, share: "", weighed: "" }],
+      weighed: m.planned.materialWeighedG,
+      diluents: [{ diluentId: m.diluentId!, share: "", weighed: m.planned.diluentWeighedG }],
       note: m.planned.note,
       bottleMl: m.planned.bottleMl || undefined,
-      tare: "",
-      gross: "",
+      tare: m.planned.tareG,
+      gross: m.planned.fullG,
       plan: {
         materialG: m.planned.materialG,
         diluentG: m.planned.diluentG,

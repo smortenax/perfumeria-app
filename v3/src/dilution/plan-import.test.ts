@@ -174,3 +174,30 @@ describe("the bottle's own weights", () => {
     expect(describeRow(row({}), "2026-11-25")).toBe("");
   });
 });
+
+describe("a table with what is already weighed (the user, 2026-11-25: «agregar automaticamente lo que ya se ha pesado o hacerlo mixto»)", () => {
+  const H = `${HEADER},material_weighed_g,diluent_weighed_g,tare_g,full_g`;
+  const plan = readDilutionPlan(
+    [
+      H,
+      "Wool Absolute,10,100,20,15,1.500,DPG,13.500,,,,,1.503,13.512,11.200,26.215", // weighed
+      "Olibanum Oil (Oman) - Boswellia sacra,10,100,20,15,1.500,Ethanol,13.500,,,,,1.498,,,", // half: the diluent is still to pour
+      "Cocoa Thiazole 10% (IPM),1,10,20,15,1.500,IPM,13.500,,,,,,,,", // nothing yet
+    ].join("\n"),
+  );
+  const rows = plan.ok ? weighRowsOf(matchDilutionPlan(plan.rows, catalog, "me"), key) : [];
+  const state = (id: string) => rowState(rows.find((r) => r.materialId === id)!);
+
+  it("a row weighed in the sheet comes in weighed, with its real %, its tare and full weight", () => {
+    const s = state("wool");
+    expect(s.status).toBe("weighed");
+    expect(s.real!.totalUg).toBe(15_015_000n);
+    expect(bottleCheck(rows.find((r) => r.materialId === "wool")!)).toEqual({ tareUg: 11_200_000n, grossUg: 26_215_000n, offUg: 0n });
+  });
+
+  it("mixed: a half-weighed row asks for what is left, from the real material; an empty one waits", () => {
+    const s = state("olibanum");
+    expect([s.status, s.goal.diluents[0]]).toEqual(["waiting", 13_482_000n]);
+    expect(state("cocoa").status).toBe("waiting");
+  });
+});

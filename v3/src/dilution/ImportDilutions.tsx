@@ -137,7 +137,7 @@ export function ImportDilutions({ data, userId, newKey, onAdd, onCancel }: { dat
                       </td>
                       <td>
                         {m.problems.length === 0 ? (
-                          <span className="status-chip import-found">{t.ok}</span>
+                          <span className="status-chip import-found">{p.materialWeighedG && p.diluentWeighedG ? t.weighed : p.materialWeighedG || p.diluentWeighedG ? t.halfWeighed : t.ok}</span>
                         ) : (
                           <span className="hint import-problem">{m.problems.map((x) => t.problem[x](p)).join(" · ")}</span>
                         )}
