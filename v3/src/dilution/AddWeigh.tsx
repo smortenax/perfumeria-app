@@ -15,6 +15,7 @@ import { MaterialPicker } from "../MaterialPicker";
 import { Button } from "../Button";
 import type { SourceBottle } from "./calc";
 import { nominalPercent, shortName } from "./grid";
+import { factoryBottleOf } from "../db/factory";
 import { bottleCheck, describeRow, groupsOf, labelOf, rowState, shareText, stillToPour, tally, type RowState, type WeighDiluent, type WeighRow } from "./weigh";
 import { ImportDilutions } from "./ImportDilutions";
 import { percentToFraction } from "../format/percent";
@@ -37,7 +38,13 @@ const sourcesOf = (data: GlossaryData, materialId: string) => (data.catalog.dilu
  * another like this» passes the bottle: its %, its diluents and their shares of what was added.
  */
 export function rowFor(data: GlossaryData, materialId: string, like?: Dilution): WeighRow {
-  const bottles = [...(data.catalog.dilutions.get(materialId) ?? [])].filter((d) => d.diluents.length > 0).sort((a, b) => (b.madeOn ?? "").localeCompare(a.madeOn ?? ""));
+  // A material that came made (its factory bottle, batch 66) starts from that bottle, never from pure:
+  // weighed as pure it would save ten times the material and lose the factory diluent. The diluent to
+  // add is that of the last bottle you made, not the factory one.
+  const factory = like ? undefined : factoryBottleOf(data.catalog, materialId);
+  const bottles = [...(data.catalog.dilutions.get(materialId) ?? [])]
+    .filter((d) => d.diluents.length > 0 && d.id !== factory?.id)
+    .sort((a, b) => (b.madeOn ?? "").localeCompare(a.madeOn ?? ""));
   const model = like ?? bottles[0];
   const added = model ? Ratio.ONE.sub(model.fraction) : Ratio.ONE;
   const diluents: WeighDiluent[] =
@@ -51,7 +58,7 @@ export function rowFor(data: GlossaryData, materialId: string, like?: Dilution):
   return {
     key: newKey(),
     materialId,
-    sourceId: null,
+    sourceId: factory?.id ?? null,
     target: like ? nominalPercent(like.fraction, like.label).replace(" %", "") : "",
     total: "",
     weighed: "",

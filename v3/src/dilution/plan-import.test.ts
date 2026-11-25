@@ -229,3 +229,27 @@ describe("the lab's sheet pasted from Excel (2026-11-25)", () => {
     ]);
   });
 });
+
+describe("the factory diluent (the user, 2026-11-25: «que se tenga en cuenta el diluyente en el que viene»)", () => {
+  const H = "material,fraction_pct,from_pct,from_diluent,bottle_ml,diluent";
+  const plan = readDilutionPlan([H, "Hydroxyambran (Ventos),10,50,IPM,20,ethanol", "Hydroxyambran (Ventos),10,50,DPG,20,ethanol", "Hydroxyambran (Ventos),10,50,Unobtainium,20,ethanol", "Cocoa Thiazole 10% (IPM),1,100,,10,ethanol", "Wool Absolute,1,,,10,ethanol"].join("\n"));
+  const found = plan.ok ? matchDilutionPlan(plan.rows, catalog, "me") : [];
+
+  it("picks your factory bottle in the diluent the sheet names, and says when yours is in another", () => {
+    expect(found.slice(0, 3).map((x) => [x.sourceId, x.fromDiluentId, x.problems])).toEqual([
+      ["hydroxy-50", "ipm", []],
+      [null, "dpg", ["sourceDiluent"]],
+      ["hydroxy-50", null, ["fromDiluent"]],
+    ]);
+  });
+
+  it("a row said pure of a material that came made points at its factory bottle, without stopping it", () => {
+    expect([found[3].factoryHint, found[3].problems]).toEqual(["cocoa-10", []]);
+    expect(found[4].factoryHint).toBeNull();
+  });
+
+  it("the Spanish header «Diluyente de fábrica»", () => {
+    const es = readDilutionPlan("Material\tDiluyente\t% objetivo\t% del material de partida\tDiluyente de fábrica\nHydroxyambran (Ventos)\tAlcohol 96º\t10,0%\t50,0%\tIPM");
+    expect(es.ok && es.rows[0]).toMatchObject({ fromPct: "50.0", fromDiluent: "IPM" });
+  });
+});

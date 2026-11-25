@@ -603,7 +603,7 @@ export function AddBar(props: {
     const lastMix = knownMix(p.last);
     setMix(lastMix && mixFrom(lastMix));
     setExtras([]);
-    setBottle(null);
+    useBottle(props.bottles?.(material.key).find((b) => b.factory) ?? null); // V3-112: what came made pours from its factory bottle, never as pure
     setOtherOpen(null);
     setMoreOpen(false);
     props.onSelect?.(material);
@@ -611,8 +611,8 @@ export function AddBar(props: {
 
   /** Your bottles of the chosen material (V3-67), and what pressing one does: its exact figures in the cells. */
   const bottles = selected && props.bottles ? props.bottles(selected.key) : [];
-  const useBottle = (b: BottleChoice) => {
-    setError(null);
+  const useBottle = (b: BottleChoice | null) => {
+    setError(null); if (!b) return setBottle(null); // none: no bottle is chosen
     setOtherOpen(null);
     setMoreOpen(false);
     setBottle(b);

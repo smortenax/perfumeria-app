@@ -1,5 +1,6 @@
 import { Ratio } from "../core/arith/ratio";
 import type { Catalog, CatalogMaterial as Material } from "../db/catalog";
+import { factoryBottleOf } from "../db/factory";
 import { fold } from "../db/search";
 import { parseCsv } from "../lib/csv";
 import { percentToFraction } from "../format/percent";
@@ -36,6 +37,8 @@ export interface PlannedDilution {
   readonly batchG: string;
   readonly materialG: string;
   readonly diluent: string;
+  /** The diluent the factory bottle comes in (from_pct under 100), if the sheet says it: «IPM», «DPG». */
+  readonly fromDiluent: string;
   readonly diluentG: string;
   readonly typicalUsePct: string;
   readonly typicalUseSource: string;
@@ -79,6 +82,9 @@ const HEADER_ALIASES: Record<string, string> = {
   "total objetivo (g)": "batch_g",
   "material a pesar (g)": "material_g",
   diluyente: "diluent",
+  "diluyente de fabrica": "from_diluent",
+  "diluyente de partida": "from_diluent",
+  "diluyente del material de partida": "from_diluent",
   "diluyente a anadir (g)": "diluent_g",
   "material real (g)": "material_weighed_g",
   "diluyente real (g)": "diluent_weighed_g",
@@ -126,6 +132,7 @@ export function readDilutionRows(grid: readonly (readonly string[])[]): ReadPlan
       batchG: num(get("batch_g")),
       materialG: num(get("material_g")),
       diluent: get("diluent"),
+      fromDiluent: get("from_diluent"),
       diluentG: num(get("diluent_g")),
       typicalUsePct: num(get("typical_use_pct")),
       typicalUseSource: get("typical_use_source"),
@@ -149,7 +156,7 @@ function gridOf(text: string): string[][] {
 }
 
 /** What a row still needs before it can be weighed. */
-export type PlanProblem = "material" | "materialTwice" | "diluent" | "source" | "percent" | "further";
+export type PlanProblem = "material" | "materialTwice" | "diluent" | "source" | "sourceDiluent" | "fromDiluent" | "percent" | "further";
 
 export interface PlanMatch {
   readonly planned: PlannedDilution;
@@ -162,6 +169,14 @@ export interface PlanMatch {
   readonly diluentId: string | null;
   /** The factory bottle it is weighed from (from_pct under 100), or null for pure. */
   readonly sourceId: string | null;
+  /** The diluent of the factory bottle the sheet names (from_diluent), found among the diluents. */
+  readonly fromDiluentId: string | null;
+  /**
+   * A factory bottle of the material, when the sheet says pure (from_pct empty or 100): it does not stop
+   * the row (you may have the pure too), but says so, because weighing from the bottle as if it were pure
+   * would save ten times the material and lose its diluent.
+   */
+  readonly factoryHint: string | null;
   readonly problems: readonly PlanProblem[];
 }
 
@@ -223,37 +238,57 @@ export function matchDilutionPlan(rows: readonly PlannedDilution[], catalog: Cat
     const by = materialId ? (exact.length ? "name" : "similar") : null;
     if (found.length === 0) problems.push("material");
     if (found.length > 1) problems.push("materialTwice");
-    // «Alcohol 96º», «Ethanol 96 %»: the diluent without its strength, if not by its whole name.
-    const diluentId = (bySolvent.get(fold(planned.diluent)) ?? bySolvent.get(fold(planned.diluent.replace(/\s*\d+([.,]\d+)?\s*(º|°|%)?\s*$/, ""))))?.[0] ?? null;
+    const diluentId = solventOf(bySolvent, planned.diluent);
     if (!diluentId) problems.push("diluent");
+    const fromDiluentId = planned.fromDiluent ? solventOf(bySolvent, planned.fromDiluent) : null;
     const target = fractionOf(planned.fractionPct);
     if (!target || target.cmp(Ratio.ONE) >= 0 || !from) problems.push("percent");
     else if (target.cmp(from) >= 0) problems.push("further");
-    const sourceId = materialId && from && from.cmp(Ratio.ONE) < 0 ? sourceFor(catalog, materialId, from) : null;
-    if (materialId && from && from.cmp(Ratio.ONE) < 0 && !sourceId) problems.push("source");
-    return { planned, materialId, candidates: found.length > 1 ? found : [], by, diluentId, sourceId, problems };
+    const source = sourceOf(catalog, planned, materialId, from, fromDiluentId);
+    return { planned, materialId, candidates: found.length > 1 ? found : [], by, diluentId, ...source, problems: [...problems, ...source.problems] };
   });
 }
 
-/** The material's own bottle at exactly that %, not archived, that says its diluents (the newest). */
-export function sourceFor(catalog: Catalog, materialId: string, from: Ratio): string | null {
-  const bottles = (catalog.dilutions.get(materialId) ?? []).filter((d) => !d.archivedAt && d.diluents.length > 0 && d.fraction.cmp(from) === 0);
+/** A diluent by its name or another of its names; «Alcohol 96º», «Ethanol 96 %»: also without its strength. */
+function solventOf(bySolvent: ReadonlyMap<string, string[]>, name: string): string | null {
+  return (bySolvent.get(fold(name)) ?? bySolvent.get(fold(name.replace(/\s*\d+([.,]\d+)?\s*(º|°|%)?\s*$/, ""))))?.[0] ?? null;
+}
+
+/**
+ * The bottle a row is weighed from, and what is wrong with it. From under 100 %: your bottle at that
+ * exact %, and in the factory diluent the sheet names, if it names one. Pure: none, but a factory
+ * bottle of the material is pointed out (factoryHint).
+ */
+function sourceOf(catalog: Catalog, planned: PlannedDilution, materialId: string | null, from: Ratio | null, fromDiluentId: string | null) {
+  const problems: PlanProblem[] = [];
+  if (planned.fromDiluent && !fromDiluentId) problems.push("fromDiluent");
+  if (!materialId || !from) return { sourceId: null, fromDiluentId, factoryHint: null, problems };
+  if (from.cmp(Ratio.ONE) >= 0) return { sourceId: null, fromDiluentId, factoryHint: factoryBottleOf(catalog, materialId)?.id ?? null, problems };
+  const sourceId = sourceFor(catalog, materialId, from, fromDiluentId);
+  if (!sourceId) problems.push(fromDiluentId && sourceFor(catalog, materialId, from) ? "sourceDiluent" : "source");
+  return { sourceId, fromDiluentId, factoryHint: null, problems };
+}
+
+/** The material's own bottle at exactly that %, not archived, that says its diluents (the newest); in that diluent, if given. */
+export function sourceFor(catalog: Catalog, materialId: string, from: Ratio, diluentId: string | null = null): string | null {
+  const bottles = (catalog.dilutions.get(materialId) ?? []).filter(
+    (d) => !d.archivedAt && d.diluents.length > 0 && d.fraction.cmp(from) === 0 && (!diluentId || d.diluents.some((x) => x.diluentId === diluentId)),
+  );
   return [...bottles].sort((a, b) => (b.madeOn ?? "").localeCompare(a.madeOn ?? ""))[0]?.id ?? null;
 }
+
 
 /** A row's match once you have picked what was missing (the material, the diluent). */
 export function withChoice(catalog: Catalog, match: PlanMatch, choice: { readonly materialId?: string; readonly diluentId?: string }): PlanMatch {
   const materialId = choice.materialId ?? match.materialId;
   const diluentId = choice.diluentId ?? match.diluentId;
   const from = match.planned.fromPct ? fractionOf(match.planned.fromPct) : Ratio.ONE;
-  const needsSource = !!from && from.cmp(Ratio.ONE) < 0;
-  const sourceId = materialId && needsSource ? sourceFor(catalog, materialId, from!) : null;
   const problems: PlanProblem[] = match.problems.filter((p) => p === "percent" || p === "further");
   if (!materialId) problems.push(match.candidates.length > 1 ? "materialTwice" : "material");
   if (!diluentId) problems.push("diluent");
-  if (materialId && needsSource && !sourceId) problems.push("source");
+  const source = sourceOf(catalog, match.planned, materialId, from, match.fromDiluentId);
   const by = choice.materialId ? "name" : match.by;
-  return { ...match, materialId, by, diluentId, sourceId, problems };
+  return { ...match, materialId, by, diluentId, ...source, problems: [...problems, ...source.problems] };
 }
 
 /** The rows ready to weigh, as «Add & weigh» takes them: by bottle size, then as in the file. */
