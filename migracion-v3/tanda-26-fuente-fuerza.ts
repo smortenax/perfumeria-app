@@ -22,7 +22,7 @@ import { execSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
-import { type Cell, writeTable } from "./lib/csv.ts";
+import { type Cell, writeTable, asCells, mdCellKeepLines } from "./lib/csv.ts";
 
 const BASE = "1d0ed4f";
 const OUT = "migracion-v3/tandas/26-fuente-fuerza";
@@ -67,12 +67,10 @@ const newMaterials = materials.map((r) => {
   return { ...r, strength_source: s.source };
 });
 const newHeader = header.flatMap((c) => (c === "strength" ? [c, "strength_source"] : [c]));
-const asCells = (rows: Rec[]) => rows.map((r) => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, typeof v === "string" && /^\[.*\]$/.test(v) ? (JSON.parse(v) as string[]) : v])));
 writeTable(join(OUT, "materials.csv"), newHeader, asCells(newMaterials));
 
 const count = (w: Why) => found.filter((f) => f.why === w).length;
 const byName = <T extends { name: string }>(a: T, b: T) => a.name.localeCompare(b.name, "es");
-const cell = (t: string) => t.replace(/\|/g, "/");
 writeFileSync(
   join(OUT, "informe.md"),
   `# Tanda 26 · La fuente de la fuerza
@@ -93,7 +91,7 @@ writeFileSync(
 
 | Material | Fuerza | Fuente |
 |---|---|---|
-${found.filter((f) => f.why === "web12" || f.why === "web14" || f.why === "web23").sort(byName).map((f) => `| ${f.name} | ${f.strength} | ${cell(f.source!)} |`).join("\n")}
+${found.filter((f) => f.why === "web12" || f.why === "web14" || f.why === "web23").sort(byName).map((f) => `| ${f.name} | ${f.strength} | ${mdCellKeepLines(f.source!)} |`).join("\n")}
 
 ## Sin encontrar
 

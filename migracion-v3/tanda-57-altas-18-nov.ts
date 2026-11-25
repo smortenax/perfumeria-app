@@ -21,7 +21,7 @@ import { execSync } from "node:child_process";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
-import { type Cell, writeTable } from "./lib/csv.ts";
+import { type Cell, writeTable, asCells } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
 type Rec = Record<string, Cell>;
@@ -262,7 +262,6 @@ for (const o of order) {
   lines.push(`| ${o.n} | ${o.producto} | ${plan.name} | ${plan.kind} | ${cas ?? "—"} | ${house ?? "—"} | ${tier ?? "—"} | ${p.moc ?? "—"} | ${docs(p).map((d) => d.split(":")[0]).join(", ") || "—"} |`);
 }
 
-const asCells = (rows: Rec[]) => rows.map((r) => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, typeof v === "string" && /^\[.*\]$/.test(v) ? (JSON.parse(v) as string[]) : v])));
 const updated = asCells(materials.rows).map((m) => {
   const add = marked.get(String(m.id));
   if (!add) return m;

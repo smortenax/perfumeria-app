@@ -24,7 +24,7 @@ import { mkdtempSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
-import { type Cell, writeTable } from "./lib/csv.ts";
+import { type Cell, writeTable, mdCell } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 import { BASE, COLUMNS, DIR, OTHER_COLUMNS, keyOf, show, texts, toTranslate } from "./ingles/extraer.ts";
 
@@ -234,15 +234,15 @@ if (ifraChanges.length > 0) {
 }
 
 // ------------------------------------------------------------ write
-const asCells = (rows: Rec[]) => rows as Array<Record<string, Cell>>;
+const asRows = (rows: Rec[]) => rows as Array<Record<string, Cell>>;
 const written: string[] = [];
 for (const [name, rows] of Object.entries(out)) {
   const rowsOut = name === "ifra_spec_exclusions" ? allExclusions : rows;
   if (rowsOut.every((r, i) => JSON.stringify(r) === JSON.stringify(base[name].rows[i])) && rowsOut.length === base[name].rows.length) continue;
-  writeTable(join(OUT, `${name}.csv`), base[name].header, asCells(rowsOut));
+  writeTable(join(OUT, `${name}.csv`), base[name].header, asRows(rowsOut));
   written.push(name);
 }
-writeTable(join(OUT, "ifra_variant_rules.csv"), base.ifra_variant_rules.header, asCells(allRules));
+writeTable(join(OUT, "ifra_variant_rules.csv"), base.ifra_variant_rules.header, asRows(allRules));
 written.push("ifra_variant_rules");
 
 const csvQuote = (t: string) => (/[",\n\r]/.test(t) ? `"${t.replace(/"/g, '""')}"` : t);
@@ -253,7 +253,6 @@ writeFileSync(
 );
 
 const total = [...changed.values()].reduce((a, b) => a + b, 0);
-const cell = (t: string) => t.replace(/\|/g, "/").replace(/\n/g, " ");
 const materialsRenamed = renamed.filter((r) => r.table === "materials").sort((a, b) => a.from.localeCompare(b.from, "es"));
 writeFileSync(
   join(OUT, "informe.md"),
@@ -289,15 +288,15 @@ ${Object.entries(ENGLISH_PATTERN).map(([es, en]) => `| ${es} | ${[...en, ...(STA
 
 | Antes | Ahora |
 |---|---|
-${materialsRenamed.map((r) => `| ${cell(r.from)} | ${cell(r.to)} |`).join("\n")}
+${materialsRenamed.map((r) => `| ${mdCell(r.from)} | ${mdCell(r.to)} |`).join("\n")}
 
 Las categorías del buscador, igual que su material (${renamed.filter((r) => r.table === "material_categories").length}).
 
 ## Para mirar
 
-${spanishLeft.length === 0 ? "Ningún texto traducido conserva, fuera de las citas, una palabra que parezca española." : `${spanishLeft.length} textos traducidos conservan, fuera de las citas, algo que parece español (a veces es un nombre propio, como Hermès o Perú):\n\n${spanishLeft.slice(0, 40).map((x) => `- \`${x.key}\`: ${cell(x.en).slice(0, 160)}`).join("\n")}${spanishLeft.length > 40 ? `\n- … y ${spanishLeft.length - 40} más.` : ""}`}
+${spanishLeft.length === 0 ? "Ningún texto traducido conserva, fuera de las citas, una palabra que parezca española." : `${spanishLeft.length} textos traducidos conservan, fuera de las citas, algo que parece español (a veces es un nombre propio, como Hermès o Perú):\n\n${spanishLeft.slice(0, 40).map((x) => `- \`${x.key}\`: ${mdCell(x.en).slice(0, 160)}`).join("\n")}${spanishLeft.length > 40 ? `\n- … y ${spanishLeft.length - 40} más.` : ""}`}
 
-${decimalComma.length === 0 ? "Ningún número con coma decimal fuera de las citas." : `${decimalComma.length} textos conservan, fuera de las citas, algo que parece una coma decimal:\n\n${decimalComma.map((x) => `- \`${x.key}\`: ${cell(x.en).slice(0, 160)}`).join("\n")}`}
+${decimalComma.length === 0 ? "Ningún número con coma decimal fuera de las citas." : `${decimalComma.length} textos conservan, fuera de las citas, algo que parece una coma decimal:\n\n${decimalComma.map((x) => `- \`${x.key}\`: ${mdCell(x.en).slice(0, 160)}`).join("\n")}`}
 
 ${shorter.length === 0 ? "Ningún texto largo queda mucho más corto en inglés (menos del 70 %)." : `${shorter.length} textos largos quedan mucho más cortos en inglés (menos del 70 %), revisados uno a uno:\n\n${shorter.map((x) => `- \`${x.key}\`: ${x.es} → ${x.en} caracteres`).join("\n")}`}
 

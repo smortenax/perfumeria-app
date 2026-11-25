@@ -16,7 +16,7 @@ import { execSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
-import { type Cell, writeTable } from "./lib/csv.ts";
+import { type Cell, writeTable, asCells, mdCell } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
 const BASE = execSync("git rev-parse --short HEAD", { encoding: "utf8" }).trim();
@@ -67,10 +67,8 @@ for (const p of proposal) {
   filled++;
 }
 
-const asCells = (rows: Rec[]) => rows.map((r) => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, typeof v === "string" && /^\[.*\]$/.test(v) ? (JSON.parse(v) as string[]) : v])));
 writeTable(join(OUT, "materials.csv"), materials.header, asCells(materials.rows.map((r) => byId.get(String(r.id))!)));
 writeTable(join(OUT, "material_doses.csv"), doses.header, [...asCells(doses.rows), ...newDoses]);
-const cell = (t: string) => t.replace(/\|/g, "/").replace(/\n/g, " ");
 const disputed = proposal.filter((p) => p.disputado === "si");
 writeFileSync(
   join(OUT, "informe.md"),
@@ -95,13 +93,13 @@ writeFileSync(
 
 | Material | Campo | Va | Otras referencias |
 |---|---|---|---|
-${disputed.map((p) => `| ${p.nombre} | ${p.campo} | ${cell(p.valor)} | ${cell(p.otras)} |`).join("\n")}
+${disputed.map((p) => `| ${p.nombre} | ${p.campo} | ${mdCell(p.valor)} | ${mdCell(p.otras)} |`).join("\n")}
 
 ## Lo que se llena
 
 | Material | Campos |
 |---|---|
-${[...report].map(([n, f]) => `| ${n} | ${cell(f.join("; "))} |`).join("\n")}
+${[...report].map(([n, f]) => `| ${n} | ${mdCell(f.join("; "))} |`).join("\n")}
 
 ## Lo que sigue vacío
 

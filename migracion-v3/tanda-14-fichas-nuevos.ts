@@ -15,7 +15,7 @@ import { execSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
-import { type Cell, writeTable } from "./lib/csv.ts";
+import { type Cell, writeTable, asCells, mdCell } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
 const OUT = "migracion-v3/tandas/14-fichas-nuevos";
@@ -113,7 +113,6 @@ for (const m of touched) {
   m.notes = String(m.notes ?? "").replace("La ficha está por completar (V3-46).", "Ficha de la tanda 14, de The Good Scents Company.");
 }
 
-const asCells = (rows: Rec[]) => rows.map((r) => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, typeof v === "string" && /^\[.*\]$/.test(v) ? (JSON.parse(v) as string[]) : v])));
 writeTable(join(OUT, "materials.csv"), materials.header, asCells(materials.rows));
 writeTable(join(OUT, "material_descriptors.csv"), descriptors.header, [...asCells(descriptors.rows), ...newDescriptors]);
 writeTable(join(OUT, "material_doses.csv"), doses.header, [...asCells(doses.rows), ...newDoses]);
@@ -125,7 +124,6 @@ const LABEL: Record<string, string> = {
   handling: "Manejo", blend_effect: "En la mezcla", stability: "Conservación", species: "Especie", family: "Familia", family_detail: "Matiz",
   facets: "Facetas", tier: "Nivel", role: "Papel", descriptor: "Descriptor", dose_max: "Dosis máx. (fracción del concentrado)", notes: "Nota", disputed: "En disputa",
 };
-const cell = (t: string) => t.replace(/\|/g, "/").replace(/\n/g, " ");
 writeFileSync(
   join(OUT, "informe.md"),
   `# Tanda 14 · La tabla de información de los materiales de la tanda 13
@@ -146,7 +144,7 @@ ${report.find((l) => l.material === n)!.url}
 |---|---|---|
 ${report
   .filter((l) => l.material === n)
-  .map((l) => `| ${LABEL[l.campo] ?? l.campo} | ${cell(l.valor)}${l.entra ? "" : " *(ya relleno: no entra)*"} | ${l.origen === "TGSC" ? `«${cell(l.frase)}»` : `propuesta de la sesión, por «${cell(l.frase)}»`} |`)
+  .map((l) => `| ${LABEL[l.campo] ?? l.campo} | ${mdCell(l.valor)}${l.entra ? "" : " *(ya relleno: no entra)*"} | ${l.origen === "TGSC" ? `«${mdCell(l.frase)}»` : `propuesta de la sesión, por «${mdCell(l.frase)}»`} |`)
   .join("\n")}
 `,
   )

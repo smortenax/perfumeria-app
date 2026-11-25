@@ -17,7 +17,7 @@ import { execSync } from "node:child_process";
 import { writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
-import { type Cell, writeTable } from "./lib/csv.ts";
+import { type Cell, writeTable, asCells, mdCellKeepLines } from "./lib/csv.ts";
 
 const BASE = "0e81550";
 const OUT = "migracion-v3/tandas/22-diez-familias";
@@ -74,12 +74,10 @@ const newMaterials = materials.rows.map((r) => {
 });
 const asks = materials.rows.filter((r) => !["fruity", "spicy"].includes(String(r.family)) && /gourmand|cumarín/.test(String(r.family_detail ?? "")));
 
-const asCells = (rows: Rec[]) => rows.map((r) => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, typeof v === "string" && /^\[.*\]$/.test(v) ? (JSON.parse(v) as string[]) : v])));
 writeTable(join(OUT, "family_palette.csv"), palette.header, newPalette);
 writeTable(join(OUT, "materials.csv"), materials.header, asCells(newMaterials));
 
 const NAMES: Record<string, string> = Object.fromEntries(newPalette.map((r) => [String(r.family), String(r.name)]));
-const cell = (t: string) => t.replace(/\|/g, "/");
 const byName = <T extends { name: string }>(a: T, b: T) => a.name.localeCompare(b.name, "es");
 writeFileSync(
   join(OUT, "informe.md"),
@@ -101,7 +99,7 @@ Solo los comunes de Frutal y Especiado cuyo matiz (\`family_detail\`, tus palabr
 
 | Material | Tu matiz | Ahora | Pasa a | Por qué |
 |---|---|---|---|---|
-${[...moves].sort(byName).map((m) => `| ${m.name} | ${cell(m.detail)} | ${NAMES[m.from]} | **${NAMES[m.to]}** | ${m.why} |`).join("\n")}
+${[...moves].sort(byName).map((m) => `| ${m.name} | ${mdCellKeepLines(m.detail)} | ${NAMES[m.from]} | **${NAMES[m.to]}** | ${m.why} |`).join("\n")}
 
 ## Para que decidas tú (no cambian)
 
@@ -109,7 +107,7 @@ Son de otras familias y su matiz dice gourmand o cumarínico; V3-76 no los mueve
 
 | Material | Tu matiz | Familia |
 |---|---|---|
-${asks.map((r) => ({ name: String(r.name), detail: String(r.family_detail), family: String(r.family) })).sort(byName).map((r) => `| ${r.name} | ${cell(r.detail)} | ${NAMES[r.family]} |`).join("\n")}
+${asks.map((r) => ({ name: String(r.name), detail: String(r.family_detail), family: String(r.family) })).sort(byName).map((r) => `| ${r.name} | ${mdCellKeepLines(r.detail)} | ${NAMES[r.family]} |`).join("\n")}
 `,
   "utf8",
 );

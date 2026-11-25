@@ -23,7 +23,7 @@ import { execSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
-import { type Cell, writeTable } from "./lib/csv.ts";
+import { type Cell, writeTable, asCells, mdCell } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
 const TANDA = "60";
@@ -48,7 +48,6 @@ const fichas = new Map(local("migracion-v3/web/perfumiarz-pedido-18-nov/fichas.c
 const empty = (v: Cell) => v === null || v === undefined || v === "";
 const listOf = (v: Cell): string[] => (Array.isArray(v) ? v.map(String) : typeof v === "string" && v.startsWith("[") ? (JSON.parse(v) as string[]) : []);
 const byId = new Map(materials.rows.map((r) => [String(r.id), { ...r }]));
-const cell = (t: string) => t.replace(/\|/g, "/").replace(/\n/g, " ");
 
 // 1. The sheet: empty fields only.
 const FIELDS: [string, string][] = [["family", "family"], ["tier", "tier"], ["tenacity_hours", "tenacity_hours"], ["strength", "strength"], ["physical_state", "physical_state"]];
@@ -84,7 +83,7 @@ const fill = (m: Rec, p: Record<string, string>, field: string, value: string, s
   else m.sources = `${m.sources ? `${m.sources} · ` : ""}${field}: ${said}`;
   if (disputed) {
     m.disputed_fields = [...new Set([...listOf(m.disputed_fields), field])];
-    disputedRows.push(`| ${cell(String(m.name))} | ${field} | ${cell(value)} | ${cell(others)} |`);
+    disputedRows.push(`| ${mdCell(String(m.name))} | ${field} | ${mdCell(value)} | ${mdCell(others)} |`);
   }
   if (others) m.notes = `${m.notes ? `${m.notes}\n` : ""}Batch ${TANDA}, ${field}: ${rule}. Other references: ${others}.`;
   filledBy.set(p.id, [...(filledBy.get(p.id) ?? []), `${field} = ${value}${disputed ? " (disputado)" : ""}`]);
@@ -101,13 +100,13 @@ for (const p of proposal) {
     // A natural is its species, part and process; the house giving another CAS is a dispute for the user, not a change.
     m.disputed_fields = [...new Set([...listOf(m.disputed_fields), "cas"])];
     m.notes = `${m.notes ? `${m.notes}\n` : ""}Batch ${TANDA}, CAS in dispute: ${p.cas_conflicto}.`;
-    disputedRows.push(`| ${cell(String(m.name))} | cas | ${cell(String(m.cas))} (se queda) | ${cell(p.cas_conflicto)} |`);
+    disputedRows.push(`| ${mdCell(String(m.name))} | cas | ${mdCell(String(m.cas))} (se queda) | ${mdCell(p.cas_conflicto)} |`);
   }
   if (p.casa_conflicto) {
     // Another reference names another house: the field keeps its value and goes to dispute (the user decides).
     m.disputed_fields = [...new Set([...listOf(m.disputed_fields), "house"])];
     m.notes = `${m.notes ? `${m.notes}\n` : ""}Batch ${TANDA}, house in dispute: ${p.casa_conflicto}.`;
-    disputedRows.push(`| ${cell(String(m.name))} | house | ${cell(String(m.house))} (se queda) | ${cell(p.casa_conflicto)} |`);
+    disputedRows.push(`| ${mdCell(String(m.name))} | house | ${mdCell(String(m.house))} (se queda) | ${mdCell(p.casa_conflicto)} |`);
   }
   if (p.dose) {
     const [max, basis] = p.dose.split("|");
@@ -189,7 +188,6 @@ for (const [n, notes] of docNotes) {
   m.notes = `${m.notes ? `${m.notes}\n` : ""}Batch ${TANDA}, documents: ${notes.join("; ")}.`;
 }
 
-const asCells = (rows: Rec[]) => rows.map((r) => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, typeof v === "string" && /^\[.*\]$/.test(v) ? (JSON.parse(v) as string[]) : v])));
 writeTable(join(OUT, "materials.csv"), materials.header, asCells(materials.rows.map((r) => byId.get(String(r.id))!)));
 writeTable(join(OUT, "material_doses.csv"), doses.header, [...asCells(doses.rows), ...newDoses]);
 writeTable(join(OUT, "material_descriptors.csv"), descriptors.header, [...asCells(descriptors.rows), ...newDescriptors]);
@@ -202,7 +200,7 @@ const still = (p: Record<string, string>) => {
   const m = byId.get(p.id)!;
   return ["family", "tenacity_hours", "strength", "impact", "house", "cas"].filter((f) => empty(m[f]) && !(f === "cas" && m.kind !== "molecule")).join(", ");
 };
-const lines = proposal.map((p) => `| ${p.n} | ${cell(p.nombre)} | ${cell((filledBy.get(p.id) ?? []).join("; ")) || "—"} | ${compBy.get(p.id) ?? "—"} | ${still(p) || "—"} |`);
+const lines = proposal.map((p) => `| ${p.n} | ${mdCell(p.nombre)} | ${mdCell((filledBy.get(p.id) ?? []).join("; ")) || "—"} | ${compBy.get(p.id) ?? "—"} | ${still(p) || "—"} |`);
 writeFileSync(
   join(OUT, "informe.md"),
   `# Tanda ${TANDA} · La línea de información de las altas del 18-nov
@@ -242,13 +240,13 @@ ${disputedRows.join("\n") || "| — | | | |"}
 
 | n | Material | Qué |
 |---|---|---|
-${[...docNotes].flatMap(([n, ns]) => ns.filter((t) => !/category 4/.test(t)).map((t) => `| ${n} | ${cell(proposalByN.get(n)!.nombre)} | ${cell(t)} |`)).join("\n") || "| — | | |"}
+${[...docNotes].flatMap(([n, ns]) => ns.filter((t) => !/category 4/.test(t)).map((t) => `| ${n} | ${mdCell(proposalByN.get(n)!.nombre)} | ${mdCell(t)} |`)).join("\n") || "| — | | |"}
 
 ## Topes de categoría 4 de los certificados (para tu versión, V3-39)
 
 | n | Material | Tope |
 |---|---|---|
-${[...docNotes].flatMap(([n, ns]) => ns.filter((t) => /category 4/.test(t)).map((t) => `| ${n} | ${cell(proposalByN.get(n)!.nombre)} | ${cell(t.replace(/^IFRA certificate, category 4: /, "").replace(/ \(the product's ceiling.*$/, ""))} |`)).join("\n") || "| — | | |"}
+${[...docNotes].flatMap(([n, ns]) => ns.filter((t) => /category 4/.test(t)).map((t) => `| ${n} | ${mdCell(proposalByN.get(n)!.nombre)} | ${mdCell(t.replace(/^IFRA certificate, category 4: /, "").replace(/ \(the product's ceiling.*$/, ""))} |`)).join("\n") || "| — | | |"}
 `,
   "utf8",
 );

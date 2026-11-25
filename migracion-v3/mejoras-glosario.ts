@@ -9,6 +9,7 @@
 import { execSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 import { parseCsvRecords } from "../src/data/csv.ts";
+import { mdCellEscaped } from "./lib/csv.ts";
 
 const OUT = "docs-v3/mejoras-glosario-materiales.md";
 type Rec = Readonly<Record<string, string>>;
@@ -43,7 +44,6 @@ const sorted = [...materials].sort(byName);
 const emptiest = sorted.map((m) => ({ m, lack: missing(m) })).filter((x) => x.lack.length >= 4).sort((a, b) => b.lack.length - a.lack.length || byName(a.m, b.m));
 const noFamily = sorted.filter((m) => m.solvent !== "true" && m.family === "");
 const noAbbreviation = sorted.filter((m) => m.abbreviation === "");
-const cell = (t: string) => t.replace(/\|/g, "\\|");
 const mark = (v: boolean | null) => (v === null ? "·" : v ? "sí" : "**—**");
 
 const report = `# Mejoras del glosario de materiales
@@ -66,7 +66,7 @@ ${applies("evolución").every((m) => missing(m).includes("evolución")) ? "**La 
 
 | Material | Tipo | Le falta |
 |---|---|---|
-${emptiest.map(({ m, lack }) => `| ${cell(m.name)} | ${KIND[m.kind] ?? m.kind} | ${lack.join(", ")} |`).join("\n")}
+${emptiest.map(({ m, lack }) => `| ${mdCellEscaped(m.name)} | ${KIND[m.kind] ?? m.kind} | ${lack.join(", ")} |`).join("\n")}
 
 ## Sin familia (${noFamily.length})
 
@@ -86,7 +86,7 @@ Lo que se sabe mal o dudoso, para corregirlo como detalle: mala información es 
 
 | Id | Material | Campo | Problema | Pista |
 |---|---|---|---|---|
-${audit.map((r) => `| ${r.id} | ${cell(r.material)} | ${r.campo} | ${cell(r.problema)} | ${cell(r.pista)} |`).join("\n")}
+${audit.map((r) => `| ${r.id} | ${mdCellEscaped(r.material)} | ${r.campo} | ${mdCellEscaped(r.problema)} | ${mdCellEscaped(r.pista)} |`).join("\n")}
 
 ## Material por material
 
@@ -95,7 +95,7 @@ ${audit.map((r) => `| ${r.id} | ${cell(r.material)} | ${r.campo} | ${cell(r.prob
 | Material | Tipo | Abreviatura | ${CHECKS.filter(([n]) => n !== "abreviatura").map(([n]) => n).join(" | ")} |
 |---|---|---|${CHECKS.filter(([n]) => n !== "abreviatura").map(() => "---").join("|")}|
 ${sorted
-  .map((m) => `| ${cell(m.name)} | ${KIND[m.kind] ?? m.kind}${m.solvent === "true" ? ", disolvente" : ""} | ${m.abbreviation ? `${cell(m.abbreviation)}${m.abbreviation_origin === "generated" ? " (generada)" : ""}` : "**—**"} | ${CHECKS.filter(([n]) => n !== "abreviatura").map(([, check]) => mark(check(m))).join(" | ")} |`)
+  .map((m) => `| ${mdCellEscaped(m.name)} | ${KIND[m.kind] ?? m.kind}${m.solvent === "true" ? ", disolvente" : ""} | ${m.abbreviation ? `${mdCellEscaped(m.abbreviation)}${m.abbreviation_origin === "generated" ? " (generada)" : ""}` : "**—**"} | ${CHECKS.filter(([n]) => n !== "abreviatura").map(([, check]) => mark(check(m))).join(" | ")} |`)
   .join("\n")}
 `;
 writeFileSync(OUT, report, "utf8");

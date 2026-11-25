@@ -14,7 +14,7 @@ import { execSync } from "node:child_process";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
-import { type Cell, writeTable } from "./lib/csv.ts";
+import { type Cell, writeTable, asCells, mdCell } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
 const TANDA = "61";
@@ -37,7 +37,6 @@ const unused = local(join(WEB, "no-usado-61.csv"));
 const empty = (v: Cell) => v === null || v === undefined || v === "";
 const listOf = (v: Cell): string[] => (Array.isArray(v) ? v.map(String) : typeof v === "string" && v.startsWith("[") ? (JSON.parse(v) as string[]) : []);
 const byId = new Map(materials.rows.map((r) => [String(r.id), r]));
-const cell = (t: string) => t.replace(/\|/g, "/").replace(/\n/g, " ");
 const pct = (v: string) => `${Number((Number(v) * 100).toPrecision(6))} %`;
 
 const filledBy = new Map<string, string[]>();
@@ -53,7 +52,7 @@ const fill = (m: Rec, field: string, value: string, source: string, disputed: bo
   else m.sources = `${m.sources ? `${m.sources} · ` : ""}${field}: ${said}`;
   if (disputed) {
     m.disputed_fields = [...new Set([...listOf(m.disputed_fields), field])];
-    disputedRows.push(`| ${cell(String(m.name))} | ${field} | ${cell(value)} | ${cell(others || "otra referencia da otro valor")} |`);
+    disputedRows.push(`| ${mdCell(String(m.name))} | ${field} | ${mdCell(value)} | ${mdCell(others || "otra referencia da otro valor")} |`);
   }
   if (others) note(m, `Batch ${TANDA}, ${field}: other references: ${others}.`);
   filledBy.set(String(m.id), [...(filledBy.get(String(m.id)) ?? []), `${field} = ${value}${disputed ? " (disputado)" : ""}`]);
@@ -92,14 +91,13 @@ const newDoses: Rec[] = usos.map((d, i) => {
   };
 });
 
-const asCells = (rows: Rec[]) => rows.map((r) => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, typeof v === "string" && /^\[.*\]$/.test(v) ? (JSON.parse(v) as string[]) : v])));
 mkdirSync(OUT, { recursive: true });
 writeTable(join(OUT, "materials.csv"), materials.header, asCells(materials.rows));
 writeTable(join(OUT, "material_doses.csv"), doses.header, [...asCells(doses.rows), ...newDoses]);
 writeTable(join(OUT, "material_descriptors.csv"), descriptors.header, [...asCells(descriptors.rows), ...newDescriptors]);
 
-const lines = proposal.map((p) => `| ${p.n} | ${cell(p.nombre)} | ${p.buscar} | ${cell((filledBy.get(p.id) ?? []).join("; ")) || "—"} |`);
-const _extra = [...new Set(usos.filter((d) => !proposal.some((p) => p.id === d.id)).map((d) => d.id))].map((id) => `| ${cell(String(byId.get(id)?.name))} | ${cell((filledBy.get(id) ?? []).join("; "))} |`);
+const lines = proposal.map((p) => `| ${p.n} | ${mdCell(p.nombre)} | ${p.buscar} | ${mdCell((filledBy.get(p.id) ?? []).join("; ")) || "—"} |`);
+const _extra = [...new Set(usos.filter((d) => !proposal.some((p) => p.id === d.id)).map((d) => d.id))].map((id) => `| ${mdCell(String(byId.get(id)?.name))} | ${mdCell((filledBy.get(id) ?? []).join("; "))} |`);
 writeFileSync(
   join(OUT, "informe.md"),
   `# Tanda 61 · Los rezagados y el uso habitual de las altas del 18-nov
