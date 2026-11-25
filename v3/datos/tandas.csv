@@ -129,3 +129,4 @@ tanda,fecha,aprobacion,archivo,sha256
 64-pedido-19-nov,2026-11-23,"el usuario, 2026-11-23: «Apruebo la 64» (y antes: «puedes fusionar y publicar todo please»)",materials.csv,1004fe59db17b056bb6c778636ee2e0cab67ce7228b3910492d3731b02c84eb1
 65-wool-declara-ninguna,2026-11-23,"el usuario, 2026-11-23: «Apruebo la 65, fusiona y publica»",regulations.csv,3df8de557f574465c87f2df5682e9efb2c190a20f9c89fcf04f177f2c8546692
 67-meta-cresol,2026-11-25,"el usuario, 2026-11-25: «apruebo 67»",material_components.csv,9e16db0e5afea7d9de58f3fd58f90445c914cb202c4eb0bd876effb8a97a4984
+68-meta-cresol-orientativo,2026-11-25,"el usuario, 2026-11-25: «apruebo el limite», y en la tarjeta «Tipo nuevo: límite orientativo»",regulations.csv,e622714b48eaa45a6fff0b015bee03e2da1a2ad296015e30b5e03eecc42f1551
