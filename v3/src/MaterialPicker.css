@@ -1,11 +1,11 @@
 /* A material chosen by typing (F-01, F-03): its rows, and the highlighted one that Enter picks. */
 .material-picker .picker-list {
   list-style: none;
-  margin: 0.5rem 0;
+  margin: var(--space-8) 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.375rem;
+  gap: var(--space-6);
   max-height: 16rem;
   overflow-y: auto;
 }
@@ -14,7 +14,7 @@
   min-height: var(--size-target);
   display: flex;
   align-items: center;
-  padding: 0 0.75rem;
+  padding: 0 var(--space-12);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-control);
   background: var(--surface-raised);

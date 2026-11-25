@@ -19,8 +19,8 @@
   height: var(--app-nav-h);
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0 1rem;
+  gap: var(--space-12);
+  padding: 0 var(--space-16);
   background: var(--panel);
   border-bottom: 1px solid var(--line);
   font-size: var(--text-md);
@@ -29,7 +29,7 @@
 .app-name {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--space-8);
   font-weight: 700;
   font-size: var(--text-lg);
   white-space: nowrap;
@@ -46,7 +46,7 @@
 
 .app-links {
   display: flex;
-  gap: 2px;
+  gap: var(--space-2);
   flex: 1;
   min-width: 0;
   overflow-x: auto;
@@ -56,10 +56,10 @@
 .app-link {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--space-10);
   flex: none;
   min-height: 40px;
-  padding: 0 10px;
+  padding: 0 var(--space-10);
   border: 0;
   border-radius: var(--radius-control);
   background: none;
@@ -93,7 +93,7 @@
 .nav-badge {
   margin-left: auto;
   min-width: 20px;
-  padding: 0 6px;
+  padding: 0 var(--space-6);
   border-radius: var(--radius-pill);
   background: var(--accent-default);
   color: var(--text-on-accent);
@@ -113,7 +113,7 @@
 .app-nav .who {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-8);
   margin: 0;
   color: var(--muted);
   font-size: var(--text-sm);
@@ -137,7 +137,7 @@
 .start {
   max-width: none;
   margin: 0;
-  padding: calc(var(--app-nav-h) + 1.5rem) clamp(1rem, 3vw, 2.5rem) 3rem calc(var(--app-nav-w) + clamp(1rem, 3vw, 2.5rem));
+  padding: calc(var(--app-nav-h) + var(--space-24)) clamp(var(--space-16), 3vw, var(--space-40)) var(--space-48) calc(var(--app-nav-w) + clamp(var(--space-16), 3vw, var(--space-40)));
 }
 
 /* Wide screens: the sidebar. */
@@ -158,8 +158,8 @@
     height: auto;
     flex-direction: column;
     align-items: stretch;
-    gap: 4px;
-    padding: 16px 12px;
+    gap: var(--space-4);
+    padding: var(--space-16) var(--space-12);
     border-bottom: 0;
     border-right: 1px solid var(--line);
     overflow-y: auto;
@@ -167,7 +167,7 @@
 
   /* With large text the names wrap inside the sidebar instead of running into the page. */
   .app-name {
-    margin: 0 6px 12px;
+    margin: 0 var(--space-6) var(--space-12);
     flex-wrap: wrap;
     white-space: normal;
   }
@@ -197,7 +197,7 @@
 
   .nav-group {
     display: block;
-    padding: 12px 10px 4px;
+    padding: var(--space-12) var(--space-10) var(--space-4);
     color: var(--muted);
     font-size: var(--text-xs);
     font-weight: 700;
@@ -209,9 +209,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: var(--space-8);
     min-height: 36px;
-    margin-top: 8px;
+    margin-top: var(--space-8);
     border: 1px solid var(--line-strong);
     background: var(--panel);
     color: var(--muted);
@@ -224,7 +224,7 @@
 
   .app-nav .who {
     margin-top: auto;
-    padding: 8px 6px 0;
+    padding: var(--space-8) var(--space-6) 0;
     white-space: normal;
   }
 
@@ -236,11 +236,11 @@
   /* Folded: icons only, their names in a tooltip. */
   .nav-mini .app-nav {
     align-items: center;
-    padding: 16px 8px;
+    padding: var(--space-16) var(--space-8);
   }
 
   .nav-mini .app-name {
-    margin: 0 0 12px;
+    margin: 0 0 var(--space-12);
   }
 
   .nav-mini .app-name-text,
@@ -264,7 +264,7 @@
     top: 2px;
     right: 2px;
     min-width: 16px;
-    padding: 0 4px;
+    padding: 0 var(--space-4);
     line-height: 16px;
   }
 }
@@ -287,7 +287,7 @@
     top: auto;
     bottom: 0;
     height: auto;
-    padding: 0 max(0px, env(safe-area-inset-right, 0px)) env(safe-area-inset-bottom, 0px) max(0px, env(safe-area-inset-left, 0px));
+    padding: 0 max(0, env(safe-area-inset-right, 0)) env(safe-area-inset-bottom, 0) max(0, env(safe-area-inset-left, 0));
     border-bottom: none;
     border-top: 1px solid var(--line);
   }
@@ -316,7 +316,7 @@
   .app-nav .app-link {
     min-height: var(--tab-bar-h);
     max-width: none;
-    padding: 0 0.125rem;
+    padding: 0 var(--space-2);
     border-radius: 0;
     font-size: var(--text-sm);
     text-align: center;
@@ -341,7 +341,7 @@
     bottom: calc(var(--tab-bar-h) + env(safe-area-inset-bottom, 0px) + 0.75rem);
     min-height: 2.75rem;
     max-width: calc(100vw - 2rem);
-    padding: 0 1rem;
+    padding: 0 var(--space-16);
     border: 1px solid var(--line-strong);
     border-radius: var(--radius-pill);
     background: var(--panel);
@@ -353,7 +353,7 @@
   }
 
   .start {
-    padding-bottom: calc(var(--tab-bar-h) + env(safe-area-inset-bottom, 0px) + 4.5rem);
+    padding-bottom: calc(var(--tab-bar-h) + env(safe-area-inset-bottom, 0) + 4.5rem);
   }
 
   .start .bench-root {

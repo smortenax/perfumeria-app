@@ -18,17 +18,13 @@
     "ui/orb/orbRenderer.ts": 5
   },
   "R1 spaces in CSS": {
-    "App.css": 100,
-    "bench/bench.css": 232,
-    "dilution/dilutions.css": 85,
-    "families/familyBar.css": 1,
-    "labels/labels.css": 16,
-    "MaterialPicker.css": 3,
-    "planner/planner.css": 38,
-    "tasting/tasting.css": 49,
-    "theme/buttons.css": 2,
-    "theme/layout.css": 23,
-    "theme/screens.css": 88
+    "App.css": 2,
+    "bench/bench.css": 29,
+    "dilution/dilutions.css": 4,
+    "planner/planner.css": 4,
+    "tasting/tasting.css": 1,
+    "theme/layout.css": 1,
+    "theme/screens.css": 4
   },
   "R1 inline styles": {
     "bench/BenchSwitcher.tsx": 1,

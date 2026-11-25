@@ -111,7 +111,7 @@
     color: var(--muted);
     background: var(--fill);
     border-radius: var(--radius-pill);
-    padding: 2px 8px;
+    padding: var(--space-2) var(--space-8);
     white-space: nowrap;
   }
 
@@ -149,13 +149,13 @@
     background: var(--panel);
     border: 1px solid var(--line);
     border-radius: var(--radius-large);
-    padding: 6px;
+    padding: var(--space-6);
     box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
   }
 
   .menu-note {
     display: block;
-    padding: 6px 12px 2px;
+    padding: var(--space-6) var(--space-12) var(--space-2);
     color: var(--faint);
     font-size: var(--text-xs);
   }
@@ -171,7 +171,7 @@
     border-radius: var(--radius-control);
     display: flex;
     align-items: center;
-    padding: 0 10px;
+    padding: 0 var(--space-10);
     font-size: var(--text-md);
     text-align: left;
     white-space: nowrap;
@@ -183,7 +183,7 @@
 
   .menuitem .key {
     margin-left: auto;
-    padding-left: 16px;
+    padding-left: var(--space-16);
     font-size: var(--text-xs);
     color: var(--muted);
   }
@@ -191,7 +191,7 @@
   .menu-sep {
     height: 1px;
     background: var(--line-soft);
-    margin: 4px 6px;
+    margin: var(--space-4) var(--space-6);
   }
 
   /* Launcher */
@@ -199,25 +199,25 @@
   .launcher {
     max-width: 680px;
     margin: 14vh auto 0;
-    padding: 0 24px;
+    padding: 0 var(--space-24);
   }
 
   .launcher h1 {
     font-size: var(--text-2xl);
     font-weight: 500;
     letter-spacing: -0.01em;
-    margin: 0 0 4px;
+    margin: 0 0 var(--space-4);
   }
 
   .launcher .subtitle {
     color: var(--muted);
-    margin: 0 0 28px;
+    margin: 0 0 var(--space-28);
   }
 
   .launcher-actions {
     display: flex;
-    gap: 12px;
-    margin-bottom: 28px;
+    gap: var(--space-12);
+    margin-bottom: var(--space-28);
   }
 
   button.big {
@@ -238,18 +238,18 @@
   }
 
   .library {
-    margin-bottom: 28px;
+    margin-bottom: var(--space-28);
   }
 
   .library h2 {
     font-size: var(--text-md);
     font-weight: 600;
-    margin: 0 0 8px;
+    margin: 0 0 var(--space-8);
   }
 
   .library-list {
     list-style: none;
-    margin: 0 0 8px;
+    margin: 0 0 var(--space-8);
     padding: 0;
     max-height: 40vh;
     overflow-y: auto;
@@ -272,8 +272,8 @@
     flex: 1;
     min-width: 0;
     justify-content: space-between;
-    gap: 16px;
-    padding: 10px 14px;
+    gap: var(--space-16);
+    padding: var(--space-10) var(--space-14);
     border: none;
     background: none;
     text-align: left;
@@ -281,7 +281,7 @@
 
   .library-versions {
     flex: none;
-    padding: 0 14px;
+    padding: 0 var(--space-14);
     border: none;
     border-left: 1px solid var(--line-soft);
     background: none;
@@ -300,13 +300,13 @@
   .library-older {
     list-style: none;
     margin: 0;
-    padding: 0 0 4px 18px;
+    padding: 0 0 var(--space-4) 18px;
     border-top: 1px solid var(--line-soft);
     background: var(--fill-2);
   }
 
   .library-older .library-open {
-    padding: 6px 14px;
+    padding: var(--space-6) var(--space-14);
   }
 
   .library-name {
@@ -319,7 +319,7 @@
   .launcher-notes p {
     color: var(--muted);
     font-size: var(--text-sm);
-    margin: 4px 0;
+    margin: var(--space-4) 0;
   }
 
   /* The bench (§10.1): one page that scrolls, at any width (V3-73). */
@@ -358,12 +358,12 @@
   .bottle-inner {
     position: absolute;
     inset: 0;
-    padding: 12px;
+    padding: var(--space-12);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: var(--space-4);
   }
 
   .fill-note {
@@ -376,7 +376,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1px;
+    gap: var(--space-1);
     font-size: var(--text-sm);
     color: var(--ink-2);
     text-align: center;
@@ -407,11 +407,11 @@
   .name-card {
     height: 88px;
     flex: none;
-    padding: 14px 20px;
+    padding: var(--space-14) var(--space-20);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 4px;
+    gap: var(--space-4);
   }
 
   .formula-name {
@@ -440,11 +440,11 @@
   .intention-card {
     flex: 1;
     min-height: 0;
-    padding: 12px 20px;
+    padding: var(--space-12) var(--space-20);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 4px;
+    gap: var(--space-4);
   }
 
   .intention-card textarea {
@@ -461,7 +461,7 @@
   .grams-card {
     width: 168px;
     flex: none;
-    padding: 12px 14px;
+    padding: var(--space-12) var(--space-14);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -479,7 +479,7 @@
     border: 1px solid var(--line-strong);
     border-radius: var(--radius-control);
     background: var(--panel);
-    padding: 0 8px;
+    padding: 0 var(--space-8);
     text-align: right;
     font-size: var(--text-md);
     font-weight: 500;
@@ -510,7 +510,7 @@
   .grams-block {
     display: flex;
     flex-direction: column;
-    gap: 1px;
+    gap: var(--space-1);
   }
 
   .grams-line {
@@ -526,14 +526,14 @@
   .grams-final {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: var(--space-6);
   }
 
   .grams-final .pill {
     font-weight: 500;
     border: 1px solid var(--line);
     background: transparent;
-    padding: 0 6px;
+    padding: 0 var(--space-6);
   }
 
   button.value,
@@ -576,14 +576,14 @@
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    gap: 12px 14px;
+    gap: var(--space-12) var(--space-14);
   }
 
   .field-label {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 6px;
+    gap: var(--space-6);
     min-height: 20px;
     font-size: var(--text-sm);
     font-weight: 600;
@@ -608,14 +608,14 @@
   }
 
   .field-label .more {
-    margin-left: 6px;
+    margin-left: var(--space-6);
   }
 
   /* 24 px to point at (audit F-15), in the room of the label's line: the margins give the space back. */
   .plus {
     width: 24px;
     height: 24px;
-    margin: -4px -3px;
+    margin: calc(-1 * var(--space-4)) -3px;
     padding: 0;
     display: inline-flex;
     align-items: center;
@@ -632,9 +632,9 @@
   .results-switches {
     display: flex;
     align-items: center;
-    gap: 14px;
-    padding: 2px 8px 8px;
-    margin-bottom: 4px;
+    gap: var(--space-14);
+    padding: var(--space-2) var(--space-8) var(--space-8);
+    margin-bottom: var(--space-4);
     border-bottom: 1px solid var(--line-soft);
     font-size: var(--text-sm);
     cursor: default;
@@ -646,7 +646,7 @@
     background: transparent;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: var(--space-6);
     padding: 0;
     font-size: var(--text-xs);
     color: var(--ink-2);
@@ -687,13 +687,13 @@
     min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: var(--space-6);
   }
 
   .material-field {
     position: relative;
-    gap: 8px;
-    padding: 0 4px 0 10px;
+    gap: var(--space-8);
+    padding: 0 var(--space-4) 0 var(--space-10);
   }
 
   /* The chosen material, whole, over the field (audit F-04): the text under it stays for the keyboard. */
@@ -714,7 +714,7 @@
   .material-chip {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: var(--space-6);
     min-width: 0;
   }
 
@@ -752,7 +752,7 @@
   /* The keys that choose, on their own line above the switches (audit F-04: it used to crowd the label). */
   .results-switches {
     flex-wrap: wrap;
-    row-gap: 4px;
+    row-gap: var(--space-4);
   }
 
   .results-switches .hint {
@@ -809,7 +809,7 @@
     z-index: 40;
     list-style: none;
     margin: 0;
-    padding: 6px;
+    padding: var(--space-6);
     max-height: 360px;
     overflow: auto;
     background: var(--panel);
@@ -822,8 +822,8 @@
     min-height: 32px;
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 4px 8px;
+    gap: var(--space-8);
+    padding: var(--space-4) var(--space-8);
     border-radius: var(--radius-control);
     font-size: var(--text-md);
     cursor: pointer;
@@ -848,7 +848,7 @@
   .result-name .primary {
     display: flex;
     align-items: baseline;
-    gap: 6px;
+    gap: var(--space-6);
   }
 
   .result-name .trade-code {
@@ -866,7 +866,7 @@
   .results .code-chip {
     flex: none;
     min-width: 34px;
-    padding: 2px 5px;
+    padding: var(--space-2) 5px;
     border: 1px solid var(--line);
     border-radius: var(--radius-control);
     font-family: var(--font-mono);
@@ -890,7 +890,7 @@
   .material-card .state {
     flex: none;
     font-size: var(--text-xs);
-    padding: 1px 6px;
+    padding: var(--space-1) var(--space-6);
     border-radius: var(--radius-pill);
     color: var(--muted);
     border: 1px solid var(--line);
@@ -926,12 +926,12 @@
     min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: var(--space-6);
   }
 
   .quantity-field {
-    padding: 0 4px 0 10px;
-    gap: 4px;
+    padding: 0 var(--space-4) 0 var(--space-10);
+    gap: var(--space-4);
   }
 
   .quantity-field input {
@@ -964,7 +964,7 @@
     min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: var(--space-6);
   }
 
   .other-wrap {
@@ -980,11 +980,11 @@
   }
 
   .own-diluent {
-    margin: 4px 6px 2px;
+    margin: var(--space-4) var(--space-6) var(--space-2);
     height: 28px;
     border: 1px solid var(--line);
     border-radius: var(--radius-control);
-    padding: 0 8px;
+    padding: 0 var(--space-8);
     font: inherit;
     font-size: var(--text-sm);
     background: var(--panel);
@@ -1011,7 +1011,7 @@
     background: var(--panel);
     border: 1px solid var(--red);
     border-radius: var(--radius-control);
-    padding: 4px 8px;
+    padding: var(--space-4) var(--space-8);
   }
 
   /* The card of the chosen material (P57): under the add bar, where the recent ones were, and as
@@ -1034,10 +1034,10 @@
     position: relative;
     flex: 1;
     min-height: 92px;
-    padding: 8px 12px;
+    padding: var(--space-8) var(--space-12);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: var(--space-10);
   }
 
   .material-card.idle {
@@ -1049,7 +1049,7 @@
     min-width: 160px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: var(--space-10);
   }
 
   .material-card .code-chip {
@@ -1081,7 +1081,7 @@
     min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: 1px;
+    gap: var(--space-1);
   }
 
   /* The name wraps to a second line before it is cut (audit F-04). */
@@ -1108,7 +1108,7 @@
   .mc-ids {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: var(--space-6);
     min-width: 0;
     line-height: 18px;
   }
@@ -1134,7 +1134,7 @@
     width: 128px;
     display: flex;
     flex-direction: column;
-    gap: 1px;
+    gap: var(--space-1);
   }
 
   .mc-mass {
@@ -1155,8 +1155,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2px;
-    padding: 4px 10px;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-10);
     border: 1px dashed var(--line-strong);
     border-radius: var(--radius-control);
     color: var(--muted);
@@ -1203,7 +1203,7 @@
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    gap: 6px;
+    gap: var(--space-6);
   }
 
   .mc-box-label,
@@ -1229,7 +1229,7 @@
   .usage-strip {
     position: relative;
     height: 10px;
-    margin: 8px 0 7px;
+    margin: var(--space-8) 0 7px;
     border: 1px dashed var(--line-strong);
     border-radius: var(--radius-panel);
   }
@@ -1346,8 +1346,8 @@
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    gap: 4px;
-    margin-top: 4px;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
     font-family: var(--font-mono);
     font-size: var(--text-xs);
     line-height: 12px;
@@ -1368,8 +1368,8 @@
   .usage-legend {
     display: flex;
     flex-wrap: wrap;
-    gap: 0 8px;
-    margin-top: 1px;
+    gap: 0 var(--space-8);
+    margin-top: var(--space-1);
     font-size: var(--text-xs);
     line-height: 12px;
     color: var(--muted);
@@ -1407,7 +1407,7 @@
   .usage-legend .sw.ceiling {
     width: 6px;
     height: 6px;
-    margin: 0 1px;
+    margin: 0 var(--space-1);
     transform: rotate(45deg);
     border: 1.5px solid var(--mark-use-line);
     background: var(--mark-use);
@@ -1454,23 +1454,23 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 4px 8px;
-    padding: 8px 14px 8px 6px;
+    gap: var(--space-4) var(--space-8);
+    padding: var(--space-8) var(--space-14) var(--space-8) var(--space-6);
   }
 
   .chart-card {
     min-width: 0;
     min-height: 0;
-    padding: 12px 14px;
+    padding: var(--space-12) var(--space-14);
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: var(--space-6);
   }
 
   .chart-head {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: var(--space-8);
   }
 
   .chart-title {
@@ -1493,7 +1493,7 @@
   .pyramid-row {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: var(--space-10);
     height: 26px;
   }
 
@@ -1514,7 +1514,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 16px;
+    gap: var(--space-16);
   }
 
   /* The families of the donut, named, with their share of the aromatic matter (audit F-07). */
@@ -1524,7 +1524,7 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: var(--space-4);
     min-width: 0;
     font-size: var(--text-sm);
   }
@@ -1532,7 +1532,7 @@
   .donut-legend li {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: var(--space-6);
   }
 
   .donut-legend .swatch {
@@ -1551,7 +1551,7 @@
 
   .donut-legend .num {
     margin-left: auto;
-    padding-left: 8px;
+    padding-left: var(--space-8);
     color: var(--ink);
   }
 
@@ -1564,7 +1564,7 @@
     position: relative;
     flex: 1;
     min-height: 0;
-    margin: 2px 22px 0 18px;
+    margin: var(--space-2) 22px 0 18px;
     font-size: var(--text-xs);
     color: var(--muted);
   }
@@ -1616,8 +1616,8 @@
   .evaporation-card {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    padding: 12px var(--space-inset);
+    gap: var(--space-6);
+    padding: var(--space-12) var(--space-inset);
   }
 
   .evaporation-card p {
@@ -1627,7 +1627,7 @@
   .evaporation-slider {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: var(--space-2);
   }
 
   .evaporation-slider input {
@@ -1639,7 +1639,7 @@
   .evaporation-scale {
     display: flex;
     justify-content: space-between;
-    gap: 8px;
+    gap: var(--space-8);
     font-size: var(--text-xs);
     color: var(--muted);
   }
@@ -1652,7 +1652,7 @@
   .evaporation-now {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: var(--space-6);
   }
 
   .evaporation-unknown {
@@ -1663,8 +1663,8 @@
   .summary-card {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    padding: 12px var(--space-inset);
+    gap: var(--space-6);
+    padding: var(--space-12) var(--space-inset);
   }
 
   .summary-card p {
@@ -1679,9 +1679,9 @@
   .summary-confidence {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    margin-top: 4px;
-    padding-top: 8px;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+    padding-top: var(--space-8);
     border-top: 1px solid var(--line);
     font-size: var(--text-sm);
   }
@@ -1700,7 +1700,7 @@
   .ifra-summary {
     min-width: 0;
     text-align: left;
-    padding: 12px 14px;
+    padding: var(--space-12) var(--space-14);
     display: flex;
     flex-direction: column;
     gap: 7px;
@@ -1709,7 +1709,7 @@
   .ifra-head {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: var(--space-6);
     width: 100%;
   }
 
@@ -1724,7 +1724,7 @@
     align-items: center;
     gap: 5px;
     font-size: var(--text-xs);
-    padding: 2px 8px;
+    padding: var(--space-2) var(--space-8);
     border-radius: var(--radius-pill);
     white-space: nowrap;
   }
@@ -1742,7 +1742,7 @@
   .ifra-line {
     display: flex;
     align-items: baseline;
-    gap: 8px;
+    gap: var(--space-8);
     width: 100%;
     font-size: var(--text-sm);
   }
@@ -1794,8 +1794,8 @@
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    gap: 1px 8px;
-    padding: 12px 14px 9px;
+    gap: var(--space-1) var(--space-8);
+    padding: var(--space-12) var(--space-14) 9px;
     border-bottom: 1px solid var(--line-soft);
   }
 
@@ -1805,21 +1805,21 @@
   }
 
   .panel-body {
-    padding: 12px 14px 14px;
+    padding: var(--space-12) var(--space-14) var(--space-14);
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: var(--space-12);
   }
 
   .panel-empty {
     margin: 0;
-    padding: 12px 14px;
+    padding: var(--space-12) var(--space-14);
   }
 
   .detail-section {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: var(--space-8);
   }
 
   .section-title {
@@ -1840,7 +1840,7 @@
       "name use"
       "bar value";
     align-items: center;
-    gap: 3px 8px;
+    gap: 3px var(--space-8);
     font-size: var(--text-sm);
   }
 
@@ -1934,19 +1934,19 @@
   }
 
   .ceiling-row.sub {
-    padding-left: 10px;
+    padding-left: var(--space-10);
   }
 
   .section-title.with-switch {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 4px 8px;
+    gap: var(--space-4) var(--space-8);
   }
 
   .panel-base {
     flex: none;
-    padding: 6px 14px 0;
+    padding: var(--space-6) var(--space-14) 0;
   }
 
   .second-reading {
@@ -1963,7 +1963,7 @@
     font-size: var(--text-xs);
     color: var(--muted);
     border-top: 1px solid var(--line-soft);
-    padding-top: 8px;
+    padding-top: var(--space-8);
   }
 
   /* Composition */
@@ -1975,11 +1975,11 @@
   }
 
   .composition-head {
-    padding: 12px 14px 9px;
+    padding: var(--space-12) var(--space-14) 9px;
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    gap: 2px 8px;
+    gap: var(--space-2) var(--space-8);
     border-bottom: 1px solid var(--line-soft);
   }
 
@@ -2003,7 +2003,7 @@
     color: var(--muted);
     font-size: var(--text-xs);
     line-height: 24px;
-    padding: 0 8px;
+    padding: 0 var(--space-8);
     white-space: nowrap;
   }
 
@@ -2023,11 +2023,11 @@
   }
 
   .composition-rows {
-    padding: 4px 6px;
+    padding: var(--space-4) var(--space-6);
   }
 
   .composition-rows .empty {
-    padding: 8px;
+    padding: var(--space-8);
   }
 
   /* A line of the composition (P57): the icon in the colour of its family, on the left over two
@@ -2041,8 +2041,8 @@
     grid-template-columns: 32px minmax(0, 1fr) auto auto;
     align-content: center;
     align-items: center;
-    column-gap: 8px;
-    padding: 4px 8px;
+    column-gap: var(--space-8);
+    padding: var(--space-4) var(--space-8);
     border-radius: var(--radius-control);
     text-align: left;
   }
@@ -2080,7 +2080,7 @@
     min-width: 0;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: var(--space-6);
   }
 
   /* A long name takes a second line instead of an ellipsis (audit F-04). */
@@ -2113,7 +2113,7 @@
     grid-column: 2 / -1;
     display: block;
     height: 4px;
-    margin: 3px 0 2px;
+    margin: 3px 0 var(--space-2);
     border-radius: 2px;
     background: var(--fill);
     overflow: hidden;
@@ -2133,7 +2133,7 @@
     display: inline-block;
     width: 48px;
     height: 8px;
-    margin-right: 6px;
+    margin-right: var(--space-6);
     vertical-align: -1px;
   }
 
@@ -2183,7 +2183,7 @@
   .row-line {
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: var(--space-2);
   }
 
   .row-line .row {
@@ -2235,7 +2235,7 @@
     flex: none;
     font-size: var(--text-xs);
     line-height: 16px;
-    padding: 0 6px;
+    padding: 0 var(--space-6);
     border-radius: var(--radius-pill);
     white-space: nowrap;
   }
@@ -2251,8 +2251,8 @@
   }
 
   .row-detail {
-    margin: 2px 8px 6px;
-    padding: 8px 10px;
+    margin: var(--space-2) var(--space-8) var(--space-6);
+    padding: var(--space-8) var(--space-10);
     background: var(--fill-2);
     border-radius: var(--radius-control);
     display: flex;
@@ -2265,7 +2265,7 @@
     line-height: 1.4;
     color: var(--ink-2);
     display: flex;
-    gap: 8px;
+    gap: var(--space-8);
   }
 
   .detail-key {
@@ -2297,7 +2297,7 @@
     display: inline-block;
     transform: skewX(16deg);
     font-weight: 300;
-    margin-left: 1px;
+    margin-left: var(--space-1);
   }
 
   /* The mark that tells apart the CAS sharing one abbreviation: ⁶IBQ, ²IBQ (P39). */
@@ -2319,11 +2319,11 @@
     border: 1px solid var(--line-strong);
     border-radius: var(--radius-large);
     box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
-    padding: 12px 14px;
+    padding: var(--space-12) var(--space-14);
   }
 
   .change-detail p {
-    margin: 0 0 4px;
+    margin: 0 0 var(--space-4);
   }
 
   .change-detail .warn-unweighable {
@@ -2337,8 +2337,8 @@
   .detail-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 8px;
+    gap: var(--space-6);
+    margin-top: var(--space-8);
   }
 
   .detail-actions button:not(.link) {
@@ -2346,7 +2346,7 @@
     border: 1px solid var(--line);
     border-radius: var(--radius-control);
     background: var(--fill-2);
-    padding: 0 10px;
+    padding: 0 var(--space-10);
     font-size: var(--text-sm);
   }
 
@@ -2372,10 +2372,10 @@
 
   /* The padding is the body's: a press on the dialog itself is a press on the backdrop. */
   .modal-body {
-    padding: 16px;
+    padding: var(--space-16);
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: var(--space-10);
   }
 
   .modal h2 {
@@ -2402,7 +2402,7 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 4px;
+    gap: var(--space-4);
     font-size: var(--text-sm);
     color: var(--muted);
     padding: 0;
@@ -2413,7 +2413,7 @@
     height: 36px;
     border: 1px solid var(--line-strong);
     border-radius: var(--radius-control);
-    padding: 0 10px;
+    padding: 0 var(--space-10);
     color: var(--ink);
     background: var(--panel);
   }
@@ -2427,7 +2427,7 @@
   .choices {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: var(--space-4);
   }
 
   .choice {
@@ -2435,9 +2435,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 10px;
+    gap: var(--space-10);
     min-height: 40px;
-    padding: 6px 12px;
+    padding: var(--space-6) var(--space-12);
     border: 1px solid var(--line);
     border-radius: var(--radius-control);
     background: var(--panel);
@@ -2504,13 +2504,13 @@
   .bench-picker {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: var(--space-10);
   }
 
   .picker-columns {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
-    gap: 12px;
+    gap: var(--space-12);
   }
 
   .picker-columns.one {
@@ -2539,20 +2539,20 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: var(--space-4);
   }
 
   .picker-group legend {
     font-size: var(--text-sm);
     color: var(--muted);
-    padding: 0 0 2px;
+    padding: 0 0 var(--space-2);
   }
 
 
   .modal-actions {
     display: flex;
     justify-content: flex-end;
-    gap: 8px;
+    gap: var(--space-8);
   }
 
   /* Its look is the app's (theme/buttons.css, audit F-11 L2); only its size is the dialog's. */
@@ -2564,8 +2564,8 @@
   /* What limits the formula, on one line: a long IFRA name is cut, and says itself on hover. */
   /* With the line of what limits, the box closes up to keep its height. */
   .ifra-summary.with-limit {
-    padding: 8px 12px;
-    gap: 4px;
+    padding: var(--space-8) var(--space-12);
+    gap: var(--space-4);
   }
 
   .ifra-limit {
@@ -2589,14 +2589,14 @@
   .plant-variants {
     display: inline-flex;
     flex-wrap: wrap;
-    gap: 4px;
+    gap: var(--space-4);
   }
 
   /* Always on lines of their own, under the name, so the list keeps one shape at any width. */
   .plant-forms,
   .plant-variants {
     flex-basis: 100%;
-    padding: 2px 0 2px 40px;
+    padding: var(--space-2) 0 var(--space-2) var(--space-40);
   }
 
   .form-chip {
@@ -2649,10 +2649,10 @@
     width: min(720px, calc(100vw - 48px));
     max-height: 60vh;
     overflow: auto;
-    padding: 10px 12px;
+    padding: var(--space-10) var(--space-12);
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: var(--space-4);
     font-size: var(--text-sm);
     box-shadow: 0 6px 24px rgb(0 0 0 / 0.16);
   }
@@ -2662,7 +2662,7 @@
     align-items: baseline;
   }
   .prov-section {
-    margin-top: 6px;
+    margin-top: var(--space-6);
     font-size: var(--text-xs);
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -2671,9 +2671,9 @@
   .prov-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 2px 12px;
+    gap: var(--space-2) var(--space-12);
     align-items: baseline;
-    padding: 2px 0;
+    padding: var(--space-2) 0;
     border-top: 1px solid var(--line);
   }
   .prov-what {
@@ -2706,10 +2706,10 @@
   .migration-notice {
     display: flex;
     flex-wrap: wrap;
-    gap: 4px 12px;
+    gap: var(--space-4) var(--space-12);
     align-items: baseline;
-    margin: 0 0 6px;
-    padding: 6px 12px;
+    margin: 0 0 var(--space-6);
+    padding: var(--space-6) var(--space-12);
     border: 1px solid var(--line);
     border-radius: var(--radius-control);
     font-size: var(--text-sm);
@@ -2724,7 +2724,7 @@
   }
   .migration-list {
     flex-basis: 100%;
-    margin: 4px 0 0;
+    margin: var(--space-4) 0 0;
     padding-left: 18px;
     max-height: 160px;
     overflow: auto;
@@ -2739,7 +2739,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 8px 12px;
+    gap: var(--space-8) var(--space-12);
   }
 
   .formula-head .back {
@@ -2756,18 +2756,18 @@
     flex: 1 1 calc(100% - var(--size-target) - 12px);
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: var(--space-4);
     min-width: 0;
   }
 
   .crumb {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: var(--space-6);
     min-width: 0;
     max-width: 22rem;
     min-height: var(--size-target);
-    padding: 0 10px;
+    padding: 0 var(--space-10);
     border: 1px solid transparent;
     background: transparent;
     color: var(--muted);
@@ -2805,7 +2805,7 @@
     left: 0;
     width: min(24rem, calc(100vw - 24px));
     max-height: min(28rem, 70vh);
-    gap: 4px;
+    gap: var(--space-4);
   }
 
   .switcher-search {
@@ -2817,11 +2817,11 @@
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid var(--line);
-    padding-bottom: 4px;
+    padding-bottom: var(--space-4);
   }
 
   .switcher-head .menu-note {
-    padding-top: 2px;
+    padding-top: var(--space-2);
     font-weight: 700;
     color: var(--ink);
     font-size: var(--text-sm);
@@ -2881,7 +2881,7 @@
     flex: 2 1 280px;
     min-width: 0;
     min-height: var(--size-target);
-    padding: 6px 12px;
+    padding: var(--space-6) var(--space-12);
   }
 
   .formula-head .intention-card textarea {
@@ -2890,7 +2890,7 @@
 
   .head-actions {
     display: flex;
-    gap: 8px;
+    gap: var(--space-8);
     margin-left: auto;
   }
 
@@ -2904,7 +2904,7 @@
   /* The plan's door (V3-100): a word, not an icon, so it is found without remembering it. */
   .head-actions .tool.plan-door {
     width: auto;
-    padding: 0 14px;
+    padding: 0 var(--space-14);
     font: inherit;
     font-weight: 700;
   }
@@ -2918,16 +2918,16 @@
   .head-figures {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px;
+    gap: var(--space-12);
     margin: 0;
   }
 
   .head-figures div {
     display: flex;
     flex-direction: column-reverse;
-    gap: 2px;
+    gap: var(--space-2);
     min-width: 0;
-    padding: 4px 0 0;
+    padding: var(--space-4) 0 0;
     border-top: 2px solid var(--ink);
   }
 
@@ -2959,14 +2959,14 @@
   .weigh-fold {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: var(--space-8);
   }
 
   .weigh-toggle {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 8px;
+    gap: var(--space-8);
     width: 100%;
     min-height: var(--size-target);
     padding: 0 var(--space-inset);
@@ -2995,8 +2995,8 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 12px 24px;
-    padding: 12px var(--space-inset);
+    gap: var(--space-12) var(--space-24);
+    padding: var(--space-12) var(--space-inset);
   }
 
   .weigh-row .bottle-frame {
@@ -3013,7 +3013,7 @@
     position: static;
     padding: 0;
     flex-direction: row;
-    gap: 12px;
+    gap: var(--space-12);
   }
 
   .weigh-row .bottle-inner > svg {
@@ -3035,13 +3035,13 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
-    gap: 12px 20px;
+    gap: var(--space-12) var(--space-20);
   }
 
   .weigh-row .grams-block {
     flex: 1 1 120px;
     min-width: 0;
-    gap: 4px;
+    gap: var(--space-4);
   }
 
   .weigh-row .gram-box {
@@ -3050,8 +3050,8 @@
 
   /* The % of the material, one field, with «Neat» under it. */
   .percent-field {
-    padding: 0 10px;
-    gap: 4px;
+    padding: 0 var(--space-10);
+    gap: var(--space-4);
   }
 
   .percent-field input {
@@ -3080,7 +3080,7 @@
   .add-diluent,
   .more-btn {
     min-height: 36px;
-    padding: 0 12px;
+    padding: 0 var(--space-12);
     border: 1px solid var(--line-strong);
     border-radius: var(--radius-control);
     background: var(--panel);
@@ -3105,7 +3105,7 @@
   .diluents-col {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: var(--space-6);
     min-width: 0;
   }
 
@@ -3122,14 +3122,14 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 6px;
+    gap: var(--space-6);
     min-height: var(--size-target);
   }
 
   .bottle-choice {
     display: grid;
     min-height: var(--size-target);
-    padding: 4px 10px;
+    padding: var(--space-4) var(--space-10);
     border: 1px solid var(--line-strong);
     border-radius: var(--radius-control);
     background: var(--panel);
@@ -3174,7 +3174,7 @@
 
   .bottle-none,
   .diluent-none {
-    padding: 0 2px;
+    padding: 0 var(--space-2);
   }
 
   /* The diluents as chips: each opens its menu to change it; with more than one, each but the last
@@ -3182,9 +3182,9 @@
   .diluent-chip {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: var(--space-4);
     min-height: 40px;
-    padding: 0 4px 0 2px;
+    padding: 0 var(--space-4) 0 var(--space-2);
     border: 1px solid var(--line);
     border-radius: var(--radius-control);
     background: var(--surface-sunken);
@@ -3193,9 +3193,9 @@
   .diluent-name {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: var(--space-6);
     min-height: 36px;
-    padding: 0 8px;
+    padding: 0 var(--space-8);
     border: none;
     border-radius: var(--radius-control);
     background: none;
@@ -3207,7 +3207,7 @@
     display: inline-flex;
     flex-direction: row;
     align-items: center;
-    gap: 2px;
+    gap: var(--space-2);
     font-size: var(--text-sm);
   }
 
@@ -3217,14 +3217,14 @@
     border: 1px solid var(--line-strong);
     border-radius: var(--radius-control);
     background: var(--panel);
-    padding: 0 6px;
+    padding: 0 var(--space-6);
     text-align: right;
   }
 
   .diluent-rest {
     font-size: var(--text-xs);
     color: var(--muted);
-    padding: 0 4px;
+    padding: 0 var(--space-4);
   }
 
   .diluent-rest.over {
@@ -3257,16 +3257,16 @@
   /* Under the material, what the formula carries of it, its margin and its usual use (V3-73). */
   .material-card.insight {
     min-height: 0;
-    padding: 8px 10px;
+    padding: var(--space-8) var(--space-10);
     border-radius: var(--radius-control);
     background: var(--surface-sunken);
     flex-wrap: wrap;
     align-items: stretch;
-    gap: 8px 12px;
+    gap: var(--space-8) var(--space-12);
   }
 
   .material-card.insight.idle {
-    padding: 10px;
+    padding: var(--space-10);
   }
 
   .insight-who {
@@ -3274,7 +3274,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    gap: 2px 12px;
+    gap: var(--space-2) var(--space-12);
     font-size: var(--text-sm);
   }
 
@@ -3320,9 +3320,9 @@
   .odour-map {
     display: grid;
     place-items: center;
-    gap: 4px;
+    gap: var(--space-4);
     min-height: 160px;
-    padding: 12px;
+    padding: var(--space-12);
     border-style: dashed;
     border-color: var(--line-strong);
     text-align: center;
@@ -3336,11 +3336,11 @@
 
   @media (max-width: 40rem) {
     .bench {
-      padding: 12px 12px 0;
+      padding: var(--space-12) var(--space-12) 0;
     }
 
     .history-bar {
-      margin: 0 -12px;
+      margin: 0 calc(-1 * var(--space-12));
     }
 
     .formula-head .formula-name {
@@ -3361,7 +3361,7 @@
     .head-actions {
       order: 2;
       margin-left: 0;
-      gap: 4px;
+      gap: var(--space-4);
     }
 
     .formula-head .intention-card {
@@ -3369,7 +3369,7 @@
       flex: 1 1 100%;
       flex-direction: row;
       align-items: baseline;
-      gap: 8px;
+      gap: var(--space-8);
     }
 
     .formula-head .intention-card:not(:focus-within) textarea {
@@ -3426,19 +3426,19 @@
   top: calc(100% + 4px);
   left: 0;
   min-width: 240px;
-  gap: 4px;
+  gap: var(--space-4);
 }
 
 /* «Usar la fórmula» (V3-59): the recipe, one line per pour. */
 .bench-root .recipe {
   width: 100%;
   border-collapse: collapse;
-  margin: 8px 0;
+  margin: var(--space-8) 0;
   font-size: var(--text-md);
 }
 
 .bench-root .recipe td {
-  padding: 3px 4px;
+  padding: 3px var(--space-4);
   border-bottom: 1px solid var(--line-soft);
 }
 
@@ -3455,8 +3455,8 @@
 
 /* A locked formula (F1) says so over the bench, with the way out. */
 .locked-note {
-  margin: 0 0 12px;
-  padding: 8px 12px;
+  margin: 0 0 var(--space-12);
+  padding: var(--space-8) var(--space-12);
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-control);
   background: var(--panel);
@@ -3465,7 +3465,7 @@
 /* The composition by notes (F3): a switch in the head, and each group with its subtotal. */
 .composition-head .by-note {
   min-height: 28px;
-  padding: 2px 10px;
+  padding: var(--space-2) var(--space-10);
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-pill);
   background: transparent;
@@ -3478,7 +3478,7 @@
 .note-head {
   display: flex;
   justify-content: space-between;
-  padding: 8px 12px 4px;
+  padding: var(--space-8) var(--space-12) var(--space-4);
   font-size: var(--text-sm, 13px);
   font-weight: 700;
   text-transform: uppercase;
@@ -3491,12 +3491,12 @@
 
 /* The formula's families (F2), under the head of the bench. */
 .bench-families {
-  margin: -4px 0 12px;
+  margin: calc(-1 * var(--space-4)) 0 var(--space-12);
 }
 
 /* Macerating (V3-83): its day and its check, under the head of the bench. */
 .maceration-note {
-  margin: 0 0 12px;
+  margin: 0 0 var(--space-12);
   font-size: var(--text-sm, 13px);
 }
 
@@ -3510,7 +3510,7 @@
   width: 22px;
   height: 22px;
   padding: 0;
-  margin: 0 2px;
+  margin: 0 var(--space-2);
   border: 1px solid var(--line-strong);
   border-radius: 50%;
   background: var(--panel);
@@ -3538,9 +3538,9 @@
 .bench-root .explain-text {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  margin-top: 6px;
-  padding: 8px 10px;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+  padding: var(--space-8) var(--space-10);
   border-left: 2px solid var(--line-strong);
   border-radius: 0 var(--radius-control) var(--radius-control) 0;
   background: var(--fill);
@@ -3562,7 +3562,7 @@
 @media (max-width: 480px) {
   .bench-root .row-main {
     flex-wrap: wrap;
-    row-gap: 2px;
+    row-gap: var(--space-2);
   }
   .bench-root .row-name {
     overflow-wrap: normal;
