@@ -1,33 +1,8 @@
-// Interface texts, in English, the app's one standard language (V3-71). Every string the user
-// sees comes from here. The keys that are data codes of the v2 (prohibido, lote…) stay as they are.
+// The bench's interface texts, in English, the app's one standard language (V3-71); the rest of the
+// app's, in i18n/en.ts. Every string the user sees comes from src/i18n/ (V3-111). The keys that are data codes of the v2 (prohibido, lote…) stay as they are.
 export const texts = {
   appName: "Perfumery",
 
-  launcher: {
-    subtitle: "Formulation bench · provisional version for testing",
-    newBench: "New formulation bench",
-    open: "Open formula…",
-    openOther: "Open another file…",
-    library: "Your formulas",
-    libraryEmpty: "None yet. Each formula is saved here on its own from its first addition.",
-    libraryAt: (folder: string) => `In ${folder}`,
-    libraryError: "Could not read the library",
-    versions: (n: number) => `${n} versions`,
-    versionsHelp: "See the earlier versions",
-    base: (fig: number, ifraOnly: number) =>
-      `Glossary: ${fig + ifraOnly} materials, ${fig} from the FIG with your abbreviations and ${ifraOnly} not in it (from IFRA and the houses' catalogues). No material of yours.`,
-    families: (withFamily: number) =>
-      `Families and colours: the laboratory's own categorisation (front 6), for ${withFamily} materials; the rest, without a family yet.`,
-    source: (amendment: string, date: string) =>
-      `IFRA, ${amendment}th Amendment, from its own files; counted in category 4. Glossary generated on ${date}.`,
-    figCredit: "Information derived from the IFRA Fragrance Ingredient Glossary, developed by The International Fragrance Association.",
-    provisional:
-      "The distribution already goes by families. The pyramid and the projection wait for a decision on how duration is shown (P42).",
-    openError: "Could not open the formula",
-    model: "Materials:",
-    modelV1: "glossary (v1, as it was)",
-    modelV2: "reviewed v2, with the «unreviewed» glossary for what it lacks",
-  },
 
   bench: {
     back: "Back",
@@ -305,22 +280,6 @@ export const texts = {
       nota: "A fact of the standard, which the material neither proves nor assumes.",
     },
     notV2: "A v1 material, unreviewed: no provenance.",
-  },
-  migration: {
-    title: "Opened with the v2",
-    summary: (moved: number, stays: number, warnings: number) =>
-      `${moved} material${moved === 1 ? "" : "s"} move${moved === 1 ? "s" : ""} to the v2, ${stays} stay${stays === 1 ? "s" : ""} as «v1, unreviewed»${warnings > 0 ? ` and ${warnings} warning${warnings === 1 ? "" : "s"}` : ""}.`,
-    unchanged: "The file has not been touched: it is only saved if you change something, and then the original is copied to «copias-v1».",
-    show: "Show the detail",
-    hide: "Hide",
-    close: "Close",
-    migrated: (from: string, to: string) => `${from} → ${to}`,
-    confirmed: (date: string) => `confirmed on ${date}`,
-    provisionalNote: "provisional material, no CAS to check",
-    cas: (name: string, formulaCas: string, v2Cas: string) =>
-      `Warning: ${name} has CAS ${formulaCas || "none"} and the v2 material, ${v2Cas || "none"}: not changed, waiting for your confirmation.`,
-    ambiguous: (name: string, products: string) => `Warning: ${name} has more than one product (${products}): not changed; one must be chosen.`,
-    v1Only: (name: string) => `${name}: only in the v1, unreviewed; its IFRA is computed as before.`,
   },
   evaporation: {
     title: "On the blotter",

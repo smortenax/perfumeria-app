@@ -1,5 +1,6 @@
 import type { Catalog, CatalogMaterial, Family } from "../db/catalog";
 import { familyOf } from "../families/palette";
+import { drawn } from "../format/numbers";
 
 /**
  * What Materials filters and sorts by (V3-94): the family, the strength and the hours on a blotter,
@@ -74,7 +75,7 @@ export function traitsOf(catalog: Catalog, material: CatalogMaterial, stems: Rea
     family,
     facetFamilies: facetFamiliesOf(inherited(catalog, material, "facets"), family, stems),
     strength: impact !== null ? impact - 1 : null,
-    hours: hours ? Number(hours.toFixed(2)) : null,
+    hours: hours ? drawn(hours, 2) : null,
   };
 }
 

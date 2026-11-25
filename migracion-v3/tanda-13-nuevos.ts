@@ -13,7 +13,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
-import { type Cell, writeTable } from "./lib/csv.ts";
+import { type Cell, writeTable, asCells } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
 const OUT = "migracion-v3/tandas/13-nuevos";
@@ -80,7 +80,6 @@ for (const m of NEW) {
 const ifraOf = (cas: string) =>
   ifraSubstances.some((s) => s.cas === cas) ? "estándar por su CAS" : annex.some((a) => a.natural_cas === cas) ? "en el anexo (constituyentes)" : "sin estándar";
 
-const asCells = (rows: Rec[]) => rows.map((r) => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, typeof v === "string" && /^\[.*\]$/.test(v) ? (JSON.parse(v) as string[]) : v])));
 writeTable(join(OUT, "materials.csv"), materials.header, [...asCells(materials.rows), ...newMaterials]);
 writeTable(join(OUT, "material_categories.csv"), categories.header, [...asCells(categories.rows), ...newCategories]);
 const conf = { high: "alta", medium: "media" } as const;

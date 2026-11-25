@@ -13,7 +13,7 @@ import {
   TIERS,
 } from "../db/catalog";
 import { texts } from "../i18n/en";
-import { decimal } from "./format";
+import { decimal } from "../format/numbers";
 
 /**
  * What the editor of one of your materials shows (plan v3, step 6.3): the fields of its record,

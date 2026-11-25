@@ -16,7 +16,7 @@ import { execSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
-import { type Cell, writeTable } from "./lib/csv.ts";
+import { type Cell, writeTable, asCells } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
 const CONFIG: Record<string, { out: string; prev: string; title: string }> = {
@@ -198,7 +198,6 @@ for (const p of proposal) {
   lines.push(`| ${p.n} | ${p.nombre} | ${p.especie ? `*${p.especie}*` : "—"} | ${p.family || "—"} | ${impact} | ${p.strength || "—"} | ${p.tenacity_hours ? `${p.tenacity_hours} h` : "—"} | ${p.tier || "—"} | ${p.dose ? pct(p.dose.split("|")[0]) : "—"} | ${disputed.join(", ")} |`);
 }
 
-const asCells = (rows: Rec[]) => rows.map((r) => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, typeof v === "string" && /^\[.*\]$/.test(v) ? (JSON.parse(v) as string[]) : v])));
 writeTable(join(OUT, "materials.csv"), materials.header, [...asCells(materials.rows), ...newMaterials]);
 writeTable(join(OUT, "material_categories.csv"), categories.header, [...asCells(categories.rows), ...newCategories]);
 writeTable(join(OUT, "material_descriptors.csv"), descriptors.header, [...asCells(descriptors.rows), ...newDescriptors]);

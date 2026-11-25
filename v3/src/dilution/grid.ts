@@ -1,6 +1,6 @@
 import { Ratio } from "../core/arith/ratio";
 import type { Dilution } from "../db/catalog";
-import { decimal } from "../glossary/format";
+import { decimal } from "../format/numbers";
 
 /**
  * «Dilutions» as a grid (V3-79): one card per material of yours, with a chip per dilution. A dilution

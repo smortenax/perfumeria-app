@@ -2,19 +2,22 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Ratio } from "../core/arith/ratio";
 import type { Dilution } from "../db/catalog";
 import { createBottle, createUnweighedBottle } from "../db/dilutions";
+import { dilutionLabel, linesOf } from "../labels/content";
+import { saveJob, type PrintLine } from "../labels/jobs";
 import type { LocalDatabase } from "../db/local/database";
 import { coloursOf } from "../families/palette";
-import { percent } from "../glossary/format";
-import { orbLookOf, orbScalesOf, seedOf } from "../glossary/orb/fromCatalog";
-import { MaterialOrb } from "../glossary/orb/MaterialOrb";
-import type { GlossaryData } from "../glossary/useGlossary";
+import { drawn, fixedRatio, percent } from "../format/numbers";
+import { orbLookOf, orbScalesOf, seedOf } from "../ui/orb/fromCatalog";
+import { MaterialOrb } from "../ui/orb/MaterialOrb";
+import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
 import { MaterialPicker } from "../MaterialPicker";
 import { Button } from "../Button";
 import type { SourceBottle } from "./calc";
 import { nominalPercent, shortName } from "./grid";
-import { gramsText, gramsToUg, percentToFraction } from "./window";
 import { labelOf, rowState, shareText, stillToPour, tally, type RowState, type WeighDiluent, type WeighRow } from "./weigh";
+import { percentToFraction } from "../format/percent";
+import { gramsText, gramsToUg } from "../format/mass";
 
 const t = texts.dilutions.weigh;
 
@@ -78,7 +81,8 @@ export function AddWeigh({
   /** The date of the session's bottles: today, changeable above. */
   madeOn: string;
   setMadeOn: (day: string) => void;
-  onSaved: (count: number) => void;
+  /** How many bottles were saved, and whether their print text was kept too (labels/jobs.ts). */
+  onSaved: (count: number, job: boolean) => void;
 }) {
   const scales = useMemo(() => orbScalesOf(data.catalog), [data]);
   const diluents = useMemo(
@@ -107,6 +111,7 @@ export function AddWeigh({
     setSaving(true);
     const failed = new Map<string, string>();
     const saved: string[] = [];
+    const lines: PrintLine[] = [];
     for (const { row, state } of saveable) {
       const common = { materialId: row.materialId, label: labelOf(row.target), madeOn, description: row.note, sourceDilutionId: row.sourceId };
       try {
@@ -120,6 +125,12 @@ export function AddWeigh({
           await createUnweighedBottle(local.db, local.userId, { ...common, target: percentToFraction(row.target)!, diluents: state.planned! });
         }
         saved.push(row.key);
+        // Its label, from what was just saved (the same figures the bottle keeps).
+        const shares = state.real ?? state.aimed;
+        if (shares) {
+          const d = { id: "", fraction: shares.fraction, solvent: null, madeOn, description: null, label: common.label, materialMassUg: null, sourceDilutionId: null, archivedAt: null, diluents: shares.diluents.map((x) => ({ id: "", diluentId: x.diluentId, massUg: x.massUg, fraction: x.fraction })) };
+          lines.push(linesOf(dilutionLabel((id) => data.catalog.materials.get(id), row.materialId, d)));
+        }
       } catch (e) {
         failed.set(row.key, texts.dilutions.failed(e instanceof Error ? e.message : String(e)));
       }
@@ -127,7 +138,7 @@ export function AddWeigh({
     setRows((list) => list.filter((r) => !saved.includes(r.key)));
     setErrors(failed);
     setSaving(false);
-    if (saved.length > 0) onSaved(saved.length);
+    if (saved.length > 0) onSaved(saved.length, lines.length > 0 && saveJob({ id: crypto.randomUUID(), savedAt: new Date().toISOString(), day: madeOn || null, lines }));
   };
 
   return (
@@ -350,7 +361,7 @@ function WeighLine({
         </div>
         {scaleBox(row.weighed, goalMaterial, t.aria.materialWeighed(name), (v) => change((r) => ({ ...r, weighed: v })), showFrom ? t.fromTheBottle : t.head.material)}
         <div className="weigh-result r" title={state.diff ? t.diff(percent(state.diff, 2)) : (why ?? undefined)}>
-          {state.real ? <strong className="fig">{state.real.fraction.mul(Ratio.of(100n)).toFixed(2)} %</strong> : <span className={`weigh-state ${state.status}`}>{words}</span>}
+          {state.real ? <strong className="fig">{fixedRatio(state.real.fraction.mul(Ratio.of(100n)), 2)} %</strong> : <span className={`weigh-state ${state.status}`}>{words}</span>}
         </div>
 
         {/* Line 2 on: «⋯», then one line per diluent, its share on its left when there are two or more. */}
@@ -483,7 +494,7 @@ function Bar({ state, colour, name, diluentNames }: { state: RowState; colour: s
         <span
           key={i}
           className={`seg ${s.part}${s.part === "diluent" ? ` d${s.index % 3}` : ""}${s.weighed ? " weighed" : " planned"}`}
-          style={{ flexGrow: Number(s.share.toFixed(6)), ...(s.part === "material" && colour ? { ["--seg" as string]: colour } : {}) }}
+          style={{ flexGrow: drawn(s.share, 6), ...(s.part === "material" && colour ? { ["--seg" as string]: colour } : {}) }}
         />
       ))}
     </div>

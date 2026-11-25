@@ -24,7 +24,7 @@ import { execSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
-import { type Cell, writeTable } from "./lib/csv.ts";
+import { type Cell, writeTable, asCells, mdCellKeepLines } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
 // The common data on main (6b00bcd); doses and components as batch 27 leaves them (its files), so that
@@ -210,7 +210,6 @@ const updatedDoses = doses.rows.map((d) => {
   return { ...d, disputed: true, notes: `${d.notes} · en disputa (tanda 29): la página de Fraterworks da hoy otras cifras` };
 });
 if (disputedIds.length !== 2) throw new Error(`se esperaban 2 dosis de la tanda 23 en disputa, hay ${disputedIds.length}`);
-const asCells = (rows: Rec[]) => rows.map((r) => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, typeof v === "string" && /^\[.*\]$/.test(v) ? (JSON.parse(v) as string[]) : v])));
 writeTable(join(OUT_COMMON, "material_doses.csv"), doses.header, asCells([...updatedDoses, ...newDoses]));
 writeTable(join(OUT_COMMON, "material_components.csv"), components.header, asCells([...components.rows, ...commonComponents.rows]));
 
@@ -219,7 +218,6 @@ const count = (rows: Rec[]) => {
   for (const r of rows) m.set(nameOf(String(r.material_id)), (m.get(nameOf(String(r.material_id))) ?? 0) + 1);
   return [...m.entries()].sort((a, b) => a[0].localeCompare(b[0], "es"));
 };
-const cell = (t: string) => t.replace(/\|/g, "/");
 const amountText = (c: Rec) => (c.amount_kind === "range" ? `${c.min}–${c.max}` : c.amount_kind === "max" ? `≤ ${c.value}` : String(c.value));
 writeFileSync(
   join(OUT_ACCOUNT, "informe.md"),
@@ -233,7 +231,7 @@ Son del producto, no de IFRA (V3-35, V3-39): la app los suma con IFRA y manda el
 
 | Material | Tope cat. 4 | Documento |
 |---|---|---|
-${ceilings.map((c) => `| ${nameOf(String(c.material_id))} | ${c.max_value} | ${cell(String(c.source)).slice(0, 160)} |`).join("\n")}
+${ceilings.map((c) => `| ${nameOf(String(c.material_id))} | ${c.max_value} | ${mdCellKeepLines(String(c.source)).slice(0, 160)} |`).join("\n")}
 
 Sin tope numérico: ${noCeiling.join("; ") || "ninguno"}. Sin certificado IFRA en Perfumiarz: Luminide, Filbertone, Para-cresol y Operanide (solo SDS).
 
@@ -245,11 +243,11 @@ ${count(accountComponents.rows).map(([n, k]) => `| ${n} | ${k} |`).join("\n")}
 
 | Material | Constituyente | CAS | Cantidad |
 |---|---|---|---|
-${accountComponents.rows.map((c) => `| ${nameOf(String(c.material_id))} | ${cell(String(c.component_name))} | ${c.component_cas ?? "—"} | ${amountText(c)} |`).join("\n")}
+${accountComponents.rows.map((c) => `| ${nameOf(String(c.material_id))} | ${mdCellKeepLines(String(c.component_name))} | ${c.component_cas ?? "—"} | ${amountText(c)} |`).join("\n")}
 
 ## Lo que no entra
 
-${accountComponents.left.map((l) => `- ${cell(l)}`).join("\n") || "Nada."}
+${accountComponents.left.map((l) => `- ${mdCellKeepLines(l)}`).join("\n") || "Nada."}
 `,
   "utf8",
 );
@@ -265,7 +263,7 @@ De los documentos que Fraterworks publica para **su** lote (\`${WEB}/documentos-
 
 | Material | Constituyente | CAS | Cantidad |
 |---|---|---|---|
-${commonComponents.rows.map((c) => `| ${nameOf(String(c.material_id))} | ${cell(String(c.component_name))} | ${c.component_cas ?? "—"} | ${amountText(c)} |`).join("\n")}
+${commonComponents.rows.map((c) => `| ${nameOf(String(c.material_id))} | ${mdCellKeepLines(String(c.component_name))} | ${c.component_cas ?? "—"} | ${amountText(c)} |`).join("\n")}
 
 ## Los conflictos de uso de la tanda 27
 
@@ -273,13 +271,13 @@ La dosis de la tanda 23 **se queda** y pasa a «en disputa»; se añaden las de 
 
 | Material | Mín. | Típico | Máx. | Fuente |
 |---|---|---|---|---|
-${newDoses.map((d) => `| ${nameOf(String(d.material_id))} | ${d.min ?? "—"} | ${d.typical ?? "—"} | ${d.max} | ${cell(String(d.source))} |`).join("\n")}
+${newDoses.map((d) => `| ${nameOf(String(d.material_id))} | ${d.min ?? "—"} | ${d.typical ?? "—"} | ${d.max} | ${mdCellKeepLines(String(d.source))} |`).join("\n")}
 
 Fracciones del concentrado (0.00311 = 0,311 %). Cambian dos filas ya aprobadas: ${disputedIds.join(", ")} (solo \`disputed\` y su nota).
 
 ## Lo que no entra
 
-${commonComponents.left.map((l) => `- ${cell(l)}`).join("\n") || "Nada."}
+${commonComponents.left.map((l) => `- ${mdCellKeepLines(l)}`).join("\n") || "Nada."}
 `,
   "utf8",
 );

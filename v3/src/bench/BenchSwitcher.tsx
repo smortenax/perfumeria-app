@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import type { FormulaRecord, Workbench } from "../db/formulas";
 import { switchBenches, switchFormulas } from "./switcher";
-import { texts } from "./texts";
+import { texts } from "../i18n/bench";
 
 const s = texts.switcher;
 

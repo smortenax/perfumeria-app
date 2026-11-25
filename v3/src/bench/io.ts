@@ -4,8 +4,6 @@
  * before something that cannot be undone (now the app's own dialogs, F-02), and downloading a file (a formula exported as JSON).
  * The v2's desktop app (Tauri) is gone: the v3 is a web app (V3-8).
  */
-export const inTauri = (): boolean => false;
-
 export function download(fileName: string, text: string): void {
   const url = URL.createObjectURL(new Blob([text], { type: "application/json" }));
   const link = document.createElement("a");

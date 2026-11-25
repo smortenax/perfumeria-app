@@ -1,11 +1,12 @@
 import { createClient, type User } from "@supabase/supabase-js";
+import { readStored, removeStored, STORAGE_KEYS } from "../storage";
 
 /**
  * The connection to Supabase (plan step 1.7). The session is kept in the browser, so the app
  * opens without network with the last one (V3-8): Supabase is reached only to sign in, to
  * renew the session and to upload.
  */
-const STORAGE_KEY = "perfumeria.sesion";
+const STORAGE_KEY = STORAGE_KEYS.session;
 
 export const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_ANON_KEY, {
   auth: { persistSession: true, autoRefreshToken: true, storageKey: STORAGE_KEY },
@@ -34,7 +35,7 @@ export async function currentUser(): Promise<SignedInUser | null> {
 }
 
 /** The user of the session kept in the browser, if there is one. */
-export function storedUser(read: (key: string) => string | null = (key) => localStorage.getItem(key)): SignedInUser | null {
+export function storedUser(read: (key: string) => string | null = () => readStored("session")): SignedInUser | null {
   try {
     const user = JSON.parse(read(STORAGE_KEY) ?? "null")?.user;
     return typeof user?.id === "string" ? toUser(user) : null;
@@ -67,9 +68,5 @@ export async function signInForTesting(who: "test" | "me"): Promise<SignedInUser
 /** Signing out of this browser. Without network Supabase may not answer: the kept session goes anyway. */
 export async function signOut(): Promise<void> {
   await Promise.race([supabase.auth.signOut({ scope: "local" }), new Promise((resolve) => setTimeout(resolve, 3000))]);
-  try {
-    localStorage.removeItem(STORAGE_KEY);
-  } catch {
-    // Storage unavailable: nothing was kept.
-  }
+  removeStored("session");
 }

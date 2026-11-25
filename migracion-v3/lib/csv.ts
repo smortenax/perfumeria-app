@@ -22,3 +22,21 @@ export function writeTable(path: string, columns: readonly string[], rows: Reado
   mkdirSync(dirname(path), { recursive: true });
   writeFileSync(path, lines.join("\n") + "\n", "utf8");
 }
+
+/**
+ * Rows read back from an approved CSV, with their lists (JSON text there) as lists again, so that
+ * writing them gives the same bytes. Shared by every batch that rewrites a common table (V3-111: a
+ * batch uses the helpers of lib/ and does not copy them).
+ */
+export function asCells(rows: ReadonlyArray<Readonly<Record<string, Cell>>>): Array<Record<string, Cell>> {
+  return rows.map((r) => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, typeof v === "string" && /^\[.*\]$/.test(v) ? (JSON.parse(v) as string[]) : v])));
+}
+
+/** A text for a cell of a report's Markdown table: no «|», on one line. */
+export const mdCell = (text: string): string => text.replace(/\|/g, "/").replace(/\n/g, " ");
+
+/** The same, keeping the line breaks, as the reports of some earlier batches wrote it. */
+export const mdCellKeepLines = (text: string): string => text.replace(/\|/g, "/");
+
+/** The same, escaping the «|» instead of changing it (the glossary improvements report). */
+export const mdCellEscaped = (text: string): string => text.replace(/\|/g, "\\|");

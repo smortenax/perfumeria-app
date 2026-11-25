@@ -1,7 +1,8 @@
 import { Ratio } from "../core/arith/ratio";
 import { DILUENTS } from "../core/model/material";
-import type { GlossaryData } from "../glossary/useGlossary";
+import type { GlossaryData } from "../db/useGlossary";
 import { DILUENT_NAMES } from "./v3-repository";
+import { fixedRatio } from "../format/numbers";
 
 /**
  * Your bottles of a material, as the add bar offers them (V3-67): a tab each, above the dilution.
@@ -20,10 +21,7 @@ export interface BottleChoice {
 
 /** A percent as a cell of the bar writes it: «9.97», without trailing zeros. */
 export function percentCell(fraction: Ratio): string {
-  return fraction
-    .mul(Ratio.of(100n))
-    .toFixed(4)
-    .replace(/\.?0+$/, "");
+  return fixedRatio(fraction.mul(Ratio.of(100n)), 4).replace(/\.?0+$/, "");
 }
 
 export function bottlesFor(data: Pick<GlossaryData, "catalog">, materialKey: string): BottleChoice[] {

@@ -17,7 +17,7 @@ import { execSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
-import { type Cell, writeTable } from "./lib/csv.ts";
+import { type Cell, writeTable, asCells, mdCell } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
 const TANDA = "64";
@@ -48,7 +48,6 @@ const empty = (v: Cell) => v === null || v === undefined || v === "";
 const listOf = (v: Cell): string[] => (Array.isArray(v) ? v.map(String) : typeof v === "string" && v.startsWith("[") ? (JSON.parse(v) as string[]) : []);
 const byId = new Map(materials.rows.map((r) => [String(r.id), r]));
 const byN = new Map(lista.map((x) => [x.n, x]));
-const cell = (t: string) => t.replace(/\|/g, "/").replace(/\n/g, " ");
 const pct = (v: string) => `${Number((Number(v) * 100).toPrecision(6))} %`;
 const said = (source: string) => `${source}, by batch ${TANDA}`;
 const filledBy = new Map<string, string[]>();
@@ -74,7 +73,7 @@ for (const p of proposal) {
     else m.sources = `${m.sources ? `${m.sources} · ` : ""}family: ${said(p[`${field}_fuente`])}`;
     if (p[`${field}_disputado`] === "si") {
       m.disputed_fields = [...new Set([...listOf(m.disputed_fields), field])];
-      disputedRows.push(`| ${cell(String(m.name))} | ${field} | ${cell(p[field])} | ${cell(p[`${field}_otras`] || "otra referencia da otro valor")} |`);
+      disputedRows.push(`| ${mdCell(String(m.name))} | ${field} | ${mdCell(p[field])} | ${mdCell(p[`${field}_otras`] || "otra referencia da otro valor")} |`);
     }
     if (p[`${field}_otras`]) note(m, `Batch ${TANDA}, ${field}: other references: ${p[`${field}_otras`]}.`);
     tell(p.id, `${field} = ${p[field]}${p[`${field}_disputado`] === "si" ? " (disputado)" : ""}`);
@@ -86,7 +85,7 @@ for (const d of differ) {
   const m = common(byN.get(d.n)!.material_id);
   m.disputed_fields = [...new Set([...listOf(m.disputed_fields), d.campo])];
   note(m, `Batch ${TANDA}, ${d.campo}: TGSC gives «${d.tgsc}» (${d.fuente_tgsc}); the sheet keeps «${d.tiene}».`);
-  disputedRows.push(`| ${cell(String(m.name))} | ${d.campo} | ${d.tiene} | TGSC: ${d.tgsc} |`);
+  disputedRows.push(`| ${mdCell(String(m.name))} | ${d.campo} | ${d.tiene} | TGSC: ${d.tgsc} |`);
 }
 
 // 2. Physical data, only where empty.
@@ -145,7 +144,7 @@ for (const d of [...docs].sort((a, b) => (a.documento === "alergenos" ? 0 : 1) -
   if (d.campo === "tope_cat4") {
     const v = d.estado || `${Number(d.valor.replace(",", "."))} %`;
     dnote(x.material_id, `${label}, category 4: ${v} (the product's ceiling: it goes to your version when you have the bottle, V3-39)`);
-    ceilings.push(`| ${d.n} | ${cell(String(m.name))} | ${v} | ${cell(d.emisor)} |`);
+    ceilings.push(`| ${d.n} | ${mdCell(String(m.name))} | ${v} | ${mdCell(d.emisor)} |`);
   }
   if (d.campo === "ninguna_restringida")
     dnote(x.material_id, `${label}: «${d.frase}» — the certificate declares no IFRA-restricted material in the product (detection limit 0.001 %); the app has no way yet to keep «declares none», so IFRA still says unknown for it`);
@@ -192,7 +191,6 @@ for (const [id, k] of compNew) tell(id, `${k} constituyentes`);
 for (const [id, notes] of docNotes) note(byId.get(id)!, `Batch ${TANDA}, documents from elsewhere: ${notes.join("; ")}.`);
 for (const u of unused) note(common(byN.get(u.n)!.material_id), `Batch ${TANDA}, TGSC read and not used: ${u.campo} «${u.valor}» (${u.motivo}).`);
 
-const asCells = (rows: Rec[]) => rows.map((r) => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, typeof v === "string" && /^\[.*\]$/.test(v) ? (JSON.parse(v) as string[]) : v])));
 mkdirSync(OUT, { recursive: true });
 writeTable(join(OUT, "materials.csv"), materials.header, asCells(materials.rows));
 writeTable(join(OUT, "material_doses.csv"), doses.header, [...asCells(doses.rows), ...newDoses]);
@@ -205,11 +203,11 @@ for (const c of components.rows) if (!c.owner_id) compCount.set(String(c.materia
 for (const c of newComponents) compCount.set(String(c.material_id), (compCount.get(String(c.material_id)) ?? 0) + 1);
 const ifraLines = lista.map((x) => {
   const f = fuera.filter((r) => r.n === x.n && r.url);
-  const outside = f.length ? f.map((r) => `${r.tipo} de ${cell(r.emisor || "?")}`).join("; ") : x.ifra_perfumiarz ? "—" : "no encontrado";
+  const outside = f.length ? f.map((r) => `${r.tipo} de ${mdCell(r.emisor || "?")}`).join("; ") : x.ifra_perfumiarz ? "—" : "no encontrado";
   const basis = x.tipo === "molecule" ? x.base_ifra : `${x.base_ifra.replace("constituyentes", "").replace(/^ \+ /, "") || ""}${compCount.get(x.material_id) ? `${x.base_ifra.includes("anexo") || x.base_ifra.includes("CAS en") ? " + " : ""}${compCount.get(x.material_id)} constituyentes` : ""}` || "nada";
-  return `| ${x.n} | ${cell(x.producto)} | ${x.ifra_perfumiarz ? "sí" : "no"} | ${outside} | ${basis} |`;
+  return `| ${x.n} | ${mdCell(x.producto)} | ${x.ifra_perfumiarz ? "sí" : "no"} | ${outside} | ${basis} |`;
 });
-const lines = lista.map((x) => `| ${x.n} | ${cell(x.nombre)} | ${x.buscar || "—"} | ${cell((filledBy.get(x.material_id) ?? []).join("; ")) || "—"} |`);
+const lines = lista.map((x) => `| ${x.n} | ${mdCell(x.nombre)} | ${x.buscar || "—"} | ${mdCell((filledBy.get(x.material_id) ?? []).join("; ")) || "—"} |`);
 writeFileSync(
   join(OUT, "informe.md"),
   `# Tanda 64 · El pedido de Perfumiarz del 19-nov, preparado antes de que llegue

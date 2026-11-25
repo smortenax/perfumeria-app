@@ -1,7 +1,7 @@
 import { Ratio } from "../core/arith/ratio";
 import { formatDecimal, formatGrams, formatMilligrams, formatPercent } from "../core/display";
 import type { SecondDiluent } from "../core/model/formula";
-import { texts } from "./texts";
+import { texts } from "../i18n/bench";
 
 const ONE_MG = Ratio.of(1_000);
 const TEN_MG = Ratio.of(10_000);

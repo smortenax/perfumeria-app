@@ -1,17 +1,16 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Ratio } from "../core/arith/ratio";
 import type { Dilution } from "../db/catalog";
 import { archiveBottle, type BottleInput, createBottle, describeBottle, updateBottle } from "../db/dilutions";
 import type { LocalDatabase } from "../db/local/database";
-import { percent } from "../glossary/format";
-import type { GlossaryData } from "../glossary/useGlossary";
+import { percent } from "../format/numbers";
+import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
 import { FailureNote } from "../FailureNote";
 import { Toast } from "../Toast";
 import { bottleOf, plan, storedBottle } from "./calc";
 import { coloursOf } from "../families/palette";
-import { orbLookOf, orbScalesOf, seedOf } from "../glossary/orb/fromCatalog";
-import { MaterialOrb } from "../glossary/orb/MaterialOrb";
+import { orbLookOf, orbScalesOf, seedOf } from "../ui/orb/fromCatalog";
+import { MaterialOrb } from "../ui/orb/MaterialOrb";
 import { DilutionPopup } from "./DilutionPopup";
 import { cardsOf, countOf, nominalPercent, shortName } from "./grid";
 import { AddWeigh, rowFor } from "./AddWeigh";
@@ -21,25 +20,11 @@ import { EmptyState } from "../EmptyState";
 import { Button } from "../Button";
 import { DiluentPicker } from "./DiluentPicker";
 import { Labels } from "../labels/Labels";
+import { readStoredJson, removeStored, writeStored } from "../storage";
+import { digitsPercentToFraction } from "../format/percent";
+import { gramsText, scaleGramsToUg } from "../format/mass";
 
 const t = texts.dilutions;
-const UG_PER_G = 1_000_000n;
-
-/** Grams as the scale shows them: «1.030». */
-export const gramsText = (ug: bigint) => Ratio.of(ug, UG_PER_G).toFixed(3);
-/** «1,03» or «1.03» → micrograms, to the milligram; null while it is not a weight. */
-export function gramsOf(text: string): bigint | null {
-  const clean = text.trim().replace(",", ".");
-  if (!/^\d+(\.\d{1,3})?$/.test(clean)) return null;
-  const ug = Ratio.fromDecimal(clean).mul(Ratio.of(UG_PER_G));
-  return ug.num / ug.den;
-}
-/** «10» or «9,5» → a fraction; null while it is not a percent. */
-export function percentOf(text: string): Ratio | null {
-  const clean = text.trim().replace(",", ".");
-  if (!/^\d+(\.\d+)?$/.test(clean)) return null;
-  return Ratio.fromDecimal(clean).div(Ratio.of(100n));
-}
 
 /** How a bottle reads: «10 % in DPG» (its strength as you know it; the exact figure, in its editor), a name before it when it has one, or with several diluents «… in ethanol 30 % and DPG». */
 export function bottleText(data: GlossaryData, d: Dilution): string {
@@ -107,6 +92,8 @@ export function Dilutions({
     });
   const [madeOn, setMadeOn] = useState(() => new Date().toISOString().slice(0, 10));
   const [saved, setSaved] = useState<string | null>(null);
+  // A batch just saved with its print text: its labels can be printed straight away (the user, 2026-11-24).
+  const [savedJob, setSavedJob] = useState(false);
   // «New dilution» from elsewhere (the address #diluciones/nueva/<material>): a row for it, in «Add & weigh».
   useEffect(() => {
     if (newFor === null) return;
@@ -158,32 +145,38 @@ export function Dilutions({
         ) : mode === "labels" ? (
           <Labels data={data} all={all} />
         ) : (
-          <AddWeigh data={data} local={local} rows={rows} setRows={setRows} madeOn={madeOn} setMadeOn={setMadeOn} onSaved={(n) => setSaved(t.savedToast(n))} />
+          <AddWeigh data={data} local={local} rows={rows} setRows={setRows} madeOn={madeOn} setMadeOn={setMadeOn} onSaved={(n, job) => (setSaved(t.savedToast(n)), setSavedJob(job))} />
         )}
       </section>
-      <Toast message={archived?.text ?? saved} onUndo={archived ? unarchive : undefined} onClose={() => (setArchived(null), setSaved(null))} />
+      <Toast
+        message={archived?.text ?? saved}
+        onUndo={archived ? unarchive : undefined}
+        action={
+          !archived && saved && savedJob
+            ? {
+                label: t.printBatch,
+                run: () => {
+                  setMode("labels");
+                  setSaved(null);
+                },
+              }
+            : undefined
+        }
+        onClose={() => (setArchived(null), setSaved(null))}
+      />
       <FailureNote message={failure} onClose={() => setFailure(null)} floating />
     </div>
   );
 }
 
-const DRAFT = "perfumeria.dilutions.weigh.v1";
 function readDraft(): readonly WeighRow[] {
-  try {
-    const raw = localStorage.getItem(DRAFT);
-    const list: unknown = raw ? JSON.parse(raw) : [];
-    return Array.isArray(list) ? (list as WeighRow[]).filter((r) => r && typeof r.key === "string" && typeof r.materialId === "string" && Array.isArray(r.diluents)) : [];
-  } catch {
-    return [];
-  }
+  const list = readStoredJson("dilutionDraft");
+  return Array.isArray(list) ? (list as WeighRow[]).filter((r) => r && typeof r.key === "string" && typeof r.materialId === "string" && Array.isArray(r.diluents)) : [];
 }
 function writeDraft(rows: readonly WeighRow[]) {
-  try {
-    if (rows.length === 0) localStorage.removeItem(DRAFT);
-    else localStorage.setItem(DRAFT, JSON.stringify(rows));
-  } catch {
-    /* Without storage the rows live as long as the screen. */
-  }
+  // Without storage the rows live as long as the screen.
+  if (rows.length === 0) removeStored("dilutionDraft");
+  else writeStored("dilutionDraft", JSON.stringify(rows));
 }
 
 function BottleList({
@@ -533,13 +526,13 @@ function BottleEditor({
   const calculate = () => {
     setError(null);
     try {
-      const want = percentOf(target);
-      const amount = gramsOf(total);
+      const want = digitsPercentToFraction(target);
+      const amount = scaleGramsToUg(total);
       if (!want || !amount) throw new Error(t.resultUnknown);
       const p = plan(
         want,
         amount,
-        rows.map((r) => ({ diluentId: r.diluentId, share: r.share.trim() ? percentOf(r.share) : null })),
+        rows.map((r) => ({ diluentId: r.diluentId, share: r.share.trim() ? digitsPercentToFraction(r.share) : null })),
         sourceBottle,
       );
       setMaterialGrams(gramsText(p.materialUg));
@@ -551,8 +544,8 @@ function BottleEditor({
   };
 
   const weighed = (() => {
-    const m = gramsOf(materialGrams);
-    const ds = rows.map((r) => ({ diluentId: r.diluentId, massUg: gramsOf(r.grams) }));
+    const m = scaleGramsToUg(materialGrams);
+    const ds = rows.map((r) => ({ diluentId: r.diluentId, massUg: scaleGramsToUg(r.grams) }));
     if (!m || m <= 0n || ds.some((d) => !d.massUg || d.massUg <= 0n)) return null;
     try {
       return { input: { materialUg: m, diluents: ds as { diluentId: string; massUg: bigint }[] }, bottle: storedBottle(bottleOf({ materialUg: m, diluents: ds as { diluentId: string; massUg: bigint }[], source: sourceBottle })) };

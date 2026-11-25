@@ -19,7 +19,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { DatabaseSync } from "node:sqlite";
 import { parseCsvRecords } from "../src/data/csv.ts";
-import { type Cell, writeTable } from "./lib/csv.ts";
+import { type Cell, writeTable, asCells, mdCellKeepLines } from "./lib/csv.ts";
 
 const BASE = execSync("git rev-parse --short HEAD", { encoding: "utf8" }).trim();
 const OUT = "migracion-v3/tandas/43-impacto";
@@ -82,12 +82,10 @@ const newMaterials = materials.map((r) => {
   return { ...r, impact: e.impact, impact_source: `PerfuMate, ${e.url}: «impact ${e.impact}» (${by}; ${DB}, sha256 ${sha256.slice(0, 12)}), por la tanda 43` };
 });
 const newHeader = header.flatMap((c) => (c === "strength_source" ? [c, "impact", "impact_source"] : [c]));
-const asCells = (rows: Rec[]) => rows.map((r) => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, typeof v === "string" && /^\[.*\]$/.test(v) ? (JSON.parse(v) as string[]) : v])));
 writeTable(join(OUT, "materials.csv"), newHeader, asCells(newMaterials));
 
 const count = (h: How) => found.filter((f) => f.how === h).length;
 const byName = <T extends { name: string }>(a: T, b: T) => a.name.localeCompare(b.name, "es");
-const cell = (t: string) => t.replace(/\|/g, "/");
 const withImpact = found.filter((f) => f.impact !== null);
 const crossTab = ["low", "medium", "high", "very_high", ""].map((s) => {
   const v = withImpact.filter((f) => f.strength === s).map((f) => f.impact!).sort((a, b) => a - b);
@@ -117,11 +115,11 @@ ${crossTab.map((c) => `| ${c.s} | ${c.n} | ${c.median ?? "—"} | ${c.min ?? "�
 
 ## Por nombre (revísalos)
 
-${found.filter((f) => f.how === "name").sort(byName).map((f) => `- ${f.name} → ${cell(f.matches)}`).join("\n") || "Ninguno."}
+${found.filter((f) => f.how === "name").sort(byName).map((f) => `- ${f.name} → ${mdCellKeepLines(f.matches)}`).join("\n") || "Ninguno."}
 
 ## Con impactos distintos (quedan sin impacto)
 
-${found.filter((f) => f.how === "conflict").sort(byName).map((f) => `- ${f.name}: ${cell(f.matches)}`).join("\n") || "Ninguno."}
+${found.filter((f) => f.how === "conflict").sort(byName).map((f) => `- ${f.name}: ${mdCellKeepLines(f.matches)}`).join("\n") || "Ninguno."}
 
 ## Sin impacto
 

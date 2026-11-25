@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import type { LocalDatabase } from "../db/local/database";
 import { addToShopping, haveItNow, listShopping, removeFromShopping, shoppingCsv, type ShoppingItem } from "../db/shopping";
-import type { GlossaryData } from "../glossary/useGlossary";
+import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
 import { FailureNote } from "../FailureNote";
 import "../dilution/dilutions.css";

@@ -5,7 +5,7 @@ import type { IfraBase, IfraData, IfraReport } from "../core/ifra";
 import type { Change } from "../core/model/formula";
 import type { Material } from "../core/model/material";
 import type { MaterialFamily } from "./data/catalog";
-import { texts } from "./texts";
+import { texts } from "../i18n/bench";
 import { describeLineIfra, detailOfLineIfra, type LineIfra } from "./composition-ifra";
 import { familyText } from "./family";
 import { amountText, initials, partsText, pouredText, pureText, shareText, weighingWarning } from "./format";

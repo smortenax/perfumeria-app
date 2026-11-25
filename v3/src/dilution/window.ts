@@ -1,5 +1,7 @@
 import { Ratio } from "../core/arith/ratio";
 import { bottleOf, examples, nominalBottle, plan, planFromMaterial, storedBottle, type Plan, type PlannedDiluent, type Shares, type SourceBottle } from "./calc";
+import { percentToFraction } from "../format/percent";
+import { gramsText, gramsToUg } from "../format/mass";
 
 /**
  * The «New dilution» window (V3-79), without the screen: from what is written, what it shows and what
@@ -42,29 +44,6 @@ export interface WindowState {
   readonly weighed: (Shares & { readonly totalUg: bigint }) | null;
   /** What to tell, in a word the screen puts in words. */
   readonly problem: WindowProblem | null;
-}
-
-const UG_PER_G = Ratio.of(1_000_000n);
-
-/** Grams as written («0,800») to micrograms; null if empty, not a number or not above 0. */
-export function gramsToUg(text: string): bigint | null {
-  if (!text.trim()) return null;
-  try {
-    const ug = Ratio.fromDecimal(text).mul(UG_PER_G);
-    return ug.isInteger() && ug.sign() > 0 ? ug.num : null;
-  } catch {
-    return null;
-  }
-}
-
-/** A % as written («10», «9,97») to a fraction; null if empty or not a number. */
-export function percentToFraction(text: string): Ratio | null {
-  if (!text.trim()) return null;
-  try {
-    return Ratio.fromDecimal(text).div(Ratio.of(100n));
-  } catch {
-    return null;
-  }
 }
 
 const problemOf = (e: unknown): WindowProblem => {
@@ -137,7 +116,6 @@ export function saveKind(mode: WindowMode, state: Pick<WindowState, "aimed" | "w
 }
 
 /** Grams to write in a field, to the milligram: «0.800». */
-export const gramsText = (ug: bigint): string => Ratio.of(ug, 1_000_000n).toFixed(3);
 
 /** «I've weighed it»: what the plan said to weigh, in the weights' fields, to correct with what the scale showed. */
 export function weighedFromPlan(plan: { readonly materialUg: bigint; readonly diluents: readonly { readonly diluentId: string; readonly massUg: bigint }[] }, rows: readonly WindowRow[]): { material: string; rows: WindowRow[] } {

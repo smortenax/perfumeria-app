@@ -3,18 +3,18 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px 12px;
+  gap: var(--space-8) var(--space-12);
   margin-bottom: var(--space-gap);
 }
 .labels-flip {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-6);
 }
 .labels-tape {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-8);
 }
 .labels-tape select {
   min-height: var(--size-target);
@@ -23,7 +23,7 @@
   flex: 1 1 14rem;
   min-width: 0;
   min-height: var(--size-target);
-  padding: 0 12px;
+  padding: 0 var(--space-12);
 }
 .labels-status,
 .labels-printer {
@@ -32,7 +32,7 @@
 .labels-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
-  gap: 8px 16px;
+  gap: var(--space-8) var(--space-16);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -40,7 +40,7 @@
 .labels-list label {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--space-10);
   cursor: pointer;
 }
 .label-preview {
@@ -55,28 +55,57 @@
 }
 
 /* The label test page (etiquetas.html). */
+.label-test-back {
+  display: inline-block;
+  margin-bottom: var(--space-8);
+}
 .label-test {
   max-width: 60rem;
   margin: 0 auto;
-  padding: 24px 16px;
+  padding: var(--space-24) var(--space-16);
 }
 .label-test-rows {
   display: grid;
-  gap: 6px;
-  margin-bottom: var(--space-gap, 16px);
+  gap: var(--space-6);
+  margin-bottom: var(--space-gap, var(--space-16));
 }
 .label-test-rows textarea {
   width: 100%;
   font: inherit;
-  padding: 8px 10px;
+  padding: var(--space-8) var(--space-10);
 }
 .label-test-list {
   display: grid;
-  gap: 16px;
+  gap: var(--space-16);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 .label-test-list figure {
   margin: 0;
+}
+
+/* Each batch with its own «Print» (2026-11-24). */
+.labels-batches {
+  margin-bottom: var(--space-gap, var(--space-16));
+}
+.labels-batches h3 {
+  margin: 0 0 var(--space-6);
+  font-size: var(--text-sm);
+}
+.labels-batches ul {
+  display: grid;
+  gap: var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.labels-batches li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-8);
+}
+.labels-batch-name {
+  min-width: 12rem;
 }

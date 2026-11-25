@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { inMyLibrary, maeseKeys } from "./library";
+import { inMyLibrary } from "./library";
+import { maeseKeys } from "../db/maese";
 
 const entry = (key: string, group: "own" | "diluent" | "base") => ({ group, material: { key } }) as never;
 

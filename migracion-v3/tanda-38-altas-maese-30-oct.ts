@@ -21,7 +21,7 @@ import { execSync } from "node:child_process";
 import { writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
-import { type Cell, writeTable } from "./lib/csv.ts";
+import { type Cell, writeTable, asCells, mdCell } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
 const BASE = "2264ad8";
@@ -377,7 +377,6 @@ for (const item of fresh) {
   });
 }
 
-const asCells = (rows: Rec[]) => rows.map((r) => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, typeof v === "string" && /^\[.*\]$/.test(v) ? (JSON.parse(v) as string[]) : v])));
 writeTable(join(OUT_COMMON, "materials.csv"), materials.header, [...asCells(materials.rows), ...newMaterials]);
 writeTable(join(OUT_COMMON, "material_categories.csv"), categories.header, [...asCells(categories.rows), ...newCategories]);
 writeTable(join(OUT_COMMON, "material_doses.csv"), doses.header, [...asCells(doses.rows), ...newDoses]);
@@ -394,7 +393,6 @@ const ifraOf = (item: New) => {
   return lines.length ? "en el anexo" : "sin estándar ni anexo por su CAS";
 };
 const STRENGTH: Record<string, string> = { low: "baja", medium: "media", high: "alta", very_high: "muy alta" };
-const cell = (t: string) => t.replace(/\|/g, "/").replace(/\n/g, " ");
 writeFileSync(
   join(OUT_COMMON, "informe.md"),
   `# Tanda 38 · Diez moléculas de Maese Lab, en lo común
@@ -428,7 +426,7 @@ ${fresh
 |---|---|---|
 ${why
   .get(i.key)!
-  .map(([field, value, from]) => `| ${field} | ${cell(value)} | ${cell(from)} |`)
+  .map(([field, value, from]) => `| ${field} | ${mdCell(value)} | ${mdCell(from)} |`)
   .join("\n")}
 `,
   )

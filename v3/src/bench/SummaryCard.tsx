@@ -2,7 +2,7 @@ import { Ratio } from "../core/arith/ratio";
 import { texts as appTexts } from "../i18n/en";
 import type { FormulaSummary } from "./summary";
 import { wholeShareText } from "./format";
-import { texts } from "./texts";
+import { texts } from "../i18n/bench";
 
 const t = texts.summary;
 const pct = wholeShareText;

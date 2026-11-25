@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseCsv } from "../bench/data/csv";
+import { parseCsv } from "../lib/csv";
 import { compose } from "../core/compose";
 import { F001_LINES, f001 } from "../core/fixtures/f001";
 import { FORMULA_COLUMNS, formulaCsv, formulaFileName } from "./formula";

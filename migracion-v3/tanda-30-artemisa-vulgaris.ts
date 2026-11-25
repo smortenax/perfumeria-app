@@ -22,7 +22,7 @@ import { execSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
-import { type Cell, writeTable } from "./lib/csv.ts";
+import { type Cell, writeTable, asCells } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
 const BASE = "8f5c97c";
@@ -55,7 +55,6 @@ const newMaterials = materials.rows.map((m) => {
   return note && !String(m.notes ?? "").includes(note) ? { ...m, notes: `${m.notes ? `${m.notes}\n` : ""}${note}` } : m;
 });
 
-const asCells = (rows: Rec[]) => rows.map((r) => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, typeof v === "string" && /^\[.*\]$/.test(v) ? (JSON.parse(v) as string[]) : v])));
 writeTable(join(OUT_COMMON, "materials.csv"), materials.header, asCells(newMaterials));
 
 // Batch 31: your specification of it, its named components, and bottle nº 17 moved to it.

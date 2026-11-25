@@ -1,5 +1,7 @@
 import type { Dilution } from "../db/catalog";
-import { nominalPercent, shortName } from "../dilution/grid";
+import { decimal } from "../format/numbers";
+import { Ratio } from "../core/arith/ratio";
+import { shortName } from "../dilution/grid";
 import { labelCode } from "./code";
 
 /** What a material lends a label. */
@@ -31,7 +33,7 @@ export function dilutionLabel(
 ): LabelContent {
   const material = materialOf(materialId);
   const diluents = d.diluents.length > 0 ? d.diluents.map((x) => shortName(materialOf(x.diluentId))).join(" + ") : (d.solvent?.trim() ?? "");
-  const pct = nominalPercent(d.fraction, d.label);
+  const pct = labelPercent(d.fraction, d.label);
   const pure = diluents === "" && d.fraction.num === d.fraction.den;
   return {
     code: labelCode("dilution", d.id),
@@ -42,6 +44,26 @@ export function dilutionLabel(
     date: d.madeOn ?? "",
   };
 }
+
+/**
+ * A bottle's strength as its label prints it (the user, 2026-11-24: «el % de impresion se hace con el
+ * valor redondeado con 2 unidades de valor nominal 10%, 15%, 30%... solo decimal en el caso que sea
+ * numeros muy pequeños como cuando hay 1,5% o 2.3%»): the percentage you made it at when it is close to
+ * what was weighed, otherwise what was weighed; from 10 % up, a whole number («10 %», «15 %», «47 %»);
+ * below, two figures («1.5 %», «2.3 %», «0.25 %»), with no trailing zero («1 %»). Never zero (§1.2).
+ */
+export function labelPercent(fraction: Ratio, label: string | null): string {
+  const real = Number(decimal(fraction.mul(Ratio.of(100)), 6));
+  const given = label?.match(/(\d+(?:[.,]\d+)?)\s*%/)?.[1];
+  const typed = given === undefined ? NaN : Number(given.replace(",", "."));
+  const close = real >= 1 ? Math.max(0.5, real * 0.1) : real * 0.2;
+  const value = typed > 0 && Math.abs(typed - real) <= close ? typed : real;
+  if (value >= 10) return `${Math.round(value)} %`;
+  return `${Number(value.toPrecision(2))} %`;
+}
+
+/** A label's two lines, as the test page proved them on the P15 (2026-11-24): material and strength big, CAS and date small. */
+export const linesOf = (l: LabelContent): { big: string; small: string } => ({ big: `${l.title} · ${l.strength}`, small: l.footer });
 
 /** The sheet for the Marklife app's Excel import: a header row, then one row per label (V3-110). */
 export const SHEET_HEADER = ["Material", "Strength", "CAS", "Date", "Code"] as const;

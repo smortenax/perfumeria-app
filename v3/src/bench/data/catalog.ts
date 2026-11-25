@@ -1,7 +1,7 @@
 import { Ratio } from "../../core/arith/ratio";
 import type { IfraData, IfraMaterial, IfraSubstance } from "../../core/ifra";
 import { DILUENTS, type Material } from "../../core/model/material";
-import { parseCsvRecords } from "./csv";
+import { parseCsvRecords } from "../../lib/csv";
 import type { Provenance } from "./provenance";
 import { plantName, variantsOf } from "./plants";
 

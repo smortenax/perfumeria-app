@@ -6,10 +6,11 @@ import { tapeOf, TAPES, type Tape } from "./media";
 import { drawTwoLines, pixelsOf } from "./render";
 import { canReachPrinter, connectP15, printLabel } from "./printer";
 import "./labels.css";
+import { readStored, writeStored } from "../storage";
+import { fixedNumber } from "../format/numbers";
 
 const t = texts.labels;
 const u = texts.labelTest;
-const TAPE_KEY = "perfumeria.labeltest.tape.v1";
 
 /** «big | small», one label a line; blank lines skipped. */
 export function parseRows(text: string): { big: string; small: string }[] {
@@ -31,20 +32,10 @@ export function parseRows(text: string): { big: string; small: string }[] {
  */
 export function LabelTest() {
   const [text, setText] = useState<string>(u.example);
-  const [tape, setTape] = useState<Tape>(() => {
-    try {
-      return tapeOf(localStorage.getItem(TAPE_KEY) ?? "GAP_12X40");
-    } catch {
-      return tapeOf("GAP_12X40");
-    }
-  });
+  const [tape, setTape] = useState<Tape>(() => tapeOf(readStored("labelTestTape") ?? "GAP_12X40"));
   const pickTape = (id: string) => {
     setTape(tapeOf(id));
-    try {
-      localStorage.setItem(TAPE_KEY, id);
-    } catch {
-      /* Chosen again next time. */
-    }
+    writeStored("labelTestTape", id); // Without storage, chosen again next time.
   };
   const [flip, setFlip] = useState(false);
   const [printer, setPrinter] = useState<PrinterAdapter | null>(null);
@@ -80,6 +71,9 @@ export function LabelTest() {
 
   return (
     <main className="labels label-test">
+      <a className="label-test-back" href="/">
+        {u.back}
+      </a>
       <h1>{u.title}</h1>
       <p className="hint">{u.intro}</p>
       <label className="label-test-rows">
@@ -147,7 +141,7 @@ function TwoLinePreview({ big, small, tape }: { big: string; small: string; tape
     draw();
     void document.fonts?.ready.then(draw);
   }, [big, small, tape]);
-  const mm = (dots: number) => (dots / 8).toFixed(1);
+  const mm = (dots: number) => fixedNumber(dots / 8, 1);
   return (
     <figure>
       <canvas ref={ref} className="label-preview" style={{ ["--label-dots" as string]: tape.length * 16 }} role="img" aria-label={`${big} · ${small}`} />

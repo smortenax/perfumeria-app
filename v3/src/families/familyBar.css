@@ -1,7 +1,7 @@
 /* A formula's families (F2): one thin bar, a segment per family. */
 .family-bar {
   display: flex;
-  gap: 1px;
+  gap: var(--space-1);
   height: 6px;
   min-width: 48px;
   border-radius: var(--radius-panel);

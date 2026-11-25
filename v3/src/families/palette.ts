@@ -1,4 +1,4 @@
-import { parseCsvRecords } from "../bench/data/csv";
+import { parseCsvRecords } from "../lib/csv";
 import type { Catalog, CatalogMaterial, Family } from "../db/catalog";
 import { FAMILIES } from "../db/catalog";
 import { mix, readableOn } from "./contrast";

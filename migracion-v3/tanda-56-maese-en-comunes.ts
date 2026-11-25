@@ -15,7 +15,7 @@ import { execSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
-import { type Cell, writeTable } from "./lib/csv.ts";
+import { type Cell, writeTable, asCells } from "./lib/csv.ts";
 
 const BASE = execSync("git rev-parse --short HEAD", { encoding: "utf8" }).trim();
 const OUT = "migracion-v3/tandas/56-maese-en-comunes";
@@ -52,7 +52,6 @@ const out = materials.map((m) => {
   const fresh = extra.filter((e) => !now.includes(e));
   return fresh.length ? { ...m, sources: [now, ...fresh].filter(Boolean).join(" · ") } : m;
 });
-const asCells = (rows: Rec[]) => rows.map((r) => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, typeof v === "string" && /^\[.*\]$/.test(v) ? (JSON.parse(v) as string[]) : v])));
 writeTable(join(OUT, "materials.csv"), header, asCells(out));
 const changed = out.filter((m, i) => m !== materials[i]);
 writeFileSync(

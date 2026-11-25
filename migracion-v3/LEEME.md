@@ -18,6 +18,18 @@ Nada de aquí entra en la v3: cuando la v3 tenga sus datos, esta carpeta se qued
 4. **Commit** de `v3/datos/`, y **cargar** desde `v3/`: `npm run datos:cargar`. Una segunda carga
    no cambia ninguna fila; `data_version` guarda el commit de los datos (V3-26).
 
+## Reglas duras (V3-111)
+
+El usuario, 2026-11-25: «reglas duras con lo que respecta a los problemas encontrados para que no se
+tenga que ir limpiando el codigo cada tanto». `reglas.test.ts` las vigila
+(`npx vitest run --config migracion-v3/vitest.config.ts`, y en cada PR que toca esta carpeta).
+
+- **M1 · Los ayudantes, en `lib/`.** Una tanda no copia funciones de otra: lo que dos tandas
+  necesitan va a `lib/` (`asCells`, `mdCell`, `mdCellKeepLines`, `mdCellEscaped` en `lib/csv.ts`).
+- **M2 · La BASE de una tanda es un commit fijo** (escrito en el script o en `process.env.BASE`, y
+  citado en el informe), para que volver a correrla dé los mismos bytes. Las 8 tandas que la sacan
+  del HEAD (lista en la prueba) son deuda y la lista solo mengua.
+
 ## Las tandas
 
 | Tanda | Qué | Pasos del plan |

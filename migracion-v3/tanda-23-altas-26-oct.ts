@@ -18,7 +18,7 @@ import { execSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
-import { type Cell, writeTable } from "./lib/csv.ts";
+import { type Cell, writeTable, asCells, mdCell } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
 const OUT = "migracion-v3/tandas/23-altas-26-oct";
@@ -189,7 +189,6 @@ for (const item of list) {
 }
 
 const strip = (rows: Rec[]) => rows.map(({ key: _, ...r }) => r);
-const asCells = (rows: Rec[]) => rows.map((r) => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, typeof v === "string" && /^\[.*\]$/.test(v) ? (JSON.parse(v) as string[]) : v])));
 writeTable(join(OUT, "materials.csv"), materials.header, [...asCells(materials.rows), ...newMaterials]);
 writeTable(join(OUT, "material_categories.csv"), categories.header, [...asCells(categories.rows), ...newCategories]);
 writeTable(join(OUT, "material_descriptors.csv"), descriptors.header, [...asCells(descriptors.rows), ...strip(newDescriptors)]);
@@ -203,7 +202,6 @@ const ifraOf = (m: Rec) => {
   return all.length ? "sin estándar por su CAS" : "sin CAS: IFRA no lo cruza";
 };
 const KINDS = { molecule: "molécula", natural: "natural", composition: "base o producto" } as const;
-const cell = (t: string) => t.replace(/\|/g, "/").replace(/\n/g, " ");
 writeFileSync(
   join(OUT, "informe.md"),
   `# Tanda 23 · Los ${newMaterials.length} materiales del 2026-10-26, en lo común, con su ficha
@@ -230,7 +228,7 @@ ${list
 
 | Campo | Valor | Entra como | De dónde |
 |---|---|---|---|
-${lines.map((l) => `| ${l.campo} | ${cell(l.valor)} | ${l.dónde} | ${proposal(l.origen) ? `propuesta de la sesión${l.frase ? `, por «${cell(l.frase)}»` : ""}` : `${cell(l.origen)}: «${cell(l.frase)}» ${l.url}`} |`).join("\n")}
+${lines.map((l) => `| ${l.campo} | ${mdCell(l.valor)} | ${l.dónde} | ${proposal(l.origen) ? `propuesta de la sesión${l.frase ? `, por «${mdCell(l.frase)}»` : ""}` : `${mdCell(l.origen)}: «${mdCell(l.frase)}» ${l.url}`} |`).join("\n")}
 `;
   })
   .join("\n")}`,

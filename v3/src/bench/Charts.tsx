@@ -2,7 +2,8 @@ import { useState } from "react";
 import type { Composition } from "../core/compose";
 import { formatPercent } from "../core/display";
 import type { MaterialFamily } from "./data/catalog";
-import { texts } from "./texts";
+import { texts } from "../i18n/bench";
+import { drawn, fixedNumber } from "../format/numbers";
 
 const c = texts.charts;
 
@@ -87,7 +88,7 @@ export function RepartoCard(props: { composition: Composition | null; familyOf?:
         const family = props.familyOf?.(p.material.key);
         return {
           name: p.material.name,
-          share: Number(p.massUg.div(total).toFixed(6)),
+          share: drawn(p.massUg.div(total), 6),
           color: family?.family.colour ?? NO_FAMILY,
           family: family?.family.name ?? texts.family.none,
         };
@@ -141,7 +142,7 @@ export function RepartoCard(props: { composition: Composition | null; familyOf?:
                 {hovered.name.length > 18 ? `${hovered.name.slice(0, 17)}…` : hovered.name}
               </text>
               <text x="80" y="90" textAnchor="middle" fontSize="12" className="num" style={{ fill: "var(--text-default)" }}>
-                {`${(hovered.share * 100).toFixed(1)} %`}
+                {`${fixedNumber(hovered.share * 100, 1)} %`}
               </text>
               <text x="80" y="105" textAnchor="middle" fontSize="11" style={{ fill: "var(--text-muted)" }}>
                 {c.ofAromatic}
@@ -170,7 +171,7 @@ export function RepartoCard(props: { composition: Composition | null; familyOf?:
               <li key={f.family}>
                 <span className="swatch" style={{ background: f.color }} aria-hidden="true" />
                 <span className="legend-name">{f.family}</span>
-                <span className="num">{`${(f.share * 100).toFixed(1)} %`}</span>
+                <span className="num">{`${fixedNumber(f.share * 100, 1)} %`}</span>
               </li>
             ))}
           </ul>

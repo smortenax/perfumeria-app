@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import type { MaterialFamily } from "./data/catalog";
-import { texts } from "./texts";
+import { texts } from "../i18n/bench";
 
 const t = texts.family;
 

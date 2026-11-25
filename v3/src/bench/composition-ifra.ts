@@ -4,7 +4,7 @@ import { formatPercent } from "../core/display";
 import { marginOf, type IfraBase, type IfraData, type IfraReport } from "../core/ifra";
 import type { Formula } from "../core/model/formula";
 import type { Material } from "../core/model/material";
-import { texts } from "./texts";
+import { texts } from "../i18n/bench";
 import { dilutionText, massText } from "./format";
 import { lollipopOf } from "./bars";
 

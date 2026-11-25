@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { Ratio } from "../core/arith/ratio";
-import { gramsToUg, windowState, type WindowInput } from "./window";
+import { windowState, type WindowInput } from "./window";
+import { gramsToUg } from "../format/mass";
 
 const pct = (p: string) => Ratio.fromDecimal(p).div(Ratio.of(100n));
 const g = (grams: string) => gramsToUg(grams)!;

@@ -13,7 +13,7 @@ import { execSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
-import { type Cell, writeTable } from "./lib/csv.ts";
+import { type Cell, writeTable, asCells, mdCellKeepLines } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
 const BASE = "76672ac";
@@ -70,11 +70,9 @@ for (const r of found) {
   }
 }
 
-const asCells = (rows: Rec[]) => rows.map((r) => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, typeof v === "string" && /^\[.*\]$/.test(v) ? (JSON.parse(v) as string[]) : v])));
 writeTable(join(OUT, "materials.csv"), materials.header, [...asCells(materials.rows), m]);
 writeTable(join(OUT, "material_categories.csv"), categories.header, [...asCells(categories.rows), { id: category, name: NAME, aliases: [] }]);
 writeTable(join(OUT, "material_descriptors.csv"), descriptors.header, [...asCells(descriptors.rows), ...newDescriptors]);
-const cell = (t: string) => t.replace(/\|/g, "/");
 writeFileSync(
   join(OUT, "informe.md"),
   `# Tanda 16 · Phenylethyl Mercaptan, en lo común y con su ficha
@@ -86,7 +84,7 @@ writeFileSync(
 
 | Campo | Valor | De dónde |
 |---|---|---|
-${found.map((r) => `| ${r.campo} | ${cell(r.valor)} | ${r.origen === "TGSC" ? `«${cell(r.frase)}»` : `propuesta de la sesión, por «${cell(r.frase)}»`} |`).join("\n")}
+${found.map((r) => `| ${r.campo} | ${mdCellKeepLines(r.valor)} | ${r.origen === "TGSC" ? `«${mdCellKeepLines(r.frase)}»` : `propuesta de la sesión, por «${mdCellKeepLines(r.frase)}»`} |`).join("\n")}
 `,
   "utf8",
 );

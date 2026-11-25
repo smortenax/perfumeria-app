@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { texts } from "./texts";
+import { texts } from "../i18n/bench";
 import type { DocRef, Provenance } from "./data/provenance";
 
 const t = texts.provenance;

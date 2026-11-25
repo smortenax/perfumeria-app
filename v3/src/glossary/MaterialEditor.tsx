@@ -16,11 +16,11 @@ import { search } from "../db/search";
 import { effective } from "../db/to-ifra";
 import { texts } from "../i18n/en";
 import { changesOf, EDIT_SECTIONS, type Form, formOf, FormError, inheritedForm, numberOf } from "./edit";
-import { percent } from "./format";
+import { percent } from "../format/numbers";
 import { FailureNote } from "../FailureNote";
-import type { GlossaryData } from "./useGlossary";
+import type { GlossaryData } from "../db/useGlossary";
 import { Button } from "../Button";
-import { ConfirmDialog } from "../bench/Dialogs";
+import { ConfirmDialog } from "../ui/Dialog";
 
 /** The authorities a user writes with: IFRA's word lives in its layer (V3-35). */
 const AUTHORITIES_OF_YOURS: readonly Exclude<Authority, "ifra">[] = ["lot", "product", "literature", "consensus"];
