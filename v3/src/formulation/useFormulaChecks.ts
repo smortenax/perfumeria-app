@@ -4,7 +4,7 @@ import { checkIfra } from "../core/ifra";
 import { loadFormula } from "../db/formulas";
 import type { LocalDatabase } from "../db/local/database";
 import { type FamilyShare, familyShares } from "../families/bar";
-import type { GlossaryData } from "../glossary/useGlossary";
+import type { GlossaryData } from "../db/useGlossary";
 import { type IfraLabel, ifraLabel } from "./ifra-label";
 
 export interface FormulaCheck {

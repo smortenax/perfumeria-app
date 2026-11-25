@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { type Catalog, type CatalogMaterial, type MaterialFields, NO_EVOLUTION, NO_PHYSICAL } from "../db/catalog";
-import type { GlossaryData } from "../glossary/useGlossary";
-import { parseCsvRecords } from "./data/csv";
+import type { GlossaryData } from "../db/useGlossary";
+import { parseCsvRecords } from "../lib/csv";
 import { makerIndex } from "./data/plants";
 import { DILUENT_NAMES, repositoryOfV3, v3IdOf } from "./v3-repository";
 

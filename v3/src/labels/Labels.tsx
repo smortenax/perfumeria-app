@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { PrinterAdapter } from "@thermal-label/marklife-web";
 import type { Dilution } from "../db/catalog";
-import type { GlossaryData } from "../glossary/useGlossary";
+import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
 import { Button } from "../Button";
 import { dilutionLabel, labelSheet, linesOf, type LabelContent } from "./content";
@@ -11,18 +11,11 @@ import { drawTwoLines, pixelsOf } from "./render";
 import { readJobs, removeJob, type PrintJob, type PrintLine } from "./jobs";
 import { canReachPrinter, connectP15, printLabel } from "./printer";
 import "./labels.css";
+import { readStored, writeStored } from "../storage";
 
 const t = texts.labels;
-const TAPE_KEY = "perfumeria.labels.tape.v1";
-const FLIP_KEY = "perfumeria.labels.flip.v1";
 
-const readTape = () => {
-  try {
-    return tapeOf(localStorage.getItem(TAPE_KEY) ?? "");
-  } catch {
-    return TAPES[0];
-  }
-};
+const readTape = () => tapeOf(readStored("labelTape") ?? "");
 
 const drawn = (l: LabelContent, tape: ReturnType<typeof tapeOf>, canvas?: HTMLCanvasElement) => {
   const { big, small } = linesOf(l);
@@ -37,13 +30,7 @@ const drawn = (l: LabelContent, tape: ReturnType<typeof tapeOf>, canvas?: HTMLCa
  */
 export function Labels({ data, all }: { data: GlossaryData; all: readonly { materialId: string; d: Dilution }[] }) {
   const [tape, setTape] = useState(readTape);
-  const [flip, setFlip] = useState(() => {
-    try {
-      return localStorage.getItem(FLIP_KEY) === "1";
-    } catch {
-      return false;
-    }
-  });
+  const [flip, setFlip] = useState(() => readStored("labelFlip") === "1");
   const [query, setQuery] = useState("");
   const [chosen, setChosen] = useState<ReadonlySet<string>>(new Set());
   const [jobs, setJobs] = useState<PrintJob[]>(readJobs);
@@ -75,20 +62,12 @@ export function Labels({ data, all }: { data: GlossaryData; all: readonly { mate
   const pickTape = (key: string) => {
     const next = tapeOf(key);
     setTape(next);
-    try {
-      localStorage.setItem(TAPE_KEY, next.id);
-    } catch {
-      /* Without storage, the tape is chosen again next time. */
-    }
+    writeStored("labelTape", next.id); // Without storage, the tape is chosen again next time.
   };
 
   const pickFlip = (on: boolean) => {
     setFlip(on);
-    try {
-      localStorage.setItem(FLIP_KEY, on ? "1" : "0");
-    } catch {
-      /* Chosen again next time. */
-    }
+    writeStored("labelFlip", on ? "1" : "0");
   };
   /** The chosen bottles (or, with none chosen, every one shown) as a sheet for the Marklife app's Excel import. */
   const downloadSheet = () => {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseCsvRecords } from "../bench/data/csv";
+import { parseCsvRecords } from "../lib/csv";
 
 /**
  * The common composition as the server's checks take it (material_components_amount, _not_ifra,

@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { Ratio } from "../core/arith/ratio";
 import type { Composition } from "../core/compose";
 import { formatGrams as gramsWithUnit, formatPercent } from "../core/display";
-import type { Recipe } from "../bench/use-formula";
+import type { Recipe } from "../lib/recipe";
 import { texts } from "../i18n/en";
 import { diluentsOf } from "./formula";
 import "./print.css";

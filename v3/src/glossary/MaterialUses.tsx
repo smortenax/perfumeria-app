@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { LocalDatabase } from "../db/local/database";
 import { formulasUsing } from "../db/uses";
 import { texts } from "../i18n/en";
-import type { GlossaryData } from "./useGlossary";
+import type { GlossaryData } from "../db/useGlossary";
 
 const t = texts.usedIn;
 

@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState } from "react";
 import type { LocalDatabase } from "../db/local/database";
-import type { GlossaryData } from "../glossary/useGlossary";
+import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
 import { FailureNote } from "../FailureNote";
 import { confirmImport } from "./confirm";

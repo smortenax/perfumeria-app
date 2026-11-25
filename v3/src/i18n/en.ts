@@ -9,6 +9,8 @@ export const texts = {
     dismiss: "Close",
     undo: "Undo",
   },
+  /** The buttons of every dialog (ui/Dialog.tsx). */
+  dialog: { cancel: "Cancel", accept: "OK" },
   /** What a screen says while it loads and when it cannot (V3-75, D4). */
   states: {
     loading: (what: string) => `Loading ${what}`,

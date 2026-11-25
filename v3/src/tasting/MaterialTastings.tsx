@@ -1,5 +1,5 @@
 import type { Tastings } from "../db/tastings";
-import type { GlossaryData } from "../glossary/useGlossary";
+import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
 import { legacyTasted, tenacity } from "./logic";
 import { Button } from "../Button";

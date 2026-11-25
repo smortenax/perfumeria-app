@@ -1,6 +1,8 @@
 # Estado de la v3
 
-*Actualizado el 2026-11-24. Como máximo 30 líneas: qué está hecho y qué sigue.*
+*Actualizado el 2026-11-25. Como máximo 30 líneas: qué está hecho y qué sigue.*
+
+**Peinado técnico, lote 1 (V3-111, 2026-11-25; rama `claude/project-thread-iid21l`, PR sin fusionar):** el usuario: «si adelante estoy 100% de acuerdo en abrir las 9 pr». Lo común sale de `bench/` y `glossary/` (`ui/Dialog.tsx`, `ui/orb/`, `lib/csv.ts`, `lib/recipe.ts`, `db/useGlossary.ts`, `db/maese.ts`); fuera Tauri; `src/storage.ts` para todo `localStorage` (mismas claves). Las reglas duras R1-R9 en `v3/CLAUDE.md`, vigiladas por `src/rules.node.test.ts` con la deuda de hoy en `src/rules.baseline.json`; `comprobar-v3.yml` corre `tsc`, pruebas y build en cada PR. Nada cambia en pantalla. **Sigue:** lote 2 (unidades y formato, un catálogo de textos). Plan y auditoría: el documento «Assessment de la app v3».
 
 **«Labels» en la navegación y la impresión por tandas (2026-11-24; rama `claude/project-thread-3g0nig`, PR #93 sin fusionar):** el usuario: «hacerle un espacio en la parte de navegacion…»: entrada «Labels» (grupo «Work» y barra del móvil) que abre `etiquetas.html`, con «← Back to the app». «cada batch de diluciones tenga un boton que sea imprimir» y «se tendria que registrar en texto a parte para no crear conflicto con los datos de guardado»: al guardar en «Add & weigh», los frascos se guardan como siempre y, aparte, el texto de impresión de la tanda (`src/labels/jobs.ts`, en este navegador, localStorage; la base de datos no cambia). El aviso «Saved N bottles» lleva «Print labels»; en «Labels» de Dilutions, «Saved batches» con «Print N labels» y «Remove». Etiquetas en dos líneas, como la página de prueba (sin QR). El %: «el valor redondeado con 2 unidades … solo decimal … 1,5% o 2.3%»: desde el 10 %, entero; por debajo, dos cifras (`labelPercent`). `tsc`, 628 pruebas y build en verde; no visto en el navegador (sin cuenta en la nube).
 

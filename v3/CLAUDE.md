@@ -33,3 +33,37 @@ decisiones están en `docs-v3/`, al lado de esta carpeta: **`docs-v3/decisiones-
 - **Las claves nunca van a Git:** `.env.local`, fuera del repositorio; `.env.example`, con los
   nombres y sin valores.
 - Si una tarea choca con una decisión, se para y se pregunta.
+
+## Reglas duras del código (V3-111)
+
+El usuario, 2026-11-25: «reglas duras con lo que respecta a los problemas encontrados para que no
+se tenga que ir limpiando el codigo cada tanto». **`src/rules.node.test.ts` las vigila** dentro de
+`npm test`. La deuda que había el 2026-11-25 está en `src/rules.baseline.json`: un archivo no puede
+pasar de su cifra, y si la baja, se baja el tope en el mismo commit
+(`RULES_WRITE=1 npx vitest run src/rules.node.test.ts`). **Subir un tope pide el sí del usuario,
+citado en el commit.** Un archivo nuevo empieza con tope 0.
+
+- **R1 · Diseño, desde los tokens.** Colores, tipografía, espacios, radios y medidas salen de
+  `src/theme/tokens.css`. Nada de valores sueltos en el CSS (hex, `rgb()`, px o rem en `gap`,
+  `padding` o `margin`) ni de `style={{…}}` con valores fijos: una medida que solo cambia en
+  ejecución (un ancho calculado) va como variable CSS (`style={{ "--w": … }}`) y su regla, en el CSS.
+- **R2 · Un selector, un archivo.** Cada pantalla tiene su CSS en su carpeta; lo común, en `theme/`.
+  Una pantalla no importa el CSS de otra.
+- **R3 · Unidades y redondeo, en un sitio.** Masas y porcentajes se leen con `core/arith/units` y se
+  muestran con los módulos de formato; nada de `toFixed`, `toLocaleString` ni `1_000_000n` sueltos.
+- **R4 · La memoria del navegador, en `src/storage.ts`.** Nadie más usa `localStorage`; cada clave
+  está listada allí con lo que guarda. Lo que tenga que viajar entre dispositivos va a la base.
+- **R5 · Cada carpeta, una pantalla.** Lo que comparten varias vive en `core/`, `db/`, `lib/` (lógica
+  pura), `ui/` (piezas de interfaz), `families/`, `i18n/`, `theme/` o en la raíz de `src/`. Una
+  pantalla abre otra por su componente de entrada, nunca por sus piezas; y lo común no importa
+  pantallas (solo `App.tsx` y `Home.tsx`, que son el armazón).
+- **R6 · Web y sola.** Nada de Tauri; nada importa ni lee fuera de `v3/`.
+- **R7 · Archivos de 600 líneas como mucho.** Pasado eso se parte: el estado en un hook
+  (`useAlgo.ts`), el dibujo en componentes. Los que ya pasaban solo pueden menguar.
+- **R8 · Tres copias del esquema, iguales.** Una tabla o columna nueva entra a la vez en
+  `db/schema/` (Postgres), `src/db/local/schema.ts` (navegador) y `powersync/sync-config.yaml`; lo
+  que vive en un solo lado se declara en `LOCAL_ONLY` o `SERVER_ONLY` de la prueba.
+- **R9 · Nada se fusiona en rojo.** La comprobación de cada PR (`.github/workflows/comprobar-v3.yml`)
+  tiene que estar en verde antes de fusionar, porque fusionar publica (V3-99).
+- **Los textos de la interfaz, solo en `src/i18n/`** (hoy aún queda `src/bench/texts.ts`, que se
+  junta en el lote 2 del peinado).
