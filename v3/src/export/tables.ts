@@ -1,5 +1,7 @@
 import { Ratio } from "../core/arith/ratio";
 import type { Catalog, CatalogMaterial } from "../db/catalog";
+import { fixedRatio } from "../format/numbers";
+import { UG_PER_G } from "../core/arith/units";
 
 /**
  * Your materials as plain data (V3-80, «solo datos»): two CSV tables, one row per material of yours
@@ -18,10 +20,10 @@ const csv = (header: readonly string[], rows: readonly (readonly (string | null)
 /** An exact figure as a decimal with a point and no trailing zeros: 0.1 → «10» for a percent. */
 export function decimalOf(value: Ratio | null, places = 6): string | null {
   if (value === null) return null;
-  return value.toFixed(places).replace(/(\.\d*?)0+$/, "$1").replace(/\.$/, "");
+  return fixedRatio(value, places).replace(/(\.\d*?)0+$/, "$1").replace(/\.$/, "");
 }
 const percentOf = (fraction: Ratio | null) => decimalOf(fraction === null ? null : fraction.mul(Ratio.of(100n)));
-const gramsOf = (ug: bigint | null) => decimalOf(ug === null ? null : Ratio.of(ug, 1_000_000n), 6);
+const gramsOf = (ug: bigint | null) => decimalOf(ug === null ? null : Ratio.of(ug, UG_PER_G), 6);
 
 export const MATERIAL_COLUMNS = [
   "id",

@@ -1,14 +1,16 @@
 import { useMemo, useState } from "react";
 import { createBottle, createUnweighedBottle } from "../db/dilutions";
 import type { LocalDatabase } from "../db/local/database";
-import { percent } from "../glossary/format";
+import { percent } from "../format/numbers";
 import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
-import { gramsText, gramsToUg, percentToFraction, saveKind, weighedFromPlan, windowState, type WindowMode, type WindowRow } from "./window";
+import { saveKind, weighedFromPlan, windowState, type WindowMode, type WindowRow } from "./window";
 import "./dilutions.css";
 import { Button } from "../Button";
 import { DiluentPicker } from "./DiluentPicker";
 import { MaterialPicker } from "../MaterialPicker";
+import { percentToFraction } from "../format/percent";
+import { gramsText, gramsToUg } from "../format/mass";
 
 const t = texts.dilutions;
 const w = t.window;

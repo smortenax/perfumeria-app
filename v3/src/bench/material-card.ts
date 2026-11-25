@@ -1,6 +1,7 @@
 import { Ratio } from "../core/arith/ratio";
 import { breakdown, type Composition } from "../core/compose";
 import type { Material } from "../core/model/material";
+import { drawn } from "../format/numbers";
 
 /**
  * What the formula holds of the material shown in its card (P57): its pure matter and
@@ -59,7 +60,7 @@ export function usagePosition(share: Ratio): number | null {
   if (share.sign() <= 0) {
     return null;
   }
-  const value = Number(share.toFixed(9));
+  const value = drawn(share, 9);
   if (value <= 0) {
     return 0;
   }

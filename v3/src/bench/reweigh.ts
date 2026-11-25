@@ -1,7 +1,7 @@
 import { Ratio } from "../core/arith/ratio";
 import { parseMass } from "../core/arith/units";
 import { formatGrams } from "../core/display";
-import { texts } from "./texts";
+import { texts } from "../i18n/bench";
 
 /**
  * Repesar, when you decide (V3-57): with the bottle on the scale (the app takes off its tare) or with

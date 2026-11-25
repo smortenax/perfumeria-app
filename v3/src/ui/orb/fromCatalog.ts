@@ -2,6 +2,7 @@ import type { Catalog, CatalogMaterial, Strength, Tier } from "../../db/catalog"
 import { IMPACT_TOP, STRENGTHS } from "../../db/catalog";
 import { coloursOf } from "../../families/palette";
 import { contourOf, type Note, type OrbLook, percentileScale } from "./orbParams";
+import { drawn } from "../../format/numbers";
 
 /**
  * A material's orb from what the app reads today (the glossary's own fields), until it reads V3-70's
@@ -60,7 +61,7 @@ export function orbLookOf(catalog: Catalog, material: CatalogMaterial, scales: O
   if (intensity !== undefined) look.intensity = intensity;
   if (contour !== undefined) look.contour = contour;
   if (tier) look.note = NOTE_OF[tier];
-  if (tenacity) look.durationHours = Number(tenacity.toFixed(2));
+  if (tenacity) look.durationHours = drawn(tenacity, 2);
   return look;
 }
 
@@ -99,7 +100,7 @@ export function orbMarksOf(catalog: Catalog, material: CatalogMaterial): OrbMark
   const strength = inherited(catalog, material, "strength");
   const tier = inherited(catalog, material, "tier");
   const tenacity = inherited(catalog, material, "tenacityHours");
-  const value = tenacity ? Number(tenacity.toFixed(2)) : null;
+  const value = tenacity ? drawn(tenacity, 2) : null;
   return {
     strength: impact !== null ? { level: impact, of: IMPACT_TOP } : strength ? { level: rankOf(strength) + 1, of: STRENGTHS.length } : null,
     note: tier ? NOTE_OF[tier] : null,

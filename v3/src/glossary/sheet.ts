@@ -3,7 +3,7 @@ import type { Amount, Catalog, CatalogMaterial, Component } from "../db/catalog"
 import type { IfraLayer } from "../db/ifra-layer";
 import { effective, ifraCard, type IfraCardState } from "../db/to-ifra";
 import { texts } from "../i18n/en";
-import { decimal, percent } from "./format";
+import { decimal, percent } from "../format/numbers";
 
 /**
  * A material's sheet (plan v3, step 6.2; V3-47): for now a plain data sheet, sections of «field:

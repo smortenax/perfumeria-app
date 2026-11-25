@@ -1,5 +1,5 @@
 import type { Dilution } from "../db/catalog";
-import { decimal } from "../glossary/format";
+import { decimal } from "../format/numbers";
 import { Ratio } from "../core/arith/ratio";
 import { shortName } from "../dilution/grid";
 import { labelCode } from "./code";

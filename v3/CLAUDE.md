@@ -49,8 +49,10 @@ citado en el commit.** Un archivo nuevo empieza con tope 0.
   ejecución (un ancho calculado) va como variable CSS (`style={{ "--w": … }}`) y su regla, en el CSS.
 - **R2 · Un selector, un archivo.** Cada pantalla tiene su CSS en su carpeta; lo común, en `theme/`.
   Una pantalla no importa el CSS de otra.
-- **R3 · Unidades y redondeo, en un sitio.** Masas y porcentajes se leen con `core/arith/units` y se
-  muestran con los módulos de formato; nada de `toFixed`, `toLocaleString` ni `1_000_000n` sueltos.
+- **R3 · Unidades y redondeo, en un sitio.** Masas y porcentajes se leen con `core/arith/units` o
+  `src/format/` (`percent.ts`, `mass.ts`) y se muestran con `core/display` o `src/format/numbers.ts`
+  (`drawn` para dibujar, `fixedRatio`, `fixedNumber`, `dateTime`); nada de `toFixed`,
+  `toLocaleString` ni `1_000_000n` fuera de ellos.
 - **R4 · La memoria del navegador, en `src/storage.ts`.** Nadie más usa `localStorage`; cada clave
   está listada allí con lo que guarda. Lo que tenga que viajar entre dispositivos va a la base.
 - **R5 · Cada carpeta, una pantalla.** Lo que comparten varias vive en `core/`, `db/`, `lib/` (lógica
@@ -65,5 +67,4 @@ citado en el commit.** Un archivo nuevo empieza con tope 0.
   que vive en un solo lado se declara en `LOCAL_ONLY` o `SERVER_ONLY` de la prueba.
 - **R9 · Nada se fusiona en rojo.** La comprobación de cada PR (`.github/workflows/comprobar-v3.yml`)
   tiene que estar en verde antes de fusionar, porque fusionar publica (V3-99).
-- **Los textos de la interfaz, solo en `src/i18n/`** (hoy aún queda `src/bench/texts.ts`, que se
-  junta en el lote 2 del peinado).
+- **Los textos de la interfaz, solo en `src/i18n/`:** `en.ts` y, los del banco, `bench.ts`.

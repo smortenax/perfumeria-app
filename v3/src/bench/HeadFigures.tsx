@@ -4,7 +4,7 @@ import { formatGrams, formatPercent } from "../core/display";
 import type { IfraReport } from "../core/ifra";
 import { headFigures } from "./figures";
 import { maxUseText } from "./IfraBox";
-import { texts } from "./texts";
+import { texts } from "../i18n/bench";
 
 const t = texts.figures;
 

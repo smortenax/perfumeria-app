@@ -4,7 +4,7 @@ import type { Line } from "../core/compose";
 import { formatGrams } from "../core/display";
 import type { Change } from "../core/model/formula";
 import type { MaterialFamily } from "./data/catalog";
-import { texts } from "./texts";
+import { texts } from "../i18n/bench";
 import { familyText } from "./family";
 import { initials, massText, pouredText, pureText, weighingWarning } from "./format";
 import saved from "../../designboard.composition.json";

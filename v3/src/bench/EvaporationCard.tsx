@@ -6,7 +6,7 @@ import { PALETTE } from "../families/palette";
 import { texts as appTexts } from "../i18n/en";
 import { STOPS, type Evaporation } from "./evaporation";
 import { wholeShareText } from "./format";
-import { texts } from "./texts";
+import { texts } from "../i18n/bench";
 
 const t = texts.evaporation;
 const SIXTY = Ratio.of(60);

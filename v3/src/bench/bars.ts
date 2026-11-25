@@ -1,4 +1,5 @@
 import { Ratio } from "../core/arith/ratio";
+import { drawn } from "../format/numbers";
 
 /**
  * The data as bar lengths (audit F-15 L2, D-0005: «data as bar lengths»), for the bench's lists. The
@@ -14,7 +15,7 @@ const SLIVER = 0.01;
  */
 export function barWidth(mass: Ratio, largest: Ratio): number {
   if (mass.isZero() || largest.isZero()) return 0;
-  return Math.max(SLIVER, Math.min(1, Number(mass.div(largest).toFixed(6))));
+  return Math.max(SLIVER, Math.min(1, drawn(mass.div(largest), 6)));
 }
 
 /**
@@ -24,5 +25,5 @@ export function barWidth(mass: Ratio, largest: Ratio): number {
  */
 export function lollipopOf(used: Ratio | null): { readonly at: number; readonly over: boolean } {
   if (used === null || !used.lt(Ratio.ONE)) return { at: 1, over: true };
-  return { at: Math.max(SLIVER, Number(used.toFixed(6))), over: false };
+  return { at: Math.max(SLIVER, drawn(used, 6)), over: false };
 }
