@@ -1,4 +1,4 @@
-import { texts } from "./texts";
+import { texts } from "../i18n/bench";
 
 /**
  * A material's icon text: its trade abbreviation or its code. Two signs are not

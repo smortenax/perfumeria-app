@@ -3,7 +3,7 @@ import { Ratio } from "../core/arith/ratio";
 import { parseMass } from "../core/arith/units";
 import { formatDecimal, formatGrams } from "../core/display";
 import type { FormulaHeader } from "../core/model/formula";
-import { texts } from "./texts";
+import { texts } from "../i18n/bench";
 
 const g = texts.grams;
 

@@ -1,3 +1,4 @@
+import { roundedNumber } from "../format/numbers";
 /** The interface's texts, in English, the app's one standard language (V3-71; CLAUDE.md: the interface reads them from here). */
 export const texts = {
   app: {
@@ -221,7 +222,7 @@ export const texts = {
       impactOf: (n: number) => `Strength: impact ${n} out of 10`,
       strip: "On a blotter",
       duration: (h: number) =>
-        (h < 24 ? `${Number(h.toFixed(1))} h` : h < 24 * 7 ? `${Number((h / 24).toFixed(1))} days` : `${Number((h / 168).toFixed(1))} weeks`),
+        (h < 24 ? `${roundedNumber(h, 1)} h` : h < 24 * 7 ? `${roundedNumber(h / 24, 1)} days` : `${roundedNumber(h / 168, 1)} weeks`),
       durationOn: (d: string) => `Duration on a blotter: ${d}`,
       logScale: "Log scale, 1 hour to 600 h (25 days), as on the orb",
       noSource: "Source: not stated",

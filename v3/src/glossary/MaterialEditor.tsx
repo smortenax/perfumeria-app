@@ -16,7 +16,7 @@ import { search } from "../db/search";
 import { effective } from "../db/to-ifra";
 import { texts } from "../i18n/en";
 import { changesOf, EDIT_SECTIONS, type Form, formOf, FormError, inheritedForm, numberOf } from "./edit";
-import { percent } from "./format";
+import { percent } from "../format/numbers";
 import { FailureNote } from "../FailureNote";
 import type { GlossaryData } from "../db/useGlossary";
 import { Button } from "../Button";

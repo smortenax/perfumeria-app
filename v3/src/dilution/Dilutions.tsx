@@ -1,9 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Ratio } from "../core/arith/ratio";
 import type { Dilution } from "../db/catalog";
 import { archiveBottle, type BottleInput, createBottle, describeBottle, updateBottle } from "../db/dilutions";
 import type { LocalDatabase } from "../db/local/database";
-import { percent } from "../glossary/format";
+import { percent } from "../format/numbers";
 import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
 import { FailureNote } from "../FailureNote";
@@ -22,25 +21,10 @@ import { Button } from "../Button";
 import { DiluentPicker } from "./DiluentPicker";
 import { Labels } from "../labels/Labels";
 import { readStoredJson, removeStored, writeStored } from "../storage";
+import { digitsPercentToFraction } from "../format/percent";
+import { gramsText, scaleGramsToUg } from "../format/mass";
 
 const t = texts.dilutions;
-const UG_PER_G = 1_000_000n;
-
-/** Grams as the scale shows them: «1.030». */
-export const gramsText = (ug: bigint) => Ratio.of(ug, UG_PER_G).toFixed(3);
-/** «1,03» or «1.03» → micrograms, to the milligram; null while it is not a weight. */
-export function gramsOf(text: string): bigint | null {
-  const clean = text.trim().replace(",", ".");
-  if (!/^\d+(\.\d{1,3})?$/.test(clean)) return null;
-  const ug = Ratio.fromDecimal(clean).mul(Ratio.of(UG_PER_G));
-  return ug.num / ug.den;
-}
-/** «10» or «9,5» → a fraction; null while it is not a percent. */
-export function percentOf(text: string): Ratio | null {
-  const clean = text.trim().replace(",", ".");
-  if (!/^\d+(\.\d+)?$/.test(clean)) return null;
-  return Ratio.fromDecimal(clean).div(Ratio.of(100n));
-}
 
 /** How a bottle reads: «10 % in DPG» (its strength as you know it; the exact figure, in its editor), a name before it when it has one, or with several diluents «… in ethanol 30 % and DPG». */
 export function bottleText(data: GlossaryData, d: Dilution): string {
@@ -542,13 +526,13 @@ function BottleEditor({
   const calculate = () => {
     setError(null);
     try {
-      const want = percentOf(target);
-      const amount = gramsOf(total);
+      const want = digitsPercentToFraction(target);
+      const amount = scaleGramsToUg(total);
       if (!want || !amount) throw new Error(t.resultUnknown);
       const p = plan(
         want,
         amount,
-        rows.map((r) => ({ diluentId: r.diluentId, share: r.share.trim() ? percentOf(r.share) : null })),
+        rows.map((r) => ({ diluentId: r.diluentId, share: r.share.trim() ? digitsPercentToFraction(r.share) : null })),
         sourceBottle,
       );
       setMaterialGrams(gramsText(p.materialUg));
@@ -560,8 +544,8 @@ function BottleEditor({
   };
 
   const weighed = (() => {
-    const m = gramsOf(materialGrams);
-    const ds = rows.map((r) => ({ diluentId: r.diluentId, massUg: gramsOf(r.grams) }));
+    const m = scaleGramsToUg(materialGrams);
+    const ds = rows.map((r) => ({ diluentId: r.diluentId, massUg: scaleGramsToUg(r.grams) }));
     if (!m || m <= 0n || ds.some((d) => !d.massUg || d.massUg <= 0n)) return null;
     try {
       return { input: { materialUg: m, diluents: ds as { diluentId: string; massUg: bigint }[] }, bottle: storedBottle(bottleOf({ materialUg: m, diluents: ds as { diluentId: string; massUg: bigint }[], source: sourceBottle })) };

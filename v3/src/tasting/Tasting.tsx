@@ -6,7 +6,7 @@ import {
   setCurve, setFamily, setMark, type TastingClosure, type TastingMoment, type Tastings, type TastingStrip, updateMoment, writeOpening,
 } from "../db/tastings";
 import { bottleText } from "../dilution/Dilutions";
-import { percent } from "../glossary/format";
+import { dateTime, fixedRatio, percent } from "../format/numbers";
 import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
 import { blockState, buildQueue, tastable, changedBlocks, countdown, dueMoments, dueNowOf, latestDilution, legacyTasted, nextWaiting, nowOnLine, tenacity } from "./logic";
@@ -30,7 +30,7 @@ export type Tab = (typeof TABS)[number];
 
 const when = (iso: string) => {
   const d = new Date(iso);
-  return Number.isNaN(d.getTime()) ? "" : d.toLocaleString("en-GB", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+  return Number.isNaN(d.getTime()) ? "" : dateTime(d, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
 };
 const dilutionText = (s: Pick<TastingStrip, "fraction" | "solvent">) =>
   s.fraction?.eq(Ratio.ONE) && !s.solvent ? t.pure : s.fraction ? t.dilutionOf(percent(s.fraction, 4), s.solvent) : (s.solvent ?? t.unknownDilution);
@@ -62,7 +62,7 @@ function BottleSelect({ data, materialId, value, onChange }: { data: GlossaryDat
   );
 }
 /** A tenacity in hours (V3-42), shown in minutes under an hour: «at least 25 min», «1.5 h». */
-const hoursText = (h: Ratio) => (h.lt(Ratio.ONE) ? `${h.mul(Ratio.of(60n)).toFixed(0)} min` : `${h.toFixed(1)} h`);
+const hoursText = (h: Ratio) => (h.lt(Ratio.ONE) ? `${fixedRatio(h.mul(Ratio.of(60n)), 0)} min` : `${fixedRatio(h, 1)} h`);
 const nameOf = (data: GlossaryData, id: string) => data.catalog.materials.get(id)?.name ?? "—";
 
 /** The moments a strip shows: the default ones, and t15 once written. */

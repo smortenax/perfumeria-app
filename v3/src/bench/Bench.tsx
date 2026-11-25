@@ -14,7 +14,7 @@ import type { GlossaryData } from "../db/useGlossary";
 import { casForm } from "./data/catalog";
 import { Toast } from "../Toast";
 import { LoadError, Loading } from "../ScreenState";
-import { texts } from "./texts";
+import { texts } from "../i18n/bench";
 import { AddBar, type AddBarHandle } from "./AddBar";
 import { BottleFrame } from "./Bottle";
 import { OdourMapPlaceholder, RepartoCard } from "./Charts";
@@ -62,6 +62,7 @@ import "./bench.css";
 import { MacerationNote } from "../formulation/MacerationNote";
 import { Button } from "../Button";
 import { maeseKeys } from "../db/maese";
+import { drawn } from "../format/numbers";
 
 type Add = Extract<Change, { kind: "add" }>;
 
@@ -684,7 +685,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
   const selected = selectedIndex >= 0 ? formula.history[selectedIndex] : null;
   const total = view.composition?.totalUg ?? Ratio.ZERO;
   const workBatch = formula.header.workBatchUg;
-  const fill = workBatch ? Number(total.div(Ratio.of(workBatch)).toFixed(4)) : null;
+  const fill = workBatch ? drawn(total.div(Ratio.of(workBatch)), 4) : null;
   const status = error ?? (pending > 0 ? texts.bench.saving : Object.keys(typed).length > 0 ? texts.bench.unsaved : (notice ?? texts.bench.savedLive));
   const tare = formula.header.container?.tareUg ?? null;
   const adds = formula.history.slice(0, frame ?? formula.history.length).filter((c): c is Add => c.kind === "add");

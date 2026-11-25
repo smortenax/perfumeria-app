@@ -1,4 +1,4 @@
-import { texts } from "./texts";
+import { texts } from "../i18n/bench";
 
 /** One part of what the bottle holds: the aromatic matter, or a solvent, with its % of the bottle. */
 export interface BottlePart {

@@ -4,7 +4,7 @@ import { formatMilligrams, formatPercent } from "../core/display";
 import type { IfraData } from "../core/ifra";
 import type { Material } from "../core/model/material";
 import type { CatalogEntry } from "./data/catalog";
-import { texts } from "./texts";
+import { texts } from "../i18n/bench";
 import { useExplain } from "./Explain";
 import { familyLook } from "./family";
 import { roomText } from "./composition-ifra";

@@ -6,7 +6,7 @@ import { indexCatalog, listAll } from "../db/search";
 import { toIfra } from "../db/to-ifra";
 import { texts } from "../i18n/en";
 import { type IfraState, keepOf, NO_FILTERS } from "./browse";
-import { decimal, percent } from "./format";
+import { decimal, percent } from "../format/numbers";
 import { figureSources, type Sheet, sheetOf } from "./sheet";
 
 /**

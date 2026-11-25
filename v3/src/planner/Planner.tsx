@@ -14,6 +14,7 @@ import { planLinesOf, type ShownLine } from "./lines";
 import { dropsOf, partsText, stepDrops } from "./parts-text";
 import { indexAt, level, MOMENTS, PERCEIVED_EXPONENT, PLATEAU_SLOW, profileAt, SHAPE_IDS, type ShapeId } from "./profile";
 import "./planner.css";
+import { fixedNumber } from "../format/numbers";
 
 const t = texts.planner;
 
@@ -67,7 +68,7 @@ const C = 0.05;
 const X = (h: number) => (Math.log(h + C) - Math.log(C)) / (Math.log(600 + C) - Math.log(C));
 const atX = (x: number) => Math.exp(x * (Math.log(600 + C) - Math.log(C)) + Math.log(C)) - C;
 const colour = (l: ShownLine) => (l.family ? (PALETTE.get(l.family)?.light ?? "var(--family-none)") : "var(--family-none)");
-const pct = (x: number) => `${(x * 100).toFixed(x < 0.1 ? 1 : 0)} %`;
+const pct = (x: number) => `${fixedNumber(x * 100, x < 0.1 ? 1 : 0)} %`;
 const when = (h: number) => (h === 0 ? t.justApplied : h < 1 ? `${Math.round(h * 60)} min` : h < 48 ? `${h} h` : `${Math.round(h / 24)} days`);
 const hoursOf = (l: ShownLine) => (l.hours ? Number(l.hours.num) / Number(l.hours.den) : null);
 const shortName = (name: string) => name.split(",")[0];
@@ -226,7 +227,7 @@ export function PlannerView(props: {
               </div>
             </div>
             <p className="planner-muted">
-              {perceived ? t.perceivedHelp(exponent.toFixed(2)) : t.indexHelp}
+              {perceived ? t.perceivedHelp(fixedNumber(exponent, 2)) : t.indexHelp}
               {perceived && (
                 <label className="planner-exponent">
                   {t.exponent}{" "}
@@ -273,7 +274,7 @@ export function PlannerView(props: {
                 <small>{t.competeAt(when(at))}</small>
               </div>
               <div className="planner-big">
-                {now.effective.toFixed(1)}
+                {fixedNumber(now.effective, 1)}
                 <small>{t.effective}</small>
               </div>
               <div className="planner-big">
@@ -304,7 +305,7 @@ export function PlannerView(props: {
             <label className="planner-moment" htmlFor={slowId}>
               <span className="planner-muted">{t.slow}</span>
               <input id={slowId} type="range" min={0.1} max={0.6} step={0.01} value={slow} onChange={(e) => setSlow(Number(e.target.value))} />
-              <span className="planner-fig">{t.slowValue(slow.toFixed(2), pct(level("plateau", 400, 1, slow)), pct(level("plateau", 400, 10, slow)))}</span>
+              <span className="planner-fig">{t.slowValue(fixedNumber(slow, 2), pct(level("plateau", 400, 1, slow)), pct(level("plateau", 400, 10, slow)))}</span>
             </label>
             <Gallery slow={slow} />
           </section>
@@ -517,7 +518,7 @@ function Timeline(props: { lines: readonly ShownLine[]; view: (x: number) => num
                 {c.competing}
               </text>
               <text x={x} y={yC + 19} textAnchor="middle" className="axis">
-                ≈ {c.effective.toFixed(1)}
+                ≈ {fixedNumber(c.effective, 1)}
               </text>
             </g>
           );

@@ -95,39 +95,8 @@
     "input (App.css, bench/bench.css)",
     "textarea (App.css, bench/bench.css)"
   ],
-  "R3 1_000_000n": {
-    "bench/Dialogs.tsx": 1,
-    "dilution/calc.ts": 1,
-    "dilution/Dilutions.tsx": 2,
-    "dilution/window.ts": 3,
-    "export/formula.ts": 2,
-    "export/tables.ts": 1
-  },
-  "R3 rounding": {
-    "bench/bars.ts": 2,
-    "bench/Bench.tsx": 1,
-    "bench/bottles.ts": 1,
-    "bench/Charts.tsx": 3,
-    "bench/Dialogs.tsx": 1,
-    "bench/IfraBox.tsx": 3,
-    "bench/material-card.ts": 1,
-    "dilution/AddWeigh.tsx": 2,
-    "dilution/Dilutions.tsx": 1,
-    "dilution/weigh.ts": 1,
-    "dilution/window.ts": 1,
-    "export/tables.ts": 1,
-    "families/FamilyBar.tsx": 1,
-    "glossary/format.ts": 2,
-    "glossary/traits.ts": 1,
-    "i18n/en.ts": 3,
-    "labels/LabelTest.tsx": 1,
-    "planner/Planner.tsx": 5,
-    "SyncStatus.tsx": 1,
-    "tasting/logic.ts": 1,
-    "tasting/MaterialTastings.tsx": 1,
-    "tasting/Tasting.tsx": 3,
-    "ui/orb/fromCatalog.ts": 2
-  },
+  "R3 1_000_000n": {},
+  "R3 rounding": {},
   "R4 storage": {},
   "R5 cross-screen imports": [
     "bench/AddBar.tsx -> dilution/grid",
@@ -140,13 +109,9 @@
     "bench/Bench.tsx -> planner/Planner",
     "bench/Bench.tsx -> planner/lines",
     "bench/switcher.ts -> glossary/Glossary",
-    "dilution/AddWeigh.tsx -> glossary/format",
     "dilution/AddWeigh.tsx -> labels/content",
     "dilution/AddWeigh.tsx -> labels/jobs",
-    "dilution/Dilutions.tsx -> glossary/format",
     "dilution/Dilutions.tsx -> labels/Labels",
-    "dilution/NewDilution.tsx -> glossary/format",
-    "dilution/grid.ts -> glossary/format",
     "export/PrintGlossary.tsx -> dilution/Dilutions",
     "export/PrintGlossary.tsx -> glossary/initials",
     "formulation/Library.tsx -> glossary/Glossary",
@@ -154,10 +119,8 @@
     "glossary/Glossary.tsx -> export/tables",
     "import/plan-match.ts -> planner/plan-json",
     "labels/content.ts -> dilution/grid",
-    "labels/content.ts -> glossary/format",
     "planner/ImportPlan.tsx -> import/plan-match",
-    "tasting/Tasting.tsx -> dilution/Dilutions",
-    "tasting/Tasting.tsx -> glossary/format"
+    "tasting/Tasting.tsx -> dilution/Dilutions"
   ],
   "R5 common -> screen": [
     "db/dilutions.ts -> dilution/calc",
@@ -168,12 +131,11 @@
   "R7 long files": {
     "bench/AddBar.tsx": 1235,
     "bench/Bench.tsx": 1160,
-    "bench/texts.ts": 693,
     "core/ifra.ts": 635,
     "db/formulas.ts": 613,
     "db/local/schema.ts": 614,
     "db/materials.ts": 678,
-    "dilution/Dilutions.tsx": 736,
+    "dilution/Dilutions.tsx": 719,
     "glossary/Glossary.tsx": 640,
     "tasting/Tasting.tsx": 941
   }

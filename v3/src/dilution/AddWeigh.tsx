@@ -6,7 +6,7 @@ import { dilutionLabel, linesOf } from "../labels/content";
 import { saveJob, type PrintLine } from "../labels/jobs";
 import type { LocalDatabase } from "../db/local/database";
 import { coloursOf } from "../families/palette";
-import { percent } from "../glossary/format";
+import { drawn, fixedRatio, percent } from "../format/numbers";
 import { orbLookOf, orbScalesOf, seedOf } from "../ui/orb/fromCatalog";
 import { MaterialOrb } from "../ui/orb/MaterialOrb";
 import type { GlossaryData } from "../db/useGlossary";
@@ -15,8 +15,9 @@ import { MaterialPicker } from "../MaterialPicker";
 import { Button } from "../Button";
 import type { SourceBottle } from "./calc";
 import { nominalPercent, shortName } from "./grid";
-import { gramsText, gramsToUg, percentToFraction } from "./window";
 import { labelOf, rowState, shareText, stillToPour, tally, type RowState, type WeighDiluent, type WeighRow } from "./weigh";
+import { percentToFraction } from "../format/percent";
+import { gramsText, gramsToUg } from "../format/mass";
 
 const t = texts.dilutions.weigh;
 
@@ -360,7 +361,7 @@ function WeighLine({
         </div>
         {scaleBox(row.weighed, goalMaterial, t.aria.materialWeighed(name), (v) => change((r) => ({ ...r, weighed: v })), showFrom ? t.fromTheBottle : t.head.material)}
         <div className="weigh-result r" title={state.diff ? t.diff(percent(state.diff, 2)) : (why ?? undefined)}>
-          {state.real ? <strong className="fig">{state.real.fraction.mul(Ratio.of(100n)).toFixed(2)} %</strong> : <span className={`weigh-state ${state.status}`}>{words}</span>}
+          {state.real ? <strong className="fig">{fixedRatio(state.real.fraction.mul(Ratio.of(100n)), 2)} %</strong> : <span className={`weigh-state ${state.status}`}>{words}</span>}
         </div>
 
         {/* Line 2 on: «⋯», then one line per diluent, its share on its left when there are two or more. */}
@@ -493,7 +494,7 @@ function Bar({ state, colour, name, diluentNames }: { state: RowState; colour: s
         <span
           key={i}
           className={`seg ${s.part}${s.part === "diluent" ? ` d${s.index % 3}` : ""}${s.weighed ? " weighed" : " planned"}`}
-          style={{ flexGrow: Number(s.share.toFixed(6)), ...(s.part === "material" && colour ? { ["--seg" as string]: colour } : {}) }}
+          style={{ flexGrow: drawn(s.share, 6), ...(s.part === "material" && colour ? { ["--seg" as string]: colour } : {}) }}
         />
       ))}
     </div>

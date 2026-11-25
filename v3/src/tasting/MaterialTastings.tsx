@@ -3,6 +3,7 @@ import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
 import { legacyTasted, tenacity } from "./logic";
 import { Button } from "../Button";
+import { fixedRatio } from "../format/numbers";
 
 const t = texts.tasting;
 const when = (iso: string) => {
@@ -46,7 +47,7 @@ export function MaterialTastings({
                 <button type="button" className="link" onClick={() => onOpenStrip(s.id)}>
                   {t.materialTasting(when(s.appliedAt), s.closedAt !== null)}
                 </button>
-                {ten && <span className="hint"> · {t.tenacity.toLowerCase()} {ten.atLeast ? "≥ " : ""}{ten.hours.toFixed(1)} h</span>}
+                {ten && <span className="hint"> · {t.tenacity.toLowerCase()} {ten.atLeast ? "≥ " : ""}{fixedRatio(ten.hours, 1)} h</span>}
               </li>
             );
           })}

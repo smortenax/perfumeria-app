@@ -1,4 +1,5 @@
 import { Ratio } from "../core/arith/ratio";
+import { UG_PER_G } from "../core/arith/units";
 
 /**
  * The arithmetic of a bottle (V3-65, V3-67): what to weigh for the bottle you want, and what the
@@ -123,7 +124,7 @@ export function planFromDiluent(target: Ratio, diluentId: string, diluentUg: big
 }
 
 /** The examples in grey under the window (V3-79): what to weigh for 1 g and for 10 g of the bottle. */
-export const EXAMPLE_TOTALS_UG: readonly bigint[] = [1_000_000n, 10_000_000n];
+export const EXAMPLE_TOTALS_UG: readonly bigint[] = [UG_PER_G, 10n * UG_PER_G];
 
 export function examples(target: Ratio, diluents: readonly PlannedDiluent[], source?: SourceBottle): { readonly totalUg: bigint; readonly plan: Plan }[] {
   return EXAMPLE_TOTALS_UG.map((totalUg) => ({ totalUg, plan: plan(target, totalUg, diluents, source) }));

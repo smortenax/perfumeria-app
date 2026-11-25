@@ -6,7 +6,7 @@ import type { Change, SecondDiluent } from "../core/model/formula";
 import type { Material } from "../core/model/material";
 import { casForm, normalize, searchCatalog, type CatalogEntry, type IfraState, type MaterialFamily, type Weighing } from "./data/catalog";
 import { defaultOption, formLabel, makerIndex, plantIndex } from "./data/plants";
-import { texts } from "./texts";
+import { texts } from "../i18n/bench";
 import {
   addOwnDiluent,
   APP_DILUENTS,

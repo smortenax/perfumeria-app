@@ -5,7 +5,7 @@ import { texts as appTexts } from "../i18n/en";
 import type { GlossaryData } from "../db/useGlossary";
 import { type CatalogEntry, fold, type IfraState, normalize, type ScentFamily, searchCatalog, type UsageData } from "./data/catalog";
 import type { MaterialRepository } from "./data/repository";
-import { texts } from "./texts";
+import { texts } from "../i18n/bench";
 
 /**
  * The workbench's materials from the v3 (V3-52): the ported workbench reads a repository of the

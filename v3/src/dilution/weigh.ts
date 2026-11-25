@@ -1,6 +1,8 @@
 import { Ratio } from "../core/arith/ratio";
 import { bottleOf, nominalBottle, plan, planFromDiluent, planFromMaterial, storedBottle, type PlannedDiluent, type Shares, type SourceBottle } from "./calc";
-import { gramsToUg, percentToFraction } from "./window";
+import { percentToFraction } from "../format/percent";
+import { gramsToUg } from "../format/mass";
+import { fixedRatio } from "../format/numbers";
 
 /**
  * «Add & weigh» (V3-96, BL-003), without the screen: one row per bottle, as the user's sheets, and what
@@ -205,5 +207,5 @@ export const labelOf = (target: string): string => `at ${target.trim().replace("
 /** The % in a share's placeholder: «40». */
 export const shareText = (share: Ratio): string => {
   const p = share.mul(HUNDRED);
-  return p.isInteger() ? p.num.toString() : p.toFixed(1);
+  return p.isInteger() ? p.num.toString() : fixedRatio(p, 1);
 };

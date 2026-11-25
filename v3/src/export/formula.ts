@@ -1,6 +1,7 @@
 import { Ratio } from "../core/arith/ratio";
 import type { Composition, Line } from "../core/compose";
 import { decimalOf } from "./tables";
+import { UG_PER_G } from "../core/arith/units";
 
 /**
  * A formula you can read anywhere (V3-80): one row per pour, in the order it was poured, and a row of
@@ -8,8 +9,7 @@ import { decimalOf } from "./tables";
  * against the F-001 of the notebook.
  */
 
-const UG_PER_G = Ratio.of(1_000_000n);
-const grams = (ug: Ratio) => decimalOf(ug.div(UG_PER_G));
+const grams = (ug: Ratio) => decimalOf(ug.div(Ratio.of(UG_PER_G)));
 const percent = (x: Ratio) => decimalOf(x.mul(Ratio.of(100n)));
 
 export const FORMULA_COLUMNS = ["n", "material", "poured_g", "dilution_pct", "diluents", "pure_g", "pct_of_aromatic"] as const;

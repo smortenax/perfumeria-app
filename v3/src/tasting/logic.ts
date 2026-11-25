@@ -2,6 +2,7 @@ import { Ratio } from "../core/arith/ratio";
 import type { Catalog, Dilution } from "../db/catalog";
 import type { TastingMoment, TastingStrip, Tastings } from "../db/tastings";
 import { type Block, DEFAULT_MOMENTS, MOMENT_MINUTES, type Moment } from "./vocabulary";
+import { drawn } from "../format/numbers";
 
 /**
  * What the tastings screen works out from your data (V3-61 to V3-63): when each tab is due, what a
@@ -200,7 +201,7 @@ const NOMINAL_PERCENTS = [0.01, 0.1, 0.5, 1, 2, 3, 5, 10, 15, 20, 25, 30, 50, 10
  * strip keeps the exact fraction of its bottle.
  */
 export function nominalFraction(fraction: Ratio): Ratio {
-  const percent = Number(fraction.toFixed(6)) * 100;
+  const percent = drawn(fraction, 6) * 100;
   const near = NOMINAL_PERCENTS.find((p) => Math.abs(percent - p) <= p * 0.15);
   return near === undefined ? fraction : Ratio.fromDecimal(String(near)).div(Ratio.of(100n));
 }

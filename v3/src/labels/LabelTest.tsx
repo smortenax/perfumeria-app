@@ -7,6 +7,7 @@ import { drawTwoLines, pixelsOf } from "./render";
 import { canReachPrinter, connectP15, printLabel } from "./printer";
 import "./labels.css";
 import { readStored, writeStored } from "../storage";
+import { fixedNumber } from "../format/numbers";
 
 const t = texts.labels;
 const u = texts.labelTest;
@@ -140,7 +141,7 @@ function TwoLinePreview({ big, small, tape }: { big: string; small: string; tape
     draw();
     void document.fonts?.ready.then(draw);
   }, [big, small, tape]);
-  const mm = (dots: number) => (dots / 8).toFixed(1);
+  const mm = (dots: number) => fixedNumber(dots / 8, 1);
   return (
     <figure>
       <canvas ref={ref} className="label-preview" style={{ ["--label-dots" as string]: tape.length * 16 }} role="img" aria-label={`${big} · ${small}`} />

@@ -1,14 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { Ratio } from "../core/arith/ratio";
-import { parseMass } from "../core/arith/units";
+import { parseMass, UG_PER_G } from "../core/arith/units";
 import type { Composition, Line } from "../core/compose";
 import { formatGrams, formatPercent } from "../core/display";
 import { readReweigh, type Reweigh, type ReweighMode } from "./reweigh";
 import { maxUseWarning, recipe } from "../lib/recipe";
-import { texts } from "./texts";
+import { texts } from "../i18n/bench";
 import type { FormulaRecord, Workbench } from "../db/formulas";
 import { switchBenches, switchFormulas } from "./switcher";
 import { Choices, Modal } from "../ui/Dialog";
+import { fixedRatio } from "../format/numbers";
 
 const t = texts.dialogs;
 
@@ -306,7 +307,7 @@ export function ReweighDialog(props: { tareUg: bigint | null; totalUg: Ratio | n
         options={[
           {
             value: "withBottle",
-            label: props.tareUg === null ? t.reweighWithBottleNoTare : t.reweighWithBottle(Ratio.of(props.tareUg).div(Ratio.of(1_000_000n)).toFixed(3)),
+            label: props.tareUg === null ? t.reweighWithBottleNoTare : t.reweighWithBottle(fixedRatio(Ratio.of(props.tareUg).div(Ratio.of(UG_PER_G)), 3)),
             disabled: props.tareUg === null,
           },
           { value: "tared", label: t.reweighTared },

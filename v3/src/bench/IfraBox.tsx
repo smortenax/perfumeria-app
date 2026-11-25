@@ -2,11 +2,12 @@ import { useState } from "react";
 import { Ratio } from "../core/arith/ratio";
 import { formatGrams, formatPercent } from "../core/display";
 import type { IfraBase, IfraReport } from "../core/ifra";
-import { texts } from "./texts";
+import { texts } from "../i18n/bench";
 import { useExplain } from "./Explain";
 import { roomText, usedText } from "./composition-ifra";
 import { groupRows, longRequirement, splitPending, whyOf, type GroupRow } from "./ifra-explain";
 import { materialRows, readingIn, substanceRows, supplierRows, type MaterialRow, type SubstanceRow } from "./ifra-panel";
+import { drawn, fixedRatio } from "../format/numbers";
 
 const t = texts.ifra;
 
@@ -94,7 +95,7 @@ export function maxUseText(report: IfraReport): string {
  * `least`. A trace of 0,0004 % reads «0,0004», not «0,000» (the number is only for the screen).
  */
 function digitsFor(share: Ratio, least: number): number {
-  const pct = Number(share.toFixed(12)) * 100;
+  const pct = drawn(share, 12) * 100;
   return pct <= 0 || pct >= 1 ? least : Math.min(8, Math.max(least, 1 - Math.floor(Math.log10(pct))));
 }
 
@@ -104,7 +105,7 @@ const pctOf = (share: Ratio) => formatPercent(share, digitsFor(share, 3)).replac
 const limitText = (limit: Ratio) => (limit.isZero() ? t.prohibited : formatPercent(limit, digitsFor(limit, 2)));
 
 /** The fill of a bar: the share of the ceiling, up to the end; full for a prohibited substance that is there. */
-const widthOf = (used: Ratio | null) => (used === null ? 100 : Math.min(100, Number(used.toFixed(4)) * 100));
+const widthOf = (used: Ratio | null) => (used === null ? 100 : Math.min(100, drawn(used, 4) * 100));
 
 /**
  * One substance (§5.4, §10.3): its name and CAS, its share of the product against its ceiling, the
@@ -144,7 +145,7 @@ function SubstanceItem(props: { row: SubstanceRow; partial: boolean }) {
   );
 }
 
-const quotientText = (q: Ratio) => q.toFixed(2);
+const quotientText = (q: Ratio) => fixedRatio(q, 2);
 
 /**
  * Why a «no» or a «no se sabe» (Phase 5): the substances over their ceiling with the materials that bring them, the group of
