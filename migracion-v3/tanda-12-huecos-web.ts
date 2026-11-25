@@ -11,7 +11,7 @@
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
-import { type Cell, writeTable } from "./lib/csv.ts";
+import { type Cell, writeTable, asCells } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
 const OUT = "migracion-v3/tandas/12-huecos-web";
@@ -77,7 +77,6 @@ for (const a of answers) {
 // What the search found and does not enter: every row that no answer chose.
 const left = found.filter((r) => !chosen.has(r));
 
-const asCells = (rows: Rec[]) => rows.map((r) => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, typeof v === "string" && /^\[.*\]$/.test(v) ? (JSON.parse(v) as string[]) : v])));
 writeTable(join(OUT, "materials.csv"), materials.header, asCells(materials.rows));
 writeTable(join(OUT, "material_descriptors.csv"), descriptors.header, [...asCells(descriptors.rows), ...newDescriptors]);
 

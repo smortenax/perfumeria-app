@@ -24,7 +24,7 @@ import { execSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
-import { type Cell, writeTable } from "./lib/csv.ts";
+import { type Cell, writeTable, asCells, mdCellKeepLines } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
 // The common data as main has it on 2026-10-28 (6b00bcd: with batches 32 and 33 of the other session).
@@ -137,14 +137,12 @@ for (const [, name, cas, percent] of certificateRows) {
 }
 
 const componentHeader = components.header.includes("component_cas") ? components.header : [...components.header.slice(0, 3), "component_cas", "component_name", ...components.header.slice(3)];
-const asCells = (rows: Rec[]) => rows.map((r) => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, typeof v === "string" && /^\[.*\]$/.test(v) ? (JSON.parse(v) as string[]) : v])));
 writeTable(join(OUT, "material_doses.csv"), doses.header, asCells([...doses.rows, ...newDoses]));
 writeTable(join(OUT, "material_components.csv"), componentHeader, asCells([...components.rows, ...newComponents]));
 
 const byMaterial = new Map<string, { doses: number; components: number }>();
 for (const d of newDoses) byMaterial.set(String(d.material_id), { doses: (byMaterial.get(String(d.material_id))?.doses ?? 0) + 1, components: byMaterial.get(String(d.material_id))?.components ?? 0 });
 for (const c of newComponents) byMaterial.set(String(c.material_id), { doses: byMaterial.get(String(c.material_id))?.doses ?? 0, components: (byMaterial.get(String(c.material_id))?.components ?? 0) + 1 });
-const cell = (t: string) => t.replace(/\|/g, "/");
 writeFileSync(
   join(OUT, "informe.md"),
   `# Tanda 27 · La información clave de los botes del 2026-10-26
@@ -159,13 +157,13 @@ ${[...byMaterial.entries()].map(([id, n]) => ({ name: nameOf(id), ...n })).sort(
 
 ## Conflictos (los decides tú; no se escriben)
 
-${conflicts.map((c) => `- **${c.material}**: ahora ${cell(c.now)}; ${c.url} da hoy ${c.found}. ${cell(c.note)}.`).join("\n")}
+${conflicts.map((c) => `- **${c.material}**: ahora ${mdCellKeepLines(c.now)}; ${c.url} da hoy ${c.found}. ${mdCellKeepLines(c.note)}.`).join("\n")}
 
 ## Dosis nuevas
 
 | Material | Mín. | Típico | Máx. | Fuente |
 |---|---|---|---|---|
-${newDoses.map((d) => `| ${nameOf(String(d.material_id))} | ${d.min ?? "—"} | ${d.typical ?? "—"} | ${d.max ?? "—"} | ${cell(String(d.source))} |`).join("\n")}
+${newDoses.map((d) => `| ${nameOf(String(d.material_id))} | ${d.min ?? "—"} | ${d.typical ?? "—"} | ${d.max ?? "—"} | ${mdCellKeepLines(String(d.source))} |`).join("\n")}
 
 Las cifras son fracciones del concentrado (0.006 = 0,6 %).
 

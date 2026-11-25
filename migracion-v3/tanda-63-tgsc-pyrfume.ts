@@ -15,7 +15,7 @@ import { execSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
-import { type Cell, writeTable } from "./lib/csv.ts";
+import { type Cell, writeTable, asCells, mdCell } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
 const TANDA = "63";
@@ -33,7 +33,6 @@ const materials = table("v3/datos/materials.csv");
 const descriptors = table("v3/datos/material_descriptors.csv");
 const reads = parseCsvRecords(readFileSync(SOURCE, "utf8")) as Record<string, string>[];
 const byId = new Map(materials.rows.map((r) => [String(r.id), { ...r }]));
-const cell = (t: string) => t.replace(/\|/g, "/").replace(/\n/g, " ");
 
 const newDescriptors: Rec[] = [];
 const lines: string[] = [];
@@ -42,7 +41,7 @@ for (const r of reads) {
   const m = byId.get(r.material_id);
   if (!m || m.owner_id) throw new Error(`${r.nombre}: no es un común`);
   if (!r.descriptores) {
-    lines.push(`| ${cell(r.nombre)} | ${r.cas} | — | — | Pyrfume no tiene este CAS |`);
+    lines.push(`| ${mdCell(r.nombre)} | ${r.cas} | — | — | Pyrfume no tiene este CAS |`);
     continue;
   }
   const at = r.concentracion ? ` (at ${r.concentracion} %${r.disolvente ? ` in ${r.disolvente}` : ""})` : "";
@@ -55,10 +54,9 @@ for (const r of reads) {
     families++;
   }
   m.notes = `${m.notes ? `${m.notes}\n` : ""}Batch ${TANDA}: TGSC's descriptors via Pyrfume (${r.fuente}). Pyrfume's manifest: «see LICENSE for use restrictions; Pyrfume developers make no claims concerning copyright».`;
-  lines.push(`| ${cell(r.nombre)} | ${r.cas} | ${cell(r.descriptores.split(";").join(", "))}${already ? " (ya estaba)" : ""} | ${r.familia && m.family === r.familia ? r.familia : "—"} | TGSC ${r.tgsc_id}${at} |`);
+  lines.push(`| ${mdCell(r.nombre)} | ${r.cas} | ${mdCell(r.descriptores.split(";").join(", "))}${already ? " (ya estaba)" : ""} | ${r.familia && m.family === r.familia ? r.familia : "—"} | TGSC ${r.tgsc_id}${at} |`);
 }
 
-const asCells = (rows: Rec[]) => rows.map((r) => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, typeof v === "string" && /^\[.*\]$/.test(v) ? (JSON.parse(v) as string[]) : v])));
 writeTable(join(OUT, "materials.csv"), materials.header, asCells(materials.rows.map((r) => byId.get(String(r.id))!)));
 writeTable(join(OUT, "material_descriptors.csv"), descriptors.header, [...asCells(descriptors.rows), ...newDescriptors]);
 writeFileSync(

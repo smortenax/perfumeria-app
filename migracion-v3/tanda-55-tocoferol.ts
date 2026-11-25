@@ -14,7 +14,7 @@ import { execSync } from "node:child_process";
 import { writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
-import { type Cell, writeTable } from "./lib/csv.ts";
+import { type Cell, writeTable, asCells } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
 const BASE = execSync("git rev-parse --short HEAD", { encoding: "utf8" }).trim();
@@ -78,7 +78,6 @@ const dose: Rec = {
   notes: "Antioxidant use, not an IFRA limit. The page does not say 0.1 % of what (it speaks of oils and «many fragrances»), so the basis stays undeclared. Maese Lab gives no dose.",
 };
 
-const asCells = (rows: Rec[]) => rows.map((r) => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, typeof v === "string" && /^\[.*\]$/.test(v) ? (JSON.parse(v) as string[]) : v])));
 writeTable(join(OUT, "materials.csv"), materials.header, [...asCells(materials.rows), material]);
 writeTable(join(OUT, "material_categories.csv"), categories.header, [...asCells(categories.rows), { id: category, name: material.name, aliases: [] }]);
 writeTable(join(OUT, "material_descriptors.csv"), descriptors.header, [...asCells(descriptors.rows), descriptor]);

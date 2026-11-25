@@ -12,7 +12,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { DatabaseSync } from "node:sqlite";
 import { parseCsvRecords } from "../src/data/csv.ts";
-import { type Cell, writeTable } from "./lib/csv.ts";
+import { type Cell, writeTable, asCells } from "./lib/csv.ts";
 
 const BASE = execSync("git rev-parse --short HEAD", { encoding: "utf8" }).trim();
 const OUT = "migracion-v3/tandas/44-impacto-elegido";
@@ -51,7 +51,6 @@ const out = materials.map((r) => {
   return { ...r, impact: e.impact, impact_source: `PerfuMate, ${e.url}: «impact ${e.impact}» (la entrada «${e.name}»: ${chosen.why}; ${DB}, sha256 ${sha256.slice(0, 12)}), por la tanda 44` };
 });
 if (done.length !== Object.keys(CHOSEN).length) throw new Error(`solo ${done.length} de ${Object.keys(CHOSEN).length}`);
-const asCells = (rows: Rec[]) => rows.map((r) => Object.fromEntries(Object.entries(r).map(([k, v]) => [k, typeof v === "string" && /^\[.*\]$/.test(v) ? (JSON.parse(v) as string[]) : v])));
 writeTable(join(OUT, "materials.csv"), header, asCells(out));
 writeFileSync(
   join(OUT, "informe.md"),

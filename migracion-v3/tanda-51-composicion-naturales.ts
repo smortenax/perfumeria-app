@@ -20,7 +20,7 @@ import { execSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseCsvRecords } from "../src/data/csv.ts";
-import { type Cell, writeTable } from "./lib/csv.ts";
+import { type Cell, writeTable, mdCell } from "./lib/csv.ts";
 import { uuidFor } from "./lib/ids.ts";
 
 const BASE = execSync("git rev-parse --short HEAD", { encoding: "utf8" }).trim();
@@ -96,7 +96,6 @@ const unique = added.filter((r) => !seenIds.has(String(r.id)) && seenIds.add(Str
 writeTable(join(OUT, "material_components.csv"), header, [...before, ...unique]);
 
 const none = list.filter((m) => !report.has(m.material));
-const cell = (t: string) => t.replace(/\|/g, "/").replace(/\n/g, " ");
 writeFileSync(
   join(OUT, "informe.md"),
   `# Tanda 51 · Lo que llevan los naturales que el anexo de IFRA no cubre
@@ -119,17 +118,17 @@ writeFileSync(
 
 | Material | Constituyentes | Documento | Nota |
 |---|---|---|---|
-${[...report].map(([n, g]) => `| ${cell(n)} | ${g.n} | ${cell(g.fuente)} | ${cell(g.nota)} |`).join("\n")}
+${[...report].map(([n, g]) => `| ${mdCell(n)} | ${g.n} | ${mdCell(g.fuente)} | ${mdCell(g.nota)} |`).join("\n")}
 
 ## Con un documento que no sirve
 
 | Material | Por qué |
 |---|---|
-${[...left].map(([n, w]) => `| ${cell(n)} | ${w} |`).join("\n")}
+${[...left].map(([n, w]) => `| ${mdCell(n)} | ${w} |`).join("\n")}
 
 ## Siguen sin poderse comprobar (${none.length})
 
-${none.map((m) => cell(m.material)).join(" · ")}
+${none.map((m) => mdCell(m.material)).join(" · ")}
 `,
   "utf8",
 );
