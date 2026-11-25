@@ -4,14 +4,14 @@ import type { Dilution } from "../db/catalog";
 import { archiveBottle, type BottleInput, createBottle, describeBottle, updateBottle } from "../db/dilutions";
 import type { LocalDatabase } from "../db/local/database";
 import { percent } from "../glossary/format";
-import type { GlossaryData } from "../glossary/useGlossary";
+import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
 import { FailureNote } from "../FailureNote";
 import { Toast } from "../Toast";
 import { bottleOf, plan, storedBottle } from "./calc";
 import { coloursOf } from "../families/palette";
-import { orbLookOf, orbScalesOf, seedOf } from "../glossary/orb/fromCatalog";
-import { MaterialOrb } from "../glossary/orb/MaterialOrb";
+import { orbLookOf, orbScalesOf, seedOf } from "../ui/orb/fromCatalog";
+import { MaterialOrb } from "../ui/orb/MaterialOrb";
 import { DilutionPopup } from "./DilutionPopup";
 import { cardsOf, countOf, nominalPercent, shortName } from "./grid";
 import { AddWeigh, rowFor } from "./AddWeigh";
@@ -21,6 +21,7 @@ import { EmptyState } from "../EmptyState";
 import { Button } from "../Button";
 import { DiluentPicker } from "./DiluentPicker";
 import { Labels } from "../labels/Labels";
+import { readStoredJson, removeStored, writeStored } from "../storage";
 
 const t = texts.dilutions;
 const UG_PER_G = 1_000_000n;
@@ -184,23 +185,14 @@ export function Dilutions({
   );
 }
 
-const DRAFT = "perfumeria.dilutions.weigh.v1";
 function readDraft(): readonly WeighRow[] {
-  try {
-    const raw = localStorage.getItem(DRAFT);
-    const list: unknown = raw ? JSON.parse(raw) : [];
-    return Array.isArray(list) ? (list as WeighRow[]).filter((r) => r && typeof r.key === "string" && typeof r.materialId === "string" && Array.isArray(r.diluents)) : [];
-  } catch {
-    return [];
-  }
+  const list = readStoredJson("dilutionDraft");
+  return Array.isArray(list) ? (list as WeighRow[]).filter((r) => r && typeof r.key === "string" && typeof r.materialId === "string" && Array.isArray(r.diluents)) : [];
 }
 function writeDraft(rows: readonly WeighRow[]) {
-  try {
-    if (rows.length === 0) localStorage.removeItem(DRAFT);
-    else localStorage.setItem(DRAFT, JSON.stringify(rows));
-  } catch {
-    /* Without storage the rows live as long as the screen. */
-  }
+  // Without storage the rows live as long as the screen.
+  if (rows.length === 0) removeStored("dilutionDraft");
+  else writeStored("dilutionDraft", JSON.stringify(rows));
 }
 
 function BottleList({

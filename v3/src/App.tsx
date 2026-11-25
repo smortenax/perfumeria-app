@@ -12,7 +12,7 @@ import { MaterialEditor } from "./glossary/MaterialEditor";
 import { Home } from "./Home";
 import { MaterialSheet } from "./glossary/MaterialSheet";
 import { NewMaterial } from "./glossary/NewMaterial";
-import { useGlossary } from "./glossary/useGlossary";
+import { useGlossary } from "./db/useGlossary";
 import { useFirstSync } from "./db/first-sync";
 import { LoadError, Loading, type SkeletonShape } from "./ScreenState";
 import { SignIn } from "./SignIn";

@@ -4,7 +4,7 @@ import { formatDecimal } from "../core/display";
 import type { LocalDatabase } from "../db/local/database";
 import { loadPlan, type PlanRow, removePlanLine, setPlanParts, setPlanShape } from "../db/plans";
 import { PALETTE } from "../families/palette";
-import type { GlossaryData } from "../glossary/useGlossary";
+import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
 import { MaterialPicker } from "../MaterialPicker";
 import { Button } from "../Button";

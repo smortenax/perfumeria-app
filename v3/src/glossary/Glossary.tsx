@@ -5,9 +5,9 @@ import { normalize } from "../db/search";
 import type { FormulaMarker, FormulaRecord } from "../db/formulas";
 import { listAll, search } from "../db/search";
 import { coloursOf, familyOf, PALETTE } from "../families/palette";
-import { orbLookOf, orbMarksOf, type OrbScales, orbScalesOf, seedOf } from "./orb/fromCatalog";
-import { FramedOrb } from "./orb/FramedOrb";
-import { MaterialOrb } from "./orb/MaterialOrb";
+import { orbLookOf, orbMarksOf, type OrbScales, orbScalesOf, seedOf } from "../ui/orb/fromCatalog";
+import { FramedOrb } from "../ui/orb/FramedOrb";
+import { MaterialOrb } from "../ui/orb/MaterialOrb";
 import { paletteMarkdown, paletteOf } from "./palette-export";
 import { initials } from "./initials";
 import { PrintGlossary } from "../export/PrintGlossary";
@@ -17,9 +17,9 @@ import { MaterialFilters } from "./MaterialFilters";
 import { familyStems, keepsTraits, NO_TRAIT_FILTERS, sortByTraits, traitsOf, type Sort, type TraitFilters, type Traits } from "./traits";
 import { tabAfterKey } from "../tabs";
 import { type Filters, type IfraState, keepOf, NO_FILTERS } from "./browse";
-import type { GlossaryData } from "./useGlossary";
+import type { GlossaryData } from "../db/useGlossary";
 import { Button } from "../Button";
-import { maeseKeys } from "../bench/library";
+import { maeseKeys } from "../db/maese";
 
 /** Every material that passes the filters is shown: a few hundred tiles paint fast enough (measured 2026-10-27). */
 const ALL = Number.MAX_SAFE_INTEGER;

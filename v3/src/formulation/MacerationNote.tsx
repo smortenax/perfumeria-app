@@ -1,4 +1,4 @@
-import { PromptDialog } from "../bench/Dialogs";
+import { PromptDialog } from "../ui/Dialog";
 import { texts } from "../i18n/en";
 
 const t = texts.maceration;

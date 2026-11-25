@@ -6,7 +6,7 @@ import { FamilyBar } from "../families/FamilyBar";
 import type { LocalDatabase } from "../db/local/database";
 import { normalize } from "../db/search";
 import { byVersions, Formulas } from "../glossary/Glossary";
-import type { GlossaryData } from "../glossary/useGlossary";
+import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
 import { Pills } from "../Pills";
 import { tabAfterKey } from "../tabs";
@@ -17,7 +17,7 @@ import { VersionTree } from "./VersionTree";
 import { macerationState, startMaceration, todayIso } from "../db/macerations";
 import { EmptyState } from "../EmptyState";
 import { Button } from "../Button";
-import { PromptDialog } from "../bench/Dialogs";
+import { PromptDialog } from "../ui/Dialog";
 
 /** The library's tabs (V3-19): your workbenches, and the general folders of the markers. */
 const TABS = ["benches", "accords", "finished"] as const;

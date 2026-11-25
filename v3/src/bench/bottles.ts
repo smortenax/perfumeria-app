@@ -1,6 +1,6 @@
 import { Ratio } from "../core/arith/ratio";
 import { DILUENTS } from "../core/model/material";
-import type { GlossaryData } from "../glossary/useGlossary";
+import type { GlossaryData } from "../db/useGlossary";
 import { DILUENT_NAMES } from "./v3-repository";
 
 /**

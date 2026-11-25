@@ -2,7 +2,7 @@ import { engineMaterial } from "../db/formulas";
 import type { IfraCardState } from "../db/to-ifra";
 import { coloursOf, familyOf, PALETTE } from "../families/palette";
 import { texts as appTexts } from "../i18n/en";
-import type { GlossaryData } from "../glossary/useGlossary";
+import type { GlossaryData } from "../db/useGlossary";
 import { type CatalogEntry, fold, type IfraState, normalize, type ScentFamily, searchCatalog, type UsageData } from "./data/catalog";
 import type { MaterialRepository } from "./data/repository";
 import { texts } from "./texts";

@@ -7,7 +7,7 @@ import {
 } from "../db/tastings";
 import { bottleText } from "../dilution/Dilutions";
 import { percent } from "../glossary/format";
-import type { GlossaryData } from "../glossary/useGlossary";
+import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
 import { blockState, buildQueue, tastable, changedBlocks, countdown, dueMoments, dueNowOf, latestDilution, legacyTasted, nextWaiting, nowOnLine, tenacity } from "./logic";
 import { tasteMaterial } from "./start";
@@ -21,7 +21,7 @@ import {
 import "./tasting.css";
 import { EmptyState } from "../EmptyState";
 import { Button } from "../Button";
-import { ConfirmDialog, PromptDialog } from "../bench/Dialogs";
+import { ConfirmDialog, PromptDialog } from "../ui/Dialog";
 import { MaterialPicker } from "../MaterialPicker";
 
 const t = texts.tasting;

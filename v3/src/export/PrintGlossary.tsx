@@ -3,10 +3,10 @@ import { createPortal } from "react-dom";
 import { chipText } from "../dilution/Dilutions";
 import { coloursOf, familyOf } from "../families/palette";
 import { initials } from "../glossary/initials";
-import { orbLookOf, orbScalesOf, seedOf } from "../glossary/orb/fromCatalog";
-import { smallLook } from "../glossary/orb/orbParams";
-import { drawStill } from "../glossary/orb/orbRenderer";
-import type { GlossaryData } from "../glossary/useGlossary";
+import { orbLookOf, orbScalesOf, seedOf } from "../ui/orb/fromCatalog";
+import { smallLook } from "../ui/orb/orbParams";
+import { drawStill } from "../ui/orb/orbRenderer";
+import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
 import "./print.css";
 

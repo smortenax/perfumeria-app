@@ -6,10 +6,10 @@ import { tapeOf, TAPES, type Tape } from "./media";
 import { drawTwoLines, pixelsOf } from "./render";
 import { canReachPrinter, connectP15, printLabel } from "./printer";
 import "./labels.css";
+import { readStored, writeStored } from "../storage";
 
 const t = texts.labels;
 const u = texts.labelTest;
-const TAPE_KEY = "perfumeria.labeltest.tape.v1";
 
 /** «big | small», one label a line; blank lines skipped. */
 export function parseRows(text: string): { big: string; small: string }[] {
@@ -31,20 +31,10 @@ export function parseRows(text: string): { big: string; small: string }[] {
  */
 export function LabelTest() {
   const [text, setText] = useState<string>(u.example);
-  const [tape, setTape] = useState<Tape>(() => {
-    try {
-      return tapeOf(localStorage.getItem(TAPE_KEY) ?? "GAP_12X40");
-    } catch {
-      return tapeOf("GAP_12X40");
-    }
-  });
+  const [tape, setTape] = useState<Tape>(() => tapeOf(readStored("labelTestTape") ?? "GAP_12X40"));
   const pickTape = (id: string) => {
     setTape(tapeOf(id));
-    try {
-      localStorage.setItem(TAPE_KEY, id);
-    } catch {
-      /* Chosen again next time. */
-    }
+    writeStored("labelTestTape", id); // Without storage, chosen again next time.
   };
   const [flip, setFlip] = useState(false);
   const [printer, setPrinter] = useState<PrinterAdapter | null>(null);

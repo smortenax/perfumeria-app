@@ -2,7 +2,7 @@ import { type ReactNode, useEffect, useLayoutEffect, useMemo, useRef, useState }
 import { texts } from "../i18n/en";
 import { SheetHero } from "./SheetHero";
 import { type SheetLine, type SheetValue, sheetOf } from "./sheet";
-import type { GlossaryData } from "./useGlossary";
+import type { GlossaryData } from "../db/useGlossary";
 import { Button } from "../Button";
 
 /**

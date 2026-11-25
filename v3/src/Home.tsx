@@ -5,7 +5,7 @@ import { useFormulaChecks } from "./formulation/useFormulaChecks";
 import { readRecent } from "./recent";
 import { macerationState, noteCheck, todayIso } from "./db/macerations";
 import { useMacerations } from "./formulation/useMacerations";
-import type { GlossaryData } from "./glossary/useGlossary";
+import type { GlossaryData } from "./db/useGlossary";
 import { buildQueue, countdown, dueMoments } from "./tasting/logic";
 import { useNow } from "./tasting/useTastings";
 import { useDueNow } from "./tasting/useDue";

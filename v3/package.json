@@ -31,7 +31,6 @@
     "@powersync/drizzle-driver": "^0.8.0",
     "@powersync/web": "^2.4.2",
     "@supabase/supabase-js": "^2.117.3",
-    "@tauri-apps/api": "^2.11.1",
     "@thermal-label/marklife-web": "^0.1.0",
     "drizzle-orm": "^0.45.4",
     "postgres": "^3.4.9",

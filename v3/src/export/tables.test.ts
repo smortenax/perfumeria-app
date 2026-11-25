@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { Ratio } from "../core/arith/ratio";
 import { type Catalog, type CatalogMaterial, type Dilution, type MaterialFields, NO_EVOLUTION, NO_PHYSICAL } from "../db/catalog";
-import { parseCsv } from "../bench/data/csv";
+import { parseCsv } from "../lib/csv";
 import { decimalOf, DILUTION_COLUMNS, dilutionsCsv, MATERIAL_COLUMNS, materialsCsv } from "./tables";
 
 /** «Export data» (V3-80): your materials and your dilutions, as plain tables. */

@@ -3,7 +3,7 @@ import { Ratio } from "../core/arith/ratio";
 import { compose } from "../core/compose";
 import type { Change, Formula } from "../core/model/formula";
 import { DILUENTS, type Material } from "../core/model/material";
-import { maxUseWarning, ownConcentration, recipe } from "./use-formula";
+import { maxUseWarning, ownConcentration, recipe } from "./recipe";
 
 const G = 1_000_000n;
 const MG = 1_000n;

@@ -1,4 +1,4 @@
-import { parseCsv } from "../bench/data/csv";
+import { parseCsv } from "../lib/csv";
 
 /**
  * Importing a sheet (V3-80, F19): what you paste from Excel or Sheets (tabs) or a .csv, read into

@@ -2,9 +2,9 @@ import type { ReactNode } from "react";
 import { type Catalog, type CatalogMaterial, IMPACT_TOP, STRENGTHS, TIERS } from "../db/catalog";
 import { coloursOf, familyOf } from "../families/palette";
 import { texts } from "../i18n/en";
-import { orbLookOf, orbMarksOf, orbScalesOf, seedOf } from "./orb/fromCatalog";
-import { FramedOrb } from "./orb/FramedOrb";
-import { MaterialOrb } from "./orb/MaterialOrb";
+import { orbLookOf, orbMarksOf, orbScalesOf, seedOf } from "../ui/orb/fromCatalog";
+import { FramedOrb } from "../ui/orb/FramedOrb";
+import { MaterialOrb } from "../ui/orb/MaterialOrb";
 
 /** A duration on a blotter on a log scale, 1 hour to 600 h (25 days): the orb's scale, so the bar and the orb agree (F-06). */
 const MAX_HOURS = 600;

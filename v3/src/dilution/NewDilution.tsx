@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { createBottle, createUnweighedBottle } from "../db/dilutions";
 import type { LocalDatabase } from "../db/local/database";
 import { percent } from "../glossary/format";
-import type { GlossaryData } from "../glossary/useGlossary";
+import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
 import { gramsText, gramsToUg, percentToFraction, saveKind, weighedFromPlan, windowState, type WindowMode, type WindowRow } from "./window";
 import "./dilutions.css";

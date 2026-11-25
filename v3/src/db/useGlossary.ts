@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import type { IfraData } from "../core/ifra";
-import type { Catalog } from "../db/catalog";
-import { type IfraLayer, loadIfraLayer } from "../db/ifra-layer";
-import type { LocalDatabase } from "../db/local/database";
-import { type FormulaRecord, loadFormulas, loadWorkbenches, type Workbench } from "../db/formulas";
-import { loadCatalog } from "../db/materials";
-import { indexCatalog, type SearchIndex } from "../db/search";
-import { ifraCard, type IfraCardState, toIfra } from "../db/to-ifra";
+import type { Catalog } from "./catalog";
+import { type IfraLayer, loadIfraLayer } from "./ifra-layer";
+import type { LocalDatabase } from "./local/database";
+import { type FormulaRecord, loadFormulas, loadWorkbenches, type Workbench } from "./formulas";
+import { loadCatalog } from "./materials";
+import { indexCatalog, type SearchIndex } from "./search";
+import { ifraCard, type IfraCardState, toIfra } from "./to-ifra";
 
 /** What the glossary works with, read from this browser's copy: built once per change of the data. */
 export interface GlossaryData {

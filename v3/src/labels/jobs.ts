@@ -1,3 +1,4 @@
+import { readStored, writeStored } from "../storage";
 /**
  * The print text of each batch of dilutions, kept apart from the app's data (the user, 2026-11-24:
  * «se tendria que registrar en texto a parte para no crear conflicto con los datos de guardado de la
@@ -23,7 +24,6 @@ export interface PrintJob {
   readonly lines: readonly PrintLine[];
 }
 
-const KEY = "perfumeria.labels.jobs.v1";
 /** The last batches kept; older ones drop off. */
 export const KEEP = 50;
 
@@ -56,20 +56,11 @@ export function jobText(job: PrintJob): string {
 }
 
 export function readJobs(): PrintJob[] {
-  try {
-    return parseJobs(localStorage.getItem(KEY));
-  } catch {
-    return [];
-  }
+  return parseJobs(readStored("labelJobs"));
 }
 
 function write(jobs: readonly PrintJob[]): boolean {
-  try {
-    localStorage.setItem(KEY, JSON.stringify(jobs));
-    return true;
-  } catch {
-    return false;
-  }
+  return writeStored("labelJobs", JSON.stringify(jobs));
 }
 
 /** Keeps a batch's labels; false when this browser does not let the page store anything. */

@@ -4,7 +4,7 @@ import { FailureNote } from "../FailureNote";
 import { createFormula, updateFormula } from "../db/formulas";
 import type { LocalDatabase } from "../db/local/database";
 import { loadPlan, replacePlan } from "../db/plans";
-import type { GlossaryData } from "../glossary/useGlossary";
+import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
 import { chosenLines, choiceOf, matchPlan } from "../import/plan-match";
 import { planFromJson } from "./plan-json";
