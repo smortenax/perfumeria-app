@@ -93,6 +93,8 @@ export interface PlanMatch {
   readonly materialId: string | null;
   /** The materials with that name, when there are two or more. */
   readonly candidates: readonly string[];
+  /** How it was found: the same name, or a similar one (without maker or strength) to check. */
+  readonly by: "name" | "similar" | null;
   readonly diluentId: string | null;
   /** The factory bottle it is weighed from (from_pct under 100), or null for pure. */
   readonly sourceId: string | null;
@@ -103,6 +105,13 @@ const keysOf = (m: Material) => [m.name, m.product ?? "", m.abbreviation ?? "", 
 
 /** A diluent also by its name without what is in brackets: «DPG (dipropylene glycol)» is «DPG». */
 const solventKeys = (m: Material) => [...keysOf(m), fold(m.name.replace(/\s*\(.*\)\s*$/, ""))].filter((k) => k !== "");
+
+/**
+ * A name without its maker or its strength, as shops and sheets add them: «Wool Absolute (Biolandes)»,
+ * «Hydroxyambran 50% (IPM)», «Meta Cresol 10 % (DPG)», «Ambroxan® (powder)» → «woolabsolute»,
+ * «hidroxiambran», «metacresol», «ambroxan».
+ */
+export const bareName = (name: string): string => fold(name.replace(/\s*\([^)]*\)\s*$/, "").replace(/\s*\d+([.,]\d+)?\s*%\s*$/, ""));
 
 function indexBy(materials: readonly Material[], keys = keysOf): Map<string, string[]> {
   const by = new Map<string, string[]>();
@@ -130,22 +139,34 @@ export function matchDilutionPlan(rows: readonly PlannedDilution[], catalog: Cat
   const mine = all.filter((m) => m.ownerId !== null && (userId === null || m.ownerId === userId) && !m.solvent);
   const solvents = all.filter((m) => m.solvent).sort((a, b) => (a.ownerId ? 1 : 0) - (b.ownerId ? 1 : 0));
   const byName = indexBy(mine);
+  const byBare = indexBy(mine, (m) => [bareName(m.name), ...(m.product ? [bareName(m.product)] : [])].filter((k) => k !== ""));
   const bySolvent = indexBy(solvents, solventKeys);
   return rows.map((planned) => {
     const problems: PlanProblem[] = [];
-    const found = byName.get(fold(planned.material)) ?? [];
+    const from = planned.fromPct ? fractionOf(planned.fromPct) : Ratio.ONE;
+    const exact = byName.get(fold(planned.material)) ?? [];
+    // Not by its name: by the name without maker or strength, then a longer name of yours that starts
+    // with it («Thujopsene» → «Thujopsene natural»); among several, the one with its factory bottle.
+    const bare = bareName(planned.material);
+    let similar = exact.length ? [] : (byBare.get(bare) ?? []);
+    if (!exact.length && !similar.length && bare.length >= 5) similar = mine.filter((m) => bareName(m.name).startsWith(bare)).map((m) => m.id);
+    if (similar.length > 1 && from && from.cmp(Ratio.ONE) < 0) {
+      const withBottle = similar.filter((id) => sourceFor(catalog, id, from));
+      if (withBottle.length > 0) similar = withBottle;
+    }
+    const found = [...new Set(exact.length ? exact : similar)];
     const materialId = found.length === 1 ? found[0] : null;
+    const by = materialId ? (exact.length ? "name" : "similar") : null;
     if (found.length === 0) problems.push("material");
     if (found.length > 1) problems.push("materialTwice");
     const diluentId = bySolvent.get(fold(planned.diluent))?.[0] ?? null;
     if (!diluentId) problems.push("diluent");
     const target = fractionOf(planned.fractionPct);
-    const from = planned.fromPct ? fractionOf(planned.fromPct) : Ratio.ONE;
     if (!target || target.cmp(Ratio.ONE) >= 0 || !from) problems.push("percent");
     else if (target.cmp(from) >= 0) problems.push("further");
     const sourceId = materialId && from && from.cmp(Ratio.ONE) < 0 ? sourceFor(catalog, materialId, from) : null;
     if (materialId && from && from.cmp(Ratio.ONE) < 0 && !sourceId) problems.push("source");
-    return { planned, materialId, candidates: found.length > 1 ? found : [], diluentId, sourceId, problems };
+    return { planned, materialId, candidates: found.length > 1 ? found : [], by, diluentId, sourceId, problems };
   });
 }
 
@@ -166,7 +187,8 @@ export function withChoice(catalog: Catalog, match: PlanMatch, choice: { readonl
   if (!materialId) problems.push(match.candidates.length > 1 ? "materialTwice" : "material");
   if (!diluentId) problems.push("diluent");
   if (materialId && needsSource && !sourceId) problems.push("source");
-  return { ...match, materialId, diluentId, sourceId, problems };
+  const by = choice.materialId ? "name" : match.by;
+  return { ...match, materialId, by, diluentId, sourceId, problems };
 }
 
 /** The rows ready to weigh, as «Add & weigh» takes them: by bottle size, then as in the file. */

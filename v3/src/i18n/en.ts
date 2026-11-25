@@ -840,6 +840,10 @@ export const texts = {
       pickMaterial: (name: string) => `Which of your materials is «${name}»`,
       pickDiluent: (name: string) => `Which diluent is «${name}»`,
       fromBottle: (pct: string) => `from your bottle at ${pct} %`,
+      similar: "similar name: check it",
+      batchLabel: "Which bottles",
+      allBatches: "All",
+      batch: (ml: string, n: number) => `${ml} ml · ${n}`,
       ok: "ready",
       problem: {
         material: () => "not among your materials",

@@ -20,7 +20,11 @@ export function ImportDilutions({ data, userId, newKey, onAdd, onCancel }: { dat
   const found = useMemo(() => (read?.ok ? matchDilutionPlan(read.rows, data.catalog, userId) : []), [read, data, userId]);
   const [choices, setChoices] = useState<ReadonlyMap<number, { materialId?: string; diluentId?: string }>>(new Map());
   const matches: PlanMatch[] = found.map((m) => (choices.has(m.planned.line) ? withChoice(data.catalog, m, choices.get(m.planned.line)!) : m));
-  const ready = matches.filter((m) => m.problems.length === 0);
+  // One batch at a time (the user works by bottle size: «la primera tanda de diluciones de 20 ml»).
+  const sizes = [...new Set(matches.map((m) => m.planned.bottleMl))].filter((x) => x).sort((a, b) => Number(a) - Number(b));
+  const [size, setSize] = useState("");
+  const inBatch = matches.filter((m) => !size || m.planned.bottleMl === size);
+  const ready = inBatch.filter((m) => m.problems.length === 0);
   const ids = { file: useId(), paste: useId() };
   const mine = useMemo(() => [...data.catalog.materials.values()].filter((m) => m.ownerId !== null && !m.solvent).sort((a, b) => a.name.localeCompare(b.name, "es")), [data]);
   const solvents = useMemo(() => [...data.catalog.materials.values()].filter((m) => m.solvent).sort((a, b) => a.name.localeCompare(b.name, "es")), [data]);
@@ -28,6 +32,7 @@ export function ImportDilutions({ data, userId, newKey, onAdd, onCancel }: { dat
   const load = (next: string) => {
     setText(next);
     setChoices(new Map());
+    setSize("");
   };
   const nameOf = (id: string | null) => (id ? (data.catalog.materials.get(id)?.name ?? "—") : null);
   const bottleOf = (id: string | null) => (id ? [...data.catalog.dilutions.values()].flat().find((d) => d.id === id) : undefined);
@@ -60,8 +65,17 @@ export function ImportDilutions({ data, userId, newKey, onAdd, onCancel }: { dat
       )}
       {read?.ok && (
         <>
+          {sizes.length > 1 && (
+            <span className="mode-switch" role="group" aria-label={t.batchLabel}>
+              {["", ...sizes].map((x) => (
+                <button key={x || "all"} type="button" aria-pressed={size === x} onClick={() => setSize(x)}>
+                  {x ? t.batch(x, matches.filter((m) => m.planned.bottleMl === x).length) : t.allBatches}
+                </button>
+              ))}
+            </span>
+          )}
           <p className="hint" role="status">
-            {t.count(matches.length, ready.length)}
+            {t.count(inBatch.length, ready.length)}
           </p>
           <div className="import-plan-table">
             <table className="import-list">
@@ -82,7 +96,7 @@ export function ImportDilutions({ data, userId, newKey, onAdd, onCancel }: { dat
                 </tr>
               </thead>
               <tbody>
-                {matches.map((m) => {
+                {inBatch.map((m) => {
                   const p = m.planned;
                   const source = bottleOf(m.sourceId);
                   return (
@@ -90,11 +104,11 @@ export function ImportDilutions({ data, userId, newKey, onAdd, onCancel }: { dat
                       <td className="num">{p.line}</td>
                       <td>
                         {p.material}
-                        {m.materialId ? (
+                        {m.materialId && m.by === "name" ? (
                           nameOf(m.materialId) !== p.material && <span className="hint"> → {nameOf(m.materialId)}</span>
                         ) : (
-                          <select aria-label={t.pickMaterial(p.material)} value="" onChange={(e) => e.target.value && choose(p.line, { materialId: e.target.value })}>
-                            <option value="">{t.pick}</option>
+                          <select aria-label={t.pickMaterial(p.material)} value={m.materialId ?? ""} onChange={(e) => e.target.value && choose(p.line, { materialId: e.target.value })}>
+                            {!m.materialId && <option value="">{t.pick}</option>}
                             {(m.candidates.length ? m.candidates.map((id) => data.catalog.materials.get(id)!).filter(Boolean) : mine).map((x) => (
                               <option key={x.id} value={x.id}>
                                 {x.name}
@@ -102,6 +116,7 @@ export function ImportDilutions({ data, userId, newKey, onAdd, onCancel }: { dat
                             ))}
                           </select>
                         )}
+                        {m.by === "similar" && <span className="hint"> {t.similar}</span>}
                         {source && <span className="hint"> · {t.fromBottle(p.fromPct)}</span>}
                       </td>
                       <td className="num">{p.fractionPct} %</td>
@@ -133,7 +148,7 @@ export function ImportDilutions({ data, userId, newKey, onAdd, onCancel }: { dat
               </tbody>
             </table>
           </div>
-          {matches.some((m) => m.problems.includes("source")) && <p className="hint">{t.sourceNote}</p>}
+          {inBatch.some((m) => m.problems.includes("source")) && <p className="hint">{t.sourceNote}</p>}
         </>
       )}
       <div className="actions">

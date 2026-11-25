@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { Ratio } from "../core/arith/ratio";
 import { type Catalog, type CatalogMaterial, type Dilution, type MaterialFields, NO_EVOLUTION, NO_PHYSICAL } from "../db/catalog";
-import { matchDilutionPlan, readDilutionPlan, weighRowsOf, withChoice } from "./plan-import";
+import { bareName, matchDilutionPlan, readDilutionPlan, weighRowsOf, withChoice } from "./plan-import";
 import { bottleCheck, describeRow, groupsOf, rowState, type WeighRow } from "./weigh";
 
 /** «Import planned dilutions» (the user's inbox, 2026-11-25), with names of the Perfumiarz order of 19-nov. */
@@ -32,6 +32,9 @@ const materials = [
   m("twin-a", "Ylang Ylang Extra"),
   m("twin-b", "Ylang Ylang Extra"),
   m("hers", "Castoreum", { ownerId: "someone else" }),
+  m("ambroxan", "Ambroxan® (powder)"),
+  m("hydroxy", "Hydroxyambran 50% (IPM)"),
+  m("thujopsene", "Thujopsene natural"),
   m("dpg", "DPG (dipropylene glycol)", { ownerId: null, solvent: true, abbreviation: "Dipr", aliases: ["Dipropylene glycol"] }),
   m("ipm", "IPM (isopropyl myristate)", { ownerId: null, solvent: true, abbreviation: "IsM" }),
   m("eth", "Ethanol", { ownerId: null, solvent: true, aliases: ["Perfumer's alcohol"] }),
@@ -40,7 +43,10 @@ const catalog = {
   materials: new Map(materials.map((x) => [x.id, x])),
   have: new Set<string>(),
   categories: new Map(),
-  dilutions: new Map([["cocoa", [bottle("cocoa-10", "10", "ipm")]]]),
+  dilutions: new Map([
+    ["cocoa", [bottle("cocoa-10", "10", "ipm")]],
+    ["hydroxy", [bottle("hydroxy-50", "50", "ipm")]],
+  ]),
 } as unknown as Catalog;
 
 const HEADER = "material,fraction_pct,from_pct,bottle_ml,batch_g,material_g,diluent,diluent_g,typical_use_pct,typical_use_source,ifra_cat4,note";
@@ -96,6 +102,29 @@ describe("each row against your materials", () => {
   it("a material or diluent picked by hand clears its problem", () => {
     expect(withChoice(catalog, of("Ylang Ylang Extra"), { materialId: "twin-b" })).toMatchObject({ materialId: "twin-b", problems: [] });
     expect(withChoice(catalog, of("Matcha Ketone 5% (TEC)"), { diluentId: "eth" }).problems).toEqual(["source"]);
+  });
+});
+
+describe("the lab's names, with maker or strength (the real table of 2026-11-25)", () => {
+  const plan = readDilutionPlan([HEADER, "Ambroxan (Kao),5,100,20,15,0.750,ethanol,14.250,,,,", "Hydroxyambran (Ventos),10,50,20,15,3.000,ethanol,12.000,,,,", "Thujopsene,5,100,10,8,0.400,ethanol,7.600,,,,"].join("\n"));
+  const found = plan.ok ? matchDilutionPlan(plan.rows, catalog, "me") : [];
+
+  it("a name without maker or strength", () => {
+    expect(["Wool Absolute (Biolandes)", "Hydroxyambran 50% (IPM)", "Meta Cresol 10 % (DPG)", "Ambroxan® (powder)"].map(bareName)).toEqual([
+      bareName("Wool Absolute"),
+      bareName("Hydroxyambran"),
+      bareName("Meta Cresol"),
+      bareName("Ambroxan"),
+    ]);
+  });
+
+  it("finds them by a similar name, says so, and takes the factory bottle at from_pct", () => {
+    expect(found.map((x) => [x.materialId, x.by, x.sourceId, x.problems])).toEqual([
+      ["ambroxan", "similar", null, []],
+      ["hydroxy", "similar", "hydroxy-50", []],
+      ["thujopsene", "similar", null, []],
+    ]);
+    expect(of("Wool Absolute").by).toBe("name");
   });
 });
 

@@ -134,7 +134,9 @@ export function AddWeigh({
         const shares = state.real ?? state.aimed;
         if (shares) {
           const d = { id: "", fraction: shares.fraction, solvent: null, madeOn, description: null, label: common.label, materialMassUg: null, sourceDilutionId: null, archivedAt: null, diluents: shares.diluents.map((x) => ({ id: "", diluentId: x.diluentId, massUg: x.massUg, fraction: x.fraction })) };
-          lines.push(linesOf(dilutionLabel((id) => data.catalog.materials.get(id), row.materialId, d)));
+          // With the full weight (and tare) weighed, the label carries them to reweigh the bottle (labels/content.ts).
+          const { grossUg, tareUg } = bottleCheck(row);
+          lines.push(linesOf(dilutionLabel((id) => data.catalog.materials.get(id), row.materialId, d, grossUg !== null ? { fullUg: grossUg, tareUg } : null)));
         }
       } catch (e) {
         failed.set(row.key, texts.dilutions.failed(e instanceof Error ? e.message : String(e)));
