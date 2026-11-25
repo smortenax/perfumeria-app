@@ -23,6 +23,10 @@ describe("factory bottles", () => {
     expect([isFactoryBottle(factory), isFactoryBottle(bottle("x", "5", "dpg", { label: "factory, at 5 %" })), isFactoryBottle(bottle("y", "5", "dpg"))]).toEqual([true, true, false]);
     expect(factoryBottleOf(data([factory, mine]).catalog, "cocoa")?.id).toBe("cocoa-10");
     expect(factoryBottleOf(data([{ ...factory, archivedAt: "2026-11-25" }]).catalog, "cocoa")).toBeUndefined();
+    // Batch 8: the tasting bottle made from the factory one, written without its source.
+    const tasting = bottle("cata", "10", "dpg", { madeOn: "2026-08-04", description: "10 % en DPG — de cata, rebajado del de fábrica el 2026-08-04, sin pesar" });
+    const made = bottle("fab", "50", "dpg", { madeOn: null, description: "50 % en DPG — de fábrica. Es el de formular" });
+    expect([isFactoryBottle(tasting), factoryBottleOf(data([made, tasting]).catalog, "cocoa")?.id]).toEqual([false, "fab"]);
   });
 
   it("a new row starts from the factory bottle, with the diluent of the last bottle you made, not the factory one", () => {
