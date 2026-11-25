@@ -1,0 +1,145 @@
+import { describe, expect, it } from "vitest";
+import { Ratio } from "../core/arith/ratio";
+import { type Catalog, type CatalogMaterial, type Dilution, type MaterialFields, NO_EVOLUTION, NO_PHYSICAL } from "../db/catalog";
+import { matchDilutionPlan, readDilutionPlan, weighRowsOf, withChoice } from "./plan-import";
+import { bottleCheck, describeRow, groupsOf, rowState, type WeighRow } from "./weigh";
+
+/** «Import planned dilutions» (the user's inbox, 2026-11-25), with names of the Perfumiarz order of 19-nov. */
+
+const FIELDS: MaterialFields = {
+  solvent: false, aliases: [], cas: null, otherCas: [], species: null, part: null, process: null, chemotype: null, inci: null,
+  origin: null, abbreviation: null, abbreviationOrigin: null, categoryId: null, form: null, basedOnId: null, grade: null, supplier: null,
+  product: null, productUrl: null, lot: null, purchasedOn: null, originRegion: null, status: null, purity: null, house: null, code: null, odorTarget: null, synthesis: null, isomers: null, family: null,
+  color: null, familyDetail: null, facets: null, tier: null, tenacityHours: null, tenacitySource: null, strengthSource: null, impact: null, impactSource: null, evolution: NO_EVOLUTION,
+  strength: null, threshold: null, diffusion: null, blendEffect: null, role: null, recommendedDilution: null, cost: null, handling: null,
+  physical: NO_PHYSICAL, notes: null, sources: null, confidence: null, disputedFields: [], ifraUnverified: null,
+};
+const m = (id: string, name: string, extra: Partial<CatalogMaterial> = {}): CatalogMaterial => ({
+  ...FIELDS, id, ownerId: "me", name, kind: "molecule", components: [], regulations: [], doses: [], descriptors: [], relations: [], references: [], ...extra,
+});
+const bottle = (id: string, pct: string, diluentId: string): Dilution => {
+  const fraction = Ratio.fromDecimal(pct).div(Ratio.of(100n));
+  return {
+    id, fraction, solvent: null, madeOn: "2026-11-23", description: null, label: `de fábrica, al ${pct} %`, materialMassUg: null, sourceDilutionId: null, archivedAt: null,
+    diluents: [{ id: `${id}-d`, diluentId, massUg: null, fraction: Ratio.ONE.sub(fraction) }],
+  };
+};
+const materials = [
+  m("wool", "Wool Absolute"),
+  m("olibanum", "Olibanum Oil (Oman)", { product: "Olibanum Oil (Oman) - Boswellia sacra" }),
+  m("cocoa", "Cocoa Thiazole 10% (IPM)"),
+  m("matcha", "Matcha Ketone 5% (TEC)"),
+  m("twin-a", "Ylang Ylang Extra"),
+  m("twin-b", "Ylang Ylang Extra"),
+  m("hers", "Castoreum", { ownerId: "someone else" }),
+  m("dpg", "Dipropylene glycol", { ownerId: null, solvent: true, abbreviation: "DPG" }),
+  m("ipm", "Isopropyl myristate", { ownerId: null, solvent: true, abbreviation: "IPM" }),
+  m("eth", "Ethanol", { ownerId: null, solvent: true, aliases: ["Perfumer's alcohol"] }),
+];
+const catalog = {
+  materials: new Map(materials.map((x) => [x.id, x])),
+  have: new Set<string>(),
+  categories: new Map(),
+  dilutions: new Map([["cocoa", [bottle("cocoa-10", "10", "ipm")]]]),
+} as unknown as Catalog;
+
+const HEADER = "material,fraction_pct,from_pct,bottle_ml,batch_g,material_g,diluent,diluent_g,typical_use_pct,typical_use_source,ifra_cat4,note";
+const FILE = [
+  HEADER,
+  "Wool Absolute,10,100,30,20,2.000,DPG,18.000,0.5,TGSC,,",
+  'Olibanum Oil (Oman) - Boswellia sacra,20,100,15,10,2.000,Ethanol,8.000,,,,"fresh, citrus"',
+  "Cocoa Thiazole 10% (IPM),1,10,15,10,1.000,IPM,9.000,,,,",
+  "Matcha Ketone 5% (TEC),1,5,15,10,2.000,TEC,8.000,,,,",
+  "Ylang Ylang Extra,10,100,15,10,1,DPG,9,,,,",
+  "Castoreum,10,100,15,10,1,DPG,9,,,,",
+].join("\n");
+
+const read = readDilutionPlan(FILE);
+if (!read.ok) throw new Error("the fixture does not read");
+const matches = matchDilutionPlan(read.rows, catalog, "me");
+const of = (name: string) => matches.find((x) => x.planned.material === name)!;
+let n = 0;
+const key = () => `k${n++}`;
+
+describe("reading the planned table", () => {
+  it("reads every row with its line, and the quoted note", () => {
+    expect(read.rows).toHaveLength(6);
+    expect(read.rows[1]).toMatchObject({ line: 3, material: "Olibanum Oil (Oman) - Boswellia sacra", fractionPct: "20", bottleMl: "15", batchG: "10", note: "fresh, citrus" });
+  });
+
+  it("refuses a table without its columns, and says which", () => {
+    expect(readDilutionPlan("name,pct\nWool,10")).toEqual({ ok: false, missing: ["material", "fraction_pct", "diluent"] });
+  });
+
+  it("reads it pasted from a sheet, with tabs and decimal commas", () => {
+    const tabbed = readDilutionPlan(`${HEADER.replace(/,/g, "\t")}\nWool Absolute\t2,5\t100\t30\t20\t\tDPG\t\t\t\t\t`);
+    expect(tabbed.ok && tabbed.rows[0]).toMatchObject({ material: "Wool Absolute", fractionPct: "2.5", diluent: "DPG" });
+  });
+});
+
+describe("each row against your materials", () => {
+  it("finds the material by its name or its shop product name, and the diluent by its short name or another name", () => {
+    expect([of("Wool Absolute").materialId, of("Wool Absolute").diluentId, of("Wool Absolute").problems]).toEqual(["wool", "dpg", []]);
+    expect([of("Olibanum Oil (Oman) - Boswellia sacra").materialId, of("Olibanum Oil (Oman) - Boswellia sacra").diluentId]).toEqual(["olibanum", "eth"]);
+  });
+
+  it("from_pct under 100: weighed from your factory bottle at that exact %", () => {
+    expect([of("Cocoa Thiazole 10% (IPM)").sourceId, of("Cocoa Thiazole 10% (IPM)").problems]).toEqual(["cocoa-10", []]);
+  });
+
+  it("says what is missing and guesses nothing: no bottle at 5 %, no diluent TEC, two materials with one name, not yours", () => {
+    expect(of("Matcha Ketone 5% (TEC)").problems).toEqual(["diluent", "source"]);
+    expect(of("Ylang Ylang Extra")).toMatchObject({ materialId: null, candidates: ["twin-a", "twin-b"], problems: ["materialTwice"] });
+    expect(of("Castoreum").problems).toEqual(["material"]);
+  });
+
+  it("a material or diluent picked by hand clears its problem", () => {
+    expect(withChoice(catalog, of("Ylang Ylang Extra"), { materialId: "twin-b" })).toMatchObject({ materialId: "twin-b", problems: [] });
+    expect(withChoice(catalog, of("Matcha Ketone 5% (TEC)"), { diluentId: "eth" }).problems).toEqual(["source"]);
+  });
+});
+
+describe("the rows to weigh", () => {
+  const rows = weighRowsOf(matches.filter((x) => x.problems.length === 0), key);
+
+  it("only the rows ready, by bottle size (15 ml before 30 ml), as in the file inside each size", () => {
+    expect(rows.map((r) => [r.materialId, r.bottleMl])).toEqual([
+      ["olibanum", "15"],
+      ["cocoa", "15"],
+      ["wool", "30"],
+    ]);
+    expect(groupsOf(rows).map((g) => [g.ml, g.keys.length])).toEqual([
+      ["15", 2],
+      ["30", 1],
+    ]);
+  });
+
+  it("the % and the grams wanted are written, and the scale's grey figures match the plan's", () => {
+    const wool = rows.find((r) => r.materialId === "wool")!;
+    expect([wool.target, wool.total, wool.tare, wool.gross]).toEqual(["10", "20", "", ""]);
+    const s = rowState(wool);
+    expect([s.status, s.goal.materialUg, s.goal.diluents[0]]).toEqual(["asIs", 2_000_000n, 18_000_000n]);
+  });
+
+  it("from the factory bottle at 10 %, 1 % of 10 g asks 1 g of the bottle and 9 g of IPM", () => {
+    const cocoa = rows.find((r) => r.materialId === "cocoa")!;
+    const b = catalog.dilutions.get("cocoa")![0];
+    const s = rowState(cocoa, { fraction: b.fraction, diluents: b.diluents.map((d) => ({ diluentId: d.diluentId, fraction: d.fraction })) });
+    expect([cocoa.sourceId, s.goal.materialUg, s.goal.diluents[0]]).toEqual(["cocoa-10", 1_000_000n, 9_000_000n]);
+  });
+});
+
+describe("the bottle's own weights", () => {
+  const row = (over: Partial<WeighRow>): WeighRow => ({ key: "r", materialId: "wool", sourceId: null, target: "10", total: "20", weighed: "2.004", diluents: [{ diluentId: "dpg", share: "", weighed: "18.010" }], note: "", ...over });
+
+  it("full minus tare minus what went in: 0 when it adds up, the grams off when not", () => {
+    expect(bottleCheck(row({ tare: "12.000", gross: "32.014" })).offUg).toBe(0n);
+    expect(bottleCheck(row({ tare: "12.000", gross: "32.000" })).offUg).toBe(-14_000n);
+    expect(bottleCheck(row({ tare: "12.000", gross: "" })).offUg).toBeNull();
+  });
+
+  it("are kept in the bottle's note, with the day, to reweigh it later", () => {
+    expect(describeRow(row({ bottleMl: "30", tare: "12.000", gross: "32.014", note: "batch 1" }), "2026-11-25")).toBe("batch 1\nBottle 30 ml · tare 12.000 g · full 32.014 g on 2026-11-25");
+    expect(describeRow(row({}), "2026-11-25")).toBe("");
+  });
+});

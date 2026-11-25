@@ -763,6 +763,50 @@
   min-height: var(--size-target);
   font-size: var(--size-text-md);
 }
+/* An imported plan (the user's inbox, 2026-11-25): the rows by bottle size, and each bottle's tare and
+   full weight under its diluents. */
+.weigh-group {
+  padding: var(--space-8) var(--space-12) var(--space-4) var(--space-16);
+  border-bottom: 1px solid var(--border-control);
+  color: var(--text-muted);
+  font-size: var(--size-text-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.weigh-bottle {
+  grid-column: 2 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-12);
+  font-size: var(--size-text-sm);
+}
+.weigh-bottle-label,
+.weigh-bottle-what {
+  color: var(--text-muted);
+}
+.weigh-bottle .weigh-unit {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+.dilutions .weigh .weigh-bottle .weigh-cell {
+  width: 6rem;
+}
+.weigh-import {
+  margin: var(--space-8) 0 var(--space-16);
+  padding: var(--space-12) var(--space-16);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-panel);
+  background: var(--surface-raised);
+}
+.weigh-import .actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-8);
+  margin-top: var(--space-8);
+}
 /* The bar: the material in its family's colour, the diluents in greys; full once weighed, dashed while
    only planned (not faded: 3:1, WCAG 1.4.11), each edged with --border-control. */
 .weigh-bar {
