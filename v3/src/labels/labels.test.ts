@@ -26,8 +26,8 @@ describe("label code (V3-110)", () => {
     const layout = layoutFor(tapeOf("GAP_12X40"), 25);
     expect(layout.qr.module).toBe(3);
     expect(layout.qr.y + layout.qr.side).toBeLessThanOrEqual(layout.height);
-    expect(layout.width).toBe(320);
-    expect(layout.text.width).toBeGreaterThan(180);
+    expect(layout.width).toBe(296); // 37 mm on a 40 mm label: the print stays clear of the gap.
+    expect(layout.text.width).toBeGreaterThan(170); // 3 mm less than before: the print now stops short of the gap.
   });
 });
 
@@ -79,7 +79,7 @@ describe("text fitting", () => {
     expect(measure(cut.text, 16)).toBeLessThanOrEqual(100);
   });
   it("lays out every tape of the P15 with room for text", () => {
-    for (const tape of TAPES) expect(layoutFor(tape, 25).text.width).toBeGreaterThan(100);
+    for (const tape of TAPES) expect(layoutFor(tape, 25).text.width).toBeGreaterThan(90);
   });
 });
 

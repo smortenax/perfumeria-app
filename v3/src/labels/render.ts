@@ -1,6 +1,6 @@
 import type { LabelContent } from "./content";
 import { fitText, layoutFor } from "./layout";
-import type { Tape } from "./media";
+import { printDots, type Tape } from "./media";
 import { qrMatrix } from "./qr";
 
 const FONT = '"Atkinson Hyperlegible Next Variable", "Atkinson Hyperlegible Next", "Segoe UI", sans-serif';
@@ -67,7 +67,7 @@ export function drawTwoLines(
   tape: Tape,
   canvas: HTMLCanvasElement = document.createElement("canvas"),
 ): { canvas: HTMLCanvasElement; bigSize: number; smallSize: number; cut: boolean } {
-  const width = tape.length * 8;
+  const width = printDots(tape);
   const height = 96;
   canvas.width = width;
   canvas.height = height;

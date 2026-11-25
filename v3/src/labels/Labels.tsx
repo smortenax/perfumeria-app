@@ -8,7 +8,7 @@ import { dilutionLabel, linesOf, type LabelContent } from "./content";
 import { tapeOf, TAPES } from "./media";
 import { drawTwoLines, pixelsOf } from "./render";
 import { readJobs, removeJob, type PrintJob, type PrintLine } from "./jobs";
-import { canReachPrinter, connectP15, printRun } from "./printer";
+import { alignTape, canReachPrinter, connectP15, printRun } from "./printer";
 import "./labels.css";
 import { readStored, writeStored } from "../storage";
 
@@ -100,6 +100,16 @@ export function Labels({ data, all }: { data: GlossaryData; all: readonly { mate
     setLeft(list.slice(end.done));
     setStatus(end.why === "stopped" ? t.stopped(end.done, list.length) : end.why === "lost" ? t.lost(end.done, list.length) : t.failed(end.message ?? ""));
   };
+  const align = async () => {
+    const to = printer?.connected ? printer : await connect();
+    if (!to) return;
+    try {
+      await alignTape(to, tape);
+      setStatus(t.aligned);
+    } catch (e) {
+      setStatus(t.failed(e instanceof Error ? e.message : String(e)));
+    }
+  };
   useEffect(() => () => void printer?.close(), [printer]);
 
   return (
@@ -129,6 +139,11 @@ export function Labels({ data, all }: { data: GlossaryData; all: readonly { mate
             <Button variant="primary" disabled={!printer || busy || picked.length === 0} onClick={() => void print(picked.map((x) => linesOf(x.label)))}>
               {t.print(picked.length)}
             </Button>
+            {!tape.continuous && (
+              <Button disabled={!printer || busy} title={t.alignHint} onClick={() => void align()}>
+                {t.align}
+              </Button>
+            )}
             {busy && <Button onClick={() => (stop.current = true)}>{t.stop}</Button>}
             {!busy && left.length > 0 && <Button onClick={() => void print(left)}>{t.remaining(left.length)}</Button>}
           </>

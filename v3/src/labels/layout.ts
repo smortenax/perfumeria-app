@@ -1,4 +1,4 @@
-import { DOTS_PER_MM, HEAD_DOTS, type Tape } from "./media";
+import { HEAD_DOTS, printDots, type Tape } from "./media";
 
 /** Where things go on a label, in printer dots, laid out landscape (the driver turns it to the head). */
 export interface LabelLayout {
@@ -16,7 +16,7 @@ const QUIET_MODULES = 2;
 const GAP = 6;
 
 export function layoutFor(tape: Tape, qrModules: number): LabelLayout {
-  const width = tape.length * DOTS_PER_MM;
+  const width = printDots(tape);
   const height = HEAD_DOTS;
   const module = Math.max(1, Math.floor(height / (qrModules + 2 * QUIET_MODULES)));
   const side = module * qrModules;

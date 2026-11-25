@@ -26,4 +26,17 @@ export const TAPES: readonly Tape[] = [
 export const DOTS_PER_MM = 8;
 export const HEAD_DOTS = 96;
 
+/**
+ * How much shorter than a die-cut label the print is: 3 mm. The P15 starts a label a little past its
+ * edge and, after printing, feeds to the next gap (`1D 0C`). A print as long as the label (40 mm on
+ * 40 mm) ran into the gap, so the printer took the next gap as this one's end and skipped a whole
+ * label, and from there every label came out shifted and some blank (the user, 2026-11-25: «en vez de
+ * recolocarse pasa a la siguiente y eso hace que a veces se salte la cinta»). Session's estimate,
+ * to adjust on the real tape.
+ */
+export const GAP_TRIM_MM = 3;
+
+/** The print's length in dots: the label less GAP_TRIM_MM on die-cut tape; the cut length on continuous. */
+export const printDots = (tape: Tape): number => (tape.continuous ? tape.length : tape.length - GAP_TRIM_MM) * DOTS_PER_MM;
+
 export const tapeOf = (id: string): Tape => TAPES.find((t) => t.id === id) ?? TAPES[0];
