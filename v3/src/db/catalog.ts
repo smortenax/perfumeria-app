@@ -46,7 +46,7 @@ export type RegulationKind = "max" | "prohibited" | "requirement";
 
 export interface Regulation {
   readonly id: string;
-  readonly regime: "ifra" | "manufacturer";
+  readonly regime: "ifra" | "manufacturer" | "guidance";
   /** IFRA's category of use ("4"); null for every category. */
   readonly category: string | null;
   readonly kind: RegulationKind;

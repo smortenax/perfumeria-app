@@ -275,6 +275,30 @@ describe("prohibitions, requirements and a manufacturer's ceiling (V3-25, V3-30,
   });
 });
 
+describe("a guidance limit (V3-112: meta-cresol)", () => {
+  // IFRA does not regulate m-cresol; STD 260 is p-cresol's. Batch 67 gives it at most 2 % p-cresol (literature);
+  // the user approved a guidance limit of 0.027 % (RIFM's table for o-cresol, by analogy).
+  const layer = layerOf([{ code: "STD_260", cas: ["106-44-5"], limit: "0.005" }]);
+  const meta = material("meta", "molecule", {
+    cas: "108-39-4",
+    components: [substance("106-44-5", "p-Cresol", max("2"), "literature")],
+    regulations: [{ id: "g", regime: "guidance", category: "4", kind: "max", maxValue: pct("0.027"), groupKey: null, requirement: null, authority: "literature", source: "RIFM, o-cresol" }],
+  });
+
+  it("is summed apart from IFRA, as a manufacturer's ceiling is, and never as a proven load", () => {
+    const data = toIfra(catalogOf(meta), layer);
+    const substances = data.materials.get("meta")!.substances;
+    expect(substances).toContainEqual({ key: "guia:meta", fraction: null, upper: Ratio.ONE });
+    expect(data.substances.get("guia:meta")).toMatchObject({ supplier: "guidance", name: "meta (guidance limit, not IFRA)", limit: pct("0.027") });
+    // The p-cresol it may bring still counts against IFRA's standard, bounded (V3-7).
+    expect(substances.find((s) => s.key.startsWith("std:"))).toMatchObject({ fraction: null, upper: pct("2") });
+  });
+
+  it("does not make the card say IFRA gives it a ceiling", () => {
+    expect(ifraCard(catalogOf(meta), layer, "meta")).toEqual({ state: "by-constituents" });
+  });
+});
+
 describe("a document that declares no IFRA-restricted material (V3-108: Wool Absolute)", () => {
   const none = (authority: Authority): Regulation => ({
     id: `r${++n}`, regime: "manufacturer", category: null, kind: "requirement", maxValue: null, groupKey: DECLARES_NONE,

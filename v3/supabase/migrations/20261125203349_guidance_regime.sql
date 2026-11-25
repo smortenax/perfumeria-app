@@ -1,0 +1,2 @@
+ALTER TABLE "regulations" DROP CONSTRAINT "regulations_regime";--> statement-breakpoint
+ALTER TABLE "regulations" ADD CONSTRAINT "regulations_regime" CHECK ("regulations"."regime" in ('ifra', 'manufacturer', 'guidance'));

@@ -258,7 +258,7 @@ export const regulations = pgTable(
     index("regulations_material_idx").on(t.materialId),
     index("regulations_owner_idx").on(t.ownerId),
     index("regulations_group_idx").on(t.groupKey),
-    check("regulations_regime", sql`${t.regime} in ('ifra', 'manufacturer')`),
+    check("regulations_regime", sql`${t.regime} in ('ifra', 'manufacturer', 'guidance')`),
     check("regulations_authority", sql`${t.authority} in ${AUTHORITY}`),
     // IFRA's own limits live in its layer (V3-35): here, a manufacturer's ceiling and what a material claims (V3-39).
     check("regulations_not_ifra", sql`${t.authority} <> 'ifra'`),

@@ -322,7 +322,7 @@ function Composition({ material, data, local, bases }: { material: CatalogMateri
 
 function Regulations({ material, data, local, bases }: { material: CatalogMaterial; data: GlossaryData; local: LocalDatabase; bases: readonly CatalogMaterial[] }) {
   const r = t.regulations;
-  const [regime, setRegime] = useState<"manufacturer" | "ifra">("manufacturer");
+  const [regime, setRegime] = useState<"manufacturer" | "ifra" | "guidance">("manufacturer");
   const [kind, setKind] = useState<RegulationKind>("max");
   const [category, setCategory] = useState("4");
   const [max, setMax] = useState("");
@@ -376,13 +376,14 @@ function Regulations({ material, data, local, bases }: { material: CatalogMateri
           <select
             value={regime}
             onChange={(e) => {
-              const next = e.target.value as "manufacturer" | "ifra";
+              const next = e.target.value as "manufacturer" | "ifra" | "guidance";
               setRegime(next);
               if (next === "ifra") setKind("requirement");
             }}
           >
             <option value="manufacturer">{r.regimes.manufacturer}</option>
             <option value="ifra">{r.regimes.ifra}</option>
+            <option value="guidance">{r.regimes.guidance}</option>
           </select>
         </label>
         <label>

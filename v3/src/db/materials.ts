@@ -221,7 +221,7 @@ export async function loadCatalog(db: LocalDb, userId: string): Promise<Catalog>
       regulations: (regulations.get(row.id) ?? []).map(
         (r): Regulation => ({
           id: r.id,
-          regime: oneOf(r.regime, ["ifra", "manufacturer"] as const, "regime"),
+          regime: oneOf(r.regime, ["ifra", "manufacturer", "guidance"] as const, "regime"),
           category: r.category,
           kind: oneOf(r.kind, ["max", "prohibited", "requirement"] as const, "regulation kind"),
           maxValue: ratioFromNumeric(r.maxValue),
@@ -544,7 +544,7 @@ export async function removeComponent(db: LocalDb, ownerId: string, componentRow
 }
 
 export interface NewRegulation {
-  readonly regime: "ifra" | "manufacturer";
+  readonly regime: "ifra" | "manufacturer" | "guidance";
   readonly category?: string | null;
   readonly kind: RegulationKind;
   readonly maxValue?: Ratio | null;
@@ -560,7 +560,7 @@ export interface NewRegulation {
  */
 export async function addRegulation(db: LocalDb, ownerId: string, materialId: string, regulation: NewRegulation): Promise<string> {
   await ownMaterial(db, ownerId, materialId);
-  oneOf(regulation.regime, ["ifra", "manufacturer"] as const, "regime");
+  oneOf(regulation.regime, ["ifra", "manufacturer", "guidance"] as const, "regime");
   oneOf(regulation.authority, AUTHORITIES, "authority");
   // IFRA's own limits live in its layer (V3-35): a material keeps what its documents say, never as IFRA's word.
   if (regulation.authority === "ifra") throw new Error("what IFRA says lives in its layer, not in a material (V3-35)");

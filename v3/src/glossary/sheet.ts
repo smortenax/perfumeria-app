@@ -364,11 +364,11 @@ export function sheetOf(catalog: Catalog, layer: IfraLayer, ifra: IfraData, id: 
         (m) => m.regulations,
         [c.regime, c.category, c.rule],
         (r) => [
-          r.regime === "ifra" ? "IFRA" : t.manufacturer,
+          r.regime === "ifra" ? "IFRA" : r.regime === "guidance" ? t.guidance : t.manufacturer,
           r.category ?? t.allCategories,
           r.kind === "max" && r.maxValue ? t.regulationKind.max(percent(r.maxValue)) : r.kind === "prohibited" ? t.regulationKind.prohibited : t.regulationKind.requirement(r.requirement ?? ""),
         ],
-        (r) => ({ what: `${t.manufacturer} · ${r.category ?? t.allCategories}`, text: r.source, authority: t.authority[r.authority] }),
+        (r) => ({ what: `${r.regime === "guidance" ? t.guidance : t.manufacturer} · ${r.category ?? t.allCategories}`, text: r.source, authority: t.authority[r.authority] }),
         2,
         t.noRows,
         t.manufacturer,

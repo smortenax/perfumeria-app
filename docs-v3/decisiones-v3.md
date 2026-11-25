@@ -2056,3 +2056,16 @@ Ante la pregunta de qué pasa con el área «Strips» y con el plan, que vivía 
 - **La deuda de hoy es un trinquete:** `v3/src/rules.baseline.json` guarda la cifra de cada archivo. La prueba falla si sube (se ha roto la regla) y también si baja sin bajar el tope (para que la mejora no se pueda deshacer). Subir un tope pide el sí del usuario, citado en el commit.
 - **El peinado va por lotes**, uno detrás de otro porque tocan las mismas importaciones: cada lote es una PR a `main` desde la rama de la sesión, con un commit por cambio. El plan y la auditoría: el documento «Assessment de la app v3».
 - **Nada cambia en pantalla** en el peinado. Pasar a la base de datos lo que hoy vive en el navegador (preferencias por material, tandas de etiquetas) es otra decisión, del usuario.
+
+## V3-112 · Un límite orientativo, aparte de IFRA y del fabricante (decidida por el usuario el 2026-11-25)
+
+**Contexto:** la bandeja del laboratorio (2026-11-25): la app no daba límite IFRA al Meta Cresol 10 % (DPG) de Perfumiarz. IFRA no regula el m-cresol (108-39-4): el estándar 260 es del p-cresol (106-44-5) y de los cresoles mezclados (1319-77-3), por despigmentación, y RIFM, el CIR (2006) y el informe australiano (IMAP) dicen que el m-cresol al 0,5 % no despigmenta. La investigación, con sus citas: `investigaciones/2026-11-25-meta-cresol-ifra.md`, en la carpeta del proyecto.
+
+**Literal** (orko kill, 2026-11-25): «vale entonce pcresol la regulacion que es mcresol el uso orientativo y un limite orientativo que lo mas seguro es que sea mas alto que pcresol pero no lo dejaria mucho mas alto para no dar falsa seguridad, que propones?». A la propuesta de la sesión (0,027 % en la categoría 4, la tabla de RIFM del o-cresol, que tampoco tiene ensayos de sensibilización y usa el umbral por defecto de las moléculas reactivas): «vale ahora creo que si esta cerrado y apruebo el limite». En la tarjeta, a «¿Cómo guardo el 0,027 % orientativo, si la app hoy solo admite límites de IFRA o del fabricante?», eligió «Tipo nuevo: límite orientativo».
+
+**Lectura** (de la sesión, propuesta):
+
+- **Un tercer régimen en `regulations`: `guidance`**, junto a `ifra` y `manufacturer`. Es un límite por analogía para un material que IFRA no regula, con su fuente. No es de IFRA ni de un fabricante.
+- **La comprobación lo cuenta como un tope de fabricante (P62):** suma la sustancia venga de donde venga y la juzga aparte («Topes aparte de IFRA»), sin decidir las dos lecturas de IFRA. Su carga va siempre como cota, nunca como cifra probada: nunca da «dentro» (V3-7).
+- **La ficha no dice que IFRA le ponga techo:** su estado IFRA sale de lo que dice IFRA (en el m-cresol, por su p-cresol: «por constituyentes»), y el límite orientativo sale en su propia fila, «Guidance (not IFRA)».
+- **Primero, el m-cresol:** 0,027 % en la categoría 4 (tanda 68), con la cita de RIFM 2021 (o-cresol, tabla 1) y la lectura por analogía.

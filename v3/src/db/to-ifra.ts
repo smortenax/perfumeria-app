@@ -44,6 +44,9 @@ export const NO_DATA = "No data on its constituents: it may contain substances w
  */
 export const DECLARES_NONE = "declares-none";
 export const CATEGORY = "4";
+/** V3-112: the «supplier» of a guidance limit, and the prefix of its key: reported apart, like a manufacturer's ceiling. */
+export const GUIDANCE = "guidance";
+export const GUIDANCE_KEY = "guia:";
 
 const RANK: Readonly<Record<Authority, number>> = { lot: 0, product: 1, ifra: 2, literature: 3, consensus: 4 };
 const isPlaceholder = (authority: Authority) => authority === "literature" || authority === "consensus";
@@ -447,6 +450,18 @@ export function toIfra(catalog: Catalog, layer: IfraLayer): IfraData {
             supplier: supplier ?? "manufacturer",
           });
           entries.push(load.known ? { key, fraction: load.known } : { key, fraction: null, upper: load.upper });
+        } else if (r.kind === "max" && r.regime === "guidance") {
+          // V3-112: a guidance limit (by analogy, never IFRA's nor a maker's): summed like a manufacturer's ceiling and
+          // reported apart, never deciding IFRA's readings; it never says «within», so its load goes as a bound.
+          const key = `${GUIDANCE_KEY}${member.id}`;
+          substances.set(key, {
+            key,
+            name: `${member.name} (guidance limit, not IFRA)`,
+            limit: r.maxValue!,
+            amendment: r.source,
+            supplier: GUIDANCE,
+          });
+          entries.push({ key, fraction: null, upper: load.known ?? load.upper });
         } else if (r.kind === "max") {
           const key = ifraSubstance(r, member);
           // V3-7: a load that is not proven goes with its bound, which the engine counts in the worst case.
@@ -534,7 +549,8 @@ export function ifraCard(catalog: Catalog, layer: IfraLayer, id: string): IfraCa
       return { requirement: requirementState(rows), what: rows.find((r) => r.requirement)?.requirement ?? "" };
     })
     .sort((a, b) => PROVEN.indexOf(a.requirement) - PROVEN.indexOf(b.requirement))[0];
-  if (regulations.some((r) => r.kind === "max")) return worst ? { state: "ceiling", ...worst } : { state: "ceiling" };
+  // V3-112: a guidance limit is not IFRA's: the card says what IFRA says.
+  if (regulations.some((r) => r.kind === "max" && r.regime !== "guidance")) return worst ? { state: "ceiling", ...worst } : { state: "ceiling" };
   if (worst) return { state: "requirement", ...worst };
   const flat = flatten(node, id);
   if ([...flat.loads.keys()].some((member) => member !== id)) return { state: "by-constituents" };

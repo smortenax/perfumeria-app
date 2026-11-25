@@ -374,10 +374,10 @@ export const texts = {
       "It cannot be said up to what % this blend can be used in a perfume: what is known puts no ceiling on it, but there are materials or constituents not checked.",
     secondReadingPartial: (pct: string) => `This blend, as it is in the bottle, can be used at most up to ${pct} in a perfume, by what is known.`,
     views: { substance: "Substance", material: "Material" },
-    suppliers: (n: number) => `Manufacturers' caps · ${n}`,
+    suppliers: (n: number) => `Caps apart from IFRA · ${n}`,
     supplierOver: (names: string) => `Passes: ${names}`,
     suppliersHelp:
-      "What a manufacturer's certificate gives its product for category 4, as a ceiling of the substance, summed over everything that contains it. It is not IFRA's, and it does not decide the two readings.",
+      "What a manufacturer's certificate gives its product for category 4, or a guidance limit taken by analogy for a material IFRA does not regulate, as a ceiling of the substance, summed over everything that contains it. It is not IFRA's, and it does not decide the two readings.",
     viewSwitch: "See the detail by substance or by material",
     room: (mass: string) => `${mass} left`,
     noRoom: "no margin",
