@@ -1,6 +1,6 @@
 # Tanda 67 · Meta-cresol: como mucho un 2 % de p-cresol (IFRA 260)
 
-*Generada por `migracion-v3/tanda-67-meta-cresol.ts` sobre lo común de `5d9848a`. Reescribe `material_components.csv` entero (añade una fila). Sin aprobar.*
+*Generada por `migracion-v3/tanda-67-meta-cresol.ts` sobre lo común de `5d9848a`. Reescribe `material_components.csv` entero (añade una fila). Aprobada el 2026-11-25 («apruebo 67»).*
 
 **Por qué:** la bandeja del laboratorio (2026-11-25): la app no daba límite IFRA al Meta Cresol 10 % (DPG) de Perfumiarz. El usuario, 2026-11-25: «vale ahora creo que si esta cerrado y apruebo el limite». La investigación, con sus citas: `/mnt/project-files/investigaciones/2026-11-25-meta-cresol-ifra.md` (carpeta del proyecto).
 
