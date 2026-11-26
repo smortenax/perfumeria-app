@@ -1,4 +1,8 @@
 import type { Catalog, CatalogMaterial, Category } from "./catalog";
+import { casForm, fold, normalize } from "../lib/search";
+
+// One way to fold a name for the whole app (lib/search.ts); read from here as before.
+export { casForm, fold, normalize };
 
 /**
  * The search (plan v3, steps 5.2, 5.3 and 6.1): one box over the catalog in memory.
@@ -46,41 +50,9 @@ export interface SearchIndex {
   readonly rows: ReadonlyMap<string, { readonly category: Category | null; readonly name: string; readonly entries: readonly Entry[] }>;
 }
 
-/** Without accents and in lower case: how the v1 compared names. */
-export const normalize = (text: string): string => text.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
-
 /** To order, a hyphen is a space: «alpha ionone» starts «alpha-Ionone». */
 const loose = (text: string): string => text.replace(/[-_]+/g, " ");
 const prime = (text: string): string => text.replace(/′/g, "'");
-
-/**
- * A name folded for a tolerant search, as in the v1: no accents, spaces or signs, and the
- * spellings that differ between English and Spanish made the same (y/i, ph/f, th/t, k/c, ou/u),
- * so that «isobutilquinoleina» and «Isobutyl quinoline» meet.
- */
-export function fold(text: string): string {
-  return normalize(text)
-    .replace(/[^a-z0-9]/g, "")
-    .replace(/ph/g, "f")
-    .replace(/th/g, "t")
-    .replace(/y/g, "i")
-    .replace(/k/g, "c")
-    .replace(/ou/g, "u")
-    .replace(/(.)\1+/g, "$1");
-}
-
-/**
- * A CAS typed with zeros more, as some sheets write it: «0123-07-09» is 123-07-9 (P52). The last
- * part of a CAS is one check digit; it is taken only when the check holds.
- */
-export function casForm(text: string): string | null {
-  const match = /^\s*0*(\d{2,7})-(\d{2})-0?(\d)\s*$/.exec(text);
-  if (!match) return null;
-  const [, head, middle, check] = match;
-  const digits = `${head}${middle}`.split("").reverse();
-  const sum = digits.reduce((s, d, i) => s + Number(d) * (i + 1), 0);
-  return sum % 10 === Number(check) ? `${head}-${middle}-${check}` : null;
-}
 
 /**
  * Edits between the query and the start of the text, as long as it needs (approximate prefix

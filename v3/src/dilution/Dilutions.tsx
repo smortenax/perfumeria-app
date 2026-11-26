@@ -24,6 +24,7 @@ import { Labels } from "../labels/Labels";
 import { readStoredJson, removeStored, writeStored } from "../storage";
 import { digitsPercentToFraction } from "../format/percent";
 import { gramsText, scaleGramsToUg } from "../format/mass";
+import { MassInput } from "../ui/MassInput";
 
 const t = texts.dilutions;
 
@@ -609,7 +610,7 @@ function BottleEditor({
               </label>
               <label className="field">
                 {t.total}
-                <input inputMode="decimal" value={total} onChange={(e) => setTotal(e.target.value)} />
+                <MassInput base="g" value={total} onChange={setTotal} />
               </label>
             </div>
             {rows.map((r, i) => (
@@ -647,12 +648,12 @@ function BottleEditor({
             <p className="hint">{t.weighedHint}</p>
             <label className="field">
               {source ? t.sourceGrams(source.label ?? percent(source.fraction, 2)) : t.materialGrams}
-              <input inputMode="decimal" value={materialGrams} onChange={(e) => setMaterialGrams(e.target.value)} />
+              <MassInput base="g" value={materialGrams} onChange={setMaterialGrams} />
             </label>
             {rows.map((r, i) => (
               <label key={i} className="field">
                 {t.diluentGrams(name(r.diluentId))}
-                <input inputMode="decimal" value={r.grams} onChange={(e) => setRow(i, { grams: e.target.value })} />
+                <MassInput base="g" value={r.grams} onChange={(v) => setRow(i, { grams: v })} />
               </label>
             ))}
             <p className="result" role="status">

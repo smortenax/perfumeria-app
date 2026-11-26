@@ -136,7 +136,6 @@ export const texts = {
       "sin-estandar": "Not in IFRA's index: no standard of its own",
     },
     quantity: (unit: string) => `Amount (${unit})`,
-    changeUnit: "Change the unit",
     unreviewed: "v1, unreviewed",
     unreviewedHelp: "This material is only in the v1 glossary: its IFRA is computed as before, and nobody has reviewed its figures or its documents.",
     dilution: "Dilution",

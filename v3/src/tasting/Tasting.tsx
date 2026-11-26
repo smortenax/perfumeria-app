@@ -22,7 +22,8 @@ import "./tasting.css";
 import { EmptyState } from "../EmptyState";
 import { Button } from "../Button";
 import { ConfirmDialog, PromptDialog } from "../ui/Dialog";
-import { MaterialPicker } from "../MaterialPicker";
+import { MaterialPicker } from "../ui/MaterialPicker";
+import { pickOptionsOf } from "../db/material-search";
 
 const t = texts.tasting;
 export const TABS = ["session", "queue", "history", "legacy"] as const;
@@ -324,9 +325,8 @@ function AddStrip({
   const options = useMemo(() => {
     const queue = buildQueue(data.catalog, tastings);
     const pending = new Set(queue.groups.flatMap((g) => g.items.map((i) => i.materialId)));
-    return [...data.catalog.materials.values()]
-      .filter(tastable)
-      .sort((a, b) => (pending.has(a.id) ? 0 : 1) - (pending.has(b.id) ? 0 : 1) || a.name.localeCompare(b.name, "es"));
+    // What is waiting to be smelt comes first; then by name, as every picker (db/material-search.ts).
+    return pickOptionsOf(data.catalog, tastable).sort((a, b) => (pending.has(a.id) ? 0 : 1) - (pending.has(b.id) ? 0 : 1));
   }, [data, tastings]);
   const [materialId, setMaterialId] = useState<string | null>(null);
   const [bottle, setBottle] = useState("");

@@ -6,7 +6,8 @@ import { loadPlan, type PlanRow, removePlanLine, setPlanParts, setPlanShape } fr
 import { PALETTE } from "../families/palette";
 import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
-import { MaterialPicker } from "../MaterialPicker";
+import { MaterialPicker } from "../ui/MaterialPicker";
+import { pickOptionsOf, type PickOption } from "../db/material-search";
 import { Button } from "../Button";
 import type { Catalog } from "../db/catalog";
 import { planToJson } from "./plan-json";
@@ -86,10 +87,7 @@ export function Planner(props: { data: GlossaryData; local: LocalDatabase; formu
   const name = data.formulas.find((f) => f.id === formulaId)?.name ?? "";
   const options = useMemo(() => {
     const planned = new Set(rows.map((r) => r.materialId));
-    return [...data.catalog.materials.values()]
-      .filter((m) => !m.solvent && !planned.has(m.id) && (m.ownerId === null || m.ownerId === local.userId))
-      .map((m) => ({ id: m.id, name: m.name }))
-      .sort((a, b) => a.name.localeCompare(b.name, "es"));
+    return pickOptionsOf(data.catalog, (m) => !m.solvent && !planned.has(m.id) && (m.ownerId === null || m.ownerId === local.userId));
   }, [data.catalog, rows, local.userId]);
   const write = (work: () => Promise<unknown>) => {
     setError(null);
@@ -116,7 +114,7 @@ export function Planner(props: { data: GlossaryData; local: LocalDatabase; formu
 export function PlannerView(props: {
   name: string;
   lines: readonly ShownLine[];
-  options: readonly { readonly id: string; readonly name: string }[];
+  options: readonly PickOption[];
   error: string | null;
   onBack: () => void;
   /** «Import plan» and «Export plan» (V3-100); without them, the head shows neither. */

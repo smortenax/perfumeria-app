@@ -1,17 +1,23 @@
 import { useEffect, useId, useRef, useState } from "react";
-import { comboFieldProps, comboKey, optionId } from "./combobox";
+import { comboFieldProps, comboKey, optionId } from "../combobox";
+import type { PickOption } from "../db/material-search";
+import { searchCatalog } from "../lib/search";
 import "./MaterialPicker.css";
 
 /**
  * A material chosen by typing (F-01, F-03, picked 2026-11-02): one field and its results, a combobox as ARIA asks. The arrows
- * move the highlight, Enter or Tab picks it (the first, until the arrows move it), a click picks the row. Used where a
- * material is picked from a list of names: «Add strip» and «New dilution». The bench's add bar has its own rows (icons,
- * plants, bottles) and the same keys and roles, from the same module.
+ * move the highlight, Enter or Tab picks it (the first, until the arrows move it), a click picks the row. Used wherever a
+ * material is picked from a list: «Add & weigh», «New dilution», «Add strip», the planner.
+ *
+ * It ranks as the bench's add bar does (2026-11-26; the user: «el buscador de diluciones … no funciona igual ni se basa en la
+ * lista de la misma manera que el buscar materiales en la formulacion»): the same `searchCatalog` over the same fields
+ * (db/material-search.ts): every word, in any order, in a name, other name, bottle, abbreviation, CAS, species or INCI, with or
+ * without accents; then names written close to it. With nothing typed, the options in their order.
  */
 export function MaterialPicker(props: {
   label: string;
   placeholder: string;
-  options: readonly { readonly id: string; readonly name: string }[];
+  options: readonly PickOption[];
   onPick: (id: string) => void;
   /** At most this many results (30). */
   limit?: number;
@@ -24,8 +30,8 @@ export function MaterialPicker(props: {
   const [at, setAt] = useState(0);
   const listId = useId();
   const list = useRef<HTMLUListElement>(null);
-  const q = query.trim().toLowerCase();
-  const shown = props.quietWhenEmpty && !q ? [] : props.options.filter((m) => m.name.toLowerCase().includes(q)).slice(0, props.limit ?? 30);
+  const limit = props.limit ?? 30;
+  const shown = query.trim() ? searchCatalog(props.options, query, limit) : props.quietWhenEmpty ? [] : props.options.slice(0, limit);
   const active = Math.min(at, Math.max(shown.length - 1, 0));
   useEffect(() => {
     list.current?.querySelector(`[id="${optionId(listId, active)}"]`)?.scrollIntoView?.({ block: "nearest" });
@@ -75,7 +81,8 @@ export function MaterialPicker(props: {
             onMouseDown={(e) => e.preventDefault()}
             onClick={() => props.onPick(m.id)}
           >
-            {m.name}
+            <span className="picker-name">{m.name}</span>
+            {m.detail && <span className="picker-detail">{m.detail}</span>}
           </li>
         ))}
       </ul>

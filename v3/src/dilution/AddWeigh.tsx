@@ -11,7 +11,8 @@ import { orbLookOf, orbScalesOf, seedOf } from "../ui/orb/fromCatalog";
 import { MaterialOrb } from "../ui/orb/MaterialOrb";
 import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
-import { MaterialPicker } from "../MaterialPicker";
+import { MaterialPicker } from "../ui/MaterialPicker";
+import { inMyBench, pickOptionsOf } from "../db/material-search";
 import { Button } from "../Button";
 import type { SourceBottle } from "./calc";
 import { nominalPercent, shortName } from "./grid";
@@ -19,7 +20,9 @@ import { factoryBottleOf } from "../db/factory";
 import { bottleCheck, describeRow, groupsOf, labelOf, rowState, shareText, stillToPour, tally, type RowState, type WeighDiluent, type WeighRow } from "./weigh";
 import { ImportDilutions } from "./ImportDilutions";
 import { percentToFraction } from "../format/percent";
-import { mgText, mgToUg } from "../format/mass";
+import { massText, mgToUg } from "../format/mass";
+import type { MassUnit } from "../core/arith/units";
+import { MassInput, useMassUnit } from "../ui/MassInput";
 
 const t = texts.dilutions.weigh;
 
@@ -97,9 +100,12 @@ export function AddWeigh({
     () => [...data.catalog.materials.values()].filter((m) => m.solvent).sort((a, b) => (a.ownerId ? 1 : 0) - (b.ownerId ? 1 : 0) || a.name.localeCompare(b.name, "es")),
     [data],
   );
-  const materials = useMemo(() => [...data.catalog.materials.values()].filter((m) => m.ownerId !== null && !m.solvent).sort((a, b) => a.name.localeCompare(b.name, "es")), [data]);
+  // The same list and search as «My library» in the add bar (2026-11-26): your versions and what you marked «I have it».
+  const materials = useMemo(() => pickOptionsOf(data.catalog, inMyBench(data.catalog)), [data]);
   const bottleById = useMemo(() => new Map([...data.catalog.dilutions.values()].flat().map((d) => [d.id, d])), [data]);
   const [menu, setMenu] = useState<string | null>(null);
+  // The draft keeps its weights in mg (weigh.v2); the boxes show them in the app's unit (ui/MassInput.tsx).
+  const [unit, setUnit] = useMassUnit();
   const [noteFor, setNoteFor] = useState<string | null>(null);
   const [pickerKey, setPickerKey] = useState(0);
   const [saving, setSaving] = useState(false);
@@ -187,10 +193,10 @@ export function AddWeigh({
           <span>{t.head.material}</span>
           <span>
             {t.head.want}
-            <small>{t.head.wantSub}</small>
+            <small>{t.head.wantSub(unit)}</small>
           </span>
           <span className="r">
-            {t.head.scale}
+            {t.head.scale(unit)}
             <small>{t.head.scaleSub}</small>
           </span>
           <span className="r">
@@ -223,6 +229,8 @@ export function AddWeigh({
               remove={() => setRows((list) => list.filter((r) => r.key !== row.key))}
               short={short}
               nameOf={nameOf}
+              unit={unit}
+              onUnit={setUnit}
             />,
           ])}
           <li className="weigh-add">
@@ -253,7 +261,7 @@ export function AddWeigh({
               {[...pour].map(([id, ug], i) => (
                 <span key={id}>
                   {i > 0 && " · "}
-                  {short(id)} <strong className="fig">{mgText(ug)} mg</strong>
+                  {short(id)} <strong className="fig">{massText(ug, unit)} {unit}</strong>
                 </span>
               ))}
             </p>
@@ -298,6 +306,8 @@ function WeighLine({
   remove,
   short,
   nameOf,
+  unit,
+  onUnit,
 }: {
   data: GlossaryData;
   row: WeighRow;
@@ -315,6 +325,8 @@ function WeighLine({
   remove: () => void;
   short: (id: string) => string;
   nameOf: (id: string) => string;
+  unit: MassUnit;
+  onUnit: (unit: MassUnit) => void;
 }) {
   const material = data.catalog.materials.get(row.materialId);
   const colours = material ? coloursOf(data.catalog, material) : null;
@@ -343,26 +355,24 @@ function WeighLine({
 
   const words = state.status === "weighed" ? t.state.weighed : state.status === "asIs" ? t.state.asIs : t.state.waiting;
   const why = state.need ? t.need[state.need] : null;
-  const g = (ug: bigint | null) => (ug === null ? null : mgText(ug));
+  const g = (ug: bigint | null) => (ug === null ? null : massText(ug, "mg"));
   const goalMaterial = g(state.goal.materialUg);
   const totalUg = mgToUg(row.total);
 
+  // A weight on the scale: written in mg or g, kept in mg (ui/MassInput.tsx); the figure to put, grey until you write.
   const scaleBox = (value: string, goal: string | null, aria: string, onChange: (v: string) => void, who: string) => (
     <span className="weigh-scale">
-      {value.trim() && goal && (
-        <span className="weigh-goal" aria-hidden="true">
-          {goal}
-        </span>
-      )}
-      <input
+      <MassInput
         className={`weigh-cell n${value.trim() ? "" : " to-put"}`}
-        inputMode="decimal"
         value={value}
-        placeholder={goal ?? "mg"}
-        aria-label={goal ? t.aria.scaleWithGoal(aria, goal) : aria}
-        aria-describedby={undefined}
+        base="mg"
+        unit={unit}
+        onUnit={onUnit}
+        goal={goal}
+        placeholder={goal ?? undefined}
+        aria-label={aria}
         title={who}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={onChange}
       />
     </span>
   );
@@ -391,9 +401,16 @@ function WeighLine({
           <span className="weigh-unit" data-unit="%">
             <input className="weigh-cell n" inputMode="decimal" value={row.target} placeholder="%" aria-label={t.aria.target(name)} onChange={(e) => change((r) => ({ ...r, target: e.target.value }))} />
           </span>
-          <span className="weigh-unit" data-unit="mg">
-            <input className="weigh-cell n" inputMode="decimal" value={row.total} placeholder={t.optional} aria-label={t.aria.total(name)} onChange={(e) => change((r) => ({ ...r, total: e.target.value }))} />
-          </span>
+          <MassInput
+            className="weigh-cell n"
+            value={row.total}
+            base="mg"
+            unit={unit}
+            onUnit={onUnit}
+            placeholder={t.optional}
+            aria-label={t.aria.total(name)}
+            onChange={(v) => change((r) => ({ ...r, total: v }))}
+          />
         </div>
         {scaleBox(row.weighed, goalMaterial, t.aria.materialWeighed(name), (v) => change((r) => ({ ...r, weighed: v })), showFrom ? t.fromTheBottle : t.head.material)}
         <div className="weigh-result r" title={state.diff ? t.diff(percent(state.diff, 2)) : (why ?? undefined)}>
@@ -501,9 +518,9 @@ function WeighLine({
             <div className="weigh-result r">
               {i === 0 &&
                 (state.real ? (
-                  <strong className="fig">{mgText(state.real.totalUg)} mg</strong>
+                  <strong className="fig">{massText(state.real.totalUg, unit)} {unit}</strong>
                 ) : state.status === "asIs" && totalUg ? (
-                  <span className="fig muted">{row.total.trim()} mg</span>
+                  <span className="fig muted">{massText(totalUg, unit)} {unit}</span>
                 ) : why ? (
                   <span className="weigh-why">{why}</span>
                 ) : (
@@ -512,7 +529,7 @@ function WeighLine({
             </div>
           </div>
         ))}
-        {row.tare !== undefined && <BottleWeights row={row} name={name} change={change} />}
+        {row.tare !== undefined && <BottleWeights row={row} name={name} change={change} unit={unit} onUnit={onUnit} />}
         {noteOpen && (
           <label className="weigh-note">
             <span className="sr-only">{t.aria.note(name)}</span>
@@ -547,20 +564,36 @@ function Bar({ state, colour, name, diluentNames }: { state: RowState; colour: s
  * The bottle itself on the scale (the user's inbox, 2026-11-25): the empty bottle and the full one,
  * closed, kept with the bottle to reweigh it later; and how far the full weight is from tare + weights.
  */
-function BottleWeights({ row, name, change }: { row: WeighRow; name: string; change: (update: (row: WeighRow) => WeighRow) => void }) {
+function BottleWeights({
+  row,
+  name,
+  change,
+  unit,
+  onUnit,
+}: {
+  row: WeighRow;
+  name: string;
+  change: (update: (row: WeighRow) => WeighRow) => void;
+  unit: MassUnit;
+  onUnit: (unit: MassUnit) => void;
+}) {
   const { offUg } = bottleCheck(row);
   return (
     <div className="weigh-bottle">
       <span className="weigh-bottle-label">{t.bottleLine}</span>
-      <label className="weigh-unit" data-unit="mg">
-        <span className="weigh-bottle-what">{t.tare}</span>
-        <input className="weigh-cell n" inputMode="decimal" value={row.tare ?? ""} aria-label={t.bottleAria.tare(name)} onChange={(e) => change((r) => ({ ...r, tare: e.target.value }))} />
-      </label>
-      <label className="weigh-unit" data-unit="mg">
-        <span className="weigh-bottle-what">{t.gross}</span>
-        <input className="weigh-cell n" inputMode="decimal" value={row.gross ?? ""} aria-label={t.bottleAria.gross(name)} onChange={(e) => change((r) => ({ ...r, gross: e.target.value }))} />
-      </label>
-      {offUg !== null && offUg !== 0n && <span className="weigh-why">{t.off(mgText(offUg))}</span>}
+      <span className="weigh-bottle-field">
+        <span className="weigh-bottle-what" aria-hidden="true">
+          {t.tare}
+        </span>
+        <MassInput className="weigh-cell n" value={row.tare ?? ""} base="mg" unit={unit} onUnit={onUnit} aria-label={t.bottleAria.tare(name)} onChange={(v) => change((r) => ({ ...r, tare: v }))} />
+      </span>
+      <span className="weigh-bottle-field">
+        <span className="weigh-bottle-what" aria-hidden="true">
+          {t.gross}
+        </span>
+        <MassInput className="weigh-cell n" value={row.gross ?? ""} base="mg" unit={unit} onUnit={onUnit} aria-label={t.bottleAria.gross(name)} onChange={(v) => change((r) => ({ ...r, gross: v }))} />
+      </span>
+      {offUg !== null && offUg !== 0n && <span className="weigh-why">{t.off(massText(offUg, unit), unit)}</span>}
       {row.plan && (row.plan.materialG || row.plan.diluentG) && <span className="muted">{t.planSays(row.plan.materialG || "—", row.plan.diluentG || "—")}</span>}
     </div>
   );

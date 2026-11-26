@@ -638,19 +638,11 @@
   position: relative;
   display: block;
 }
-/* The figure to put stays, small, once you write (P-UX-04). */
-.weigh-goal {
-  position: absolute;
-  left: 7px;
-  top: 2px;
-  z-index: 1;
-  color: var(--text-muted);
-  font-family: var(--font-figures);
-  font-size: 10px;
-  line-height: 1.1;
-  pointer-events: none;
+/* A weight box of a row (ui/MassInput.tsx): the room for its unit button, and for the figure to put above it. */
+.dilutions .weigh .mass-input .weigh-cell {
+  padding-right: var(--space-40);
 }
-.weigh-scale:has(.weigh-goal) .weigh-cell {
+.dilutions .weigh .mass-input:has(> .mass-goal) .weigh-cell {
   padding-top: var(--space-10);
 }
 .weigh-result {
@@ -786,7 +778,7 @@
 .weigh-bottle-what {
   color: var(--text-muted);
 }
-.weigh-bottle .weigh-unit {
+.weigh-bottle .weigh-bottle-field {
   display: inline-flex;
   align-items: center;
   gap: var(--space-6);

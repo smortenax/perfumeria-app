@@ -1,0 +1,53 @@
+/*
+ * A box to write a mass in, with its unit as a button at its right end (ui/MassInput.tsx). The box itself takes the look of
+ * where it sits (a cell of «Add & weigh», a field of a form); this draws only what is the same everywhere: the unit button
+ * inside the box, and the figure to reach, small above it.
+ */
+.mass-input {
+  position: relative;
+  display: block;
+  min-width: 0;
+}
+.mass-input > .mass-box {
+  width: 100%;
+  padding-right: var(--space-40);
+}
+.mass-input > .mass-unit {
+  position: absolute;
+  right: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  min-width: var(--space-32);
+  min-height: var(--space-24);
+  padding: 0 var(--space-4);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-control);
+  background: var(--surface-sunken);
+  color: var(--text-muted);
+  font-size: var(--size-text-xs);
+  line-height: 1;
+  cursor: pointer;
+}
+.mass-input > .mass-unit:hover {
+  color: var(--text-default);
+  border-color: var(--border-control);
+}
+.mass-input > .mass-unit:focus-visible {
+  outline: 2px solid var(--accent-focus);
+  outline-offset: 1px;
+}
+/* The figure to put stays, small, once you write (P-UX-04). */
+.mass-input > .mass-goal {
+  position: absolute;
+  left: var(--space-6);
+  top: var(--space-2);
+  z-index: 1;
+  color: var(--text-muted);
+  font-family: var(--font-figures);
+  font-size: var(--size-text-xs);
+  line-height: 1.1;
+  pointer-events: none;
+}
+.mass-input:has(> .mass-goal) > .mass-box {
+  padding-top: var(--space-10);
+}
