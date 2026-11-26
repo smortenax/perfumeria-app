@@ -4,6 +4,7 @@ import { factoryBottleOf } from "../db/factory";
 import { fold } from "../db/search";
 import { parseCsv } from "../lib/csv";
 import { percentToFraction } from "../format/percent";
+import { gramsToMgText } from "../format/mass";
 import type { WeighRow } from "./weigh";
 
 /**
@@ -304,16 +305,16 @@ export function weighRowsOf(matches: readonly PlanMatch[], key: () => string): W
       materialId: m.materialId!,
       sourceId: m.sourceId,
       target: m.planned.fractionPct,
-      total: m.planned.batchG,
-      weighed: m.planned.materialWeighedG,
-      diluents: [{ diluentId: m.diluentId!, share: "", weighed: m.planned.diluentWeighedG }],
+      total: gramsToMgText(m.planned.batchG),
+      weighed: gramsToMgText(m.planned.materialWeighedG),
+      diluents: [{ diluentId: m.diluentId!, share: "", weighed: gramsToMgText(m.planned.diluentWeighedG) }],
       note: m.planned.note,
       bottleMl: m.planned.bottleMl || undefined,
-      tare: m.planned.tareG,
-      gross: m.planned.fullG,
+      tare: gramsToMgText(m.planned.tareG),
+      gross: gramsToMgText(m.planned.fullG),
       plan: {
-        materialG: m.planned.materialG,
-        diluentG: m.planned.diluentG,
+        materialG: gramsToMgText(m.planned.materialG),
+        diluentG: gramsToMgText(m.planned.diluentG),
         typicalUsePct: m.planned.typicalUsePct,
         ifraCat4: m.planned.ifraCat4,
       },

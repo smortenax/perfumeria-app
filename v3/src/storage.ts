@@ -15,8 +15,8 @@ export const STORAGE_KEYS = {
   /** The same data as the v2 kept it, read once to carry it over (bench/store.ts). */
   oldPrefs: "perfumeria.prefs.v1",
   oldRecent: "perfumeria.recent.v1",
-  /** The rows of «Add & weigh» not saved yet (dilution/Dilutions.tsx). */
-  dilutionDraft: "perfumeria.dilutions.weigh.v1",
+  /** The rows of «Add & weigh» not saved yet (dilution/Dilutions.tsx), weights in mg (v1 had them in grams and is left behind). */
+  dilutionDraft: "perfumeria.dilutions.weigh.v2",
   /** The print jobs of saved batches (labels/jobs.ts). */
   labelJobs: "perfumeria.labels.jobs.v1",
   /** The tape and the «turn upside down» choice of Labels, and the tape of the test page. */
