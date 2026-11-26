@@ -4,12 +4,13 @@ import { archiveBottle, createUnweighedBottle } from "../db/dilutions";
 import { factoryBottleOf } from "../db/factory";
 import type { LocalDatabase } from "../db/local/database";
 import type { GlossaryData } from "../db/useGlossary";
-import { percent } from "../format/numbers";
+import { percent, today } from "../format/numbers";
 import { percentToFraction } from "../format/percent";
 import { Ratio } from "../core/arith/ratio";
 import { texts } from "../i18n/en";
 import { Button } from "../Button";
 import { FailureNote } from "../FailureNote";
+import { diluentsOf } from "../db/material-search";
 
 const t = texts.editor.factory;
 
@@ -22,7 +23,7 @@ const t = texts.editor.factory;
  */
 export function FactoryState({ material, data, local }: { material: CatalogMaterial; data: GlossaryData; local: LocalDatabase }) {
   const bottle = factoryBottleOf(data.catalog, material.id);
-  const solvents = [...data.catalog.materials.values()].filter((m) => m.solvent).sort((a, b) => (a.ownerId ? 1 : 0) - (b.ownerId ? 1 : 0) || a.name.localeCompare(b.name, "es"));
+  const solvents = diluentsOf(data.catalog);
   const [editing, setEditing] = useState(false);
   const [pct, setPct] = useState("");
   const [diluentId, setDiluentId] = useState("");
@@ -35,7 +36,7 @@ export function FactoryState({ material, data, local }: { material: CatalogMater
     const target = percentToFraction(pct.replace(",", "."));
     if (!target || target.sign() <= 0 || target.cmp(Ratio.ONE) >= 0) return setError(t.badPercent);
     if (!diluentId) return setError(t.noDiluent);
-    const today = new Date().toISOString().slice(0, 10);
+    const day = today();
     const pctText = percent(target, 4);
     try {
       await createUnweighedBottle(local.db, local.userId, {
@@ -43,8 +44,8 @@ export function FactoryState({ material, data, local }: { material: CatalogMater
         target,
         diluents: [{ diluentId, share: null }],
         label: t.label(pctText),
-        madeOn: today,
-        description: t.description(pctText, name(diluentId), today),
+        madeOn: day,
+        description: t.description(pctText, name(diluentId), day),
       });
       // The state it came in is one: the one before stays among your bottles, archived.
       if (bottle) await archiveBottle(local.db, local.userId, bottle.id, true);

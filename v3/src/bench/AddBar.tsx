@@ -4,6 +4,7 @@ import { comboFieldProps, optionId } from "../combobox";
 import { parseMass, parsePercent } from "../core/arith/units";
 import { convertMassText } from "../format/mass";
 import { MassInput, useMassUnit } from "../ui/MassInput";
+import { PercentInput } from "../ui/PercentInput";
 import type { Change, SecondDiluent } from "../core/model/formula";
 import type { Material } from "../core/model/material";
 import { casForm, normalize, searchCatalog, type CatalogEntry, type IfraState, type MaterialFamily, type Weighing } from "./data/catalog";
@@ -1066,21 +1067,17 @@ export function AddBar(props: {
           {t.dilution}
           {isLast && !bottle && <span className="hint">{t.src.last}</span>}
         </label>
-        <div className={pure ? "field percent-field off" : "field percent-field"}>
-          <input
-            id="add-percent"
-            ref={percentRef}
-            className="num"
-            value={percentText}
-            placeholder="–"
-            inputMode="decimal"
-            autoComplete="off"
-            aria-describedby={!mix && assumed && samePercent(assumed.percent, percent) ? "add-assumed" : undefined}
-            onChange={(e) => typePercent(e.target.value)}
-            onKeyDown={addOnEnter}
-          />
-          <span className="unit-label">%</span>
-        </div>
+        <PercentInput
+          look="bench"
+          off={pure}
+          id="add-percent"
+          inputRef={percentRef}
+          value={percentText}
+          placeholder="–"
+          aria-describedby={!mix && assumed && samePercent(assumed.percent, percent) ? "add-assumed" : undefined}
+          onChange={typePercent}
+          onKeyDown={addOnEnter}
+        />
         <button type="button" className="neat-toggle" aria-pressed={pure} onClick={toggleNeat}>
           {t.pureButton}
         </button>

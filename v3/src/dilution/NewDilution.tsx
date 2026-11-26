@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { createBottle, createUnweighedBottle } from "../db/dilutions";
 import type { LocalDatabase } from "../db/local/database";
-import { percent } from "../format/numbers";
+import { percent, today } from "../format/numbers";
 import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
 import { saveKind, weighedFromPlan, windowState, type WindowMode, type WindowRow } from "./window";
@@ -11,7 +11,8 @@ import { DiluentPicker } from "./DiluentPicker";
 import { factoryBottleOf } from "../db/factory";
 import { MaterialPicker } from "../ui/MaterialPicker";
 import { MassInput } from "../ui/MassInput";
-import { inMyBench, pickOptionsOf } from "../db/material-search";
+import { PercentInput } from "../ui/PercentInput";
+import { diluentsOf, inMyBench, pickOptionsOf } from "../db/material-search";
 import { percentToFraction } from "../format/percent";
 import { gramsText, gramsToUg } from "../format/mass";
 
@@ -38,10 +39,7 @@ export function NewDilution({
   onCancel: () => void;
 }) {
   const name = (id: string) => data.catalog.materials.get(id)?.name ?? "—";
-  const diluents = useMemo(
-    () => [...data.catalog.materials.values()].filter((m) => m.solvent).sort((a, b) => (a.ownerId ? 1 : 0) - (b.ownerId ? 1 : 0) || a.name.localeCompare(b.name, "es")),
-    [data],
-  );
+  const diluents = useMemo(() => diluentsOf(data.catalog), [data]);
   // The same list and search as «My library» in the add bar (2026-11-26): your versions and what you marked «I have it».
   const materials = useMemo(() => pickOptionsOf(data.catalog, inMyBench(data.catalog)), [data]);
   const firstDpg = diluents.find((d) => /dpg|dipropylene|dipropilen/i.test(d.name))?.id ?? diluents[0]?.id ?? "";
@@ -63,7 +61,7 @@ export function NewDilution({
   const [totalGrams, setTotalGrams] = useState("");
   const [weighedMaterial, setWeighedMaterial] = useState("");
   const [label, setLabel] = useState("");
-  const [madeOn, setMadeOn] = useState(new Date().toISOString().slice(0, 10));
+  const [madeOn, setMadeOn] = useState(today());
   const [note, setNote] = useState("");
   const [error, setError] = useState<string | null>(null);
 
@@ -158,7 +156,7 @@ export function NewDilution({
 
           <label className="field nd-target">
             {mode === "have" ? w.haveTarget : t.target}
-            <input inputMode="decimal" value={target} onChange={(e) => setTarget(e.target.value)} />
+            <PercentInput value={target} onChange={setTarget} />
           </label>
 
           {rows.map((r, i) => (
@@ -170,7 +168,7 @@ export function NewDilution({
               {rows.length > 1 && (
                 <label className="field share">
                   {t.share}
-                  <input inputMode="decimal" value={r.share} placeholder={t.rest} onChange={(e) => setRow(i, { share: e.target.value })} />
+                  <PercentInput value={r.share} placeholder={t.rest} onChange={(v) => setRow(i, { share: v })} />
                 </label>
               )}
               {rows.length > 1 && (

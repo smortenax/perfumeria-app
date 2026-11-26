@@ -36,6 +36,19 @@
   outline: 2px solid var(--accent-focus);
   outline-offset: 1px;
 }
+/* The «%» of a PercentInput: where the unit button goes, but a sign, not a control. */
+.mass-input > .mass-suffix {
+  position: absolute;
+  right: var(--space-10);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: var(--size-text-sm);
+  pointer-events: none;
+}
+.mass-input:has(> .mass-suffix) > .mass-box {
+  padding-right: var(--space-28);
+}
 /* The figure to put stays, small, once you write (P-UX-04). */
 .mass-input > .mass-goal {
   position: absolute;

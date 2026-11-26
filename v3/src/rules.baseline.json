@@ -20,7 +20,7 @@
   "R1 spaces in CSS": {
     "App.css": 2,
     "bench/bench.css": 29,
-    "dilution/dilutions.css": 4,
+    "dilution/dilutions.css": 3,
     "planner/planner.css": 4,
     "tasting/tasting.css": 1,
     "theme/layout.css": 1,
@@ -125,13 +125,13 @@
   ],
   "R6 tauri": {},
   "R7 long files": {
-    "bench/AddBar.tsx": 1235,
+    "bench/AddBar.tsx": 1231,
     "bench/Bench.tsx": 1160,
     "core/ifra.ts": 635,
     "db/formulas.ts": 613,
     "db/local/schema.ts": 614,
     "db/materials.ts": 678,
-    "dilution/Dilutions.tsx": 717,
+    "dilution/Dilutions.tsx": 714,
     "glossary/Glossary.tsx": 640,
     "tasting/Tasting.tsx": 940
   }

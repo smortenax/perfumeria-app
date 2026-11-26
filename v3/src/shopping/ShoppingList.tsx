@@ -7,6 +7,7 @@ import { FailureNote } from "../FailureNote";
 import "../dilution/dilutions.css";
 import { EmptyState } from "../EmptyState";
 import { Button } from "../Button";
+import { today } from "../format/numbers";
 
 const t = texts.shopping;
 
@@ -73,7 +74,7 @@ export function ShoppingList({ data, local, onOpenMaterial }: { data: GlossaryDa
     );
   const download = () => {
     const url = URL.createObjectURL(new Blob([csv()], { type: "text/csv;charset=utf-8" }));
-    const a = Object.assign(document.createElement("a"), { href: url, download: `shopping-list-${new Date().toISOString().slice(0, 10)}.csv` });
+    const a = Object.assign(document.createElement("a"), { href: url, download: `shopping-list-${today()}.csv` });
     a.click();
     URL.revokeObjectURL(url);
   };

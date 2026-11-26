@@ -588,21 +588,6 @@
   grid-template-columns: 1fr 1fr;
   gap: var(--space-6);
 }
-.weigh-unit {
-  position: relative;
-  display: block;
-  min-width: 0;
-}
-.weigh-unit::after {
-  content: attr(data-unit);
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--text-muted);
-  font-size: var(--size-text-sm);
-  pointer-events: none;
-}
 .dilutions .weigh .weigh-cell {
   min-height: var(--size-target);
   padding: 0 var(--space-8);
@@ -617,9 +602,6 @@
   font-family: var(--font-figures);
   font-variant-numeric: tabular-nums;
   text-align: right;
-}
-.dilutions .weigh .weigh-unit .weigh-cell {
-  padding-right: var(--space-24);
 }
 .dilutions .weigh .weigh-cell::placeholder {
   color: var(--text-muted);
@@ -641,6 +623,9 @@
 /* A weight box of a row (ui/MassInput.tsx): the room for its unit button, and for the figure to put above it. */
 .dilutions .weigh .mass-input .weigh-cell {
   padding-right: var(--space-40);
+}
+.dilutions .weigh .mass-input:has(> .mass-suffix) .weigh-cell {
+  padding-right: var(--space-24);
 }
 .dilutions .weigh .mass-input:has(> .mass-goal) .weigh-cell {
   padding-top: var(--space-10);
@@ -734,7 +719,7 @@
   gap: var(--space-6);
   min-width: 0;
 }
-.weigh-dil .weigh-unit.share {
+.weigh-dil .weigh-share {
   flex: 0 0 4.5rem;
 }
 .weigh-dil select {
@@ -924,24 +909,24 @@
   .dilutions .weigh .weigh-cell {
     padding: 0 var(--space-4);
   }
-  .dilutions .weigh .weigh-unit .weigh-cell {
-    padding-right: 18px;
+  .dilutions .weigh .mass-input:has(> .mass-suffix) .weigh-cell {
+    padding-right: var(--space-20);
   }
-  .weigh-unit::after {
-    right: 5px;
+  .dilutions .weigh .mass-input > .mass-suffix {
+    right: var(--space-6);
   }
   /* Two diluents or more (7 of 134 bottles): the share without its unit (the header says %), the
      diluent in smaller letters, so «Ethanol» reads whole. */
-  .weigh-dil .weigh-unit.share {
+  .weigh-dil .weigh-share {
     flex-basis: 2.5rem;
   }
-  .weigh-dil .weigh-unit.share::after {
-    content: none;
+  .dilutions .weigh .weigh-dil .weigh-share .mass-suffix {
+    display: none;
   }
-  .dilutions .weigh .weigh-dil .weigh-unit.share .weigh-cell {
+  .dilutions .weigh .weigh-dil .weigh-share .weigh-cell {
     padding: 0 var(--space-4);
   }
-  .dilutions .weigh .weigh-dil:has(.share) select.weigh-cell {
+  .dilutions .weigh .weigh-dil:has(.weigh-share) select.weigh-cell {
     padding: 0 var(--space-2);
     font-size: var(--size-text-xs);
   }

@@ -15,7 +15,7 @@ import { planLinesOf, type ShownLine } from "./lines";
 import { dropsOf, partsText, stepDrops } from "./parts-text";
 import { indexAt, level, MOMENTS, PERCEIVED_EXPONENT, PLATEAU_SLOW, profileAt, SHAPE_IDS, type ShapeId } from "./profile";
 import "./planner.css";
-import { fixedNumber } from "../format/numbers";
+import { fixedNumber, today } from "../format/numbers";
 
 const t = texts.planner;
 
@@ -31,7 +31,7 @@ export function planFile(catalog: Catalog, name: string, rows: readonly PlanRow[
   };
   return planToJson({
     name,
-    created: new Date().toISOString().slice(0, 10),
+    created: today(),
     lines: rows.map((r) => ({ material: catalog.materials.get(r.materialId)?.name ?? "—", materialId: r.materialId, cas: casOf(r.materialId), parts: r.parts, shape: r.shape, group: r.groupName })),
   });
 }

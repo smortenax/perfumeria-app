@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { Dilution } from "../db/catalog";
 import { archiveBottle, type BottleInput, createBottle, describeBottle, updateBottle } from "../db/dilutions";
 import type { LocalDatabase } from "../db/local/database";
-import { percent } from "../format/numbers";
+import { percent, today } from "../format/numbers";
 import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
 import { FailureNote } from "../FailureNote";
@@ -25,6 +25,8 @@ import { readStoredJson, removeStored, writeStored } from "../storage";
 import { digitsPercentToFraction } from "../format/percent";
 import { gramsText, scaleGramsToUg } from "../format/mass";
 import { MassInput } from "../ui/MassInput";
+import { PercentInput } from "../ui/PercentInput";
+import { diluentsOf } from "../db/material-search";
 
 const t = texts.dilutions;
 
@@ -42,9 +44,6 @@ export function bottleText(data: GlossaryData, d: Dilution): string {
   const label = d.label && !/^(at |al )?[\d.,]+\s*%$/i.test(d.label.trim()) ? d.label : "";
   return [label, `${exact}${diluents ? ` ${diluents}` : ""}`].filter((x) => x).join(" · ");
 }
-
-const diluentsOf = (data: GlossaryData) =>
-  [...data.catalog.materials.values()].filter((m) => m.solvent).sort((a, b) => (a.ownerId ? 1 : 0) - (b.ownerId ? 1 : 0) || a.name.localeCompare(b.name, "es"));
 
 /**
  * «Diluciones» (V3-65, V3-67): every bottle of yours, and each one's sheet, where it is made with the
@@ -92,7 +91,7 @@ export function Dilutions({
       writeDraft(next);
       return next;
     });
-  const [madeOn, setMadeOn] = useState(() => new Date().toISOString().slice(0, 10));
+  const [madeOn, setMadeOn] = useState(() => today());
   const [saved, setSaved] = useState<string | null>(null);
   // A batch just saved with its print text: its labels can be printed straight away (the user, 2026-11-24).
   const [savedJob, setSavedJob] = useState(false);
@@ -494,7 +493,7 @@ function BottleEditor({
   /** Said after archiving, with Undo (not after taking a bottle out of the archive). */
   onArchived?: (bottle: Dilution) => void;
 }) {
-  const diluents = useMemo(() => diluentsOf(data), [data]);
+  const diluents = useMemo(() => diluentsOf(data.catalog), [data]);
   const name = (id: string) => data.catalog.materials.get(id)?.name ?? "—";
   const [label, setLabel] = useState(bottle?.label ?? "");
   const [sourceId, setSourceId] = useState<string | null>(bottle?.sourceDilutionId ?? null);
@@ -514,7 +513,7 @@ function BottleEditor({
           }))
       : [{ diluentId: firstDpg, share: "", grams: "" }],
   );
-  const [madeOn, setMadeOn] = useState(bottle?.madeOn ?? new Date().toISOString().slice(0, 10));
+  const [madeOn, setMadeOn] = useState(bottle?.madeOn ?? today());
   const [note, setNote] = useState(bottle?.description ?? "");
   const [error, setError] = useState<string | null>(null);
 
@@ -606,7 +605,7 @@ function BottleEditor({
             <div className="pair">
               <label className="field">
                 {t.target}
-                <input inputMode="decimal" value={target} onChange={(e) => setTarget(e.target.value)} />
+                <PercentInput value={target} onChange={setTarget} />
               </label>
               <label className="field">
                 {t.total}
@@ -621,7 +620,7 @@ function BottleEditor({
                 </div>
                 <label className="field share">
                   {t.share}
-                  <input inputMode="decimal" value={r.share} placeholder={t.rest} onChange={(e) => setRow(i, { share: e.target.value })} />
+                  <PercentInput value={r.share} placeholder={t.rest} onChange={(v) => setRow(i, { share: v })} />
                 </label>
                 {rows.length > 1 && (
                   <button type="button" className="link" onClick={() => setRows(rows.filter((_, j) => j !== i))}>

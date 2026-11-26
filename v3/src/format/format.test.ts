@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { Ratio } from "../core/arith/ratio";
 import { gramsText, gramsToMgText, gramsToUg, mgText, mgToUg, scaleGramsToUg } from "./mass";
-import { decimal, drawn, fixedNumber, fixedRatio, percent, roundedNumber } from "./numbers";
+import { decimal, drawn, fixedNumber, fixedRatio, percent, roundedNumber, dayOf } from "./numbers";
 import { digitsPercentToFraction, percentToFraction, samePercentText } from "./percent";
 
 describe("format/: the one place where numbers are read and rounded (V3-111, R3)", () => {
@@ -43,5 +43,12 @@ describe("milligrams (the user, 2026-11-26: «que el peso base este en mg»)", (
     expect(mgToUg("0")).toBeNull();
     expect(gramsToMgText("1.503")).toBe("1503");
     expect(gramsToMgText("")).toBe("");
+  });
+});
+
+describe("the day, in local time (2026-11-26)", () => {
+  it("is the calendar's day, not UTC's: 00:30 on the 27th is the 27th", () => {
+    expect(dayOf(new Date(2026, 10, 27, 0, 30))).toBe("2026-11-27");
+    expect(dayOf(new Date(2026, 0, 5, 23, 59))).toBe("2026-01-05");
   });
 });

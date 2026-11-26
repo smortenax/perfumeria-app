@@ -6,6 +6,7 @@ import { parseCsv } from "../lib/csv";
 import { percentToFraction } from "../format/percent";
 import { gramsToMgText } from "../format/mass";
 import type { WeighRow } from "./weigh";
+import { diluentsOf, inMyBench } from "../db/material-search";
 
 /**
  * «Import planned dilutions» (the user's inbox, 2026-11-25: dilute the Perfumiarz order of 19-nov in
@@ -211,13 +212,15 @@ const fractionOf = (pct: string): Ratio | null => {
 };
 
 /**
- * Each row against your materials: the material among yours (not the diluents), the diluent among all
+ * Each row against your materials: the material in «My library» (not the diluents), the diluent among all
  * the diluents (common first), the source bottle among the material's own that say their diluents.
  */
 export function matchDilutionPlan(rows: readonly PlannedDilution[], catalog: Catalog, userId: string | null = null): PlanMatch[] {
   const all = [...catalog.materials.values()];
-  const mine = all.filter((m) => m.ownerId !== null && (userId === null || m.ownerId === userId) && !m.solvent);
-  const solvents = all.filter((m) => m.solvent).sort((a, b) => (a.ownerId ? 1 : 0) - (b.ownerId ? 1 : 0));
+  // «My library», as the search of the dilutions (db/material-search.ts): your versions and what you marked «I have it».
+  const library = inMyBench(catalog);
+  const mine = all.filter((m) => library(m) && (userId === null || m.ownerId === null || m.ownerId === userId));
+  const solvents = diluentsOf(catalog);
   const byName = indexBy(mine);
   const byBare = indexBy(mine, (m) => [bareName(m.name), ...(m.product ? [bareName(m.product)] : [])].filter((k) => k !== ""));
   const bySolvent = indexBy(solvents, solventKeys);

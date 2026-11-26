@@ -12,7 +12,7 @@ import { MaterialOrb } from "../ui/orb/MaterialOrb";
 import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
 import { MaterialPicker } from "../ui/MaterialPicker";
-import { inMyBench, pickOptionsOf } from "../db/material-search";
+import { diluentsOf, inMyBench, pickOptionsOf } from "../db/material-search";
 import { Button } from "../Button";
 import type { SourceBottle } from "./calc";
 import { nominalPercent, shortName } from "./grid";
@@ -23,6 +23,7 @@ import { percentToFraction } from "../format/percent";
 import { massText, mgToUg } from "../format/mass";
 import type { MassUnit } from "../core/arith/units";
 import { MassInput, useMassUnit } from "../ui/MassInput";
+import { PercentInput } from "../ui/PercentInput";
 
 const t = texts.dilutions.weigh;
 
@@ -96,10 +97,7 @@ export function AddWeigh({
   onSaved: (count: number, job: boolean) => void;
 }) {
   const scales = useMemo(() => orbScalesOf(data.catalog), [data]);
-  const diluents = useMemo(
-    () => [...data.catalog.materials.values()].filter((m) => m.solvent).sort((a, b) => (a.ownerId ? 1 : 0) - (b.ownerId ? 1 : 0) || a.name.localeCompare(b.name, "es")),
-    [data],
-  );
+  const diluents = useMemo(() => diluentsOf(data.catalog), [data]);
   // The same list and search as «My library» in the add bar (2026-11-26): your versions and what you marked «I have it».
   const materials = useMemo(() => pickOptionsOf(data.catalog, inMyBench(data.catalog)), [data]);
   const bottleById = useMemo(() => new Map([...data.catalog.dilutions.values()].flat().map((d) => [d.id, d])), [data]);
@@ -398,9 +396,7 @@ function WeighLine({
           </span>
         </div>
         <div className="weigh-want">
-          <span className="weigh-unit" data-unit="%">
-            <input className="weigh-cell n" inputMode="decimal" value={row.target} placeholder="%" aria-label={t.aria.target(name)} onChange={(e) => change((r) => ({ ...r, target: e.target.value }))} />
-          </span>
+          <PercentInput className="weigh-cell n" value={row.target} aria-label={t.aria.target(name)} onChange={(v) => change((r) => ({ ...r, target: v }))} />
           <MassInput
             className="weigh-cell n"
             value={row.total}
@@ -488,14 +484,13 @@ function WeighLine({
           <div key={i} className={`weigh-dil-line${i === 0 ? " first" : ""}`}>
             <div className="weigh-dil">
               {many && (
-                <span className="weigh-unit share" data-unit="%">
-                  <input
+                <span className="weigh-share">
+                  <PercentInput
                     className="weigh-cell n"
-                    inputMode="decimal"
                     value={d.share}
                     placeholder={state.shares[i] ? shareText(state.shares[i]) : ""}
                     aria-label={t.aria.share(d.diluentId ? short(d.diluentId) : t.diluent, name)}
-                    onChange={(e) => setDiluent(i, { share: e.target.value })}
+                    onChange={(v) => setDiluent(i, { share: v })}
                   />
                 </span>
               )}
