@@ -770,6 +770,14 @@ export const texts = {
     batch: (day: string | null, savedAt: string, n: number) =>
       `${day ?? "No date"} · saved ${new Date(savedAt).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })} · ${n === 1 ? "1 label" : `${n} labels`}`,
     removeBatch: "Remove",
+    trialTitle: "Test label",
+    trialHelp: "The label of a test bottle of this formula. Change either line before printing; the preview is the label as it prints.",
+    trialBig: "Big line (name and strength)",
+    trialSmall: "Small line (day and weight)",
+    copies: "Copies",
+    keep: "Keep in Labels",
+    kept: (n: number) => (n === 1 ? "Kept in Dilutions › Labels, under «Saved batches»." : `Kept ${n} labels in Dilutions › Labels, under «Saved batches».`),
+    notKept: "This browser does not let the app keep anything: print it from here.",
   },
   dilutions: {
     title: "Dilutions",

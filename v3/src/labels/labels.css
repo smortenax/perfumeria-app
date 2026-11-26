@@ -109,3 +109,8 @@
 .labels-batch-name {
   min-width: 12rem;
 }
+
+/* The test label of a formula, in its dialog (2026-11-26). */
+.trial-printer {
+  margin-top: var(--space-12);
+}

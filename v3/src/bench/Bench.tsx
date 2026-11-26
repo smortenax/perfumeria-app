@@ -29,7 +29,7 @@ import { BenchChoiceDialog, FormulaPickerDialog, ReweighDialog, SaveAsDialog, ty
 import { ConfirmDialog, PromptDialog } from "../ui/Dialog";
 import { dilutionText, weighSummary } from "./format";
 import { NARROW, useMediaQuery } from "./narrow";
-import { ownConcentration, recipe } from "../lib/recipe";
+import { ownConcentration } from "../lib/recipe";
 import { GramsCard, IntentionCard, NameCard, NotesCard } from "./Header";
 import { HeadFigures } from "./HeadFigures";
 import { BenchSwitcher } from "./BenchSwitcher";
@@ -56,6 +56,8 @@ import { MaterialOrb } from "../ui/orb/MaterialOrb";
 import { DilutionPopup } from "../dilution/DilutionPopup";
 import { formulaCsv, formulaFileName } from "../export/formula";
 import { PrintFormula } from "../export/PrintFormula";
+import { TrialLabel } from "../labels/TrialLabel";
+import { trialOf, weighingOf } from "./printouts";
 import { addToShopping, missingOf, removeFromShopping } from "../db/shopping";
 import { texts as appTexts } from "../i18n/en";
 import "./bench.css";
@@ -520,6 +522,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
   };
   const [printing, setPrinting] = useState(false);
   const stopPrinting = useCallback(() => setPrinting(false), []);
+  const [labelling, setLabelling] = useState(false);
 
   // The play (§3.4): from nothing, change by change, to the end.
   useEffect(() => {
@@ -833,6 +836,9 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
           <button type="button" className="menuitem" disabled={empty} onClick={menuAction(() => setPrinting(true))}>
             <span>{texts.bench.print}</span>
           </button>
+          <button type="button" className="menuitem" onClick={menuAction(() => setLabelling(true))}>
+            <span>{texts.bench.testLabel}</span>
+          </button>
           <div className="menu-sep" />
           <button type="button" className="menuitem" disabled={empty} onClick={menuAction(() => {
             setDialog({ kind: "useFormula" });
@@ -1036,18 +1042,11 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
           name={formula.header.name}
           bench={props.data.workbenches.find((w) => w.id === props.record.workbenchId)?.name ?? null}
           composition={compose(formula)}
-          weighing={(() => {
-            const own = ownConcentration(formula.header.workBatchUg, formula.header.finalBatchUg);
-            if (!own || !formula.header.finalBatchUg) return null;
-            try {
-              return recipe(compose(formula), formula.header.finalBatchUg, own);
-            } catch {
-              return null;
-            }
-          })()}
+          weighing={weighingOf(formula)}
           onDone={stopPrinting}
         />
       )}
+      {labelling && <TrialLabel info={trialOf(formula)} onClose={() => setLabelling(false)} />}
       {bottleFor !== null && (
         <DilutionPopup
           data={props.data}
