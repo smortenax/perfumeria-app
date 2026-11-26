@@ -20,6 +20,7 @@ import { type Filters, type IfraState, keepOf, NO_FILTERS } from "./browse";
 import type { GlossaryData } from "../db/useGlossary";
 import { Button } from "../Button";
 import { maeseKeys } from "../db/maese";
+import { today } from "../format/numbers";
 
 /** Every material that passes the filters is shown: a few hundred tiles paint fast enough (measured 2026-10-27). */
 const ALL = Number.MAX_SAFE_INTEGER;
@@ -75,7 +76,7 @@ export function Glossary({
   };
   // «Export data» (V3-80): your materials and your dilutions, two plain tables.
   const exportData = () => {
-    const day = new Date().toISOString().slice(0, 10);
+    const day = today();
     for (const [name, text] of [
       [`my-materials-${day}.csv`, materialsCsv(data.catalog)],
       [`my-dilutions-${day}.csv`, dilutionsCsv(data.catalog)],
@@ -88,7 +89,7 @@ export function Glossary({
   };
   const downloadPalette = () => {
     const url = URL.createObjectURL(new Blob([palette()], { type: "text/markdown;charset=utf-8" }));
-    const a = Object.assign(document.createElement("a"), { href: url, download: `my-palette-${new Date().toISOString().slice(0, 10)}.md` });
+    const a = Object.assign(document.createElement("a"), { href: url, download: `my-palette-${today()}.md` });
     a.click();
     URL.revokeObjectURL(url);
     setPaletteNote(t.paletteDownloaded(paletteOf(data.catalog).length));

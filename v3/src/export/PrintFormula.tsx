@@ -7,6 +7,7 @@ import type { Recipe } from "../lib/recipe";
 import { texts } from "../i18n/en";
 import { diluentsOf } from "./formula";
 import "./print.css";
+import { today } from "../format/numbers";
 
 const t = texts.printFormula;
 /** The figure alone: the column says it is grams. */
@@ -43,7 +44,7 @@ export function PrintFormula({
     <article className="print-sheet">
       <header>
         <h1>{name}</h1>
-        <p>{[bench, new Date().toISOString().slice(0, 10), t.summary(formatGrams(composition.totalUg), formatGrams(aromatic))].filter(Boolean).join(" · ")}</p>
+        <p>{[bench, today(), t.summary(formatGrams(composition.totalUg), formatGrams(aromatic))].filter(Boolean).join(" · ")}</p>
       </header>
       <h2>{t.composition}</h2>
       <table>

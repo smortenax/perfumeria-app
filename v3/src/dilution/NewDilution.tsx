@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { createBottle, createUnweighedBottle } from "../db/dilutions";
 import type { LocalDatabase } from "../db/local/database";
-import { percent } from "../format/numbers";
+import { percent, today } from "../format/numbers";
 import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
 import { saveKind, weighedFromPlan, windowState, type WindowMode, type WindowRow } from "./window";
@@ -63,7 +63,7 @@ export function NewDilution({
   const [totalGrams, setTotalGrams] = useState("");
   const [weighedMaterial, setWeighedMaterial] = useState("");
   const [label, setLabel] = useState("");
-  const [madeOn, setMadeOn] = useState(new Date().toISOString().slice(0, 10));
+  const [madeOn, setMadeOn] = useState(today());
   const [note, setNote] = useState("");
   const [error, setError] = useState<string | null>(null);
 

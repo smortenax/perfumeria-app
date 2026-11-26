@@ -9,6 +9,7 @@ import { drawStill } from "../ui/orb/orbRenderer";
 import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
 import "./print.css";
+import { today } from "../format/numbers";
 
 const t = texts.printGlossary;
 const ORB = 56;
@@ -54,7 +55,7 @@ export function PrintGlossary({ data, onDone }: { data: GlossaryData; onDone: ()
     <article className="print-sheet print-glossary">
       <header>
         <h1>{t.title}</h1>
-        <p>{t.summary(materials.length, new Date().toISOString().slice(0, 10))}</p>
+        <p>{t.summary(materials.length, today())}</p>
       </header>
       <ul className="print-cards">
         {materials.map((m) => {

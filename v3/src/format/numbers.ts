@@ -36,3 +36,13 @@ export const roundedNumber = (value: number, digits: number): number => Number(v
 
 /** A date and time for people, in the app's one locale (V3-71). */
 export const dateTime = (date: Date, options: Intl.DateTimeFormatOptions): string => date.toLocaleString("en-GB", options);
+
+/**
+ * The day of a moment as the calendar on the wall says it, «2026-11-26», in local time (2026-11-26). Not
+ * `toISOString().slice(0, 10)`, which gives the day in UTC: in Madrid, a bottle weighed at 00:30 took the day before.
+ */
+export const dayOf = (date: Date): string =>
+  `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+
+/** Today, in local time (`dayOf`). */
+export const today = (): string => dayOf(new Date());

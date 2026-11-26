@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { Dilution } from "../db/catalog";
 import { archiveBottle, type BottleInput, createBottle, describeBottle, updateBottle } from "../db/dilutions";
 import type { LocalDatabase } from "../db/local/database";
-import { percent } from "../format/numbers";
+import { percent, today } from "../format/numbers";
 import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
 import { FailureNote } from "../FailureNote";
@@ -92,7 +92,7 @@ export function Dilutions({
       writeDraft(next);
       return next;
     });
-  const [madeOn, setMadeOn] = useState(() => new Date().toISOString().slice(0, 10));
+  const [madeOn, setMadeOn] = useState(() => today());
   const [saved, setSaved] = useState<string | null>(null);
   // A batch just saved with its print text: its labels can be printed straight away (the user, 2026-11-24).
   const [savedJob, setSavedJob] = useState(false);
@@ -514,7 +514,7 @@ function BottleEditor({
           }))
       : [{ diluentId: firstDpg, share: "", grams: "" }],
   );
-  const [madeOn, setMadeOn] = useState(bottle?.madeOn ?? new Date().toISOString().slice(0, 10));
+  const [madeOn, setMadeOn] = useState(bottle?.madeOn ?? today());
   const [note, setNote] = useState(bottle?.description ?? "");
   const [error, setError] = useState<string | null>(null);
 

@@ -62,7 +62,7 @@ import "./bench.css";
 import { MacerationNote } from "../formulation/MacerationNote";
 import { Button } from "../Button";
 import { maeseKeys } from "../db/maese";
-import { drawn } from "../format/numbers";
+import { drawn, today } from "../format/numbers";
 
 type Add = Extract<Change, { kind: "add" }>;
 
@@ -515,7 +515,7 @@ function BenchScreen(props: BenchProps & { readonly formula: Formula; readonly r
   // «Export as CSV» and «Print or save as PDF» (V3-80): the whole formula, whatever step is being looked at.
   const exportCsv = () => {
     const url = URL.createObjectURL(new Blob([formulaCsv(compose(formula))], { type: "text/csv;charset=utf-8" }));
-    Object.assign(document.createElement("a"), { href: url, download: formulaFileName(formula.header.name || "formula", new Date().toISOString().slice(0, 10), "csv") }).click();
+    Object.assign(document.createElement("a"), { href: url, download: formulaFileName(formula.header.name || "formula", today(), "csv") }).click();
     URL.revokeObjectURL(url);
   };
   const [printing, setPrinting] = useState(false);
