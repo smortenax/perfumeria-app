@@ -2,7 +2,9 @@
 
 *Actualizado el 2026-11-25. Como máximo 30 líneas: qué está hecho y qué sigue.*
 
-**Etiquetas: la segunda salía a medias (2026-11-25; rama `claude/project-thread-yc1y3t`, PR sin fusionar):** el usuario: «me he impreso una y se ha quedado a medias de la siguiente». El driver da por impresa una etiqueta al enviar el último paquete, no al acabar el papel, y la siguiente entraba con el cabezal en marcha. `printRun` (`labels/printer.ts`) espera a que salga cada una (largo × 50 ms + 1,5 s: 3,5 s en 12×40; estimación de la sesión), mira el enlace Bluetooth antes de cada una y, si se cae o se para, deja «Print the remaining N» sin repetir las ya impresas. 3 pruebas; `tsc`, 677 pruebas y build en verde. **Sigue:** probarlo con la P15.
+**«Add & weigh» en mg (2026-11-26; rama `claude/project-thread-yc1y3t`):** el usuario: «para la parte de diluciones poner que el peso base este en mg asi me ahorro bastantes puntos y ceros, a futuro hacemos un fix general». Material, diluyentes, total, tara y lleno se escriben y se ven en mg (`mgText`, `mgToUg`, `gramsToMgText` en `format/mass.ts`); la hoja importada sigue en gramos y se pasa a mg al cargar; la nota del frasco y la etiqueta, en gramos. El borrador sin guardar pasa a `weigh.v2` (el de gramos se deja). «New dilution» y la ficha del frasco siguen en g. **Sigue:** el arreglo general de unidades.
+
+**Etiquetas (2026-11-25, PR #105 y #106 publicadas):** espera entre etiquetas (`printRun`) e impresión 3 mm más corta que la troquelada (`GAP_TRIM_MM`), con «Feed to the next label». El usuario, 2026-11-26: «si funciono y todo bien».
 
 **Tanda 68, tu Peomosa (cuenta, 2026-11-25; aprobada: «pon peomosa en mi inventario que falta»):** «Peomosa (Maese Lab)» sobre el común, con «lo tengo», pura. **Sigue (tú):** cargarla desde el PC, `cargar-laboratorio.ts <correo> --nube --tanda=68-tu-peomosa`. La hoja del 25-nov, partida en dos tandas (20 ml y pequeños; 10 ml), en los archivos del proyecto, `diluciones/`.
 

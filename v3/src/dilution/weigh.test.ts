@@ -16,6 +16,7 @@ const row = (over: Partial<WeighRow> = {}): WeighRow => ({
   ...over,
 });
 
+// Weights are typed in mg (the user, 2026-11-26); the names of the tests keep the grams they are about.
 describe("«Add & weigh», one row (V3-96, the user's rules of 2026-11-04)", () => {
   it("rule 1: the % and the diluent are required; without them the row waits and says which", () => {
     expect(rowState(row({ target: "" }))).toMatchObject({ status: "waiting", need: "target" });
@@ -23,26 +24,26 @@ describe("«Add & weigh», one row (V3-96, the user's rules of 2026-11-04)", () 
   });
 
   it("rule 2: with a total and no weights, what to put in grey (20 % of 15 g: 3 g and 12 g), and it saves as it is", () => {
-    const s = rowState(row({ total: "15" }));
+    const s = rowState(row({ total: "15000" }));
     expect(s.status).toBe("asIs");
     expect(s.goal).toEqual({ materialUg: g("3"), diluents: [g("12")] });
     expect(s.toPour).toEqual([g("12")]);
   });
 
   it("rule 3, from the material: 0.937 g of Javanol for a 10 % asks 8.433 g of ethanol, and waits", () => {
-    const s = rowState(row({ target: "10", weighed: "0.937" }));
+    const s = rowState(row({ target: "10", weighed: "937" }));
     expect(s).toMatchObject({ status: "waiting", need: "weights" });
     expect(s.goal).toEqual({ materialUg: null, diluents: [g("8.433")] });
   });
 
   it("rule 3, from the diluent: 13.6 g of ethanol for a 10 % asks 1.511 g of Habanolide", () => {
-    const s = rowState(row({ target: "10", diluents: [{ diluentId: "eth", share: "", weighed: "13.600" }] }));
+    const s = rowState(row({ target: "10", diluents: [{ diluentId: "eth", share: "", weighed: "13600" }] }));
     expect(s.status).toBe("waiting");
     expect(s.goal.materialUg).toBe(g("1.511"));
   });
 
   it("rule 4: all weighed, the real % and grams; the difference with what was wanted", () => {
-    const s = rowState(row({ total: "15", weighed: "3.000", diluents: [{ diluentId: "eth", share: "", weighed: "12.208" }] }));
+    const s = rowState(row({ total: "15000", weighed: "3000", diluents: [{ diluentId: "eth", share: "", weighed: "12208" }] }));
     expect(s.status).toBe("weighed");
     expect(s.real!.totalUg).toBe(g("15.208"));
     expect(s.real!.fraction.toFixed(4)).toBe("0.1973"); // 3 / 15.208
@@ -68,11 +69,11 @@ describe("«Add & weigh», one row (V3-96, the user's rules of 2026-11-04)", () 
       { diluentId: "dpg", share: "60", weighed: "" },
       { diluentId: "eth", share: "", weighed: "" },
     ];
-    const s = rowState(row({ target: "40", total: "10", diluents: two }));
+    const s = rowState(row({ target: "40", total: "10000", diluents: two }));
     expect(s.shares.map((x) => x.toFixed(2))).toEqual(["0.60", "0.40"]);
     expect(s.goal).toEqual({ materialUg: g("4"), diluents: [g("3.6"), g("2.4")] });
     // Weighed, it comes out at what each weighed.
-    const w = rowState(row({ target: "40", total: "10", weighed: "4.000", diluents: [{ ...two[0], weighed: "3.600" }, { ...two[1], weighed: "2.400" }] }));
+    const w = rowState(row({ target: "40", total: "10000", weighed: "4000", diluents: [{ ...two[0], weighed: "3600" }, { ...two[1], weighed: "2400" }] }));
     expect(w.real!.fraction.eq(pct("40"))).toBe(true);
   });
 
@@ -84,7 +85,7 @@ describe("«Add & weigh», one row (V3-96, the user's rules of 2026-11-04)", () 
 
   it("from another bottle (s = 50 %): a 10 % of 10 g takes 2 g of that bottle, and only dilutes further", () => {
     const source = { fraction: pct("50"), diluents: [{ diluentId: "eth", fraction: pct("50") }] };
-    const s = rowState(row({ target: "10", total: "10", sourceId: "b50" }), source);
+    const s = rowState(row({ target: "10", total: "10000", sourceId: "b50" }), source);
     expect(s.goal).toEqual({ materialUg: g("2"), diluents: [g("8")] });
     expect(rowState(row({ target: "50", sourceId: "b50" }), source).need).toBe("further");
   });
@@ -95,7 +96,7 @@ describe("«Add & weigh», one row (V3-96, the user's rules of 2026-11-04)", () 
       ["material", "0.20", false],
       ["diluent", "0.80", false],
     ]);
-    const half = rowState(row({ target: "10", weighed: "1.000" }));
+    const half = rowState(row({ target: "10", weighed: "1000" }));
     expect(half.bar.map((b) => b.weighed)).toEqual([true, false]);
   });
 });
@@ -103,10 +104,10 @@ describe("«Add & weigh», one row (V3-96, the user's rules of 2026-11-04)", () 
 describe("the foot of «Add & weigh»", () => {
   it("still to pour, by diluent, from the rows not yet weighed; and the tally", () => {
     const rows = [
-      row({ key: "a", total: "15" }), // 12 g of ethanol to pour
-      row({ key: "b", target: "10", weighed: "0.937" }), // 8.433 g of ethanol
-      row({ key: "c", target: "10", total: "10", diluents: [{ diluentId: "dpg", share: "", weighed: "" }] }), // 9 g of DPG
-      row({ key: "d", total: "15", weighed: "3", diluents: [{ diluentId: "eth", share: "", weighed: "12" }] }), // weighed: nothing
+      row({ key: "a", total: "15000" }), // 12 g of ethanol to pour
+      row({ key: "b", target: "10", weighed: "937" }), // 8.433 g of ethanol
+      row({ key: "c", target: "10", total: "10000", diluents: [{ diluentId: "dpg", share: "", weighed: "" }] }), // 9 g of DPG
+      row({ key: "d", total: "15000", weighed: "3000", diluents: [{ diluentId: "eth", share: "", weighed: "12000" }] }), // weighed: nothing
     ].map((r) => ({ row: r, state: rowState(r) }));
     expect(stillToPour(rows)).toEqual(
       new Map([

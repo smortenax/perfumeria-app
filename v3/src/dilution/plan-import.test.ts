@@ -145,7 +145,7 @@ describe("the rows to weigh", () => {
 
   it("the % and the grams wanted are written, and the scale's grey figures match the plan's", () => {
     const wool = rows.find((r) => r.materialId === "wool")!;
-    expect([wool.target, wool.total, wool.tare, wool.gross]).toEqual(["10", "20", "", ""]);
+    expect([wool.target, wool.total, wool.tare, wool.gross]).toEqual(["10", "20000", "", ""]); // the sheet's grams, typed in mg (2026-11-26)
     const s = rowState(wool);
     expect([s.status, s.goal.materialUg, s.goal.diluents[0]]).toEqual(["waiting", 2_000_000n, 18_000_000n]);
     // A planned bottle is still to make: unweighed, it waits; it never saves «as it is».
@@ -161,16 +161,16 @@ describe("the rows to weigh", () => {
 });
 
 describe("the bottle's own weights", () => {
-  const row = (over: Partial<WeighRow>): WeighRow => ({ key: "r", materialId: "wool", sourceId: null, target: "10", total: "20", weighed: "2.004", diluents: [{ diluentId: "dpg", share: "", weighed: "18.010" }], note: "", ...over });
+  const row = (over: Partial<WeighRow>): WeighRow => ({ key: "r", materialId: "wool", sourceId: null, target: "10", total: "20000", weighed: "2004", diluents: [{ diluentId: "dpg", share: "", weighed: "18010" }], note: "", ...over });
 
   it("full minus tare minus what went in: 0 when it adds up, the grams off when not", () => {
-    expect(bottleCheck(row({ tare: "12.000", gross: "32.014" })).offUg).toBe(0n);
-    expect(bottleCheck(row({ tare: "12.000", gross: "32.000" })).offUg).toBe(-14_000n);
-    expect(bottleCheck(row({ tare: "12.000", gross: "" })).offUg).toBeNull();
+    expect(bottleCheck(row({ tare: "12000", gross: "32014" })).offUg).toBe(0n);
+    expect(bottleCheck(row({ tare: "12000", gross: "32000" })).offUg).toBe(-14_000n);
+    expect(bottleCheck(row({ tare: "12000", gross: "" })).offUg).toBeNull();
   });
 
   it("are kept in the bottle's note, with the day, to reweigh it later", () => {
-    expect(describeRow(row({ bottleMl: "30", tare: "12.000", gross: "32.014", note: "batch 1" }), "2026-11-25")).toBe("batch 1\nBottle 30 ml · tare 12.000 g · full 32.014 g on 2026-11-25");
+    expect(describeRow(row({ bottleMl: "30", tare: "12000", gross: "32014", note: "batch 1" }), "2026-11-25")).toBe("batch 1\nBottle 30 ml · tare 12.000 g · full 32.014 g on 2026-11-25");
     expect(describeRow(row({}), "2026-11-25")).toBe("");
   });
 });

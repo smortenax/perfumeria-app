@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { Ratio } from "../core/arith/ratio";
-import { gramsText, gramsToUg, scaleGramsToUg } from "./mass";
+import { gramsText, gramsToMgText, gramsToUg, mgText, mgToUg, scaleGramsToUg } from "./mass";
 import { decimal, drawn, fixedNumber, fixedRatio, percent, roundedNumber } from "./numbers";
 import { digitsPercentToFraction, percentToFraction, samePercentText } from "./percent";
 
@@ -30,5 +30,18 @@ describe("format/: the one place where numbers are read and rounded (V3-111, R3)
     expect(drawn(Ratio.of(1n, 3n), 4)).toBe(0.3333);
     expect(fixedNumber(12.345, 1)).toBe("12.3");
     expect(roundedNumber(2, 1)).toBe(2);
+  });
+});
+
+describe("milligrams (the user, 2026-11-26: «que el peso base este en mg»)", () => {
+  it("reads and writes whole milligrams, and the decimals below one", () => {
+    expect(mgText(1_030_000n)).toBe("1030");
+    expect(mgText(500n)).toBe("0.5");
+    expect(mgText(-14_000n)).toBe("-14");
+    expect(mgToUg("1030")).toBe(1_030_000n);
+    expect(mgToUg("0,5")).toBe(500n);
+    expect(mgToUg("0")).toBeNull();
+    expect(gramsToMgText("1.503")).toBe("1503");
+    expect(gramsToMgText("")).toBe("");
   });
 });

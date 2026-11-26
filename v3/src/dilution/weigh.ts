@@ -1,7 +1,7 @@
 import { Ratio } from "../core/arith/ratio";
 import { bottleOf, nominalBottle, plan, planFromDiluent, planFromMaterial, storedBottle, type PlannedDiluent, type Shares, type SourceBottle } from "./calc";
 import { percentToFraction } from "../format/percent";
-import { gramsText, gramsToUg } from "../format/mass";
+import { gramsText, mgToUg } from "../format/mass";
 import { fixedRatio } from "../format/numbers";
 
 /**
@@ -131,10 +131,10 @@ export function rowState(row: WeighRow, source?: SourceBottle): RowState {
   const base = { shares, planned };
 
   const typedWeights = [row.weighed, row.total, ...row.diluents.map((d) => d.weighed)].filter((x) => x.trim());
-  if (typedWeights.some((x) => gramsToUg(x) === null)) return { ...empty, ...base, need: "amount" };
-  const m = gramsToUg(row.weighed);
-  const ds = row.diluents.map((d) => gramsToUg(d.weighed));
-  const T = gramsToUg(row.total);
+  if (typedWeights.some((x) => mgToUg(x) === null)) return { ...empty, ...base, need: "amount" };
+  const m = mgToUg(row.weighed);
+  const ds = row.diluents.map((d) => mgToUg(d.weighed));
+  const T = mgToUg(row.total);
 
   let aimed: Shares;
   try {
@@ -226,9 +226,9 @@ export const shareText = (share: Ratio): string => {
  * lost, a misread). null where a figure is missing or is not grams.
  */
 export function bottleCheck(row: WeighRow): { readonly tareUg: bigint | null; readonly grossUg: bigint | null; readonly offUg: bigint | null } {
-  const tareUg = row.tare?.trim() ? gramsToUg(row.tare) : null;
-  const grossUg = row.gross?.trim() ? gramsToUg(row.gross) : null;
-  const parts = [row.weighed, ...row.diluents.map((d) => d.weighed)].map((x) => (x.trim() ? gramsToUg(x) : null));
+  const tareUg = row.tare?.trim() ? mgToUg(row.tare) : null;
+  const grossUg = row.gross?.trim() ? mgToUg(row.gross) : null;
+  const parts = [row.weighed, ...row.diluents.map((d) => d.weighed)].map((x) => (x.trim() ? mgToUg(x) : null));
   const inside = parts.every((x) => x !== null) ? parts.reduce<bigint>((a, x) => a + x!, 0n) : null;
   const offUg = tareUg !== null && grossUg !== null && inside !== null ? grossUg - tareUg - inside : null;
   return { tareUg, grossUg, offUg };
@@ -237,7 +237,8 @@ export function bottleCheck(row: WeighRow): { readonly tareUg: bigint | null; re
 /**
  * What the bottle keeps of its weights, in its description, so the full weight is there to reweigh it
  * (propuesta de la sesión: the bottle has no column for them yet; text, the same in every device):
- * «Bottle 15 ml · tare 12.345 g · full 27.380 g on 2026-11-25».
+ * «Bottle 15 ml · tare 12.345 g · full 27.380 g on 2026-11-25». Kept in grams, as the scale reads them,
+ * though the weights are typed in mg.
  */
 export function bottleWeightsText(row: WeighRow, madeOn: string): string {
   const { tareUg, grossUg } = bottleCheck(row);
