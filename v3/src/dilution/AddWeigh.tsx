@@ -23,6 +23,7 @@ import { percentToFraction } from "../format/percent";
 import { massText, mgToUg } from "../format/mass";
 import type { MassUnit } from "../core/arith/units";
 import { MassInput, useMassUnit } from "../ui/MassInput";
+import { PercentInput } from "../ui/PercentInput";
 
 const t = texts.dilutions.weigh;
 
@@ -395,9 +396,7 @@ function WeighLine({
           </span>
         </div>
         <div className="weigh-want">
-          <span className="weigh-unit" data-unit="%">
-            <input className="weigh-cell n" inputMode="decimal" value={row.target} placeholder="%" aria-label={t.aria.target(name)} onChange={(e) => change((r) => ({ ...r, target: e.target.value }))} />
-          </span>
+          <PercentInput className="weigh-cell n" value={row.target} aria-label={t.aria.target(name)} onChange={(v) => change((r) => ({ ...r, target: v }))} />
           <MassInput
             className="weigh-cell n"
             value={row.total}
@@ -485,14 +484,13 @@ function WeighLine({
           <div key={i} className={`weigh-dil-line${i === 0 ? " first" : ""}`}>
             <div className="weigh-dil">
               {many && (
-                <span className="weigh-unit share" data-unit="%">
-                  <input
+                <span className="weigh-share">
+                  <PercentInput
                     className="weigh-cell n"
-                    inputMode="decimal"
                     value={d.share}
                     placeholder={state.shares[i] ? shareText(state.shares[i]) : ""}
                     aria-label={t.aria.share(d.diluentId ? short(d.diluentId) : t.diluent, name)}
-                    onChange={(e) => setDiluent(i, { share: e.target.value })}
+                    onChange={(v) => setDiluent(i, { share: v })}
                   />
                 </span>
               )}

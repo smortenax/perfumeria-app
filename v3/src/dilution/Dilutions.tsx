@@ -25,6 +25,7 @@ import { readStoredJson, removeStored, writeStored } from "../storage";
 import { digitsPercentToFraction } from "../format/percent";
 import { gramsText, scaleGramsToUg } from "../format/mass";
 import { MassInput } from "../ui/MassInput";
+import { PercentInput } from "../ui/PercentInput";
 import { diluentsOf } from "../db/material-search";
 
 const t = texts.dilutions;
@@ -604,7 +605,7 @@ function BottleEditor({
             <div className="pair">
               <label className="field">
                 {t.target}
-                <input inputMode="decimal" value={target} onChange={(e) => setTarget(e.target.value)} />
+                <PercentInput value={target} onChange={setTarget} />
               </label>
               <label className="field">
                 {t.total}
@@ -619,7 +620,7 @@ function BottleEditor({
                 </div>
                 <label className="field share">
                   {t.share}
-                  <input inputMode="decimal" value={r.share} placeholder={t.rest} onChange={(e) => setRow(i, { share: e.target.value })} />
+                  <PercentInput value={r.share} placeholder={t.rest} onChange={(v) => setRow(i, { share: v })} />
                 </label>
                 {rows.length > 1 && (
                   <button type="button" className="link" onClick={() => setRows(rows.filter((_, j) => j !== i))}>

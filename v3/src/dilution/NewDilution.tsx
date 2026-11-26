@@ -11,6 +11,7 @@ import { DiluentPicker } from "./DiluentPicker";
 import { factoryBottleOf } from "../db/factory";
 import { MaterialPicker } from "../ui/MaterialPicker";
 import { MassInput } from "../ui/MassInput";
+import { PercentInput } from "../ui/PercentInput";
 import { diluentsOf, inMyBench, pickOptionsOf } from "../db/material-search";
 import { percentToFraction } from "../format/percent";
 import { gramsText, gramsToUg } from "../format/mass";
@@ -155,7 +156,7 @@ export function NewDilution({
 
           <label className="field nd-target">
             {mode === "have" ? w.haveTarget : t.target}
-            <input inputMode="decimal" value={target} onChange={(e) => setTarget(e.target.value)} />
+            <PercentInput value={target} onChange={setTarget} />
           </label>
 
           {rows.map((r, i) => (
@@ -167,7 +168,7 @@ export function NewDilution({
               {rows.length > 1 && (
                 <label className="field share">
                   {t.share}
-                  <input inputMode="decimal" value={r.share} placeholder={t.rest} onChange={(e) => setRow(i, { share: e.target.value })} />
+                  <PercentInput value={r.share} placeholder={t.rest} onChange={(v) => setRow(i, { share: v })} />
                 </label>
               )}
               {rows.length > 1 && (
