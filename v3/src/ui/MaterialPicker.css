@@ -14,6 +14,7 @@
   min-height: var(--size-target);
   display: flex;
   align-items: center;
+  gap: var(--space-8);
   padding: 0 var(--space-12);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-control);
@@ -26,4 +27,14 @@
   border-color: var(--accent-focus);
   background: var(--surface-sunken);
   box-shadow: inset 0 0 0 1px var(--accent-focus);
+}
+.material-picker .picker-name {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+/* The house of your version, or «common»: two «Hedione» told apart. */
+.material-picker .picker-detail {
+  flex: none;
+  color: var(--text-muted);
+  font-size: var(--size-text-sm);
 }

@@ -1,7 +1,9 @@
 import { useEffect, useId, useImperativeHandle, useMemo, useRef, useState, type KeyboardEvent, type ReactNode, type Ref } from "react";
 import { Ratio } from "../core/arith/ratio";
 import { comboFieldProps, optionId } from "../combobox";
-import { parseMass, parsePercent, type MassUnit } from "../core/arith/units";
+import { parseMass, parsePercent } from "../core/arith/units";
+import { convertMassText } from "../format/mass";
+import { MassInput, useMassUnit } from "../ui/MassInput";
 import type { Change, SecondDiluent } from "../core/model/formula";
 import type { Material } from "../core/model/material";
 import { casForm, normalize, searchCatalog, type CatalogEntry, type IfraState, type MaterialFamily, type Weighing } from "./data/catalog";
@@ -332,7 +334,8 @@ export function AddBar(props: {
   /** The chip each plant's row is on, when the user moved it (P54): the index into its options. */
   const [chips, setChips] = useState<Record<string, number>>({});
   const [quantity, setQuantity] = useState("");
-  const [unit, setUnit] = useState<MassUnit>("mg");
+  // One unit for the whole app while it is open, and the same mass box as the dilutions (ui/MassInput.tsx): mg ↔ g rewrites the figure.
+  const [unit, setUnit] = useMassUnit();
   const [prefs, setPrefs] = useState<MaterialPrefs>({ favorites: [] });
   const [assumed, setAssumed] = useState<Weighing | null>(null);
   const entryOf = useMemo(() => new Map(props.entries.map((e) => [e.material.key, e])), [props.entries]);
@@ -1033,30 +1036,29 @@ export function AddBar(props: {
         <label className="field-label" htmlFor="add-quantity">
           {t.quantity(unit)}
         </label>
-        <div className="field quantity-field">
-          <input
-            id="add-quantity"
-            ref={quantityRef}
-            className="num"
-            value={quantity}
-            placeholder="0"
-            inputMode="decimal"
-            autoComplete="off"
-            onChange={(e) => setQuantity(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" && e.ctrlKey) {
-                e.preventDefault();
-                add();
-              } else if (e.key === "Enter") {
-                e.preventDefault();
-                focusPercent();
-              }
-            }}
-          />
-          <button type="button" className="unit num" title={t.changeUnit} aria-label={`${t.changeUnit}: ${unit}`} onClick={() => setUnit(unit === "mg" ? "g" : "mg")}>
-            {unit}
-          </button>
-        </div>
+        <MassInput
+          look="bench"
+          id="add-quantity"
+          inputRef={quantityRef}
+          value={quantity}
+          base={unit}
+          unit={unit}
+          onUnit={(next) => {
+            setQuantity(convertMassText(quantity, unit, next));
+            setUnit(next);
+          }}
+          placeholder="0"
+          onChange={setQuantity}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && e.ctrlKey) {
+              e.preventDefault();
+              add();
+            } else if (e.key === "Enter") {
+              e.preventDefault();
+              focusPercent();
+            }
+          }}
+        />
       </div>
 
       <div className="dilution">

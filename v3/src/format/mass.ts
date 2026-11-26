@@ -1,5 +1,5 @@
 import { Ratio } from "../core/arith/ratio";
-import { UG_PER_G, UG_PER_MG } from "../core/arith/units";
+import { type MassUnit, UG_PER_G, UG_PER_MG } from "../core/arith/units";
 
 /**
  * Masses as people type and read them in grams, in one place (V3-111, rule R3). Masses are whole
@@ -57,3 +57,26 @@ export const gramsToMgText = (text: string): string => {
   const ug = gramsToUg(text);
   return ug === null ? text : mgText(ug);
 };
+
+/**
+ * A mass in either unit of the scale, exact (2026-11-26, ui/MassInput.tsx): 1 030 000 µg → «1030» mg or «1.03» g;
+ * below the unit, the decimals it needs and no more, never rounded.
+ */
+export function massText(ug: bigint, unit: MassUnit): string {
+  if (unit === "mg") return mgText(ug);
+  const whole = ug / UG_PER_G;
+  const rest = (ug < 0n ? -ug : ug) % UG_PER_G;
+  if (rest === 0n) return whole.toString();
+  const sign = ug < 0n && whole === 0n ? "-" : "";
+  return `${sign}${whole}.${rest.toString().padStart(6, "0").replace(/0+$/, "")}`;
+}
+
+/** A mass as written in `unit` («1030» mg, «1,03» g) to micrograms; null if empty, not a number, finer than a microgram or not above 0. */
+export const massToUg = (text: string, unit: MassUnit): bigint | null => (unit === "mg" ? mgToUg(text) : gramsToUg(text));
+
+/** The same mass written in another unit: «1030» mg is «1.03» g. What is not a mass yet («1,», «») stays as it is. */
+export function convertMassText(text: string, from: MassUnit, to: MassUnit): string {
+  if (from === to) return text;
+  const ug = massToUg(text, from);
+  return ug === null ? text : massText(ug, to);
+}

@@ -9,7 +9,9 @@ import "./dilutions.css";
 import { Button } from "../Button";
 import { DiluentPicker } from "./DiluentPicker";
 import { factoryBottleOf } from "../db/factory";
-import { MaterialPicker } from "../MaterialPicker";
+import { MaterialPicker } from "../ui/MaterialPicker";
+import { MassInput } from "../ui/MassInput";
+import { inMyBench, pickOptionsOf } from "../db/material-search";
 import { percentToFraction } from "../format/percent";
 import { gramsText, gramsToUg } from "../format/mass";
 
@@ -40,10 +42,8 @@ export function NewDilution({
     () => [...data.catalog.materials.values()].filter((m) => m.solvent).sort((a, b) => (a.ownerId ? 1 : 0) - (b.ownerId ? 1 : 0) || a.name.localeCompare(b.name, "es")),
     [data],
   );
-  const materials = useMemo(
-    () => [...data.catalog.materials.values()].filter((m) => m.ownerId !== null && !m.solvent).sort((a, b) => a.name.localeCompare(b.name, "es")),
-    [data],
-  );
+  // The same list and search as «My library» in the add bar (2026-11-26): your versions and what you marked «I have it».
+  const materials = useMemo(() => pickOptionsOf(data.catalog, inMyBench(data.catalog)), [data]);
   const firstDpg = diluents.find((d) => /dpg|dipropylene|dipropilen/i.test(d.name))?.id ?? diluents[0]?.id ?? "";
 
   const [materialId, setMaterial] = useState<string | null>(initialMaterial);
@@ -200,24 +200,24 @@ export function NewDilution({
           <div className="nd-amounts">
             <label className="field">
               {sourceName ? w.sourceWeighed(sourceName) : w.materialWeighed}
-              <input
-                inputMode="decimal"
+              <MassInput
+                base="g"
                 value={drive === "total" && state.plan ? grams(state.plan.materialUg) : materialGrams}
-                onChange={(e) => {
+                onChange={(v) => {
                   setDrive("material");
-                  setMaterialGrams(e.target.value);
+                  setMaterialGrams(v);
                 }}
               />
             </label>
             <span className="nd-or">{w.orTotal}</span>
             <label className="field">
               {w.totalWanted}
-              <input
-                inputMode="decimal"
+              <MassInput
+                base="g"
                 value={drive === "material" && state.plan ? grams(state.plan.totalUg) : totalGrams}
-                onChange={(e) => {
+                onChange={(v) => {
                   setDrive("total");
-                  setTotalGrams(e.target.value);
+                  setTotalGrams(v);
                 }}
               />
             </label>
@@ -249,12 +249,12 @@ export function NewDilution({
             <div className="nd-weights">
               <label className="field">
                 {sourceName ? w.sourceWeighed(sourceName) : t.materialGrams}
-                <input inputMode="decimal" value={weighedMaterial} onChange={(e) => setWeighedMaterial(e.target.value)} />
+                <MassInput base="g" value={weighedMaterial} onChange={setWeighedMaterial} />
               </label>
               {rows.map((r, i) => (
                 <label key={i} className="field">
                   {t.diluentGrams(name(r.diluentId))}
-                  <input inputMode="decimal" value={r.weighed} onChange={(e) => setRow(i, { weighed: e.target.value })} />
+                  <MassInput base="g" value={r.weighed} onChange={(v) => setRow(i, { weighed: v })} />
                 </label>
               ))}
             </div>

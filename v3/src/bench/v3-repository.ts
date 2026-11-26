@@ -3,7 +3,8 @@ import type { IfraCardState } from "../db/to-ifra";
 import { coloursOf, familyOf, PALETTE } from "../families/palette";
 import { texts as appTexts } from "../i18n/en";
 import type { GlossaryData } from "../db/useGlossary";
-import { type CatalogEntry, fold, type IfraState, normalize, type ScentFamily, searchCatalog, type UsageData } from "./data/catalog";
+import { type CatalogEntry, type IfraState, type ScentFamily, searchCatalog, type UsageData } from "./data/catalog";
+import { searchFieldsOf } from "../db/material-search";
 import type { MaterialRepository } from "./data/repository";
 import { texts } from "../i18n/bench";
 
@@ -37,10 +38,8 @@ export function repositoryOfV3(data: GlossaryData): MaterialRepository {
     // A frozen formula is poured with its vector, which the workbench builds for the ones its bench may use (V3-19, V3-49).
     if (m.kind === "frozen") continue;
     const base = m.basedOnId ? data.catalog.materials.get(m.basedOnId) : undefined;
-    const pick = <T,>(get: (x: typeof m) => T | null | undefined): T | null => get(m) ?? (base ? (get(base) ?? null) : null);
-    const abbreviation = pick((x) => x.abbreviation);
-    const cas = pick((x) => x.cas) ?? "";
-    const aliases = [...new Set([...m.aliases, ...(base?.aliases ?? [])])];
+    // What it is found by: the same fields as every MaterialPicker (db/material-search.ts).
+    const { abbreviation, cas, aliases, search, folded } = searchFieldsOf(data.catalog, m);
     const dose = [...m.doses, ...(base?.doses ?? [])].find((d) => d.min || d.max || d.typical);
     const usage: UsageData | undefined = dose
       ? {
@@ -50,7 +49,6 @@ export function repositoryOfV3(data: GlossaryData): MaterialRepository {
           sources: dose.source,
         }
       : undefined;
-    const names = [m.name, ...aliases, ...(m.product ? [m.product] : [])];
     // Its family's colour (V3-38), or the one fixed for it, which then draws it in its family.
     const family = familyOf(data.catalog, m);
     const scent = family ? scentOf.get(family) : undefined;
@@ -63,10 +61,8 @@ export function repositoryOfV3(data: GlossaryData): MaterialRepository {
       chemicalName: m.name,
       cas,
       state: STATE[data.ifraStates.get(m.id)?.state ?? "no-data"],
-      search: normalize(
-        [abbreviation ?? "", ...names, cas, ...m.otherCas, ...(base?.otherCas ?? []), pick((x) => x.species) ?? "", pick((x) => x.inci) ?? ""].join(" "),
-      ),
-      folded: names.map(fold),
+      search,
+      folded,
       ...(aliases.length ? { aliases } : {}),
       ...(m.product ? { shopNames: [m.product] } : {}),
       ...(usage ? { usage } : {}),
