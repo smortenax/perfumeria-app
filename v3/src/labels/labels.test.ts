@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { Ratio } from "../core/arith/ratio";
 import type { Dilution } from "../db/catalog";
 import { labelCode, parseLabelCode } from "./code";
-import { dilutionLabel, type LabelMaterial } from "./content";
+import { dilutionLabel, trialLabel, type LabelMaterial } from "./content";
 import { fitText, layoutFor } from "./layout";
 import { tapeOf, TAPES } from "./media";
 import { qrMatrix } from "./qr";
@@ -133,5 +133,19 @@ describe("the label test page (two lines, no QR)", () => {
     const at = bytes.findIndex((b, i) => b === 0x1d && bytes[i + 1] === 0x76 && bytes[i + 2] === 0x30);
     expect(bytes[at + 4] | (bytes[at + 5] << 8)).toBe(12);
     expect(bytes[at + 6] | (bytes[at + 7] << 8)).toBe(560);
+  });
+});
+
+describe("test label of a formula (2026-11-26)", () => {
+  it("puts the name and its strength big, the day and the weight small", () => {
+    const l = trialLabel({ name: "Lejía v3", day: "2026-11-26", massUg: 10_000_000n, concentration: Ratio.of(1, 5) });
+    expect(l).toEqual({ big: "Lejía v3 · 20 %", small: "Test 2026-11-26 · 10.000 g" });
+  });
+  it("leaves out what is not known, and a strength of 100 % (no alcohol yet)", () => {
+    expect(trialLabel({ name: "  ", day: "2026-11-26", massUg: null, concentration: null })).toEqual({ big: "—", small: "Test 2026-11-26" });
+    expect(trialLabel({ name: "Neroli", day: "2026-11-26", massUg: 0n, concentration: Ratio.ONE }).big).toBe("Neroli");
+  });
+  it("writes a small strength with two figures", () => {
+    expect(trialLabel({ name: "Acorde", day: "2026-11-26", massUg: 2_500_000n, concentration: Ratio.of(3, 200) }).big).toBe("Acorde · 1.5 %");
   });
 });

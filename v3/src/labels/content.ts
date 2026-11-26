@@ -83,3 +83,30 @@ export function labelPercent(fraction: Ratio, label: string | null): string {
 
 /** A label's two lines, as the test page proved them on the P15 (2026-11-24): material and strength big, CAS and date small. */
 export const linesOf = (l: LabelContent): { big: string; small: string } => ({ big: `${l.title} · ${l.strength}`, small: l.footer });
+
+/** What a test of a formula lends its label: its name, the day it is made, what it weighs and its strength. */
+export interface TrialInfo {
+  readonly name: string;
+  /** The day the test is made («2026-11-26»). */
+  readonly day: string;
+  /** The test bottle's weight in micrograms: the final batch when there is one, otherwise what was poured. */
+  readonly massUg: bigint | null;
+  /** The concentrate's share of the final batch (working ÷ final), when both are set and it is below 100 %. */
+  readonly concentration: Ratio | null;
+}
+
+/**
+ * The label of a test of a formula (the user, 2026-11-26: «diseñar una etiqueta para cuando se hagan
+ * pruebas de perfumes asi se puede desde la formulacion sacar etiqueta»), in the two lines the P15
+ * prints: the formula and its strength big («Lejía v3 · 20 %»), the day and the weight small
+ * («Test 2026-11-26 · 10.000 g»). What is not known is left out, never guessed (§1.2).
+ * Session's proposal: the user can change both lines before printing.
+ */
+export function trialLabel(x: TrialInfo): { big: string; small: string } {
+  const name = x.name.trim() || "—";
+  const strong = x.concentration && x.concentration.sign() > 0 && x.concentration.lt(Ratio.ONE) ? labelPercent(x.concentration, null) : null;
+  return {
+    big: strong ? `${name} · ${strong}` : name,
+    small: [`Test ${x.day}`, x.massUg && x.massUg > 0n ? `${gramsText(x.massUg)} g` : null].filter((s): s is string => !!s).join(" · "),
+  };
+}

@@ -42,6 +42,7 @@ export const texts = {
     exportJson: "Export as a file (.json)",
     exportCsv: "Export as CSV",
     print: "Print or save as PDF",
+    testLabel: "Print a test label",
     cannotUndo: {
       empty: "Nothing to undo.",
       reweigh: "A reweighing cannot be undone: what evaporated does not come back. Correct it with a note or a mass.",
