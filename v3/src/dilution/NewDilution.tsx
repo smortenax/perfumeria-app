@@ -11,7 +11,7 @@ import { DiluentPicker } from "./DiluentPicker";
 import { factoryBottleOf } from "../db/factory";
 import { MaterialPicker } from "../ui/MaterialPicker";
 import { MassInput } from "../ui/MassInput";
-import { inMyBench, pickOptionsOf } from "../db/material-search";
+import { diluentsOf, inMyBench, pickOptionsOf } from "../db/material-search";
 import { percentToFraction } from "../format/percent";
 import { gramsText, gramsToUg } from "../format/mass";
 
@@ -38,10 +38,7 @@ export function NewDilution({
   onCancel: () => void;
 }) {
   const name = (id: string) => data.catalog.materials.get(id)?.name ?? "—";
-  const diluents = useMemo(
-    () => [...data.catalog.materials.values()].filter((m) => m.solvent).sort((a, b) => (a.ownerId ? 1 : 0) - (b.ownerId ? 1 : 0) || a.name.localeCompare(b.name, "es")),
-    [data],
-  );
+  const diluents = useMemo(() => diluentsOf(data.catalog), [data]);
   // The same list and search as «My library» in the add bar (2026-11-26): your versions and what you marked «I have it».
   const materials = useMemo(() => pickOptionsOf(data.catalog, inMyBench(data.catalog)), [data]);
   const firstDpg = diluents.find((d) => /dpg|dipropylene|dipropilen/i.test(d.name))?.id ?? diluents[0]?.id ?? "";

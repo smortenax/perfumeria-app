@@ -10,6 +10,7 @@ import { Ratio } from "../core/arith/ratio";
 import { texts } from "../i18n/en";
 import { Button } from "../Button";
 import { FailureNote } from "../FailureNote";
+import { diluentsOf } from "../db/material-search";
 
 const t = texts.editor.factory;
 
@@ -22,7 +23,7 @@ const t = texts.editor.factory;
  */
 export function FactoryState({ material, data, local }: { material: CatalogMaterial; data: GlossaryData; local: LocalDatabase }) {
   const bottle = factoryBottleOf(data.catalog, material.id);
-  const solvents = [...data.catalog.materials.values()].filter((m) => m.solvent).sort((a, b) => (a.ownerId ? 1 : 0) - (b.ownerId ? 1 : 0) || a.name.localeCompare(b.name, "es"));
+  const solvents = diluentsOf(data.catalog);
   const [editing, setEditing] = useState(false);
   const [pct, setPct] = useState("");
   const [diluentId, setDiluentId] = useState("");

@@ -12,7 +12,7 @@ import { MaterialOrb } from "../ui/orb/MaterialOrb";
 import type { GlossaryData } from "../db/useGlossary";
 import { texts } from "../i18n/en";
 import { MaterialPicker } from "../ui/MaterialPicker";
-import { inMyBench, pickOptionsOf } from "../db/material-search";
+import { diluentsOf, inMyBench, pickOptionsOf } from "../db/material-search";
 import { Button } from "../Button";
 import type { SourceBottle } from "./calc";
 import { nominalPercent, shortName } from "./grid";
@@ -96,10 +96,7 @@ export function AddWeigh({
   onSaved: (count: number, job: boolean) => void;
 }) {
   const scales = useMemo(() => orbScalesOf(data.catalog), [data]);
-  const diluents = useMemo(
-    () => [...data.catalog.materials.values()].filter((m) => m.solvent).sort((a, b) => (a.ownerId ? 1 : 0) - (b.ownerId ? 1 : 0) || a.name.localeCompare(b.name, "es")),
-    [data],
-  );
+  const diluents = useMemo(() => diluentsOf(data.catalog), [data]);
   // The same list and search as «My library» in the add bar (2026-11-26): your versions and what you marked «I have it».
   const materials = useMemo(() => pickOptionsOf(data.catalog, inMyBench(data.catalog)), [data]);
   const bottleById = useMemo(() => new Map([...data.catalog.dilutions.values()].flat().map((d) => [d.id, d])), [data]);

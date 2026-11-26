@@ -25,6 +25,7 @@ import { readStoredJson, removeStored, writeStored } from "../storage";
 import { digitsPercentToFraction } from "../format/percent";
 import { gramsText, scaleGramsToUg } from "../format/mass";
 import { MassInput } from "../ui/MassInput";
+import { diluentsOf } from "../db/material-search";
 
 const t = texts.dilutions;
 
@@ -42,9 +43,6 @@ export function bottleText(data: GlossaryData, d: Dilution): string {
   const label = d.label && !/^(at |al )?[\d.,]+\s*%$/i.test(d.label.trim()) ? d.label : "";
   return [label, `${exact}${diluents ? ` ${diluents}` : ""}`].filter((x) => x).join(" · ");
 }
-
-const diluentsOf = (data: GlossaryData) =>
-  [...data.catalog.materials.values()].filter((m) => m.solvent).sort((a, b) => (a.ownerId ? 1 : 0) - (b.ownerId ? 1 : 0) || a.name.localeCompare(b.name, "es"));
 
 /**
  * «Diluciones» (V3-65, V3-67): every bottle of yours, and each one's sheet, where it is made with the
@@ -494,7 +492,7 @@ function BottleEditor({
   /** Said after archiving, with Undo (not after taking a bottle out of the archive). */
   onArchived?: (bottle: Dilution) => void;
 }) {
-  const diluents = useMemo(() => diluentsOf(data), [data]);
+  const diluents = useMemo(() => diluentsOf(data.catalog), [data]);
   const name = (id: string) => data.catalog.materials.get(id)?.name ?? "—";
   const [label, setLabel] = useState(bottle?.label ?? "");
   const [sourceId, setSourceId] = useState<string | null>(bottle?.sourceDilutionId ?? null);

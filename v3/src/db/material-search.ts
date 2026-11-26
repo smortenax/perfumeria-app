@@ -70,3 +70,10 @@ export function pickOptionsOf(catalog: Catalog, keep: (m: CatalogMaterial) => bo
  * the common materials you marked «I have it»; not the diluents, which are poured, not diluted.
  */
 export const inMyBench = (catalog: Catalog) => (m: CatalogMaterial): boolean => !m.solvent && (m.ownerId !== null || catalog.have.has(m.id));
+
+/**
+ * The diluents to pour, one list for every screen (2026-11-26; there were six, almost alike): the common ones first,
+ * then yours, each by name. «Add & weigh», «New dilution», the bottle's form, the importer and «Comes diluted» read it.
+ */
+export const diluentsOf = (catalog: Catalog): CatalogMaterial[] =>
+  [...catalog.materials.values()].filter((m) => m.solvent).sort((a, b) => (a.ownerId ? 1 : 0) - (b.ownerId ? 1 : 0) || a.name.localeCompare(b.name, "es"));

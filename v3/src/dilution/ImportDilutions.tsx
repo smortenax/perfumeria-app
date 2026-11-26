@@ -6,6 +6,7 @@ import { shortName } from "./grid";
 import { matchDilutionPlan, readDilutionPlan, weighRowsOf, withChoice, type PlanMatch } from "./plan-import";
 import type { WeighRow } from "./weigh";
 import { readXlsxRows } from "../lib/xlsx";
+import { diluentsOf, inMyBench, pickOptionsOf } from "../db/material-search";
 
 const t = texts.dilutions.importPlan;
 
@@ -27,8 +28,9 @@ export function ImportDilutions({ data, userId, newKey, onAdd, onCancel }: { dat
   const inBatch = matches.filter((m) => !size || m.planned.bottleMl === size);
   const ready = inBatch.filter((m) => m.problems.length === 0);
   const ids = { file: useId(), paste: useId() };
-  const mine = useMemo(() => [...data.catalog.materials.values()].filter((m) => m.ownerId !== null && !m.solvent).sort((a, b) => a.name.localeCompare(b.name, "es")), [data]);
-  const solvents = useMemo(() => [...data.catalog.materials.values()].filter((m) => m.solvent).sort((a, b) => a.name.localeCompare(b.name, "es")), [data]);
+  // The same lists as the rest of the dilutions (db/material-search.ts): «My library», and the diluents common first.
+  const mine = useMemo(() => pickOptionsOf(data.catalog, inMyBench(data.catalog)), [data]);
+  const solvents = useMemo(() => diluentsOf(data.catalog), [data]);
   const choose = (line: number, patch: { materialId?: string; diluentId?: string }) => setChoices((c) => new Map(c).set(line, { ...c.get(line), ...patch }));
   const load = (next: string) => {
     setText(next);

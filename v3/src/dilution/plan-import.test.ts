@@ -253,3 +253,18 @@ describe("the factory diluent (the user, 2026-11-25: «que se tenga en cuenta el
     expect(es.ok && es.rows[0]).toMatchObject({ fromPct: "50.0", fromDiluent: "IPM" });
   });
 });
+
+describe("the material in «My library», as the search of the dilutions (2026-11-26)", () => {
+  const withCommon = {
+    ...catalog,
+    materials: new Map([...materials, m("cou", "Coumarin", { ownerId: null }), m("van", "Vanillin", { ownerId: null })].map((x) => [x.id, x])),
+    have: new Set(["cou"]),
+  } as unknown as Catalog;
+  const plan = readDilutionPlan([HEADER, "Coumarin,10,100,15,10,1,DPG,9,,,,", "Vanillin,10,100,15,10,1,DPG,9,,,,"].join("\n"));
+  if (!plan.ok) throw new Error("the fixture does not read");
+  const found = matchDilutionPlan(plan.rows, withCommon, "me");
+  it("a common material you marked «I have it» is found; one you do not have, not", () => {
+    expect([found[0].materialId, found[0].problems]).toEqual(["cou", []]);
+    expect(found[1].problems).toEqual(["material"]);
+  });
+});
