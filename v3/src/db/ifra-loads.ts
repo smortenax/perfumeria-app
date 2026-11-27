@@ -50,6 +50,7 @@ export function less(load: Load, part: Load | undefined): Load | null {
 export const cleanName = (text: string) =>
   fold(text)
     .replace(/\b(iii|annex iii)\s*\/\s*\d+\b/g, " ")
+    .replace(/\s[–—-]+(\s|$)/g, " ")
     .replace(/\([^)]*\)/g, " ")
     .replace(/\bnatural\b/g, " ")
     .replace(/[®™]/g, "")

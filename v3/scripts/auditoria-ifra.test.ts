@@ -13,7 +13,10 @@ import { engineMaterial } from "../src/db/formulas";
 import { loadIfraLayer } from "../src/db/ifra-layer";
 import { AppSchema, tables } from "../src/db/local/schema";
 import { loadCatalog, type LocalDb } from "../src/db/materials";
-import { ifraCard, toIfra } from "../src/db/to-ifra";
+import { cleanName, effective, ifraCard, toIfra } from "../src/db/to-ifra";
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import { IfraPanel } from "../src/bench/IfraBox";
 
 /**
  * The IFRA audit of every material (2026-11-27). The user: «probar que todos los materiales tengan ifra
@@ -26,7 +29,8 @@ import { ifraCard, toIfra } from "../src/db/to-ifra";
  * approved batches of the user's account (the ones that are not in datos/tandas.csv) as the account's,
  * in their order; AUDITORIA_EXTRA adds common batches not approved yet, to see what they change. For each
  * material it pours one drop, 30 mg, in a 2 g bottle with alcohol (V3-103), and writes what the IFRA
- * panel would say: auditoria.json, and auditoria.csv with one row per material and standard.
+ * panel would say: auditoria.json (with the panel's own text, drawn as the workbench draws it, for the
+ * materials you have), and auditoria.csv with one row per material and standard.
  */
 
 const OUT = process.env.AUDITORIA;
@@ -102,6 +106,10 @@ it.skipIf(!OUT)("audit of IFRA, one drop of every material", async () => {
   const ifra = toIfra(catalog, layer);
   const out: unknown[] = [];
   const rows: string[][] = [["material", "whose", "have", "based_on", "kind", "card", "standard", "ceiling_pct", "known_pct", "worst_pct", "times_ceiling", "verdict", "as_is", "pending"]];
+  const known = new Set([
+    ...[...catalog.materials.values()].filter((x) => x.kind === "molecule" && x.cas && x.ownerId === null).flatMap((x) => [x.name, ...x.aliases].map(cleanName)),
+    ...[...layer.standards.values()].map((st) => cleanName(st.name)),
+  ]);
   for (const m of catalog.materials.values()) {
     if (m.kind === "frozen" || m.solvent) continue;
     const report: IfraReport = checkIfra(
@@ -132,7 +140,18 @@ it.skipIf(!OUT)("audit of IFRA, one drop of every material", async () => {
     for (const c of checks) rows.push([...head, `${c.source}`, c.ceiling, c.known, c.worst, c.times, c.verdict, report.asIs, pending]);
     for (const g of report.combinedChecks) rows.push([...head, `group ${g.group}`, "100 (sum of shares)", pct(g.knownShare), pct(g.worstShare), g.worstShare.toFixed(4), g.verdict, report.asIs, pending]);
     if (checks.length === 0) rows.push([...head, "", "", "", "", "", "", report.asIs, pending]);
-    out.push({ id: m.id, name: m.name, whose: m.ownerId ? "mine" : "common", have: catalog.have.has(m.id), basedOn: base, kind: m.kind, card, asIs: report.asIs, pending, conditions: info?.conditions ?? [], checks, combined: report.combinedChecks.map((g) => ({ group: g.group, worst: g.worstShare.toFixed(6), verdict: g.verdict })) });
+    const panel = catalog.have.has(m.id)
+      ? renderToStaticMarkup(createElement(IfraPanel, { report, empty: false, onBase: () => {} })).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim()
+      : undefined;
+    // What the composition names without anything IFRA can read: no CAS, no material, and no molecule of that name.
+    const unnamed = effective(catalog, m.id).components.filter((c) => !c.componentId && !c.componentCas && !known.has(cleanName(c.componentName ?? ""))).map((c) => c.componentName ?? "");
+    const parts = effective(catalog, m.id).components.filter((c) => c.componentId).map((c) => catalog.materials.get(c.componentId!)?.name ?? c.componentId!);
+    out.push({ panel, unnamed, parts, id: m.id, name: m.name, whose: m.ownerId ? "mine" : "common", have: catalog.have.has(m.id), basedOn: base, kind: m.kind, card, asIs: report.asIs,
+      loads: (info?.substances ?? []).map((x) => {
+        const sub = ifra.substances.get(x.key);
+        return { key: x.key, name: sub?.name ?? x.key, ceiling: sub ? pct(sub.limit) : null, supplier: sub?.supplier ?? null, fraction: x.fraction ? pct(x.fraction) : null, upper: x.upper ? pct(x.upper) : null };
+      }),
+      supplierChecks: report.supplierChecks.map((c) => ({ name: c.substance.name, ceiling: pct(c.substance.limit), worst: pct(c.worstUg.div(report.finalUg)), verdict: c.verdict })), pending, conditions: info?.conditions ?? [], checks, combined: report.combinedChecks.map((g) => ({ group: g.group, worst: g.worstShare.toFixed(6), verdict: g.verdict })) });
   }
   mkdirSync(OUT!, { recursive: true });
   writeFileSync(join(OUT!, "auditoria.json"), JSON.stringify({ batches: account, extra: EXTRA, materials: out }, null, 1));

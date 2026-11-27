@@ -2076,3 +2076,17 @@ ese frasco, y la dilución nueva lleva su parte del diluyente de fábrica más l
 tabla de diluciones puede decir el diluyente de fábrica (`from_diluent`, «Diluyente de fábrica»):
 elige tu frasco en ese diluyente y avisa si el tuyo está en otro. La importación no crea frascos de
 fábrica: si falta, avisa y se da de alta en la ficha.
+
+## V3-113 · Cada constituyente cuenta una vez para IFRA, y los que solo tienen nombre también cuentan (propuesta de la sesión, 2026-11-27; pedida por el usuario)
+
+**Literal** (orko kill, 2026-11-27): «probar que todos los materiales tengan ifra en orden con pruebas d els web que no haya el bug de la bergamota con 2000% por encima de ifra con una gota … y que se asegure que se solapan los constituyentes de la manera adecuada que no haya problemas con lo que debería dar un material de ifra y lo que da».
+
+**Lectura** (de la sesión, propuesta; por confirmar al fusionar la PR):
+
+- **Un nombre sin CAS es la molécula de ese nombre.** «Citral», «Carvone – III/333», «Isoeugenol» de una declaración se leen como la molécula común que se llama así (sin el número del anexo III de la UE ni lo que va entre paréntesis), si es una sola; si no, como el estándar de IFRA de ese nombre. Antes no contaban para IFRA: el citral del ajenjo o el de la opopónax se perdían. Si dos moléculas comparten el nombre, sigue siendo desconocido.
+- **Dos documentos del mismo estándar dicen lo mismo dos veces.** Por estándar, cuentan los documentos de más autoridad (lote o producto sobre anexo, anexo sobre literatura, V3-39) y, entre ellos, el que da más; dentro de un documento, sus miembros se suman. Antes el ajenjo daba 102 % de tuyona (el certificado, 60 %, más la beta-tuyona del anexo, 42 %) y la carvona del Ambrarome contaba dos veces.
+- **Un material regulado entero ya lleva sus isómeros.** El Iso E Super es OTNE como tal; el Arborone que lleva dentro no suma otro 8,5 % de OTNE.
+- **Un estándar de aceite de piel por expresión no es de un destilado ni de otra parte de la planta** («Lime oil expressed», «Bitter orange peel oil expressed»). IFRA lista CAS genéricos de *Citrus aurantium* que comparten el petitgrain (hoja) y el neroli (flor): ya no cargan el tope fototóxico de la naranja amarga. Lo que el dato no dice (sin parte ni proceso) lo sigue cargando (§1.2).
+- **La bergamota sin bergaptenos** (V3-103): la tanda 54 nunca se aprobó, así que el error seguía en la web. Rehecha sobre los datos de hoy, espera tu aprobación.
+
+Código: `v3/src/db/ifra-loads.ts` y `to-ifra.ts`; pruebas en `to-ifra-overlap.test.ts`; la auditoría repetible, `v3/scripts/auditoria-ifra.test.ts`. `src/core/` no cambia.

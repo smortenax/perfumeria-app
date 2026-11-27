@@ -69,6 +69,8 @@ describe("a component known only by its name (V3-113)", () => {
   it("is the common molecule of that name, without the EU's annex number («Carvone III/333»)", () => {
     expect(cleanName("Limonene  III/88")).toBe("limonene");
     expect(cleanName("Estragole Natural (Methyl chavicol)")).toBe("estragole");
+    expect(cleanName("CITRAL – III/70")).toBe("citral");
+    expect(cleanName("2,6,6-trimethyl-Bicyclo[3.1.1]hept-2-ene (= alpha-pinene)")).toBe("2,6,6-trimethyl-bicyclo[3.1.1]hept-2-ene");
     const layer = layerOf([{ code: "STD_016", name: "l-Carvone", cas: ["99-49-0"], limit: "1.2" }]);
     const carvone = material("carvone", "molecule", { cas: "99-49-0", name: "Carvone" });
     const oil = material("oil", "natural", { components: [part(null, "Carvone  III/333", exact("2"), "product", "allergens.pdf")] });
