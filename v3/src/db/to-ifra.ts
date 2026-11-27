@@ -2,6 +2,9 @@ import { Ratio } from "../core/arith/ratio";
 import type { IfraData, IfraMaterial, IfraSubstance } from "../core/ifra";
 import type { Authority, Catalog, CatalogMaterial, Component, MaterialKind, Regulation } from "./catalog";
 import type { IfraLayer, IfraStandard } from "./ifra-layer";
+import { cleanName, fold, isPlaceholder, less, loadOf, outsideScope, plus, RANK, scale, supersededBy, type Load } from "./ifra-loads";
+
+export { cleanName, documentOf, outsideScope, supersededBy } from "./ifra-loads";
 
 /**
  * From the catalog and IFRA's layer to the engine's IfraData (plan v3, steps 3.3 and 4.3), as
@@ -33,6 +36,13 @@ import type { IfraLayer, IfraStandard } from "./ifra-layer";
  *   a natural, against the ceiling; put straight into anything else, pending.
  * - A standard that prohibits a variant (V3-31): the prohibited one is prohibited; the permitted
  *   one keeps its ceiling; one the data do not place carries a pending requirement.
+ * - V3-113 (proposal): a component known only by its name («Citral», «Eugenol», «Limonene III/88»)
+ *   is the molecule of that name, when exactly one common molecule with a CAS has it; otherwise it
+ *   stays a name, unknown. A figure of the bottle's own document (lot, product) named as a standard
+ *   («Thujone», «Citral») is the standard whole: the annex's or the literature's figures of members of
+ *   that standard (beta-thujone; geranial, neral) do not add to it. A standard of an expressed peel oil
+ *   («Lime oil expressed», «Lemon oil cold pressed») is not about a distilled oil, nor about another
+ *   part of the plant (the leaf of petitgrain, the flower of neroli), even when IFRA lists their CAS.
  */
 
 export const NO_DATA = "No data on its constituents: it may contain substances with a ceiling.";
@@ -44,37 +54,6 @@ export const NO_DATA = "No data on its constituents: it may contain substances w
  */
 export const DECLARES_NONE = "declares-none";
 export const CATEGORY = "4";
-
-const RANK: Readonly<Record<Authority, number>> = { lot: 0, product: 1, ifra: 2, literature: 3, consensus: 4 };
-const isPlaceholder = (authority: Authority) => authority === "literature" || authority === "consensus";
-/** For comparing names and processes: no accents, no case. */
-const fold = (text: string) => text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
-
-/** What a material brings of a member, as a fraction of its pure matter: known, or bounded by `upper`. */
-interface Load {
-  readonly known: Ratio | null;
-  readonly upper: Ratio;
-}
-
-const scale = (load: Load, by: Load): Load => ({
-  known: load.known && by.known ? load.known.mul(by.known) : null,
-  upper: load.upper.mul(by.upper),
-});
-
-const plus = (a: Load, b: Load): Load => ({
-  known: a.known && b.known ? a.known.add(b.known) : null,
-  upper: a.upper.add(b.upper),
-});
-
-function loadOf(component: Component): Load {
-  const amount = component.amount;
-  if (amount.kind === "unknown") {
-    return { known: null, upper: Ratio.ONE };
-  }
-  // A «max» or a «range» counts its top: the worst the source allows.
-  const value = amount.kind === "range" ? amount.max : amount.value;
-  return isPlaceholder(component.authority) ? { known: null, upper: value } : { known: value, upper: value };
-}
 
 /** The member a component is: a material of the catalog, or a substance by its CAS (or its name, without one). */
 const childOf = (c: Component): string => c.componentId ?? (c.componentCas ? `cas:${c.componentCas}` : `name:${fold(c.componentName ?? "")}`);
@@ -122,6 +101,7 @@ interface Identity {
   readonly cas: readonly string[];
   readonly species: string | null;
   readonly process: string | null;
+  readonly part?: string | null;
   readonly names: readonly string[];
 }
 
@@ -157,6 +137,7 @@ function ifraRegulations(layer: IfraLayer, identity: Identity): Regulation[] {
   const out: Regulation[] = [];
   for (const code of [...codes].sort()) {
     const s = layer.standards.get(code)!;
+    if (outsideScope(s, identity)) continue;
     // V3-27: a limit expressed as a constituent is that constituent's, not its members'.
     if (s.limitExpressedAs && !(s.limitExpressedAsCas && identity.cas.includes(s.limitExpressedAsCas))) continue;
     const row = (kind: Regulation["kind"], extra: Partial<Regulation> = {}): Regulation => ({
@@ -255,6 +236,29 @@ function constituentsOf(layer: IfraLayer, identity: Identity): Component[] {
 function nodes(catalog: Catalog, layer: IfraLayer) {
   const cache = new Map<string, Node>();
   const names = new Map<string, string>();
+  // V3-113: the CAS of a name, when exactly one common molecule with a CAS goes by it.
+  const casByName = new Map<string, string | null>();
+  for (const m of catalog.materials.values()) {
+    if (m.ownerId !== null || m.kind !== "molecule" || !m.cas) continue;
+    for (const n of new Set([m.name, ...m.aliases].map(cleanName))) {
+      if (!n) continue;
+      const before = casByName.get(n);
+      casByName.set(n, before === undefined || before === m.cas ? m.cas : null);
+    }
+  }
+  // Or a standard's name («Citral», «Thujone»): a CAS that IFRA lists under that standard alone.
+  for (const st of layer.standards.values()) {
+    const n = cleanName(st.name);
+    if (casByName.has(n)) continue;
+    const only = st.substances.find((x) => (layer.byCas.get(x.cas) ?? []).length === 1);
+    if (only) casByName.set(n, only.cas);
+  }
+  const resolved = (c: Component): Component => {
+    if (c.componentId || c.componentCas || !c.componentName) return c;
+    const cas = casByName.get(cleanName(c.componentName));
+    return cas ? { ...c, componentCas: cas } : c;
+  };
+  const groupsOfCas = (cas: string): string[] => (layer.byCas.get(cas) ?? []).map((code) => layer.standards.get(code)!.groupKey);
   const casOfMaterial = (id: string): string | null => {
     for (let m = catalog.materials.get(id); m; m = m.basedOnId ? catalog.materials.get(m.basedOnId) : undefined) if (m.cas) return m.cas;
     return null;
@@ -266,6 +270,7 @@ function nodes(catalog: Catalog, layer: IfraLayer) {
       cas: [...new Set(chain.flatMap((m) => [...(m.cas ? [m.cas] : []), ...m.otherCas]))],
       species: chain.find((m) => m.species)?.species ?? null,
       process: chain.find((m) => m.process)?.process ?? null,
+      part: chain.find((m) => m.part)?.part ?? null,
       names: [...new Set(chain.flatMap((m) => [m.name, ...m.aliases]))],
     };
     // Of two rows for one substance, the most authoritative; at the same authority, the material's own over IFRA's.
@@ -274,7 +279,7 @@ function nodes(catalog: Catalog, layer: IfraLayer) {
     const extra = [...(material.kind === "natural" ? annexOf(layer, identity, tincture) : []), ...constituentsOf(layer, identity)];
     const byCas = new Map<string, Component>();
     const rest: Component[] = [];
-    for (const c of [...components, ...extra]) {
+    for (const c of [...components.map(resolved), ...extra]) {
       const cas = c.componentId ? casOfMaterial(c.componentId) : c.componentCas;
       if (!cas) {
         rest.push(c);
@@ -285,8 +290,12 @@ function nodes(catalog: Catalog, layer: IfraLayer) {
       const waiting = (x: Component) => x.id.startsWith("limit:") && x.amount.kind === "unknown";
       if (!before || (waiting(before) && !waiting(c)) || (!waiting(c) && RANK[c.authority] < RANK[before.authority])) byCas.set(cas, c);
     }
+    // V3-113: figures of one standard from different documents say the same thing twice (the certificate's
+    // «Thujone» and the annex's beta-thujone; the allergen declaration's carvone and the certificate's l-carvone).
+    // Of each standard, the most authoritative documents count, and of those the one that gives the most.
+    for (const cas of supersededBy([...byCas.entries()], groupsOfCas)) byCas.delete(cas);
     for (const c of extra) if (c.componentCas && c.componentName && !names.has(c.componentCas)) names.set(c.componentCas, c.componentName);
-    for (const c of components) if (c.componentCas && c.componentName && !names.has(c.componentCas)) names.set(c.componentCas, c.componentName);
+    for (const c of components.map(resolved)) if (c.componentCas && c.componentName && !names.has(c.componentCas)) names.set(c.componentCas, c.componentName);
     return {
       id,
       name: material.name,
@@ -329,30 +338,45 @@ const declaresNone = (n: Node) => n.regulations.some((r) => applies(r) && r.kind
  * The members a material carries (itself included when it has regulations), why its list may be
  * incomplete, and which members arrive somewhere other than inside a natural (V3-30).
  */
-function flatten(node: (id: string) => Node, rootId: string): { loads: Map<string, Load>; pending: string[]; outsideNaturals: Set<string> } {
+function flatten(
+  node: (id: string) => Node,
+  rootId: string,
+): { loads: Map<string, Load>; covered: Map<string, Map<string, Load>>; pending: string[]; outsideNaturals: Set<string> } {
   const loads = new Map<string, Load>();
+  // V3-113: what a member brings of a group that a material above it already carries whole (Iso E Super is
+  // OTNE as itself: the OTNE isomers inside it are not more OTNE). By member, then group.
+  const covered = new Map<string, Map<string, Load>>();
   const pending = new Set<string>();
   const outsideNaturals = new Set<string>();
-  const walk = (id: string, load: Load, seen: readonly string[]) => {
+  const walk = (id: string, load: Load, seen: readonly string[], whole: ReadonlySet<string>) => {
     if (seen.includes(id)) {
       throw new Error(`A material that contains itself: ${[...seen, id].join(" → ")}`);
     }
     const n = node(id);
+    const own = new Set(n.regulations.filter((r) => applies(r) && r.kind === "max" && r.regime === "ifra").map(groupOf));
     if (n.regulations.some(applies)) {
       const before = loads.get(id);
       loads.set(id, before ? plus(before, load) : load);
+      for (const group of own) {
+        if (!whole.has(group)) continue;
+        const byGroup = covered.get(id) ?? new Map<string, Load>();
+        const was = byGroup.get(group);
+        byGroup.set(group, was ? plus(was, load) : load);
+        covered.set(id, byGroup);
+      }
     }
     if (n.components.length === 0) {
       if (n.kind !== "molecule" && n.kind !== "substance" && !declaresNone(n)) pending.add(NO_DATA);
       return;
     }
+    const below = own.size === 0 ? whole : new Set([...whole, ...own]);
     for (const component of n.components) {
       if (n.kind !== "natural") outsideNaturals.add(childOf(component));
-      walk(childOf(component), scale(loadOf(component), load), [...seen, id]);
+      walk(childOf(component), scale(loadOf(component), load), [...seen, id], below);
     }
   };
-  walk(rootId, { known: Ratio.ONE, upper: Ratio.ONE }, []);
-  return { loads, pending: [...pending], outsideNaturals };
+  walk(rootId, { known: Ratio.ONE, upper: Ratio.ONE }, [], new Set());
+  return { loads, covered, pending: [...pending], outsideNaturals };
 }
 
 type Entry = { key: string; fraction: Ratio | null; upper?: Ratio };
@@ -448,9 +472,12 @@ export function toIfra(catalog: Catalog, layer: IfraLayer): IfraData {
           });
           entries.push(load.known ? { key, fraction: load.known } : { key, fraction: null, upper: load.upper });
         } else if (r.kind === "max") {
+          // V3-113: what a material above already carries whole of this group is not counted twice.
+          const left = less(load, flat.covered.get(memberId)?.get(groupOf(r)));
+          if (!left) continue;
           const key = ifraSubstance(r, member);
           // V3-7: a load that is not proven goes with its bound, which the engine counts in the worst case.
-          entries.push(load.known ? { key, fraction: load.known } : { key, fraction: null, upper: load.upper });
+          entries.push(left.known ? { key, fraction: left.known } : { key, fraction: null, upper: left.upper });
         } else if (r.kind === "prohibited" && !requirementsByGroup.has(groupOf(r))) {
           if (asItself) {
             // A prohibition with nothing else: the material is prohibited as such.
