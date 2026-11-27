@@ -2087,6 +2087,6 @@ fábrica: si falta, avisa y se da de alta en la ficha.
 - **Dos documentos del mismo estándar dicen lo mismo dos veces.** Por estándar, cuentan los documentos de más autoridad (lote o producto sobre anexo, anexo sobre literatura, V3-39) y, entre ellos, el que da más; dentro de un documento, sus miembros se suman. Antes el ajenjo daba 102 % de tuyona (el certificado, 60 %, más la beta-tuyona del anexo, 42 %) y la carvona del Ambrarome contaba dos veces.
 - **Un material regulado entero ya lleva sus isómeros.** El Iso E Super es OTNE como tal; el Arborone que lleva dentro no suma otro 8,5 % de OTNE.
 - **Un estándar de aceite de piel por expresión no es de un destilado ni de otra parte de la planta** («Lime oil expressed», «Bitter orange peel oil expressed»). IFRA lista CAS genéricos de *Citrus aurantium* que comparten el petitgrain (hoja) y el neroli (flor): ya no cargan el tope fototóxico de la naranja amarga. Lo que el dato no dice (sin parte ni proceso) lo sigue cargando (§1.2).
-- **La bergamota sin bergaptenos** (V3-103): la tanda 54 nunca se aprobó, así que el error seguía en la web. Rehecha sobre los datos de hoy, espera tu aprobación.
+- **La bergamota sin bergaptenos** (V3-103): la tanda 54 nunca se aprobó, así que el error seguía en la web. Rehecha sobre los datos de hoy y aprobada (orko kill, 2026-11-27, en la tarjeta del hilo: «Aprobar la tanda 54 (Opella)»).
 
 Código: `v3/src/db/ifra-loads.ts` y `to-ifra.ts`; pruebas en `to-ifra-overlap.test.ts`; la auditoría repetible, `v3/scripts/auditoria-ifra.test.ts`. `src/core/` no cambia.
